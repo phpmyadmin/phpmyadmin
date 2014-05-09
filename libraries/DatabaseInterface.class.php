@@ -125,8 +125,8 @@ class PMA_DatabaseInterface
      * Stores query data into session data for debugging purposes
      *
      * @param string   $query  Query text
-     * @param resource $link   database link
-     * @param resource $result Query result
+     * @param object   $link   database link
+     * @param object   $result Query result
      * @param integer  $time   Time to execute query
      *
      * @return void
@@ -175,7 +175,7 @@ class PMA_DatabaseInterface
      * runs a query and returns the result
      *
      * @param string   $query               query to run
-     * @param resource $link                mysql link resource
+     * @param object   $link                mysql link resource
      * @param integer  $options             query options
      * @param bool     $cache_affected_rows whether to cache affected row
      *
@@ -828,7 +828,7 @@ class PMA_DatabaseInterface
      *
      * @param string   $database     database
      * @param boolean  $force_stats  retrieve stats also for MySQL < 5
-     * @param resource $link         mysql link
+     * @param object   $link         mysql link
      * @param string   $sort_by      column to order by
      * @param string   $sort_order   ASC or DESC
      * @param integer  $limit_offset starting offset for LIMIT
@@ -1590,7 +1590,7 @@ class PMA_DatabaseInterface
      *                                   starting at 0, with 0 being default
      * @param integer|string $field      field to fetch the value from,
      *                                   starting at 0, with 0 being default
-     * @param resource       $link       mysql link
+     * @param object         $link       mysql link
      *
      * @return mixed value of first field in first row from result
      *               or false if not found
@@ -1650,7 +1650,7 @@ class PMA_DatabaseInterface
      * @param string   $query The query to execute
      * @param string   $type  NUM|ASSOC|BOTH returned array should either
      *                        numeric associativ or both
-     * @param resource $link  mysql link
+     * @param object   $link  mysql link
      *
      * @return array|boolean first row from result
      *                       or false if result is empty
@@ -1754,7 +1754,7 @@ class PMA_DatabaseInterface
      *                                used as key for array
      * @param string|integer $value   value-name or offset
      *                                used as value for array
-     * @param resource       $link    mysql link
+     * @param object         $link    mysql link
      * @param mixed          $options query options
      *
      * @return array resultrows or values indexed by $key
@@ -1847,7 +1847,7 @@ class PMA_DatabaseInterface
     /**
      * returns warnings for last query
      *
-     * @param resource $link mysql link resource
+     * @param object   $link mysql link resource
      *
      * @return array warnings
      */
@@ -1866,7 +1866,7 @@ class PMA_DatabaseInterface
      *
      * @param string   $db    db name
      * @param string   $which PROCEDURE | FUNCTION
-     * @param resource $link  mysql link
+     * @param object   $link  mysql link
      *
      * @return array the procedure names or function names
      */
