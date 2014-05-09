@@ -95,6 +95,15 @@ class PMA_Error_Handler
     }
 
     /**
+    * returns the errorsoccured in the current run only. Does not include the errors save din the SESSION
+    *
+    */
+    public function getCurrentErrors()
+    {
+        return $this->errors;
+    }
+
+    /**
      * Error handler - called when errors are triggered/occurred
      *
      * This calls the addError() function, escaping the error string
