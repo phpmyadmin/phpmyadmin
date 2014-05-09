@@ -2130,7 +2130,7 @@ class PMA_DatabaseInterface
 
         if ($result) {
             if (! $auxiliary_connection && ! $is_controluser) {
-                $GLOBALS['dbi']->postConnect($link);
+                $GLOBALS['dbi']->postConnect($result);
             }
             return $result;
         }
