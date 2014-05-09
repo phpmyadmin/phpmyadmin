@@ -150,28 +150,6 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
                 );
             }
         }
-        if (empty($link)) {
-            if ($is_controluser) {
-                trigger_error(
-                    __(
-                        'Connection for controluser as defined'
-                        . ' in your configuration failed.'
-                    ),
-                    E_USER_WARNING
-                );
-                return false;
-            }
-            // we could be calling $GLOBALS['dbi']->connect() to connect to another
-            // server, for example in the Synchronize feature, so do not
-            // go back to main login if it fails
-            if (! $auxiliary_connection) {
-                PMA_logUser($user, 'mysql-denied');
-                global $auth_plugin;
-                $auth_plugin->authFails();
-            } else {
-                return false;
-            }
-        } // end if
         return $link;
     }
 

@@ -2127,9 +2127,35 @@ class PMA_DatabaseInterface
         $result = $this->_extension->connect(
             $user, $password, $is_controluser, $server, $auxiliary_connection
         );
-        if ($result && ! $auxiliary_connection && ! $is_controluser) {
-            $GLOBALS['dbi']->postConnect($link);
+
+        if ($result) {
+            if (! $auxiliary_connection && ! $is_controluser) {
+                $GLOBALS['dbi']->postConnect($link);
+            }
+            return $result;
         }
+
+        if ($is_controluser) {
+            trigger_error(
+                __(
+                    'Connection for controluser as defined in your '
+                    . 'configuration failed.'
+                ),
+                E_USER_WARNING
+            );
+            return false;
+        }
+
+        // we could be calling $GLOBALS['dbi']->connect() to connect to another
+        // server, for example in the Synchronize feature, so do not
+        // go back to main login if it fails
+        if ($auxiliary_connection) {
+            return false;
+        }
+
+        PMA_logUser($user, 'mysql-denied');
+        $GLOBALS['auth_plugin']->authFails();
+
         return $result;
     }
 
