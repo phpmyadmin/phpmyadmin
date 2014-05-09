@@ -148,27 +148,11 @@ class PMA_DatabaseInterface
             $_SESSION['debug']['queries'][$hash]['time'] = $time;
         }
 
-        $trace = array();
-        foreach (debug_backtrace() as $trace_step) {
-            $trace[]
-                = (isset($trace_step['file'])
-                    ? PMA_Error::relPath($trace_step['file'])
-                    : '')
-                . (isset($trace_step['line'])
-                    ?  '#' . $trace_step['line'] . ': '
-                    : '')
-                . (isset($trace_step['class']) ? $trace_step['class'] : '')
-                . (isset($trace_step['type']) ? $trace_step['type'] : '')
-                . (isset($trace_step['function']) ? $trace_step['function'] : '')
-                . '('
-                . (isset($trace_step['params'])
-                    ? implode(', ', $trace_step['params'])
-                    : ''
-                )
-                . ')'
-                ;
-        }
-        $_SESSION['debug']['queries'][$hash]['trace'][] = $trace;
+        $_SESSION['debug']['queries'][$hash]['trace'][] = PMA_Error::formatBacktrace(
+            debug_backtrace(),
+            " ",
+            "\n"
+        );
     }
 
     /**
