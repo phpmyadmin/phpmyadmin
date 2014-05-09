@@ -64,13 +64,13 @@ script:
     ant phpunit-nocoverage ;
     else
     ant phpunit ;
-    php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml ;
     fi ;
     fi ;
     else
     ant lint ;
     fi
 after_script:
+  - if [[ -f build/logs/clover.xml ]] ; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml ; fi
   - if [[ -f vendor/bin/coveralls ]] ; then php vendor/bin/coveralls -v ; fi
 matrix:
   allow_failures:
