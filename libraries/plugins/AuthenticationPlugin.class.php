@@ -69,7 +69,7 @@ abstract class AuthenticationPlugin extends PluginObserver
             );
         } else {
             $dbi_error = $GLOBALS['dbi']->getError();
-            if ($dbi_error) {
+            if ( ! empty($dbi_error)) {
                 return PMA_sanitize($dbi_error);
             } elseif (isset($GLOBALS['errno'])) {
                 return '#' . $GLOBALS['errno'] . ' '
