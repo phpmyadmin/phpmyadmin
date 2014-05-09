@@ -215,7 +215,7 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
         //$server = null;
         $link = $this->object->connect($user, $password);
         $this->assertEquals(
-            "DrizzleCon_addUds",
+            "DrizzleCon_addTcp",
             $link->getType()
         );
 
@@ -223,7 +223,7 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
         $server['host'] = 'host';
         $link = $this->object->connect($user, $password);
         $this->assertEquals(
-            "DrizzleCon_addUds",
+            "DrizzleCon_addTcp",
             $link->getType()
         );
 
