@@ -99,10 +99,6 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
                 : $cfg['Server']['socket'];
         }
 
-        if (strtolower($GLOBALS['cfg']['Server']['connect_type']) == 'tcp') {
-            $GLOBALS['cfg']['Server']['socket'] = '';
-        }
-
         $drizzle = new PMA_Drizzle();
 
         $client_flags = 0;
