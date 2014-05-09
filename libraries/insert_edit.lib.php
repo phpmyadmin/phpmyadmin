@@ -416,7 +416,6 @@ function PMA_getEnumSetAndTimestampColumns($column, $timestamp_seen)
         break;
     case 'timestamp':
         if (! $timestamp_seen) {   // can only occur once per table
-            $timestamp_seen  = true;
             $column['first_timestamp'] = true;
         }
         $column['pma_type'] = $column['Type'];
