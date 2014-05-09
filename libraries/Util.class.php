@@ -2794,7 +2794,7 @@ class PMA_Util
      */
     public static function clearUserCache()
     {
-        self::cacheUnset('is_superuser', true);
+        self::cacheUnset('is_superuser');
     }
 
     /**
@@ -2841,17 +2841,13 @@ class PMA_Util
     /**
      * Removes cached information from the session
      *
-     * @param string   $var    variable name
-     * @param int|true $server server
+     * @param string $var variable name
      *
      * @return void
      */
-    public static function cacheUnset($var, $server = 0)
+    public static function cacheUnset($var)
     {
-        if ($server === true) {
-            $server = $GLOBALS['server'];
-        }
-        unset($_SESSION['cache']['server_' . $server][$var]);
+        unset($_SESSION['cache']['server_' . $GLOBALS['server']][$var]);
     }
 
     /**
