@@ -143,23 +143,13 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
     ) {
         global $cfg;
 
+        $server_port = $GLOBALS['dbi']->getServerPort($server);
+        $server_socket = $GLOBALS['dbi']->getServerSocket($server);
+
         if ($server) {
-            $server_port   = (empty($server['port']))
-                ? false
-                : (int)$server['port'];
-            $server_socket = (empty($server['socket']))
-                ? ''
-                : $server['socket'];
             $server['host'] = (empty($server['host']))
                 ? 'localhost'
                 : $server['host'];
-        } else {
-            $server_port   = (empty($cfg['Server']['port']))
-                ? false
-                : (int) $cfg['Server']['port'];
-            $server_socket = (empty($cfg['Server']['socket']))
-                ? null
-                : $cfg['Server']['socket'];
         }
 
         // NULL enables connection to the default socket

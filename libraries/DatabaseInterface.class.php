@@ -2402,5 +2402,41 @@ class PMA_DatabaseInterface
     {
         return $this->_extension->fieldFlags($result, $i);
     }
+
+    /**
+     * Gets server connection port
+     *
+     * @param array|null $server host/port/socket/persistent
+     *
+     * @return false|integer
+     */
+    public function getServerPort($server = null)
+    {
+        if (is_null($server)) {
+            $server = &$GLOBALS['cfg']['Server'];
+        }
+
+        if (empty($server['port'])) {
+            return false;
+        } else {
+            return intval($server['port']);
+        }
+    }
+
+    /**
+     * Gets server connection socket
+     *
+     * @param array|null $server host/port/socket/persistent
+     *
+     * @return string
+     */
+    public function getServerSocket$server = null)
+    {
+        if (is_null($server)) {
+            $server = &$GLOBALS['cfg']['Server'];
+        }
+
+        return $server['socket']);
+    }
 }
 ?>

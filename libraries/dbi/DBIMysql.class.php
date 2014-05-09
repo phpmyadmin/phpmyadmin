@@ -97,20 +97,17 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     ) {
         global $cfg;
 
-        if ($server) {
-            $server_port = (empty($server['port']))
-                ? ''
-                : ':' . (int)$server['port'];
-            $server_socket = (empty($server['socket']))
-                ? ''
-                : ':' . $server['socket'];
+        $server_port = $GLOBALS['dbi']->getServerPort($server);
+        $server_socket = $GLOBALS['dbi']->getServerSocket($server);
+
+        if ($server_port === false) {
+            $server_port = '';
         } else {
-            $server_port   = (empty($cfg['Server']['port']))
-                ? ''
-                : ':' . (int)$cfg['Server']['port'];
-            $server_socket = (empty($cfg['Server']['socket']))
-                ? ''
-                : ':' . $cfg['Server']['socket'];
+            $server_port = ':' . $server_port;
+        }
+
+        if (! empty($server_socket)) {
+            $server_socket = ':' . $server_socket;
         }
 
         $client_flags = 0;
