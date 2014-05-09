@@ -257,7 +257,7 @@ class PMA_DBI_Mysql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['userlink'] = null;
         $this->assertEquals(
             false,
-            $this->object->selectDb("PMA")
+            $this->object->selectDb("PMA", null)
         );
     }
 
