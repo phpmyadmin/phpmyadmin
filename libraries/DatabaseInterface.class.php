@@ -2313,7 +2313,22 @@ class PMA_DatabaseInterface
      */
     public function insertId($link = null)
     {
-        return $this->_extension->insertId($link);
+        if (empty($link)) {
+            if (isset($GLOBALS['userlink'])) {
+                $link = $GLOBALS['userlink'];
+            } else {
+                return false;
+            }
+        }
+        // If the primary key is BIGINT we get an incorrect result
+        // (sometimes negative, sometimes positive)
+        // and in the present function we don't know if the PK is BIGINT
+        // so better play safe and use LAST_INSERT_ID()
+        //
+        // When no controluser is defined, using mysqli_insert_id($link)
+        // does not always return the last insert id due to a mixup with
+        // the tracking mechanism, but this works:
+        return $GLOBALS['dbi']->fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
     }
 
     /**

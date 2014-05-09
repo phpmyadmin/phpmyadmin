@@ -178,16 +178,6 @@ interface PMA_DBI_Extension
     public function numRows($result);
 
     /**
-     * returns last inserted auto_increment id for given $link
-     * or $GLOBALS['userlink']
-     *
-     * @param object $link the connection object
-     *
-     * @return string|int
-     */
-    public function insertId($link = null);
-
-    /**
      * returns the number of rows affected by last query
      *
      * @param object $link           the connection object

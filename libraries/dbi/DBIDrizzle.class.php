@@ -99,10 +99,6 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
                 : $cfg['Server']['socket'];
         }
 
-        if (strtolower($GLOBALS['cfg']['Server']['connect_type']) == 'tcp') {
-            $GLOBALS['cfg']['Server']['socket'] = '';
-        }
-
         $drizzle = new PMA_Drizzle();
 
         $client_flags = 0;
@@ -424,35 +420,6 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
         } else {
             return 0;
         }
-    }
-
-    /**
-     * returns last inserted auto_increment id for given $link
-     * or $GLOBALS['userlink']
-     *
-     * @param PMA_DrizzleCon $link connection object
-     *
-     * @return string|int
-     */
-    public function insertId($link = null)
-    {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
-        }
-
-        // copied from mysql and mysqli
-
-        // When no controluser is defined, using mysqli_insert_id($link)
-        // does not always return the last insert id due to a mixup with
-        // the tracking mechanism, but this works:
-        return $GLOBALS['dbi']->fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
-        // Curiously, this problem does not happen with the mysql extension but
-        // there is another problem with BIGINT primary keys so insertId()
-        // in the mysql extension also uses this logic.
     }
 
     /**
