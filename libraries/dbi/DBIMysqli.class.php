@@ -217,6 +217,10 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
             );
         }
 
+        if ($return_value === false) {
+            return false;
+        }
+
         return $link;
     }
 
