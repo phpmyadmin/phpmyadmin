@@ -2454,7 +2454,7 @@ class PMA_DatabaseInterface
      *
      * @param array|null $server host/port/socket/persistent
      *
-     * @return string
+     * @return null|string
      */
     public function getServerSocket($server = null)
     {
@@ -2462,7 +2462,11 @@ class PMA_DatabaseInterface
             $server = &$GLOBALS['cfg']['Server'];
         }
 
-        return $server['socket'];
+        if (empty($server['socket'])) {
+            return null;
+        } else {
+            return $server['socket'];
+        }
     }
 }
 ?>
