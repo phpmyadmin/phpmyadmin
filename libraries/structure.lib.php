@@ -290,6 +290,8 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
     $html_output .= '<option value="' . __('With selected:')
         . '" selected="selected">'
         . __('With selected:') . '</option>' . "\n";
+    $html_output .= '<option value="show_create" >'
+        . __('Show create') . '</option>' . "\n";
     $html_output .= '<option value="export" >'
         . __('Export') . '</option>' . "\n";
     $html_output .= '<option value="print" >'
@@ -2858,5 +2860,116 @@ function PMA_synchronizeFavoriteTables($fav_instance, $user)
     $server_id = $GLOBALS['server'];
     // Set flag when localStorage and pmadb(if present) are in sync.
     $_SESSION['tmpval']['favorites_synced'][$server_id] = true;
+}
+
+/**
+ * Returns Html for show create.
+ *
+ * @param string $db         Database name
+ * @param array  $db_objects Array containing DB objects
+ *
+ * @return string Html
+ */
+function PMA_getHtmlShowCreate($db, $db_objects)
+{
+    // Main outer container.
+    $html_output = '<div class="show_create_results">'
+        . '<h2>' . __('Showing create queries') . '</h2>';
+    // Table header.
+    $output_table = '<fieldset>'
+        . '<legend>%s</legend>'
+        . '<table class="show_create">'
+        . '<thead>'
+        . '<tr>'
+        . '<th>%s</th>'
+        . '<th>Create %s</th>'
+        . '</tr>'
+        . '</thead>'
+        . '<tbody>';
+    // Holds rows html for views.
+    $views = '';
+    // Holds rows html for tables.
+    $tables = '';
+    // Handles odd, even classes for rows.
+    // for 'Views'
+    $odd1 = true;
+    // for 'Tables'
+    $odd2 = true;
+    // Iterate through each object.
+    foreach ($db_objects as $key => $object) {
+        // Check if current object is a View or Table.
+        $isView = PMA_Table::isView($db, $object);
+        if ($isView) {
+            $row_class = ($odd1) ? 'odd' : 'even';
+            $create_data = PMA_getShowCreate($db, $object, 'view');
+            $views .= '<tr class="' . $row_class . '">'
+                . '<td><strong>'
+                . PMA_mimeDefaultFunction($create_data['View'])
+                . '</strong></td>'
+                . '<td>'
+                . PMA_mimeDefaultFunction($create_data['Create View'])
+                . '</td>'
+                . '</tr>';
+            $odd1 = ! $odd1;
+        } else {
+            $row_class = ($odd2) ? 'odd' : 'even';
+            $create_data = PMA_getShowCreate($db, $object, 'table');
+            $tables .= '<tr class="' . $row_class . '">'
+                . '<td><strong>'
+                . PMA_mimeDefaultFunction($create_data['Table'])
+                . '</strong></td>'
+                . '<td>'
+                . PMA_mimeDefaultFunction($create_data['Create Table'])
+                . '</td>'
+                . '</tr>';
+            $odd2 = ! $odd2;
+        }
+    }
+    // Prepare table header for each type of object.
+    if (! empty($tables)) {
+        $title = __('Tables');
+        $tables = sprintf($output_table, $title, 'Table', 'Table')
+            . $tables
+            . '</tbody></table></fieldset>';
+    }
+    if (! empty($views)) {
+        $title = __('Views');
+        $views = sprintf($output_table, $title, 'View', 'View')
+            . $views
+            . '</tbody></table></fieldset>';
+    }
+    // Compile the final html.
+    $html_output .= $tables . $views . '</div>';
+    // Send response to client.
+    $response = PMA_Response::getInstance();
+    $response->addJSON('message', $html_output);
+}
+
+/**
+ * Return 'SHOW CREATE' query for a DB object
+ *
+ * @param string $db        Database name
+ * @param string $db_object Database object name
+ * @param string $type      Type of object (table or view)
+ *
+ * @return mysqli_result collection | boolean(false)
+ */
+function PMA_getShowCreate($db, $db_object, $type = 'table')
+{
+    // 'SHOW CREATE' SQL query for specific type of DB object.
+    switch ($type) {
+    case 'table':
+        $sql_query = 'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
+            . PMA_Util::backquote($db_object);
+        break;
+    case 'view':
+        $sql_query = 'SHOW CREATE VIEW ' . PMA_Util::backquote($db) . '.'
+            . PMA_Util::backquote($db_object);
+        break;
+    }
+    // Execute the query.
+    $result = $GLOBALS['dbi']->fetchSingleRow($sql_query);
+
+    return $result;
 }
 ?>
