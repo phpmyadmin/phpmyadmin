@@ -242,7 +242,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         . $t_n_url . '_" />'
         . '<input name="t_h[' . $t_n_url . ']" type="hidden" id="t_h_'
         . $t_n_url . '_" />';
-?>
+    ?>
     <table id="<?php echo $t_n_url ?>" cellpadding="0" cellspacing="0" class="pmd_tab"
           style="position: absolute;
           left: <?php
