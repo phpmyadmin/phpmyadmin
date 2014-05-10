@@ -797,6 +797,31 @@ class PMA_NavigationTree
     }
 
     /**
+     * Finds whether given tree matches this tree.
+     *
+     * @param array  $tree      Tree to check
+     * @param string $attribute Attribute to walk
+     *
+     * @return boolean
+     */
+    private function _findTreeMatch($tree, $attribute)
+    {
+        foreach ($tree as $path) {
+            $match = true;
+            foreach ($paths[$attribute] as $key => $part) {
+                if (! isset($path[$key]) || $part != $path[$key]) {
+                    $match = false;
+                    break;
+                }
+            }
+            if ($match) {
+                break;
+            }
+        }
+        return $match;
+    }
+
+    /**
      * Renders a single node or a branch of the tree
      *
      * @param Node   $node      The node to render
@@ -849,36 +874,13 @@ class PMA_NavigationTree
                     $retval .= "<b></b>";
                 }
                 $icon  = PMA_Util::getImage('b_plus.png', __('Expand/Collapse'));
-                foreach ($this->_aPath as $path) {
-                    $match = 1;
-                    foreach ($paths['aPath_clean'] as $key => $part) {
-                        if (! isset($path[$key]) || $part != $path[$key]) {
-                            $match = 0;
-                            break;
-                        }
-                    }
-                    if ($match) {
-                        if (! $node->is_group) {
-                            $icon = PMA_Util::getImage(
-                                'b_minus.png'
-                            );
-                        }
-                        break;
-                    }
-                }
 
-                foreach ($this->_vPath as $path) {
-                    $match = 1;
-                    foreach ($paths['vPath_clean'] as $key => $part) {
-                        if ((! isset($path[$key]) || $part != $path[$key])) {
-                            $match = 0;
-                            break;
-                        }
-                    }
-                    if ($match) {
-                        $icon  = PMA_Util::getImage('b_minus.png');
-                        break;
-                    }
+                $match = $this->_findTreeMatch($this->_aPath, 'aPath_clean');
+                $match |= $this->_findTreeMatch($this->_vPath, 'vPath_clean');
+                if ($match && ! $node->is_group) {
+                    $icon = PMA_Util::getImage(
+                        'b_minus.png'
+                    );
                 }
 
                 $retval .= '<a class="' . $note->getCssClasses($match) . '"';
