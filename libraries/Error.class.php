@@ -269,13 +269,12 @@ class PMA_Error extends PMA_Message
         );
     }
 
-
     /**
      * return formatted backtrace field
      *
-     * @param array  $backtrace  Backtrace data
-     * @param string $separatror Arguments separator to use
-     * @param string $lines      Lines separator to use
+     * @param array  $backtrace Backtrace data
+     * @param string $separator Arguments separator to use
+     * @param string $lines     Lines separator to use
      *
      * @return string formatted backtrace
      * @static
