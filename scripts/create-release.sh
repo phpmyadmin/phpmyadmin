@@ -317,6 +317,8 @@ Todo now:
 
 10. update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
 
-11. the end :-)
+11. in case of  new major release, update the render.py in website repository to include the new major releases
+
+12. the end :-)
 
 END
