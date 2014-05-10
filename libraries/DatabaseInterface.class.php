@@ -2469,7 +2469,6 @@ class PMA_DatabaseInterface
     /**
      * Gets correct link object.
      *
-     * @param
      * @param mixed $link optional database link to use
      *
      * @return object
