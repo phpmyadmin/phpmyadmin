@@ -310,13 +310,11 @@ if (!defined('TESTSUITE')) {
             }
             exit();
         }
-    }
-
-    /**
-     * Send headers depending on whether the user chose to download a dump file
-     * or not
-     */
-    if (! $save_on_server) {
+    } else {
+        /**
+         * Send headers depending on whether the user chose to download a dump file
+         * or not
+         */
         if ($asfile) {
             // Download
             // (avoid rewriting data containing HTML with anchors and forms;
