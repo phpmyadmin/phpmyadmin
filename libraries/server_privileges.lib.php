@@ -110,7 +110,7 @@ function PMA_formatPrivilege($privilege, $html)
 /**
  * Parses priliveges into an array, it modifies the array
  *
- * @param array $row Results row from
+ * @param array &$row Results row from
  *
  * @return void
  */
