@@ -375,8 +375,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     /**
      * returns the number of rows affected by last query
      *
-     * @param PMA_DrizzleResult $link           connection object
-     * @param bool              $get_from_cache whether to retrieve from cache
+     * @param PMA_DrizzleResult $link connection object
      *
      * @return int
      */
