@@ -1720,7 +1720,7 @@ class PMA_Util
      * returns html-code for a tab navigation
      *
      * @param array  $tabs       one element per tab
-     * @param string $url_params additional URL parameters
+     * @param array  $url_params additional URL parameters
      * @param string $menu_id    HTML id attribute for the menu container
      * @param bool   $resizable  whether to add a "resizable" class
      *
@@ -3158,6 +3158,7 @@ class PMA_Util
         $string, $escape = null, $updates = array()
     ) {
         /* Content */
+        $vars = array();
         $vars['http_host'] = PMA_getenv('HTTP_HOST');
         $vars['server_name'] = $GLOBALS['cfg']['Server']['host'];
         $vars['server_verbose'] = $GLOBALS['cfg']['Server']['verbose'];
