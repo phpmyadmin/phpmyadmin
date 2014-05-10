@@ -890,6 +890,7 @@ function PMA_addJSVar($key, $value, $escape = true)
  * Replace some html-unfriendly stuff
  *
  * @param string $buffer String to process
+ *
  * @return string Escaped and cleaned up text suitable for html
  */
 function PMA_mimeDefaultFunction($buffer)
