@@ -1033,6 +1033,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 }
                 if ($(g.cEdit).offset().left + $editArea.outerWidth() > $(document.body).width()) {
                     $editArea.addClass('edit_area_right');
+                    $editArea.css('top','');
                 }
                 if ($editArea.children().length > 0 && !is_null) {
                     $editArea.show();
