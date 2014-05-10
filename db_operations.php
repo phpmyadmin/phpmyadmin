@@ -287,7 +287,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
           WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
     $test_rs = PMA_queryAsControlUser(
         $test_query,
-        null,
+        false,
         PMA_DatabaseInterface::QUERY_STORE
     );
 
