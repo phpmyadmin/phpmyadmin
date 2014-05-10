@@ -209,7 +209,6 @@ class Node
             && ($this->is_group != true || $groups)
         ) {
             $parents[] = $this;
-            $self      = false;
         }
         $parent = $this->parent;
         while (isset($parent)) {
