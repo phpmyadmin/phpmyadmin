@@ -243,8 +243,8 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         . '<input name="t_h[' . $t_n_url . ']" type="hidden" id="t_h_'
         . $t_n_url . '_" />';
 ?>
-<table id="<?php echo $t_n_url ?>" cellpadding="0" cellspacing="0" class="pmd_tab"
-    style="position: absolute;
+    <table id="<?php echo $t_n_url ?>" cellpadding="0" cellspacing="0" class="pmd_tab"
+          style="position: absolute;
           left: <?php
           echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["X"] : rand(20, 700); ?>px;
           top: <?php
@@ -254,8 +254,8 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
             ? "visible"
             : "hidden"; ?>;
          z-index: 1;">
-<thead>
-<tr>
+    <thead>
+    <tr>
     <?php
     if (isset($_REQUEST['query'])) {
         echo '<td class="select_all">';
