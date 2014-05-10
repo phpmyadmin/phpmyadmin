@@ -758,10 +758,10 @@ class PMA_Config
         }
         $data = @curl_exec($ch);
         if (! defined('TESTSUITE')) {
-            ini_set('session.use_only_cookies', false);
-            ini_set('session.use_cookies', false);
-            ini_set('session.use_trans_sid', false);
-            ini_set('session.cache_limiter', null);
+            ini_set('session.use_only_cookies', 'false');
+            ini_set('session.use_cookies', 'false');
+            ini_set('session.use_trans_sid', 'false');
+            ini_set('session.cache_limiter', 'nocache');
             session_start();
         }
         if ($data === false) {
