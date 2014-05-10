@@ -28,6 +28,7 @@ class PMA_Error extends PMA_Message
      * @var array
      */
     static public $errortype = array (
+        0                    => 'Internal error',
         E_ERROR              => 'Error',
         E_WARNING            => 'Warning',
         E_PARSE              => 'Parsing Error',
