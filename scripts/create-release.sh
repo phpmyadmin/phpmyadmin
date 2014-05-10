@@ -315,6 +315,8 @@ Todo now:
 
  9. send a private twitter message to @phpmya, containing a short version of the announcement
 
-10. the end :-)
+10. update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
+
+11. the end :-)
 
 END
