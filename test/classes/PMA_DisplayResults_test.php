@@ -1295,22 +1295,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for _mimeDefaultFunction
-     *
-     * @return void
-     */
-    public function testMimeDefaultFunction()
-    {
-        $this->assertEquals(
-            "A 'quote' is &lt;b&gt;bold&lt;/b&gt;",
-            $this->_callPrivateFunction(
-                '_mimeDefaultFunction',
-                array("A 'quote' is <b>bold</b>")
-            )
-        );
-    }
-
-    /**
      * Data provider for testGetPlacedLinks
      *
      * @return array parameters and output
