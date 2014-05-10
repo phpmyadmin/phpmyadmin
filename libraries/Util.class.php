@@ -1161,11 +1161,12 @@ class PMA_Util
                     $explain_params['sql_query'] = substr($sql_query, 8);
                     $_message = __('Skip Explain SQL');
                 }
-                if (isset($explain_params['sql_query'])) {
-                    $explain_link = 'import.php'
-                        . PMA_URL_getCommon($explain_params);
+                if (isset($explain_params['sql_query']) && isset($_message)) {
                     $explain_link = ' ['
-                        . self::linkOrButton($explain_link, $_message) . ']';
+                        . self::linkOrButton(
+                            'import.php' . PMA_URL_getCommon($explain_params),
+                            $_message
+                        ) . ']';
                 }
             } //show explain
 
