@@ -90,6 +90,43 @@ function PMA_rangeOfUsers($initial = '')
 } // end function
 
 /**
+ * Parses priliveges into an array, it modifies the array
+ *
+ * @param array $row Results row from
+ *
+ * @return void
+ */
+function PMA_fillInTablePrivileges(&$row)
+{
+    $row1 = $GLOBALS['dbi']->fetchSingleRow(
+        'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
+        'ASSOC', $GLOBALS['userlink']
+    );
+    // note: in MySQL 5.0.3 we get "Create View', 'Show view';
+    // the View for Create is spelled with uppercase V
+    // the view for Show is spelled with lowercase v
+    // and there is a space between the words
+
+    $av_grants = explode(
+        '\',\'',
+        substr(
+            $row1['Type'],
+            strpos($row1['Type'], '(') + 2,
+            strpos($row1['Type'], ')') - strpos($row1['Type'], '(') - 3
+        )
+    );
+
+    $users_grants = explode(',', $row['Table_priv']);
+
+    foreach ($av_grants as $current_grant) {
+        $row[$current_grant . '_priv']
+            = in_array($current_grant, $users_grants) ? 'Y' : 'N';
+    }
+    unset($row['Table_priv']);
+}
+
+
+/**
  * Extracts the privilege information of a priv table row
  *
  * @param array|null $row        the row
@@ -109,21 +146,7 @@ function PMA_extractPrivInfo($row = null, $enableHTML = false, $tablePrivs = fal
     }
 
     if (! is_null($row) && isset($row['Table_priv'])) {
-        $row1 = $GLOBALS['dbi']->fetchSingleRow(
-            'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
-            'ASSOC', $GLOBALS['userlink']
-        );
-        $av_grants = explode(
-            '\',\'',
-            substr($row1['Type'], 5, strlen($row1['Type']) - 7)
-        );
-        unset($row1);
-        $users_grants = explode(',', $row['Table_priv']);
-        foreach ($av_grants as $current_grant) {
-            $row[$current_grant . '_priv']
-                = in_array($current_grant, $users_grants) ? 'Y' : 'N';
-        }
-        unset($current_grant);
+        PMA_fillInTablePrivileges($row);
     }
 
     $privs = array();
@@ -623,31 +646,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
         }
     }
     if (isset($row['Table_priv'])) {
-        $row1 = $GLOBALS['dbi']->fetchSingleRow(
-            'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
-            'ASSOC', $GLOBALS['userlink']
-        );
-        // note: in MySQL 5.0.3 we get "Create View', 'Show view';
-        // the View for Create is spelled with uppercase V
-        // the view for Show is spelled with lowercase v
-        // and there is a space between the words
-
-        $av_grants = explode(
-            '\',\'',
-            substr(
-                $row1['Type'],
-                strpos($row1['Type'], '(') + 2,
-                strpos($row1['Type'], ')') - strpos($row1['Type'], '(') - 3
-            )
-        );
-        unset($row1);
-        $users_grants = explode(',', $row['Table_priv']);
-
-        foreach ($av_grants as $current_grant) {
-            $row[$current_grant . '_priv']
-                = in_array($current_grant, $users_grants) ? 'Y' : 'N';
-        }
-        unset($row['Table_priv'], $current_grant, $av_grants, $users_grants);
+        PMA_fillInTablePrivileges($row);
 
         // get columns
         $res = $GLOBALS['dbi']->tryQuery(
