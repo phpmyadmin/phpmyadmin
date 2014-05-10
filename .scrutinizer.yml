@@ -7,3 +7,6 @@ filter:
 tools:
     external_code_coverage:
         timeout: 3600 # Timeout in seconds.
+    php_code_sniffer:
+        config:
+            standard: "PMAStandard"
