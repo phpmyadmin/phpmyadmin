@@ -493,6 +493,8 @@ function ADVISOR_bytime($num, $precision)
 /**
  * Wrapper for PMA_Util::timespanFormat
  *
+ * This function is used when evaluating advisory_rules.txt
+ *
  * @param int $seconds the timespan
  *
  * @return string  the formatted value
@@ -504,6 +506,8 @@ function ADVISOR_timespanFormat($seconds)
 
 /**
  * Wrapper around PMA_Util::formatByteDown
+ *
+ * This function is used when evaluating advisory_rules.txt
  *
  * @param double $value the value to format
  * @param int    $limes the sensitiveness
