@@ -459,11 +459,16 @@ line to :file:`config.inc.php`:
 You then have to create the ``swekey.conf`` file that will associate
 each user with their Swekey Id. It is important to place this file
 outside of your web server's document root (in the example, it is
-located in ``/etc``). A self documented sample file is provided in the
-``examples`` directory. Feel free to use it with your own users'
+located in ``/etc``). Feel free to use it with your own users'
 information. If you want to purchase a Swekey please visit
 `http://phpmyadmin.net/auth\_key <http://phpmyadmin.net/auth_key>`_
 since this link provides funding for phpMyAdmin.
+
+A self documented sample file is provided in the
+file :file:`examples/swekey.sample.conf`:
+
+.. literalinclude:: ../examples/swekey.sample.conf
+    :language: sh
 
 .. seealso:: :config:option:`$cfg['Servers'][$i]['auth_swekey_config']`
 
