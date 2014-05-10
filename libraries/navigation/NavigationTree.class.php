@@ -806,6 +806,7 @@ class PMA_NavigationTree
      */
     private function _findTreeMatch($tree, $attribute)
     {
+        $match = true;
         foreach ($tree as $path) {
             $match = true;
             foreach ($paths[$attribute] as $key => $part) {
