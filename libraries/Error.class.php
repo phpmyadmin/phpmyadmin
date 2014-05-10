@@ -301,8 +301,8 @@ class PMA_Error extends PMA_Message
     /**
      * Formats function call in a backtrace
      *
-     * @param array  $step       backtrace step
-     * @param string $separatror Arguments separator to use
+     * @param array  $step      backtrace step
+     * @param string $separator Arguments separator to use
      *
      * @return string
      * @static
