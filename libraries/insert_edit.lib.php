@@ -2278,8 +2278,7 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
             . ' = ' . $current_value_as_an_array;
     } elseif (empty($multi_edit_funcs[$key])
         && isset($multi_edit_columns_prev[$key])
-        && ("'" . PMA_Util::sqlAddSlashes($multi_edit_columns_prev[$key]) . "'"
-        == $current_value)
+        && ("'" . PMA_Util::sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" == $current_value)
     ) {
         // No change for this column and no MySQL function is used -> next column
     } elseif (! empty($current_value)) {

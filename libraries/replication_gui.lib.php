@@ -533,8 +533,7 @@ function PMA_getHtmlForReplicationStatusTable($type, $hidden = false, $title = t
             $html .= '<span class="attention">';
 
         } elseif (isset(${"{$type}_variables_oks"}[$variable])
-            && ${"{$type}_variables_oks"}[$variable]
-            == ${"server_{$type}_replication"}[0][$variable]
+            && ${"{$type}_variables_oks"}[$variable] == ${"server_{$type}_replication"}[0][$variable]
         ) {
             $html .= '<span class="allfine">';
         } else {
