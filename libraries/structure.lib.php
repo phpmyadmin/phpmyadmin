@@ -2864,8 +2864,10 @@ function PMA_synchronizeFavoriteTables($fav_instance, $user)
 
 /**
  * Returns Html for show create.
+ *
  * @param string $db         Database name
  * @param array  $db_objects Array containing DB objects
+ *
  * @return string Html
  */
 function PMA_getHtmlShowCreate($db, $db_objects)
@@ -2945,23 +2947,25 @@ function PMA_getHtmlShowCreate($db, $db_objects)
 
 /**
  * Return 'SHOW CREATE' query for a DB object
+ *
  * @param string $db        Database name
  * @param string $db_object Database object name
  * @param string $type      Type of object (table or view)
+ *
  * @return mysqli_result collection | boolean(false)
  */
 function PMA_getShowCreate($db, $db_object, $type = 'table')
 {
     // 'SHOW CREATE' SQL query for specific type of DB object.
     switch ($type) {
-        case 'table':
-            $sql_query = 'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
-                . PMA_Util::backquote($db_object);
-            break;
-        case 'view':
-            $sql_query = 'SHOW CREATE VIEW ' . PMA_Util::backquote($db) . '.'
-                . PMA_Util::backquote($db_object);
-            break;
+    case 'table':
+        $sql_query = 'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
+            . PMA_Util::backquote($db_object);
+        break;
+    case 'view':
+        $sql_query = 'SHOW CREATE VIEW ' . PMA_Util::backquote($db) . '.'
+            . PMA_Util::backquote($db_object);
+        break;
     }
     // Execute the query.
     $result = $GLOBALS['dbi']->fetchSingleRow($sql_query);
