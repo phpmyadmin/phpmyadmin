@@ -2385,7 +2385,7 @@ function PMA_getExtraDataForAjaxBehavior(
 
         $new_user_string .= '</td>' . "\n";
         $new_user_string .= '<td>'
-            . '<code>' . join(', ', PMA_extractPrivInfo('', true)) . '</code>'
+            . '<code>' . join(', ', PMA_extractPrivInfo(null, true)) . '</code>'
             . '</td>'; //Fill in privileges here
 
         // if $cfg['Servers'][$i]['users'] and $cfg['Servers'][$i]['usergroups'] are
@@ -2446,7 +2446,7 @@ function PMA_getExtraDataForAjaxBehavior(
             $extra_data['db_specific_privs'] = ! $dbname_is_wildcard;
             $extra_data['db_wildcard_privs'] = $dbname_is_wildcard;
         }
-        $new_privileges = join(', ', PMA_extractPrivInfo('', true));
+        $new_privileges = join(', ', PMA_extractPrivInfo(null, true));
 
         $extra_data['new_privileges'] = $new_privileges;
     }
