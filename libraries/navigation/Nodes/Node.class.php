@@ -457,5 +457,48 @@ class Node
     {
         return '';
     }
+
+    /**
+     * Returns CSS classes for a node
+     *
+     * @param boolean $match Whether the node matched loaded tree
+     *
+     * @return String with html classes.
+     */
+    public function getCssClasses($match)
+    {
+        if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
+            return '';
+        }
+
+        $result = array('expander');
+
+        if ($this->is_group || $match) {
+            $result[] = 'loaded';
+        }
+        if ($this->type == Node::CONTAINER) {
+            $result[] = 'container';
+        }
+
+        return implode(' ', $result);
+    }
+
+    /**
+     * Returns icon for the node
+     *
+     * @param boolean $match Whether the node matched loaded tree
+     *
+     * @return String with image name
+     */
+    public function getIcon($match)
+    {
+        if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
+            return '';
+        } elseif ($match && ! $node->is_group) {
+            return PMA_Util::getImage('b_minus.png');
+        } else {
+            return PMA_Util::getImage('b_plus.png', __('Expand/Collapse'));
+        }
+    }
 }
 ?>

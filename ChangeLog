@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.3.0.0 (not yet released)
+- rfe #1518 Confirm dialog on accidentally leaving a page 
 
 4.2.1.0 (not yet released)
 - bug #4380 Cannot display table structure with enums containing special characters 

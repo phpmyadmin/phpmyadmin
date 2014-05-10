@@ -797,6 +797,31 @@ class PMA_NavigationTree
     }
 
     /**
+     * Finds whether given tree matches this tree.
+     *
+     * @param array  $tree      Tree to check
+     * @param string $attribute Attribute to walk
+     *
+     * @return boolean
+     */
+    private function _findTreeMatch($tree, $attribute)
+    {
+        foreach ($tree as $path) {
+            $match = true;
+            foreach ($paths[$attribute] as $key => $part) {
+                if (! isset($path[$key]) || $part != $path[$key]) {
+                    $match = false;
+                    break;
+                }
+            }
+            if ($match) {
+                break;
+            }
+        }
+        return $match;
+    }
+
+    /**
      * Renders a single node or a branch of the tree
      *
      * @param Node   $node      The node to render
@@ -839,14 +864,6 @@ class PMA_NavigationTree
                 || (! in_array($parentName, $sterile) && ! $node->isNew)
                 || (in_array($node->real_name, $sterile))
             ) {
-                $loaded = '';
-                if ($node->is_group) {
-                    $loaded = ' loaded';
-                }
-                $container = '';
-                if ($node->type == Node::CONTAINER) {
-                    $container = ' container';
-                }
                 $retval .= "<div class='block'>";
                 $iClass = '';
                 if ($class == 'first') {
@@ -856,47 +873,11 @@ class PMA_NavigationTree
                 if (strpos($class, 'last') === false) {
                     $retval .= "<b></b>";
                 }
-                $icon  = PMA_Util::getImage('b_plus.png', __('Expand/Collapse'));
-                foreach ($this->_aPath as $path) {
-                    $match = 1;
-                    foreach ($paths['aPath_clean'] as $key => $part) {
-                        if (! isset($path[$key]) || $part != $path[$key]) {
-                            $match = 0;
-                            break;
-                        }
-                    }
-                    if ($match) {
-                        $loaded = ' loaded';
-                        if (! $node->is_group) {
-                            $icon = PMA_Util::getImage(
-                                'b_minus.png'
-                            );
-                        }
-                        break;
-                    }
-                }
 
-                foreach ($this->_vPath as $path) {
-                    $match = 1;
-                    foreach ($paths['vPath_clean'] as $key => $part) {
-                        if ((! isset($path[$key]) || $part != $path[$key])) {
-                            $match = 0;
-                            break;
-                        }
-                    }
-                    if ($match) {
-                        $loaded = ' loaded';
-                        $icon  = PMA_Util::getImage('b_minus.png');
-                        break;
-                    }
-                }
+                $match = $this->_findTreeMatch($this->_aPath, 'aPath_clean');
+                $match |= $this->_findTreeMatch($this->_vPath, 'vPath_clean');
 
-                if (! $GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
-                    $retval .= "<a class='expander$loaded$container'";
-                } else {
-                    $retval .= "<a";
-                    $icon = "";
-                }
+                $retval .= '<a class="' . $node->getCssClasses($match) . '"';
                 $retval .= " href='#'>";
                 $retval .= "<span class='hide aPath'>";
                 $retval .= $paths['aPath'];
@@ -908,7 +889,7 @@ class PMA_NavigationTree
                 $retval .= $this->_pos;
                 $retval .= "</span>";
                 $retval .= $this->_getPaginationParamsHtml($node);
-                $retval .= $icon;
+                $retval .= $node->getIcon($match);
 
                 $retval .= "</a>";
                 $retval .= "</div>";
