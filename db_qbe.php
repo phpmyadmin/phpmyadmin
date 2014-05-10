@@ -86,7 +86,7 @@ if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
         include_once 'libraries/parse_analyze.inc.php';
 
         PMA_executeQueryAndSendQueryResponse(
-            $analyzed_sql_results, false, $_REQUEST['db'], null, null, null, null,
+            $analyzed_sql_results, false, $_REQUEST['db'], null, false, null, null,
             false, null, null, null, null, $goto, $pmaThemeImage, null, null, null,
             $sql_query, null, null
         );
