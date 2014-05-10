@@ -298,25 +298,13 @@ if (!defined('TESTSUITE')) {
 
         // problem opening export file on server?
         if (! empty($message)) {
-            if ($export_type == 'server') {
-                $active_page = 'server_export.php';
-                include 'server_export.php';
-            } elseif ($export_type == 'database') {
-                $active_page = 'db_export.php';
-                include 'db_export.php';
-            } else {
-                $active_page = 'tbl_export.php';
-                include 'tbl_export.php';
-            }
-            exit();
+            PMA_showExportPage($export_type);
         }
-    }
-
-    /**
-     * Send headers depending on whether the user chose to download a dump file
-     * or not
-     */
-    if (! $save_on_server) {
+    } else {
+        /**
+         * Send headers depending on whether the user chose to download a dump file
+         * or not
+         */
         if ($asfile) {
             // Download
             // (avoid rewriting data containing HTML with anchors and forms;
@@ -414,17 +402,7 @@ if (!defined('TESTSUITE')) {
     // End of fake loop
 
     if ($save_on_server && ! empty($message)) {
-        if ($export_type == 'server') {
-            $active_page = 'server_export.php';
-            include 'server_export.php';
-        } elseif ($export_type == 'database') {
-            $active_page = 'db_export.php';
-            include 'db_export.php';
-        } else {
-            $active_page = 'tbl_export.php';
-            include 'tbl_export.php';
-        }
-        exit();
+        PMA_showExportPage($export_type);
     }
 
     /**
@@ -451,17 +429,7 @@ if (!defined('TESTSUITE')) {
             $message = PMA_closeExportFile(
                 $file_handle, $dump_buffer, $save_filename
             );
-            if ($export_type == 'server') {
-                $active_page = 'server_export.php';
-                include_once 'server_export.php';
-            } elseif ($export_type == 'database') {
-                $active_page = 'db_export.php';
-                include_once 'db_export.php';
-            } else {
-                $active_page = 'tbl_export.php';
-                include_once 'tbl_export.php';
-            }
-            exit();
+            PMA_showExportPage($export_type);
         } else {
             echo $dump_buffer;
         }

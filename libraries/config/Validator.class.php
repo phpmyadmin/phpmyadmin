@@ -182,9 +182,9 @@ class PMA_Validator
             $old_track_errors = ini_get('track_errors');
             $old_display_errors = ini_get('display_errors');
             $old_error_reporting = error_reporting(E_ALL);
-            ini_set('html_errors', false);
-            ini_set('track_errors', true);
-            ini_set('display_errors', true);
+            ini_set('html_errors', 'false');
+            ini_set('track_errors', 'true');
+            ini_set('display_errors', 'true');
             set_error_handler(array("PMA_Validator", "nullErrorHandler"));
             ob_start();
         } else {
