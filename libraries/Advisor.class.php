@@ -26,7 +26,7 @@ class Advisor
      *
      * @return array with run and parse results
      */
-    function run()
+    public function run()
     {
         // HowTo: A simple Advisory system in 3 easy steps.
 
@@ -70,7 +70,7 @@ class Advisor
      *
      * @return void
      */
-    function storeError($description, $exception)
+    public function storeError($description, $exception)
     {
         $this->runResult['errors'][] = $description
             . ' '
@@ -85,7 +85,7 @@ class Advisor
      *
      * @return boolean
      */
-    function runRules()
+    public function runRules()
     {
         $this->runResult = array(
             'fired' => array(),
@@ -159,7 +159,7 @@ class Advisor
      *
      * @return string
      */
-    static function escapePercent($str)
+    public static function escapePercent($str)
     {
         return preg_replace('/%( |,|\.|$|\(|\)|<|>)/', '%%\1', $str);
     }
@@ -172,7 +172,7 @@ class Advisor
      *
      * @return string
      */
-    function translate($str, $param = null)
+    public function translate($str, $param = null)
     {
         $string = _gettext(Advisor::escapePercent($str));
         if ( ! is_null($param)) {
@@ -190,7 +190,7 @@ class Advisor
      *
      * @return string[]
      */
-    static function splitJustification($rule)
+    public static function splitJustification($rule)
     {
         $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
         if (count($jst) > 1) {
@@ -207,7 +207,7 @@ class Advisor
      *
      * @return void
      */
-    function addRule($type, $rule)
+    public function addRule($type, $rule)
     {
         switch($type) {
         case 'notfired':
@@ -322,7 +322,7 @@ class Advisor
      *
      * @throws Exception
      */
-    function ruleExprEvaluate($expr)
+    public function ruleExprEvaluate($expr)
     {
         // Evaluate fired() conditions
         $expr = preg_replace_callback(
@@ -367,7 +367,7 @@ class Advisor
      *
      * @return array with parsed data
      */
-    static function parseRulesFile()
+    public static function parseRulesFile()
     {
         $file = file('libraries/advisory_rules.txt', FILE_IGNORE_NEW_LINES);
         $errors = array();
