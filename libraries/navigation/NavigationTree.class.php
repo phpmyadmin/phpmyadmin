@@ -799,13 +799,12 @@ class PMA_NavigationTree
     /**
      * Finds whether given tree matches this tree.
      *
-     * @param array  $paths     Paths to check
-     * @param array  $tree      Tree to check
-     * @param string $attribute Attribute to walk
+     * @param array  $tree  Tree to check
+     * @param array  $paths Paths to check
      *
      * @return boolean
      */
-    private function _findTreeMatch($paths, $tree, $attribute)
+    private function _findTreeMatch($tree, $paths)
     {
         $match = true;
         foreach ($tree as $path) {
@@ -876,8 +875,8 @@ class PMA_NavigationTree
                     $retval .= "<b></b>";
                 }
 
-                $match = $this->_findTreeMatch($paths, $this->_aPath, 'aPath_clean');
-                $match |= $this->_findTreeMatch($paths, $this->_vPath, 'vPath_clean');
+                $match = $this->_findTreeMatch($this->_aPath, $paths['aPath_clean']);
+                $match |= $this->_findTreeMatch($this->_vPath, $paths['vPath_clean']);
 
                 $retval .= '<a class="' . $node->getCssClasses($match) . '"';
                 $retval .= " href='#'>";
