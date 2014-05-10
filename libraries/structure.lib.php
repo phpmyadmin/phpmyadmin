@@ -261,7 +261,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
  * @param string  $text_dir            url for text directory
  * @param string  $overhead_check      overhead check
  * @param boolean $db_is_system_schema whether database is information schema or not
- * @param string  $hidden_fields       hidden fields
+ * @param array   $hidden_fields       hidden fields
  *
  * @return string $html_output
  */
