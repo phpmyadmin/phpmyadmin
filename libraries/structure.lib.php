@@ -152,13 +152,14 @@ function PMA_getTableDropQueryAndMessage($table_is_view, $current_table)
  * @param string  $create_time_all     create time
  * @param string  $update_time_all     update time
  * @param string  $check_time_all      check time
+ * @param boolean $approx_rows         whether any table has approx row count or not
  *
  * @return string $html_output
  */
 function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     $db_is_system_schema, $sum_entries, $db_collation, $is_show_stats,
     $sum_size, $overhead_size, $create_time_all, $update_time_all,
-    $check_time_all
+    $check_time_all, $approx_rows
 ) {
     $html_output = '<tbody id="tbl_summary_row">'
         . '<tr><th></th>';
@@ -175,8 +176,21 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     $html_output .= '<th colspan="' . ($db_is_system_schema ? 3 : 7) . '">'
         . __('Sum')
         . '</th>';
+
+    $row_count_sum = PMA_Util::formatNumber($sum_entries, 0);
+    // If a table shows approximate rows count, display update-all-real-count anchor.
+    if (isset($approx_rows)) {
+        $row_sum_url['ajax_request'] = true;
+        $row_sum_url['db'] = $GLOBALS['db'];
+        $row_sum_url['real_row_count'] = 'true';
+        $row_sum_url['real_row_count_all'] = 'true';
+    }
+    $cell_text = ($approx_rows)
+        ? '<a href="db_structure.php' . PMA_URL_getCommon($row_sum_url)
+        . '" class="ajax row_count_sum">' . '~' . $row_count_sum . '</a>'
+        : $row_count_sum;
     $html_output .= '<th class="value tbl_rows">'
-        . PMA_Util::formatNumber($sum_entries, 0)
+        . $cell_text
         . '</th>';
 
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
@@ -440,7 +454,7 @@ function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
  * @param boolean $do                    do
  * @param integer $colspan_for_structure colspan for structure
  *
- * @return array $html_output, $odd_row
+ * @return array $html_output, $odd_row, $approx_rows
  */
 function PMA_getHtmlForStructureTableRow(
     $curr, $odd_row, $table_is_view, $current_table,
@@ -503,11 +517,12 @@ function PMA_getHtmlForStructureTableRow(
         && ($current_table['ENGINE'] != null
         || $table_is_view)
     ) {
-        $html_output .= PMA_getHtmlForNotNullEngineViewTable(
+        list($html_view_table, $approx_rows) = PMA_getHtmlForNotNullEngineViewTable (
             $table_is_view, $current_table, $collation, $is_show_stats,
             $tbl_url_query, $formatted_size, $unit, $overhead, $create_time,
             $update_time, $check_time
         );
+        $html_output .= $html_view_table;
     } elseif ($table_is_view) {
         $html_output .= PMA_getHtmlForViewTable($is_show_stats);
     } else {
@@ -518,7 +533,7 @@ function PMA_getHtmlForStructureTableRow(
     } // end if (isset($current_table['TABLE_ROWS'])) else
     $html_output .= '</tr>';
 
-    return array($html_output, $odd_row);
+    return array($html_output, $odd_row, $approx_rows);
 }
 
 /**
@@ -668,11 +683,29 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
         $show_superscript = '';
     }
 
-    $html_output .= '<td class="value tbl_rows">'
-        . $row_count_pre . PMA_Util::formatNumber(
-            $current_table['TABLE_ROWS'], 0
-        )
-        . $show_superscript . '</td>';
+    // Set a flag if there are approximate row counts on page.
+    if (! empty($row_count_pre)) {
+        $approx_rows = true;
+    }
+    // Get the row count.
+    $row_count = $row_count_pre
+        . PMA_Util::formatNumber($current_table['TABLE_ROWS'], 0);
+    // URL parameters to fetch the real row count.
+    $real_count_url['ajax_request'] = true;
+    $real_count_url['db'] = $GLOBALS['db'];
+    $real_count_url['table'] = $current_table['TABLE_NAME'];
+    $real_count_url['real_row_count'] = 'true';
+    // Content to be appended into 'tbl_rows' cell.
+    // If row count is approximate, display it as an anchor to get real count.
+    $cell_text = (! empty($row_count_pre))
+        ? '<a href="db_structure.php' . PMA_URL_getCommon($real_count_url)
+        . '" class="ajax real_row_count">' . $row_count . '</a>'
+        : $row_count;
+    $html_output .= '<td class="value tbl_rows" data-table="'
+        . $current_table['TABLE_NAME'] . '">'
+        . $cell_text
+        . $show_superscript
+        . '</td>';
 
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
         $html_output .= '<td class="nowrap">'
@@ -693,7 +726,7 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
         $create_time, $update_time, $check_time
     );
 
-    return $html_output;
+    return array($html_output, $approx_rows);
 }
 
 /**
@@ -770,7 +803,8 @@ function PMA_tableHeader($db_is_system_schema = false, $replication = false)
         . '<th>' . PMA_sortableTableHeader(__('Rows'), 'records', 'DESC')
         . PMA_Util::showHint(
             PMA_sanitize(
-                __('May be approximate. See [doc@faq3-11]FAQ 3.11[/doc].')
+                __('May be approximate. Click on the number to get the exact count.'
+                    . ' See [doc@faq3-11]FAQ 3.11[/doc].')
             )
         ) . "\n"
         . '</th>' . "\n";
@@ -2971,5 +3005,72 @@ function PMA_getShowCreate($db, $db_object, $type = 'table')
     $result = $GLOBALS['dbi']->fetchSingleRow($sql_query);
 
     return $result;
+}
+
+/**
+ * Returns the real row count for a table
+ * @param string $db    Database name
+ * @param string $table Table name
+ *
+ * @return number
+ */
+function PMA_getRealRowCountTable($db, $table)
+{
+    // SQL query to get row count for a table.
+    $sql_query = 'SELECT COUNT(*) AS ' . PMA_Util::backquote('row_count')
+        . ' FROM ' . PMA_Util::backquote($db) . '.'
+        . PMA_Util::backquote($table);
+    $result = $GLOBALS['dbi']->fetchSingleRow($sql_query);
+    $row_count = $result['row_count'];
+
+    return $row_count;
+}
+
+/**
+ * Returns the real row count for all tables of a DB
+ * @param string $db     Database name
+ * @param array  $tables Array containing table names.
+ *
+ * @return array
+ */
+function PMA_getRealRowCountDb($db, $tables)
+{
+    // Array to store the results.
+    $row_count_all = array();
+    // Iterate over each table and fetch real row count.
+    foreach ($tables as $key => $table) {
+        $row_count = PMA_getRealRowCountTable($db, $table['TABLE_NAME']);
+        array_push(
+            $row_count_all,
+            array('table' => $table['TABLE_NAME'], 'row_count' => $row_count)
+        );
+    }
+
+    return $row_count_all;
+}
+
+/**
+ * Handles request for real row count on database level view page.
+ */
+function PMA_handleRealRowCountRequest()
+{
+    $ajax_response = PMA_Response::getInstance();
+    // If there is a request to update all table's row count.
+    if (isset($_REQUEST['real_row_count_all'])) {
+        $real_row_count_all = PMA_getRealRowCountDb($GLOBALS['db'],
+            $GLOBALS['tables']);
+        $ajax_response->addJSON(
+            'real_row_count_all',
+            json_encode($real_row_count_all)
+        );
+        return true;
+    }
+    // Get the real row count for the table.
+    $real_row_count = PMA_getRealRowCountTable($GLOBALS['db'],
+        $_REQUEST['table']);
+    // Format the number.
+    $real_row_count = PMA_Util::formatNumber($real_row_count, 0);
+    $ajax_response->addJSON('real_row_count', $real_row_count);
+    return true;
 }
 ?>

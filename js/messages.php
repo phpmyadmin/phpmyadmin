@@ -246,6 +246,7 @@ $js_messages['strNo'] = __('No');
 $js_messages['strForeignKeyCheck'] = __('Foreign key check:');
 $js_messages['strForeignKeyCheckEnabled'] = __('(Enabled)');
 $js_messages['strForeignKeyCheckDisabled'] = __('(Disabled)');
+$js_messages['strErrorRealRowCount'] = __('Failed to get real row count.');
 
 /* For db_search.js */
 $js_messages['strSearching'] = __('Searching');
