@@ -1604,7 +1604,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //new_privileges
         $this->assertContains(
-            join(', ', PMA_extractPrivInfo('', true)),
+            join(', ', PMA_extractPrivInfo(null, true)),
             $extra_data['new_privileges']
         );
     }
