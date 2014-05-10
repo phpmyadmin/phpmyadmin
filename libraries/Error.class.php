@@ -51,6 +51,7 @@ class PMA_Error extends PMA_Message
      * @var array
      */
     static public $errorlevel = array (
+        0                    => 'error',
         E_ERROR              => 'error',
         E_WARNING            => 'error',
         E_PARSE              => 'error',
