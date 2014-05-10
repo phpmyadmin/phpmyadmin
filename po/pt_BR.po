@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-09 10:24+0200\n"
-"PO-Revision-Date: 2014-04-24 08:19+0200\n"
-"Last-Translator: Gustavo Torres Mendes <gust_torres.mendes@hotmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2014-05-10 20:26+0200\n"
+"Last-Translator: Edie Johnny <edie.eu@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.9\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -2027,9 +2027,8 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
-"Aviso: um formulário nesta página tem mais de %d campos. Ao ser enviado, "
-"alguns dos campos podem ser ignorados devido à configuração de "
-"max_input_vars do PHP."
+"Aviso: um formulário nesta páginas tem mais de %d campos. Ao enviar, alguns "
+"campos podem ser ignorados, por causa da configuração max_input_vars do PHP."
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:437
@@ -4522,7 +4521,7 @@ msgstr ""
 "%s precisa ser configurado para um valor menor ou igual a ele."
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - "
 #| "%shost authentication%s settings and %strusted proxies list%s. However, "
@@ -4534,11 +4533,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Se você achar necessário, utilize as configurações adicionais de segurança - "
-"configurações de %sautenticação de host%s e %slista de proxies confiáveis%s. "
-"Entretanto, proteções baseadas em IP podem não ser confiáveis se seu "
-"endereço IP pertence a um ISP onde centenas de usuários, incluindo você, "
-"estão conectados."
+"Se achar necessário, você pode usar as configurações de proteção adicional - "
+"%shost authenticaion%s e %strusted proxies list%s. No entando, proteções "
+"baseadas em IP podem não ser confiáveis se o seu IP pertence a um servidor "
+"ISP onde milhares de usuários, incluindo você, estão conectados."
 
 #: libraries/config/ServerConfigChecks.class.php:431
 #, php-format
@@ -5579,7 +5577,6 @@ msgid "Delete all cookies on logout"
 msgstr "Remover todos os cookies ao sair"
 
 #: libraries/config/messages.inc.php:377
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode."
@@ -5587,8 +5584,8 @@ msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
-"Define se as autenticações anteriores devem ser relembradas ou não no modo "
-"de autenticação por cookie."
+"Definir se as autenticações anteriores devem ser recolhidas no modo de "
+"autenticação [kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:380
 msgid "Recall user name"
@@ -5649,7 +5646,6 @@ msgid "Maximum databases"
 msgstr "Número máximo de bancos de dados"
 
 #: libraries/config/messages.inc.php:402
-#, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page of the navigation "
 #| "tree."
@@ -5657,14 +5653,13 @@ msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
 msgstr ""
-"O número de itens que pode ser mostrado em cada página da árvore de "
-"navegação."
+"O número de itens que podem ser mostrados no primeiro nível da árvore de "
+"navegação em cada página."
 
 #: libraries/config/messages.inc.php:405
-#, fuzzy
 #| msgid "Maximum items in branch"
 msgid "Maximum items on first level"
-msgstr "Máximo de itens no ramo"
+msgstr "Máximo de itens no primeiro nível"
 
 #: libraries/config/messages.inc.php:407
 msgid ""
@@ -5700,7 +5695,6 @@ msgid "Maximum tables"
 msgstr "Número máximo de tabelas"
 
 #: libraries/config/messages.inc.php:420
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication."
@@ -5708,8 +5702,8 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "[kbd]cookie[/kbd] authentication."
 msgstr ""
-"Desativa o alerta padrão que é exibido se o mcrypt não for detectado para a "
-"autenticação por cookie."
+"Desativa o alerta padrão exibido se mcrypt não for detectado para a "
+"autenticação [kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:423
 msgid "mcrypt warning"
@@ -5826,13 +5820,12 @@ msgstr "Habilita destaque"
 
 #: libraries/config/messages.inc.php:466
 msgid "Whether to disable the possibility of database expansion or not."
-msgstr ""
+msgstr "Desativar a possibilidade de expansão do banco de dados ou não."
 
 #: libraries/config/messages.inc.php:468
-#, fuzzy
 #| msgid "Display databases as a list"
 msgid "Disable database expansion"
-msgstr "Exibir bancos de dados como uma lista"
+msgstr "Desabilitar a expansão do banco de dados"
 
 #: libraries/config/messages.inc.php:470
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -5840,11 +5833,9 @@ msgstr ""
 "Número máximo de tabelas usadas recentemente; defina 0 para desabilitar."
 
 #: libraries/config/messages.inc.php:472
-#, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable."
 msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr ""
-"Número máximo de tabelas usadas recentemente; defina 0 para desabilitar."
+msgstr "Número máximo de tabelas favoritas; defina 0 para desabilitar."
 
 #: libraries/config/messages.inc.php:473
 msgid "Recently used tables"
@@ -7180,7 +7171,7 @@ msgstr "Salvar saída em um arquivo"
 
 #: libraries/display_export.lib.php:671
 msgid "Skip tables larger than"
-msgstr ""
+msgstr "Pular tabelas maiores que"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -9283,7 +9274,7 @@ msgstr "Exibir/ocultar itens de navegação"
 
 #: libraries/relation.lib.php:290
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "Salvando pesquisas Query-By-Example"
 
 #: libraries/relation.lib.php:296
 msgid "Quick steps to setup advanced features:"
@@ -9918,13 +9909,13 @@ msgid "Execution results of routine %s"
 msgstr "Resultados da execução da rotina %s"
 
 #: libraries/rte/rte_routines.lib.php:1475
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d row affected by the last statement inside the procedure"
 #| msgid_plural "%d rows affected by the last statement inside the procedure"
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "%d linha afetada pela última instrução dentro do procedimento"
-msgstr[1] "%d linhas afetadas pela última instrução dentro do procedimento"
+msgstr[0] "%d linha afetada pela última instrução dentro do procedimento."
+msgstr[1] "%d linhas afetadas pela última instrução dentro do procedimento."
 
 #: libraries/rte/rte_routines.lib.php:1532
 #: libraries/rte/rte_routines.lib.php:1540
@@ -12362,10 +12353,9 @@ msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "O nome da coluna '%s' é uma palavra reservada do MySQL."
 
 #: libraries/structure.lib.php:2741
-#, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
-msgstr "Adicionar esta série"
+msgstr "Adicionar aos Favoritos"
 
 #: libraries/structure.lib.php:2786
 msgid "Favorite List is full!"
@@ -12504,16 +12494,15 @@ msgstr ""
 "exemplo '\\\\xyz' ou 'a\\'b')."
 
 #: libraries/tbl_columns_definition_form.lib.php:569
-#, fuzzy, php-format
+#, php-format
 #| msgid "Select referenced key"
 msgid "Referenced by %s."
-msgstr "Selecionar chave referenciada"
+msgstr "Referenciado por %s."
 
 #: libraries/tbl_columns_definition_form.lib.php:577
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "Selecionar chave estrangeira"
+msgstr "É uma chave estrangeira."
 
 #: libraries/tbl_columns_definition_form.lib.php:769
 msgid "first"
@@ -12895,10 +12884,9 @@ msgid "Toggle relation lines"
 msgstr "Alternar linhas de relação"
 
 #: pmd_general.php:146 pmd_pdf.php:103
-#, fuzzy
 #| msgid "Import/Export coordinates for PDF schema"
 msgid "Import/Export coordinates for relational schema"
-msgstr "Importar/Exportar coordenadas para esquema PDF"
+msgstr "Importar/Exportar coordenadas para o modelo relacional"
 
 #: pmd_general.php:155
 msgid "Build Query"
@@ -12959,10 +12947,9 @@ msgid "Page has been created."
 msgstr "A página foi criada."
 
 #: pmd_pdf.php:56
-#, fuzzy
 #| msgid "Page creation failed"
 msgid "Page creation has failed!"
-msgstr "Falha na criação da página"
+msgstr "Falha na criação da página!"
 
 #: pmd_pdf.php:114
 msgid "Page:"
@@ -12997,26 +12984,23 @@ msgid "Error: relation already exists."
 msgstr "Erro: relacionamento já existe."
 
 #: pmd_relation_new.php:80 pmd_relation_new.php:106
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
-msgstr "Erro: relacionamento não adicionado."
+msgstr "Erro: Modelo não pôde ser adicionado!"
 
 #: pmd_relation_new.php:81
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been added."
-msgstr "Adicionado relacionamento de FOREIGN KEY"
+msgstr "Modelo FOREIGN KEY foi adicionado."
 
 #: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
 msgstr "Erro: Relacionamentos estão desativados!"
 
 #: pmd_relation_new.php:104
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
-msgstr "Adicionado relacionamento interno"
+msgstr "Adicionado modelo interno."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -14083,10 +14067,9 @@ msgstr ""
 "menor do que 1 por hora"
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 #| msgid "tmp_table_size vs. max_heap_table_size"
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "tmp_table_size vs. max_heap_table_size"
+msgstr "Diferença entre tmp_table_size e max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
