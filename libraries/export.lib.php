@@ -741,4 +741,26 @@ function PMA_exportTable(
         return;
     }
 }
+
+/**
+ * Loads correct page after doing export
+ *
+ * @param string $export_type Export type
+ *
+ * @return void
+ */
+function PMA_showExportPage($export_type)
+{
+    if ($export_type == 'server') {
+        $active_page = 'server_export.php';
+        include_once 'server_export.php';
+    } elseif ($export_type == 'database') {
+        $active_page = 'db_export.php';
+        include_once 'db_export.php';
+    } else {
+        $active_page = 'tbl_export.php';
+        include_once 'tbl_export.php';
+    }
+    exit();
+}
 ?>
