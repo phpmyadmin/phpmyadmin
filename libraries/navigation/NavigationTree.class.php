@@ -877,7 +877,7 @@ class PMA_NavigationTree
                 $match = $this->_findTreeMatch($this->_aPath, 'aPath_clean');
                 $match |= $this->_findTreeMatch($this->_vPath, 'vPath_clean');
 
-                $retval .= '<a class="' . $note->getCssClasses($match) . '"';
+                $retval .= '<a class="' . $node->getCssClasses($match) . '"';
                 $retval .= " href='#'>";
                 $retval .= "<span class='hide aPath'>";
                 $retval .= $paths['aPath'];
