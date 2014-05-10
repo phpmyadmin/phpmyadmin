@@ -90,6 +90,24 @@ function PMA_rangeOfUsers($initial = '')
 } // end function
 
 /**
+ * Formats privilege name for a display
+ *
+ * @param array   $privilege Privilege information
+ * @param boolean $html      Whether to use HTML
+ *
+ * @return string
+ */
+function PMA_formatPrivilege($privilege, $html)
+{
+    if ($html) {
+        return '<dfn title="' . $privilege[2] . '">'
+            . $privilege[1] . '</dfn>';
+    } else {
+        return $privilege[1];
+    }
+}
+
+/**
  * Parses priliveges into an array, it modifies the array
  *
  * @param array $row Results row from
@@ -162,22 +180,12 @@ function PMA_extractPrivInfo($row = null, $enableHTML = false, $tablePrivs = fal
                 && count($GLOBALS[$current_grant[0]]) == $_REQUEST['column_count']
                 && empty($GLOBALS[$current_grant[0] . '_none']))))
             ) {
-                if ($enableHTML) {
-                    $privs[] = '<dfn title="' . $current_grant[2] . '">'
-                        . $current_grant[1] . '</dfn>';
-                } else {
-                    $privs[] = $current_grant[1];
-                }
+                $privs[] = PMA_formatPrivilege($current_grant, $enableHTML);
             } elseif (! empty($GLOBALS[$current_grant[0]])
                 && is_array($GLOBALS[$current_grant[0]])
                 && empty($GLOBALS[$current_grant[0] . '_none'])
             ) {
-                if ($enableHTML) {
-                    $priv_string = '<dfn title="' . $current_grant[2] . '">'
-                        . $current_grant[1] . '</dfn>';
-                } else {
-                    $priv_string = $current_grant[1];
-                }
+                $privs[] = PMA_formatPrivilege($current_grant, $enableHTML);
                 $privs[] = $priv_string . ' (`'
                     . join('`, `', $GLOBALS[$current_grant[0]]) . '`)';
             } else {
@@ -1226,8 +1234,9 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
                 )
                 . '/>' . "\n"
                 . '<label for="checkbox_' . $priv[0] . '_priv">'
-                . '<code><dfn title="' . $priv[2] . '">'
-                . $priv[1] . '</dfn></code></label>' . "\n"
+                . '<code>'
+                . PMA_formatPrivilege($priv, true)
+                . '</code></label>' . "\n"
                 . '</div>' . "\n";
         }
         $html_output .= '</fieldset>' . "\n";
