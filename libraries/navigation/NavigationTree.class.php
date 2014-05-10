@@ -809,7 +809,7 @@ class PMA_NavigationTree
         $match = true;
         foreach ($tree as $path) {
             $match = true;
-            foreach ($paths[$attribute] as $key => $part) {
+            foreach ($paths as $key => $part) {
                 if (! isset($path[$key]) || $part != $path[$key]) {
                     $match = false;
                     break;
