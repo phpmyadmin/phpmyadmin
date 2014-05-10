@@ -84,6 +84,9 @@ if (! empty($submit_mult)
                 include 'db_export.php';
                 exit;
                 break;
+            case 'show_create':
+                PMA_getHtmlShowCreate($db, $selected);
+                exit;
             } // end switch
         }
     } elseif (isset($selected_fld) && !empty($selected_fld)) {
