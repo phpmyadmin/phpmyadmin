@@ -571,7 +571,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     /**
      * Store the result returned from multi query
      *
-     * @param PMA_DrizzleResult $result Drizzle result object
+     * @param PMA_DrizzleResult $link Drizzle result object
      *
      * @return false
      */
