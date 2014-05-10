@@ -615,7 +615,7 @@ AJAX.registerOnload('tbl_change.js', function () {
 function changeValueFieldType(elem, searchIndex)
 {
     var fieldsValue = $("select#fieldID_" + searchIndex);
-    if (0 == fieldsValue.size()) {
+    if (0 === fieldsValue.size()) {
         return;
     }
 
