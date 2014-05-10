@@ -92,15 +92,15 @@ function PMA_rangeOfUsers($initial = '')
 /**
  * Extracts the privilege information of a priv table row
  *
- * @param array   $row        the row
- * @param boolean $enableHTML add <dfn> tag with tooltips
- * @param boolean $tablePrivs whether row contains table privileges
+ * @param array|null $row        the row
+ * @param boolean    $enableHTML add <dfn> tag with tooltips
+ * @param boolean    $tablePrivs whether row contains table privileges
  *
  * @global  resource $user_link the database connection
  *
  * @return array
  */
-function PMA_extractPrivInfo($row = '', $enableHTML = false, $tablePrivs = false)
+function PMA_extractPrivInfo($row = null, $enableHTML = false, $tablePrivs = false)
 {
     if ($tablePrivs) {
         $grants = PMA_getTableGrantsArray();
@@ -108,7 +108,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false, $tablePrivs = false
         $grants = PMA_getGrantsArray();
     }
 
-    if (! empty($row) && isset($row['Table_priv'])) {
+    if (! is_null($row) && isset($row['Table_priv'])) {
         $row1 = $GLOBALS['dbi']->fetchSingleRow(
             'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
             'ASSOC', $GLOBALS['userlink']
@@ -129,11 +129,11 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false, $tablePrivs = false
     $privs = array();
     $allPrivileges = true;
     foreach ($grants as $current_grant) {
-        if ((! empty($row) && isset($row[$current_grant[0]]))
-            || (empty($row) && isset($GLOBALS[$current_grant[0]]))
+        if ((! is_null($row) && isset($row[$current_grant[0]]))
+            || (is_null($row) && isset($GLOBALS[$current_grant[0]]))
         ) {
-            if ((! empty($row) && $row[$current_grant[0]] == 'Y')
-                || (empty($row)
+            if ((! is_null($row) && $row[$current_grant[0]] == 'Y')
+                || (is_null($row)
                 && ($GLOBALS[$current_grant[0]] == 'Y'
                 || (is_array($GLOBALS[$current_grant[0]])
                 && count($GLOBALS[$current_grant[0]]) == $_REQUEST['column_count']
