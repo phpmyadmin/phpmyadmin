@@ -873,21 +873,11 @@ class PMA_NavigationTree
                 if (strpos($class, 'last') === false) {
                     $retval .= "<b></b>";
                 }
-                $icon  = PMA_Util::getImage('b_plus.png', __('Expand/Collapse'));
 
                 $match = $this->_findTreeMatch($this->_aPath, 'aPath_clean');
                 $match |= $this->_findTreeMatch($this->_vPath, 'vPath_clean');
-                if ($match && ! $node->is_group) {
-                    $icon = PMA_Util::getImage(
-                        'b_minus.png'
-                    );
-                }
 
                 $retval .= '<a class="' . $note->getCssClasses($match) . '"';
-
-                if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
-                    $icon = "";
-                }
                 $retval .= " href='#'>";
                 $retval .= "<span class='hide aPath'>";
                 $retval .= $paths['aPath'];
@@ -899,7 +889,7 @@ class PMA_NavigationTree
                 $retval .= $this->_pos;
                 $retval .= "</span>";
                 $retval .= $this->_getPaginationParamsHtml($node);
-                $retval .= $icon;
+                $retval .= $node->getIcon($match);
 
                 $retval .= "</a>";
                 $retval .= "</div>";
