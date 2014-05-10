@@ -457,5 +457,30 @@ class Node
     {
         return '';
     }
+
+    /**
+     * Returns CSS classes for a node
+     *
+     * @param boolean $match Whether the node matched loaded tree
+     *
+     * @return String with html classes.
+     */
+    public function getCssClasses($match)
+    {
+        if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
+            return '';
+        }
+
+        $result = array('expander');
+
+        if ($this->is_group || $match) {
+            $result[] = 'loaded';
+        }
+        if ($this->type == Node::CONTAINER) {
+            $result[] = 'container';
+        }
+
+        return implode(' ', $result);
+    }
 }
 ?>

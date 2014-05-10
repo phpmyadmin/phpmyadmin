@@ -839,14 +839,6 @@ class PMA_NavigationTree
                 || (! in_array($parentName, $sterile) && ! $node->isNew)
                 || (in_array($node->real_name, $sterile))
             ) {
-                $loaded = '';
-                if ($node->is_group) {
-                    $loaded = ' loaded';
-                }
-                $container = '';
-                if ($node->type == Node::CONTAINER) {
-                    $container = ' container';
-                }
                 $retval .= "<div class='block'>";
                 $iClass = '';
                 if ($class == 'first') {
@@ -866,7 +858,6 @@ class PMA_NavigationTree
                         }
                     }
                     if ($match) {
-                        $loaded = ' loaded';
                         if (! $node->is_group) {
                             $icon = PMA_Util::getImage(
                                 'b_minus.png'
@@ -885,16 +876,14 @@ class PMA_NavigationTree
                         }
                     }
                     if ($match) {
-                        $loaded = ' loaded';
                         $icon  = PMA_Util::getImage('b_minus.png');
                         break;
                     }
                 }
 
-                if (! $GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
-                    $retval .= "<a class='expander$loaded$container'";
-                } else {
-                    $retval .= "<a";
+                $retval .= '<a class="' . $note->getCssClasses($match) . '"';
+
+                if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
                     $icon = "";
                 }
                 $retval .= " href='#'>";
