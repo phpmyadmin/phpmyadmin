@@ -185,9 +185,8 @@ function PMA_extractPrivInfo($row = null, $enableHTML = false, $tablePrivs = fal
                 && is_array($GLOBALS[$current_grant[0]])
                 && empty($GLOBALS[$current_grant[0] . '_none'])
             ) {
-                $privs[] = PMA_formatPrivilege($current_grant, $enableHTML);
-                $privs[] = $priv_string . ' (`'
-                    . join('`, `', $GLOBALS[$current_grant[0]]) . '`)';
+                $privs[] = PMA_formatPrivilege($current_grant, $enableHTML)
+                    . ' (`' . join('`, `', $GLOBALS[$current_grant[0]]) . '`)';
             } else {
                 $allPrivileges = false;
             }
