@@ -26,7 +26,6 @@ class Node_Table_Test extends PHPUnit_Framework_TestCase
     public function setup()
     {
         $GLOBALS['server'] = 0;
-        $GLOBALS['token'] = 'token';
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'b_browse';
         $GLOBALS['cfg']['DefaultTabTable'] = 'sql.php';
         $GLOBALS['cfg']['MaxNavigationItems'] = 250;

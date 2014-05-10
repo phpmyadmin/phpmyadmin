@@ -25,10 +25,10 @@ class Node_Function_Container extends Node
         $this->icon  = PMA_Util::getImage('b_routines.png', __('Functions'));
         $this->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token']
+                    . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token ']
                     . '&amp;type=FUNCTION',
             'icon' => 'db_routines.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token']
+                    . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token ']
                     . '&amp;type=FUNCTION',
         );
         $this->real_name = 'functions';
@@ -39,10 +39,10 @@ class Node_Function_Container extends Node
         $new->icon  = PMA_Util::getImage('b_routine_add.png', $new_label);
         $new->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;token=' . $GLOBALS['token']
+                    . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token ']
                     . '&add_item=1&amp;item_type=FUNCTION',
             'icon' => 'db_routines.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;token=' . $GLOBALS['token']
+                    . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token ']
                     . '&add_item=1&amp;item_type=FUNCTION',
         );
         $new->classes = 'new_function italics';

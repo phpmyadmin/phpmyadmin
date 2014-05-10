@@ -26,7 +26,6 @@ class Node_Table_Container_Test extends PHPUnit_Framework_TestCase
     public function setup()
     {
         $GLOBALS['server'] = 0;
-        $GLOBALS['token'] = 'token';
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
         $GLOBALS['cfg']['NavigationTreeTableSeparator'] = '__';

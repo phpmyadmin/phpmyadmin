@@ -41,7 +41,6 @@ class Node_DatabaseChildTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['token'] = 'token';
         $_SESSION['relation'][1]['navwork'] = true;
         $this->object = $this->getMockForAbstractClass(
             'Node_DatabaseChild', array('child')

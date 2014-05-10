@@ -36,9 +36,9 @@ class Node_Database extends Node
         $this->links = array(
             'text' => $GLOBALS['cfg']['DefaultTabDatabase']
                     . '?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
+                    . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'db_operations.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token']
+                    . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token ']
         );
         $this->classes = 'database';
     }

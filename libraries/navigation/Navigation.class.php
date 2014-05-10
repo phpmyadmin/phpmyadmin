@@ -22,16 +22,6 @@ require_once 'libraries/navigation/NavigationTree.class.php';
 class PMA_Navigation
 {
     /**
-     * Initialises the class
-     */
-    public function __construct()
-    {
-        if (empty($GLOBALS['token'])) {
-            $GLOBALS['token'] = $_SESSION[' PMA_token '];
-        }
-    }
-
-    /**
      * Renders the navigation tree, or part of it
      *
      * @return string The navigation tree
