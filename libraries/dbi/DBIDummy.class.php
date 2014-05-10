@@ -475,7 +475,27 @@ $GLOBALS['dummy_queries'] = array(
     array(
         'query' => "SHOW GRANTS",
         'result' => array()
-    )
+    ),
+    array(
+        'query' => "SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, "
+            . "(select DB_first_level from ( SELECT distinct "
+            . "SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level "
+            . "FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY "
+            . "DB_first_level ASC LIMIT 0, 250) t2 where 1 = locate("
+            . "concat(DB_first_level, '_'), concat(SCHEMA_NAME, '_')) "
+            . "order by SCHEMA_NAME ASC",
+        'result' => array(
+            "test",
+        )
+    ),
+    array(
+        'query' => "select COUNT(*) from ( SELECT distinct SUBSTRING_INDEX("
+            . "SCHEMA_NAME, '_', 1) DB_first_level "
+            . "FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t",
+        'result' => array(
+            array(1),
+        )
+    ),
 );
 /**
  * Current database.
