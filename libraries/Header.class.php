@@ -589,11 +589,11 @@ class PMA_Header
                 . $basedir . 'print.css" />';
         } else {
             $retval .= '<link rel="stylesheet" type="text/css" href="'
+                . $theme_path . '/jquery/jquery-ui-1.9.2.custom.css" />';
+            $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'phpmyadmin.css.php'
                 . $common_url . '&amp;nocache='
                 . $theme_id . $GLOBALS['text_dir'] . '" />';
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $theme_path . '/jquery/jquery-ui-1.9.2.custom.css" />';
         }
 
         return $retval;
