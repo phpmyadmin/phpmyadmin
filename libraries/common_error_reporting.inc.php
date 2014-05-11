@@ -1,10 +1,16 @@
 <?php
-
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * block attempts to directly run this script
+ * php Error reporting script.
+ * REQUIRED by ALL the scripts.
+ * MUST be included by every script at the end.
+ *
+ *
+ * @package PhpMyAdmin
  */
-if (getcwd() == dirname(__FILE__)) {
-    die('Attack stopped');
+
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 /** if there were any errors currently write them to a log file. 
