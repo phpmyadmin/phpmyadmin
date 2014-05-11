@@ -271,7 +271,7 @@ button[type=submit]:not(.mult_submit),
 input[type=reset],
 input[name=submit_reset],
 input.button {
-    margin-left: 14px;
+    margin: 6px 14px;
     border: 1px solid #aaa;
     padding: 3px 7px;
     color: #111;
@@ -404,6 +404,7 @@ select {
     color: #333;
     padding: 3px;
     background: white;
+    margin:6px;
 }
 
 select[multiple] {

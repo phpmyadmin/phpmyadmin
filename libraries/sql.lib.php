@@ -368,7 +368,7 @@ function PMA_getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_valu
             . '</span>'
             . '<a href="browse_foreigners.php'
             . PMA_URL_getCommon($_url_params) . '"'
-            . ' target="_blank" class="browse_foreign" ' . '>'
+            . 'class="ajax browse_foreign" ' . '>'
             . __('Browse foreign values')
             . '</a>';
     } else {

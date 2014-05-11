@@ -750,9 +750,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<a class="foreign_values_anchor" target="_blank" onclick='
-                . '"window.open(this.href,\'foreigners\', \'width=640,height=240,'
-                . 'scrollbars=yes,resizable=yes\'); return false;" href="browse_'
+                '<a class="ajax browse_foreign" href="browse_'
                 . 'foreigners.php?db=db&table=tbl&field=f&rownumber=8&data=abc'
                 . '&server=1&lang=en&token=token">',
                 array('content' => "\\'")

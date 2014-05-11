@@ -92,11 +92,11 @@ AJAX.registerTeardown('sql.js', function () {
     $("#pageselector").die('change');
     $("#table_results.ajax").find("a[title=Sort]").die('click');
     $("#displayOptionsForm.ajax").die('submit');
-    $('a.browse_foreign').die('click');
     $('th.column_heading.pointer').die('hover');
     $('th.column_heading.marker').die('click');
     $(window).unbind('scroll');
     $(".filter_rows").die("keyup");
+    $('body').off('click','a.browse_foreign');
 });
 
 /**
@@ -456,13 +456,83 @@ function PMA_changeClassForColumn($this_th, newclass, isAddClass)
     }
 }
 
-AJAX.registerOnload('sql.js', function () {
+/**
+ * Handles browse foreign values modal dialog
+ *
+ * @param object $this_a reference to the browse foreign value link
+ */
+function browseForeignDialog($this_a)
+{
+    var formId = '#browse_foreign_form';
+    var showAllId = '#foreign_showAll';
+    var tableId = '#browse_foreign_table';
+    var filterId = '#input_foreign_filter';
+    var $dialog = null;
+    $.get($this_a.attr('href'), {'ajax_request': true}, function (data) {
+        // Creates browse foreign value dialog
+        $dialog = $('<div>').append(data.message).dialog({
+            title: PMA_messages.strBrowseForeignValues,
+            width: Math.min($(window).width() - 100, 700),
+            dialogClass: 'browse_foreign_modal',
+            close: function (ev, ui) {
+                // remove event handlers attached to elements related to dialog
+                $(tableId).off('click', 'td a.foreign_value');
+                $(formId).off('click', showAllId);
+                $(formId).off('submit');
+                // remove dialog itself
+                $(this).remove();
+            },
+            create: function () {
+                $(this).css('maxHeight', $(window).height() - 100);
+            },
+            modal: true
+        });
+    }).done(function () {
+        var showAll = false;
+        $(tableId).on('click', 'td a.foreign_value', function () {
+            var $input = $this_a.prev('input[type=text]');
+            // Check if input exists or get CEdit edit_box
+            if ($input.length === 0 ) {
+                $input = $this_a.closest('.edit_area').prev('.edit_box');
+            }
+            // Set selected value as input value
+            $input.val($(this).text());
+            $dialog.dialog('close');
+        });
+        $(formId).on('click', showAllId, function () {
+            showAll = true;
+        });
+        $(formId).on('submit', function (e) {
+            e.preventDefault();
+            // if filter value is not equal to old value
+            // then reset page number to 1
+            if ($(filterId).val() != $(filterId).data('old')) {
+                $(formId).find('select[name=pos]').val('0');
+            }
+            var postParams = $(this).serializeArray();
+            // if showAll button was clicked to submit form then
+            // add showAll button parameter to form
+            if (showAll) {
+                postParams.push({
+                    name: $(showAllId).attr('name'),
+                    value: $(showAllId).val()
+                });
+            }
+            // updates values in dialog
+            $.post($(this).attr('action') + '?ajax_request=1', postParams, function (data) {
+                var $obj = $('<div>').html(data.message);
+                $(formId).html($obj.find(formId).html());
+                $(tableId).html($obj.find(tableId).html());
+            });
+            showAll = false;
+        });
+    });
+}
 
-    $('a.browse_foreign').live('click', function (e) {
+AJAX.registerOnload('sql.js', function () {
+    $('body').on('click', 'a.browse_foreign', function (e) {
         e.preventDefault();
-        window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes,resizable=yes');
-        $anchor = $(this);
-        $anchor.addClass('browse_foreign_clicked');
+        browseForeignDialog($(this));
     });
 
     /**

@@ -1733,7 +1733,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $('html').click(function (e) {
                 // hide edit cell if the click is not fromDat edit area
                 if ($(e.target).parents().index($(g.cEdit)) == -1 &&
-                    ! $(e.target).parents('.ui-datepicker-header').length
+                    !$(e.target).parents('.ui-datepicker-header').length &&
+                    !$('.browse_foreign_modal.ui-dialog:visible').length
                 ) {
                     g.hideEditCell();
                 }
