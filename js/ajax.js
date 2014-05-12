@@ -192,7 +192,10 @@ var AJAX = {
                 break;
             }
         };
-        if (event.type === 'click' && isInputAltered && confirm(PMA_messages['strConfirmNavigation']) === false) {
+        if (event.type === 'click'
+            && event.isTrigger !== true
+            && isInputAltered
+            && confirm(PMA_messages['strConfirmNavigation']) === false) {
             return false;
         }
         //reset
