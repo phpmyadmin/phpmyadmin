@@ -183,7 +183,7 @@ var AJAX = {
             event.preventDefault();
             event.stopImmediatePropagation();
         }
-        
+
         //sometime we accidently click on a url,refresh button or back button
         //operation to confirm if user want to leave page in such cases
         //trigger confirm dialog
@@ -194,7 +194,7 @@ var AJAX = {
                 break;
             }
         };
-        
+
         //triggers a confirm dialog if:
         //the user has performes some operations on loaded page
         //the user clicks on some link, (won't trigger for buttons)
@@ -207,7 +207,7 @@ var AJAX = {
         }
         //reset
         AJAX.alteredTargets.length = 0;
-        
+
         if (AJAX.active === true) {
             // Cancel the old request if abortable, when the user requests
             // something else. Otherwise silently bail out, as there is already
