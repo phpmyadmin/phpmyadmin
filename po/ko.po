@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-04 13:49+0200\n"
+"PO-Revision-Date: 2014-05-11 04:57+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/4-2/ko/>\n"
 "Language: ko\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.9\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -932,7 +932,7 @@ msgstr "\"%s\" 검색을 삭제하겠습니까?"
 msgid ""
 "Are you sure you want to navigate away from this page? Press OK to continue "
 "or Cancel to stay on the current page."
-msgstr ""
+msgstr "현재 페이지를 벗어나려고 합니다. 확인을 누르면 페이지를 이동하며, 취소를 누르면 현재 페이지에 계속 있습니다."
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
@@ -4477,13 +4477,13 @@ msgstr "[kbd]signon[/kbd] 권한 기능을 사용하지만 signon URL 값이 빈
 #: libraries/config/Validator.class.php:369
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
-msgstr ""
+msgstr "phpMyAdmin 설정 저장공간을 사용하는 동안 phpMyAdmin 관리 사용자를 비웁니다!"
 
 #: libraries/config/Validator.class.php:374
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
-msgstr ""
+msgstr "phpMyAdmin 설정 저장공간을 사용하는 동안 phpMyAdmin 관리 사용자 패스워드를 비웁니다!"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
@@ -4562,7 +4562,6 @@ msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -4572,15 +4571,14 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
-"CHAR와 VARCHAR 행에 사용될 편집 입력창 정의; [kbd]input[/kbd] - 입력 길이 제"
-"한 가능, [kbd]textarea[/kbd] - 줄 바꿈 허용"
+"CHAR와 VARCHAR 컬럼에 사용될 편집 입력창 설정; [kbd]input[/kbd] - 입력 길이 제한 가능, "
+"[kbd]textarea[/kbd] - 줄 바꿈 허용."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
 msgstr "CHAR 컬럼 편집"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
@@ -4588,56 +4586,52 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
-"사용하기 쉬운 편집기([a@http://codemirror.net/]CodeMirror[/a], 문법 강조 및 "
-"줄 번호 지원)로 SQL 쿼리를 편집"
+"사용하기 쉬운 편집기([a@http://codemirror.net/]CodeMirror[/a], 문법 강조 및 줄 번호 지원)로 SQL "
+"쿼리를 편집."
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
 msgstr "CodeMirror 활성화"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid ""
 #| "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr "CHAR와 VARCHAR 컬럼 생성시 입력필드의 최소크기를 정의"
+msgstr "CHAR와 VARCHAR 컬럼에 대한 입력필드의 최소크기를 설정."
 
 #: libraries/config/messages.inc.php:58
 msgid "Minimum size for input field"
 msgstr "입력 필드의 최소 크기"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid ""
 #| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr "CHAR와 VARCHAR 컬럼 생성시 입력필드의 최대크기 정의"
+msgstr "CHAR와 VARCHAR 컬럼에 대한 입력필드의 최대크기 설정."
 
 #: libraries/config/messages.inc.php:63
 msgid "Maximum size for input field"
 msgstr "입력 필드의 최대 크기"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "CHAR/VARCHAR 형식의 컬럼 갯수"
+msgstr "CHAR/VARCHAR textarea 입력 필드의 칸 수."
 
 #: libraries/config/messages.inc.php:65
 msgid "CHAR textarea columns"
 msgstr "CHAR 텍스트입력 컬럼"
 
 #: libraries/config/messages.inc.php:66
-#, fuzzy
 #| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "CHAR/VARCHAR 형식의 행 갯수"
+msgstr "CHAR/VARCHAR textarea 입력 필드의 줄 수."
 
 #: libraries/config/messages.inc.php:67
 msgid "CHAR textarea rows"
@@ -4648,7 +4642,6 @@ msgid "Check config file permissions"
 msgstr "설정 파일에 대한 권한을 확인"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4656,9 +4649,7 @@ msgstr "설정 파일에 대한 권한을 확인"
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
-msgstr ""
-"많은 메모리가 필요없이 즉시 'gzip/bzip2' 수출(들) 압축; 생성된 'gzip/bzip2' "
-"파일에 문제가 생기면, 기능을 비활성화 하세요."
+msgstr "많은 메모리를 쓰지 않고 즉석에서 gzip 내보내기 압축하기. 생성된 gzip 파일에 문제가 있다면, 이 기능을 끄세요."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -4670,14 +4661,13 @@ msgid "Configuration file"
 msgstr "설정 파일"
 
 #: libraries/config/messages.inc.php:76
-#, fuzzy
 #| msgid ""
 #| "Whether a warning (\"Are your really sure…\") should be displayed when "
 #| "you're about to lose data"
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
-msgstr "데이터가 사라지기 전에 경고 메시지(\"정말 확실합니까\") 출력 여부"
+msgstr "데이터가 삭제되려는 상황에서 경고 메시지(\"정말 확실합니까\") 출력 여부."
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -4692,50 +4682,45 @@ msgid "Default display direction"
 msgstr "기본 표시 방향"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 #| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
-msgstr "데이터베이스에 들어왔을 때 보여줄 탭"
+msgstr "데이터베이스에 들어왔을 때 보여줄 탭."
 
 #: libraries/config/messages.inc.php:84
 msgid "Default database tab"
 msgstr "기본 데이터베이스 탭"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 #| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
-msgstr "서버에 들어왔을 때 보여줄 탭"
+msgstr "서버에 들어왔을 때 보여줄 탭."
 
 #: libraries/config/messages.inc.php:86
 msgid "Default server tab"
 msgstr "기본 서버 탭"
 
 #: libraries/config/messages.inc.php:87
-#, fuzzy
 #| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
-msgstr "테이블에 들어왔을 때 보여줄 탭"
+msgstr "테이블에 들어왔을 때 보여줄 탭."
 
 #: libraries/config/messages.inc.php:88
 msgid "Default table tab"
 msgstr "기본 테이블 탭"
 
 #: libraries/config/messages.inc.php:90
-#, fuzzy
 #| msgid "Whether the table structure actions should be hidden"
 msgid "Whether the table structure actions should be hidden."
-msgstr "테이블 구조 관련 기능을 숨겨 놓을지 말지 여부"
+msgstr "테이블 구조 관련 기능을 숨겨 놓을지 말지 여부."
 
 #: libraries/config/messages.inc.php:91
 msgid "Hide table structure actions"
 msgstr "테이블 구조 관련 기능 숨기기"
 
 #: libraries/config/messages.inc.php:92
-#, fuzzy
 #| msgid "Show binary contents as HEX by default"
 msgid "Show binary contents as HEX by default."
-msgstr "2진수 데이터를 HEX형식으로 표시하도록 기본설정"
+msgstr "바이너리 데이터를 HEX형식으로 표시."
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down."
@@ -6390,16 +6375,13 @@ msgid "Statements to track"
 msgstr "문장 추적"
 
 #: libraries/config/messages.inc.php:696
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma__tracking[/kbd]"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
 "[/kbd]."
-msgstr ""
-"SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: [kbd]"
-"pma__tracking[/kbd]"
+msgstr "SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: [kbd]pma__tracking[/kbd]."
 
 #: libraries/config/messages.inc.php:699
 msgid "SQL query tracking table"
@@ -6416,16 +6398,13 @@ msgid "Automatically create versions"
 msgstr "버전 자동생성"
 
 #: libraries/config/messages.inc.php:706
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma__userconfig[/kbd]."
-msgstr ""
-"데이터베이스에 사용자 설정 스토리지를 두지 않으려면 비워둠, 추천: [kbd]"
-"pma__userconfig[/kbd]"
+msgstr "데이터베이스에 사용자 설정 저장공간을 두지 않으려면 비워둠, 권장: [kbd]pma__userconfig[/kbd]."
 
 #: libraries/config/messages.inc.php:707
 msgid "User preferences storage table"
@@ -6437,6 +6416,8 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"설정 메뉴 기능을 사용하기 위해 이 테이블과 사용자 그룹 테이블이 필요합니다. 하나라도 값을 비워두면 해당 기능을 사용할 수 없음. 권장:"
+" [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:709
 msgid "Users table"
@@ -6448,6 +6429,8 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"설정 메뉴 기능을 사용하기 위해 이 테이블과 사용자 테이블이 필요합니다. 하나라도 값을 비워두면 해당 기능을 사용할 수 없음. 권장: "
+"[kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:711
 msgid "User groups table"
@@ -6467,7 +6450,7 @@ msgstr "숨겨진 네비게이션 아이템 테이블"
 
 #: libraries/config/messages.inc.php:715
 msgid "User for config auth"
-msgstr ""
+msgstr "설정 인증용 사용자"
 
 #: libraries/config/messages.inc.php:716
 msgid ""
@@ -6482,7 +6465,7 @@ msgstr "이 서버 이름 보기"
 
 #: libraries/config/messages.inc.php:718
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
-msgstr ""
+msgstr "\"모든 행 보기\" 버튼을 출력할지 여부."
 
 #: libraries/config/messages.inc.php:719
 msgid "Allow to display all the rows"
@@ -6494,6 +6477,8 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
+"[kbd]config[/kbd] 인증 모드와 함께 이 기능을 활성화하면 아무런 의미가 없습니다. 왜나하면 패스워드가 설정 파일에 적혀있기 "
+"때문입니다. 이 기능은 같은 명령어를 직접 실행하는 것을 제한하는 기능은 없습니다."
 
 #: libraries/config/messages.inc.php:721
 msgid "Show password change form"
@@ -6504,41 +6489,37 @@ msgid "Show create database form"
 msgstr "데이터베이스 생성 폼 보기"
 
 #: libraries/config/messages.inc.php:723
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables"
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
-msgstr "전체 테이블의 생성 시간을 표시하는 컬럼을 보이기/숨기기"
+msgstr "전체 테이블의 생성 시간을 표시하는 컬럼을 보이기/숨기기."
 
 #: libraries/config/messages.inc.php:724
 msgid "Show Creation timestamp"
 msgstr "생성 시간 보기"
 
 #: libraries/config/messages.inc.php:725
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Last update timestamp for all tables"
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
-msgstr "모든 테이블에 대해 최종 업데이트 시간을 표시하는 컬럼을 보이기/숨기기"
+msgstr "모든 테이블에 대해 최종 업데이트 시간을 표시하는 컬럼을 보이기/숨기기."
 
 #: libraries/config/messages.inc.php:726
 msgid "Show Last update timestamp"
 msgstr "최종 업데이트 시간 표시"
 
 #: libraries/config/messages.inc.php:727
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Last update timestamp for all tables"
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
-msgstr "모든 테이블에 대해 최종 업데이트 시간을 표시하는 컬럼을 보이기/숨기기"
+msgstr "모든 테이블에 대해 최종 체크 시간을 표시하는 컬럼을 보이기/숨기기."
 
 #: libraries/config/messages.inc.php:728
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "마스터 상태 보기"
+msgstr "최종 체크 시간 표시"
 
 #: libraries/config/messages.inc.php:729
 msgid ""
@@ -6930,7 +6911,7 @@ msgstr ""
 #: libraries/dbi/DBIDrizzle.class.php:150 libraries/dbi/DBIMysql.class.php:170
 #: libraries/dbi/DBIMysqli.class.php:229
 msgid "Connection for controluser as defined in your configuration failed."
-msgstr ""
+msgstr "관리사용자(controluser, 설정에 정의됨)로서의 접속에 실패."
 
 #: libraries/dbi/drizzle-wrappers.lib.php:385
 msgid "Can't seek in an unbuffered result set"
@@ -7073,15 +7054,15 @@ msgstr "행 :"
 
 #: libraries/display_export.lib.php:327
 msgid "Dump some row(s)"
-msgstr ""
+msgstr "일부 행을 덤프하기"
 
 #: libraries/display_export.lib.php:342
 msgid "Row to begin at:"
-msgstr ""
+msgstr "시작행:"
 
 #: libraries/display_export.lib.php:359
 msgid "Dump all rows"
-msgstr ""
+msgstr "모든 행을 덤프"
 
 #: libraries/display_export.lib.php:375 libraries/display_export.lib.php:634
 msgid "Output:"
@@ -7098,15 +7079,15 @@ msgstr "파일명 템플릿:"
 
 #: libraries/display_export.lib.php:451
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@는 서버 이름이 됨"
 
 #: libraries/display_export.lib.php:453
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@는  데이터베이스 이름이 됨"
 
 #: libraries/display_export.lib.php:455
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@은 테이블 이름이 됨"
 
 #: libraries/display_export.lib.php:461
 #, php-format
@@ -7121,7 +7102,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:518
 msgid "use this for future exports"
-msgstr ""
+msgstr "추후 내보내기에 이것을 사용"
 
 #: libraries/display_export.lib.php:533 libraries/display_import.lib.php:179
 #: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:504
