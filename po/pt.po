@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-09 10:24+0200\n"
-"PO-Revision-Date: 2014-04-30 15:35+0200\n"
+"PO-Revision-Date: 2014-05-12 17:44+0200\n"
 "Last-Translator: Júlio Sebastião <j38600@gmail.com>\n"
-"Language-Team: Portuguese <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"pt/>\n"
+"Language-Team: Portuguese "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.9\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -7581,14 +7581,13 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
-#, fuzzy
 #| msgid "Relations"
 msgid "Related Links"
-msgstr "Relações"
+msgstr "Hiperligações relacionadas"
 
 #: libraries/engines/pbxt.lib.php:159
 msgid "The PrimeBase XT Blog by Paul McCullagh"
-msgstr ""
+msgstr "O Blog PrimeBase XT de Paul McCullagh"
 
 #: libraries/error_report.lib.php:279
 msgid ""
