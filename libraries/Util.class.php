@@ -2938,7 +2938,9 @@ class PMA_Util
             // convert to lowercase just to be sure
             $type = strtolower(chop(substr($columnspec, 0, $first_bracket_pos)));
         } else {
-            $type = strtolower($columnspec);
+            // Split trailing attributes such as unsigned, binary, zerofill and get data type name
+            $type_parts = explode(' ',$columnspec);
+            $type = strtolower($type_parts[0]);
             $spec_in_brackets = '';
         }
 

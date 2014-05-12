@@ -117,7 +117,7 @@ class PMA_ExtractColumnSpec_Test extends PHPUnit_Framework_TestCase
             array(
                 "INT UNSIGNED zerofill",
                 array(
-                    'type' => 'int unsigned zerofill',
+                    'type' => 'int',
                     'print_type' => 'int',
                     'binary' => false,
                     'unsigned' => true,
