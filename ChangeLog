@@ -5,6 +5,8 @@ phpMyAdmin - ChangeLog
 - rfe #1518 Confirm dialog on accidentally leaving a page 
 - rfe #1445 Easy access to "SHOW CREATE ..."
 
+4.2.2.0 (not yet released)
+
 4.2.1.0 (not yet released)
 - bug #4380 Cannot display table structure with enums containing special characters 
 - bug #4381 Cannot remove the last remembered sorted column
