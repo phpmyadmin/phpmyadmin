@@ -181,7 +181,7 @@ var AJAX = {
             event.preventDefault();
             event.stopImmediatePropagation();
         }
-        
+
         //sometime we accidently click on a url,refresh button or back button
         //operation to confirm if user want to leave page in such cases
         //trigger confirm dialog
@@ -192,15 +192,16 @@ var AJAX = {
                 break;
             }
         };
-        if (event.type === 'click'
-            && event.isTrigger !== true
-            && isInputAltered
-            && confirm(PMA_messages['strConfirmNavigation']) === false) {
+        if (event.type === 'click' &&
+            event.isTrigger !== true &&
+            isInputAltered &&
+            confirm(PMA_messages['strConfirmNavigation']) === false
+        ) {
             return false;
         }
         //reset
         AJAX.alteredTargets.length = 0;
-        
+
         if (AJAX.active === true) {
             // Cancel the old request if abortable, when the user requests
             // something else. Otherwise silently bail out, as there is already
