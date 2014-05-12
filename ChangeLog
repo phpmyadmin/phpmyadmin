@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 - bug #4384 Incorrect "Rows" total shown when truncating or dropping a table on DB Structure page
 - bug #4385 Grid edit on sorted columns fails
 - bug #4389 Null checkbox covering data input when editing
+- bug #4390 Data type changing by itself (no size but attribute present)
 
 4.2.0.0 (2014-05-08)
 + rfe #1403 Export only triggers
