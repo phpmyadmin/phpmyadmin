@@ -1233,13 +1233,10 @@ function PMA_getForeignData(
             $f_query_limit = isset($foreign_limit) ? $foreign_limit : '';
 
             if (!empty($foreign_filter)) {
-                $res = $GLOBALS['dbi']->query(
+                $the_total = $GLOBALS['dbi']->fetchValue(
                     'SELECT COUNT(*)' . $f_query_from . $f_query_filter
                 );
-                if ($res) {
-                    $the_total = $GLOBALS['dbi']->fetchValue($res);
-                    @$GLOBALS['dbi']->freeResult($res);
-                } else {
+                if ($the_total === false) {
                     $the_total = 0;
                 }
             }
