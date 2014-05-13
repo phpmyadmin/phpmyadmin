@@ -1076,7 +1076,7 @@ Generic settings
     :default: ""
 
     The url of the proxy to be used when phpmyadmin needs to access the outside
-    intenet such as when retrieving the latest version info or submitting error
+    internet such as when retrieving the latest version info or submitting error
     reports.  You need this if the server where phpMyAdmin is installed does not
     have direct access to the internet.
     The format is: "hostname:portnumber"
