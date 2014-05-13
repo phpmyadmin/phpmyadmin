@@ -3,7 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.2.2.0 (not yet released)
 
-4.2.1.0 (not yet released)
+4.2.1.0 (2014-05-13)
 - bug #4380 Cannot display table structure with enums containing special characters 
 - bug #4381 Cannot remove the last remembered sorted column
 - bug       Correctly fetch length of user and host fields in MySQL tables
