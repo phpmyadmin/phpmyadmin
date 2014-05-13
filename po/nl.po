@@ -11368,7 +11368,7 @@ msgid ""
 msgstr ""
 "Het aantal leesopdrachten voor de volgende rij uit het gegevensbestand. Dit "
 "is hoog wanneer er voor gebruik wordt gemaakt van tabelscans. Over het "
-"algemeen betekend dit dat de gebruikte tabellen niet optimaal van indexen "
+"algemeen betekent dit dat de gebruikte tabellen niet optimaal van indexen "
 "zijn voorzien of dat de toegepaste queries hier niet optimaal gebruik van "
 "maken."
 
