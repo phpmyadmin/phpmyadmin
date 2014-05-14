@@ -386,6 +386,9 @@ function collapseTreeNode($expandElem) {
  * @returns void
  */
 function loadChildNodes($expandElem, callback) {
+    if (!$expandElem.hasClass('expander')) {
+        return;
+    }
     var $destination = $expandElem.closest('li');
 
     var searchClause = PMA_fastFilter.getSearchClause();
