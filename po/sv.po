@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 13:06-0400\n"
-"PO-Revision-Date: 2014-04-28 14:22+0200\n"
+"PO-Revision-Date: 2014-05-15 01:04+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://l10n.cihar.com/projects/phpmyadmin/4-2/sv/>\n"
 "Language: sv\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.9\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1591,11 +1591,11 @@ msgstr "Döp om databaser"
 
 #: js/messages.php:241
 msgid "Copying Database"
-msgstr "Kopiera databas"
+msgstr "Kopierar databas"
 
 #: js/messages.php:242
 msgid "Changing Charset"
-msgstr "Ändra teckenuppsättning"
+msgstr "Ändrar teckenuppsättning"
 
 #: js/messages.php:246 libraries/mult_submits.lib.php:432
 msgid "Foreign key check:"
@@ -9161,7 +9161,7 @@ msgstr "Visa/dölj navigationsobjekt"
 
 #: libraries/relation.lib.php:290
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "Sparar Query-By-Example-sökningar"
 
 #: libraries/relation.lib.php:296
 msgid "Quick steps to setup advanced features:"
@@ -12976,12 +12976,11 @@ msgstr ""
 "phpMyAdmin kunde inte döda tråd %s. Troligtvis har den redan avslutats."
 
 #: setup/frames/form.inc.php:25
-#, fuzzy
 #| msgid ""
 #| "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr ""
-"Felaktigt formset, kontrollera $formsets matris i setup/frames/form.inc.php"
+"Felaktigt formset, kontrollera arrayen $formsets i setup/frames/form.inc.php!"
 
 #: setup/frames/index.inc.php:53
 msgid "Cannot load or save configuration"
