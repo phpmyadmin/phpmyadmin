@@ -55,6 +55,13 @@ $url_query .= '&amp;goto=db_structure.php';
 $sub_part = '_structure';
 require 'libraries/db_info.inc.php';
 
+// If there is an Ajax request for real row count of a table.
+if ($GLOBALS['is_ajax_request'] && isset($_REQUEST['real_row_count'])
+    && $_REQUEST['real_row_count'] == true) {
+    PMA_handleRealRowCountRequest();
+    exit;
+}
+
 if (!PMA_DRIZZLE) {
     include_once 'libraries/replication.inc.php';
 } else {
@@ -278,7 +285,7 @@ foreach ($tables as $keyname => $current_table) {
         }
     } // Handle favorite table list. ----ENDS----
 
-    list($html_output, $odd_row) = PMA_getHtmlForStructureTableRow(
+    list($html_output, $odd_row, $approx_rows) = PMA_getHtmlForStructureTableRow(
         $i, $odd_row, $table_is_view, $current_table,
         $browse_table_label, $tracking_icon, $server_slave_status,
         $browse_table, $tbl_url_query, $search_table, $db_is_system_schema,
@@ -299,7 +306,7 @@ $response->addHTML(
     PMA_getHtmlBodyForTableSummary(
         $num_tables, $server_slave_status, $db_is_system_schema, $sum_entries,
         $db_collation, $is_show_stats, $sum_size, $overhead_size, $create_time_all,
-        $update_time_all, $check_time_all
+        $update_time_all, $check_time_all, $approx_rows
     )
 );
 $response->addHTML('</table>');
