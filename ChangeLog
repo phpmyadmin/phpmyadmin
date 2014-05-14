@@ -4,6 +4,7 @@ phpMyAdmin - ChangeLog
 4.3.0.0 (not yet released)
 - rfe #1518 Confirm dialog on accidentally leaving a page 
 - rfe #1445 Easy access to "SHOW CREATE ..."
+- rfe #1448 Allow clicking an approximate row count to get a correct one
 
 4.2.2.0 (not yet released)
 
