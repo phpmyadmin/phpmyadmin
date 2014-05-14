@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.2.2.0 (not yet released)
+- bug #4388 Disable database expansion when enabled throws Error 500 when database name is clicked in navigation tree
 
 4.2.1.0 (2014-05-13)
 - bug #4380 Cannot display table structure with enums containing special characters 
