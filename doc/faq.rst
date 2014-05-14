@@ -940,6 +940,9 @@ phpMyAdmin uses a quick method to get the row count, and this method only
 returns an approximate count in the case of InnoDB tables. See
 :config:option:`$cfg['MaxExactCount']` for a way to modify those results, but
 this could have a serious impact on performance.
+However, one can easily replace the approximate row count with exact count by
+simply clicking on the approximate count. This can also be done for all tables
+at once by clicking on the rows sum displayed at the bottom.
 
 .. _faq3_12:
 
