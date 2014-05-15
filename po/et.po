@@ -12182,7 +12182,7 @@ msgstr "Lemmikute nimekiri on täis!"
 #: libraries/structure.lib.php:2911
 #| msgid "Show SQL queries"
 msgid "Showing create queries"
-msgstr "Näita loomise päringuid"
+msgstr "Kuvatakse loomise päringuid"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
