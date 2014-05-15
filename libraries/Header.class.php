@@ -588,6 +588,8 @@ class PMA_Header
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'print.css" />';
         } else {
+            // load jQuery's CSS prior to our theme's CSS, to let the theme
+            // override jQuery's CSS
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $theme_path . '/jquery/jquery-ui-1.9.2.custom.css" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
