@@ -1272,10 +1272,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     }
 
     function PMA_getLogAnalyseDialog(min, max) {
-        $('#logAnalyseDialog input[name="dateStart"]')
-            .val(PMA_formatDateTime(min, true));
-        $('#logAnalyseDialog input[name="dateEnd"]')
-            .val(PMA_formatDateTime(max, true));
+        var $dateStart = $('#logAnalyseDialog input[name="dateStart"]');
+        var $dateEnd = $('#logAnalyseDialog input[name="dateEnd"]');
+        $dateStart.val(PMA_formatDateTime(min, true));
+        $dateEnd.val(PMA_formatDateTime(max, true));
 
         var dlgBtns = { };
 
@@ -1293,6 +1293,17 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             width: 'auto',
             height: 'auto',
             buttons: dlgBtns
+        });
+
+        PMA_addDatepicker($dateStart, 'datetime', {
+            showMillisec: false,
+            showMicrosec: false,
+            timeFormat: 'HH:mm:ss'
+        });
+        PMA_addDatepicker($dateEnd, 'datetime', {
+            showMillisec: false,
+            showMicrosec: false,
+            timeFormat: 'HH:mm:ss'
         });
     }
 
