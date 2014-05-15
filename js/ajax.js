@@ -196,9 +196,9 @@ var AJAX = {
         };
 
         //triggers a confirm dialog if:
-        //the user has performes some operations on loaded page
+        //the user has performed some operations on loaded page
         //the user clicks on some link, (won't trigger for buttons)
-        //the the click event is not triggered by script
+        //the click event is not triggered by script
         if (event.type === 'click' &&
             event.isTrigger !== true &&
             isInputAltered &&
