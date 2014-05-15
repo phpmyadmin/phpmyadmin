@@ -1099,9 +1099,9 @@ function PMA_getBinaryAndBlobColumn(
     $vkey, $is_upload
 ) {
     $html_output = '';
-    if (($GLOBALS['cfg']['ProtectBinary'] && $column['is_blob'])
-        || ($GLOBALS['cfg']['ProtectBinary'] == 'all' && $column['is_binary'])
-        || ($GLOBALS['cfg']['ProtectBinary'] == 'noblob' && !$column['is_blob'])
+    if (($GLOBALS['cfg']['ProtectBinary'] === 'blob' && $column['is_blob'])
+        || ($GLOBALS['cfg']['ProtectBinary'] === 'all')
+        || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob' && !$column['is_blob'])
     ) {
         $html_output .= __('Binary - do not edit');
         if (isset($data)) {
