@@ -166,6 +166,8 @@ var AJAX = {
         } else if ($(this).attr('target')) {
             return true;
         } else if ($(this).hasClass('ajax') || $(this).hasClass('disableAjax')) {
+            //reset the alteredTarget array, as specified AJAX operation has finished
+            AJAX.alteredTargets.length = 0;
             return true;
         } else if (href && href.match(/^#/)) {
             return true;
@@ -192,6 +194,11 @@ var AJAX = {
                 break;
             }
         };
+
+        //triggers a confirm dialog if:
+        //the user has performes some operations on loaded page
+        //the user clicks on some link, (won't trigger for buttons)
+        //the the click event is not triggered by script
         if (event.type === 'click' &&
             event.isTrigger !== true &&
             isInputAltered &&
