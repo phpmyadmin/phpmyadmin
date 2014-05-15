@@ -273,6 +273,7 @@ $js_messages['strHideQueryBox'] = __('Hide query box');
 $js_messages['strShowQueryBox'] = __('Show query box');
 $js_messages['strEdit'] = __('Edit');
 $js_messages['strNotValidRowNumber'] = __('%d is not valid row number.');
+$js_messages['strBrowseForeignValues'] = __('Browse foreign values');
 
 /* For server_variables.js */
 $js_messages['strSave'] = __('Save');

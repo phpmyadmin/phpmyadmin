@@ -288,14 +288,11 @@ class PMA_TableSearch
                 . ' />';
 
             $html_output .=  <<<EOT
-<a target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes'); return false" href="browse_foreigners.php?
+<a class="ajax browse_foreign" href="browse_foreigners.php?
 EOT;
             $html_output .= '' . PMA_URL_getCommon($this->_db, $this->_table)
                 . '&amp;field=' . urlencode($column_name) . '&amp;fieldkey='
                 . $column_index . '&amp;fromsearch=1"';
-            if ($in_zoom_search_edit) {
-                $html_output .= ' class="browse_foreign"';
-            }
             $html_output .= '>' . str_replace("'", "\'", $titles['Browse']) . '</a>';
         }
         return $html_output;
