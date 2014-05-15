@@ -181,7 +181,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     if ($server_slave_status) {
         $html_output .= '<th>' . __('Replication') . '</th>' . "\n";
     }
-    $html_output .= '<th colspan="' . ($db_is_system_schema ? 3 : 7) . '">'
+    $html_output .= '<th colspan="' . ($db_is_system_schema ? 4 : 7) . '">'
         . __('Sum')
         . '</th>';
     $html_output .= '<th class="value tbl_rows">'
@@ -750,7 +750,7 @@ function PMA_tableHeader($db_is_system_schema = false, $replication = false)
     $cnt = 0; // Let's count the columns...
 
     if ($db_is_system_schema) {
-        $action_colspan = 3;
+        $action_colspan = 4;
     } else {
         $action_colspan = 7;
     }
