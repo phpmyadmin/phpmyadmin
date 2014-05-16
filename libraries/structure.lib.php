@@ -686,6 +686,10 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
     // Set a flag if there are approximate row counts on page.
     if (! empty($row_count_pre)) {
         $approx_rows = true;
+    } else {
+        // this happens for information_schema, performance_schema,
+        // and in case there is no InnoDB table on this page
+        $approx_rows = false;
     }
     // Get the row count.
     $row_count = $row_count_pre
