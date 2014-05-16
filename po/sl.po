@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-14 07:14-0400\n"
-"PO-Revision-Date: 2014-05-14 18:08+0200\n"
+"PO-Revision-Date: 2014-05-16 17:17+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
@@ -12083,10 +12083,9 @@ msgid "Sum"
 msgstr "Vsota"
 
 #: libraries/structure.lib.php:308
-#, fuzzy
 #| msgid "Show color"
 msgid "Show create"
-msgstr "Pokaži barvo"
+msgstr "Pokaži create"
 
 #: libraries/structure.lib.php:332
 msgid "Add prefix to table"
@@ -12290,10 +12289,9 @@ msgid "Favorite List is full!"
 msgstr "Seznam Priljubljenih je poln!"
 
 #: libraries/structure.lib.php:2911
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Showing create queries"
-msgstr "Pokaži poizvedbe SQL"
+msgstr "Pokaži poizvedbe create"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
