@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - rfe #1448 Allow clicking an approximate row count to get a correct one
 - rfe #1487 "Browse foreign values" should be a modal dialog
 - rfe #1523 Better visual clue for table structure primary key column
+- rfe #982 Support for editing binary fields in hexadecimal
 
 4.2.3.0 (not yet released)
 

@@ -55,6 +55,7 @@ session_start();
 
 // Standard environment for tests
 $_SESSION[' PMA_token '] = 'token';
+$_SESSION['tmpval']['pftext'] = 'F';
 $GLOBALS['lang'] = 'en';
 $GLOBALS['is_ajax_request'] = false;
 

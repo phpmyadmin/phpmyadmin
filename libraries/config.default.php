@@ -1091,13 +1091,6 @@ $cfg['MaxRows'] = 25;
 $cfg['Order'] = 'SMART';
 
 /**
- * default for 'Show binary contents as HEX'
- *
- * @global string $cfg['DisplayBinaryAsHex']
- */
-$cfg['DisplayBinaryAsHex'] = true;
-
-/**
  * grid editing: save edited cell(s) in browse-mode at once
  *
  * @global boolean $cfg['SaveCellsAtOnce']

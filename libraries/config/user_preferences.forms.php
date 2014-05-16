@@ -112,7 +112,6 @@ $forms['Main_panel']['Browse'] = array(
     'ShowAll',
     'MaxRows',
     'Order',
-    'DisplayBinaryAsHex',
     'BrowsePointerEnable',
     'BrowseMarkerEnable',
     'GridEditing',

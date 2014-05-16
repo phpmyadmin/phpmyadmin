@@ -16,6 +16,9 @@ require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/relation.lib.php';
+require_once 'libraries/String.class.php';
+require_once 'libraries/plugins/transformations/Text_Plain_Link.class.php';
+require_once 'libraries/DatabaseInterface.class.php';
 
 /**
  * Test cases for displaying results.
@@ -38,12 +41,22 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
+        $GLOBALS['server'] = 0;
         $this->object = new PMA_DisplayResults('as', '', '', '');
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
-        $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_String'] = new PMA_String();
         include_once 'libraries/Response.class.php';
+
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->any())->method('fieldFlags')
+            ->will($this->returnArgument(1));
+
+        $GLOBALS['dbi'] = $dbi;
     }
 
     /**
@@ -736,7 +749,10 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             array(
                 '`a_sales`.`customer_id` ASC, `b_sales`.`customer_id` DESC',
                 array(
-                    array('`a_sales`.`customer_id` ASC', '`b_sales`.`customer_id` DESC'),
+                    array(
+                        '`a_sales`.`customer_id` ASC',
+                        '`b_sales`.`customer_id` DESC'
+                    ),
                     array('`a_sales`.`customer_id`', '`b_sales`.`customer_id`'),
                     array('ASC', 'DESC')
                 )
@@ -1702,6 +1718,310 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             $output,
             $this->object->__get('highlight_columns')
+        );
+    }
+
+
+    /**
+     * Data provider for testGetPartialText
+     *
+     * @return array parameters and output
+     */
+    public function dataProviderForTestGetPartialText()
+    {
+        return array(
+            array('P', 10, 'foo', false),
+            array('P', 1, 'foo', true),
+            array('F', 10, 'foo', false),
+            array('F', 1, 'foo', false)
+        );
+    }
+
+
+    /**
+     * Test _getPartialText
+     *
+     * @param string  $pftext     Partial or Full text
+     * @param integer $limitChars Partial or Full text
+     * @param string  $str        the string to be tested
+     * @param boolean $output     return value of _getPartialText
+     *
+     * @return void
+     *
+     * @dataProvider dataProviderForTestGetPartialText
+     */
+    public function testGetPartialText($pftext, $limitChars, $str, $output)
+    {
+        $_SESSION['tmpval']['pftext'] = $pftext;
+        $GLOBALS['cfg']['LimitChars'] = $limitChars;
+        $this->assertEquals(
+            $output,
+            $this->_callPrivateFunction(
+                '_getPartialText',
+                array(&$str)
+            )
+        );
+    }
+
+
+    /**
+     * Data provider for testHandleNonPrintableContents
+     *
+     * @return array parameters and output
+     */
+    public function dataProviderForTestHandleNonPrintableContents()
+    {
+        $transformation_plugin = new Text_Plain_Link(null);
+        $meta = new StdClass();
+        $meta->type = 'BLOB';
+        $url_params = array('db' => 'foo');
+
+        return array(
+            array(
+                true,
+                true,
+                'BLOB',
+                '1001',
+                'PMA_mimeDefaultFunction',
+                '',
+                'PMA_mimeDefaultFunction',
+                $meta,
+                $url_params,
+                null,
+                '<a href="tbl_get_field.php?db=foo&amp;server=0&amp;lang=en'
+                . '&amp;token=token" class="disableAjax">31303031</a>'
+            ),
+            array(
+                true,
+                false,
+                'BLOB',
+                '1001',
+                'PMA_mimeDefaultFunction',
+                '',
+                'PMA_mimeDefaultFunction',
+                $meta,
+                $url_params,
+                null,
+                '<a href="tbl_get_field.php?db=foo&amp;server=0&amp;lang=en'
+                . '&amp;token=token" class="disableAjax">[BLOB - 4 B]</a>'
+            ),
+            array(
+                false,
+                false,
+                'BINARY',
+                '1001',
+                $transformation_plugin,
+                '',
+                'PMA_mimeDefaultFunction',
+                $meta,
+                $url_params,
+                null,
+                '<a href="31303031" title="" target="_new">31303031</a>'
+            ),
+            array(
+                false,
+                true,
+                'GEOMETRY',
+                null,
+                '',
+                '',
+                'PMA_mimeDefaultFunction',
+                $meta,
+                $url_params,
+                null,
+                '[GEOMETRY - NULL]'
+            )
+        );
+    }
+
+
+    /**
+     * Test _handleNonPrintableContents
+     *
+     * @param boolean $display_binary        show binary contents?
+     * @param boolean $display_blob          show blob contents?
+     * @param string  $category              BLOB|BINARY|GEOMETRY
+     * @param string  $content               the binary content
+     * @param string  $transformation_plugin transformation plugin.
+     *                                       Can also be the default function:
+     *                                       PMA_mimeDefaultFunction
+     * @param string  $transform_options     transformation parameters
+     * @param string  $default_function      default transformation function
+     * @param object  $meta                  the meta-information about the field
+     * @param array   $url_params            parameters that should go to the
+     *                                       download link
+     * @param boolean $is_truncated          the result is truncated or not
+     * @param string  $output                the output of this function
+     *
+     * @return void
+     *
+     * @dataProvider dataProviderForTestHandleNonPrintableContents
+     */
+    public function testHandleNonPrintableContents(
+        $display_binary, $display_blob, $category, $content,
+        $transformation_plugin, $transform_options, $default_function,
+        $meta, $url_params, $is_truncated, $output
+    ) {
+        $_SESSION['tmpval']['display_binary'] = $display_binary;
+        $_SESSION['tmpval']['display_blob'] = $display_blob;
+        $GLOBALS['cfg']['LimitChars'] = 50;
+        $this->assertEquals(
+            $output,
+            $this->_callPrivateFunction(
+                '_handleNonPrintableContents',
+                array(
+                    $category, $content, $transformation_plugin,
+                    $transform_options, $default_function,
+                    $meta, $url_params, &$is_truncated
+                )
+            )
+        );
+    }
+
+
+    /**
+     * Data provider for testGetDataCellForNonNumericColumns
+     *
+     * @return array parameters and output
+     */
+    public function dataProviderForTestGetDataCellForNonNumericColumns()
+    {
+        $transformation_plugin = new Text_Plain_Link(null);
+        $meta = new StdClass();
+        $meta->type = 'BLOB';
+        $meta->flags = 'blob binary';
+
+        $meta2 = new StdClass();
+        $meta2->type = 'string';
+        $meta2->flags = '';
+        $meta2->decimals = 0;
+        $meta2->name = 'varchar';
+        $url_params = array('db' => 'foo');
+
+        return array(
+            array(
+                'all',
+                '1001',
+                'grid_edit',
+                $meta,
+                array(),
+                $url_params,
+                false,
+                'PMA_mimeDefaultFunction',
+                'PMA_mimeDefaultFunction',
+                array('http://www.github.com/'),
+                false,
+                array(),
+                0,
+                'binary',
+                '<td class="left   hex"><a href="tbl_get_field.php?'
+                . 'db=foo&amp;server=0&amp;lang=en&amp;token=token" '
+                . 'class="disableAjax">[BLOB - 4 B]</a></td>'
+            ),
+            array(
+                'noblob',
+                '1001',
+                'grid_edit',
+                $meta,
+                array(),
+                $url_params,
+                false,
+                $transformation_plugin,
+                'PMA_mimeDefaultFunction',
+                '',
+                false,
+                array(),
+                0,
+                'binary',
+                '<td class="left grid_edit  transformed hex">'
+                . '<a href="31303031" title="" target="_new">31303031</a></td>'
+            ),
+            array(
+                'noblob',
+                null,
+                'grid_edit',
+                $meta2,
+                array(),
+                $url_params,
+                false,
+                $transformation_plugin,
+                'PMA_mimeDefaultFunction',
+                '',
+                false,
+                array(),
+                0,
+                0,
+                '<td  data-decimals="0" data-type="string"  '
+                . 'class="grid_edit  null"><i>NULL</i></td>'
+            ),
+            array(
+                'all',
+                'foo bar baz',
+                'grid_edit',
+                $meta2,
+                array(),
+                $url_params,
+                false,
+                'PMA_mimeDefaultFunction',
+                'PMA_mimeDefaultFunction',
+                '',
+                false,
+                array(),
+                0,
+                0,
+                '<td data-decimals="0" data-type="string" '
+                . 'class="grid_edit ">foo bar baz</td>' . "\n"
+            )
+        );
+    }
+
+
+    /**
+     * Test _getDataCellForNonNumericColumns
+     *
+     * @param boolean $protectBinary         all|blob|noblob|no
+     * @param string  $column                the relevant column in data row
+     * @param string  $class                 the html class for column
+     * @param object  $meta                  the meta-information about the field
+     * @param array   $map                   the list of relations
+     * @param array   $_url_params           the parameters for generate url
+     * @param boolean $condition_field       the column should highlighted
+     *                                       or not
+     * @param string  $transformation_plugin the name of transformation function
+     * @param string  $default_function      the default transformation function
+     * @param string  $transform_options     the transformation parameters
+     * @param boolean $is_field_truncated    is data truncated due to LimitChars
+     * @param array   $analyzed_sql          the analyzed query
+     * @param integer $dt_result             the link id associated to the query
+     *                                       which results have to be displayed
+     * @param integer $col_index             the column index
+     * @param string  $output                the output of this function
+     *
+     * @return void
+     *
+     * @dataProvider dataProviderForTestGetDataCellForNonNumericColumns
+     */
+    public function testGetDataCellForNonNumericColumns(
+        $protectBinary, $column, $class, $meta, $map,
+        $_url_params, $condition_field, $transformation_plugin,
+        $default_function, $transform_options, $is_field_truncated,
+        $analyzed_sql, $dt_result, $col_index, $output
+    ) {
+        $_SESSION['tmpval']['display_binary'] = true;
+        $_SESSION['tmpval']['display_blob'] = false;
+        $_SESSION['tmpval']['relational_display'] = false;
+        $GLOBALS['cfg']['LimitChars'] = 50;
+        $GLOBALS['cfg']['ProtectBinary'] = $protectBinary;
+        $this->assertEquals(
+            $output,
+            $this->_callPrivateFunction(
+                '_getDataCellForNonNumericColumns',
+                array(
+                    $column, $class, $meta, $map, $_url_params, $condition_field,
+                    $transformation_plugin, $default_function, $transform_options,
+                    $is_field_truncated, $analyzed_sql, &$dt_result, $col_index
+                )
+            )
         );
     }
 }
