@@ -1125,7 +1125,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetBinaryAndBlobColumn()
     {
-        $GLOBALS['cfg']['ProtectBinary'] = true;
+        $GLOBALS['cfg']['ProtectBinary'] = 'blob';
         $column['is_blob'] = true;
         $column['Field_md5'] = '123';
         $column['pma_type'] = 'blob';
