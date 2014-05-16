@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - bug #4414 table display of performance_schema DB structure
 - bug #4411 Protect Binary Columns: many problems
 - bug #4395 BLOB link transformation is broken
+- bug       Respect ['ShowCreateDb'] in the navi panel
 
 4.2.1.0 (2014-05-13)
 - bug #4380 Cannot display table structure with enums containing special characters 
