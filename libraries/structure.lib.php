@@ -513,6 +513,7 @@ function PMA_getHtmlForStructureTableRow(
     // - when it's a view
     //  so ensure that we'll display "in use" below for a table
     //  that needs to be repaired
+    $approx_rows = false;
     if (isset($current_table['TABLE_ROWS'])
         && ($current_table['ENGINE'] != null
         || $table_is_view)
