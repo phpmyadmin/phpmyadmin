@@ -199,7 +199,7 @@ var AJAX = {
         //the user has performed some operations on loaded page
         //the user clicks on some link, (won't trigger for buttons)
         //the click event is not triggered by script
-        if (event.type === 'click' &&
+        if (typeof event !== 'undefined' && event.type === 'click' &&
             event.isTrigger !== true &&
             isInputAltered &&
             confirm(PMA_messages['strConfirmNavigation']) === false
