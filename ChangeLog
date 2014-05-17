@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 - bug #4395 BLOB link transformation is broken
 - bug       Respect ['ShowCreateDb'] in the navi panel
 - bug #4392 Cannot see databases in nav panel on databases grouping when disabled database expansion
+- bug #4419 No more calendar into search tab
 
 4.2.1.0 (2014-05-13)
 - bug #4380 Cannot display table structure with enums containing special characters
