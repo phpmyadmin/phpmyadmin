@@ -2,7 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.3.0.0 (not yet released)
-- rfe #1518 Confirm dialog on accidentally leaving a page 
+- rfe #1518 Confirm dialog on accidentally leaving a page
 - rfe #1445 Easy access to "SHOW CREATE ..."
 - rfe #1448 Allow clicking an approximate row count to get a correct one
 - rfe #1487 "Browse foreign values" should be a modal dialog
@@ -13,9 +13,10 @@ phpMyAdmin - ChangeLog
 - bug #4411 Protect Binary Columns: many problems
 - bug #4395 BLOB link transformation is broken
 - bug       Respect ['ShowCreateDb'] in the navi panel
+- bug #4392 Cannot see databases in nav panel on databases grouping when disabled database expansion
 
 4.2.1.0 (2014-05-13)
-- bug #4380 Cannot display table structure with enums containing special characters 
+- bug #4380 Cannot display table structure with enums containing special characters
 - bug #4381 Cannot remove the last remembered sorted column
 - bug       Correctly fetch length of user and host fields in MySQL tables
 - bug #4364 examples/signon.php does not support the SessionSavePath directive
