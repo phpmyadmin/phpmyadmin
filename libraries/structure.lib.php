@@ -518,7 +518,7 @@ function PMA_getHtmlForStructureTableRow(
         && ($current_table['ENGINE'] != null
         || $table_is_view)
     ) {
-        list($html_view_table, $approx_rows) = PMA_getHtmlForNotNullEngineViewTable (
+        list($html_view_table, $approx_rows) = PMA_getHtmlForNotNullEngineViewTable(
             $table_is_view, $current_table, $collation, $is_show_stats,
             $tbl_url_query, $formatted_size, $unit, $overhead, $create_time,
             $update_time, $check_time
@@ -808,8 +808,10 @@ function PMA_tableHeader($db_is_system_schema = false, $replication = false)
         . '<th>' . PMA_sortableTableHeader(__('Rows'), 'records', 'DESC')
         . PMA_Util::showHint(
             PMA_sanitize(
-                __('May be approximate. Click on the number to get the exact count.'
-                    . ' See [doc@faq3-11]FAQ 3.11[/doc].')
+                __(
+                    'May be approximate. Click on the number to get the exact'
+                    . ' count. See [doc@faq3-11]FAQ 3.11[/doc].'
+                )
             )
         ) . "\n"
         . '</th>' . "\n";
@@ -3014,6 +3016,7 @@ function PMA_getShowCreate($db, $db_object, $type = 'table')
 
 /**
  * Returns the real row count for a table
+ *
  * @param string $db    Database name
  * @param string $table Table name
  *
@@ -3033,6 +3036,7 @@ function PMA_getRealRowCountTable($db, $table)
 
 /**
  * Returns the real row count for all tables of a DB
+ *
  * @param string $db     Database name
  * @param array  $tables Array containing table names.
  *
@@ -3056,14 +3060,18 @@ function PMA_getRealRowCountDb($db, $tables)
 
 /**
  * Handles request for real row count on database level view page.
+ *
+ * @return boolean true
  */
 function PMA_handleRealRowCountRequest()
 {
     $ajax_response = PMA_Response::getInstance();
     // If there is a request to update all table's row count.
     if (isset($_REQUEST['real_row_count_all'])) {
-        $real_row_count_all = PMA_getRealRowCountDb($GLOBALS['db'],
-            $GLOBALS['tables']);
+        $real_row_count_all = PMA_getRealRowCountDb(
+            $GLOBALS['db'],
+            $GLOBALS['tables']
+        );
         $ajax_response->addJSON(
             'real_row_count_all',
             json_encode($real_row_count_all)
@@ -3071,8 +3079,10 @@ function PMA_handleRealRowCountRequest()
         return true;
     }
     // Get the real row count for the table.
-    $real_row_count = PMA_getRealRowCountTable($GLOBALS['db'],
-        $_REQUEST['table']);
+    $real_row_count = PMA_getRealRowCountTable(
+        $GLOBALS['db'],
+        $_REQUEST['table']
+    );
     // Format the number.
     $real_row_count = PMA_Util::formatNumber($real_row_count, 0);
     $ajax_response->addJSON('real_row_count', $real_row_count);
