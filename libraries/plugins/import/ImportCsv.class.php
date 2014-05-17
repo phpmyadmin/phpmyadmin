@@ -169,7 +169,7 @@ class ImportCsv extends AbstractImportCsv
         // If there is an error in the parameters entered,
         // indicate that immediately.
         if ($param_error) {
-            PMA_Util::mysqlDie($message->getMessage(), '', '', $err_url);
+            PMA_Util::mysqlDie($message->getMessage(), '', false, $err_url);
         }
 
         $buffer = '';
