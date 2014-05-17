@@ -91,7 +91,7 @@ if (isset($_REQUEST['do_save_data'])) {
         );
         exit;
     } else {
-        $error_message_html = PMA_Util::mysqlDie('', '', '', $err_url, false);
+        $error_message_html = PMA_Util::mysqlDie('', '', false, $err_url, false);
         $response->addHTML($error_message_html);
         exit;
     }

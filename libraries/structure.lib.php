@@ -2447,7 +2447,7 @@ function PMA_updateColumns($db, $table)
             PMA_Util::mysqlDie(
                 $GLOBALS['dbi']->getError(),
                 'USE ' . PMA_Util::backquote($db) . ';',
-                '',
+                false,
                 $err_url
             );
         }

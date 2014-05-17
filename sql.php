@@ -139,7 +139,7 @@ if (PMA_hasNoRightsToDropDatabase(
     PMA_Util::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),
         '',
-        '',
+        false,
         $err_url
     );
 } // end if
