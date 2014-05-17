@@ -983,7 +983,9 @@ EOT;
             $html_output .= '<td>' . $properties['type'] . '</td>';
             $html_output .= '<td>' . $properties['collation'] . '</td>';
             $html_output .= '<td>' . $properties['func'] . '</td>';
-            $html_output .= '<td>' . $properties['value'] . '</td>';
+            // here, the data-type attribute is needed for a date/time picker
+            $html_output .= '<td data-type="' . $properties['type'] . '"'
+                . '>' . $properties['value'] . '</td>';
             $html_output .= '</tr>';
             //Displays hidden fields
             $html_output .= '<tr><td>';
