@@ -1924,7 +1924,7 @@ function PMA_getErrorUrl($url_params)
  * @param array   $query_fields    column names array
  * @param array   $value_sets      array of query values
  *
- * @return string a query
+ * @return array of query
  */
 function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
 {
@@ -1933,11 +1933,15 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
     } else {
         $insert_command = 'INSERT ';
     }
-    $query[] = $insert_command . 'INTO '
+    
+    $query = array(
+        $insert_command . 'INTO '
         . PMA_Util::backquote($GLOBALS['db']) . '.'
         . PMA_Util::backquote($GLOBALS['table'])
         . ' (' . implode(', ', $query_fields) . ') VALUES ('
-        . implode('), (', $value_sets) . ')';
+        . implode('), (', $value_sets) . ')'
+    );
+    
     unset($insert_command, $query_fields);
     return $query;
 }
