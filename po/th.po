@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-03-27 15:15+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Thai <https://l10n.cihar.com/projects/phpmyadmin/master/th/>\n"
+"PO-Revision-Date: 2014-05-17 07:11+0200\n"
+"Last-Translator: Sorawee Porncharoenwase <nullzero.free@gmail.com>\n"
+"Language-Team: Thai <https://l10n.cihar.com/projects/phpmyadmin/4-2/th/>\n"
+"Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: th\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.9\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -675,13 +675,15 @@ msgstr "ที่คั่นหน้า %s ได้ถูกสร้าง�
 #: import.php:577
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "นำเข้าได้สำเร็จ %d ได้ถูกนำเดินการแล้ว"
+msgstr "นำเข้าสำเร็จเรียบร้อย การสอบถาม %d รายการได้ถูกดำเนินการแล้ว"
 
 #: import.php:598
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
-msgstr "หมดเวลาการนำเข้าสริปแล้ว กรุณานำเข้าไฟล์สริปใหม่"
+msgstr ""
+"หมดเวลาการนำเข้าแล้ว หากคุณต้องการดำเนินการต่อให้เรียบร้อย "
+"กรุณานำเข้าไฟล์เดิมอีกรอบ"
 
 #: import.php:602
 msgid ""
