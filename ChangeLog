@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - bug #4419 No more calendar into search tab
 - bug #4398 Monitor should fit into screen width
 - bug #4418 When copying databases, primary key attributes get lost
+- bug #4421 empty maxInputVars on js/messages.php
 
 4.2.1.0 (2014-05-13)
 - bug #4380 Cannot display table structure with enums containing special characters
