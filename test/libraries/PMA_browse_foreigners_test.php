@@ -80,6 +80,7 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
             PMA_getHtmlForShowAll(null)
         );
 
+        $foreignData = array();
         $foreignData['disp_row'] = array();
         $GLOBALS['cfg']['ShowAll'] = false;
 
@@ -119,6 +120,7 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
         );
 
         $_REQUEST['pos'] = 15;
+        $foreignData = array();
         $foreignData['disp_row'] = array();
         $foreignData['the_total'] = 5;
 
@@ -258,9 +260,10 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
         $db = '';
         $table = '';
         $field = 'foo';
+        $foreignData = array();
         $foreignData['disp_row'] = '';
         $fieldkey = 'bar';
-        $data = '';
+        $data = array();
         $_REQUEST['rownumber'] = 1;
         $_REQUEST['foreign_filter'] = '5';
         $result = PMA_getHtmlForRelationalFieldSelection(
