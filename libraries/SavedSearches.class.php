@@ -130,8 +130,8 @@ class PMA_SavedSearches
     /**
      * Setter for criterias
      *
-     * @param array $criterias Criterias of saved searches
-     * @param bool  $json      Criterias are in JSON format
+     * @param array|string $criterias Criterias of saved searches
+     * @param bool         $json      Criterias are in JSON format
      *
      * @return static
      */
