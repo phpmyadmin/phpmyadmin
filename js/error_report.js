@@ -229,7 +229,7 @@ var ErrorReport = {
             "microhistory": ErrorReport._get_microhistory()
         };
         if (typeof AJAX.cache.pages[AJAX.cache.current - 1] !== 'undefined') {
-           report_data.scripts = AJAX.cache.pages[AJAX.cache.current - 1].scripts.map(
+            report_data.scripts = AJAX.cache.pages[AJAX.cache.current - 1].scripts.map(
                 function (script) {
                     return script.name;
                 }

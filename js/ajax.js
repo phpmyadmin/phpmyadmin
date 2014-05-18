@@ -146,7 +146,7 @@ var AJAX = {
         }
 
         if(i == AJAX.alteredTargets.length) {
-           AJAX.alteredTargets[i] = event.target;
+            AJAX.alteredTargets[i] = event.target;
         }
     },
     /**
@@ -193,7 +193,7 @@ var AJAX = {
                 isInputAltered = true;
                 break;
             }
-        };
+        }
 
         //triggers a confirm dialog if:
         //the user has performed some operations on loaded page

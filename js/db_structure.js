@@ -153,7 +153,8 @@ function PMA_fetchRealRowCount($target)
                             // Update each table row count.
                             $('table.data td[data-table*="' + table.table + '"]')
                             .text(table.row_count);
-                    });
+                        }
+                    );
                 }
                 // If to update a particular table's row count.
                 if (response.real_row_count) {

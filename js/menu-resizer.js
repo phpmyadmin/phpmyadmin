@@ -147,7 +147,7 @@
                         'menuResizer',
                         new MenuResizer($this, widthCalculator)
                     );
-                 }
+                }
             });
         },
         resize: function () {

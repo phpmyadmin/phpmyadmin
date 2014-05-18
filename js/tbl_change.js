@@ -534,7 +534,7 @@ AJAX.registerOnload('tbl_change.js', function () {
     /**
      * @var $function_option_dialog object holds dialog for selected function options.
      */
-     var $function_option_dialog = null;
+    var $function_option_dialog = null;
 
     PMA_tooltip(
         $("select[name*='funcs']"),

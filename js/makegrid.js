@@ -438,7 +438,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     text += text.length > 0 ? '<br />' : '';
                     text += g.sortHint;
                 }
-                 if (g.showRemColHint && g.strRemColHint) {
+                if (g.showRemColHint && g.strRemColHint) {
                     text += text.length > 0 ? '<br />' : '';
                     text += g.strRemColHint;
                 }
@@ -1287,10 +1287,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 var sqlOuter = $result_query.find('.sqlOuter').wrap('<p>').parent().html();
                                 var tools = $result_query.find('.tools').wrap('<p>').parent().html();
                                 // If two query box exists update query in second else add a second box
-                                if($('#result_query').find('div.sqlOuter').length>1) {
-                                   $('#result_query').children(":nth-child(4)").remove();
-                                   $('#result_query').children(":nth-child(4)").remove();
-                                   $('#result_query').append(sqlOuter+tools);
+                                if ($('#result_query').find('div.sqlOuter').length>1) {
+                                    $('#result_query').children(":nth-child(4)").remove();
+                                    $('#result_query').children(":nth-child(4)").remove();
+                                    $('#result_query').append(sqlOuter+tools);
                                 }
                                 else {
                                     $('#result_query').append(sqlOuter+tools);
