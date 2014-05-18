@@ -544,7 +544,9 @@ class PMA_NavigationTree
      */
     public function groupNode($node)
     {
-        if ($node->type != Node::CONTAINER || $GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
+        if ($node->type != Node::CONTAINER
+            || $GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']
+        ) {
             return;
         }
 
@@ -799,8 +801,8 @@ class PMA_NavigationTree
     /**
      * Finds whether given tree matches this tree.
      *
-     * @param array  $tree  Tree to check
-     * @param array  $paths Paths to check
+     * @param array $tree  Tree to check
+     * @param array $paths Paths to check
      *
      * @return boolean
      */

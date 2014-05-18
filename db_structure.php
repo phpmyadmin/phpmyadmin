@@ -56,8 +56,10 @@ $sub_part = '_structure';
 require 'libraries/db_info.inc.php';
 
 // If there is an Ajax request for real row count of a table.
-if ($GLOBALS['is_ajax_request'] && isset($_REQUEST['real_row_count'])
-    && $_REQUEST['real_row_count'] == true) {
+if ($GLOBALS['is_ajax_request']
+    && isset($_REQUEST['real_row_count'])
+    && $_REQUEST['real_row_count'] == true
+) {
     PMA_handleRealRowCountRequest();
     exit;
 }
