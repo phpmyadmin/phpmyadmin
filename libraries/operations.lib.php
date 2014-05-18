@@ -390,7 +390,7 @@ function PMA_getSqlConstraintsQueryForFullDb(
         $sql_constraints = '';
         $sql_drop_foreign_keys = '';
         $export_sql_plugin->getTableDef(
-            $db, $each_table, "\n", '', false, false
+            $db, $each_table, "\n", '', false, false, false, false
         );
         if ($move && ! empty($sql_drop_foreign_keys)) {
             $GLOBALS['dbi']->query($sql_drop_foreign_keys);
