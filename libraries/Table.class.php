@@ -1011,15 +1011,43 @@ class PMA_Table
                 $GLOBALS['sql_indexes'] = PMA_SQP_format(
                     $parsed_sql, 'query_only'
                 );
-                if ($mode == 'one_table') {
+                if ($mode == 'one_table' || $mode == 'db_copy') {
                     $GLOBALS['dbi']->query($GLOBALS['sql_indexes']);
                 }
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_indexes'];
-                if ($mode == 'one_table') {
+                if ($mode == 'one_table' || $mode == 'db_copy') {
                     unset($GLOBALS['sql_indexes']);
 
                 }
+            }
 
+            /*
+             * add AUTO_INCREMENT to the table
+             *
+             * @todo refactor with similar code above
+             */
+            if (! empty($GLOBALS['sql_auto_increments'])) {
+                if ($mode == 'one_table' || $mode == 'db_copy') {
+                    $parsed_sql =  PMA_SQP_parse($GLOBALS['sql_auto_increments']);
+                    $i = 0;
+
+                    // find the first $table_delimiter, it must be the source
+                    // table name
+                    while ($parsed_sql[$i]['type'] != $table_delimiter) {
+                        $i++;
+                    }
+
+                    // replace it by the target table name, no need
+                    // to backquote()
+                    $parsed_sql[$i]['data'] = $target;
+
+                    // Generate query back
+                    $GLOBALS['sql_auto_increments'] = PMA_SQP_format(
+                        $parsed_sql, 'query_only'
+                    );
+                    $GLOBALS['dbi']->query($GLOBALS['sql_auto_increments']);
+                    $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_auto_increments'];
+                }
             }
 
         } else {
