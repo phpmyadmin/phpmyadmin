@@ -123,7 +123,8 @@ class Image_JPEG_Link_Test extends PHPUnit_Framework_TestCase
     {
         $buffer = "PMA_IMAGE_LINK";
         $options = array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link");
-        $result = '<a href="transformation_wrapper.phpPMA_wrapper_link"'
+        $result = '<a class="disableAjax" target="_new"'
+             . ' href="transformation_wrapper.phpPMA_wrapper_link"'
              . ' alt="PMA_IMAGE_LINK">[BLOB]</a>';
         $this->assertEquals(
             $result,
