@@ -448,7 +448,7 @@ function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move, $db)
 {
     $error = false;
     foreach ($tables_full as $each_table => $tmp) {
-        // skip the views; we have creted stand-in definitions
+        // skip the views; we have created stand-in definitions
         if (PMA_Table::isView($db, $each_table)) {
             continue;
         }
