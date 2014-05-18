@@ -1023,10 +1023,15 @@ div#chartVariableSettings {
     margin-left:10px;
 }
 
+table#chartGrid td {
+    padding: 3px;
+    margin: 0;
+}
+
 table#chartGrid div.monitorChart {
     background: #EBEBEB;
-    width: 400px;
-    height: 300px;
+    overflow: hidden;
+    border: none;
 }
 
 div#serverstatus div.tabLinks {

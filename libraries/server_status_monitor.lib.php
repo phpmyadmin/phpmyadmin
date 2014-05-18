@@ -345,10 +345,6 @@ function PMA_getHtmlForSettingsDialog()
     $retval .= '<option>4</option>';
     $retval .= '<option>5</option>';
     $retval .= '<option>6</option>';
-    $retval .= '<option>7</option>';
-    $retval .= '<option>8</option>';
-    $retval .= '<option>9</option>';
-    $retval .= '<option>10</option>';
     $retval .= '</select>';
     $retval .= '</div>';
     $retval .= '<div class="clearfloat paddingtop">';
