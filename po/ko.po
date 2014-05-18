@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-14 07:14-0400\n"
-"PO-Revision-Date: 2014-05-11 04:57+0200\n"
+"PO-Revision-Date: 2014-05-18 16:07+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
-"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/>"
+"\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1593,7 +1593,7 @@ msgstr "(사용안함)"
 
 #: js/messages.php:249
 msgid "Failed to get real row count."
-msgstr ""
+msgstr "실제 줄 갯수 알아오기 실패."
 
 #: js/messages.php:252
 msgid "Searching"
@@ -4730,10 +4730,9 @@ msgid "Disable multi table maintenance"
 msgstr "다중테이블 유지보수기능 해제"
 
 #: libraries/config/messages.inc.php:102
-#, fuzzy
 #| msgid "Edit SQL queries in popup window"
 msgid "Edit SQL queries in popup window."
-msgstr "팝업창으로 SQL 쿼리 편집"
+msgstr "팝업창에서 SQL 쿼리 수정."
 
 #: libraries/config/messages.inc.php:103
 msgid "Edit in window"
@@ -4744,15 +4743,13 @@ msgid "Display errors"
 msgstr "오류 표시"
 
 #: libraries/config/messages.inc.php:106
-#, fuzzy
 #| msgid ""
 #| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 #| "limit)"
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
-msgstr ""
-"스크립트가 실행 가능한 시간을 초단위로 설정합니다. ([kbd]0[/kbd] 이면 무제한)"
+msgstr "스크립트가 실행 가능한 시간을 초단위로 설정합니다. ([kbd]0[/kbd] 이면 무제한)."
 
 #: libraries/config/messages.inc.php:109
 msgid "Maximum execution time"
@@ -4976,36 +4973,31 @@ msgid "Export time in UTC"
 msgstr "세계 표준시(UTC)로 시간 내보내기"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
 #| msgid "Force secured connection while using phpMyAdmin"
 msgid "Force secured connection while using phpMyAdmin."
-msgstr "강제적인 보안 연결로 phpMyAdmin을 사용하기"
+msgstr "강제적인 보안 연결로 phpMyAdmin을 사용하기."
 
 #: libraries/config/messages.inc.php:200
 msgid "Force SSL connection"
 msgstr "강제적인 SSL 연결"
 
 #: libraries/config/messages.inc.php:202
-#, fuzzy
 #| msgid ""
 #| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 #| "the referenced data, [kbd]id[/kbd] is the key value"
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
-msgstr ""
-"외래키 드롭다운 박스 항목을 정렬; [kbd]content[/kbd]: 참조 데이터, [kbd]id[/"
-"kbd]: 키 값"
+msgstr "외래키 드롭다운 박스 항목을 정렬; [kbd]content[/kbd]: 참조 데이터, [kbd]id[/kbd]: 키 값."
 
 #: libraries/config/messages.inc.php:205
 msgid "Foreign key dropdown order"
 msgstr "외래키 드롭다운 순서(정렬)"
 
 #: libraries/config/messages.inc.php:207
-#, fuzzy
 #| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
-msgstr "이보다 적은 항목의 경우 드롭다운이 사용됩니다"
+msgstr "이보다 적은 항목의 경우 드롭다운이 사용됩니다."
 
 #: libraries/config/messages.inc.php:208
 msgid "Foreign key limit"
@@ -5016,18 +5008,16 @@ msgid "Browse mode"
 msgstr "탐색 모드"
 
 #: libraries/config/messages.inc.php:210
-#, fuzzy
 #| msgid "Customize browse mode"
 msgid "Customize browse mode."
-msgstr "탐색 모드 사용자 정의"
+msgstr "탐색 모드 사용자화."
 
 #: libraries/config/messages.inc.php:212 libraries/config/messages.inc.php:214
 #: libraries/config/messages.inc.php:232 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:245 libraries/config/messages.inc.php:291
-#, fuzzy
 #| msgid "Customize default options"
 msgid "Customize default options."
-msgstr "기본옵션 사용자화"
+msgstr "기본옵션 사용자화."
 
 #: libraries/config/messages.inc.php:213 libraries/config/setup.forms.php:246
 #: libraries/config/setup.forms.php:323
@@ -5086,30 +5076,27 @@ msgid "Import / export"
 msgstr "가져오기 / 내보내기"
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Set import and export directories and compression options"
 msgid "Set import and export directories and compression options."
-msgstr "가져오기/내보내기 디렉토리와 압축 옵션 설정"
+msgstr "가져오기/내보내기 디렉토리와 압축 옵션 설정."
 
 #: libraries/config/messages.inc.php:231
 msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:234
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Databases display options."
-msgstr "데이터베이스 표시 선택사항"
+msgstr "데이터베이스 표시 옵션."
 
 #: libraries/config/messages.inc.php:235 setup/frames/menu.inc.php:24
 msgid "Navigation panel"
 msgstr "네비게이션 패널"
 
 #: libraries/config/messages.inc.php:236
-#, fuzzy
 #| msgid "Customize appearance of the navigation panel"
 msgid "Customize appearance of the navigation panel."
-msgstr "네비게이션 패널 모양 설정"
+msgstr "네비게이션 패널 모양 설정."
 
 #: libraries/config/messages.inc.php:237 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:143
@@ -5117,16 +5104,14 @@ msgid "Servers"
 msgstr "서버"
 
 #: libraries/config/messages.inc.php:238
-#, fuzzy
 #| msgid "Servers display options"
 msgid "Servers display options."
-msgstr "서버보기 옵션"
+msgstr "서버보기 옵션."
 
 #: libraries/config/messages.inc.php:240
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Tables display options."
-msgstr "테이블보기 옵션"
+msgstr "테이블보기 옵션."
 
 #: libraries/config/messages.inc.php:241 setup/frames/menu.inc.php:25
 msgid "Main panel"
@@ -5141,10 +5126,9 @@ msgid "Other core settings"
 msgstr "기타 핵심기능 설정"
 
 #: libraries/config/messages.inc.php:248
-#, fuzzy
 #| msgid "Settings that didn't fit anywhere else"
 msgid "Settings that didn't fit anywhere else."
-msgstr "어디에도 해당되지 않는 설정"
+msgstr "어디에도 해당되지 않는 설정."
 
 #: libraries/config/messages.inc.php:249
 msgid "Page titles"
@@ -5172,16 +5156,13 @@ msgid "Security"
 msgstr "보안"
 
 #: libraries/config/messages.inc.php:259
-#, fuzzy
 #| msgid ""
 #| "Please note that phpMyAdmin is just a user interface and its features do "
 #| "not limit MySQL"
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
-msgstr ""
-"phpMyAdmin은 유저 인터페이스일 뿐이기에, 그 기능이 MySQL을 제한하지 않음을 이"
-"해해 주십시오."
+msgstr "phpMyAdmin은 유저 인터페이스일 뿐이며, 해당 기능들이 MySQL을 제한하지 않습니다."
 
 #: libraries/config/messages.inc.php:262
 msgid "Basic settings"
@@ -5530,20 +5511,18 @@ msgid "Maximum databases"
 msgstr "데이터베이스의 최대 갯수"
 
 #: libraries/config/messages.inc.php:402
-#, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page of the navigation "
 #| "tree."
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
-msgstr "탐색 트리에서 페이지 당 보여질 아이템 수."
+msgstr "탐색 트리 첫번째 단계에서 페이지 당 보여질 아이템 수."
 
 #: libraries/config/messages.inc.php:405
-#, fuzzy
 #| msgid "Maximum items in branch"
 msgid "Maximum items on first level"
-msgstr "브렌치 당 최대 아이템 갯수"
+msgstr "첫번째 단계에서 최대 아이템 갯수"
 
 #: libraries/config/messages.inc.php:407
 msgid ""
@@ -5672,10 +5651,9 @@ msgid "Database tree separator"
 msgstr "데이터베이스 트리 구분자"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid "String that separates tables into different tree levels"
 msgid "String that separates tables into different tree levels."
-msgstr "테이블을 서로 다른 트리 레벨로 구분하기 위한 문자열"
+msgstr "테이블을 서로 다른 트리 레벨로 구분하기 위한 문자열."
 
 #: libraries/config/messages.inc.php:460
 msgid "Table tree separator"
@@ -5686,10 +5664,9 @@ msgid "Maximum table tree depth"
 msgstr "테이블 트리의 최대 깊이(depth)"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Highlight server under the mouse cursor"
 msgid "Highlight server under the mouse cursor."
-msgstr "마우스 커서 아래의 서버를 강조 표시"
+msgstr "마우스 커서 아래의 서버를 강조 표시."
 
 #: libraries/config/messages.inc.php:464
 msgid "Enable highlighting"
@@ -5697,45 +5674,40 @@ msgstr "﻿강조 표시 사용"
 
 #: libraries/config/messages.inc.php:466
 msgid "Whether to disable the possibility of database expansion or not."
-msgstr ""
+msgstr "데이터베이스 확장 가능 여부를 비활성화할 것인지."
 
 #: libraries/config/messages.inc.php:468
-#, fuzzy
 #| msgid "Use database search"
 msgid "Disable database expansion"
-msgstr "데이터베이스 검색 사용"
+msgstr "데이터베이스 확장 비활성화"
 
 #: libraries/config/messages.inc.php:470
-#, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of recently used tables; set 0 to disable."
-msgstr "최근 사용한 테이블 최대 개수; 0이면 이 기능 사용 안 함"
+msgstr "최근 사용한 테이블 최대 개수; 0이면 이 기능 사용 안 함."
 
 #: libraries/config/messages.inc.php:472
-#, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr "최근 사용한 테이블 최대 개수; 0이면 이 기능 사용 안 함"
+msgstr "즐겨찾기 테이블 최대 개수; 0이면 이 기능 사용 안 함."
 
 #: libraries/config/messages.inc.php:473
 msgid "Recently used tables"
 msgstr "최근 사용한 테이블"
 
 #: libraries/config/messages.inc.php:475
-#, fuzzy
 #| msgid "These are Edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links."
-msgstr "수정, 복사, 삭제 링크가 있음"
+msgstr "수정, 복사, 삭제 링크가 있음."
 
 #: libraries/config/messages.inc.php:476
 msgid "Where to show the table row links"
 msgstr "테이블 열 링크를 표시할 위치"
 
 #: libraries/config/messages.inc.php:478
-#, fuzzy
 #| msgid "Use natural order for sorting table and database names"
 msgid "Use natural order for sorting table and database names."
-msgstr "테이블과 데이터베이스를 정렬할 때 자연 순서(natural order) 사용"
+msgstr "테이블과 데이터베이스를 정렬할 때 자연 순서(natural order) 사용."
 
 #: libraries/config/messages.inc.php:479
 msgid "Natural order"
@@ -5743,20 +5715,18 @@ msgstr "자연순서"
 
 #: libraries/config/messages.inc.php:480 libraries/config/messages.inc.php:511
 #: libraries/config/messages.inc.php:513
-#, fuzzy
 #| msgid "Use only icons, only text or both"
 msgid "Use only icons, only text or both."
-msgstr "아이콘만 사용, 텍스트만 사용, 둘 다 사용"
+msgstr "아이콘만 사용, 텍스트만 사용, 둘 다 사용."
 
 #: libraries/config/messages.inc.php:481
 msgid "Table navigation bar"
 msgstr "테이블 네비게이션 바"
 
 #: libraries/config/messages.inc.php:483
-#, fuzzy
 #| msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
-msgstr "GZip 출력 버퍼를 사용하여 HTTP 전송 시 속도 증가"
+msgstr "HTTP 전송 시 속도에 맞춰 GZip 출력 버퍼를 사용."
 
 #: libraries/config/messages.inc.php:484
 msgid "GZip output buffering"
@@ -9852,26 +9822,23 @@ msgid "You must provide a trigger name!"
 msgstr "루틴 이름이 필요함"
 
 #: libraries/rte/rte_triggers.lib.php:465
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "루틴 이름이 필요함"
+msgstr "트리거의 올바른 타이밍을 입력하세요!"
 
 #: libraries/rte/rte_triggers.lib.php:472
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid event for the trigger!"
-msgstr "루틴 이름이 필요함"
+msgstr "트리거의 올바른 이벤트를 입력하세요!"
 
 #: libraries/rte/rte_triggers.lib.php:480
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name!"
-msgstr "루틴 이름이 필요함"
+msgstr "올바른 테이블 이름을 입력하세요!"
 
 #: libraries/rte/rte_triggers.lib.php:486
 msgid "You must provide a trigger definition."
-msgstr ""
+msgstr "트리거 정의를 입력하세요."
 
 #: libraries/rte/rte_words.lib.php:27
 msgid "Add routine"
@@ -9880,10 +9847,9 @@ msgstr "루틴 추가하기"
 #: libraries/rte/rte_words.lib.php:29
 #, php-format
 msgid "Export of routine %s"
-msgstr ""
+msgstr "루틴 %s 내보내기"
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
 msgstr "루틴"
@@ -9908,7 +9874,7 @@ msgstr "트리거 추가"
 #: libraries/rte/rte_words.lib.php:43
 #, php-format
 msgid "Export of trigger %s"
-msgstr ""
+msgstr "트리거 %s 내보내기"
 
 #: libraries/rte/rte_words.lib.php:44
 msgid "trigger"
@@ -9919,10 +9885,10 @@ msgid "You do not have the necessary privileges to create a trigger"
 msgstr "트리거를 생성하는데 필요한 권한을 가지고 있지 않습니다"
 
 #: libraries/rte/rte_words.lib.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "데이터베이스에 테이블이 없습니다."
+msgstr "데이터베이스 %2$s에 %1$s라는 트리거가 없음"
 
 #: libraries/rte/rte_words.lib.php:49
 msgid "There are no triggers to display."
@@ -9968,15 +9934,15 @@ msgstr "%s 테이블이 존재하지 않습니다!"
 #: libraries/schema/Svg_Relation_Schema.class.php:352
 #, php-format
 msgid "Please configure the coordinates for table %s"
-msgstr ""
+msgstr "테이블 %s의 좌표를 설정하세요"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:708
 #: libraries/schema/Pdf_Relation_Schema.class.php:845
 #: libraries/schema/Svg_Relation_Schema.class.php:679
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "\"%s\" 데이터베이스의 스킴(윤곽) - 페이지 %s"
+msgstr "데이터베이스 %s의 스키마 - 페이지 %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:210
 msgid "This page does not contain any tables!"
@@ -9984,7 +9950,7 @@ msgstr "이 페이지에는 테이블이 없습니다!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "스키마 에러: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:867
 #: libraries/schema/Pdf_Relation_Schema.class.php:1213
@@ -10013,19 +9979,17 @@ msgid "Create a page"
 msgstr "새 페이지 만들기"
 
 #: libraries/schema/User_Schema.class.php:138
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "페이지 번호:"
+msgstr "페이지 이름"
 
 #: libraries/schema/User_Schema.class.php:145
-#, fuzzy
 msgid "Automatic layout based on"
-msgstr "서버 버전"
+msgstr "자동 레이아웃 기준"
 
 #: libraries/schema/User_Schema.class.php:149
 msgid "Internal relations"
-msgstr ""
+msgstr "내부 릴레이션"
 
 #: libraries/schema/User_Schema.class.php:163
 msgid "FOREIGN KEY"
@@ -12039,19 +12003,17 @@ msgstr "컬럼 이동"
 
 #: libraries/structure.lib.php:1478
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "위아래로 드래그해서 컬럼을 옮기세요."
 
 #: libraries/structure.lib.php:1527 view_create.php:178
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "인쇄용 보기"
+msgstr "뷰 편집"
 
 #: libraries/structure.lib.php:1561
-#, fuzzy
 #| msgid "Relational key"
 msgid "Relation view"
-msgstr "관계키"
+msgstr "릴레이션 뷰"
 
 #: libraries/structure.lib.php:1573
 msgid "Propose table structure"
@@ -12063,17 +12025,16 @@ msgid "You have to add at least one column."
 msgstr "적어도 한 개 이상의 컬럼을 추가해야 합니다."
 
 #: libraries/structure.lib.php:1618
-#, fuzzy
 #| msgid "Add columns"
 msgid "Add column"
-msgstr "세로열 추가하기"
+msgstr "컬럼 추가"
 
 #: libraries/structure.lib.php:1624
 #: libraries/tbl_columns_definition_form.lib.php:168
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add columns"
 msgid "Add %s column(s)"
-msgstr "세로열 추가하기"
+msgstr "%s 컬럼 추가"
 
 #: libraries/structure.lib.php:1641
 msgid "At End of Table"
@@ -12089,7 +12050,6 @@ msgid "After %s"
 msgstr "%s 다음에"
 
 #: libraries/structure.lib.php:1737
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Row statistics"
 msgstr "행(레코드) 통계"
@@ -12104,7 +12064,7 @@ msgstr "동적(다이내믹)"
 
 #: libraries/structure.lib.php:1755
 msgid "partitioned"
-msgstr ""
+msgstr "파티션 있음"
 
 #: libraries/structure.lib.php:1792 libraries/tbl_printview.lib.php:204
 msgid "Row length"
@@ -12146,10 +12106,9 @@ msgid "Add unique index"
 msgstr "유일 인덱스 추가"
 
 #: libraries/structure.lib.php:2080 libraries/structure.lib.php:2083
-#, fuzzy
 #| msgid "Add Index"
 msgid "Add SPATIAL index"
-msgstr "인덱스 추가"
+msgstr "SPATIAL 인덱스 추가"
 
 #: libraries/structure.lib.php:2086 libraries/structure.lib.php:2089
 msgid "Add FULLTEXT index"
@@ -12181,23 +12140,21 @@ msgstr "컬럼을 이동했습니다."
 #: libraries/structure.lib.php:2648
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
-msgstr ""
+msgstr "'%s'라는 컬럼명은 MySQL 예약어입니다."
 
 #: libraries/structure.lib.php:2777
-#, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
-msgstr "이 시리즈 추가"
+msgstr "즐겨찾기로 추가"
 
 #: libraries/structure.lib.php:2822
 msgid "Favorite List is full!"
 msgstr "즐겨찾기 목록이 가득 찼습니다!"
 
 #: libraries/structure.lib.php:2911
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Showing create queries"
-msgstr "SQL 쿼리 보기"
+msgstr "생성 쿼리 보이기"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -12237,7 +12194,7 @@ msgstr "타임라인"
 #: libraries/tbl_chart.lib.php:64
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "산포도(점도표)"
 
 #: libraries/tbl_chart.lib.php:82
 msgid "Stacked"
@@ -12273,13 +12230,12 @@ msgstr "차트 제목"
 
 #: libraries/tbl_columns_definition_form.lib.php:72
 msgid "Storage Engine:"
-msgstr ""
+msgstr "저장 엔진:"
 
 #: libraries/tbl_columns_definition_form.lib.php:76
-#, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
-msgstr "데이터정렬방식"
+msgstr "데이터정렬방식:"
 
 #: libraries/tbl_columns_definition_form.lib.php:110
 msgid "PARTITION definition:"
