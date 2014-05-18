@@ -1262,6 +1262,7 @@ function PMA_getForeignData(
         }
     }  // end if $foreigners
 
+    $foreignData = array();
     $foreignData['foreign_link'] = $foreign_link;
     $foreignData['the_total'] = isset($the_total) ? $the_total : null;
     $foreignData['foreign_display'] = (

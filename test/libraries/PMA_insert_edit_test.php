@@ -720,6 +720,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['True_Type'] = '';
         $column['Field'] = 'f';
         $foreigners['f'] = true;
+        $foreignData = array();
         $foreignData['foreign_link'] = '';
         $this->assertEquals(
             '4',
@@ -773,6 +774,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testDispRowForeignData()
     {
+        $foreignData = array();
         $foreignData['disp_row'] = array();
         $foreignData['foreign_field'] = null;
         $foreignData['foreign_display'] = null;
@@ -822,7 +824,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<textarea name="fieldsb" class="char" maxlength="10" rows="5" cols="1" dir="abc/" '
+                '<textarea name="fieldsb" class="char" '
+                . 'maxlength="10" rows="5" cols="1" dir="abc/" '
                 . 'id="field_1_3" tabindex="2">',
                 array('content' => 'foobar')
             ),
@@ -1195,7 +1198,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             "\na\n"
-            . '<textarea name="fieldsb" class="char" maxlength="255" rows="5" cols="1" dir="/" '
+            . '<textarea name="fieldsb" class="char" '
+            . 'maxlength="255" rows="5" cols="1" dir="/" '
             . 'id="field_1_3" c tabindex="3"></textarea><br /><input type="file" '
             . 'name="fields_uploadfoo[123]" class="textfield" id="field_1_3" '
             . 'size="10" c/>&nbsp;(Max: 64KiB)' . "\n",
@@ -1341,7 +1345,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             "a\n\na\n"
-            . '<textarea name="fieldsb" class="char" maxlength="25" rows="5" cols="1" dir="/" '
+            . '<textarea name="fieldsb" class="char" '
+            . 'maxlength="25" rows="5" cols="1" dir="/" '
             . 'id="field_1_3" c tabindex="34">&lt;</textarea>',
             $result
         );
