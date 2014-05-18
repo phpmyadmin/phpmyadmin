@@ -1002,15 +1002,18 @@ class ExportSql extends ExportPlugin
     /**
      * Returns $table's CREATE definition
      *
-     * @param string $db            the database name
-     * @param string $table         the table name
-     * @param string $crlf          the end of line sequence
-     * @param string $error_url     the url to go back in case of error
-     * @param bool   $show_dates    whether to include creation/update/check
-     *                              dates
-     * @param bool   $add_semicolon whether to add semicolon and end-of-line at
-     *                              the end
-     * @param bool   $view          whether we're handling a view
+     * @param string $db                        the database name
+     * @param string $table                     the table name
+     * @param string $crlf                      the end of line sequence
+     * @param string $error_url                 the url to go back in case
+     *                                          of error
+     * @param bool   $show_dates                whether to include creation/
+     *                                          update/check dates
+     * @param bool   $add_semicolon             whether to add semicolon and 
+     *                                          end-of-line at the end
+     * @param bool   $view                      whether we're handling a view
+     * @param bool   $update_indexes_increments whether we need to update
+     *                                          two global variables 
      *
      * @return string resulting schema
      */
@@ -1021,7 +1024,8 @@ class ExportSql extends ExportPlugin
         $error_url,
         $show_dates = false,
         $add_semicolon = true,
-        $view = false
+        $view = false,
+        $update_indexes_increments = true
     ) {
         global $sql_drop_table, $sql_backquotes, $sql_constraints,
             $sql_constraints_query, $sql_indexes, $sql_indexes_query,
@@ -1260,7 +1264,7 @@ class ExportSql extends ExportPlugin
                 //if there are indexes
                 // (look for KEY followed by whitespace to avoid matching
                 //  keyworks like PACK_KEYS)
-                if (preg_match(
+                if ($update_indexes_increments && preg_match(
                     '@KEY[\s]+@',
                     $create_query
                 )) {
@@ -1298,7 +1302,7 @@ class ExportSql extends ExportPlugin
                     . PMA_Util::backquoteCompat($table,  $compat)
                     . $crlf;
                 }
-                if (preg_match(
+                if ($update_indexes_increments && preg_match(
                     '@AUTO_INCREMENT@',
                     $create_query
                 )) {
@@ -1348,7 +1352,7 @@ class ExportSql extends ExportPlugin
                 }
 
                 for ($k = 0; $k < $sql_count; $k++) {
-                    if (preg_match(
+                    if ($update_indexes_increments && preg_match(
                         '( AUTO_INCREMENT | AUTO_INCREMENT,| AUTO_INCREMENT$)',
                         $sql_lines[$k]
                     )) {
@@ -1361,7 +1365,7 @@ class ExportSql extends ExportPlugin
                             " AUTO_INCREMENT", "", $sql_lines[$k]
                         );
                     }
-                    if (preg_match(
+                    if ($update_indexes_increments && preg_match(
                         '@[\s]+(AUTO_INCREMENT=)@',
                         $sql_lines[$k]
                     )) {
@@ -1434,7 +1438,7 @@ class ExportSql extends ExportPlugin
                                     . $matches[3];
                             }
                             $first = false;
-                        } else if (preg_match(
+                        } else if ($update_indexes_increments && preg_match(
                             '@KEY[\s]+@',
                             $sql_lines[$j]
                         )) {
