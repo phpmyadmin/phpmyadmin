@@ -484,7 +484,7 @@ function ADVISOR_bytime($num, $precision)
     $num = round($num, $precision);
 
     if ($num == 0) {
-        $num = '<' . PMA_Util::pow(10, -$precisio);
+        $num = '<' . PMA_Util::pow(10, -$precision);
     }
 
     return "$num $per";
