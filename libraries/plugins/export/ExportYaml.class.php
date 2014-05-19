@@ -161,6 +161,7 @@ class ExportYaml extends ExportPlugin
         );
 
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
+        $columns = array();
         for ($i = 0; $i < $columns_cnt; $i++) {
             $columns[$i] = stripslashes($GLOBALS['dbi']->fieldName($result, $i));
         }

@@ -109,6 +109,7 @@ function PMA_getColumnsInfo()
 function PMA_getScriptContr()
 {
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+    $con = array();
     $con["C_NAME"] = array();
     $i = 0;
     $alltab_rs = $GLOBALS['dbi']->query(

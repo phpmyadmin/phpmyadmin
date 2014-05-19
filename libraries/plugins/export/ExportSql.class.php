@@ -1798,6 +1798,7 @@ class ExportSql extends ExportPlugin
                 $field_flags[$j] = $GLOBALS['dbi']->fieldFlags($result, $j);
             }
 
+            $field_set = array();
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (isset($analyzed_sql[0]['select_expr'][$j]['column'])) {
                     $field_set[$j] = PMA_Util::backquoteCompat(
@@ -1948,6 +1949,7 @@ class ExportSql extends ExportPlugin
                     }
                 }
                 $current_row++;
+                $values = array();
                 for ($j = 0; $j < $fields_cnt; $j++) {
                     // NULL
                     if (! isset($row[$j]) || is_null($row[$j])) {

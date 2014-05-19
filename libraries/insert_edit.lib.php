@@ -1935,11 +1935,13 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
     } else {
         $insert_command = 'INSERT ';
     }
-    $query[] = $insert_command . 'INTO '
+    $query = array(
+        $insert_command . 'INTO '
         . PMA_Util::backquote($GLOBALS['db']) . '.'
         . PMA_Util::backquote($GLOBALS['table'])
         . ' (' . implode(', ', $query_fields) . ') VALUES ('
-        . implode('), (', $value_sets) . ')';
+        . implode('), (', $value_sets) . ')'
+    );
     unset($insert_command, $query_fields);
     return $query;
 }
