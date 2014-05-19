@@ -767,11 +767,11 @@ class PMA_Config
         if ($data === false) {
             return null;
         }
-        $ok = 'HTTP/1.1 200 OK';
-        $notfound = 'HTTP/1.1 404 Not Found';
-        if (substr($data, 0, strlen($ok)) === $ok) {
+        $httpOk = 'HTTP/1.1 200 OK';
+        $httpNotFound = 'HTTP/1.1 404 Not Found';
+        if (substr($data, 0, strlen($httpOk)) === $httpOk) {
             return $get_body ? substr($data, strpos($data, "\r\n\r\n") + 4) : true;
-        } elseif (substr($data, 0, strlen($notfound)) === $notfound) {
+        } elseif (substr($data, 0, strlen($httpNotFound)) === $httpNotFound) {
             return false;
         }
         return null;
