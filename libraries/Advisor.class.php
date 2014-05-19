@@ -48,7 +48,8 @@ class Advisor
         include_once 'libraries/sysinfo.lib.php';
         $sysinfo = PMA_getSysInfo();
         $memory  = $sysinfo->memory();
-        $this->variables['system_memory'] = $memory['MemTotal'];
+        $this->variables['system_memory']
+            = isset($memory['MemTotal']) ? $memory['MemTotal'] : 0;
 
         // Step 2: Read and parse the list of rules
         $this->parseResult = $this->parseRulesFile();
