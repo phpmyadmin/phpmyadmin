@@ -204,6 +204,7 @@ function PMA_getHtmlForCommonForm($db, $table, $columns, $cfgRelation,
 function PMA_getHtmlForCommonFormRows($columns, $cfgRelation, $tbl_storage_engine,
     $existrel, $existrel_foreign, $options_array, $db, $table
 ) {
+    $save_row = array();
     foreach ($columns as $row) {
         $save_row[] = $row;
     }

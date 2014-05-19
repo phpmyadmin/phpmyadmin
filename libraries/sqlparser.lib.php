@@ -1316,6 +1316,9 @@ function PMA_SQP_analyze($arr)
                         // setting the alias)
                         $alias_for_select_expr = $identifier;
                     } else {
+                        if (! isset($chain)) {
+                            $chain = array();
+                        }
                         $chain[] = $identifier;
                         $previous_was_identifier = true;
 
@@ -1328,6 +1331,9 @@ function PMA_SQP_analyze($arr)
                             // save it for later
                             $alias_for_table_ref = $identifier;
                         } else {
+                            if (! isset($chain)) {
+                                $chain = array();
+                            }
                             $chain[] = $identifier;
                             $previous_was_identifier = true;
 
@@ -2062,6 +2068,9 @@ function PMA_SQP_analyze($arr)
             $upper_data = strtoupper($arr[$i]['data']);
 
             if ($upper_data == 'NOT' && $in_timestamp_options) {
+                if (! isset($create_table_fields)) {
+                    $create_table_fields = array();
+                }
                 $create_table_fields[$current_identifier]['timestamp_not_null']
                     = true;
 
@@ -2160,6 +2169,9 @@ function PMA_SQP_analyze($arr)
                             $value = '';
                         }
                         if (!empty($value)) {
+                            if (! isset($foreign)) {
+                                $foreign = array();
+                            }
                             $foreign[$foreign_key_number][$clause] = $value;
                         }
                         unset($clause);

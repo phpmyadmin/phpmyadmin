@@ -511,6 +511,7 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
         }
     }
 
+    $url_params = array();
     $url_params['kill'] = $process['Id'];
     $kill_process = 'server_status.php' . PMA_URL_getCommon($url_params);
 

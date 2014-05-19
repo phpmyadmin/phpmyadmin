@@ -945,6 +945,7 @@ function PMA_handleControlRequest()
  */
 function PMA_handleRequestForSlaveChangeMaster()
 {
+    $sr = array();
     $_SESSION['replication']['m_username'] = $sr['username']
         = PMA_Util::sqlAddSlashes($_REQUEST['username']);
     $_SESSION['replication']['m_password'] = $sr['pma_pw']

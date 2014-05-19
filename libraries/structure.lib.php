@@ -2268,6 +2268,7 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
     /**
      * @todo optimize in case of multiple fields to modify
      */
+    $fields_meta = array();
     for ($i = 0; $i < $selected_cnt; $i++) {
         $fields_meta[] = $GLOBALS['dbi']->getColumns(
             $db, $table, $selected[$i], true

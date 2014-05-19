@@ -345,6 +345,7 @@ class PMA_SysInfoSunos extends PMA_SysInfo
      */
     public function memory()
     {
+        $mem = array();
         $pagesize = $this->_kstat('unix:0:seg_cache:slab_size');
         $mem['MemTotal']
             = $this->_kstat('unix:0:system_pages:pagestotal') * $pagesize;

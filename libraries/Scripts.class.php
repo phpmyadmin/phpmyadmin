@@ -51,6 +51,7 @@ class PMA_Scripts
     private function _includeFiles($files)
     {
         $dynamic_scripts = "";
+        $scripts = array();
         foreach ($files as $value) {
             if (strpos($value['filename'], "?") !== false) {
                 $dynamic_scripts .= "<script type='text/javascript' src='js/"

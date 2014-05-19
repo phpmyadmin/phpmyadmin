@@ -366,6 +366,7 @@ function PMA_getMoveColumns($db, $table)
  */
 function PMA_getRowDataForRegeneration($columnNumber, $submit_fulltext)
 {
+    $columnMeta = array();
     $columnMeta['Field'] = isset($_REQUEST['field_name'][$columnNumber])
         ? $_REQUEST['field_name'][$columnNumber]
         : false;
