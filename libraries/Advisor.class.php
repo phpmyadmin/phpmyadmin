@@ -468,7 +468,6 @@ class Advisor
  */
 function ADVISOR_bytime($num, $precision)
 {
-    $per = '';
     if ($num >= 1) { // per second
         $per = __('per second');
     } elseif ($num * 60 >= 1) { // per minute
