@@ -1047,6 +1047,7 @@ class PMA_Table
                     );
                     $GLOBALS['dbi']->query($GLOBALS['sql_auto_increments']);
                     $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_auto_increments'];
+                    unset($GLOBALS['sql_auto_increments']);
                 }
             }
 
