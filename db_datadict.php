@@ -80,7 +80,6 @@ foreach ($tables as $table) {
     $GLOBALS['dbi']->selectDb($db);
     $indexes      = $GLOBALS['dbi']->getTableIndexes($db, $table);
     $primary      = '';
-    $indexes      = array();
     $lastIndex    = '';
     $indexes_info = array();
     $indexes_data = array();
@@ -196,11 +195,10 @@ foreach ($tables as $table) {
         echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row;
         echo '">';
         echo '<td class="nowrap">';
+        echo htmlspecialchars($column_name);
 
         if (isset($pk_array[$row['Field']])) {
-            echo '<u>' . htmlspecialchars($column_name) . '</u>';
-        } else {
-            echo htmlspecialchars($column_name);
+            echo ' <em>(' . __('Primary') . ')</em>';
         }
         echo '</td>';
         echo '<td' . $type_nowrap . ' lang="en" dir="ltr">' . $type . '</td>';

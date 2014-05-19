@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - rfe #1445 Easy access to "SHOW CREATE ..."
 - rfe #1448 Allow clicking an approximate row count to get a correct one
 - rfe #1487 "Browse foreign values" should be a modal dialog
+- rfe #1523 Better visual clue for table structure primary key column
 
 4.2.2.0 (not yet released)
 - bug #4388 Disable database expansion when enabled throws Error 500 when database name is clicked in navigation tree

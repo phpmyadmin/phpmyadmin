@@ -161,7 +161,9 @@ foreach ($fields as $row) {
     }
 
     if ($primary && $primary->hasColumn($field_name)) {
-        $displayed_field_name = '<u>' . $field_name . '</u>';
+        $displayed_field_name .= PMA_Util::getImage(
+            'b_primary.png', __('Primary')
+        );
     }
     $response->addHTML(
         '<tr class="' . ($odd_row ? 'odd': 'even') . '">'

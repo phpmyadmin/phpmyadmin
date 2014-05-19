@@ -68,6 +68,7 @@ function PMA_getHtmlForPrintViewColumns(
     $res_rel, $db, $table, $cfgRelation
 ) {
     $html = '';
+    $primary = PMA_Index::getPrimary($table, $db);
     foreach ($columns as $row) {
         $extracted_columnspec = PMA_Util::extractColumnSpec($row['Type']);
         $type = $extracted_columnspec['print_type'];
@@ -101,11 +102,11 @@ function PMA_getHtmlForPrintViewColumns(
         $html .= "\n";
         $html .= '<tr><td>';
 
-        if (isset($pk_array[$row['Field']])) {
-            $html .= '    <u>' . $field_name . '</u>' . "\n";
-        } else {
-            $html .= '    ' . $field_name . "\n";
+        $html .= '    ' . $field_name . "\n";
+        if ($primary && $primary->hasColumn($field_name)) {
+            $html .= '    <em>(' . __('Primary') . ')</em>';
         }
+        $html .= "\n";
         $html .= '</td>';
         $html .= '<td>' . $type . '<bdo dir="ltr"></bdo></td>';
         $html .= '<td>';
