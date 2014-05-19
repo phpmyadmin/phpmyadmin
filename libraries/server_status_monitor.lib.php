@@ -587,7 +587,7 @@ function PMA_getJsonForChartingDataSwitch(
             $memory = $sysinfo->memory();
         }
 
-        $ret['value'] = $memory[$pName];
+        $ret['value'] = isset($memory[$pName]) ? $memory[$pName] : 0;
         break;
     }
 
