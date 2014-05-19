@@ -289,9 +289,9 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
      */
     public function generateParams($value, $index = -1)
     {
+        $params = array();
         if ($index == -1) {
             $index = 0;
-            $params = array();
             $data = PMA_GIS_Geometry::generateParams($value);
             $params['srid'] = $data['srid'];
             $wkt = $data['wkt'];

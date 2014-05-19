@@ -4802,6 +4802,9 @@ class PMA_DisplayResults
     private function _getSortParams($order_by_clause)
     {
 
+        $sort_expression             = array();
+        $sort_expression_nodirection = array();
+        $sort_direction              = array();
         if (! empty($order_by_clause)) {
             // Each order by clause is assumed to be delimited by a comma
             // A typical order by clause would be order by column1 asc, column2 desc

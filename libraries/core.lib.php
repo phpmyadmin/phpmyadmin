@@ -351,6 +351,7 @@ function PMA_getRealSize($size = 0)
         return 0;
     }
 
+    $scan = array();
     $scan['gb'] = 1073741824; //1024 * 1024 * 1024;
     $scan['g']  = 1073741824; //1024 * 1024 * 1024;
     $scan['mb'] = 1048576;
