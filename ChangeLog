@@ -1,7 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.2.2.0 (not yet released)
+4.2.3.0 (not yet released)
+
+4.2.2.0 (2014-05-20)
 - bug #4388 Disable database expansion when enabled throws Error 500 when database name is clicked in navigation tree
 - bug #4414 table display of performance_schema DB structure
 - bug #4411 Protect Binary Columns: many problems
