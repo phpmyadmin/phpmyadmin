@@ -21,6 +21,7 @@ require_once 'libraries/Message.class.php';
 require_once 'libraries/Table.class.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/sqlparser.lib.php';
+require_once 'libraries/Index.class.php';
 
 /**
  * Tests for libraries/tbl_printview.lib.php
@@ -67,6 +68,9 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fetchResult));
+
+        $dbi->expects($this->any())->method('getTableIndexes')
+            ->will($this->returnValue(array()));
 
         $GLOBALS['dbi'] = $dbi;
     }
