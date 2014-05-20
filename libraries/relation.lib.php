@@ -1581,7 +1581,9 @@ function PMA_checkChildForeignReferences($db, $table, $column)
     $foreigners = PMA_getForeigners($db, $table, $column);
     $child_references = PMA_getChildReferences($db, $table, $column);
 
-    if (sizeof($child_references, 0) > 0 || sizeof($foreigners[$column], 0) > 0) {
+    if (sizeof($child_references, 0) > 0
+        || (! empty($foreigners[$column]) && sizeof($foreigners[$column], 0) > 0)
+    ) {
         if (sizeof($child_references, 0) > 0) {
             $column_status['isReferenced'] = true;
             foreach ($child_references as $row => $columns) {
