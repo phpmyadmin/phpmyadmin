@@ -80,6 +80,7 @@ $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
     'pdf_pages' => 'pma__pdf_pages',
     'designer_coords' => 'pma__designer_coords',
     'savedsearches' => 'pma__savedsearches',
+    'central_columns' => 'pma__central_columns',
     'MaxTableUiprefs' => 100)));
 $forms['Servers']['Server_tracking'] = array('Servers' => array(1 => array(
     'tracking_version_auto_create',

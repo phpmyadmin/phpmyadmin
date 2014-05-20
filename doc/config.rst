@@ -732,6 +732,25 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['navigationhiding']` (e.g.
       ``pma__navigationhiding``)
 
+.. _central_columns:
+.. config:option:: $cfg['Servers'][$i]['central_columns']
+
+    :type: string
+    :default: ``''``
+
+    Since release 4.1.0 you can have a central list of columns per database.
+    You can add/remove columns to the list as per your requirement. These columns 
+    in the central list will be available to use while you create a new coulmn for
+    a table or create a table itself. You can select a column from central list 
+    while creating a new column, it will save you from writting same column definition
+    over again or from writting different names for similar column.
+
+    To allow the usage of this functionality:
+
+    * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
+    * put the table name in :config:option:`$cfg['Servers'][$i]['central_columns']` (e.g.
+      ``pma__central_columns``)
+      
 .. _tracking:
 .. config:option:: $cfg['Servers'][$i]['tracking']
 

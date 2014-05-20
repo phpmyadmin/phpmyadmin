@@ -317,3 +317,22 @@ CREATE TABLE IF NOT EXISTS `pma__savedsearches` (
 )
   COMMENT='Saved searches'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__central_columns`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__central_columns` (
+  `db_name` varchar(64) NOT NULL,
+  `col_name` varchar(64) NOT NULL,
+  `col_type` varchar(64) NOT NULL,
+  `col_collation` varchar(64) NOT NULL,
+  `col_isNull` boolean NOT NULL,
+  `col_extra` varchar(255) default '',
+  `col_default` text default '',
+  PRIMARY KEY (`db_name`,`col_name`)
+)
+  COMMENT='Central list of columns'
+  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;

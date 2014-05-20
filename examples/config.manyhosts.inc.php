@@ -48,4 +48,5 @@ foreach ($hosts as $host) {
     $cfg['Servers'][$i]['usergroups'] = 'pma__usergroups';
     $cfg['Servers'][$i]['navigationhiding'] = 'pma__navigationhiding';
     $cfg['Servers'][$i]['savedsearches'] = 'pma__savedsearches';
+    $cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
 }

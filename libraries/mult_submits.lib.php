@@ -477,7 +477,7 @@ function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
     $query_type = null;
     $is_unset_submit_mult = false;
     $mult_btn = null;
-
+    $centralColsError = null;
     switch ($submit_mult) {
     case 'drop':
         $what     = 'drop_fld';
@@ -515,6 +515,14 @@ function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
         $query_type = 'fulltext_fld';
         $mult_btn   = __('Yes');
         break;
+    case 'add_to_central_columns':
+        include_once 'libraries/central_columns.lib.php';
+        $centralColsError = PMA_syncUniqueColumns($selected, false);
+        break;
+    case 'remove_from_central_columns':
+        include_once 'libraries/central_columns.lib.php';
+        $centralColsError = PMA_deleteColumnsFromList($selected, false);
+        break;
     case 'change':
         PMA_displayHtmlForColumnChange($db, $table, $selected, $action);
         // execution stops here but PMA_Response correctly finishes
@@ -524,7 +532,10 @@ function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
         // this should already be handled by tbl_structure.php
     }
 
-    return array($what, $query_type, $is_unset_submit_mult, $mult_btn);
+    return array(
+        $what, $query_type, $is_unset_submit_mult, $mult_btn, 
+        $centralColsError
+            );
 }
 
 /**
