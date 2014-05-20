@@ -334,6 +334,12 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
             . __('Replace table prefix') . '</option>' . "\n";
         $html_output .= '<option value="copy_tbl_change_prefix" >'
             . __('Copy table with prefix') . '</option>' . "\n";
+        if ($GLOBALS['cfgRelation']['central_columnswork']) {
+            $html_output .= '<option value="sync_unique_columns_central_list" >'
+                . __('Sync with central columns list') . '</option>' . "\n";
+            $html_output .= '<option value="delete_unique_columns_central_list" >'
+                . __('remove from central columns list') . '</option>' . "\n";
+        }
     }
     $html_output .= '</select>'
         . implode("\n", $hidden_fields) . "\n";
@@ -1467,6 +1473,16 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
                 __('Fulltext'), 'b_ftext.png', 'ftext'
             );
         }
+        $html_output .= PMA_Util::getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_central_columns_add',
+            __('Add to central columns'), 'centralColumns_add.png', 
+            'add_to_central_columns'
+        );
+        $html_output .= PMA_Util::getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_central_columns_remove',
+            __('Remove from central columns'), 'centralColumns_delete.png', 
+            'remove_from_central_columns'
+        );
     }
     return $html_output;
 }
@@ -1997,12 +2013,13 @@ function PMA_getHtmlForDistinctValueAction($url_query, $row, $titles)
  * @param string  $rownum                    row number
  * @param array   $hidden_titles             hidden titles
  * @param array   $columns_with_unique_index columns with unique index
+ * @param boolean $isInCentralColumns        set if column in central columns list
  *
  * @return string $html_output;
  */
 function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
     $primary, $field_name, $url_query, $titles, $row, $rownum, $hidden_titles,
-    $columns_with_unique_index
+    $columns_with_unique_index, $isInCentralColumns
 ) {
     $html_output = '<td><ul class="table-structure-actions resizable-menu">';
     $html_output .= PMA_getHtmlForActionRowInStructureTable(
@@ -2050,6 +2067,29 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         );
     }
     $html_output .= PMA_getHtmlForDistinctValueAction($url_query, $row, $titles);
+    $html_output .= '<li class="browse nowrap">';
+    if ($isInCentralColumns) {
+        $html_output .= 
+            '<a href="#" onclick=$("input:checkbox").removeAttr("checked");'
+            . '$("#checkbox_row_'.$rownum.'").attr("checked","checked");'
+            . '$("button[value=remove_from_central_columns]").click();>'
+        . PMA_Util::getIcon(
+            'centralColumns_delete.png',
+            __('Remove from central columns')
+        )
+        . '</a>';
+    } else {
+        $html_output .= 
+            '<a href="#" onclick=$("input:checkbox").removeAttr("checked");'
+            . '$("#checkbox_row_'.$rownum.'").attr("checked","checked");'
+            . '$("button[value=add_to_central_columns]").click();>'
+        . PMA_Util::getIcon(
+            'centralColumns_add.png', 
+            __('Add to central columns')
+        )
+        . '</a>';
+    }
+    $html_output .= '</li>';
     $html_output .= '<div class="clearfloat"></div></ul></td>';
     return $html_output;
 }

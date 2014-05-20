@@ -291,6 +291,17 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             'savedsearcheswork',
             $messages
         );
+        $retval .= PMA_getDiagMessageForParameter(
+            'central_columns',
+            isset($cfgRelation['central_columns']),
+            $messages,
+            'central_columns'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Managing Central list of coulmns'),
+            'central_columnswork',
+            $messages
+        );
         $retval .= '</table>' . "\n";
 
         $retval .= '<p>' . __('Quick steps to setup advanced features:') . '</p>';
@@ -407,9 +418,10 @@ function PMA_checkRelationsParam()
     $cfgRelation['navwork']        = false;
     $cfgRelation['allworks']       = false;
     $cfgRelation['savedsearcheswork'] = false;
+    $cfgRelation['central_columnswork'] = false;
     $cfgRelation['user']           = null;
     $cfgRelation['db']             = null;
-
+    
     if ($GLOBALS['server'] == 0
         || empty($GLOBALS['cfg']['Server']['pmadb'])
         || ! $GLOBALS['dbi']->selectDb($GLOBALS['cfg']['Server']['pmadb'], $GLOBALS['controllink'])
@@ -477,6 +489,8 @@ function PMA_checkRelationsParam()
             $cfgRelation['navigationhiding']      = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['savedsearches']) {
             $cfgRelation['savedsearches']    = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['central_columns']) {
+            $cfgRelation['central_columns']    = $curr_table[0];
         }
     } // end while
     $GLOBALS['dbi']->freeResult($tab_rs);
@@ -538,6 +552,10 @@ function PMA_checkRelationsParam()
     if (isset($cfgRelation['savedsearches'])) {
         $cfgRelation['savedsearcheswork']      = true;
     }
+    
+    if (isset($cfgRelation['central_columns'])) {
+        $cfgRelation['central_columnswork']      = true;
+    }
 
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
         && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
@@ -546,7 +564,7 @@ function PMA_checkRelationsParam()
         && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
         && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']
         && $cfgRelation['menuswork'] && $cfgRelation['navwork']
-        && $cfgRelation['savedsearcheswork']
+        && $cfgRelation['savedsearcheswork'] && $cfgRelation['central_columnswork']
     ) {
         $cfgRelation['allworks'] = true;
     }
