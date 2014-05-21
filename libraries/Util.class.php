@@ -3683,11 +3683,6 @@ class PMA_Util
              $default_function = $cfg['DefaultFunctions']['FUNC_UUID'];
         }
 
-        // this is set only when appropriate and is always true
-        if (isset($field['display_binary_as_hex'])) {
-            $default_function = 'UNHEX';
-        }
-
         return $default_function;
     }
 

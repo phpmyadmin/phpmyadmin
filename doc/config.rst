@@ -1643,14 +1643,6 @@ Browse mode
     descending order for columns of type TIME, DATE, DATETIME and
     TIMESTAMP, ascending order else- by default.
 
-.. config:option:: $cfg['DisplayBinaryAsHex']
-
-    :type: boolean
-    :default: true
-
-    Defines whether the "Show binary contents as HEX" browse option is
-    ticked by default.
-
 .. config:option:: $cfg['GridEditing']
 
     :type: string

@@ -569,7 +569,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetFunctionColumn()
     {
-        $GLOBALS['cfg']['ProtectBinary'] = true;
+        $GLOBALS['cfg']['ProtectBinary'] = 'blob';
         $column['is_blob'] = true;
         $this->assertTag(
             PMA_getTagArray('<td class="center">', array('content' => 'Binary')),
@@ -1141,8 +1141,9 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            'Binary - do not edit (5 B)<input type="hidden" name="fields_typeb" '
-            . 'value="protected" /><input type="hidden" name="fieldsb" value="" />'
+            'Binary - do not edit (5 B)<input type="hidden" '
+            . 'name="fieldsb" value="" /><input type="hidden" '
+            . 'name="fields_typeb" value="protected" />'
             . '<br /><input type="file" name="fields_uploadfoo[123]" class="text'
             . 'field" id="field_1_3" size="10" c/>&nbsp;(Max: 64KiB)' . "\n",
             $result
@@ -1158,9 +1159,9 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            'Binary - do not edit (4 B)<input type="hidden" name="fields_typeb" '
-            . 'value="protected" /><input type="hidden" name="fieldsb" value="" '
-            . '/>',
+            'Binary - do not edit (4 B)<input type="hidden" '
+            . 'name="fieldsb" value="" /><input type="hidden" '
+            . 'name="fields_typeb" value="protected" />',
             $result
         );
 
@@ -1174,9 +1175,9 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            'Binary - do not edit (4 B)<input type="hidden" name="fields_typeb" '
-            . 'value="protected" /><input type="hidden" name="fieldsb" value="" '
-            . '/>',
+            'Binary - do not edit (4 B)<input type="hidden" '
+            . 'name="fieldsb" value="" /><input type="hidden" '
+            . 'name="fields_typeb" value="protected" />',
             $result
         );
 
@@ -1200,7 +1201,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             "\na\n"
             . '<textarea name="fieldsb" class="char" '
             . 'maxlength="255" rows="5" cols="1" dir="/" '
-            . 'id="field_1_3" c tabindex="3"></textarea><br /><input type="file" '
+            . 'id="field_1_3" c tabindex="3"></textarea><input type="hidden" '
+            . 'name="fields_typeb" value="hex" /><br /><input type="file" '
             . 'name="fields_uploadfoo[123]" class="textfield" id="field_1_3" '
             . 'size="10" c/>&nbsp;(Max: 64KiB)' . "\n",
             $result
@@ -1224,7 +1226,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "\na\n"
             . '<textarea name="fieldsb" class="" rows="20" cols="10" dir="/" '
-            . 'id="field_1_3" c tabindex="3"></textarea>',
+            . 'id="field_1_3" c tabindex="3"></textarea><input type="hidden" '
+            . 'name="fields_typeb" value="hex" />',
             $result
         );
 
@@ -1248,7 +1251,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "\na\n"
             . '<input type="text" name="fieldsb" value="" size="10" class='
-            . '"textfield" c tabindex="3" id="field_1_3" />',
+            . '"textfield" c tabindex="3" id="field_1_3" />'
+            . '<input type="hidden" name="fields_typeb" value="hex" />',
             $result
         );
     }
@@ -1732,7 +1736,6 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $current_row['f'] = "11001";
         $extracted_columnspec['spec_in_brackets'] = 20;
         $column['True_Type'] = 'char';
-        $_SESSION['tmpval']['display_binary_as_hex'] = true;
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
         $result = PMA_getSpecialCharsAndBackupFieldForExistingRow(
@@ -1750,9 +1753,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             $result
         );
 
-        // Case 5 (false display_binary_as_hex)
+        // Case 5
         $current_row['f'] = "11001\x00";
-        $_SESSION['tmpval']['display_binary_as_hex'] = false;
 
         $result = PMA_getSpecialCharsAndBackupFieldForExistingRow(
             $current_row, $column, $extracted_columnspec, false, array('int'), 'a'
@@ -1761,10 +1763,10 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             array(
                 false,
-                '11001\0',
-                '11001\0',
-                '11001\0',
-                '<input type="hidden" name="fields_preva" value="11001\0" />'
+                "313130303100",
+                "313130303100",
+                "313130303100",
+                '<input type="hidden" name="fields_preva" value="313130303100" />'
             ),
             $result
         );
@@ -1781,7 +1783,6 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['Default'] = b'101';
         $column['is_binary'] = true;
         $GLOBALS['cfg']['ProtectBinary'] = false;
-        $_SESSION['tmpval']['display_binary_as_hex'] = true;
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
         $result = PMA_getSpecialCharsAndBackupFieldForInsertingMode($column, false);

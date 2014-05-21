@@ -206,6 +206,8 @@ class PMA_Header
     {
         $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
+        $pftext = ! empty($_SESSION['tmpval']['pftext'])
+            ? $_SESSION['tmpval']['pftext'] : '';
         return array(
             'common_query' => PMA_URL_getCommon('', '', '&'),
             'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
@@ -226,6 +228,8 @@ class PMA_Header
             'pma_text_left_default_tab' => PMA_Util::getTitleForTarget(
                 $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
             ),
+            'LimitChars' => $GLOBALS['cfg']['LimitChars'],
+            'pftext' => $pftext,
             'confirm' => $GLOBALS['cfg']['Confirm']
         );
     }

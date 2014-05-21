@@ -454,9 +454,12 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
     $tabindex, $idindex, $insert_mode
 ) {
     $html_output = '';
-    if (($GLOBALS['cfg']['ProtectBinary'] && $column['is_blob'] && ! $is_upload)
-        || ($GLOBALS['cfg']['ProtectBinary'] === 'all' && $column['is_binary'])
-        || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob' && ! $column['is_blob'])
+    if (($GLOBALS['cfg']['ProtectBinary'] === 'blob'
+        && $column['is_blob'] && !$is_upload)
+        || ($GLOBALS['cfg']['ProtectBinary'] === 'all'
+        && $column['is_binary'])
+        || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob'
+        && $column['is_binary'])
     ) {
         $html_output .= '<td class="center">' . __('Binary') . '</td>' . "\n";
     } elseif (strstr($column['True_Type'], 'enum')
@@ -1095,6 +1098,11 @@ function PMA_getBinaryAndBlobColumn(
     $vkey, $is_upload
 ) {
     $html_output = '';
+    // Add field type : Protected or Hexadecimal
+    $fields_type_html = '<input type="hidden" name="fields_type'
+        . $column_name_appendix . '" value="%s" />';
+    // Default value : hex
+    $fields_type_val = 'hex';
     if (($GLOBALS['cfg']['ProtectBinary'] === 'blob' && $column['is_blob'])
         || ($GLOBALS['cfg']['ProtectBinary'] === 'all')
         || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob' && !$column['is_blob'])
@@ -1107,9 +1115,8 @@ function PMA_getBinaryAndBlobColumn(
             $html_output .= ' (' . $data_size[0] . ' ' . $data_size[1] . ')';
             unset($data_size);
         }
-        $html_output .= '<input type="hidden" name="fields_type'
-            . $column_name_appendix . '" value="protected" />'
-            . '<input type="hidden" name="fields'
+        $fields_type_val = 'protected';
+        $html_output .= '<input type="hidden" name="fields'
             . $column_name_appendix . '" value="" />';
     } elseif ($column['is_blob']
         || ($column['len'] > $GLOBALS['cfg']['LimitChars'])
@@ -1127,6 +1134,7 @@ function PMA_getBinaryAndBlobColumn(
             $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
         );
     }
+    $html_output .= sprintf($fields_type_html, $fields_type_val);
 
     if ($is_upload && $column['is_blob']) {
         $html_output .= '<br />'
@@ -1680,21 +1688,11 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
     } else {
         // special binary "characters"
         if ($column['is_binary']
-            || ($column['is_blob'] && ! $GLOBALS['cfg']['ProtectBinary'])
+            || ($column['is_blob'] && $GLOBALS['cfg']['ProtectBinary'] !== 'all')
         ) {
-            if ($_SESSION['tmpval']['display_binary_as_hex']
-                && $GLOBALS['cfg']['ShowFunctionFields']
-            ) {
-                $current_row[$column['Field']] = bin2hex(
-                    $current_row[$column['Field']]
-                );
-                $column['display_binary_as_hex'] = true;
-            } else {
+            $current_row[$column['Field']] = bin2hex(
                 $current_row[$column['Field']]
-                    = PMA_Util::replaceBinaryContents(
-                        $current_row[$column['Field']]
-                    );
-            }
+            );
         } // end if
         $special_chars = htmlspecialchars($current_row[$column['Field']]);
 
@@ -1766,15 +1764,6 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
     }
     $backup_field = '';
     $special_chars_encoded = PMA_Util::duplicateFirstNewline($special_chars);
-    // this will select the UNHEX function while inserting
-    if (($column['is_binary']
-        || ($column['is_blob'] && ! $GLOBALS['cfg']['ProtectBinary']))
-        && (isset($_SESSION['tmpval']['display_binary_as_hex'])
-        && $_SESSION['tmpval']['display_binary_as_hex'])
-        && $GLOBALS['cfg']['ShowFunctionFields']
-    ) {
-        $column['display_binary_as_hex'] = true;
-    }
     return array(
         $real_null_value, $data, $special_chars,
         $backup_field, $special_chars_encoded
@@ -2279,7 +2268,8 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
             . ' = ' . $current_value_as_an_array;
     } elseif (empty($multi_edit_funcs[$key])
         && isset($multi_edit_columns_prev[$key])
-        && ("'" . PMA_Util::sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" == $current_value)
+        && (("'" . PMA_Util::sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" === $current_value)
+        || ('0x' . $multi_edit_columns_prev[$key] === $current_value))
     ) {
         // No change for this column and no MySQL function is used -> next column
     } elseif (! empty($current_value)) {
@@ -2376,6 +2366,8 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
             } else {
                 $current_value = '';
             }
+        } elseif ($type === 'hex') {
+            $current_value = '0x' . $current_value;
         } elseif ($type == 'bit') {
             $current_value = preg_replace('/[^01]/', '0', $current_value);
             $current_value = "b'" . PMA_Util::sqlAddSlashes($current_value) . "'";
