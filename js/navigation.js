@@ -753,7 +753,7 @@ var ResizeHandler = function () {
         var $collapser = $('#pma_navigation_collapser');
         $('#pma_navigation').width(pos);
         $('body').css('margin-' + this.left, pos + 'px');
-        $("#floating_menubar")
+        $("#floating_menubar, #pma_console")
             .css('margin-' + this.left, (pos + resizer_width) + 'px');
         $resizer.css(this.left, pos + 'px');
         if (pos === 0) {
@@ -899,6 +899,9 @@ var ResizeHandler = function () {
                 'overflow-y': 'auto'
             });
         }
+        // Set content bottom space beacuse of console
+        $('body').css('margin-bottom',
+                      $(window).height() + $(document).scrollTop() - $('#pma_console').offset().top + 'px');
     };
     /* Initialisation section begins here */
     if ($.cookie('pma_navi_width')) {

@@ -2955,3 +2955,82 @@ table.show_create {
 table.show_create td {
     border-right: 1px solid #bbb;
 }
+
+/* Console styles */
+#pma_console_container {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    <?php echo $left; ?>: 0;
+    z-index: 100;
+}
+#pma_console {
+    position: relative;
+    margin-<?php echo $left; ?>: 240px;
+}
+#pma_console .mid_text {
+    vertical-align: middle;
+}
+#pma_console .toolbar {
+    position: relative;
+    background: #ccc;
+    border-top: solid 1px #aaa;
+    cursor: n-resize;
+}
+#pma_console .toolbar.collapsed:not(:hover) {
+    display: inline-block;
+    border-top-<?php echo $right; ?>-radius: 3px;
+    border-<?php echo $right; ?>: solid 1px #aaa;
+}
+#pma_console .toolbar.collapsed {
+    cursor: default;
+}
+#pma_console .toolbar.collapsed:not(:hover) .collapsible {
+    display: none;
+}
+#pma_console .switch_button {
+    padding: 0 3px;
+    display: inline-block;
+    cursor: pointer;
+}
+#pma_console .switch_button.outer {
+    background: #ccc;
+}
+#pma_console .switch_button:hover {
+    background: #ddd;
+}
+#pma_console .content {
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-bottom: -65px;
+    height: 64px;
+    border-top: solid 1px #aaa;
+    background: #fff;
+}
+#pma_console .message,
+#pma_console .query_input {
+    margin-left: 20px;
+    font-family: Monaco, Consolas, monospace;
+}
+
+/* Code mirror console style*/
+
+.cm-s-pma .CodeMirror-code pre,
+.cm-s-pma .CodeMirror-code {
+    font-family: Monaco, Consolas, monospace;
+}
+.cm-s-pma .CodeMirror-measure>pre,
+.cm-s-pma .CodeMirror-code>pre,
+.cm-s-pma .CodeMirror-lines {
+    padding: 0;
+}
+.cm-s-pma.CodeMirror {
+    resize: none;
+    height: auto;
+    min-height: initial;
+    max-height: initial;
+}
+.cm-s-pma .CodeMirror-scroll {
+    padding-bottom: 2em;
+    cursor: text;
+}

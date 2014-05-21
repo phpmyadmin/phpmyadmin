@@ -29,7 +29,7 @@ PMA_Util::checkParameters(array('db', 'table', 'field'));
 $response = PMA_Response::getInstance();
 $response->getFooter()->setMinimal();
 $header = $response->getHeader();
-$header->disableMenu();
+$header->disableMenuAndConsole();
 $header->setBodyId('body_browse_foreigners');
 
 /**
