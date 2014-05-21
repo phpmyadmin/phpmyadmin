@@ -258,6 +258,7 @@ function PMA_getCollationDescr($collation)
         break;
     case 'bin':
         $is_bin = true;
+        // no break; statement here, continuing with 'general' section:
     case 'general':
         switch ($parts[0]) {
         // Unicode charsets
