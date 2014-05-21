@@ -745,7 +745,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetForeignLink()
     {
-        $column = array();
+        $column = $titles = array();
         $column['Field'] = 'f';
         $titles['Browse'] = "'";
         $GLOBALS['cfg']['ServerDefault'] = 2;
@@ -2265,6 +2265,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetDisplayValueForForeignTableColumn()
     {
+        $map = array();
         $map['f']['foreign_db'] = 'information_schema';
         $map['f']['foreign_table'] = 'TABLES';
         $map['f']['foreign_field'] = 'f';
@@ -2309,6 +2310,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $_SESSION['tmpval']['relational_display'] = 'K';
+        $map = array();
         $map['f']['foreign_db'] = 'information_schema';
         $map['f']['foreign_table'] = 'TABLES';
         $map['f']['foreign_field'] = 'f';
@@ -2345,7 +2347,9 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $_REQUEST['where_clause'] = 1;
-        $transformation['transformation_options'] = "'','option ,, quoted',abd";
+        $transformation = array(
+            'transformation_options' => "'','option ,, quoted',abd"
+        );
         $result = PMA_transformEditedValues(
             'db', 'table', $transformation, $edited_values,
             'Text_Plain_Preappend.class.php', 'c', array('a' => 'b')
@@ -2364,7 +2368,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetQueryValuesForInsertAndUpdateInMultipleEdit()
     {
-        $multi_edit_columns_name[0] = 'fld';
+        $multi_edit_columns_name = array('fld');
 
         $result = PMA_getQueryValuesForInsertAndUpdateInMultipleEdit(
             $multi_edit_columns_name, null, null, null, null, true, array(1),
