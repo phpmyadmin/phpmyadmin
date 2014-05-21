@@ -333,6 +333,7 @@ var AJAX = {
                     .not('#pma_header')
                     .not('#pma_footer')
                     .not('#pma_demo')
+                    .not('#pma_console_container')
                     .remove();
                 // Replace #page_content with new content
                 if (data.message && data.message.length > 0) {
