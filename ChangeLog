@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - rfe #1523 Better visual clue for table structure primary key column
 
 4.2.3.0 (not yet released)
+- bug #4423 Moving fields not working
 
 4.2.2.0 (2014-05-20)
 - bug #4388 Disable database expansion when enabled throws Error 500 when database name is clicked in navigation tree
