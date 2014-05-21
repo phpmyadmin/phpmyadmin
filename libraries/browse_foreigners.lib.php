@@ -154,7 +154,7 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
             . ' width="1" height="1" /></td>';
 
         $output .= PMA_getHtmlForColumnElement(
-            '', $rightKeynameIsSelected, $leftKeyname,
+            '', $rightKeynameIsSelected, $rightKeyname,
             $rightDescription, $rightDescriptionTitle, $field
         );
 
@@ -216,15 +216,17 @@ function PMA_getDescriptionAndTitle($description)
 function PMA_getHtmlForColumnElement($cssClass, $isSelected, $keyname,
     $description, $title, $field
 ) {
+    $keyname = htmlspecialchars($keyname);
     $output = '<td ' . $cssClass . '>'
         . ($isSelected ? '<strong>' : '')
-        . '<a class="foreign_value" href="#" title="' . __('Use this value')
+        . '<a class="foreign_value" data-key="' . $keyname . '" '
+        . 'href="#" title="' . __('Use this value')
         . ($title != ''
             ? ': ' . $title
             : '')
         . '">';
     if ($cssClass !== '') {
-        $output .= htmlspecialchars($keyname);
+        $output .= $keyname;
     } else {
         $output .= $description;
     }
