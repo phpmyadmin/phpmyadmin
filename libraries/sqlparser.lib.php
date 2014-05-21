@@ -334,6 +334,7 @@ function PMA_SQP_parse($sql)
             switch ($c) {
             case '#':
                 $type = 'mysql';
+                break;
             case '-':
                 $type = 'ansi';
                 $pos  = $GLOBALS['PMA_String']->strpos($sql, "\n", $count2);
