@@ -2339,6 +2339,7 @@ function PMA_columnNeedsAlterTable($i)
         || $_REQUEST['field_name'][$i] != $_REQUEST['field_orig'][$i]
         || $_REQUEST['field_null'][$i] != $_REQUEST['field_null_orig'][$i]
         || $_REQUEST['field_type'][$i] != $_REQUEST['field_type_orig'][$i]
+        || ! empty($_REQUEST['field_move_to'][$i])
 ) {
         return true;
     } else {
