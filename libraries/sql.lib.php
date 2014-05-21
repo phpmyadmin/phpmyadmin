@@ -1755,6 +1755,10 @@ function PMA_sendQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
 function PMA_sendResponseForGridEdit($result)
 {
     $row = $GLOBALS['dbi']->fetchRow($result);
+    $field_flags = $GLOBALS['dbi']->fieldFlags($result, 0);
+    if (stristr($field_flags, PMA_DisplayResults::BINARY_FIELD)) {
+        $row[0] = bin2hex($row[0]);
+    }
     $response = PMA_Response::getInstance();
     $response->addJSON('value', $row[0]);
     exit;

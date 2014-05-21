@@ -89,8 +89,6 @@ $strConfigDefaultTabTable_name = __('Default table tab');
 $strConfigHideStructureActions_desc
     = __('Whether the table structure actions should be hidden.');
 $strConfigHideStructureActions_name = __('Hide table structure actions');
-$strConfigDisplayBinaryAsHex_desc = __('Show binary contents as HEX by default.');
-$strConfigDisplayBinaryAsHex_name = __('Show binary contents as HEX');
 $strConfigDisplayServersList_desc
     = __('Show server listing as a list instead of a drop down.');
 $strConfigDisplayServersList_name = __('Display servers as a list');

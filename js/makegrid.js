@@ -641,12 +641,16 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         if (($this_field.attr('data-decimals') > 0) && ( $this_field.attr('data-type').indexOf('time') != -1)){
                             new_html = new_html.substring(0, new_html.length - (6 - $this_field.attr('data-decimals')));
                         }
-                        if ($this_field.is('.truncated')) {
-                            if (new_html.length > g.maxTruncatedLen) {
-                                new_html = new_html.substring(0, g.maxTruncatedLen) + '...';
-                            }
+                        $this_field.removeClass('truncated');
+                        if (PMA_commonParams.get('pftext') === 'P' && new_html.length > g.maxTruncatedLen) {
+                            $this_field.addClass('truncated');
+                            new_html = new_html.substring(0, g.maxTruncatedLen) + '...';
                         }
-                        $this_field.find('span').text(new_html);
+                        var selector = 'span';
+                        if ($this_field.hasClass('hex') && $this_field.find('a').length) {
+                            selector = 'a';
+                        }
+                        $this_field.find(selector).text(new_html);
                     }
                     if ($this_field.is('.bit')) {
                         $this_field.find('span').text($this_field.data('value'));
@@ -954,11 +958,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             g.lastXHR = null;
                             $editArea.removeClass('edit_area_loading');
                             if (data.success === true) {
-                                if ($td.is('.truncated')) {
-                                    // get the truncated data length
-                                    g.maxTruncatedLen = $(g.currentEditCell).text().length - 3;
-                                }
-
                                 $td.data('original_data', data.value);
                                 $(g.cEdit).find('.edit_box').val(data.value);
                                 $editArea.append('<textarea></textarea>');
@@ -1150,6 +1149,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     } else {
                         if ($this_field.is('.bit')) {
                             fields_type.push('bit');
+                        } else if ($this_field.hasClass('hex')) {
+                            fields_type.push('hex');
                         }
                         fields_null.push('');
                         fields.push($this_field.data('value'));
@@ -1366,6 +1367,14 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     // because selected value from drop-down, new window or multiple
                     // selection list will always be updated to the edit box
                     this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
+                } else if ($this_field.hasClass('hex')) {
+                    if ($(g.cEdit).find('.edit_box').val().match(/^[a-f0-9]*$/i) !== null) {
+                        this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
+                    } else {
+                        var hexError = '<div class="error">' + PMA_messages.strEnterValidHex + '</div>';
+                        PMA_ajaxShowMessage(hexError, false);
+                        this_field_params[field_name] = PMA_getCellValue(g.currentEditCell);
+                    }
                 } else {
                     this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
                 }
@@ -1660,6 +1669,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
             // initialize cell editing configuration
             g.saveCellsAtOnce = $('#save_cells_at_once').val();
+            g.maxTruncatedLen = PMA_commonParams.get('LimitChars');
 
             // register events
             $(t).find('td.data.click1')
