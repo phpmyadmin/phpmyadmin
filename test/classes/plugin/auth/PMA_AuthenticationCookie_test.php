@@ -137,7 +137,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $mockHeader = $this->getMockBuilder('PMA_Header')
             ->disableOriginalConstructor()
             ->setMethods(
-                array('setBodyId', 'setTitle', 'disableMenu', 'disableWarnings')
+                array('setBodyId', 'setTitle', 'disableMenuAndConsole', 'disableWarnings')
             )
             ->getMock();
 
@@ -150,7 +150,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             ->with('phpMyAdmin');
 
         $mockHeader->expects($this->once())
-            ->method('disableMenu')
+            ->method('disableMenuAndConsole')
             ->with();
 
         $mockHeader->expects($this->once())

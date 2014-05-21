@@ -15,7 +15,7 @@ $response->getFooter()->setMinimal();
 $header = $response->getHeader();
 $header->setBodyId('bodythemes');
 $header->setTitle('phpMyAdmin - ' . __('Theme'));
-$header->disableMenu();
+$header->disableMenuAndConsole();
 
 $hash    = '#pma_' . preg_replace('/([0-9]*)\.([0-9]*)\..*/', '\1_\2', PMA_VERSION);
 $url     = PMA_linkURL('http://www.phpmyadmin.net/home_page/themes.php') . $hash;
