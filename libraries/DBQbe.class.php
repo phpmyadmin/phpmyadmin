@@ -791,7 +791,7 @@ class PMA_DbQbe
      * with AND/OR relationship modification options
      *
      * @param integer $row_index       Number of criteria row
-     * @param string  $checked_options If checked
+     * @param array   $checked_options If checked
      *
      * @return string HTML
      */
