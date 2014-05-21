@@ -340,8 +340,10 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetDefaultForDatetime()
     {
-        $column['Type'] = 'datetime';
-        $column['Null'] = 'YES';
+        $column = array(
+            'Type' => 'datetime',
+            'Null' => 'YES'
+        );
 
         $this->assertNull(
             PMA_getDefaultForDatetime($column) //should be passed as reference?
@@ -428,6 +430,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetColumnTitle()
     {
+        $column = array();
         $column['Field'] = 'f1<';
         $column['Field_html'] = 'f1&lt;';
 
@@ -436,6 +439,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             'f1&lt;'
         );
 
+        $comments = array();
         $comments['f1<'] = 'comment>';
 
         $result = PMA_getColumnTitle($column, $comments);
@@ -458,6 +462,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testIsColumnBinary()
     {
+        $column = array();
         $column['Type'] = 'binaryfoo';
         $this->assertEquals('binaryfoo', PMA_isColumnBinary($column));
 
@@ -476,8 +481,9 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testIsColumnBlog()
+    public function testIsColumnBlob()
     {
+        $column = array();
         $column['Type'] = 'blob';
         $this->assertEquals('blob', PMA_isColumnBlob($column));
 
@@ -504,6 +510,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testIsColumnChar()
     {
+        $column = array();
         $column['Type'] = 'char(10)';
         $this->assertEquals('char(10)', PMA_iscolumnchar($column));
 
@@ -521,6 +528,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetEnumAndTimestampColumns()
     {
+        $column = array();
         $column['True_Type'] = 'set';
         $this->assertEquals(
             array('set', '', false),
@@ -570,6 +578,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     public function testGetFunctionColumn()
     {
         $GLOBALS['cfg']['ProtectBinary'] = true;
+        $column = array();
         $column['is_blob'] = true;
         $this->assertTag(
             PMA_getTagArray('<td class="center">', array('content' => 'Binary')),
@@ -629,6 +638,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetNullColumn()
     {
+        $column = array();
         $column['Null'] = 'YES';
         $column['first_timestamp'] = false;
         $column['True_Type'] = 'enum';
@@ -697,6 +707,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetNullifyCodeForNullColumn()
     {
+        $column = $foreigners = $foreignData = array();
         $column['True_Type'] = 'enum';
         $column['Type'] = 'ababababababababababa';
         $this->assertEquals(
@@ -734,6 +745,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetForeignLink()
     {
+        $column = array();
         $column['Field'] = 'f';
         $titles['Browse'] = "'";
         $GLOBALS['cfg']['ServerDefault'] = 2;
@@ -775,6 +787,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testDispRowForeignData()
     {
+        $foreignData = array();
         $foreignData['disp_row'] = array();
         $foreignData['foreign_field'] = null;
         $foreignData['foreign_display'] = null;
@@ -816,6 +829,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['CharTextareaCols'] = 1;
         $GLOBALS['cfg']['LimitChars'] = 20;
 
+        $column = array();
         $column['is_char'] = true;
         $column['Type'] = 'char(10)';
         $result = PMA_getTextarea(
@@ -844,6 +858,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetPmaTypeEnum()
     {
+        $extracted_columnspec = $column = array();
         $extracted_columnspec['enum_set_values'] = array();
         $column['Type'] = 'abababababababababab';
         $result = PMA_getPmaTypeEnum(
@@ -897,6 +912,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetColumnEnumValues()
     {
+        $extracted_columnspec = $column = array();
         $extracted_columnspec['enum_set_values'] = array(
             '<abc>', '"foo"'
         );
@@ -965,6 +981,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             )
         );
 
+        $column = array();
         $column['Default'] = 'data';
         $column['Null'] = 'YES';
         $result = PMA_getDropDownDependingOnLength(
@@ -1032,6 +1049,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             )
         );
 
+        $column = array();
         $column['Default'] = 'data';
         $column['Null'] = 'YES';
         $result = PMA_getRadioButtonDependingOnLength(
@@ -1052,6 +1070,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetPmaTypeSet()
     {
+        $column = array();
         $column['values']  = array(
             array(
                 'html' => '&lt;',
@@ -1093,6 +1112,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetColumnSetValueAndSelectSize()
     {
+        $extracted_columnspec = $column = array();
         $extracted_columnspec['enum_set_values'] = array('a', '<');
         $result = PMA_getColumnSetValueAndSelectSize(array(), $extracted_columnspec);
 
@@ -1128,6 +1148,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     public function testGetBinaryAndBlobColumn()
     {
         $GLOBALS['cfg']['ProtectBinary'] = 'blob';
+        $column = array();
         $column['is_blob'] = true;
         $column['Field_md5'] = '123';
         $column['pma_type'] = 'blob';
@@ -1258,6 +1279,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetHTMLinput()
     {
+        $column = array();
         $column['pma_type'] = 'date';
         $column['True_Type'] = 'date';
         $result = PMA_getHTMLinput($column, 'a', 'b', 30, 'c', 23, 2, 0);
@@ -1297,6 +1319,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     public function testGetMaxUploadSize()
     {
         $GLOBALS['max_upload_size'] = 257;
+        $column = array();
         $column['pma_type'] = 'tinyblob';
         $result = PMA_getMaxUploadSize($column, 256);
 
@@ -1323,6 +1346,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetValueColumnForOtherDatatypes()
     {
+        $column = array();
         $column['len'] = 20;
         $column['is_char'] = true;
         $column['Type'] = 'char(25)';
@@ -1335,6 +1359,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['CharTextareaCols'] = 1;
         $GLOBALS['cfg']['LimitChars'] = 50;
 
+        $extracted_columnspec = array();
         $extracted_columnspec['spec_in_brackets'] = 25;
         $result = PMA_getValueColumnForOtherDatatypes(
             $column, 'defchar', 'a', 'b', 'c', 22, '&lt;', 12, 1, "/", "&lt;",
@@ -1387,6 +1412,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetColumnSize()
     {
+        $column = $extracted_columnspec = array();
         $column['is_char'] = true;
         $extracted_columnspec['spec_in_brackets'] = 45;
         $GLOBALS['cfg']['MinSizeForInputField'] = 30;
@@ -1653,6 +1679,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSpecialCharsAndBackupFieldForExistingRow()
     {
+        $column = $current_row = $extracted_columnspec = array();
         $column['Field'] = 'f';
         $current_row['f'] = null;
         $_REQUEST['default_action'] = 'insert';
@@ -1774,6 +1801,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSpecialCharsAndBackupFieldForInsertingMode()
     {
+        $column = array();
         $column['True_Type'] = 'bit';
         $column['Default'] = b'101';
         $column['is_binary'] = true;
@@ -2461,6 +2489,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetCurrentValueForDifferentTypes()
     {
+        $prow = array();
         $prow['a'] = b'101';
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')

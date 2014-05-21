@@ -411,6 +411,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
         $method->setAccessible(true);
 
         // recoding
+        $opts = array('values' => array());
         $opts['values']['iconv'] = 'testIconv';
         $opts['values']['recode'] = 'testRecode';
 

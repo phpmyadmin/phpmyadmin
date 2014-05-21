@@ -382,6 +382,7 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
      */
     function fetchRow($result)
     {
+        $curr_table = array();
         if ($this->index < count($this->values)) {
             $curr_table[0] = $this->values[$this->index];
             $this->index++;
@@ -511,6 +512,7 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
      */
     public function fetchAssoc($result)
     {
+        $assocResult = array();
         if ($this->assocIndex < $this->totalNum) {
             $assocResult['db_name'] = "db_name" . $this->assocIndex;
             $assocResult['comment'] = "comment" . $this->assocIndex;

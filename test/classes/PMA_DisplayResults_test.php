@@ -324,6 +324,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function testisSelect()
     {
+        $analyzed_sql = array(array());
         $analyzed_sql[0]['select_expr'] = array();
         $analyzed_sql[0]['queryflags']['select_from'] = 'pma';
         $analyzed_sql[0]['table_ref'] = array('table_ref');

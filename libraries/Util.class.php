@@ -3183,6 +3183,7 @@ class PMA_Util
     public static function expandUserString(
         $string, $escape = null, $updates = array()
     ) {
+        $vars = array();
         /* Content */
         $vars['http_host'] = PMA_getenv('HTTP_HOST');
         $vars['server_name'] = $GLOBALS['cfg']['Server']['host'];

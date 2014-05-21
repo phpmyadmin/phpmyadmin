@@ -206,6 +206,8 @@ function PMA_URL_getCommon()
     } else {
         // old style
 
+        $params = array();
+
         if (PMA_isValid($args[0])) {
             $params['db'] = $args[0];
         }
