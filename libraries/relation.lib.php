@@ -412,7 +412,9 @@ function PMA_checkRelationsParam()
 
     if ($GLOBALS['server'] == 0
         || empty($GLOBALS['cfg']['Server']['pmadb'])
-        || ! $GLOBALS['dbi']->selectDb($GLOBALS['cfg']['Server']['pmadb'], $GLOBALS['controllink'])
+        || ! $GLOBALS['dbi']->selectDb(
+            $GLOBALS['cfg']['Server']['pmadb'], $GLOBALS['controllink']
+        )
     ) {
         // No server selected -> no bookmark table
         // we return the array with the falses in it,
@@ -1006,7 +1008,9 @@ function PMA_purgeHistory($username)
        ORDER BY `timevalue` DESC
           LIMIT ' . $GLOBALS['cfg']['QueryHistoryMax'] . ', 1';
 
-    if ($max_time = $GLOBALS['dbi']->fetchValue($search_query, 0, 0, $GLOBALS['controllink'])) {
+    if ($max_time = $GLOBALS['dbi']->fetchValue(
+        $search_query, 0, 0, $GLOBALS['controllink']
+    )) {
         PMA_queryAsControlUser(
             'DELETE FROM '
             . PMA_Util::backquote($cfgRelation['db']) . '.'
