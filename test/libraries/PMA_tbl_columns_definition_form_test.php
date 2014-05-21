@@ -966,6 +966,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
                 'create_table_fields' => array(
                     'f' => array(
                         'default_current_timestamp' => true,
+                    )
                 )
             )
         );
