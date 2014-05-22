@@ -496,7 +496,7 @@ function browseForeignDialog($this_a)
                 $input = $this_a.closest('.edit_area').prev('.edit_box');
             }
             // Set selected value as input value
-            $input.val($(this).text());
+            $input.val($(this).data('key'));
             $dialog.dialog('close');
         });
         $(formId).on('click', showAllId, function () {
