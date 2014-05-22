@@ -1326,8 +1326,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     }
 
     function loadLog(type, min, max) {
-        var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').prop('value')) || min;
-        var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').prop('value')) || max;
+        var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').datepicker('getDate')) || min;
+        var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').datepicker('getDate')) || max;
 
         loadLogStatistics({
             src: type,
