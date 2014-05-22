@@ -121,6 +121,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     reloadFieldForm();
                     $form.remove();
                     PMA_ajaxRemoveMessage($msg);
+                    PMA_init_slider();
                     PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
