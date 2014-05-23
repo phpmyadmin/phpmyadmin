@@ -12,6 +12,7 @@ if (! defined('PHPMYADMIN')) {
 require_once 'libraries/Scripts.class.php';
 require_once 'libraries/RecentFavoriteTable.class.php';
 require_once 'libraries/Menu.class.php';
+require_once 'libraries/Console.class.php';
 require_once 'libraries/navigation/Navigation.class.php';
 require_once 'libraries/url_generating.lib.php';
 
@@ -30,6 +31,13 @@ class PMA_Header
      * @var PMA_Scripts
      */
     private $_scripts;
+    /**
+     * PMA_Console instance
+     *
+     * @access private
+     * @var PMA_Console
+     */
+    private $_console;
     /**
      * PMA_Menu instance
      *
@@ -113,6 +121,7 @@ class PMA_Header
         $this->_isAjax = false;
         $this->_bodyId = '';
         $this->_title  = '';
+        $this->_console = new PMA_Console();
         $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
         $this->_menu   = new PMA_Menu(
@@ -270,6 +279,7 @@ class PMA_Header
     public function setAjax($isAjax)
     {
         $this->_isAjax = ($isAjax == true);
+        $this->_console->setAjax($isAjax);
     }
 
     /**
@@ -321,9 +331,10 @@ class PMA_Header
      *
      * @return void
      */
-    public function disableMenu()
+    public function disableMenuAndConsole()
     {
         $this->_menuEnabled = false;
+        $this->_console->disable();
     }
 
     /**
@@ -343,7 +354,7 @@ class PMA_Header
      */
     public function enablePrintView()
     {
-        $this->disableMenu();
+        $this->disableMenuAndConsole();
         $this->setTitle(__('Print view') . ' - phpMyAdmin ' . PMA_VERSION);
         $this->_isPrintView = true;
     }
@@ -408,6 +419,7 @@ class PMA_Header
                         PMA_Util::getImage('s_top.png')
                     );
                 }
+                $retval .= $this->_console->getDisplay();
                 $retval .= '<div id="page_content">';
                 $retval .= $this->getMessage();
             }

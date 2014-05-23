@@ -67,7 +67,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         $response->getFooter()->setMinimal();
         $header = $response->getHeader();
         $header->setTitle(__('Access denied!'));
-        $header->disableMenu();
+        $header->disableMenuAndConsole();
         $header->setBodyId('loginform');
 
         $response->addHTML('<h1>');

@@ -2663,3 +2663,19 @@ table.show_create {
 table.show_create td {
     border-right: 1px solid #bbb;
 }
+
+/* Console styles */
+#pma_console_container {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    <?php echo $left; ?>: 0;
+}
+#pma_console {
+    background: #444;
+    color: #fff;
+    text-align: center;
+    font-size: 48px;
+    line-height: 92px;
+    margin-<?php echo $left; ?>: 240px;
+}
