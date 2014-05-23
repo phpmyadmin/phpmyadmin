@@ -256,14 +256,14 @@ class PMA_Error extends PMA_Message
     }
 
     /**
-     * Get HTML backtrace
+     * Get HTML backtrace of upto $numStackFrames frames
      *
      * @return string
      */
-    public function getBacktraceDisplay()
+    public function getBacktraceDisplay($numStackFrames = 3)
     {
         $retval = '';
-
+        $count = 0;
         foreach ($this->getBacktrace() as $step) {
             if (isset($step['file']) && isset($step['line'])) {
                 $retval .= PMA_Error::relPath($step['file'])
@@ -286,6 +286,10 @@ class PMA_Error extends PMA_Message
                 }
             }
             $retval .= ')' . "<br />\n";
+            $count++;
+            if($count >= $numStackFrames){
+                break;
+            }
         }
 
         return $retval;

@@ -27,7 +27,8 @@ if (is_readable('js/line_counts.php')) {
 /**
  * the url where to submit reports to
  */
-define('SUBMISSION_URL', "http://reports.phpmyadmin.net/incidents/create");
+// define('SUBMISSION_URL', "http://reports.phpmyadmin.net/incidents/create");
+define('SUBMISSION_URL', "http://127.0.0.1/error-reporting-server/incidents/create");
 
 /**
  * returns the error report data collected from the current configuration or
@@ -37,35 +38,64 @@ define('SUBMISSION_URL', "http://reports.phpmyadmin.net/incidents/create");
  *
  * @return Array/String the report
  */
-function PMA_getReportData($pretty_print = true)
+function PMA_getReportData($pretty_print = true, $exception_type = 'js')
 {
-    if (empty($_REQUEST['exception'])) {
-        return '';
-    }
-    $exception = $_REQUEST['exception'];
-    $exception["stack"] = PMA_translateStacktrace($exception["stack"]);
-    List($uri, $script_name) = PMA_sanitizeUrl($exception["url"]);
-    $exception["uri"] = $uri;
-    unset($exception["url"]);
+    // common params for both, php & js execptions
     $report = array(
-        "exception" => $exception,
-        "script_name" => $script_name,
-        "pma_version" => PMA_VERSION,
-        "browser_name" => PMA_USR_BROWSER_AGENT,
-        "browser_version" => PMA_USR_BROWSER_VER,
-        "user_os" => PMA_USR_OS,
-        "server_software" => $_SERVER['SERVER_SOFTWARE'],
-        "user_agent_string" => $_SERVER['HTTP_USER_AGENT'],
-        "locale" => $_COOKIE['pma_lang'],
-        "configuration_storage" =>
-            empty($GLOBALS['cfg']['Servers'][1]['pmadb']) ? "disabled" :
-            "enabled",
-        "php_version" => phpversion(),
-        "microhistory" => $_REQUEST['microhistory'],
-    );
+            "pma_version" => PMA_VERSION,
+            "browser_name" => PMA_USR_BROWSER_AGENT,
+            "browser_version" => PMA_USR_BROWSER_VER,
+            "user_os" => PMA_USR_OS,
+            "server_software" => $_SERVER['SERVER_SOFTWARE'],
+            "user_agent_string" => $_SERVER['HTTP_USER_AGENT'],
+            "locale" => $_COOKIE['pma_lang'],
+            "configuration_storage" =>
+                empty($GLOBALS['cfg']['Servers'][1]['pmadb']) ? "disabled" :
+                "enabled",
+            "php_version" => phpversion()
+            );
 
-    if (! empty($_REQUEST['description'])) {
-        $report['steps'] = $_REQUEST['description'];
+    if($exception_type == 'js') {
+        if (empty($_REQUEST['exception'])) {
+            return '';
+        }
+        $exception = $_REQUEST['exception'];
+        $exception["stack"] = PMA_translateStacktrace($exception["stack"]);
+        List($uri, $script_name) = PMA_sanitizeUrl($exception["url"]);
+        $exception["uri"] = $uri;
+        unset($exception["url"]);
+
+        $report ["exception_type"] = 'js';
+        $report ["exception"] = $exception;
+        $report ["script_name"] = $script_name;
+        $report ["microhistory"] = $_REQUEST['microhistory'];
+        );
+
+        if (! empty($_REQUEST['description'])) {
+            $report['steps'] = $_REQUEST['description'];
+        }
+    }
+    elseif($exception_type == 'php'){
+        $errors = array();
+        // create php error report
+        $i=0;
+        foreach($_SESSION['prev_errors'] as $errorObj ) {
+            if ($errorObj->getLine() && $errorObj->getType() && $errorObj->getNumber() != E_USER_WARNING) {
+                $errors[$i++] = array(
+                    "lineNum" => $errorObj->getLine(),
+                    "file" => $errorObj->getFile(),
+                    "type" => $errorObj->getType(),
+                    "msg" => $errorObj->getMessage(),
+                    "stackTrace" => $errorObj->getBacktraceDisplay(5)
+                    );
+
+            }
+        }
+        $report ["exception_type"] = 'php';
+        $report["errors"] = $errors;
+    }
+    else{
+        return false;
     }
 
     if (!$pretty_print) {

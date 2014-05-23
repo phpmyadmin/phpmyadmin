@@ -294,7 +294,10 @@ class PMA_Error_Handler
     public function getDispErrors()
     {
         $retval = '';
-        if ($GLOBALS['cfg']['Error_Handler']['display']) {
+        // display errors if SendErrorReports is set to 'ask'.
+        if ($GLOBALS['cfg']['SendErrorReports'] != 'never'
+            || $GLOBALS['cfg']['Error_Handler']['display']
+            ) {
             foreach ($this->getErrors() as $error) {
                 if ($error instanceof PMA_Error) {
                     if (! $error->isDisplayed()) {
@@ -309,6 +312,27 @@ class PMA_Error_Handler
             }
         } else {
             $retval .= $this->getDispUserErrors();
+        }
+        if($GLOBALS['cfg']['SendErrorReports'] == 'ask'){
+            // add report button.
+            $retval .= '<form method="post" action="error_report.php" id="pma_report_errors_form">'
+                    . '<input type="hidden" name="token" value="'
+                    . $_SESSION[' PMA_token ']
+                    . '"/>'
+                    . '<input type="hidden" name="exception_type" value="php"/>'
+                    . '<input type="hidden" name="send_error_report" value="1" />'
+                    . '<input type="submit" value="'
+                    . __('Report')
+                    . '" id="pma_report_errors" style="float: right; margin: 20px;">'
+                    . '</form>';
+
+            // add ignore buttons
+            $retval .='<input type="submit" value="'.__('Ignore')
+                    .'" id="pma_ignore_errors" onclick="PMA_ignorePhpErrors(true)" '
+                    .'style="float: right; margin: 20px;">';
+            $retval .='<input type="submit" value="'.__('Ignore All')
+                    .'" id="pma_ignore_all_errors" onclick="PMA_ignorePhpErrors(false)" '
+                    .'style="float: right; margin: 20px;">';
         }
         return $retval;
     }
@@ -402,7 +426,9 @@ class PMA_Error_Handler
      */
     public function countDisplayErrors()
     {
-        if ($GLOBALS['cfg']['Error_Handler']['display']) {
+        if ($GLOBALS['cfg']['SendErrorReports'] != 'never'
+            || $GLOBALS['cfg']['Error_Handler']['display']
+            ) {
             return $this->countErrors();
         } else {
             return $this->countUserErrors();
@@ -417,6 +443,18 @@ class PMA_Error_Handler
     public function hasDisplayErrors()
     {
         return (bool) $this->countDisplayErrors();
+    }
+
+    /**
+    * Deletes prevsiously stored errors in SESSION.
+    * Saves current errors in session as previous errros.
+    * Required to save current errors in case  'ask'
+    * 
+    */
+    public function savePreviousErrors()
+    {
+        unset($_SESSION['prev_errors']);
+        $_SESSION['prev_errors'] = $GLOBALS['error_handler']->getCurrentErrors();
     }
 }
 ?>
