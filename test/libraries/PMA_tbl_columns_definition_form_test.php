@@ -961,9 +961,12 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $colspec = array('attribute' => 'attr');
 
-        $analyzed_sql[0]['create_table_fields'] = array(
-            'f' => array(
-                'default_current_timestamp' => true,
+        $analyzed_sql = array(
+            array(
+                'create_table_fields' => array(
+                    'f' => array(
+                        'default_current_timestamp' => true,
+                )
             )
         );
 

@@ -812,32 +812,36 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
      */
     public function getTrackedDataProvider()
     {
-        $fetchArrayReturn[0] = array(
-            "schema_sql" => "# log 20-03-2013 23:33:58 user1\nstat1" .
-            "# log 20-03-2013 23:39:58 user2\n",
-            "data_sql" => "# log ",
-            "schema_snapshot" => "dataschema",
-            "tracking" => "SELECT, DELETE"
+        $fetchArrayReturn = array(
+            array(
+                "schema_sql" => "# log 20-03-2013 23:33:58 user1\nstat1" .
+                "# log 20-03-2013 23:39:58 user2\n",
+                "data_sql" => "# log ",
+                "schema_snapshot" => "dataschema",
+                "tracking" => "SELECT, DELETE"
+            )
         );
 
-        $data[0] = array(
-            'date_from' => '20-03-2013 23:33:58',
-            'date_to' => '20-03-2013 23:39:58',
-            'ddlog' => array(
-                            array(
-                                'date' => '20-03-2013 23:33:58',
-                                'username' => 'user1',
-                                'statement' => "\nstat1"
+        $data = array(
+            array(
+                'date_from' => '20-03-2013 23:33:58',
+                'date_to' => '20-03-2013 23:39:58',
+                'ddlog' => array(
+                                array(
+                                    'date' => '20-03-2013 23:33:58',
+                                    'username' => 'user1',
+                                    'statement' => "\nstat1"
+                                ),
+                                array(
+                                    'date' => '20-03-2013 23:39:58',
+                                    'username' => 'user2',
+                                    'statement' => ""
+                                )
                             ),
-                            array(
-                                'date' => '20-03-2013 23:39:58',
-                                'username' => 'user2',
-                                'statement' => ""
-                            )
-                        ),
-            'dmlog' => array(),
-            "schema_snapshot" => "dataschema",
-            "tracking" => "SELECT, DELETE"
+                'dmlog' => array(),
+                "schema_snapshot" => "dataschema",
+                "tracking" => "SELECT, DELETE"
+            )
         );
 
         $fetchArrayReturn[1] = array(
