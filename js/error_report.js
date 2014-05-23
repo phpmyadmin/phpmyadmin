@@ -22,7 +22,8 @@ var ErrorReport = {
         $.get("error_report.php", {
             ajax_request: true,
             token: PMA_commonParams.get('token'),
-            get_settings: true
+            get_settings: true,
+            exception_type: 'js'
         }, function (data) {
             if (!data.success === true) {
                 PMA_ajaxShowMessage(data.error, false);
@@ -226,7 +227,8 @@ var ErrorReport = {
             "token": PMA_commonParams.get('token'),
             "exception": exception,
             "current_url": window.location.href,
-            "microhistory": ErrorReport._get_microhistory()
+            "microhistory": ErrorReport._get_microhistory(),
+            "exception_type": 'js'
         };
         if (typeof AJAX.cache.pages[AJAX.cache.current - 1] !== 'undefined') {
            report_data.scripts = AJAX.cache.pages[AJAX.cache.current - 1].scripts.map(
