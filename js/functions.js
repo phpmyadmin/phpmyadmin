@@ -4160,3 +4160,24 @@ function checkNumberOfFields() {
 
     return true;
 }
+
+/**
+ * Ignore the displayed php errors.
+ * Simply removes the displayed errors.
+ *
+ */
+ function PMA_ignorePhpErrors(clearPrevErrors){
+    if (typeof clearPrevErrors === "undefined" || clearPrevErrors === null) { 
+        str = false; 
+    }
+    // send AJAX request to error_report.php with send_error_report=0, exception_type=php & token.
+    // It clears the prev_errors stored in session.
+    if(clearPrevErrors){
+        $('#pma_report_errors_form input[name="send_error_report"]').val(0); // change send_error_report to '0'
+        $('#pma_report_errors_form').submit();
+    }
+
+    // remove dislayed errors
+    $('#pma_errors').fadeOut( "slow");
+    $('#pma_errors').remove();
+ }

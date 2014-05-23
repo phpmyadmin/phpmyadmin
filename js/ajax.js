@@ -325,11 +325,22 @@ var AJAX = {
                 }
 
                 $('#pma_errors').remove();
+                
+                var msg = '';
+                if(data._errSubmitMsg){
+                    msg = data._errSubmitMsg;
+                }
                 if (data._errors) {
                     $('<div/>', {id : 'pma_errors'})
                         .insertAfter('#selflink')
                         .append(data._errors);
+                        if(data._promptPhpErrors){
+                            msg = msg + PMA_messages['phpErrorsFound']; 
+                            // scroll to bottom where all the erros are displayed.
+                            $('html, body').animate({scrollTop:$(document).height()}, 'slow');
+                        }
                 }
+                PMA_ajaxShowMessage(msg, false);
 
                 if (typeof AJAX._callback === 'function') {
                     AJAX._callback.call();

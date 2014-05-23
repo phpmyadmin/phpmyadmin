@@ -410,6 +410,18 @@ $js_messages['strTooManyInputs'] = __(
     . "max_input_vars configuration."
 );
 
+$js_messages['phpErrorsFound'] = '<div class="error">'
+    . __('Warning: Some errors have been detected on the server!!')
+    . '<div>'
+    . __('Please look at the bottom of this window.')
+    . '<input type="submit" value="'
+    . __('Ignore')
+    . '" onclick="PMA_ignorePhpErrors()" style="float: right; margin: 20px;">'
+    . '<input type="submit" value="'
+    . __('Ignore All')
+    . '" onclick="PMA_ignorePhpErrors(false)" style="float: right; margin: 20px;">'
+    . '</div></div>';
+
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
     PMA_printJsValue("PMA_messages['" . $name . "']", $js_message);
