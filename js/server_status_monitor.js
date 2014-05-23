@@ -1295,8 +1295,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     function PMA_getLogAnalyseDialog(min, max) {
         var $dateStart = $('#logAnalyseDialog input[name="dateStart"]');
         var $dateEnd = $('#logAnalyseDialog input[name="dateEnd"]');
-        $dateStart.val(PMA_formatDateTime(min, true));
-        $dateEnd.val(PMA_formatDateTime(max, true));
+        $dateStart.prop("readonly", true);
+        $dateEnd.prop("readonly", true);
 
         var dlgBtns = { };
 
@@ -1326,6 +1326,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             showMicrosec: false,
             timeFormat: 'HH:mm:ss'
         });
+        $('#logAnalyseDialog input[name="dateStart"]').datepicker('setDate', min);
+        $('#logAnalyseDialog input[name="dateEnd"]').datepicker('setDate', max);
     }
 
     function loadLog(type, min, max) {
