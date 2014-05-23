@@ -13,50 +13,43 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/** if there were any errors currently write them to a log file. 
- *	Later it will be changed to submit them to the error reporting server.
+/**
+ * if there were any errors then take appropriate actions based on user preferences.
  */
 if($GLOBALS['error_handler']->hasErrors()) {
-	// then log them in a local file.
-	$path = "./pma_error_log.txt";
-	$fp = fopen($path, "w");
+	// Delete all the prev_errors in session & store new prev_errors in session
+	$GLOBALS['error_handler']->savePreviousErrors();
 
-	// for each errors in the list
-	foreach($GLOBALS['error_handler']->getCurrentErrors() as $errObj ) {
-		/**
-		 * Following check is to avoid error reported by PMA_warnMissingExtension();
-		 * 
-		 */ 
-		if ($errObj->getLine() && $errObj->getType()) {
-			$str = "\n\n".$errObj->getFile() . "(#"  . $errObj->getLine() . ")\n\t". $errObj->getTitle();
-			// for stack trace
-			// ------------------------------------------------------------------------------------------
-			$backtrace = $errObj->getBacktrace();
-			$error_str= "";	
-			foreach($backtrace as $i=>$stack_frame)
-			{
-			 	$error_str .= "\n \t\t\t Frame[".$i."]: \tfile:".$stack_frame["file"]."\tline:".$stack_frame["line"]."\tfunction:".$stack_frame["function"]."(";
-		 		foreach($stack_frame["args"] as $j=>$arg)
-		 		{
-		 			if($j != 0)
-		 			{
-		 				$error_str .= ", ";
-		 			}
+	if($GLOBALS['cfg']['SendErrorReports'] == 'always'){
+		//send the error reports directly
 
-		 			$error_str .= "arg[".$j."] = ".$arg;
-		 		}
-		 		$error_str .= ")";
-			 	
-			 	if($i >= 5)	// MAX 5 of stack frames.
-			 	{
-			 		break;
-			 	}
-			 }
-			// ------------------------------------------------------------------------------------------
-			$retVal = fwrite ($fp , $str);
-			$retVal = fwrite ($fp , $error_str);
-		}
+	    $_REQUEST['exception_type'] = 'php';
+	    $_REQUEST['send_error_report'] = '1';
+	    require_once('error_report.php');
+
+	    // The errors are already sent. Just focus on errors division upon load event.
+		$jsCode = '$("html, body").animate({scrollTop:$(document).height()}, "slow");';
+		$response = PMA_Response::getInstance();
+		$response->getFooter()->getScripts()->addCode($jsCode);
 	}
-	fclose($fp);
+	elseif($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
+		//ask user whether to submit errors or not.
+		if($response->isAjax()) {
+			// Send the errors in '_error' param. That is Already done in PMA_Response::_ajaxResponse().
+		}
+		else {
+			// The errors are already sent. Just focus on errors division upon load event.
+			$jsCode = 'PMA_ajaxShowMessage(PMA_messages["phpErrorsFound"], 2000);'
+					. '$("html, body").animate({scrollTop:$(document).height()}, "slow");';
+					
+			$response = PMA_Response::getInstance();
+			$response->getFooter()->getScripts()->addCode($jsCode);
+		}
+
+	}
+	else {
+		//$GLOBALS['cfg']['SendErrorReports'] set to 'never'. Do not submit error reports.
+
+	}
 }
 ?>

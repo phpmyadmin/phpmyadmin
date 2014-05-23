@@ -316,6 +316,9 @@ class PMA_Response
             if (strlen($errors)) {
                 $this->addJSON('_errors', $errors);
             }
+            $promptPhpErrors = ($GLOBALS['cfg']['SendErrorReports'] != 'never' || $GLOBALS['cfg']['Error_Handler']['display']);
+            $this->addJSON('_promptPhpErrors', $promptPhpErrors);
+
             if (empty($GLOBALS['error_message'])) {
                 // set current db, table and sql query in the querywindow
                 $query = '';
