@@ -1273,6 +1273,7 @@ function PMA_getEntries($data, $filter_ts_from, $filter_ts_to, $filter_users)
     }
 
     // Sort it
+    $ids = $timestamps = $usernames = $statements = array();
     foreach ($entries as $key => $row) {
         $ids[$key]        = $row['id'];
         $timestamps[$key] = $row['timestamp'];

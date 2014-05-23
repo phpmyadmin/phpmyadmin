@@ -253,6 +253,7 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
         $html = PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql);
 
         //validate 1: $kill_process
+        $url_params = array();
         $url_params['kill'] = $process['id'];
         $kill_process = 'server_status.php' . PMA_URL_getCommon($url_params);
         $this->assertContains(
