@@ -165,8 +165,8 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
         'Qcache_lowmem_prunes' => 0,
 
         'Qcache_free_blocks' =>
-            isset($ServerStatusData->server_status['Qcache_total_blocks'])
-            ? $ServerStatusData->server_status['Qcache_total_blocks'] / 5
+            isset($ServerStatusData->status['Qcache_total_blocks'])
+            ? $ServerStatusData->status['Qcache_total_blocks'] / 5
             : 0,
         'Slow_launch_threads' => 0,
 
