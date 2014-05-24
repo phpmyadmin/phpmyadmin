@@ -86,7 +86,6 @@ function PMA_getReportData($exception_type = 'js')
         $report ["exception"] = $exception;
         $report ["script_name"] = $script_name;
         $report ["microhistory"] = $_REQUEST['microhistory'];
-        );
 
         if (! empty($_REQUEST['description'])) {
             $report['steps'] = $_REQUEST['description'];
