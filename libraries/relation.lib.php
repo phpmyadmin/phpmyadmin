@@ -298,7 +298,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             'central_columns'
         );
         $retval .= PMA_getDiagMessageForFeature(
-            __('Managing Central list of coulmns'),
+            __('Managing Central list of columns'),
             'central_columnswork',
             $messages
         );

@@ -1473,16 +1473,18 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
                 __('Fulltext'), 'b_ftext.png', 'ftext'
             );
         }
-        $html_output .= PMA_Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_central_columns_add',
-            __('Add to central columns'), 'centralColumns_add.png', 
-            'add_to_central_columns'
-        );
-        $html_output .= PMA_Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_central_columns_remove',
-            __('Remove from central columns'), 'centralColumns_delete.png', 
-            'remove_from_central_columns'
-        );
+        if ($GLOBALS['cfgRelation']['central_columnswork']) {
+            $html_output .= PMA_Util::getButtonOrImage(
+                'submit_mult', 'mult_submit', 'submit_mult_central_columns_add',
+                __('Add to central columns'), 'centralColumns_add.png', 
+                'add_to_central_columns'
+            );
+            $html_output .= PMA_Util::getButtonOrImage(
+                'submit_mult', 'mult_submit', 'submit_mult_central_columns_remove',
+                __('Remove from central columns'), 'centralColumns_delete.png', 
+                'remove_from_central_columns'
+            );
+        }
     }
     return $html_output;
 }
@@ -2067,29 +2069,31 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         );
     }
     $html_output .= PMA_getHtmlForDistinctValueAction($url_query, $row, $titles);
-    $html_output .= '<li class="browse nowrap">';
-    if ($isInCentralColumns) {
-        $html_output .= 
-            '<a href="#" onclick=$("input:checkbox").removeAttr("checked");'
-            . '$("#checkbox_row_'.$rownum.'").attr("checked","checked");'
-            . '$("button[value=remove_from_central_columns]").click();>'
-        . PMA_Util::getIcon(
-            'centralColumns_delete.png',
-            __('Remove from central columns')
-        )
-        . '</a>';
-    } else {
-        $html_output .= 
-            '<a href="#" onclick=$("input:checkbox").removeAttr("checked");'
-            . '$("#checkbox_row_'.$rownum.'").attr("checked","checked");'
-            . '$("button[value=add_to_central_columns]").click();>'
-        . PMA_Util::getIcon(
-            'centralColumns_add.png', 
-            __('Add to central columns')
-        )
-        . '</a>';
+    if ($GLOBALS['cfgRelation']['central_columnswork']) {
+        $html_output .= '<li class="browse nowrap">';
+        if ($isInCentralColumns) {
+            $html_output .= 
+                '<a href="#" onclick=$("input:checkbox").removeAttr("checked");'
+                . '$("#checkbox_row_'.$rownum.'").attr("checked","checked");'
+                . '$("button[value=remove_from_central_columns]").click();>'
+            . PMA_Util::getIcon(
+                'centralColumns_delete.png',
+                __('Remove from central columns')
+            )
+            . '</a>';
+        } else {
+            $html_output .= 
+                '<a href="#" onclick=$("input:checkbox").removeAttr("checked");'
+                . '$("#checkbox_row_'.$rownum.'").attr("checked","checked");'
+                . '$("button[value=add_to_central_columns]").click();>'
+            . PMA_Util::getIcon(
+                'centralColumns_add.png', 
+                __('Add to central columns')
+            )
+            . '</a>';
+        }
+        $html_output .= '</li>';
     }
-    $html_output .= '</li>';
     $html_output .= '<div class="clearfloat"></div></ul></td>';
     return $html_output;
 }

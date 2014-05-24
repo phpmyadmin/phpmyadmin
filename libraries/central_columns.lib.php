@@ -89,13 +89,26 @@ function PMA_syncUniqueColumns($field_select, $isTable=true)
     $has_list = PMA_getColumnsList($db);
     $GLOBALS['dbi']->selectDb($db);
     $sync = $has_list;
-    $sync_tmp = array();
+    $existingCols = "";
+    $message = true;
     if ($isTable) {
         foreach ($field_select as $table) {
+            $sync_tmp = isset($sync[$table])?(array)$sync[$table]:array();
             $fields = (array) $GLOBALS['dbi']->getColumns($db, $table, null, true);
             foreach ($fields as $field => $def) {
-                $sync_tmp[$field] = $def['Type'] . " " . $def['key'] . " " .
-                    $def['collation'] . " " . $def["Null"] . " " . $def['Extra'];
+                if (!isset($sync_tmp[$field])) {
+                    $sync_tmp[$field] = (isset($def['Type']))?$def['Type']:"";
+                    $sync_tmp[$field] .= " ";
+                    $sync_tmp[$field] .= (isset($def['key']))?$def['key']:"";
+                    $sync_tmp[$field] .= " ";
+                    $sync_tmp[$field] .= (isset($def['collation']))?$def['collation']:"";
+                    $sync_tmp[$field] .= " ";
+                    $sync_tmp[$field] .= (isset($def['Null']))?$def['Null']:"";
+                    $sync_tmp[$field] .= " ";
+                    $sync_tmp[$field] .= (isset($def['Extra']))?$def['Extra']:"";
+                } else {
+                    $existingCols .= ", '".$table.'.'.$field."'";
+                }
             }
             $sync[$table] = $sync_tmp;
             //echo '<br><br>';
@@ -108,12 +121,36 @@ function PMA_syncUniqueColumns($field_select, $isTable=true)
                     $db, $table, $column,
                     true
                 );
-                //print_r($field);
-                $sync_tmp[$column] = $field['Type'] . " " . $field['key'] . " " .
-                    $field['collation'] . " " . $field["Null"] 
-                        . " " . $field['Extra'];
+            if (!isset($sync_tmp[$column])) {
+                $sync_tmp[$column] = (isset($field['Type']))?$field['Type']:"";
+                $sync_tmp[$column] .= " ";
+                $sync_tmp[$column] .= (isset($field['key']))?$field['key']:"";
+                $sync_tmp[$column] .= " ";
+                $sync_tmp[$column] .= (isset($field['collation']))?$field['collation']:""; 
+                $sync_tmp[$column] .= " ";
+                $sync_tmp[$column] .= (isset($field['Null']))?$field['Null']:"";
+                $sync_tmp[$column] .= " ";
+                $sync_tmp[$column] .= (isset($field['Extra']))?$field['Extra']:"";
+            } else {
+                $existingCols .= ", '".$table.'.'.$column."'";
+            }
         }
-            $sync[$table] = $sync_tmp;
+        $sync[$table] = $sync_tmp;
+    }
+    if ($existingCols != "") {
+        $existingCols = trim($existingCols, ',');
+        $message = PMA_Message::notice(
+            __(
+                "Could not add $existingCols as they already exist in central list!"
+            )
+        );
+        $message->addMessage('<br /><br />');
+        $message->addMessage(
+            PMA_Message::notice(
+                "Please remove them first "
+                . "from central list if you want to update above columns"
+            )
+        );
     }
     $GLOBALS['dbi']->selectDb($pmadb, $GLOBALS['controllink']);
     if (!$has_list) {
@@ -135,9 +172,8 @@ function PMA_syncUniqueColumns($field_select, $isTable=true)
                 $GLOBALS['dbi']->getError($GLOBALS['controllink'])
             )
         );
-        return $message;
     }
-    return true;
+    return $message;
 }
 
 /**
@@ -165,23 +201,52 @@ function PMA_deleteColumnsFromList($field_select, $isTable=true)
     $has_list = PMA_getColumnsList($db);
     $GLOBALS['dbi']->selectDb($db);
     $sync = $has_list;
+    $message = true;
+    $tableNotExit = "";
+    $columnsNotExist = "";
     if ($isTable) {
         foreach ($field_select as $table) {
-            unset($sync[$table]);
+            if (isset($sync[$table])) {
+                unset($sync[$table]);
+            } else {
+                $tableNotExit .= ", '".$table."'";
+            }
+        }
+        if ($tableNotExit != "") {
+            $tableNotExit = trim($tableNotExit, ",");
+            $message = PMA_Message::notice(
+                __(
+                    "Couldn't remove Table(s) $tableNotExit "
+                    . "as they don't exist in central columns list!"
+                )
+            );
         }
     } else {
         $table = $_POST['table'];
         $sync[$table] = (array)$sync[$table];
         foreach ($field_select as $column) {
-            unset($sync[$table][$column]);
+            if (isset($sync[$table][$column])) {
+                unset($sync[$table][$column]);
+            } else {
+                $columnsNotExist .= ", '".$column."'";
+            }
         }
         if (!$sync[$table]) {
             unset($sync[$table]);
         }
+        if ($columnsNotExist != "") {
+            $columnsNotExist = trim($columnsNotExist, ",");
+            $message = PMA_Message::notice(
+                __(
+                    "Couldn't remove Column(s) $columnsNotExist "
+                    . "as they don't exist in central columns list!"
+                )
+            );
+        }
     }
     
     $GLOBALS['dbi']->selectDb($pmadb, $GLOBALS['controllink']);
-    if (!$has_list) {
+    if (!$has_list && $sync) {
         $query = 'INSERT INTO ' . PMA_Util::backquote($central_list_table) . ' '
                 . 'VALUES ( \'' . $db . '\' '
                 . ', \'' . PMA_Util::sqlAddSlashes(json_encode($sync)) . '\' );';
@@ -203,9 +268,8 @@ function PMA_deleteColumnsFromList($field_select, $isTable=true)
                 $GLOBALS['dbi']->getError($GLOBALS['controllink'])
             )
         );
-        return $message;
     }
-    return true;
+    return $message;
 }
 
 /**
@@ -220,7 +284,7 @@ function PMA_deleteColumnsFromList($field_select, $isTable=true)
 function PMA_getCentralColumnsFromTable($db, $table)
 {
     $has_list = PMA_getColumnsList($db);
-    if ($has_list[$table]) {
+    if (isset($has_list[$table]) && $has_list[$table]) {
         return (array)$has_list[$table];
     } else {
         return array();
