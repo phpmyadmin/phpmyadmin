@@ -352,7 +352,7 @@ $js_messages['strColVisibHint'] = __(
 );
 $js_messages['strShowAllCol'] = __('Show all');
 $js_messages['strAlertNonUnique'] = __('This table does not contain a unique column. Features related to the grid edit, checkbox, Edit, Copy and Delete links may not work after saving.');
-$js_messages['strEnterValidHex'] = __('Please enter valid hexadecimal string. Valid characters are 0-9, A-F.');
+$js_messages['strEnterValidHex'] = __('Please enter a valid hexadecimal string. Valid characters are 0-9, A-F.');
 
 // this approach does not work when the parameter is changed via user prefs
 switch ($GLOBALS['cfg']['GridEditing']) {
