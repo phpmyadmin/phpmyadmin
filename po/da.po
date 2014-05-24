@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-05-24 09:07-0400\n"
+"POT-Creation-Date: 2014-05-24 17:34-0400\n"
 "PO-Revision-Date: 2014-05-24 19:40+0200\n"
 "Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
-"Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/>"
-"\n"
+"Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/"
+">\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1901,7 +1901,10 @@ msgstr ""
 "sletning fungerer måske ikke, efter at data er gemt."
 
 #: js/messages.php:355
-msgid "Please enter valid hexadecimal string. Valid characters are 0-9, A-F."
+#, fuzzy
+#| msgid ""
+#| "Please enter valid hexadecimal string. Valid characters are 0-9, A-F."
+msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "Indtast venligst et gyldigt heximalt tal. Gyldige tegn er 0-9 og A-F."
 
 #: js/messages.php:360
@@ -6156,20 +6159,16 @@ msgid "Maximal number of table preferences to store"
 msgstr "Maksimalt antal tabel-præferencer, der lagres"
 
 #: libraries/config/messages.inc.php:616
-#| msgid "See slave status table"
 msgid "QBE saved searches table"
 msgstr "QBE gemte søger tabel"
 
 #: libraries/config/messages.inc.php:618
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
-#| "kbd]."
 msgid ""
 "Leave blank for no QBE saved searches support, suggested: [kbd]"
 "pma__savedsearches[/kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af QBE-skematik, forslag: "
-"[kbd]pma_pdf_pages[/kbd]."
+"Efterlades tom for at undlade understøttelse af QBE-skematik, forslag: [kbd]"
+"pma_pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:622
 msgid "Try to connect without password."
