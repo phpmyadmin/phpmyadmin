@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-24 09:05-0400\n"
-"PO-Revision-Date: 2014-05-09 13:53+0200\n"
+"PO-Revision-Date: 2014-05-24 19:41+0200\n"
 "Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
 "Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/4-2/da/>\n"
 "Language: da\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -5587,14 +5587,15 @@ msgid "Maximum databases"
 msgstr "Maksimalt antal databaser"
 
 #: libraries/config/messages.inc.php:402
-#, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page on first level of "
 #| "the  navigation tree."
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
-msgstr "Antallet af elementer som kan vises på hver side i navigationstræet."
+msgstr ""
+"Antallet af elementer som kan vises i øverste niveau på hver side i "
+"navigationstræet."
 
 #: libraries/config/messages.inc.php:405
 msgid "Maximum items on first level"
@@ -6159,13 +6160,11 @@ msgid "Maximal number of table preferences to store"
 msgstr "Maksimalt antal tabel-præferencer, der lagres"
 
 #: libraries/config/messages.inc.php:618
-#, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
-msgstr "Se slave status tabel"
+msgstr "QBE gemte søger tabel"
 
 #: libraries/config/messages.inc.php:620
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]."
@@ -6173,8 +6172,8 @@ msgid ""
 "Leave blank for no QBE saved searches support, suggested: [kbd]"
 "pma__savedsearches[/kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: [kbd]"
-"pma_pdf_pages[/kbd]."
+"Efterlades tom for at undlade understøttelse af QBE-skematik, forslag: "
+"[kbd]pma_pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:624
 msgid "Try to connect without password."
