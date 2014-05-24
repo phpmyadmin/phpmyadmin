@@ -185,12 +185,25 @@ if (isset($_REQUEST['change_copy'])) {
  * Updates privileges
  */
 if (! empty($_POST['update_privs'])) {
-    list($sql_query, $message) = PMA_updatePrivileges(
-        (isset($username) ? $username : ''),
-        (isset($hostname) ? $hostname : ''),
-        (isset($tablename) ? $tablename : ''),
-        (isset($dbname) ? $dbname : '')
-    );
+    if (is_array($dbname)) {
+        foreach ($dbname as $key => $db_name) {
+            list($sql_query[$key], $message) = PMA_updatePrivileges(
+                (isset($username) ? $username : ''),
+                (isset($hostname) ? $hostname : ''),
+                (isset($tablename) ? $tablename : ''),
+                (isset($db_name) ? $db_name : '')
+            );
+        }
+
+        $sql_query = implode("\n", $sql_query);
+    } else {
+        list($sql_query, $message) = PMA_updatePrivileges(
+            (isset($username) ? $username : ''),
+            (isset($hostname) ? $hostname : ''),
+            (isset($tablename) ? $tablename : ''),
+            (isset($dbname) ? $dbname : '')
+        );
+    }
 }
 
 /**
@@ -368,12 +381,16 @@ if (isset($_REQUEST['adduser'])) {
         if ($GLOBALS['is_ajax_request'] == true) {
             header('Cache-Control: no-cache');
         }
-        $url_dbname = urlencode(
-            str_replace(
-                array('\_', '\%'),
-                array('_', '%'), $_REQUEST['dbname']
-            )
-        );
+        if (! is_array($dbname)) {
+            $url_dbname = urlencode(
+                str_replace(
+                    array('\_', '\%'),
+                    array('_', '%'), $_REQUEST['dbname']
+                )
+            );
+        } else {
+            $url_dbname = '';
+        }
         $response->addHTML(
             PMA_getHtmlForUserProperties(
                 ((isset ($dbname_is_wildcard)) ? $dbname_is_wildcard : ''),

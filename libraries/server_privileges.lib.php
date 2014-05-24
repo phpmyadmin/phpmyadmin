@@ -2844,11 +2844,9 @@ function PMA_getHtmlForSelectDbInEditPrivs($found_rows)
     $databases_to_skip = array('information_schema', 'performance_schema');
 
     $html_output = '<label for="text_dbname">'
-        . __('Add privileges on the following database:') . '</label>' . "\n";
+        . __('Add privileges on the following database(s):') . '</label>' . "\n";
     if (! empty($pred_db_array)) {
-        $html_output .= '<select name="pred_dbname" class="autosubmit">' . "\n"
-            . '<option value="" selected="selected">'
-            . __('Use text field:') . '</option>' . "\n";
+        $html_output .= '<select name="pred_dbname[]" multiple="multiple">' . "\n";
         foreach ($pred_db_array as $current_db) {
             if (in_array($current_db, $databases_to_skip)) {
                 continue;
@@ -2867,8 +2865,7 @@ function PMA_getHtmlForSelectDbInEditPrivs($found_rows)
         }
         $html_output .= '</select>' . "\n";
     }
-    $html_output .= '<input type="text" id="text_dbname" name="dbname" '
-        . 'required="required" />'
+    $html_output .= '<input type="text" id="text_dbname" name="dbname" />'
         . "\n"
         . PMA_Util::showHint(
             __('Wildcards % and _ should be escaped with a \ to use them literally.')
@@ -3644,9 +3641,39 @@ function PMA_getDataForDBInfo()
         unset($tablename);
     }
 
-    if (PMA_isValid($_REQUEST['pred_dbname'])) {
+    if (isset($_REQUEST['pred_dbname'])) {
+        $is_valid_pred_dbname = true;
+        foreach ($_REQUEST['pred_dbname'] as $key => $db_name) {
+            if (! PMA_isValid($db_name)) {
+                $is_valid_pred_dbname = false;
+                break;
+            }
+        }
+    }
+
+    if (isset($_REQUEST['dbname'])) {
+        $is_valid_dbname = true;
+        if (is_array($_REQUEST['dbname'])) {
+            foreach ($_REQUEST['dbname'] as $key => $db_name) {
+                if (! PMA_isValid($db_name)) {
+                    $is_valid_dbname = false;
+                    break;
+                }
+            }
+        } else {
+            if (! PMA_isValid($_REQUEST['dbname'])) {
+                $is_valid_dbname = false;
+            }
+        }
+    }
+
+    if (isset($is_valid_pred_dbname) && $is_valid_pred_dbname) {
         $dbname = $_REQUEST['pred_dbname'];
-    } elseif (PMA_isValid($_REQUEST['dbname'])) {
+        // If dbname contains only one database.
+        if (count($dbname) == 1) {
+            $dbname = $dbname[0];
+        }
+    } elseif (isset($is_valid_dbname) && $is_valid_dbname) {
         $dbname = $_REQUEST['dbname'];
     } else {
         unset($dbname);
@@ -3654,12 +3681,25 @@ function PMA_getDataForDBInfo()
     }
 
     if (isset($dbname)) {
-        $unescaped_db = PMA_Util::unescapeMysqlWildcards($dbname);
-        $db_and_table = PMA_Util::backquote($unescaped_db) . '.';
+        if (is_array($dbname)) {
+            $db_and_table = $dbname;
+            foreach ($db_and_table as $key => $db_name) {
+                $db_and_table[$key] .= '.';
+            }
+        } else {
+            $unescaped_db = PMA_Util::unescapeMysqlWildcards($dbname);
+            $db_and_table = PMA_Util::backquote($unescaped_db) . '.';
+        }
         if (isset($tablename)) {
             $db_and_table .= PMA_Util::backquote($tablename);
         } else {
-            $db_and_table .= '*';
+            if (is_array($db_and_table)) {
+                foreach ($db_and_table as $key => $db_name) {
+                    $db_and_table[$key] .= '*';
+                }
+            } else {
+                $db_and_table .= '*';
+            }
         }
     } else {
         $db_and_table = '*.*';
@@ -3668,7 +3708,7 @@ function PMA_getDataForDBInfo()
     // check if given $dbname is a wildcard or not
     if (isset($dbname)) {
         //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
-        if (preg_match('/(?<!\\\\)(?:_|%)/i', $dbname)) {
+        if (! is_array($dbname) && preg_match('/(?<!\\\\)(?:_|%)/i', $dbname)) {
             $dbname_is_wildcard = true;
         } else {
             $dbname_is_wildcard = false;
@@ -3777,7 +3817,9 @@ function PMA_getHtmlHeaderForUserProperties(
             . '\'</a></i>' . "\n";
 
         $html_output .= ' - ';
-        $html_output .= $dbname_is_wildcard ? __('Databases') : __('Database');
+        $html_output .= ($dbname_is_wildcard
+            || is_array($dbname) && count($dbname) > 1)
+            ? __('Databases') : __('Database');
         if (! empty($_REQUEST['tablename'])) {
             $html_output .= ' <i><a href="server_privileges.php'
                 . PMA_URL_getCommon(
@@ -3794,7 +3836,12 @@ function PMA_getHtmlHeaderForUserProperties(
             $html_output .= ' - ' . __('Table')
                 . ' <i>' . htmlspecialchars($tablename) . '</i>';
         } else {
-            $html_output .= ' <i>' . htmlspecialchars($dbname) . '</i>';
+            if (! is_array($dbname)) {
+                $dbname = array($dbname);
+            }
+            $html_output .= ' <i>'
+                . htmlspecialchars(implode(', ', $dbname))
+                . '</i>';
         }
 
     } else {
@@ -3964,24 +4011,27 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
         'username' => $username,
         'hostname' => $hostname,
     );
-    if (strlen($dbname)) {
+    if (! is_array($dbname) && strlen($dbname)) {
         $_params['dbname'] = $dbname;
         if (strlen($tablename)) {
             $_params['tablename'] = $tablename;
         }
+    } else {
+        $_params['dbname'] = $dbname;
     }
 
     $html_output .= '<form class="ajax submenu-item" name="usersForm" '
         . 'id="addUsersForm" action="server_privileges.php" method="post">' . "\n";
     $html_output .= PMA_URL_getHiddenInputs($_params);
     $html_output .= PMA_getHtmlToDisplayPrivilegesTable(
-        PMA_ifSetOr($dbname, '*', 'length'),
+        // If $dbname is an array, pass any one db as all have same privs.
+        PMA_ifSetOr($dbname, (is_array($dbname)) ? $dbname[0] : '*', 'length'),
         PMA_ifSetOr($tablename, '*', 'length')
     );
 
     $html_output .= '</form>' . "\n";
 
-    if (! strlen($tablename) && empty($dbname_is_wildcard)) {
+    if (! is_array($dbname) && ! strlen($tablename) && empty($dbname_is_wildcard)) {
 
         // no table name was given, display all table specific rights
         // but only if $dbname contains no wildcards
@@ -4013,12 +4063,12 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
     }
 
     // Provide a line with links to the relevant database and table
-    if (strlen($dbname) && empty($dbname_is_wildcard)) {
+    if (! is_array($dbname) && strlen($dbname) && empty($dbname_is_wildcard)) {
         $html_output .= PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename);
 
     }
 
-    if (! strlen($dbname) && ! $user_does_not_exists) {
+    if (! is_array($dbname) && ! strlen($dbname) && ! $user_does_not_exists) {
         //change login information
         $html_output .= PMA_getHtmlForChangePassword($username, $hostname);
         $html_output .= PMA_getChangeLoginInformationHtmlForm($username, $hostname);

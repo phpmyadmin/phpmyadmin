@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - rfe #1487 "Browse foreign values" should be a modal dialog
 - rfe #1523 Better visual clue for table structure primary key column
 - rfe #982 Support for editing binary fields in hexadecimal
+- rfe #706 Multi-db privileges adding
 
 4.2.3.0 (not yet released)
 - bug #4423 Moving fields not working
