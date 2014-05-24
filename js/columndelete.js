@@ -36,14 +36,14 @@ function redirect(target, parent)
     var columns = between_part.split('%2C+');
     // If the given column is not part of the order clause exit from this function
     var index = parent.find('small').length ? parent.find('small').text() : '';
-    if (index == ''){
+    if (index === "") {
         return;
     }
     // Remove the current clicked column
     columns.splice(index-1, 1);
     // If all the columns have been removed dont submit a query with nothing
     // After order by clause.
-    if (columns.length == 0){
+    if (columns.length === 0) {
         var head = URL.head;
         head = head.slice(0,head.indexOf('ORDER+BY'));
         URL.head = head;

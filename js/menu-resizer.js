@@ -36,7 +36,7 @@
             .append(link)
             .append($('<ul />'))
             .mouseenter(function() {
-                if ($(this).find('ul .tabactive').length == 0) {
+                if ($(this).find('ul .tabactive').length === 0) {
                     $(this)
                     .addClass('submenuhover')
                     .find('> a')
@@ -44,7 +44,7 @@
                 }
             })
             .mouseleave(function() {
-                if ($(this).find('ul .tabactive').length == 0) {
+                if ($(this).find('ul .tabactive').length === 0) {
                     $(this)
                     .removeClass('submenuhover')
                     .find('> a')

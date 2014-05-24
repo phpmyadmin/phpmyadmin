@@ -240,7 +240,7 @@ $(function () {
         event.preventDefault();
         $self = $(this);
         var anchor_id = $self.attr("id");
-        if($self.data("favtargetn") != null)
+        if($self.data("favtargetn") !== null)
             if($('a[data-favtargets="' + $self.data("favtargetn") + '"]').length > 0)
             {
                 $('a[data-favtargets="' + $self.data("favtargetn") + '"]').trigger('click');
@@ -534,7 +534,7 @@ function PMA_showCurrentNavigation() {
             var $sub_containers = $dbItem.find('.subContainer');
             //If there are subContainers i.e. tableContainer or viewContainer
             if($sub_containers.length > 0) {
-                var $containers = new Array();
+                var $containers = [];
                 $sub_containers.each(function (index) {
                     $containers[index] = $(this);
                     $expander = $containers[index]
@@ -1252,14 +1252,14 @@ function PMA_showFullName($containerELem) {
         /** mouseenter */
         var $this = $(this);
         var thisOffset = $this.offset();
-        if($this.text() == '')
+        if($this.text() === '')
             return;
         var $parent = $this.parent();
         if(  ($parent.offset().left + $parent.outerWidth())
            < (thisOffset.left + $this.outerWidth()))
         {
             var $fullNameLayer = $('#full_name_layer');
-            if($fullNameLayer.length == 0)
+            if($fullNameLayer.length === 0)
             {
                 $('body').append('<div id="full_name_layer" class="hide"></div>');
                 $('#full_name_layer').mouseleave(function() {

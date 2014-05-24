@@ -634,7 +634,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             : $this_field.data('value');
 
                         //remove decimal places if column type not supported
-                        if (($this_field.attr('data-decimals') == 0) && ( $this_field.attr('data-type').indexOf('time') != -1)) {
+                        if (($this_field.attr('data-decimals') === 0) && ( $this_field.attr('data-type').indexOf('time') != -1)) {
                             new_html = new_html.substring(0, new_html.indexOf('.'));
                         }
                         //remove addtional decimal places

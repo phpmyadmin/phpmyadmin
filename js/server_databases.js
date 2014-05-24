@@ -74,7 +74,7 @@ AJAX.registerOnload('server_databases.js', function () {
 
                         $rowsToRemove.remove();
                         $form.find('tbody').PMA_sort_table('.name');
-                        if ($form.find('tbody').find('tr').length == 0) {
+                        if ($form.find('tbody').find('tr').length === 0) {
                             // user just dropped the last db on this page
                             PMA_commonActions.refreshMain();
                         }

@@ -24,7 +24,7 @@ var ErrorReport = {
             token: PMA_commonParams.get('token'),
             get_settings: true
         }, function (data) {
-            if (!data.success === true) {
+            if (data.success !== true) {
                 PMA_ajaxShowMessage(data.error, false);
                 return;
             }

@@ -189,7 +189,7 @@ var AJAX = {
         //trigger confirm dialog
         var isInputAltered = false;
         for (var i = 0; i < AJAX.alteredTargets.length; i++) {
-            if(AJAX.alteredTargets[i].value.length != 0) {
+            if(AJAX.alteredTargets[i].value.length !== 0) {
                 isInputAltered = true;
                 break;
             }
@@ -202,7 +202,7 @@ var AJAX = {
         if (typeof event !== 'undefined' && event.type === 'click' &&
             event.isTrigger !== true &&
             isInputAltered &&
-            confirm(PMA_messages['strConfirmNavigation']) === false
+            confirm(PMA_messages.strConfirmNavigation) === false
         ) {
             return false;
         }
