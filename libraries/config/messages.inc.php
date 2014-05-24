@@ -615,6 +615,12 @@ $strConfigServers_MaxTableUiprefs_desc = __(
 );
 $strConfigServers_MaxTableUiprefs_name
     = __('Maximal number of table preferences to store');
+$strConfigServers_savedsearches_name = __('QBE saved searches table');
+$strConfigServers_savedsearches_desc = __(
+    'Leave blank for no QBE saved searches support, suggested: '
+    . '[kbd]pma__savedsearches[/kbd].'
+);
+
 $strConfigServers_nopassword_desc = __('Try to connect without password.');
 $strConfigServers_nopassword_name = __('Connect without password');
 $strConfigServers_only_db_desc = __(
