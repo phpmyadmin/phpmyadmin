@@ -640,6 +640,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             ? data.truncatableFieldValue
                             : $this_field.data('value');
 
+                        //Add <br> before carriage return.
+                        new_html = escapeHtml(new_html);
+                        new_html = new_html.replace('\n', '<br>\n');
+
                         //remove decimal places if column type not supported
                         if (($this_field.attr('data-decimals') === 0) && ( $this_field.attr('data-type').indexOf('time') != -1)) {
                             new_html = new_html.substring(0, new_html.indexOf('.'));
@@ -657,7 +661,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         if ($this_field.hasClass('hex') && $this_field.find('a').length) {
                             selector = 'a';
                         }
-                        $this_field.find(selector).text(new_html);
+                        $this_field.find(selector).html(new_html);
                     }
                     if ($this_field.is('.bit')) {
                         $this_field.find('span').text($this_field.data('value'));
