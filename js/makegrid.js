@@ -573,6 +573,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             {
                 if (!g.isCellEditActive) {
                     var $cell = $(cell);
+
+                    if ($cell.is('.text')) {
+                        g.cEdit = g.cEditTextarea;
+                    } else {
+                        g.cEdit = g.cEditStd;
+                    }
+
                     // remove all edit area and hide it
                     $(g.cEdit).find('.edit_area').empty().hide();
                     // reposition the cEdit element
@@ -808,7 +815,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 }
 
                 //reset the position of the edit_area div after closing datetime picker
-                $('.edit_area').css({'top' :'0','position':''});
+                $(g.cEdit).find('.edit_area').css({'top' :'0','position':''});
 
                 if ($td.is('.relation')) {
                     //handle relations
@@ -1012,10 +1019,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     $('.cEdit').append(datepicker_div);
 
                     var edit_area_top = $('#ui-datepicker-div').height()+32;
-                    $('.edit_area').css({'top' : edit_area_top+'px', 'position': 'absolute'});
+                    $(g.cEdit).find('.edit_area').css({'top' : edit_area_top+'px', 'position': 'absolute'});
 
                     if(is_null){
-                        $('.edit_area').hide();
+                        $(g.cEdit).find('.edit_area').hide();
                     }
 
                     // cancel any click on the datepicker element
@@ -1653,12 +1660,19 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             }
 
             // create cell edit wrapper element
-            g.cEdit = document.createElement('div');
+            g.cEditStd = document.createElement('div');
+            g.cEdit = g.cEditStd;
+            g.cEditTextarea = document.createElement('div');
+
+            // adjust g.cEditStd
+            g.cEditStd.className = 'cEdit';
+            $(g.cEditStd).html('<input class="edit_box" rows="1" ></input><div class="edit_area" />');
+            $(g.cEditStd).hide();
 
             // adjust g.cEdit
-            g.cEdit.className = 'cEdit';
-            $(g.cEdit).html('<input class="edit_box" rows="1" ></input><div class="edit_area" />');
-            $(g.cEdit).hide();
+            g.cEditTextarea.className = 'cEdit';
+            $(g.cEditTextarea).html('<textarea class="edit_box" rows="1" ></textarea><div class="edit_area" />');
+            $(g.cEditTextarea).hide();
 
             // assign cell editing hint
             g.cellEditHint = PMA_messages.strCellEditHint;
@@ -1724,17 +1738,33 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     }
                 });
 
-            $(g.cEdit).find('.edit_box').focus(function (e) {
+            $(g.cEditStd).find('.edit_box').focus(function (e) {
                 g.showEditArea();
             });
-            $(g.cEdit).find('.edit_box, select').live('keydown', function (e) {
+            $(g.cEditStd).find('.edit_box, select').live('keydown', function (e) {
                 if (e.which == 13) {
                     // post on pressing "Enter"
                     e.preventDefault();
                     g.saveOrPostEditedCell();
                 }
             });
-            $(g.cEdit).keydown(function (e) {
+            $(g.cEditStd).keydown(function (e) {
+                if (!g.isEditCellTextEditable) {
+                    // prevent text editing
+                    e.preventDefault();
+                }
+            });
+            $(g.cEditTextarea).find('.edit_box').focus(function (e) {
+                g.showEditArea();
+            });
+            $(g.cEditTextarea).find('.edit_box, select').live('keydown', function (e) {
+                if (e.which == 13) {
+                    // post on pressing "Enter"
+                    e.preventDefault();
+                    g.saveOrPostEditedCell();
+                }
+            });
+            $(g.cEditTextarea).keydown(function (e) {
                 if (!g.isEditCellTextEditable) {
                     // prevent text editing
                     e.preventDefault();
@@ -1766,7 +1796,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             });
 
             // attach to global div
-            $(g.gDiv).append(g.cEdit);
+            $(g.gDiv).append(g.cEditStd);
+            $(g.gDiv).append(g.cEditTextarea);
 
             // add hint for grid editing feature when hovering "Edit" link in each table row
             if (PMA_messages.strGridEditFeatureHint !== undefined) {

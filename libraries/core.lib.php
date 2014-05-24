@@ -901,7 +901,7 @@ function PMA_mimeDefaultFunction($buffer)
         ' &nbsp;&nbsp;&nbsp;',
         str_replace('  ', ' &nbsp;', $buffer)
     );
-    $buffer = preg_replace("@((\015\012)|(\015)|(\012))@", '<br />', $buffer);
+    $buffer = preg_replace("@((\015\012)|(\015)|(\012))@", '<br />' . "\n", $buffer);
 
     return $buffer;
 }

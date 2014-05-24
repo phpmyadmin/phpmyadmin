@@ -3637,6 +3637,8 @@ class PMA_DisplayResults
             $field_type_class = 'datefield';
         } elseif ($type == self::TIME_FIELD) {
             $field_type_class = 'timefield';
+        } elseif ($type == self::STRING_FIELD) {
+            $field_type_class = 'text';
         } else {
             $field_type_class = '';
         }
