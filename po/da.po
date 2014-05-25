@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-24 17:34-0400\n"
-"PO-Revision-Date: 2014-05-24 19:40+0200\n"
+"PO-Revision-Date: 2014-05-25 15:22+0200\n"
 "Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
-"Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/>"
+"\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1901,11 +1901,10 @@ msgstr ""
 "sletning fungerer måske ikke, efter at data er gemt."
 
 #: js/messages.php:355
-#, fuzzy
 #| msgid ""
 #| "Please enter valid hexadecimal string. Valid characters are 0-9, A-F."
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
-msgstr "Indtast venligst et gyldigt heximalt tal. Gyldige tegn er 0-9 og A-F."
+msgstr "Indtast venligst en gyldig heximal streng. Gyldige tegn er 0-9 og A-F."
 
 #: js/messages.php:360
 msgid "You can also edit most values<br />by double-clicking directly on them."
