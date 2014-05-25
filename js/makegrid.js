@@ -1020,7 +1020,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     //move ui-datepicker-div inside cEdit div
                     var datepicker_div = $('#ui-datepicker-div');
                     datepicker_div.css({'top': 0, 'left': 0, 'position': 'relative'});
-                    $('.cEdit').append(datepicker_div);
+                    $(g.cEdit).append(datepicker_div);
 
                     var edit_area_top = $('#ui-datepicker-div').height()+32;
                     $(g.cEdit).find('.edit_area').css({'top' : edit_area_top+'px', 'position': 'absolute'});
