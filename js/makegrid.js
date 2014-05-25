@@ -1762,7 +1762,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 g.showEditArea();
             });
             $(g.cEditTextarea).find('.edit_box, select').live('keydown', function (e) {
-                if (e.which == 13) {
+                if (e.which == 13 && !e.shiftKey) {
                     // post on pressing "Enter"
                     e.preventDefault();
                     g.saveOrPostEditedCell();
