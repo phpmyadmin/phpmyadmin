@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-24 17:34-0400\n"
-"PO-Revision-Date: 2014-05-16 17:17+0200\n"
+"PO-Revision-Date: 2014-05-25 17:53+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 1.9\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1627,10 +1627,9 @@ msgid "(Disabled)"
 msgstr "(Onemogočeno)"
 
 #: js/messages.php:249
-#, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
-msgstr "Pridobivanje glav je spodletelo"
+msgstr "Pridobivanje pravega števila vrstic je spodletelo."
 
 #: js/messages.php:252
 msgid "Searching"
@@ -1911,6 +1910,7 @@ msgstr ""
 #: js/messages.php:355
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
+"Prosimo, vnesite veljaven šestnajstiški niz. Veljavni znaki so 0–9, A–F."
 
 #: js/messages.php:360
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -6174,13 +6174,11 @@ msgid "Maximal number of table preferences to store"
 msgstr "Največje število shranjenih nastavitev tabel"
 
 #: libraries/config/messages.inc.php:616
-#, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
-msgstr "Oglej si tabelo stanj podrejencev"
+msgstr "Tabela shranjenih iskanj QBE"
 
 #: libraries/config/messages.inc.php:618
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]."
@@ -6188,8 +6186,8 @@ msgid ""
 "Leave blank for no QBE saved searches support, suggested: [kbd]"
 "pma__savedsearches[/kbd]."
 msgstr ""
-"Pustite prazno, če ne želite podpore sheme PDF; predlagano: [kbd]"
-"pma__pdf_pages[/kbd]."
+"Pustite prazno, če ne želite podpore shranjenih iskanj QBE; predlagano: "
+"[kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:622
 msgid "Try to connect without password."
