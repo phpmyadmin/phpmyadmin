@@ -6188,7 +6188,7 @@ msgid ""
 "pma__savedsearches[/kbd]."
 msgstr ""
 "QBE kaydedilmiş aramalar desteği istenmiyorsa boş bırakın, önerilen: "
-"[kbd]pma__savedsearches[/kbd]"
+"[kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:622
 msgid "Try to connect without password."
