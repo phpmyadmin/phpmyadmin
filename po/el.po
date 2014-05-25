@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-24 09:05-0400\n"
-"PO-Revision-Date: 2014-04-28 13:56+0200\n"
+"PO-Revision-Date: 2014-05-25 08:23+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/4-2/el/>\n"
 "Language: el\n"
@@ -6228,13 +6228,11 @@ msgid "Maximal number of table preferences to store"
 msgstr "Μέγιστος αριθμός προτιμήσεων πινάκων για αποθήκευση"
 
 #: libraries/config/messages.inc.php:618
-#, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
-msgstr "Δείτε τον πίνακα κατάστασης δευτερεύοντος"
+msgstr "Πίνακας αποθηκευμένων αναζητήσεων QBE"
 
 #: libraries/config/messages.inc.php:620
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]."
@@ -6242,8 +6240,8 @@ msgid ""
 "Leave blank for no QBE saved searches support, suggested: [kbd]"
 "pma__savedsearches[/kbd]."
 msgstr ""
-"Αφήστε το κενό για μη υποστήριξη σχεδίου PDF, προτείνεται: [kbd]"
-"pma__pdf_pages[/kbd]."
+"Αφήστε το κενό για μη υποστήριξη αποθηκευμένων αναζητήσεων QBE, προτείνεται: "
+"[kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:624
 msgid "Try to connect without password."
