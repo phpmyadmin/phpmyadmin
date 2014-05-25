@@ -86,17 +86,28 @@ if (! empty($submit_mult)
             case 'show_create':
                 PMA_getHtmlShowCreate($db, $selected);
                 exit;
+            case 'sync_unique_columns_central_list':
+                include_once 'libraries/central_columns.lib.php';
+                $centralColsError = PMA_syncUniqueColumns($selected);
+                break;
+            case 'delete_unique_columns_central_list':
+                include_once 'libraries/central_columns.lib.php';
+                $centralColsError = PMA_deleteColumnsFromList($selected);
+                break;
             } // end switch
         }
     } elseif (isset($selected_fld) && !empty($selected_fld)) {
         // coming from table structure view - do something with
         // selected columns
         $selected = $selected_fld;
-        list($what_ret, $query_type_ret, $is_unset_submit_mult, $mult_btn_ret)
-            = PMA_getDataForSubmitMult(
-                $submit_mult, $db, $table,
-                $selected, $action
-            );
+        list(
+                $what_ret, $query_type_ret, $is_unset_submit_mult, $mult_btn_ret,
+                $centralColsError
+                )
+                    = PMA_getDataForSubmitMult(
+                        $submit_mult, $db, $table,
+                        $selected, $action
+                    );
         //update the existing variables
         if (isset($what_ret)) {
             $what = $what_ret;
@@ -251,6 +262,18 @@ if (!empty($submit_mult) && !empty($what)) {
         $GLOBALS['pma']->databases->build();
     }
 } else {
-    $message = PMA_Message::success(__('No change'));
+    if ($submit_mult == 'sync_unique_columns_central_list' 
+        || $submit_mult == 'delete_unique_columns_central_list'
+        || $submit_mult == 'add_to_central_columns'
+        || $submit_mult == 'remove_from_central_columns'
+    ) {
+        if ($centralColsError !== true) {
+            $message = $centralColsError;
+        } else {
+            $message = PMA_Message::success(__('Success!'));
+        }
+    } else {
+        $message = PMA_Message::success(__('No change'));
+    }
 }
 ?>
