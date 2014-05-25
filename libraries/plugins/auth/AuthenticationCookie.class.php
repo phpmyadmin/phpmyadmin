@@ -296,7 +296,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // END Swekey Integration
 
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
-            echo '<div>';
+            echo '<div id="pma_errors">';
             $GLOBALS['error_handler']->dispErrors();
             echo '</div>';
         }
