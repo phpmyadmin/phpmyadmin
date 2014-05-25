@@ -170,7 +170,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //pre variable have been defined
         $_REQUEST['pred_tablename'] = "PMA_pred__tablename";
-        $_REQUEST['pred_dbname'] = "PMA_pred_dbname";
+        $_REQUEST['pred_dbname'] = array("PMA_pred_dbname");
         list(
             $username, $hostname, $dbname, $tablename,
             $db_and_table, $dbname_is_wildcard
