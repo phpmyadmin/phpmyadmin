@@ -567,7 +567,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     public function testGetClassForDateTimeRelatedFieldsCase3()
     {
         $this->assertEquals(
-            '',
+            'text',
             $this->_callPrivateFunction(
                 '_getClassForDateTimeRelatedFields',
                 array(PMA_DisplayResults::STRING_FIELD)
