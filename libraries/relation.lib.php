@@ -85,6 +85,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
 {
     $retval = '';
 
+    $messages = array();
     $messages['error'] = '<font color="red"><strong>'
         . __('not OK')
         . '</strong></font>'
@@ -1295,6 +1296,7 @@ function PMA_getRelatives($all_tables, $master)
     $remaining_tables = $all_tables;
     unset($remaining_tables[$master]);
     // The list of allready connected tables
+    $known_tables = array();
     $known_tables[$master] = $master;
     $run = 0;
     while (count($remaining_tables) > 0) {

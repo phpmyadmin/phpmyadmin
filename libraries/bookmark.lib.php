@@ -179,7 +179,7 @@ function PMA_Bookmark_save($bkm_fields, $all_users = false)
 /**
  * Deletes a bookmark
  *
- * @param integer $id the id of the bookmark to get
+ * @param integer $id the id of the bookmark to delete
  *
  * @return bool true if successful
  *

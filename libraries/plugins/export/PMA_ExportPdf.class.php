@@ -308,6 +308,7 @@ class PMA_ExportPdf extends PMA_PDF
         // if a col title is less than the starting col width,
         // reduce that column size
         $colFits = array();
+        $titleWidth = array();
         for ($i = 0; $i < $this->numFields; $i++) {
             $stringWidth = $this->getstringwidth($this->fields[$i]->name) + 6 ;
             // save the real title's width

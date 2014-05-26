@@ -766,6 +766,7 @@ class PMA_DbQbe
                 $this->_curAndOrCol[$new_column_count]
                     = $this->_criteriaAndOrColumn[$column_index];
             }
+            $checked_options = array();
             if (isset($this->_criteriaAndOrColumn[$column_index])
                 && $this->_criteriaAndOrColumn[$column_index] == 'or'
             ) {
@@ -902,6 +903,7 @@ class PMA_DbQbe
         $html_output = '';
         $new_row_count = 0;
         $odd_row = true;
+        $checked_options = array();
         for (
         $row_index = 0;
         $row_index <= $this->_criteria_row_count;
@@ -1187,6 +1189,8 @@ class PMA_DbQbe
             return $candidate_columns;
         }
 
+        $vg = array();
+        $sg = array();
         foreach ($candidate_columns as $column => $is_where) {
             $table = explode('.', $column);
             $table = $table[0];
@@ -1196,7 +1200,7 @@ class PMA_DbQbe
                 $sg[$column] = $table;
             }
         }
-        if (isset($vg)) {
+        if (count($vg) > 0) {
             $candidate_columns = $vg;
             // Candidates restricted in index+where
         } else {
@@ -1247,6 +1251,8 @@ class PMA_DbQbe
 
         // Of course we only want to check each table once
         $checked_tables = $candidate_columns;
+        $tsize = array();
+        $csize = array();
         foreach ($candidate_columns as $table) {
             if ($checked_tables[$table] != 1) {
                 $tsize[$table] = PMA_Table::countRecords(
@@ -1403,6 +1409,7 @@ class PMA_DbQbe
         $html_output .= $this->_getModifyColumnsRow();
         $html_output .= '</table>';
         $this->_new_row_count--;
+        $url_params = array();
         $url_params['db'] = $this->_db;
         $url_params['criteriaColumnCount'] = $this->_new_column_count;
         $url_params['rows'] = $this->_new_row_count;

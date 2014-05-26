@@ -137,7 +137,7 @@ class PMA_SavedSearches
      */
     public function setCriterias($criterias, $json = false)
     {
-        if (true === $json) {
+        if (true === $json && is_string($criterias)) {
             $this->_criterias = json_decode($criterias, true);
             return $this;
         }

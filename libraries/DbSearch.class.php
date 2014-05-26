@@ -175,6 +175,7 @@ class PMA_DbSearch
         // Gets where clause for the query
         $where_clause = $this->_getWhereClause($table);
         // Builds complete queries
+        $sql = array();
         $sql['select_columns'] = $sqlstr_select . ' * ' . $sqlstr_from
             . $where_clause;
         // here, I think we need to still use the COUNT clause, even for

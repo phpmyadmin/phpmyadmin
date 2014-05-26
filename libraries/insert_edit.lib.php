@@ -1922,7 +1922,6 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
     } else {
         $insert_command = 'INSERT ';
     }
-    
     $query = array(
         $insert_command . 'INTO '
         . PMA_Util::backquote($GLOBALS['db']) . '.'
@@ -1930,7 +1929,6 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
         . ' (' . implode(', ', $query_fields) . ') VALUES ('
         . implode('), (', $value_sets) . ')'
     );
-    
     unset($insert_command, $query_fields);
     return $query;
 }
