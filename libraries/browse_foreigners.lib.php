@@ -141,12 +141,12 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
         $output .= PMA_getHtmlForColumnElement(
             'class="nowrap"', $leftKeynameIsSelected,
             $leftKeyname, $leftDescription,
-            $leftDescriptionTitle, $field
+            $leftDescriptionTitle
         );
 
         $output .= PMA_getHtmlForColumnElement(
             '', $leftKeynameIsSelected, $leftKeyname,
-            $leftDescription, $leftDescriptionTitle, $field
+            $leftDescription, $leftDescriptionTitle
         );
 
         $output .= '<td width="20%">'
@@ -155,13 +155,13 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
 
         $output .= PMA_getHtmlForColumnElement(
             '', $rightKeynameIsSelected, $rightKeyname,
-            $rightDescription, $rightDescriptionTitle, $field
+            $rightDescription, $rightDescriptionTitle
         );
 
         $output .= PMA_getHtmlForColumnElement(
             'class="nowrap"', $rightKeynameIsSelected,
             $rightKeyname, $rightDescription,
-            $rightDescriptionTitle, $field
+            $rightDescriptionTitle
         );
         $output .= '</tr>';
     } // end while
@@ -209,12 +209,11 @@ function PMA_getDescriptionAndTitle($description)
  * @param string $keyname     current key
  * @param string $description current value
  * @param string $title       current title
- * @param string $field       field
  *
  * @return string
  */
 function PMA_getHtmlForColumnElement($cssClass, $isSelected, $keyname,
-    $description, $title, $field
+    $description, $title
 ) {
     $keyname = htmlspecialchars($keyname);
     $output = '<td ' . $cssClass . '>'

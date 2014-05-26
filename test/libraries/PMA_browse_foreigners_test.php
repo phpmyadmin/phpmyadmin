@@ -177,10 +177,9 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
         $keyname = '';
         $description = 'foo';
         $title = '';
-        $field = '';
         $result = PMA_getHtmlForColumnElement(
             $cssClass, $isSelected, $keyname,
-            $description, $title, $field
+            $description, $title
         );
 
         $this->assertTag(
@@ -203,7 +202,7 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
         $title = 'foo';
         $result = PMA_getHtmlForColumnElement(
             $cssClass, $isSelected, $keyname,
-            $description, $title, $field
+            $description, $title
         );
 
         $this->assertTag(
