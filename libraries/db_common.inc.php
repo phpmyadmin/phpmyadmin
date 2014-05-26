@@ -44,6 +44,8 @@ if (! isset($is_db) || ! $is_db) {
             $is_db = true;
             unset($GLOBALS['errno']);
         }
+    } else {
+        $is_db = false;
     }
     // Not a valid db name -> back to the welcome page
     $uri = $cfg['PmaAbsoluteUri'] . 'index.php?'
