@@ -331,7 +331,7 @@ CREATE TABLE IF NOT EXISTS `pma__central_columns` (
   `col_collation` varchar(64) NOT NULL,
   `col_isNull` boolean NOT NULL,
   `col_extra` varchar(255) default '',
-  `col_default` text default '',
+  `col_default` text,
   PRIMARY KEY (`db_name`,`col_name`)
 )
   COMMENT='Central list of columns'
