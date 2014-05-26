@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-24 17:34-0400\n"
-"PO-Revision-Date: 2014-05-14 15:56+0200\n"
+"PO-Revision-Date: 2014-05-26 13:37+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1615,10 +1615,9 @@ msgid "(Disabled)"
 msgstr "(Keelatud)"
 
 #: js/messages.php:249
-#, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
-msgstr "Päise hankimine ebaõnnestus"
+msgstr "Ridade tegeliku arvu ei suudetud hankida."
 
 #: js/messages.php:252
 msgid "Searching"
@@ -1897,6 +1896,7 @@ msgstr ""
 #: js/messages.php:355
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
+"Palun sisesta korrektne kuueteistkümnend sõne. Lubatud märgid on 0-9, A-F."
 
 #: js/messages.php:360
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -6123,13 +6123,11 @@ msgid "Maximal number of table preferences to store"
 msgstr "Suurim hulk tabeli eelistusi, mida salvestada"
 
 #: libraries/config/messages.inc.php:616
-#, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
-msgstr "Näita alluva staatuse tabelit"
+msgstr "Tabel näitepõhiste päringute salvestamiseks"
 
 #: libraries/config/messages.inc.php:618
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]."
@@ -6137,8 +6135,8 @@ msgid ""
 "Leave blank for no QBE saved searches support, suggested: [kbd]"
 "pma__savedsearches[/kbd]."
 msgstr ""
-"Jäta tühjaks, kui puudub PDF skeemi tugi, soovitatav: [kbd]pma__pdf_pages[/"
-"kbd]."
+"Jäta tühjaks, kui sa ei soovi salvestada näitepõhiseid päringuid, soovitatav:"
+" [kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:622
 msgid "Try to connect without password."
