@@ -353,7 +353,9 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         );
         $action = 'db_delete_row';
 
-        list($what, $query_type, $is_unset_submit_mult, $mult_btn)
+        list(
+            $what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError
+        )
             = PMA_getDataForSubmitMult(
                 $submit_mult, $db, $table, $selected, $action
             );
@@ -381,10 +383,18 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
             __('Yes'),
             $mult_btn
         );
+        
+        //validate 5: $centralColsError
+        $this->assertEquals(
+            null,
+            $centralColsError
+        );
 
         $submit_mult = "unique";
 
-        list($what, $query_type, $is_unset_submit_mult, $mult_btn)
+        list(
+            $what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError
+        )
             = PMA_getDataForSubmitMult(
                 $submit_mult, $db, $table, $selected, $action
             );
@@ -411,6 +421,12 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             __('Yes'),
             $mult_btn
+        );
+        
+        //validate 5: $centralColsError
+        $this->assertEquals(
+            null,
+            $centralColsError
         );
     }
 

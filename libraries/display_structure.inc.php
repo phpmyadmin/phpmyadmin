@@ -69,7 +69,8 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
         $mime_map = PMA_getMIME($db, $table, true);
     }
 }
-
+require_once 'libraries/central_columns.lib.php';
+$central_list = PMA_getCentralColumnsFromTable($db, $table);
 $rownum    = 0;
 $columns_list = array();
 $save_row  = array();
@@ -169,7 +170,7 @@ foreach ($fields as $row) {
         '<tr class="' . ($odd_row ? 'odd': 'even') . '">'
     );
     $odd_row = !$odd_row;
-
+    $isInCentralColumns = in_array($row['Field'], $central_list)?true:false;
     $response->addHTML(
         PMA_getHtmlTableStructureRow(
             $row, $rownum, $displayed_field_name,
@@ -184,7 +185,8 @@ foreach ($fields as $row) {
             PMA_getHtmlForActionsInTableStructure(
                 $type, $tbl_storage_engine, $primary,
                 $field_name, $url_query, $titles, $row, $rownum,
-                $hidden_titles, $columns_with_unique_index
+                $hidden_titles, $columns_with_unique_index,
+                $isInCentralColumns
             )
         );
     } // end if (! $tbl_is_view && ! $db_is_system_schema)
