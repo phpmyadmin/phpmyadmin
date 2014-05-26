@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-26 15:16-0400\n"
-"PO-Revision-Date: 2014-05-25 17:55+0200\n"
+"PO-Revision-Date: 2014-05-27 00:46+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -4162,29 +4162,31 @@ msgstr "Comprobar los privilegios"
 msgid ""
 "Central list of columns configuration Storage is not completely configured!"
 msgstr ""
+"¡La configuración de almacenamiento de la configuración para la lista "
+"central de columnas no está completa!"
 
 #: libraries/central_columns.lib.php:207
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "¡No se pudo agregar %1$s porque ya existe en la lista central!"
 
 #: libraries/central_columns.lib.php:223
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "No se pudo guardar la configuración"
+msgstr "¡No se pudieron agregar las columnas!"
 
 #: libraries/central_columns.lib.php:296
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"¡No se pudieron eliminar la o las columnas %1$s porque no existen en la "
+"lista central de columnas!"
 
 #: libraries/central_columns.lib.php:308
-#, fuzzy
 #| msgid "Could not remove favorite table!"
 msgid "Could not remove columns!"
-msgstr "¡No se pudo eliminar la tabla favorita!"
+msgstr "¡No se pudieron eliminar las columnas!"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -7933,10 +7935,9 @@ msgid "Convert to Kana"
 msgstr "Convertir a Kana"
 
 #: libraries/mult_submits.inc.php:274
-#, fuzzy
 #| msgid "Success."
 msgid "Success!"
-msgstr "Éxito."
+msgstr "¡Éxito!"
 
 #: libraries/mult_submits.inc.php:277 tbl_replace.php:251
 msgid "No change"
@@ -9373,7 +9374,7 @@ msgstr "Guardando búsquedas de consulta-con-ejemplo"
 
 #: libraries/relation.lib.php:302
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "Gestión de la lista central de columnas"
 
 #: libraries/relation.lib.php:308
 msgid "Quick steps to setup advanced features:"
@@ -10838,10 +10839,9 @@ msgid "Column-specific privileges"
 msgstr "Privilegios específicos para la columna"
 
 #: libraries/server_privileges.lib.php:2847
-#, fuzzy
 #| msgid "Add privileges on the following database:"
 msgid "Add privileges on the following database(s):"
-msgstr "Añadir privilegios a esta base de datos:"
+msgstr "Añadir privilegios a la o las base de datos siguientes:"
 
 #: libraries/server_privileges.lib.php:2871
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -12326,11 +12326,11 @@ msgstr "Copiar tabla con prefijo"
 
 #: libraries/structure.lib.php:339
 msgid "Add unique columns to central list"
-msgstr ""
+msgstr "Agregar columnas únicas la la lista central"
 
 #: libraries/structure.lib.php:341
 msgid "Remove columns from central list"
-msgstr ""
+msgstr "Eliminar columnas de la lista central"
 
 #: libraries/structure.lib.php:363
 msgid "Check tables having overhead"
@@ -12369,16 +12369,14 @@ msgid "Fulltext"
 msgstr "Texto completo"
 
 #: libraries/structure.lib.php:1479 libraries/structure.lib.php:2091
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "Columnas para las áreas de texto CHAR"
+msgstr "Agregar a columnas centrales"
 
 #: libraries/structure.lib.php:1484 libraries/structure.lib.php:2081
-#, fuzzy
 #| msgid "Remove from Favorites"
 msgid "Remove from central columns"
-msgstr "Eliminar de Favoritos"
+msgstr "Eliminar de las columnas centrales"
 
 #: libraries/structure.lib.php:1500 libraries/structure.lib.php:1610
 msgid "Move columns"
