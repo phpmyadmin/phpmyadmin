@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-26 15:16-0400\n"
-"PO-Revision-Date: 2014-05-25 22:10+0200\n"
+"PO-Revision-Date: 2014-05-27 14:34+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -4156,29 +4156,31 @@ msgstr "Verifica le privilegios"
 msgid ""
 "Central list of columns configuration Storage is not completely configured!"
 msgstr ""
+"Lista central de configuration de columnas. Le immagazinage (Storage) non es "
+"completemente configurate!"
 
 #: libraries/central_columns.lib.php:207
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "Il non pote adder %1$s proque illos jam existe in le list acentral!"
 
 #: libraries/central_columns.lib.php:223
-#, fuzzy
 #| msgid "Add columns"
 msgid "Could not add columns!"
-msgstr "Adde columnas"
+msgstr "Il non pote adder columnas!"
 
 #: libraries/central_columns.lib.php:296
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"Il non pote remover Columna(s) %1$s proque illos non existe in le lista de "
+"columnas central!"
 
 #: libraries/central_columns.lib.php:308
-#, fuzzy
 #| msgid "Could not remove favorite table!"
 msgid "Could not remove columns!"
-msgstr "Il non pote remover le tabella favorite!"
+msgstr "Il non pote remover columnas!"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -6096,6 +6098,8 @@ msgstr "Permitte accesso de nivello root (radice)"
 #: libraries/config/messages.inc.php:552
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
+"Nomine de HTTP Basic Auth Realm (Dominio de auyhorisation basic de Http) "
+"quando on face HTTP Auth."
 
 #: libraries/config/messages.inc.php:553
 msgid "HTTP Realm"
@@ -6185,6 +6189,8 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr ""
+"Un hospite alternative pro mantener le configuration de immagazinage: lassa "
+"vacue pro usar un hopite ja definite."
 
 #: libraries/config/messages.inc.php:587
 msgid "Control host"
@@ -6196,6 +6202,9 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
+"Un porto alternative pro connecter al hospite que ja mantene le immagazinage "
+"de configuration; lassa vacue pro usar le porto predefinite, o un porto ja "
+"definite, si le hospite de controlo equala se a le hospite."
 
 #: libraries/config/messages.inc.php:593
 msgid "Control port"
@@ -6215,11 +6224,11 @@ msgstr "Tabella de designator assistite"
 
 #: libraries/config/messages.inc.php:600
 msgid "Hide databases matching regular expression (PCRE)."
-msgstr ""
+msgstr "Cela base de datos coincidente con le expression regular (PCRE)."
 
 #: libraries/config/messages.inc.php:601
 msgid "Hide databases"
-msgstr ""
+msgstr "Cela base de datos"
 
 #: libraries/config/messages.inc.php:603
 msgid ""
@@ -6231,11 +6240,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:606
 msgid "SQL query history table"
-msgstr ""
+msgstr "Tabella de chronologia de query de SQL"
 
 #: libraries/config/messages.inc.php:607
 msgid "Hostname where MySQL server is running."
-msgstr ""
+msgstr "Nomine de hospite ubi le servitor de MySQL es executante."
 
 #: libraries/config/messages.inc.php:608
 msgid "Server hostname"
@@ -6243,7 +6252,7 @@ msgstr "Nomine de hospite servitor"
 
 #: libraries/config/messages.inc.php:609
 msgid "Logout URL"
-msgstr ""
+msgstr "URL de logout (abandono)"
 
 #: libraries/config/messages.inc.php:611
 msgid ""
@@ -10515,10 +10524,9 @@ msgid "Column-specific privileges"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2847
-#, fuzzy
 #| msgid "Check privileges for database \"%s\"."
 msgid "Add privileges on the following database(s):"
-msgstr "Verifica le privilegios de base de datos \"%s\"."
+msgstr "Adde le privilegios sur le sequente base(s) de datos:"
 
 #: libraries/server_privileges.lib.php:2871
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -11826,16 +11834,14 @@ msgid "Fulltext"
 msgstr ""
 
 #: libraries/structure.lib.php:1479 libraries/structure.lib.php:2091
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "Columnas de area de texto CHAR"
+msgstr "Adde al columnas central"
 
 #: libraries/structure.lib.php:1484 libraries/structure.lib.php:2081
-#, fuzzy
 #| msgid "Remove from Favorites"
 msgid "Remove from central columns"
-msgstr "Remove ex favoritos"
+msgstr "Remove ex le columnas central"
 
 #: libraries/structure.lib.php:1500 libraries/structure.lib.php:1610
 msgid "Move columns"
