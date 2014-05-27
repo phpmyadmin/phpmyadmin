@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-26 15:16-0400\n"
-"PO-Revision-Date: 2014-05-25 16:10+0200\n"
+"PO-Revision-Date: 2014-05-27 08:22+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -4107,17 +4107,18 @@ msgstr "Yetkileri kontrol et"
 msgid ""
 "Central list of columns configuration Storage is not completely configured!"
 msgstr ""
+"Sütunları yapılandırma Depolamasının merkezi listesi tamamen "
+"yapılandırılmadı!"
 
 #: libraries/central_columns.lib.php:207
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "Zaten merkezi listede mevcut olan %1$s eklenemedi!"
 
 #: libraries/central_columns.lib.php:223
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "Yapılandırma kaydedilemedi"
+msgstr "Sütunlar eklenemedi!"
 
 #: libraries/central_columns.lib.php:296
 #, php-format
@@ -4126,10 +4127,9 @@ msgid ""
 msgstr ""
 
 #: libraries/central_columns.lib.php:308
-#, fuzzy
 #| msgid "Could not remove favorite table!"
 msgid "Could not remove columns!"
-msgstr "Sık kullanılan tablo kaydedilemedi!"
+msgstr "Sütunlar kaldırılamadı!"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
