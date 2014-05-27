@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-24 09:05-0400\n"
-"PO-Revision-Date: 2014-05-25 22:10+0200\n"
+"PO-Revision-Date: 2014-05-27 14:34+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/ia/>\n"
@@ -6068,6 +6068,8 @@ msgstr "Permitte accesso de nivello root (radice)"
 #: libraries/config/messages.inc.php:554
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
+"Nomine de HTTP Basic Auth Realm (Dominio de auyhorisation basic de Http) "
+"quando on face HTTP Auth."
 
 #: libraries/config/messages.inc.php:555
 msgid "HTTP Realm"
@@ -6157,6 +6159,8 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr ""
+"Un hospite alternative pro mantener le configuration de immagazinage: lassa "
+"vacue pro usar un hopite ja definite."
 
 #: libraries/config/messages.inc.php:589
 msgid "Control host"
@@ -6168,6 +6172,9 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
+"Un porto alternative pro connecter al hospite que ja mantene le immagazinage "
+"de configuration; lassa vacue pro usar le porto predefinite, o un porto ja "
+"definite, si le hospite de controlo equala se a le hospite."
 
 #: libraries/config/messages.inc.php:595
 msgid "Control port"
@@ -6187,11 +6194,11 @@ msgstr "Tabella de designator assistite"
 
 #: libraries/config/messages.inc.php:602
 msgid "Hide databases matching regular expression (PCRE)."
-msgstr ""
+msgstr "Cela base de datos coincidente con le expression regular (PCRE)."
 
 #: libraries/config/messages.inc.php:603
 msgid "Hide databases"
-msgstr ""
+msgstr "Cela base de datos"
 
 #: libraries/config/messages.inc.php:605
 msgid ""
@@ -6203,11 +6210,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:608
 msgid "SQL query history table"
-msgstr ""
+msgstr "Tabella de chronologia de query de SQL"
 
 #: libraries/config/messages.inc.php:609
 msgid "Hostname where MySQL server is running."
-msgstr ""
+msgstr "Nomine de hospite ubi le servitor de MySQL es executante."
 
 #: libraries/config/messages.inc.php:610
 msgid "Server hostname"
@@ -6215,7 +6222,7 @@ msgstr "Nomine de hospite servitor"
 
 #: libraries/config/messages.inc.php:611
 msgid "Logout URL"
-msgstr ""
+msgstr "URL de logout (abandono)"
 
 #: libraries/config/messages.inc.php:613
 msgid ""
