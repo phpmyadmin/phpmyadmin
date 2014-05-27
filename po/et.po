@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-26 15:16-0400\n"
-"PO-Revision-Date: 2014-05-26 13:37+0200\n"
+"PO-Revision-Date: 2014-05-27 11:23+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -4079,18 +4079,17 @@ msgstr "Kontrolli õigusi"
 #: libraries/central_columns.lib.php:98
 msgid ""
 "Central list of columns configuration Storage is not completely configured!"
-msgstr ""
+msgstr "Veergude sätete keskne salvestuskoht ei ole täielikult seadistatud!"
 
 #: libraries/central_columns.lib.php:207
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "%1$s lisamisest loobuti, sest ta on juba olemas keskses listis!"
 
 #: libraries/central_columns.lib.php:223
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "Ei saanud seadistust salvestada"
+msgstr "Veerge ei saanud lisada!"
 
 #: libraries/central_columns.lib.php:296
 #, php-format
