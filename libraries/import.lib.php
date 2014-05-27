@@ -1332,8 +1332,8 @@ function PMA_stopImport( PMA_Message $error_message )
     if ($file_to_unlink != '') {
         unlink($file_to_unlink);
     }
-
-    $_SESSION['Import_message']['message'] = $error_message->getDisplay();
+    $msg = $error_message->getDisplay();
+    $_SESSION['Import_message']['message'] = $msg;
 
     $response = PMA_Response::getInstance();
     $response->isSuccess(false);
