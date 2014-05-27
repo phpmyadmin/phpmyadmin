@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-26 15:16-0400\n"
-"PO-Revision-Date: 2014-05-25 17:53+0200\n"
+"PO-Revision-Date: 2014-05-27 18:50+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -4119,29 +4119,30 @@ msgstr "Preveri privilegije"
 msgid ""
 "Central list of columns configuration Storage is not completely configured!"
 msgstr ""
+"Hramba konfiguracije osrednjega seznama stolpcev ni popolno konfigurirana!"
 
 #: libraries/central_columns.lib.php:207
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "Ne morem dodati %1$s, saj že obstaja na osrednjem seznamu!"
 
 #: libraries/central_columns.lib.php:223
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "Ne morem shraniti konfiguracije"
+msgstr "Ne morem dodati stolpcev!"
 
 #: libraries/central_columns.lib.php:296
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"Ne morem odstraniti stolpcev %1$s, saj ne obstajajo na osrednjem seznamu "
+"stolpcev!"
 
 #: libraries/central_columns.lib.php:308
-#, fuzzy
 #| msgid "Could not remove favorite table!"
 msgid "Could not remove columns!"
-msgstr "Ne morem odstraniti priljubljene tabele!"
+msgstr "Ne morem odstraniti stolpcev!"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -7820,10 +7821,9 @@ msgid "Convert to Kana"
 msgstr "Pretvori v kano"
 
 #: libraries/mult_submits.inc.php:274
-#, fuzzy
 #| msgid "Success."
 msgid "Success!"
-msgstr "Uspešno."
+msgstr "Uspešno!"
 
 #: libraries/mult_submits.inc.php:277 tbl_replace.php:251
 msgid "No change"
@@ -9240,7 +9240,7 @@ msgstr "Shranjevanje iskanj \"query by example\""
 
 #: libraries/relation.lib.php:302
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "Upravljanje osrednjega seznama stolpcev"
 
 #: libraries/relation.lib.php:308
 msgid "Quick steps to setup advanced features:"
@@ -10695,10 +10695,9 @@ msgid "Column-specific privileges"
 msgstr "Privilegiji tipični za stolpec"
 
 #: libraries/server_privileges.lib.php:2847
-#, fuzzy
 #| msgid "Add privileges on the following database:"
 msgid "Add privileges on the following database(s):"
-msgstr "Dodaj privilegije na naslednji zbirki podatkov:"
+msgstr "Dodaj privilegije na naslednje zbirke podatkov:"
 
 #: libraries/server_privileges.lib.php:2871
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -12144,11 +12143,11 @@ msgstr "Kopiraj tabelo s predpono"
 
 #: libraries/structure.lib.php:339
 msgid "Add unique columns to central list"
-msgstr ""
+msgstr "Dodaj unikatne stolpce na osrednji seznam"
 
 #: libraries/structure.lib.php:341
 msgid "Remove columns from central list"
-msgstr ""
+msgstr "Odstrani stolpce z osrednjega seznama"
 
 #: libraries/structure.lib.php:363
 msgid "Check tables having overhead"
@@ -12187,16 +12186,14 @@ msgid "Fulltext"
 msgstr "Polno besedilo"
 
 #: libraries/structure.lib.php:1479 libraries/structure.lib.php:2091
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "Stolpcev polja CHAR"
+msgstr "Dodaj med osrednje stolpce"
 
 #: libraries/structure.lib.php:1484 libraries/structure.lib.php:2081
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove from central columns"
-msgstr "Odstrani stolpec(-ce)"
+msgstr "Odstrani iz osrednjih stolpcev"
 
 #: libraries/structure.lib.php:1500 libraries/structure.lib.php:1610
 msgid "Move columns"
