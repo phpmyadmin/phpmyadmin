@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-26 15:16-0400\n"
-"PO-Revision-Date: 2014-05-14 16:45+0200\n"
+"PO-Revision-Date: 2014-05-27 10:25+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
-">\n"
+"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
+"\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1631,10 +1631,9 @@ msgid "(Disabled)"
 msgstr "(Uitgeschakeld)"
 
 #: js/messages.php:249
-#, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
-msgstr "Ophalen van headers mislukt"
+msgstr "Ophalen van exact aantal rijen mislukt."
 
 #: js/messages.php:252
 msgid "Searching"
@@ -4147,10 +4146,9 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
 #: libraries/central_columns.lib.php:223
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "Opslaan van het configuratiebestand is niet mogelijk"
+msgstr "Kolommen konden niet toegevoegd worden!"
 
 #: libraries/central_columns.lib.php:296
 #, php-format
@@ -4159,10 +4157,9 @@ msgid ""
 msgstr ""
 
 #: libraries/central_columns.lib.php:308
-#, fuzzy
 #| msgid "Could not remove favorite table!"
 msgid "Could not remove columns!"
-msgstr "Favoriete tabel kon niet verwijderd worden!"
+msgstr "Kolommen konden niet verwijderd worden!"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -7894,10 +7891,9 @@ msgid "Convert to Kana"
 msgstr "Omzetten naar Kana"
 
 #: libraries/mult_submits.inc.php:274
-#, fuzzy
 #| msgid "Success."
 msgid "Success!"
-msgstr "Geslaagd."
+msgstr "Geslaagd!"
 
 #: libraries/mult_submits.inc.php:277 tbl_replace.php:251
 msgid "No change"
@@ -10790,10 +10786,9 @@ msgid "Column-specific privileges"
 msgstr "Kolom-specifieke rechten"
 
 #: libraries/server_privileges.lib.php:2847
-#, fuzzy
 #| msgid "Add privileges on the following database:"
 msgid "Add privileges on the following database(s):"
-msgstr "Rechten toevoegen op de volgende databank:"
+msgstr "Rechten toevoegen op de volgende databank(en):"
 
 #: libraries/server_privileges.lib.php:2871
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -12307,16 +12302,14 @@ msgid "Fulltext"
 msgstr "Volledige tekst"
 
 #: libraries/structure.lib.php:1479 libraries/structure.lib.php:2091
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "Kolommen van CHAR-tekstgebied"
+msgstr "Toevoegen aan centrale kolommen"
 
 #: libraries/structure.lib.php:1484 libraries/structure.lib.php:2081
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove from central columns"
-msgstr "Kolom(men) verwijderen"
+msgstr "Verwijderen uit centrale kolommen"
 
 #: libraries/structure.lib.php:1500 libraries/structure.lib.php:1610
 msgid "Move columns"
