@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-05-26 15:16-0400\n"
+"POT-Creation-Date: 2014-05-28 08:21-0400\n"
 "PO-Revision-Date: 2014-05-28 13:44+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
-"\n"
-"Language: el\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -417,7 +417,7 @@ msgstr "Παρακολούθηση πίνακα"
 msgid "Database Log"
 msgstr "Καταγραφή Βάσης Δεδομένων"
 
-#: error_report.php:33
+#: error_report.php:31
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -425,12 +425,11 @@ msgstr ""
 "Ανιχνεύτηκε ένα σφάλμα και μια αναφορά σφάλματος έχει υποβληθεί αυτόματα "
 "σύμφωνα με τις ρυθμίσεις σας."
 
-#: error_report.php:37 error_report.php:54 error_report.php:65
-#: error_report.php:81
-msgid "You may want to refresh the page."
-msgstr "Ίσως θέλετε να ανανεώσετε τη σελίδα."
+#: error_report.php:35
+msgid "Thank you for submitting this report."
+msgstr "Ευχαριστούμε που υποβάλλατε αυτή την αναφορά."
 
-#: error_report.php:45
+#: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -438,19 +437,15 @@ msgstr ""
 "Ανιχνεύτηκε ένα σφάλμα και μια αναφορά σφάλματος έχει δημιουργηθεί αλλά "
 "απέτυχε να αποσταλεί."
 
-#: error_report.php:50 error_report.php:77
+#: error_report.php:44
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Αν σας παρουσιάστηκε κάποιο σφάλμα υποβάλλετε μια αναφορά σφάλματος "
 "χειροκίνητα."
 
-#: error_report.php:63 error_report.php:72
-msgid "Thank you for submitting this report."
-msgstr "Ευχαριστούμε που υποβάλλατε αυτή την αναφορά."
-
-#: error_report.php:74
-msgid "Unfortunately the submission failed."
-msgstr "Δυστυχώς, η υποβολή απέτυχε."
+#: error_report.php:48
+msgid "You may want to refresh the page."
+msgstr "Ίσως θέλετε να ανανεώσετε τη σελίδα."
 
 #: export.php:179
 msgid "Bad type!"
@@ -1637,7 +1632,6 @@ msgid "(Disabled)"
 msgstr "(Απενεργοποιημένη)"
 
 #: js/messages.php:249
-#| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
 msgstr "Αποτυχία λήψης πραγματικής μέτρησης εγγραφών."
 
@@ -3159,7 +3153,7 @@ msgstr "Μηχανές"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:626
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1231 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1231 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "Λάθος"
@@ -4140,7 +4134,8 @@ msgstr "Έλεγχος Δικαιωμάτων"
 #: libraries/central_columns.lib.php:98
 msgid ""
 "Central list of columns configuration Storage is not completely configured!"
-msgstr "Η κεντρική λίστα στηλών ρύθμισης Αποθήκευσης δεν έχει ρυθμιστεί πλήρως!"
+msgstr ""
+"Η κεντρική λίστα στηλών ρύθμισης Αποθήκευσης δεν έχει ρυθμιστεί πλήρως!"
 
 #: libraries/central_columns.lib.php:207
 #, php-format
@@ -4148,7 +4143,6 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr "Αδύνατη η προσθήκη %1$s καθώς υπάρχουν ήδη στην κεντρική λίστα!"
 
 #: libraries/central_columns.lib.php:223
-#| msgid "Could not save configuration"
 msgid "Could not add columns!"
 msgstr "Αδύνατη η προσθήκη στηλών!"
 
@@ -4161,7 +4155,6 @@ msgstr ""
 "κεντρική λίστα στηλών!"
 
 #: libraries/central_columns.lib.php:308
-#| msgid "Could not remove favorite table!"
 msgid "Could not remove columns!"
 msgstr "Αδύνατη η απομάκρυνση στηλών!"
 
@@ -7902,7 +7895,6 @@ msgid "Convert to Kana"
 msgstr "Μετατροπή σε Kana"
 
 #: libraries/mult_submits.inc.php:274
-#| msgid "Success."
 msgid "Success!"
 msgstr "Επιτυχία!"
 
@@ -10801,7 +10793,6 @@ msgid "Column-specific privileges"
 msgstr "Δικαιώματα πεδίων"
 
 #: libraries/server_privileges.lib.php:2847
-#| msgid "Add privileges on the following database:"
 msgid "Add privileges on the following database(s):"
 msgstr "Προσθήκη δικαιωμάτων στην(ις) ακόλουθη(ες) βάση(εις) δεδομένων:"
 
@@ -12294,7 +12285,9 @@ msgid "Copy table with prefix"
 msgstr "Αντιγραφή πίνακα με πρόθεμα"
 
 #: libraries/structure.lib.php:339
-msgid "Add unique columns to central list"
+#, fuzzy
+#| msgid "Add unique columns to central list"
+msgid "Add columns to central list"
 msgstr "Προσθήκη μοναδικών στηλών στη κεντρική λίστα"
 
 #: libraries/structure.lib.php:341
@@ -12338,12 +12331,10 @@ msgid "Fulltext"
 msgstr "Πλήρες κείμενο"
 
 #: libraries/structure.lib.php:1479 libraries/structure.lib.php:2091
-#| msgid "CHAR textarea columns"
 msgid "Add to central columns"
 msgstr "Προσθήκη στις κεντρικές στήλες"
 
 #: libraries/structure.lib.php:1484 libraries/structure.lib.php:2081
-#| msgid "Remove column(s)"
 msgid "Remove from central columns"
 msgstr "Απομάκρυνση από κεντρικές στήλες"
 
@@ -13432,15 +13423,15 @@ msgstr "Δεν υπάρχει νεότερη σταθερή έκδοση δια�
 msgid "Wrong data"
 msgstr "Εσφαλμένα δεδομένα"
 
-#: tbl_chart.php:38
+#: tbl_chart.php:34
 msgid "No data to display"
 msgstr "Κανένα δεδομένο για προβολή"
 
-#: tbl_chart.php:62 tbl_gis_visualization.php:24
+#: tbl_chart.php:58 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr "Κανένα ερώτημα SQL δεν τέθηκε για να έρθουν δεδομένα."
 
-#: tbl_chart.php:120
+#: tbl_chart.php:116
 msgid "No numeric columns present in the table to plot."
 msgstr "Καμία αριθμητική στήλη παρούσα στον πίνακα για εκτύπωση."
 
@@ -14856,6 +14847,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "Το concurrent_insert έχει οριστεί στο 0"
+
+#~ msgid "Unfortunately the submission failed."
+#~ msgstr "Δυστυχώς, η υποβολή απέτυχε."
 
 #~ msgid "Show binary contents as HEX"
 #~ msgstr "Εμφάνιση δυαδικών περιεχομένων ως Δεκαεξαδικά HEX"

@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-05-26 15:16-0400\n"
+"POT-Creation-Date: 2014-05-28 08:21-0400\n"
 "PO-Revision-Date: 2014-05-27 18:50+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
-"Language: sl\n"
+"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
+"sl/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3;\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
+"100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -420,19 +420,18 @@ msgstr "Sledi tabeli"
 msgid "Database Log"
 msgstr "Dnevnik zbirke podatkov"
 
-#: error_report.php:33
+#: error_report.php:31
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
 "Zaznali smo napako in na podlagi vaših nastavitev samodejno poslali poročilo."
 
-#: error_report.php:37 error_report.php:54 error_report.php:65
-#: error_report.php:81
-msgid "You may want to refresh the page."
-msgstr "Morda boste želeli osvežiti stran."
+#: error_report.php:35
+msgid "Thank you for submitting this report."
+msgstr "Hvala, da ste poslali poročilo."
 
-#: error_report.php:45
+#: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -440,19 +439,15 @@ msgstr ""
 "Zaznali smo napako in na podlagi vaših nastavitev ustvarili poročilo, vendar "
 "ga nismo uspeli poslati."
 
-#: error_report.php:50 error_report.php:77
+#: error_report.php:44
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Če naletite na kakršne koli težave, prosimo, da ročno pošljete poročilo o "
 "hrošču."
 
-#: error_report.php:63 error_report.php:72
-msgid "Thank you for submitting this report."
-msgstr "Hvala, da ste poslali poročilo."
-
-#: error_report.php:74
-msgid "Unfortunately the submission failed."
-msgstr "Žal, vendar pošiljanje ni uspelo."
+#: error_report.php:48
+msgid "You may want to refresh the page."
+msgstr "Morda boste želeli osvežiti stran."
 
 #: export.php:179
 msgid "Bad type!"
@@ -3141,7 +3136,7 @@ msgstr "Pogoni"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:626
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1231 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1231 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "Napaka"
@@ -4127,7 +4122,6 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr "Ne morem dodati %1$s, saj že obstaja na osrednjem seznamu!"
 
 #: libraries/central_columns.lib.php:223
-#| msgid "Could not save configuration"
 msgid "Could not add columns!"
 msgstr "Ne morem dodati stolpcev!"
 
@@ -4140,7 +4134,6 @@ msgstr ""
 "stolpcev!"
 
 #: libraries/central_columns.lib.php:308
-#| msgid "Could not remove favorite table!"
 msgid "Could not remove columns!"
 msgstr "Ne morem odstraniti stolpcev!"
 
@@ -7821,7 +7814,6 @@ msgid "Convert to Kana"
 msgstr "Pretvori v kano"
 
 #: libraries/mult_submits.inc.php:274
-#| msgid "Success."
 msgid "Success!"
 msgstr "Uspešno!"
 
@@ -10695,7 +10687,6 @@ msgid "Column-specific privileges"
 msgstr "Privilegiji tipični za stolpec"
 
 #: libraries/server_privileges.lib.php:2847
-#| msgid "Add privileges on the following database:"
 msgid "Add privileges on the following database(s):"
 msgstr "Dodaj privilegije na naslednje zbirke podatkov:"
 
@@ -12142,7 +12133,9 @@ msgid "Copy table with prefix"
 msgstr "Kopiraj tabelo s predpono"
 
 #: libraries/structure.lib.php:339
-msgid "Add unique columns to central list"
+#, fuzzy
+#| msgid "Add unique columns to central list"
+msgid "Add columns to central list"
 msgstr "Dodaj unikatne stolpce na osrednji seznam"
 
 #: libraries/structure.lib.php:341
@@ -12186,12 +12179,10 @@ msgid "Fulltext"
 msgstr "Polno besedilo"
 
 #: libraries/structure.lib.php:1479 libraries/structure.lib.php:2091
-#| msgid "CHAR textarea columns"
 msgid "Add to central columns"
 msgstr "Dodaj med osrednje stolpce"
 
 #: libraries/structure.lib.php:1484 libraries/structure.lib.php:2081
-#| msgid "Remove column(s)"
 msgid "Remove from central columns"
 msgstr "Odstrani iz osrednjih stolpcev"
 
@@ -13270,15 +13261,15 @@ msgstr "Na voljo ni novejše stabilne različice"
 msgid "Wrong data"
 msgstr "Napačni podatki"
 
-#: tbl_chart.php:38
+#: tbl_chart.php:34
 msgid "No data to display"
 msgstr "Ni podatkov za prikaz"
 
-#: tbl_chart.php:62 tbl_gis_visualization.php:24
+#: tbl_chart.php:58 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr "Za pridobivanje podatkov ni bil določen noben SQL."
 
-#: tbl_chart.php:120
+#: tbl_chart.php:116
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 "V tabeli ni številskih stolpcev, ki bi jih bilo mogoče narisati na graf."
@@ -14640,6 +14631,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
+
+#~ msgid "Unfortunately the submission failed."
+#~ msgstr "Žal, vendar pošiljanje ni uspelo."
 
 #~ msgid "Show binary contents as HEX"
 #~ msgstr "Prikaži dvojiške vsebine kot HEX"

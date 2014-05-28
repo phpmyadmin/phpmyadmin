@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-05-26 15:16-0400\n"
+"POT-Creation-Date: 2014-05-28 08:21-0400\n"
 "PO-Revision-Date: 2014-04-10 16:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Indonesian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -421,7 +421,7 @@ msgstr "Lacak tabel"
 msgid "Database Log"
 msgstr "Log Basis Data"
 
-#: error_report.php:33
+#: error_report.php:31
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -429,12 +429,11 @@ msgstr ""
 "Kesalahan terdeteksi dan laporan kesalahan telah otomatis terkirim "
 "berdasarkan pengaturan anda."
 
-#: error_report.php:37 error_report.php:54 error_report.php:65
-#: error_report.php:81
-msgid "You may want to refresh the page."
-msgstr "Anda mungkin perlu me-refresh halaman."
+#: error_report.php:35
+msgid "Thank you for submitting this report."
+msgstr "Terimakasih telah mengirimkan laporan ini."
 
-#: error_report.php:45
+#: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -442,18 +441,14 @@ msgstr ""
 "Kesalahan telah terdeteksi dan laporan kesalahan telah dihasilkan tetapi "
 "gagal dikirim."
 
-#: error_report.php:50 error_report.php:77
+#: error_report.php:44
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Jika Anda mengalami masalah silakan mengirimkan laporan bug secara manual."
 
-#: error_report.php:63 error_report.php:72
-msgid "Thank you for submitting this report."
-msgstr "Terimakasih telah mengirimkan laporan ini."
-
-#: error_report.php:74
-msgid "Unfortunately the submission failed."
-msgstr "Sayangnya pengajuan gagal."
+#: error_report.php:48
+msgid "You may want to refresh the page."
+msgstr "Anda mungkin perlu me-refresh halaman."
 
 #: export.php:179
 msgid "Bad type!"
@@ -3193,7 +3188,7 @@ msgstr "Mesin"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:626
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1231 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1231 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "Galat"
@@ -12349,8 +12344,10 @@ msgid "Copy table with prefix"
 msgstr "Salin tabel dengan prefiks"
 
 #: libraries/structure.lib.php:339
-msgid "Add unique columns to central list"
-msgstr ""
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Add columns to central list"
+msgstr "Kolom textarea CHAR"
 
 #: libraries/structure.lib.php:341
 msgid "Remove columns from central list"
@@ -13553,18 +13550,18 @@ msgstr "Tidak ada versi stabil baru yang tersedia"
 msgid "Wrong data"
 msgstr "Data salah"
 
-#: tbl_chart.php:38
+#: tbl_chart.php:34
 #, fuzzy
 #| msgid "No data"
 msgid "No data to display"
 msgstr "Tidak ada data"
 
-#: tbl_chart.php:62 tbl_gis_visualization.php:24
+#: tbl_chart.php:58 tbl_gis_visualization.php:24
 #, fuzzy
 msgid "No SQL query was set to fetch data."
 msgstr "Tidak ada query SQL ditetapkan untuk mengambil data."
 
-#: tbl_chart.php:120
+#: tbl_chart.php:116
 #, fuzzy
 msgid "No numeric columns present in the table to plot."
 msgstr "Tidak ada kolom numerik yang muncul dalam tabel untuk perencanaan."
@@ -15055,6 +15052,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert diatur ke 0"
+
+#~ msgid "Unfortunately the submission failed."
+#~ msgstr "Sayangnya pengajuan gagal."
 
 #~ msgid "Show binary contents as HEX"
 #~ msgstr "Tampilkan konten biner dalam HEX"
