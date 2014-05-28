@@ -224,11 +224,11 @@ options which the setup script does not provide.
    a login dialog if using :term:`HTTP` or
    cookie authentication mode.
 #. You should deny access to the ``./libraries`` and ``./setup/lib``
-   subfolders in your webserver configuration. For Apache you can use
-   supplied :term:`.htaccess`  file in that folder, for other webservers, you should
-   configure this yourself. Such configuration prevents from possible
+   subfolders in your webserver configuration.
+   Such configuration prevents from possible
    path exposure and cross side scripting vulnerabilities that might
-   happen to be found in that code.
+   happen to be found in that code. For the Apache webserver, this is
+   often accomplished with a :term:`.htaccess` file in those directories.
 #. It is generally a good idea to protect a public phpMyAdmin installation
    against access by robots as they usually can not do anything good
    there. You can do this using ``robots.txt`` file in root of your
