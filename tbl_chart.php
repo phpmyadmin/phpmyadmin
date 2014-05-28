@@ -19,10 +19,6 @@ if (isset($_REQUEST['ajax_request'])
 
     if (strlen($GLOBALS['table']) && strlen($GLOBALS['db'])) {
         include './libraries/tbl_common.inc.php';
-    } else {
-        $response->isSuccess(false);
-        $response->addJSON('message', __('Error'));
-        exit;
     }
 
     $sql_with_limit = 'SELECT * FROM( ' . $sql_query . ' ) AS `temp_res` LIMIT '

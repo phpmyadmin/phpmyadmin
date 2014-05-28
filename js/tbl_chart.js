@@ -331,8 +331,6 @@ $("#tblchartform").live('submit', function (event) {
         } else {
             PMA_ajaxRemoveMessage($msgbox);
             PMA_ajaxShowMessage(data.error, false);
-            chart_data = null;
-            drawChart();
         }
         PMA_ajaxRemoveMessage($msgbox);
     }, "json"); // end $.post()
