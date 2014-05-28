@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-24 09:05-0400\n"
-"PO-Revision-Date: 2014-05-27 14:34+0200\n"
+"PO-Revision-Date: 2014-05-28 17:34+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/ia/>\n"
@@ -6229,6 +6229,8 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
+"Il limita le numero de preferentias de tabella que es immagazinate in le "
+"base de datos, le registros plus vetere essera removite automaticamente."
 
 #: libraries/config/messages.inc.php:617
 msgid "Maximal number of table preferences to store"
@@ -6236,7 +6238,7 @@ msgstr "Maxime numero de preferentias de immagazinar"
 
 #: libraries/config/messages.inc.php:618
 msgid "QBE saved searches table"
-msgstr ""
+msgstr "Tabella de cercas salveguardate de QBE"
 
 #: libraries/config/messages.inc.php:620
 #| msgid ""
@@ -6269,15 +6271,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:631
 msgid "Show only listed databases"
-msgstr ""
+msgstr "Monstra solmente base de datos ab le lista"
 
 #: libraries/config/messages.inc.php:632 libraries/config/messages.inc.php:720
 msgid "Leave empty if not using config auth."
-msgstr ""
+msgstr "Lassa vacue si non es usante config auth."
 
 #: libraries/config/messages.inc.php:633
 msgid "Password for config auth"
-msgstr ""
+msgstr "Contrasigno pro config auth"
 
 #: libraries/config/messages.inc.php:635
 msgid ""
@@ -6288,7 +6290,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:637
 msgid "PDF schema: pages table"
-msgstr ""
+msgstr "Schema PDF: tabella de paginas"
 
 #: libraries/config/messages.inc.php:639
 msgid ""
@@ -6304,15 +6306,17 @@ msgstr ""
 #: libraries/config/messages.inc.php:643
 #: libraries/display_create_database.lib.php:31
 msgid "Database name"
-msgstr ""
+msgstr "Nomine de base de datos"
 
 #: libraries/config/messages.inc.php:645
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
+"Porto sur le qual le servitor MySQL es ascoltante, lassa vacue pro le valor "
+"predefinite."
 
 #: libraries/config/messages.inc.php:646
 msgid "Server port"
-msgstr ""
+msgstr "Porto de servitor"
 
 #: libraries/config/messages.inc.php:648
 msgid ""
@@ -6324,7 +6328,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:651
 msgid "Recently used table"
-msgstr ""
+msgstr "Tabella usate recentemente"
 
 #: libraries/config/messages.inc.php:653
 msgid ""
@@ -6336,7 +6340,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:657
 msgid "Relation table"
-msgstr ""
+msgstr "Tabella de relation"
 
 #: libraries/config/messages.inc.php:659
 msgid ""
@@ -6348,19 +6352,21 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:662
 msgid "Signon session name"
-msgstr ""
+msgstr "Nomine de session de signon"
 
 #: libraries/config/messages.inc.php:663
 msgid "Signon URL"
-msgstr ""
+msgstr "URL de signon"
 
 #: libraries/config/messages.inc.php:665
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
+"Socket sur le qual le servitor MySQL es ascoltante, lassa vacue pro le valor "
+"predefinite."
 
 #: libraries/config/messages.inc.php:666
 msgid "Server socket"
-msgstr ""
+msgstr "Socket del servitor"
 
 #: libraries/config/messages.inc.php:667
 msgid "Enable SSL for connection to MySQL server."
@@ -6368,7 +6374,7 @@ msgstr "Habilita SSL pro le connexion a servitor MySQL."
 
 #: libraries/config/messages.inc.php:668
 msgid "Use SSL"
-msgstr ""
+msgstr "Usa SSL"
 
 #: libraries/config/messages.inc.php:670
 msgid ""
@@ -6380,7 +6386,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:672
 msgid "PDF schema: table coordinates"
-msgstr ""
+msgstr "Schema PDF: coordinatas de tabella"
 
 #: libraries/config/messages.inc.php:674
 msgid ""
@@ -6392,7 +6398,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:677
 msgid "Display columns table"
-msgstr ""
+msgstr "Monstra tabella de columnas"
 
 #: libraries/config/messages.inc.php:679
 msgid ""
@@ -6404,7 +6410,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:682
 msgid "UI preferences table"
-msgstr ""
+msgstr "Tabella de preferentias de UI (Interfacie usator)"
 
 #: libraries/config/messages.inc.php:684
 msgid ""
@@ -6414,7 +6420,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:687
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "Adde DROP DATABASE"
 
 #: libraries/config/messages.inc.php:689
 msgid ""
@@ -6424,7 +6430,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:692
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Adde DROP TABLE"
 
 #: libraries/config/messages.inc.php:694
 msgid ""
@@ -6434,7 +6440,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:697
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "Adde DROP VIEW"
 
 #: libraries/config/messages.inc.php:699
 msgid "Defines the list of statements the auto-creation uses for new versions."
@@ -6442,7 +6448,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:700
 msgid "Statements to track"
-msgstr ""
+msgstr "Declarationes de traciar"
 
 #: libraries/config/messages.inc.php:702
 msgid ""
@@ -6454,7 +6460,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:705
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "Tabella pro traciar le query SQL"
 
 #: libraries/config/messages.inc.php:707
 msgid ""
