@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-26 15:16-0400\n"
-"PO-Revision-Date: 2014-05-27 08:22+0200\n"
+"PO-Revision-Date: 2014-05-28 07:53+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -4113,7 +4113,7 @@ msgstr ""
 #: libraries/central_columns.lib.php:207
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr "Zaten merkezi listede mevcut olan %1$s eklenemedi!"
+msgstr "Zaten merkezi listede mevcut olduğu için %1$s eklenemedi!"
 
 #: libraries/central_columns.lib.php:223
 #| msgid "Could not save configuration"
@@ -4124,7 +4124,7 @@ msgstr "Sütunlar eklenemedi!"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr ""
+msgstr "Merkezi listede mevcut olmadığı için Sütun %1$s kaldırılamadı!"
 
 #: libraries/central_columns.lib.php:308
 #| msgid "Could not remove favorite table!"
@@ -7832,10 +7832,9 @@ msgid "Convert to Kana"
 msgstr "Kana'ya dönüştür"
 
 #: libraries/mult_submits.inc.php:274
-#, fuzzy
 #| msgid "Success."
 msgid "Success!"
-msgstr "Başarılı."
+msgstr "Başarılı!"
 
 #: libraries/mult_submits.inc.php:277 tbl_replace.php:251
 msgid "No change"
@@ -9256,7 +9255,7 @@ msgstr "Örnekle Sorgulama aramalarını kaydetme"
 
 #: libraries/relation.lib.php:302
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "Sütunların Merkezi listesi yönetimi"
 
 #: libraries/relation.lib.php:308
 msgid "Quick steps to setup advanced features:"
@@ -10704,10 +10703,9 @@ msgid "Column-specific privileges"
 msgstr "Sütuna özgü yetkiler"
 
 #: libraries/server_privileges.lib.php:2847
-#, fuzzy
 #| msgid "Add privileges on the following database:"
 msgid "Add privileges on the following database(s):"
-msgstr "Aşağıdaki veritabanına yetkileri ekle:"
+msgstr "Aşağıdaki veritaban(lar)ına yetkileri ekle:"
 
 #: libraries/server_privileges.lib.php:2871
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -12151,11 +12149,11 @@ msgstr "Tabloyu ön eki ile kopyala"
 
 #: libraries/structure.lib.php:339
 msgid "Add unique columns to central list"
-msgstr ""
+msgstr "Benzersiz sütunları merkezi listeye ekle"
 
 #: libraries/structure.lib.php:341
 msgid "Remove columns from central list"
-msgstr ""
+msgstr "Merkezi listeden sütunları kaldır"
 
 #: libraries/structure.lib.php:363
 msgid "Check tables having overhead"
@@ -12194,16 +12192,14 @@ msgid "Fulltext"
 msgstr "Tam metin"
 
 #: libraries/structure.lib.php:1479 libraries/structure.lib.php:2091
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "CHAR metin alanı sütunları"
+msgstr "Merkezi sütunlara ekle"
 
 #: libraries/structure.lib.php:1484 libraries/structure.lib.php:2081
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove from central columns"
-msgstr "Sekme(leri)yi kaldır"
+msgstr "Merkezi sütunlardan kaldır"
 
 #: libraries/structure.lib.php:1500 libraries/structure.lib.php:1610
 msgid "Move columns"
