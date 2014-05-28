@@ -85,7 +85,8 @@ function PMA_getReportData($pretty_print = true, $exception_type = 'js')
                     "file" => $errorObj->getFile(),
                     "type" => $errorObj->getType(),
                     "msg" => $errorObj->getOnlyMessage(),
-                    "stackTrace" => $errorObj->getBacktraceDisplay(5)
+                    "stackTrace" => $errorObj->getBacktrace(5),
+                    "stackhash" => $errorObj->getHash()
                     );
 
             }
