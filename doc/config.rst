@@ -738,12 +738,12 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    Since release 4.1.0 you can have a central list of columns per database.
+    Since release 4.3.0 you can have a central list of columns per database.
     You can add/remove columns to the list as per your requirement. These columns 
-    in the central list will be available to use while you create a new coulmn for
+    in the central list will be available to use while you create a new column for
     a table or create a table itself. You can select a column from central list 
-    while creating a new column, it will save you from writting same column definition
-    over again or from writting different names for similar column.
+    while creating a new column, it will save you from writing the same column definition
+    over again or from writing different names for similar column.
 
     To allow the usage of this functionality:
 
