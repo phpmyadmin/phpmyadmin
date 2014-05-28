@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-26 15:16-0400\n"
-"PO-Revision-Date: 2014-05-26 23:37+0200\n"
+"PO-Revision-Date: 2014-05-28 13:44+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
 "\n"
@@ -1926,6 +1926,7 @@ msgstr ""
 #: js/messages.php:355
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
+"Εισάγετε ένα έγκυρο δεκαεξαδικό αριθμό. Έγκυροι χαρακτήρες είναι 0-9, A-F."
 
 #: js/messages.php:360
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -4139,12 +4140,12 @@ msgstr "Έλεγχος Δικαιωμάτων"
 #: libraries/central_columns.lib.php:98
 msgid ""
 "Central list of columns configuration Storage is not completely configured!"
-msgstr ""
+msgstr "Η κεντρική λίστα στηλών ρύθμισης Αποθήκευσης δεν έχει ρυθμιστεί πλήρως!"
 
 #: libraries/central_columns.lib.php:207
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "Αδύνατη η προσθήκη %1$s καθώς υπάρχουν ήδη στην κεντρική λίστα!"
 
 #: libraries/central_columns.lib.php:223
 #| msgid "Could not save configuration"
@@ -4156,6 +4157,8 @@ msgstr "Αδύνατη η προσθήκη στηλών!"
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"Αδύνατη η απομάκρυνση της(ων) Στήλης(ών) %1$s καθώς δεν υπάρχουν στη "
+"κεντρική λίστα στηλών!"
 
 #: libraries/central_columns.lib.php:308
 #| msgid "Could not remove favorite table!"
@@ -9331,7 +9334,7 @@ msgstr "Αποθήκευση αναζητήσεων Ερώτημα-Ανά-Παρ
 
 #: libraries/relation.lib.php:302
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "Διαχείριση Κεντρικής λίστας στηλών"
 
 #: libraries/relation.lib.php:308
 msgid "Quick steps to setup advanced features:"
@@ -12292,11 +12295,11 @@ msgstr "Αντιγραφή πίνακα με πρόθεμα"
 
 #: libraries/structure.lib.php:339
 msgid "Add unique columns to central list"
-msgstr ""
+msgstr "Προσθήκη μοναδικών στηλών στη κεντρική λίστα"
 
 #: libraries/structure.lib.php:341
 msgid "Remove columns from central list"
-msgstr ""
+msgstr "Απομάκρυνση στηλών από την κεντρική λίστα"
 
 #: libraries/structure.lib.php:363
 msgid "Check tables having overhead"
