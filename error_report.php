@@ -19,7 +19,8 @@ if (isset($_REQUEST['send_error_report'])
         $success = false;
     } else {
         $decoded_response = json_decode($server_response, true);
-        $success = !empty($decoded_response) ? $decoded_response["success"] : false; }
+        $success = !empty($decoded_response) ? $decoded_response["success"] : false;
+    }
 
     /* Message to show to the user */
     if ($success) {
