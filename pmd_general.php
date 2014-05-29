@@ -40,6 +40,10 @@ $scripts->addFile('pmd/init.js');
 require 'libraries/db_common.inc.php';
 require 'libraries/db_info.inc.php';
 
+$db = PMA_Util::sqlAddSlashes($GLOBALS['db']);
+$table = PMA_Util::backquote($GLOBALS['cfgRelation']['pdf_pages']);
+$cfgRelation = PMA_Util::backquote($GLOBALS['cfgRelation']['db']);
+
 // Embed some data into HTML, later it will be read
 // by pmd/init.js and converted to JS variables.
 echo '<div id="script_server" class="hide">';
@@ -86,6 +90,16 @@ echo '</div>';
         <img title="<?php echo __('Save position') ?>" alt=""
             src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/save.png'); ?>" />
     </a>
+    <a href="#" onclick="Save_as(); return false" class="M_butt" target="_self">
+        <img title="<?php echo __('Save positions as') ?>" alt=""
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/save_as.png'); ?>" />
+    </a>
+    <a href="#" onclick="Edit_pages(event); return false" class="M_butt" target="_self" token="<?php echo $_GET['token'] ?>"
+    relation="<?php echo $cfgRelation ?>" table="<?php echo $table ?>" db="<?php echo $db ?>">
+        <img title="<?php echo __('Edit pages') ?>" alt=""
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/edit_page.png'); ?>" />
+    </a>
+    <img class="M_bord" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>" alt="" />
     <a href="#" onclick="Start_table_new(); return false"
         class="M_butt" target="_self">
         <img title="<?php echo __('Create table')?>" alt=""
@@ -141,10 +155,12 @@ echo '</div>';
             src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/toggle_lines.png'); ?>" />
     </a>
     <img class="M_bord" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>" alt="" />
-    <a href="#" onclick="PDF_save(); return false" class="M_butt ajax">
-        <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/pdf.png'); ?>" alt="key"
-            width="20" height="20" title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" />
-    </a>
+    <span>page name</span>
+<!--    <img class="M_bord" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>" alt="" />-->
+<!--    <a href="#" onclick="PDF_save(); return false" class="M_butt ajax">-->
+<!--        <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/pdf.png'); ?>" alt="key"-->
+<!--            width="20" height="20" title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" />-->
+<!--    </a>-->
 <?php
 if (isset($_REQUEST['query'])) {
     echo '<a href="#" onclick="build_query(\'SQL Query on Database\', 0)" onmousedown="return false;"

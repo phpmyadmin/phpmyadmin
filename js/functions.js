@@ -3036,6 +3036,103 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
     }); // end $.get()
 }
 
+
+function pageEditorDialog( url )
+{
+    if ($('#page_editor_dialog').length !== 0) {
+        $('#page_editor_dialog').remove();
+    }
+    var $div = $('<div id="page_editor_dialog"></div>');
+
+    /**
+     * @var button_options Object that stores the options
+     *                     passed to jQueryUI dialog
+     */
+    var button_options = {};
+    button_options[PMA_messages.strGo] = function () {
+        /**
+         * @var    the_form    object referring to the export form
+         */
+        var $form = $("#page_edit_frm");
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+        PMA_prepareForAjaxRequest($form);
+        //User wants to submit the form
+        $.post($form.attr('action'), $form.serialize() + "&do_save_data=1", function (data) {
+            if ($("#sqlqueryresults").length !== 0) {
+                $("#sqlqueryresults").remove();
+            }
+            if (data.success === true) {
+                PMA_ajaxShowMessage(data.message);
+                if ($('#result_query').length) {
+                    $('#result_query').remove();
+                }
+                if (data.sql_query) {
+                    $('<div id="result_query"></div>')
+                        .html(data.sql_query)
+                        .prependTo('#page_content');
+                    PMA_highlightSQL($('#page_content'));
+                }
+                $("#result_query .notice").remove();
+                $("#result_query").prepend(data.message);
+                /*Reload the field form*/
+                $("#table_index").remove();
+                var $temp_div = $("<div id='temp_div'><div>").append(data.index_table);
+                $temp_div.find("#table_index").insertAfter("#index_header");
+                if ($("#edit_index_dialog").length > 0) {
+                    $("#edit_index_dialog").dialog("close");
+                }
+                $('div.no_indexes_defined').hide();
+                if (callback_success) {
+                    callback_success();
+                }
+                PMA_reloadNavigation();
+            } else {
+                var $temp_div = $("<div id='temp_div'><div>").append(data.error);
+                var $error;
+                if ($temp_div.find(".error code").length !== 0) {
+                    $error = $temp_div.find(".error code").addClass("error");
+                } else {
+                    $error = $temp_div;
+                }
+                if (callback_failure) {
+                    callback_failure();
+                }
+                PMA_ajaxShowMessage($error, false);
+            }
+        }); // end $.post()
+    };
+	
+    button_options[PMA_messages.strCancel] = function () {
+        $(this).dialog('close');
+    };
+	
+    var $msgbox = PMA_ajaxShowMessage();
+    $.get("edit_pages.php", url, function (data) {
+        if (data.success === false) {
+            //in the case of an error, show the error message returned.
+            PMA_ajaxShowMessage(data.error, false);
+        } else {
+            PMA_ajaxRemoveMessage($msgbox);
+            // Show dialog if the request was successful
+            $div
+            .append(data.message)
+            .dialog({
+                title: "Page editor",
+                width: 450,
+                open: PMA_verifyColumnsProperties,
+                modal: true,
+                buttons: button_options,
+                close: function () {
+                    $(this).remove();
+                }
+            });
+            PMA_showHints($div);
+
+        }
+    }); // end $.get()
+}
+
+
 /**
  * Function to display tooltips that were
  * generated on the PHP side by PMA_Util::showHint()

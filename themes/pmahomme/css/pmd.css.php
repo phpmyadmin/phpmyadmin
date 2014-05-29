@@ -289,7 +289,7 @@ canvas.pmd * {
     position: fixed;
 }
 
-.pmd_header a {
+.pmd_header a, .pmd_header span{
     display: block;
     float: <?php echo $left; ?>;
     margin: 3px 1px 4px;

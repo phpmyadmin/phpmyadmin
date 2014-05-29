@@ -550,6 +550,16 @@ function Save2()
     makeRequest('pmd_save_pos.php', poststr);
 }
 
+//------------------------------ EDIT PAGES ------------------------------------------
+function Edit_pages( event )
+{
+	var db = $(event.currentTarget).attr("db");
+	var table = $(event.currentTarget).attr("table");
+	var relation = $(event.currentTarget).attr("relation");
+	var url = "token=" + $(event.currentTarget).attr("token") + "&ajax_request=true&db=" + db + "&table=" + table + "&relation=" + relation;
+	pageEditorDialog( url );
+}
+
 function Grid()
 {
     if (!ON_grid) {
