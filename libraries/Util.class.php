@@ -4097,7 +4097,8 @@ class PMA_Util
                 'events'      => __('Events'),
                 'triggers'    => __('Triggers'),
                 'tracking'    => __('Tracking'),
-                'designer'    => __('Designer')
+                'designer'    => __('Designer'),
+                'central_columns' => __('Central columns')
             ),
             'table'  => array(
                 'browse'      => __('Browse'),
