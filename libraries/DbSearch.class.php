@@ -196,7 +196,6 @@ class PMA_DbSearch
      */
     private function _getWhereClause($table)
     {
-        $where_clause = '';
         // Columns to select
         $allColumns = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $table);
         $likeClauses = array();
@@ -371,11 +370,9 @@ class PMA_DbSearch
     /**
      * Provides the main search form's html
      *
-     * @param array $url_params URL parameters
-     *
      * @return string HTML for selection form
      */
-    public function getSelectionForm($url_params)
+    public function getSelectionForm()
     {
         $html_output = '<a id="db_search"></a>';
         $html_output .= '<form id="db_search_form"'
