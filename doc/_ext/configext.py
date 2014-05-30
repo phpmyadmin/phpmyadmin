@@ -1,4 +1,3 @@
-from sphinx.locale import l_, _
 from sphinx.domains import Domain, ObjType
 from sphinx.roles import XRefRole
 from sphinx.domains.std import GenericObject, StandardDomain
@@ -23,15 +22,15 @@ def get_id_from_cfg(text):
 
 
 class ConfigOption(ObjectDescription):
-    indextemplate = l_('configuration option; %s')
+    indextemplate = 'configuration option; %s'
     parse_node = None
 
     has_arguments = True
 
     doc_field_types = [
-        Field('default', label=l_('Default value'), has_arg=False,
+        Field('default', label='Default value', has_arg=False,
               names=('default', )),
-        Field('type', label=l_('Type'), has_arg=False,
+        Field('type', label='Type', has_arg=False,
               names=('type',)),
     ]
 
@@ -60,7 +59,7 @@ class ConfigOption(ObjectDescription):
         # Server section
         if targetparts[0] == 'Servers' and len(targetparts) > 1:
             indexname = ', '.join(targetparts[1:])
-            self.indexnode['entries'].append((indextype, l_('server configuration; %s') % indexname,
+            self.indexnode['entries'].append((indextype, 'server configuration; %s' % indexname,
                                               targetname, targetname))
             self.indexnode['entries'].append((indextype, indexname,
                                               targetname, targetname))
@@ -86,14 +85,14 @@ class ConfigSectionXRefRole(XRefRole):
         indexnode = addnodes.index()
         indexnode['entries'] = [
             ('single', varname, tgtid, varname),
-            ('single', _('configuration section; %s') % varname, tgtid, varname)
+            ('single', 'configuration section; %s' % varname, tgtid, varname)
         ]
         targetnode = nodes.target('', '', ids=[tgtid])
         document.note_explicit_target(targetnode)
         return [indexnode, targetnode, node], []
 
 class ConfigSection(ObjectDescription):
-    indextemplate = l_('configuration section; %s')
+    indextemplate = 'configuration section; %s'
     parse_node = None
 
     def handle_signature(self, sig, signode):
@@ -137,7 +136,7 @@ class ConfigOptionXRefRole(XRefRole):
         indexnode = addnodes.index()
         indexnode['entries'] = [
             ('single', varname, tgtid, varname),
-            ('single', _('configuration option; %s') % varname, tgtid, varname)
+            ('single', 'configuration option; %s' % varname, tgtid, varname)
         ]
         targetnode = nodes.target('', '', ids=[tgtid])
         document.note_explicit_target(targetnode)
@@ -149,8 +148,8 @@ class ConfigFileDomain(Domain):
     label = 'Config'
 
     object_types = {
-            'option':  ObjType(l_('config option'), 'option'),
-            'section':  ObjType(l_('config section'), 'section'),
+            'option':  ObjType('config option', 'option'),
+            'section':  ObjType('config section', 'section'),
             }
     directives = {
             'option': ConfigOption,
