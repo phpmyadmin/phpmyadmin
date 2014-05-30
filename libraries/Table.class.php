@@ -913,7 +913,6 @@ class PMA_Table
             /* Generate query back */
             $sql_structure = PMA_SQP_format($parsed_sql, 'query_only');
             // If table exists, and 'add drop table' is selected: Drop it!
-            $drop_query = '';
             if (isset($_REQUEST['drop_if_exists'])
                 && $_REQUEST['drop_if_exists'] == 'true'
             ) {

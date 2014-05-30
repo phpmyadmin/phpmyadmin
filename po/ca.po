@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-05-26 15:16-0400\n"
+"POT-Creation-Date: 2014-05-28 08:21-0400\n"
 "PO-Revision-Date: 2014-03-28 11:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Catalan <https://l10n.cihar.com/projects/phpmyadmin/master/ca/"
@@ -421,7 +421,7 @@ msgstr "Segueix taula"
 msgid "Database Log"
 msgstr "Registre de la base de dades"
 
-#: error_report.php:33
+#: error_report.php:31
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -429,12 +429,11 @@ msgstr ""
 "S'ha detectat un error i s'ha enviat automàticament un informe d'errors "
 "basat en la teva configuració."
 
-#: error_report.php:37 error_report.php:54 error_report.php:65
-#: error_report.php:81
-msgid "You may want to refresh the page."
-msgstr "És possible que vulguis actualitzar la pàgina."
+#: error_report.php:35
+msgid "Thank you for submitting this report."
+msgstr "Gràcies per enviar aquest informe."
 
-#: error_report.php:45
+#: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -442,18 +441,14 @@ msgstr ""
 "S'ha detectat un error i generat un informe d'errors, però no s'ha pogut "
 "enviar."
 
-#: error_report.php:50 error_report.php:77
+#: error_report.php:44
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Si trobes algun problema per favor envia un informe d'errors manualment."
 
-#: error_report.php:63 error_report.php:72
-msgid "Thank you for submitting this report."
-msgstr "Gràcies per enviar aquest informe."
-
-#: error_report.php:74
-msgid "Unfortunately the submission failed."
-msgstr "Desafortunadament ha fallat l'enviament."
+#: error_report.php:48
+msgid "You may want to refresh the page."
+msgstr "És possible que vulguis actualitzar la pàgina."
 
 #: export.php:179
 msgid "Bad type!"
@@ -3223,7 +3218,7 @@ msgstr "Motors"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:626
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1231 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1231 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "Error"
@@ -13023,8 +13018,10 @@ msgid "Copy table with prefix"
 msgstr "Copia la taula amb prefix"
 
 #: libraries/structure.lib.php:339
-msgid "Add unique columns to central list"
-msgstr ""
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Add columns to central list"
+msgstr "Columnes per àrea de text CHAR"
 
 #: libraries/structure.lib.php:341
 msgid "Remove columns from central list"
@@ -14214,15 +14211,15 @@ msgstr "No hi ha disponible una versió estable més nova"
 msgid "Wrong data"
 msgstr "Dades incorrectes"
 
-#: tbl_chart.php:38
+#: tbl_chart.php:34
 msgid "No data to display"
 msgstr "No hi ha dades per mostrar"
 
-#: tbl_chart.php:62 tbl_gis_visualization.php:24
+#: tbl_chart.php:58 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr "No s'ha establert una consulta SQL per a obtenir dades."
 
-#: tbl_chart.php:120
+#: tbl_chart.php:116
 msgid "No numeric columns present in the table to plot."
 msgstr "No existeixen columnes numèriques a la taula per fer el gràfic."
 
@@ -15631,6 +15628,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "{concurrent_insert} està establert a 0"
+
+#~ msgid "Unfortunately the submission failed."
+#~ msgstr "Desafortunadament ha fallat l'enviament."
 
 #~ msgid "Show binary contents as HEX"
 #~ msgstr "Mostra el contingut binari com HEX"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-05-26 15:16-0400\n"
+"POT-Creation-Date: 2014-05-28 08:21-0400\n"
 "PO-Revision-Date: 2014-04-19 18:59+0200\n"
 "Last-Translator: Sovichet Tep <sovichet.tep@gmail.com>\n"
 "Language-Team: Central Khmer <https://l10n.cihar.com/projects/phpmyadmin/"
@@ -419,34 +419,29 @@ msgstr "តាមដាន​តារាង"
 msgid "Database Log"
 msgstr "កំណត់ត្រា​មូលដ្ឋាន​ទិន្នន័យ"
 
-#: error_report.php:33
+#: error_report.php:31
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr "កំហុស​ត្រូវ​បាន​រក​ឃើញ ហើយកំហុស​​ត្រូវ​បាន​ដាក់​ស្នើ​ដោយ​ស្វ័យប្រវត្តិ​ផ្អែក​លើ​ការ​កំណត់​របស់​អ្នក។"
 
-#: error_report.php:37 error_report.php:54 error_report.php:65
-#: error_report.php:81
-msgid "You may want to refresh the page."
-msgstr "អ្នក​ប្រហែល​ជា​ចង់​ផ្ទុក​ទំព័រ​ឡើង​វិញ។"
+#: error_report.php:35
+msgid "Thank you for submitting this report."
+msgstr "សូម​អរគុណ​សម្រាប់​ការ​ដាក់ស្នើ​របាយការណ៍​នេះ។"
 
-#: error_report.php:45
+#: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr "បាន​រក​ឃើញ​កំហុស​មួយ ហើយ​ក៏​បាន​បង្កើត​របាយការណ៍​កំហុស​មួយ​ដែរ ប៉ុន្តែ​បរាជ័យ​ក្នុង​ការ​ផ្ញើ​ចេញ។"
 
-#: error_report.php:50 error_report.php:77
+#: error_report.php:44
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "ប្រសិន​បើ​អ្នក​ជួប​ប្រទះ​បញ្ហា​ណា​មួយ សូម​ដាក់​ស្នើ​បញ្ហា​នោះ​មក​ដោយ​ខ្លួន​ឯង។"
 
-#: error_report.php:63 error_report.php:72
-msgid "Thank you for submitting this report."
-msgstr "សូម​អរគុណ​សម្រាប់​ការ​ដាក់ស្នើ​របាយការណ៍​នេះ។"
-
-#: error_report.php:74
-msgid "Unfortunately the submission failed."
-msgstr "សំណាង​មិន​ល្អ,​បាន​បរាជ័យ​ក្នុង​ការ​ដាក់​ស្នើ។"
+#: error_report.php:48
+msgid "You may want to refresh the page."
+msgstr "អ្នក​ប្រហែល​ជា​ចង់​ផ្ទុក​ទំព័រ​ឡើង​វិញ។"
 
 #: export.php:179
 msgid "Bad type!"
@@ -3020,7 +3015,7 @@ msgstr ""
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:626
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1231 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1231 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr ""
@@ -11277,8 +11272,10 @@ msgid "Copy table with prefix"
 msgstr ""
 
 #: libraries/structure.lib.php:339
-msgid "Add unique columns to central list"
-msgstr ""
+#, fuzzy
+#| msgid "Add %s column(s) to index"
+msgid "Add columns to central list"
+msgstr "បន្ថែម​ជួរ​ឈរ %s ទៅ​សន្ទស្សន៍"
 
 #: libraries/structure.lib.php:341
 msgid "Remove columns from central list"
@@ -12362,15 +12359,15 @@ msgstr ""
 msgid "Wrong data"
 msgstr ""
 
-#: tbl_chart.php:38
+#: tbl_chart.php:34
 msgid "No data to display"
 msgstr ""
 
-#: tbl_chart.php:62 tbl_gis_visualization.php:24
+#: tbl_chart.php:58 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: tbl_chart.php:120
+#: tbl_chart.php:116
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
@@ -13510,6 +13507,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ត្រូវវ​បាន​កំណត់​ទៅ 0"
+
+#~ msgid "Unfortunately the submission failed."
+#~ msgstr "សំណាង​មិន​ល្អ,​បាន​បរាជ័យ​ក្នុង​ការ​ដាក់​ស្នើ។"
 
 #~ msgid ""
 #~ "After saving or loading a bookmarked search, you can rename it and save "

@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-05-26 15:16-0400\n"
-"PO-Revision-Date: 2014-05-27 11:23+0200\n"
+"POT-Creation-Date: 2014-05-28 08:21-0400\n"
+"PO-Revision-Date: 2014-05-29 16:20+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
@@ -419,18 +419,17 @@ msgstr "Jälgi tabelit"
 msgid "Database Log"
 msgstr "Andmebaasi logi"
 
-#: error_report.php:33
+#: error_report.php:31
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr "Tuvastati viga, mis raporteeriti automaatselt vastavalt su seadetele."
 
-#: error_report.php:37 error_report.php:54 error_report.php:65
-#: error_report.php:81
-msgid "You may want to refresh the page."
-msgstr "Sa võiksid lehekülje uuesti laadida."
+#: error_report.php:35
+msgid "Thank you for submitting this report."
+msgstr "Täname, et saatsid raporti."
 
-#: error_report.php:45
+#: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -438,17 +437,13 @@ msgstr ""
 "Tuvastati viga ja loodi sellele vastav vearaport, kuid seda ei õnnestunud "
 "saata."
 
-#: error_report.php:50 error_report.php:77
+#: error_report.php:44
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "Kui koged mingeid probleeme, siis raporteeri neist ise."
 
-#: error_report.php:63 error_report.php:72
-msgid "Thank you for submitting this report."
-msgstr "Täname, et saatsid raporti."
-
-#: error_report.php:74
-msgid "Unfortunately the submission failed."
-msgstr "Raporteerimine ei õnnestunud, kahjuks."
+#: error_report.php:48
+msgid "You may want to refresh the page."
+msgstr "Sa võiksid lehekülje uuesti laadida."
 
 #: export.php:179
 msgid "Bad type!"
@@ -3114,7 +3109,7 @@ msgstr "Mootorid"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:626
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1231 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1231 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "Viga"
@@ -4087,7 +4082,6 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr "%1$s lisamisest loobuti, sest ta on juba olemas keskses listis!"
 
 #: libraries/central_columns.lib.php:223
-#| msgid "Could not save configuration"
 msgid "Could not add columns!"
 msgstr "Veerge ei saanud lisada!"
 
@@ -4096,12 +4090,12 @@ msgstr "Veerge ei saanud lisada!"
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"Veergu %1$s ei saanud kustutada, sest ta puudub keskses veergude loendis!"
 
 #: libraries/central_columns.lib.php:308
-#, fuzzy
 #| msgid "Could not remove favorite table!"
 msgid "Could not remove columns!"
-msgstr "Lemmikute tabelit ei suudetud eemaldada!"
+msgstr "Veerge ei suudetud eemaldada!"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -7747,10 +7741,9 @@ msgid "Convert to Kana"
 msgstr "Konverdi Kana'ks"
 
 #: libraries/mult_submits.inc.php:274
-#, fuzzy
 #| msgid "Success."
 msgid "Success!"
-msgstr "Edukas."
+msgstr "Õnnestus!"
 
 #: libraries/mult_submits.inc.php:277 tbl_replace.php:251
 msgid "No change"
@@ -9164,7 +9157,7 @@ msgstr "Salvestatakse näidispäringu otsinguid"
 
 #: libraries/relation.lib.php:302
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "Veergude keskse nimekirja haldamine"
 
 #: libraries/relation.lib.php:308
 msgid "Quick steps to setup advanced features:"
@@ -10600,10 +10593,9 @@ msgid "Column-specific privileges"
 msgstr "Veerupõhised õigused"
 
 #: libraries/server_privileges.lib.php:2847
-#, fuzzy
 #| msgid "Add privileges on the following database:"
 msgid "Add privileges on the following database(s):"
-msgstr "Lisa õigusi järgnevas andmebaasis:"
+msgstr "Lisa õiguseid järgneva(te)s andmebaasi(de)s:"
 
 #: libraries/server_privileges.lib.php:2871
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -12033,12 +12025,13 @@ msgid "Copy table with prefix"
 msgstr "Kopeeri tabel koos eesliitega"
 
 #: libraries/structure.lib.php:339
-msgid "Add unique columns to central list"
-msgstr ""
+#| msgid "CHAR textarea columns"
+msgid "Add columns to central list"
+msgstr "Lisa veerud kesksesse nimekirja"
 
 #: libraries/structure.lib.php:341
 msgid "Remove columns from central list"
-msgstr ""
+msgstr "Eemalda veerud kesksest nimekirjast"
 
 #: libraries/structure.lib.php:363
 msgid "Check tables having overhead"
@@ -12077,16 +12070,14 @@ msgid "Fulltext"
 msgstr "Täistekst"
 
 #: libraries/structure.lib.php:1479 libraries/structure.lib.php:2091
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "CHAR tekstiala veerud"
+msgstr "Lisa kesksesse nimekirja"
 
 #: libraries/structure.lib.php:1484 libraries/structure.lib.php:2081
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove from central columns"
-msgstr "Kustuta veerg(usid)"
+msgstr "Eemalda kesksest nimekirjast"
 
 #: libraries/structure.lib.php:1500 libraries/structure.lib.php:1610
 msgid "Move columns"
@@ -13160,15 +13151,15 @@ msgstr "Uut stabiilset versiooni saadaval ei ole"
 msgid "Wrong data"
 msgstr "Valed andmed"
 
-#: tbl_chart.php:38
+#: tbl_chart.php:34
 msgid "No data to display"
 msgstr "Puuduvad kuvatavad andmed"
 
-#: tbl_chart.php:62 tbl_gis_visualization.php:24
+#: tbl_chart.php:58 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr "Puudub SQL päring andmete hankimiseks."
 
-#: tbl_chart.php:120
+#: tbl_chart.php:116
 msgid "No numeric columns present in the table to plot."
 msgstr "Graafiku loomiseks puuduvad tabelis numbritüüpi veerud."
 
@@ -14524,6 +14515,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert väärtuseks on määratud 0"
+
+#~ msgid "Unfortunately the submission failed."
+#~ msgstr "Raporteerimine ei õnnestunud, kahjuks."
 
 #~ msgid "Show binary contents as HEX"
 #~ msgstr "Näita binaarset sisu HEX-ina"

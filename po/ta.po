@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-05-26 15:16-0400\n"
+"POT-Creation-Date: 2014-05-28 08:21-0400\n"
 "PO-Revision-Date: 2014-05-21 21:35+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/"
@@ -418,7 +418,7 @@ msgstr "அட்டவணைத் தடம்"
 msgid "Database Log"
 msgstr "தரவுத்தளப்பதிகை"
 
-#: error_report.php:33
+#: error_report.php:31
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -426,12 +426,11 @@ msgstr ""
 "ஓர் பிழைநிகழ்வு கண்டுபிடிக்கப்பட்டது மேலும் உங்கள் அமைப்புகளின் அடிப்படையில் ஒரு தன்னிச்சை "
 "பிழையறிக்கை அளிக்கப்பட்டது."
 
-#: error_report.php:37 error_report.php:54 error_report.php:65
-#: error_report.php:81
-msgid "You may want to refresh the page."
-msgstr "நீங்கள் பக்கம் புதுப்பிக்க வேண்டும்."
+#: error_report.php:35
+msgid "Thank you for submitting this report."
+msgstr "இந்த அறிக்கை சமர்ப்பிக்கும் நன்றி."
 
-#: error_report.php:45
+#: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -439,18 +438,14 @@ msgstr ""
 "ஒரு பிழை கண்டறியப்பட்டது மற்றும் பிழை அறிக்கை உருவாக்கப்பட்டுள்ளது ஆனால் அனுப்பப்பட "
 "வேண்டும் தோல்வியடைந்தது."
 
-#: error_report.php:50 error_report.php:77
+#: error_report.php:44
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "நீங்கள் ஏதேனும் பிரச்சினைகளை எதிர்கொண்டால் கைமுறையாக ஒரு பிழை அறிக்கையை சமர்ப்பிக்கவும்."
 
-#: error_report.php:63 error_report.php:72
-msgid "Thank you for submitting this report."
-msgstr "இந்த அறிக்கை சமர்ப்பிக்கும் நன்றி."
-
-#: error_report.php:74
-msgid "Unfortunately the submission failed."
-msgstr "எதிர்பாரா வகையில் தரவேற்றம் தோல்வியுற்றது."
+#: error_report.php:48
+msgid "You may want to refresh the page."
+msgstr "நீங்கள் பக்கம் புதுப்பிக்க வேண்டும்."
 
 #: export.php:179
 msgid "Bad type!"
@@ -3049,7 +3044,7 @@ msgstr ""
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:626
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1231 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1231 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "வலு"
@@ -11320,8 +11315,10 @@ msgid "Copy table with prefix"
 msgstr ""
 
 #: libraries/structure.lib.php:339
-msgid "Add unique columns to central list"
-msgstr ""
+#, fuzzy
+#| msgid "Add columns"
+msgid "Add columns to central list"
+msgstr "நெடுக்கைகளை சேர்"
 
 #: libraries/structure.lib.php:341
 msgid "Remove columns from central list"
@@ -12409,15 +12406,15 @@ msgstr "புதிய நிலையான பதிப்புகள் ஒ
 msgid "Wrong data"
 msgstr "தவறான தரவு"
 
-#: tbl_chart.php:38
+#: tbl_chart.php:34
 msgid "No data to display"
 msgstr "காட்டுவதற்கு தரவு இல்லை"
 
-#: tbl_chart.php:62 tbl_gis_visualization.php:24
+#: tbl_chart.php:58 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: tbl_chart.php:120
+#: tbl_chart.php:116
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
@@ -13557,6 +13554,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Unfortunately the submission failed."
+#~ msgstr "எதிர்பாரா வகையில் தரவேற்றம் தோல்வியுற்றது."
 
 #~ msgid ""
 #~ "The target browser window could not be updated. Maybe you have closed the "

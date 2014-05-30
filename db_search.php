@@ -58,6 +58,6 @@ $response->addHTML(
     '<div id="togglesearchresultsdiv"><a id="togglesearchresultlink"></a></div>'
     . '<br class="clearfloat" />'
 );
-$response->addHTML($db_search->getSelectionForm($url_params));
+$response->addHTML($db_search->getSelectionForm());
 $response->addHTML($db_search->getResultDivs());
 ?>

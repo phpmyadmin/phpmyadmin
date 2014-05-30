@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-05-26 15:16-0400\n"
+"POT-Creation-Date: 2014-05-28 08:21-0400\n"
 "PO-Revision-Date: 2014-04-02 11:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Simplified Chinese <https://l10n.cihar.com/projects/"
@@ -412,34 +412,29 @@ msgstr "追踪表"
 msgid "Database Log"
 msgstr "数据库日志"
 
-#: error_report.php:33
+#: error_report.php:31
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr "检测到了一个错误，根据您的设置已自动提交了错误报告。"
 
-#: error_report.php:37 error_report.php:54 error_report.php:65
-#: error_report.php:81
-msgid "You may want to refresh the page."
-msgstr "您需要刷新当前页面。"
+#: error_report.php:35
+msgid "Thank you for submitting this report."
+msgstr "感谢您发送此报告。"
 
-#: error_report.php:45
+#: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr "检测到了一个错误，错误报告已生成但发送失败。"
 
-#: error_report.php:50 error_report.php:77
+#: error_report.php:44
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "如果您遇到问题，请手动提交漏洞报告。"
 
-#: error_report.php:63 error_report.php:72
-msgid "Thank you for submitting this report."
-msgstr "感谢您发送此报告。"
-
-#: error_report.php:74
-msgid "Unfortunately the submission failed."
-msgstr "提交失败。"
+#: error_report.php:48
+msgid "You may want to refresh the page."
+msgstr "您需要刷新当前页面。"
 
 #: export.php:179
 msgid "Bad type!"
@@ -3069,7 +3064,7 @@ msgstr "引擎"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:626
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1231 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1231 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "错误"
@@ -12293,8 +12288,10 @@ msgid "Copy table with prefix"
 msgstr "复制表为新前缀"
 
 #: libraries/structure.lib.php:339
-msgid "Add unique columns to central list"
-msgstr ""
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Add columns to central list"
+msgstr "CHAR 文本框列"
 
 #: libraries/structure.lib.php:341
 msgid "Remove columns from central list"
@@ -13453,15 +13450,15 @@ msgstr "没有更新的可用版本"
 msgid "Wrong data"
 msgstr "无效数据"
 
-#: tbl_chart.php:38
+#: tbl_chart.php:34
 msgid "No data to display"
 msgstr "没有可显示数据"
 
-#: tbl_chart.php:62 tbl_gis_visualization.php:24
+#: tbl_chart.php:58 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr "没有设置SQL 查询来检索数据。"
 
-#: tbl_chart.php:120
+#: tbl_chart.php:116
 msgid "No numeric columns present in the table to plot."
 msgstr "在将表格转为图表时没有找到数字类型的列。"
 
@@ -14682,6 +14679,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 被设为 0"
+
+#~ msgid "Unfortunately the submission failed."
+#~ msgstr "提交失败。"
 
 #~ msgid "Show binary contents as HEX"
 #~ msgstr "以十六进制显示二进制内容"

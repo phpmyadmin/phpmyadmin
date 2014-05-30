@@ -738,19 +738,33 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    Since release 4.1.0 you can have a central list of columns per database.
+    Since release 4.3.0 you can have a central list of columns per database.
     You can add/remove columns to the list as per your requirement. These columns 
-    in the central list will be available to use while you create a new coulmn for
+    in the central list will be available to use while you create a new column for
     a table or create a table itself. You can select a column from central list 
-    while creating a new column, it will save you from writting same column definition
-    over again or from writting different names for similar column.
+    while creating a new column, it will save you from writing the same column definition
+    over again or from writing different names for similar column.
 
     To allow the usage of this functionality:
 
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the table name in :config:option:`$cfg['Servers'][$i]['central_columns']` (e.g.
       ``pma__central_columns``)
-      
+
+.. _savedsearches:
+.. config:option:: $cfg['Servers'][$i]['savedsearches']
+
+    :type: string
+    :default: ``''``
+
+    Since release 4.2.0 you can save and load query-by-example searches from the Database > Query panel. 
+
+    To allow the usage of this functionality:
+
+    * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
+    * put the table name in :config:option:`$cfg['Servers'][$i]['savedsearches']` (e.g.
+      ``pma__savedsearches``)
+
 .. _tracking:
 .. config:option:: $cfg['Servers'][$i]['tracking']
 

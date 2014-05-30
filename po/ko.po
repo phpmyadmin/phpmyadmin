@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-05-26 15:16-0400\n"
+"POT-Creation-Date: 2014-05-28 08:21-0400\n"
 "PO-Revision-Date: 2014-05-18 16:07+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
@@ -416,34 +416,29 @@ msgstr "테이블 추적"
 msgid "Database Log"
 msgstr "데이터베이스 로그"
 
-#: error_report.php:33
+#: error_report.php:31
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr "오류를 발견하고 설정에 따라 자동으로 제출되었습니다."
 
-#: error_report.php:37 error_report.php:54 error_report.php:65
-#: error_report.php:81
-msgid "You may want to refresh the page."
-msgstr "페이지를 새로고침 하세요."
+#: error_report.php:35
+msgid "Thank you for submitting this report."
+msgstr "보고서를 제출해 주셔서 고맙습니다."
 
-#: error_report.php:45
+#: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr "오류를 발견하고 관련 보고서를 만들어 보내는데 실패했습니다."
 
-#: error_report.php:50 error_report.php:77
+#: error_report.php:44
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "사용중 발생한 문제는 수동으로 제출해 주세요."
 
-#: error_report.php:63 error_report.php:72
-msgid "Thank you for submitting this report."
-msgstr "보고서를 제출해 주셔서 고맙습니다."
-
-#: error_report.php:74
-msgid "Unfortunately the submission failed."
-msgstr "안타깝지만 제출하지 못했습니다."
+#: error_report.php:48
+msgid "You may want to refresh the page."
+msgstr "페이지를 새로고침 하세요."
 
 #: export.php:179
 msgid "Bad type!"
@@ -3093,7 +3088,7 @@ msgstr "엔진"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:626
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1231 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1231 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "오류"
@@ -11970,8 +11965,10 @@ msgid "Copy table with prefix"
 msgstr "테이블에 접두사를 추가하여 복제"
 
 #: libraries/structure.lib.php:339
-msgid "Add unique columns to central list"
-msgstr ""
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Add columns to central list"
+msgstr "CHAR 텍스트입력 컬럼"
 
 #: libraries/structure.lib.php:341
 msgid "Remove columns from central list"
@@ -13150,15 +13147,15 @@ msgstr "더 최신의 안정 버전이 없음"
 msgid "Wrong data"
 msgstr "잘못된 데이터"
 
-#: tbl_chart.php:38
+#: tbl_chart.php:34
 msgid "No data to display"
 msgstr "표시할 데이터 없음"
 
-#: tbl_chart.php:62 tbl_gis_visualization.php:24
+#: tbl_chart.php:58 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr "데이터를 가져오기 위한 SQL 쿼리가 없습니다."
 
-#: tbl_chart.php:120
+#: tbl_chart.php:116
 msgid "No numeric columns present in the table to plot."
 msgstr "테이블에 숫자형 컬럼이 없어 표시할 수 없습니다."
 
@@ -14431,6 +14428,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다"
+
+#~ msgid "Unfortunately the submission failed."
+#~ msgstr "안타깝지만 제출하지 못했습니다."
 
 #~ msgid "Show binary contents as HEX"
 #~ msgstr "2진수 데이터를 HEX형식으로 표시"

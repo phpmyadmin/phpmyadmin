@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-05-26 15:16-0400\n"
-"PO-Revision-Date: 2014-05-27 00:46+0200\n"
+"POT-Creation-Date: 2014-05-28 08:21-0400\n"
+"PO-Revision-Date: 2014-05-28 18:24+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -419,7 +419,7 @@ msgstr "Hacer seguimiento a la tabla"
 msgid "Database Log"
 msgstr "Registro de la base de datos"
 
-#: error_report.php:33
+#: error_report.php:31
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -427,30 +427,25 @@ msgstr ""
 "Se detectó un error y se envió un reporte de error automáticamente según sus "
 "configuraciones."
 
-#: error_report.php:37 error_report.php:54 error_report.php:65
-#: error_report.php:81
-msgid "You may want to refresh the page."
-msgstr "Podría desear actualizar la página."
+#: error_report.php:35
+msgid "Thank you for submitting this report."
+msgstr "Gracias por enviar este reporte."
 
-#: error_report.php:45
+#: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
 "Se detectó un error y se generó un reporte de error, pero no pudo enviarse."
 
-#: error_report.php:50 error_report.php:77
+#: error_report.php:44
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Si experimenta cualquier problema, envíe un reporte de error de forma manual."
 
-#: error_report.php:63 error_report.php:72
-msgid "Thank you for submitting this report."
-msgstr "Gracias por enviar este reporte."
-
-#: error_report.php:74
-msgid "Unfortunately the submission failed."
-msgstr "Lamentablemente, falló el envío."
+#: error_report.php:48
+msgid "You may want to refresh the page."
+msgstr "Podría desear actualizar la página."
 
 #: export.php:179
 msgid "Bad type!"
@@ -3172,7 +3167,7 @@ msgstr "Motores"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:626
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1231 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1231 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "Error"
@@ -4171,7 +4166,6 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr "¡No se pudo agregar %1$s porque ya existe en la lista central!"
 
 #: libraries/central_columns.lib.php:223
-#| msgid "Could not save configuration"
 msgid "Could not add columns!"
 msgstr "¡No se pudieron agregar las columnas!"
 
@@ -4184,7 +4178,6 @@ msgstr ""
 "lista central de columnas!"
 
 #: libraries/central_columns.lib.php:308
-#| msgid "Could not remove favorite table!"
 msgid "Could not remove columns!"
 msgstr "¡No se pudieron eliminar las columnas!"
 
@@ -7935,7 +7928,6 @@ msgid "Convert to Kana"
 msgstr "Convertir a Kana"
 
 #: libraries/mult_submits.inc.php:274
-#| msgid "Success."
 msgid "Success!"
 msgstr "¡Éxito!"
 
@@ -10839,7 +10831,6 @@ msgid "Column-specific privileges"
 msgstr "Privilegios específicos para la columna"
 
 #: libraries/server_privileges.lib.php:2847
-#| msgid "Add privileges on the following database:"
 msgid "Add privileges on the following database(s):"
 msgstr "Añadir privilegios a la o las base de datos siguientes:"
 
@@ -12325,8 +12316,9 @@ msgid "Copy table with prefix"
 msgstr "Copiar tabla con prefijo"
 
 #: libraries/structure.lib.php:339
-msgid "Add unique columns to central list"
-msgstr "Agregar columnas únicas la la lista central"
+#| msgid "Add unique columns to central list"
+msgid "Add columns to central list"
+msgstr "Agregar columnas a la lista central"
 
 #: libraries/structure.lib.php:341
 msgid "Remove columns from central list"
@@ -12369,12 +12361,10 @@ msgid "Fulltext"
 msgstr "Texto completo"
 
 #: libraries/structure.lib.php:1479 libraries/structure.lib.php:2091
-#| msgid "CHAR textarea columns"
 msgid "Add to central columns"
 msgstr "Agregar a columnas centrales"
 
 #: libraries/structure.lib.php:1484 libraries/structure.lib.php:2081
-#| msgid "Remove from Favorites"
 msgid "Remove from central columns"
 msgstr "Eliminar de las columnas centrales"
 
@@ -13466,15 +13456,15 @@ msgstr "No existe una versión estable más reciente"
 msgid "Wrong data"
 msgstr "Datos incorrectos"
 
-#: tbl_chart.php:38
+#: tbl_chart.php:34
 msgid "No data to display"
 msgstr "No hay datos para mostrar"
 
-#: tbl_chart.php:62 tbl_gis_visualization.php:24
+#: tbl_chart.php:58 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr "No definió una consulta SQL para obtener datos."
 
-#: tbl_chart.php:120
+#: tbl_chart.php:116
 msgid "No numeric columns present in the table to plot."
 msgstr "No existen columnas numéricas en la tabla a graficar."
 
@@ -14872,6 +14862,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "«concurrent_insert» está definido como 0"
+
+#~ msgid "Unfortunately the submission failed."
+#~ msgstr "Lamentablemente, falló el envío."
 
 #~ msgid "Show binary contents as HEX"
 #~ msgstr "Mostrar contenido binario como HEXadecimal"

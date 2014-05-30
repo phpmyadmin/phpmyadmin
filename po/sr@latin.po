@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-05-26 15:16-0400\n"
+"POT-Creation-Date: 2014-05-28 08:21-0400\n"
 "PO-Revision-Date: 2014-03-31 14:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Serbian (latin) <https://l10n.cihar.com/projects/phpmyadmin/"
@@ -431,33 +431,28 @@ msgstr "Prati tabelu"
 msgid "Database Log"
 msgstr "Log baze podataka"
 
-#: error_report.php:33
+#: error_report.php:31
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
 
-#: error_report.php:37 error_report.php:54 error_report.php:65
-#: error_report.php:81
-msgid "You may want to refresh the page."
+#: error_report.php:35
+msgid "Thank you for submitting this report."
 msgstr ""
 
-#: error_report.php:45
+#: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
 
-#: error_report.php:50 error_report.php:77
+#: error_report.php:44
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 
-#: error_report.php:63 error_report.php:72
-msgid "Thank you for submitting this report."
-msgstr ""
-
-#: error_report.php:74
-msgid "Unfortunately the submission failed."
+#: error_report.php:48
+msgid "You may want to refresh the page."
 msgstr ""
 
 #: export.php:179
@@ -3273,7 +3268,7 @@ msgstr "Skladištenja"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:626
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1231 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1231 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "Greška"
@@ -12460,8 +12455,10 @@ msgid "Copy table with prefix"
 msgstr "Kopiraj tabelu sa prefiksom"
 
 #: libraries/structure.lib.php:339
-msgid "Add unique columns to central list"
-msgstr ""
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Add columns to central list"
+msgstr "CHAR textarea kolone"
 
 #: libraries/structure.lib.php:341
 msgid "Remove columns from central list"
@@ -13630,17 +13627,17 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Pogrešan podatak"
 
-#: tbl_chart.php:38
+#: tbl_chart.php:34
 #, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
 msgstr "Nema podataka"
 
-#: tbl_chart.php:62 tbl_gis_visualization.php:24
+#: tbl_chart.php:58 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: tbl_chart.php:120
+#: tbl_chart.php:116
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 

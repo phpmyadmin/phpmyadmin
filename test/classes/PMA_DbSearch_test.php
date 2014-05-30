@@ -183,7 +183,6 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
     {
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
-        $url_params = array('param1', 'param2');
         $this->assertEquals(
             '<a id="db_search"></a><form id="db_search_form" class="ajax" '
             . 'method="post" action="db_search.php" name="db_search"><input type'
@@ -229,7 +228,7 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
             . 'type="submit" name="submit_search" value="Go" id="buttonGo" />'
             . '</fieldset></form><div id="togglesearchformdiv">'
             . '<a id="togglesearchformlink"></a></div>',
-            $this->object->getSelectionForm($url_params)
+            $this->object->getSelectionForm()
         );
     }
 

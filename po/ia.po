@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-05-26 15:16-0400\n"
-"PO-Revision-Date: 2014-05-27 14:34+0200\n"
+"POT-Creation-Date: 2014-05-28 08:21-0400\n"
+"PO-Revision-Date: 2014-05-28 17:34+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
@@ -421,7 +421,7 @@ msgstr "Tracia tabula"
 msgid "Database Log"
 msgstr "Registro de base de datos"
 
-#: error_report.php:33
+#: error_report.php:31
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -429,12 +429,11 @@ msgstr ""
 "Un error ha essite relevate e un reporto de error ha essite submittite "
 "automaticamente basate sur tu preferentias."
 
-#: error_report.php:37 error_report.php:54 error_report.php:65
-#: error_report.php:81
-msgid "You may want to refresh the page."
-msgstr "Tu poterea voler refrescar le pagina."
+#: error_report.php:35
+msgid "Thank you for submitting this report."
+msgstr "Gratias pro submitter iste reporto."
 
-#: error_report.php:45
+#: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -442,19 +441,15 @@ msgstr ""
 "Un error ha essite relevate e un reporto de error ha essite generate ma il "
 "falleva esser inviate."
 
-#: error_report.php:50 error_report.php:77
+#: error_report.php:44
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Si tu ha experientia de ulle problema, pro favor tu submitte un reporto de "
 "error (bug) manualmente."
 
-#: error_report.php:63 error_report.php:72
-msgid "Thank you for submitting this report."
-msgstr "Gratias pro submitter iste reporto."
-
-#: error_report.php:74
-msgid "Unfortunately the submission failed."
-msgstr "Infortunatemente on falleva a submitter."
+#: error_report.php:48
+msgid "You may want to refresh the page."
+msgstr "Tu poterea voler refrescar le pagina."
 
 #: export.php:179
 msgid "Bad type!"
@@ -3172,7 +3167,7 @@ msgstr "Motores"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:626
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1231 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1231 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "Error"
@@ -4165,7 +4160,6 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr "Il non pote adder %1$s proque illos jam existe in le list acentral!"
 
 #: libraries/central_columns.lib.php:223
-#| msgid "Add columns"
 msgid "Could not add columns!"
 msgstr "Il non pote adder columnas!"
 
@@ -4178,7 +4172,6 @@ msgstr ""
 "columnas central!"
 
 #: libraries/central_columns.lib.php:308
-#| msgid "Could not remove favorite table!"
 msgid "Could not remove columns!"
 msgstr "Il non pote remover columnas!"
 
@@ -6259,6 +6252,8 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
+"Il limita le numero de preferentias de tabella que es immagazinate in le "
+"base de datos, le registros plus vetere essera removite automaticamente."
 
 #: libraries/config/messages.inc.php:615
 msgid "Maximal number of table preferences to store"
@@ -6266,7 +6261,7 @@ msgstr "Maxime numero de preferentias de immagazinar"
 
 #: libraries/config/messages.inc.php:616
 msgid "QBE saved searches table"
-msgstr ""
+msgstr "Tabella de cercas salveguardate de QBE"
 
 #: libraries/config/messages.inc.php:618
 msgid ""
@@ -6296,15 +6291,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:629
 msgid "Show only listed databases"
-msgstr ""
+msgstr "Monstra solmente base de datos ab le lista"
 
 #: libraries/config/messages.inc.php:630 libraries/config/messages.inc.php:718
 msgid "Leave empty if not using config auth."
-msgstr ""
+msgstr "Lassa vacue si non es usante config auth."
 
 #: libraries/config/messages.inc.php:631
 msgid "Password for config auth"
-msgstr ""
+msgstr "Contrasigno pro config auth"
 
 #: libraries/config/messages.inc.php:633
 msgid ""
@@ -6315,7 +6310,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:635
 msgid "PDF schema: pages table"
-msgstr ""
+msgstr "Schema PDF: tabella de paginas"
 
 #: libraries/config/messages.inc.php:637
 msgid ""
@@ -6331,15 +6326,17 @@ msgstr ""
 #: libraries/config/messages.inc.php:641
 #: libraries/display_create_database.lib.php:31
 msgid "Database name"
-msgstr ""
+msgstr "Nomine de base de datos"
 
 #: libraries/config/messages.inc.php:643
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
+"Porto sur le qual le servitor MySQL es ascoltante, lassa vacue pro le valor "
+"predefinite."
 
 #: libraries/config/messages.inc.php:644
 msgid "Server port"
-msgstr ""
+msgstr "Porto de servitor"
 
 #: libraries/config/messages.inc.php:646
 msgid ""
@@ -6351,7 +6348,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:649
 msgid "Recently used table"
-msgstr ""
+msgstr "Tabella usate recentemente"
 
 #: libraries/config/messages.inc.php:651
 msgid ""
@@ -6363,7 +6360,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:655
 msgid "Relation table"
-msgstr ""
+msgstr "Tabella de relation"
 
 #: libraries/config/messages.inc.php:657
 msgid ""
@@ -6375,19 +6372,21 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:660
 msgid "Signon session name"
-msgstr ""
+msgstr "Nomine de session de signon"
 
 #: libraries/config/messages.inc.php:661
 msgid "Signon URL"
-msgstr ""
+msgstr "URL de signon"
 
 #: libraries/config/messages.inc.php:663
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
+"Socket sur le qual le servitor MySQL es ascoltante, lassa vacue pro le valor "
+"predefinite."
 
 #: libraries/config/messages.inc.php:664
 msgid "Server socket"
-msgstr ""
+msgstr "Socket del servitor"
 
 #: libraries/config/messages.inc.php:665
 msgid "Enable SSL for connection to MySQL server."
@@ -6395,7 +6394,7 @@ msgstr "Habilita SSL pro le connexion a servitor MySQL."
 
 #: libraries/config/messages.inc.php:666
 msgid "Use SSL"
-msgstr ""
+msgstr "Usa SSL"
 
 #: libraries/config/messages.inc.php:668
 msgid ""
@@ -6407,7 +6406,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:670
 msgid "PDF schema: table coordinates"
-msgstr ""
+msgstr "Schema PDF: coordinatas de tabella"
 
 #: libraries/config/messages.inc.php:672
 msgid ""
@@ -6419,7 +6418,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:675
 msgid "Display columns table"
-msgstr ""
+msgstr "Monstra tabella de columnas"
 
 #: libraries/config/messages.inc.php:677
 msgid ""
@@ -6431,7 +6430,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:680
 msgid "UI preferences table"
-msgstr ""
+msgstr "Tabella de preferentias de UI (Interfacie usator)"
 
 #: libraries/config/messages.inc.php:682
 msgid ""
@@ -6441,7 +6440,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:685
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "Adde DROP DATABASE"
 
 #: libraries/config/messages.inc.php:687
 msgid ""
@@ -6451,7 +6450,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:690
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Adde DROP TABLE"
 
 #: libraries/config/messages.inc.php:692
 msgid ""
@@ -6461,7 +6460,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:695
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "Adde DROP VIEW"
 
 #: libraries/config/messages.inc.php:697
 msgid "Defines the list of statements the auto-creation uses for new versions."
@@ -6469,7 +6468,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:698
 msgid "Statements to track"
-msgstr ""
+msgstr "Declarationes de traciar"
 
 #: libraries/config/messages.inc.php:700
 msgid ""
@@ -6481,7 +6480,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:703
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "Tabella pro traciar le query SQL"
 
 #: libraries/config/messages.inc.php:705
 msgid ""
@@ -10524,7 +10523,6 @@ msgid "Column-specific privileges"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2847
-#| msgid "Check privileges for database \"%s\"."
 msgid "Add privileges on the following database(s):"
 msgstr "Adde le privilegios sur le sequente base(s) de datos:"
 
@@ -11790,8 +11788,9 @@ msgid "Copy table with prefix"
 msgstr ""
 
 #: libraries/structure.lib.php:339
-msgid "Add unique columns to central list"
-msgstr ""
+#| msgid "Add to central columns"
+msgid "Add columns to central list"
+msgstr "Adde columnas al lista central"
 
 #: libraries/structure.lib.php:341
 msgid "Remove columns from central list"
@@ -11834,12 +11833,10 @@ msgid "Fulltext"
 msgstr ""
 
 #: libraries/structure.lib.php:1479 libraries/structure.lib.php:2091
-#| msgid "CHAR textarea columns"
 msgid "Add to central columns"
 msgstr "Adde al columnas central"
 
 #: libraries/structure.lib.php:1484 libraries/structure.lib.php:2081
-#| msgid "Remove from Favorites"
 msgid "Remove from central columns"
 msgstr "Remove ex le columnas central"
 
@@ -12880,15 +12877,15 @@ msgstr ""
 msgid "Wrong data"
 msgstr ""
 
-#: tbl_chart.php:38
+#: tbl_chart.php:34
 msgid "No data to display"
 msgstr ""
 
-#: tbl_chart.php:62 tbl_gis_visualization.php:24
+#: tbl_chart.php:58 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: tbl_chart.php:120
+#: tbl_chart.php:116
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
@@ -14028,6 +14025,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Unfortunately the submission failed."
+#~ msgstr "Infortunatemente on falleva a submitter."
 
 #~ msgid "Show binary contents as HEX"
 #~ msgstr "MOnstra contentos binari como HEX"

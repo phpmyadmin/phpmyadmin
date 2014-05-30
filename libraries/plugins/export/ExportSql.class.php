@@ -1874,8 +1874,6 @@ class ExportSql extends ExportPlugin
                         . $crlf;
                     PMA_exportOutputHandler($truncatehead);
                     PMA_exportOutputHandler($truncate);
-                } else {
-                    $truncate = '';
                 }
 
                 // scheme for inserting fields
