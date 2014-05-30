@@ -69,36 +69,72 @@ function PMA_queryChart(data, columnNames, settings) {
     } else {
         dataTable.addColumn(ColumnType.STRING, columnNames[settings.mainAxis]);
     }
-    $.each(settings.selectedSeries, function (index, element) {
-        dataTable.addColumn(ColumnType.NUMBER, columnNames[element]);
-    });
 
-    // set data to the data table
-    var columnsToExtract = [ settings.mainAxis ];
-    $.each(settings.selectedSeries, function (index, element) {
-        columnsToExtract.push(element);
-    });
-    var values = [], newRow, row, col;
-    for (var i = 0; i < data.length; i++) {
-        row = data[i];
-        newRow = [];
-        for (var j = 0; j < columnsToExtract.length; j++) {
-            col = columnNames[columnsToExtract[j]];
-            if (j === 0) {
-                if (settings.type == 'timeline') { // first column is date type
-                    newRow.push(extractDate(row[col]));
-                } else if (settings.type == 'scatter') {
+    if (settings.seriesColumn == null) {
+        $.each(settings.selectedSeries, function (index, element) {
+            dataTable.addColumn(ColumnType.NUMBER, columnNames[element]);
+        });
+
+        // set data to the data table
+        var columnsToExtract = [ settings.mainAxis ];
+        $.each(settings.selectedSeries, function (index, element) {
+            columnsToExtract.push(element);
+        });
+        var values = [], newRow, row, col;
+        for (var i = 0; i < data.length; i++) {
+            row = data[i];
+            newRow = [];
+            for (var j = 0; j < columnsToExtract.length; j++) {
+                col = columnNames[columnsToExtract[j]];
+                if (j === 0) {
+                    if (settings.type == 'timeline') { // first column is date type
+                        newRow.push(extractDate(row[col]));
+                    } else if (settings.type == 'scatter') {
+                        newRow.push(parseFloat(row[col]));
+                    } else { // first column is string type
+                        newRow.push(row[col]);
+                    }
+                } else { // subsequent columns are of type, number
                     newRow.push(parseFloat(row[col]));
-                } else { // first column is string type
-                    newRow.push(row[col]);
                 }
-            } else { // subsequent columns are of type, number
-                newRow.push(parseFloat(row[col]));
+            }
+            values.push(newRow);
+        }
+        dataTable.setData(values);
+    } else {
+        var seriesNames = {}, seriesNumber = 1;
+        var seriesColumnName = columnNames[settings.seriesColumn];
+        for (var i = 0; i < data.length; i++) {
+            if (! seriesNames[data[i][seriesColumnName]]) {
+                seriesNames[data[i][seriesColumnName]] = seriesNumber;
+                seriesNumber++;
             }
         }
-        values.push(newRow);
+
+        $.each(seriesNames, function (seriesName, seriesNumber) {
+            dataTable.addColumn(ColumnType.NUMBER, seriesName);
+        });
+
+        var valueMap = {}, xValue, value;
+        var mainAxisName = columnNames[settings.mainAxis]
+        var valueColumnName = columnNames[settings.valueColumn]
+        for (var i = 0; i < data.length; i++) {
+            xValue = data[i][mainAxisName];
+            value = valueMap[xValue];
+            if (! value) {
+                value = [xValue];
+                valueMap[xValue] = value;
+            }
+            seriesNumber = seriesNames[data[i][seriesColumnName]];
+            value[seriesNumber] = parseFloat(data[i][valueColumnName]);
+        }
+
+        var values = [];
+        $.each(valueMap, function(index, value) {
+            values.push(value);
+        });
+        dataTable.setData(values);
     }
-    dataTable.setData(values);
 
     // draw the chart and return the chart object
     chart.draw(dataTable, jqPlotSettings);
@@ -140,9 +176,12 @@ function getSelectedSeries() {
 AJAX.registerTeardown('tbl_chart.js', function () {
     $('input[name="chartType"]').unbind('click');
     $('input[name="barStacked"]').unbind('click');
+    $('input[name="chkAlternative"]').unbind('click');
     $('input[name="chartTitle"]').unbind('focus').unbind('keyup').unbind('blur');
     $('select[name="chartXAxis"]').unbind('change');
     $('select[name="chartSeries"]').unbind('change');
+    $('select[name="chartSeriesColumn"]').unbind('change');
+    $('select[name="chartValueColumn"]').unbind('change');
     $('input[name="xaxis_label"]').unbind('keyup');
     $('input[name="yaxis_label"]').unbind('keyup');
     $('#resizer').unbind('resizestop');
@@ -175,7 +214,8 @@ AJAX.registerOnload('tbl_chart.js', function () {
         title : $('input[name="chartTitle"]').val(),
         stackSeries : false,
         mainAxis : parseInt($('select[name="chartXAxis"]').val(), 10),
-        selectedSeries : getSelectedSeries()
+        selectedSeries : getSelectedSeries(),
+        seriesColumn : null
     };
 
     // handle chart type changes
@@ -187,6 +227,27 @@ AJAX.registerOnload('tbl_chart.js', function () {
             $('input[name="barStacked"]').attr('checked', false);
             $.extend(true, currentSettings, {stackSeries : false});
             $('span.barStacked').hide();
+        }
+        drawChart();
+    });
+
+    // handle chosing alternative data format
+    $('input[name="chkAlternative"]').click(function () {
+        var $seriesColumn = $('select[name="chartSeriesColumn"]');
+        var $valueColumn  = $('select[name="chartValueColumn"]');
+        var $chartSeries  = $('select[name="chartSeries"]');
+        if ($(this).is(':checked')) {
+            $seriesColumn.attr('disabled', false);
+            $valueColumn.attr('disabled', false);
+            $chartSeries.attr('disabled', true);
+            currentSettings.seriesColumn = parseInt($seriesColumn.val(), 10);
+            currentSettings.valueColumn = parseInt($valueColumn.val(), 10);
+        } else {
+            $seriesColumn.attr('disabled', true);
+            $valueColumn.attr('disabled', true);
+            $chartSeries.attr('disabled', false);
+            currentSettings.seriesColumn = null;
+            currentSettings.valueColumn = null;
         }
         drawChart();
     });
@@ -276,6 +337,18 @@ AJAX.registerOnload('tbl_chart.js', function () {
         }
         $('input[name="yaxis_label"]').val(yaxis_title);
         currentSettings.yaxisLabel = yaxis_title;
+        drawChart();
+    });
+
+    // handle changing the series column
+    $('select[name="chartSeriesColumn"]').change(function () {
+        currentSettings.seriesColumn = parseInt($(this).val(), 10);
+        drawChart();
+    });
+
+    // handle changing the value column
+    $('select[name="chartValueColumn"]').change(function () {
+        currentSettings.valueColumn = parseInt($(this).val(), 10);
         drawChart();
     });
 

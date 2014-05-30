@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - rfe #982 Support for editing binary fields in hexadecimal
 - bug #4416 New lines are removed when grid editing
 - rfe #706 Multi-db privileges adding
+- rfe #1527 Charts for data in <x-axis, series, value> format
 
 4.2.3.0 (not yet released)
 - bug #4423 Moving fields not working
