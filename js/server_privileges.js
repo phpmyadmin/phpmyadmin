@@ -262,6 +262,15 @@ AJAX.registerOnload('server_privileges.js', function () {
     $("#fieldset_delete_user_footer #buttonGo.ajax").live('click', function (event) {
         event.preventDefault();
 
+        $drop_users_db_checkbox = $("#checkbox_drop_users_db");
+        if ($drop_users_db_checkbox.is(':checked')) {
+            var is_confirmed = confirm(PMA_messages.strDropDatabaseStrongWarning + '\n' + $.sprintf(PMA_messages.strDoYouReally, 'DROP DATABASE'));
+            if (! is_confirmed) {
+                // Uncheck the drop users database checkbox
+                $drop_users_db_checkbox.prop('checked', false);
+            }
+        }
+
         PMA_ajaxShowMessage(PMA_messages.strRemovingSelectedUsers);
 
         var $form = $("#usersForm");
@@ -672,20 +681,6 @@ AJAX.registerOnload('server_privileges.js', function () {
             }
         }); // end $.get
     }); // end of the paginate users table
-
-    /*
-     * Additional confirmation dialog after clicking
-     * 'Drop the databases...'
-     */
-    $('#checkbox_drop_users_db').click(function () {
-        var $this_checkbox = $(this);
-        if ($this_checkbox.is(':checked')) {
-            var is_confirmed = confirm(PMA_messages.strDropDatabaseStrongWarning + '\n' + $.sprintf(PMA_messages.strDoYouReally, 'DROP DATABASE'));
-            if (! is_confirmed) {
-                $this_checkbox.prop('checked', false);
-            }
-        }
-    });
 
     displayPasswordGenerateButton();
 
