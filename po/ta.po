@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-24 09:05-0400\n"
-"PO-Revision-Date: 2014-05-04 09:33+0200\n"
+"PO-Revision-Date: 2014-05-31 17:13+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -59,7 +59,7 @@ msgstr "அட்டவணைக் கருத்துரைகள்:"
 #: libraries/tbl_relation.lib.php:545 libraries/tbl_tracking.lib.php:809
 #: libraries/tbl_tracking.lib.php:896
 msgid "Column"
-msgstr "நிரல்"
+msgstr "நிரல்வரிசை"
 
 #: db_datadict.php:169 db_printview.php:49 libraries/Index.class.php:564
 #: libraries/TableSearch.class.php:186 libraries/insert_edit.lib.php:245
@@ -117,7 +117,7 @@ msgstr "வெற்று"
 #: libraries/tbl_columns_definition_form.lib.php:288
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:813
 msgid "Default"
-msgstr "முன்னிருப்பு"
+msgstr "இயல்நிலை"
 
 #: db_datadict.php:173 libraries/plugins/export/ExportHtmlword.class.php:406
 #: libraries/plugins/export/ExportLatex.class.php:516
@@ -11308,7 +11308,7 @@ msgstr ""
 #: libraries/structure.lib.php:1404 libraries/structure.lib.php:2079
 #: libraries/structure.lib.php:2089
 msgid "Primary"
-msgstr ""
+msgstr "முதன்மை"
 
 #: libraries/structure.lib.php:1419 libraries/structure.lib.php:2085
 #: libraries/structure.lib.php:2095
