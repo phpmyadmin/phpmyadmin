@@ -416,7 +416,7 @@ msgstr "அட்டவணையை கண்காணி"
 
 #: db_tracking.php:251
 msgid "Database Log"
-msgstr "தரவுத்தளப்பதிகை"
+msgstr "தரவுத்தளப் பதிகை"
 
 #: error_report.php:31
 msgid ""
