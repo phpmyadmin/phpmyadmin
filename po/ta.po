@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-05-31 18:39+0200\n"
+"PO-Revision-Date: 2014-05-31 18:40+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -209,7 +209,7 @@ msgstr "தரவுத்தளத்தின் குவியலமைப�
 #: db_export.php:33 db_printview.php:41 db_structure.php:84 db_tracking.php:51
 #: export.php:322 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
-msgstr "அட்டவணைகள் எதுவும் தரவுத்தளத்தில் காணப்படவில்லை."
+msgstr "தரவுத்தளத்தில் அட்டவணைகள் எதுவும் காணப்படவில்லை."
 
 #: db_export.php:41 libraries/DbSearch.class.php:445
 #: libraries/display_export.lib.php:42
