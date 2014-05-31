@@ -3803,7 +3803,8 @@ function PMA_getHtmlHeaderForUserProperties(
        . __('User');
 
     if (! empty($dbname)) {
-        $html_output .= ' <i><a href="server_privileges.php'
+        $html_output .= ' <i><a class="edit_user_anchor ajax"'
+            . ' href="server_privileges.php'
             . PMA_URL_getCommon(
                 array(
                     'username' => $username,

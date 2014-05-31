@@ -18,6 +18,7 @@ phpMyAdmin - ChangeLog
 - bug #4432 Error while displaying chart at server level
 - bug #4405 Cannot import (open_basedir)
 - bug #4396 Problem copying constraints (such as Sakila)
+- bug #4433 Missing privileges submenu
 
 4.2.2.0 (2014-05-20)
 - bug #4388 Disable database expansion when enabled throws Error 500 when database name is clicked in navigation tree
