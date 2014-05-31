@@ -214,7 +214,7 @@ msgstr "தரவுத்தளத்தில் அட்டவணைகள�
 #: db_export.php:41 libraries/DbSearch.class.php:445
 #: libraries/display_export.lib.php:42
 msgid "Select All"
-msgstr "அனைத்தையும் தெரிவுசெய்"
+msgstr "அனைத்தையும் தெரிவுசெய்க"
 
 #: db_export.php:47 libraries/DbSearch.class.php:449
 #: libraries/display_export.lib.php:48
