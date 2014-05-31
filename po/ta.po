@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-05-31 20:02+0200\n"
+"PO-Revision-Date: 2014-05-31 20:13+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -441,7 +441,8 @@ msgstr ""
 #: error_report.php:44
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
-"நீங்கள் ஏதேனும் பிரச்சினைகளை எதிர்கொண்டால் கைமுறையாக ஒரு பிழை அறிக்கையை சமர்ப்பிக்கவும்."
+"நீங்கள் ஏதேனும் சிக்கல்களை எதிர்கொண்டால் தயவுசெய்து கைமுறையாக ஒரு பிழை "
+"அறிக்கையை அளிக்கவும்."
 
 #: error_report.php:48
 msgid "You may want to refresh the page."
