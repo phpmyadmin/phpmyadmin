@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-05-31 16:27+0200\n"
+"PO-Revision-Date: 2014-05-31 16:35+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -10047,10 +10047,9 @@ msgid "Column-specific privileges"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2847
-#, fuzzy
 #| msgid "Add privileges on the following database:"
 msgid "Add privileges on the following database(s):"
-msgstr "பின்வரும் தரவுத்தளத்தின் மீதான தனிச்சலுகையை சேர்க்க:"
+msgstr "பின்வரும் தரவுத்தள(ங்களின்)த்தின் மீதான தனிச்சலுகைகளை சேர்க்க:"
 
 #: libraries/server_privileges.lib.php:2871
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
