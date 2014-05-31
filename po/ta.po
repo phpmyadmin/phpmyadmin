@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-05-31 19:06+0200\n"
+"PO-Revision-Date: 2014-05-31 19:09+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -289,7 +289,7 @@ msgstr "கடைசி நிகழ்நிலையாக்கம்:"
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1113
 #: libraries/schema/Pdf_Relation_Schema.class.php:1348
 msgid "Last check:"
-msgstr "கடைசி சோதனை:"
+msgstr "கடைசி சரிபார்ப்பு:"
 
 #: db_printview.php:151 libraries/structure.lib.php:168
 #, php-format
