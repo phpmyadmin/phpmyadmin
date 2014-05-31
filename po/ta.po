@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-05-31 18:34+0200\n"
+"PO-Revision-Date: 2014-05-31 18:39+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -204,7 +204,7 @@ msgstr "ஆம்"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr "தரவுத்தளத்தின் திட்ட வடிவத்தைப் பார்"
+msgstr "தரவுத்தளத்தின் குவியலமைப்பை (திட்ட வடிவத்தைப்) பார்க்க"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:84 db_tracking.php:51
 #: export.php:322 libraries/DBQbe.class.php:312
