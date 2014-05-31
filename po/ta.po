@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-05-31 17:09+0200\n"
+"PO-Revision-Date: 2014-05-31 17:12+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -60,7 +60,7 @@ msgstr "அட்டவணைக் கருத்துரைகள்:"
 #: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:809
 #: libraries/tbl_tracking.lib.php:898
 msgid "Column"
-msgstr "நிரல்"
+msgstr "நிரல்வரிசை"
 
 #: db_datadict.php:153 db_printview.php:49 libraries/Index.class.php:564
 #: libraries/TableSearch.class.php:186 libraries/insert_edit.lib.php:245
