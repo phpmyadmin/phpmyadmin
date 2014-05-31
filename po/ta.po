@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-05-31 19:56+0200\n"
+"PO-Revision-Date: 2014-05-31 19:58+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -428,7 +428,7 @@ msgstr ""
 
 #: error_report.php:35
 msgid "Thank you for submitting this report."
-msgstr "இந்த அறிக்கை சமர்ப்பிக்கும் நன்றி."
+msgstr "இந்த அறிக்கை அளித்தமைக்கு நன்றி."
 
 #: error_report.php:39
 msgid ""
