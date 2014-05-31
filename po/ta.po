@@ -491,7 +491,7 @@ msgstr "கு"
 #: gis_data_editor.php:212 gis_data_editor.php:240 gis_data_editor.php:296
 #: gis_data_editor.php:371 js/messages.php:313
 msgid "Y"
-msgstr "Y"
+msgstr "நெ"
 
 #: gis_data_editor.php:234 gis_data_editor.php:290 gis_data_editor.php:363
 #: js/messages.php:315
