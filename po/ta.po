@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-05-31 16:41+0200\n"
+"PO-Revision-Date: 2014-05-31 17:09+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -149,7 +149,7 @@ msgstr "கருத்துரைகள்"
 #: libraries/structure.lib.php:2171 libraries/tbl_printview.lib.php:107
 #: libraries/tbl_tracking.lib.php:849
 msgid "Primary"
-msgstr ""
+msgstr "முதன்மை"
 
 #: db_datadict.php:206 js/messages.php:243 libraries/Index.class.php:435
 #: libraries/Index.class.php:474 libraries/Index.class.php:884
@@ -11360,10 +11360,9 @@ msgid "Add to central columns"
 msgstr "முதன்மை நிரல்வரிசைகளில் சேர்க்க"
 
 #: libraries/structure.lib.php:1484 libraries/structure.lib.php:2081
-#, fuzzy
 #| msgid "Remove from Favorites"
 msgid "Remove from central columns"
-msgstr "விருப்பமானவை பட்டியலிருந்து நீக்கவும்"
+msgstr "முதன்மைநிரல்வரிசைகளிலிருந்து நீக்கவும்"
 
 #: libraries/structure.lib.php:1500 libraries/structure.lib.php:1610
 msgid "Move columns"
