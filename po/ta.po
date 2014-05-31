@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-05-31 16:36+0200\n"
+"PO-Revision-Date: 2014-05-31 16:40+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -11312,10 +11312,9 @@ msgid "Copy table with prefix"
 msgstr ""
 
 #: libraries/structure.lib.php:339
-#, fuzzy
 #| msgid "Add columns"
 msgid "Add columns to central list"
-msgstr "நெடுக்கைகளை சேர்"
+msgstr "நிரல்வரிசைகளை முதன்மைபட்டியலில் சேர்க்க"
 
 #: libraries/structure.lib.php:341
 msgid "Remove columns from central list"
