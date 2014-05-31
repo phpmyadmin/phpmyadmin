@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-05-31 16:35+0200\n"
+"PO-Revision-Date: 2014-05-31 16:36+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -11295,10 +11295,9 @@ msgid "Sum"
 msgstr "கூட்டுத்தொகை"
 
 #: libraries/structure.lib.php:308
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show create"
-msgstr "பலகத்தை காட்டு"
+msgstr "உருவாக்கத்தை காட்டு"
 
 #: libraries/structure.lib.php:332
 msgid "Add prefix to table"
