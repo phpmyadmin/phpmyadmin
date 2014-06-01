@@ -260,14 +260,16 @@ AJAX.registerOnload('tbl_change.js', function () {
 
     var $unsavedForm = false;
 
-    $(document).on('click', 'a', function(e){
+    $('a').on('click', function(e){
+        e.preventDefault();
 
         if ($unsavedForm) {
             var is_confirmed = confirm(PMA_messages.strConfirmNavigation);
             if (! is_confirmed) {
-                e.preventDefault();
+                return false;
             } else {
                 unsavedForm = false;
+                return true;
             }
         }
     });
