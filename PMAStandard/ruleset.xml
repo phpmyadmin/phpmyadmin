@@ -11,4 +11,6 @@
     <exclude name="Generic.Files.LineLength" />
   </rule>
   <rule ref="Generic.Metrics.NestingLevel" />
+  <!-- There MUST NOT be trailing whitespace at the end of lines. -->
+  <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
 </ruleset>
