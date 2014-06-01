@@ -237,6 +237,8 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_change.js', function () {
+    $("a").die('click');
+    $("form#insertForm :input:not([type=hidden])").unbind('change');
     $('span.open_gis_editor').die('click');
     $("input[name='gis_data[save]']").die('click');
     $('input.checkbox_null').die('click');
@@ -244,6 +246,7 @@ AJAX.registerTeardown('tbl_change.js', function () {
     $("#insert_rows").die('change');
     $("select[name*='funcs']").die('click');
 });
+
 
 /**
  * Ajax handlers for Change Table page
@@ -254,6 +257,24 @@ AJAX.registerTeardown('tbl_change.js', function () {
  */
 AJAX.registerOnload('tbl_change.js', function () {
     $.datepicker.initialized = false;
+
+    var $unsavedForm = false;
+
+    $(document).on('click', 'a', function(e){
+
+        if ($unsavedForm) {
+            var is_confirmed = confirm(PMA_messages.strConfirmNavigation);
+            if (! is_confirmed) {
+                e.preventDefault();
+            } else {
+                unsavedForm = false;
+            }
+        }
+    });
+
+    $("form#insertForm :input:not([type=hidden])").change(function(){
+        $unsavedForm = true;
+    });
 
     $('span.open_gis_editor').live('click', function (event) {
         event.preventDefault();
@@ -302,7 +323,6 @@ AJAX.registerOnload('tbl_change.js', function () {
             $(this).siblings('.multi_edit').val()
         );
     });
-
 
     /**
      * Reset the auto_increment column to 0 when selecting any of the
