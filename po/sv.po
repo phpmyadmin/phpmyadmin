@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-05-15 01:04+0200\n"
+"PO-Revision-Date: 2014-06-01 19:03+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
-"Language-Team: Swedish <https://l10n.cihar.com/projects/phpmyadmin/master/sv/"
-">\n"
+"Language-Team: Swedish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1891,7 +1891,7 @@ msgstr ""
 
 #: js/messages.php:355
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
-msgstr ""
+msgstr "Ange en giltig hexadecimal sträng. Giltiga tecken är 0-9, A-F."
 
 #: js/messages.php:360
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -4096,10 +4096,9 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
 #: libraries/central_columns.lib.php:223
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "Kunde inte spara konfigurationen"
+msgstr "Kunde inte lägga till kolumner!"
 
 #: libraries/central_columns.lib.php:296
 #, php-format
@@ -4108,10 +4107,9 @@ msgid ""
 msgstr ""
 
 #: libraries/central_columns.lib.php:308
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not remove columns!"
-msgstr "Kunde inte spara den senaste tabellen!"
+msgstr "Kunde inte ta bort kolumner!"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -7779,10 +7777,9 @@ msgid "Convert to Kana"
 msgstr "Konvertera till Kana"
 
 #: libraries/mult_submits.inc.php:274
-#, fuzzy
 #| msgid "Success."
 msgid "Success!"
-msgstr "Lyckades."
+msgstr "Lyckades!"
 
 #: libraries/mult_submits.inc.php:277 tbl_replace.php:251
 msgid "No change"
@@ -10645,10 +10642,9 @@ msgid "Column-specific privileges"
 msgstr "Kolumnspecifika privilegier"
 
 #: libraries/server_privileges.lib.php:2847
-#, fuzzy
 #| msgid "Add privileges on the following database:"
 msgid "Add privileges on the following database(s):"
-msgstr "Lägg till privilegier till följande databas:"
+msgstr "Lägg till privilegier till följande databas(er):"
 
 #: libraries/server_privileges.lib.php:2871
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
