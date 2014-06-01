@@ -258,8 +258,14 @@ AJAX.registerTeardown('tbl_change.js', function () {
 AJAX.registerOnload('tbl_change.js', function () {
     $.datepicker.initialized = false;
 
+    // State of the form
     var $unsavedForm = false;
 
+    /**
+     * If user navigates away from the page
+     * without saving the changes, a prompt
+     * will be displayed to confirm navigation
+     */
     $('a').on('click', function(e){
         e.preventDefault();
 
@@ -274,6 +280,9 @@ AJAX.registerOnload('tbl_change.js', function () {
         }
     });
 
+    /**
+     * If any form elements are changed, set $unsavedForm to true
+     */
     $("form#insertForm :input:not([type=hidden])").change(function(){
         $unsavedForm = true;
     });
