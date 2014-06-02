@@ -122,7 +122,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
             'token' : PMA_commonParams.get('token'),
             'db' : PMA_commonParams.get('db'),
             'selectedTable' : selectvalue,
-            'pupluateColumn' : true
+            'populateColumns' : true
         };
         $('#column-select').html('<option value="">Loading...</option>');
 

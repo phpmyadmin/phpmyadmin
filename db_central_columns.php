@@ -27,7 +27,7 @@ if (isset($_POST['edit_save'])) {
     );
     exit;
 }
-if (isset($_POST['pupluateColumn'])) {
+if (isset($_POST['populateColumns'])) {
     $selected_tbl = htmlspecialchars($_POST['selectedTable']);
     echo PMA_getHTMLforColumnDropdown($db, $selected_tbl);
     exit;
