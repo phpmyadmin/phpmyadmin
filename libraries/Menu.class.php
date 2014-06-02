@@ -476,7 +476,11 @@ class PMA_Menu
             $tabs['designer']['icon'] = 'b_relations.png';
             $tabs['designer']['link'] = 'pmd_general.php';
         }
-
+        if (! $db_is_system_schema && $cfgRelation['central_columnswork']) {
+            $tabs['central_columns']['text'] = __('Central columns');
+            $tabs['central_columns']['icon'] = 'centralColumns.png';
+            $tabs['central_columns']['link'] = 'db_central_columns.php';
+        }
         return $tabs;
     }
 
