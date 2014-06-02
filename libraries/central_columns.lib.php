@@ -397,8 +397,6 @@ function PMA_updateOneColumn($db, $orig_col_name, $col_name, $col_type,
                 . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\' '
                 . 'AND col_name = \'' . PMA_Util::sqlAddSlashes($orig_col_name)
                 . '\'';
-
-
     if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
         return PMA_Message::error(
             $GLOBALS['dbi']->getError($GLOBALS['controllink'])

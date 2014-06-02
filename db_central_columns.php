@@ -92,7 +92,7 @@ $response->addHTML($table_struct);
 $tableheader = PMA_getCentralColumnsTableHeader();
 $response->addHTML($tableheader);
 $result = PMA_getColumnsList($db, $pos, $max_rows);
-$odd_row = 0;
+$odd_row = false;
 $row_num=0;
 foreach ($result as $row) {
     $tableHtmlRow = PMA_getHTMLforCentralColumnsTableRow(
