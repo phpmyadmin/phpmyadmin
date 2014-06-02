@@ -568,28 +568,29 @@ function PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db)
     $columnAdd = '<table style="display:inline-block;margin-left:2%" '
         . 'class="navigation nospacing nopadding">'
         . '<tr>'
-        . '<td class="navigation_separator"></td>';
-        $columnAdd .= '<td style="padding:1.5% 0em">'
-                . PMA_Util::getIcon(
-                    'centralColumns_add.png',
-                    __('Add column')
-                )
-            . '<form id="add_column" action="db_central_columns.php" method="post">'
-            . PMA_URL_getHiddenInputs(
-                $db
-            )
-            . '<input type="hidden" name="add_column" value="add">'
-            . '<input type="hidden" name="pos" value="' . $pos . '" />'
-            . '<input type="hidden" name="total_rows" value="' . $total_rows . '"/>'
-            . PMA_getHTMLforTableDropdown($db)
-            . '<select name="column-select" id="column-select">'
-            . '<option value="" disabled selected>Select a column</option>'
-            . '</select></form>'
-            . '</td>'
+        . '<td class="navigation_separator"></td>'
+        . '<td style="padding:1.5% 0em">'
+        . PMA_Util::getIcon(
+            'centralColumns_add.png',
+            __('Add column')
+        )
+        . '<form id="add_column" action="db_central_columns.php" method="post">'
+        . PMA_URL_getHiddenInputs(
+            $db
+        )
+        . '<input type="hidden" name="add_column" value="add">'
+        . '<input type="hidden" name="pos" value="' . $pos . '" />'
+        . '<input type="hidden" name="total_rows" value="' . $total_rows . '"/>'
+        . PMA_getHTMLforTableDropdown($db)
+        . '<select name="column-select" id="column-select">'
+        . '<option value="" disabled selected>Select a column</option>'
+        . '</select></form>'
+        . '</td>'
         . '<td class="navigation_separator"></td>'
         . '</tr>'
         . '</table>';
-        return $columnAdd;
+
+    return $columnAdd;
 }
 
 /**
