@@ -522,7 +522,8 @@ function PMA_getHTMLforTableDropdown($db)
     $GLOBALS['dbi']->selectDb($db);
     $tables = $GLOBALS['dbi']->getTables($db);
     $selectHtml = '<select name="table-select" id="table-select">'
-        . '<option value="" disabled selected>Select a table</option>';
+        . '<option value="" disabled="disabled" selected="selected">'
+        . 'Select a table</option>';
     foreach ($tables as $table) {
         $selectHtml .= '<option value="' . $table . '">' . $table . '</option>';
     }
@@ -583,7 +584,8 @@ function PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db)
         . '<input type="hidden" name="total_rows" value="' . $total_rows . '"/>'
         . PMA_getHTMLforTableDropdown($db)
         . '<select name="column-select" id="column-select">'
-        . '<option value="" disabled selected>Select a column</option>'
+        . '<option value="" disabled="disabled" selected="selected">'
+        . 'Select a column</option>'
         . '</select></form>'
         . '</td>'
         . '<td class="navigation_separator"></td>'
