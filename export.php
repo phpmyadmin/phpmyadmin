@@ -391,7 +391,8 @@ if (!defined('TESTSUITE')) {
             PMA_exportTable(
                 $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
                 $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                $allrows, $limit_to, $limit_from, $sql_query
+                $allrows, $limit_to, $limit_from, $sql_query,
+                PMA_SQP_getAliasesFromQuery($sql_query, $db)
             );
         }
         if (! $export_plugin->exportFooter()) {
