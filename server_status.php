@@ -28,7 +28,12 @@ $ServerStatusData = new PMA_ServerStatusData();
  * Kills a selected process
  */
 if (! empty($_REQUEST['kill'])) {
-    if ($GLOBALS['dbi']->tryQuery('KILL ' . $_REQUEST['kill'] . ';')) {
+    if ($cfg['Server']['amazon_rds']) {
+        $query = 'CALL mysql.rds_kill(' . $_REQUEST['kill'] . ');';
+    } else {
+        $query = 'KILL ' . $_REQUEST['kill'] . ';';
+    }
+    if ($GLOBALS['dbi']->tryQuery($query)) {
         $message = PMA_Message::success(__('Thread %s was successfully killed.'));
     } else {
         $message = PMA_Message::error(

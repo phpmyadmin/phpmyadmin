@@ -3457,15 +3457,21 @@ class PMA_DisplayResults
                     $_url_params, 'text'
                 );
 
+            if ($cfg['Server']['amazon_rds']) {
+                $kill = 'CALL mysql.rds_kill(' . $row[0] . ');';
+            } else {
+                $kill = 'KILL ' . $row[0] . ';';
+            }
+
             $_url_params = array(
                     'db'        => 'mysql',
-                    'sql_query' => 'KILL ' . $row[0],
+                    'sql_query' => $kill,
                     'goto'      => $lnk_goto,
                 );
 
             $del_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
-            $del_query = 'KILL ' . $row[0];
-            $js_conf  = 'KILL ' . $row[0];
+            $del_query = $kill;
+            $js_conf  = $kill;
             $del_str = PMA_Util::getIcon(
                 'b_drop.png', __('Kill')
             );
