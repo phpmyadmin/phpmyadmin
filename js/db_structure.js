@@ -139,6 +139,12 @@ function PMA_adjustTotals() {
  */
 function PMA_fetchRealRowCount($target)
 {
+    var $throbber = $('#pma_navigation .throbber')
+        .first()
+        .clone()
+        .css({visibility: 'visible', display: 'inline-block'})
+        .click(false);
+    $target.html($throbber);
     $.ajax({
         type: 'GET',
         url: $target.attr('href'),
