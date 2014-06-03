@@ -436,7 +436,6 @@ function PMA_checkRelationsParam()
         return $cfgRelation;
     }
 
-
     $cfgRelation['user']  = $GLOBALS['cfg']['Server']['user'];
     $cfgRelation['db']    = $GLOBALS['cfg']['Server']['pmadb'];
 

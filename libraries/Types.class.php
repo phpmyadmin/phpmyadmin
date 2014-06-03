@@ -664,7 +664,6 @@ class PMA_Types_MySQL extends PMA_Types
             'SERIAL',
         );
 
-
         // Date/Time
         $ret[_pgettext('date and time types', 'Date and time')] = array(
             'DATE',

@@ -135,7 +135,6 @@ function PMA_getHtmlForHiddenInput(
     $html .= '<input type="hidden" name="export_method" value="'
         . htmlspecialchars($cfg['Export']['method']) . '" />';
 
-
     if (isset($_GET['sql_query'])) {
         $html .= '<input type="hidden" name="sql_query" value="'
             . htmlspecialchars($_GET['sql_query']) . '" />' . "\n";

@@ -173,7 +173,6 @@ function PMA_SQP_bug($message, $sql)
         chunk_split(base64_encode($encodedstr))
     );
 
-
     $SQP_errorString .= __(
         'There is a chance that you may have found a bug in the SQL parser. '
         . 'Please examine your query closely, and check that the quotes are '
@@ -1416,7 +1415,6 @@ function PMA_SQP_analyze($arr)
 
         } // end if (save a select expr)
 
-
         //======================================
         //    s a v e    a    t a b l e    r e f
         //======================================
@@ -1476,7 +1474,6 @@ function PMA_SQP_analyze($arr)
 
         } // end if (save a table ref)
 
-
         // when we have found all table refs,
         // for each table_ref alias, put the true name of the table
         // in the corresponding select expressions
@@ -1500,7 +1497,6 @@ function PMA_SQP_analyze($arr)
 
             } // end for (table refs)
         } // end if (set the true names)
-
 
         // e n d i n g    l o o p  #1
         // set the $previous_was_identifier to false if the current
@@ -1592,7 +1588,6 @@ function PMA_SQP_analyze($arr)
       }
     */
     // -------------------------------------------------------
-
 
     // loop #2: - queryflags
     //          - querytype (for queries != 'SELECT')
@@ -1801,7 +1796,6 @@ function PMA_SQP_analyze($arr)
                 $in_select_expr = false;
             }
 
-
             // (we could have less resetting of variables to false
             // if we trust that the query respects the standard
             // MySQL order for clauses)
@@ -1925,7 +1919,6 @@ function PMA_SQP_analyze($arr)
                 }
             }
         }
-
 
         // do not add a space after an identifier if followed by a dot
         if ($arr[$i]['type'] == 'alpha_identifier'
@@ -2103,7 +2096,6 @@ function PMA_SQP_analyze($arr)
                 $seen_constraint = false;
             }
 
-
             // Cases covered:
 
             // [ON DELETE {CASCADE | SET NULL | NO ACTION | RESTRICT}]
@@ -2167,14 +2159,12 @@ function PMA_SQP_analyze($arr)
 
         } // end of reserved words analysis
 
-
         if ($arr[$i]['type'] == 'punct_bracket_open_round') {
             $brackets_level++;
             if ($seen_create_table && $brackets_level == 1) {
                 $in_create_table_fields = true;
             }
         }
-
 
         if ($arr[$i]['type'] == 'punct_bracket_close_round') {
             $brackets_level--;
@@ -2219,7 +2209,6 @@ function PMA_SQP_analyze($arr)
                 }
             }
         }
-
 
         if ($arr[$i]['type'] == 'quote_backtick'
             || $arr[$i]['type'] == 'alpha_identifier'
@@ -2268,7 +2257,6 @@ function PMA_SQP_analyze($arr)
             }
         }
     } // end for $i (loop #3)
-
 
     // Fill the $subresult array
 

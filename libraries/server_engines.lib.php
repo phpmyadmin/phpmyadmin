@@ -52,7 +52,6 @@ function PMA_getHtmlForAllServerEngines()
         . '</thead>' . "\n"
         . '<tbody>' . "\n";
 
-
     /**
      * Listing the storage engines
      */
