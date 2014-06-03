@@ -28,4 +28,8 @@ require_once 'libraries/sql_query_form.lib.php';
  */
 $response->addHTML(PMA_getHtmlForSqlQueryForm());
 
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

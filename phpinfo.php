@@ -18,4 +18,9 @@ PMA_Response::getInstance()->disable();
 if ($GLOBALS['cfg']['ShowPhpInfo']) {
     phpinfo();
 }
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

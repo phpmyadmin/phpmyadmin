@@ -22,4 +22,8 @@ require 'libraries/db_info.inc.php';
 $import_type = 'database';
 require 'libraries/display_import.inc.php';
 
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

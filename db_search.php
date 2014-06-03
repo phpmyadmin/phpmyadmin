@@ -60,4 +60,9 @@ $response->addHTML(
 );
 $response->addHTML($db_search->getSelectionForm($url_params));
 $response->addHTML($db_search->getResultDivs());
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

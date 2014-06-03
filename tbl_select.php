@@ -69,4 +69,9 @@ if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns']))
         null, null
     );
 }
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

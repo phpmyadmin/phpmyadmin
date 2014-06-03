@@ -239,4 +239,9 @@ function PMA_changePassDisplayPage($message, $sql_query, $_url_params)
         . '<strong>' . __('Back') . '</strong></a>';
     exit;
 }
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

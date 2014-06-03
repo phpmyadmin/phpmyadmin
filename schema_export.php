@@ -72,3 +72,10 @@ if (isset($_REQUEST['do'])) {
     $user_schema->setAction($_REQUEST['do']);
     $user_schema->processUserChoice();
 }
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
+
+?>

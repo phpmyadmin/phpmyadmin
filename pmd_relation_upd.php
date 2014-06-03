@@ -66,4 +66,8 @@ if ($try_to_delete_internal_relation) {
 }
 PMA_returnUpd(1, __('Relation deleted'));
 
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

@@ -136,3 +136,9 @@ echo PMA_getDeleteDataOrTableLink(
 echo '</ul>';
 echo '</fieldset>';
 echo '</div>';
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
+?>

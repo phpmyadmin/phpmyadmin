@@ -935,4 +935,9 @@ echo '<img src="'
     . $_SESSION['PMA_Theme']->getImgPath('pmd/uparrow2_m.png')
     . '" width="0" height="0" alt="" />'
     . '<div id="PMA_disable_floating_menubar"></div>';
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

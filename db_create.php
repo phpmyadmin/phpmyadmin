@@ -133,4 +133,9 @@ if (! $result) {
         include_once '' . $cfg['DefaultTabDatabase'];
     }
 }
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

@@ -89,4 +89,9 @@ if ($form_display->hasErrors()) {
     <?php
 }
 $form_display->display(true, true);
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

@@ -12,4 +12,8 @@ $response->addHTML(
     PMA_getRelationsParamDiagnostic(PMA_getRelationsParam())
 );
 
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

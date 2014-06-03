@@ -101,4 +101,9 @@ if ($GLOBALS['is_ajax_request'] == true) {
  */
 $_message = $message;
 unset($message);
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

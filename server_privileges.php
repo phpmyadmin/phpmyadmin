@@ -391,4 +391,8 @@ if ((isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'server')
     $response->addHTML('</div>');
 }
 
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

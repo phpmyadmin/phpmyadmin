@@ -24,4 +24,8 @@ require 'libraries/server_common.inc.php';
 $import_type = 'server';
 require 'libraries/display_import.inc.php';
 
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

@@ -51,6 +51,11 @@ $response->addHTML(PMA_getHtmlForLinkSuggestions($ServerStatusData));
 $response->addHTML(PMA_getHtmlForVariablesList($ServerStatusData));
 $response->addHTML('</div>');
 
+/**
+ * Include error reporting script. Before exit.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
+
 exit;
 
 ?>

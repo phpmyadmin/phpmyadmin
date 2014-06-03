@@ -145,4 +145,9 @@ if (! isset($_REQUEST['resize'])) {
     ImageDestroy($srcImage);
     ImageDestroy($destImage);
 }
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

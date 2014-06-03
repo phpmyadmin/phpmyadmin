@@ -24,4 +24,8 @@ require_once 'libraries/rte/rte_routines.lib.php';
 $_PMA_RTE = 'RTN';
 require_once 'libraries/rte/rte_main.inc.php';
 
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

@@ -150,4 +150,8 @@ $html .= '<br class="clearfloat"/>';
 $response = PMA_Response::getInstance();
 $response->addHTML($html);
 
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

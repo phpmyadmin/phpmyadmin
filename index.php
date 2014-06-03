@@ -664,5 +664,8 @@ function PMA_printListItem($name, $listId = null, $url = null,
 }
 
 
+/**
+ * Include error reporting script.
+ */
 require_once 'libraries/common_error_reporting.inc.php';
 ?>

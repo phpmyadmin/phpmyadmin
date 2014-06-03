@@ -468,5 +468,10 @@ if (!defined('TESTSUITE')) {
     } else {
         echo PMA_getHtmlForDisplayedExportFooter($back_button);
     } // end if
+
+    /**
+     * Include error reporting script.
+     */
+    require_once 'libraries/common_error_reporting.inc.php';
 }
 ?>

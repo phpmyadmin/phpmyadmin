@@ -421,4 +421,9 @@ echo '</form>';
 
 PMA_Response::getInstance()->addJSON('gis_editor', ob_get_contents());
 ob_end_clean();
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

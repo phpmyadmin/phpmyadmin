@@ -63,4 +63,9 @@ $html = PMA_getHtmlForRelationalFieldSelection(
 );
 
 $response->addHtml($html);
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

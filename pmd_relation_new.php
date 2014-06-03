@@ -130,4 +130,9 @@ function PMD_Return_new($b,$ret)
     '" F2="' . urlencode($F2) .
     '"></root>');
 }
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>
