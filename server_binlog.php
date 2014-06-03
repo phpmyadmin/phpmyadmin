@@ -49,6 +49,11 @@ $response->addHTML(PMA_getHtmlForSubPageHeader('binlog'));
 $response->addHTML(PMA_getLogSelector($binary_logs, $url_params));
 $response->addHTML(PMA_getLogInfo($url_params));
 
+/**
+ * Include error reporting script. Before exit.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
+
 exit;
 
 ?>

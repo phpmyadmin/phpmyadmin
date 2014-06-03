@@ -669,4 +669,9 @@ if ($go_sql) {
     $active_page = $goto;
     include '' . $goto;
 }
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

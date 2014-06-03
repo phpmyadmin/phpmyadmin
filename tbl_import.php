@@ -27,4 +27,8 @@ require_once 'libraries/tbl_info.inc.php';
 $import_type = 'table';
 require_once 'libraries/display_import.inc.php';
 
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

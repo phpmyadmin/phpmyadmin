@@ -284,3 +284,10 @@ $htmlString .= '</form>'
     . '</div>';
 
 echo $htmlString;
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
+
+?>

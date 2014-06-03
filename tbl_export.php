@@ -84,4 +84,9 @@ if (! empty($sql_query)) {
 
 $export_type = 'table';
 require_once 'libraries/display_export.inc.php';
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

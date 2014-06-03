@@ -110,6 +110,12 @@ $response->addHTML($ServerStatusData->getMenuHtml());
 $response->addHTML(PMA_getHtmlForMonitor($ServerStatusData));
 $response->addHTML(PMA_getHtmlForClientSideDataAndLinks($ServerStatusData));
 $response->addHTML('</div>');
+
+/**
+ * Include error reporting script. Before exit.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
+
 exit;
 
 ?>

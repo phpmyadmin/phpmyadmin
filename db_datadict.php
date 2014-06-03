@@ -254,4 +254,8 @@ foreach ($tables as $table) {
  */
 echo PMA_Util::getButton();
 
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

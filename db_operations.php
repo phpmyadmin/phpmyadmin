@@ -297,4 +297,8 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     $response->addHTML(PMA_getHtmlForExportRelationalSchemaView($url_query));
 } // end if
 
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

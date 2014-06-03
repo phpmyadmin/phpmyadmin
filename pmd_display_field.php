@@ -56,6 +56,11 @@ if ($cfgRelation['displaywork']) {
     }
 } // end if
 
+/**
+ * Include error reporting script. Include before it "dies".
+ */
+require_once 'libraries/common_error_reporting.inc.php';
+
 header("Content-Type: text/xml; charset=utf-8");
 header("Cache-Control: no-cache");
 die("<root act='save_pos' return='"

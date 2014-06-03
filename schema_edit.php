@@ -126,4 +126,8 @@ if ($cfgRelation['pdfwork']) {
     } // end if
 } // end if ($cfgRelation['pdfwork'])
 
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

@@ -91,4 +91,8 @@ $multi_values .= '</select></div>';
 $export_type = 'database';
 require_once 'libraries/display_export.inc.php';
 
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

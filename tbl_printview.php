@@ -69,5 +69,10 @@ $response->addHTML(
  */
 $response->addHTML(PMA_getHtmlForPrintViewFooter());
 
+/**
+ * Include error reporting script. Before exiting.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
+
 exit;
 ?>

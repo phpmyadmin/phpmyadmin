@@ -98,4 +98,9 @@ if (isset($_GET["message"]) && $_GET["message"]) {
 } else {
     PMA_importAjaxStatus($_GET["id"]);
 }
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
 ?>

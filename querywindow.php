@@ -205,3 +205,10 @@ echo '<input type="hidden" name="querydisplay_tab" value="'
     . $querydisplay_tab . '" />';
 echo '</form>';
 echo '</div>';
+
+/**
+ * Include error reporting script.
+ */
+require_once 'libraries/common_error_reporting.inc.php';
+
+?>
