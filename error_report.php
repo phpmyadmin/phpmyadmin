@@ -115,6 +115,7 @@ if (isset($_REQUEST['exception_type'])
                 if($success) {
                     $errSubmitMsg = PMA_Message::error(
                                 __('Thank You for subitting error report!!')
+                                . '<br/>'
                                 . __('Report has been succesfully submitted.')
                             );
                 } else {
