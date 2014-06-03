@@ -1173,7 +1173,6 @@ class PMA_Table
                     $new_fields
                 );
 
-
                 /**
                  * @todo revise this code when we support cross-db relations
                  */
@@ -1199,7 +1198,6 @@ class PMA_Table
                     $new_fields
                 );
 
-
                 $get_fields = array(
                     'foreign_field',
                     'master_table',
@@ -1221,7 +1219,6 @@ class PMA_Table
                     $where_fields,
                     $new_fields
                 );
-
 
                 $get_fields = array('x', 'y', 'v', 'h');
                 $where_fields = array(

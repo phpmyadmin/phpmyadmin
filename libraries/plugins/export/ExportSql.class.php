@@ -212,7 +212,6 @@ class ExportSql extends ExportPlugin
             // add the main group to the root group
             $exportSpecificOptions->addProperty($generalOptions);
 
-
             // structure options main group
             if (! $hide_structure) {
                 $structureOptions = new OptionsPropertyMainGroup();
@@ -331,7 +330,6 @@ class ExportSql extends ExportPlugin
                 // add the main group to the root group
                 $exportSpecificOptions->addProperty($structureOptions);
             }
-
 
             // begin Data options
             $dataOptions = new OptionsPropertyMainGroup();

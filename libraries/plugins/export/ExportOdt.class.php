@@ -89,7 +89,6 @@ class ExportOdt extends ExportPlugin
         // add the main group to the root group
         $exportSpecificOptions->addProperty($dumpWhat);
 
-
         // structure options main group
         if (! $hide_structure) {
             $structureOptions = new OptionsPropertyMainGroup();

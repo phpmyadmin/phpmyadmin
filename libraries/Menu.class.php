@@ -173,7 +173,6 @@ class PMA_Menu
         $separator = "<span class='separator item'>&nbsp;»</span>";
         $item = '<a href="%1$s?%2$s" class="item">';
 
-
         if (PMA_Util::showText('TabsMode')) {
             $item .= '%4$s: ';
         }

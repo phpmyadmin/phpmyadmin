@@ -525,7 +525,6 @@ function PMA_getHtmlForReplicationStatusTable($type, $hidden = false, $title = t
         $html .= '     </td>';
         $html .= '     <td class="value">';
 
-
         // TODO change to regexp or something, to allow for negative match
         if (isset(${"{$type}_variables_alerts"}[$variable])
             && ${"{$type}_variables_alerts"}[$variable] == ${"server_{$type}_replication"}[0][$variable]

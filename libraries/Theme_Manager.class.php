@@ -131,7 +131,6 @@ class PMA_Theme_Manager
 
         $this->theme = new PMA_Theme;
 
-
         if (! $this->checkTheme($GLOBALS['cfg']['ThemeDefault'])) {
             trigger_error(
                 sprintf(

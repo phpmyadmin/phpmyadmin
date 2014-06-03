@@ -499,7 +499,6 @@ function PMA_getHtmlForSqlQueryFormUpload()
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '</fieldset>';
 
-
     $html .= '<fieldset id="" class="tblFooters">';
     $html .= __('Character set of the file:') . "\n";
     $html .= PMA_generateCharsetDropdownBox(

@@ -263,7 +263,7 @@ if (!empty($submit_mult) && !empty($what)) {
     }
 } else {
     if (isset($submit_mult)
-        && ($submit_mult == 'sync_unique_columns_central_list' 
+        && ($submit_mult == 'sync_unique_columns_central_list'
         || $submit_mult == 'delete_unique_columns_central_list'
         || $submit_mult == 'add_to_central_columns'
         || $submit_mult == 'remove_from_central_columns')

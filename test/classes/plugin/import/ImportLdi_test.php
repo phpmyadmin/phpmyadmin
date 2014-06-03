@@ -228,7 +228,6 @@ class ImportLdi_Test extends PHPUnit_Framework_TestCase
         global $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
 
-
         $ldi_local_option = true;
         $ldi_replace = true;
         $ldi_ignore = true;

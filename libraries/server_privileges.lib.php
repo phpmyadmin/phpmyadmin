@@ -1273,7 +1273,6 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
     $html_output .= '<select name="pred_username" id="select_pred_username" '
         . 'title="' . __('User name') . '"' . "\n";
 
-
     $html_output .= '        onchange="'
         . 'if (this.value == \'any\') {'
         . '    username.value = \'\'; '
@@ -3891,7 +3890,6 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
     $res_all = $GLOBALS['dbi']->tryQuery(
         $sql_query_all, null, PMA_DatabaseInterface::QUERY_STORE
     );
-
 
     if (! $res) {
         // the query failed! This may have two reasons:

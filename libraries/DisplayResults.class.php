@@ -1962,7 +1962,6 @@ class PMA_DisplayResults
                 $sort_tbl_new = $matches[0];
             }
 
-
             // $name_to_use_in_sort might contain a space due to
             // formatting of function expressions like "COUNT(name )"
             // so we remove the space in this situation
@@ -3152,7 +3151,6 @@ class PMA_DisplayResults
                 . $row_info[$link_relations['link_param'][2]] . '`';
             $linking_url_params[$link_relations['link_param'][0]] = $sql;
         }
-
 
         if (! empty($link_relations['link_dependancy_params'])) {
 
@@ -4586,7 +4584,6 @@ class PMA_DisplayResults
         } elseif (! isset($printview) || ($printview != '1')) {
             $table_html .= "\n" . '<br /><br />' . "\n";
         }
-
 
         // 6. ----- Prepare "Query results operations"
         if ((! isset($printview) || ($printview != '1')) && ! $is_limited_display) {

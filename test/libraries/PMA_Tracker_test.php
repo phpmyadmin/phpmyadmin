@@ -233,7 +233,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $attr->setAccessible(true);
         $attr->setValue(null, false);
 
-
         $reflection = new \ReflectionProperty('PMA_Tracker', 'pma_table');
         $reflection->setAccessible(true);
         $reflection->setValue(null, 'pma_table_tracking');
@@ -316,7 +315,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
          * to passing $this->anything()
          */
 
-
         $getColumnsResult = array(
             array(
                 'Field' => 'field1',
@@ -362,7 +360,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
                     )"
                 )
             );
-
 
         $date = date('Y-m-d H:i:s');
 

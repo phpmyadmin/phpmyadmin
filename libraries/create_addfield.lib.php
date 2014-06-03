@@ -95,7 +95,6 @@ function PMA_buildColumnCreationStatement(
                     $field_primary
                 );
 
-
         $definition .= PMA_setColumnCreationStatementSuffix($i, $is_create_tbl);
         $definitions[] = $definition;
     } // end for

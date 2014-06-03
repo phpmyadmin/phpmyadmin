@@ -383,7 +383,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
             __('Yes'),
             $mult_btn
         );
-        
+
         //validate 5: $centralColsError
         $this->assertEquals(
             null,
@@ -422,7 +422,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
             __('Yes'),
             $mult_btn
         );
-        
+
         //validate 5: $centralColsError
         $this->assertEquals(
             null,

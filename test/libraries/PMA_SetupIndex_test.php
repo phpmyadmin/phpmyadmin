@@ -491,7 +491,6 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         unset($_SESSION['messages']);
         unset($_SESSION[$sessionID]);
 
-
         $_SESSION[$sessionID]['Servers'] = array(
             '1' => array(
                 'host' => 'localhost',

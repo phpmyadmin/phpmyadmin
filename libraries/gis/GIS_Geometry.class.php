@@ -223,7 +223,6 @@ abstract class PMA_GIS_Geometry
                 $y = '';
             }
 
-
             if (! $linear) {
                 $points_arr[] = array($x, $y);
             } else {

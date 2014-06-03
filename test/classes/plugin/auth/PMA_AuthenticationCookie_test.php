@@ -116,8 +116,6 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             ->with()
             ->will($this->returnValue(false));
 
-
-
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = true;
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
@@ -599,7 +597,6 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $this->assertFalse(
             $this->object->authCheck()
         );
-
 
         if ($defineAgain !== 'PMA_TEST_NO_DEFINE') {
             define('PMA_CLEAR_COOKIES', $defineAgain);

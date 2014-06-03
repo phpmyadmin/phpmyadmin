@@ -19,7 +19,7 @@
  * and re-import after switching to our session.
  *
  * However, since https://github.com/phpmyadmin/phpmyadmin/commit/063a2d99
- * we have deactivated this feature, so the corresponding code is now 
+ * we have deactivated this feature, so the corresponding code is now
  * commented out.
  */
 

@@ -167,7 +167,6 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
             ->method('fetchValue')
             ->will($this->returnValue($fetchValue));
 
-
         $fetchResult = array(
             'column1' => array('mimetype' => 'value1', 'transformation'=> 'pdf'),
             'column2' => array('mimetype' => 'value2', 'transformation'=> 'xml'),

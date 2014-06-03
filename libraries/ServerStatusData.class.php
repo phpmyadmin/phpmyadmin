@@ -270,7 +270,6 @@ class PMA_ServerStatusData
             );
         $links['innodb']['doc'] = 'innodb';
 
-
         // Variable to contain all com_ variables (query statistics)
         $used_queries = array();
 

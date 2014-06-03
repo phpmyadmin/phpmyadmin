@@ -373,7 +373,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
                 )
             ),
 
-
             array(
                 $data,
                 array(
@@ -575,7 +574,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
                     )
                 )
             ),
-
 
             array(
                 $data,

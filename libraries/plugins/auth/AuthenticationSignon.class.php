@@ -160,7 +160,6 @@ class AuthenticationSignon extends AuthenticationPlugin
                 $single_signon_cfgupdate = $_SESSION['PMA_single_signon_cfgupdate'];
             }
 
-
             /* Also get token as it is needed to access subpages */
             if (isset($_SESSION['PMA_single_signon_token'])) {
                 /* No need to care about token on logout */
