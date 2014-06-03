@@ -422,7 +422,7 @@ function PMA_checkRelationsParam()
     $cfgRelation['central_columnswork'] = false;
     $cfgRelation['user']           = null;
     $cfgRelation['db']             = null;
-    
+
     if ($GLOBALS['server'] == 0
         || empty($GLOBALS['cfg']['Server']['pmadb'])
         || ! $GLOBALS['dbi']->selectDb(
@@ -555,7 +555,7 @@ function PMA_checkRelationsParam()
     if (isset($cfgRelation['savedsearches'])) {
         $cfgRelation['savedsearcheswork']      = true;
     }
-    
+
     if (isset($cfgRelation['central_columns'])) {
         $cfgRelation['central_columnswork']      = true;
     }

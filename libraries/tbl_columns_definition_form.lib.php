@@ -1345,7 +1345,7 @@ function PMA_getFormParamsForOldColumn(
         $form_params['field_attribute_orig[' . $columnNumber . ']'] = '';
     }
 
-    // old column null 
+    // old column null
     if (isset($columnMeta['Null'])) {
         $form_params['field_null_orig[' . $columnNumber . ']']
             = $columnMeta['Null'];
@@ -1353,7 +1353,7 @@ function PMA_getFormParamsForOldColumn(
         $form_params['field_null_orig[' . $columnNumber . ']'] = '';
     }
 
-    // old column extra (for auto_increment) 
+    // old column extra (for auto_increment)
     if (isset($columnMeta['Extra'])) {
         $form_params['field_extra_orig[' . $columnNumber . ']']
             = $columnMeta['Extra'];
@@ -1361,7 +1361,7 @@ function PMA_getFormParamsForOldColumn(
         $form_params['field_extra_orig[' . $columnNumber . ']'] = '';
     }
 
-    // old column comment 
+    // old column comment
     if (isset($columnMeta['Comment'])) {
         $form_params['field_comments_orig[' . $columnNumber . ']']
             = $columnMeta['Comment'];
