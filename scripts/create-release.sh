@@ -293,16 +293,20 @@ Todo now:
  3. upload the files to SF, you can use scripts/upload-release, eg.:
 
         ./scripts/upload-release \$USER $version release
- 4. add SF news item to phpMyAdmin project
- 5. announce release on freecode (http://freecode.com/projects/phpmyadmin/)
- 6. send a short mail (with list of major changes) to
+ 4. in https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin pick the newly created version, expand the directory and use the I icons to mark that
+        - the -all-languages.zip file is the default for Windows and Others
+        - the -all-languages.tar.gz file is the default for Solaris
+        - the -all-languages.tar.bz2 file is the default for Mac OS X, Linux and BSD
+ 5. add SF news item to phpMyAdmin project
+ 6. announce release on freecode (http://freecode.com/projects/phpmyadmin/)
+ 7. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
         phpmyadmin-news@lists.sourceforge.net
 
     Don't forget to update the Description section in the announcement,
     based on documentation.
 
- 7. increment rc count or version in the repository :
+ 8. increment rc count or version in the repository :
         - in libraries/Config.class.php PMA_Config::__constructor() the line
               " \$this->set( 'PMA_VERSION', '2.7.1-dev' ); "
         - in Documentation.html (if it exists) the 2 lines
@@ -311,14 +315,14 @@ Todo now:
         - in doc/conf.py (if it exists) the line
               " version = '2.7.1-dev' "
 
- 8. add a milestone for this new version in the bugs tickets, at https://sourceforge.net/p/phpmyadmin/bugs/milestones
+ 9. add a milestone for this new version in the bugs tickets, at https://sourceforge.net/p/phpmyadmin/bugs/milestones
 
- 9. send a private twitter message to @phpmya, containing a short version of the announcement
+10. send a private twitter message to @phpmya, containing a short version of the announcement
 
-10. update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
+11. update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
 
-11. in case of  new major release, update the render.py in website repository to include the new major releases
+12. in case of a new major release, update the render.py in website repository to include the new major releases
 
-12. the end :-)
+13. the end :-)
 
 END
