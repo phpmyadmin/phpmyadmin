@@ -502,7 +502,6 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
         );
         $result = ob_get_clean();
 
-
         // case 2
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()

@@ -99,7 +99,6 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
             return $buffer;
         }
 
-
         $options = $this->getOptions(
             $options,
             array(0, '-f /dev/null -i -wrap -q', 1, 1)

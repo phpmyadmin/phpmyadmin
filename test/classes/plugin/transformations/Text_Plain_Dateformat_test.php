@@ -172,7 +172,6 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
             $this->object->applyTransformation($timestamp, $options, $meta)
         );
 
-
     }
 }
 

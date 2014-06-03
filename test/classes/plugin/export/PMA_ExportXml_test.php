@@ -533,7 +533,6 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             ->method('fetchResult')
             ->will($this->returnValue(false));
 
-
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['tables'] = array();

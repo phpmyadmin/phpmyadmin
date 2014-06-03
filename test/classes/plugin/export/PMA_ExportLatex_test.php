@@ -621,7 +621,6 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             $result
         );
 
-
         // case 2
         unset($GLOBALS['latex_columns']);
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
@@ -811,7 +810,6 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             ' \\end{longtable}' . "\n",
             $result
         );
-
 
         // case 2
 
