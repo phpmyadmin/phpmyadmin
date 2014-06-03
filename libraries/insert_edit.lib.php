@@ -1240,6 +1240,8 @@ function PMA_getSelectOptionForUpload($vkey, $column)
             . $files
             . '</select>' . "\n";
     }
+
+    return null;
 }
 
 /**

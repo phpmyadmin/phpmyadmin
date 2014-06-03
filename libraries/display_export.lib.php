@@ -17,13 +17,15 @@ if (! defined('PHPMYADMIN')) {
  *
  * @param string $str option name
  *
- * @return string|void
+ * @return string
  */
 function PMA_exportCheckboxCheck($str)
 {
     if (isset($GLOBALS['cfg']['Export'][$str]) && $GLOBALS['cfg']['Export'][$str]) {
         return ' checked="checked"';
     }
+
+    return null;
 }
 
 /**
