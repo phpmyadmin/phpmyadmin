@@ -27,8 +27,7 @@ if (is_readable('js/line_counts.php')) {
 /**
  * the url where to submit reports to
  */
-// define('SUBMISSION_URL', "http://reports.phpmyadmin.net/incidents/create");
-define('SUBMISSION_URL', "http://127.0.0.1/error-reporting-server/incidents/create");
+define('SUBMISSION_URL', "http://reports.phpmyadmin.net/incidents/create");
 
 /**
  * returns the error report data collected from the current configuration or

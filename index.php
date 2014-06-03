@@ -663,9 +663,6 @@ function PMA_printListItem($name, $listId = null, $url = null,
     echo '</li>';
 }
 
-echo $sdh;
 
 require_once 'libraries/common_error_reporting.inc.php';
-
-
 ?>
