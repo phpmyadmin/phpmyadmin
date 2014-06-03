@@ -254,7 +254,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())->method('insertId')
             ->will($this->returnValue(10));
 
-
         $value = array("key1" => "value1");
         $dbi->expects($this->any())->method('fetchAssoc')
             ->will($this->returnValue(false));
@@ -262,7 +261,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $value = array("Auto_increment" => "Auto_increment");
         $dbi->expects($this->any())->method('fetchSingleRow')
             ->will($this->returnValue($value));
-
 
         $value = array("value1", "value2");
         $dbi->expects($this->any())->method('fetchRow')
@@ -789,7 +787,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             false,
             $result
         );
-
 
         $table_new = 'PMA_BookMark_new';
         $db_new = 'PMA_new';

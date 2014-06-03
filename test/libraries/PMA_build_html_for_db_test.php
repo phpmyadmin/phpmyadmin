@@ -48,7 +48,6 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
 
-
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
     }
 

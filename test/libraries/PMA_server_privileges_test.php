@@ -968,7 +968,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $sql_query
         );
 
-
         //test for PMA_addUserAndCreateDatabase
         list($sql_query, $message) = PMA_addUserAndCreateDatabase(
             false, $real_sql_query, $sql_query, $username, $hostname, $dbname

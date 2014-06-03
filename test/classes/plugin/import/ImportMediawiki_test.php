@@ -131,7 +131,6 @@ class ImportMediawiki_Test extends PHPUnit_Framework_TestCase
         //Test function called
         $this->object->doImport();
 
-
         // If import successfully, PMA will show all databases and
         // tables imported as following HTML Page
         /*

@@ -533,7 +533,7 @@ function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
     }
 
     return array(
-        $what, $query_type, $is_unset_submit_mult, $mult_btn, 
+        $what, $query_type, $is_unset_submit_mult, $mult_btn,
         $centralColsError
             );
 }
