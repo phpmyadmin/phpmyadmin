@@ -2,15 +2,15 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.3.0.0 (not yet released)
-- rfe #1518 Confirm dialog on accidentally leaving a page
-- rfe #1445 Easy access to "SHOW CREATE ..."
-- rfe #1448 Allow clicking an approximate row count to get a correct one
-- rfe #1487 "Browse foreign values" should be a modal dialog
-- rfe #1523 Better visual clue for table structure primary key column
-- rfe #982 Support for editing binary fields in hexadecimal
++ rfe #1518 Confirm dialog on accidentally leaving a page
++ rfe #1445 Easy access to "SHOW CREATE ..."
++ rfe #1448 Allow clicking an approximate row count to get a correct one
++ rfe #1487 "Browse foreign values" should be a modal dialog
++ rfe #1523 Better visual clue for table structure primary key column
++ rfe #982 Support for editing binary fields in hexadecimal
 - bug #4416 New lines are removed when grid editing
-- rfe #706 Multi-db privileges adding
-- rfe #1527 Charts for data in <x-axis, series, value> format
++ rfe #706 Multi-db privileges adding
++ rfe #1527 Charts for data in <x-axis, series, value> format
 
 4.2.3.0 (not yet released)
 - bug #4423 Moving fields not working
