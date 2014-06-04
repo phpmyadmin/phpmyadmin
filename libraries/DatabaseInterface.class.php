@@ -2015,8 +2015,8 @@ class PMA_DatabaseInterface
     }
 
     /**
-     * returns true (int > 0) if current user is superuser
-     * otherwise 0
+     * Checks if current user is superuser while caching
+     * the result in session.
      *
      * @return bool Whether use is a superuser
      */
