@@ -366,6 +366,7 @@ function PMA_getMoveColumns($db, $table)
  */
 function PMA_getRowDataForRegeneration($columnNumber, $submit_fulltext)
 {
+    $columnMeta = array();
     $columnMeta['Field'] = isset($_REQUEST['field_name'][$columnNumber])
         ? $_REQUEST['field_name'][$columnNumber]
         : false;
@@ -512,7 +513,7 @@ function PMA_handleRegeneration($columnNumber, $submit_fulltext, $comments_map,
 }
 
 /**
- * Function to update default value info in $columnMeta and get this array 
+ * Function to update default value info in $columnMeta and get this array
  *
  * @param array $columnMeta column meta
  * @param bool  $isDefault  whether the row value is default
@@ -1296,7 +1297,7 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
  * @param array  $form_params          form parameters
  * @param int    $columnNumber         column/field number
  * @param string $type                 type in lowercase without the length
- * @param array  $extracted_columnspec details about the column spec 
+ * @param array  $extracted_columnspec details about the column spec
  *
  * @return array
  */

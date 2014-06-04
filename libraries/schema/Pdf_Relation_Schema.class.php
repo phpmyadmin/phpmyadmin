@@ -1427,6 +1427,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                         ? str_replace('_', '/', $mime_map[$field_name]['mimetype'])
                         : '')
                 );
+                $links = array();
                 $links[0] = $pdf->PMA_links['RT'][$table][$field_name];
                 if (isset($res_rel[$field_name]['foreign_table'])
                     && isset($res_rel[$field_name]['foreign_field'])

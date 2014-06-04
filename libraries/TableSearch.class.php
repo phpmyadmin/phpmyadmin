@@ -923,8 +923,10 @@ EOT;
             ? $_POST['criteriaColumnOperators'][$search_index] : '');
         $entered_value = (isset($_POST['criteriaValues'])
             ? $_POST['criteriaValues'] : '');
-        $titles['Browse'] = PMA_Util::getIcon(
-            'b_browse.png', __('Browse foreign values')
+        $titles = array(
+            'Browse' => PMA_Util::getIcon(
+                'b_browse.png', __('Browse foreign values')
+            )
         );
         //Gets column's type and collation
         $type = $this->_columnTypes[$column_index];
@@ -1015,6 +1017,7 @@ EOT;
     {
         $odd_row = true;
         $html_output = '';
+        $type = $collation = $func = $value = array();
         /**
          * Get already set search criteria (if any)
          */
@@ -1243,9 +1246,11 @@ EOT;
     public function getZoomResultsForm($goto, $data)
     {
         $html_output = '';
-        $titles['Browse'] = PMA_Util::getIcon(
-            'b_browse.png',
-            __('Browse foreign values')
+        $titles = array(
+            'Browse' => PMA_Util::getIcon(
+                'b_browse.png',
+                __('Browse foreign values')
+            )
         );
         $html_output .= '<form method="post" action="tbl_zoom_select.php"'
             . ' name="displayResultForm" id="zoom_display_form"'

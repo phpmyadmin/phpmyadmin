@@ -180,10 +180,12 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     $row_count_sum = PMA_Util::formatNumber($sum_entries, 0);
     // If a table shows approximate rows count, display update-all-real-count anchor.
     if (isset($approx_rows)) {
-        $row_sum_url['ajax_request'] = true;
-        $row_sum_url['db'] = $GLOBALS['db'];
-        $row_sum_url['real_row_count'] = 'true';
-        $row_sum_url['real_row_count_all'] = 'true';
+        $row_sum_url = array(
+            'ajax_request'       => true,
+            'db'                 => $GLOBALS['db'],
+            'real_row_count'     => 'true',
+            'real_row_count_all' => 'true'
+        );
     }
     $cell_text = ($approx_rows)
         ? '<a href="db_structure.php' . PMA_URL_getCommon($row_sum_url)
@@ -702,10 +704,12 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
     $row_count = $row_count_pre
         . PMA_Util::formatNumber($current_table['TABLE_ROWS'], 0);
     // URL parameters to fetch the real row count.
-    $real_count_url['ajax_request'] = true;
-    $real_count_url['db'] = $GLOBALS['db'];
-    $real_count_url['table'] = $current_table['TABLE_NAME'];
-    $real_count_url['real_row_count'] = 'true';
+    $real_count_url = array(
+        'ajax_request'   => true,
+        'db'             => $GLOBALS['db'],
+        'table'          => $current_table['TABLE_NAME'],
+        'real_row_count' => 'true'
+    );
     // Content to be appended into 'tbl_rows' cell.
     // If row count is approximate, display it as an anchor to get real count.
     $cell_text = (! empty($row_count_pre))
@@ -2344,6 +2348,7 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
     /**
      * @todo optimize in case of multiple fields to modify
      */
+    $fields_meta = array();
     for ($i = 0; $i < $selected_cnt; $i++) {
         $fields_meta[] = $GLOBALS['dbi']->getColumns(
             $db, $table, $selected[$i], true
