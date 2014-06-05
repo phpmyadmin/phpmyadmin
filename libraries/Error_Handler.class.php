@@ -313,7 +313,9 @@ class PMA_Error_Handler
         } else {
             $retval .= $this->getDispUserErrors();
         }
-        if($GLOBALS['cfg']['SendErrorReports'] == 'ask'){
+        if($GLOBALS['cfg']['SendErrorReports'] == 'ask'           // preference is 'ask' and
+            &&  $this->countErrors() !=  $this->countUserErrors() // there are 'actual' errors to be reported
+            ){
             // add report button.
             $retval .= '<form method="post" action="error_report.php" id="pma_report_errors_form">'
                     . '<input type="hidden" name="token" value="'
@@ -455,6 +457,21 @@ class PMA_Error_Handler
     {
         unset($_SESSION['prev_errors']);
         $_SESSION['prev_errors'] = $GLOBALS['error_handler']->getCurrentErrors();
+    }
+
+    /**
+     * Function to check if there are any errors to be prompted.
+     * Needed because user warnings raised are also collected by global error handler.
+     * This dishtingushes between the actual errors and user errors raised to warn user.
+     *
+     *@return boolean: true if there are errors to be "prompted", false otherwise
+     */
+    public function hasErrorsForPrompt()
+    {
+        return (
+                ($GLOBALS['cfg']['SendErrorReports'] != 'never' || $GLOBALS['cfg']['Error_Handler']['display'])
+                && $this->countErrors() !=  $this->countUserErrors()
+                );
     }
 }
 ?>

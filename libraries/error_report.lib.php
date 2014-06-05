@@ -35,7 +35,8 @@ define('SUBMISSION_URL', "http://reports.phpmyadmin.net/incidents/create");
  *
  * @param boolean $pretty_print whether to prettify the report
  *
- * @return Array/String the report
+ * @return Array/String the report. 
+ *          False if there're no 'actual' errors to be reported (case for php errors)
  */
 function PMA_getReportData($pretty_print = true, $exception_type = 'js')
 {
@@ -89,6 +90,11 @@ function PMA_getReportData($pretty_print = true, $exception_type = 'js')
                     );
 
             }
+        }
+
+        // if there were no 'actual' errors to be submitted. 
+        if($i==0) {
+            return false;   // then return false
         }
         $report ["exception_type"] = 'php';
         $report["errors"] = $errors;

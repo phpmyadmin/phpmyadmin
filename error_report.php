@@ -103,57 +103,60 @@ if (isset($_REQUEST['exception_type'])
             && $_REQUEST['send_error_report'] == '1'
             ) {
             $reportData = PMA_getReportData(false,'php');
-            $server_response = PMA_sendErrorReport($reportData);
-            if ($server_response === false) {
-                $success = false;
-            } else {
-                $decoded_response = json_decode($server_response, true);
-                $success = !empty($decoded_response) ? $decoded_response["success"] : false;
-            }
-            
-            if($GLOBALS['cfg']['SendErrorReports'] == 'ask'){
-                if($success) {
-                    $errSubmitMsg = PMA_Message::error(
-                                __('Thank You for subitting error report!!')
-                                . '<br/>'
-                                . __('Report has been succesfully submitted.')
-                            );
+            // report if and only if there were 'actual' errors.
+            if($reportData) {
+                $server_response = PMA_sendErrorReport($reportData);
+                if ($server_response === false) {
+                    $success = false;
                 } else {
-                    $errSubmitMsg = PMA_Message::error(
-                                __('Thank You for subitting error report!!')
-                                . '<br/>'
-                                . __(' Unfortunately submission failed.')
-                                . '<br/>'
-                                . __(' If you experience any problems please submit a bug report manually.')
-                            );
+                    $decoded_response = json_decode($server_response, true);
+                    $success = !empty($decoded_response) ? $decoded_response["success"] : false;
                 }
-            } elseif($GLOBALS['cfg']['SendErrorReports'] == 'always') {
-                if($success) {
-                    $errSubmitMsg = PMA_Message::error(
-                                __(
-                                    'An error has been detected on the server and an error report has been '
-                                    . 'automatically submitted based on your settings.'
-                                )
-                            );
-                } else {
-                    $errSubmitMsg = PMA_Message::error(
-                                __(
-                                    'An error has been detected and an error report has been '
-                                    . 'generated but failed to be sent.'
-                                )
-                                . '<br/>'
-                                . __('If you experience any problems please submit a bug report manually.')
-                            );
+                
+                if($GLOBALS['cfg']['SendErrorReports'] == 'ask'){
+                    if($success) {
+                        $errSubmitMsg = PMA_Message::error(
+                                    __('Thank You for subitting error report!!')
+                                    . '<br/>'
+                                    . __('Report has been succesfully submitted.')
+                                );
+                    } else {
+                        $errSubmitMsg = PMA_Message::error(
+                                    __('Thank You for subitting error report!!')
+                                    . '<br/>'
+                                    . __(' Unfortunately submission failed.')
+                                    . '<br/>'
+                                    . __(' If you experience any problems please submit a bug report manually.')
+                                );
+                    }
+                } elseif($GLOBALS['cfg']['SendErrorReports'] == 'always') {
+                    if($success) {
+                        $errSubmitMsg = PMA_Message::error(
+                                    __(
+                                        'An error has been detected on the server and an error report has been '
+                                        . 'automatically submitted based on your settings.'
+                                    )
+                                );
+                    } else {
+                        $errSubmitMsg = PMA_Message::error(
+                                    __(
+                                        'An error has been detected and an error report has been '
+                                        . 'generated but failed to be sent.'
+                                    )
+                                    . '<br/>'
+                                    . __('If you experience any problems please submit a bug report manually.')
+                                );
+                    }
                 }
-            }
 
-            if($response->isAjax()) {
-                $response->addJSON('_errSubmitMsg',$errSubmitMsg);
-            } else {
-                $jsCode = 'PMA_ajaxShowMessage("<div class=\"error\">'
-                        .$errSubmitMsg
-                        .'</div>", false);';
-                $response->getFooter()->getScripts()->addCode($jsCode);
+                if($response->isAjax()) {
+                    $response->addJSON('_errSubmitMsg',$errSubmitMsg);
+                } else {
+                    $jsCode = 'PMA_ajaxShowMessage("<div class=\"error\">'
+                            .$errSubmitMsg
+                            .'</div>", false);';
+                    $response->getFooter()->getScripts()->addCode($jsCode);
+                }
             }
         }
         // clear previous errors & save new ones.
