@@ -316,7 +316,7 @@ class PMA_Response
             if (strlen($errors)) {
                 $this->addJSON('_errors', $errors);
             }
-            $promptPhpErrors = ($GLOBALS['cfg']['SendErrorReports'] != 'never' || $GLOBALS['cfg']['Error_Handler']['display']);
+            $promptPhpErrors = $GLOBALS['error_handler']->hasErrorsForPrompt();
             $this->addJSON('_promptPhpErrors', $promptPhpErrors);
 
             if (empty($GLOBALS['error_message'])) {

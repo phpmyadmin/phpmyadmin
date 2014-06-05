@@ -52,7 +52,8 @@ function PMA_getPrettyReportData()
  * returns the error report data collected from the current configuration or
  * from the request parameters sent by the error reporting js code.
  *
- * @return Array the report
+ * @return Array/String the report. 
+ *          False if there're no 'actual' errors to be reported (case for php errors)
  */
 function PMA_getReportData($exception_type = 'js')
 {
@@ -106,6 +107,11 @@ function PMA_getReportData($exception_type = 'js')
                     );
 
             }
+        }
+
+        // if there were no 'actual' errors to be submitted. 
+        if($i==0) {
+            return false;   // then return false
         }
         $report ["exception_type"] = 'php';
         $report["errors"] = $errors;
