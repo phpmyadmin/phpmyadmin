@@ -298,15 +298,6 @@ Server connection settings
     Whether to use a compressed protocol for the MySQL server connection
     or not (experimental).
 
-.. config:option:: $cfg['Servers'][$i]['amazon_rds']
-
-    :type: boolean
-    :default: false
-
-    Whether this server is running on Amazon's RDS hosting service or not.
-    Some functionality is restricted or handled differently, setting this
-    option to true will allow phpMyAdmin to function correctly.
-
 .. _controlhost:
 .. config:option:: $cfg['Servers'][$i]['controlhost']
 

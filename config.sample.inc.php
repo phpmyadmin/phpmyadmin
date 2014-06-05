@@ -33,9 +33,6 @@ $cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 
-/* Servers running on Amazon RDS don't act 100% like regular mysql servers */
-// $cfg['Servers'][$i]['amazon_rds'] = true;
-
 /*
  * phpMyAdmin configuration storage settings.
  */

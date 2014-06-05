@@ -28,7 +28,7 @@ $ServerStatusData = new PMA_ServerStatusData();
  * Kills a selected process
  */
 if (! empty($_REQUEST['kill'])) {
-    if ($cfg['Server']['amazon_rds']) {
+    if ($GLOBALS['dbi']->isAmazonRds()) {
         $query = 'CALL mysql.rds_kill(' . $_REQUEST['kill'] . ');';
     } else {
         $query = 'KILL ' . $_REQUEST['kill'] . ';';

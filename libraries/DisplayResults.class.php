@@ -3457,7 +3457,7 @@ class PMA_DisplayResults
                     $_url_params, 'text'
                 );
 
-            if ($cfg['Server']['amazon_rds']) {
+            if($GLOBALS['dbi']->isAmazonRds()) {
                 $kill = 'CALL mysql.rds_kill(' . $row[0] . ');';
             } else {
                 $kill = 'KILL ' . $row[0] . ';';
