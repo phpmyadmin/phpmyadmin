@@ -513,7 +513,7 @@ function PMA_handleRegeneration($columnNumber, $submit_fulltext, $comments_map,
 }
 
 /**
- * Function to update default value info in $columnMeta and get this array 
+ * Function to update default value info in $columnMeta and get this array
  *
  * @param array $columnMeta column meta
  * @param bool  $isDefault  whether the row value is default
@@ -1297,7 +1297,7 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
  * @param array  $form_params          form parameters
  * @param int    $columnNumber         column/field number
  * @param string $type                 type in lowercase without the length
- * @param array  $extracted_columnspec details about the column spec 
+ * @param array  $extracted_columnspec details about the column spec
  *
  * @return array
  */
@@ -1309,6 +1309,12 @@ function PMA_getFormParamsForOldColumn(
     if (isset($columnMeta['Field'])) {
         $form_params['field_orig[' . $columnNumber . ']']
             = $columnMeta['Field'];
+        if (isset($columnMeta['column_status'])
+            && !$columnMeta['column_status']['isEditable']
+        ) {
+            $form_params['field_name[' . $columnNumber . ']']
+                = $columnMeta['Field'];
+        }
     } else {
         $form_params['field_orig[' . $columnNumber . ']'] = '';
     }
@@ -1317,6 +1323,12 @@ function PMA_getFormParamsForOldColumn(
         // keep in uppercase because the new type will be in uppercase
         $form_params['field_type_orig[' . $columnNumber . ']']
             = strtoupper($type);
+        if (isset($columnMeta['column_status'])
+            && !$columnMeta['column_status']['isEditable']
+        ) {
+            $form_params['field_type[' . $columnNumber . ']']
+                = strtoupper($type);
+        }
     } else {
         $form_params['field_type_orig[' . $columnNumber . ']'] = '';
     }
@@ -1346,7 +1358,7 @@ function PMA_getFormParamsForOldColumn(
         $form_params['field_attribute_orig[' . $columnNumber . ']'] = '';
     }
 
-    // old column null 
+    // old column null
     if (isset($columnMeta['Null'])) {
         $form_params['field_null_orig[' . $columnNumber . ']']
             = $columnMeta['Null'];
@@ -1354,7 +1366,7 @@ function PMA_getFormParamsForOldColumn(
         $form_params['field_null_orig[' . $columnNumber . ']'] = '';
     }
 
-    // old column extra (for auto_increment) 
+    // old column extra (for auto_increment)
     if (isset($columnMeta['Extra'])) {
         $form_params['field_extra_orig[' . $columnNumber . ']']
             = $columnMeta['Extra'];
@@ -1362,7 +1374,7 @@ function PMA_getFormParamsForOldColumn(
         $form_params['field_extra_orig[' . $columnNumber . ']'] = '';
     }
 
-    // old column comment 
+    // old column comment
     if (isset($columnMeta['Comment'])) {
         $form_params['field_comments_orig[' . $columnNumber . ']']
             = $columnMeta['Comment'];
