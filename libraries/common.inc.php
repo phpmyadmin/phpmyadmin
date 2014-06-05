@@ -998,6 +998,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             );
         }
 
+        if (PMA_PHP_INT_VERSION < 50300) {
+            PMA_fatalError(
+                __('You should upgrade to %s %s or later.'),
+                array('PHP', '5.3.0')
+            );
+        }
+
         /**
          * Type handling object.
          */
