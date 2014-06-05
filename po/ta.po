@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-05-31 20:28+0200\n"
+"PO-Revision-Date: 2014-06-06 01:02+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -537,7 +537,7 @@ msgstr "ஒரு பல்கோணியை சேர்"
 
 #: gis_data_editor.php:398
 msgid "Add geometry"
-msgstr "வடிவியல் சேர்க்க"
+msgstr "வரையமைப்பை சேர்க்க"
 
 #: gis_data_editor.php:404 js/messages.php:223
 #: libraries/DbSearch.class.php:466 libraries/DisplayResults.class.php:1696
@@ -576,7 +576,7 @@ msgstr "வடிவியல் சேர்க்க"
 #: pmd_pdf.php:153 prefs_manage.php:271 prefs_manage.php:329
 #: view_create.php:273 view_operations.php:106
 msgid "Go"
-msgstr "செல்"
+msgstr "செல்க"
 
 #: gis_data_editor.php:407
 msgid "Output"
@@ -666,8 +666,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
-"செயல்நிரலுக்கான செயலாக்க நேரம் கடந்தது, தரவிறக்கத்தை முடிக்க அதேகோப்பினை மீண்டும் "
-"அனுப்பியபின் தரவிறக்க செயல்பாடு மீளேற்றபடும்."
+"செயல்நிரலுக்கான செயலாக்க நேரம் கடந்தது, தரவிறக்க செயல்பாட்டை மீளேற்றி முடிக்"
+"க அதேகோப்பினை மீண்டும் அனுப்புக."
 
 #: import.php:602
 msgid ""
@@ -681,7 +681,7 @@ msgstr ""
 #: libraries/export.lib.php:437
 #: libraries/schema/Export_Relation_Schema.class.php:248 user_password.php:239
 msgid "Back"
-msgstr "திரும்பி"
+msgstr "பின்செல்க"
 
 #: index.php:127 libraries/Footer.class.php:70
 msgid "phpMyAdmin Demo Server"
@@ -845,6 +845,7 @@ msgstr ""
 #: index.php:495
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
+"இப்போது அமைப்பாக்க கோப்புக்கு கமுக்க கடவுசொற்றொடர் தேவை (blowfish_secret)."
 
 #: index.php:506
 msgid ""
