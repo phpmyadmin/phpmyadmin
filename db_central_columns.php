@@ -32,6 +32,10 @@ if (isset($_POST['populateColumns'])) {
     echo PMA_getHTMLforColumnDropdown($db, $selected_tbl);
     exit;
 }
+if (isset($_POST['getColumnList'])) {
+    echo PMA_getCentralColumnsListRaw($db, $_POST['cur_table']);
+    exit;
+}
 if (isset($_POST['add_column'])) {
     $selected_col = array();
     $selected_tbl = htmlspecialchars($_POST['table-select']);

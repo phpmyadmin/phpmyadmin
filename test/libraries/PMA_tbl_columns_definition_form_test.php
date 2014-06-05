@@ -616,10 +616,11 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
      */
     public function testGetHtmlForColumnName()
     {
+        $cfgRelation = array('central_columnswork' => true);
         $result = PMA_getHtmlForColumnName(
             2, 4, 4, array('Field' => "fieldname",
             'column_status' => array('isReferenced' => false,
-            'isForeignKey' => false, 'isEditable' => true))
+            'isForeignKey' => false, 'isEditable' => true)), $cfgRelation
         );
 
         $this->assertTag(

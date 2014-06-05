@@ -164,6 +164,9 @@ $html = PMA_getHtmlForTableCreateOrAddField(
 );
 
 unset($_form_params);
-
-PMA_Response::getInstance()->addHTML($html);
+$response = PMA_Response::getInstance();
+$header = $response->getHeader();
+$scripts = $header->getScripts();
+$scripts->addFile('jquery/jquery.uitablefilter.js');
+$response->addHTML($html);
 ?>
