@@ -1184,17 +1184,19 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
         $the_class .= ' datetimefield';
     }
     $input_min_max = false;
-    if (in_array(
-        $column['True_Type'],
-        $GLOBALS['PMA_Types']->getIntegerTypes()
-    )) {
-        $input_type = 'number';
-        $is_unsigned = substr($column['pma_type'], -9) === ' unsigned';
-        $min_max_values = $GLOBALS['PMA_Types']->getIntegerRange(
-            $column['True_Type'], ! $is_unsigned
-        );
-        $input_min_max = 'min="' . $min_max_values[0] . '" '
-            . 'max="' . $min_max_values[1] . '" ';
+    if (!$GLOBALS['cfg']['ShowFunctionFields']) {
+        if (in_array(
+            $column['True_Type'],
+            $GLOBALS['PMA_Types']->getIntegerTypes()
+        )) {
+            $input_type = 'number';
+            $is_unsigned = substr($column['pma_type'], -9) === ' unsigned';
+            $min_max_values = $GLOBALS['PMA_Types']->getIntegerRange(
+                $column['True_Type'], ! $is_unsigned
+            );
+            $input_min_max = 'min="' . $min_max_values[0] . '" '
+                . 'max="' . $min_max_values[1] . '" ';
+        }
     }
     return '<input type="' . $input_type . '"'
         . ' name="fields' . $column_name_appendix . '"'

@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - bug #4396 Problem copying constraints (such as Sakila)
 - bug #4433 Missing privileges submenu
 - bug #4394 Drop db confirmation message when dropping a user
+- bug #4436 Insert form numeric field with function drop-down list
 
 4.2.2.0 (2014-05-20)
 - bug #4388 Disable database expansion when enabled throws Error 500 when database name is clicked in navigation tree
