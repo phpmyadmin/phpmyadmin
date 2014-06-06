@@ -57,5 +57,17 @@ abstract class PMA_GIS_GeomTest extends PHPUnit_Framework_TestCase
             $this->object->scaleRow($spatial)
         );
     }
+
+    /**
+     * Tests whether content is a valid image.
+     *
+     * @param object $image Image
+     *
+     * @return void
+     */
+    public function assertImage($object)
+    {
+        $this->assertGreaterThan(0, imagesx($object));
+    }
 }
 ?>

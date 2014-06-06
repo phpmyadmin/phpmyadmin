@@ -288,8 +288,7 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
         $return = $this->object->prepareRowAsPng(
             $spatial, $label, $fill_color, $scale_data, $image
         );
-        /* TODO: this never fails */
-        $this->assertTrue(true);
+        $this->assertImage($return);
     }
 
     /**

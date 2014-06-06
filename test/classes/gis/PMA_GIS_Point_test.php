@@ -188,8 +188,7 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
         $return = $this->object->prepareRowAsPng(
             $spatial, $label, $point_color, $scale_data, $image
         );
-        /* TODO: this never fails */
-        $this->assertTrue(true);
+        $this->assertImage($return);
     }
 
     /**
