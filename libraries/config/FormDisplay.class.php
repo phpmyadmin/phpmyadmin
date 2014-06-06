@@ -314,19 +314,19 @@ class FormDisplay
     /**
      * Prepares data for input field display and outputs HTML code
      *
-     * @param Form   $form                 Form object
-     * @param string $field                field name as it appears in $form
-     * @param string $system_path          field path, eg. Servers/1/verbose
-     * @param string $work_path            work path, eg. Servers/4/verbose
-     * @param string $translated_path      work path changed so that it can be
-     *                                     used as XHTML id
-     * @param bool   $show_restore_default whether show "restore default" button
-     *                                     besides the input field
-     * @param mixed  $userprefs_allow      whether user preferences are enabled
-     *                                     for this field (null - no support,
-     *                                     true/false - enabled/disabled)
-     * @param array  &$js_default          array which stores JavaScript code
-     *                                     to be displayed
+     * @param Form      $form                 Form object
+     * @param string    $field                field name as it appears in $form
+     * @param string    $system_path          field path, eg. Servers/1/verbose
+     * @param string    $work_path            work path, eg. Servers/4/verbose
+     * @param string    $translated_path      work path changed so that it can be
+     *                                        used as XHTML id
+     * @param bool      $show_restore_default whether show "restore default" button
+     *                                        besides the input field
+     * @param bool|null $userprefs_allow      whether user preferences are enabled
+     *                                        for this field (null - no support,
+     *                                        true/false - enabled/disabled)
+     * @param array     &$js_default          array which stores JavaScript code
+     *                                        to be displayed
      *
      * @return void
      */
