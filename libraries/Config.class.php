@@ -874,31 +874,9 @@ class PMA_Config
         $this->settings = PMA_arrayMergeRecursive($this->settings, $cfg);
         $this->checkPmaAbsoluteUri();
         $this->checkFontsize();
-
         // Handling of the collation must be done after merging of $cfg
         // (from config.inc.php) so that $cfg['DefaultConnectionCollation']
-        // can have an effect. Note that the presence of collation
-        // information in a cookie has priority over what is defined
-        // in the default or user's config files.
-        /**
-         * @todo check validity of $_COOKIE['pma_collation_connection']
-         */
-        if (! empty($_COOKIE['pma_collation_connection'])) {
-            $this->set(
-                'collation_connection',
-                strip_tags($_COOKIE['pma_collation_connection'])
-            );
-        } else {
-            $this->set(
-                'collation_connection',
-                $this->get('DefaultConnectionCollation')
-            );
-        }
-        // Now, a collation information could come from REQUEST
-        // (an example of this: the collation selector in index.php)
-        // so the following handles the setting of collation_connection
-        // and later, in common.inc.php, the cookie will be set
-        // according to this.
+        // can have an effect.
         $this->checkCollationConnection();
 
         return true;
@@ -1439,20 +1417,26 @@ class PMA_Config
     }
 
     /**
-     * check selected collation_connection
+     * Sets collation_connection based on user preference. First is checked
+     * value from reuqest, then cookies with fallback to default.
      *
-     * @todo check validity of $_REQUEST['collation_connection']
+     * After setting it here, cookie is set in common.inc.php to persist
+     * the selection.
+     *
+     * @todo check validity of collation string
      *
      * @return void
      */
     function checkCollationConnection()
     {
         if (! empty($_REQUEST['collation_connection'])) {
-            $this->set(
-                'collation_connection',
-                strip_tags($_REQUEST['collation_connection'])
-            );
+            $collation = strip_tags($_REQUEST['collation_connection']);
+        } elseif (! empty($_COOKIE['pma_collation_connection'])) {
+            $collation = strip_tags($_COOKIE['pma_collation_connection']);
+        } else {
+            $collation = $this->get('DefaultConnectionCollation');
         }
+        $this->set('collation_connection', $collation);
     }
 
     /**
