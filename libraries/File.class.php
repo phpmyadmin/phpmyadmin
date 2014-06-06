@@ -159,8 +159,8 @@ class PMA_File
     /**
      * Gets file content
      *
-     * @return mixed   the binary file content as a string,
-     *                 or false if no content
+     * @return string|false the binary file content as a string,
+     *                      or false if no content
      *
      * @access  public
      */
@@ -497,8 +497,8 @@ class PMA_File
      * @todo    move file read part into readChunk() or getChunk()
      * @todo    add support for compression plugins
      * @access  protected
-     * @return  mixed false on error, otherwise string MIME type of
-     *                compression, none for none
+     * @return  string|false false on error, otherwise string MIME type of
+     *                       compression, none for none
      */
     protected function detectCompression()
     {
