@@ -161,6 +161,12 @@ function drawChart() {
     }
 }
 
+function saveChartAsImage() {
+    if (currentChart !== null) {
+        currentChart.saveAsImage();
+    }
+}
+
 function getSelectedSeries() {
     var val = $('select[name="chartSeries"]').val() || [];
     var ret = [];
@@ -185,6 +191,7 @@ AJAX.registerTeardown('tbl_chart.js', function () {
     $('input[name="xaxis_label"]').unbind('keyup');
     $('input[name="yaxis_label"]').unbind('keyup');
     $('#resizer').unbind('resizestop');
+    $('#saveChart').unbind('click');
 });
 
 AJAX.registerOnload('tbl_chart.js', function () {
@@ -360,6 +367,10 @@ AJAX.registerOnload('tbl_chart.js', function () {
     $('input[name="yaxis_label"]').keyup(function () {
         currentSettings.yaxisLabel = $(this).val();
         drawChart();
+    });
+
+    $('#saveChart').click(function() {
+        saveChartAsImage();
     });
 
     $("#tblchartform").submit();
