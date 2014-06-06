@@ -325,10 +325,6 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * it directly switches to authFails() if user inactivity timout is reached
      *
-     * @todo    AllowArbitraryServer on does not imply that the user wants an
-     *          arbitrary server, or? so we should also check if this is filled
-     *          and not only if allowed
-     *
      * @return boolean   whether we get authentication settings or not
      */
     public function authCheck()
