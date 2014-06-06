@@ -128,19 +128,19 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $length = $submit_length;
     }
 
-    // old column attributes
-    if ($is_backup) {
-        $_form_params = PMA_getFormParamsForOldColumn(
-            $columnMeta, $length, $_form_params, $columnNumber, $type,
-            $extracted_columnspec
-        );
-    }
     // Variable tell if current column is bound in a foreign key constraint or not.
     if (isset($columnMeta['Field']) && isset($_form_params['table'])) {
         $columnMeta['column_status'] = PMA_checkChildForeignReferences(
             $_form_params['db'],
             $_form_params['table'],
             $columnMeta['Field']
+        );
+    }
+    // old column attributes
+    if ($is_backup) {
+        $_form_params = PMA_getFormParamsForOldColumn(
+            $columnMeta, $length, $_form_params, $columnNumber, $type,
+            $extracted_columnspec
         );
     }
 
