@@ -1810,7 +1810,9 @@ function PMA_getHtmlForSqlQueryResults($previous_update_query_html,
 function PMA_getBookmarkCreatedMessage()
 {
     if (isset($_GET['label'])) {
-        $bookmark_created_msg = PMA_message::success(__('Bookmark %s has been created.'));
+        $bookmark_created_msg = PMA_message::success(
+            __('Bookmark %s has been created.')
+        );
         $bookmark_created_msg->addParam($_GET['label']);
     } else {
         $bookmark_created_msg = null;

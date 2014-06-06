@@ -1190,7 +1190,8 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
 
     // column type
     $content_cell[$ci] = PMA_getHtmlForColumnType(
-        $columnNumber, $ci, $ci_offset, $type_upper, isset($columnMeta) ? $columnMeta : null
+        $columnNumber, $ci, $ci_offset, $type_upper,
+        isset($columnMeta) ? $columnMeta : null
     );
     $ci++;
 
