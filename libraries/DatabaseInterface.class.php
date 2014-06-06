@@ -354,7 +354,7 @@ class PMA_DatabaseInterface
     private function _getSqlForTablesFull($this_databases, $sql_where_table)
     {
         if (PMA_DRIZZLE) {
-            $stats_join = $self->_getDrizzeStatsJoin();
+            $stats_join = $this->_getDrizzeStatsJoin();
 
             // data_dictionary.table_cache may not contain any data
             // for some tables, it's just a table cache
@@ -863,7 +863,7 @@ class PMA_DatabaseInterface
             $sql .= '
                    FROM data_dictionary.SCHEMAS s';
             if ($force_stats) {
-                $stats_join = $self->_getDrizzeStatsJoin();
+                $stats_join = $this->_getDrizzeStatsJoin();
 
                 $sql .= "
                     LEFT JOIN data_dictionary.TABLES t
