@@ -3458,9 +3458,11 @@ class PMA_DisplayResults
                     $_url_params, 'text'
                 );
 
+            $kill = $GLOBALS['dbi']->getKillQuery($row[0]);
+
             $_url_params = array(
                     'db'        => 'mysql',
-                    'sql_query' => $GLOBALS['dbi']->getKillQuery($row[0]),
+                    'sql_query' => $kill,
                     'goto'      => $lnk_goto,
                 );
 
