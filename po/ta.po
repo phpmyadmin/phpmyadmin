@@ -909,7 +909,7 @@ msgstr "நீங்கள் ஒரு முழு அட்டவணையி
 
 #: js/messages.php:41
 msgid "Deleting tracking data"
-msgstr "கண்காணிப்பு தரவுகளை அழிக்கப்படுகின்றன"
+msgstr "கண்காணிப்பு தரவுகள் அழிக்கப்படுகின்றன"
 
 #: js/messages.php:42
 msgid "Dropping Primary Key/Index"
