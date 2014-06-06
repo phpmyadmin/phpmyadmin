@@ -354,15 +354,7 @@ class PMA_DatabaseInterface
     private function _getSqlForTablesFull($this_databases, $sql_where_table)
     {
         if (PMA_DRIZZLE) {
-            $engine_info = PMA_Util::cacheGet('drizzle_engines');
-            $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
-            if (isset($engine_info['InnoDB'])
-                && $engine_info['InnoDB']['module_library'] == 'innobase'
-            ) {
-                $stats_join = "LEFT JOIN data_dictionary.INNODB_SYS_TABLESTATS"
-                    . " stat ON (t.ENGINE = 'InnoDB' AND stat.NAME"
-                    . " = (t.TABLE_SCHEMA || '/') || t.TABLE_NAME)";
-            }
+            $stats_join = $self->_getDrizzeStatsJoin();
 
             // data_dictionary.table_cache may not contain any data
             // for some tables, it's just a table cache
@@ -871,16 +863,7 @@ class PMA_DatabaseInterface
             $sql .= '
                    FROM data_dictionary.SCHEMAS s';
             if ($force_stats) {
-                $engine_info = PMA_Util::cacheGet('drizzle_engines');
-                $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
-                if (isset($engine_info['InnoDB'])
-                    && $engine_info['InnoDB']['module_library'] == 'innobase'
-                ) {
-                    $stats_join
-                        = "LEFT JOIN data_dictionary.INNODB_SYS_TABLESTATS stat"
-                        . " ON (t.ENGINE = 'InnoDB' AND stat.NAME"
-                        . " = (t.TABLE_SCHEMA || '/') || t.TABLE_NAME)";
-                }
+                $stats_join = $self->_getDrizzeStatsJoin();
 
                 $sql .= "
                     LEFT JOIN data_dictionary.TABLES t
@@ -963,6 +946,28 @@ class PMA_DatabaseInterface
 
         return $databases;
     }
+
+
+    /**
+     * Generates JOIN part for the Drizzle query to get database/table stats.
+     *
+     * @return string
+     */
+    private function _getDrizzeStatsJoin()
+    {
+        $engine_info = PMA_Util::cacheGet('drizzle_engines');
+        $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
+        if (isset($engine_info['InnoDB'])
+            && $engine_info['InnoDB']['module_library'] == 'innobase'
+        ) {
+            $stats_join
+                = "LEFT JOIN data_dictionary.INNODB_SYS_TABLESTATS stat"
+                . " ON (t.ENGINE = 'InnoDB' AND stat.NAME"
+                . " = (t.TABLE_SCHEMA || '/') || t.TABLE_NAME)";
+        }
+        return $stats_join;
+    }
+
 
     /**
      * usort comparison callback
