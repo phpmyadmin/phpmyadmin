@@ -2499,15 +2499,12 @@ class PMA_DatabaseInterface
      */
     public function isAmazonRds()
     {
-
         if (PMA_Util::cacheExists('is_amazon_rds')) {
             return PMA_Util::cacheGet('is_amazon_rds');
         }
-
         $sql = 'SELECT @@basedir';
         $result = $this->fetchResult($sql);
         $rds = ($result[0] == '/rdsdbbin/mysql/');
-
         PMA_Util::cacheSet('is_amazon_rds', $rds);
 
         return $rds;
