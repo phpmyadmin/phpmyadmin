@@ -1734,13 +1734,14 @@ class PMA_DatabaseInterface
      * // $users['admin']['John Doe'] = '123'
      * </code>
      *
-     * @param string         $query   query to execute
-     * @param string|integer $key     field-name or offset
-     *                                used as key for array
-     * @param string|integer $value   value-name or offset
-     *                                used as value for array
-     * @param object         $link    mysql link
-     * @param mixed          $options query options
+     * @param string               $query   query to execute
+     * @param string|integer|array $key     field-name or offset
+     *                                      used as key for array
+     *                                      or array of those
+     * @param string|integer       $value   value-name or offset
+     *                                      used as value for array
+     * @param object               $link    mysql link
+     * @param mixed                $options query options
      *
      * @return array resultrows or values indexed by $key
      */
