@@ -328,24 +328,6 @@ class PMA_StorageEngine_Innodb extends PMA_StorageEngine
     }
 
     /**
-     * Returns content for page $id
-     *
-     * @param string $id page id
-     *
-     * @return string html output
-     */
-    public function getPage($id)
-    {
-        if (! array_key_exists($id, $this->getInfoPages())) {
-            return false;
-        }
-
-        $id = 'getPage' . $id;
-
-        return $this->$id();
-    }
-
-    /**
      * returns string with filename for the MySQL helppage
      * about this storage engine
      *
