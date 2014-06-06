@@ -991,15 +991,17 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /* Log success */
         PMA_logUser($cfg['Server']['user']);
 
-        /**
-         * with phpMyAdmin 3 we support MySQL >=5
-         * but only production releases:
-         *  - > 5.0.15
-         */
-        if (PMA_MYSQL_INT_VERSION < 50015) {
+        if (PMA_MYSQL_INT_VERSION < 50500) {
             PMA_fatalError(
                 __('You should upgrade to %s %s or later.'),
-                array('MySQL', '5.0.15')
+                array('MySQL', '5.5.0')
+            );
+        }
+
+        if (PMA_PHP_INT_VERSION < 50300) {
+            PMA_fatalError(
+                __('You should upgrade to %s %s or later.'),
+                array('PHP', '5.3.0')
             );
         }
 
