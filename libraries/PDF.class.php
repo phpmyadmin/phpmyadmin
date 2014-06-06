@@ -31,7 +31,7 @@ class PMA_PDF extends TCPDF
      *
      * @param string  $orientation page orientation
      * @param string  $unit        unit
-     * @param mixed   $format      the format used for pages
+     * @param string  $format      the format used for pages
      * @param boolean $unicode     true means that the input text is unicode
      * @param string  $encoding    charset encoding; default is UTF-8.
      * @param boolean $diskcache   if true reduce the RAM memory usage by caching

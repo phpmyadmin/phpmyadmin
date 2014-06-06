@@ -93,7 +93,7 @@ class PMA
     /**
      * Accessor to PMA::$databases
      *
-     * @return PMA_List_Databases
+     * @return PMA_List_Database
      */
     public function getDatabaseList()
     {

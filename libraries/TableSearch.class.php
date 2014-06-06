@@ -815,7 +815,8 @@ EOT;
          */
         $html_output .= '<fieldset id="fieldset_search_conditions">'
             . '<legend>' . '<em>' . __('Or') . '</em> '
-            . __('Add search conditions (body of the "where" clause):') . '</legend>';
+            . __('Add search conditions (body of the "where" clause):')
+            . '</legend>';
         $html_output .= PMA_Util::showMySQLDocu('Functions');
         $html_output .= '<input type="text" name="customWhereClause"'
             . ' class="textfield" size="64" />';
@@ -861,7 +862,7 @@ EOT;
      * Other search criteria like data label
      * (for tbl_zoom_select.php)
      *
-     * @param array $dataLabel Label for points in zoom plot
+     * @param string|null $dataLabel Label for points in zoom plot
      *
      * @return string the generated html
      */
@@ -1181,8 +1182,8 @@ EOT;
     /**
      * Generates the table search form under table search tab
      *
-     * @param string $goto      Goto URL
-     * @param string $dataLabel Label for points in zoom plot
+     * @param string      $goto      Goto URL
+     * @param string|null $dataLabel Label for points in zoom plot
      *
      * @return string the generated HTML for table search form
      */

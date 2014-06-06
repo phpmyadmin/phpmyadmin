@@ -413,7 +413,7 @@ class PMA_StorageEngine
      */
     public function getVariablesLikePattern()
     {
-        return false;
+        return '';
     }
 
     /**
@@ -429,13 +429,19 @@ class PMA_StorageEngine
     /**
      * Generates the requested information page
      *
-     * @param string $id The page ID
+     * @param string $id page id
      *
-     * @return string|boolean The page or false on error.
+     * @return string html output
      */
     public function getPage($id)
     {
-        return false;
+        if (! array_key_exists($id, $this->getInfoPages())) {
+            return '';
+        }
+
+        $id = 'getPage' . $id;
+
+        return $this->$id();
     }
 }
 

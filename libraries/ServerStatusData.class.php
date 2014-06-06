@@ -353,9 +353,9 @@ class PMA_ServerStatusData
     }
 
     /**
-     * cleanup of some deprecated values
+     * Generates menu HTML
      *
-     * @return array
+     * @return string
      */
     public function getMenuHtml()
     {

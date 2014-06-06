@@ -120,24 +120,6 @@ class PMA_StorageEngine_Pbxt extends PMA_StorageEngine
 
     //--------------------
     /**
-     * Get content of a page
-     *
-     * @param string $id Id of searched page
-     *
-     * @return string
-     */
-    public function getPage($id)
-    {
-        if (! array_key_exists($id, $this->getInfoPages())) {
-            return false;
-        }
-
-        $id = 'getPage' . $id;
-
-        return $this->$id();
-    }
-
-    /**
      * Get content of documentation page
      *
      * @return string

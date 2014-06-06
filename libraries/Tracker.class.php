@@ -991,7 +991,11 @@ class PMA_Tracker
                 $date  = date('Y-m-d H:i:s');
 
                 // Cut off `dbname`. from query
-                $query = preg_replace('/`' . preg_quote($dbname) . '`\s?\./', '', $query);
+                $query = preg_replace(
+                    '/`' . preg_quote($dbname) . '`\s?\./',
+                    '',
+                    $query
+                );
 
                 // Add log information
                 $query = self::getLogComment() . $query ;
