@@ -712,20 +712,20 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['Type'] = 'ababababababababababa';
         $this->assertEquals(
             '1',
-            PMA_getNullifyCodeForNullColumn($column, null, null)
+            PMA_getNullifyCodeForNullColumn($column, array(), array())
         );
 
         $column['True_Type'] = 'enum';
         $column['Type'] = 'abababababababababab';
         $this->assertEquals(
             '2',
-            PMA_getNullifyCodeForNullColumn($column, null, null)
+            PMA_getNullifyCodeForNullColumn($column, array(), array())
         );
 
         $column['True_Type'] = 'set';
         $this->assertEquals(
             '3',
-            PMA_getNullifyCodeForNullColumn($column, null, null)
+            PMA_getNullifyCodeForNullColumn($column, array(), array())
         );
 
         $column['True_Type'] = '';
