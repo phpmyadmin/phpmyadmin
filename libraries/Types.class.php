@@ -19,7 +19,7 @@ class PMA_Types
     /**
      * Returns list of unary operators.
      *
-     * @return array
+     * @return string[]
      */
     public function getUnaryOperators()
     {
@@ -46,7 +46,7 @@ class PMA_Types
     /**
      * Returns list of operators checking for NULL.
      *
-     * @return array
+     * @return string[]
      */
     public function getNullOperators()
     {
@@ -59,7 +59,7 @@ class PMA_Types
     /**
      * ENUM search operators
      *
-     * @return array
+     * @return string[]
      */
     public function getEnumOperators()
     {
@@ -72,7 +72,7 @@ class PMA_Types
     /**
      * TEXT search operators
      *
-     * @return array
+     * @return string[]
      */
     public function getTextOperators()
     {
@@ -97,7 +97,7 @@ class PMA_Types
     /**
      * Number search operators
      *
-     * @return array
+     * @return string[]
      */
     public function getNumberOperators()
     {
@@ -124,7 +124,7 @@ class PMA_Types
      * @param string  $type Type of field
      * @param boolean $null Whether field can be NULL
      *
-     * @return array
+     * @return string[]
      */
     public function getTypeOperators($type, $null)
     {
@@ -205,7 +205,7 @@ class PMA_Types
      *
      * @param string $class The class to get function list.
      *
-     * @return array
+     * @return string[]
      *
      */
     public function getFunctionsClass($class)
@@ -218,7 +218,7 @@ class PMA_Types
      *
      * @param string $type The data type to get function list.
      *
-     * @return array
+     * @return string[]
      *
      */
     public function getFunctions($type)
@@ -230,7 +230,7 @@ class PMA_Types
     /**
      * Returns array of all functions available.
      *
-     * @return array
+     * @return string[]
      *
      */
     public function getAllFunctions()
@@ -248,7 +248,7 @@ class PMA_Types
     /**
      * Returns array of all attributes available.
      *
-     * @return array
+     * @return string[]
      *
      */
     public function getAttributes()
@@ -259,7 +259,7 @@ class PMA_Types
     /**
      * Returns array of all column types available.
      *
-     * @return array
+     * @return string[]
      *
      */
     public function getColumns()
@@ -467,7 +467,7 @@ class PMA_Types_MySQL extends PMA_Types
      *
      * @param string $class The class to get function list.
      *
-     * @return array
+     * @return string[]
      *
      */
     public function getFunctionsClass($class)
@@ -620,7 +620,7 @@ class PMA_Types_MySQL extends PMA_Types
     /**
      * Returns array of all attributes available.
      *
-     * @return array
+     * @return string[]
      *
      */
     public function getAttributes()
@@ -640,7 +640,7 @@ class PMA_Types_MySQL extends PMA_Types
      * VARCHAR, TINYINT, TEXT and DATE are listed first, based on
      * estimated popularity.
      *
-     * @return array
+     * @return string[]
      *
      */
     public function getColumns()
@@ -852,7 +852,7 @@ class PMA_Types_Drizzle extends PMA_Types
      *
      * @param string $class The class to get function list.
      *
-     * @return array
+     * @return string[]
      *
      */
     public function getFunctionsClass($class)
@@ -986,7 +986,7 @@ class PMA_Types_Drizzle extends PMA_Types
     /**
      * Returns array of all attributes available.
      *
-     * @return array
+     * @return string[]
      *
      */
     public function getAttributes()
@@ -1000,7 +1000,7 @@ class PMA_Types_Drizzle extends PMA_Types
     /**
      * Returns array of all column types available.
      *
-     * @return array
+     * @return string[]
      *
      */
     public function getColumns()
