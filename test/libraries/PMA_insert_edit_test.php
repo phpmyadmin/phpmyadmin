@@ -67,7 +67,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['goto'] = 'index.php';
 
         $result = PMA_getFormParametersForInsertForm(
-            'dbname', 'tablename', false, $where_clause, 'localhost'
+            'dbname', 'tablename', null, $where_clause, 'localhost'
         );
 
         $this->assertEquals(
