@@ -96,7 +96,7 @@ class PMA_RecentFavoriteTable
     /**
      * Returns the recent/favorite tables array
      *
-     * @return array 
+     * @return array
      */
     public function getTables()
     {
