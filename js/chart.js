@@ -53,7 +53,7 @@ Chart.prototype = {
         throw new Error("destroy must be implemented by a subclass");
     },
     saveAsImage : function() {
-        throw new Error("destroy must be implemented by a subclass");
+        throw new Error("saveAsImage must be implemented by a subclass");
     }
 };
 
