@@ -1148,6 +1148,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     public function testGetBinaryAndBlobColumn()
     {
         $GLOBALS['cfg']['ProtectBinary'] = 'blob';
+        $GLOBALS['cfg']['ShowFunctionFields'] = true;
         $column = array();
         $column['is_blob'] = true;
         $column['Field_md5'] = '123';
@@ -1284,6 +1285,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetHTMLinput()
     {
+        $GLOBALS['cfg']['ShowFunctionFields'] = true;
         $column = array();
         $column['pma_type'] = 'date';
         $column['True_Type'] = 'date';
@@ -1363,6 +1365,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['CharTextareaRows'] = 5;
         $GLOBALS['cfg']['CharTextareaCols'] = 1;
         $GLOBALS['cfg']['LimitChars'] = 50;
+        $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
         $extracted_columnspec = array();
         $extracted_columnspec['spec_in_brackets'] = 25;
