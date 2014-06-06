@@ -861,7 +861,7 @@ EOT;
      * Other search criteria like data label
      * (for tbl_zoom_select.php)
      *
-     * @param array $dataLabel Label for points in zoom plot
+     * @param string|null $dataLabel Label for points in zoom plot
      *
      * @return string the generated html
      */
@@ -1182,7 +1182,7 @@ EOT;
      * Generates the table search form under table search tab
      *
      * @param string $goto      Goto URL
-     * @param string $dataLabel Label for points in zoom plot
+     * @param string|null $dataLabel Label for points in zoom plot
      *
      * @return string the generated HTML for table search form
      */
