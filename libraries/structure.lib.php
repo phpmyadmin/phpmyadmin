@@ -2736,9 +2736,8 @@ function PMA_checkFavoriteTable($db, $current_table)
 function PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
 {
     $html_output  = '<a ';
-    $html_output .= 'id="' . preg_replace(
-        '/\s+/', '', $current_table['TABLE_NAME']
-    ) . '_favorite_anchor" ';
+    $html_output .= 'id="' . md5($current_table['TABLE_NAME'])
+        . '_favorite_anchor" ';
     $html_output .= 'class="ajax favorite_table_anchor';
 
     // Check if current table is already in favorite list.
@@ -2746,13 +2745,15 @@ function PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
     $fav_params = array('db' => $db,
         'ajax_request' => true,
         'favorite_table' => $current_table['TABLE_NAME'],
-        (($already_favorite?'remove':'add') . '_favorite') => true);
+        (($already_favorite?'remove':'add') . '_favorite') => true
+    );
     $fav_url = 'db_structure.php' . PMA_URL_getCommon($fav_params);
     $html_output .= '" ';
     $html_output .= 'href="' . $fav_url
         . '" title="' . ($already_favorite ? __("Remove from Favorites")
         : __("Add to Favorites"))
-        . '" data-favtargets="' . $db . "." . $current_table['TABLE_NAME']
+        . '" data-favtargets="'
+        . md5($db . "." . $current_table['TABLE_NAME'])
         . '" >'
         . (!$already_favorite ? $titles['NoFavorite']
         : $titles['Favorite']) . '</a>';

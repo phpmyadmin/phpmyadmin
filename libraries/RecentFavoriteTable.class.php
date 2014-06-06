@@ -206,8 +206,9 @@ class PMA_RecentFavoriteTable
                     $html .= '<a href="sql.php?server=' . $GLOBALS['server']
                           . '&db=' . $table['db']
                           . '&table=' . $table['table']
-                          . '&token=' . $_SESSION[' PMA_token ']
-                          . '">`' . $table['db'] . '`.`' . $table['table'] . '`</a>';
+                          . '&token=' . $_SESSION[' PMA_token '] . '">`'
+                          . htmlspecialchars($table['db']) . '`.`'
+                          . htmlspecialchars($table['table']) . '`</a>';
                     $html .= '</li>';
                 }
             } else {
@@ -223,7 +224,8 @@ class PMA_RecentFavoriteTable
                         . PMA_URL_getCommon($fav_params);
                     $html .= 'href="' . $fav_rm_url
                         . '" title="' . __("Remove from Favorites")
-                        . '" data-favtargetn="' . $table['db'] . "." . $table['table']
+                        . '" data-favtargetn="'
+                        . md5($table['db'] . "." . $table['table'])
                         . '" >'
                         . PMA_Util::getIcon('b_favorite.png')
                         . '</a>';
@@ -231,8 +233,9 @@ class PMA_RecentFavoriteTable
                     $html .= '<a href="sql.php?server=' . $GLOBALS['server']
                           . '&db=' . $table['db']
                           . '&table=' . $table['table']
-                          . '&token=' . $_SESSION[' PMA_token ']
-                          . '">`' . $table['db'] . '`.`' . $table['table'] . '`</a>';
+                          . '&token=' . $_SESSION[' PMA_token '] . '">`'
+                          . htmlspecialchars($table['db']) . '`.`'
+                          . htmlspecialchars($table['table']) . '`</a>';
                     $html .= '</li>';
                 }
             }
