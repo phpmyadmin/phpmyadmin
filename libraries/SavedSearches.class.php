@@ -408,7 +408,7 @@ class PMA_SavedSearches
     /**
      * Get the list of saved search of a user on a DB
      *
-     * @param array $wheres List of filters
+     * @param string[] $wheres List of filters
      *
      * @return array|bool List of saved search or false on failure
      */
