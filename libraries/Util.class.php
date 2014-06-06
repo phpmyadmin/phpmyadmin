@@ -591,7 +591,7 @@ class PMA_Util
      * @param string $back_url       the "back" link url (full path is not required)
      * @param bool   $exit           EXIT the page?
      *
-     * @return mixed
+     * @return string
      *
      * @global string $table the curent table
      * @global string $db    the current db
