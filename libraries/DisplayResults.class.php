@@ -3457,15 +3457,9 @@ class PMA_DisplayResults
                     $_url_params, 'text'
                 );
 
-            if($GLOBALS['dbi']->isAmazonRds()) {
-                $kill = 'CALL mysql.rds_kill(' . $row[0] . ');';
-            } else {
-                $kill = 'KILL ' . $row[0] . ';';
-            }
-
             $_url_params = array(
                     'db'        => 'mysql',
-                    'sql_query' => $kill,
+                    'sql_query' => $GLOBALS['dbi']->getKillQuery($row[0]),
                     'goto'      => $lnk_goto,
                 );
 

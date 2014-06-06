@@ -2507,5 +2507,20 @@ class PMA_DatabaseInterface
         return $rds;
     }
 
+    /**
+     * Gets SQL for killing a process.
+     *
+     * @param int $process Process ID
+     *
+     * @return string
+     */
+    public function getKillQuery($process)
+    {
+        if ($this->isAmazonRds()) {
+            return 'CALL mysql.rds_kill(' . $process . ');';
+        } else {
+            return 'KILL ' . $process . ';';
+        }
+    }
 }
 ?>
