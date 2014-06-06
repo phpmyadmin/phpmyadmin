@@ -204,7 +204,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
             array("char", "string"),
             array("varchar", "string"),
             array("text", "string"),
-            array("longtext", "long"), // TODO: seemingly wrong, should be string
+            array("longtext", "string"),
             array("tinyint", "bool"),
             array("datetime", "DateTime"),
             array("", "unknown"),
@@ -245,7 +245,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
             array("char", "String"),
             array("varchar", "String"),
             array("text", "String"),
-            array("longtext", "Long"), // TODO: seemingly wrong, should be string
+            array("longtext", "String"),
             array("tinyint", "Boolean"),
             array("datetime", "DateTime"),
             array("", "Unknown"),

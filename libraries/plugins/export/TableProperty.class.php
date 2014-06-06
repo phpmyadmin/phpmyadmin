@@ -119,6 +119,9 @@ class TableProperty
         if (strpos($this->type, "int") === 0) {
             return "int";
         }
+        if (strpos($this->type, "longtext") === 0) {
+            return "string";
+        }
         if (strpos($this->type, "long") === 0) {
             return "long";
         }
@@ -129,9 +132,6 @@ class TableProperty
             return "string";
         }
         if (strpos($this->type, "text") === 0) {
-            return "string";
-        }
-        if (strpos($this->type, "longtext") === 0) {
             return "string";
         }
         if (strpos($this->type, "tinyint") === 0) {
@@ -153,6 +153,9 @@ class TableProperty
         if (strpos($this->type, "int") === 0) {
             return "Int32";
         }
+        if (strpos($this->type, "longtext") === 0) {
+            return "String";
+        }
         if (strpos($this->type, "long") === 0) {
             return "Long";
         }
@@ -163,9 +166,6 @@ class TableProperty
             return "String";
         }
         if (strpos($this->type, "text") === 0) {
-            return "String";
-        }
-        if (strpos($this->type, "longtext") === 0) {
             return "String";
         }
         if (strpos($this->type, "tinyint") === 0) {
