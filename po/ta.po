@@ -9881,7 +9881,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1260
 #: libraries/server_privileges.lib.php:2494
 msgid "Login Information"
-msgstr ""
+msgstr "புகுபதிவு தகவல்"
 
 #: libraries/server_privileges.lib.php:1294
 #: libraries/server_privileges.lib.php:1479
