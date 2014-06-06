@@ -636,13 +636,6 @@ class PMA_DisplayResults
         // contains accented characters
         $html_sql_query = htmlspecialchars($this->__get('sql_query'));
 
-        /**
-         * @todo move this to a central place
-         * @todo for other future table types
-         */
-        $is_innodb = (isset($showtable['Type'])
-            && $showtable['Type'] == self::TABLE_TYPE_INNO_DB);
-
         // Navigation bar
         $table_navigation_html .= '<table class="navigation nospacing nopadding">'
             . '<tr>'
