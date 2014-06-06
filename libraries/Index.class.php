@@ -370,7 +370,7 @@ class PMA_Index
     /**
      * Return a list of all index choices
      *
-     * @return array index choices
+     * @return string[] index choices
      */
     static public function getIndexChoices()
     {
@@ -522,7 +522,7 @@ class PMA_Index
      * @param string  $schema     The schema name
      * @param boolean $print_mode Whether the output is for the print mode
      *
-     * @return array  Index collection array
+     * @return string HTML for showing index
      *
      * @access  public
      */
