@@ -413,7 +413,7 @@ class PMA_StorageEngine
      */
     public function getVariablesLikePattern()
     {
-        return false;
+        return '';
     }
 
     /**
