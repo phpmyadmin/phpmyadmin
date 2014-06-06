@@ -28,7 +28,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Helper function for connecting to the database server
      *
-     * @param array  $server       host/port/socket
+     * @param string $server       host/port/socket
      * @param string $user         mysql user name
      * @param string $password     mysql user password
      * @param int    $client_flags client flags of connection
@@ -157,8 +157,8 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * selects given database
      *
-     * @param string $dbname name of db to select
-     * @param object $link   mysql link resource
+     * @param string        $dbname name of db to select
+     * @param resource|null $link   mysql link resource
      *
      * @return bool
      */
@@ -170,9 +170,9 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * runs a query and returns the result
      *
-     * @param string $query   query to run
-     * @param object $link    mysql link resource
-     * @param int    $options query options
+     * @param string        $query   query to run
+     * @param resource|null $link    mysql link resource
+     * @param int           $options query options
      *
      * @return mixed
      */
@@ -190,7 +190,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns array of rows with associative and numeric keys from $result
      *
-     * @param object $result result  MySQL result
+     * @param resource $result result  MySQL result
      *
      * @return array
      */
@@ -202,7 +202,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns array of rows with associative keys from $result
      *
-     * @param object $result MySQL result
+     * @param resource $result MySQL result
      *
      * @return array
      */
@@ -214,7 +214,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns array of rows with numeric keys from $result
      *
-     * @param object $result MySQL result
+     * @param resource $result MySQL result
      *
      * @return array
      */
@@ -226,8 +226,8 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Adjusts the result pointer to an arbitrary row in the result
      *
-     * @param object  $result database result
-     * @param integer $offset offset to seek
+     * @param resource $result database result
+     * @param integer  $offset offset to seek
      *
      * @return bool true on success, false on failure
      */
@@ -239,7 +239,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Frees memory associated with the result
      *
-     * @param object $result database result
+     * @param resource $result database result
      *
      * @return void
      */
@@ -285,7 +285,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Returns a string representing the type of connection used
      *
-     * @param object $link mysql link
+     * @param resource|null $link mysql link
      *
      * @return string type of connection used
      */
@@ -297,7 +297,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Returns the version of the MySQL protocol used
      *
-     * @param object $link mysql link
+     * @param resource|null $link mysql link
      *
      * @return int version of the MySQL protocol used
      */
@@ -319,7 +319,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns last error message or false if no errors occurred
      *
-     * @param object $link mysql link
+     * @param resource|null $link mysql link
      *
      * @return string|bool $error or false
      */
@@ -348,7 +348,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns the number of rows returned by last query
      *
-     * @param object $result MySQL result
+     * @param resource $result MySQL result
      *
      * @return string|int
      */
@@ -364,7 +364,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns the number of rows affected by last query
      *
-     * @param object $link the mysql object
+     * @param resource|null $link the mysql object
      *
      * @return int
      */
@@ -376,7 +376,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns metainfo for fields in $result
      *
-     * @param object $result MySQL result
+     * @param resource $result MySQL result
      *
      * @return array meta info for fields in $result
      *
@@ -399,7 +399,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * return number of fields in given $result
      *
-     * @param object $result MySQL result
+     * @param resource $result MySQL result
      *
      * @return int  field count
      */
@@ -411,8 +411,8 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns the length of the given field $i in $result
      *
-     * @param object $result MySQL result
-     * @param int    $i      field
+     * @param resource $result MySQL result
+     * @param int      $i      field
      *
      * @return int length of field
      */
@@ -424,8 +424,8 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns name of $i. field in $result
      *
-     * @param object $result MySQL result
-     * @param int    $i      field
+     * @param resource $result MySQL result
+     * @param int      $i      field
      *
      * @return string name of $i. field in $result
      */
@@ -437,8 +437,8 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns concatenated string of human readable field flags
      *
-     * @param object $result MySQL result
-     * @param int    $i      field
+     * @param resource $result MySQL result
+     * @param int      $i      field
      *
      * @return string field flags
      */
@@ -450,7 +450,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Store the result returned from multi query
      *
-     * @param object $result MySQL result
+     * @param resource $result MySQL result
      *
      * @return false
      */
