@@ -487,11 +487,11 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
  *
  * @param array   $column               description of column in given table
  * @param string  $column_name_appendix the name atttibute
- * @param array   $real_null_value      is column value null or not null
+ * @param boolean $real_null_value      is column value null or not null
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_null    +6000
  * @param integer $idindex              id index
- * @param array   $vkey                 [multi_edit]['row_id']
+ * @param string  $vkey                 [multi_edit]['row_id']
  * @param array   $foreigners           keys into foreign fields
  * @param array   $foreignData          data about the foreign keys
  *
