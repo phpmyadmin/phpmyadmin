@@ -927,7 +927,7 @@ msgstr "உங்களுக்கு உண்மையிலேயே \"%s\" 
 #: js/messages.php:45
 #, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr ""
+msgstr "உங்களுக்கு உண்மையிலேயே \"%s\" தேடலை நீக்க வேண்டுமா?"
 
 #: js/messages.php:46
 msgid ""
