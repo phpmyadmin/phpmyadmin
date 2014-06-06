@@ -646,7 +646,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['Field_md5'] = 'foobar';
 
         $result = PMA_getNullColumn(
-            $column, 'a', true, 2, 0, 1, "<script>", '', ''
+            $column, 'a', true, 2, 0, 1, "<script>", array(), array()
         );
 
         $this->assertTag(
@@ -691,7 +691,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // case 2
         $column['Null'] = 'NO';
         $result = PMA_getNullColumn(
-            $column, 'a', true, 2, 0, 1, "<script>", '', ''
+            $column, 'a', true, 2, 0, 1, "<script>", array(), array()
         );
 
         $this->assertEquals(
