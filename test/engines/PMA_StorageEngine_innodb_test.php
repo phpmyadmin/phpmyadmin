@@ -300,7 +300,8 @@ class PMA_StorageEngine_Innodb_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetPage()
     {
-        $this->assertFalse(
+        $this->assertEquals(
+            '',
             $this->object->getPage('Status')
         );
         $this->object->support = 2;
