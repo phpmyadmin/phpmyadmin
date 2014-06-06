@@ -2465,7 +2465,7 @@ class PMA_DisplayResults
     {
         return '<td ' . $align . ' class="'
             . $this->_addClass(
-                $class, $condition_field, $meta, ' nowrap'
+                $class, $condition_field, $meta, 'nowrap'
             )
             . '"></td>';
     } // end of the '_buildEmptyDisplay()' function
@@ -2494,38 +2494,45 @@ class PMA_DisplayResults
         $class, $condition_field, $meta, $nowrap, $is_field_truncated = false,
         $transformation_plugin = '', $default_function = ''
     ) {
+        $classes = array(
+            $class,
+            $nowrap,
+        );
+
+        if (isset($meta->mimetype)) {
+            $classes[] = preg_replace('/\//', '_', $meta->mimetype);
+        }
+
+        if ($condition_field) {
+            $classes[] = 'condition';
+        }
+
+        if ($is_field_truncated) {
+            $clases[] = 'truncated';
+        }
+
+        if ($transformation_plugin != $default_function) {
+            $classes[] = 'transformed';
+        }
 
         // Define classes to be added to this data field based on the type of data
-        $enum_class = '';
-        if (strpos($meta->flags, 'enum') !== false) {
-            $enum_class = ' enum';
+        $matches = array(
+            'enum' => 'enum',
+            'set' => 'set',
+            'binary' => 'hex',
+        );
+
+        foreach ($matches as $key => $value) {
+            if (strpos($meta->flags, $key) !== false) {
+                $classes[] = $value;
+            }
         }
 
-        $set_class = '';
-        if (strpos($meta->flags, 'set') !== false) {
-            $set_class = ' set';
-        }
-
-        $bit_class = '';
         if (strpos($meta->type, 'bit') !== false) {
-            $bit_class = ' bit';
+            $classes[] = 'bit';
         }
 
-        $hex_class = '';
-        if (strpos($meta->flags, 'binary') !== false) {
-            $hex_class = ' hex';
-        }
-
-        $mime_type_class = '';
-        if (isset($meta->mimetype)) {
-            $mime_type_class = ' ' . preg_replace('/\//', '_', $meta->mimetype);
-        }
-
-        return $class . ($condition_field ? ' condition' : '') . $nowrap
-            . ' ' . ($is_field_truncated ? ' truncated' : '')
-            . ($transformation_plugin != $default_function ? ' transformed' : '')
-            . $enum_class . $set_class . $bit_class . $hex_class . $mime_type_class;
-
+        return implode(' ', $classes);
     } // end of the '_addClass()' function
 
 
