@@ -847,7 +847,7 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
 /**
  * Get HTML for enum type
  *
- * @param string  $column               description of column in given table
+ * @param array   $column               description of column in given table
  * @param string  $backup_field         hidden input field
  * @param string  $column_name_appendix the name atttibute
  * @param array   $extracted_columnspec associative array containing type,
@@ -923,7 +923,7 @@ function PMA_getColumnEnumValues($column, $extracted_columnspec)
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
- * @param array   $data                 data to edit
+ * @param string  $data                 data to edit
  * @param array   $column_enum_values   $column['values']
  *
  * @return string                       an html snippet
