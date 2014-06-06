@@ -815,7 +815,8 @@ EOT;
          */
         $html_output .= '<fieldset id="fieldset_search_conditions">'
             . '<legend>' . '<em>' . __('Or') . '</em> '
-            . __('Add search conditions (body of the "where" clause):') . '</legend>';
+            . __('Add search conditions (body of the "where" clause):')
+            . '</legend>';
         $html_output .= PMA_Util::showMySQLDocu('Functions');
         $html_output .= '<input type="text" name="customWhereClause"'
             . ' class="textfield" size="64" />';

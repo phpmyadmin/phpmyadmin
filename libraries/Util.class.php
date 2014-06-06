@@ -1997,7 +1997,8 @@ class PMA_Util
      * Not sure we could use a strMissingParameter message here,
      * would have to check if the error message file is always available
      *
-     * @param string[] $params  The names of the parameters needed by the calling script
+     * @param string[] $params  The names of the parameters needed by the calling
+     *                          script
      * @param bool     $request Whether to include this list in checking for
      *                          special params
      *
@@ -2402,7 +2403,8 @@ class PMA_Util
      * @param array    $_url_params url parameters
      * @param string   $script      script name for form target
      * @param string   $frame       target frame
-     * @param int      $max_count   maximum number of elements to display from the list
+     * @param int      $max_count   maximum number of elements to display from
+     *                              the list
      * @param string   $name        the name for the request parameter
      * @param string[] $classes     additional classes for the container
      *
