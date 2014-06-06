@@ -24,6 +24,7 @@ phpMyAdmin - ChangeLog
 - bug #4436 Insert form numeric field with function drop-down list
 - bug #4437 Problems due to missing enforcement of the minimum supported MySQL version
 + Add enforcement of the minimum supported PHP version (5.3.0)
+- bug       Query error on submitting a column change form containing a disabled input field
 
 4.2.2.0 (2014-05-20)
 - bug #4388 Disable database expansion when enabled throws Error 500 when database name is clicked in navigation tree

@@ -1309,6 +1309,12 @@ function PMA_getFormParamsForOldColumn(
     if (isset($columnMeta['Field'])) {
         $form_params['field_orig[' . $columnNumber . ']']
             = $columnMeta['Field'];
+        if (isset($columnMeta['column_status'])
+            && !$columnMeta['column_status']['isEditable']
+        ) {
+            $form_params['field_name[' . $columnNumber . ']']
+                = $columnMeta['Field'];
+        }
     } else {
         $form_params['field_orig[' . $columnNumber . ']'] = '';
     }
@@ -1317,6 +1323,12 @@ function PMA_getFormParamsForOldColumn(
         // keep in uppercase because the new type will be in uppercase
         $form_params['field_type_orig[' . $columnNumber . ']']
             = strtoupper($type);
+        if (isset($columnMeta['column_status'])
+            && !$columnMeta['column_status']['isEditable']
+        ) {
+            $form_params['field_type[' . $columnNumber . ']']
+                = strtoupper($type);
+        }
     } else {
         $form_params['field_type_orig[' . $columnNumber . ']'] = '';
     }
