@@ -41,11 +41,11 @@ class PMA_Util
      *
      * @param string $base         base to raise
      * @param string $exp          exponent to use
-     * @param mixed  $use_function pow function to use, or false for auto-detect
+     * @param string $use_function pow function to use, or false for auto-detect
      *
      * @return mixed string or float
      */
-    public static function pow($base, $exp, $use_function = false)
+    public static function pow($base, $exp, $use_function = '')
     {
         static $pow_function = null;
 
