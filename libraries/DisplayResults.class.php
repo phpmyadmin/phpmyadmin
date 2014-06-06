@@ -2671,18 +2671,12 @@ class PMA_DisplayResults
                 } // end if (1.2.1)
 
                 // 1.2.2 Delete/Kill link(s)
-                if (($is_display['del_lnk'] == self::DELETE_ROW)
-                    || ($is_display['del_lnk'] == self::KILL_PROCESS)
-                ) {
-
-                    list($del_query, $del_url, $del_str, $js_conf)
-                        = $this->_getDeleteAndKillLinks(
-                            $where_clause, $clause_is_unique,
-                            $url_sql_query, $is_display['del_lnk'],
-                            $row
-                        );
-
-                } // end if (1.2.2)
+                list($del_query, $del_url, $del_str, $js_conf)
+                    = $this->_getDeleteAndKillLinks(
+                        $where_clause, $clause_is_unique,
+                        $url_sql_query, $is_display['del_lnk'],
+                        $row
+                    );
 
                 // 1.3 Displays the links at left if required
                 if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
@@ -3469,6 +3463,8 @@ class PMA_DisplayResults
             $del_str = PMA_Util::getIcon(
                 'b_drop.png', __('Kill')
             );
+        } else {
+            $del_url = $del_query = $del_str = $js_conf = null;
         }
 
         return array($del_query, $del_url, $del_str, $js_conf);
