@@ -1138,7 +1138,7 @@ class PMA_DisplayResults
                         $fields_meta[$i], $sort_expression,
                         $sort_expression_nodirection, $i, $unsorted_sql_query,
                         $session_max_rows, $direction, $comments,
-                        $sort_direction, $directionCondition, $col_visib,
+                        $sort_direction, $col_visib,
                         $col_visib[$j]
                     );
 
@@ -1818,8 +1818,6 @@ class PMA_DisplayResults
      * @param array   $direction                   the display direction
      * @param string  $comments                    comment for row
      * @param array   $sort_direction              sort direction
-     * @param boolean $directionCondition          display direction horizontal
-     *                                             or horizontalflipped
      * @param boolean $col_visib                   column is visible(false)
      *        array                                column isn't visible(string array)
      * @param string  $col_visib_j                 element of $col_visib array
@@ -1833,7 +1831,7 @@ class PMA_DisplayResults
     private function _getOrderLinkAndSortedHeaderHtml(
         $fields_meta, $sort_expression, $sort_expression_nodirection,
         $column_index, $unsorted_sql_query, $session_max_rows, $direction,
-        $comments, $sort_direction, $directionCondition, $col_visib, $col_visib_j
+        $comments, $sort_direction, $col_visib, $col_visib_j
     ) {
 
         $sorted_header_html = '';
