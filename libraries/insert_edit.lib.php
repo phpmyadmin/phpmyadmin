@@ -593,7 +593,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  * @param array   $titles                An HTML IMG tag for a particular icon from
  *                                       a theme, which may be an actual file or
  *                                       an icon from a sprite
- * @param array   $text_dir              text direction
+ * @param string  $text_dir              text direction
  * @param string  $special_chars_encoded replaced char if the string starts
  *                                       with a \r\n pair (0x0d0a) add an extra \n
  * @param string  $vkey                  [multi_edit]['row_id']
@@ -798,8 +798,8 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
  * @param integer $tabindex              tab index
  * @param integer $tabindex_for_value    offset for the values tabindex
  * @param integer $idindex               id index
- * @param array   $text_dir              text direction
- * @param array   $special_chars_encoded replaced char if the string starts
+ * @param string  $text_dir              text direction
+ * @param string  $special_chars_encoded replaced char if the string starts
  *                                       with a \r\n pair (0x0d0a) add an extra \n
  *
  * @return string                       an html snippet
@@ -1300,7 +1300,7 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
  * @param integer $tabindex_for_value    offset for the values tabindex
  * @param integer $idindex               id index
  * @param string  $text_dir              text direction
- * @param array   $special_chars_encoded replaced char if the string starts
+ * @param string  $special_chars_encoded replaced char if the string starts
  *                                       with a \r\n pair (0x0d0a) add an extra \n
  * @param string  $data                  data to edit
  * @param array   $extracted_columnspec  associative array containing type,
