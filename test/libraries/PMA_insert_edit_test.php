@@ -582,34 +582,34 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['is_blob'] = true;
         $this->assertTag(
             PMA_getTagArray('<td class="center">', array('content' => 'Binary')),
-            PMA_getFunctionColumn($column, false, '', '', '', '', '', '', '')
+            PMA_getFunctionColumn($column, false, '', '', array(), 0, 0, 0, false)
         );
 
         $GLOBALS['cfg']['ProtectBinary'] = 'all';
         $column['is_binary'] = true;
         $this->assertTag(
             PMA_getTagArray('<td class="center">', array('content' => 'Binary')),
-            PMA_getFunctionColumn($column, true, '', '', '', '', '', '', '')
+            PMA_getFunctionColumn($column, true, '', '', array(), 0, 0, 0, false)
         );
 
         $GLOBALS['cfg']['ProtectBinary'] = 'noblob';
         $column['is_blob'] = false;
         $this->assertTag(
             PMA_getTagArray('<td class="center">', array('content' => 'Binary')),
-            PMA_getFunctionColumn($column, true, '', '', '', '', '', '', '')
+            PMA_getFunctionColumn($column, true, '', '', array(), 0, 0, 0, false)
         );
 
         $GLOBALS['cfg']['ProtectBinary'] = false;
         $column['True_Type'] = 'enum';
         $this->assertTag(
             PMA_getTagArray('<td class="center">', array('content' => '--')),
-            PMA_getFunctionColumn($column, true, '', '', '', '', '', '', '')
+            PMA_getFunctionColumn($column, true, '', '', array(), 0, 0, 0, false)
         );
 
         $column['True_Type'] = 'set';
         $this->assertTag(
             PMA_getTagArray('<td class="center">', array('content' => '--')),
-            PMA_getFunctionColumn($column, true, '', '', '', '', '', '', '')
+            PMA_getFunctionColumn($column, true, '', '', array(), 0, 0, 0, false)
         );
 
         $column['True_Type'] = '';
@@ -617,7 +617,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertTag(
             PMA_getTagArray('<td class="center">', array('content' => '--')),
             PMA_getFunctionColumn(
-                $column, true, '', '', array('int'), '', '', '', ''
+                $column, true, '', '', array('int'), 0, 0, 0, false
             )
         );
 
@@ -626,7 +626,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<select name="funcsa" b tabindex="5" id="field_3_1"',
             PMA_getFunctionColumn(
-                $column, true, 'a', 'b', array(), 2, 3, 3, ''
+                $column, true, 'a', 'b', array(), 2, 3, 3, false
             )
         );
     }
