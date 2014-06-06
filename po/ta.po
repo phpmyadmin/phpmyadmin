@@ -901,7 +901,7 @@ msgstr "நீங்கள் ஒரு முழுமையான தரவு
 
 #: js/messages.php:38
 msgid "You are about to DESTROY a complete table!"
-msgstr ""
+msgstr "நீங்கள் ஒரு முழுமையான அட்டவணையை அழிக்க உள்ளீர்கள்!"
 
 #: js/messages.php:39
 msgid "You are about to TRUNCATE a complete table!"
