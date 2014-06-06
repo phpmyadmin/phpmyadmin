@@ -1741,7 +1741,7 @@ class PMA_DatabaseInterface
      * @param string|integer       $value   value-name or offset
      *                                      used as value for array
      * @param object               $link    mysql link
-     * @param mixed                $options query options
+     * @param integer              $options query options
      *
      * @return array resultrows or values indexed by $key
      */
