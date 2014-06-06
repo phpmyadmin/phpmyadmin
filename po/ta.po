@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-24 09:05-0400\n"
-"PO-Revision-Date: 2014-06-06 01:02+0200\n"
+"PO-Revision-Date: 2014-06-06 19:50+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -870,6 +870,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"உங்கள் PHP MySQL நிரல்கோவையின் பதிப்பும் %s MySQL வழங்கியின் பதிப்பும் %s "
+"வேறுபடுகின்றன.இது எதிர்பாரா விளைவுகளுக்கு காரணமாகலாம்."
 
 #: index.php:576
 #, php-format
