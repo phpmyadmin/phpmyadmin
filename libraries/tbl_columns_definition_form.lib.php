@@ -138,6 +138,7 @@ function PMA_getHtmlForTableConfigurations()
 function PMA_getHtmlForFooter()
 {
     $html = '<fieldset class="tblFooters">'
+        . '<input type="button" class="preview_sql" value="' . __('Preview SQL') . '" />'
         . '<input type="submit" name="do_save_data" value="' . __('Save') . '" />'
         . '</fieldset>'
         . '<div id="properties_message"></div>'

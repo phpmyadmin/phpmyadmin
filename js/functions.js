@@ -53,7 +53,7 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
 });
 
 /**
- * Show notices for ENUM columns; add/hide the default value 
+ * Show notices for ENUM columns; add/hide the default value
  *
  */
 function PMA_verifyColumnsProperties()
@@ -2279,6 +2279,13 @@ AJAX.registerOnload('functions.js', function () {
                 .submit();
         }
     });
+
+    $('body')
+    .off('click', 'input.preview_sql')
+    .on('click', 'input.preview_sql', function () {
+        var $form = $(this).closest('form');
+        PMA_previewSQL($form);
+    });
 });
 
 
@@ -2988,6 +2995,11 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
                 PMA_ajaxShowMessage($error, false);
             }
         }); // end $.post()
+    };
+    button_options[PMA_messages.strPreviewSQL] = function () {
+        // Funciton for Previewing SQL
+        var $form = $('#index_frm');
+        PMA_previewSQL($form);
     };
     button_options[PMA_messages.strCancel] = function () {
         $(this).dialog('close');
@@ -4163,4 +4175,54 @@ function checkNumberOfFields() {
     });
 
     return true;
+}
+
+/**
+ * Requests SQL for previewing before executing.
+ *
+ * @param jQuery Object $form Form containing query data
+ *
+ * @return void
+ */
+function PMA_previewSQL($form)
+{
+    var form_url = $form.attr('action');
+    var form_data = $form.serialize() +
+        '&do_save_data=1' +
+        '&preview_sql=1' +
+        '&ajax_request=1';
+    $.ajax({
+        type: 'POST',
+        url: form_url,
+        data: form_data,
+        success: function (response) {
+            if (response.success) {
+                var $dialog_content = $('<div/>')
+                    .append(response.sql_data);
+                var button_options = {};
+                button_options[PMA_messages.strClose] = function () {
+                    $(this).dialog('close');
+                };
+                var $response_dialog = $dialog_content.dialog({
+                    minWidth: 550,
+                    maxHeight: 400,
+                    modal: true,
+                    buttons: button_options,
+                    title: PMA_messages.strPreviewSQL,
+                    close: function () {
+                        $(this).remove();
+                    },
+                    open: function () {
+                        // Pretty SQL printing.
+                        PMA_highlightSQL($(this));
+                    }
+                });
+            } else {
+                PMA_ajaxShowMessage(response.message);
+            }
+        },
+        error: function () {
+            PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest);
+        }
+    });
 }

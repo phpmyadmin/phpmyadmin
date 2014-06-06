@@ -262,11 +262,13 @@ select:hover {
 }
 
 input[type=submit],
+input[type=button],
 button[type=submit]:not(.mult_submit) {
     font-weight: bold !important;
 }
 
 input[type=submit],
+input[type=button],
 button[type=submit]:not(.mult_submit),
 input[type=reset],
 input[name=submit_reset],
@@ -288,6 +290,7 @@ input.button {
 }
 
 input[type=submit]:hover,
+input[type=button]:hover,
 button[type=submit]:not(.mult_submit):hover,
 input[type=reset]:hover,
 input[name=submit_reset]:hover,
@@ -298,6 +301,7 @@ input.button:hover {
 }
 
 input[type=submit]:active,
+input[type=button]:active,
 button[type=submit]:not(.mult_submit):active,
 input[type=reset]:active,
 input[name=submit_reset]:active,
@@ -317,7 +321,7 @@ textarea.char {
     height: <?php echo ceil($GLOBALS['cfg']['CharTextareaRows'] * 1.2); ?>em;
 }
 
-fieldset {
+fieldset, .preview_sql {
     margin-top: 1em;
     border-radius: 4px 4px 0 0;
     -moz-border-radius: 4px 4px 0 0;

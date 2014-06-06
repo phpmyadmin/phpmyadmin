@@ -1646,8 +1646,16 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<input type="reset" class="control_at_footer" value="Reset" '
+                '<input type="button" class="preview_sql" value="Preview SQL" '
                 . 'tabindex="8" />'
+            ),
+            $result
+        );
+
+        $this->assertTag(
+            PMA_getTagArray(
+                '<input type="reset" class="control_at_footer" value="Reset" '
+                . 'tabindex="9" />'
             ),
             $result
         );
