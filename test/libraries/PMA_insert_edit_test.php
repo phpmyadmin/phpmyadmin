@@ -731,7 +731,6 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['True_Type'] = '';
         $column['Field'] = 'f';
         $foreigners['f'] = true;
-        $foreignData = array();
         $foreignData['foreign_link'] = '';
         $this->assertEquals(
             '4',
