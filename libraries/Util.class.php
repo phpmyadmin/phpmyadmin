@@ -1539,8 +1539,8 @@ class PMA_Util
     /**
      * Writes localised date
      *
-     * @param string $timestamp the current timestamp
-     * @param string $format    format
+     * @param integer $timestamp the current timestamp
+     * @param string  $format    format
      *
      * @return string   the formatted date
      *
@@ -1997,9 +1997,9 @@ class PMA_Util
      * Not sure we could use a strMissingParameter message here,
      * would have to check if the error message file is always available
      *
-     * @param array $params  The names of the parameters needed by the calling script
-     * @param bool  $request Whether to include this list in checking for
-     *                       special params
+     * @param string[] $params  The names of the parameters needed by the calling script
+     * @param bool     $request Whether to include this list in checking for
+     *                          special params
      *
      * @return void
      *
@@ -2397,14 +2397,14 @@ class PMA_Util
     /**
      * Prepare navigation for a list
      *
-     * @param int    $count       number of elements in the list
-     * @param int    $pos         current position in the list
-     * @param array  $_url_params url parameters
-     * @param string $script      script name for form target
-     * @param string $frame       target frame
-     * @param int    $max_count   maximum number of elements to display from the list
-     * @param string $name        the name for the request parameter
-     * @param array  $classes     additional classes for the container
+     * @param int      $count       number of elements in the list
+     * @param int      $pos         current position in the list
+     * @param array    $_url_params url parameters
+     * @param string   $script      script name for form target
+     * @param string   $frame       target frame
+     * @param int      $max_count   maximum number of elements to display from the list
+     * @param string   $name        the name for the request parameter
+     * @param string[] $classes     additional classes for the container
      *
      * @return string $list_navigator_html the  html content
      *
@@ -2896,7 +2896,7 @@ class PMA_Util
      *
      * @param string $value value
      *
-     * @return boolean
+     * @return integer
      */
     public static function containsNonPrintableAscii($value)
     {
@@ -3467,7 +3467,7 @@ class PMA_Util
      *
      * @param bool $upper_case whether to return values in upper case
      *
-     * @return array GIS data types
+     * @return string[] GIS data types
      */
     public static function getGISDatatypes($upper_case = false)
     {
