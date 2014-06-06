@@ -120,7 +120,7 @@ class PMA_Footer
     /**
      * Returns the url of the current page
      *
-     * @param mixed $encoding See PMA_URL_getCommon()
+     * @param string|null $encoding See PMA_URL_getCommon()
      *
      * @return string
      */
