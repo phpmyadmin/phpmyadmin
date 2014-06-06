@@ -2508,7 +2508,7 @@ class PMA_DisplayResults
         }
 
         if ($is_field_truncated) {
-            $clases[] = 'truncated';
+            $classes[] = 'truncated';
         }
 
         if ($transformation_plugin != $default_function) {
