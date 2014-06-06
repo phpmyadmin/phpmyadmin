@@ -139,8 +139,8 @@ class PMA_Font
             $modifier = 1.23;
             break;
         }
-        $textWidth = $count*$fontSize;
-        return ceil($textWidth*$modifier);
+        $textWidth = $count * $fontSize;
+        return (int)ceil($textWidth * $modifier);
     }
 }
 ?>
