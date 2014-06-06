@@ -97,7 +97,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
         $attrInstance->setAccessible(true);
-        $attrInstance->setValue(null, $mockResponse);
+        $attrInstance->setValue($mockResponse);
         $GLOBALS['conn_error'] = true;
         $GLOBALS['cfg']['PmaAbsoluteUri'] = 'https://phpmyadmin.net/';
         $this->assertTrue(
@@ -171,7 +171,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
         $attrInstance->setAccessible(true);
-        $attrInstance->setValue(null, $mockResponse);
+        $attrInstance->setValue($mockResponse);
 
         $GLOBALS['pmaThemeImage'] = 'test';
         $GLOBALS['conn_error'] = true;
@@ -314,7 +314,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
         $attrInstance->setAccessible(true);
-        $attrInstance->setValue(null, $mockResponse);
+        $attrInstance->setValue($mockResponse);
 
         $GLOBALS['pmaThemeImage'] = 'test';
         $GLOBALS['cfg']['Lang'] = '';
@@ -399,7 +399,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             $result
         );
 
-        $attrInstance->setValue(null, $restoreInstance);
+        $attrInstance->setValue($restoreInstance);
     }
 
     /**
@@ -429,7 +429,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
         $attrInstance->setAccessible(true);
-        $attrInstance->setValue(null, $mockResponse);
+        $attrInstance->setValue($mockResponse);
 
         $_REQUEST['old_usr'] = 'user1';
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'http://www.phpmyadmin.net/logout';
@@ -443,7 +443,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             $GLOBALS['header'][0]
         );
 
-        $attrInstance->setValue(null, $restoreInstance);
+        $attrInstance->setValue($restoreInstance);
     }
 
     /**
@@ -870,7 +870,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
         $attrInstance->setAccessible(true);
-        $attrInstance->setValue(null, $mockResponse);
+        $attrInstance->setValue($mockResponse);
 
         $this->object->authSetUser();
 
@@ -893,7 +893,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             $GLOBALS['header'][0]
         );
 
-        $attrInstance->setValue(null, $restoreInstance);
+        $attrInstance->setValue($restoreInstance);
     }
 
     /**

@@ -207,7 +207,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $response = new ReflectionProperty('PMA_Response', '_instance');
         $response->setAccessible(true);
-        $response->setValue(null, $responseMock);
+        $response->setValue($responseMock);
 
         $result = PMA_showEmptyResultMessageOrSetUniqueCondition(
             array(false), 0, array('1'), 'SELECT', array('1' => 'result1')
@@ -1919,7 +1919,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $response = new ReflectionProperty('PMA_Response', '_instance');
         $response->setAccessible(true);
-        $response->setValue(null, $responseMock);
+        $response->setValue($responseMock);
 
         PMA_isInsertRow();
 
@@ -2759,7 +2759,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $response = new ReflectionProperty('PMA_Response', '_instance');
         $response->setAccessible(true);
-        $response->setValue(null, $responseMock);
+        $response->setValue($responseMock);
 
         $result = PMA_determineInsertOrEdit('1', 'db', 'table');
 

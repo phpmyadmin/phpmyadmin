@@ -139,7 +139,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
 
         $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
         $attrInstance->setAccessible(true);
-        $attrInstance->setValue(null, $mockResponse);
+        $attrInstance->setValue($mockResponse);
 
         $GLOBALS['header'] = array();
         $_REQUEST['old_usr'] = '';
@@ -158,7 +158,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
             $GLOBALS['header']
         );
 
-        $attrInstance->setValue(null, $restoreInstance);
+        $attrInstance->setValue($restoreInstance);
 
         // case 3
 
