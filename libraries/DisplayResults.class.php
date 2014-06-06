@@ -1815,7 +1815,7 @@ class PMA_DisplayResults
      * @param integer $column_index                the index of the column
      * @param string  $unsorted_sql_query          the unsorted sql query
      * @param integer $session_max_rows            maximum rows resulted by sql
-     * @param array   $direction                   the display direction
+     * @param string  $direction                   the display direction
      * @param string  $comments                    comment for row
      * @param array   $sort_direction              sort direction
      * @param boolean $col_visib                   column is visible(false)
@@ -2076,7 +2076,7 @@ class PMA_DisplayResults
      * Get sort url paramaeters - sort order and order image
      *
      * @param array   $sort_direction the sort direction
-     * @param array   $sort_order     the sorting order
+     * @param string  $sort_order     the sorting order
      * @param integer $column_index   the index of the column
      * @param integer $index          the index of sort direction array.
      *
