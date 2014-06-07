@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-24 09:05-0400\n"
-"PO-Revision-Date: 2014-06-07 07:17+0200\n"
+"PO-Revision-Date: 2014-06-07 07:22+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -1020,7 +1020,7 @@ msgstr "இணைப்புக்கள்/ செயலாக்கங்க�
 
 #: js/messages.php:79
 msgid "Local monitor configuration incompatible!"
-msgstr ""
+msgstr "உள்கண்காணிப்பின் அமைப்பாக்கம் இணக்கமற்றுள்ளது!"
 
 #: js/messages.php:80
 msgid ""
