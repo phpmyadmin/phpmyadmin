@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-06-07 10:08+0200\n"
+"PO-Revision-Date: 2014-06-07 10:14+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1238,6 +1238,8 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"பின்வரும் அமைப்புகள் மொத்த அமைப்புக்கும் பயன்படுத்தப்படும் மேலும் வழங்கியின் "
+"மறுதொடக்கதின் பொது இயல்புநிலைக்கு மீட்டமைக்கப்படும்:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:138
