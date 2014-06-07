@@ -2997,7 +2997,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
         }); // end $.post()
     };
     button_options[PMA_messages.strPreviewSQL] = function () {
-        // Funciton for Previewing SQL
+        // Function for Previewing SQL
         var $form = $('#index_frm');
         PMA_previewSQL($form);
     };
