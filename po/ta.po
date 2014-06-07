@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-24 09:05-0400\n"
-"PO-Revision-Date: 2014-06-07 07:05+0200\n"
+"PO-Revision-Date: 2014-06-07 07:07+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -973,7 +973,7 @@ msgstr "கு மதிப்புக்கள்"
 
 #: js/messages.php:62
 msgid "The host name is empty!"
-msgstr ""
+msgstr "புரவலர் பெயர் வெறுமையாக உள்ளது!"
 
 #: js/messages.php:63
 msgid "The user name is empty!"
