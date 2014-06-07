@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-05-25 15:22+0200\n"
+"PO-Revision-Date: 2014-06-08 00:38+0200\n"
 "Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
-"Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/>"
+"\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -24,10 +24,10 @@ msgstr ""
 "Filen %s er ikke tilgængelig, besøg www.phpmyadmin.net for mere information."
 
 #: db_central_columns.php:111
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "Viser rækkerne %1s - %2s"
+msgstr "Viser række(rne) %1$s - %2$s"
 
 #: db_create.php:61
 #, php-format
@@ -990,7 +990,7 @@ msgstr "Tilføj %s kolonne(r) til indeks"
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:365
 msgid "Preview SQL"
-msgstr ""
+msgstr "Forhåndsvis SQL"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:62 libraries/tbl_chart.lib.php:215
@@ -1720,19 +1720,17 @@ msgstr "Bladre i fremmedværdier"
 
 #: js/messages.php:282
 msgid "Pick"
-msgstr ""
+msgstr "Vælg"
 
 #: js/messages.php:283
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "Der er ikke valgt kolonner."
+msgstr "Kolonnevælger"
 
 #: js/messages.php:284
-#, fuzzy
 #| msgid "Search this table"
 msgid "Search this list"
-msgstr "Søg i denne tabel"
+msgstr "Søg i denne liste"
 
 #: js/messages.php:285
 #, php-format
@@ -1740,12 +1738,13 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Ingen kolonner i centerlisten. Vær sikker på at centerlisten for databasen %"
+"s har kolonner der ikke er i aktuel tabel."
 
 #: js/messages.php:286
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "Ledig hukommelse"
+msgstr "Se mere"
 
 #: js/messages.php:288 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -3134,10 +3133,9 @@ msgid "Designer"
 msgstr "Designer"
 
 #: libraries/Menu.class.php:481 libraries/Util.class.php:4099
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "Tekstboks kolonner"
+msgstr "Centerkolonner"
 
 #: libraries/Menu.class.php:513 libraries/Util.class.php:4071
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
@@ -4153,32 +4151,31 @@ msgid "Check Privileges"
 msgstr "Tjek privilegier"
 
 #: libraries/central_columns.lib.php:118
+#, fuzzy
 msgid ""
 "Central list of columns configuration Storage is not completely configured!"
-msgstr ""
+msgstr "Centerliste af kolonners konfiguration er ikke komplet konfigureret!"
 
 #: libraries/central_columns.lib.php:241
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "Kunne ikke tilføje %1$s da den allerede er i centerlisten!"
 
 #: libraries/central_columns.lib.php:257
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "Kunne ikke gemme konfiguration"
+msgstr "Kunne ikke tilføje kolonner!"
 
 #: libraries/central_columns.lib.php:330
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr ""
+msgstr "Kunne ikke fjerne kolonne(r) %1$s da den ikke findes i centerlisten!"
 
 #: libraries/central_columns.lib.php:342
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not remove columns!"
-msgstr "Kunne ikke gemme seneste tabel!"
+msgstr "Kunne ikke fjerne kolonner!"
 
 #: libraries/central_columns.lib.php:506
 #: libraries/display_create_table.lib.php:60
@@ -4207,20 +4204,18 @@ msgid "Extra"
 msgstr "Ekstra"
 
 #: libraries/central_columns.lib.php:537
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Vælg tabeller"
+msgstr "Vælg en tabel"
 
 #: libraries/central_columns.lib.php:587 libraries/structure.lib.php:1647
 msgid "Add column"
 msgstr "Tilføj kolonne"
 
 #: libraries/central_columns.lib.php:599
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Vælg to kolonner"
+msgstr "Vælg en kolonne."
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -7882,10 +7877,9 @@ msgid "Convert to Kana"
 msgstr "Konverter til Kana"
 
 #: libraries/mult_submits.inc.php:274
-#, fuzzy
 #| msgid "Success."
 msgid "Success!"
-msgstr "Succes."
+msgstr "Gennemført!"
 
 #: libraries/mult_submits.lib.php:331
 msgid "Replace table prefix:"
@@ -9303,7 +9297,7 @@ msgstr "Gemmer Query-By-Example søgninger"
 
 #: libraries/relation.lib.php:302
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "Håndter centerliste for kolonner"
 
 #: libraries/relation.lib.php:308
 msgid "Quick steps to setup advanced features:"
@@ -10734,10 +10728,9 @@ msgid "Column-specific privileges"
 msgstr "Kolonne-specifikke privilegier"
 
 #: libraries/server_privileges.lib.php:2846
-#, fuzzy
 #| msgid "Add privileges on the following database:"
 msgid "Add privileges on the following database(s):"
-msgstr "Tilføj privilegier på følgende database:"
+msgstr "Tilføj privilegier på følgende database(r):"
 
 #: libraries/server_privileges.lib.php:2870
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -12186,14 +12179,13 @@ msgid "Copy table with prefix"
 msgstr "Kopier tabel med præfiks"
 
 #: libraries/structure.lib.php:341
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add columns to central list"
-msgstr "Bredde på tekstbokse"
+msgstr "Tilføj kolnner til centerliste"
 
 #: libraries/structure.lib.php:343
 msgid "Remove columns from central list"
-msgstr ""
+msgstr "Fjern kolonner fra centerliste"
 
 #: libraries/structure.lib.php:365
 msgid "Check tables having overhead"
@@ -12232,16 +12224,14 @@ msgid "Fulltext"
 msgstr "Fuldtekst"
 
 #: libraries/structure.lib.php:1483 libraries/structure.lib.php:2095
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "Bredde på tekstbokse"
+msgstr "Tilføj kolonner"
 
 #: libraries/structure.lib.php:1488 libraries/structure.lib.php:2085
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove from central columns"
-msgstr "Fjern kolonne(r)"
+msgstr "Fjern kolonner"
 
 #: libraries/structure.lib.php:1504 libraries/structure.lib.php:1614
 msgid "Move columns"
@@ -12456,7 +12446,7 @@ msgstr "Y-akse betegnelse:"
 
 #: libraries/tbl_chart.lib.php:237
 msgid "Series names are in a column"
-msgstr ""
+msgstr "Navne i en kolonne"
 
 #: libraries/tbl_chart.lib.php:240
 #, fuzzy
@@ -12465,20 +12455,18 @@ msgid "Series column:"
 msgstr "Indeni kolonne:"
 
 #: libraries/tbl_chart.lib.php:253
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Value column:"
-msgstr "Værdier for kolonnen %s"
+msgstr "Værdier for kolonnen %s:"
 
 #: libraries/tbl_chart.lib.php:286
 msgid "Start row:"
 msgstr "Startrække:"
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Send (download)"
+msgstr "Gem tabel som billede"
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
@@ -12554,10 +12542,9 @@ msgid "Is a foreign key."
 msgstr "Vælg fremmednøgle."
 
 #: libraries/tbl_columns_definition_form.lib.php:606
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Pick from Central Columns"
-msgstr "Fjern kolonne(r)"
+msgstr "Vælg fra centerkolonner"
 
 #: libraries/tbl_columns_definition_form.lib.php:784
 msgid "first"
