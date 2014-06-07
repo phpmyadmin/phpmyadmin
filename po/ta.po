@@ -1078,7 +1078,7 @@ msgstr "பயன்பாட்டிலுள்ள நினைவகம்"
 
 #: js/messages.php:97
 msgid "Total Swap"
-msgstr ""
+msgstr "மொத்த மாற்றிடம்"
 
 #: js/messages.php:98
 msgid "Cached Swap"
