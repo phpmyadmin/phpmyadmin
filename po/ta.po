@@ -996,7 +996,7 @@ msgstr "தேர்ந்தெடுக்கப்பட்ட பயனர�
 #: js/messages.php:67 js/messages.php:122 libraries/tbl_tracking.lib.php:354
 #: libraries/tbl_tracking.lib.php:759
 msgid "Close"
-msgstr "மூடு"
+msgstr "மூடுக"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:70 libraries/ServerStatusData.class.php:205
