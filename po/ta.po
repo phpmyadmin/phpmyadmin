@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-06-07 09:50+0200\n"
+"PO-Revision-Date: 2014-06-07 09:52+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1171,7 +1171,7 @@ msgstr "விளக்கப்படத்தை கட்டத்தில�
 
 #: js/messages.php:123
 msgid "Please add at least one variable to the series!"
-msgstr ""
+msgstr "தயவுசெய்து குறைந்தது ஒரு மாறியை\\ தொடரில் சேர்க்க!"
 
 #: js/messages.php:124 libraries/DisplayResults.class.php:1338
 #: libraries/TableSearch.class.php:877 libraries/TableSearch.class.php:1038
