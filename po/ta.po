@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-24 09:05-0400\n"
-"PO-Revision-Date: 2014-06-07 09:12+0200\n"
+"PO-Revision-Date: 2014-06-07 10:30+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -1032,31 +1032,31 @@ msgstr ""
 
 #: js/messages.php:82
 msgid "Query cache efficiency"
-msgstr ""
+msgstr "வினவல் இடைமாற்றியின் பயனுறுதிறன்"
 
 #: js/messages.php:83
 msgid "Query cache usage"
-msgstr "வினவல் இடைமாற்றல் பாவனையளவு"
+msgstr "வினவல் இடைமாற்றல் பயன்பாட்டளவு"
 
 #: js/messages.php:84
 msgid "Query cache used"
-msgstr "வினவல் இடைமாற்று பயன்படுத்தப்பட்டது"
+msgstr "வினவல் இடைமாற்று பயன்படுத்தப்பட்டுள்ளது"
 
 #: js/messages.php:86
 msgid "System CPU Usage"
-msgstr "மையச்செயலக பாவனையளவு"
+msgstr "மையச்செயலக பயனளவு"
 
 #: js/messages.php:87
 msgid "System memory"
-msgstr "முறைமை நினைவகம்"
+msgstr "அமைப்புமுறையின் நினைவகம்"
 
 #: js/messages.php:88
 msgid "System swap"
-msgstr ""
+msgstr "அமைப்புமுறையின் மாற்றிடம்"
 
 #: js/messages.php:90
 msgid "Average load"
-msgstr "சராசரி ஏற்றல்"
+msgstr "சராசரி சுமையளவு"
 
 #: js/messages.php:91
 msgid "Total memory"
@@ -1068,39 +1068,39 @@ msgstr "இடைமாற்று நினைவகம்"
 
 #: js/messages.php:93
 msgid "Buffered memory"
-msgstr ""
+msgstr "இடையக நினைவகம்"
 
 #: js/messages.php:94
 msgid "Free memory"
-msgstr "விடுபட்ட நினைவகம்"
+msgstr "பயன்படுத்தபடா நினைவகம்"
 
 #: js/messages.php:95
 msgid "Used memory"
-msgstr "பாவிக்கப்பட்ட  நினைவகம்"
+msgstr "பயன்பாட்டிலுள்ள நினைவகம்"
 
 #: js/messages.php:97
 msgid "Total Swap"
-msgstr ""
+msgstr "மொத்த மாற்றிடம்"
 
 #: js/messages.php:98
 msgid "Cached Swap"
-msgstr ""
+msgstr "இடைமாற்று மாற்றிடம்"
 
 #: js/messages.php:99
 msgid "Used Swap"
-msgstr ""
+msgstr "பயன்பாட்டிலுள்ள மாற்றிடம்"
 
 #: js/messages.php:100
 msgid "Free Swap"
-msgstr ""
+msgstr "பயன்பாடுத்தபடாத மாற்றிடம்"
 
 #: js/messages.php:102
 msgid "Bytes sent"
-msgstr "துண்டுகள் அனுப்ப"
+msgstr "அனுப்பப்பட்ட துண்டுகள்"
 
 #: js/messages.php:103
 msgid "Bytes received"
-msgstr "துண்டுகள்  ஏற்றுக்கொள்ளப்பட்டது"
+msgstr "ஏற்றுக்கொள்ளப்பட்ட துண்டுகள்"
 
 #: js/messages.php:104 libraries/server_status.lib.php:220
 msgid "Connections"
@@ -1113,7 +1113,7 @@ msgstr "செயலாக்கங்கள்"
 #. l10n: shortcuts for Byte
 #: js/messages.php:108 libraries/Util.class.php:1346
 msgid "B"
-msgstr "B"
+msgstr "து"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:109 libraries/Util.class.php:1348
@@ -1165,15 +1165,15 @@ msgstr "போக்குவரத்து"
 #: js/messages.php:120 libraries/Menu.class.php:549
 #: libraries/Util.class.php:4102 libraries/server_status_monitor.lib.php:299
 msgid "Settings"
-msgstr "அமைப்புகள்"
+msgstr "அமைவுகள்"
 
 #: js/messages.php:121
 msgid "Add chart to grid"
-msgstr "வரைபடத்தை கட்டத்தில் சேர்"
+msgstr "விளக்கப்படத்தை கட்டத்தில் சேர்"
 
 #: js/messages.php:123
 msgid "Please add at least one variable to the series!"
-msgstr ""
+msgstr "தயவுசெய்து குறைந்தது ஒரு மாறியை\\ தொடரில் சேர்க்க!"
 
 #: js/messages.php:124 libraries/DisplayResults.class.php:1338
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1047
@@ -1188,35 +1188,35 @@ msgstr "எதுவுமில்லை"
 
 #: js/messages.php:125
 msgid "Resume monitor"
-msgstr ""
+msgstr "கண்காணிப்பை மீளேற்று"
 
 #: js/messages.php:126
 msgid "Pause monitor"
-msgstr ""
+msgstr "கண்காணிப்பை இடைநிறுத்துக"
 
 #: js/messages.php:128
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log மற்றும் slow_query_log ஆகியவை இயலசெய்யப்பட்டன."
 
 #: js/messages.php:129
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log இயலசெய்யப்பட்டது."
 
 #: js/messages.php:130
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log இயலசெய்யப்பட்டது."
 
 #: js/messages.php:131
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "general_log மற்றும் slow_query_log ஆகியவை முடக்கப்பட்டன."
 
 #: js/messages.php:132
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output அட்டவணை என அமைக்கப்படவில்லை."
 
 #: js/messages.php:133
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output அட்டவணை என அமைக்கப்பட்டது."
 
 #: js/messages.php:134
 #, php-format
@@ -1225,47 +1225,55 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log இயலசெய்யப்பட்டுள்ளது,ஆனாலும் வழங்கி %d நொடிகளைவிட "
+"அதிகநேரம்.எடுத்துகொள்ளும் வினவல்களை மட்டுமே பதிவு செய்கிறது. உங்கள் "
+"கணிணிஅமைப்பை பொறுத்து long_query_time ஐ ௦-2 நொடிகளாக அமைக்க "
+"அறிவுறுத்தப்படுகிறது."
 
 #: js/messages.php:135
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time %d நொடி(களாக) அமைக்கப்படுகிறது."
 
 #: js/messages.php:136
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"பின்வரும் அமைப்புகள் மொத்த அமைப்புக்கும் பயன்படுத்தப்படும் மேலும் வழங்கியின் "
+"மறுதொடக்கதின் பொது இயல்புநிலைக்கு மீட்டமைக்கப்படும்:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:138
 #, php-format
 msgid "Set log_output to %s"
-msgstr ""
+msgstr "log_output %s க்கு அமைக்க"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:140
 #, php-format
 msgid "Enable %s"
-msgstr "இயலச்செய் %s"
+msgstr "இயலச்செய்க %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:142
 #, php-format
 msgid "Disable %s"
-msgstr "முடக்கு %s"
+msgstr "முடக்குக %s"
 
 #. l10n: %d seconds
 #: js/messages.php:144
 #, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr ""
+msgstr "long_query_time ஐ %d நொடிகளாக அமைக்க."
 
 #: js/messages.php:146
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"நீங்கள் இந்த மாறிகளை மாற்ற முடியாது.தயவுசெய்து root அக புகுபதிவு செய்க.அல்லது"
+" உங்கள் செயலாட்சியரை தொடர்பு கொள்க."
 
 #: js/messages.php:149
 msgid "Change settings"
@@ -1277,12 +1285,12 @@ msgstr "நடப்பு அமைப்புக்கள்"
 
 #: js/messages.php:152 libraries/server_status_monitor.lib.php:216
 msgid "Chart Title"
-msgstr "வரைபடத் தலைப்பு"
+msgstr "விளக்கப்படத் தலைப்பு"
 
 #. l10n: As in differential values
 #: js/messages.php:154
 msgid "Differential"
-msgstr "வேற்றுமை"
+msgstr "வகைகெழு"
 
 #: js/messages.php:155
 #, php-format
@@ -1291,15 +1299,15 @@ msgstr "%s ஆல் பிரிக்கப்பட்டது"
 
 #: js/messages.php:156
 msgid "Unit"
-msgstr ""
+msgstr "அலகு"
 
 #: js/messages.php:158
 msgid "From slow log"
-msgstr "மெதுவான பதிகைஇலிருந்து"
+msgstr "slow_log லிருந்து"
 
 #: js/messages.php:159
 msgid "From general log"
-msgstr "பொதுவான பதிகைஇலிருந்து"
+msgstr "general_log லிருந்து"
 
 #: js/messages.php:161
 msgid "The database name is not known for this query in the server's logs."
@@ -8431,12 +8439,12 @@ msgstr ""
 
 #: libraries/plugins/import/ImportShp.class.php:54
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "ESRI வடிவகோப்பு"
 
 #: libraries/plugins/import/ImportShp.class.php:148
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "ESRI வடிவகோப்பை \"%s\" தரவிறக்குவதில் பிழை நிகழ்ந்துள்ளது."
 
 #: libraries/plugins/import/ImportShp.class.php:204
 msgid ""
@@ -11433,7 +11441,7 @@ msgstr "தனித்த சுட்டுதொகுப்புக்க�
 
 #: libraries/structure.lib.php:2049 libraries/structure.lib.php:2052
 msgid "Add SPATIAL index"
-msgstr "வெளி சார்ந்த சுட்டுதொகுப்புக்குறி சேர்க்க"
+msgstr "இடம்சார்ந்த சுட்டுதொகுப்புக்குறி சேர்க்க"
 
 #: libraries/structure.lib.php:2055 libraries/structure.lib.php:2058
 msgid "Add FULLTEXT index"
