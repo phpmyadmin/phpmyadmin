@@ -977,7 +977,7 @@ msgstr "புரவலர் பெயர் வெறுமையாக உள
 
 #: js/messages.php:63
 msgid "The user name is empty!"
-msgstr ""
+msgstr "பயனர் பெயர் வெறுமையாக உள்ளது!"
 
 #: js/messages.php:64 libraries/server_privileges.lib.php:1580
 #: user_password.php:110
