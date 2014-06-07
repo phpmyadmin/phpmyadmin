@@ -7658,7 +7658,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:303
 #: libraries/tbl_printview.lib.php:310
 msgid "Index"
-msgstr ""
+msgstr "சுட்டுதொகுப்புக்குறி"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
 msgctxt "Create new index"
