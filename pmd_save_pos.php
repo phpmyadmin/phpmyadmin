@@ -85,8 +85,4 @@ if (! empty($die_save_pos)) {
         . __('Modifications have been saved') . '"></root>';
 }
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>

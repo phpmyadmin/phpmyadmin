@@ -346,10 +346,3 @@ echo '<h2>' . __('Reset') . '</h2>'
     </div>
     <br class="clearfloat" />
 </div>
-
-<?php
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
-?>

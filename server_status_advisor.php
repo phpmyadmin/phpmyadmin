@@ -33,11 +33,6 @@ $response->addHTML($ServerStatusData->getMenuHtml());
 $response->addHTML(PMA_getHtmlForAdvisor());
 $response->addHTML('</div>');
 
-/**
- * Include error reporting script. Before exit.
- */
-require_once 'libraries/common_error_reporting.inc.php';
-
 exit;
 
 ?>

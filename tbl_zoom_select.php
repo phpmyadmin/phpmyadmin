@@ -161,8 +161,4 @@ if (isset($_POST['zoom_submit'])
     $response->addHTML($table_search->getZoomResultsForm($goto, $data));
 }
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>

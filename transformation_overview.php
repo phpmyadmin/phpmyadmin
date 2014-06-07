@@ -56,10 +56,3 @@ foreach ($types['transformation'] as $key => $transform) {
 ?>
 </tbody>
 </table>
-
-<?php
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
-?>

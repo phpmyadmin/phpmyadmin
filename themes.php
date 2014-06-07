@@ -29,8 +29,4 @@ $output .= $_SESSION['PMA_Theme_Manager']->getPrintPreviews();
 
 $response->addHTML($output);
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>

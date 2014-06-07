@@ -69,8 +69,4 @@ if ($cfgRelation['navwork']) {
 // Do the magic
 $response->addJSON('message', $navigation->getDisplay());
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>

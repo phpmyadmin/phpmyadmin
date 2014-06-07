@@ -130,8 +130,4 @@ if ($cfgRelation['designerwork']) {
 
 $response->addHTML($db_qbe->getSelectionForm($cfgRelation));
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>

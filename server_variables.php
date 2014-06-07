@@ -55,11 +55,6 @@ $response->addHtml(PMA_getHtmlForLinkTemplates());
  */
 $response->addHtml(PMA_getHtmlForServerVariables($variable_doc_links));
 
-/**
- * Include error reporting script. Before exit.
- */
-require_once 'libraries/common_error_reporting.inc.php';
-
 exit;
 
 ?>

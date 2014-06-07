@@ -431,8 +431,4 @@ if (empty($db_is_system_schema)) {
     $response->addHTML($content);
 } // end if (Create Table dialog)
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>

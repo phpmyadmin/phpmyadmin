@@ -94,9 +94,4 @@ $GLOBAL['table'] = '';
  */
 require 'libraries/tbl_columns_definition_form.inc.php';
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
-
 ?>

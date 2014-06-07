@@ -46,8 +46,4 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('indexes.js');
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>

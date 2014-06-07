@@ -29,11 +29,6 @@ $response->addHTML(PMA_getHtmlForSubPageHeader('engines'));
  */
 $response->addHTML(PMA_getHtmlForServerEngines());
 
-/**
- * Include error reporting script. Before exit.
- */
-require_once 'libraries/common_error_reporting.inc.php';
-
 exit;
 
 ?>

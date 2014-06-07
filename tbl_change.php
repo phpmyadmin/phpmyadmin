@@ -212,8 +212,4 @@ if ($insert_mode) {
 
 $response->addHTML($html_output);
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>

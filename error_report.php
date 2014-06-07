@@ -165,8 +165,4 @@ if (isset($_REQUEST['exception_type'])
     die('Oops, something went wrong!!');
 }
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>

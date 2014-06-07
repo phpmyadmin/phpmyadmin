@@ -399,11 +399,6 @@ if (isset($_REQUEST['after_insert']) && 'new_insert' == $_REQUEST['after_insert'
  */
 require '' . PMA_securePath($goto_include);
 
-/**
- * Include error reporting script. Before exiting.
- */
-require_once 'libraries/common_error_reporting.inc.php';
-
 exit;
 
 ?>

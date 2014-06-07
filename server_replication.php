@@ -81,8 +81,4 @@ if (isset($_REQUEST['sl_configure'])) {
     $response->addHTML(PMA_getHtmlForReplicationChangeMaster("slave_changemaster"));
 }
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>

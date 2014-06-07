@@ -31,10 +31,5 @@ if (! PMA_isValid($_GET['url'])
     printf(__('Taking you to %s.'), htmlspecialchars($_GET['url']));
 }
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
-
 die();
 ?>

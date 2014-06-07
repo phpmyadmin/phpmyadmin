@@ -162,8 +162,4 @@ $hidden_titles = PMA_getHiddenTitlesArray();
 //display table structure
 require_once 'libraries/display_structure.inc.php';
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>
