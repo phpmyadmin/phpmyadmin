@@ -55,6 +55,11 @@ $action = 'tbl_create.php';
  */
 if (isset($_REQUEST['do_save_data'])) {
     $sql_query = PMA_getTableCreationQuery($db, $table);
+
+    // If there is a request for SQL previewing.
+    if (isset($_REQUEST['preview_sql'])) {
+        PMA_previewSQL($sql_query);
+    }
     // Executes the query
     $result = $GLOBALS['dbi']->tryQuery($sql_query);
 

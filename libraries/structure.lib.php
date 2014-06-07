@@ -2479,7 +2479,7 @@ function PMA_updateColumns($db, $table)
 
     $response = PMA_Response::getInstance();
 
-    if (count($changes) > 0) {
+    if (count($changes) > 0 || isset($_REQUEST['preview_sql'])) {
         // Builds the primary keys statements and updates the table
         $key_query = '';
         /**
@@ -2504,6 +2504,12 @@ function PMA_updateColumns($db, $table)
         $sql_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
         $sql_query .= implode(', ', $changes) . $key_query;
         $sql_query .= ';';
+
+        // If there is a request for SQL previewing.
+        if (isset($_REQUEST['preview_sql'])) {
+            PMA_previewSQL(count($changes) > 0 ? $sql_query : '');
+        }
+
         $result    = $GLOBALS['dbi']->tryQuery($sql_query);
 
         if ($result !== false) {

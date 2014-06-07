@@ -54,6 +54,9 @@ $js_messages['strAddIndex'] = __('Add Index');
 $js_messages['strEditIndex'] = __('Edit Index');
 $js_messages['strAddToIndex'] = __('Add %s column(s) to index');
 
+/* For Preview SQL*/
+$js_messages['strPreviewSQL'] = __('Preview SQL');
+
 /* Charts */
 /* l10n: Default label for the y-Axis of Charts */
 $js_messages['strYValues'] = __('Y Values');
