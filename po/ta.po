@@ -11676,7 +11676,7 @@ msgstr ""
 
 #: libraries/tbl_indexes.lib.php:259
 msgid "Index name:"
-msgstr "சுட்டுப் பெயர்:"
+msgstr "சுட்டுதொகுப்புக்குறி பெயர்:"
 
 #: libraries/tbl_indexes.lib.php:263
 msgid ""
