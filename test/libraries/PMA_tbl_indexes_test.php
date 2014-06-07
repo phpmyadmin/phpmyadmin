@@ -97,7 +97,7 @@ class PMA_TblIndexTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            "ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY,COMMENT '';",
+            "ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, COMMENT '';",
             $sql
         );
     }
