@@ -139,7 +139,9 @@ class PMA_Menu
                 . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
 
             $sql_query = "SELECT `tab` FROM " . $groupTable
-                . " WHERE `allowed` = 'N' AND `usergroup` = (SELECT usergroup FROM "
+                . " WHERE `allowed` = 'N'"
+                . " AND `tab` LIKE '" . $level . "%'"
+                . " AND `usergroup` = (SELECT usergroup FROM "
                 . $userTable . " WHERE `username` = '"
                 . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "')";
 
