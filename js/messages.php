@@ -422,6 +422,13 @@ $js_messages['phpErrorsFound'] = '<div class="error">'
     . '" onclick="PMA_ignorePhpErrors(false)" style="float: right; margin: 20px;">'
     . '</div></div>';
 
+$js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
+    . __('Some errors have been detected on the server!!')
+    . '<br/>'
+    . __('As per your settings, they are being submitted currently.')
+    . __(' Please be patient.')
+    . '</div>';
+
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
     PMA_printJsValue("PMA_messages['" . $name . "']", $js_message);

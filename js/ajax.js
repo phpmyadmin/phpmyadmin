@@ -340,6 +340,7 @@ var AJAX = {
                             && data._stopErrorReportLoop != '1'
                         ) {
                             $("#pma_report_errors_form").submit();
+                            PMA_ajaxShowMessage(PMA_messages['phpErrorsBeingSubmitted'], false);
                         } else if (data._promptPhpErrors) {
                             // otherwise just prompt user if it is set so.
                             msg = msg + PMA_messages['phpErrorsFound'];
