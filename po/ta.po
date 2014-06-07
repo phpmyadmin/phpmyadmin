@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-06-07 09:52+0200\n"
+"PO-Revision-Date: 2014-06-07 09:53+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1186,7 +1186,7 @@ msgstr "எதுவுமில்லை"
 
 #: js/messages.php:125
 msgid "Resume monitor"
-msgstr ""
+msgstr "கண்காணிப்பை மீளேற்று"
 
 #: js/messages.php:126
 msgid "Pause monitor"
