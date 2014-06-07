@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-06-07 09:43+0200\n"
+"PO-Revision-Date: 2014-06-07 09:46+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1094,7 +1094,7 @@ msgstr "பயன்பாடுத்தபடாத மாற்றிடம�
 
 #: js/messages.php:102
 msgid "Bytes sent"
-msgstr "துண்டுகள் அனுப்ப"
+msgstr "அனுப்பப்பட்ட துண்டுகள்"
 
 #: js/messages.php:103
 msgid "Bytes received"
