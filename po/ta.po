@@ -1206,7 +1206,7 @@ msgstr "slow_query_log இயலசெய்யப்பட்டது."
 
 #: js/messages.php:131
 msgid "slow_query_log and general_log are disabled."
-msgstr "general_log மற்றும் slow_query_log ஆகியவை முடக்ககபட்டன"
+msgstr "general_log மற்றும் slow_query_log ஆகியவை முடக்கப்பட்டன"
 
 #: js/messages.php:132
 msgid "log_output is not set to TABLE."
