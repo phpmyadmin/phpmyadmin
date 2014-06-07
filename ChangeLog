@@ -11,7 +11,8 @@ phpMyAdmin - ChangeLog
 - bug #4416 New lines are removed when grid editing
 + rfe #706  Multi-db privileges adding
 + rfe #1527 Charts for data in <x-axis, series, value> format
-+ rfe       Allow saving query charts as images 
++ rfe       Allow saving query charts as images
++ rfe #1145 Preview SQL instead of executing it
 
 4.2.3.0 (not yet released)
 - bug #4423 Moving fields not working
