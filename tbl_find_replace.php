@@ -60,9 +60,4 @@ $err_url   = $goto . '?' . PMA_URL_getCommon($db, $table);
 $htmlOutput .= $table_search->getSelectionForm($goto);
 $response->addHTML($htmlOutput);
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
-
 ?>

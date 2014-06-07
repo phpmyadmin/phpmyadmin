@@ -69,8 +69,4 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
     echo file_get_contents($_FILES['file']['tmp_name']);
 }
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>

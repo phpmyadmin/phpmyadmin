@@ -62,8 +62,4 @@ if (isset($_REQUEST['addUserGroup'])) {
 
 $response->addHTML('</div>');
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>

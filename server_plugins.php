@@ -54,11 +54,6 @@ ksort($plugins);
 $response->addHTML(PMA_getHtmlForSubPageHeader('plugins'));
 $response->addHTML(PMA_getPluginAndModuleInfo($plugins, $modules));
 
-/**
- * Include error reporting script. Before exit.
- */
-require_once 'libraries/common_error_reporting.inc.php';
-
 exit;
 
 ?>

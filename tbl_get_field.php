@@ -53,8 +53,4 @@ PMA_downloadHeader(
 );
 echo $result;
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>

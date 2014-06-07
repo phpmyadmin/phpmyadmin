@@ -158,8 +158,4 @@ if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
 // Render HTML output
 PMA_Response::getInstance()->addHTML($html_output);
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>

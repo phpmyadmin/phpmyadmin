@@ -178,8 +178,4 @@ echo PMA_Util::getButton();
 
 echo "<div id='PMA_disable_floating_menubar'></div>\n";
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>

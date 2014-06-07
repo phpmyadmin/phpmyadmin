@@ -131,8 +131,4 @@ function PMD_Return_new($b,$ret)
     '"></root>');
 }
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>

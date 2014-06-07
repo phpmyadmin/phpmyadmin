@@ -198,8 +198,4 @@ PMA_executeQueryAndSendQueryResponse(
     isset($complete_query) ? $complete_query : null
 );
 
-/**
- * Include error reporting script.
- */
-require_once 'libraries/common_error_reporting.inc.php';
 ?>
