@@ -473,5 +473,45 @@ class PMA_Error_Handler
                 && $this->countErrors() !=  $this->countUserErrors()
                 );
     }
+
+    /**
+     * Function to report all the collected php errors.
+     * Must be called at the end of each script by the $GLOBALS['error_handler'] only.
+     *
+     * @return: void
+     */
+    public function reportError()
+    {
+        if (!$this->hasErrors()) {
+            return;
+        }
+        // Delete all the prev_errors in session & store new prev_errors in session
+        $this->savePreviousErrors();
+        $response = PMA_Response::getInstance();
+        $jsCode = '';
+        if ($GLOBALS['cfg']['SendErrorReports'] == 'always') {
+            //send the error reports directly
+            $_REQUEST['exception_type'] = 'php';
+            $_REQUEST['send_error_report'] = '1';
+            include_once 'error_report.php';
+
+            // js code to appropriate focusing,
+            $jsCode = '$("html, body").animate({
+                            scrollTop:$(document).height()
+                        }, "slow");';
+        } elseif ($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
+            //ask user whether to submit errors or not.
+            if (!$response->isAjax()) {
+                // js code to show appropriate msgs & focusing,
+                $jsCode = 'PMA_ajaxShowMessage(PMA_messages["phpErrorsFound"], 2000);'
+                        . '$("html, body").animate({
+                            scrollTop:$(document).height()
+                        }, "slow");';
+            }
+        }
+        // The errors are already sent from the resnpose.
+        // Just focus on errors division upon load event.
+        $response->getFooter()->getScripts()->addCode($jsCode);
+    }
 }
 ?>
