@@ -2676,7 +2676,7 @@ function PMA_validateDefaultValue($null_checkbox)
 }
 
 /**
- * function to populate the input fields on picking a coulmn from central list
+ * function to populate the input fields on picking a column from central list
  *
  * @param string  input_id input id of the name field for the column to be populated
  * @param integer offset of the selected column in central list of columns
