@@ -11321,7 +11321,7 @@ msgstr "முதன்மை"
 #: libraries/structure.lib.php:1419 libraries/structure.lib.php:2085
 #: libraries/structure.lib.php:2095
 msgid "Spatial"
-msgstr ""
+msgstr "இடம்சார்"
 
 #: libraries/structure.lib.php:1429 libraries/structure.lib.php:2087
 #: libraries/structure.lib.php:2097
