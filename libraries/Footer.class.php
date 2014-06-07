@@ -209,6 +209,12 @@ class PMA_Footer
             $retval .= $GLOBALS['error_handler']->getDispErrors();
             $retval .= '</div>';
         }
+
+        /**
+         * Report php errors
+         */
+        $GLOBALS['error_handler']->reportError();
+
         return $retval;
     }
 
