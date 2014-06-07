@@ -1098,7 +1098,7 @@ msgstr "அனுப்பப்பட்ட துண்டுகள்"
 
 #: js/messages.php:103
 msgid "Bytes received"
-msgstr "துண்டுகள்  ஏற்றுக்கொள்ளப்பட்டது"
+msgstr "ஏற்றுக்கொள்ளப்பட்ட துண்டுகள்"
 
 #: js/messages.php:104 libraries/server_status.lib.php:220
 msgid "Connections"
