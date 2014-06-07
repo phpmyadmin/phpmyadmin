@@ -1050,7 +1050,7 @@ msgstr "அமைப்புமுறையின் நினைவகம்"
 
 #: js/messages.php:88
 msgid "System swap"
-msgstr ""
+msgstr "அமைப்புமுறையின் மாற்றிடம்"
 
 #: js/messages.php:90
 msgid "Average load"
