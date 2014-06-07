@@ -278,6 +278,12 @@ $js_messages['strEdit'] = __('Edit');
 $js_messages['strNotValidRowNumber'] = __('%d is not valid row number.');
 $js_messages['strBrowseForeignValues'] = __('Browse foreign values');
 
+/* For Central list of columns */
+$js_messages['pickColumn'] = __('Pick');
+$js_messages['pickColumnTitle'] = __('Column selector');
+$js_messages['searchList'] = __('Search this list');
+$js_messages['strEmptyCentralList'] = __('No columns in the central list. Make sure Central columns list for database %s has columns that is not present in current table.');
+$js_messages['seeMore'] = __('See more');
 /* For server_variables.js */
 $js_messages['strSave'] = __('Save');
 

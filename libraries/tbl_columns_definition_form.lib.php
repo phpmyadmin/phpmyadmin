@@ -559,11 +559,13 @@ function PMA_getColumnMetaForDefault($columnMeta, $isDefault)
  * @param int   $ci           cell index
  * @param int   $ci_offset    cell index offset
  * @param array $columnMeta   column meta
+ * @param array $cfgRelation  configuration relation
  *
  * @return string
  */
-function PMA_getHtmlForColumnName($columnNumber, $ci, $ci_offset, $columnMeta)
-{
+function PMA_getHtmlForColumnName(
+    $columnNumber, $ci, $ci_offset, $columnMeta, $cfgRelation
+) {
     $title = '';
     if (isset($columnMeta['column_status'])) {
         if ($columnMeta['column_status']['isReferenced']) {
@@ -592,7 +594,18 @@ function PMA_getHtmlForColumnName($columnNumber, $ci, $ci_offset, $columnMeta)
         . (isset($columnMeta['Field'])
             ? htmlspecialchars($columnMeta['Field']) : '')
         . '"' . ' />';
-
+    if ($cfgRelation['central_columnswork'] && !(isset($columnMeta['column_status'])
+        && !$columnMeta['column_status']['isEditable'])
+    ) {
+        $html .=  '<p style="font-size:80%;margin:5px 2px" '
+            . 'id="central_columns_' . $columnNumber . '_'
+            . ($ci - $ci_offset)
+            . '">';
+        $html .= '<a data-maxrows="' . $GLOBALS['cfg']['MaxRows'] . '" '
+            . 'href="#" class="central_columns_dialog"> '
+            . __('Pick from Central Columns') . '</a>'
+            . '</p>';
+    }
     return $html;
 }
 
@@ -1185,7 +1198,8 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
 
     // column name
     $content_cell[$ci] = PMA_getHtmlForColumnName(
-        $columnNumber, $ci, $ci_offset, isset($columnMeta) ? $columnMeta : null
+        $columnNumber, $ci, $ci_offset, isset($columnMeta) ? $columnMeta : null,
+        $cfgRelation
     );
     $ci++;
 

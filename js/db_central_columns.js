@@ -115,7 +115,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
     });
     $('#table-select').change(function(e) {
         var selectvalue = $(this).val();
-        var default_column_select = '<option value="" selected>Select a column</option>';
+        var default_column_select = $('#column-select').html();
         var href = "db_central_columns.php";
         var params = {
             'ajax_request' : true,
@@ -124,8 +124,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
             'selectedTable' : selectvalue,
             'populateColumns' : true
         };
-        $('#column-select').html('<option value="">Loading...</option>');
-
+        $('#column-select').html('<option value="">'+PMA_messages.strLoading+'</option>');
         if (selectvalue !== "") {
             $.post(href, params, function (data) {
                 $('#column-select').html(default_column_select);

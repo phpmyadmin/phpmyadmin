@@ -71,6 +71,17 @@ function PMA_getColumnsList($db, $from=0, $num=25)
     return $has_list;
 }
 
+/* to do block, need to complete
+function PMA_getCentralColumnsCount($db)
+{
+    $pmadb = $GLOBALS['cfg']['Server']['pmadb'];
+    $GLOBALS['dbi']->selectDb($pmadb);
+    $central_list_table = $GLOBALS['cfg']['Server']['central_columns'];
+    $query = 'SELECT count(db_name) FROM ' .
+ *              PMA_Util::backquote($central_list_table) . ' '
+            . 'WHERE db_name = \'' . $db . '\';';
+    return $GLOBALS['dbi']->fetchResult($query);
+}*/
 /**
  * return the existing columns in central list among the given list of columns
  *
@@ -523,7 +534,7 @@ function PMA_getHTMLforTableDropdown($db)
     $tables = $GLOBALS['dbi']->getTables($db);
     $selectHtml = '<select name="table-select" id="table-select">'
         . '<option value="" disabled="disabled" selected="selected">'
-        . 'Select a table</option>';
+        . __('Select a table') . '</option>';
     foreach ($tables as $table) {
         $selectHtml .= '<option value="' . $table . '">' . $table . '</option>';
     }
@@ -584,8 +595,8 @@ function PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db)
         . '<input type="hidden" name="total_rows" value="' . $total_rows . '"/>'
         . PMA_getHTMLforTableDropdown($db)
         . '<select name="column-select" id="column-select">'
-        . '<option value="" disabled="disabled" selected="selected">'
-        . 'Select a column</option>'
+        . '<option value="" selected="selected">'
+        . __('Select a column.') . '</option>'
         . '</select></form>'
         . '</td>'
         . '<td class="navigation_separator"></td>'
@@ -672,4 +683,34 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
     $tableHtml .= '</tr>';
     return $tableHtml;
 }
+
+/**
+ * get the list of columns in given database excluding
+ * the columns present in current table
+ *
+ * @param string $db    selected database
+ * @param string $table current table name
+ *
+ * @return encoded list of columns present in central list for the given database
+ */
+function PMA_getCentralColumnsListRaw($db, $table)
+{
+    $cfgCentralColumns = PMA_centralColumnsGetParams();
+    $centralTable = $cfgCentralColumns['table'];
+    $GLOBALS['dbi']->selectDb($cfgCentralColumns['db']);
+    if (empty($table) || $table == '') {
+        $query = 'SELECT * FROM ' . PMA_Util::backquote($centralTable) . ' '
+                . 'WHERE db_name = \'' . $db . '\';';
+    } else {
+        $columns = (array) $GLOBALS['dbi']->getColumnNames($db, $table);
+        $columns = implode("','", $columns);
+        $columns = "'" . $columns . "'";
+        $query = 'SELECT * FROM ' . PMA_Util::backquote($centralTable) . ' '
+                . 'WHERE db_name = \'' . $db . '\' '
+                . 'AND col_name NOT IN (' . $columns . ');';
+    }
+    $columns_list = (array)$GLOBALS['dbi']->fetchResult($query);
+    return json_encode($columns_list);
+}
+
 ?>
