@@ -244,7 +244,7 @@ unset($multi_edit_columns_name, $multi_edit_columns_prev, $multi_edit_funcs,
 // Builds the sql query
 if ($is_insert && count($value_sets) > 0) {
     $query = PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets);
-} elseif (empty($query)) {
+} elseif (empty($query) && ! isset($_REQUEST['preview_sql'])) {
     // No change -> move back to the calling script
     //
     // Note: logic passes here for inline edit
@@ -254,6 +254,11 @@ if ($is_insert && count($value_sets) > 0) {
     exit;
 }
 unset($multi_edit_colummns, $is_insertignore);
+
+// If there is a request for SQL previewing.
+if (isset($_REQUEST['preview_sql'])) {
+    PMA_previewSQL($query);
+}
 
 /**
  * Executes the sql query and get the result, then move back to the calling

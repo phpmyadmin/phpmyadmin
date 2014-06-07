@@ -905,4 +905,31 @@ function PMA_mimeDefaultFunction($buffer)
 
     return $buffer;
 }
+
+/**
+ * Displays SQL query before executing.
+ *
+ * @param array|string $query_data Array containing queries or query itself
+ *
+ * @return void
+ */
+function PMA_previewSQL($query_data)
+{
+    $retval = '<div class="preview_sql">';
+    if (is_array($query_data) && count($query_data) > 0) {
+        foreach ($query_data as $query) {
+            $retval .= PMA_Util::formatSql($query);
+        }
+    } else {
+        if (! empty($query_data)) {
+            $retval .= PMA_Util::formatSql($query_data);
+        } else {
+            $retval .= __('No change');
+        }
+    }
+    $retval .= '</div>';
+    $response = PMA_Response::getInstance();
+    $response->addJSON('sql_data', $retval);
+    exit;
+}
 ?>

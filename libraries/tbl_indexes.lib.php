@@ -50,6 +50,11 @@ function PMA_handleCreateOrEditIndex($db, $table, $index)
 
     $sql_query = PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, $error);
 
+    // If there is a request for SQL previewing.
+    if (isset($_REQUEST['preview_sql'])) {
+        PMA_previewSQL($sql_query);
+    }
+
     if (! $error) {
         $GLOBALS['dbi']->query($sql_query);
         $message = PMA_Message::success(

@@ -362,6 +362,7 @@ function PMA_getHtmlForCommonFormHeader($db, $table)
 function PMA_getHtmlForCommonFormFooter()
 {
     return '<fieldset class="tblFooters">'
+        . '<input type="button" class="preview_sql" value="' . __('Preview SQL') . '" />'
         . '<input type="submit" value="' . __('Save') . '" />'
         . '</fieldset>'
         . '</form>';
@@ -877,15 +878,26 @@ function PMA_handleUpdatesForForeignKeys($destination_foreign_db,
     $destination_foreign_column, $options_array, $table, $existrel_foreign
 ) {
     $html_output = '';
+    $preview_sql_data = '';
     $display_query = '';
     $seen_error = false;
+    $preview_sql = (isset($_REQUEST['preview_sql'])) ? true : false;
     foreach ($destination_foreign_db as $master_field_md5 => $foreign_db) {
-        $html_output .= PMA_handleUpdateForForeignKey(
+        list($html, $sql_data) = PMA_handleUpdateForForeignKey(
             $multi_edit_columns_name, $master_field_md5,
             $destination_foreign_table, $destination_foreign_column, $options_array,
-            $existrel_foreign, $table, $seen_error, $display_query, $foreign_db
+            $existrel_foreign, $table, $seen_error, $display_query, $foreign_db,
+            $preview_sql
         );
+        $html_output .= $html;
+        $preview_sql_data .= $sql_data;
     } // end foreach
+
+    // If there is a request for SQL previewing.
+    if ($preview_sql) {
+        PMA_previewSQL($preview_sql_data);
+    }
+
     if (! empty($display_query) && ! $seen_error) {
         $GLOBALS['display_query'] = $display_query;
         $html_output = PMA_Util::getMessage(
@@ -910,14 +922,16 @@ function PMA_handleUpdatesForForeignKeys($destination_foreign_db,
  * @param bool   &$seen_error                whether seen error
  * @param string &$display_query             display query
  * @param string $foreign_db                 foreign database
+ * @param bool   $preview_sql                preview sql before executing
  *
- * @return string
+ * @return array
  */
 function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_md5,
     $destination_foreign_table, $destination_foreign_column, $options_array,
-    $existrel_foreign, $table, &$seen_error, &$display_query, $foreign_db
+    $existrel_foreign, $table, &$seen_error, &$display_query, $foreign_db, $preview_sql
 ) {
     $html_output = '';
+    $preview_sql_data = '';
     $create = false;
     $drop = false;
 
@@ -963,16 +977,21 @@ function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_m
         $drop_query = PMA_getSQLToDropForeignKey(
             $table, $existrel_foreign[$master_field]['constraint']
         );
-        $display_query .= $drop_query . "\n";
-        $GLOBALS['dbi']->tryQuery($drop_query);
-        $tmp_error_drop = $GLOBALS['dbi']->getError();
 
-        if (! empty($tmp_error_drop)) {
-            $seen_error = true;
-            $html_output .= PMA_Util::mysqlDie(
-                $tmp_error_drop, $drop_query, false, '', false
-            );
-            return $html_output;
+        if (! $preview_sql) {
+            $display_query .= $drop_query . "\n";
+            $GLOBALS['dbi']->tryQuery($drop_query);
+            $tmp_error_drop = $GLOBALS['dbi']->getError();
+
+            if (! empty($tmp_error_drop)) {
+                $seen_error = true;
+                $html_output .= PMA_Util::mysqlDie(
+                    $tmp_error_drop, $drop_query, false, '', false
+                );
+                return $html_output;
+            }
+        } else {
+            $preview_sql_data .= $drop_query . "\n";
         }
     }
     $tmp_error_create = false;
@@ -984,26 +1003,30 @@ function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_m
             $options_array[$_REQUEST['on_update'][$master_field_md5]]
         );
 
-        $display_query .= $create_query . "\n";
-        $GLOBALS['dbi']->tryQuery($create_query);
-        $tmp_error_create = $GLOBALS['dbi']->getError();
-        if (! empty($tmp_error_create)) {
-            $seen_error = true;
+        if (! $preview_sql) {
+            $display_query .= $create_query . "\n";
+            $GLOBALS['dbi']->tryQuery($create_query);
+            $tmp_error_create = $GLOBALS['dbi']->getError();
+            if (! empty($tmp_error_create)) {
+                $seen_error = true;
 
-            if (substr($tmp_error_create, 1, 4) == '1005') {
-                $message = PMA_Message::error(
-                    __('Error creating foreign key on %1$s (check data types)')
-                );
-                $message->addParam($master_field);
-                $html_output .= $message->getDisplay();
-            } else {
-                $html_output .= PMA_Util::mysqlDie(
-                    $tmp_error_create, $create_query, false, '', false
-                );
+                if (substr($tmp_error_create, 1, 4) == '1005') {
+                    $message = PMA_Message::error(
+                        __('Error creating foreign key on %1$s (check data types)')
+                    );
+                    $message->addParam($master_field);
+                    $html_output .= $message->getDisplay();
+                } else {
+                    $html_output .= PMA_Util::mysqlDie(
+                        $tmp_error_create, $create_query, false, '', false
+                    );
+                }
+                $html_output .= PMA_Util::showMySQLDocu(
+                    'InnoDB_foreign_key_constraints'
+                ) . "\n";
             }
-            $html_output .= PMA_Util::showMySQLDocu(
-                'InnoDB_foreign_key_constraints'
-            ) . "\n";
+        } else {
+            $preview_sql_data .= $create_query . "\n";
         }
 
         // this is an alteration and the old constraint has been dropped
@@ -1023,11 +1046,15 @@ function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_m
                 $options_array[$existrel_foreign[$master_field]['on_delete']],
                 $options_array[$existrel_foreign[$master_field]['on_update']]
             );
-            $display_query .= $sql_query_recreate . "\n";
-            $GLOBALS['dbi']->tryQuery($sql_query_recreate);
+            if (! $preview_sql) {
+                $display_query .= $sql_query_recreate . "\n";
+                $GLOBALS['dbi']->tryQuery($sql_query_recreate);
+            } else {
+                $preview_sql_data .= $sql_query_recreate;
+            }
         }
     }
 
-    return $html_output;
+    return array($html_output, $preview_sql_data);
 }
 ?>
