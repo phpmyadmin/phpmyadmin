@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-28 08:21-0400\n"
-"PO-Revision-Date: 2014-06-06 01:02+0200\n"
+"PO-Revision-Date: 2014-06-07 09:13+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -868,6 +868,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"உங்கள் PHP MySQL நிரல்கோவையின் பதிப்பும் %s MySQL வழங்கியின் பதிப்பும் %s "
+"வேறுபடுகின்றன.இது எதிர்பாரா விளைவுகளுக்கு காரணமாகலாம்."
 
 #: index.php:576
 #, php-format
@@ -875,126 +877,130 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
+"வழங்கி SUSHOSIN உடன் இயங்குகிறது. நிகழக்கூடிய பிழைமுறைகளுக்கு தயவுசெய்து "
+"%sஆவணச்சான்றை%s காண்க."
 
 #: js/messages.php:29 libraries/import.lib.php:122 sql.php:140
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr ""
+msgstr "\"DROP DATABASE\" கூற்றுகள் முடக்கப்பட்டுள்ளன."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "உறுதிசெய்க"
 
 #: js/messages.php:36
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr ""
+msgstr "உங்களுக்கு உண்மையிலேயே \"%s\" செயலாக்க வேண்டுமா?"
 
 #: js/messages.php:37 libraries/mult_submits.lib.php:408
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "நீங்கள் ஒரு முழுமையான தரவுத்தளத்தை அழிக்க உள்ளீர்கள்!"
 
 #: js/messages.php:38
 msgid "You are about to DESTROY a complete table!"
-msgstr ""
+msgstr "நீங்கள் ஒரு முழுமையான அட்டவணையை அழிக்க உள்ளீர்கள்!"
 
 #: js/messages.php:39
 msgid "You are about to TRUNCATE a complete table!"
-msgstr ""
+msgstr "நீங்கள் ஒரு முழு அட்டவணையின் தரவுகளை நீக்கவுள்ளீர்கள்!"
 
 #: js/messages.php:41
 msgid "Deleting tracking data"
-msgstr ""
+msgstr "கண்காணிப்பு தரவுகள் அழிக்கப்படுகின்றன"
 
 #: js/messages.php:42
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "முதனிலை சுட்டு/தொகுப்புக்குறிகாட்டி கைவிடப்படுகிறது"
 
 #: js/messages.php:43
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "இந்த செயலாக்கம் முடிய நெடுநேரமாகலாம். இருப்பினும் தொடரலாமா?"
 
 #: js/messages.php:44
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr ""
+msgstr "உங்களுக்கு உண்மையிலேயே \"%s\" பயனர்குழுவை நீக்க வேண்டுமா?"
 
 #: js/messages.php:45
 #, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr ""
+msgstr "உங்களுக்கு உண்மையிலேயே \"%s\" தேடலை நீக்க வேண்டுமா?"
 
 #: js/messages.php:46
 msgid ""
 "Are you sure you want to navigate away from this page? Press OK to continue "
 "or Cancel to stay on the current page."
 msgstr ""
+"நீங்கள் உறுதியாக இந்த பக்கத்திலிருந்து விலகிச்செல்ல வேண்டுமா? தொடர்வதற்கு சரி"
+" என்பதினையும் அல்லது இப்பக்கத்திலேயே இருக்க இல்லை என்பதினையும் அழுத்துக."
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
-msgstr ""
+msgstr "படிவத்தில் மதிப்பு விடுபட்டுள்ளது!"
 
 #: js/messages.php:50
 msgid "Select at least one of the options!"
-msgstr "குறைந்தது ஒரு விருப்பமாவது தெரிவு செய்க!"
+msgstr "விருப்பங்களில் குறைந்தது ஒன்றாவது தெரிவு செய்க!"
 
 #: js/messages.php:51
 msgid "Please enter a valid number!"
-msgstr ""
+msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
 
 #: js/messages.php:52
 msgid "Please enter a valid length!"
-msgstr ""
+msgstr "தயவுசெய்து ஒரு சரியான நீளத்தை இடுக!"
 
 #: js/messages.php:53
 msgid "Add Index"
-msgstr "தொகுப்புக்குறி சேர்க்க"
+msgstr "சுட்டுதொகுப்புக்குறி சேர்க்க"
 
 #: js/messages.php:54
 msgid "Edit Index"
-msgstr "தொகுப்புக்குறி மாற்று"
+msgstr "சுட்டுதொகுப்புக்குறி திருத்துக"
 
 #: js/messages.php:55 libraries/tbl_indexes.lib.php:394
 #, php-format
 msgid "Add %s column(s) to index"
-msgstr "%s நெடுவரிசை(களை) தொகுப்புக்குறியில் சேர்க்க"
+msgstr "%s நிரல்வரிசை(களை) சுட்டுதொகுப்புக்குறியில் சேர்க்க"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:59 libraries/tbl_chart.lib.php:216
 msgid "Y Values"
-msgstr "Y மதிப்புக்கள்"
+msgstr "கு மதிப்புக்கள்"
 
 #: js/messages.php:62
 msgid "The host name is empty!"
-msgstr ""
+msgstr "புரவலர் பெயர் வெறுமையாக உள்ளது!"
 
 #: js/messages.php:63
 msgid "The user name is empty!"
-msgstr ""
+msgstr "பயனர் பெயர் வெறுமையாக உள்ளது!"
 
 #: js/messages.php:64 libraries/server_privileges.lib.php:1586
 #: user_password.php:110
 msgid "The password is empty!"
-msgstr ""
+msgstr "கடவுச்சொல் வெறுமையாக உள்ளது!"
 
 #: js/messages.php:65 libraries/server_privileges.lib.php:1584
 #: user_password.php:113
 msgid "The passwords aren't the same!"
-msgstr ""
+msgstr "கடவுச்சொற்கள் பொருந்தவில்லை!"
 
 #: js/messages.php:66
 msgid "Removing Selected Users"
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட பயனர்கள் நீக்கப்படுகின்றனர்"
 
 #: js/messages.php:67 js/messages.php:122 libraries/tbl_tracking.lib.php:354
 #: libraries/tbl_tracking.lib.php:759
 msgid "Close"
-msgstr "மூடு"
+msgstr "மூடுக"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:70 libraries/ServerStatusData.class.php:205
 #: libraries/server_status_queries.lib.php:145
 msgid "Other"
-msgstr "ஏனையது"
+msgstr "ஏனையவை"
 
 #. l10n: Thousands separator
 #: js/messages.php:72 libraries/Util.class.php:1396
@@ -1012,7 +1018,7 @@ msgstr "இணைப்புக்கள்/ செயலாக்கங்க�
 
 #: js/messages.php:79
 msgid "Local monitor configuration incompatible!"
-msgstr ""
+msgstr "உள்கண்காணிப்பின் அமைப்பாக்கம் இணக்கமற்றுள்ளது!"
 
 #: js/messages.php:80
 msgid ""
@@ -5301,7 +5307,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:385
 msgid "Login cookie store"
-msgstr ""
+msgstr "புகுபதிவு நிலைபதிவுத்துணுக்கு சேமிப்பகம்"
 
 #: libraries/config/messages.inc.php:387
 msgid "Define how long (in seconds) a login cookie is valid."
@@ -5309,7 +5315,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:388
 msgid "Login cookie validity"
-msgstr ""
+msgstr "புகுபதிவு நிலைபதிவுத்துணுக்கு செல்லுங்காலம்"
 
 #: libraries/config/messages.inc.php:390
 msgid "Double size of textarea for LONGTEXT columns."
@@ -5712,7 +5718,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:550
 msgid "Allow root login"
-msgstr ""
+msgstr "root புகுபதிவை ஏற்க"
 
 #: libraries/config/messages.inc.php:552
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -7669,7 +7675,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:303
 #: libraries/tbl_printview.lib.php:311
 msgid "Index"
-msgstr ""
+msgstr "சுட்டுதொகுப்புக்குறி"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
 msgctxt "Create new index"
@@ -8456,7 +8462,7 @@ msgstr ""
 #: libraries/plugins/import/ImportShp.class.php:210
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "MySQL இடம்சார் நிரல்நீட்சியானது ESRI வகைக்கு \"%s\" ஆதரவளிக்கவில்லை."
 
 #: libraries/plugins/import/ImportShp.class.php:258
 msgid "The imported file does not contain any data!"
@@ -9893,7 +9899,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1266
 #: libraries/server_privileges.lib.php:2500
 msgid "Login Information"
-msgstr ""
+msgstr "புகுபதிவு தகவல்"
 
 #: libraries/server_privileges.lib.php:1300
 #: libraries/server_privileges.lib.php:1485
@@ -11349,7 +11355,7 @@ msgstr ""
 #: libraries/structure.lib.php:1463 libraries/structure.lib.php:2167
 #: libraries/structure.lib.php:2177
 msgid "Spatial"
-msgstr ""
+msgstr "இடம்சார்"
 
 #: libraries/structure.lib.php:1473 libraries/structure.lib.php:2169
 #: libraries/structure.lib.php:2179
@@ -11463,19 +11469,19 @@ msgstr ""
 
 #: libraries/structure.lib.php:2119 libraries/structure.lib.php:2122
 msgid "Add index"
-msgstr ""
+msgstr "சுட்டுதொகுப்புக்குறி சேர்க்க"
 
 #: libraries/structure.lib.php:2125 libraries/structure.lib.php:2128
 msgid "Add unique index"
-msgstr ""
+msgstr "தனித்த சுட்டுதொகுப்புக்குறி சேர்க்க"
 
 #: libraries/structure.lib.php:2131 libraries/structure.lib.php:2134
 msgid "Add SPATIAL index"
-msgstr ""
+msgstr "இடம்சார்ந்த சுட்டுதொகுப்புக்குறி சேர்க்க"
 
 #: libraries/structure.lib.php:2137 libraries/structure.lib.php:2140
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "முழுநீளஉரை தொகுப்புக்குறிகாட்டி சேர்க்க"
 
 #: libraries/structure.lib.php:2267
 msgid "Space usage"
@@ -11714,7 +11720,7 @@ msgstr ""
 
 #: libraries/tbl_indexes.lib.php:123
 msgid "Can't rename index to PRIMARY!"
-msgstr ""
+msgstr "தொகுப்புக்குறிகாட்டியை முதனிலையாக பெயர்மாற்றம் செய்யமுடியவில்லை!"
 
 #: libraries/tbl_indexes.lib.php:139
 msgid "No index parts defined!"
@@ -11722,7 +11728,7 @@ msgstr ""
 
 #: libraries/tbl_indexes.lib.php:259
 msgid "Index name:"
-msgstr "சுட்டுப் பெயர்:"
+msgstr "சுட்டுதொகுப்புக்குறி பெயர்:"
 
 #: libraries/tbl_indexes.lib.php:263
 msgid ""
@@ -11735,7 +11741,7 @@ msgstr "கருத்துரை:"
 
 #: libraries/tbl_indexes.lib.php:297
 msgid "Index type:"
-msgstr "சுட்டு வகை:"
+msgstr "சுட்டுதொகுப்புக்குறி வகை:"
 
 #: libraries/tbl_printview.lib.php:30
 msgid "Showing tables:"
