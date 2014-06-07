@@ -78,6 +78,11 @@ function PMA_getReportData($pretty_print = true, $exception_type = 'js')
         $errors = array();
         // create php error report
         $i=0;
+        if (!isset($_SESSION['prev_errors'])
+            || $_SESSION['prev_errors'] == ''
+        ) {
+            return false;
+        }
         foreach($_SESSION['prev_errors'] as $errorObj ) {
             if ($errorObj->getLine() && $errorObj->getType() && $errorObj->getNumber() != E_USER_WARNING) {
                 $errors[$i++] = array(

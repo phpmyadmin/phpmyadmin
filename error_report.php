@@ -102,6 +102,29 @@ if (isset($_REQUEST['exception_type'])
         if (isset($_REQUEST['send_error_report'])
             && $_REQUEST['send_error_report'] == '1'
             ) {
+            /**
+             * Prevent inifnite error submission. 
+             * Happens in case error submissions fails.
+             * If reporting is done in some time interval, just clear them & clear json data too.
+             */
+            if (isset($_SESSION['prev_error_subm_time'])
+                && isset($_SESSION['error_subm_count'])
+                && $_SESSION['error_subm_count'] >= 3                  // allow maximum 4 attempts
+                && ($_SESSION['prev_error_subm_time']-time()) <= 3000  // in 3 seconds
+            ) {
+                $_SESSION['error_subm_count'] = 0;
+                $_SESSION['prev_errors'] = '';
+                 $response = PMA_Response::getInstance();
+                $response->addJSON('_stopErrorReportLoop', '1');
+            } else {
+                $_SESSION['prev_error_subm_time'] = time();
+                $_SESSION['error_subm_count'] = (
+                    (isset($_SESSION['error_subm_count']))
+                        ? ($_SESSION['error_subm_count']+1)
+                        : (0)
+                );
+            }
+
             $reportData = PMA_getReportData(false,'php');
             // report if and only if there were 'actual' errors.
             if($reportData) {

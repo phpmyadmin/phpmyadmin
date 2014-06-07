@@ -334,8 +334,15 @@ var AJAX = {
                     $('<div/>', {id : 'pma_errors'})
                         .insertAfter('#selflink')
                         .append(data._errors);
-                        if(data._promptPhpErrors){
-                            msg = msg + PMA_messages['phpErrorsFound']; 
+                        // In case of 'sendErrorReport'='always'
+                        // submit the hidden error reporting form.
+                        if (data._sendErrorAlways == '1'
+                            && data._stopErrorReportLoop != '1'
+                        ) {
+                            $("#pma_report_errors_form").submit();
+                        } else if (data._promptPhpErrors) {
+                            // otherwise just prompt user if it is set so.
+                            msg = msg + PMA_messages['phpErrorsFound'];
                             // scroll to bottom where all the erros are displayed.
                             $('html, body').animate({scrollTop:$(document).height()}, 'slow');
                         }

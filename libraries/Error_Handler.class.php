@@ -313,11 +313,16 @@ class PMA_Error_Handler
         } else {
             $retval .= $this->getDispUserErrors();
         }
-        if($GLOBALS['cfg']['SendErrorReports'] == 'ask'           // preference is 'ask' and
+        if($GLOBALS['cfg']['SendErrorReports'] != 'never'         // preference is not 'never' and
             &&  $this->countErrors() !=  $this->countUserErrors() // there are 'actual' errors to be reported
             ){
             // add report button.
-            $retval .= '<form method="post" action="error_report.php" id="pma_report_errors_form">'
+            $retval .= '<form method="post" action="error_report.php" id="pma_report_errors_form"';
+            if ($GLOBALS['cfg']['SendErrorReports'] == 'always') {
+                // in case of 'always', generate 'invisible' form.
+                $retval .= ' style="display:none;"';
+            }
+            $retval .=  '>'
                     . '<input type="hidden" name="token" value="'
                     . $_SESSION[' PMA_token ']
                     . '"/>'
@@ -328,10 +333,12 @@ class PMA_Error_Handler
                     . '" id="pma_report_errors" style="float: right; margin: 20px;">'
                     . '</form>';
 
-            // add ignore buttons
-            $retval .='<input type="submit" value="'.__('Ignore')
-                    .'" id="pma_ignore_errors" onclick="PMA_ignorePhpErrors(true)" '
-                    .'style="float: right; margin: 20px;">';
+            if ($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
+                // add ignore buttons
+                $retval .='<input type="submit" value="'.__('Ignore')
+                        .'" id="pma_ignore_errors" onclick="PMA_ignorePhpErrors(true)" '
+                        .'style="float: right; margin: 20px;">';
+            }
             $retval .='<input type="submit" value="'.__('Ignore All')
                     .'" id="pma_ignore_all_errors" onclick="PMA_ignorePhpErrors(false)" '
                     .'style="float: right; margin: 20px;">';
@@ -490,15 +497,17 @@ class PMA_Error_Handler
         $response = PMA_Response::getInstance();
         $jsCode = '';
         if ($GLOBALS['cfg']['SendErrorReports'] == 'always') {
-            //send the error reports directly
-            $_REQUEST['exception_type'] = 'php';
-            $_REQUEST['send_error_report'] = '1';
-            include_once 'error_report.php';
-
-            // js code to appropriate focusing,
-            $jsCode = '$("html, body").animate({
-                            scrollTop:$(document).height()
-                        }, "slow");';
+            if ($response->isAjax()) {
+                // set flag for automatic report submission.
+                $response->addJSON('_sendErrorAlways', '1');
+            } else {
+                // send the error reports asynchronously & without asking user
+                $jsCode .= '$("#pma_report_errors_form").submit();';
+                // js code to appropriate focusing,
+                $jsCode .= '$("html, body").animate({
+                                scrollTop:$(document).height()
+                            }, "slow");';
+            }
         } elseif ($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
             //ask user whether to submit errors or not.
             if (!$response->isAjax()) {
