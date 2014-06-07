@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-05-28 18:31+0200\n"
+"PO-Revision-Date: 2014-06-07 23:46+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -25,10 +25,10 @@ msgstr ""
 "phpmyadmin.net pour plus d'informations."
 
 #: db_central_columns.php:111
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "Affichage des lignes %1s - %2s"
+msgstr "Affichage des lignes %1$s - %2$s"
 
 #: db_create.php:61
 #, php-format
@@ -1733,16 +1733,14 @@ msgid "Pick"
 msgstr ""
 
 #: js/messages.php:283
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "Aucune colonne n'a été sélectionnée."
+msgstr "Sélecteur de colonne"
 
 #: js/messages.php:284
-#, fuzzy
 #| msgid "Search this table"
 msgid "Search this list"
-msgstr "Chercher dans cette table"
+msgstr "Chercher dans cette liste"
 
 #: js/messages.php:285
 #, php-format
