@@ -1198,7 +1198,7 @@ msgstr "general_log மற்றும் slow_query_log ஆகியவை இ�
 
 #: js/messages.php:129
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log இயலசெய்யப்பட்டது."
 
 #: js/messages.php:130
 msgid "slow_query_log is enabled."
