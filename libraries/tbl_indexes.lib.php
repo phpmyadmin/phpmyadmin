@@ -142,7 +142,7 @@ function PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, &$error)
     }
 
     if (PMA_MYSQL_INT_VERSION > 50500) {
-        $sql_query .= "COMMENT '"
+        $sql_query .= " COMMENT '"
             . PMA_Util::sqlAddSlashes($index->getComment())
             . "'";
     }
