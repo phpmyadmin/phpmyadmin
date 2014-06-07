@@ -282,7 +282,7 @@ $js_messages['strBrowseForeignValues'] = __('Browse foreign values');
 $js_messages['pickColumn'] = __('Pick');
 $js_messages['pickColumnTitle'] = __('Column selector');
 $js_messages['searchList'] = __('Search this list');
-$js_messages['strEmptyCentralList'] = __('No columns in the central list. Make sure Central columns list for database %s has columns that is not present in current table.');
+$js_messages['strEmptyCentralList'] = __('No columns in the central list. Make sure the Central columns list for database %s has columns that are not present in the current table.');
 $js_messages['seeMore'] = __('See more');
 /* For server_variables.js */
 $js_messages['strSave'] = __('Save');
