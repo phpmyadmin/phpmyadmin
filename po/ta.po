@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-24 09:05-0400\n"
-"PO-Revision-Date: 2014-06-08 13:20+0200\n"
+"PO-Revision-Date: 2014-06-08 17:41+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -1356,11 +1356,13 @@ msgstr "பதிகை அட்டவணைக்கு செல்க"
 
 #: js/messages.php:171
 msgid "No data found"
-msgstr "தரவை காணவில்லை"
+msgstr "எந்த தரவும் காணபடவில்லை"
 
 #: js/messages.php:172
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
+"பதிகை பகுத்தாராயபட்டது, எனினும் இந்த இடைநேரத்திற்கு எந்த தரவும் "
+"காணப்படவில்லை."
 
 #: js/messages.php:174
 msgid "Analyzing…"
@@ -1368,7 +1370,7 @@ msgstr "ஆராயப்படுகிறது…"
 
 #: js/messages.php:175
 msgid "Explain output"
-msgstr ""
+msgstr "வெளியீட்டை விளக்குக"
 
 #: js/messages.php:177 js/messages.php:569
 #: libraries/plugins/export/ExportHtmlword.class.php:486
@@ -1377,7 +1379,7 @@ msgstr ""
 #: libraries/rte/rte_list.lib.php:68 libraries/server_status.lib.php:357
 #: libraries/sql.lib.php:472
 msgid "Time"
-msgstr ""
+msgstr "நேரம்"
 
 #: js/messages.php:178
 msgid "Total time:"
@@ -1385,7 +1387,7 @@ msgstr "மொத்த நேரம்:"
 
 #: js/messages.php:179
 msgid "Profiling results"
-msgstr "முடிவுகள் குறிவகையிடப்படுகிறது"
+msgstr "முடிவுகள் பகுமுறையிடபடுகிறது"
 
 #: js/messages.php:180
 msgctxt "Display format"
@@ -1408,27 +1410,27 @@ msgstr "வடிகட்டி"
 
 #: js/messages.php:187
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "வினவல்களை சொற்கள்/சுருங்குகுறி வழி வடிக்கட்டுக:"
 
 #: js/messages.php:188
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "WHERE பிரிவிலுள்ள மாறி மதிப்புகளை கருதாமல் வினவல்களை தொகுக்க"
 
 #: js/messages.php:189
 msgid "Sum of grouped rows:"
-msgstr ""
+msgstr "தொகுக்கப்பட்ட நிறைவரிசைகளின் கூடுதல்:"
 
 #: js/messages.php:190
 msgid "Total:"
-msgstr "மொத்த:"
+msgstr "மொத்தம்:"
 
 #: js/messages.php:192
 msgid "Loading logs"
-msgstr "பதிகைகள் ஏற்றப்படுகின்றது"
+msgstr "பதிகைகள் நினைவேற்றப்படுகின்றது"
 
 #: js/messages.php:193
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "கண்காணிப்பு மீளேற்றம் தோல்வியடைந்தது"
 
 #: js/messages.php:194
 msgid ""
@@ -1436,23 +1438,27 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"புதிய வரைபட தரவை கோரியபோது செல்லாத மறுமொழி பெறப்பட்டது. இது உங்கள் அமர்வு "
+"முடிந்ததால் இருக்கலாம். பக்கத்தை மீளேற்றி புகுபதிவு செய்க."
 
 #: js/messages.php:195
 msgid "Reload page"
-msgstr "பக்கத்தை திரும்ப ஏற்று"
+msgstr "பக்கத்தை மீளேற்று"
 
 #: js/messages.php:197
 msgid "Affected rows:"
-msgstr "பாவனையான வரிசைகள்:"
+msgstr "மாற்றமடைந்த நிரல்வரிசைகள்:"
 
 #: js/messages.php:200
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr ""
+msgstr "அமைப்பாக்க கோப்பில் பிழை உள்ளது. இது சரியான JSON நிரல் போலில்லை."
 
 #: js/messages.php:202
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
+"தரவிறக்கபட்ட அமைப்பாக்க கோப்புடன் விளக்கப்படம் அமைத்தல் "
+"தோல்வியடைந்தது.இயல்நிலை அமைப்புக்கு மீட்டமைக்கப்படுகிறது…"
 
 #: js/messages.php:203 libraries/Menu.class.php:332
 #: libraries/Menu.class.php:431 libraries/Menu.class.php:545
@@ -1462,23 +1468,23 @@ msgstr ""
 #: libraries/server_status_monitor.lib.php:360 prefs_manage.php:232
 #: setup/frames/menu.inc.php:26
 msgid "Import"
-msgstr "இறக்குமதி"
+msgstr "தரவிறக்கம்"
 
 #: js/messages.php:204
 msgid "Import monitor configuration"
-msgstr ""
+msgstr "கண்காணிப்பின் அமைப்பாக்கத்தை தரவிறக்கு"
 
 #: js/messages.php:205
 msgid "Please select the file you want to import."
-msgstr ""
+msgstr "தரவிறக்க வேண்டிய கோப்பை தயவுசெய்து தேர்ந்தெடுக்கவும்."
 
 #: js/messages.php:206
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "தரவிறக்குவதற்கு வழங்கியில் எந்த கோப்பும் இல்லை!"
 
 #: js/messages.php:208
 msgid "Analyse Query"
-msgstr "பாகுபடுத்தல் வினவல்"
+msgstr "வினவலை பகுத்தாய்க"
 
 #: js/messages.php:212
 msgid "Advisor system"
