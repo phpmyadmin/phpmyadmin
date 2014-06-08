@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-06-08 17:11+0200\n"
+"PO-Revision-Date: 2014-06-08 17:15+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1426,7 +1426,7 @@ msgstr "வினவல்களை சொற்கள்/சுருங்க�
 
 #: js/messages.php:191
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "WHERE பிரிவிலுள்ள மாறி மதிப்புகளை கருதாமல் வினவல்களை தொகுக்க"
 
 #: js/messages.php:192
 msgid "Sum of grouped rows:"
