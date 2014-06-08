@@ -1455,7 +1455,7 @@ msgstr ""
 
 #: js/messages.php:198
 msgid "Reload page"
-msgstr "பக்கத்தை திரும்ப ஏற்று"
+msgstr "பக்கத்தை மீளேற்று"
 
 #: js/messages.php:200
 msgid "Affected rows:"
