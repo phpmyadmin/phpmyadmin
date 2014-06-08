@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-05-28 18:24+0200\n"
+"PO-Revision-Date: 2014-06-08 02:45+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -25,10 +25,10 @@ msgstr ""
 "para más información."
 
 #: db_central_columns.php:111
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "Mostrando filas %1s - %2s"
+msgstr "Mostrando fila(s) %1$s - %2$s"
 
 #: db_create.php:61
 #, php-format
@@ -1004,7 +1004,7 @@ msgstr "Agregar %s columna(s) al índice"
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:365
 msgid "Preview SQL"
-msgstr ""
+msgstr "Previsualizar SQL"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:62 libraries/tbl_chart.lib.php:215
@@ -1740,19 +1740,17 @@ msgstr "Mostrar los valores foráneos"
 
 #: js/messages.php:282
 msgid "Pick"
-msgstr ""
+msgstr "Elegir"
 
 #: js/messages.php:283
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "No se seleccionaron columnas."
+msgstr "Selección de columnas"
 
 #: js/messages.php:284
-#, fuzzy
 #| msgid "Search this table"
 msgid "Search this list"
-msgstr "Buscar en esta tabla"
+msgstr "Buscar en esta lista"
 
 #: js/messages.php:285
 #, php-format
@@ -1760,12 +1758,14 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"No hay columnas en la lista central. Asegúrese que la lista central de  "
+"columnas para la base de datos %s tenga columnas que no estén en la tabla "
+"actual."
 
 #: js/messages.php:286
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "Memoria libre"
+msgstr "Más"
 
 #: js/messages.php:288 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -3177,10 +3177,9 @@ msgid "Designer"
 msgstr "Diseñador"
 
 #: libraries/Menu.class.php:481 libraries/Util.class.php:4099
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "Columnas para las áreas de texto"
+msgstr "Columnas centrales"
 
 #: libraries/Menu.class.php:513 libraries/Util.class.php:4071
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
@@ -4265,20 +4264,18 @@ msgid "Extra"
 msgstr "Extra"
 
 #: libraries/central_columns.lib.php:537
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Seleccionar tablas"
+msgstr "Seleccionar una tabla"
 
 #: libraries/central_columns.lib.php:587 libraries/structure.lib.php:1647
 msgid "Add column"
 msgstr "Añadir columna"
 
 #: libraries/central_columns.lib.php:599
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Seleccionar dos columnas"
+msgstr "Seleccionar una columna."
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -12658,29 +12655,26 @@ msgstr "Etiqueta del eje Y:"
 
 #: libraries/tbl_chart.lib.php:237
 msgid "Series names are in a column"
-msgstr ""
+msgstr "Los nombres de serie se encuentran en una columna"
 
 #: libraries/tbl_chart.lib.php:240
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "Dentro de la columna:"
+msgstr "Columna de series:"
 
 #: libraries/tbl_chart.lib.php:253
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Value column:"
-msgstr "Valores para la columna %s"
+msgstr "Columna de valores:"
 
 #: libraries/tbl_chart.lib.php:286
 msgid "Start row:"
 msgstr "Fila de inicio:"
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Guardar como archivo"
+msgstr "Guardar gráfico como archivo"
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
@@ -12756,10 +12750,9 @@ msgid "Is a foreign key."
 msgstr "Es una clave foránea."
 
 #: libraries/tbl_columns_definition_form.lib.php:606
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Pick from Central Columns"
-msgstr "Eliminar de las columnas centrales"
+msgstr "Seleccionar desde las columnas centrales"
 
 #: libraries/tbl_columns_definition_form.lib.php:784
 msgid "first"
