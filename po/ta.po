@@ -1434,7 +1434,7 @@ msgstr "தொகுக்கப்பட்ட நிறைவரிசைக�
 
 #: js/messages.php:193
 msgid "Total:"
-msgstr "மொத்த:"
+msgstr "மொத்தம்:"
 
 #: js/messages.php:195
 msgid "Loading logs"
