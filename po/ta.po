@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-06-08 13:51+0200\n"
+"PO-Revision-Date: 2014-06-08 13:54+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1373,6 +1373,8 @@ msgstr "எந்த தரவும் காணபடவில்லை"
 #: js/messages.php:175
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
+"பதிகை பகுத்தாராயபட்டது, எனினும் இந்த இடைநேரத்திற்கு எந்த தரவும் "
+"காணப்படவில்லை."
 
 #: js/messages.php:177
 msgid "Analyzing…"
