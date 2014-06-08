@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-24 09:05-0400\n"
-"PO-Revision-Date: 2014-03-28 11:07+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Serbian <https://l10n.cihar.com/projects/phpmyadmin/master/sr/"
-">\n"
+"PO-Revision-Date: 2014-06-08 19:34+0200\n"
+"Last-Translator: Nikola Stojaković <nikola.stojakovic@hotmail.com>\n"
+"Language-Team: Serbian <https://l10n.cihar.com/projects/phpmyadmin/4-2/sr/>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -22,6 +21,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Фајл %s није доступан на овом систему, молимо посетите www.phpmyadmin.net за "
+"више информација."
 
 #: db_create.php:61
 #, php-format
@@ -35,10 +36,9 @@ msgstr "Коментар базе:"
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:578
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Коментари табеле"
+msgstr "Коментари табеле:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1291
