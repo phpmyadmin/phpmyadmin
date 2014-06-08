@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-06-08 17:27+0200\n"
+"PO-Revision-Date: 2014-06-08 17:28+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1459,7 +1459,7 @@ msgstr "பக்கத்தை மீளேற்று"
 
 #: js/messages.php:200
 msgid "Affected rows:"
-msgstr "பாவனையான வரிசைகள்:"
+msgstr "மாற்றமடைந்த நிரல்வரிசைகள்:"
 
 #: js/messages.php:203
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
