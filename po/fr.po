@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-06-07 23:46+0200\n"
+"PO-Revision-Date: 2014-06-08 13:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -1000,7 +1000,7 @@ msgstr "Ajouter %s colonne(s) à l'index"
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:365
 msgid "Preview SQL"
-msgstr ""
+msgstr "Aperçu SQL"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:62 libraries/tbl_chart.lib.php:215
@@ -1730,7 +1730,7 @@ msgstr "Afficher les valeurs de la table liée"
 
 #: js/messages.php:282
 msgid "Pick"
-msgstr ""
+msgstr "Choisir"
 
 #: js/messages.php:283
 #| msgid "No column selected."
@@ -1748,12 +1748,14 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Aucune colonne dans la liste centrale. Assurez-vous que la liste de colonnes "
+"centrales pour la base de données %s comporte des colonnes qui ne sont pas "
+"présentes dans la table actuelle."
 
 #: js/messages.php:286
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "Mémoire libre"
+msgstr "Plus"
 
 #: js/messages.php:288 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -3159,10 +3161,9 @@ msgid "Designer"
 msgstr "Concepteur"
 
 #: libraries/Menu.class.php:481 libraries/Util.class.php:4099
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "Taille horizontale pour une zone de texte"
+msgstr "Colonnes centrales"
 
 #: libraries/Menu.class.php:513 libraries/Util.class.php:4071
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
@@ -4242,20 +4243,18 @@ msgid "Extra"
 msgstr "Extra"
 
 #: libraries/central_columns.lib.php:537
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Choisissez les tables"
+msgstr "Choisissez une table"
 
 #: libraries/central_columns.lib.php:587 libraries/structure.lib.php:1647
 msgid "Add column"
 msgstr "Ajouter une colonne"
 
 #: libraries/central_columns.lib.php:599
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Sélectionnez deux colonnes"
+msgstr "Sélectionnez une colonne."
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -12566,29 +12565,26 @@ msgstr "Étiquette pour l'axe des Y : "
 
 #: libraries/tbl_chart.lib.php:237
 msgid "Series names are in a column"
-msgstr ""
+msgstr "Les noms de la série sont dans une colonne"
 
 #: libraries/tbl_chart.lib.php:240
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "Dans la colonne : "
+msgstr "Colonne pour la série :"
 
 #: libraries/tbl_chart.lib.php:253
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Value column:"
-msgstr "Valeurs pour la colonne %s"
+msgstr "Colonne pour la valeur :"
 
 #: libraries/tbl_chart.lib.php:286
 msgid "Start row:"
 msgstr "Ligne de départ : "
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Transmettre"
+msgstr "Enregistrer le graphique en tant qu'image"
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
@@ -12664,10 +12660,9 @@ msgid "Is a foreign key."
 msgstr "Est une clé étrangère."
 
 #: libraries/tbl_columns_definition_form.lib.php:606
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Pick from Central Columns"
-msgstr "Supprimer de la liste centrale de colonnes"
+msgstr "Choisissez à partir des colonnes centrales"
 
 #: libraries/tbl_columns_definition_form.lib.php:784
 msgid "first"
