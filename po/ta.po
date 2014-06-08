@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-24 09:05-0400\n"
-"PO-Revision-Date: 2014-06-07 10:30+0200\n"
+"PO-Revision-Date: 2014-06-08 13:20+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -1311,7 +1311,7 @@ msgstr "general_log லிருந்து"
 
 #: js/messages.php:161
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "இவ்வினவலுகான தரவுத்தளத்தின் பெயர் வழங்கியின் பதிகையில் இல்லை."
 
 #: js/messages.php:163
 msgid "Analysing logs"
@@ -1319,7 +1319,7 @@ msgstr "பதிகைகளை பகுத்தாராய்கிறத�
 
 #: js/messages.php:164
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "பதிகைகளை பகுத்தாராய்ந்து நினைவேற்றுகிறது.இதற்கு சிறிது நேரமாகலாம்."
 
 #: js/messages.php:165
 msgid "Cancel request"
@@ -1331,6 +1331,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"இந்த நிரல்வரிசை ஒத்ததாகவுள்ள தொகுக்கப்பட்ட வினவல்களின் அளவை காட்டுகிறது. "
+"இருப்பினும் SQL உரை மட்டுமே ஒப்புநோக்கப்பட்டதால் வினவலின் பிற துவக்கநேரம் "
+"போன்ற பண்புகூறுகள் மாறுபடலாம்."
 
 #: js/messages.php:167
 msgid ""
@@ -1338,14 +1341,18 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"INSERT வினவல்களை தொகுத்தல் இயலசெய்யப்பட்டுள்ளதால், ஒரே அட்டவணைக்குள் "
+"உள்ளிடும் INSERT வினவல்களும் உள்ளிட்ட தரவை கருதாமல் தொகுக்கப்படுகிறன."
 
 #: js/messages.php:168
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
+"பதிகை தரவுகள் நினைவேற்றப்பட்டன. இந்த இடைநேரத்தில் செயல்படுத்தப்பட்ட "
+"வினவல்கள்:"
 
 #: js/messages.php:170
 msgid "Jump to Log table"
-msgstr ""
+msgstr "பதிகை அட்டவணைக்கு செல்க"
 
 #: js/messages.php:171
 msgid "No data found"
