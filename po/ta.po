@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-06-08 17:36+0200\n"
+"PO-Revision-Date: 2014-06-08 17:38+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1488,7 +1488,7 @@ msgstr "கண்காணிப்பின் அமைப்பாக்க�
 
 #: js/messages.php:208
 msgid "Please select the file you want to import."
-msgstr ""
+msgstr "தரவிறக்க வேண்டிய கோப்பை தயவுசெய்து தேர்ந்தெடுக்கவும்."
 
 #: js/messages.php:209
 msgid "No files available on server for import!"
