@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-06-08 22:36+0200\n"
+"PO-Revision-Date: 2014-06-08 22:38+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -3144,7 +3144,7 @@ msgstr "Tasarımcı"
 #: libraries/Menu.class.php:481 libraries/Util.class.php:4099
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "Merkezi sütunlar"
+msgstr "Orta sütunlar"
 
 #: libraries/Menu.class.php:513 libraries/Util.class.php:4071
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
@@ -9331,7 +9331,7 @@ msgstr "Örnekle Sorgulama aramalarını kaydetme"
 
 #: libraries/relation.lib.php:302
 msgid "Managing Central list of columns"
-msgstr "Sütunların Merkezi listesi yönetimi"
+msgstr "Orta sütunların listesi yönetimi"
 
 #: libraries/relation.lib.php:308
 msgid "Quick steps to setup advanced features:"
@@ -12213,11 +12213,11 @@ msgstr "Tabloyu ön eki ile kopyala"
 
 #: libraries/structure.lib.php:341
 msgid "Add columns to central list"
-msgstr "Sütunları merkezi listeye ekle"
+msgstr "Sütunları orta listeye ekle"
 
 #: libraries/structure.lib.php:343
 msgid "Remove columns from central list"
-msgstr "Merkezi listeden sütunları kaldır"
+msgstr "Orta listeden sütunları kaldır"
 
 #: libraries/structure.lib.php:365
 msgid "Check tables having overhead"
@@ -12257,11 +12257,11 @@ msgstr "Tam metin"
 
 #: libraries/structure.lib.php:1483 libraries/structure.lib.php:2095
 msgid "Add to central columns"
-msgstr "Merkezi sütunlara ekle"
+msgstr "Orta sütunlara ekle"
 
 #: libraries/structure.lib.php:1488 libraries/structure.lib.php:2085
 msgid "Remove from central columns"
-msgstr "Merkezi sütunlardan kaldır"
+msgstr "Orta sütunlardan kaldır"
 
 #: libraries/structure.lib.php:1504 libraries/structure.lib.php:1614
 msgid "Move columns"
@@ -12573,7 +12573,7 @@ msgstr "Bir dış anahtardır."
 #: libraries/tbl_columns_definition_form.lib.php:606
 #| msgid "Remove from central columns"
 msgid "Pick from Central Columns"
-msgstr "Merkezi Sütunlardan seç"
+msgstr "Orta Sütunlardan seç"
 
 #: libraries/tbl_columns_definition_form.lib.php:784
 msgid "first"
