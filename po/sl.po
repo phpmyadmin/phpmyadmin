@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-05-29 13:33+0200\n"
+"PO-Revision-Date: 2014-06-08 13:10+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -26,10 +26,10 @@ msgstr ""
 "www.phpmyadmin.net."
 
 #: db_central_columns.php:111
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "Prikazujem vrstice %1s–%2s"
+msgstr "Prikazujem vrstice %1$s–%2$s"
 
 #: db_create.php:61
 #, php-format
@@ -999,7 +999,7 @@ msgstr "Dodaj %s stolpec(-cev) k indeksu"
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:365
 msgid "Preview SQL"
-msgstr ""
+msgstr "Predogled SQL"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:62 libraries/tbl_chart.lib.php:215
@@ -1726,19 +1726,17 @@ msgstr "Prebrskaj tuje vrednosti"
 
 #: js/messages.php:282
 msgid "Pick"
-msgstr ""
+msgstr "Izberite"
 
 #: js/messages.php:283
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "Ni izbranih stolpcev."
+msgstr "Izbirnik stolpcev"
 
 #: js/messages.php:284
-#, fuzzy
 #| msgid "Search this table"
 msgid "Search this list"
-msgstr "Išči po tabeli"
+msgstr "Iskanje po seznamu"
 
 #: js/messages.php:285
 #, php-format
@@ -1746,12 +1744,13 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"V osrednjem seznamu ni stolpcev. Prepričajte se, da ima seznam osrednjih "
+"stolpcev za zbirko podatkov %s stolpce, ki niso prisotni v trenutni tabeli."
 
 #: js/messages.php:286
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "Prost pomnilnik"
+msgstr "Poglej več"
 
 #: js/messages.php:288 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -3146,10 +3145,9 @@ msgid "Designer"
 msgstr "Oblikovalnik"
 
 #: libraries/Menu.class.php:481 libraries/Util.class.php:4099
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "Stolpcev besedilnega polja"
+msgstr "Osrednji stolpci"
 
 #: libraries/Menu.class.php:513 libraries/Util.class.php:4071
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
@@ -4221,20 +4219,18 @@ msgid "Extra"
 msgstr "Dodatno"
 
 #: libraries/central_columns.lib.php:537
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Izberi tabele"
+msgstr "Izberite tabelo"
 
 #: libraries/central_columns.lib.php:587 libraries/structure.lib.php:1647
 msgid "Add column"
 msgstr "Dodaj stolpec"
 
 #: libraries/central_columns.lib.php:599
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Izberite dva stolpca"
+msgstr "Izberite stolpec."
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -12474,29 +12470,26 @@ msgstr "Oznaka osi y:"
 
 #: libraries/tbl_chart.lib.php:237
 msgid "Series names are in a column"
-msgstr ""
+msgstr "Imena zaporedij so v stolpcu"
 
 #: libraries/tbl_chart.lib.php:240
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "V stolpcu:"
+msgstr "Stolpec z zaporedjem:"
 
 #: libraries/tbl_chart.lib.php:253
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Value column:"
-msgstr "Vrednosti stolpca %s"
+msgstr "Stolpec z vrednostjo:"
 
 #: libraries/tbl_chart.lib.php:286
 msgid "Start row:"
 msgstr "Začetna vrstica:"
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Shrani kot datoteko"
+msgstr "Shrani grafikon kot sliko"
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
@@ -12572,10 +12565,9 @@ msgid "Is a foreign key."
 msgstr "Je tuji ključ."
 
 #: libraries/tbl_columns_definition_form.lib.php:606
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Pick from Central Columns"
-msgstr "Odstrani iz osrednjih stolpcev"
+msgstr "Izberite iz osrednjih stolpcev"
 
 #: libraries/tbl_columns_definition_form.lib.php:784
 msgid "first"
