@@ -281,6 +281,10 @@ $js_messages['pickColumnTitle'] = __('Column selector');
 $js_messages['searchList'] = __('Search this list');
 $js_messages['strEmptyCentralList'] = __('No columns in the central list. Make sure Central columns list for database %s has columns that is not present in current table.');
 $js_messages['seeMore'] = __('See more');
+$js_messages['confirmTitle'] = __('Are you sure?');
+$js_messages['makeConsistentMessage'] = __('This action may change some of the columns definition.<br/>Are you sure, you want to continue?');
+$js_messages['strContinue'] = __('Continue');
+
 /* For server_variables.js */
 $js_messages['strSave'] = __('Save');
 

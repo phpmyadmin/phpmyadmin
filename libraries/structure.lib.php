@@ -339,6 +339,8 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
                 . __('Add columns to central list') . '</option>' . "\n";
             $html_output .= '<option value="delete_unique_columns_central_list" >'
                 . __('Remove columns from central list') . '</option>' . "\n";
+            $html_output .= '<option value="make_consistent_with_central_list" >'
+                . __('Make consistent with central list') . '</option>' . "\n";
         }
     }
     $html_output .= '</select>'
@@ -1476,12 +1478,12 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
         if ($GLOBALS['cfgRelation']['central_columnswork']) {
             $html_output .= PMA_Util::getButtonOrImage(
                 'submit_mult', 'mult_submit', 'submit_mult_central_columns_add',
-                __('Add to central columns'), 'centralColumns_add.png', 
+                __('Add to central columns'), 'centralColumns_add.png',
                 'add_to_central_columns'
             );
             $html_output .= PMA_Util::getButtonOrImage(
                 'submit_mult', 'mult_submit', 'submit_mult_central_columns_remove',
-                __('Remove from central columns'), 'centralColumns_delete.png', 
+                __('Remove from central columns'), 'centralColumns_delete.png',
                 'remove_from_central_columns'
             );
         }
@@ -2072,7 +2074,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
     if ($GLOBALS['cfgRelation']['central_columnswork']) {
         $html_output .= '<li class="browse nowrap">';
         if ($isInCentralColumns) {
-            $html_output .= 
+            $html_output .=
                 '<a href="#" onclick=$("input:checkbox").removeAttr("checked");'
                 . '$("#checkbox_row_' . $rownum . '").attr("checked","checked");'
                 . '$("button[value=remove_from_central_columns]").click();>'
@@ -2082,12 +2084,12 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
             )
             . '</a>';
         } else {
-            $html_output .= 
+            $html_output .=
                 '<a href="#" onclick=$("input:checkbox").removeAttr("checked");'
                 . '$("#checkbox_row_' . $rownum . '").attr("checked","checked");'
                 . '$("button[value=add_to_central_columns]").click();>'
             . PMA_Util::getIcon(
-                'centralColumns_add.png', 
+                'centralColumns_add.png',
                 __('Add to central columns')
             )
             . '</a>';
