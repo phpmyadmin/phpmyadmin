@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-06-07 22:08+0200\n"
+"PO-Revision-Date: 2014-06-08 10:59+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -1726,16 +1726,14 @@ msgid "Pick"
 msgstr ""
 
 #: js/messages.php:283
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "Seçilen sütun yok."
+msgstr "Sütun seçici"
 
 #: js/messages.php:284
-#, fuzzy
 #| msgid "Search this table"
 msgid "Search this list"
-msgstr "Bu tabloda ara"
+msgstr "Bu listede ara"
 
 #: js/messages.php:285
 #, php-format
