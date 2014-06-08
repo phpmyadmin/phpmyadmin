@@ -28,6 +28,7 @@ phpMyAdmin - ChangeLog
 - bug       Query error on submitting a column change form containing a disabled input field
 - bug       Incorrect menu tab generation from usergroups
 - bug       Missing space in index creation/edit generated query
+- bug #4434 Unchecking 'Show SQL queries' results NaN
 
 4.2.2.0 (2014-05-20)
 - bug #4388 Disable database expansion when enabled throws Error 500 when database name is clicked in navigation tree
