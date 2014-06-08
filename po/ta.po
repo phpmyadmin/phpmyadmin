@@ -1480,7 +1480,7 @@ msgstr ""
 #: libraries/server_status_monitor.lib.php:360 prefs_manage.php:232
 #: setup/frames/menu.inc.php:26
 msgid "Import"
-msgstr "இறக்குமதி"
+msgstr "தரவிறக்கம்"
 
 #: js/messages.php:207
 msgid "Import monitor configuration"
