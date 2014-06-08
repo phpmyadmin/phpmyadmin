@@ -95,8 +95,10 @@ class PMA_Error_Handler
     }
 
     /**
-    * returns the errorsoccured in the current run only. Does not include the errors save din the SESSION
+    * returns the errors occured in the current run only.
+    * Does not include the errors save din the SESSION
     *
+    * @return array of current errors
     */
     public function getCurrentErrors()
     {
@@ -297,7 +299,7 @@ class PMA_Error_Handler
         // display errors if SendErrorReports is set to 'ask'.
         if ($GLOBALS['cfg']['SendErrorReports'] != 'never'
             || $GLOBALS['cfg']['Error_Handler']['display']
-            ) {
+        ) {
             foreach ($this->getErrors() as $error) {
                 if ($error instanceof PMA_Error) {
                     if (! $error->isDisplayed()) {
@@ -313,11 +315,14 @@ class PMA_Error_Handler
         } else {
             $retval .= $this->getDispUserErrors();
         }
-        if($GLOBALS['cfg']['SendErrorReports'] != 'never'         // preference is not 'never' and
-            &&  $this->countErrors() !=  $this->countUserErrors() // there are 'actual' errors to be reported
-            ){
+        // if preference is not 'never' and
+        // there are 'actual' errors to be reported
+        if ($GLOBALS['cfg']['SendErrorReports'] != 'never'
+            &&  $this->countErrors() !=  $this->countUserErrors()
+        ) {
             // add report button.
-            $retval .= '<form method="post" action="error_report.php" id="pma_report_errors_form"';
+            $retval .= '<form method="post" action="error_report.php"'
+                    . ' id="pma_report_errors_form"';
             if ($GLOBALS['cfg']['SendErrorReports'] == 'always') {
                 // in case of 'always', generate 'invisible' form.
                 $retval .= ' style="display:none;"';
@@ -335,13 +340,17 @@ class PMA_Error_Handler
 
             if ($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
                 // add ignore buttons
-                $retval .='<input type="submit" value="'.__('Ignore')
-                        .'" id="pma_ignore_errors" onclick="PMA_ignorePhpErrors(true)" '
-                        .'style="float: right; margin: 20px;">';
+                $retval .= '<input type="submit" value="'
+                        . __('Ignore')
+                        . '" id="pma_ignore_errors"'
+                        . ' onclick="PMA_ignorePhpErrors(true)"'
+                        . ' style="float: right; margin: 20px;">';
             }
-            $retval .='<input type="submit" value="'.__('Ignore All')
-                    .'" id="pma_ignore_all_errors" onclick="PMA_ignorePhpErrors(false)" '
-                    .'style="float: right; margin: 20px;">';
+            $retval .= '<input type="submit" value="'
+                    . __('Ignore All')
+                    . '" id="pma_ignore_all_errors"'
+                    . ' onclick="PMA_ignorePhpErrors(false)"'
+                    . ' style="float: right; margin: 20px;">';
         }
         return $retval;
     }
@@ -437,7 +446,7 @@ class PMA_Error_Handler
     {
         if ($GLOBALS['cfg']['SendErrorReports'] != 'never'
             || $GLOBALS['cfg']['Error_Handler']['display']
-            ) {
+        ) {
             return $this->countErrors();
         } else {
             return $this->countUserErrors();
@@ -458,7 +467,8 @@ class PMA_Error_Handler
     * Deletes prevsiously stored errors in SESSION.
     * Saves current errors in session as previous errros.
     * Required to save current errors in case  'ask'
-    * 
+    *
+    * @return void
     */
     public function savePreviousErrors()
     {
@@ -468,25 +478,30 @@ class PMA_Error_Handler
 
     /**
      * Function to check if there are any errors to be prompted.
-     * Needed because user warnings raised are also collected by global error handler.
-     * This dishtingushes between the actual errors and user errors raised to warn user.
+     * Needed because user warnings raised are
+     *      also collected by global error handler.
+     * This dishtingushes between the actual errors
+     *      and user errors raised to warn user.
      *
      *@return boolean: true if there are errors to be "prompted", false otherwise
      */
     public function hasErrorsForPrompt()
     {
         return (
-                ($GLOBALS['cfg']['SendErrorReports'] != 'never' || $GLOBALS['cfg']['Error_Handler']['display'])
-                && $this->countErrors() !=  $this->countUserErrors()
-                );
+            ($GLOBALS['cfg']['SendErrorReports'] != 'never'
+                || $GLOBALS['cfg']['Error_Handler']['display'])
+            && $this->countErrors() !=  $this->countUserErrors()
+        );
     }
 
     /**
      * Function to report all the collected php errors.
-     * Must be called at the end of each script by the $GLOBALS['error_handler'] only.
+     * Must be called at the end of each script
+     *      by the $GLOBALS['error_handler'] only.
      *
-     * @return: void
+     * @return void
      */
+
     public function reportError()
     {
         if (!$this->hasErrors()) {
@@ -512,7 +527,8 @@ class PMA_Error_Handler
             //ask user whether to submit errors or not.
             if (!$response->isAjax()) {
                 // js code to show appropriate msgs & focusing,
-                $jsCode = 'PMA_ajaxShowMessage(PMA_messages["phpErrorsFound"], 2000);'
+                $jsCode = 'PMA_ajaxShowMessage(PMA_messages["phpErrorsFound"], '
+                        . ' 2000);'
                         . '$("html, body").animate({
                             scrollTop:$(document).height()
                         }, "slow");';

@@ -187,14 +187,18 @@ class PMA_Error extends PMA_Message
 
     /**
      * returns PMA_Error::$_backtrace for first $count frames
-     * pass $count = -1 to get full backtrace. The same can be done by not passing $count at all.
+     *  pass $count = -1 to get full backtrace.
+     *  The same can be done by not passing $count at all.
+     *
+     * @param integer $count number of stackframes to be returned.
+     *
      * @return array PMA_Error::$_backtrace
      */
     public function getBacktrace($count = -1)
     {
-        if($count != -1) {
+        if ($count != -1) {
             return array_slice($this->backtrace, 0, $count);
-            
+
         }
         return $this->backtrace;
     }
@@ -262,6 +266,8 @@ class PMA_Error extends PMA_Message
     /**
      * Get HTML backtrace of upto $numStackFrames frames
      *
+     * @param integer $numStackFrames number of stackframes to be returned.
+     *
      * @return string
      */
     public function getBacktraceDisplay($numStackFrames = 3)
@@ -291,7 +297,7 @@ class PMA_Error extends PMA_Message
             }
             $retval .= ')' . "<br />\n";
             $count++;
-            if($count >= $numStackFrames){
+            if ($count >= $numStackFrames) {
                 break;
             }
         }

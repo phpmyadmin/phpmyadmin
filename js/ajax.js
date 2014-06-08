@@ -325,7 +325,7 @@ var AJAX = {
                 }
 
                 $('#pma_errors').remove();
-                
+
                 var msg = '';
                 if(data._errSubmitMsg){
                     msg = data._errSubmitMsg;

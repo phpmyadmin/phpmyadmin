@@ -10,13 +10,13 @@ require_once 'libraries/error_report.lib.php';
 
 $response = PMA_Response::getInstance();
 
-if (isset($_REQUEST['exception_type']) 
+if (isset($_REQUEST['exception_type'])
     && $_REQUEST['exception_type'] == 'js'
-    ) {
+) {
     if (isset($_REQUEST['send_error_report'])
         && $_REQUEST['send_error_report'] == true
     ) {
-        $server_response = PMA_sendErrorReport(PMA_getReportData(false,'js'));
+        $server_response = PMA_sendErrorReport(PMA_getReportData(false, 'js'));
 
         if ($server_response === false) {
             $success = false;
@@ -96,94 +96,96 @@ if (isset($_REQUEST['exception_type'])
     } else {
         $response->addHTML(PMA_getErrorReportForm());
     }
-}elseif (isset($_REQUEST['exception_type']) 
-        && $_REQUEST['exception_type'] == 'php'
+} elseif (isset($_REQUEST['exception_type'])
+    && $_REQUEST['exception_type'] == 'php'
+) {
+    if (isset($_REQUEST['send_error_report'])
+        && $_REQUEST['send_error_report'] == '1'
+    ) {
+        /**
+         * Prevent inifnite error submission.
+         * Happens in case error submissions fails.
+         * If reporting is done in some time interval,
+         * just clear them & clear json data too.
+         */
+        if (isset($_SESSION['prev_error_subm_time'])
+            && isset($_SESSION['error_subm_count'])
+            && $_SESSION['error_subm_count'] >= 3                  // max 4 attempts
+            && ($_SESSION['prev_error_subm_time']-time()) <= 3000  // in 3 seconds
         ) {
-        if (isset($_REQUEST['send_error_report'])
-            && $_REQUEST['send_error_report'] == '1'
-            ) {
-            /**
-             * Prevent inifnite error submission. 
-             * Happens in case error submissions fails.
-             * If reporting is done in some time interval, just clear them & clear json data too.
-             */
-            if (isset($_SESSION['prev_error_subm_time'])
-                && isset($_SESSION['error_subm_count'])
-                && $_SESSION['error_subm_count'] >= 3                  // allow maximum 4 attempts
-                && ($_SESSION['prev_error_subm_time']-time()) <= 3000  // in 3 seconds
-            ) {
-                $_SESSION['error_subm_count'] = 0;
-                $_SESSION['prev_errors'] = '';
-                 $response = PMA_Response::getInstance();
-                $response->addJSON('_stopErrorReportLoop', '1');
+            $_SESSION['error_subm_count'] = 0;
+            $_SESSION['prev_errors'] = '';
+             $response = PMA_Response::getInstance();
+            $response->addJSON('_stopErrorReportLoop', '1');
+        } else {
+            $_SESSION['prev_error_subm_time'] = time();
+            $_SESSION['error_subm_count'] = (
+                (isset($_SESSION['error_subm_count']))
+                    ? ($_SESSION['error_subm_count']+1)
+                    : (0)
+            );
+        }
+
+        $reportData = PMA_getReportData(false, 'php');
+        // report if and only if there were 'actual' errors.
+        if ($reportData) {
+            $server_response = PMA_sendErrorReport($reportData);
+            if ($server_response === false) {
+                $success = false;
             } else {
-                $_SESSION['prev_error_subm_time'] = time();
-                $_SESSION['error_subm_count'] = (
-                    (isset($_SESSION['error_subm_count']))
-                        ? ($_SESSION['error_subm_count']+1)
-                        : (0)
-                );
+                $decoded_response = json_decode($server_response, true);
+                $success = !empty($decoded_response) ? $decoded_response["success"] : false;
             }
 
-            $reportData = PMA_getReportData(false,'php');
-            // report if and only if there were 'actual' errors.
-            if($reportData) {
-                $server_response = PMA_sendErrorReport($reportData);
-                if ($server_response === false) {
-                    $success = false;
+            if ($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
+                if ($success) {
+                    $errSubmitMsg = PMA_Message::error(
+                        __('Thank You for subitting error report!!')
+                        . '<br/>'
+                        . __('Report has been succesfully submitted.')
+                    );
                 } else {
-                    $decoded_response = json_decode($server_response, true);
-                    $success = !empty($decoded_response) ? $decoded_response["success"] : false;
+                    $errSubmitMsg = PMA_Message::error(
+                        __('Thank You for subitting error report!!')
+                        . '<br/>'
+                        . __(' Unfortunately submission failed.')
+                        . '<br/>'
+                        . __(' If you experience any problems please submit a bug report manually.')
+                    );
                 }
-                
-                if($GLOBALS['cfg']['SendErrorReports'] == 'ask'){
-                    if($success) {
-                        $errSubmitMsg = PMA_Message::error(
-                                    __('Thank You for subitting error report!!')
-                                    . '<br/>'
-                                    . __('Report has been succesfully submitted.')
-                                );
-                    } else {
-                        $errSubmitMsg = PMA_Message::error(
-                                    __('Thank You for subitting error report!!')
-                                    . '<br/>'
-                                    . __(' Unfortunately submission failed.')
-                                    . '<br/>'
-                                    . __(' If you experience any problems please submit a bug report manually.')
-                                );
-                    }
-                } elseif($GLOBALS['cfg']['SendErrorReports'] == 'always') {
-                    if($success) {
-                        $errSubmitMsg = PMA_Message::error(
-                                    __(
-                                        'An error has been detected on the server and an error report has been '
-                                        . 'automatically submitted based on your settings.'
-                                    )
-                                );
-                    } else {
-                        $errSubmitMsg = PMA_Message::error(
-                                    __(
-                                        'An error has been detected and an error report has been '
-                                        . 'generated but failed to be sent.'
-                                    )
-                                    . '<br/>'
-                                    . __('If you experience any problems please submit a bug report manually.')
-                                );
-                    }
+            } elseif ($GLOBALS['cfg']['SendErrorReports'] == 'always') {
+                if ($success) {
+                    $errSubmitMsg = PMA_Message::error(
+                        __(
+                            'An error has been detected on the server'
+                            . ' and an error report has been '
+                            . 'automatically submitted based on your settings.'
+                        )
+                    );
+                } else {
+                    $errSubmitMsg = PMA_Message::error(
+                        __(
+                            'An error has been detected and an error report has been '
+                            . 'generated but failed to be sent.'
+                        )
+                        . '<br/>'
+                        . __('If you experience any problems please submit a bug report manually.')
+                    );
                 }
+            }
 
-                if($response->isAjax()) {
-                    $response->addJSON('_errSubmitMsg',$errSubmitMsg);
-                } else {
-                    $jsCode = 'PMA_ajaxShowMessage("<div class=\"error\">'
-                            .$errSubmitMsg
-                            .'</div>", false);';
-                    $response->getFooter()->getScripts()->addCode($jsCode);
-                }
+            if ($response->isAjax()) {
+                $response->addJSON('_errSubmitMsg', $errSubmitMsg);
+            } else {
+                $jsCode = 'PMA_ajaxShowMessage("<div class=\"error\">'
+                        . $errSubmitMsg
+                        . '</div>", false);';
+                $response->getFooter()->getScripts()->addCode($jsCode);
             }
         }
-        // clear previous errors & save new ones.
-        $GLOBALS['error_handler']->savePreviousErrors();
+    }
+    // clear previous errors & save new ones.
+    $GLOBALS['error_handler']->savePreviousErrors();
 } else {
     die('Oops, something went wrong!!');
 }
