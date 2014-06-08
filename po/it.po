@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-05-12 01:03+0200\n"
+"PO-Revision-Date: 2014-06-08 22:28+0200\n"
 "Last-Translator: Marco Pozzato <ironpotts@gmail.com>\n"
-"Language-Team: Italian <https://l10n.cihar.com/projects/phpmyadmin/master/it/"
-">\n"
+"Language-Team: Italian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -25,10 +25,10 @@ msgstr ""
 "maggiori informazioni."
 
 #: db_central_columns.php:111
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "Mostro le righe %1s - %2s"
+msgstr "Mostro le righe %1$s - %2$s"
 
 #: db_create.php:61
 #, php-format
@@ -1001,7 +1001,7 @@ msgstr "Aggiungi %s campo/i all'indice"
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:365
 msgid "Preview SQL"
-msgstr ""
+msgstr "Anteprima SQL"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:62 libraries/tbl_chart.lib.php:215
@@ -1645,10 +1645,9 @@ msgid "(Disabled)"
 msgstr "(Disabilitato)"
 
 #: js/messages.php:252
-#, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
-msgstr "La lettura delle intestazioni é fallita"
+msgstr "Il conteggio delle righe reali è fallito."
 
 #: js/messages.php:255
 msgid "Searching"
@@ -1737,20 +1736,19 @@ msgid "Browse foreign values"
 msgstr "Naviga tra i valori esterni"
 
 #: js/messages.php:282
+#, fuzzy
 msgid "Pick"
-msgstr ""
+msgstr "Seleziona"
 
 #: js/messages.php:283
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "Nessuna colonna selezionata."
+msgstr "Selettore colonne"
 
 #: js/messages.php:284
-#, fuzzy
 #| msgid "Search this table"
 msgid "Search this list"
-msgstr "Cerca nella tabella"
+msgstr "Cerca nella lista"
 
 #: js/messages.php:285
 #, php-format
@@ -1758,12 +1756,14 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Nessuna colonna nella lista centrale. Assicurati che la lista centrale per "
+"il database %s abbia colonne non presenti nella tabella corrente."
 
 #: js/messages.php:286
 #, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "Memoria libera"
+msgstr "Vedi altri"
 
 #: js/messages.php:288 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -1845,6 +1845,7 @@ msgid "Point"
 msgstr "Punto"
 
 #: js/messages.php:325
+#, fuzzy
 msgid "Linestring"
 msgstr "Stringa su più linee"
 
@@ -1969,6 +1970,8 @@ msgstr ""
 #: js/messages.php:364
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
+"Inserire una stringa esadecimale valida. I caratteri consentiti sono 0-9, "
+"A-F."
 
 #: js/messages.php:369
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -3164,10 +3167,9 @@ msgid "Designer"
 msgstr "Designer"
 
 #: libraries/Menu.class.php:481 libraries/Util.class.php:4099
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "Campi di aree di testo"
+msgstr "Colonne centrali"
 
 #: libraries/Menu.class.php:513 libraries/Util.class.php:4071
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
@@ -4195,32 +4197,32 @@ msgid "Check Privileges"
 msgstr "Controlla i privilegi"
 
 #: libraries/central_columns.lib.php:118
+#, fuzzy
 msgid ""
 "Central list of columns configuration Storage is not completely configured!"
-msgstr ""
+msgstr "La configurazione della memorizzazione lista di colonne non è completa!"
 
 #: libraries/central_columns.lib.php:241
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "Non posso aggiungere %1$s perchè esiste già nella lista centrale!"
 
 #: libraries/central_columns.lib.php:257
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "Impossibile salvare la configurazione"
+msgstr "Impossibile aggiungere colonne!"
 
 #: libraries/central_columns.lib.php:330
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"Non posso rimuovere le colonne %1$s perchè non esistono nella lista centrale!"
 
 #: libraries/central_columns.lib.php:342
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not remove columns!"
-msgstr "Impossibile salvare la tabella recente"
+msgstr "Impossibile rimuovere colonne!"
 
 #: libraries/central_columns.lib.php:506
 #: libraries/display_create_table.lib.php:60
@@ -4245,25 +4247,22 @@ msgstr "Lunghezza/Valori"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1364
 #: libraries/schema/Pdf_Relation_Schema.class.php:1387
 #: libraries/structure.lib.php:1254 libraries/tbl_tracking.lib.php:814
-#, fuzzy
 msgid "Extra"
 msgstr "Extra"
 
 #: libraries/central_columns.lib.php:537
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Seleziona Tables"
+msgstr "Seleziona una tabella"
 
 #: libraries/central_columns.lib.php:587 libraries/structure.lib.php:1647
 msgid "Add column"
 msgstr "Aggiungi campo"
 
 #: libraries/central_columns.lib.php:599
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Seleziona due campi"
+msgstr "Seleziona una colonna."
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -5562,13 +5561,11 @@ msgid "Warnings"
 msgstr "Avviso"
 
 #: libraries/config/messages.inc.php:312
-#, fuzzy
 #| msgid "Disable some of the warnings shown by phpMyAdmin"
 msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr "Disabilta alcuni avvisi mostrati da phpMyAdmin"
+msgstr "Disabilita alcuni degli avvisi mostrati da phpMyAdmin."
 
 #: libraries/config/messages.inc.php:314
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations"
@@ -5577,7 +5574,7 @@ msgid ""
 "and export operations."
 msgstr ""
 "Abilita compressione [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] per le "
-"operazioni di importazione ed esportazione"
+"operazioni di importazione ed esportazione."
 
 #: libraries/config/messages.inc.php:317
 msgid "GZip"
@@ -5588,7 +5585,6 @@ msgid "Extra parameters for iconv"
 msgstr "Parametri aggiuntivi per iconv"
 
 #: libraries/config/messages.inc.php:320
-#, fuzzy
 #| msgid ""
 #| "If enabled, phpMyAdmin continues computing multiple-statement queries "
 #| "even if one of the queries failed"
@@ -5596,8 +5592,8 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
 msgstr ""
-"Se abilitato, phpMyAdmin continuerá a processare le query con multiple "
-"istruzioni anche se una di queste fallisce"
+"Se impostato, phpMyAdmin continuerá a processare le query con istruzioni "
+"multiple anche se una di queste fallisce."
 
 #: libraries/config/messages.inc.php:323
 msgid "Ignore multiple statement errors"
@@ -5630,7 +5626,6 @@ msgid "Replace table data with file"
 msgstr "Sostituisci i dati della tabella col file"
 
 #: libraries/config/messages.inc.php:338
-#, fuzzy
 #| msgid ""
 #| "Default format; be aware that this list depends on location (database, "
 #| "table) and only SQL is always available"
@@ -5638,8 +5633,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
 msgstr ""
-"Formato predefinito; prego nota che questa lista dipende dalla posizione "
-"(database, tabella) e solo SQL é sempre disponibile"
+"Formato predefinito; notare che questa lista dipende dalla posizione ("
+"database, tabella) e solo SQL é sempre disponibile."
 
 #: libraries/config/messages.inc.php:341
 msgid "Format of imported file"
@@ -5669,10 +5664,9 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Importa percentuali come valori decimali (12.00% a .12)"
 
 #: libraries/config/messages.inc.php:354
-#, fuzzy
 #| msgid "Number of queries to skip from start"
 msgid "Number of queries to skip from start."
-msgstr "Numero di query da saltare dall'inizio"
+msgstr "Numero di query da saltare dall'inizio."
 
 #: libraries/config/messages.inc.php:355
 msgid "Partial import: skip queries"
@@ -5687,25 +5681,23 @@ msgid "Initial state for sliders"
 msgstr "Stato iniziale per i dispositivi di scorrimento"
 
 #: libraries/config/messages.inc.php:362
-#, fuzzy
 #| msgid "How many rows can be inserted at one time"
 msgid "How many rows can be inserted at one time."
-msgstr "Il numero di righe che puó essere insertito alla volta"
+msgstr "Il numero massimo di righe che è possibile inserire in una volta."
 
 #: libraries/config/messages.inc.php:363
 msgid "Number of inserted rows"
 msgstr "Il numero di righe inserite"
 
 #: libraries/config/messages.inc.php:365
-#, fuzzy
 #| msgid ""
 #| "Maximum number of characters shown in any non-numeric column on browse "
 #| "view"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
-"Il massimo numero di caratteri mostrati in qualsiasi campo non-numerico con "
-"la vista di navigazione"
+"Il numero massimo di caratteri mostrati in qualsiasi campo non-numerico "
+"nella vista di navigazione."
 
 #: libraries/config/messages.inc.php:367
 msgid "Limit column characters"
@@ -5727,7 +5719,6 @@ msgid "Delete all cookies on logout"
 msgstr "Elimina tutti i cookie al logout"
 
 #: libraries/config/messages.inc.php:375
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode"
@@ -5735,8 +5726,8 @@ msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
-"Stabilisci se il login precedente deve essere ricordato o no, nel modo di "
-"autenticazione cookie"
+"Stabilisci se il login precedente deve essere ricordato o meno, nel modo di "
+"autenticazione [kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:378
 msgid "Recall user name"
@@ -5759,31 +5750,28 @@ msgid "Login cookie store"
 msgstr "Store del cookie di login"
 
 #: libraries/config/messages.inc.php:387
-#, fuzzy
 #| msgid "Define how long (in seconds) a login cookie is valid"
 msgid "Define how long (in seconds) a login cookie is valid."
-msgstr "Stabilisce per quanto tempo (in secondi) un cookie di login è valido"
+msgstr "Stabilisce per quanto tempo (in secondi) un cookie di login è valido."
 
 #: libraries/config/messages.inc.php:388
 msgid "Login cookie validity"
 msgstr "Validitá per il cookie di login"
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 #| msgid "Double size of textarea for LONGTEXT columns"
 msgid "Double size of textarea for LONGTEXT columns."
-msgstr "Raddoppia l dimensione dell'area di testo per campi LONGTEXT"
+msgstr "Raddoppia la dimensione dell'area di testo per campi LONGTEXT."
 
 #: libraries/config/messages.inc.php:391
 msgid "Bigger textarea for LONGTEXT"
 msgstr "Un area di testo piú grande per LONGTEXT"
 
 #: libraries/config/messages.inc.php:393
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr ""
-"Il massimo numero di caratteri utilizzati per visalizzare una query SQL"
+"Il numero massimo di caratteri utilizzati per visalizzare una query SQL."
 
 #: libraries/config/messages.inc.php:394
 msgid "Maximum displayed SQL length"
@@ -5795,17 +5783,15 @@ msgid "Users cannot set a higher value"
 msgstr "Gli utenti non possono impostare un valore maggiore"
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 #| msgid "Maximum number of databases displayed in database list"
 msgid "Maximum number of databases displayed in database list."
-msgstr "Il massimo numero di database da visualizzare nella lista dei database"
+msgstr "Il numero massimo di database da visualizzare nella lista dei database."
 
 #: libraries/config/messages.inc.php:398
 msgid "Maximum databases"
 msgstr "Massimi numero dei database"
 
 #: libraries/config/messages.inc.php:400
-#, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page of the navigation "
 #| "tree"
@@ -5813,17 +5799,16 @@ msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
 msgstr ""
-"Il numero di elementi che possono essere visualizzati in ogni pagina "
-"dell'albero di navigazione"
+"Il numero di elementi che possono essere visualizzati in ogni pagina al "
+"primo livello dell'albero di navigazione."
 
 #: libraries/config/messages.inc.php:403
 #, fuzzy
 #| msgid "Maximum size for input field"
 msgid "Maximum items on first level"
-msgstr "Dimensione massima per il campo di input"
+msgstr "Numero massimo di elementi al primo livello"
 
 #: libraries/config/messages.inc.php:405
-#, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page of the navigation "
 #| "tree"
@@ -5832,11 +5817,12 @@ msgid ""
 "tree."
 msgstr ""
 "Il numero di elementi che possono essere visualizzati in ogni pagina "
-"dell'albero di navigazione"
+"dell'albero di navigazione."
 
 #: libraries/config/messages.inc.php:407
+#, fuzzy
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Numero massimo di elementi nel ramo"
 
 #: libraries/config/messages.inc.php:409
 msgid ""
@@ -5852,17 +5838,15 @@ msgid "Maximum number of rows to display"
 msgstr "Il massimo numero di righe da visualizzare"
 
 #: libraries/config/messages.inc.php:415
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of tables displayed in table list."
-msgstr "Il massimo numero di tabelle da visualizzare nella lista di tabelle"
+msgstr "Il numero massimo di tabelle da visualizzare nella lista di tabelle."
 
 #: libraries/config/messages.inc.php:416
 msgid "Maximum tables"
 msgstr "Il massimo numero di tabelle"
 
 #: libraries/config/messages.inc.php:418
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5871,14 +5855,13 @@ msgid ""
 "cookie[/kbd] authentication."
 msgstr ""
 "Disabilita l'avviso predefinito che viene visualizzato se mcrypt é mancante "
-"per autenticazione via cookie"
+"per autenticazione via [kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:421
 msgid "mcrypt warning"
 msgstr "avviso mcrypt"
 
 #: libraries/config/messages.inc.php:423
-#, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 #| "([kbd]0[/kbd] for no limit)"
@@ -5886,35 +5869,32 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)."
 msgstr ""
-"Il numero di byte che è consentito di allocare, ad esempio [kbd]32M[/kbd] "
-"([kbd]0[/kbd] per nessun limite)"
+"Il numero massimo di byte che uno script può allocare, ad esempio "
+"[kbd]32M[/kbd] ([kbd]0[/kbd] per nessun limite)."
 
 #: libraries/config/messages.inc.php:426
 msgid "Memory limit"
 msgstr "Limite memoria"
 
 #: libraries/config/messages.inc.php:427
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show logo in navigation panel."
-msgstr "Mostra logo nel pannello di navigazione"
+msgstr "Mostra logo nel pannello di navigazione."
 
 #: libraries/config/messages.inc.php:428
 msgid "Display logo"
 msgstr "Visualizza logo"
 
 #: libraries/config/messages.inc.php:430
-#, fuzzy
 #| msgid "URL where logo in the navigation panel will point to"
 msgid "URL where logo in the navigation panel will point to."
-msgstr "L'indirizzo per il collegamento del logo nel pannello di navigazione"
+msgstr "URL a cui punta il logo del logo nel pannello di navigazione."
 
 #: libraries/config/messages.inc.php:431
 msgid "Logo link URL"
 msgstr "URL del collegamento per il logo"
 
 #: libraries/config/messages.inc.php:433
-#, fuzzy
 #| msgid ""
 #| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 #| "([kbd]new[/kbd])"
@@ -5922,20 +5902,19 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
 msgstr ""
-"Apri la pagina nella finestra principale ([kbd]main[/kbd]) o in una finestra "
-"nuova ([kbd]new[/kbd])"
+"Apri i link nella finestra principale ([kbd]main[/kbd]) o in una finestra "
+"nuova ([kbd]new[/kbd])."
 
 #: libraries/config/messages.inc.php:436
 msgid "Logo link target"
 msgstr "Destinazione del collegamento per il logo"
 
 #: libraries/config/messages.inc.php:438
-#, fuzzy
 #| msgid "Display server choice at the top of the navigation panel"
 msgid "Display server choice at the top of the navigation panel."
 msgstr ""
 "Visualizza la scelta del server nella parte superiore del pannello di "
-"navigazione"
+"navigazione."
 
 #: libraries/config/messages.inc.php:439
 msgid "Display servers selection"
@@ -5964,7 +5943,6 @@ msgstr ""
 "database"
 
 #: libraries/config/messages.inc.php:450
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)"
@@ -5973,17 +5951,17 @@ msgid ""
 "below)."
 msgstr ""
 "Raggruppa gli elementi nell'albero della navigazione (determinato dal "
-"separatore definito in basso)"
+"separatore definito più sotto)."
 
 #: libraries/config/messages.inc.php:452
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Raggruppa elementi nell'albero"
 
 #: libraries/config/messages.inc.php:454
 #, fuzzy
 #| msgid "String that separates databases into different tree levels"
 msgid "String that separates databases into different tree levels."
-msgstr "Stringa che separa i database in livelli dell'albero differenti"
+msgstr "Stringa che separa i database in livelli dell'albero differenti."
 
 #: libraries/config/messages.inc.php:455
 msgid "Database tree separator"
@@ -5993,7 +5971,7 @@ msgstr "Separatore dell'albero database"
 #, fuzzy
 #| msgid "String that separates tables into different tree levels"
 msgid "String that separates tables into different tree levels."
-msgstr "La stringa che separa le tabelle in diversi livelli dell albero"
+msgstr "La stringa che separa le tabelle in diversi livelli dell'albero."
 
 #: libraries/config/messages.inc.php:458
 msgid "Table tree separator"
@@ -6004,10 +5982,9 @@ msgid "Maximum table tree depth"
 msgstr "Massima profonditá per l'albero delle tabelle"
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Highlight server under the mouse cursor"
 msgid "Highlight server under the mouse cursor."
-msgstr "Evidenzia il server sotto il cursore del mouse"
+msgstr "Evidenzia il server sotto il cursore del mouse."
 
 #: libraries/config/messages.inc.php:462
 msgid "Enable highlighting"
@@ -6015,13 +5992,12 @@ msgstr "Abilita evidenziamento"
 
 #: libraries/config/messages.inc.php:464
 msgid "Whether to disable the possibility of database expansion or not."
-msgstr ""
+msgstr "Se disabilitare la possibilità di espandere il database o no."
 
 #: libraries/config/messages.inc.php:466
-#, fuzzy
 #| msgid "Display databases as a list"
 msgid "Disable database expansion"
-msgstr "Mostra i database come una lista"
+msgstr "Disabilita l'espansione del database"
 
 #: libraries/config/messages.inc.php:468
 #, fuzzy
