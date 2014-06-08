@@ -1484,7 +1484,7 @@ msgstr "தரவிறக்கம்"
 
 #: js/messages.php:207
 msgid "Import monitor configuration"
-msgstr "கண்காணிப்பின் அமைப்பாக்த்தை தரவிறக்கு"
+msgstr "கண்காணிப்பின் அமைப்பாக்கத்தை தரவிறக்கு"
 
 #: js/messages.php:208
 msgid "Please select the file you want to import."
