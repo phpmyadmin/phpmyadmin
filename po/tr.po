@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-06-08 10:59+0200\n"
+"PO-Revision-Date: 2014-06-08 22:36+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -1723,7 +1723,7 @@ msgstr "Dış değerlere gözat"
 
 #: js/messages.php:282
 msgid "Pick"
-msgstr ""
+msgstr "Seç"
 
 #: js/messages.php:283
 #| msgid "No column selected."
@@ -1741,12 +1741,13 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Merkezi listede hiç sütun yok. %s veritabanı için Merkezi sütunlar "
+"listesinin şu anki tabloda bulunmayan sütunlara sahip olduğundan emin olun."
 
 #: js/messages.php:286
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "Boş bellek"
+msgstr "Daha fazlasına bakın"
 
 #: js/messages.php:288 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -3141,10 +3142,9 @@ msgid "Designer"
 msgstr "Tasarımcı"
 
 #: libraries/Menu.class.php:481 libraries/Util.class.php:4099
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "Metin alanı sütunları"
+msgstr "Merkezi sütunlar"
 
 #: libraries/Menu.class.php:513 libraries/Util.class.php:4071
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
@@ -4206,20 +4206,18 @@ msgid "Extra"
 msgstr "Ekstra"
 
 #: libraries/central_columns.lib.php:537
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Tabloları seç"
+msgstr "Bir tablo seçin"
 
 #: libraries/central_columns.lib.php:587 libraries/structure.lib.php:1647
 msgid "Add column"
 msgstr "Sütun ekle"
 
 #: libraries/central_columns.lib.php:599
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "İki sütun seçin"
+msgstr "Bir sütun seçin."
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -12478,29 +12476,26 @@ msgstr "Y-Ekseni etiketi:"
 
 #: libraries/tbl_chart.lib.php:237
 msgid "Series names are in a column"
-msgstr ""
+msgstr "Seri adları bir sütunda"
 
 #: libraries/tbl_chart.lib.php:240
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "İç sütun:"
+msgstr "Seri sütunu:"
 
 #: libraries/tbl_chart.lib.php:253
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Value column:"
-msgstr "%s sütunu için değerler"
+msgstr "Değer sütunu:"
 
 #: libraries/tbl_chart.lib.php:286
 msgid "Start row:"
 msgstr "Başlangıç satırı:"
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Dosya olarak kaydet"
+msgstr "Çizelgeyi resim olarak kaydet"
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
@@ -12576,10 +12571,9 @@ msgid "Is a foreign key."
 msgstr "Bir dış anahtardır."
 
 #: libraries/tbl_columns_definition_form.lib.php:606
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Pick from Central Columns"
-msgstr "Merkezi sütunlardan kaldır"
+msgstr "Merkezi Sütunlardan seç"
 
 #: libraries/tbl_columns_definition_form.lib.php:784
 msgid "first"
