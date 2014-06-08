@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-06-08 13:55+0200\n"
+"PO-Revision-Date: 2014-06-08 14:09+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1399,7 +1399,7 @@ msgstr "மொத்த நேரம்:"
 
 #: js/messages.php:182
 msgid "Profiling results"
-msgstr "முடிவுகள் குறிவகையிடப்படுகிறது"
+msgstr "முடிவுகள் பகுமுறையிடபடுகிறது"
 
 #: js/messages.php:183
 msgctxt "Display format"
