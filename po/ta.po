@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-06-08 17:16+0200\n"
+"PO-Revision-Date: 2014-06-08 17:17+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1438,7 +1438,7 @@ msgstr "மொத்தம்:"
 
 #: js/messages.php:195
 msgid "Loading logs"
-msgstr "பதிகைகள் ஏற்றப்படுகின்றது"
+msgstr "பதிகைகள் நினைவேற்றப்படுகின்றது"
 
 #: js/messages.php:196
 msgid "Monitor refresh failed"
