@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-06-08 17:31+0200\n"
+"PO-Revision-Date: 2014-06-08 17:34+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1469,6 +1469,8 @@ msgstr "அமைப்பாக்க கோப்பில் பிழை உ
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
+"தரவிறக்கபட்ட அமைப்பாக்க கோப்புடன் விளக்கப்படம் அமைத்தல் "
+"தோல்வியடைந்தது.இயல்நிலை அமைப்புக்கு மீட்டமைக்கப்படுகிறது…"
 
 #: js/messages.php:206 libraries/Menu.class.php:333
 #: libraries/Menu.class.php:432 libraries/Menu.class.php:550
