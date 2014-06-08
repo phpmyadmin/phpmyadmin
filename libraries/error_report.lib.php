@@ -52,7 +52,9 @@ function PMA_getPrettyReportData()
  * returns the error report data collected from the current configuration or
  * from the request parameters sent by the error reporting js code.
  *
- * @return Array/String the report. 
+ * @param string  $exception_type whether exception is 'js' or 'php'
+ *
+ * @return Array/String the report.
  *          False if there're no 'actual' errors to be reported (case for php errors)
  */
 function PMA_getReportData($exception_type = 'js')
@@ -72,7 +74,7 @@ function PMA_getReportData($exception_type = 'js')
             "php_version" => phpversion()
             );
 
-    if($exception_type == 'js') {
+    if ($exception_type == 'js') {
         if (empty($_REQUEST['exception'])) {
             return '';
         }
@@ -90,8 +92,7 @@ function PMA_getReportData($exception_type = 'js')
         if (! empty($_REQUEST['description'])) {
             $report['steps'] = $_REQUEST['description'];
         }
-    }
-    elseif($exception_type == 'php'){
+    } elseif ($exception_type == 'php') {
         $errors = array();
         // create php error report
         $i=0;
@@ -100,8 +101,11 @@ function PMA_getReportData($exception_type = 'js')
         ) {
             return false;
         }
-        foreach($_SESSION['prev_errors'] as $errorObj ) {
-            if ($errorObj->getLine() && $errorObj->getType() && $errorObj->getNumber() != E_USER_WARNING) {
+        foreach ($_SESSION['prev_errors'] as $errorObj) {
+            if ($errorObj->getLine()
+                && $errorObj->getType()
+                && $errorObj->getNumber() != E_USER_WARNING
+            ) {
                 $errors[$i++] = array(
                     "lineNum" => $errorObj->getLine(),
                     "file" => $errorObj->getFile(),
@@ -114,14 +118,13 @@ function PMA_getReportData($exception_type = 'js')
             }
         }
 
-        // if there were no 'actual' errors to be submitted. 
-        if($i==0) {
+        // if there were no 'actual' errors to be submitted.
+        if ($i==0) {
             return false;   // then return false
         }
         $report ["exception_type"] = 'php';
         $report["errors"] = $errors;
-    }
-    else{
+    } else {
         return false;
     }
 

@@ -656,8 +656,9 @@ class PMA_Message
     }
 
     /**
-    * Returns only message string without image & other HTML. 
-    * @return: $message string
+    * Returns only message string without image & other HTML.
+    *
+    * @return $message string
     */
     public function getOnlyMessage()
     {
