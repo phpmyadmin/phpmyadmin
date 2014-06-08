@@ -262,43 +262,52 @@ AJAX.registerOnload('server_privileges.js', function () {
     $("#fieldset_delete_user_footer #buttonGo.ajax").live('click', function (event) {
         event.preventDefault();
 
-        PMA_ajaxShowMessage(PMA_messages.strRemovingSelectedUsers);
-
         var $form = $("#usersForm");
-
-        $.post($form.attr('action'), $form.serialize() + "&delete=" + $(this).val() + "&ajax_request=true", function (data) {
-            if (data.success === true) {
-                PMA_ajaxShowMessage(data.message);
-                // Refresh navigation, if we droppped some databases with the name
-                // that is the same as the username of the deleted user
-                if ($('#checkbox_drop_users_db:checked').length) {
-                    PMA_reloadNavigation();
-                }
-                //Remove the revoked user from the users list
-                $form.find("input:checkbox:checked").parents("tr").slideUp("medium", function () {
-                    var this_user_initial = $(this).find('input:checkbox').val().charAt(0).toUpperCase();
-                    $(this).remove();
-
-                    //If this is the last user with this_user_initial, remove the link from #initials_table
-                    if ($("#tableuserrights").find('input:checkbox[value^=' + this_user_initial + ']').length === 0) {
-                        $("#initials_table").find('td > a:contains(' + this_user_initial + ')').parent('td').html(this_user_initial);
+        
+        var $thisButton = $(this);
+        
+        $thisButton.PMA_confirm(PMA_messages.strDropUserWarning, $form.attr('action'), function (url) {
+            
+            PMA_ajaxShowMessage(PMA_messages.strRemovingSelectedUsers);
+            
+            $.post(url, $form.serialize() + "&delete=" + $(this).val() + "&ajax_request=true", function (data) {
+                
+                if (data.success === true) {
+                    
+                    PMA_ajaxShowMessage(data.message);
+                    // Refresh navigation, if we droppped some databases with the name
+                    // that is the same as the username of the deleted user
+                    if ($('#checkbox_drop_users_db:checked').length) {
+                        PMA_reloadNavigation();
                     }
+                    //Remove the revoked user from the users list
+                    $form.find("input:checkbox:checked").parents("tr").slideUp("medium", function () {
+                        var this_user_initial = $(this).find('input:checkbox').val().charAt(0).toUpperCase();
+                        $(this).remove();
 
-                    //Re-check the classes of each row
-                    $form
-                    .find('tbody').find('tr:odd')
-                    .removeClass('even').addClass('odd')
-                    .end()
-                    .find('tr:even')
-                    .removeClass('odd').addClass('even');
+                        //If this is the last user with this_user_initial, remove the link from #initials_table
+                        if ($("#tableuserrights").find('input:checkbox[value^=' + this_user_initial + ']').length === 0) {
+                            $("#initials_table").find('td > a:contains(' + this_user_initial + ')').parent('td').html(this_user_initial);
+                        }
 
-                    //update the checkall checkbox
-                    $(checkboxes_sel).trigger("change");
-                });
-            } else {
-                PMA_ajaxShowMessage(data.error, false);
-            }
-        }); // end $.post()
+                        //Re-check the classes of each row
+                        $form
+                        .find('tbody').find('tr:odd')
+                        .removeClass('even').addClass('odd')
+                        .end()
+                        .find('tr:even')
+                        .removeClass('odd').addClass('even');
+
+                        //update the checkall checkbox
+                        $(checkboxes_sel).trigger("change");
+                    });
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                }
+            }); // end $.post()
+            
+        });
+        
     }); // end Revoke User
 
     $("a.edit_user_group_anchor.ajax").live('click', function (event) {
