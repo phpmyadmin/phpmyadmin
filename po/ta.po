@@ -1391,7 +1391,7 @@ msgstr "வெளியீட்டை விளக்குக"
 #: libraries/rte/rte_list.lib.php:68 libraries/server_status.lib.php:357
 #: libraries/sql.lib.php:472
 msgid "Time"
-msgstr ""
+msgstr "நேரம்"
 
 #: js/messages.php:181
 msgid "Total time:"
