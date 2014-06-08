@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-06-08 10:03+0200\n"
+"PO-Revision-Date: 2014-06-08 10:04+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -4069,10 +4069,9 @@ msgid "Add column"
 msgstr "நெடுவரிசையை சேர்க்க"
 
 #: libraries/central_columns.lib.php:599
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "இரு நெடுவரிசைகளை தேர்ந்தெடுக்கவும்"
+msgstr "ஒரு நெடுவரிசையை தேர்ந்தெடுக்கவும்."
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
