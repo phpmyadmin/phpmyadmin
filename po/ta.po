@@ -3064,10 +3064,9 @@ msgid "Designer"
 msgstr ""
 
 #: libraries/Menu.class.php:481 libraries/Util.class.php:4099
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "உரைக்கட்ட நெடுவரிசைகள்"
+msgstr "மைய நெடுவரிசைகள்"
 
 #: libraries/Menu.class.php:513 libraries/Util.class.php:4071
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
