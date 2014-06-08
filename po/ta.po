@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-06-08 10:06+0200\n"
+"PO-Revision-Date: 2014-06-08 10:07+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -11739,10 +11739,9 @@ msgid "Is a foreign key."
 msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:606
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Pick from Central Columns"
-msgstr "முதன்மைநிரல்வரிசைகளிலிருந்து நீக்கவும்"
+msgstr "முதன்மைநிரல்வரிசைகளிலிருந்து தேர்ந்தெடுக்கவும்"
 
 #: libraries/tbl_columns_definition_form.lib.php:784
 msgid "first"
