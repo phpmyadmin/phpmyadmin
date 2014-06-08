@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-06-08 17:15+0200\n"
+"PO-Revision-Date: 2014-06-08 17:16+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1430,7 +1430,7 @@ msgstr "WHERE பிரிவிலுள்ள மாறி மதிப்ப�
 
 #: js/messages.php:192
 msgid "Sum of grouped rows:"
-msgstr ""
+msgstr "தொகுக்கப்பட்ட நிறைவரிசைகளின் கூடுதல்:"
 
 #: js/messages.php:193
 msgid "Total:"
