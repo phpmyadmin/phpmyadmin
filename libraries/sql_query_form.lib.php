@@ -388,7 +388,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
 /**
  * return HTML for sql Query Form Bookmark
  *
- * @return string|void
+ * @return string|null
  *
  * @usedby  PMA_getHtmlForSqlQueryForm()
  */
@@ -396,7 +396,7 @@ function PMA_getHtmlForSqlQueryFormBookmark()
 {
     $bookmark_list = PMA_Bookmark_getList($GLOBALS['db']);
     if (! $bookmark_list || count($bookmark_list) < 1) {
-        return;
+        return null;
     }
 
     $html  = '<fieldset id="fieldsetBookmarkOptions">';
