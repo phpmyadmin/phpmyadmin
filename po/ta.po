@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-09 12:46-0400\n"
-"PO-Revision-Date: 2014-06-09 20:26+0200\n"
+"PO-Revision-Date: 2014-06-09 20:31+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1544,7 +1544,7 @@ msgstr "வேண்டுகோள் கைவிடப்பட்டது!!
 
 #: js/messages.php:232
 msgid "Processing Request"
-msgstr "வேண்டுகோள் செயற்படுத்தபடுகின்றது"
+msgstr "வேண்டுகோள் செயல்முறைப்படுத்தபடுகின்றது"
 
 #: js/messages.php:233
 msgid "Error in Processing Request"
