@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-07 15:41-0400\n"
-"PO-Revision-Date: 2014-05-28 17:34+0200\n"
+"PO-Revision-Date: 2014-06-09 12:03+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -29,10 +29,10 @@ msgstr ""
 "pro ulterior informationes."
 
 #: db_central_columns.php:111
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "Monstrante rangos %1s - %2s"
+msgstr "Monstrante rango(s) %1$s - %2$s"
 
 #: db_create.php:61
 #, php-format
@@ -1004,7 +1004,7 @@ msgstr "Adde %s columna(s) al indice"
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:365
 msgid "Preview SQL"
-msgstr ""
+msgstr "Vista preliminar SQL"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:62 libraries/tbl_chart.lib.php:215
@@ -1742,19 +1742,17 @@ msgstr "Naviga inter valores externe"
 
 #: js/messages.php:282
 msgid "Pick"
-msgstr ""
+msgstr "Prende"
 
 #: js/messages.php:283
-#, fuzzy
 #| msgid "Columns enclosed with"
 msgid "Column selector"
-msgstr "Columnas includite per"
+msgstr "Selector de columnas"
 
 #: js/messages.php:284
-#, fuzzy
 #| msgid "Search this table"
 msgid "Search this list"
-msgstr "Cerca in iste tabella"
+msgstr "Cerca in iste lista"
 
 #: js/messages.php:285
 #, php-format
@@ -1764,10 +1762,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:286
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "Memoria libere"
+msgstr "Vide cosas ulterior"
 
 #: js/messages.php:288 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -3177,10 +3174,9 @@ msgid "Designer"
 msgstr "Designator"
 
 #: libraries/Menu.class.php:481 libraries/Util.class.php:4099
-#, fuzzy
 #| msgid "Add to central columns"
 msgid "Central columns"
-msgstr "Adde al columnas central"
+msgstr "Columnas central"
 
 #: libraries/Menu.class.php:513 libraries/Util.class.php:4071
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
@@ -4244,36 +4240,34 @@ msgstr "Il non pote remover columnas!"
 #: libraries/tbl_columns_definition_form.lib.php:276
 #: setup/frames/index.inc.php:161
 msgid "Name"
-msgstr ""
+msgstr "Nomine"
 
 #: libraries/central_columns.lib.php:510
 #: libraries/rte/rte_routines.lib.php:984
 #: libraries/tbl_columns_definition_form.lib.php:279
 msgid "Length/Values"
-msgstr ""
+msgstr "Longitudine/Valores"
 
 #: libraries/central_columns.lib.php:516
 #: libraries/schema/Pdf_Relation_Schema.class.php:1364
 #: libraries/schema/Pdf_Relation_Schema.class.php:1387
 #: libraries/structure.lib.php:1254 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
-msgstr ""
+msgstr "Extra"
 
 #: libraries/central_columns.lib.php:537
-#, fuzzy
 #| msgid "Select All"
 msgid "Select a table"
-msgstr "Selige Toto"
+msgstr "Selige un tabella"
 
 #: libraries/central_columns.lib.php:587 libraries/structure.lib.php:1647
 msgid "Add column"
-msgstr ""
+msgstr "Adde columna"
 
 #: libraries/central_columns.lib.php:599
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Selige duo columnas"
+msgstr "Selige un columna."
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -6587,10 +6581,12 @@ msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
+"Si le mechanismo de traciar crea automaticamente versiones pro tabellas e "
+"vistas."
 
 #: libraries/config/messages.inc.php:709
 msgid "Automatically create versions"
-msgstr ""
+msgstr "Crea automaticamente versiones"
 
 #: libraries/config/messages.inc.php:710
 msgid ""
@@ -6602,7 +6598,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:711
 msgid "User preferences storage table"
-msgstr ""
+msgstr "Tabella de immagazinage de preferentias de usator"
 
 #: libraries/config/messages.inc.php:712
 msgid ""
@@ -6632,7 +6628,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:715
 msgid "User groups table"
-msgstr ""
+msgstr "Tabella de gruppos de usator"
 
 #: libraries/config/messages.inc.php:716
 msgid ""
@@ -6644,29 +6640,33 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:717
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Tabella de elementos de navigation celate"
 
 #: libraries/config/messages.inc.php:719
 msgid "User for config auth"
-msgstr ""
+msgstr "Usator pro config auth"
 
 #: libraries/config/messages.inc.php:720
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
+"Un description de uso facile pro le usator de iste servitor. Lassa vacue pro "
+"monstrar , in loco, le nomine de hospite."
 
 #: libraries/config/messages.inc.php:721
 msgid "Verbose name of this server"
-msgstr ""
+msgstr "Nomine verbose de iste servitor"
 
 #: libraries/config/messages.inc.php:722
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
+"Si un usator deberea esser monstrate como un button de \"monstra omne "
+"(rangos)\"."
 
 #: libraries/config/messages.inc.php:723
 msgid "Allow to display all the rows"
-msgstr ""
+msgstr "Permitte monstrar omne rangos"
 
 #: libraries/config/messages.inc.php:724
 msgid ""
@@ -6681,73 +6681,83 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:725
 msgid "Show password change form"
-msgstr ""
+msgstr "Monstra modulo de modification de contrasigno"
 
 #: libraries/config/messages.inc.php:726
 msgid "Show create database form"
-msgstr ""
+msgstr "Monstra modulo pro crear base de datos"
 
 #: libraries/config/messages.inc.php:727
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
+"Monstra o cela un columna monstrante le marca de tempore de creation pro "
+"omne tabellas."
 
 #: libraries/config/messages.inc.php:728
 msgid "Show Creation timestamp"
-msgstr ""
+msgstr "Monstra marca de tempore de creation"
 
 #: libraries/config/messages.inc.php:729
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
+"Monstra o cela un columna monstrante le marca de tempore de ultime "
+"actualisation pro omne tabellas."
 
 #: libraries/config/messages.inc.php:730
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Monstra marca de tempore de ultime actualisation"
 
 #: libraries/config/messages.inc.php:731
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
+"Monstra o cela un columna monstrante le marca de tempore de ultime verifica "
+"pro omne tabellas."
 
 #: libraries/config/messages.inc.php:732
 msgid "Show Last check timestamp"
-msgstr ""
+msgstr "Monstra marca de tempore de ultime verifica"
 
 #: libraries/config/messages.inc.php:733
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table."
 msgstr ""
+"Il defini si o non le direction option de direction de typo de monstrator es "
+"monstrate quando on naviga in un tabella."
 
 #: libraries/config/messages.inc.php:734
 msgid "Show display direction"
-msgstr ""
+msgstr "Monstra direction de monstrator"
 
 #: libraries/config/messages.inc.php:735
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr ""
+"Il defini si o non campos de typo deberea esser monstrate initialmente in le "
+"modo de modifica/inserta."
 
 #: libraries/config/messages.inc.php:736
 msgid "Show field types"
-msgstr ""
+msgstr "Monstra typos de campo"
 
 #: libraries/config/messages.inc.php:737
 msgid "Display the function fields in edit/insert mode."
-msgstr ""
+msgstr "Monstra le campos de function in le modo de modifica/inserta."
 
 #: libraries/config/messages.inc.php:738
 msgid "Show function fields"
-msgstr ""
+msgstr "Monstra campos de function"
 
 #: libraries/config/messages.inc.php:739
 msgid "Whether to show hint or not."
-msgstr ""
+msgstr "Si monstrar o celar adjutas."
 
 #: libraries/config/messages.inc.php:740
 msgid "Show hint"
-msgstr ""
+msgstr "Monstra adjuta"
 
 #: libraries/config/messages.inc.php:741
 msgid ""
@@ -6759,11 +6769,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:742
 msgid "Show phpinfo() link"
-msgstr ""
+msgstr "Monstra un ligamine a phpinfo()"
 
 #: libraries/config/messages.inc.php:743
 msgid "Show detailed MySQL server information"
-msgstr ""
+msgstr "Monstra information detaliate del servitor MySQL"
 
 #: libraries/config/messages.inc.php:744
 msgid ""
@@ -6772,7 +6782,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:745
 msgid "Show SQL queries"
-msgstr ""
+msgstr "Monstra queries de SQL"
 
 #: libraries/config/messages.inc.php:746
 msgid ""
@@ -6789,7 +6799,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:749
 msgid "Show statistics"
-msgstr ""
+msgstr "Monstra statisticas"
 
 #: libraries/config/messages.inc.php:750
 msgid ""
@@ -6798,7 +6808,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:751
 msgid "Skip locked tables"
-msgstr ""
+msgstr "Ignora tabellas blocate"
 
 #: libraries/config/messages.inc.php:756
 msgid "A warning is displayed on the main page if Suhosin is detected."
@@ -6806,7 +6816,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:757
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Aviso de Suhosin"
 
 #: libraries/config/messages.inc.php:758
 msgid ""
@@ -6816,7 +6826,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:759
 msgid "Textarea columns"
-msgstr ""
+msgstr "Columnas de area de texto"
 
 #: libraries/config/messages.inc.php:760
 msgid ""
@@ -6826,7 +6836,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:761
 msgid "Textarea rows"
-msgstr ""
+msgstr "Rangos de area de texto"
 
 #: libraries/config/messages.inc.php:762
 msgid "Title of browser window when a database is selected."
@@ -12133,26 +12143,23 @@ msgid "Series names are in a column"
 msgstr ""
 
 #: libraries/tbl_chart.lib.php:240
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "Intra columna:"
+msgstr "Columna de series:"
 
 #: libraries/tbl_chart.lib.php:253
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Value column:"
-msgstr "Valores pro le columna %s"
+msgstr "Columna de valor:"
 
 #: libraries/tbl_chart.lib.php:286
 msgid "Start row:"
 msgstr ""
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Salveguarda como file"
+msgstr "Salveguarda diagramma como imagine"
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
@@ -12218,10 +12225,9 @@ msgid "Is a foreign key."
 msgstr "Es un clave estranie."
 
 #: libraries/tbl_columns_definition_form.lib.php:606
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Pick from Central Columns"
-msgstr "Remove ex le columnas central"
+msgstr "Prende ex le columnas central"
 
 #: libraries/tbl_columns_definition_form.lib.php:784
 msgid "first"
