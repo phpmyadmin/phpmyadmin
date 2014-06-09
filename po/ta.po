@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-09 12:46-0400\n"
-"PO-Revision-Date: 2014-06-09 20:18+0200\n"
+"PO-Revision-Date: 2014-06-09 20:21+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1520,7 +1520,7 @@ msgstr "விளக்கமளி"
 
 #: js/messages.php:221
 msgid "Used variable / formula"
-msgstr ""
+msgstr "பயன்படுத்தப்பட்ட மாறி/வாய்ப்பாடு"
 
 #: js/messages.php:222
 msgid "Test"
