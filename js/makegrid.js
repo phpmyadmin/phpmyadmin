@@ -1302,9 +1302,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 if (typeof sqlOuter != 'undefined' && typeof tools != 'undefined') {
                                     // If two query box exists update query in second else add a second box
                                     if ($('#result_query').find('div.sqlOuter').length > 1) {
-                                       $('#result_query').children(":nth-child(4)").remove();
-                                       $('#result_query').children(":nth-child(4)").remove();
-                                       $('#result_query').append(sqlOuter + tools);
+                                        $('#result_query').children(":nth-child(4)").remove();
+                                        $('#result_query').children(":nth-child(4)").remove();
+                                        $('#result_query').append(sqlOuter + tools);
                                     } else {
                                         $('#result_query').append(sqlOuter + tools);
                                     }
