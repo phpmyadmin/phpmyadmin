@@ -916,16 +916,14 @@ function PMA_mimeDefaultFunction($buffer)
 function PMA_previewSQL($query_data)
 {
     $retval = '<div class="preview_sql">';
-    if (is_array($query_data) && count($query_data) > 0) {
+    if (empty($query_data)) {
+        $retval .= __('No change');
+    } elseif (is_array($query_data)) {
         foreach ($query_data as $query) {
             $retval .= PMA_Util::formatSql($query);
         }
     } else {
-        if (! empty($query_data)) {
-            $retval .= PMA_Util::formatSql($query_data);
-        } else {
-            $retval .= __('No change');
-        }
+        $retval .= PMA_Util::formatSql($query_data);
     }
     $retval .= '</div>';
     $response = PMA_Response::getInstance();
