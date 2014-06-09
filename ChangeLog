@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.2.4.0 (not yet released)
+- bug #4449 Mediawiki export does not produce table header row; also fix related PHP warnings
 
 4.2.3.0 (2014-06-08)
 - bug #4423 Moving fields not working
