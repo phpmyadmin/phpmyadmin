@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-09 12:46-0400\n"
-"PO-Revision-Date: 2014-06-08 02:45+0200\n"
+"PO-Revision-Date: 2014-06-10 01:43+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -1765,19 +1765,20 @@ msgstr "Más"
 
 #: js/messages.php:287
 msgid "Are you sure?"
-msgstr ""
+msgstr "¿Está seguro?"
 
 #: js/messages.php:288
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure, you "
 "want to continue?"
 msgstr ""
+"Esta acción puede cambiar la definición de algunas columnas.<br />¿Está "
+"seguro que desea continuar?"
 
 #: js/messages.php:289
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "Contribuir"
+msgstr "Continuar"
 
 #: js/messages.php:292 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -12407,10 +12408,9 @@ msgid "Remove columns from central list"
 msgstr "Eliminar columnas de la lista central"
 
 #: libraries/structure.lib.php:345
-#, fuzzy
 #| msgid "Add columns to central list"
 msgid "Make consistent with central list"
-msgstr "Agregar columnas a la lista central"
+msgstr "Hacer consistente con la lista central"
 
 #: libraries/structure.lib.php:367
 msgid "Check tables having overhead"
