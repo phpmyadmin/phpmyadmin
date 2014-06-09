@@ -2366,7 +2366,7 @@ class PMA_Util
 
             $i = $pageNow;
             $dist = 1;
-            while ($i >0) {
+            while ($i > 0) {
                 $dist = 2 * $dist;
                 $i = $pageNow - $dist;
                 if ($i > 0 && $i <= $x) {
