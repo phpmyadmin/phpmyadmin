@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-07 15:41-0400\n"
+"POT-Creation-Date: 2014-06-09 12:46-0400\n"
 "PO-Revision-Date: 2014-03-31 14:26+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Kazakh <https://l10n.cihar.com/projects/phpmyadmin/master/kk/"
 ">\n"
-"Language: kk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: kk\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -71,7 +71,7 @@ msgid "Column"
 msgstr "Бағана"
 
 #: db_datadict.php:153 db_printview.php:49 libraries/Index.class.php:564
-#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:508
+#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:583
 #: libraries/insert_edit.lib.php:245 libraries/insert_edit.lib.php:249
 #: libraries/plugins/export/ExportHtmlword.class.php:281
 #: libraries/plugins/export/ExportHtmlword.class.php:396
@@ -87,8 +87,8 @@ msgstr "Бағана"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1360
 #: libraries/schema/Pdf_Relation_Schema.class.php:1383
 #: libraries/server_privileges.lib.php:1847
-#: libraries/server_privileges.lib.php:1954 libraries/structure.lib.php:829
-#: libraries/structure.lib.php:1249
+#: libraries/server_privileges.lib.php:1954 libraries/structure.lib.php:831
+#: libraries/structure.lib.php:1251
 #: libraries/tbl_columns_definition_form.lib.php:277
 #: libraries/tbl_printview.lib.php:474 libraries/tbl_tracking.lib.php:810
 #: libraries/tbl_tracking.lib.php:895
@@ -96,7 +96,7 @@ msgid "Type"
 msgstr "Типі"
 
 #: db_datadict.php:154 libraries/Index.class.php:570
-#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:514
+#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:589
 #: libraries/insert_edit.lib.php:1634
 #: libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
@@ -107,14 +107,14 @@ msgstr "Типі"
 #: libraries/plugins/export/ExportTexytext.class.php:373
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
 #: libraries/schema/Pdf_Relation_Schema.class.php:1385
-#: libraries/structure.lib.php:1252
+#: libraries/structure.lib.php:1254
 #: libraries/tbl_columns_definition_form.lib.php:298
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:812
 #: libraries/tbl_tracking.lib.php:901
 msgid "Null"
 msgstr "Бос/Null"
 
-#: db_datadict.php:155 libraries/central_columns.lib.php:518
+#: db_datadict.php:155 libraries/central_columns.lib.php:593
 #: libraries/plugins/export/ExportHtmlword.class.php:287
 #: libraries/plugins/export/ExportHtmlword.class.php:402
 #: libraries/plugins/export/ExportLatex.class.php:514
@@ -124,7 +124,7 @@ msgstr "Бос/Null"
 #: libraries/plugins/export/ExportTexytext.class.php:374
 #: libraries/schema/Pdf_Relation_Schema.class.php:1363
 #: libraries/schema/Pdf_Relation_Schema.class.php:1386
-#: libraries/structure.lib.php:217 libraries/structure.lib.php:1253
+#: libraries/structure.lib.php:217 libraries/structure.lib.php:1255
 #: libraries/tbl_columns_definition_form.lib.php:289
 #: libraries/tbl_printview.lib.php:476 libraries/tbl_tracking.lib.php:813
 msgid "Default"
@@ -155,15 +155,15 @@ msgid "Comments"
 msgstr "Түсініктеме"
 
 #: db_datadict.php:201 libraries/display_structure.inc.php:166
-#: libraries/structure.lib.php:1452 libraries/structure.lib.php:2165
-#: libraries/structure.lib.php:2175 libraries/tbl_printview.lib.php:107
+#: libraries/structure.lib.php:1454 libraries/structure.lib.php:2167
+#: libraries/structure.lib.php:2177 libraries/tbl_printview.lib.php:107
 #: libraries/tbl_tracking.lib.php:849
 msgid "Primary"
 msgstr ""
 
 #: db_datadict.php:206 js/messages.php:246 libraries/Index.class.php:435
 #: libraries/Index.class.php:474 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:667
+#: libraries/central_columns.lib.php:742
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.lib.php:455
 #: libraries/mult_submits.lib.php:456
 #: libraries/plugins/export/ExportHtmlword.class.php:633
@@ -177,18 +177,18 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2714
 #: libraries/server_privileges.lib.php:2720
 #: libraries/server_privileges.lib.php:3060
-#: libraries/server_privileges.lib.php:3082 libraries/structure.lib.php:1337
+#: libraries/server_privileges.lib.php:3082 libraries/structure.lib.php:1339
 #: libraries/tbl_printview.lib.php:114 libraries/tbl_tracking.lib.php:856
 #: libraries/tbl_tracking.lib.php:933 libraries/tbl_tracking.lib.php:938
 #: libraries/user_preferences.lib.php:296 prefs_manage.php:138
 msgid "No"
 msgstr "Жоқ"
 
-#: db_datadict.php:206 js/messages.php:333 libraries/Index.class.php:436
+#: db_datadict.php:206 js/messages.php:337 libraries/Index.class.php:436
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:667
+#: libraries/central_columns.lib.php:742
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
-#: libraries/mult_submits.inc.php:172 libraries/mult_submits.lib.php:352
+#: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
 #: libraries/mult_submits.lib.php:450 libraries/mult_submits.lib.php:492
 #: libraries/mult_submits.lib.php:501 libraries/mult_submits.lib.php:506
@@ -206,8 +206,8 @@ msgstr "Жоқ"
 #: libraries/server_privileges.lib.php:2713
 #: libraries/server_privileges.lib.php:2718
 #: libraries/server_privileges.lib.php:3057
-#: libraries/server_privileges.lib.php:3082 libraries/structure.lib.php:1337
-#: libraries/structure.lib.php:2748 libraries/tbl_printview.lib.php:115
+#: libraries/server_privileges.lib.php:3082 libraries/structure.lib.php:1339
+#: libraries/structure.lib.php:2750 libraries/tbl_printview.lib.php:115
 #: libraries/tbl_tracking.lib.php:856 libraries/tbl_tracking.lib.php:931
 #: libraries/tbl_tracking.lib.php:936 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -267,26 +267,26 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2551
 #: libraries/server_privileges.lib.php:2773
 #: libraries/server_privileges.lib.php:2784
-#: libraries/server_privileges.lib.php:3836 libraries/structure.lib.php:807
+#: libraries/server_privileges.lib.php:3836 libraries/structure.lib.php:809
 #: libraries/tbl_relation.lib.php:308 libraries/tbl_relation.lib.php:525
 #: libraries/tbl_tracking.lib.php:196
 msgid "Table"
 msgstr "Кесте"
 
 #: db_printview.php:48 libraries/build_html_for_db.lib.php:33
-#: libraries/import.lib.php:191 libraries/structure.lib.php:818
-#: libraries/structure.lib.php:1804 libraries/structure.lib.php:1995
+#: libraries/import.lib.php:191 libraries/structure.lib.php:820
+#: libraries/structure.lib.php:1806 libraries/structure.lib.php:1997
 #: libraries/tbl_printview.lib.php:194
 msgid "Rows"
 msgstr "Қатарлар"
 
-#: db_printview.php:51 libraries/structure.lib.php:840
+#: db_printview.php:51 libraries/structure.lib.php:842
 #: libraries/tbl_indexes.lib.php:321
 msgid "Size"
 msgstr "Мөлшері"
 
 #: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1159
-#: libraries/structure.lib.php:781
+#: libraries/structure.lib.php:783
 msgid "in use"
 msgstr "қолданыста"
 
@@ -370,15 +370,15 @@ msgid "Status"
 msgstr "Күй"
 
 #: db_tracking.php:86 libraries/Index.class.php:561
-#: libraries/central_columns.lib.php:503 libraries/rte/rte_list.lib.php:53
+#: libraries/central_columns.lib.php:578 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
 #: libraries/server_databases.lib.php:401
 #: libraries/server_privileges.lib.php:1850
 #: libraries/server_privileges.lib.php:1957
 #: libraries/server_privileges.lib.php:2794
 #: libraries/server_privileges.lib.php:2970
-#: libraries/server_user_groups.lib.php:82 libraries/structure.lib.php:815
-#: libraries/structure.lib.php:1267
+#: libraries/server_user_groups.lib.php:82 libraries/structure.lib.php:817
+#: libraries/structure.lib.php:1269
 msgid "Action"
 msgstr "Әрекет"
 
@@ -394,8 +394,8 @@ msgstr "Кесте үшін мәліметтерді бақылауды тоқт
 #: db_tracking.php:103 libraries/Index.class.php:627
 #: libraries/Util.class.php:3360 libraries/Util.class.php:3361
 #: libraries/server_databases.lib.php:150 libraries/structure.lib.php:322
-#: libraries/structure.lib.php:1447 libraries/structure.lib.php:2161
-#: libraries/structure.lib.php:2163
+#: libraries/structure.lib.php:1449 libraries/structure.lib.php:2163
+#: libraries/structure.lib.php:2165
 msgid "Drop"
 msgstr "Жою"
 
@@ -427,7 +427,7 @@ msgstr "Құрылым түсірілімі"
 msgid "Untracked tables"
 msgstr "Бақылауға болмайтын кестелер"
 
-#: db_tracking.php:224 libraries/structure.lib.php:1610
+#: db_tracking.php:224 libraries/structure.lib.php:1612
 msgid "Track table"
 msgstr "Кестені бақылау"
 
@@ -505,23 +505,23 @@ msgid "Point:"
 msgstr "Нүкте"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:292
-#: gis_data_editor.php:365 js/messages.php:321
+#: gis_data_editor.php:365 js/messages.php:325
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:212 gis_data_editor.php:240 gis_data_editor.php:296
-#: gis_data_editor.php:371 js/messages.php:322
+#: gis_data_editor.php:371 js/messages.php:326
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:234 gis_data_editor.php:290 gis_data_editor.php:363
-#: js/messages.php:324
+#: js/messages.php:328
 #, php-format
 msgid "Point %d"
 msgstr "Нүкте %d"
 
 #: gis_data_editor.php:247 gis_data_editor.php:303 gis_data_editor.php:381
-#: js/messages.php:330
+#: js/messages.php:334
 msgid "Add a point"
 msgstr "Нүкте қосу"
 
@@ -547,7 +547,7 @@ msgstr "Ішкі пішін"
 msgid "Add a linestring"
 msgstr "Сызықты қосу"
 
-#: gis_data_editor.php:307 gis_data_editor.php:386 js/messages.php:331
+#: gis_data_editor.php:307 gis_data_editor.php:386 js/messages.php:335
 msgid "Add an inner ring"
 msgstr ""
 
@@ -594,7 +594,7 @@ msgstr "Геометрияны қосу"
 #: libraries/server_privileges.lib.php:3163
 #: libraries/server_privileges.lib.php:4059
 #: libraries/sql_query_form.lib.php:381 libraries/sql_query_form.lib.php:440
-#: libraries/sql_query_form.lib.php:508 libraries/structure.lib.php:1678
+#: libraries/sql_query_form.lib.php:508 libraries/structure.lib.php:1680
 #: libraries/tbl_chart.lib.php:296
 #: libraries/tbl_columns_definition_form.lib.php:175
 #: libraries/tbl_tracking.lib.php:429 libraries/tbl_tracking.lib.php:547
@@ -622,11 +622,11 @@ msgstr ""
 #: import.php:116
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to "
-#| "%sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to %"
+#| "sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Мүмкін, жүктегелі отырған файлдың өлшемі тым үлкен. Осы шектеуді айналып өту "
 "әдістері, %sқұжаттамада%s сипатталған."
@@ -1389,7 +1389,7 @@ msgstr ""
 msgid "Explain output"
 msgstr ""
 
-#: js/messages.php:180 js/messages.php:581
+#: js/messages.php:180 js/messages.php:585
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:563
 #: libraries/plugins/export/ExportTexytext.class.php:437
@@ -1680,7 +1680,7 @@ msgstr "Сұраныс өрісін көрсету"
 #: js/messages.php:277 libraries/DisplayResults.class.php:3365
 #: libraries/Index.class.php:593 libraries/Util.class.php:664
 #: libraries/Util.class.php:1189 libraries/Util.class.php:3364
-#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:629
+#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:704
 #: libraries/config/messages.inc.php:752
 #: libraries/schema/User_Schema.class.php:223
 #: libraries/server_user_groups.lib.php:119
@@ -1729,7 +1729,23 @@ msgstr ""
 msgid "See more"
 msgstr "Бос жад"
 
-#: js/messages.php:288 libraries/insert_edit.lib.php:1517
+#: js/messages.php:287
+msgid "Are you sure?"
+msgstr ""
+
+#: js/messages.php:288
+msgid ""
+"This action may change some of the columns definition.<br/>Are you sure, you "
+"want to continue?"
+msgstr ""
+
+#: js/messages.php:289
+#, fuzzy
+#| msgid "Column"
+msgid "Continue"
+msgstr "Бағана"
+
+#: js/messages.php:292 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
 #: libraries/server_variables.lib.php:157
 #: libraries/tbl_columns_definition_form.lib.php:142
@@ -1738,266 +1754,266 @@ msgstr "Бос жад"
 msgid "Save"
 msgstr "Сақтау"
 
-#: js/messages.php:291
+#: js/messages.php:295
 msgid "Hide search criteria"
 msgstr "Іздеу параметрлерiн жасыру"
 
-#: js/messages.php:292
+#: js/messages.php:296
 msgid "Show search criteria"
 msgstr "Іздеу параметрлерiн көрсету"
 
-#: js/messages.php:295
+#: js/messages.php:299
 #, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
 msgstr "Іздеу параметрлерiн жасыру"
 
-#: js/messages.php:296
+#: js/messages.php:300
 #, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
 msgstr "Іздеу параметрлерiн көрсету"
 
-#: js/messages.php:300
+#: js/messages.php:304
 msgid "Each point represents a data row."
 msgstr ""
 
-#: js/messages.php:302
+#: js/messages.php:306
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: js/messages.php:304
+#: js/messages.php:308
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
 
-#: js/messages.php:306
+#: js/messages.php:310
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 
-#: js/messages.php:308
+#: js/messages.php:312
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: js/messages.php:310
+#: js/messages.php:314
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: js/messages.php:312
+#: js/messages.php:316
 msgid "Select two columns"
 msgstr ""
 
-#: js/messages.php:314
+#: js/messages.php:318
 msgid "Select two different columns"
 msgstr ""
 
-#: js/messages.php:316
+#: js/messages.php:320
 msgid "Data point content"
 msgstr ""
 
-#: js/messages.php:319 js/messages.php:414 libraries/insert_edit.lib.php:2602
+#: js/messages.php:323 js/messages.php:418 libraries/insert_edit.lib.php:2602
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:374
 msgid "Ignore"
 msgstr "Елемеу"
 
-#: js/messages.php:320 libraries/DisplayResults.class.php:3368
+#: js/messages.php:324 libraries/DisplayResults.class.php:3368
 msgid "Copy"
 msgstr "Көшіру"
 
-#: js/messages.php:323
+#: js/messages.php:327
 msgid "Point"
 msgstr "Нүкте"
 
-#: js/messages.php:325
+#: js/messages.php:329
 msgid "Linestring"
 msgstr "Сызық"
 
-#: js/messages.php:326
+#: js/messages.php:330
 msgid "Polygon"
 msgstr "Көпбұрыш"
 
-#: js/messages.php:327 libraries/DisplayResults.class.php:1673
+#: js/messages.php:331 libraries/DisplayResults.class.php:1673
 msgid "Geometry"
 msgstr "Геометрия"
 
-#: js/messages.php:328
+#: js/messages.php:332
 msgid "Inner Ring"
 msgstr "Ішкі пішін"
 
-#: js/messages.php:329
+#: js/messages.php:333
 msgid "Outer Ring"
 msgstr "Сыртқы пішін"
 
-#: js/messages.php:332
+#: js/messages.php:336
 msgid "Shift + Click on function name to apply to all rows."
 msgstr ""
 
-#: js/messages.php:334
+#: js/messages.php:338
 msgid "Do you want to copy encryption key?"
 msgstr ""
 
-#: js/messages.php:335
+#: js/messages.php:339
 msgid "Encryption key"
 msgstr ""
 
-#: js/messages.php:338
+#: js/messages.php:342
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:339
+#: js/messages.php:343
 msgid "Select Foreign Key"
 msgstr "Сыртқы кілтті таңдаңыз"
 
-#: js/messages.php:340
+#: js/messages.php:344
 msgid "Please select the primary key or a unique key!"
 msgstr ""
 
-#: js/messages.php:341 pmd_general.php:101
+#: js/messages.php:345 pmd_general.php:101
 msgid "Choose column to display"
 msgstr ""
 
-#: js/messages.php:343
+#: js/messages.php:347
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:348
+#: js/messages.php:352
 #, fuzzy, php-format
 #| msgid "Value for the column \"%s\""
 msgid "Add an option for column \"%s\"."
 msgstr "\"%s\" баған мәні"
 
-#: js/messages.php:349
+#: js/messages.php:353
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
 
-#: js/messages.php:352
+#: js/messages.php:356
 msgid "Press escape to cancel editing."
 msgstr ""
 
-#: js/messages.php:353
+#: js/messages.php:357
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:354
+#: js/messages.php:358
 msgid "Drag to reorder."
 msgstr ""
 
-#: js/messages.php:355
+#: js/messages.php:359
 #, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
 msgstr "Сұрыптау үшін шертіңіз"
 
-#: js/messages.php:356
+#: js/messages.php:360
 msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
 
-#: js/messages.php:357
+#: js/messages.php:361
 #, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
 msgstr "Белгіні алу/орнату үшін шертіңіз"
 
-#: js/messages.php:358
+#: js/messages.php:362
 #, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
 msgstr "Атын көшіру үшін өріске тышқанмен екі рет шерту жасаңыз"
 
-#: js/messages.php:360
+#: js/messages.php:364
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
-#: js/messages.php:362 libraries/DisplayResults.class.php:851
+#: js/messages.php:366 libraries/DisplayResults.class.php:851
 #: libraries/browse_foreigners.lib.php:254
 #: libraries/browse_foreigners.lib.php:307
 #: libraries/server_privileges.lib.php:3225
 msgid "Show all"
 msgstr "Бәрін көрсету"
 
-#: js/messages.php:363
+#: js/messages.php:367
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:364
+#: js/messages.php:368
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: js/messages.php:369
+#: js/messages.php:373
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:372
+#: js/messages.php:376
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:377
+#: js/messages.php:381
 #, fuzzy
 #| msgid "Go to link"
 msgid "Go to link."
 msgstr "Сілтемеге өту"
 
-#: js/messages.php:378
+#: js/messages.php:382
 #, fuzzy
 #| msgid "Copy column name"
 msgid "Copy column name."
 msgstr "Баған атын көшіру"
 
-#: js/messages.php:379
+#: js/messages.php:383
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:380
+#: js/messages.php:384
 #, fuzzy
 #| msgid "Show data row(s)"
 msgid "Show data row(s)."
 msgstr "Мәліметтер қатарын(ларын) көрсету"
 
-#: js/messages.php:383
+#: js/messages.php:387
 msgid "Generate password"
 msgstr ""
 
-#: js/messages.php:384 libraries/replication_gui.lib.php:867
+#: js/messages.php:388 libraries/replication_gui.lib.php:867
 msgid "Generate"
 msgstr "Шығару"
 
-#: js/messages.php:385
+#: js/messages.php:389
 msgid "Change Password"
 msgstr ""
 
-#: js/messages.php:388
+#: js/messages.php:392
 msgid "More"
 msgstr "Тағы"
 
-#: js/messages.php:391
+#: js/messages.php:395
 #, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
 msgstr "Бәрін көрсету"
 
-#: js/messages.php:392
+#: js/messages.php:396
 #, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
 msgstr "Индекстерді жасыру"
 
-#: js/messages.php:393
+#: js/messages.php:397
 #, fuzzy
 #| msgid "Show indexes"
 msgid "Show hidden navigation tree items."
 msgstr "Индекстерді көрсету"
 
-#: js/messages.php:396
+#: js/messages.php:400
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 
-#: js/messages.php:399 setup/lib/index.lib.php:157
+#: js/messages.php:403 setup/lib/index.lib.php:157
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2005,50 +2021,50 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:401
+#: js/messages.php:405
 msgid ", latest stable version:"
 msgstr "Соңғы тұрақты болжам:"
 
-#: js/messages.php:402
+#: js/messages.php:406
 msgid "up to date"
 msgstr ""
 
-#: js/messages.php:404 libraries/DisplayResults.class.php:5111
+#: js/messages.php:408 libraries/DisplayResults.class.php:5111
 #: view_create.php:178
 msgid "Create view"
 msgstr ""
 
-#: js/messages.php:407
+#: js/messages.php:411
 msgid "Send Error Report"
 msgstr ""
 
-#: js/messages.php:408
+#: js/messages.php:412
 msgid "Submit Error Report"
 msgstr ""
 
-#: js/messages.php:410
+#: js/messages.php:414
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: js/messages.php:412
+#: js/messages.php:416
 #, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
 msgstr "Баптауын өзгерту"
 
-#: js/messages.php:413
+#: js/messages.php:417
 msgid "Show Report Details"
 msgstr ""
 
-#: js/messages.php:416
+#: js/messages.php:420
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: js/messages.php:420
+#: js/messages.php:424
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -2056,259 +2072,259 @@ msgid ""
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:450
+#: js/messages.php:454
 msgid "Done"
 msgstr "Дайын"
 
-#: js/messages.php:454
+#: js/messages.php:458
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Алдыңғы"
 
-#: js/messages.php:459
+#: js/messages.php:463
 msgctxt "Next month"
 msgid "Next"
 msgstr "Келесі"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:462
+#: js/messages.php:466
 msgid "Today"
 msgstr "Бүгін"
 
-#: js/messages.php:466
+#: js/messages.php:470
 msgid "January"
 msgstr "Қаңтар"
 
-#: js/messages.php:467
+#: js/messages.php:471
 msgid "February"
 msgstr "Ақпан"
 
-#: js/messages.php:468
+#: js/messages.php:472
 msgid "March"
 msgstr "Наурыз"
 
-#: js/messages.php:469
+#: js/messages.php:473
 msgid "April"
 msgstr "Сәуір"
 
-#: js/messages.php:470
+#: js/messages.php:474
 msgid "May"
 msgstr "Мамыр"
 
-#: js/messages.php:471
+#: js/messages.php:475
 msgid "June"
 msgstr "Маусым"
 
-#: js/messages.php:472
+#: js/messages.php:476
 msgid "July"
 msgstr "Шілде"
 
-#: js/messages.php:473
+#: js/messages.php:477
 msgid "August"
 msgstr "Тамыз"
 
-#: js/messages.php:474
+#: js/messages.php:478
 msgid "September"
 msgstr "Қыркүйек"
 
-#: js/messages.php:475
+#: js/messages.php:479
 msgid "October"
 msgstr "Қазан"
 
-#: js/messages.php:476
+#: js/messages.php:480
 msgid "November"
 msgstr "Қараша"
 
-#: js/messages.php:477
+#: js/messages.php:481
 msgid "December"
 msgstr "Желтоқсан"
 
 #. l10n: Short month name
-#: js/messages.php:484 libraries/Util.class.php:1553
+#: js/messages.php:488 libraries/Util.class.php:1553
 msgid "Jan"
 msgstr "Қаң"
 
 #. l10n: Short month name
-#: js/messages.php:486 libraries/Util.class.php:1555
+#: js/messages.php:490 libraries/Util.class.php:1555
 msgid "Feb"
 msgstr "Ақп"
 
 #. l10n: Short month name
-#: js/messages.php:488 libraries/Util.class.php:1557
+#: js/messages.php:492 libraries/Util.class.php:1557
 msgid "Mar"
 msgstr "Нау"
 
 #. l10n: Short month name
-#: js/messages.php:490 libraries/Util.class.php:1559
+#: js/messages.php:494 libraries/Util.class.php:1559
 msgid "Apr"
 msgstr "Сәу"
 
 #. l10n: Short month name
-#: js/messages.php:492 libraries/Util.class.php:1561
+#: js/messages.php:496 libraries/Util.class.php:1561
 msgctxt "Short month name"
 msgid "May"
 msgstr "Мам"
 
 #. l10n: Short month name
-#: js/messages.php:494 libraries/Util.class.php:1563
+#: js/messages.php:498 libraries/Util.class.php:1563
 msgid "Jun"
 msgstr "Мау"
 
 #. l10n: Short month name
-#: js/messages.php:496 libraries/Util.class.php:1565
+#: js/messages.php:500 libraries/Util.class.php:1565
 msgid "Jul"
 msgstr "Шіл"
 
 #. l10n: Short month name
-#: js/messages.php:498 libraries/Util.class.php:1567
+#: js/messages.php:502 libraries/Util.class.php:1567
 msgid "Aug"
 msgstr "Там"
 
 #. l10n: Short month name
-#: js/messages.php:500 libraries/Util.class.php:1569
+#: js/messages.php:504 libraries/Util.class.php:1569
 msgid "Sep"
 msgstr "Қыр"
 
 #. l10n: Short month name
-#: js/messages.php:502 libraries/Util.class.php:1571
+#: js/messages.php:506 libraries/Util.class.php:1571
 msgid "Oct"
 msgstr "Қаз"
 
 #. l10n: Short month name
-#: js/messages.php:504 libraries/Util.class.php:1573
+#: js/messages.php:508 libraries/Util.class.php:1573
 msgid "Nov"
 msgstr "Қар"
 
 #. l10n: Short month name
-#: js/messages.php:506 libraries/Util.class.php:1575
+#: js/messages.php:510 libraries/Util.class.php:1575
 msgid "Dec"
 msgstr "Жел"
 
-#: js/messages.php:512
+#: js/messages.php:516
 msgid "Sunday"
 msgstr "Жексенбі"
 
-#: js/messages.php:513
+#: js/messages.php:517
 msgid "Monday"
 msgstr "Дүйсенбі"
 
-#: js/messages.php:514
+#: js/messages.php:518
 msgid "Tuesday"
 msgstr "Сейсенбі"
 
-#: js/messages.php:515
+#: js/messages.php:519
 msgid "Wednesday"
 msgstr "Сәрсенбі"
 
-#: js/messages.php:516
+#: js/messages.php:520
 msgid "Thursday"
 msgstr "Бейсенбі"
 
-#: js/messages.php:517
+#: js/messages.php:521
 msgid "Friday"
 msgstr "Жұма"
 
-#: js/messages.php:518
+#: js/messages.php:522
 msgid "Saturday"
 msgstr "Сенбі"
 
 #. l10n: Short week day name
-#: js/messages.php:525
+#: js/messages.php:529
 msgid "Sun"
 msgstr "Жек"
 
 #. l10n: Short week day name
-#: js/messages.php:527 libraries/Util.class.php:1580
+#: js/messages.php:531 libraries/Util.class.php:1580
 msgid "Mon"
 msgstr "Дүй"
 
 #. l10n: Short week day name
-#: js/messages.php:529 libraries/Util.class.php:1582
+#: js/messages.php:533 libraries/Util.class.php:1582
 msgid "Tue"
 msgstr "Сей"
 
 #. l10n: Short week day name
-#: js/messages.php:531 libraries/Util.class.php:1584
+#: js/messages.php:535 libraries/Util.class.php:1584
 msgid "Wed"
 msgstr "Сәр"
 
 #. l10n: Short week day name
-#: js/messages.php:533 libraries/Util.class.php:1586
+#: js/messages.php:537 libraries/Util.class.php:1586
 msgid "Thu"
 msgstr "Бей"
 
 #. l10n: Short week day name
-#: js/messages.php:535 libraries/Util.class.php:1588
+#: js/messages.php:539 libraries/Util.class.php:1588
 msgid "Fri"
 msgstr "Жұм"
 
 #. l10n: Short week day name
-#: js/messages.php:537 libraries/Util.class.php:1590
+#: js/messages.php:541 libraries/Util.class.php:1590
 msgid "Sat"
 msgstr "Сен"
 
 #. l10n: Minimal week day name
-#: js/messages.php:544
+#: js/messages.php:548
 msgid "Su"
 msgstr "Жк"
 
 #. l10n: Minimal week day name
-#: js/messages.php:546
+#: js/messages.php:550
 msgid "Mo"
 msgstr "Дс"
 
 #. l10n: Minimal week day name
-#: js/messages.php:548
+#: js/messages.php:552
 msgid "Tu"
 msgstr "Сс"
 
 #. l10n: Minimal week day name
-#: js/messages.php:550
+#: js/messages.php:554
 msgid "We"
 msgstr "Ср"
 
 #. l10n: Minimal week day name
-#: js/messages.php:552
+#: js/messages.php:556
 msgid "Th"
 msgstr "Бс"
 
 #. l10n: Minimal week day name
-#: js/messages.php:554
+#: js/messages.php:558
 msgid "Fr"
 msgstr "Жм"
 
 #. l10n: Minimal week day name
-#: js/messages.php:556
+#: js/messages.php:560
 msgid "Sa"
 msgstr "Сн"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:560
+#: js/messages.php:564
 msgid "Wk"
 msgstr "Апт"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:567
+#: js/messages.php:571
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:570
+#: js/messages.php:574
 msgctxt "Year suffix"
 msgid "none"
 msgstr "none"
 
-#: js/messages.php:582
+#: js/messages.php:586
 msgid "Hour"
 msgstr "Сағат"
 
-#: js/messages.php:583
+#: js/messages.php:587
 msgid "Minute"
 msgstr "Минут"
 
-#: js/messages.php:584
+#: js/messages.php:588
 msgid "Second"
 msgstr "Секунд"
 
@@ -2395,7 +2411,7 @@ msgstr "Қарiп өлшемi"
 #: libraries/DisplayResults.class.php:2113 libraries/TableSearch.class.php:849
 #: libraries/operations.lib.php:643 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337 libraries/server_status.lib.php:450
-#: libraries/structure.lib.php:913 libraries/structure.lib.php:930
+#: libraries/structure.lib.php:915 libraries/structure.lib.php:932
 msgid "Ascending"
 msgstr "Өсу бойынша"
 
@@ -2404,7 +2420,7 @@ msgstr "Өсу бойынша"
 #: libraries/DisplayResults.class.php:2118 libraries/TableSearch.class.php:850
 #: libraries/operations.lib.php:646 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337 libraries/server_status.lib.php:447
-#: libraries/structure.lib.php:918 libraries/structure.lib.php:935
+#: libraries/structure.lib.php:920 libraries/structure.lib.php:937
 msgid "Descending"
 msgstr "Кему бойынша"
 
@@ -2582,7 +2598,7 @@ msgstr[1] "%1$s кестедегi сәйкестiктер <i>%2$s</i>"
 #: libraries/Util.class.php:3136 libraries/Util.class.php:3353
 #: libraries/Util.class.php:3354 libraries/Util.class.php:4102
 #: libraries/navigation/Nodes/Node_Table.class.php:48
-#: libraries/structure.lib.php:1437
+#: libraries/structure.lib.php:1439
 msgid "Browse"
 msgstr "Шолу"
 
@@ -2593,7 +2609,7 @@ msgstr "Кесте %s үшін сәйкестіктерді өшіреміз б�
 
 #: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3436
 #: libraries/DisplayResults.class.php:4978
-#: libraries/central_columns.lib.php:631
+#: libraries/central_columns.lib.php:706
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:355
@@ -2638,14 +2654,14 @@ msgid "Restore column order"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:788
-#: libraries/central_columns.lib.php:483
+#: libraries/central_columns.lib.php:558
 #, fuzzy
 #| msgid "Filter"
 msgid "Filter rows"
 msgstr "Сүзгі"
 
 #: libraries/DisplayResults.class.php:790
-#: libraries/central_columns.lib.php:485
+#: libraries/central_columns.lib.php:560
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
@@ -2725,7 +2741,7 @@ msgstr ""
 #: libraries/plugins/import/ImportShp.class.php:57
 #: libraries/plugins/import/ImportSql.class.php:50
 #: libraries/plugins/import/ImportXml.class.php:58
-#: libraries/rte/rte_routines.lib.php:985 libraries/structure.lib.php:1789
+#: libraries/rte/rte_routines.lib.php:985 libraries/structure.lib.php:1791
 msgid "Options"
 msgstr ""
 
@@ -2793,11 +2809,11 @@ msgstr ""
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL-сұранысы сәтті орындалды"
 
-#: libraries/DisplayResults.class.php:4856 libraries/structure.lib.php:680
+#: libraries/DisplayResults.class.php:4856 libraries/structure.lib.php:682
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4869
@@ -2828,7 +2844,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2983
 #: libraries/server_privileges.lib.php:2987 libraries/structure.lib.php:290
 #: libraries/structure.lib.php:306 libraries/structure.lib.php:308
-#: libraries/structure.lib.php:1426 libraries/structure.lib.php:1433
+#: libraries/structure.lib.php:1428 libraries/structure.lib.php:1435
 msgid "With selected:"
 msgstr "Белгi соғылғандарды:"
 
@@ -2841,13 +2857,13 @@ msgstr "Белгi соғылғандарды:"
 #: libraries/server_privileges.lib.php:2985
 #: libraries/server_privileges.lib.php:2986
 #: libraries/server_user_groups.lib.php:230 libraries/structure.lib.php:293
-#: libraries/structure.lib.php:294 libraries/structure.lib.php:1429
-#: libraries/structure.lib.php:1430
+#: libraries/structure.lib.php:294 libraries/structure.lib.php:1431
+#: libraries/structure.lib.php:1432
 msgid "Check All"
 msgstr "Барлығын белгілеу"
 
-#: libraries/DisplayResults.class.php:4995 libraries/structure.lib.php:1443
-#: libraries/structure.lib.php:2159 querywindow.php:85
+#: libraries/DisplayResults.class.php:4995 libraries/structure.lib.php:1445
+#: libraries/structure.lib.php:2161 querywindow.php:85
 msgid "Change"
 msgstr "Өзгерту"
 
@@ -2870,8 +2886,8 @@ msgid "Query results operations"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:5203 libraries/Header.class.php:347
-#: libraries/structure.lib.php:314 libraries/structure.lib.php:383
-#: libraries/structure.lib.php:1578
+#: libraries/structure.lib.php:314 libraries/structure.lib.php:385
+#: libraries/structure.lib.php:1580
 msgid "Print view"
 msgstr "Баспаға шығару түрі"
 
@@ -2983,8 +2999,8 @@ msgstr "Индекстер"
 msgid "Keyname"
 msgstr "Индекс атауы"
 
-#: libraries/Index.class.php:565 libraries/structure.lib.php:1456
-#: libraries/structure.lib.php:2169 libraries/structure.lib.php:2179
+#: libraries/Index.class.php:565 libraries/structure.lib.php:1458
+#: libraries/structure.lib.php:2171 libraries/structure.lib.php:2181
 #: libraries/tbl_tracking.lib.php:896
 msgid "Unique"
 msgstr "Бірегей"
@@ -2999,10 +3015,10 @@ msgstr ""
 
 #: libraries/Index.class.php:569 libraries/TableSearch.class.php:187
 #: libraries/build_html_for_db.lib.php:22
-#: libraries/central_columns.lib.php:512 libraries/mysql_charsets.lib.php:47
+#: libraries/central_columns.lib.php:587 libraries/mysql_charsets.lib.php:47
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:819
-#: libraries/server_collations.lib.php:35 libraries/structure.lib.php:833
-#: libraries/structure.lib.php:1250 libraries/structure.lib.php:1797
+#: libraries/server_collations.lib.php:35 libraries/structure.lib.php:835
+#: libraries/structure.lib.php:1252 libraries/structure.lib.php:1799
 #: libraries/tbl_columns_definition_form.lib.php:296
 #: libraries/tbl_tracking.lib.php:811 libraries/tbl_tracking.lib.php:900
 msgid "Collation"
@@ -3037,8 +3053,8 @@ msgstr ""
 
 #: libraries/Menu.class.php:236
 #: libraries/navigation/Nodes/Node_View.class.php:34
-#: libraries/structure.lib.php:727 libraries/structure.lib.php:757
-#: libraries/structure.lib.php:1257 libraries/tbl_info.inc.php:59
+#: libraries/structure.lib.php:729 libraries/structure.lib.php:759
+#: libraries/structure.lib.php:1259 libraries/tbl_info.inc.php:59
 msgid "View"
 msgstr "Түр"
 
@@ -3166,7 +3182,7 @@ msgstr ""
 
 #: libraries/Menu.class.php:569 libraries/ServerStatusData.class.php:199
 #: libraries/Util.class.php:4079 libraries/server_common.lib.php:42
-#: libraries/structure.lib.php:174 libraries/structure.lib.php:811
+#: libraries/structure.lib.php:174 libraries/structure.lib.php:813
 msgid "Replication"
 msgstr "Репликация"
 
@@ -3239,7 +3255,7 @@ msgid "Could not save favorite table!"
 msgstr ""
 
 #: libraries/RecentFavoriteTable.class.php:226
-#: libraries/structure.lib.php:2839
+#: libraries/structure.lib.php:2841
 #, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
@@ -3349,7 +3365,7 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:116
-#: libraries/structure.lib.php:3027
+#: libraries/structure.lib.php:3029
 msgid "Tables"
 msgstr ""
 
@@ -3681,14 +3697,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4040,18 +4056,18 @@ msgstr ""
 msgid "Print"
 msgstr ""
 
-#: libraries/Util.class.php:4016 libraries/structure.lib.php:851
-#: libraries/structure.lib.php:1850 libraries/tbl_printview.lib.php:239
+#: libraries/Util.class.php:4016 libraries/structure.lib.php:853
+#: libraries/structure.lib.php:1852 libraries/tbl_printview.lib.php:239
 msgid "Creation"
 msgstr "Құру"
 
-#: libraries/Util.class.php:4022 libraries/structure.lib.php:858
-#: libraries/structure.lib.php:1858 libraries/tbl_printview.lib.php:250
+#: libraries/Util.class.php:4022 libraries/structure.lib.php:860
+#: libraries/structure.lib.php:1860 libraries/tbl_printview.lib.php:250
 msgid "Last update"
 msgstr "Соңғы жаңартылым"
 
-#: libraries/Util.class.php:4028 libraries/structure.lib.php:865
-#: libraries/structure.lib.php:1866 libraries/tbl_printview.lib.php:261
+#: libraries/Util.class.php:4028 libraries/structure.lib.php:867
+#: libraries/structure.lib.php:1868 libraries/tbl_printview.lib.php:261
 msgid "Last check"
 msgstr "Соңғы тексерім"
 
@@ -4084,20 +4100,20 @@ msgstr "Осы мәнді қолданыңыз"
 #: libraries/config/user_preferences.forms.php:249
 #: libraries/config/user_preferences.forms.php:272
 #: libraries/config/user_preferences.forms.php:277
-#: libraries/server_privileges.lib.php:980 libraries/structure.lib.php:2275
+#: libraries/server_privileges.lib.php:980 libraries/structure.lib.php:2277
 #: libraries/tbl_printview.lib.php:304
 msgid "Data"
 msgstr ""
 
 #: libraries/build_html_for_db.lib.php:48 libraries/engines/innodb.lib.php:171
 #: libraries/server_databases.lib.php:177 libraries/server_status.lib.php:180
-#: libraries/server_status.lib.php:291 libraries/structure.lib.php:2297
+#: libraries/server_status.lib.php:291 libraries/structure.lib.php:2299
 #: libraries/tbl_printview.lib.php:336
 msgid "Total"
 msgstr "Барлығы"
 
-#: libraries/build_html_for_db.lib.php:53 libraries/structure.lib.php:844
-#: libraries/structure.lib.php:2288 libraries/tbl_printview.lib.php:320
+#: libraries/build_html_for_db.lib.php:53 libraries/structure.lib.php:846
+#: libraries/structure.lib.php:2290 libraries/tbl_printview.lib.php:320
 msgid "Overhead"
 msgstr ""
 
@@ -4122,69 +4138,69 @@ msgstr ""
 msgid "Check Privileges"
 msgstr ""
 
-#: libraries/central_columns.lib.php:118
+#: libraries/central_columns.lib.php:126
 msgid ""
 "Central list of columns configuration Storage is not completely configured!"
 msgstr ""
 
-#: libraries/central_columns.lib.php:241
+#: libraries/central_columns.lib.php:249
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
-#: libraries/central_columns.lib.php:257
+#: libraries/central_columns.lib.php:265
 #, fuzzy
 #| msgid "Add columns"
 msgid "Could not add columns!"
 msgstr "Бағаналар қосу"
 
-#: libraries/central_columns.lib.php:330
+#: libraries/central_columns.lib.php:338
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
 
-#: libraries/central_columns.lib.php:342
+#: libraries/central_columns.lib.php:350
 msgid "Could not remove columns!"
 msgstr ""
 
-#: libraries/central_columns.lib.php:506
+#: libraries/central_columns.lib.php:581
 #: libraries/display_create_table.lib.php:60
 #: libraries/plugins/export/ExportHtmlword.class.php:485
 #: libraries/plugins/export/ExportOdt.class.php:560
 #: libraries/plugins/export/ExportTexytext.class.php:436
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:982
-#: libraries/rte/rte_routines.lib.php:1603 libraries/structure.lib.php:1248
+#: libraries/rte/rte_routines.lib.php:1603 libraries/structure.lib.php:1250
 #: libraries/tbl_columns_definition_form.lib.php:276
 #: setup/frames/index.inc.php:161
 msgid "Name"
 msgstr ""
 
-#: libraries/central_columns.lib.php:510
+#: libraries/central_columns.lib.php:585
 #: libraries/rte/rte_routines.lib.php:984
 #: libraries/tbl_columns_definition_form.lib.php:279
 msgid "Length/Values"
 msgstr ""
 
-#: libraries/central_columns.lib.php:516
+#: libraries/central_columns.lib.php:591
 #: libraries/schema/Pdf_Relation_Schema.class.php:1364
 #: libraries/schema/Pdf_Relation_Schema.class.php:1387
-#: libraries/structure.lib.php:1254 libraries/tbl_tracking.lib.php:814
+#: libraries/structure.lib.php:1256 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr ""
 
-#: libraries/central_columns.lib.php:537
+#: libraries/central_columns.lib.php:612
 #, fuzzy
 #| msgid "Select All"
 msgid "Select a table"
 msgstr "Барлығын ерекшелеу"
 
-#: libraries/central_columns.lib.php:587 libraries/structure.lib.php:1647
+#: libraries/central_columns.lib.php:662 libraries/structure.lib.php:1649
 msgid "Add column"
 msgstr ""
 
-#: libraries/central_columns.lib.php:599
+#: libraries/central_columns.lib.php:674
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select a column."
@@ -4860,7 +4876,7 @@ msgid "Character set of the file"
 msgstr ""
 
 #: libraries/config/messages.inc.php:110 libraries/config/messages.inc.php:126
-#: libraries/structure.lib.php:1778
+#: libraries/structure.lib.php:1780
 #: libraries/tbl_gis_visualization.lib.php:233
 #: libraries/tbl_printview.lib.php:179
 msgid "Format"
@@ -6745,7 +6761,7 @@ msgstr ""
 msgid "possible deep recursion attack"
 msgstr ""
 
-#: libraries/core.lib.php:927 libraries/mult_submits.inc.php:277
+#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:282
 #: tbl_replace.php:251
 msgid "No change"
 msgstr ""
@@ -6928,8 +6944,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:519
@@ -7379,8 +7395,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -7573,7 +7589,7 @@ msgstr ""
 msgid "Convert to Kana"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:274
+#: libraries/mult_submits.inc.php:279
 msgid "Success!"
 msgstr ""
 
@@ -7799,7 +7815,7 @@ msgid "Czech-Slovak"
 msgstr ""
 
 #: libraries/mysql_charsets.lib.php:350 libraries/mysql_charsets.lib.php:357
-#: libraries/structure.lib.php:1131
+#: libraries/structure.lib.php:1133
 msgid "unknown"
 msgstr "белгісіз"
 
@@ -7938,8 +7954,8 @@ msgid "New"
 msgstr ""
 
 #: libraries/navigation/Nodes/Node_Index.class.php:32
-#: libraries/structure.lib.php:1460 libraries/structure.lib.php:2167
-#: libraries/structure.lib.php:2177 libraries/structure.lib.php:2281
+#: libraries/structure.lib.php:1462 libraries/structure.lib.php:2169
+#: libraries/structure.lib.php:2179 libraries/structure.lib.php:2283
 #: libraries/tbl_columns_definition_form.lib.php:304
 #: libraries/tbl_printview.lib.php:311
 msgid "Index"
@@ -7982,7 +7998,7 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:125
-#: libraries/structure.lib.php:3033
+#: libraries/structure.lib.php:3035
 msgid "Views"
 msgstr ""
 
@@ -8104,7 +8120,7 @@ msgid "Repair table"
 msgstr "Кестені калпына келтіру"
 
 #: libraries/operations.lib.php:1183 libraries/structure.lib.php:327
-#: libraries/structure.lib.php:1721
+#: libraries/structure.lib.php:1723
 msgid "Optimize table"
 msgstr "Кестені тиімді ету"
 
@@ -8199,8 +8215,8 @@ msgstr "%s-ге қош келдіңіз"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:126
@@ -9736,7 +9752,7 @@ msgstr ""
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1361
 #: libraries/schema/Pdf_Relation_Schema.class.php:1384
-#: libraries/structure.lib.php:1251
+#: libraries/structure.lib.php:1253
 #: libraries/tbl_columns_definition_form.lib.php:297
 msgid "Attributes"
 msgstr ""
@@ -9797,7 +9813,7 @@ msgstr ""
 msgid "Same width for all tables"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:475 libraries/structure.lib.php:400
+#: libraries/schema/User_Schema.class.php:475 libraries/structure.lib.php:402
 msgid "Data Dictionary"
 msgstr "Мәлiметтердiң сөздiгi"
 
@@ -9865,7 +9881,7 @@ msgstr ""
 msgid "Original position"
 msgstr ""
 
-#: libraries/server_bin_log.lib.php:133 libraries/structure.lib.php:2266
+#: libraries/server_bin_log.lib.php:133 libraries/structure.lib.php:2268
 msgid "Information"
 msgstr ""
 
@@ -10423,8 +10439,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4003
@@ -11662,201 +11678,207 @@ msgstr "Бағаналар қосу"
 msgid "Remove columns from central list"
 msgstr ""
 
-#: libraries/structure.lib.php:365
+#: libraries/structure.lib.php:345
+#, fuzzy
+#| msgid "Add columns"
+msgid "Make consistent with central list"
+msgstr "Бағаналар қосу"
+
+#: libraries/structure.lib.php:367
 msgid "Check tables having overhead"
 msgstr "Ықшамдауды қажет ететіндерді белгілеу"
 
-#: libraries/structure.lib.php:822
+#: libraries/structure.lib.php:824
 msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 
-#: libraries/structure.lib.php:904
+#: libraries/structure.lib.php:906
 msgid "Sort"
 msgstr "Сұрыптау"
 
-#: libraries/structure.lib.php:1348 libraries/tbl_tracking.lib.php:870
+#: libraries/structure.lib.php:1350 libraries/tbl_tracking.lib.php:870
 msgctxt "None for default"
 msgid "None"
 msgstr ""
 
-#: libraries/structure.lib.php:1398
+#: libraries/structure.lib.php:1400
 #, php-format
 msgid "Column %s has been dropped."
 msgstr ""
 
-#: libraries/structure.lib.php:1467 libraries/structure.lib.php:2171
-#: libraries/structure.lib.php:2181
+#: libraries/structure.lib.php:1469 libraries/structure.lib.php:2173
+#: libraries/structure.lib.php:2183
 msgid "Spatial"
 msgstr ""
 
-#: libraries/structure.lib.php:1477 libraries/structure.lib.php:2173
-#: libraries/structure.lib.php:2183
+#: libraries/structure.lib.php:1479 libraries/structure.lib.php:2175
+#: libraries/structure.lib.php:2185
 msgid "Fulltext"
 msgstr ""
 
-#: libraries/structure.lib.php:1483 libraries/structure.lib.php:2095
+#: libraries/structure.lib.php:1485 libraries/structure.lib.php:2097
 #, fuzzy
 #| msgid "Add columns"
 msgid "Add to central columns"
 msgstr "Бағаналар қосу"
 
-#: libraries/structure.lib.php:1488 libraries/structure.lib.php:2085
+#: libraries/structure.lib.php:1490 libraries/structure.lib.php:2087
 #, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from central columns"
 msgstr "Графикті жою"
 
-#: libraries/structure.lib.php:1504 libraries/structure.lib.php:1614
+#: libraries/structure.lib.php:1506 libraries/structure.lib.php:1616
 #, fuzzy
 msgid "Move columns"
 msgstr "Бағана іші"
 
-#: libraries/structure.lib.php:1507
+#: libraries/structure.lib.php:1509
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: libraries/structure.lib.php:1556 view_create.php:178
+#: libraries/structure.lib.php:1558 view_create.php:178
 msgid "Edit view"
 msgstr ""
 
-#: libraries/structure.lib.php:1590
+#: libraries/structure.lib.php:1592
 msgid "Relation view"
 msgstr ""
 
-#: libraries/structure.lib.php:1602
+#: libraries/structure.lib.php:1604
 msgid "Propose table structure"
 msgstr ""
 
-#: libraries/structure.lib.php:1636
+#: libraries/structure.lib.php:1638
 #: libraries/tbl_columns_definition_form.lib.php:179
 msgid "You have to add at least one column."
 msgstr ""
 
-#: libraries/structure.lib.php:1653
+#: libraries/structure.lib.php:1655
 #: libraries/tbl_columns_definition_form.lib.php:169
 #, php-format
 msgid "Add %s column(s)"
 msgstr ""
 
-#: libraries/structure.lib.php:1670
+#: libraries/structure.lib.php:1672
 msgid "At End of Table"
 msgstr ""
 
-#: libraries/structure.lib.php:1671
+#: libraries/structure.lib.php:1673
 msgid "At Beginning of Table"
 msgstr ""
 
-#: libraries/structure.lib.php:1672
+#: libraries/structure.lib.php:1674
 #, php-format
 msgid "After %s"
 msgstr ""
 
-#: libraries/structure.lib.php:1766
+#: libraries/structure.lib.php:1768
 #, fuzzy
 #| msgid "Query statistics"
 msgid "Row statistics"
 msgstr "Сұраныстардың статистикасы"
 
-#: libraries/structure.lib.php:1771 libraries/tbl_printview.lib.php:182
+#: libraries/structure.lib.php:1773 libraries/tbl_printview.lib.php:182
 msgid "static"
 msgstr ""
 
-#: libraries/structure.lib.php:1773 libraries/tbl_printview.lib.php:184
+#: libraries/structure.lib.php:1775 libraries/tbl_printview.lib.php:184
 msgid "dynamic"
 msgstr ""
 
-#: libraries/structure.lib.php:1784
+#: libraries/structure.lib.php:1786
 msgid "partitioned"
 msgstr ""
 
-#: libraries/structure.lib.php:1821 libraries/tbl_printview.lib.php:205
+#: libraries/structure.lib.php:1823 libraries/tbl_printview.lib.php:205
 msgid "Row length"
 msgstr ""
 
-#: libraries/structure.lib.php:1834 libraries/tbl_printview.lib.php:219
+#: libraries/structure.lib.php:1836 libraries/tbl_printview.lib.php:219
 msgid "Row size"
 msgstr ""
 
-#: libraries/structure.lib.php:1842 libraries/tbl_printview.lib.php:228
+#: libraries/structure.lib.php:1844 libraries/tbl_printview.lib.php:228
 msgid "Next autoindex"
 msgstr ""
 
-#: libraries/structure.lib.php:1968 libraries/structure.lib.php:2045
-#: libraries/structure.lib.php:2051 libraries/structure.lib.php:2066
+#: libraries/structure.lib.php:1970 libraries/structure.lib.php:2047
+#: libraries/structure.lib.php:2053 libraries/structure.lib.php:2068
 #, php-format
 msgid "An index has been added on %s."
 msgstr ""
 
-#: libraries/structure.lib.php:2037
+#: libraries/structure.lib.php:2039
 #, php-format
 msgid "A primary key has been added on %s."
 msgstr ""
 
-#: libraries/structure.lib.php:2114 libraries/structure.lib.php:2185
+#: libraries/structure.lib.php:2116 libraries/structure.lib.php:2187
 #, fuzzy
 #| msgid "Use this value"
 msgid "Distinct values"
 msgstr "Осы мәнді қолданыңыз"
 
-#: libraries/structure.lib.php:2117 libraries/structure.lib.php:2120
+#: libraries/structure.lib.php:2119 libraries/structure.lib.php:2122
 msgid "Add primary key"
 msgstr ""
 
-#: libraries/structure.lib.php:2123 libraries/structure.lib.php:2126
+#: libraries/structure.lib.php:2125 libraries/structure.lib.php:2128
 msgid "Add index"
 msgstr ""
 
-#: libraries/structure.lib.php:2129 libraries/structure.lib.php:2132
+#: libraries/structure.lib.php:2131 libraries/structure.lib.php:2134
 msgid "Add unique index"
 msgstr ""
 
-#: libraries/structure.lib.php:2135 libraries/structure.lib.php:2138
+#: libraries/structure.lib.php:2137 libraries/structure.lib.php:2140
 msgid "Add SPATIAL index"
 msgstr ""
 
-#: libraries/structure.lib.php:2141 libraries/structure.lib.php:2144
+#: libraries/structure.lib.php:2143 libraries/structure.lib.php:2146
 msgid "Add FULLTEXT index"
 msgstr ""
 
-#: libraries/structure.lib.php:2271
+#: libraries/structure.lib.php:2273
 msgid "Space usage"
 msgstr ""
 
-#: libraries/structure.lib.php:2291 libraries/tbl_printview.lib.php:327
+#: libraries/structure.lib.php:2293 libraries/tbl_printview.lib.php:327
 msgid "Effective"
 msgstr ""
 
-#: libraries/structure.lib.php:2517 libraries/tbl_indexes.lib.php:61
+#: libraries/structure.lib.php:2519 libraries/tbl_indexes.lib.php:61
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr ""
 
-#: libraries/structure.lib.php:2529 libraries/tbl_tracking.lib.php:1000
+#: libraries/structure.lib.php:2531 libraries/tbl_tracking.lib.php:1000
 #: libraries/tbl_tracking.lib.php:1030
 msgid "Query error"
 msgstr ""
 
-#: libraries/structure.lib.php:2663
+#: libraries/structure.lib.php:2665
 msgid "The columns have been moved successfully."
 msgstr ""
 
-#: libraries/structure.lib.php:2711
+#: libraries/structure.lib.php:2713
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr ""
 
-#: libraries/structure.lib.php:2840
+#: libraries/structure.lib.php:2842
 msgid "Add to Favorites"
 msgstr ""
 
-#: libraries/structure.lib.php:2885
+#: libraries/structure.lib.php:2887
 msgid "Favorite List is full!"
 msgstr ""
 
-#: libraries/structure.lib.php:2974
+#: libraries/structure.lib.php:2976
 msgid "Showing create queries"
 msgstr ""
 
@@ -13251,8 +13273,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13377,8 +13399,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
