@@ -153,7 +153,7 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
                     2 => array(
                         'type' => 'punct_queryend',
                         'data' => ';',
-                        'pos' => 0,
+                        'pos' => 9,
                     ),
                     'len' => 3,
                 )
@@ -171,7 +171,7 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
                     1 => array(
                         'type' => 'punct',
                         'data' => '*',
-                        'pos' => 0,
+                        'pos' => 8,
                     ),
                     2 => array(
                         'type' => 'alpha_reservedWord',
@@ -188,7 +188,7 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
                     4 => array(
                         'type' => 'punct_queryend',
                         'data' => ';',
-                        'pos' => 0,
+                        'pos' => 18,
                     ),
                     'len' => 5,
                 )
@@ -206,7 +206,7 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
                     1 => array(
                         'type' => 'punct',
                         'data' => '*',
-                        'pos' => 0,
+                        'pos' => 8,
                     ),
                     2 => array(
                         'type' => 'alpha_reservedWord',
@@ -217,12 +217,12 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
                     3 => array(
                         'type' => 'quote_backtick',
                         'data' => '`aaa`',
-                        'pos' => 0,
+                        'pos' => 19,
                     ),
                     4 => array(
                         'type' => 'punct_queryend',
                         'data' => ';',
-                        'pos' => 0,
+                        'pos' => 20,
                     ),
                     'len' => 5,
                 )
@@ -240,7 +240,7 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
                     1 => array(
                         'type' => 'punct',
                         'data' => '*',
-                        'pos' => 0,
+                        'pos' => 8,
                     ),
                     2 => array(
                         'type' => 'alpha_reservedWord',
@@ -251,21 +251,26 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
                     3 => array(
                         'type' => 'quote_backtick',
                         'data' => '`aaa`',
-                        'pos' => 0,
+                        'pos' => 19,
                     ),
                     4 => array(
                         'type' => 'punct_queryend',
                         'data' => ';',
-                        'pos' => 0,
+                        'pos' => 20,
                     ),
                     'len' => 5,
                 ),
-                '<div class="notice"><img src="theme/s_notice.png" title="" alt="" /> Automatically appended backtick to the end of query!</div>'
+                '<div class="notice"><img src="theme/s_notice.png" '
+                . 'title="" alt="" /> Automatically appended '
+                . 'backtick to the end of query!</div>'
             ),
             array(
-                'SELECT * FROM `a_table` tbla INNER JOIN b_table` tblb ON tblb.id = tbla.id WHERE tblb.field1 != tbla.field1`;',
+                'SELECT * FROM `a_table` tbla INNER JOIN b_table` tblb ON '
+                . 'tblb.id = tbla.id WHERE tblb.field1 != tbla.field1`;',
                 array(
-                    'raw' => 'SELECT * FROM `a_table` tbla INNER JOIN b_table` tblb ON tblb.id = tbla.id WHERE tblb.field1 != tbla.field1`;',
+                    'raw' => 'SELECT * FROM `a_table` tbla INNER JOIN '
+                        . 'b_table` tblb ON tblb.id = tbla.id WHERE '
+                        . 'tblb.field1 != tbla.field1`;',
                     0 => array(
                         'type' => 'alpha_reservedWord',
                         'data' => 'SELECT',
@@ -275,7 +280,7 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
                     1 => array(
                         'type' => 'punct',
                         'data' => '*',
-                        'pos' => 0,
+                        'pos' => 8,
                     ),
                     2 => array(
                         'type' => 'alpha_reservedWord',
@@ -286,7 +291,7 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
                     3 => array(
                         'type' => 'quote_backtick',
                         'data' => '`a_table`',
-                        'pos' => 0,
+                        'pos' => 23,
                     ),
                     4 => array(
                         'type' => 'alpha_identifier',
@@ -314,17 +319,116 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
                     ),
                     8 => array(
                         'type' => 'quote_backtick',
-                        'data' => '` tblb ON tblb.id = tbla.id WHERE tblb.field1 != tbla.field1`',
-                        'pos' => 0,
+                        'data' => '` tblb ON tblb.id = tbla.id WHERE '
+                            . 'tblb.field1 != tbla.field1`',
+                        'pos' => 108,
                     ),
                     9 => array(
                         'type' => 'punct_queryend',
                         'data' => ';',
-                        'pos' => 0,
+                        'pos' => 109,
                     ),
                     'len' => 10,
                 )
             ),
+        );
+    }
+
+    /**
+     * Data provider for testPMA_SQP_getAliasesFromQuery
+     *
+     * @return array with test data
+     */
+    public function aliasDataProvider()
+    {
+        return array(
+            array(
+                'select i.name as `n`,abcdef gh from qwerty i',
+                'mydb',
+                array(
+                    'mydb' => array(
+                        'alias' => null,
+                        'tables' => array(
+                            'qwerty' => array(
+                                'alias' => 'i',
+                                'columns' => array(
+                                    'name' => 'n',
+                                    'abcdef' => 'gh'
+                                )
+                            )
+                        )
+                    )
+                )
+            ),
+            array(
+                'select film_id id,title from film',
+                'sakila',
+                array(
+                    'sakila' => array(
+                        'alias' => null,
+                        'tables' => array(
+                            'film' => array(
+                                'alias' => null,
+                                'columns' => array(
+                                    'film_id' => 'id'
+                                )
+                            )
+                        )
+                    )
+                )
+            ),
+            array(
+                'select `sakila`.`A`.`actor_id` as aid,`F`.`film_id` `fid`,'
+                . 'last_update updated from `sakila`.actor A join `film_actor` as '
+                . '`F` on F.actor_id = A.`actor_id`',
+                'sakila',
+                array(
+                    'sakila' => array(
+                        'alias' => null,
+                        'tables' => array(
+                            'film_actor' => array(
+                                'alias' => 'F',
+                                'columns' => array(
+                                    'film_id' => 'fid',
+                                    'last_update' => 'updated'
+                                )
+                            ),
+                            'actor' => array(
+                                'alias'=> 'A',
+                                'columns' => array(
+                                    'actor_id' => 'aid',
+                                    'last_update' => 'updated'
+                                )
+                            )
+                        )
+                    )
+                )
+            ),
+            array(
+                '',
+                '',
+                array()
+            )
+        );
+    }
+
+    /**
+     * Testing of PMA_SQP_getAliasesFromQuery.
+     *
+     * @param string $select_query The Select SQL Query
+     * @param string $db           Current DB
+     * @param array  $expected     Expected parse result
+     *
+     * @return void
+     *
+     * @dataProvider aliasDataProvider
+     * @group medium
+     */
+    public function testPMA_SQP_getAliasesFromQuery($select_query, $db, $expected)
+    {
+        $this->assertEquals(
+            $expected,
+            PMA_SQP_getAliasesFromQuery($select_query, $db)
         );
     }
 }
