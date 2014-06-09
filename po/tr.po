@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-09 12:46-0400\n"
-"PO-Revision-Date: 2014-06-08 22:38+0200\n"
+"PO-Revision-Date: 2014-06-09 19:48+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -1747,19 +1747,20 @@ msgstr "Daha fazlasına bakın"
 
 #: js/messages.php:287
 msgid "Are you sure?"
-msgstr ""
+msgstr "Emin misiniz?"
 
 #: js/messages.php:288
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure, you "
 "want to continue?"
 msgstr ""
+"Bu eylem bazı sütunların tanımını değiştirebilir.<br/>Devam etmek "
+"istediğinize emin misiniz?"
 
 #: js/messages.php:289
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "Katkıda bulun"
+msgstr "Devam"
 
 #: js/messages.php:292 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -12229,10 +12230,9 @@ msgid "Remove columns from central list"
 msgstr "Orta listeden sütunları kaldır"
 
 #: libraries/structure.lib.php:345
-#, fuzzy
 #| msgid "Add columns to central list"
 msgid "Make consistent with central list"
-msgstr "Sütunları orta listeye ekle"
+msgstr "Orta liste ile uyumlu hale"
 
 #: libraries/structure.lib.php:367
 msgid "Check tables having overhead"
