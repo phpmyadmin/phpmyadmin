@@ -85,12 +85,14 @@ function PMA_getCentralColumnsCount($db)
 /**
  * return the existing columns in central list among the given list of columns
  *
- * @param string $db   the selected databse
- * @param string $cols comma seperated list of given columns
+ * @param string  $db        the selected databse
+ * @param string  $cols      comma seperated list of given columns
+ * @param boolean $allFields set if need all the fields of existing columns,
+ * otherwise only column_name is returned
  *
  * @return array list of columns in central columns among given set of columns
  */
-function PMA_findExistingColNames($db, $cols)
+function PMA_findExistingColNames($db, $cols, $allFields=false)
 {
     $cfgCentralColumns = PMA_centralColumnsGetParams();
     if (empty($cfgCentralColumns)) {
@@ -99,8 +101,14 @@ function PMA_findExistingColNames($db, $cols)
     $pmadb = $cfgCentralColumns['db'];
     $GLOBALS['dbi']->selectDb($pmadb);
     $central_list_table = $cfgCentralColumns['table'];
-    $query = 'SELECT col_name FROM ' . PMA_Util::backquote($central_list_table) . ' '
+    if ($allFields) {
+        $query = 'SELECT * FROM ' . PMA_Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $db . '\' AND col_name IN (' . $cols . ');';
+    } else {
+        $query = 'SELECT col_name FROM '
+            . PMA_Util::backquote($central_list_table) . ' '
+            . 'WHERE db_name = \'' . $db . '\' AND col_name IN (' . $cols . ');';
+    }
     $has_list = (array) $GLOBALS['dbi']->fetchResult($query);
     return $has_list;
 }
@@ -351,21 +359,88 @@ function PMA_deleteColumnsFromList($field_select, $isTable=true)
 }
 
 /**
+ * make the columns of given tables consistant with central list of columns.
+ * Updats only those columns which are not being referenced.
+ *
+ * @param string $db              current database
+ * @param array  $selected_tables list of selected tables.
+ *
+ * @return true|PMA_Message
+ */
+function PMA_makeConsistentWithList($db, $selected_tables)
+{
+    $message = true;
+    foreach ($selected_tables as $table) {
+        $query = 'ALTER TABLE ' . PMA_Util::backquote($table);
+        $has_list = PMA_getCentralColumnsFromTable($db, $table, true);
+        $GLOBALS['dbi']->selectDb($db, $GLOBALS['controllink']);
+        foreach ($has_list as $column) {
+            $column_status = PMA_checkChildForeignReferences(
+                $db, $table, $column['col_name']
+            );
+            //column defination can only be changed if
+            //it is not referencd by another column
+            if ($column_status['isEditable']) {
+                $query .= ' MODIFY ' . PMA_Util::backquote($column['col_name']) . ' '
+                    . PMA_Util::sqlAddSlashes($column['col_type']);
+                if ($column['col_length']) {
+                    $query .= '(' . $column['col_length'] . ')';
+                }
+                if ($column['col_isNull']) {
+                    $query .= ' NULL';
+                } else {
+                    $query .= ' NOT NULL';
+                }
+                $query .= ' ' . $column['col_extra'];
+                if ($column['col_default']) {
+                    if ($column['col_default'] != 'CURRENT_TIMESTAMP') {
+                        $query .= ' DEFAULT \'' . PMA_Util::sqlAddSlashes(
+                            $column['col_default']
+                        ) . '\'';
+                    } else {
+                        $query .= ' DEFAULT ' . PMA_Util::sqlAddSlashes(
+                            $column['col_default']
+                        );
+                    }
+                }
+                $query .= ',';
+            }
+        }
+        $query = trim($query, " ,") . ";";
+        if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
+            if ($message === true) {
+                $message = PMA_Message::error(
+                    $GLOBALS['dbi']->getError($GLOBALS['controllink'])
+                );
+            } else {
+                $message->addMessage('<br />');
+                $message->addMessage(
+                    $GLOBALS['dbi']->getError($GLOBALS['controllink'])
+                );
+            }
+        }
+    }
+    return $message;
+}
+
+/**
  * return the columns present in central list of columns for a given
  * table of a given database
  *
- * @param string $db    given database
- * @param string $table given tabale
+ * @param string  $db        given database
+ * @param string  $table     given tabale
+ * @param boolean $allFields set if need all the fields of existing columns,
+ * otherwise only column_name is rturned
  *
  * @return array columns present in central list from given table of given db.
  */
-function PMA_getCentralColumnsFromTable($db, $table)
+function PMA_getCentralColumnsFromTable($db, $table, $allFields=false)
 {
     $GLOBALS['dbi']->selectDb($db);
     $fields = (array) $GLOBALS['dbi']->getColumnNames($db, $table, null);
     $cols = implode("','", $fields);
     $cols = "'" . $cols . "'";
-    $has_list = PMA_findExistingColNames($db, $cols);
+    $has_list = PMA_findExistingColNames($db, $cols, $allFields);
     if (isset($has_list) && $has_list) {
         return (array)$has_list;
     } else {

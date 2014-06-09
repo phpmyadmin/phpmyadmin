@@ -341,6 +341,8 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
                 . __('Add columns to central list') . '</option>' . "\n";
             $html_output .= '<option value="delete_unique_columns_central_list" >'
                 . __('Remove columns from central list') . '</option>' . "\n";
+            $html_output .= '<option value="make_consistent_with_central_list" >'
+                . __('Make consistent with central list') . '</option>' . "\n";
         }
     }
     $html_output .= '</select>'

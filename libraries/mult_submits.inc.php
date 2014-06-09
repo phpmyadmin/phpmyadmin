@@ -94,6 +94,10 @@ if (! empty($submit_mult)
                 include_once 'libraries/central_columns.lib.php';
                 $centralColsError = PMA_deleteColumnsFromList($selected);
                 break;
+            case 'make_consistent_with_central_list':
+                include_once 'libraries/central_columns.lib.php';
+                $centralColsError = PMA_makeConsistentWithList($db, $selected);
+                break;
             } // end switch
         }
     } elseif (isset($selected_fld) && !empty($selected_fld)) {
@@ -266,7 +270,8 @@ if (!empty($submit_mult) && !empty($what)) {
         && ($submit_mult == 'sync_unique_columns_central_list'
         || $submit_mult == 'delete_unique_columns_central_list'
         || $submit_mult == 'add_to_central_columns'
-        || $submit_mult == 'remove_from_central_columns')
+        || $submit_mult == 'remove_from_central_columns'
+        || $submit_mult == 'make_consistent_with_central_list')
     ) {
         if (isset($centralColsError) && $centralColsError !== true) {
             $message = $centralColsError;

@@ -31,6 +31,7 @@ AJAX.registerTeardown('db_structure.js', function () {
     $("a.favorite_table_anchor.ajax").die('click');
     $('a.real_row_count').off('click');
     $('a.row_count_sum').off('click');
+    $('select[name=submit_mult]').unbind('change');
 });
 
 /**
@@ -205,6 +206,46 @@ AJAX.registerOnload('db_structure.js', function () {
         }
     });
 
+/**
+ * function to open the confirmation dialog for making table consistent with central list
+ *
+ * @param string   msg     message text to be displayedd to user
+ * @param function success function to be called on success
+ *
+ */
+    var jqConfirm = function(msg, success) {
+        var dialogObj = $("<div style='display:none'>"+msg+"</div>");
+        $('body').append(dialogObj);
+        var buttonOptions = {};
+        buttonOptions[PMA_messages.strContinue] = function () {
+            success();
+            $( this ).dialog( "close" );
+        };
+        buttonOptions[PMA_messages.strCancel] = function () {
+            $( this ).dialog( "close" );
+            $('#tablesForm')[0].reset();
+        };
+        $(dialogObj).dialog({
+            resizable: false,
+            modal: true,
+            title: PMA_messages.confirmTitle,
+            buttons: buttonOptions
+        });
+    };
+
+/**
+ *  Event handler on select of "Make consistent with central list"
+ */
+    $('select[name=submit_mult]').change(function(event) {
+        if($(this).val() === 'make_consistent_with_central_list') {
+            event.preventDefault();
+            event.stopPropagation();
+            jqConfirm(PMA_messages.makeConsistentMessage, function(){
+                        $('#tablesForm').submit();
+                    });
+            return false;
+        }
+    });
      /**
      * Event handler for 'Foreign Key Checks' disabling option
      * in the drop table confirmation form
