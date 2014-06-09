@@ -42,7 +42,7 @@ function PMA_centralColumnsGetParams()
  * get $num columns of given database from central columnslist
  * starting at offset $from
  *
- * @param string $db   selected databse
+ * @param string $db   selected database
  * @param int    $from starting offset of first result
  * @param int    $num  maximum number of results to return
  *
@@ -85,8 +85,8 @@ function PMA_getCentralColumnsCount($db)
 /**
  * return the existing columns in central list among the given list of columns
  *
- * @param string  $db        the selected databse
- * @param string  $cols      comma seperated list of given columns
+ * @param string  $db        the selected database
+ * @param string  $cols      comma separated list of given columns
  * @param boolean $allFields set if need all the fields of existing columns,
  * otherwise only column_name is returned
  *
@@ -359,8 +359,8 @@ function PMA_deleteColumnsFromList($field_select, $isTable=true)
 }
 
 /**
- * make the columns of given tables consistant with central list of columns.
- * Updats only those columns which are not being referenced.
+ * make the columns of given tables consistent with central list of columns.
+ * Updates only those columns which are not being referenced.
  *
  * @param string $db              current database
  * @param array  $selected_tables list of selected tables.
@@ -378,8 +378,8 @@ function PMA_makeConsistentWithList($db, $selected_tables)
             $column_status = PMA_checkChildForeignReferences(
                 $db, $table, $column['col_name']
             );
-            //column defination can only be changed if
-            //it is not referencd by another column
+            //column definition can only be changed if
+            //it is not referenced by another column
             if ($column_status['isEditable']) {
                 $query .= ' MODIFY ' . PMA_Util::backquote($column['col_name']) . ' '
                     . PMA_Util::sqlAddSlashes($column['col_type']);
@@ -428,9 +428,9 @@ function PMA_makeConsistentWithList($db, $selected_tables)
  * table of a given database
  *
  * @param string  $db        given database
- * @param string  $table     given tabale
+ * @param string  $table     given table
  * @param boolean $allFields set if need all the fields of existing columns,
- * otherwise only column_name is rturned
+ * otherwise only column_name is returned
  *
  * @return array columns present in central list from given table of given db.
  */
