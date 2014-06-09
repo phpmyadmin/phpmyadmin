@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-09 12:46-0400\n"
-"PO-Revision-Date: 2014-06-09 20:35+0200\n"
+"PO-Revision-Date: 2014-06-09 20:36+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1558,7 +1558,7 @@ msgstr "பிழை குறிப்பெண்: %s"
 #: js/messages.php:235
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "பிழை செய்தி: %s"
 
 #: js/messages.php:236 libraries/db_common.inc.php:60
 #: libraries/db_table_exists.lib.php:28 libraries/server_databases.lib.php:458
