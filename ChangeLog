@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.2.4.0 (not yet released)
+- bug #4442 New lines are added to query every time
 
 4.2.3.0 (2014-06-08)
 - bug #4423 Moving fields not working
