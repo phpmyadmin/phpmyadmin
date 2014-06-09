@@ -54,10 +54,6 @@ if (! isset($mysql_charsets)) {
 /**
  * Stores parsed elemented of query to array.
  *
- * Currently we don't need the $pos (token position in query)
- * for other purposes than LIMIT clause verification,
- * so many calls to this function do not include the 4th parameter
- *
  * @param array  &$arr     Array to store element
  * @param string $type     Type of element
  * @param string $data     Data (text) of element
@@ -303,10 +299,10 @@ function PMA_SQP_parse($sql)
         $previous_was_quote = $this_was_quote;
         $this_was_quote = false;
 
-        if (($c == "\n")) {
+        if (($c === "\n")) {
             $this_was_space = true;
             $count2++;
-            PMA_SQP_arrayAdd($sql_array, 'white_newline', '', $arraysize);
+            PMA_SQP_arrayAdd($sql_array, 'white_newline', "\n", $arraysize, $count2);
             continue;
         }
 
@@ -325,7 +321,8 @@ function PMA_SQP_parse($sql)
         if (($c == '#')
             || (($count2 + 1 < $len) && ($c == '/') && ($next_c == '*'))
             || (($count2 + 2 == $len) && ($c == '-') && ($next_c == '-'))
-            || (($count2 + 2 < $len) && ($c == '-') && ($next_c == '-') && (($GLOBALS['PMA_String']->substr($sql, $count2 + 2, 1) <= ' ')))
+            || (($count2 + 2 < $len) && ($c == '-') && ($next_c == '-')
+            && (($GLOBALS['PMA_String']->substr($sql, $count2 + 2, 1) <= ' ')))
         ) {
             $count2++;
             $pos  = 0;
@@ -351,7 +348,9 @@ function PMA_SQP_parse($sql)
             $str    = $GLOBALS['PMA_String']->substr(
                 $sql, $count1, $count2 - $count1
             );
-            PMA_SQP_arrayAdd($sql_array, 'comment_' . $type, $str, $arraysize);
+            PMA_SQP_arrayAdd(
+                $sql_array, 'comment_' . $type, $str, $arraysize, $count2
+            );
             continue;
         } // end if
 
@@ -430,7 +429,9 @@ function PMA_SQP_parse($sql)
                     continue;
                 } elseif (($pos + 1 < $len)
                     && ($GLOBALS['PMA_String']->substr($sql, $pos, 1) == $quotetype)
-                    && ($GLOBALS['PMA_String']->substr($sql, $pos + 1, 1) == $quotetype)
+                    && ($GLOBALS['PMA_String']->substr(
+                        $sql, $pos + 1, 1
+                    ) == $quotetype)
                 ) {
                     $pos = $pos + 2;
                     continue;
@@ -459,7 +460,7 @@ function PMA_SQP_parse($sql)
                 break;
             } // end switch
             $data = $GLOBALS['PMA_String']->substr($sql, $count1, $count2 - $count1);
-            PMA_SQP_arrayAdd($sql_array, $type, $data, $arraysize);
+            PMA_SQP_arrayAdd($sql_array, $type, $data, $arraysize, $count2);
             continue;
         }
 
@@ -483,7 +484,7 @@ function PMA_SQP_parse($sql)
             }
 
             $type = 'punct_bracket_' . $type_type . '_' . $type_style;
-            PMA_SQP_arrayAdd($sql_array, $type, $c, $arraysize);
+            PMA_SQP_arrayAdd($sql_array, $type, $c, $arraysize, $count2);
             continue;
         }
 
@@ -507,8 +508,10 @@ function PMA_SQP_parse($sql)
         if ($GLOBALS['PMA_String']->isSqlIdentifier($c, false)
             || $c == '@'
             || ($c == '.'
-            && $GLOBALS['PMA_String']->isDigit($GLOBALS['PMA_String']->substr($sql, $count2 + 1, 1))
-            && ($previous_was_space || $previous_was_bracket || $previous_was_listsep))
+            && $GLOBALS['PMA_String']->isDigit(
+                $GLOBALS['PMA_String']->substr($sql, $count2 + 1, 1)
+            ) && ($previous_was_space || $previous_was_bracket
+            || $previous_was_listsep))
         ) {
             /* DEBUG
             echo $GLOBALS['PMA_String']->substr($sql, $count2);
@@ -564,7 +567,12 @@ function PMA_SQP_parse($sql)
                 unset($pos);
             }
 
-            while (($count2 < $len) && $GLOBALS['PMA_String']->isSqlIdentifier($GLOBALS['PMA_String']->substr($sql, $count2, 1), ($is_sql_variable || $is_digit))) {
+            while (($count2 < $len)
+                && $GLOBALS['PMA_String']->isSqlIdentifier(
+                    $GLOBALS['PMA_String']->substr($sql, $count2, 1),
+                    ($is_sql_variable || $is_digit)
+                )
+            ) {
                 $c2 = $GLOBALS['PMA_String']->substr($sql, $count2, 1);
                 if ($is_sql_variable && ($c2 == '.')) {
                     $count2++;
@@ -640,7 +648,13 @@ function PMA_SQP_parse($sql)
 
         // Checks for punct
         if ($GLOBALS['PMA_String']->strpos($allpunct_list, $c) !== false) {
-            while (($count2 < $len) && $GLOBALS['PMA_String']->strpos($allpunct_list, $GLOBALS['PMA_String']->substr($sql, $count2, 1)) !== false) {
+            while (($count2 < $len)
+                && $GLOBALS['PMA_String']->strpos(
+                    $allpunct_list, $GLOBALS['PMA_String']->substr(
+                        $sql, $count2, 1
+                    )
+                ) !== false
+            ) {
                 $count2++;
             }
             $l = $count2 - $count1;
@@ -677,13 +691,15 @@ function PMA_SQP_parse($sql)
                     break;
                 }
                 PMA_SQP_arrayAdd(
-                    $sql_array, 'punct' . $t_suffix, $punct_data, $arraysize
+                    $sql_array, 'punct' . $t_suffix, $punct_data, $arraysize, $count2
                 );
             } elseif ($punct_data == $GLOBALS['sql_delimiter']
                 || isset($allpunct_list_pair[$punct_data])
             ) {
                 // Ok, we have one of the valid combined punct expressions
-                PMA_SQP_arrayAdd($sql_array, 'punct', $punct_data, $arraysize);
+                PMA_SQP_arrayAdd(
+                    $sql_array, 'punct', $punct_data, $arraysize, $count2
+                );
             } else {
                 // Bad luck, lets split it up more
                 $first  = $punct_data[0];
@@ -694,7 +710,11 @@ function PMA_SQP_parse($sql)
                 ) {
                     $count2     = $count1 + 1;
                     $punct_data = $first;
-                } elseif (($last2 == '/*') || (($last2 == '--') && ($count2 == $len || $GLOBALS['PMA_String']->substr($sql, $count2, 1) <= ' '))) {
+                } elseif (($last2 == '/*')
+                    || (($last2 == '--')
+                    && ($count2 == $len
+                    || $GLOBALS['PMA_String']->substr($sql, $count2, 1) <= ' '))
+                ) {
                     $count2     -= 2;
                     $punct_data = $GLOBALS['PMA_String']->substr(
                         $sql, $count1, $count2 - $count1
@@ -716,7 +736,9 @@ function PMA_SQP_parse($sql)
                     PMA_SQP_throwError($debugstr, $sql);
                     return $sql_array;
                 }
-                PMA_SQP_arrayAdd($sql_array, 'punct', $punct_data, $arraysize);
+                PMA_SQP_arrayAdd(
+                    $sql_array, 'punct', $punct_data, $arraysize, $count2
+                );
                 continue;
             } // end if... elseif... else
             continue;
@@ -1302,7 +1324,8 @@ function PMA_SQP_analyze($arr)
 
             if ($subresult['querytype'] == 'SELECT'
                 && ! $in_group_concat
-                && ! ($seen_subquery && $arr[$i - 1]['type'] == 'punct_bracket_close_round')
+                && ! ($seen_subquery
+                && $arr[$i - 1]['type'] == 'punct_bracket_close_round')
             ) {
                 if (!$seen_from) {
                     if ($previous_was_identifier && isset($chain)) {
@@ -2833,7 +2856,6 @@ function PMA_SQP_isKeyWord($column)
     return in_array(strtoupper($column), $PMA_SQPdata_forbidden_word);
 }
 
-
 /**
  * Get Parser Data Map from sqlparser.data.php
  *
@@ -2850,6 +2872,7 @@ function PMA_SQP_getParserDataMap()
         'PMA_SQPdata_column_type'    => $PMA_SQPdata_column_type,
     );
 }
+
 /**
  * Get Parser analyze Map from parse_analyze_inc.php
  *
@@ -2862,6 +2885,58 @@ function PMA_SQP_getParserAnalyzeMap($sql_query, $db)
 {
     include 'libraries/parse_analyze.inc.php';
     return $analyzed_sql_results;
+}
+
+/**
+ * Get Aliases from select query
+ * Note: only useful for select query on single table.
+ *
+ * @param string $select_query The Select SQL Query
+ * @param string $db           Current DB
+ *
+ * @return Array alias information from select query
+ */
+function PMA_SQP_getAliasesFromQuery($select_query, $db)
+{
+    if (empty($select_query) || empty($db)) {
+        return array();
+    }
+    $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($select_query));
+    $aliases = array(
+        $db => array(
+            'alias' => null,
+            'tables' => array()
+        )
+    );
+    foreach ($analyzed_sql[0]['table_ref'] as $table) {
+        $t_db = !empty($table['db']) ? $table['db'] : $db;
+        if (!isset($aliases[$t_db])) {
+            $aliases[$t_db] = array(
+                'alias' => null,
+                'tables' => array()
+            );
+        }
+        $aliases[$t_db]['tables'][$table['table_true_name']] = array(
+            'alias' => !empty($table['table_alias'])
+                ? $table['table_alias'] : null,
+            'columns' => array()
+        );
+    }
+    foreach ($analyzed_sql[0]['select_expr'] as $cols) {
+        if (!empty($cols['alias'])) {
+            $t_db = !empty($cols['db']) ? $cols['db'] : $db;
+            if (!empty($cols['table_true_name'])) {
+                $aliases[$t_db]['tables'][$cols['table_true_name']]
+                ['columns'][$cols['column']] = $cols['alias'];
+            } else {
+                foreach ($aliases[$t_db]['tables'] as $key => $table) {
+                    $aliases[$t_db]['tables'][$key]
+                    ['columns'][$cols['column']] = $cols['alias'];
+                }
+            }
+        }
+    }
+    return $aliases;
 }
 
 ?>

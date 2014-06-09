@@ -646,13 +646,14 @@ function PMA_exportDatabase(
  * @param string $limit_to        upper limit
  * @param string $limit_from      starting limit
  * @param string $sql_query       query for which exporting is requested
+ * @param array  $aliases         Alias information for db/table/column
  *
  * @return void
  */
 function PMA_exportTable(
     $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
     $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-    $allrows, $limit_to, $limit_from, $sql_query
+    $allrows, $limit_to, $limit_from, $sql_query, $aliases
 ) {
     if (! $export_plugin->exportDBHeader($db)) {
         return;
@@ -691,7 +692,7 @@ function PMA_exportTable(
             if (! $export_plugin->exportStructure(
                 $db, $table, $crlf, $err_url,
                 'create_table', $export_type,
-                $do_relation, $do_comments, $do_mime, $do_dates
+                $do_relation, $do_comments, $do_mime, $do_dates, $aliases
             )) {
                 return;
             }
@@ -719,7 +720,7 @@ function PMA_exportTable(
                 . '.' . PMA_Util::backquote($table) . $add_query;
         }
         if (! $export_plugin->exportData(
-            $db, $table, $crlf, $err_url, $local_query
+            $db, $table, $crlf, $err_url, $local_query, $aliases
         )) {
             return;
         }
@@ -732,7 +733,7 @@ function PMA_exportTable(
         if (! $export_plugin->exportStructure(
             $db, $table, $crlf, $err_url,
             'triggers', $export_type,
-            $do_relation, $do_comments, $do_mime, $do_dates
+            $do_relation, $do_comments, $do_mime, $do_dates, $aliases
         )) {
             return;
         }

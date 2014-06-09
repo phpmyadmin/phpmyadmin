@@ -729,14 +729,18 @@ class ExportSql extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db Database name
+     * @param string $db       Database name
+     * @param string $db_alias Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db)
+    public function exportDBCreate($db, $db_alias = '')
     {
         global $crlf;
 
+        if (empty($db_alias)) {
+            $db_alias = $db;
+        }
         if (isset($GLOBALS['sql_compatibility'])) {
             $compat = $GLOBALS['sql_compatibility'];
         } else {
@@ -746,7 +750,7 @@ class ExportSql extends ExportPlugin
             if (! PMA_exportOutputHandler(
                 'DROP DATABASE '
                 . (isset($GLOBALS['sql_backquotes'])
-                ? PMA_Util::backquoteCompat($db, $compat) : $db)
+                ? PMA_Util::backquoteCompat($db_alias, $compat) : $db_alias)
                 . ';' . $crlf
             )) {
                 return false;
@@ -755,8 +759,8 @@ class ExportSql extends ExportPlugin
         if (isset($GLOBALS['sql_create_database'])) {
             $create_query = 'CREATE DATABASE IF NOT EXISTS '
                 . (isset($GLOBALS['sql_backquotes'])
-                ? PMA_Util::backquoteCompat($db, $compat) : $db);
-            $collation = PMA_getDbCollation($db);
+                ? PMA_Util::backquoteCompat($db_alias, $compat) : $db_alias);
+            $collation = PMA_getDbCollation($db_alias);
             if (PMA_DRIZZLE) {
                 $create_query .= ' COLLATE ' . $collation;
             } else {
@@ -778,11 +782,11 @@ class ExportSql extends ExportPlugin
                 || PMA_DRIZZLE)
             ) {
                 $result = PMA_exportOutputHandler(
-                    'USE ' . PMA_Util::backquoteCompat($db, $compat)
+                    'USE ' . PMA_Util::backquoteCompat($db_alias, $compat)
                     . ';' . $crlf
                 );
             } else {
-                $result = PMA_exportOutputHandler('USE ' . $db . ';' . $crlf);
+                $result = PMA_exportOutputHandler('USE ' . $db_alias . ';' . $crlf);
             }
             return $result;
         } else {
@@ -793,12 +797,16 @@ class ExportSql extends ExportPlugin
     /**
      * Outputs database header
      *
-     * @param string $db Database name
+     * @param string $db       Database name
+     * @param string $db_alias Alias of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader($db)
+    public function exportDBHeader($db, $db_alias = '')
     {
+        if (empty($db_alias)) {
+            $db_alias = $db;
+        }
         if (isset($GLOBALS['sql_compatibility'])) {
             $compat = $GLOBALS['sql_compatibility'];
         } else {
@@ -808,8 +816,8 @@ class ExportSql extends ExportPlugin
             . $this->_exportComment(
                 __('Database:') . ' '
                 . (isset($GLOBALS['sql_backquotes'])
-                ? PMA_Util::backquoteCompat($db, $compat)
-                : '\'' . $db . '\'')
+                ? PMA_Util::backquoteCompat($db_alias, $compat)
+                : '\'' . $db_alias . '\'')
             )
             . $this->_exportComment();
         return PMA_exportOutputHandler($head);
@@ -1007,11 +1015,12 @@ class ExportSql extends ExportPlugin
      *                                          of error
      * @param bool   $show_dates                whether to include creation/
      *                                          update/check dates
-     * @param bool   $add_semicolon             whether to add semicolon and 
+     * @param bool   $add_semicolon             whether to add semicolon and
      *                                          end-of-line at the end
      * @param bool   $view                      whether we're handling a view
      * @param bool   $update_indexes_increments whether we need to update
-     *                                          two global variables 
+     *                                          two global variables
+     * @param array  $aliases                   Aliases of db/table/columns
      *
      * @return string resulting schema
      */
@@ -1023,11 +1032,16 @@ class ExportSql extends ExportPlugin
         $show_dates = false,
         $add_semicolon = true,
         $view = false,
-        $update_indexes_increments = true
+        $update_indexes_increments = true,
+        $aliases = array()
     ) {
         global $sql_drop_table, $sql_backquotes, $sql_constraints,
             $sql_constraints_query, $sql_indexes, $sql_indexes_query,
             $sql_auto_increments,$sql_drop_foreign_keys;
+
+        $db_alias = $db;
+        $table_alias = $table;
+        $this->initAlias($aliases, $db_alias, $table_alias);
 
         $schema_create = '';
         $auto_increment = '';
@@ -1124,7 +1138,7 @@ class ExportSql extends ExportPlugin
         // no need to generate a DROP VIEW here, it was done earlier
         if (! empty($sql_drop_table) && ! PMA_Table::isView($db, $table)) {
             $schema_create .= 'DROP TABLE IF EXISTS '
-                . PMA_Util::backquote($table, $sql_backquotes) . ';'
+                . PMA_Util::backquote($table_alias, $sql_backquotes) . ';'
                 . $crlf;
         }
 
@@ -1162,7 +1176,6 @@ class ExportSql extends ExportPlugin
         if ($result != false && ($row = $GLOBALS['dbi']->fetchRow($result))) {
             $create_query = $row[1];
             unset($row);
-
             // Convert end of line chars to one that we want (note that MySQL
             // doesn't return query it will accept in all cases)
             if (strpos($create_query, "(\r\n ")) {
@@ -1187,7 +1200,10 @@ class ExportSql extends ExportPlugin
                     $create_query
                 );
             }
-
+            // substitute aliases in create query
+            $create_query = $this->replaceWithAliases(
+                $create_query, $aliases, $db, $table
+            );
             // Should we use IF NOT EXISTS?
             if (isset($GLOBALS['sql_if_not_exists'])) {
                 $create_query = preg_replace(
@@ -1244,19 +1260,19 @@ class ExportSql extends ExportPlugin
                         . $this->_exportComment(
                             __('Constraints for table')
                             . ' '
-                            . PMA_Util::backquoteCompat($table, $compat)
+                            . PMA_Util::backquoteCompat($table_alias, $compat)
                         )
                         . $this->_exportComment();
                     }
                     $sql_constraints_query .= 'ALTER TABLE '
-                    . PMA_Util::backquoteCompat($table, $compat)
+                    . PMA_Util::backquoteCompat($table_alias, $compat)
                     . $crlf;
                     $sql_constraints .= 'ALTER TABLE '
-                    . PMA_Util::backquoteCompat($table,  $compat)
+                    . PMA_Util::backquoteCompat($table_alias,  $compat)
                     . $crlf;
                     $sql_drop_foreign_keys .= 'ALTER TABLE '
-                    . PMA_Util::backquoteCompat($db, $compat) . '.'
-                    . PMA_Util::backquoteCompat($table, $compat)
+                    . PMA_Util::backquoteCompat($db_alias, $compat) . '.'
+                    . PMA_Util::backquoteCompat($table_alias, $compat)
                     . $crlf;
                 }
                 //if there are indexes
@@ -1288,16 +1304,16 @@ class ExportSql extends ExportPlugin
                         . $this->_exportComment(
                             __('Indexes for table')
                             . ' '
-                            . PMA_Util::backquoteCompat($table, $compat)
+                            . PMA_Util::backquoteCompat($table_alias, $compat)
                         )
                         . $this->_exportComment();
                     }
                     $sql_indexes_query .= 'ALTER TABLE '
-                    . PMA_Util::backquoteCompat($table, $compat)
+                    . PMA_Util::backquoteCompat($table_alias, $compat)
                     . $crlf;
 
                     $sql_indexes .= 'ALTER TABLE '
-                    . PMA_Util::backquoteCompat($table,  $compat)
+                    . PMA_Util::backquoteCompat($table_alias,  $compat)
                     . $crlf;
                 }
                 if ($update_indexes_increments && preg_match(
@@ -1324,12 +1340,12 @@ class ExportSql extends ExportPlugin
                         . $this->_exportComment(
                             __('AUTO_INCREMENT for table')
                             . ' '
-                            . PMA_Util::backquoteCompat($table, $compat)
+                            . PMA_Util::backquoteCompat($table_alias, $compat)
                         )
                         . $this->_exportComment();
                     }
                     $sql_auto_increments .= 'ALTER TABLE '
-                    . PMA_Util::backquoteCompat($table, $compat)
+                    . PMA_Util::backquoteCompat($table_alias, $compat)
                     . $crlf;
                 }
 
@@ -1500,6 +1516,7 @@ class ExportSql extends ExportPlugin
      * @param string $crlf        end of line sequence
      * @param bool   $do_relation whether to include relation comments
      * @param bool   $do_mime     whether to include mime comments
+     * @param array  $aliases     Aliases of db/table/columns
      *
      * @return string resulting comments
      */
@@ -1508,9 +1525,14 @@ class ExportSql extends ExportPlugin
         $table,
         $crlf,
         $do_relation = false,
-        $do_mime = false
+        $do_mime = false,
+        $aliases = array()
     ) {
         global $cfgRelation, $sql_backquotes;
+
+        $db_alias = $db;
+        $table_alias = $table;
+        $this->initAlias($aliases, $db_alias, $table_alias);
 
         $schema_create = '';
 
@@ -1565,14 +1587,18 @@ class ExportSql extends ExportPlugin
                 . $this->_exportComment()
                 . $this->_exportComment(
                     __('RELATIONS FOR TABLE') . ' '
-                    . PMA_Util::backquote($table, $sql_backquotes)
+                    . PMA_Util::backquote($table_alias, $sql_backquotes)
                     . ':'
                 );
             foreach ($res_rel as $rel_field => $rel) {
+                $rel_field_alias = !empty(
+                    $aliases[$db]['tables'][$table]['columns'][$rel_field]
+                ) ? $aliases[$db]['tables'][$table]['columns'][$rel_field]
+                  : $rel_field;
                 $schema_create .=
                     $this->_exportComment(
                         '  '
-                        . PMA_Util::backquote($rel_field, $sql_backquotes)
+                        . PMA_Util::backquote($rel_field_alias, $sql_backquotes)
                     )
                     . $this->_exportComment(
                         '      '
@@ -1613,6 +1639,7 @@ class ExportSql extends ExportPlugin
      *                            parameter
      * @param bool   $mime        whether to include mime comments
      * @param bool   $dates       whether to include creation/update/check dates
+     * @param array  $aliases     Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
@@ -1626,8 +1653,12 @@ class ExportSql extends ExportPlugin
         $relation = false,
         $comments = false,
         $mime = false,
-        $dates = false
+        $dates = false,
+        $aliases = array()
     ) {
+        $db_alias = $db;
+        $table_alias = $table;
+        $this->initAlias($aliases, $db_alias, $table_alias);
         if (isset($GLOBALS['sql_compatibility'])) {
             $compat = $GLOBALS['sql_compatibility'];
         } else {
@@ -1635,8 +1666,8 @@ class ExportSql extends ExportPlugin
         }
 
         $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
-            ? PMA_Util::backquoteCompat($table, $compat)
-            : '\'' . $table . '\'';
+            ? PMA_Util::backquoteCompat($table_alias, $compat)
+            : '\'' . $table_alias . '\'';
         $dump = $this->_possibleCRLF()
             . $this->_exportComment(str_repeat('-', 56))
             . $this->_possibleCRLF()
@@ -1648,12 +1679,18 @@ class ExportSql extends ExportPlugin
                 __('Table structure for table') . ' ' . $formatted_table_name
             );
             $dump .= $this->_exportComment();
-            $dump .= $this->getTableDef($db, $table, $crlf, $error_url, $dates);
-            $dump .= $this->_getTableComments($db, $table, $crlf, $relation, $mime);
+            $dump .= $this->getTableDef(
+                $db, $table, $crlf, $error_url, $dates,
+                true, false, true, $aliases
+            );
+            $dump .= $this->_getTableComments(
+                $db, $table, $crlf, $relation, $mime, $aliases
+            );
             break;
         case 'triggers':
             $dump = '';
-            $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
+            $delimiter = '$$';
+            $triggers = $GLOBALS['dbi']->getTriggers($db, $table, $delimiter);
             if ($triggers) {
                 $dump .=  $this->_possibleCRLF()
                     . $this->_exportComment()
@@ -1661,13 +1698,14 @@ class ExportSql extends ExportPlugin
                         __('Triggers') . ' ' . $formatted_table_name
                     )
                     . $this->_exportComment();
-                $delimiter = '//';
                 foreach ($triggers as $trigger) {
                     if (! empty($GLOBALS['sql_drop_table'])) {
                         $dump .= $trigger['drop'] . ';' . $crlf;
                     }
                     $dump .= 'DELIMITER ' . $delimiter . $crlf;
-                    $dump .= $trigger['create'];
+                    $dump .= $this->replaceWithAliases(
+                        $trigger['create'], $aliases, $db, $table
+                    );
                     $dump .= 'DELIMITER ;' . $crlf;
                 }
             }
@@ -1733,12 +1771,18 @@ class ExportSql extends ExportPlugin
      * @param string $crlf      the end of line sequence
      * @param string $error_url the url to go back in case of error
      * @param string $sql_query SQL query for obtaining data
+     * @param array  $aliases   Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
-    public function exportData($db, $table, $crlf, $error_url, $sql_query)
-    {
+    public function exportData(
+        $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
+    ) {
         global $current_row, $sql_backquotes;
+
+        $db_alias = $db;
+        $table_alias = $table;
+        $this->initAlias($aliases, $db_alias, $table_alias);
 
         if (isset($GLOBALS['sql_compatibility'])) {
             $compat = $GLOBALS['sql_compatibility'];
@@ -1747,8 +1791,8 @@ class ExportSql extends ExportPlugin
         }
 
         $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
-            ? PMA_Util::backquoteCompat($table, $compat)
-            : '\'' . $table . '\'';
+            ? PMA_Util::backquoteCompat($table_alias, $compat)
+            : '\'' . $table_alias . '\'';
 
         // Do not export data for a VIEW, unless asked to export the view as a table
         // (For a VIEW, this is called only when exporting a single VIEW)
@@ -1767,11 +1811,6 @@ class ExportSql extends ExportPlugin
             }
             return true;
         }
-
-        // analyze the query to get the true column names, not the aliases
-        // (this fixes an undefined index, also if Complete inserts
-        //  are used, we did not get the true column name in case of aliases)
-        $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($sql_query));
 
         $result = $GLOBALS['dbi']->tryQuery(
             $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
@@ -1798,19 +1837,11 @@ class ExportSql extends ExportPlugin
 
             $field_set = array();
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if (isset($analyzed_sql[0]['select_expr'][$j]['column'])) {
-                    $field_set[$j] = PMA_Util::backquoteCompat(
-                        $analyzed_sql[0]['select_expr'][$j]['column'],
-                        $compat,
-                        $sql_backquotes
-                    );
-                } else {
-                    $field_set[$j] = PMA_Util::backquoteCompat(
-                        $fields_meta[$j]->name,
-                        $compat,
-                        $sql_backquotes
-                    );
-                }
+                $field_set[$j] = PMA_Util::backquoteCompat(
+                    $fields_meta[$j]->name,
+                    $compat,
+                    $sql_backquotes
+                );
             }
 
             if (isset($GLOBALS['sql_type'])
@@ -1823,7 +1854,7 @@ class ExportSql extends ExportPlugin
                 }
                 // avoid EOL blank
                 $schema_insert .= PMA_Util::backquoteCompat(
-                    $table,
+                    $table_alias,
                     $compat,
                     $sql_backquotes
                 ) . ' SET';
@@ -1858,7 +1889,7 @@ class ExportSql extends ExportPlugin
                 ) {
                     $truncate = 'TRUNCATE TABLE '
                         . PMA_Util::backquoteCompat(
-                            $table,
+                            $table_alias,
                             $compat,
                             $sql_backquotes
                         ) . ";";
@@ -1881,7 +1912,7 @@ class ExportSql extends ExportPlugin
                     $fields        = implode(', ', $field_set);
                     $schema_insert = $sql_command . $insert_delayed . ' INTO '
                         . PMA_Util::backquoteCompat(
-                            $table,
+                            $table_alias,
                             $compat,
                             $sql_backquotes
                         )
@@ -1890,7 +1921,7 @@ class ExportSql extends ExportPlugin
                 } else {
                     $schema_insert = $sql_command . $insert_delayed . ' INTO '
                         . PMA_Util::backquoteCompat(
-                            $table,
+                            $table_alias,
                             $compat,
                             $sql_backquotes
                         )
@@ -1936,7 +1967,7 @@ class ExportSql extends ExportPlugin
                     if (! PMA_exportOutputHandler(
                         'SET IDENTITY_INSERT '
                         . PMA_Util::backquoteCompat(
-                            $table,
+                            $table_alias,
                             $compat
                         )
                         . ' ON ;' . $crlf
@@ -2079,7 +2110,7 @@ class ExportSql extends ExportPlugin
             ) {
                 $outputSucceeded = PMA_exportOutputHandler(
                     $crlf . 'SET IDENTITY_INSERT '
-                    . PMA_Util::backquoteCompat($table, $compat)
+                    . PMA_Util::backquoteCompat($table_alias, $compat)
                     . ' OFF;' . $crlf
                 );
                 if (! $outputSucceeded) {
@@ -2196,5 +2227,237 @@ class ExportSql extends ExportPlugin
         // @todo remove indexes from CREATE TABLE
 
         return $create_query;
+    }
+
+    /**
+     * replaces db/table/column names with their aliases
+     *
+     * @param string $sql_query SQL query in which aliases are to be substituted
+     * @param array  $aliases   Alias information for db/table/column
+     * @param string $db        the database name
+     * @param string $table     the tablename
+     *
+     * @return string query replaced with aliases
+     */
+    public function replaceWithAliases($sql_query, $aliases, $db, $table)
+    {
+        // Return original sql query if no aliases are provided.
+        if (!is_array($aliases) || empty($aliases) || empty($sql_query)) {
+            return $sql_query;
+        }
+        $supported_query_types = array(
+            'CREATE' => true,
+        );
+        $supported_query_ons = array(
+            'TABLE' => true,
+            'TRIGGER' => true
+        );
+        $identifier_types = array(
+            'alpha_identifier',
+            'quote_backtick'
+        );
+        $query_type = '';
+        $query_on = '';
+        // Adjustment value for each pos value
+        // of token after replacement
+        $offset = 0;
+        $open_braces = 0;
+        $in_create_table_fields = false;
+        // flag to force end query parsing
+        $query_end = false;
+        // Convert all line feeds to Unix style
+        $sql_query = str_replace("\r\n", "\n", $sql_query);
+        $sql_query = str_replace("\r", "\n", $sql_query);
+        $tokens = PMA_SQP_parse($sql_query);
+        $ref_seen = false;
+        $ref_table_seen = false;
+        $old_table = $table;
+        $on_seen = false;
+        $size = $tokens['len'];
+        for ($i = 0; $i < $size && !$query_end; $i++) {
+            $type = $tokens[$i]['type'];
+            $data = $tokens[$i]['data'];
+            $d_unq = PMA_Util::unQuote($data);
+            $d_upper = strtoupper($d_unq);
+            $pos = $tokens[$i]['pos'] + $offset;
+            if ($type === 'alpha_reservedWord') {
+                if ($query_type === ''
+                    && !empty($supported_query_types[$d_upper])
+                ) {
+                    $query_type = $d_upper;
+                } elseif ($query_on === ''
+                    && !empty($supported_query_ons[$d_upper])
+                ) {
+                    $query_on = $d_upper;
+                }
+            }
+            // CREATE TABLE - Alias replacement
+            if ($query_type === 'CREATE' && $query_on === 'TABLE') {
+                // replace create table name
+                if (!$in_create_table_fields
+                    && in_array($type, $identifier_types)
+                    && isset($aliases[$db]['tables'][$table]['alias'])
+                ) {
+                    $sql_query = $this->substituteAlias(
+                        $sql_query, $data,
+                        $aliases[$db]['tables'][$table]['alias'],
+                        $pos, $offset
+                    );
+                } elseif ($type === 'punct_bracket_open_round') {
+                    // CREATE TABLE fields started
+                    if (!$in_create_table_fields) {
+                        $in_create_table_fields = true;
+                    }
+                    $open_braces++;
+                } elseif ($type === 'punct_bracket_close_round') {
+                    // end our parsing after last )
+                    // no columns appear after that
+                    if ($in_create_table_fields && $open_braces === 0) {
+                        $query_end = true;
+                    }
+                    // End of Foreign key reference
+                    if ($ref_seen) {
+                        $ref_seen = $ref_table_seen = false;
+                        $table = $old_table;
+                    }
+                    $open_braces--;
+                    // handles Foreign key references
+                } elseif ($type === 'alpha_reservedWord'
+                    && $d_upper === 'REFERENCES'
+                ) {
+                    $ref_seen = true;
+                } elseif (in_array($type, $identifier_types)
+                    && $ref_seen === true && !$ref_table_seen
+                ) {
+                    $table = $d_unq;
+                    $ref_table_seen = true;
+                    // Replace column names
+                } elseif (in_array($type, $identifier_types)
+                    && isset($aliases[$db]['tables'][$table]['columns'][$d_unq])
+                ) {
+                    $sql_query = $this->substituteAlias(
+                        $sql_query, $data,
+                        $aliases[$db]['tables'][$table]['columns'][$d_unq],
+                        $pos, $offset
+                    );
+                }
+                // CREATE TRIGGER - Alias replacement
+            } elseif ($query_type === 'CREATE' && $query_on === 'TRIGGER') {
+                // Skip till 'ON' in encountered
+                if (!$on_seen && $type === 'alpha_reservedWord'
+                    && $d_upper === 'ON'
+                ) {
+                    $on_seen = true;
+                } elseif ($on_seen && in_array($type, $identifier_types)) {
+                    if (!$ref_table_seen
+                        && isset($aliases[$db]['tables'][$d_unq]['alias'])
+                    ) {
+                        $ref_table_seen = true;
+                        $sql_query = $this->substituteAlias(
+                            $sql_query, $data,
+                            $aliases[$db]['tables'][$d_unq]['alias'],
+                            $pos, $offset
+                        );
+                    } else {
+                        // search for identifiers
+                        $alias = $this->getAlias($aliases, $d_unq);
+                        if (!empty($alias)) {
+                            $sql_query = $this->substituteAlias(
+                                $sql_query, $data, $alias, $pos, $offset
+                            );
+                        }
+                    }
+                }
+            }
+        }
+        if ($query_type === 'CREATE' && $query_on === 'TRIGGER') {
+            $warning = $this->_exportComment()
+                . $this->_exportComment(__('It appears your table uses triggers;'))
+                . $this->_exportComment(__('alias export may not work reliably in all cases.'))
+                . $this->_exportComment();
+            PMA_exportOutputHandler($warning);
+        }
+        return $sql_query;
+    }
+
+    /**
+     * substitutes alias in query at given position
+     * Note: pos is the value from PMA_SQP_parse() + offset
+     *
+     * @param string $sql_query the SQL query
+     * @param string $data      the data to be replaced
+     * @param string $alias     the replacement
+     * @param string $pos       the position of alias
+     * @param string &$offset   the change in pos occured after substitution
+     *
+     * @return string replaced query with alias
+     */
+    public function substituteAlias($sql_query, $data, $alias, $pos, &$offset = null)
+    {
+        if (!empty($GLOBALS['sql_backquotes'])) {
+            $alias = PMA_Util::backquote($alias);
+        }
+        $alias_len = $GLOBALS['PMA_String']->strlen($alias);
+        $data_len = $GLOBALS['PMA_String']->strlen($data);
+        if (isset($offset)) {
+            $offset += ($alias_len - $data_len);
+        }
+        $sql_query = substr_replace(
+            $sql_query, $alias, $pos - $data_len, $data_len
+        );
+        return $sql_query;
+    }
+
+    /**
+     * initialize aliases
+     *
+     * @param array  $aliases Alias information for db/table/column
+     * @param string &$db     the database
+     * @param string &$table  the table
+     *
+     * @return nothing
+     */
+    public function initAlias($aliases, &$db, &$table = null)
+    {
+        if (isset($aliases[$db]['tables'][$table]['alias'])) {
+            $table = $aliases[$db]['tables'][$table]['alias'];
+        }
+        if (isset($aliases[$db]['alias'])) {
+            $db = $aliases[$db]['alias'];
+        }
+    }
+
+    /**
+     * recursively search for alias of a identifier.
+     *
+     * @param array  $aliases Alias information for db/table/column
+     * @param string $id      the identifier to be searched
+     *
+     * @return string alias of the identifier if found or ''
+     */
+    public function getAlias($aliases, $id)
+    {
+        // search each database
+        foreach ($aliases as $db_key => $db) {
+            // check if id is database and has alias
+            if ($db_key === $id && !empty($db['alias'])) {
+                return $db['alias'];
+            }
+            // search each of its tables
+            foreach ($db['tables'] as $table_key => $table) {
+                // check if id is table and has alias
+                if ($table_key === $id && !empty($table['alias'])) {
+                    return $table['alias'];
+                }
+                // search each of its columns
+                foreach ($table['columns'] as $col_key => $col) {
+                    // check if id is column
+                    if ($col_key === $id) {
+                        return $col;
+                    }
+                }
+            }
+        }
+        return '';
     }
 }
