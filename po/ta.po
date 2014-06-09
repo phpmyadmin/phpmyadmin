@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-24 09:05-0400\n"
-"PO-Revision-Date: 2014-06-08 17:41+0200\n"
+"PO-Revision-Date: 2014-06-09 20:38+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -1488,15 +1488,15 @@ msgstr "வினவலை பகுத்தாய்க"
 
 #: js/messages.php:212
 msgid "Advisor system"
-msgstr "முறைமை ஆலோசகர்"
+msgstr "முறைமை அறிவுறுத்துனர்"
 
 #: js/messages.php:213
 msgid "Possible performance issues"
-msgstr ""
+msgstr "நேரிடகூடிய செயல்திறன் சிக்கல்கள்"
 
 #: js/messages.php:214
 msgid "Issue"
-msgstr "பிரச்சினை"
+msgstr "சிக்கல்"
 
 #: js/messages.php:215
 msgid "Recommendation"
@@ -1504,19 +1504,19 @@ msgstr "பரிந்துரை"
 
 #: js/messages.php:216
 msgid "Rule details"
-msgstr "ஆளுகை விபரங்கள்"
+msgstr "விதிமுறை விபரங்கள்"
 
 #: js/messages.php:217
 msgid "Justification"
-msgstr "சமச்சீராக்கம்"
+msgstr "விளக்கமளி"
 
 #: js/messages.php:218
 msgid "Used variable / formula"
-msgstr ""
+msgstr "பயன்படுத்தப்பட்ட மாறி/வாய்ப்பாடு"
 
 #: js/messages.php:219
 msgid "Test"
-msgstr "சோதனை"
+msgstr "தேர்வுமுறை"
 
 #: js/messages.php:224 libraries/server_variables.lib.php:159
 #: pmd_general.php:471 pmd_general.php:510 pmd_general.php:637
@@ -1532,34 +1532,34 @@ msgstr "ஏற்றப்படுகிறது…"
 
 #: js/messages.php:228
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "வேண்டுகோள் கைவிடப்பட்டது!!"
 
 #: js/messages.php:229
 msgid "Processing Request"
-msgstr "வேண்டுகோள் செயற்படுத்தபடுகின்றது"
+msgstr "வேண்டுகோள் செயல்முறைப்படுத்தபடுகின்றது"
 
 #: js/messages.php:230
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "வேண்டுகோள் செயல்முறைப்படுத்தலில் பிழை"
 
 #: js/messages.php:231
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "பிழை குறிப்பெண்: %s"
 
 #: js/messages.php:232
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "பிழை செய்தி: %s"
 
 #: js/messages.php:233 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 libraries/server_databases.lib.php:458
 msgid "No databases selected."
-msgstr ""
+msgstr "எந்த தரவுத்தளமும் தேர்ந்தெடுக்கப்படவில்லை."
 
 #: js/messages.php:234
 msgid "Dropping Column"
-msgstr "நெடுக்கை அழிக்கபடுகின்றது"
+msgstr "நிரல்வரிசை கைவிடப்படுகிறது"
 
 #: js/messages.php:235
 msgid "Adding Primary Key"
