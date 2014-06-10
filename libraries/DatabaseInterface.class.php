@@ -484,7 +484,6 @@ class PMA_DatabaseInterface
         $this_databases = array_map('PMA_Util::sqlAddSlashes', $databases);
 
         $sql = $this->_getSqlForTablesFull($this_databases, $sql_where_table);
-        unset($sql_where_table);
 
         // Sort the tables
         $sql .= " ORDER BY $sort_by $sort_order";
@@ -496,7 +495,6 @@ class PMA_DatabaseInterface
         $tables = $this->fetchResult(
             $sql, array('TABLE_SCHEMA', 'TABLE_NAME'), null, $link
         );
-        unset($sql);
 
         if (PMA_DRIZZLE) {
             // correct I_S and D_D names returned by D_D.TABLES -
@@ -640,9 +638,6 @@ class PMA_DatabaseInterface
                     } else {
                         array_multisort($$sort_by, SORT_ASC, $each_tables);
                     }
-
-                    // cleanup the temporary sort array
-                    unset($$sort_by);
                 }
 
                 if ($limit_count) {
@@ -1083,7 +1078,6 @@ class PMA_DatabaseInterface
         }
 
         $columns = $this->fetchResult($sql, $array_keys, null, $link);
-        unset($sql_wheres, $sql);
 
         $ordinal_position = 1;
         foreach ($columns as $column_name => $each_column) {
@@ -1613,7 +1607,6 @@ class PMA_DatabaseInterface
         if (isset($row[$field])) {
             $value = $row[$field];
         }
-        unset($row);
 
         return $value;
     }
