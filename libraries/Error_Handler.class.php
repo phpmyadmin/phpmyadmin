@@ -517,7 +517,8 @@ class PMA_Error_Handler
                 $response->addJSON('_sendErrorAlways', '1');
             } else {
                 // send the error reports asynchronously & without asking user
-                $jsCode .= '$("#pma_report_errors_form").submit();';
+                $jsCode .= '$("#pma_report_errors_form").submit();'
+                        . 'PMA_ajaxShowMessage(PMA_messages["phpErrorsBeingSubmitted"], false);';
                 // js code to appropriate focusing,
                 $jsCode .= '$("html, body").animate({
                                 scrollTop:$(document).height()
