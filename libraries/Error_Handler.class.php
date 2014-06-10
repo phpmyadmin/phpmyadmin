@@ -500,7 +500,11 @@ class PMA_Error_Handler
 
     public function reportError()
     {
-        if (!$this->hasErrors()) {
+        // if there're no actual errors,
+        if (!$this->hasErrors()
+            || $this->countErrors() ==  $this->countUserErrors()
+        ) {
+            // then simply return.
             return;
         }
         // Delete all the prev_errors in session & store new prev_errors in session
