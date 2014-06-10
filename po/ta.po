@@ -1727,10 +1727,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:289
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "பங்களிப்பு"
+msgstr "தொடர்க"
 
 #: js/messages.php:292 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
