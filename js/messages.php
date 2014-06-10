@@ -430,12 +430,12 @@ $js_messages['phpErrorsFound'] = '<div class="error">'
     . __('Warning: Some errors have been detected on the server!!')
     . '<div>'
     . __('Please look at the bottom of this window.')
-    . '<input type="submit" value="'
+    . '<input id="pma_ignore_errors_popup" type="submit" value="'
     . __('Ignore')
-    . '" onclick="PMA_ignorePhpErrors()" style="float: right; margin: 20px;">'
-    . '<input type="submit" value="'
+    . '" style="float: right; margin: 20px;">'
+    . '<input id="pma_ignore_all_errors_popup" type="submit" value="'
     . __('Ignore All')
-    . '" onclick="PMA_ignorePhpErrors(false)" style="float: right; margin: 20px;">'
+    . '" style="float: right; margin: 20px;">'
     . '</div></div>';
 
 $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'

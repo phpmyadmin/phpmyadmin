@@ -397,6 +397,15 @@ var AJAX = {
                     $('<div/>', {id : 'pma_errors'})
                         .insertAfter('#selflink')
                         .append(data._errors);
+                        // bind for php error reporting forms (bottom)
+                        $("#pma_ignore_errors_bottom").bind("click",
+                            function() {
+                                PMA_ignorePhpErrors()
+                        });
+                        $("#pma_ignore_all_errors_bottom").bind("click",
+                            function() {
+                            PMA_ignorePhpErrors(false)
+                        });
                         // In case of 'sendErrorReport'='always'
                         // submit the hidden error reporting form.
                         if (data._sendErrorAlways == '1'
@@ -412,6 +421,13 @@ var AJAX = {
                         }
                 }
                 PMA_ajaxShowMessage(msg, false);
+                // bind for php error reporting forms (popup)
+                $("#pma_ignore_errors_popup").bind("click", function() {
+                    PMA_ignorePhpErrors()
+                });
+                $("#pma_ignore_all_errors_popup").bind("click", function() {
+                    PMA_ignorePhpErrors(false)
+                });
 
                 if (typeof AJAX._callback === 'function') {
                     AJAX._callback.call();

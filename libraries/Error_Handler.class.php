@@ -338,14 +338,12 @@ class PMA_Error_Handler
                 // add ignore buttons
                 $retval .= '<input type="submit" value="'
                         . __('Ignore')
-                        . '" id="pma_ignore_errors"'
-                        . ' onclick="PMA_ignorePhpErrors(true)"'
+                        . '" id="pma_ignore_errors_bottom"'
                         . ' style="float: right; margin: 20px;">';
             }
             $retval .= '<input type="submit" value="'
                     . __('Ignore All')
-                    . '" id="pma_ignore_all_errors"'
-                    . ' onclick="PMA_ignorePhpErrors(false)"'
+                    . '" id="pma_ignore_all_errors_bottom"'
                     . ' style="float: right; margin: 20px;">';
         }
         return $retval;
@@ -527,9 +525,21 @@ class PMA_Error_Handler
         } elseif ($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
             //ask user whether to submit errors or not.
             if (!$response->isAjax()) {
-                // js code to show appropriate msgs & focusing,
+                // js code to show appropriate msgs, event binding & focusing.
                 $jsCode = 'PMA_ajaxShowMessage(PMA_messages["phpErrorsFound"], '
                         . ' 2000);'
+                        . '$("#pma_ignore_errors_popup").bind("click", function() {
+                            PMA_ignorePhpErrors()
+                        });'
+                        . '$("#pma_ignore_all_errors_popup").bind("click", function() {
+                            PMA_ignorePhpErrors(false)
+                        });'
+                        . '$("#pma_ignore_errors_bottom").bind("click", function() {
+                            PMA_ignorePhpErrors()
+                        });'
+                        . '$("#pma_ignore_all_errors_bottom").bind("click", function() {
+                            PMA_ignorePhpErrors(false)
+                        });'
                         . '$("html, body").animate({
                             scrollTop:$(document).height()
                         }, "slow");';
