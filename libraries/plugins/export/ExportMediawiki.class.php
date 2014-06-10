@@ -200,6 +200,7 @@ class ExportMediawiki extends ExportPlugin
         $do_mime = false,
         $dates = false
     ) {
+        $output = '';
         switch($export_mode) {
         case 'create_table':
             $columns = $GLOBALS['dbi']->getColumns($db, $table);
@@ -217,12 +218,12 @@ class ExportMediawiki extends ExportPlugin
                      . $this->_exportCRLF();
 
             // Add the table name
-            if ($GLOBALS['mediawiki_caption']) {
+            if (isset($GLOBALS['mediawiki_caption'])) {
                 $output .= "|+'''" . $table . "'''" . $this->_exportCRLF();
             }
 
             // Add the table headers
-            if ($GLOBALS['mediawiki_headers']) {
+            if (isset($GLOBALS['mediawiki_headers'])) {
                 $output .= "|- style=\"background:#ffdead;\"" . $this->_exportCRLF();
                 $output .= "! style=\"background:#ffffff\" | "
                     . $this->_exportCRLF();
@@ -293,12 +294,12 @@ class ExportMediawiki extends ExportPlugin
             . $this->_exportCRLF();
 
         // Add the table name
-        if ($GLOBALS['mediawiki_caption']) {
+        if (isset($GLOBALS['mediawiki_caption'])) {
             $output .= "|+'''" . $table . "'''" . $this->_exportCRLF();
         }
 
         // Add the table headers
-        if ($GLOBALS['mediawiki_headers']) {
+        if (isset($GLOBALS['mediawiki_headers'])) {
             // Get column names
             $column_names = $GLOBALS['dbi']->getColumnNames($db, $table);
 
