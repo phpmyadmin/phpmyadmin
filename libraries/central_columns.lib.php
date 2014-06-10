@@ -56,7 +56,7 @@ function PMA_getColumnsList($db, $from=0, $num=25)
         return array();
     }
     $pmadb = $GLOBALS['cfg']['Server']['pmadb'];
-    $GLOBALS['dbi']->selectDb($pmadb);
+    $GLOBALS['dbi']->selectDb($pmadb, $GLOBALS['controllink']);
     $central_list_table = $GLOBALS['cfg']['Server']['central_columns'];
     //get current values of $db from central column list
     if ($num == 0) {
@@ -67,7 +67,9 @@ function PMA_getColumnsList($db, $from=0, $num=25)
             . 'WHERE db_name = \'' . $db . '\''
             . 'LIMIT ' . $from . ', ' . $num . ';';
     }
-    $has_list = (array) $GLOBALS['dbi']->fetchResult($query);
+    $has_list = (array) $GLOBALS['dbi']->fetchResult(
+        $query, null, null, $GLOBALS['controllink']
+    );
     return $has_list;
 }
 
@@ -99,7 +101,7 @@ function PMA_findExistingColNames($db, $cols, $allFields=false)
         return array();
     }
     $pmadb = $cfgCentralColumns['db'];
-    $GLOBALS['dbi']->selectDb($pmadb);
+    $GLOBALS['dbi']->selectDb($pmadb, $GLOBALS['controllink']);
     $central_list_table = $cfgCentralColumns['table'];
     if ($allFields) {
         $query = 'SELECT * FROM ' . PMA_Util::backquote($central_list_table) . ' '
@@ -109,7 +111,9 @@ function PMA_findExistingColNames($db, $cols, $allFields=false)
             . PMA_Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $db . '\' AND col_name IN (' . $cols . ');';
     }
-    $has_list = (array) $GLOBALS['dbi']->fetchResult($query);
+    $has_list = (array) $GLOBALS['dbi']->fetchResult(
+        $query, null, null, $GLOBALS['controllink']
+    );
     return $has_list;
 }
 
@@ -189,7 +193,7 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
     $db = $_POST['db'];
     $pmadb = $cfgCentralColumns['db'];
     $central_list_table = $cfgCentralColumns['table'];
-    $GLOBALS['dbi']->selectDb($db);
+    $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
     $existingCols = array();
     $cols = "";
     $insQuery = array();
@@ -198,7 +202,7 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
     if ($isTable) {
         foreach ($field_select as $table) {
             $fields[$table] = (array) $GLOBALS['dbi']->getColumns(
-                $db, $table, null, true
+                $db, $table, null, true, $GLOBALS['userlink']
             );
             foreach ($fields[$table] as $field => $def) {
                 $cols .= "'" . $field . "',";
@@ -231,7 +235,7 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
                 $has_list[] = $column;
                 $field = (array) $GLOBALS['dbi']->getColumns(
                     $db, $table, $column,
-                    true
+                    true, $GLOBALS['userlink']
                 );
                 $insQuery[] = PMA_getInsertQuery(
                     $column, $field, $db, $central_list_table
@@ -258,10 +262,10 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
             )
         );
     }
-    $GLOBALS['dbi']->selectDb($pmadb);
+    $GLOBALS['dbi']->selectDb($pmadb, $GLOBALS['controllink']);
     if ($insQuery) {
         foreach ($insQuery as $query) {
-            if (!$GLOBALS['dbi']->tryQuery($query)) {
+            if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
                 $message = PMA_Message::error(__('Could not add columns!'));
                 $message->addMessage('<br /><br />');
                 $message->addMessage(
@@ -296,7 +300,7 @@ function PMA_deleteColumnsFromList($field_select, $isTable=true)
     $db = $_POST['db'];
     $pmadb = $cfgCentralColumns['db'];
     $central_list_table = $cfgCentralColumns['table'];
-    $GLOBALS['dbi']->selectDb($db);
+    $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
     $message = true;
     $colNotExist = array();
     $fields = array();
@@ -304,7 +308,7 @@ function PMA_deleteColumnsFromList($field_select, $isTable=true)
     if ($isTable) {
         foreach ($field_select as $table) {
             $fields[$table] = (array) $GLOBALS['dbi']->getColumnNames(
-                $db, $table, null
+                $db, $table, $GLOBALS['userlink']
             );
             $col = implode("','", $fields[$table]);
             $col = "'" . $col . "'";
@@ -373,7 +377,7 @@ function PMA_makeConsistentWithList($db, $selected_tables)
     foreach ($selected_tables as $table) {
         $query = 'ALTER TABLE ' . PMA_Util::backquote($table);
         $has_list = PMA_getCentralColumnsFromTable($db, $table, true);
-        $GLOBALS['dbi']->selectDb($db, $GLOBALS['controllink']);
+        $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
         foreach ($has_list as $column) {
             $column_status = PMA_checkChildForeignReferences(
                 $db, $table, $column['col_name']
@@ -407,15 +411,15 @@ function PMA_makeConsistentWithList($db, $selected_tables)
             }
         }
         $query = trim($query, " ,") . ";";
-        if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
+        if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['userlink'])) {
             if ($message === true) {
                 $message = PMA_Message::error(
-                    $GLOBALS['dbi']->getError($GLOBALS['controllink'])
+                    $GLOBALS['dbi']->getError($GLOBALS['userlink'])
                 );
             } else {
                 $message->addMessage('<br />');
                 $message->addMessage(
-                    $GLOBALS['dbi']->getError($GLOBALS['controllink'])
+                    $GLOBALS['dbi']->getError($GLOBALS['userlink'])
                 );
             }
         }
@@ -436,8 +440,10 @@ function PMA_makeConsistentWithList($db, $selected_tables)
  */
 function PMA_getCentralColumnsFromTable($db, $table, $allFields=false)
 {
-    $GLOBALS['dbi']->selectDb($db);
-    $fields = (array) $GLOBALS['dbi']->getColumnNames($db, $table, null);
+    $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+    $fields = (array) $GLOBALS['dbi']->getColumnNames(
+        $db, $table, $GLOBALS['userlink']
+    );
     $cols = implode("','", $fields);
     $cols = "'" . $cols . "'";
     $has_list = PMA_findExistingColNames($db, $cols, $allFields);
@@ -605,8 +611,8 @@ function PMA_getCentralColumnsTableHeader()
  */
 function PMA_getHTMLforTableDropdown($db)
 {
-    $GLOBALS['dbi']->selectDb($db);
-    $tables = $GLOBALS['dbi']->getTables($db);
+    $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+    $tables = $GLOBALS['dbi']->getTables($db, $GLOBALS['userlink']);
     $selectHtml = '<select name="table-select" id="table-select">'
         . '<option value="" disabled="disabled" selected="selected">'
         . __('Select a table') . '</option>';
@@ -628,9 +634,11 @@ function PMA_getHTMLforTableDropdown($db)
  */
 function PMA_getHTMLforColumnDropdown($db, $selected_tbl)
 {
-    $GLOBALS['dbi']->selectDb($db);
     $existing_cols = PMA_getCentralColumnsFromTable($db, $selected_tbl);
-    $columns = (array) $GLOBALS['dbi']->getColumnNames($db, $selected_tbl);
+    $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+    $columns = (array) $GLOBALS['dbi']->getColumnNames(
+        $db, $selected_tbl, $GLOBALS['userlink']
+    );
     $selectColHtml = "";
     foreach ($columns as $column) {
         if (!in_array($column, $existing_cols)) {
@@ -772,19 +780,24 @@ function PMA_getCentralColumnsListRaw($db, $table)
 {
     $cfgCentralColumns = PMA_centralColumnsGetParams();
     $centralTable = $cfgCentralColumns['table'];
-    $GLOBALS['dbi']->selectDb($cfgCentralColumns['db']);
     if (empty($table) || $table == '') {
         $query = 'SELECT * FROM ' . PMA_Util::backquote($centralTable) . ' '
                 . 'WHERE db_name = \'' . $db . '\';';
     } else {
-        $columns = (array) $GLOBALS['dbi']->getColumnNames($db, $table);
+        $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+        $columns = (array) $GLOBALS['dbi']->getColumnNames(
+            $db, $table, $GLOBALS['userlink']
+        );
         $columns = implode("','", $columns);
         $columns = "'" . $columns . "'";
         $query = 'SELECT * FROM ' . PMA_Util::backquote($centralTable) . ' '
                 . 'WHERE db_name = \'' . $db . '\' '
                 . 'AND col_name NOT IN (' . $columns . ');';
     }
-    $columns_list = (array)$GLOBALS['dbi']->fetchResult($query);
+    $GLOBALS['dbi']->selectDb($cfgCentralColumns['db'], $GLOBALS['controllink']);
+    $columns_list = (array)$GLOBALS['dbi']->fetchResult(
+        $query, null, null, $GLOBALS['controllink']
+    );
     return json_encode($columns_list);
 }
 
