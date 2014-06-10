@@ -212,7 +212,6 @@ class ExportSql extends ExportPlugin
             // add the main group to the root group
             $exportSpecificOptions->addProperty($generalOptions);
 
-
             // structure options main group
             if (! $hide_structure) {
                 $structureOptions = new OptionsPropertyMainGroup();
@@ -332,7 +331,6 @@ class ExportSql extends ExportPlugin
                 $exportSpecificOptions->addProperty($structureOptions);
             }
 
-
             // begin Data options
             $dataOptions = new OptionsPropertyMainGroup();
             $dataOptions->setName("data");
@@ -428,7 +426,7 @@ class ExportSql extends ExportPlugin
 
             // Dump binary columns in hexadecimal
             $leaf = new BoolPropertyItem();
-            $leaf->setName("hex_for_blob");
+            $leaf->setName("hex_for_binary");
             $leaf->setText(
                 __(
                     'Dump binary columns in hexadecimal notation'
@@ -1009,11 +1007,11 @@ class ExportSql extends ExportPlugin
      *                                          of error
      * @param bool   $show_dates                whether to include creation/
      *                                          update/check dates
-     * @param bool   $add_semicolon             whether to add semicolon and 
+     * @param bool   $add_semicolon             whether to add semicolon and
      *                                          end-of-line at the end
      * @param bool   $view                      whether we're handling a view
      * @param bool   $update_indexes_increments whether we need to update
-     *                                          two global variables 
+     *                                          two global variables
      *
      * @return string resulting schema
      */
@@ -1962,9 +1960,8 @@ class ExportSql extends ExportPlugin
                         // timestamp is numeric on some MySQL 4.1, BLOBs are
                         // sometimes numeric
                         $values[] = $row[$j];
-                    } elseif (stristr($field_flags[$j], 'BINARY')
-                        && $fields_meta[$j]->blob
-                        && isset($GLOBALS['sql_hex_for_blob'])
+                    } elseif (stristr($field_flags[$j], 'BINARY') !== false
+                        && isset($GLOBALS['sql_hex_for_binary'])
                     ) {
                         // a true BLOB
                         // - mysqldump only generates hex data when the --hex-blob

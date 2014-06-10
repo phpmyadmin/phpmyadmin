@@ -315,7 +315,7 @@ $forms['Export']['Sql'] = array('Export' => array(
         'sql_type',
         'sql_insert_syntax',
         'sql_max_query_size',
-        'sql_hex_for_blob',
+        'sql_hex_for_binary',
         'sql_utc_time'));
 $forms['Export']['CodeGen'] = array('Export' => array(
     'codegen_format'));
