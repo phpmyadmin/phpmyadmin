@@ -64,6 +64,7 @@ if (!defined('TESTSUITE')) {
             'htmlword_structure_or_data',
             'htmlword_null',
             'htmlword_columns',
+            'mediawiki_headers',
             'mediawiki_structure_or_data',
             'mediawiki_caption',
             'pdf_report_title',
