@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-09 12:46-0400\n"
+"POT-Creation-Date: 2014-06-10 08:47-0400\n"
 "PO-Revision-Date: 2014-04-23 16:10+0200\n"
 "Last-Translator: Vitaliy Perekupka <vperekupka@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -69,7 +69,7 @@ msgid "Column"
 msgstr "Стовпчик"
 
 #: db_datadict.php:153 db_printview.php:49 libraries/Index.class.php:564
-#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:583
+#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:589
 #: libraries/insert_edit.lib.php:245 libraries/insert_edit.lib.php:249
 #: libraries/plugins/export/ExportHtmlword.class.php:281
 #: libraries/plugins/export/ExportHtmlword.class.php:396
@@ -94,7 +94,7 @@ msgid "Type"
 msgstr "Тип"
 
 #: db_datadict.php:154 libraries/Index.class.php:570
-#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:589
+#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:595
 #: libraries/insert_edit.lib.php:1634
 #: libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
@@ -112,7 +112,7 @@ msgstr "Тип"
 msgid "Null"
 msgstr "Нуль"
 
-#: db_datadict.php:155 libraries/central_columns.lib.php:593
+#: db_datadict.php:155 libraries/central_columns.lib.php:599
 #: libraries/plugins/export/ExportHtmlword.class.php:287
 #: libraries/plugins/export/ExportHtmlword.class.php:402
 #: libraries/plugins/export/ExportLatex.class.php:514
@@ -161,7 +161,7 @@ msgstr "Первинний"
 
 #: db_datadict.php:206 js/messages.php:246 libraries/Index.class.php:435
 #: libraries/Index.class.php:474 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:742
+#: libraries/central_columns.lib.php:750
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.lib.php:455
 #: libraries/mult_submits.lib.php:456
 #: libraries/plugins/export/ExportHtmlword.class.php:633
@@ -184,7 +184,7 @@ msgstr "Ні"
 
 #: db_datadict.php:206 js/messages.php:337 libraries/Index.class.php:436
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:742
+#: libraries/central_columns.lib.php:750
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
 #: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
@@ -217,7 +217,7 @@ msgid "View dump (schema) of database"
 msgstr "Переглянути дамп (схему) БД"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:84 db_tracking.php:51
-#: export.php:322 libraries/DBQbe.class.php:312
+#: export.php:323 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "В БД не виявлено таблиць."
 
@@ -281,22 +281,22 @@ msgstr "Рядки"
 msgid "Size"
 msgstr "Розмір"
 
-#: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1159
+#: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1173
 #: libraries/structure.lib.php:783
 msgid "in use"
 msgstr "використовується"
 
-#: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1085
+#: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1099
 #: libraries/schema/Pdf_Relation_Schema.class.php:1338
 msgid "Creation:"
 msgstr "Створення:"
 
-#: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1098
+#: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1112
 #: libraries/schema/Pdf_Relation_Schema.class.php:1343
 msgid "Last update:"
 msgstr "Останнє оновлення:"
 
-#: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1111
+#: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1125
 #: libraries/schema/Pdf_Relation_Schema.class.php:1348
 msgid "Last check:"
 msgstr "Остання перевірка:"
@@ -365,7 +365,7 @@ msgid "Status"
 msgstr "Стан"
 
 #: db_tracking.php:86 libraries/Index.class.php:561
-#: libraries/central_columns.lib.php:578 libraries/rte/rte_list.lib.php:53
+#: libraries/central_columns.lib.php:584 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
 #: libraries/server_databases.lib.php:401
 #: libraries/server_privileges.lib.php:1850
@@ -459,11 +459,11 @@ msgstr "Якщо це створює проблему - надішліть по�
 msgid "You may want to refresh the page."
 msgstr "Можливо, варто перезавантажити сторінку."
 
-#: export.php:179
+#: export.php:180
 msgid "Bad type!"
 msgstr "Невірний тип!"
 
-#: export.php:240
+#: export.php:241
 msgid "Bad parameters!"
 msgstr "Невірні параметри!"
 
@@ -1213,7 +1213,7 @@ msgstr "Будь ласка додайте щонайменше одну змі�
 #: js/messages.php:127 libraries/DisplayResults.class.php:1331
 #: libraries/TableSearch.class.php:878 libraries/TableSearch.class.php:1042
 #: libraries/display_export.lib.php:580
-#: libraries/plugins/export/ExportSql.class.php:1761
+#: libraries/plugins/export/ExportSql.class.php:1805
 #: libraries/server_privileges.lib.php:2688
 #: libraries/server_status.lib.php:525
 #: libraries/server_status_monitor.lib.php:278
@@ -1700,7 +1700,7 @@ msgstr "Показати блок запиту"
 #: js/messages.php:277 libraries/DisplayResults.class.php:3365
 #: libraries/Index.class.php:593 libraries/Util.class.php:664
 #: libraries/Util.class.php:1189 libraries/Util.class.php:3364
-#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:704
+#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:712
 #: libraries/config/messages.inc.php:752
 #: libraries/schema/User_Schema.class.php:223
 #: libraries/server_user_groups.lib.php:119
@@ -1755,7 +1755,7 @@ msgstr ""
 
 #: js/messages.php:288
 msgid ""
-"This action may change some of the columns definition.<br/>Are you sure, you "
+"This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
 
@@ -2544,7 +2544,7 @@ msgstr "Показані закладки"
 msgid "Delete bookmark"
 msgstr "Видалити зв'язок"
 
-#: libraries/DatabaseInterface.class.php:1994
+#: libraries/DatabaseInterface.class.php:1871
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -2552,19 +2552,19 @@ msgstr ""
 "Сервер не відповідає (або локальний сокет сервера MySQL невірно "
 "налаштований)."
 
-#: libraries/DatabaseInterface.class.php:1999
+#: libraries/DatabaseInterface.class.php:1876
 msgid "The server is not responding."
 msgstr "Сервер не відповідає."
 
-#: libraries/DatabaseInterface.class.php:2004
+#: libraries/DatabaseInterface.class.php:1881
 msgid "Please check privileges of directory containing database."
 msgstr "Будь ласка, перевірте привілеї каталогу містить базу даних."
 
-#: libraries/DatabaseInterface.class.php:2014
+#: libraries/DatabaseInterface.class.php:1891
 msgid "Details…"
 msgstr "Деталі…"
 
-#: libraries/DatabaseInterface.class.php:2108
+#: libraries/DatabaseInterface.class.php:1985
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Помилка при вказуванні з'єднання для controluser в конфігурації."
 
@@ -2620,7 +2620,7 @@ msgstr "Видалити співпадіння для таблиці  %s ?"
 
 #: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3436
 #: libraries/DisplayResults.class.php:4978
-#: libraries/central_columns.lib.php:706
+#: libraries/central_columns.lib.php:714
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:355
@@ -2665,14 +2665,14 @@ msgid "Restore column order"
 msgstr "Відновити порядок стовпців"
 
 #: libraries/DisplayResults.class.php:788
-#: libraries/central_columns.lib.php:558
+#: libraries/central_columns.lib.php:564
 #, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
 msgstr "Фільтри"
 
 #: libraries/DisplayResults.class.php:790
-#: libraries/central_columns.lib.php:560
+#: libraries/central_columns.lib.php:566
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
@@ -2811,7 +2811,7 @@ msgstr "Може бути приблизним. Дивіться [doc@faq3-11]FA
 #: libraries/DisplayResults.class.php:4479 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:904
-#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
+#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:117
 #: view_operations.php:62
 msgid "Your SQL query has been executed successfully."
 msgstr "Ваш SQL-запит було успішно виконано."
@@ -3023,7 +3023,7 @@ msgstr "Кількість елементів"
 
 #: libraries/Index.class.php:569 libraries/TableSearch.class.php:187
 #: libraries/build_html_for_db.lib.php:22
-#: libraries/central_columns.lib.php:587 libraries/mysql_charsets.lib.php:47
+#: libraries/central_columns.lib.php:593 libraries/mysql_charsets.lib.php:47
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:819
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:835
 #: libraries/structure.lib.php:1252 libraries/structure.lib.php:1799
@@ -3136,7 +3136,7 @@ msgstr "Відстеження"
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:565
 #: libraries/plugins/export/ExportOdt.class.php:656
-#: libraries/plugins/export/ExportSql.class.php:1661
+#: libraries/plugins/export/ExportSql.class.php:1698
 #: libraries/plugins/export/ExportTexytext.class.php:508
 #: libraries/plugins/export/ExportXml.class.php:121
 #: libraries/rte/rte_words.lib.php:50
@@ -3159,7 +3159,7 @@ msgstr "Процедури"
 
 #: libraries/Menu.class.php:457 libraries/Util.class.php:4095
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
-#: libraries/plugins/export/ExportSql.class.php:871
+#: libraries/plugins/export/ExportSql.class.php:879
 #: libraries/rte/rte_words.lib.php:64
 msgid "Events"
 msgstr "Події"
@@ -4176,35 +4176,35 @@ msgstr "Перевірити права для бази даних \"%s\"."
 msgid "Check Privileges"
 msgstr "Перевірити права"
 
-#: libraries/central_columns.lib.php:126
+#: libraries/central_columns.lib.php:130
 msgid ""
 "Central list of columns configuration Storage is not completely configured!"
 msgstr ""
 
-#: libraries/central_columns.lib.php:249
+#: libraries/central_columns.lib.php:253
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
-#: libraries/central_columns.lib.php:265
+#: libraries/central_columns.lib.php:269
 #, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
 msgstr "Не вдалось зберегти настройки"
 
-#: libraries/central_columns.lib.php:338
+#: libraries/central_columns.lib.php:342
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
 
-#: libraries/central_columns.lib.php:350
+#: libraries/central_columns.lib.php:354
 #, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not remove columns!"
 msgstr "Неможливо зберегти останню таблицю!"
 
-#: libraries/central_columns.lib.php:581
+#: libraries/central_columns.lib.php:587
 #: libraries/display_create_table.lib.php:60
 #: libraries/plugins/export/ExportHtmlword.class.php:485
 #: libraries/plugins/export/ExportOdt.class.php:560
@@ -4217,30 +4217,30 @@ msgstr "Неможливо зберегти останню таблицю!"
 msgid "Name"
 msgstr "Назва"
 
-#: libraries/central_columns.lib.php:585
+#: libraries/central_columns.lib.php:591
 #: libraries/rte/rte_routines.lib.php:984
 #: libraries/tbl_columns_definition_form.lib.php:279
 msgid "Length/Values"
 msgstr "Довжина/Значення"
 
-#: libraries/central_columns.lib.php:591
+#: libraries/central_columns.lib.php:597
 #: libraries/schema/Pdf_Relation_Schema.class.php:1364
 #: libraries/schema/Pdf_Relation_Schema.class.php:1387
 #: libraries/structure.lib.php:1256 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr "Додатково"
 
-#: libraries/central_columns.lib.php:612
+#: libraries/central_columns.lib.php:618
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
 msgstr "Вибрати Таблиці"
 
-#: libraries/central_columns.lib.php:662 libraries/structure.lib.php:1649
+#: libraries/central_columns.lib.php:670 libraries/structure.lib.php:1649
 msgid "Add column"
 msgstr "Додати стовпчик"
 
-#: libraries/central_columns.lib.php:674
+#: libraries/central_columns.lib.php:682
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
@@ -8744,7 +8744,7 @@ msgstr "Видалити розділи"
 msgid "Check referential integrity:"
 msgstr "Перевір цілісність даних на рівні посилань:"
 
-#: libraries/plugin_interface.lib.php:512
+#: libraries/plugin_interface.lib.php:515
 msgid "This format has no options"
 msgstr "Цей формат не має параметрів"
 
@@ -8908,7 +8908,7 @@ msgstr "Параметри дампу даних"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:203
 #: libraries/plugins/export/ExportOdt.class.php:259
-#: libraries/plugins/export/ExportSql.class.php:1922
+#: libraries/plugins/export/ExportSql.class.php:1953
 #: libraries/plugins/export/ExportTexytext.class.php:185
 msgid "Dumping data for table"
 msgstr "Дамп даних таблиці"
@@ -8931,21 +8931,21 @@ msgstr "Визначення"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:553
 #: libraries/plugins/export/ExportOdt.class.php:642
-#: libraries/plugins/export/ExportSql.class.php:1648
+#: libraries/plugins/export/ExportSql.class.php:1679
 #: libraries/plugins/export/ExportTexytext.class.php:498
 msgid "Table structure for table"
 msgstr "Структура таблиці"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:572
 #: libraries/plugins/export/ExportOdt.class.php:666
-#: libraries/plugins/export/ExportSql.class.php:1679
+#: libraries/plugins/export/ExportSql.class.php:1717
 #: libraries/plugins/export/ExportTexytext.class.php:513
 msgid "Structure for view"
 msgstr "Структура для представлення"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:581
 #: libraries/plugins/export/ExportOdt.class.php:678
-#: libraries/plugins/export/ExportSql.class.php:1714
+#: libraries/plugins/export/ExportSql.class.php:1752
 #: libraries/plugins/export/ExportTexytext.class.php:520
 msgid "Stand-in structure for view"
 msgstr "Дублююча структура для представлення"
@@ -9025,7 +9025,7 @@ msgid "PHP Version:"
 msgstr "Версія PHP:"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
-#: libraries/plugins/export/ExportSql.class.php:809
+#: libraries/plugins/export/ExportSql.class.php:817
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/sql.lib.php:424
@@ -9033,7 +9033,7 @@ msgid "Database:"
 msgstr "База даних:"
 
 #: libraries/plugins/export/ExportLatex.class.php:304
-#: libraries/plugins/export/ExportSql.class.php:1761
+#: libraries/plugins/export/ExportSql.class.php:1805
 msgid "Data:"
 msgstr "Дані:"
 
@@ -9111,7 +9111,7 @@ msgid "Data creation options"
 msgstr "Параметри створення даних"
 
 #: libraries/plugins/export/ExportSql.class.php:341
-#: libraries/plugins/export/ExportSql.class.php:1868
+#: libraries/plugins/export/ExportSql.class.php:1899
 msgid "Truncate table before insert"
 msgstr ""
 
@@ -9190,54 +9190,62 @@ msgstr ""
 "поля з типом TIMESTAMP між серверами, що знаходяться в різних часових зонах)"
 "</i>"
 
-#: libraries/plugins/export/ExportSql.class.php:1235
+#: libraries/plugins/export/ExportSql.class.php:1251
 msgid "Constraints for dumped tables"
 msgstr "Обмеження зовнішнього ключа збережених таблиць"
 
-#: libraries/plugins/export/ExportSql.class.php:1245
+#: libraries/plugins/export/ExportSql.class.php:1261
 msgid "Constraints for table"
 msgstr "Обмеження зовнішнього ключа таблиці"
 
-#: libraries/plugins/export/ExportSql.class.php:1279
+#: libraries/plugins/export/ExportSql.class.php:1295
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "Обмеження зовнішнього ключа збережених таблиць"
 
-#: libraries/plugins/export/ExportSql.class.php:1289
+#: libraries/plugins/export/ExportSql.class.php:1305
 #, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
 msgstr "Всередині таблиць:"
 
-#: libraries/plugins/export/ExportSql.class.php:1315
+#: libraries/plugins/export/ExportSql.class.php:1331
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "Не використовувати AUTO_INCREMENT для нульових значень"
 
-#: libraries/plugins/export/ExportSql.class.php:1325
+#: libraries/plugins/export/ExportSql.class.php:1341
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "Додати значення AUTO_INCREMENT"
 
-#: libraries/plugins/export/ExportSql.class.php:1542
+#: libraries/plugins/export/ExportSql.class.php:1564
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME-ТИПИ ТАБЛИЦІ"
 
-#: libraries/plugins/export/ExportSql.class.php:1567
+#: libraries/plugins/export/ExportSql.class.php:1589
 msgid "RELATIONS FOR TABLE"
 msgstr "ЗВ'ЯЗКИ ТАБЛИЦІ"
 
-#: libraries/plugins/export/ExportSql.class.php:1696
+#: libraries/plugins/export/ExportSql.class.php:1734
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Структура для подання %s, експортованого як таблиця"
 
-#: libraries/plugins/export/ExportSql.class.php:1784
+#: libraries/plugins/export/ExportSql.class.php:1823
 msgid "Error reading data:"
 msgstr "Помилка читання даних:"
+
+#: libraries/plugins/export/ExportSql.class.php:2375
+msgid "It appears your table uses triggers;"
+msgstr ""
+
+#: libraries/plugins/export/ExportSql.class.php:2376
+msgid "alias export may not work reliably in all cases."
+msgstr ""
 
 #: libraries/plugins/export/ExportXml.class.php:102
 msgid "Object creation options (all are recommended)"
@@ -12437,7 +12445,7 @@ msgstr "Показати даний запит тут знову"
 msgid "View only"
 msgstr "Лише перегляд"
 
-#: libraries/sqlparser.lib.php:131
+#: libraries/sqlparser.lib.php:127
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem."
@@ -12445,7 +12453,7 @@ msgstr ""
 "Схоже на помилку у SQL запиті. У визначенні проблеми може допомогти "
 "повідомлення про помилку сервера MySQL, що наведено нижче (якщо таке є)."
 
-#: libraries/sqlparser.lib.php:177
+#: libraries/sqlparser.lib.php:173
 msgid ""
 "There is a chance that you may have found a bug in the SQL parser. Please "
 "examine your query closely, and check that the quotes are correct and not "
@@ -12468,35 +12476,35 @@ msgstr ""
 "запиту, який власне і викликає проблеми, і відішліть повідомлення про "
 "помилку з порцією даних у розділі CUT нижче:"
 
-#: libraries/sqlparser.lib.php:190
+#: libraries/sqlparser.lib.php:186
 msgid "BEGIN CUT"
 msgstr "BEGIN CUT"
 
-#: libraries/sqlparser.lib.php:192
+#: libraries/sqlparser.lib.php:188
 msgid "END CUT"
 msgstr "END CUT"
 
-#: libraries/sqlparser.lib.php:194
+#: libraries/sqlparser.lib.php:190
 msgid "BEGIN RAW"
 msgstr "BEGIN RAW"
 
-#: libraries/sqlparser.lib.php:198
+#: libraries/sqlparser.lib.php:194
 msgid "END RAW"
 msgstr "END RAW"
 
-#: libraries/sqlparser.lib.php:405
+#: libraries/sqlparser.lib.php:404
 msgid "Automatically appended backtick to the end of query!"
 msgstr "В кінець запиту була автоматично додана зворотна лапка!"
 
-#: libraries/sqlparser.lib.php:409
+#: libraries/sqlparser.lib.php:408
 msgid "Unclosed quote"
 msgstr "Не закриті лапки"
 
-#: libraries/sqlparser.lib.php:579
+#: libraries/sqlparser.lib.php:587
 msgid "Invalid Identifer"
 msgstr "Некоректний ідентифікатор"
 
-#: libraries/sqlparser.lib.php:713
+#: libraries/sqlparser.lib.php:733
 msgid "Unknown Punctuation String"
 msgstr "Невідомий символ пунктуації"
 

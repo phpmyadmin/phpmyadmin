@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-09 12:46-0400\n"
+"POT-Creation-Date: 2014-06-10 08:47-0400\n"
 "PO-Revision-Date: 2014-04-22 09:59+0200\n"
 "Last-Translator: Nabil Kadimi <nabil@kadimi.com>\n"
 "Language-Team: Arabic <https://l10n.cihar.com/projects/phpmyadmin/master/ar/"
@@ -69,7 +69,7 @@ msgid "Column"
 msgstr "عمود"
 
 #: db_datadict.php:153 db_printview.php:49 libraries/Index.class.php:564
-#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:583
+#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:589
 #: libraries/insert_edit.lib.php:245 libraries/insert_edit.lib.php:249
 #: libraries/plugins/export/ExportHtmlword.class.php:281
 #: libraries/plugins/export/ExportHtmlword.class.php:396
@@ -94,7 +94,7 @@ msgid "Type"
 msgstr "النوع"
 
 #: db_datadict.php:154 libraries/Index.class.php:570
-#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:589
+#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:595
 #: libraries/insert_edit.lib.php:1634
 #: libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
@@ -112,7 +112,7 @@ msgstr "النوع"
 msgid "Null"
 msgstr "خالي"
 
-#: db_datadict.php:155 libraries/central_columns.lib.php:593
+#: db_datadict.php:155 libraries/central_columns.lib.php:599
 #: libraries/plugins/export/ExportHtmlword.class.php:287
 #: libraries/plugins/export/ExportHtmlword.class.php:402
 #: libraries/plugins/export/ExportLatex.class.php:514
@@ -161,7 +161,7 @@ msgstr "أساسي"
 
 #: db_datadict.php:206 js/messages.php:246 libraries/Index.class.php:435
 #: libraries/Index.class.php:474 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:742
+#: libraries/central_columns.lib.php:750
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.lib.php:455
 #: libraries/mult_submits.lib.php:456
 #: libraries/plugins/export/ExportHtmlword.class.php:633
@@ -184,7 +184,7 @@ msgstr "لا"
 
 #: db_datadict.php:206 js/messages.php:337 libraries/Index.class.php:436
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:742
+#: libraries/central_columns.lib.php:750
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
 #: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
@@ -217,7 +217,7 @@ msgid "View dump (schema) of database"
 msgstr "عرض مخطط تصدير قاعدة البيانات"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:84 db_tracking.php:51
-#: export.php:322 libraries/DBQbe.class.php:312
+#: export.php:323 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "لم يعثر على جداول في قاعدة البيانات."
 
@@ -282,24 +282,24 @@ msgstr "صفوف"
 msgid "Size"
 msgstr "الحجم"
 
-#: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1159
+#: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1173
 #: libraries/structure.lib.php:783
 msgid "in use"
 msgstr "قيد الإستعمال"
 
-#: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1085
+#: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1099
 #: libraries/schema/Pdf_Relation_Schema.class.php:1338
 msgid "Creation:"
 msgstr "الإنشاء:"
 
-#: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1098
+#: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1112
 #: libraries/schema/Pdf_Relation_Schema.class.php:1343
 #, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "آخر تحديث"
 
-#: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1111
+#: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1125
 #: libraries/schema/Pdf_Relation_Schema.class.php:1348
 #, fuzzy
 #| msgid "Last check"
@@ -373,7 +373,7 @@ msgid "Status"
 msgstr "الحالة"
 
 #: db_tracking.php:86 libraries/Index.class.php:561
-#: libraries/central_columns.lib.php:578 libraries/rte/rte_list.lib.php:53
+#: libraries/central_columns.lib.php:584 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
 #: libraries/server_databases.lib.php:401
 #: libraries/server_privileges.lib.php:1850
@@ -462,11 +462,11 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "لربما يكون من الأفضل أن تقوم بتحديث هذه الصفحة."
 
-#: export.php:179
+#: export.php:180
 msgid "Bad type!"
 msgstr "نوع غير جيد!"
 
-#: export.php:240
+#: export.php:241
 msgid "Bad parameters!"
 msgstr "عوامل متغيرة غير جيدة!"
 
@@ -1234,7 +1234,7 @@ msgstr "فضلا , أضف متغير واحد على الأقل للسلسلة"
 #: js/messages.php:127 libraries/DisplayResults.class.php:1331
 #: libraries/TableSearch.class.php:878 libraries/TableSearch.class.php:1042
 #: libraries/display_export.lib.php:580
-#: libraries/plugins/export/ExportSql.class.php:1761
+#: libraries/plugins/export/ExportSql.class.php:1805
 #: libraries/server_privileges.lib.php:2688
 #: libraries/server_status.lib.php:525
 #: libraries/server_status_monitor.lib.php:278
@@ -1713,7 +1713,7 @@ msgstr "إظهار صندوق الإستعلام"
 #: js/messages.php:277 libraries/DisplayResults.class.php:3365
 #: libraries/Index.class.php:593 libraries/Util.class.php:664
 #: libraries/Util.class.php:1189 libraries/Util.class.php:3364
-#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:704
+#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:712
 #: libraries/config/messages.inc.php:752
 #: libraries/schema/User_Schema.class.php:223
 #: libraries/server_user_groups.lib.php:119
@@ -1768,7 +1768,7 @@ msgstr ""
 
 #: js/messages.php:288
 msgid ""
-"This action may change some of the columns definition.<br/>Are you sure, you "
+"This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
 
@@ -2591,25 +2591,25 @@ msgstr "عرض العلامة المرجعية"
 msgid "Delete bookmark"
 msgstr "بحث في الجدول"
 
-#: libraries/DatabaseInterface.class.php:1994
+#: libraries/DatabaseInterface.class.php:1871
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:1999
+#: libraries/DatabaseInterface.class.php:1876
 msgid "The server is not responding."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2004
+#: libraries/DatabaseInterface.class.php:1881
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2014
+#: libraries/DatabaseInterface.class.php:1891
 msgid "Details…"
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2108
+#: libraries/DatabaseInterface.class.php:1985
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
@@ -2673,7 +2673,7 @@ msgstr "حذف التشابهات لجدول %s ؟"
 
 #: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3436
 #: libraries/DisplayResults.class.php:4978
-#: libraries/central_columns.lib.php:706
+#: libraries/central_columns.lib.php:714
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:355
@@ -2718,14 +2718,14 @@ msgid "Restore column order"
 msgstr "استعادة ترتيب الأعمدة"
 
 #: libraries/DisplayResults.class.php:788
-#: libraries/central_columns.lib.php:558
+#: libraries/central_columns.lib.php:564
 #, fuzzy
 #| msgid "Filter"
 msgid "Filter rows"
 msgstr "مرشح"
 
 #: libraries/DisplayResults.class.php:790
-#: libraries/central_columns.lib.php:560
+#: libraries/central_columns.lib.php:566
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
@@ -2870,7 +2870,7 @@ msgstr "ممكن أن يكون تقريبي. أنظر إلى [doc@faq3-11]الأ
 #: libraries/DisplayResults.class.php:4479 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:904
-#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
+#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:117
 #: view_operations.php:62
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -3093,7 +3093,7 @@ msgstr ""
 
 #: libraries/Index.class.php:569 libraries/TableSearch.class.php:187
 #: libraries/build_html_for_db.lib.php:22
-#: libraries/central_columns.lib.php:587 libraries/mysql_charsets.lib.php:47
+#: libraries/central_columns.lib.php:593 libraries/mysql_charsets.lib.php:47
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:819
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:835
 #: libraries/structure.lib.php:1252 libraries/structure.lib.php:1799
@@ -3204,7 +3204,7 @@ msgstr "تتبع"
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:565
 #: libraries/plugins/export/ExportOdt.class.php:656
-#: libraries/plugins/export/ExportSql.class.php:1661
+#: libraries/plugins/export/ExportSql.class.php:1698
 #: libraries/plugins/export/ExportTexytext.class.php:508
 #: libraries/plugins/export/ExportXml.class.php:121
 #: libraries/rte/rte_words.lib.php:50
@@ -3227,7 +3227,7 @@ msgstr ""
 
 #: libraries/Menu.class.php:457 libraries/Util.class.php:4095
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
-#: libraries/plugins/export/ExportSql.class.php:871
+#: libraries/plugins/export/ExportSql.class.php:879
 #: libraries/rte/rte_words.lib.php:64
 msgid "Events"
 msgstr "أحداث"
@@ -4245,35 +4245,35 @@ msgstr "تحقق من الصلاحيات لقاعدة بيانات \"%s\"."
 msgid "Check Privileges"
 msgstr "تحقق من الصلاحيات"
 
-#: libraries/central_columns.lib.php:126
+#: libraries/central_columns.lib.php:130
 msgid ""
 "Central list of columns configuration Storage is not completely configured!"
 msgstr ""
 
-#: libraries/central_columns.lib.php:249
+#: libraries/central_columns.lib.php:253
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
-#: libraries/central_columns.lib.php:265
+#: libraries/central_columns.lib.php:269
 #, fuzzy
 #| msgid "Add columns"
 msgid "Could not add columns!"
 msgstr "إضافة أعمدة"
 
-#: libraries/central_columns.lib.php:338
+#: libraries/central_columns.lib.php:342
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
 
-#: libraries/central_columns.lib.php:350
+#: libraries/central_columns.lib.php:354
 #, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not remove columns!"
 msgstr "لايستطيع حفظ الجدول الأخير"
 
-#: libraries/central_columns.lib.php:581
+#: libraries/central_columns.lib.php:587
 #: libraries/display_create_table.lib.php:60
 #: libraries/plugins/export/ExportHtmlword.class.php:485
 #: libraries/plugins/export/ExportOdt.class.php:560
@@ -4286,30 +4286,30 @@ msgstr "لايستطيع حفظ الجدول الأخير"
 msgid "Name"
 msgstr "الاسم"
 
-#: libraries/central_columns.lib.php:585
+#: libraries/central_columns.lib.php:591
 #: libraries/rte/rte_routines.lib.php:984
 #: libraries/tbl_columns_definition_form.lib.php:279
 msgid "Length/Values"
 msgstr "الطول/القيمة"
 
-#: libraries/central_columns.lib.php:591
+#: libraries/central_columns.lib.php:597
 #: libraries/schema/Pdf_Relation_Schema.class.php:1364
 #: libraries/schema/Pdf_Relation_Schema.class.php:1387
 #: libraries/structure.lib.php:1256 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr "إضافي"
 
-#: libraries/central_columns.lib.php:612
+#: libraries/central_columns.lib.php:618
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
 msgstr "اختر الجداول"
 
-#: libraries/central_columns.lib.php:662 libraries/structure.lib.php:1649
+#: libraries/central_columns.lib.php:670 libraries/structure.lib.php:1649
 msgid "Add column"
 msgstr "إضافة عمود"
 
-#: libraries/central_columns.lib.php:674
+#: libraries/central_columns.lib.php:682
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
@@ -8562,7 +8562,7 @@ msgstr "إزالة التقسيم"
 msgid "Check referential integrity:"
 msgstr "تحديد التكامل المرجعي:"
 
-#: libraries/plugin_interface.lib.php:512
+#: libraries/plugin_interface.lib.php:515
 #, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
@@ -8737,7 +8737,7 @@ msgstr "خيارات تصدير قاعدة بيانات"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:203
 #: libraries/plugins/export/ExportOdt.class.php:259
-#: libraries/plugins/export/ExportSql.class.php:1922
+#: libraries/plugins/export/ExportSql.class.php:1953
 #: libraries/plugins/export/ExportTexytext.class.php:185
 msgid "Dumping data for table"
 msgstr "إرجاع أو استيراد بيانات الجدول"
@@ -8762,21 +8762,21 @@ msgstr "الوصف"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:553
 #: libraries/plugins/export/ExportOdt.class.php:642
-#: libraries/plugins/export/ExportSql.class.php:1648
+#: libraries/plugins/export/ExportSql.class.php:1679
 #: libraries/plugins/export/ExportTexytext.class.php:498
 msgid "Table structure for table"
 msgstr "بنية الجدول"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:572
 #: libraries/plugins/export/ExportOdt.class.php:666
-#: libraries/plugins/export/ExportSql.class.php:1679
+#: libraries/plugins/export/ExportSql.class.php:1717
 #: libraries/plugins/export/ExportTexytext.class.php:513
 msgid "Structure for view"
 msgstr ""
 
 #: libraries/plugins/export/ExportHtmlword.class.php:581
 #: libraries/plugins/export/ExportOdt.class.php:678
-#: libraries/plugins/export/ExportSql.class.php:1714
+#: libraries/plugins/export/ExportSql.class.php:1752
 #: libraries/plugins/export/ExportTexytext.class.php:520
 msgid "Stand-in structure for view"
 msgstr ""
@@ -8880,7 +8880,7 @@ msgid "PHP Version:"
 msgstr "PHP إصدارة"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
-#: libraries/plugins/export/ExportSql.class.php:809
+#: libraries/plugins/export/ExportSql.class.php:817
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/sql.lib.php:424
@@ -8890,7 +8890,7 @@ msgid "Database:"
 msgstr "قاعدة البيانات"
 
 #: libraries/plugins/export/ExportLatex.class.php:304
-#: libraries/plugins/export/ExportSql.class.php:1761
+#: libraries/plugins/export/ExportSql.class.php:1805
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
@@ -8976,7 +8976,7 @@ msgid "Data creation options"
 msgstr "خيارات التحويل"
 
 #: libraries/plugins/export/ExportSql.class.php:341
-#: libraries/plugins/export/ExportSql.class.php:1868
+#: libraries/plugins/export/ExportSql.class.php:1899
 msgid "Truncate table before insert"
 msgstr ""
 
@@ -9039,56 +9039,64 @@ msgid ""
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1235
+#: libraries/plugins/export/ExportSql.class.php:1251
 msgid "Constraints for dumped tables"
 msgstr "قيود الجداول المحفوظة"
 
-#: libraries/plugins/export/ExportSql.class.php:1245
+#: libraries/plugins/export/ExportSql.class.php:1261
 msgid "Constraints for table"
 msgstr "القيود للجدول"
 
-#: libraries/plugins/export/ExportSql.class.php:1279
+#: libraries/plugins/export/ExportSql.class.php:1295
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "قيود الجداول المحفوظة"
 
-#: libraries/plugins/export/ExportSql.class.php:1289
+#: libraries/plugins/export/ExportSql.class.php:1305
 #, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
 msgstr "داخل الجداول:"
 
-#: libraries/plugins/export/ExportSql.class.php:1315
+#: libraries/plugins/export/ExportSql.class.php:1331
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "لاتستعمل AUTO_INCREMENT للقيم الصفرية"
 
-#: libraries/plugins/export/ExportSql.class.php:1325
+#: libraries/plugins/export/ExportSql.class.php:1341
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "أضف قيمة AUTO_INCREMENT"
 
-#: libraries/plugins/export/ExportSql.class.php:1542
+#: libraries/plugins/export/ExportSql.class.php:1564
 msgid "MIME TYPES FOR TABLE"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1567
+#: libraries/plugins/export/ExportSql.class.php:1589
 msgid "RELATIONS FOR TABLE"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1696
+#: libraries/plugins/export/ExportSql.class.php:1734
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1784
+#: libraries/plugins/export/ExportSql.class.php:1823
 #, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
 msgstr "يسمح بقراءة البيانات."
+
+#: libraries/plugins/export/ExportSql.class.php:2375
+msgid "It appears your table uses triggers;"
+msgstr ""
+
+#: libraries/plugins/export/ExportSql.class.php:2376
+msgid "alias export may not work reliably in all cases."
+msgstr ""
 
 #: libraries/plugins/export/ExportXml.class.php:102
 msgid "Object creation options (all are recommended)"
@@ -12284,7 +12292,7 @@ msgstr "أعرض هذا الاستعلام هنا مرة أخرى"
 msgid "View only"
 msgstr "عرض فقط"
 
-#: libraries/sqlparser.lib.php:131
+#: libraries/sqlparser.lib.php:127
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem."
@@ -12292,7 +12300,7 @@ msgstr ""
 "يبدو أن هناك خطأ في استعلام SQL. سوف تساعدك رسالة الخطأ من خادم MySQL أدناه "
 "في تشخيص المشكلة، إن كان هناك واحدة،."
 
-#: libraries/sqlparser.lib.php:177
+#: libraries/sqlparser.lib.php:173
 msgid ""
 "There is a chance that you may have found a bug in the SQL parser. Please "
 "examine your query closely, and check that the quotes are correct and not "
@@ -12312,35 +12320,35 @@ msgstr ""
 "حين نجح استخدام سطر الأوامر، رجاء قلص حجم استعلامك لاستعلام واحد يسبب "
 "المشكلة، وقم بإرسال تقرير خلل مع جزء البيانات في منطقة القص أدناه:"
 
-#: libraries/sqlparser.lib.php:190
+#: libraries/sqlparser.lib.php:186
 msgid "BEGIN CUT"
 msgstr "بدء القص"
 
-#: libraries/sqlparser.lib.php:192
+#: libraries/sqlparser.lib.php:188
 msgid "END CUT"
 msgstr "انتهاء القص"
 
-#: libraries/sqlparser.lib.php:194
+#: libraries/sqlparser.lib.php:190
 msgid "BEGIN RAW"
 msgstr "بدء بيانات أصلية"
 
-#: libraries/sqlparser.lib.php:198
+#: libraries/sqlparser.lib.php:194
 msgid "END RAW"
 msgstr "انتهاء البيانات الأصلية"
 
-#: libraries/sqlparser.lib.php:405
+#: libraries/sqlparser.lib.php:404
 msgid "Automatically appended backtick to the end of query!"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:409
+#: libraries/sqlparser.lib.php:408
 msgid "Unclosed quote"
 msgstr "علامة تنصيص غير مغلقة"
 
-#: libraries/sqlparser.lib.php:579
+#: libraries/sqlparser.lib.php:587
 msgid "Invalid Identifer"
 msgstr "معرف غير صالح"
 
-#: libraries/sqlparser.lib.php:713
+#: libraries/sqlparser.lib.php:733
 msgid "Unknown Punctuation String"
 msgstr "نص تنقيط غير معروف"
 
