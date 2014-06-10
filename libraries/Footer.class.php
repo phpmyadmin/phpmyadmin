@@ -213,7 +213,7 @@ class PMA_Footer
         /**
          * Report php errors
          */
-        $GLOBALS['error_handler']->reportError();
+        $GLOBALS['error_handler']->reportErrors();
 
         return $retval;
     }

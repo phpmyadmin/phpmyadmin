@@ -498,7 +498,7 @@ class PMA_Error_Handler
      * @return void
      */
 
-    public function reportError()
+    public function reportErrors()
     {
         // if there're no actual errors,
         if (!$this->hasErrors()
