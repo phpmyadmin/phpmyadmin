@@ -346,8 +346,8 @@ class PMA_DatabaseInterface
     /**
      * returns the beginning of the SQL statement to fetch the list of tables
      *
-     * @param string $this_databases  databases to list
-     * @param string $sql_where_table additional condition
+     * @param string[] $this_databases  databases to list
+     * @param string   $sql_where_table additional condition
      *
      * @return string the SQL statement
      */
@@ -442,7 +442,7 @@ class PMA_DatabaseInterface
      * </code>
      *
      * @param string          $database     database
-     * @param string|bool     $table        table name or false
+     * @param string|false    $table        table name or false
      * @param boolean         $tbl_is_group $table is a table group
      * @param mixed           $link         mysql link
      * @param integer         $limit_offset zero-based offset for the count
