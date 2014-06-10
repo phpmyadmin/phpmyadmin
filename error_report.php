@@ -10,7 +10,7 @@ require_once 'libraries/error_report.lib.php';
 
 $response = PMA_Response::getInstance();
 
-if (isset($_REQUEST['exception_type']) 
+if (isset($_REQUEST['exception_type'])
     && $_REQUEST['exception_type'] == 'js'
 ) {
     if (isset($_REQUEST['send_error_report'])
@@ -73,14 +73,14 @@ if (isset($_REQUEST['exception_type'])
     } else {
         $response->addHTML(PMA_getErrorReportForm());
     }
-} elseif (isset($_REQUEST['exception_type']) 
+} elseif (isset($_REQUEST['exception_type'])
     && $_REQUEST['exception_type'] == 'php'
 ) {
     if (isset($_REQUEST['send_error_report'])
         && $_REQUEST['send_error_report'] == '1'
     ) {
         /**
-         * Prevent inifnite error submission. 
+         * Prevent inifnite error submission.
          * Happens in case error submissions fails.
          * If reporting is done in some time interval, just clear them & clear json data too.
          */
@@ -112,7 +112,7 @@ if (isset($_REQUEST['exception_type'])
                 $decoded_response = json_decode($server_response, true);
                 $success = !empty($decoded_response) ? $decoded_response["success"] : false;
             }
-        
+
             if ($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
                 if ($success) {
                     $errSubmitMsg = PMA_Message::error(

@@ -4384,15 +4384,15 @@ function PMA_previewSQL($form)
  * Ignore the displayed php errors.
  * Simply removes the displayed errors.
  *
- * @param  clearPrevErrors whether to clear errors stored 
+ * @param  clearPrevErrors whether to clear errors stored
  *             in $_SESSION['prev_errors'] at server
  *
  */
 function PMA_ignorePhpErrors(clearPrevErrors){
-    if (typeof(clearPrevErrors) === "undefined" 
+    if (typeof(clearPrevErrors) === "undefined"
         || clearPrevErrors === null
-    ) { 
-        str = false; 
+    ) {
+        str = false;
     }
     // send AJAX request to error_report.php with send_error_report=0, exception_type=php & token.
     // It clears the prev_errors stored in session.
