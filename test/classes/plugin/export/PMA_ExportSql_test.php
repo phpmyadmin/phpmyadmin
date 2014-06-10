@@ -1876,7 +1876,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_ignore'] = true;
         $GLOBALS['sql_truncate'] = true;
         $GLOBALS['sql_insert_syntax'] = 'both';
-        $GLOBALS['sql_hex_for_blob'] = true;
+        $GLOBALS['sql_hex_for_binary'] = true;
 
         ob_start();
         $this->object->exportData(
@@ -1903,7 +1903,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            "(NULL, test, 0x3130, b'110', " . '\'\0\n\r\Z\');',
+            '(NULL, test, 0x3130, 0x36, 0x000a0d1a);',
             $result
         );
 
@@ -1991,7 +1991,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_ignore'] = true;
         $GLOBALS['sql_truncate'] = true;
         $GLOBALS['sql_insert_syntax'] = 'both';
-        $GLOBALS['sql_hex_for_blob'] = true;
+        $GLOBALS['sql_hex_for_binary'] = true;
 
         ob_start();
         $this->object->exportData(
