@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-09 12:46-0400\n"
-"PO-Revision-Date: 2014-06-10 14:00+0200\n"
+"PO-Revision-Date: 2014-06-10 14:21+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -1764,10 +1764,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:289
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "Contribuer"
+msgstr "Continuer"
 
 #: js/messages.php:292 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -12318,10 +12317,9 @@ msgid "Remove columns from central list"
 msgstr "Supprimer les colonnes de la liste centrale"
 
 #: libraries/structure.lib.php:345
-#, fuzzy
 #| msgid "Add columns to central list"
 msgid "Make consistent with central list"
-msgstr "Ajoute les colonnes à la liste centrale"
+msgstr "Rendre conforme à la liste centrale"
 
 #: libraries/structure.lib.php:367
 msgid "Check tables having overhead"
