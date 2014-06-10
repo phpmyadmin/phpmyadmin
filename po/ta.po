@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-09 12:46-0400\n"
-"PO-Revision-Date: 2014-06-09 20:38+0200\n"
+"PO-Revision-Date: 2014-06-10 07:07+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -26,10 +26,10 @@ msgid ""
 msgstr "%s கோப்பு இந்த அமைப்பில் இல்லை, மேலும் தகவலுக்கு www.phpmyadmin.net செல்லுங்கள்."
 
 #: db_central_columns.php:111
-#, fuzzy, php-format
+#, php-format
 #| msgid "authored on %1$s by %2$s"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "%1$s அன்று %2$s ஆல் இயற்றப்பட்டது"
+msgstr "நிறைவரிசைகள் %1$s - %2$s காட்டப்படுகின்றன"
 
 #: db_create.php:61
 #, php-format
