@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-10 08:47-0400\n"
+"POT-Creation-Date: 2014-06-10 12:46-0400\n"
 "PO-Revision-Date: 2014-05-17 16:46+0200\n"
 "Last-Translator: Rahoz Yaseen <rahoz.kirkuky@hotmail.com>\n"
 "Language-Team: Kurdish Sorani <https://l10n.cihar.com/projects/phpmyadmin/"
@@ -5082,7 +5082,7 @@ msgid "Add %s"
 msgstr "زیادکردن %s"
 
 #: libraries/config/messages.inc.php:176
-msgid "Use hexadecimal for BLOB"
+msgid "Use hexadecimal for BINARY & BLOB"
 msgstr ""
 
 #: libraries/config/messages.inc.php:178
@@ -8695,11 +8695,11 @@ msgstr ""
 msgid "Error reading data:"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:2375
+#: libraries/plugins/export/ExportSql.class.php:2374
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:2376
+#: libraries/plugins/export/ExportSql.class.php:2375
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 

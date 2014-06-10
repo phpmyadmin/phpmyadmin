@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-10 08:47-0400\n"
+"POT-Creation-Date: 2014-06-10 12:46-0400\n"
 "PO-Revision-Date: 2014-06-10 14:35+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://l10n.cihar.com/projects/phpmyadmin/master/sv/"
@@ -5132,7 +5132,9 @@ msgid "Add %s"
 msgstr "Lägg till %s"
 
 #: libraries/config/messages.inc.php:176
-msgid "Use hexadecimal for BLOB"
+#, fuzzy
+#| msgid "Use hexadecimal for BLOB"
+msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Använd hexadecimalt för BLOB"
 
 #: libraries/config/messages.inc.php:178
@@ -8928,11 +8930,11 @@ msgstr "Struktur för vy %s exporterad som en tabell"
 msgid "Error reading data:"
 msgstr "Fel vid läsning av data:"
 
-#: libraries/plugins/export/ExportSql.class.php:2375
+#: libraries/plugins/export/ExportSql.class.php:2374
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:2376
+#: libraries/plugins/export/ExportSql.class.php:2375
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 

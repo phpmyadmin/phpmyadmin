@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-10 08:47-0400\n"
+"POT-Creation-Date: 2014-06-10 12:46-0400\n"
 "PO-Revision-Date: 2014-06-10 17:32+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
-"Language: es\n"
+"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -1768,9 +1768,6 @@ msgid "Are you sure?"
 msgstr "¿Está seguro?"
 
 #: js/messages.php:288
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure, "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
@@ -5221,7 +5218,9 @@ msgid "Add %s"
 msgstr "Añada %s"
 
 #: libraries/config/messages.inc.php:176
-msgid "Use hexadecimal for BLOB"
+#, fuzzy
+#| msgid "Use hexadecimal for BLOB"
+msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Use hexadecimal para BLOB"
 
 #: libraries/config/messages.inc.php:178
@@ -9087,11 +9086,11 @@ msgstr "Estructura para la vista de %s exportada como una tabla"
 msgid "Error reading data:"
 msgstr "Error leyendo datos:"
 
-#: libraries/plugins/export/ExportSql.class.php:2375
+#: libraries/plugins/export/ExportSql.class.php:2374
 msgid "It appears your table uses triggers;"
 msgstr "Parece que su tabla utiliza disparadores («triggers»);"
 
-#: libraries/plugins/export/ExportSql.class.php:2376
+#: libraries/plugins/export/ExportSql.class.php:2375
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 "exportar los alias no podría funcionar correctamente en todos los casos."
