@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-10 08:47-0400\n"
-"PO-Revision-Date: 2014-05-29 16:20+0200\n"
+"PO-Revision-Date: 2014-06-10 16:00+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -27,10 +27,10 @@ msgstr ""
 "phpmyadmin.net ."
 
 #: db_central_columns.php:111
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "Kuvatakse read %1s - %2s"
+msgstr "Kuvatakse read %1$s - %2$s"
 
 #: db_create.php:61
 #, php-format
@@ -990,7 +990,7 @@ msgstr "Lisa indeksisse %s veerg(u)"
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:365
 msgid "Preview SQL"
-msgstr ""
+msgstr "SQL eelvaade"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:62 libraries/tbl_chart.lib.php:215
@@ -1714,19 +1714,17 @@ msgstr "Sirvi võõrvõtme väärtusi"
 
 #: js/messages.php:282
 msgid "Pick"
-msgstr ""
+msgstr "Vali"
 
 #: js/messages.php:283
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "Veergu ei ole valitud."
+msgstr "Veeru valija"
 
 #: js/messages.php:284
-#, fuzzy
 #| msgid "Search this table"
 msgid "Search this list"
-msgstr "Otsi sellest tabelist"
+msgstr "Otsi sellest loendist"
 
 #: js/messages.php:285
 #, php-format
@@ -1734,28 +1732,30 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Keskne loend ei sisalda veerge. Palun kontrolli, et andmebaasi %s keskne "
+"veergude loend sisaldaks veerge, mis puuduvad aktiivsest tabelist."
 
 #: js/messages.php:286
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "Vaba mälu"
+msgstr "Vaata lisaks"
 
 #: js/messages.php:287
 msgid "Are you sure?"
-msgstr ""
+msgstr "Oled sa kindel?"
 
 #: js/messages.php:288
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"See tulemusel võivad muutuda mõnede veergude kirjeldused.<br/>Kas sa oled "
+"kindel, et jätkata?"
 
 #: js/messages.php:289
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "Anna oma panus"
+msgstr "Jätka"
 
 #: js/messages.php:292 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -3135,10 +3135,9 @@ msgid "Designer"
 msgstr "Kujundaja"
 
 #: libraries/Menu.class.php:481 libraries/Util.class.php:4099
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "Tekstiala veerud"
+msgstr "Kesksed veerud"
 
 #: libraries/Menu.class.php:513 libraries/Util.class.php:4071
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
@@ -4196,20 +4195,18 @@ msgid "Extra"
 msgstr "Lisaks"
 
 #: libraries/central_columns.lib.php:618
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Vali tabelid"
+msgstr "Vali tabel"
 
 #: libraries/central_columns.lib.php:670 libraries/structure.lib.php:1649
 msgid "Add column"
 msgstr "Lisa veerg"
 
 #: libraries/central_columns.lib.php:682
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Vali kaks veergu"
+msgstr "Vali veerg."
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -8898,11 +8895,12 @@ msgstr "Andmete lugemisel esines viga:"
 
 #: libraries/plugins/export/ExportSql.class.php:2375
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Tundub, et su tabel kasutab trigereid;"
 
 #: libraries/plugins/export/ExportSql.class.php:2376
 msgid "alias export may not work reliably in all cases."
 msgstr ""
+"aliaste eksportimine võib mõningatel juhtudel töötada mitte usaldusväärselt."
 
 #: libraries/plugins/export/ExportXml.class.php:102
 msgid "Object creation options (all are recommended)"
@@ -12131,10 +12129,9 @@ msgid "Remove columns from central list"
 msgstr "Eemalda veerud kesksest nimekirjast"
 
 #: libraries/structure.lib.php:345
-#, fuzzy
 #| msgid "Add columns to central list"
 msgid "Make consistent with central list"
-msgstr "Lisa veerud kesksesse nimekirja"
+msgstr "Vii keskse loendiga kooskõlla"
 
 #: libraries/structure.lib.php:367
 msgid "Check tables having overhead"
@@ -12393,29 +12390,26 @@ msgstr "Y-telje nimi:"
 
 #: libraries/tbl_chart.lib.php:237
 msgid "Series names are in a column"
-msgstr ""
+msgstr "Jadade nimed on veerus"
 
 #: libraries/tbl_chart.lib.php:240
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "Veerust:"
+msgstr "Jadade veerg:"
 
 #: libraries/tbl_chart.lib.php:253
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Value column:"
-msgstr "%s veeru väärtused"
+msgstr "Väärtuste veerg:"
 
 #: libraries/tbl_chart.lib.php:286
 msgid "Start row:"
 msgstr "Alusta reaga:"
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Salvesta failina"
+msgstr "Salvesta graafik pildina"
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
@@ -12491,10 +12485,9 @@ msgid "Is a foreign key."
 msgstr "On välisvõti."
 
 #: libraries/tbl_columns_definition_form.lib.php:606
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Pick from Central Columns"
-msgstr "Eemalda kesksest nimekirjast"
+msgstr "Vali veergude kesksest loendist"
 
 #: libraries/tbl_columns_definition_form.lib.php:784
 msgid "first"
