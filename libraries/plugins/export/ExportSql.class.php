@@ -426,7 +426,7 @@ class ExportSql extends ExportPlugin
 
             // Dump binary columns in hexadecimal
             $leaf = new BoolPropertyItem();
-            $leaf->setName("hex_for_blob");
+            $leaf->setName("hex_for_binary");
             $leaf->setText(
                 __(
                     'Dump binary columns in hexadecimal notation'
@@ -1989,9 +1989,8 @@ class ExportSql extends ExportPlugin
                         // timestamp is numeric on some MySQL 4.1, BLOBs are
                         // sometimes numeric
                         $values[] = $row[$j];
-                    } elseif (stristr($field_flags[$j], 'BINARY')
-                        && $fields_meta[$j]->blob
-                        && isset($GLOBALS['sql_hex_for_blob'])
+                    } elseif (stristr($field_flags[$j], 'BINARY') !== false
+                        && isset($GLOBALS['sql_hex_for_binary'])
                     ) {
                         // a true BLOB
                         // - mysqldump only generates hex data when the --hex-blob
