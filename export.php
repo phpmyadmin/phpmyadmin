@@ -123,7 +123,7 @@ if (!defined('TESTSUITE')) {
             'sql_type',
             'sql_insert_syntax',
             'sql_max_query_size',
-            'sql_hex_for_blob',
+            'sql_hex_for_binary',
             'sql_utc_time',
             'sql_drop_database',
             'csv_separator',
