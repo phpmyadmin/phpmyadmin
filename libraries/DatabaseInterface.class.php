@@ -915,13 +915,9 @@ class PMA_DatabaseInterface
         $drops = array_diff(
             array_keys($databases), (array) $GLOBALS['pma']->databases
         );
-        if (count($drops)) {
-            foreach ($drops as $drop) {
-                unset($databases[$drop]);
-            }
-            unset($drop);
+        foreach ($drops as $drop) {
+            unset($databases[$drop]);
         }
-        unset($sql_where_schema, $sql, $drops);
 
         /**
          * apply limit and order manually now
