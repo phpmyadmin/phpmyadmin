@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-10 08:47-0400\n"
-"PO-Revision-Date: 2014-06-10 15:35+0200\n"
+"PO-Revision-Date: 2014-06-10 15:36+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -8982,7 +8982,8 @@ msgstr "Görünüşe göre tablonuz tetikleyicileri kullanmakta;"
 
 #: libraries/plugins/export/ExportSql.class.php:2376
 msgid "alias export may not work reliably in all cases."
-msgstr "kodadı dışa aktarımı, her durumda güvenilir bir şekilde çalışmayabilir."
+msgstr ""
+"kodadını dışa aktarma, her durumda güvenilir bir şekilde çalışmayabilir."
 
 #: libraries/plugins/export/ExportXml.class.php:102
 msgid "Object creation options (all are recommended)"
