@@ -1,16 +1,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.2.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.2.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-05-24 09:05-0400\n"
+"POT-Creation-Date: 2014-06-10 12:45-0400\n"
 "PO-Revision-Date: 2014-05-18 16:07+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/4-2/ko/>\n"
-"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.9\n"
 
@@ -40,7 +40,7 @@ msgstr "테이블 설명:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1291
-#: libraries/insert_edit.lib.php:1613
+#: libraries/insert_edit.lib.php:1615
 #: libraries/navigation/Nodes/Node_Column.class.php:32
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
@@ -86,7 +86,7 @@ msgid "Type"
 msgstr "종류"
 
 #: db_datadict.php:170 libraries/Index.class.php:570
-#: libraries/TableSearch.class.php:1292 libraries/insert_edit.lib.php:1622
+#: libraries/TableSearch.class.php:1292 libraries/insert_edit.lib.php:1624
 #: libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
 #: libraries/plugins/export/ExportLatex.class.php:513
@@ -198,7 +198,7 @@ msgid "View dump (schema) of database"
 msgstr "데이터베이스의 덤프(스키마) 데이터 보기"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:165
-#: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
+#: db_tracking.php:51 export.php:337 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "데이터베이스에 테이블이 없습니다."
 
@@ -236,7 +236,7 @@ msgstr ""
 "를 클릭%s하십시오."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
-#: libraries/Menu.class.php:235 libraries/config/messages.inc.php:771
+#: libraries/Menu.class.php:237 libraries/config/messages.inc.php:771
 #: libraries/plugins/export/ExportXml.class.php:467
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:361
 #: libraries/schema/User_Schema.class.php:305
@@ -244,7 +244,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2546
 #: libraries/server_privileges.lib.php:2768
 #: libraries/server_privileges.lib.php:2779
-#: libraries/server_privileges.lib.php:3790 libraries/structure.lib.php:762
+#: libraries/server_privileges.lib.php:3791 libraries/structure.lib.php:762
 #: libraries/tbl_relation.lib.php:312 libraries/tbl_relation.lib.php:528
 #: libraries/tbl_tracking.lib.php:196
 msgid "Table"
@@ -262,22 +262,22 @@ msgstr "행"
 msgid "Size"
 msgstr "크기"
 
-#: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1161
+#: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1159
 #: libraries/structure.lib.php:736
 msgid "in use"
 msgstr "사용중"
 
-#: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1087
+#: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1085
 #: libraries/schema/Pdf_Relation_Schema.class.php:1334
 msgid "Creation:"
 msgstr "생성:"
 
-#: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1100
+#: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1098
 #: libraries/schema/Pdf_Relation_Schema.class.php:1339
 msgid "Last update:"
 msgstr "마지막 업데이트:"
 
-#: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1113
+#: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1111
 #: libraries/schema/Pdf_Relation_Schema.class.php:1344
 msgid "Last check:"
 msgstr "마지막 검사:"
@@ -313,7 +313,7 @@ msgstr "즐겨찾기 목록이 가득 찼습니다!"
 msgid "Tracked tables"
 msgstr "추적된 테이블"
 
-#: db_tracking.php:80 libraries/Menu.class.php:212
+#: db_tracking.php:80 libraries/Menu.class.php:214
 #: libraries/config/messages.inc.php:765
 #: libraries/plugins/export/ExportHtmlword.class.php:158
 #: libraries/plugins/export/ExportOdt.class.php:203
@@ -323,7 +323,7 @@ msgstr "추적된 테이블"
 #: libraries/server_privileges.lib.php:2530
 #: libraries/server_privileges.lib.php:2767
 #: libraries/server_privileges.lib.php:2779
-#: libraries/server_privileges.lib.php:3776
+#: libraries/server_privileges.lib.php:3777
 #: libraries/server_status.lib.php:349 libraries/tbl_relation.lib.php:289
 #: libraries/tbl_relation.lib.php:478 libraries/tbl_tracking.lib.php:195
 msgid "Database"
@@ -341,7 +341,7 @@ msgstr "생성됨"
 msgid "Updated"
 msgstr "수정됨"
 
-#: db_tracking.php:85 js/messages.php:176 libraries/Menu.class.php:516
+#: db_tracking.php:85 js/messages.php:176 libraries/Menu.class.php:518
 #: libraries/Util.class.php:4098 libraries/rte/rte_events.lib.php:432
 #: libraries/rte/rte_list.lib.php:78 libraries/server_status.lib.php:361
 #: libraries/tbl_tracking.lib.php:200
@@ -442,11 +442,11 @@ msgstr "보고서를 제출해 주셔서 고맙습니다."
 msgid "Unfortunately the submission failed."
 msgstr "안타깝지만 제출하지 못했습니다."
 
-#: export.php:179
+#: export.php:180
 msgid "Bad type!"
 msgstr "잘못된 타입!"
 
-#: export.php:240
+#: export.php:241
 msgid "Bad parameters!"
 msgstr "잘못된 인자!"
 
@@ -540,7 +540,7 @@ msgstr "공간 데이터를 추가"
 #: libraries/display_create_table.lib.php:71
 #: libraries/display_export.lib.php:295 libraries/display_export.lib.php:301
 #: libraries/display_import.lib.php:367 libraries/index.lib.php:40
-#: libraries/insert_edit.lib.php:1594 libraries/insert_edit.lib.php:1629
+#: libraries/insert_edit.lib.php:1596 libraries/insert_edit.lib.php:1631
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:254
 #: libraries/operations.lib.php:650 libraries/operations.lib.php:703
@@ -561,7 +561,7 @@ msgstr "공간 데이터를 추가"
 #: libraries/server_privileges.lib.php:1749
 #: libraries/server_privileges.lib.php:2512
 #: libraries/server_privileges.lib.php:3161
-#: libraries/server_privileges.lib.php:4006
+#: libraries/server_privileges.lib.php:4007
 #: libraries/sql_query_form.lib.php:381 libraries/sql_query_form.lib.php:440
 #: libraries/sql_query_form.lib.php:509 libraries/structure.lib.php:1618
 #: libraries/tbl_chart.lib.php:244
@@ -587,11 +587,11 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"너무 큰 파일을 업로드하려고 시도했습니다. 제한을 해결하기 위해서는 "
-"%sdocumentation%s를 참조하여 주십시오."
+"너무 큰 파일을 업로드하려고 시도했습니다. 제한을 해결하기 위해서는 %"
+"sdocumentation%s를 참조하여 주십시오."
 
 #: import.php:284 import.php:565
 msgid "Showing bookmark"
@@ -724,7 +724,7 @@ msgid "Server type:"
 msgstr "서버 타입:"
 
 #: index.php:270 libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:659
+#: libraries/plugins/export/ExportSql.class.php:657
 #: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version:"
 msgstr "서버 버전:"
@@ -878,8 +878,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Server 가 Suhosin 으로 운영중입니다. 이로 인해 발생할 수 있는 문제는 "
-"%sdocumentation%s 에서 확인이 가능합니다."
+"Server 가 Suhosin 으로 운영중입니다. 이로 인해 발생할 수 있는 문제는 %"
+"sdocumentation%s 에서 확인이 가능합니다."
 
 #: js/messages.php:29 libraries/import.lib.php:122 sql.php:140
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -1164,7 +1164,7 @@ msgstr "질의"
 msgid "Traffic"
 msgstr "소통량"
 
-#: js/messages.php:120 libraries/Menu.class.php:549
+#: js/messages.php:120 libraries/Menu.class.php:551
 #: libraries/Util.class.php:4102 libraries/server_status_monitor.lib.php:299
 msgid "Settings"
 msgstr "설정"
@@ -1180,7 +1180,7 @@ msgstr "하나 이상의 변수를 시리즈에 추가하십시오!"
 #: js/messages.php:124 libraries/DisplayResults.class.php:1338
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1047
 #: libraries/display_export.lib.php:579
-#: libraries/plugins/export/ExportSql.class.php:1763
+#: libraries/plugins/export/ExportSql.class.php:1761
 #: libraries/server_privileges.lib.php:2683
 #: libraries/server_status.lib.php:524
 #: libraries/server_status_monitor.lib.php:278
@@ -1456,8 +1456,8 @@ msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr "가져온 설정과 차트 격자를 그리는데 실패했습니다. 기본 설정으로 적용중…"
 
-#: js/messages.php:203 libraries/Menu.class.php:332
-#: libraries/Menu.class.php:431 libraries/Menu.class.php:545
+#: js/messages.php:203 libraries/Menu.class.php:334
+#: libraries/Menu.class.php:433 libraries/Menu.class.php:547
 #: libraries/Util.class.php:4101 libraries/Util.class.php:4116
 #: libraries/Util.class.php:4132 libraries/config/messages.inc.php:225
 #: libraries/display_import.lib.php:105
@@ -1670,7 +1670,7 @@ msgstr "수정"
 msgid "%d is not valid row number."
 msgstr "%d는 올바른 행번호가 아닙니다."
 
-#: js/messages.php:277 libraries/insert_edit.lib.php:1507
+#: js/messages.php:277 libraries/insert_edit.lib.php:1509
 #: libraries/schema/User_Schema.class.php:390
 #: libraries/server_variables.lib.php:157
 #: libraries/tbl_columns_definition_form.lib.php:141
@@ -1731,7 +1731,7 @@ msgstr "두 개의 서로다른 열 선택"
 msgid "Data point content"
 msgstr "데이터 포인트 내용"
 
-#: js/messages.php:308 js/messages.php:402 libraries/insert_edit.lib.php:2607
+#: js/messages.php:308 js/messages.php:402 libraries/insert_edit.lib.php:2609
 #: libraries/tbl_indexes.lib.php:333 libraries/tbl_indexes.lib.php:369
 msgid "Ignore"
 msgstr "무시"
@@ -2475,7 +2475,7 @@ msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "<strong>%2$s</strong> 에서 %1$s 건 일치"
 
-#: libraries/DbSearch.class.php:351 libraries/Menu.class.php:295
+#: libraries/DbSearch.class.php:351 libraries/Menu.class.php:297
 #: libraries/Util.class.php:3157 libraries/Util.class.php:3373
 #: libraries/Util.class.php:3374 libraries/Util.class.php:4126
 #: libraries/navigation/Nodes/Node_Table.class.php:48
@@ -2687,8 +2687,8 @@ msgstr "쿼리가 성공적으로 실행되었습니다."
 #: libraries/DisplayResults.class.php:5017 libraries/structure.lib.php:658
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "이 뷰는 최소 이 숫자 이상의 열을 가지고 있습니다. %s문서%s를 참조해 주십시오."
 
@@ -2743,8 +2743,8 @@ msgid "Change"
 msgstr "변경"
 
 #: libraries/DisplayResults.class.php:5169
-#: libraries/DisplayResults.class.php:5440 libraries/Menu.class.php:324
-#: libraries/Menu.class.php:422 libraries/Menu.class.php:541
+#: libraries/DisplayResults.class.php:5440 libraries/Menu.class.php:326
+#: libraries/Menu.class.php:424 libraries/Menu.class.php:543
 #: libraries/Util.class.php:3386 libraries/Util.class.php:3387
 #: libraries/Util.class.php:4100 libraries/Util.class.php:4115
 #: libraries/Util.class.php:4131 libraries/config/messages.inc.php:219
@@ -2922,19 +2922,19 @@ msgid ""
 msgstr ""
 "인덱스 %1$s와 %2$s는 동일한 것으로, 두 가지 중 하나는 제거해도 상관없습니다."
 
-#: libraries/Menu.class.php:195 libraries/ServerStatusData.class.php:366
+#: libraries/Menu.class.php:197 libraries/ServerStatusData.class.php:366
 #: libraries/config/messages.inc.php:769
 msgid "Server"
 msgstr "서버"
 
-#: libraries/Menu.class.php:235
+#: libraries/Menu.class.php:237
 #: libraries/navigation/Nodes/Node_View.class.php:34
 #: libraries/structure.lib.php:682 libraries/structure.lib.php:712
 #: libraries/structure.lib.php:1209 libraries/tbl_info.inc.php:59
 msgid "View"
 msgstr "뷰"
 
-#: libraries/Menu.class.php:301 libraries/Menu.class.php:401
+#: libraries/Menu.class.php:303 libraries/Menu.class.php:403
 #: libraries/Util.class.php:3153 libraries/Util.class.php:3160
 #: libraries/Util.class.php:3379 libraries/Util.class.php:4111
 #: libraries/Util.class.php:4127 libraries/config/setup.forms.php:300
@@ -2950,8 +2950,8 @@ msgstr "뷰"
 msgid "Structure"
 msgstr "구조"
 
-#: libraries/Menu.class.php:305 libraries/Menu.class.php:405
-#: libraries/Menu.class.php:512 libraries/Util.class.php:3154
+#: libraries/Menu.class.php:307 libraries/Menu.class.php:407
+#: libraries/Menu.class.php:514 libraries/Util.class.php:3154
 #: libraries/Util.class.php:3161 libraries/Util.class.php:4097
 #: libraries/Util.class.php:4112 libraries/Util.class.php:4128
 #: libraries/config/messages.inc.php:288
@@ -2959,7 +2959,7 @@ msgstr "구조"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.class.php:308 libraries/Menu.class.php:408
+#: libraries/Menu.class.php:310 libraries/Menu.class.php:410
 #: libraries/Util.class.php:3155 libraries/Util.class.php:3162
 #: libraries/Util.class.php:3375 libraries/Util.class.php:3376
 #: libraries/Util.class.php:4113 libraries/Util.class.php:4129
@@ -2967,7 +2967,7 @@ msgstr "SQL"
 msgid "Search"
 msgstr "검색"
 
-#: libraries/Menu.class.php:318 libraries/Util.class.php:3156
+#: libraries/Menu.class.php:320 libraries/Util.class.php:3156
 #: libraries/Util.class.php:3377 libraries/Util.class.php:3378
 #: libraries/Util.class.php:4130
 #: libraries/navigation/Nodes/Node_Table.class.php:42
@@ -2975,7 +2975,7 @@ msgstr "검색"
 msgid "Insert"
 msgstr "삽입"
 
-#: libraries/Menu.class.php:340 libraries/Menu.class.php:443
+#: libraries/Menu.class.php:342 libraries/Menu.class.php:445
 #: libraries/Util.class.php:4118 libraries/Util.class.php:4133
 #: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:1843
 #: libraries/server_privileges.lib.php:1950
@@ -2984,100 +2984,100 @@ msgstr "삽입"
 msgid "Privileges"
 msgstr "사용권한"
 
-#: libraries/Menu.class.php:349 libraries/Menu.class.php:376
-#: libraries/Menu.class.php:435 libraries/Util.class.php:3163
+#: libraries/Menu.class.php:351 libraries/Menu.class.php:378
+#: libraries/Menu.class.php:437 libraries/Util.class.php:3163
 #: libraries/Util.class.php:4117 libraries/Util.class.php:4134
 #: view_operations.php:92
 msgid "Operations"
 msgstr "테이블 작업"
 
-#: libraries/Menu.class.php:353 libraries/Menu.class.php:469
+#: libraries/Menu.class.php:355 libraries/Menu.class.php:471
 #: libraries/Util.class.php:4122 libraries/Util.class.php:4135
 #: libraries/relation.lib.php:241
 msgid "Tracking"
 msgstr "SQL 명령어 트래킹"
 
-#: libraries/Menu.class.php:366 libraries/Menu.class.php:463
+#: libraries/Menu.class.php:368 libraries/Menu.class.php:465
 #: libraries/Util.class.php:4121 libraries/Util.class.php:4136
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:565
 #: libraries/plugins/export/ExportOdt.class.php:657
-#: libraries/plugins/export/ExportSql.class.php:1663
+#: libraries/plugins/export/ExportSql.class.php:1661
 #: libraries/plugins/export/ExportTexytext.class.php:508
 #: libraries/plugins/export/ExportXml.class.php:121
 #: libraries/rte/rte_words.lib.php:50
 msgid "Triggers"
 msgstr "트리거"
 
-#: libraries/Menu.class.php:412 libraries/Menu.class.php:419
-#: libraries/Menu.class.php:426
+#: libraries/Menu.class.php:414 libraries/Menu.class.php:421
+#: libraries/Menu.class.php:428
 msgid "Database seems to be empty!"
 msgstr "데이터베이스가 비어있는 것 같습니다!"
 
-#: libraries/Menu.class.php:415 libraries/Util.class.php:4114
+#: libraries/Menu.class.php:417 libraries/Util.class.php:4114
 msgid "Query"
 msgstr "질의 마법사"
 
-#: libraries/Menu.class.php:448 libraries/Util.class.php:4119
+#: libraries/Menu.class.php:450 libraries/Util.class.php:4119
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "루틴"
 
-#: libraries/Menu.class.php:456 libraries/Util.class.php:4120
+#: libraries/Menu.class.php:458 libraries/Util.class.php:4120
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
-#: libraries/plugins/export/ExportSql.class.php:873
+#: libraries/plugins/export/ExportSql.class.php:871
 #: libraries/rte/rte_words.lib.php:64
 msgid "Events"
 msgstr "이벤트"
 
-#: libraries/Menu.class.php:475 libraries/Util.class.php:4123
+#: libraries/Menu.class.php:477 libraries/Util.class.php:4123
 #: libraries/relation.lib.php:208
 msgid "Designer"
 msgstr "디자이너"
 
-#: libraries/Menu.class.php:508 libraries/Util.class.php:4096
+#: libraries/Menu.class.php:510 libraries/Util.class.php:4096
 #: libraries/config/messages.inc.php:233 libraries/server_common.lib.php:48
-#: libraries/server_privileges.lib.php:3776
+#: libraries/server_privileges.lib.php:3777
 msgid "Databases"
 msgstr "데이터베이스"
 
-#: libraries/Menu.class.php:531 libraries/Util.class.php:4099
+#: libraries/Menu.class.php:533 libraries/Util.class.php:4099
 msgid "Users"
 msgstr "사용자"
 
-#: libraries/Menu.class.php:558 libraries/ServerStatusData.class.php:194
+#: libraries/Menu.class.php:560 libraries/ServerStatusData.class.php:194
 #: libraries/Util.class.php:4103 libraries/server_common.lib.php:36
 msgid "Binary log"
 msgstr "바이너리 로그"
 
-#: libraries/Menu.class.php:564 libraries/ServerStatusData.class.php:199
+#: libraries/Menu.class.php:566 libraries/ServerStatusData.class.php:199
 #: libraries/Util.class.php:4104 libraries/server_common.lib.php:42
 #: libraries/structure.lib.php:182 libraries/structure.lib.php:766
 msgid "Replication"
 msgstr "복제"
 
-#: libraries/Menu.class.php:569 libraries/ServerStatusData.class.php:261
+#: libraries/Menu.class.php:571 libraries/ServerStatusData.class.php:261
 #: libraries/Util.class.php:4105 libraries/server_engines.lib.php:109
 #: libraries/server_engines.lib.php:113
 msgid "Variables"
 msgstr "환경설정값"
 
-#: libraries/Menu.class.php:573 libraries/Util.class.php:4106
+#: libraries/Menu.class.php:575 libraries/Util.class.php:4106
 msgid "Charsets"
 msgstr "문자셋"
 
-#: libraries/Menu.class.php:578 libraries/Util.class.php:4107
+#: libraries/Menu.class.php:580 libraries/Util.class.php:4107
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
 msgid "Plugins"
 msgstr "플러그인"
 
-#: libraries/Menu.class.php:582 libraries/Util.class.php:4108
+#: libraries/Menu.class.php:584 libraries/Util.class.php:4108
 msgid "Engines"
 msgstr "엔진"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1225 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1227 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "오류"
@@ -3371,7 +3371,7 @@ msgid "Operator"
 msgstr "연산자"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1293
-#: libraries/insert_edit.lib.php:1623 libraries/replication_gui.lib.php:515
+#: libraries/insert_edit.lib.php:1625 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
 #: libraries/server_status_variables.lib.php:220 pmd_general.php:563
 #: pmd_general.php:623 pmd_general.php:752 pmd_general.php:871
@@ -3390,7 +3390,7 @@ msgstr "추가 검색"
 msgid "Find and Replace"
 msgstr "찾기 및 바꾸기"
 
-#: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1397
+#: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1399
 msgid "Edit/Insert"
 msgstr "편집/삽입"
 
@@ -3398,7 +3398,7 @@ msgstr "편집/삽입"
 msgid "Select columns (at least one):"
 msgstr "컬럼 선택 (하나 이상):"
 
-#: libraries/TableSearch.class.php:820 libraries/insert_edit.lib.php:1229
+#: libraries/TableSearch.class.php:820 libraries/insert_edit.lib.php:1231
 #: libraries/server_privileges.lib.php:438
 msgid "Or"
 msgstr "또는"
@@ -3558,21 +3558,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"작은 부동소수점 숫자, 허용 가능한 값은 -3.402823466E+38 에서 "
-"-1.175494351E-38 까지, 0, 그리고 1.175494351E-38 에서 3.402823466E+38 까지입"
-"니다"
+"작은 부동소수점 숫자, 허용 가능한 값은 -3.402823466E+38 에서 -1.175494351E-"
+"38 까지, 0, 그리고 1.175494351E-38 에서 3.402823466E+38 까지입니다"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"배정밀도 부동소수점 숫자, 허용 가능한 값은 -1.7976931348623157E+308 에서 "
-"-2.2250738585072014E-308 까지, 0, 그리고 2.2250738585072014E-308 에서 "
+"배정밀도 부동소수점 숫자, 허용 가능한 값은 -1.7976931348623157E+308 에서 -"
+"2.2250738585072014E-308 까지, 0, 그리고 2.2250738585072014E-308 에서 "
 "1.7976931348623157E+308 까지입니다"
 
 #: libraries/Types.class.php:336
@@ -3930,7 +3929,7 @@ msgstr "업로드 파일:"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "웹 서버 업로드 디렉토리중 <b>%s</b>에서 선택:"
 
-#: libraries/Util.class.php:3346 libraries/insert_edit.lib.php:1226
+#: libraries/Util.class.php:3346 libraries/insert_edit.lib.php:1228
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
 msgstr "설정한 업로드 디렉토리에 접근할 수 없습니다."
@@ -4084,24 +4083,24 @@ msgstr "서버 %d"
 msgid "Invalid authentication method set in configuration:"
 msgstr "설정 파일에 잘못된 인증 방식 설정되어 있습니다.:"
 
-#: libraries/common.inc.php:1001
+#: libraries/common.inc.php:996 libraries/common.inc.php:1003
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s를 %s 이상으로 업그레이드 하십시오."
 
-#: libraries/common.inc.php:1082
+#: libraries/common.inc.php:1084
 msgid "Error: Token mismatch"
 msgstr "오류: 토큰 불일치"
 
-#: libraries/common.inc.php:1114
+#: libraries/common.inc.php:1116
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS 덮어쓰기 시도"
 
-#: libraries/common.inc.php:1121
+#: libraries/common.inc.php:1123
 msgid "possible exploit"
 msgstr "어떤 공격을 받고있을 가능성이 있습니다"
 
-#: libraries/common.inc.php:1130
+#: libraries/common.inc.php:1132
 msgid "numeric key detected"
 msgstr "전역 변수에서 숫자로 된 키가 발견 되었습니다"
 
@@ -4306,7 +4305,7 @@ msgstr "이 값을 사용자화하기 위한 사용자 허용"
 msgid "Apply"
 msgstr "적용"
 
-#: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1596
+#: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1598
 #: libraries/schema/User_Schema.class.php:574 prefs_manage.php:335
 #: prefs_manage.php:342
 msgid "Reset"
@@ -4406,8 +4405,8 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"[kbd]쿠키[/kbd] 인증을 사용하면서 %sLogin cookie store%s가 0이 아니라면, "
-"%sLogin cookie validity%s은 그 값 이하의 값을 가져야합니다."
+"[kbd]쿠키[/kbd] 인증을 사용하면서 %sLogin cookie store%s가 0이 아니라면, %"
+"sLogin cookie validity%s은 그 값 이하의 값을 가져야합니다."
 
 #: libraries/config/ServerConfigChecks.class.php:423
 #, php-format
@@ -4432,8 +4431,8 @@ msgid ""
 msgstr ""
 "[kbd]config[/kbd] 권한 타입 설정에 자동 로그인을 위해 사용자명과 암호를 포함"
 "했습니다. 이 설정은 실서비스용으로는 권장하지 않습니다. 누군가가 phpMyAdmin"
-"이 설치된 주소를 추측하고 접속하여 phpMyAdmin 패널을 건드릴 수 있습니다. "
-"%sauthentication type%s을 [kbd]cookie[/kbd]나 [kbd]http[/kbd]로 설정하세요."
+"이 설치된 주소를 추측하고 접속하여 phpMyAdmin 패널을 건드릴 수 있습니다. %"
+"sauthentication type%s을 [kbd]cookie[/kbd]나 [kbd]http[/kbd]로 설정하세요."
 
 #: libraries/config/ServerConfigChecks.class.php:437
 #, php-format
@@ -4904,7 +4903,7 @@ msgid "SQL compatibility mode"
 msgstr "SQL 호환 모드"
 
 #: libraries/config/messages.inc.php:166
-#: libraries/plugins/export/ExportSql.class.php:306
+#: libraries/plugins/export/ExportSql.class.php:305
 msgid "<code>CREATE TABLE</code> options:"
 msgstr "<code>CREATE TABLE</code> 옵션 :"
 
@@ -4936,7 +4935,9 @@ msgid "Add %s"
 msgstr "%s 추가"
 
 #: libraries/config/messages.inc.php:178
-msgid "Use hexadecimal for BLOB"
+#, fuzzy
+#| msgid "Use hexadecimal for BLOB"
+msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "BLOB을 헥사 숫자로 사용"
 
 #: libraries/config/messages.inc.php:180
@@ -4948,7 +4949,7 @@ msgid "Syntax to use when inserting data"
 msgstr "자료 삽입시 사용 구문"
 
 #: libraries/config/messages.inc.php:183
-#: libraries/plugins/export/ExportSql.class.php:426
+#: libraries/plugins/export/ExportSql.class.php:424
 msgid "Maximal length of created query"
 msgstr "CREATE 질의 최대 길이"
 
@@ -6891,7 +6892,7 @@ msgid "Create database:"
 msgstr "잘못된 데이터베이스:"
 
 #: libraries/display_create_database.lib.php:61
-#: libraries/server_privileges.lib.php:3856 server_privileges.php:130
+#: libraries/server_privileges.lib.php:3857 server_privileges.php:130
 #: server_replication.php:32
 msgid "No Privileges"
 msgstr "권한 없음"
@@ -7019,8 +7020,8 @@ msgstr ", @TABLE@은 테이블 이름이 됨"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "이 값은 %1$sstrftime%2$s에 의해 생성되었습니다. 따라서, 시간 포맷 문자열을 써"
 "서 변경할 수 있습니다. 또한, 다음과 같은 변환도 일어납니다: %3$s. 그 외의 문"
@@ -7511,8 +7512,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr "PBXT에 관한 문서나 추가 정보는 %sPrimeBase XT 홈페이지%s에 있습니다."
 
 #: libraries/engines/pbxt.lib.php:156
@@ -7643,57 +7644,57 @@ msgstr "컬럼의 길이 때문에,<br />이 컬럼을 편집할 수 없을 수�
 msgid "Binary - do not edit"
 msgstr "바이너리 - 편집 금지"
 
-#: libraries/insert_edit.lib.php:1230 libraries/sql_query_form.lib.php:491
+#: libraries/insert_edit.lib.php:1232 libraries/sql_query_form.lib.php:491
 msgid "web server upload directory:"
 msgstr "웹 서버 업로드 디렉터리:"
 
-#: libraries/insert_edit.lib.php:1447
+#: libraries/insert_edit.lib.php:1449
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr "%s 개의 행을 추가로 삽입"
 
-#: libraries/insert_edit.lib.php:1477
+#: libraries/insert_edit.lib.php:1479
 msgid "and then"
 msgstr "이어서"
 
-#: libraries/insert_edit.lib.php:1510
+#: libraries/insert_edit.lib.php:1512
 msgid "Insert as new row"
 msgstr "새 행을 삽입합니다"
 
-#: libraries/insert_edit.lib.php:1513
+#: libraries/insert_edit.lib.php:1515
 msgid "Insert as new row and ignore errors"
 msgstr "새 행을 삽입하고 에러를 무시합니다"
 
-#: libraries/insert_edit.lib.php:1516
+#: libraries/insert_edit.lib.php:1518
 msgid "Show insert query"
 msgstr "삽입 쿼리 보기"
 
-#: libraries/insert_edit.lib.php:1536
+#: libraries/insert_edit.lib.php:1538
 msgid "Go back to previous page"
 msgstr "이전 페이지로 되돌아가기"
 
-#: libraries/insert_edit.lib.php:1539
+#: libraries/insert_edit.lib.php:1541
 msgid "Insert another new row"
 msgstr "새 행(레코드) 삽입하기"
 
-#: libraries/insert_edit.lib.php:1544
+#: libraries/insert_edit.lib.php:1546
 msgid "Go back to this page"
 msgstr "이 페이지로 되돌아가기"
 
-#: libraries/insert_edit.lib.php:1566
+#: libraries/insert_edit.lib.php:1568
 msgid "Edit next row"
 msgstr "다음 행 수정"
 
-#: libraries/insert_edit.lib.php:1588
+#: libraries/insert_edit.lib.php:1590
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr "TAB 키나 CTRL+화살표로 값 사이를 이동할 수 있습니다"
 
-#: libraries/insert_edit.lib.php:1977 libraries/sql.lib.php:1639
+#: libraries/insert_edit.lib.php:1979 libraries/sql.lib.php:1639
 msgid "Showing SQL query"
 msgstr "SQL 쿼리 보기"
 
-#: libraries/insert_edit.lib.php:2002 libraries/sql.lib.php:1619
+#: libraries/insert_edit.lib.php:2004 libraries/sql.lib.php:1619
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "삽입된 행의 id: %1$d"
@@ -8049,7 +8050,7 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:24
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:25
-#: libraries/plugins/export/ExportSql.class.php:521
+#: libraries/plugins/export/ExportSql.class.php:519
 #: libraries/plugins/export/ExportXml.class.php:107
 #, fuzzy
 #| msgid "Function"
@@ -8082,7 +8083,7 @@ msgstr "프로시저"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
-#: libraries/plugins/export/ExportSql.class.php:503
+#: libraries/plugins/export/ExportSql.class.php:501
 #: libraries/plugins/export/ExportXml.class.php:111
 msgid "Procedures"
 msgstr "프로시저"
@@ -8289,7 +8290,7 @@ msgstr "파티셔닝 삭제"
 msgid "Check referential integrity:"
 msgstr "referential 무결성 검사:"
 
-#: libraries/plugin_interface.lib.php:512
+#: libraries/plugin_interface.lib.php:515
 msgid "This format has no options"
 msgstr "이 형식은 옵션이 없음"
 
@@ -8307,8 +8308,8 @@ msgstr "%s에 오셨습니다"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "설정 파일을 생성하지 않은 것 같습니다. %1$ssetup script%2$s 를 사용해 설정 파"
 "일을 생성할 수 있습니다."
@@ -8461,7 +8462,7 @@ msgstr "데이터 덤프 옵션"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:203
 #: libraries/plugins/export/ExportOdt.class.php:260
-#: libraries/plugins/export/ExportSql.class.php:1926
+#: libraries/plugins/export/ExportSql.class.php:1924
 #: libraries/plugins/export/ExportTexytext.class.php:185
 msgid "Dumping data for table"
 msgstr "테이블의 덤프 데이터"
@@ -8484,21 +8485,21 @@ msgstr "정의"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:553
 #: libraries/plugins/export/ExportOdt.class.php:643
-#: libraries/plugins/export/ExportSql.class.php:1650
+#: libraries/plugins/export/ExportSql.class.php:1648
 #: libraries/plugins/export/ExportTexytext.class.php:498
 msgid "Table structure for table"
 msgstr "테이블 구조"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:572
 #: libraries/plugins/export/ExportOdt.class.php:667
-#: libraries/plugins/export/ExportSql.class.php:1681
+#: libraries/plugins/export/ExportSql.class.php:1679
 #: libraries/plugins/export/ExportTexytext.class.php:513
 msgid "Structure for view"
 msgstr "뷰 구조"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:581
 #: libraries/plugins/export/ExportOdt.class.php:679
-#: libraries/plugins/export/ExportSql.class.php:1716
+#: libraries/plugins/export/ExportSql.class.php:1714
 #: libraries/plugins/export/ExportTexytext.class.php:520
 msgid "Stand-in structure for view"
 msgstr ""
@@ -8517,7 +8518,7 @@ msgstr "@TABLE@ 테이블 구조"
 
 #: libraries/plugins/export/ExportLatex.class.php:116
 #: libraries/plugins/export/ExportOdt.class.php:97
-#: libraries/plugins/export/ExportSql.class.php:220
+#: libraries/plugins/export/ExportSql.class.php:219
 msgid "Object creation options"
 msgstr "객체 생성 옵션"
 
@@ -8562,7 +8563,7 @@ msgid "Put columns names in the first row:"
 msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:218
-#: libraries/plugins/export/ExportSql.class.php:648
+#: libraries/plugins/export/ExportSql.class.php:646
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:677
 #: libraries/server_privileges.lib.php:1330 libraries/sql.lib.php:422
@@ -8570,7 +8571,7 @@ msgid "Host:"
 msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:223
-#: libraries/plugins/export/ExportSql.class.php:655
+#: libraries/plugins/export/ExportSql.class.php:653
 #: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:426
 #, fuzzy
 #| msgid "Generate"
@@ -8578,7 +8579,7 @@ msgid "Generation Time:"
 msgstr "생성"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
-#: libraries/plugins/export/ExportSql.class.php:661
+#: libraries/plugins/export/ExportSql.class.php:659
 #: libraries/plugins/export/ExportXml.class.php:199
 #, fuzzy
 #| msgid "PHP extension:"
@@ -8586,7 +8587,7 @@ msgid "PHP Version:"
 msgstr "PHP 확장:"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
-#: libraries/plugins/export/ExportSql.class.php:811
+#: libraries/plugins/export/ExportSql.class.php:809
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/sql.lib.php:424
@@ -8596,7 +8597,7 @@ msgid "Database:"
 msgstr "데이터베이스"
 
 #: libraries/plugins/export/ExportLatex.class.php:304
-#: libraries/plugins/export/ExportSql.class.php:1763
+#: libraries/plugins/export/ExportSql.class.php:1761
 #, fuzzy
 #| msgid "Database"
 msgid "Data:"
@@ -8648,21 +8649,21 @@ msgstr ""
 "호환성을 최대화 할 수 있는 데이터베이스 시스템 또는 예전 버전의 MySQL 서버:"
 
 #: libraries/plugins/export/ExportSql.class.php:191
-#: libraries/plugins/export/ExportSql.class.php:234
-#: libraries/plugins/export/ExportSql.class.php:260
-#: libraries/plugins/export/ExportSql.class.php:267
-#: libraries/plugins/export/ExportSql.class.php:275
-#: libraries/plugins/export/ExportSql.class.php:285
-#: libraries/plugins/export/ExportSql.class.php:298
+#: libraries/plugins/export/ExportSql.class.php:233
+#: libraries/plugins/export/ExportSql.class.php:259
+#: libraries/plugins/export/ExportSql.class.php:266
+#: libraries/plugins/export/ExportSql.class.php:274
+#: libraries/plugins/export/ExportSql.class.php:284
+#: libraries/plugins/export/ExportSql.class.php:297
 #, php-format
 msgid "Add %s statement"
 msgstr "%s 구문 추가"
 
-#: libraries/plugins/export/ExportSql.class.php:227
+#: libraries/plugins/export/ExportSql.class.php:226
 msgid "Add statements:"
 msgstr "구문 추가:"
 
-#: libraries/plugins/export/ExportSql.class.php:323
+#: libraries/plugins/export/ExportSql.class.php:322
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -8670,37 +8671,37 @@ msgstr ""
 "테이블과 컬럼의 이름을 역따옴표로 감싸기 <i>(특수문자나 키워드가 포함된 컬럼"
 "이나 테이블의 이름을 보호함)</i>"
 
-#: libraries/plugins/export/ExportSql.class.php:339
+#: libraries/plugins/export/ExportSql.class.php:337
 msgid "Data creation options"
 msgstr "데이터 생성 옵션"
 
-#: libraries/plugins/export/ExportSql.class.php:343
-#: libraries/plugins/export/ExportSql.class.php:1870
+#: libraries/plugins/export/ExportSql.class.php:341
+#: libraries/plugins/export/ExportSql.class.php:1868
 msgid "Truncate table before insert"
 msgstr "삽입 전에 테이블 비우기"
 
-#: libraries/plugins/export/ExportSql.class.php:349
+#: libraries/plugins/export/ExportSql.class.php:347
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "<code>INSERT</code> 구문 대신 사용할 구문:"
 
-#: libraries/plugins/export/ExportSql.class.php:355
+#: libraries/plugins/export/ExportSql.class.php:353
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code> 문"
 
-#: libraries/plugins/export/ExportSql.class.php:366
-#: libraries/plugins/export/ExportSql.class.php:396
+#: libraries/plugins/export/ExportSql.class.php:364
+#: libraries/plugins/export/ExportSql.class.php:394
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:379
+#: libraries/plugins/export/ExportSql.class.php:377
 msgid "Function to use when dumping data:"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:392
+#: libraries/plugins/export/ExportSql.class.php:390
 msgid "Syntax to use when inserting data:"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:400
+#: libraries/plugins/export/ExportSql.class.php:398
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -8709,7 +8710,7 @@ msgstr ""
 "모든 <code>INSERT</code> 구문에 컬럼 이름을 포함<br />&nbsp; &nbsp; &nbsp;"
 "예: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
-#: libraries/plugins/export/ExportSql.class.php:405
+#: libraries/plugins/export/ExportSql.class.php:403
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -8718,7 +8719,7 @@ msgstr ""
 "모든 <code>INSERT</code> 구문에 여러개의 행을 삽입<br />&nbsp; &nbsp; &nbsp; "
 "예:<code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/plugins/export/ExportSql.class.php:410
+#: libraries/plugins/export/ExportSql.class.php:408
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -8726,7 +8727,7 @@ msgstr ""
 "위의 것 둘 다<br /> &nbsp; &nbsp; &nbsp; 예: <code>INSERT INTO tbl_name "
 "(col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/plugins/export/ExportSql.class.php:415
+#: libraries/plugins/export/ExportSql.class.php:413
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -8734,57 +8735,57 @@ msgstr ""
 "위의 것 둘 다 안 함<br /> &nbsp; &nbsp; &nbsp; 예: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 
-#: libraries/plugins/export/ExportSql.class.php:434
+#: libraries/plugins/export/ExportSql.class.php:432
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:447
+#: libraries/plugins/export/ExportSql.class.php:445
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1237
+#: libraries/plugins/export/ExportSql.class.php:1235
 msgid "Constraints for dumped tables"
 msgstr "덤프된 테이블의 제약사항"
 
-#: libraries/plugins/export/ExportSql.class.php:1247
+#: libraries/plugins/export/ExportSql.class.php:1245
 msgid "Constraints for table"
 msgstr "테이블의 제약사항"
 
-#: libraries/plugins/export/ExportSql.class.php:1281
+#: libraries/plugins/export/ExportSql.class.php:1279
 msgid "Indexes for dumped tables"
 msgstr "덤프된 테이블의 인덱스"
 
-#: libraries/plugins/export/ExportSql.class.php:1291
+#: libraries/plugins/export/ExportSql.class.php:1289
 msgid "Indexes for table"
 msgstr "테이블의 인덱스"
 
-#: libraries/plugins/export/ExportSql.class.php:1317
+#: libraries/plugins/export/ExportSql.class.php:1315
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "덤프된 테이블의 AUTO_INCREMENT"
 
-#: libraries/plugins/export/ExportSql.class.php:1327
+#: libraries/plugins/export/ExportSql.class.php:1325
 msgid "AUTO_INCREMENT for table"
 msgstr "테이블의 AUTO_INCREMENT"
 
-#: libraries/plugins/export/ExportSql.class.php:1544
+#: libraries/plugins/export/ExportSql.class.php:1542
 msgid "MIME TYPES FOR TABLE"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1569
+#: libraries/plugins/export/ExportSql.class.php:1567
 msgid "RELATIONS FOR TABLE"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1698
+#: libraries/plugins/export/ExportSql.class.php:1696
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "뷰 구조"
 
-#: libraries/plugins/export/ExportSql.class.php:1786
+#: libraries/plugins/export/ExportSql.class.php:1784
 msgid "Error reading data:"
 msgstr "데이터 읽기 오류:"
 
@@ -10656,27 +10657,27 @@ msgstr "%s에 대한 권한"
 msgid "Edit Privileges:"
 msgstr "권한 수정:"
 
-#: libraries/server_privileges.lib.php:3819 libraries/server_users.lib.php:25
+#: libraries/server_privileges.lib.php:3820 libraries/server_users.lib.php:25
 msgid "Users overview"
 msgstr "사용자 개요"
 
-#: libraries/server_privileges.lib.php:3903
+#: libraries/server_privileges.lib.php:3904
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "주의: phpMyAdmin은 사용자의 권한 정보를 MySQL의 privilege 테이블에서 가져옵니"
 "다. 만약 수동으로 서버의 권한 정보를 수정하였다면, 서버의 정보와 맞지 않을 "
 "수 있습니다. 이 경우, %sreload the privileges%s를 먼저 수행하세요."
 
-#: libraries/server_privileges.lib.php:3953
+#: libraries/server_privileges.lib.php:3954
 msgid "The selected user was not found in the privilege table."
 msgstr "선택한 사용자는 사용권한 테이블에 존재하지 않습니다."
 
-#: libraries/server_privileges.lib.php:4173
+#: libraries/server_privileges.lib.php:4174
 msgid "You have added a new user."
 msgstr "새 사용자를 추가했습니다."
 
@@ -13085,15 +13086,15 @@ msgstr "더 최신의 안정 버전이 없음"
 msgid "Wrong data"
 msgstr "잘못된 데이터"
 
-#: tbl_chart.php:38
+#: tbl_chart.php:34
 msgid "No data to display"
 msgstr "표시할 데이터 없음"
 
-#: tbl_chart.php:62 tbl_gis_visualization.php:24
+#: tbl_chart.php:58 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr "데이터를 가져오기 위한 SQL 쿼리가 없습니다."
 
-#: tbl_chart.php:120
+#: tbl_chart.php:116
 msgid "No numeric columns present in the table to plot."
 msgstr "테이블에 숫자형 컬럼이 없어 표시할 수 없습니다."
 
@@ -13531,8 +13532,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "전체 쿼리 캐시 크기(Size)에서 남은 쿼리 캐시 메모리의 현재 비율은 %s%% 입니"
 "다. 80%%보다 높아야 됩니다"
@@ -13662,8 +13663,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "정렬 연산의 %s%%가 임시 테이블을 생성합니다. 이 값은 10%% 미만인 것이 좋습니"
 "다."
