@@ -1056,25 +1056,6 @@ Server connection settings
     after logout (doesn't affect config authentication method). Should be
     absolute including protocol.
 
-.. config:option:: $cfg['Servers'][$i]['StatusCacheDatabases']
-
-    :type: array of strings
-    :default: array()
-
-    Enables caching of ``TABLE STATUS`` outputs for specific databases on
-    this server (in some cases ``TABLE STATUS`` can be very slow, so you
-    may want to cache it). APC is used (if the PHP extension is available,
-    if not, this setting is ignored silently). You have to provide
-    :config:option:`$cfg['Servers'][$i]['StatusCacheLifetime']`.
-
-.. config:option:: $cfg['Servers'][$i]['StatusCacheLifetime']
-
-    :type: integer
-    :default: 0
-
-    Lifetime in seconds of the ``TABLE STATUS`` cache if
-    :config:option:`$cfg['Servers'][$i]['StatusCacheDatabases']` is used.
-
 Generic settings
 ----------------
 
