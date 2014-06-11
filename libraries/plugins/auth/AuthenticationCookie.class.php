@@ -38,7 +38,6 @@ if (function_exists('mcrypt_encrypt')) {
     if (empty($_COOKIE['pma_mcrypt_iv'])
         || ! ($iv = base64_decode($_COOKIE['pma_mcrypt_iv'], true))
     ) {
-        srand((double) microtime() * 1000000);
         $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
         if ($td === false) {
             PMA_fatalError(__('Failed to use Blowfish from mcrypt!'));
