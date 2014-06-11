@@ -117,7 +117,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $header = $response->getHeader();
         $header->setBodyId('loginform');
         $header->setTitle('phpMyAdmin');
-        $header->disableMenu();
+        $header->disableMenuAndConsole();
         $header->disableWarnings();
 
         if (file_exists(CUSTOM_HEADER_FILE)) {
