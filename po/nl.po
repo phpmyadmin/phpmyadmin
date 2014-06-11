@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-10 12:46-0400\n"
-"PO-Revision-Date: 2014-05-29 16:09+0200\n"
+"PO-Revision-Date: 2014-06-11 10:53+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
-">\n"
+"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
+"\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -25,10 +25,10 @@ msgstr ""
 "voor meer informatie."
 
 #: db_central_columns.php:111
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "Weergave van records %1s - %2s"
+msgstr "Weergave van record(s) %1$s - %2$s"
 
 #: db_create.php:61
 #, php-format
@@ -1000,7 +1000,7 @@ msgstr "Voeg %s kolom(men) toe aan index"
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:365
 msgid "Preview SQL"
-msgstr ""
+msgstr "SQL voorbeeld"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:62 libraries/tbl_chart.lib.php:215
@@ -1733,19 +1733,17 @@ msgstr "Bekijk externe waarden"
 
 #: js/messages.php:282
 msgid "Pick"
-msgstr ""
+msgstr "Kies"
 
 #: js/messages.php:283
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "Geen kolom geselecteerd."
+msgstr "Kolomselectie"
 
 #: js/messages.php:284
-#, fuzzy
 #| msgid "Search this table"
 msgid "Search this list"
-msgstr "Zoek in deze tabel"
+msgstr "Zoek in deze lijst"
 
 #: js/messages.php:285
 #, php-format
@@ -1755,14 +1753,13 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:286
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "Vrij geheugen"
+msgstr "Meer"
 
 #: js/messages.php:287
 msgid "Are you sure?"
-msgstr ""
+msgstr "Bent u zeker?"
 
 #: js/messages.php:288
 msgid ""
@@ -1771,10 +1768,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:289
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "Bijdragen"
+msgstr "Verder gaan"
 
 #: js/messages.php:292 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -3175,10 +3171,9 @@ msgid "Designer"
 msgstr "Ontwerper"
 
 #: libraries/Menu.class.php:481 libraries/Util.class.php:4099
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "Tekstveldkolommen"
+msgstr "Centrale kolommen"
 
 #: libraries/Menu.class.php:513 libraries/Util.class.php:4071
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
@@ -4258,20 +4253,18 @@ msgid "Extra"
 msgstr "Extra"
 
 #: libraries/central_columns.lib.php:618
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Selecteer tabellen"
+msgstr "Selecteer een tabel"
 
 #: libraries/central_columns.lib.php:670 libraries/structure.lib.php:1649
 msgid "Add column"
 msgstr "Kolom toevoegen"
 
 #: libraries/central_columns.lib.php:682
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Selecteer twee kolommen"
+msgstr "Selecteer een kolom."
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -5196,10 +5189,9 @@ msgid "Add %s"
 msgstr "Voeg %s toe"
 
 #: libraries/config/messages.inc.php:176
-#, fuzzy
 #| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "Gebruik hexadecimaal voor BLOB"
+msgstr "Gebruik hexadecimaal voor BINARY & BLOB"
 
 #: libraries/config/messages.inc.php:178
 msgid "Use ignore inserts"
@@ -12647,10 +12639,9 @@ msgid "Start row:"
 msgstr "Startregel:"
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Opslaan als bestand"
+msgstr "Sla grafiek op als afbeelding"
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
@@ -12726,10 +12717,9 @@ msgid "Is a foreign key."
 msgstr "Is een externe sleutel."
 
 #: libraries/tbl_columns_definition_form.lib.php:606
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Pick from Central Columns"
-msgstr "Verwijderen uit centrale kolommen"
+msgstr "Kies uit centrale kolommen"
 
 #: libraries/tbl_columns_definition_form.lib.php:784
 msgid "first"
