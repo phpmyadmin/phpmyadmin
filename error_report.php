@@ -104,7 +104,7 @@ if (isset($_REQUEST['exception_type'])
 
         $reportData = PMA_getReportData('php');
         // report if and only if there were 'actual' errors.
-        if ($reportData) {
+        if (count($reportData) > 0) {
             $server_response = PMA_sendErrorReport($reportData);
             if ($server_response === false) {
                 $success = false;

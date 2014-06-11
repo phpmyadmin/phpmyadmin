@@ -54,8 +54,7 @@ function PMA_getPrettyReportData()
  *
  * @param string  $exception_type whether exception is 'js' or 'php'
  *
- * @return Array/String the report.
- *          False if there're no 'actual' errors to be reported (case for php errors)
+ * @return Array error report if success, Empty Array otherwise
  */
 function PMA_getReportData($exception_type = 'js')
 {
@@ -76,7 +75,7 @@ function PMA_getReportData($exception_type = 'js')
 
     if ($exception_type == 'js') {
         if (empty($_REQUEST['exception'])) {
-            return '';
+            return array();
         }
         $exception = $_REQUEST['exception'];
         $exception["stack"] = PMA_translateStacktrace($exception["stack"]);
@@ -99,7 +98,7 @@ function PMA_getReportData($exception_type = 'js')
         if (!isset($_SESSION['prev_errors'])
             || $_SESSION['prev_errors'] == ''
         ) {
-            return false;
+            return array();
         }
         foreach ($_SESSION['prev_errors'] as $errorObj) {
             if ($errorObj->getLine()
@@ -120,12 +119,12 @@ function PMA_getReportData($exception_type = 'js')
 
         // if there were no 'actual' errors to be submitted.
         if ($i==0) {
-            return false;   // then return false
+            return array();   // then return empty array
         }
         $report ["exception_type"] = 'php';
         $report["errors"] = $errors;
     } else {
-        return false;
+        return array();
     }
 
     return $report;
