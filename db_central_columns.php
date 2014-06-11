@@ -13,14 +13,14 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/central_columns.lib.php';
 
 if (isset($_POST['edit_save'])) {
-    $col_name = htmlspecialchars($_POST['col_name']);
-    $orig_col_name = htmlspecialchars($_POST['orig_col_name']);
-    $col_default = htmlspecialchars($_POST['col_default']);
-    $col_extra = htmlspecialchars($_POST['col_extra']);
-    $col_isNull	= isset($_POST['col_isNull'])?1:0;
-    $col_length	= htmlspecialchars($_POST['col_length']);
-    $col_type	= htmlspecialchars($_POST['col_type']);
-    $collation	= htmlspecialchars($_POST['collation']);
+    $col_name = $_POST['col_name'];
+    $orig_col_name = $_POST['orig_col_name'];
+    $col_default = $_POST['col_default'];
+    $col_extra = $_POST['col_extra'];
+    $col_isNull = isset($_POST['col_isNull'])?1:0;
+    $col_length = $_POST['col_length'];
+    $col_type = $_POST['col_type'];
+    $collation = $_POST['collation'];
     echo PMA_updateOneColumn(
         $db, $orig_col_name, $col_name, $col_type,
         $col_length, $col_isNull, $collation, $col_extra, $col_default
@@ -28,7 +28,7 @@ if (isset($_POST['edit_save'])) {
     exit;
 }
 if (isset($_POST['populateColumns'])) {
-    $selected_tbl = htmlspecialchars($_POST['selectedTable']);
+    $selected_tbl = $_POST['selectedTable'];
     echo PMA_getHTMLforColumnDropdown($db, $selected_tbl);
     exit;
 }
@@ -38,8 +38,8 @@ if (isset($_POST['getColumnList'])) {
 }
 if (isset($_POST['add_column'])) {
     $selected_col = array();
-    $selected_tbl = htmlspecialchars($_POST['table-select']);
-    $selected_col[] = htmlspecialchars($_POST['column-select']);
+    $selected_tbl = $_POST['table-select'];
+    $selected_col[] = $_POST['column-select'];
     $tmp_msg = PMA_syncUniqueColumns($selected_col, false, $selected_tbl);
 }
 $response = PMA_Response::getInstance();

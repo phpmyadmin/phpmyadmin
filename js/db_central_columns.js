@@ -89,13 +89,13 @@ AJAX.registerOnload('db_central_columns.js', function () {
                         false
                     );
                 } else {
-                    $('#f_'+rownum +' td[name=col_name] span').html($('#f_'+rownum +' input[name=col_name]').val());
-                    $('#f_'+rownum +' td[name=col_type] span').html($('#f_'+rownum +' select[name=col_type]').val());
-                    $('#f_'+rownum +' td[name=col_length] span').html($('#f_'+rownum +' input[name=col_length]').val());
-                    $('#f_'+rownum +' td[name=collation] span').html($('#f_'+rownum +' select[name=collation]').val());
-                    $('#f_'+rownum +' td[name=col_isNull] span').html($('#f_'+rownum +' input[name=col_isNull]').val());
-                    $('#f_'+rownum +' td[name=col_extra] span').html($('#f_'+rownum +' input[name=col_extra]').val());
-                    $('#f_'+rownum +' td[name=col_default] span').html($('#f_'+rownum +' input[name=col_default]').val());
+                    $('#f_'+rownum +' td[name=col_name] span').text($('#f_'+rownum +' input[name=col_name]').val()).html();
+                    $('#f_'+rownum +' td[name=col_type] span').text($('#f_'+rownum +' select[name=col_type]').val()).html();
+                    $('#f_'+rownum +' td[name=col_length] span').text($('#f_'+rownum +' input[name=col_length]').val()).html();
+                    $('#f_'+rownum +' td[name=collation] span').text($('#f_'+rownum +' select[name=collation]').val()).html();
+                    $('#f_'+rownum +' td[name=col_isNull] span').text($('#f_'+rownum +' input[name=col_isNull]').val()).html();
+                    $('#f_'+rownum +' td[name=col_extra] span').text($('#f_'+rownum +' input[name=col_extra]').val()).html();
+                    $('#f_'+rownum +' td[name=col_default] span').text($('#f_'+rownum +' input[name=col_default]').val()).html();
                 }
 
                 $('#save_'+rownum).hide();
