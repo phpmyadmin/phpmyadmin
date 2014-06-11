@@ -402,6 +402,7 @@ class PMA_Header
                 $retval .= $this->_getWarnings();
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
                     $retval .= $this->_menu->getDisplay();
+                    $retval .= '<span id="lock_page_icon"></span>';
                     $retval .= sprintf(
                         '<a id="goto_pagetop" href="#" title="%s">%s</a>',
                         __('Click on the bar to scroll to top of page'),

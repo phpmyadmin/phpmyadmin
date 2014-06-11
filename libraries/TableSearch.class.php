@@ -1149,7 +1149,7 @@ EOT;
 
         $html_output .= '<form method="post" action="' . $scriptName . '" '
             . 'name="insertForm" id="' . $formId . '" '
-            . 'class="ajax"' . '>';
+            . 'class="ajax lock-page"' . '>';
 
         $html_output .= PMA_URL_getHiddenInputs($this->_db, $this->_table);
         $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
