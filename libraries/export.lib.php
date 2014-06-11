@@ -457,12 +457,14 @@ function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
  * @param string $do_comments     whether to add comments
  * @param string $do_mime         whether to add MIME info
  * @param string $do_dates        whether to add dates
+ * @param array  $aliases         Alias information for db/table/column
  *
  * @return void
  */
 function PMA_exportServer(
     $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-    $export_type, $do_relation, $do_comments, $do_mime, $do_dates
+    $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
+    $aliases
 ) {
     if (! empty($db_select)) {
         $tmp_select = implode($db_select, '|');
@@ -477,7 +479,7 @@ function PMA_exportServer(
             PMA_exportDatabase(
                 $current_db, $tables, $whatStrucOrData, $export_plugin, $crlf,
                 $err_url, $export_type, $do_relation, $do_comments, $do_mime,
-                $do_dates
+                $do_dates, $aliases
             );
         }
     } // end foreach database
@@ -497,17 +499,21 @@ function PMA_exportServer(
  * @param string $do_comments     whether to add comments
  * @param string $do_mime         whether to add MIME info
  * @param string $do_dates        whether to add dates
+ * @param array  $aliases         Alias information for db/table/column
  *
  * @return void
  */
 function PMA_exportDatabase(
     $db, $tables, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-    $export_type, $do_relation, $do_comments, $do_mime, $do_dates
+    $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
+    $aliases
 ) {
-    if (! $export_plugin->exportDBHeader($db)) {
+    $db_alias = !empty($aliases[$db]['alias'])
+        ? $aliases[$db]['alias'] : '';
+    if (! $export_plugin->exportDBHeader($db, $db_alias)) {
         return;
     }
-    if (! $export_plugin->exportDBCreate($db)) {
+    if (! $export_plugin->exportDBCreate($db, $db_alias)) {
         return;
     }
 
@@ -515,7 +521,7 @@ function PMA_exportDatabase(
         && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false
         && isset($GLOBALS['sql_procedure_function'])
     ) {
-        $export_plugin->exportRoutines($db);
+        $export_plugin->exportRoutines($db, $aliases);
     }
 
     $views = array();
@@ -537,9 +543,9 @@ function PMA_exportDatabase(
 
                 if (isset($GLOBALS['sql_create_view'])) {
                     if (! $export_plugin->exportStructure(
-                        $db, $table, $crlf, $err_url,
-                        'stand_in', $export_type,
-                        $do_relation, $do_comments, $do_mime, $do_dates
+                        $db, $table, $crlf, $err_url, 'stand_in',
+                        $export_type, $do_relation, $do_comments,
+                        $do_mime, $do_dates, $aliases
                     )) {
                         break 1;
                     }
@@ -566,9 +572,9 @@ function PMA_exportDatabase(
                 }
 
                 if (! $export_plugin->exportStructure(
-                    $db, $table, $crlf, $err_url,
-                    'create_table', $export_type,
-                    $do_relation, $do_comments, $do_mime, $do_dates
+                    $db, $table, $crlf, $err_url, 'create_table',
+                    $export_type, $do_relation, $do_comments,
+                    $do_mime, $do_dates, $aliases
                 )) {
                     break 1;
                 }
@@ -584,7 +590,7 @@ function PMA_exportDatabase(
             $local_query  = 'SELECT * FROM ' . PMA_Util::backquote($db)
                 . '.' . PMA_Util::backquote($table);
             if (! $export_plugin->exportData(
-                $db, $table, $crlf, $err_url, $local_query
+                $db, $table, $crlf, $err_url, $local_query, $aliases
             )) {
                 break 1;
             }
@@ -595,9 +601,9 @@ function PMA_exportDatabase(
             || $whatStrucOrData == 'structure_and_data')
         ) {
             if (! $export_plugin->exportStructure(
-                $db, $table, $crlf, $err_url,
-                'triggers', $export_type,
-                $do_relation, $do_comments, $do_mime, $do_dates
+                $db, $table, $crlf, $err_url, 'triggers',
+                $export_type, $do_relation, $do_comments,
+                $do_mime, $do_dates, $aliases
             )) {
                 break 1;
             }
@@ -612,9 +618,9 @@ function PMA_exportDatabase(
                 || $whatStrucOrData == 'structure_and_data'
             ) {
                 if (! $export_plugin->exportStructure(
-                    $db, $view, $crlf, $err_url,
-                    'create_view', $export_type,
-                    $do_relation, $do_comments, $do_mime, $do_dates
+                    $db, $view, $crlf, $err_url, 'create_view',
+                    $export_type, $do_relation, $do_comments,
+                    $do_mime, $do_dates, $aliases
                 )) {
                     break 1;
                 }
@@ -623,7 +629,7 @@ function PMA_exportDatabase(
 
     }
 
-    if (! $export_plugin->exportDBFooter($db)) {
+    if (! $export_plugin->exportDBFooter($db, $db_alias)) {
         return;
     }
 }
@@ -655,7 +661,9 @@ function PMA_exportTable(
     $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
     $allrows, $limit_to, $limit_from, $sql_query, $aliases
 ) {
-    if (! $export_plugin->exportDBHeader($db)) {
+    $db_alias = !empty($aliases[$db]['alias'])
+        ? $aliases[$db]['alias'] : '';
+    if (! $export_plugin->exportDBHeader($db, $db_alias)) {
         return;
     }
     if (isset($allrows)
@@ -679,9 +687,9 @@ function PMA_exportTable(
 
             if (isset($GLOBALS['sql_create_view'])) {
                 if (! $export_plugin->exportStructure(
-                    $db, $table, $crlf, $err_url,
-                    'create_view', $export_type,
-                    $do_relation, $do_comments, $do_mime, $do_dates
+                    $db, $table, $crlf, $err_url, 'create_view',
+                    $export_type, $do_relation, $do_comments,
+                    $do_mime, $do_dates, $aliases
                 )) {
                     return;
                 }
@@ -690,9 +698,9 @@ function PMA_exportTable(
         } else if (isset($GLOBALS['sql_create_table'])) {
 
             if (! $export_plugin->exportStructure(
-                $db, $table, $crlf, $err_url,
-                'create_table', $export_type,
-                $do_relation, $do_comments, $do_mime, $do_dates, $aliases
+                $db, $table, $crlf, $err_url, 'create_table',
+                $export_type, $do_relation, $do_comments,
+                $do_mime, $do_dates, $aliases
             )) {
                 return;
             }
@@ -731,14 +739,14 @@ function PMA_exportTable(
         || $whatStrucOrData == 'structure_and_data')
     ) {
         if (! $export_plugin->exportStructure(
-            $db, $table, $crlf, $err_url,
-            'triggers', $export_type,
-            $do_relation, $do_comments, $do_mime, $do_dates, $aliases
+            $db, $table, $crlf, $err_url, 'triggers',
+            $export_type, $do_relation, $do_comments,
+            $do_mime, $do_dates, $aliases
         )) {
             return;
         }
     }
-    if (! $export_plugin->exportDBFooter($db)) {
+    if (! $export_plugin->exportDBFooter($db, $db_alias)) {
         return;
     }
 }
@@ -763,5 +771,59 @@ function PMA_showExportPage($export_type)
         include_once 'tbl_export.php';
     }
     exit();
+}
+
+/**
+ * Merge two alias arrays, if array1 and array2 have
+ * conflicting alias then array2 value is used if it
+ * is non empty otherwise array1 value.
+ *
+ * @param array $aliases1 first array of aliases
+ * @param array $aliases2 second array of aliases
+ *
+ * @return array resultant merged aliases info
+ */
+function PMA_mergeAliases($aliases1, $aliases2)
+{
+    // First do a recursive array merge
+    // on aliases arrays.
+    $aliases = array_merge_recursive($aliases1, $aliases2);
+    // Now, resolve conflicts in aliases, if any
+    foreach ($aliases as $db_name => $db) {
+        // If alias key is an array then
+        // it is a merge conflict.
+        if (isset($db['alias']) && is_array($db['alias'])) {
+            $val1 = $db['alias'][0];
+            $val2 = $db['alias'][1];
+            // Use aliases2 alias if non empty
+            $aliases[$db_name]['alias']
+                = empty($val2) ? $val1 : $val2;
+        }
+        if (!isset($db['tables'])) {
+            continue;
+        }
+        foreach ($db['tables'] as $tbl_name => $tbl) {
+            if (isset($tbl['alias']) && is_array($tbl['alias'])) {
+                $val1 = $tbl['alias'][0];
+                $val2 = $tbl['alias'][1];
+                // Use aliases2 alias if non empty
+                $aliases[$db_name]['tables'][$tbl_name]['alias']
+                    = empty($val2) ? $val1 : $val2;
+            }
+            if (!isset($tbl['columns'])) {
+                continue;
+            }
+            foreach ($tbl['columns'] as  $col => $col_as) {
+                if (isset($col_as) && is_array($col_as)) {
+                    $val1 = $col_as[0];
+                    $val2 = $col_as[1];
+                    // Use aliases2 alias if non empty
+                    $aliases[$db_name]['tables'][$tbl_name]['columns'][$col]
+                        = empty($val2) ? $val1 : $val2;
+                }
+            };
+        };
+    }
+    return $aliases;
 }
 ?>

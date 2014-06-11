@@ -126,6 +126,7 @@ if (!defined('TESTSUITE')) {
             'sql_hex_for_binary',
             'sql_utc_time',
             'sql_drop_database',
+            'sql_views_as_tables',
             'csv_separator',
             'csv_enclosed',
             'csv_escaped',
@@ -147,7 +148,8 @@ if (!defined('TESTSUITE')) {
             'latex_data_caption',
             'latex_data_continued_caption',
             'latex_data_label',
-            'latex_null'
+            'latex_null',
+            'aliases'
     );
 
     foreach ($post_params as $one_post_param) {
@@ -239,6 +241,18 @@ if (!defined('TESTSUITE')) {
         $err_url = 'tbl_export.php?' . PMA_URL_getCommon($db, $table);
     } else {
         PMA_fatalError(__('Bad parameters!'));
+    }
+
+    // Merge SQL Query aliases with Export aliases from
+    // export page, Export page aliases are given more
+    // preference over SQL Query aliases.
+    if (!empty($_REQUEST['aliases'])) {
+        $aliases = PMA_mergeAliases(
+            PMA_SQP_getAliasesFromQuery($sql_query, $db),
+            $_REQUEST['aliases']
+        );
+    } else {
+        $aliases = PMA_SQP_getAliasesFromQuery($sql_query, $db);
     }
 
     /**
@@ -370,12 +384,14 @@ if (!defined('TESTSUITE')) {
             }
             PMA_exportServer(
                 $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-                $export_type, $do_relation, $do_comments, $do_mime, $do_dates
+                $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
+                $aliases
             );
         } elseif ($export_type == 'database') {
             PMA_exportDatabase(
                 $db, $tables, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-                $export_type, $do_relation, $do_comments, $do_mime, $do_dates
+                $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
+                $aliases
             );
         } else {
             // We export just one table
@@ -392,8 +408,7 @@ if (!defined('TESTSUITE')) {
             PMA_exportTable(
                 $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
                 $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                $allrows, $limit_to, $limit_from, $sql_query,
-                PMA_SQP_getAliasesFromQuery($sql_query, $db)
+                $allrows, $limit_to, $limit_from, $sql_query, $aliases
             );
         }
         if (! $export_plugin->exportFooter()) {
