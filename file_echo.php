@@ -68,5 +68,4 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
     }
     echo file_get_contents($_FILES['file']['tmp_name']);
 }
-
 ?>

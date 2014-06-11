@@ -30,6 +30,5 @@ if (! PMA_isValid($_GET['url'])
     // Display redirecting msg on screen.
     printf(__('Taking you to %s.'), htmlspecialchars($_GET['url']));
 }
-
 die();
 ?>

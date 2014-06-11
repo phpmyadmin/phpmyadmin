@@ -84,5 +84,4 @@ if (! empty($sql_query)) {
 
 $export_type = 'table';
 require_once 'libraries/display_export.inc.php';
-
 ?>

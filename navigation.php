@@ -68,5 +68,4 @@ if ($cfgRelation['navwork']) {
 
 // Do the magic
 $response->addJSON('message', $navigation->getDisplay());
-
 ?>

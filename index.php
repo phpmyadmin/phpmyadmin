@@ -662,5 +662,4 @@ function PMA_printListItem($name, $listId = null, $url = null,
     }
     echo '</li>';
 }
-
 ?>

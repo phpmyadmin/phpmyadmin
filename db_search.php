@@ -60,5 +60,4 @@ $response->addHTML(
 );
 $response->addHTML($db_search->getSelectionForm());
 $response->addHTML($db_search->getResultDivs());
-
 ?>

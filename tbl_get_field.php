@@ -52,5 +52,4 @@ PMA_downloadHeader(
     strlen($result)
 );
 echo $result;
-
 ?>

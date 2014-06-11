@@ -130,5 +130,4 @@ function PMD_Return_new($b,$ret)
     '" F2="' . urlencode($F2) .
     '"></root>');
 }
-
 ?>

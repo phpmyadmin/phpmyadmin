@@ -212,5 +212,4 @@ if ($insert_mode) {
 }
 
 $response->addHTML($html_output);
-
 ?>

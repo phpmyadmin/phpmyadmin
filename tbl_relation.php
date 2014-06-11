@@ -157,5 +157,4 @@ if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
 }
 // Render HTML output
 PMA_Response::getInstance()->addHTML($html_output);
-
 ?>

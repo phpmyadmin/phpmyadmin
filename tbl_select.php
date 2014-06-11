@@ -70,5 +70,4 @@ if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns']))
         null, null
     );
 }
-
 ?>

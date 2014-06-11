@@ -48,7 +48,6 @@ $response->addHTML('<div>');
 $response->addHTML($ServerStatusData->getMenuHtml());
 $response->addHTML(PMA_getHtmlForQueryStatistics($ServerStatusData));
 $response->addHTML('</div>');
-
 exit;
 
 ?>

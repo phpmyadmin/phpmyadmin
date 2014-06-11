@@ -89,5 +89,4 @@ if ($form_display->hasErrors()) {
     <?php
 }
 $form_display->display(true, true);
-
 ?>

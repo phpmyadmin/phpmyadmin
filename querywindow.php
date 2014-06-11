@@ -205,5 +205,4 @@ echo '<input type="hidden" name="querydisplay_tab" value="'
     . $querydisplay_tab . '" />';
 echo '</form>';
 echo '</div>';
-
 ?>

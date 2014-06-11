@@ -935,5 +935,4 @@ echo '<img src="'
     . $_SESSION['PMA_Theme']->getImgPath('pmd/uparrow2_m.png')
     . '" width="0" height="0" alt="" />'
     . '<div id="PMA_disable_floating_menubar"></div>';
-
 ?>
