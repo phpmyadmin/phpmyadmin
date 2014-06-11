@@ -2914,12 +2914,12 @@ AJAX.registerOnload('functions.js', function () {
         var list_size = central_column_list[db+'_'+table].length;
         var min = (list_size<=maxRows)?list_size:maxRows;
         for (i = 0; i<min; i++) {
-            fields += '<tr><td><div><span style="font-size:14px; font-weight:bold">'+central_column_list[db+'_'+table][i].col_name+
+            fields += '<tr><td><div><span style="font-size:14px; font-weight:bold">'+escapeHtml(central_column_list[db+'_'+table][i].col_name)+
                 '</span><br><span style="color:gray">'+central_column_list[db+'_'+table][i].col_type;
             if(central_column_list[db+'_'+table][i].col_length !== '') {
-                fields += '('+central_column_list[db+'_'+table][i].col_length+') ';
+                fields += '('+escapeHtml(central_column_list[db+'_'+table][i].col_length)+') ';
             }
-            fields += central_column_list[db+'_'+table][i].col_extra+'</span>'+
+            fields += escapeHtml(central_column_list[db+'_'+table][i].col_extra)+'</span>'+
                 '</div></td><td><input class="pick" style="width:100%" type="submit" value="'+PMA_messages.pickColumn+'" onclick="autoPopulate(\''+colid+'\','+i+')"/></td></tr>';
         }
         var result_pointer = i;
