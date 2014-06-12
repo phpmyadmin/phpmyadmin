@@ -58,6 +58,7 @@ function PMA_getPrettyReportData()
  */
 function PMA_getReportData($exception_type = 'js')
 {
+    $relParams = PMA_getRelationsParam();
     // common params for both, php & js execptions
     $report = array(
             "pma_version" => PMA_VERSION,
@@ -68,7 +69,7 @@ function PMA_getReportData($exception_type = 'js')
             "user_agent_string" => $_SERVER['HTTP_USER_AGENT'],
             "locale" => $_COOKIE['pma_lang'],
             "configuration_storage" =>
-                is_null(PMA_getRelationsParam()['db']) ? "disabled" :
+                is_null($relParams['db']) ? "disabled" :
                 "enabled",
             "php_version" => phpversion()
             );
