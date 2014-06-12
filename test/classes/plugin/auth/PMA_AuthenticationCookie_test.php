@@ -574,7 +574,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = '';
-        $_COOKIE['pma_mcrypt_iv'] = base64_encode('testiv09');
+        $_COOKIE['pma_iv'] = base64_encode('testiv09');
 
         $this->assertFalse(
             $this->object->authCheck()
@@ -590,7 +590,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
-        $_COOKIE['pma_mcrypt_iv'] = base64_encode('testiv09');
+        $_COOKIE['pma_iv'] = base64_encode('testiv09');
         $_COOKIE['pmaPass-1'] = '';
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = time() - 1000;
@@ -665,7 +665,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
-        $_COOKIE['pma_mcrypt_iv'] = base64_encode('testiv09');
+        $_COOKIE['pma_iv'] = base64_encode('testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = '';
         $_SESSION['last_valid_captcha'] = true;
@@ -673,11 +673,11 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         // mock for blowfish function
         $this->object = $this->getMockBuilder('AuthenticationCookie')
             ->disableOriginalConstructor()
-            ->setMethods(array('blowfishDecrypt'))
+            ->setMethods(array('cookieDecrypt'))
             ->getMock();
 
         $this->object->expects($this->once())
-            ->method('blowfishDecrypt')
+            ->method('cookieDecrypt')
             ->will($this->returnValue('testBF'));
 
         $this->assertFalse(
@@ -704,7 +704,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pmaPass-1'] = 'pmaPass1';
-        $_COOKIE['pma_mcrypt_iv'] = base64_encode('testiv09');
+        $_COOKIE['pma_iv'] = base64_encode('testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_valid_captcha'] = true;
         $_SESSION['last_access_time'] = time() - 1000;
@@ -713,11 +713,11 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         // mock for blowfish function
         $this->object = $this->getMockBuilder('AuthenticationCookie')
             ->disableOriginalConstructor()
-            ->setMethods(array('blowfishDecrypt'))
+            ->setMethods(array('cookieDecrypt'))
             ->getMock();
 
         $this->object->expects($this->at(1))
-            ->method('blowfishDecrypt')
+            ->method('cookieDecrypt')
             ->will($this->returnValue("\xff(blank)"));
 
         $this->assertTrue(
@@ -748,7 +748,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
-        $_COOKIE['pma_mcrypt_iv'] = base64_encode('testiv09');
+        $_COOKIE['pma_iv'] = base64_encode('testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = 1;
         $_SESSION['last_valid_captcha'] = true;
@@ -1049,52 +1049,34 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::blowfishEncrypt
+     * Test for AuthenticationConfig::cookieEncrypt
      *
      * @return void
      */
     public function testBlowfishEncrypt()
     {
-        if (! function_exists('mcrypt_encrypt')) {
-            $this->assertEquals(
-                '/xytF/kXKuBx7zHzGexkFw==',
-                $this->object->blowfishEncrypt('data123', 'sec321')
-            );
-        } else {
-            //using our own iv for testing
-            $this->object->createBlowfishIV();
-            $this->object->setBlowfishIv('testiv09');
-            $this->assertEquals(
-                'x/2GwHKoPyc=',
-                $this->object->blowfishEncrypt('data123', 'sec321')
-            );
-        }
+        $this->object->setIV('testiv09');
+        $this->assertEquals(
+            'vzJVtW8Ujd4phw7Cxl2PcQ==',
+            $this->object->cookieEncrypt('data123', 'sec321')
+        );
     }
 
     /**
-     * Test for AuthenticationConfig::blowfishDecrypt
+     * Test for AuthenticationConfig::cookieDecrypt
      *
      * @return void
      */
     public function testBlowfishDecrypt()
     {
-        if (function_exists('mcrypt_encrypt')) {
-
-            //using our own iv for testing
-            $this->object->setBlowfishIv('testiv09');
-            $this->assertEquals(
-                'data123',
-                $this->object->blowfishDecrypt('x/2GwHKoPyc=', 'sec321')
-            );
-        } else {
-            $this->assertEquals(
-                'data123',
-                $this->object->blowfishDecrypt(
-                    '/xytF/kXKuBx7zHzGexkFw==',
-                    'sec321'
-                )
-            );
-        }
+        $this->object->setIV('testiv09');
+        $this->assertEquals(
+            'data123',
+            $this->object->cookieDecrypt(
+                'vzJVtW8Ujd4phw7Cxl2PcQ==',
+                'sec321'
+            )
+        );
     }
 
 

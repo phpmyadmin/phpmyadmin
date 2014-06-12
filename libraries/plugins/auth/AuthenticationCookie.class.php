@@ -29,6 +29,12 @@ if (! empty($_REQUEST['target'])) {
 require './libraries/plugins/auth/swekey/swekey.auth.lib.php';
 
 /**
+ * phpseclib
+ */
+include_once PHPSECLIB_INC_DIR . '/Crypt/AES.php';
+include_once PHPSECLIB_INC_DIR . '/Crypt/Random.php';
+
+/**
  * Handles the cookie authentication method
  *
  * @package PhpMyAdmin-Authentication
@@ -38,7 +44,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     /**
      * IV for Blowfish.
      */
-    private $_blowfish_iv = null;
+    private $_cookie_iv = null;
 
     /**
      * Displays authentication form
@@ -443,12 +449,12 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // check cookies
         if (empty($_COOKIE['pmaUser-' . $GLOBALS['server']])
-            || empty($_COOKIE['pma_mcrypt_iv'])
+            || empty($_COOKIE['pma_iv'])
         ) {
             return false;
         }
 
-        $GLOBALS['PHP_AUTH_USER'] = $this->blowfishDecrypt(
+        $GLOBALS['PHP_AUTH_USER'] = $this->cookieDecrypt(
             $_COOKIE['pmaUser-' . $GLOBALS['server']],
             $this->_getBlowfishSecret()
         );
@@ -481,7 +487,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             return false;
         }
 
-        $GLOBALS['PHP_AUTH_PW'] = $this->blowfishDecrypt(
+        $GLOBALS['PHP_AUTH_PW'] = $this->cookieDecrypt(
             $_COOKIE['pmaPass-' . $GLOBALS['server']],
             $this->_getBlowfishSecret()
         );
@@ -551,13 +557,13 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $_SESSION['last_access_time'] = time();
 
-        $this->createBlowfishIV();
+        $this->createIV();
 
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
         $GLOBALS['PMA_Config']->setCookie(
             'pmaUser-' . $GLOBALS['server'],
-            $this->blowfishEncrypt(
+            $this->cookieEncrypt(
                 $cfg['Server']['user'],
                 $this->_getBlowfishSecret()
             )
@@ -566,7 +572,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Duration = as configured
         $GLOBALS['PMA_Config']->setCookie(
             'pmaPass-' . $GLOBALS['server'],
-            $this->blowfishEncrypt(
+            $this->cookieEncrypt(
                 ! empty($cfg['Server']['password'])
                 ? $cfg['Server']['password'] : "\xff(blank)",
                 $this->_getBlowfishSecret()
@@ -688,30 +694,12 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @return string the encrypted result
      */
-    public function blowfishEncrypt($data, $secret)
+    public function cookieEncrypt($data, $secret)
     {
-        if (! function_exists('mcrypt_encrypt')) {
-            /**
-             * This library uses mcrypt when available, so
-             * we could always call it instead of having an
-             * if/then/else logic, however the include_once
-             * call is costly
-             */
-            include_once PHPSECLIB_INC_DIR . '/Crypt/AES.php';
-            $cipher = new Crypt_AES(CRYPT_AES_MODE_ECB);
-            $cipher->setKey($secret);
-            return base64_encode($cipher->encrypt($data));
-        } else {
-            return base64_encode(
-                mcrypt_encrypt(
-                    MCRYPT_BLOWFISH,
-                    $secret,
-                    $data,
-                    MCRYPT_MODE_CBC,
-                    $this->_blowfish_iv
-                )
-            );
-        }
+        $cipher = new Crypt_AES(CRYPT_AES_MODE_CBC);
+        $cipher->setIV($this->_cookie_iv);
+        $cipher->setKey($secret);
+        return base64_encode($cipher->encrypt($data));
     }
 
     /**
@@ -723,27 +711,16 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @return string original data
      */
-    public function blowfishDecrypt($encdata, $secret)
+    public function cookieDecrypt($encdata, $secret)
     {
-        if (is_null($this->_blowfish_iv)) {
-            $this->_blowfish_iv = base64_decode($_COOKIE['pma_mcrypt_iv'], true);
+        if (is_null($this->_cookie_iv)) {
+            $this->_cookie_iv = base64_decode($_COOKIE['pma_iv'], true);
         }
-        if (! function_exists('mcrypt_encrypt')) {
-            include_once PHPSECLIB_INC_DIR . '/Crypt/AES.php';
-            $cipher = new Crypt_AES(CRYPT_AES_MODE_ECB);
-            $cipher->setKey($secret);
-            return $cipher->decrypt(base64_decode($encdata));
-        } else {
-            $data = base64_decode($encdata);
-            $decrypted = mcrypt_decrypt(
-                MCRYPT_BLOWFISH,
-                $secret,
-                $data,
-                MCRYPT_MODE_CBC,
-                $this->_blowfish_iv
-            );
-            return trim($decrypted);
-        }
+
+        $cipher = new Crypt_AES(CRYPT_AES_MODE_CBC);
+        $cipher->setIV($this->_cookie_iv);
+        $cipher->setKey($secret);
+        return $cipher->decrypt(base64_decode($encdata));
     }
 
     /**
@@ -754,22 +731,14 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @return void
      */
-    public function createBlowfishIV()
+    public function createIV()
     {
-        if (function_exists('mcrypt_encrypt')) {
-            $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
-            if ($td === false) {
-                PMA_fatalError(__('Failed to use Blowfish from mcrypt!'));
-            }
-            $this->_blowfish_iv = mcrypt_create_iv(
-                mcrypt_enc_get_iv_size($td),
-                MCRYPT_DEV_URANDOM
-            );
-            $GLOBALS['PMA_Config']->setCookie(
-                'pma_mcrypt_iv',
-                base64_encode($this->_blowfish_iv)
-            );
-        }
+        $cipher = new Crypt_AES(CRYPT_AES_MODE_CBC);
+        $this->_cookie_iv = crypt_random_string($cipher->block_size);
+        $GLOBALS['PMA_Config']->setCookie(
+            'pma_iv',
+            base64_encode($this->_cookie_iv)
+        );
     }
 
     /**
@@ -779,9 +748,9 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @return void
      */
-    public function setBlowfishIv($vector)
+    public function setIV($vector)
     {
-        $this->_blowfish_iv = $vector;
+        $this->_cookie_iv = $vector;
     }
 
     /**
