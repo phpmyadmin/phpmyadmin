@@ -68,7 +68,7 @@ function PMA_getReportData($exception_type = 'js')
             "user_agent_string" => $_SERVER['HTTP_USER_AGENT'],
             "locale" => $_COOKIE['pma_lang'],
             "configuration_storage" =>
-                empty($GLOBALS['cfg']['Servers'][1]['pmadb']) ? "disabled" :
+                is_null(PMA_getRelationsParam()['db']) ? "disabled" :
                 "enabled",
             "php_version" => phpversion()
             );
