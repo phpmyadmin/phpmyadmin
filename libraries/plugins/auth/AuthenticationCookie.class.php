@@ -31,8 +31,8 @@ require './libraries/plugins/auth/swekey/swekey.auth.lib.php';
 /**
  * phpseclib
  */
-include_once PHPSECLIB_INC_DIR . '/Crypt/AES.php';
-include_once PHPSECLIB_INC_DIR . '/Crypt/Random.php';
+require PHPSECLIB_INC_DIR . '/Crypt/AES.php';
+require PHPSECLIB_INC_DIR . '/Crypt/Random.php';
 
 /**
  * Handles the cookie authentication method
