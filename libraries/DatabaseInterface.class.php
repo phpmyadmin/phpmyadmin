@@ -1104,72 +1104,7 @@ class PMA_DatabaseInterface
         if (count($sql_wheres)) {
             $sql .= "\n" . ' WHERE ' . implode(' AND ', $sql_wheres);
         }
-
-        $columns = $this->fetchResult($sql, $array_keys, null, $link);
-        unset($sql_wheres, $sql);
-
-        $ordinal_position = 1;
-        foreach ($columns as $column_name => $each_column) {
-
-            // MySQL forward compatibility
-            // so pma could use this array as if every server is of version >5.0
-            // todo : remove and check the rest of the code for usage,
-            // MySQL 5.0 or higher is required for current PMA version
-            $columns[$column_name]['COLUMN_NAME']
-                =& $columns[$column_name]['Field'];
-            $columns[$column_name]['COLUMN_TYPE']
-                =& $columns[$column_name]['Type'];
-            $columns[$column_name]['COLLATION_NAME']
-                =& $columns[$column_name]['Collation'];
-            $columns[$column_name]['IS_NULLABLE']
-                =& $columns[$column_name]['Null'];
-            $columns[$column_name]['COLUMN_KEY']
-                =& $columns[$column_name]['Key'];
-            $columns[$column_name]['COLUMN_DEFAULT']
-                =& $columns[$column_name]['Default'];
-            $columns[$column_name]['EXTRA']
-                =& $columns[$column_name]['Extra'];
-            $columns[$column_name]['PRIVILEGES']
-                =& $columns[$column_name]['Privileges'];
-            $columns[$column_name]['COLUMN_COMMENT']
-                =& $columns[$column_name]['Comment'];
-
-            $columns[$column_name]['TABLE_CATALOG'] = null;
-            $columns[$column_name]['TABLE_SCHEMA'] = $database;
-            $columns[$column_name]['TABLE_NAME'] = $table;
-            $columns[$column_name]['ORDINAL_POSITION'] = $ordinal_position;
-            $columns[$column_name]['DATA_TYPE']
-                = substr(
-                    $columns[$column_name]['COLUMN_TYPE'],
-                    0,
-                    strpos($columns[$column_name]['COLUMN_TYPE'], '(')
-                );
-            /**
-             * @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE
-             */
-            $columns[$column_name]['CHARACTER_MAXIMUM_LENGTH'] = null;
-            /**
-             * @todo guess CHARACTER_OCTET_LENGTH from CHARACTER_MAXIMUM_LENGTH
-             */
-            $columns[$column_name]['CHARACTER_OCTET_LENGTH'] = null;
-            $columns[$column_name]['NUMERIC_PRECISION'] = null;
-            $columns[$column_name]['NUMERIC_SCALE'] = null;
-            $columns[$column_name]['CHARACTER_SET_NAME']
-                = substr(
-                    $columns[$column_name]['COLLATION_NAME'],
-                    0,
-                    strpos($columns[$column_name]['COLLATION_NAME'], '_')
-                );
-
-            $ordinal_position++;
-        }
-
-        if (null !== $column) {
-            reset($columns);
-            $columns = current($columns);
-        }
-
-        return $columns;
+        return $this->fetchResult($sql, $array_keys, null, $link);
     }
 
     /**
