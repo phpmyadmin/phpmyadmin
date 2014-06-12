@@ -488,7 +488,7 @@ if ($GLOBALS['cfg']['LoginCookieStore'] != 0
 /**
  * Check if user does not have defined blowfish secret and it is being used.
  */
-if (! empty($_SESSION['auto_blowfish_secret'])
+if (! empty($_SESSION['encryption_key'])
     && empty($GLOBALS['cfg']['blowfish_secret'])
 ) {
     trigger_error(

@@ -658,7 +658,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testAuthCheckBlowfishCase()
+    public function testAuthCheckDecryptUser()
     {
         $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
@@ -696,7 +696,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testAuthCheckBlowfishCaseSecond()
+    public function testAuthCheckDecryptPassword()
     {
         $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
@@ -1008,32 +1008,32 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for AuthenticationConfig::_getBlowfishSecret
+     * Test for AuthenticationConfig::_getEncryptionSecret
      *
      * @return void
      */
-    public function testGetBlowfishSecret()
+    public function testGetEncryptionSecret()
     {
         $method = new \ReflectionMethod(
             'AuthenticationCookie',
-            '_getBlowfishSecret'
+            '_getEncryptionSecret'
         );
         $method->setAccessible(true);
 
         // case 1
 
         $GLOBALS['cfg']['blowfish_secret'] = '';
-        $_SESSION['auto_blowfish_secret'] = '';
+        $_SESSION['encryption_key'] = '';
 
         $result = $method->invoke($this->object, null);
 
         $this->assertEquals(
             $result,
-            $_SESSION['auto_blowfish_secret']
+            $_SESSION['encryption_key']
         );
 
         $this->assertEquals(
-            23,
+            256,
             strlen($result)
         );
 
@@ -1054,7 +1054,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testBlowfishEncrypt()
+    public function testCookieEncrypt()
     {
         $this->object->setIV('testiv09');
         $this->assertEquals(
@@ -1068,7 +1068,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testBlowfishDecrypt()
+    public function testCookieDecrypt()
     {
         $this->object->setIV('testiv09');
         $this->assertEquals(
