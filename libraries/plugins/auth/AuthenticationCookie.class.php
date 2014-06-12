@@ -443,7 +443,6 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // check cookies
         if (empty($_COOKIE['pmaUser-' . $GLOBALS['server']])
-            || empty($_COOKIE['pmaPass-' . $GLOBALS['server']])
             || empty($_COOKIE['pma_mcrypt_iv'])
         ) {
             return false;
@@ -475,6 +474,11 @@ class AuthenticationCookie extends AuthenticationPlugin
             } else {
                 return false;
             }
+        }
+
+        // check password cookie
+        if (empty($_COOKIE['pmaPass-' . $GLOBALS['server']])) {
+            return false;
         }
 
         $GLOBALS['PHP_AUTH_PW'] = $this->blowfishDecrypt(
