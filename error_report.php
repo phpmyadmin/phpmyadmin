@@ -8,77 +8,19 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/error_report.lib.php';
 
+if (!isset($_REQUEST['exception_type'])
+    ||!in_array($_REQUEST['exception_type'], array('js', 'php'))
+) {
+    die('Oops, something went wrong!!');
+}
+
 $response = PMA_Response::getInstance();
 
-if (isset($_REQUEST['exception_type'])
-    && $_REQUEST['exception_type'] == 'js'
+if (isset($_REQUEST['send_error_report'])
+    && ($_REQUEST['send_error_report'] == true
+            || $_REQUEST['send_error_report'] == '1')
 ) {
-    if (isset($_REQUEST['send_error_report'])
-        && $_REQUEST['send_error_report'] == true
-    ) {
-        $server_response = PMA_sendErrorReport(PMA_getReportData());
-
-        if ($server_response === false) {
-            $success = false;
-        } else {
-            $decoded_response = json_decode($server_response, true);
-            $success = !empty($decoded_response) ? $decoded_response["success"] : false;
-        }
-
-        /* Message to show to the user */
-        if ($success) {
-            if (isset($_REQUEST['automatic'])
-                && $_REQUEST['automatic'] === "true"
-            ) {
-                $message = __(
-                    'An error has been detected and an error report has been '
-                    . 'automatically submitted based on your settings.'
-                );
-            } else {
-                $message = __('Thank you for submitting this report.');
-            }
-        } else {
-            $message = __(
-                'An error has been detected and an error report has been '
-                . 'generated but failed to be sent.'
-            )
-            . ' '
-            . __(
-                'If you experience any '
-                . 'problems please submit a bug report manually.'
-            );
-        }
-        $message .= ' ' . __('You may want to refresh the page.');
-
-        /* Create message object */
-        if ($success) {
-            $message = PMA_Message::notice($message);
-        } else {
-            $message = PMA_Message::error($message);
-        }
-
-        /* Add message to JSON response */
-        $response->addJSON('message', $message);
-
-        /* Persist always send settings */
-        if (! isset($_REQUEST['automatic'])
-            && $_REQUEST['automatic'] !== "true"
-            && isset($_REQUEST['always_send'])
-            && $_REQUEST['always_send'] === "true"
-        ) {
-            PMA_persistOption("SendErrorReports", "always", "ask");
-        }
-    } elseif (! empty($_REQUEST['get_settings'])) {
-        $response->addJSON('report_setting', $GLOBALS['cfg']['SendErrorReports']);
-    } else {
-        $response->addHTML(PMA_getErrorReportForm());
-    }
-} elseif (isset($_REQUEST['exception_type'])
-    && $_REQUEST['exception_type'] == 'php'
-) {
-    if (isset($_REQUEST['send_error_report'])
-        && $_REQUEST['send_error_report'] == '1'
-    ) {
+    if ($_REQUEST['exception_type'] == 'php') {
         /**
          * Prevent inifnite error submission.
          * Happens in case error submissions fails.
@@ -101,68 +43,88 @@ if (isset($_REQUEST['exception_type'])
                     : (0)
             );
         }
+    }
+    $reportData = PMA_getReportData($_REQUEST['exception_type']);
+    // report if and only if there were 'actual' errors.
+    if (count($reportData) > 0) {
+        $server_response = PMA_sendErrorReport($reportData);
+        if ($server_response === false) {
+            $success = false;
+        } else {
+            $decoded_response = json_decode($server_response, true);
+            $success = !empty($decoded_response) ? $decoded_response["success"] : false;
+        }
 
-        $reportData = PMA_getReportData('php');
-        // report if and only if there were 'actual' errors.
-        if (count($reportData) > 0) {
-            $server_response = PMA_sendErrorReport($reportData);
-            if ($server_response === false) {
-                $success = false;
+        /* Message to show to the user */
+        if ($success) {
+            if ((isset($_REQUEST['automatic'])
+                    && $_REQUEST['automatic'] === "true")
+                || $GLOBALS['cfg']['SendErrorReports'] == 'always'
+            ) {
+                $msg = __(
+                    'An error has been detected and an error report has been '
+                    . 'automatically submitted based on your settings.'
+                );
             } else {
-                $decoded_response = json_decode($server_response, true);
-                $success = !empty($decoded_response) ? $decoded_response["success"] : false;
+                $msg = __('Thank you for submitting this report.');
             }
+        } else {
+            $msg = __(
+                'An error has been detected and an error report has been '
+                . 'generated but failed to be sent.'
+            )
+            . ' '
+            . __(
+                'If you experience any '
+                . 'problems please submit a bug report manually.'
+            );
+        }
+        $msg .= ' ' . __('You may want to refresh the page.');
 
-            if ($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
-                if ($success) {
-                    $errSubmitMsg = PMA_Message::error(
-                        __('Thank You for subitting error report!!')
-                        . '<br/>'
-                        . __('Report has been succesfully submitted.')
-                    );
-                } else {
-                    $errSubmitMsg = PMA_Message::error(
-                        __('Thank You for subitting error report!!')
-                        . '<br/>'
-                        . __(' Unfortunately submission failed.')
-                        . '<br/>'
-                        . __(' If you experience any problems please submit a bug report manually.')
-                    );
-                }
-            } elseif ($GLOBALS['cfg']['SendErrorReports'] == 'always') {
-                if ($success) {
-                    $errSubmitMsg = PMA_Message::error(
-                        __(
-                            'An error has been detected on the server and an error report has been '
-                            . 'automatically submitted based on your settings.'
-                        )
-                    );
-                } else {
-                    $errSubmitMsg = PMA_Message::error(
-                        __(
-                            'An error has been detected and an error report has been '
-                            . 'generated but failed to be sent.'
-                        )
-                        . '<br/>'
-                        . __('If you experience any problems please submit a bug report manually.')
-                    );
-                }
-            }
+        /* Create message object */
+        if ($success) {
+            $msg = PMA_Message::notice($msg);
+        } else {
+            $msg = PMA_Message::error($msg);
+        }
 
-            if ($response->isAjax()) {
-                $response->addJSON('_errSubmitMsg', $errSubmitMsg);
+        /* Add message to response */
+        if ($response->isAjax()) {
+            if ($_REQUEST['exception_type'] == 'js') {
+                $response->addJSON('message', $msg);
             } else {
-                $jsCode = 'PMA_ajaxShowMessage("<div class=\"error\">'
-                        . $errSubmitMsg
-                        . '</div>", false);';
-                $response->getFooter()->getScripts()->addCode($jsCode);
+                $response->addJSON('_errSubmitMsg', $msg);
             }
+        } elseif ($_REQUEST['exception_type'] == 'php') {
+            $jsCode = 'PMA_ajaxShowMessage("<div class=\"error\">'
+                    . $msg
+                    . '</div>", false);';
+            $response->getFooter()->getScripts()->addCode($jsCode);
+        }
+
+        if ($_REQUEST['exception_type'] == 'php') {
+            // clear previous errors & save new ones.
+            $GLOBALS['error_handler']->savePreviousErrors();
+        }
+
+        /* Persist always send settings */
+        if ($_REQUEST['exception_type'] == 'js'
+            && ! isset($_REQUEST['automatic'])
+            && $_REQUEST['automatic'] !== "true"
+            && isset($_REQUEST['always_send'])
+            && $_REQUEST['always_send'] === "true"
+        ) {
+            PMA_persistOption("SendErrorReports", "always", "ask");
         }
     }
-    // clear previous errors & save new ones.
-    $GLOBALS['error_handler']->savePreviousErrors();
+} elseif (! empty($_REQUEST['get_settings'])) {
+    $response->addJSON('report_setting', $GLOBALS['cfg']['SendErrorReports']);
 } else {
-    die('Oops, something went wrong!!');
+    if ($_REQUEST['exception_type'] == 'js') {
+        $response->addHTML(PMA_getErrorReportForm());
+    } else {
+        // clear previous errors & save new ones.
+        $GLOBALS['error_handler']->savePreviousErrors();
+    }
 }
-
 ?>
