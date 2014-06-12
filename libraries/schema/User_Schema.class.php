@@ -75,19 +75,31 @@ class PMA_User_Schema
                     $this->chosenPage = 0;
                 }
                 break;
+//             case 'createpage':
+//                 $this->pageNumber = PMA_REL_createPage(
+//                     $_POST['newpage'],
+//                     $cfgRelation,
+//                     $db
+//                 );
+//                 $this->autoLayoutForeign = isset($_POST['auto_layout_foreign'])
+//                     ? "1"
+//                     : null;
+//                 $this->autoLayoutInternal = isset($_POST['auto_layout_internal'])
+//                     ? "1"
+//                     : null;
+//                 $this->processRelations(
+//                     $db,
+//                     $this->pageNumber,
+//                     $cfgRelation
+//                 );
+//                 break;
             case 'createpage':
                 $this->pageNumber = PMA_REL_createPage(
                     $_POST['newpage'],
                     $cfgRelation,
                     $db
                 );
-                $this->autoLayoutForeign = isset($_POST['auto_layout_foreign'])
-                    ? "1"
-                    : null;
-                $this->autoLayoutInternal = isset($_POST['auto_layout_internal'])
-                    ? "1"
-                    : null;
-                $this->processRelations(
+                $this->saveTablePositions(
                     $db,
                     $this->pageNumber,
                     $cfgRelation
@@ -824,12 +836,47 @@ class PMA_User_Schema
             }
         }
 
+        $tables = $GLOBALS['dbi']->getTablesFull($db);
+        $foreignkey_tables = array();
+        foreach ($tables as $table_name => $table_properties) {
+//          if (PMA_Util::isForeignKeySupported($table_properties['ENGINE'])) {
+//          }
+                $foreignkey_tables[] = $table_name;
+        }
+        $all_tables = $foreignkey_tables;
+
         if (isset($this->autoLayoutInternal) || isset($this->autoLayoutForeign)) {
             $this->addRelationCoordinates(
                 $all_tables, $pageNumber, $db, $cfgRelation
             );
         }
 
+
+        $this->chosenPage = $pageNumber;
+    }
+
+    /**
+     * Saves positions of all tables in the current view
+     *
+     * @param string $db          database name
+     * @param int    $pageNumber  document number/Id
+     * @param array  $cfgRelation relation settings
+     *
+     * @return void
+     */
+    public function saveTablePositions($db, $pageNumber, $cfgRelation)
+    {
+        $all_tables = array();
+        $results = $GLOBALS['dbi']->getTablesFull($db);
+        $tables = array();
+        foreach ($results as $table_name => $table_properties) {
+            $tables[] = $table_name;
+        }
+        $all_tables = $tables;
+
+        $this->addRelationCoordinates(
+            $all_tables, $pageNumber, $db, $cfgRelation
+        );
         $this->chosenPage = $pageNumber;
     }
 

@@ -517,6 +517,15 @@ function Exit_fullscreen()
         $.FullScreen.cancelFullScreen();
     }
 }
+// ------------------------------ NEW ------------------------------------------
+
+function New()
+{
+    Prompt_to_save_current_page(function() {
+        Load_page(-1);
+    });
+}
+
 //------------------------------ SAVE ------------------------------------------
 function Save(url) // (del?) no for pdf
 {
@@ -536,18 +545,289 @@ function Get_url_pos()
     for (var key in j_tabs) {
         poststr += '&t_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
         poststr += '&t_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
-        poststr += '&t_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display == 'none' ? 0 : 1);
-        poststr += '&t_h[' + key + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
     }
     return poststr;
 }
 
-function Save2()
+function Save2(callback)
 {
     _change = 0;
-    var poststr = 'IS_AJAX=1&server=' + server + '&db=' + db + '&token=' + token + '&die_save_pos=1';
+    var poststr = 'IS_AJAX=1&server=' + server + '&db=' + db + '&token=' + token + '&die_save_pos=1&selected_page=' + selected_page;
     poststr += Get_url_pos();
     makeRequest('pmd_save_pos.php', poststr);
+    if (callback != null) {
+        callback();
+    }
+}
+
+function Save3(callback)
+{
+    if (selected_page !== '-1') {
+        Save2(callback);
+    } else {
+        var button_options = {};
+        button_options[PMA_messages.strGo] = function () {
+            var $form = $("#save_page");
+            var name = $form.find('input[name="selected_value"]').val().trim();
+            if (name === '') {
+                PMA_ajaxShowMessage(PMA_messages.strEnterValidPageName, false);
+                return;
+            }
+            $(this).dialog('close');
+
+            var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+            PMA_prepareForAjaxRequest($form);
+            $.post($form.attr('action'), $form.serialize() + Get_url_pos(), function (data) {
+                if (data.success === false) {
+                    PMA_ajaxShowMessage(data.error, false);
+                } else {
+                    PMA_ajaxRemoveMessage($msgbox);
+                    _change = 0;
+                    if (data.id) {
+                        selected_page = data.id;
+                    }
+                    $('#page_name').text(name);
+                    if (callback != null) {
+                        callback();
+                    }
+                }
+            }); // end $.post()
+        };
+        button_options[PMA_messages.strCancel] = function () {
+            $(this).dialog('close');
+        };
+
+        var $form = $('<form action="pmd_general.php" method="post" name="save_page" id="save_page" class="ajax"></form>')
+            .append('<input type="hidden" name="db" value="' + db + '" />')
+            .append('<input type="hidden" name="token" value="' + token + '" />')
+            .append('<input type="hidden" name="operation" value="save" />')
+            .append('<input type="hidden" name="save_page" value="new" />')
+            .append('<label for="selected_value">' + PMA_messages.strPageName
+                + '</label>:<input type="text" name="selected_value" />');
+        $('<div id="page_save_dialog"></div>')
+            .append($form)
+            .dialog({
+                title: PMA_messages.strSavePage,
+                width: 300,
+                modal: true,
+                buttons: button_options,
+                close: function () {
+                    $(this).remove();
+                }
+            });
+    }
+}
+
+//------------------------------ EDIT PAGES ------------------------------------------
+function Edit_pages()
+{
+    Prompt_to_save_current_page(function() {
+
+        var button_options = {};
+        button_options[PMA_messages.strGo] = function () {
+            var $form = $("#edit_delete_pages");
+            var selected = $form.find('select[name="selected_page"]').val();
+            if (selected === "0") {
+                PMA_ajaxShowMessage(PMA_messages.strSelectPage, 2000);
+                return;
+            }
+            Load_page(selected);
+        };
+        button_options[PMA_messages.strCancel] = function () {
+            $(this).dialog('close');
+        };
+
+        var $msgbox = PMA_ajaxShowMessage();
+        var params = 'ajax_request=true&dialog=edit&token=' + token + '&db=' + db;
+        $.get("pmd_general.php", params, function (data) {
+            if (data.success == false) {
+                PMA_ajaxShowMessage(data.error, false);
+            } else {
+                PMA_ajaxRemoveMessage($msgbox);
+                $('<div id="page_edit_dialog"></div>')
+                    .append(data.message)
+                    .dialog({
+                        title: PMA_messages.strOpenPage,
+                        width: 350,
+                        modal: true,
+                        buttons: button_options,
+                        close: function () {
+                            $(this).remove();
+                        }
+                    });
+            }
+        }); // end $.get()
+    });
+}
+// -----------------------------  DELETE PAGES ---------------------------------------
+function Delete_pages()
+{
+    var button_options = {};
+    button_options[PMA_messages.strGo] = function () {
+        var $form = $("#edit_delete_pages");
+        var selected = $form.find('select[name="selected_page"]').val();
+        if (selected === '0') {
+            PMA_ajaxShowMessage(PMA_messages.strSelectPage, 2000);
+            return;
+        }
+
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+        var deleting_current_page = selected === selected_page;
+        PMA_prepareForAjaxRequest($form);
+        $.post($form.attr('action'), $form.serialize(), function (data) {
+            if (data.success === false) {
+                PMA_ajaxShowMessage(data.error, false);
+            } else {
+                PMA_ajaxRemoveMessage($msgbox);
+                if (deleting_current_page) {
+                    Load_page(null);
+                } else {
+                    PMA_ajaxShowMessage(PMA_messages.strSuccessfulPageDelete);
+                }
+            }
+        }); // end $.post()
+
+        $(this).dialog('close');
+    };
+    button_options[PMA_messages.strCancel] = function () {
+        $(this).dialog('close');
+    };
+
+    var $msgbox = PMA_ajaxShowMessage();
+    var params = 'ajax_request=true&dialog=delete&token=' + token + '&db=' + db;
+    $.get("pmd_general.php", params, function (data) {
+        if (data.success == false) {
+            PMA_ajaxShowMessage(data.error, false);
+        } else {
+            PMA_ajaxRemoveMessage($msgbox);
+            $('<div id="page_delete_dialog"></div>')
+                .append(data.message)
+                .dialog({
+                    title: PMA_messages.strDeletePage,
+                    width: 350,
+                    modal: true,
+                    buttons: button_options,
+                    close: function () {
+                        $(this).remove();
+                    }
+                });
+        }
+    }); // end $.get()
+}
+
+//------------------------------ SAVE AS PAGES ---------------------------------------
+function Save_as()
+{
+    var button_options = {};
+    button_options[PMA_messages.strGo] = function () {
+        var $form           = $("#save_as_pages");
+        var selected_value  = $form.find('input[name="selected_value"]').val().trim();
+        var $selected_page  = $form.find('select[name="selected_page"]');
+        var choice          = $form.find('input[name="save_page"]:checked').val();
+        var name            = '';
+
+        debugger;
+        if (choice === 'same') {
+            if ($selected_page.val() === '0') {
+                PMA_ajaxShowMessage(PMA_messages.strSelectPage, 2000);
+                return;
+            }
+            name = $selected_page.find('option:selected').text();
+        } else if (choice === 'new') {
+            if (selected_value === '') {
+                PMA_ajaxShowMessage(PMA_messages.strEnterValidPageName, 2000);
+                return;
+            }
+            name = selected_value;
+        }
+
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+        PMA_prepareForAjaxRequest($form);
+        $.post($form.attr('action'), $form.serialize() + Get_url_pos(), function (data) {
+            if (data.success === false) {
+                PMA_ajaxShowMessage(data.error, false);
+            } else {
+                PMA_ajaxRemoveMessage($msgbox);
+                _change = 0;
+                if (data.id) {
+                    selected_page = data.id;
+                }
+                $('#page_name').text(name);
+            }
+        }); // end $.post()
+
+        $(this).dialog('close');
+    };
+    button_options[PMA_messages.strCancel] = function () {
+        $(this).dialog('close');
+    };
+
+    var $msgbox = PMA_ajaxShowMessage();
+    var params = 'ajax_request=true&dialog=save_as&token=' + token + '&db=' + db;
+    $.get("pmd_general.php", params, function (data) {
+        if (data.success === false) {
+            PMA_ajaxShowMessage(data.error, false);
+        } else {
+            PMA_ajaxRemoveMessage($msgbox);
+            $('<div id="page_save_as_dialog"></div>')
+                .append(data.message)
+                .dialog({
+                    title: "Save table coordinates",
+                    width: 450,
+                    modal: true,
+                    buttons: button_options,
+                    close: function () {
+                        $(this).remove();
+                    }
+                });
+            // select current page by default
+            if (selected_page !== '-1') {
+                $('select[name="selected_page"]').val(selected_page);
+            }
+        }
+    }); // end $.get()
+}
+
+function Prompt_to_save_current_page(callback)
+{
+    if (_change == 1 || selected_page == '-1') {
+        var button_options = {};
+        button_options[PMA_messages.strYes] = function () {
+            $(this).dialog('close');
+            Save3(callback);
+        };
+        button_options[PMA_messages.strNo] = function () {
+            $(this).dialog('close');
+            callback();
+        };
+        button_options[PMA_messages.strCancel] = function () {
+            $(this).dialog('close');
+        };
+        $('<div id="prompt_save_dialog"></div>')
+            .append('<div>' + PMA_messages.strLeavingPage + '</div>')
+            .dialog({
+                title: PMA_messages.strSavePage,
+                width: 300,
+                modal: true,
+                buttons: button_options,
+                close: function () {
+                    $(this).remove();
+                }
+            });
+    } else {
+        callback();
+    }
+}
+
+function Load_page(page) {
+    var param_page = '';
+    if (page != null) {
+        param_page = '&page=' + page;
+    }
+    $('<a href="pmd_general.php?db=' + db + '&token=' + token + param_page + '"></a>')
+        .appendTo($('#page_content'))
+        .click();
+    _change = 0;
 }
 
 function Grid()

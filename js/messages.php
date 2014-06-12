@@ -334,6 +334,14 @@ $js_messages['strLeavingDesigner'] = __(
     'You haven\'t saved the changes in the layout. They will be lost if you'
     . ' don\'t save them. Do you want to continue?'
 );
+$js_messages['strPageName'] = __('Page name');
+$js_messages['strSavePage'] = __('Save page');
+$js_messages['strOpenPage'] = __('Open page');
+$js_messages['strDeletePage'] = __('Delete page');
+$js_messages['strSelectPage'] = __('Please select a page to continue');
+$js_messages['strEnterValidPageName'] = __('Please enter a valid page name');
+$js_messages['strLeavingPage'] = __('Do you want to save the changes to the current page?');
+$js_messages['strSuccessfulPageDelete'] = __('Successfully deleted the page');
 
 /* Visual query builder (js/pmd/move.js) */
 $js_messages['strAddOption'] = __('Add an option for column "%s".');

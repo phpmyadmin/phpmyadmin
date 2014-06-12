@@ -15,12 +15,64 @@ require_once 'libraries/pmd_common.php';
 $script_display_field = PMA_getTablesInfo();
 $tab_column       = PMA_getColumnsInfo();
 $script_tables    = PMA_getScriptTabs();
-$script_contr     = PMA_getScriptContr();
 $tab_pos          = PMA_getTabPos();
 $tables_pk_or_unique_keys = PMA_getPKOrUniqueKeys();
 $tables_all_keys  = PMA_getAllKeys();
+$script_contr     = null;
+$display_page = -1;
 
-$params = array('lang' => $GLOBALS['lang']);
+$response = PMA_Response::getInstance();
+
+if (isset($_REQUEST['dialog'])) {
+
+    include_once 'libraries/designer.lib.php';
+    if ($_REQUEST['dialog'] == 'edit') {
+        $html = PMA_getHtmlForEditOrDeletePages('edit');
+    } else if ($_REQUEST['dialog'] == 'delete') {
+        $html = PMA_getHtmlForEditOrDeletePages('delete');
+    } else if ($_REQUEST['dialog'] == 'save_as') {
+        $html = PMA_getHtmlForPageSaveAs();
+    }
+
+    $response->addHTML($html);
+    return;
+}
+
+if (isset($_REQUEST['operation'])) {
+
+    if ($_REQUEST['operation'] == 'delete') {
+        $result = PMA_deletePage($_REQUEST['selected_page']);
+        if ($result) {
+            $response->isSuccess(true);
+        } else {
+            $response->isSuccess(false);
+        }
+    } elseif ($_REQUEST['operation'] == 'save') {
+        if ($_REQUEST['save_page'] == 'same') {
+            $display_page = $_REQUEST['selected_page'];
+        } elseif ($_REQUEST['save_page'] == 'new') {
+            $display_page = createNewPage($_REQUEST['selected_value']);
+            $response->addJSON('id', $display_page);
+        }
+        if (saveTablePositions($display_page)) {
+            $response->isSuccess(true);
+        } else {
+            $response->isSuccess(false);
+        }
+    }
+    return;
+} else {
+    if (! empty($_REQUEST['page'])) {
+        $display_page = $_REQUEST['page'];
+    } else {
+        $display_page = getFirstPage($_REQUEST['db']);
+    }
+}
+
+$tab_pos = PMA_getTablePositions($display_page);
+$selected_page = PMA_getPageName($display_page);
+$script_contr = PMA_getScriptContr($display_page);
+
 if (isset($_GET['db'])) {
     $params['db'] = $_GET['db'];
 }
@@ -60,6 +112,9 @@ echo '</div>';
 echo '<div id="script_display_field" class="hide">';
 echo htmlspecialchars(json_encode($script_display_field));
 echo '</div>';
+echo '<div id="script_display_page" class="hide">';
+echo htmlspecialchars($display_page);
+echo '</div>';
 
 ?>
 <div class="pmd_header" id="top_menu">
@@ -82,10 +137,27 @@ echo '</div>';
     <img class="M_bord"
         src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>"
         alt="" />
-    <a href="#" onclick="Save2(); return false" class="M_butt" target="_self">
+    <a href="#" onclick="New(); return false" class="M_butt" target="_self">
+        <img title="<?php echo __('New page') ?>" alt=""
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/page_add.png'); ?>" />
+    </a>
+    <a href="#" onclick="Edit_pages(); return false" class="M_butt ajax" target="_self">
+        <img title="<?php echo __('Open page') ?>" alt=""
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/page_edit.png'); ?>" />
+    </a>
+    <a href="#" onclick="Save3(); return false" class="M_butt" target="_self">
         <img title="<?php echo __('Save position') ?>" alt=""
             src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/save.png'); ?>" />
     </a>
+    <a href="#" onclick="Save_as(); return false" class="M_butt ajax" target="_self">
+        <img title="<?php echo __('Save positions as') ?>" alt=""
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/save_as.png'); ?>" />
+    </a>
+    <a href="#" onclick="Delete_pages(); return false" class="M_butt ajax" target="_self">
+        <img title="<?php echo __('Delete pages') ?>" alt=""
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/page_delete.png'); ?>" />
+    </a>
+    <img class="M_bord" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>" alt="" />
     <a href="#" onclick="Start_table_new(); return false"
         class="M_butt" target="_self">
         <img title="<?php echo __('Create table')?>" alt=""
@@ -141,10 +213,7 @@ echo '</div>';
             src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/toggle_lines.png'); ?>" />
     </a>
     <img class="M_bord" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>" alt="" />
-    <a href="#" onclick="PDF_save(); return false" class="M_butt ajax">
-        <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/pdf.png'); ?>" alt="key"
-            width="20" height="20" title="<?php echo __('Import/Export coordinates for relational schema'); ?>" />
-    </a>
+    <span id="page_name"><?php echo $selected_page ?></span>
 <?php
 if (isset($_REQUEST['query'])) {
     echo '<a href="#" onclick="build_query(\'SQL Query on Database\', 0)" onmousedown="return false;"
@@ -250,9 +319,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
           top: <?php
           echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["Y"] : rand(20, 550); ?>px;
           visibility: <?php
-          echo ! isset($tab_pos[$t_n]) || $tab_pos[$t_n]["H"]
-            ? "visible"
-            : "hidden"; ?>;
+          echo (isset($tab_pos[$t_n]) || $display_page == -1) ? "visible" : "hidden"; ?>;
          z-index: 1;">
     <thead>
     <tr>
