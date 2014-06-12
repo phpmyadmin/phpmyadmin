@@ -643,8 +643,9 @@ if ($go_sql) {
 } else if ($result) {
     // Save a Bookmark with more than one queries (if Bookmark label given).
     if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
+        $cfgBookmark = PMA_Bookmark_getParams();
         PMA_storeTheQueryAsBookmark(
-            $db, $GLOBALS['cfg']['Bookmark']['user'],
+            $db, $cfgBookmark['user'],
             $import_text, $_POST['bkm_label'],
             isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
         );

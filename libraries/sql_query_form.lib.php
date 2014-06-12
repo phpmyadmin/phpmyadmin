@@ -126,7 +126,8 @@ function PMA_getHtmlForSqlQueryForm(
 
     // Bookmark Support
     if ($display_tab === 'full' || $display_tab === 'history') {
-        if (! empty($GLOBALS['cfg']['Bookmark'])) {
+        $cfgBookmark = PMA_Bookmark_getParams();
+        if ($cfgBookmark) {
             $html .= PMA_getHtmlForSqlQueryFormBookmark();
         }
     }
@@ -311,7 +312,8 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '</div>' . "\n";
 
-    if (! empty($GLOBALS['cfg']['Bookmark'])) {
+    $cfgBookmark = PMA_Bookmark_getParams();
+    if ($cfgBookmark) {
         $html .= '<div id="bookmarkoptions">';
         $html .= '<div class="formelement">';
         $html .= '<label for="bkm_label">'

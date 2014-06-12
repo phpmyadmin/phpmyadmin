@@ -1511,8 +1511,9 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
         // If there are no errors and bookmarklabel was given,
         // store the query as a bookmark
         if (! empty($_POST['bkm_label']) && ! empty($sql_query_for_bookmark)) {
+            $cfgBookmark = PMA_Bookmark_getParams();
             PMA_storeTheQueryAsBookmark(
-                $db, $GLOBALS['cfg']['Bookmark']['user'],
+                $db, $cfgBookmark['user'],
                 $sql_query_for_bookmark, $_POST['bkm_label'],
                 isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
             );
@@ -2138,13 +2139,14 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
         isset($selectedTables) ? $selectedTables : null, $db
     );
 
-    if (isset($GLOBALS['cfg']['Bookmark'])) {
+    $cfgBookmark = PMA_Bookmark_getParams();
+    if ($cfgBookmark) {
         $bookmark_support_html = PMA_getHtmlForBookmark(
             $disp_mode,
-            $GLOBALS['cfg']['Bookmark'],
+            $cfgBookmark,
             $sql_query, $db, $table,
             isset($complete_query) ? $complete_query : $sql_query,
-            $GLOBALS['cfg']['Bookmark']['user']
+            $cfgBookmark['user']
         );
     } else {
         $bookmark_support_html = '';

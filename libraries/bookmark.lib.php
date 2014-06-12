@@ -205,11 +205,4 @@ function PMA_Bookmark_delete($id)
     return $GLOBALS['dbi']->tryQuery($query, $controllink);
 } // end of the 'PMA_Bookmark_delete()' function
 
-
-/**
- * Bookmark Support
- */
-if (!defined('TESTSUITE')) {
-    $GLOBALS['cfg']['Bookmark'] = PMA_Bookmark_getParams();
-}
 ?>
