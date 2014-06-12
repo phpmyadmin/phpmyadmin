@@ -443,6 +443,9 @@ $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
     . '<br/>'
     . __('As per your settings, they are being submitted currently.')
     . __(' Please be patient.')
+    . '<br/>'
+    . '<img src="'.($_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif')).'"'
+    . ' width="16" height="16" alt="ajax clock"/>'
     . '</div>';
 
 echo "var PMA_messages = new Array();\n";

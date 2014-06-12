@@ -413,6 +413,7 @@ var AJAX = {
                         ) {
                             $("#pma_report_errors_form").submit();
                             PMA_ajaxShowMessage(PMA_messages['phpErrorsBeingSubmitted'], false);
+                            $('html, body').animate({scrollTop:$(document).height()}, 'slow');
                         } else if (data._promptPhpErrors) {
                             // otherwise just prompt user if it is set so.
                             msg = msg + PMA_messages['phpErrorsFound'];
