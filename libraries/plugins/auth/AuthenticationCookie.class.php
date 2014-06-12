@@ -561,25 +561,10 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
-        $GLOBALS['PMA_Config']->setCookie(
-            'pmaUser-' . $GLOBALS['server'],
-            $this->cookieEncrypt(
-                $cfg['Server']['user'],
-                $this->_getEncryptionSecret()
-            )
-        );
+        $this->storeUsernameCookie($cfg['Server']['user']);
 
         // Duration = as configured
-        $GLOBALS['PMA_Config']->setCookie(
-            'pmaPass-' . $GLOBALS['server'],
-            $this->cookieEncrypt(
-                ! empty($cfg['Server']['password'])
-                ? $cfg['Server']['password'] : "\xff(blank)",
-                $this->_getSessionEncryptionSecret()
-            ),
-            null,
-            $GLOBALS['cfg']['LoginCookieStore']
-        );
+        $this->storePasswordCookie($cfg['Server']['password']);
 
         // Set server cookies if required (once per session) and, in this case,
         // force reload to ensure the client accepts cookies
@@ -636,7 +621,47 @@ class AuthenticationCookie extends AuthenticationPlugin
         } // end if
 
         return true;
+    }
 
+    /**
+     * Stores username in a cookie.
+     *
+     * @param string $username User name
+     *
+     * @return void
+     */
+    public function storeUsernameCookie($username)
+    {
+        // Name and password cookies need to be refreshed each time
+        // Duration = one month for username
+        $GLOBALS['PMA_Config']->setCookie(
+            'pmaUser-' . $GLOBALS['server'],
+            $this->cookieEncrypt(
+                $username,
+                $this->_getEncryptionSecret()
+            )
+        );
+    }
+
+    /**
+     * Stores password in a cookie.
+     *
+     * @param string $password Password
+     *
+     * @return void
+     */
+    public function storePasswordCookie($password)
+    {
+        // Duration = as configured
+        $GLOBALS['PMA_Config']->setCookie(
+            'pmaPass-' . $GLOBALS['server'],
+            $this->cookieEncrypt(
+                ! empty($password) ? $password : "\xff(blank)",
+                $this->_getSessionEncryptionSecret()
+            ),
+            null,
+            $GLOBALS['cfg']['LoginCookieStore']
+        );
     }
 
     /**
