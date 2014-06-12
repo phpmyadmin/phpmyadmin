@@ -322,7 +322,7 @@ set in the phpMyAdmin configuration file (except possibly for the
 :config:option:`$cfg['Servers'][$i]['controluser']`).
 However, keep in mind that the password travels in plain text, unless
 you are using the HTTPS protocol. In cookie mode, the password is
-stored, encrypted with the blowfish algorithm, in a temporary cookie.
+stored, encrypted with the AES algorithm, in a temporary cookie.
 
 Then each of the *true* users should be granted a set of privileges
 on a set of particular databases. Normally you shouldn't give global
