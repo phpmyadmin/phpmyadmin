@@ -130,13 +130,11 @@ function PMA_changePassword($password, $message, $change_password_message)
 {
     global $auth_plugin;
 
-    // Defines the url to return to in case of error in the sql statement
-    $_url_params = array();
     $hashing_function = PMA_changePassHashingFunction();
     $sql_query = 'SET password = '
         . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
     PMA_changePassUrlParamsAndSubmitQuery(
-        $password, $_url_params, $sql_query, $hashing_function
+        $password, $sql_query, $hashing_function
     );
 
     $url_params = $auth_plugin->handlePasswordChange($password);
@@ -163,16 +161,15 @@ function PMA_changePassHashingFunction()
  * Generate the error url and submit the query
  *
  * @param string $password         Password
- * @param array  $_url_params      URL parameters
  * @param string $sql_query        SQL query
  * @param string $hashing_function Hashing function
  *
  * @return void
  */
 function PMA_changePassUrlParamsAndSubmitQuery(
-    $password, $_url_params, $sql_query, $hashing_function
+    $password, $sql_query, $hashing_function
 ) {
-    $err_url = 'user_password.php' . PMA_URL_getCommon($_url_params);
+    $err_url = 'user_password.php' . PMA_URL_getCommon();
     $local_query = 'SET password = ' . (($password == '')
         ? '\'\''
         : $hashing_function . '(\'' . PMA_Util::sqlAddSlashes($password) . '\')');
@@ -186,17 +183,16 @@ function PMA_changePassUrlParamsAndSubmitQuery(
  *
  * @param string $message     Message
  * @param string $sql_query   SQL query
- * @param array  $_url_params URL parameters
  *
  * @return void
  */
-function PMA_changePassDisplayPage($message, $sql_query, $_url_params)
+function PMA_changePassDisplayPage($message, $sql_query)
 {
     echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
     echo PMA_Util::getMessage(
         $message, $sql_query, 'success'
     );
-    echo '<a href="index.php' . PMA_URL_getCommon($_url_params)
+    echo '<a href="index.php' . PMA_URL_getCommon()
         . ' target="_parent">' . "\n"
         . '<strong>' . __('Back') . '</strong></a>';
     exit;
