@@ -42,7 +42,7 @@ require PHPSECLIB_INC_DIR . '/Crypt/Random.php';
 class AuthenticationCookie extends AuthenticationPlugin
 {
     /**
-     * IV for Blowfish.
+     * IV for encryption
      */
     private $_cookie_iv = null;
 
@@ -742,7 +742,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
-     * Sets Blowfis IV to use
+     * Sets encryption IV to use
      *
      * @param string $vector The IV
      *
