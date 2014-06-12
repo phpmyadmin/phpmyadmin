@@ -718,7 +718,7 @@ class AuthenticationCookie extends AuthenticationPlugin
              * if/then/else logic, however the include_once
              * call is costly
              */
-            include_once "./libraries/phpseclib/Crypt/AES.php";
+            include_once PHPSECLIB_INC_DIR . '/Crypt/AES.php';
             $cipher = new Crypt_AES(CRYPT_AES_MODE_ECB);
             $cipher->setKey($secret);
             return base64_encode($cipher->encrypt($data));
@@ -750,7 +750,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $this->_blowfish_iv = base64_decode($_COOKIE['pma_mcrypt_iv'], true);
         }
         if (! function_exists('mcrypt_encrypt')) {
-            include_once "./libraries/phpseclib/Crypt/AES.php";
+            include_once PHPSECLIB_INC_DIR . '/Crypt/AES.php';
             $cipher = new Crypt_AES(CRYPT_AES_MODE_ECB);
             $cipher->setKey($secret);
             return $cipher->decrypt(base64_decode($encdata));

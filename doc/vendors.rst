@@ -31,4 +31,5 @@ libraries/php-gettext
     php-gettext library
 libraries/tcpdf
     tcpdf library, stripped down of not needed files
-
+libraries/phpseclib
+    portions of phpseclib library
