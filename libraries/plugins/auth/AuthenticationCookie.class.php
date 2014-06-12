@@ -489,7 +489,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $GLOBALS['PHP_AUTH_PW'] = $this->cookieDecrypt(
             $_COOKIE['pmaPass-' . $GLOBALS['server']],
-            $this->_getEncryptionSecret()
+            $this->_getSessionEncryptionSecret()
         );
 
         if ($GLOBALS['PHP_AUTH_PW'] == "\xff(blank)") {
@@ -575,7 +575,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $this->cookieEncrypt(
                 ! empty($cfg['Server']['password'])
                 ? $cfg['Server']['password'] : "\xff(blank)",
-                $this->_getEncryptionSecret()
+                $this->_getSessionEncryptionSecret()
             ),
             null,
             $GLOBALS['cfg']['LoginCookieStore']
@@ -674,15 +674,25 @@ class AuthenticationCookie extends AuthenticationPlugin
     private function _getEncryptionSecret()
     {
         if (empty($GLOBALS['cfg']['blowfish_secret'])) {
-            if (empty($_SESSION['auto_blowfish_secret'])) {
-                // this returns 23 characters
-                $_SESSION['auto_blowfish_secret'] = uniqid('', true);
-            }
-            return $_SESSION['auto_blowfish_secret'];
+            return $this->_getSessionEncryptionSecret();
         } else {
             // apply md5() to work around too long secrets (returns 32 characters)
             return md5($GLOBALS['cfg']['blowfish_secret']);
         }
+    }
+
+    /**
+     * Returns blowfish secret or generates one if needed.
+     *
+     * @return string
+     */
+    private function _getSessionEncryptionSecret()
+    {
+        if (empty($_SESSION['auto_blowfish_secret'])) {
+            // this returns 23 characters
+            $_SESSION['auto_blowfish_secret'] = uniqid('', true);
+        }
+        return $_SESSION['auto_blowfish_secret'];
     }
 
     /**
