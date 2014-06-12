@@ -773,6 +773,18 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
+     * Sets Blowfis IV to use
+     *
+     * @param string $vector The IV
+     *
+     * @return void
+     */
+    public function setBlowfishIv($vector)
+    {
+        $this->_blowfish_iv = $vector;
+    }
+
+    /**
      * This method is called when any PluginManager to which the observer
      * is attached calls PluginManager::notify()
      *
