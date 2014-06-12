@@ -201,13 +201,7 @@ function PMA_changePassAuthType($_url_params, $password)
     global $auth_plugin;
 
     if ($GLOBALS['cfg']['Server']['auth_type'] == 'cookie') {
-        $GLOBALS['PMA_Config']->setCookie(
-            'pmaPass-' . $GLOBALS['server'],
-            $auth_plugin->blowfishEncrypt(
-                $password,
-                $GLOBALS['cfg']['blowfish_secret']
-            )
-        );
+        $auth_plugin->storePasswordCookie($password);
     }
     /**
      * For http auth. mode, the "back" link will also enforce new
