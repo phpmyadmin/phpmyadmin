@@ -1667,28 +1667,22 @@ function PMA_SQP_analyze($arr)
                 $subresult['querytype'] = $upper_data;
                 $seen_reserved_word = true;
 
-                if ($first_reserved_word == 'SELECT') {
+                if ($first_reserved_word === 'SELECT') {
                     $position_of_first_select = $i;
-                }
-
-                if ($first_reserved_word == 'EXPLAIN') {
+                } elseif ($first_reserved_word === 'EXPLAIN') {
                     $subresult['queryflags']['is_explain'] = 1;
-                }
-
-                if ($first_reserved_word == 'DELETE') {
+                } elseif ($first_reserved_word === 'DELETE') {
                     $subresult['queryflags']['is_delete'] = 1;
                     $subresult['queryflags']['is_affected'] = 1;
-                }
-
-                if ($first_reserved_word == 'UPDATE') {
+                } elseif ($first_reserved_word === 'UPDATE') {
                     $subresult['queryflags']['is_affected'] = 1;
-                }
-
-                if ($first_reserved_word == 'REPLACE') {
+                } elseif ($first_reserved_word === 'REPLACE') {
                     $subresult['queryflags']['is_replace'] = 1;
-                }
-
-                if ($first_reserved_word == 'SHOW') {
+                    $subresult['queryflags']['is_affected'] = 1;
+                } elseif ($first_reserved_word === 'INSERT') {
+                    $subresult['queryflags']['is_insert'] = 1;
+                    $subresult['queryflags']['is_affected'] = 1;
+                } elseif ($first_reserved_word === 'SHOW') {
                     $subresult['queryflags']['is_show'] = 1;
                 }
 
@@ -1706,15 +1700,6 @@ function PMA_SQP_analyze($arr)
                 ) {
                     $subresult['queryflags']['reload'] = 1;
                 }
-
-                // for the presence of INSERT|LOAD DATA
-                if (in_array($first_reserved_word, array('INSERT', 'LOAD'))
-                    && $upper_data == 'REPLACE'
-                ) {
-                    $subresult['queryflags']['is_insert'] = 1;
-                    $subresult['queryflags']['is_affected'] = 1;
-                }
-
                 // for the presence of CHECK|ANALYZE|REPAIR|OPTIMIZE TABLE
                 $keywords = array(
                     'CHECK', 'ANALYZE', 'REPAIR', 'OPTIMIZE'
