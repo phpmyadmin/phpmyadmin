@@ -57,6 +57,23 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
 });
 
 /**
+ * Hides/shows the default value input field, depending on the default type
+ * Ticks the NULL checkbox if NULL is chosen as default value.
+ */
+function PMA_hideShowDefaultValue($default_type)
+{
+    if ($default_type.val() == 'USER_DEFINED') {
+        $default_type.siblings('.default_value').show().focus();
+    } else {
+        $default_type.siblings('.default_value').hide();
+        if ($default_type.val() == 'NULL') {
+            var $null_checkbox = $default_type.closest('tr').find('.allow_null');
+            $null_checkbox.prop('checked', true);
+        }
+    }
+}
+
+/**
  * Show notices for ENUM columns; add/hide the default value
  *
  */
@@ -2644,23 +2661,6 @@ AJAX.registerOnload('functions.js', function () {
         PMA_validateDefaultValue($(this));
     });
 });
-
-/**
- * Hides/shows the default value input field, depending on the default type
- * Ticks the NULL checkbox if NULL is chosen as default value.
- */
-function PMA_hideShowDefaultValue($default_type)
-{
-    if ($default_type.val() == 'USER_DEFINED') {
-        $default_type.siblings('.default_value').show().focus();
-    } else {
-        $default_type.siblings('.default_value').hide();
-        if ($default_type.val() == 'NULL') {
-            var $null_checkbox = $default_type.closest('tr').find('.allow_null');
-            $null_checkbox.prop('checked', true);
-        }
-    }
-}
 
 /**
  * If the column does not allow NULL values, makes sure that default is not NULL
