@@ -79,5 +79,17 @@ abstract class AuthenticationPlugin extends PluginObserver
             }
         }
     }
+
+    /**
+     * Callback when user changes password.
+     *
+     * @param string $password New password to set
+     *
+     * @return array Additional URL parameters.
+     */
+    public function handlePasswordChange($password)
+    {
+        return array();
+    }
 }
 ?>

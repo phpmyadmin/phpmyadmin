@@ -788,6 +788,19 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
+     * Callback when user changes password.
+     *
+     * @param string $password New password to set
+     *
+     * @return array Additional URL parameters.
+     */
+    public function handlePasswordChange($password)
+    {
+        $this->storePasswordCookie($password);
+        return array();
+    }
+
+    /**
      * This method is called when any PluginManager to which the observer
      * is attached calls PluginManager::notify()
      *

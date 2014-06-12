@@ -128,6 +128,8 @@ function PMA_setChangePasswordMsg()
  */
 function PMA_changePassword($password, $message, $change_password_message)
 {
+    global $auth_plugin;
+
     // Defines the url to return to in case of error in the sql statement
     $_url_params = array();
     $hashing_function = PMA_changePassHashingFunction();
@@ -137,9 +139,9 @@ function PMA_changePassword($password, $message, $change_password_message)
         $password, $_url_params, $sql_query, $hashing_function
     );
 
-    $new_url_params = PMA_changePassAuthType($_url_params, $password);
+    $url_params = $auth_plugin->handlePasswordChange($password);
     PMA_getChangePassMessage($change_password_message, $sql_query);
-    PMA_changePassDisplayPage($message, $sql_query, $new_url_params);
+    PMA_changePassDisplayPage($message, $sql_query, $url_params);
 }
 
 /**
@@ -177,40 +179,6 @@ function PMA_changePassUrlParamsAndSubmitQuery(
     if (! @$GLOBALS['dbi']->tryQuery($local_query)) {
         PMA_Util::mysqlDie($GLOBALS['dbi']->getError(), $sql_query, false, $err_url);
     }
-}
-
-/**
- * Change password authentication type
- *
- * @param array  $_url_params URL parameters
- * @param string $password    Password
- *
- * @return array   $_url_params
- */
-function PMA_changePassAuthType($_url_params, $password)
-{
-    /**
-     * Changes password cookie if required
-     * Duration = till the browser is closed for password
-     * (we don't want this to be saved)
-     */
-
-    //    include_once "libraries/plugins/auth/AuthenticationCookie.class.php";
-    //    $auth_plugin = new AuthenticationCookie();
-    // the $auth_plugin is already defined in common.inc.php when this is used
-    global $auth_plugin;
-
-    if ($GLOBALS['cfg']['Server']['auth_type'] == 'cookie') {
-        $auth_plugin->storePasswordCookie($password);
-    }
-    /**
-     * For http auth. mode, the "back" link will also enforce new
-     * authentication
-     */
-    if ($GLOBALS['cfg']['Server']['auth_type'] == 'http') {
-        $_url_params['old_usr'] = 'relog';
-    }
-    return $_url_params;
 }
 
 /**
