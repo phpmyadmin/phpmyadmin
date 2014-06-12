@@ -278,7 +278,7 @@ if (!$is_information_schema) {
 $response->addHTML('</div>');
 
 // not sure about displaying the PDF dialog in case db is information_schema
-if ($cfgRelation['pdfwork'] && $num_tables > 0) {
+if ($cfgRelation['designerwork'] && $num_tables > 0) {
     // We only show this if we find something in the new pdf_pages table
     $test_query = '
          SELECT *
