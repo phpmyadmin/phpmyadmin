@@ -7,6 +7,7 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/error_report.lib.php';
+require_once 'libraries/user_preferences.lib.php';
 
 if (!isset($_REQUEST['exception_type'])
     ||!in_array($_REQUEST['exception_type'], array('js', 'php'))
@@ -108,10 +109,7 @@ if (isset($_REQUEST['send_error_report'])
         }
 
         /* Persist always send settings */
-        if ($_REQUEST['exception_type'] == 'js'
-            && ! isset($_REQUEST['automatic'])
-            && $_REQUEST['automatic'] !== "true"
-            && isset($_REQUEST['always_send'])
+        if (isset($_REQUEST['always_send'])
             && $_REQUEST['always_send'] === "true"
         ) {
             PMA_persistOption("SendErrorReports", "always", "ask");

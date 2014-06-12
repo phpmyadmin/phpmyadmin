@@ -332,6 +332,11 @@ class PMA_Error_Handler
                     . '<input type="submit" value="'
                     . __('Report')
                     . '" id="pma_report_errors" style="float: right; margin: 20px;">'
+                    . '<input type="checkbox" name="always_send"'
+                    . ' id="always_send_checkbox" value="true"/>'
+                    . '<label for="always_send_checkbox">'
+                    . __('Automatically send report next time')
+                    . '</label>'
                     . '</form>';
 
             if ($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
