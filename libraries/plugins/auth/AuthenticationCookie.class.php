@@ -688,11 +688,10 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     private function _getSessionEncryptionSecret()
     {
-        if (empty($_SESSION['auto_blowfish_secret'])) {
-            // this returns 23 characters
-            $_SESSION['auto_blowfish_secret'] = uniqid('', true);
+        if (empty($_SESSION['encryption_key'])) {
+            $_SESSION['encryption_key'] = crypt_random_string(256);
         }
-        return $_SESSION['auto_blowfish_secret'];
+        return $_SESSION['encryption_key'];
     }
 
     /**
