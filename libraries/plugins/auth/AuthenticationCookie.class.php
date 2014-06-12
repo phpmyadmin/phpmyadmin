@@ -456,7 +456,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $GLOBALS['PHP_AUTH_USER'] = $this->cookieDecrypt(
             $_COOKIE['pmaUser-' . $GLOBALS['server']],
-            $this->_getBlowfishSecret()
+            $this->_getEncryptionSecret()
         );
 
         // user was never logged in since session start
@@ -489,7 +489,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $GLOBALS['PHP_AUTH_PW'] = $this->cookieDecrypt(
             $_COOKIE['pmaPass-' . $GLOBALS['server']],
-            $this->_getBlowfishSecret()
+            $this->_getEncryptionSecret()
         );
 
         if ($GLOBALS['PHP_AUTH_PW'] == "\xff(blank)") {
@@ -565,7 +565,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             'pmaUser-' . $GLOBALS['server'],
             $this->cookieEncrypt(
                 $cfg['Server']['user'],
-                $this->_getBlowfishSecret()
+                $this->_getEncryptionSecret()
             )
         );
 
@@ -575,7 +575,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $this->cookieEncrypt(
                 ! empty($cfg['Server']['password'])
                 ? $cfg['Server']['password'] : "\xff(blank)",
-                $this->_getBlowfishSecret()
+                $this->_getEncryptionSecret()
             ),
             null,
             $GLOBALS['cfg']['LoginCookieStore']
@@ -671,7 +671,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @return string
      */
-    private function _getBlowfishSecret()
+    private function _getEncryptionSecret()
     {
         if (empty($GLOBALS['cfg']['blowfish_secret'])) {
             if (empty($_SESSION['auto_blowfish_secret'])) {
