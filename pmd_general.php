@@ -319,7 +319,9 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
           top: <?php
           echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["Y"] : rand(20, 550); ?>px;
           visibility: <?php
-          echo (isset($tab_pos[$t_n]) || $display_page == -1) ? "visible" : "hidden"; ?>;
+          echo ! isset($tab_pos[$t_n]) || $tab_pos[$t_n]["H"]
+            ? "visible"
+            : "hidden"; ?>;
          z-index: 1;">
     <thead>
     <tr>

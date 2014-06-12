@@ -545,6 +545,8 @@ function Get_url_pos()
     for (var key in j_tabs) {
         poststr += '&t_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
         poststr += '&t_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
+        poststr += '&t_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display == 'none' ? 0 : 1);
+        poststr += '&t_h[' + key + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
     }
     return poststr;
 }
@@ -1228,13 +1230,6 @@ function No_have_constr(id_this)
             }
         }
     }
-}
-
-function PDF_save()
-{
-    // var WinPDF =
-    // window.open("pmd_pdf.php?token="+token+"&db="+db,"wind1", "top=200,left=200,width=200,height=100,resizable=yes,scrollbars=yes,menubar=no");
-    Save('pmd_pdf.php?server=' + server + '&token=' + token + '&db=' + db);
 }
 
 function General_scroll()

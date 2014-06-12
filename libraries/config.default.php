@@ -362,15 +362,6 @@ $cfg['Servers'][$i]['relation'] = '';
 $cfg['Servers'][$i]['table_info'] = '';
 
 /**
- * table to describe the tables position for the PDF schema
- *   - leave blank for no PDF schema support
- *     SUGGESTED: 'pma__table_coords'
- *
- * @global string $cfg['Servers'][$i]['table_coords']
- */
-$cfg['Servers'][$i]['table_coords'] = '';
-
-/**
  * table to describe pages of relationpdf
  *   - leave blank if you don't want to use this
  *     SUGGESTED: 'pma__pdf_pages'

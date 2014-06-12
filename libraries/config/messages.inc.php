@@ -664,10 +664,6 @@ $strConfigServers_socket_desc
 $strConfigServers_socket_name = __('Server socket');
 $strConfigServers_ssl_desc = __('Enable SSL for connection to MySQL server.');
 $strConfigServers_ssl_name = __('Use SSL');
-$strConfigServers_table_coords_desc = __(
-    'Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/kbd].'
-);
-$strConfigServers_table_coords_name = __('PDF schema: table coordinates');
 $strConfigServers_table_info_desc = __(
     'Table to describe the display columns, leave blank for no support; '
     . 'suggested: [kbd]pma__table_info[/kbd].'

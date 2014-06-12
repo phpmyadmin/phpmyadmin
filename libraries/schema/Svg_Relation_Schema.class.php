@@ -296,7 +296,7 @@ class Table_Stats_Svg extends TableStats
      *
      * @global object  $svg         The current SVG image document
      * @global integer              The current page number (from the
-     *                              $cfg['Servers'][$i]['table_coords'] table)
+     *                              $cfg['Servers'][$i]['designer_coords'] table)
      * @global array   $cfgRelation The relations settings
      * @global string  $db          The current db name
      *

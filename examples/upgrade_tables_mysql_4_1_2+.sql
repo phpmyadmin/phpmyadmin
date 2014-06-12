@@ -116,20 +116,6 @@ ALTER TABLE `pma__relation`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pma__table_coords`
---
-
-ALTER TABLE `pma__table_coords`
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
-
-ALTER TABLE `pma__table_coords`
-  CHANGE `db_name` `db_name` VARCHAR(64) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '';
-ALTER TABLE `pma__table_coords`
-  CHANGE `table_name` `table_name` VARCHAR(64) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '';
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `pma__table_info`
 --
 

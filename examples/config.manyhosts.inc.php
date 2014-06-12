@@ -35,7 +35,6 @@ foreach ($hosts as $host) {
     $cfg['Servers'][$i]['bookmarktable'] = 'pma__bookmark';
     $cfg['Servers'][$i]['relation'] = 'pma__relation';
     $cfg['Servers'][$i]['table_info'] = 'pma__table_info';
-    $cfg['Servers'][$i]['table_coords'] = 'pma__table_coords';
     $cfg['Servers'][$i]['pdf_pages'] = 'pma__pdf_pages';
     $cfg['Servers'][$i]['column_info'] = 'pma__column_info';
     $cfg['Servers'][$i]['history'] = 'pma__history';

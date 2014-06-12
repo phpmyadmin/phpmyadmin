@@ -99,11 +99,6 @@ class PMA_User_Schema
                     $cfgRelation,
                     $db
                 );
-                $this->saveTablePositions(
-                    $db,
-                    $this->pageNumber,
-                    $cfgRelation
-                );
                 break;
             case 'edcoord':
                 $this->chosenPage = $_POST['chpage'];

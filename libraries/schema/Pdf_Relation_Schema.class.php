@@ -393,7 +393,7 @@ class Table_Stats_Pdf extends TableStats
      * @param string  $tableName      The table name
      * @param integer $fontSize       The font size
      * @param integer $pageNumber     The current page number (from the
-     *                                $cfg['Servers'][$i]['table_coords'] table)
+     *                                $cfg['Servers'][$i]['designer_coords'] table)
      * @param integer &$sameWideWidth The max. with among tables
      * @param boolean $showKeys       Whether to display keys or not
      * @param boolean $showInfo       Whether to display table position or not
@@ -1134,7 +1134,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      * @global object  $pdf         The current PDF document
      * @global string  $cfgRelation The current database name
      * @global integer              The current page number (from the
-     *                              $cfg['Servers'][$i]['table_coords'] table)
+     *                              $cfg['Servers'][$i]['designer_coords'] table)
      * @access private
      *
      * @return void

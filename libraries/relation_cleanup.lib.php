@@ -85,19 +85,16 @@ function PMA_relationsCleanupTable($db, $table)
         PMA_queryAsControlUser($remove_query);
     }
 
-    if ($cfgRelation['pdfwork']) {
-        $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
-            . '.' . PMA_Util::backquote($cfgRelation['table_coords'])
-            . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-            . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
-        PMA_queryAsControlUser($remove_query);
-    }
-
     if ($cfgRelation['designerwork']) {
         $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
             . '.' . PMA_Util::backquote($cfgRelation['designer_coords'])
-            . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-            . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
+            . ' WHERE table_name  = \'' . PMA_Util::sqlAddSlashes($table) . '\''
+            . ' AND db_name IN ('
+            . '     SELECT page_nr'
+            . '     FROM ' . PMA_Util::backquote($cfgRelation['db'])
+            .       '.' . PMA_Util::backquote($cfgRelation['pdf_pages'])
+            . '     WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+            . ')';
         PMA_queryAsControlUser($remove_query);
     }
 
@@ -148,21 +145,19 @@ function PMA_relationsCleanupDatabase($db)
         PMA_queryAsControlUser($remove_query);
     }
 
-    if ($cfgRelation['pdfwork']) {
-        $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
-            . '.' . PMA_Util::backquote($cfgRelation['pdf_pages'])
-            . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
-        PMA_queryAsControlUser($remove_query);
-
-        $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
-            . '.' . PMA_Util::backquote($cfgRelation['table_coords'])
-            . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
-        PMA_queryAsControlUser($remove_query);
-    }
-
     if ($cfgRelation['designerwork']) {
         $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
             . '.' . PMA_Util::backquote($cfgRelation['designer_coords'])
+            . ' WHERE db_name IN ('
+            . '     SELECT page_nr'
+            . '     FROM ' . PMA_Util::backquote($cfgRelation['db'])
+            .       '.' . PMA_Util::backquote($cfgRelation['pdf_pages'])
+            . '     WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+            . ')';
+        PMA_queryAsControlUser($remove_query);
+
+        $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
+            . '.' . PMA_Util::backquote($cfgRelation['pdf_pages'])
             . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
         PMA_queryAsControlUser($remove_query);
     }
