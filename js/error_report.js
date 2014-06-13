@@ -21,6 +21,7 @@ var ErrorReport = {
         ErrorReport._last_exception = exception;
         $.get("error_report.php", {
             ajax_request: true,
+            server: PMA_commonParams.get('server'),
             token: PMA_commonParams.get('token'),
             get_settings: true
         }, function (data) {

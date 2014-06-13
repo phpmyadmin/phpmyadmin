@@ -193,6 +193,7 @@ AJAX.registerOnload('server_privileges.js', function () {
             var params = {
                 'ajax_request' : true,
                 'token' : PMA_commonParams.get('token'),
+                'server' : PMA_commonParams.get('server'),
                 'validate_username' : true,
                 'username' : username
             };
