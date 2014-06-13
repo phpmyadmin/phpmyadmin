@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-10 12:46-0400\n"
+"POT-Creation-Date: 2014-06-13 16:52-0400\n"
 "PO-Revision-Date: 2014-05-10 09:13+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.cihar.com/projects/"
 "phpmyadmin/master/en_GB/>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9\n"
 
@@ -70,7 +70,7 @@ msgid "Column"
 msgstr "Column"
 
 #: db_datadict.php:153 db_printview.php:49 libraries/Index.class.php:564
-#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:589
+#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:596
 #: libraries/insert_edit.lib.php:245 libraries/insert_edit.lib.php:249
 #: libraries/plugins/export/ExportHtmlword.class.php:281
 #: libraries/plugins/export/ExportHtmlword.class.php:396
@@ -95,7 +95,7 @@ msgid "Type"
 msgstr "Type"
 
 #: db_datadict.php:154 libraries/Index.class.php:570
-#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:595
+#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:602
 #: libraries/insert_edit.lib.php:1634
 #: libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
@@ -113,7 +113,7 @@ msgstr "Type"
 msgid "Null"
 msgstr "Null"
 
-#: db_datadict.php:155 libraries/central_columns.lib.php:599
+#: db_datadict.php:155 libraries/central_columns.lib.php:606
 #: libraries/plugins/export/ExportHtmlword.class.php:287
 #: libraries/plugins/export/ExportHtmlword.class.php:402
 #: libraries/plugins/export/ExportLatex.class.php:514
@@ -162,7 +162,7 @@ msgstr "Primary"
 
 #: db_datadict.php:206 js/messages.php:246 libraries/Index.class.php:435
 #: libraries/Index.class.php:474 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:750
+#: libraries/central_columns.lib.php:762
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.lib.php:455
 #: libraries/mult_submits.lib.php:456
 #: libraries/plugins/export/ExportHtmlword.class.php:633
@@ -185,7 +185,7 @@ msgstr "No"
 
 #: db_datadict.php:206 js/messages.php:337 libraries/Index.class.php:436
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:750
+#: libraries/central_columns.lib.php:762
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
 #: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
@@ -365,7 +365,7 @@ msgid "Status"
 msgstr "Status"
 
 #: db_tracking.php:86 libraries/Index.class.php:561
-#: libraries/central_columns.lib.php:584 libraries/rte/rte_list.lib.php:53
+#: libraries/central_columns.lib.php:591 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
 #: libraries/server_databases.lib.php:401
 #: libraries/server_privileges.lib.php:1850
@@ -562,7 +562,7 @@ msgstr "Add geometry"
 #: libraries/operations.lib.php:650 libraries/operations.lib.php:703
 #: libraries/operations.lib.php:752 libraries/operations.lib.php:1067
 #: libraries/operations.lib.php:1344
-#: libraries/plugins/auth/AuthenticationCookie.class.php:277
+#: libraries/plugins/auth/AuthenticationCookie.class.php:265
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
 #: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:875
 #: libraries/rte/rte_events.lib.php:548
@@ -578,8 +578,8 @@ msgstr "Add geometry"
 #: libraries/server_privileges.lib.php:2517
 #: libraries/server_privileges.lib.php:3163
 #: libraries/server_privileges.lib.php:4059
-#: libraries/sql_query_form.lib.php:381 libraries/sql_query_form.lib.php:440
-#: libraries/sql_query_form.lib.php:508 libraries/structure.lib.php:1680
+#: libraries/sql_query_form.lib.php:383 libraries/sql_query_form.lib.php:442
+#: libraries/sql_query_form.lib.php:510 libraries/structure.lib.php:1680
 #: libraries/tbl_chart.lib.php:296
 #: libraries/tbl_columns_definition_form.lib.php:175
 #: libraries/tbl_tracking.lib.php:429 libraries/tbl_tracking.lib.php:547
@@ -603,21 +603,21 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 
-#: import.php:284 import.php:565
+#: import.php:284 import.php:568
 msgid "Showing bookmark"
 msgstr "Showing bookmark"
 
-#: import.php:299 import.php:561
+#: import.php:299 import.php:564
 msgid "The bookmark has been deleted."
 msgstr "The bookmark has been deleted."
 
-#: import.php:396
+#: import.php:399
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -626,12 +626,12 @@ msgstr ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 
-#: import.php:409 import.php:470 libraries/File.class.php:418
+#: import.php:412 import.php:473 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "File could not be read!"
 
-#: import.php:418 import.php:429 import.php:450 import.php:461
+#: import.php:421 import.php:432 import.php:453 import.php:464
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -641,7 +641,7 @@ msgstr ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 
-#: import.php:476
+#: import.php:479
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -651,27 +651,27 @@ msgstr ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:495
+#: import.php:498
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Cannot convert file's character set without character set conversion library!"
 
-#: import.php:533 libraries/display_import.inc.php:32
+#: import.php:536 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Could not load import plug-ins, please check your installation!"
 
-#: import.php:568 libraries/sql.lib.php:1025 libraries/sql.lib.php:1814
+#: import.php:571 libraries/sql.lib.php:1025 libraries/sql.lib.php:1815
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bookmark %s created."
 
-#: import.php:577
+#: import.php:580
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Import has been successfully finished, %d queries executed."
 
-#: import.php:598
+#: import.php:601
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -679,7 +679,7 @@ msgstr ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 
-#: import.php:602
+#: import.php:605
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -689,7 +689,7 @@ msgstr ""
 
 #: import_status.php:95 libraries/Util.class.php:732
 #: libraries/export.lib.php:437
-#: libraries/schema/Export_Relation_Schema.class.php:248 user_password.php:239
+#: libraries/schema/Export_Relation_Schema.class.php:248 user_password.php:197
 msgid "Back"
 msgstr "Back"
 
@@ -713,7 +713,7 @@ msgid "General Settings"
 msgstr "General Settings"
 
 #: index.php:169 libraries/display_change_password.lib.php:51
-#: libraries/display_change_password.lib.php:52 user_password.php:233
+#: libraries/display_change_password.lib.php:52 user_password.php:191
 msgid "Change password"
 msgstr "Change password"
 
@@ -733,7 +733,7 @@ msgstr "More settings"
 msgid "Database server"
 msgstr "Database server"
 
-#: index.php:262 libraries/plugins/auth/AuthenticationCookie.class.php:190
+#: index.php:262 libraries/plugins/auth/AuthenticationCookie.class.php:178
 msgid "Server:"
 msgstr "Server:"
 
@@ -951,10 +951,14 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Do you really want to delete the search \"%s\"?"
 
 #: js/messages.php:46
-msgid ""
-"Are you sure you want to navigate away from this page? Press OK to continue "
-"or Cancel to stay on the current page."
+#, fuzzy
+#| msgid ""
+#| "You have edited some data and they have not been saved. Are you sure you "
+#| "want to leave this page before saving the data?"
+msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
+"You have edited some data and they have not been saved. Are you sure you "
+"want to leave this page before saving the data?"
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
@@ -1704,7 +1708,7 @@ msgstr "Show query box"
 #: js/messages.php:277 libraries/DisplayResults.class.php:3365
 #: libraries/Index.class.php:593 libraries/Util.class.php:664
 #: libraries/Util.class.php:1189 libraries/Util.class.php:3364
-#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:712
+#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:721
 #: libraries/config/messages.inc.php:752
 #: libraries/schema/User_Schema.class.php:223
 #: libraries/server_user_groups.lib.php:119
@@ -2565,7 +2569,7 @@ msgstr "Showing bookmark"
 msgid "Delete bookmark"
 msgstr "Delete relation"
 
-#: libraries/DatabaseInterface.class.php:1871
+#: libraries/DatabaseInterface.class.php:1807
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -2573,19 +2577,19 @@ msgstr ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 
-#: libraries/DatabaseInterface.class.php:1876
+#: libraries/DatabaseInterface.class.php:1812
 msgid "The server is not responding."
 msgstr "The server is not responding."
 
-#: libraries/DatabaseInterface.class.php:1881
+#: libraries/DatabaseInterface.class.php:1817
 msgid "Please check privileges of directory containing database."
 msgstr "Please check privileges of directory containing database."
 
-#: libraries/DatabaseInterface.class.php:1891
+#: libraries/DatabaseInterface.class.php:1827
 msgid "Details…"
 msgstr "Details…"
 
-#: libraries/DatabaseInterface.class.php:1985
+#: libraries/DatabaseInterface.class.php:1921
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Connection for controluser as defined in your configuration failed."
 
@@ -2639,12 +2643,12 @@ msgstr "Delete the matches for the %s table?"
 
 #: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3436
 #: libraries/DisplayResults.class.php:4978
-#: libraries/central_columns.lib.php:714
+#: libraries/central_columns.lib.php:723
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:355
 #: libraries/server_user_groups.lib.php:129
-#: libraries/sql_query_form.lib.php:432 libraries/tbl_tracking.lib.php:373
+#: libraries/sql_query_form.lib.php:434 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
 #: pmd_general.php:508 setup/frames/index.inc.php:182
 #: setup/frames/index.inc.php:290
@@ -2684,14 +2688,14 @@ msgid "Restore column order"
 msgstr "Restore column order"
 
 #: libraries/DisplayResults.class.php:788
-#: libraries/central_columns.lib.php:564
+#: libraries/central_columns.lib.php:571
 #, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
 msgstr "Filters"
 
 #: libraries/DisplayResults.class.php:790
-#: libraries/central_columns.lib.php:566
+#: libraries/central_columns.lib.php:573
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
@@ -2844,11 +2848,11 @@ msgstr "Your SQL query has been executed successfully"
 #: libraries/DisplayResults.class.php:4856 libraries/structure.lib.php:682
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 
 #: libraries/DisplayResults.class.php:4869
 #, php-format
@@ -2865,7 +2869,7 @@ msgstr ""
 msgid "%d total"
 msgstr "%d total"
 
-#: libraries/DisplayResults.class.php:4901 libraries/sql.lib.php:1648
+#: libraries/DisplayResults.class.php:4901 libraries/sql.lib.php:1649
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -3012,12 +3016,12 @@ msgstr "Git information missing!"
 msgid "Open new phpMyAdmin window"
 msgstr "Open new phpMyAdmin window"
 
-#: libraries/Header.class.php:407
+#: libraries/Header.class.php:408
 msgid "Click on the bar to scroll to top of page"
 msgstr "Click on the bar to scroll to top of page"
 
-#: libraries/Header.class.php:677
-#: libraries/plugins/auth/AuthenticationCookie.class.php:161
+#: libraries/Header.class.php:678
+#: libraries/plugins/auth/AuthenticationCookie.class.php:149
 #, fuzzy
 #| msgid "Javascript must be enabled past this point"
 msgid "Javascript must be enabled past this point!"
@@ -3056,7 +3060,7 @@ msgstr "Cardinality"
 
 #: libraries/Index.class.php:569 libraries/TableSearch.class.php:187
 #: libraries/build_html_for_db.lib.php:22
-#: libraries/central_columns.lib.php:593 libraries/mysql_charsets.lib.php:47
+#: libraries/central_columns.lib.php:600 libraries/mysql_charsets.lib.php:47
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:819
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:835
 #: libraries/structure.lib.php:1252 libraries/structure.lib.php:1799
@@ -3138,7 +3142,7 @@ msgstr "Search"
 #: libraries/Util.class.php:3357 libraries/Util.class.php:3358
 #: libraries/Util.class.php:4106
 #: libraries/navigation/Nodes/Node_Table.class.php:42
-#: libraries/sql_query_form.lib.php:301 libraries/sql_query_form.lib.php:304
+#: libraries/sql_query_form.lib.php:302 libraries/sql_query_form.lib.php:305
 msgid "Insert"
 msgstr "Insert"
 
@@ -3746,20 +3750,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -4119,7 +4123,7 @@ msgstr "The %s functionality is affected by a known bug, see %s"
 msgid "Click to toggle"
 msgstr "Click to toggle"
 
-#: libraries/Util.class.php:3272 libraries/sql_query_form.lib.php:477
+#: libraries/Util.class.php:3272 libraries/sql_query_form.lib.php:479
 #: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "Browse your computer:"
@@ -4130,7 +4134,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Select from the web server upload directory <b>%s</b>:"
 
 #: libraries/Util.class.php:3326 libraries/insert_edit.lib.php:1234
-#: libraries/sql_query_form.lib.php:487
+#: libraries/sql_query_form.lib.php:489
 msgid "The directory you set for upload work cannot be reached."
 msgstr "The directory you set for upload work cannot be reached."
 
@@ -4249,19 +4253,19 @@ msgstr ""
 msgid "Could not add columns!"
 msgstr "Could not save configuration"
 
-#: libraries/central_columns.lib.php:342
+#: libraries/central_columns.lib.php:346
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
 
-#: libraries/central_columns.lib.php:354
+#: libraries/central_columns.lib.php:358
 #, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not remove columns!"
 msgstr "Could not save recent table"
 
-#: libraries/central_columns.lib.php:587
+#: libraries/central_columns.lib.php:594
 #: libraries/display_create_table.lib.php:60
 #: libraries/plugins/export/ExportHtmlword.class.php:485
 #: libraries/plugins/export/ExportOdt.class.php:560
@@ -4274,30 +4278,30 @@ msgstr "Could not save recent table"
 msgid "Name"
 msgstr "Name"
 
-#: libraries/central_columns.lib.php:591
+#: libraries/central_columns.lib.php:598
 #: libraries/rte/rte_routines.lib.php:984
 #: libraries/tbl_columns_definition_form.lib.php:279
 msgid "Length/Values"
 msgstr "Length/Values"
 
-#: libraries/central_columns.lib.php:597
+#: libraries/central_columns.lib.php:604
 #: libraries/schema/Pdf_Relation_Schema.class.php:1364
 #: libraries/schema/Pdf_Relation_Schema.class.php:1387
 #: libraries/structure.lib.php:1256 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr "Extra"
 
-#: libraries/central_columns.lib.php:618
+#: libraries/central_columns.lib.php:625
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
 msgstr "Select Tables"
 
-#: libraries/central_columns.lib.php:670 libraries/structure.lib.php:1649
+#: libraries/central_columns.lib.php:679 libraries/structure.lib.php:1649
 msgid "Add column"
 msgstr "Add column"
 
-#: libraries/central_columns.lib.php:682
+#: libraries/central_columns.lib.php:691
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
@@ -4683,8 +4687,8 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:416
 #, fuzzy, php-format
 #| msgid ""
-#| "If using cookie authentication and %sLogin cookie store%s is not 0, %"
-#| "sLogin cookie validity%s must be set to a value less or equal to it."
+#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
+#| "%sLogin cookie validity%s must be set to a value less or equal to it."
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
@@ -4695,10 +4699,10 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:423
 #, fuzzy, php-format
 #| msgid ""
-#| "If you feel this is necessary, use additional protection settings - %"
-#| "shost authentication%s settings and %strusted proxies list%s. However, IP-"
-#| "based protection may not be reliable if your IP belongs to an ISP where "
-#| "thousands of users, including you, are connected to."
+#| "If you feel this is necessary, use additional protection settings - "
+#| "%shost authentication%s settings and %strusted proxies list%s. However, "
+#| "IP-based protection may not be reliable if your IP belongs to an ISP "
+#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
@@ -7196,7 +7200,7 @@ msgid ""
 msgstr ""
 "Defines whether the query box should stay on-screen after its submission"
 
-#: libraries/config/messages.inc.php:747 libraries/sql_query_form.lib.php:370
+#: libraries/config/messages.inc.php:747 libraries/sql_query_form.lib.php:372
 msgid "Retain query box"
 msgstr "Retain query box"
 
@@ -7553,7 +7557,7 @@ msgid "No Password"
 msgstr "No Password"
 
 #: libraries/display_change_password.lib.php:67
-#: libraries/plugins/auth/AuthenticationCookie.class.php:208
+#: libraries/plugins/auth/AuthenticationCookie.class.php:196
 #: libraries/replication_gui.lib.php:395 libraries/replication_gui.lib.php:831
 #: libraries/server_privileges.lib.php:1457
 msgid "Password:"
@@ -7703,19 +7707,19 @@ msgstr ", @TABLE@ will become the table name"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 
 #: libraries/display_export.lib.php:519
 msgid "use this for future exports"
 msgstr "use this for future exports"
 
 #: libraries/display_export.lib.php:534 libraries/display_import.lib.php:179
-#: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:503
+#: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:505
 msgid "Character set of the file:"
 msgstr "Character set of the file:"
 
@@ -8214,11 +8218,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 
 #: libraries/engines/pbxt.lib.php:138
 msgid "Related Links"
@@ -8274,7 +8278,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump has been saved to file %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1642
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1643
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returned an empty result set (i.e. zero rows)."
@@ -8357,7 +8361,7 @@ msgstr "Because of its length,<br /> this column might not be editable"
 msgid "Binary - do not edit"
 msgstr "Binary - do not edit"
 
-#: libraries/insert_edit.lib.php:1238 libraries/sql_query_form.lib.php:491
+#: libraries/insert_edit.lib.php:1238 libraries/sql_query_form.lib.php:493
 msgid "web server upload directory:"
 msgstr "web server upload directory:"
 
@@ -8404,11 +8408,11 @@ msgid ""
 msgstr ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 
-#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1639
+#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1640
 msgid "Showing SQL query"
 msgstr "Showing SQL query"
 
-#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1619
+#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1620
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Inserted row id: %1$d"
@@ -8445,7 +8449,7 @@ msgid "To"
 msgstr "To"
 
 #: libraries/mult_submits.lib.php:353 libraries/mult_submits.lib.php:386
-#: libraries/sql_query_form.lib.php:424
+#: libraries/sql_query_form.lib.php:426
 msgid "Submit"
 msgstr "Submit"
 
@@ -8725,7 +8729,7 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:27
-#: libraries/sql_query_form.lib.php:281
+#: libraries/sql_query_form.lib.php:282
 msgid "Columns"
 msgstr "Columns"
 
@@ -9012,7 +9016,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Cannot connect: invalid settings."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:90
-#: libraries/plugins/auth/AuthenticationCookie.class.php:143
+#: libraries/plugins/auth/AuthenticationCookie.class.php:131
 #: libraries/plugins/auth/AuthenticationHttp.class.php:74
 #, php-format
 msgid "Welcome to %s"
@@ -9021,11 +9025,11 @@ msgstr "Welcome to %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:126
 msgid ""
@@ -9043,36 +9047,32 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "Retry to connect"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:44
-msgid "Failed to use Blowfish from mcrypt!"
-msgstr "Failed to use Blowfish from mcrypt!"
-
-#: libraries/plugins/auth/AuthenticationCookie.class.php:155
+#: libraries/plugins/auth/AuthenticationCookie.class.php:143
 msgid "Your session has expired. Please log in again."
 msgstr "Your session has expired. Please log in again."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:179
+#: libraries/plugins/auth/AuthenticationCookie.class.php:167
 msgid "Log in"
 msgstr "Log in"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:187
-#: libraries/plugins/auth/AuthenticationCookie.class.php:197
+#: libraries/plugins/auth/AuthenticationCookie.class.php:175
+#: libraries/plugins/auth/AuthenticationCookie.class.php:185
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "You can enter hostname/IP address and port separated by space."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:202
+#: libraries/plugins/auth/AuthenticationCookie.class.php:190
 msgid "Username:"
 msgstr "Username:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:214
+#: libraries/plugins/auth/AuthenticationCookie.class.php:202
 msgid "Server Choice:"
 msgstr "Server Choice:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:387
+#: libraries/plugins/auth/AuthenticationCookie.class.php:375
 msgid "Entered captcha is wrong, try again!"
 msgstr "Entered captcha is wrong, try again!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:396
+#: libraries/plugins/auth/AuthenticationCookie.class.php:384
 msgid "Please enter correct captcha!"
 msgstr "Please enter correct captcha!"
 
@@ -9826,7 +9826,7 @@ msgid ""
 msgstr ""
 "Please see the documentation on how to update your column_comments table."
 
-#: libraries/relation.lib.php:186 libraries/sql_query_form.lib.php:404
+#: libraries/relation.lib.php:186 libraries/sql_query_form.lib.php:406
 msgid "Bookmarked SQL query"
 msgstr "Bookmarked SQL query"
 
@@ -10102,7 +10102,7 @@ msgstr "Slave status"
 
 #: libraries/replication_gui.lib.php:514
 #: libraries/server_status_variables.lib.php:219
-#: libraries/server_variables.lib.php:195 libraries/sql_query_form.lib.php:416
+#: libraries/server_variables.lib.php:195 libraries/sql_query_form.lib.php:418
 msgid "Variable"
 msgstr "Variable"
 
@@ -11403,13 +11403,13 @@ msgstr "Users overview"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 
 #: libraries/server_privileges.lib.php:4003
 msgid "The selected user was not found in the privilege table."
@@ -12586,7 +12586,7 @@ msgstr "Bookmark this SQL query"
 msgid "Label:"
 msgstr "Label:"
 
-#: libraries/sql.lib.php:777 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:777 libraries/sql_query_form.lib.php:328
 msgid "Let every user access this bookmark"
 msgstr "Let every user access this bookmark"
 
@@ -12601,11 +12601,11 @@ msgstr "Bookmark not created"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Using bookmark \"%s\" as default browse query."
 
-#: libraries/sql.lib.php:1636
+#: libraries/sql.lib.php:1637
 msgid "Showing as PHP code"
 msgstr "Showing as PHP code"
 
-#: libraries/sql.lib.php:1925
+#: libraries/sql.lib.php:1926
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
@@ -12613,46 +12613,46 @@ msgstr ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 
-#: libraries/sql.lib.php:1962
+#: libraries/sql.lib.php:1963
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problems with indexes of table `%s`"
 
-#: libraries/sql_query_form.lib.php:184
+#: libraries/sql_query_form.lib.php:185
 #, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr "Run SQL query/queries on server %s"
 
-#: libraries/sql_query_form.lib.php:205 libraries/sql_query_form.lib.php:233
+#: libraries/sql_query_form.lib.php:206 libraries/sql_query_form.lib.php:234
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "Run SQL query/queries on database %s"
 
-#: libraries/sql_query_form.lib.php:275 setup/frames/index.inc.php:297
+#: libraries/sql_query_form.lib.php:276 setup/frames/index.inc.php:297
 msgid "Clear"
 msgstr "Clear"
 
-#: libraries/sql_query_form.lib.php:318
+#: libraries/sql_query_form.lib.php:320
 msgid "Bookmark this SQL query:"
 msgstr "Bookmark this SQL query:"
 
-#: libraries/sql_query_form.lib.php:332
+#: libraries/sql_query_form.lib.php:334
 msgid "Replace existing bookmark of same name"
 msgstr "Replace existing bookmark of same name"
 
-#: libraries/sql_query_form.lib.php:348
+#: libraries/sql_query_form.lib.php:350
 msgid "Do not overwrite this query from outside the window"
 msgstr "Do not overwrite this query from outside the window"
 
-#: libraries/sql_query_form.lib.php:353
+#: libraries/sql_query_form.lib.php:355
 msgid "Delimiter"
 msgstr "Delimiter"
 
-#: libraries/sql_query_form.lib.php:361
+#: libraries/sql_query_form.lib.php:363
 msgid "Show this query here again"
 msgstr "Show this query here again"
 
-#: libraries/sql_query_form.lib.php:428
+#: libraries/sql_query_form.lib.php:430
 msgid "View only"
 msgstr "View only"
 
@@ -14405,11 +14405,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 
 #: libraries/advisory_rules.txt:181
 msgid "Query cache fragmentation"
@@ -14559,11 +14559,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 
 #: libraries/advisory_rules.txt:218
 msgid "Rate of sorts that cause temporary tables"
@@ -15301,6 +15301,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert is set to 0"
+
+#~ msgid "Failed to use Blowfish from mcrypt!"
+#~ msgstr "Failed to use Blowfish from mcrypt!"
 
 #~ msgid "Unfortunately the submission failed."
 #~ msgstr "Unfortunately the submission failed."

@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-10 12:46-0400\n"
+"POT-Creation-Date: 2014-06-13 16:52-0400\n"
 "PO-Revision-Date: 2014-03-31 14:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian <https://l10n.cihar.com/projects/phpmyadmin/master/"
 "be/>\n"
+"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: be\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -69,7 +69,7 @@ msgid "Column"
 msgstr "Калонка"
 
 #: db_datadict.php:153 db_printview.php:49 libraries/Index.class.php:564
-#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:589
+#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:596
 #: libraries/insert_edit.lib.php:245 libraries/insert_edit.lib.php:249
 #: libraries/plugins/export/ExportHtmlword.class.php:281
 #: libraries/plugins/export/ExportHtmlword.class.php:396
@@ -94,7 +94,7 @@ msgid "Type"
 msgstr "Тып"
 
 #: db_datadict.php:154 libraries/Index.class.php:570
-#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:595
+#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:602
 #: libraries/insert_edit.lib.php:1634
 #: libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
@@ -112,7 +112,7 @@ msgstr "Тып"
 msgid "Null"
 msgstr "Нуль"
 
-#: db_datadict.php:155 libraries/central_columns.lib.php:599
+#: db_datadict.php:155 libraries/central_columns.lib.php:606
 #: libraries/plugins/export/ExportHtmlword.class.php:287
 #: libraries/plugins/export/ExportHtmlword.class.php:402
 #: libraries/plugins/export/ExportLatex.class.php:514
@@ -161,7 +161,7 @@ msgstr "Першасны"
 
 #: db_datadict.php:206 js/messages.php:246 libraries/Index.class.php:435
 #: libraries/Index.class.php:474 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:750
+#: libraries/central_columns.lib.php:762
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.lib.php:455
 #: libraries/mult_submits.lib.php:456
 #: libraries/plugins/export/ExportHtmlword.class.php:633
@@ -184,7 +184,7 @@ msgstr "Не"
 
 #: db_datadict.php:206 js/messages.php:337 libraries/Index.class.php:436
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:750
+#: libraries/central_columns.lib.php:762
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
 #: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
@@ -373,7 +373,7 @@ msgid "Status"
 msgstr "Стан"
 
 #: db_tracking.php:86 libraries/Index.class.php:561
-#: libraries/central_columns.lib.php:584 libraries/rte/rte_list.lib.php:53
+#: libraries/central_columns.lib.php:591 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
 #: libraries/server_databases.lib.php:401
 #: libraries/server_privileges.lib.php:1850
@@ -586,7 +586,7 @@ msgstr "Дадаць новага карыстальніка"
 #: libraries/operations.lib.php:650 libraries/operations.lib.php:703
 #: libraries/operations.lib.php:752 libraries/operations.lib.php:1067
 #: libraries/operations.lib.php:1344
-#: libraries/plugins/auth/AuthenticationCookie.class.php:277
+#: libraries/plugins/auth/AuthenticationCookie.class.php:265
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
 #: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:875
 #: libraries/rte/rte_events.lib.php:548
@@ -602,8 +602,8 @@ msgstr "Дадаць новага карыстальніка"
 #: libraries/server_privileges.lib.php:2517
 #: libraries/server_privileges.lib.php:3163
 #: libraries/server_privileges.lib.php:4059
-#: libraries/sql_query_form.lib.php:381 libraries/sql_query_form.lib.php:440
-#: libraries/sql_query_form.lib.php:508 libraries/structure.lib.php:1680
+#: libraries/sql_query_form.lib.php:383 libraries/sql_query_form.lib.php:442
+#: libraries/sql_query_form.lib.php:510 libraries/structure.lib.php:1680
 #: libraries/tbl_chart.lib.php:296
 #: libraries/tbl_columns_definition_form.lib.php:175
 #: libraries/tbl_tracking.lib.php:429 libraries/tbl_tracking.lib.php:547
@@ -625,50 +625,50 @@ msgstr ""
 #: import.php:116
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Вы, мусіць, паспрабавалі загрузіць вельмі вялікі файл. Калі ласка, "
 "зьвярніцеся да %sдакумэнтацыі%s для высьвятленьня спосабаў абыйсьці гэтае "
 "абмежаваньне."
 
-#: import.php:284 import.php:565
+#: import.php:284 import.php:568
 msgid "Showing bookmark"
 msgstr "Паказваючы закладку"
 
-#: import.php:299 import.php:561
+#: import.php:299 import.php:564
 msgid "The bookmark has been deleted."
 msgstr "Закладка была выдаленая."
 
-#: import.php:396
+#: import.php:399
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
 
-#: import.php:409 import.php:470 libraries/File.class.php:418
+#: import.php:412 import.php:473 libraries/File.class.php:418
 #: libraries/File.class.php:512
 #, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
 msgstr "Немагчыма прачытаць файл"
 
-#: import.php:418 import.php:429 import.php:450 import.php:461
+#: import.php:421 import.php:432 import.php:453 import.php:464
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Вы паспрабавалі загрузіць файл з мэтадам сьціску, які непадтрымліваецца (%"
-"s). Ягоная падтрымка або не рэалізаваная, або адключаная ў вашай "
+"Вы паспрабавалі загрузіць файл з мэтадам сьціску, які непадтрымліваецца "
+"(%s). Ягоная падтрымка або не рэалізаваная, або адключаная ў вашай "
 "канфігурацыі."
 
-#: import.php:476
+#: import.php:479
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -678,28 +678,28 @@ msgstr ""
 "загружаны, альбо памер файла перавысіў максымальны памер, вызначаны "
 "канфігурацыяй PHP. Гл. [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:495
+#: import.php:498
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 
-#: import.php:533 libraries/display_import.inc.php:32
+#: import.php:536 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Немагчыма загрузіць плагіны імпартаваньня, калі ласка, праверце ўсталёўку!"
 
-#: import.php:568 libraries/sql.lib.php:1025 libraries/sql.lib.php:1814
+#: import.php:571 libraries/sql.lib.php:1025 libraries/sql.lib.php:1815
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
 msgstr "Закладка %s створаная"
 
-#: import.php:577
+#: import.php:580
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Імпартраваньне пасьпяхова завершанае, выканана %d запытаў."
 
-#: import.php:598
+#: import.php:601
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -707,7 +707,7 @@ msgstr ""
 "Выйшаў дазволены час выкананьня скрыпта. Калі вы хочаце завершыць "
 "імпартаваньне, калі ласка, загрузіце файл зноў і імпартаваньне ўзнавіцца."
 
-#: import.php:602
+#: import.php:605
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -718,7 +718,7 @@ msgstr ""
 
 #: import_status.php:95 libraries/Util.class.php:732
 #: libraries/export.lib.php:437
-#: libraries/schema/Export_Relation_Schema.class.php:248 user_password.php:239
+#: libraries/schema/Export_Relation_Schema.class.php:248 user_password.php:197
 msgid "Back"
 msgstr "Назад"
 
@@ -742,7 +742,7 @@ msgid "General Settings"
 msgstr "Магчымасьці асноўных сувязяў"
 
 #: index.php:169 libraries/display_change_password.lib.php:51
-#: libraries/display_change_password.lib.php:52 user_password.php:233
+#: libraries/display_change_password.lib.php:52 user_password.php:191
 msgid "Change password"
 msgstr "Зьмяніць пароль"
 
@@ -768,7 +768,7 @@ msgstr "Магчымасьці асноўных сувязяў"
 msgid "Database server"
 msgstr "База дадзеных для карыстальніка"
 
-#: index.php:262 libraries/plugins/auth/AuthenticationCookie.class.php:190
+#: index.php:262 libraries/plugins/auth/AuthenticationCookie.class.php:178
 msgid "Server:"
 msgstr "Сэрвэр:"
 
@@ -1005,9 +1005,7 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Ці сапраўды вы жадаеце "
 
 #: js/messages.php:46
-msgid ""
-"Are you sure you want to navigate away from this page? Press OK to continue "
-"or Cancel to stay on the current page."
+msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
 
 #: js/messages.php:49
@@ -1838,7 +1836,7 @@ msgstr "SQL-запыт"
 #: js/messages.php:277 libraries/DisplayResults.class.php:3365
 #: libraries/Index.class.php:593 libraries/Util.class.php:664
 #: libraries/Util.class.php:1189 libraries/Util.class.php:3364
-#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:712
+#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:721
 #: libraries/config/messages.inc.php:752
 #: libraries/schema/User_Schema.class.php:223
 #: libraries/server_user_groups.lib.php:119
@@ -2771,7 +2769,7 @@ msgstr "Паказваючы закладку"
 msgid "Delete bookmark"
 msgstr "Выдаліць сувязь"
 
-#: libraries/DatabaseInterface.class.php:1871
+#: libraries/DatabaseInterface.class.php:1807
 #, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
@@ -2779,21 +2777,21 @@ msgid ""
 "configured)."
 msgstr "(або сокет лякальнага сэрвэра MySQL не сканфігураваны правільна)"
 
-#: libraries/DatabaseInterface.class.php:1876
+#: libraries/DatabaseInterface.class.php:1812
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "Сэрвэр не адказвае"
 
-#: libraries/DatabaseInterface.class.php:1881
+#: libraries/DatabaseInterface.class.php:1817
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:1891
+#: libraries/DatabaseInterface.class.php:1827
 msgid "Details…"
 msgstr "Падрабязьней…"
 
-#: libraries/DatabaseInterface.class.php:1985
+#: libraries/DatabaseInterface.class.php:1921
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Не атрымалася ўсталяваць злучэньне для controluser, вызначанае ў вашым "
@@ -2852,12 +2850,12 @@ msgstr "Дамп дадзеных табліцы"
 
 #: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3436
 #: libraries/DisplayResults.class.php:4978
-#: libraries/central_columns.lib.php:714
+#: libraries/central_columns.lib.php:723
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:355
 #: libraries/server_user_groups.lib.php:129
-#: libraries/sql_query_form.lib.php:432 libraries/tbl_tracking.lib.php:373
+#: libraries/sql_query_form.lib.php:434 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
 #: pmd_general.php:508 setup/frames/index.inc.php:182
 #: setup/frames/index.inc.php:290
@@ -2906,13 +2904,13 @@ msgid "Restore column order"
 msgstr "Дадаць/выдаліць калёнку крытэру"
 
 #: libraries/DisplayResults.class.php:788
-#: libraries/central_columns.lib.php:564
+#: libraries/central_columns.lib.php:571
 #, fuzzy
 msgid "Filter rows"
 msgstr "Файлы"
 
 #: libraries/DisplayResults.class.php:790
-#: libraries/central_columns.lib.php:566
+#: libraries/central_columns.lib.php:573
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
@@ -3085,11 +3083,11 @@ msgstr "Ваш SQL-запыт быў пасьпяхова выкананы"
 #: libraries/DisplayResults.class.php:4856 libraries/structure.lib.php:682
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Гэты прагляд мае толькі такую колькасьць радкоў. Калі ласка, зьвярніцеся да %"
-"sдакумэнтацыі%s."
+"Гэты прагляд мае толькі такую колькасьць радкоў. Калі ласка, зьвярніцеся да "
+"%sдакумэнтацыі%s."
 
 #: libraries/DisplayResults.class.php:4869
 #, fuzzy, php-format
@@ -3108,7 +3106,7 @@ msgstr ""
 msgid "%d total"
 msgstr "усяго"
 
-#: libraries/DisplayResults.class.php:4901 libraries/sql.lib.php:1648
+#: libraries/DisplayResults.class.php:4901 libraries/sql.lib.php:1649
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -3262,12 +3260,12 @@ msgstr "Інфармацыя пра вэрсію"
 msgid "Open new phpMyAdmin window"
 msgstr "Адкрыць новае акно phpMyAdmin"
 
-#: libraries/Header.class.php:407
+#: libraries/Header.class.php:408
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.class.php:677
-#: libraries/plugins/auth/AuthenticationCookie.class.php:161
+#: libraries/Header.class.php:678
+#: libraries/plugins/auth/AuthenticationCookie.class.php:149
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point!"
@@ -3306,7 +3304,7 @@ msgstr "Колькасьць элемэнтаў"
 
 #: libraries/Index.class.php:569 libraries/TableSearch.class.php:187
 #: libraries/build_html_for_db.lib.php:22
-#: libraries/central_columns.lib.php:593 libraries/mysql_charsets.lib.php:47
+#: libraries/central_columns.lib.php:600 libraries/mysql_charsets.lib.php:47
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:819
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:835
 #: libraries/structure.lib.php:1252 libraries/structure.lib.php:1799
@@ -3388,7 +3386,7 @@ msgstr "Пошук"
 #: libraries/Util.class.php:3357 libraries/Util.class.php:3358
 #: libraries/Util.class.php:4106
 #: libraries/navigation/Nodes/Node_Table.class.php:42
-#: libraries/sql_query_form.lib.php:301 libraries/sql_query_form.lib.php:304
+#: libraries/sql_query_form.lib.php:302 libraries/sql_query_form.lib.php:305
 msgid "Insert"
 msgstr "Уставіць"
 
@@ -4027,14 +4025,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4368,7 +4366,7 @@ msgstr ""
 msgid "Click to toggle"
 msgstr ""
 
-#: libraries/Util.class.php:3272 libraries/sql_query_form.lib.php:477
+#: libraries/Util.class.php:3272 libraries/sql_query_form.lib.php:479
 #: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr ""
@@ -4380,7 +4378,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "тэчка вэб-сэрвэра для загрузкі файлаў"
 
 #: libraries/Util.class.php:3326 libraries/insert_edit.lib.php:1234
-#: libraries/sql_query_form.lib.php:487
+#: libraries/sql_query_form.lib.php:489
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Немагчыма адкрыць пазначаную вамі тэчку для загрузкі файлаў."
 
@@ -4503,19 +4501,19 @@ msgstr ""
 msgid "Could not add columns!"
 msgstr "Немагчыма загрузіць канфігурацыю па змоўчаньні з: \"%1$s\""
 
-#: libraries/central_columns.lib.php:342
+#: libraries/central_columns.lib.php:346
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
 
-#: libraries/central_columns.lib.php:354
+#: libraries/central_columns.lib.php:358
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not remove columns!"
 msgstr "Немагчыма загрузіць канфігурацыю па змоўчаньні з: \"%1$s\""
 
-#: libraries/central_columns.lib.php:587
+#: libraries/central_columns.lib.php:594
 #: libraries/display_create_table.lib.php:60
 #: libraries/plugins/export/ExportHtmlword.class.php:485
 #: libraries/plugins/export/ExportOdt.class.php:560
@@ -4528,32 +4526,32 @@ msgstr "Немагчыма загрузіць канфігурацыю па зм
 msgid "Name"
 msgstr "Назва"
 
-#: libraries/central_columns.lib.php:591
+#: libraries/central_columns.lib.php:598
 #: libraries/rte/rte_routines.lib.php:984
 #: libraries/tbl_columns_definition_form.lib.php:279
 msgid "Length/Values"
 msgstr "Даўжыня/Значэньні*"
 
-#: libraries/central_columns.lib.php:597
+#: libraries/central_columns.lib.php:604
 #: libraries/schema/Pdf_Relation_Schema.class.php:1364
 #: libraries/schema/Pdf_Relation_Schema.class.php:1387
 #: libraries/structure.lib.php:1256 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr "Дадаткова"
 
-#: libraries/central_columns.lib.php:618
+#: libraries/central_columns.lib.php:625
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
 msgstr "Выберыце табліцу(ы)"
 
-#: libraries/central_columns.lib.php:670 libraries/structure.lib.php:1649
+#: libraries/central_columns.lib.php:679 libraries/structure.lib.php:1649
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add column"
 msgstr "Дадаць %s новыя палі"
 
-#: libraries/central_columns.lib.php:682
+#: libraries/central_columns.lib.php:691
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Select a column."
@@ -7049,7 +7047,7 @@ msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
 
-#: libraries/config/messages.inc.php:747 libraries/sql_query_form.lib.php:370
+#: libraries/config/messages.inc.php:747 libraries/sql_query_form.lib.php:372
 #, fuzzy
 msgid "Retain query box"
 msgstr "SQL-запыт"
@@ -7354,7 +7352,7 @@ msgid "No Password"
 msgstr "Без пароля"
 
 #: libraries/display_change_password.lib.php:67
-#: libraries/plugins/auth/AuthenticationCookie.class.php:208
+#: libraries/plugins/auth/AuthenticationCookie.class.php:196
 #: libraries/replication_gui.lib.php:395 libraries/replication_gui.lib.php:831
 #: libraries/server_privileges.lib.php:1457
 msgid "Password:"
@@ -7537,12 +7535,12 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid ""
 #| "s value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "matting strings. Additionally the following transformations will pen: %3"
-#| "$s. Other text will be kept as is."
+#| "matting strings. Additionally the following transformations will pen: "
+#| "%3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Гэтае значэньне інтэрпрэтуецца з выкарыстаньнем %1$sstrftime%2$s, таму можна "
 "выкарыстоўваць радкі фарматаваньня часу. Апроч гэтага, будуць праведзеныя "
@@ -7553,7 +7551,7 @@ msgid "use this for future exports"
 msgstr ""
 
 #: libraries/display_export.lib.php:534 libraries/display_import.lib.php:179
-#: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:503
+#: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:505
 msgid "Character set of the file:"
 msgstr "Кадыроўка файла:"
 
@@ -8071,8 +8069,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -8131,7 +8129,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Дамп захаваны ў файл %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1642
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1643
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вярнула пусты вынік (то бок нуль радкоў)."
@@ -8208,7 +8206,7 @@ msgstr "З-за вялікай даўжыні,<br /> гэтае поле ня м
 msgid "Binary - do not edit"
 msgstr "Двайковыя дадзеныя — не рэдагуюцца"
 
-#: libraries/insert_edit.lib.php:1238 libraries/sql_query_form.lib.php:491
+#: libraries/insert_edit.lib.php:1238 libraries/sql_query_form.lib.php:493
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
@@ -8260,11 +8258,11 @@ msgstr ""
 "Выкарыстоўвайце клявішу TAB для перамяшчэньня ад значэньня да значэньня або "
 "CTRL+стрэлкі для перамяшчэньня ў любое іншае месца"
 
-#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1639
+#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1640
 msgid "Showing SQL query"
 msgstr "У выглядзе SQL-запыту"
 
-#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1619
+#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1620
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID устаўленага радку: %1$d"
@@ -8309,7 +8307,7 @@ msgid "To"
 msgstr ""
 
 #: libraries/mult_submits.lib.php:353 libraries/mult_submits.lib.php:386
-#: libraries/sql_query_form.lib.php:424
+#: libraries/sql_query_form.lib.php:426
 msgid "Submit"
 msgstr "Адправіць"
 
@@ -8613,7 +8611,7 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:27
-#: libraries/sql_query_form.lib.php:281
+#: libraries/sql_query_form.lib.php:282
 #, fuzzy
 #| msgid "Column names"
 msgid "Columns"
@@ -8927,7 +8925,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Немагчыма падлучыцца: няправільныя налады."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:90
-#: libraries/plugins/auth/AuthenticationCookie.class.php:143
+#: libraries/plugins/auth/AuthenticationCookie.class.php:131
 #: libraries/plugins/auth/AuthenticationHttp.class.php:74
 #, php-format
 msgid "Welcome to %s"
@@ -8936,8 +8934,8 @@ msgstr "Запрашаем у %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Імаверна, прычына гэтага ў тым, што ня створаны канфігурацыйны файл. Каб яго "
 "стварыць, можна выкарыстаць %1$sналадачны скрыпт%2$s."
@@ -8958,38 +8956,34 @@ msgstr ""
 msgid "Retry to connect"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:44
-msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
-
-#: libraries/plugins/auth/AuthenticationCookie.class.php:155
+#: libraries/plugins/auth/AuthenticationCookie.class.php:143
 msgid "Your session has expired. Please log in again."
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:179
+#: libraries/plugins/auth/AuthenticationCookie.class.php:167
 msgid "Log in"
 msgstr "Уваход у сыстэму"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:187
-#: libraries/plugins/auth/AuthenticationCookie.class.php:197
+#: libraries/plugins/auth/AuthenticationCookie.class.php:175
+#: libraries/plugins/auth/AuthenticationCookie.class.php:185
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:202
+#: libraries/plugins/auth/AuthenticationCookie.class.php:190
 msgid "Username:"
 msgstr "Імя карыстальніка:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:214
+#: libraries/plugins/auth/AuthenticationCookie.class.php:202
 #, fuzzy
 #| msgid "Server Choice"
 msgid "Server Choice:"
 msgstr "Выбар сэрвэра"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:387
+#: libraries/plugins/auth/AuthenticationCookie.class.php:375
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:396
+#: libraries/plugins/auth/AuthenticationCookie.class.php:384
 msgid "Please enter correct captcha!"
 msgstr ""
 
@@ -9819,7 +9813,7 @@ msgstr ""
 "За інфармацыяй як абнавіць табліцу column_comments зьвярніцеся, калі ласка, "
 "да дакумэнтацыі."
 
-#: libraries/relation.lib.php:186 libraries/sql_query_form.lib.php:404
+#: libraries/relation.lib.php:186 libraries/sql_query_form.lib.php:406
 msgid "Bookmarked SQL query"
 msgstr "Закладзены SQL-запыт"
 
@@ -10088,7 +10082,7 @@ msgstr "Паказаць стан залежных сэрвэраў"
 
 #: libraries/replication_gui.lib.php:514
 #: libraries/server_status_variables.lib.php:219
-#: libraries/server_variables.lib.php:195 libraries/sql_query_form.lib.php:416
+#: libraries/server_variables.lib.php:195 libraries/sql_query_form.lib.php:418
 msgid "Variable"
 msgstr "Зьменная"
 
@@ -11493,8 +11487,8 @@ msgstr "Карыстальнікі"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Заўвага: phpMyAdmin атрымлівае прывілеі карыстальнікаў наўпростава з табліц "
 "прывілеяў MySQL. Зьмесьціва гэтых табліц можа адрозьнівацца ад прывілеяў, "
@@ -12738,7 +12732,7 @@ msgstr "Дадаць гэты SQL-запыт у закладкі"
 msgid "Label:"
 msgstr "Метка"
 
-#: libraries/sql.lib.php:777 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:777 libraries/sql_query_form.lib.php:328
 msgid "Let every user access this bookmark"
 msgstr "Даць кожнаму карыстальніку доступ да гэтай закладкі"
 
@@ -12753,59 +12747,59 @@ msgstr "Закладка %s створаная"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1636
+#: libraries/sql.lib.php:1637
 msgid "Showing as PHP code"
 msgstr "У выглядзе PHP-коду"
 
-#: libraries/sql.lib.php:1925
+#: libraries/sql.lib.php:1926
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 msgstr ""
 
-#: libraries/sql.lib.php:1962
+#: libraries/sql.lib.php:1963
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Праблемы з індэксамі для табліцы `%s`"
 
-#: libraries/sql_query_form.lib.php:184
+#: libraries/sql_query_form.lib.php:185
 #, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr "Выканаць SQL-запыт(ы) на сэрвэры %s"
 
-#: libraries/sql_query_form.lib.php:205 libraries/sql_query_form.lib.php:233
+#: libraries/sql_query_form.lib.php:206 libraries/sql_query_form.lib.php:234
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "Выканаць SQL-запыт(ы) на базе дадзеных %s"
 
-#: libraries/sql_query_form.lib.php:275 setup/frames/index.inc.php:297
+#: libraries/sql_query_form.lib.php:276 setup/frames/index.inc.php:297
 #, fuzzy
 msgid "Clear"
 msgstr "Каляндар"
 
-#: libraries/sql_query_form.lib.php:318
+#: libraries/sql_query_form.lib.php:320
 #, fuzzy
 #| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
 msgstr "Дадаць гэты SQL-запыт у закладкі"
 
-#: libraries/sql_query_form.lib.php:332
+#: libraries/sql_query_form.lib.php:334
 msgid "Replace existing bookmark of same name"
 msgstr "Замяніць існую закладку з такім жа імем"
 
-#: libraries/sql_query_form.lib.php:348
+#: libraries/sql_query_form.lib.php:350
 msgid "Do not overwrite this query from outside the window"
 msgstr "Не перазапісвайце гэты запыт у іншых вокнах"
 
-#: libraries/sql_query_form.lib.php:353
+#: libraries/sql_query_form.lib.php:355
 msgid "Delimiter"
 msgstr "Разьдзяляльнік"
 
-#: libraries/sql_query_form.lib.php:361
+#: libraries/sql_query_form.lib.php:363
 msgid "Show this query here again"
 msgstr "Паказаць гэты запыт зноў"
 
-#: libraries/sql_query_form.lib.php:428
+#: libraries/sql_query_form.lib.php:430
 msgid "View only"
 msgstr "Толькі прагляд"
 
@@ -14671,8 +14665,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -14805,8 +14799,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -15559,8 +15553,8 @@ msgstr "максымум адначасовых злучэньняў"
 #~ "%s."
 #~ msgstr ""
 #~ "Немагчыма праініцыялізаваць праверку SQL. Калі ласка, праверце, ці "
-#~ "ўсталяваныя ў вас неабходныя пашырэньні PHP, як гэта апісана ў %"
-#~ "sдакумэнтацыі%s."
+#~ "ўсталяваныя ў вас неабходныя пашырэньні PHP, як гэта апісана ў "
+#~ "%sдакумэнтацыі%s."
 
 #, fuzzy
 #~| msgid "Error: Relation not added."

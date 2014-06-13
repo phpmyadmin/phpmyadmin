@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-10 12:46-0400\n"
+"POT-Creation-Date: 2014-06-13 16:52-0400\n"
 "PO-Revision-Date: 2014-05-07 17:41+0200\n"
 "Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
 "Language-Team: Slovak <https://l10n.cihar.com/projects/phpmyadmin/master/sk/"
 ">\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 1.9\n"
 
@@ -68,7 +68,7 @@ msgid "Column"
 msgstr "Stĺpec"
 
 #: db_datadict.php:153 db_printview.php:49 libraries/Index.class.php:564
-#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:589
+#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:596
 #: libraries/insert_edit.lib.php:245 libraries/insert_edit.lib.php:249
 #: libraries/plugins/export/ExportHtmlword.class.php:281
 #: libraries/plugins/export/ExportHtmlword.class.php:396
@@ -93,7 +93,7 @@ msgid "Type"
 msgstr "Typ"
 
 #: db_datadict.php:154 libraries/Index.class.php:570
-#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:595
+#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:602
 #: libraries/insert_edit.lib.php:1634
 #: libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
@@ -111,7 +111,7 @@ msgstr "Typ"
 msgid "Null"
 msgstr "Nulový"
 
-#: db_datadict.php:155 libraries/central_columns.lib.php:599
+#: db_datadict.php:155 libraries/central_columns.lib.php:606
 #: libraries/plugins/export/ExportHtmlword.class.php:287
 #: libraries/plugins/export/ExportHtmlword.class.php:402
 #: libraries/plugins/export/ExportLatex.class.php:514
@@ -160,7 +160,7 @@ msgstr "Primárny"
 
 #: db_datadict.php:206 js/messages.php:246 libraries/Index.class.php:435
 #: libraries/Index.class.php:474 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:750
+#: libraries/central_columns.lib.php:762
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.lib.php:455
 #: libraries/mult_submits.lib.php:456
 #: libraries/plugins/export/ExportHtmlword.class.php:633
@@ -183,7 +183,7 @@ msgstr "Nie"
 
 #: db_datadict.php:206 js/messages.php:337 libraries/Index.class.php:436
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:750
+#: libraries/central_columns.lib.php:762
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
 #: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
@@ -364,7 +364,7 @@ msgid "Status"
 msgstr "Stav"
 
 #: db_tracking.php:86 libraries/Index.class.php:561
-#: libraries/central_columns.lib.php:584 libraries/rte/rte_list.lib.php:53
+#: libraries/central_columns.lib.php:591 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
 #: libraries/server_databases.lib.php:401
 #: libraries/server_privileges.lib.php:1850
@@ -561,7 +561,7 @@ msgstr "Pridať geometriu"
 #: libraries/operations.lib.php:650 libraries/operations.lib.php:703
 #: libraries/operations.lib.php:752 libraries/operations.lib.php:1067
 #: libraries/operations.lib.php:1344
-#: libraries/plugins/auth/AuthenticationCookie.class.php:277
+#: libraries/plugins/auth/AuthenticationCookie.class.php:265
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
 #: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:875
 #: libraries/rte/rte_events.lib.php:548
@@ -577,8 +577,8 @@ msgstr "Pridať geometriu"
 #: libraries/server_privileges.lib.php:2517
 #: libraries/server_privileges.lib.php:3163
 #: libraries/server_privileges.lib.php:4059
-#: libraries/sql_query_form.lib.php:381 libraries/sql_query_form.lib.php:440
-#: libraries/sql_query_form.lib.php:508 libraries/structure.lib.php:1680
+#: libraries/sql_query_form.lib.php:383 libraries/sql_query_form.lib.php:442
+#: libraries/sql_query_form.lib.php:510 libraries/structure.lib.php:1680
 #: libraries/tbl_chart.lib.php:296
 #: libraries/tbl_columns_definition_form.lib.php:175
 #: libraries/tbl_tracking.lib.php:429 libraries/tbl_tracking.lib.php:547
@@ -602,33 +602,33 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Pravdepodobne ste sa pokúsili uploadnuť príliš veľký súbor. Prečítajte si "
 "prosím %sdokumentáciu%s, ako sa dá toto obmedzenie obísť."
 
-#: import.php:284 import.php:565
+#: import.php:284 import.php:568
 msgid "Showing bookmark"
 msgstr "Zobrazujem obľúbený príkaz"
 
-#: import.php:299 import.php:561
+#: import.php:299 import.php:564
 msgid "The bookmark has been deleted."
 msgstr "Záznam z obľúbených bol zmazaný."
 
-#: import.php:396
+#: import.php:399
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
 
-#: import.php:409 import.php:470 libraries/File.class.php:418
+#: import.php:412 import.php:473 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "Súbor sa nedá prečítať!"
 
-#: import.php:418 import.php:429 import.php:450 import.php:461
+#: import.php:421 import.php:432 import.php:453 import.php:464
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -638,7 +638,7 @@ msgstr ""
 "Pokúsili ste sa načítať súbor s nepodporovanou kompresiou (%s). Buď nie je "
 "zahrnutá podpora tejto kompresie alebo bola deaktivovaná v konfigurácii."
 
-#: import.php:476
+#: import.php:479
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -648,28 +648,28 @@ msgstr ""
 "jeho veľkosť prekročila maximálnu veľkosť povolenú v PHP konfigurácii. Pozri "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:495
+#: import.php:498
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "Bez potrebnej knižnice nemožno previesť konverziu znakovej sady!"
 
-#: import.php:533 libraries/display_import.inc.php:32
+#: import.php:536 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Nebolo možné načítať importovacie pluginy, skontrolujte prosím vašu "
 "inštaláciu!"
 
-#: import.php:568 libraries/sql.lib.php:1025 libraries/sql.lib.php:1814
+#: import.php:571 libraries/sql.lib.php:1025 libraries/sql.lib.php:1815
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Príkaz %s bol zaradený medzi obľúbené."
 
-#: import.php:577
+#: import.php:580
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Import bol úspešne ukončený, bolo vykonaných %d dopytov."
 
-#: import.php:598
+#: import.php:601
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -677,7 +677,7 @@ msgstr ""
 "Časový limit behu skriptu vypršal. Ak chcete import súboru dokončiť, "
 "odošlite znova formulár a import bude pokračovať."
 
-#: import.php:602
+#: import.php:605
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -688,7 +688,7 @@ msgstr ""
 
 #: import_status.php:95 libraries/Util.class.php:732
 #: libraries/export.lib.php:437
-#: libraries/schema/Export_Relation_Schema.class.php:248 user_password.php:239
+#: libraries/schema/Export_Relation_Schema.class.php:248 user_password.php:197
 msgid "Back"
 msgstr "Späť"
 
@@ -711,7 +711,7 @@ msgid "General Settings"
 msgstr "Všeobecné nastavenia"
 
 #: index.php:169 libraries/display_change_password.lib.php:51
-#: libraries/display_change_password.lib.php:52 user_password.php:233
+#: libraries/display_change_password.lib.php:52 user_password.php:191
 msgid "Change password"
 msgstr "Zmeniť heslo"
 
@@ -731,7 +731,7 @@ msgstr "Ďalšie nastavenia"
 msgid "Database server"
 msgstr "Databázový server"
 
-#: index.php:262 libraries/plugins/auth/AuthenticationCookie.class.php:190
+#: index.php:262 libraries/plugins/auth/AuthenticationCookie.class.php:178
 msgid "Server:"
 msgstr "Server:"
 
@@ -900,8 +900,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Webový server beží so Suhosin-patchom. Možné dôsledky konzultujte s %"
-"sdokumentáciou%s."
+"Webový server beží so Suhosin-patchom. Možné dôsledky konzultujte s "
+"%sdokumentáciou%s."
 
 #: js/messages.php:29 libraries/import.lib.php:122 sql.php:140
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -952,12 +952,12 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Naozaj chcete odstrániť vyhľadávanie \"%s\"?"
 
 #: js/messages.php:46
-msgid ""
-"Are you sure you want to navigate away from this page? Press OK to continue "
-"or Cancel to stay on the current page."
-msgstr ""
-"Naozaj chcete opustiť túto stránku? Stlačte OK pre pokračovanie alebo "
-"zrušiť, ak chcete zostať na aktuálnej stránke."
+#, fuzzy
+#| msgid ""
+#| "You have edited some data and they have not been saved. Are you sure you "
+#| "want to leave this page before saving the data?"
+msgid "You have unsaved changes; are you sure you want to leave this page?"
+msgstr "Na stránke sú neuložené zmeny. Naozaj ju chcete opustiť?"
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
@@ -1701,7 +1701,7 @@ msgstr "Zobrazit vyhľadávacie pole"
 #: js/messages.php:277 libraries/DisplayResults.class.php:3365
 #: libraries/Index.class.php:593 libraries/Util.class.php:664
 #: libraries/Util.class.php:1189 libraries/Util.class.php:3364
-#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:712
+#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:721
 #: libraries/config/messages.inc.php:752
 #: libraries/schema/User_Schema.class.php:223
 #: libraries/server_user_groups.lib.php:119
@@ -2526,7 +2526,7 @@ msgstr "Upraviť záložku"
 msgid "Delete bookmark"
 msgstr "Odstrániť záložku"
 
-#: libraries/DatabaseInterface.class.php:1871
+#: libraries/DatabaseInterface.class.php:1807
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -2534,19 +2534,19 @@ msgstr ""
 "Server neodpovedá (alebo socket lokálneho MySQL servera nie je správne "
 "nastavený)."
 
-#: libraries/DatabaseInterface.class.php:1876
+#: libraries/DatabaseInterface.class.php:1812
 msgid "The server is not responding."
 msgstr "Server neodpovedá."
 
-#: libraries/DatabaseInterface.class.php:1881
+#: libraries/DatabaseInterface.class.php:1817
 msgid "Please check privileges of directory containing database."
 msgstr "Overte prístupové práva k adresáru, v ktorom je uložená databáza."
 
-#: libraries/DatabaseInterface.class.php:1891
+#: libraries/DatabaseInterface.class.php:1827
 msgid "Details…"
 msgstr "Podrobnosti…"
 
-#: libraries/DatabaseInterface.class.php:1985
+#: libraries/DatabaseInterface.class.php:1921
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Nepodarilo sa pripojiť ku controluser podľa nastavení z konfigurácie."
 
@@ -2602,12 +2602,12 @@ msgstr "Odstrániť nájdené záznamy z tabuľky %s?"
 
 #: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3436
 #: libraries/DisplayResults.class.php:4978
-#: libraries/central_columns.lib.php:714
+#: libraries/central_columns.lib.php:723
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:355
 #: libraries/server_user_groups.lib.php:129
-#: libraries/sql_query_form.lib.php:432 libraries/tbl_tracking.lib.php:373
+#: libraries/sql_query_form.lib.php:434 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
 #: pmd_general.php:508 setup/frames/index.inc.php:182
 #: setup/frames/index.inc.php:290
@@ -2647,12 +2647,12 @@ msgid "Restore column order"
 msgstr "Obnoviť poradie stĺpcov"
 
 #: libraries/DisplayResults.class.php:788
-#: libraries/central_columns.lib.php:564
+#: libraries/central_columns.lib.php:571
 msgid "Filter rows"
 msgstr "Filtrovať riadky"
 
 #: libraries/DisplayResults.class.php:790
-#: libraries/central_columns.lib.php:566
+#: libraries/central_columns.lib.php:573
 msgid "Search this table"
 msgstr "Hľadať v tabuľke"
 
@@ -2797,8 +2797,8 @@ msgstr "SQL dopyt bol úspešne vykonaný."
 #: libraries/DisplayResults.class.php:4856 libraries/structure.lib.php:682
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Tento pohľad má aspoň toľko riadok. Podrobnosti nájdete v %sdokumentaci%s."
 
@@ -2817,7 +2817,7 @@ msgstr "%1$d celkom, %2$d v dotaze"
 msgid "%d total"
 msgstr "celkom %d"
 
-#: libraries/DisplayResults.class.php:4901 libraries/sql.lib.php:1648
+#: libraries/DisplayResults.class.php:4901 libraries/sql.lib.php:1649
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Dopyt zabral %01.4f sekúnd."
@@ -2961,12 +2961,12 @@ msgstr "Chýbajú informácie o Git-e!"
 msgid "Open new phpMyAdmin window"
 msgstr "Otvoriť nové okno phpMyAdmina"
 
-#: libraries/Header.class.php:407
+#: libraries/Header.class.php:408
 msgid "Click on the bar to scroll to top of page"
 msgstr "Kliknutím v pruhu prejdete na začiatok stránky"
 
-#: libraries/Header.class.php:677
-#: libraries/plugins/auth/AuthenticationCookie.class.php:161
+#: libraries/Header.class.php:678
+#: libraries/plugins/auth/AuthenticationCookie.class.php:149
 msgid "Javascript must be enabled past this point!"
 msgstr "Pokiaľ chcete pokračovať, JavaScript musí byť povolený!"
 
@@ -3003,7 +3003,7 @@ msgstr "Mohutnosť"
 
 #: libraries/Index.class.php:569 libraries/TableSearch.class.php:187
 #: libraries/build_html_for_db.lib.php:22
-#: libraries/central_columns.lib.php:593 libraries/mysql_charsets.lib.php:47
+#: libraries/central_columns.lib.php:600 libraries/mysql_charsets.lib.php:47
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:819
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:835
 #: libraries/structure.lib.php:1252 libraries/structure.lib.php:1799
@@ -3085,7 +3085,7 @@ msgstr "Hľadať"
 #: libraries/Util.class.php:3357 libraries/Util.class.php:3358
 #: libraries/Util.class.php:4106
 #: libraries/navigation/Nodes/Node_Table.class.php:42
-#: libraries/sql_query_form.lib.php:301 libraries/sql_query_form.lib.php:304
+#: libraries/sql_query_form.lib.php:302 libraries/sql_query_form.lib.php:305
 msgid "Insert"
 msgstr "Vložiť"
 
@@ -3681,20 +3681,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Číslo s plávajúcou desatinnou čiarkou, rozsahy: od -3,402823466E+38 do -"
-"1,175494351E-38; 0; od 1,175494351E-38 do 3,402823466E+38"
+"Číslo s plávajúcou desatinnou čiarkou, rozsahy: od -3,402823466E+38 do "
+"-1,175494351E-38; 0; od 1,175494351E-38 do 3,402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Číslo s dvojitou presnosťou a plávajúcou desatinnou čiarkou, rozsah: od -"
-"1,7976931348623157E+308 do -2,2250738585072014E-308; 0; od "
+"Číslo s dvojitou presnosťou a plávajúcou desatinnou čiarkou, rozsah: od "
+"-1,7976931348623157E+308 do -2,2250738585072014E-308; 0; od "
 "2,2250738585072014E-308 do 1,7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -4052,7 +4052,7 @@ msgstr "Funkčnosť %s je ovplyvnená známou chybou, pozri %s"
 msgid "Click to toggle"
 msgstr "Kliknite pre prepnutie"
 
-#: libraries/Util.class.php:3272 libraries/sql_query_form.lib.php:477
+#: libraries/Util.class.php:3272 libraries/sql_query_form.lib.php:479
 #: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "Prechádzať váš počítač:"
@@ -4063,7 +4063,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Zvoľte súbor z upload adresára <b>%s</b> web servera:"
 
 #: libraries/Util.class.php:3326 libraries/insert_edit.lib.php:1234
-#: libraries/sql_query_form.lib.php:487
+#: libraries/sql_query_form.lib.php:489
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Adresár určený pre upload súborov sa nedá otvoriť."
 
@@ -4180,19 +4180,19 @@ msgstr ""
 msgid "Could not add columns!"
 msgstr "Nemožno uložiť nastavenie"
 
-#: libraries/central_columns.lib.php:342
+#: libraries/central_columns.lib.php:346
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
 
-#: libraries/central_columns.lib.php:354
+#: libraries/central_columns.lib.php:358
 #, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not remove columns!"
 msgstr "Nepodarilo sa uložiť najnovšiu tabuľku!"
 
-#: libraries/central_columns.lib.php:587
+#: libraries/central_columns.lib.php:594
 #: libraries/display_create_table.lib.php:60
 #: libraries/plugins/export/ExportHtmlword.class.php:485
 #: libraries/plugins/export/ExportOdt.class.php:560
@@ -4205,30 +4205,30 @@ msgstr "Nepodarilo sa uložiť najnovšiu tabuľku!"
 msgid "Name"
 msgstr "Názov"
 
-#: libraries/central_columns.lib.php:591
+#: libraries/central_columns.lib.php:598
 #: libraries/rte/rte_routines.lib.php:984
 #: libraries/tbl_columns_definition_form.lib.php:279
 msgid "Length/Values"
 msgstr "Dĺžka/Nastaviť*"
 
-#: libraries/central_columns.lib.php:597
+#: libraries/central_columns.lib.php:604
 #: libraries/schema/Pdf_Relation_Schema.class.php:1364
 #: libraries/schema/Pdf_Relation_Schema.class.php:1387
 #: libraries/structure.lib.php:1256 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr "Extra"
 
-#: libraries/central_columns.lib.php:618
+#: libraries/central_columns.lib.php:625
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
 msgstr "Vybrať Tabuľky"
 
-#: libraries/central_columns.lib.php:670 libraries/structure.lib.php:1649
+#: libraries/central_columns.lib.php:679 libraries/structure.lib.php:1649
 msgid "Add column"
 msgstr "Pridať stĺpec"
 
-#: libraries/central_columns.lib.php:682
+#: libraries/central_columns.lib.php:691
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
@@ -7092,7 +7092,7 @@ msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr "Určuje či má príkazové okno ostať na obrazovke po vykonaní"
 
-#: libraries/config/messages.inc.php:747 libraries/sql_query_form.lib.php:370
+#: libraries/config/messages.inc.php:747 libraries/sql_query_form.lib.php:372
 msgid "Retain query box"
 msgstr "Zachovať príkazové okno"
 
@@ -7436,7 +7436,7 @@ msgid "No Password"
 msgstr "Žiadne heslo"
 
 #: libraries/display_change_password.lib.php:67
-#: libraries/plugins/auth/AuthenticationCookie.class.php:208
+#: libraries/plugins/auth/AuthenticationCookie.class.php:196
 #: libraries/replication_gui.lib.php:395 libraries/replication_gui.lib.php:831
 #: libraries/server_privileges.lib.php:1457
 msgid "Password:"
@@ -7587,8 +7587,8 @@ msgstr ", meno tabuľky bude zmenené na @TABLE@"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Táto hodnota je interpretovaná pomocou %1$sstrftime%2$s, takže môžete použiť "
 "reťazec pre formátovanie dátumu a času. Naviac budú vykonané tieto "
@@ -7600,7 +7600,7 @@ msgid "use this for future exports"
 msgstr "použiť aj pre budúce exporty"
 
 #: libraries/display_export.lib.php:534 libraries/display_import.lib.php:179
-#: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:503
+#: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:505
 msgid "Character set of the file:"
 msgstr "Znaková sada súboru:"
 
@@ -8079,8 +8079,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -8135,7 +8135,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Výpis bol uložený do súboru %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1642
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1643
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdny výsledok (tj. nulový počet riadkov)."
@@ -8216,7 +8216,7 @@ msgstr "Kvôli dĺžke poľa,<br /> toto pole sa nemusí dať upraviť"
 msgid "Binary - do not edit"
 msgstr "Binárny - neupravujte"
 
-#: libraries/insert_edit.lib.php:1238 libraries/sql_query_form.lib.php:491
+#: libraries/insert_edit.lib.php:1238 libraries/sql_query_form.lib.php:493
 msgid "web server upload directory:"
 msgstr "upload adresár web serveru:"
 
@@ -8264,11 +8264,11 @@ msgstr ""
 "Pre pohyb medzi hodnotami použite klávesu TAB alebo pre pohyb všetkými "
 "smermi klávesy CTRL+šípky"
 
-#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1639
+#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1640
 msgid "Showing SQL query"
 msgstr "Zobrazujem SQL dotaz"
 
-#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1619
+#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1620
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -8305,7 +8305,7 @@ msgid "To"
 msgstr ""
 
 #: libraries/mult_submits.lib.php:353 libraries/mult_submits.lib.php:386
-#: libraries/sql_query_form.lib.php:424
+#: libraries/sql_query_form.lib.php:426
 msgid "Submit"
 msgstr "Odošli"
 
@@ -8586,7 +8586,7 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:27
-#: libraries/sql_query_form.lib.php:281
+#: libraries/sql_query_form.lib.php:282
 msgid "Columns"
 msgstr "Stĺpce"
 
@@ -8873,7 +8873,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Nepodarilo sa pripojiť: chybné nastavenia."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:90
-#: libraries/plugins/auth/AuthenticationCookie.class.php:143
+#: libraries/plugins/auth/AuthenticationCookie.class.php:131
 #: libraries/plugins/auth/AuthenticationHttp.class.php:74
 #, php-format
 msgid "Welcome to %s"
@@ -8882,8 +8882,8 @@ msgstr "Vitajte v %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Pravdepodobná príčina je, že neexistuje konfiguračný súbor. Na jeho "
 "vytvorenie môžete použiť %1$skonfiguračný skript%2$s."
@@ -8903,36 +8903,32 @@ msgstr ""
 msgid "Retry to connect"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:44
-msgid "Failed to use Blowfish from mcrypt!"
-msgstr "Pri použití funkcie Blowfish z knižnice mcrypt došlo k chybe!"
-
-#: libraries/plugins/auth/AuthenticationCookie.class.php:155
+#: libraries/plugins/auth/AuthenticationCookie.class.php:143
 msgid "Your session has expired. Please log in again."
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:179
+#: libraries/plugins/auth/AuthenticationCookie.class.php:167
 msgid "Log in"
 msgstr "Login"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:187
-#: libraries/plugins/auth/AuthenticationCookie.class.php:197
+#: libraries/plugins/auth/AuthenticationCookie.class.php:175
+#: libraries/plugins/auth/AuthenticationCookie.class.php:185
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "Možete zadať medzerou oddelený hostname/IP adresu a port."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:202
+#: libraries/plugins/auth/AuthenticationCookie.class.php:190
 msgid "Username:"
 msgstr "Používateľ:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:214
+#: libraries/plugins/auth/AuthenticationCookie.class.php:202
 msgid "Server Choice:"
 msgstr "Voľba servera:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:387
+#: libraries/plugins/auth/AuthenticationCookie.class.php:375
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:396
+#: libraries/plugins/auth/AuthenticationCookie.class.php:384
 msgid "Please enter correct captcha!"
 msgstr ""
 
@@ -9635,7 +9631,7 @@ msgstr ""
 "Prosím prečítajte si dokumentáciu ako aktualizovať tabuľku s informáciami o "
 "stĺpcoch (column_comments tabuľka)."
 
-#: libraries/relation.lib.php:186 libraries/sql_query_form.lib.php:404
+#: libraries/relation.lib.php:186 libraries/sql_query_form.lib.php:406
 msgid "Bookmarked SQL query"
 msgstr "Obľúbený SQL dopyt"
 
@@ -9895,7 +9891,7 @@ msgstr "Stav podriadených hostov"
 
 #: libraries/replication_gui.lib.php:514
 #: libraries/server_status_variables.lib.php:219
-#: libraries/server_variables.lib.php:195 libraries/sql_query_form.lib.php:416
+#: libraries/server_variables.lib.php:195 libraries/sql_query_form.lib.php:418
 msgid "Variable"
 msgstr "Premenná"
 
@@ -11198,13 +11194,13 @@ msgstr "Zoznam používatelov"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získava práva používateľov priamo z tabuliek MySQL. "
 "Obsah týchto tabuliek sa môže líšiť od práv, ktoré používa server, ak boli "
-"tieto tabuľky ručne upravené. V tomto prípade sa odporúča vykonať %"
-"sznovunačítanie práv%s predtým ako budete pokračovať."
+"tieto tabuľky ručne upravené. V tomto prípade sa odporúča vykonať "
+"%sznovunačítanie práv%s predtým ako budete pokračovať."
 
 #: libraries/server_privileges.lib.php:4003
 msgid "The selected user was not found in the privilege table."
@@ -12364,7 +12360,7 @@ msgstr "Pridať tento SQL dopyt do obľúbených"
 msgid "Label:"
 msgstr "Názov:"
 
-#: libraries/sql.lib.php:777 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:777 libraries/sql_query_form.lib.php:328
 msgid "Let every user access this bookmark"
 msgstr "Dovoliť používať túto položku všetkým používateľom"
 
@@ -12379,11 +12375,11 @@ msgstr "Záložka nebola vytvorená"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1636
+#: libraries/sql.lib.php:1637
 msgid "Showing as PHP code"
 msgstr "Zobrazujem ako PHP kód"
 
-#: libraries/sql.lib.php:1925
+#: libraries/sql.lib.php:1926
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12396,46 +12392,46 @@ msgstr ""
 "zaškrtávanie, úprava, kopírovanie a mazanie liniek nemusí fungovať po "
 "uložení."
 
-#: libraries/sql.lib.php:1962
+#: libraries/sql.lib.php:1963
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problémy s indexami v tabuľke `%s`"
 
-#: libraries/sql_query_form.lib.php:184
+#: libraries/sql_query_form.lib.php:185
 #, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr "Spustiť SQL príkaz(y) na serveri %s"
 
-#: libraries/sql_query_form.lib.php:205 libraries/sql_query_form.lib.php:233
+#: libraries/sql_query_form.lib.php:206 libraries/sql_query_form.lib.php:234
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "Spustiť SQL dopyt/dopyty na databázu %s"
 
-#: libraries/sql_query_form.lib.php:275 setup/frames/index.inc.php:297
+#: libraries/sql_query_form.lib.php:276 setup/frames/index.inc.php:297
 msgid "Clear"
 msgstr "Vyčistiť"
 
-#: libraries/sql_query_form.lib.php:318
+#: libraries/sql_query_form.lib.php:320
 msgid "Bookmark this SQL query:"
 msgstr "Pridať tento SQL dopyt do obľúbených:"
 
-#: libraries/sql_query_form.lib.php:332
+#: libraries/sql_query_form.lib.php:334
 msgid "Replace existing bookmark of same name"
 msgstr "Prepísať existujúci príkaz s rovnakým menom"
 
-#: libraries/sql_query_form.lib.php:348
+#: libraries/sql_query_form.lib.php:350
 msgid "Do not overwrite this query from outside the window"
 msgstr "Neprepisovať tento dopyt z hlavného okna"
 
-#: libraries/sql_query_form.lib.php:353
+#: libraries/sql_query_form.lib.php:355
 msgid "Delimiter"
 msgstr "Oddeľovač"
 
-#: libraries/sql_query_form.lib.php:361
+#: libraries/sql_query_form.lib.php:363
 msgid "Show this query here again"
 msgstr "Zobraziť tento dopyt znovu"
 
-#: libraries/sql_query_form.lib.php:428
+#: libraries/sql_query_form.lib.php:430
 msgid "View only"
 msgstr "Iba prezrieť"
 
@@ -13502,8 +13498,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Ďalšie nastavenia môžete urobiť úpravou config.inc.php, napr. použitím %"
-"sNastavovacieho skriptu%s."
+"Ďalšie nastavenia môžete urobiť úpravou config.inc.php, napr. použitím "
+"%sNastavovacieho skriptu%s."
 
 #: prefs_manage.php:311
 msgid "Save to browser's storage"
@@ -14128,8 +14124,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -14247,8 +14243,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -14895,6 +14891,16 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavené na 0"
 
+#~ msgid ""
+#~ "Are you sure you want to navigate away from this page? Press OK to "
+#~ "continue or Cancel to stay on the current page."
+#~ msgstr ""
+#~ "Naozaj chcete opustiť túto stránku? Stlačte OK pre pokračovanie alebo "
+#~ "zrušiť, ak chcete zostať na aktuálnej stránke."
+
+#~ msgid "Failed to use Blowfish from mcrypt!"
+#~ msgstr "Pri použití funkcie Blowfish z knižnice mcrypt došlo k chybe!"
+
 #~ msgid "Unfortunately the submission failed."
 #~ msgstr "Odosielanie zlyhalo."
 
@@ -14983,8 +14989,8 @@ msgstr "concurrent_insert je nastavené na 0"
 #~ "%s."
 #~ msgstr ""
 #~ "SQL validator nemohol byť inicializovaný. Prosím skontrolujte, či sú "
-#~ "nainštalované všetky potrebné rozšírenia php, tak ako sú popísané v %"
-#~ "sdocumentation%s."
+#~ "nainštalované všetky potrebné rozšírenia php, tak ako sú popísané v "
+#~ "%sdocumentation%s."
 
 #, fuzzy
 #~| msgid "Copy"
@@ -15862,8 +15868,8 @@ msgstr "concurrent_insert je nastavené na 0"
 
 #~ msgid "Imported file compression will be automatically detected from: %s"
 #~ msgstr ""
-#~ "Kompresia importovaného súboru bude rozpoznaná automaticky. Podporované: %"
-#~ "s"
+#~ "Kompresia importovaného súboru bude rozpoznaná automaticky. Podporované: "
+#~ "%s"
 
 #~ msgid "Add into comments"
 #~ msgstr "Pridať do komentárov"
