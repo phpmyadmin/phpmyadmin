@@ -422,6 +422,7 @@ function confirmQuery(theForm1, sqlQuery1)
  */
 function checkSqlQuery(theForm)
 {
+    var sqlQuery;
     // get the textarea element containing the query
     var sqlQuery;
     if (codemirror_editor) {
