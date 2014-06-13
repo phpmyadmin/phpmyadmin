@@ -296,7 +296,7 @@ function PMA_getTablePositions($pg)
            JOIN " . PMA_Util::backquote($cfgRelation['db'])
                . "." . PMA_Util::backquote($cfgRelation['pdf_pages']) . " AS B
            ON `A`.`db_name` = `page_nr`
-           WHERE `A`.`db_name` = " . $pg;
+           WHERE `A`.`db_name` = " . PMA_Util::sqlAddSlashes($pg);
 
     $tab_pos = $GLOBALS['dbi']->fetchResult(
         $query,
@@ -322,10 +322,10 @@ function PMA_getPageName($pg)
         return null;
     }
 
-    $query = "SELECT " . PMA_Util::backquote('page_descr')
+    $query = "SELECT `page_descr`"
            . " FROM " . PMA_Util::backquote($cfgRelation['db'])
            . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
-           . " WHERE " . PMA_Util::backquote('page_nr'). " = " . $pg;
+           . " WHERE `page_nr` = " . PMA_Util::sqlAddSlashes($pg);
     $page_name = $GLOBALS['dbi']->fetchResult($query);
     return count($page_name) ? $page_name[0] : __("*Untitled");
 }
@@ -346,7 +346,7 @@ function PMA_deletePage($pg)
 
     $query = " DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
              . "." . PMA_Util::backquote($cfgRelation['designer_coords'])
-             . " WHERE " . PMA_Util::backquote('db_name'). " = " . $pg;
+             . " WHERE `db_name` = " . PMA_Util::sqlAddSlashes($pg);
     $success = PMA_queryAsControlUser(
         $query, true, PMA_DatabaseInterface::QUERY_STORE
     );
@@ -354,7 +354,7 @@ function PMA_deletePage($pg)
     if ($success) {
         $query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
                  . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
-                 . " WHERE ". PMA_Util::backquote('page_nr'). " = " . $pg;
+                 . " WHERE `page_nr` = " . PMA_Util::sqlAddSlashes($pg);
         $success = PMA_queryAsControlUser(
             $query, true, PMA_DatabaseInterface::QUERY_STORE
         );
@@ -377,10 +377,13 @@ function getFirstPage($db)
         return null;
     }
 
-    $query = "SELECT MIN(" . PMA_Util::backquote('page_nr') . ")"
+    $query = "SELECT MIN(`page_nr`)"
         . " FROM " . PMA_Util::backquote($cfgRelation['db'])
-        . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
-        . " WHERE `db_name` = '" . $db . "'";
+        . "." . PMA_Util::backquote($cfgRelation['pdf_pages']) . " AS A"
+        . " JOIN " . PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['designer_coords']) . " AS B"
+        . " ON `A`.`page_nr` = `B`.`db_name`"
+        . " WHERE `A`.`db_name` = '" . PMA_Util::sqlAddSlashes($db) . "'";
 
     $min_page_no = $GLOBALS['dbi']->fetchResult($query);
     return count($min_page_no[0]) ? $min_page_no[0] : -1;
@@ -422,10 +425,10 @@ function getTables($pg)
         return null;
     }
 
-    $query = "SELECT ". PMA_Util::backquote('table_name')
+    $query = "SELECT `table_name`"
          . " FROM " . PMA_Util::backquote($cfgRelation['db'])
          . "." . PMA_Util::backquote($cfgRelation['designer_coords'])
-         . " WHERE ". PMA_Util::backquote('db_name'). " = " . $pg;
+         . " WHERE `db_name` = " . PMA_Util::sqlAddSlashes($pg);
 
     $tables = $GLOBALS['dbi']->fetchResult($query);
     $return_array = array();
