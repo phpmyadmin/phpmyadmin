@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-10 12:46-0400\n"
-"PO-Revision-Date: 2014-06-13 13:45+0200\n"
+"PO-Revision-Date: 2014-06-13 13:49+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
 "\n"
@@ -1751,6 +1751,9 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Geen kolommen in de centrale lijst. Zorg ervoor dat de kolommen in de "
+"centrale lijst voor database %s kolommen heeft die niet in de huidige tabel "
+"voorkomen."
 
 #: js/messages.php:286
 #| msgid "Free memory"
@@ -1766,6 +1769,8 @@ msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Deze actie wijzigt mogelijk de definitie van de kolommen.<br/>Weet u zeker "
+"dat u wilt doorgaan?"
 
 #: js/messages.php:289
 #| msgid "Contribute"
@@ -9046,7 +9051,7 @@ msgstr "Fout bij het lezen van gegevens:"
 
 #: libraries/plugins/export/ExportSql.class.php:2374
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Het lijkt erop dat uw tabel triggers gebruikt;"
 
 #: libraries/plugins/export/ExportSql.class.php:2375
 msgid "alias export may not work reliably in all cases."
@@ -12619,7 +12624,7 @@ msgstr "Label van Y-as:"
 
 #: libraries/tbl_chart.lib.php:237
 msgid "Series names are in a column"
-msgstr ""
+msgstr "Namen van de series zitten in een kolom"
 
 #: libraries/tbl_chart.lib.php:240
 #| msgid "Inside column:"
