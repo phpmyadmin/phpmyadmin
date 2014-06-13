@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #4445 Fatal error on SQL Export of join query
 - bug #4448 Dump binary columns in hexadecimal notation not working
 - Regenerate cookie encryption IV for every session
+- bug #4405 Cannot import (open_basedir): fix another case
 
 4.2.3.0 (2014-06-08)
 - bug #4423 Moving fields not working
