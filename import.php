@@ -374,6 +374,9 @@ if ($import_file != 'none' && ! $error) {
          * system's tmp dir
          */
         $tmp_subdir = ini_get('upload_tmp_dir');
+        if (empty($tmp_subdir)) {
+            $tmp_subdir = sys_get_temp_dir();
+        }
 
         if (is_writable($tmp_subdir)) {
 
