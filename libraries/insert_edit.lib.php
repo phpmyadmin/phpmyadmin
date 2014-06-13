@@ -2654,11 +2654,11 @@ function PMA_getHtmlForInsertEditColumnType($column)
  */
 function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
 {
-    $html_output ='<form id="insertForm" ';
+    $html_output ='<form id="insertForm" class="lock-page ';
     if ($has_blob_field && $is_upload) {
-        $html_output .='class="disableAjax" ';
+        $html_output .='disableAjax';
     }
-    $html_output .='method="post" action="tbl_replace.php" name="insertForm" ';
+    $html_output .='" method="post" action="tbl_replace.php" name="insertForm" ';
     if ($is_upload) {
         $html_output .= ' enctype="multipart/form-data"';
     }

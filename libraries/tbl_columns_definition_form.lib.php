@@ -239,7 +239,7 @@ function PMA_getHtmlForTableCreateOrAddField($action, $form_params, $content_cel
 ) {
     $html = '<form method="post" action="' . $action  . '" class="'
         . ($action == 'tbl_create.php' ? 'create_table' : 'append_fields')
-        . '_form ajax">';
+        . '_form ajax lock-page">';
     $html .= PMA_URL_getHiddenInputs($form_params);
 
     if ($action == 'tbl_create.php') {

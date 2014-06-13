@@ -1138,13 +1138,20 @@ div#tablestatistics table {
     color: #fff;
 }
 
-#goto_pagetop {
+#goto_pagetop, #lock_page_icon {
     position: fixed;
     padding: .25em .25em .2em;
     top: 0;
-    <?php echo $right; ?>: 0;
     z-index: 900;
     background: #888;
+}
+
+#goto_pagetop {
+    <?php echo $right; ?>: 0;
+}
+
+#lock_page_icon {
+    <?php echo $right; ?>: 2em;
 }
 
 #span_table_comment {

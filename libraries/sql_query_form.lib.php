@@ -88,7 +88,7 @@ function PMA_getHtmlForSqlQueryForm(
         $html .= ' action="import.php" ' . $enctype . ' name="sqlform">';
     } else {
         $html .= '<form method="post" action="import.php" ' . $enctype;
-        $html .= ' class="ajax"';
+        $html .= ' class="ajax lock-page"';
         $html .= ' id="sqlqueryform" name="sqlform">' . "\n";
     }
 
