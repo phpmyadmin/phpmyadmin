@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-10 12:46-0400\n"
-"PO-Revision-Date: 2014-06-11 10:53+0200\n"
+"PO-Revision-Date: 2014-06-13 13:45+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
 "\n"
@@ -12356,10 +12356,9 @@ msgid "Remove columns from central list"
 msgstr "Verwijder kolommen uit de centrale lijst"
 
 #: libraries/structure.lib.php:345
-#, fuzzy
 #| msgid "Add columns to central list"
 msgid "Make consistent with central list"
-msgstr "Voeg kolommen toe aan centrale lijst"
+msgstr "Maak in overeenstemming met centrale lijst"
 
 #: libraries/structure.lib.php:367
 msgid "Check tables having overhead"
@@ -12623,16 +12622,14 @@ msgid "Series names are in a column"
 msgstr ""
 
 #: libraries/tbl_chart.lib.php:240
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "In de kolom:"
+msgstr "Kolom met series:"
 
 #: libraries/tbl_chart.lib.php:253
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Value column:"
-msgstr "Waarden voor kolom %s"
+msgstr "Kolom met waarden:"
 
 #: libraries/tbl_chart.lib.php:286
 msgid "Start row:"
