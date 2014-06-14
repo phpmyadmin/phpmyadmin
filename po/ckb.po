@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-10 12:45-0400\n"
-"PO-Revision-Date: 2014-05-17 16:46+0200\n"
-"Last-Translator: Rahoz Yaseen <rahoz.kirkuky@hotmail.com>\n"
-"Language-Team: Kurdish Sorani <https://l10n.cihar.com/projects/phpmyadmin/4-"
-"2/ckb/>\n"
+"PO-Revision-Date: 2014-06-14 13:28+0200\n"
+"Last-Translator: Haval Abdulkarim <haval.abdulkarim@gmail.com>\n"
+"Language-Team: Kurdish Sorani "
+"<https://l10n.cihar.com/projects/phpmyadmin/4-2/ckb/>\n"
+"Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ckb\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -205,7 +205,7 @@ msgstr "نیشاندانى بۆشایى (هێڵکارى) لە بنکەى درا�
 #: db_export.php:33 db_printview.php:41 db_structure.php:165
 #: db_tracking.php:51 export.php:337 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
-msgstr ".هیج خشتەیەک بوونی نیە لە نێو بنکەی دراو"
+msgstr "هیچ خشتەیەک نەدۆزرایەوە لەناو بنکەدراو."
 
 #: db_export.php:41 libraries/DbSearch.class.php:445
 #: libraries/display_export.lib.php:42
@@ -237,7 +237,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"شێوەی بیرگەی phpMyAdmin ناچالاک کراوە. بۆ دۆزینەوەی کلیک لەمە بکە %shere%s"
+"ڕێکخستنەکانی بیرگەی phpMyAdmin ناچالاک کراوە. بۆ دۆزینەوەی کلیک لەمە بکە "
+"%shere%s."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
 #: libraries/Menu.class.php:237 libraries/config/messages.inc.php:771
@@ -423,6 +424,7 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"هەڵەیەک دۆزرایەوە و ڕاپۆرتێک خۆکارانە نێردرا لەسەر بنچینەی تایبەتمەندییەکان."
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
@@ -433,11 +435,11 @@ msgstr "لەوانەیە پێویست بکات پەڕەکە نوێ بکەیتە�
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr ""
+msgstr "هەڵەیەک دۆزرایەوە و ڕاپۆرتێک دروستکرا بەڵام ناردنی سەرکەوتوونەبوو."
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "ئەگەر دووچاری هەر کێشەیەک بووی تکایە ڕاپۆرتێک بنێرە."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
@@ -510,10 +512,9 @@ msgid "Linestring %d:"
 msgstr "ڕیزبه‌ندی هێڵی"
 
 #: gis_data_editor.php:267 gis_data_editor.php:344
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "ئەڵفەی دەرەکی"
+msgstr "ئەڵقەی دەرەکی:"
 
 #: gis_data_editor.php:269 gis_data_editor.php:346
 #, fuzzy, php-format
@@ -613,7 +614,7 @@ msgstr "پیشاندانی شوێندۆز"
 
 #: import.php:299 import.php:561
 msgid "The bookmark has been deleted."
-msgstr "شوێندۆز سڕایەوە"
+msgstr "شوێندۆز سڕایەوە."
 
 #: import.php:396
 #, php-format
@@ -698,7 +699,7 @@ msgstr "گەڕانەوە"
 
 #: index.php:127 libraries/Footer.class.php:70
 msgid "phpMyAdmin Demo Server"
-msgstr ""
+msgstr "سێرڤەری نمایشی phpMyAdmin"
 
 #: index.php:131
 #, php-format
@@ -707,6 +708,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"تۆ ئێستا سێرڤەری نمایش بەکاردێنیت. تۆ دەتوانیت هەموو شتێک بکەیت، بەڵام تکایە "
+"root، debian-sys-maint و بەکارهێنەرەکانی pma مەگۆڕە. زانیاری زیاتر "
+"دەستدەکەوێت لە %s."
 
 #: index.php:141
 msgid "General Settings"
@@ -735,65 +739,57 @@ msgstr "ڕاژەکاری بکنەی دراوە"
 
 #: index.php:262 libraries/plugins/auth/AuthenticationCookie.class.php:190
 msgid "Server:"
-msgstr ""
+msgstr "ڕاژە:"
 
 #: index.php:266
-#, fuzzy
 #| msgid "Server"
 msgid "Server type:"
-msgstr "سێرڤەر"
+msgstr "جۆری ڕاژە:"
 
 #: index.php:270 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:657
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "وەشانی ڕاژە"
+msgstr "وەشانی ڕاژە:"
 
 #: index.php:276
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "وەشانی پرۆتۆکۆڵ"
+msgstr "وەشانی پڕۆتۆکۆڵ:"
 
 #: index.php:280
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "بەکارهێنەر"
+msgstr "بەکارهێنەر:"
 
 #: index.php:285
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
-msgstr "پیتەکانی ڕاژەکار"
+msgstr "پیتەکانی ڕاژەکار:"
 
 #: index.php:300
 msgid "Web server"
 msgstr "ڕاژەکاری وێب"
 
 #: index.php:311
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
-msgstr "وەشانی ڕاژەخوازی بنکەی دراوە"
+msgstr "وەشانی ڕاژەخوازی بنکەدراو:"
 
 #: index.php:315
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "پێوەکراوەکانی php"
+msgstr "پێوەکراوەکانی php:"
 
 #: index.php:333
 msgid "Show PHP information"
-msgstr "پیشاندانی زانیاری php"
+msgstr "پێشاندانی زانیاری php"
 
 #: index.php:356
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "زانیاری وەشان"
+msgstr "زانیاری وەشان:"
 
 #: index.php:365 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
@@ -821,7 +817,7 @@ msgstr "پاڵپشتی کردن"
 
 #: index.php:402
 msgid "List of changes"
-msgstr "خشتەی گۆڕانکاریەکان"
+msgstr "خشتەی گۆڕانکارییەکان"
 
 #: index.php:424
 msgid ""
@@ -898,7 +894,7 @@ msgstr "دەستەواژەکانی \"سڕینەوەی بنکەی زانیاری\
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "دڵنیابوونەوە"
 
 #: js/messages.php:36
 #, php-format
@@ -911,11 +907,11 @@ msgstr "تۆ خەریکی سڕینەوەی تەواوی بنکە زانیاری�
 
 #: js/messages.php:38
 msgid "You are about to DESTROY a complete table!"
-msgstr "تۆ نزیکە تەواوی خشتەکە لە ناوببەی"
+msgstr "تۆ نزیکە تەواوی خشتەکە لەناو ببەی!"
 
 #: js/messages.php:39
 msgid "You are about to TRUNCATE a complete table!"
-msgstr ""
+msgstr "تۆ دەتەوێت خشتەکە بەتەواوی بسڕیتەوە!"
 
 #: js/messages.php:41
 msgid "Deleting tracking data"
@@ -986,7 +982,7 @@ msgstr "ئەستوون(ەکان)ی %d زیادبکە بۆ نیشاندەر"
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:59 libraries/tbl_chart.lib.php:216
 msgid "Y Values"
-msgstr ""
+msgstr "نرخەکانی Y"
 
 #: js/messages.php:62
 msgid "The host name is empty!"
@@ -2928,7 +2924,7 @@ msgstr ""
 
 #: libraries/Index.class.php:535
 msgid "No index defined!"
-msgstr "هیچ نیشاندەرێک پێناسە نەکراوە‌!‌"
+msgstr "هیچ نیشاندەرێک پێناسە نەکراوە‌!"
 
 #: libraries/Index.class.php:540 libraries/Index.class.php:551
 #: libraries/build_html_for_db.lib.php:43 libraries/index.lib.php:25
@@ -3372,7 +3368,7 @@ msgstr ""
 #: libraries/StorageEngine.class.php:370 libraries/structure.lib.php:200
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s بیرگەی بزوێنەری سەرەکیە لەسەر ڕاژەکاری MySQL"
+msgstr "%s بیرگەی بزوێنەری سەرەکییە لەسەر ڕاژەکاری MySQL."
 
 #: libraries/StorageEngine.class.php:373
 #, php-format
@@ -11550,7 +11546,7 @@ msgstr ""
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "خشتەی %s خاڵی کرا"
+msgstr "خشتەی %s خاڵی کرا."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
@@ -11591,7 +11587,7 @@ msgstr "لەبەرگرتنەوەی خشتە لەگەڵ پێشگر"
 
 #: libraries/structure.lib.php:344
 msgid "Check tables having overhead"
-msgstr "پشکنین بۆ ئەو خشتانە بکەن کە ژوورسەریان هەیە."
+msgstr "پشکنین بۆ ئەو خشتانە بکە کە ژوورسەریان هەیە"
 
 #: libraries/structure.lib.php:856
 msgid "Sort"
@@ -11610,7 +11606,7 @@ msgstr ""
 #: libraries/structure.lib.php:1404 libraries/structure.lib.php:2079
 #: libraries/structure.lib.php:2089
 msgid "Primary"
-msgstr ""
+msgstr "سەرەکی"
 
 #: libraries/structure.lib.php:1419 libraries/structure.lib.php:2085
 #: libraries/structure.lib.php:2095
@@ -13738,13 +13734,11 @@ msgstr "ئایا  InnoDB ناچالاک کراوە؟"
 
 #: libraries/advisory_rules.txt:432
 msgid "You do not have InnoDB enabled."
-msgstr ""
-"InnoDB\n"
-" که ت چالاک نه کردوه"
+msgstr "InnoDB چالاککراوت نییە."
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ". InnoDB هەموو کات هەڵبژاردەیەکی باشترە بۆ مەکینەی خشتەکان"
+msgstr "InnoDB هەموو کات هەڵبژاردەیەکی باشترە بۆ مەکینەی خشتەکان."
 
 #: libraries/advisory_rules.txt:434
 msgid "have_innodb is set to 'value'"
@@ -13752,7 +13746,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:436
 msgid "InnoDB log size"
-msgstr ""
+msgstr "قەبارەی لۆگی InnoDB"
 
 #: libraries/advisory_rules.txt:439
 msgid ""
@@ -13783,7 +13777,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:443
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "گەورەترین قەبارەی لۆگی InnoDB"
 
 #: libraries/advisory_rules.txt:446
 msgid "The InnoDB log file size is inadequately large."
