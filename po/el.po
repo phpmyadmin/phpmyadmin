@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-13 16:52-0400\n"
-"PO-Revision-Date: 2014-05-28 13:44+0200\n"
+"PO-Revision-Date: 2014-06-14 10:05+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
-">\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -25,10 +25,10 @@ msgstr ""
 "το www.phpmyadmin.net για περισσότερες πληροφορίες."
 
 #: db_central_columns.php:111
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "Εμφάνιση εγγραφών %1s - %2s"
+msgstr "Εμφάνιση εγγραφής(ών) %1$s - %2$s"
 
 #: db_create.php:61
 #, php-format
@@ -962,14 +962,12 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Θέλετε πραγματικά να διαγράψετε την αναζήτηση «%s»;"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid ""
 #| "You have edited some data and they have not been saved. Are you sure you "
 #| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
-"Έχετε επεξεργαστεί ορισμένα δεδομένα και δεν έχουν αποθηκευτεί. Θέλετε να "
-"αφήσετε τη σελίδα χωρίς αποθήκευση των δεδομένων;"
+"Έχετε μη αποθηκευμένες αλλαγές. Θέλετε σίγουρα να αφήσετε αυτή τη σελίδα;"
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
@@ -1004,7 +1002,7 @@ msgstr "Προσθήκη %s στήλης(ών) στο ευρετήριο"
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:365
 msgid "Preview SQL"
-msgstr ""
+msgstr "Προεπισκόπηση SQL"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:62 libraries/tbl_chart.lib.php:215
@@ -1739,19 +1737,17 @@ msgstr "Αναζήτηση μη διακριτών τιμών"
 
 #: js/messages.php:282
 msgid "Pick"
-msgstr ""
+msgstr "Διαλέξτε"
 
 #: js/messages.php:283
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "Δεν επιλέχθηκε στήλη."
+msgstr "Επιλογέας στήλης"
 
 #: js/messages.php:284
-#, fuzzy
 #| msgid "Search this table"
 msgid "Search this list"
-msgstr "Αναζήτηση σε αυτόν τον πίνακα"
+msgstr "Αναζήτηση σε αυτή τη λίστα"
 
 #: js/messages.php:285
 #, php-format
@@ -1759,28 +1755,31 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Καμία στήλη στη κεντρική λίστα. Σιγουρευτείτε ότι η Κεντρική λίστα στηλών "
+"για τη βάση δεδομένων %s έχει στήλες που δεν είναι παρούσες στον τρέχοντα "
+"πίνακα."
 
 #: js/messages.php:286
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "Ελεύθερη μνήμη"
+msgstr "Δείτε περισσότερα"
 
 #: js/messages.php:287
 msgid "Are you sure?"
-msgstr ""
+msgstr "Σίγουρα;"
 
 #: js/messages.php:288
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Αυτή η ενέργεια ίσως αλλάξει ορισμένους από τους ορισμούς στηλών.<br />"
+"Θέλετε σίγουρα να συνεχίσετε;"
 
 #: js/messages.php:289
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "Συνεισφορά"
+msgstr "Συνέχεια"
 
 #: js/messages.php:292 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -3181,10 +3180,9 @@ msgid "Designer"
 msgstr "Σχεδιαστής"
 
 #: libraries/Menu.class.php:481 libraries/Util.class.php:4099
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "Στήλες textarea"
+msgstr "Κεντρικές στήλες"
 
 #: libraries/Menu.class.php:513 libraries/Util.class.php:4071
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
@@ -4260,20 +4258,18 @@ msgid "Extra"
 msgstr "Πρόσθετα"
 
 #: libraries/central_columns.lib.php:625
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Επιλογή Πινάκων"
+msgstr "Επιλογή ενός πίνακα"
 
 #: libraries/central_columns.lib.php:679 libraries/structure.lib.php:1649
 msgid "Add column"
 msgstr "Προσθήκη στήλης"
 
 #: libraries/central_columns.lib.php:691
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Επιλογή δύο στηλών"
+msgstr "Επιλογή μιας στήλης."
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -5203,10 +5199,9 @@ msgid "Add %s"
 msgstr "Προσθήκη %s"
 
 #: libraries/config/messages.inc.php:176
-#, fuzzy
 #| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "Χρήση δεκαεξαδικού για τον BLOB"
+msgstr "Χρήση δεκαεξαδικού για BINARY και BLOB"
 
 #: libraries/config/messages.inc.php:178
 msgid "Use ignore inserts"
@@ -9064,11 +9059,12 @@ msgstr "Σφάλμα ανάγνωσης δεδομένων:"
 
 #: libraries/plugins/export/ExportSql.class.php:2374
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Φαίνεται ότι ο πίνακάς σας χρησιμοποιεί δείκτες."
 
 #: libraries/plugins/export/ExportSql.class.php:2375
 msgid "alias export may not work reliably in all cases."
 msgstr ""
+"Η εξαγωγή ετικέτας μπορεί να μη λειτουργεί αξιόπιστα σε όλες τις περιπτώσεις."
 
 #: libraries/plugins/export/ExportXml.class.php:102
 msgid "Object creation options (all are recommended)"
@@ -12388,20 +12384,18 @@ msgid "Copy table with prefix"
 msgstr "Αντιγραφή πίνακα με πρόθεμα"
 
 #: libraries/structure.lib.php:341
-#, fuzzy
 #| msgid "Add unique columns to central list"
 msgid "Add columns to central list"
-msgstr "Προσθήκη μοναδικών στηλών στη κεντρική λίστα"
+msgstr "Προσθήκη στηλών στη κεντρική λίστα"
 
 #: libraries/structure.lib.php:343
 msgid "Remove columns from central list"
 msgstr "Απομάκρυνση στηλών από την κεντρική λίστα"
 
 #: libraries/structure.lib.php:345
-#, fuzzy
 #| msgid "Add unique columns to central list"
 msgid "Make consistent with central list"
-msgstr "Προσθήκη μοναδικών στηλών στη κεντρική λίστα"
+msgstr "Συνέπεια με την κεντρική λίστα"
 
 #: libraries/structure.lib.php:367
 msgid "Check tables having overhead"
@@ -12660,29 +12654,26 @@ msgstr "Ετικέτα άξονα Υ:"
 
 #: libraries/tbl_chart.lib.php:237
 msgid "Series names are in a column"
-msgstr ""
+msgstr "Τα ονόματα σειρών είναι σε μια στήλη"
 
 #: libraries/tbl_chart.lib.php:240
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "Εσωτερικό πεδίο:"
+msgstr "Στήλη σειρών:"
 
 #: libraries/tbl_chart.lib.php:253
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Value column:"
-msgstr "Τιμές για τη στήλη %s"
+msgstr "Στήλη τιμής:"
 
 #: libraries/tbl_chart.lib.php:286
 msgid "Start row:"
 msgstr "Εγγραφή έναρξης:"
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Αποστολή"
+msgstr "Αποθήκευση διαγράμματος ως εικόνα"
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
@@ -12758,10 +12749,9 @@ msgid "Is a foreign key."
 msgstr "Είναι ένα foreign key."
 
 #: libraries/tbl_columns_definition_form.lib.php:606
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Pick from Central Columns"
-msgstr "Απομάκρυνση από κεντρικές στήλες"
+msgstr "Επιλογή από τις Κεντρικές Στήλες"
 
 #: libraries/tbl_columns_definition_form.lib.php:784
 msgid "first"
