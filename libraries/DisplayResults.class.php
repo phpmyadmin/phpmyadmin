@@ -3971,7 +3971,7 @@ class PMA_DisplayResults
             && ((count($vertical_display[$linkName]) > 0)
             || !empty($vertical_display['textbtn']))
         ) {
-            $html .= $this->_getOperationLinksForVerticleTable(
+            $html .= $this->_getOperationLinksForVerticalTable(
                 $linkName
             );
         } // end if
@@ -4110,7 +4110,7 @@ class PMA_DisplayResults
 
 
     /**
-     * Prepare edit, copy and delete links for verticle table
+     * Prepare edit, copy and delete links for vertical table
      *
      * @param string $operation edit/copy/delete
      *
@@ -4120,7 +4120,7 @@ class PMA_DisplayResults
      *
      * @see     _getVerticalTable()
      */
-    private function _getOperationLinksForVerticleTable($operation)
+    private function _getOperationLinksForVerticalTable($operation)
     {
 
         $link_html = '<tr>' . "\n";
@@ -4147,7 +4147,7 @@ class PMA_DisplayResults
 
         return $link_html;
 
-    } // end of the '_getOperationLinksForVerticleTable' function
+    } // end of the '_getOperationLinksForVerticalTable' function
 
 
     /**

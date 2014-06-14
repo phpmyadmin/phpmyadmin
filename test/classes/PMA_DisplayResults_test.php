@@ -576,11 +576,11 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Provide data for testGetOperationLinksForVerticleTable
+     * Provide data for testGetOperationLinksForVerticalTable
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetOperationLinksForVerticleTable()
+    public function dataProviderForTestGetOperationLinksForVerticalTable()
     {
         return array(
             array(
@@ -601,16 +601,16 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for _getOperationLinksForVerticleTable
+     * Test for _getOperationLinksForVerticalTable
      *
      * @param string $operation edit/copy/delete
-     * @param string $output    output of _getOperationLinksForVerticleTable
+     * @param string $output    output of _getOperationLinksForVerticalTable
      *
      * @return void
      *
-     * @dataProvider dataProviderForTestGetOperationLinksForVerticleTable
+     * @dataProvider dataProviderForTestGetOperationLinksForVerticalTable
      */
-    public function testGetOperationLinksForVerticleTable(
+    public function testGetOperationLinksForVerticalTable(
         $operation, $output
     ) {
         $vertical_display = array(
@@ -626,7 +626,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             $output,
             $this->_callPrivateFunction(
-                '_getOperationLinksForVerticleTable',
+                '_getOperationLinksForVerticalTable',
                 array($operation)
             )
         );
