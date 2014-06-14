@@ -426,6 +426,8 @@ $js_messages['strTooManyInputs'] = __(
     . "max_input_vars configuration."
 );
 
+$js_messages['strConsoleRequeryConfirm'] = __('Execute this query again?');
+
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
     PMA_printJsValue("PMA_messages['" . $name . "']", $js_message);

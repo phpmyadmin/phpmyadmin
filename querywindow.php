@@ -121,7 +121,7 @@ $sql_query = '';
 $response = PMA_Response::getInstance();
 $response->getFooter()->setMinimal();
 $header = $response->getHeader();
-$header->disableMenu();
+$header->disableMenuAndConsole();
 $header->setBodyId('bodyquerywindow');
 $scripts = $header->getScripts();
 $scripts->addFile('common.js');
