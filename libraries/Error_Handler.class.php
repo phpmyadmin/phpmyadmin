@@ -521,7 +521,9 @@ class PMA_Error_Handler
             } else {
                 // send the error reports asynchronously & without asking user
                 $jsCode .= '$("#pma_report_errors_form").submit();'
-                        . 'PMA_ajaxShowMessage(PMA_messages["phpErrorsBeingSubmitted"], false);';
+                        . 'PMA_ajaxShowMessage(
+                            PMA_messages["phpErrorsBeingSubmitted"], false
+                        );';
                 // js code to appropriate focusing,
                 $jsCode .= '$("html, body").animate({
                                 scrollTop:$(document).height()
@@ -536,15 +538,17 @@ class PMA_Error_Handler
                         . '$("#pma_ignore_errors_popup").bind("click", function() {
                             PMA_ignorePhpErrors()
                         });'
-                        . '$("#pma_ignore_all_errors_popup").bind("click", function() {
-                            PMA_ignorePhpErrors(false)
-                        });'
+                        . '$("#pma_ignore_all_errors_popup").bind("click",
+                            function() {
+                                PMA_ignorePhpErrors(false)
+                            });'
                         . '$("#pma_ignore_errors_bottom").bind("click", function() {
                             PMA_ignorePhpErrors()
                         });'
-                        . '$("#pma_ignore_all_errors_bottom").bind("click", function() {
-                            PMA_ignorePhpErrors(false)
-                        });'
+                        . '$("#pma_ignore_all_errors_bottom").bind("click",
+                            function() {
+                                PMA_ignorePhpErrors(false)
+                            });'
                         . '$("html, body").animate({
                             scrollTop:$(document).height()
                         }, "slow");';

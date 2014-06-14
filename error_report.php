@@ -19,18 +19,19 @@ $response = PMA_Response::getInstance();
 
 if (isset($_REQUEST['send_error_report'])
     && ($_REQUEST['send_error_report'] == true
-            || $_REQUEST['send_error_report'] == '1')
+    || $_REQUEST['send_error_report'] == '1')
 ) {
     if ($_REQUEST['exception_type'] == 'php') {
         /**
          * Prevent inifnite error submission.
          * Happens in case error submissions fails.
-         * If reporting is done in some time interval, just clear them & clear json data too.
+         * If reporting is done in some time interval,
+         *  just clear them & clear json data too.
          */
         if (isset($_SESSION['prev_error_subm_time'])
             && isset($_SESSION['error_subm_count'])
-            && $_SESSION['error_subm_count'] >= 3                  // allow maximum 4 attempts
-            && ($_SESSION['prev_error_subm_time']-time()) <= 3000  // in 3 seconds
+            && $_SESSION['error_subm_count'] >= 3
+            && ($_SESSION['prev_error_subm_time']-time()) <= 3000
         ) {
             $_SESSION['error_subm_count'] = 0;
             $_SESSION['prev_errors'] = '';
@@ -53,13 +54,14 @@ if (isset($_REQUEST['send_error_report'])
             $success = false;
         } else {
             $decoded_response = json_decode($server_response, true);
-            $success = !empty($decoded_response) ? $decoded_response["success"] : false;
+            $success = !empty($decoded_response) ?
+                $decoded_response["success"] : false;
         }
 
         /* Message to show to the user */
         if ($success) {
             if ((isset($_REQUEST['automatic'])
-                    && $_REQUEST['automatic'] === "true")
+                && $_REQUEST['automatic'] === "true")
                 || $GLOBALS['cfg']['SendErrorReports'] == 'always'
             ) {
                 $msg = __(
