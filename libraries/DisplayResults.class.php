@@ -3950,6 +3950,65 @@ class PMA_DisplayResults
 
     } // end of the '_getDataCellForNonNumericColumns()' function
 
+    /**
+     * Get one link for the vertical direction mode.
+     *
+     * @param string $leftOrRight      'left' or 'right' constant
+     * @param string $linkName         the name of the link to generate
+     * @param array  $vertical_display the vertical display elements
+     *
+     * @return string       html content
+     *
+     * @access  private
+     *
+     */
+    private function _getOneLink($leftOrRight, $linkName, $vertical_display)
+    {
+        $html = '';
+        if ((($GLOBALS['cfg']['RowActionLinks'] == $leftOrRight)
+            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
+            && is_array($vertical_display[$linkName])
+            && ((count($vertical_display[$linkName]) > 0)
+            || !empty($vertical_display['textbtn']))
+        ) {
+            $html .= $this->_getOperationLinksForVerticleTable(
+                $linkName
+            );
+        } // end if
+        return $html;
+    }
+
+    /**
+     * Get three links for the vertical direction mode.
+     *
+     * @param string $leftOrRight      'left' or 'right' constant
+     * @param array  $vertical_display the vertical display elements
+     *
+     * @return string       html content
+     *
+     * @access  private
+     *
+     */
+    private function _getThreeLinks($leftOrRight, $vertical_display)
+    {
+        $html = '';
+
+        // Prepares "edit" link if required
+        $html .= $this->_getOneLink(
+            $leftOrRight, 'edit', $vertical_display
+        );
+
+        // Prepares "copy" link if required
+        $html .= $this->_getOneLink(
+            $leftOrRight, 'copy', $vertical_display
+        );
+
+        // Prepares "delete" link if required
+        $html .= $this->_getOneLink(
+            $leftOrRight, 'delete', $vertical_display
+        );
+        return $html;
+    }
 
     /**
      * Get the resulted table with the vertical direction mode.
@@ -3988,41 +4047,10 @@ class PMA_DisplayResults
                 . '</tr>' . "\n";
         } // end if
 
-        // Prepares "edit" link at top if required
-        if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && is_array($vertical_display['edit'])
-            && ((count($vertical_display['edit']) > 0)
-            || !empty($vertical_display['textbtn']))
-        ) {
-            $vertical_table_html .= $this->_getOperationLinksForVerticleTable(
-                'edit'
-            );
-        } // end if
-
-        // Prepares "copy" link at top if required
-        if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && is_array($vertical_display['copy'])
-            && ((count($vertical_display['copy']) > 0)
-            || !empty($vertical_display['textbtn']))
-        ) {
-            $vertical_table_html .= $this->_getOperationLinksForVerticleTable(
-                'copy'
-            );
-        } // end if
-
-        // Prepares "delete" link at top if required
-        if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && is_array($vertical_display['delete'])
-            && ((count($vertical_display['delete']) > 0)
-            || !empty($vertical_display['textbtn']))
-        ) {
-            $vertical_table_html .= $this->_getOperationLinksForVerticleTable(
-                'delete'
-            );
-        } // end if
+        // Prepare three links at top if required
+        $vertical_table_html .= $this->_getThreeLinks(
+            self::POSITION_LEFT, $vertical_display
+        );
 
         list($col_order, $col_visib) = $this->_getColumnParams($analyzed_sql);
 
@@ -4071,41 +4099,10 @@ class PMA_DisplayResults
                 . '</tr>' . "\n";
         } // end if
 
-        // Prepares "edit" link at bottom if required
-        if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && is_array($vertical_display['edit'])
-            && ((count($vertical_display['edit']) > 0)
-            || !empty($vertical_display['textbtn']))
-        ) {
-            $vertical_table_html .= $this->_getOperationLinksForVerticleTable(
-                'edit'
-            );
-        } // end if
-
-        // Prepares "copy" link at bottom if required
-        if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && is_array($vertical_display['copy'])
-            && ((count($vertical_display['copy']) > 0)
-            || !empty($vertical_display['textbtn']))
-        ) {
-            $vertical_table_html .= $this->_getOperationLinksForVerticleTable(
-                'copy'
-            );
-        } // end if
-
-        // Prepares "delete" link at bottom if required
-        if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && is_array($vertical_display['delete'])
-            && ((count($vertical_display['delete']) > 0)
-            || !empty($vertical_display['textbtn']))
-        ) {
-            $vertical_table_html .= $this->_getOperationLinksForVerticleTable(
-                'delete'
-            );
-        }
+        // Prepare three links at bottom if required
+        $vertical_table_html .= $this->_getThreeLinks(
+            self::POSITION_RIGHT, $vertical_display
+        );
 
         return $vertical_table_html;
 
