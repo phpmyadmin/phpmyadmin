@@ -444,6 +444,10 @@ function PMA_makeConsistentWithList($db, $selected_tables)
  */
 function PMA_getCentralColumnsFromTable($db, $table, $allFields=false)
 {
+    $cfgCentralColumns = PMA_centralColumnsGetParams();
+    if (empty($cfgCentralColumns)) {
+        return array();
+    }
     $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
     $fields = (array) $GLOBALS['dbi']->getColumnNames(
         $db, $table, $GLOBALS['userlink']
@@ -793,6 +797,9 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
 function PMA_getCentralColumnsListRaw($db, $table)
 {
     $cfgCentralColumns = PMA_centralColumnsGetParams();
+    if (empty($cfgCentralColumns)) {
+        return array();
+    }
     $centralTable = $cfgCentralColumns['table'];
     if (empty($table) || $table == '') {
         $query = 'SELECT * FROM ' . PMA_Util::backquote($centralTable) . ' '
