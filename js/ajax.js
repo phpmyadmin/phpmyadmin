@@ -166,6 +166,15 @@ var AJAX = {
         }
     },
     /**
+     * resets the lock
+     *
+     * @return void
+     */
+    resetLock: function() {
+        AJAX.lockedTargets = {};
+        $('#lock_page_icon').html('');
+    },
+    /**
      * Event handler for clicks on links and form submissions
      *
      * @param object e Event data
@@ -183,7 +192,7 @@ var AJAX = {
             return true;
         } else if ($(this).hasClass('ajax') || $(this).hasClass('disableAjax')) {
             //reset the lockedTargets object, as specified AJAX operation has finished
-            AJAX.lockedTargets = {};
+            AJAX.resetLock();
             return true;
         } else if (href && href.match(/^#/)) {
             return true;
@@ -211,9 +220,7 @@ var AJAX = {
         ) {
             return false;
         }
-        //reset
-        AJAX.lockedTargets = {};
-        $('#lock_page_icon').html('');
+        AJAX.resetLock();
 
         if (AJAX.active === true) {
             // Cancel the old request if abortable, when the user requests
@@ -560,6 +567,35 @@ AJAX.registerOnload('functions.js', function () {
             $(this).data('onsubmit', this.onsubmit).attr('onsubmit', '');
         }
     });
+    /**
+     * Attach event listener to events when user modify visible
+     * Input or Textarea fields to make changes in forms
+     */
+    $('#page_content').on(
+        'keyup change',
+        'form.lock-page textarea, ' +
+        'form.lock-page input[type="text"]',
+        AJAX.lockPageHandler
+    );
+    /**
+     * Reset lock when lock-page form reset event is fired
+     * Note: reset does not bubble in all browser so attach to
+     * form directly.
+     */
+    $('form.lock-page').on('reset', function(event){
+        AJAX.resetLock();
+    });
+});
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function () {
+    $('#page_content').off('keyup change',
+        'form.lock-page textarea, ' +
+        'form.lock-page input[type="text"]'
+    );
+    $('form.lock-page').off('reset');
 });
 
 /**
@@ -921,17 +957,6 @@ $(function () {
  */
 $('a').live('click', AJAX.requestHandler);
 $('form').live('submit', AJAX.requestHandler);
-
-/**
- * Attach event listener to events when user modify visible
- * Input or Textarea fields to make changes in forms
- */
-$(document).on(
-    'keyup change',
-    '#page_content form.lock-page textarea, ' +
-    '#page_content form.lock-page input[type="text"]',
-    AJAX.lockPageHandler
-);
 
 /**
  * Gracefully handle fatal server errors
