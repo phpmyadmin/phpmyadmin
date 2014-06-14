@@ -3803,21 +3803,27 @@ class PMA_DisplayResults
     /**
      * Get data cell for non numeric type fields
      *
-     * @param string  $column                the relevant column in data row
-     * @param string  $class                 the html class for column
-     * @param object  $meta                  the meta-information about the field
-     * @param array   $map                   the list of relations
-     * @param array   $_url_params           the parameters for generate url
-     * @param boolean $condition_field       the column should highlighted
-     *                                       or not
-     * @param string  $transformation_plugin the name of transformation function
-     * @param string  $default_function      the default transformation function
-     * @param string  $transform_options     the transformation parameters
-     * @param boolean $is_field_truncated    is data truncated due to LimitChars
-     * @param array   $analyzed_sql          the analyzed query
-     * @param integer &$dt_result            the link id associated to the query
-     *                                       which results have to be displayed
-     * @param integer $col_index             the column index
+     * @param string        $column                the relevant column in data row
+     * @param string        $class                 the html class for column
+     * @param object        $meta                  the meta-information about
+     *                                             the field
+     * @param array         $map                   the list of relations
+     * @param array         $_url_params           the parameters for generate
+     *                                             url
+     * @param boolean       $condition_field       the column should highlighted
+     *                                             or not
+     * @param object|string $transformation_plugin the name of transformation
+     *                                             function
+     * @param string        $default_function      the default transformation
+     *                                             function
+     * @param string        $transform_options     the transformation parameters
+     * @param boolean       $is_field_truncated    is data truncated due to
+     *                                             LimitChars
+     * @param array         $analyzed_sql          the analyzed query
+     * @param integer       &$dt_result            the link id associated to
+     *                                             the query which results
+     *                                             have to be displayed
+     * @param integer       $col_index             the column index
      *
      * @return  string  $cell               the prepared data cell, html content
      *
