@@ -2955,3 +2955,69 @@ table.show_create {
 table.show_create td {
     border-right: 1px solid #bbb;
 }
+.pma_drop_handler {
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    z-index: 999;
+    color: white;
+    font-size: 100pt;
+    text-align: center;
+    padding-top: 20%;
+}
+.pma_sql_import_status {
+    display: none;
+    position: fixed;
+    bottom: 0px;
+    right: 25px;
+    width: 250px;
+    border: 1px solid #999;
+    background: #f3f3f3;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
+    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
+    box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
+}
+.pma_sql_import_status h2 {
+    background-color: #bbb;
+    padding: .1em .3em;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #fff;
+    font-size: 1.6em;
+    font-weight: normal;
+    text-shadow: 0 1px 0 #777;
+    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
+    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
+    box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
+}
+.pma_sql_import_status div {
+    height: 270px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    list-style-type: none;
+}
+.pma_sql_import_status div li {
+    padding: 8px 10px;
+    border-bottom: 1px solid #bbb;
+    color: rgb(148, 14, 14);
+    background: white;
+}
+.pma_sql_import_status div li .filesize {
+    float: right;
+}
+.minimize {
+    float: right;
+    margin-right: 5px;
+    padding: 0px 10px;
+}
+.minimize:hover {
+    background: rgba(155, 149, 149, 0.78);
+    cursor: pointer;
+}
