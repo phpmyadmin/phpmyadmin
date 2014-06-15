@@ -304,6 +304,28 @@ function PMA_getColumnNameInColumnDropSql($sql)
 }
 
 /**
+ * Verify whether the result set has columns from just one table
+ *
+ * @param array $fields_meta meta fields
+ *
+ * @return boolean whether the result set has columns from just one table 
+ */
+function PMA_resultSetHasJustOneTable($fields_meta)
+{
+    $just_one_table = true;
+    $prev_table = $fields_meta[0]->table;
+    foreach ($fields_meta as $one_field_meta) {
+        if (! empty($one_field_meta->table)
+            && $one_field_meta->table != $prev_table
+        ) {
+            $just_one_table = false;
+            break;
+        }
+    }
+    return $just_one_table;    
+}
+
+/**
  * Verify whether the result set contains all the columns
  * of at least one unique key
  *
@@ -2053,8 +2075,10 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
     $has_unique = PMA_resultSetContainsUniqueKey(
         $db, $table, $fields_meta
     );
+    
+    $just_one_table = PMA_resultSetHasJustOneTable($fields_meta);
 
-    $editable = $has_unique || $updatableView;
+    $editable = ($has_unique || $updatableView) && $just_one_table;
 
     // Displays the results in a table
     if (empty($disp_mode)) {

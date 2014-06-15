@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - bug #4405 Cannot import (open_basedir): fix another case
 - bug #4457 SQL tab - Insert queries not showing affected row count
 - bug       Missing warning about existing account, on multi-server config
+- bug #4435 WHERE clause can be undefined
 
 4.2.3.0 (2014-06-08)
 - bug #4423 Moving fields not working
