@@ -63,6 +63,26 @@ class PMA_Navigation
     }
 
     /**
+     * Inserts Drag and Drop Import handler
+     *
+     * @param: void
+     * @return: html code for drop handler
+     */
+    private function _getDropHandler()
+    {
+        $retval = '';
+        $retval .= '<div class="pma_drop_handler">Drop Files Here</div>';
+        $retval .= '<div class="pma_sql_import_status">';
+        $retval .= '<h2>SQL upload ( ';
+        $retval .= '<span class="pma_import_count">0</span> ';
+        $retval .= ') <span class="close">x</span>';
+        $retval .= '<span class="minimize">-</span></h2>';
+        $retval .= '<div></div>';
+        $retval .= '</div>';
+        return $retval;
+    }
+
+    /**
      * Add an item of navigation tree to the hidden items list in PMA database.
      *
      * @param string $itemName  name of the navigation tree item

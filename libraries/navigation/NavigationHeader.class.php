@@ -58,6 +58,7 @@ class PMA_NavigationHeader
             )
         );
         $buffer .= '</div>'; // pma_navigation_header
+
         $buffer .= '<div id="pma_navigation_tree"' . $class . '>';
         return $buffer;
     }
