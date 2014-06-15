@@ -57,6 +57,18 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
 });
 
 /**
+ * HTML escaping
+ */
+function escapeHtml(unsafe) {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+/**
  * Hides/shows the default value input field, depending on the default type
  * Ticks the NULL checkbox if NULL is chosen as default value.
  */
@@ -3993,18 +4005,6 @@ function PMA_clearSelection() {
             sel.removeAllRanges();
         }
     }
-}
-
-/**
- * HTML escaping
- */
-function escapeHtml(unsafe) {
-    return unsafe
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
 }
 
 /**
