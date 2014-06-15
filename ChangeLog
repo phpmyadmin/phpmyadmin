@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - bug #4457 SQL tab - Insert queries not showing affected row count
 - bug       Missing warning about existing account, on multi-server config
 - bug #4435 WHERE clause can be undefined
+- bug       SQL export views as tables option getting ignored
 
 4.2.3.0 (2014-06-08)
 - bug #4423 Moving fields not working
