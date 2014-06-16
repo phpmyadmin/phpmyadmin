@@ -246,7 +246,7 @@ function PMA_getScriptTabs()
 function PMA_getTablePositions($pg)
 {
     $cfgRelation = PMA_getRelationsParam();
-    if (! $cfgRelation['designerwork']) {
+    if (! $cfgRelation['pdfwork']) {
         return null;
     }
 
@@ -280,7 +280,7 @@ function PMA_getTablePositions($pg)
 function PMA_getPageName($pg)
 {
     $cfgRelation = PMA_getRelationsParam();
-    if (! $cfgRelation['designerwork']) {
+    if (! $cfgRelation['pdfwork']) {
         return null;
     }
 
@@ -302,7 +302,7 @@ function PMA_getPageName($pg)
 function PMA_deletePage($pg)
 {
     $cfgRelation = PMA_getRelationsParam();
-    if (! $cfgRelation['designerwork']) {
+    if (! $cfgRelation['pdfwork']) {
         return null;
     }
 
@@ -335,7 +335,7 @@ function PMA_deletePage($pg)
 function getFirstPage($db)
 {
     $cfgRelation = PMA_getRelationsParam();
-    if (! $cfgRelation['designerwork']) {
+    if (! $cfgRelation['pdfwork']) {
         return null;
     }
 
@@ -380,7 +380,7 @@ function createNewPage($pageName)
 function getTables($pg)
 {
     $cfgRelation = PMA_getRelationsParam();
-    if (! $cfgRelation['designerwork']) {
+    if (! $cfgRelation['pdfwork']) {
         return null;
     }
 

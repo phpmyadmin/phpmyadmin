@@ -175,24 +175,6 @@ CREATE TABLE IF NOT EXISTS `pma__table_info` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pma__designer_coords`
---
-
-CREATE TABLE IF NOT EXISTS `pma__designer_coords` (
-  `db_name` varchar(64) NOT NULL default '',
-  `table_name` varchar(64) NOT NULL default '',
-  `x` INT,
-  `y` INT,
-  `v` INT,
-  `h` INT,
-  PRIMARY KEY (`db_name`,`table_name`)
-)
-  COMMENT='Table coordinates for Designer'
-  COLLATE utf8_bin;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `pma__tracking`
 --
 

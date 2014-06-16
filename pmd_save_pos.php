@@ -14,7 +14,7 @@ require_once 'libraries/pmd_common.php';
 
 $cfgRelation = PMA_getRelationsParam();
 
-if (! $cfgRelation['designerwork']) {
+if (! $cfgRelation['pdfwork']) {
     PMD_errorSave();
 }
 

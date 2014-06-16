@@ -66,9 +66,7 @@ class PMA_TblViewsTest extends PHPUnit_Framework_TestCase
             'commwork' => 'commwork',
             'displaywork' => 'displaywork',
             'pdfwork' => 'pdfwork',
-            'designerwork' => 'designerwork',
             'column_info' => 'column_info',
-            'designer_coords' => 'designer_coords',
             'relation' => 'relation',
             'relwork' => 'relwork',
         );

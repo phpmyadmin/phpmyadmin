@@ -471,7 +471,7 @@ class PMA_Menu
             $tabs['tracking']['link'] = 'db_tracking.php';
         }
 
-        if (! $db_is_system_schema && $cfgRelation['designerwork']) {
+        if (! $db_is_system_schema && $cfgRelation['pdfwork']) {
             $tabs['designer']['text'] = __('Designer');
             $tabs['designer']['icon'] = 'b_relations.png';
             $tabs['designer']['link'] = 'pmd_general.php';

@@ -1232,13 +1232,6 @@ class PMA_Table
                     'db_name' => $target_db,
                     'table_name' => $target_table
                 );
-                PMA_Table::duplicateInfo(
-                    'designerwork',
-                    'designer_coords',
-                    $get_fields,
-                    $where_fields,
-                    $new_fields
-                );
 
                 /**
                  * @todo Can't get duplicating PDFs the right way. The

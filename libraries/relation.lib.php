@@ -150,7 +150,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             'pdf_pages'
         );
         $retval .= PMA_getDiagMessageForFeature(
-            __('Creation of PDFs'),
+            __('Designer and creation of PDFs'),
             'pdfwork',
             $messages
         );
@@ -196,17 +196,6 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
         $retval .= PMA_getDiagMessageForFeature(
             __('SQL history'),
             'historywork',
-            $messages
-        );
-        $retval .= PMA_getDiagMessageForParameter(
-            'designer_coords',
-            isset($cfgRelation['designer_coords']),
-            $messages,
-            'designer_coords'
-        );
-        $retval .= PMA_getDiagMessageForFeature(
-            __('Designer'),
-            'designerwork',
             $messages
         );
         $retval .= PMA_getDiagMessageForParameter(
@@ -413,7 +402,6 @@ function PMA_checkRelationsParam()
     $cfgRelation['recentwork']     = false;
     $cfgRelation['uiprefswork']    = false;
     $cfgRelation['trackingwork']   = false;
-    $cfgRelation['designerwork']   = false;
     $cfgRelation['userconfigwork'] = false;
     $cfgRelation['menuswork']      = false;
     $cfgRelation['navwork']        = false;
@@ -422,7 +410,7 @@ function PMA_checkRelationsParam()
     $cfgRelation['central_columnswork'] = false;
     $cfgRelation['user']           = null;
     $cfgRelation['db']             = null;
-    
+
     if ($GLOBALS['server'] == 0
         || empty($GLOBALS['cfg']['Server']['pmadb'])
         || ! $GLOBALS['dbi']->selectDb(
@@ -468,8 +456,6 @@ function PMA_checkRelationsParam()
             $cfgRelation['table_info']      = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['table_coords']) {
             $cfgRelation['table_coords']    = $curr_table[0];
-        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['designer_coords']) {
-            $cfgRelation['designer_coords'] = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['column_info']) {
             $cfgRelation['column_info']     = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['pdf_pages']) {
@@ -534,12 +520,6 @@ function PMA_checkRelationsParam()
         $cfgRelation['userconfigwork']   = true;
     }
 
-    // we do not absolutely need that the internal relations or the PDF
-    // schema feature be activated
-    if (isset($cfgRelation['designer_coords'])) {
-        $cfgRelation['designerwork']     = true;
-    }
-
     if (isset($cfgRelation['bookmark'])) {
         $cfgRelation['bookmarkwork']     = true;
     }
@@ -555,7 +535,7 @@ function PMA_checkRelationsParam()
     if (isset($cfgRelation['savedsearches'])) {
         $cfgRelation['savedsearcheswork']      = true;
     }
-    
+
     if (isset($cfgRelation['central_columns'])) {
         $cfgRelation['central_columnswork']      = true;
     }
@@ -565,9 +545,9 @@ function PMA_checkRelationsParam()
         && $cfgRelation['mimework'] && $cfgRelation['historywork']
         && $cfgRelation['recentwork'] && $cfgRelation['uiprefswork']
         && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
-        && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']
+        && $cfgRelation['bookmarkwork'] && $cfgRelation['central_columnswork']
         && $cfgRelation['menuswork'] && $cfgRelation['navwork']
-        && $cfgRelation['savedsearcheswork'] && $cfgRelation['central_columnswork']
+        && $cfgRelation['savedsearcheswork']
     ) {
         $cfgRelation['allworks'] = true;
     }
@@ -1509,15 +1489,6 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
     if ($GLOBALS['cfgRelation']['pdfwork']) {
         PMA_REL_renameSingleTable(
             'table_coords',
-            $source_db, $target_db,
-            $source_table, $target_table,
-            'db_name', 'table_name'
-        );
-    }
-
-    if ($GLOBALS['cfgRelation']['designerwork']) {
-        PMA_REL_renameSingleTable(
-            'designer_coords',
             $source_db, $target_db,
             $source_table, $target_table,
             'db_name', 'table_name'
