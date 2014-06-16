@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-13 16:52-0400\n"
+"POT-Creation-Date: 2014-06-16 11:15+0200\n"
 "PO-Revision-Date: 2014-06-08 00:38+0200\n"
 "Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
 "Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/"
@@ -66,7 +66,7 @@ msgid "Column"
 msgstr "Kolonnenavn"
 
 #: db_datadict.php:153 db_printview.php:49 libraries/Index.class.php:564
-#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:596
+#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:600
 #: libraries/insert_edit.lib.php:245 libraries/insert_edit.lib.php:249
 #: libraries/plugins/export/ExportHtmlword.class.php:281
 #: libraries/plugins/export/ExportHtmlword.class.php:396
@@ -91,7 +91,7 @@ msgid "Type"
 msgstr "Datatype"
 
 #: db_datadict.php:154 libraries/Index.class.php:570
-#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:602
+#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:606
 #: libraries/insert_edit.lib.php:1634
 #: libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
@@ -109,7 +109,7 @@ msgstr "Datatype"
 msgid "Null"
 msgstr "Nulværdi"
 
-#: db_datadict.php:155 libraries/central_columns.lib.php:606
+#: db_datadict.php:155 libraries/central_columns.lib.php:610
 #: libraries/plugins/export/ExportHtmlword.class.php:287
 #: libraries/plugins/export/ExportHtmlword.class.php:402
 #: libraries/plugins/export/ExportLatex.class.php:514
@@ -158,7 +158,7 @@ msgstr "Primær"
 
 #: db_datadict.php:206 js/messages.php:246 libraries/Index.class.php:435
 #: libraries/Index.class.php:474 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:762
+#: libraries/central_columns.lib.php:766
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.lib.php:455
 #: libraries/mult_submits.lib.php:456
 #: libraries/plugins/export/ExportHtmlword.class.php:633
@@ -181,7 +181,7 @@ msgstr "Nej"
 
 #: db_datadict.php:206 js/messages.php:337 libraries/Index.class.php:436
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:762
+#: libraries/central_columns.lib.php:766
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
 #: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
@@ -360,7 +360,7 @@ msgid "Status"
 msgstr "Status"
 
 #: db_tracking.php:86 libraries/Index.class.php:561
-#: libraries/central_columns.lib.php:591 libraries/rte/rte_list.lib.php:53
+#: libraries/central_columns.lib.php:595 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
 #: libraries/server_databases.lib.php:401
 #: libraries/server_privileges.lib.php:1850
@@ -425,7 +425,7 @@ msgstr "Sporingstabel"
 msgid "Database Log"
 msgstr "Databaselog"
 
-#: error_report.php:31
+#: error_report.php:68
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -433,11 +433,11 @@ msgstr ""
 "Der er opdaget en fejl, og der er automatisk blevet sendt en fejlrapport, "
 "baseret på dine indstillinger."
 
-#: error_report.php:35
+#: error_report.php:72
 msgid "Thank you for submitting this report."
 msgstr "Tak for indsendelsen af denne rapport."
 
-#: error_report.php:39
+#: error_report.php:76
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -445,12 +445,12 @@ msgstr ""
 "Der er opdaget en fejl, og der er oprettet en fejlrapport, men den kunne "
 "ikke afsendes."
 
-#: error_report.php:44
+#: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Hvis du stødte på problemer, så indsend venligst en fejlrapport manuelt."
 
-#: error_report.php:48
+#: error_report.php:85
 msgid "You may want to refresh the page."
 msgstr "Du skal muligvis genindlæse siden."
 
@@ -658,7 +658,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Kunne ikke indlæse importplugins, tjek venligst din installation!"
 
-#: import.php:571 libraries/sql.lib.php:1025 libraries/sql.lib.php:1815
+#: import.php:571 libraries/sql.lib.php:1047 libraries/sql.lib.php:1837
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bogmærket %s er blevet oprettet."
@@ -1399,12 +1399,12 @@ msgstr "Analyserer…"
 msgid "Explain output"
 msgstr "Forklar output"
 
-#: js/messages.php:180 js/messages.php:585
+#: js/messages.php:180 js/messages.php:607
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:563
 #: libraries/plugins/export/ExportTexytext.class.php:437
 #: libraries/rte/rte_list.lib.php:68 libraries/server_status.lib.php:357
-#: libraries/sql.lib.php:472
+#: libraries/sql.lib.php:494
 msgid "Time"
 msgstr "Tid"
 
@@ -1699,7 +1699,7 @@ msgstr "Vis forespørgselsbox"
 #: js/messages.php:277 libraries/DisplayResults.class.php:3365
 #: libraries/Index.class.php:593 libraries/Util.class.php:664
 #: libraries/Util.class.php:1189 libraries/Util.class.php:3364
-#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:721
+#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:725
 #: libraries/config/messages.inc.php:752
 #: libraries/schema/User_Schema.class.php:223
 #: libraries/server_user_groups.lib.php:119
@@ -1714,7 +1714,7 @@ msgid "%d is not valid row number."
 msgstr "%d er ikke et gyldigt rækkenummer."
 
 #: js/messages.php:279 libraries/TableSearch.class.php:929
-#: libraries/TableSearch.class.php:1253 libraries/sql.lib.php:372
+#: libraries/TableSearch.class.php:1253 libraries/sql.lib.php:394
 #: tbl_change.php:145
 msgid "Browse foreign values"
 msgstr "Bladre i fremmedværdier"
@@ -1824,7 +1824,8 @@ msgstr "Vælg to forskellige kolonner"
 msgid "Data point content"
 msgstr "Datapunkt-indhold"
 
-#: js/messages.php:323 js/messages.php:418 libraries/insert_edit.lib.php:2602
+#: js/messages.php:323 js/messages.php:418 js/messages.php:434
+#: libraries/Error_Handler.class.php:345 libraries/insert_edit.lib.php:2602
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:374
 msgid "Ignore"
 msgstr "Ignorer"
@@ -2037,7 +2038,7 @@ msgstr ", seneste stabile version:"
 msgid "up to date"
 msgstr "up-to-date"
 
-#: js/messages.php:408 libraries/DisplayResults.class.php:5111
+#: js/messages.php:408 libraries/DisplayResults.class.php:5114
 #: view_create.php:178
 msgid "Create view"
 msgstr "Opret view"
@@ -2082,260 +2083,279 @@ msgstr ""
 "Advarsel: en form har mere end %d felter. Ved afsendelse, vil nogle felter "
 "måske blive ignoreret, iht. PHP's max_input_vars konfiguration."
 
+#: js/messages.php:430 js/messages.php:442
+msgid "Some errors have been detected on the server!"
+msgstr ""
+
+#: js/messages.php:432
+msgid "Please look at the bottom of this window."
+msgstr ""
+
+#: js/messages.php:437 libraries/Error_Handler.class.php:350
+#, fuzzy
+#| msgid "Ignore"
+msgid "Ignore All"
+msgstr "Ignorer"
+
+#: js/messages.php:444
+msgid ""
+"As per your settings, they are being submitted currently, please be patient."
+msgstr ""
+
 #. l10n: Display text for calendar close link
-#: js/messages.php:454
+#: js/messages.php:476
 msgid "Done"
 msgstr "Færdig"
 
-#: js/messages.php:458
+#: js/messages.php:480
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Forrige"
 
-#: js/messages.php:463
+#: js/messages.php:485
 msgctxt "Next month"
 msgid "Next"
 msgstr "Næste"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:466
+#: js/messages.php:488
 msgid "Today"
 msgstr "I dag"
 
-#: js/messages.php:470
+#: js/messages.php:492
 msgid "January"
 msgstr "januar"
 
-#: js/messages.php:471
+#: js/messages.php:493
 msgid "February"
 msgstr "februar"
 
-#: js/messages.php:472
+#: js/messages.php:494
 msgid "March"
 msgstr "marts"
 
-#: js/messages.php:473
+#: js/messages.php:495
 msgid "April"
 msgstr "april"
 
-#: js/messages.php:474
+#: js/messages.php:496
 msgid "May"
 msgstr "maj"
 
-#: js/messages.php:475
+#: js/messages.php:497
 msgid "June"
 msgstr "juni"
 
-#: js/messages.php:476
+#: js/messages.php:498
 msgid "July"
 msgstr "juli"
 
-#: js/messages.php:477
+#: js/messages.php:499
 msgid "August"
 msgstr "august"
 
-#: js/messages.php:478
+#: js/messages.php:500
 msgid "September"
 msgstr "september"
 
-#: js/messages.php:479
+#: js/messages.php:501
 msgid "October"
 msgstr "oktober"
 
-#: js/messages.php:480
+#: js/messages.php:502
 msgid "November"
 msgstr "november"
 
-#: js/messages.php:481
+#: js/messages.php:503
 msgid "December"
 msgstr "december"
 
 #. l10n: Short month name
-#: js/messages.php:488 libraries/Util.class.php:1553
+#: js/messages.php:510 libraries/Util.class.php:1553
 msgid "Jan"
 msgstr "jan"
 
 #. l10n: Short month name
-#: js/messages.php:490 libraries/Util.class.php:1555
+#: js/messages.php:512 libraries/Util.class.php:1555
 msgid "Feb"
 msgstr "feb"
 
 #. l10n: Short month name
-#: js/messages.php:492 libraries/Util.class.php:1557
+#: js/messages.php:514 libraries/Util.class.php:1557
 msgid "Mar"
 msgstr "mar"
 
 #. l10n: Short month name
-#: js/messages.php:494 libraries/Util.class.php:1559
+#: js/messages.php:516 libraries/Util.class.php:1559
 msgid "Apr"
 msgstr "apr"
 
 #. l10n: Short month name
-#: js/messages.php:496 libraries/Util.class.php:1561
+#: js/messages.php:518 libraries/Util.class.php:1561
 msgctxt "Short month name"
 msgid "May"
 msgstr "maj"
 
 #. l10n: Short month name
-#: js/messages.php:498 libraries/Util.class.php:1563
+#: js/messages.php:520 libraries/Util.class.php:1563
 msgid "Jun"
 msgstr "jun"
 
 #. l10n: Short month name
-#: js/messages.php:500 libraries/Util.class.php:1565
+#: js/messages.php:522 libraries/Util.class.php:1565
 msgid "Jul"
 msgstr "jul"
 
 #. l10n: Short month name
-#: js/messages.php:502 libraries/Util.class.php:1567
+#: js/messages.php:524 libraries/Util.class.php:1567
 msgid "Aug"
 msgstr "aug"
 
 #. l10n: Short month name
-#: js/messages.php:504 libraries/Util.class.php:1569
+#: js/messages.php:526 libraries/Util.class.php:1569
 msgid "Sep"
 msgstr "sep"
 
 #. l10n: Short month name
-#: js/messages.php:506 libraries/Util.class.php:1571
+#: js/messages.php:528 libraries/Util.class.php:1571
 msgid "Oct"
 msgstr "okt"
 
 #. l10n: Short month name
-#: js/messages.php:508 libraries/Util.class.php:1573
+#: js/messages.php:530 libraries/Util.class.php:1573
 msgid "Nov"
 msgstr "nov"
 
 #. l10n: Short month name
-#: js/messages.php:510 libraries/Util.class.php:1575
+#: js/messages.php:532 libraries/Util.class.php:1575
 msgid "Dec"
 msgstr "dec"
 
-#: js/messages.php:516
+#: js/messages.php:538
 msgid "Sunday"
 msgstr "søndag"
 
-#: js/messages.php:517
+#: js/messages.php:539
 msgid "Monday"
 msgstr "mandag"
 
-#: js/messages.php:518
+#: js/messages.php:540
 msgid "Tuesday"
 msgstr "tirsdag"
 
-#: js/messages.php:519
+#: js/messages.php:541
 msgid "Wednesday"
 msgstr "onsdag"
 
-#: js/messages.php:520
+#: js/messages.php:542
 msgid "Thursday"
 msgstr "torsdag"
 
-#: js/messages.php:521
+#: js/messages.php:543
 msgid "Friday"
 msgstr "fredag"
 
-#: js/messages.php:522
+#: js/messages.php:544
 msgid "Saturday"
 msgstr "lørdag"
 
 #. l10n: Short week day name
-#: js/messages.php:529
+#: js/messages.php:551
 msgid "Sun"
 msgstr "søn"
 
 #. l10n: Short week day name
-#: js/messages.php:531 libraries/Util.class.php:1580
+#: js/messages.php:553 libraries/Util.class.php:1580
 msgid "Mon"
 msgstr "man"
 
 #. l10n: Short week day name
-#: js/messages.php:533 libraries/Util.class.php:1582
+#: js/messages.php:555 libraries/Util.class.php:1582
 msgid "Tue"
 msgstr "tir"
 
 #. l10n: Short week day name
-#: js/messages.php:535 libraries/Util.class.php:1584
+#: js/messages.php:557 libraries/Util.class.php:1584
 msgid "Wed"
 msgstr "ons"
 
 #. l10n: Short week day name
-#: js/messages.php:537 libraries/Util.class.php:1586
+#: js/messages.php:559 libraries/Util.class.php:1586
 msgid "Thu"
 msgstr "tor"
 
 #. l10n: Short week day name
-#: js/messages.php:539 libraries/Util.class.php:1588
+#: js/messages.php:561 libraries/Util.class.php:1588
 msgid "Fri"
 msgstr "fre"
 
 #. l10n: Short week day name
-#: js/messages.php:541 libraries/Util.class.php:1590
+#: js/messages.php:563 libraries/Util.class.php:1590
 msgid "Sat"
 msgstr "lør"
 
 #. l10n: Minimal week day name
-#: js/messages.php:548
+#: js/messages.php:570
 msgid "Su"
 msgstr "sø"
 
 #. l10n: Minimal week day name
-#: js/messages.php:550
+#: js/messages.php:572
 msgid "Mo"
 msgstr "ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:552
+#: js/messages.php:574
 msgid "Tu"
 msgstr "ti"
 
 #. l10n: Minimal week day name
-#: js/messages.php:554
+#: js/messages.php:576
 msgid "We"
 msgstr "on"
 
 #. l10n: Minimal week day name
-#: js/messages.php:556
+#: js/messages.php:578
 msgid "Th"
 msgstr "to"
 
 #. l10n: Minimal week day name
-#: js/messages.php:558
+#: js/messages.php:580
 msgid "Fr"
 msgstr "fr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:560
+#: js/messages.php:582
 msgid "Sa"
 msgstr "lø"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:564
+#: js/messages.php:586
 msgid "Wk"
 msgstr "uge"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:571
+#: js/messages.php:593
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:574
+#: js/messages.php:596
 msgctxt "Year suffix"
 msgid "none"
 msgstr "ingen"
 
-#: js/messages.php:586
+#: js/messages.php:608
 msgid "Hour"
 msgstr "Time"
 
-#: js/messages.php:587
+#: js/messages.php:609
 msgid "Minute"
 msgstr "Minut"
 
-#: js/messages.php:588
+#: js/messages.php:610
 msgid "Second"
 msgstr "Sekund"
 
@@ -2600,8 +2620,8 @@ msgid "Delete the matches for the %s table?"
 msgstr "Slet sammenfald for %s tabellen?"
 
 #: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3436
-#: libraries/DisplayResults.class.php:4978
-#: libraries/central_columns.lib.php:723
+#: libraries/DisplayResults.class.php:4981
+#: libraries/central_columns.lib.php:727
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:355
@@ -2646,12 +2666,12 @@ msgid "Restore column order"
 msgstr "Gendan kolonneorden"
 
 #: libraries/DisplayResults.class.php:788
-#: libraries/central_columns.lib.php:571
+#: libraries/central_columns.lib.php:575
 msgid "Filter rows"
 msgstr "Filtrer rækker"
 
 #: libraries/DisplayResults.class.php:790
-#: libraries/central_columns.lib.php:573
+#: libraries/central_columns.lib.php:577
 msgid "Search this table"
 msgstr "Søg i denne tabel"
 
@@ -2777,15 +2797,15 @@ msgid "The row has been deleted."
 msgstr "Rækken er slettet."
 
 #: libraries/DisplayResults.class.php:3464
-#: libraries/DisplayResults.class.php:4978 libraries/server_status.lib.php:520
+#: libraries/DisplayResults.class.php:4981 libraries/server_status.lib.php:520
 msgid "Kill"
 msgstr "Dræb (Kill)"
 
-#: libraries/DisplayResults.class.php:4422
+#: libraries/DisplayResults.class.php:4425
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Kan være anslået. Se [doc@faq3-11] FAQ 3.11[/doc]."
 
-#: libraries/DisplayResults.class.php:4479 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4482 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:904
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:117
@@ -2793,7 +2813,7 @@ msgstr "Kan være anslået. Se [doc@faq3-11] FAQ 3.11[/doc]."
 msgid "Your SQL query has been executed successfully."
 msgstr "Din SQL-forespørgsel blev udført korrekt."
 
-#: libraries/DisplayResults.class.php:4856 libraries/structure.lib.php:682
+#: libraries/DisplayResults.class.php:4859 libraries/structure.lib.php:682
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -2801,28 +2821,28 @@ msgid ""
 msgstr ""
 "Viewet har som minimum dette antal rækker. Se venligst %sdokumentationen%s."
 
-#: libraries/DisplayResults.class.php:4869
+#: libraries/DisplayResults.class.php:4872
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Viser rækkerne %1s - %2s"
 
-#: libraries/DisplayResults.class.php:4884
+#: libraries/DisplayResults.class.php:4887
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d i alt, %2$d i forespørgsel"
 
-#: libraries/DisplayResults.class.php:4889
+#: libraries/DisplayResults.class.php:4892
 #, php-format
 msgid "%d total"
 msgstr "%d i alt"
 
-#: libraries/DisplayResults.class.php:4901 libraries/sql.lib.php:1649
+#: libraries/DisplayResults.class.php:4904 libraries/sql.lib.php:1671
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Forepørgsel tog %01.4f sekunder."
 
-#: libraries/DisplayResults.class.php:4985
-#: libraries/DisplayResults.class.php:4991 libraries/mult_submits.inc.php:45
+#: libraries/DisplayResults.class.php:4988
+#: libraries/DisplayResults.class.php:4994 libraries/mult_submits.inc.php:45
 #: libraries/server_databases.lib.php:141
 #: libraries/server_databases.lib.php:145
 #: libraries/server_privileges.lib.php:2983
@@ -2832,8 +2852,8 @@ msgstr "Forepørgsel tog %01.4f sekunder."
 msgid "With selected:"
 msgstr "Med det markerede:"
 
-#: libraries/DisplayResults.class.php:4989
-#: libraries/DisplayResults.class.php:4990
+#: libraries/DisplayResults.class.php:4992
+#: libraries/DisplayResults.class.php:4993
 #: libraries/server_databases.lib.php:143
 #: libraries/server_databases.lib.php:144
 #: libraries/server_privileges.lib.php:1014
@@ -2846,13 +2866,13 @@ msgstr "Med det markerede:"
 msgid "Check All"
 msgstr "Vælg alle"
 
-#: libraries/DisplayResults.class.php:4995 libraries/structure.lib.php:1445
+#: libraries/DisplayResults.class.php:4998 libraries/structure.lib.php:1445
 #: libraries/structure.lib.php:2161 querywindow.php:85
 msgid "Change"
 msgstr "Ret"
 
-#: libraries/DisplayResults.class.php:5008
-#: libraries/DisplayResults.class.php:5279 libraries/Menu.class.php:325
+#: libraries/DisplayResults.class.php:5011
+#: libraries/DisplayResults.class.php:5282 libraries/Menu.class.php:325
 #: libraries/Menu.class.php:423 libraries/Menu.class.php:546
 #: libraries/Util.class.php:3366 libraries/Util.class.php:3367
 #: libraries/Util.class.php:4075 libraries/Util.class.php:4090
@@ -2865,35 +2885,45 @@ msgstr "Ret"
 msgid "Export"
 msgstr "Eksportér"
 
-#: libraries/DisplayResults.class.php:5167
+#: libraries/DisplayResults.class.php:5170
 msgid "Query results operations"
 msgstr "Forespørgselsresultat operationer"
 
-#: libraries/DisplayResults.class.php:5203 libraries/Header.class.php:347
+#: libraries/DisplayResults.class.php:5206 libraries/Header.class.php:347
 #: libraries/structure.lib.php:314 libraries/structure.lib.php:385
 #: libraries/structure.lib.php:1580
 msgid "Print view"
 msgstr "Udskriv"
 
-#: libraries/DisplayResults.class.php:5221
+#: libraries/DisplayResults.class.php:5224
 msgid "Print view (with full texts)"
 msgstr "Udskriv (med fulde tekster)"
 
-#: libraries/DisplayResults.class.php:5292 libraries/tbl_chart.lib.php:351
+#: libraries/DisplayResults.class.php:5295 libraries/tbl_chart.lib.php:351
 msgid "Display chart"
 msgstr "Vis diagram"
 
-#: libraries/DisplayResults.class.php:5317
+#: libraries/DisplayResults.class.php:5320
 msgid "Visualize GIS data"
 msgstr "Visualiser GIS data"
 
-#: libraries/DisplayResults.class.php:5543
+#: libraries/DisplayResults.class.php:5546
 msgid "Link not found!"
 msgstr "Link ikke fundet!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
 msgstr "For mange fejlmeddelelser, nogle vises ikke."
+
+#: libraries/Error_Handler.class.php:333
+#, fuzzy
+#| msgid "Import"
+msgid "Report"
+msgstr "Importér"
+
+#: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:344
+msgid "Automatically send report next time"
+msgstr "Send automatisk rapport næste gang"
 
 #: libraries/File.class.php:225
 msgid "File was not an uploaded file."
@@ -3000,7 +3030,7 @@ msgstr "Kardinalitet"
 
 #: libraries/Index.class.php:569 libraries/TableSearch.class.php:187
 #: libraries/build_html_for_db.lib.php:22
-#: libraries/central_columns.lib.php:600 libraries/mysql_charsets.lib.php:47
+#: libraries/central_columns.lib.php:604 libraries/mysql_charsets.lib.php:47
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:819
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:835
 #: libraries/structure.lib.php:1252 libraries/structure.lib.php:1799
@@ -3967,7 +3997,7 @@ msgstr "En optælling, udvalgt fra listen med definerede værdier"
 msgid "Max: %s%s"
 msgstr "Maksimum størrelse: %s%s"
 
-#: libraries/Util.class.php:639 libraries/sql.lib.php:430
+#: libraries/Util.class.php:639 libraries/sql.lib.php:452
 msgid "SQL query:"
 msgstr "SQL-forespørgsel:"
 
@@ -4005,7 +4035,7 @@ msgstr "Fremstil PHP-kode"
 msgid "Refresh"
 msgstr "Opdater"
 
-#: libraries/Util.class.php:1263 libraries/sql.lib.php:461
+#: libraries/Util.class.php:1263 libraries/sql.lib.php:483
 msgid "Profiling"
 msgstr "Profilering"
 
@@ -4188,7 +4218,7 @@ msgstr "Kunne ikke fjerne kolonne(r) %1$s da den ikke findes i centerlisten!"
 msgid "Could not remove columns!"
 msgstr "Kunne ikke fjerne kolonner!"
 
-#: libraries/central_columns.lib.php:594
+#: libraries/central_columns.lib.php:598
 #: libraries/display_create_table.lib.php:60
 #: libraries/plugins/export/ExportHtmlword.class.php:485
 #: libraries/plugins/export/ExportOdt.class.php:560
@@ -4201,28 +4231,28 @@ msgstr "Kunne ikke fjerne kolonner!"
 msgid "Name"
 msgstr "Navn"
 
-#: libraries/central_columns.lib.php:598
+#: libraries/central_columns.lib.php:602
 #: libraries/rte/rte_routines.lib.php:984
 #: libraries/tbl_columns_definition_form.lib.php:279
 msgid "Length/Values"
 msgstr "Længde/Værdi*"
 
-#: libraries/central_columns.lib.php:604
+#: libraries/central_columns.lib.php:608
 #: libraries/schema/Pdf_Relation_Schema.class.php:1364
 #: libraries/schema/Pdf_Relation_Schema.class.php:1387
 #: libraries/structure.lib.php:1256 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr "Ekstra"
 
-#: libraries/central_columns.lib.php:625
+#: libraries/central_columns.lib.php:629
 msgid "Select a table"
 msgstr "Vælg en tabel"
 
-#: libraries/central_columns.lib.php:679 libraries/structure.lib.php:1649
+#: libraries/central_columns.lib.php:683 libraries/structure.lib.php:1649
 msgid "Add column"
 msgstr "Tilføj kolonne"
 
-#: libraries/central_columns.lib.php:691
+#: libraries/central_columns.lib.php:695
 msgid "Select a column."
 msgstr "Vælg en kolonne."
 
@@ -4625,8 +4655,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Du har sat  [kbd]config[/kbd] autentifikation og inkluderet brugernavn og "
 "adgangskode for auto-login, hvilket er ikke en ønskværdig konfiguration for "
@@ -4777,8 +4807,8 @@ msgid ""
 "kbd] - allows newlines in columns."
 msgstr ""
 "Definerer typen af redigeringskontroller som skal anvendes i CHAR og VARCHAR "
-"kolonner. [kbd]input[/kbd] - tillader begrænsning i længden af input, [kbd]"
-"textarea[/kbd] - tillader linjeskift i kolonner."
+"kolonner. [kbd]input[/kbd] - tillader begrænsning i længden af input, "
+"[kbd]textarea[/kbd] - tillader linjeskift i kolonner."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
@@ -4786,8 +4816,8 @@ msgstr "Redigering af CHAR-kolonner"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Brug et brugervenligt tekstredigereingsprogram til at redigere SQL-"
 "forespørgsler, ([a@http://codemirror.net/]CodeMirror[/a]) med fremhævelse af "
@@ -5328,8 +5358,9 @@ msgstr "Sidetitler"
 
 #: libraries/config/messages.inc.php:249
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Angiv browserens tekst i titelbaren. Se [doc@cfg_TitleTable]dokumentationen[/"
 "doc] for tekststrenge der indeholder særlige værdier."
@@ -5757,8 +5788,8 @@ msgstr "Maksimalt antal tabeller"
 
 #: libraries/config/messages.inc.php:418
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Deaktiver standardadvarslen som vises, hvis mcrypt mangler til [kbd]cookie[/"
 "kbd] godkendelse."
@@ -5800,8 +5831,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
 msgstr ""
-"Åbn den linkede side i hovedvinduet ([kbd]main[/kbd]) eller i et nyt ([kbd]"
-"new[/kbd])."
+"Åbn den linkede side i hovedvinduet ([kbd]main[/kbd]) eller i et nyt "
+"([kbd]new[/kbd])."
 
 #: libraries/config/messages.inc.php:436
 msgid "Logo link target"
@@ -6158,11 +6189,11 @@ msgstr "Bogmærketabel"
 
 #: libraries/config/messages.inc.php:568
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Efterlades tom for ingen kolonnekommentar-/mime-typer, forslag: [kbd]"
-"pma_column_info[/kbd]."
+"Efterlades tom for ingen kolonnekommentar-/mime-typer, forslag: "
+"[kbd]pma_column_info[/kbd]."
 
 #: libraries/config/messages.inc.php:571
 msgid "Column information table"
@@ -6232,8 +6263,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Efterlades tom for at undlade Designer-understøttelse, forslag: [kbd]"
-"pma_designer_coords[/kbd]."
+"Efterlades tom for at undlade Designer-understøttelse, forslag: "
+"[kbd]pma_designer_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:598
 msgid "Designer table"
@@ -6289,11 +6320,11 @@ msgstr "QBE gemte søger tabel"
 
 #: libraries/config/messages.inc.php:618
 msgid ""
-"Leave blank for no QBE saved searches support, suggested: [kbd]"
-"pma__savedsearches[/kbd]."
+"Leave blank for no QBE saved searches support, suggested: "
+"[kbd]pma__savedsearches[/kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af QBE-skematik, forslag: [kbd]"
-"pma_pdf_pages[/kbd]."
+"Efterlades tom for at undlade understøttelse af QBE-skematik, forslag: "
+"[kbd]pma_pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:622
 msgid "Try to connect without password."
@@ -6328,8 +6359,8 @@ msgstr "Adgangskode for config auth"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: [kbd]"
-"pma_pdf_pages[/kbd]."
+"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
+"[kbd]pma_pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:635
 msgid "PDF schema: pages table"
@@ -6372,8 +6403,8 @@ msgstr "Senest benyttede tabel"
 
 #: libraries/config/messages.inc.php:651
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Efterlades tom for at undlade understøttelse af [a@http://wiki.phpmyadmin."
 "net/pma/relation]relation-links[/a], forslag: [kbd]pma_relation[/kbd]."
@@ -6384,8 +6415,8 @@ msgstr "Relationstabel"
 
 #: libraries/config/messages.inc.php:657
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "Se [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types[/"
 "a] for et eksempel."
@@ -6419,8 +6450,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: [kbd]"
-"pma_table_coords[/kbd]."
+"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
+"[kbd]pma_table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:670
 msgid "PDF schema: table coordinates"
@@ -6497,8 +6528,8 @@ msgstr "Forespørgsler, der skal spores"
 
 #: libraries/config/messages.inc.php:700
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 "Efterlades tom for at undlade understøttelse af sporing på SQL-forspørgsler, "
 "forslag: [kbd]pma_tracking[/kbd]."
@@ -6520,8 +6551,8 @@ msgstr "Opret versioner automatisk"
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Efterlades tom for at undlade lagring af bruger-præferencer i database, "
 "forslag: [kbd]pma_userconfig[/kbd]."
@@ -7129,7 +7160,7 @@ msgstr ""
 msgid "Encoding Conversion:"
 msgstr "Konvertering af indkodning:"
 
-#: libraries/display_export.lib.php:320 libraries/sql.lib.php:434
+#: libraries/display_export.lib.php:320 libraries/sql.lib.php:456
 msgid "Rows:"
 msgstr "Rækker:"
 
@@ -7698,7 +7729,7 @@ msgstr "Relaterede links"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "Bloggen The PrimeBase XT af Paul McCullagh"
 
-#: libraries/error_report.lib.php:279
+#: libraries/error_report.lib.php:322
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
@@ -7708,17 +7739,13 @@ msgstr ""
 "som information om relevante konfigurationsindstillinger til phpMyAdmin-"
 "holdet, til hjælp for vores fejlsøgning af problemet."
 
-#: libraries/error_report.lib.php:286
+#: libraries/error_report.lib.php:329
 msgid "You may examine the data in the error report:"
 msgstr "Du kan gennemse indholdet i fejlrapporten:"
 
-#: libraries/error_report.lib.php:293
+#: libraries/error_report.lib.php:336
 msgid "Please explain the steps that lead to the error:"
 msgstr "Forklar venligst de trin som førte til fejlen:"
-
-#: libraries/error_report.lib.php:301
-msgid "Automatically send report next time"
-msgstr "Send automatisk rapport næste gang"
 
 #: libraries/export.lib.php:113 libraries/export.lib.php:144
 #: libraries/export.lib.php:363
@@ -7745,7 +7772,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump er blevet gemt i filen %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1643
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1665
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerede ingen data (fx ingen rækker)."
@@ -7867,11 +7894,11 @@ msgstr ""
 "Brug TAB-tasten for at flytte dig fra værdi til værdi, eller CTRL"
 "+piletasterne til at flytte frit omkring"
 
-#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1640
+#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1662
 msgid "Showing SQL query"
 msgstr "Viser SQL-forespørgsel"
 
-#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1620
+#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1642
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Indsatte række id: %1$d"
@@ -8715,13 +8742,13 @@ msgstr "Indsæt feltnavne i første række:"
 #: libraries/plugins/export/ExportSql.class.php:646
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:675
-#: libraries/server_privileges.lib.php:1335 libraries/sql.lib.php:422
+#: libraries/server_privileges.lib.php:1335 libraries/sql.lib.php:444
 msgid "Host:"
 msgstr "Vært:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:653
-#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:426
+#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:448
 msgid "Generation Time:"
 msgstr "Genereringstid:"
 
@@ -8735,7 +8762,7 @@ msgstr "PHP-version:"
 #: libraries/plugins/export/ExportSql.class.php:817
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#: libraries/sql.lib.php:424
+#: libraries/sql.lib.php:446
 msgid "Database:"
 msgstr "Database:"
 
@@ -11967,72 +11994,72 @@ msgstr "Sessionsværdi"
 msgid "Global value"
 msgstr "Global værdi"
 
-#: libraries/sql.lib.php:420
+#: libraries/sql.lib.php:442
 msgid "SQL result"
 msgstr "SQL-resultat"
 
-#: libraries/sql.lib.php:428
+#: libraries/sql.lib.php:450
 msgid "Generated by:"
 msgstr "Genereret af:"
 
-#: libraries/sql.lib.php:464
+#: libraries/sql.lib.php:486
 msgid "Detailed profile"
 msgstr "Detaljeret profil"
 
-#: libraries/sql.lib.php:467
+#: libraries/sql.lib.php:489
 msgid "Order"
 msgstr "Rækkefølge"
 
-#: libraries/sql.lib.php:469 libraries/sql.lib.php:485
+#: libraries/sql.lib.php:491 libraries/sql.lib.php:507
 msgid "State"
 msgstr "Tilstand"
 
-#: libraries/sql.lib.php:482
+#: libraries/sql.lib.php:504
 msgid "Summary by state"
 msgstr "Opsummering efter tilstand"
 
-#: libraries/sql.lib.php:488
+#: libraries/sql.lib.php:510
 msgid "Total Time"
 msgstr "Samlet tid"
 
-#: libraries/sql.lib.php:490
+#: libraries/sql.lib.php:512
 msgid "% Time"
 msgstr "% tid"
 
-#: libraries/sql.lib.php:492
+#: libraries/sql.lib.php:514
 msgid "Calls"
 msgstr "Kald"
 
-#: libraries/sql.lib.php:494
+#: libraries/sql.lib.php:516
 msgid "ø Time"
 msgstr "ø tid"
 
-#: libraries/sql.lib.php:765 libraries/sql.lib.php:785
+#: libraries/sql.lib.php:787 libraries/sql.lib.php:807
 msgid "Bookmark this SQL query"
 msgstr "Lav bogmærke til denne SQL-forespørgsel"
 
-#: libraries/sql.lib.php:769
+#: libraries/sql.lib.php:791
 msgid "Label:"
 msgstr "Etikette:"
 
-#: libraries/sql.lib.php:777 libraries/sql_query_form.lib.php:328
+#: libraries/sql.lib.php:799 libraries/sql_query_form.lib.php:328
 msgid "Let every user access this bookmark"
 msgstr "Lad alle brugere bruge dette bogmærke"
 
-#: libraries/sql.lib.php:1029
+#: libraries/sql.lib.php:1051
 msgid "Bookmark not created!"
 msgstr "Bogmærke blev ikke oprettet!"
 
-#: libraries/sql.lib.php:1185
+#: libraries/sql.lib.php:1207
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Bruger bogmærket \"%s\" som standard-forespørgsel til gennemsyn."
 
-#: libraries/sql.lib.php:1637
+#: libraries/sql.lib.php:1659
 msgid "Showing as PHP code"
 msgstr "Viser som PHP-kode"
 
-#: libraries/sql.lib.php:1926
+#: libraries/sql.lib.php:1948
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
@@ -12040,7 +12067,7 @@ msgstr ""
 "Den nuværende markering indeholder ikke en unik kolonne. Redigering af "
 "gitter, afkrydsningsfelt, redigering og sletning er ikke tilgængelige."
 
-#: libraries/sql.lib.php:1963
+#: libraries/sql.lib.php:1985
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemer med indeksene på tabel `%s`"
@@ -14755,9 +14782,10 @@ msgstr "concurrent_insert er sat til 0"
 
 #~ msgid ""
 #~ "If you wish to use the SQL Validator service, you should be aware that "
-#~ "[strong]all SQL statements are stored anonymously for statistical purposes"
-#~ "[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
-#~ "a], Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
+#~ "[strong]all SQL statements are stored anonymously for statistical "
+#~ "purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+#~ "Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+#~ "reserved.[/em]"
 #~ msgstr ""
 #~ "Hvis du ønsker at bruge servicen SQL Validator, skal du huske på, at "
 #~ "[strong]alle SQL forespørgsler lagres anonymt til statistiske formål[/"
@@ -14785,14 +14813,14 @@ msgstr "concurrent_insert er sat til 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "If you have a custom username, specify it here (defaults to [kbd]"
-#~| "anonymous[/kbd])"
+#~| "If you have a custom username, specify it here (defaults to "
+#~| "[kbd]anonymous[/kbd])"
 #~ msgid ""
-#~ "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#~ "[/kbd])."
+#~ "If you have a custom username, specify it here (defaults to "
+#~ "[kbd]anonymous[/kbd])."
 #~ msgstr ""
-#~ "Hvis du har dit eger brugernavn, så angiv det her (standard [kbd]anonymous"
-#~ "[/kbd])"
+#~ "Hvis du har dit eger brugernavn, så angiv det her (standard "
+#~ "[kbd]anonymous[/kbd])"
 
 #~ msgid "Validated SQL"
 #~ msgstr "Valideret SQL"
@@ -14821,22 +14849,22 @@ msgstr "concurrent_insert er sat til 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~| "pma__users[/kbd]"
+#~| "Leave blank to disable configurable menus feature, suggested: "
+#~| "[kbd]pma__users[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "Efterlades tom for at deaktivere muligheden for konfigurérbare menuer, "
 #~ "forslag: [kbd]pma_users[/kbd]"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~| "pma__usergroups[/kbd]"
+#~| "Leave blank to disable configurable menus feature, suggested: "
+#~| "[kbd]pma__usergroups[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Efterlades tom for at deaktivere muligheden for konfigurérbare menuer, "
 #~ "forslag: [kbd]pma__usergroups[/kbd]"
@@ -14952,11 +14980,13 @@ msgstr "concurrent_insert er sat til 0"
 #~ msgstr "Aktivér rapportering for javascript-fejl"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
-#~ "Mere information om [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] og [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "Mere information om [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] og [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "Deaktiver brug af INFORMATION_SCHEMA"
@@ -15285,13 +15315,13 @@ msgstr "concurrent_insert er sat til 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Når denne sættes til [kbd]nested[/kbd] bruges alias for tabelnavnet kun "
-#~ "til at splitte/samle tabellerne i henhold til direktivet $cfg"
-#~ "['LeftFrameTableSeparator'], så kun mappen benævnes som aliaset; "
+#~ "til at splitte/samle tabellerne i henhold til direktivet "
+#~ "$cfg['LeftFrameTableSeparator'], så kun mappen benævnes som aliaset; "
 #~ "tabelnavnet selv forbliver uændret"
 
 #~ msgid "Display table comment instead of its name"

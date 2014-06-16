@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-13 16:52-0400\n"
+"POT-Creation-Date: 2014-06-16 11:15+0200\n"
 "PO-Revision-Date: 2014-03-27 15:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Urdu <https://l10n.cihar.com/projects/phpmyadmin/master/ur/>\n"
@@ -71,7 +71,7 @@ msgid "Column"
 msgstr "کالم"
 
 #: db_datadict.php:153 db_printview.php:49 libraries/Index.class.php:564
-#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:596
+#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:600
 #: libraries/insert_edit.lib.php:245 libraries/insert_edit.lib.php:249
 #: libraries/plugins/export/ExportHtmlword.class.php:281
 #: libraries/plugins/export/ExportHtmlword.class.php:396
@@ -96,7 +96,7 @@ msgid "Type"
 msgstr "قِسم"
 
 #: db_datadict.php:154 libraries/Index.class.php:570
-#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:602
+#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:606
 #: libraries/insert_edit.lib.php:1634
 #: libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
@@ -114,7 +114,7 @@ msgstr "قِسم"
 msgid "Null"
 msgstr "خالی"
 
-#: db_datadict.php:155 libraries/central_columns.lib.php:606
+#: db_datadict.php:155 libraries/central_columns.lib.php:610
 #: libraries/plugins/export/ExportHtmlword.class.php:287
 #: libraries/plugins/export/ExportHtmlword.class.php:402
 #: libraries/plugins/export/ExportLatex.class.php:514
@@ -163,7 +163,7 @@ msgstr ""
 
 #: db_datadict.php:206 js/messages.php:246 libraries/Index.class.php:435
 #: libraries/Index.class.php:474 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:762
+#: libraries/central_columns.lib.php:766
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.lib.php:455
 #: libraries/mult_submits.lib.php:456
 #: libraries/plugins/export/ExportHtmlword.class.php:633
@@ -186,7 +186,7 @@ msgstr "نہیں"
 
 #: db_datadict.php:206 js/messages.php:337 libraries/Index.class.php:436
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:762
+#: libraries/central_columns.lib.php:766
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
 #: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
@@ -374,7 +374,7 @@ msgid "Status"
 msgstr "حالت"
 
 #: db_tracking.php:86 libraries/Index.class.php:561
-#: libraries/central_columns.lib.php:591 libraries/rte/rte_list.lib.php:53
+#: libraries/central_columns.lib.php:595 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
 #: libraries/server_databases.lib.php:401
 #: libraries/server_privileges.lib.php:1850
@@ -439,7 +439,7 @@ msgstr "جدول کھوج"
 msgid "Database Log"
 msgstr "کوائفیہ لاگ"
 
-#: error_report.php:31
+#: error_report.php:68
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -447,21 +447,21 @@ msgstr ""
 "غلطی کی کھوج لگا لی گئی ہے اور غلطی کی رپورٹ آپ کی ترتیبات کی بنیاد پر خود "
 "کار طریقے سے پیش کر دی گئی ہے۔"
 
-#: error_report.php:35
+#: error_report.php:72
 msgid "Thank you for submitting this report."
 msgstr "رپورٹ پیش کرنے کا بہت شکریہ۔"
 
-#: error_report.php:39
+#: error_report.php:76
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr "غلطی کا پتہ لگایا گیا ہے لیکن غلطی کی رپورٹ بھیجی نہیں جا سکی۔"
 
-#: error_report.php:44
+#: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "اگر آپ کو کوئی مسئلہ درپیش ہے تو دستی طور پر رپورٹ پیش کریں۔"
 
-#: error_report.php:48
+#: error_report.php:85
 msgid "You may want to refresh the page."
 msgstr "آپ صفحہ کی تازہ کاری کرنا چاہتے ہیں."
 
@@ -663,8 +663,8 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "درآمد کے لیے کوئی کوائف نہیں ملا۔ ممکن ہے کہ مسل نام بھیجا نہ گیا ہو یا مسل "
-"حجم مقررہ حد سے تجاوز کر گیا ہو جو آپ کی PHP تشکیل میں ہے۔ دیکھیں"
-"[doc@faq1-16]عمومی سوالات 1.16[/doc]."
+"حجم مقررہ حد سے تجاوز کر گیا ہو جو آپ کی PHP تشکیل میں ہے۔ "
+"دیکھیں[doc@faq1-16]عمومی سوالات 1.16[/doc]."
 
 #: import.php:498
 #, fuzzy
@@ -679,7 +679,7 @@ msgstr "حروف متبادل لائبریری کے بغیر مسل کے حرو�
 msgid "Could not load import plugins, please check your installation!"
 msgstr "درآمد پلگ ان لوڈ نہیں ہو سکے، اپنی تنصیب کی پڑتال کریں!"
 
-#: import.php:571 libraries/sql.lib.php:1025 libraries/sql.lib.php:1815
+#: import.php:571 libraries/sql.lib.php:1047 libraries/sql.lib.php:1837
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -1420,12 +1420,12 @@ msgstr "توثیق کررہا ہے…"
 msgid "Explain output"
 msgstr "SQL کی تفصیل بتائیں"
 
-#: js/messages.php:180 js/messages.php:585
+#: js/messages.php:180 js/messages.php:607
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:563
 #: libraries/plugins/export/ExportTexytext.class.php:437
 #: libraries/rte/rte_list.lib.php:68 libraries/server_status.lib.php:357
-#: libraries/sql.lib.php:472
+#: libraries/sql.lib.php:494
 msgid "Time"
 msgstr "وقت"
 
@@ -1760,7 +1760,7 @@ msgstr "طلب خانہ دکھائیں"
 #: js/messages.php:277 libraries/DisplayResults.class.php:3365
 #: libraries/Index.class.php:593 libraries/Util.class.php:664
 #: libraries/Util.class.php:1189 libraries/Util.class.php:3364
-#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:721
+#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:725
 #: libraries/config/messages.inc.php:752
 #: libraries/schema/User_Schema.class.php:223
 #: libraries/server_user_groups.lib.php:119
@@ -1775,7 +1775,7 @@ msgid "%d is not valid row number."
 msgstr ""
 
 #: js/messages.php:279 libraries/TableSearch.class.php:929
-#: libraries/TableSearch.class.php:1253 libraries/sql.lib.php:372
+#: libraries/TableSearch.class.php:1253 libraries/sql.lib.php:394
 #: tbl_change.php:145
 msgid "Browse foreign values"
 msgstr ""
@@ -1892,7 +1892,8 @@ msgstr ""
 msgid "Data point content"
 msgstr ""
 
-#: js/messages.php:323 js/messages.php:418 libraries/insert_edit.lib.php:2602
+#: js/messages.php:323 js/messages.php:418 js/messages.php:434
+#: libraries/Error_Handler.class.php:345 libraries/insert_edit.lib.php:2602
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:374
 msgid "Ignore"
 msgstr "نظر انداز کریں"
@@ -2117,7 +2118,7 @@ msgstr ", حالیہ مستحکم نسخہ:"
 msgid "up to date"
 msgstr "کوائفیہ جائیں"
 
-#: js/messages.php:408 libraries/DisplayResults.class.php:5111
+#: js/messages.php:408 libraries/DisplayResults.class.php:5114
 #: view_create.php:178
 #, fuzzy
 #| msgid "Created"
@@ -2161,19 +2162,38 @@ msgid ""
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
+#: js/messages.php:430 js/messages.php:442
+msgid "Some errors have been detected on the server!"
+msgstr ""
+
+#: js/messages.php:432
+msgid "Please look at the bottom of this window."
+msgstr ""
+
+#: js/messages.php:437 libraries/Error_Handler.class.php:350
+#, fuzzy
+#| msgid "Ignore"
+msgid "Ignore All"
+msgstr "نظر انداز کریں"
+
+#: js/messages.php:444
+msgid ""
+"As per your settings, they are being submitted currently, please be patient."
+msgstr ""
+
 #. l10n: Display text for calendar close link
-#: js/messages.php:454
+#: js/messages.php:476
 msgid "Done"
 msgstr "ہوچکا"
 
-#: js/messages.php:458
+#: js/messages.php:480
 #, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "پچھلا"
 
-#: js/messages.php:463
+#: js/messages.php:485
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2181,149 +2201,149 @@ msgid "Next"
 msgstr "اگلا"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:466
+#: js/messages.php:488
 msgid "Today"
 msgstr "آج"
 
-#: js/messages.php:470
+#: js/messages.php:492
 msgid "January"
 msgstr "جنوری"
 
-#: js/messages.php:471
+#: js/messages.php:493
 msgid "February"
 msgstr "فروری"
 
-#: js/messages.php:472
+#: js/messages.php:494
 msgid "March"
 msgstr "مارچ"
 
-#: js/messages.php:473
+#: js/messages.php:495
 msgid "April"
 msgstr "اپریل"
 
-#: js/messages.php:474
+#: js/messages.php:496
 msgid "May"
 msgstr "مئی"
 
-#: js/messages.php:475
+#: js/messages.php:497
 msgid "June"
 msgstr "جون"
 
-#: js/messages.php:476
+#: js/messages.php:498
 msgid "July"
 msgstr "جولائی"
 
-#: js/messages.php:477
+#: js/messages.php:499
 msgid "August"
 msgstr "اگست"
 
-#: js/messages.php:478
+#: js/messages.php:500
 msgid "September"
 msgstr "ستمبر"
 
-#: js/messages.php:479
+#: js/messages.php:501
 msgid "October"
 msgstr "اکتوبر"
 
-#: js/messages.php:480
+#: js/messages.php:502
 msgid "November"
 msgstr "نومبر"
 
-#: js/messages.php:481
+#: js/messages.php:503
 msgid "December"
 msgstr "دسمبر"
 
 #. l10n: Short month name
-#: js/messages.php:488 libraries/Util.class.php:1553
+#: js/messages.php:510 libraries/Util.class.php:1553
 msgid "Jan"
 msgstr "جنوری"
 
 #. l10n: Short month name
-#: js/messages.php:490 libraries/Util.class.php:1555
+#: js/messages.php:512 libraries/Util.class.php:1555
 msgid "Feb"
 msgstr "فروری"
 
 #. l10n: Short month name
-#: js/messages.php:492 libraries/Util.class.php:1557
+#: js/messages.php:514 libraries/Util.class.php:1557
 msgid "Mar"
 msgstr "مارچ"
 
 #. l10n: Short month name
-#: js/messages.php:494 libraries/Util.class.php:1559
+#: js/messages.php:516 libraries/Util.class.php:1559
 msgid "Apr"
 msgstr "اپریل"
 
 #. l10n: Short month name
-#: js/messages.php:496 libraries/Util.class.php:1561
+#: js/messages.php:518 libraries/Util.class.php:1561
 msgctxt "Short month name"
 msgid "May"
 msgstr "مئی"
 
 #. l10n: Short month name
-#: js/messages.php:498 libraries/Util.class.php:1563
+#: js/messages.php:520 libraries/Util.class.php:1563
 msgid "Jun"
 msgstr "جون"
 
 #. l10n: Short month name
-#: js/messages.php:500 libraries/Util.class.php:1565
+#: js/messages.php:522 libraries/Util.class.php:1565
 msgid "Jul"
 msgstr "جولائی"
 
 #. l10n: Short month name
-#: js/messages.php:502 libraries/Util.class.php:1567
+#: js/messages.php:524 libraries/Util.class.php:1567
 msgid "Aug"
 msgstr "اگست"
 
 #. l10n: Short month name
-#: js/messages.php:504 libraries/Util.class.php:1569
+#: js/messages.php:526 libraries/Util.class.php:1569
 msgid "Sep"
 msgstr "ستمبر"
 
 #. l10n: Short month name
-#: js/messages.php:506 libraries/Util.class.php:1571
+#: js/messages.php:528 libraries/Util.class.php:1571
 msgid "Oct"
 msgstr "اکتوبر"
 
 #. l10n: Short month name
-#: js/messages.php:508 libraries/Util.class.php:1573
+#: js/messages.php:530 libraries/Util.class.php:1573
 msgid "Nov"
 msgstr "نومبر"
 
 #. l10n: Short month name
-#: js/messages.php:510 libraries/Util.class.php:1575
+#: js/messages.php:532 libraries/Util.class.php:1575
 msgid "Dec"
 msgstr "دسمبر"
 
-#: js/messages.php:516
+#: js/messages.php:538
 msgid "Sunday"
 msgstr "اتوار"
 
-#: js/messages.php:517
+#: js/messages.php:539
 msgid "Monday"
 msgstr "پیر"
 
-#: js/messages.php:518
+#: js/messages.php:540
 msgid "Tuesday"
 msgstr "منگل"
 
-#: js/messages.php:519
+#: js/messages.php:541
 msgid "Wednesday"
 msgstr "بدھ"
 
-#: js/messages.php:520
+#: js/messages.php:542
 msgid "Thursday"
 msgstr "جمعرات"
 
-#: js/messages.php:521
+#: js/messages.php:543
 msgid "Friday"
 msgstr "جمعہ"
 
-#: js/messages.php:522
+#: js/messages.php:544
 msgid "Saturday"
 msgstr "ہفتہ"
 
 #. l10n: Short week day name
-#: js/messages.php:529
+#: js/messages.php:551
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2331,99 +2351,99 @@ msgid "Sun"
 msgstr "اتوار"
 
 #. l10n: Short week day name
-#: js/messages.php:531 libraries/Util.class.php:1580
+#: js/messages.php:553 libraries/Util.class.php:1580
 msgid "Mon"
 msgstr "پیر"
 
 #. l10n: Short week day name
-#: js/messages.php:533 libraries/Util.class.php:1582
+#: js/messages.php:555 libraries/Util.class.php:1582
 msgid "Tue"
 msgstr "منگل"
 
 #. l10n: Short week day name
-#: js/messages.php:535 libraries/Util.class.php:1584
+#: js/messages.php:557 libraries/Util.class.php:1584
 msgid "Wed"
 msgstr "بدھ"
 
 #. l10n: Short week day name
-#: js/messages.php:537 libraries/Util.class.php:1586
+#: js/messages.php:559 libraries/Util.class.php:1586
 msgid "Thu"
 msgstr "جمعرات"
 
 #. l10n: Short week day name
-#: js/messages.php:539 libraries/Util.class.php:1588
+#: js/messages.php:561 libraries/Util.class.php:1588
 msgid "Fri"
 msgstr "جمعہ"
 
 #. l10n: Short week day name
-#: js/messages.php:541 libraries/Util.class.php:1590
+#: js/messages.php:563 libraries/Util.class.php:1590
 msgid "Sat"
 msgstr "ہفتہ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:548
+#: js/messages.php:570
 msgid "Su"
 msgstr "اتوار"
 
 #. l10n: Minimal week day name
-#: js/messages.php:550
+#: js/messages.php:572
 msgid "Mo"
 msgstr "پیر"
 
 #. l10n: Minimal week day name
-#: js/messages.php:552
+#: js/messages.php:574
 msgid "Tu"
 msgstr "منگل"
 
 #. l10n: Minimal week day name
-#: js/messages.php:554
+#: js/messages.php:576
 msgid "We"
 msgstr "بدھ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:556
+#: js/messages.php:578
 msgid "Th"
 msgstr "جمعرات"
 
 #. l10n: Minimal week day name
-#: js/messages.php:558
+#: js/messages.php:580
 msgid "Fr"
 msgstr "جمعہ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:560
+#: js/messages.php:582
 msgid "Sa"
 msgstr "ہفتہ"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:564
+#: js/messages.php:586
 msgid "Wk"
 msgstr "ہفتہ وار"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:571
+#: js/messages.php:593
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:574
+#: js/messages.php:596
 #, fuzzy
 #| msgid "Done"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "ہوچکا"
 
-#: js/messages.php:586
+#: js/messages.php:608
 msgid "Hour"
 msgstr "گھنٹہ"
 
-#: js/messages.php:587
+#: js/messages.php:609
 msgid "Minute"
 msgstr "منٹ"
 
-#: js/messages.php:588
+#: js/messages.php:610
 msgid "Second"
 msgstr "سیکنڈ"
 
@@ -2707,8 +2727,8 @@ msgid "Delete the matches for the %s table?"
 msgstr "اس جدول کے مشابہات حذف %s کریں؟"
 
 #: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3436
-#: libraries/DisplayResults.class.php:4978
-#: libraries/central_columns.lib.php:723
+#: libraries/DisplayResults.class.php:4981
+#: libraries/central_columns.lib.php:727
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:355
@@ -2761,14 +2781,14 @@ msgid "Restore column order"
 msgstr "فیلڈ کالمز شامل یا ختم کریں"
 
 #: libraries/DisplayResults.class.php:788
-#: libraries/central_columns.lib.php:571
+#: libraries/central_columns.lib.php:575
 #, fuzzy
 #| msgid "Startup"
 msgid "Filter rows"
 msgstr "ابتدائیہ"
 
 #: libraries/DisplayResults.class.php:790
-#: libraries/central_columns.lib.php:573
+#: libraries/central_columns.lib.php:577
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
@@ -2908,18 +2928,18 @@ msgid "The row has been deleted."
 msgstr "نشانی حذف ہو چکی ہے۔"
 
 #: libraries/DisplayResults.class.php:3464
-#: libraries/DisplayResults.class.php:4978 libraries/server_status.lib.php:520
+#: libraries/DisplayResults.class.php:4981 libraries/server_status.lib.php:520
 msgid "Kill"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4422
+#: libraries/DisplayResults.class.php:4425
 #, fuzzy
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 "اپ لوڈ مسل کو بڑھاتے ہوئے نقص ہے, دیکھیں [doc@faq1-11]عمومی سوالات 1.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4479 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4482 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:904
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:117
@@ -2929,7 +2949,7 @@ msgstr ""
 msgid "Your SQL query has been executed successfully."
 msgstr "آپ کی SQL طلب کامیابی سے چلائی جاچکی ہے۔"
 
-#: libraries/DisplayResults.class.php:4856 libraries/structure.lib.php:682
+#: libraries/DisplayResults.class.php:4859 libraries/structure.lib.php:682
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -2937,30 +2957,30 @@ msgid ""
 msgstr ""
 "اس جدول نقل میں اتنے کم از کم صفیں ہیں۔ حوالہ کے لیے %sdocumentation%s."
 
-#: libraries/DisplayResults.class.php:4869
+#: libraries/DisplayResults.class.php:4872
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4884
+#: libraries/DisplayResults.class.php:4887
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4889
+#: libraries/DisplayResults.class.php:4892
 #, fuzzy, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d total"
 msgstr "%s جدول"
 
-#: libraries/DisplayResults.class.php:4901 libraries/sql.lib.php:1649
+#: libraries/DisplayResults.class.php:4904 libraries/sql.lib.php:1671
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4985
-#: libraries/DisplayResults.class.php:4991 libraries/mult_submits.inc.php:45
+#: libraries/DisplayResults.class.php:4988
+#: libraries/DisplayResults.class.php:4994 libraries/mult_submits.inc.php:45
 #: libraries/server_databases.lib.php:141
 #: libraries/server_databases.lib.php:145
 #: libraries/server_privileges.lib.php:2983
@@ -2970,8 +2990,8 @@ msgstr ""
 msgid "With selected:"
 msgstr "مع منتخب:"
 
-#: libraries/DisplayResults.class.php:4989
-#: libraries/DisplayResults.class.php:4990
+#: libraries/DisplayResults.class.php:4992
+#: libraries/DisplayResults.class.php:4993
 #: libraries/server_databases.lib.php:143
 #: libraries/server_databases.lib.php:144
 #: libraries/server_privileges.lib.php:1014
@@ -2984,13 +3004,13 @@ msgstr "مع منتخب:"
 msgid "Check All"
 msgstr "تمام پڑتال کریں"
 
-#: libraries/DisplayResults.class.php:4995 libraries/structure.lib.php:1445
+#: libraries/DisplayResults.class.php:4998 libraries/structure.lib.php:1445
 #: libraries/structure.lib.php:2161 querywindow.php:85
 msgid "Change"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5008
-#: libraries/DisplayResults.class.php:5279 libraries/Menu.class.php:325
+#: libraries/DisplayResults.class.php:5011
+#: libraries/DisplayResults.class.php:5282 libraries/Menu.class.php:325
 #: libraries/Menu.class.php:423 libraries/Menu.class.php:546
 #: libraries/Util.class.php:3366 libraries/Util.class.php:3367
 #: libraries/Util.class.php:4075 libraries/Util.class.php:4090
@@ -3003,31 +3023,31 @@ msgstr ""
 msgid "Export"
 msgstr "برآمد"
 
-#: libraries/DisplayResults.class.php:5167
+#: libraries/DisplayResults.class.php:5170
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5203 libraries/Header.class.php:347
+#: libraries/DisplayResults.class.php:5206 libraries/Header.class.php:347
 #: libraries/structure.lib.php:314 libraries/structure.lib.php:385
 #: libraries/structure.lib.php:1580
 msgid "Print view"
 msgstr "چھپائی منظر"
 
-#: libraries/DisplayResults.class.php:5221
+#: libraries/DisplayResults.class.php:5224
 msgid "Print view (with full texts)"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5292 libraries/tbl_chart.lib.php:351
+#: libraries/DisplayResults.class.php:5295 libraries/tbl_chart.lib.php:351
 #, fuzzy
 #| msgid "Table comments"
 msgid "Display chart"
 msgstr "ٹیبل کمنٹس"
 
-#: libraries/DisplayResults.class.php:5317
+#: libraries/DisplayResults.class.php:5320
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5543
+#: libraries/DisplayResults.class.php:5546
 #, fuzzy
 #| msgid "Theme %s not found!"
 msgid "Link not found!"
@@ -3035,6 +3055,16 @@ msgstr "خیالیہ %s نیہں ملا!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
+msgstr ""
+
+#: libraries/Error_Handler.class.php:333
+#, fuzzy
+#| msgid "Import"
+msgid "Report"
+msgstr "درآمد"
+
+#: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:344
+msgid "Automatically send report next time"
 msgstr ""
 
 #: libraries/File.class.php:225
@@ -3145,7 +3175,7 @@ msgstr "درجہ تعلق داری"
 
 #: libraries/Index.class.php:569 libraries/TableSearch.class.php:187
 #: libraries/build_html_for_db.lib.php:22
-#: libraries/central_columns.lib.php:600 libraries/mysql_charsets.lib.php:47
+#: libraries/central_columns.lib.php:604 libraries/mysql_charsets.lib.php:47
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:819
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:835
 #: libraries/structure.lib.php:1252 libraries/structure.lib.php:1799
@@ -4112,7 +4142,7 @@ msgstr ""
 msgid "Max: %s%s"
 msgstr "زیادہ سے زیادہ: %s%s"
 
-#: libraries/Util.class.php:639 libraries/sql.lib.php:430
+#: libraries/Util.class.php:639 libraries/sql.lib.php:452
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -4152,7 +4182,7 @@ msgstr "PHP کوڈ بنائیں"
 msgid "Refresh"
 msgstr "تازہ کریں"
 
-#: libraries/Util.class.php:1263 libraries/sql.lib.php:461
+#: libraries/Util.class.php:1263 libraries/sql.lib.php:483
 msgid "Profiling"
 msgstr "تفصیلات"
 
@@ -4340,7 +4370,7 @@ msgstr ""
 msgid "Could not remove columns!"
 msgstr "مسل نہیں کھول سکتا: %s"
 
-#: libraries/central_columns.lib.php:594
+#: libraries/central_columns.lib.php:598
 #: libraries/display_create_table.lib.php:60
 #: libraries/plugins/export/ExportHtmlword.class.php:485
 #: libraries/plugins/export/ExportOdt.class.php:560
@@ -4353,32 +4383,32 @@ msgstr "مسل نہیں کھول سکتا: %s"
 msgid "Name"
 msgstr ""
 
-#: libraries/central_columns.lib.php:598
+#: libraries/central_columns.lib.php:602
 #: libraries/rte/rte_routines.lib.php:984
 #: libraries/tbl_columns_definition_form.lib.php:279
 msgid "Length/Values"
 msgstr ""
 
-#: libraries/central_columns.lib.php:604
+#: libraries/central_columns.lib.php:608
 #: libraries/schema/Pdf_Relation_Schema.class.php:1364
 #: libraries/schema/Pdf_Relation_Schema.class.php:1387
 #: libraries/structure.lib.php:1256 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr ""
 
-#: libraries/central_columns.lib.php:625
+#: libraries/central_columns.lib.php:629
 #, fuzzy
 #| msgid "Select All"
 msgid "Select a table"
 msgstr "سارا منتخب کریں"
 
-#: libraries/central_columns.lib.php:679 libraries/structure.lib.php:1649
+#: libraries/central_columns.lib.php:683 libraries/structure.lib.php:1649
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add column"
 msgstr "فیلڈ کالمز شامل یا ختم کریں"
 
-#: libraries/central_columns.lib.php:691
+#: libraries/central_columns.lib.php:695
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select a column."
@@ -4769,8 +4799,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -4926,8 +4956,8 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -4943,8 +4973,8 @@ msgstr "CHAR کالم تدوین"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:53
@@ -5556,8 +5586,9 @@ msgstr "صفحہ عنوانات"
 
 #: libraries/config/messages.inc.php:249
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "براؤزر عنوان بار متن  لکھیں۔ حوالہ کے لیے[doc@cfg_TitleTable]documentation[/"
 "doc] خاص قدریں حاصل کرنے کے لیے میجک سٹرنگ۔"
@@ -5638,8 +5669,8 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"اضافی خواص تک رسائی کے لیے phpMyAdmin تشکیلات ذخیرہ کو تشکیل کریں، دیکھیں"
-"[doc@linked-tables]phpMyAdmin تشکیل ذخیرہ[/doc] دستاویزات میں"
+"اضافی خواص تک رسائی کے لیے phpMyAdmin تشکیلات ذخیرہ کو تشکیل کریں، "
+"دیکھیں[doc@linked-tables]phpMyAdmin تشکیل ذخیرہ[/doc] دستاویزات میں"
 
 #: libraries/config/messages.inc.php:275
 msgid "Changes tracking"
@@ -6058,8 +6089,8 @@ msgstr "زیادہ سے زیادہ جداول"
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "اگر کوکی توثیق کے لیے mcrypt موجود نہ ہونے کی تنبیہ غیر فعال کرنے کے لیے طے "
 "شدہ تنبیہ کو غیرفعال کریں"
@@ -6558,11 +6589,11 @@ msgstr "جدول نشان کریں"
 #: libraries/config/messages.inc.php:568
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: [kbd]"
-#| "pma_column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma_column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 "کالم تبصرہ/mime اقسام کے لیے خالی چھوڑیں, مجوزہ: [kbd]pma_column_info[/kbd]"
 
@@ -6598,8 +6629,8 @@ msgstr "صارف پاس ورڈ کنٹرول"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
-#| "wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6645,8 +6676,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-"pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:598
 msgid "Designer table"
@@ -6665,8 +6696,8 @@ msgstr "کوائفیے چھپائیں"
 #: libraries/config/messages.inc.php:603
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma_history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6713,11 +6744,11 @@ msgstr ""
 #| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 #| "kbd]"
 msgid ""
-"Leave blank for no QBE saved searches support, suggested: [kbd]"
-"pma__savedsearches[/kbd]."
+"Leave blank for no QBE saved searches support, suggested: "
+"[kbd]pma__savedsearches[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-"pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:622
 #, fuzzy
@@ -6756,8 +6787,8 @@ msgstr ""
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-"pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:635
 msgid "PDF schema: pages table"
@@ -6808,8 +6839,8 @@ msgstr "صارف نام یاد کریں"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "نہیں کے لیے خالی چھوڑیں[a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 "a] معاونت، مجوزہ[kbd]pma_bookmark[/kbd]"
@@ -6820,8 +6851,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:657
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 
 #: libraries/config/messages.inc.php:660
@@ -6859,8 +6890,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-"pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:670
 msgid "PDF schema: table coordinates"
@@ -6875,8 +6906,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-"pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:675
 msgid "Display columns table"
@@ -6890,8 +6921,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-"pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:680
 msgid "UI preferences table"
@@ -6938,11 +6969,11 @@ msgstr ""
 #: libraries/config/messages.inc.php:700
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma_history[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 "SQL طلب لاگ معاونت نہ کرنے کے لیے خالی چھوڑیں , مجوزہ: [kbd]pma_history[/kbd]"
 
@@ -6965,11 +6996,11 @@ msgstr ""
 #| msgid ""
 #| "ve blank for no Designer support, suggested: [kbd]pma_designer_coords[/]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-"pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:711
 msgid "User preferences storage table"
@@ -7007,8 +7038,8 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-"pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:717
 msgid "Hidden navigation items table"
@@ -7568,7 +7599,7 @@ msgstr ""
 msgid "Encoding Conversion:"
 msgstr ""
 
-#: libraries/display_export.lib.php:320 libraries/sql.lib.php:434
+#: libraries/display_export.lib.php:320 libraries/sql.lib.php:456
 msgid "Rows:"
 msgstr ""
 
@@ -8091,23 +8122,19 @@ msgstr "لپیٹنا"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr ""
 
-#: libraries/error_report.lib.php:279
+#: libraries/error_report.lib.php:322
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
 
-#: libraries/error_report.lib.php:286
+#: libraries/error_report.lib.php:329
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: libraries/error_report.lib.php:293
+#: libraries/error_report.lib.php:336
 msgid "Please explain the steps that lead to the error:"
-msgstr ""
-
-#: libraries/error_report.lib.php:301
-msgid "Automatically send report next time"
 msgstr ""
 
 #: libraries/export.lib.php:113 libraries/export.lib.php:144
@@ -8135,7 +8162,7 @@ msgid "Dump has been saved to file %s."
 msgstr "ڈمپ اس مسل %s میں محفوظ ہوچکی ہے۔"
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1643
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1665
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
@@ -8259,11 +8286,11 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1640
+#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1662
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1620
+#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1642
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -9160,13 +9187,13 @@ msgstr "کالم نام پہلے صف میں ڈالیں"
 #: libraries/plugins/export/ExportSql.class.php:646
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:675
-#: libraries/server_privileges.lib.php:1335 libraries/sql.lib.php:422
+#: libraries/server_privileges.lib.php:1335 libraries/sql.lib.php:444
 msgid "Host:"
 msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:653
-#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:426
+#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:448
 #, fuzzy
 #| msgid "Generate"
 msgid "Generation Time:"
@@ -9184,7 +9211,7 @@ msgstr "نسخے"
 #: libraries/plugins/export/ExportSql.class.php:817
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#: libraries/sql.lib.php:424
+#: libraries/sql.lib.php:446
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -12319,94 +12346,94 @@ msgstr ""
 msgid "Global value"
 msgstr ""
 
-#: libraries/sql.lib.php:420
+#: libraries/sql.lib.php:442
 msgid "SQL result"
 msgstr ""
 
-#: libraries/sql.lib.php:428
+#: libraries/sql.lib.php:450
 #, fuzzy
 #| msgid "Generate"
 msgid "Generated by:"
 msgstr "بنائیں"
 
-#: libraries/sql.lib.php:464
+#: libraries/sql.lib.php:486
 msgid "Detailed profile"
 msgstr ""
 
-#: libraries/sql.lib.php:467
+#: libraries/sql.lib.php:489
 msgid "Order"
 msgstr ""
 
-#: libraries/sql.lib.php:469 libraries/sql.lib.php:485
+#: libraries/sql.lib.php:491 libraries/sql.lib.php:507
 #, fuzzy
 #| msgid "Startup"
 msgid "State"
 msgstr "ابتدائیہ"
 
-#: libraries/sql.lib.php:482
+#: libraries/sql.lib.php:504
 msgid "Summary by state"
 msgstr ""
 
-#: libraries/sql.lib.php:488
+#: libraries/sql.lib.php:510
 #, fuzzy
 #| msgid "Total"
 msgid "Total Time"
 msgstr "میزان"
 
-#: libraries/sql.lib.php:490
+#: libraries/sql.lib.php:512
 #, fuzzy
 #| msgid "Time"
 msgid "% Time"
 msgstr "وقت"
 
-#: libraries/sql.lib.php:492
+#: libraries/sql.lib.php:514
 #, fuzzy
 #| msgid "Close"
 msgid "Calls"
 msgstr "بند کریں"
 
-#: libraries/sql.lib.php:494
+#: libraries/sql.lib.php:516
 #, fuzzy
 #| msgid "Time"
 msgid "ø Time"
 msgstr "وقت"
 
-#: libraries/sql.lib.php:765 libraries/sql.lib.php:785
+#: libraries/sql.lib.php:787 libraries/sql.lib.php:807
 msgid "Bookmark this SQL query"
 msgstr ""
 
-#: libraries/sql.lib.php:769
+#: libraries/sql.lib.php:791
 #, fuzzy
 #| msgid "Label key"
 msgid "Label:"
 msgstr "سرنامہ کلید"
 
-#: libraries/sql.lib.php:777 libraries/sql_query_form.lib.php:328
+#: libraries/sql.lib.php:799 libraries/sql_query_form.lib.php:328
 msgid "Let every user access this bookmark"
 msgstr ""
 
-#: libraries/sql.lib.php:1029
+#: libraries/sql.lib.php:1051
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
 msgstr "نشانی %s بنایا گیا"
 
-#: libraries/sql.lib.php:1185
+#: libraries/sql.lib.php:1207
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1637
+#: libraries/sql.lib.php:1659
 msgid "Showing as PHP code"
 msgstr ""
 
-#: libraries/sql.lib.php:1926
+#: libraries/sql.lib.php:1948
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 msgstr ""
 
-#: libraries/sql.lib.php:1963
+#: libraries/sql.lib.php:1985
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
@@ -15105,9 +15132,10 @@ msgstr ""
 
 #~ msgid ""
 #~ "If you wish to use the SQL Validator service, you should be aware that "
-#~ "[strong]all SQL statements are stored anonymously for statistical purposes"
-#~ "[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
-#~ "a], Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
+#~ "[strong]all SQL statements are stored anonymously for statistical "
+#~ "purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+#~ "Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+#~ "reserved.[/em]"
 #~ msgstr ""
 #~ "اگر آپ SQL جواز دھندہ خدمت استعمال کرنا چاہتے ہیں, آپ معلوم ہونا چاہیے "
 #~ "[strong]تمام SQL بیانات تجزیاتی مقاصد کے لیے ذخیرہ کی جاتی ہیں[/strong]."
@@ -15128,21 +15156,21 @@ msgstr ""
 #~| msgid ""
 #~| "ve blank for no Designer support, suggested: [kbd]pma_designer_coords[/]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
-#~ "اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-#~ "pma_designer_coords[/kbd]"
+#~ "اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+#~ "[kbd]pma_designer_coords[/kbd]"
 
 #, fuzzy
 #~| msgid ""
 #~| "ve blank for no Designer support, suggested: [kbd]pma_designer_coords[/]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
-#~ "اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-#~ "pma_designer_coords[/kbd]"
+#~ "اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+#~ "[kbd]pma_designer_coords[/kbd]"
 
 #~ msgid "Reloading Privileges"
 #~ msgstr "استحقاق پھر لوڈ کرتے ہوئے"
@@ -15206,8 +15234,9 @@ msgstr ""
 #~ msgstr "PHP کی قسم جو اسعتمال کی جائے"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
 #~ "مزید معلومات یہاں موجود ہے [a@https://sourceforge.net/p/phpmyadmin/"
 #~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
