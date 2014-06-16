@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-16 11:15+0200\n"
-"PO-Revision-Date: 2014-06-14 10:05+0200\n"
+"PO-Revision-Date: 2014-06-16 13:13+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
-">\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2104,22 +2104,21 @@ msgstr ""
 
 #: js/messages.php:430 js/messages.php:442
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Ανιχνεύτηκαν ορισμένα σφάλματα στο διακομιστή!"
 
 #: js/messages.php:432
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Δείτε στο κάτω μέρος αυτού του παραθύρου."
 
 #: js/messages.php:437 libraries/Error_Handler.class.php:350
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Παράληψη"
+msgstr "Παράληψη Όλων"
 
 #: js/messages.php:444
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr ""
+msgstr "Σύμφωνα με τις ρυθμίσεις σας, υποβάλλονται άμεσα, κάντε υπομονή."
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:476
@@ -2938,10 +2937,9 @@ msgid "Too many error messages, some are not displayed."
 msgstr "Πολλά μηνύματα σφάλματος, ορισμένα δεν εμφανίζονται."
 
 #: libraries/Error_Handler.class.php:333
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
-msgstr "Εισαγωγή"
+msgstr "Αναφορά"
 
 #: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:344
 msgid "Automatically send report next time"
