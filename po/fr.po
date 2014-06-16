@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-16 11:15+0200\n"
-"PO-Revision-Date: 2014-06-14 12:51+0200\n"
+"PO-Revision-Date: 2014-06-16 18:18+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2100,22 +2100,21 @@ msgstr ""
 
 #: js/messages.php:430 js/messages.php:442
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Des erreurs ont été détectées sur le serveur !"
 
 #: js/messages.php:432
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Veuillez regarder au bas de cette fenêtre."
 
 #: js/messages.php:437 libraries/Error_Handler.class.php:350
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Ignorer"
+msgstr "Ignorer tout"
 
 #: js/messages.php:444
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr ""
+msgstr "Selon vos paramètres, ils sont actuellement soumis, veuillez patienter."
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:476
@@ -2937,10 +2936,9 @@ msgstr ""
 "Les messages d'erreur sont trop nombreux, certains ne sont pas affichés."
 
 #: libraries/Error_Handler.class.php:333
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
-msgstr "Importer"
+msgstr "Rapporter"
 
 #: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:344
 msgid "Automatically send report next time"
