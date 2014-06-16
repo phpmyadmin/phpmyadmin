@@ -152,4 +152,19 @@ class PMA_Error_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals('Warning: Compile Error', $this->object->getTitle());
     }
+
+    /**
+     * Test for getBacktrace
+     *
+     * @return void
+     */
+    public function testGetBacktrace()
+    {
+        $this->object->setBacktrace(array('bt1','bt2','bt3','bt4'));
+        // case: full backtrace
+        $this->assertEquals(array('bt1','bt2','bt3','bt4'), $this->object->getBacktrace());
+
+        // case: first 2 frames
+        $this->assertEquals(array('bt1','bt2'), $this->object->getBacktrace(2));
+    }
 }

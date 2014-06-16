@@ -72,3 +72,4 @@ if (isset($_REQUEST['do'])) {
     $user_schema->setAction($_REQUEST['do']);
     $user_schema->processUserChoice();
 }
+?>

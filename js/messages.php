@@ -426,6 +426,29 @@ $js_messages['strTooManyInputs'] = __(
     . "max_input_vars configuration."
 );
 
+$js_messages['phpErrorsFound'] = '<div class="error">'
+    . __('Warning: Some errors have been detected on the server!!')
+    . '<div>'
+    . __('Please look at the bottom of this window.')
+    . '<input id="pma_ignore_errors_popup" type="submit" value="'
+    . __('Ignore')
+    . '" style="float: right; margin: 20px;">'
+    . '<input id="pma_ignore_all_errors_popup" type="submit" value="'
+    . __('Ignore All')
+    . '" style="float: right; margin: 20px;">'
+    . '</div></div>';
+
+$js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
+    . __('Some errors have been detected on the server!!')
+    . '<br/>'
+    . __('As per your settings, they are being submitted currently.')
+    . __(' Please be patient.')
+    . '<br/>'
+    . '<img src="'
+    . ($_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif'))
+    . '" width="16" height="16" alt="ajax clock"/>'
+    . '</div>';
+
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
     PMA_printJsValue("PMA_messages['" . $name . "']", $js_message);

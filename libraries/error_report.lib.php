@@ -52,37 +52,80 @@ function PMA_getPrettyReportData()
  * returns the error report data collected from the current configuration or
  * from the request parameters sent by the error reporting js code.
  *
- * @return Array the report
+ * @param string  $exception_type whether exception is 'js' or 'php'
+ *
+ * @return Array error report if success, Empty Array otherwise
  */
-function PMA_getReportData()
+function PMA_getReportData($exception_type = 'js')
 {
-    if (empty($_REQUEST['exception'])) {
-        return array();
-    }
-    $exception = $_REQUEST['exception'];
-    $exception["stack"] = PMA_translateStacktrace($exception["stack"]);
-    List($uri, $script_name) = PMA_sanitizeUrl($exception["url"]);
-    $exception["uri"] = $uri;
-    unset($exception["url"]);
+    $relParams = PMA_getRelationsParam();
+    // common params for both, php & js execptions
     $report = array(
-        "exception" => $exception,
-        "script_name" => $script_name,
-        "pma_version" => PMA_VERSION,
-        "browser_name" => PMA_USR_BROWSER_AGENT,
-        "browser_version" => PMA_USR_BROWSER_VER,
-        "user_os" => PMA_USR_OS,
-        "server_software" => $_SERVER['SERVER_SOFTWARE'],
-        "user_agent_string" => $_SERVER['HTTP_USER_AGENT'],
-        "locale" => $_COOKIE['pma_lang'],
-        "configuration_storage" =>
-            empty($GLOBALS['cfg']['Servers'][1]['pmadb']) ? "disabled" :
-            "enabled",
-        "php_version" => phpversion(),
-        "microhistory" => $_REQUEST['microhistory'],
-    );
+            "pma_version" => PMA_VERSION,
+            "browser_name" => PMA_USR_BROWSER_AGENT,
+            "browser_version" => PMA_USR_BROWSER_VER,
+            "user_os" => PMA_USR_OS,
+            "server_software" => $_SERVER['SERVER_SOFTWARE'],
+            "user_agent_string" => $_SERVER['HTTP_USER_AGENT'],
+            "locale" => $_COOKIE['pma_lang'],
+            "configuration_storage" =>
+                is_null($relParams['db']) ? "disabled" :
+                "enabled",
+            "php_version" => phpversion()
+            );
 
-    if (! empty($_REQUEST['description'])) {
-        $report['steps'] = $_REQUEST['description'];
+    if ($exception_type == 'js') {
+        if (empty($_REQUEST['exception'])) {
+            return array();
+        }
+        $exception = $_REQUEST['exception'];
+        $exception["stack"] = PMA_translateStacktrace($exception["stack"]);
+        List($uri, $script_name) = PMA_sanitizeUrl($exception["url"]);
+        $exception["uri"] = $uri;
+        unset($exception["url"]);
+
+        $report ["exception_type"] = 'js';
+        $report ["exception"] = $exception;
+        $report ["script_name"] = $script_name;
+        $report ["microhistory"] = $_REQUEST['microhistory'];
+
+        if (! empty($_REQUEST['description'])) {
+            $report['steps'] = $_REQUEST['description'];
+        }
+    } elseif ($exception_type == 'php') {
+        $errors = array();
+        // create php error report
+        $i=0;
+        if (!isset($_SESSION['prev_errors'])
+            || $_SESSION['prev_errors'] == ''
+        ) {
+            return array();
+        }
+        foreach ($_SESSION['prev_errors'] as $errorObj) {
+            if ($errorObj->getLine()
+                && $errorObj->getType()
+                && $errorObj->getNumber() != E_USER_WARNING
+            ) {
+                $errors[$i++] = array(
+                    "lineNum" => $errorObj->getLine(),
+                    "file" => $errorObj->getFile(),
+                    "type" => $errorObj->getType(),
+                    "msg" => $errorObj->getOnlyMessage(),
+                    "stackTrace" => $errorObj->getBacktrace(5),
+                    "stackhash" => $errorObj->getHash()
+                    );
+
+            }
+        }
+
+        // if there were no 'actual' errors to be submitted.
+        if ($i==0) {
+            return array();   // then return empty array
+        }
+        $report ["exception_type"] = 'php';
+        $report["errors"] = $errors;
+    } else {
+        return array();
     }
 
     return $report;

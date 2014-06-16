@@ -32,8 +32,7 @@ $response->addHTML('<div>');
 $response->addHTML($ServerStatusData->getMenuHtml());
 $response->addHTML(PMA_getHtmlForAdvisor());
 $response->addHTML('</div>');
+
 exit;
-
-
 
 ?>
