@@ -78,7 +78,6 @@ $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
     'tracking' => 'pma__tracking',
     'table_coords' => 'pma__table_coords',
     'pdf_pages' => 'pma__pdf_pages',
-    'designer_coords' => 'pma__designer_coords',
     'savedsearches' => 'pma__savedsearches',
     'central_columns' => 'pma__central_columns',
     'MaxTableUiprefs' => 100)));

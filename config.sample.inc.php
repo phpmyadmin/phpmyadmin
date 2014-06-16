@@ -54,7 +54,6 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;
 // $cfg['Servers'][$i]['history'] = 'pma__history';
 // $cfg['Servers'][$i]['table_uiprefs'] = 'pma__table_uiprefs';
 // $cfg['Servers'][$i]['tracking'] = 'pma__tracking';
-// $cfg['Servers'][$i]['designer_coords'] = 'pma__designer_coords';
 // $cfg['Servers'][$i]['userconfig'] = 'pma__userconfig';
 // $cfg['Servers'][$i]['recent'] = 'pma__recent';
 // $cfg['Servers'][$i]['favorite'] = 'pma__favorite';

@@ -362,7 +362,7 @@ $cfg['Servers'][$i]['relation'] = '';
 $cfg['Servers'][$i]['table_info'] = '';
 
 /**
- * table to describe the tables position for the PDF schema
+ * table to describe the tables position for the designer and PDF schema
  *   - leave blank for no PDF schema support
  *     SUGGESTED: 'pma__table_coords'
  *
@@ -396,15 +396,6 @@ $cfg['Servers'][$i]['column_info'] = '';
  * @global string $cfg['Servers'][$i]['history']
  */
 $cfg['Servers'][$i]['history'] = '';
-
-/**
- * table to store the coordinates for Designer
- *   - leave blank for no Designer feature
- *     SUGGESTED: 'pma__designer_coords'
- *
- * @global string $cfg['Servers'][$i]['designer_coords']
- */
-$cfg['Servers'][$i]['designer_coords'] = '';
 
 /**
  * table to store recently used tables

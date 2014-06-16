@@ -14,7 +14,7 @@ require_once 'libraries/pmd_common.php';
 
 $cfgRelation = PMA_getRelationsParam();
 
-if (! $cfgRelation['designerwork']) {
+if (! $cfgRelation['pdfwork']) {
     PMD_errorSave();
 }
 
@@ -31,33 +31,7 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
-foreach ($_POST['t_x'] as $key => $value) {
-    // table name decode (post PDF exp/imp)
-    $KEY = empty($_POST['IS_AJAX']) ? urldecode($key) : $key;
-    list($DB,$TAB) = explode(".", $KEY);
-    PMA_queryAsControlUser(
-        'DELETE FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-        . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['designer_coords'])
-        . ' WHERE `db_name` = \'' . PMA_Util::sqlAddSlashes($DB) . '\''
-        . ' AND `table_name` = \'' . PMA_Util::sqlAddSlashes($TAB) . '\'',
-        true, PMA_DatabaseInterface::QUERY_STORE
-    );
-
-    PMA_queryAsControlUser(
-        'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-        . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['designer_coords'])
-        . ' (db_name, table_name, x, y, v, h)'
-        . ' VALUES ('
-        . '\'' . PMA_Util::sqlAddSlashes($DB) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes($TAB) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes($_POST['t_x'][$key]) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes($_POST['t_y'][$key]) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes($_POST['t_v'][$key]) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes($_POST['t_h'][$key]) . '\')',
-        true, PMA_DatabaseInterface::QUERY_STORE
-    );
-}
-//----------------------------------------------------------------------------
+saveTablePositions($_REQUEST['selected_page']);
 
 /**
  * Error handler
