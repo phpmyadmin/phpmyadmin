@@ -545,6 +545,8 @@ function Get_url_pos()
     for (var key in j_tabs) {
         poststr += '&t_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
         poststr += '&t_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
+        poststr += '&t_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display == 'none' ? 0 : 1);
+        poststr += '&t_h[' + key + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
     }
     return poststr;
 }

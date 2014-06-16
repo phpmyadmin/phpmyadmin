@@ -239,37 +239,6 @@ function PMA_getScriptTabs()
 }
 
 /**
- * Returns table position
- *
- * @return array table positions and sizes
- */
-function PMA_getTabPos()
-{
-    $cfgRelation = PMA_getRelationsParam();
-
-    if (! $cfgRelation['designerwork']) {
-        return null;
-    }
-
-    $query = "
-         SELECT CONCAT_WS('.', `db_name`, `table_name`) AS `name`,
-                `x` AS `X`,
-                `y` AS `Y`,
-                1 AS `V`,
-                1 AS `H`
-           FROM " . PMA_Util::backquote($cfgRelation['db'])
-        . "." . PMA_Util::backquote($cfgRelation['table_coords']);
-    $tab_pos = $GLOBALS['dbi']->fetchResult(
-        $query,
-        'name',
-        null,
-        $GLOBALS['controllink'],
-        PMA_DatabaseInterface::QUERY_STORE
-    );
-    return count($tab_pos) ? $tab_pos : null;
-}
-
-/**
  * Returns table positions of a given pdf page
  *
  * @param int $pg pdf page id
@@ -290,8 +259,8 @@ function PMA_getTablePositions($pg)
                 1 AS `V`,
                 1 AS `H`
            FROM " . PMA_Util::backquote($cfgRelation['db'])
-               . "." . PMA_Util::backquote($cfgRelation['table_coords'])
-           . " WHERE pdf_page_number = " .$pg;
+               . "." . PMA_Util::backquote($cfgRelation['table_coords']) . "
+           WHERE pdf_page_number = " . $pg;
 
     $tab_pos = $GLOBALS['dbi']->fetchResult(
         $query,
@@ -300,7 +269,7 @@ function PMA_getTablePositions($pg)
         $GLOBALS['controllink'],
         PMA_DatabaseInterface::QUERY_STORE
     );
-    return count($tab_pos) ? $tab_pos : null;
+    return $tab_pos;
 }
 
 /**
@@ -452,19 +421,21 @@ function saveTablePositions($pg)
     $res = PMA_queryAsControlUser($queury, true, PMA_DatabaseInterface::QUERY_STORE);
 
     if ($res) {
-        foreach ($_REQUEST['t_x'] as $key => $value) {
-            list($DB,$TAB) = explode(".", $key);
-            $queury = 'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-            . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
-            . ' (db_name, table_name, pdf_page_number, x, y)'
-            . ' VALUES ('
-            . '\'' . PMA_Util::sqlAddSlashes($DB) . '\', '
-            . '\'' . PMA_Util::sqlAddSlashes($TAB) . '\', '
-            . '\'' . PMA_Util::sqlAddSlashes($pg) . '\', '
-            . '\'' . PMA_Util::sqlAddSlashes($_REQUEST['t_x'][$key]) . '\', '
-            . '\'' . PMA_Util::sqlAddSlashes($_REQUEST['t_y'][$key]) . '\')';
+        foreach ($_REQUEST['t_h'] as $key => $value) {
+            list($DB, $TAB) = explode(".", $key);
+            if ($value) {
+                $queury = 'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
+                . ' (db_name, table_name, pdf_page_number, x, y)'
+                . ' VALUES ('
+                . '\'' . PMA_Util::sqlAddSlashes($DB) . '\', '
+                . '\'' . PMA_Util::sqlAddSlashes($TAB) . '\', '
+                . '\'' . PMA_Util::sqlAddSlashes($pg) . '\', '
+                . '\'' . PMA_Util::sqlAddSlashes($_REQUEST['t_x'][$key]) . '\', '
+                . '\'' . PMA_Util::sqlAddSlashes($_REQUEST['t_y'][$key]) . '\')';
 
-            $res = PMA_queryAsControlUser($queury,  true, PMA_DatabaseInterface::QUERY_STORE);
+                $res = PMA_queryAsControlUser($queury,  true, PMA_DatabaseInterface::QUERY_STORE);
+            }
         }
     }
 

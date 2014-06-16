@@ -15,10 +15,8 @@ require_once 'libraries/pmd_common.php';
 $script_display_field = PMA_getTablesInfo();
 $tab_column       = PMA_getColumnsInfo();
 $script_tables    = PMA_getScriptTabs();
-$tab_pos          = PMA_getTabPos();
 $tables_pk_or_unique_keys = PMA_getPKOrUniqueKeys();
 $tables_all_keys  = PMA_getAllKeys();
-$script_contr     = null;
 $display_page = -1;
 
 $response = PMA_Response::getInstance();
@@ -277,7 +275,7 @@ for ($i = 0; $i < $name_cnt; $i++) {
             ? 'checked="checked"'
             : '';
     } else {
-        echo 'checked="checked"';
+        echo '';
     }
     echo '/></td>';
     echo '<td class="pmd_Tabs" onmouseover="this.className=\'pmd_Tabs2\'" '
@@ -318,8 +316,8 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
           echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["X"] : rand(20, 700); ?>px;
           top: <?php
           echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["Y"] : rand(20, 550); ?>px;
-          visibility: <?php
-          echo (isset($tab_pos[$t_n]) || $display_page == -1) ? "visible" : "hidden"; ?>;
+          display: <?php
+          echo isset($tab_pos[$t_n]) ? "block" : "none"; ?>;
          z-index: 1;">
     <thead>
     <tr>
