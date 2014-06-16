@@ -75,30 +75,24 @@ class PMA_User_Schema
                     $this->chosenPage = 0;
                 }
                 break;
-//             case 'createpage':
-//                 $this->pageNumber = PMA_REL_createPage(
-//                     $_POST['newpage'],
-//                     $cfgRelation,
-//                     $db
-//                 );
-//                 $this->autoLayoutForeign = isset($_POST['auto_layout_foreign'])
-//                     ? "1"
-//                     : null;
-//                 $this->autoLayoutInternal = isset($_POST['auto_layout_internal'])
-//                     ? "1"
-//                     : null;
-//                 $this->processRelations(
-//                     $db,
-//                     $this->pageNumber,
-//                     $cfgRelation
-//                 );
-//                 break;
             case 'createpage':
                 $this->pageNumber = PMA_REL_createPage(
                     $_POST['newpage'],
                     $cfgRelation,
                     $db
                 );
+                $this->autoLayoutForeign = isset($_POST['auto_layout_foreign'])
+                    ? "1"
+                    : null;
+                $this->autoLayoutInternal = isset($_POST['auto_layout_internal'])
+                    ? "1"
+                    : null;
+//                 $this->processRelations(
+//                     $db,
+//                     $this->pageNumber,
+//                     $cfgRelation
+//                 );
+//                 break;
                 $this->saveTablePositions(
                     $db,
                     $this->pageNumber,
