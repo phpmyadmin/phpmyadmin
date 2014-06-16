@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-16 11:15+0200\n"
-"PO-Revision-Date: 2014-06-15 10:14+0200\n"
+"PO-Revision-Date: 2014-06-16 19:44+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1755,6 +1755,9 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Necun columnas in le lista central. Assecura te que le lista de columnas "
+"central per le base de datos %s ha columnas non presente in le columna "
+"currente."
 
 #: js/messages.php:286
 msgid "See more"
@@ -1762,13 +1765,15 @@ msgstr "Vide cosas ulterior"
 
 #: js/messages.php:287
 msgid "Are you sure?"
-msgstr ""
+msgstr "Tu es secur?"
 
 #: js/messages.php:288
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Iste action pote modificar alcun definition de columnas.<br/>Tu es secur que "
+"tu vole continuar?"
 
 #: js/messages.php:289
 msgid "Continue"
@@ -2112,17 +2117,16 @@ msgstr ""
 
 #: js/messages.php:430 js/messages.php:442
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Alcun errores ha essite relevate sur le servitor!"
 
 #: js/messages.php:432
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Pro favor tu al basso de iste fenestra."
 
 #: js/messages.php:437 libraries/Error_Handler.class.php:350
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Ignora"
+msgstr "Ignora Omne"
 
 #: js/messages.php:444
 msgid ""
@@ -2950,14 +2954,13 @@ msgid "Too many error messages, some are not displayed."
 msgstr "Nimie messages de error, alcun de illos non essera monstrate."
 
 #: libraries/Error_Handler.class.php:333
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
-msgstr "Importa"
+msgstr "Reporta"
 
 #: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:344
 msgid "Automatically send report next time"
-msgstr ""
+msgstr "Invia automaticamente le reporto le proxime vice"
 
 #: libraries/File.class.php:225
 msgid "File was not an uploaded file."
@@ -6928,23 +6931,23 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:771
 msgid "List of trusted proxies for IP allow/deny"
-msgstr ""
+msgstr "Lista de proxy digne de fide pro filtrar IP, accepta/refusa"
 
 #: libraries/config/messages.inc.php:772
 msgid "Directory on server where you can upload files for import."
-msgstr ""
+msgstr "Directorio sur le servitor ubi tu pote incargar files de importar."
 
 #: libraries/config/messages.inc.php:773
 msgid "Upload directory"
-msgstr ""
+msgstr "Directorio de incargar"
 
 #: libraries/config/messages.inc.php:774
 msgid "Allow for searching inside the entire database."
-msgstr ""
+msgstr "Permitte cerca intra le integre base de datos."
 
 #: libraries/config/messages.inc.php:775
 msgid "Use database search"
-msgstr ""
+msgstr "Usa cerca de base de datos"
 
 #: libraries/config/messages.inc.php:776
 msgid ""
@@ -6954,22 +6957,24 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:777
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "Habilita le scheda del Disveloppator in preferentias"
 
 #: libraries/config/messages.inc.php:778 setup/frames/index.inc.php:312
 msgid "Check for latest version"
-msgstr ""
+msgstr "Verifica le ultime version"
 
 #: libraries/config/messages.inc.php:779
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr ""
+"Habilita le verifica del ultime version sur le pagina principal de "
+"phpMyAdmin."
 
 #: libraries/config/messages.inc.php:780 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:144
 #: setup/lib/index.lib.php:156 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:171
 msgid "Version check"
-msgstr ""
+msgstr "Verifica de version"
 
 #: libraries/config/messages.inc.php:781
 msgid ""
@@ -6981,7 +6986,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:782
 msgid "Proxy url"
-msgstr ""
+msgstr "Url de proxy"
 
 #: libraries/config/messages.inc.php:783
 msgid ""
@@ -6992,11 +6997,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:784
 msgid "Proxy username"
-msgstr ""
+msgstr "Nomine de usator de proxy"
 
 #: libraries/config/messages.inc.php:785
 msgid "The password for authenticating with the proxy."
-msgstr ""
+msgstr "Le contrasigno per authenticar se con le proxy."
 
 #: libraries/config/messages.inc.php:786
 msgid "Proxy password"
@@ -7012,23 +7017,23 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:789
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:790
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr ""
+msgstr "Inserta tu clave public pro le dominio servicio de reCaptcha."
 
 #: libraries/config/messages.inc.php:791
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "Clave public pro reCaptcha"
 
 #: libraries/config/messages.inc.php:792
 msgid "Enter your private key for your domain reCaptcha service."
-msgstr ""
+msgstr "Inserta tu clave private pro tu servicio de dominio reCaptcha."
 
 #: libraries/config/messages.inc.php:793
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Clave private pro reCaptcha"
 
 #: libraries/config/messages.inc.php:795
 msgid "Choose the default action when sending error reports."
@@ -7036,28 +7041,28 @@ msgstr "Selige le action predefinite quando on invia reportos de error."
 
 #: libraries/config/messages.inc.php:796
 msgid "Send error reports"
-msgstr ""
+msgstr "Invia reportos de errores"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
-msgstr ""
+msgstr "Authentication via Config"
 
 #: libraries/config/setup.forms.php:44
 msgid "Cookie authentication"
-msgstr ""
+msgstr "Authentication via Cookie"
 
 #: libraries/config/setup.forms.php:47
 msgid "HTTP authentication"
-msgstr ""
+msgstr "Authentication via HTTP"
 
 #: libraries/config/setup.forms.php:50
 msgid "Signon authentication"
-msgstr ""
+msgstr "Authentication via signon"
 
 #: libraries/config/setup.forms.php:255
 #: libraries/config/user_preferences.forms.php:157
 msgid "CSV using LOAD DATA"
-msgstr ""
+msgstr "CSV usante LOAD DATA"
 
 #: libraries/config/setup.forms.php:264 libraries/config/setup.forms.php:361
 #: libraries/config/user_preferences.forms.php:165
