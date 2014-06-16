@@ -427,7 +427,7 @@ $js_messages['strTooManyInputs'] = __(
 );
 
 $js_messages['phpErrorsFound'] = '<div class="error">'
-    . __('Warning: Some errors have been detected on the server!!')
+    . __('Some errors have been detected on the server!')
     . '<div>'
     . __('Please look at the bottom of this window.')
     . '<input id="pma_ignore_errors_popup" type="submit" value="'
@@ -439,10 +439,9 @@ $js_messages['phpErrorsFound'] = '<div class="error">'
     . '</div></div>';
 
 $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
-    . __('Some errors have been detected on the server!!')
+    . __('Some errors have been detected on the server!')
     . '<br/>'
-    . __('As per your settings, they are being submitted currently.')
-    . __(' Please be patient.')
+    . __('As per your settings, they are being submitted currently, please be patient.')
     . '<br/>'
     . '<img src="'
     . ($_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif'))
