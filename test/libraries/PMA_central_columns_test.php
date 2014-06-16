@@ -9,6 +9,7 @@
 /*
  * Include to test.
  */
+$GLOBALS['server'] = 1;
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
@@ -17,6 +18,9 @@ require_once 'libraries/relation.lib.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/tbl_columns_definition_form.lib.php';
+require_once 'libraries/Types.class.php';
+require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/central_columns.lib.php';
 
 /**
@@ -33,6 +37,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
+        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $GLOBALS['cfg']['Server']['central_columns'] = 'pma_central_columns';
@@ -40,6 +45,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['pmaThemeImage'] = 'image';
+        $GLOBALS['cfg']['CharEditing'] = '';
 
         //$_SESSION
         $GLOBALS['server'] = 1;
@@ -69,6 +75,19 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             array(),
             PMA_getColumnsList('phpmyadmin')
+        );
+    }
+
+    /**
+     * Test for PMA_getCentralColumnsCount
+     *
+     * @return void
+     */
+    function testPMAGetCentralColumnsCount()
+    {
+        $this->assertEquals(
+            0,
+            PMA_getCentralColumnsCount('phpmyadmin')
         );
     }
 
@@ -138,9 +157,40 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetHTMLforTableNavigation()
     {
+        $result = PMA_getHTMLforTableNavigation(0, 0, 'phpmyadmin');
         $this->assertTag(
             array('tag' => 'table'),
-            PMA_getHTMLforTableNavigation(1, 0, 'phpmyadmin')
+            $result
+        );
+        $this->assertContains(
+            __('Search this table'),
+            $result
+        );
+        $result_1 = PMA_getHTMLforTableNavigation(25, 10, 'phpmyadmin');
+        $this->assertContains(
+            '<form action="db_central_columns.php" method="post">'
+            . PMA_URL_getHiddenInputs(
+                'phpmyadmin'
+            ),
+            $result_1
+        );
+        $this->assertContains(
+            '<input type="submit" name="navig"'
+            . ' class="ajax" '
+            . 'value="&lt" />',
+            $result_1
+        );
+        $this->assertContains(
+            PMA_Util::pageselector(
+                'pos', 10, 2, 3
+            ),
+            $result_1
+        );
+        $this->assertContains(
+            '<input type="submit" name="navig"'
+            . ' class="ajax" '
+            . 'value="&gt" />',
+            $result_1
         );
     }
 
@@ -152,7 +202,70 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetCentralColumnsTableHeader()
     {
         $this->assertTag(
-            array('tag' => 'thead'), PMA_getCentralColumnsTableHeader()
+            array('tag' => 'thead'), PMA_getCentralColumnsTableHeader(
+                'column_heading', __('Click to sort'), 2
+            )
+        );
+    }
+
+    /**
+     * Test for PMA_getHTMLforCentralColumnsTableRow
+     *
+     * @return void
+     */
+    public function testPMAGetHTMLforCentralColumnsTableRow()
+    {
+        $row = array(
+            'col_name'=>'col_test',
+            'col_type'=>'int',
+            'col_length'=>12,
+            'col_collation'=>'utf8_general_ci',
+            'col_isNull'=>1,
+            'col_extra'=>''
+        );
+        $result = PMA_getHTMLforCentralColumnsTableRow($row, false, 1, 'phpmyadmin');
+        $this->assertTag(
+            array('tag' => 'tr'), $result
+        );
+        $this->assertContains(
+            PMA_URL_getHiddenInputs('phpmyadmin'),
+            $result
+        );
+        $this->assertTag(
+            array('tag' => 'span', 'content'=>'col_test'), $result
+        );
+        $this->assertContains(
+            __('on update CURRENT_TIMESTAMP'),
+            $result
+        );
+        $this->assertContains(
+            PMA_getHtmlForColumnDefault(
+                1, 5, 0, strtoupper($row['col_type']), '',
+                array('DefaultType'=>'NONE')
+            ),
+            $result
+        );
+        $row['col_default'] = 100;
+        $result_1 = PMA_getHTMLforCentralColumnsTableRow(
+            $row, false, 1, 'phpmyadmin'
+        );
+        $this->assertContains(
+            PMA_getHtmlForColumnDefault(
+                1, 5, 0, strtoupper($row['col_type']), '',
+                array('DefaultType'=>'USER_DEFINED', 'DefaultValue'=>100)
+            ),
+            $result_1
+        );
+        $row['col_default'] = 'CURRENT_TIMESTAMP';
+        $result_2 = PMA_getHTMLforCentralColumnsTableRow(
+            $row, false, 1, 'phpmyadmin'
+        );
+        $this->assertContains(
+            PMA_getHtmlForColumnDefault(
+                1, 5, 0, strtoupper($row['col_type']), '',
+                array('DefaultType'=>'CURRENT_TIMESTAMP')
+            ),
+            $result_2
         );
     }
 
@@ -169,4 +282,24 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for PMA_getHTMLforAddNewColumn
+     *
+     * @return void
+     */
+    public function testPMAGetHTMLforAddNewColumn()
+    {
+        $result = PMA_getHTMLforAddNewColumn('phpmyadmin');
+        $this->assertTag(
+            array('tag' => 'form','tag'=>'table'), $result
+        );
+        $this->assertContains(
+            __('Add new column'),
+            $result
+        );
+        $this->assertContains(
+            PMA_URL_getHiddenInputs('phpmyadmin'),
+            $result
+        );
+    }
 }
