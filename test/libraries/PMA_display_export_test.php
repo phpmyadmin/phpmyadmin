@@ -143,6 +143,23 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         $single_table = "single_table";
         PMA_Table::$cache[$db][$table]['ENGINE'] = "MERGE";
 
+        $columns_info = array(
+            'test_column1' => array(
+                'COLUMN_NAME' => 'test_column1'
+            ),
+            'test_column2' => array(
+                'COLUMN_NAME' => 'test_column2'
+            )
+        );
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->any())->method('getColumnsFull')
+            ->will($this->returnValue($columns_info));
+
+        $GLOBALS['dbi'] = $dbi;
+
         /* Scan for plugins */
         $export_list = PMA_getPlugins(
             "export",
@@ -217,7 +234,34 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 5: PMA_getHtmlForExportOptionsOutput
+        //validate 5: PMA_getHtmlForAliasModalDialog
+        $this->assertContains(
+            '<div id="alias_modal" class="hide" title="'
+            . 'Rename exported databases/tables/columns">',
+            $html
+        );
+        $this->assertContains(
+            'Select database',
+            $html
+        );
+        $this->assertContains(
+            'Select table',
+            $html
+        );
+        $this->assertContains(
+            'New database name',
+            $html
+        );
+        $this->assertContains(
+            'New table name',
+            $html
+        );
+        $this->assertContains(
+            'test_column',
+            $html
+        );
+
+        //validate 6: PMA_getHtmlForExportOptionsOutput
         $this->assertContains(
             '<div class="exportoptions" id="output">',
             $html
@@ -227,13 +271,81 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 6: PMA_getHtmlForExportOptionsFormat
+        //validate 7: PMA_getHtmlForExportOptionsFormat
         $this->assertContains(
             '<div class="exportoptions" id="format">',
             $html
         );
         $this->assertContains(
             '<h3>' . __('Format:') . '</h3>',
+            $html
+        );
+    }
+
+    /**
+     * Test for PMA_getHtmlForAliasModalDialog
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForAliasModalDialog()
+    {
+        $columns_info = array(
+            'test\'_db' => array(
+                'test_<b>table' => array(
+                    'co"l1' => array(
+                        'COLUMN_NAME' => 'co"l1'
+                    ),
+                    'col<2' => array(
+                        'COLUMN_NAME' => 'col<2'
+                    )
+                )
+            )
+        );
+
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->any())->method('getColumnsFull')
+            ->will($this->returnValue($columns_info));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $html = PMA_getHtmlForAliasModalDialog();
+
+        $this->assertContains(
+            '<div id="alias_modal" class="hide" title="'
+            . 'Rename exported databases/tables/columns">',
+            $html
+        );
+        $this->assertContains(
+            'test\'_db',
+            $html
+        );
+        $this->assertContains(
+            'test_&lt;b&gt;table',
+            $html
+        );
+        $this->assertContains(
+            'col&lt;2',
+            $html
+        );
+        $this->assertContains(
+            'co&quot;l1',
+            $html
+        );
+        $this->assertContains(
+            '<hr/>',
+            $html
+        );
+
+        $name_attr =  'aliases[test\'_db][tables][test_&lt;b&gt;table][alias]';
+        $id_attr = substr(md5($name_attr), 0, 12);
+
+        $this->assertContains(
+            '<input type="text" name="' . $name_attr . '" '
+            . 'id="' . $id_attr . '" placeholder="'
+            . 'test_&lt;b&gt;table alias" class=""/>',
             $html
         );
     }
