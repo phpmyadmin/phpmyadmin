@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-16 11:15+0200\n"
-"PO-Revision-Date: 2014-06-14 11:57+0200\n"
+"PO-Revision-Date: 2014-06-16 14:40+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -2086,22 +2086,23 @@ msgstr ""
 
 #: js/messages.php:430 js/messages.php:442
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Na strežniku smo zaznali nekatere napake!"
 
 #: js/messages.php:432
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Prosimo, poglejte na dno okna."
 
 #: js/messages.php:437 libraries/Error_Handler.class.php:350
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Prezri"
+msgstr "Prezri vse"
 
 #: js/messages.php:444
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
+"V skladu z vašimi nastavitvami jih trenutno pošiljamo; prosimo, bodite "
+"potrpežljivi."
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:476
@@ -2923,10 +2924,9 @@ msgid "Too many error messages, some are not displayed."
 msgstr "Preveč sporočil o napakah; nekatera zato niso prikazana."
 
 #: libraries/Error_Handler.class.php:333
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
-msgstr "Uvozi"
+msgstr "Poročaj"
 
 #: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:344
 msgid "Automatically send report next time"
