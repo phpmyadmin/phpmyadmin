@@ -308,7 +308,7 @@ function PMA_getColumnNameInColumnDropSql($sql)
  *
  * @param array $fields_meta meta fields
  *
- * @return boolean whether the result set has columns from just one table 
+ * @return boolean whether the result set has columns from just one table
  */
 function PMA_resultSetHasJustOneTable($fields_meta)
 {
@@ -322,7 +322,7 @@ function PMA_resultSetHasJustOneTable($fields_meta)
             break;
         }
     }
-    return $just_one_table;    
+    return $just_one_table;
 }
 
 /**
@@ -2082,7 +2082,7 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
     $has_unique = PMA_resultSetContainsUniqueKey(
         $db, $table, $fields_meta
     );
-    
+
     $just_one_table = PMA_resultSetHasJustOneTable($fields_meta);
 
     $editable = ($has_unique || $updatableView) && $just_one_table;
