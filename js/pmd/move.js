@@ -633,6 +633,7 @@ function Edit_pages()
                 PMA_ajaxShowMessage(PMA_messages.strSelectPage, 2000);
                 return;
             }
+            $(this).dialog('close');
             Load_page(selected);
         };
         button_options[PMA_messages.strCancel] = function () {
