@@ -494,6 +494,7 @@ $PMA_SQPdata_reserved_word = array (
     'INDEXES',
     'INFILE',
     'INNER',
+    'INOUT',
     'INSERT',
     'INSERT_ID',
     'INSERT_METHOD',
@@ -541,6 +542,7 @@ $PMA_SQPdata_reserved_word = array (
     'MINUTE_SECOND',
     'MIN_ROWS',
     'MODE',
+    'MODIFIES',
     'MODIFY',
     'MONTH',
     'MRG_MYISAM',
@@ -559,6 +561,7 @@ $PMA_SQPdata_reserved_word = array (
     'OPTIONALLY',
     'OR',
     'ORDER',
+    'OUT',
     'OUTER',
     'OUTFILE',
     'PACK_KEYS',
@@ -581,6 +584,7 @@ $PMA_SQPdata_reserved_word = array (
     'RAID_TYPE',
     'RANGE',                // 5.1
     'READ',
+    'READS',
     'READ_ONLY',            // 5.1
     'READ_WRITE',           // 5.1
     'REFERENCES',

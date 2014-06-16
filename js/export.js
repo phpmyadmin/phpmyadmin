@@ -42,6 +42,9 @@ AJAX.registerTeardown('export.js', function () {
     $("#plugins").unbind('change');
     $("input[type='radio'][name='quick_or_custom']").unbind('change');
     $("input[type='radio'][name='allrows']").unbind('change');
+    $('#btn_alias_config').off('click');
+    $('#db_alias_select').off('change');
+    $('.table_alias_select').off('change');
 });
 
 AJAX.registerOnload('export.js', function () {
@@ -246,6 +249,73 @@ function check_time_out(time_limit)
     }, time_limit * 1000);
 
 }
+
+/**
+ * Handler for Database/table alias select
+ *
+ * @param object event the event object
+ *
+ * @return void
+ */
+function aliasSelectHandler(event) {
+    var sel = event.data.sel;
+    var type = event.data.type;
+    var inputId = $(this).val();
+    var $label = $(this).next('label');
+    $('input#' + $label.attr('for')).addClass('hide');
+    $('input#' + inputId).removeClass('hide');
+    $label.attr('for', inputId);
+    //alert('#' + $label.attr('for'));
+    $('#alias_modal ' + sel + '[id$=' + type + ']:visible').addClass('hide');
+    $('#alias_modal ' + sel + '#' + inputId + type).removeClass('hide');
+    $("#alias_modal").dialog("option", "position", "center");
+}
+
+/**
+ * Handler for Alias dialog box
+ *
+ * @param object event the event object
+ *
+ * @return void
+ */
+ function createAliasModal(event) {
+    event.preventDefault();
+    $('#alias_modal').dialog({
+        width: Math.min($(window).width() - 100, 700),
+        modal: true,
+        dialogClass: "alias-dialog",
+        buttons: {
+            'Reset All': function() {
+                $(this).find('input[type="text"]').val('');
+            },
+            'Reset': function() {
+                $(this).find('input[type="text"]:visible').val('');
+            },
+            'Save & Close': function() {
+                $(this).dialog("close");
+                $('#alias_modal').parent().appendTo($('form[name="dump"]'));
+            }
+        },
+        create: function() {
+            $(this).css('maxHeight', $(window).height() - 150);
+            $('.alias-dialog .ui-dialog-titlebar-close').remove();
+        },
+        close: function() {
+            var isEmpty = true;
+            $(this).find('input[type="text"]').each(function() {
+                // trim input fields on close
+                $(this).val($(this).val().trim());
+                // check if non empty field present
+                if ($(this).val()) {
+                    isEmpty = false;
+                }
+            });
+            $('input#btn_alias_config').attr('checked', !isEmpty);
+        },
+        position: 'center'
+    });
+ }
+
 AJAX.registerOnload('export.js', function () {
     $("input[type='radio'][name='quick_or_custom']").change(toggle_quick_or_custom);
 
@@ -278,4 +348,21 @@ AJAX.registerOnload('export.js', function () {
             disable_dump_some_rows_sub_options();
         }
     });
+
+    // Open Alias Modal Dialog on click
+    $('#btn_alias_config').on('click', createAliasModal);
+
+    // Database alias select on change event
+    $('#db_alias_select').on(
+        'change',
+        {sel: 'span', type: '_tables'},
+        aliasSelectHandler
+    );
+
+    // Table alias select on change event
+    $('.table_alias_select').on(
+        'change',
+        {sel: 'table', type: '_cols'},
+        aliasSelectHandler
+    );
 });
