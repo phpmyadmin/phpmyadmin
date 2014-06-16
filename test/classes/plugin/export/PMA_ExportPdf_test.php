@@ -255,7 +255,13 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
 
         $pdf->expects($this->once())
             ->method('setAttributes')
-            ->with(array('currentDb' => 'db', 'currentTable' => 'table'));
+            ->with(
+                array(
+                    'currentDb' => 'db', 'currentTable' => 'table',
+                    'dbAlias' => 'db', 'tableAlias' => 'table',
+                    'aliases' => array()
+                )
+            );
 
         $pdf->expects($this->once())
             ->method('mysqlReport')

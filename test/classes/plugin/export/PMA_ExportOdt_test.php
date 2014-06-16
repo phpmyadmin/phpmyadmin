@@ -753,7 +753,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
             'relation' => 'rel',
             'column_info' => 'col'
         );
-
+        $GLOBALS['controllink'] = null;
         $this->assertTrue(
             $this->object->getTableDef(
                 'database',
@@ -1068,18 +1068,16 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
             'Type' => 'set(abc)enum123'
         );
 
-        $unique_keys = array(
-            'field'
-        );
+        $col_alias = 'alias';
 
         $this->assertEquals(
             '<table:table-row><table:table-cell office:value-type="string">' .
-            '<text:p>field</text:p></table:table-cell><table:table-cell off' .
+            '<text:p>alias</text:p></table:table-cell><table:table-cell off' .
             'ice:value-type="string"><text:p>set(abc)</text:p></table:table' .
             '-cell><table:table-cell office:value-type="string"><text:p>Yes' .
             '</text:p></table:table-cell><table:table-cell office:value-typ' .
             'e="string"><text:p>NULL</text:p></table:table-cell>',
-            $method->invoke($this->object, $cols, $unique_keys)
+            $method->invoke($this->object, $cols, $col_alias)
         );
 
         $cols = array(
@@ -1090,10 +1088,6 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
             'Default' => 'def'
         );
 
-        $unique_keys = array(
-            'field'
-        );
-
         $this->assertEquals(
             '<table:table-row><table:table-cell office:value-type="string">' .
             '<text:p>fields</text:p></table:table-cell><table:table-cell off' .
@@ -1101,7 +1095,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
             '-cell><table:table-cell office:value-type="string"><text:p>No' .
             '</text:p></table:table-cell><table:table-cell office:value-type=' .
             '"string"><text:p>def</text:p></table:table-cell>',
-            $method->invoke($this->object, $cols, $unique_keys)
+            $method->invoke($this->object, $cols, '')
         );
     }
 }

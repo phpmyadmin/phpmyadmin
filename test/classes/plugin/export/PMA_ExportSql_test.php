@@ -50,6 +50,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['cfgRelation']['relation'] = true;
+        $GLOBALS['controllink'] = null;
         $this->object = new ExportSql();
     }
 
