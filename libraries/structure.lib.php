@@ -2011,17 +2011,19 @@ function PMA_getHtmlForDistinctValueAction($url_query, $row, $titles)
 /**
  * Get HTML snippet for Actions in table structure
  *
- * @param string  $type                      column type
- * @param string  $tbl_storage_engine        table storage engine
- * @param boolean $primary                   primary if set, false otherwise
- * @param string  $field_name                column name
- * @param string  $url_query                 url query
- * @param array   $titles                    titles array
- * @param array   $row                       current row
- * @param string  $rownum                    row number
- * @param array   $hidden_titles             hidden titles
- * @param array   $columns_with_unique_index columns with unique index
- * @param boolean $isInCentralColumns        set if column in central columns list
+ * @param string         $type                      column type
+ * @param string         $tbl_storage_engine        table storage engine
+ * @param object|boolean $primary                   primary if set,
+ *                                                  false otherwise
+ * @param string         $field_name                column name
+ * @param string         $url_query                 url query
+ * @param array          $titles                    titles array
+ * @param array          $row                       current row
+ * @param string         $rownum                    row number
+ * @param array          $hidden_titles             hidden titles
+ * @param array          $columns_with_unique_index columns with unique index
+ * @param boolean        $isInCentralColumns        set if column in central
+ *                                                  columns list
  *
  * @return string $html_output;
  */
