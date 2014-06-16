@@ -270,12 +270,10 @@ for ($i = 0; $i < $name_cnt; $i++) {
         . 'id="check_vis_' . $GLOBALS['PMD_URL']["TABLE_NAME"][$i] . '" '
         . 'style="margin:0px;" type="checkbox" '
         . 'value="' . $GLOBALS['PMD_URL']["TABLE_NAME"][$i] . '"';
-    if (isset($tab_pos[$GLOBALS['PMD']["TABLE_NAME"][$i]])) {
-        echo $tab_pos[$GLOBALS['PMD']["TABLE_NAME"][$i]]["H"]
-            ? 'checked="checked"'
-            : '';
-    } else {
-        echo '';
+    if ((isset($tab_pos[$GLOBALS['PMD']["TABLE_NAME"][$i]])
+        && $tab_pos[$GLOBALS['PMD']["TABLE_NAME"][$i]]["H"])
+        || $display_page == -1) {
+        echo 'checked="checked"';
     }
     echo '/></td>';
     echo '<td class="pmd_Tabs" onmouseover="this.className=\'pmd_Tabs2\'" '
@@ -317,7 +315,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
           top: <?php
           echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["Y"] : rand(20, 550); ?>px;
           display: <?php
-          echo isset($tab_pos[$t_n]) ? "block" : "none"; ?>;
+          echo (isset($tab_pos[$t_n]) || $display_page == -1) ? "block" : "none"; ?>;
          z-index: 1;">
     <thead>
     <tr>
