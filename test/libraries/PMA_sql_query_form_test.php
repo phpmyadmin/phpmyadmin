@@ -63,7 +63,6 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
 
         //_SESSION
         $_SESSION['relation'][0] = array(
-            'table_coords' => "table_name",
             'displaywork' => 'displaywork',
             'db' => "information_schema",
             'table_info' => 'table_info',

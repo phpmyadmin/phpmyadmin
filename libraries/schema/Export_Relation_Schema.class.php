@@ -199,7 +199,7 @@ class PMA_Export_Relation_Schema
         // Get All tables
         $tab_sql = 'SELECT table_name FROM '
             . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['table_coords'])
+            . PMA_Util::backquote($cfgRelation['designer_coords'])
             . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
             . ' AND pdf_page_number = ' . $pageNumber;
 

@@ -138,23 +138,6 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             $messages
         );
         $retval .= PMA_getDiagMessageForParameter(
-            'table_coords',
-            isset($cfgRelation['table_coords']),
-            $messages,
-            'table_coords'
-        );
-        $retval .= PMA_getDiagMessageForParameter(
-            'pdf_pages',
-            isset($cfgRelation['pdf_pages']),
-            $messages,
-            'pdf_pages'
-        );
-        $retval .= PMA_getDiagMessageForFeature(
-            __('Creation of PDFs'),
-            'pdfwork',
-            $messages
-        );
-        $retval .= PMA_getDiagMessageForParameter(
             'column_info',
             isset($cfgRelation['column_info']),
             $messages,
@@ -203,6 +186,12 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             isset($cfgRelation['designer_coords']),
             $messages,
             'designer_coords'
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'pdf_pages',
+            isset($cfgRelation['pdf_pages']),
+            $messages,
+            'pdf_pages'
         );
         $retval .= PMA_getDiagMessageForFeature(
             __('Designer'),
@@ -406,7 +395,6 @@ function PMA_checkRelationsParam()
     $cfgRelation['relwork']        = false;
     $cfgRelation['displaywork']    = false;
     $cfgRelation['bookmarkwork']   = false;
-    $cfgRelation['pdfwork']        = false;
     $cfgRelation['commwork']       = false;
     $cfgRelation['mimework']       = false;
     $cfgRelation['historywork']    = false;
@@ -465,8 +453,6 @@ function PMA_checkRelationsParam()
             $cfgRelation['relation']        = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['table_info']) {
             $cfgRelation['table_info']      = $curr_table[0];
-        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['table_coords']) {
-            $cfgRelation['table_coords']    = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['designer_coords']) {
             $cfgRelation['designer_coords'] = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['column_info']) {
@@ -504,10 +490,6 @@ function PMA_checkRelationsParam()
         }
     }
 
-    if (isset($cfgRelation['table_coords']) && isset($cfgRelation['pdf_pages'])) {
-        $cfgRelation['pdfwork']     = true;
-    }
-
     if (isset($cfgRelation['column_info'])) {
         $cfgRelation['commwork']    = true;
         $cfgRelation['mimework'] = true;
@@ -535,7 +517,7 @@ function PMA_checkRelationsParam()
 
     // we do not absolutely need that the internal relations or the PDF
     // schema feature be activated
-    if (isset($cfgRelation['designer_coords'])) {
+    if (isset($cfgRelation['pdf_pages']) && isset($cfgRelation['designer_coords'])) {
         $cfgRelation['designerwork']     = true;
     }
 
@@ -560,13 +542,13 @@ function PMA_checkRelationsParam()
     }
 
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
-        && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
+        && $cfgRelation['commwork'] && $cfgRelation['central_columnswork']
         && $cfgRelation['mimework'] && $cfgRelation['historywork']
         && $cfgRelation['recentwork'] && $cfgRelation['uiprefswork']
         && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
         && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']
         && $cfgRelation['menuswork'] && $cfgRelation['navwork']
-        && $cfgRelation['savedsearcheswork'] && $cfgRelation['central_columnswork']
+        && $cfgRelation['savedsearcheswork']
     ) {
         $cfgRelation['allworks'] = true;
     }
@@ -1498,29 +1480,31 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
         );
     }
 
-    /**
-     * @todo Can't get moving PDFs the right way. The page numbers
-     * always get screwed up independently from duplication because the
-     * numbers do not seem to be stored on a per-database basis. Would
-     * the author of pdf support please have a look at it?
-     */
-
-    if ($GLOBALS['cfgRelation']['pdfwork']) {
-        PMA_REL_renameSingleTable(
-            'table_coords',
-            $source_db, $target_db,
-            $source_table, $target_table,
-            'db_name', 'table_name'
-        );
-    }
-
     if ($GLOBALS['cfgRelation']['designerwork']) {
-        PMA_REL_renameSingleTable(
-            'designer_coords',
-            $source_db, $target_db,
-            $source_table, $target_table,
-            'db_name', 'table_name'
-        );
+        $query = 'UPDATE '
+            . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+            . PMA_Util::backquote($GLOBALS['cfgRelation']['designer_coords'])
+            . ' SET '
+            . 'table_name = \'' . PMA_Util::sqlAddSlashes($target_table) . '\''
+            . ' WHERE '
+            . 'table_name = \'' . PMA_Util::sqlAddSlashes($source_table) . '\''
+            . ' AND '
+            . 'db_name IN ('
+            . '    SELECT page_nr FROM'
+            .      PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+            .      PMA_Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
+            . '    WHERE db_name = \'' . PMA_Util::sqlAddSlashes($source_db) . '\''
+            . ')';
+        PMA_queryAsControlUser($query);
+
+        $query = 'UPDATE '
+            . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+            . PMA_Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
+            . ' SET '
+            . 'db_name = \'' . PMA_Util::sqlAddSlashes($target_db) . '\''
+            . ' WHERE '
+            . 'db_name = \'' . PMA_Util::sqlAddSlashes($source_db) . '\'';
+        PMA_queryAsControlUser($query);
     }
 }
 

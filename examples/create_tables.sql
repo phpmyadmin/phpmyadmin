@@ -170,23 +170,6 @@ CREATE TABLE IF NOT EXISTS `pma__relation` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pma__table_coords`
---
-
-CREATE TABLE IF NOT EXISTS `pma__table_coords` (
-  `db_name` varchar(64) NOT NULL default '',
-  `table_name` varchar(64) NOT NULL default '',
-  `pdf_page_number` int(11) NOT NULL default '0',
-  `x` float unsigned NOT NULL default '0',
-  `y` float unsigned NOT NULL default '0',
-  PRIMARY KEY  (`db_name`,`table_name`,`pdf_page_number`)
-)
-  COMMENT='Table coordinates for phpMyAdmin PDF output'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `pma__table_info`
 --
 

@@ -30,33 +30,8 @@ foreach ($post_params as $one_post_param) {
         $GLOBALS[$one_post_param] = $_POST[$one_post_param];
     }
 }
+saveTablePositions($_REQUEST['selected_page']);
 
-foreach ($_POST['t_x'] as $key => $value) {
-    // table name decode (post PDF exp/imp)
-    $KEY = empty($_POST['IS_AJAX']) ? urldecode($key) : $key;
-    list($DB,$TAB) = explode(".", $KEY);
-    PMA_queryAsControlUser(
-        'DELETE FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-        . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['designer_coords'])
-        . ' WHERE `db_name` = \'' . PMA_Util::sqlAddSlashes($DB) . '\''
-        . ' AND `table_name` = \'' . PMA_Util::sqlAddSlashes($TAB) . '\'',
-        true, PMA_DatabaseInterface::QUERY_STORE
-    );
-
-    PMA_queryAsControlUser(
-        'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-        . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['designer_coords'])
-        . ' (db_name, table_name, x, y, v, h)'
-        . ' VALUES ('
-        . '\'' . PMA_Util::sqlAddSlashes($DB) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes($TAB) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes($_POST['t_x'][$key]) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes($_POST['t_y'][$key]) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes($_POST['t_v'][$key]) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes($_POST['t_h'][$key]) . '\')',
-        true, PMA_DatabaseInterface::QUERY_STORE
-    );
-}
 //----------------------------------------------------------------------------
 
 /**
@@ -81,7 +56,10 @@ function PMD_errorSave()
 if (! empty($die_save_pos)) {
     header("Content-Type: text/xml; charset=utf-8");
     header("Cache-Control: no-cache");
-    echo '<root act="save_pos" return="'
-        . __('Modifications have been saved') . '"></root>';
+    ?>
+    <root
+        act='save_pos'
+        return='<?php echo __('Modifications have been saved'); ?>'></root>
+    <?php
 }
 ?>

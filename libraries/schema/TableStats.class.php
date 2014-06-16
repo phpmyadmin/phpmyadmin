@@ -42,7 +42,7 @@ abstract class TableStats
      * @param object  $diagram    schema diagram
      * @param string  $db         current db name
      * @param integer $pageNumber current page number (from the
-     *                            $cfg['Servers'][$i]['table_coords'] table)
+     *                            $cfg['Servers'][$i]['designer_coords'] table)
      * @param string  $tableName  table name
      * @param boolean $showKeys   whether to display keys or not
      * @param boolean $showInfo   whether to display table position or not

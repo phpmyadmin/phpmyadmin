@@ -46,7 +46,6 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
         $_SESSION['relation'][$GLOBALS['server']] = array(
-            'table_coords' => "table_name",
             'displaywork' => 'displaywork',
             'db' => "information_schema",
             'table_info' => 'table_info',

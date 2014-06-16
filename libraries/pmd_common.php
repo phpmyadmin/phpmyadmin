@@ -104,9 +104,11 @@ function PMA_getColumnsInfo()
 /**
  * Returns JavaScript code for initializing vars
  *
+ * @param int $pg page number
+ *
  * @return string   JavaScript code
  */
-function PMA_getScriptContr()
+function PMA_getScriptContr($pg)
 {
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
     $con = array();
@@ -157,14 +159,17 @@ function PMA_getScriptContr()
         $dtn_i = $con['DTN'][$i];
         $retval[$ti] = array();
         $retval[$ti][$c_name_i] = array();
-        if (in_array($dtn_i, $GLOBALS['PMD_URL']["TABLE_NAME"])
-            && in_array($con['STN'][$i], $GLOBALS['PMD_URL']["TABLE_NAME"])
-        ) {
-            $retval[$ti][$c_name_i][$dtn_i] = array();
-            $retval[$ti][$c_name_i][$dtn_i][$con['DCN'][$i]] = array(
-                0 => $con['STN'][$i],
-                1 => $con['SCN'][$i]
-            );
+        $tb = getTables($pg);
+        if ($pg == -1 || in_array($dtn_i, $tb)) {
+            if (in_array($dtn_i, $GLOBALS['PMD_URL']["TABLE_NAME"])
+                && in_array($con['STN'][$i], $GLOBALS['PMD_URL']["TABLE_NAME"])
+            ) {
+                $retval[$ti][$c_name_i][$dtn_i] = array();
+                $retval[$ti][$c_name_i][$dtn_i][$con['DCN'][$i]] = array(
+                    0 => $con['STN'][$i],
+                    1 => $con['SCN'][$i]
+                );
+            }
         }
         $ti++;
     }
@@ -241,19 +246,21 @@ function PMA_getScriptTabs()
 function PMA_getTabPos()
 {
     $cfgRelation = PMA_getRelationsParam();
-
     if (! $cfgRelation['designerwork']) {
         return null;
     }
 
     $query = "
-         SELECT CONCAT_WS('.', `db_name`, `table_name`) AS `name`,
+         SELECT CONCAT_WS('.', `B`.`db_name`, `table_name`) AS `name`,
                 `x` AS `X`,
                 `y` AS `Y`,
                 `v` AS `V`,
                 `h` AS `H`
-           FROM " . PMA_Util::backquote($cfgRelation['db'])
-        . "." . PMA_Util::backquote($cfgRelation['designer_coords']);
+        FROM " . PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['designer_coords']) . " AS A
+        JOIN " . PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['pdf_pages']) . " AS B
+        ON `A`.`db_name` = `page_nr`";
     $tab_pos = $GLOBALS['dbi']->fetchResult(
         $query,
         'name',
@@ -263,6 +270,224 @@ function PMA_getTabPos()
     );
     return count($tab_pos) ? $tab_pos : null;
 }
+
+/**
+ * Returns table positions of a given pdf page
+ *
+ * @param int $pg pdf page id
+ *
+ * @return array of table positions
+ */
+function PMA_getTablePositions($pg)
+{
+    $cfgRelation = PMA_getRelationsParam();
+    if (! $cfgRelation['designerwork']) {
+        return null;
+    }
+
+    $query = "
+         SELECT CONCAT_WS('.', `B`.`db_name`, `table_name`) AS `name`,
+                `x` AS `X`,
+                `y` AS `Y`,
+                `v` AS `V`,
+                `h` AS `H`
+           FROM " . PMA_Util::backquote($cfgRelation['db'])
+               . "." . PMA_Util::backquote($cfgRelation['designer_coords']) . " AS A
+           JOIN " . PMA_Util::backquote($cfgRelation['db'])
+               . "." . PMA_Util::backquote($cfgRelation['pdf_pages']) . " AS B
+           ON `A`.`db_name` = `page_nr`
+           WHERE `A`.`db_name` = " . PMA_Util::sqlAddSlashes($pg);
+
+    $tab_pos = $GLOBALS['dbi']->fetchResult(
+        $query,
+        'name',
+        null,
+        $GLOBALS['controllink'],
+        PMA_DatabaseInterface::QUERY_STORE
+    );
+    return count($tab_pos) ? $tab_pos : null;
+}
+
+/**
+ * Returns page name of a given pdf page
+ *
+ * @param int $pg pdf page id
+ *
+ * @return String table name
+ */
+function PMA_getPageName($pg)
+{
+    $cfgRelation = PMA_getRelationsParam();
+    if (! $cfgRelation['designerwork']) {
+        return null;
+    }
+
+    $query = "SELECT `page_descr`"
+           . " FROM " . PMA_Util::backquote($cfgRelation['db'])
+           . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
+           . " WHERE `page_nr` = " . PMA_Util::sqlAddSlashes($pg);
+    $page_name = $GLOBALS['dbi']->fetchResult($query);
+    return count($page_name) ? $page_name[0] : __("*Untitled");
+}
+
+/**
+ * Deletes a given pdf page and its corresponding coordinates
+ *
+ * @param int $pg page id
+ *
+ * @return boolean success/failure
+ */
+function PMA_deletePage($pg)
+{
+    $cfgRelation = PMA_getRelationsParam();
+    if (! $cfgRelation['designerwork']) {
+        return null;
+    }
+
+    $query = " DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
+             . "." . PMA_Util::backquote($cfgRelation['designer_coords'])
+             . " WHERE `db_name` = " . PMA_Util::sqlAddSlashes($pg);
+    $success = PMA_queryAsControlUser(
+        $query, true, PMA_DatabaseInterface::QUERY_STORE
+    );
+
+    if ($success) {
+        $query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
+                 . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
+                 . " WHERE `page_nr` = " . PMA_Util::sqlAddSlashes($pg);
+        $success = PMA_queryAsControlUser(
+            $query, true, PMA_DatabaseInterface::QUERY_STORE
+        );
+    }
+
+    return $success;
+}
+
+/**
+ * Returns the id of the first pdf page of the database
+ *
+ * @param string $db database
+ *
+ * @return int id of the first pdf page, default is -1
+ */
+function getFirstPage($db)
+{
+    $cfgRelation = PMA_getRelationsParam();
+    if (! $cfgRelation['designerwork']) {
+        return null;
+    }
+
+    $query = "SELECT MIN(`page_nr`)"
+        . " FROM " . PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['pdf_pages']) . " AS A"
+        . " JOIN " . PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['designer_coords']) . " AS B"
+        . " ON `A`.`page_nr` = `B`.`db_name`"
+        . " WHERE `A`.`db_name` = '" . PMA_Util::sqlAddSlashes($db) . "'";
+
+    $min_page_no = $GLOBALS['dbi']->fetchResult($query);
+    return count($min_page_no[0]) ? $min_page_no[0] : -1;
+}
+
+/**
+ * Creates a new page and returns its auto-incrementing id
+ *
+ * @param string $pageName name of the page
+ *
+ * @return int|null
+ */
+function createNewPage($pageName)
+{
+    $cfgRelation = PMA_getRelationsParam();
+    if ($cfgRelation['designerwork']) {
+        $_POST['newpage'] = $pageName;
+        // temporarlily using schema code for creating a page
+        include_once 'libraries/schema/User_Schema.class.php';
+        $user_schema = new PMA_User_Schema();
+        $user_schema->setAction("createpage");
+        $user_schema->processUserChoice();
+        return $user_schema->pageNumber;
+    }
+    return null;
+}
+
+/**
+ * Returns all tables of a given pdf page
+ *
+ * @param int $pg pdf page id
+ *
+ * @return array of tables
+ */
+function getTables($pg)
+{
+    $cfgRelation = PMA_getRelationsParam();
+    if (! $cfgRelation['designerwork']) {
+        return null;
+    }
+
+    $query = "SELECT `table_name`"
+         . " FROM " . PMA_Util::backquote($cfgRelation['db'])
+         . "." . PMA_Util::backquote($cfgRelation['designer_coords'])
+         . " WHERE `db_name` = " . PMA_Util::sqlAddSlashes($pg);
+
+    $tables = $GLOBALS['dbi']->fetchResult($query);
+    $return_array = array();
+    foreach ($tables as $temp ) {
+        array_push($return_array, $GLOBALS['db'] . "." . $temp);
+    }
+    return count($return_array) ? $return_array : null;
+}
+
+/**
+ * Saves positions of table(s) of a given pdf page
+ *
+ * @param int $pg pdf page id
+ *
+ * @return boolean success/failure
+ */
+function saveTablePositions($pg)
+{
+    $cfgRelation = PMA_getRelationsParam();
+    if (! $cfgRelation['designerwork']) {
+        return null;
+    }
+
+    foreach ($_REQUEST['t_x'] as $key => $value) {
+        // table name decode (post PDF exp/imp)
+        $KEY = empty($_REQUEST['IS_AJAX']) ? urldecode($key) : $key;
+        list($DB, $TAB) = explode(".", $KEY);
+        $res = PMA_queryAsControlUser(
+            'DELETE FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+            . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['designer_coords'])
+            . ' WHERE `db_name` = \'' . PMA_Util::sqlAddSlashes($pg) . '\''
+            . ' AND `table_name` = \'' . PMA_Util::sqlAddSlashes($TAB) . '\'',
+            true, PMA_DatabaseInterface::QUERY_STORE
+        );
+        if (! $res) {
+            return $res;
+        }
+
+        PMA_queryAsControlUser(
+            'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+            . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['designer_coords'])
+            . ' (db_name, table_name, x, y, v, h)'
+            . ' VALUES ('
+            . '\'' . PMA_Util::sqlAddSlashes($pg) . '\', '
+            . '\'' . PMA_Util::sqlAddSlashes($TAB) . '\', '
+            . '\'' . PMA_Util::sqlAddSlashes($_REQUEST['t_x'][$key]) . '\', '
+            . '\'' . PMA_Util::sqlAddSlashes($_REQUEST['t_y'][$key]) . '\', '
+            . '\'' . PMA_Util::sqlAddSlashes($_REQUEST['t_v'][$key]) . '\', '
+            . '\'' . PMA_Util::sqlAddSlashes($_REQUEST['t_h'][$key]) . '\')',
+            true, PMA_DatabaseInterface::QUERY_STORE
+        );
+        if (! $res) {
+            return $res;
+        }
+    }
+
+    return true;
+}
+
 
 /**
  * Prepares XML output for js/pmd/ajax.js to display a message

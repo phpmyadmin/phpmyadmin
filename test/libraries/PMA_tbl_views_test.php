@@ -47,7 +47,6 @@ class PMA_TblViewsTest extends PHPUnit_Framework_TestCase
 
         //_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = array(
-            'table_coords' => "table_name",
             'displaywork' => 'displaywork',
             'db' => "information_schema",
             'table_info' => 'table_info',
@@ -58,14 +57,12 @@ class PMA_TblViewsTest extends PHPUnit_Framework_TestCase
 
         //_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = array(
-            'table_coords' => "table_name",
             'displaywork' => 'displaywork',
             'db' => "information_schema",
             'table_info' => 'table_info',
             'relwork' => 'relwork',
             'commwork' => 'commwork',
             'displaywork' => 'displaywork',
-            'pdfwork' => 'pdfwork',
             'designerwork' => 'designerwork',
             'column_info' => 'column_info',
             'designer_coords' => 'designer_coords',
