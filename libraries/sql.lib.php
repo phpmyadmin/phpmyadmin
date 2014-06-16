@@ -195,7 +195,7 @@ function PMA_getTableHtmlForMultipleQueries(
             continue;
         }
 
-        // With multiple results, operations are limied
+        // With multiple results, operations are limited
         $disp_mode = 'nnnn000000';
         $is_limited_display = true;
 
