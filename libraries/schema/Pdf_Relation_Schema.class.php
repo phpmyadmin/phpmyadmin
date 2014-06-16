@@ -1314,14 +1314,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 // Find which tables are related with the current one and write it in
                 // an array
                 $res_rel = PMA_getForeigners($db, $table);
-
-                if (count($res_rel) > 0) {
-                    $have_rel = true;
-                } else {
-                    $have_rel = false;
-                }
-            } else {
-                $have_rel = false;
             } // end if
 
             /**
