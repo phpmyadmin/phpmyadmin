@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-10 12:45-0400\n"
-"PO-Revision-Date: 2014-04-22 09:59+0200\n"
-"Last-Translator: Nabil Kadimi <nabil@kadimi.com>\n"
-"Language-Team: Arabic <https://l10n.cihar.com/projects/phpmyadmin/master/ar/"
-">\n"
+"PO-Revision-Date: 2014-06-17 16:11+0200\n"
+"Last-Translator: cherbib mehdi <mehdi.cherbib@live.fr>\n"
+"Language-Team: Arabic <https://l10n.cihar.com/projects/phpmyadmin/4-2/ar/>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -440,15 +439,15 @@ msgstr "لربما يكون من الأفضل أن تقوم بتحديث هذه 
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr ""
+msgstr "لقد وقع خطء و لقد تم انشاء التقرير و لكن لم نتمكّن من إرساله."
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "عند ملاحضة أي مشكلة نرجو منكم ان تعلنوا عنه يدويا."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "شكرا لك لتقديم هذا التقرير."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
