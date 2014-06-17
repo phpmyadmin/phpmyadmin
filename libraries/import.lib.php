@@ -1049,7 +1049,6 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
         }
 
         /* Create SQL code to create the tables */
-        $tempSQLStr = "";
         $num_tables = count($tables);
         for ($i = 0; $i < $num_tables; ++$i) {
             $num_cols = count($tables[$i][COL_NAMES]);
