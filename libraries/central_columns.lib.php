@@ -73,17 +73,28 @@ function PMA_getColumnsList($db, $from=0, $num=25)
     return $has_list;
 }
 
-/* to do block, need to complete
+/**
+ * get the number of columns present in central list for given db
+ *
+ * @param string $db current database
+ *
+ * @return int number of columns in central list of columns for $db
+ */
 function PMA_getCentralColumnsCount($db)
 {
-    $pmadb = $GLOBALS['cfg']['Server']['pmadb'];
+    $cfgCentralColumns = PMA_centralColumnsGetParams();
+    if (empty($cfgCentralColumns)) {
+        return 0;
+    }
+    $pmadb = $cfgCentralColumns['db'];
     $GLOBALS['dbi']->selectDb($pmadb);
-    $central_list_table = $GLOBALS['cfg']['Server']['central_columns'];
+    $central_list_table = $cfgCentralColumns['table'];
     $query = 'SELECT count(db_name) FROM ' .
- *              PMA_Util::backquote($central_list_table) . ' '
+               PMA_Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $db . '\';';
-    return $GLOBALS['dbi']->fetchResult($query);
-}*/
+    $res = $GLOBALS['dbi']->fetchResult($query);
+    return $res[0];
+}
 /**
  * return the existing columns in central list among the given list of columns
  *
@@ -489,6 +500,18 @@ function PMA_updateOneColumn($db, $orig_col_name, $col_name, $col_type,
     }
     $centralTable = $cfgCentralColumns['table'];
     $GLOBALS['dbi']->selectDb($cfgCentralColumns['db'], $GLOBALS['controllink']);
+    if ($orig_col_name == "") {
+        $def = array();
+        $def['Type'] = $col_type;
+        if ($col_length) {
+            $def['Type'] .= '(' . $col_length . ')';
+        }
+        $def['Collation'] = $collation;
+        $def['Null'] = $col_isNull?__('YES'):__('NO');
+        $def['Extra'] = $col_extra;
+        $def['Default'] = $col_default;
+        $query = PMA_getInsertQuery($col_name, $def, $db, $centralTable);
+    } else {
         $query = 'UPDATE ' . PMA_Util::backquote($centralTable)
                 . ' SET col_type = \'' . PMA_Util::sqlAddSlashes($col_type) . '\''
                 . ',col_name = \'' . PMA_Util::sqlAddSlashes($col_name) . '\''
@@ -500,6 +523,7 @@ function PMA_updateOneColumn($db, $orig_col_name, $col_name, $col_type,
                 . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\' '
                 . 'AND col_name = \'' . PMA_Util::sqlAddSlashes($orig_col_name)
                 . '\'';
+    }
     if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
         return PMA_Message::error(
             $GLOBALS['dbi']->getError($GLOBALS['controllink'])
@@ -522,7 +546,7 @@ function PMA_getHTMLforTableNavigation($total_rows, $pos, $db)
     $max_rows = $GLOBALS['cfg']['MaxRows'];
     $pageNow = ($pos / $max_rows) + 1;
     $nbTotalPage = ceil($total_rows / $max_rows);
-    $table_navigation_html = '<table style="display:inline-block" '
+    $table_navigation_html = '<table style="display:inline-block;max-width:49%" '
         . 'class="navigation nospacing nopadding">'
         . '<tr>'
         . '<td class="navigation_separator"></td>';
@@ -586,27 +610,35 @@ function PMA_getHTMLforTableNavigation($total_rows, $pos, $db)
 /**
  * function generate and return the table header for central columns page
  *
+ * @param string  $class       styling class of 'th' elements
+ * @param string  $title       title of the 'th' elements
+ * @param integer $actionCount number of actions
+ *
  * @return html for table header in central columns view/edit page
  */
-function PMA_getCentralColumnsTableHeader()
+function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
 {
+    $action = '';
+    if ($actionCount > 0) {
+        $action .= '<th colspan="' . $actionCount . '">' . __('Action') . '</th>';
+    }
     $tableheader = '<thead>';
     $tableheader .= '<tr>'
-        . '<th colspan="2">' . __('Action') . '</th>'
+        . $action
         . '<th class="" style="display:none"></th>'
-        . '<th class="column_heading" title="Click to sort" data-column="name">'
+        . '<th class="' . $class . '" title="' . $title . '" data-column="name">'
         . __('Name') . '</th>'
-        . '<th class="column_heading" title="Click to sort" data-column="type">'
+        . '<th class="' . $class . '" title="' . $title . '" data-column="type">'
         . __('Type') . '</th>'
-        . '<th class="column_heading" title="Click to sort" data-column="length">'
+        . '<th class="' . $class . '" title="' . $title . '" data-column="length">'
         . __('Length/Values') . '</th>'
-        . '<th class="column_heading" title="Click to sort" data-column="collation">'
-        . __('Collation') . '</th>'
-        . '<th class="column_heading" title="Click to sort" data-column="isnull">'
+        . '<th class="' . $class . '" title="' . $title . '" data-column="collation"'
+        . '>' . __('Collation') . '</th>'
+        . '<th class="' . $class . '" title="' . $title . '" data-column="isnull">'
         . __('Null') . '</th>'
-        . '<th class="column_heading" title="Click to sort" data-column="extra">'
+        . '<th class="' . $class . '" title="' . $title . '" data-column="extra">'
         . __('Extra') . '</th>'
-        . '<th class="column_heading" title="Click to sort" data-column="default">'
+        . '<th class="' . $class . '" title="' . $title . '" data-column="default">'
         . __('Default') . '</th>'
         . '</tr>';
     $tableheader .= '</thead>';
@@ -673,7 +705,7 @@ function PMA_getHTMLforColumnDropdown($db, $selected_tbl)
  */
 function PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db)
 {
-    $columnAdd = '<table style="display:inline-block;margin-left:2%;width:50%" '
+    $columnAdd = '<table style="display:inline-block;margin-left:1%;max-width:50%" '
         . 'class="navigation nospacing nopadding">'
         . '<tr>'
         . '<td class="navigation_separator"></td>'
@@ -736,50 +768,67 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
         . '<span>' . htmlspecialchars($row['col_name']) . '</span>'
         . '<input name="orig_col_name" type="hidden" '
         . 'value="' . htmlspecialchars($row['col_name']) . '">'
-        . '<input class="edit_box" name="col_name" type="text" '
-        . 'value="' . htmlspecialchars($row['col_name']) . '"></td>';
+        . PMA_getHtmlForColumnName(
+            $row_num, 0, 0, array('Field'=>$row['col_name']),
+            array('central_columnswork'=>false)
+        )
+        . '</td>';
     $tableHtml .=
         '<td name = "col_type" class="nowrap"><span>'
         . htmlspecialchars($row['col_type']) . '</span>'
-        . '<select name="col_type">' .
-        PMA_Util::getSupportedDatatypes(true, strtoupper($row['col_type']))
-        . '</select></td>';
+        . PMA_getHtmlForColumnType(
+            $row_num, 1, 0, strtoupper($row['col_type']), array()
+        )
+        . '</td>';
     $tableHtml .=
         '<td class="nowrap" name="col_length">'
         . '<span>' . ($row['col_length']?htmlspecialchars($row['col_length']):"")
         . '</span>'
-        . '<input class="edit_box" type="number" name="col_length" '
-        . 'value="' . ($row['col_length']?htmlspecialchars($row['col_length']):"")
-        . '">'
+        . PMA_getHtmlForColumnLength($row_num, 2, 0, 8, $row['col_length'])
         . '</td>';
 
     $tableHtml .=
         '<td name="collation" class="nowrap">'
         . '<span>' . htmlspecialchars($row['col_collation']) . '</span>'
-        . PMA_generateCharsetDropdownBox(
-            PMA_CSDROPDOWN_COLLATION, null,
-            null, $row['col_collation']
+        . PMA_getHtmlForColumnCollation(
+            $row_num, 3, 0, array('Collation'=>$row['col_collation'])
         )
         . '</td>';
     $tableHtml .=
         '<td class="nowrap" name="col_isNull">'
         . '<span>' . ($row['col_isNull'] ? __('Yes') : __('No'))
-        . '</span><input type="checkbox" name="col_isNull" '
-        . '' . ($row['col_isNull'] ?"checked" : "") . '/>'
+        . '</span>'
+        . PMA_getHtmlForColumnNull($row_num, 4, 0, array('Null'=>$row['col_isNull']))
         . '</td>';
 
     $tableHtml .=
         '<td class="nowrap" name="col_extra"><span>'
         . htmlspecialchars($row['col_extra']) . '</span>'
-        . '<input type="text" name="col_extra" value="'
-        . htmlspecialchars($row['col_extra']) . '"/>'
+        . '<select name="col_extra"><option value=""></option>'
+        . '<option value="auto_increment">' . __('auto_increment') . '</option>'
+        . '<option value="on update CURRENT_TIMESTAMP">'
+        . __('on update CURRENT_TIMESTAMP') . '</option></select>'
         . '</td>';
-
+    $meta = array();
+    if (!isset($row['col_default']) || $row['col_default'] == '') {
+        $meta['DefaultType'] = 'NONE';
+    } else {
+        if ($row['col_default'] == 'CURRENT_TIMESTAMP'
+            || $row['col_default'] == 'NULL'
+        ) {
+            $meta['DefaultType'] = $row['col_default'];
+        } else {
+            $meta['DefaultType'] = 'USER_DEFINED';
+            $meta['DefaultValue'] = $row['col_default'];
+        }
+    }
     $tableHtml .=
         '<td class="nowrap" name="col_default"><span>' . (isset($row['col_default'])
         ? htmlspecialchars($row['col_default']) : 'None')
-        . '</span><input type="text" name="col_default" '
-        . 'value="' . htmlspecialchars($row['col_default']) . '"/>'
+        . '</span>'
+        . PMA_getHtmlForColumnDefault(
+            $row_num, 5, 0, strtoupper($row['col_type']), '', $meta
+        )
         . '</td>';
     $tableHtml .= '</tr>';
     return $tableHtml;
@@ -825,4 +874,59 @@ function PMA_getCentralColumnsListRaw($db, $table)
     return json_encode($columns_list);
 }
 
+/**
+ * build html for adding a new user defined column to central list
+ *
+ * @param string $db current database
+ *
+ * @return html of the form to let user add a new user defined column to the list
+ */
+function PMA_getHTMLforAddNewColumn($db)
+{
+    $addNewColumn = '<div id="add_col_div"><a href="#">'
+        . '<span>+</span> ' . __('Add new column') . '</a>'
+        . '<form id="add_new" style="min-width:100%;display:none" '
+        . 'method="post" action="db_central_columns.php">'
+        . PMA_URL_getHiddenInputs(
+            $db
+        )
+        . '<input type="hidden" name="add_new_column" value="add_new_column">'
+        . '<table>';
+    $addNewColumn .= PMA_getCentralColumnsTableHeader();
+    $addNewColumn .= '<tr>'
+        . '<td name="col_name" class="nowrap">'
+        .  PMA_getHtmlForColumnName(
+            0, 0, 0, array(), array('central_columnswork'=>false)
+        )
+        . '</td>'
+        . '<td name = "col_type" class="nowrap">'
+        .  PMA_getHtmlForColumnType(0, 1, 0, '', array())
+        . '</td>'
+        . '<td class="nowrap" name="col_length">'
+        . PMA_getHtmlForColumnLength(0, 2, 0, 8, '')
+        . '</td>'
+        . '<td name="collation" class="nowrap">'
+        . PMA_getHtmlForColumnCollation(
+            0, 3, 0, array()
+        )
+        . '</td>'
+        . '<td class="nowrap" name="col_isNull">'
+        . PMA_getHtmlForColumnNull(0, 4, 0, array())
+        . '</td>'
+        . '<td class="nowrap" name="col_extra">'
+        . '<select name="col_extra"><option value="">'
+        . '<option value="auto_increment">' . __('auto_increment') . '</option>'
+        . '<option value="on update CURRENT_TIMESTAMP">'
+        . __('on update CURRENT_TIMESTAMP') . '</option></select>'
+        . '</td>'
+        . '<td class="nowrap" name="col_default">'
+        . PMA_getHtmlForColumnDefault(0, 5, 0, '', '', array())
+        . '</td>'
+        . ' <td>'
+        . '<input id="add_column_save" type="submit" '
+        . ' value="Save"/></td>'
+        . '</tr>';
+    $addNewColumn .= '</table></form></div>';
+    return $addNewColumn;
+}
 ?>

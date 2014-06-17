@@ -10,22 +10,32 @@
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
+require_once 'libraries/tbl_columns_definition_form.lib.php';
 require_once 'libraries/central_columns.lib.php';
 
-if (isset($_POST['edit_save'])) {
+if (isset($_POST['edit_save']) || isset($_POST['add_new_column'])) {
     $col_name = $_POST['col_name'];
-    $orig_col_name = $_POST['orig_col_name'];
+    if (isset($_POST['edit_save'])) {
+        $orig_col_name = $_POST['orig_col_name'];
+    }
     $col_default = $_POST['col_default'];
     $col_extra = $_POST['col_extra'];
     $col_isNull = isset($_POST['col_isNull'])?1:0;
     $col_length = $_POST['col_length'];
     $col_type = $_POST['col_type'];
     $collation = $_POST['collation'];
-    echo PMA_updateOneColumn(
-        $db, $orig_col_name, $col_name, $col_type,
-        $col_length, $col_isNull, $collation, $col_extra, $col_default
-    );
-    exit;
+    if (isset($orig_col_name) && $orig_col_name) {
+        echo PMA_updateOneColumn(
+            $db, $orig_col_name, $col_name, $col_type,
+            $col_length, $col_isNull, $collation, $col_extra, $col_default
+        );
+        exit;
+    } else {
+        $tmp_msg = PMA_updateOneColumn(
+            $db, "", $col_name, $col_type,
+            $col_length, $col_isNull, $collation, $col_extra, $col_default
+        );
+    }
 }
 if (isset($_POST['populateColumns'])) {
     $selected_tbl = $_POST['selectedTable'];
@@ -60,18 +70,21 @@ if (isset($_POST['delete_save'])) {
 if (isset($_REQUEST['total_rows']) && $_REQUEST['total_rows']) {
     $total_rows = $_REQUEST['total_rows'];
 } else {
-    $result = PMA_getColumnsList($db, 0, 0);
-    $total_rows = count($result);
+    $total_rows = PMA_getCentralColumnsCount($db);
 }
 if (isset($_REQUEST['pos'])) {
     $pos = $_REQUEST['pos'];
 } else {
     $pos = 0;
 }
+$addNewColumn = PMA_getHTMLforAddNewColumn($db);
+$response->addHTML($addNewColumn);
 if ($total_rows <= 0) {
     $response->addHTML(
-        '<fieldset>There are no columns in central list to display for the '
-        . 'current database.</fieldset>'
+        '<fieldset>' . __(
+            'There are no columns in central list to display for the current '
+            . 'database.'
+        ) . '</fieldset>'
     );
     $columnAdd = PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db);
     $response->addHTML($columnAdd);
@@ -93,7 +106,9 @@ $table_struct = '<div id="tableslistcontainer">'
         . '<table id="table_columns" class="tablesorter" '
         . 'style="min-width:100%" class="data">';
 $response->addHTML($table_struct);
-$tableheader = PMA_getCentralColumnsTableHeader();
+$tableheader = PMA_getCentralColumnsTableHeader(
+    'column_heading', __('Click to sort'), 2
+);
 $response->addHTML($tableheader);
 $result = PMA_getColumnsList($db, $pos, $max_rows);
 $odd_row = false;
@@ -110,7 +125,7 @@ $response->addHTML('</table></div>');
 $message = PMA_Message::success(
     sprintf(__('Showing row(s) %1$s - %2$s'), ($pos + 1), ($pos + count($result)))
 );
-if (isset($tmp_msg) && $tmp_msg != true) {
-    $message->addMessage($tmp_msg);
+if (isset($tmp_msg) && $tmp_msg !== true) {
+    $message = $tmp_msg;
 }
 ?>

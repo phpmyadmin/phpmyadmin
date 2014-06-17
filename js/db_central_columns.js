@@ -25,13 +25,27 @@ AJAX.registerTeardown('db_central_columns.js', function () {
     $('.column_heading').unbind('hover');
     $('#table-select').unbind('change');
     $('#column-select').unbind('change');
+    $("#add_col_div>a").unbind('click');
+    $('#add_new').unbind('submit');
+    $("select.default_type").unbind('change');
 });
 
 AJAX.registerOnload('db_central_columns.js', function () {
-    $('#tableslistcontainer input,#tableslistcontainer select').hide();
+    $('#tableslistcontainer input,#tableslistcontainer select,.default_value,.open_enum_editor').hide();
     if ($('#table_columns tbody tr').length > 0) {
         $("#table_columns").tablesorter();
     }
+    $('#add_new td').each(function(){
+        if ($(this).attr('name') !== 'undefined') {
+            $(this).find('input,select:first').attr('name', $(this).attr('name'));
+        }
+    });
+    $("#add_new #field_0_0").attr('required','required');
+    $('#add_new input[type="text"], #add_new input[type="number"], #add_new select')
+        .css({
+            'width' : '10em',
+            '-moz-box-sizing' : 'border-box'
+        });
     $('.column_heading').hover(function(){
         $(this).css("cursor","move");
         PMA_tooltip(
@@ -40,6 +54,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
             PMA_messages.strSortHint
         );
     });
+    window.scrollTo(0, 0);
     $(".filter_rows").live("keyup", function () {
         var cols = ["Name", "Type", "Length/Values", "Collation", "Null", "Extra", "Default"];
         $.uiTableFilter($("#table_columns"), $(this).val(), cols, null, "td span");
@@ -49,13 +64,18 @@ AJAX.registerOnload('db_central_columns.js', function () {
         $('#save_'+rownum).show();
         $(this).hide();
         $('#f_'+rownum+' td span').hide();
-        $('#f_'+rownum +' input, #f_'+rownum+' select').show();
+        $('#f_'+rownum +' input, #f_'+rownum+' select, #f_'+rownum+' .open_enum_editor').show();
+        var extra_val = $('#f_'+rownum +' td[name=col_extra] span').html();
+        $('#f_'+rownum+' select[name=col_extra] option[value="'+extra_val+'"]').attr("selected","selected");
+        if($('#f_'+rownum+' .default_type').val() === 'USER_DEFINED') {
+            $('#f_'+rownum+' .default_type').siblings('.default_value').show();
+        } else {
+            $('#f_'+rownum+' .default_type').siblings('.default_value').hide();
+        }
     });
     $(".del_row").click(function() {
-        //alert('del')
         rownum = $(this).data('rownum');
-        //alert($('#f_'+rownum +' input[name=col_name]').val());
-        $("#del_col_name").val($('#f_'+rownum +' input[name=col_name]').val());
+        $("#del_col_name").val($('#f_'+rownum +' td[name=col_name] span').html());
         $("#del_form").submit();
     });
     $('.edit_cancel_form').click(function(event) {
@@ -65,13 +85,24 @@ AJAX.registerOnload('db_central_columns.js', function () {
         $('#save_'+rownum).hide();
         $('#edit_'+rownum).show();
         $('#f_'+rownum+' td span').show();
-        $('#f_'+rownum +' input, #f_'+rownum+' select').hide();
+        $('#f_'+rownum +' input, #f_'+rownum+' select,#f_'+rownum+' .default_value, #f_'+rownum+' .open_enum_editor').hide();
     });
     $('.edit_save_form').click(function(event) {
         //alert(1);
         event.preventDefault();
         event.stopPropagation();
         rownum = $(this).data('rownum');
+        $('#f_'+rownum+' td').each(function() {
+            if ($(this).attr('name') !== 'undefined') {
+                $(this).find(':input[type!="hidden"],select:first')
+                       .attr('name', $(this).attr('name'));
+            }
+        });
+        if($('#f_'+rownum+' .default_type').val() === 'USER_DEFINED') {
+            $('#f_'+rownum+' .default_type').attr('name','col_default_sel');
+        } else {
+            $('#f_'+rownum+' .default_value').attr('name','col_default_val');
+        }
        // alert(rownum);
         var datastring = $('#f_'+rownum+' :input').serialize();
         //console.log(datastring);
@@ -94,14 +125,13 @@ AJAX.registerOnload('db_central_columns.js', function () {
                     $('#f_'+rownum +' td[name=col_length] span').text($('#f_'+rownum +' input[name=col_length]').val()).html();
                     $('#f_'+rownum +' td[name=collation] span').text($('#f_'+rownum +' select[name=collation]').val()).html();
                     $('#f_'+rownum +' td[name=col_isNull] span').text($('#f_'+rownum +' input[name=col_isNull]').val()).html();
-                    $('#f_'+rownum +' td[name=col_extra] span').text($('#f_'+rownum +' input[name=col_extra]').val()).html();
-                    $('#f_'+rownum +' td[name=col_default] span').text($('#f_'+rownum +' input[name=col_default]').val()).html();
+                    $('#f_'+rownum +' td[name=col_extra] span').text($('#f_'+rownum +' select[name=col_extra]').val()).html();
+                    $('#f_'+rownum +' td[name=col_default] span').text($('#f_'+rownum +' :input[name=col_default]').val()).html();
                 }
-
                 $('#save_'+rownum).hide();
                 $('#edit_'+rownum).show();
                 $('#f_'+rownum+' td span').show();
-                $('#f_'+rownum +' input, #f_'+rownum+' select').hide();
+                $('#f_'+rownum +' input, #f_'+rownum+' select,#f_'+rownum+' .default_value, #f_'+rownum+' .open_enum_editor').hide();
             },
             error: function() {
                     PMA_ajaxShowMessage(
@@ -136,6 +166,26 @@ AJAX.registerOnload('db_central_columns.js', function () {
         var selectvalue = $(this).val();
         if (selectvalue !== "") {
             $("#add_column").submit();
+        }
+    });
+    $("#add_col_div>a").click(function(event){
+        $('#add_new').slideToggle("slow");
+        if($("#add_col_div>a span").html() === '+') {
+            $("#add_col_div>a span").html('-');
+        } else {
+            $("#add_col_div>a span").html('+');
+        }
+    });
+    $('#add_new').submit(function(event){
+        $('#add_new').toggle();
+    });
+    $("select.default_type").change(function () {
+        if ($(this).val() === 'USER_DEFINED') {
+            $(this).siblings('.default_value').attr('name','col_default');
+            $(this).attr('name','col_default_sel');
+        } else {
+            $(this).attr('name','col_default');
+            $(this).siblings('.default_value').attr('name','col_default_val');
         }
     });
 });
