@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-16 11:15+0200\n"
-"PO-Revision-Date: 2014-06-13 13:49+0200\n"
+"PO-Revision-Date: 2014-06-17 14:24+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
-">\n"
+"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -959,14 +959,13 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Weet u zeker dat u opzoeking \"%s\" wil verwijderen?"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid ""
 #| "You have edited some data and they have not been saved. Are you sure you "
 #| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
-"U heeft gegevens bewerkt en deze werden nog niet opgeslagen. Bent u zeker "
-"dat u deze pagina wil verlaten alvorens de wijzigingen op te slaan?"
+"Er zijn niet-opgeslagen wijzigingen; bent u zeker dat u deze pagina wil "
+"verlaten?"
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
@@ -2107,22 +2106,23 @@ msgstr ""
 
 #: js/messages.php:430 js/messages.php:442
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Er zijn enkele fouten opgetreden op de server!"
 
 #: js/messages.php:432
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Gelieve de onderkant van dit venster te bekijken."
 
 #: js/messages.php:437 libraries/Error_Handler.class.php:350
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Negeren"
+msgstr "Alles negeren"
 
 #: js/messages.php:444
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
+"Volgens uw instellingen worden ze momenteel ingediend, gelieve even te "
+"wachten."
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:476
@@ -2939,10 +2939,9 @@ msgid "Too many error messages, some are not displayed."
 msgstr "Er zijn teveel foutmeldingen, sommige worden niet weergegeven."
 
 #: libraries/Error_Handler.class.php:333
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
-msgstr "Importeren"
+msgstr "Rapporteren"
 
 #: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:344
 msgid "Automatically send report next time"
@@ -6373,13 +6372,11 @@ msgid "Maximal number of table preferences to store"
 msgstr "Het maximum aantal tabelvoorkeuren die opgeslagen worden"
 
 #: libraries/config/messages.inc.php:616
-#, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
-msgstr "Slave-statustabel bekijken"
+msgstr "Tabel met opgeslagen opzoekingen van 'Query door voorbeeld'"
 
 #: libraries/config/messages.inc.php:618
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]."
@@ -6387,8 +6384,8 @@ msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
 msgstr ""
-"Laat dit veld leeg om PDF-schemaondersteuning uit te schakelen, suggestie: "
-"[kbd]pma__pdf_pages[/kbd]."
+"Laat dit veld leeg om ondersteuning van 'Query door voorbeeld' opgeslagen "
+"opzoekingen uit te schakelen, suggestie: [kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:622
 msgid "Try to connect without password."
@@ -9073,7 +9070,7 @@ msgstr "Het lijkt erop dat uw tabel triggers gebruikt;"
 
 #: libraries/plugins/export/ExportSql.class.php:2375
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "alias uitvoer mogelijk niet betrouwbaar in alle gevallen."
 
 #: libraries/plugins/export/ExportXml.class.php:102
 msgid "Object creation options (all are recommended)"
