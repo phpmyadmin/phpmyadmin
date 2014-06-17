@@ -1220,16 +1220,6 @@ class PMA_Table
                     $new_fields
                 );
 
-                $get_fields = array('x', 'y', 'v', 'h');
-                $where_fields = array(
-                    'db_name' => $source_db,
-                    'table_name' => $source_table
-                );
-                $new_fields = array(
-                    'db_name' => $target_db,
-                    'table_name' => $target_table
-                );
-
                 /**
                  * @todo Can't get duplicating PDFs the right way. The
                  * page numbers always get screwed up independently from
