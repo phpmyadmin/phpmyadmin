@@ -245,8 +245,8 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
 
         $this->expectOutputString(
-            "// db.tbl\n\n" .
-            "[{\"f1\":\"foo\"}, {\"f1\":\"bar\"}]"
+            "\n// db.tbl\n\n" .
+            "[{\"f1\":\"foo\"}, {\"f1\":\"bar\"}]\n"
         );
 
         $this->assertTrue(
