@@ -281,7 +281,7 @@ function PMA_getPageName($pg)
         return null;
     }
 
-    $query = "SELECT " . PMA_Util::backquote('page_descr')
+    $query = "SELECT `page_descr`"
         . " FROM " . PMA_Util::backquote($cfgRelation['db'])
         . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
         . " WHERE " . PMA_Util::backquote('page_nr'). " = " . $pg;
@@ -336,7 +336,7 @@ function getFirstPage($db)
         return null;
     }
 
-    $query = "SELECT MIN(" . PMA_Util::backquote('page_nr') . ")"
+    $query = "SELECT MIN(`page_nr`)"
         . " FROM " . PMA_Util::backquote($cfgRelation['db'])
         . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
         . " WHERE `db_name` = '" . $db . "'";
@@ -395,7 +395,7 @@ function saveTablePositions($pg)
                 $queury = "INSERT INTO " 
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "." 
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
-                    . " (db_name, table_name, pdf_page_number, x, y)"
+                    . " (`db_name`, `table_name`, `pdf_page_number`, `x`, `y`)"
                     . " VALUES ("
                     . "'" . PMA_Util::sqlAddSlashes($DB) . "', "
                     . "'" . PMA_Util::sqlAddSlashes($TAB) . "', "
