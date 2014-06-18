@@ -47,12 +47,12 @@ if (isset($_REQUEST['operation'])) {
         }
     } elseif ($_REQUEST['operation'] == 'save') {
         if ($_REQUEST['save_page'] == 'same') {
-            $display_page = $_REQUEST['selected_page'];
+            $page = $_REQUEST['selected_page'];
         } elseif ($_REQUEST['save_page'] == 'new') {
-            $display_page = createNewPage($_REQUEST['selected_value']);
-            $response->addJSON('id', $display_page);
+            $page = createNewPage($_REQUEST['selected_value']);
+            $response->addJSON('id', $page);
         }
-        if (saveTablePositions($display_page)) {
+        if (saveTablePositions($page)) {
             $response->isSuccess(true);
         } else {
             $response->isSuccess(false);
@@ -69,8 +69,9 @@ if (isset($_REQUEST['operation'])) {
 
 $tab_pos = PMA_getTablePositions($display_page);
 $selected_page = PMA_getPageName($display_page);
-$script_contr = PMA_getScriptContr($display_page);
+$script_contr = PMA_getScriptContr();
 
+$params = array('lang' => $GLOBALS['lang']);
 if (isset($_GET['db'])) {
     $params['db'] = $_GET['db'];
 }
@@ -211,7 +212,7 @@ echo '</div>';
             src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/toggle_lines.png'); ?>" />
     </a>
     <img class="M_bord" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>" alt="" />
-    <span id="page_name"><?php echo $selected_page ?></span>
+    <span id="page_name"><?php echo htmlspecialchars($selected_page) ?></span>
 <?php
 if (isset($_REQUEST['query'])) {
     echo '<a href="#" onclick="build_query(\'SQL Query on Database\', 0)" onmousedown="return false;"
@@ -272,7 +273,8 @@ for ($i = 0; $i < $name_cnt; $i++) {
         . 'value="' . $GLOBALS['PMD_URL']["TABLE_NAME"][$i] . '"';
     if ((isset($tab_pos[$GLOBALS['PMD']["TABLE_NAME"][$i]])
         && $tab_pos[$GLOBALS['PMD']["TABLE_NAME"][$i]]["H"])
-        || $display_page == -1) {
+        || $display_page == -1
+    ) {
         echo 'checked="checked"';
     }
     echo '/></td>';
