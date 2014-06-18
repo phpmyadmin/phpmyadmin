@@ -813,6 +813,37 @@ function setQuery(query)
     }
 }
 
+/**
+ * Handles 'Simulate query' button on SQL query box.
+ *
+ * @return void
+ */
+function PMA_handleSimulateQueryButton()
+{
+    var update_re = new RegExp('^\\s*UPDATE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+SET\\s', 'i');
+    var delete_re = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
+    var query = '';
+
+    if (codemirror_editor) {
+        query = codemirror_editor.getValue();
+    } else {
+        query = $('#sqlquery').val();
+    }
+
+    if (update_re.test(query) || delete_re.test(query)) {
+        if (! $('#simulate_dml').length) {
+            $('#button_submit_query')
+            .before('<input type="button" id="simulate_dml"' +
+                'tabindex="199" value="' +
+                PMA_messages.strSimulateDML +
+                '" />');
+        }
+    } else {
+        if ($('#simulate_dml').length) {
+            $('#simulate_dml').remove();
+        }
+    }
+}
 
 /**
   * Create quick sql statements.
@@ -1477,6 +1508,7 @@ AJAX.registerOnload('functions.js', function () {
 
     $('input.sqlbutton').click(function (evt) {
         insertQuery(evt.target.id);
+        PMA_handleSimulateQueryButton();
         return false;
     });
 

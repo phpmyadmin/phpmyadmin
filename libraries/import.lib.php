@@ -1342,4 +1342,270 @@ function PMA_stopImport( PMA_Message $error_message )
     exit;
 }
 
+/**
+ * Handles request for Simulation of UPDATE/DELETE queries.
+ */
+function PMA_handleSimulateDMLRequest()
+{
+    $response = PMA_Response::getInstance();
+    $error = false;
+    $error_msg = __('Only single-table UPDATE and DELETE queries can be simulated.');
+    $sql_delimiter = $_REQUEST['sql_delimiter'];
+    $sql_data = array();
+    $queries = explode($sql_delimiter, $GLOBALS['sql_query']);
+    foreach ($queries as $sql_query) {
+        if (empty($sql_query)) {
+            continue;
+        }
+
+        // Parse and Analyze the query.
+        $parsed_sql = PMA_SQP_parse($sql_query);
+        $analyzed_sql = PMA_SQP_analyze($parsed_sql);
+        $analyzed_sql_results = array(
+            'parsed_sql' => $parsed_sql,
+            'analyzed_sql' => $analyzed_sql
+        );
+
+        // Only UPDATE/DELETE queries accepted.
+        $query_type = $analyzed_sql_results['analyzed_sql'][0]['querytype'];
+        if ($query_type != 'UPDATE' && $query_type != 'DELETE') {
+            $error = $error_msg;
+            break;
+        }
+
+        // Only single-table queries accepted.
+        $table_references = PMA_getTableReferences($analyzed_sql_results);
+        if (preg_match('/JOIN/i', $table_references)) {
+            $error = $error_msg;
+            break;
+        } else {
+            $tables = explode(',', $table_references);
+            if (count($tables) > 1) {
+                $error = $error_msg;
+                break;
+            }
+        }
+
+        // Get the matched rows for the query.
+        $result = PMA_getMatchedRows($sql_query, $analyzed_sql_results);
+        if (! $error = $GLOBALS['dbi']->getError()) {
+            $sql_data[] = $result;
+        } else {
+            break;
+        }
+    }
+
+    if ($error) {
+        $message = PMA_Message::rawError($error);
+        $response->addJSON('message', $message);
+        $response->addJSON('sql_data', false);
+    } else {
+        $response->addJSON('sql_data', $sql_data);
+    }
+}
+
+/**
+ * Find the matching rows for UPDATE/DELETE query.
+ *
+ * @param string $query                SQL query
+ * @param array  $analyzed_sql_results Analyzed SQL results from parser.
+ *
+ * @return mixed
+ */
+function PMA_getMatchedRows($query, $analyzed_sql_results = array())
+{
+    // Get the query type.
+    $query_type = (isset($analyzed_sql_results['analyzed_sql'][0]['querytype']))
+        ? $analyzed_sql_results['analyzed_sql'][0]['querytype']
+        : '';
+
+    $matched_row_query = '';
+    if ($query_type == 'DELETE') {
+        $matched_row_query = PMA_getSimulatedDeleteQuery($analyzed_sql_results);
+    } else if ($query_type == 'UPDATE') {
+        $matched_row_query = PMA_getSimulatedUpdateQuery($analyzed_sql_results);
+    }
+
+    // Execute the query.
+    $matched_rows = PMA_executeMatchedRowQuery($matched_row_query);
+    // URL to matched rows.
+    $_url_params = array(
+        'db'        => $GLOBALS['db'],
+        'sql_query' => $matched_row_query
+    );
+    $matched_rows_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
+
+    return array(
+        'sql_query' => PMA_Util::formatSql(
+            $analyzed_sql_results['parsed_sql']['raw']
+        ),
+        'matched_rows' => $matched_rows,
+        'matched_rows_url' => $matched_rows_url
+    );
+}
+
+/**
+ * Transforms a UPDATE query into SELECT statement.
+ *
+ * @param array   $analyzed_sql_results Analyzed SQL results from parser.
+ *
+ * @return string SQL query
+ */
+function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
+{
+    $where_clause = '';
+    $extra_where_clause = '';
+    $target_cols = array();
+
+    $prev_term = '';
+    $i = 0;
+    foreach ($analyzed_sql_results['parsed_sql'] as $key => $term) {
+        if (! isset($get_set_expr)
+            && preg_match(
+                '/SET/i',
+                isset($term['data']) ? $term['data'] : ''
+        )
+        ) {
+            $get_set_expr = true;
+            continue;
+        }
+
+        if (isset($get_set_expr)) {
+            if (preg_match(
+                '/WHERE|ORDER BY|LIMIT/i',
+                isset($term['data']) ? $term['data'] : ''
+            )
+            ) {
+                break;
+            }
+
+            if ($term['type'] == 'punct_listsep') {
+                $extra_where_clause .= ' OR ';
+            } else if ($term['type'] == 'punct') {
+                $extra_where_clause .= ' <> ';
+            } else {
+                $extra_where_clause .= $term['data'];
+            }
+
+            // Get columns in SET expression.
+            if ($prev_term != 'punct') {
+                if ($term['type'] != 'punct_listsep'
+                    && $term['type'] != 'punct'
+                    && isset($term['data'])
+                ) {
+                    if (isset($target_cols[$i])) {
+                        $target_cols[$i] .= $term['data'];
+                    } else {
+                        $target_cols[$i] = $term['data'];
+                    }
+                }
+            } else {
+                $i++;
+            }
+
+            $prev_term = $term['type'];
+            continue;
+        }
+    }
+
+    // Get table_references.
+    $table_references = PMA_getTableReferences($analyzed_sql_results);
+    $target_cols = implode(', ', $target_cols);
+
+    // Get WHERE clause.
+    $where_clause .= $analyzed_sql_results['analyzed_sql'][0]['where_clause'];
+    if (empty($where_clause) && empty($extra_where_clause)) {
+        $where_clause = '1';
+    }
+
+    $matched_row_query = 'SELECT '
+        . $target_cols
+        . ' FROM '
+        . $table_references
+        . ' WHERE '
+        . $where_clause;
+
+    return $matched_row_query;
+}
+
+/**
+ * Transforms a DELETE query into SELECT statement.
+ *
+ * @param array $analyzed_sql_results Analyzed SQL results from parser.
+ *
+ * @return string SQL query
+ */
+function PMA_getSimulatedDeleteQuery($analyzed_sql_results)
+{
+    $where_clause = '';
+
+    $where_clause .= $analyzed_sql_results['analyzed_sql'][0]['where_clause'];
+    if (empty($where_clause) && empty($extra_where_clause)) {
+        $where_clause = '1';
+    }
+
+    // Get the table_references.
+    $table_references = PMA_getTableReferences($analyzed_sql_results);
+
+    $matched_row_query = 'SELECT * '
+        . ' FROM '
+        . $table_references
+        . ' WHERE '
+        . $where_clause;
+
+    return $matched_row_query;
+}
+
+/**
+ * Finds table_references from a given UPDATE/DELETE query.
+ *
+ * @param array $analyzed_sql_results Analyzed SQL results from parser
+ *
+ * @return string table_references
+ */
+function PMA_getTableReferences($analyzed_sql_results)
+{
+    $table_references = '';
+    foreach ($analyzed_sql_results['parsed_sql'] as $key => $term) {
+
+        if (preg_match(
+            '/WHERE|SET/i',
+            isset($term['data']) ? $term['data'] : ''
+        )
+        ) {
+            break;
+        }
+
+        if (preg_match(
+            '/UPDATE|DELETE|LOW_PRIORITY|QUICK|IGNORE|FROM/i',
+            isset($term['data']) ? $term['data'] : ''
+        )
+            || ! is_numeric($key)
+        ) {
+            continue;
+        }
+
+        $table_references .= ' ' . isset($term['data']) ? $term['data'] : '';
+    }
+
+    return $table_references;
+}
+
+/**
+ * Executes the matched_row_query and returns the resultant row count.
+ *
+ * @param string $matched_row_query SQL query
+ *
+ * @return integer Number of rows returned
+ */
+function PMA_executeMatchedRowQuery($matched_row_query)
+{
+    $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+    // Execute the query.
+    $result = $GLOBALS['dbi']->tryQuery($matched_row_query);
+    // Count the number of rows in the result set.
+    $result = $GLOBALS['dbi']->numRows($result);
+
+    return $result;
+}
 ?>

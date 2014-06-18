@@ -57,6 +57,11 @@ $js_messages['strAddToIndex'] = __('Add %s column(s) to index');
 /* For Preview SQL*/
 $js_messages['strPreviewSQL'] = __('Preview SQL');
 
+/* For Simulate DML*/
+$js_messages['strSimulateDML'] = __('Simulate query');
+$js_messages['strMatchedRows'] = __('Matched rows:');
+$js_messages['strSQLQuery'] = __('SQL query:');
+
 /* Charts */
 /* l10n: Default label for the y-Axis of Charts */
 $js_messages['strYValues'] = __('Y Values');

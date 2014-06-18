@@ -18,6 +18,15 @@ if (isset($_REQUEST['show_as_php'])) {
     $GLOBALS['show_as_php'] = $_REQUEST['show_as_php'];
 }
 
+// Import functions.
+require_once 'libraries/import.lib.php';
+
+// If there is a request to 'Simulate DML'.
+if (isset($_REQUEST['simulate_dml'])) {
+    PMA_handleSimulateDMLRequest();
+    exit;
+}
+
 /**
  * Sets globals from $_POST
  */
@@ -166,9 +175,6 @@ PMA_Util::checkParameters(array('import_type', 'format'));
 
 // We don't want anything special in format
 $format = PMA_securePath($format);
-
-// Import functions
-require_once 'libraries/import.lib.php';
 
 // Create error and goto url
 if ($import_type == 'table') {
