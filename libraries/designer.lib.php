@@ -18,16 +18,6 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_getHtmlForEditOrDeletePages($operation)
 {
-    $cfgRelation = PMA_getRelationsParam();
-    $page_query = "SELECT `page_nr`, `page_descr` FROM " 
-        . PMA_Util::backquote($cfgRelation['db']) . "." 
-        . PMA_Util::backquote($cfgRelation['pdf_pages'])
-        . " WHERE db_name = '" . PMA_Util::sqlAddSlashes($GLOBALS['db']) . "'"
-        . " ORDER BY `page_nr`";
-    $page_rs = PMA_queryAsControlUser(
-        $page_query, false, PMA_DatabaseInterface::QUERY_STORE
-    );
-
     $html  = '<form action="pmd_general.php" method="post"'
         . ' name="edit_delete_pages" id="edit_delete_pages" class="ajax">';
     $html .= PMA_URL_getHiddenInputs($GLOBALS['db']);
@@ -42,9 +32,10 @@ function PMA_getHtmlForEditOrDeletePages($operation)
     $html .= ': </label>';
     $html .= '<select name="selected_page" id="selected_page">';
     $html .= '<option value="0">-- ' . __('Select page').' --</option>';
-    while ($curr_page = $GLOBALS['dbi']->fetchAssoc($page_rs)) {
-        $html .= '<option value="' . $curr_page['page_nr'] . '">';
-        $html .= htmlspecialchars($curr_page['page_descr']) . '</option>';
+    $pages = PMA_getPageIdsAndNames($GLOBALS['db']);
+    foreach ($pages as $nr => $desc) {
+        $html .= '<option value="' . $nr . '">';
+        $html .= htmlspecialchars($desc) . '</option>';
     }
     $html .= '</select>';
     $html .= '</fieldset>';
@@ -59,16 +50,6 @@ function PMA_getHtmlForEditOrDeletePages($operation)
  */
 function PMA_getHtmlForPageSaveAs()
 {
-    $cfgRelation = PMA_getRelationsParam();
-    $page_query = "SELECT `page_nr`, `page_descr` FROM " 
-        . PMA_Util::backquote($cfgRelation['db']) . "." 
-        . PMA_Util::backquote($cfgRelation['pdf_pages'])
-        . " WHERE db_name = '" . PMA_Util::sqlAddSlashes($GLOBALS['db']) . "'"
-        . " ORDER BY `page_nr`";
-    $page_rs = PMA_queryAsControlUser(
-        $page_query, false, PMA_DatabaseInterface::QUERY_STORE
-    );
-
     $choices = array(
         'same' => __('Save to selected page'),
         'new' => __('Create a page and save to it')
@@ -86,9 +67,10 @@ function PMA_getHtmlForPageSaveAs()
     $html .= '<select name="selected_page" id="selected_page">';
     $html .= '<option value="0">-- ' . __('Select page') . ' --</option>';
 
-    while ($curr_page = $GLOBALS['dbi']->fetchAssoc($page_rs)) {
-        $html .= '<option value="' . $curr_page['page_nr'] . '">';
-        $html .= htmlspecialchars($curr_page['page_descr']) . '</option>';
+    $pages = PMA_getPageIdsAndNames($GLOBALS['db']);
+    foreach ($pages as $nr => $desc) {
+        $html .= '<option value="' . $nr . '">';
+        $html .= htmlspecialchars($desc) . '</option>';
     }
     $html .= '</select>';
     $html .= '</td>';
@@ -113,5 +95,31 @@ function PMA_getHtmlForPageSaveAs()
     $html .= '</form>';
 
     return $html;
+}
+
+/**
+ * Retrieve IDs and names of schema pages
+ * 
+ * @param string $db db name
+ *
+ * @return array array of schema page id and names
+ */
+function PMA_getPageIdsAndNames($db)
+{
+    $cfgRelation = PMA_getRelationsParam();
+    $page_query = "SELECT `page_nr`, `page_descr` FROM "
+        . PMA_Util::backquote($cfgRelation['db']) . "."
+        . PMA_Util::backquote($cfgRelation['pdf_pages'])
+        . " WHERE db_name = '" . PMA_Util::sqlAddSlashes($db) . "'"
+        . " ORDER BY `page_nr`";
+    $page_rs = PMA_queryAsControlUser(
+        $page_query, false, PMA_DatabaseInterface::QUERY_STORE
+    );
+    
+    $result = array();
+    while ($curr_page = $GLOBALS['dbi']->fetchAssoc($page_rs)) {
+        $result[$curr_page['page_nr']] = $curr_page['page_descr'];
+    }
+    return $result;
 }
 ?>
