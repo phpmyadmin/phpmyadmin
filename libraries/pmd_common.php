@@ -104,11 +104,9 @@ function PMA_getColumnsInfo()
 /**
  * Returns JavaScript code for initializing vars
  *
- * @param int $pg page number
- *
  * @return string   JavaScript code
  */
-function PMA_getScriptContr($pg)
+function PMA_getScriptContr()
 {
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
     $con = array();
@@ -159,7 +157,6 @@ function PMA_getScriptContr($pg)
         $dtn_i = $con['DTN'][$i];
         $retval[$ti] = array();
         $retval[$ti][$c_name_i] = array();
-        $tb = getTables($pg);
         if (in_array($dtn_i, $GLOBALS['PMD_URL']["TABLE_NAME"])
             && in_array($con['STN'][$i], $GLOBALS['PMD_URL']["TABLE_NAME"])
         ) {
@@ -368,33 +365,6 @@ function createNewPage($pageName)
         return $user_schema->pageNumber;
     }
     return null;
-}
-
-/**
- * Returns all tables of a given pdf page
- *
- * @param int $pg pdf page id
- *
- * @return array of tables
- */
-function getTables($pg)
-{
-    $cfgRelation = PMA_getRelationsParam();
-    if (! $cfgRelation['pdfwork']) {
-        return null;
-    }
-
-    $query = "SELECT ". PMA_Util::backquote('table_name')
-         . " FROM " . PMA_Util::backquote($cfgRelation['db'])
-         . "." . PMA_Util::backquote($cfgRelation['table_coords'])
-         . " WHERE ". PMA_Util::backquote('pdf_page_number'). " = " . $pg;
-
-    $tables = $GLOBALS['dbi']->fetchResult($query);
-    $return_array = array();
-    foreach ($tables as $temp ) {
-        array_push($return_array, $GLOBALS['db'] . "." . $temp);
-    }
-    return count($return_array) ? $return_array : null;
 }
 
 /**
