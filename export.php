@@ -126,6 +126,7 @@ if (!defined('TESTSUITE')) {
             'sql_hex_for_binary',
             'sql_utc_time',
             'sql_drop_database',
+            'sql_views_as_tables',
             'csv_separator',
             'csv_enclosed',
             'csv_escaped',
