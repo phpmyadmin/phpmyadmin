@@ -248,14 +248,14 @@ function PMA_getTablePositions($pg)
     }
 
     $query = "
-         SELECT CONCAT_WS('.', `db_name`, `table_name`) AS `name`,
-                `x` AS `X`,
-                `y` AS `Y`,
-                1 AS `V`,
-                1 AS `H`
-           FROM " . PMA_Util::backquote($cfgRelation['db'])
-               . "." . PMA_Util::backquote($cfgRelation['table_coords']) . "
-           WHERE pdf_page_number = " . $pg;
+        SELECT CONCAT_WS('.', `db_name`, `table_name`) AS `name`,
+            `x` AS `X`,
+            `y` AS `Y`,
+            1 AS `V`,
+            1 AS `H`
+        FROM " . PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['table_coords']) . "
+        WHERE pdf_page_number = " . $pg;
 
     $tab_pos = $GLOBALS['dbi']->fetchResult(
         $query,
@@ -282,9 +282,9 @@ function PMA_getPageName($pg)
     }
 
     $query = "SELECT " . PMA_Util::backquote('page_descr')
-           . " FROM " . PMA_Util::backquote($cfgRelation['db'])
-           . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
-           . " WHERE " . PMA_Util::backquote('page_nr'). " = " . $pg;
+        . " FROM " . PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
+        . " WHERE " . PMA_Util::backquote('page_nr'). " = " . $pg;
     $page_name = $GLOBALS['dbi']->fetchResult($query);
     return count($page_name) ? $page_name[0] : __("*Untitled");
 }
@@ -381,10 +381,10 @@ function saveTablePositions($pg)
         return null;
     }
 
-    $queury =  'DELETE FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-        . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
-        . ' WHERE `db_name` = \'' . PMA_Util::sqlAddSlashes($_REQUEST['db']) . '\''
-        . ' AND `pdf_page_number` = \'' . PMA_Util::sqlAddSlashes($pg) . '\'';
+    $queury =  "DELETE FROM " . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+        . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
+        . " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($_REQUEST['db']) . "'"
+        . " AND `pdf_page_number` = '" . PMA_Util::sqlAddSlashes($pg) . "'";
 
     $res = PMA_queryAsControlUser($queury, true, PMA_DatabaseInterface::QUERY_STORE);
 
@@ -392,17 +392,20 @@ function saveTablePositions($pg)
         foreach ($_REQUEST['t_h'] as $key => $value) {
             list($DB, $TAB) = explode(".", $key);
             if ($value) {
-                $queury = 'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-                . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
-                . ' (db_name, table_name, pdf_page_number, x, y)'
-                . ' VALUES ('
-                . '\'' . PMA_Util::sqlAddSlashes($DB) . '\', '
-                . '\'' . PMA_Util::sqlAddSlashes($TAB) . '\', '
-                . '\'' . PMA_Util::sqlAddSlashes($pg) . '\', '
-                . '\'' . PMA_Util::sqlAddSlashes($_REQUEST['t_x'][$key]) . '\', '
-                . '\'' . PMA_Util::sqlAddSlashes($_REQUEST['t_y'][$key]) . '\')';
+                $queury = "INSERT INTO " 
+                    . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "." 
+                    . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
+                    . " (db_name, table_name, pdf_page_number, x, y)"
+                    . " VALUES ("
+                    . "'" . PMA_Util::sqlAddSlashes($DB) . "', "
+                    . "'" . PMA_Util::sqlAddSlashes($TAB) . "', "
+                    . "'" . PMA_Util::sqlAddSlashes($pg) . "', "
+                    . "'" . PMA_Util::sqlAddSlashes($_REQUEST['t_x'][$key]) . "', "
+                    . "'" . PMA_Util::sqlAddSlashes($_REQUEST['t_y'][$key]) . "')";
 
-                $res = PMA_queryAsControlUser($queury,  true, PMA_DatabaseInterface::QUERY_STORE);
+                $res = PMA_queryAsControlUser(
+                    $queury,  true, PMA_DatabaseInterface::QUERY_STORE
+                );
             }
         }
     }
