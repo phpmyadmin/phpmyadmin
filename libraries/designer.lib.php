@@ -87,9 +87,8 @@ function PMA_getHtmlForPageSaveAs($db)
 
     $html .= '<tr>';
     $html .= '<td>';
-    $html .= '<label for="id_newpage">' . __('New page name') . '</label>';
-    $html .= '<input type="text" name="selected_value" id="selected_value"'
-        . ' size="20" maxlength="50" />';
+    $html .= '<label for="selected_value">' . __('New page name') . '</label>';
+    $html .= '<input type="text" name="selected_value" id="selected_value" />';
     $html .= '</td>';
     $html .= '</tr>';
 
