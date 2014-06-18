@@ -25,11 +25,11 @@ if (isset($_REQUEST['dialog'])) {
 
     include_once 'libraries/designer.lib.php';
     if ($_REQUEST['dialog'] == 'edit') {
-        $html = PMA_getHtmlForEditOrDeletePages('edit');
+        $html = PMA_getHtmlForEditOrDeletePages($GLOBALS['db'], 'edit');
     } else if ($_REQUEST['dialog'] == 'delete') {
-        $html = PMA_getHtmlForEditOrDeletePages('delete');
+        $html = PMA_getHtmlForEditOrDeletePages($GLOBALS['db'], 'delete');
     } else if ($_REQUEST['dialog'] == 'save_as') {
-        $html = PMA_getHtmlForPageSaveAs();
+        $html = PMA_getHtmlForPageSaveAs($GLOBALS['db']);
     }
 
     $response->addHTML($html);

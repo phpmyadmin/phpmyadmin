@@ -12,15 +12,16 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Function to get html for displaying the page edit/delete form
  *
+ * @param string $db        databasae name
  * @param string $operation 'edit' or 'delete' depending on the operation
  *
  * @return string html content
  */
-function PMA_getHtmlForEditOrDeletePages($operation)
+function PMA_getHtmlForEditOrDeletePages($db, $operation)
 {
     $html  = '<form action="pmd_general.php" method="post"'
         . ' name="edit_delete_pages" id="edit_delete_pages" class="ajax">';
-    $html .= PMA_URL_getHiddenInputs($GLOBALS['db']);
+    $html .= PMA_URL_getHiddenInputs($db);
     $html .= '<fieldset id="page_edit_delete_options">';
     $html .= '<input type="hidden" name="operation" value="' . $operation . '" />';
     $html .= '<label for="selected_page">';
@@ -32,7 +33,7 @@ function PMA_getHtmlForEditOrDeletePages($operation)
     $html .= ': </label>';
     $html .= '<select name="selected_page" id="selected_page">';
     $html .= '<option value="0">-- ' . __('Select page').' --</option>';
-    $pages = PMA_getPageIdsAndNames($GLOBALS['db']);
+    $pages = PMA_getPageIdsAndNames($db);
     foreach ($pages as $nr => $desc) {
         $html .= '<option value="' . $nr . '">';
         $html .= htmlspecialchars($desc) . '</option>';
@@ -46,9 +47,11 @@ function PMA_getHtmlForEditOrDeletePages($operation)
 /**
  * Function to get html for displaying the page save as form
  *
+ * @param string $db databasae name
+ *
  * @return string html content
  */
-function PMA_getHtmlForPageSaveAs()
+function PMA_getHtmlForPageSaveAs($db)
 {
     $choices = array(
         'same' => __('Save to selected page'),
@@ -57,7 +60,7 @@ function PMA_getHtmlForPageSaveAs()
 
     $html  = '<form action="pmd_general.php" method="post"'
         . ' name="save_as_pages" id="save_as_pages" class="ajax">';
-    $html .= PMA_URL_getHiddenInputs($GLOBALS['db']);
+    $html .= PMA_URL_getHiddenInputs($db);
     $html .= '<fieldset id="page_save_as_options">';
     $html .= '<table><tbody>';
 
@@ -67,7 +70,7 @@ function PMA_getHtmlForPageSaveAs()
     $html .= '<select name="selected_page" id="selected_page">';
     $html .= '<option value="0">-- ' . __('Select page') . ' --</option>';
 
-    $pages = PMA_getPageIdsAndNames($GLOBALS['db']);
+    $pages = PMA_getPageIdsAndNames($db);
     foreach ($pages as $nr => $desc) {
         $html .= '<option value="' . $nr . '">';
         $html .= htmlspecialchars($desc) . '</option>';
@@ -100,7 +103,7 @@ function PMA_getHtmlForPageSaveAs()
 /**
  * Retrieve IDs and names of schema pages
  * 
- * @param string $db db name
+ * @param string $db database name
  *
  * @return array array of schema page id and names
  */
