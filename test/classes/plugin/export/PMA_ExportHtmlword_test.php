@@ -437,13 +437,13 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', 'view')
-            ->will($this->returnValue(array('column')));
+            ->will($this->returnValue(array(array('Field' => 'column'))));
 
         $GLOBALS['dbi'] = $dbi;
 
         $this->object->expects($this->once())
             ->method('formatOneColumnDefinition')
-            ->with('column', array('name1'))
+            ->with(array('Field' => 'column'), array('name1'), 'column')
             ->will($this->returnValue(1));
 
         $this->assertEquals(
@@ -542,6 +542,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(1));
 
         $GLOBALS['cfgRelation']['relation'] = true;
+        $GLOBALS['controllink'] = null;
         $_SESSION['relation'][0] = array(
             'relwork' => true,
             'commwork' => true,

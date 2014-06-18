@@ -240,15 +240,19 @@ class ExportLatex extends ExportPlugin
     /**
      * Outputs database header
      *
-     * @param string $db Database name
+     * @param string $db       Database name
+     * @param string $db_alias Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db)
+    public function exportDBHeader ($db, $db_alias = '')
     {
+        if (empty($db_alias)) {
+            $db_alias = $db;
+        }
         global $crlf;
         $head = '% ' . $crlf
-            . '% ' . __('Database:') . ' ' . '\'' . $db . '\'' . $crlf
+            . '% ' . __('Database:') . ' ' . '\'' . $db_alias . '\'' . $crlf
             . '% ' . $crlf;
         return PMA_exportOutputHandler($head);
     }
@@ -268,11 +272,12 @@ class ExportLatex extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db Database name
+     * @param string $db       Database name
+     * @param string $db_alias Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db)
+    public function exportDBCreate($db, $db_alias = '')
     {
         return true;
     }
@@ -285,23 +290,33 @@ class ExportLatex extends ExportPlugin
      * @param string $crlf      the end of line sequence
      * @param string $error_url the url to go back in case of error
      * @param string $sql_query SQL query for obtaining data
+     * @param array  $aliases   Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
-    public function exportData($db, $table, $crlf, $error_url, $sql_query)
-    {
+    public function exportData(
+        $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
+    ) {
+        $db_alias = $db;
+        $table_alias = $table;
+        $this->initAlias($aliases, $db_alias, $table_alias);
+
         $result      = $GLOBALS['dbi']->tryQuery(
             $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
         );
 
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
         $columns = array();
+        $columns_alias = array();
         for ($i = 0; $i < $columns_cnt; $i++) {
-            $columns[$i] = $GLOBALS['dbi']->fieldName($result, $i);
+            $columns[$i] = $col_as = $GLOBALS['dbi']->fieldName($result, $i);
+            if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
+                $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
+            }
+            $columns_alias[$i] = $col_as;
         }
-        unset($i);
 
-        $buffer = $crlf . '%' . $crlf . '% ' . __('Data:') . ' ' . $table
+        $buffer = $crlf . '%' . $crlf . '% ' . __('Data:') . ' ' . $table_alias
             . $crlf . '%' . $crlf . ' \\begin{longtable}{|';
 
         for ($index = 0; $index < $columns_cnt; $index++) {
@@ -319,13 +334,13 @@ class ExportLatex extends ExportPlugin
                         get_class($this),
                         'libraries/plugins/export/' . get_class($this) . ".class.php"
                     ),
-                    array('table' => $table, 'database' => $db)
+                    array('table' => $table_alias, 'database' => $db_alias)
                 )
                 . '} \\label{'
                 . PMA_Util::expandUserString(
                     $GLOBALS['latex_data_label'],
                     null,
-                    array('table' => $table, 'database' => $db)
+                    array('table' => $table_alias, 'database' => $db_alias)
                 )
                 . '} \\\\';
         }
@@ -338,7 +353,7 @@ class ExportLatex extends ExportPlugin
             $buffer = '\\hline ';
             for ($i = 0; $i < $columns_cnt; $i++) {
                 $buffer .= '\\multicolumn{1}{|c|}{\\textbf{'
-                    . self::texEscape(stripslashes($columns[$i])) . '}} & ';
+                    . self::texEscape(stripslashes($columns_alias[$i])) . '}} & ';
             }
 
             $buffer = substr($buffer, 0, -2) . '\\\\ \\hline \hline ';
@@ -356,7 +371,7 @@ class ExportLatex extends ExportPlugin
                             'libraries/plugins/export/'
                             . get_class($this) . ".class.php"
                         ),
-                        array('table' => $table, 'database' => $db)
+                        array('table' => $table_alias, 'database' => $db_alias)
                     )
                     . '} \\\\ '
                 )) {
@@ -429,6 +444,7 @@ class ExportLatex extends ExportPlugin
      *                                export types which use this parameter
      * @param bool   $do_mime     whether to include mime comments
      * @param bool   $dates       whether to include creation/update/check dates
+     * @param array  $aliases     Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
@@ -442,8 +458,13 @@ class ExportLatex extends ExportPlugin
         $do_relation = false,
         $do_comments = false,
         $do_mime = false,
-        $dates = false
+        $dates = false,
+        $aliases = array()
     ) {
+        $db_alias = $db;
+        $table_alias = $table;
+        $this->initAlias($aliases, $db_alias, $table_alias);
+
         global $cfgRelation;
 
         /* We do not export triggers */
@@ -466,7 +487,7 @@ class ExportLatex extends ExportPlugin
          * Gets fields properties
          */
         $GLOBALS['dbi']->selectDb($db);
-
+        $res_rel = array();
         // Check if we can use Relations
         if ($do_relation && ! empty($cfgRelation['relation'])) {
             // Find which tables are related with the current one and write it in
@@ -485,8 +506,8 @@ class ExportLatex extends ExportPlugin
         /**
          * Displays the table structure
          */
-        $buffer      = $crlf . '%' . $crlf . '% ' . __('Structure:') . ' ' . $table
-            . $crlf . '%' . $crlf . ' \\begin{longtable}{';
+        $buffer      = $crlf . '%' . $crlf . '% ' . __('Structure:') . ' '
+            . $table_alias . $crlf . '%' . $crlf . ' \\begin{longtable}{';
         if (! PMA_exportOutputHandler($buffer)) {
             return false;
         }
@@ -534,13 +555,13 @@ class ExportLatex extends ExportPlugin
                         get_class($this),
                         'libraries/plugins/export/' . get_class($this) . ".class.php"
                     ),
-                    array('table' => $table, 'database' => $db)
+                    array('table' => $table_alias, 'database' => $db_alias)
                 )
                 . '} \\label{'
                 . PMA_Util::expandUserString(
                     $GLOBALS['latex_structure_label'],
                     null,
-                    array('table' => $table, 'database' => $db)
+                    array('table' => $table_alias, 'database' => $db_alias)
                 )
                 . '} \\\\' . $crlf;
         }
@@ -556,7 +577,7 @@ class ExportLatex extends ExportPlugin
                         get_class($this),
                         'libraries/plugins/export/' . get_class($this) . ".class.php"
                     ),
-                    array('table' => $table, 'database' => $db)
+                    array('table' => $table_alias, 'database' => $db_alias)
                 )
                 . '} \\\\ ' . $crlf;
         }
@@ -583,19 +604,21 @@ class ExportLatex extends ExportPlugin
                 }
             }
 
-            $field_name = $row['Field'];
+            $field_name = $col_as = $row['Field'];
+            if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
+                $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
+            }
 
-            $local_buffer = $field_name . "\000" . $type . "\000"
+            $local_buffer = $col_as . "\000" . $type . "\000"
                 . (($row['Null'] == '' || $row['Null'] == 'NO')
                     ? __('No') : __('Yes'))
                 . "\000" . (isset($row['Default']) ? $row['Default'] : '');
 
             if ($do_relation && $have_rel) {
                 $local_buffer .= "\000";
-                if (isset($res_rel[$field_name])) {
-                    $local_buffer .= $res_rel[$field_name]['foreign_table'] . ' ('
-                        . $res_rel[$field_name]['foreign_field'] . ')';
-                }
+                $local_buffer .= $this->getRelationString(
+                    $res_rel, $field_name, $db, $aliases
+                );
             }
             if ($do_comments && $cfgRelation['commwork']) {
                 $local_buffer .= "\000";
