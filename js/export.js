@@ -278,7 +278,7 @@ function aliasSelectHandler(event) {
  *
  * @return void
  */
- function createAliasModal(event) {
+function createAliasModal(event) {
     event.preventDefault();
     $('#alias_modal').dialog({
         width: Math.min($(window).width() - 100, 700),
@@ -314,7 +314,7 @@ function aliasSelectHandler(event) {
         },
         position: 'center'
     });
- }
+}
 
 AJAX.registerOnload('export.js', function () {
     $("input[type='radio'][name='quick_or_custom']").change(toggle_quick_or_custom);

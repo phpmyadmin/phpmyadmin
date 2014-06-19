@@ -2465,17 +2465,19 @@ class PMA_DisplayResults
     /**
      * Adds the relevant classes.
      *
-     * @param string $class                 class of table cell
-     * @param bool   $condition_field       whether to add CSS class condition
-     * @param object $meta                  the meta-information about the field
-     * @param string $nowrap                avoid wrapping
-     * @param bool   $is_field_truncated    is field truncated (display ...)
-     * @param string $transformation_plugin transformation plugin.
-     *                                      Can also be the default function:
-     *                                      PMA_mimeDefaultFunction
-     * @param string $default_function      default transformation function
+     * @param string        $class                 class of table cell
+     * @param bool          $condition_field       whether to add CSS class
+     *                                             condition
+     * @param object        $meta                  the meta-information about the
+     *                                             field
+     * @param string        $nowrap                avoid wrapping
+     * @param bool          $is_field_truncated    is field truncated (display ...)
+     * @param object|string $transformation_plugin transformation plugin.
+     *                                             Can also be the default function:
+     *                                             PMA_mimeDefaultFunction
+     * @param string        $default_function      default transformation function
      *
-     * @return string the list of classes
+     * @return string  the list of classes
      *
      * @access  private
      *
@@ -3643,21 +3645,22 @@ class PMA_DisplayResults
     /**
      * Prepare data cell for numeric type fields
      *
-     * @param string  $column                the relevant column in data row
-     * @param string  $class                 the html class for column
-     * @param boolean $condition_field       the column should highlighted
-     *                                       or not
-     * @param object  $meta                  the meta-information about this
-     *                                       field
-     * @param array   $map                   the list of relations
-     * @param boolean $is_field_truncated    the condition for blob data
-     *                                       replacements
-     * @param array   $analyzed_sql          the analyzed query
-     * @param string  $transformation_plugin the name of transformation plugin
-     * @param string  $default_function      the default transformation function
-     * @param string  $transform_options     the transformation parameters
+     * @param string        $column                the relevant column in data row
+     * @param string        $class                 the html class for column
+     * @param boolean       $condition_field       the column should highlighted
+     *                                             or not
+     * @param object        $meta                  the meta-information about this
+     *                                             field
+     * @param array         $map                   the list of relations
+     * @param boolean       $is_field_truncated    the condition for blob data
+     *                                             replacements
+     * @param array         $analyzed_sql          the analyzed query
+     * @param object|string $transformation_plugin the name of transformation plugin
+     * @param string        $default_function      the default transformation
+     *                                             function
+     * @param string        $transform_options     the transformation parameters
      *
-     * @return  string  $cell               the prepared cell, html content
+     * @return  string  $cell the prepared cell, html content
      *
      * @access  private
      *
@@ -3825,7 +3828,7 @@ class PMA_DisplayResults
      *                                             have to be displayed
      * @param integer       $col_index             the column index
      *
-     * @return  string  $cell               the prepared data cell, html content
+     * @return  string  $cell the prepared data cell, html content
      *
      * @access  private
      *
@@ -5451,22 +5454,23 @@ class PMA_DisplayResults
      * Prepares the displayable content of a data cell in Browse mode,
      * taking into account foreign key description field and transformations
      *
-     * @param string $class                 css classes for the td element
-     * @param bool   $condition_field       whether the column is a part of the
-     *                                      where clause
-     * @param string $analyzed_sql          the analyzed query
-     * @param object $meta                  the meta-information about the field
-     * @param array  $map                   the list of relations
-     * @param string $data                  data
-     * @param string $transformation_plugin transformation plugin.
-     *                                      Can also be the default function:
-     *                                      PMA_mimeDefaultFunction
-     * @param string $default_function      default function
-     * @param string $nowrap                'nowrap' if the content should not
-     *                                      be wrapped
-     * @param string $where_comparison      data for the where clause
-     * @param array  $transform_options     array of options for transformation
-     * @param bool   $is_field_truncated    whether the field is truncated
+     * @param string        $class                 css classes for the td element
+     * @param bool          $condition_field       whether the column is a part of
+     *                                             the where clause
+     * @param string        $analyzed_sql          the analyzed query
+     * @param object        $meta                  the meta-information about the
+     *                                             field
+     * @param array         $map                   the list of relations
+     * @param string        $data                  data
+     * @param object|string $transformation_plugin transformation plugin.
+     *                                             Can also be the default function:
+     *                                             PMA_mimeDefaultFunction
+     * @param string        $default_function      default function
+     * @param string        $nowrap                'nowrap' if the content should
+     *                                             not be wrapped
+     * @param string        $where_comparison      data for the where clause
+     * @param array         $transform_options     options for transformation
+     * @param bool          $is_field_truncated    whether the field is truncated
      *
      * @return string  formatted data
      *
