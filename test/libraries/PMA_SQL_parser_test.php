@@ -66,7 +66,7 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_SQP_isKeyWord()
+    public function testPmaSqpIsKeyWord()
     {
         PMA_SQP_resetError();
         $this->assertTrue(PMA_SQP_isKeyWord("ACCESSIBLE"));
@@ -80,7 +80,7 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_SQP_typeCheck()
+    public function testPmaSqpTypeCheck()
     {
         $this->assertTrue(
             PMA_SQP_typeCheck("VARCHAR", "VARCHAR")
@@ -104,7 +104,7 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_SQP_throwError()
+    public function testPmaSqpThrowError()
     {
         global $SQP_errorString;
         $message = "error from testPMA_SQP_throwError";
@@ -335,7 +335,7 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testPMA_SQP_getAliasesFromQuery
+     * Data provider for testPmaSqpGetAliasesFromQuery
      *
      * @return array with test data
      */
@@ -424,7 +424,7 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
      * @dataProvider aliasDataProvider
      * @group medium
      */
-    public function testPMA_SQP_getAliasesFromQuery($select_query, $db, $expected)
+    public function testPmaSqpGetAliasesFromQuery($select_query, $db, $expected)
     {
         $this->assertEquals(
             $expected,

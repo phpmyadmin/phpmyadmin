@@ -767,6 +767,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
         . '</label><select id="db_alias_select">';
     $table_html = '<label class="col-2">' . __('Select table') . ': </label>';
     $first_db = true;
+    $table_input_html = $db_input_html = '';
     foreach ($databases as  $db => $tables) {
         $db = htmlspecialchars($db);
         $name_attr = 'aliases[' . $db . '][alias]';
