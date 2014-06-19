@@ -434,7 +434,6 @@ function confirmQuery(theForm1, sqlQuery1)
  */
 function checkSqlQuery(theForm)
 {
-    var sqlQuery;
     // get the textarea element containing the query
     var sqlQuery;
     if (codemirror_editor) {
@@ -3075,6 +3074,18 @@ AJAX.registerOnload('functions.js', function () {
             .closest('fieldset')
             .find('.slider')
             .slider('value');
+
+        var tempEmptyVal = function () {
+            $(this).val('');
+        };
+
+        var tempSetFocus = function () {
+            if ($(this).find("option:selected").val() === '') {
+                return true;
+            }
+            $(this).closest("tr").find("input").focus();
+        };
+
         while (rows_to_add--) {
             var $newrow = $('#index_columns')
                 .find('tbody > tr:first')
@@ -3082,16 +3093,9 @@ AJAX.registerOnload('functions.js', function () {
                 .appendTo(
                     $('#index_columns').find('tbody')
                 );
-            $newrow.find(':input').each(function () {
-                $(this).val('');
-            });
+            $newrow.find(':input').each(tempEmptyVal);
             // focus index size input on column picked
-            $newrow.find('select').change(function () {
-                if ($(this).find("option:selected").val() === '') {
-                    return true;
-                }
-                $(this).closest("tr").find("input").focus();
-            });
+            $newrow.find('select').change(tempSetFocus);
         }
     });
 });

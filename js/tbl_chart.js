@@ -116,8 +116,8 @@ function PMA_queryChart(data, columnNames, settings) {
         });
 
         var valueMap = {}, xValue, value;
-        var mainAxisName = columnNames[settings.mainAxis]
-        var valueColumnName = columnNames[settings.valueColumn]
+        var mainAxisName = columnNames[settings.mainAxis];
+        var valueColumnName = columnNames[settings.valueColumn];
         for (var i = 0; i < data.length; i++) {
             xValue = data[i][mainAxisName];
             value = valueMap[xValue];

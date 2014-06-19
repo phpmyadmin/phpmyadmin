@@ -1607,6 +1607,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 // add column visibility control
                 g.cList.innerHTML = '<div class="lDiv"></div>';
                 var $listDiv = $(g.cList).find('div');
+
+                var tempClick = function () {
+                    if (g.toggleCol($(this).index())) {
+                        g.afterToggleCol();
+                    }
+                };
+
                 for (var i = 0; i < $firstRowCols.length; i++) {
                     var currHeader = $firstRowCols[i];
                     var listElmt = document.createElement('div');
@@ -1614,11 +1621,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         .prepend('<input type="checkbox" ' + (g.colVisib[i] ? 'checked="checked" ' : '') + '/>');
                     $listDiv.append(listElmt);
                     // add event on click
-                    $(listElmt).click(function () {
-                        if (g.toggleCol($(this).index())) {
-                            g.afterToggleCol();
-                        }
-                    });
+                    $(listElmt).click(tempClick);
                 }
                 // add "show all column" button
                 var showAll = document.createElement('div');
