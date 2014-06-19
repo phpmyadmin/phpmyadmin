@@ -630,7 +630,6 @@ class PMA_DisplayResults
     ) {
 
         $table_navigation_html = '';
-        $showtable = $this->__get('showtable'); // To use in isset
 
         // here, using htmlentities() would cause problems if the query
         // contains accented characters
