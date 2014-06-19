@@ -5,6 +5,10 @@
  * @package PhpMyAdmin-test
  */
 
+require_once 'libraries/database_interface.inc.php';
+require_once 'libraries/Util.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
+
 /**
  * Tests for libraries/pmd_common.php
  *
@@ -21,6 +25,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
     public function setup()
     {
         $GLOBALS['server'] = 1;
+        $GLOBALS['controllink'] = 2;
         $_SESSION = array(
             'relation' => array(
                 '1' => array(
@@ -34,8 +39,6 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
 
         require_once 'libraries/relation.lib.php';
         require_once 'libraries/pmd_common.php';
-        require_once 'libraries/database_interface.inc.php';
-        require_once 'libraries/Util.class.php';
     }
 
 
@@ -70,6 +73,36 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
 
         PMA_getTablePositions($pg);
+    }
+
+    /**
+     * Test for PMA_getPageName()
+     *
+     * @return void
+     */
+    public function testGetPageName()
+    {
+        $pg = 1;
+        $pageName = 'pageName';
+
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->at(0))
+            ->method('fetchResult')
+            ->with("SELECT `page_descr` FROM `pmadb`.`pdf_pages` WHERE `page_nr` = " . $pg,
+                null,
+                null,
+                2,
+                PMA_DatabaseInterface::QUERY_STORE
+            )
+            ->will($this->returnValue(array($pageName)));
+        $GLOBALS['dbi'] = $dbi;
+
+        $result = PMA_getPageName($pg);
+
+        $this->assertEquals($pageName, $result);
     }
 }
 ?>
