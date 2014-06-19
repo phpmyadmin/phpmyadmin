@@ -285,7 +285,13 @@ function PMA_getPageName($pg)
         . " FROM " . PMA_Util::backquote($cfgRelation['db'])
         . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
         . " WHERE " . PMA_Util::backquote('page_nr'). " = " . $pg;
-    $page_name = $GLOBALS['dbi']->fetchResult($query);
+    $page_name = $GLOBALS['dbi']->fetchResult(
+        $query,
+        null,
+        null,
+        $GLOBALS['controllink'],
+        PMA_DatabaseInterface::QUERY_STORE
+    );
     return count($page_name) ? $page_name[0] : __("*Untitled");
 }
 
@@ -341,7 +347,13 @@ function getFirstPage($db)
         . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
         . " WHERE `db_name` = '" . $db . "'";
 
-    $min_page_no = $GLOBALS['dbi']->fetchResult($query);
+    $min_page_no = $GLOBALS['dbi']->fetchResult(
+        $query,
+        null,
+        null,
+        $GLOBALS['controllink'],
+        PMA_DatabaseInterface::QUERY_STORE
+    );
     return count($min_page_no[0]) ? $min_page_no[0] : -1;
 }
 
@@ -392,8 +404,8 @@ function saveTablePositions($pg)
         foreach ($_REQUEST['t_h'] as $key => $value) {
             list($DB, $TAB) = explode(".", $key);
             if ($value) {
-                $queury = "INSERT INTO " 
-                    . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "." 
+                $queury = "INSERT INTO "
+                    . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
                     . " (`db_name`, `table_name`, `pdf_page_number`, `x`, `y`)"
                     . " VALUES ("
