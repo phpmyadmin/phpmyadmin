@@ -108,11 +108,33 @@ class PMA_DesginerTest extends PHPUnit_Framework_TestCase
         $this->_mockDatabaseInteraction($db);
 
         $result = PMA_getHtmlForEditOrDeletePages($db, $operation);
-        $this->assertContains('<input type="hidden" name="' . $operation . '" value="edit" />', $result);
+        $this->assertContains('<input type="hidden" name="operation" value="' . $operation . '" />', $result);
         $this->assertContains('<select name="selected_page" id="selected_page">', $result);
         $this->assertContains('<option value="0">', $result);
         $this->assertContains('<option value="1">page1</option>', $result);
         $this->assertContains('<option value="2">page2</option>', $result);
+    }
+
+    /**
+     * Test for PMA_getHtmlForPageSaveAs()
+     *
+     * @return void
+     */
+    public function testGetHtmlForPageSaveAs()
+    {
+        $db = 'db';
+        $this->_mockDatabaseInteraction($db);
+
+        $result = PMA_getHtmlForPageSaveAs($db);
+        $this->assertContains('<input type="hidden" name="operation" value="save" />', $result);
+        $this->assertContains('<select name="selected_page" id="selected_page">', $result);
+        $this->assertContains('<option value="0">', $result);
+        $this->assertContains('<option value="1">page1</option>', $result);
+        $this->assertContains('<option value="2">page2</option>', $result);
+
+        $this->assertContains('<input type="radio" name="save_page" id="save_page_same" value="same" checked="checked" />', $result);
+        $this->assertContains('<input type="radio" name="save_page" id="save_page_new" value="new" />', $result);
+        $this->assertContains('<input type="text" name="selected_value" id="selected_value" />', $result);
     }
 }
 ?>
