@@ -9,6 +9,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/relation.lib.php';
+
 /**
  * Function to get html for displaying the page edit/delete form
  *
@@ -101,7 +103,7 @@ function PMA_getHtmlForPageSaveAs($db)
 
 /**
  * Retrieve IDs and names of schema pages
- * 
+ *
  * @param string $db database name
  *
  * @return array array of schema page id and names
@@ -117,7 +119,7 @@ function PMA_getPageIdsAndNames($db)
     $page_rs = PMA_queryAsControlUser(
         $page_query, false, PMA_DatabaseInterface::QUERY_STORE
     );
-    
+
     $result = array();
     while ($curr_page = $GLOBALS['dbi']->fetchAssoc($page_rs)) {
         $result[$curr_page['page_nr']] = $curr_page['page_descr'];
