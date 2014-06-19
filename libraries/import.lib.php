@@ -1343,6 +1343,8 @@ function PMA_stopImport( PMA_Message $error_message )
 
 /**
  * Handles request for Simulation of UPDATE/DELETE queries.
+ *
+ * @return void
  */
 function PMA_handleSimulateDMLRequest()
 {
@@ -1446,7 +1448,7 @@ function PMA_getMatchedRows($query, $analyzed_sql_results = array())
 /**
  * Transforms a UPDATE query into SELECT statement.
  *
- * @param array   $analyzed_sql_results Analyzed SQL results from parser.
+ * @param array $analyzed_sql_results Analyzed SQL results from parser.
  *
  * @return string SQL query
  */
@@ -1463,7 +1465,7 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
             && preg_match(
                 '/SET/i',
                 isset($term['data']) ? $term['data'] : ''
-        )
+            )
         ) {
             $get_set_expr = true;
             continue;
