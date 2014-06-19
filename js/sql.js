@@ -97,6 +97,8 @@ AJAX.registerTeardown('sql.js', function () {
     $(window).unbind('scroll');
     $(".filter_rows").die("keyup");
     $('body').off('click','a.browse_foreign');
+    $('body').off('click', '#simulate_dml');
+    $('body').off('keyup', '#sqlqueryform');
 });
 
 /**
@@ -433,6 +435,91 @@ AJAX.registerOnload('sql.js', function () {
         $target_table.find("th.dummy_th").remove();
     });
     // Filter row handling. --ENDS--
+
+    $('body').on('keyup', '#sqlqueryform', function () {
+        PMA_handleSimulateQueryButton();
+    });
+
+    /**
+     * Ajax event handler for 'Simulate DML'.
+     */
+    $('body').on('click', '#simulate_dml', function () {
+        var $form = $('#sqlqueryform');
+        var query = '';
+        var delimiter = $('#id_sql_delimiter').val();
+        var db_name = $form.find('input[name="db"]').val();
+
+        if (codemirror_editor) {
+            query = codemirror_editor.getValue();
+        } else {
+            query = $('#sqlquery').val();
+        }
+
+        if (query.length === 0) {
+            alert(PMA_messages.strFormEmpty);
+            $('#sqlquery').focus();
+            return false;
+        }
+
+        var $msgbox = PMA_ajaxShowMessage();
+        $.ajax({
+            type: 'POST',
+            url: $form.attr('action'),
+            data: {
+                token: $form.find('input[name="token"]').val(),
+                db: db_name,
+                ajax_request: '1',
+                simulate_dml: '1',
+                sql_query: query,
+                sql_delimiter: delimiter
+            },
+            success: function (response) {
+                PMA_ajaxRemoveMessage($msgbox);
+                if (response.success) {
+                    var dialog_content = '<div class="preview_sql">';
+                    if (response.sql_data) {
+                        var len = response.sql_data.length;
+                        for (var i=0; i<len; i++) {
+                            dialog_content += '<strong>' + PMA_messages.strSQLQuery +
+                                '</strong>' + response.sql_data[i].sql_query +
+                                PMA_messages.strMatchedRows +
+                                ' <a href="' + response.sql_data[i].matched_rows_url +
+                                '">' + response.sql_data[i].matched_rows + '</a><br>';
+                            if (i<len-1) {
+                                dialog_content += '<hr>';
+                            }
+                        }
+                    } else {
+                        dialog_content += response.message;
+                    }
+                    dialog_content += '</div>';
+                    $dialog_content = $(dialog_content);
+                    var button_options = {};
+                    button_options[PMA_messages.strClose] = function () {
+                        $(this).dialog('close');
+                    };
+                    var $response_dialog = $('<div />').append($dialog_content).dialog({
+                        minWidth: 540,
+                        maxHeight: 400,
+                        modal: true,
+                        buttons: button_options,
+                        title: PMA_messages.strSimulateDML,
+                        open: function () {
+                            PMA_highlightSQL($(this));
+                        },
+                        close: function () {
+                            $(this).remove();
+                        }
+                    });
+                } else {
+                    PMA_ajaxShowMessage(response.error);
+                }
+            },
+            error: function (response) {
+                PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest);
+            }
+        });
+    });
 }); // end $()
 
 /**
