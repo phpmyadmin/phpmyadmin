@@ -1,6 +1,10 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.2.4.0 (not yet released)
+- bug #4464 [security] XSS injection due to unescaped db/table name in navigation hiding
+- bug #4465 [security] XSS injection due to unescaped db/table name in recent/favorite tables
+
 4.2.3.0 (not yet released)
 - bug #4423 Moving fields not working
 - bug #4424 Table indexes disappear after altering field
