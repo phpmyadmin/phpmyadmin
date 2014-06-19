@@ -634,7 +634,14 @@ function PMA_getHtmlForExportOptionsOutput($export_type)
     $html  = '<div class="exportoptions" id="output">';
     $html .= '<h3>' . __('Output:') . '</h3>';
     $html .= '<ul id="ul_output">';
-    $html .= '<li><input type="checkbox" id="btn_alias_config"/>';
+    $html .= '<li><input type="checkbox" id="btn_alias_config" ';
+    if (isset($_SESSION['tmpval']['aliases'])
+        && !PMA_emptyRecursive($_SESSION['tmpval']['aliases'])
+    ) {
+        $html .= 'checked="checked"';
+    }
+    unset($_SESSION['tmpval']['aliases']);
+    $html .= '/>';
     $html .= '<label for="btn_alias_config">';
     $html .= __('Rename exported databases/tables/columns');
     $html .= '</label></li>';
@@ -727,6 +734,9 @@ function PMA_getHtmlForExportOptions(
  */
 function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
 {
+    if (isset($_SESSION['tmpval']['aliases'])) {
+        $aliases = $_SESSION['tmpval']['aliases'];
+    }
     // In case of server export, the following list of
     // databases are not shown in the list.
     $dbs_not_allowed = array(
@@ -769,6 +779,10 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
     $first_db = true;
     $table_input_html = $db_input_html = '';
     foreach ($databases as  $db => $tables) {
+        $val = '';
+        if (!empty($aliases[$db]['alias'])) {
+            $val = htmlspecialchars($aliases[$db]['alias']);
+        }
         $db = htmlspecialchars($db);
         $name_attr = 'aliases[' . $db . '][alias]';
         $id_attr = substr(md5($name_attr), 0, 12);
@@ -781,7 +795,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
         }
         $db_input_html .= '<input type="text" name="' . $name_attr . '" '
             . 'placeholder="' . $db . ' alias" class="' . $class . '" '
-            . 'id="' . $id_attr . '"/>';
+            . 'id="' . $id_attr . '" value="' . $val . '"/>';
         $db_html .= '<option value="' . $id_attr . '">' . $db . '</option>';
         $table_html .= '<span id="' . $id_attr . '_tables" class="' . $class . '">';
         $table_html .= '<select id="' . $id_attr . '_tables_select" '
@@ -789,6 +803,10 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
         $first_tbl = true;
         $col_html = '';
         foreach ($tables as $table => $columns) {
+            $val = '';
+            if (!empty($aliases[$db]['tables'][$table]['alias'])) {
+                $val = htmlspecialchars($aliases[$db]['tables'][$table]['alias']);
+            }
             $table = htmlspecialchars($table);
             $name_attr =  'aliases[' . $db . '][tables][' . $table . '][alias]';
             $id_attr = substr(md5($name_attr), 0, 12);
@@ -799,7 +817,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
                 $table_input_html = '<label class="col-2" for="' . $id_attr . '">'
                     . __('New table name') . ': </label>';
             }
-            $table_input_html .= '<input type="text" '
+            $table_input_html .= '<input type="text" value="' . $val . '" '
                 . 'name="' . $name_attr . '" id="' . $id_attr . '" '
                 . 'placeholder="' . $table . ' alias" class="' . $class . '"/>';
             $table_html .= '<option value="' . $id_attr . '">'
@@ -810,6 +828,12 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
                 . '<th>' . __('New column name') . '</th></tr></thead><tbody>';
             $class = 'odd';
             foreach ($columns as $column => $col_def) {
+                $val = '';
+                if (!empty($aliases[$db]['tables'][$table]['columns'][$column])) {
+                    $val = htmlspecialchars(
+                        $aliases[$db]['tables'][$table]['columns'][$column]
+                    );
+                }
                 $column = htmlspecialchars($column);
                 $name_attr = 'aliases[' . $db . '][tables][' . $table
                     . '][columns][' . $column . ']';
@@ -819,7 +843,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
                     . '</label></th>';
                 $col_html .= '<td><input type="text" name="' . $name_attr . '" '
                     . 'id="' . $id_attr . '" placeholder="'
-                    . $column . ' alias" /></td>';
+                    . $column . ' alias" value="' . $val . '"/></td>';
                 $col_html .= '</tr>';
                 $class = $class === 'odd' ? 'even' : 'odd';
             }

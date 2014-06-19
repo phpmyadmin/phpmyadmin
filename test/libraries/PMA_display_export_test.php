@@ -343,7 +343,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         $id_attr = substr(md5($name_attr), 0, 12);
 
         $this->assertContains(
-            '<input type="text" name="' . $name_attr . '" '
+            '<input type="text" value="" name="' . $name_attr . '" '
             . 'id="' . $id_attr . '" placeholder="'
             . 'test_&lt;b&gt;table alias" class=""/>',
             $html

@@ -251,6 +251,7 @@ if (!defined('TESTSUITE')) {
             PMA_SQP_getAliasesFromQuery($sql_query, $db),
             $_REQUEST['aliases']
         );
+        $_SESSION['tmpval']['aliases'] = $_REQUEST['aliases'];
     } else {
         $aliases = PMA_SQP_getAliasesFromQuery($sql_query, $db);
     }
