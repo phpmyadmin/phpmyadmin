@@ -91,7 +91,8 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->at(0))
             ->method('fetchResult')
-            ->with("SELECT `page_descr` FROM `pmadb`.`pdf_pages` WHERE `page_nr` = " . $pg,
+            ->with(
+                "SELECT `page_descr` FROM `pmadb`.`pdf_pages` WHERE `page_nr` = " . $pg,
                 null,
                 null,
                 2,
@@ -103,6 +104,75 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
         $result = PMA_getPageName($pg);
 
         $this->assertEquals($pageName, $result);
+    }
+
+    /**
+     * Test for PMA_deletePage()
+     *
+     * @return void
+     */
+    public function testDeletePage()
+    {
+        $pg = 1;
+
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->at(0))
+            ->method('query')
+            ->with(
+                "DELETE FROM `pmadb`.`table_coords` WHERE `pdf_page_number` = " . $pg,
+                2,
+                PMA_DatabaseInterface::QUERY_STORE,
+                false
+            )
+            ->will($this->returnValue(true));
+
+        $dbi->expects($this->at(1))
+            ->method('query')
+            ->with(
+                "DELETE FROM `pmadb`.`pdf_pages` WHERE `page_nr` = " . $pg,
+                2,
+                PMA_DatabaseInterface::QUERY_STORE,
+                false
+            )
+            ->will($this->returnValue(true));
+        $GLOBALS['dbi'] = $dbi;
+
+        $result = PMA_deletePage($pg);
+        $this->assertEquals(true, $result);
+    }
+
+    /**
+     * Test for PMA_getFirstPage()
+     *
+     * @return void
+     */
+    public function testGetFirstPage()
+    {
+        $db = 'db';
+        $pg = '1';
+
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->at(0))
+            ->method('fetchResult')
+            ->with(
+                "SELECT MIN(`page_nr`) FROM `pmadb`.`pdf_pages` WHERE `db_name` = '" . $db . "'",
+                null,
+                null,
+                2,
+                PMA_DatabaseInterface::QUERY_STORE
+            )
+            ->will($this->returnValue(array($pg)));
+        $GLOBALS['dbi'] = $dbi;
+
+        $result = PMA_getFirstPage($db);
+
+        $this->assertEquals($pg, $result);
     }
 }
 ?>

@@ -309,7 +309,7 @@ function PMA_deletePage($pg)
         return null;
     }
 
-    $query = " DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
+    $query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
              . "." . PMA_Util::backquote($cfgRelation['table_coords'])
              . " WHERE " . PMA_Util::backquote('pdf_page_number'). " = " . $pg;
     $success = PMA_queryAsControlUser(
@@ -335,7 +335,7 @@ function PMA_deletePage($pg)
  *
  * @return int id of the first pdf page, default is -1
  */
-function getFirstPage($db)
+function PMA_getFirstPage($db)
 {
     $cfgRelation = PMA_getRelationsParam();
     if (! $cfgRelation['pdfwork']) {
@@ -364,7 +364,7 @@ function getFirstPage($db)
  *
  * @return int|null
  */
-function createNewPage($pageName)
+function PMA_createNewPage($pageName)
 {
     $cfgRelation = PMA_getRelationsParam();
     if ($cfgRelation['pdfwork']) {
@@ -386,7 +386,7 @@ function createNewPage($pageName)
  *
  * @return boolean success/failure
  */
-function saveTablePositions($pg)
+function PMA_saveTablePositions($pg)
 {
     $cfgRelation = PMA_getRelationsParam();
     if (! $cfgRelation['pdfwork']) {

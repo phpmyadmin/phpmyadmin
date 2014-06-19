@@ -49,10 +49,10 @@ if (isset($_REQUEST['operation'])) {
         if ($_REQUEST['save_page'] == 'same') {
             $page = $_REQUEST['selected_page'];
         } elseif ($_REQUEST['save_page'] == 'new') {
-            $page = createNewPage($_REQUEST['selected_value']);
+            $page = PMA_createNewPage($_REQUEST['selected_value']);
             $response->addJSON('id', $page);
         }
-        if (saveTablePositions($page)) {
+        if (PMA_saveTablePositions($page)) {
             $response->isSuccess(true);
         } else {
             $response->isSuccess(false);
@@ -63,7 +63,7 @@ if (isset($_REQUEST['operation'])) {
     if (! empty($_REQUEST['page'])) {
         $display_page = $_REQUEST['page'];
     } else {
-        $display_page = getFirstPage($_REQUEST['db']);
+        $display_page = PMA_getFirstPage($_REQUEST['db']);
     }
 }
 

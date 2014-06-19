@@ -31,7 +31,7 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
-saveTablePositions($_REQUEST['selected_page']);
+PMA_saveTablePositions($_REQUEST['selected_page']);
 
 /**
  * Error handler
