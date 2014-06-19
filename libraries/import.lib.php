@@ -1427,7 +1427,7 @@ function PMA_getMatchedRows($query, $analyzed_sql_results = array())
         $matched_row_query = PMA_getSimulatedUpdateQuery($analyzed_sql_results);
     }
 
-    // Execute the query.
+    // Execute the query and get the number of matched rows.
     $matched_rows = PMA_executeMatchedRowQuery($matched_row_query);
     // URL to matched rows.
     $_url_params = array(
