@@ -17,6 +17,8 @@ phpMyAdmin - ChangeLog
 - bug #4450 Query is duplicated on Ctrl+Enter
 + rfe #755  Export with table/column name changes
 
+4.2.5.0 (not yet released)
+
 4.2.4.0 (not yet released)
 - bug #4449 Mediawiki export does not produce table header row; also fix related PHP warnings
 - bug #4442 New lines are added to query every time
