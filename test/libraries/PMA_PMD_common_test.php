@@ -37,8 +37,8 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
             )
         );
 
-        require_once 'libraries/relation.lib.php';
-        require_once 'libraries/pmd_common.php';
+        include_once 'libraries/relation.lib.php';
+        include_once 'libraries/pmd_common.php';
     }
 
 
@@ -92,7 +92,8 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
         $dbi->expects($this->at(0))
             ->method('fetchResult')
             ->with(
-                "SELECT `page_descr` FROM `pmadb`.`pdf_pages` WHERE `page_nr` = " . $pg,
+                "SELECT `page_descr` FROM `pmadb`.`pdf_pages`"
+                . " WHERE `page_nr` = " . $pg,
                 null,
                 null,
                 2,
@@ -122,7 +123,8 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
         $dbi->expects($this->at(0))
             ->method('query')
             ->with(
-                "DELETE FROM `pmadb`.`table_coords` WHERE `pdf_page_number` = " . $pg,
+                "DELETE FROM `pmadb`.`table_coords`"
+                . " WHERE `pdf_page_number` = " . $pg,
                 2,
                 PMA_DatabaseInterface::QUERY_STORE,
                 false
@@ -161,7 +163,8 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
         $dbi->expects($this->at(0))
             ->method('fetchResult')
             ->with(
-                "SELECT MIN(`page_nr`) FROM `pmadb`.`pdf_pages` WHERE `db_name` = '" . $db . "'",
+                "SELECT MIN(`page_nr`) FROM `pmadb`.`pdf_pages`"
+                . " WHERE `db_name` = '" . $db . "'",
                 null,
                 null,
                 2,
