@@ -14,6 +14,8 @@ phpMyAdmin - ChangeLog
 - bug       Missing warning about existing account, on multi-server config
 - bug #4435 WHERE clause can be undefined
 - bug       SQL export views as tables option getting ignored
+- bug #4464 [security] XSS injection due to unescaped db/table name in navigation hiding
+- bug #4465 [security] XSS injection due to unescaped db/table name in recent/favorite tables
 
 4.2.3.0 (2014-06-08)
 - bug #4423 Moving fields not working
