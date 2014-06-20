@@ -74,6 +74,11 @@ if (! empty($sql_query)) {
     $import_type = 'query';
     $format = 'sql';
 
+    // If there is a request to ROLLBACK when finished.
+    if (isset($_REQUEST['rollback_query'])) {
+        PMA_handleRollbackRequest($import_text);
+    }
+
     // refresh navigation and main panels
     if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
         $GLOBALS['reload'] = true;
@@ -674,5 +679,10 @@ if ($go_sql) {
 } else {
     $active_page = $goto;
     include '' . $goto;
+}
+
+// If there is request for ROLLBACK in the end.
+if (isset($_REQUEST['rollback_query'])) {
+    $GLOBALS['dbi']->query('ROLLBACK');
 }
 ?>

@@ -262,6 +262,11 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
 
     // Do we have something to push into buffer?
     $import_run_buffer = PMA_ImportRunQuery_post($import_run_buffer, $sql, $full);
+
+    // In case of ROLLBACK, notify the user.
+    if (isset($_REQUEST['rollback_query'])) {
+        $msg .= __('[ROLLBACK occured.]');
+    }
 }
 
 /**
@@ -1463,7 +1468,7 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
     foreach ($analyzed_sql_results['parsed_sql'] as $key => $term) {
         if (! isset($get_set_expr)
             && preg_match(
-                '/SET/i',
+                '/\bSET\b/i',
                 isset($term['data']) ? $term['data'] : ''
             )
         ) {
@@ -1473,7 +1478,7 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
 
         if (isset($get_set_expr)) {
             if (preg_match(
-                '/WHERE|ORDER BY|LIMIT/i',
+                '/\bWHERE\b|\bORDER BY\b|\bLIMIT\b/i',
                 isset($term['data']) ? $term['data'] : ''
             )
             ) {
@@ -1558,7 +1563,9 @@ function PMA_getSimulatedDeleteQuery($analyzed_sql_results)
 }
 
 /**
- * Finds table_references from a given UPDATE/DELETE query.
+ * Finds table_references from a given query.
+ * Queries Supported: INSERT, UPDATE, DELETE, REPLACE, ALTER, DROP, TRUNCATE
+ *                    and RENAME.
  *
  * @param array $analyzed_sql_results Analyzed SQL results from parser
  *
@@ -1568,25 +1575,80 @@ function PMA_getTableReferences($analyzed_sql_results)
 {
     $table_references = '';
     foreach ($analyzed_sql_results['parsed_sql'] as $key => $term) {
+        // Skip first KeyWord and other invalid keys.
+        if ($key == 0 || ! isset($term['data'])) {
+            continue;
+        }
 
-        if (preg_match(
-            '/WHERE|SET/i',
-            isset($term['data']) ? $term['data'] : ''
-        )
+        // Get the query type.
+        $query_type = (isset($analyzed_sql_results['analyzed_sql'][0]['querytype']))
+            ? $analyzed_sql_results['analyzed_sql'][0]['querytype']
+            : '';
+
+        // Terms to 'ignore' from query for table_references.
+        $ignore_re = '/';
+        // Terminating condition for table_references.
+        $terminate_re = '/';
+
+        // Create relevant Regular Expressions.
+        switch ($query_type) {
+        case 'REPLACE':
+        case 'INSERT':
+            $ignore_re .= '\bINSERT\b|\bREPLACE\b|\bLOW_PRIORITY\b|\bDELAYED\b'
+                . '|\bHIGH_PRIORITY\b|\bIGNORE\b|\bINTO\b';
+            $terminate_re .= '\bPARTITION\b|\(|\bVALUE\b|\bVALUES\b|\bSELECT\b';
+            break;
+        case 'UPDATE':
+            $ignore_re .= '\bUPDATE\b|\bLOW_PRIORITY\b|\bIGNORE\b';
+            $terminate_re .= '\bSET\b|\bUSING\b';
+            break;
+        case 'DELETE':
+            $ignore_re .= '\bDELETE\b|\bLOW_PRIORITY\b|\bQUICK\b|\bIGNORE\b'
+                . '|\bFROM\b';
+            $terminate_re .= '\bPARTITION\b|\bWHERE\b|\bORDER\b|\bLIMIT\b|\bUSING\b';
+            break;
+        case 'ALTER':
+            $ignore_re .= '\bALTER\b|\bONLINE\b|\bOFFLINE\b|\bIGNORE\b|\bTABLE\b';
+            $terminate_re .= '\bADD\b|\bALTER\b|\bCHANGE\b|\bMODIFY\b|\bDROP\b'
+                . '|\bDISABLE\b|\bENABLE\b|\bRENAME\b|\bORDER\b|\bCONVERT\b'
+                . '|\bDEFAULT\b|\bDISCARD\b|\bIMPORT\b|\bCOALESCE\b|\bREORGANIZE\b'
+                . '|\bANALYZE\b|\bCHECK\b|\bOPTIMIZE\b|\bREBUILD\b|\bREPAIR\b'
+                . '|\bPARTITION\b|\bREMOVE\b|\bCHARACTER\b';
+            break;
+        case 'DROP':
+            $ignore_re .= '\bDROP\b|\bTEMPORARY\b|\bTABLE\b|\bIF\b|\bEXISTS\b';
+            $terminate_re .= '\bRESTRICT\b|\bCASCADE\b';
+            break;
+        case 'TRUNCATE':
+            $ignore_re .= '\bTRUNCATE\b|\bTABLE\b';
+            $terminate_re .= '';
+            break;
+        case 'RENAME':
+            $ignore_re .= '\bRENAME\b|\bTABLE\b';
+            $terminate_re .= '\bTO\b';
+            break;
+        default:
+            return false;
+        }
+
+        // Ignore 'case' in RegEx.
+        $ignore_re .= '/i';
+        $terminate_re .= '/i';
+
+        if ($query_type != 'TRUNCATE'
+            && preg_match($terminate_re, $term['data'])
         ) {
             break;
         }
 
-        if (preg_match(
-            '/UPDATE|DELETE|LOW_PRIORITY|QUICK|IGNORE|FROM/i',
-            isset($term['data']) ? $term['data'] : ''
-        )
+        if (preg_match($ignore_re, $term['data'])
             || ! is_numeric($key)
+            || $key == 0
         ) {
             continue;
         }
 
-        $table_references .= ' ' . isset($term['data']) ? $term['data'] : '';
+        $table_references .= ' ' . $term['data'];
     }
 
     return $table_references;
@@ -1608,5 +1670,246 @@ function PMA_executeMatchedRowQuery($matched_row_query)
     $result = $GLOBALS['dbi']->numRows($result);
 
     return $result;
+}
+
+/**
+ * Extracts unique table names from table_references.
+ *
+ * @param string $table_references table_references
+ *
+ * @return array $table_names
+ */
+function PMA_getTableNamesFromTableReferences($table_references)
+{
+    $table_names = array();
+    $parsed_data = PMA_SQP_parse($table_references);
+
+    $prev_term = array(
+        'data' => '',
+        'type' => ''
+    );
+    $on_encountered = false;
+    $qualifier_encountered = false;
+    $i = 0;
+    foreach ($parsed_data as $key => $term) {
+        // To skip first 'raw' key and other invalid keys.
+        if (! is_numeric($key)
+            || ! isset($term['data'])
+            || ! isset($term['type'])
+        ) {
+            continue;
+        }
+
+        $add_to_table_names = true;
+
+        // Un-quote the data, if any.
+        if ($term['type'] == 'quote_backtick') {
+            $term['data'] = PMA_Util::unQuote($term['data']);
+            $term['type'] = 'alpha_identifier';
+        }
+
+        // New table name expected after 'JOIN' keyword.
+        if (preg_match('/\bJOIN\b/i', $term['data'])) {
+            $on_encountered = false;
+        }
+
+        // If term is a qualifier, set flag.
+        if ($term['type'] == 'punct_qualifier') {
+            $qualifier_encountered = true;
+        }
+
+        // Skip the JOIN conditions after 'ON' keyword.
+        if (preg_match('/\bON\b/i', $term['data'])) {
+            $on_encountered = true;
+        }
+
+        // If the word is not an 'identifier', skip it.
+        if ($term['type'] != 'alpha_identifier') {
+            $add_to_table_names = false;
+        }
+
+        // Skip table 'alias'.
+        if (preg_match('/\bAS\b/i', $prev_term['data'])
+            || $prev_term['type'] == 'alpha_identifier'
+        ) {
+            $add_to_table_names = false;
+        }
+
+        // Everything fine upto now, add name to list if 'unique'.
+        if ($add_to_table_names
+            && ! $on_encountered
+            && ! in_array($term['data'], $table_names)
+        ) {
+            if (! $qualifier_encountered) {
+                $table_names[] = PMA_Util::backquote($term['data']);
+                $i++;
+            } else {
+                // If qualifier encountered, concatenate DB name and table name.
+                $table_names[$i-1] = $table_names[$i-1]
+                    . '.'
+                    . PMA_Util::backquote($term['data']);
+                $qualifier_encountered = false;
+            }
+        }
+
+        // Update previous term.
+        $prev_term = $term;
+    }
+
+    return $table_names;
+}
+
+/**
+ * Handles request for ROLLBACK.
+ *
+ * @param string $sql_query SQL query(s)
+ *
+ * @return void
+ */
+function PMA_handleRollbackRequest($sql_query)
+{
+    $sql_delimiter = $_REQUEST['sql_delimiter'];
+    $queries = explode($sql_delimiter, $sql_query);
+    $error = false;
+    $error_msg = __('Only INSERT, UPDATE, DELETE and REPLACE '
+        . 'SQL queries containing transactional engine tables can be rolled back.'
+    );
+    foreach ($queries as $sql_query) {
+        if (empty($sql_query)) {
+            continue;
+        }
+
+        // Check each query for ROLLBACK support.
+        if (! PMA_checkIfRollbackPossible($sql_query)) {
+            $global_error = $GLOBALS['dbi']->getError();
+            if ($global_error) {
+                $error = $global_error;
+            } else {
+                $error = $error_msg;
+            }
+            break;
+        }
+    }
+
+    if ($error) {
+        unset($_REQUEST['rollback_query']);
+        $response = PMA_Response::getInstance();
+        $message = PMA_Message::rawError($error);
+        $response->addJSON('message', $message);
+        exit;
+    } else {
+        // If everything fine, START a transaction.
+        $GLOBALS['dbi']->query('START TRANSACTION');
+    }
+}
+
+/**
+ * Checks if ROLLBACK is possible for a SQL query or not.
+ *
+ * @param string $sql_query SQL query
+ *
+ * @return bool
+ */
+function PMA_checkIfRollbackPossible($sql_query)
+{
+    // Suppoerted queries.
+    $supported_queries = array(
+        'INSERT',
+        'UPDATE',
+        'DELETE',
+        'REPLACE'
+    );
+
+    // Parse and Analyze the query.
+    $parsed_sql = PMA_SQP_parse($sql_query);
+    $analyzed_sql = PMA_SQP_analyze($parsed_sql);
+    $analyzed_sql_results = array(
+        'parsed_sql' => $parsed_sql,
+        'analyzed_sql' => $analyzed_sql
+    );
+
+    // Get the query type.
+    $query_type = (isset($analyzed_sql_results['analyzed_sql'][0]['querytype']))
+        ? $analyzed_sql_results['analyzed_sql'][0]['querytype']
+        : '';
+
+    // Check if query is supported.
+    if (! in_array($query_type, $supported_queries)) {
+        return false;
+    }
+
+    // Get table_references from the query.
+    $table_references = PMA_getTableReferences($analyzed_sql_results);
+
+    // Get table names from table_references.
+    $tables = PMA_getTableNamesFromTableReferences($table_references);
+
+    // Check if each table is 'InnoDB'.
+    foreach ($tables as $table) {
+        if (! PMA_isTableTransactional($table)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+/**
+ * Checks if a table is 'InnoDB' or not.
+ *
+ * @param string $table Table details
+ *
+ * @return bool
+ */
+function PMA_isTableTransactional($table)
+{
+    $db = '';
+    $table = explode('.', $table);
+    if (count($table) == 2) {
+        $db = PMA_Util::unQuote($table[0]);
+        $table = PMA_Util::unQuote($table[1]);
+    } else {
+        $db = $GLOBALS['db'];
+        $table = PMA_Util::unQuote($table[0]);
+    }
+
+    // Query to check if table exists.
+    $check_table_query = 'SELECT * FROM ' . PMA_Util::backquote($db)
+        . '.' . PMA_Util::backquote($table) . ' '
+        . 'LIMIT 1';
+
+    $result = $GLOBALS['dbi']->tryQuery($check_table_query);
+
+    if (! $result) {
+        return false;
+    }
+
+    // List of Transactional Engines.
+    $transactional_engines = array(
+        'INNODB',
+        'FALCON',
+        'NDB',
+        'INFINIDB',
+        'TOKUDB',
+        'XTRADB',
+        'SEQUENCE',
+        'BDB'
+    );
+
+    // Query to check if table is 'Transactional'.
+    $check_query = 'SELECT `ENGINE` FROM `information_schema`.`tables` '
+        . 'WHERE `table_name` = "' . $table . '" '
+        . 'AND `table_schema` = "' . $db . '" '
+        . 'AND UPPER(`engine`) IN ("'
+        . implode('", "', $transactional_engines)
+        . '")';
+
+    $result = $GLOBALS['dbi']->tryQuery($check_query);
+
+    if ($GLOBALS['dbi']->numRows($result) == 1) {
+        return true;
+    } else {
+        return false;
+    }
 }
 ?>
