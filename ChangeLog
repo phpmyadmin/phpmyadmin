@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.2.4.0 (not yet released)
+4.2.4.0 (2014-06-20)
 - bug #4449 Mediawiki export does not produce table header row; also fix related PHP warnings
 - bug #4442 New lines are added to query every time
 - bug #4445 Fatal error on SQL Export of join query
