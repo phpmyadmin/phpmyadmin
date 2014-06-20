@@ -189,9 +189,9 @@ class PMA_Navigation
                         $html .= '<td style="width:80px"><a href="navigation.php?'
                             . PMA_URL_getCommon()
                             . '&unhideNavItem=true'
-                            . '&itemType=' . $t
-                            . '&itemName=' . urldecode($hiddenItem)
-                            . '&dbName=' . urldecode($dbName) . '"'
+                            . '&itemType=' . urlencode($t)
+                            . '&itemName=' . urlencode($hiddenItem)
+                            . '&dbName=' . urlencode($dbName) . '"'
                             . ' class="unhideNavItem ajax">'
                             . PMA_Util::getIcon('lightbulb.png', __('Show'))
                             .  '</a></td>';
