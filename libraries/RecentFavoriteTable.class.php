@@ -96,7 +96,7 @@ class PMA_RecentFavoriteTable
     /**
      * Returns the recent/favorite tables array
      *
-     * @return array 
+     * @return array
      */
     public function getTables()
     {
@@ -203,36 +203,47 @@ class PMA_RecentFavoriteTable
             if ($this->_tableType == 'recent') {
                 foreach ($this->_tables as $table) {
                     $html .= '<li class="warp_link">';
-                    $html .= '<a href="sql.php?server=' . $GLOBALS['server']
-                          . '&db=' . $table['db']
-                          . '&table=' . $table['table']
-                          . '&token=' . $_SESSION[' PMA_token ']
-                          . '">`' . $table['db'] . '`.`' . $table['table'] . '`</a>';
+                    $recent_params = array(
+                        'db'    => $table['db'],
+                        'table' => $table['table']
+                    );
+                    $recent_url = 'sql.php'
+                        . PMA_URL_getCommon($recent_params);
+                    $html .= '<a href="' . $recent_url . '">`'
+                          . htmlspecialchars($table['db']) . '`.`'
+                          . htmlspecialchars($table['table']) . '`</a>';
                     $html .= '</li>';
                 }
             } else {
                 foreach ($this->_tables as $table) {
                     $html .= '<li class="warp_link">';
 
-                    $html .= '<a class="ajax favorite_table_anchor"';
-                    $fav_params = array('db' => $table['db'],
-                        'ajax_request' => true,
-                        'favorite_table' => $table['table'],
-                        'remove_favorite' => true);
+                    $html .= '<a class="ajax favorite_table_anchor" ';
+                    $fav_params = array(
+                        'db'              => $table['db'],
+                        'ajax_request'    => true,
+                        'favorite_table'  => $table['table'],
+                        'remove_favorite' => true
+                    );
                     $fav_rm_url = 'db_structure.php'
                         . PMA_URL_getCommon($fav_params);
                     $html .= 'href="' . $fav_rm_url
                         . '" title="' . __("Remove from Favorites")
-                        . '" data-favtargetn="' . $table['db'] . "." . $table['table']
+                        . '" data-favtargetn="'
+                        . md5($table['db'] . "." . $table['table'])
                         . '" >'
                         . PMA_Util::getIcon('b_favorite.png')
                         . '</a>';
 
-                    $html .= '<a href="sql.php?server=' . $GLOBALS['server']
-                          . '&db=' . $table['db']
-                          . '&table=' . $table['table']
-                          . '&token=' . $_SESSION[' PMA_token ']
-                          . '">`' . $table['db'] . '`.`' . $table['table'] . '`</a>';
+                    $fav_params = array(
+                        'db'    => $table['db'],
+                        'table' => $table['table']
+                    );
+                    $table_url = 'sql.php'
+                        . PMA_URL_getCommon($fav_params);
+                    $html .= '<a href="' . $table_url . '">`'
+                        . htmlspecialchars($table['db']) . '`.`'
+                        . htmlspecialchars($table['table']) . '`</a>';
                     $html .= '</li>';
                 }
             }
