@@ -2039,9 +2039,9 @@ class PMA_DisplayResults
         foreach ($sort_expression_nodirection as $index => $clause) {
             if (strpos($clause, '.') !== false) {
                 $fragments = explode('.', $clause);
-                $clause2 = $fragments[0] . "." . str_replace('`', ``, $fragments[1]);
+                $clause2 = $fragments[0] . "." . str_replace('`', '', $fragments[1]);
             } else {
-                $clause2 = $sort_tbl . str_replace('`', ``, $clause);
+                $clause2 = $sort_tbl . str_replace('`', '', $clause);
             }
             if ($clause2 === $sort_tbl . $name_to_use_in_sort) {
                 $index_in_expression = $index;
