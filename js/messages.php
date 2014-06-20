@@ -132,6 +132,8 @@ $js_messages['strAddOneSeriesWarning'] = __('Please add at least one variable to
 $js_messages['strNone'] = __('None');
 $js_messages['strResumeMonitor'] = __('Resume monitor');
 $js_messages['strPauseMonitor'] = __('Pause monitor');
+$js_messages['strStartRefresh'] = __('Start auto refresh');
+$js_messages['strStopRefresh'] = __('Stop auto refresh');
 /* Monitor: Instructions Dialog */
 $js_messages['strBothLogOn'] = __('general_log and slow_query_log are enabled.');
 $js_messages['strGenLogOn'] = __('general_log is enabled.');

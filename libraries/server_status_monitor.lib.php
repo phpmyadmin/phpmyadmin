@@ -56,36 +56,6 @@ function PMA_getHtmlForMonitor($ServerStatusData)
 }
 
 /**
- * Builds a <select> list for refresh rates
- *
- * @param string $name         Name of select
- * @param int    $defaultRate  Currently chosen rate
- * @param array  $refreshRates List of refresh rates
- *
- * @return string
- */
-function PMA_getHtmlForRefreshList($name,
-    $defaultRate = 5,
-    $refreshRates = Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)
-) {
-    $return = '<select name="' . $name . '" id="id_' . $name
-        . '" class="refreshRate">';
-    foreach ($refreshRates as $rate) {
-        $selected = ($rate == $defaultRate)?' selected="selected"':'';
-        $return .= '<option value="' . $rate . '"' . $selected . '>';
-        if ($rate < 60) {
-            $return .= sprintf(_ngettext('%d second', '%d seconds', $rate), $rate);
-        } else {
-            $rate = $rate / 60;
-            $return .= sprintf(_ngettext('%d minute', '%d minutes', $rate), $rate);
-        }
-        $return .=  '</option>';
-    }
-    $return .= '</select>';
-    return $return;
-}
-
-/**
  * Returns html for Analyse Dialog
  *
  * @return string
@@ -328,7 +298,7 @@ function PMA_getHtmlForSettingsDialog()
     $retval .= '<div class="clearfloat paddingtop"></div>';
     $retval .= '<div class="floatleft">';
     $retval .= __('Refresh rate') . '<br />';
-    $retval .= PMA_getHtmlForRefreshList(
+    $retval .= PMA_ServerStatusData::getHtmlForRefreshList(
         'gridChartRefresh',
         5,
         Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)
