@@ -298,15 +298,14 @@ Todo now:
         - the -all-languages.tar.gz file is the default for Solaris
         - the -all-languages.tar.bz2 file is the default for Mac OS X, Linux and BSD
  5. add SF news item to phpMyAdmin project
- 6. announce release on freecode (http://freecode.com/projects/phpmyadmin/)
- 7. send a short mail (with list of major changes) to
+ 6. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
         phpmyadmin-news@lists.sourceforge.net
 
     Don't forget to update the Description section in the announcement,
     based on documentation.
 
- 8. increment rc count or version in the repository :
+ 7. increment rc count or version in the repository :
         - in libraries/Config.class.php PMA_Config::__constructor() the line
               " \$this->set( 'PMA_VERSION', '2.7.1-dev' ); "
         - in Documentation.html (if it exists) the 2 lines
@@ -315,14 +314,14 @@ Todo now:
         - in doc/conf.py (if it exists) the line
               " version = '2.7.1-dev' "
 
- 9. add a milestone for this new version in the bugs tickets, at https://sourceforge.net/p/phpmyadmin/bugs/milestones
+ 8. add a milestone for this new version in the bugs tickets, at https://sourceforge.net/p/phpmyadmin/bugs/milestones
 
-10. send a private twitter message to @phpmya, containing a short version of the announcement
+ 9. send a private twitter message to @phpmya, containing a short version of the announcement
 
-11. update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
+10. update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
 
-12. in case of a new major release, update the render.py in website repository to include the new major releases
+11. in case of a new major release, update the render.py in website repository to include the new major releases
 
-13. the end :-)
+12. the end :-)
 
 END
