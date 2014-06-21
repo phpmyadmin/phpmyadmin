@@ -719,7 +719,7 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
         . '" class="ajax real_row_count">' . $row_count . '</a>'
         : $row_count;
     $html_output .= '<td class="value tbl_rows" data-table="'
-        . $current_table['TABLE_NAME'] . '">'
+        . htmlspecialchars($current_table['TABLE_NAME']) . '">'
         . $cell_text
         . $show_superscript
         . '</td>';
