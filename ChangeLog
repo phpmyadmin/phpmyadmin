@@ -112,6 +112,9 @@ phpMyAdmin - ChangeLog
 - bug #4070 Confusing database/table grouping
 - bug #4366 Creating Index doesn't update index-list
 
+4.1.14.1 (2014-06-21)
+- bug #4464 [security] XSS injection due to unescaped db/table name in navigation hiding
+
 4.1.14.0 (2014-04-26)
 - bug #4365 Creating bookmark with multiple queries not working
 - bug #4375 Group two DB, one's name is the prefix of the other one
