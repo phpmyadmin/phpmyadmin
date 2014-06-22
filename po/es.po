@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-22 14:57-0400\n"
-"PO-Revision-Date: 2014-06-16 13:48+0200\n"
+"PO-Revision-Date: 2014-06-22 23:42+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,12 +28,12 @@ msgstr ""
 msgid ""
 "There are no columns in central list to display for the current database."
 msgstr ""
+"No hay columnas a mostrar en la lista central para la base de datos actual."
 
 #: db_central_columns.php:110
-#, fuzzy
 #| msgid "Click to sort."
 msgid "Click to sort"
-msgstr "Pulsar para ordenar."
+msgstr "Pulsar para ordenar"
 
 #: db_central_columns.php:126
 #, php-format
@@ -1014,16 +1014,14 @@ msgid "Preview SQL"
 msgstr "Previsualizar SQL"
 
 #: js/messages.php:61
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "en la consulta"
+msgstr "Simular consulta"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "Filas afectadas:"
+msgstr "Filas encontradas:"
 
 #: js/messages.php:63 libraries/Util.class.php:639 libraries/sql.lib.php:452
 msgid "SQL query:"
@@ -1943,42 +1941,37 @@ msgid "Page name"
 msgstr "Nombre de página"
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "Seleccionar página"
+msgstr "Guardar página"
 
 #: js/messages.php:357 pmd_general.php:144
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "Páginas libres"
+msgstr "Abrir página"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "Seleccionar página"
+msgstr "Borrar página"
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Elegir la página a editar"
+msgstr "Seleccione una página para continuar"
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "¡Introduzca un número válido!"
+msgstr "Introduzca un nombre de página válido"
 
 #: js/messages.php:361
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "¿Desea guardar los cambios en la página actual?"
 
 #: js/messages.php:362
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Página eliminada exitosamente"
 
 #: js/messages.php:365
 #, php-format
@@ -4338,11 +4331,11 @@ msgstr "¡No se pudieron eliminar las columnas!"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
-msgstr ""
+msgstr "Si"
 
 #: libraries/central_columns.lib.php:509
 msgid "NO"
-msgstr ""
+msgstr "No"
 
 #: libraries/central_columns.lib.php:629
 #: libraries/display_create_table.lib.php:60
@@ -4383,20 +4376,18 @@ msgid "Select a column."
 msgstr "Seleccionar una columna."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "Incremente el valor AUTOEXTEND"
+msgstr "auto_increment"
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
+msgstr "fecha y hora actualizada"
 
 #: libraries/central_columns.lib.php:886
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
-msgstr "Añadir columna"
+msgstr "Añadir columna nueva"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -6631,10 +6622,9 @@ msgstr ""
 "pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:665
-#, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
-msgstr "Esquema en PDF: tabla de coordenadas"
+msgstr "Esquema en PDF y diseñador: tabla de coordenadas"
 
 #: libraries/config/messages.inc.php:667
 msgid ""
@@ -7239,16 +7229,14 @@ msgid "Can't count rows in an unbuffered result set"
 msgstr "No se puede contar filas en un resultado sin búfer"
 
 #: libraries/designer.lib.php:31
-#, fuzzy
 #| msgid "Page titles"
 msgid "Page to open"
-msgstr "Títulos de página"
+msgstr "Página a abrir"
 
 #: libraries/designer.lib.php:33
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Page to delete"
-msgstr "La relación fue eliminada"
+msgstr "Página a eliminar"
 
 #: libraries/designer.lib.php:37 libraries/designer.lib.php:73
 #: libraries/schema/User_Schema.class.php:211
@@ -7256,22 +7244,19 @@ msgid "Select page"
 msgstr "Seleccionar página"
 
 #: libraries/designer.lib.php:59
-#, fuzzy
 #| msgid "Export to selected page."
 msgid "Save to selected page"
-msgstr "Exportar a la página seleccionada."
+msgstr "Guardar a la página seleccionada"
 
 #: libraries/designer.lib.php:60
-#, fuzzy
 #| msgid "Create a page and export to it."
 msgid "Create a page and save to it"
-msgstr "Crear una página y exportar a ella."
+msgstr "Crear una página y guardar a ella"
 
 #: libraries/designer.lib.php:92
-#, fuzzy
 #| msgid "New page name: "
 msgid "New page name"
-msgstr "Nuevo nombre de página: "
+msgstr "Nuevo nombre de página"
 
 #: libraries/display_change_password.lib.php:59
 #: libraries/replication_gui.lib.php:844
@@ -7465,7 +7450,7 @@ msgstr "Ver salida como texto"
 
 #: libraries/display_export.lib.php:646 libraries/display_export.lib.php:749
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "Renombrar las bases de datos/tablas/columnas exportadas"
 
 #: libraries/display_export.lib.php:656
 msgid "Save output to a file"
@@ -7476,10 +7461,9 @@ msgid "Skip tables larger than"
 msgstr "Omitir tablas mayores a"
 
 #: libraries/display_export.lib.php:776
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select database"
-msgstr "Seleccionar una tabla"
+msgstr "Seleccionar base de datos"
 
 #: libraries/display_export.lib.php:778
 #, fuzzy
