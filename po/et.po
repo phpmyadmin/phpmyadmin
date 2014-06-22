@@ -5,11 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-16 11:15+0200\n"
+"POT-Creation-Date: 2014-06-22 14:57-0400\n"
 "PO-Revision-Date: 2014-06-16 13:20+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
+"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
+"et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,18 @@ msgstr ""
 "%s fail pole selles süsteemis saadaval. Lisateavet leiad aadressilt www."
 "phpmyadmin.net ."
 
-#: db_central_columns.php:111
+#: db_central_columns.php:85
+msgid ""
+"There are no columns in central list to display for the current database."
+msgstr ""
+
+#: db_central_columns.php:110
+#, fuzzy
+#| msgid "Click to sort."
+msgid "Click to sort"
+msgstr "Kliki sorteerimiseks."
+
+#: db_central_columns.php:126
 #, php-format
 msgid "Showing row(s) %1$s - %2$s"
 msgstr "Kuvatakse read %1$s - %2$s"
@@ -40,7 +51,7 @@ msgstr "Andmebaas %1$s on loodud."
 msgid "Database comment:"
 msgstr "Andmebaasi kommentaar:"
 
-#: db_datadict.php:143 libraries/schema/Pdf_Relation_Schema.class.php:1333
+#: db_datadict.php:143 libraries/schema/Pdf_Relation_Schema.class.php:1325
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
 msgid "Table comments:"
@@ -50,16 +61,16 @@ msgstr "Tabeli kommentaarid:"
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1286
 #: libraries/insert_edit.lib.php:1625
 #: libraries/navigation/Nodes/Node_Column.class.php:32
-#: libraries/plugins/export/ExportHtmlword.class.php:278
-#: libraries/plugins/export/ExportHtmlword.class.php:393
-#: libraries/plugins/export/ExportLatex.class.php:511
-#: libraries/plugins/export/ExportOdt.class.php:359
-#: libraries/plugins/export/ExportOdt.class.php:457
-#: libraries/plugins/export/ExportTexytext.class.php:271
-#: libraries/plugins/export/ExportTexytext.class.php:371
-#: libraries/plugins/export/ExportTexytext.class.php:434
-#: libraries/schema/Pdf_Relation_Schema.class.php:1359
-#: libraries/schema/Pdf_Relation_Schema.class.php:1382
+#: libraries/plugins/export/ExportHtmlword.class.php:293
+#: libraries/plugins/export/ExportHtmlword.class.php:415
+#: libraries/plugins/export/ExportLatex.class.php:532
+#: libraries/plugins/export/ExportOdt.class.php:377
+#: libraries/plugins/export/ExportOdt.class.php:486
+#: libraries/plugins/export/ExportTexytext.class.php:285
+#: libraries/plugins/export/ExportTexytext.class.php:393
+#: libraries/plugins/export/ExportTexytext.class.php:457
+#: libraries/schema/Pdf_Relation_Schema.class.php:1351
+#: libraries/schema/Pdf_Relation_Schema.class.php:1374
 #: libraries/tbl_columns_definition_form.lib.php:585
 #: libraries/tbl_indexes.lib.php:320 libraries/tbl_printview.lib.php:473
 #: libraries/tbl_relation.lib.php:325 libraries/tbl_relation.lib.php:414
@@ -69,21 +80,21 @@ msgid "Column"
 msgstr "Veerg"
 
 #: db_datadict.php:153 db_printview.php:49 libraries/Index.class.php:564
-#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:600
+#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:631
 #: libraries/insert_edit.lib.php:245 libraries/insert_edit.lib.php:249
-#: libraries/plugins/export/ExportHtmlword.class.php:281
-#: libraries/plugins/export/ExportHtmlword.class.php:396
-#: libraries/plugins/export/ExportLatex.class.php:512
-#: libraries/plugins/export/ExportOdt.class.php:362
-#: libraries/plugins/export/ExportOdt.class.php:460
-#: libraries/plugins/export/ExportTexytext.class.php:272
-#: libraries/plugins/export/ExportTexytext.class.php:372
+#: libraries/plugins/export/ExportHtmlword.class.php:296
+#: libraries/plugins/export/ExportHtmlword.class.php:418
+#: libraries/plugins/export/ExportLatex.class.php:533
+#: libraries/plugins/export/ExportOdt.class.php:380
+#: libraries/plugins/export/ExportOdt.class.php:489
+#: libraries/plugins/export/ExportTexytext.class.php:286
+#: libraries/plugins/export/ExportTexytext.class.php:394
 #: libraries/rte/rte_list.lib.php:54 libraries/rte/rte_list.lib.php:80
 #: libraries/rte/rte_routines.lib.php:954
 #: libraries/rte/rte_routines.lib.php:983
 #: libraries/rte/rte_routines.lib.php:1604
-#: libraries/schema/Pdf_Relation_Schema.class.php:1360
-#: libraries/schema/Pdf_Relation_Schema.class.php:1383
+#: libraries/schema/Pdf_Relation_Schema.class.php:1352
+#: libraries/schema/Pdf_Relation_Schema.class.php:1375
 #: libraries/server_privileges.lib.php:1847
 #: libraries/server_privileges.lib.php:1954 libraries/structure.lib.php:831
 #: libraries/structure.lib.php:1251
@@ -94,17 +105,17 @@ msgid "Type"
 msgstr "Tüüp"
 
 #: db_datadict.php:154 libraries/Index.class.php:570
-#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:606
+#: libraries/TableSearch.class.php:1287 libraries/central_columns.lib.php:637
 #: libraries/insert_edit.lib.php:1634
-#: libraries/plugins/export/ExportHtmlword.class.php:284
-#: libraries/plugins/export/ExportHtmlword.class.php:399
-#: libraries/plugins/export/ExportLatex.class.php:513
-#: libraries/plugins/export/ExportOdt.class.php:365
-#: libraries/plugins/export/ExportOdt.class.php:463
-#: libraries/plugins/export/ExportTexytext.class.php:273
-#: libraries/plugins/export/ExportTexytext.class.php:373
-#: libraries/schema/Pdf_Relation_Schema.class.php:1362
-#: libraries/schema/Pdf_Relation_Schema.class.php:1385
+#: libraries/plugins/export/ExportHtmlword.class.php:299
+#: libraries/plugins/export/ExportHtmlword.class.php:421
+#: libraries/plugins/export/ExportLatex.class.php:534
+#: libraries/plugins/export/ExportOdt.class.php:383
+#: libraries/plugins/export/ExportOdt.class.php:492
+#: libraries/plugins/export/ExportTexytext.class.php:287
+#: libraries/plugins/export/ExportTexytext.class.php:395
+#: libraries/schema/Pdf_Relation_Schema.class.php:1354
+#: libraries/schema/Pdf_Relation_Schema.class.php:1377
 #: libraries/structure.lib.php:1254
 #: libraries/tbl_columns_definition_form.lib.php:298
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:812
@@ -112,28 +123,28 @@ msgstr "Tüüp"
 msgid "Null"
 msgstr "Tühi"
 
-#: db_datadict.php:155 libraries/central_columns.lib.php:610
-#: libraries/plugins/export/ExportHtmlword.class.php:287
-#: libraries/plugins/export/ExportHtmlword.class.php:402
-#: libraries/plugins/export/ExportLatex.class.php:514
-#: libraries/plugins/export/ExportOdt.class.php:368
-#: libraries/plugins/export/ExportOdt.class.php:466
-#: libraries/plugins/export/ExportTexytext.class.php:274
-#: libraries/plugins/export/ExportTexytext.class.php:374
-#: libraries/schema/Pdf_Relation_Schema.class.php:1363
-#: libraries/schema/Pdf_Relation_Schema.class.php:1386
+#: db_datadict.php:155 libraries/central_columns.lib.php:641
+#: libraries/plugins/export/ExportHtmlword.class.php:302
+#: libraries/plugins/export/ExportHtmlword.class.php:424
+#: libraries/plugins/export/ExportLatex.class.php:535
+#: libraries/plugins/export/ExportOdt.class.php:386
+#: libraries/plugins/export/ExportOdt.class.php:495
+#: libraries/plugins/export/ExportTexytext.class.php:288
+#: libraries/plugins/export/ExportTexytext.class.php:396
+#: libraries/schema/Pdf_Relation_Schema.class.php:1355
+#: libraries/schema/Pdf_Relation_Schema.class.php:1378
 #: libraries/structure.lib.php:217 libraries/structure.lib.php:1255
 #: libraries/tbl_columns_definition_form.lib.php:289
 #: libraries/tbl_printview.lib.php:476 libraries/tbl_tracking.lib.php:813
 msgid "Default"
 msgstr "Vaikimisi"
 
-#: db_datadict.php:157 libraries/plugins/export/ExportHtmlword.class.php:406
-#: libraries/plugins/export/ExportLatex.class.php:516
-#: libraries/plugins/export/ExportOdt.class.php:470
-#: libraries/plugins/export/ExportTexytext.class.php:376
-#: libraries/schema/Pdf_Relation_Schema.class.php:1365
-#: libraries/schema/Pdf_Relation_Schema.class.php:1388
+#: db_datadict.php:157 libraries/plugins/export/ExportHtmlword.class.php:428
+#: libraries/plugins/export/ExportLatex.class.php:537
+#: libraries/plugins/export/ExportOdt.class.php:499
+#: libraries/plugins/export/ExportTexytext.class.php:398
+#: libraries/schema/Pdf_Relation_Schema.class.php:1357
+#: libraries/schema/Pdf_Relation_Schema.class.php:1380
 #: libraries/tbl_printview.lib.php:478
 msgid "Links to"
 msgstr "Viitab aadressile"
@@ -141,34 +152,34 @@ msgstr "Viitab aadressile"
 #: db_datadict.php:159 db_printview.php:53
 #: libraries/config/messages.inc.php:132 libraries/config/messages.inc.php:148
 #: libraries/config/messages.inc.php:179
-#: libraries/plugins/export/ExportHtmlword.class.php:411
-#: libraries/plugins/export/ExportLatex.class.php:519
-#: libraries/plugins/export/ExportOdt.class.php:475
-#: libraries/plugins/export/ExportTexytext.class.php:379
-#: libraries/schema/Pdf_Relation_Schema.class.php:1376
-#: libraries/schema/Pdf_Relation_Schema.class.php:1389
+#: libraries/plugins/export/ExportHtmlword.class.php:433
+#: libraries/plugins/export/ExportLatex.class.php:540
+#: libraries/plugins/export/ExportOdt.class.php:504
+#: libraries/plugins/export/ExportTexytext.class.php:401
+#: libraries/schema/Pdf_Relation_Schema.class.php:1368
+#: libraries/schema/Pdf_Relation_Schema.class.php:1381
 #: libraries/tbl_columns_definition_form.lib.php:308
 #: libraries/tbl_printview.lib.php:480
 msgid "Comments"
 msgstr "Kommentaarid"
 
 #: db_datadict.php:201 libraries/display_structure.inc.php:166
-#: libraries/structure.lib.php:1454 libraries/structure.lib.php:2167
-#: libraries/structure.lib.php:2177 libraries/tbl_printview.lib.php:107
+#: libraries/structure.lib.php:1454 libraries/structure.lib.php:2169
+#: libraries/structure.lib.php:2179 libraries/tbl_printview.lib.php:107
 #: libraries/tbl_tracking.lib.php:849
 msgid "Primary"
 msgstr "Primaarne"
 
-#: db_datadict.php:206 js/messages.php:246 libraries/Index.class.php:435
+#: db_datadict.php:206 js/messages.php:251 libraries/Index.class.php:435
 #: libraries/Index.class.php:474 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:766
+#: libraries/central_columns.lib.php:798
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.lib.php:455
 #: libraries/mult_submits.lib.php:456
-#: libraries/plugins/export/ExportHtmlword.class.php:633
-#: libraries/plugins/export/ExportLatex.class.php:590
-#: libraries/plugins/export/ExportOdt.class.php:723
-#: libraries/plugins/export/ExportTexytext.class.php:568
-#: libraries/schema/Pdf_Relation_Schema.class.php:1415
+#: libraries/plugins/export/ExportHtmlword.class.php:670
+#: libraries/plugins/export/ExportLatex.class.php:614
+#: libraries/plugins/export/ExportOdt.class.php:776
+#: libraries/plugins/export/ExportTexytext.class.php:601
+#: libraries/schema/Pdf_Relation_Schema.class.php:1407
 #: libraries/server_privileges.lib.php:2184
 #: libraries/server_privileges.lib.php:2381
 #: libraries/server_privileges.lib.php:2402
@@ -182,20 +193,20 @@ msgstr "Primaarne"
 msgid "No"
 msgstr "Ei"
 
-#: db_datadict.php:206 js/messages.php:337 libraries/Index.class.php:436
+#: db_datadict.php:206 js/messages.php:342 libraries/Index.class.php:436
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
-#: libraries/central_columns.lib.php:766
+#: libraries/central_columns.lib.php:798
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
 #: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
 #: libraries/mult_submits.lib.php:450 libraries/mult_submits.lib.php:492
 #: libraries/mult_submits.lib.php:501 libraries/mult_submits.lib.php:506
 #: libraries/mult_submits.lib.php:511 libraries/mult_submits.lib.php:516
-#: libraries/plugins/export/ExportHtmlword.class.php:634
-#: libraries/plugins/export/ExportLatex.class.php:590
-#: libraries/plugins/export/ExportOdt.class.php:724
-#: libraries/plugins/export/ExportTexytext.class.php:568
-#: libraries/schema/Pdf_Relation_Schema.class.php:1416
+#: libraries/plugins/export/ExportHtmlword.class.php:671
+#: libraries/plugins/export/ExportLatex.class.php:614
+#: libraries/plugins/export/ExportOdt.class.php:777
+#: libraries/plugins/export/ExportTexytext.class.php:601
+#: libraries/schema/Pdf_Relation_Schema.class.php:1408
 #: libraries/server_databases.lib.php:472
 #: libraries/server_databases.lib.php:482
 #: libraries/server_privileges.lib.php:2184
@@ -205,7 +216,7 @@ msgstr "Ei"
 #: libraries/server_privileges.lib.php:2718
 #: libraries/server_privileges.lib.php:3057
 #: libraries/server_privileges.lib.php:3082 libraries/structure.lib.php:1339
-#: libraries/structure.lib.php:2750 libraries/tbl_printview.lib.php:115
+#: libraries/structure.lib.php:2752 libraries/tbl_printview.lib.php:115
 #: libraries/tbl_tracking.lib.php:856 libraries/tbl_tracking.lib.php:931
 #: libraries/tbl_tracking.lib.php:936 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -217,7 +228,7 @@ msgid "View dump (schema) of database"
 msgstr "Vaata andmebaasi tõmmist (skeemi)"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:84 db_tracking.php:51
-#: export.php:323 libraries/DBQbe.class.php:312
+#: export.php:338 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "Andmebaasist tabeleid ei leitud."
 
@@ -255,10 +266,10 @@ msgstr ""
 "lugeda, kui vajutad %ssiia%s."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:210
-#: libraries/Menu.class.php:236 libraries/config/messages.inc.php:769
-#: libraries/plugins/export/ExportXml.class.php:467
+#: libraries/Menu.class.php:236 libraries/config/messages.inc.php:764
+#: libraries/plugins/export/ExportXml.class.php:478
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:361
-#: libraries/schema/User_Schema.class.php:305
+#: libraries/schema/User_Schema.class.php:311
 #: libraries/server_privileges.lib.php:1009
 #: libraries/server_privileges.lib.php:2551
 #: libraries/server_privileges.lib.php:2773
@@ -281,23 +292,23 @@ msgstr "Ridu"
 msgid "Size"
 msgstr "Suurus"
 
-#: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1173
+#: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1222
 #: libraries/structure.lib.php:783
 msgid "in use"
 msgstr "kasutusel"
 
-#: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1099
-#: libraries/schema/Pdf_Relation_Schema.class.php:1338
+#: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1148
+#: libraries/schema/Pdf_Relation_Schema.class.php:1330
 msgid "Creation:"
 msgstr "Loodud:"
 
-#: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1112
-#: libraries/schema/Pdf_Relation_Schema.class.php:1343
+#: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1161
+#: libraries/schema/Pdf_Relation_Schema.class.php:1335
 msgid "Last update:"
 msgstr "Viimati uuendatud:"
 
-#: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1125
-#: libraries/schema/Pdf_Relation_Schema.class.php:1348
+#: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1174
+#: libraries/schema/Pdf_Relation_Schema.class.php:1340
 msgid "Last check:"
 msgstr "Viimane kontroll:"
 
@@ -329,10 +340,10 @@ msgid "Tracked tables"
 msgstr "Jälgitud tabelid"
 
 #: db_tracking.php:80 libraries/Menu.class.php:213
-#: libraries/config/messages.inc.php:763
-#: libraries/plugins/export/ExportHtmlword.class.php:158
-#: libraries/plugins/export/ExportOdt.class.php:202
-#: libraries/plugins/export/ExportTexytext.class.php:142
+#: libraries/config/messages.inc.php:758
+#: libraries/plugins/export/ExportHtmlword.class.php:162
+#: libraries/plugins/export/ExportOdt.class.php:206
+#: libraries/plugins/export/ExportTexytext.class.php:146
 #: libraries/server_databases.lib.php:305
 #: libraries/server_privileges.lib.php:1006
 #: libraries/server_privileges.lib.php:2535
@@ -356,7 +367,7 @@ msgstr "Loodud"
 msgid "Updated"
 msgstr "Uuendatud"
 
-#: db_tracking.php:85 js/messages.php:179 libraries/Menu.class.php:521
+#: db_tracking.php:85 js/messages.php:184 libraries/Menu.class.php:521
 #: libraries/Util.class.php:4073 libraries/rte/rte_events.lib.php:432
 #: libraries/rte/rte_list.lib.php:78 libraries/server_status.lib.php:361
 #: libraries/tbl_tracking.lib.php:200
@@ -364,7 +375,7 @@ msgid "Status"
 msgstr "Staatus"
 
 #: db_tracking.php:86 libraries/Index.class.php:561
-#: libraries/central_columns.lib.php:595 libraries/rte/rte_list.lib.php:53
+#: libraries/central_columns.lib.php:622 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
 #: libraries/server_databases.lib.php:401
 #: libraries/server_privileges.lib.php:1850
@@ -388,8 +399,8 @@ msgstr "Kustuta selle tabeli jälgimise andmed"
 #: db_tracking.php:103 libraries/Index.class.php:627
 #: libraries/Util.class.php:3360 libraries/Util.class.php:3361
 #: libraries/server_databases.lib.php:150 libraries/structure.lib.php:322
-#: libraries/structure.lib.php:1449 libraries/structure.lib.php:2163
-#: libraries/structure.lib.php:2165
+#: libraries/structure.lib.php:1449 libraries/structure.lib.php:2165
+#: libraries/structure.lib.php:2167
 msgid "Drop"
 msgstr "Kustuta"
 
@@ -455,11 +466,11 @@ msgstr "Kui koged mingeid probleeme, siis raporteeri neist ise."
 msgid "You may want to refresh the page."
 msgstr "Sa võiksid lehekülje uuesti laadida."
 
-#: export.php:180
+#: export.php:182
 msgid "Bad type!"
 msgstr "Halb tüüp!"
 
-#: export.php:241
+#: export.php:243
 msgid "Bad parameters!"
 msgstr "Halvad parameetrid!"
 
@@ -491,23 +502,23 @@ msgid "Point:"
 msgstr "Punkt:"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:292
-#: gis_data_editor.php:365 js/messages.php:325
+#: gis_data_editor.php:365 js/messages.php:330
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:212 gis_data_editor.php:240 gis_data_editor.php:296
-#: gis_data_editor.php:371 js/messages.php:326
+#: gis_data_editor.php:371 js/messages.php:331
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:234 gis_data_editor.php:290 gis_data_editor.php:363
-#: js/messages.php:328
+#: js/messages.php:333
 #, php-format
 msgid "Point %d"
 msgstr "Punkt %d"
 
 #: gis_data_editor.php:247 gis_data_editor.php:303 gis_data_editor.php:381
-#: js/messages.php:334
+#: js/messages.php:339
 msgid "Add a point"
 msgstr "Lisa punkt"
 
@@ -529,7 +540,7 @@ msgstr "Sisemine ring %d:"
 msgid "Add a linestring"
 msgstr "Lisa rea sõne"
 
-#: gis_data_editor.php:307 gis_data_editor.php:386 js/messages.php:335
+#: gis_data_editor.php:307 gis_data_editor.php:386 js/messages.php:340
 msgid "Add an inner ring"
 msgstr "Lisa sisemine ring"
 
@@ -546,8 +557,8 @@ msgstr "Lisa hulktahukas"
 msgid "Add geometry"
 msgstr "Lisa geomeetria"
 
-#: gis_data_editor.php:404 js/messages.php:226
-#: libraries/DbSearch.class.php:463 libraries/DisplayResults.class.php:1689
+#: gis_data_editor.php:404 js/messages.php:231
+#: libraries/DbSearch.class.php:463 libraries/DisplayResults.class.php:1688
 #: libraries/TableSearch.class.php:1232 libraries/browse_foreigners.lib.php:54
 #: libraries/core.lib.php:570 libraries/display_change_password.lib.php:100
 #: libraries/display_create_table.lib.php:71
@@ -566,22 +577,22 @@ msgstr "Lisa geomeetria"
 #: libraries/rte/rte_routines.lib.php:1095
 #: libraries/rte/rte_routines.lib.php:1694
 #: libraries/rte/rte_triggers.lib.php:426
-#: libraries/schema/User_Schema.class.php:170
-#: libraries/schema/User_Schema.class.php:233
-#: libraries/schema/User_Schema.class.php:498
-#: libraries/schema/User_Schema.class.php:549
+#: libraries/schema/User_Schema.class.php:176
+#: libraries/schema/User_Schema.class.php:239
+#: libraries/schema/User_Schema.class.php:504
+#: libraries/schema/User_Schema.class.php:555
 #: libraries/server_bin_log.lib.php:61 libraries/server_privileges.lib.php:694
 #: libraries/server_privileges.lib.php:1754
 #: libraries/server_privileges.lib.php:2517
 #: libraries/server_privileges.lib.php:3163
 #: libraries/server_privileges.lib.php:4059
-#: libraries/sql_query_form.lib.php:383 libraries/sql_query_form.lib.php:442
-#: libraries/sql_query_form.lib.php:510 libraries/structure.lib.php:1680
+#: libraries/sql_query_form.lib.php:389 libraries/sql_query_form.lib.php:448
+#: libraries/sql_query_form.lib.php:516 libraries/structure.lib.php:1680
 #: libraries/tbl_chart.lib.php:296
 #: libraries/tbl_columns_definition_form.lib.php:175
 #: libraries/tbl_tracking.lib.php:429 libraries/tbl_tracking.lib.php:547
-#: pmd_pdf.php:153 prefs_manage.php:271 prefs_manage.php:329
-#: view_create.php:273 view_operations.php:106
+#: prefs_manage.php:271 prefs_manage.php:329 view_create.php:273
+#: view_operations.php:106
 msgid "Go"
 msgstr "Mine"
 
@@ -597,7 +608,7 @@ msgstr ""
 "Vali väärtus \"GeomFromText\" veerust \"Function\" ja kleebi allolev sõne "
 "väljale \"Value\"."
 
-#: import.php:116
+#: import.php:130
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -606,15 +617,15 @@ msgstr ""
 "Tõenäoliselt üritasid üles laadida liiga suurt faili. Palun loe "
 "%sdokumentatsioonist%s, kuidas sellest piirangust vabaneda."
 
-#: import.php:284 import.php:568
+#: import.php:295 import.php:579
 msgid "Showing bookmark"
 msgstr "Näitan järjehoidjat"
 
-#: import.php:299 import.php:564
+#: import.php:310 import.php:575
 msgid "The bookmark has been deleted."
 msgstr "Järjehoidja on kustutatud."
 
-#: import.php:399
+#: import.php:410
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -623,12 +634,12 @@ msgstr ""
 "Üleslaaditud faili ei saa teisaldada, sest PHP säte open_basedir on aktiivne "
 "ja puudub ligipääs (ajutiste failide) kataloogi %s."
 
-#: import.php:412 import.php:473 libraries/File.class.php:418
+#: import.php:423 import.php:484 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "Faili ei saanud lugeda!"
 
-#: import.php:421 import.php:432 import.php:453 import.php:464
+#: import.php:432 import.php:443 import.php:464 import.php:475
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -638,7 +649,7 @@ msgstr ""
 "Üritasid laadida mittetoetatava tihendamisega faili (%s). Selle tugi on pole "
 "loodud või on seadistuses keelatud."
 
-#: import.php:479
+#: import.php:490
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -648,28 +659,28 @@ msgstr ""
 "maht ületab sinu PHP seadistuses lubatud maksimaalset mahtu. Vaata "
 "[doc@faq1-16]KKK 1.16[/doc]."
 
-#: import.php:498
+#: import.php:509
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Faili märgitabelit ei saa teisendada ilma märgitabeli teisendusteegita!"
 
-#: import.php:536 libraries/display_import.inc.php:32
+#: import.php:547 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Ei saanud importimise pluginaid laadida, palun kontrolli oma paigaldust!"
 
-#: import.php:571 libraries/sql.lib.php:1047 libraries/sql.lib.php:1837
+#: import.php:582 libraries/sql.lib.php:1047 libraries/sql.lib.php:1842
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Loodi järjehoidja %s."
 
-#: import.php:580
+#: import.php:591
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importimine lõpetati edukalt, teostati %d päringut."
 
-#: import.php:601
+#: import.php:612
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -677,7 +688,7 @@ msgstr ""
 "Ületati skripti ooteaeg. Kui tahad importimise lõpetada, siis saada see fail "
 "uuesti ja importimine jätkub poolelijäänud kohast."
 
-#: import.php:605
+#: import.php:616
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -687,7 +698,7 @@ msgstr ""
 "piiranguid."
 
 #: import_status.php:95 libraries/Util.class.php:732
-#: libraries/export.lib.php:437
+#: libraries/export.lib.php:439
 #: libraries/schema/Export_Relation_Schema.class.php:248 user_password.php:197
 msgid "Back"
 msgstr "Tagasi"
@@ -740,7 +751,7 @@ msgid "Server type:"
 msgstr "Serveri tüüp:"
 
 #: index.php:270 libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:657
+#: libraries/plugins/export/ExportSql.class.php:689
 #: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version:"
 msgstr "Serveri versioon:"
@@ -989,63 +1000,79 @@ msgstr "Lisa indeksisse %s veerg(u)"
 msgid "Preview SQL"
 msgstr "SQL eelvaade"
 
+#: js/messages.php:61
+#, fuzzy
+#| msgid "in query"
+msgid "Simulate query"
+msgstr "päringus"
+
+#: js/messages.php:62
+#, fuzzy
+#| msgid "Affected rows:"
+msgid "Matched rows:"
+msgstr "Mõjutatud read:"
+
+#: js/messages.php:63 libraries/Util.class.php:639 libraries/sql.lib.php:452
+msgid "SQL query:"
+msgstr "SQL päring:"
+
 #. l10n: Default label for the y-Axis of Charts
-#: js/messages.php:62 libraries/tbl_chart.lib.php:215
+#: js/messages.php:67 libraries/tbl_chart.lib.php:215
 msgid "Y Values"
 msgstr "Y väärtused"
 
-#: js/messages.php:65
+#: js/messages.php:70
 msgid "The host name is empty!"
 msgstr "Hostinimi on tühi!"
 
-#: js/messages.php:66
+#: js/messages.php:71
 msgid "The user name is empty!"
 msgstr "Kasutajanimi on tühi!"
 
-#: js/messages.php:67 libraries/server_privileges.lib.php:1585
+#: js/messages.php:72 libraries/server_privileges.lib.php:1585
 #: user_password.php:110
 msgid "The password is empty!"
 msgstr "Parool on tühi!"
 
-#: js/messages.php:68 libraries/server_privileges.lib.php:1583
+#: js/messages.php:73 libraries/server_privileges.lib.php:1583
 #: user_password.php:113
 msgid "The passwords aren't the same!"
 msgstr "Paroolid ei kattu!"
 
-#: js/messages.php:69
+#: js/messages.php:74
 msgid "Removing Selected Users"
 msgstr "Valitud kasutajate kustutamine"
 
-#: js/messages.php:70 js/messages.php:125 libraries/tbl_tracking.lib.php:354
+#: js/messages.php:75 js/messages.php:130 libraries/tbl_tracking.lib.php:354
 #: libraries/tbl_tracking.lib.php:759
 msgid "Close"
 msgstr "Sulge"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:73 libraries/ServerStatusData.class.php:205
+#: js/messages.php:78 libraries/ServerStatusData.class.php:205
 #: libraries/server_status_queries.lib.php:145
 msgid "Other"
 msgstr "Muud"
 
 #. l10n: Thousands separator
-#: js/messages.php:75 libraries/Util.class.php:1396
+#: js/messages.php:80 libraries/Util.class.php:1396
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:77 libraries/Util.class.php:1398
+#: js/messages.php:82 libraries/Util.class.php:1398
 msgid "."
 msgstr "."
 
-#: js/messages.php:79
+#: js/messages.php:84
 msgid "Connections / Processes"
 msgstr "Ühendused / Protsessid"
 
-#: js/messages.php:82
+#: js/messages.php:87
 msgid "Local monitor configuration incompatible!"
 msgstr "Kohaliku jälgimise seadistus ei ühildu!"
 
-#: js/messages.php:83
+#: js/messages.php:88
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -1057,195 +1084,195 @@ msgstr ""
 "Üldjuhul sinu praegune seadistus enam ei toimi. Palun lähtesta oma seadistus "
 "vaikimisi väärtustele <i>Sätete</i> menüüst."
 
-#: js/messages.php:85
+#: js/messages.php:90
 msgid "Query cache efficiency"
 msgstr "Päringu vahemälu kasutegur"
 
-#: js/messages.php:86
+#: js/messages.php:91
 msgid "Query cache usage"
 msgstr "Päringu vahemälu kasutus"
 
-#: js/messages.php:87
+#: js/messages.php:92
 msgid "Query cache used"
 msgstr "Kasutatud päringu vahemälu"
 
-#: js/messages.php:89
+#: js/messages.php:94
 msgid "System CPU Usage"
 msgstr "Süsteemi CPU kasutus"
 
-#: js/messages.php:90
+#: js/messages.php:95
 msgid "System memory"
 msgstr "Süsteemimälu"
 
-#: js/messages.php:91
+#: js/messages.php:96
 msgid "System swap"
 msgstr "Süsteemisaale"
 
-#: js/messages.php:93
+#: js/messages.php:98
 msgid "Average load"
 msgstr "Keskmine koormus"
 
-#: js/messages.php:94
+#: js/messages.php:99
 msgid "Total memory"
 msgstr "Kogumälu"
 
-#: js/messages.php:95
+#: js/messages.php:100
 msgid "Cached memory"
 msgstr "Puhverdatud mälu"
 
-#: js/messages.php:96
+#: js/messages.php:101
 msgid "Buffered memory"
 msgstr "Puhverdatud mälu"
 
-#: js/messages.php:97
+#: js/messages.php:102
 msgid "Free memory"
 msgstr "Vaba mälu"
 
-#: js/messages.php:98
+#: js/messages.php:103
 msgid "Used memory"
 msgstr "Kasutatud mälu"
 
-#: js/messages.php:100
+#: js/messages.php:105
 msgid "Total Swap"
 msgstr "Kogusaale"
 
-#: js/messages.php:101
+#: js/messages.php:106
 msgid "Cached Swap"
 msgstr "Puhverdatud saale"
 
-#: js/messages.php:102
+#: js/messages.php:107
 msgid "Used Swap"
 msgstr "Kasutatud saale"
 
-#: js/messages.php:103
+#: js/messages.php:108
 msgid "Free Swap"
 msgstr "Vaba saale"
 
-#: js/messages.php:105
+#: js/messages.php:110
 msgid "Bytes sent"
 msgstr "Saadetud baidid"
 
-#: js/messages.php:106
+#: js/messages.php:111
 msgid "Bytes received"
 msgstr "Vastuvõetud baidid"
 
-#: js/messages.php:107 libraries/server_status.lib.php:220
+#: js/messages.php:112 libraries/server_status.lib.php:220
 msgid "Connections"
 msgstr "Ühendused"
 
-#: js/messages.php:108 libraries/server_status.lib.php:412
+#: js/messages.php:113 libraries/server_status.lib.php:412
 msgid "Processes"
 msgstr "Protsessid"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:111 libraries/Util.class.php:1340
+#: js/messages.php:116 libraries/Util.class.php:1340
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:112 libraries/Util.class.php:1342
+#: js/messages.php:117 libraries/Util.class.php:1342
 #: libraries/server_status_monitor.lib.php:259
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:113 libraries/Util.class.php:1344
-#: libraries/display_export.lib.php:673
+#: js/messages.php:118 libraries/Util.class.php:1344
+#: libraries/display_export.lib.php:684
 #: libraries/server_status_monitor.lib.php:260
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:114 libraries/Util.class.php:1346
+#: js/messages.php:119 libraries/Util.class.php:1346
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:115 libraries/Util.class.php:1348
+#: js/messages.php:120 libraries/Util.class.php:1348
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:116 libraries/Util.class.php:1350
+#: js/messages.php:121 libraries/Util.class.php:1350
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:117 libraries/Util.class.php:1352
+#: js/messages.php:122 libraries/Util.class.php:1352
 msgid "EiB"
 msgstr "EiB"
 
-#: js/messages.php:118
+#: js/messages.php:123
 #, php-format
 msgid "%d table(s)"
 msgstr "%d tabel(it)"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:121
+#: js/messages.php:126
 msgid "Questions"
 msgstr "Päringud"
 
-#: js/messages.php:122 libraries/server_status.lib.php:129
+#: js/messages.php:127 libraries/server_status.lib.php:129
 msgid "Traffic"
 msgstr "Liiklus"
 
-#: js/messages.php:123 libraries/Menu.class.php:554
+#: js/messages.php:128 libraries/Menu.class.php:554
 #: libraries/Util.class.php:4077 libraries/server_status_monitor.lib.php:299
 msgid "Settings"
 msgstr "Sätted"
 
-#: js/messages.php:124
+#: js/messages.php:129
 msgid "Add chart to grid"
 msgstr "Lisa diagramm ruudustikku"
 
-#: js/messages.php:126
+#: js/messages.php:131
 msgid "Please add at least one variable to the series!"
 msgstr "Palun lisa seeriasse vähemalt üks muutuja!"
 
-#: js/messages.php:127 libraries/DisplayResults.class.php:1331
+#: js/messages.php:132 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:878 libraries/TableSearch.class.php:1042
 #: libraries/display_export.lib.php:580
-#: libraries/plugins/export/ExportSql.class.php:1805
+#: libraries/plugins/export/ExportSql.class.php:1884
 #: libraries/server_privileges.lib.php:2688
 #: libraries/server_status.lib.php:525
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:726 pmd_general.php:597
+#: libraries/tbl_columns_definition_form.lib.php:726 pmd_general.php:662
 msgid "None"
 msgstr "Puudub"
 
-#: js/messages.php:128
+#: js/messages.php:133
 msgid "Resume monitor"
 msgstr "Jätka jälgimist"
 
-#: js/messages.php:129
+#: js/messages.php:134
 msgid "Pause monitor"
 msgstr "Peata jälgimine"
 
-#: js/messages.php:131
+#: js/messages.php:136
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log ja slow_query_log on lubatud."
 
-#: js/messages.php:132
+#: js/messages.php:137
 msgid "general_log is enabled."
 msgstr "general_log on lubatud."
 
-#: js/messages.php:133
+#: js/messages.php:138
 msgid "slow_query_log is enabled."
 msgstr "slow_query_log on lubatud."
 
-#: js/messages.php:134
+#: js/messages.php:139
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log ja general_log on keelatud."
 
-#: js/messages.php:135
+#: js/messages.php:140
 msgid "log_output is not set to TABLE."
 msgstr "log_output ei ole TABLE."
 
-#: js/messages.php:136
+#: js/messages.php:141
 msgid "log_output is set to TABLE."
 msgstr "log_output väärtuseks on määratud TABLE."
 
-#: js/messages.php:137
+#: js/messages.php:142
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -1256,12 +1283,12 @@ msgstr ""
 "jaoks kulub vähemalt %d sekundit. Sõltuvalt sinu süsteemist on soovitatav "
 "long_query_time väärtuseks seada 0-2 sekundit."
 
-#: js/messages.php:138
+#: js/messages.php:143
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "long_query_time väärtuseks on määratud %d sekund(it)."
 
-#: js/messages.php:139
+#: js/messages.php:144
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -1270,30 +1297,30 @@ msgstr ""
 "vaikimisi olekusse:"
 
 #. l10n: %s is FILE or TABLE
-#: js/messages.php:141
+#: js/messages.php:146
 #, php-format
 msgid "Set log_output to %s"
 msgstr "Määra log_output väärtuseks %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: js/messages.php:143
+#: js/messages.php:148
 #, php-format
 msgid "Enable %s"
 msgstr "Luba %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: js/messages.php:145
+#: js/messages.php:150
 #, php-format
 msgid "Disable %s"
 msgstr "Keela %s"
 
 #. l10n: %d seconds
-#: js/messages.php:147
+#: js/messages.php:152
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "Muuda long_query_time väärtuseks %d sekundit."
 
-#: js/messages.php:149
+#: js/messages.php:154
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -1301,57 +1328,57 @@ msgstr ""
 "Sa ei saa neid muutujaid muuta. Logi sisse kasutajana 'root' või võta "
 "ühendust oma andmebaasi administraatoriga."
 
-#: js/messages.php:152
+#: js/messages.php:157
 msgid "Change settings"
 msgstr "Muuda sätteid"
 
-#: js/messages.php:153
+#: js/messages.php:158
 msgid "Current settings"
 msgstr "Praegused sätted"
 
-#: js/messages.php:155 libraries/server_status_monitor.lib.php:216
+#: js/messages.php:160 libraries/server_status_monitor.lib.php:216
 msgid "Chart Title"
 msgstr "Diagrammi pealkiri"
 
 #. l10n: As in differential values
-#: js/messages.php:157
+#: js/messages.php:162
 msgid "Differential"
 msgstr "Eraldaja"
 
-#: js/messages.php:158
+#: js/messages.php:163
 #, php-format
 msgid "Divided by %s"
 msgstr "Jagatud %s-ga"
 
-#: js/messages.php:159
+#: js/messages.php:164
 msgid "Unit"
 msgstr "Ühik"
 
-#: js/messages.php:161
+#: js/messages.php:166
 msgid "From slow log"
 msgstr "Aeglasest logist"
 
-#: js/messages.php:162
+#: js/messages.php:167
 msgid "From general log"
 msgstr "Üldisest logist"
 
-#: js/messages.php:164
+#: js/messages.php:169
 msgid "The database name is not known for this query in the server's logs."
 msgstr "See päring ei leidnud serveri logidest andmebaasi nime."
 
-#: js/messages.php:166
+#: js/messages.php:171
 msgid "Analysing logs"
 msgstr "Logide analüüsimine"
 
-#: js/messages.php:167
+#: js/messages.php:172
 msgid "Analysing & loading logs. This may take a while."
 msgstr "Logide analüüsimine ja laadimine. See võib võtta natuke aega."
 
-#: js/messages.php:168
+#: js/messages.php:173
 msgid "Cancel request"
 msgstr "Loobu taotlusest"
 
-#: js/messages.php:169
+#: js/messages.php:174
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -1361,7 +1388,7 @@ msgstr ""
 "kasutatakse rühmitamise kriteeriumina ainult SQL päringut, seega päringute "
 "atribuudid (nt. algusaeg) võivad olla erinevad."
 
-#: js/messages.php:170
+#: js/messages.php:175
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -1370,92 +1397,92 @@ msgstr ""
 "Kuniks valitud on INSERT päringute rühmitamine, rühmitatakse kokku INSERT "
 "päringud samasse tabelisse, sõltumata lisatud andmetest."
 
-#: js/messages.php:171
+#: js/messages.php:176
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 "Logi andmed on laetud. Päringud sooritatakse selle ajavahemiku jooksul:"
 
-#: js/messages.php:173
+#: js/messages.php:178
 msgid "Jump to Log table"
 msgstr "Mine logi tabelisse"
 
-#: js/messages.php:174
+#: js/messages.php:179
 msgid "No data found"
 msgstr "Andmeid ei leitud"
 
-#: js/messages.php:175
+#: js/messages.php:180
 msgid "Log analysed, but no data found in this time span."
 msgstr "Logi on analüüsitud, kuid sellest ajavahemikust andmeid ei leitud."
 
-#: js/messages.php:177
+#: js/messages.php:182
 msgid "Analyzing…"
 msgstr "Analüüsimine…"
 
-#: js/messages.php:178
+#: js/messages.php:183
 msgid "Explain output"
 msgstr "Selgita väljundit"
 
-#: js/messages.php:180 js/messages.php:607
-#: libraries/plugins/export/ExportHtmlword.class.php:486
-#: libraries/plugins/export/ExportOdt.class.php:563
-#: libraries/plugins/export/ExportTexytext.class.php:437
+#: js/messages.php:185 js/messages.php:620
+#: libraries/plugins/export/ExportHtmlword.class.php:511
+#: libraries/plugins/export/ExportOdt.class.php:608
+#: libraries/plugins/export/ExportTexytext.class.php:460
 #: libraries/rte/rte_list.lib.php:68 libraries/server_status.lib.php:357
 #: libraries/sql.lib.php:494
 msgid "Time"
 msgstr "Aeg"
 
-#: js/messages.php:181
+#: js/messages.php:186
 msgid "Total time:"
 msgstr "Aeg kokku:"
 
-#: js/messages.php:182
+#: js/messages.php:187
 msgid "Profiling results"
 msgstr "Profileerimise tulemused"
 
-#: js/messages.php:183
+#: js/messages.php:188
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabel"
 
-#: js/messages.php:184
+#: js/messages.php:189
 msgid "Chart"
 msgstr "Diagramm"
 
 #. l10n: A collection of available filters
-#: js/messages.php:187
+#: js/messages.php:192
 msgid "Log table filter options"
 msgstr "Logi tabeli filtri valikud"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:189
+#: js/messages.php:194
 msgid "Filter"
 msgstr "Filter"
 
-#: js/messages.php:190
+#: js/messages.php:195
 msgid "Filter queries by word/regexp:"
 msgstr "Filtreeri päringuid sõna/reg.avaldise alusel:"
 
-#: js/messages.php:191
+#: js/messages.php:196
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "Rühmita päringud, ignoreerides WHERE klauslite muutuja andmeid"
 
-#: js/messages.php:192
+#: js/messages.php:197
 msgid "Sum of grouped rows:"
 msgstr "Rühmitatud ridade summa:"
 
-#: js/messages.php:193
+#: js/messages.php:198
 msgid "Total:"
 msgstr "Kokku:"
 
-#: js/messages.php:195
+#: js/messages.php:200
 msgid "Loading logs"
 msgstr "Logide laadimine"
 
-#: js/messages.php:196
+#: js/messages.php:201
 msgid "Monitor refresh failed"
 msgstr "Jälgija värskendamine ebaõnnestus"
 
-#: js/messages.php:197
+#: js/messages.php:202
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -1464,27 +1491,27 @@ msgstr ""
 "Uute diagrammi andmete taotlemisel naases server vale vastusega. Enamasti on "
 "selle põhjuseks aegunud seanss. Lae leht uuesti ja logi sisse."
 
-#: js/messages.php:198
+#: js/messages.php:203
 msgid "Reload page"
 msgstr "Lae leht uuesti"
 
-#: js/messages.php:200
+#: js/messages.php:205
 msgid "Affected rows:"
 msgstr "Mõjutatud read:"
 
-#: js/messages.php:203
+#: js/messages.php:208
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Seadistusfaili parsimine ebaõnnestus. Tundub, et see pole õige JSON kood."
 
-#: js/messages.php:205
+#: js/messages.php:210
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "Imporditud seadistusega diagrammi ruudustiku loomine ebaõnnestus. "
 "Lähtestamine vaikimisi seadistusse…"
 
-#: js/messages.php:206 libraries/Menu.class.php:333
+#: js/messages.php:211 libraries/Menu.class.php:333
 #: libraries/Menu.class.php:432 libraries/Menu.class.php:550
 #: libraries/Util.class.php:4076 libraries/Util.class.php:4091
 #: libraries/Util.class.php:4108 libraries/config/messages.inc.php:223
@@ -1494,234 +1521,234 @@ msgstr ""
 msgid "Import"
 msgstr "Impordi"
 
-#: js/messages.php:207
+#: js/messages.php:212
 msgid "Import monitor configuration"
 msgstr "Impordi jälgimise seadistus"
 
-#: js/messages.php:208
+#: js/messages.php:213
 msgid "Please select the file you want to import."
 msgstr "Palun vali imporditav fail."
 
-#: js/messages.php:209
+#: js/messages.php:214
 msgid "No files available on server for import!"
 msgstr "Importimiseks ei ole serveris faile!"
 
-#: js/messages.php:211
+#: js/messages.php:216
 msgid "Analyse Query"
 msgstr "Analüüsi päringut"
 
-#: js/messages.php:215
+#: js/messages.php:220
 msgid "Advisor system"
 msgstr "Kontrollsüsteem"
 
-#: js/messages.php:216
+#: js/messages.php:221
 msgid "Possible performance issues"
 msgstr "Võimalikud jõudlusprobleemid"
 
-#: js/messages.php:217
+#: js/messages.php:222
 msgid "Issue"
 msgstr "Probleem"
 
-#: js/messages.php:218
+#: js/messages.php:223
 msgid "Recommendation"
 msgstr "Soovitus"
 
-#: js/messages.php:219
+#: js/messages.php:224
 msgid "Rule details"
 msgstr "Reegli detailid"
 
-#: js/messages.php:220
+#: js/messages.php:225
 msgid "Justification"
 msgstr "Põhjendus"
 
-#: js/messages.php:221
+#: js/messages.php:226
 msgid "Used variable / formula"
 msgstr "Kasutatud muutuja / valem"
 
-#: js/messages.php:222
+#: js/messages.php:227
 msgid "Test"
 msgstr "Testi"
 
-#: js/messages.php:227 libraries/server_variables.lib.php:159
-#: pmd_general.php:471 pmd_general.php:510 pmd_general.php:637
-#: pmd_general.php:687 pmd_general.php:763 pmd_general.php:819
-#: pmd_general.php:882 pmd_general.php:915
+#: js/messages.php:232 libraries/server_variables.lib.php:159
+#: pmd_general.php:536 pmd_general.php:575 pmd_general.php:702
+#: pmd_general.php:752 pmd_general.php:828 pmd_general.php:884
+#: pmd_general.php:947 pmd_general.php:980
 msgid "Cancel"
 msgstr "Katkesta"
 
-#: js/messages.php:230 libraries/navigation/NavigationHeader.class.php:54
+#: js/messages.php:235 libraries/navigation/NavigationHeader.class.php:54
 #: libraries/server_status_monitor.lib.php:164
 msgid "Loading…"
 msgstr "Laadimine…"
 
-#: js/messages.php:231
+#: js/messages.php:236
 msgid "Request Aborted!!"
 msgstr "Päring katkestati!"
 
-#: js/messages.php:232
+#: js/messages.php:237
 msgid "Processing Request"
 msgstr "Taotluse töötlemine"
 
-#: js/messages.php:233
+#: js/messages.php:238
 msgid "Error in Processing Request"
 msgstr "Viga taotluse töötlemisel"
 
-#: js/messages.php:234
+#: js/messages.php:239
 #, php-format
 msgid "Error code: %s"
 msgstr "Vea kood: %s"
 
-#: js/messages.php:235
+#: js/messages.php:240
 #, php-format
 msgid "Error text: %s"
 msgstr "Vea tekst: %s"
 
-#: js/messages.php:236 libraries/db_common.inc.php:60
+#: js/messages.php:241 libraries/db_common.inc.php:60
 #: libraries/db_table_exists.lib.php:28 libraries/server_databases.lib.php:458
 msgid "No databases selected."
 msgstr "Ühtegi andmebaasi ei ole valitud."
 
-#: js/messages.php:237
+#: js/messages.php:242
 msgid "Dropping Column"
 msgstr "Veeru kustutamine"
 
-#: js/messages.php:238
+#: js/messages.php:243
 msgid "Adding Primary Key"
 msgstr "Primaarvõtme lisamine"
 
-#: js/messages.php:239 pmd_general.php:469 pmd_general.php:635
-#: pmd_general.php:685 pmd_general.php:761 pmd_general.php:817
-#: pmd_general.php:880
+#: js/messages.php:244 pmd_general.php:534 pmd_general.php:700
+#: pmd_general.php:750 pmd_general.php:826 pmd_general.php:882
+#: pmd_general.php:945
 msgid "OK"
 msgstr "OK"
 
-#: js/messages.php:240
+#: js/messages.php:245
 msgid "Click to dismiss this notification"
 msgstr "Selle teate sulgemiseks kliki sellel"
 
-#: js/messages.php:243
+#: js/messages.php:248
 msgid "Renaming Databases"
 msgstr "Andmebaaside ümbernimetamine"
 
-#: js/messages.php:244
+#: js/messages.php:249
 msgid "Copying Database"
 msgstr "Andmebaasi kopeerimine"
 
-#: js/messages.php:245
+#: js/messages.php:250
 msgid "Changing Charset"
 msgstr "Märgitabeli muutmine"
 
-#: js/messages.php:249 libraries/mult_submits.lib.php:432
+#: js/messages.php:254 libraries/mult_submits.lib.php:432
 msgid "Foreign key check:"
 msgstr "Võõrvõtme kontroll:"
 
-#: js/messages.php:250 libraries/mult_submits.lib.php:445
+#: js/messages.php:255 libraries/mult_submits.lib.php:445
 msgid "(Enabled)"
 msgstr "(Lubatud)"
 
-#: js/messages.php:251 libraries/mult_submits.lib.php:445
+#: js/messages.php:256 libraries/mult_submits.lib.php:445
 msgid "(Disabled)"
 msgstr "(Keelatud)"
 
-#: js/messages.php:252
+#: js/messages.php:257
 msgid "Failed to get real row count."
 msgstr "Ridade tegeliku arvu ei suudetud hankida."
 
-#: js/messages.php:255
+#: js/messages.php:260
 msgid "Searching"
 msgstr "Otsimine"
 
-#: js/messages.php:256
+#: js/messages.php:261
 msgid "Hide search results"
 msgstr "Peida otsingu tulemused"
 
-#: js/messages.php:257
+#: js/messages.php:262
 msgid "Show search results"
 msgstr "Näita otsingu tulemusi"
 
-#: js/messages.php:258
+#: js/messages.php:263
 msgid "Browsing"
 msgstr "Vaatamine"
 
-#: js/messages.php:259
+#: js/messages.php:264
 msgid "Deleting"
 msgstr "Kustutamine"
 
-#: js/messages.php:262
+#: js/messages.php:267
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Salvestatud funktsioon peab sisaldama RETURN käsku!"
 
-#: js/messages.php:265 libraries/rte/rte_routines.lib.php:805
+#: js/messages.php:270 libraries/rte/rte_routines.lib.php:805
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET muutja"
 
-#: js/messages.php:266
+#: js/messages.php:271
 #, php-format
 msgid "Values for column %s"
 msgstr "%s veeru väärtused"
 
-#: js/messages.php:267
+#: js/messages.php:272
 msgid "Values for a new column"
 msgstr "Uue veeru väärtused"
 
-#: js/messages.php:268
+#: js/messages.php:273
 msgid "Enter each value in a separate field."
 msgstr "Sisesta iga väärtus eraldi väljale."
 
-#: js/messages.php:269
+#: js/messages.php:274
 #, php-format
 msgid "Add %d value(s)"
 msgstr "Lisa %d väärtus(t)"
 
-#: js/messages.php:272
+#: js/messages.php:277
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr "Märkus: Kui fail sisaldab mitut tabelit, siis need liidetakse kokku."
 
-#: js/messages.php:275
+#: js/messages.php:280
 msgid "Hide query box"
 msgstr "Peida päringu kast"
 
-#: js/messages.php:276
+#: js/messages.php:281
 msgid "Show query box"
 msgstr "Näita päringu kasti"
 
-#: js/messages.php:277 libraries/DisplayResults.class.php:3365
+#: js/messages.php:282 libraries/DisplayResults.class.php:3366
 #: libraries/Index.class.php:593 libraries/Util.class.php:664
 #: libraries/Util.class.php:1189 libraries/Util.class.php:3364
-#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:725
-#: libraries/config/messages.inc.php:752
-#: libraries/schema/User_Schema.class.php:223
+#: libraries/Util.class.php:3365 libraries/central_columns.lib.php:756
+#: libraries/config/messages.inc.php:747
+#: libraries/schema/User_Schema.class.php:229
 #: libraries/server_user_groups.lib.php:119
 #: libraries/server_variables.lib.php:154 setup/frames/index.inc.php:178
 msgid "Edit"
 msgstr "Muuda"
 
-#: js/messages.php:278 libraries/DisplayResults.class.php:757
-#: libraries/DisplayResults.class.php:765
+#: js/messages.php:283 libraries/DisplayResults.class.php:756
+#: libraries/DisplayResults.class.php:764
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d ei ole õige reanumber."
 
-#: js/messages.php:279 libraries/TableSearch.class.php:929
+#: js/messages.php:284 libraries/TableSearch.class.php:929
 #: libraries/TableSearch.class.php:1253 libraries/sql.lib.php:394
 #: tbl_change.php:145
 msgid "Browse foreign values"
 msgstr "Sirvi võõrvõtme väärtusi"
 
-#: js/messages.php:282
+#: js/messages.php:287
 msgid "Pick"
 msgstr "Vali"
 
-#: js/messages.php:283
+#: js/messages.php:288
 msgid "Column selector"
 msgstr "Veeru valija"
 
-#: js/messages.php:284
+#: js/messages.php:289
 msgid "Search this list"
 msgstr "Otsi sellest loendist"
 
-#: js/messages.php:285
+#: js/messages.php:290
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -1730,15 +1757,15 @@ msgstr ""
 "Keskne loend ei sisalda veerge. Palun kontrolli, et andmebaasi %s keskne "
 "veergude loend sisaldaks veerge, mis puuduvad aktiivsest tabelist."
 
-#: js/messages.php:286
+#: js/messages.php:291
 msgid "See more"
 msgstr "Vaata lisaks"
 
-#: js/messages.php:287
+#: js/messages.php:292
 msgid "Are you sure?"
 msgstr "Oled sa kindel?"
 
-#: js/messages.php:288
+#: js/messages.php:293
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
@@ -1746,12 +1773,12 @@ msgstr ""
 "See tulemusel võivad muutuda mõnede veergude kirjeldused.<br/>Kas sa oled "
 "kindel, et jätkata?"
 
-#: js/messages.php:289
+#: js/messages.php:294
 msgid "Continue"
 msgstr "Jätka"
 
-#: js/messages.php:292 libraries/insert_edit.lib.php:1517
-#: libraries/schema/User_Schema.class.php:386
+#: js/messages.php:297 libraries/insert_edit.lib.php:1517
+#: libraries/schema/User_Schema.class.php:392
 #: libraries/server_variables.lib.php:157
 #: libraries/tbl_columns_definition_form.lib.php:142
 #: libraries/tbl_relation.lib.php:366 setup/frames/config.inc.php:42
@@ -1759,122 +1786,122 @@ msgstr "Jätka"
 msgid "Save"
 msgstr "Salvesta"
 
-#: js/messages.php:295
+#: js/messages.php:300
 msgid "Hide search criteria"
 msgstr "Peida otsingu kriteerium"
 
-#: js/messages.php:296
+#: js/messages.php:301
 msgid "Show search criteria"
 msgstr "Näita otsingu kriteeriumi"
 
-#: js/messages.php:299
+#: js/messages.php:304
 msgid "Hide find and replace criteria"
 msgstr "Peida 'leia ja asenda' kriteerium"
 
-#: js/messages.php:300
+#: js/messages.php:305
 msgid "Show find and replace criteria"
 msgstr "Kuva 'leia ja asenda' kriteeriumi"
 
-#: js/messages.php:304
+#: js/messages.php:309
 msgid "Each point represents a data row."
 msgstr "Iga punkt tähendab andmete rida."
 
-#: js/messages.php:306
+#: js/messages.php:311
 msgid "Hovering over a point will show its label."
 msgstr "Kursori üleliigutamisel näitab punkt selle nime."
 
-#: js/messages.php:308
+#: js/messages.php:313
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Vali graafiku suumitav ala hiirega."
 
-#: js/messages.php:310
+#: js/messages.php:315
 msgid "Click reset zoom button to come back to original state."
 msgstr "Algoleku taastamiseks vajuta suurenduse lähtestamise nuppu."
 
-#: js/messages.php:312
+#: js/messages.php:317
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "Kliki andmepunktil, et vaadata ja vajadusel muuta andmete rida."
 
-#: js/messages.php:314
+#: js/messages.php:319
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 "Diagrammi suurust saab muuta, kui lohistada seda alumist paremat nurkapidi."
 
-#: js/messages.php:316
+#: js/messages.php:321
 msgid "Select two columns"
 msgstr "Vali kaks veergu"
 
-#: js/messages.php:318
+#: js/messages.php:323
 msgid "Select two different columns"
 msgstr "Vali kaks erinevat veergu"
 
-#: js/messages.php:320
+#: js/messages.php:325
 msgid "Data point content"
 msgstr "Andmepunkti sisu"
 
-#: js/messages.php:323 js/messages.php:418 js/messages.php:434
+#: js/messages.php:328 js/messages.php:431 js/messages.php:447
 #: libraries/Error_Handler.class.php:345 libraries/insert_edit.lib.php:2602
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:374
 msgid "Ignore"
 msgstr "Ignoreeri"
 
-#: js/messages.php:324 libraries/DisplayResults.class.php:3368
+#: js/messages.php:329 libraries/DisplayResults.class.php:3369
 msgid "Copy"
 msgstr "Kopeeri"
 
-#: js/messages.php:327
+#: js/messages.php:332
 msgid "Point"
 msgstr "Punkt"
 
-#: js/messages.php:329
+#: js/messages.php:334
 msgid "Linestring"
 msgstr "Rea sõne"
 
-#: js/messages.php:330
+#: js/messages.php:335
 msgid "Polygon"
 msgstr "Hulktahukas"
 
-#: js/messages.php:331 libraries/DisplayResults.class.php:1673
+#: js/messages.php:336 libraries/DisplayResults.class.php:1672
 msgid "Geometry"
 msgstr "Geomeetria"
 
-#: js/messages.php:332
+#: js/messages.php:337
 msgid "Inner Ring"
 msgstr "Sisemine ring"
 
-#: js/messages.php:333
+#: js/messages.php:338
 msgid "Outer Ring"
 msgstr "Välimine ring"
 
-#: js/messages.php:336
+#: js/messages.php:341
 msgid "Shift + Click on function name to apply to all rows."
 msgstr "Shift + klõps funktsiooni nimel rakendab seda kõigile ridadele."
 
-#: js/messages.php:338
+#: js/messages.php:343
 msgid "Do you want to copy encryption key?"
 msgstr "Kas sa soovid kopeerida krüpteerimisvõtme?"
 
-#: js/messages.php:339
+#: js/messages.php:344
 msgid "Encryption key"
 msgstr "Krüpteerimisvõti"
 
-#: js/messages.php:342
+#: js/messages.php:347
 msgid "Select referenced key"
 msgstr "Vali osutatud võti"
 
-#: js/messages.php:343
+#: js/messages.php:348
 msgid "Select Foreign Key"
 msgstr "Vali võõrvõti"
 
-#: js/messages.php:344
+#: js/messages.php:349
 msgid "Please select the primary key or a unique key!"
 msgstr "Palun vali primaarvõti või unikaalne nimi!"
 
-#: js/messages.php:345 pmd_general.php:101
+#: js/messages.php:350 pmd_general.php:172
 msgid "Choose column to display"
 msgstr "Vali veerg, mida näidata"
 
-#: js/messages.php:347
+#: js/messages.php:352
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -1882,21 +1909,63 @@ msgstr ""
 "Sa ei ole muudatusi salvestanud. Kui sa neid ei salvesta, siis need lähevad "
 "kaotsi. Kas soovid jätkata?"
 
-#: js/messages.php:352
+#: js/messages.php:355 libraries/schema/User_Schema.class.php:144
+msgid "Page name"
+msgstr "Lehe nimi"
+
+#: js/messages.php:356
+#, fuzzy
+#| msgid "Select page"
+msgid "Save page"
+msgstr "Vali leht"
+
+#: js/messages.php:357 pmd_general.php:144
+#, fuzzy
+#| msgid "Free pages"
+msgid "Open page"
+msgstr "Vabad lehed"
+
+#: js/messages.php:358
+#, fuzzy
+#| msgid "Select page"
+msgid "Delete page"
+msgstr "Vali leht"
+
+#: js/messages.php:359
+#, fuzzy
+#| msgid "Please choose a page to edit"
+msgid "Please select a page to continue"
+msgstr "Palun vali leht, mida muuta"
+
+#: js/messages.php:360
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid page name"
+msgstr "Palun sisesta korrektne number!"
+
+#: js/messages.php:361
+msgid "Do you want to save the changes to the current page?"
+msgstr ""
+
+#: js/messages.php:362
+msgid "Successfully deleted the page"
+msgstr ""
+
+#: js/messages.php:365
 #, php-format
 msgid "Add an option for column \"%s\"."
 msgstr "Lisa säte veerule \"%s\"."
 
-#: js/messages.php:353
+#: js/messages.php:366
 #, php-format
 msgid "%d object(s) created."
 msgstr "Loodi %d objekt(i)."
 
-#: js/messages.php:356
+#: js/messages.php:369
 msgid "Press escape to cancel editing."
 msgstr "Muutmisest loobumiseks vajuta ESC."
 
-#: js/messages.php:357
+#: js/messages.php:370
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -1904,38 +1973,38 @@ msgstr ""
 "Sa muutsid mõningaid andmed ja neid pole veel salvestatud. Oled kindel, et "
 "soovid enne andmete salvestamist sellelt lehelt lahkuda?"
 
-#: js/messages.php:358
+#: js/messages.php:371
 msgid "Drag to reorder."
 msgstr "Järjekorra muutmiseks lohista."
 
-#: js/messages.php:359
+#: js/messages.php:372
 msgid "Click to sort."
 msgstr "Kliki sorteerimiseks."
 
-#: js/messages.php:360
+#: js/messages.php:373
 msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr "Vajuta Shift alla ja klõpsa, et eemaldada veerg ORDER BY klauslist."
 
-#: js/messages.php:361
+#: js/messages.php:374
 msgid "Click to mark/unmark."
 msgstr "Klõpsa valimiseks/mittevalimiseks."
 
-#: js/messages.php:362
+#: js/messages.php:375
 msgid "Double-click to copy column name."
 msgstr "Veeru nime kopeerimiseks tee sellel topeltklõps."
 
-#: js/messages.php:364
+#: js/messages.php:377
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Veeru nähtavuse muutmiseks<br />vajuta alla suunatud noolele."
 
-#: js/messages.php:366 libraries/DisplayResults.class.php:851
+#: js/messages.php:379 libraries/DisplayResults.class.php:850
 #: libraries/browse_foreigners.lib.php:254
 #: libraries/browse_foreigners.lib.php:307
 #: libraries/server_privileges.lib.php:3225
 msgid "Show all"
 msgstr "Näita kõiki"
 
-#: js/messages.php:367
+#: js/messages.php:380
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -1944,69 +2013,69 @@ msgstr ""
 "märkeruutudega, muutmisega, kopeerimisega ja kustutamisega seotud võimalused "
 "ei pruugi pärast salvestamist toimida."
 
-#: js/messages.php:368
+#: js/messages.php:381
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Palun sisesta korrektne kuueteistkümnend sõne. Lubatud märgid on 0-9, A-F."
 
-#: js/messages.php:373
+#: js/messages.php:386
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 "Sa saad ka muuta enamikke väärtuseid,<br />kui teed nende sisul topeltkliki."
 
-#: js/messages.php:376
+#: js/messages.php:389
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "Sa saad ka muuta enamikke väärtuseid,<br />kui klikid nende peal."
 
-#: js/messages.php:381
+#: js/messages.php:394
 msgid "Go to link."
 msgstr "Mine lingile."
 
-#: js/messages.php:382
+#: js/messages.php:395
 msgid "Copy column name."
 msgstr "Kopeeri veeru nimi."
 
-#: js/messages.php:383
+#: js/messages.php:396
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "Veeru nime kopeerimiseks lõikelauale paremklõpsa sellel."
 
-#: js/messages.php:384
+#: js/messages.php:397
 msgid "Show data row(s)."
 msgstr "Näita andmete rida/ridu."
 
-#: js/messages.php:387
+#: js/messages.php:400
 msgid "Generate password"
 msgstr "Genereeri parool"
 
-#: js/messages.php:388 libraries/replication_gui.lib.php:867
+#: js/messages.php:401 libraries/replication_gui.lib.php:867
 msgid "Generate"
 msgstr "Genereeri"
 
-#: js/messages.php:389
+#: js/messages.php:402
 msgid "Change Password"
 msgstr "Muuda parooli"
 
-#: js/messages.php:392
+#: js/messages.php:405
 msgid "More"
 msgstr "Rohkem"
 
-#: js/messages.php:395
+#: js/messages.php:408
 msgid "Show Panel"
 msgstr "Näita paneel"
 
-#: js/messages.php:396
+#: js/messages.php:409
 msgid "Hide Panel"
 msgstr "Peida paneel"
 
-#: js/messages.php:397
+#: js/messages.php:410
 msgid "Show hidden navigation tree items."
 msgstr "Kuva peidetud navigeerimispaneeli elemendid."
 
-#: js/messages.php:400
+#: js/messages.php:413
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Valitud lehte ei leitud ajaloost, see võib olla aegunud."
 
-#: js/messages.php:403 setup/lib/index.lib.php:157
+#: js/messages.php:416 setup/lib/index.lib.php:157
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2016,42 +2085,42 @@ msgstr ""
 "Uusim versioon on %s, välja antud %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:405
+#: js/messages.php:418
 msgid ", latest stable version:"
 msgstr ", viimane stabiilne versioon:"
 
-#: js/messages.php:406
+#: js/messages.php:419
 msgid "up to date"
 msgstr "ajakohane"
 
-#: js/messages.php:408 libraries/DisplayResults.class.php:5114
+#: js/messages.php:421 libraries/DisplayResults.class.php:5116
 #: view_create.php:178
 msgid "Create view"
 msgstr "Loo vaade"
 
-#: js/messages.php:411
+#: js/messages.php:424
 msgid "Send Error Report"
 msgstr "Saada vearaport"
 
-#: js/messages.php:412
+#: js/messages.php:425
 msgid "Submit Error Report"
 msgstr "Saada vearaport"
 
-#: js/messages.php:414
+#: js/messages.php:427
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "Saatuslik JavaScripti viga; kas sa soovid saata vearaporti?"
 
-#: js/messages.php:416
+#: js/messages.php:429
 msgid "Change Report Settings"
 msgstr "Muuda raporteerimise sätteid"
 
-#: js/messages.php:417
+#: js/messages.php:430
 msgid "Show Report Details"
 msgstr "Näita raporteerimise detaile"
 
-#: js/messages.php:420
+#: js/messages.php:433
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -2059,7 +2128,7 @@ msgstr ""
 "Su eksport on mittetäielik, sest PHP skripti töötamiseks lubatud aeg on "
 "liiga väike!"
 
-#: js/messages.php:424
+#: js/messages.php:437
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -2068,278 +2137,277 @@ msgstr ""
 "Hoiatus: sellel lehel oleval vormil on enam kui %d välja. Vormi saatmisel "
 "võidakse mõne välja sisu eirata tänu PHP sättele max_input_vars."
 
-#: js/messages.php:430 js/messages.php:442
+#: js/messages.php:443 js/messages.php:455
 msgid "Some errors have been detected on the server!"
 msgstr "Server tuvastas mõned vead!"
 
-#: js/messages.php:432
+#: js/messages.php:445
 msgid "Please look at the bottom of this window."
 msgstr "Palun vaata selle akna alumisse serva."
 
-#: js/messages.php:437 libraries/Error_Handler.class.php:350
-#| msgid "Ignore"
+#: js/messages.php:450 libraries/Error_Handler.class.php:350
 msgid "Ignore All"
 msgstr "Ignoreeri kõiki"
 
-#: js/messages.php:444
+#: js/messages.php:457
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "Palun oota, sinu seadistust saadetakse hetkel."
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:476
+#: js/messages.php:489
 msgid "Done"
 msgstr "Valmis"
 
-#: js/messages.php:480
+#: js/messages.php:493
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Eelmine"
 
-#: js/messages.php:485
+#: js/messages.php:498
 msgctxt "Next month"
 msgid "Next"
 msgstr "Järgmine"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:488
+#: js/messages.php:501
 msgid "Today"
 msgstr "Täna"
 
-#: js/messages.php:492
+#: js/messages.php:505
 msgid "January"
 msgstr "Jaanuar"
 
-#: js/messages.php:493
+#: js/messages.php:506
 msgid "February"
 msgstr "Veebruar"
 
-#: js/messages.php:494
+#: js/messages.php:507
 msgid "March"
 msgstr "Märts"
 
-#: js/messages.php:495
+#: js/messages.php:508
 msgid "April"
 msgstr "Aprill"
 
-#: js/messages.php:496
+#: js/messages.php:509
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:497
+#: js/messages.php:510
 msgid "June"
 msgstr "Juuni"
 
-#: js/messages.php:498
+#: js/messages.php:511
 msgid "July"
 msgstr "Juuli"
 
-#: js/messages.php:499
+#: js/messages.php:512
 msgid "August"
 msgstr "August"
 
-#: js/messages.php:500
+#: js/messages.php:513
 msgid "September"
 msgstr "September"
 
-#: js/messages.php:501
+#: js/messages.php:514
 msgid "October"
 msgstr "Oktoober"
 
-#: js/messages.php:502
+#: js/messages.php:515
 msgid "November"
 msgstr "November"
 
-#: js/messages.php:503
+#: js/messages.php:516
 msgid "December"
 msgstr "Detsember"
 
 #. l10n: Short month name
-#: js/messages.php:510 libraries/Util.class.php:1553
+#: js/messages.php:523 libraries/Util.class.php:1553
 msgid "Jan"
 msgstr "Jaan"
 
 #. l10n: Short month name
-#: js/messages.php:512 libraries/Util.class.php:1555
+#: js/messages.php:525 libraries/Util.class.php:1555
 msgid "Feb"
 msgstr "Veebr"
 
 #. l10n: Short month name
-#: js/messages.php:514 libraries/Util.class.php:1557
+#: js/messages.php:527 libraries/Util.class.php:1557
 msgid "Mar"
 msgstr "Märts"
 
 #. l10n: Short month name
-#: js/messages.php:516 libraries/Util.class.php:1559
+#: js/messages.php:529 libraries/Util.class.php:1559
 msgid "Apr"
 msgstr "Aprill"
 
 #. l10n: Short month name
-#: js/messages.php:518 libraries/Util.class.php:1561
+#: js/messages.php:531 libraries/Util.class.php:1561
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:520 libraries/Util.class.php:1563
+#: js/messages.php:533 libraries/Util.class.php:1563
 msgid "Jun"
 msgstr "Juuni"
 
 #. l10n: Short month name
-#: js/messages.php:522 libraries/Util.class.php:1565
+#: js/messages.php:535 libraries/Util.class.php:1565
 msgid "Jul"
 msgstr "Juuli"
 
 #. l10n: Short month name
-#: js/messages.php:524 libraries/Util.class.php:1567
+#: js/messages.php:537 libraries/Util.class.php:1567
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:526 libraries/Util.class.php:1569
+#: js/messages.php:539 libraries/Util.class.php:1569
 msgid "Sep"
 msgstr "Sept"
 
 #. l10n: Short month name
-#: js/messages.php:528 libraries/Util.class.php:1571
+#: js/messages.php:541 libraries/Util.class.php:1571
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:530 libraries/Util.class.php:1573
+#: js/messages.php:543 libraries/Util.class.php:1573
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:532 libraries/Util.class.php:1575
+#: js/messages.php:545 libraries/Util.class.php:1575
 msgid "Dec"
 msgstr "Dets"
 
-#: js/messages.php:538
+#: js/messages.php:551
 msgid "Sunday"
 msgstr "Pühapäev"
 
-#: js/messages.php:539
+#: js/messages.php:552
 msgid "Monday"
 msgstr "Esmaspäev"
 
-#: js/messages.php:540
+#: js/messages.php:553
 msgid "Tuesday"
 msgstr "Teisipäev"
 
-#: js/messages.php:541
+#: js/messages.php:554
 msgid "Wednesday"
 msgstr "Kolmapäev"
 
-#: js/messages.php:542
+#: js/messages.php:555
 msgid "Thursday"
 msgstr "Neljapäev"
 
-#: js/messages.php:543
+#: js/messages.php:556
 msgid "Friday"
 msgstr "Reede"
 
-#: js/messages.php:544
+#: js/messages.php:557
 msgid "Saturday"
 msgstr "Laupäev"
 
 #. l10n: Short week day name
-#: js/messages.php:551
+#: js/messages.php:564
 msgid "Sun"
 msgstr "Püh"
 
 #. l10n: Short week day name
-#: js/messages.php:553 libraries/Util.class.php:1580
+#: js/messages.php:566 libraries/Util.class.php:1580
 msgid "Mon"
 msgstr "Esm"
 
 #. l10n: Short week day name
-#: js/messages.php:555 libraries/Util.class.php:1582
+#: js/messages.php:568 libraries/Util.class.php:1582
 msgid "Tue"
 msgstr "Tei"
 
 #. l10n: Short week day name
-#: js/messages.php:557 libraries/Util.class.php:1584
+#: js/messages.php:570 libraries/Util.class.php:1584
 msgid "Wed"
 msgstr "Kol"
 
 #. l10n: Short week day name
-#: js/messages.php:559 libraries/Util.class.php:1586
+#: js/messages.php:572 libraries/Util.class.php:1586
 msgid "Thu"
 msgstr "Nel"
 
 #. l10n: Short week day name
-#: js/messages.php:561 libraries/Util.class.php:1588
+#: js/messages.php:574 libraries/Util.class.php:1588
 msgid "Fri"
 msgstr "Ree"
 
 #. l10n: Short week day name
-#: js/messages.php:563 libraries/Util.class.php:1590
+#: js/messages.php:576 libraries/Util.class.php:1590
 msgid "Sat"
 msgstr "Lau"
 
 #. l10n: Minimal week day name
-#: js/messages.php:570
+#: js/messages.php:583
 msgid "Su"
 msgstr "P"
 
 #. l10n: Minimal week day name
-#: js/messages.php:572
+#: js/messages.php:585
 msgid "Mo"
 msgstr "E"
 
 #. l10n: Minimal week day name
-#: js/messages.php:574
+#: js/messages.php:587
 msgid "Tu"
 msgstr "T"
 
 #. l10n: Minimal week day name
-#: js/messages.php:576
+#: js/messages.php:589
 msgid "We"
 msgstr "K"
 
 #. l10n: Minimal week day name
-#: js/messages.php:578
+#: js/messages.php:591
 msgid "Th"
 msgstr "N"
 
 #. l10n: Minimal week day name
-#: js/messages.php:580
+#: js/messages.php:593
 msgid "Fr"
 msgstr "R"
 
 #. l10n: Minimal week day name
-#: js/messages.php:582
+#: js/messages.php:595
 msgid "Sa"
 msgstr "L"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:586
+#: js/messages.php:599
 msgid "Wk"
 msgstr "Näd"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:593
+#: js/messages.php:606
 msgid "calendar-month-year"
 msgstr "kalender-kuu-aasta"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:596
+#: js/messages.php:609
 msgctxt "Year suffix"
 msgid "none"
 msgstr "puudub"
 
-#: js/messages.php:608
+#: js/messages.php:621
 msgid "Hour"
 msgstr "Tund"
 
-#: js/messages.php:609
+#: js/messages.php:622
 msgid "Minute"
 msgstr "Minut"
 
-#: js/messages.php:610
+#: js/messages.php:623
 msgid "Second"
 msgstr "Sekund"
 
@@ -2422,18 +2490,18 @@ msgstr ""
 msgid "Font size"
 msgstr "Fondi kõrgus"
 
-#: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1315
-#: libraries/DisplayResults.class.php:2104
-#: libraries/DisplayResults.class.php:2113 libraries/TableSearch.class.php:849
+#: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1314
+#: libraries/DisplayResults.class.php:2103
+#: libraries/DisplayResults.class.php:2112 libraries/TableSearch.class.php:849
 #: libraries/operations.lib.php:643 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337 libraries/server_status.lib.php:450
 #: libraries/structure.lib.php:915 libraries/structure.lib.php:932
 msgid "Ascending"
 msgstr "Kasvav"
 
-#: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1327
-#: libraries/DisplayResults.class.php:2099
-#: libraries/DisplayResults.class.php:2118 libraries/TableSearch.class.php:850
+#: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1326
+#: libraries/DisplayResults.class.php:2098
+#: libraries/DisplayResults.class.php:2117 libraries/TableSearch.class.php:850
 #: libraries/operations.lib.php:646 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337 libraries/server_status.lib.php:447
 #: libraries/structure.lib.php:920 libraries/structure.lib.php:937
@@ -2600,16 +2668,16 @@ msgstr "Vaata"
 msgid "Delete the matches for the %s table?"
 msgstr "Kustutada %s tabeli vasted?"
 
-#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3436
-#: libraries/DisplayResults.class.php:4981
-#: libraries/central_columns.lib.php:727
-#: libraries/schema/User_Schema.class.php:224
-#: libraries/schema/User_Schema.class.php:306
-#: libraries/schema/User_Schema.class.php:355
+#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3437
+#: libraries/DisplayResults.class.php:4983
+#: libraries/central_columns.lib.php:758
+#: libraries/schema/User_Schema.class.php:230
+#: libraries/schema/User_Schema.class.php:312
+#: libraries/schema/User_Schema.class.php:361
 #: libraries/server_user_groups.lib.php:129
-#: libraries/sql_query_form.lib.php:434 libraries/tbl_tracking.lib.php:373
+#: libraries/sql_query_form.lib.php:440 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:508 setup/frames/index.inc.php:182
+#: pmd_general.php:573 setup/frames/index.inc.php:182
 #: setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "Kustuta"
@@ -2638,77 +2706,77 @@ msgstr "Tabelitest:"
 msgid "Inside column:"
 msgstr "Veerust:"
 
-#: libraries/DisplayResults.class.php:734
+#: libraries/DisplayResults.class.php:733
 msgid "Save edited data"
 msgstr "Salvesta muudetud andmed"
 
-#: libraries/DisplayResults.class.php:740
+#: libraries/DisplayResults.class.php:739
 msgid "Restore column order"
 msgstr "Taasta veeru järjekord"
 
-#: libraries/DisplayResults.class.php:788
-#: libraries/central_columns.lib.php:575
+#: libraries/DisplayResults.class.php:787
+#: libraries/central_columns.lib.php:598
 msgid "Filter rows"
 msgstr "Filtreeritud read"
 
-#: libraries/DisplayResults.class.php:790
-#: libraries/central_columns.lib.php:577
+#: libraries/DisplayResults.class.php:789
+#: libraries/central_columns.lib.php:600
 msgid "Search this table"
 msgstr "Otsi sellest tabelist"
 
-#: libraries/DisplayResults.class.php:817 libraries/Util.class.php:2440
+#: libraries/DisplayResults.class.php:816 libraries/Util.class.php:2440
 #: libraries/Util.class.php:2444
 msgctxt "First page"
 msgid "Begin"
 msgstr "Algus"
 
-#: libraries/DisplayResults.class.php:820 libraries/Util.class.php:2442
+#: libraries/DisplayResults.class.php:819 libraries/Util.class.php:2442
 #: libraries/Util.class.php:2445 libraries/server_bin_log.lib.php:170
 #: libraries/server_bin_log.lib.php:172
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Eelmine"
 
-#: libraries/DisplayResults.class.php:877 libraries/Util.class.php:2477
+#: libraries/DisplayResults.class.php:876 libraries/Util.class.php:2477
 #: libraries/Util.class.php:2480 libraries/server_bin_log.lib.php:204
 #: libraries/server_bin_log.lib.php:206
 msgctxt "Next page"
 msgid "Next"
 msgstr "Järgmine"
 
-#: libraries/DisplayResults.class.php:906 libraries/Util.class.php:2478
+#: libraries/DisplayResults.class.php:905 libraries/Util.class.php:2478
 #: libraries/Util.class.php:2481
 msgctxt "Last page"
 msgid "End"
 msgstr "Lõpp"
 
-#: libraries/DisplayResults.class.php:953 libraries/display_export.lib.php:331
+#: libraries/DisplayResults.class.php:952 libraries/display_export.lib.php:331
 #: libraries/tbl_chart.lib.php:290
 msgid "Number of rows:"
 msgstr "Ridade hulk:"
 
-#: libraries/DisplayResults.class.php:961
+#: libraries/DisplayResults.class.php:960
 msgid "Mode:"
 msgstr "Meetod:"
 
-#: libraries/DisplayResults.class.php:963
+#: libraries/DisplayResults.class.php:962
 msgid "horizontal"
 msgstr "horisontaalselt"
 
-#: libraries/DisplayResults.class.php:964
+#: libraries/DisplayResults.class.php:963
 msgid "horizontal (rotated headers)"
 msgstr "horisontaalne (pööratud päised)"
 
-#: libraries/DisplayResults.class.php:965
+#: libraries/DisplayResults.class.php:964
 msgid "vertical"
 msgstr "vertikaalselt"
 
-#: libraries/DisplayResults.class.php:1273
+#: libraries/DisplayResults.class.php:1272
 msgid "Sort by key"
 msgstr "Sorteeri võtme alusel"
 
-#: libraries/DisplayResults.class.php:1614 libraries/TableSearch.class.php:790
-#: libraries/import.lib.php:1233 libraries/import.lib.php:1265
+#: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
+#: libraries/import.lib.php:1237 libraries/import.lib.php:1269
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
 #: libraries/plugins/export/ExportExcel.class.php:44
@@ -2734,59 +2802,59 @@ msgstr "Sorteeri võtme alusel"
 msgid "Options"
 msgstr "Valikud"
 
-#: libraries/DisplayResults.class.php:1620
-#: libraries/DisplayResults.class.php:1722
+#: libraries/DisplayResults.class.php:1619
+#: libraries/DisplayResults.class.php:1721
 msgid "Partial texts"
 msgstr "Osalised tekstid"
 
-#: libraries/DisplayResults.class.php:1621
-#: libraries/DisplayResults.class.php:1726
+#: libraries/DisplayResults.class.php:1620
+#: libraries/DisplayResults.class.php:1725
 msgid "Full texts"
 msgstr "Täistekstid"
 
-#: libraries/DisplayResults.class.php:1636
+#: libraries/DisplayResults.class.php:1635
 msgid "Relational key"
 msgstr "Seose võti"
 
-#: libraries/DisplayResults.class.php:1637
+#: libraries/DisplayResults.class.php:1636
 msgid "Relational display column"
 msgstr "Seose näitamise veerg"
 
-#: libraries/DisplayResults.class.php:1649
+#: libraries/DisplayResults.class.php:1648
 msgid "Show binary contents"
 msgstr "Näita binaarsisu"
 
-#: libraries/DisplayResults.class.php:1654
+#: libraries/DisplayResults.class.php:1653
 msgid "Show BLOB contents"
 msgstr "Näita BLOB sisu"
 
-#: libraries/DisplayResults.class.php:1665
+#: libraries/DisplayResults.class.php:1664
 msgid "Hide browser transformation"
 msgstr "Peida veebilehitseja transformatsioon"
 
-#: libraries/DisplayResults.class.php:1674
+#: libraries/DisplayResults.class.php:1673
 msgid "Well Known Text"
 msgstr "Harilik tekst"
 
-#: libraries/DisplayResults.class.php:1675
+#: libraries/DisplayResults.class.php:1674
 msgid "Well Known Binary"
 msgstr "Harilik binaar"
 
-#: libraries/DisplayResults.class.php:3410
-#: libraries/DisplayResults.class.php:3426
+#: libraries/DisplayResults.class.php:3411
+#: libraries/DisplayResults.class.php:3427
 msgid "The row has been deleted."
 msgstr "Rida on kustutatud."
 
-#: libraries/DisplayResults.class.php:3464
-#: libraries/DisplayResults.class.php:4981 libraries/server_status.lib.php:520
+#: libraries/DisplayResults.class.php:3465
+#: libraries/DisplayResults.class.php:4983 libraries/server_status.lib.php:520
 msgid "Kill"
 msgstr "Sulge"
 
-#: libraries/DisplayResults.class.php:4425
+#: libraries/DisplayResults.class.php:4427
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Võib olla umbkaudne. Vaata [doc@faq3-11]KKK 3.11[/doc]."
 
-#: libraries/DisplayResults.class.php:4482 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4484 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:904
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:117
@@ -2794,7 +2862,7 @@ msgstr "Võib olla umbkaudne. Vaata [doc@faq3-11]KKK 3.11[/doc]."
 msgid "Your SQL query has been executed successfully."
 msgstr "Sinu SQL päring teostati edukalt."
 
-#: libraries/DisplayResults.class.php:4859 libraries/structure.lib.php:682
+#: libraries/DisplayResults.class.php:4861 libraries/structure.lib.php:682
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -2802,28 +2870,28 @@ msgid ""
 msgstr ""
 "Sellel vaatel on vähemalt nii palju ridu. Palun loe %sdokumentatsiooni%s."
 
-#: libraries/DisplayResults.class.php:4872
+#: libraries/DisplayResults.class.php:4874
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Kuvatakse read %1s - %2s"
 
-#: libraries/DisplayResults.class.php:4887
+#: libraries/DisplayResults.class.php:4889
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "Kokku %1$d, päringus %2$d"
 
-#: libraries/DisplayResults.class.php:4892
+#: libraries/DisplayResults.class.php:4894
 #, php-format
 msgid "%d total"
 msgstr "kokku: %d"
 
-#: libraries/DisplayResults.class.php:4904 libraries/sql.lib.php:1671
+#: libraries/DisplayResults.class.php:4906 libraries/sql.lib.php:1671
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "päring kestis %01.4f sekundit."
 
-#: libraries/DisplayResults.class.php:4988
-#: libraries/DisplayResults.class.php:4994 libraries/mult_submits.inc.php:45
+#: libraries/DisplayResults.class.php:4990
+#: libraries/DisplayResults.class.php:4996 libraries/mult_submits.inc.php:45
 #: libraries/server_databases.lib.php:141
 #: libraries/server_databases.lib.php:145
 #: libraries/server_privileges.lib.php:2983
@@ -2833,8 +2901,8 @@ msgstr "päring kestis %01.4f sekundit."
 msgid "With selected:"
 msgstr "Valitutega:"
 
-#: libraries/DisplayResults.class.php:4992
-#: libraries/DisplayResults.class.php:4993
+#: libraries/DisplayResults.class.php:4994
+#: libraries/DisplayResults.class.php:4995
 #: libraries/server_databases.lib.php:143
 #: libraries/server_databases.lib.php:144
 #: libraries/server_privileges.lib.php:1014
@@ -2847,13 +2915,13 @@ msgstr "Valitutega:"
 msgid "Check All"
 msgstr "Vali kõik"
 
-#: libraries/DisplayResults.class.php:4998 libraries/structure.lib.php:1445
-#: libraries/structure.lib.php:2161 querywindow.php:85
+#: libraries/DisplayResults.class.php:5000 libraries/structure.lib.php:1445
+#: libraries/structure.lib.php:2163 querywindow.php:85
 msgid "Change"
 msgstr "Muuda"
 
-#: libraries/DisplayResults.class.php:5011
-#: libraries/DisplayResults.class.php:5282 libraries/Menu.class.php:325
+#: libraries/DisplayResults.class.php:5013
+#: libraries/DisplayResults.class.php:5284 libraries/Menu.class.php:325
 #: libraries/Menu.class.php:423 libraries/Menu.class.php:546
 #: libraries/Util.class.php:3366 libraries/Util.class.php:3367
 #: libraries/Util.class.php:4075 libraries/Util.class.php:4090
@@ -2866,29 +2934,29 @@ msgstr "Muuda"
 msgid "Export"
 msgstr "Ekspordi"
 
-#: libraries/DisplayResults.class.php:5170
+#: libraries/DisplayResults.class.php:5172
 msgid "Query results operations"
 msgstr "Päringu tulemuste tegevused"
 
-#: libraries/DisplayResults.class.php:5206 libraries/Header.class.php:347
+#: libraries/DisplayResults.class.php:5208 libraries/Header.class.php:347
 #: libraries/structure.lib.php:314 libraries/structure.lib.php:385
 #: libraries/structure.lib.php:1580
 msgid "Print view"
 msgstr "Prindi vaade"
 
-#: libraries/DisplayResults.class.php:5224
+#: libraries/DisplayResults.class.php:5226
 msgid "Print view (with full texts)"
 msgstr "Prindi vaade (täispikkade tekstidega)"
 
-#: libraries/DisplayResults.class.php:5295 libraries/tbl_chart.lib.php:351
+#: libraries/DisplayResults.class.php:5297 libraries/tbl_chart.lib.php:351
 msgid "Display chart"
 msgstr "Näita diagrammi"
 
-#: libraries/DisplayResults.class.php:5320
+#: libraries/DisplayResults.class.php:5322
 msgid "Visualize GIS data"
 msgstr "Visualiseeri GIS andmed"
 
-#: libraries/DisplayResults.class.php:5546
+#: libraries/DisplayResults.class.php:5549
 msgid "Link not found!"
 msgstr "Linki ei leitud!"
 
@@ -2897,7 +2965,6 @@ msgid "Too many error messages, some are not displayed."
 msgstr "Liiga palju veasõnumeid, mõningaid pole näha."
 
 #: libraries/Error_Handler.class.php:333
-#| msgid "Import"
 msgid "Report"
 msgstr "Raport"
 
@@ -2994,7 +3061,7 @@ msgid "Keyname"
 msgstr "Võtme nimi"
 
 #: libraries/Index.class.php:565 libraries/structure.lib.php:1458
-#: libraries/structure.lib.php:2171 libraries/structure.lib.php:2181
+#: libraries/structure.lib.php:2173 libraries/structure.lib.php:2183
 #: libraries/tbl_tracking.lib.php:896
 msgid "Unique"
 msgstr "Ainulaadne"
@@ -3009,7 +3076,7 @@ msgstr "Hulk"
 
 #: libraries/Index.class.php:569 libraries/TableSearch.class.php:187
 #: libraries/build_html_for_db.lib.php:22
-#: libraries/central_columns.lib.php:604 libraries/mysql_charsets.lib.php:47
+#: libraries/central_columns.lib.php:635 libraries/mysql_charsets.lib.php:47
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:819
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:835
 #: libraries/structure.lib.php:1252 libraries/structure.lib.php:1799
@@ -3043,7 +3110,7 @@ msgstr ""
 "kustutatakse."
 
 #: libraries/Menu.class.php:196 libraries/ServerStatusData.class.php:365
-#: libraries/config/messages.inc.php:767
+#: libraries/config/messages.inc.php:762
 msgid "Server"
 msgstr "Server"
 
@@ -3057,16 +3124,16 @@ msgstr "Vaade"
 #: libraries/Menu.class.php:302 libraries/Menu.class.php:402
 #: libraries/Util.class.php:3132 libraries/Util.class.php:3139
 #: libraries/Util.class.php:3359 libraries/Util.class.php:4086
-#: libraries/Util.class.php:4103 libraries/config/setup.forms.php:301
-#: libraries/config/setup.forms.php:341 libraries/config/setup.forms.php:367
+#: libraries/Util.class.php:4103 libraries/config/setup.forms.php:300
+#: libraries/config/setup.forms.php:340 libraries/config/setup.forms.php:366
 #: libraries/config/user_preferences.forms.php:201
 #: libraries/config/user_preferences.forms.php:241
 #: libraries/config/user_preferences.forms.php:267
-#: libraries/import.lib.php:1265
+#: libraries/import.lib.php:1269
 #: libraries/navigation/Nodes/Node_Table.class.php:36
 #: libraries/server_privileges.lib.php:981
 #: libraries/tbl_columns_definition_form.lib.php:200
-#: libraries/tbl_tracking.lib.php:805 pmd_general.php:190
+#: libraries/tbl_tracking.lib.php:805 pmd_general.php:258
 msgid "Structure"
 msgstr "Struktuur"
 
@@ -3113,17 +3180,17 @@ msgstr "Tegevused"
 
 #: libraries/Menu.class.php:354 libraries/Menu.class.php:470
 #: libraries/Util.class.php:4097 libraries/Util.class.php:4111
-#: libraries/relation.lib.php:241
+#: libraries/relation.lib.php:230
 msgid "Tracking"
 msgstr "Jälgimine"
 
 #: libraries/Menu.class.php:367 libraries/Menu.class.php:464
 #: libraries/Util.class.php:4096 libraries/Util.class.php:4112
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
-#: libraries/plugins/export/ExportHtmlword.class.php:565
-#: libraries/plugins/export/ExportOdt.class.php:656
-#: libraries/plugins/export/ExportSql.class.php:1698
-#: libraries/plugins/export/ExportTexytext.class.php:508
+#: libraries/plugins/export/ExportHtmlword.class.php:597
+#: libraries/plugins/export/ExportOdt.class.php:706
+#: libraries/plugins/export/ExportSql.class.php:1759
+#: libraries/plugins/export/ExportTexytext.class.php:537
 #: libraries/plugins/export/ExportXml.class.php:121
 #: libraries/rte/rte_words.lib.php:50
 msgid "Triggers"
@@ -3145,13 +3212,12 @@ msgstr "Funktsioonid"
 
 #: libraries/Menu.class.php:457 libraries/Util.class.php:4095
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
-#: libraries/plugins/export/ExportSql.class.php:879
+#: libraries/plugins/export/ExportSql.class.php:911
 #: libraries/rte/rte_words.lib.php:64
 msgid "Events"
 msgstr "Sündmused"
 
 #: libraries/Menu.class.php:476 libraries/Util.class.php:4098
-#: libraries/relation.lib.php:208
 msgid "Designer"
 msgstr "Kujundaja"
 
@@ -3231,7 +3297,7 @@ msgstr[1] "Lisati %1$d rida."
 #: libraries/browse_foreigners.lib.php:291
 #: libraries/schema/Pdf_Relation_Schema.class.php:1184
 #: libraries/schema/Pdf_Relation_Schema.class.php:1208
-#: libraries/schema/User_Schema.class.php:437
+#: libraries/schema/User_Schema.class.php:443
 #: libraries/select_lang.lib.php:591
 msgid "Page number:"
 msgstr "Leht:"
@@ -3248,33 +3314,33 @@ msgstr "Hiljutise tabelit ei suudetud salvestada!"
 msgid "Could not save favorite table!"
 msgstr "Lemmikute tabelit ei suudetud salvestada!"
 
-#: libraries/RecentFavoriteTable.class.php:226
-#: libraries/structure.lib.php:2841
+#: libraries/RecentFavoriteTable.class.php:232
+#: libraries/structure.lib.php:2843
 msgid "Remove from Favorites"
 msgstr "Kustuta lemmikutest"
 
-#: libraries/RecentFavoriteTable.class.php:244
+#: libraries/RecentFavoriteTable.class.php:254
 msgid "There are no recent tables."
 msgstr "Hiljutisi tabeleid ei ole."
 
-#: libraries/RecentFavoriteTable.class.php:245
+#: libraries/RecentFavoriteTable.class.php:255
 msgid "There are no favorite tables."
 msgstr "Lemmiktabelid puuduvad."
 
-#: libraries/RecentFavoriteTable.class.php:260
+#: libraries/RecentFavoriteTable.class.php:270
 msgid "Recent tables"
 msgstr "Hiljutised tabelid"
 
-#: libraries/RecentFavoriteTable.class.php:262
+#: libraries/RecentFavoriteTable.class.php:272
 msgid "Recent"
 msgstr "Hiljutised"
 
-#: libraries/RecentFavoriteTable.class.php:264
+#: libraries/RecentFavoriteTable.class.php:274
 #: libraries/config/messages.inc.php:472
 msgid "Favorite tables"
 msgstr "Lemmikute tabel"
 
-#: libraries/RecentFavoriteTable.class.php:266
+#: libraries/RecentFavoriteTable.class.php:276
 msgid "Favorites"
 msgstr "Lemmikud"
 
@@ -3345,7 +3411,7 @@ msgstr "Sorteerimine"
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:116
-#: libraries/structure.lib.php:3029
+#: libraries/structure.lib.php:3032
 msgid "Tables"
 msgstr "Tabelid"
 
@@ -3443,29 +3509,29 @@ msgstr "Lähteandmebaasi `%s` ei leitud!"
 msgid "Target database `%s` was not found!"
 msgstr "Sihtandmebaasi `%s` ei leitud!"
 
-#: libraries/Table.class.php:1327
+#: libraries/Table.class.php:1310
 msgid "Invalid database:"
 msgstr "Vigane andmebaas:"
 
-#: libraries/Table.class.php:1341
+#: libraries/Table.class.php:1324
 msgid "Invalid table name:"
 msgstr "Vigane tabeli nimi:"
 
-#: libraries/Table.class.php:1376
+#: libraries/Table.class.php:1359
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Tabeli %1$s ümbernimetamine %2$s'ks ebaõnnestus!"
 
-#: libraries/Table.class.php:1395
+#: libraries/Table.class.php:1378
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s tabeli uueks nimeks sai %2$s."
 
-#: libraries/Table.class.php:1543
+#: libraries/Table.class.php:1526
 msgid "Could not save table UI preferences!"
 msgstr "Tabeli kasutajaliidese eelistusi ei saanud salvestada!"
 
-#: libraries/Table.class.php:1572
+#: libraries/Table.class.php:1555
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3474,7 +3540,7 @@ msgstr ""
 "Tabeli UI eelistuste puhastamine ebaõnnestus (vaata $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1726
+#: libraries/Table.class.php:1709
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -3491,17 +3557,17 @@ msgstr ""
 msgid "Function"
 msgstr "Funktsioon"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:574 pmd_general.php:594
-#: pmd_general.php:723 pmd_general.php:736 pmd_general.php:801
-#: pmd_general.php:855
+#: libraries/TableSearch.class.php:188 pmd_general.php:639 pmd_general.php:659
+#: pmd_general.php:788 pmd_general.php:801 pmd_general.php:866
+#: pmd_general.php:920
 msgid "Operator"
 msgstr "Operaator"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1288
 #: libraries/insert_edit.lib.php:1635 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:563
-#: pmd_general.php:623 pmd_general.php:752 pmd_general.php:871
+#: libraries/server_status_variables.lib.php:220 pmd_general.php:628
+#: pmd_general.php:688 pmd_general.php:817 pmd_general.php:936
 msgid "Value"
 msgstr "Väärtus"
 
@@ -3969,10 +4035,6 @@ msgstr "Loetelu, mis on valitud määratletud väärtuste nimekirjast"
 msgid "Max: %s%s"
 msgstr "Maksimaalne: %s%s"
 
-#: libraries/Util.class.php:639 libraries/sql.lib.php:452
-msgid "SQL query:"
-msgstr "SQL päring:"
-
 #: libraries/Util.class.php:683 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
 #: libraries/rte/rte_events.lib.php:161 libraries/rte/rte_routines.lib.php:311
@@ -3986,7 +4048,7 @@ msgstr "SQL päring:"
 msgid "MySQL said: "
 msgstr "MySQL vastas: "
 
-#: libraries/Util.class.php:1157 libraries/config/messages.inc.php:753
+#: libraries/Util.class.php:1157 libraries/config/messages.inc.php:748
 msgid "Explain SQL"
 msgstr "Selgita SQL"
 
@@ -3998,11 +4060,11 @@ msgstr "Jäta SQL selgitus vahele"
 msgid "Without PHP Code"
 msgstr "Ilma PHP koodita"
 
-#: libraries/Util.class.php:1206 libraries/config/messages.inc.php:755
+#: libraries/Util.class.php:1206 libraries/config/messages.inc.php:750
 msgid "Create PHP Code"
 msgstr "Loo PHP kood"
 
-#: libraries/Util.class.php:1232 libraries/config/messages.inc.php:754
+#: libraries/Util.class.php:1232 libraries/config/messages.inc.php:749
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Uuenda"
@@ -4051,7 +4113,7 @@ msgstr "Seda %s funktsionaalsust mõjutas tuntud viga, vaata %s"
 msgid "Click to toggle"
 msgstr "Muuda"
 
-#: libraries/Util.class.php:3272 libraries/sql_query_form.lib.php:479
+#: libraries/Util.class.php:3272 libraries/sql_query_form.lib.php:485
 #: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "Sirvi oma arvutist:"
@@ -4062,7 +4124,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Vali veebiserveri üleslaadimise kataloogist <b>%s</b>:"
 
 #: libraries/Util.class.php:3326 libraries/insert_edit.lib.php:1234
-#: libraries/sql_query_form.lib.php:489
+#: libraries/sql_query_form.lib.php:495
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Valitud üleslaadimise kataloogile ei pääse ligi."
 
@@ -4118,27 +4180,27 @@ msgstr "Kirjeldus"
 msgid "Use this value"
 msgstr "Kasuta seda väärtust"
 
-#: libraries/build_html_for_db.lib.php:38 libraries/config/setup.forms.php:313
-#: libraries/config/setup.forms.php:349 libraries/config/setup.forms.php:372
-#: libraries/config/setup.forms.php:377
+#: libraries/build_html_for_db.lib.php:38 libraries/config/setup.forms.php:312
+#: libraries/config/setup.forms.php:348 libraries/config/setup.forms.php:371
+#: libraries/config/setup.forms.php:376
 #: libraries/config/user_preferences.forms.php:213
 #: libraries/config/user_preferences.forms.php:249
 #: libraries/config/user_preferences.forms.php:272
 #: libraries/config/user_preferences.forms.php:277
-#: libraries/server_privileges.lib.php:980 libraries/structure.lib.php:2277
+#: libraries/server_privileges.lib.php:980 libraries/structure.lib.php:2279
 #: libraries/tbl_printview.lib.php:304
 msgid "Data"
 msgstr "Andmed"
 
 #: libraries/build_html_for_db.lib.php:48 libraries/engines/innodb.lib.php:171
 #: libraries/server_databases.lib.php:177 libraries/server_status.lib.php:180
-#: libraries/server_status.lib.php:291 libraries/structure.lib.php:2299
+#: libraries/server_status.lib.php:291 libraries/structure.lib.php:2301
 #: libraries/tbl_printview.lib.php:336
 msgid "Total"
 msgstr "Kokku"
 
 #: libraries/build_html_for_db.lib.php:53 libraries/structure.lib.php:846
-#: libraries/structure.lib.php:2290 libraries/tbl_printview.lib.php:320
+#: libraries/structure.lib.php:2292 libraries/tbl_printview.lib.php:320
 msgid "Overhead"
 msgstr "Ballast"
 
@@ -4163,36 +4225,44 @@ msgstr "Kontrolli \"%s\" andmebaasi õigusi."
 msgid "Check Privileges"
 msgstr "Kontrolli õigusi"
 
-#: libraries/central_columns.lib.php:130
+#: libraries/central_columns.lib.php:141
 msgid ""
 "Central list of columns configuration Storage is not completely configured!"
 msgstr "Veergude sätete keskne salvestuskoht ei ole täielikult seadistatud!"
 
-#: libraries/central_columns.lib.php:253
+#: libraries/central_columns.lib.php:264
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr "%1$s lisamisest loobuti, sest ta on juba olemas keskses listis!"
 
-#: libraries/central_columns.lib.php:269
+#: libraries/central_columns.lib.php:280
 msgid "Could not add columns!"
 msgstr "Veerge ei saanud lisada!"
 
-#: libraries/central_columns.lib.php:346
+#: libraries/central_columns.lib.php:356
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
 "Veergu %1$s ei saanud kustutada, sest ta puudub keskses veergude loendis!"
 
-#: libraries/central_columns.lib.php:358
+#: libraries/central_columns.lib.php:368
 msgid "Could not remove columns!"
 msgstr "Veerge ei suudetud eemaldada!"
 
-#: libraries/central_columns.lib.php:598
+#: libraries/central_columns.lib.php:509
+msgid "YES"
+msgstr ""
+
+#: libraries/central_columns.lib.php:509
+msgid "NO"
+msgstr ""
+
+#: libraries/central_columns.lib.php:629
 #: libraries/display_create_table.lib.php:60
-#: libraries/plugins/export/ExportHtmlword.class.php:485
-#: libraries/plugins/export/ExportOdt.class.php:560
-#: libraries/plugins/export/ExportTexytext.class.php:436
+#: libraries/plugins/export/ExportHtmlword.class.php:510
+#: libraries/plugins/export/ExportOdt.class.php:605
+#: libraries/plugins/export/ExportTexytext.class.php:459
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:982
 #: libraries/rte/rte_routines.lib.php:1603 libraries/structure.lib.php:1250
@@ -4201,30 +4271,46 @@ msgstr "Veerge ei suudetud eemaldada!"
 msgid "Name"
 msgstr "Nimi"
 
-#: libraries/central_columns.lib.php:602
+#: libraries/central_columns.lib.php:633
 #: libraries/rte/rte_routines.lib.php:984
 #: libraries/tbl_columns_definition_form.lib.php:279
 msgid "Length/Values"
 msgstr "Pikkus/Väärtused"
 
-#: libraries/central_columns.lib.php:608
-#: libraries/schema/Pdf_Relation_Schema.class.php:1364
-#: libraries/schema/Pdf_Relation_Schema.class.php:1387
+#: libraries/central_columns.lib.php:639
+#: libraries/schema/Pdf_Relation_Schema.class.php:1356
+#: libraries/schema/Pdf_Relation_Schema.class.php:1379
 #: libraries/structure.lib.php:1256 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr "Lisaks"
 
-#: libraries/central_columns.lib.php:629
+#: libraries/central_columns.lib.php:660
 msgid "Select a table"
 msgstr "Vali tabel"
 
-#: libraries/central_columns.lib.php:683 libraries/structure.lib.php:1649
+#: libraries/central_columns.lib.php:714 libraries/structure.lib.php:1649
 msgid "Add column"
 msgstr "Lisa veerg"
 
-#: libraries/central_columns.lib.php:695
+#: libraries/central_columns.lib.php:726
 msgid "Select a column."
 msgstr "Vali veerg."
+
+#: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
+#, fuzzy
+#| msgid "Autoextend increment"
+msgid "auto_increment"
+msgstr "Automaatse laiendamise suurendamine"
+
+#: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
+msgid "on update CURRENT_TIMESTAMP"
+msgstr ""
+
+#: libraries/central_columns.lib.php:886
+#, fuzzy
+#| msgid "Add column"
+msgid "Add new column"
+msgstr "Lisa veerg"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -4493,7 +4579,7 @@ msgid "Apply"
 msgstr "Rakenda"
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1608
-#: libraries/schema/User_Schema.class.php:570 prefs_manage.php:335
+#: libraries/schema/User_Schema.class.php:576 prefs_manage.php:335
 #: prefs_manage.php:342
 msgid "Reset"
 msgstr "Lähtesta"
@@ -4535,9 +4621,9 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Kuna sa ei ole blowfish turvasõna määranud, kuid oled valinud "
-"[kbd]küpsisega[/kbd] autentimine, siis loodi võti sinu jaoks automaatselt. "
-"Seda kasutatakse küpsiste krüptimiseks, sa ei pea seda meelde jätma."
+"Kuna sa ei ole blowfish turvasõna määranud, kuid oled valinud [kbd]küpsisega"
+"[/kbd] autentimine, siis loodi võti sinu jaoks automaatselt. Seda "
+"kasutatakse küpsiste krüptimiseks, sa ei pea seda meelde jätma."
 
 #: libraries/config/ServerConfigChecks.class.php:379
 #, php-format
@@ -4620,8 +4706,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 "Sa valisid [kbd]config[/kbd] autentimise tüübi ja kaasasid automaatsele "
 "sisselogimisele kasutajanime ja parooli, mis ei ole soovitatav valik "
@@ -4779,8 +4865,8 @@ msgstr "CHAR veergude muutmine"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Kasuta SQL päringute ([a@http://codemirror.net/]CodeMirror[/a]) muutmiseks "
 "kasutajasõbralikku redigeerijat, millel on süntaksi esiletõstmise ja ridade "
@@ -5060,7 +5146,7 @@ msgstr "Nime võti"
 
 #: libraries/config/messages.inc.php:136 libraries/config/messages.inc.php:149
 #: libraries/config/messages.inc.php:182
-#: libraries/plugins/export/ExportOdt.class.php:481
+#: libraries/plugins/export/ExportOdt.class.php:510
 #: libraries/tbl_columns_definition_form.lib.php:315
 msgid "MIME type"
 msgstr "MIME-tüüp"
@@ -5176,8 +5262,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Vali sorteerimise järjekord võõrvõtme rippmenüü kasti üksustele. "
-"[kbd]content[/kbd] on viidatud andmed, [kbd]id[/kbd] on võtme väärtus."
+"Vali sorteerimise järjekord võõrvõtme rippmenüü kasti üksustele. [kbd]content"
+"[/kbd] on viidatud andmed, [kbd]id[/kbd] on võtme väärtus."
 
 #: libraries/config/messages.inc.php:203
 msgid "Foreign key dropdown order"
@@ -5205,8 +5291,8 @@ msgstr "Kohanda sirvimise viisi."
 msgid "Customize default options."
 msgstr "Kohanda vaikimisi valikuid."
 
-#: libraries/config/messages.inc.php:211 libraries/config/setup.forms.php:247
-#: libraries/config/setup.forms.php:324
+#: libraries/config/messages.inc.php:211 libraries/config/setup.forms.php:246
+#: libraries/config/setup.forms.php:323
 #: libraries/config/user_preferences.forms.php:149
 #: libraries/config/user_preferences.forms.php:224
 msgid "CSV"
@@ -5316,13 +5402,12 @@ msgstr "Lehe pealkirjad"
 
 #: libraries/config/messages.inc.php:249
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
-"Täpsusta veebilehitseja pealkirja. Vaata "
-"[doc@cfg_TitleTable]dokumentatsioonist[/doc], kuidas kasutada maagilisi "
-"sõne, mida saab kasutada eriliste väärtuste saamiseks."
+"Täpsusta veebilehitseja pealkirja. Vaata [doc@cfg_TitleTable]"
+"dokumentatsioonist[/doc], kuidas kasutada maagilisi sõne, mida saab kasutada "
+"eriliste väärtuste saamiseks."
 
 #: libraries/config/messages.inc.php:253
 #: libraries/navigation/NavigationHeader.class.php:218
@@ -5468,12 +5553,12 @@ msgid "Choose how you want tabs to work."
 msgstr "Vali, kuidas sa tahaksid, et vahelehed toimiksid."
 
 #: libraries/config/messages.inc.php:302
-#: libraries/schema/User_Schema.class.php:422
+#: libraries/schema/User_Schema.class.php:428
 msgid "Display relational schema"
 msgstr "Näita seoseskeemi"
 
 #: libraries/config/messages.inc.php:304
-#: libraries/schema/User_Schema.class.php:495
+#: libraries/schema/User_Schema.class.php:501
 msgid "Paper size"
 msgstr "Paberi suurus"
 
@@ -5747,8 +5832,8 @@ msgstr "Suurim hulk tabeleid"
 
 #: libraries/config/messages.inc.php:418
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for "
-"[kbd]cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
+"cookie[/kbd] authentication."
 msgstr ""
 "Keela vaikimisi hoiatus, mis kuvatakse siis, kui [kbd]küpsisega[/kbd] "
 "autentimise jaoks puudub mcrypt."
@@ -6138,8 +6223,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Jäta tühjaks, kui puudub [a@http://wiki.phpmyadmin.net/pma/"
-"bookmark]järjehoidja[/a] tugi, soovitatav: [kbd]pma__bookmark[/kbd]"
+"Jäta tühjaks, kui puudub [a@http://wiki.phpmyadmin.net/pma/bookmark]"
+"järjehoidja[/a] tugi, soovitatav: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:566
 msgid "Bookmark table"
@@ -6147,11 +6232,11 @@ msgstr "Järjehoidja tabel"
 
 #: libraries/config/messages.inc.php:568
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]."
 msgstr ""
-"Jäta tühjaks, kui puuduvad kommentaarid/mime-tüübid, soovitatav: "
-"[kbd]pma__column_info[/kbd]."
+"Jäta tühjaks, kui puuduvad kommentaarid/mime-tüübid, soovitatav: [kbd]"
+"pma__column_info[/kbd]."
 
 #: libraries/config/messages.inc.php:571
 msgid "Column information table"
@@ -6217,50 +6302,38 @@ msgid "Control port"
 msgstr "Kontrollport"
 
 #: libraries/config/messages.inc.php:595
-msgid ""
-"Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
-"kbd]."
-msgstr ""
-"Jäta tühjaks, kui puudub kujundaja tugi, soovitatav: "
-"[kbd]pma__designer_coords[/kbd]."
-
-#: libraries/config/messages.inc.php:598
-msgid "Designer table"
-msgstr "Kujundaja tabel"
-
-#: libraries/config/messages.inc.php:600
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Peida andmebaasid, mis kattuvad regulaaravaldisega (PCRE)."
 
-#: libraries/config/messages.inc.php:601
+#: libraries/config/messages.inc.php:596
 msgid "Hide databases"
 msgstr "Peida andmebaasid"
 
-#: libraries/config/messages.inc.php:603
+#: libraries/config/messages.inc.php:598
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Jäta tühjaks, kuid puudub SQL päringu ajaloo tugi, soovitatav: "
-"[kbd]pma__history[/kbd]."
+"Jäta tühjaks, kuid puudub SQL päringu ajaloo tugi, soovitatav: [kbd]"
+"pma__history[/kbd]."
 
-#: libraries/config/messages.inc.php:606
+#: libraries/config/messages.inc.php:601
 msgid "SQL query history table"
 msgstr "SQL päringu ajaloo tabel"
 
-#: libraries/config/messages.inc.php:607
+#: libraries/config/messages.inc.php:602
 msgid "Hostname where MySQL server is running."
 msgstr "Hostinimi, kus MySQL server töötab."
 
-#: libraries/config/messages.inc.php:608
+#: libraries/config/messages.inc.php:603
 msgid "Server hostname"
 msgstr "Serveri hostinimi"
 
-#: libraries/config/messages.inc.php:609
+#: libraries/config/messages.inc.php:604
 msgid "Logout URL"
 msgstr "Väljalogimise URL"
 
-#: libraries/config/messages.inc.php:611
+#: libraries/config/messages.inc.php:606
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
@@ -6268,31 +6341,31 @@ msgstr ""
 "Piirab andmebaasi salvestatud tabeli eelistuste hulka, vanimad sissekanded "
 "kustutatakse automaatselt."
 
-#: libraries/config/messages.inc.php:615
+#: libraries/config/messages.inc.php:610
 msgid "Maximal number of table preferences to store"
 msgstr "Suurim hulk tabeli eelistusi, mida salvestada"
 
-#: libraries/config/messages.inc.php:616
+#: libraries/config/messages.inc.php:611
 msgid "QBE saved searches table"
 msgstr "Tabel näitepõhiste päringute salvestamiseks"
 
-#: libraries/config/messages.inc.php:618
+#: libraries/config/messages.inc.php:613
 msgid ""
-"Leave blank for no QBE saved searches support, suggested: "
-"[kbd]pma__savedsearches[/kbd]."
+"Leave blank for no QBE saved searches support, suggested: [kbd]"
+"pma__savedsearches[/kbd]."
 msgstr ""
 "Jäta tühjaks, kui sa ei soovi salvestada näitepõhiseid päringuid, "
 "soovitatav: [kbd]pma__savedsearches[/kbd]."
 
-#: libraries/config/messages.inc.php:622
+#: libraries/config/messages.inc.php:617
 msgid "Try to connect without password."
 msgstr "Ürita ühendada ilma paroolita."
 
-#: libraries/config/messages.inc.php:623
+#: libraries/config/messages.inc.php:618
 msgid "Connect without password"
 msgstr "Ühenda ilma paroolita"
 
-#: libraries/config/messages.inc.php:625
+#: libraries/config/messages.inc.php:620
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -6302,30 +6375,30 @@ msgstr ""
 "ette kurakaldkriipsu (\\). S.t kasuta [kbd]'my\\_db'[/kbd], aga mitte "
 "[kbd]'my_db'[/kbd]."
 
-#: libraries/config/messages.inc.php:629
+#: libraries/config/messages.inc.php:624
 msgid "Show only listed databases"
 msgstr "Näita ainult loendatud andmebaase"
 
-#: libraries/config/messages.inc.php:630 libraries/config/messages.inc.php:718
+#: libraries/config/messages.inc.php:625 libraries/config/messages.inc.php:713
 msgid "Leave empty if not using config auth."
 msgstr "Jäta tühjaks, kui ei kasuta 'config' autentimist."
 
-#: libraries/config/messages.inc.php:631
+#: libraries/config/messages.inc.php:626
 msgid "Password for config auth"
 msgstr "'config' autentimise parool"
 
-#: libraries/config/messages.inc.php:633
+#: libraries/config/messages.inc.php:628
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "Jäta tühjaks, kui puudub PDF skeemi tugi, soovitatav: [kbd]pma__pdf_pages[/"
 "kbd]."
 
-#: libraries/config/messages.inc.php:635
+#: libraries/config/messages.inc.php:630
 msgid "PDF schema: pages table"
 msgstr "PDF skeem: lehtede tabel"
 
-#: libraries/config/messages.inc.php:637
+#: libraries/config/messages.inc.php:632
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -6333,25 +6406,25 @@ msgid ""
 msgstr ""
 "Andmebaas, mida kasutada seoste, järjehoidjate ja PDF võimaluste "
 "säilitamiseks. Lisateavet leiad aadressilt [a@http://wiki.phpmyadmin.net/pma/"
-"pmadb]pmadb[/a]. Kui tugi puudub, siis jäta tühjaks, soovitatav: "
-"[kbd]phpmyadmin[/kbd]."
+"pmadb]pmadb[/a]. Kui tugi puudub, siis jäta tühjaks, soovitatav: [kbd]"
+"phpmyadmin[/kbd]."
 
-#: libraries/config/messages.inc.php:641
+#: libraries/config/messages.inc.php:636
 #: libraries/display_create_database.lib.php:31
 msgid "Database name"
 msgstr "Andmebaasi nimi"
 
-#: libraries/config/messages.inc.php:643
+#: libraries/config/messages.inc.php:638
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Port, mida MySQL server kuulab. Jäta tühjaks, kui soovid kasutada vaikimisi "
 "porti."
 
-#: libraries/config/messages.inc.php:644
+#: libraries/config/messages.inc.php:639
 msgid "Server port"
 msgstr "Serveri port"
 
-#: libraries/config/messages.inc.php:646
+#: libraries/config/messages.inc.php:641
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -6359,69 +6432,71 @@ msgstr ""
 "Jäta tühjaks, kui seansside vahel puuduvad \"püsivad\" hiljuti kasutatud "
 "tabelid, soovitatav: [kbd]pma__recent[/kbd]."
 
-#: libraries/config/messages.inc.php:649
+#: libraries/config/messages.inc.php:644
 msgid "Recently used table"
 msgstr "Hiljuti kasutatud tabel"
 
-#: libraries/config/messages.inc.php:651
+#: libraries/config/messages.inc.php:646
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Jäta tühjaks, kui puudub [a@http://wiki.phpmyadmin.net/pma/relation]seoste "
 "linkide[/a] tugi, soovitatav: [kbd]pma__relation[/kbd]."
 
-#: libraries/config/messages.inc.php:655
+#: libraries/config/messages.inc.php:650
 msgid "Relation table"
 msgstr "Seose tabel"
 
-#: libraries/config/messages.inc.php:657
+#: libraries/config/messages.inc.php:652
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example."
 msgstr ""
-"Vaata näiteks [a@http://wiki.phpmyadmin.net/pma/"
-"auth_types#signon]autentimise tüüpe[/a]."
+"Vaata näiteks [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]"
+"autentimise tüüpe[/a]."
 
-#: libraries/config/messages.inc.php:660
+#: libraries/config/messages.inc.php:655
 msgid "Signon session name"
 msgstr "Sisselogimise seansi nimi"
 
-#: libraries/config/messages.inc.php:661
+#: libraries/config/messages.inc.php:656
 msgid "Signon URL"
 msgstr "Sisselogimise URL"
 
-#: libraries/config/messages.inc.php:663
+#: libraries/config/messages.inc.php:658
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Sokkel, mida MySQL server kuulab, jäta tühjaks, kui soovid kasutada "
 "vaikimisi soklit."
 
-#: libraries/config/messages.inc.php:664
+#: libraries/config/messages.inc.php:659
 msgid "Server socket"
 msgstr "Serveri sokkel"
 
-#: libraries/config/messages.inc.php:665
+#: libraries/config/messages.inc.php:660
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Luba SSL ühendus MySQL serverisse."
 
-#: libraries/config/messages.inc.php:666
+#: libraries/config/messages.inc.php:661
 msgid "Use SSL"
 msgstr "Kasuta SSL'i"
 
-#: libraries/config/messages.inc.php:668
+#: libraries/config/messages.inc.php:663
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Jäta tühjaks, kui puudub PDF skeemi tugi, soovitatav: "
-"[kbd]pma__table_coords[/kbd]."
+"Jäta tühjaks, kui puudub PDF skeemi tugi, soovitatav: [kbd]pma__table_coords"
+"[/kbd]."
 
-#: libraries/config/messages.inc.php:670
-msgid "PDF schema: table coordinates"
+#: libraries/config/messages.inc.php:665
+#, fuzzy
+#| msgid "PDF schema: table coordinates"
+msgid "Designer and PDF schema: table coordinates"
 msgstr "PDF skeem: tabeli koordinaadid"
 
-#: libraries/config/messages.inc.php:672
+#: libraries/config/messages.inc.php:667
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
@@ -6429,11 +6504,11 @@ msgstr ""
 "Tabel, mis kirjeldab veergude näitamist. Jäta tühjaks, kui puudub tugi, "
 "soovitatav: [kbd]pma__table_info[/kbd]."
 
-#: libraries/config/messages.inc.php:675
+#: libraries/config/messages.inc.php:670
 msgid "Display columns table"
 msgstr "Näita veergude tabelit"
 
-#: libraries/config/messages.inc.php:677
+#: libraries/config/messages.inc.php:672
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -6441,11 +6516,11 @@ msgstr ""
 "Jäta tühjaks, kui seansside vahel puuduvad \"püsivad\" tabelite UI "
 "eelistused, soovitatav: [kbd]pma__table_uiprefs[/kbd]."
 
-#: libraries/config/messages.inc.php:680
+#: libraries/config/messages.inc.php:675
 msgid "UI preferences table"
 msgstr "UI eelistuste tabel"
 
-#: libraries/config/messages.inc.php:682
+#: libraries/config/messages.inc.php:677
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -6453,55 +6528,55 @@ msgstr ""
 "Kas andmebaasi loomisel lisatakse logi esimese reana DROP DATABASE IF EXISTS "
 "käsk."
 
-#: libraries/config/messages.inc.php:685
+#: libraries/config/messages.inc.php:680
 msgid "Add DROP DATABASE"
 msgstr "Lisa DROP DATABASE"
 
-#: libraries/config/messages.inc.php:687
+#: libraries/config/messages.inc.php:682
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 "Kas tabeli loomisel lisatakse logi esimese reana DROP TABLE IF EXISTS käsk."
 
-#: libraries/config/messages.inc.php:690
+#: libraries/config/messages.inc.php:685
 msgid "Add DROP TABLE"
 msgstr "Lisa DROP TABLE"
 
-#: libraries/config/messages.inc.php:692
+#: libraries/config/messages.inc.php:687
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 "Kas vaate loomisel lisatakse logi esimese reana DROP VIEW IF EXISTS käsk."
 
-#: libraries/config/messages.inc.php:695
+#: libraries/config/messages.inc.php:690
 msgid "Add DROP VIEW"
 msgstr "Lisa DROP VIEW"
 
-#: libraries/config/messages.inc.php:697
+#: libraries/config/messages.inc.php:692
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Määrab käskude nimekirja, mida automaatne loomine kasutab uute versioonide "
 "jaoks."
 
-#: libraries/config/messages.inc.php:698
+#: libraries/config/messages.inc.php:693
 msgid "Statements to track"
 msgstr "Käsud, mida jälgida"
 
-#: libraries/config/messages.inc.php:700
+#: libraries/config/messages.inc.php:695
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]."
 msgstr ""
-"Jäta tühjaks, kui puudub SQL päringu jälgimise tugi, soovitatav: "
-"[kbd]pma__tracking[/kbd]."
+"Jäta tühjaks, kui puudub SQL päringu jälgimise tugi, soovitatav: [kbd]"
+"pma__tracking[/kbd]."
 
-#: libraries/config/messages.inc.php:703
+#: libraries/config/messages.inc.php:698
 msgid "SQL query tracking table"
 msgstr "SQL päringu jälgimise tabel"
 
-#: libraries/config/messages.inc.php:705
+#: libraries/config/messages.inc.php:700
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -6509,23 +6584,23 @@ msgstr ""
 "Kas jälgimise mehhanism loob automaatselt versioonid tabelite ja vaadete "
 "jaoks."
 
-#: libraries/config/messages.inc.php:709
+#: libraries/config/messages.inc.php:704
 msgid "Automatically create versions"
 msgstr "Loo versioonid automaatselt"
 
-#: libraries/config/messages.inc.php:710
+#: libraries/config/messages.inc.php:705
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]."
 msgstr ""
-"Jäta tühjaks, kui kasutaja eelistusi andmebaasis ei hoita, soovitatav: "
-"[kbd]pma__userconfig[/kbd]."
+"Jäta tühjaks, kui kasutaja eelistusi andmebaasis ei hoita, soovitatav: [kbd]"
+"pma__userconfig[/kbd]."
 
-#: libraries/config/messages.inc.php:711
+#: libraries/config/messages.inc.php:706
 msgid "User preferences storage table"
 msgstr "Kasutaja eelistusi säilitav tabel"
 
-#: libraries/config/messages.inc.php:712
+#: libraries/config/messages.inc.php:707
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
@@ -6535,11 +6610,11 @@ msgstr ""
 "ka kasutajate gruppide tabel. Jättes ühe neist tühjaks, keelad menüüde "
 "kohandamise; soovitatav: [kbd]pma__users[/kbd]."
 
-#: libraries/config/messages.inc.php:713
+#: libraries/config/messages.inc.php:708
 msgid "Users table"
 msgstr "Kasutajate tabel"
 
-#: libraries/config/messages.inc.php:714
+#: libraries/config/messages.inc.php:709
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
@@ -6549,11 +6624,11 @@ msgstr ""
 "ka kasutajate tabel. Jättes ühe neist tühjaks, keelad menüüde kohandamise; "
 "soovitatav: [kbd]pma__usergroups[/kbd]."
 
-#: libraries/config/messages.inc.php:715
+#: libraries/config/messages.inc.php:710
 msgid "User groups table"
 msgstr "Kasutajagruppide tabel"
 
-#: libraries/config/messages.inc.php:716
+#: libraries/config/messages.inc.php:711
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -6561,15 +6636,15 @@ msgstr ""
 "Jäta tühjaks, et keelata navigeerimiselementide peitmine ja kuvamine, "
 "soovitatav: [kbd]pma__userconfig[/kbd]."
 
-#: libraries/config/messages.inc.php:717
+#: libraries/config/messages.inc.php:712
 msgid "Hidden navigation items table"
 msgstr "Peidetud navigeerimiselementide tabel"
 
-#: libraries/config/messages.inc.php:719
+#: libraries/config/messages.inc.php:714
 msgid "User for config auth"
 msgstr "'config' autentimise kasutaja"
 
-#: libraries/config/messages.inc.php:720
+#: libraries/config/messages.inc.php:715
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -6577,19 +6652,19 @@ msgstr ""
 "Selle serveri kasutajasõbralik kirjeldus. Kui jätad tühjaks, siis näidatakse "
 "selle asemel hostinime."
 
-#: libraries/config/messages.inc.php:721
+#: libraries/config/messages.inc.php:716
 msgid "Verbose name of this server"
 msgstr "Selle serveri sõnaline nimi"
 
-#: libraries/config/messages.inc.php:722
+#: libraries/config/messages.inc.php:717
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "Kas kasutajale peaks näitama \"näita kõiki (ridu)\" nuppu."
 
-#: libraries/config/messages.inc.php:723
+#: libraries/config/messages.inc.php:718
 msgid "Allow to display all the rows"
 msgstr "Luba näidata kõiki ridu"
 
-#: libraries/config/messages.inc.php:724
+#: libraries/config/messages.inc.php:719
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -6599,78 +6674,78 @@ msgstr ""
 "autentimist, sest parool on seadistusfailis raskesti kodeeritud. See ei "
 "piira sama käsu otse käivitamist."
 
-#: libraries/config/messages.inc.php:725
+#: libraries/config/messages.inc.php:720
 msgid "Show password change form"
 msgstr "Näita parooli muutmise vormi"
 
-#: libraries/config/messages.inc.php:726
+#: libraries/config/messages.inc.php:721
 msgid "Show create database form"
 msgstr "Näita andmebaasi loomise vormi"
 
-#: libraries/config/messages.inc.php:727
+#: libraries/config/messages.inc.php:722
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr "Näita või peida kõikides tabelites loomise ajatempli veerg."
 
-#: libraries/config/messages.inc.php:728
+#: libraries/config/messages.inc.php:723
 msgid "Show Creation timestamp"
 msgstr "Näita loomise ajatemplit"
 
-#: libraries/config/messages.inc.php:729
+#: libraries/config/messages.inc.php:724
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr "Näita või peida kõikides tabelites viimase uuendamise ajatempli veerg."
 
-#: libraries/config/messages.inc.php:730
+#: libraries/config/messages.inc.php:725
 msgid "Show Last update timestamp"
 msgstr "Näita viimase uuendamise ajatemplit"
 
-#: libraries/config/messages.inc.php:731
+#: libraries/config/messages.inc.php:726
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 "Näita või peida kõikides tabelites viimase kontrolli ajatemplit näitav veerg."
 
-#: libraries/config/messages.inc.php:732
+#: libraries/config/messages.inc.php:727
 msgid "Show Last check timestamp"
 msgstr "Näita viimase kontrolli ajatemplit"
 
-#: libraries/config/messages.inc.php:733
+#: libraries/config/messages.inc.php:728
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table."
 msgstr "Määrab, kas tabelit sirvides näidata suuna valikut."
 
-#: libraries/config/messages.inc.php:734
+#: libraries/config/messages.inc.php:729
 msgid "Show display direction"
 msgstr "Näita näitamise suunda"
 
-#: libraries/config/messages.inc.php:735
+#: libraries/config/messages.inc.php:730
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr "Määrab, kas muutmisel/lisamisel näidata väljasid."
 
-#: libraries/config/messages.inc.php:736
+#: libraries/config/messages.inc.php:731
 msgid "Show field types"
 msgstr "Näita välja tüüpe"
 
-#: libraries/config/messages.inc.php:737
+#: libraries/config/messages.inc.php:732
 msgid "Display the function fields in edit/insert mode."
 msgstr "Näita funktsiooni väljasid muutmisel/lisamisel."
 
-#: libraries/config/messages.inc.php:738
+#: libraries/config/messages.inc.php:733
 msgid "Show function fields"
 msgstr "Näita funktsiooni väljasid"
 
-#: libraries/config/messages.inc.php:739
+#: libraries/config/messages.inc.php:734
 msgid "Whether to show hint or not."
 msgstr "Kas näidata vihjet või mitte."
 
-#: libraries/config/messages.inc.php:740
+#: libraries/config/messages.inc.php:735
 msgid "Show hint"
 msgstr "Näita vihjet"
 
-#: libraries/config/messages.inc.php:741
+#: libraries/config/messages.inc.php:736
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
@@ -6678,60 +6753,60 @@ msgstr ""
 "Näita linki [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "väljundisse."
 
-#: libraries/config/messages.inc.php:742
+#: libraries/config/messages.inc.php:737
 msgid "Show phpinfo() link"
 msgstr "Näita phpinfo() linki"
 
-#: libraries/config/messages.inc.php:743
+#: libraries/config/messages.inc.php:738
 msgid "Show detailed MySQL server information"
 msgstr "Näita detailset MySQL serveri teavet"
 
-#: libraries/config/messages.inc.php:744
+#: libraries/config/messages.inc.php:739
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr "Määrab, kas phpMyAdmini poolt koostatud SQL päringuid näidatakse."
 
-#: libraries/config/messages.inc.php:745
+#: libraries/config/messages.inc.php:740
 msgid "Show SQL queries"
 msgstr "Näita SQL päringuid"
 
-#: libraries/config/messages.inc.php:746
+#: libraries/config/messages.inc.php:741
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr "Määrab, kas päringukast jääb ekraanile pärast päringu saatmist."
 
-#: libraries/config/messages.inc.php:747 libraries/sql_query_form.lib.php:372
+#: libraries/config/messages.inc.php:742 libraries/sql_query_form.lib.php:372
 msgid "Retain query box"
 msgstr "Säilita päringu kast"
 
-#: libraries/config/messages.inc.php:748
+#: libraries/config/messages.inc.php:743
 msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr "Luba näidata andmebaasi ja tabeli statistikat (nt ruumi kasutus)."
 
-#: libraries/config/messages.inc.php:749
+#: libraries/config/messages.inc.php:744
 msgid "Show statistics"
 msgstr "Näita statistikat"
 
-#: libraries/config/messages.inc.php:750
+#: libraries/config/messages.inc.php:745
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Märgi kasutatud tabelid ja võimalda näidata andmebaase koos lukustatud "
 "tabelitega."
 
-#: libraries/config/messages.inc.php:751
+#: libraries/config/messages.inc.php:746
 msgid "Skip locked tables"
 msgstr "Jäta lukustatud tabelid vahele"
 
-#: libraries/config/messages.inc.php:756
+#: libraries/config/messages.inc.php:751
 msgid "A warning is displayed on the main page if Suhosin is detected."
 msgstr "Kui tuvastatud on Suhosin, siis hoiatust näidatakse pealehel."
 
-#: libraries/config/messages.inc.php:757
+#: libraries/config/messages.inc.php:752
 msgid "Suhosin warning"
 msgstr "Suhosin'i hoiatus"
 
-#: libraries/config/messages.inc.php:758
+#: libraries/config/messages.inc.php:753
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)."
@@ -6739,11 +6814,11 @@ msgstr ""
 "Tekstiala suurus (veerud) muutmise vaates. See väärtus tõstetakse esile SQL "
 "päringu tekstialades (*2) ja päringu aknas (*1.25)."
 
-#: libraries/config/messages.inc.php:759
+#: libraries/config/messages.inc.php:754
 msgid "Textarea columns"
 msgstr "Tekstiala veerud"
 
-#: libraries/config/messages.inc.php:760
+#: libraries/config/messages.inc.php:755
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)."
@@ -6751,31 +6826,31 @@ msgstr ""
 "Tekstiala suurus (read) muutmise vaates. See väärtus tõstetakse esile SQL "
 "päringu tekstialades (*2) ja päringu aknas (*1.25)."
 
-#: libraries/config/messages.inc.php:761
+#: libraries/config/messages.inc.php:756
 msgid "Textarea rows"
 msgstr "Tekstiala read"
 
-#: libraries/config/messages.inc.php:762
+#: libraries/config/messages.inc.php:757
 msgid "Title of browser window when a database is selected."
 msgstr "Veebilehitseja akna pealkiri, kui valitud on andmebaas."
 
-#: libraries/config/messages.inc.php:764
+#: libraries/config/messages.inc.php:759
 msgid "Title of browser window when nothing is selected."
 msgstr "Veebilehitseja akna pealkiri, kui valitud pole mitte midagi."
 
-#: libraries/config/messages.inc.php:765
+#: libraries/config/messages.inc.php:760
 msgid "Default title"
 msgstr "Vaikimisi pealkiri"
 
-#: libraries/config/messages.inc.php:766
+#: libraries/config/messages.inc.php:761
 msgid "Title of browser window when a server is selected."
 msgstr "Veebilehitseja akna pealkiri, kui valitud on server."
 
-#: libraries/config/messages.inc.php:768
+#: libraries/config/messages.inc.php:763
 msgid "Title of browser window when a table is selected."
 msgstr "Veebilehitseja akna pealkiri, kuid valitud on tabel."
 
-#: libraries/config/messages.inc.php:770
+#: libraries/config/messages.inc.php:765
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -6787,27 +6862,27 @@ msgstr ""
 "Forwarded-For) päist, mis tuleb proksist 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 
-#: libraries/config/messages.inc.php:771
+#: libraries/config/messages.inc.php:766
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Usaldusväärsete prokside nimekiri lubatud/keelatud IP'de jaoks"
 
-#: libraries/config/messages.inc.php:772
+#: libraries/config/messages.inc.php:767
 msgid "Directory on server where you can upload files for import."
 msgstr "Kataloog serveris, kuhu saad importimiseks faile üles laadida."
 
-#: libraries/config/messages.inc.php:773
+#: libraries/config/messages.inc.php:768
 msgid "Upload directory"
 msgstr "Üleslaadimise kataloog"
 
-#: libraries/config/messages.inc.php:774
+#: libraries/config/messages.inc.php:769
 msgid "Allow for searching inside the entire database."
 msgstr "Luba otsida tervest andmebaasist."
 
-#: libraries/config/messages.inc.php:775
+#: libraries/config/messages.inc.php:770
 msgid "Use database search"
 msgstr "Kasuta andmebaasi otsingut"
 
-#: libraries/config/messages.inc.php:776
+#: libraries/config/messages.inc.php:771
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -6815,26 +6890,26 @@ msgstr ""
 "Kui keelatud, siis kasutajad ei saa kasutada ühtegi allolevat valikut, "
 "sõltumata paremal asuvast märkeruudust."
 
-#: libraries/config/messages.inc.php:777
+#: libraries/config/messages.inc.php:772
 msgid "Enable the Developer tab in settings"
 msgstr "Luba sätetes kujundaja vaheleht"
 
-#: libraries/config/messages.inc.php:778 setup/frames/index.inc.php:312
+#: libraries/config/messages.inc.php:773 setup/frames/index.inc.php:312
 msgid "Check for latest version"
 msgstr "Kontrolli uusimat versiooni"
 
-#: libraries/config/messages.inc.php:779
+#: libraries/config/messages.inc.php:774
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "Lubab phpMyAdmini pealehel kontrollida viimast versiooni."
 
-#: libraries/config/messages.inc.php:780 setup/lib/index.lib.php:117
+#: libraries/config/messages.inc.php:775 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:144
 #: setup/lib/index.lib.php:156 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:171
 msgid "Version check"
 msgstr "Versiooni kontroll"
 
-#: libraries/config/messages.inc.php:781
+#: libraries/config/messages.inc.php:776
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -6846,11 +6921,11 @@ msgstr ""
 "on paigaldatud, ei oma otseühendust Internetiga. Formaat on \"hostinimi:port"
 "\"."
 
-#: libraries/config/messages.inc.php:782
+#: libraries/config/messages.inc.php:777
 msgid "Proxy url"
 msgstr "Proksi aadress"
 
-#: libraries/config/messages.inc.php:783
+#: libraries/config/messages.inc.php:778
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -6860,19 +6935,19 @@ msgstr ""
 "Kui kasutajanimi on antud, kastutatakse lihtsa autentimise (Basic "
 "Authentication) meetodit. Muud meetodid ei ole hetkel toetatud."
 
-#: libraries/config/messages.inc.php:784
+#: libraries/config/messages.inc.php:779
 msgid "Proxy username"
 msgstr "Proksi kasutajanimi"
 
-#: libraries/config/messages.inc.php:785
+#: libraries/config/messages.inc.php:780
 msgid "The password for authenticating with the proxy."
 msgstr "Salasõna proksi serveris autentimiseks."
 
-#: libraries/config/messages.inc.php:786
+#: libraries/config/messages.inc.php:781
 msgid "Proxy password"
 msgstr "Proksi parool"
 
-#: libraries/config/messages.inc.php:788
+#: libraries/config/messages.inc.php:783
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
@@ -6880,31 +6955,31 @@ msgstr ""
 "Luba [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] tihendamine "
 "importimistel ja eksportimistel."
 
-#: libraries/config/messages.inc.php:789
+#: libraries/config/messages.inc.php:784
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/config/messages.inc.php:790
+#: libraries/config/messages.inc.php:785
 msgid "Enter your public key for your domain reCaptcha service."
 msgstr "Sisesta oma domeeni reCaptcha teenusele oma avalik võti."
 
-#: libraries/config/messages.inc.php:791
+#: libraries/config/messages.inc.php:786
 msgid "Public key for reCaptcha"
 msgstr "reCaptcha avalik võti"
 
-#: libraries/config/messages.inc.php:792
+#: libraries/config/messages.inc.php:787
 msgid "Enter your private key for your domain reCaptcha service."
 msgstr "Sisesta oma domeeni reCaptcha teenusele oma salajane võti."
 
-#: libraries/config/messages.inc.php:793
+#: libraries/config/messages.inc.php:788
 msgid "Private key for reCaptcha"
 msgstr "reCaptcha salajane võti"
 
-#: libraries/config/messages.inc.php:795
+#: libraries/config/messages.inc.php:790
 msgid "Choose the default action when sending error reports."
 msgstr "Vali vaikimisi tegevus vearaportite saatmisel."
 
-#: libraries/config/messages.inc.php:796
+#: libraries/config/messages.inc.php:791
 msgid "Send error reports"
 msgstr "Saada vearaport"
 
@@ -6924,43 +6999,43 @@ msgstr "HTTP autentimine"
 msgid "Signon authentication"
 msgstr "Sisselogimise (signon) autentimine"
 
-#: libraries/config/setup.forms.php:255
+#: libraries/config/setup.forms.php:254
 #: libraries/config/user_preferences.forms.php:157
 msgid "CSV using LOAD DATA"
 msgstr "CSV kasutades LOAD DATA"
 
-#: libraries/config/setup.forms.php:264 libraries/config/setup.forms.php:361
+#: libraries/config/setup.forms.php:263 libraries/config/setup.forms.php:360
 #: libraries/config/user_preferences.forms.php:165
 #: libraries/config/user_preferences.forms.php:261
 msgid "OpenDocument Spreadsheet"
 msgstr "OpenDocument tabel"
 
-#: libraries/config/setup.forms.php:271
+#: libraries/config/setup.forms.php:270
 #: libraries/config/user_preferences.forms.php:172
 msgid "Quick"
 msgstr "Kiire"
 
-#: libraries/config/setup.forms.php:275
+#: libraries/config/setup.forms.php:274
 #: libraries/config/user_preferences.forms.php:176
 msgid "Custom"
 msgstr "Kohandatud"
 
-#: libraries/config/setup.forms.php:297
+#: libraries/config/setup.forms.php:296
 #: libraries/config/user_preferences.forms.php:197
 msgid "Database export options"
 msgstr "Andmebaasi eksportimise valikud"
 
-#: libraries/config/setup.forms.php:333
+#: libraries/config/setup.forms.php:332
 #: libraries/config/user_preferences.forms.php:233
 msgid "CSV for MS Excel"
 msgstr "CSV MS Exceli jaoks"
 
-#: libraries/config/setup.forms.php:356
+#: libraries/config/setup.forms.php:355
 #: libraries/config/user_preferences.forms.php:256
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:365
+#: libraries/config/setup.forms.php:364
 #: libraries/config/user_preferences.forms.php:265
 msgid "OpenDocument Text"
 msgstr "OpenDocument tekst"
@@ -6992,13 +7067,48 @@ msgstr ""
 "Sa kasutad mysql laiendust, mis phpMyAdmin'is on iganenud. Palun kaalu "
 "mysqli laienduse paigaldamist."
 
-#: libraries/dbi/drizzle-wrappers.lib.php:385
+#: libraries/dbi/drizzle-wrappers.lib.php:377
 msgid "Can't seek in an unbuffered result set"
 msgstr "Ei saa otsida puhverdamata tulemustes"
 
-#: libraries/dbi/drizzle-wrappers.lib.php:406
+#: libraries/dbi/drizzle-wrappers.lib.php:398
 msgid "Can't count rows in an unbuffered result set"
 msgstr "Ei saa loendada ridu puhverdamata tulemustes"
+
+#: libraries/designer.lib.php:31
+#, fuzzy
+#| msgid "Page titles"
+msgid "Page to open"
+msgstr "Lehe pealkirjad"
+
+#: libraries/designer.lib.php:33
+#, fuzzy
+#| msgid "Relation deleted"
+msgid "Page to delete"
+msgstr "Seos on kustutatud"
+
+#: libraries/designer.lib.php:37 libraries/designer.lib.php:73
+#: libraries/schema/User_Schema.class.php:211
+msgid "Select page"
+msgstr "Vali leht"
+
+#: libraries/designer.lib.php:59
+#, fuzzy
+#| msgid "Export to selected page."
+msgid "Save to selected page"
+msgstr "Ekspordi valitud lehele."
+
+#: libraries/designer.lib.php:60
+#, fuzzy
+#| msgid "Create a page and export to it."
+msgid "Create a page and save to it"
+msgstr "Loo leht ja ekspordi sellele."
+
+#: libraries/designer.lib.php:92
+#, fuzzy
+#| msgid "New page name: "
+msgid "New page name"
+msgstr "Uue lehe nimi: "
 
 #: libraries/display_change_password.lib.php:59
 #: libraries/replication_gui.lib.php:844
@@ -7045,7 +7155,7 @@ msgstr "Loo andmebaas:"
 msgid "No Privileges"
 msgstr "Ei oma õigusi"
 
-#: libraries/display_create_table.lib.php:55 pmd_general.php:91
+#: libraries/display_create_table.lib.php:55 pmd_general.php:162
 msgid "Create table"
 msgstr "Loo tabel"
 
@@ -7170,7 +7280,7 @@ msgid "use this for future exports"
 msgstr "kasuta seda edasistel eksportimistel"
 
 #: libraries/display_export.lib.php:534 libraries/display_import.lib.php:179
-#: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:505
+#: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:511
 msgid "Character set of the file:"
 msgstr "Faili märgitabel:"
 
@@ -7190,13 +7300,53 @@ msgstr "gzipitud"
 msgid "View output as text"
 msgstr "Vaata väljundit tekstina"
 
-#: libraries/display_export.lib.php:645
+#: libraries/display_export.lib.php:646 libraries/display_export.lib.php:749
+msgid "Rename exported databases/tables/columns"
+msgstr ""
+
+#: libraries/display_export.lib.php:656
 msgid "Save output to a file"
 msgstr "Salvesta väljund failisse"
 
-#: libraries/display_export.lib.php:672
+#: libraries/display_export.lib.php:683
 msgid "Skip tables larger than"
 msgstr "Jäta vahele tabelid, mis on suuremad kui"
+
+#: libraries/display_export.lib.php:776
+#, fuzzy
+#| msgid "Select a table"
+msgid "Select database"
+msgstr "Vali tabel"
+
+#: libraries/display_export.lib.php:778
+#, fuzzy
+#| msgid "Select a table"
+msgid "Select table"
+msgstr "Vali tabel"
+
+#: libraries/display_export.lib.php:794
+#, fuzzy
+#| msgid "Database name"
+msgid "New database name"
+msgstr "Andmebaasi nimi"
+
+#: libraries/display_export.lib.php:818
+#, fuzzy
+#| msgid "New page name: "
+msgid "New table name"
+msgstr "Uue lehe nimi: "
+
+#: libraries/display_export.lib.php:827
+#, fuzzy
+#| msgid "Copy column name."
+msgid "Old column name"
+msgstr "Kopeeri veeru nimi."
+
+#: libraries/display_export.lib.php:828
+#, fuzzy
+#| msgid "Copy column name."
+msgid "New column name"
+msgstr "Kopeeri veeru nimi."
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -7724,48 +7874,62 @@ msgstr "Tõmmis salvestati %s faili."
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL tagastas tühja tulemuse (s.t nulliread)."
 
-#: libraries/import.lib.php:1227
+#: libraries/import.lib.php:268 libraries/sql.lib.php:1679
+msgid "[ROLLBACK occurred.]"
+msgstr ""
+
+#: libraries/import.lib.php:1231
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Järgnevaid struktuure on kas loodud või muudetud. Siin saad:"
 
-#: libraries/import.lib.php:1228
+#: libraries/import.lib.php:1232
 msgid "View a structure's contents by clicking on its name."
 msgstr "Vaata struktuuri sisu, klõpsates selle nimel."
 
-#: libraries/import.lib.php:1229
+#: libraries/import.lib.php:1233
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "Muuda selle mistahes sätet, klõpsates vastaval \"Valikud\" lingil."
 
-#: libraries/import.lib.php:1230
+#: libraries/import.lib.php:1234
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Struktuuri muutmiseks klõpsa lingil \"Struktuur\"."
 
-#: libraries/import.lib.php:1236
+#: libraries/import.lib.php:1240
 #, php-format
 msgid "Go to database: %s"
 msgstr "Mine andmebaasi: %s"
 
-#: libraries/import.lib.php:1242 libraries/import.lib.php:1283
+#: libraries/import.lib.php:1246 libraries/import.lib.php:1287
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Muuda %s sätteid"
 
-#: libraries/import.lib.php:1268
+#: libraries/import.lib.php:1272
 #, php-format
 msgid "Go to table: %s"
 msgstr "Mine tabelisse: %s"
 
-#: libraries/import.lib.php:1276
+#: libraries/import.lib.php:1280
 #, php-format
 msgid "Structure of %s"
 msgstr "%s struktuur"
 
-#: libraries/import.lib.php:1294
+#: libraries/import.lib.php:1298
 #, php-format
 msgid "Go to view: %s"
 msgstr "Mine vaatesse: %s"
+
+#: libraries/import.lib.php:1358
+msgid "Only single-table UPDATE and DELETE queries can be simulated."
+msgstr ""
+
+#: libraries/import.lib.php:1774
+msgid ""
+"Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
+"engine tables can be rolled back."
+msgstr ""
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -7774,7 +7938,7 @@ msgstr "Loo indeks &nbsp;%s&nbsp;veergudesse"
 
 #: libraries/insert_edit.lib.php:218 libraries/insert_edit.lib.php:249
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
-#: pmd_general.php:202
+#: pmd_general.php:270
 msgid "Hide"
 msgstr "Peida"
 
@@ -7791,7 +7955,7 @@ msgstr "Oma pikkuse tõttu ei pruugi<br />see veerg olla muudetav."
 msgid "Binary - do not edit"
 msgstr "Binaarne - ära muuda"
 
-#: libraries/insert_edit.lib.php:1238 libraries/sql_query_form.lib.php:493
+#: libraries/insert_edit.lib.php:1238 libraries/sql_query_form.lib.php:499
 msgid "web server upload directory:"
 msgstr "veebiserveri üleslaadimiskataloog:"
 
@@ -7880,7 +8044,7 @@ msgid "To"
 msgstr "Kohta"
 
 #: libraries/mult_submits.lib.php:353 libraries/mult_submits.lib.php:386
-#: libraries/sql_query_form.lib.php:426
+#: libraries/sql_query_form.lib.php:432
 msgid "Submit"
 msgstr "Saada"
 
@@ -8189,7 +8353,7 @@ msgstr "Uus"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:24
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:25
-#: libraries/plugins/export/ExportSql.class.php:519
+#: libraries/plugins/export/ExportSql.class.php:537
 #: libraries/plugins/export/ExportXml.class.php:107
 msgid "Functions"
 msgstr "Funktsioonid"
@@ -8200,8 +8364,8 @@ msgid "New"
 msgstr "Uus"
 
 #: libraries/navigation/Nodes/Node_Index.class.php:32
-#: libraries/structure.lib.php:1462 libraries/structure.lib.php:2169
-#: libraries/structure.lib.php:2179 libraries/structure.lib.php:2283
+#: libraries/structure.lib.php:1462 libraries/structure.lib.php:2171
+#: libraries/structure.lib.php:2181 libraries/structure.lib.php:2285
 #: libraries/tbl_columns_definition_form.lib.php:304
 #: libraries/tbl_printview.lib.php:311
 msgid "Index"
@@ -8218,7 +8382,7 @@ msgstr "Protseduur"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
-#: libraries/plugins/export/ExportSql.class.php:501
+#: libraries/plugins/export/ExportSql.class.php:505
 #: libraries/plugins/export/ExportXml.class.php:111
 msgid "Procedures"
 msgstr "Toimingud"
@@ -8242,7 +8406,7 @@ msgstr "Uus"
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:125
-#: libraries/structure.lib.php:3035
+#: libraries/structure.lib.php:3038
 msgid "Views"
 msgstr "Vaated"
 
@@ -8580,47 +8744,47 @@ msgstr "Exceli väljaanne:"
 msgid "Data dump options"
 msgstr "Andmete tõmmise valikud"
 
-#: libraries/plugins/export/ExportHtmlword.class.php:203
-#: libraries/plugins/export/ExportOdt.class.php:259
-#: libraries/plugins/export/ExportSql.class.php:1953
-#: libraries/plugins/export/ExportTexytext.class.php:185
+#: libraries/plugins/export/ExportHtmlword.class.php:214
+#: libraries/plugins/export/ExportOdt.class.php:269
+#: libraries/plugins/export/ExportSql.class.php:2036
+#: libraries/plugins/export/ExportTexytext.class.php:196
 msgid "Dumping data for table"
 msgstr "Andmete tõmmistamine tabelile"
 
-#: libraries/plugins/export/ExportHtmlword.class.php:487
-#: libraries/plugins/export/ExportOdt.class.php:566
-#: libraries/plugins/export/ExportTexytext.class.php:438
+#: libraries/plugins/export/ExportHtmlword.class.php:512
+#: libraries/plugins/export/ExportOdt.class.php:611
+#: libraries/plugins/export/ExportTexytext.class.php:461
 #: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_triggers.lib.php:393
 msgid "Event"
 msgstr "Sündmus"
 
-#: libraries/plugins/export/ExportHtmlword.class.php:488
-#: libraries/plugins/export/ExportOdt.class.php:569
-#: libraries/plugins/export/ExportTexytext.class.php:439
+#: libraries/plugins/export/ExportHtmlword.class.php:513
+#: libraries/plugins/export/ExportOdt.class.php:614
+#: libraries/plugins/export/ExportTexytext.class.php:462
 #: libraries/rte/rte_events.lib.php:519
 #: libraries/rte/rte_routines.lib.php:1045
 #: libraries/rte/rte_triggers.lib.php:407
 msgid "Definition"
 msgstr "Definitsioon"
 
-#: libraries/plugins/export/ExportHtmlword.class.php:553
-#: libraries/plugins/export/ExportOdt.class.php:642
-#: libraries/plugins/export/ExportSql.class.php:1679
-#: libraries/plugins/export/ExportTexytext.class.php:498
+#: libraries/plugins/export/ExportHtmlword.class.php:584
+#: libraries/plugins/export/ExportOdt.class.php:692
+#: libraries/plugins/export/ExportSql.class.php:1740
+#: libraries/plugins/export/ExportTexytext.class.php:526
 msgid "Table structure for table"
 msgstr "Tabeli struktuur tabelile"
 
-#: libraries/plugins/export/ExportHtmlword.class.php:572
-#: libraries/plugins/export/ExportOdt.class.php:666
-#: libraries/plugins/export/ExportSql.class.php:1717
-#: libraries/plugins/export/ExportTexytext.class.php:513
+#: libraries/plugins/export/ExportHtmlword.class.php:604
+#: libraries/plugins/export/ExportOdt.class.php:716
+#: libraries/plugins/export/ExportSql.class.php:1795
+#: libraries/plugins/export/ExportTexytext.class.php:542
 msgid "Structure for view"
 msgstr "Vaate struktuur"
 
-#: libraries/plugins/export/ExportHtmlword.class.php:581
-#: libraries/plugins/export/ExportOdt.class.php:678
-#: libraries/plugins/export/ExportSql.class.php:1752
-#: libraries/plugins/export/ExportTexytext.class.php:520
+#: libraries/plugins/export/ExportHtmlword.class.php:613
+#: libraries/plugins/export/ExportOdt.class.php:728
+#: libraries/plugins/export/ExportSql.class.php:1831
+#: libraries/plugins/export/ExportTexytext.class.php:549
 msgid "Stand-in structure for view"
 msgstr "Sise-vaate struktuur"
 
@@ -8679,7 +8843,7 @@ msgid "Put columns names in the first row:"
 msgstr "Aseta veergude nimed esimesse ritta:"
 
 #: libraries/plugins/export/ExportLatex.class.php:218
-#: libraries/plugins/export/ExportSql.class.php:646
+#: libraries/plugins/export/ExportSql.class.php:678
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:675
 #: libraries/server_privileges.lib.php:1335 libraries/sql.lib.php:444
@@ -8687,31 +8851,31 @@ msgid "Host:"
 msgstr "Host:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
-#: libraries/plugins/export/ExportSql.class.php:653
+#: libraries/plugins/export/ExportSql.class.php:685
 #: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:448
 msgid "Generation Time:"
 msgstr "Loomise aeg:"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
-#: libraries/plugins/export/ExportSql.class.php:659
+#: libraries/plugins/export/ExportSql.class.php:691
 #: libraries/plugins/export/ExportXml.class.php:199
 msgid "PHP Version:"
 msgstr "PHP versioon:"
 
-#: libraries/plugins/export/ExportLatex.class.php:251
-#: libraries/plugins/export/ExportSql.class.php:817
-#: libraries/plugins/export/ExportXml.class.php:398
+#: libraries/plugins/export/ExportLatex.class.php:255
+#: libraries/plugins/export/ExportSql.class.php:849
+#: libraries/plugins/export/ExportXml.class.php:402
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/sql.lib.php:446
 msgid "Database:"
 msgstr "Andmebaas:"
 
-#: libraries/plugins/export/ExportLatex.class.php:304
-#: libraries/plugins/export/ExportSql.class.php:1805
+#: libraries/plugins/export/ExportLatex.class.php:319
+#: libraries/plugins/export/ExportSql.class.php:1884
 msgid "Data:"
 msgstr "Andmed:"
 
-#: libraries/plugins/export/ExportLatex.class.php:488
+#: libraries/plugins/export/ExportLatex.class.php:509
 msgid "Structure:"
 msgstr "Struktuur:"
 
@@ -8787,7 +8951,7 @@ msgid "Data creation options"
 msgstr "Andmete loomise valikud"
 
 #: libraries/plugins/export/ExportSql.class.php:341
-#: libraries/plugins/export/ExportSql.class.php:1899
+#: libraries/plugins/export/ExportSql.class.php:1982
 msgid "Truncate table before insert"
 msgstr "Kärbi tabelit enne lisamist"
 
@@ -8863,55 +9027,76 @@ msgstr ""
 "Tõmmista TIMESTAMP veerud UTC ajana <i>(lubab tõmmistada TIMESTAMP veergusid "
 "ja kasutada neid erinevates ajavööndites asuvates serverites)</i>"
 
-#: libraries/plugins/export/ExportSql.class.php:1251
+#: libraries/plugins/export/ExportSql.class.php:527
+#, fuzzy
+#| msgid "It appears your table uses triggers;"
+msgid "It appears your database uses procedures;"
+msgstr "Tundub, et su tabel kasutab trigereid;"
+
+#: libraries/plugins/export/ExportSql.class.php:528
+#: libraries/plugins/export/ExportSql.class.php:560
+#: libraries/plugins/export/ExportSql.class.php:1264
+#: libraries/plugins/export/ExportSql.class.php:1784
+msgid "alias export may not work reliably in all cases."
+msgstr ""
+"aliaste eksportimine võib mõningatel juhtudel töötada mitte usaldusväärselt."
+
+#: libraries/plugins/export/ExportSql.class.php:559
+#, fuzzy
+#| msgid "It appears your table uses triggers;"
+msgid "It appears your database uses functions;"
+msgstr "Tundub, et su tabel kasutab trigereid;"
+
+#: libraries/plugins/export/ExportSql.class.php:1261
+#, fuzzy
+#| msgid "It appears your table uses triggers;"
+msgid "It appears your database uses views;"
+msgstr "Tundub, et su tabel kasutab trigereid;"
+
+#: libraries/plugins/export/ExportSql.class.php:1312
 msgid "Constraints for dumped tables"
 msgstr "Tõmmistatud tabelite piirangud"
 
-#: libraries/plugins/export/ExportSql.class.php:1261
+#: libraries/plugins/export/ExportSql.class.php:1322
 msgid "Constraints for table"
 msgstr "Piirangud tabelile"
 
-#: libraries/plugins/export/ExportSql.class.php:1295
+#: libraries/plugins/export/ExportSql.class.php:1356
 msgid "Indexes for dumped tables"
 msgstr "Indeksid tõmmistatud tabelitele"
 
-#: libraries/plugins/export/ExportSql.class.php:1305
+#: libraries/plugins/export/ExportSql.class.php:1366
 msgid "Indexes for table"
 msgstr "Indeksid tabelile"
 
-#: libraries/plugins/export/ExportSql.class.php:1331
+#: libraries/plugins/export/ExportSql.class.php:1392
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT tõmmistatud tabelitele"
 
-#: libraries/plugins/export/ExportSql.class.php:1341
+#: libraries/plugins/export/ExportSql.class.php:1402
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT tabelile"
 
-#: libraries/plugins/export/ExportSql.class.php:1564
+#: libraries/plugins/export/ExportSql.class.php:1625
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
-#: libraries/plugins/export/ExportSql.class.php:1589
+#: libraries/plugins/export/ExportSql.class.php:1650
 msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONS FOR TABLE"
 
-#: libraries/plugins/export/ExportSql.class.php:1734
+#: libraries/plugins/export/ExportSql.class.php:1781
+msgid "It appears your table uses triggers;"
+msgstr "Tundub, et su tabel kasutab trigereid;"
+
+#: libraries/plugins/export/ExportSql.class.php:1813
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Vaate %s struktuur eksporditi tabelina"
 
-#: libraries/plugins/export/ExportSql.class.php:1823
+#: libraries/plugins/export/ExportSql.class.php:1902
 msgid "Error reading data:"
 msgstr "Andmete lugemisel esines viga:"
-
-#: libraries/plugins/export/ExportSql.class.php:2374
-msgid "It appears your table uses triggers;"
-msgstr "Tundub, et su tabel kasutab trigereid;"
-
-#: libraries/plugins/export/ExportSql.class.php:2375
-msgid "alias export may not work reliably in all cases."
-msgstr ""
-"aliaste eksportimine võib mõningatel juhtudel töötada mitte usaldusväärselt."
 
 #: libraries/plugins/export/ExportXml.class.php:102
 msgid "Object creation options (all are recommended)"
@@ -9201,6 +9386,10 @@ msgstr ""
 "Näitab linki. Veerg sisaldab faili nime. Esimene valik on URL'i eesliide, nt "
 "\"http://www.example.com/\". Teine valik on lingi pealkiri."
 
+#: libraries/pmd_common.php:295
+msgid "*Untitled"
+msgstr ""
+
 #: libraries/relation.lib.php:90
 msgid "not OK"
 msgstr "Ei ole korras"
@@ -9223,7 +9412,9 @@ msgid "Display Features"
 msgstr "Näita võimalusi"
 
 #: libraries/relation.lib.php:153
-msgid "Creation of PDFs"
+#, fuzzy
+#| msgid "Creation of PDFs"
+msgid "Designer and creation of PDFs"
 msgstr "PDF-ide koostamine"
 
 #: libraries/relation.lib.php:164
@@ -9242,7 +9433,7 @@ msgid ""
 msgstr ""
 "Palun loe dokumentatsioonist, kuidas uuendada oma column_comments tabelit."
 
-#: libraries/relation.lib.php:186 libraries/sql_query_form.lib.php:406
+#: libraries/relation.lib.php:186 libraries/sql_query_form.lib.php:412
 msgid "Bookmarked SQL query"
 msgstr "Järjehoidjaga SQL päring"
 
@@ -9250,48 +9441,48 @@ msgstr "Järjehoidjaga SQL päring"
 msgid "SQL history"
 msgstr "SQL ajalugu"
 
-#: libraries/relation.lib.php:219
+#: libraries/relation.lib.php:208
 msgid "Persistent recently used tables"
 msgstr "Püsivad hiljuti kasutatud tabelid"
 
-#: libraries/relation.lib.php:230
+#: libraries/relation.lib.php:219
 msgid "Persistent tables' UI preferences"
 msgstr "Püsivate tabelite UI eelistused"
 
-#: libraries/relation.lib.php:252
+#: libraries/relation.lib.php:241
 msgid "User preferences"
 msgstr "Kasutaja eelistused"
 
-#: libraries/relation.lib.php:269
+#: libraries/relation.lib.php:258
 msgid "Configurable menus"
 msgstr "Seadistatavad menüüd"
 
-#: libraries/relation.lib.php:280
+#: libraries/relation.lib.php:269
 msgid "Hide/show navigation items"
 msgstr "Peida/kuva navigeerimiselemendid"
 
-#: libraries/relation.lib.php:291
+#: libraries/relation.lib.php:280
 msgid "Saving Query-By-Example searches"
 msgstr "Salvestatakse näidispäringu otsinguid"
 
-#: libraries/relation.lib.php:302
+#: libraries/relation.lib.php:291
 msgid "Managing Central list of columns"
 msgstr "Veergude keskse nimekirja haldamine"
 
-#: libraries/relation.lib.php:308
+#: libraries/relation.lib.php:297
 msgid "Quick steps to setup advanced features:"
 msgstr "Täpsemate võimaluste seadistamise kiirsammud:"
 
-#: libraries/relation.lib.php:312
+#: libraries/relation.lib.php:301
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr "Loo vajalikud tabelid <code>script/create_tables.sql</code> failiga."
 
-#: libraries/relation.lib.php:318
+#: libraries/relation.lib.php:307
 msgid "Create a pma user and give access to these tables."
 msgstr "Loo pma kasutaja ja anna juurdepääs nendele tabelitele."
 
-#: libraries/relation.lib.php:323
+#: libraries/relation.lib.php:312
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -9299,11 +9490,11 @@ msgstr ""
 "Luba täpsemad võimalused seadistuse failis (<code>config.inc.php</code>). "
 "Näiteks alustades <code>config.sample.inc.php</code> failist."
 
-#: libraries/relation.lib.php:331
+#: libraries/relation.lib.php:320
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr "Uuendatud seadistuse faili laadimiseks logi phpMyAdmini uuesti sisse."
 
-#: libraries/relation.lib.php:1539
+#: libraries/relation.lib.php:1510
 msgid "no description"
 msgstr "kirjeldus puudub"
 
@@ -9514,7 +9705,7 @@ msgstr "Alluva staatus"
 
 #: libraries/replication_gui.lib.php:514
 #: libraries/server_status_variables.lib.php:219
-#: libraries/server_variables.lib.php:195 libraries/sql_query_form.lib.php:418
+#: libraries/server_variables.lib.php:195 libraries/sql_query_form.lib.php:424
 msgid "Variable"
 msgstr "Muutuja"
 
@@ -10078,90 +10269,82 @@ msgstr "Seoseskeem"
 msgid "Table of contents"
 msgstr "Sisu tabel"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1361
-#: libraries/schema/Pdf_Relation_Schema.class.php:1384
+#: libraries/schema/Pdf_Relation_Schema.class.php:1353
+#: libraries/schema/Pdf_Relation_Schema.class.php:1376
 #: libraries/structure.lib.php:1253
 #: libraries/tbl_columns_definition_form.lib.php:297
 msgid "Attributes"
 msgstr "Atribuudid"
 
-#: libraries/schema/User_Schema.class.php:132
+#: libraries/schema/User_Schema.class.php:138
 msgid "Create a page"
 msgstr "Loo leht"
 
-#: libraries/schema/User_Schema.class.php:138
-msgid "Page name"
-msgstr "Lehe nimi"
-
-#: libraries/schema/User_Schema.class.php:145
+#: libraries/schema/User_Schema.class.php:151
 msgid "Automatic layout based on"
 msgstr "Automaatne kujundus põhineb"
 
-#: libraries/schema/User_Schema.class.php:149
+#: libraries/schema/User_Schema.class.php:155
 msgid "Internal relations"
 msgstr "Sisesed seosed"
 
-#: libraries/schema/User_Schema.class.php:163
+#: libraries/schema/User_Schema.class.php:169
 msgid "FOREIGN KEY"
 msgstr "FOREIGN KEY"
 
-#: libraries/schema/User_Schema.class.php:200
+#: libraries/schema/User_Schema.class.php:206
 msgid "Please choose a page to edit"
 msgstr "Palun vali leht, mida muuta"
 
-#: libraries/schema/User_Schema.class.php:205
-msgid "Select page"
-msgstr "Vali leht"
-
-#: libraries/schema/User_Schema.class.php:272
+#: libraries/schema/User_Schema.class.php:278
 msgid "Select Tables"
 msgstr "Vali tabelid"
 
-#: libraries/schema/User_Schema.class.php:385 view_create.php:236
+#: libraries/schema/User_Schema.class.php:391 view_create.php:236
 msgid "Column names"
 msgstr "Veeru nimed"
 
-#: libraries/schema/User_Schema.class.php:434
+#: libraries/schema/User_Schema.class.php:440
 msgid "Select Export Relational Type"
 msgstr "Vali ekspordi seose tüüp"
 
-#: libraries/schema/User_Schema.class.php:458
+#: libraries/schema/User_Schema.class.php:464
 msgid "Show grid"
 msgstr "Näita ruudustikku"
 
-#: libraries/schema/User_Schema.class.php:461
+#: libraries/schema/User_Schema.class.php:467
 msgid "Show color"
 msgstr "Näita värvi"
 
-#: libraries/schema/User_Schema.class.php:466
+#: libraries/schema/User_Schema.class.php:472
 msgid "Show dimension of tables"
 msgstr "Näita tabelite mõõdet"
 
-#: libraries/schema/User_Schema.class.php:471
+#: libraries/schema/User_Schema.class.php:477
 msgid "Same width for all tables"
 msgstr "Sama laius kõigile tabelitele"
 
-#: libraries/schema/User_Schema.class.php:475 libraries/structure.lib.php:402
+#: libraries/schema/User_Schema.class.php:481 libraries/structure.lib.php:402
 msgid "Data Dictionary"
 msgstr "Andmesõnastik"
 
-#: libraries/schema/User_Schema.class.php:477
+#: libraries/schema/User_Schema.class.php:483
 msgid "Only show keys"
 msgstr "Näita ainult võtmeid"
 
-#: libraries/schema/User_Schema.class.php:479
+#: libraries/schema/User_Schema.class.php:485
 msgid "Landscape"
 msgstr "Horisontaalne"
 
-#: libraries/schema/User_Schema.class.php:480
+#: libraries/schema/User_Schema.class.php:486
 msgid "Portrait"
 msgstr "Vertikaalne"
 
-#: libraries/schema/User_Schema.class.php:482
+#: libraries/schema/User_Schema.class.php:488
 msgid "Orientation"
 msgstr "Paigutus"
 
-#: libraries/schema/User_Schema.class.php:542
+#: libraries/schema/User_Schema.class.php:548
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -10169,15 +10352,15 @@ msgstr ""
 "Antud lehel on viiteid tabelitele, mida enam ei ole. Kas soovid need viited "
 "kustutada?"
 
-#: libraries/schema/User_Schema.class.php:568
+#: libraries/schema/User_Schema.class.php:574
 msgid "Toggle scratchboard"
 msgstr "Ava/sulge märkmetahvel"
 
-#: libraries/schema/User_Schema.class.php:666
+#: libraries/schema/User_Schema.class.php:672
 msgid "File doesn't exist"
 msgstr "Faili pole olemas"
 
-#: libraries/schema/User_Schema.class.php:675
+#: libraries/schema/User_Schema.class.php:681
 msgid "Plugin is disabled"
 msgstr "Pistikprogramm on keelatud"
 
@@ -10207,7 +10390,7 @@ msgstr "Asukoht"
 msgid "Original position"
 msgstr "Algne asukoht"
 
-#: libraries/server_bin_log.lib.php:133 libraries/structure.lib.php:2268
+#: libraries/server_bin_log.lib.php:133 libraries/structure.lib.php:2270
 msgid "Information"
 msgstr "Informatsioon"
 
@@ -11974,7 +12157,7 @@ msgstr "\"%s\" järjehoidjat kasutatakse vaikimisi sirvimise päringuna."
 msgid "Showing as PHP code"
 msgstr "Näitan PHP koodina"
 
-#: libraries/sql.lib.php:1948
+#: libraries/sql.lib.php:1953
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
@@ -11982,7 +12165,7 @@ msgstr ""
 "Valik ei sisalda unikaalset veergu. Ruudustiku muutmisega, märkeruutudega, "
 "muutmisega, kopeerimisega ja kustutamisega seotud võimalused ei ole saadaval."
 
-#: libraries/sql.lib.php:1985
+#: libraries/sql.lib.php:1990
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Probleemid `%s` tabeli indeksitega"
@@ -12021,7 +12204,11 @@ msgstr "Eraldaja"
 msgid "Show this query here again"
 msgstr "Näita seda päringut siin uuesti"
 
-#: libraries/sql_query_form.lib.php:430
+#: libraries/sql_query_form.lib.php:378
+msgid "Rollback when finished"
+msgstr ""
+
+#: libraries/sql_query_form.lib.php:436
 msgid "View only"
 msgstr "Ainult vaata"
 
@@ -12152,8 +12339,8 @@ msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
-"Võib olla umbkaudne. Täpse arvu saamiseks klõpsa numbril. Vaata "
-"[doc@faq3-11]KKK 3.11[/doc]."
+"Võib olla umbkaudne. Täpse arvu saamiseks klõpsa numbril. Vaata [doc@faq3-11]"
+"KKK 3.11[/doc]."
 
 #: libraries/structure.lib.php:906
 msgid "Sort"
@@ -12169,21 +12356,21 @@ msgstr "Puudub"
 msgid "Column %s has been dropped."
 msgstr "Veerg %s on kustutatud."
 
-#: libraries/structure.lib.php:1469 libraries/structure.lib.php:2173
-#: libraries/structure.lib.php:2183
+#: libraries/structure.lib.php:1469 libraries/structure.lib.php:2175
+#: libraries/structure.lib.php:2185
 msgid "Spatial"
 msgstr "Ruumiline"
 
-#: libraries/structure.lib.php:1479 libraries/structure.lib.php:2175
-#: libraries/structure.lib.php:2185
+#: libraries/structure.lib.php:1479 libraries/structure.lib.php:2177
+#: libraries/structure.lib.php:2187
 msgid "Fulltext"
 msgstr "Täistekst"
 
-#: libraries/structure.lib.php:1485 libraries/structure.lib.php:2097
+#: libraries/structure.lib.php:1485 libraries/structure.lib.php:2099
 msgid "Add to central columns"
 msgstr "Lisa kesksesse nimekirja"
 
-#: libraries/structure.lib.php:1490 libraries/structure.lib.php:2087
+#: libraries/structure.lib.php:1490 libraries/structure.lib.php:2089
 msgid "Remove from central columns"
 msgstr "Eemalda kesksest nimekirjast"
 
@@ -12259,78 +12446,78 @@ msgstr "Rea laius"
 msgid "Next autoindex"
 msgstr "Järgmine automaatne indeks"
 
-#: libraries/structure.lib.php:1970 libraries/structure.lib.php:2047
-#: libraries/structure.lib.php:2053 libraries/structure.lib.php:2068
+#: libraries/structure.lib.php:1970 libraries/structure.lib.php:2049
+#: libraries/structure.lib.php:2055 libraries/structure.lib.php:2070
 #, php-format
 msgid "An index has been added on %s."
 msgstr "Veerule %s lisati index."
 
-#: libraries/structure.lib.php:2039
+#: libraries/structure.lib.php:2041
 #, php-format
 msgid "A primary key has been added on %s."
 msgstr "Tabelile %s lisati primaarvõti."
 
-#: libraries/structure.lib.php:2116 libraries/structure.lib.php:2187
+#: libraries/structure.lib.php:2118 libraries/structure.lib.php:2189
 msgid "Distinct values"
 msgstr "Erista väärtusi"
 
-#: libraries/structure.lib.php:2119 libraries/structure.lib.php:2122
+#: libraries/structure.lib.php:2121 libraries/structure.lib.php:2124
 msgid "Add primary key"
 msgstr "Lisa primaarvõti"
 
-#: libraries/structure.lib.php:2125 libraries/structure.lib.php:2128
+#: libraries/structure.lib.php:2127 libraries/structure.lib.php:2130
 msgid "Add index"
 msgstr "Lisa indeks"
 
-#: libraries/structure.lib.php:2131 libraries/structure.lib.php:2134
+#: libraries/structure.lib.php:2133 libraries/structure.lib.php:2136
 msgid "Add unique index"
 msgstr "Lisa ainulaadne indeks"
 
-#: libraries/structure.lib.php:2137 libraries/structure.lib.php:2140
+#: libraries/structure.lib.php:2139 libraries/structure.lib.php:2142
 msgid "Add SPATIAL index"
 msgstr "Lisa SPATIAL indeks"
 
-#: libraries/structure.lib.php:2143 libraries/structure.lib.php:2146
+#: libraries/structure.lib.php:2145 libraries/structure.lib.php:2148
 msgid "Add FULLTEXT index"
 msgstr "Lisa FULLTEXT indeks"
 
-#: libraries/structure.lib.php:2273
+#: libraries/structure.lib.php:2275
 msgid "Space usage"
 msgstr "Ruumi kasutus"
 
-#: libraries/structure.lib.php:2293 libraries/tbl_printview.lib.php:327
+#: libraries/structure.lib.php:2295 libraries/tbl_printview.lib.php:327
 msgid "Effective"
 msgstr "Efektiivne"
 
-#: libraries/structure.lib.php:2519 libraries/tbl_indexes.lib.php:61
+#: libraries/structure.lib.php:2521 libraries/tbl_indexes.lib.php:61
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabeli %1$s muutmine õnnestus."
 
-#: libraries/structure.lib.php:2531 libraries/tbl_tracking.lib.php:1000
+#: libraries/structure.lib.php:2533 libraries/tbl_tracking.lib.php:1000
 #: libraries/tbl_tracking.lib.php:1030
 msgid "Query error"
 msgstr "Päringu viga"
 
-#: libraries/structure.lib.php:2665
+#: libraries/structure.lib.php:2667
 msgid "The columns have been moved successfully."
 msgstr "Veerud on edukalt liigutatud."
 
-#: libraries/structure.lib.php:2713
+#: libraries/structure.lib.php:2715
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "Veeru nimi '%s' on MySQLi reserveeritud võtmesõna."
 
-#: libraries/structure.lib.php:2842
+#: libraries/structure.lib.php:2844
 msgid "Add to Favorites"
 msgstr "Lisa lemmikutesse"
 
-#: libraries/structure.lib.php:2887
+#: libraries/structure.lib.php:2890
 msgid "Favorite List is full!"
 msgstr "Lemmikute nimekiri on täis!"
 
-#: libraries/structure.lib.php:2976
+#: libraries/structure.lib.php:2979
 msgid "Showing create queries"
 msgstr "Kuvatakse loomise päringuid"
 
@@ -12817,155 +13004,133 @@ msgstr "ZIP arhiivist ei leitud ühtegi faili!"
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Fataalne viga: navigeerimiseks on vajalik AJAX"
 
-#: pmd_display_field.php:62 pmd_save_pos.php:85
+#: pmd_display_field.php:62 pmd_save_pos.php:59
 msgid "Modifications have been saved"
 msgstr "Muutused on salvestatud"
 
-#: pmd_general.php:69
+#: pmd_general.php:123
 msgid "Show/Hide left menu"
 msgstr "Näita/Peida vasak menüü"
 
-#: pmd_general.php:74
+#: pmd_general.php:128
 msgid "View in fullscreen"
 msgstr "Kuva üle ekraani"
 
-#: pmd_general.php:79
+#: pmd_general.php:133
 msgid "Exit fullscreen"
 msgstr "Välju üleekraani vaatest"
 
-#: pmd_general.php:86
+#: pmd_general.php:140
+#, fuzzy
+#| msgid "New name"
+msgid "New page"
+msgstr "Uus nimi"
+
+#: pmd_general.php:148
 msgid "Save position"
 msgstr "Salvesta asukoht"
 
-#: pmd_general.php:96 pmd_general.php:434
+#: pmd_general.php:152
+#, fuzzy
+#| msgid "Save position"
+msgid "Save positions as"
+msgstr "Salvesta asukoht"
+
+#: pmd_general.php:156
+#, fuzzy
+#| msgid "Select page"
+msgid "Delete pages"
+msgstr "Vali leht"
+
+#: pmd_general.php:167 pmd_general.php:499
 msgid "Create relation"
 msgstr "Loo seos"
 
-#: pmd_general.php:106
+#: pmd_general.php:177
 msgid "Reload"
 msgstr "Lae uuesti"
 
-#: pmd_general.php:111
+#: pmd_general.php:182
 msgid "Help"
 msgstr "Abi"
 
-#: pmd_general.php:119
+#: pmd_general.php:190
 msgid "Angular links"
 msgstr "Nurgelised lingid"
 
-#: pmd_general.php:119
+#: pmd_general.php:190
 msgid "Direct links"
 msgstr "Otselingid"
 
-#: pmd_general.php:124
+#: pmd_general.php:195
 msgid "Snap to grid"
 msgstr "Kasuta ruudustikku"
 
-#: pmd_general.php:130
+#: pmd_general.php:201
 msgid "Small/Big All"
 msgstr "Kõik Väikeseks/Suureks"
 
-#: pmd_general.php:135
+#: pmd_general.php:206
 msgid "Toggle small/big"
 msgstr "Lülitu väiksele/suurele"
 
-#: pmd_general.php:140
+#: pmd_general.php:211
 msgid "Toggle relation lines"
 msgstr "Muuda seose ridu"
 
-#: pmd_general.php:146 pmd_pdf.php:103
-msgid "Import/Export coordinates for relational schema"
-msgstr "Impordi/Ekspordi koordinaadid relatsiooniskeemile"
-
-#: pmd_general.php:155
+#: pmd_general.php:223
 msgid "Build Query"
 msgstr "Loo päring"
 
-#: pmd_general.php:162
+#: pmd_general.php:230
 msgid "Move Menu"
 msgstr "Liiguta menüü"
 
-#: pmd_general.php:176
+#: pmd_general.php:244
 msgid "Hide/Show all"
 msgstr "Peida/Näita kõiki"
 
-#: pmd_general.php:180
+#: pmd_general.php:248
 msgid "Hide/Show Tables with no relation"
 msgstr "Peida/Näita tabeleid, millel puudub seos"
 
-#: pmd_general.php:225
+#: pmd_general.php:292
 msgid "Number of tables:"
 msgstr "Tabelite hulk:"
 
-#: pmd_general.php:502
+#: pmd_general.php:567
 msgid "Delete relation"
 msgstr "Kustuta seos"
 
-#: pmd_general.php:547 pmd_general.php:606
+#: pmd_general.php:612 pmd_general.php:671
 msgid "Relation operator"
 msgstr "Seose operaator"
 
-#: pmd_general.php:557 pmd_general.php:616 pmd_general.php:746
-#: pmd_general.php:865
+#: pmd_general.php:622 pmd_general.php:681 pmd_general.php:811
+#: pmd_general.php:930
 msgid "Except"
 msgstr "V.a"
 
-#: pmd_general.php:563 pmd_general.php:624 pmd_general.php:752
-#: pmd_general.php:871
+#: pmd_general.php:628 pmd_general.php:689 pmd_general.php:817
+#: pmd_general.php:936
 msgid "subquery"
 msgstr "alampäring"
 
-#: pmd_general.php:567 pmd_general.php:669
+#: pmd_general.php:632 pmd_general.php:734
 msgid "Rename to"
 msgstr "Muuda nimeks"
 
-#: pmd_general.php:569 pmd_general.php:675
+#: pmd_general.php:634 pmd_general.php:740
 msgid "New name"
 msgstr "Uus nimi"
 
-#: pmd_general.php:572 pmd_general.php:795
+#: pmd_general.php:637 pmd_general.php:860
 msgid "Aggregate"
 msgstr "Agregaat"
 
-#: pmd_general.php:906
+#: pmd_general.php:971
 msgid "Active options"
 msgstr "Aktiivsed valikud"
-
-#: pmd_pdf.php:53
-msgid "Page has been created."
-msgstr "Leht on loodud."
-
-#: pmd_pdf.php:56
-msgid "Page creation has failed!"
-msgstr "Lehe loomine ebaõnnestus!"
-
-#: pmd_pdf.php:114
-msgid "Page:"
-msgstr "Leht:"
-
-#: pmd_pdf.php:124
-msgid "Import from selected page."
-msgstr "Impordi valitud lehelt."
-
-#: pmd_pdf.php:125
-msgid "Export to selected page."
-msgstr "Ekspordi valitud lehele."
-
-#: pmd_pdf.php:127
-msgid "Create a page and export to it."
-msgstr "Loo leht ja ekspordi sellele."
-
-#: pmd_pdf.php:139
-msgid "New page name: "
-msgstr "Uue lehe nimi: "
-
-#: pmd_pdf.php:142
-msgid "Export/Import to scale:"
-msgstr "Ekspordi/Impordi skaalas:"
-
-#: pmd_pdf.php:147
-msgid "recommended"
-msgstr "soovituslik"
 
 #: pmd_relation_new.php:36
 msgid "Error: relation already exists."
@@ -12991,7 +13156,7 @@ msgstr "Sisemine seos on loodud."
 msgid "Relation deleted"
 msgstr "Seos on kustutatud"
 
-#: pmd_save_pos.php:75
+#: pmd_save_pos.php:49
 msgid "Error saving coordinates for Designer."
 msgstr "Kujundaja jaoks koordinaatide salvestamisel esines viga."
 
@@ -13120,10 +13285,9 @@ msgid ""
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
-"Palun loo phpMyAdmini juurkataloogi veebiserveri jaoks kirjutatav "
-"[em]config[/em] kaust, nagu on kirjeldatud "
-"[doc@setup_script]dokumentatsioonis[/doc]. Muul juhul saad seda ainult alla "
-"laadida või vaadata."
+"Palun loo phpMyAdmini juurkataloogi veebiserveri jaoks kirjutatav [em]config"
+"[/em] kaust, nagu on kirjeldatud [doc@setup_script]dokumentatsioonis[/doc]. "
+"Muul juhul saad seda ainult alla laadida või vaadata."
 
 #: setup/frames/index.inc.php:70
 msgid ""
@@ -13139,8 +13303,8 @@ msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
 msgstr ""
-"Kui sinu server on seadistatud nõustuma ka HTTPS taotlustega, siis ava [a@"
-"%s]see link[/a], et teada saada, kuidas kasutada turvalist ühendust."
+"Kui sinu server on seadistatud nõustuma ka HTTPS taotlustega, siis ava [a@%s]"
+"see link[/a], et teada saada, kuidas kasutada turvalist ühendust."
 
 #: setup/frames/index.inc.php:89
 msgid "Insecure connection"
@@ -14642,6 +14806,37 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert väärtuseks on määratud 0"
 
 #~ msgid ""
+#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
+#~ "[/kbd]."
+#~ msgstr ""
+#~ "Jäta tühjaks, kui puudub kujundaja tugi, soovitatav: [kbd]"
+#~ "pma__designer_coords[/kbd]."
+
+#~ msgid "Designer table"
+#~ msgstr "Kujundaja tabel"
+
+#~ msgid "Import/Export coordinates for relational schema"
+#~ msgstr "Impordi/Ekspordi koordinaadid relatsiooniskeemile"
+
+#~ msgid "Page has been created."
+#~ msgstr "Leht on loodud."
+
+#~ msgid "Page creation has failed!"
+#~ msgstr "Lehe loomine ebaõnnestus!"
+
+#~ msgid "Page:"
+#~ msgstr "Leht:"
+
+#~ msgid "Import from selected page."
+#~ msgstr "Impordi valitud lehelt."
+
+#~ msgid "Export/Import to scale:"
+#~ msgstr "Ekspordi/Impordi skaalas:"
+
+#~ msgid "recommended"
+#~ msgstr "soovituslik"
+
+#~ msgid ""
 #~ "Are you sure you want to navigate away from this page? Press OK to "
 #~ "continue or Cancel to stay on the current page."
 #~ msgstr ""
@@ -14688,16 +14883,15 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 
 #~ msgid ""
 #~ "If you wish to use the SQL Validator service, you should be aware that "
-#~ "[strong]all SQL statements are stored anonymously for statistical "
-#~ "purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
-#~ "Validator[/a], Copyright 2002 Upright Database Technology. All rights "
-#~ "reserved.[/em]"
+#~ "[strong]all SQL statements are stored anonymously for statistical purposes"
+#~ "[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
+#~ "a], Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 #~ msgstr ""
 #~ "Kui soovid kasutada SQL valideerija teenust, siis peaksid teadma, et "
-#~ "[strong]kõiki SQL käskusid salvestatakse anonüümselt statistika "
-#~ "eesmärgil[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
-#~ "Validator[/a], Autoriõigus 2002 Upright Database Technology. Kõik õigused "
-#~ "on kaitstud.[/em]"
+#~ "[strong]kõiki SQL käskusid salvestatakse anonüümselt statistika eesmärgil"
+#~ "[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
+#~ "a], Autoriõigus 2002 Upright Database Technology. Kõik õigused on "
+#~ "kaitstud.[/em]"
 
 #~ msgid "Requires SQL Validator to be enabled."
 #~ msgstr "Nõuab, et SQL valideerija oleks lubatud."
@@ -14713,11 +14907,11 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgstr "Luba SQL valideerija"
 
 #~ msgid ""
-#~ "If you have a custom username, specify it here (defaults to "
-#~ "[kbd]anonymous[/kbd])."
+#~ "If you have a custom username, specify it here (defaults to [kbd]anonymous"
+#~ "[/kbd])."
 #~ msgstr ""
-#~ "Kui sul on enda kasutajanimi, siis täpsusta seda siin (vaikimisi on "
-#~ "[kbd]anonymous[/kbd])."
+#~ "Kui sul on enda kasutajanimi, siis täpsusta seda siin (vaikimisi on [kbd]"
+#~ "anonymous[/kbd])."
 
 #~ msgid "Validated SQL"
 #~ msgstr "Valideeritud SQL"
@@ -14759,18 +14953,18 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgstr "Salvesta otsing"
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: "
-#~ "[kbd]pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__users[/kbd]."
 #~ msgstr ""
-#~ "Jäta tühjaks, et keelata konfigureeritavad menüüd, soovitatav: "
-#~ "[kbd]pma__users[/kbd]."
+#~ "Jäta tühjaks, et keelata konfigureeritavad menüüd, soovitatav: [kbd]"
+#~ "pma__users[/kbd]."
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: "
-#~ "[kbd]pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__usergroups[/kbd]."
 #~ msgstr ""
-#~ "Jäta tühjaks, et keelata konfigureeritavad menüüd, soovitatav: "
-#~ "[kbd]pma__usergroups[/kbd]."
+#~ "Jäta tühjaks, et keelata konfigureeritavad menüüd, soovitatav: [kbd]"
+#~ "pma__usergroups[/kbd]."
 
 #~ msgid "ENUM or SET data too long?"
 #~ msgstr "ENUM või SET andmed on liiga pikad?"
@@ -14832,9 +15026,6 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgid "errors."
 #~ msgstr "viga."
 
-#~ msgid "in query"
-#~ msgstr "päringus"
-
 #~ msgid "bzipped"
 #~ msgstr "bzipitud"
 
@@ -14882,9 +15073,8 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgstr "Luba JavaScripti vigade raporteerimine"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
-#~ "Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 #~ msgstr ""
 #~ "Rohkem infot aadressilt [a@https://sourceforge.net/p/phpmyadmin/"
 #~ "bugs/2606/]PMA bug tracker[/a] ja [a@http://bugs.mysql.com/19588]MySQL "
@@ -15235,9 +15425,9 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the "
-#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
-#~ "like the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the $cfg"
+#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
+#~ "the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Kui valida selleks [kbd]nested[/kbd], siis tabeli nime aliast kasutatakse "
 #~ "sõltuvalt $cfg['LeftFrameTableSeparator'] direktiivist ainult tabelite "
@@ -15923,9 +16113,9 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ "Enclose table and field names with backquotes <i>(Protects field and "
 #~ "table names formed with special characters or keywords)</i>"
 #~ msgstr ""
-#~ "Aseta tabeli ja väljade nimed alumise ja ülemise jutumärgi vahele "
-#~ "<i>(Kaitseb välja ja tabeli nimesid eriliste sümbolitega või "
-#~ "võtmesõnadega vormimise eest)</i>"
+#~ "Aseta tabeli ja väljade nimed alumise ja ülemise jutumärgi vahele <i>"
+#~ "(Kaitseb välja ja tabeli nimesid eriliste sümbolitega või võtmesõnadega "
+#~ "vormimise eest)</i>"
 
 #~ msgid "Create a new index"
 #~ msgstr "Loo uus indeks"
