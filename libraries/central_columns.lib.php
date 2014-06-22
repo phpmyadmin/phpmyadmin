@@ -315,7 +315,6 @@ function PMA_deleteColumnsFromList($field_select, $isTable=true)
     $message = true;
     $colNotExist = array();
     $fields = array();
-    $cols ="";
     if ($isTable) {
         $cols = '';
         foreach ($field_select as $table) {

@@ -240,20 +240,20 @@ $(function () {
         event.preventDefault();
         $self = $(this);
         var anchor_id = $self.attr("id");
-        if($self.data("favtargetn") !== null)
+        if($self.data("favtargetn") !== null) {
             if($('a[data-favtargets="' + $self.data("favtargetn") + '"]').length > 0)
             {
                 $('a[data-favtargets="' + $self.data("favtargetn") + '"]').trigger('click');
                 return;
             }
+        }
 
         $.ajax({
             url: $self.attr('href'),
             cache: false,
             type: 'POST',
             data: {
-                favorite_tables: (window.localStorage.favorite_tables
-                    !== undefined)
+                favorite_tables: (window.localStorage.favorite_tables !== undefined)
                     ? window.localStorage.favorite_tables
                     : ''
             },
@@ -268,8 +268,7 @@ $(function () {
                     );
                     // Update localStorage.
                     if (window.localStorage !== undefined) {
-                        window.localStorage.favorite_tables
-                            = data.favorite_tables;
+                        window.localStorage.favorite_tables = data.favorite_tables;
                     }
                 } else {
                     PMA_ajaxShowMessage(data.message);
@@ -1252,8 +1251,9 @@ function PMA_showFullName($containerELem) {
         /** mouseenter */
         var $this = $(this);
         var thisOffset = $this.offset();
-        if($this.text() === '')
+        if($this.text() === '') {
             return;
+        }
         var $parent = $this.parent();
         if(  ($parent.offset().left + $parent.outerWidth())
            < (thisOffset.left + $this.outerWidth()))

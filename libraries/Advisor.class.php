@@ -187,7 +187,7 @@ class Advisor
     /**
      * Splits justification to text and formula.
      *
-     * @param string $rule the rule
+     * @param array $rule the rule
      *
      * @return string[]
      */

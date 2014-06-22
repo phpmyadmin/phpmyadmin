@@ -331,6 +331,10 @@ function getFieldValidators(field_id, onKeyUpOnly)
  */
 function displayErrors(error_list)
 {
+    var tempIsEmpty = function (item) {
+        return item !== '';
+    };
+
     for (var field_id in error_list) {
         var errors = error_list[field_id];
         var field = $('#' + field_id);
@@ -343,9 +347,7 @@ function displayErrors(error_list)
         }
 
         // remove empty errors (used to clear error list)
-        errors = $.grep(errors, function (item) {
-            return item !== '';
-        });
+        errors = $.grep(errors, tempIsEmpty);
 
         // CSS error class
         if (!isFieldset) {
