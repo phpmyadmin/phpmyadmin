@@ -1676,7 +1676,7 @@ function PMA_getMessageForNoRowsReturned($message_to_show, $analyzed_sql_results
 
     // In case of ROLLBACK, notify the user.
     if (isset($_REQUEST['rollback_query'])) {
-        $message->addMessage(__('[ROLLBACK occured.]'));
+        $message->addMessage(__('[ROLLBACK occurred.]'));
     }
 
     return $message;

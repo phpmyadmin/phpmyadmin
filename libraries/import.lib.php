@@ -265,7 +265,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
 
     // In case of ROLLBACK, notify the user.
     if (isset($_REQUEST['rollback_query'])) {
-        $msg .= __('[ROLLBACK occured.]');
+        $msg .= __('[ROLLBACK occurred.]');
     }
 }
 
@@ -1735,7 +1735,7 @@ function PMA_getTableNamesFromTableReferences($table_references)
             $add_to_table_names = false;
         }
 
-        // Everything fine upto now, add name to list if 'unique'.
+        // Everything fine up to now, add name to list if 'unique'.
         if ($add_to_table_names
             && ! $on_encountered
             && ! in_array($term['data'], $table_names)
