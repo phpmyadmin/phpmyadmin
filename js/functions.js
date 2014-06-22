@@ -469,9 +469,8 @@ function checkSqlQuery(theForm)
     isEmpty = 1;
 
     if (isEmpty) {
-        sqlQuery.select();
         alert(PMA_messages.strFormEmpty);
-        sqlQuery.focus();
+        codemirror_editor.focus();
         return false;
     }
 
