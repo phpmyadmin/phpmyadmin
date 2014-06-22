@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-10 12:45-0400\n"
-"PO-Revision-Date: 2014-06-22 04:36+0200\n"
+"PO-Revision-Date: 2014-06-22 18:21+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/az/>\n"
@@ -2205,7 +2205,6 @@ msgstr ""
 
 #. l10n: Short week day name
 #: js/messages.php:513
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
@@ -2243,10 +2242,9 @@ msgstr "Şen"
 
 #. l10n: Minimal week day name
 #: js/messages.php:532
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
-msgstr "Baz"
+msgstr "B"
 
 #. l10n: Minimal week day name
 #: js/messages.php:534
@@ -2268,7 +2266,6 @@ msgstr "Ç"
 
 #. l10n: Minimal week day name
 #: js/messages.php:540
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "CA"
@@ -2281,7 +2278,6 @@ msgstr "C"
 
 #. l10n: Minimal week day name
 #: js/messages.php:544
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Ş"
@@ -3972,11 +3968,10 @@ msgid "Profiling"
 msgstr ""
 
 #: libraries/Util.class.php:1281
-#, fuzzy
 #| msgid "Engines"
 msgctxt "Inline edit query"
 msgid "Inline"
-msgstr "Motorlar"
+msgstr "Sıralı"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1584
@@ -5012,10 +5007,9 @@ msgid "Use hexadecimal for BINARY & BLOB"
 msgstr ""
 
 #: libraries/config/messages.inc.php:180
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "Use ignore inserts"
-msgstr "Genişletilmiş girişli"
+msgstr "Göz ardı edilmiş əlavəetmələri istifadə et"
 
 #: libraries/config/messages.inc.php:182
 msgid "Syntax to use when inserting data"
@@ -5337,10 +5331,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:304
 #: libraries/schema/User_Schema.class.php:426
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Relational schema"
+msgstr "Əlaqəli sxemi göstər"
 
 #: libraries/config/messages.inc.php:306
 #: libraries/schema/User_Schema.class.php:499
@@ -5750,10 +5743,9 @@ msgid "Use only icons, only text or both."
 msgstr ""
 
 #: libraries/config/messages.inc.php:481
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table navigation bar"
-msgstr "Cedvel başlığı"
+msgstr "Cədvəl naviqasiya çubuğu"
 
 #: libraries/config/messages.inc.php:483
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
@@ -5856,28 +5848,24 @@ msgid "Default query window tab"
 msgstr ""
 
 #: libraries/config/messages.inc.php:529
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height (in pixels)."
-msgstr "Sorğu penceresi"
+msgstr "Sorğu pəncərəsinin yüksəkliyi(piksellərlə)."
 
 #: libraries/config/messages.inc.php:530
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
-msgstr "Sorğu penceresi"
+msgstr "Sorğu pəncərəsinin yüksəkliyi"
 
 #: libraries/config/messages.inc.php:531
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)."
-msgstr "Sorğu penceresi"
+msgstr "Sorğu pəncərəsinin eni(piksellərlə)."
 
 #: libraries/config/messages.inc.php:532
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "Sorğu penceresi"
+msgstr "Sorğu pəncərəsinin eni"
 
 #: libraries/config/messages.inc.php:534
 msgid "Select which functions will be used for character set conversion."
@@ -5892,10 +5880,9 @@ msgid "When browsing tables, the sorting of each table is remembered."
 msgstr ""
 
 #: libraries/config/messages.inc.php:538
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "Cedveli yeniden adlandır"
+msgstr "Cədvəlin sıralamasını xatırla"
 
 #: libraries/config/messages.inc.php:540
 msgid ""
@@ -5966,10 +5953,9 @@ msgid "SweKey config file"
 msgstr ""
 
 #: libraries/config/messages.inc.php:562
-#, fuzzy
 #| msgid "Documentation"
 msgid "Authentication method to use."
-msgstr "Dokumentasiya"
+msgstr "İstifadə üçün identifikasiya metodu."
 
 #: libraries/config/messages.inc.php:563 setup/frames/index.inc.php:162
 msgid "Authentication type"
@@ -5996,10 +5982,9 @@ msgid "Column information table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:574
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Compress connection to MySQL server."
-msgstr "MySQL server-e gire bilmirem"
+msgstr "MySQL server bağlantısını sıxışdır(kompress)."
 
 #: libraries/config/messages.inc.php:575
 msgid "Compress connection"
@@ -6010,9 +5995,8 @@ msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
 msgstr ""
 
 #: libraries/config/messages.inc.php:578
-#, fuzzy
 msgid "Connection type"
-msgstr "Elaqeler"
+msgstr "Əlaqə tipi"
 
 #: libraries/config/messages.inc.php:579
 msgid "Control user password"
@@ -6035,10 +6019,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:589
-#, fuzzy
 #| msgid "Any host"
 msgid "Control host"
-msgstr "Her hansı host"
+msgstr "Nəzarət serveri"
 
 #: libraries/config/messages.inc.php:591
 msgid ""
@@ -6048,10 +6031,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:595
-#, fuzzy
 #| msgid "Any host"
 msgid "Control port"
-msgstr "Her hansı host"
+msgstr "Nəzarət portu"
 
 #: libraries/config/messages.inc.php:597
 msgid ""
@@ -6068,9 +6050,8 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr ""
 
 #: libraries/config/messages.inc.php:603
-#, fuzzy
 msgid "Hide databases"
-msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
+msgstr "Verilənlər Bazalarını gizlət"
 
 #: libraries/config/messages.inc.php:605
 msgid ""
@@ -6087,9 +6068,8 @@ msgid "Hostname where MySQL server is running."
 msgstr ""
 
 #: libraries/config/messages.inc.php:610
-#, fuzzy
 msgid "Server hostname"
-msgstr "Quraşdırılmış Serverler"
+msgstr "Server host adı"
 
 #: libraries/config/messages.inc.php:611
 msgid "Logout URL"
@@ -6116,10 +6096,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:624
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Try to connect without password."
-msgstr "Parolu deyişdirme"
+msgstr "Parolsuz qoşulmağı sınayın."
 
 #: libraries/config/messages.inc.php:625
 msgid "Connect without password"
@@ -6162,19 +6141,17 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:643
 #: libraries/display_create_database.lib.php:31
-#, fuzzy
 #| msgid "Database"
 msgid "Database name"
-msgstr "Me'lumat Bazası"
+msgstr "Verilənlər Bazasının adı"
 
 #: libraries/config/messages.inc.php:645
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 
 #: libraries/config/messages.inc.php:646
-#, fuzzy
 msgid "Server port"
-msgstr "Quraşdırılmış Serverler"
+msgstr "Server portu"
 
 #: libraries/config/messages.inc.php:648
 msgid ""
@@ -6183,10 +6160,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:651
-#, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used table"
-msgstr "Cedveli analiz et"
+msgstr "Son istifadə edilən Cədvəl"
 
 #: libraries/config/messages.inc.php:653
 msgid ""
@@ -6195,9 +6171,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:657
-#, fuzzy
 msgid "Relation table"
-msgstr "Cedveli te'mir et"
+msgstr "Əlaqə cədvəli"
 
 #: libraries/config/messages.inc.php:659
 msgid ""
@@ -6218,14 +6193,12 @@ msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 
 #: libraries/config/messages.inc.php:666
-#, fuzzy
 msgid "Server socket"
-msgstr "Quraşdırılmış Serverler"
+msgstr "Server yuvası(socket)"
 
 #: libraries/config/messages.inc.php:667
-#, fuzzy
 msgid "Enable SSL for connection to MySQL server."
-msgstr "Limits the number of new connections the user may open per hour."
+msgstr "MySQL server əlaqəsi üçün SSL aktivləşdirir."
 
 #: libraries/config/messages.inc.php:668
 msgid "Use SSL"
@@ -6248,10 +6221,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:677
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display columns table"
-msgstr "Sütun Qısa İzahatını Deyişdir"
+msgstr "Görünüş sütunları cədvəli"
 
 #: libraries/config/messages.inc.php:679
 msgid ""
@@ -6298,10 +6270,9 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/config/messages.inc.php:700
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "Variantlar"
+msgstr "İfadələrdən izlərə"
 
 #: libraries/config/messages.inc.php:702
 msgid ""
@@ -6320,10 +6291,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:711
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "Avtomatik qurtarma rejimi"
+msgstr "Avtomatik olaraq verisyaları yarat"
 
 #: libraries/config/messages.inc.php:712
 msgid ""
@@ -6343,10 +6313,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:715
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Use Tables"
+msgstr "İstifadəçi cədvəlləri"
 
 #: libraries/config/messages.inc.php:716
 msgid ""
@@ -6411,10 +6380,9 @@ msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 
 #: libraries/config/messages.inc.php:730
-#, fuzzy
 #| msgid "Show PHP information"
 msgid "Show Creation timestamp"
-msgstr "PHPInfo() me'lumatını göster"
+msgstr "Yaradılma zaman nişanını göstər"
 
 #: libraries/config/messages.inc.php:731
 msgid ""
@@ -6441,9 +6409,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:736
-#, fuzzy
 msgid "Show display direction"
-msgstr "Me'lumat bazası eksport variantları"
+msgstr "Görünüş təlimatlarını göstər"
 
 #: libraries/config/messages.inc.php:737
 msgid ""
@@ -6452,9 +6419,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:738
-#, fuzzy
 msgid "Show field types"
-msgstr "Cedvelleri göster"
+msgstr "Sahə tiplərini göstər"
 
 #: libraries/config/messages.inc.php:739
 msgid "Display the function fields in edit/insert mode."
@@ -6469,10 +6435,9 @@ msgid "Whether to show hint or not."
 msgstr ""
 
 #: libraries/config/messages.inc.php:742
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
-msgstr "Show grid"
+msgstr "İpucu göstər"
 
 #: libraries/config/messages.inc.php:743
 msgid ""
@@ -6494,9 +6459,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:747
-#, fuzzy
 msgid "Show SQL queries"
-msgstr "Emrleri Tam Olaraq Göster"
+msgstr "SQL sorğularını göstər"
 
 #: libraries/config/messages.inc.php:748
 msgid ""
