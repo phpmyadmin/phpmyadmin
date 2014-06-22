@@ -454,10 +454,10 @@ function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
  * @param string $crlf            end of line character(s)
  * @param string $err_url         the URL in case of error
  * @param string $export_type     the export type
- * @param string $do_relation     whether to export relation info
- * @param string $do_comments     whether to add comments
- * @param string $do_mime         whether to add MIME info
- * @param string $do_dates        whether to add dates
+ * @param bool   $do_relation     whether to export relation info
+ * @param bool   $do_comments     whether to add comments
+ * @param bool   $do_mime         whether to add MIME info
+ * @param bool   $do_dates        whether to add dates
  *
  * @return void
  */
@@ -494,10 +494,10 @@ function PMA_exportServer(
  * @param string $crlf            end of line character(s)
  * @param string $err_url         the URL in case of error
  * @param string $export_type     the export type
- * @param string $do_relation     whether to export relation info
- * @param string $do_comments     whether to add comments
- * @param string $do_mime         whether to add MIME info
- * @param string $do_dates        whether to add dates
+ * @param bool   $do_relation     whether to export relation info
+ * @param bool   $do_comments     whether to add comments
+ * @param bool   $do_mime         whether to add MIME info
+ * @param bool   $do_dates        whether to add dates
  *
  * @return void
  */
@@ -639,10 +639,10 @@ function PMA_exportDatabase(
  * @param string $crlf            end of line character(s)
  * @param string $err_url         the URL in case of error
  * @param string $export_type     the export type
- * @param string $do_relation     whether to export relation info
- * @param string $do_comments     whether to add comments
- * @param string $do_mime         whether to add MIME info
- * @param string $do_dates        whether to add dates
+ * @param bool   $do_relation     whether to export relation info
+ * @param bool   $do_comments     whether to add comments
+ * @param bool   $do_mime         whether to add MIME info
+ * @param bool   $do_dates        whether to add dates
  * @param string $allrows         whether "dump all rows" was ticked
  * @param string $limit_to        upper limit
  * @param string $limit_from      starting limit

@@ -100,7 +100,7 @@ if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['favorite_table'])) {
         $ajax_response->addJSON(
             'anchor',
             PMA_getHtmlForFavoriteAnchor(
-                $db, array('TABLE_NAME' => $favorite_table), $titles
+                $db, $favorite_table, $titles
             )
         );
     } else {

@@ -50,12 +50,12 @@ class PMA_Cache_Test extends PHPUnit_Framework_TestCase
     public function testCacheExists()
     {
         $GLOBALS['server'] = 'server';
-        PMA_Util::cacheSet('test_data', 5, true);
-        PMA_Util::cacheSet('test_data_2', 5, true);
+        PMA_Util::cacheSet('test_data', 5, null);
+        PMA_Util::cacheSet('test_data_2', 5, null);
 
-        $this->assertTrue(PMA_Util::cacheExists('test_data', true));
+        $this->assertTrue(PMA_Util::cacheExists('test_data', null));
         $this->assertTrue(PMA_Util::cacheExists('test_data_2', 'server'));
-        $this->assertFalse(PMA_Util::cacheExists('fake_data_2', true));
+        $this->assertFalse(PMA_Util::cacheExists('fake_data_2', null));
     }
 
     /**
@@ -66,12 +66,12 @@ class PMA_Cache_Test extends PHPUnit_Framework_TestCase
     public function testCacheGet()
     {
         $GLOBALS['server'] = 'server';
-        PMA_Util::cacheSet('test_data', 5, true);
-        PMA_Util::cacheSet('test_data_2', 5, true);
+        PMA_Util::cacheSet('test_data', 5, null);
+        PMA_Util::cacheSet('test_data_2', 5, null);
 
-        $this->assertNotNull(PMA_Util::cacheGet('test_data', true));
+        $this->assertNotNull(PMA_Util::cacheGet('test_data', null));
         $this->assertNotNull(PMA_Util::cacheGet('test_data_2', 'server'));
-        $this->assertNull(PMA_Util::cacheGet('fake_data_2', true));
+        $this->assertNull(PMA_Util::cacheGet('fake_data_2', null));
     }
 
     /**
@@ -82,11 +82,11 @@ class PMA_Cache_Test extends PHPUnit_Framework_TestCase
     public function testCacheSetGet()
     {
         $GLOBALS['server'] = 'server';
-        PMA_Util::cacheSet('test_data', 25, true);
+        PMA_Util::cacheSet('test_data', 25, null);
 
-        PMA_Util::cacheSet('test_data', 5, true);
+        PMA_Util::cacheSet('test_data', 5, null);
         $this->assertEquals(5, $_SESSION['cache']['server_server']['test_data']);
-        PMA_Util::cacheSet('test_data_3', 3, true);
+        PMA_Util::cacheSet('test_data_3', 3, null);
         $this->assertEquals(3, $_SESSION['cache']['server_server']['test_data_3']);
     }
 
@@ -98,12 +98,12 @@ class PMA_Cache_Test extends PHPUnit_Framework_TestCase
     public function testCacheUnSet()
     {
         $GLOBALS['server'] = 'server';
-        PMA_Util::cacheSet('test_data', 25, true);
-        PMA_Util::cacheSet('test_data_2', 25, true);
+        PMA_Util::cacheSet('test_data', 25, null);
+        PMA_Util::cacheSet('test_data_2', 25, null);
 
-        PMA_Util::cacheUnset('test_data', true);
+        PMA_Util::cacheUnset('test_data', null);
         $this->assertArrayNotHasKey('test_data', $_SESSION['cache']['server_server']);
-        PMA_Util::cacheUnset('test_data_2', true);
+        PMA_Util::cacheUnset('test_data_2', null);
         $this->assertArrayNotHasKey('test_data_2', $_SESSION['cache']['server_server']);
     }
 
@@ -115,7 +115,7 @@ class PMA_Cache_Test extends PHPUnit_Framework_TestCase
     public function testClearUserCache()
     {
         $GLOBALS['server'] = 'server';
-        PMA_Util::cacheSet('is_superuser', 'yes', true);
+        PMA_Util::cacheSet('is_superuser', 'yes', null);
         $this->assertEquals('yes', $_SESSION['cache']['server_server']['is_superuser']);
 
         PMA_Util::clearUserCache();

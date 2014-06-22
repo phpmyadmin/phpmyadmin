@@ -43,25 +43,26 @@ function PMA_getReportData($pretty_print = true)
         return '';
     }
     $exception = $_REQUEST['exception'];
-    $exception["stack"] = PMA_translateStacktrace($exception["stack"]);
-    List($uri, $script_name) = PMA_sanitizeUrl($exception["url"]);
-    $exception["uri"] = $uri;
-    unset($exception["url"]);
+    $exception['stack'] = PMA_translateStacktrace($exception['stack']);
+    list($uri, $script_name) = PMA_sanitizeUrl($exception['url']);
+    $exception['uri'] = $uri;
+    unset($exception['url']);
     $report = array(
-        "exception" => $exception,
-        "script_name" => $script_name,
-        "pma_version" => PMA_VERSION,
-        "browser_name" => PMA_USR_BROWSER_AGENT,
-        "browser_version" => PMA_USR_BROWSER_VER,
-        "user_os" => PMA_USR_OS,
-        "server_software" => $_SERVER['SERVER_SOFTWARE'],
-        "user_agent_string" => $_SERVER['HTTP_USER_AGENT'],
-        "locale" => $_COOKIE['pma_lang'],
-        "configuration_storage" =>
-            empty($GLOBALS['cfg']['Servers'][1]['pmadb']) ? "disabled" :
-            "enabled",
-        "php_version" => phpversion(),
-        "microhistory" => $_REQUEST['microhistory'],
+        'exception'             => $exception,
+        'script_name'           => $script_name,
+        'pma_version'           => PMA_VERSION,
+        'browser_name'          => PMA_USR_BROWSER_AGENT,
+        'browser_version'       => PMA_USR_BROWSER_VER,
+        'user_os'               => PMA_USR_OS,
+        'server_software'       => $_SERVER['SERVER_SOFTWARE'],
+        'user_agent_string'     => $_SERVER['HTTP_USER_AGENT'],
+        'locale'                => $_COOKIE['pma_lang'],
+        'configuration_storage' =>
+            empty($GLOBALS['cfg']['Servers'][1]['pmadb'])
+            ? 'disabled'
+            : 'enabled',
+        'php_version'           => phpversion(),
+        'microhistory'          => $_REQUEST['microhistory'],
     );
 
     if (! empty($_REQUEST['description'])) {
@@ -95,27 +96,27 @@ function PMA_getReportData($pretty_print = true)
 function PMA_sanitizeUrl($url)
 {
     $components = parse_url($url);
-    if (isset($components["fragment"])
-        && preg_match("<PMAURL-\d+:>", $components["fragment"], $matches)
+    if (isset($components['fragment'])
+        && preg_match('<PMAURL-\d+:>', $components['fragment'], $matches)
     ) {
-        $uri = str_replace($matches[0], "", $components["fragment"]);
-        $url = "http://dummy_host/" . $uri;
+        $uri = str_replace($matches[0], '', $components['fragment']);
+        $url = 'http://dummy_host/' . $uri;
         $components = parse_url($url);
     }
 
     // get script name
-    preg_match("<([a-zA-Z\-_\d]*\.php)$>", $components["path"], $matches);
+    preg_match('<([a-zA-Z\-_\d]*\.php)$>', $components['path'], $matches);
     $script_name = $matches[1];
 
     // remove deployment specific details to make uri more generic
-    parse_str($components["query"], $query_array);
-    unset($query_array["db"]);
-    unset($query_array["table"]);
-    unset($query_array["token"]);
-    unset($query_array["server"]);
+    parse_str($components['query'], $query_array);
+    unset($query_array['db']);
+    unset($query_array['table']);
+    unset($query_array['token']);
+    unset($query_array['server']);
     $query = http_build_query($query_array);
 
-    $uri = $script_name . "?" . $query;
+    $uri = $script_name . '?' . $query;
     return array($uri, $script_name);
 }
 
@@ -130,8 +131,8 @@ function PMA_sendErrorReport($report)
 {
     $data_string = json_encode($report);
     if (ini_get('allow_url_fopen')) {
-        $context = array("http" =>
-            array(
+        $context = array(
+            'http' => array(
                 'method'  => 'POST',
                 'content' => $data_string,
                 'header' => "Content-Type: multipart/form-data\r\n",
@@ -152,7 +153,7 @@ function PMA_sendErrorReport($report)
 
     $curl_handle = curl_init(SUBMISSION_URL);
     $curl_handle = PMA_Util::configureCurl($curl_handle);
-    curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, 'POST');
     curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array('Expect:'));
     curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
     curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);

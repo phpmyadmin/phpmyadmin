@@ -100,11 +100,11 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial    GIS GEOMETRYCOLLECTION object
-     * @param string $label      label for the GIS GEOMETRYCOLLECTION object
-     * @param string $color      color for the GIS GEOMETRYCOLLECTION object
-     * @param array  $scale_data array containing data related to scaling
-     * @param object $image      image object
+     * @param string   $spatial    GIS GEOMETRYCOLLECTION object
+     * @param string   $label      label for the GIS GEOMETRYCOLLECTION object
+     * @param string   $color      color for the GIS GEOMETRYCOLLECTION object
+     * @param array    $scale_data array containing data related to scaling
+     * @param resource $image      image object
      *
      * @return resource the modified image object
      * @access public

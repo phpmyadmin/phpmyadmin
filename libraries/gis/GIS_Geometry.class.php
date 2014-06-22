@@ -189,9 +189,9 @@ abstract class PMA_GIS_Geometry
     /**
      * Extracts points, scales and returns them as an array.
      *
-     * @param string  $point_set  string of comma sperated points
-     * @param array   $scale_data data related to scaling
-     * @param boolean $linear     if true, as a 1D array, else as a 2D array
+     * @param string     $point_set  string of comma sperated points
+     * @param null|array $scale_data data related to scaling
+     * @param boolean    $linear     if true, as a 1D array, else as a 2D array
      *
      * @return array scaled points
      * @access protected
@@ -210,7 +210,7 @@ abstract class PMA_GIS_Geometry
             if (isset($cordinates[0]) && trim($cordinates[0]) != ''
                 && isset($cordinates[1]) && trim($cordinates[1]) != ''
             ) {
-                if ($scale_data != null) {
+                if ($scale_data !== null) {
                     $x = ($cordinates[0] - $scale_data['x']) * $scale_data['scale'];
                     $y = $scale_data['height']
                         - ($cordinates[1] - $scale_data['y']) * $scale_data['scale'];

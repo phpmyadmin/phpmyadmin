@@ -173,7 +173,7 @@ class PMA_GIS_Visualization
         $output .= '<g id="groupPanel">';
 
         $scale_data = $this->_scaleDataSet($this->_data);
-        $output .= $this->_prepareDataSet($this->_data, $scale_data, 'svg', '');
+        $output .= $this->_prepareDataSet($this->_data, $scale_data, 'svg');
 
         $output .= '</g>';
         $output .= '</svg>';
@@ -305,7 +305,7 @@ class PMA_GIS_Visualization
             . 'map.addLayers([layerMapnik,layerCycleMap,layerNone]);'
             . 'var vectorLayer = new OpenLayers.Layer.Vector("Data");'
             . 'var bound;';
-        $output .= $this->_prepareDataSet($this->_data, $scale_data, 'ol', '');
+        $output .= $this->_prepareDataSet($this->_data, $scale_data, 'ol');
         $output .=
               'map.addLayer(vectorLayer);'
             . 'map.zoomToExtent(bound);'
@@ -441,16 +441,16 @@ class PMA_GIS_Visualization
     /**
      * Prepares and return the dataset as needed by the visualization.
      *
-     * @param array  $data       Raw data
-     * @param array  $scale_data Data related to scaling
-     * @param string $format     Format of the visulaization
-     * @param object $results    Image object in the case of png
-     *                           TCPDF object in the case of pdf
+     * @param array       $data       Raw data
+     * @param array       $scale_data Data related to scaling
+     * @param string      $format     Format of the visulaization
+     * @param null|object $results    Image object in the case of png
+     *                                TCPDF object in the case of pdf
      *
      * @return mixed the formatted array of data
      * @access private
      */
-    private function _prepareDataSet($data, $scale_data, $format, $results)
+    private function _prepareDataSet($data, $scale_data, $format, $results = null)
     {
         $color_number = 0;
 

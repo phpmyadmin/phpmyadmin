@@ -1307,7 +1307,7 @@ class PMA_Util
      */
     public static function profilingSupported()
     {
-        if (!self::cacheExists('profiling_supported', true)) {
+        if (!self::cacheExists('profiling_supported', null)) {
             // 5.0.37 has profiling but for example, 5.1.20 does not
             // (avoid a trip to the server for MySQL before 5.0.37)
             // and do not set a constant as we might be switching servers
@@ -1315,13 +1315,13 @@ class PMA_Util
                 && (PMA_MYSQL_INT_VERSION >= 50037)
                 && $GLOBALS['dbi']->fetchValue("SHOW VARIABLES LIKE 'profiling'")
             ) {
-                self::cacheSet('profiling_supported', true, true);
+                self::cacheSet('profiling_supported', true, null);
             } else {
-                self::cacheSet('profiling_supported', false, true);
+                self::cacheSet('profiling_supported', false, null);
             }
         }
 
-        return self::cacheGet('profiling_supported', true);
+        return self::cacheGet('profiling_supported', null);
     }
 
     /**
@@ -2801,20 +2801,20 @@ class PMA_Util
      */
     public static function clearUserCache()
     {
-        self::cacheUnset('is_superuser', true);
+        self::cacheUnset('is_superuser', null);
     }
 
     /**
      * Verifies if something is cached in the session
      *
      * @param string   $var    variable name
-     * @param int|true $server server
+     * @param null|int $server server
      *
      * @return boolean
      */
     public static function cacheExists($var, $server = 0)
     {
-        if ($server === true) {
+        if ($server === null) {
             $server = $GLOBALS['server'];
         }
         return isset($_SESSION['cache']['server_' . $server][$var]);
@@ -2824,13 +2824,13 @@ class PMA_Util
      * Gets cached information from the session
      *
      * @param string   $var    varibale name
-     * @param int|true $server server
+     * @param null|int $server server
      *
      * @return mixed
      */
     public static function cacheGet($var, $server = 0)
     {
-        if ($server === true) {
+        if ($server === null) {
             $server = $GLOBALS['server'];
         }
         if (isset($_SESSION['cache']['server_' . $server][$var])) {
@@ -2845,13 +2845,13 @@ class PMA_Util
      *
      * @param string   $var    variable name
      * @param mixed    $val    value
-     * @param int|true $server server
+     * @param null|int $server server
      *
      * @return mixed
      */
     public static function cacheSet($var, $val = null, $server = 0)
     {
-        if ($server === true) {
+        if ($server === null) {
             $server = $GLOBALS['server'];
         }
         $_SESSION['cache']['server_' . $server][$var] = $val;
@@ -2861,13 +2861,13 @@ class PMA_Util
      * Removes cached information from the session
      *
      * @param string   $var    variable name
-     * @param int|true $server server
+     * @param null|int $server server
      *
      * @return void
      */
     public static function cacheUnset($var, $server = 0)
     {
-        if ($server === true) {
+        if ($server === null) {
             $server = $GLOBALS['server'];
         }
         unset($_SESSION['cache']['server_' . $server][$var]);
@@ -4264,10 +4264,10 @@ class PMA_Util
             && $save
         ) {
             if (! isset($_SESSION) && ! defined('TESTSUITE')) {
-                ini_set('session.use_only_cookies', false);
-                ini_set('session.use_cookies', false);
-                ini_set('session.use_trans_sid', false);
-                ini_set('session.cache_limiter', null);
+                ini_set('session.use_only_cookies', '0');
+                ini_set('session.use_cookies', '0');
+                ini_set('session.use_trans_sid', '0');
+                ini_set('session.cache_limiter', 'null');
                 session_start();
             }
             $_SESSION['cache']['version_check'] = array(

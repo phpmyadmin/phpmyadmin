@@ -13,8 +13,8 @@ if (! defined('PHPMYADMIN')) {
  * Generate charset dropdown box
  *
  * @param int         $type               Type
- * @param null        $name               Element name
- * @param null        $id                 Element id
+ * @param null|string $name               Element name
+ * @param null|string $id                 Element id
  * @param null|string $default            Default value
  * @param bool        $label              Label
  * @param int         $indent             Indent

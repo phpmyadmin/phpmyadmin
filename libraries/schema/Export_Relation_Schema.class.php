@@ -29,6 +29,7 @@ class PMA_Export_Relation_Schema
     public $orientation;
     public $paper;
     public $pageNumber;
+    public $exportType;
 
     /**
      * Set Page Number
