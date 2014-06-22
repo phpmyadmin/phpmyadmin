@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-16 11:15+0200\n"
-"PO-Revision-Date: 2014-06-22 04:36+0200\n"
+"PO-Revision-Date: 2014-06-22 20:10+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
@@ -2299,7 +2299,6 @@ msgstr ""
 
 #. l10n: Short week day name
 #: js/messages.php:551
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
@@ -2337,10 +2336,9 @@ msgstr "Şen"
 
 #. l10n: Minimal week day name
 #: js/messages.php:570
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
-msgstr "Baz"
+msgstr "B"
 
 #. l10n: Minimal week day name
 #: js/messages.php:572
@@ -2362,7 +2360,6 @@ msgstr "Ç"
 
 #. l10n: Minimal week day name
 #: js/messages.php:578
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "CA"
@@ -2375,7 +2372,6 @@ msgstr "C"
 
 #. l10n: Minimal week day name
 #: js/messages.php:582
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Ş"
@@ -4079,11 +4075,10 @@ msgid "Profiling"
 msgstr ""
 
 #: libraries/Util.class.php:1275
-#, fuzzy
 #| msgid "Engines"
 msgctxt "Inline edit query"
 msgid "Inline"
-msgstr "Motorlar"
+msgstr "Sıralı"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1578
@@ -5173,10 +5168,9 @@ msgid "Use hexadecimal for BINARY & BLOB"
 msgstr ""
 
 #: libraries/config/messages.inc.php:178
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "Use ignore inserts"
-msgstr "Genişletilmiş girişli"
+msgstr "Göz ardı edilmiş əlavəetmələri istifadə et"
 
 #: libraries/config/messages.inc.php:180
 msgid "Syntax to use when inserting data"
@@ -5499,10 +5493,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:302
 #: libraries/schema/User_Schema.class.php:422
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Relational schema"
+msgstr "Əlaqəli sxemi göstər"
 
 #: libraries/config/messages.inc.php:304
 #: libraries/schema/User_Schema.class.php:495
@@ -5912,10 +5905,9 @@ msgid "Use only icons, only text or both."
 msgstr ""
 
 #: libraries/config/messages.inc.php:479
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table navigation bar"
-msgstr "Cedvel başlığı"
+msgstr "Cədvəl naviqasiya çubuğu"
 
 #: libraries/config/messages.inc.php:481
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
@@ -6018,28 +6010,24 @@ msgid "Default query window tab"
 msgstr ""
 
 #: libraries/config/messages.inc.php:527
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height (in pixels)."
-msgstr "Sorğu penceresi"
+msgstr "Sorğu pəncərəsinin yüksəkliyi(piksellərlə)."
 
 #: libraries/config/messages.inc.php:528
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
-msgstr "Sorğu penceresi"
+msgstr "Sorğu pəncərəsinin yüksəkliyi"
 
 #: libraries/config/messages.inc.php:529
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)."
-msgstr "Sorğu penceresi"
+msgstr "Sorğu pəncərəsinin eni(piksellərlə)."
 
 #: libraries/config/messages.inc.php:530
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "Sorğu penceresi"
+msgstr "Sorğu pəncərəsinin eni"
 
 #: libraries/config/messages.inc.php:532
 msgid "Select which functions will be used for character set conversion."
@@ -6054,10 +6042,9 @@ msgid "When browsing tables, the sorting of each table is remembered."
 msgstr ""
 
 #: libraries/config/messages.inc.php:536
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "Cedveli yeniden adlandır"
+msgstr "Cədvəlin sıralamasını xatırla"
 
 #: libraries/config/messages.inc.php:538
 msgid ""
@@ -6128,10 +6115,9 @@ msgid "SweKey config file"
 msgstr ""
 
 #: libraries/config/messages.inc.php:560
-#, fuzzy
 #| msgid "Documentation"
 msgid "Authentication method to use."
-msgstr "Dokumentasiya"
+msgstr "İstifadə üçün identifikasiya metodu."
 
 #: libraries/config/messages.inc.php:561 setup/frames/index.inc.php:162
 msgid "Authentication type"
@@ -6158,10 +6144,9 @@ msgid "Column information table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:572
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Compress connection to MySQL server."
-msgstr "MySQL server-e gire bilmirem"
+msgstr "MySQL server bağlantısını sıxışdır(kompress)."
 
 #: libraries/config/messages.inc.php:573
 msgid "Compress connection"
@@ -6172,9 +6157,8 @@ msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
 msgstr ""
 
 #: libraries/config/messages.inc.php:576
-#, fuzzy
 msgid "Connection type"
-msgstr "Elaqeler"
+msgstr "Əlaqə tipi"
 
 #: libraries/config/messages.inc.php:577
 msgid "Control user password"
@@ -6197,10 +6181,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:587
-#, fuzzy
 #| msgid "Any host"
 msgid "Control host"
-msgstr "Her hansı host"
+msgstr "Nəzarət serveri"
 
 #: libraries/config/messages.inc.php:589
 msgid ""
@@ -6210,10 +6193,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:593
-#, fuzzy
 #| msgid "Any host"
 msgid "Control port"
-msgstr "Her hansı host"
+msgstr "Nəzarət portu"
 
 #: libraries/config/messages.inc.php:595
 msgid ""
@@ -6230,9 +6212,8 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr ""
 
 #: libraries/config/messages.inc.php:601
-#, fuzzy
 msgid "Hide databases"
-msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
+msgstr "Verilənlər Bazalarını gizlət"
 
 #: libraries/config/messages.inc.php:603
 msgid ""
@@ -6249,9 +6230,8 @@ msgid "Hostname where MySQL server is running."
 msgstr ""
 
 #: libraries/config/messages.inc.php:608
-#, fuzzy
 msgid "Server hostname"
-msgstr "Quraşdırılmış Serverler"
+msgstr "Server host adı"
 
 #: libraries/config/messages.inc.php:609
 msgid "Logout URL"
@@ -6278,10 +6258,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:622
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Try to connect without password."
-msgstr "Parolu deyişdirme"
+msgstr "Parolsuz qoşulmağı sınayın."
 
 #: libraries/config/messages.inc.php:623
 msgid "Connect without password"
@@ -6324,19 +6303,17 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:641
 #: libraries/display_create_database.lib.php:31
-#, fuzzy
 #| msgid "Database"
 msgid "Database name"
-msgstr "Me'lumat Bazası"
+msgstr "Verilənlər Bazasının adı"
 
 #: libraries/config/messages.inc.php:643
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
 msgid "Server port"
-msgstr "Quraşdırılmış Serverler"
+msgstr "Server portu"
 
 #: libraries/config/messages.inc.php:646
 msgid ""
@@ -6345,10 +6322,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:649
-#, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used table"
-msgstr "Cedveli analiz et"
+msgstr "Son istifadə edilən Cədvəl"
 
 #: libraries/config/messages.inc.php:651
 msgid ""
@@ -6357,9 +6333,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:655
-#, fuzzy
 msgid "Relation table"
-msgstr "Cedveli te'mir et"
+msgstr "Əlaqə cədvəli"
 
 #: libraries/config/messages.inc.php:657
 msgid ""
@@ -6380,14 +6355,12 @@ msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 
 #: libraries/config/messages.inc.php:664
-#, fuzzy
 msgid "Server socket"
-msgstr "Quraşdırılmış Serverler"
+msgstr "Server yuvası(socket)"
 
 #: libraries/config/messages.inc.php:665
-#, fuzzy
 msgid "Enable SSL for connection to MySQL server."
-msgstr "Limits the number of new connections the user may open per hour."
+msgstr "MySQL server əlaqəsi üçün SSL aktivləşdirir."
 
 #: libraries/config/messages.inc.php:666
 msgid "Use SSL"
@@ -6410,10 +6383,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:675
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display columns table"
-msgstr "Sütun Qısa İzahatını Deyişdir"
+msgstr "Görünüş sütunları cədvəli"
 
 #: libraries/config/messages.inc.php:677
 msgid ""
@@ -6460,10 +6432,9 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/config/messages.inc.php:698
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "Variantlar"
+msgstr "İfadələrdən izlərə"
 
 #: libraries/config/messages.inc.php:700
 msgid ""
@@ -6482,10 +6453,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:709
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "Avtomatik qurtarma rejimi"
+msgstr "Avtomatik olaraq verisyaları yarat"
 
 #: libraries/config/messages.inc.php:710
 msgid ""
@@ -6505,10 +6475,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:713
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Use Tables"
+msgstr "İstifadəçi cədvəlləri"
 
 #: libraries/config/messages.inc.php:714
 msgid ""
@@ -6573,10 +6542,9 @@ msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 
 #: libraries/config/messages.inc.php:728
-#, fuzzy
 #| msgid "Show PHP information"
 msgid "Show Creation timestamp"
-msgstr "PHPInfo() me'lumatını göster"
+msgstr "Yaradılma zaman nişanını göstər"
 
 #: libraries/config/messages.inc.php:729
 msgid ""
@@ -6603,9 +6571,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:734
-#, fuzzy
 msgid "Show display direction"
-msgstr "Me'lumat bazası eksport variantları"
+msgstr "Görünüş təlimatlarını göstər"
 
 #: libraries/config/messages.inc.php:735
 msgid ""
@@ -6614,9 +6581,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:736
-#, fuzzy
 msgid "Show field types"
-msgstr "Cedvelleri göster"
+msgstr "Sahə tiplərini göstər"
 
 #: libraries/config/messages.inc.php:737
 msgid "Display the function fields in edit/insert mode."
@@ -6631,10 +6597,9 @@ msgid "Whether to show hint or not."
 msgstr ""
 
 #: libraries/config/messages.inc.php:740
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
-msgstr "Show grid"
+msgstr "İpucu göstər"
 
 #: libraries/config/messages.inc.php:741
 msgid ""
@@ -6656,9 +6621,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:745
-#, fuzzy
 msgid "Show SQL queries"
-msgstr "Emrleri Tam Olaraq Göster"
+msgstr "SQL sorğularını göstər"
 
 #: libraries/config/messages.inc.php:746
 msgid ""
@@ -6675,9 +6639,8 @@ msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr ""
 
 #: libraries/config/messages.inc.php:749
-#, fuzzy
 msgid "Show statistics"
-msgstr "Sıra Statistikası"
+msgstr "Statistikaları göstər"
 
 #: libraries/config/messages.inc.php:750
 msgid ""
@@ -6703,10 +6666,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:759
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
-msgstr "Sahe Sütunlarını Elave Et/Sil"
+msgstr "Mətn sahəsi sütunları"
 
 #: libraries/config/messages.inc.php:760
 msgid ""
@@ -6727,10 +6689,9 @@ msgid "Title of browser window when nothing is selected."
 msgstr ""
 
 #: libraries/config/messages.inc.php:765
-#, fuzzy
 #| msgid "Default"
 msgid "Default title"
-msgstr "Başlanğıc deyeri"
+msgstr "Susmaya görə başlıq"
 
 #: libraries/config/messages.inc.php:766
 msgid "Title of browser window when a server is selected."
@@ -6813,19 +6774,17 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:784
-#, fuzzy
 msgid "Proxy username"
-msgstr "İstifadeçi Adı:"
+msgstr "Proksi istifadəçi adı"
 
 #: libraries/config/messages.inc.php:785
 msgid "The password for authenticating with the proxy."
 msgstr ""
 
 #: libraries/config/messages.inc.php:786
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
-msgstr "Parol"
+msgstr "Proksi parolu"
 
 #: libraries/config/messages.inc.php:788
 msgid ""
@@ -6858,9 +6817,8 @@ msgid "Choose the default action when sending error reports."
 msgstr ""
 
 #: libraries/config/messages.inc.php:796
-#, fuzzy
 msgid "Send error reports"
-msgstr "Quraşdırılmış Serverler"
+msgstr "Xəta hesabatları göndər"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -6918,10 +6876,9 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:365
 #: libraries/config/user_preferences.forms.php:265
-#, fuzzy
 #| msgid "Documentation"
 msgid "OpenDocument Text"
-msgstr "Dokumentasiya"
+msgstr "OpenDocument Mətni"
 
 #: libraries/core.lib.php:287
 #, php-format
@@ -6972,10 +6929,9 @@ msgstr "Parol:"
 #: libraries/display_change_password.lib.php:73
 #: libraries/replication_gui.lib.php:855
 #: libraries/server_privileges.lib.php:1498
-#, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
-msgstr "Re-type"
+msgstr "Parolun Təkrarı:"
 
 #: libraries/display_change_password.lib.php:80
 #, fuzzy
@@ -6988,20 +6944,18 @@ msgid "MySQL 4.0 compatible"
 msgstr ""
 
 #: libraries/display_create_database.lib.php:23
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
-msgstr "Yeni me'lumat bazası qur"
+msgstr "Verilənlər Bazası yarat"
 
 #: libraries/display_create_database.lib.php:47
 msgid "Create"
 msgstr "Qur"
 
 #: libraries/display_create_database.lib.php:51
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database:"
-msgstr "Yeni me'lumat bazası qur"
+msgstr "Verilənlər Bazası yarat:"
 
 #: libraries/display_create_database.lib.php:61
 #: libraries/server_privileges.lib.php:3906 server_privileges.php:130
@@ -7010,43 +6964,39 @@ msgid "No Privileges"
 msgstr "Selahiyyet çatışmazlığı"
 
 #: libraries/display_create_table.lib.php:55 pmd_general.php:91
-#, fuzzy
 msgid "Create table"
-msgstr "Yeni Sehife qur"
+msgstr "Cədvəl yarat"
 
 #: libraries/display_create_table.lib.php:65
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of columns"
-msgstr "Sehife başına düşen setir sayı"
+msgstr "Sütun sayı"
 
 #: libraries/display_export.inc.php:36
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
 #: libraries/display_export.lib.php:166
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "Allows locking tables for the current thread."
+msgstr "Cari serverdən Verilənlər Bazaları eksport edilir"
 
 #: libraries/display_export.lib.php:169
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
-msgstr "%s bazasında yeni cedvel qur"
+msgstr "\"%s\" Verilənlər Bazasından cədvəllər eksport edilir"
 
 #: libraries/display_export.lib.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "%s bazasında yeni cedvel qur"
+msgstr "%s cədvəlindən sətirlər eksport edilir"
 
 #: libraries/display_export.lib.php:199
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Eksport şekli"
+msgstr "Eksport metodu:"
 
 #: libraries/display_export.lib.php:209
 msgid "Quick - display only the minimal options"
@@ -7057,23 +7007,20 @@ msgid "Custom - display all possible options"
 msgstr ""
 
 #: libraries/display_export.lib.php:243
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Me'lumat Bazaları"
+msgstr "Verilənlər Bazası(ları):"
 
 #: libraries/display_export.lib.php:245
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "Cedveller"
+msgstr "Cədvəl(lər):"
 
 #: libraries/display_export.lib.php:265 libraries/display_import.lib.php:332
 #: libraries/plugins/export/ExportCodegen.class.php:107
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "Format"
+msgstr "Format:"
 
 #: libraries/display_export.lib.php:270
 #, fuzzy
@@ -7092,10 +7039,9 @@ msgid "Encoding Conversion:"
 msgstr ""
 
 #: libraries/display_export.lib.php:320 libraries/sql.lib.php:456
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Sıra sayı"
+msgstr "Sətirlər:"
 
 #: libraries/display_export.lib.php:328
 msgid "Dump some row(s)"
@@ -7114,16 +7060,15 @@ msgid "Output:"
 msgstr ""
 
 #: libraries/display_export.lib.php:385 libraries/display_export.lib.php:420
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Serverdeki %s direktoriyasına qeyd et"
+msgstr "Serverdə <b>%s</b> direktoriyasında yaddaşa ver"
 
 #: libraries/display_export.lib.php:450
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Fayl adı nomenklaturası"
+msgstr "Fayl adı şablonu:"
 
 #: libraries/display_export.lib.php:452
 msgid "@SERVER@ will become the server name"
@@ -7155,34 +7100,30 @@ msgid "Character set of the file:"
 msgstr "Faylın Charset-i:"
 
 #: libraries/display_export.lib.php:578
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Sıxışdırma"
+msgstr "Sıxışdırma:"
 
 #: libraries/display_export.lib.php:586
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
-msgstr "\"zip\"lenmiş"
+msgstr "zip olaraq"
 
 #: libraries/display_export.lib.php:593
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"gzip\"lenmiş"
+msgstr "gzip olaraq"
 
 #: libraries/display_export.lib.php:620
 #, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
-msgstr "Fayl olaraq qeyd et"
+msgstr "Çıxış verilənlərini mətn olaraq göstər"
 
 #: libraries/display_export.lib.php:645
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Fayl olaraq qeyd et"
+msgstr "Çıxış verilənlərini fayla yaddaşa ver"
 
 #: libraries/display_export.lib.php:672
 msgid "Skip tables larger than"
@@ -7202,14 +7143,14 @@ msgid "Git revision:"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:67
-#, fuzzy, php-format
+#, php-format
 msgid "committed on %1$s by %2$s"
-msgstr "Server versiyası"
+msgstr "%1$s tarixində %2$s tərəfindən işləndi"
 
 #: libraries/display_git_revision.lib.php:75
-#, fuzzy, php-format
+#, php-format
 msgid "authored on %1$s by %2$s"
-msgstr "Server versiyası"
+msgstr "%1$s tarixində %2$s tərəfindən hazırlandı"
 
 #: libraries/display_import.lib.php:71
 msgid ""
@@ -7218,20 +7159,19 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:108
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "MySQL server-e gire bilmirem"
+msgstr "Cari serverə import edilir"
 
 #: libraries/display_import.lib.php:111
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the database \"%s\""
-msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
+msgstr "\"%s\" Verilənlər Bazasına import edilir"
 
 #: libraries/display_import.lib.php:117
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the table \"%s\""
-msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
+msgstr "\"%s\" cədvəlinə import edilir"
 
 #: libraries/display_import.lib.php:153
 #, php-format
@@ -7253,10 +7193,9 @@ msgid "File uploads are not allowed on this server."
 msgstr ""
 
 #: libraries/display_import.lib.php:268
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial Import:"
-msgstr "Qismi Metnler"
+msgstr "Qismən import:"
 
 #: libraries/display_import.lib.php:275
 #, php-format
@@ -7320,9 +7259,8 @@ msgid "Language"
 msgstr ""
 
 #: libraries/engines/bdb.lib.php:28
-#, fuzzy
 msgid "Version information"
-msgstr "Sisteme Giriş Me'lumatı"
+msgstr "Versiya informasiyası"
 
 #: libraries/engines/innodb.lib.php:28
 msgid "Data home directory"
@@ -7333,9 +7271,8 @@ msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
 
 #: libraries/engines/innodb.lib.php:32
-#, fuzzy
 msgid "Data files"
-msgstr "Sadece me'lumat"
+msgstr "Məlumat(Data) faylları"
 
 #: libraries/engines/innodb.lib.php:35
 msgid "Autoextend increment"
@@ -7382,9 +7319,8 @@ msgid "Pages containing data"
 msgstr ""
 
 #: libraries/engines/innodb.lib.php:214
-#, fuzzy
 msgid "Pages to be flushed"
-msgstr "%s cedveli flush-landı"
+msgstr "Təmizlənən Səhifələr"
 
 #: libraries/engines/innodb.lib.php:222
 msgid "Busy pages"
@@ -7568,9 +7504,8 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:68
-#, fuzzy
 msgid "Log buffer size"
-msgstr "Sıralama buferinin (keçici yaddaşının) boyu"
+msgstr "Log bufer ölçüsü"
 
 #: libraries/engines/pbxt.lib.php:69
 msgid ""
@@ -7615,10 +7550,9 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
-#, fuzzy
 #| msgid "Relations"
 msgid "Related Links"
-msgstr "Relations"
+msgstr "Əlaqəli linklər"
 
 #: libraries/engines/pbxt.lib.php:141
 msgid "The PrimeBase XT Blog by Paul McCullagh"
@@ -7688,9 +7622,9 @@ msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
 #: libraries/import.lib.php:1236
-#, fuzzy, php-format
+#, php-format
 msgid "Go to database: %s"
-msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
+msgstr "%s Verilənlər Bazasına get"
 
 #: libraries/import.lib.php:1242 libraries/import.lib.php:1283
 #, php-format
@@ -7698,15 +7632,15 @@ msgid "Edit settings for %s"
 msgstr ""
 
 #: libraries/import.lib.php:1268
-#, fuzzy, php-format
+#, php-format
 msgid "Go to table: %s"
-msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
+msgstr "%s Cədvəlinə get"
 
 #: libraries/import.lib.php:1276
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Sadece quruluş"
+msgstr "%s Strukturu"
 
 #: libraries/import.lib.php:1294
 #, php-format
@@ -7714,7 +7648,7 @@ msgid "Go to view: %s"
 msgstr ""
 
 #: libraries/index.lib.php:34
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "&nbsp;%s&nbsp;sütunda indeks yarat"
@@ -7734,18 +7668,16 @@ msgstr ""
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable."
-msgstr ""
-" Uzun olduğuna göre,<br /> bu sahedeki me'lumatlar deyişdirilmeye biler "
+msgstr "Uzun olduğuna görə,<br /> bu sütun redaktə edilməyə bilər."
 
 #: libraries/insert_edit.lib.php:1110
 msgid "Binary - do not edit"
 msgstr "Binary - deyişiklik etme"
 
 #: libraries/insert_edit.lib.php:1238 libraries/sql_query_form.lib.php:493
-#, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "web-server upload direktoriyası"
+msgstr "web-server upload direktoriyası:"
 
 #: libraries/insert_edit.lib.php:1457
 #, php-format
@@ -7800,7 +7732,6 @@ msgstr ""
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:147
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
@@ -7816,22 +7747,19 @@ msgid "Success!"
 msgstr ""
 
 #: libraries/mult_submits.lib.php:331
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix:"
-msgstr "Replace table data with file"
+msgstr "Cədvəl prefiksini dəyiş:"
 
 #: libraries/mult_submits.lib.php:333
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix:"
-msgstr "Replace table data with file"
+msgstr "Cədvəli prefiks ilə birlikdə kopyala:"
 
 #: libraries/mult_submits.lib.php:338
-#, fuzzy
 #| msgid "Fri"
 msgid "From"
-msgstr "Cüme"
+msgstr "Burdan"
 
 #: libraries/mult_submits.lib.php:344
 msgid "To"
@@ -7843,22 +7771,19 @@ msgid "Submit"
 msgstr "Submit"
 
 #: libraries/mult_submits.lib.php:373
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add table prefix:"
-msgstr "Yeni sahe elave et"
+msgstr "Cədvəl prefiksi əlavə et:"
 
 #: libraries/mult_submits.lib.php:376
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add prefix"
-msgstr "Yeni sahe elave et"
+msgstr "Prefiks əlavə et"
 
 #: libraries/mult_submits.lib.php:410
-#, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "Aşağıdakı sorğunu icra etdirmekten eminsiniz "
+msgstr "Aşağıdakı sorğunu icra etmək istədiyinizə əminsinizmi?"
 
 #: libraries/mysql_charsets.lib.php:47
 msgid "Charset"
@@ -7909,14 +7834,12 @@ msgid "Estonian"
 msgstr "Eston Dili"
 
 #: libraries/mysql_charsets.lib.php:197 libraries/mysql_charsets.lib.php:200
-#, fuzzy
 msgid "German"
-msgstr "Gürcü"
+msgstr "Almanca"
 
 #: libraries/mysql_charsets.lib.php:197
-#, fuzzy
 msgid "dictionary"
-msgstr "Me'lumat lüğeti"
+msgstr "lüğət"
 
 #: libraries/mysql_charsets.lib.php:200
 msgid "phone book"
@@ -7947,51 +7870,48 @@ msgid "Korean"
 msgstr ""
 
 #: libraries/mysql_charsets.lib.php:221
-#, fuzzy
 msgid "Persian"
-msgstr "Gürcü"
+msgstr "Farsca"
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Polish"
-msgstr ""
+msgstr "Polyak dili"
 
 #: libraries/mysql_charsets.lib.php:227 libraries/mysql_charsets.lib.php:277
 msgid "West European"
-msgstr "Qerbi Avropa"
+msgstr "Qərbi Avropa"
 
 #: libraries/mysql_charsets.lib.php:230
-#, fuzzy
 msgid "Romanian"
-msgstr "Ermeni"
+msgstr "Rumin"
 
 #: libraries/mysql_charsets.lib.php:233
 msgid "Slovak"
-msgstr ""
+msgstr "Slovak"
 
 #: libraries/mysql_charsets.lib.php:236
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovencə"
 
 #: libraries/mysql_charsets.lib.php:239
 msgid "Spanish"
-msgstr ""
+msgstr "İspanca"
 
 #: libraries/mysql_charsets.lib.php:242
-#, fuzzy
 msgid "Traditional Spanish"
-msgstr "Enenevi Çin Dili"
+msgstr "Ənənəvi İspanca"
 
 #: libraries/mysql_charsets.lib.php:245 libraries/mysql_charsets.lib.php:344
 msgid "Swedish"
-msgstr ""
+msgstr "İsveçcə"
 
 #: libraries/mysql_charsets.lib.php:248 libraries/mysql_charsets.lib.php:347
 msgid "Thai"
-msgstr ""
+msgstr "Tayca"
 
 #: libraries/mysql_charsets.lib.php:251 libraries/mysql_charsets.lib.php:341
 msgid "Turkish"
-msgstr "Türk Dili"
+msgstr "Türkçə"
 
 #: libraries/mysql_charsets.lib.php:254 libraries/mysql_charsets.lib.php:338
 msgid "Ukrainian"
@@ -7999,29 +7919,29 @@ msgstr "Ukrayna Dili"
 
 #: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:268
 msgid "Unicode"
-msgstr ""
+msgstr "Unicode"
 
 #: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:268
 #: libraries/mysql_charsets.lib.php:277 libraries/mysql_charsets.lib.php:284
 #: libraries/mysql_charsets.lib.php:306 libraries/mysql_charsets.lib.php:317
 msgid "multilingual"
-msgstr ""
+msgstr "çoxdilli"
 
 #: libraries/mysql_charsets.lib.php:284
 msgid "Central European"
-msgstr "Merkezi Avropa"
+msgstr "Mərkəzi Avropa"
 
 #: libraries/mysql_charsets.lib.php:289
 msgid "Russian"
-msgstr ""
+msgstr "Rusca"
 
 #: libraries/mysql_charsets.lib.php:306
 msgid "Baltic"
-msgstr ""
+msgstr "Baltik"
 
 #: libraries/mysql_charsets.lib.php:311
 msgid "Armenian"
-msgstr "Ermeni"
+msgstr "Erməni"
 
 #: libraries/mysql_charsets.lib.php:317
 msgid "Cyrillic"
@@ -8029,7 +7949,7 @@ msgstr "Kiril"
 
 #: libraries/mysql_charsets.lib.php:320
 msgid "Arabic"
-msgstr "Ereb"
+msgstr "Ərəbcə"
 
 #: libraries/mysql_charsets.lib.php:326
 msgid "Hebrew"
@@ -8041,7 +7961,7 @@ msgstr "Gürcü"
 
 #: libraries/mysql_charsets.lib.php:332
 msgid "Greek"
-msgstr ""
+msgstr "Yunanca"
 
 #: libraries/mysql_charsets.lib.php:335
 msgid "Czech-Slovak"
@@ -8050,32 +7970,28 @@ msgstr "Çex-Slovak"
 #: libraries/mysql_charsets.lib.php:350 libraries/mysql_charsets.lib.php:357
 #: libraries/structure.lib.php:1133
 msgid "unknown"
-msgstr ""
+msgstr "bilinmir"
 
 #: libraries/navigation/Navigation.class.php:49
 msgid "An error has occurred while loading the navigation tree"
-msgstr ""
+msgstr "Naviqasiya ağacı yüklənərkən xəta baş verdi"
 
 #: libraries/navigation/Navigation.class.php:160
-#, fuzzy
 msgid "Events:"
-msgstr "Gönderildi"
+msgstr "Hadisələr:"
 
 #: libraries/navigation/Navigation.class.php:161
-#, fuzzy
 msgid "Functions:"
-msgstr "Funksiya"
+msgstr "Funksiyalar:"
 
 #: libraries/navigation/Navigation.class.php:162
-#, fuzzy
 msgid "Procedures:"
-msgstr "Prosesler"
+msgstr "Proseduralar:"
 
 #: libraries/navigation/Navigation.class.php:163
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "Cedveller"
+msgstr "Cədvəllər:"
 
 #: libraries/navigation/Navigation.class.php:164
 msgid "Views:"
@@ -8091,12 +8007,11 @@ msgstr "Sistemden Çıxış"
 
 #: libraries/navigation/NavigationHeader.class.php:228
 msgid "phpMyAdmin documentation"
-msgstr "phpMyAdmin dokumentasiyası (etraflı me'lumat üçün)"
+msgstr "phpMyAdmin dokumentasiyası"
 
 #: libraries/navigation/NavigationHeader.class.php:252
-#, fuzzy
 msgid "Reload navigation panel"
-msgstr "Me'lumat bazası eksport variantları"
+msgstr "Naviqasiya panelini yenidən yüklə"
 
 #: libraries/navigation/NavigationTree.class.php:755
 #, php-format
@@ -8106,23 +8021,20 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/navigation/NavigationTree.class.php:1065
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Filter databases by name or regex"
-msgstr "Cedvel sırasına buna göre yeniden qur"
+msgstr "Verilənlər Bazasını adına ya da düzgün ifadəsinə görə filtrlə"
 
 #: libraries/navigation/NavigationTree.class.php:1067
 #: libraries/navigation/NavigationTree.class.php:1102
-#, fuzzy
 #| msgid "Save as file"
 msgid "Clear fast filter"
-msgstr "Fayl olaraq qeyd et"
+msgstr "Sürətli filtri təmizlə"
 
 #: libraries/navigation/NavigationTree.class.php:1101
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Filter by name or regex"
-msgstr "Cedvel sırasına buna göre yeniden qur"
+msgstr "Adına ya da düzgün ifadəsinə görə filtrlə"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -8142,10 +8054,9 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:27
 #: libraries/sql_query_form.lib.php:282
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Sütun adları"
+msgstr "Sütunlar"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
 msgctxt "Create new column"
@@ -8153,16 +8064,14 @@ msgid "New"
 msgstr ""
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "Me'lumat bazası eksport variantları"
+msgstr "Verilənlər Bazası əməliyyatları"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:318
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show hidden items"
-msgstr "Show grid"
+msgstr "Gizli maddələri göstər"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:36
 msgctxt "Create new database"
@@ -8178,9 +8087,8 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:25
 #: libraries/plugins/export/ExportSql.class.php:519
 #: libraries/plugins/export/ExportXml.class.php:107
-#, fuzzy
 msgid "Functions"
-msgstr "Funksiya"
+msgstr "Funksiyalar"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
 msgctxt "Create new function"
@@ -8201,17 +8109,15 @@ msgid "New"
 msgstr ""
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
-#, fuzzy
 msgid "Procedure"
-msgstr "Prosesler"
+msgstr "Prosedura"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
 #: libraries/plugins/export/ExportSql.class.php:501
 #: libraries/plugins/export/ExportXml.class.php:111
-#, fuzzy
 msgid "Procedures"
-msgstr "Prosesler"
+msgstr "Proseduralar"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:38
 #: libraries/rte/rte_footer.lib.php:29
@@ -8242,9 +8148,8 @@ msgid "New"
 msgstr ""
 
 #: libraries/operations.lib.php:75
-#, fuzzy
 msgid "Rename database to:"
-msgstr "Cedveli yeniden adlandır"
+msgstr "Verilənlər Bazasını adlandır:"
 
 #: libraries/operations.lib.php:107
 #, php-format
@@ -8252,14 +8157,12 @@ msgid "Database %s has been dropped."
 msgstr "%s bazası leğv edildi."
 
 #: libraries/operations.lib.php:119
-#, fuzzy
 msgid "Remove database"
-msgstr "Cedveli yeniden adlandır"
+msgstr "Verilənlər Bazasını sil"
 
 #: libraries/operations.lib.php:125
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
+msgstr "Verilənlər Bazasını sil(DROP)"
 
 #: libraries/operations.lib.php:145 libraries/operations.lib.php:1025
 #: libraries/tbl_tracking.lib.php:414
@@ -8277,9 +8180,8 @@ msgid "Data only"
 msgstr "Sadece me'lumat"
 
 #: libraries/operations.lib.php:175
-#, fuzzy
 msgid "Copy database to:"
-msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
+msgstr "Verilənlər Bazasını buraya kopyala:"
 
 #: libraries/operations.lib.php:186
 msgid "CREATE DATABASE before copying"
@@ -8290,15 +8192,13 @@ msgid "Add constraints"
 msgstr ""
 
 #: libraries/operations.lib.php:207
-#, fuzzy
 msgid "Switch to copied database"
-msgstr "Kopyalanmış cedvele keç"
+msgstr "Kopyalanmış Verilənlər Bazasına keç"
 
 #: libraries/operations.lib.php:277
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Relational schema"
+msgstr "Əlaqəli sxemləri redaktə və ya eksport et"
 
 #: libraries/operations.lib.php:631
 msgid "Alter table order by"
@@ -8313,9 +8213,8 @@ msgid "Move table to (database<b>.</b>table):"
 msgstr "Cedveli daşı (me'lumat bazası<b>.</b>cedvel):"
 
 #: libraries/operations.lib.php:786
-#, fuzzy
 msgid "Table options"
-msgstr "Cedvel başlığı"
+msgstr "Cədvəl seçimləri"
 
 #: libraries/operations.lib.php:790
 msgid "Rename table to"
@@ -8368,25 +8267,22 @@ msgid "Table %s has been flushed."
 msgstr "%s cədvəli təmizləndi."
 
 #: libraries/operations.lib.php:1202
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "Cedveli flush-la (\"FLUSH\")"
+msgstr "Cədvəli təmizlə(FLUSH)"
 
 #: libraries/operations.lib.php:1247 view_operations.php:127
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "Sxemi çıxarılan cedvel"
+msgstr "Cədvəl və ya veriləni sil"
 
 #: libraries/operations.lib.php:1255
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
 #: libraries/operations.lib.php:1263
-#, fuzzy
 msgid "Delete the table (DROP)"
-msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
+msgstr "Cədvəli sil(DROP)"
 
 #: libraries/operations.lib.php:1303
 msgid "Analyze"
@@ -8405,14 +8301,12 @@ msgid "Rebuild"
 msgstr ""
 
 #: libraries/operations.lib.php:1307
-#, fuzzy
 msgid "Repair"
-msgstr "Cedveli te'mir et"
+msgstr "Təmir et"
 
 #: libraries/operations.lib.php:1314
-#, fuzzy
 msgid "Partition maintenance"
-msgstr "Cedvel temizliyi"
+msgstr "Bölüm sazlaması"
 
 #: libraries/operations.lib.php:1323
 #, php-format
@@ -8428,7 +8322,6 @@ msgid "Check referential integrity:"
 msgstr ""
 
 #: libraries/plugin_interface.lib.php:515
-#, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Bu formatın variantları yoxdur"
@@ -8496,10 +8389,9 @@ msgid "Username:"
 msgstr "İstifadeçi Adı:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:202
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "Quraşdırılmış Serverler"
+msgstr "Server seçimi:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:375
 msgid "Entered captcha is wrong, try again!"
@@ -8537,10 +8429,9 @@ msgstr ""
 
 #: libraries/plugins/export/ExportCsv.class.php:65
 #: libraries/plugins/import/AbstractImportCsv.class.php:59
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Setir leğvedicisi (Lines terminated by)"
+msgstr "Sütunlar bununla ayrılıb:"
 
 #: libraries/plugins/export/ExportCsv.class.php:69
 #: libraries/plugins/import/AbstractImportCsv.class.php:64
@@ -8558,10 +8449,9 @@ msgstr "Sahelerin escape edildiyi işare"
 
 #: libraries/plugins/export/ExportCsv.class.php:77
 #: libraries/plugins/import/AbstractImportCsv.class.php:76
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Setir leğvedicisi (Lines terminated by)"
+msgstr "Sətir ləğvedicisi (Lines terminated by):"
 
 #: libraries/plugins/export/ExportCsv.class.php:81
 #: libraries/plugins/export/ExportExcel.class.php:58
@@ -8570,10 +8460,9 @@ msgstr "Setir leğvedicisi (Lines terminated by)"
 #: libraries/plugins/export/ExportOds.class.php:71
 #: libraries/plugins/export/ExportOdt.class.php:131
 #: libraries/plugins/export/ExportTexytext.class.php:89
-#, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with:"
-msgstr "NULL-u bununla deyişdir"
+msgstr "NULL-u bununla dəyişdir:"
 
 #: libraries/plugins/export/ExportCsv.class.php:86
 #: libraries/plugins/export/ExportExcel.class.php:63
@@ -8581,19 +8470,17 @@ msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/plugins/export/ExportExcel.class.php:79
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Excel versiyası"
+msgstr "Excel versiyası:"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:81
 #: libraries/plugins/export/ExportLatex.class.php:157
 #: libraries/plugins/export/ExportOdt.class.php:122
 #: libraries/plugins/export/ExportTexytext.class.php:80
 #: libraries/plugins/export/ExportXml.class.php:133
-#, fuzzy
 msgid "Data dump options"
-msgstr "Me'lumat bazası eksport variantları"
+msgstr "Data Dump seçimləri"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:203
 #: libraries/plugins/export/ExportOdt.class.php:259
@@ -8606,9 +8493,8 @@ msgstr "Sxemi çıxarılan cedvel"
 #: libraries/plugins/export/ExportOdt.class.php:566
 #: libraries/plugins/export/ExportTexytext.class.php:438
 #: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_triggers.lib.php:393
-#, fuzzy
 msgid "Event"
-msgstr "Gönderildi"
+msgstr "Hadisə"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:488
 #: libraries/plugins/export/ExportOdt.class.php:569
@@ -8616,10 +8502,9 @@ msgstr "Gönderildi"
 #: libraries/rte/rte_events.lib.php:519
 #: libraries/rte/rte_routines.lib.php:1045
 #: libraries/rte/rte_triggers.lib.php:407
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "Haqqında"
+msgstr "Tərif"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:553
 #: libraries/plugins/export/ExportOdt.class.php:642
@@ -8632,9 +8517,8 @@ msgstr ""
 #: libraries/plugins/export/ExportOdt.class.php:666
 #: libraries/plugins/export/ExportSql.class.php:1717
 #: libraries/plugins/export/ExportTexytext.class.php:513
-#, fuzzy
 msgid "Structure for view"
-msgstr "Sadece quruluş"
+msgstr "Görünüş strukturu"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:581
 #: libraries/plugins/export/ExportOdt.class.php:678
@@ -8652,39 +8536,34 @@ msgid "(continued)"
 msgstr "(davamı)"
 
 #: libraries/plugins/export/ExportLatex.class.php:45
-#, fuzzy
 #| msgid "Table structure for table"
 msgid "Structure of table @TABLE@"
-msgstr "Table structure for table"
+msgstr "@TABLE@ cədvəlinin strukturu"
 
 #: libraries/plugins/export/ExportLatex.class.php:116
 #: libraries/plugins/export/ExportOdt.class.php:96
 #: libraries/plugins/export/ExportSql.class.php:219
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Transformasiya variantları"
+msgstr "Obyekt yaratma seçimləri"
 
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Cedvel başlığı"
+msgstr "Cədvəl başlığı:"
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued):"
-msgstr "Cedvel başlığı"
+msgstr "Cədvəl başlığı(davamı):"
 
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
-#, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
-msgstr "Etiket açarı"
+msgstr "Etiket açarı:"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:102
@@ -8694,95 +8573,83 @@ msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:142
 #: libraries/plugins/export/ExportOdt.class.php:107
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Sütun Qısa İzahatını Deyişdir"
+msgstr "Şərhləri göstər"
 
 #: libraries/plugins/export/ExportLatex.class.php:147
 #: libraries/plugins/export/ExportOdt.class.php:112
 #: libraries/plugins/export/ExportSql.class.php:121
-#, fuzzy
 #| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "Mövcud olan MIME-tipleri"
+msgstr "MIME tiplərini göstər"
 
 #: libraries/plugins/export/ExportLatex.class.php:162
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Sahe adlarını birinci setre yerleşdir"
+msgstr "İlk sətirə sütun adlarını əlavə et:"
 
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:646
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:675
 #: libraries/server_privileges.lib.php:1335 libraries/sql.lib.php:444
-#, fuzzy
 #| msgid "Host"
 msgid "Host:"
-msgstr "Host"
+msgstr "Host:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:653
 #: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:448
-#, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Hazırlanma Vaxtı"
+msgstr "Hazırlanma Vaxtı:"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:659
 #: libraries/plugins/export/ExportXml.class.php:199
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "PHP Versiyası"
+msgstr "PHP Versiyası:"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:817
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/sql.lib.php:446
-#, fuzzy
 #| msgid "Database"
 msgid "Database:"
-msgstr "Me'lumat Bazası"
+msgstr "Verilənlər Bazası:"
 
 #: libraries/plugins/export/ExportLatex.class.php:304
 #: libraries/plugins/export/ExportSql.class.php:1805
-#, fuzzy
 #| msgid "Data"
 msgid "Data:"
-msgstr "Me'lumat"
+msgstr "Verilən:"
 
 #: libraries/plugins/export/ExportLatex.class.php:488
-#, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
-msgstr "Quruluş"
+msgstr "Struktur:"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
-#, fuzzy
 #| msgid "Export"
 msgid "Export table names"
-msgstr "Eksport"
+msgstr "Cədvəl adlarını Eksport et"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:90
-#, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
-msgstr "üfüqi (tekrarlanan başlıqlar)"
+msgstr "Cədvəl başlıqlarını eksport et"
 
 #: libraries/plugins/export/ExportPdf.class.php:105
 msgid "(Generates a report containing the data of a single table)"
 msgstr ""
 
 #: libraries/plugins/export/ExportPdf.class.php:110
-#, fuzzy
 #| msgid "Import files"
 msgid "Report title:"
-msgstr "Faylları import et"
+msgstr "Hesabat başlığı:"
 
 #: libraries/plugins/export/ExportSql.class.php:91
 msgid ""
@@ -8791,10 +8658,11 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:100
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Başlığa xülase me'lumatı elave et (\\n yeni setire keçir)"
+msgstr ""
+"Əlavə özəl başlıq şərhi (\\n"
+" sətirləri bölür):"
 
 #: libraries/plugins/export/ExportSql.class.php:107
 msgid ""
@@ -8814,16 +8682,15 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:274
 #: libraries/plugins/export/ExportSql.class.php:284
 #: libraries/plugins/export/ExportSql.class.php:297
-#, fuzzy, php-format
+#, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
-msgstr "Variantlar"
+msgstr "%s ifadəsi əlavə et"
 
 #: libraries/plugins/export/ExportSql.class.php:226
-#, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "Variantlar"
+msgstr "İfadələri əlavə et:"
 
 #: libraries/plugins/export/ExportSql.class.php:322
 msgid ""
@@ -8832,10 +8699,9 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:337
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Data creation options"
-msgstr "Transformasiya variantları"
+msgstr "Verilən yaratma seçimləri"
 
 #: libraries/plugins/export/ExportSql.class.php:341
 #: libraries/plugins/export/ExportSql.class.php:1899
@@ -8916,10 +8782,9 @@ msgid "Indexes for dumped tables"
 msgstr "Inside table(s):"
 
 #: libraries/plugins/export/ExportSql.class.php:1305
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Indexes for table"
-msgstr "Inside table(s):"
+msgstr "Cədvəl üçün indekslər"
 
 #: libraries/plugins/export/ExportSql.class.php:1331
 #, fuzzy
@@ -8928,10 +8793,9 @@ msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT deyeri elave et"
 
 #: libraries/plugins/export/ExportSql.class.php:1341
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "AUTO_INCREMENT deyeri elave et"
+msgstr "Cədvəl üçün AUTO_INCREMENT"
 
 #: libraries/plugins/export/ExportSql.class.php:1564
 msgid "MIME TYPES FOR TABLE"
