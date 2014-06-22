@@ -489,7 +489,7 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_null    +6000
  * @param integer $idindex              id index
- * @param array   $vkey                 [multi_edit]['row_id']
+ * @param string  $vkey                 [multi_edit]['row_id']
  * @param array   $foreigners           keys into foreign fields
  * @param array   $foreignData          data about the foreign keys
  *
@@ -583,15 +583,15 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  * @param integer $tabindex_for_value    offset for the values tabindex
  * @param integer $idindex               id index
  * @param array   $data                  description of the column field
- * @param array   $special_chars         special characters
+ * @param string  $special_chars         special characters
  * @param array   $foreignData           data about the foreign keys
  * @param boolean $odd_row               whether row is odd
  * @param array   $paramTableDbArray     array containing $table and $db
- * @param array   $rownumber             the row number
+ * @param int     $rownumber             the row number
  * @param array   $titles                An HTML IMG tag for a particular icon from
  *                                       a theme, which may be an actual file or
  *                                       an icon from a sprite
- * @param array   $text_dir              text direction
+ * @param string  $text_dir              text direction
  * @param string  $special_chars_encoded replaced char if the string starts
  *                                       with a \r\n pair (0x0d0a) add an extra \n
  * @param string  $vkey                  [multi_edit]['row_id']
@@ -706,9 +706,9 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
- * @param array   $data                 data to edit
+ * @param string  $data                 data to edit
  * @param array   $paramTableDbArray    array containing $table and $db
- * @param array   $rownumber            the row number
+ * @param int     $rownumber            the row number
  * @param array   $titles               An HTML IMG tag for a particular icon from
  *                                      a theme, which may be an actual file or
  *                                      an icon from a sprite
@@ -759,7 +759,7 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
- * @param array   $data                 data to edit
+ * @param string  $data                 data to edit
  * @param array   $foreignData          data about the foreign keys
  *
  * @return string                       an html snippet
@@ -800,7 +800,7 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
  * @param integer $tabindex_for_value    offset for the values tabindex
  * @param integer $idindex               id index
  * @param array   $text_dir              text direction
- * @param array   $special_chars_encoded replaced char if the string starts
+ * @param string  $special_chars_encoded replaced char if the string starts
  *                                       with a \r\n pair (0x0d0a) add an extra \n
  *
  * @return string                       an html snippet
@@ -848,17 +848,17 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
 /**
  * Get HTML for enum type
  *
- * @param type $column               description of column in given table
- * @param type $backup_field         hidden input field
- * @param type $column_name_appendix the name atttibute
- * @param type $extracted_columnspec associative array containing type,
- *                                   spec_in_brackets and possibly
- *                                   enum_set_values (another array)
- * @param type $unnullify_trigger    validation string
- * @param type $tabindex             tab index
- * @param type $tabindex_for_value   offset for the values tabindex
- * @param type $idindex              id index
- * @param type $data                 data to edit
+ * @param array  $column               description of column in given table
+ * @param string $backup_field         hidden input field
+ * @param string $column_name_appendix the name atttibute
+ * @param array  $extracted_columnspec associative array containing type,
+ *                                     spec_in_brackets and possibly
+ *                                     enum_set_values (another array)
+ * @param string $unnullify_trigger    validation string
+ * @param int    $tabindex             tab index
+ * @param int    $tabindex_for_value   offset for the values tabindex
+ * @param int    $idindex              id index
+ * @param array  $data                 data to edit
  *
  * @return string an html snippet
  */
@@ -1012,7 +1012,7 @@ function PMA_getRadioButtonDependingOnLength(
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
- * @param array   $data                 description of the column field
+ * @param string  $data                 description of the column field
  *
  * @return string                       an html snippet
  */
@@ -1075,8 +1075,8 @@ function PMA_getColumnSetValueAndSelectSize($column, $extracted_columnspec)
  * Get HTML for binary and blob column
  *
  * @param array   $column                description of column in given table
- * @param array   $data                  data to edit
- * @param array   $special_chars         special characters
+ * @param string  $data                  data to edit
+ * @param string  $special_chars         special characters
  * @param integer $biggest_max_file_size biggest max file size for uploading
  * @param string  $backup_field          hidden input field
  * @param string  $column_name_appendix  the name atttibute
@@ -1156,7 +1156,7 @@ function PMA_getBinaryAndBlobColumn(
  *
  * @param array   $column               description of column in given table
  * @param string  $column_name_appendix the name attribute
- * @param array   $special_chars        special characters
+ * @param string  $special_chars        special characters
  * @param integer $fieldsize            html field size
  * @param string  $unnullify_trigger    validation string
  * @param integer $tabindex             tab index
@@ -1741,7 +1741,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
 /**
  * display default values
  *
- * @param type    $column          description of column in given table
+ * @param array   $column          description of column in given table
  * @param boolean $real_null_value whether column value null or not null
  *
  * @return array $real_null_value, $data, $special_chars,
