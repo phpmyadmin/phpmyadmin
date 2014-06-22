@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-10 12:45-0400\n"
-"PO-Revision-Date: 2014-05-18 16:07+0200\n"
+"PO-Revision-Date: 2014-06-22 15:22+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/4-2/ko/>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.9\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -4935,10 +4935,9 @@ msgid "Add %s"
 msgstr "%s 추가"
 
 #: libraries/config/messages.inc.php:178
-#, fuzzy
 #| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "BLOB을 헥사 숫자로 사용"
+msgstr "BINARY와 BLOB을 16진수로 표현"
 
 #: libraries/config/messages.inc.php:180
 msgid "Use ignore inserts"
@@ -5702,7 +5701,6 @@ msgid "GZip output buffering"
 msgstr "GZip 출력 버퍼"
 
 #: libraries/config/messages.inc.php:486
-#, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 #| "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -5710,8 +5708,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
 msgstr ""
-"[kbd]SMART[/kbd] - 예: TIME, DATE, DATETIME 및 TIMESTAMP 형식 컬럼에 대해 내"
-"림차순(descending) 정렬, 다른 형식에 대해 오름차순(ascending) 정렬"
+"[kbd]SMART[/kbd] - 예: TIME, DATE, DATETIME 및 TIMESTAMP 형식 컬럼에 대해 내림차순 정렬, 다른 "
+"형식에 대해 오름차순 정렬."
 
 #: libraries/config/messages.inc.php:489
 msgid "Default sorting order"
@@ -5989,6 +5987,8 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
+"설정 저장공간을 가지고 있는 서버에 연결할 포트 번호; 빈 값으로 두면 기본값을 사용하거나, controlhost와 host가 같은 경우 "
+"다른 곳에 정의된 값을 사용합니다."
 
 #: libraries/config/messages.inc.php:595
 msgid "Control port"
@@ -7540,10 +7540,9 @@ msgid "Please explain the steps that lead to the error:"
 msgstr ""
 
 #: libraries/error_report.lib.php:293
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "버전 자동생성"
+msgstr "다음부터 보고를 자동으로 보내기"
 
 #: libraries/export.lib.php:113 libraries/export.lib.php:144
 #: libraries/export.lib.php:364
@@ -11426,25 +11425,25 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:631
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
-msgstr ""
+msgstr "INSERT DELAYED 큐에서 쓰기 작업을 대기중인 행의 수."
 
 #: libraries/server_status_variables.lib.php:634
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
-msgstr ""
+msgstr "열린 테이블 수. 열린 테이블이 많다면, 테이블 캐시값이 작은 경우일 수 있습니다."
 
 #: libraries/server_status_variables.lib.php:638
 msgid "The number of files that are open."
-msgstr ""
+msgstr "열린 파일 수."
 
 #: libraries/server_status_variables.lib.php:641
 msgid "The number of streams that are open (used mainly for logging)."
-msgstr ""
+msgstr "열린 스트림 수 (주로 로그 남기기용)."
 
 #: libraries/server_status_variables.lib.php:644
 msgid "The number of tables that are open."
-msgstr ""
+msgstr "열린 테이블 수."
 
 #: libraries/server_status_variables.lib.php:647
 msgid ""
@@ -11452,18 +11451,20 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
+"쿼리 캐시에 비어있는 메모리 블럭 수. 숫자가 크다면 파편화 문제가 있을 수 있으며, FLUSH QUERY CACHE 구문으로 해결할 할 "
+"수도 있습니다."
 
 #: libraries/server_status_variables.lib.php:652
 msgid "The amount of free memory for query cache."
-msgstr ""
+msgstr "쿼리 캐시의 빈 메모리 양."
 
 #: libraries/server_status_variables.lib.php:655
 msgid "The number of cache hits."
-msgstr ""
+msgstr "캐시 히트 수."
 
 #: libraries/server_status_variables.lib.php:658
 msgid "The number of queries added to the cache."
-msgstr ""
+msgstr "캐시에 추가된 쿼리의 수."
 
 #: libraries/server_status_variables.lib.php:661
 msgid ""
@@ -11472,16 +11473,18 @@ msgid ""
 "cache size. The query cache uses a least recently used (LRU) strategy to "
 "decide which queries to remove from the cache."
 msgstr ""
+"새 쿼리를 캐시하기 위해 메모리에서 삭제된 캐시의 수. 이 값은 쿼리 캐시 사이즈를 조정하는데 도움이 될겁니다. 쿼리캐시는 LRU "
+"알고리즘을 사용하여 삭제할 쿼리를 선택합니다."
 
 #: libraries/server_status_variables.lib.php:668
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
-msgstr ""
+msgstr "캐시되지 않은 쿼리의 수(캐시 불가능한 것 또는 query_cache_type 설정때문에 캐시되지 않은 것)."
 
 #: libraries/server_status_variables.lib.php:672
 msgid "The number of queries registered in the cache."
-msgstr ""
+msgstr "캐시에 등록된 쿼리 수."
 
 #: libraries/server_status_variables.lib.php:675
 msgid "The total number of blocks in the query cache."
@@ -11517,7 +11520,7 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:697
 msgid "The number of joins that did a full scan of the first table."
-msgstr ""
+msgstr "첫번째 테이블을 풀스캔한 조인의 갯수."
 
 #: libraries/server_status_variables.lib.php:700
 msgid "The number of temporary tables currently open by the slave SQL thread."
@@ -12647,15 +12650,15 @@ msgstr "차트에 그리드 추가"
 
 #: pmd_general.php:130
 msgid "Small/Big All"
-msgstr ""
+msgstr "전체를 작게/크게"
 
 #: pmd_general.php:135
 msgid "Toggle small/big"
-msgstr ""
+msgstr "대소 변경"
 
 #: pmd_general.php:140
 msgid "Toggle relation lines"
-msgstr ""
+msgstr "릴레이션 라인 토글"
 
 #: pmd_general.php:146 pmd_pdf.php:103
 #, fuzzy
@@ -12664,30 +12667,27 @@ msgid "Import/Export coordinates for relational schema"
 msgstr "관계 스키마를 수정 또는 내보내기"
 
 #: pmd_general.php:155
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "질의 실행"
+msgstr "쿼리 생성"
 
 #: pmd_general.php:162
 msgid "Move Menu"
-msgstr ""
+msgstr "메뉴 이동"
 
 #: pmd_general.php:176
-#, fuzzy
 #| msgid "Show all"
 msgid "Hide/Show all"
-msgstr "모두 보기"
+msgstr "모두 숨기기/보기"
 
 #: pmd_general.php:180
 msgid "Hide/Show Tables with no relation"
-msgstr ""
+msgstr "릴레이션이 없는 테이블 숨기기/보이기"
 
 #: pmd_general.php:225
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of tables:"
-msgstr "행 갯수:"
+msgstr "테이블 갯수:"
 
 #: pmd_general.php:502
 msgid "Delete relation"
@@ -12701,10 +12701,9 @@ msgstr "관계키"
 
 #: pmd_general.php:557 pmd_general.php:616 pmd_general.php:746
 #: pmd_general.php:865
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "내보내기"
+msgstr "제외"
 
 #: pmd_general.php:563 pmd_general.php:624 pmd_general.php:752
 #: pmd_general.php:871
@@ -12712,28 +12711,24 @@ msgid "subquery"
 msgstr "서브쿼리"
 
 #: pmd_general.php:567 pmd_general.php:669
-#, fuzzy
 #| msgid "Keyname"
 msgid "Rename to"
-msgstr "키 이름"
+msgstr "바뀔 이름"
 
 #: pmd_general.php:569 pmd_general.php:675
-#, fuzzy
 #| msgid "Keyname"
 msgid "New name"
-msgstr "키 이름"
+msgstr "새 이름"
 
 #: pmd_general.php:572 pmd_general.php:795
-#, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
-msgstr "만들기 "
+msgstr "합계"
 
 #: pmd_general.php:906
-#, fuzzy
 #| msgid "Action"
 msgid "Active options"
-msgstr "실행"
+msgstr "옵션 활성화"
 
 #: pmd_pdf.php:53
 #, fuzzy
