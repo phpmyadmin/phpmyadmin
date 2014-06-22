@@ -1771,7 +1771,8 @@ function PMA_handleRollbackRequest($sql_query)
     $sql_delimiter = $_REQUEST['sql_delimiter'];
     $queries = explode($sql_delimiter, $sql_query);
     $error = false;
-    $error_msg = __('Only INSERT, UPDATE, DELETE and REPLACE '
+    $error_msg = __(
+        'Only INSERT, UPDATE, DELETE and REPLACE '
         . 'SQL queries containing transactional engine tables can be rolled back.'
     );
     foreach ($queries as $sql_query) {
@@ -1863,7 +1864,6 @@ function PMA_checkIfRollbackPossible($sql_query)
  */
 function PMA_isTableTransactional($table)
 {
-    $db = '';
     $table = explode('.', $table);
     if (count($table) == 2) {
         $db = PMA_Util::unQuote($table[0]);
