@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-22 14:57-0400\n"
-"PO-Revision-Date: 2014-06-22 23:42+0200\n"
+"PO-Revision-Date: 2014-06-22 23:47+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -7466,34 +7466,29 @@ msgid "Select database"
 msgstr "Seleccionar base de datos"
 
 #: libraries/display_export.lib.php:778
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select table"
-msgstr "Seleccionar una tabla"
+msgstr "Seleccionar tabla"
 
 #: libraries/display_export.lib.php:794
-#, fuzzy
 #| msgid "Database name"
 msgid "New database name"
-msgstr "Nombre de la base de datos"
+msgstr "Nombre de la nueva base de datos"
 
 #: libraries/display_export.lib.php:818
-#, fuzzy
 #| msgid "New page name: "
 msgid "New table name"
-msgstr "Nuevo nombre de página: "
+msgstr "Nombre de la nueva tabla"
 
 #: libraries/display_export.lib.php:827
-#, fuzzy
 #| msgid "Copy column name."
 msgid "Old column name"
-msgstr "Copie el nombre de la columna."
+msgstr "Nombre de la columna antigua"
 
 #: libraries/display_export.lib.php:828
-#, fuzzy
 #| msgid "Copy column name."
 msgid "New column name"
-msgstr "Copie el nombre de la columna."
+msgstr "Nombre de la nueva columna"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -8046,7 +8041,7 @@ msgstr ""
 
 #: libraries/import.lib.php:268 libraries/sql.lib.php:1679
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[Ocurrió un ROLLBACK.]"
 
 #: libraries/import.lib.php:1231
 msgid ""
@@ -8095,13 +8090,15 @@ msgstr "Ir a la vista: %s"
 
 #: libraries/import.lib.php:1358
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
-msgstr ""
+msgstr "Sólo se pueden simular consultas UPDATE y DELETE sobre sólo una tabla."
 
 #: libraries/import.lib.php:1774
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"Sólo se pueden deshacer («rollback») consultas SQL INSERT, UPDATE, DELETE y "
+"REPLACE que contengan tablas de motores transaccionales."
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -9211,10 +9208,9 @@ msgstr ""
 "sean volcadas y cargadas por servidores en diferentes zonas horarias)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:527
-#, fuzzy
 #| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses procedures;"
-msgstr "Parece que su tabla utiliza disparadores («triggers»);"
+msgstr "Parece que su base de datos utiliza procedimientos;"
 
 #: libraries/plugins/export/ExportSql.class.php:528
 #: libraries/plugins/export/ExportSql.class.php:560
@@ -9225,16 +9221,14 @@ msgstr ""
 "exportar los alias no podría funcionar correctamente en todos los casos."
 
 #: libraries/plugins/export/ExportSql.class.php:559
-#, fuzzy
 #| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses functions;"
-msgstr "Parece que su tabla utiliza disparadores («triggers»);"
+msgstr "Parece que su base de datos utiliza funciones;"
 
 #: libraries/plugins/export/ExportSql.class.php:1261
-#, fuzzy
 #| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses views;"
-msgstr "Parece que su tabla utiliza disparadores («triggers»);"
+msgstr "Parece que su base de datos utiliza vistas;"
 
 #: libraries/plugins/export/ExportSql.class.php:1312
 msgid "Constraints for dumped tables"
@@ -9585,7 +9579,7 @@ msgstr ""
 
 #: libraries/pmd_common.php:295
 msgid "*Untitled"
-msgstr ""
+msgstr "*Sin título"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -9609,10 +9603,9 @@ msgid "Display Features"
 msgstr "Mostrar las opciones"
 
 #: libraries/relation.lib.php:153
-#, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Creación de los PDF"
+msgstr "Diseño y creación de PDFs"
 
 #: libraries/relation.lib.php:164
 msgid "Displaying Column Comments"
@@ -12483,7 +12476,7 @@ msgstr "Mostrar esta consulta otra vez"
 
 #: libraries/sql_query_form.lib.php:378
 msgid "Rollback when finished"
-msgstr ""
+msgstr "Deshacer («rollback») al finalizar"
 
 #: libraries/sql_query_form.lib.php:436
 msgid "View only"
@@ -13306,26 +13299,23 @@ msgid "Exit fullscreen"
 msgstr "Salir de pantalla completa"
 
 #: pmd_general.php:140
-#, fuzzy
 #| msgid "New name"
 msgid "New page"
-msgstr "Nuevo nombre"
+msgstr "Nueva página"
 
 #: pmd_general.php:148
 msgid "Save position"
 msgstr "Guardar posición"
 
 #: pmd_general.php:152
-#, fuzzy
 #| msgid "Save position"
 msgid "Save positions as"
-msgstr "Guardar posición"
+msgstr "Guardar posición como"
 
 #: pmd_general.php:156
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete pages"
-msgstr "Seleccionar página"
+msgstr "Borrar páginas"
 
 #: pmd_general.php:167 pmd_general.php:499
 msgid "Create relation"
