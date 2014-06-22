@@ -413,18 +413,27 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         var numColumns;
         var $tr = $('#chartGrid tr:first');
         var row = 0;
+
+        var tempManageCols = function () {
+            if (numColumns > monitorSettings.columns) {
+                if ($tr.next().length === 0) {
+                    $tr.after('<tr></tr>');
+                }
+                $tr.next().prepend($(this));
+            }
+            numColumns++;
+        };
+
+        var tempAddCol = function () {
+            if ($(this).next().length !== 0) {
+                $(this).append($(this).next().find('td:first'));
+            }
+        };
+
         while ($tr.length !== 0) {
             numColumns = 1;
             // To many cells in one row => put into next row
-            $tr.find('td').each(function () {
-                if (numColumns > monitorSettings.columns) {
-                    if ($tr.next().length === 0) {
-                        $tr.after('<tr></tr>');
-                    }
-                    $tr.next().prepend($(this));
-                }
-                numColumns++;
-            });
+            $tr.find('td').each(tempManageCols);
 
             // To little cells in one row => for each cell to little,
             // move all cells backwards by 1
@@ -432,11 +441,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 var cnt = monitorSettings.columns - $tr.find('td').length;
                 for (var i = 0; i < cnt; i++) {
                     $tr.append($tr.next().find('td:first'));
-                    $tr.nextAll().each(function () {
-                        if ($(this).next().length !== 0) {
-                            $(this).append($(this).next().find('td:first'));
-                        }
-                    });
+                    $tr.nextAll().each(tempAddCol);
                 }
             }
 
@@ -1150,44 +1155,46 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             series.push([[0, 0]]);
         }
 
+        var tempTooltipContentEditor = function (str, seriesIndex, pointIndex, plot) {
+            var j;
+            // TODO: move style to theme CSS
+            var tooltipHtml = '<div style="font-size:12px;background-color:#FFFFFF;' +
+                'opacity:0.95;filter:alpha(opacity=95);padding:5px;">';
+            // x value i.e. time
+            var timeValue = str.split(",")[0];
+            var seriesValue;
+            tooltipHtml += 'Time: ' + timeValue;
+            tooltipHtml += '<span style="font-weight:bold;">';
+            // Add y values to the tooltip per series
+            for (j in plot.series) {
+                // get y value if present
+                if (plot.series[j].data.length > pointIndex) {
+                    seriesValue = plot.series[j].data[pointIndex][1];
+                } else {
+                    return;
+                }
+                var seriesLabel = plot.series[j].label;
+                var seriesColor = plot.series[j].color;
+                // format y value
+                if (plot.series[0]._yaxis.tickOptions.formatter) {
+                    // using formatter function
+                    seriesValue = plot.series[0]._yaxis.tickOptions.formatter('%s', seriesValue);
+                } else if (plot.series[0]._yaxis.tickOptions.formatString) {
+                    // using format string
+                    seriesValue = $.sprintf(plot.series[0]._yaxis.tickOptions.formatString, seriesValue);
+                }
+                tooltipHtml += '<br /><span style="color:' + seriesColor + '">' +
+                    seriesLabel + ': ' + seriesValue + '</span>';
+            }
+            tooltipHtml += '</span></div>';
+            return tooltipHtml;
+        };
+
         // set Tooltip for each series
         for (i in settings.series) {
             settings.series[i].highlighter = {
                 show: true,
-                tooltipContentEditor: function (str, seriesIndex, pointIndex, plot) {
-                    var j;
-                    // TODO: move style to theme CSS
-                    var tooltipHtml = '<div style="font-size:12px;background-color:#FFFFFF;' +
-                        'opacity:0.95;filter:alpha(opacity=95);padding:5px;">';
-                    // x value i.e. time
-                    var timeValue = str.split(",")[0];
-                    var seriesValue;
-                    tooltipHtml += 'Time: ' + timeValue;
-                    tooltipHtml += '<span style="font-weight:bold;">';
-                    // Add y values to the tooltip per series
-                    for (j in plot.series) {
-                        // get y value if present
-                        if (plot.series[j].data.length > pointIndex) {
-                            seriesValue = plot.series[j].data[pointIndex][1];
-                        } else {
-                            return;
-                        }
-                        var seriesLabel = plot.series[j].label;
-                        var seriesColor = plot.series[j].color;
-                        // format y value
-                        if (plot.series[0]._yaxis.tickOptions.formatter) {
-                            // using formatter function
-                            seriesValue = plot.series[0]._yaxis.tickOptions.formatter('%s', seriesValue);
-                        } else if (plot.series[0]._yaxis.tickOptions.formatString) {
-                            // using format string
-                            seriesValue = $.sprintf(plot.series[0]._yaxis.tickOptions.formatString, seriesValue);
-                        }
-                        tooltipHtml += '<br /><span style="color:' + seriesColor + '">' +
-                            seriesLabel + ': ' + seriesValue + '</span>';
-                    }
-                    tooltipHtml += '</span></div>';
-                    return tooltipHtml;
-                }
+                tooltipContentEditor: tempTooltipContentEditor
             };
         }
 
@@ -1854,6 +1861,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         $('#logTable').html($table);
 
+        var tempPushKey = function (key, value) {
+            cols.push(key);
+        };
+
         var formatValue = function (name, value) {
             if (name == 'user_host') {
                 return value.replace(/(\[.*?\])+/g, '');
@@ -1863,9 +1874,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         for (var i = 0, l = rows.length; i < l; i++) {
             if (i === 0) {
-                $.each(rows[0], function (key, value) {
-                    cols.push(key);
-                });
+                $.each(rows[0], tempPushKey);
                 $table.append('<thead>' +
                               '<tr><th class="nowrap">' + cols.join('</th><th class="nowrap">') + '</th></tr>' +
                               '</thead>'
@@ -2011,19 +2020,22 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 explain += ')';
             }
             explain += '<p></p>';
+
+            var tempExplain = function (key, value) {
+                value = (value === null) ? 'null' : value;
+
+                if (key == 'type' && value.toLowerCase() == 'all') {
+                    value = '<span class="attention">' + value + '</span>';
+                }
+                if (key == 'Extra') {
+                    value = value.replace(/(using (temporary|filesort))/gi, '<span class="attention">$1</span>');
+                }
+                explain += key + ': ' + value + '<br />';
+            };
+
             for (i = 0, l = data.explain.length; i < l; i++) {
                 explain += '<div class="explain-' + i + '"' + (i > 0 ?  'style="display:none;"' : '') + '>';
-                $.each(data.explain[i], function (key, value) {
-                    value = (value === null) ? 'null' : value;
-
-                    if (key == 'type' && value.toLowerCase() == 'all') {
-                        value = '<span class="attention">' + value + '</span>';
-                    }
-                    if (key == 'Extra') {
-                        value = value.replace(/(using (temporary|filesort))/gi, '<span class="attention">$1</span>');
-                    }
-                    explain += key + ': ' + value + '<br />';
-                });
+                $.each(data.explain[i], tempExplain);
                 explain += '</div>';
             }
 

@@ -287,13 +287,14 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         var xChange = false;
         var yChange = false;
         var key;
+        var tempGetVal = function () {
+            return $(this).val();
+        };
         for (key in selectedRow) {
             var oldVal = selectedRow[key];
             var newVal = ($('#edit_fields_null_id_' + it).prop('checked')) ? null : $('#edit_fieldID_' + it).val();
             if (newVal instanceof Array) { // when the column is of type SET
-                newVal =  $('#edit_fieldID_' + it).map(function () {
-                    return $(this).val();
-                }).get().join(",");
+                newVal =  $('#edit_fieldID_' + it).map(tempGetVal).get().join(",");
             }
             if (oldVal != newVal) {
                 selectedRow[key] = newVal;

@@ -362,6 +362,109 @@ AJAX.registerOnload('tbl_change.js', function () {
         });
 
         if (curr_rows < target_rows) {
+
+            var tempIncrementIndex = function () {
+
+                var $this_element = $(this);
+                /**
+                 * Extract the index from the name attribute for all input/select fields and increment it
+                 * name is of format funcs[multi_edit][10][<long random string of alphanum chars>]
+                 */
+
+                /**
+                 * @var this_name   String containing name of the input/select elements
+                 */
+                var this_name = $this_element.attr('name');
+                /** split {@link this_name} at [10], so we have the parts that can be concatenated later */
+                var name_parts = this_name.split(/\[\d+\]/);
+                /** extract the [10] from  {@link name_parts} */
+                var old_row_index_string = this_name.match(/\[\d+\]/)[0];
+                /** extract 10 - had to split into two steps to accomodate double digits */
+                var old_row_index = parseInt(old_row_index_string.match(/\d+/)[0], 10);
+
+                /** calculate next index i.e. 11 */
+                new_row_index = old_row_index + 1;
+                /** generate the new name i.e. funcs[multi_edit][11][foobarbaz] */
+                var new_name = name_parts[0] + '[' + new_row_index + ']' + name_parts[1];
+
+                var hashed_field = name_parts[1].match(/\[(.+)\]/)[1];
+                $this_element.attr('name', new_name);
+
+                /** If element is select[name*='funcs'], update id */
+                if ($this_element.is("select[name*='funcs']")) {
+                    var this_id = $this_element.attr("id");
+                    var id_parts = this_id.split(/\_/);
+                    var old_id_index = id_parts[1];
+                    var prevSelectedValue = $("#field_" + old_id_index + "_1").val();
+                    var new_id_index = parseInt(old_id_index) + columnCount;
+                    var new_id = 'field_' + new_id_index + '_1';
+                    $this_element.attr('id', new_id);
+                    $this_element.find("option").filter(function () {
+                        return $(this).text() === prevSelectedValue;
+                    }).attr("selected","selected");
+
+                    // If salt field is there then update its id.
+                    var nextSaltInput = $this_element.parent().next("td").next("td").find("input[name*='salt']");
+                    if (nextSaltInput.length !== 0) {
+                        nextSaltInput.attr("id", "salt_" + new_id);
+                    }
+                }
+
+                // handle input text fields and textareas
+                if ($this_element.is('.textfield') || $this_element.is('.char')) {
+                    // do not remove the 'value' attribute for ENUM columns
+                    if ($this_element.closest('tr').find('span.column_type').html() != 'enum') {
+                        $this_element.val($this_element.closest('tr').find('span.default_value').html());
+                    }
+                    $this_element
+                        .unbind('change')
+                        // Remove onchange attribute that was placed
+                        // by tbl_change.php; it refers to the wrong row index
+                        .attr('onchange', null)
+                        // Keep these values to be used when the element
+                        // will change
+                        .data('hashed_field', hashed_field)
+                        .data('new_row_index', new_row_index)
+                        .bind('change', function (e) {
+                            var $changed_element = $(this);
+                            verificationsAfterFieldChange(
+                                $changed_element.data('hashed_field'),
+                                $changed_element.data('new_row_index'),
+                                $changed_element.closest('tr').find('span.column_type').html()
+                            );
+                        });
+                }
+
+                if ($this_element.is('.checkbox_null')) {
+                    $this_element
+                        // this event was bound earlier by jQuery but
+                        // to the original row, not the cloned one, so unbind()
+                        .unbind('click')
+                        // Keep these values to be used when the element
+                        // will be clicked
+                        .data('hashed_field', hashed_field)
+                        .data('new_row_index', new_row_index)
+                        .bind('click', function (e) {
+                            var $changed_element = $(this);
+                            nullify(
+                                $changed_element.siblings('.nullify_code').val(),
+                                $this_element.closest('tr').find('input:hidden').first().val(),
+                                $changed_element.data('hashed_field'),
+                                '[multi_edit][' + $changed_element.data('new_row_index') + ']'
+                            );
+                        });
+                }
+            };
+
+            var tempReplaceAnchor = function () {
+                var $anchor = $(this);
+                var new_value = 'rownumber=' + new_row_index;
+                // needs improvement in case something else inside
+                // the href contains this pattern
+                var new_href = $anchor.attr('href').replace(/rownumber=\d+/, new_value);
+                $anchor.attr('href', new_href);
+            };
+
             while (curr_rows < target_rows) {
 
                 /**
@@ -379,108 +482,10 @@ AJAX.registerOnload('tbl_change.js', function () {
                 .clone(true, true)
                 .insertBefore("#actions_panel")
                 .find('input[name*=multi_edit],select[name*=multi_edit],textarea[name*=multi_edit]')
-                .each(function () {
-
-                    var $this_element = $(this);
-                    /**
-                     * Extract the index from the name attribute for all input/select fields and increment it
-                     * name is of format funcs[multi_edit][10][<long random string of alphanum chars>]
-                     */
-
-                    /**
-                     * @var this_name   String containing name of the input/select elements
-                     */
-                    var this_name = $this_element.attr('name');
-                    /** split {@link this_name} at [10], so we have the parts that can be concatenated later */
-                    var name_parts = this_name.split(/\[\d+\]/);
-                    /** extract the [10] from  {@link name_parts} */
-                    var old_row_index_string = this_name.match(/\[\d+\]/)[0];
-                    /** extract 10 - had to split into two steps to accomodate double digits */
-                    var old_row_index = parseInt(old_row_index_string.match(/\d+/)[0], 10);
-
-                    /** calculate next index i.e. 11 */
-                    new_row_index = old_row_index + 1;
-                    /** generate the new name i.e. funcs[multi_edit][11][foobarbaz] */
-                    var new_name = name_parts[0] + '[' + new_row_index + ']' + name_parts[1];
-
-                    var hashed_field = name_parts[1].match(/\[(.+)\]/)[1];
-                    $this_element.attr('name', new_name);
-
-                    /** If element is select[name*='funcs'], update id */
-                    if ($this_element.is("select[name*='funcs']")) {
-                        var this_id = $this_element.attr("id");
-                        var id_parts = this_id.split(/\_/);
-                        var old_id_index = id_parts[1];
-                        var prevSelectedValue = $("#field_" + old_id_index + "_1").val();
-                        var new_id_index = parseInt(old_id_index) + columnCount;
-                        var new_id = 'field_' + new_id_index + '_1';
-                        $this_element.attr('id', new_id);
-                        $this_element.find("option").filter(function () {
-                            return $(this).text() === prevSelectedValue;
-                        }).attr("selected","selected");
-
-                        // If salt field is there then update its id.
-                        var nextSaltInput = $this_element.parent().next("td").next("td").find("input[name*='salt']");
-                        if (nextSaltInput.length !== 0) {
-                            nextSaltInput.attr("id", "salt_" + new_id);
-                        }
-                    }
-
-                    // handle input text fields and textareas
-                    if ($this_element.is('.textfield') || $this_element.is('.char')) {
-                        // do not remove the 'value' attribute for ENUM columns
-                        if ($this_element.closest('tr').find('span.column_type').html() != 'enum') {
-                            $this_element.val($this_element.closest('tr').find('span.default_value').html());
-                        }
-                        $this_element
-                        .unbind('change')
-                        // Remove onchange attribute that was placed
-                        // by tbl_change.php; it refers to the wrong row index
-                        .attr('onchange', null)
-                        // Keep these values to be used when the element
-                        // will change
-                        .data('hashed_field', hashed_field)
-                        .data('new_row_index', new_row_index)
-                        .bind('change', function (e) {
-                            var $changed_element = $(this);
-                            verificationsAfterFieldChange(
-                                $changed_element.data('hashed_field'),
-                                $changed_element.data('new_row_index'),
-                                $changed_element.closest('tr').find('span.column_type').html()
-                            );
-                        });
-                    }
-
-                    if ($this_element.is('.checkbox_null')) {
-                        $this_element
-                        // this event was bound earlier by jQuery but
-                        // to the original row, not the cloned one, so unbind()
-                        .unbind('click')
-                        // Keep these values to be used when the element
-                        // will be clicked
-                        .data('hashed_field', hashed_field)
-                        .data('new_row_index', new_row_index)
-                        .bind('click', function (e) {
-                            var $changed_element = $(this);
-                            nullify(
-                                $changed_element.siblings('.nullify_code').val(),
-                                $this_element.closest('tr').find('input:hidden').first().val(),
-                                $changed_element.data('hashed_field'),
-                                '[multi_edit][' + $changed_element.data('new_row_index') + ']'
-                            );
-                        });
-                    }
-                }) // end each
+                .each(tempIncrementIndex)
                 .end()
                 .find('.foreign_values_anchor')
-                .each(function () {
-                        var $anchor = $(this);
-                        var new_value = 'rownumber=' + new_row_index;
-                        // needs improvement in case something else inside
-                        // the href contains this pattern
-                        var new_href = $anchor.attr('href').replace(/rownumber=\d+/, new_value);
-                        $anchor.attr('href', new_href);
-                    });
+                .each(tempReplaceAnchor);
 
                 //Insert/Clone the ignore checkboxes
                 if (curr_rows == 1) {
