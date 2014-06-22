@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.2.5.0 (not yet released)
 - bug #4467 shell_exec() has been disabled for security reasons
+- bug #4470 Error while submitting empty query
 
 4.2.4.0 (2014-06-20)
 - bug #4449 Mediawiki export does not produce table header row; also fix related PHP warnings
