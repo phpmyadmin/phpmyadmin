@@ -624,7 +624,7 @@ if (strlen($sql_query) <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
 if (isset($my_die)) {
     foreach ($my_die as $key => $die) {
         PMA_Util::mysqlDie(
-            $die['error'], $die['sql'], '', $err_url, $error
+            $die['error'], $die['sql'], false, $err_url, $error
         );
     }
 }

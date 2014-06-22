@@ -39,7 +39,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Helper function for connecting to the database server
      *
-     * @param array  $server       host/port/socket
+     * @param string $server       host/port/socket
      * @param string $user         mysql user name
      * @param string $password     mysql user password
      * @param int    $client_flags client flags of connection

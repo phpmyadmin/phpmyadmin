@@ -20,6 +20,8 @@ require_once './libraries/List_Database.class.php';
  * phpMyAdmin main Controller
  *
  * @package PhpMyAdmin
+ * @property resource $userlink
+ * @property resource $controllink
  */
 class PMA
 {

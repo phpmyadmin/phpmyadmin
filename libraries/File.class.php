@@ -572,7 +572,7 @@ class PMA_File
     /**
      * Sets the file handle
      *
-     * @param object $handle file handle
+     * @param resource $handle file handle
      *
      * @return void
      */
@@ -630,7 +630,7 @@ class PMA_File
                 include_once './libraries/zip_extension.lib.php';
                 $result = PMA_getZipContents($this->getName());
                 if (! empty($result['error'])) {
-                    $this->_error_message = PMA_Message::rawError($result['error']);
+                    $this->_error_message = (string) PMA_Message::rawError($result['error']);
                     return false;
                 } else {
                     $this->content_uncompressed = $result['data'];

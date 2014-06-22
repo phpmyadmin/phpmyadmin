@@ -15,7 +15,7 @@
  * @param mixed  $plugin_param  parameter to plugin by which they can
  *                              decide whether they can work
  *
- * @return object|null new plugin instance
+ * @return object new plugin instance
  */
 function PMA_getPlugin(
     $plugin_type,
@@ -34,7 +34,8 @@ function PMA_getPlugin(
         return new $class_name;
     }
 
-    return null;
+    // by default, return SQL plugin
+    return PMA_getPlugin($plugin_type, 'sql', $plugins_dir, $plugin_param);
 }
 
 /**

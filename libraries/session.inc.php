@@ -25,7 +25,7 @@ if (!@function_exists('session_name')) {
 
 // disable starting of sessions before all settings are done
 // does not work, besides how it is written in php manual
-//ini_set('session.auto_start', 0);
+//ini_set('session.auto_start', '0');
 
 // session cookie settings
 session_set_cookie_params(
@@ -34,7 +34,7 @@ session_set_cookie_params(
 );
 
 // cookies are safer (use @ini_set() in case this function is disabled)
-@ini_set('session.use_cookies', true);
+@ini_set('session.use_cookies', '1');
 
 // optionally set session_save_path
 $path = $GLOBALS['PMA_Config']->get('SessionSavePath');
@@ -43,9 +43,9 @@ if (!empty($path)) {
 }
 
 // but not all user allow cookies
-@ini_set('session.use_only_cookies', false);
+@ini_set('session.use_only_cookies', '0');
 // do not force transparent session ids, see bug #3398788
-//@ini_set('session.use_trans_sid', true);
+//@ini_set('session.use_trans_sid', '1');
 @ini_set(
     'url_rewriter.tags',
     'a=href,frame=src,input=src,form=fakeentry,fieldset='
@@ -53,14 +53,14 @@ if (!empty($path)) {
 //ini_set('arg_separator.output', '&amp;');
 
 // delete session/cookies when browser is closed
-@ini_set('session.cookie_lifetime', 0);
+@ini_set('session.cookie_lifetime', '0');
 
-// warn but dont work with bug
-@ini_set('session.bug_compat_42', false);
-@ini_set('session.bug_compat_warn', true);
+// warn but don't work with bug
+@ini_set('session.bug_compat_42', '0');
+@ini_set('session.bug_compat_warn', '1');
 
 // use more secure session ids
-@ini_set('session.hash_function', 1);
+@ini_set('session.hash_function', '1');
 
 // some pages (e.g. stylesheet) may be cached on clients, but not in shared
 // proxy servers

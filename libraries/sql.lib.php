@@ -308,7 +308,7 @@ function PMA_getColumnNameInColumnDropSql($sql)
  *
  * @param array $fields_meta meta fields
  *
- * @return boolean whether the result set has columns from just one table 
+ * @return boolean whether the result set has columns from just one table
  */
 function PMA_resultSetHasJustOneTable($fields_meta)
 {
@@ -322,7 +322,7 @@ function PMA_resultSetHasJustOneTable($fields_meta)
             break;
         }
     }
-    return $just_one_table;    
+    return $just_one_table;
 }
 
 /**
@@ -2075,7 +2075,7 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
     $has_unique = PMA_resultSetContainsUniqueKey(
         $db, $table, $fields_meta
     );
-    
+
     $just_one_table = PMA_resultSetHasJustOneTable($fields_meta);
 
     $editable = ($has_unique || $updatableView) && $just_one_table;
@@ -2256,29 +2256,29 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
 /**
  * Function to execute the query and send the response
  *
- * @param array  $analyzed_sql_results   analysed sql results
- * @param bool   $is_gotofile            whether goto file or not
- * @param string $db                     current database
- * @param string $table                  current table
- * @param bool   $find_real_end          whether to find real end or not
- * @param string $sql_query_for_bookmark the sql query to be stored as bookmark
- * @param array  $extra_data             extra data
- * @param bool   $is_affected            whether affected or not
- * @param string $message_to_show        message to show
- * @param string $disp_mode              display mode
- * @param string $message                message
- * @param array  $sql_data               sql data
- * @param string $goto                   goto page url
- * @param string $pmaThemeImage          uri of the PMA theme image
- * @param string $disp_query             display query
- * @param string $disp_message           display message
- * @param string $query_type             query type
- * @param string $sql_query              sql query
- * @param bool   $selected               whether check table, optimize table,
- *                                       analyze table or repair table has been
- *                                       selected with respect to the selected
- *                                       tables from the database structure page
- * @param string $complete_query         complete query
+ * @param array      $analyzed_sql_results   analysed sql results
+ * @param bool       $is_gotofile            whether goto file or not
+ * @param string     $db                     current database
+ * @param string     $table                  current table
+ * @param bool|null  $find_real_end          whether to find real end or not
+ * @param string     $sql_query_for_bookmark the sql query to be stored as bookmark
+ * @param array|null $extra_data             extra data
+ * @param bool       $is_affected            whether affected or not
+ * @param string     $message_to_show        message to show
+ * @param string     $disp_mode              display mode
+ * @param string     $message                message
+ * @param array|null $sql_data               sql data
+ * @param string     $goto                   goto page url
+ * @param string     $pmaThemeImage          uri of the PMA theme image
+ * @param string     $disp_query             display query
+ * @param string     $disp_message           display message
+ * @param string     $query_type             query type
+ * @param string     $sql_query              sql query
+ * @param bool|null  $selected               whether check table, optimize table,
+ *                                           analyze table or repair table has been
+ *                                           selected with respect to the selected
+ *                                           tables from the database structure page
+ * @param string     $complete_query         complete query
  *
  * @return void
  */

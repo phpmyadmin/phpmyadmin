@@ -990,10 +990,10 @@ class PMA_DisplayResults
      *
      * @param array        &$is_display                 which elements to display
      * @param array|string $analyzed_sql                the analyzed query
-     * @param string       $sort_expression             sort expression
-     * @param string       $sort_expression_nodirection sort expression
+     * @param array        $sort_expression             sort expression
+     * @param array        $sort_expression_nodirection sort expression
      *                                                  without direction
-     * @param string       $sort_direction              sort direction
+     * @param array        $sort_direction              sort direction
      * @param boolean      $is_limited_display          with limited operations
      *                                                  or not
      *
@@ -1827,7 +1827,7 @@ class PMA_DisplayResults
      * @param integer $column_index                the index of the column
      * @param string  $unsorted_sql_query          the unsorted sql query
      * @param integer $session_max_rows            maximum rows resulted by sql
-     * @param array   $direction                   the display direction
+     * @param string  $direction                   the display direction
      * @param string  $comments                    comment for row
      * @param array   $sort_direction              sort direction
      * @param boolean $directionCondition          display direction horizontal
@@ -2094,7 +2094,7 @@ class PMA_DisplayResults
      * Get sort url paramaeters - sort order and order image
      *
      * @param array   $sort_direction the sort direction
-     * @param array   $sort_order     the sorting order
+     * @param string  $sort_order     the sorting order
      * @param integer $column_index   the index of the column
      * @param integer $index          the index of sort direction array.
      *
@@ -3685,7 +3685,7 @@ class PMA_DisplayResults
      * @param array   $analyzed_sql          the analyzed query
      * @param string  $transformation_plugin the name of transformation plugin
      * @param string  $default_function      the default transformation function
-     * @param string  $transform_options     the transformation parameters
+     * @param array   $transform_options     the transformation parameters
      *
      * @return  string  $cell               the prepared cell, html content
      *
@@ -3741,7 +3741,7 @@ class PMA_DisplayResults
      *                                       primary etc)
      * @param string  $transformation_plugin the name of transformation function
      * @param string  $default_function      the default transformation function
-     * @param string  $transform_options     the transformation parameters
+     * @param array   $transform_options     the transformation parameters
      * @param boolean $condition_field       the column should highlighted
      *                                       or not
      * @param boolean $is_field_truncated    the condition for blob data
@@ -3839,7 +3839,7 @@ class PMA_DisplayResults
      * @param boolean $condition_field       the column should highlighted or not
      * @param string  $transformation_plugin the name of transformation function
      * @param string  $default_function      the default transformation function
-     * @param string  $transform_options     the transformation parameters
+     * @param array   $transform_options     the transformation parameters
      * @param boolean $is_field_truncated    the condition for blob data replacements
      * @param array   $analyzed_sql          the analyzed query
      *
@@ -3960,7 +3960,7 @@ class PMA_DisplayResults
      *                                       or not
      * @param string  $transformation_plugin the name of transformation function
      * @param string  $default_function      the default transformation function
-     * @param string  $transform_options     the transformation parameters
+     * @param array   $transform_options     the transformation parameters
      * @param boolean $is_field_truncated    the condition for blob data
      *                                       replacements
      * @param array   $analyzed_sql          the analyzed query
@@ -4907,7 +4907,7 @@ class PMA_DisplayResults
                     $column_for_first_row = $this->_handleNonPrintableContents(
                         $meta->type, $row[$sorted_column_index],
                         $transformation_plugin, $transform_options,
-                        $default_function, $meta, null
+                        $default_function, $meta
                     );
 
                 } else {
@@ -4931,7 +4931,7 @@ class PMA_DisplayResults
                     $column_for_last_row = $this->_handleNonPrintableContents(
                         $meta->type, $row[$sorted_column_index],
                         $transformation_plugin, $transform_options,
-                        $default_function, $meta, null
+                        $default_function, $meta
                     );
 
                 } else {
@@ -5521,7 +5521,7 @@ class PMA_DisplayResults
      * @param string $transformation_plugin transformation plugin.
      *                                      Can also be the default function:
      *                                      PMA_mimeDefaultFunction
-     * @param string $transform_options     transformation parameters
+     * @param array  $transform_options     transformation parameters
      * @param string $default_function      default transformation function
      * @param object $meta                  the meta-information about the field
      * @param array  $url_params            parameters that should go to the
@@ -5606,7 +5606,7 @@ class PMA_DisplayResults
      * @param string $class                 css classes for the td element
      * @param bool   $condition_field       whether the column is a part of the
      *                                      where clause
-     * @param string $analyzed_sql          the analyzed query
+     * @param array  $analyzed_sql          the analyzed query
      * @param object $meta                  the meta-information about the field
      * @param array  $map                   the list of relations
      * @param string $data                  data

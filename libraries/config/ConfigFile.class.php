@@ -28,7 +28,7 @@ class ConfigFile
 
     /**
      * Stores original PMA config, not modified by user preferences
-     * @var PMA_Config
+     * @var array
      */
     private $_baseCfg;
 
@@ -269,7 +269,7 @@ class ConfigFile
         $this->_flattenArrayResult = array();
         array_walk($this->_defaultCfg, array($this, '_flattenArray'), '');
         $flat_cfg = $this->_flattenArrayResult;
-        $this->_flattenArrayResult = null;
+        $this->_flattenArrayResult = array();
         return $flat_cfg;
     }
 
@@ -287,7 +287,7 @@ class ConfigFile
         $this->_flattenArrayResult = array();
         array_walk($cfg, array($this, '_flattenArray'), '');
         $flat_cfg = $this->_flattenArrayResult;
-        $this->_flattenArrayResult = null;
+        $this->_flattenArrayResult = array();
 
         // save values map for translating a few user preferences paths,
         // should be complemented by code reading from generated config
@@ -519,7 +519,7 @@ class ConfigFile
         $this->_flattenArrayResult = array();
         array_walk($_SESSION[$this->_id], array($this, '_flattenArray'), '');
         $c = $this->_flattenArrayResult;
-        $this->_flattenArrayResult = null;
+        $this->_flattenArrayResult = array();
 
         $persistKeys = array_diff(
             array_keys($this->_persistKeys),

@@ -70,7 +70,7 @@ if (version_compare(phpversion(), '5.4', 'lt')) {
     /**
      * Avoid problems with magic_quotes_runtime
      */
-    @ini_set('magic_quotes_runtime', false);
+    @ini_set('magic_quotes_runtime', '0');
 }
 
 /**
