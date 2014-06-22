@@ -372,6 +372,12 @@ function PMA_getHtmlForSqlQueryFormInsert(
             . '<label for="retain_query_box">' . __('Retain query box')
             . '</label>';
     }
+
+    $html .= '<input type="checkbox" name="rollback_query" value="1" '
+        . 'id="rollback_query" tabindex="134" />'
+        . '<label for="rollback_query">' . __('Rollback when finished')
+        . '</label>';
+
     $html .= '</div>' . "\n";
     $html .= '<input type="submit" id="button_submit_query" name="SQL"';
     if ($is_querywindow) {
