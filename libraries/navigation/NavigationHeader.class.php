@@ -188,7 +188,8 @@ class PMA_NavigationHeader
         $retval .= '<div class="pma_sql_import_status">';
         $retval .= '<h2>SQL upload ( ';
         $retval .= '<span class="pma_import_count">0</span> ';
-        $retval .= ') <span class="minimize">-</span></h2>';
+        $retval .= ') <span class="close">x</span>';
+        $retval .= '<span class="minimize">-</span></h2>';
         $retval .= '<div></div>';
         $retval .= '</div>';
         return $retval;
