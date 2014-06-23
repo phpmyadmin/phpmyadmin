@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-23 08:30-0400\n"
-"PO-Revision-Date: 2014-06-23 18:00+0200\n"
+"PO-Revision-Date: 2014-06-23 20:10+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -1946,13 +1946,11 @@ msgid "Delete page"
 msgstr "Supprimer la page"
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Veuillez sélectionner une page pour continuer"
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
 msgstr "Veuillez entrer un nom de page valide"
@@ -4358,17 +4356,15 @@ msgid "Select a column."
 msgstr "Sélectionnez une colonne."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "Auto-croissant: taille de l'incrément"
+msgstr "auto_increment"
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
+msgstr "on update CURRENT_TIMESTAMP"
 
 #: libraries/central_columns.lib.php:886
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
 msgstr "Ajouter une colonne"
@@ -6572,10 +6568,9 @@ msgstr ""
 "Laisser vider pour désactiver, suggestion : [kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:665
-#, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
-msgstr "Table pour coordonnées du schéma en PDF"
+msgstr "Table pour coordonnées du schéma en PDF et du concepteur"
 
 #: libraries/config/messages.inc.php:667
 msgid ""
@@ -7180,16 +7175,14 @@ msgid "Can't count rows in an unbuffered result set"
 msgstr "﻿Ne peut pas compter des lignes dans un jeu de résultats non tamponnés"
 
 #: libraries/designer.lib.php:31
-#, fuzzy
 #| msgid "Page titles"
 msgid "Page to open"
-msgstr "Titres de page"
+msgstr "Page à ouvrir"
 
 #: libraries/designer.lib.php:33
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Page to delete"
-msgstr "Relation supprimée"
+msgstr "Page à supprimer"
 
 #: libraries/designer.lib.php:37 libraries/designer.lib.php:73
 #: libraries/schema/User_Schema.class.php:211
