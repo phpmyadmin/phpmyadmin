@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-22 14:57-0400\n"
-"PO-Revision-Date: 2014-05-14 20:18+0200\n"
-"Last-Translator: Edie Johnny <edie.eu@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2014-06-23 04:58+0200\n"
+"Last-Translator: Thiago Sabaia <thiago.sabaia@parqueproducoes.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -28,18 +28,18 @@ msgstr ""
 msgid ""
 "There are no columns in central list to display for the current database."
 msgstr ""
+"Não há colunas na lista central para mostrar para o banco de dados atual."
 
 #: db_central_columns.php:110
-#, fuzzy
 #| msgid "Click to sort."
 msgid "Click to sort"
-msgstr "Clique para organizar."
+msgstr "Clique para organizar"
 
 #: db_central_columns.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "Mostrando registros %1s - %2s"
+msgstr "Mostrando registros %1$s - %2$s"
 
 #: db_create.php:61
 #, php-format
@@ -970,7 +970,6 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Você realmente deseja excluir a busca \"%s\"?"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid ""
 #| "You have edited some data and they have not been saved. Are you sure you "
 #| "want to leave this page before saving the data?"
@@ -1012,16 +1011,14 @@ msgstr "Adicionar %s coluna(s) ao índice"
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:365
 msgid "Preview SQL"
-msgstr ""
+msgstr "Ver SQL"
 
 #: js/messages.php:61
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "na consulta"
+msgstr "Simular query"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
 msgstr "Linhas afetadas:"
@@ -1768,16 +1765,14 @@ msgstr "Visualizar valores estrangeiros"
 
 #: js/messages.php:287
 msgid "Pick"
-msgstr ""
+msgstr "Escolher"
 
 #: js/messages.php:288
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "Nenhuma coluna selecionada."
+msgstr "Nenhuma coluna foi selecionada"
 
 #: js/messages.php:289
-#, fuzzy
 #| msgid "Search this table"
 msgid "Search this list"
 msgstr "Procurar nesta tabela"
@@ -1788,25 +1783,28 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Não há colunas na lista central. Certifique-se que a lista de colunas "
+"centrais do banco de dados %s tem colunas que não estão presentes na tabela "
+"atual."
 
 #: js/messages.php:291
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
 msgstr "Memória livre"
 
 #: js/messages.php:292
 msgid "Are you sure?"
-msgstr ""
+msgstr "Você tem certeza?"
 
 #: js/messages.php:293
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Esta ação pode mudar alguns de definição colunas. <br/> Tem certeza de que "
+"deseja continuar?"
 
 #: js/messages.php:294
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
 msgstr "Contribuir"
@@ -1950,42 +1948,37 @@ msgid "Page name"
 msgstr "Nome da página"
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
 msgstr "Selecionar página"
 
 #: js/messages.php:357 pmd_general.php:144
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
 msgstr "Páginas livres"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "Selecionar página"
+msgstr "Apagar página"
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Favor escolher uma página para editar"
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "Por favor, digite um número válido!"
+msgstr "Por favor, digite um número válido"
 
 #: js/messages.php:361
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Você quer salvar as alterações para a página atual?"
 
 #: js/messages.php:362
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Página apagada com sucesso :)"
 
 #: js/messages.php:365
 #, php-format
@@ -2052,6 +2045,8 @@ msgstr ""
 #: js/messages.php:381
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
+"Por favor insira uma seqüência hexadecimal válido. Os caracteres válidos são "
+"0-9, A-F."
 
 #: js/messages.php:386
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2182,22 +2177,23 @@ msgstr ""
 
 #: js/messages.php:443 js/messages.php:455
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Alguns erros foram detectados no servidor!"
 
 #: js/messages.php:445
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Por favor, olhe na parte inferior da janela."
 
 #: js/messages.php:450 libraries/Error_Handler.class.php:350
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Ignorar"
+msgstr "Ignorar Tudo"
 
 #: js/messages.php:457
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
+"De acordo com as definições, elas estão sendo submetidas atualmente, por "
+"favor, seja paciente."
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:489
@@ -3019,10 +3015,9 @@ msgid "Too many error messages, some are not displayed."
 msgstr "Muitas mensagens de erro, algumas não exibidas."
 
 #: libraries/Error_Handler.class.php:333
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
-msgstr "Importar"
+msgstr "Reportar"
 
 #: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:344
 msgid "Automatically send report next time"
@@ -3280,10 +3275,9 @@ msgid "Designer"
 msgstr "Designer"
 
 #: libraries/Menu.class.php:481 libraries/Util.class.php:4099
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "Colunas da caixa de texto"
+msgstr "Colunas centrais"
 
 #: libraries/Menu.class.php:513 libraries/Util.class.php:4071
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
@@ -4309,37 +4303,39 @@ msgstr "Verificar privilégios"
 msgid ""
 "Central list of columns configuration Storage is not completely configured!"
 msgstr ""
+"Lista Central de colunas de armazenamento de configuração não está "
+"completamente configurado!"
 
 #: libraries/central_columns.lib.php:264
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "Não foi possível adicionar %1$s, pois já existem na lista central!"
 
 #: libraries/central_columns.lib.php:280
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "A configuração não pôde ser salva"
+msgstr "Não foi possível adicionar colunas!"
 
 #: libraries/central_columns.lib.php:356
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"Não foi possível remover a coluna (s) %1$s, pois elas não existem na lista "
+"de colunas centrais!"
 
 #: libraries/central_columns.lib.php:368
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not remove columns!"
-msgstr "Não foi possível salvar a tabela recente!"
+msgstr "Não foi possível remover a coluna!"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
-msgstr ""
+msgstr "Sim"
 
 #: libraries/central_columns.lib.php:509
 msgid "NO"
-msgstr ""
+msgstr "Não"
 
 #: libraries/central_columns.lib.php:629
 #: libraries/display_create_table.lib.php:60
@@ -4368,23 +4364,20 @@ msgid "Extra"
 msgstr "Extra"
 
 #: libraries/central_columns.lib.php:660
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Selecionar tabelas"
+msgstr "Selecionar tabela"
 
 #: libraries/central_columns.lib.php:714 libraries/structure.lib.php:1649
 msgid "Add column"
 msgstr "Adicionar coluna"
 
 #: libraries/central_columns.lib.php:726
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Selecione duas colunas"
+msgstr "Selecionar coluna."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
 msgstr "Incremento de auto-extensão"
@@ -4394,10 +4387,9 @@ msgid "on update CURRENT_TIMESTAMP"
 msgstr ""
 
 #: libraries/central_columns.lib.php:886
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
-msgstr "Adicionar coluna"
+msgstr "Adicionar nova coluna"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -5320,7 +5312,6 @@ msgid "Add %s"
 msgstr "Adicionar %s"
 
 #: libraries/config/messages.inc.php:176
-#, fuzzy
 #| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Usar hexadecimal para BLOB"
@@ -13252,16 +13243,14 @@ msgid "Save position"
 msgstr "Salvar posição"
 
 #: pmd_general.php:152
-#, fuzzy
 #| msgid "Save position"
 msgid "Save positions as"
-msgstr "Salvar posição"
+msgstr "Salvar posição em"
 
 #: pmd_general.php:156
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete pages"
-msgstr "Selecionar página"
+msgstr "Apagar páginas"
 
 #: pmd_general.php:167 pmd_general.php:499
 msgid "Create relation"
