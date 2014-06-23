@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-22 14:57-0400\n"
-"PO-Revision-Date: 2014-06-22 20:10+0200\n"
+"PO-Revision-Date: 2014-06-22 23:34+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/az/>\n"
+"Language-Team: Azerbaijani "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1865,10 +1865,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:355 libraries/schema/User_Schema.class.php:144
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Sehife Nömresi:"
+msgstr "Səhifə adı"
 
 #: js/messages.php:356
 #, fuzzy
@@ -6746,10 +6745,9 @@ msgstr "Relation view"
 
 #: libraries/designer.lib.php:37 libraries/designer.lib.php:73
 #: libraries/schema/User_Schema.class.php:211
-#, fuzzy
 #| msgid "Select All"
 msgid "Select page"
-msgstr "Hamısını Seç"
+msgstr "Səhifə Seç"
 
 #: libraries/designer.lib.php:59
 #, fuzzy
@@ -8666,15 +8664,14 @@ msgid "It appears your table uses triggers;"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:1813
-#, fuzzy, php-format
+#, php-format
 msgid "Structure for view %s exported as a table"
-msgstr "Sadece quruluş"
+msgstr "Görünüş strukturu %s cədvəl olaraq eksport edildi"
 
 #: libraries/plugins/export/ExportSql.class.php:1902
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "Allows reading data."
+msgstr "Verilənlərin oxunması xətası:"
 
 #: libraries/plugins/export/ExportXml.class.php:102
 msgid "Object creation options (all are recommended)"
@@ -8685,10 +8682,9 @@ msgid "Export contents"
 msgstr ""
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:117
-#, fuzzy
 #| msgid "Table"
 msgid "Table:"
-msgstr "Cedvel"
+msgstr "Cədvəl:"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -8706,10 +8702,9 @@ msgstr ""
 
 #: libraries/plugins/import/ImportCsv.class.php:81
 #: libraries/plugins/import/ImportLdi.class.php:68
-#, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "Sütun adları"
+msgstr "Sütun adları: "
 
 #: libraries/plugins/import/ImportCsv.class.php:133
 #: libraries/plugins/import/ImportCsv.class.php:148
@@ -8972,11 +8967,10 @@ msgid "not OK"
 msgstr "Müveffeqiyyetsiz"
 
 #: libraries/relation.lib.php:97
-#, fuzzy
 #| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
-msgstr "Müveffeqiyyetle"
+msgstr "OK"
 
 #: libraries/relation.lib.php:100
 msgid "Enabled"
@@ -9032,10 +9026,9 @@ msgid "User preferences"
 msgstr ""
 
 #: libraries/relation.lib.php:258
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configurable menus"
-msgstr "Modifications have been saved"
+msgstr "Konfiqurasiyası dəyişdirilə bilən menyular"
 
 #: libraries/relation.lib.php:269
 msgid "Hide/show navigation items"
@@ -9115,9 +9108,8 @@ msgid "Ignore all databases; Replicate:"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:105
-#, fuzzy
 msgid "Please select databases:"
-msgstr "Me'lumat bazası seç"
+msgstr "Zəhmət olmasa Verilənlər Bazalarını seçin:"
 
 #: libraries/replication_gui.lib.php:109
 msgid ""
@@ -9159,9 +9151,8 @@ msgid "Control slave:"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:223
-#, fuzzy
 msgid "Full start"
-msgstr "Tam metn (Fulltext)"
+msgstr "Tam Başlat"
 
 #: libraries/replication_gui.lib.php:224
 msgid "Full stop"
@@ -9242,10 +9233,9 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:383 libraries/replication_gui.lib.php:765
 #: libraries/server_privileges.lib.php:1269
-#, fuzzy
 #| msgid "User name"
 msgid "User name:"
-msgstr "İstifadeçi adı"
+msgstr "İstifadəçi adı:"
 
 #: libraries/replication_gui.lib.php:389 libraries/replication_gui.lib.php:769
 #: libraries/replication_gui.lib.php:785
@@ -9263,9 +9253,8 @@ msgid "Password"
 msgstr "Parol"
 
 #: libraries/replication_gui.lib.php:418
-#, fuzzy
 msgid "Port:"
-msgstr "Sırala"
+msgstr "Port:"
 
 #: libraries/replication_gui.lib.php:502
 msgid "Master status"
@@ -9282,9 +9271,8 @@ msgid "Variable"
 msgstr "Deyişen"
 
 #: libraries/replication_gui.lib.php:591 libraries/server_bin_log.lib.php:131
-#, fuzzy
 msgid "Server ID"
-msgstr "Server"
+msgstr "Server ID"
 
 #: libraries/replication_gui.lib.php:592 libraries/replication_gui.lib.php:679
 #: libraries/replication_gui.lib.php:820
@@ -9326,10 +9314,9 @@ msgstr "Her hansı istifadeçi"
 #: libraries/replication_gui.lib.php:781 libraries/replication_gui.lib.php:814
 #: libraries/replication_gui.lib.php:847
 #: libraries/server_privileges.lib.php:1431
-#, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
-msgstr "Use text field"
+msgstr "Mətn sahəsini istifadə et:"
 
 #: libraries/replication_gui.lib.php:808
 #: libraries/server_privileges.lib.php:1422
@@ -9349,36 +9336,32 @@ msgid "Re-type"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:863
-#, fuzzy
 #| msgid "Change password"
 msgid "Generate Password:"
-msgstr "Parolu Deyişdir"
+msgstr "Parol yarat:"
 
 #: libraries/replication_gui.lib.php:901
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication started successfully."
-msgstr "The privileges were reloaded successfully."
+msgstr "Replikasiya uğurla başladıldı."
 
 #: libraries/replication_gui.lib.php:902
 msgid "Error starting replication."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:905
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "The privileges were reloaded successfully."
+msgstr "Replikasiya uğurla dayandırıldı."
 
 #: libraries/replication_gui.lib.php:906
 msgid "Error stopping replication."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:909
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication resetting successfully."
-msgstr "The privileges were reloaded successfully."
+msgstr "Replikasiya uğurla sıfırlandı."
 
 #: libraries/replication_gui.lib.php:910
 msgid "Error resetting replication."
@@ -9389,10 +9372,9 @@ msgid "Success."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:914
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "Xeta"
+msgstr "Xəta."
 
 #: libraries/replication_gui.lib.php:957
 msgid "Unknown error"
@@ -9413,10 +9395,10 @@ msgid "Unable to change master!"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:1000
-#, fuzzy, php-format
+#, php-format
 #| msgid "The privileges were reloaded successfully."
 msgid "Master server changed successfully to %s."
-msgstr "The privileges were reloaded successfully."
+msgstr "Master server %s olaraq uğurla dəyişdirildi."
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:307
@@ -9439,15 +9421,15 @@ msgid "The backed up query was:"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:144
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped."
 msgid "Event %1$s has been modified."
-msgstr "%s cedveli leğv edildi"
+msgstr "%1$s hadisəsi dəyişdirildi."
 
 #: libraries/rte/rte_events.lib.php:164
-#, fuzzy, php-format
+#, php-format
 msgid "Event %1$s has been created."
-msgstr "%s cedveli leğv edildi"
+msgstr "%1$s hadisəsi yaradıldı."
 
 #: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_routines.lib.php:378
 #: libraries/rte/rte_triggers.lib.php:150
@@ -9455,9 +9437,8 @@ msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:234
-#, fuzzy
 msgid "Edit event"
-msgstr "Gönderildi"
+msgstr "Hadisəni redaktə et"
 
 #: libraries/rte/rte_events.lib.php:261 libraries/rte/rte_export.lib.php:43
 #: libraries/rte/rte_routines.lib.php:476
@@ -9475,20 +9456,18 @@ msgid "Details"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:426
-#, fuzzy
 msgid "Event name"
-msgstr "Eksport şekli"
+msgstr "Hadisə adı"
 
 #: libraries/rte/rte_events.lib.php:447 libraries/server_bin_log.lib.php:130
-#, fuzzy
 msgid "Event type"
-msgstr "Eksport şekli"
+msgstr "Hadisə tipi"
 
 #: libraries/rte/rte_events.lib.php:469 libraries/rte/rte_routines.lib.php:969
-#, fuzzy, php-format
+#, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "Deyişdir"
+msgstr "%s buna dəyiş"
 
 #: libraries/rte/rte_events.lib.php:475
 msgid "Execute at"
@@ -9499,23 +9478,20 @@ msgid "Execute every"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:502
-#, fuzzy
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr "Status"
+msgstr "Başla"
 
 #: libraries/rte/rte_events.lib.php:511
-#, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "Son"
 
 #: libraries/rte/rte_events.lib.php:525
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "On completion preserve"
-msgstr "Tam girişli"
+msgstr "Tamamlamada qoruma"
 
 #: libraries/rte/rte_events.lib.php:530
 #: libraries/rte/rte_routines.lib.php:1056
@@ -9610,16 +9586,14 @@ msgid "Parameters"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:981
-#, fuzzy
 #| msgid "Creation"
 msgid "Direction"
-msgstr "Quruluş"
+msgstr "İstiqamət"
 
 #: libraries/rte/rte_routines.lib.php:999
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add parameter"
-msgstr "Yeni sahe elave et"
+msgstr "Parametr əlavə et"
 
 #: libraries/rte/rte_routines.lib.php:1003
 #, fuzzy
@@ -9646,10 +9620,9 @@ msgid "Is deterministic"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1061
-#, fuzzy
 #| msgid "Query type"
 msgid "Security type"
-msgstr "Sorğu tipi"
+msgstr "Təhlükəsizlik tipi"
 
 #: libraries/rte/rte_routines.lib.php:1070
 msgid "SQL data access"
@@ -9710,33 +9683,30 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:116
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped."
 msgid "Trigger %1$s has been modified."
-msgstr "%s cedveli leğv edildi"
+msgstr "Trigger %1$s dəyişdirildi."
 
 #: libraries/rte/rte_triggers.lib.php:136
-#, fuzzy, php-format
+#, php-format
 msgid "Trigger %1$s has been created."
-msgstr "%s cedveli leğv edildi"
+msgstr "Trigger %1$s yaradıldı."
 
 #: libraries/rte/rte_triggers.lib.php:210
-#, fuzzy
 msgid "Edit trigger"
-msgstr "Yeni İstifadeçi elave Et"
+msgstr "Triggeri redaktə et"
 
 #: libraries/rte/rte_triggers.lib.php:356
-#, fuzzy
 #| msgid "server name"
 msgid "Trigger name"
-msgstr "İstifadeçi adı"
+msgstr "Trigger adı"
 
 #: libraries/rte/rte_triggers.lib.php:379
-#, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
-msgstr "Müddet"
+msgstr "Müddət"
 
 #: libraries/rte/rte_triggers.lib.php:458
 msgid "You must provide a trigger name!"
@@ -9792,9 +9762,8 @@ msgid "There are no routines to display."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:41
-#, fuzzy
 msgid "Add trigger"
-msgstr "Yeni İstifadeçi elave Et"
+msgstr "Trigger əlavə et"
 
 #: libraries/rte/rte_words.lib.php:43
 #, php-format
@@ -9802,9 +9771,8 @@ msgid "Export of trigger %s"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:44
-#, fuzzy
 msgid "trigger"
-msgstr "Yeni İstifadeçi elave Et"
+msgstr "trigger"
 
 #: libraries/rte/rte_words.lib.php:46
 #, fuzzy
@@ -9813,19 +9781,18 @@ msgid "You do not have the necessary privileges to create a trigger"
 msgstr "Burada olma haqqınız yoxdur!"
 
 #: libraries/rte/rte_words.lib.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Me'lumat bazasında cedvel yoxdur."
+msgstr "%1$s adlnda trigger %2$s Bazasında tapılmadı"
 
 #: libraries/rte/rte_words.lib.php:49
 msgid "There are no triggers to display."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:55
-#, fuzzy
 msgid "Add event"
-msgstr "Yeni İstifadeçi elave Et"
+msgstr "Hadisə əlavə et"
 
 #: libraries/rte/rte_words.lib.php:57
 #, php-format
@@ -9833,9 +9800,8 @@ msgid "Export of event %s"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:58
-#, fuzzy
 msgid "event"
-msgstr "Gönderildi"
+msgstr "hadisə"
 
 #: libraries/rte/rte_words.lib.php:60
 #, fuzzy
@@ -9844,10 +9810,10 @@ msgid "You do not have the necessary privileges to create an event"
 msgstr "Burada olma haqqınız yoxdur!"
 
 #: libraries/rte/rte_words.lib.php:62
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s"
-msgstr "Me'lumat bazasında cedvel yoxdur."
+msgstr "%1$s bu adda %2$s bazasında heç bir hadisə tapılmadı"
 
 #: libraries/rte/rte_words.lib.php:63
 msgid "There are no events to display."
@@ -9857,10 +9823,10 @@ msgstr ""
 #: libraries/schema/Eps_Relation_Schema.class.php:370
 #: libraries/schema/Pdf_Relation_Schema.class.php:438
 #: libraries/schema/Svg_Relation_Schema.class.php:337
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "\"%s\" cedveli mövcud deyil!"
+msgstr "%s cədvəli mövcud deyil!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:262
 #: libraries/schema/Eps_Relation_Schema.class.php:385
@@ -9873,10 +9839,10 @@ msgstr "Xahiş edirem, %s cedveli üçün koordinatları yeniden müeyyen et"
 #: libraries/schema/Eps_Relation_Schema.class.php:708
 #: libraries/schema/Pdf_Relation_Schema.class.php:845
 #: libraries/schema/Svg_Relation_Schema.class.php:679
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "\"%s\" bazanın sxemi - Sehife %s"
+msgstr "%s Bazasının sxemi - Səhifə %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:210
 msgid "This page does not contain any tables!"
@@ -9969,10 +9935,9 @@ msgid "Portrait"
 msgstr "Portret"
 
 #: libraries/schema/User_Schema.class.php:488
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "Quruluş"
+msgstr "Oriyentasiya"
 
 #: libraries/schema/User_Schema.class.php:548
 msgid ""
@@ -9987,16 +9952,14 @@ msgid "Toggle scratchboard"
 msgstr ""
 
 #: libraries/schema/User_Schema.class.php:672
-#, fuzzy
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
-msgstr "\"%s\" cedveli mövcud deyil!"
+msgstr "Fayl mövcud deyil"
 
 #: libraries/schema/User_Schema.class.php:681
-#, fuzzy
 #| msgid "Disabled"
 msgid "Plugin is disabled"
-msgstr "Söndürülüb"
+msgstr "Plaqin Söndürülüb"
 
 #: libraries/select_lang.lib.php:598 libraries/select_lang.lib.php:607
 #: libraries/select_lang.lib.php:616
@@ -10005,10 +9968,9 @@ msgid "Unknown language: %1$s."
 msgstr ""
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
-#, fuzzy
 #| msgid "Server"
 msgid "Current Server:"
-msgstr "Server"
+msgstr "Cari Server:"
 
 #: libraries/server_bin_log.lib.php:30
 msgid "Select binary log to view"
@@ -10027,9 +9989,8 @@ msgid "Original position"
 msgstr ""
 
 #: libraries/server_bin_log.lib.php:133 libraries/structure.lib.php:2270
-#, fuzzy
 msgid "Information"
-msgstr "Sisteme Giriş Me'lumatı"
+msgstr "İnformasiya"
 
 #: libraries/server_bin_log.lib.php:183 libraries/server_status.lib.php:461
 msgid "Truncate Shown Queries"
@@ -10069,12 +10030,12 @@ msgid "Enable Statistics"
 msgstr "Statistikaları Aktivleşdir"
 
 #: libraries/server_databases.lib.php:489
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s bazası müveffeqiyyetle leğv edildi."
-msgstr[1] "%s bazası müveffeqiyyetle leğv edildi."
+msgstr[0] "%1$d bazası müvəffəqiyyətlə ləğv edildi."
+msgstr[1] "%1$d bazası müvəffəqiyyətlə ləğv edildi."
 
 #: libraries/server_plugins.lib.php:32
 msgid "Modules"
@@ -10098,9 +10059,8 @@ msgstr ""
 
 #: libraries/server_plugins.lib.php:78 libraries/server_plugins.lib.php:135
 #: libraries/tbl_tracking.lib.php:197
-#, fuzzy
 msgid "Version"
-msgstr "PHP Versiyası"
+msgstr "Versiya"
 
 #: libraries/server_plugins.lib.php:79 libraries/server_plugins.lib.php:136
 msgid "Author"
@@ -10111,7 +10071,6 @@ msgid "License"
 msgstr ""
 
 #: libraries/server_plugins.lib.php:189
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
 msgstr "Söndürülüb"
@@ -10233,9 +10192,8 @@ msgstr "Gives the right to the user to ask where the slaves / masters are."
 #: libraries/server_privileges.lib.php:394
 #: libraries/server_privileges.lib.php:1113
 #: libraries/server_privileges.lib.php:1120 server_privileges.php:67
-#, fuzzy
 msgid "Allows creating new views."
-msgstr "Yeni cedveller qurmağa icaze verir."
+msgstr "Yeni görünüşlər qurmağa icazə verir."
 
 #: libraries/server_privileges.lib.php:383
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:71
@@ -10278,11 +10236,10 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:473
 #: libraries/server_privileges.lib.php:474
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
-msgstr "Heç biri"
+msgstr "Yox"
 
 #: libraries/server_privileges.lib.php:525
 #: libraries/server_privileges.lib.php:551
@@ -10332,10 +10289,9 @@ msgstr "Cedvelexas selahiyyetler"
 #: libraries/server_privileges.lib.php:834
 #: libraries/server_privileges.lib.php:1018
 #: libraries/server_privileges.lib.php:2962
-#, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "Qeyd: MySQL selahiyyet adları ingilis dilinde ifade edilmişdir"
+msgstr "Qeyd: MySQL səlahiyyət adları ingilis dilində ifade edilmişdir."
 
 #: libraries/server_privileges.lib.php:982
 msgid "Administration"
@@ -10347,10 +10303,9 @@ msgid "Global privileges"
 msgstr "Qlobal selahiyyetler"
 
 #: libraries/server_privileges.lib.php:1003
-#, fuzzy
 #| msgid "global"
 msgid "Global"
-msgstr "qlobal"
+msgstr "Qlobal"
 
 #: libraries/server_privileges.lib.php:1005
 #: libraries/server_privileges.lib.php:2777
@@ -10406,10 +10361,9 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2033
 #: libraries/server_privileges.lib.php:3126
 #: libraries/server_privileges.lib.php:3780
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Her hansı istifadeçi"
+msgstr "İstifadəçi əlavə et"
 
 #: libraries/server_privileges.lib.php:1719
 msgid "Database for user"
@@ -10451,9 +10405,8 @@ msgid "Grant"
 msgstr "İcaze ver"
 
 #: libraries/server_privileges.lib.php:1893
-#, fuzzy
 msgid "User has been added."
-msgstr "%s sahesi leğv edildi"
+msgstr "İstifadəçi əlavə olundu."
 
 #: libraries/server_privileges.lib.php:1901
 #: libraries/server_privileges.lib.php:2020
@@ -10463,10 +10416,9 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:2054
 #: libraries/server_privileges.lib.php:3411
-#, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
-msgstr "İstifadeçi(ler) tapılmadı."
+msgstr "İstifadəçi(lər) tapılmadı."
 
 #: libraries/server_privileges.lib.php:2075
 #: libraries/server_privileges.lib.php:2371
@@ -10487,10 +10439,9 @@ msgid "wildcard"
 msgstr "xüsusi işare"
 
 #: libraries/server_privileges.lib.php:2137
-#, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
-msgstr "bazayaxas"
+msgstr "Bazayaxas"
 
 #: libraries/server_privileges.lib.php:2234
 msgid "Edit Privileges"
@@ -10501,10 +10452,9 @@ msgid "Revoke"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2304
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit user group"
-msgstr "Bir sonrakı setre keç"
+msgstr "İstifadəçi qruplarını redaktə et"
 
 #: libraries/server_privileges.lib.php:2479
 msgid "… keep the old one."
@@ -10550,10 +10500,9 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2888
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
-msgstr "Aşağıdakı cedvel üçün selahiyyetler müeyyen et"
+msgstr "Aşağıdakı cədvəl üçün səlahiyyətləri müəyyən et:"
 
 #: libraries/server_privileges.lib.php:3132
 msgid "Remove selected users"
@@ -10601,35 +10550,33 @@ msgid "The user %s already exists!"
 msgstr "%s istifadeçisi mövcuddur!"
 
 #: libraries/server_privileges.lib.php:3747
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Selahiyyetler"
+msgstr "%s üçün səlahiyyətlər"
 
 #: libraries/server_privileges.lib.php:3801
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit Privileges:"
-msgstr "Selahiyyetleri Deyişdir"
+msgstr "Səlahiyyətləri redaktə et:"
 
 #: libraries/server_privileges.lib.php:3870 libraries/server_users.lib.php:25
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
-msgstr "User overview"
+msgstr "İstifadəçilərə ümumi baxış"
 
 #: libraries/server_privileges.lib.php:3953
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"Qeyd: phpMyAdmin istifadeçi selahiyyetlerini birbaşa MySQL-in selahiyyetler "
-"cedvellerinden almaqdadır. Eger elle nizamlamalar edilmişse, bu cedvellerin "
-"içerisindekiler webserver-in istifade etdiklerinden ferqli ola biler. Bu "
-"halda, davam etmeden evvel, selahiyyetleri %syeniden yüklemelisiniz%s."
+"Qeyd: phpMyAdmin istifadəçi səlahiyyətlərini birbaşa MySQL-in səlahiyyətlər "
+"cədvəllərindən almaqdadır. Əgər əllə nizamlamalar edilmişsə, bu cədvəllərin "
+"içərisindəkilər webserver-in istifadə etdiklərindən fərqli ola bilər. Bu "
+"halda, davam etmədən əvvəl, səlahiyyətləri %syenidən yükləməlisiniz%s."
 
 #: libraries/server_privileges.lib.php:4003
 msgid "The selected user was not found in the privilege table."
@@ -10645,10 +10592,10 @@ msgid "Network traffic since startup: %s"
 msgstr ""
 
 #: libraries/server_status.lib.php:69
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Bu MySQL server %sdir işlemektedir. Server %s-de açılmışdır."
+msgstr "Bu MySQL serverin işləmə müddəti: %1$s. Başladığı zaman: %2$s."
 
 #: libraries/server_status.lib.php:79
 msgid ""
@@ -10703,9 +10650,8 @@ msgid "Command"
 msgstr "Komanda Tipi"
 
 #: libraries/server_status_advisor.lib.php:23
-#, fuzzy
 msgid "Instructions"
-msgstr "Funksiya"
+msgstr "Təlimatlar"
 
 #: libraries/server_status_advisor.lib.php:29
 msgid ""
@@ -10735,31 +10681,29 @@ msgid ""
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:77
-#, fuzzy, php-format
+#, php-format
 #| msgid "per second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "saniyede"
-msgstr[1] "saniyede"
+msgstr[0] "%d saniyə"
+msgstr[1] "%d saniyə"
 
 #: libraries/server_status_monitor.lib.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "in use"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "istifadede"
-msgstr[1] "istifadede"
+msgstr[0] "%d dəqiqə"
+msgstr[1] "%d dəqiqə"
 
 #: libraries/server_status_monitor.lib.php:96
-#, fuzzy
 msgid "Log statistics"
-msgstr "Sıra Statistikası"
+msgstr "Log Statistikası"
 
 #: libraries/server_status_monitor.lib.php:97
-#, fuzzy
 #| msgid "Select All"
 msgid "Selected time range:"
-msgstr "Hamısını Seç"
+msgstr "Seçili zaman aralığı:"
 
 #: libraries/server_status_monitor.lib.php:105
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
@@ -10778,10 +10722,9 @@ msgid "Results are grouped by query text."
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:123
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Sorğu tipi"
+msgstr "Sorğu analizatoru"
 
 #: libraries/server_status_monitor.lib.php:140
 msgid "Monitor Instructions"
