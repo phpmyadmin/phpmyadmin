@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-22 14:57-0400\n"
+"POT-Creation-Date: 2014-06-23 08:30-0400\n"
 "PO-Revision-Date: 2014-03-28 11:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Catalan <https://l10n.cihar.com/projects/phpmyadmin/master/ca/"
 ">\n"
-"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -25,17 +25,16 @@ msgstr ""
 "net per a més informació."
 
 #: db_central_columns.php:85
-msgid ""
-"There are no columns in central list to display for the current database."
+msgid "The central list of columns for the current database is empty."
 msgstr ""
 
-#: db_central_columns.php:110
+#: db_central_columns.php:109
 #, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort"
 msgstr "Clica per clasificar"
 
-#: db_central_columns.php:126
+#: db_central_columns.php:125
 #, fuzzy, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing row(s) %1$s - %2$s"
@@ -621,11 +620,11 @@ msgstr ""
 #: import.php:130
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Probablement has triat d'enviar un arxiu que és massa gran. Consulta la "
-"%sdocumentació%s per trobar formes de modificar aquest límit."
+"Probablement has triat d'enviar un arxiu que és massa gran. Consulta la %"
+"sdocumentació%s per trobar formes de modificar aquest límit."
 
 #: import.php:295 import.php:579
 msgid "Showing bookmark"
@@ -2978,8 +2977,8 @@ msgstr "La vostra comanda SQL ha estat executada amb èxit"
 #: libraries/DisplayResults.class.php:4861 libraries/structure.lib.php:682
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Aquesta vista té al menys aques nombre de files. Consulta %sdocumentation%s."
 
@@ -3905,20 +3904,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Un nombre de coma flotant petit, els valors permesos són de -3.402823466E+38 "
 "a -1.175494351E-38, 0, i de 1.175494351E-38 a 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Un nombre de coma flotant de doble precisió, els valors permesos són de "
-"-1.7976931348623157E+308 a -2.2250738585072014E-308, 0, i de "
+"Un nombre de coma flotant de doble precisió, els valors permesos són de -"
+"1.7976931348623157E+308 a -2.2250738585072014E-308, 0, i de "
 "2.2250738585072014E-308 a 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -4880,23 +4879,23 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:416
 #, fuzzy, php-format
 #| msgid ""
-#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
-#| "%sLogin cookie validity%s must be set to a value less or equal to it."
+#| "If using cookie authentication and %sLogin cookie store%s is not 0, %"
+#| "sLogin cookie validity%s must be set to a value less or equal to it."
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Si s'utilitza la autenticació per cookies i el valor de %sLogin cookie store"
-"%s no és  0, %sLogin cookie validity%s ha d'establir-se a un valor menor o "
+"Si s'utilitza la autenticació per cookies i el valor de %sLogin cookie store%"
+"s no és  0, %sLogin cookie validity%s ha d'establir-se a un valor menor o "
 "igual a ell."
 
 #: libraries/config/ServerConfigChecks.class.php:423
 #, fuzzy, php-format
 #| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
+#| "If you feel this is necessary, use additional protection settings - %"
+#| "shost authentication%s settings and %strusted proxies list%s. However, IP-"
+#| "based protection may not be reliable if your IP belongs to an ISP where "
+#| "thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
@@ -4920,8 +4919,8 @@ msgstr ""
 "Has triat el tipus d'autenticació [kbd]config[/kbd] i has inclós el nom "
 "d'usuari i la contrasenya per connexions automàtiques, que es una opció no "
 "recomanable per a servidors actius. Qualsevol que conegui la teva URL de "
-"phpMyAdmin pot accedir al teu panel directament. Estableix el "
-"%sauthentication type%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
+"phpMyAdmin pot accedir al teu panel directament. Estableix el %"
+"sauthentication type%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
 
 #: libraries/config/ServerConfigChecks.class.php:437
 #, php-format
@@ -7992,12 +7991,12 @@ msgstr ", @TABLE@ serà el nom de la taula"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Aquest valor s'interpreta usant %1$sstrftime%2$s, pel que podeu usar les "
-"cadenes de formateig de temps. A més, es faran aquestes transformacions: "
-"%3$s. Altre text es deixarà sense variació. Consulteu les %4$sPFC -FAQ- %5$s "
+"cadenes de formateig de temps. A més, es faran aquestes transformacions: %3"
+"$s. Altre text es deixarà sense variació. Consulteu les %4$sPFC -FAQ- %5$s "
 "per a més detalls."
 
 #: libraries/display_export.lib.php:519
@@ -8552,8 +8551,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Pots trobar la documentació i més informació sobre PBXT a la pàgina "
 "principal de %sPrimeBase XT%s."
@@ -8671,7 +8670,7 @@ msgstr "Anar a la vista: %s"
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/import.lib.php:1774
+#: libraries/import.lib.php:1775
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -9411,8 +9410,8 @@ msgstr "Benvingut a %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "La raó més probable d'aixó és que no heu creat l'arxiu de configuració. "
 "Podreu voler utilitzar %1$ssetup script%2$s per crear-ne un."
@@ -11875,8 +11874,8 @@ msgstr "Vista global d'usuaris"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin obté els permisos de l'usuari directament de les taules de "
 "permisos de MySQL. El contingut d'aquestes taules pot ser diferent dels "
@@ -14988,8 +14987,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "La taxa actual de memòria lluire del cau de consultes respecte la mida total "
 "és de %s%%. Hauria de estar per sobre de 80%%"
@@ -15147,8 +15146,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% de totes les ordenacions causen taules temporals, aquest valor ha de "
 "ser inferior al 10%%."
@@ -15559,8 +15558,8 @@ msgstr ""
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
-"Bloquejos immediats de taula: %s%%, aquest valor ha d'estar per sobre del "
-"95%%"
+"Bloquejos immediats de taula: %s%%, aquest valor ha d'estar per sobre del 95%"
+"%"
 
 #: libraries/advisory_rules.txt:355
 msgid "Table lock wait rate"
@@ -16069,8 +16068,8 @@ msgstr "{concurrent_insert} està establert a 0"
 #~ "%s."
 #~ msgstr ""
 #~ "No s'ha pogut iniciar el validador SQL. Si us plau, comproveu que teniu "
-#~ "instal·lats els mòduls de PHP necessaris tal i com s'indica a la "
-#~ "%sdocumentació%s."
+#~ "instal·lats els mòduls de PHP necessaris tal i com s'indica a la %"
+#~ "sdocumentació%s."
 
 #, fuzzy
 #~| msgid "Error: Relation not added."

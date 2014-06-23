@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-22 14:57-0400\n"
+"POT-Creation-Date: 2014-06-23 08:30-0400\n"
 "PO-Revision-Date: 2014-03-27 15:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Mongolian <https://l10n.cihar.com/projects/phpmyadmin/master/"
 "mn/>\n"
-"Language: mn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: mn\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -25,15 +25,14 @@ msgstr ""
 "дэлгэрэнгүй мэдээлэл авна уу."
 
 #: db_central_columns.php:85
-msgid ""
-"There are no columns in central list to display for the current database."
+msgid "The central list of columns for the current database is empty."
 msgstr ""
 
-#: db_central_columns.php:110
+#: db_central_columns.php:109
 msgid "Click to sort"
 msgstr ""
 
-#: db_central_columns.php:126
+#: db_central_columns.php:125
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing row(s) %1$s - %2$s"
@@ -624,8 +623,8 @@ msgstr ""
 #: import.php:130
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Хэтэрхий том хэмжээтэй файл ачаалахыг оролдсон бололтой. Үүнийг хэрхэн "
 "шийдэхийг %sбаримтжуулалт%s-с уншина уу."
@@ -3145,8 +3144,8 @@ msgstr "Таны SQL-асуулт амжилттай ажиллав"
 #: libraries/DisplayResults.class.php:4861 libraries/structure.lib.php:682
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4874
@@ -4086,14 +4085,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -7593,12 +7592,12 @@ msgstr ""
 #| "will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Энэ утга нь %1$sstrftime%2$s -ийг хэрэглэж үүссэн, тиймээс та хугацааны "
-"тогтнолын тэмдэгтийг хэрэглэж болно. Нэмэлтээр дараах хувиргалт байх болно: "
-"%3$s. Бусад бичвэрүүд үүн шиг хадгалагдана."
+"тогтнолын тэмдэгтийг хэрэглэж болно. Нэмэлтээр дараах хувиргалт байх болно: %"
+"3$s. Бусад бичвэрүүд үүн шиг хадгалагдана."
 
 #: libraries/display_export.lib.php:519
 msgid "use this for future exports"
@@ -8132,8 +8131,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -8244,7 +8243,7 @@ msgstr ""
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/import.lib.php:1774
+#: libraries/import.lib.php:1775
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -9003,11 +9002,11 @@ msgstr "%s-д тавтай морилно уу"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Үүний шалтгаан нь магадгүй та тохиргооны файл үүсгээгүй байж болох юм. Та "
-"%1$ssetup script%2$s -ийг ашиглаж нэгийг үүсгэж болно."
+"Үүний шалтгаан нь магадгүй та тохиргооны файл үүсгээгүй байж болох юм. Та %1"
+"$ssetup script%2$s -ийг ашиглаж нэгийг үүсгэж болно."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:126
 msgid ""
@@ -11514,8 +11513,8 @@ msgstr "User overview"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Тэмдэглэл: phpMyAdmin нь MySQL-ийн онцгой эрхийн хүснэгтээс хэрэглэгчдийн "
 "онцгой эрхийг авна. Хэрэв тэд гараар өөрчлөгдсөн бол эдгээр хүснэгтийн "
@@ -14544,8 +14543,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -14677,8 +14676,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -15943,8 +15942,8 @@ msgstr "ХИ. давхацсан холболтууд"
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
-#~ "Холбогдсон хүснэгтүүдтэй ажиллах нэмэлт онцлогууд идэвхгүй болжээ. %sЭнд"
-#~ "%s дарж шалгах."
+#~ "Холбогдсон хүснэгтүүдтэй ажиллах нэмэлт онцлогууд идэвхгүй болжээ. %sЭнд%"
+#~ "s дарж шалгах."
 
 #~ msgid "Ignore duplicate rows"
 #~ msgstr "Давхардсан мөрүүдийг алгасах"

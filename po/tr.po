@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-22 14:57-0400\n"
+"POT-Creation-Date: 2014-06-23 08:30-0400\n"
 "PO-Revision-Date: 2014-06-23 08:04+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
-"Language: tr\n"
+"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -25,16 +25,14 @@ msgstr ""
 "phpmyadmin.net adresini ziyaret edin."
 
 #: db_central_columns.php:85
-msgid ""
-"There are no columns in central list to display for the current database."
+msgid "The central list of columns for the current database is empty."
 msgstr ""
 
-#: db_central_columns.php:110
-#| msgid "Click to sort."
+#: db_central_columns.php:109
 msgid "Click to sort"
 msgstr "Sıralamak için tıklayın"
 
-#: db_central_columns.php:126
+#: db_central_columns.php:125
 #, php-format
 msgid "Showing row(s) %1$s - %2$s"
 msgstr "Gösterilen satır %1$s - %2$s"
@@ -610,8 +608,8 @@ msgstr ""
 #: import.php:130
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Muhtemelen çok büyük dosya göndermeyi denediniz. Lütfen bu sınır için çözüm "
 "yolu olarak %sbelgeden%s yararlanın."
@@ -895,8 +893,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "phpMyAdmin yapılandırma depolaması tamamiyle yapılandırılmadı, bazı "
-"genişletilmiş özellikler devre dışı bırakıldı. Nedenini öğrenmek için "
-"%sburaya%s tıklayın."
+"genişletilmiş özellikler devre dışı bırakıldı. Nedenini öğrenmek için %"
+"sburaya%s tıklayın."
 
 #: index.php:552
 #, php-format
@@ -1005,12 +1003,10 @@ msgid "Preview SQL"
 msgstr "SQL Önizle"
 
 #: js/messages.php:61
-#| msgid "in query"
 msgid "Simulate query"
 msgstr "Sorguyu benzeştir"
 
 #: js/messages.php:62
-#| msgid "Affected rows:"
 msgid "Matched rows:"
 msgstr "Eşleşen satırlar:"
 
@@ -1282,8 +1278,8 @@ msgid ""
 "depending on your system."
 msgstr ""
 "slow_query_log etkinleştirildi ama sunucu sadece %d saniyeden daha uzun "
-"süren sorguları günlükler. Bu long_query_time'ın, sisteminize bağlı olarak "
-"0-2 saniyeye ayarlanması tavsiye edilir."
+"süren sorguları günlükler. Bu long_query_time'ın, sisteminize bağlı olarak 0-"
+"2 saniyeye ayarlanması tavsiye edilir."
 
 #: js/messages.php:143
 #, php-format
@@ -1924,27 +1920,22 @@ msgid "Page name"
 msgstr "Sayfa adı"
 
 #: js/messages.php:356
-#| msgid "Select page"
 msgid "Save page"
 msgstr "Sayfayı kaydet"
 
 #: js/messages.php:357 pmd_general.php:144
-#| msgid "Free pages"
 msgid "Open page"
 msgstr "Sayfayı aç"
 
 #: js/messages.php:358
-#| msgid "Select page"
 msgid "Delete page"
 msgstr "Sayfayı sil"
 
 #: js/messages.php:359
-#| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Lütfen devam etmek için bir sayfa seçin"
 
 #: js/messages.php:360
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
 msgstr "Lütfen geçerli bir sayfa adı girin"
 
@@ -2092,8 +2083,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"phpMyAdmin'in yeni sürümü mevcut ve yükseltmeyi düşünmelisiniz. Yeni sürüm "
-"%s, %s tarihinde yayınlandı."
+"phpMyAdmin'in yeni sürümü mevcut ve yükseltmeyi düşünmelisiniz. Yeni sürüm %"
+"s, %s tarihinde yayınlandı."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:418
@@ -2880,8 +2871,8 @@ msgstr "SQL sorgunuz başarılı olarak çalıştırıldı."
 #: libraries/DisplayResults.class.php:4861 libraries/structure.lib.php:682
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Bu görünüm en az bu satır sayısı kadar olur. Lütfen %sbelgeden%s yararlanın."
 
@@ -3760,20 +3751,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Küçük kayan noktalı bir sayı, izin verilebilir değerler -3.402823466E+38'den "
 "-1.175494351E-38'e, 0 ve 1.175494351E-38'den 3.402823466E+38'e kadardır"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Çift duyarlıklı kayan noktalı bir sayı, izin verilebilir değerler "
-"-1.7976931348623157E+308'den -2.2250738585072014E-308'e, 0 ve "
+"Çift duyarlıklı kayan noktalı bir sayı, izin verilebilir değerler -"
+"1.7976931348623157E+308'den -2.2250738585072014E-308'e, 0 ve "
 "2.2250738585072014E-308'den 1.7976931348623157E+308'e kadardır"
 
 #: libraries/Types.class.php:336
@@ -4317,7 +4308,6 @@ msgid "Select a column."
 msgstr "Bir sütun seçin."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#| msgid "Autoextend increment"
 msgid "auto_increment"
 msgstr "auto_increment"
 
@@ -4326,7 +4316,6 @@ msgid "on update CURRENT_TIMESTAMP"
 msgstr "CURRENT_TIMESTAMP güncellemede"
 
 #: libraries/central_columns.lib.php:886
-#| msgid "Add column"
 msgid "Add new column"
 msgstr "Yeni sütun ekle"
 
@@ -4704,8 +4693,8 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Eğer [kbd]tanımlama bilgisi[/kbd] kimlik doğrulaması kullanılıyorsa ve "
-"%sOturum açma tanımlama bilgisi depolaması%s değeri 0 değilse, %sOturum açma "
+"Eğer [kbd]tanımlama bilgisi[/kbd] kimlik doğrulaması kullanılıyorsa ve %"
+"sOturum açma tanımlama bilgisi depolaması%s değeri 0 değilse, %sOturum açma "
 "tanımlama bilgisi geçerliliği%s eşit ya da daha az değere ayarlanmak "
 "zorundadır."
 
@@ -4718,8 +4707,8 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Eğer bunun gerekli olduğunu düşünüyorsanız, ilave koruma ayarlarını kullanın "
-"- %sanamakine kimlik doğrulaması%s ayarları ve %sgüvenilir proksiler listesi"
-"%s. Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce "
+"- %sanamakine kimlik doğrulaması%s ayarları ve %sgüvenilir proksiler listesi%"
+"s. Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce "
 "kullanıcıya sahip ve bağlı olduğunuz bir ISS'e ait ise güvenilir olmayabilir."
 
 #: libraries/config/ServerConfigChecks.class.php:431
@@ -4734,8 +4723,8 @@ msgstr ""
 "[kbd]Yapılandırma[/kbd] kimlik doğrulaması türünü ayarladınız ve buna "
 "otomatik oturum açma için kullanıcı adı ve parola dahildir, canlı "
 "anamakineler için istenmeyen bir seçenektir. phpMyAdmin URL'nizi bilen veya "
-"tahmin eden herhangi biri doğrudan phpMyAdmin panelinize erişebilir. "
-"%sKimlik doğrulama türünü%s [kbd]tanımlama bilgisi[/kbd] ya da [kbd]http[/"
+"tahmin eden herhangi biri doğrudan phpMyAdmin panelinize erişebilir. %"
+"sKimlik doğrulama türünü%s [kbd]tanımlama bilgisi[/kbd] ya da [kbd]http[/"
 "kbd] olarak ayarlayın."
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -6534,7 +6523,6 @@ msgstr ""
 "[/kbd]."
 
 #: libraries/config/messages.inc.php:665
-#| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
 msgstr "Tasarımcı ve PDF şeması: tablo koordinatları"
 
@@ -7135,12 +7123,10 @@ msgid "Can't count rows in an unbuffered result set"
 msgstr "Arabelleklenmemiş sonuç grubunda satırlar sayılamıyor"
 
 #: libraries/designer.lib.php:31
-#| msgid "Page titles"
 msgid "Page to open"
 msgstr "Açmak için sayfa"
 
 #: libraries/designer.lib.php:33
-#| msgid "Relation deleted"
 msgid "Page to delete"
 msgstr "Silmek için bağlantı"
 
@@ -7150,17 +7136,14 @@ msgid "Select page"
 msgstr "Sayfa seç"
 
 #: libraries/designer.lib.php:59
-#| msgid "Export to selected page."
 msgid "Save to selected page"
 msgstr "Seçilen sayfaya kaydet"
 
 #: libraries/designer.lib.php:60
-#| msgid "Create a page and export to it."
 msgid "Create a page and save to it"
 msgstr "Bir sayfa oluştur ve ona kaydet"
 
 #: libraries/designer.lib.php:92
-#| msgid "New page name: "
 msgid "New page name"
 msgstr "Yeni sayfa adı"
 
@@ -7322,8 +7305,8 @@ msgstr ", @TABLE@ tablo adı olacaktır"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Bu değer %1$sstrftime%2$s kullanılarak yorumlanır, bu yüzden zaman "
 "biçimlendirme dizgisi kullanabilirsiniz. İlave olarak aşağıdaki dönüşümler "
@@ -7368,32 +7351,26 @@ msgid "Skip tables larger than"
 msgstr "Şundan büyük tabloları atla"
 
 #: libraries/display_export.lib.php:776
-#| msgid "Select a table"
 msgid "Select database"
 msgstr "Veritabanı seç"
 
 #: libraries/display_export.lib.php:778
-#| msgid "Select a table"
 msgid "Select table"
 msgstr "Tablo seç"
 
 #: libraries/display_export.lib.php:794
-#| msgid "Database name"
 msgid "New database name"
 msgstr "Yeni veritabanı adı"
 
 #: libraries/display_export.lib.php:818
-#| msgid "New page name: "
 msgid "New table name"
 msgstr "Yeni tablo adı"
 
 #: libraries/display_export.lib.php:827
-#| msgid "Copy column name."
 msgid "Old column name"
 msgstr "Eski sütun adı"
 
 #: libraries/display_export.lib.php:828
-#| msgid "Copy column name."
 msgid "New column name"
 msgstr "Yeni sütun adı"
 
@@ -7873,8 +7850,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "%sPrimeBase XT Ana Sayfasında%s PBXT hakkında belge ve daha fazla bilgi "
 "bulunabilir."
@@ -7988,7 +7965,7 @@ msgstr "Şu görünüme git: %s"
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Sadece tek tablo UPDATE ve DELETE sorguları benzetilebilir."
 
-#: libraries/import.lib.php:1774
+#: libraries/import.lib.php:1775
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -8685,8 +8662,8 @@ msgstr "%s'e Hoş Geldiniz"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Muhtemelen bunun sebebi yapılandırma dosyasını oluşturmadığınız içindir. Bir "
 "tane oluşturmak için %1$skur programcığı%2$s kullanmak isteyebilirsiniz."
@@ -9096,7 +9073,6 @@ msgstr ""
 "etkinleştirir)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:527
-#| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses procedures;"
 msgstr "Görünüşe göre veritabanınız yordamları kullanmakta;"
 
@@ -9109,12 +9085,10 @@ msgstr ""
 "kodadını dışa aktarma, her durumda güvenilir bir şekilde çalışmayabilir."
 
 #: libraries/plugins/export/ExportSql.class.php:559
-#| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses functions;"
 msgstr "Görünüşe göre veritabanınız işlevleri kullanmakta;"
 
 #: libraries/plugins/export/ExportSql.class.php:1261
-#| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses views;"
 msgstr "Görünüşe göre veritabanınız görünümleri kullanmakta;"
 
@@ -9480,7 +9454,6 @@ msgid "Display Features"
 msgstr "Özellikleri görüntüleme"
 
 #: libraries/relation.lib.php:153
-#| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
 msgstr "PDF'lerin tasarımcısı ve oluşturulması"
 
@@ -11038,8 +11011,8 @@ msgstr "Kullanıcılara genel bakış"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Not: phpMyAdmin kullanıcıların yetkilerini doğrudan MySQL'in yetki "
 "tablolarından alır. Bu tabloların içerikleri, eğer elle değiştirildiyse "
@@ -12432,8 +12405,8 @@ msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
-"Yaklaşık olabilir. Tam sayıyı almak için sayının üzerine tıklayın. "
-"[doc@faq3-11]SSS 3.11[/doc]'e bakın."
+"Yaklaşık olabilir. Tam sayıyı almak için sayının üzerine tıklayın. [doc@faq3-"
+"11]SSS 3.11[/doc]'e bakın."
 
 #: libraries/structure.lib.php:906
 msgid "Sort"
@@ -13120,7 +13093,6 @@ msgid "Exit fullscreen"
 msgstr "Tam ekrandan çık"
 
 #: pmd_general.php:140
-#| msgid "New name"
 msgid "New page"
 msgstr "Yeni sayfa"
 
@@ -13129,12 +13101,10 @@ msgid "Save position"
 msgstr "Konumu kaydet"
 
 #: pmd_general.php:152
-#| msgid "Save position"
 msgid "Save positions as"
 msgstr "Konumu farklı kaydet"
 
 #: pmd_general.php:156
-#| msgid "Select page"
 msgid "Delete pages"
 msgstr "Sayfaları sil"
 
@@ -13306,8 +13276,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Config.inc.php dosyasını değiştirerek daha fazla ayar yapabilirsiniz, örn. "
-"%sKur programcığı%s kullanarak."
+"Config.inc.php dosyasını değiştirerek daha fazla ayar yapabilirsiniz, örn. %"
+"sKur programcığı%s kullanarak."
 
 #: prefs_manage.php:311
 msgid "Save to browser's storage"
@@ -13993,8 +13963,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Boş sorgu önbellek belleğinin, toplam sorgu önbelleği boyutuna şu anki oranı "
 "%%%s. Bu %%80'in üzerinde olmalıdır"
@@ -14145,8 +14115,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "Tüm sıralamaların %%%s'i geçici tablolara sebep olur, bu değer %%10'dan "
 "düşük olmalıdır."
@@ -15752,12 +15722,12 @@ msgstr "concurrent_insert 0'a ayarlı"
 #~ "Eğer D işlenirse, varsayılan 0'dır. Eğer M işlenirse, varsayılan 10'dur."
 
 #~ msgid ""
-#~ "A small (single-precision) floating-point number. Allowable values are "
-#~ "-3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to "
+#~ "A small (single-precision) floating-point number. Allowable values are -"
+#~ "3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to "
 #~ "3.402823466E+38."
 #~ msgstr ""
-#~ "Küçük (tek duyarlıklı) kayan noktalı sayı. İzin verilebilir değerler "
-#~ "-3.402823466E+38'den -1.175494351E-38'e, 0 ve 1.175494351E-38'den "
+#~ "Küçük (tek duyarlıklı) kayan noktalı sayı. İzin verilebilir değerler -"
+#~ "3.402823466E+38'den -1.175494351E-38'e, 0 ve 1.175494351E-38'den "
 #~ "3.402823466E+38'e."
 
 #~ msgid ""

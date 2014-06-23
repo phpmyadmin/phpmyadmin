@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-22 14:57-0400\n"
+"POT-Creation-Date: 2014-06-23 08:30-0400\n"
 "PO-Revision-Date: 2014-06-22 23:47+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
-"Language: es\n"
+"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -25,17 +25,18 @@ msgstr ""
 "para más información."
 
 #: db_central_columns.php:85
-msgid ""
-"There are no columns in central list to display for the current database."
+#, fuzzy
+#| msgid ""
+#| "There are no columns in central list to display for the current database."
+msgid "The central list of columns for the current database is empty."
 msgstr ""
 "No hay columnas a mostrar en la lista central para la base de datos actual."
 
-#: db_central_columns.php:110
-#| msgid "Click to sort."
+#: db_central_columns.php:109
 msgid "Click to sort"
 msgstr "Pulsar para ordenar"
 
-#: db_central_columns.php:126
+#: db_central_columns.php:125
 #, php-format
 msgid "Showing row(s) %1$s - %2$s"
 msgstr "Mostrando fila(s) %1$s - %2$s"
@@ -609,14 +610,14 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Seleccione «GeomFromText» de la columna \"Función\" y pegue la cadena "
-"ubicada debajo en el campo \"Valor\"."
+"Seleccione «GeomFromText» de la columna \"Función\" y pegue la cadena ubicada "
+"debajo en el campo \"Valor\"."
 
 #: import.php:130
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Probablemente intentó cargar un archivo demasiado grande. Revise %sla "
 "documentation%s para hallar modos de superar esta limitación."
@@ -905,8 +906,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "El almacenamiento de configuración phpMyAdmin no está completamente "
-"configurado, algunas funcionalidades extendidas fueron deshabilitadas. "
-"%sPulsa aquí para averiguar por qué%s."
+"configurado, algunas funcionalidades extendidas fueron deshabilitadas. %"
+"sPulsa aquí para averiguar por qué%s."
 
 #: index.php:552
 #, php-format
@@ -1014,12 +1015,10 @@ msgid "Preview SQL"
 msgstr "Previsualizar SQL"
 
 #: js/messages.php:61
-#| msgid "in query"
 msgid "Simulate query"
 msgstr "Simular consulta"
 
 #: js/messages.php:62
-#| msgid "Affected rows:"
 msgid "Matched rows:"
 msgstr "Filas encontradas:"
 
@@ -1941,27 +1940,22 @@ msgid "Page name"
 msgstr "Nombre de página"
 
 #: js/messages.php:356
-#| msgid "Select page"
 msgid "Save page"
 msgstr "Guardar página"
 
 #: js/messages.php:357 pmd_general.php:144
-#| msgid "Free pages"
 msgid "Open page"
 msgstr "Abrir página"
 
 #: js/messages.php:358
-#| msgid "Select page"
 msgid "Delete page"
 msgstr "Borrar página"
 
 #: js/messages.php:359
-#| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Seleccione una página para continuar"
 
 #: js/messages.php:360
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
 msgstr "Introduzca un nombre de página válido"
 
@@ -2912,11 +2906,11 @@ msgstr "Su consulta se ejecutó con éxito."
 #: libraries/DisplayResults.class.php:4861 libraries/structure.lib.php:682
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Esta vista tiene al menos este número de filas. Refiérase a la "
-"%sdocumentation%s."
+"Esta vista tiene al menos este número de filas. Refiérase a la %"
+"sdocumentation%s."
 
 #: libraries/DisplayResults.class.php:4874
 #, php-format
@@ -3806,16 +3800,16 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Un número de coma flotante pequeño; los valores posibles son de -3.402823466E"
 "+38 a -1.175494351E-38, 0 y de 1.175494351E-38 a 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Un número de coma flotante de precisión doble; los valores permitidos son de "
@@ -3859,8 +3853,8 @@ msgstr "Una fecha, el rango válido es de «%1$s» a «%2$s»"
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
-"Una combinación de fecha y marca temporal, el rango válido es de «%1$s» a "
-"«%2$s»"
+"Una combinación de fecha y marca temporal, el rango válido es de «%1$s» a «%2"
+"$s»"
 
 #: libraries/Types.class.php:348
 msgid ""
@@ -3960,8 +3954,8 @@ msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
-"Una columna de bloque de texto («BLOB») con una longitud máxima de 255 (2^8 "
-"- 1) bytes. Cada valor TINYBLOB es almacenado con un prefijo de 1 byte que "
+"Una columna de bloque de texto («BLOB») con una longitud máxima de 255 (2^8 - "
+"1) bytes. Cada valor TINYBLOB es almacenado con un prefijo de 1 byte que "
 "indica la cantidad de bytes en el valor"
 
 #: libraries/Types.class.php:372
@@ -3987,9 +3981,9 @@ msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
-"Una columna de bloque de texto («BLOB») con una longitud máxima de "
-"4294967295 (2^32 - 1) bytes (4GB), almacenado con un prefijo de 4 bytes que "
-"indica la longitud del valor"
+"Una columna de bloque de texto («BLOB») con una longitud máxima de 4294967295 "
+"(2^32 - 1) bytes (4GB), almacenado con un prefijo de 4 bytes que indica la "
+"longitud del valor"
 
 #: libraries/Types.class.php:378
 msgid ""
@@ -4376,7 +4370,6 @@ msgid "Select a column."
 msgstr "Seleccionar una columna."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#| msgid "Autoextend increment"
 msgid "auto_increment"
 msgstr "auto_increment"
 
@@ -4385,7 +4378,6 @@ msgid "on update CURRENT_TIMESTAMP"
 msgstr "fecha y hora actualizada"
 
 #: libraries/central_columns.lib.php:886
-#| msgid "Add column"
 msgid "Add new column"
 msgstr "Añadir columna nueva"
 
@@ -4751,8 +4743,8 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"Valores para la %svalidez de la cookie de inicio de sesión%s mayores a "
-"%ssession.gc_maxlifetime%s pueden causar invalidaciones de sesión aleatorias "
+"Valores para la %svalidez de la cookie de inicio de sesión%s mayores a %"
+"ssession.gc_maxlifetime%s pueden causar invalidaciones de sesión aleatorias "
 "(actualmente, el valor de session.gc_maxlifetime es %d)."
 
 #: libraries/config/ServerConfigChecks.class.php:410
@@ -6622,7 +6614,6 @@ msgstr ""
 "pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:665
-#| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
 msgstr "Esquema en PDF y diseñador: tabla de coordenadas"
 
@@ -7229,12 +7220,10 @@ msgid "Can't count rows in an unbuffered result set"
 msgstr "No se puede contar filas en un resultado sin búfer"
 
 #: libraries/designer.lib.php:31
-#| msgid "Page titles"
 msgid "Page to open"
 msgstr "Página a abrir"
 
 #: libraries/designer.lib.php:33
-#| msgid "Relation deleted"
 msgid "Page to delete"
 msgstr "Página a eliminar"
 
@@ -7244,17 +7233,14 @@ msgid "Select page"
 msgstr "Seleccionar página"
 
 #: libraries/designer.lib.php:59
-#| msgid "Export to selected page."
 msgid "Save to selected page"
 msgstr "Guardar a la página seleccionada"
 
 #: libraries/designer.lib.php:60
-#| msgid "Create a page and export to it."
 msgid "Create a page and save to it"
 msgstr "Crear una página y guardar a ella"
 
 #: libraries/designer.lib.php:92
-#| msgid "New page name: "
 msgid "New page name"
 msgstr "Nuevo nombre de página"
 
@@ -7415,8 +7401,8 @@ msgstr ", @TABLE@ se convertirá en el nombre de la tabla"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Este valor es interpretado usando %1$sstrftime%2$s por lo que se pueden usar "
 "cadenas para formatear el tiempo. Además sucederán las siguientes "
@@ -7461,32 +7447,26 @@ msgid "Skip tables larger than"
 msgstr "Omitir tablas mayores a"
 
 #: libraries/display_export.lib.php:776
-#| msgid "Select a table"
 msgid "Select database"
 msgstr "Seleccionar base de datos"
 
 #: libraries/display_export.lib.php:778
-#| msgid "Select a table"
 msgid "Select table"
 msgstr "Seleccionar tabla"
 
 #: libraries/display_export.lib.php:794
-#| msgid "Database name"
 msgid "New database name"
 msgstr "Nombre de la nueva base de datos"
 
 #: libraries/display_export.lib.php:818
-#| msgid "New page name: "
 msgid "New table name"
 msgstr "Nombre de la nueva tabla"
 
 #: libraries/display_export.lib.php:827
-#| msgid "Copy column name."
 msgid "Old column name"
 msgstr "Nombre de la columna antigua"
 
 #: libraries/display_export.lib.php:828
-#| msgid "Copy column name."
 msgid "New column name"
 msgstr "Nombre de la nueva columna"
 
@@ -7976,8 +7956,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Se puede encontrar documentación y más información sobre PBXT en la %spágina "
 "inicial de PrimeBase XT%s."
@@ -8092,7 +8072,7 @@ msgstr "Ir a la vista: %s"
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Sólo se pueden simular consultas UPDATE y DELETE sobre sólo una tabla."
 
-#: libraries/import.lib.php:1774
+#: libraries/import.lib.php:1775
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -8795,8 +8775,8 @@ msgstr "Bienvenido a %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "La razón más probable es que usted no haya creado un archivo de "
 "configuración. Utilice el %1$sscript de configuración%2$s para crear uno."
@@ -9208,7 +9188,6 @@ msgstr ""
 "sean volcadas y cargadas por servidores en diferentes zonas horarias)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:527
-#| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses procedures;"
 msgstr "Parece que su base de datos utiliza procedimientos;"
 
@@ -9221,12 +9200,10 @@ msgstr ""
 "exportar los alias no podría funcionar correctamente en todos los casos."
 
 #: libraries/plugins/export/ExportSql.class.php:559
-#| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses functions;"
 msgstr "Parece que su base de datos utiliza funciones;"
 
 #: libraries/plugins/export/ExportSql.class.php:1261
-#| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses views;"
 msgstr "Parece que su base de datos utiliza vistas;"
 
@@ -9449,8 +9426,8 @@ msgstr ""
 "opción es para especificar un formato de fecha/hora diferente. La tercera "
 "opción determina si desea ver la fecha local o UTC (utilice las cadenas "
 "«local» o «utc»). Según esta configuración, el formato de la fecha tendrá un "
-"valor diferente - para «local» mire la documentación de la función strftime"
-"() de PHP y para «utc» la de la función gmdate()."
+"valor diferente - para «local» mire la documentación de la función strftime() "
+"de PHP y para «utc» la de la función gmdate()."
 
 #: libraries/plugins/transformations/abstract/DownloadTransformationsPlugin.class.php:31
 msgid ""
@@ -9603,7 +9580,6 @@ msgid "Display Features"
 msgstr "Mostrar las opciones"
 
 #: libraries/relation.lib.php:153
-#| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
 msgstr "Diseño y creación de PDFs"
 
@@ -11180,8 +11156,8 @@ msgstr "Vista global de usuarios"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin obtiene los privilegios de los usuarios 'directamente de "
 "las tablas de privilegios MySQL'. El contenido de estas tablas puede diferir "
@@ -11367,9 +11343,8 @@ msgstr ""
 "El Monitorizador de phpMyAdmin puede asistir en la optimización de la "
 "configuración del servidor y rastrear consultas que toman mucho tiempo. Para "
 "esto último necesitará que «log_output» esté definido como 'TABLE' y tener "
-"activado «slow_query_log» o «general_log». Note, sin embargo, que "
-"«general_log» produce mucha información y aumenta la carga en el servidor "
-"hasta en un 15%."
+"activado «slow_query_log» o «general_log». Note, sin embargo, que «general_log» "
+"produce mucha información y aumenta la carga en el servidor hasta en un 15%."
 
 #: libraries/server_status_monitor.lib.php:154
 msgid ""
@@ -13299,7 +13274,6 @@ msgid "Exit fullscreen"
 msgstr "Salir de pantalla completa"
 
 #: pmd_general.php:140
-#| msgid "New name"
 msgid "New page"
 msgstr "Nueva página"
 
@@ -13308,12 +13282,10 @@ msgid "Save position"
 msgstr "Guardar posición"
 
 #: pmd_general.php:152
-#| msgid "Save position"
 msgid "Save positions as"
 msgstr "Guardar posición como"
 
 #: pmd_general.php:156
-#| msgid "Select page"
 msgid "Delete pages"
 msgstr "Borrar páginas"
 
@@ -13890,8 +13862,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
-"Podría aumentar «{long_query_time}» u optimizar las consultas que aparecen "
-"en el registro de consultas lentas"
+"Podría aumentar «{long_query_time}» u optimizar las consultas que aparecen en "
+"el registro de consultas lentas"
 
 #: libraries/advisory_rules.txt:68
 #, php-format
@@ -13958,8 +13930,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Active el registro de consultas lenta configurando «log_slow_queries» a "
-"'ON'. Esto ayudará a analizar consultas con mala performance."
+"Active el registro de consultas lenta configurando «log_slow_queries» a 'ON'. "
+"Esto ayudará a analizar consultas con mala performance."
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
@@ -14116,8 +14088,8 @@ msgid ""
 msgstr ""
 "Se sabe que el caché de consultas puede mejorar la performance enormemente "
 "si está correctamente configurado. Actívelo definiendo «query_cache_size» a "
-"un valor en MiB de 2 dígitos y definiendo «query_cache_type» a 'ON'. "
-"<b>Notar que: </b> si está utilizando memcached ignore esta recomendación."
+"un valor en MiB de 2 dígitos y definiendo «query_cache_type» a 'ON'. <b>Notar "
+"que: </b> si está utilizando memcached ignore esta recomendación."
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -14194,8 +14166,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "La tasa actual de memoria libre del caché de consultas respecto del tamaño "
 "total es %s%%. Debería ser mayor al 80%%"
@@ -14353,8 +14325,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% de todas las ordenaciones causan tablas temporales, este valor debería "
 "de ser menor a 10%%."
@@ -14417,8 +14389,8 @@ msgstr ""
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
-"Promedio de uniones («JOIN») de tablas: %s, este promedio debería ser menor "
-"a 1 por hora"
+"Promedio de uniones («JOIN») de tablas: %s, este promedio debería ser menor a "
+"1 por hora"
 
 #: libraries/advisory_rules.txt:240
 msgid "Rate of reading first index entry"
@@ -14526,8 +14498,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:267
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
-"Los valores actuales son «tmp_table_size»: %s, «max_heap_table_size»: %s"
+msgstr "Los valores actuales son «tmp_table_size»: %s, «max_heap_table_size»: %s"
 
 #: libraries/advisory_rules.txt:269
 msgid "Percentage of temp tables on disk"
@@ -14551,14 +14522,13 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
-"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin "
-"embargo, algunas tablas temporales son siempre escritas a disco "
-"independientemente del valor de estas variables. Para eliminarlas deberá re-"
-"escribir las consultas para evitar estas condiciones (en una tabla temporal: "
-"la presencia de una columna «BLOB» o «TEXT», o la presencia de una columna "
-"mayor a 512 bytes) como se menciona al comienzo del <a href=\"http://www."
-"facebook.com/note.php?note_id=10150111255065841&comments\">artículo de "
-"Pythian Group</a>"
+"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin embargo, "
+"algunas tablas temporales son siempre escritas a disco independientemente "
+"del valor de estas variables. Para eliminarlas deberá re-escribir las "
+"consultas para evitar estas condiciones (en una tabla temporal: la presencia "
+"de una columna «BLOB» o «TEXT», o la presencia de una columna mayor a 512 "
+"bytes) como se menciona al comienzo del <a href=\"http://www.facebook.com/"
+"note.php?note_id=10150111255065841&comments\">artículo de Pythian Group</a>"
 
 #: libraries/advisory_rules.txt:274
 #, php-format
@@ -14583,8 +14553,8 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
-"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin "
-"embargo, algunas tablas temporales son siempre a disco permanentemente "
+"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin embargo, "
+"algunas tablas temporales son siempre a disco permanentemente "
 "independientemente del valor de estas variables. Para eliminarlas deberá re-"
 "escribir las consultas para evitar estas condiciones (en una tabla temporal: "
 "la presencia de una columna «BLOB» o «TEXT» o la presencia de una columna "
@@ -14615,8 +14585,8 @@ msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
-"Defina «key_buffer_size» dependiendo del tamaño de los índices MyISAM. 64M "
-"es un buen comienzo."
+"Defina «key_buffer_size» dependiendo del tamaño de los índices MyISAM. 64M es "
+"un buen comienzo."
 
 #: libraries/advisory_rules.txt:301
 msgid "key_buffer_size is 0"
@@ -14791,8 +14761,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:366
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
-"Active el caché de hilos configurado «thread_cache_size» a un valor mayor a "
-"0."
+"Active el caché de hilos configurado «thread_cache_size» a un valor mayor a 0."
 
 #: libraries/advisory_rules.txt:367
 msgid "The thread cache is set to 0"
@@ -14953,8 +14922,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
-"%s%% de todos los clientes son abandonados. Este valor debería ser menor a "
-"2%%"
+"%s%% de todos los clientes son abandonados. Este valor debería ser menor a 2%"
+"%"
 
 #: libraries/advisory_rules.txt:420
 msgid "Rate of aborted clients"

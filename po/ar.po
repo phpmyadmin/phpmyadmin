@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-22 14:57-0400\n"
+"POT-Creation-Date: 2014-06-23 08:30-0400\n"
 "PO-Revision-Date: 2014-06-17 16:11+0200\n"
 "Last-Translator: cherbib mehdi <mehdi.cherbib@live.fr>\n"
 "Language-Team: Arabic <https://l10n.cihar.com/projects/phpmyadmin/master/ar/"
 ">\n"
-"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Weblate 1.10-dev\n"
@@ -26,17 +26,16 @@ msgstr ""
 "المعلومات."
 
 #: db_central_columns.php:85
-msgid ""
-"There are no columns in central list to display for the current database."
+msgid "The central list of columns for the current database is empty."
 msgstr ""
 
-#: db_central_columns.php:110
+#: db_central_columns.php:109
 #, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort"
 msgstr "إضغط للترتيب"
 
-#: db_central_columns.php:126
+#: db_central_columns.php:125
 #, php-format
 msgid "Showing row(s) %1$s - %2$s"
 msgstr "%1$s - %2$s أظهر الصفوف"
@@ -262,8 +261,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا"
-"%s."
+"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا%"
+"s."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:210
 #: libraries/Menu.class.php:236 libraries/config/messages.inc.php:764
@@ -631,8 +630,8 @@ msgstr ""
 #: import.php:130
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "من المحتمل أنك قد حاولت رفع ملف كبير الحجم. الرجاء مراجعة %sdocumentation%s "
 "لإيجاد حلّ بديل لتغيير هذا الحد."
@@ -912,8 +911,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا"
-"%s."
+"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا%"
+"s."
 
 #: index.php:552
 #, php-format
@@ -2976,11 +2975,11 @@ msgstr "تم تنفيذ إستعلام SQL  بنجاح"
 #: libraries/DisplayResults.class.php:4861 libraries/structure.lib.php:682
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"لدى هذا العرض على الأقل هذا العدد من الأسطر. الرجاء مراجعة الــ "
-"%sdocumentation%s."
+"لدى هذا العرض على الأقل هذا العدد من الأسطر. الرجاء مراجعة الــ %"
+"sdocumentation%s."
 
 #: libraries/DisplayResults.class.php:4874
 #, fuzzy, php-format
@@ -3909,14 +3908,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -7437,8 +7436,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:519
@@ -7941,8 +7940,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -8051,7 +8050,7 @@ msgstr ""
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/import.lib.php:1774
+#: libraries/import.lib.php:1775
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -8798,8 +8797,8 @@ msgstr "أهلا بك في %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr "يبدو انك لم تنشئ ملف الإعدادات.إستخدم %1$ssetup script%2$s لإنشائه."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:126
@@ -11298,8 +11297,8 @@ msgstr "معلومات المستخدم"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "ملاحظة: يقرأ phpMyAdmin صلاحيات المستخدمين من جداول الصلاحيات من خادم MySQL "
 "مباشرة. محتويات هذه الجداول قد تختلف عن الصلاحيات التي يستخدمها الخادم إذا "
@@ -14299,8 +14298,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -14433,8 +14432,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -15759,8 +15758,8 @@ msgstr ""
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
-#~ "تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط "
-#~ "%sهنا%s."
+#~ "تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %"
+#~ "sهنا%s."
 
 #~ msgid "Execute bookmarked query"
 #~ msgstr "نفذ استعلام محفوظ بعلامة مرجعية"

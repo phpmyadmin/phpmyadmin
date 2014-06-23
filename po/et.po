@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-22 14:57-0400\n"
+"POT-Creation-Date: 2014-06-23 08:30-0400\n"
 "PO-Revision-Date: 2014-06-23 07:25+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
-"Language: et\n"
+"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
+"et/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -27,16 +27,17 @@ msgstr ""
 "phpmyadmin.net ."
 
 #: db_central_columns.php:85
-msgid ""
-"There are no columns in central list to display for the current database."
+#, fuzzy
+#| msgid ""
+#| "There are no columns in central list to display for the current database."
+msgid "The central list of columns for the current database is empty."
 msgstr "Selle andmebaasi jaoks ei ole keskses nimekirjas mitte ühtegi veergu."
 
-#: db_central_columns.php:110
-#| msgid "Click to sort."
+#: db_central_columns.php:109
 msgid "Click to sort"
 msgstr "Kliki sorteerimiseks"
 
-#: db_central_columns.php:126
+#: db_central_columns.php:125
 #, php-format
 msgid "Showing row(s) %1$s - %2$s"
 msgstr "Kuvatakse read %1$s - %2$s"
@@ -610,11 +611,11 @@ msgstr ""
 #: import.php:130
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Tõenäoliselt üritasid üles laadida liiga suurt faili. Palun loe "
-"%sdokumentatsioonist%s, kuidas sellest piirangust vabaneda."
+"Tõenäoliselt üritasid üles laadida liiga suurt faili. Palun loe %"
+"sdokumentatsioonist%s, kuidas sellest piirangust vabaneda."
 
 #: import.php:295 import.php:579
 msgid "Showing bookmark"
@@ -655,8 +656,8 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Importimisest andmeid vastu ei võetud. Faili nime kas ei saadetud või faili "
-"maht ületab sinu PHP seadistuses lubatud maksimaalset mahtu. Vaata "
-"[doc@faq1-16]KKK 1.16[/doc]."
+"maht ületab sinu PHP seadistuses lubatud maksimaalset mahtu. Vaata [doc@faq1-"
+"16]KKK 1.16[/doc]."
 
 #: import.php:509
 msgid ""
@@ -890,8 +891,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "phpMyAdmini seadistuse salvestus ei ole lõplikult seadistatud, mõned "
-"laiendatud võimalused on aktiveerimata. Põhjuse saad teada, kui vajutad "
-"%ssiia%s."
+"laiendatud võimalused on aktiveerimata. Põhjuse saad teada, kui vajutad %"
+"ssiia%s."
 
 #: index.php:552
 #, php-format
@@ -908,8 +909,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Server töötab koos Suhosin'iga. Võimalike probleemide kohta loe "
-"%sdokumentatsioonist%s."
+"Server töötab koos Suhosin'iga. Võimalike probleemide kohta loe %"
+"sdokumentatsioonist%s."
 
 #: js/messages.php:29 libraries/import.lib.php:122 sql.php:140
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -1000,12 +1001,10 @@ msgid "Preview SQL"
 msgstr "SQL eelvaade"
 
 #: js/messages.php:61
-#| msgid "in query"
 msgid "Simulate query"
 msgstr "Simuleeri päringut"
 
 #: js/messages.php:62
-#| msgid "Affected rows:"
 msgid "Matched rows:"
 msgstr "Sobivad read:"
 
@@ -1911,27 +1910,22 @@ msgid "Page name"
 msgstr "Lehe nimi"
 
 #: js/messages.php:356
-#| msgid "Select page"
 msgid "Save page"
 msgstr "Salvesta leht"
 
 #: js/messages.php:357 pmd_general.php:144
-#| msgid "Free pages"
 msgid "Open page"
 msgstr "Ava lehe"
 
 #: js/messages.php:358
-#| msgid "Select page"
 msgid "Delete page"
 msgstr "Kustuta leht"
 
 #: js/messages.php:359
-#| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Palun vali jätkamiseks leht"
 
 #: js/messages.php:360
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
 msgstr "Palun sisesta korrektne lehe nimi"
 
@@ -2857,8 +2851,8 @@ msgstr "Sinu SQL päring teostati edukalt."
 #: libraries/DisplayResults.class.php:4861 libraries/structure.lib.php:682
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Sellel vaatel on vähemalt nii palju ridu. Palun loe %sdokumentatsiooni%s."
 
@@ -3739,20 +3733,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Väike ujukoma arv, lubatud väärtused on vahemikus -3.402823466E+38 kuni "
-"-1.175494351E-38, 0, ja 1.175494351E-38 kuni 3.402823466E+38"
+"Väike ujukoma arv, lubatud väärtused on vahemikus -3.402823466E+38 kuni -"
+"1.175494351E-38, 0, ja 1.175494351E-38 kuni 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Topelttäpsusega ujukomaarv, lubatud väärtused on vahemikus "
-"-1.7976931348623157E+308 luni -2.2250738585072014E-308, 0, ja "
+"Topelttäpsusega ujukomaarv, lubatud väärtused on vahemikus -"
+"1.7976931348623157E+308 luni -2.2250738585072014E-308, 0, ja "
 "2.2250738585072014E-308 kuni 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -3797,9 +3791,9 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Ajatempel, ulatus on \"1970-01-01 00:00:01\" UTC kuni \"2038-01-09 "
-"03:14:07\" UTC, säilitatakse sekundite hulgana alates ajastu algusest "
-"(\"1970-01-01 00:00:00\" UTC)"
+"Ajatempel, ulatus on \"1970-01-01 00:00:01\" UTC kuni \"2038-01-09 03:14:07"
+"\" UTC, säilitatakse sekundite hulgana alates ajastu algusest (\"1970-01-01 "
+"00:00:00\" UTC)"
 
 #: libraries/Types.class.php:350 libraries/Types.class.php:795
 #, php-format
@@ -4289,7 +4283,6 @@ msgid "Select a column."
 msgstr "Vali veerg."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#| msgid "Autoextend increment"
 msgid "auto_increment"
 msgstr "Automaatne suurendamine"
 
@@ -4298,7 +4291,6 @@ msgid "on update CURRENT_TIMESTAMP"
 msgstr "ajatempli uuendamisel"
 
 #: libraries/central_columns.lib.php:886
-#| msgid "Add column"
 msgid "Add new column"
 msgstr "Lisa uus veerg"
 
@@ -4654,8 +4646,8 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"%sSisselogimise küpsise kehtivus%s on suurem, kui %ssession.gc_maxlifetime"
-"%s. See võib põhjustada juhuslikke sessiooni vananemisi (session."
+"%sSisselogimise küpsise kehtivus%s on suurem, kui %ssession.gc_maxlifetime%"
+"s. See võib põhjustada juhuslikke sessiooni vananemisi (session."
 "gc_maxlifetime on hetkel %d)."
 
 #: libraries/config/ServerConfigChecks.class.php:410
@@ -4685,8 +4677,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Kui tunned, et see on vajalik, siis kasuta täiendavaid kaitse sätteid - "
-"%shostiga autentimise%s sätteid ja %susaldusväärsete prokside nimekirja%s. "
+"Kui tunned, et see on vajalik, siis kasuta täiendavaid kaitse sätteid - %"
+"shostiga autentimise%s sätteid ja %susaldusväärsete prokside nimekirja%s. "
 "Siiski ei pruugi IP-põhine kaitse olla usaldusväärne, kui sinu IP kuulub "
 "ISP'le, kellega on ühendatud koos sinuga tuhandeid kasutajaid."
 
@@ -6481,7 +6473,6 @@ msgstr ""
 "[/kbd]."
 
 #: libraries/config/messages.inc.php:665
-#| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
 msgstr "Disainer ja PDF skeem: tabeli koordinaadid"
 
@@ -7065,12 +7056,10 @@ msgid "Can't count rows in an unbuffered result set"
 msgstr "Ei saa loendada ridu puhverdamata tulemustes"
 
 #: libraries/designer.lib.php:31
-#| msgid "Page titles"
 msgid "Page to open"
 msgstr "Leht avamiseks"
 
 #: libraries/designer.lib.php:33
-#| msgid "Relation deleted"
 msgid "Page to delete"
 msgstr "Leht kustutamiseks"
 
@@ -7080,17 +7069,14 @@ msgid "Select page"
 msgstr "Vali leht"
 
 #: libraries/designer.lib.php:59
-#| msgid "Export to selected page."
 msgid "Save to selected page"
 msgstr "Salvesta valitud lehele"
 
 #: libraries/designer.lib.php:60
-#| msgid "Create a page and export to it."
 msgid "Create a page and save to it"
 msgstr "Loo leht ja salvesta sellele"
 
 #: libraries/designer.lib.php:92
-#| msgid "New page name: "
 msgid "New page name"
 msgstr "Uue lehe nimi"
 
@@ -7252,8 +7238,8 @@ msgstr ", @TABLE@ saab tabeli nimeks"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Seda väärtust on tõlgendatud %1$sstrftime%2$s'ga ja seetõttu saad kasutada "
 "aja vormindamise sõne. Lisaks toimuvad järgnevad muudatused: %3$s. Ülejäänud "
@@ -7297,32 +7283,26 @@ msgid "Skip tables larger than"
 msgstr "Jäta vahele tabelid, mis on suuremad kui"
 
 #: libraries/display_export.lib.php:776
-#| msgid "Select a table"
 msgid "Select database"
 msgstr "Vali andmebaas"
 
 #: libraries/display_export.lib.php:778
-#| msgid "Select a table"
 msgid "Select table"
 msgstr "Vali tabel"
 
 #: libraries/display_export.lib.php:794
-#| msgid "Database name"
 msgid "New database name"
 msgstr "Uue andmebaasi nimi"
 
 #: libraries/display_export.lib.php:818
-#| msgid "New page name: "
 msgid "New table name"
 msgstr "Uue tabeli nimi"
 
 #: libraries/display_export.lib.php:827
-#| msgid "Copy column name."
 msgid "Old column name"
 msgstr "Vana veeru nimi"
 
 #: libraries/display_export.lib.php:828
-#| msgid "Copy column name."
 msgid "New column name"
 msgstr "Uue veeru nimi"
 
@@ -7790,8 +7770,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "PBXT kohta leiab dokumentatsiooni ja edasist teavet %sPrimeBase XT kodulehelt"
 "%s."
@@ -7905,7 +7885,7 @@ msgstr ""
 "Simuleerida on võimalik ainult ühe tabeli uuendamise ja kustutamise "
 "päringuid."
 
-#: libraries/import.lib.php:1774
+#: libraries/import.lib.php:1775
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -8602,11 +8582,11 @@ msgstr "Tere tulemast %s'i"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Arvatavasti ei loonud sa seadistuse faili. Võid selle loomiseks kasutada "
-"%1$spaigaldaja skripti%2$s."
+"Arvatavasti ei loonud sa seadistuse faili. Võid selle loomiseks kasutada %1"
+"$spaigaldaja skripti%2$s."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:126
 msgid ""
@@ -9010,7 +8990,6 @@ msgstr ""
 "ja kasutada neid erinevates ajavööndites asuvates serverites)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:527
-#| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses procedures;"
 msgstr "Tundub, et su tabel kasutab protseduure;"
 
@@ -9023,12 +9002,10 @@ msgstr ""
 "aliaste eksportimine võib mõningatel juhtudel töötada mitte usaldusväärselt."
 
 #: libraries/plugins/export/ExportSql.class.php:559
-#| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses functions;"
 msgstr "Tundub, et su tabel kasutab funktsioone;"
 
 #: libraries/plugins/export/ExportSql.class.php:1261
-#| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses views;"
 msgstr "Tundub, et su andmebaas kasutab vaateid;"
 
@@ -9391,7 +9368,6 @@ msgid "Display Features"
 msgstr "Näita võimalusi"
 
 #: libraries/relation.lib.php:153
-#| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
 msgstr "PDF'de disainer ja koostaja"
 
@@ -10940,8 +10916,8 @@ msgstr "Kasutajate ülevaade"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Märkus: phpMyAdmin võtab kasutajate õigused otse MySQL'i õiguste tabelist. "
 "Tabelite sisu võib erineda sellest, mida server kasutab, kui neid on käsitsi "
@@ -12999,7 +12975,6 @@ msgid "Exit fullscreen"
 msgstr "Välju üleekraani vaatest"
 
 #: pmd_general.php:140
-#| msgid "New name"
 msgid "New page"
 msgstr "Uus leht"
 
@@ -13008,12 +12983,10 @@ msgid "Save position"
 msgstr "Salvesta asukoht"
 
 #: pmd_general.php:152
-#| msgid "Save position"
 msgid "Save positions as"
 msgstr "Salvesta asukohad kui"
 
 #: pmd_general.php:156
-#| msgid "Select page"
 msgid "Delete pages"
 msgstr "Kustuta lehed"
 
@@ -13870,11 +13843,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
-"Praegune vaba päringu puhvri mälu võrreldes päringu puhvri kogumahuga on %s"
-"%%. See peaks olema üle 80%%"
+"Praegune vaba päringu puhvri mälu võrreldes päringu puhvri kogumahuga on %s%"
+"%. See peaks olema üle 80%%"
 
 #: libraries/advisory_rules.txt:181
 msgid "Query cache fragmentation"
@@ -14024,8 +13997,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% kõikidest sorteerimistest põhjustab ajutisi tabeleid. See väärtus peaks "
 "jääma alla 10%%."
@@ -14602,8 +14575,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
-"%s%% kõikidest klientides on lahti ühendatud. See väärtus peaks olema alla "
-"2%%"
+"%s%% kõikidest klientides on lahti ühendatud. See väärtus peaks olema alla 2%"
+"%"
 
 #: libraries/advisory_rules.txt:420
 msgid "Rate of aborted clients"

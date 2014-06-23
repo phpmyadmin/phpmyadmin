@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-22 14:57-0400\n"
+"POT-Creation-Date: 2014-06-23 08:30-0400\n"
 "PO-Revision-Date: 2014-06-23 11:46+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
-"\n"
-"Language: el\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -25,18 +25,19 @@ msgstr ""
 "το www.phpmyadmin.net για περισσότερες πληροφορίες."
 
 #: db_central_columns.php:85
-msgid ""
-"There are no columns in central list to display for the current database."
+#, fuzzy
+#| msgid ""
+#| "There are no columns in central list to display for the current database."
+msgid "The central list of columns for the current database is empty."
 msgstr ""
 "Δεν υπάρχουν στήλες στην κεντρική λίστα για προβολή για την τρέχουσα βάση "
 "δεδομένων."
 
-#: db_central_columns.php:110
-#| msgid "Click to sort."
+#: db_central_columns.php:109
 msgid "Click to sort"
 msgstr "Πατήστε για ταξινόμηση"
 
-#: db_central_columns.php:126
+#: db_central_columns.php:125
 #, php-format
 msgid "Showing row(s) %1$s - %2$s"
 msgstr "Εμφάνιση εγγραφής(ών) %1$s - %2$s"
@@ -608,17 +609,17 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Επιλέξτε το «GeomFromText» από τη στήλη «Function» και επικολλήστε το "
-"παρακάτω κείμενο στο πεδίο «Value»."
+"Επιλέξτε το «GeomFromText» από τη στήλη «Function» και επικολλήστε το παρακάτω "
+"κείμενο στο πεδίο «Value»."
 
 #: import.php:130
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Πιθανόν προσπαθήσατε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην "
-"%sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
+"Πιθανόν προσπαθήσατε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην %"
+"sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
 
 #: import.php:295 import.php:579
 msgid "Showing bookmark"
@@ -904,8 +905,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "Η αποθήκευση ρυθμίσεων του phpMyAdmin δεν έχει ρυθμιστεί πλήρως. Μερικά "
-"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί πατήστε "
-"%sεδώ%s."
+"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί πατήστε %"
+"sεδώ%s."
 
 #: index.php:552
 #, php-format
@@ -1013,12 +1014,10 @@ msgid "Preview SQL"
 msgstr "Προεπισκόπηση SQL"
 
 #: js/messages.php:61
-#| msgid "in query"
 msgid "Simulate query"
 msgstr "Εξομοίωση ερωτήματος"
 
 #: js/messages.php:62
-#| msgid "Affected rows:"
 msgid "Matched rows:"
 msgstr "Εγγραφές που ταιριάζουν:"
 
@@ -1941,27 +1940,22 @@ msgid "Page name"
 msgstr "Όνομα σελίδας"
 
 #: js/messages.php:356
-#| msgid "Select page"
 msgid "Save page"
 msgstr "Αποθήκευση σελίδας"
 
 #: js/messages.php:357 pmd_general.php:144
-#| msgid "Free pages"
 msgid "Open page"
 msgstr "Άνοιγμα σελίδας"
 
 #: js/messages.php:358
-#| msgid "Select page"
 msgid "Delete page"
 msgstr "Διαγραφή σελίδας"
 
 #: js/messages.php:359
-#| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Επιλέξτε σελίδα για συνέχεια"
 
 #: js/messages.php:360
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
 msgstr "Εισάγετε ένα έγκυρο όνομα σελίδας"
 
@@ -2486,8 +2480,8 @@ msgstr "Μη έγκυρη χαρακτήρες στη γραμμή %s."
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"Μη έγκυρος χαρακτήρας στη γραμμή %1$s. Αναμενότας στηλοθέτης, αλλά βρέθηκε "
-"«%2$s»."
+"Μη έγκυρος χαρακτήρας στη γραμμή %1$s. Αναμενότας στηλοθέτης, αλλά βρέθηκε «%2"
+"$s»."
 
 #: libraries/Advisor.class.php:473
 msgid "per second"
@@ -2898,11 +2892,11 @@ msgstr "Η εντολή SQL εκτελέσθηκε επιτυχώς."
 #: libraries/DisplayResults.class.php:4861 libraries/structure.lib.php:682
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην "
-"%sτεκμηρίωση%s."
+"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην %"
+"sτεκμηρίωση%s."
 
 #: libraries/DisplayResults.class.php:4874
 #, php-format
@@ -3792,21 +3786,21 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Ένας μικρός αριθμός κινητής υποδιαστολής, επιτρεπτές τιμές είναι "
-"-3.402823466E+38 έως -1.175494351E-38, 0, και 1.175494351E-38 έως "
-"3.402823466E+38"
+"Ένας μικρός αριθμός κινητής υποδιαστολής, επιτρεπτές τιμές είναι -"
+"3.402823466E+38 έως -1.175494351E-38, 0, και 1.175494351E-38 έως 3.402823466E"
+"+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Ένας αριθμός κινητής υποδιαστολής διπλής ακρίβειας, επιτρεπτές τιμές είναι "
-"-1.7976931348623157E+308 έως -2.2250738585072014E-308, 0, και "
+"Ένας αριθμός κινητής υποδιαστολής διπλής ακρίβειας, επιτρεπτές τιμές είναι -"
+"1.7976931348623157E+308 έως -2.2250738585072014E-308, 0, και "
 "2.2250738585072014E-308 έως 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -4353,7 +4347,6 @@ msgid "Select a column."
 msgstr "Επιλογή μιας στήλης."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#| msgid "Autoextend increment"
 msgid "auto_increment"
 msgstr "Αυτόματη αρίθμηση"
 
@@ -4362,7 +4355,6 @@ msgid "on update CURRENT_TIMESTAMP"
 msgstr "ενημέρωση του CURRENT_TIMESTAMP"
 
 #: libraries/central_columns.lib.php:886
-#| msgid "Add column"
 msgid "Add new column"
 msgstr "Προσθήκη νέας στήλης"
 
@@ -4729,8 +4721,8 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"Αν η %sLogin cookie validity%s είναι μεγαλύτερη από %ssession.gc_maxlifetime"
-"%s μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας (το τρέχον session."
+"Αν η %sLogin cookie validity%s είναι μεγαλύτερη από %ssession.gc_maxlifetime%"
+"s μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας (το τρέχον session."
 "gc_maxlifetime είναι %d)."
 
 #: libraries/config/ServerConfigChecks.class.php:410
@@ -5015,8 +5007,8 @@ msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
 msgstr ""
-"Όταν μια προειδοποίηση («Είστε σίγουρος/η…») πρέπει να προβάλετε αν "
-"πρόκειται να χαθούν δεδομένα."
+"Όταν μια προειδοποίηση («Είστε σίγουρος/η…») πρέπει να προβάλετε αν πρόκειται "
+"να χαθούν δεδομένα."
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -6590,7 +6582,6 @@ msgstr ""
 "pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:665
-#| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
 msgstr "Σχεδιαστής και σχέδιο PDF: συντεταγμένες πίνακα"
 
@@ -6759,8 +6750,7 @@ msgstr "Φιλοχρηστικό όνομα διακομιστή"
 
 #: libraries/config/messages.inc.php:717
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
-msgstr ""
-"Αν θα εμφανίζεται στο χρήστη ένα κουμπί «εμφάνιση όλων (των εγγραφών)»."
+msgstr "Αν θα εμφανίζεται στο χρήστη ένα κουμπί «εμφάνιση όλων (των εγγραφών)»."
 
 #: libraries/config/messages.inc.php:718
 msgid "Allow to display all the rows"
@@ -7043,8 +7033,7 @@ msgstr ""
 "Το url του διακομιστή για χρήση όταν λαμβάνονται οι πληροφορίες για την "
 "τελευταία έκδοση του phpMyAdmin ή όταν υποβάλλονται αναφορές σφάλματος. Το "
 "χρειάζεστε αν ο διακομιστής που έχει εγκατασταθεί το phpMyAdmin δεν έχει "
-"άμεση πρόσβαση στο διαδίκτυο. Η σύνταξη είναι: «όνομαδιακομιστή:"
-"αριθμόςθύρας»."
+"άμεση πρόσβαση στο διαδίκτυο. Η σύνταξη είναι: «όνομαδιακομιστή:αριθμόςθύρας»."
 
 #: libraries/config/messages.inc.php:777
 msgid "Proxy url"
@@ -7204,12 +7193,10 @@ msgstr ""
 "Αδύνατος ο υπολογισμός εγγραφών σε ένα σύνολο αποτελεσμάτων εκτός μνήμης"
 
 #: libraries/designer.lib.php:31
-#| msgid "Page titles"
 msgid "Page to open"
 msgstr "Σελίδα για άνοιγμα"
 
 #: libraries/designer.lib.php:33
-#| msgid "Relation deleted"
 msgid "Page to delete"
 msgstr "Σελίδα για διαγραφή"
 
@@ -7219,17 +7206,14 @@ msgid "Select page"
 msgstr "Επιλογή σελίδας"
 
 #: libraries/designer.lib.php:59
-#| msgid "Export to selected page."
 msgid "Save to selected page"
 msgstr "Αποθήκευση στην επιλεγμένη σελίδα"
 
 #: libraries/designer.lib.php:60
-#| msgid "Create a page and export to it."
 msgid "Create a page and save to it"
 msgstr "Δημιουργία μιας σελίδας και αποθήκευση σε αυτή"
 
 #: libraries/designer.lib.php:92
-#| msgid "New page name: "
 msgid "New page name"
 msgstr "Νέο όνομα σελίδα"
 
@@ -7391,8 +7375,8 @@ msgstr ", το @TABLE@ θα γίνει το όνομα του πίνακα"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Αυτή η τιμή μετατρέπεται με χρήση της συνάρτησης %1$sstrftime%2$s, έτσι "
 "μπορείτε να χρησιμοποιήσετε φράσεις μορφής χρόνου. Επιπρόσθετα, θα γίνουν "
@@ -7437,32 +7421,26 @@ msgid "Skip tables larger than"
 msgstr "Αγνόηση πινάκων μεγαλύτερων από"
 
 #: libraries/display_export.lib.php:776
-#| msgid "Select a table"
 msgid "Select database"
 msgstr "Επιλογή βάσης δεδομένων"
 
 #: libraries/display_export.lib.php:778
-#| msgid "Select a table"
 msgid "Select table"
 msgstr "Επιλογή πίνακα"
 
 #: libraries/display_export.lib.php:794
-#| msgid "Database name"
 msgid "New database name"
 msgstr "Νέο όνομα βάσης δεδομένων"
 
 #: libraries/display_export.lib.php:818
-#| msgid "New page name: "
 msgid "New table name"
 msgstr "Νέο όνομα πίνακα"
 
 #: libraries/display_export.lib.php:827
-#| msgid "Copy column name."
 msgid "Old column name"
 msgstr "Παλαιό ονόμα στήλης"
 
 #: libraries/display_export.lib.php:828
-#| msgid "Copy column name."
 msgid "New column name"
 msgstr "Νέο ονόμα στήλης"
 
@@ -7947,11 +7925,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
-"Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην "
-"%sΙστοσελίδα του PrimeBase XT%s."
+"Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην %"
+"sΙστοσελίδα του PrimeBase XT%s."
 
 #: libraries/engines/pbxt.lib.php:138
 msgid "Related Links"
@@ -8061,7 +8039,7 @@ msgstr "Μετάβαση στην προβολή: %s"
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Μονο ερωτήματα UPDATE και DELETE μονού πίνακα μπορούν να εξομοιωθούν."
 
-#: libraries/import.lib.php:1774
+#: libraries/import.lib.php:1775
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -8762,8 +8740,8 @@ msgstr "Καλωσήρθατε στο %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Πιθανή αιτία για αυτό είναι η μη δημιουργία αρχείου προσαρμογής. Ίσως θέλετε "
 "να χρησιμοποιήσετε τον %1$sκώδικα εγκατάστασηςt%2$s για να δημιουργήσετε ένα."
@@ -9176,7 +9154,6 @@ msgstr ""
 "ώρας)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:527
-#| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses procedures;"
 msgstr "Φαίνεται ότι ο πίνακάς σας χρησιμοποιεί διαδικασίες."
 
@@ -9189,12 +9166,10 @@ msgstr ""
 "Η εξαγωγή ετικέτας μπορεί να μη λειτουργεί αξιόπιστα σε όλες τις περιπτώσεις."
 
 #: libraries/plugins/export/ExportSql.class.php:559
-#| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses functions;"
 msgstr "Φαίνεται ότι ο πίνακάς σας χρησιμοποιεί συναρτήσεις."
 
 #: libraries/plugins/export/ExportSql.class.php:1261
-#| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses views;"
 msgstr "Φαίνεται ότι η βάση δεδομένων σας χρησιμοποιεί προβολές."
 
@@ -9390,8 +9365,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
-"Μετατρέπει Δυαδικές τιμές σε κείμενο (Προεπιλογή «T» και «F»). Η πρώτη "
-"επιλογή είναι για το ΑΛΗΘΕΣ, η δεύτερη για το ΨΕΥΔΕΣ. Nonzero=true."
+"Μετατρέπει Δυαδικές τιμές σε κείμενο (Προεπιλογή «T» και «F»). Η πρώτη επιλογή "
+"είναι για το ΑΛΗΘΕΣ, η δεύτερη για το ΨΕΥΔΕΣ. Nonzero=true."
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
@@ -9410,8 +9385,8 @@ msgstr ""
 "επιλογή για να ορίσετε μια μορφή ημερομηνίας-ώρας. Η τρίτη επιλογή ορίζει αν "
 "θέλετε να δείτε την τοπική ή την παγκόσμια ώρα (χρήση «local» ή «utc» "
 "αντίστοιχα). Σύμφωνα με αυτό, η μορφή της ημερομηνίας έχει διαφορετική τιμή "
-"- για το «local» δείτε την τεκμηρίωση για τη συνάρτηση strftime() της PHP "
-"και για το «utc» γίνεται χρησιμοποιώντας τη συνάρτηση gmdate()."
+"- για το «local» δείτε την τεκμηρίωση για τη συνάρτηση strftime() της PHP και "
+"για το «utc» γίνεται χρησιμοποιώντας τη συνάρτηση gmdate()."
 
 #: libraries/plugins/transformations/abstract/DownloadTransformationsPlugin.class.php:31
 msgid ""
@@ -9563,7 +9538,6 @@ msgid "Display Features"
 msgstr "Λειτουργίες εμφάνισης"
 
 #: libraries/relation.lib.php:153
-#| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
 msgstr "Σχεδιαστής και δημιουργία PDF"
 
@@ -11143,8 +11117,8 @@ msgstr "Επισκόπηση χρηστών"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Σημείωση: Το phpMyAdmin διαβάζει τα δικαιώματα των χρηστών κατευθείαν από "
 "τους πίνακες δικαιωμάτων της MySQL. Το περιεχόμενο αυτών των πινάκων μπορεί "
@@ -11330,8 +11304,8 @@ msgid ""
 msgstr ""
 "Η Εποπτεία phpMyAdmin μπορεί να σας βοηθήσει να βελτιστοποιήσετε τη ρύθμιση "
 "του διακομιστή και να καταγράφει χρονοβόρα ερωτήματα. Για το τελευταίο θα "
-"χρειαστείτε να ορίσετε το log_output σε «TABLE» και να έχετε ενεργοποιήσει "
-"το slow_query_log ή το general_log. Σημειώστε, ωστόσο, ότι το general_log "
+"χρειαστείτε να ορίσετε το log_output σε «TABLE» και να έχετε ενεργοποιήσει το "
+"slow_query_log ή το general_log. Σημειώστε, ωστόσο, ότι το general_log "
 "παράγει πολλά δεδομένα και αυξάνει τη χρήση πόρων του διακομιστή μέχρι και "
 "15%."
 
@@ -13269,7 +13243,6 @@ msgid "Exit fullscreen"
 msgstr "Έξοδος από πλήρη οθόνη"
 
 #: pmd_general.php:140
-#| msgid "New name"
 msgid "New page"
 msgstr "Νέα σελίδα"
 
@@ -13278,12 +13251,10 @@ msgid "Save position"
 msgstr "Αποθήκευση θέσης"
 
 #: pmd_general.php:152
-#| msgid "Save position"
 msgid "Save positions as"
 msgstr "Αποθήκευση θέσης ως"
 
 #: pmd_general.php:156
-#| msgid "Select page"
 msgid "Delete pages"
 msgstr "Διαγραφή σελίδων"
 
@@ -14084,8 +14055,8 @@ msgid ""
 msgstr ""
 "Η λανθάνουσα μνήμη ερωτήματος είναι γνωστό ότι βελτιώνει σημαντικά την "
 "απόδοση, αν ρυθμιστεί σωστά. Ενεργοποιήστε τη ορίζοντας το "
-"{query_cache_size} με μια διψήφια τιμής ΜΒ και το {query_cache_type} σε "
-"«ΟΝ». <b>Σημείωση:</b> Αν χρησιμοποιείτε memcached, αγνοήστε την πρόταση."
+"{query_cache_size} με μια διψήφια τιμής ΜΒ και το {query_cache_type} σε «ΟΝ». "
+"<b>Σημείωση:</b> Αν χρησιμοποιείτε memcached, αγνοήστε την πρόταση."
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -14166,8 +14137,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Η τρέχουσα αναλογία της ελεύθερης λανθάνουσας μνήμης ερωτήματος προς τη "
 "συνολική λανθάνουσα μνήμη ερωτήματος είναι %s%%. Πρέπει να είναι περισσότερο "
@@ -14244,8 +14215,8 @@ msgid ""
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 "Ο βαθμός απομακρυσμένων ερωτημάτων προς τα εισερχόμενα ερωτήματα είναι %s%%. "
-"Όσο χαμηλότερη αυτή η τιμή, τόσο το καλύτερο (Το όριο συναγερμού είναι: "
-"0,1%%)"
+"Όσο χαμηλότερη αυτή η τιμή, τόσο το καλύτερο (Το όριο συναγερμού είναι: 0,1%"
+"%)"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache max size"
@@ -14329,8 +14300,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "Το %s%% όλων των ταξινομήσεων προκαλεί προσωρινούς πίνακες, αυτή η τιμή "
 "πρέπει να είναι κάτω από 10%%."
@@ -14898,8 +14869,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
-"%s%% όλων των συνδέσεων ματαιώνονται. Αυτή η τιμή πρέπει να είναι κάτω από "
-"1%%"
+"%s%% όλων των συνδέσεων ματαιώνονται. Αυτή η τιμή πρέπει να είναι κάτω από 1%"
+"%"
 
 #: libraries/advisory_rules.txt:406
 msgid "Rate of aborted connections"
@@ -15952,8 +15923,8 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Θέλετε να απενεργοποιήσετε όλες τις αναφορές BLOB για τη βάση δεδομένων "
-#~ "%s;"
+#~ "Θέλετε να απενεργοποιήσετε όλες τις αναφορές BLOB για τη βάση δεδομένων %"
+#~ "s;"
 
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Άγνωστο σφάλμα κατά την αποστολή αρχείου."

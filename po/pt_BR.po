@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-06-22 14:57-0400\n"
+"POT-Creation-Date: 2014-06-23 08:30-0400\n"
 "PO-Revision-Date: 2014-06-23 04:58+0200\n"
 "Last-Translator: Thiago Sabaia <thiago.sabaia@parqueproducoes.com.br>\n"
-"Language-Team: Portuguese (Brazil) "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
-"Language: pt_BR\n"
+"Language-Team: Portuguese (Brazil) <https://l10n.cihar.com/projects/"
+"phpmyadmin/master/pt_BR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -25,19 +25,19 @@ msgstr ""
 "net para mais informações."
 
 #: db_central_columns.php:85
-msgid ""
-"There are no columns in central list to display for the current database."
+#, fuzzy
+#| msgid ""
+#| "There are no columns in central list to display for the current database."
+msgid "The central list of columns for the current database is empty."
 msgstr ""
 "Não há colunas na lista central para mostrar para o banco de dados atual."
 
-#: db_central_columns.php:110
-#| msgid "Click to sort."
+#: db_central_columns.php:109
 msgid "Click to sort"
 msgstr "Clique para organizar"
 
-#: db_central_columns.php:126
+#: db_central_columns.php:125
 #, php-format
-#| msgid "Showing rows %1s - %2s"
 msgid "Showing row(s) %1$s - %2$s"
 msgstr "Mostrando registros %1$s - %2$s"
 
@@ -614,8 +614,8 @@ msgstr ""
 #: import.php:130
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Você provavelmente tentou carregar um arquivo muito grande. Veja referências "
 "na %sdocumentação%s para resolver esse problema."
@@ -970,9 +970,6 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Você realmente deseja excluir a busca \"%s\"?"
 
 #: js/messages.php:46
-#| msgid ""
-#| "You have edited some data and they have not been saved. Are you sure you "
-#| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
 "Você editou alguns dados e estes não foram salvos. Você tem certeza que quer "
@@ -1014,12 +1011,10 @@ msgid "Preview SQL"
 msgstr "Ver SQL"
 
 #: js/messages.php:61
-#| msgid "in query"
 msgid "Simulate query"
 msgstr "Simular query"
 
 #: js/messages.php:62
-#| msgid "Affected rows:"
 msgid "Matched rows:"
 msgstr "Linhas afetadas:"
 
@@ -1768,12 +1763,10 @@ msgid "Pick"
 msgstr "Escolher"
 
 #: js/messages.php:288
-#| msgid "No column selected."
 msgid "Column selector"
 msgstr "Nenhuma coluna foi selecionada"
 
 #: js/messages.php:289
-#| msgid "Search this table"
 msgid "Search this list"
 msgstr "Procurar nesta tabela"
 
@@ -1788,7 +1781,6 @@ msgstr ""
 "atual."
 
 #: js/messages.php:291
-#| msgid "Free memory"
 msgid "See more"
 msgstr "Memória livre"
 
@@ -1805,7 +1797,6 @@ msgstr ""
 "deseja continuar?"
 
 #: js/messages.php:294
-#| msgid "Contribute"
 msgid "Continue"
 msgstr "Contribuir"
 
@@ -1948,27 +1939,22 @@ msgid "Page name"
 msgstr "Nome da página"
 
 #: js/messages.php:356
-#| msgid "Select page"
 msgid "Save page"
 msgstr "Selecionar página"
 
 #: js/messages.php:357 pmd_general.php:144
-#| msgid "Free pages"
 msgid "Open page"
 msgstr "Páginas livres"
 
 #: js/messages.php:358
-#| msgid "Select page"
 msgid "Delete page"
 msgstr "Apagar página"
 
 #: js/messages.php:359
-#| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Favor escolher uma página para editar"
 
 #: js/messages.php:360
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
 msgstr "Por favor, digite um número válido"
 
@@ -2184,7 +2170,6 @@ msgid "Please look at the bottom of this window."
 msgstr "Por favor, olhe na parte inferior da janela."
 
 #: js/messages.php:450 libraries/Error_Handler.class.php:350
-#| msgid "Ignore"
 msgid "Ignore All"
 msgstr "Ignorar Tudo"
 
@@ -2914,11 +2899,11 @@ msgstr "Seu comando SQL foi executado com sucesso."
 #: libraries/DisplayResults.class.php:4861 libraries/structure.lib.php:682
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Esta view tem pelo menos esse número de linhas. Por favor, consulte a "
-"%sdocumentação%s."
+"Esta view tem pelo menos esse número de linhas. Por favor, consulte a %"
+"sdocumentação%s."
 
 #: libraries/DisplayResults.class.php:4874
 #, php-format
@@ -3015,7 +3000,6 @@ msgid "Too many error messages, some are not displayed."
 msgstr "Muitas mensagens de erro, algumas não exibidas."
 
 #: libraries/Error_Handler.class.php:333
-#| msgid "Import"
 msgid "Report"
 msgstr "Reportar"
 
@@ -3275,7 +3259,6 @@ msgid "Designer"
 msgstr "Designer"
 
 #: libraries/Menu.class.php:481 libraries/Util.class.php:4099
-#| msgid "Textarea columns"
 msgid "Central columns"
 msgstr "Colunas centrais"
 
@@ -3808,16 +3791,16 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Um número curto de ponto flutuante, os valores permitidos são: de "
-"-3,402823466E+38 a -1,175494351E-38, 0 e de 1,175494351E-38 a 3,402823466E+38"
+"Um número curto de ponto flutuante, os valores permitidos são: de -"
+"3,402823466E+38 a -1,175494351E-38, 0 e de 1,175494351E-38 a 3,402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Um número de ponto flutuante de dupla precisão (longo), os valores "
@@ -4312,7 +4295,6 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr "Não foi possível adicionar %1$s, pois já existem na lista central!"
 
 #: libraries/central_columns.lib.php:280
-#| msgid "Could not save configuration"
 msgid "Could not add columns!"
 msgstr "Não foi possível adicionar colunas!"
 
@@ -4325,7 +4307,6 @@ msgstr ""
 "de colunas centrais!"
 
 #: libraries/central_columns.lib.php:368
-#| msgid "Could not save recent table!"
 msgid "Could not remove columns!"
 msgstr "Não foi possível remover a coluna!"
 
@@ -4364,7 +4345,6 @@ msgid "Extra"
 msgstr "Extra"
 
 #: libraries/central_columns.lib.php:660
-#| msgid "Select Tables"
 msgid "Select a table"
 msgstr "Selecionar tabela"
 
@@ -4373,12 +4353,10 @@ msgid "Add column"
 msgstr "Adicionar coluna"
 
 #: libraries/central_columns.lib.php:726
-#| msgid "Select two columns"
 msgid "Select a column."
 msgstr "Selecionar coluna."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#| msgid "Autoextend increment"
 msgid "auto_increment"
 msgstr "Incremento de auto-extensão"
 
@@ -4387,7 +4365,6 @@ msgid "on update CURRENT_TIMESTAMP"
 msgstr ""
 
 #: libraries/central_columns.lib.php:886
-#| msgid "Add column"
 msgid "Add new column"
 msgstr "Adicionar nova coluna"
 
@@ -5312,7 +5289,6 @@ msgid "Add %s"
 msgstr "Adicionar %s"
 
 #: libraries/config/messages.inc.php:176
-#| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Usar hexadecimal para BLOB"
 
@@ -7398,8 +7374,8 @@ msgstr ", @TABLE@ se tornará o nome da tabela"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Esse valor é interpretado usando %1$sstrftime%2$s, então você pode usar as "
 "strings de formatação de tempo. Adicionalmente a seguinte transformação "
@@ -7956,8 +7932,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Documentação e mais informações sobre PBXT podem ser encontradas na %sPágina "
 "Inicial da PrimeBase XT%s."
@@ -8071,7 +8047,7 @@ msgstr "Ir para a view: %s"
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/import.lib.php:1774
+#: libraries/import.lib.php:1775
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -8771,11 +8747,11 @@ msgstr "Bem vindo ao %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Você provavelmente não criou o arquivo de configuração. Você deve usar o "
-"%1$sscript de setup%2$s para criar um."
+"Você provavelmente não criou o arquivo de configuração. Você deve usar o %1"
+"$sscript de setup%2$s para criar um."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:126
 msgid ""
@@ -11125,8 +11101,8 @@ msgstr "Visão geral dos usuários"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Nota: O phpMyAdmin recebe os privilégios dos usuário diretamente da tabela "
 "de privilégios do MySQL. O conteúdo destas tabelas pode divergir dos "
@@ -13243,12 +13219,10 @@ msgid "Save position"
 msgstr "Salvar posição"
 
 #: pmd_general.php:152
-#| msgid "Save position"
 msgid "Save positions as"
 msgstr "Salvar posição em"
 
 #: pmd_general.php:156
-#| msgid "Select page"
 msgid "Delete pages"
 msgstr "Apagar páginas"
 
@@ -14121,8 +14095,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "A relação entre a memória livre do cache de consultas e o tamanho total do "
 "cache de consultas é de %s%%. Deveria ser maior do que 80%%"
@@ -14277,8 +14251,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% de todas as ordenações criam tabelas temporárias, este valor deveria "
 "ser menor do que 10%%."
@@ -14449,8 +14423,8 @@ msgstr ""
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
-"Os valores atuais de tmp_table_size são de: %s e de max_heap_table_size de: "
-"%s"
+"Os valores atuais de tmp_table_size são de: %s e de max_heap_table_size de: %"
+"s"
 
 #: libraries/advisory_rules.txt:269
 msgid "Percentage of temp tables on disk"
@@ -15795,8 +15769,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "Suggest a database name on the \"Create Database\" form (if possible) or "
 #~ "keep the text field empty"
 #~ msgstr ""
-#~ "Sugerir um nome do banco de dados no formulário \"Criar Banco de Dados"
-#~ "%quot; (se possível) ou manter o campo texto vazio"
+#~ "Sugerir um nome do banco de dados no formulário \"Criar Banco de Dados%"
+#~ "quot; (se possível) ou manter o campo texto vazio"
 
 #~ msgid "Suggest new database name"
 #~ msgstr "Sugerir nome para o banco de dados"
