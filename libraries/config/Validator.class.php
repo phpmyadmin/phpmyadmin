@@ -7,6 +7,11 @@
  */
 
 /**
+ * Core libraries.
+ */
+require_once './libraries/DatabaseInterface.class.php';
+
+/**
  * Validation class for various validation functions
  *
  * Validation function takes two argument: id for which it is called
