@@ -2974,7 +2974,7 @@ table.show_create td {
     position: fixed;
     bottom: 0px;
     right: 25px;
-    width: 250px;
+    width: 400px;
     border: 1px solid #999;
     background: #f3f3f3;
     -moz-border-radius: 4px;
@@ -3012,12 +3012,26 @@ table.show_create td {
 .pma_sql_import_status div li .filesize {
     float: right;
 }
-.minimize {
+.pma_sql_import_status h2 .minimize {
     float: right;
     margin-right: 5px;
     padding: 0px 10px;
 }
-.minimize:hover {
+.pma_sql_import_status h2 .close {
+    float: right;
+    margin-right: 5px;
+    padding: 0px 10px;
+    display: none;
+}
+.pma_sql_import_status h2 .minimize:hover,
+.pma_sql_import_status h2 .close:hover {
     background: rgba(155, 149, 149, 0.78);
     cursor: pointer;
+}
+.pma_drop_file_status {
+    color: #235a81;
+}
+.pma_drop_file_status:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
