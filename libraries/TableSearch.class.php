@@ -1469,5 +1469,24 @@ EOT;
         );
         $GLOBALS['sql_query'] = $sql_query;
     }
+
+    /**
+     * Finds minimum and maximum value of a given column.
+     *
+     * @param string $column Column name
+     *
+     * @return array
+     */
+    public function getColumnMinMax($column)
+    {
+        $sql_query = 'SELECT MIN(' . PMA_Util::backquote($column) . ') AS `min`, '
+            . 'MAX(' . PMA_Util::backquote($column) . ') AS `max` '
+            . 'FROM ' . PMA_Util::backquote($this->_db) . '.'
+            . PMA_Util::backquote($this->_table);
+
+        $result = $GLOBALS['dbi']->fetchSingleRow($sql_query);
+
+        return $result;
+    }
 }
 ?>
