@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-22 14:57-0400\n"
-"PO-Revision-Date: 2014-06-16 13:13+0200\n"
+"PO-Revision-Date: 2014-06-23 11:46+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
-">\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,12 +28,13 @@ msgstr ""
 msgid ""
 "There are no columns in central list to display for the current database."
 msgstr ""
+"Δεν υπάρχουν στήλες στην κεντρική λίστα για προβολή για την τρέχουσα βάση "
+"δεδομένων."
 
 #: db_central_columns.php:110
-#, fuzzy
 #| msgid "Click to sort."
 msgid "Click to sort"
-msgstr "Πατήστε για ταξινόμηση."
+msgstr "Πατήστε για ταξινόμηση"
 
 #: db_central_columns.php:126
 #, php-format
@@ -1012,16 +1013,14 @@ msgid "Preview SQL"
 msgstr "Προεπισκόπηση SQL"
 
 #: js/messages.php:61
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "στην εντολή"
+msgstr "Εξομοίωση ερωτήματος"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "Επηρρεαζόμενες εγγραφές:"
+msgstr "Εγγραφές που ταιριάζουν:"
 
 #: js/messages.php:63 libraries/Util.class.php:639 libraries/sql.lib.php:452
 msgid "SQL query:"
@@ -1942,42 +1941,37 @@ msgid "Page name"
 msgstr "Όνομα σελίδας"
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "Επιλογή σελίδας"
+msgstr "Αποθήκευση σελίδας"
 
 #: js/messages.php:357 pmd_general.php:144
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "Ελέυθερες σελίδες"
+msgstr "Άνοιγμα σελίδας"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "Επιλογή σελίδας"
+msgstr "Διαγραφή σελίδας"
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Παρακαλώ επιλέξτε σελίδα για επεξεργασία"
+msgstr "Επιλέξτε σελίδα για συνέχεια"
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "Εισάγετε έναν έγκυρο αριθμό!"
+msgstr "Εισάγετε ένα έγκυρο όνομα σελίδας"
 
 #: js/messages.php:361
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Θέλετε να αποθηκεύσετε τις αλλαγές στην τρέχουσα σελίδα;"
 
 #: js/messages.php:362
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Η σελίδα διαγράφτηκε επιτυχώς"
 
 #: js/messages.php:365
 #, php-format
@@ -4314,11 +4308,11 @@ msgstr "Αδύνατη η απομάκρυνση στηλών!"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
-msgstr ""
+msgstr "ΝΑΙ"
 
 #: libraries/central_columns.lib.php:509
 msgid "NO"
-msgstr ""
+msgstr "ΌΧΙ"
 
 #: libraries/central_columns.lib.php:629
 #: libraries/display_create_table.lib.php:60
@@ -4359,20 +4353,18 @@ msgid "Select a column."
 msgstr "Επιλογή μιας στήλης."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "Αυτόματη επέκταση αρίθμηση"
+msgstr "Αυτόματη αρίθμηση"
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
+msgstr "ενημέρωση του CURRENT_TIMESTAMP"
 
 #: libraries/central_columns.lib.php:886
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
-msgstr "Προσθήκη στήλης"
+msgstr "Προσθήκη νέας στήλης"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -6598,10 +6590,9 @@ msgstr ""
 "pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:665
-#, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
-msgstr "Σχέδιο PDF: συντεταγμένες πίνακα"
+msgstr "Σχεδιαστής και σχέδιο PDF: συντεταγμένες πίνακα"
 
 #: libraries/config/messages.inc.php:667
 msgid ""
@@ -7213,16 +7204,14 @@ msgstr ""
 "Αδύνατος ο υπολογισμός εγγραφών σε ένα σύνολο αποτελεσμάτων εκτός μνήμης"
 
 #: libraries/designer.lib.php:31
-#, fuzzy
 #| msgid "Page titles"
 msgid "Page to open"
-msgstr "Τίτλοι σελίδας"
+msgstr "Σελίδα για άνοιγμα"
 
 #: libraries/designer.lib.php:33
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Page to delete"
-msgstr "Η συσχέτιση διαγράφηκε"
+msgstr "Σελίδα για διαγραφή"
 
 #: libraries/designer.lib.php:37 libraries/designer.lib.php:73
 #: libraries/schema/User_Schema.class.php:211
@@ -7230,22 +7219,19 @@ msgid "Select page"
 msgstr "Επιλογή σελίδας"
 
 #: libraries/designer.lib.php:59
-#, fuzzy
 #| msgid "Export to selected page."
 msgid "Save to selected page"
-msgstr "Εξαγωγή σε επιλεγμένη σελίδα."
+msgstr "Αποθήκευση στην επιλεγμένη σελίδα"
 
 #: libraries/designer.lib.php:60
-#, fuzzy
 #| msgid "Create a page and export to it."
 msgid "Create a page and save to it"
-msgstr "Δημιουργία μιας σελίδας και εξαγωγή σε αυτή."
+msgstr "Δημιουργία μιας σελίδας και αποθήκευση σε αυτή"
 
 #: libraries/designer.lib.php:92
-#, fuzzy
 #| msgid "New page name: "
 msgid "New page name"
-msgstr "Νέο όνομα σελίδα: "
+msgstr "Νέο όνομα σελίδα"
 
 #: libraries/display_change_password.lib.php:59
 #: libraries/replication_gui.lib.php:844
@@ -7440,7 +7426,7 @@ msgstr "Προβολή εξαγόμενου ως κείμενο"
 
 #: libraries/display_export.lib.php:646 libraries/display_export.lib.php:749
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "Μετονομασία εξαγόμενων βάσεων δεδομένων/πινάκων/στηλών"
 
 #: libraries/display_export.lib.php:656
 msgid "Save output to a file"
@@ -7451,40 +7437,34 @@ msgid "Skip tables larger than"
 msgstr "Αγνόηση πινάκων μεγαλύτερων από"
 
 #: libraries/display_export.lib.php:776
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select database"
-msgstr "Επιλογή ενός πίνακα"
+msgstr "Επιλογή βάσης δεδομένων"
 
 #: libraries/display_export.lib.php:778
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select table"
-msgstr "Επιλογή ενός πίνακα"
+msgstr "Επιλογή πίνακα"
 
 #: libraries/display_export.lib.php:794
-#, fuzzy
 #| msgid "Database name"
 msgid "New database name"
-msgstr "Όνομα βάσης δεδομένων"
+msgstr "Νέο όνομα βάσης δεδομένων"
 
 #: libraries/display_export.lib.php:818
-#, fuzzy
 #| msgid "New page name: "
 msgid "New table name"
-msgstr "Νέο όνομα σελίδα: "
+msgstr "Νέο όνομα πίνακα"
 
 #: libraries/display_export.lib.php:827
-#, fuzzy
 #| msgid "Copy column name."
 msgid "Old column name"
-msgstr "Αντιγραφή ονόματος στήλης."
+msgstr "Παλαιό ονόμα στήλης"
 
 #: libraries/display_export.lib.php:828
-#, fuzzy
 #| msgid "Copy column name."
 msgid "New column name"
-msgstr "Αντιγραφή ονόματος στήλης."
+msgstr "Νέο ονόμα στήλης"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -8032,7 +8012,7 @@ msgstr ""
 
 #: libraries/import.lib.php:268 libraries/sql.lib.php:1679
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[συνέβει ROLLBACK.]"
 
 #: libraries/import.lib.php:1231
 msgid ""
@@ -8079,13 +8059,15 @@ msgstr "Μετάβαση στην προβολή: %s"
 
 #: libraries/import.lib.php:1358
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
-msgstr ""
+msgstr "Μονο ερωτήματα UPDATE και DELETE μονού πίνακα μπορούν να εξομοιωθούν."
 
 #: libraries/import.lib.php:1774
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"Μόνο ερωτήματα SQL INSERT, UPDATE, DELETE και REPLACE που περιέχουν πίνακες "
+"με μηχανή συναλλαγής μπορούν να επανέλθουν."
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -9194,10 +9176,9 @@ msgstr ""
 "ώρας)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:527
-#, fuzzy
 #| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses procedures;"
-msgstr "Φαίνεται ότι ο πίνακάς σας χρησιμοποιεί δείκτες."
+msgstr "Φαίνεται ότι ο πίνακάς σας χρησιμοποιεί διαδικασίες."
 
 #: libraries/plugins/export/ExportSql.class.php:528
 #: libraries/plugins/export/ExportSql.class.php:560
@@ -9208,16 +9189,14 @@ msgstr ""
 "Η εξαγωγή ετικέτας μπορεί να μη λειτουργεί αξιόπιστα σε όλες τις περιπτώσεις."
 
 #: libraries/plugins/export/ExportSql.class.php:559
-#, fuzzy
 #| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses functions;"
-msgstr "Φαίνεται ότι ο πίνακάς σας χρησιμοποιεί δείκτες."
+msgstr "Φαίνεται ότι ο πίνακάς σας χρησιμοποιεί συναρτήσεις."
 
 #: libraries/plugins/export/ExportSql.class.php:1261
-#, fuzzy
 #| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses views;"
-msgstr "Φαίνεται ότι ο πίνακάς σας χρησιμοποιεί δείκτες."
+msgstr "Φαίνεται ότι η βάση δεδομένων σας χρησιμοποιεί προβολές."
 
 #: libraries/plugins/export/ExportSql.class.php:1312
 msgid "Constraints for dumped tables"
@@ -9560,7 +9539,7 @@ msgstr ""
 
 #: libraries/pmd_common.php:295
 msgid "*Untitled"
-msgstr ""
+msgstr "*Χωρίς τίτλο"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -9584,10 +9563,9 @@ msgid "Display Features"
 msgstr "Λειτουργίες εμφάνισης"
 
 #: libraries/relation.lib.php:153
-#, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Δημιουργία αρχείων PDF"
+msgstr "Σχεδιαστής και δημιουργία PDF"
 
 #: libraries/relation.lib.php:164
 msgid "Displaying Column Comments"
@@ -12470,7 +12448,7 @@ msgstr "Επανεμφάνιση αυτού του ερώτηματος εδώ"
 
 #: libraries/sql_query_form.lib.php:378
 msgid "Rollback when finished"
-msgstr ""
+msgstr "Επαναφορά όταν ολοκληρωθεί"
 
 #: libraries/sql_query_form.lib.php:436
 msgid "View only"
@@ -13291,26 +13269,23 @@ msgid "Exit fullscreen"
 msgstr "Έξοδος από πλήρη οθόνη"
 
 #: pmd_general.php:140
-#, fuzzy
 #| msgid "New name"
 msgid "New page"
-msgstr "Νέο όνομα"
+msgstr "Νέα σελίδα"
 
 #: pmd_general.php:148
 msgid "Save position"
 msgstr "Αποθήκευση θέσης"
 
 #: pmd_general.php:152
-#, fuzzy
 #| msgid "Save position"
 msgid "Save positions as"
-msgstr "Αποθήκευση θέσης"
+msgstr "Αποθήκευση θέσης ως"
 
 #: pmd_general.php:156
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete pages"
-msgstr "Επιλογή σελίδας"
+msgstr "Διαγραφή σελίδων"
 
 #: pmd_general.php:167 pmd_general.php:499
 msgid "Create relation"
