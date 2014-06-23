@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-23 08:30-0400\n"
-"PO-Revision-Date: 2014-06-23 16:32+0200\n"
+"PO-Revision-Date: 2014-06-23 21:31+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
@@ -10795,15 +10795,13 @@ msgid "Enable charts dragging"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:330
-#, fuzzy
 msgid "Refresh rate"
-msgstr "Qurucu"
+msgstr "Yenilənmə tezliyi"
 
 #: libraries/server_status_monitor.lib.php:339
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Chart columns"
-msgstr "Sahe Sütunlarını Elave Et/Sil"
+msgstr "Diaqram sütunları"
 
 #: libraries/server_status_monitor.lib.php:351
 msgid "Chart arrangement"
@@ -10825,10 +10823,9 @@ msgid "Questions since startup: %s"
 msgstr ""
 
 #: libraries/server_status_queries.lib.php:44
-#, fuzzy
 #| msgid "per hour"
 msgid "per hour:"
-msgstr "saatda"
+msgstr "saat başına:"
 
 #: libraries/server_status_queries.lib.php:47
 #, fuzzy
