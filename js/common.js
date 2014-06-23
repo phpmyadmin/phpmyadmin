@@ -482,12 +482,14 @@ PMA_DROP_IMPORT = {
                    .html('<span>Failed</a>');
                    icon = 'icon ic_s_error';
             }
-            $('.pma_sql_import_status div li[data-hash="' +hash
-                +'"] span.filesize span.pma_drop_file_status')
-                .attr('task', 'info');
         } else {
             icon = 'icon ic_s_notice';
         }
+
+        // Prevents multiple abort, adds placeholder to view status
+        $('.pma_sql_import_status div li[data-hash="' +hash
+            +'"] span.filesize span.pma_drop_file_status')
+            .attr('task', 'info');
 
         // Set icon
         $('.pma_sql_import_status div li[data-hash="' +hash +'"]')
