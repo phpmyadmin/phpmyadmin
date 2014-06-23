@@ -468,24 +468,31 @@ PMA_DROP_IMPORT = {
      */
     _importFinished: function(hash, aborted, status) {
         $('.pma_sql_import_status div li[data-hash="' +hash +'"]')
-            .prepend('<img src="./themes/dot.gif" title="finished" class="icon ic_s_success"> ')
             .children("progress").hide();
-
+        var icon = 'icon ic_s_success';
         // -- provide link to view upload status
         if (!aborted) {
             if (status) {
-                $('.pma_sql_import_status div li[data-hash="' +hash 
+                $('.pma_sql_import_status div li[data-hash="' +hash
                     +'"] span.filesize span.pma_drop_file_status')
                    .html('<span>Success</a>');
             } else {
-                $('.pma_sql_import_status div li[data-hash="' +hash 
+                $('.pma_sql_import_status div li[data-hash="' +hash
                     +'"] span.filesize span.pma_drop_file_status')
                    .html('<span>Failed</a>');
+                   icon = 'icon ic_s_error';
             }
-            $('.pma_sql_import_status div li[data-hash="' +hash 
+            $('.pma_sql_import_status div li[data-hash="' +hash
                 +'"] span.filesize span.pma_drop_file_status')
                 .attr('task', 'info');
+        } else {
+            icon = 'icon ic_s_notice';
         }
+
+        // Set icon
+        $('.pma_sql_import_status div li[data-hash="' +hash +'"]')
+            .prepend('<img src="./themes/dot.gif" title="finished" class="'
+            +icon +'"> ');
 
         // Decrease liveUploadCount by one
         $('.pma_import_count').html(--PMA_DROP_IMPORT.liveUploadCount);
