@@ -323,20 +323,6 @@ PMA_DROP_IMPORT = {
      */
     allowedCompressedExtensions: ['gzip', 'bzip2', 'zip'],
     /**
-     * Checks if database is selected
-     *
-     * @param void
-     *
-     * @return string, name of db if any selected, '' otherwise
-     */
-    _getDbName: function() {
-        var dbname = '';
-        var selflink = $("#selflink a").attr("href");
-        if ((dbname = /db=(.*)&table/.exec(selflink)[1]) != "")
-            return dbname;
-        return '';
-    },
-    /**
      * Checks if any dropped file has valid extension or not
      *
      * @param string, filename
@@ -358,6 +344,14 @@ PMA_DROP_IMPORT = {
                 return ext;
             return '';
     },
+    /**
+     * Shows upload progress for different sql uploads
+     *
+     * @param: hash (string), hash for specific file upload
+     * @param: percent (float), file upload percentage
+     *
+     * @return void
+     */
     _setProgress: function(hash, percent) {
         $('.pma_sql_import_status div li[data-hash="' +hash +'"]')
             .children('progress').val(percent);
@@ -372,10 +366,8 @@ PMA_DROP_IMPORT = {
      */
     _sendFileToServer: function(formData, hash) {
         var uploadURL ="./import.php"; //Upload URL
-        var extraData ={}; //Extra Data.
-        console.log(formData);
-        //return;
-        var jqXHR=$.ajax({
+        var extraData ={};
+        var jqXHR = $.ajax({
             xhr: function() {
             var xhrobj = $.ajaxSettings.xhr();
             if (xhrobj.upload) {
@@ -399,9 +391,29 @@ PMA_DROP_IMPORT = {
             cache: false,
             data: formData,
             success: function(data){
-                PMA_DROP_IMPORT._importFinished(hash);
+                PMA_DROP_IMPORT._importFinished(hash, false, data.success);
             }
         });
+
+        // -- provide link to cancel the upload
+        $('.pma_sql_import_status div li[data-hash="' +hash 
+            +'"] span.filesize').html('<span hash="'
+            +hash +'" class="pma_drop_file_status" task="cancel">cancel</span>');
+
+        // -- add event listener to this link to abort upload operation
+        $('.pma_sql_import_status div li[data-hash="' +hash 
+            +'"] span.filesize span.pma_drop_file_status')
+            .live('click', function() {
+                if ($(this).attr('task') === 'cancel') {
+                    jqXHR.abort();
+                    $(this).html('<span>Aborted</span>');
+                    PMA_DROP_IMPORT._importFinished(hash, true, false);
+                }
+                /** 
+                 * #todo: add a view to check import result, in a lightbox 
+                 *          in case task == info
+                */
+            });
     },
     /**
      * Triggered when an object is dragged into the PMA UI
@@ -411,8 +423,10 @@ PMA_DROP_IMPORT = {
      * @return void
      */
     _dragenter : function (event) {
-        if (PMA_DROP_IMPORT._getDbName() !== '') {
+        if (PMA_commonParams.get('db') === '') {
             $(".pma_drop_handler").html("Select Database First");
+        } else {
+            $(".pma_drop_handler").html("Drop Files Here");
         }
         $(".pma_drop_handler").fadeIn();
         event.stopPropagation();
@@ -444,20 +458,40 @@ PMA_DROP_IMPORT = {
         $(".pma_drop_handler").html("Drop Files Here");
     },
     /**
-     *
+     * Called when upload has finished
      *
      * @param string, uniques hash for a certain upload
+     * @param bool, true if upload was aborted
+     * @param bool, status of sql upload, as sent by server
      *
      * @return void
      */
-    _importFinished: function(hash) {
+    _importFinished: function(hash, aborted, status) {
         $('.pma_sql_import_status div li[data-hash="' +hash +'"]')
             .prepend('<img src="./themes/dot.gif" title="finished" class="icon ic_s_success"> ')
             .children("progress").hide();
-        //#todo: these two can be merged together
+
+        // -- provide link to view upload status
+        if (!aborted) {
+            if (status) {
+                $('.pma_sql_import_status div li[data-hash="' +hash 
+                    +'"] span.filesize span.pma_drop_file_status')
+                   .html('<span>Success</a>');
+            } else {
+                $('.pma_sql_import_status div li[data-hash="' +hash 
+                    +'"] span.filesize span.pma_drop_file_status')
+                   .html('<span>Failed</a>');
+            }
+            $('.pma_sql_import_status div li[data-hash="' +hash 
+                +'"] span.filesize span.pma_drop_file_status')
+                .attr('task', 'info');
+        }
 
         // Decrease liveUploadCount by one
         $('.pma_import_count').html(--PMA_DROP_IMPORT.liveUploadCount);
+        if (!PMA_DROP_IMPORT.liveUploadCount) {
+            $('.pma_sql_import_status h2 .close').fadeIn();
+        }
     },
     /**
      * Triggered when dragged objects are dropped to UI
@@ -468,7 +502,7 @@ PMA_DROP_IMPORT = {
      * @return void
      */
     _drop: function (event) {
-        var dbname = PMA_DROP_IMPORT._getDbName();
+        var dbname = PMA_commonParams.get('db');
         //if no database is selected -- no
         if (dbname !== '') {
             $(".pma_sql_import_status").slideDown();
@@ -489,24 +523,31 @@ PMA_DROP_IMPORT = {
                 if (ext !== '') {
                     // Increment liveUploadCount by one
                     $('.pma_import_count').html(++PMA_DROP_IMPORT.liveUploadCount);
+                    $('.pma_sql_import_status h2 .close').fadeOut();
+
                     $('.pma_sql_import_status div li[data-hash="' +hash +'"]')
                         .append('<br><progress max="100" value="2"></progress>');
 
                     //uploading
                     var fd = new FormData();
                     fd.append('import_file', files[i]);
+                    // todo: method to find the value below
                     fd.append('noplugin', '539de66e760ee');
                     fd.append('db', dbname);
-                    fd.append('token', 'f14184fd61baa4a132bb9a9682ae65f9');
+                    fd.append('token', PMA_commonParams.get('token'));
                     fd.append('import_type', 'database');
+                    // todo: method to find the value below
                     fd.append('MAX_FILE_SIZE', '4194304');
+                    // todo: method to find the value below
                     fd.append('charset_of_file','utf-8');
+                    // todo: method to find the value below
                     fd.append('allow_interrupt', 'yes');
                     fd.append('skip_queries', '0');
                     fd.append('format',ext);
                     fd.append('sql_compatibility','NONE');
                     fd.append('sql_no_auto_value_on_zero','something');
-                    fd.append('isAjax','true');
+                    fd.append('ajax_request','true');
+                    fd.append('hash', hash);
 
                     // init uploading
                     PMA_DROP_IMPORT._sendFileToServer(fd, hash);
@@ -541,4 +582,11 @@ $('.pma_sql_import_status h2 .minimize').live('click', function() {
         $('.pma_sql_import_status div').css("height","0px");
         $(this).attr('toggle','off');
     }
+});
+
+// closing sql ajax upload status 
+$('.pma_sql_import_status h2 .close').live('click', function() {
+    $('.pma_sql_import_status').fadeOut(function() {
+        $('.pma_sql_import_status div').html('');
+    });
 });
