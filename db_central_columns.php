@@ -82,8 +82,7 @@ $response->addHTML($addNewColumn);
 if ($total_rows <= 0) {
     $response->addHTML(
         '<fieldset>' . __(
-            'There are no columns in central list to display for the current '
-            . 'database.'
+            'The central list of columns for the current database is empty.'
         ) . '</fieldset>'
     );
     $columnAdd = PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db);
