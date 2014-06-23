@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-22 14:57-0400\n"
-"PO-Revision-Date: 2014-06-16 14:40+0200\n"
+"PO-Revision-Date: 2014-06-23 12:26+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -31,10 +31,9 @@ msgid ""
 msgstr ""
 
 #: db_central_columns.php:110
-#, fuzzy
 #| msgid "Click to sort."
 msgid "Click to sort"
-msgstr "Kliknite za razvrščanje."
+msgstr "Kliknite za razvrščanje"
 
 #: db_central_columns.php:126
 #, php-format
@@ -1925,42 +1924,37 @@ msgid "Page name"
 msgstr "Ime strani"
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "Izberi stran"
+msgstr "Shrani stran"
 
 #: js/messages.php:357 pmd_general.php:144
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "Proste strani"
+msgstr "Odpri stran"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "Izberi stran"
+msgstr "Izbriši stran"
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Izberite stran za urejanje"
+msgstr "Prosimo, izberite stran za nadaljevanje"
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "Prosimo, vnesite veljavno število!"
+msgstr "Prosimo, vnesite veljavno ime strani"
 
 #: js/messages.php:361
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Želite shraniti spremembe na trenutni strani?"
 
 #: js/messages.php:362
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Stran ste uspešno izbrisali"
 
 #: js/messages.php:365
 #, php-format
@@ -4294,11 +4288,11 @@ msgstr "Ne morem odstraniti stolpcev!"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
-msgstr ""
+msgstr "DA"
 
 #: libraries/central_columns.lib.php:509
 msgid "NO"
-msgstr ""
+msgstr "NE"
 
 #: libraries/central_columns.lib.php:629
 #: libraries/display_create_table.lib.php:60
@@ -4339,20 +4333,18 @@ msgid "Select a column."
 msgstr "Izberite stolpec."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "Povečevanje pri samorazširitvi"
+msgstr "auto_increment"
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
+msgstr "on update CURRENT_TIMESTAMP"
 
 #: libraries/central_columns.lib.php:886
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
-msgstr "Dodaj stolpec"
+msgstr "Dodaj nov stolpec"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
