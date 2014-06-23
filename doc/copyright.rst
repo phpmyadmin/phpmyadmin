@@ -28,3 +28,23 @@ General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see `http://www.gnu.org/licenses/
 <http://www.gnu.org/licenses/>`_.
+
+Third party licenses
+++++++++++++++++++++
+
+phpMyAdmin includes several third party libraries which come under their
+respective licenses.
+
+jQuery's license, which is where we got the files under js/jquery/ is
+(MIT|GPL), a copy of each license is available in this repository (GPL
+is available as LICENSE, MIT as js/jquery/MIT-LICENSE.txt).
+
+TCPDF which is located under libraries/tcpdf is released under GPL
+version 3 and the license is available as libraries/tcpdf/LICENSE.TXT.
+
+DejaVu fonts which are located under libraries/tcpdf/fonts/ and their
+license is documented in
+libraries/tcpdf/fonts/dejavu-fonts-ttf-2.33/LICENSE.
+
+PHP-gettext which is located under libraries/php-gettext/ is released
+under GPL version 2 license which is available in the LICENSE file.
