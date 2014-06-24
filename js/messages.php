@@ -299,6 +299,11 @@ $js_messages['strSave'] = __('Save');
 /* For tbl_select.js */
 $js_messages['strHideSearchCriteria'] = __('Hide search criteria');
 $js_messages['strShowSearchCriteria'] = __('Show search criteria');
+$js_messages['strRangeSearch'] = __('Range search');
+$js_messages['strColumnMax'] = __('Column maximum:');
+$js_messages['strColumnMin'] = __('Column minimum:');
+$js_messages['strMinValue'] = __('Minimum value:');
+$js_messages['strMaxValue'] = __('Maximum value:');
 
 /* For tbl_find_replace.js */
 $js_messages['strHideFindNReplaceCriteria'] = __('Hide find and replace criteria');
