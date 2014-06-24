@@ -305,9 +305,9 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
     public function testSetParams()
     {
         $this->object->setParams('test&<>');
-        $this->assertEquals('test&<>', $this->object->getParams());
+        $this->assertEquals(array('test&<>'), $this->object->getParams());
         $this->object->setParams('test&<>', true);
-        $this->assertEquals('test&amp;&lt;&gt;', $this->object->getParams());
+        $this->assertEquals(array('test&amp;&lt;&gt;'), $this->object->getParams());
     }
 
     /**
