@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-23 08:30-0400\n"
-"PO-Revision-Date: 2014-06-24 15:11+0200\n"
+"PO-Revision-Date: 2014-06-24 23:42+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Cari Verilənlər Bazası üçün sütunların orta siyahısı boşdur."
 
 #: db_central_columns.php:109
 #| msgid "Click to sort."
@@ -2619,7 +2619,7 @@ msgstr "Sil"
 
 #: libraries/DbSearch.class.php:384
 msgid "Search in database"
-msgstr ""
+msgstr "Verilənlər Bazasında axtar"
 
 #: libraries/DbSearch.class.php:388
 msgid "Words or values to search for (wildcard: \"%\"):"
@@ -2643,7 +2643,7 @@ msgstr "Daxili sütun:"
 
 #: libraries/DisplayResults.class.php:733
 msgid "Save edited data"
-msgstr ""
+msgstr "Redaktə edilən verilənləri yaddaşa ver"
 
 #: libraries/DisplayResults.class.php:739
 msgid "Restore column order"
@@ -2757,11 +2757,11 @@ msgstr "Əlaqə görüntü sütunu"
 
 #: libraries/DisplayResults.class.php:1648
 msgid "Show binary contents"
-msgstr ""
+msgstr "Binar məzmunu göstər"
 
 #: libraries/DisplayResults.class.php:1653
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "BLOB məzmunlarını göstər"
 
 #: libraries/DisplayResults.class.php:1664
 msgid "Hide browser transformation"
@@ -2769,11 +2769,11 @@ msgstr "Browser transformasiyasını gizlət"
 
 #: libraries/DisplayResults.class.php:1673
 msgid "Well Known Text"
-msgstr ""
+msgstr "Mətn(WKT)"
 
 #: libraries/DisplayResults.class.php:1674
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Binar(WKB)"
 
 #: libraries/DisplayResults.class.php:3411
 #: libraries/DisplayResults.class.php:3427
@@ -2812,7 +2812,7 @@ msgstr "Göstərilən sətir %1s - %2s"
 #: libraries/DisplayResults.class.php:4889
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d toplam, %2$d sorğuda"
 
 #: libraries/DisplayResults.class.php:4894
 #, php-format
