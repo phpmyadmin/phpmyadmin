@@ -31,6 +31,14 @@ $scripts->addFile('gis_data_editor.js');
 
 $table_search = new PMA_TableSearch($db, $table, "normal");
 
+// Request to column min-max value.
+if (isset($_REQUEST['range_search'])) {
+    $response = PMA_Response::getInstance();
+    $min_max = $table_search->getColumnMinMax($_REQUEST['column']);
+    $response->addJSON('column_data', $min_max);
+    exit;
+}
+
 /**
  * No selection criteria received -> display the selection form
  */

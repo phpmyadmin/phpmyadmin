@@ -2693,3 +2693,7 @@ table.show_create td {
 .ui-dialog {
     position: fixed;
 }
+
+.small_font {
+    font-size: smaller;
+}
