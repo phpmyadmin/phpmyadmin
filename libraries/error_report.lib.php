@@ -219,6 +219,8 @@ function PMA_sendErrorReport($report)
  * @param string $filename javascript filename
  *
  * @return Number of lines
+ *
+ * @todo Should gracefully handle non existing files
  */
 function PMA_countLines($filename)
 {
