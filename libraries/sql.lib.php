@@ -897,6 +897,7 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
         && empty($analyzed_sql_results['analyzed_sql'][0]['group_by_clause'])
         && ! isset($find_real_end)
         && !$analyzed_sql_results['is_subquery']
+        && empty($analyzed_sql_results['analyzed_sql'][0]['having_clause'])
     ) {
         return true;
     } else {
