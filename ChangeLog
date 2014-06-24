@@ -21,6 +21,7 @@ phpMyAdmin - ChangeLog
 + rfe #1490 Dynamic process list
 
 4.2.6.0 (not yet released)
+- bug #4471 Undefined index warning with referenced column.
 
 4.2.5.0 (2014-06-26)
 - bug #4467 shell_exec() has been disabled for security reasons
