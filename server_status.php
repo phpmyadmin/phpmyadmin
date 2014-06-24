@@ -25,24 +25,6 @@ if (PMA_DRIZZLE) {
 $ServerStatusData = new PMA_ServerStatusData();
 
 /**
- * Kills a selected process
- */
-if (! empty($_REQUEST['kill'])) {
-    $query = $GLOBALS['dbi']->getKillQuery((int)$_REQUEST['kill']);
-    if ($GLOBALS['dbi']->tryQuery($query)) {
-        $message = PMA_Message::success(__('Thread %s was successfully killed.'));
-    } else {
-        $message = PMA_Message::error(
-            __(
-                'phpMyAdmin was unable to kill thread %s.'
-                . ' It probably has already been closed.'
-            )
-        );
-    }
-    $message->addParam($_REQUEST['kill']);
-}
-
-/**
  * start output
  */
 $response = PMA_Response::getInstance();

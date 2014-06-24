@@ -670,9 +670,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         event.preventDefault();
         runtime.redrawCharts = ! runtime.redrawCharts;
         if (! runtime.redrawCharts) {
-            $(this).html(PMA_getImage('play.png') + ' ' + PMA_messages.strResumeMonitor);
+            $(this).html(PMA_getImage('play.png') + PMA_messages.strResumeMonitor);
         } else {
-            $(this).html(PMA_getImage('pause.png') + ' ' + PMA_messages.strPauseMonitor);
+            $(this).html(PMA_getImage('pause.png') + PMA_messages.strPauseMonitor);
             if (! runtime.charts) {
                 initGrid();
                 $('a[href="#settingsPopup"]').show();

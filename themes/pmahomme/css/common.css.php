@@ -720,7 +720,7 @@ div.error h1 {
 div.success,
 div.notice,
 div.error {
-    margin: .5em 0 1.3em;
+    margin: .5em 0 0.5em;
     border: 1px solid;
     background-repeat: no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
@@ -1365,9 +1365,18 @@ table#chartGrid div.monitorChart {
     border: none;
 }
 
-div#serverstatus div.tabLinks {
+div.tabLinks {
+    margin-left: 0.3em;
     float: <?php echo $left; ?>;
-    padding-bottom: 10px;
+    padding: 5px 0px;
+}
+
+div.tabLinks a, div.tabLinks label {
+    margin-right: 7px;
+}
+
+div.tabLinks .icon {
+    margin: -0.2em 0.3em 0px 0px;
 }
 
 .popupContent {
