@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-23 08:30-0400\n"
-"PO-Revision-Date: 2014-06-24 18:41+0200\n"
+"PO-Revision-Date: 2014-06-24 19:52+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -13218,16 +13218,14 @@ msgid "Save position"
 msgstr "Sauvegarder la position"
 
 #: pmd_general.php:152
-#, fuzzy
 #| msgid "Save position"
 msgid "Save positions as"
-msgstr "Sauvegarder la position"
+msgstr "Sauvegarder les positions dans"
 
 #: pmd_general.php:156
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete pages"
-msgstr "Choisissez la page"
+msgstr "Supprimer les pages"
 
 #: pmd_general.php:167 pmd_general.php:499
 msgid "Create relation"
