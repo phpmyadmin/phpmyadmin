@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-23 08:30-0400\n"
-"PO-Revision-Date: 2014-06-24 14:37+0200\n"
+"PO-Revision-Date: 2014-06-24 14:42+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
@@ -1881,10 +1881,9 @@ msgid "Delete page"
 msgstr "Səhifəni sil"
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Xahiş edirem, deyişdirilecek Sehifeni seç"
+msgstr "Zəhmət olmasa davam etmək üçün bir səhifə seçin"
 
 #: js/messages.php:360
 #, fuzzy
