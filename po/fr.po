@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-23 08:30-0400\n"
-"PO-Revision-Date: 2014-06-23 20:10+0200\n"
+"PO-Revision-Date: 2014-06-24 11:27+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -7190,22 +7190,19 @@ msgid "Select page"
 msgstr "Choisissez la page"
 
 #: libraries/designer.lib.php:59
-#, fuzzy
 #| msgid "Export to selected page."
 msgid "Save to selected page"
-msgstr "Exporter vers la page sélectionnée."
+msgstr "Sauvegarder vers la page sélectionnée"
 
 #: libraries/designer.lib.php:60
-#, fuzzy
 #| msgid "Create a page and export to it."
 msgid "Create a page and save to it"
-msgstr "Créer une page et y exporter."
+msgstr "Créer une page et sauvegarder"
 
 #: libraries/designer.lib.php:92
-#, fuzzy
 #| msgid "New page name: "
 msgid "New page name"
-msgstr "Nom de la nouvelle page : "
+msgstr "Nom de la nouvelle page"
 
 #: libraries/display_change_password.lib.php:59
 #: libraries/replication_gui.lib.php:844
@@ -7410,10 +7407,9 @@ msgid "Skip tables larger than"
 msgstr "Ignorer les tables de taille plus grande que"
 
 #: libraries/display_export.lib.php:776
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select database"
-msgstr "Choisissez une table"
+msgstr "Choisissez une base de données"
 
 #: libraries/display_export.lib.php:778
 #, fuzzy
