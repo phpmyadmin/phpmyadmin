@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 - bug #4450 Query is duplicated on Ctrl+Enter
 + rfe #755  Export with table/column name changes
 + rfe #869  Run SQL query: Allow rollback for InnoDB tables
++ rfe #654  Range Search Capability
 
 4.2.5.0 (not yet released)
 - bug #4467 shell_exec() has been disabled for security reasons
