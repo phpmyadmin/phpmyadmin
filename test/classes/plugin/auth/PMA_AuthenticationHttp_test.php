@@ -44,7 +44,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
             "en" => array("English", "US-ENGLISH"),
             "ch" => array("Chinese", "TW-Chinese")
         );
-        $this->object = new AuthenticationHttp(null);
+        $this->object = new AuthenticationHttp();
     }
 
     /**

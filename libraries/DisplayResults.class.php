@@ -2929,7 +2929,7 @@ class PMA_DisplayResults
                 );
                 include_once
                     "libraries/plugins/transformations/Text_Plain_Link.class.php";
-                $transformation_plugin = new Text_Plain_Link(null);
+                $transformation_plugin = new Text_Plain_Link();
 
                 $transform_options  = array(
                     0 => $linking_url,

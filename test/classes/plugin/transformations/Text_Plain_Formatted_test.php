@@ -9,8 +9,6 @@
  * Include to test.
  */
 
-/* Each PluginObserver instance contains a PluginManager instance */
-require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Formatted.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
@@ -35,7 +33,7 @@ class Text_Plain_Formatted_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Text_Plain_Formatted(new PluginManager());
+        $this->object = new Text_Plain_Formatted();
     }
 
     /**

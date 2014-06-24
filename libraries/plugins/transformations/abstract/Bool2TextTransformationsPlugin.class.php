@@ -55,22 +55,6 @@ abstract class Bool2TextTransformationsPlugin extends TransformationsPlugin
         return $options[0];       // or true one if nonzero
     }
 
-    /**
-     * This method is called when any PluginManager to which the observer
-     * is attached calls PluginManager::notify()
-     *
-     * @param SplSubject $subject The PluginManager notifying the observer
-     *                            of an update.
-     *
-     * @todo implement
-     * @return void
-     */
-    public function update (SplSubject $subject)
-    {
-        ;
-    }
-
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
 

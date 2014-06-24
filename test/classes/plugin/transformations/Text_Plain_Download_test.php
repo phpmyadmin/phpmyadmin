@@ -9,10 +9,8 @@
  * Include to test.
  */
 
-/* Each PluginObserver instance contains a PluginManager instance */
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Application_Octetstream_Download.class.php';
 
 /**
@@ -36,7 +34,7 @@ class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Application_Octetstream_Download(new PluginManager());
+        $this->object = new Application_Octetstream_Download();
         global $row, $fields_meta;
         $fields_meta = array();
         $row = array("pma"=>"aaa", "pca"=>"bbb");

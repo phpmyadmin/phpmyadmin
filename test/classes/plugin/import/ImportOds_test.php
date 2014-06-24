@@ -23,8 +23,6 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/Message.class.php';
-
-/* Each PluginObserver instance contains a PluginManager instance */
 require_once 'libraries/plugins/import/ImportOds.class.php';
 
 /**

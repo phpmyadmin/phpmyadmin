@@ -9,16 +9,13 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* This class extends the PluginObserver class */
-require_once 'PluginObserver.class.php';
-
 /**
  * Provides a common interface that will have to be implemented by all of the
  * authentication plugins.
  *
  * @package PhpMyAdmin
  */
-abstract class AuthenticationPlugin extends PluginObserver
+abstract class AuthenticationPlugin
 {
     /**
      * Displays authentication form
