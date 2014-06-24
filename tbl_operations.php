@@ -18,7 +18,6 @@ require_once 'libraries/operations.lib.php';
 
 $pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
 $response = PMA_Response::getInstance();
-
 /**
  * Runs common work
  */
