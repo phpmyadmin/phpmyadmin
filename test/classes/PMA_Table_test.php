@@ -476,7 +476,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $length = '12';
         $attribute = 'PMA_attribute';
         $collation = 'PMA_collation';
-        $null = true;
+        $null = 'NULL';
         $default_type = 'USER_DEFINED';
         $default_value = 12;
         $extra = 'AUTO_INCREMENT';
