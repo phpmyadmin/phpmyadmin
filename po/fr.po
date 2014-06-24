@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-23 08:30-0400\n"
-"PO-Revision-Date: 2014-06-24 14:18+0200\n"
+"PO-Revision-Date: 2014-06-24 18:41+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -9147,10 +9147,9 @@ msgstr ""
 "différentes)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:527
-#, fuzzy
 #| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses procedures;"
-msgstr "Il semble que votre table utilise des déclencheurs;"
+msgstr "Il semble que votre base de données utilise des procédures;"
 
 #: libraries/plugins/export/ExportSql.class.php:528
 #: libraries/plugins/export/ExportSql.class.php:560
@@ -9162,16 +9161,14 @@ msgstr ""
 "les cas."
 
 #: libraries/plugins/export/ExportSql.class.php:559
-#, fuzzy
 #| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses functions;"
-msgstr "Il semble que votre table utilise des déclencheurs;"
+msgstr "Il semble que votre base de données utilise des fonctions;"
 
 #: libraries/plugins/export/ExportSql.class.php:1261
-#, fuzzy
 #| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses views;"
-msgstr "Il semble que votre table utilise des déclencheurs;"
+msgstr "Il semble que votre base de données utilise des vues;"
 
 #: libraries/plugins/export/ExportSql.class.php:1312
 msgid "Constraints for dumped tables"
@@ -9541,10 +9538,9 @@ msgid "Display Features"
 msgstr "Affichage infobulle"
 
 #: libraries/relation.lib.php:153
-#, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Génération de schémas en PDF"
+msgstr "Concepteur et création de PDF"
 
 #: libraries/relation.lib.php:164
 msgid "Displaying Column Comments"
@@ -13213,10 +13209,9 @@ msgid "Exit fullscreen"
 msgstr "Quitter le plein écran"
 
 #: pmd_general.php:140
-#, fuzzy
 #| msgid "New name"
 msgid "New page"
-msgstr "Nouveau nom"
+msgstr "Nouvelle page"
 
 #: pmd_general.php:148
 msgid "Save position"
