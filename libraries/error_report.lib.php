@@ -156,7 +156,11 @@ function PMA_sanitizeUrl($url)
 
     // get script name
     preg_match("<([a-zA-Z\-_\d]*\.php)$>", $components["path"], $matches);
-    $script_name = $matches[1];
+    if (count($matches)) < 2) {
+        $script_name = 'index.php';
+    } else {
+        $script_name = $matches[1];
+    }
 
     // remove deployment specific details to make uri more generic
     parse_str($components["query"], $query_array);
