@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-23 08:30-0400\n"
-"PO-Revision-Date: 2014-06-23 21:31+0200\n"
+"PO-Revision-Date: 2014-06-24 14:37+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
@@ -29,10 +29,9 @@ msgid "The central list of columns for the current database is empty."
 msgstr ""
 
 #: db_central_columns.php:109
-#, fuzzy
 #| msgid "Click to sort."
 msgid "Click to sort"
-msgstr "Sıralamaq üçün klikləyin."
+msgstr "Sıralamaq üçün klikləyin"
 
 #: db_central_columns.php:125
 #, php-format
@@ -974,16 +973,14 @@ msgid "Preview SQL"
 msgstr "SQL önizləmə"
 
 #: js/messages.php:61
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "in query"
+msgstr "Sorğunu simulyasiya et"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "Təsirlənən sətirlər:"
+msgstr "Uyğun gələn sətirlər:"
 
 #: js/messages.php:63 libraries/Util.class.php:639 libraries/sql.lib.php:452
 msgid "SQL query:"
@@ -1868,23 +1865,20 @@ msgid "Page name"
 msgstr "Səhifə adı"
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Select All"
 msgid "Save page"
-msgstr "Hamısını Seç"
+msgstr "Səhifəni yaddaşa ver"
 
 #: js/messages.php:357 pmd_general.php:144
-#, fuzzy
 #| msgctxt "PDF"
 #| msgid "page"
 msgid "Open page"
-msgstr "Miqdar"
+msgstr "Səhifəni aç"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Select All"
 msgid "Delete page"
-msgstr "Hamısını Seç"
+msgstr "Səhifəni sil"
 
 #: js/messages.php:359
 #, fuzzy
