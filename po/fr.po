@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-23 08:30-0400\n"
-"PO-Revision-Date: 2014-06-24 19:52+0200\n"
+"PO-Revision-Date: 2014-06-25 13:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -7396,7 +7396,7 @@ msgstr "Afficher les résultats"
 
 #: libraries/display_export.lib.php:646 libraries/display_export.lib.php:749
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "Renommer les bases de données / tables / colonnes exportées"
 
 #: libraries/display_export.lib.php:656
 msgid "Save output to a file"
@@ -7984,7 +7984,7 @@ msgstr "MySQL a retourné un résultat vide (aucune ligne)."
 
 #: libraries/import.lib.php:268 libraries/sql.lib.php:1679
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[Un ROLLBACK a eu lieu]"
 
 #: libraries/import.lib.php:1231
 msgid ""
@@ -8034,12 +8034,16 @@ msgstr "Aller à la vue : %s"
 #: libraries/import.lib.php:1358
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
+"Seulement les requêtes UPDATE et DELETE portant sur une seule table peuvent "
+"être simulées."
 
 #: libraries/import.lib.php:1775
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"Seules les requêtes SQL INSERT, UPDATE, DELETE et REPLACE portant sur des "
+"tables d'un moteur transactionnel peuvent être annulées."
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -9514,7 +9518,7 @@ msgstr ""
 
 #: libraries/pmd_common.php:295
 msgid "*Untitled"
-msgstr ""
+msgstr "*Sans titre"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -12390,7 +12394,7 @@ msgstr "Afficher à nouveau la requête après exécution"
 
 #: libraries/sql_query_form.lib.php:378
 msgid "Rollback when finished"
-msgstr ""
+msgstr "ROLLBACK à la fin"
 
 #: libraries/sql_query_form.lib.php:436
 msgid "View only"
