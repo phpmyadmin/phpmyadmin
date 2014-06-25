@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-10 12:45-0400\n"
-"PO-Revision-Date: 2014-06-16 19:44+0200\n"
+"PO-Revision-Date: 2014-06-25 13:44+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/ia/>\n"
@@ -5606,6 +5606,10 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
+"Il defini pro quanto tempore (in secundas) un cookie de accesso deberea "
+"esser immagazinate in le navigator. Le valor predefinite de 0 significa que "
+"essera delite quando tu claude le fenestra del navigator. Isto es "
+"recommendate pro ambiente non digne de fide."
 
 #: libraries/config/messages.inc.php:387
 msgid "Login cookie store"
@@ -6798,6 +6802,8 @@ msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr ""
+"Quando illo es dishabilitate, usatores non pote fixar alcun optiones a "
+"basso, sin reguardo del quadrato de selection a dextera."
 
 #: libraries/config/messages.inc.php:779
 msgid "Enable the Developer tab in settings"
@@ -6827,6 +6833,10 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"Le url del proxy debe esser usate quando on recupera le information sur le "
+"ultime version de phpMyAdmin o quando on submitte reportos de errores. Tu "
+"necessita illos si le servitor ubi phpMyAdmin es installate non ha accesso "
+"directe a internet. Le formato es: \"nomine_de_hospite:numero_de_porto\"."
 
 #: libraries/config/messages.inc.php:784
 msgid "Proxy url"
@@ -6838,6 +6848,10 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"Le nomine de usator pro authenticar se con le proxy. Per definition, necun "
+"authentication es executate. Si on forni un nomine de usator, on executara "
+"le Authentication Basic. Necun altere typos de authentication nunc es "
+"supportate."
 
 #: libraries/config/messages.inc.php:786
 msgid "Proxy username"
@@ -6912,32 +6926,32 @@ msgstr "CSV usante LOAD DATA"
 #: libraries/config/user_preferences.forms.php:166
 #: libraries/config/user_preferences.forms.php:262
 msgid "OpenDocument Spreadsheet"
-msgstr ""
+msgstr "Folio de computo (SpreadSheet) de OpenDocument"
 
 #: libraries/config/setup.forms.php:270
 #: libraries/config/user_preferences.forms.php:173
 msgid "Quick"
-msgstr ""
+msgstr "Rapide"
 
 #: libraries/config/setup.forms.php:274
 #: libraries/config/user_preferences.forms.php:177
 msgid "Custom"
-msgstr ""
+msgstr "Personalisate"
 
 #: libraries/config/setup.forms.php:296
 #: libraries/config/user_preferences.forms.php:198
 msgid "Database export options"
-msgstr ""
+msgstr "Optiones de exportation de base de datos"
 
 #: libraries/config/setup.forms.php:332
 #: libraries/config/user_preferences.forms.php:234
 msgid "CSV for MS Excel"
-msgstr ""
+msgstr "CSV pro datos MS Excel"
 
 #: libraries/config/setup.forms.php:355
 #: libraries/config/user_preferences.forms.php:257
 msgid "Microsoft Word 2000"
-msgstr ""
+msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:364
 #: libraries/config/user_preferences.forms.php:266
@@ -6948,21 +6962,24 @@ msgstr "Texto OpenDocument"
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
+"Le extension %s es mancante. Pro favor tu verifica tu configuration de PHP."
 
 #: libraries/core.lib.php:450
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "possibile attacco profunde de recursion"
 
 #: libraries/database_interface.inc.php:32
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Vide %snostre documentation%s pro altere information."
 
 #: libraries/database_interface.inc.php:48
 msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
 msgstr ""
+"Tu es usante le extension de mysql que es deprecate in phpMyAdmin. Pro favor "
+"tu considera installar le extension mysqli."
 
 #: libraries/dbi/DBIDrizzle.class.php:150 libraries/dbi/DBIMysql.class.php:170
 #: libraries/dbi/DBIMysqli.class.php:229
@@ -6973,46 +6990,46 @@ msgstr ""
 
 #: libraries/dbi/drizzle-wrappers.lib.php:385
 msgid "Can't seek in an unbuffered result set"
-msgstr ""
+msgstr "Non pote cercar in in insimul de exito non tamponate"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:406
 msgid "Can't count rows in an unbuffered result set"
-msgstr ""
+msgstr "Non pote computar rangos in un insimul de exito non tamponate"
 
 #: libraries/display_change_password.lib.php:59
 #: libraries/replication_gui.lib.php:846
 #: libraries/server_privileges.lib.php:1476
 msgid "No Password"
-msgstr ""
+msgstr "Necun contrasigno"
 
 #: libraries/display_change_password.lib.php:67
 #: libraries/plugins/auth/AuthenticationCookie.class.php:208
 #: libraries/replication_gui.lib.php:395 libraries/replication_gui.lib.php:833
 #: libraries/server_privileges.lib.php:1452
 msgid "Password:"
-msgstr ""
+msgstr "Contrasigno:"
 
 #: libraries/display_change_password.lib.php:73
 #: libraries/replication_gui.lib.php:857
 #: libraries/server_privileges.lib.php:1493
 msgid "Re-type:"
-msgstr ""
+msgstr "Re-typa:"
 
 #: libraries/display_change_password.lib.php:80
 msgid "Password Hashing:"
-msgstr ""
+msgstr "Hachage de contrasigno:"
 
 #: libraries/display_change_password.lib.php:93
 msgid "MySQL 4.0 compatible"
-msgstr ""
+msgstr "Compatibile con MySQL 4.0"
 
 #: libraries/display_create_database.lib.php:23
 msgid "Create database"
-msgstr ""
+msgstr "Crea base de datos"
 
 #: libraries/display_create_database.lib.php:47
 msgid "Create"
-msgstr ""
+msgstr "Crea"
 
 #: libraries/display_create_database.lib.php:51
 msgid "Create database:"
@@ -7022,11 +7039,11 @@ msgstr "Crea base de datos:"
 #: libraries/server_privileges.lib.php:3857 server_privileges.php:130
 #: server_replication.php:32
 msgid "No Privileges"
-msgstr ""
+msgstr "Necun privilegios"
 
 #: libraries/display_create_table.lib.php:55 pmd_general.php:91
 msgid "Create table"
-msgstr ""
+msgstr "Crea tabella"
 
 #: libraries/display_create_table.lib.php:60
 #: libraries/plugins/export/ExportHtmlword.class.php:485
@@ -7042,84 +7059,87 @@ msgstr "Nomine"
 
 #: libraries/display_create_table.lib.php:65
 msgid "Number of columns"
-msgstr ""
+msgstr "Numero de columnas"
 
 #: libraries/display_export.inc.php:36
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
+"Il non pote cargar plugins de exportar, pro favor verifica tu installation!"
 
 #: libraries/display_export.lib.php:165
 msgid "Exporting databases from the current server"
-msgstr ""
+msgstr "Exportante base de datos ex le servitor currente"
 
 #: libraries/display_export.lib.php:168
 #, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr ""
+msgstr "Exportante tabellas ex le base de datos \"%s\""
 
 #: libraries/display_export.lib.php:173
 #, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr ""
+msgstr "Exportante rangos ex tabella \"%s\""
 
 #: libraries/display_export.lib.php:198
 msgid "Export Method:"
-msgstr ""
+msgstr "Methodo de exportation:"
 
 #: libraries/display_export.lib.php:208
 msgid "Quick - display only the minimal options"
-msgstr ""
+msgstr "Rapide-monstra solo le optiones minime"
 
 #: libraries/display_export.lib.php:220
 msgid "Custom - display all possible options"
-msgstr ""
+msgstr "Personalisate-monstra omne optiones possibile"
 
 #: libraries/display_export.lib.php:242
 msgid "Database(s):"
-msgstr ""
+msgstr "Base(s) de datos:"
 
 #: libraries/display_export.lib.php:244
 msgid "Table(s):"
-msgstr ""
+msgstr "Tabella(s):"
 
 #: libraries/display_export.lib.php:264 libraries/display_import.lib.php:332
 #: libraries/plugins/export/ExportCodegen.class.php:107
 msgid "Format:"
-msgstr ""
+msgstr "Formato:"
 
 #: libraries/display_export.lib.php:269
 msgid "Format-specific options:"
-msgstr ""
+msgstr "Optiones specific de formato:"
 
 #: libraries/display_export.lib.php:272
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"Rola a basso pro completar le optiones pro le formato seligite e ignorar le "
+"optiones pro altere formatos."
 
 #: libraries/display_export.lib.php:283 libraries/display_import.lib.php:349
 msgid "Encoding Conversion:"
-msgstr ""
+msgstr "Conversion de codifica:"
 
 #: libraries/display_export.lib.php:319 libraries/sql.lib.php:434
 msgid "Rows:"
-msgstr ""
+msgstr "Rangos:"
 
 #: libraries/display_export.lib.php:327
 msgid "Dump some row(s)"
-msgstr ""
+msgstr "Executa le dump de alicun rango(s)"
 
 #: libraries/display_export.lib.php:342
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Rango de initiar a:"
 
 #: libraries/display_export.lib.php:359
 msgid "Dump all rows"
-msgstr ""
+msgstr "Le dump de omne rangos"
 
 #: libraries/display_export.lib.php:375 libraries/display_export.lib.php:634
 msgid "Output:"
-msgstr ""
+msgstr "Exito:"
 
 #: libraries/display_export.lib.php:384 libraries/display_export.lib.php:419
 #, php-format
@@ -7128,19 +7148,19 @@ msgstr "Salveguarda sur servitor in le directorio <b>%s</b>"
 
 #: libraries/display_export.lib.php:449
 msgid "File name template:"
-msgstr ""
+msgstr "Patrono de nomine de file:"
 
 #: libraries/display_export.lib.php:451
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ devenira le nomine de servitor"
 
 #: libraries/display_export.lib.php:453
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ devenira le nomine de base de datos"
 
 #: libraries/display_export.lib.php:455
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ devenira le nomine de tabella"
 
 #: libraries/display_export.lib.php:461
 #, php-format
@@ -7152,59 +7172,59 @@ msgstr ""
 
 #: libraries/display_export.lib.php:518
 msgid "use this for future exports"
-msgstr ""
+msgstr "usa isto pro exportationes futur"
 
 #: libraries/display_export.lib.php:533 libraries/display_import.lib.php:179
 #: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:504
 msgid "Character set of the file:"
-msgstr ""
+msgstr "Insimul de characteres de file:"
 
 #: libraries/display_export.lib.php:577
 msgid "Compression:"
-msgstr ""
+msgstr "Compression:"
 
 #: libraries/display_export.lib.php:585
 msgid "zipped"
-msgstr ""
+msgstr "comprimite per zip"
 
 #: libraries/display_export.lib.php:592
 msgid "gzipped"
-msgstr ""
+msgstr "comprimite per gzip"
 
 #: libraries/display_export.lib.php:619
 msgid "View output as text"
-msgstr ""
+msgstr "Vide exito como texto"
 
 #: libraries/display_export.lib.php:644
 msgid "Save output to a file"
-msgstr ""
+msgstr "Salveguarda exito in un file"
 
 #: libraries/display_export.lib.php:671
 msgid "Skip tables larger than"
-msgstr ""
+msgstr "Salta tabellas plus grande que"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "%1$s ex ramo %2$s"
 
 #: libraries/display_git_revision.lib.php:58
 msgid "no branch"
-msgstr ""
+msgstr "necun ramo"
 
 #: libraries/display_git_revision.lib.php:64
 msgid "Git revision:"
-msgstr ""
+msgstr "Revision de Git:"
 
 #: libraries/display_git_revision.lib.php:67
 #, php-format
 msgid "committed on %1$s by %2$s"
-msgstr ""
+msgstr "committite le %1$s per %2$s"
 
 #: libraries/display_git_revision.lib.php:75
 #, php-format
 msgid "authored on %1$s by %2$s"
-msgstr ""
+msgstr "create le %1$s per %2$s"
 
 #: libraries/display_import.lib.php:71
 msgid ""
@@ -7214,22 +7234,22 @@ msgstr ""
 
 #: libraries/display_import.lib.php:108
 msgid "Importing into the current server"
-msgstr ""
+msgstr "Importante in le currente servitor"
 
 #: libraries/display_import.lib.php:111
 #, php-format
 msgid "Importing into the database \"%s\""
-msgstr ""
+msgstr "Importante in le base de datos \"%s\""
 
 #: libraries/display_import.lib.php:117
 #, php-format
 msgid "Importing into the table \"%s\""
-msgstr ""
+msgstr "Importante in le tabella \"%s\""
 
 #: libraries/display_import.lib.php:153
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "Le file pote esser comprimite (%s) o non comprimite."
 
 #: libraries/display_import.lib.php:159
 msgid ""
@@ -7241,15 +7261,15 @@ msgstr ""
 
 #: libraries/display_import.lib.php:222
 msgid "File to Import:"
-msgstr ""
+msgstr "File de importar:"
 
 #: libraries/display_import.lib.php:244
 msgid "File uploads are not allowed on this server."
-msgstr ""
+msgstr "Il non es permittite incargar files sur iste servitor."
 
 #: libraries/display_import.lib.php:268
 msgid "Partial Import:"
-msgstr ""
+msgstr "Importation partial:"
 
 #: libraries/display_import.lib.php:275
 #, php-format
@@ -7798,7 +7818,7 @@ msgstr ""
 
 #: libraries/mult_submits.inc.php:252 tbl_replace.php:251
 msgid "No change"
-msgstr ""
+msgstr "Necun modification"
 
 #: libraries/mult_submits.lib.php:331
 msgid "Replace table prefix:"
@@ -9944,7 +9964,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:138
 msgid "Page name"
-msgstr ""
+msgstr "Nomine de pagina"
 
 #: libraries/schema/User_Schema.class.php:145
 msgid "Automatic layout based on"
@@ -9964,7 +9984,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:205
 msgid "Select page"
-msgstr ""
+msgstr "Selige pagina"
 
 #: libraries/schema/User_Schema.class.php:272
 msgid "Select Tables"
