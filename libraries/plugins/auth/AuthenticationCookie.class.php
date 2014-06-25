@@ -720,8 +720,8 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
-     * Encryption using blowfish algorithm (mcrypt)
-     * or phpseclib's AES if mcrypt not available
+     * Encryption using phpseclib's AES
+     * (it uses mcrypt when it is available)
      *
      * @param string $data   original data
      * @param string $secret the secret
@@ -737,8 +737,8 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
-     * Decryption using blowfish algorithm (mcrypt)
-     * or phpseclib's AES if mcrypt not available
+     * Decryption using phpseclib's AES
+     * (it uses mcrypt when it is available)
      *
      * @param string $encdata encrypted data
      * @param string $secret  the secret
