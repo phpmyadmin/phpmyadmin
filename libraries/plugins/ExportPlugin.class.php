@@ -9,9 +9,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* This class extends the PluginObserver class */
-require_once 'PluginObserver.class.php';
-
 /**
  * Provides a common interface that will have to be implemented by all of the
  * export plugins. Some of the plugins will also implement other public
@@ -20,7 +17,7 @@ require_once 'PluginObserver.class.php';
  *
  * @package PhpMyAdmin
  */
-abstract class ExportPlugin extends PluginObserver
+abstract class ExportPlugin
 {
     /**
      * ExportPluginProperties object containing

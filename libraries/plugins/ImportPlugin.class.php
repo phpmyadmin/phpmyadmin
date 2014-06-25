@@ -9,16 +9,13 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* This class extends the PluginObserver class */
-require_once 'PluginObserver.class.php';
-
 /**
  * Provides a common interface that will have to be implemented by all of the
  * import plugins.
  *
  * @package PhpMyAdmin
  */
-abstract class ImportPlugin extends PluginObserver
+abstract class ImportPlugin
 {
     /**
      * ImportPluginProperties object containing the import plugin properties

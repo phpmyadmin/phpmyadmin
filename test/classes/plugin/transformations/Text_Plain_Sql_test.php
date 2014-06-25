@@ -9,9 +9,7 @@
  * Include to test.
  */
 
-/* Each PluginObserver instance contains a PluginManager instance */
 require_once 'libraries/Util.class.php';
-require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Sql.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/sqlparser.lib.php';
@@ -37,7 +35,7 @@ class Text_Plain_Sql_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Text_Plain_Sql(new PluginManager());
+        $this->object = new Text_Plain_Sql();
     }
 
     /**

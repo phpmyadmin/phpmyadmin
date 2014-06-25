@@ -21,7 +21,6 @@ require_once 'libraries/Tracker.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
 
-/* Each PluginObserver instance contains a PluginManager instance */
 require_once 'libraries/plugins/import/ImportMediawiki.class.php';
 require_once 'libraries/Util.class.php';
 

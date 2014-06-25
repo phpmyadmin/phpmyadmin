@@ -11,7 +11,6 @@
  */
 $GLOBALS['server'] = 0;
 
-/* Each PluginObserver instance contains a PluginManager instance */
 require_once 'libraries/Util.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';

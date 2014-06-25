@@ -35,7 +35,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
-        $this->object = new AuthenticationConfig(null);
+        $this->object = new AuthenticationConfig();
     }
 
     /**

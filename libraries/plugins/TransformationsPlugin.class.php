@@ -9,19 +9,16 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* It extends the PluginObserver abstract class */
-require_once 'PluginObserver.class.php';
 /* It also implements the transformations interface */
 require_once 'TransformationsInterface.int.php';
 
 /**
- * Extends PluginObserver and provides a common interface that will have to
+ * Provides a common interface that will have to
  * be implemented by all of the transformations plugins.
  *
  * @package PhpMyAdmin
  */
-abstract class TransformationsPlugin extends PluginObserver
-    implements TransformationsInterface
+abstract class TransformationsPlugin implements TransformationsInterface
 {
     /**
      * Does the actual work of each specific transformations plugin.
