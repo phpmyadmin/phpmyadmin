@@ -91,7 +91,6 @@ class PMA_PluginManager_Test extends PHPUnit_Framework_TestCase
         $observer = new PMA_TestObserver();
 
         $mock = $this->getMockBuilder('SplObjectStorage')
-            ->disableOriginalConstructor()
             ->setMethods(array('attach'))
             ->getMock();
 
@@ -115,7 +114,6 @@ class PMA_PluginManager_Test extends PHPUnit_Framework_TestCase
         $observer = new PMA_TestObserver();
 
         $mock = $this->getMockBuilder('SplObjectStorage')
-            ->disableOriginalConstructor()
             ->setMethods(array('detach'))
             ->getMock();
 
