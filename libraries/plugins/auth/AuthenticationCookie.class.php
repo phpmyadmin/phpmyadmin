@@ -786,11 +786,17 @@ class AuthenticationCookie extends AuthenticationPlugin
                 mcrypt_enc_get_iv_size($td),
                 MCRYPT_DEV_URANDOM
             );
-            $GLOBALS['PMA_Config']->setCookie(
-                'pma_mcrypt_iv',
-                base64_encode($this->_blowfish_iv)
-            );
+        } else {
+            /*
+             * We don't use this value without mcrypt, but let's set it
+             * so that we don't have to check conditionally for it.
+             */
+            $this->_blowfish_iv = 'dummy';
         }
+        $GLOBALS['PMA_Config']->setCookie(
+            'pma_mcrypt_iv',
+            base64_encode($this->_blowfish_iv)
+        );
     }
 
     /**

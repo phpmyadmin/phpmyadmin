@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - bug #4467 shell_exec() has been disabled for security reasons
 - bug #4470 Error while submitting empty query
 - bug #4463 Fatal error: Class 'PMA_DatabaseInterface' not found
+- bug #4469 Fixed cookie based login for installations without mcrypt
 
 4.2.4.0 (2014-06-20)
 - bug #4449 Mediawiki export does not produce table header row; also fix related PHP warnings
