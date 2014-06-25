@@ -45,6 +45,11 @@ $js_messages['strDropUserGroupWarning'] = __('Do you really want to delete user 
 $js_messages['strConfirmDeleteQBESearch'] = __('Do you really want to delete the search "%s"?');
 $js_messages['strConfirmNavigation'] = __('You have unsaved changes; are you sure you want to leave this page?');
 
+/* For modal dialog buttons */
+$js_messages['strSaveAndClose'] = __('Save & Close');
+$js_messages['strReset'] = __('Reset');
+$js_messages['strResetAll'] = __('Reset All');
+
 /* For indexes */
 $js_messages['strFormEmpty'] = __('Missing value in the form!');
 $js_messages['strRadioUnchecked'] = __('Select at least one of the options!');
