@@ -12,6 +12,7 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/sql.lib.php';
 require_once 'libraries/bookmark.lib.php';
+require_once 'libraries/Console.class.php';
 //require_once 'libraries/display_import_functions.lib.php';
 
 if (isset($_REQUEST['show_as_php'])) {
@@ -24,6 +25,13 @@ require_once 'libraries/import.lib.php';
 // If there is a request to 'Simulate DML'.
 if (isset($_REQUEST['simulate_dml'])) {
     PMA_handleSimulateDMLRequest();
+    exit;
+}
+
+// If it's a refresh console bookmarks request
+if(isset($_GET['console_bookmark_refresh'])) {
+    $response = PMA_Response::getInstance();
+    $response->addJSON('console_message_bookmark', PMA_Console::getBookmarkContent());
     exit;
 }
 
@@ -124,7 +132,6 @@ if (! empty($sql_query)) {
 
 // If we didn't get any parameters, either user called this directly, or
 // upload limit has been reached, let's assume the second possibility.
-;
 if ($_POST == array() && $_GET == array()) {
     $message = PMA_Message::error(
         __('You probably tried to upload a file that is too large. Please refer to %sdocumentation%s for a workaround for this limit.')
@@ -138,6 +145,12 @@ if ($_POST == array() && $_GET == array()) {
 
     $message->display();
     exit; // the footer is displayed automatically
+}
+
+// Add console message id to response output
+if(isset($_POST['console_message_id'])) {
+    $response = PMA_Response::getInstance();
+    $response->addJSON('console_message_id', $_POST['console_message_id']);
 }
 
 /**

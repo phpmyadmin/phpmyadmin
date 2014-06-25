@@ -949,22 +949,26 @@ function PMA_getHistory($username)
 {
     $cfgRelation = PMA_getRelationsParam();
 
+    if (! $cfgRelation['historywork']) {
+        return false;
+    }
+
     /**
      * if db-based history is disabled but there exists a session-based
      * history, use it
      */
-    if (! $GLOBALS['cfg']['QueryHistoryDB'] && isset($_SESSION['sql_history'])) {
+    if (! $GLOBALS['cfg']['QueryHistoryDB']) {
+        if(isset($_SESSION['sql_history'])) {
             return array_reverse($_SESSION['sql_history']);
-    }
-
-    if (! $cfgRelation['historywork']) {
+        }
         return false;
     }
 
     $hist_query = '
          SELECT `db`,
                 `table`,
-                `sqlquery`
+                `sqlquery`,
+                `timevalue`
            FROM ' . PMA_Util::backquote($cfgRelation['db'])
             . '.' . PMA_Util::backquote($cfgRelation['history']) . '
           WHERE `username` = \'' . PMA_Util::sqlAddSlashes($username) . '\'

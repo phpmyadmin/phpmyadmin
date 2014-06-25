@@ -83,7 +83,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         $header = $response->getHeader();
         $header->setBodyId('loginform');
         $header->setTitle(__('Access denied!'));
-        $header->disableMenu();
+        $header->disableMenuAndConsole();
         echo '<br /><br />
     <center>
         <h1>';

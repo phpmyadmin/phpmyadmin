@@ -101,7 +101,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
         $mockHeader = $this->getMockBuilder('PMA_Header')
             ->disableOriginalConstructor()
             ->setMethods(
-                array('setBodyId', 'setTitle', 'disableMenu', 'addHTML')
+                array('setBodyId', 'setTitle', 'disableMenuAndConsole', 'addHTML')
             )
             ->getMock();
 
@@ -114,7 +114,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
             ->with('Access denied!');
 
         $mockHeader->expects($this->once())
-            ->method('disableMenu')
+            ->method('disableMenuAndConsole')
             ->with();
 
         // set mocked headers and footers
