@@ -85,16 +85,6 @@ Basic settings
 
     You can set this parameter to ``true`` to stop this message from appearing.
 
-.. config:option:: $cfg['McryptDisableWarning']
-
-    :type: boolean
-    :default: false
-
-    Disable the default warning that is displayed if mcrypt is missing for
-    cookie authentication.
-
-    You can set this parameter to ``true`` to stop this message from appearing.
-
 .. config:option:: $cfg['ServerLibraryDifference_DisableWarning']
 
     :type: boolean
