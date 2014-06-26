@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.2.6.0 (not yet released)
+
 4.2.5.0 (not yet released)
 - bug #4467 shell_exec() has been disabled for security reasons
 - bug #4470 Error while submitting empty query
