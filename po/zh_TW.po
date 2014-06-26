@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-23 08:30-0400\n"
-"PO-Revision-Date: 2014-06-26 18:35+0200\n"
+"PO-Revision-Date: 2014-06-26 18:51+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -230,7 +230,7 @@ msgstr "資料庫中沒有任何資料表。"
 #: db_export.php:41 libraries/DbSearch.class.php:442
 #: libraries/display_export.lib.php:44
 msgid "Select All"
-msgstr "全選"
+msgstr "全部選擇"
 
 #: db_export.php:47 libraries/DbSearch.class.php:446
 #: libraries/display_export.lib.php:50
@@ -7684,13 +7684,14 @@ msgstr "前往檢視: %s"
 
 #: libraries/import.lib.php:1358
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
-msgstr "只能模擬單一資料表的更新(UPDATE)與刪除(DELETE)查詢。"
+msgstr "只有單一資料表的更新(UPDATE)與刪除(DELETE)查詢能模擬。"
 
 #: libraries/import.lib.php:1775
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"只有支援交易引擎資料表中的插入(INSERT)、更新(UPDATE)、刪除(DELETE)與取代(REPLACE)查詢能還原(Rollback)。"
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -7783,10 +7784,9 @@ msgid "Convert to Kana"
 msgstr "轉換爲假名"
 
 #: libraries/mult_submits.inc.php:279
-#, fuzzy
 #| msgid "Success."
 msgid "Success!"
-msgstr "成功。"
+msgstr "成功！"
 
 #: libraries/mult_submits.lib.php:331
 msgid "Replace table prefix:"
@@ -8776,7 +8776,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:527
 msgid "It appears your database uses procedures;"
-msgstr ""
+msgstr "您的資料庫使用了程序(Procedure)；"
 
 #: libraries/plugins/export/ExportSql.class.php:528
 #: libraries/plugins/export/ExportSql.class.php:560
@@ -8787,11 +8787,11 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:559
 msgid "It appears your database uses functions;"
-msgstr ""
+msgstr "您的資料庫使用了函數(Function)；"
 
 #: libraries/plugins/export/ExportSql.class.php:1261
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "您的資料庫使用了檢視表(View)；"
 
 #: libraries/plugins/export/ExportSql.class.php:1312
 msgid "Constraints for dumped tables"
@@ -8827,7 +8827,7 @@ msgstr "表的關聯"
 
 #: libraries/plugins/export/ExportSql.class.php:1781
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "您的資料表使用了觸發(Trigger)；"
 
 #: libraries/plugins/export/ExportSql.class.php:1813
 #, php-format
@@ -9108,7 +9108,7 @@ msgstr ""
 
 #: libraries/pmd_common.php:295
 msgid "*Untitled"
-msgstr ""
+msgstr "*未命名"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -9132,10 +9132,9 @@ msgid "Display Features"
 msgstr "顯示功能"
 
 #: libraries/relation.lib.php:153
-#, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "建立 PDF"
+msgstr "設計並建立 PDF"
 
 #: libraries/relation.lib.php:164
 msgid "Displaying Column Comments"
@@ -10583,7 +10582,6 @@ msgid "Column-specific privileges"
 msgstr "指定欄位權限"
 
 #: libraries/server_privileges.lib.php:2846
-#, fuzzy
 #| msgid "Add privileges on the following database:"
 msgid "Add privileges on the following database(s):"
 msgstr "在下列資料庫新增權限："
@@ -11835,7 +11833,7 @@ msgstr "在此再次顯示此查詢"
 
 #: libraries/sql_query_form.lib.php:378
 msgid "Rollback when finished"
-msgstr ""
+msgstr "當完成後還原"
 
 #: libraries/sql_query_form.lib.php:436
 msgid "View only"
@@ -11929,10 +11927,9 @@ msgid "Sum"
 msgstr "總計"
 
 #: libraries/structure.lib.php:310
-#, fuzzy
 #| msgid "Show color"
 msgid "Show create"
-msgstr "顯示顏色"
+msgstr "顯示建立"
 
 #: libraries/structure.lib.php:334
 msgid "Add prefix to table"
@@ -11967,12 +11964,11 @@ msgid "Check tables having overhead"
 msgstr "僅選擇資料分散的資料表"
 
 #: libraries/structure.lib.php:824
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "可能為近似值，請參考 [doc@faq3-11]FAQ 3.11[/doc]。"
+msgstr "可能為近似值，請點選數字以取得精確的數量。請參考 [doc@faq3-11]FAQ 3.11[/doc]。"
 
 #: libraries/structure.lib.php:906
 msgid "Sort"
@@ -12154,10 +12150,9 @@ msgid "Favorite List is full!"
 msgstr "我的最愛清單已滿!"
 
 #: libraries/structure.lib.php:2979
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Showing create queries"
-msgstr "顯示 SQL 查詢"
+msgstr "顯示建立查詢"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -12225,29 +12220,26 @@ msgstr "Y 軸標籤:"
 
 #: libraries/tbl_chart.lib.php:237
 msgid "Series names are in a column"
-msgstr ""
+msgstr "序列名稱於欄位中"
 
 #: libraries/tbl_chart.lib.php:240
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "於下列欄位中:"
+msgstr "序列欄位："
 
 #: libraries/tbl_chart.lib.php:253
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Value column:"
-msgstr "%s 欄位的值"
+msgstr "資料欄位："
 
 #: libraries/tbl_chart.lib.php:286
 msgid "Start row:"
 msgstr "起始列號:"
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "另存新檔"
+msgstr "另存圖表為影像"
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
@@ -12656,26 +12648,23 @@ msgid "Exit fullscreen"
 msgstr "退出全螢幕"
 
 #: pmd_general.php:140
-#, fuzzy
 #| msgid "New name"
 msgid "New page"
-msgstr "新名稱"
+msgstr "新頁面"
 
 #: pmd_general.php:148
 msgid "Save position"
 msgstr "儲存位置"
 
 #: pmd_general.php:152
-#, fuzzy
 #| msgid "Save position"
 msgid "Save positions as"
-msgstr "儲存位置"
+msgstr "儲存位置為"
 
 #: pmd_general.php:156
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete pages"
-msgstr "選擇頁面"
+msgstr "刪除頁面"
 
 #: pmd_general.php:167 pmd_general.php:499
 msgid "Create relation"
