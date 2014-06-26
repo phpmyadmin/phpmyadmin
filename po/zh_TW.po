@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-23 08:30-0400\n"
-"PO-Revision-Date: 2014-04-25 15:05+0200\n"
+"PO-Revision-Date: 2014-06-26 18:35+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
-"Language-Team: Traditional Chinese <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"Language-Team: Traditional Chinese "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -27,16 +27,15 @@ msgid "The central list of columns for the current database is empty."
 msgstr ""
 
 #: db_central_columns.php:109
-#, fuzzy
 #| msgid "Click to sort."
 msgid "Click to sort"
-msgstr "點此進行排序。"
+msgstr "點此排序"
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "顯示第 %1s - %2s 列"
+msgstr "顯示第 %1$s - %2$s 列"
 
 #: db_create.php:61
 #, php-format
@@ -937,12 +936,11 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "您確定要刪除查詢「%s」？"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid ""
 #| "You have edited some data and they have not been saved. Are you sure you "
 #| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
-msgstr "有一些修改的資料尚未儲存，你確定要不儲存直接離開本頁？"
+msgstr "您有尚未儲存的變更，您確定要離開此頁面？"
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
@@ -977,19 +975,17 @@ msgstr "增加 %s 個欄位至索引"
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:365
 msgid "Preview SQL"
-msgstr ""
+msgstr "預覽 SQL"
 
 #: js/messages.php:61
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "查詢中"
+msgstr "模擬查詢"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "已影響的列數:"
+msgstr "符合條件的列數："
 
 #: js/messages.php:63 libraries/Util.class.php:639 libraries/sql.lib.php:452
 msgid "SQL query:"
@@ -1620,10 +1616,9 @@ msgid "(Disabled)"
 msgstr "(已停用)"
 
 #: js/messages.php:257
-#, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
-msgstr "文件表頭資訊取得失敗"
+msgstr "取得實際列數失敗。"
 
 #: js/messages.php:260
 msgid "Searching"
@@ -1709,19 +1704,17 @@ msgstr "瀏覽關聯的值"
 
 #: js/messages.php:287
 msgid "Pick"
-msgstr ""
+msgstr "選取"
 
 #: js/messages.php:288
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "尚未選擇欄位。"
+msgstr "欄位選擇器"
 
 #: js/messages.php:289
-#, fuzzy
 #| msgid "Search this table"
 msgid "Search this list"
-msgstr "搜尋此資料表"
+msgstr "搜尋此清單"
 
 #: js/messages.php:290
 #, php-format
@@ -1731,26 +1724,24 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:291
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "閒置記憶體"
+msgstr "查看更多資訊"
 
 #: js/messages.php:292
 msgid "Are you sure?"
-msgstr ""
+msgstr "您確定?"
 
 #: js/messages.php:293
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
-msgstr ""
+msgstr "此動作可能會變更部份欄位的定義。<br/>您是否確定要繼續執行？"
 
 #: js/messages.php:294
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "貢獻"
+msgstr "繼續"
 
 #: js/messages.php:297 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:392
@@ -1886,42 +1877,37 @@ msgid "Page name"
 msgstr "頁面名稱"
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "選擇頁面"
+msgstr "儲存頁面"
 
 #: js/messages.php:357 pmd_general.php:144
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "空閒頁"
+msgstr "開啟頁面"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "選擇頁面"
+msgstr "刪除頁面"
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "請選擇需要編輯的頁面"
+msgstr "請選擇頁面以繼續執行"
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "請輸入一個有效的數字！"
+msgstr "請輸入一個有效的頁面名稱"
 
 #: js/messages.php:361
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "您是否要儲存變更至目前頁面？"
 
 #: js/messages.php:362
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "已成功刪除頁面"
 
 #: js/messages.php:365
 #, php-format
@@ -1984,7 +1970,7 @@ msgstr ""
 
 #: js/messages.php:381
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
-msgstr ""
+msgstr "請輸入一個有效的十六進位字串。有效的字元為 0-9, A-F。"
 
 #: js/messages.php:386
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2103,17 +2089,16 @@ msgstr ""
 
 #: js/messages.php:443 js/messages.php:455
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "已偵測到伺服器上發生部份錯誤！"
 
 #: js/messages.php:445
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "請瀏覽此視窗的底部。"
 
 #: js/messages.php:450 libraries/Error_Handler.class.php:350
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "略過"
+msgstr "全部略過"
 
 #: js/messages.php:457
 msgid ""
@@ -2928,10 +2913,9 @@ msgid "Too many error messages, some are not displayed."
 msgstr "錯誤訊息過多，有一些沒有被顯示出來。"
 
 #: libraries/Error_Handler.class.php:333
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
-msgstr "匯入"
+msgstr "報告"
 
 #: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:344
 msgid "Automatically send report next time"
@@ -3183,10 +3167,9 @@ msgid "Designer"
 msgstr "設計器"
 
 #: libraries/Menu.class.php:481 libraries/Util.class.php:4099
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "文字框寬度 (字數)"
+msgstr "中央欄位"
 
 #: libraries/Menu.class.php:513 libraries/Util.class.php:4071
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
@@ -4172,10 +4155,9 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
 #: libraries/central_columns.lib.php:280
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "無法儲存設定"
+msgstr "無法新增欄位！"
 
 #: libraries/central_columns.lib.php:356
 #, php-format
@@ -4184,18 +4166,17 @@ msgid ""
 msgstr ""
 
 #: libraries/central_columns.lib.php:368
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not remove columns!"
-msgstr "無法儲存最近使用的資料表！"
+msgstr "無法移除欄位！"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
-msgstr ""
+msgstr "是"
 
 #: libraries/central_columns.lib.php:509
 msgid "NO"
-msgstr ""
+msgstr "否"
 
 #: libraries/central_columns.lib.php:629
 #: libraries/display_create_table.lib.php:60
@@ -4224,30 +4205,29 @@ msgid "Extra"
 msgstr "額外資訊"
 
 #: libraries/central_columns.lib.php:660
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "選擇資料表"
+msgstr "選擇一個資料表"
 
 #: libraries/central_columns.lib.php:714 libraries/structure.lib.php:1649
 msgid "Add column"
 msgstr "新增欄位"
 
 #: libraries/central_columns.lib.php:726
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "請選擇兩個欄位"
+msgstr "選擇一個欄位。"
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
 #, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "自動增加"
+msgstr "auto_increment"
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
+#, fuzzy
 msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
+msgstr "on update CURRENT_TIMESTAMP"
 
 #: libraries/central_columns.lib.php:886
 #, fuzzy
@@ -5122,10 +5102,9 @@ msgid "Add %s"
 msgstr "加入 %s"
 
 #: libraries/config/messages.inc.php:176
-#, fuzzy
 #| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "爲 BLOB 欄位使用16進位 (HEX)"
+msgstr "於 BINARY 與 BLOB 欄位使用 16 進位(HEX)表示"
 
 #: libraries/config/messages.inc.php:178
 msgid "Use ignore inserts"
@@ -6898,16 +6877,14 @@ msgid "Can't count rows in an unbuffered result set"
 msgstr "不能在無緩衝的結果集中計算筆數"
 
 #: libraries/designer.lib.php:31
-#, fuzzy
 #| msgid "Page titles"
 msgid "Page to open"
-msgstr "頁面標題"
+msgstr "要開啟的頁面"
 
 #: libraries/designer.lib.php:33
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Page to delete"
-msgstr "已刪除關聯"
+msgstr "要刪除的頁面"
 
 #: libraries/designer.lib.php:37 libraries/designer.lib.php:73
 #: libraries/schema/User_Schema.class.php:211
@@ -6915,22 +6892,19 @@ msgid "Select page"
 msgstr "選擇頁面"
 
 #: libraries/designer.lib.php:59
-#, fuzzy
 #| msgid "Export to selected page."
 msgid "Save to selected page"
-msgstr "從選擇的頁面匯出資料。"
+msgstr "儲存至已選擇的頁面"
 
 #: libraries/designer.lib.php:60
-#, fuzzy
 #| msgid "Create a page and export to it."
 msgid "Create a page and save to it"
-msgstr "建立新頁並匯出。"
+msgstr "建立頁面並儲存"
 
 #: libraries/designer.lib.php:92
-#, fuzzy
 #| msgid "New page name: "
 msgid "New page name"
-msgstr "新頁面名: "
+msgstr "新頁面名稱"
 
 #: libraries/display_change_password.lib.php:59
 #: libraries/replication_gui.lib.php:844
@@ -7121,7 +7095,7 @@ msgstr "直接顯示在文字區塊"
 
 #: libraries/display_export.lib.php:646 libraries/display_export.lib.php:749
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "重新命名已匯出的資料庫/資料表/欄位"
 
 #: libraries/display_export.lib.php:656
 msgid "Save output to a file"
@@ -7132,10 +7106,9 @@ msgid "Skip tables larger than"
 msgstr "略過資料表超過"
 
 #: libraries/display_export.lib.php:776
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database"
-msgstr "選擇資料表"
+msgstr "選擇資料庫"
 
 #: libraries/display_export.lib.php:778
 #, fuzzy
@@ -7144,28 +7117,24 @@ msgid "Select table"
 msgstr "選擇資料表"
 
 #: libraries/display_export.lib.php:794
-#, fuzzy
 #| msgid "Database name"
 msgid "New database name"
-msgstr "資料庫名稱"
+msgstr "新資料庫名稱"
 
 #: libraries/display_export.lib.php:818
-#, fuzzy
 #| msgid "New page name: "
 msgid "New table name"
-msgstr "新頁面名: "
+msgstr "新資料表名稱"
 
 #: libraries/display_export.lib.php:827
-#, fuzzy
 #| msgid "Copy column name."
 msgid "Old column name"
-msgstr "複製欄位名稱。"
+msgstr "舊欄位名稱"
 
 #: libraries/display_export.lib.php:828
-#, fuzzy
 #| msgid "Copy column name."
 msgid "New column name"
-msgstr "複製欄位名稱。"
+msgstr "新欄位名稱"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -7668,7 +7637,7 @@ msgstr "MySQL 回傳空的查詢結果 (即零資料列)。"
 
 #: libraries/import.lib.php:268 libraries/sql.lib.php:1679
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[已發生 ROLLBACK。]"
 
 #: libraries/import.lib.php:1231
 msgid ""
@@ -7715,7 +7684,7 @@ msgstr "前往檢視: %s"
 
 #: libraries/import.lib.php:1358
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
-msgstr ""
+msgstr "只能模擬單一資料表的更新(UPDATE)與刪除(DELETE)查詢。"
 
 #: libraries/import.lib.php:1775
 msgid ""
