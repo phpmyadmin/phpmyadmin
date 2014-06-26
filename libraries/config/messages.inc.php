@@ -416,11 +416,6 @@ $strConfigMaxRows_name = __('Maximum number of rows to display');
 $strConfigMaxTableList_cmt = __('Users cannot set a higher value');
 $strConfigMaxTableList_desc = __('Maximum number of tables displayed in table list.');
 $strConfigMaxTableList_name = __('Maximum tables');
-$strConfigMcryptDisableWarning_desc = __(
-    'Disable the default warning that is displayed if mcrypt is missing for '
-    . '[kbd]cookie[/kbd] authentication.'
-);
-$strConfigMcryptDisableWarning_name = __('mcrypt warning');
 $strConfigMemoryLimit_desc = __(
     'The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] '
     . '([kbd]0[/kbd] for no limit).'

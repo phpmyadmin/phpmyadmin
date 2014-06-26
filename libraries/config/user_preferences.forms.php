@@ -54,7 +54,6 @@ $forms['Features']['Warnings'] = array(
     'ServerLibraryDifference_DisableWarning',
     'PmaNoRelation_DisableWarning',
     'SuhosinDisableWarning',
-    'McryptDisableWarning',
     'ReservedWordDisableWarning');
 // settings from this form are treated specially,
 // see prefs_forms.php and user_preferences.lib.php
