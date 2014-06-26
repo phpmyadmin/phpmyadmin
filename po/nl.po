@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-23 08:30-0400\n"
-"PO-Revision-Date: 2014-06-17 14:24+0200\n"
+"PO-Revision-Date: 2014-06-26 17:16+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
-">\n"
+"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
+"\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -29,10 +29,9 @@ msgid "The central list of columns for the current database is empty."
 msgstr ""
 
 #: db_central_columns.php:109
-#, fuzzy
 #| msgid "Click to sort."
 msgid "Click to sort"
-msgstr "Klik om te sorteren."
+msgstr "Klik om te sorteren"
 
 #: db_central_columns.php:125
 #, php-format
@@ -1010,16 +1009,14 @@ msgid "Preview SQL"
 msgstr "SQL voorbeeld"
 
 #: js/messages.php:61
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "in de query"
+msgstr "Query simuleren"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "Getroffen rijen:"
+msgstr "Overeenkomende rijen:"
 
 #: js/messages.php:63 libraries/Util.class.php:639 libraries/sql.lib.php:452
 msgid "SQL query:"
@@ -1938,34 +1935,29 @@ msgid "Page name"
 msgstr "Paginanaam"
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "Selecteer pagina"
+msgstr "Pagina opslaan"
 
 #: js/messages.php:357 pmd_general.php:144
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "Vrije pages"
+msgstr "Pagina openen"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "Selecteer pagina"
+msgstr "Pagina verwijderen"
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Kies een pagina om aan te passen"
+msgstr "Gelieve een pagina te selecteren om verder te gaan"
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "Vul een geldig nummer in!"
+msgstr "Gelieve een geldige paginanaam in te geven"
 
 #: js/messages.php:361
 msgid "Do you want to save the changes to the current page?"
@@ -4371,10 +4363,9 @@ msgid "on update CURRENT_TIMESTAMP"
 msgstr ""
 
 #: libraries/central_columns.lib.php:886
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
-msgstr "Kolom toevoegen"
+msgstr "Nieuwe kolom toevoegen"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -6586,10 +6577,9 @@ msgstr ""
 "pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:665
-#, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
-msgstr "PDF-schema: tabelcoördinaten"
+msgstr "Ontwerper en PDF-schema: tabelcoördinaten"
 
 #: libraries/config/messages.inc.php:667
 msgid ""
@@ -7196,16 +7186,14 @@ msgid "Can't count rows in an unbuffered result set"
 msgstr "Kan geen rijen tellen in een ongebufferde resultatenreeks"
 
 #: libraries/designer.lib.php:31
-#, fuzzy
 #| msgid "Page titles"
 msgid "Page to open"
-msgstr "Paginatitels"
+msgstr "Pagina om te openen"
 
 #: libraries/designer.lib.php:33
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Page to delete"
-msgstr "Relatie verwijderd"
+msgstr "Pagina om te verwijderen"
 
 #: libraries/designer.lib.php:37 libraries/designer.lib.php:73
 #: libraries/schema/User_Schema.class.php:211
@@ -7213,22 +7201,19 @@ msgid "Select page"
 msgstr "Selecteer pagina"
 
 #: libraries/designer.lib.php:59
-#, fuzzy
 #| msgid "Export to selected page."
 msgid "Save to selected page"
-msgstr "Exporteren naar geselecteerde pagina."
+msgstr "Opslaan naar geselecteerde pagina"
 
 #: libraries/designer.lib.php:60
-#, fuzzy
 #| msgid "Create a page and export to it."
 msgid "Create a page and save to it"
-msgstr "Een pagina aanmaken en ernaar exporteren."
+msgstr "Een pagina aanmaken en ernaar opslaan"
 
 #: libraries/designer.lib.php:92
-#, fuzzy
 #| msgid "New page name: "
 msgid "New page name"
-msgstr "Nieuwe paginanaam: "
+msgstr "Nieuwe paginanaam"
 
 #: libraries/display_change_password.lib.php:59
 #: libraries/replication_gui.lib.php:844
@@ -7437,40 +7422,34 @@ msgid "Skip tables larger than"
 msgstr "Sla tabellen over groter dan"
 
 #: libraries/display_export.lib.php:776
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select database"
-msgstr "Selecteer een tabel"
+msgstr "Selecteer een databank"
 
 #: libraries/display_export.lib.php:778
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select table"
 msgstr "Selecteer een tabel"
 
 #: libraries/display_export.lib.php:794
-#, fuzzy
 #| msgid "Database name"
 msgid "New database name"
-msgstr "Databanknaam"
+msgstr "Nieuwe databanknaam"
 
 #: libraries/display_export.lib.php:818
-#, fuzzy
 #| msgid "New page name: "
 msgid "New table name"
-msgstr "Nieuwe paginanaam: "
+msgstr "Nieuwe tabelnaam"
 
 #: libraries/display_export.lib.php:827
-#, fuzzy
 #| msgid "Copy column name."
 msgid "Old column name"
-msgstr "Kolomnaam kopiëren."
+msgstr "Vorige kolomnaam"
 
 #: libraries/display_export.lib.php:828
-#, fuzzy
 #| msgid "Copy column name."
 msgid "New column name"
-msgstr "Kolomnaam kopiëren."
+msgstr "Nieuwe kolomnaam"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -13256,26 +13235,23 @@ msgid "Exit fullscreen"
 msgstr "Volledig scherm modus verlaten"
 
 #: pmd_general.php:140
-#, fuzzy
 #| msgid "New name"
 msgid "New page"
-msgstr "Nieuwe naam"
+msgstr "Nieuwe pagina"
 
 #: pmd_general.php:148
 msgid "Save position"
 msgstr "Posities opslaan"
 
 #: pmd_general.php:152
-#, fuzzy
 #| msgid "Save position"
 msgid "Save positions as"
-msgstr "Posities opslaan"
+msgstr "Posities opslaan als"
 
 #: pmd_general.php:156
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete pages"
-msgstr "Selecteer pagina"
+msgstr "Pagina's verwijderen"
 
 #: pmd_general.php:167 pmd_general.php:499
 msgid "Create relation"
