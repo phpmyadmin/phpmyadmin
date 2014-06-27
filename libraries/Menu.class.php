@@ -95,7 +95,6 @@ class PMA_Menu
      */
     private function _getMenu()
     {
-        $tabs = array();
         $url_params = array('db' => $this->_db);
         $level = '';
 
