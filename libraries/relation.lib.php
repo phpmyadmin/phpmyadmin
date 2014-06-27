@@ -1600,7 +1600,7 @@ function PMA_checkChildForeignReferences($db, $table, $column)
             }
         }
 
-        if (sizeof($foreigners[$column], 0) > 0) {
+        if (!empty($foreigners[$column]) && sizeof($foreigners[$column], 0) > 0) {
             $column_status['isForeignKey'] = true;
         }
     } else {
