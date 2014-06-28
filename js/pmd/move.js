@@ -729,7 +729,6 @@ function Save_as()
         var choice          = $form.find('input[name="save_page"]:checked').val();
         var name            = '';
 
-        debugger;
         if (choice === 'same') {
             if ($selected_page.val() === '0') {
                 PMA_ajaxShowMessage(PMA_messages.strSelectPage, 2000);
