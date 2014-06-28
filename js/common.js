@@ -334,12 +334,12 @@ PMA_DROP_IMPORT = {
         ext = arr[arr.length - 1];
 
         //check if compressed
-        if (jQuery.inArray(ext.toLowerCase(), 
+        if (jQuery.inArray(ext.toLowerCase(),
             PMA_DROP_IMPORT.allowedCompressedExtensions) !== -1)
                 ext = arr[arr.length - 2];
 
         //Now check for extension
-        if (jQuery.inArray(ext.toLowerCase(), 
+        if (jQuery.inArray(ext.toLowerCase(),
             PMA_DROP_IMPORT.allowedExtensions) !== -1)
                 return ext;
             return '';
@@ -396,12 +396,12 @@ PMA_DROP_IMPORT = {
         });
 
         // -- provide link to cancel the upload
-        $('.pma_sql_import_status div li[data-hash="' +hash 
+        $('.pma_sql_import_status div li[data-hash="' +hash
             +'"] span.filesize').html('<span hash="'
             +hash +'" class="pma_drop_file_status" task="cancel">cancel</span>');
 
         // -- add event listener to this link to abort upload operation
-        $('.pma_sql_import_status div li[data-hash="' +hash 
+        $('.pma_sql_import_status div li[data-hash="' +hash
             +'"] span.filesize span.pma_drop_file_status')
             .live('click', function() {
                 if ($(this).attr('task') === 'cancel') {
@@ -409,8 +409,8 @@ PMA_DROP_IMPORT = {
                     $(this).html('<span>Aborted</span>');
                     PMA_DROP_IMPORT._importFinished(hash, true, false);
                 }
-                /** 
-                 * #todo: add a view to check import result, in a lightbox 
+                /**
+                 * #todo: add a view to check import result, in a lightbox
                  *          in case task == info
                 */
             });
@@ -485,8 +485,6 @@ PMA_DROP_IMPORT = {
         } else {
             icon = 'icon ic_s_notice';
         }
-
-        // Prevents multiple abort, adds placeholder to view status
         $('.pma_sql_import_status div li[data-hash="' +hash
             +'"] span.filesize span.pma_drop_file_status')
             .attr('task', 'info');
@@ -522,7 +520,7 @@ PMA_DROP_IMPORT = {
 
                 $(".pma_sql_import_status div").append('<li data-hash="' +hash +'">'
                     +((ext !== '') ? '' : '<img src="./themes/dot.gif" title="invalid format" class="icon ic_s_notice"> ')
-                    +files[i].name + '<span class="filesize">' 
+                    +files[i].name + '<span class="filesize">'
                     +(files[i].size/1024).toFixed(2) +' kb</span></li>');
 
                 //scroll the UI to bottom
@@ -582,7 +580,7 @@ $(".pma_drop_handler").live('dragleave', PMA_DROP_IMPORT._dragleave);
 //when file is dropped to PMA UI
 $('body').live('drop', PMA_DROP_IMPORT._drop);
 
-// minimizing-maximising the sql ajax upload status 
+// minimizing-maximising the sql ajax upload status
 $('.pma_sql_import_status h2 .minimize').live('click', function() {
     if ($(this).attr('toggle') === 'off') {
         $('.pma_sql_import_status div').css('height','270px');
@@ -593,7 +591,7 @@ $('.pma_sql_import_status h2 .minimize').live('click', function() {
     }
 });
 
-// closing sql ajax upload status 
+// closing sql ajax upload status
 $('.pma_sql_import_status h2 .close').live('click', function() {
     $('.pma_sql_import_status').fadeOut(function() {
         $('.pma_sql_import_status div').html('');
