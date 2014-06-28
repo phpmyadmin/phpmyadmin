@@ -1,26 +1,27 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain Prepend/Append Transformations plugin for phpMyAdmin
+ * Text Plain Regex Validation Input Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage PreApPend
+ * @subpackage RegexValidation
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the prepend/append transformations interface */
-require_once 'abstract/PreApPendTransformationsPlugin.class.php';
+/* Get the regex validation transformations class */
+require_once 'libraries/plugins/transformations/abstract/'
+    . 'RegexValidationTransformationsPlugin.class.php';
 
 /**
- * Handles the prepend and/or append transformation for text plain.
- * Has two options: the text to be prepended and appended (if any, default '')
+ * Handles the input regex validation transformation for text plain.
+ * Has one option: the regular expression
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage PreApPend
+ * @subpackage RegexValidation
  */
-class Text_Plain_PreApPend extends PreApPendTransformationsPlugin
+class Text_Plain_RegexValidation extends RegexValidationTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type

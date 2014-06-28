@@ -1324,6 +1324,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             g.isCellEdited = false;
                         } else {
                             PMA_ajaxShowMessage(data.error, false);
+                            if (!g.saveCellsAtOnce) {
+                                $(g.t).find('.to_be_saved')
+                                    .removeClass('to_be_saved');
+                            }
                         }
                     }
             }); // end $.ajax()

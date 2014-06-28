@@ -1,25 +1,25 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Application OctetStream Hex Transformations plugin for phpMyAdmin
+ * Application OctetStream Download Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Hex
+ * @subpackage Download
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-/* Get the hex transformations interface */
-require_once 'abstract/HexTransformationsPlugin.class.php';
+/* Get the download transformations interface */
+require_once 'libraries/plugins/transformations/abstract/'
+    . 'DownloadTransformationsPlugin.class.php';
 
 /**
- * Handles the hex transformation for application octetstream
+ * Handles the download transformation for application octetstream
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Hex
+ * @subpackage Download
  */
-class Application_Octetstream_Hex extends HexTransformationsPlugin
+class Application_Octetstream_Download extends DownloadTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type

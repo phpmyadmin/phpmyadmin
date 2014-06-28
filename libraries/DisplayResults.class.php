@@ -2523,7 +2523,10 @@ class PMA_DisplayResults
             $classes[] = 'truncated';
         }
 
-        if ($transformation_plugin != $default_function) {
+        $mime_map = $this->__get('mime_map');
+        if ($transformation_plugin != $default_function
+            || !empty($mime_map[$meta->name]['input_transformation'])
+        ) {
             $classes[] = 'transformed';
         }
 
@@ -2866,7 +2869,7 @@ class PMA_DisplayResults
                     if (file_exists($include_file)) {
 
                         include_once $include_file;
-                        $class_name = str_replace('.class.php', '', $file);
+                        $class_name = PMA_getTransformationClassName($file);
                         // todo add $plugin_manager
                         $plugin_manager = null;
                         $transformation_plugin = new $class_name(

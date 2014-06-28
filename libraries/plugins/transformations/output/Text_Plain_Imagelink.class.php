@@ -1,25 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain SQL Transformations plugin for phpMyAdmin
+ * Text Plain Image Link Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
+ * @subpackage ImageLink
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the sql transformations interface */
-require_once 'abstract/SQLTransformationsPlugin.class.php';
+/* Get the image link transformations interface */
+require_once 'libraries/plugins/transformations/abstract/'
+    . 'TextImageLinkTransformationsPlugin.class.php';
 
 /**
- * Handles the sql transformation for text plain
+ * Handles the image link transformation for text plain
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
+ * @subpackage ImageLink
  */
-class Text_Plain_Sql extends SQLTransformationsPlugin
+class Text_Plain_Imagelink extends TextImageLinkTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type

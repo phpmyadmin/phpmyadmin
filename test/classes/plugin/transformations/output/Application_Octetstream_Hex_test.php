@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for Application_Octetstream_Download class
+ * Tests for Application_Octetstream_Hex class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,16 +9,16 @@
  * Include to test.
  */
 
-require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/plugins/transformations/Application_Octetstream_Download.class.php';
+require_once 'libraries/plugins/transformations/output/'
+    . 'Application_Octetstream_Hex.class.php';
 
 /**
- * Tests for Application_Octetstream_Download class
+ * Tests for Application_Octetstream_Hex class
  *
  * @package PhpMyAdmin-test
  */
-class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
+class Application_Octetstream_Hex_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -34,10 +34,7 @@ class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Application_Octetstream_Download();
-        global $row, $fields_meta;
-        $fields_meta = array();
-        $row = array("pma"=>"aaa", "pca"=>"bbb");
+        $this->object = new Application_Octetstream_Hex();
     }
 
     /**
@@ -61,14 +58,13 @@ class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetInfo()
     {
-        $info = 'Displays a link to download the binary data of the column. You can'
-            . ' use the first option to specify the filename, or use the second'
-            . ' option as the name of a column which contains the filename. If'
-            . ' you use the second option, you need to set the first option to'
-            . ' the empty string.';
+        $info
+            = 'Displays hexadecimal representation of data. Optional first'
+            . ' parameter specifies how often space will be added (defaults'
+            . ' to 2 nibbles).';
         $this->assertEquals(
             $info,
-            Application_Octetstream_Download::getInfo()
+            Application_Octetstream_Hex::getInfo()
         );
 
     }
@@ -83,8 +79,8 @@ class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
     public function testGetName()
     {
         $this->assertEquals(
-            "Download",
-            Application_Octetstream_Download::getName()
+            "Hex",
+            Application_Octetstream_Hex::getName()
         );
     }
 
@@ -99,7 +95,7 @@ class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             "Application",
-            Application_Octetstream_Download::getMIMEType()
+            Application_Octetstream_Hex::getMIMEType()
         );
     }
 
@@ -114,7 +110,7 @@ class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             "OctetStream",
-            Application_Octetstream_Download::getMIMESubtype()
+            Application_Octetstream_Hex::getMIMESubtype()
         );
     }
 
@@ -127,24 +123,26 @@ class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
      */
     public function testApplyTransformation()
     {
-        $buffer = "PMA_BUFFER";
-        $options = array("filename", 'wrapper_link'=>'PMA_wrapper_link');
-        $result = '<a href="transformation_wrapper.phpPMA_wrapper_link'
-        . '&amp;ct=application/octet-stream&amp;cn=filename" '
-        . 'title="filename">filename</a>';
+        $buffer = "11111001";
+        $options = array(3);
         $this->assertEquals(
-            $result,
+            "313 131 313 130 303 1 ",
             $this->object->applyTransformation($buffer, $options)
         );
 
-        //using default filename: binary_file.dat
-        $options = array("", 'cloumn', 'wrapper_link'=>'PMA_wrapper_link');
-        $result = '<a href="transformation_wrapper.phpPMA_wrapper_link&amp;'
-            . 'ct=application/octet-stream&amp;cn=binary_file.dat" '
-            . 'title="binary_file.dat">binary_file.dat</a>';
+        $buffer = "11111001";
+        $options = array(0);
         $this->assertEquals(
-            $result,
+            "3131313131303031",
             $this->object->applyTransformation($buffer, $options)
         );
+
+        //no option
+        $buffer = "11111001";
+        $this->assertEquals(
+            "31 31 31 31 31 30 30 31 ",
+            $this->object->applyTransformation($buffer)
+        );
+
     }
 }

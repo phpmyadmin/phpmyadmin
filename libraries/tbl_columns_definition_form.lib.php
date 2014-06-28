@@ -313,24 +313,31 @@ function PMA_getHeaderCells($is_backup, $columnMeta, $mimework, $db, $table)
 
     if ($mimework && $GLOBALS['cfg']['BrowseMIME']) {
         $header_cells[] = __('MIME type');
-        $header_cells[] = '<a href="transformation_overview.php?'
+        $header_link = '<a href="transformation_overview.php?'
             . PMA_URL_getCommon($db, $table)
-            . '" title="' . __(
+            . '#%s" title="' . __(
                 'List of available transformations and their options'
             )
-            . '" target="_blank">'
-            . __('Browser transformation')
-            . '</a>';
-        $header_cells[] = __('Transformation options')
-            . PMA_Util::showHint(
-                __(
-                    'Please enter the values for transformation options using this'
-                    . ' format: \'a\', 100, b,\'c\'…<br />If you ever need to put'
-                    . ' a backslash ("\") or a single quote ("\'") amongst those'
-                    . ' values, precede it with a backslash (for example \'\\\\xyz\''
-                    . ' or \'a\\\'b\').'
-                )
-            );
+            . '" target="_blank">%s</a>';
+        $transformations_hint = PMA_Util::showHint(
+            __(
+                'Please enter the values for transformation options using this'
+                . ' format: \'a\', 100, b,\'c\'…<br />If you ever need to put'
+                . ' a backslash ("\") or a single quote ("\'") amongst those'
+                . ' values, precede it with a backslash (for example \'\\\\xyz\''
+                . ' or \'a\\\'b\').'
+            )
+        );
+        $header_cells[] = sprintf(
+            $header_link, 'transformation', __('Browser display transformation')
+        );
+        $header_cells[] = __('Browser display transformation options')
+            . $transformations_hint;
+        $header_cells[] = sprintf(
+            $header_link, 'input_transformation', __('Input transformation')
+        );
+        $header_cells[] = __('Input transformation options')
+            . $transformations_hint;
     }
 
     return $header_cells;
@@ -637,28 +644,31 @@ function PMA_getHtmlForColumnType($columnNumber, $ci, $ci_offset,
 /**
  * Function to get html for transformation option
  *
- * @param int   $columnNumber column number
- * @param int   $ci           cell index
- * @param int   $ci_offset    cell index offset
- * @param array $columnMeta   column meta
- * @param array $mime_map     mime map
+ * @param int    $columnNumber column number
+ * @param int    $ci           cell index
+ * @param int    $ci_offset    cell index offset
+ * @param array  $columnMeta   column meta
+ * @param array  $mime_map     mime map
+ * @param string $type_prefix  prefix for type of transformation
+ *                             '' or 'input'
  *
  * @return string
  */
 function PMA_getHtmlForTransformationOption($columnNumber, $ci, $ci_offset,
-    $columnMeta, $mime_map
+    $columnMeta, $mime_map, $type_prefix
 ) {
+    $options_key = $type_prefix . 'transformation_options';
     $val = isset($columnMeta['Field'])
-            && isset($mime_map[$columnMeta['Field']]['transformation_options'])
+            && isset($mime_map[$columnMeta['Field']][$options_key])
                 ? htmlspecialchars(
                     $mime_map[$columnMeta['Field']]
-                    ['transformation_options']
+                    [$options_key]
                 )
                 : '';
 
     $html = '<input id="field_' . $columnNumber . '_'
                 . ($ci - $ci_offset) . '"' . ' type="text" '
-                . 'name="field_transformation_options[' . $columnNumber . ']"'
+                . 'name="field_' . $options_key . '[' . $columnNumber . ']"'
                 . ' size="16" class="textfield"'
                 . ' value="' . $val . '"'
                 . ' />';
@@ -706,42 +716,45 @@ function PMA_getHtmlForMimeType($columnNumber, $ci, $ci_offset,
 }
 
 /**
- * Function to get html for browser transformation
+ * Function to get html for transformations
  *
- * @param int   $columnNumber   column number
- * @param int   $ci             cell index
- * @param int   $ci_offset      cell index offset
- * @param array $available_mime available mime
- * @param array $columnMeta     column meta
- * @param array $mime_map       mime map
+ * @param int    $columnNumber   column number
+ * @param int    $ci             cell index
+ * @param int    $ci_offset      cell index offset
+ * @param array  $available_mime available mime
+ * @param array  $columnMeta     column meta
+ * @param array  $mime_map       mime map
+ * @param string $type_prefix    prefix for type of transformation
+ *                               '' or 'input'
  *
  * @return string
  */
-function PMA_getHtmlForBrowserTransformation($columnNumber, $ci, $ci_offset,
-    $available_mime, $columnMeta, $mime_map
+function PMA_getHtmlForTransformation($columnNumber, $ci, $ci_offset,
+    $available_mime, $columnMeta, $mime_map, $type_prefix
 ) {
+    $type = $type_prefix . 'transformation';
     $html = '<select id="field_' . $columnNumber . '_'
-            . ($ci - $ci_offset) . '" size="1" name="field_transformation['
-            . $columnNumber . ']">';
+            . ($ci - $ci_offset) . '" size="1" name="field_' . $type
+            . '[' . $columnNumber . ']">';
     $html .= '    <option value="" title="' . __('None')
             . '"></option>';
-    if (is_array($available_mime['transformation'])) {
-        foreach ($available_mime['transformation'] as $mimekey => $transform) {
+    if (is_array($available_mime[$type])) {
+        foreach ($available_mime[$type] as $mimekey => $transform) {
             $checked = isset($columnMeta['Field'])
-                && isset($mime_map[$columnMeta['Field']]['transformation'])
+                && isset($mime_map[$columnMeta['Field']][$type])
                 && preg_match(
                     '@' . preg_quote(
-                        $available_mime['transformation_file'][$mimekey]
+                        $available_mime[$type . '_file'][$mimekey]
                     ) . '3?@i',
-                    $mime_map[$columnMeta['Field']]['transformation']
+                    $mime_map[$columnMeta['Field']][$type]
                 )
                 ? 'selected '
                 : '';
             $tooltip = PMA_getTransformationDescription(
-                $available_mime['transformation_file'][$mimekey], false
+                $available_mime[$type . '_file'][$mimekey], false
             );
             $html .= '<option value="'
-                . $available_mime['transformation_file'][$mimekey] . '" '
+                . $available_mime[$type . '_file'][$mimekey] . '" '
                 . $checked . ' title="' . htmlspecialchars($tooltip) . '">'
                 . htmlspecialchars($transform) . '</option>';
         }
@@ -1290,15 +1303,28 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
         $ci++;
 
         // Column Browser transformation
-        $content_cell[$ci] = PMA_getHtmlForBrowserTransformation(
-            $columnNumber, $ci, $ci_offset, $available_mime, $columnMeta, $mime_map
+        $content_cell[$ci] = PMA_getHtmlForTransformation(
+            $columnNumber, $ci, $ci_offset, $available_mime,
+            $columnMeta, $mime_map, ''
         );
         $ci++;
 
         // column Transformation options
         $content_cell[$ci] = PMA_getHtmlForTransformationOption(
-            $columnNumber, $ci, $ci_offset, isset($columnMeta) ? $columnMeta : null,
-            isset($mime_map) ? $mime_map : null
+            $columnNumber, $ci, $ci_offset, $columnMeta, $mime_map, ''
+        );
+        $ci++;
+
+        // Column Input transformation
+        $content_cell[$ci] = PMA_getHtmlForTransformation(
+            $columnNumber, $ci, $ci_offset, $available_mime,
+            $columnMeta, $mime_map, 'input_'
+        );
+        $ci++;
+
+        // column Input transformation options
+        $content_cell[$ci] = PMA_getHtmlForTransformationOption(
+            $columnNumber, $ci, $ci_offset, $columnMeta, $mime_map, 'input_'
         );
     }
 

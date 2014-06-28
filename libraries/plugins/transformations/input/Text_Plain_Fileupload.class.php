@@ -1,25 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain Image Link Transformations plugin for phpMyAdmin
+ * Text Plain File Upload Input Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage ImageLink
+ * @subpackage TextFileUpload
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the image link transformations interface */
-require_once 'abstract/TextImageLinkTransformationsPlugin.class.php';
+/* Get the text file upload transformations class */
+require_once 'libraries/plugins/transformations/abstract/'
+    . 'TextFileUploadTransformationsPlugin.class.php';
 
 /**
- * Handles the image link transformation for text plain
+ * Handles the input text file upload transformation for text plain.
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage ImageLink
+ * @subpackage TextFileUpload
  */
-class Text_Plain_Imagelink extends TextImageLinkTransformationsPlugin
+class Text_Plain_FileUpload extends TextFileUploadTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type

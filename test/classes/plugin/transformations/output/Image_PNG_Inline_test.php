@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for Image_JPEG_Inline class
+ * Tests for Image_PNG_Inline class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,17 +9,17 @@
  * Include to test.
  */
 
-require_once 'libraries/plugins/transformations/Image_JPEG_Inline.class.php';
+require_once 'libraries/plugins/transformations/output/Image_PNG_Inline.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/config.default.php';
 
 /**
- * Tests for Image_JPEG_Inline class
+ * Tests for Image_PNG_Inline class
  *
  * @package PhpMyAdmin-test
  */
-class Image_JPEG_Inline_Test extends PHPUnit_Framework_TestCase
+class Image_PNG_Inline_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -37,7 +37,7 @@ class Image_JPEG_Inline_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
-        $this->object = new Image_JPEG_Inline();
+        $this->object = new Image_PNG_Inline();
     }
 
     /**
@@ -65,8 +65,9 @@ class Image_JPEG_Inline_Test extends PHPUnit_Framework_TestCase
             . ' and height in pixels. The original aspect ratio is preserved.';
         $this->assertEquals(
             $info,
-            Image_JPEG_Inline::getInfo()
+            Image_PNG_Inline::getInfo()
         );
+
     }
 
     /**
@@ -80,7 +81,7 @@ class Image_JPEG_Inline_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             "Inline",
-            Image_JPEG_Inline::getName()
+            Image_PNG_Inline::getName()
         );
     }
 
@@ -95,7 +96,7 @@ class Image_JPEG_Inline_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             "Image",
-            Image_JPEG_Inline::getMIMEType()
+            Image_PNG_Inline::getMIMEType()
         );
     }
 
@@ -109,8 +110,8 @@ class Image_JPEG_Inline_Test extends PHPUnit_Framework_TestCase
     public function testGetMIMESubtype()
     {
         $this->assertEquals(
-            "JPEG",
-            Image_JPEG_Inline::getMIMESubtype()
+            "PNG",
+            Image_PNG_Inline::getMIMESubtype()
         );
     }
 
@@ -123,12 +124,13 @@ class Image_JPEG_Inline_Test extends PHPUnit_Framework_TestCase
      */
     public function testApplyTransformation()
     {
-        $buffer = "PMA_JPEG_Inline";
+        $buffer = "PMA_PNG_Inline";
         $options = array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link");
-        $result = '<a href="transformation_wrapper.phpPMA_wrapper_link" '
-            . 'target="_blank"><img src="transformation_wrapper.php'
-            . 'PMA_wrapper_link&amp;resize=jpeg&amp;newWidth=./image/&amp;'
-            . 'newHeight=200" alt="PMA_JPEG_Inline" border="0" /></a>';
+        $result = '<a href="transformation_wrapper.phpPMA_wrapper_link"'
+            . ' target="_blank"><img src="transformation_wrapper.php'
+            . 'PMA_wrapper_link&amp;'
+            . 'resize=jpeg&amp;newWidth=./image/&amp;newHeight=200" '
+            . 'alt="PMA_PNG_Inline" border="0" /></a>';
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($buffer, $options)

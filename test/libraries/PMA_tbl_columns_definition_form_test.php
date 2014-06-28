@@ -679,7 +679,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
         );
 
         $result = PMA_getHtmlForTransformationOption(
-            2, 4, 4, $cmeta, $mime
+            2, 4, 4, $cmeta, $mime, ''
         );
 
         $this->assertTag(
@@ -692,11 +692,11 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForBrowserTransformation
+     * Test for PMA_getHtmlForTransformation
      *
      * @return void
      */
-    public function testGetHtmlForBrowserTransformation()
+    public function testGetHtmlForTransformation()
     {
         $cmeta = array(
             'Field' => 'fieldname'
@@ -717,8 +717,8 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
                 'foo' => 'Text_Plain_Preappend.class.php'
             )
         );
-        $result = PMA_getHtmlForBrowserTransformation(
-            2, 0, 0, $avail_mime, $cmeta, $mime
+        $result = PMA_getHtmlForTransformation(
+            2, 0, 0, $avail_mime, $cmeta, $mime, ''
         );
 
         $this->assertTag(
