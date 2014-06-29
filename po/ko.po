@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-23 08:30-0400\n"
-"PO-Revision-Date: 2014-06-22 15:21+0200\n"
+"PO-Revision-Date: 2014-06-29 07:52+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
-"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/>"
+"\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -29,10 +29,9 @@ msgid "The central list of columns for the current database is empty."
 msgstr ""
 
 #: db_central_columns.php:109
-#, fuzzy
 #| msgid "Click to sort."
 msgid "Click to sort"
-msgstr "정렬하려면 클릭하세요."
+msgstr "정렬하려면 클릭"
 
 #: db_central_columns.php:125
 #, php-format
@@ -987,16 +986,14 @@ msgid "Preview SQL"
 msgstr "SQL 미리보기"
 
 #: js/messages.php:61
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "질의(in query)"
+msgstr "쿼리 시뮬레이션 하기"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "적용된 행:"
+msgstr "일치하는 행:"
 
 #: js/messages.php:63 libraries/Util.class.php:639 libraries/sql.lib.php:452
 msgid "SQL query:"
@@ -1891,42 +1888,37 @@ msgid "Page name"
 msgstr "페이지 이름"
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "페이지를 선택하세요"
+msgstr "페이지 저장"
 
 #: js/messages.php:357 pmd_general.php:144
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "프리 페이지 수"
+msgstr "페이지 열기"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "페이지를 선택하세요"
+msgstr "페이지 삭제"
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "편집할 페이지를 선택하세요"
+msgstr "계속할 페이지를 선택하세요"
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "올바른  숫자를 입력하세요!"
+msgstr "올바른 페이지 이름을 입력하세요"
 
 #: js/messages.php:361
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "현재 페이지의 수정된 내용을 저장하겠습니까?"
 
 #: js/messages.php:362
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "페이지 삭제 성공"
 
 #: js/messages.php:365
 #, php-format
@@ -4214,11 +4206,11 @@ msgstr "컬럼을 삭제할 수 없음!"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
-msgstr ""
+msgstr "예"
 
 #: libraries/central_columns.lib.php:509
 msgid "NO"
-msgstr ""
+msgstr "아니오"
 
 #: libraries/central_columns.lib.php:629
 #: libraries/display_create_table.lib.php:60
@@ -4260,17 +4252,17 @@ msgstr "컬럼 선택."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
 msgid "auto_increment"
-msgstr ""
+msgstr "auto_increment"
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
+#, fuzzy
 msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
+msgstr "on update CURRENT_TIMESTAMP"
 
 #: libraries/central_columns.lib.php:886
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
-msgstr "컬럼 추가"
+msgstr "새 컬럼 추가"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -6219,36 +6211,31 @@ msgid "Control port"
 msgstr "제어 포트"
 
 #: libraries/config/messages.inc.php:595
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Hide databases matching regular expression (PCRE)."
-msgstr "정규표현식"
+msgstr "정규식에 일치하는 데이터베이스 숨기기 (PCRE)."
 
 #: libraries/config/messages.inc.php:596
 msgid "Hide databases"
 msgstr "데이터베이스 숨기기"
 
 #: libraries/config/messages.inc.php:598
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma__tracking[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
-msgstr ""
-"SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: [kbd]"
-"pma__tracking[/kbd]"
+msgstr "SQL 쿼리 내역 저장 기능을 사용하지 않으려면 빈 칸으로 비워두세요, 권장: [kbd]pma__history[/kbd]."
 
 #: libraries/config/messages.inc.php:601
 msgid "SQL query history table"
 msgstr "SQL 쿼리 히스토리 테이블"
 
 #: libraries/config/messages.inc.php:602
-#, fuzzy
 #| msgid "Hostname where MySQL server is running"
 msgid "Hostname where MySQL server is running."
-msgstr "MySQL 서버가 구동중인 호스트의 이름"
+msgstr "MySQL 서버가 구동중인 호스트의 이름."
 
 #: libraries/config/messages.inc.php:603
 msgid "Server hostname"
@@ -6262,11 +6249,11 @@ msgstr "로그아웃 URL"
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
-msgstr ""
+msgstr "데이터베이스에 저장될 테이블 설정 갯수 제한, 오래된 것은 자동으로 삭제됨."
 
 #: libraries/config/messages.inc.php:610
 msgid "Maximal number of table preferences to store"
-msgstr ""
+msgstr "저장될 테이블 설정의 최대 갯수"
 
 #: libraries/config/messages.inc.php:611
 #, fuzzy
@@ -6286,10 +6273,9 @@ msgstr ""
 "PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:617
-#, fuzzy
 #| msgid "Try to connect without password"
 msgid "Try to connect without password."
-msgstr "암호없이 연결 시도"
+msgstr "암호없이 연결 시도."
 
 #: libraries/config/messages.inc.php:618
 msgid "Connect without password"
@@ -6309,31 +6295,27 @@ msgid "Show only listed databases"
 msgstr "리스트에 있는 데이터베이스만 보여주기"
 
 #: libraries/config/messages.inc.php:625 libraries/config/messages.inc.php:713
-#, fuzzy
 #| msgid "Leave empty if not using config auth"
 msgid "Leave empty if not using config auth."
-msgstr "config 인증을 사용하지 않을 경우 비워두세요"
+msgstr "config 인증을 사용하지 않을 경우 비워두세요."
 
 #: libraries/config/messages.inc.php:626
 msgid "Password for config auth"
 msgstr "config 인증용 패스워드"
 
 #: libraries/config/messages.inc.php:628
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
-msgstr ""
-"PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__pdf_pages[/kbd]"
+msgstr "PDF 스키마를 제공하지 않을 경우 비워두세요. 권장: [kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:630
 msgid "PDF schema: pages table"
 msgstr "PDF 스키마: 페이지 테이블"
 
 #: libraries/config/messages.inc.php:632
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -6343,9 +6325,9 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"관계(릴레이션), 북마크, PDF 기능을 위한 데이터베이스. 자세한 정보는 "
-"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]를 참고하세요. 이 기능들을 "
-"제공하지 않으려면 비워두세요. 권장값: [kbd]phpmyadmin[/kbd]"
+"릴레이션, 북마크, PDF 기능을 위한 데이터베이스. 자세한 정보는 "
+"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]를 참고하세요. 이 기능들을 제공하지 않으려면 "
+"비워두세요. 권장: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:636
 #: libraries/display_create_database.lib.php:31
@@ -6353,10 +6335,9 @@ msgid "Database name"
 msgstr "데이터베이스명"
 
 #: libraries/config/messages.inc.php:638
-#, fuzzy
 #| msgid "Port on which MySQL server is listening, leave empty for default"
 msgid "Port on which MySQL server is listening, leave empty for default."
-msgstr "MySQL 서버의 네트워크 포트. 기본값을 쓰려면 비워두세요"
+msgstr "MySQL 서버의 네트워크 포트. 기본값을 쓰려면 비워두세요."
 
 #: libraries/config/messages.inc.php:639
 msgid "Server port"
@@ -6664,54 +6645,48 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:729
-#, fuzzy
 msgid "Show display direction"
-msgstr "데이터베이스 사용량 통계"
+msgstr "표시 방향 보여주기"
 
 #: libraries/config/messages.inc.php:730
-#, fuzzy
 #| msgid ""
 #| "Defines whether or not type fields should be initially displayed in edit/"
 #| "insert mode"
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
-msgstr "편집/삽입 모드에서 타입 필드가 기본적으로 보일지 여부 정의"
+msgstr "편집/삽입 모드에서 타입 필드가 기본적으로 보일지 여부 정의."
 
 #: libraries/config/messages.inc.php:731
 msgid "Show field types"
 msgstr "필드 타입 출력"
 
 #: libraries/config/messages.inc.php:732
-#, fuzzy
 #| msgid "Display the function fields in edit/insert mode"
 msgid "Display the function fields in edit/insert mode."
-msgstr "편집/삽입 모드에서 함수 필드 보이기"
+msgstr "편집/삽입 모드에서 함수 필드 보이기."
 
 #: libraries/config/messages.inc.php:733
 msgid "Show function fields"
 msgstr "함수 필드 보이기"
 
 #: libraries/config/messages.inc.php:734
-#, fuzzy
 #| msgid "Whether to show hint or not"
 msgid "Whether to show hint or not."
-msgstr "힌트 보여주기 여부"
+msgstr "힌트 보여주기 여부."
 
 #: libraries/config/messages.inc.php:735
 msgid "Show hint"
 msgstr "힌트 보여주기"
 
 #: libraries/config/messages.inc.php:736
-#, fuzzy
 #| msgid ""
 #| "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 #| "output"
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
-msgstr ""
-"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] 출력 링크 표시"
+msgstr "[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] 출력 링크 표시."
 
 #: libraries/config/messages.inc.php:737
 msgid "Show phpinfo() link"
@@ -6722,12 +6697,11 @@ msgid "Show detailed MySQL server information"
 msgstr "MYSQL 서버 정보 자세하게 표시"
 
 #: libraries/config/messages.inc.php:739
-#, fuzzy
 #| msgid ""
 #| "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
-msgstr "phpMyAdmin이 생성한 SQL 쿼리를 표시할지 여부를 정의"
+msgstr "phpMyAdmin이 생성한 SQL 쿼리를 표시할지 여부를 정의."
 
 #: libraries/config/messages.inc.php:740
 msgid "Show SQL queries"
@@ -6736,19 +6710,17 @@ msgstr "SQL 쿼리 보기"
 #: libraries/config/messages.inc.php:741
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
-msgstr ""
+msgstr "쿼리 전송 후 쿼리 박스가 화면상에 남아있을지 여부."
 
 #: libraries/config/messages.inc.php:742 libraries/sql_query_form.lib.php:372
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "질의 상자 숨기기"
+msgstr "쿼리 박스 유지"
 
 #: libraries/config/messages.inc.php:743
-#, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)"
 msgid "Allow to display database and table statistics (eg. space usage)."
-msgstr "데이터베이스와 테이블 상태 출력 허용 (사용량 등)"
+msgstr "데이터베이스와 테이블 상태 출력 허용 (사용량 등)."
 
 #: libraries/config/messages.inc.php:744
 msgid "Show statistics"
@@ -6765,7 +6737,7 @@ msgstr "잠긴 테이블 건너띄기"
 
 #: libraries/config/messages.inc.php:751
 msgid "A warning is displayed on the main page if Suhosin is detected."
-msgstr ""
+msgstr "Suhosin이 발견될 경우 메인 페이지에 경고가 표시됩니다."
 
 #: libraries/config/messages.inc.php:752
 msgid "Suhosin warning"
@@ -6778,10 +6750,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:754
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Textarea columns"
-msgstr "컬럼 추가/삭제"
+msgstr "텍스트 편집 필드 칸 수"
 
 #: libraries/config/messages.inc.php:755
 msgid ""
@@ -6790,16 +6761,14 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:756
-#, fuzzy
 #| msgid "Start row:"
 msgid "Textarea rows"
-msgstr "시작 행:"
+msgstr "텍스트 편집 필드 줄 수"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid "Title of browser window when a database is selected"
 msgid "Title of browser window when a database is selected."
-msgstr "데이터베이스가 선택되었을 때 브라우저 윈도우의 제목"
+msgstr "데이터베이스가 선택되었을 때 브라우저 창의 제목."
 
 #: libraries/config/messages.inc.php:759
 #, fuzzy
@@ -12674,7 +12643,7 @@ msgstr "-없음-"
 
 #: libraries/tbl_gis_visualization.lib.php:190
 msgid "Display GIS Visualization"
-msgstr ""
+msgstr "공간정보 도식화 표시"
 
 #: libraries/tbl_gis_visualization.lib.php:208
 msgid "Redraw"
@@ -12698,10 +12667,9 @@ msgid "Can't rename index to PRIMARY!"
 msgstr "인덱스 이름을 기본 키로 바꿀 수 없습니다!"
 
 #: libraries/tbl_indexes.lib.php:144
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No index parts defined!"
-msgstr "인덱스가 설정되지 않았습니다!"
+msgstr "인덱스 부분의 정의가 없음!"
 
 #: libraries/tbl_indexes.lib.php:264
 msgid "Index name:"
@@ -12723,38 +12691,34 @@ msgid "Index type:"
 msgstr "인덱스 종류:"
 
 #: libraries/tbl_printview.lib.php:30
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Showing tables:"
-msgstr "열려있는 테이블 보기"
+msgstr "보이는 테이블:"
 
 #: libraries/tbl_printview.lib.php:174
-#, fuzzy
 #| msgid "Query statistics"
 msgid "Row Statistics:"
-msgstr "질의 통계"
+msgstr "행 통계:"
 
 #: libraries/tbl_printview.lib.php:301
-#, fuzzy
 #| msgid "Query cache usage"
 msgid "Space usage:"
-msgstr "질의 캐시 사용량"
+msgstr "공간 사용량:"
 
 #: libraries/tbl_relation.lib.php:384
-#, fuzzy
 #| msgid "Choose column to display"
 msgid "Choose column to display:"
-msgstr "출력할 필드 선택"
+msgstr "출력할 필드 선택:"
 
 #: libraries/tbl_relation.lib.php:417
 msgid "Internal relation"
-msgstr ""
+msgstr "내부 릴레이션"
 
 #: libraries/tbl_relation.lib.php:421
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
-msgstr ""
+msgstr "외래키 릴레이션이 있을 경우, 거기에 해당하는 내부 릴레이션은 필요 없습니다."
 
 #: libraries/tbl_relation.lib.php:431
 msgid "Foreign key constraint"
@@ -12765,20 +12729,19 @@ msgid "Constraint name"
 msgstr ""
 
 #: libraries/tbl_relation.lib.php:582
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No index defined! Create one below"
-msgstr "인덱스가 설정되지 않았습니다!"
+msgstr "인덱스가 없습니다! 하나 생성하세요"
 
 #: libraries/tbl_relation.lib.php:1015
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr ""
+msgstr "%1$s의 외래키 생성 에러 (데이터 타입을 확인하세요)"
 
 #: libraries/tbl_tracking.lib.php:60
 #, php-format
 msgid "Create version %1$s of %2$s"
-msgstr ""
+msgstr "%2$s의 %1$s 버전 생성"
 
 #: libraries/tbl_tracking.lib.php:67
 msgid "Track these data definition statements:"
@@ -12789,10 +12752,9 @@ msgid "Track these data manipulation statements:"
 msgstr ""
 
 #: libraries/tbl_tracking.lib.php:95
-#, fuzzy
 #| msgid "Last version"
 msgid "Create version"
-msgstr "최근 버전"
+msgstr "버전 생성"
 
 #: libraries/tbl_tracking.lib.php:119
 #, php-format
@@ -12817,10 +12779,9 @@ msgid "Show versions"
 msgstr "버전 보기"
 
 #: libraries/tbl_tracking.lib.php:357
-#, fuzzy
 #| msgid "Tracking report"
 msgid "Tracking statements"
-msgstr "추적 보고서"
+msgstr "추적 상태"
 
 #: libraries/tbl_tracking.lib.php:369
 #, fuzzy
