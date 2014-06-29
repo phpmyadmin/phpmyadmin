@@ -59,8 +59,6 @@ class PMA_NavigationHeader
         );
         $buffer .= '</div>'; // pma_navigation_header
 
-        // Add Drop Handler
-        $buffer .= $this->_getDropHandler();
         $buffer .= '<div id="pma_navigation_tree"' . $class . '>';
         return $buffer;
     }
@@ -172,26 +170,6 @@ class PMA_NavigationHeader
         if ($showText) {
             $retval .= '<br />';
         }
-        return $retval;
-    }
-
-     /**
-     * Inserts Drag and Drop Import handler
-     *
-     * @param: void
-     * @return: html code for drop handler
-     */
-    private function _getDropHandler()
-    {
-        $retval = '';
-        $retval .= '<div class="pma_drop_handler">Drop Files Here</div>';
-        $retval .= '<div class="pma_sql_import_status">';
-        $retval .= '<h2>SQL upload ( ';
-        $retval .= '<span class="pma_import_count">0</span> ';
-        $retval .= ') <span class="close">x</span>';
-        $retval .= '<span class="minimize">-</span></h2>';
-        $retval .= '<div></div>';
-        $retval .= '</div>';
         return $retval;
     }
 
