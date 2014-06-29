@@ -576,8 +576,7 @@ PMA_DROP_IMPORT = {
  */
 $(document).live('dragenter', PMA_DROP_IMPORT._dragenter);
 $(document).live('dragover', PMA_DROP_IMPORT._dragover);
-$(".pma_drop_handler,"
-    +".pma_navigation_resizer").live('dragleave', PMA_DROP_IMPORT._dragleave);
+$(".pma_drop_handler").live('dragleave', PMA_DROP_IMPORT._dragleave);
 
 //when file is dropped to PMA UI
 $('body').live('drop', PMA_DROP_IMPORT._drop);
