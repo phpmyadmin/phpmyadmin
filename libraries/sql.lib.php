@@ -1424,11 +1424,21 @@ function PMA_countQueryResults(
         // However, do not count again if we did it previously
         // due to $find_real_end == true
         if ($justBrowsing) {
+            // Get approximate row count
             $unlim_num_rows = PMA_Table::countRecords(
                 $db,
                 $table,
-                true
+                false
             );
+            if ($unlim_num_rows < $GLOBALS['cfg']['MaxExactCount']) {
+                // Get the exact count if approximate count
+                // is less than MaxExactCount
+                $unlim_num_rows = PMA_Table::countRecords(
+                    $db,
+                    $table,
+                    true
+                );
+            }
 
         } else {
             // add select expression after the SQL_CALC_FOUND_ROWS

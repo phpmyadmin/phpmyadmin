@@ -2565,7 +2565,7 @@ $cfg['BrowseMIME'] = true;
  *
  * @global integer $cfg['MaxExactCount']
  */
-$cfg['MaxExactCount'] = 0;
+$cfg['MaxExactCount'] = 500000;
 
 /**
  * Zero means that no row count is done for views; see the doc
