@@ -88,10 +88,11 @@ class ExportOds extends ExportPlugin
     /**
      * Outputs export header
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and header
      */
     public function exportHeader ()
     {
+        $error = false;
         $GLOBALS['ods_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
             . '<office:document-content '
                 . $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
@@ -137,28 +138,27 @@ class ExportOds extends ExportPlugin
             . '</office:automatic-styles>'
             . '<office:body>'
             . '<office:spreadsheet>';
-        return true;
+        return array($error, '');
     }
 
     /**
      * Outputs export footer
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and footer
      */
     public function exportFooter ()
     {
+        $error = false;
         $GLOBALS['ods_buffer'] .= '</office:spreadsheet>'
             . '</office:body>'
             . '</office:document-content>';
-        if (! PMA_exportOutputHandler(
+        return array(
+            $error,
             PMA_createOpenDocument(
                 'application/vnd.oasis.opendocument.spreadsheet',
                 $GLOBALS['ods_buffer']
             )
-        )) {
-            return false;
-        }
-        return true;
+        );
     }
 
     /**
@@ -167,11 +167,11 @@ class ExportOds extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string header
      */
     public function exportDBHeader ($db, $db_alias = '')
     {
-        return true;
+        return '';
     }
 
     /**
@@ -179,11 +179,11 @@ class ExportOds extends ExportPlugin
      *
      * @param string $db Database name
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and DB footer
      */
     public function exportDBFooter ($db)
     {
-        return true;
+        return array(false, '');
     }
 
     /**
@@ -192,11 +192,11 @@ class ExportOds extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB CREATE statement
      */
     public function exportDBCreate($db, $db_alias = '')
     {
-        return true;
+        return '';
     }
 
     /**
@@ -209,7 +209,7 @@ class ExportOds extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      * @param array  $aliases   Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and table's data
      */
     public function exportData(
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
@@ -218,11 +218,17 @@ class ExportOds extends ExportPlugin
 
         $db_alias = $db;
         $table_alias = $table;
+        $error = false;
         $this->initAlias($aliases, $db_alias, $table_alias);
         // Gets the data from the database
-        $result = $GLOBALS['dbi']->query(
+        $result = $GLOBALS['dbi']->tryQuery(
             $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
         );
+
+        if ($error = $GLOBALS['dbi']->getError()) {
+            return array($error, '');
+        }
+
         $fields_cnt = $GLOBALS['dbi']->numFields($result);
         $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
         $field_flags = array();
@@ -328,7 +334,7 @@ class ExportOds extends ExportPlugin
 
         $GLOBALS['ods_buffer'] .= '</table:table>';
 
-        return true;
+        return array($error, '');
     }
 }
 ?>

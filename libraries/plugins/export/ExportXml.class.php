@@ -147,7 +147,7 @@ class ExportXml extends ExportPlugin
      * Outputs export header. It is the first method to be called, so all
      * the required variables are initialized here.
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and header
      */
     public function exportHeader ()
     {
@@ -155,6 +155,7 @@ class ExportXml extends ExportPlugin
         global $crlf, $cfg, $db;
         $table = $this->_getTable();
         $tables = $this->_getTables();
+        $error = false;
 
         $export_struct = isset($GLOBALS['xml_export_functions'])
             || isset($GLOBALS['xml_export_procedures'])
@@ -202,12 +203,20 @@ class ExportXml extends ExportPlugin
                     WHERE SCHEMA_NAME = '"
                     . PMA_Util::sqlAddSlashes($db) . "'"
                 );
+                if ($error = $GLOBALS['dbi']->getError()) {
+                    return array($error, '');
+                }
+
             } else {
                 $result = $GLOBALS['dbi']->fetchResult(
                     'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
                     . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
                     . ' = \'' . PMA_Util::sqlAddSlashes($db) . '\' LIMIT 1'
                 );
+
+                if ($error = $GLOBALS['dbi']->getError()) {
+                    return array($error, '');
+                }
             }
             $db_collation = $result[0]['DEFAULT_COLLATION_NAME'];
             $db_charset = $result[0]['DEFAULT_CHARACTER_SET_NAME'];
@@ -231,6 +240,10 @@ class ExportXml extends ExportPlugin
                     . PMA_Util::backquote($table),
                     0
                 );
+
+                if ($error = $GLOBALS['dbi']->getError()) {
+                    return array($error, '');
+                }
                 $tbl =  $result[$table][1];
 
                 $is_view = PMA_Table::isView($db, $table);
@@ -291,6 +304,11 @@ class ExportXml extends ExportPlugin
                 $functions = $GLOBALS['dbi']->getProceduresOrFunctions(
                     $db, 'FUNCTION'
                 );
+
+                if ($error = $GLOBALS['dbi']->getError()) {
+                    return array($error, '');
+                }
+
                 if ($functions) {
                     foreach ($functions as $function) {
                         $head .= '            <pma:function name="'
@@ -300,6 +318,10 @@ class ExportXml extends ExportPlugin
                         $sql = $GLOBALS['dbi']->getDefinition(
                             $db, 'FUNCTION', $function
                         );
+
+                        if ($error = $GLOBALS['dbi']->getError()) {
+                            return array($error, '');
+                        }
                         $sql = rtrim($sql);
                         $sql = "                " . htmlspecialchars($sql);
                         $sql = str_replace("\n", "\n                ", $sql);
@@ -320,6 +342,11 @@ class ExportXml extends ExportPlugin
                 $procedures = $GLOBALS['dbi']->getProceduresOrFunctions(
                     $db, 'PROCEDURE'
                 );
+
+                if ($error = $GLOBALS['dbi']->getError()) {
+                    return array($error, '');
+                }
+
                 if ($procedures) {
                     foreach ($procedures as $procedure) {
                         $head .= '            <pma:procedure name="'
@@ -329,6 +356,11 @@ class ExportXml extends ExportPlugin
                         $sql = $GLOBALS['dbi']->getDefinition(
                             $db, 'PROCEDURE', $procedure
                         );
+
+                        if ($error = $GLOBALS['dbi']->getError()) {
+                            return array($error, '');
+                        }
+
                         $sql = rtrim($sql);
                         $sql = "                " . htmlspecialchars($sql);
                         $sql = str_replace("\n", "\n                ", $sql);
@@ -352,19 +384,19 @@ class ExportXml extends ExportPlugin
             }
         }
 
-        return PMA_exportOutputHandler($head);
+        return array($error, $head);
     }
 
     /**
      * Outputs export footer
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and footer
      */
     public function exportFooter ()
     {
         $foot = '</pma_xml_export>';
 
-        return PMA_exportOutputHandler($foot);
+        return array(false, $foot);
     }
 
     /**
@@ -373,7 +405,7 @@ class ExportXml extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB header
      */
     public function exportDBHeader ($db, $db_alias = '')
     {
@@ -391,9 +423,9 @@ class ExportXml extends ExportPlugin
                   . '    -->' . $crlf . '    <database name="'
                   . htmlspecialchars($db_alias) . '">' . $crlf;
 
-            return PMA_exportOutputHandler($head);
+            return $head;
         } else {
-            return true;
+            return '';
         }
     }
 
@@ -402,7 +434,7 @@ class ExportXml extends ExportPlugin
      *
      * @param string $db Database name
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and DB footer
      */
     public function exportDBFooter ($db)
     {
@@ -411,9 +443,9 @@ class ExportXml extends ExportPlugin
         if (isset($GLOBALS['xml_export_contents'])
             && $GLOBALS['xml_export_contents']
         ) {
-            return PMA_exportOutputHandler('    </database>' . $crlf);
+            return array(false, '    </database>' . $crlf);
         } else {
-            return true;
+            return array(false, '');
         }
     }
 
@@ -423,11 +455,11 @@ class ExportXml extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB CREATE statement
      */
     public function exportDBCreate($db, $db_alias = '')
     {
-        return true;
+        return '';
     }
 
     /**
@@ -440,20 +472,26 @@ class ExportXml extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      * @param array  $aliases   Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and table's data
      */
     public function exportData(
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
     ) {
         $db_alias = $db;
         $table_alias = $table;
+        $export_data = '';
+        $error = false;
         $this->initAlias($aliases, $db_alias, $table_alias);
         if (isset($GLOBALS['xml_export_contents'])
             && $GLOBALS['xml_export_contents']
         ) {
-            $result = $GLOBALS['dbi']->query(
+            $result = $GLOBALS['dbi']->tryQuery(
                 $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
             );
+
+            if ($error = $GLOBALS['dbi']->getError()) {
+                return array($error, '');
+            }
 
             $columns_cnt = $GLOBALS['dbi']->numFields($result);
             $columns = array();
@@ -464,9 +502,7 @@ class ExportXml extends ExportPlugin
 
             $buffer = '        <!-- ' . __('Table') . ' '
                 . $table_alias . ' -->' . $crlf;
-            if (! PMA_exportOutputHandler($buffer)) {
-                return false;
-            }
+            $export_data .= $buffer;
 
             while ($record = $GLOBALS['dbi']->fetchRow($result)) {
                 $buffer = '        <table name="'
@@ -490,14 +526,12 @@ class ExportXml extends ExportPlugin
                 }
                 $buffer     .= '        </table>' . $crlf;
 
-                if (! PMA_exportOutputHandler($buffer)) {
-                    return false;
-                }
+                $export_data .= $buffer;
             }
             $GLOBALS['dbi']->freeResult($result);
         }
 
-        return true;
+        return array($error, $export_data);
     }
 
 

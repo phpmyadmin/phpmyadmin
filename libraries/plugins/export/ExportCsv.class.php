@@ -104,11 +104,12 @@ class ExportCsv extends ExportPlugin
     /**
      * Outputs export header
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and header
      */
     public function exportHeader ()
     {
         global $what, $csv_terminated, $csv_separator, $csv_enclosed, $csv_escaped;
+        $error = false;
 
         // Here we just prepare some values for export
         if ($what == 'excel') {
@@ -141,17 +142,17 @@ class ExportCsv extends ExportPlugin
             $csv_separator = str_replace('\\t', "\011", $csv_separator);
         }
 
-        return true;
+        return array($error, '');
     }
 
     /**
      * Outputs export footer
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and footer
      */
     public function exportFooter ()
     {
-        return true;
+        return array(false, '');
     }
 
     /**
@@ -160,11 +161,11 @@ class ExportCsv extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Alias of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB header
      */
     public function exportDBHeader ($db, $db_alias = '')
     {
-        return true;
+        return '';
     }
 
     /**
@@ -172,11 +173,11 @@ class ExportCsv extends ExportPlugin
      *
      * @param string $db Database name
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and DB footer
      */
     public function exportDBFooter ($db)
     {
-        return true;
+        return array(false, '');
     }
 
     /**
@@ -185,11 +186,11 @@ class ExportCsv extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Alias of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB CREATE statement
      */
     public function exportDBCreate($db, $db_alias = '')
     {
-        return true;
+        return '';
     }
 
     /**
@@ -202,21 +203,29 @@ class ExportCsv extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      * @param array  $aliases   Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and table's data
      */
     public function exportData(
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
     ) {
         global $what, $csv_terminated, $csv_separator, $csv_enclosed, $csv_escaped;
+        $export_data = '';
+        $error = false;
 
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
         // Gets the data from the database
-        $result = $GLOBALS['dbi']->query(
+        $result = $GLOBALS['dbi']->tryQuery(
             $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
         );
+
+        // Check for any errors.
+        if ($error = $GLOBALS['dbi']->getError()) {
+            return array($error, '');
+        }
+
         $fields_cnt = $GLOBALS['dbi']->numFields($result);
 
         // If required, get fields name at the first line
@@ -242,9 +251,7 @@ class ExportCsv extends ExportPlugin
                 $schema_insert .= $csv_separator;
             } // end for
             $schema_insert = trim(substr($schema_insert, 0, -1));
-            if (! PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
-                return false;
-            }
+            $export_data .= $schema_insert . $csv_terminated;
         } // end if
 
         // Format the data
@@ -307,13 +314,11 @@ class ExportCsv extends ExportPlugin
                 }
             } // end for
 
-            if (! PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
-                return false;
-            }
+            $export_data .= $schema_insert . $csv_terminated;
         } // end while
         $GLOBALS['dbi']->freeResult($result);
 
-        return true;
+        return array($error, $export_data);
     }
 }
 ?>

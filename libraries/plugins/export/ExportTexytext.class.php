@@ -99,21 +99,21 @@ class ExportTexytext extends ExportPlugin
     /**
      * Outputs export header
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and header
      */
     public function exportHeader ()
     {
-        return true;
+        return array(false, '');
     }
 
     /**
      * Outputs export footer
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and footer
      */
     public function exportFooter ()
     {
-        return true;
+        return array(false, '');
     }
 
     /**
@@ -122,16 +122,14 @@ class ExportTexytext extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Alias of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB header
      */
     public function exportDBHeader ($db, $db_alias = '')
     {
         if (empty($db_alias)) {
             $db_alias = $db;
         }
-        return PMA_exportOutputHandler(
-            '===' . __('Database') . ' ' . $db_alias . "\n\n"
-        );
+        return '===' . __('Database') . ' ' . $db_alias . "\n\n";
     }
 
     /**
@@ -139,11 +137,11 @@ class ExportTexytext extends ExportPlugin
      *
      * @param string $db Database name
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and DB footer
      */
     public function exportDBFooter ($db)
     {
-        return true;
+        return array(false, '');
     }
 
     /**
@@ -152,11 +150,11 @@ class ExportTexytext extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Alias of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB CREATE statement
      */
     public function exportDBCreate($db, $db_alias = '')
     {
-        return true;
+        return '';
     }
     /**
      * Outputs the content of a table in NHibernate format
@@ -168,7 +166,7 @@ class ExportTexytext extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      * @param array  $aliases   Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and table's data
      */
     public function exportData(
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
@@ -177,18 +175,20 @@ class ExportTexytext extends ExportPlugin
 
         $db_alias = $db;
         $table_alias = $table;
+        $error = false;
+        $export_data = '';
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        if (! PMA_exportOutputHandler(
-            '== ' . __('Dumping data for table') . ' ' . $table_alias . "\n\n"
-        )) {
-            return false;
-        }
+        $export_data .= '== ' . __('Dumping data for table') . ' ' . $table_alias . "\n\n";
 
         // Gets the data from the database
-        $result      = $GLOBALS['dbi']->query(
+        $result      = $GLOBALS['dbi']->tryQuery(
             $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
         );
+
+        if ($error = $GLOBALS['dbi']->getError()) {
+            return array($error, '');
+        }
         $fields_cnt  = $GLOBALS['dbi']->numFields($result);
 
         // If required, get fields name at the first line
@@ -203,9 +203,7 @@ class ExportTexytext extends ExportPlugin
                     . htmlspecialchars(stripslashes($col_as));
             } // end for
             $text_output .= "\n|------\n";
-            if (! PMA_exportOutputHandler($text_output)) {
-                return false;
-            }
+            $export_data .= $text_output;
         } // end if
 
         // Format the data
@@ -225,13 +223,11 @@ class ExportTexytext extends ExportPlugin
                     );
             } // end for
             $text_output .= "\n";
-            if (! PMA_exportOutputHandler($text_output)) {
-                return false;
-            }
+            $export_data .= $text_output;
         } // end while
         $GLOBALS['dbi']->freeResult($result);
 
-        return true;
+        return array($error, $export_data);
     }
 
     /**
@@ -311,7 +307,7 @@ class ExportTexytext extends ExportPlugin
      * @param bool   $view          whether we're handling a view
      * @param array  $aliases       Aliases of db/table/columns
      *
-     * @return string resulting schema
+     * @return array Error (if any) and table's definition
      */
     function getTableDef(
         $db,
@@ -329,6 +325,7 @@ class ExportTexytext extends ExportPlugin
         global $cfgRelation;
 
         $text_output = '';
+        $error = false;
 
         /**
          * Get the unique keys in the table
@@ -339,6 +336,10 @@ class ExportTexytext extends ExportPlugin
             if ($key['Non_unique'] == 0) {
                 $unique_keys[] = $key['Column_name'];
             }
+        }
+
+        if ($error = $GLOBALS['dbi']->getError()) {
+            return array($error, '');
         }
 
         /**
@@ -427,7 +428,7 @@ class ExportTexytext extends ExportPlugin
             $text_output .= "\n";
         } // end foreach
 
-        return $text_output;
+        return array($error, $text_output);
     } // end of the '$this->getTableDef()' function
 
     /**
@@ -488,7 +489,7 @@ class ExportTexytext extends ExportPlugin
      * @param bool   $dates       whether to include creation/update/check dates
      * @param array  $aliases     Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and table's structure
      */
     function exportStructure(
         $db,
@@ -505,6 +506,7 @@ class ExportTexytext extends ExportPlugin
     ) {
         $db_alias = $db;
         $table_alias = $table;
+        $error = false;
         $this->initAlias($aliases, $db_alias, $table_alias);
         $dump = '';
 
@@ -512,10 +514,16 @@ class ExportTexytext extends ExportPlugin
         case 'create_table':
             $dump .= '== ' . __('Table structure for table') . ' '
                 . $table_alias . "\n\n";
-            $dump .= $this->getTableDef(
+            list($error, $table_def) = $this->getTableDef(
                 $db, $table, $crlf, $error_url, $do_relation, $do_comments,
                 $do_mime, $dates, true, false, $aliases
             );
+
+            if ($error) {
+                return array($error, '');
+            } else {
+                $dump .= $table_def;
+            }
             break;
         case 'triggers':
             $dump = '';
@@ -527,10 +535,16 @@ class ExportTexytext extends ExportPlugin
             break;
         case 'create_view':
             $dump .= '== ' . __('Structure for view') . ' ' . $table_alias . "\n\n";
-            $dump .= $this->getTableDef(
+            list($error, $table_def) = $this->getTableDef(
                 $db, $table, $crlf, $error_url, $do_relation, $do_comments,
                 $do_mime, $dates, true, true, $aliases
             );
+
+            if ($error) {
+                return array($error, '');
+            } else {
+                $dump .= $table_def;
+            }
             break;
         case 'stand_in':
             $dump .=  '== ' . __('Stand-in structure for view')
@@ -539,7 +553,7 @@ class ExportTexytext extends ExportPlugin
             $dump .= $this->getTableDefStandIn($db, $table, $crlf, $aliases);
         } // end switch
 
-        return PMA_exportOutputHandler($dump);
+        return array($error, $dump);
     }
 
     /**

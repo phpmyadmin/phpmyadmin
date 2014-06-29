@@ -307,6 +307,113 @@ if (!defined('TESTSUITE')) {
         );
     }
 
+    // Fake loop just to allow skip of remain of this code by break, I'd really
+    // need exceptions here :-)
+    $export_dump = '';
+    $export_error = false;
+    do {
+
+        // Add possibly some comments to export
+        list($export_error, $export_header) = $export_plugin->exportHeader($db);
+
+        if ($export_error == false) {
+            $export_dump .= $export_header;
+        } else {
+            break;
+        }
+
+        // Will we need relation & co. setup?
+        $do_relation = isset($GLOBALS[$what . '_relation']);
+        $do_comments = isset($GLOBALS[$what . '_include_comments'])
+            || isset($GLOBALS[$what . '_comments']) ;
+        $do_mime     = isset($GLOBALS[$what . '_mime']);
+        if ($do_relation || $do_comments || $do_mime) {
+            $cfgRelation = PMA_getRelationsParam();
+        }
+        if ($do_mime) {
+            include_once 'libraries/transformations.lib.php';
+        }
+
+        // Include dates in export?
+        $do_dates = isset($GLOBALS[$what . '_dates']);
+
+        $whatStrucOrData = $GLOBALS[$what . '_structure_or_data'];
+
+        /**
+         * Builds the dump
+         */
+        if ($export_type == 'server') {
+            if (! isset($db_select)) {
+                $db_select = '';
+            }
+            list($export_error, $server_export) = PMA_exportServer(
+                $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
+                $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
+                $aliases
+            );
+
+            // Check for any error.
+            if ($export_error == false) {
+                $export_dump .= $server_export;
+            } else {
+                break;
+            }
+        } elseif ($export_type == 'database') {
+            list($export_error, $db_export) = PMA_exportDatabase(
+                $db, $tables, $whatStrucOrData, $export_plugin, $crlf, $err_url,
+                $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
+                $aliases
+            );
+
+            // Check for any error.
+            if ($export_error == false) {
+                $export_dump .= $db_export;
+            } else {
+                break;
+            }
+        } else {
+            // We export just one table
+            // $allrows comes from the form when "Dump all rows" has been selected
+            if (! isset($allrows)) {
+                $allrows = '';
+            }
+            if (! isset($limit_to)) {
+                $limit_to = 0;
+            }
+            if (! isset($limit_from)) {
+                $limit_from = 0;
+            }
+            list($export_error, $table_export) = PMA_exportTable(
+                $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
+                $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
+                $allrows, $limit_to, $limit_from, $sql_query, $aliases
+            );
+
+            // Check for any error.
+            if ($export_error == false) {
+                $export_dump .= $table_export;
+            } else {
+                break;
+            }
+        }
+
+        list($export_error, $export_footer) = $export_plugin->exportFooter();
+        // Check for any error.
+        if ($export_error == false) {
+            $export_dump .= $export_footer;
+        } else {
+            break;
+        }
+
+    } while (false);
+    // End of fake loop
+
+    // If any error, do not output anything except error message.
+    if ($export_error) {
+        $GLOBALS['message'] = PMA_Message::error($export_error);
+        PMA_showExportPage($db, $table, $export_type);
+    }
+
     // Open file on server if needed
     if ($save_on_server) {
         list($save_filename, $message, $file_handle) = PMA_openExportFile(
@@ -351,74 +458,8 @@ if (!defined('TESTSUITE')) {
         } // end download
     }
 
-    // Fake loop just to allow skip of remain of this code by break, I'd really
-    // need exceptions here :-)
-    do {
-
-        // Add possibly some comments to export
-        if (! $export_plugin->exportHeader($db)) {
-            break;
-        }
-
-        // Will we need relation & co. setup?
-        $do_relation = isset($GLOBALS[$what . '_relation']);
-        $do_comments = isset($GLOBALS[$what . '_include_comments'])
-            || isset($GLOBALS[$what . '_comments']) ;
-        $do_mime     = isset($GLOBALS[$what . '_mime']);
-        if ($do_relation || $do_comments || $do_mime) {
-            $cfgRelation = PMA_getRelationsParam();
-        }
-        if ($do_mime) {
-            include_once 'libraries/transformations.lib.php';
-        }
-
-        // Include dates in export?
-        $do_dates = isset($GLOBALS[$what . '_dates']);
-
-        $whatStrucOrData = $GLOBALS[$what . '_structure_or_data'];
-
-        /**
-         * Builds the dump
-         */
-        if ($export_type == 'server') {
-            if (! isset($db_select)) {
-                $db_select = '';
-            }
-            PMA_exportServer(
-                $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-                $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                $aliases
-            );
-        } elseif ($export_type == 'database') {
-            PMA_exportDatabase(
-                $db, $tables, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-                $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                $aliases
-            );
-        } else {
-            // We export just one table
-            // $allrows comes from the form when "Dump all rows" has been selected
-            if (! isset($allrows)) {
-                $allrows = '';
-            }
-            if (! isset($limit_to)) {
-                $limit_to = 0;
-            }
-            if (! isset($limit_from)) {
-                $limit_from = 0;
-            }
-            PMA_exportTable(
-                $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-                $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                $allrows, $limit_to, $limit_from, $sql_query, $aliases
-            );
-        }
-        if (! $export_plugin->exportFooter()) {
-            break;
-        }
-
-    } while (false);
-    // End of fake loop
+    // Send export output.
+    PMA_exportOutputHandler($export_dump);
 
     if ($save_on_server && ! empty($message)) {
         PMA_showExportPage($db, $table, $export_type);

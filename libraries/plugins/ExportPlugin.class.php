@@ -35,14 +35,14 @@ abstract class ExportPlugin
     /**
      * Outputs export header
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and header string
      */
     abstract public function exportHeader ();
 
     /**
      * Outputs export footer
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and footer string
      */
     abstract public function exportFooter ();
 
@@ -52,7 +52,7 @@ abstract class ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB Header
      */
     abstract public function exportDBHeader ($db, $db_alias = '');
 
@@ -61,7 +61,7 @@ abstract class ExportPlugin
      *
      * @param string $db Database name
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and DB footer string
      */
     abstract public function exportDBFooter ($db);
 
@@ -71,7 +71,7 @@ abstract class ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB CREATE statement
      */
     abstract public function exportDBCreate($db, $db_alias = '');
 
@@ -85,7 +85,7 @@ abstract class ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      * @param array  $aliases   Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and table's data
      */
     abstract public function exportData (
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
@@ -102,7 +102,7 @@ abstract class ExportPlugin
      * @param string $db      Database
      * @param array  $aliases Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and routines
      */
     public function exportRoutines($db, $aliases = array())
     {
@@ -129,7 +129,7 @@ abstract class ExportPlugin
      * @param bool   $dates       whether to include creation/update/check dates
      * @param array  $aliases     Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and table's structure
      */
     public function exportStructure(
         $db,
