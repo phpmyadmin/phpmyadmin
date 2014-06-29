@@ -2965,7 +2965,7 @@ html.ie7 #pma_console .query_input {
     height: 100%;
     z-index: 999;
     color: white;
-    font-size: 100pt;
+    font-size: 30pt;
     text-align: center;
     padding-top: 20%;
 }
@@ -2986,7 +2986,8 @@ html.ie7 #pma_console .query_input {
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
 }
 
-.pma_sql_import_status h2 {
+.pma_sql_import_status h2,
+.pma_drop_result h2 {
     background-color: #bbb;
     padding: .1em .3em;
     margin-top: 0;
@@ -3032,7 +3033,8 @@ html.ie7 #pma_console .query_input {
 }
 
 .pma_sql_import_status h2 .minimize:hover,
-.pma_sql_import_status h2 .close:hover {
+.pma_sql_import_status h2 .close:hover,
+.pma_drop_result h2 .close:hover {
     background: rgba(155, 149, 149, 0.78);
     cursor: pointer;
 }
@@ -3041,7 +3043,26 @@ html.ie7 #pma_console .query_input {
     color: #235a81;
 }
 
-.pma_drop_file_status:hover {
+.pma_drop_file_status span.underline:hover {
     cursor: pointer;
     text-decoration: underline;
+}
+
+.pma_drop_result {
+    position: fixed;
+    top: 10%;
+    left: 20%;
+    width: 60%;
+    background: white;
+    min-height: 300px;
+    z-index: 800;
+    -webkit-box-shadow: 0px 0px 15px #999;
+    border-radius: 10px;
+    cursor: move;
+}
+
+.pma_drop_result h2 .close {
+    float: right;
+    margin-right: 5px;
+    padding: 0px 10px;
 }
