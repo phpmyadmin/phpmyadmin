@@ -44,6 +44,7 @@ $js_messages['strOperationTakesLongTime'] = __('This operation could take a long
 $js_messages['strDropUserGroupWarning'] = __('Do you really want to delete user group "%s"?');
 $js_messages['strConfirmDeleteQBESearch'] = __('Do you really want to delete the search "%s"?');
 $js_messages['strConfirmNavigation'] = __('You have unsaved changes; are you sure you want to leave this page?');
+$js_messages['strDropUserWarning'] = __('Do you really want to revoke the selected user(s) ?');
 
 /* For modal dialog buttons */
 $js_messages['strSaveAndClose'] = __('Save & Close');
