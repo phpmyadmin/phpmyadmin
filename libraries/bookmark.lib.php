@@ -64,7 +64,6 @@ function PMA_Bookmark_getList($db = false)
         return array();
     }
 
-    $ret = Array();
     if ($db !== false) {
         $query  = 'SELECT label, id FROM ' . PMA_Util::backquote($cfgBookmark['db'])
             . '.' . PMA_Util::backquote($cfgBookmark['table'])
