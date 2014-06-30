@@ -1615,6 +1615,9 @@ function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
         $html_output .= '<a href="#" id="move_columns_anchor">'
             . PMA_Util::getIcon('b_move.png', __('Move columns'), true)
             . '</a>';
+        $html_output .= '<a href="normalization.php?' . $url_query . '">'
+            . PMA_Util::getIcon('normalize.png', __('Improve table structure'), true)
+            . '</a>';
     }
 
     return $html_output;

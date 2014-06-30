@@ -2931,6 +2931,10 @@ AJAX.registerOnload('functions.js', function () {
         var db = PMA_commonParams.get('db');
         var table = PMA_commonParams.get('table');
         var maxRows = $(this).data('maxrows');
+        var pick = $(this).data('pick');
+        if(pick !== false) {
+            pick = true;
+        }
         var params = {
             'ajax_request' : true,
             'token' : PMA_commonParams.get('token'),
@@ -2962,7 +2966,11 @@ AJAX.registerOnload('functions.js', function () {
                 fields += '('+escapeHtml(central_column_list[db+'_'+table][i].col_length)+') ';
             }
             fields += escapeHtml(central_column_list[db+'_'+table][i].col_extra)+'</span>'+
-                '</div></td><td><input class="pick" style="width:100%" type="submit" value="'+PMA_messages.pickColumn+'" onclick="autoPopulate(\''+colid+'\','+i+')"/></td></tr>';
+                '</div></td>';
+            if (pick) {
+                fields += '<td><input class="pick" style="width:100%" type="submit" value="'+PMA_messages.pickColumn+'" onclick="autoPopulate(\''+colid+'\','+i+')"/></td>';
+            }
+            fields += '</tr>';
         }
         var result_pointer = i;
         var search_in = '<input type="text" class="filter_rows" placeholder="'+PMA_messages.searchList+'">';
@@ -3012,7 +3020,11 @@ AJAX.registerOnload('functions.js', function () {
                             fields += '('+central_column_list[db+'_'+table][i].col_length+') ';
                         }
                         fields += central_column_list[db+'_'+table][i].col_extra+'</span>'+
-                            '</div></td><td><input class="pick" style="width:100%" type="submit" value="'+PMA_messages.pickColumn+'" onclick="autoPopulate(\''+colid+'\','+i+')"/></td></tr>';
+                            '</div></td>';
+                        if (pick) {
+                            fields += '<td><input class="pick" style="width:100%" type="submit" value="'+PMA_messages.pickColumn+'" onclick="autoPopulate(\''+colid+'\','+i+')"/></td>';
+                        }
+                        fields += '</tr>';
                     }
                     $("#col_list").append(fields);
                     result_pointer = i;
@@ -3032,6 +3044,9 @@ AJAX.registerOnload('functions.js', function () {
         return false;
     });
 
+   // $('a.show_central_list').live('click',function(e) {
+
+   // });
     // When "add a new value" is clicked, append an empty text field
     $("input.add_value").live('click', function (e) {
         e.preventDefault();

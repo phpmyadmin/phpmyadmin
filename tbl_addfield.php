@@ -93,6 +93,7 @@ if (isset($_REQUEST['do_save_data'])) {
     } else {
         $error_message_html = PMA_Util::mysqlDie('', '', false, $err_url, false);
         $response->addHTML($error_message_html);
+        $response->isSuccess(false);
         exit;
     }
 } // end do alter table
