@@ -362,13 +362,13 @@ function PMA_closeExportFile($file_handle, $dump_buffer, $save_filename)
         $message = new PMA_Message(
             __('Insufficient space to save the file %s.'),
             PMA_Message::ERROR,
-            $save_filename
+            array($save_filename)
         );
     } else {
         $message = new PMA_Message(
             __('Dump has been saved to file %s.'),
             PMA_Message::SUCCESS,
-            $save_filename
+            array($save_filename)
         );
     }
     return $message;
