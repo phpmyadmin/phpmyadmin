@@ -372,6 +372,7 @@ $js_messages['strSelectPage'] = __('Please select a page to continue');
 $js_messages['strEnterValidPageName'] = __('Please enter a valid page name');
 $js_messages['strLeavingPage'] = __('Do you want to save the changes to the current page?');
 $js_messages['strSuccessfulPageDelete'] = __('Successfully deleted the page');
+$js_messages['strExportRelationalSchema'] = __('Export relational schema');
 
 /* Visual query builder (js/pmd/move.js) */
 $js_messages['strAddOption'] = __('Add an option for column "%s".');

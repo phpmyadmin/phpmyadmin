@@ -1146,17 +1146,18 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         global $pdf, $cfgRelation;
 
         // Get the name of this pdfpage to use as filename
+        $editingPage = $_POST['chpage'] != '-1' ? $_POST['chpage'] : $pageNumber;
         $_name_sql = 'SELECT page_descr FROM '
             . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
             . PMA_Util::backquote($cfgRelation['pdf_pages'])
-            . ' WHERE page_nr = ' . $pageNumber;
+            . ' WHERE page_nr = ' . $editingPage;
         $_name_rs = PMA_queryAsControlUser($_name_sql);
         if ($_name_rs) {
             $_name_row = $GLOBALS['dbi']->fetchRow($_name_rs);
             $filename = $_name_row[0] . '.pdf';
         }
         if (empty($filename)) {
-            $filename = $pageNumber . '.pdf';
+            $filename = $editingPage . '.pdf';
         }
         $pdf->Download($filename);
     }
