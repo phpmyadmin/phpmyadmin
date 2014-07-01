@@ -493,6 +493,7 @@ class PMA_Table
             if ($null !== false && $null !== 'NULL') {
                 break;
             }
+            // else fall-through intended, no break here
         case 'CURRENT_TIMESTAMP' :
             $query .= ' DEFAULT ' . $default_type;
             break;

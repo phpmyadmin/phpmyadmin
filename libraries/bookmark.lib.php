@@ -64,8 +64,7 @@ function PMA_Bookmark_getList($db = false)
         return array();
     }
 
-    $ret = Array();
-    if($db !== false) {
+    if ($db !== false) {
         $query  = 'SELECT label, id FROM ' . PMA_Util::backquote($cfgBookmark['db'])
             . '.' . PMA_Util::backquote($cfgBookmark['table'])
             . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
@@ -92,20 +91,31 @@ function PMA_Bookmark_getList($db = false)
 
         asort($ret);
     } else {
-        $query  = 'SELECT label, id, query, dbase FROM ' . PMA_Util::backquote($cfgBookmark['db'])
+        $query  = 'SELECT label, id, query, dbase FROM '
+            . PMA_Util::backquote($cfgBookmark['db'])
             . '.' . PMA_Util::backquote($cfgBookmark['table'])
-            . ' WHERE user = \'' . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
+            . ' WHERE user = \''
+            . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
             . ' ORDER BY label';
         $per_user = $GLOBALS['dbi']->fetchResult(
-            $query, Array('id', 'label', 'dbase'), 'query', $controllink, PMA_DatabaseInterface::QUERY_STORE
+            $query,
+            Array('id', 'label', 'dbase'),
+            'query',
+            $controllink,
+            PMA_DatabaseInterface::QUERY_STORE
         );
 
-        $query  = 'SELECT label, id, query, dbase FROM ' . PMA_Util::backquote($cfgBookmark['db'])
+        $query  = 'SELECT label, id, query, dbase FROM '
+            . PMA_Util::backquote($cfgBookmark['db'])
             . '.' . PMA_Util::backquote($cfgBookmark['table'])
             . ' WHERE user = \'\''
             . ' ORDER BY label';
         $global = $GLOBALS['dbi']->fetchResult(
-            $query, Array('id', 'label', 'dbase'), 'query', $controllink, PMA_DatabaseInterface::QUERY_STORE
+            $query,
+            Array('id', 'label', 'dbase'),
+            'query',
+            $controllink,
+            PMA_DatabaseInterface::QUERY_STORE
         );
 
         $ret = Array();

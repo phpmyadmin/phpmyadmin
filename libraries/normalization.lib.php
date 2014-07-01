@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
  * @param string $db              current databse
  * @param string $table           current table
  * @param string $colTypeCategory supported all|numeric|string|spatial|date and time
- * @param string $listType        type of list to buld, supported dropdown|checkbox
+ * @param string $listType        type of list to build, supported dropdown|checkbox
  *
  * @return HTML for list of columns in form of given list types
  */
@@ -115,7 +115,7 @@ function PMA_getHtmlForCreateNewColumn(
     return PMA_getHtmlForTableFieldDefinitions($header_cells, $content_cells);
 }
 /**
- * buld the html for step 1.1 of normalization
+ * build the html for step 1.1 of normalization
  *
  * @param string $db    current database
  * @param string $table current table
@@ -133,7 +133,7 @@ function PMA_getHtmlFor1NFStep1($db, $table)
         "<legend>" . __('Step 1.') . $step . " " . $stepTxt . "</legend>" .
         "<h4>" . __(
             'Do you have any column which can be split into more than'
-            . ' one column, '
+            . ' one column? '
             . 'For example: address can be split into street, city, country and zip.'
         )
         . "</br>(<a class='central_columns_dialog' data-maxrows='25' "
@@ -146,7 +146,8 @@ function PMA_getHtmlFor1NFStep1($db, $table)
         . "</p>"
         . "<div id='extra'>"
         . "<select id='selectNonAtomicCol' name='makeAtomic'>"
-        . "<option selected disabled>" . __('Select one ...') . "</option>" .
+        . '<option selected="selected" disabled="disabled">'
+        . __('Select one ...') . "</option>" .
         "<option value='no_such_col'>" . __('No such column') . "</option>" .
         PMA_getHtmlForColumnsList($db, $table, 'string') .
         "</select>"
@@ -180,7 +181,7 @@ function PMA_getHtmlContentsFor1NFStep2($db, $table)
         $subText = __("Taking you to next step ...");
     } else {
         $headText = __(
-            "There are no unique columns. Add an unique column "
+            "There are no unique columns. Add a unique column "
             . "(or combination of columns) that uniquely identify all rows. "
         );
         $subText = '<a href="#" id="createUniqueColumns">'
@@ -217,7 +218,7 @@ function PMA_getHtmlContentsFor1NFStep3($db, $table)
     $legendText = __('Step 1.') . $step . " " . $stepTxt;
     $headText = __(
         "Do you have group of columns which on combining gives an existing
-        column. for ex. if have first_name, last_name and full_name then
+        column? For example, if you have first_name, last_name and full_name then
         combining first_name and last_name gives full_name which is redundant"
     );
     $subText = __(
@@ -265,7 +266,7 @@ function PMA_getHtmlForNormalizetable()
     $html_output .= '</fieldset><fieldset class="tblFooters">'
         . "<span style='float:left'>" . __(
             'Hint: Please follow the procedure carefully in order '
-            . 'to obtain correct normalizarion'
+            . 'to obtain correct normalization'
         ) . "</span>"
         . '<input type="submit" name="submit_normalize" value="' . __('Go') . '" />'
         . '</fieldset>'

@@ -5362,7 +5362,7 @@ class PMA_DisplayResults
      *
      * @param string  $category              BLOB|BINARY|GEOMETRY
      * @param string  $content               the binary content
-     * @param string  $transformation_plugin transformation plugin.
+     * @param mixed   $transformation_plugin transformation plugin.
      *                                       Can also be the default function:
      *                                       PMA_mimeDefaultFunction
      * @param string  $transform_options     transformation parameters

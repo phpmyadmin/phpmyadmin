@@ -22,12 +22,12 @@ if (empty($viewing_mode)) {
 /**
  * Set parameters for links
  */
-$url_query = PMA_URL_getCommon($db);
+$GLOBALS['url_query'] = PMA_URL_getCommon($db);
 
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url = 'index.php' . $url_query;
+$err_url = 'index.php' . $GLOBALS['url_query'];
 
 /**
  * @global boolean Checks for superuser privileges
@@ -36,7 +36,7 @@ $is_superuser = $GLOBALS['dbi']->isSuperuser();
 
 // now, select the mysql db
 if ($is_superuser && ! PMA_DRIZZLE) {
-    $GLOBALS['dbi']->selectDb('mysql', $userlink);
+    $GLOBALS['dbi']->selectDb('mysql', $GLOBALS['userlink']);
 }
 
 PMA_Util::checkParameters(

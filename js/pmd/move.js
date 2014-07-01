@@ -729,7 +729,6 @@ function Save_as()
         var choice          = $form.find('input[name="save_page"]:checked').val();
         var name            = '';
 
-        debugger;
         if (choice === 'same') {
             if ($selected_page.val() === '0') {
                 PMA_ajaxShowMessage(PMA_messages.strSelectPage, 2000);
@@ -821,6 +820,63 @@ function Prompt_to_save_current_page(callback)
         callback();
     }
 }
+
+//------------------------------ EXPORT PAGES ---------------------------------------
+function Export_pages()
+{
+    var button_options = {};
+    button_options[PMA_messages.strGo] = function () {
+        var $form = $("#id_export_pages");
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+        location.href = $form.attr('action') + '?' + getParamsForExport($form) + Get_url_pos();
+        $msgbox.remove();
+        $(this).dialog('close');
+    };
+    button_options[PMA_messages.strCancel] = function () {
+        $(this).dialog('close');
+    };
+    var $msgbox = PMA_ajaxShowMessage();
+    var params = 'ajax_request=true&dialog=export&token=' + token + '&db=' + db + '&selected_page=' + selected_page;
+    $.get("pmd_general.php", params, function (data) {
+        if (data.success === false) {
+            PMA_ajaxShowMessage(data.error, false);
+        } else {
+            PMA_ajaxRemoveMessage($msgbox);
+            $('<div id="page_export_dialog"></div>')
+                .append(data.message)
+                .dialog({
+                    title: PMA_messages.strExportRelationalSchema,
+                    width: 400,
+                    modal: true,
+                    buttons: button_options,
+                    close: function () {
+                        $(this).remove();
+                    }
+                });
+        }
+    }); // end $.get()
+}// end export pages
+
+function getParamsForExport($from)
+{
+    var url = "";
+    url += "&db=" + $from.find('input[name="db"]').val();
+    url += "&token=" + $from.find('input[name="token"]').val();
+    url += "&do=" + $from.find('input[name="do"]').val();
+    url += "&export_type=" + $from.find("#export_type").val();
+    url += "&chpage=" + $from.find('input[name="chpage"]').val();
+    url += "&orientation=" + $from.find('select[name="orientation"]').val();
+    url += "&paper=" + $from.find('select[name="paper"]').val();
+    url += "&show_color=" + ($from.find('input[name="show_color"]').is(":checked") ? "on" : "off");
+    url += "&with_doc=" + ($from.find('input[name="with_doc"]').is(":checked") ? "on" : "off");
+    url += "&all_tables_same_width=" + ($from.find('input[name="all_tables_same_width"]').is(":checked") ? "on" : "off");
+    url += "&show_grid=" + ($from.find('input[name="show_grid"]').is(":checked") ? "on" : "off");
+    url += "&show_keys=" + ($from.find('input[name="show_keys"]').is(":checked") ? "on" : "off");
+    url += "&show_table_dimension=" + ($from.find('input[name="show_table_dimension"]').is(":checked") ? "on" : "off");
+
+    return url;
+}
+
 
 function Load_page(page) {
     var param_page = '';

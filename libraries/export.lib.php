@@ -362,13 +362,13 @@ function PMA_closeExportFile($file_handle, $dump_buffer, $save_filename)
         $message = new PMA_Message(
             __('Insufficient space to save the file %s.'),
             PMA_Message::ERROR,
-            $save_filename
+            array($save_filename)
         );
     } else {
         $message = new PMA_Message(
             __('Dump has been saved to file %s.'),
             PMA_Message::SUCCESS,
-            $save_filename
+            array($save_filename)
         );
     }
     return $message;
@@ -756,12 +756,15 @@ function PMA_exportTable(
 /**
  * Loads correct page after doing export
  *
+ * @param string $db          the database name
+ * @param string $table       the table name
  * @param string $export_type Export type
  *
  * @return void
  */
-function PMA_showExportPage($export_type)
+function PMA_showExportPage($db, $table, $export_type)
 {
+    global $cfg;
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
         include_once 'server_export.php';

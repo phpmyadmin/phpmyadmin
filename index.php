@@ -582,15 +582,6 @@ if ($cfg['SuhosinDisableWarning'] == false
 }
 
 /**
- * Warning about mcrypt.
- */
-if (! function_exists('mcrypt_encrypt')
-    && ! $GLOBALS['cfg']['McryptDisableWarning']
-) {
-    PMA_warnMissingExtension('mcrypt');
-}
-
-/**
  * Warning about incomplete translations.
  *
  * The data file is created while creating release by ./scripts/remove-incomplete-mo

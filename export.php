@@ -158,6 +158,7 @@ if (!defined('TESTSUITE')) {
         }
     }
 
+    $table = $GLOBALS['table'];
     // sanitize this parameter which will be used below in a file inclusion
     $what = PMA_securePath($what);
 
@@ -314,7 +315,7 @@ if (!defined('TESTSUITE')) {
 
         // problem opening export file on server?
         if (! empty($message)) {
-            PMA_showExportPage($export_type);
+            PMA_showExportPage($db, $table, $export_type);
         }
     } else {
         /**
@@ -420,7 +421,7 @@ if (!defined('TESTSUITE')) {
     // End of fake loop
 
     if ($save_on_server && ! empty($message)) {
-        PMA_showExportPage($export_type);
+        PMA_showExportPage($db, $table, $export_type);
     }
 
     /**
@@ -447,7 +448,7 @@ if (!defined('TESTSUITE')) {
             $message = PMA_closeExportFile(
                 $file_handle, $dump_buffer, $save_filename
             );
-            PMA_showExportPage($export_type);
+            PMA_showExportPage($db, $table, $export_type);
         } else {
             echo $dump_buffer;
         }

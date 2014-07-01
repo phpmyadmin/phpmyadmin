@@ -1883,8 +1883,8 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
  * This function returns common HTML <td> for Primary, Unique, Index,
  * Spatial actions
  *
- * @param array   $type               column type
- * @param array   $tbl_storage_engine table storage engine
+ * @param string  $type               column type
+ * @param string  $tbl_storage_engine table storage engine
  * @param string  $class              class attribute for <td>
  * @param boolean $hasField           has field
  * @param boolean $hasLinkClass       has <a> the class attribute

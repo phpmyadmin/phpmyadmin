@@ -54,14 +54,6 @@ $cfg['PmaNoRelation_DisableWarning'] = false;
 $cfg['SuhosinDisableWarning'] = false;
 
 /**
- * Disable the default warning that is displayed if mcrypt is missing for
- * cookie authentication.
- *
- * @global boolean $cfg['McryptDisableWarning']
- */
-$cfg['McryptDisableWarning'] = false;
-
-/**
  * Disable the default warning that is displayed if a diffrence between
  * the MySQL library and server is detected.
  *
@@ -2548,7 +2540,7 @@ $cfg['BrowseMIME'] = true;
  *
  * @global integer $cfg['MaxExactCount']
  */
-$cfg['MaxExactCount'] = 0;
+$cfg['MaxExactCount'] = 500000;
 
 /**
  * Zero means that no row count is done for views; see the doc
