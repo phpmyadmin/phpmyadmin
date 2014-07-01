@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-01 08:49-0400\n"
-"PO-Revision-Date: 2014-07-01 22:18+0200\n"
+"PO-Revision-Date: 2014-07-01 22:20+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
@@ -1877,13 +1877,12 @@ msgstr "Extension de cerca"
 #: js/messages.php:317
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Maximun de columna:"
+msgstr "Maximo de columna:"
 
 #: js/messages.php:318
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Nomines de columna: "
+msgstr "Minimo de columna:"
 
 #: js/messages.php:319
 #, fuzzy
