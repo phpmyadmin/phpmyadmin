@@ -30,6 +30,8 @@ if (isset($_REQUEST['dialog'])) {
         $html = PMA_getHtmlForEditOrDeletePages($GLOBALS['db'], 'delete');
     } else if ($_REQUEST['dialog'] == 'save_as') {
         $html = PMA_getHtmlForPageSaveAs($GLOBALS['db']);
+    } else if ($_REQUEST['dialog'] == 'export') {
+        $html = PMA_getHtmlForSchemaExport($GLOBALS['db'], $_REQUEST['selected_page']);
     }
 
     $response->addHTML($html);
@@ -213,6 +215,13 @@ echo '</div>';
     </a>
     <img class="M_bord" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>" alt="" />
     <span id="page_name"><?php echo htmlspecialchars($selected_page) ?></span>
+    <img class="M_bord" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>" alt="" />
+    <a href="#" onclick="Export_pages(); return false"
+        class="M_butt" target="_self" >
+        <img title="<?php echo __('Export schema'); ?>" alt="key"
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/export.png'); ?>" />
+    </a>
+    <img class="M_bord" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>" alt="" />
 <?php
 if (isset($_REQUEST['query'])) {
     echo '<a href="#" onclick="build_query(\'SQL Query on Database\', 0)" onmousedown="return false;"

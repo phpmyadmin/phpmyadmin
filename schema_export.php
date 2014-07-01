@@ -13,13 +13,6 @@ require_once 'libraries/common.inc.php';
 require 'libraries/StorageEngine.class.php';
 
 /**
- * Validate vulnerable POST parameters
- */
-if (! PMA_isValid($_POST['pdf_page_number'], 'numeric')) {
-    die('Attack stopped');
-}
-
-/**
  * get all variables needed for exporting relational schema
  * in $cfgRelation
  */
@@ -27,6 +20,7 @@ $cfgRelation = PMA_getRelationsParam();
 
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/Index.class.php';
+require_once 'libraries/pmd_common.php';
 require_once 'libraries/schema/User_Schema.class.php';
 
 /**
@@ -44,7 +38,6 @@ $post_params = array(
     'orientation',
     'paper',
     'names',
-    'pdf_page_number',
     'show_color',
     'show_grid',
     'show_keys',
@@ -52,8 +45,9 @@ $post_params = array(
     'with_doc'
 );
 foreach ($post_params as $one_post_param) {
-    if (isset($_POST[$one_post_param])) {
-        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+    if (isset($_REQUEST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_REQUEST[$one_post_param];
+        $_POST[$one_post_param] = $_REQUEST[$one_post_param];
     }
 }
 
@@ -69,7 +63,16 @@ $user_schema = new PMA_User_Schema();
  *                  create and select a page, generate schema etc
  */
 if (isset($_REQUEST['do'])) {
-    $user_schema->setAction($_REQUEST['do']);
-    $user_schema->processUserChoice();
+    $temp_page = PMA_createNewPage("_temp" . rand());
+    try {
+        PMA_saveTablePositions($temp_page);
+        $_POST['pdf_page_number'] = $temp_page;
+        $user_schema->setAction($_REQUEST['do']);
+        $user_schema->processUserChoice();
+        PMA_deletePage($temp_page);
+    } catch (Exception $e) {
+        PMA_deletePage($temp_page); // delete temp page even if an exception occured
+        throw $e;
+    }
 }
 ?>
