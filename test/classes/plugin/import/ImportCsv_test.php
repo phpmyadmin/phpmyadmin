@@ -24,8 +24,6 @@ require_once 'libraries/import.lib.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/Theme.class.php';
-
-/* Each PluginObserver instance contains a PluginManager instance */
 require_once 'libraries/plugins/import/ImportCsv.class.php';
 
 /**

@@ -156,15 +156,23 @@ function PMA_sanitizeUrl($url)
 
     // get script name
     preg_match("<([a-zA-Z\-_\d]*\.php)$>", $components["path"], $matches);
-    $script_name = $matches[1];
+    if (count($matches) < 2) {
+        $script_name = 'index.php';
+    } else {
+        $script_name = $matches[1];
+    }
 
     // remove deployment specific details to make uri more generic
-    parse_str($components["query"], $query_array);
-    unset($query_array["db"]);
-    unset($query_array["table"]);
-    unset($query_array["token"]);
-    unset($query_array["server"]);
-    $query = http_build_query($query_array);
+    if (isset($components["query"])) {
+        parse_str($components["query"], $query_array);
+        unset($query_array["db"]);
+        unset($query_array["table"]);
+        unset($query_array["token"]);
+        unset($query_array["server"]);
+        $query = http_build_query($query_array);
+    } else {
+        $query = '';
+    }
 
     $uri = $script_name . "?" . $query;
     return array($uri, $script_name);
@@ -219,6 +227,8 @@ function PMA_sendErrorReport($report)
  * @param string $filename javascript filename
  *
  * @return Number of lines
+ *
+ * @todo Should gracefully handle non existing files
  */
 function PMA_countLines($filename)
 {

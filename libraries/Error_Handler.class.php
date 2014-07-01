@@ -482,7 +482,7 @@ class PMA_Error_Handler
      * This dishtingushes between the actual errors
      *      and user errors raised to warn user.
      *
-     *@return boolean: true if there are errors to be "prompted", false otherwise
+     *@return boolean true if there are errors to be "prompted", false otherwise
      */
     public function hasErrorsForPrompt()
     {

@@ -83,7 +83,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         $header = $response->getHeader();
         $header->setBodyId('loginform');
         $header->setTitle(__('Access denied!'));
-        $header->disableMenu();
+        $header->disableMenuAndConsole();
         echo '<br /><br />
     <center>
         <h1>';
@@ -161,18 +161,5 @@ class AuthenticationConfig extends AuthenticationPlugin
             exit;
         }
         return true;
-    }
-
-    /**
-     * This method is called when any PluginManager to which the observer
-     * is attached calls PluginManager::notify()
-     *
-     * @param SplSubject $subject The PluginManager notifying the observer
-     *                            of an update.
-     *
-     * @return void
-     */
-    public function update (SplSubject $subject)
-    {
     }
 }

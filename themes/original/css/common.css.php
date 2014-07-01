@@ -1057,9 +1057,18 @@ table#chartGrid div.monitorChart {
     border: none;
 }
 
-div#serverstatus div.tabLinks {
-    float:<?php echo $left; ?>;
-    padding-bottom: 10px;
+div.tabLinks {
+    margin-left: 0.3em;
+    float: <?php echo $left; ?>;
+    padding: 5px 0px;
+}
+
+div.tabLinks a, div.tabLinks label {
+    margin-right: 7px;
+}
+
+div.tabLinks .icon {
+    margin: -0.2em 0.3em 0px 0px;
 }
 
 .popupContent {
@@ -2692,4 +2701,256 @@ table.show_create td {
 
 .ui-dialog {
     position: fixed;
+}
+
+.small_font {
+    font-size: smaller;
+}
+
+/* Console styles */
+#pma_console_container {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    <?php echo $left; ?>: 0;
+    z-index: 100;
+}
+#pma_console {
+    position: relative;
+    margin-<?php echo $left; ?>: 240px;
+}
+#pma_console>.templates {
+    display: none;
+}
+#pma_console .mid_text,
+#pma_console .toolbar span {
+    vertical-align: middle;
+}
+#pma_console .toolbar {
+    position: relative;
+    background: #ccc;
+    border-top: solid 1px #aaa;
+    cursor: n-resize;
+}
+#pma_console .toolbar.collapsed:not(:hover) {
+    display: inline-block;
+    border-top-<?php echo $right; ?>-radius: 3px;
+    border-<?php echo $right; ?>: solid 1px #aaa;
+}
+#pma_console .toolbar.collapsed {
+    cursor: default;
+}
+#pma_console .toolbar.collapsed>.button {
+    display: none;
+}
+#pma_console .message span.text,
+#pma_console .message span.action,
+#pma_console .toolbar .button,
+#pma_console .switch_button {
+    padding: 0 3px;
+    display: inline-block;
+}
+#pma_console .message span.action,
+#pma_console .toolbar .button,
+#pma_console .switch_button {
+    cursor: pointer;
+}
+#pma_console .message span.action:hover,
+#pma_console .toolbar .button:hover,
+#pma_console .switch_button:hover {
+    background: #ddd;
+}
+#pma_console .toolbar .button {
+    margin-<?php echo $right; ?>: .4em;
+}
+#pma_console .toolbar .button {
+    float: <?php echo $right; ?>;
+}
+#pma_console .content {
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-bottom: -65px;
+    border-top: solid 1px #aaa;
+    background: #fff;
+    padding-top: .4em;
+}
+#pma_console .message,
+#pma_console .query_input {
+    position: relative;
+    font-family: Monaco, Consolas, monospace;
+    cursor: text;
+    margin: 0 10px .2em 1.4em;
+}
+#pma_console .message {
+    border-bottom: solid 1px #ccc;
+    padding-bottom: .2em;
+}
+#pma_console .message.expanded .action_content {
+    position: relative;
+}
+#pma_console .message:before,
+#pma_console .query_input:before {
+    left: -0.7em;
+    position: absolute;
+    content: ">";
+}
+#pma_console .query_input:before {
+    top: -2px;
+}
+#pma_console .message:hover:before {
+    color: #7cf;
+    font-weight: bold;
+}
+#pma_console .message.expanded:before {
+    content: "]";
+}
+#pma_console .message.welcome:before {
+    display: none;
+}
+#pma_console .message.failed:before,
+#pma_console .message.failed.expanded:before,
+#pma_console .message.failed:hover:before {
+    content: "=";
+    color: #944;
+}
+#pma_console .message.pending:before {
+    opacity: .3;
+}
+#pma_console .message.collapsed>.query {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+#pma_console .message.expanded>.query {
+    display: block;
+    white-space: pre;
+    word-wrap: break-word;
+}
+#pma_console .message .text.targetdb,
+#pma_console .message.collapsed .action.collapse,
+#pma_console .message.expanded .action.expand,
+#pma_console .message .action.requery,
+#pma_console .message .action.bookmark {
+    display: none;
+}
+#pma_console .message.history .text.targetdb,
+#pma_console .message.successed .text.targetdb,
+#pma_console .message.history .action.requery,
+#pma_console .message.history .action.bookmark,
+#pma_console .message.bookmark .action.requery,
+#pma_console .message.bookmark .action.bookmark,
+#pma_console .message.successed .action.requery,
+#pma_console .message.successed .action.bookmark {
+    display: inline-block;
+}
+#pma_console .message .action_content {
+    position: absolute;
+    bottom: 100%;
+    background: #ccc;
+    border: solid 1px #aaa;
+    border-top-<?php echo $left; ?>-radius: 3px;
+}
+html.ie8 #pma_console .message .action_content {
+    position: relative!important;
+}
+#pma_console .message.bookmark .text.targetdb,
+#pma_console .message .text.query_time {
+    margin: 0;
+    display: inline-block;
+}
+#pma_console .message.failed .text.query_time,
+#pma_console .message .text.failed {
+    display: none;
+}
+#pma_console .message.failed .text.failed {
+    display: inline-block;
+}
+#pma_console .message .text {
+    background: #fff;
+}
+#pma_console .message.collapsed:not(:hover) .action_content {
+    display: none;
+}
+#pma_console .message .bookmark_label {
+    padding: 0 4px;
+    top: 0;
+    background: #369;
+    color: #fff;
+    border-radius: 3px;
+}
+#pma_console .message .bookmark_label.shared {
+    background: #396;
+}
+#pma_console .message.expanded .bookmark_label {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+#pma_console .query_input {
+    position: relative;
+}
+#pma_console .mid_layer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    /* For support IE8, this layer doesn't use filter:opacity or opacity,
+    js code will fade this layer opacity to 0.18(using animation) */
+    background: #666;
+    display: none;
+    cursor: pointer;
+    z-index: 200;
+}
+#pma_console .card {
+    position: absolute;
+    width: 94%;
+    height: 100%;
+    min-height: 48px;
+    <?php echo $left; ?>: 100%;
+    top: 0;
+    border-<?php echo $left; ?>: solid 1px #999;
+    z-index: 300;
+    transition: <?php echo $left; ?> 0.2s;
+    -ms-transition: <?php echo $left; ?> 0.2s;
+    -webkit-transition: <?php echo $left; ?> 0.2s;
+    -moz-transition: <?php echo $left; ?> 0.2s;
+}
+#pma_console .card.show {
+    <?php echo $left; ?>: 6%;
+    box-shadow: -2px 1px 4px -1px #999;
+}
+
+html.ie7 #pma_console .query_input {
+    display: none;
+}
+
+#pma_bookmarks .content.add_bookmark,
+#pma_console_options .content {
+    padding: 4px 6px;
+}
+#pma_bookmarks .content.add_bookmark input[type=text] {
+    margin: 0;
+    padding: 2px 4px;
+}
+
+/* Code mirror console style*/
+
+.cm-s-pma .CodeMirror-code pre,
+.cm-s-pma .CodeMirror-code {
+    font-family: Monaco, Consolas, monospace;
+}
+.cm-s-pma .CodeMirror-measure>pre,
+.cm-s-pma .CodeMirror-code>pre,
+.cm-s-pma .CodeMirror-lines {
+    padding: 0;
+}
+.cm-s-pma.CodeMirror {
+    resize: none;
+    height: auto;
+    width: 100%;
+    min-height: initial;
+    max-height: initial;
+}
+.cm-s-pma .CodeMirror-scroll {
+    padding-bottom: 2em;
+    cursor: text;
 }

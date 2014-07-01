@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-23 08:30-0400\n"
-"PO-Revision-Date: 2014-06-22 23:34+0200\n"
+"PO-Revision-Date: 2014-06-24 23:42+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/az/>\n"
+"Language-Team: Azerbaijani "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
+"Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: az\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -26,13 +26,12 @@ msgstr ""
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Cari Verilənlər Bazası üçün sütunların orta siyahısı boşdur."
 
 #: db_central_columns.php:109
-#, fuzzy
 #| msgid "Click to sort."
 msgid "Click to sort"
-msgstr "Sıralamaq üçün klikləyin."
+msgstr "Sıralamaq üçün klikləyin"
 
 #: db_central_columns.php:125
 #, php-format
@@ -974,16 +973,14 @@ msgid "Preview SQL"
 msgstr "SQL önizləmə"
 
 #: js/messages.php:61
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "in query"
+msgstr "Sorğunu simulyasiya et"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "Təsirlənən sətirlər:"
+msgstr "Uyğun gələn sətirlər:"
 
 #: js/messages.php:63 libraries/Util.class.php:639 libraries/sql.lib.php:452
 msgid "SQL query:"
@@ -1868,35 +1865,30 @@ msgid "Page name"
 msgstr "Səhifə adı"
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Select All"
 msgid "Save page"
-msgstr "Hamısını Seç"
+msgstr "Səhifəni yaddaşa ver"
 
 #: js/messages.php:357 pmd_general.php:144
-#, fuzzy
 #| msgctxt "PDF"
 #| msgid "page"
 msgid "Open page"
-msgstr "Miqdar"
+msgstr "Səhifəni aç"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Select All"
 msgid "Delete page"
-msgstr "Hamısını Seç"
+msgstr "Səhifəni sil"
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Xahiş edirem, deyişdirilecek Sehifeni seç"
+msgstr "Zəhmət olmasa davam etmək üçün bir səhifə seçin"
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "Zəhmət olmasa keçərli bir nömrə daxil edin!"
+msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
 #: js/messages.php:361
 msgid "Do you want to save the changes to the current page?"
@@ -2627,7 +2619,7 @@ msgstr "Sil"
 
 #: libraries/DbSearch.class.php:384
 msgid "Search in database"
-msgstr ""
+msgstr "Verilənlər Bazasında axtar"
 
 #: libraries/DbSearch.class.php:388
 msgid "Words or values to search for (wildcard: \"%\"):"
@@ -2651,7 +2643,7 @@ msgstr "Daxili sütun:"
 
 #: libraries/DisplayResults.class.php:733
 msgid "Save edited data"
-msgstr ""
+msgstr "Redaktə edilən verilənləri yaddaşa ver"
 
 #: libraries/DisplayResults.class.php:739
 msgid "Restore column order"
@@ -2765,11 +2757,11 @@ msgstr "Əlaqə görüntü sütunu"
 
 #: libraries/DisplayResults.class.php:1648
 msgid "Show binary contents"
-msgstr ""
+msgstr "Binar məzmunu göstər"
 
 #: libraries/DisplayResults.class.php:1653
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "BLOB məzmunlarını göstər"
 
 #: libraries/DisplayResults.class.php:1664
 msgid "Hide browser transformation"
@@ -2777,11 +2769,11 @@ msgstr "Browser transformasiyasını gizlət"
 
 #: libraries/DisplayResults.class.php:1673
 msgid "Well Known Text"
-msgstr ""
+msgstr "Mətn(WKT)"
 
 #: libraries/DisplayResults.class.php:1674
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Binar(WKB)"
 
 #: libraries/DisplayResults.class.php:3411
 #: libraries/DisplayResults.class.php:3427
@@ -2820,7 +2812,7 @@ msgstr "Göstərilən sətir %1s - %2s"
 #: libraries/DisplayResults.class.php:4889
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d toplam, %2$d sorğuda"
 
 #: libraries/DisplayResults.class.php:4894
 #, php-format
@@ -10728,25 +10720,22 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:213
 #: libraries/server_status_monitor.lib.php:323
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add chart"
-msgstr "Yeni sahe elave et"
+msgstr "Diaqram əlave et"
 
 #: libraries/server_status_monitor.lib.php:219
-#, fuzzy
 msgid "Preset chart"
-msgstr "Cedveli yeniden adlandır"
+msgstr "Hazır diaqram"
 
 #: libraries/server_status_monitor.lib.php:224
 msgid "Status variable(s)"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:227
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Select Tables"
+msgstr "Ardıcıllıq seçin:"
 
 #: libraries/server_status_monitor.lib.php:229
 msgid "Commonly monitored"
@@ -10769,24 +10758,21 @@ msgid "Append unit to data values"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:270
-#, fuzzy
 msgid "Add this series"
-msgstr "Yeni İstifadeçi elave Et"
+msgstr "Bu ardıcıllığı əlavə et"
 
 #: libraries/server_status_monitor.lib.php:272
 msgid "Clear series"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:275
-#, fuzzy
 msgid "Series in Chart:"
-msgstr "SQL sorğusu"
+msgstr "Diaqramdakı ardıcıllıqlar:"
 
 #: libraries/server_status_monitor.lib.php:296
-#, fuzzy
 #| msgid "Start"
 msgid "Start Monitor"
-msgstr "Şen"
+msgstr "Monitorinqi başlat"
 
 #: libraries/server_status_monitor.lib.php:303
 msgid "Instructions/Setup"
@@ -10801,15 +10787,13 @@ msgid "Enable charts dragging"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:330
-#, fuzzy
 msgid "Refresh rate"
-msgstr "Qurucu"
+msgstr "Yenilənmə tezliyi"
 
 #: libraries/server_status_monitor.lib.php:339
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Chart columns"
-msgstr "Sahe Sütunlarını Elave Et/Sil"
+msgstr "Diaqram sütunları"
 
 #: libraries/server_status_monitor.lib.php:351
 msgid "Chart arrangement"
@@ -10831,10 +10815,9 @@ msgid "Questions since startup: %s"
 msgstr ""
 
 #: libraries/server_status_queries.lib.php:44
-#, fuzzy
 #| msgid "per hour"
 msgid "per hour:"
-msgstr "saatda"
+msgstr "saat başına:"
 
 #: libraries/server_status_queries.lib.php:47
 #, fuzzy
@@ -11559,22 +11542,19 @@ msgid "SQL result"
 msgstr ""
 
 #: libraries/sql.lib.php:450
-#, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
-msgstr "Qurucu"
+msgstr "Yaradan:"
 
 #: libraries/sql.lib.php:486
-#, fuzzy
 msgid "Detailed profile"
-msgstr "Sadece me'lumat"
+msgstr "Detallı profil"
 
 #: libraries/sql.lib.php:489
 msgid "Order"
 msgstr ""
 
 #: libraries/sql.lib.php:491 libraries/sql.lib.php:507
-#, fuzzy
 msgid "State"
 msgstr "Status"
 
@@ -11583,36 +11563,32 @@ msgid "Summary by state"
 msgstr ""
 
 #: libraries/sql.lib.php:510
-#, fuzzy
 #| msgid "Total"
 msgid "Total Time"
-msgstr "Cemi"
+msgstr "Cəmi vaxt"
 
 #: libraries/sql.lib.php:512
-#, fuzzy
 #| msgid "Time"
 msgid "% Time"
-msgstr "Müddet"
+msgstr "% müddət"
 
 #: libraries/sql.lib.php:514
 msgid "Calls"
 msgstr ""
 
 #: libraries/sql.lib.php:516
-#, fuzzy
 #| msgid "Time"
 msgid "ø Time"
-msgstr "Müddet"
+msgstr "ø müddət"
 
 #: libraries/sql.lib.php:787 libraries/sql.lib.php:807
 msgid "Bookmark this SQL query"
 msgstr "Bu SQL sorğusunu bookmark-la"
 
 #: libraries/sql.lib.php:791
-#, fuzzy
 #| msgid "Label"
 msgid "Label:"
-msgstr "Etiket"
+msgstr "Etiket:"
 
 #: libraries/sql.lib.php:799 libraries/sql_query_form.lib.php:328
 msgid "Let every user access this bookmark"
@@ -11643,9 +11619,9 @@ msgid "Problems with indexes of table `%s`"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:185
-#, fuzzy, php-format
+#, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr "%s me'lumat bazasına SQL sorğusu(-ları) gönder"
+msgstr "%s serverində SQL sorğusunu/sorğularını icra et"
 
 #: libraries/sql_query_form.lib.php:206 libraries/sql_query_form.lib.php:234
 #, php-format
@@ -11752,9 +11728,9 @@ msgstr ""
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 msgid "View %s has been dropped."
-msgstr "%s sahesi leğv edildi"
+msgstr "%s görünüşünü yığışdır."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
@@ -11767,31 +11743,27 @@ msgid "Sum"
 msgstr "Cemi"
 
 #: libraries/structure.lib.php:310
-#, fuzzy
 #| msgid "Show color"
 msgid "Show create"
-msgstr "Rengini göster"
+msgstr "Yaradılmanı göstər"
 
 #: libraries/structure.lib.php:334
 msgid "Add prefix to table"
 msgstr ""
 
 #: libraries/structure.lib.php:336
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Replace table data with file"
+msgstr "Cədvəl prefiksini dəyiş"
 
 #: libraries/structure.lib.php:338
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "Replace table data with file"
+msgstr "Cədvəli prefiks ilə birgə kopyala"
 
 #: libraries/structure.lib.php:341
-#, fuzzy
 msgid "Add columns to central list"
-msgstr "Yeni sahe elave et"
+msgstr "Sütunları orta siyahıya əlavə et"
 
 #: libraries/structure.lib.php:343
 msgid "Remove columns from central list"
@@ -11800,7 +11772,7 @@ msgstr ""
 #: libraries/structure.lib.php:345
 #, fuzzy
 msgid "Make consistent with central list"
-msgstr "Yeni sahe elave et"
+msgstr "Orta siyahı ilə uyğun elə"
 
 #: libraries/structure.lib.php:367
 msgid "Check tables having overhead"
@@ -11817,7 +11789,6 @@ msgid "Sort"
 msgstr "Sırala"
 
 #: libraries/structure.lib.php:1350 libraries/tbl_tracking.lib.php:870
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
@@ -11840,9 +11811,8 @@ msgid "Fulltext"
 msgstr "Tam metn (Fulltext)"
 
 #: libraries/structure.lib.php:1485 libraries/structure.lib.php:2099
-#, fuzzy
 msgid "Add to central columns"
-msgstr "Yeni sahe elave et"
+msgstr "Orta siyahılara əlavə et"
 
 #: libraries/structure.lib.php:1490 libraries/structure.lib.php:2089
 #, fuzzy
@@ -11850,19 +11820,17 @@ msgid "Remove from central columns"
 msgstr "Cedveli yeniden adlandır"
 
 #: libraries/structure.lib.php:1506 libraries/structure.lib.php:1616
-#, fuzzy
 msgid "Move columns"
-msgstr "Yeni sahe elave et"
+msgstr "Sütunları köçür(move)"
 
 #: libraries/structure.lib.php:1509
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
 #: libraries/structure.lib.php:1558 view_create.php:178
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "Çap görüntüsü"
+msgstr "Redaktə görünuşü"
 
 #: libraries/structure.lib.php:1592
 msgid "Relation view"
@@ -11874,16 +11842,15 @@ msgstr "Alternativ cedvel strukturu"
 
 #: libraries/structure.lib.php:1638
 #: libraries/tbl_columns_definition_form.lib.php:179
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to add at least one column."
-msgstr "Gösterilmesi üçün en az bir sütun seçmelisiniz"
+msgstr "Ən az bir sütun əlavə etməlisiniz."
 
 #: libraries/structure.lib.php:1655
 #: libraries/tbl_columns_definition_form.lib.php:169
-#, fuzzy, php-format
+#, php-format
 msgid "Add %s column(s)"
-msgstr "Yeni sahe elave et"
+msgstr "%s sütunu əlavə et"
 
 #: libraries/structure.lib.php:1672
 msgid "At End of Table"
@@ -11899,10 +11866,9 @@ msgid "After %s"
 msgstr "Sonra: %s"
 
 #: libraries/structure.lib.php:1768
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Row statistics"
-msgstr "Sıra Statistikası"
+msgstr "Sətir Statistikası"
 
 #: libraries/structure.lib.php:1773 libraries/tbl_printview.lib.php:182
 msgid "static"
@@ -11943,17 +11909,16 @@ msgstr "%s üzərinə Birinci Dərəcəli Açar əlavə edildi."
 #, fuzzy
 #| msgid "Session value"
 msgid "Distinct values"
-msgstr "Sessiya deyeri"
+msgstr "Fərqli qiymətlər"
 
 #: libraries/structure.lib.php:2121 libraries/structure.lib.php:2124
 msgid "Add primary key"
 msgstr ""
 
 #: libraries/structure.lib.php:2127 libraries/structure.lib.php:2130
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add index"
-msgstr "Yeni sahe elave et"
+msgstr "İndeks əlavə et"
 
 #: libraries/structure.lib.php:2133 libraries/structure.lib.php:2136
 msgid "Add unique index"
@@ -11979,21 +11944,19 @@ msgstr "Effektiv"
 
 #: libraries/structure.lib.php:2521 libraries/tbl_indexes.lib.php:61
 #: tbl_addfield.php:84
-#, fuzzy, php-format
+#, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "The selected users have been deleted successfully."
+msgstr "%1$s cədvəli uğurlu bir şəkildə dəyişdirildi."
 
 #: libraries/structure.lib.php:2533 libraries/tbl_tracking.lib.php:1000
 #: libraries/tbl_tracking.lib.php:1030
-#, fuzzy
 #| msgid "Query type"
 msgid "Query error"
-msgstr "Sorğu tipi"
+msgstr "Sorğu xətası"
 
 #: libraries/structure.lib.php:2667
-#, fuzzy
 msgid "The columns have been moved successfully."
-msgstr "The selected users have been deleted successfully."
+msgstr "Sütunlar uğurlu şəkildə daşındı."
 
 #: libraries/structure.lib.php:2715
 #, php-format
@@ -12001,32 +11964,28 @@ msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr ""
 
 #: libraries/structure.lib.php:2844
-#, fuzzy
 msgid "Add to Favorites"
-msgstr "Yeni İstifadeçi elave Et"
+msgstr "Favoritlərə əlavə et"
 
 #: libraries/structure.lib.php:2890
 msgid "Favorite List is full!"
 msgstr ""
 
 #: libraries/structure.lib.php:2979
-#, fuzzy
 msgid "Showing create queries"
-msgstr "Emrleri Tam Olaraq Göster"
+msgstr "Yaradılmış sorğular göstərilir"
 
 #: libraries/tbl_chart.lib.php:39
-#, fuzzy
 #| msgid "Mar"
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "Mar"
+msgstr "Çubuq"
 
 #: libraries/tbl_chart.lib.php:41
-#, fuzzy
 #| msgid "Column names"
 msgctxt "Chart type"
 msgid "Column"
-msgstr "Sütun adları"
+msgstr "Sütun"
 
 #: libraries/tbl_chart.lib.php:45
 msgctxt "Chart type"
@@ -12034,11 +11993,10 @@ msgid "Line"
 msgstr ""
 
 #: libraries/tbl_chart.lib.php:47
-#, fuzzy
 #| msgid "Engines"
 msgctxt "Chart type"
 msgid "Spline"
-msgstr "Motorlar"
+msgstr "Əyri"
 
 #: libraries/tbl_chart.lib.php:50
 msgctxt "Chart type"
@@ -12046,18 +12004,16 @@ msgid "Area"
 msgstr ""
 
 #: libraries/tbl_chart.lib.php:53
-#, fuzzy
 #| msgid "PiB"
 msgctxt "Chart type"
 msgid "Pie"
-msgstr "PB"
+msgstr "Dairəvi diaqram"
 
 #: libraries/tbl_chart.lib.php:58
-#, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "Müddet"
+msgstr "Vaxt qrafiki"
 
 #: libraries/tbl_chart.lib.php:64
 msgctxt "Chart type"
@@ -12073,9 +12029,8 @@ msgid "X-Axis:"
 msgstr ""
 
 #: libraries/tbl_chart.lib.php:133
-#, fuzzy
 msgid "Series:"
-msgstr "SQL sorğusu"
+msgstr "Ardıcıllıq:"
 
 #: libraries/tbl_chart.lib.php:208
 msgid "X-Axis label:"
@@ -12096,45 +12051,38 @@ msgid "Series names are in a column"
 msgstr ""
 
 #: libraries/tbl_chart.lib.php:240
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Series column:"
-msgstr "Inside table(s):"
+msgstr "Ardıcıllıq sütunu:"
 
 #: libraries/tbl_chart.lib.php:253
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Value column:"
-msgstr "Sehife başına düşen setir sayı"
+msgstr "Qiymət sütunu:"
 
 #: libraries/tbl_chart.lib.php:286
-#, fuzzy
 #| msgid "Start"
 msgid "Start row:"
-msgstr "Şen"
+msgstr "Başlanğıc sətri:"
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Fayl olaraq qeyd et"
+msgstr "Diaqramı şəkil olaraq yaddaşa ver"
 
 #: libraries/tbl_chart.lib.php:357
-#, fuzzy
 #| msgid "Import files"
 msgid "Chart title"
-msgstr "Faylları import et"
+msgstr "Diaqram başlığı"
 
 #: libraries/tbl_columns_definition_form.lib.php:72
-#, fuzzy
 #| msgid "Storage Engine"
 msgid "Storage Engine:"
-msgstr "Depolama Motorları"
+msgstr "Depolama Motorları:"
 
 #: libraries/tbl_columns_definition_form.lib.php:76
-#, fuzzy
 msgid "Collation:"
-msgstr "Quruluş"
+msgstr "Qarşılaşdırma:"
 
 #: libraries/tbl_columns_definition_form.lib.php:110
 msgid "PARTITION definition:"

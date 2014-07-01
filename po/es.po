@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-23 08:30-0400\n"
-"PO-Revision-Date: 2014-06-22 23:47+0200\n"
+"PO-Revision-Date: 2014-06-24 02:12+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -25,12 +25,10 @@ msgstr ""
 "para más información."
 
 #: db_central_columns.php:85
-#, fuzzy
 #| msgid ""
 #| "There are no columns in central list to display for the current database."
 msgid "The central list of columns for the current database is empty."
-msgstr ""
-"No hay columnas a mostrar en la lista central para la base de datos actual."
+msgstr "La lista central de columnas para la base de datos actual está vacía."
 
 #: db_central_columns.php:109
 msgid "Click to sort"

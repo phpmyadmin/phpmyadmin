@@ -45,6 +45,11 @@ $js_messages['strDropUserGroupWarning'] = __('Do you really want to delete user 
 $js_messages['strConfirmDeleteQBESearch'] = __('Do you really want to delete the search "%s"?');
 $js_messages['strConfirmNavigation'] = __('You have unsaved changes; are you sure you want to leave this page?');
 
+/* For modal dialog buttons */
+$js_messages['strSaveAndClose'] = __('Save & Close');
+$js_messages['strReset'] = __('Reset');
+$js_messages['strResetAll'] = __('Reset All');
+
 /* For indexes */
 $js_messages['strFormEmpty'] = __('Missing value in the form!');
 $js_messages['strRadioUnchecked'] = __('Select at least one of the options!');
@@ -132,6 +137,8 @@ $js_messages['strAddOneSeriesWarning'] = __('Please add at least one variable to
 $js_messages['strNone'] = __('None');
 $js_messages['strResumeMonitor'] = __('Resume monitor');
 $js_messages['strPauseMonitor'] = __('Pause monitor');
+$js_messages['strStartRefresh'] = __('Start auto refresh');
+$js_messages['strStopRefresh'] = __('Stop auto refresh');
 /* Monitor: Instructions Dialog */
 $js_messages['strBothLogOn'] = __('general_log and slow_query_log are enabled.');
 $js_messages['strGenLogOn'] = __('general_log is enabled.');
@@ -306,6 +313,11 @@ $js_messages['strSave'] = __('Save');
 /* For tbl_select.js */
 $js_messages['strHideSearchCriteria'] = __('Hide search criteria');
 $js_messages['strShowSearchCriteria'] = __('Show search criteria');
+$js_messages['strRangeSearch'] = __('Range search');
+$js_messages['strColumnMax'] = __('Column maximum:');
+$js_messages['strColumnMin'] = __('Column minimum:');
+$js_messages['strMinValue'] = __('Minimum value:');
+$js_messages['strMaxValue'] = __('Maximum value:');
 
 /* For tbl_find_replace.js */
 $js_messages['strHideFindNReplaceCriteria'] = __('Hide find and replace criteria');
@@ -467,6 +479,8 @@ $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
     . ($_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif'))
     . '" width="16" height="16" alt="ajax clock"/>'
     . '</div>';
+
+$js_messages['strConsoleRequeryConfirm'] = __('Execute this query again?');
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {

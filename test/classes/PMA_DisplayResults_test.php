@@ -1772,7 +1772,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function dataProviderForTestHandleNonPrintableContents()
     {
-        $transformation_plugin = new Text_Plain_Link(null);
+        $transformation_plugin = new Text_Plain_Link();
         $meta = new StdClass();
         $meta->type = 'BLOB';
         $url_params = array('db' => 'foo');
@@ -1887,7 +1887,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function dataProviderForTestGetDataCellForNonNumericColumns()
     {
-        $transformation_plugin = new Text_Plain_Link(null);
+        $transformation_plugin = new Text_Plain_Link();
         $meta = new StdClass();
         $meta->type = 'BLOB';
         $meta->flags = 'blob binary';

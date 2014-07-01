@@ -67,7 +67,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         $response->getFooter()->setMinimal();
         $header = $response->getHeader();
         $header->setTitle(__('Access denied!'));
-        $header->disableMenu();
+        $header->disableMenuAndConsole();
         $header->setBodyId('loginform');
 
         $response->addHTML('<h1>');
@@ -260,18 +260,5 @@ class AuthenticationHttp extends AuthenticationPlugin
     public function handlePasswordChange($password)
     {
         return array('old_usr' => 'relog');
-    }
-
-    /**
-     * This method is called when any PluginManager to which the observer
-     * is attached calls PluginManager::notify()
-     *
-     * @param SplSubject $subject The PluginManager notifying the observer
-     *                            of an update.
-     *
-     * @return void
-     */
-    public function update (SplSubject $subject)
-    {
     }
 }

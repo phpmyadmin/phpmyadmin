@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-23 08:30-0400\n"
-"PO-Revision-Date: 2014-06-23 13:35+0200\n"
+"PO-Revision-Date: 2014-06-25 13:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
+"\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -25,13 +25,11 @@ msgstr ""
 "phpmyadmin.net pour plus d'informations."
 
 #: db_central_columns.php:85
-#, fuzzy
 #| msgid ""
 #| "There are no columns in central list to display for the current database."
 msgid "The central list of columns for the current database is empty."
 msgstr ""
-"Il n'y a pas de colonnes dans la liste centrale pour la base de données "
-"actuelle."
+"La liste centrale de colonnes pour la base de données actuelle est vide."
 
 #: db_central_columns.php:109
 msgid "Click to sort"
@@ -1013,16 +1011,14 @@ msgid "Preview SQL"
 msgstr "Aperçu SQL"
 
 #: js/messages.php:61
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "dans la requête"
+msgstr "Simuler la requête"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "Lignes modifiées : "
+msgstr "Lignes correspondantes :"
 
 #: js/messages.php:63 libraries/Util.class.php:639 libraries/sql.lib.php:452
 msgid "SQL query:"
@@ -1935,42 +1931,37 @@ msgid "Page name"
 msgstr "Nom de la page"
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "Choisissez la page"
+msgstr "Sauvegarder la page"
 
 #: js/messages.php:357 pmd_general.php:144
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "Pages libres"
+msgstr "Ouvrir la page"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "Choisissez la page"
+msgstr "Supprimer la page"
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Page à éditer"
+msgstr "Veuillez sélectionner une page pour continuer"
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "Veuillez entrer un nombre valide !"
+msgstr "Veuillez entrer un nom de page valide"
 
 #: js/messages.php:361
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Voulez-vous enregistrer les modifications dans la page en cours ?"
 
 #: js/messages.php:362
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "La page a été correctement supprimée"
 
 #: js/messages.php:365
 #, php-format
@@ -4320,11 +4311,11 @@ msgstr "Impossible de supprimer les colonnes !"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
-msgstr ""
+msgstr "OUI"
 
 #: libraries/central_columns.lib.php:509
 msgid "NO"
-msgstr ""
+msgstr "NON"
 
 #: libraries/central_columns.lib.php:629
 #: libraries/display_create_table.lib.php:60
@@ -4365,17 +4356,15 @@ msgid "Select a column."
 msgstr "Sélectionnez une colonne."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "Auto-croissant: taille de l'incrément"
+msgstr "auto_increment"
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
+msgstr "on update CURRENT_TIMESTAMP"
 
 #: libraries/central_columns.lib.php:886
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
 msgstr "Ajouter une colonne"
@@ -6579,10 +6568,9 @@ msgstr ""
 "Laisser vider pour désactiver, suggestion : [kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:665
-#, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
-msgstr "Table pour coordonnées du schéma en PDF"
+msgstr "Table pour coordonnées du schéma en PDF et du concepteur"
 
 #: libraries/config/messages.inc.php:667
 msgid ""
@@ -7187,16 +7175,14 @@ msgid "Can't count rows in an unbuffered result set"
 msgstr "﻿Ne peut pas compter des lignes dans un jeu de résultats non tamponnés"
 
 #: libraries/designer.lib.php:31
-#, fuzzy
 #| msgid "Page titles"
 msgid "Page to open"
-msgstr "Titres de page"
+msgstr "Page à ouvrir"
 
 #: libraries/designer.lib.php:33
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Page to delete"
-msgstr "Relation supprimée"
+msgstr "Page à supprimer"
 
 #: libraries/designer.lib.php:37 libraries/designer.lib.php:73
 #: libraries/schema/User_Schema.class.php:211
@@ -7204,22 +7190,19 @@ msgid "Select page"
 msgstr "Choisissez la page"
 
 #: libraries/designer.lib.php:59
-#, fuzzy
 #| msgid "Export to selected page."
 msgid "Save to selected page"
-msgstr "Exporter vers la page sélectionnée."
+msgstr "Sauvegarder vers la page sélectionnée"
 
 #: libraries/designer.lib.php:60
-#, fuzzy
 #| msgid "Create a page and export to it."
 msgid "Create a page and save to it"
-msgstr "Créer une page et y exporter."
+msgstr "Créer une page et sauvegarder"
 
 #: libraries/designer.lib.php:92
-#, fuzzy
 #| msgid "New page name: "
 msgid "New page name"
-msgstr "Nom de la nouvelle page : "
+msgstr "Nom de la nouvelle page"
 
 #: libraries/display_change_password.lib.php:59
 #: libraries/replication_gui.lib.php:844
@@ -7413,7 +7396,7 @@ msgstr "Afficher les résultats"
 
 #: libraries/display_export.lib.php:646 libraries/display_export.lib.php:749
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "Renommer les bases de données / tables / colonnes exportées"
 
 #: libraries/display_export.lib.php:656
 msgid "Save output to a file"
@@ -7424,40 +7407,34 @@ msgid "Skip tables larger than"
 msgstr "Ignorer les tables de taille plus grande que"
 
 #: libraries/display_export.lib.php:776
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select database"
-msgstr "Choisissez une table"
+msgstr "Choisissez une base de données"
 
 #: libraries/display_export.lib.php:778
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select table"
 msgstr "Choisissez une table"
 
 #: libraries/display_export.lib.php:794
-#, fuzzy
 #| msgid "Database name"
 msgid "New database name"
-msgstr "Nom de base de données"
+msgstr "Nouveau nom pour la base de données"
 
 #: libraries/display_export.lib.php:818
-#, fuzzy
 #| msgid "New page name: "
 msgid "New table name"
-msgstr "Nom de la nouvelle page : "
+msgstr "Nouveau nom de table"
 
 #: libraries/display_export.lib.php:827
-#, fuzzy
 #| msgid "Copy column name."
 msgid "Old column name"
-msgstr "Copier le nom de la colonne."
+msgstr "Ancien nom de colonne"
 
 #: libraries/display_export.lib.php:828
-#, fuzzy
 #| msgid "Copy column name."
 msgid "New column name"
-msgstr "Copier le nom de la colonne."
+msgstr "Nouveau nom de colonne"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -8007,7 +7984,7 @@ msgstr "MySQL a retourné un résultat vide (aucune ligne)."
 
 #: libraries/import.lib.php:268 libraries/sql.lib.php:1679
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[Un ROLLBACK a eu lieu]"
 
 #: libraries/import.lib.php:1231
 msgid ""
@@ -8057,12 +8034,16 @@ msgstr "Aller à la vue : %s"
 #: libraries/import.lib.php:1358
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
+"Seulement les requêtes UPDATE et DELETE portant sur une seule table peuvent "
+"être simulées."
 
 #: libraries/import.lib.php:1775
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"Seules les requêtes SQL INSERT, UPDATE, DELETE et REPLACE portant sur des "
+"tables d'un moteur transactionnel peuvent être annulées."
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -9170,10 +9151,9 @@ msgstr ""
 "différentes)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:527
-#, fuzzy
 #| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses procedures;"
-msgstr "Il semble que votre table utilise des déclencheurs;"
+msgstr "Il semble que votre base de données utilise des procédures;"
 
 #: libraries/plugins/export/ExportSql.class.php:528
 #: libraries/plugins/export/ExportSql.class.php:560
@@ -9185,16 +9165,14 @@ msgstr ""
 "les cas."
 
 #: libraries/plugins/export/ExportSql.class.php:559
-#, fuzzy
 #| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses functions;"
-msgstr "Il semble que votre table utilise des déclencheurs;"
+msgstr "Il semble que votre base de données utilise des fonctions;"
 
 #: libraries/plugins/export/ExportSql.class.php:1261
-#, fuzzy
 #| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses views;"
-msgstr "Il semble que votre table utilise des déclencheurs;"
+msgstr "Il semble que votre base de données utilise des vues;"
 
 #: libraries/plugins/export/ExportSql.class.php:1312
 msgid "Constraints for dumped tables"
@@ -9540,7 +9518,7 @@ msgstr ""
 
 #: libraries/pmd_common.php:295
 msgid "*Untitled"
-msgstr ""
+msgstr "*Sans titre"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -9564,10 +9542,9 @@ msgid "Display Features"
 msgstr "Affichage infobulle"
 
 #: libraries/relation.lib.php:153
-#, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Génération de schémas en PDF"
+msgstr "Concepteur et création de PDF"
 
 #: libraries/relation.lib.php:164
 msgid "Displaying Column Comments"
@@ -12417,7 +12394,7 @@ msgstr "Afficher à nouveau la requête après exécution"
 
 #: libraries/sql_query_form.lib.php:378
 msgid "Rollback when finished"
-msgstr ""
+msgstr "ROLLBACK à la fin"
 
 #: libraries/sql_query_form.lib.php:436
 msgid "View only"
@@ -13236,26 +13213,23 @@ msgid "Exit fullscreen"
 msgstr "Quitter le plein écran"
 
 #: pmd_general.php:140
-#, fuzzy
 #| msgid "New name"
 msgid "New page"
-msgstr "Nouveau nom"
+msgstr "Nouvelle page"
 
 #: pmd_general.php:148
 msgid "Save position"
 msgstr "Sauvegarder la position"
 
 #: pmd_general.php:152
-#, fuzzy
 #| msgid "Save position"
 msgid "Save positions as"
-msgstr "Sauvegarder la position"
+msgstr "Sauvegarder les positions dans"
 
 #: pmd_general.php:156
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete pages"
-msgstr "Choisissez la page"
+msgstr "Supprimer les pages"
 
 #: pmd_general.php:167 pmd_general.php:499
 msgid "Create relation"

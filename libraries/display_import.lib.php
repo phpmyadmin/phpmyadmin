@@ -98,7 +98,7 @@ function PMA_getHtmlForImportJS($upload_id)
  *
  * @return string
  */
-function PMA_getHtmlForExportOptions($import_type, $db, $table)
+function PMA_getHtmlForImportOptions($import_type, $db, $table)
 {
     $html  = '    <div class="exportoptions" id="header">';
     $html .= '        <h2>';
@@ -413,7 +413,7 @@ function PMA_getHtmlForImport(
 
     $html .= PMA_getHtmlForHiddenInputs($import_type, $db, $table);
 
-    $html .= PMA_getHtmlForExportOptions($import_type, $db, $table);
+    $html .= PMA_getHtmlForImportOptions($import_type, $db, $table);
 
     $html .= PMA_getHtmlForImportOptionsFile($max_upload_size, $import_list);
 

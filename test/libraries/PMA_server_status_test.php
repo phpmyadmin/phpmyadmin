@@ -10,20 +10,15 @@
  * Include to test.
  */
 require_once 'libraries/Util.class.php';
-require_once 'libraries/Advisor.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/ServerStatusData.class.php';
 require_once 'libraries/server_status.lib.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/Message.class.php';
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/sqlparser.lib.php';
-require_once 'libraries/js_escape.lib.php';
 
 /**
- * class PMA_ServerStatusAdvisor_Test
+ * class PMA_ServerStatus_Test
  *
  * this class is for testing server_status.lib.php functions
  *
@@ -45,20 +40,6 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        //$_REQUEST
-        $_REQUEST['log'] = "index1";
-        $_REQUEST['pos'] = 3;
-
-        //$GLOBALS
-        $GLOBALS['cfg']['MaxRows'] = 10;
-        $GLOBALS['cfg']['ServerDefault'] = "server";
-        $GLOBALS['cfg']['RememberSorting'] = true;
-        $GLOBALS['cfg']['SQP'] = array();
-        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
-        $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
-        $GLOBALS['cfg']['LimitChars'] = 100;
-        $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['Server']['host'] = "localhost";
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
@@ -86,6 +67,8 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
             "Com_delete_multi" => "0",
             "Com_create_function" => "0",
             "Com_empty_query" => "0",
+            "Com_execute_sql" => 2,
+            "Com_stmt_execute" => 2,
         );
 
         $server_variables= array(
@@ -204,6 +187,14 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
 
         //validate 3: PMA_getHtmlForServerStateConnections
         $this->assertContains(
+            '<th colspan="2">Connections</th>',
+            $html
+        );
+        $this->assertContains(
+            '<th>&oslash; per hour</th>',
+            $html
+        );
+        $this->assertContains(
             '<table id="serverstatusconnections" class="data noclick">',
             $html
         );
@@ -216,95 +207,38 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
             '<td class="value">' . $max_used_conn,
             $html
         );
+        $this->assertContains(
+            '<th class="name">Failed attempts</th>',
+            $html
+        );
         //Aborted_connects
         $this->assertContains(
             '<td class="value">' . $aborted_conn,
             $html
         );
-    }
-
-    /**
-     * Test for PMA_getHtmlForServerProcessItem
-     *
-     * @return void
-     */
-    public function testPMAGetHtmlForServerProcessItem()
-    {
-        //parameters
-        $process = array(
-            "user" => "User1",
-            "host" => "Host1",
-            "id" => "Id1",
-            "db" => "db1",
-            "command" => "Command1",
-            "state" => "State1",
-            "info" => "Info1",
-            "state" => "State1",
-            "time" => "Time1",
-        );
-        $odd_row = true;
-        $show_full_sql = "show_full_sql";
-
-        $_REQUEST['sort_order'] = "desc";
-        $_REQUEST['order_by_field'] = "process";
-        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 12;
-
-        //Call the test function
-        $html = PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql);
-
-        //validate 1: $kill_process
-        $url_params = array();
-        $url_params['kill'] = $process['id'];
-        $kill_process = 'server_status.php' . PMA_URL_getCommon($url_params);
         $this->assertContains(
-            $kill_process,
-            $html
-        );
-        $this->assertContains(
-            __('Kill'),
+            '<th class="name">Aborted</th>',
             $html
         );
 
-        //validate 2: $process['User']
+        $GLOBALS['server_master_status'] = true;
+        $GLOBALS['server_slave_status'] = true;
+        $this->ServerStatusData->status['Connections'] = 0;
+        $html = PMA_getHtmlForServerStatus($this->ServerStatusData);
+
         $this->assertContains(
-            htmlspecialchars($process['user']),
+            'This MySQL server works as <b>master</b> and <b>slave</b>',
             $html
         );
 
-        //validate 3: $process['Host']
-        $this->assertContains(
-            htmlspecialchars($process['host']),
-            $html
-        );
+        $GLOBALS['server_master_status'] = false;
+        $GLOBALS['server_slave_status'] = true;
+        $html = PMA_getHtmlForServerStatus($this->ServerStatusData);
 
-        //validate 4: $process['db']
         $this->assertContains(
-            __('None'),
-            $html
-        );
-
-        //validate 5: $process['Command']
-        $this->assertContains(
-            htmlspecialchars($process['command']),
-            $html
-        );
-
-        //validate 6: $process['Time']
-        $this->assertContains(
-            $process['time'],
-            $html
-        );
-
-        //validate 7: $process['state']
-        $this->assertContains(
-            $process['state'],
-            $html
-        );
-
-        //validate 8: $process['info']
-        $this->assertContains(
-            $process['info'],
+            'This MySQL server works as <b>slave</b>',
             $html
         );
     }
 }
+?>

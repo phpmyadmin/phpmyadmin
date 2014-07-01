@@ -9,8 +9,6 @@
  * Include to test.
  */
 
-/* Each PluginObserver instance contains a PluginManager instance */
-require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Image_JPEG_Link.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
@@ -35,7 +33,7 @@ class Image_JPEG_Link_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Image_JPEG_Link(new PluginManager());
+        $this->object = new Image_JPEG_Link();
     }
 
     /**

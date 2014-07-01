@@ -15,7 +15,7 @@ env:
     - PHPUNIT_ARGS="--exclude-group selenium"
     - LINT="yes"
   global:
-    - secure: "D24AZRWfuIYuA42eI5Rlg+6W0U1c+X33e6XqNMDzjl7KmhIqZaplOU++mKQLcx5+uIjZ4h7oJi8jIo/gmU8wHC4q+qKbL4xKIqx1AgNDwr6Upc9IBRnlfmXiwM2uxZGn5y0LdH5xM4FzBiN3Giff9hbnIdMJKvVudKVZNlHnzr8="
+    - secure: "TR3s7lHkREN706g+FeNXl1S0R2fpcI1H+n8USIkl5WBd7S2/NpsZlSfkrgnC7/xRBDXzHwuYd8JQQyAZyrqPEeLqIqlKzxIcTHOiJWGeR/YO7JXsr1Slt/nFqygpIyz8yOh3QIvX6FMzPsamBlUNhRvTAkd2wXPMBpXQlhTVmX8="
     - TESTSUITE_BROWSERSTACK_USER=phpMyAdmin
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
@@ -25,6 +25,7 @@ before_script:
   - set -e ; if [[ -z "$LINT" ]] ; then
     if [[ $TRAVIS_PHP_VERSION != "hhvm" ]] ; then
 
+    if [[ $TRAVIS_PHP_VERSION != "5.6" ]] ; then
     git clone --depth=1 git://github.com/zenovich/runkit.git ;
     cd runkit ;
     phpize ;
@@ -34,6 +35,7 @@ before_script:
     cd .. ;
 
     phpenv config-add test/travis.php.ini ;
+    fi
 
     composer install --dev --no-interaction ;
 

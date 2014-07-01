@@ -9,9 +9,7 @@
  * Include to test.
  */
 
-/* Each PluginObserver instance contains a PluginManager instance */
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Application_Octetstream_Hex.class.php';
 
 /**
@@ -35,7 +33,7 @@ class Application_Octetstream_Hex_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Application_Octetstream_Hex(new PluginManager());
+        $this->object = new Application_Octetstream_Hex();
     }
 
     /**

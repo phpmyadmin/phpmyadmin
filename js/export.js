@@ -280,22 +280,22 @@ function aliasSelectHandler(event) {
  */
 function createAliasModal(event) {
     event.preventDefault();
+    var dlgButtons = {};
+    dlgButtons[PMA_messages.strResetAll] = function() {
+        $(this).find('input[type="text"]').val('');
+    };
+    dlgButtons[PMA_messages.strReset] = function() {
+        $(this).find('input[type="text"]:visible').val('');
+    };
+    dlgButtons[PMA_messages.strSaveAndClose] = function() {
+        $(this).dialog("close");
+        $('#alias_modal').parent().appendTo($('form[name="dump"]'));
+    };
     $('#alias_modal').dialog({
         width: Math.min($(window).width() - 100, 700),
         modal: true,
         dialogClass: "alias-dialog",
-        buttons: {
-            'Reset All': function() {
-                $(this).find('input[type="text"]').val('');
-            },
-            'Reset': function() {
-                $(this).find('input[type="text"]:visible').val('');
-            },
-            'Save & Close': function() {
-                $(this).dialog("close");
-                $('#alias_modal').parent().appendTo($('form[name="dump"]'));
-            }
-        },
+        buttons: dlgButtons,
         create: function() {
             $(this).css('maxHeight', $(window).height() - 150);
             $('.alias-dialog .ui-dialog-titlebar-close').remove();

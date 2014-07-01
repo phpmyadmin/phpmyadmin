@@ -105,7 +105,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $header = $response->getHeader();
         $header->setBodyId('loginform');
         $header->setTitle('phpMyAdmin');
-        $header->disableMenu();
+        $header->disableMenuAndConsole();
         $header->disableWarnings();
 
         if (file_exists(CUSTOM_HEADER_FILE)) {
@@ -720,8 +720,8 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
-     * Encryption using blowfish algorithm (mcrypt)
-     * or phpseclib's AES if mcrypt not available
+     * Encryption using phpseclib's AES
+     * (it uses mcrypt when it is available)
      *
      * @param string $data   original data
      * @param string $secret the secret
@@ -737,8 +737,8 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
-     * Decryption using blowfish algorithm (mcrypt)
-     * or phpseclib's AES if mcrypt not available
+     * Decryption using phpseclib's AES
+     * (it uses mcrypt when it is available)
      *
      * @param string $encdata encrypted data
      * @param string $secret  the secret
@@ -798,18 +798,5 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         $this->storePasswordCookie($password);
         return array();
-    }
-
-    /**
-     * This method is called when any PluginManager to which the observer
-     * is attached calls PluginManager::notify()
-     *
-     * @param SplSubject $subject The PluginManager notifying the observer
-     *                            of an update.
-     *
-     * @return void
-     */
-    public function update (SplSubject $subject)
-    {
     }
 }

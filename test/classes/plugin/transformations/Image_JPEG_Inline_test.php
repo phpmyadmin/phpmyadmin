@@ -9,8 +9,6 @@
  * Include to test.
  */
 
-/* Each PluginObserver instance contains a PluginManager instance */
-require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Image_JPEG_Inline.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Config.class.php';
@@ -39,7 +37,7 @@ class Image_JPEG_Inline_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
-        $this->object = new Image_JPEG_Inline(new PluginManager());
+        $this->object = new Image_JPEG_Inline();
     }
 
     /**
