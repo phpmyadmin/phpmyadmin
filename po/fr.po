@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-01 08:49-0400\n"
-"PO-Revision-Date: 2014-07-01 19:10+0200\n"
+"PO-Revision-Date: 2014-07-01 22:16+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -1828,10 +1828,9 @@ msgid "Unique column(s) added."
 msgstr ""
 
 #: js/messages.php:306 libraries/normalization.lib.php:181
-#, fuzzy
 #| msgid "Taking you to %s."
 msgid "Taking you to next step ..."
-msgstr "Vous êtes redirigé vers %s."
+msgstr "Vous êtes redirigé vers l'étape suivante …"
 
 #: js/messages.php:307
 #, php-format
@@ -1839,10 +1838,9 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "Fin de ligne"
+msgstr "Fin d'étape"
 
 #: js/messages.php:311 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -1862,16 +1860,14 @@ msgid "Show search criteria"
 msgstr "Afficher les critères de recherche"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Save search"
 msgid "Range search"
-msgstr "Sauvegarder la recherche"
+msgstr "Recherche en intervalle"
 
 #: js/messages.php:317
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Nom des colonnes : "
+msgstr "Maximum pour la colonne :"
 
 #: js/messages.php:318
 #, fuzzy
