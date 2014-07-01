@@ -361,20 +361,20 @@ function PMA_getFirstPage($db)
  * Creates a new page and returns its auto-incrementing id
  *
  * @param string $pageName name of the page
+ * @param string $db       name of the database
  *
  * @return int|null
  */
-function PMA_createNewPage($pageName)
+function PMA_createNewPage($pageName, $db)
 {
     $cfgRelation = PMA_getRelationsParam();
     if ($cfgRelation['pdfwork']) {
-        $_POST['newpage'] = $pageName;
-        // temporarlily using schema code for creating a page
-        include_once 'libraries/schema/User_Schema.class.php';
-        $user_schema = new PMA_User_Schema();
-        $user_schema->setAction("createpage");
-        $user_schema->processUserChoice();
-        return $user_schema->pageNumber;
+        $pageNumber = PMA_REL_createPage(
+            $pageName,
+            $cfgRelation,
+            $db
+        );
+        return $pageNumber;
     }
     return null;
 }

@@ -259,29 +259,6 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
 }
 
 /**
- * Get HTML snippet for export relational schema view
- *
- * @param string $url_query Query string for link
- *
- * @return string $html_output
- */
-function PMA_getHtmlForExportRelationalSchemaView($url_query)
-{
-    $html_output = '<div class="operations_full_width">'
-        . '<fieldset><a href="schema_edit.php?' . $url_query . '">';
-    if (PMA_Util::showIcons('ActionLinksMode')) {
-        $html_output .= PMA_Util::getImage(
-            'b_edit.png'
-        );
-    }
-    $html_output .= __('Edit or export relational schema')
-        . '</a></fieldset>'
-        . '</div>';
-
-    return $html_output;
-}
-
-/**
  * Run the Procedure definitions and function definitions
  *
  * to avoid selecting alternatively the current and new db
