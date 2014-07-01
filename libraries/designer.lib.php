@@ -189,7 +189,7 @@ function PMA_getHtmlForSchemaExport($db, $page)
         if ($val == $GLOBALS['cfg']['PDFDefaultPageSize']) {
             $htmlString .= ' selected="selected"';
         }
-        $htmlString .= ' >' . htmlspecialchars($val) . '</option>' . "\n";
+        $htmlString .= '>' . htmlspecialchars($val) . '</option>' . "\n";
     }
 
     $htmlString  .= '</select>'
