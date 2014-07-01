@@ -393,13 +393,13 @@ $js_messages['strAlertNonUnique'] = __('This table does not contain a unique col
 $js_messages['strEnterValidHex'] = __('Please enter a valid hexadecimal string. Valid characters are 0-9, A-F.');
 
 /** Drag & Drop sql import messages */
-$js_messages['dropImportMessageCancel'] = _('cancel');
-$js_messages['dropImportMessageAborted'] = _('Aborted');
-$js_messages['dropImportMessageFailed'] = _('Failed');
-$js_messages['dropImportMessageSuccess'] = _('Success');
-$js_messages['dropImportImportResultHeader'] = _('Import status');
-$js_messages['dropImportDropFiles'] = _('Drop Files Here');
-$js_messages['dropImportSelectDB'] = _('Select Database First');
+$js_messages['dropImportMessageCancel'] = __('cancel');
+$js_messages['dropImportMessageAborted'] = __('Aborted');
+$js_messages['dropImportMessageFailed'] = __('Failed');
+$js_messages['dropImportMessageSuccess'] = __('Success');
+$js_messages['dropImportImportResultHeader'] = __('Import status');
+$js_messages['dropImportDropFiles'] = __('Drop Files Here');
+$js_messages['dropImportSelectDB'] = __('Select Database First');
 
 // this approach does not work when the parameter is changed via user prefs
 switch ($GLOBALS['cfg']['GridEditing']) {
