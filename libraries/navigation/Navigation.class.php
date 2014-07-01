@@ -99,7 +99,7 @@ class PMA_Navigation
     private function _getDropHandler()
     {
         $retval = '';
-        $retval .= '<div class="pma_drop_handler">Drop Files Here</div>';
+        $retval .= '<div class="pma_drop_handler">' .__('Drop files here') .'</div>';
         $retval .= '<div class="pma_sql_import_status">';
         $retval .= '<h2>SQL upload ( ';
         $retval .= '<span class="pma_import_count">0</span> ';
