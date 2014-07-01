@@ -32,6 +32,8 @@ class PMA_DesginerTest extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['cfg']['PDFPageSizes'] = array('A3', 'A4');
+        $GLOBALS['cfg']['PDFDefaultPageSize'] = 'A4';
 
         $_SESSION = array(
             'relation' => array(
@@ -167,6 +169,53 @@ class PMA_DesginerTest extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             '<input type="text" name="selected_value" id="selected_value" />',
+            $result
+        );
+    }
+
+    /**
+     * Test for PMA_getHtmlForSchemaExport()
+     *
+     * @return void
+     */
+    public function testGetHtmlForSchemaExport()
+    {
+        $db = 'db';
+        $page = 2;
+
+        $result = PMA_getHtmlForSchemaExport($db, $page);
+        // export type
+        $this->assertContains(
+            '<select name="export_type" id="export_type">',
+            $result
+        );
+
+        // hidden fields
+        $this->assertContains(
+            '<input type="hidden" name="do" value="process_export" />',
+            $result
+        );
+        $this->assertContains(
+            '<input type="hidden" name="chpage" value="' . $page . '" />',
+            $result
+        );
+
+        // orientation
+        $this->assertContains(
+            '<select name="orientation" id="orientation_opt" class="paper-change">',
+            $result
+        );
+        $this->assertContains('<option value="L">Landscape</option>', $result);
+        $this->assertContains('<option value="P">Portrait</option>', $result);
+
+        // paper size
+        $this->assertContains(
+            '<select name="paper" id="paper_opt" class="paper-change">',
+            $result
+        );
+        $this->assertContains('<option value="A3">A3</option>', $result);
+        $this->assertContains(
+            '<option value="A4" selected="selected">A4</option>',
             $result
         );
     }
