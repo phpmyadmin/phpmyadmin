@@ -1867,7 +1867,7 @@ class PMA_DisplayResults
 
         // Generates the orderby clause part of the query which is part
         // of URL
-        list($sort_order, $order_img) = $this->_makeUrl(
+        list($single_sort_order, $multi_sort_order, $order_img) = $this->_getSingleAndMultiSortUrls(
             $sort_expression, $sort_expression_nodirection, $sort_tbl,
             $name_to_use_in_sort, $sort_direction, $fields_meta, $column_index
         );
@@ -1877,24 +1877,34 @@ class PMA_DisplayResults
             . 'LOCK IN SHARE MODE))@is',
             $unsorted_sql_query, $regs3
         )) {
-            $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];
+            $single_sorted_sql_query = $regs3[1] . $single_sort_order . $regs3[2];
+            $multi_sorted_sql_query = $regs3[1] . $multi_sort_order . $regs3[2];
         } else {
-            $sorted_sql_query = $unsorted_sql_query . $sort_order;
+            $single_sorted_sql_query = $unsorted_sql_query . $single_sort_order;
+            $multi_sorted_sql_query = $unsorted_sql_query . $multi_sort_order;
         }
 
-        $_url_params = array(
+        $_single_url_params = array(
             'db'                => $this->__get('db'),
             'table'             => $this->__get('table'),
-            'sql_query'         => $sorted_sql_query,
+            'sql_query'         => $single_sorted_sql_query,
             'session_max_rows'  => $session_max_rows
         );
-        $order_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
+
+        $_multi_url_params = array(
+            'db'                => $this->__get('db'),
+            'table'             => $this->__get('table'),
+            'sql_query'         => $multi_sorted_sql_query,
+            'session_max_rows'  => $session_max_rows
+        );
+        $single_order_url  = 'sql.php' . PMA_URL_getCommon($_single_url_params);
+        $multi_order_url = 'sql.php' . PMA_URL_getCommon($_multi_url_params);
 
         // Displays the sorting URL
         // enable sort order swapping for image
         $order_link = $this->_getSortOrderLink(
             $order_img, $column_index, $direction,
-            $fields_meta, $order_url
+            $fields_meta, $single_order_url, $multi_order_url
         );
 
         $sorted_header_html .= $this->_getDraggableClassForSortableColumns(
@@ -1919,13 +1929,13 @@ class PMA_DisplayResults
      * @param array   $fields_meta                 set of field properties
      * @param integer $column_index                The index number to current column
      *
-     * @return  array   2 element array - $order_link, $sorted_header_html
+     * @return  array   3 element array - $single_sort_order, $sort_order, $order_img
      *
      * @access  private
      *
      * @see     _getOrderLinkAndSortedHeaderHtml()
      */
-    private function _makeUrl(
+    private function _getSingleAndMultiSortUrls(
         $sort_expression, $sort_expression_nodirection, $sort_tbl,
         $name_to_use_in_sort, $sort_direction, $fields_meta, $column_index
     ) {
@@ -1993,17 +2003,36 @@ class PMA_DisplayResults
             // For a special case where the code generates two dots between
             // column name and table name.
             $sort_order = preg_replace("/\.\./", ".", $sort_order);
-            // Incase the current column name is in the order by clause
-            // We need to generate the arrow button and related html
+            // Incase this is the current column save $single_sort_order
+            if ($current_name == $name_to_use_in_sort) {
+                if (strpos($current_name, '(') !== false) {
+                    $single_sort_order = "\n" . 'ORDER BY ' . $current_name . ' ';
+                } else {
+                    $single_sort_order = "\n" . 'ORDER BY ' . $sort_tbl
+                        . PMA_Util::backquote(
+                            $current_name
+                        ) . ' ';
+                }
+                if ($is_in_sort) {
+                    list($single_sort_order, $order_img) = $this->_getSortingUrlParams(
+                        $sort_direction, $single_sort_order, $column_index, $index
+                    );
+                } else {
+                    $single_sort_order .= strtoupper($sort_direction[$index]);
+                }
+            }
             if ($current_name == $name_to_use_in_sort && $is_in_sort) {
+                // We need to generate the arrow button and related html
                 list($sort_order, $order_img) = $this->_getSortingUrlParams(
                     $sort_direction, $sort_order, $column_index, $index
                 );
+                $order_img .= " <small>" . ($index + 1) . "</small>";
             } else {
                 $sort_order .= strtoupper($sort_direction[$index]);
             }
             // Separate columns by a comma
             $sort_order .= ", ";
+
             unset($name_to_use_in_sort);
         }
         // remove the comma from the last column name in the newly
@@ -2012,7 +2041,7 @@ class PMA_DisplayResults
         if (empty($order_img)) {
             $order_img = '';
         }
-        return array($sort_order, $order_img);
+        return array($single_sort_order, $sort_order, $order_img);
     }
 
     /**
@@ -2098,49 +2127,37 @@ class PMA_DisplayResults
      * @param integer $column_index   the index of the column
      * @param integer $index          the index of sort direction array.
      *
-     * @return  array                 2 element array - $sort_order, $order_img
+     * @return  array                       2 element array - $sort_order, $order_img
      *
      * @access  private
      *
-     * @see     _makeUrl()
+     * @see     _getSingleAndMultiSortUrls()
      */
     private function _getSortingUrlParams(
         $sort_direction, $sort_order, $column_index, $index
     ) {
-
-        $index2 = $index + 1;
         if (strtoupper(trim($sort_direction[$index])) ==  self::DESCENDING_SORT_DIR) {
-
-            $sort_number = "<small>" . $index2 . "</small>";
             $sort_order .= ' ASC';
             $order_img   = ' ' . PMA_Util::getImage(
                 's_desc.png', __('Descending'),
                 array('class' => "soimg$column_index", 'title' => '')
             );
-
             $order_img  .= ' ' . PMA_Util::getImage(
                 's_asc.png', __('Ascending'),
                 array('class' => "soimg$column_index hide", 'title' => '')
-            ) . $sort_number;
-
+            );
         } else {
-
-            $sort_number = "<small>" . $index2 . "</small>";
             $sort_order .= ' DESC';
             $order_img   = ' ' . PMA_Util::getImage(
                 's_asc.png', __('Ascending'),
                 array('class' => "soimg$column_index", 'title' => '')
             );
-
             $order_img  .=  ' ' . PMA_Util::getImage(
                 's_desc.png', __('Descending'),
                 array('class' => "soimg$column_index hide", 'title' => '')
-            ) . $sort_number;
-
+            );
         }
-
         return array($sort_order, $order_img);
-
     } // end of the '_getSortingUrlParams()' function
 
 
@@ -2152,6 +2169,7 @@ class PMA_DisplayResults
      * @param string  $direction   the display direction
      * @param array   $fields_meta set of field properties
      * @param string  $order_url   the url for sort
+     * @param string  $multi_order_url   the url for sort
      *
      * @return  string                      the sort order link
      *
@@ -2160,7 +2178,7 @@ class PMA_DisplayResults
      * @see     _getTableHeaders()
      */
     private function _getSortOrderLink(
-        $order_img, $col_index, $direction, $fields_meta, $order_url
+        $order_img, $col_index, $direction, $fields_meta, $order_url, $multi_order_url
     ) {
 
         $order_link_params = array();
@@ -2195,9 +2213,11 @@ class PMA_DisplayResults
                 "<br />\n"
             )
             : htmlspecialchars($fields_meta->name);
+        $inner_link_content = $order_link_content . $order_img
+            . '<input type="hidden" value="' .  $multi_order_url . '" />';
 
         return PMA_Util::linkOrButton(
-            $order_url, $order_link_content . $order_img,
+            $order_url, $inner_link_content,
             $order_link_params, false, true
         );
 
