@@ -178,7 +178,7 @@ function PMA_getHtmlContentsFor1NFStep2($db, $table)
     $extra = '';
     if ($hasPrimaryKey) {
         $headText = __("Unique column(s) already exist");
-        $subText = __("Taking you to next step ...");
+        $subText = __("Taking you to next step…");
     } else {
         $headText = __(
             "There are no unique columns. Add a unique column "
