@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-01 08:49-0400\n"
-"PO-Revision-Date: 2014-07-01 22:20+0200\n"
+"PO-Revision-Date: 2014-07-01 22:21+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
@@ -1885,16 +1885,14 @@ msgid "Column minimum:"
 msgstr "Minimo de columna:"
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Maxime numero de tabellas"
+msgstr "Minime valor:"
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Maxime numero de tabellas"
+msgstr "Maxime valor:"
 
 #: js/messages.php:323
 msgid "Hide find and replace criteria"
@@ -2048,10 +2046,9 @@ msgid "Successfully deleted the page"
 msgstr "On ha delite successosemente le pagina"
 
 #: js/messages.php:382
-#, fuzzy
 #| msgid "Display relational schema"
 msgid "Export relational schema"
-msgstr "Monstra le schema relational"
+msgstr "Exporta le schema relational"
 
 #: js/messages.php:385
 #, php-format
