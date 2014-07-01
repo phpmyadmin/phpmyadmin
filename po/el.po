@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-01 08:49-0400\n"
+"POT-Creation-Date: 2014-07-01 16:22-0400\n"
 "PO-Revision-Date: 2014-07-01 17:38+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
-"\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
+">\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -978,7 +978,6 @@ msgstr ""
 "Έχετε μη αποθηκευμένες αλλαγές. Θέλετε σίγουρα να αφήσετε αυτή τη σελίδα;"
 
 #: js/messages.php:49
-#| msgid "Save as file"
 msgid "Save & Close"
 msgstr "Αποθήκευση & Κλείσιμο"
 
@@ -990,7 +989,6 @@ msgid "Reset"
 msgstr "Επαναφορά"
 
 #: js/messages.php:51
-#| msgid "Select All"
 msgid "Reset All"
 msgstr "Επαναφορά Όλων"
 
@@ -1824,7 +1822,6 @@ msgid "Continue"
 msgstr "Συνέχεια"
 
 #: js/messages.php:304
-#| msgid "Add unique index"
 msgid "Add unique/primary index"
 msgstr "Προσθήκη μοναδικού/πρωτεύοντος ευρετηρίου"
 
@@ -1833,8 +1830,9 @@ msgid "Unique column(s) added."
 msgstr "Μοναδική(ές) στήλη(ες) προστέθηκε(αν)."
 
 #: js/messages.php:306 libraries/normalization.lib.php:181
-#| msgid "Taking you to %s."
-msgid "Taking you to next step ..."
+#, fuzzy
+#| msgid "Taking you to next step ..."
+msgid "Taking you to next step…"
 msgstr "Μεταφέροντάς σας στο επόμενο βήμα …"
 
 #: js/messages.php:307
@@ -1843,7 +1841,6 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr "Το πρώτο βήμα κανονικοποίησης ολοκληρώθηκε για τον πίνακα «%s»."
 
 #: js/messages.php:308
-#| msgid "End of line"
 msgid "End of step"
 msgstr "Τέλος βήματος"
 
@@ -1865,27 +1862,22 @@ msgid "Show search criteria"
 msgstr "Προβολή κριτηρίων αναζήτησης"
 
 #: js/messages.php:316
-#| msgid "Save search"
 msgid "Range search"
 msgstr "Αναζήτηση εύρους"
 
 #: js/messages.php:317
-#| msgid "Column names: "
 msgid "Column maximum:"
 msgstr "Μέγιστο στήλης:"
 
 #: js/messages.php:318
-#| msgid "Column names: "
 msgid "Column minimum:"
 msgstr "Ονόματα στηλών:"
 
 #: js/messages.php:319
-#| msgid "Maximum tables"
 msgid "Minimum value:"
 msgstr "Ελάχιστη τιμή:"
 
 #: js/messages.php:320
-#| msgid "Maximum tables"
 msgid "Maximum value:"
 msgstr "Μέγιστη τιμή:"
 
@@ -2042,7 +2034,6 @@ msgid "Successfully deleted the page"
 msgstr "Η σελίδα διαγράφτηκε επιτυχώς"
 
 #: js/messages.php:382
-#| msgid "Edit or export relational schema"
 msgid "Export relational schema"
 msgstr "Εξαγωγή σχεσιακού σχήματος"
 
@@ -2256,7 +2247,6 @@ msgid ""
 msgstr "Σύμφωνα με τις ρυθμίσεις σας, υποβάλλονται άμεσα, κάντε υπομονή."
 
 #: js/messages.php:484
-#| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "Επανεκτέλεση αυτού του ερώτηματος ξανά;"
 
@@ -2601,7 +2591,6 @@ msgid "Font size"
 msgstr "Μέγεθος γραμματοσειράς"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:145
-#| msgid "Expand/Collapse"
 msgid "Collapse"
 msgstr "Σύμπτηξη"
 
@@ -2610,7 +2599,6 @@ msgid "Expand"
 msgstr "Ανάπτυξη"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:147
-#| msgid "subquery"
 msgid "Requery"
 msgstr "Επανερώτημα"
 
@@ -2619,12 +2607,10 @@ msgid "Reedit"
 msgstr "Επανεπεξεργασία"
 
 #: libraries/Console.class.php:102
-#| msgid "Total"
 msgid "Total "
 msgstr "Σύνολο "
 
 #: libraries/Console.class.php:102
-#| msgid "New bookmark"
 msgid " bookmarks, "
 msgstr " σελιδοδείκτες, "
 
@@ -2637,27 +2623,22 @@ msgid "shared"
 msgstr "κοινόχρηστο"
 
 #: libraries/Console.class.php:105
-#| msgid "The bookmark has been deleted."
 msgid " bookmarks included."
 msgstr " σελιδοδείκτες περιλαμβάνονται."
 
 #: libraries/Console.class.php:106
-#| msgid "New bookmark"
 msgid "No bookmarks"
 msgstr "Κανένας σελιδοδείκτης"
 
 #: libraries/Console.class.php:150
-#| msgid "Query cache"
 msgid "Query failed"
 msgstr "Το ερώτημα απέτυχε"
 
 #: libraries/Console.class.php:152
-#| msgid "Query execution time"
 msgid "Queried time"
 msgstr "Χρόνος ερωτήματος"
 
 #: libraries/Console.class.php:158
-#| msgid "SQL Query box"
 msgid "SQL Query Console"
 msgstr "Παράθυρο Ερωτήματος SQL"
 
@@ -2671,7 +2652,6 @@ msgid "Clear"
 msgstr "Καθάρισμα"
 
 #: libraries/Console.class.php:165
-#| msgid "SQL history"
 msgid "History"
 msgstr "Ιστορικό"
 
@@ -2704,7 +2684,6 @@ msgid "Options"
 msgstr "Επιλογές"
 
 #: libraries/Console.class.php:172 libraries/Console.class.php:211
-#| msgid "Bookmark table"
 msgid "Bookmarks"
 msgstr "Σελιδοδείκτες"
 
@@ -2713,12 +2692,10 @@ msgid "Press"
 msgstr "Τύπος"
 
 #: libraries/Console.class.php:181
-#| msgid "Execute every"
 msgid "to Execute query"
 msgstr "ερώτημα για Εκτέλεση"
 
 #: libraries/Console.class.php:192
-#| msgid "Skip current error"
 msgid "During current session"
 msgstr "Κατά την τρέχουσα συνεδρία"
 
@@ -2729,12 +2706,10 @@ msgid "Refresh"
 msgstr "Ανανέωση"
 
 #: libraries/Console.class.php:226
-#| msgid "New bookmark"
 msgid "Add bookmark"
 msgstr "Προσθήκη σελιδοδείκτη"
 
 #: libraries/Console.class.php:229
-#| msgid "Label:"
 msgid "Label"
 msgstr "Ετικέτα"
 
@@ -2743,12 +2718,10 @@ msgid "Target database"
 msgstr "Βάση δεδομένων προορισμού"
 
 #: libraries/Console.class.php:231
-#| msgid "Create bookmark"
 msgid "Share this bookmark"
 msgstr "Κοινή χρήση αυτού του σελιδοδείκτη"
 
 #: libraries/Console.class.php:242
-#| msgid "Reset to default"
 msgid "Set default"
 msgstr "Ορισμός προεπιλογής"
 
@@ -2757,7 +2730,6 @@ msgid "Always expand queried messages"
 msgstr "Πάντα ανάπτυξη των μηνυμάτων ερωτημάτων"
 
 #: libraries/Console.class.php:248
-#| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "Προβολή ιστορικού ερωτημάτων στην έναρξη"
 
@@ -8810,7 +8782,6 @@ msgstr ""
 "ταχυδρομικό κώδικα."
 
 #: libraries/normalization.lib.php:141
-#| msgid "The central list of columns for the current database is empty."
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 "Προβολή της κεντρικής λίστας στηλών που δεν είναι ήδη σε αυτό τον πίνακα"
@@ -8820,16 +8791,14 @@ msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
-"Επιλέξτε μια στήση που μπορεί να διαιρεθεί σε περισσότερες από μια. ("
-"επιλέγοντας το «Καμιά τέτοια στήλη», θα μεταβείτε στο επόμενο βήμα)"
+"Επιλέξτε μια στήση που μπορεί να διαιρεθεί σε περισσότερες από μια. "
+"(επιλέγοντας το «Καμιά τέτοια στήλη», θα μεταβείτε στο επόμενο βήμα)"
 
 #: libraries/normalization.lib.php:150 normalization.php:18
-#| msgid "Select a column."
 msgid "Select one ..."
 msgstr "Επιλογή ενός ..."
 
 #: libraries/normalization.lib.php:151 normalization.php:19
-#| msgid "Move column"
 msgid "No such column"
 msgstr "Καμιά τέτοια στήλη"
 
@@ -8838,12 +8807,10 @@ msgid "split into "
 msgstr "διαίρεση σε "
 
 #: libraries/normalization.lib.php:175
-#| msgid "Move columns"
 msgid "Have unique columns"
 msgstr "Έχει μοναδικές στήλες"
 
 #: libraries/normalization.lib.php:180
-#| msgid "The user %s already exists!"
 msgid "Unique column(s) already exist"
 msgstr "Μοναδική(ές) στήλη(ες) υπάρχει(ουν) ήδη"
 
@@ -8870,7 +8837,6 @@ msgid "+ Add a new unique column (primary key)"
 msgstr "+ Προσθήκη μιας μοναδικής στήλης (πρωτεύον κλειδί)"
 
 #: libraries/normalization.lib.php:217
-#| msgid "Remove from central columns"
 msgid "Remove redundant columns"
 msgstr "Απομάκρυνση περιττών στηλών"
 
@@ -8896,17 +8862,14 @@ msgstr ""
 "στήλη δεν είναι περιττή, πατήστε το «Καμιά περιττή στήλη»"
 
 #: libraries/normalization.lib.php:230
-#| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "Απομάκρυνση επιλεγμένων"
 
 #: libraries/normalization.lib.php:231
-#| msgid "Add column"
 msgid "No redundant column"
 msgstr "Καμιά περιττή στήλη"
 
 #: libraries/normalization.lib.php:256
-#| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
 msgstr "Βελτίωση δομης πίνακα (Κανονικοποίηση):"
 
@@ -11798,9 +11761,6 @@ msgid "Reset to default"
 msgstr "Επαναφορά προεπιλογής"
 
 #: libraries/server_status_processes.lib.php:24
-#| msgid ""
-#| "Note: Enabling the database statistics here might cause heavy traffic "
-#| "between the web server and the MySQL server."
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
@@ -12968,7 +12928,6 @@ msgid "Propose table structure"
 msgstr "Προτεινόμενη δομή πίνακα"
 
 #: libraries/structure.lib.php:1619
-#| msgid "Propose table structure"
 msgid "Improve table structure"
 msgstr "Βελτίωση δομής πίνακα"
 
@@ -13660,7 +13619,6 @@ msgid "Toggle relation lines"
 msgstr "Εναλλαγή γραμμών συσχέτισης"
 
 #: pmd_general.php:221
-#| msgid "Export all"
 msgid "Export schema"
 msgstr "Εξαγωγή σχήματος"
 

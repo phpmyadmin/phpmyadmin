@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-01 08:49-0400\n"
+"POT-Creation-Date: 2014-07-01 16:22-0400\n"
 "PO-Revision-Date: 2014-06-26 20:47+0200\n"
 "Last-Translator: Dhananjay Nakrani <dhananjaynakrani@gmail.com>\n"
 "Language-Team: Hindi <https://l10n.cihar.com/projects/phpmyadmin/master/hi/"
@@ -1868,7 +1868,7 @@ msgstr ""
 #: js/messages.php:306 libraries/normalization.lib.php:181
 #, fuzzy
 #| msgid "Tracking report"
-msgid "Taking you to next step ..."
+msgid "Taking you to next step…"
 msgstr "ट्रैकिंग रिपोर्ट"
 
 #: js/messages.php:307

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-01 08:49-0400\n"
+"POT-Creation-Date: 2014-07-01 16:22-0400\n"
 "PO-Revision-Date: 2014-03-31 14:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -1968,7 +1968,7 @@ msgstr ""
 #: js/messages.php:306 libraries/normalization.lib.php:181
 #, fuzzy
 #| msgid "Change"
-msgid "Taking you to next step ..."
+msgid "Taking you to next step…"
 msgstr "Зьмяніць"
 
 #: js/messages.php:307
