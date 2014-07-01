@@ -87,12 +87,6 @@ class PMA_User_Schema
                 $this->autoLayoutInternal = isset($_POST['auto_layout_internal'])
                     ? "1"
                     : null;
-//                 $this->processRelations(
-//                     $db,
-//                     $this->pageNumber,
-//                     $cfgRelation
-//                 );
-//                 break;
                 $this->saveTablePositions(
                     $db,
                     $this->pageNumber,
