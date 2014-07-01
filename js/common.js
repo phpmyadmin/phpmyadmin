@@ -324,6 +324,10 @@ PMA_DROP_IMPORT = {
      */
     allowedCompressedExtensions: ['gzip', 'bzip2', 'zip'],
     /**
+     * @var obj array to store message returned by import_status.php
+     */
+    importStatus: [],
+    /**
      * Checks if any dropped file has valid extension or not
      *
      * @param string, filename
@@ -393,6 +397,12 @@ PMA_DROP_IMPORT = {
             data: formData,
             success: function(data){
                 PMA_DROP_IMPORT._importFinished(hash, false, data.success);
+                if (!data.success) {
+                    PMA_DROP_IMPORT.importStatus[PMA_DROP_IMPORT.importStatus.length] = {
+                        hash: hash,
+                        message: data.error
+                    };
+                }
             }
         });
 
@@ -409,11 +419,21 @@ PMA_DROP_IMPORT = {
                     jqXHR.abort();
                     $(this).html('<span>Aborted</span>');
                     PMA_DROP_IMPORT._importFinished(hash, true, false);
+                } else if ($(this).children("span").html() === 'Failed') {
+                    // -- view information
+                    var $this = $(this);
+                    $.each( PMA_DROP_IMPORT.importStatus,
+                    function( key, value ) {
+                        if (value.hash === hash) {
+                            $(".pma_drop_result:visible").remove();
+                            var filename = $this.parent('span').attr('filename');
+                            $("body").append('<div class="pma_drop_result"><h2>import status - '
+                                +filename +'<span class="close">x</span></h2>' +value.message +'</div>');
+                            $(".pma_drop_result").draggable();  //to make this dialog draggable
+                            return;
+                        }
+                    });
                 }
-                /**
-                 * #todo: add a view to check import result, in a lightbox
-                 *          in case task == info
-                */
             });
     },
     /**
@@ -481,7 +501,7 @@ PMA_DROP_IMPORT = {
             } else {
                 $('.pma_sql_import_status div li[data-hash="' +hash
                     +'"] span.filesize span.pma_drop_file_status')
-                   .html('<span>Failed</a>');
+                   .html('<span class="underline">Failed</a>');
                    icon = 'icon ic_s_error';
             }
         } else {
@@ -522,7 +542,7 @@ PMA_DROP_IMPORT = {
 
                 $(".pma_sql_import_status div").append('<li data-hash="' +hash +'">'
                     +((ext !== '') ? '' : '<img src="./themes/dot.gif" title="invalid format" class="icon ic_s_notice"> ')
-                    +files[i].name + '<span class="filesize">'
+                    +files[i].name + '<span class="filesize" filename="' +files[i].name +'">'
                     +(files[i].size/1024).toFixed(2) +' kb</span></li>');
 
                 //scroll the UI to bottom
@@ -597,5 +617,11 @@ $('.pma_sql_import_status h2 .minimize').live('click', function() {
 $('.pma_sql_import_status h2 .close').live('click', function() {
     $('.pma_sql_import_status').fadeOut(function() {
         $('.pma_sql_import_status div').html('');
+        PMA_DROP_IMPORT.importStatus = [];  //clear the message array
     });
+});
+
+// Closing the import result box
+$(".pma_drop_result h2 .close").live('click', function(){
+    $(this).parent('h2').parent('div').remove();
 });
