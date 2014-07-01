@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-10 12:45-0400\n"
-"PO-Revision-Date: 2014-06-28 02:22+0200\n"
+"PO-Revision-Date: 2014-07-01 01:40+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/az/>\n"
@@ -13275,21 +13275,22 @@ msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"İnkişaf etmiş performansa sahib MySQL 5.1 və ya daha çox MySQL 5.5-ə "
+"yüksəltməlisiniz."
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
-#, fuzzy, php-format
+#, php-format
 msgid "Current version: %s"
-msgstr "Server versiyası"
+msgstr "Cari versiya: %s"
 
 #: libraries/advisory_rules.txt:107 libraries/advisory_rules.txt:114
-#, fuzzy
 msgid "Minor Version"
-msgstr "PHP Versiyası"
+msgstr "İkinci Versiya"
 
 #: libraries/advisory_rules.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Versiya, 5.1.30-dan az(5.1-in ilk GA buraxılışı)."
 
 #: libraries/advisory_rules.txt:111
 msgid ""
@@ -13299,11 +13300,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Versiya, 5.5.8-dən az(5.5-in ilk GA buraxılışı)."
 
 #: libraries/advisory_rules.txt:118
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr ""
+msgstr "MySQL 5.5-in stabil versiyasına yüksəltməlisiniz"
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 #: libraries/advisory_rules.txt:135
@@ -13325,7 +13326,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:126
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "'source', version_comment içində tapıldı"
 
 #: libraries/advisory_rules.txt:131 libraries/advisory_rules.txt:138
 msgid "The MySQL manual only is accurate for official MySQL binaries."
@@ -13333,15 +13334,15 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:132
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr ""
+msgstr "Percona təlimatları http://www.percona.com/docs/wiki/ adresində"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "'percona' version_comment içində tapıldı"
 
 #: libraries/advisory_rules.txt:139
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr ""
+msgstr "Drizzle təlimatı http://docs.drizzle.org/ adresində"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -13349,10 +13350,9 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
 #: libraries/advisory_rules.txt:142
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL charset"
+msgstr "MySQL arxitekturası"
 
 #: libraries/advisory_rules.txt:145
 msgid "MySQL is not compiled as a 64-bit package."
@@ -13368,17 +13368,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:147
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Hostdakı istifadə oluna bilən yaddaş: %s"
 
 #: libraries/advisory_rules.txt:153
-#, fuzzy
 msgid "Query cache disabled"
-msgstr "Sorğu tipi"
+msgstr "Sorğu keşi deaktiv edildi"
 
 #: libraries/advisory_rules.txt:156
-#, fuzzy
 msgid "The query cache is not enabled."
-msgstr "Sorğu tipi"
+msgstr "Sorğu keşi aktiv edilə bilmədi."
 
 #: libraries/advisory_rules.txt:157
 msgid ""
@@ -13391,11 +13389,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
+"query_cache_size 0-a tənzimlənib və ya query_cache_type 'OFF'-a tənzimlənib"
 
 #: libraries/advisory_rules.txt:160
-#, fuzzy
 msgid "Query caching method"
-msgstr "Sorğu tipi"
+msgstr "Sorğu keş metodu"
 
 #: libraries/advisory_rules.txt:163
 #, fuzzy
