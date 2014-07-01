@@ -225,13 +225,15 @@ class PMA_Validator
         $error_key = 'Server'
     ) {
         //    static::testPHPErrorMsg();
-        $socket = empty($socket) || $connect_type == 'tcp' ? null : $socket;
-        $port = empty($port) || $connect_type == 'socket' ? null : ':' . $port;
         $error = null;
 
         if (PMA_DatabaseInterface::checkDbExtension('mysqli')) {
+            $socket = empty($socket) || $connect_type == 'tcp' ? null : $socket;
+            $port = empty($port) || $connect_type == 'socket' ? null : $port;
             $extension = 'mysqli';
         } else {
+            $socket = empty($socket) || $connect_type == 'tcp' ? null : ':' . ($socket[0] == '/' ? '' : '/') . $socket;
+            $port = empty($port) || $connect_type == 'socket' ? null : ':' . $port;
             $extension = 'mysql';
         }
 
@@ -266,7 +268,7 @@ class PMA_Validator
                 break;
             }
         } else if ($extension == 'mysql') {
-            $conn = @mysql_connect($host . $socket . $port, $user, $pass);
+            $conn = @mysql_connect($host . $port . $socket, $user, $pass);
             if (! $conn) {
                 $error = __('Could not connect to the database server!');
             } else {
