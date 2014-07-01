@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-01 08:49-0400\n"
-"PO-Revision-Date: 2014-06-25 13:50+0200\n"
+"PO-Revision-Date: 2014-07-01 19:10+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -978,10 +978,9 @@ msgstr ""
 "cette page ?"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "Transmettre"
+msgstr "Sauvegarder et fermer"
 
 #: js/messages.php:50 libraries/config/FormDisplay.tpl.php:393
 #: libraries/insert_edit.lib.php:1608
@@ -991,10 +990,9 @@ msgid "Reset"
 msgstr "Réinitialiser"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Tout sélectionner"
+msgstr "Tout réinitialiser"
 
 #: js/messages.php:54
 msgid "Missing value in the form!"
@@ -1821,10 +1819,9 @@ msgid "Continue"
 msgstr "Continuer"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Add unique index"
 msgid "Add unique/primary index"
-msgstr "Ajouter un index unique"
+msgstr "Ajouter un index unique/primaire"
 
 #: js/messages.php:305
 msgid "Unique column(s) added."
