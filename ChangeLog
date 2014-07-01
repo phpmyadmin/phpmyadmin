@@ -120,6 +120,7 @@ phpMyAdmin - ChangeLog
 - bug #4375 Group two DB, one's name is the prefix of the other one
 - bug #4070 Confusing database/table grouping
 - bug #4366 Creating Index doesn't update index-list
++ rfe #1507 Sort by multiple columns
 
 4.1.14.1 (2014-06-21)
 - bug #4464 [security] XSS injection due to unescaped db/table name in navigation hiding
