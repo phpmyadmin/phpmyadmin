@@ -17,7 +17,7 @@ function captureURL(url)
     URL['head'] = url.substr(0, url.indexOf('ORDER+BY') + 9);
     URL['tail'] = url.substr(url.indexOf("&session_max_rows"), url.length); 
     return URL;       
-} 
+}
 
 /**
  * This function is for navigating to the generated URL
@@ -26,8 +26,8 @@ function captureURL(url)
  * @param object   parent HTMLDom Object
  */
 
-function redirect(target, parent)
-{     
+function removeColumnFromMultiSort(target, parent)
+{
     var URL = captureURL(target);
     var begin = target.indexOf('ORDER+BY') + 8;
     var end = target.indexOf('&session_max_rows');
@@ -43,7 +43,7 @@ function redirect(target, parent)
     columns.splice(index-1, 1); 
     // If all the columns have been removed dont submit a query with nothing
     // After order by clause.
-    if (columns.length == 0){ 
+    if (columns.length == 0){
         var head = URL['head'];
         head = head.slice(0,head.indexOf('ORDER+BY')); 
         URL['head'] = head;
@@ -52,16 +52,20 @@ function redirect(target, parent)
         URL['tail'] += '&discard_remembered_sort=1';
     }
     var middle_part = columns.join('%2C+');  
-    url = URL['head'] + middle_part + URL['tail'];  
-    window.location.replace(url);
+    url = URL['head'] + middle_part + URL['tail'];
+    return url;
 }
 
-
-AJAX.registerOnload('keyhandler.js', function () { 
-    $("th.draggable.column_heading.pointer.marker  a").live('click', function (event) { 
-        if (event.shiftKey) {
+AJAX.registerOnload('keyhandler.js', function () {
+    $("th.draggable.column_heading.pointer.marker  a").live('click', function (event) {
+        var url = $(this).parent().find('input').val();
+        if (event.ctrlKey) {
             event.preventDefault();
-            redirect($(this).attr("href"), $(this).parent()); 
+            url = removeColumnFromMultiSort(url, $(this).parent());
+            window.location.replace(url);
+        } else if (event.shiftKey) {
+            event.preventDefault();
+            window.location.replace(url);
         }
     });  
 });
