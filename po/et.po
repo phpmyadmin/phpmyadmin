@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-01 16:22-0400\n"
-"PO-Revision-Date: 2014-07-02 10:35+0200\n"
+"PO-Revision-Date: 2014-07-02 10:36+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
@@ -11582,7 +11582,6 @@ msgid "Reset to default"
 msgstr "Lähtesta vaikimisi väärtustele"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
 #| "between the web server and the MySQL server."
@@ -11590,8 +11589,8 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Märkus: Statistika lubamine võib põhjustada koormava liikluse veebiserveri "
-"ja MySQL serveri vahel."
+"Märkus: automatse värskendamise lubamine siin võib põhjustada koormava "
+"liikluse veebiserveri ja MySQL serveri vahel."
 
 #: libraries/server_status_processes.lib.php:69
 msgid "ID"
@@ -12706,10 +12705,9 @@ msgid "Propose table structure"
 msgstr "Soovita tabeli struktuuri"
 
 #: libraries/structure.lib.php:1619
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "Soovita tabeli struktuuri"
+msgstr "Parenda tabeli struktuuri"
 
 #: libraries/structure.lib.php:1641
 #: libraries/tbl_columns_definition_form.lib.php:179
@@ -13323,7 +13321,7 @@ msgstr "Fataalne viga: navigeerimiseks on vajalik AJAX"
 
 #: normalization.php:52
 msgid "Second/Third step of normalization"
-msgstr ""
+msgstr "Normaliseerimise teine/kolmas samm"
 
 #: pmd_display_field.php:62 pmd_save_pos.php:59
 msgid "Modifications have been saved"
@@ -13394,10 +13392,9 @@ msgid "Toggle relation lines"
 msgstr "Muuda seose ridu"
 
 #: pmd_general.php:221
-#, fuzzy
 #| msgid "Export all"
 msgid "Export schema"
-msgstr "Ekspordi kõik"
+msgstr "Ekspordi skeem"
 
 #: pmd_general.php:232
 msgid "Build Query"
