@@ -339,14 +339,16 @@ PMA_DROP_IMPORT = {
 
         //check if compressed
         if (jQuery.inArray(ext.toLowerCase(),
-            PMA_DROP_IMPORT.allowedCompressedExtensions) !== -1)
-                ext = arr[arr.length - 2];
+            PMA_DROP_IMPORT.allowedCompressedExtensions) !== -1) {
+            ext = arr[arr.length - 2];
+        }
 
         //Now check for extension
         if (jQuery.inArray(ext.toLowerCase(),
-            PMA_DROP_IMPORT.allowedExtensions) !== -1)
-                return ext;
-            return '';
+            PMA_DROP_IMPORT.allowedExtensions) !== -1) {
+            return ext;
+        }
+        return '';
     },
     /**
      * Shows upload progress for different sql uploads
@@ -427,7 +429,7 @@ PMA_DROP_IMPORT = {
                     function( key, value ) {
                         if (value.hash === hash) {
                             $(".pma_drop_result:visible").remove();
-                            var filename = $this.parent('span').attr('filename');
+                            var filename = $this.parent('span').attr('data-filename');
                             $("body").append('<div class="pma_drop_result"><h2>'
                                 +PMA_messages['dropImportImportResultHeader'] +' - '
                                 +filename +'<span class="close">x</span></h2>' +value.message +'</div>');
@@ -545,7 +547,7 @@ PMA_DROP_IMPORT = {
 
                 $(".pma_sql_import_status div").append('<li data-hash="' +hash +'">'
                     +((ext !== '') ? '' : '<img src="./themes/dot.gif" title="invalid format" class="icon ic_s_notice"> ')
-                    +files[i].name + '<span class="filesize" filename="' +files[i].name +'">'
+                    +files[i].name + '<span class="filesize" data-filename="' +escapeHtml(files[i].name) +'">'
                     +(files[i].size/1024).toFixed(2) +' kb</span></li>');
 
                 //scroll the UI to bottom
@@ -628,4 +630,3 @@ $(document).on('click', '.pma_sql_import_status h2 .close', function() {
 $(document).on('click', '.pma_drop_result h2 .close', function(){
     $(this).parent('h2').parent('div').remove();
 });
-
