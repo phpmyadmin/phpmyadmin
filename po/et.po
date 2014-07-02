@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-02 08:18-0400\n"
-"PO-Revision-Date: 2014-07-02 10:56+0200\n"
+"PO-Revision-Date: 2014-07-02 16:47+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2029,13 +2029,15 @@ msgstr "Järjekorra muutmiseks lohista."
 
 #: js/messages.php:392
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Klõpsa selle veeru järgi sortimiseks."
 
 #: js/messages.php:393
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+CLick to remove column from ORDER BY clause"
 msgstr ""
+"Shit+klõps, et lisada see veerg ORDER BY klauslisse või lülitasa ASC/DESC "
+"režiimi.<br />- Control+klõps eemaldab veeru ORDER BY klauslist."
 
 #: js/messages.php:394
 msgid "Click to mark/unmark."
@@ -2071,10 +2073,9 @@ msgstr ""
 "Palun sisesta korrektne kuueteistkümnend sõne. Lubatud märgid on 0-9, A-F."
 
 #: js/messages.php:404
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
-msgstr "Katkesta"
+msgstr "katkesta"
 
 #: js/messages.php:405 libraries/server_status.lib.php:261
 msgid "Aborted"
@@ -2082,31 +2083,27 @@ msgstr "Katkestatud"
 
 #: js/messages.php:406
 msgid "Failed"
-msgstr ""
+msgstr "Nurjus"
 
 #: js/messages.php:407
-#, fuzzy
 #| msgid "Success!"
 msgid "Success"
-msgstr "Õnnestus!"
+msgstr "Õnnestus"
 
 #: js/messages.php:408
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Impordi vaikimisi väärtused"
+msgstr "Impordi olek"
 
 #: js/messages.php:409 libraries/navigation/Navigation.class.php:102
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "Logi faili maht"
+msgstr "Kukuta failid siia"
 
 #: js/messages.php:410
-#, fuzzy
 #| msgid "Select database"
 msgid "Select database first"
-msgstr "Vali andmebaas"
+msgstr "Vali esmalt andmebaas"
 
 #: js/messages.php:415
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -7619,7 +7616,7 @@ msgstr "Imporditav fail:"
 
 #: libraries/display_import.lib.php:232 libraries/display_import.lib.php:243
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "Sa võid lohistada ja kukutada faili igale lehele."
 
 #: libraries/display_import.lib.php:246
 msgid "File uploads are not allowed on this server."
