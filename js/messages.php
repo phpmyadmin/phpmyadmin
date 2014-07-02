@@ -406,8 +406,8 @@ $js_messages['dropImportMessageAborted'] = __('Aborted');
 $js_messages['dropImportMessageFailed'] = __('Failed');
 $js_messages['dropImportMessageSuccess'] = __('Success');
 $js_messages['dropImportImportResultHeader'] = __('Import status');
-$js_messages['dropImportDropFiles'] = __('Drop Files Here');
-$js_messages['dropImportSelectDB'] = __('Select Database First');
+$js_messages['dropImportDropFiles'] = __('Drop files here');
+$js_messages['dropImportSelectDB'] = __('Select database first');
 
 // this approach does not work when the parameter is changed via user prefs
 switch ($GLOBALS['cfg']['GridEditing']) {
