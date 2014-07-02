@@ -27,7 +27,7 @@ $scripts->addFile('jquery/jquery.uitablefilter.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
-$scripts->addFile('columndelete.js');
+$scripts->addFile('multi_column_sort.js');
 
 /**
  * Set ajax_reload in the response if it was already set
