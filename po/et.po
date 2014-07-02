@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-01 16:22-0400\n"
-"PO-Revision-Date: 2014-06-25 07:41+0200\n"
+"PO-Revision-Date: 2014-07-02 10:35+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -946,7 +946,7 @@ msgstr "Kustuta jälgimise andmed"
 
 #: js/messages.php:42
 msgid "Dropping Primary Key/Index"
-msgstr "Primaarvõtme/Indeksi kustutamine"
+msgstr "Primaarvõtme/indeksi kustutamine"
 
 #: js/messages.php:43
 msgid "This operation could take a long time. Proceed anyway?"
@@ -969,10 +969,9 @@ msgstr ""
 "lehelt lahkuda?"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "Salvesta failina"
+msgstr "Salvesta ja sule"
 
 #: js/messages.php:50 libraries/config/FormDisplay.tpl.php:393
 #: libraries/insert_edit.lib.php:1608
@@ -982,10 +981,9 @@ msgid "Reset"
 msgstr "Lähtesta"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Vali kõik"
+msgstr "Lähtesta kõik"
 
 #: js/messages.php:54
 msgid "Missing value in the form!"
@@ -1269,11 +1267,11 @@ msgstr "Peata jälgimine"
 
 #: js/messages.php:140 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Käivita automaatne värskendamine"
 
 #: js/messages.php:141
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Lõpeta automaatne värskendamine"
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
@@ -1805,31 +1803,28 @@ msgid "Continue"
 msgstr "Jätka"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Add unique index"
 msgid "Add unique/primary index"
-msgstr "Lisa ainulaadne indeks"
+msgstr "Lisa ainulaadne/primaarne indeks"
 
 #: js/messages.php:305
 msgid "Unique column(s) added."
-msgstr ""
+msgstr "Ainulaadne(sed) veerg(ud) lisatud."
 
 #: js/messages.php:306 libraries/normalization.lib.php:181
-#, fuzzy
 #| msgid "Taking you to %s."
 msgid "Taking you to next step…"
-msgstr "Viiakse sind %s."
+msgstr "Viiakse sind järgmisele sammule…"
 
 #: js/messages.php:307
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "Tabeli \"%s\" normaliseerimise esimene samm on lõpetatud."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "Rea lõpp"
+msgstr "Sammu lõpp"
 
 #: js/messages.php:311 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -1849,34 +1844,29 @@ msgid "Show search criteria"
 msgstr "Näita otsingu kriteeriumi"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Save search"
 msgid "Range search"
-msgstr "Salvesta otsing"
+msgstr "Vahemiku otsing"
 
 #: js/messages.php:317
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Veeru nimed: "
+msgstr "Veeru maksimum:"
 
 #: js/messages.php:318
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Veeru nimed: "
+msgstr "Veeru miinimum:"
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Suurim hulk tabeleid"
+msgstr "Väikseim väärtus:"
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Suurim hulk tabeleid"
+msgstr "Suurim väärtus:"
 
 #: js/messages.php:323
 msgid "Hide find and replace criteria"
@@ -2026,10 +2016,9 @@ msgid "Successfully deleted the page"
 msgstr "Lehekülje kustutamine õnnestus"
 
 #: js/messages.php:382
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Muuda või ekspordi seoseskeemi"
+msgstr "Ekspordi seosteskeem"
 
 #: js/messages.php:385
 #, php-format
@@ -2235,10 +2224,9 @@ msgid ""
 msgstr "Palun oota, sinu seadistust saadetakse hetkel."
 
 #: js/messages.php:484
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Näita seda päringut siin uuesti"
+msgstr "Kas käivitada see päring uuesti?"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:511
@@ -2577,78 +2565,69 @@ msgid "Font size"
 msgstr "Fondi kõrgus"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:145
-#, fuzzy
 #| msgid "Expand/Collapse"
 msgid "Collapse"
-msgstr "Laienda/ahenda"
+msgstr "Ahenda"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:146
 msgid "Expand"
-msgstr ""
+msgstr "Laienda"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:147
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "alampäring"
+msgstr "Korduspäring"
 
 #: libraries/Console.class.php:96 libraries/Console.class.php:148
 msgid "Reedit"
-msgstr ""
+msgstr "Kordusmuutmine"
 
 #: libraries/Console.class.php:102
-#, fuzzy
 #| msgid "Total"
 msgid "Total "
-msgstr "Kokku"
+msgstr "Kokku "
 
 #: libraries/Console.class.php:102
-#, fuzzy
 #| msgid "New bookmark"
 msgid " bookmarks, "
-msgstr "Uus järjehoidja"
+msgstr " järjehoidjat, "
 
 #: libraries/Console.class.php:103
 msgid "private"
-msgstr ""
+msgstr "isiklikku"
 
 #: libraries/Console.class.php:104 libraries/bookmark.lib.php:87
 msgid "shared"
 msgstr "jagatud"
 
 #: libraries/Console.class.php:105
-#, fuzzy
 #| msgid "The bookmark has been deleted."
 msgid " bookmarks included."
-msgstr "Järjehoidja on kustutatud."
+msgstr " järjehoidjat kaasatud."
 
 #: libraries/Console.class.php:106
-#, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
-msgstr "Uus järjehoidja"
+msgstr "Järjehoidjad puuduvad"
 
 #: libraries/Console.class.php:150
-#, fuzzy
 #| msgid "Query \"%s\" failed"
 msgid "Query failed"
-msgstr "\"%s\" päring ebaõnnestus"
+msgstr "Päring nurjus"
 
 #: libraries/Console.class.php:152
-#, fuzzy
 #| msgid "Query type"
 msgid "Queried time"
-msgstr "Päringu tüüp"
+msgstr "Päritud aeg"
 
 #: libraries/Console.class.php:158
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "SQL päringuaken"
+msgstr "SQL päringu konsool"
 
 #: libraries/Console.class.php:159
 msgid "Console"
-msgstr ""
+msgstr "Konsool"
 
 #: libraries/Console.class.php:162 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
@@ -2656,10 +2635,9 @@ msgid "Clear"
 msgstr "Puhasta"
 
 #: libraries/Console.class.php:165
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "SQL ajalugu"
+msgstr "Ajalugu"
 
 #: libraries/Console.class.php:168 libraries/Console.class.php:239
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
@@ -2690,26 +2668,23 @@ msgid "Options"
 msgstr "Valikud"
 
 #: libraries/Console.class.php:172 libraries/Console.class.php:211
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Järjehoidja tabel"
+msgstr "Järjehoidjad"
 
 #: libraries/Console.class.php:181
 msgid "Press"
-msgstr ""
+msgstr "Sisesta"
 
 #: libraries/Console.class.php:181
-#, fuzzy
 #| msgid "Execute every"
 msgid "to Execute query"
-msgstr "Käivita iga"
+msgstr "päringu käivitamiseks"
 
 #: libraries/Console.class.php:192
-#, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
-msgstr "Jäta käesolev viga vahele"
+msgstr "Jooksvas sessioonis"
 
 #: libraries/Console.class.php:215 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
@@ -2718,46 +2693,41 @@ msgid "Refresh"
 msgstr "Uuenda"
 
 #: libraries/Console.class.php:226
-#, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
-msgstr "Uus järjehoidja"
+msgstr "Lisa järjehoidja"
 
 #: libraries/Console.class.php:229
-#, fuzzy
 #| msgid "Label:"
 msgid "Label"
-msgstr "Nimi:"
+msgstr "Nimi"
 
 #: libraries/Console.class.php:230
 msgid "Target database"
 msgstr "Sihtandmebaas"
 
 #: libraries/Console.class.php:231
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
-msgstr "Loo järjehoidja"
+msgstr "Jaga seda järjehoidjat"
 
 #: libraries/Console.class.php:242
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
-msgstr "Lähtesta vaikimisi väärtustele"
+msgstr "Määra vaikeväärtuseks"
 
 #: libraries/Console.class.php:246
 msgid "Always expand queried messages"
-msgstr ""
+msgstr "Laienda päritud teated alati"
 
 #: libraries/Console.class.php:248
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "SQL päringu ajaloo tabel"
+msgstr "Kuva päringu ajalugu alguses"
 
 #: libraries/Console.class.php:250
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Kuva valitud lehitsemise päring"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1314
 #: libraries/DisplayResults.class.php:2103
@@ -4052,12 +4022,12 @@ msgstr "BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE alias"
 #: libraries/Types.class.php:344 libraries/Types.class.php:789
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Kuupäev, sobiv ulatus on %1$s kuni %2$s"
+msgstr "Kuupäev, sobiv vahemik on %1$s kuni %2$s"
 
 #: libraries/Types.class.php:346 libraries/Types.class.php:791
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr "Kuupäeva ja aja kombinatsioon, sobiv ulatus on %1$s kuni %2$s"
+msgstr "Kuupäeva ja aja kombinatsioon, sobiv vahemik on %1$s kuni %2$s"
 
 #: libraries/Types.class.php:348
 msgid ""
@@ -4071,7 +4041,7 @@ msgstr ""
 #: libraries/Types.class.php:350 libraries/Types.class.php:795
 #, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "Aeg, ulatus on %1$s kuni %2$s"
+msgstr "Aeg, vahemik on %1$s kuni %2$s"
 
 #: libraries/Types.class.php:352
 msgid ""
@@ -8666,89 +8636,91 @@ msgstr "Uus"
 
 #: libraries/normalization.lib.php:128
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "Muuda kõik veerud atomaarseks"
 
 #: libraries/normalization.lib.php:130 libraries/normalization.lib.php:259
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "Normaliseerimise esimene samm (1NK)"
 
 #: libraries/normalization.lib.php:133 libraries/normalization.lib.php:177
 #: libraries/normalization.lib.php:218
 msgid "Step 1."
-msgstr ""
+msgstr "Samm 1."
 
 #: libraries/normalization.lib.php:135
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"Kas andmebaasis on veerge, misa saab jagada mitmeks veeruks? Näiteks saab "
+"jaga veeru \"aadress\" veergudeks \"tänav\", \"linn\", \"riik\" ja \""
+"postiindeks\"."
 
 #: libraries/normalization.lib.php:141
-#, fuzzy
 #| msgid "The central list of columns for the current database is empty."
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
-"Selle andmebaasi jaoks ei ole keskses veergude nimekirjas mitte ühtegi "
-"veergu."
+"Kuva kesksest veergude nimekirjast veerud, mis sellest tabelist veel puuduvad"
 
 #: libraries/normalization.lib.php:143
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
+"Vali veerg, mida on võimalik jagada mitmeks veeruks. (Kui valid \"Sellist "
+"veergu ei ole\", liigutakse järgmise sammu juurde.)"
 
 #: libraries/normalization.lib.php:150 normalization.php:18
-#, fuzzy
 #| msgid "Select a column."
 msgid "Select one ..."
-msgstr "Vali veerg."
+msgstr "Vali üks ..."
 
 #: libraries/normalization.lib.php:151 normalization.php:19
-#, fuzzy
 #| msgid "Move column"
 msgid "No such column"
-msgstr "Liiguta veergu"
+msgstr "Sellist veergu ei ole"
 
 #: libraries/normalization.lib.php:154
 msgid "split into "
-msgstr ""
+msgstr "jaga "
 
 #: libraries/normalization.lib.php:175
-#, fuzzy
 #| msgid "Move columns"
 msgid "Have unique columns"
-msgstr "Liiguta veergusid"
+msgstr "Luba ainulaadsed veerud"
 
 #: libraries/normalization.lib.php:180
-#, fuzzy
 #| msgid "The user %s already exists!"
 msgid "Unique column(s) already exist"
-msgstr "Kasutaja %s on juba olemas!"
+msgstr "Ainulaadne(sed) veerg(ud) on juba olemas"
 
 #: libraries/normalization.lib.php:184
 msgid ""
 "There are no unique columns. Add a unique column (or combination of columns) "
 "that uniquely identify all rows. "
 msgstr ""
+"Ainulaadsed veerud puuduvad. Lisa ainulaadne veerg (või veergude "
+"kombinatsioon), mis identifitseerib kõik read ainulaadselt. "
 
 #: libraries/normalization.lib.php:190
 msgid "Add unique/primary index on existing column(s)"
-msgstr ""
+msgstr "Lisa ainulaadne/primaarne indeks olemasoleva(te)le veer(g)u(de)le"
 
 #: libraries/normalization.lib.php:195
 msgid ""
 "If it's not possible to make existing column combinations as unique then"
 msgstr ""
+"Kui olemasolevate veergude kombinatsiooni ei ole võimalik muuta "
+"ainulaadseks, siis"
 
 #: libraries/normalization.lib.php:199
 msgid "+ Add a new unique column (primary key)"
-msgstr ""
+msgstr "+ lisa uus ainulaadne veerg (primaarvõti)"
 
 #: libraries/normalization.lib.php:217
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Remove redundant columns"
-msgstr "Eemalda kesksest nimekirjast"
+msgstr "Liigsete veergude eemaldamine"
 
 #: libraries/normalization.lib.php:220
 msgid ""
@@ -8757,48 +8729,52 @@ msgid ""
 "then\n"
 "        combining first_name and last_name gives full_name which is redundant"
 msgstr ""
+"Kas tabelis on veergude grupp, mille kombineerimine annab olemasoleva veeru? "
+"Näiteks, kui tabelis on veerud \"eesnimi\", \"perekonnanimi\" ja \"täisnimi\""
+", siis veergude \"eesnimi\" ja \"perekonnanimi\" kombineerimine annab veeru "
+"\"täisnimi\", mis on liigne"
 
 #: libraries/normalization.lib.php:225
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
+"Märgu veerud, mis on liigsed ja klõpsa \"Eemalda\". Kui liigseid veerge ei "
+"ole, siis klõpsa \"Liigsed veerud puuduvad\""
 
 #: libraries/normalization.lib.php:230
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "Kustuta valitud kasutajad"
+msgstr "Kustuta valitud"
 
 #: libraries/normalization.lib.php:231
-#, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
-msgstr "Lisa veerg"
+msgstr "Liigsed veerud puuduvad"
 
 #: libraries/normalization.lib.php:256
-#, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Peida tabeli struktuuri tegevused"
+msgstr "Parenda tabeli struktuuri (Normaliseerimine):"
 
 #: libraries/normalization.lib.php:257
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "Vali, millise sammuni sa soovid normaliseerida"
 
 #: libraries/normalization.lib.php:260
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "Normaliseeriminse teine samm (1NK + 2NK)"
 
 #: libraries/normalization.lib.php:261
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "Normaliseerimise kolmas samm (1NK + 2NK + 3NK)"
 
 #: libraries/normalization.lib.php:268
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
+"Vihje: palun järgi protseduuri hoolikalt, et saada korrektne normaalkuju"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to:"
