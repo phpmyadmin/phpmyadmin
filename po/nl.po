@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-02 08:18-0400\n"
-"PO-Revision-Date: 2014-06-26 17:16+0200\n"
+"PO-Revision-Date: 2014-07-02 17:38+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
-">\n"
+"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -972,10 +972,9 @@ msgstr ""
 "verlaten?"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "Opslaan als bestand"
+msgstr "Opslaan & sluiten"
 
 #: js/messages.php:50 libraries/config/FormDisplay.tpl.php:393
 #: libraries/insert_edit.lib.php:1608 prefs_manage.php:335
@@ -984,10 +983,9 @@ msgid "Reset"
 msgstr "Herstellen"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Selecteer alles"
+msgstr "Alles terugzetten naar standaardwaarden"
 
 #: js/messages.php:54
 msgid "Missing value in the form!"
@@ -1816,20 +1814,18 @@ msgid "Continue"
 msgstr "Verder gaan"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Add unique index"
 msgid "Add unique/primary index"
-msgstr "Een unieke index toevoegen"
+msgstr "Een unieke/primaire index toevoegen"
 
 #: js/messages.php:305
 msgid "Unique column(s) added."
 msgstr ""
 
 #: js/messages.php:306 libraries/normalization.lib.php:181
-#, fuzzy
 #| msgid "Taking you to %s."
 msgid "Taking you to next step…"
-msgstr "U wordt doorverwezen naar %s."
+msgstr "Naar de volgende stap…"
 
 #: js/messages.php:307
 #, php-format
@@ -1837,10 +1833,9 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "Regeleinde"
+msgstr "Einde van de stap"
 
 #: js/messages.php:311 libraries/insert_edit.lib.php:1517
 #: libraries/server_variables.lib.php:157
@@ -1859,10 +1854,9 @@ msgid "Show search criteria"
 msgstr "Zoekcriteria tonen"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Save search"
 msgid "Range search"
-msgstr "Opzoeking opslaan"
+msgstr "Zoeken op bereik"
 
 #: js/messages.php:317
 #, fuzzy
@@ -1871,22 +1865,19 @@ msgid "Column maximum:"
 msgstr "Kolomnamen: "
 
 #: js/messages.php:318
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Kolomnamen: "
+msgstr "Kolomminimum:"
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Maximum aantal tabellen"
+msgstr "Minimumwaarde:"
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Maximum aantal tabellen"
+msgstr "Maximumwaarde:"
 
 #: js/messages.php:323
 msgid "Hide find and replace criteria"
@@ -2041,10 +2032,9 @@ msgid "Successfully deleted the page"
 msgstr ""
 
 #: js/messages.php:382
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Bewerk of exporteer relationeel schema"
+msgstr "Exporteer relationeel schema"
 
 #: js/messages.php:385
 #, php-format
@@ -2116,10 +2106,9 @@ msgstr ""
 "Voer een geldige hexadecimale tekenreeks in. Geldige tekens zijn 0-9, A-F."
 
 #: js/messages.php:404
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
-msgstr "Annuleren"
+msgstr "annuleren"
 
 #: js/messages.php:405 libraries/server_status.lib.php:261
 msgid "Aborted"
@@ -2130,28 +2119,24 @@ msgid "Failed"
 msgstr ""
 
 #: js/messages.php:407
-#, fuzzy
 #| msgid "Success!"
 msgid "Success"
-msgstr "Geslaagd!"
+msgstr "Geslaagd"
 
 #: js/messages.php:408
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Importopties"
+msgstr "Importstatus"
 
 #: js/messages.php:409 libraries/navigation/Navigation.class.php:102
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "Drempelwaarde voor logbestand"
+msgstr "Bestanden hier neerzetten"
 
 #: js/messages.php:410
-#, fuzzy
 #| msgid "Select database"
 msgid "Select database first"
-msgstr "Selecteer een databank"
+msgstr "Selecteer eerst een databank"
 
 #: js/messages.php:415
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2298,10 +2283,9 @@ msgstr ""
 "wachten."
 
 #: js/messages.php:493
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Laat deze query hier zien"
+msgstr "Deze query opnieuw uitvoeren?"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:520
@@ -2642,10 +2626,9 @@ msgid "Font size"
 msgstr "Lettertypegrootte"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:145
-#, fuzzy
 #| msgid "Expand/Collapse"
 msgid "Collapse"
-msgstr "Uitklappen/samenvouwen"
+msgstr "Samenvouwen"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:146
 msgid "Expand"
