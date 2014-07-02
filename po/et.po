@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-10 12:45-0400\n"
-"PO-Revision-Date: 2014-06-23 07:10+0200\n"
+"PO-Revision-Date: 2014-07-02 09:43+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/4-2/et/>"
 "\n"
@@ -925,7 +925,7 @@ msgstr "Kustuta jälgimise andmed"
 
 #: js/messages.php:42
 msgid "Dropping Primary Key/Index"
-msgstr "Primaarvõtme/Indeksi kustutamine"
+msgstr "Primaarvõtme/indeksi kustutamine"
 
 #: js/messages.php:43
 msgid "This operation could take a long time. Proceed anyway?"
@@ -3628,12 +3628,12 @@ msgstr "BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE alias"
 #: libraries/Types.class.php:344 libraries/Types.class.php:790
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Kuupäev, sobiv ulatus on %1$s kuni %2$s"
+msgstr "Kuupäev, sobiv vahemik on %1$s kuni %2$s"
 
 #: libraries/Types.class.php:346 libraries/Types.class.php:792
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr "Kuupäeva ja aja kombinatsioon, sobiv ulatus on %1$s kuni %2$s"
+msgstr "Kuupäeva ja aja kombinatsioon, sobiv vahemik on %1$s kuni %2$s"
 
 #: libraries/Types.class.php:348
 msgid ""
@@ -3647,7 +3647,7 @@ msgstr ""
 #: libraries/Types.class.php:350 libraries/Types.class.php:796
 #, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "Aeg, ulatus on %1$s kuni %2$s"
+msgstr "Aeg, vahemik on %1$s kuni %2$s"
 
 #: libraries/Types.class.php:352
 msgid ""
