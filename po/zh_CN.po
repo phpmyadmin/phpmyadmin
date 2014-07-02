@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-02 08:18-0400\n"
-"PO-Revision-Date: 2014-07-02 16:29+0200\n"
+"PO-Revision-Date: 2014-07-02 17:05+0200\n"
 "Last-Translator: Edward Cheng <c4150221@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
@@ -27,15 +27,16 @@ msgid "The central list of columns for the current database is empty."
 msgstr ""
 
 #: db_central_columns.php:109
+#, fuzzy
 #| msgid "Click to sort."
 msgid "Click to sort"
-msgstr "点击以排序"
+msgstr "点击以排序。"
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "正在显示第 %1s - %2s 行"
+msgstr "正在显示第 %1$s - %2$s 行"
 
 #: db_create.php:61
 #, php-format
@@ -615,7 +616,7 @@ msgstr "已删除书签。"
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
-msgstr ""
+msgstr "上传的文件无法被移动，因该服务器已启用 open_basedir ，没有相应的权限访问临时目录（%s）。"
 
 #: import.php:436 import.php:497 libraries/File.class.php:418
 #: libraries/File.class.php:512
@@ -930,7 +931,6 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "您真的要删除用户组“%s”吗？"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid ""
 #| "You have edited some data and they have not been saved. Are you sure you "
 #| "want to leave this page before saving the data?"
@@ -938,10 +938,9 @@ msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr "您已修改了一些数据但尚未保存。您真的要放弃保存并离开吗？"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "保存为文件"
+msgstr "保存并关闭"
 
 #: js/messages.php:50 libraries/config/FormDisplay.tpl.php:393
 #: libraries/insert_edit.lib.php:1608 prefs_manage.php:335
@@ -950,20 +949,18 @@ msgid "Reset"
 msgstr "重置"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "全选"
+msgstr "重置"
 
 #: js/messages.php:54
 msgid "Missing value in the form!"
 msgstr "表单内缺少值！"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "至少一个词"
+msgstr "请至少选择一项"
 
 #: js/messages.php:56
 msgid "Please enter a valid number!"
@@ -990,18 +987,16 @@ msgstr "添加 %s 个字段至索引"
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:365
 msgid "Preview SQL"
-msgstr ""
+msgstr "预览 SQL 语句"
 
 #: js/messages.php:66
-#, fuzzy
 msgid "Simulate query"
-msgstr "查询中"
+msgstr "模拟查询"
 
 #: js/messages.php:67
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "影响的行数："
+msgstr "受影响的行数："
 
 #: js/messages.php:68 libraries/Util.class.php:639 libraries/sql.lib.php:452
 msgid "SQL query:"
@@ -1240,11 +1235,11 @@ msgstr "暂停监控"
 
 #: js/messages.php:140 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "开启自动刷新"
 
 #: js/messages.php:141
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "停止自动刷新"
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
@@ -1728,19 +1723,17 @@ msgstr "浏览不相关的值"
 
 #: js/messages.php:294
 msgid "Pick"
-msgstr ""
+msgstr "检出"
 
 #: js/messages.php:295
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "没有选中任何列。"
+msgstr "列选择器"
 
 #: js/messages.php:296
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
-msgstr "在数据库中搜索"
+msgstr "在该列表中搜索"
 
 #: js/messages.php:297
 #, php-format
@@ -1750,42 +1743,38 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:298
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "空闲内存"
+msgstr "显示更多"
 
 #: js/messages.php:299
 msgid "Are you sure?"
-msgstr ""
+msgstr "请核实信息"
 
 #: js/messages.php:300
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
-msgstr ""
+msgstr "该操作有可能影响一些列的定义<br/>你确认做此更改吗？"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "贡献"
+msgstr "继续"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Add unique index"
 msgid "Add unique/primary index"
-msgstr "添加唯一键"
+msgstr "添加唯一键或主键"
 
 #: js/messages.php:305
 msgid "Unique column(s) added."
-msgstr ""
+msgstr "已添加唯一列"
 
 #: js/messages.php:306 libraries/normalization.lib.php:181
-#, fuzzy
 #| msgid "Taking you to %s."
 msgid "Taking you to next step…"
-msgstr "正在前往%s。"
+msgstr "等待进入下一步…"
 
 #: js/messages.php:307
 #, php-format
@@ -1793,10 +1782,9 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "换行符"
+msgstr "完成"
 
 #: js/messages.php:311 libraries/insert_edit.lib.php:1517
 #: libraries/server_variables.lib.php:157
@@ -1815,34 +1803,29 @@ msgid "Show search criteria"
 msgstr "显示搜索条件"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
-msgstr "普通搜索"
+msgstr "范围搜索"
 
 #: js/messages.php:317
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "字段名: "
+msgstr "最大列数目:"
 
 #: js/messages.php:318
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "字段名: "
+msgstr "最小列数目:"
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "最大表数量"
+msgstr "最小值："
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "最大表数量"
+msgstr "最大值："
 
 #: js/messages.php:323
 msgid "Hide find and replace criteria"
@@ -1924,7 +1907,7 @@ msgstr "外环"
 
 #: js/messages.php:360
 msgid "Shift + Click on function name to apply to all rows."
-msgstr ""
+msgstr "按住 Shift 并点击列名称来应用到所有行"
 
 #: js/messages.php:362
 #, fuzzy
@@ -2239,10 +2222,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:493
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "在此再次显示此查询"
+msgstr "再次执行该查询？"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:520
