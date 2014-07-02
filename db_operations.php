@@ -290,11 +290,6 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
         false,
         PMA_DatabaseInterface::QUERY_STORE
     );
-
-    /*
-     * Export Relational Schema View
-     */
-    $response->addHTML(PMA_getHtmlForExportRelationalSchemaView($url_query));
 } // end if
 
 ?>

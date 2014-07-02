@@ -21,7 +21,7 @@ $cfgRelation = PMA_getRelationsParam();
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/Index.class.php';
 require_once 'libraries/pmd_common.php';
-require_once 'libraries/schema/User_Schema.class.php';
+require_once 'libraries/schema/Export_Relation_Schema.class.php';
 
 /**
  * get all the export options and verify
@@ -33,7 +33,6 @@ $post_params = array(
     'all_tables_same_width',
     'chpage',
     'db',
-    'do',
     'export_type',
     'orientation',
     'paper',
@@ -51,28 +50,55 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
-$user_schema = new PMA_User_Schema();
+$temp_page = PMA_createNewPage("_temp" . rand(), $GLOBALS['db']);
+try {
+    PMA_saveTablePositions($temp_page);
+    $_POST['pdf_page_number'] = $temp_page;
+    PMA_processExportSchema();
+    PMA_deletePage($temp_page);
+} catch (Exception $e) {
+    PMA_deletePage($temp_page); // delete temp page even if an exception occured
+    throw $e;
+}
 
 /**
- * This function will process the user defined pages
- * and tables which will be exported as Relational schema
- * you can set the table positions on the paper via scratchboard
- * for table positions, put the x,y co-ordinates
+ * get all the export options and verify
+ * call and include the appropriate Schema Class depending on $export_type
  *
- * @param string $do It tells what the Schema is supposed to do
- *                  create and select a page, generate schema etc
+ * @return void
  */
-if (isset($_REQUEST['do'])) {
-    $temp_page = PMA_createNewPage("_temp" . rand());
-    try {
-        PMA_saveTablePositions($temp_page);
-        $_POST['pdf_page_number'] = $temp_page;
-        $user_schema->setAction($_REQUEST['do']);
-        $user_schema->processUserChoice();
-        PMA_deletePage($temp_page);
-    } catch (Exception $e) {
-        PMA_deletePage($temp_page); // delete temp page even if an exception occured
-        throw $e;
+function PMA_processExportSchema()
+{
+    /**
+     * default is PDF, otherwise validate it's only letters a-z
+     */
+    global  $db,$export_type;
+
+    if (! isset($export_type) || ! preg_match('/^[a-zA-Z]+$/', $export_type)) {
+        $export_type = 'pdf';
     }
+    $GLOBALS['dbi']->selectDb($db);
+
+    $path = PMA_securePath(ucfirst($export_type));
+    $filename = 'libraries/schema/' . $path . '_Relation_Schema.class.php';
+    if (!file_exists($filename)) {
+        PMA_Export_Relation_Schema::dieSchema(
+            $_POST['chpage'],
+            $export_type,
+            __('File doesn\'t exist')
+        );
+    }
+    $GLOBALS['skip_import'] = false;
+    include $filename;
+    if ( $GLOBALS['skip_import']) {
+        PMA_Export_Relation_Schema::dieSchema(
+            $_POST['chpage'],
+            $export_type,
+            __('Plugin is disabled')
+        );
+    }
+    $class_name = 'PMA_' . $path . '_Relation_Schema';
+    $obj_schema = new $class_name();
+    $obj_schema->showOutput();
 }
 ?>

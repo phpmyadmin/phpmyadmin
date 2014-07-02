@@ -51,7 +51,7 @@ if (isset($_REQUEST['operation'])) {
         if ($_REQUEST['save_page'] == 'same') {
             $page = $_REQUEST['selected_page'];
         } elseif ($_REQUEST['save_page'] == 'new') {
-            $page = PMA_createNewPage($_REQUEST['selected_value']);
+            $page = PMA_createNewPage($_REQUEST['selected_value'], $GLOBALS['db']);
             $response->addJSON('id', $page);
         }
         if (PMA_saveTablePositions($page)) {

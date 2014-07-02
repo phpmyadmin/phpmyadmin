@@ -190,11 +190,7 @@ class PMA_DesginerTest extends PHPUnit_Framework_TestCase
             $result
         );
 
-        // hidden fields
-        $this->assertContains(
-            '<input type="hidden" name="do" value="process_export" />',
-            $result
-        );
+        // hidden field
         $this->assertContains(
             '<input type="hidden" name="chpage" value="' . $page . '" />',
             $result
