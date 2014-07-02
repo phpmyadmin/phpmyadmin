@@ -375,8 +375,8 @@ PMA_DROP_IMPORT = {
         var extraData ={};
         var jqXHR = $.ajax({
             xhr: function() {
-            var xhrobj = $.ajaxSettings.xhr();
-            if (xhrobj.upload) {
+                var xhrobj = $.ajaxSettings.xhr();
+                if (xhrobj.upload) {
                     xhrobj.upload.addEventListener('progress', function(event) {
                         var percent = 0;
                         var position = event.loaded || event.position;
@@ -507,7 +507,7 @@ PMA_DROP_IMPORT = {
                     +'"] span.filesize span.pma_drop_file_status')
                    .html('<span class="underline">' +PMA_messages.dropImportMessageFailed
                     +'</a>');
-                   icon = 'icon ic_s_error';
+                icon = 'icon ic_s_error';
             }
         } else {
             icon = 'icon ic_s_notice';
