@@ -547,8 +547,9 @@ PMA_DROP_IMPORT = {
 
                 $(".pma_sql_import_status div").append('<li data-hash="' +hash +'">'
                     +((ext !== '') ? '' : '<img src="./themes/dot.gif" title="invalid format" class="icon ic_s_notice"> ')
-                    +files[i].name + '<span class="filesize" data-filename="' +escapeHtml(files[i].name) +'">'
-                    +(files[i].size/1024).toFixed(2) +' kb</span></li>');
+                    +escapeHtml(files[i].name) + '<span class="filesize" data-filename="'
+                    +escapeHtml(files[i].name) +'">' +(files[i].size/1024).toFixed(2)
+                    +' kb</span></li>');
 
                 //scroll the UI to bottom
                 $(".pma_sql_import_status div").scrollTop(
