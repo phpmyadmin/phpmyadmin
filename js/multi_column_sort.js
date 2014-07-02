@@ -57,15 +57,15 @@ function removeColumnFromMultiSort(target, parent)
 }
 
 AJAX.registerOnload('keyhandler.js', function () {
-    $("th.draggable.column_heading.pointer.marker  a").live('click', function (event) {
+    $("th.draggable.column_heading.pointer.marker  a").on('click', function (event) {
         var url = $(this).parent().find('input').val();
         if (event.ctrlKey) {
             event.preventDefault();
             url = removeColumnFromMultiSort(url, $(this).parent());
-            window.location.replace(url);
+            $.get(url, {'ajax_request' : true, 'ajax_page_request' : true}, AJAX.responseHandler);
         } else if (event.shiftKey) {
             event.preventDefault();
-            window.location.replace(url);
+            $.get(url, {'ajax_request' : true, 'ajax_page_request' : true}, AJAX.responseHandler);
         }
     });  
 });
