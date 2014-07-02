@@ -106,7 +106,7 @@ AJAX.registerTeardown('normalization.js', function () {
     $("#extra").off("click", "#addNewPrimary");
     $(".tblFooters").off("click", "#saveNewPrimary");
     $("#extra").off("click", "#removeRedundant");
-    $("#mainContent p").off("click", "#createUniqueColumns");
+    $("#mainContent p").off("click", "#createPrimaryKey");
 });
 
 AJAX.registerOnload('normalization.js', function() {
@@ -253,11 +253,19 @@ AJAX.registerOnload('normalization.js', function() {
             }
         );
     });
-    $("#mainContent p").on("click", "#createUniqueColumns", function(event) {
+
+    $("#mainContent p").on("click", "#createPrimaryKey", function(event) {
         event.preventDefault();
-        var url = 'create_index=1&server=' + PMA_commonParams.get('server')
-            + '&db='+PMA_commonParams.get('db')+'&table='+PMA_commonParams.get('table')+'&added_fields=1'
-            + '&token=' +PMA_commonParams.get('token')+'&ajax_request=true';
+        var url = { create_index: 1,
+            server:  PMA_commonParams.get('server'),
+            db: PMA_commonParams.get('db'),
+            table: PMA_commonParams.get('table'),
+            token: PMA_commonParams.get('token'),
+            added_fields: 1,
+            add_fields:1,
+            index: {Key_name:'PRIMARY'},
+            ajax_request: true
+        };
         var title = PMA_messages.strAddUniqueIndex;
         indexEditorDialog(url, title, function(){
             //on success
