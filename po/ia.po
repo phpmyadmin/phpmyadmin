@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-02 08:18-0400\n"
-"PO-Revision-Date: 2014-07-01 22:47+0200\n"
+"PO-Revision-Date: 2014-07-02 17:15+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2105,10 +2105,9 @@ msgstr ""
 "0-9, A-F."
 
 #: js/messages.php:404
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
-msgstr "Cancella"
+msgstr "cancella"
 
 #: js/messages.php:405 libraries/server_status.lib.php:261
 msgid "Aborted"
@@ -2123,20 +2122,18 @@ msgid "Success"
 msgstr ""
 
 #: js/messages.php:408
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Importa valores predefinite"
+msgstr "Importa stato"
 
 #: js/messages.php:409 libraries/navigation/Navigation.class.php:102
 msgid "Drop files here"
 msgstr ""
 
 #: js/messages.php:410
-#, fuzzy
 #| msgid "Select database"
 msgid "Select database first"
-msgstr "Selige un base de datos"
+msgstr "Prime selige un base de datos"
 
 #: js/messages.php:415
 msgid "You can also edit most values<br />by double-clicking directly on them."
