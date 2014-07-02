@@ -57,27 +57,6 @@ function PMA_getHtmlForColumnsList(
 }
 
 /**
- * function to check if any unique column or group of columns exist or not
- *
- * @param string $db    current database
- * @param string $table current table
- *
- * @return "1" if the unique columns exist, otherwise "0"
- */
-function PMA_checkUniqueColumn($db, $table)
-{
-    $query = "SELECT EXISTS(
-                SELECT 1
-                FROM information_schema.columns
-                WHERE table_schema = '" . $db . "'
-                and table_name='" . $table . "'
-                and column_key = 'PRI'
-            ) As HasUniqueKey";
-    $result = $GLOBALS['dbi']->fetchResult($query, null, null, $GLOBALS['userlink']);
-    return $result[0];
-}
-
-/**
  * get the html of the form to add the new column to given table
  *
  * @param integer $num_fields number of columns to add
@@ -138,7 +117,9 @@ function PMA_getHtmlFor1NFStep1($db, $table)
         )
         . "</br>(<a class='central_columns_dialog' data-maxrows='25' "
         . "data-pick=false href='#'> "
-        . __('Show me the central list of columns that are not already in this table') . " </a>)</h4>"
+        . __(
+            'Show me the central list of columns that are not already in this table'
+        ) . " </a>)</h4>"
         . "<p style='font-style:italic'>" . __(
             'Select a column which can be split into more '
             . 'than one. (on select of \'no such column\', it\'ll move to next step)'
@@ -172,31 +153,34 @@ function PMA_getHtmlFor1NFStep1($db, $table)
 function PMA_getHtmlContentsFor1NFStep2($db, $table)
 {
     $step = 2;
-    $stepTxt = __('Have unique columns');
-    $hasPrimaryKey = PMA_checkUniqueColumn($db, $table);
+    $stepTxt = __('Have primary key');
+    $primary = PMA_Index::getPrimary($table, $db);
+    $hasPrimaryKey = "0";
     $legendText = __('Step 1.') . $step . " " . $stepTxt;
     $extra = '';
-    if ($hasPrimaryKey) {
-        $headText = __("Unique column(s) already exist");
+    if ($primary) {
+        $headText = __("Primary key already exist.");
         $subText = __("Taking you to next step…");
+        $hasPrimaryKey = "1";
     } else {
         $headText = __(
-            "There are no unique columns. Add a unique column "
-            . "(or combination of columns) that uniquely identify all rows. "
+            "There is no primary key. Add a primary key<br/>"
+            . "Hint: Primary key is a column "
+            . "(or combination of columns) that uniquely identify all rows."
         );
-        $subText = '<a href="#" id="createUniqueColumns">'
+        $subText = '<a href="#" id="createPrimaryKey">'
             . PMA_Util::getIcon(
                 'b_index_add.png', __(
-                    'Add unique/primary index on existing column(s)'
+                    'Add a primary key on existing column(s)'
                 )
             )
             . '</a>';
         $extra = __(
             "If it's not possible to make existing "
-            . "column combinations as unique then"
+            . "column combinations as primary key"
         ) . "<br/>"
             . '<a href="#" id="addNewPrimary">'
-            . __('+ Add a new unique column (primary key)') . '</a>';
+            . __('+ Add a new primary key column') . '</a>';
     }
     $res = array('legendText'=>$legendText, 'headText'=>$headText,
         'subText'=>$subText, 'hasPrimaryKey'=>$hasPrimaryKey, 'extra'=>$extra);
@@ -248,7 +232,7 @@ function PMA_getHtmlForNormalizetable()
     $html_output = '<form method="post" action="normalization.php" '
         . 'name="normalize" '
         . 'id="normalizeTable" '
-        . ' class="ajax" >'
+        . '>'
         . PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
         . '<input type="hidden" name="step1" value="1">';
     $html_output .= '<fieldset>';
