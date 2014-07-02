@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-01 16:22-0400\n"
-"PO-Revision-Date: 2014-07-01 19:57+0200\n"
+"PO-Revision-Date: 2014-07-02 09:01+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1813,24 +1813,22 @@ msgstr "Benzersiz/birincil indeks ekle"
 
 #: js/messages.php:305
 msgid "Unique column(s) added."
-msgstr ""
+msgstr "Benzersiz sütun(lar) eklendi."
 
 #: js/messages.php:306 libraries/normalization.lib.php:181
-#, fuzzy
 #| msgid "Taking you to %s."
 msgid "Taking you to next step…"
-msgstr "Sizi götürdüğü yer %s."
+msgstr "Sizi sonraki adıma götürüyor…"
 
 #: js/messages.php:307
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "Normalleştirmenin ilk adımı '%s' tablosu için tamamlandı."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "Satır sonu"
+msgstr "Adım sonu"
 
 #: js/messages.php:311 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -1850,34 +1848,29 @@ msgid "Show search criteria"
 msgstr "Arama kriterini göster"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Save search"
 msgid "Range search"
-msgstr "Aramayı kaydet"
+msgstr "Aralığı arama"
 
 #: js/messages.php:317
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Sütun adları: "
+msgstr "En fazla sütun:"
 
 #: js/messages.php:318
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Sütun adları: "
+msgstr "En az sütun:"
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "En fazla tablo"
+msgstr "En az değer:"
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "En fazla tablo"
+msgstr "En fazla değer:"
 
 #: js/messages.php:323
 msgid "Hide find and replace criteria"
@@ -2031,10 +2024,9 @@ msgid "Successfully deleted the page"
 msgstr "Sayfa başarılı olarak silindi"
 
 #: js/messages.php:382
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Bağlantılı şemayı dışa aktar veya düzenle"
+msgstr "Bağlantılı şemayı dışa aktar"
 
 #: js/messages.php:385
 #, php-format
@@ -2248,10 +2240,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:484
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Bu sorguyu burada tekrar göster"
+msgstr "Bu sorgu tekrar çalıştırılsın mı?"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:511
@@ -2591,78 +2582,69 @@ msgid "Font size"
 msgstr "Yazı Tipi boyutu"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:145
-#, fuzzy
 #| msgid "Expand/Collapse"
 msgid "Collapse"
-msgstr "Genişlet/Daralt"
+msgstr "Daralt"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:146
 msgid "Expand"
-msgstr ""
+msgstr "Genişlet"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:147
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "alt sorgu"
+msgstr "Yeniden sorgula"
 
 #: libraries/Console.class.php:96 libraries/Console.class.php:148
 msgid "Reedit"
-msgstr ""
+msgstr "Yeniden düzenle"
 
 #: libraries/Console.class.php:102
-#, fuzzy
 #| msgid "Total"
 msgid "Total "
-msgstr "Toplam"
+msgstr "Toplam "
 
 #: libraries/Console.class.php:102
-#, fuzzy
 #| msgid "New bookmark"
 msgid " bookmarks, "
-msgstr "Yeni yer imi"
+msgstr " yer imi, "
 
 #: libraries/Console.class.php:103
 msgid "private"
-msgstr ""
+msgstr "özel"
 
 #: libraries/Console.class.php:104 libraries/bookmark.lib.php:87
 msgid "shared"
 msgstr "paylaşılmış"
 
 #: libraries/Console.class.php:105
-#, fuzzy
 #| msgid "The bookmark has been deleted."
 msgid " bookmarks included."
-msgstr "Yer imi silindi."
+msgstr " yer imi dahil edildi."
 
 #: libraries/Console.class.php:106
-#, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
-msgstr "Yeni yer imi"
+msgstr "Yer imleri yok"
 
 #: libraries/Console.class.php:150
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "Sorgu önbelleği"
+msgstr "Sorgu başarısız oldu"
 
 #: libraries/Console.class.php:152
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Sorgu yürütme süresi"
+msgstr "Sorgu süresi"
 
 #: libraries/Console.class.php:158
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "SQL Sorgu kutusu"
+msgstr "SQL Sorgu Konsolu"
 
 #: libraries/Console.class.php:159
 msgid "Console"
-msgstr ""
+msgstr "Konsol"
 
 #: libraries/Console.class.php:162 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
@@ -2670,10 +2652,9 @@ msgid "Clear"
 msgstr "Temizle"
 
 #: libraries/Console.class.php:165
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "SQL geçmişi"
+msgstr "Geçmiş"
 
 #: libraries/Console.class.php:168 libraries/Console.class.php:239
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
@@ -2704,26 +2685,23 @@ msgid "Options"
 msgstr "Seçenekler"
 
 #: libraries/Console.class.php:172 libraries/Console.class.php:211
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Yer imi tablosu"
+msgstr "Yer imleri"
 
 #: libraries/Console.class.php:181
 msgid "Press"
-msgstr ""
+msgstr "Sorguyu çalıştırmak için"
 
 #: libraries/Console.class.php:181
-#, fuzzy
 #| msgid "Execute every"
 msgid "to Execute query"
-msgstr "Çalıştır; her"
+msgstr "düğmesine basın"
 
 #: libraries/Console.class.php:192
-#, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
-msgstr "Şu anki hatayı atla"
+msgstr "Şu anki oturum sırasında"
 
 #: libraries/Console.class.php:215 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
@@ -2732,46 +2710,41 @@ msgid "Refresh"
 msgstr "Yenile"
 
 #: libraries/Console.class.php:226
-#, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
-msgstr "Yeni yer imi"
+msgstr "Yer imi ekle"
 
 #: libraries/Console.class.php:229
-#, fuzzy
 #| msgid "Label:"
 msgid "Label"
-msgstr "Etiket:"
+msgstr "Etiket"
 
 #: libraries/Console.class.php:230
 msgid "Target database"
 msgstr "Hedef veritabanı"
 
 #: libraries/Console.class.php:231
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
-msgstr "Yer imi oluştur"
+msgstr "Bu yer imini paylaş"
 
 #: libraries/Console.class.php:242
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
-msgstr "Varsayılana sıfırla"
+msgstr "Varsayılana ayarla"
 
 #: libraries/Console.class.php:246
 msgid "Always expand queried messages"
-msgstr ""
+msgstr "Her zaman sorgulanmış mesajları genişlet"
 
 #: libraries/Console.class.php:248
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "SQL sorgu geçmişi tablosu"
+msgstr "Başlangıçta sorgu geçmişini göster"
 
 #: libraries/Console.class.php:250
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Şu anki gözatılan sorguyu göster"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1314
 #: libraries/DisplayResults.class.php:2103
@@ -8738,72 +8711,73 @@ msgstr "Yeni"
 
 #: libraries/normalization.lib.php:128
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "Tüm sütunları çok küçük yap"
 
 #: libraries/normalization.lib.php:130 libraries/normalization.lib.php:259
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "Normalleştirmenin ilk adımı (1NF)"
 
 #: libraries/normalization.lib.php:133 libraries/normalization.lib.php:177
 #: libraries/normalization.lib.php:218
 msgid "Step 1."
-msgstr ""
+msgstr "Adım 1."
 
 #: libraries/normalization.lib.php:135
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"Birden fazla sütuna bölünebilen herhangi bir sütununuz var mı? Örneğin: "
+"adres cadde,şehir, ülke ve posta kodu olarak bölünebilir."
 
 #: libraries/normalization.lib.php:141
-#, fuzzy
 #| msgid "The central list of columns for the current database is empty."
 msgid "Show me the central list of columns that are not already in this table"
-msgstr "Şu anki veritabanı için sütunların orta listesi boştur."
+msgstr "Bana, zaten bu tabloda olmayan sütunların orta listesini göster"
 
 #: libraries/normalization.lib.php:143
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
+"Birden fazla sütuna bölünebilen bir sütun seçin. ('böyle bir sütun yok' "
+"seçiminde, sonraki adıma geçilecek)"
 
 #: libraries/normalization.lib.php:150 normalization.php:18
-#, fuzzy
 #| msgid "Select a column."
 msgid "Select one ..."
-msgstr "Bir sütun seçin."
+msgstr "Bir tane seçin ..."
 
 #: libraries/normalization.lib.php:151 normalization.php:19
-#, fuzzy
 #| msgid "Move column"
 msgid "No such column"
-msgstr "Sütunu taşı"
+msgstr "Böyle bir sütun yok"
 
 #: libraries/normalization.lib.php:154
 msgid "split into "
-msgstr ""
+msgstr "böl "
 
 #: libraries/normalization.lib.php:175
-#, fuzzy
 #| msgid "Move columns"
 msgid "Have unique columns"
-msgstr "Sütunları taşı"
+msgstr "Benzersiz sütunlar var"
 
 #: libraries/normalization.lib.php:180
-#, fuzzy
 #| msgid "The user %s already exists!"
 msgid "Unique column(s) already exist"
-msgstr "%s kullanıcısı zaten var!"
+msgstr "Benzersiz sütun(lar) zaten var"
 
 #: libraries/normalization.lib.php:184
 msgid ""
 "There are no unique columns. Add a unique column (or combination of columns) "
 "that uniquely identify all rows. "
 msgstr ""
+"Benzersiz sütunlar yok. Tüm satırları benzersiz olarak tanımlayan benzersiz "
+"bir sütun (ya da sütunlar birleşimi) ekleyin. "
 
 #: libraries/normalization.lib.php:190
 msgid "Add unique/primary index on existing column(s)"
-msgstr ""
+msgstr "Var olan sütun(lar)a benzersiz/birincil indeks ekle"
 
 #: libraries/normalization.lib.php:195
 msgid ""
@@ -8812,13 +8786,12 @@ msgstr ""
 
 #: libraries/normalization.lib.php:199
 msgid "+ Add a new unique column (primary key)"
-msgstr ""
+msgstr "+ Yeni bir benzersiz sütun ekle (birincil anahtar)"
 
 #: libraries/normalization.lib.php:217
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Remove redundant columns"
-msgstr "Orta sütunlardan kaldır"
+msgstr "Gereksiz sütunları kaldır"
 
 #: libraries/normalization.lib.php:220
 msgid ""
@@ -8835,22 +8808,19 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:230
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "Seçili kullanıcıları kaldır"
+msgstr "Seçileni kaldır"
 
 #: libraries/normalization.lib.php:231
-#, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
-msgstr "Sütun ekle"
+msgstr "Gereksiz sütun yok"
 
 #: libraries/normalization.lib.php:256
-#, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Tablo yapısı eylemlerini gizle"
+msgstr "Tablo yapısını iyileştir (Normalleştirme):"
 
 #: libraries/normalization.lib.php:257
 msgid "Select up to what step you want to normalize"
@@ -8858,11 +8828,11 @@ msgstr ""
 
 #: libraries/normalization.lib.php:260
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "Normalleştirmenin ikinci adımı (1NF+2NF)"
 
 #: libraries/normalization.lib.php:261
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "Normalleştirmenin üçüncü adımı (1NF+2NF+3NF)"
 
 #: libraries/normalization.lib.php:268
 msgid ""
@@ -11702,7 +11672,6 @@ msgid "Reset to default"
 msgstr "Varsayılana sıfırla"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
 #| "between the web server and the MySQL server."
@@ -11710,8 +11679,8 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Not: Buradaki veritabanı istatistiklerini etkinleştirmek web sunucusu ile "
-"MySQL sunucusu arasında yüksek trafiğe yol açabilir."
+"Not: Buradaki otomatik yenilemeyi etkinleştirmek web sunucusu ile MySQL "
+"sunucusu arasında yüksek trafiğe yol açabilir."
 
 #: libraries/server_status_processes.lib.php:69
 msgid "ID"
@@ -12835,10 +12804,9 @@ msgid "Propose table structure"
 msgstr "Tablo yapısı öner"
 
 #: libraries/structure.lib.php:1619
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "Tablo yapısı öner"
+msgstr "Tablo yapısını iyileştir"
 
 #: libraries/structure.lib.php:1641
 #: libraries/tbl_columns_definition_form.lib.php:179
@@ -13458,7 +13426,7 @@ msgstr "Önemli hata: Gezintiye sadece AJAX aracılığıyla erişilebilir"
 
 #: normalization.php:52
 msgid "Second/Third step of normalization"
-msgstr ""
+msgstr "Normalleştirmenin İkinci/Üçüncü adımı"
 
 #: pmd_display_field.php:62 pmd_save_pos.php:59
 msgid "Modifications have been saved"
@@ -13529,10 +13497,9 @@ msgid "Toggle relation lines"
 msgstr "İlgili satırları değiştir"
 
 #: pmd_general.php:221
-#, fuzzy
 #| msgid "Export all"
 msgid "Export schema"
-msgstr "Tümünü dışa Aktar"
+msgstr "Şemayı dışa aktar"
 
 #: pmd_general.php:232
 msgid "Build Query"
