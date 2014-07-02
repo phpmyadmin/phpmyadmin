@@ -93,7 +93,7 @@ class PMA_Console
                 = '<span class="action collapse">' . __('Collapse') . '</span> '
                 . '<span class="action expand">' . __('Expand') . '</span> '
                 . '<span class="action requery">' . __('Requery') . '</span> '
-                . '<span class="action reedit">' . __('Reedit') . '</span> '
+                . '<span class="action reedit">' . __('Edit') . '</span> '
                 // .  '<span class="action bookmark">' . __('Delete') . '</span> '
                 . '<span class="text targetdb">' . __('Database') . ': <span>%s</span></span>';
 
@@ -168,7 +168,7 @@ class PMA_Console
                     = '<span class="action collapse">' . __('Collapse') . '</span> '
                     . '<span class="action expand">' . __('Expand') . '</span> '
                     . '<span class="action requery">' . __('Requery') . '</span> '
-                    . '<span class="action reedit">' . __('Reedit') . '</span> '
+                    . '<span class="action reedit">' . __('Edit') . '</span> '
                     // .  ($cfgBookmark ? '<span class="action bookmark">' . __('Bookmark') . '</span> ' : '')
                     . '<span class="text failed">' . __('Query failed') . '</span> '
                     . '<span class="text targetdb">' . __('Database') . ': <span>%s</span></span> '
