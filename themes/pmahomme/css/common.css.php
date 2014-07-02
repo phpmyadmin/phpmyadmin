@@ -3251,3 +3251,115 @@ html.ie7 #pma_console .query_input {
     padding-bottom: 2em;
     cursor: text;
 }
+
+.pma_drop_handler {
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    z-index: 999;
+    color: white;
+    font-size: 30pt;
+    text-align: center;
+    padding-top: 20%;
+}
+
+.pma_sql_import_status {
+    display: none;
+    position: fixed;
+    bottom: 0px;
+    right: 25px;
+    width: 400px;
+    border: 1px solid #999;
+    background: #f3f3f3;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
+    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
+    box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
+}
+
+.pma_sql_import_status h2,
+.pma_drop_result h2 {
+    background-color: #bbb;
+    padding: .1em .3em;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #fff;
+    font-size: 1.6em;
+    font-weight: normal;
+    text-shadow: 0 1px 0 #777;
+    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
+    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
+    box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
+}
+
+.pma_sql_import_status div {
+    height: 270px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    list-style-type: none;
+}
+
+.pma_sql_import_status div li {
+    padding: 8px 10px;
+    border-bottom: 1px solid #bbb;
+    color: rgb(148, 14, 14);
+    background: white;
+}
+
+.pma_sql_import_status div li .filesize {
+    float: right;
+}
+
+.pma_sql_import_status h2 .minimize {
+    float: right;
+    margin-right: 5px;
+    padding: 0px 10px;
+}
+
+.pma_sql_import_status h2 .close {
+    float: right;
+    margin-right: 5px;
+    padding: 0px 10px;
+    display: none;
+}
+
+.pma_sql_import_status h2 .minimize:hover,
+.pma_sql_import_status h2 .close:hover,
+.pma_drop_result h2 .close:hover {
+    background: rgba(155, 149, 149, 0.78);
+    cursor: pointer;
+}
+
+.pma_drop_file_status {
+    color: #235a81;
+}
+
+.pma_drop_file_status span.underline:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.pma_drop_result {
+    position: fixed;
+    top: 10%;
+    left: 20%;
+    width: 60%;
+    background: white;
+    min-height: 300px;
+    z-index: 800;
+    -webkit-box-shadow: 0px 0px 15px #999;
+    border-radius: 10px;
+    cursor: move;
+}
+
+.pma_drop_result h2 .close {
+    float: right;
+    margin-right: 5px;
+    padding: 0px 10px;
+}
