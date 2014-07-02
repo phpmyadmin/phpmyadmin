@@ -119,20 +119,6 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForExportRelationalSchemaView
-     *
-     * @return void
-     */
-    public function testGetHtmlForExportRelationalSchemaView()
-    {
-
-        $this->assertRegExp(
-            '/.*schema_edit.php.*Edit or export relational schema<.*/',
-            PMA_getHtmlForExportRelationalSchemaView("id=001&name=pma")
-        );
-    }
-
-    /**
      * Test for PMA_getHtmlForOrderTheTable
      *
      * @return void

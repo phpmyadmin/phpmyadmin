@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-01 16:22-0400\n"
-"PO-Revision-Date: 2014-06-23 18:49+0200\n"
+"PO-Revision-Date: 2014-07-01 23:19+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -975,10 +975,9 @@ msgstr ""
 "Imate neshranjene spremembe; ste prepričani, da želite zapustiti stran?"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "Shrani kot datoteko"
+msgstr "Shrani in zapri"
 
 #: js/messages.php:50 libraries/config/FormDisplay.tpl.php:393
 #: libraries/insert_edit.lib.php:1608
@@ -988,10 +987,9 @@ msgid "Reset"
 msgstr "Ponastavi"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Izberi vse"
+msgstr "Ponastavi vse"
 
 #: js/messages.php:54
 msgid "Missing value in the form!"
@@ -1275,11 +1273,11 @@ msgstr "Postoj nadziranje"
 
 #: js/messages.php:140 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Začni s samodejnim osveževanjem"
 
 #: js/messages.php:141
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Ustavi samodejno osveževanje"
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
@@ -1814,31 +1812,28 @@ msgid "Continue"
 msgstr "Nadaljuj"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Add unique index"
 msgid "Add unique/primary index"
-msgstr "Dodaj izvirno vrednost"
+msgstr "Dodaj izvirni/primarni indeks"
 
 #: js/messages.php:305
 msgid "Unique column(s) added."
-msgstr ""
+msgstr "Ustvaril sem izvirne stolpce."
 
 #: js/messages.php:306 libraries/normalization.lib.php:181
-#, fuzzy
 #| msgid "Taking you to %s."
 msgid "Taking you to next step…"
-msgstr "Prestavili vas bomo na %s."
+msgstr "Prestavili vas bomo na naslednji korak …"
 
 #: js/messages.php:307
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "Prvi korak normalizacije je končan za tabelo '%s'."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "Konec vrstice"
+msgstr "Konec koraka"
 
 #: js/messages.php:311 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -1858,34 +1853,29 @@ msgid "Show search criteria"
 msgstr "Prikaži iskalne pogoje"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Save search"
 msgid "Range search"
-msgstr "Shrani iskanje"
+msgstr "Iskanje v območju"
 
 #: js/messages.php:317
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Imena stolpcev: "
+msgstr "Maksimum stolpcev:"
 
 #: js/messages.php:318
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Imena stolpcev: "
+msgstr "Minimum stolpcev:"
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Največ tabel"
+msgstr "Minimalna vrednost:"
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Največ tabel"
+msgstr "Maksimalna vrednost:"
 
 #: js/messages.php:323
 msgid "Hide find and replace criteria"
@@ -2035,10 +2025,9 @@ msgid "Successfully deleted the page"
 msgstr "Stran ste uspešno izbrisali"
 
 #: js/messages.php:382
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Uredi ali izvozi relacijsko shemo"
+msgstr "Izvozi relacijsko shemo"
 
 #: js/messages.php:385
 #, php-format
@@ -2251,10 +2240,9 @@ msgstr ""
 "potrpežljivi."
 
 #: js/messages.php:484
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Ponovno pokaži poizvedbo v tem oknu"
+msgstr "Ponovno izvedem poizvedbo?"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:511
@@ -2596,62 +2584,55 @@ msgid "Font size"
 msgstr "Velikost pisave"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:145
-#, fuzzy
 #| msgid "Expand/Collapse"
 msgid "Collapse"
-msgstr "Razširi/Skrči"
+msgstr "Skrči"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:146
 msgid "Expand"
-msgstr ""
+msgstr "Razširi"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:147
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "podpoizvedba"
+msgstr "Ponovna poizvedba"
 
 #: libraries/Console.class.php:96 libraries/Console.class.php:148
 msgid "Reedit"
-msgstr ""
+msgstr "Ponovno urejanje"
 
 #: libraries/Console.class.php:102
-#, fuzzy
 #| msgid "Total"
 msgid "Total "
-msgstr "Skupaj"
+msgstr "Skupaj "
 
 #: libraries/Console.class.php:102
-#, fuzzy
 #| msgid "New bookmark"
 msgid " bookmarks, "
-msgstr "Nov zaznamek"
+msgstr " zaznamkov, "
 
 #: libraries/Console.class.php:103
 msgid "private"
-msgstr ""
+msgstr "zasebnih"
 
 #: libraries/Console.class.php:104 libraries/bookmark.lib.php:87
 msgid "shared"
 msgstr "deljeno"
 
 #: libraries/Console.class.php:105
-#, fuzzy
 #| msgid "The bookmark has been deleted."
 msgid " bookmarks included."
-msgstr "Zaznamek je odstranjen."
+msgstr " vključenih zaznamkov."
 
 #: libraries/Console.class.php:106
-#, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
-msgstr "Nov zaznamek"
+msgstr "Ni zaznamkov"
 
 #: libraries/Console.class.php:150
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "Predpomnilnik poizvedb"
+msgstr "Poizvedba je spodletela"
 
 #: libraries/Console.class.php:152
 #, fuzzy
@@ -2660,14 +2641,13 @@ msgid "Queried time"
 msgstr "Čas izvajanja poizvedbe"
 
 #: libraries/Console.class.php:158
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "Polje poizvedbe SQL"
+msgstr "Konzola poizvedb SQL"
 
 #: libraries/Console.class.php:159
 msgid "Console"
-msgstr ""
+msgstr "Konzola"
 
 #: libraries/Console.class.php:162 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
@@ -2675,10 +2655,9 @@ msgid "Clear"
 msgstr "Počisti"
 
 #: libraries/Console.class.php:165
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "Zgodovina SQL"
+msgstr "Zgodovina"
 
 #: libraries/Console.class.php:168 libraries/Console.class.php:239
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
@@ -2709,26 +2688,23 @@ msgid "Options"
 msgstr "Možnosti"
 
 #: libraries/Console.class.php:172 libraries/Console.class.php:211
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Tabela zaznamkov"
+msgstr "Zaznamki"
 
 #: libraries/Console.class.php:181
 msgid "Press"
-msgstr ""
+msgstr "Pritisnite"
 
 #: libraries/Console.class.php:181
-#, fuzzy
 #| msgid "Execute every"
 msgid "to Execute query"
-msgstr "Izvedi vsakih"
+msgstr "da izvedete poizvedbo"
 
 #: libraries/Console.class.php:192
-#, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
-msgstr "Preskoči trenutno napako"
+msgstr "Med trenutno sejo"
 
 #: libraries/Console.class.php:215 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
@@ -2737,46 +2713,41 @@ msgid "Refresh"
 msgstr "Osveži"
 
 #: libraries/Console.class.php:226
-#, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
-msgstr "Nov zaznamek"
+msgstr "Dodaj zaznamek"
 
 #: libraries/Console.class.php:229
-#, fuzzy
 #| msgid "Label:"
 msgid "Label"
-msgstr "Oznaka:"
+msgstr "Oznaka"
 
 #: libraries/Console.class.php:230
 msgid "Target database"
 msgstr "Ciljna zbirka podatkov"
 
 #: libraries/Console.class.php:231
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
-msgstr "Ustvari zaznamek"
+msgstr "Deli zaznamek"
 
 #: libraries/Console.class.php:242
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
-msgstr "Povrni na privzeto"
+msgstr "Nastavi privzeto"
 
 #: libraries/Console.class.php:246
 msgid "Always expand queried messages"
-msgstr ""
+msgstr "Vedno razširi sporočila poizvedb"
 
 #: libraries/Console.class.php:248
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "Tabela zgodovine poizvedb SQL"
+msgstr "Na začetku prikaži zgodovino"
 
 #: libraries/Console.class.php:250
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Prikaži trenutno poizvedbo brskanja"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1314
 #: libraries/DisplayResults.class.php:2103
@@ -8743,28 +8714,29 @@ msgstr "Nov"
 
 #: libraries/normalization.lib.php:128
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "Naredi vse stolpce atomske"
 
 #: libraries/normalization.lib.php:130 libraries/normalization.lib.php:259
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "Prvi korak normalizacije (1NF)"
 
 #: libraries/normalization.lib.php:133 libraries/normalization.lib.php:177
 #: libraries/normalization.lib.php:218
 msgid "Step 1."
-msgstr ""
+msgstr "Korak 1."
 
 #: libraries/normalization.lib.php:135
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"Imate kakšen stolpec, ki ga je možno razbiti v več kot en stolpcev? Na "
+"primer: naslov lahko razbijete na ulico, mesto, državo in poštno številko."
 
 #: libraries/normalization.lib.php:141
-#, fuzzy
 #| msgid "The central list of columns for the current database is empty."
 msgid "Show me the central list of columns that are not already in this table"
-msgstr "Osrednji seznam stolpcev je za trenutno zbirko podatkov prazen."
+msgstr "Prikaži mi osrednji seznam stolpcev, ki še niso v tej tabeli"
 
 #: libraries/normalization.lib.php:143
 msgid ""
@@ -8773,20 +8745,18 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:150 normalization.php:18
-#, fuzzy
 #| msgid "Select a column."
 msgid "Select one ..."
-msgstr "Izberite stolpec."
+msgstr "Izberite enega ..."
 
 #: libraries/normalization.lib.php:151 normalization.php:19
-#, fuzzy
 #| msgid "Move column"
 msgid "No such column"
-msgstr "Premakni stolpec"
+msgstr "Ni takšnega stolpca"
 
 #: libraries/normalization.lib.php:154
 msgid "split into "
-msgstr ""
+msgstr "razbij v "
 
 #: libraries/normalization.lib.php:175
 #, fuzzy
@@ -8820,10 +8790,9 @@ msgid "+ Add a new unique column (primary key)"
 msgstr ""
 
 #: libraries/normalization.lib.php:217
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Remove redundant columns"
-msgstr "Odstrani iz osrednjih stolpcev"
+msgstr "Odstrani odvečne stolpce"
 
 #: libraries/normalization.lib.php:220
 msgid ""
@@ -8840,10 +8809,9 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:230
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "Izbriši izbrane uporabnike"
+msgstr "Odstrani izbrane"
 
 #: libraries/normalization.lib.php:231
 #, fuzzy
@@ -8852,10 +8820,9 @@ msgid "No redundant column"
 msgstr "Dodaj stolpec"
 
 #: libraries/normalization.lib.php:256
-#, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Skrij dejanja strukture tabele"
+msgstr "Izboljšaj strukturo tabele (normalizacija):"
 
 #: libraries/normalization.lib.php:257
 msgid "Select up to what step you want to normalize"
@@ -11706,7 +11673,6 @@ msgid "Reset to default"
 msgstr "Povrni na privzeto"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
 #| "between the web server and the MySQL server."
@@ -11714,8 +11680,8 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Obvestilo: Omogočitev statistike zbirke podatkov lahko povzroči močno "
-"povečan promet med spletnim in podatkovnim strežnikom."
+"Obvestilo: Omogočitev samodejnega osveževanja lahko povzroči močno povečan "
+"promet med spletnim in MySQL-strežnikom."
 
 #: libraries/server_status_processes.lib.php:69
 msgid "ID"
@@ -12835,10 +12801,9 @@ msgid "Propose table structure"
 msgstr "Predlagaj strukturo tabele"
 
 #: libraries/structure.lib.php:1619
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "Predlagaj strukturo tabele"
+msgstr "Izboljšaj strukturo tabele"
 
 #: libraries/structure.lib.php:1641
 #: libraries/tbl_columns_definition_form.lib.php:179
@@ -13524,10 +13489,9 @@ msgid "Toggle relation lines"
 msgstr "Preklopi relacijske črte"
 
 #: pmd_general.php:221
-#, fuzzy
 #| msgid "Export all"
 msgid "Export schema"
-msgstr "Izvozi vse"
+msgstr "Izvozi shemo"
 
 #: pmd_general.php:232
 msgid "Build Query"

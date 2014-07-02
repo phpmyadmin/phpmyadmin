@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-01 16:22-0400\n"
-"PO-Revision-Date: 2014-07-01 22:21+0200\n"
+"PO-Revision-Date: 2014-07-01 22:47+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1278,11 +1278,11 @@ msgstr "Pausa monitor"
 
 #: js/messages.php:140 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Initia auto refrescamento"
 
 #: js/messages.php:141
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Stoppa auto refrescamento"
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
@@ -1829,17 +1829,16 @@ msgstr "Continua"
 
 #: js/messages.php:304
 msgid "Add unique/primary index"
-msgstr ""
+msgstr "Adde indice unic/primari"
 
 #: js/messages.php:305
 msgid "Unique column(s) added."
-msgstr ""
+msgstr "Columna(s) unic addite."
 
 #: js/messages.php:306 libraries/normalization.lib.php:181
-#, fuzzy
 #| msgid "Taking you to next step ..."
 msgid "Taking you to next step…"
-msgstr "Ducente te al proxime passo ..."
+msgstr "Ducente te al proxime passo…"
 
 #: js/messages.php:307
 #, php-format
@@ -2614,26 +2613,23 @@ msgid "Expand"
 msgstr ""
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:147
-#, fuzzy
 #| msgid "Query"
 msgid "Requery"
-msgstr "Query"
+msgstr "Repite Query"
 
 #: libraries/Console.class.php:96 libraries/Console.class.php:148
 msgid "Reedit"
 msgstr ""
 
 #: libraries/Console.class.php:102
-#, fuzzy
 #| msgid "Total"
 msgid "Total "
-msgstr "Total"
+msgstr "Total "
 
 #: libraries/Console.class.php:102
-#, fuzzy
 #| msgid "New bookmark"
 msgid " bookmarks, "
-msgstr "Nove marcator de libro o favorito"
+msgstr " marcatores de libro, "
 
 #: libraries/Console.class.php:103
 msgid "private"
@@ -2644,34 +2640,29 @@ msgid "shared"
 msgstr "compartite"
 
 #: libraries/Console.class.php:105
-#, fuzzy
 #| msgid "The bookmark has been deleted."
 msgid " bookmarks included."
-msgstr "Le marcator de libro ha essite delite."
+msgstr " marcatores de libro includite."
 
 #: libraries/Console.class.php:106
-#, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
-msgstr "Nove marcator de libro o favorito"
+msgstr "Necun marcator de libro o favorito"
 
 #: libraries/Console.class.php:150
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "Cache de query"
+msgstr "Query falleva"
 
 #: libraries/Console.class.php:152
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Tempore de executation del query"
+msgstr "Tempore de executar query"
 
 #: libraries/Console.class.php:158
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "Quadro de Query de SQL"
+msgstr "Console de Query de SQL"
 
 #: libraries/Console.class.php:159
 msgid "Console"
@@ -2683,10 +2674,9 @@ msgid "Clear"
 msgstr ""
 
 #: libraries/Console.class.php:165
-#, fuzzy
 #| msgid "SQL history:"
 msgid "History"
-msgstr "Historia de SQL:"
+msgstr "Chronologia"
 
 #: libraries/Console.class.php:168 libraries/Console.class.php:239
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
@@ -2717,20 +2707,18 @@ msgid "Options"
 msgstr "Optiones"
 
 #: libraries/Console.class.php:172 libraries/Console.class.php:211
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Tabella de marcatores de libro"
+msgstr "Marcatores de libro"
 
 #: libraries/Console.class.php:181
 msgid "Press"
 msgstr ""
 
 #: libraries/Console.class.php:181
-#, fuzzy
 #| msgid "Execute"
 msgid "to Execute query"
-msgstr "Executa"
+msgstr "pro Executar query"
 
 #: libraries/Console.class.php:192
 msgid "During current session"
@@ -2743,44 +2731,38 @@ msgid "Refresh"
 msgstr "Refresca"
 
 #: libraries/Console.class.php:226
-#, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
-msgstr "Nove marcator de libro o favorito"
+msgstr "Adde marcator de libro o favorito"
 
 #: libraries/Console.class.php:229
-#, fuzzy
 #| msgid "Label key"
 msgid "Label"
-msgstr "Clave de etiquetta"
+msgstr "Etiquetta"
 
 #: libraries/Console.class.php:230
-#, fuzzy
 #| msgid "Create database"
 msgid "Target database"
-msgstr "Crea base de datos"
+msgstr "Base de datos objectivo"
 
 #: libraries/Console.class.php:231
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
-msgstr "Crea marcator de libro o favorito"
+msgstr "Comparti iste marcator de libro o favorito"
 
 #: libraries/Console.class.php:242
-#, fuzzy
 #| msgid "Export defaults"
 msgid "Set default"
-msgstr "Exporta le valores predefinite"
+msgstr "Fixa le valores predefinite"
 
 #: libraries/Console.class.php:246
 msgid "Always expand queried messages"
 msgstr ""
 
 #: libraries/Console.class.php:248
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "Tabella de chronologia de query de SQL"
+msgstr "Monstra chronologia de query al initio"
 
 #: libraries/Console.class.php:250
 msgid "Show current browsing query"
@@ -8751,10 +8733,10 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:141
-#, fuzzy
 #| msgid "The central list of columns for the current database is empty."
 msgid "Show me the central list of columns that are not already in this table"
-msgstr "Le lista central de columnas pro le base de datos currente es vacue."
+msgstr ""
+"Monstra a me le lista central de columnas que non es preste in iste tabella"
 
 #: libraries/normalization.lib.php:143
 msgid ""
@@ -8763,26 +8745,23 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:150 normalization.php:18
-#, fuzzy
 #| msgid "Select a column."
 msgid "Select one ..."
-msgstr "Selige un columna."
+msgstr "Selige un ..."
 
 #: libraries/normalization.lib.php:151 normalization.php:19
-#, fuzzy
 #| msgid "Move column"
 msgid "No such column"
-msgstr "Move columna"
+msgstr "Necun tal columna"
 
 #: libraries/normalization.lib.php:154
 msgid "split into "
 msgstr ""
 
 #: libraries/normalization.lib.php:175
-#, fuzzy
 #| msgid "Value column:"
 msgid "Have unique columns"
-msgstr "Columna de valor:"
+msgstr "Ha columnas unic"
 
 #: libraries/normalization.lib.php:180
 msgid "Unique column(s) already exist"
@@ -8808,10 +8787,9 @@ msgid "+ Add a new unique column (primary key)"
 msgstr ""
 
 #: libraries/normalization.lib.php:217
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Remove redundant columns"
-msgstr "Remove ex le columnas central"
+msgstr "Remove columnas redundante"
 
 #: libraries/normalization.lib.php:220
 msgid ""
@@ -8828,22 +8806,19 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:230
-#, fuzzy
 #| msgid "Removing Selected Users"
 msgid "Remove selected"
-msgstr "Removente usatores selectionate"
+msgstr "Remove selectionate"
 
 #: libraries/normalization.lib.php:231
-#, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
-msgstr "Adde columna"
+msgstr "Necun columna reduntante"
 
 #: libraries/normalization.lib.php:256
-#, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Cela actiones de  structura de tabella"
+msgstr "Meliora structura de tabella (Normalisation):"
 
 #: libraries/normalization.lib.php:257
 msgid "Select up to what step you want to normalize"
@@ -12517,10 +12492,9 @@ msgid "Propose table structure"
 msgstr ""
 
 #: libraries/structure.lib.php:1619
-#, fuzzy
 #| msgid "Table structure"
 msgid "Improve table structure"
-msgstr "Structura de tabella"
+msgstr "Meliora structura de tabella"
 
 #: libraries/structure.lib.php:1641
 #: libraries/tbl_columns_definition_form.lib.php:179
@@ -13187,10 +13161,9 @@ msgid "Toggle relation lines"
 msgstr ""
 
 #: pmd_general.php:221
-#, fuzzy
 #| msgid "Export type"
 msgid "Export schema"
-msgstr "Typo de exportation"
+msgstr "Exporta schema"
 
 #: pmd_general.php:232
 msgid "Build Query"

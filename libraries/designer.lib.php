@@ -153,8 +153,7 @@ function PMA_getHtmlForSchemaExport($db, $page)
         . '</select>'
         . '<label>' . __('Select Export Relational Type') . '</label><br />';
 
-    $htmlString .= '<input type="hidden" name="do" value="process_export" />'
-        . '<input type="hidden" name="chpage" value="' . htmlspecialchars($page) . '" />'
+    $htmlString .= '<input type="hidden" name="chpage" value="' . htmlspecialchars($page) . '" />'
         . '<input type="checkbox" name="show_grid" id="show_grid_opt" />'
         . '<label for="show_grid_opt">' . __('Show grid') . '</label><br />'
         . '<input type="checkbox" name="show_color"'
