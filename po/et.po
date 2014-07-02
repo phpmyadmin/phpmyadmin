@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-01 16:22-0400\n"
-"PO-Revision-Date: 2014-07-02 10:45+0200\n"
+"PO-Revision-Date: 2014-07-02 10:56+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
@@ -6751,8 +6751,8 @@ msgstr "Lisa DROP VIEW"
 #: libraries/config/messages.inc.php:687
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
-"Määrab käskude nimekirja, mida automaatne loomine kasutab uute versioonide "
-"jaoks."
+"Määrab lausete nimekirja, mida kasutatakse uute versioonide loomisel "
+"automaatselt."
 
 #: libraries/config/messages.inc.php:688
 msgid "Statements to track"
@@ -6775,8 +6775,7 @@ msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
-"Kas jälgimise mehhanism loob automaatselt versioonid tabelite ja vaadete "
-"jaoks."
+"Kas jälgimise mehhanism loob versioneerib tabelida ja vaated automaatselt."
 
 #: libraries/config/messages.inc.php:699
 msgid "Automatically create versions"
@@ -6907,7 +6906,7 @@ msgstr "Näita viimase kontrolli ajatemplit"
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table."
-msgstr "Määrab, kas tabelit sirvides näidata suuna valikut."
+msgstr "Määrab, kas tabeli sirvimisel näidata suuna valimise võimalust."
 
 #: libraries/config/messages.inc.php:724
 msgid "Show display direction"
@@ -6994,7 +6993,7 @@ msgstr "Jäta lukustatud tabelid vahele"
 
 #: libraries/config/messages.inc.php:746
 msgid "A warning is displayed on the main page if Suhosin is detected."
-msgstr "Kui tuvastatud on Suhosin, siis hoiatust näidatakse pealehel."
+msgstr "Kuva avalehel hoiatus, kui tuvastatakse Suhosin."
 
 #: libraries/config/messages.inc.php:747
 msgid "Suhosin warning"
@@ -8307,7 +8306,7 @@ msgstr "Horvaatia"
 
 #: libraries/mysql_charsets.lib.php:182
 msgid "Czech"
-msgstr "Tsehhi"
+msgstr "Tšehhi"
 
 #: libraries/mysql_charsets.lib.php:185
 msgid "Danish"
@@ -10462,12 +10461,12 @@ msgstr "Vabanda, meil ei õnnestunud kustutatud päästikut taastada."
 #: libraries/rte/rte_triggers.lib.php:116
 #, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "%1$s päästikut on muudetud."
+msgstr "Muudeti päästikut %1$s."
 
 #: libraries/rte/rte_triggers.lib.php:136
 #, php-format
 msgid "Trigger %1$s has been created."
-msgstr "%1$s päästik on loodud."
+msgstr "Loodi päästik %1$s."
 
 #: libraries/rte/rte_triggers.lib.php:210
 msgid "Edit trigger"
@@ -10535,7 +10534,7 @@ msgstr "Lisa päästik"
 #: libraries/rte/rte_words.lib.php:43
 #, php-format
 msgid "Export of trigger %s"
-msgstr "%s päästiku eksport"
+msgstr "Eksportimine päästik %s"
 
 #: libraries/rte/rte_words.lib.php:44
 msgid "trigger"
@@ -10721,7 +10720,7 @@ msgstr "Serveri muutujad ja sätted"
 
 #: libraries/server_common.lib.php:30
 msgid "Storage Engines"
-msgstr "Varundusmootorid"
+msgstr "Salvestusmootorid"
 
 #: libraries/server_common.lib.php:39
 msgid "Character Sets and Collations"
@@ -12696,7 +12695,7 @@ msgstr "Muuda vaadet"
 
 #: libraries/structure.lib.php:1592
 msgid "Relation view"
-msgstr "Seose vaade"
+msgstr "Seoste vaade"
 
 #: libraries/structure.lib.php:1604
 msgid "Propose table structure"
