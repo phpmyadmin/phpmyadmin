@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-01 16:22-0400\n"
-"PO-Revision-Date: 2014-07-02 10:36+0200\n"
+"PO-Revision-Date: 2014-07-02 10:45+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
@@ -1705,7 +1705,7 @@ msgstr "Salvestatud funktsioon peab sisaldama RETURN käsku!"
 
 #: js/messages.php:277 libraries/rte/rte_routines.lib.php:805
 msgid "ENUM/SET editor"
-msgstr "ENUM/SET muutja"
+msgstr "ENUM/SET toimeti"
 
 #: js/messages.php:278
 #, php-format
@@ -5092,7 +5092,7 @@ msgid ""
 "columns."
 msgstr ""
 "Määrab CHAR ja VARCHAR veergude jaoks loodud sisestusväljade minimaalse "
-"laius."
+"laiuse."
 
 #: libraries/config/messages.inc.php:58
 msgid "Minimum size for input field"
@@ -5489,7 +5489,7 @@ msgstr "Võõrvõtme piirang"
 
 #: libraries/config/messages.inc.php:207
 msgid "Browse mode"
-msgstr "Sirvimise vaade"
+msgstr "Sirvimisrežiim"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize browse mode."
@@ -5670,7 +5670,7 @@ msgstr "Sisesta serveri ühenduse parameetrid."
 
 #: libraries/config/messages.inc.php:269
 msgid "Configuration storage"
-msgstr "Seadistuse salvestus"
+msgstr "Seadistuse salvestuskoht"
 
 #: libraries/config/messages.inc.php:271
 msgid ""
@@ -6721,8 +6721,8 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
-"Kas andmebaasi loomisel lisatakse logi esimese reana DROP DATABASE IF EXISTS "
-"käsk."
+"Kas lisada lause DROP DATABASE IF EXISTS andmebaasi loomise logisse "
+"esimeseks."
 
 #: libraries/config/messages.inc.php:675
 msgid "Add DROP DATABASE"
@@ -6732,8 +6732,7 @@ msgstr "Lisa DROP DATABASE"
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
-msgstr ""
-"Kas tabeli loomisel lisatakse logi esimese reana DROP TABLE IF EXISTS käsk."
+msgstr "Kas lisada lause DROP TABLE IF EXISTS tabeli loomise logisse esimeseks."
 
 #: libraries/config/messages.inc.php:680
 msgid "Add DROP TABLE"
@@ -6743,8 +6742,7 @@ msgstr "Lisa DROP TABLE"
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
-msgstr ""
-"Kas vaate loomisel lisatakse logi esimese reana DROP VIEW IF EXISTS käsk."
+msgstr "Kas lisada lause DROP VIEW IF EXISTS vaate loomise logisse esimeseks."
 
 #: libraries/config/messages.inc.php:685
 msgid "Add DROP VIEW"
