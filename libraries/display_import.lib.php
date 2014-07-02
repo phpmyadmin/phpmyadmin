@@ -229,6 +229,7 @@ function PMA_getHtmlForImportOptionsFile($max_upload_size, $import_list)
         $html .= '                <input type="radio" name="file_location" '
             . 'id="radio_import_file" required="required" />';
         $html .= PMA_Util::getBrowseUploadFileBlock($max_upload_size);
+        $html .= '<br />' . __('You may also drag and drop a file on any page.');
         $html .= '            </li>';
         $html .= '            <li>';
         $html .= '               <input type="radio" name="file_location" '
@@ -239,6 +240,7 @@ function PMA_getHtmlForImportOptionsFile($max_upload_size, $import_list)
 
     } elseif ($GLOBALS['is_upload']) {
         $html .= PMA_Util::getBrowseUploadFileBlock($max_upload_size);
+        $html .= '<br />' . __('You may also drag and drop a file on any page.');
     } elseif (!$GLOBALS['is_upload']) {
         $html .= PMA_Message::notice(
             __('File uploads are not allowed on this server.')
