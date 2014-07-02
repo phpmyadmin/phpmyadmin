@@ -23,6 +23,7 @@ phpMyAdmin - ChangeLog
 4.2.6.0 (not yet released)
 - bug #4471 Undefined index warning with referenced column.
 - bug #4027 $cfg['MaxExactCount'] is ignored when BROWSING is back
+- bug #4482 Multi Column sorting (improved user experience)
 
 4.2.5.0 (2014-06-26)
 - bug #4467 shell_exec() has been disabled for security reasons
