@@ -29,7 +29,7 @@ if (isset($_REQUEST['simulate_dml'])) {
 }
 
 // If it's a refresh console bookmarks request
-if(isset($_GET['console_bookmark_refresh'])) {
+if (isset($_GET['console_bookmark_refresh'])) {
     $response = PMA_Response::getInstance();
     $response->addJSON('console_message_bookmark', PMA_Console::getBookmarkContent());
     exit;
@@ -148,7 +148,7 @@ if ($_POST == array() && $_GET == array()) {
 }
 
 // Add console message id to response output
-if(isset($_POST['console_message_id'])) {
+if (isset($_POST['console_message_id'])) {
     $response = PMA_Response::getInstance();
     $response->addJSON('console_message_id', $_POST['console_message_id']);
 }
