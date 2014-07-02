@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-01 16:22-0400\n"
-"PO-Revision-Date: 2014-06-24 02:12+0200\n"
+"PO-Revision-Date: 2014-07-02 02:13+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -980,10 +980,9 @@ msgstr ""
 "Tiene cambios sin guardar. ¿Está seguro que desea abandonar esta página?"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "Guardar como archivo"
+msgstr "Guardar y cerrar"
 
 #: js/messages.php:50 libraries/config/FormDisplay.tpl.php:393
 #: libraries/insert_edit.lib.php:1608
@@ -993,10 +992,9 @@ msgid "Reset"
 msgstr "Reiniciar"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Seleccionar todo"
+msgstr "Reiniciar todo"
 
 #: js/messages.php:54
 msgid "Missing value in the form!"
@@ -1283,11 +1281,11 @@ msgstr "Pausar monitorización"
 
 #: js/messages.php:140 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Iniciar refresco automático"
 
 #: js/messages.php:141
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Detener refresco automático"
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
@@ -1829,31 +1827,28 @@ msgid "Continue"
 msgstr "Continuar"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Add unique index"
 msgid "Add unique/primary index"
-msgstr "Agregar índice único"
+msgstr "Agregar índice único/primario"
 
 #: js/messages.php:305
 msgid "Unique column(s) added."
-msgstr ""
+msgstr "Se agregaron la/las columna/s única/s."
 
 #: js/messages.php:306 libraries/normalization.lib.php:181
-#, fuzzy
 #| msgid "Taking you to %s."
 msgid "Taking you to next step…"
-msgstr "Llevándolo a %s."
+msgstr "Llevándolo al siguiente paso…"
 
 #: js/messages.php:307
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "Se completó el primer paso de la normalización para la tabla '%s'."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "Final de la línea"
+msgstr "Final de los pasos"
 
 #: js/messages.php:311 libraries/insert_edit.lib.php:1517
 #: libraries/schema/User_Schema.class.php:386
@@ -1873,34 +1868,29 @@ msgid "Show search criteria"
 msgstr "Mostrar criterio de búsqueda"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Save search"
 msgid "Range search"
-msgstr "Guardar búsqueda"
+msgstr "Búsqueda por rango"
 
 #: js/messages.php:317
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Nombre de las columnas: "
+msgstr "Máximo de las columnas:"
 
 #: js/messages.php:318
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Nombre de las columnas: "
+msgstr "Mínimo de las columnas:"
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Número máximo de tablas"
+msgstr "Valor mínimo:"
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Número máximo de tablas"
+msgstr "Valor máximo:"
 
 #: js/messages.php:323
 msgid "Hide find and replace criteria"
@@ -2053,10 +2043,9 @@ msgid "Successfully deleted the page"
 msgstr "Página eliminada exitosamente"
 
 #: js/messages.php:382
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Editar o exportar esquema relacional"
+msgstr "Exportar esquema relacional"
 
 #: js/messages.php:385
 #, php-format
@@ -2276,10 +2265,9 @@ msgstr ""
 "Un momento, se están enviando en este momento debido a su configuración."
 
 #: js/messages.php:484
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Mostrar esta consulta otra vez"
+msgstr "¿Ejecutar esta consulta nuevamente?"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:511
@@ -2622,78 +2610,69 @@ msgid "Font size"
 msgstr "Tamaño de fuente"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:145
-#, fuzzy
 #| msgid "Expand/Collapse"
 msgid "Collapse"
-msgstr "Expandir/Colapsar"
+msgstr "Colapsar"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:146
 msgid "Expand"
-msgstr ""
+msgstr "Expandir"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:147
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "sub-consulta"
+msgstr "Reconsultar"
 
 #: libraries/Console.class.php:96 libraries/Console.class.php:148
 msgid "Reedit"
-msgstr ""
+msgstr "Reeditar"
 
 #: libraries/Console.class.php:102
-#, fuzzy
 #| msgid "Total"
 msgid "Total "
-msgstr "Total"
+msgstr "Total "
 
 #: libraries/Console.class.php:102
-#, fuzzy
 #| msgid "New bookmark"
 msgid " bookmarks, "
-msgstr "Nuevo favorito"
+msgstr " favoritos, "
 
 #: libraries/Console.class.php:103
 msgid "private"
-msgstr ""
+msgstr "privado"
 
 #: libraries/Console.class.php:104 libraries/bookmark.lib.php:87
 msgid "shared"
 msgstr "compartido"
 
 #: libraries/Console.class.php:105
-#, fuzzy
 #| msgid "The bookmark has been deleted."
 msgid " bookmarks included."
-msgstr "El favorito ha sido borrado."
+msgstr " favoritos incluidos."
 
 #: libraries/Console.class.php:106
-#, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
-msgstr "Nuevo favorito"
+msgstr "Ningún favorito"
 
 #: libraries/Console.class.php:150
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "Cache de consultas"
+msgstr "Falló la consulta"
 
 #: libraries/Console.class.php:152
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Tiempo de ejecución de la consulta"
+msgstr "Fecha y hora la consulta"
 
 #: libraries/Console.class.php:158
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "Ventana de consultas SQL"
+msgstr "Consola de consultas SQL"
 
 #: libraries/Console.class.php:159
 msgid "Console"
-msgstr ""
+msgstr "Consola"
 
 #: libraries/Console.class.php:162 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
@@ -2701,10 +2680,9 @@ msgid "Clear"
 msgstr "Limpiar"
 
 #: libraries/Console.class.php:165
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "Historial-SQL"
+msgstr "Historial"
 
 #: libraries/Console.class.php:168 libraries/Console.class.php:239
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
@@ -2735,26 +2713,23 @@ msgid "Options"
 msgstr "Opciones"
 
 #: libraries/Console.class.php:172 libraries/Console.class.php:211
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Agregar tabla a favoritos"
+msgstr "Favoritos"
 
 #: libraries/Console.class.php:181
 msgid "Press"
-msgstr ""
+msgstr "Pulse"
 
 #: libraries/Console.class.php:181
-#, fuzzy
 #| msgid "Execute every"
 msgid "to Execute query"
-msgstr "Ejecutar cada"
+msgstr "para ejecutar la consulta"
 
 #: libraries/Console.class.php:192
-#, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
-msgstr "Omitir error actual"
+msgstr "durante la sesión actual"
 
 #: libraries/Console.class.php:215 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
@@ -2763,48 +2738,42 @@ msgid "Refresh"
 msgstr "Actualizar"
 
 #: libraries/Console.class.php:226
-#, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
-msgstr "Nuevo favorito"
+msgstr "Agregar favorito"
 
 #: libraries/Console.class.php:229
-#, fuzzy
 #| msgid "Label:"
 msgid "Label"
-msgstr "Etiqueta:"
+msgstr "Etiqueta"
 
 #: libraries/Console.class.php:230
-#, fuzzy
 #| msgid "Create database"
 msgid "Target database"
-msgstr "Crear base de datos"
+msgstr "Base de datos de destino"
 
 #: libraries/Console.class.php:231
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
-msgstr "Crear favorito"
+msgstr "Compartir favorito"
 
 #: libraries/Console.class.php:242
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
-msgstr "Restaurar valor predeterminado"
+msgstr "Definir predeterminado"
 
 #: libraries/Console.class.php:246
 msgid "Always expand queried messages"
-msgstr ""
+msgstr "Siempre expandir mensajes de consultas"
 
 #: libraries/Console.class.php:248
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "Tabla de histórico de consultas SQL"
+msgstr "Mostrar histórico de consultas al iniciar"
 
 #: libraries/Console.class.php:250
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Mostrar consulta actual"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1314
 #: libraries/DisplayResults.class.php:2103
@@ -8855,87 +8824,89 @@ msgstr "Nueva"
 
 #: libraries/normalization.lib.php:128
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "Convertir todas las columnas a atómicas"
 
 #: libraries/normalization.lib.php:130 libraries/normalization.lib.php:259
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "Primer paso de la normalización (1NF)"
 
 #: libraries/normalization.lib.php:133 libraries/normalization.lib.php:177
 #: libraries/normalization.lib.php:218
 msgid "Step 1."
-msgstr ""
+msgstr "Paso 1."
 
 #: libraries/normalization.lib.php:135
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"¿Puede separar alguna columna en más de una? Por ejemplo: puede separar una "
+"dirección en calle, ciudad, país y código postal."
 
 #: libraries/normalization.lib.php:141
-#, fuzzy
 #| msgid "The central list of columns for the current database is empty."
 msgid "Show me the central list of columns that are not already in this table"
-msgstr "La lista central de columnas para la base de datos actual está vacía."
+msgstr "Mostrar la lista central de columnas que no estén todavía en esta tabla"
 
 #: libraries/normalization.lib.php:143
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
+"Seleccionar una columna que puede ser dividida en más de una. (si selecciona "
+"'ninguna columna', continuará en el siguiente paso)"
 
 #: libraries/normalization.lib.php:150 normalization.php:18
-#, fuzzy
 #| msgid "Select a column."
 msgid "Select one ..."
-msgstr "Seleccionar una columna."
+msgstr "Seleccionar una…"
 
 #: libraries/normalization.lib.php:151 normalization.php:19
-#, fuzzy
 #| msgid "Move column"
 msgid "No such column"
-msgstr "Mover columna"
+msgstr "Niguna columna"
 
 #: libraries/normalization.lib.php:154
 msgid "split into "
-msgstr ""
+msgstr "dividir en "
 
 #: libraries/normalization.lib.php:175
-#, fuzzy
 #| msgid "Move columns"
 msgid "Have unique columns"
-msgstr "Mover columnas"
+msgstr "Utilizar columnas únicas"
 
 #: libraries/normalization.lib.php:180
-#, fuzzy
 #| msgid "The user %s already exists!"
 msgid "Unique column(s) already exist"
-msgstr "¡El usuario %s ya existe!"
+msgstr "La/las columna/s única/s ya existen"
 
 #: libraries/normalization.lib.php:184
 msgid ""
 "There are no unique columns. Add a unique column (or combination of columns) "
 "that uniquely identify all rows. "
 msgstr ""
+"No existen columnas únicas. Agregue una columna única (o combinación de "
+"varias columnas) que identifiquen unívocamente a todas las filas. "
 
 #: libraries/normalization.lib.php:190
 msgid "Add unique/primary index on existing column(s)"
-msgstr ""
+msgstr "Agregar índice único/primario en columna/s existente/s"
 
 #: libraries/normalization.lib.php:195
 msgid ""
 "If it's not possible to make existing column combinations as unique then"
 msgstr ""
+"No es posible convertir la combinación de columnas existentes en únicas, por "
+"lo tanto"
 
 #: libraries/normalization.lib.php:199
 msgid "+ Add a new unique column (primary key)"
-msgstr ""
+msgstr "+ agregar una nueva columna única (clave primaria)"
 
 #: libraries/normalization.lib.php:217
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Remove redundant columns"
-msgstr "Eliminar de las columnas centrales"
+msgstr "Eliminar columnas redundantes"
 
 #: libraries/normalization.lib.php:220
 msgid ""
@@ -8944,48 +8915,54 @@ msgid ""
 "then\n"
 "        combining first_name and last_name gives full_name which is redundant"
 msgstr ""
+"¿Posee un grupo de columnas cuya combinación resulte en otra\n"
+"        columna? Por ejemplo, si posee nombre, apellido y nombre_completo "
+"entonces\n"
+"        la combinación de nombre y apellido sería nombre_completo, el cual "
+"es redundante"
 
 #: libraries/normalization.lib.php:225
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
+"Revise las columnas redundantes y pulse para eliminar. Si no encuentra "
+"ninguna, pulse en 'Ninguna columna redundante'"
 
 #: libraries/normalization.lib.php:230
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "Eliminar a los usuarios seleccionados"
+msgstr "Eliminar seleccionadas"
 
 #: libraries/normalization.lib.php:231
-#, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
-msgstr "Añadir columna"
+msgstr "Ninguna columna redundante"
 
 #: libraries/normalization.lib.php:256
-#, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Esconder acciones sobre la estructura de la tabla"
+msgstr "Mejorar la estructura de la tabla (normalización):"
 
 #: libraries/normalization.lib.php:257
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "Seleccione hasta qué paso desea normalizar"
 
 #: libraries/normalization.lib.php:260
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "Segundo paso de normalización (1NF+2NF)"
 
 #: libraries/normalization.lib.php:261
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "Tercer paso de la normalización (1NF+2NF+3NF)"
 
 #: libraries/normalization.lib.php:268
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
+"Consejo: siga el procedimiento cuidadosamente para obtener una normalización "
+"correcta"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to:"
@@ -11858,7 +11835,6 @@ msgid "Reset to default"
 msgstr "Restaurar valor predeterminado"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
 #| "between the web server and the MySQL server."
@@ -11866,8 +11842,8 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Nota: Activar aquí las estadísticas de la base de datos podría causar "
-"tráfico pesado entre el servidor web y el servidor MySQL."
+"Nota: Activar el refresco automático podría causar tráfico pesado entre el "
+"servidor web y el servidor MySQL."
 
 #: libraries/server_status_processes.lib.php:69
 msgid "ID"
@@ -13022,10 +12998,9 @@ msgid "Propose table structure"
 msgstr "Planteamiento de la estructura de tabla"
 
 #: libraries/structure.lib.php:1619
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "Planteamiento de la estructura de tabla"
+msgstr "Mejorar la estructura de tabla"
 
 #: libraries/structure.lib.php:1641
 #: libraries/tbl_columns_definition_form.lib.php:179
@@ -13644,7 +13619,7 @@ msgstr "Error fatal: sólo se puede acceder a la navegación mediante AJAX"
 
 #: normalization.php:52
 msgid "Second/Third step of normalization"
-msgstr ""
+msgstr "Segundo/tercer paso de normalización"
 
 #: pmd_display_field.php:62 pmd_save_pos.php:59
 msgid "Modifications have been saved"
@@ -13717,10 +13692,9 @@ msgstr "Conmutar líneas de relación"
 # Used as description for SQL syntax Export Type (options are INSERT, UPDATE
 # and REPLACE)
 #: pmd_general.php:221
-#, fuzzy
 #| msgid "Export type"
 msgid "Export schema"
-msgstr "Tipo de exportación"
+msgstr "Exportar estructura"
 
 #: pmd_general.php:232
 msgid "Build Query"
