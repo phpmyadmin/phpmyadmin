@@ -62,9 +62,11 @@ AJAX.registerOnload('keyhandler.js', function () {
         if (event.ctrlKey) {
             event.preventDefault();
             url = removeColumnFromMultiSort(url, $(this).parent());
+            AJAX.source = $(this);
             $.get(url, {'ajax_request' : true, 'ajax_page_request' : true}, AJAX.responseHandler);
         } else if (event.shiftKey) {
             event.preventDefault();
+            AJAX.source = $(this);
             $.get(url, {'ajax_request' : true, 'ajax_page_request' : true}, AJAX.responseHandler);
         }
     });  
