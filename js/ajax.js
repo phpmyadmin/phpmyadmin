@@ -458,9 +458,6 @@ var AJAX = {
                 $('#'+data.fieldWithError).addClass("error");
             }
         }
-        if(PMA_console && PMA_console.isEnabled) {
-            PMA_console.ajaxCallback(data);
-        }
     },
     /**
      * This object is in charge of downloading scripts,

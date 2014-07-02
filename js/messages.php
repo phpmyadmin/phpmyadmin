@@ -512,6 +512,7 @@ $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
     . '</div>';
 
 $js_messages['strConsoleRequeryConfirm'] = __('Execute this query again?');
+$js_messages['strConsoleDeleteBookmarkConfirm'] = __('Do you really want to delete this bookmark?');
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {

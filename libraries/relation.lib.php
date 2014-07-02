@@ -966,13 +966,7 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
         $_SESSION['sql_history'] = array();
     }
 
-    $key = md5($sqlquery . $db . $table);
-
-    if (isset($_SESSION['sql_history'][$key])) {
-        unset($_SESSION['sql_history'][$key]);
-    }
-
-    $_SESSION['sql_history'][$key] = array(
+    $_SESSION['sql_history'][] = array(
         'db' => $db,
         'table' => $table,
         'sqlquery' => $sqlquery,
