@@ -57,7 +57,7 @@ function PMA_getHtmlForColumnsList(
 }
 
 /**
- * function to check if any unique column or group of columns exist or not
+ * function to check if primary key exist or not
  *
  * @param string $db    current database
  * @param string $table current table
