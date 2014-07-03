@@ -118,21 +118,21 @@ class ExportCodegen extends ExportPlugin
     /**
      * Outputs export header
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and header
      */
     public function exportHeader ()
     {
-        return true;
+            return array(false, '');
     }
 
     /**
      * Outputs export footer
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and footer
      */
     public function exportFooter ()
     {
-        return true;
+        return array(false, '');
     }
 
     /**
@@ -141,11 +141,11 @@ class ExportCodegen extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string header
      */
     public function exportDBHeader ($db, $db_alias = '')
     {
-        return true;
+        return '';
     }
 
     /**
@@ -153,11 +153,11 @@ class ExportCodegen extends ExportPlugin
      *
      * @param string $db Database name
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and footer
      */
     public function exportDBFooter ($db)
     {
-        return true;
+        return array(false, '');
     }
 
     /**
@@ -166,11 +166,11 @@ class ExportCodegen extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB CREATE statement
      */
     public function exportDBCreate($db, $db_alias = '')
     {
-        return true;
+        return '';
     }
 
     /**
@@ -183,21 +183,22 @@ class ExportCodegen extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      * @param array  $aliases   Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return bool array Error (if any) and table's data
      */
     public function exportData(
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
     ) {
         $CG_FORMATS = $this->_getCgFormats();
         $CG_HANDLERS = $this->_getCgHandlers();
+        $error = false;
 
         $format = $GLOBALS['codegen_format'];
         if (isset($CG_FORMATS[$format])) {
-            return PMA_exportOutputHandler(
-                $this->$CG_HANDLERS[$format]($db, $table, $crlf, $aliases)
+            return $this->$CG_HANDLERS[$format](
+                $db, $table, $crlf, $aliases
             );
         }
-        return PMA_exportOutputHandler(sprintf("%s is not supported.", $format));
+        return array(true, sprintf("%s is not supported.", $format));
     }
 
     /**
@@ -230,7 +231,7 @@ class ExportCodegen extends ExportPlugin
      * @param string $crlf    line separator
      * @param array  $aliases Aliases of db/table/columns
      *
-     * @return string containing C# code lines, separated by "\n"
+     * @return array Error (if any) and C# Handler
      */
     private function _handleNHibernateCSBody($db, $table, $crlf, $aliases = array())
     {
@@ -238,13 +239,20 @@ class ExportCodegen extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
         $lines = array();
+        $error = false;
 
-        $result = $GLOBALS['dbi']->query(
+        $result = $GLOBALS['dbi']->tryQuery(
             sprintf(
                 'DESC %s.%s', PMA_Util::backquote($db),
                 PMA_Util::backquote($table)
             )
         );
+
+        // Check for any error.
+        if ($error = $GLOBALS['dbi']->getError()) {
+            return array($error, '');
+        }
+
         if ($result) {
             $tableProperties = array();
             while ($row = $GLOBALS['dbi']->fetchRow($result)) {
@@ -315,7 +323,7 @@ class ExportCodegen extends ExportPlugin
             $lines[] = '    #endregion';
             $lines[] = '}';
         }
-        return implode($crlf, $lines);
+        return array($error, implode($crlf, $lines));
     }
 
     /**
@@ -326,7 +334,7 @@ class ExportCodegen extends ExportPlugin
      * @param string $crlf    line separator
      * @param array  $aliases Aliases of db/table/columns
      *
-     * @return string containing XML code lines, separated by "\n"
+     * @return array error (if any) and XML code lines, separated by "\n"
      */
     private function _handleNHibernateXMLBody(
         $db, $table, $crlf, $aliases = array()
@@ -335,6 +343,7 @@ class ExportCodegen extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
         $lines = array();
+        $error = false;
         $lines[] = '<?xml version="1.0" encoding="utf-8" ?' . '>';
         $lines[] = '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" '
             . 'namespace="' . ExportCodegen::cgMakeIdentifier($db_alias) . '" '
@@ -342,12 +351,18 @@ class ExportCodegen extends ExportPlugin
         $lines[] = '    <class '
             . 'name="' . ExportCodegen::cgMakeIdentifier($table_alias) . '" '
             . 'table="' . ExportCodegen::cgMakeIdentifier($table_alias) . '">';
-        $result = $GLOBALS['dbi']->query(
+        $result = $GLOBALS['dbi']->tryQuery(
             sprintf(
                 "DESC %s.%s", PMA_Util::backquote($db),
                 PMA_Util::backquote($table)
             )
         );
+
+        // Check for any error.
+        if ($error = $GLOBALS['dbi']->getError()) {
+            return array($error, '');
+        }
+
         if ($result) {
             while ($row = $GLOBALS['dbi']->fetchRow($result)) {
                 $col_as = $this->getAlias($aliases, $row[0], 'col', $db, $table);
@@ -379,7 +394,11 @@ class ExportCodegen extends ExportPlugin
         }
         $lines[] = '    </class>';
         $lines[] = '</hibernate-mapping>';
-        return implode($crlf, $lines);
+
+        return array(
+            $error,
+            implode($crlf, $lines)
+        );
     }
 
 

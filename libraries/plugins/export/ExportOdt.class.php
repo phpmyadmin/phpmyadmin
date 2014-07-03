@@ -141,37 +141,37 @@ class ExportOdt extends ExportPlugin
     /**
      * Outputs export header
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and header
      */
     public function exportHeader ()
     {
+        $error = false;
         $GLOBALS['odt_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
             . '<office:document-content '
                 . $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
             . '<office:body>'
             . '<office:text>';
-        return true;
+        return array($error, '');
     }
 
     /**
      * Outputs export footer
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and footer
      */
     public function exportFooter ()
     {
+        $error = false;
         $GLOBALS['odt_buffer'] .= '</office:text>'
             . '</office:body>'
             . '</office:document-content>';
-        if (! PMA_exportOutputHandler(
+        return array(
+            $error,
             PMA_createOpenDocument(
                 'application/vnd.oasis.opendocument.text',
                 $GLOBALS['odt_buffer']
             )
-        )) {
-            return false;
-        }
-        return true;
+        );
     }
 
     /**
@@ -180,7 +180,7 @@ class ExportOdt extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB header
      */
     public function exportDBHeader ($db, $db_alias = '')
     {
@@ -192,7 +192,7 @@ class ExportOdt extends ExportPlugin
                 . ' text:is-list-header="true">'
             . __('Database') . ' ' . htmlspecialchars($db_alias)
             . '</text:h>';
-        return true;
+        return '';
     }
 
     /**
@@ -200,11 +200,11 @@ class ExportOdt extends ExportPlugin
      *
      * @param string $db Database name
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and DB footer
      */
     public function exportDBFooter ($db)
     {
-        return true;
+        return array(false, '');
     }
 
     /**
@@ -213,11 +213,11 @@ class ExportOdt extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB CREATE statement
      */
     public function exportDBCreate($db, $db_alias = '')
     {
-        return true;
+        return '';
     }
     /**
      * Outputs the content of a table in NHibernate format
@@ -229,7 +229,7 @@ class ExportOdt extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      * @param array  $aliases   Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and table's data
      */
     public function exportData(
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
@@ -238,11 +238,17 @@ class ExportOdt extends ExportPlugin
 
         $db_alias = $db;
         $table_alias = $table;
+        $error = false;
         $this->initAlias($aliases, $db_alias, $table_alias);
         // Gets the data from the database
-        $result = $GLOBALS['dbi']->query(
+        $result = $GLOBALS['dbi']->tryQuery(
             $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
         );
+
+        if ($error = $GLOBALS['dbi']->getError()) {
+            return array($error, '');
+        }
+
         $fields_cnt = $GLOBALS['dbi']->numFields($result);
         $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
         $field_flags = array();
@@ -325,7 +331,7 @@ class ExportOdt extends ExportPlugin
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
 
-        return true;
+        return '';
     }
 
     /**
@@ -387,7 +393,7 @@ class ExportOdt extends ExportPlugin
         } // end foreach
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
-        return true;
+        return '';
     }
 
     /**
@@ -410,7 +416,7 @@ class ExportOdt extends ExportPlugin
      * @param bool   $view          whether we're handling a view
      * @param array  $aliases       Aliases of db/table/columns
      *
-     * @return bool true
+     * @return array Error (if any) and table's definition
      */
     public function getTableDef(
         $db,
@@ -429,6 +435,7 @@ class ExportOdt extends ExportPlugin
 
         $db_alias = $db;
         $table_alias = $table;
+        $error = false;
         $this->initAlias($aliases, $db_alias, $table_alias);
         /**
          * Gets fields properties
@@ -566,7 +573,12 @@ class ExportOdt extends ExportPlugin
         } // end foreach
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
-        return true;
+
+        if ($error = $GLOBALS['dbi']->getError()) {
+            return array($error, '');
+        }
+
+        return array($error, '');
     } // end of the '$this->getTableDef()' function
 
     /**
@@ -576,7 +588,7 @@ class ExportOdt extends ExportPlugin
      * @param string $table   table name
      * @param array  $aliases Aliases of db/table/columns
      *
-     * @return bool true
+     * @return string formatted triggers data
      */
     protected function getTriggers($db, $table, $aliases = array())
     {
@@ -630,7 +642,7 @@ class ExportOdt extends ExportPlugin
         }
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
-        return true;
+        return '';
     }
 
     /**
@@ -653,7 +665,7 @@ class ExportOdt extends ExportPlugin
      * @param bool   $dates       whether to include creation/update/check dates
      * @param array  $aliases     Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and table's structure
      */
     public function exportStructure(
         $db,
@@ -670,6 +682,7 @@ class ExportOdt extends ExportPlugin
     ) {
         $db_alias = $db;
         $table_alias = $table;
+        $error = false;
         $this->initAlias($aliases, $db_alias, $table_alias);
         switch($export_mode) {
         case 'create_table':
@@ -679,10 +692,14 @@ class ExportOdt extends ExportPlugin
                 . __('Table structure for table') . ' ' .
                 htmlspecialchars($table_alias)
                 . '</text:h>';
-            $this->getTableDef(
+            list($error, $table_def) = $this->getTableDef(
                 $db, $table, $crlf, $error_url, $do_relation, $do_comments,
                 $do_mime, $dates, true, false, $aliases
             );
+
+            if ($error) {
+                return array($error, '');
+            }
             break;
         case 'triggers':
             $triggers = $GLOBALS['dbi']->getTriggers($db, $table, $aliases);
@@ -703,10 +720,14 @@ class ExportOdt extends ExportPlugin
                 . __('Structure for view') . ' '
                 . htmlspecialchars($table_alias)
                 . '</text:h>';
-            $this->getTableDef(
+            list($error, $table_def) = $this->getTableDef(
                 $db, $table, $crlf, $error_url, $do_relation, $do_comments,
                 $do_mime, $dates, true, true, $aliases
             );
+
+            if ($error) {
+                return array($error, '');
+            }
             break;
         case 'stand_in':
             $GLOBALS['odt_buffer'] .=
@@ -719,7 +740,7 @@ class ExportOdt extends ExportPlugin
             $this->getTableDefStandIn($db, $table, $crlf, $aliases);
         } // end switch
 
-        return true;
+        return array($error, '');
     } // end of the '$this->exportStructure' function
 
     /**

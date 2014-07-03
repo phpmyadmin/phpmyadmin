@@ -72,27 +72,27 @@ class ExportJson extends ExportPlugin
     /**
      * Outputs export header
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and header
      */
     public function exportHeader ()
     {
-        PMA_exportOutputHandler(
+        return array(
+            false,
             '/**' . $GLOBALS['crlf']
             . ' Export to JSON plugin for PHPMyAdmin' . $GLOBALS['crlf']
             . ' @version 0.1' . $GLOBALS['crlf']
             . ' */' . $GLOBALS['crlf'] . $GLOBALS['crlf']
         );
-        return true;
     }
 
     /**
      * Outputs export footer
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and footer
      */
     public function exportFooter ()
     {
-        return true;
+        return '';
     }
 
     /**
@@ -101,17 +101,15 @@ class ExportJson extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB header
      */
     public function exportDBHeader ($db, $db_alias = '')
     {
         if (empty($db_alias)) {
             $db_alias = $db;
         }
-        PMA_exportOutputHandler(
-            '// Database \'' . $db_alias . '\'' . $GLOBALS['crlf']
-        );
-        return true;
+
+        return '// Database \'' . $db_alias . '\'' . $GLOBALS['crlf'];
     }
 
     /**
@@ -119,11 +117,11 @@ class ExportJson extends ExportPlugin
      *
      * @param string $db Database name
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and DB footer
      */
     public function exportDBFooter ($db)
     {
-        return true;
+        return array(false, '');
     }
 
     /**
@@ -132,11 +130,11 @@ class ExportJson extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB CREATE statement
      */
     public function exportDBCreate($db, $db_alias = '')
     {
-        return true;
+        return '';
     }
 
     /**
@@ -149,18 +147,25 @@ class ExportJson extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      * @param array  $aliases   Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and table's data
      */
     public function exportData(
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
     ) {
         $db_alias = $db;
         $table_alias = $table;
+        $export_data = '';
+        $error = false;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        $result = $GLOBALS['dbi']->query(
+        $result = $GLOBALS['dbi']->tryQuery(
             $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
         );
+
+        if ($error = $GLOBALS['dbi']->getError()) {
+            return array($error, '');
+        }
+
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
 
         $columns = array();
@@ -187,9 +192,7 @@ class ExportJson extends ExportPlugin
                 $buffer = ', ';
             }
 
-            if (! PMA_exportOutputHandler($buffer)) {
-                return false;
-            }
+            $export_data .= $buffer;
 
             $data = array();
 
@@ -197,19 +200,15 @@ class ExportJson extends ExportPlugin
                 $data[$columns[$i]] = $record[$i];
             }
 
-            if (! PMA_exportOutputHandler(json_encode($data))) {
-                return false;
-            }
+            $export_data .= json_encode($data);
         }
 
         if ($record_cnt) {
-            if (! PMA_exportOutputHandler(']' . $crlf)) {
-                return false;
-            }
+            $export_data .= ']' . $crlf;
         }
 
         $GLOBALS['dbi']->freeResult($result);
-        return true;
+        return array($error, $export_data);
     }
 }
 ?>

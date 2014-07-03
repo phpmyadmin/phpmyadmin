@@ -191,12 +191,13 @@ class ExportLatex extends ExportPlugin
     /**
      * Outputs export header
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and Header
      */
     public function exportHeader ()
     {
         global $crlf;
         global $cfg;
+        $error = false;
 
         $head = '% phpMyAdmin LaTeX Dump' . $crlf
             . '% version ' . PMA_VERSION . $crlf
@@ -211,17 +212,18 @@ class ExportLatex extends ExportPlugin
             . PMA_Util::localisedDate() . $crlf
             . '% ' . __('Server version:') . ' ' . PMA_MYSQL_STR_VERSION . $crlf
             . '% ' . __('PHP Version:') . ' ' . phpversion() . $crlf;
-        return PMA_exportOutputHandler($head);
+
+        return array($error, $head);
     }
 
     /**
      * Outputs export footer
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and DB footer
      */
     public function exportFooter ()
     {
-        return true;
+        return array(false, '');
     }
 
     /**
@@ -230,7 +232,7 @@ class ExportLatex extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB header
      */
     public function exportDBHeader ($db, $db_alias = '')
     {
@@ -241,7 +243,7 @@ class ExportLatex extends ExportPlugin
         $head = '% ' . $crlf
             . '% ' . __('Database:') . ' ' . '\'' . $db_alias . '\'' . $crlf
             . '% ' . $crlf;
-        return PMA_exportOutputHandler($head);
+        return $head;
     }
 
     /**
@@ -249,11 +251,11 @@ class ExportLatex extends ExportPlugin
      *
      * @param string $db Database name
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and DB footer
      */
     public function exportDBFooter ($db)
     {
-        return true;
+        return array(false, '');
     }
 
     /**
@@ -262,11 +264,11 @@ class ExportLatex extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB CREATE statement
      */
     public function exportDBCreate($db, $db_alias = '')
     {
-        return true;
+        return '';
     }
 
     /**
@@ -279,18 +281,24 @@ class ExportLatex extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      * @param array  $aliases   Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and table's data
      */
     public function exportData(
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
     ) {
         $db_alias = $db;
         $table_alias = $table;
+        $error = false;
+        $export_data = '';
         $this->initAlias($aliases, $db_alias, $table_alias);
 
         $result      = $GLOBALS['dbi']->tryQuery(
             $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
         );
+
+        if ($error = $GLOBALS['dbi']->getError()) {
+            return array($error, '');
+        }
 
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
         $columns = array();
@@ -331,9 +339,7 @@ class ExportLatex extends ExportPlugin
                 )
                 . '} \\\\';
         }
-        if (! PMA_exportOutputHandler($buffer)) {
-            return false;
-        }
+        $export_data .= $buffer;
 
         // show column names
         if (isset($GLOBALS['latex_columns'])) {
@@ -344,12 +350,9 @@ class ExportLatex extends ExportPlugin
             }
 
             $buffer = substr($buffer, 0, -2) . '\\\\ \\hline \hline ';
-            if (! PMA_exportOutputHandler($buffer . ' \\endfirsthead ' . $crlf)) {
-                return false;
-            }
+            $export_data .= $buffer . ' \\endfirsthead ' . $crlf;
             if (isset($GLOBALS['latex_caption'])) {
-                if (! PMA_exportOutputHandler(
-                    '\\caption{'
+                $export_data .= '\\caption{'
                     . PMA_Util::expandUserString(
                         $GLOBALS['latex_data_continued_caption'],
                         array(
@@ -360,18 +363,11 @@ class ExportLatex extends ExportPlugin
                         ),
                         array('table' => $table_alias, 'database' => $db_alias)
                     )
-                    . '} \\\\ '
-                )) {
-                    return false;
-                }
+                    . '} \\\\ ';
             }
-            if (! PMA_exportOutputHandler($buffer . '\\endhead \\endfoot' . $crlf)) {
-                return false;
-            }
+            $export_data .= $buffer . '\\endhead \\endfoot' . $crlf;
         } else {
-            if (! PMA_exportOutputHandler('\\\\ \hline')) {
-                return false;
-            }
+            $export_data .= '\\\\ \hline';
         }
 
         // print the whole table
@@ -398,18 +394,14 @@ class ExportLatex extends ExportPlugin
                 }
             }
             $buffer .= ' \\\\ \\hline ' . $crlf;
-            if (! PMA_exportOutputHandler($buffer)) {
-                return false;
-            }
+            $export_data .= $buffer;
         }
 
         $buffer = ' \\end{longtable}' . $crlf;
-        if (! PMA_exportOutputHandler($buffer)) {
-            return false;
-        }
+        $export_data .= $buffer;
 
         $GLOBALS['dbi']->freeResult($result);
-        return true;
+        return array($error, $export_data);
     } // end getTableLaTeX
 
     /**
@@ -433,7 +425,7 @@ class ExportLatex extends ExportPlugin
      * @param bool   $dates       whether to include creation/update/check dates
      * @param array  $aliases     Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and table's structure
      */
     public function exportStructure(
         $db,
@@ -450,13 +442,15 @@ class ExportLatex extends ExportPlugin
     ) {
         $db_alias = $db;
         $table_alias = $table;
+        $export_data = '';
+        $error = false;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
         global $cfgRelation;
 
         /* We do not export triggers */
         if ($export_mode == 'triggers') {
-            return true;
+            return '';
         }
 
         /**
@@ -495,9 +489,7 @@ class ExportLatex extends ExportPlugin
          */
         $buffer      = $crlf . '%' . $crlf . '% ' . __('Structure:') . ' '
             . $table_alias . $crlf . '%' . $crlf . ' \\begin{longtable}{';
-        if (! PMA_exportOutputHandler($buffer)) {
-            return false;
-        }
+        $export_data .= $buffer;
 
         $columns_cnt = 4;
         $alignment = '|l|c|c|c|';
@@ -570,9 +562,7 @@ class ExportLatex extends ExportPlugin
         }
         $buffer .= $header . ' \\\\ \\hline \\hline \\endhead \\endfoot ' . $crlf;
 
-        if (! PMA_exportOutputHandler($buffer)) {
-            return false;
-        }
+        $export_data .= $buffer;
 
         $fields = $GLOBALS['dbi']->getColumns($db, $table);
         foreach ($fields as $row) {
@@ -639,13 +629,11 @@ class ExportLatex extends ExportPlugin
             $buffer = str_replace("\000", ' & ', $local_buffer);
             $buffer .= ' \\\\ \\hline ' . $crlf;
 
-            if (! PMA_exportOutputHandler($buffer)) {
-                return false;
-            }
+            $export_data .= $buffer;
         } // end while
 
         $buffer = ' \\end{longtable}' . $crlf;
-        return PMA_exportOutputHandler($buffer);
+        return array($error, $buffer);
     } // end of the 'exportStructure' method
 
     /**

@@ -278,10 +278,11 @@ class PMA_ExportPdf extends PMA_PDF
      *
      * @param string $query Query to execute
      *
-     * @return void
+     * @return bool
      */
     function mysqlReport($query)
     {
+        $error = false;
         unset($this->tablewidths);
         unset($this->colTitles);
         unset($this->titleWidth);
@@ -292,9 +293,13 @@ class PMA_ExportPdf extends PMA_PDF
         /**
          * Pass 1 for column widths
          */
-        $this->results = $GLOBALS['dbi']->query(
+        $this->results = $GLOBALS['dbi']->tryQuery(
             $query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
         );
+
+        if ($error = $GLOBALS['dbi']->getError()) {
+            return $error;
+        }
         $this->numFields  = $GLOBALS['dbi']->numFields($this->results);
         $this->fields = $GLOBALS['dbi']->getFieldsMeta($this->results);
 
@@ -419,14 +424,21 @@ class PMA_ExportPdf extends PMA_PDF
 
         // Pass 2
 
-        $this->results = $GLOBALS['dbi']->query(
+        $this->results = $GLOBALS['dbi']->tryQuery(
             $query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
         );
+
+        if ($error = $GLOBALS['dbi']->getError()) {
+            return $error;
+        }
+
         $this->setY($this->tMargin);
         $this->AddPage();
         $this->SetFont(PMA_PDF_FONT, '', 9);
         $this->morepagestable($this->FontSizePt);
         $GLOBALS['dbi']->freeResult($this->results);
+
+        return $error;
 
     } // end of mysqlReport function
 

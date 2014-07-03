@@ -461,13 +461,15 @@ function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
  * @param bool   $do_dates        whether to add dates
  * @param array  $aliases         Alias information for db/table/column
  *
- * @return void
+ * @return array
  */
 function PMA_exportServer(
     $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
     $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
     $aliases
 ) {
+    $server_export = '';
+    $error = false;
     if (! empty($db_select)) {
         $tmp_select = implode($db_select, '|');
         $tmp_select = '|' . $tmp_select . '|';
@@ -478,13 +480,21 @@ function PMA_exportServer(
             && strpos(' ' . $tmp_select, '|' . $current_db . '|')
         ) {
             $tables = $GLOBALS['dbi']->getTables($current_db);
-            PMA_exportDatabase(
+            list($error, $db_export) = PMA_exportDatabase(
                 $current_db, $tables, $whatStrucOrData, $export_plugin, $crlf,
                 $err_url, $export_type, $do_relation, $do_comments, $do_mime,
                 $do_dates, $aliases
             );
+
+            if ($error) {
+                return array($error, '');
+            } else {
+                $server_export .= $db_export;
+            }
         }
     } // end foreach database
+
+    return array($error, $server_export);
 }
 
 /**
@@ -503,27 +513,32 @@ function PMA_exportServer(
  * @param bool   $do_dates        whether to add dates
  * @param array  $aliases         Alias information for db/table/column
  *
- * @return void
+ * @return array
  */
 function PMA_exportDatabase(
     $db, $tables, $whatStrucOrData, $export_plugin, $crlf, $err_url,
     $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
     $aliases
 ) {
+    $db_export = '';
+    $error = false;
     $db_alias = !empty($aliases[$db]['alias'])
         ? $aliases[$db]['alias'] : '';
-    if (! $export_plugin->exportDBHeader($db, $db_alias)) {
-        return;
-    }
-    if (! $export_plugin->exportDBCreate($db, $db_alias)) {
-        return;
-    }
+    $db_export .= $export_plugin->exportDBHeader($db, $db_alias);
+
+    $db_export .= $export_plugin->exportDBCreate($db, $db_alias);
 
     if (method_exists($export_plugin, 'exportRoutines')
         && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false
         && isset($GLOBALS['sql_procedure_function'])
     ) {
-        $export_plugin->exportRoutines($db, $aliases);
+        list($error, $routines) = $export_plugin->exportRoutines($db, $aliases);
+
+        if ($error) {
+            return array($error, '');
+        } else {
+            $db_export .= $routines;
+        }
     }
 
     $views = array();
@@ -544,12 +559,16 @@ function PMA_exportDatabase(
             if ($is_view) {
 
                 if (isset($GLOBALS['sql_create_view'])) {
-                    if (! $export_plugin->exportStructure(
+                    list($error, $structure_data) = $export_plugin->exportStructure(
                         $db, $table, $crlf, $err_url, 'stand_in',
                         $export_type, $do_relation, $do_comments,
                         $do_mime, $do_dates, $aliases
-                    )) {
-                        break 1;
+                    );
+
+                    if ($error) {
+                        return array(__('Error exporting structure:') . $error, '');
+                    } else {
+                        $db_export .= $structure_data;
                     }
                 }
 
@@ -566,6 +585,11 @@ function PMA_exportDatabase(
                           AND table_name = "' . $table . '"';
 
                     $size = $GLOBALS['dbi']->fetchValue($query);
+
+                    // Check for any error.
+                    if ($error = $GLOBALS['dbi']->getError()) {
+                        return array($error, '');
+                    }
                     //Converting the size to MB
                     $size = ($size / 1024) / 1024;
                     if ($size > $table_size) {
@@ -573,14 +597,17 @@ function PMA_exportDatabase(
                     }
                 }
 
-                if (! $export_plugin->exportStructure(
+                list($error, $structure_data) = $export_plugin->exportStructure(
                     $db, $table, $crlf, $err_url, 'create_table',
                     $export_type, $do_relation, $do_comments,
                     $do_mime, $do_dates, $aliases
-                )) {
-                    break 1;
-                }
+                );
 
+                if ($error) {
+                    return array(__('Error exporting structure:') . $error, '');
+                } else {
+                    $db_export .= $structure_data;
+                }
             }
 
         }
@@ -591,10 +618,14 @@ function PMA_exportDatabase(
         ) {
             $local_query  = 'SELECT * FROM ' . PMA_Util::backquote($db)
                 . '.' . PMA_Util::backquote($table);
-            if (! $export_plugin->exportData(
+            list($error, $export_data) = $export_plugin->exportData(
                 $db, $table, $crlf, $err_url, $local_query, $aliases
-            )) {
-                break 1;
+            );
+
+            if ($error) {
+                return array(__('Error reading data:') . $error, '');
+            } else {
+                $db_export .= $export_data;
             }
         }
         // now export the triggers (needs to be done after the data because
@@ -602,12 +633,16 @@ function PMA_exportDatabase(
         if (isset($GLOBALS['sql_create_trigger']) && ($whatStrucOrData == 'structure'
             || $whatStrucOrData == 'structure_and_data')
         ) {
-            if (! $export_plugin->exportStructure(
+            list($error, $structure_data) = $export_plugin->exportStructure(
                 $db, $table, $crlf, $err_url, 'triggers',
                 $export_type, $do_relation, $do_comments,
                 $do_mime, $do_dates, $aliases
-            )) {
-                break 1;
+            );
+
+            if ($error) {
+                return array(__('Error exporting structure:') . $error, '');
+            } else {
+                $db_export .= $structure_data;
             }
         }
     }
@@ -619,21 +654,31 @@ function PMA_exportDatabase(
             if ($whatStrucOrData == 'structure'
                 || $whatStrucOrData == 'structure_and_data'
             ) {
-                if (! $export_plugin->exportStructure(
+                list($error, $structure_data) = $export_plugin->exportStructure(
                     $db, $view, $crlf, $err_url, 'create_view',
                     $export_type, $do_relation, $do_comments,
                     $do_mime, $do_dates, $aliases
-                )) {
-                    break 1;
+                );
+
+                if ($error) {
+                    return array(__('Error exporting structure:') . $error, '');
+                } else {
+                    $db_export .= $structure_data;
                 }
             }
         }
 
     }
 
-    if (! $export_plugin->exportDBFooter($db, $db_alias)) {
-        return;
+    list($error, $db_footer) = $export_plugin->exportDBFooter($db, $db_alias);
+
+    if ($error) {
+        return array($error, '');
+    } else {
+        $db_export .= $db_footer;
     }
+
+    return array($error, $db_export);
 }
 
 /**
@@ -656,18 +701,19 @@ function PMA_exportDatabase(
  * @param string $sql_query       query for which exporting is requested
  * @param array  $aliases         Alias information for db/table/column
  *
- * @return void
+ * @return array
  */
 function PMA_exportTable(
     $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
     $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
     $allrows, $limit_to, $limit_from, $sql_query, $aliases
 ) {
+    $table_export = '';
+    $error = false;
     $db_alias = !empty($aliases[$db]['alias'])
         ? $aliases[$db]['alias'] : '';
-    if (! $export_plugin->exportDBHeader($db, $db_alias)) {
-        return;
-    }
+    $table_export .= $export_plugin->exportDBHeader($db, $db_alias);
+
     if (isset($allrows)
         && $allrows == '0'
         && $limit_to > 0
@@ -688,25 +734,34 @@ function PMA_exportTable(
         if ($is_view) {
 
             if (isset($GLOBALS['sql_create_view'])) {
-                if (! $export_plugin->exportStructure(
+                list($error, $table_structure) = $export_plugin->exportStructure(
                     $db, $table, $crlf, $err_url, 'create_view',
                     $export_type, $do_relation, $do_comments,
                     $do_mime, $do_dates, $aliases
-                )) {
-                    return;
+                );
+
+                // Check for any error.
+                if ($error) {
+                    return array(__('Error exporting structure:') . $error, '');
+                } else {
+                    $table_export .= $table_structure;
                 }
             }
 
         } else if (isset($GLOBALS['sql_create_table'])) {
 
-            if (! $export_plugin->exportStructure(
+            list($error, $table_structure) = $export_plugin->exportStructure(
                 $db, $table, $crlf, $err_url, 'create_table',
                 $export_type, $do_relation, $do_comments,
                 $do_mime, $do_dates, $aliases
-            )) {
-                return;
-            }
+            );
 
+            // Check for any error.
+            if ($error) {
+                return array($error, '');
+            } else {
+                $table_export .= $table_structure;
+            }
         }
 
     }
@@ -729,10 +784,15 @@ function PMA_exportTable(
             $local_query  = 'SELECT * FROM ' . PMA_Util::backquote($db)
                 . '.' . PMA_Util::backquote($table) . $add_query;
         }
-        if (! $export_plugin->exportData(
+        list($error, $table_data) = $export_plugin->exportData(
             $db, $table, $crlf, $err_url, $local_query, $aliases
-        )) {
-            return;
+        );
+
+        // Check for any error.
+        if ($error) {
+            return array(__('Error reading data:') . $error, '');
+        } else {
+            $table_export .= $table_data;
         }
     }
     // now export the triggers (needs to be done after the data because
@@ -740,17 +800,30 @@ function PMA_exportTable(
     if (isset($GLOBALS['sql_create_trigger']) && ($whatStrucOrData == 'structure'
         || $whatStrucOrData == 'structure_and_data')
     ) {
-        if (! $export_plugin->exportStructure(
+        list($error, $trigger_data) = $export_plugin->exportStructure(
             $db, $table, $crlf, $err_url, 'triggers',
             $export_type, $do_relation, $do_comments,
             $do_mime, $do_dates, $aliases
-        )) {
-            return;
+        );
+
+        // Check for any error.
+        if ($error) {
+            return array(__('Error exporting structure:') . $error, '');
+        } else {
+            $table_export .= $trigger_data;
         }
     }
-    if (! $export_plugin->exportDBFooter($db, $db_alias)) {
-        return;
+
+    list($error, $table_footer) = $export_plugin->exportDBFooter($db, $db_alias);
+
+    // Check for any error.
+    if ($error) {
+        return array($error, '');
+    } else {
+        $table_export .= $table_footer;
     }
+
+    return array($error, $table_export);
 }
 
 /**

@@ -100,21 +100,21 @@ class ExportMediawiki extends ExportPlugin
     /**
      * Outputs export header
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and header
      */
     public function exportHeader ()
     {
-        return true;
+        return array(false, '');
     }
 
     /**
      * Outputs export footer
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and footer
      */
     public function exportFooter ()
     {
-        return true;
+        return array(false, '');
     }
 
     /**
@@ -123,11 +123,11 @@ class ExportMediawiki extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Alias of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB header
      */
     public function exportDBHeader ($db, $db_alias = '')
     {
-        return true;
+        return '';
     }
 
     /**
@@ -135,11 +135,11 @@ class ExportMediawiki extends ExportPlugin
      *
      * @param string $db Database name
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and DB footer
      */
     public function exportDBFooter ($db)
     {
-        return true;
+        return array(false, '');
     }
 
     /**
@@ -148,11 +148,11 @@ class ExportMediawiki extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Alias of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB CREATE statement
      */
     public function exportDBCreate($db, $db_alias = '')
     {
-        return true;
+        return '';
     }
 
     /**
@@ -176,7 +176,7 @@ class ExportMediawiki extends ExportPlugin
      * @param bool   $dates       whether to include creation/update/check dates
      * @param array  $aliases     Aliases of db/table/columns
      *
-     * @return bool               Whether it succeeded
+     * @return array Error (if any) and table's structure
      */
     public function exportStructure(
         $db,
@@ -193,6 +193,7 @@ class ExportMediawiki extends ExportPlugin
     ) {
         $db_alias = $db;
         $table_alias = $table;
+        $error = false;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
         $output = '';
@@ -262,7 +263,7 @@ class ExportMediawiki extends ExportPlugin
             break;
         } // end switch
 
-        return PMA_exportOutputHandler($output);
+        return array($error, $output);
     }
 
     /**
@@ -275,7 +276,7 @@ class ExportMediawiki extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      * @param array  $aliases   Aliases of db/table/columns
      *
-     * @return bool             Whether it succeeded
+     * @return array Error (if any) and table's data
      */
     public function exportData(
         $db,
@@ -287,6 +288,7 @@ class ExportMediawiki extends ExportPlugin
     ) {
         $db_alias = $db;
         $table_alias = $table;
+        $error = false;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
         // Print data comment
@@ -328,9 +330,13 @@ class ExportMediawiki extends ExportPlugin
         }
 
         // Get the table data from the database
-        $result = $GLOBALS['dbi']->query(
+        $result = $GLOBALS['dbi']->tryQuery(
             $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
         );
+
+        if ($error = $GLOBALS['dbi']->getError()) {
+            return array($error, '');
+        }
         $fields_cnt = $GLOBALS['dbi']->numFields($result);
 
         while ($row = $GLOBALS['dbi']->fetchRow($result)) {
@@ -344,7 +350,7 @@ class ExportMediawiki extends ExportPlugin
 
         // End table construction
         $output .= "|}" . str_repeat($this->_exportCRLF(), 2);
-        return PMA_exportOutputHandler($output);
+        return array($error, $output);
     }
 
     /**

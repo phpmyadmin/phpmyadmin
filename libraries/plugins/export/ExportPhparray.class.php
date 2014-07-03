@@ -72,28 +72,28 @@ class ExportPhparray extends ExportPlugin
     /**
      * Outputs export header
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and header
      */
     public function exportHeader ()
     {
-        PMA_exportOutputHandler(
+        return array(
+            false,
             '<?php' . $GLOBALS['crlf']
             . '/**' . $GLOBALS['crlf']
             . ' * Export to PHP Array plugin for PHPMyAdmin' . $GLOBALS['crlf']
             . ' * @version 0.2b' . $GLOBALS['crlf']
             . ' */' . $GLOBALS['crlf'] . $GLOBALS['crlf']
         );
-        return true;
     }
 
     /**
      * Outputs export footer
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and footer
      */
     public function exportFooter ()
     {
-        return true;
+        return array(false, '');
     }
 
     /**
@@ -102,19 +102,16 @@ class ExportPhparray extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB header
      */
     public function exportDBHeader ($db, $db_alias = '')
     {
         if (empty($db_alias)) {
             $db_alias = $db;
         }
-        PMA_exportOutputHandler(
-            '//' . $GLOBALS['crlf']
+        return '//' . $GLOBALS['crlf']
             . '// Database ' . PMA_Util::backquote($db_alias)
-            . $GLOBALS['crlf'] . '//' . $GLOBALS['crlf']
-        );
-        return true;
+            . $GLOBALS['crlf'] . '//' . $GLOBALS['crlf'];
     }
 
     /**
@@ -122,11 +119,11 @@ class ExportPhparray extends ExportPlugin
      *
      * @param string $db Database name
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and DB footer
      */
     public function exportDBFooter ($db)
     {
-        return true;
+        return array(false, '');
     }
 
     /**
@@ -135,11 +132,11 @@ class ExportPhparray extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB CREATE statement
      */
     public function exportDBCreate($db, $db_alias = '')
     {
-        return true;
+        return '';
     }
 
     /**
@@ -152,18 +149,23 @@ class ExportPhparray extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      * @param array  $aliases   Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and table's data
      */
     public function exportData(
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
     ) {
         $db_alias = $db;
         $table_alias = $table;
+        $error = false;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        $result = $GLOBALS['dbi']->query(
+        $result = $GLOBALS['dbi']->tryQuery(
             $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
         );
+
+        if ($error = $GLOBALS['dbi']->getError()) {
+            return array($error, '');
+        }
 
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
         $columns = array();
@@ -222,12 +224,10 @@ class ExportPhparray extends ExportPlugin
         }
 
         $buffer .= $crlf . ');' . $crlf;
-        if (! PMA_exportOutputHandler($buffer)) {
-            return false;
-        }
 
         $GLOBALS['dbi']->freeResult($result);
-        return true;
+
+        return array($error, $buffer);
     }
 }
 ?>

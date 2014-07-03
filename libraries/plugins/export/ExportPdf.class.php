@@ -123,10 +123,11 @@ class ExportPdf extends ExportPlugin
     /**
      * Outputs export header
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and header
      */
     public function exportHeader ()
     {
+        $error = false;
         $pdf_report_title = $this->_getPdfReportTitle();
         $pdf = $this->_getPdf();
         $pdf->Open();
@@ -135,24 +136,21 @@ class ExportPdf extends ExportPlugin
         $pdf->setAttributes($attr);
         $pdf->setTopMargin(30);
 
-        return true;
+        return array($error, '');
     }
 
     /**
      * Outputs export footer
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and footer
      */
     public function exportFooter ()
     {
+        $error = false;
         $pdf = $this->_getPdf();
 
         // instead of $pdf->Output():
-        if (! PMA_exportOutputHandler($pdf->getPDFData())) {
-            return false;
-        }
-
-        return true;
+        return array($error, $pdf->getPDFData());
     }
 
     /**
@@ -161,11 +159,11 @@ class ExportPdf extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB header
      */
     public function exportDBHeader ($db, $db_alias = '')
     {
-        return true;
+        return '';
     }
 
     /**
@@ -173,11 +171,11 @@ class ExportPdf extends ExportPlugin
      *
      * @param string $db Database name
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and DB footer
      */
     public function exportDBFooter ($db)
     {
-        return true;
+        return array(false, '');
     }
 
     /**
@@ -186,11 +184,11 @@ class ExportPdf extends ExportPlugin
      * @param string $db       Database name
      * @param string $db_alias Aliases of db
      *
-     * @return bool Whether it succeeded
+     * @return string DB CREATE statement
      */
     public function exportDBCreate($db, $db_alias = '')
     {
-        return true;
+        return '';
     }
     /**
      * Outputs the content of a table in NHibernate format
@@ -202,11 +200,12 @@ class ExportPdf extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      * @param array  $aliases   Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return array Error (if any) and table's data
      */
     public function exportData(
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
     ) {
+        $error = false;
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
@@ -218,9 +217,12 @@ class ExportPdf extends ExportPlugin
             'aliases' => $aliases
         );
         $pdf->setAttributes($attr);
-        $pdf->mysqlReport($sql_query);
 
-        return true;
+        if ($error = $pdf->mysqlReport($sql_query)) {
+            return array($error, '');
+        }
+
+        return array($error, '');
     } // end of the 'PMA_exportData()' function
 
 
