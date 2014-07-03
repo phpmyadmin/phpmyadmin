@@ -128,7 +128,7 @@ function PMA_getHtmlFor1NFStep1($db, $table)
         . "<div id='extra'>"
         . "<select id='selectNonAtomicCol' name='makeAtomic'>"
         . '<option selected="selected" disabled="disabled">'
-        . __('Select one ...') . "</option>" .
+        . __('Select one…') . "</option>" .
         "<option value='no_such_col'>" . __('No such column') . "</option>" .
         PMA_getHtmlForColumnsList($db, $table, 'string') .
         "</select>"
