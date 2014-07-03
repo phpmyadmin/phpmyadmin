@@ -240,7 +240,7 @@ class ExportPdf extends ExportPlugin
     /**
      * Instantiates the PMA_ExportPdf class
      *
-     * @param string $pdf PMA_ExportPdf instance
+     * @param PMA_ExportPdf $pdf The instance
      *
      * @return void
      */

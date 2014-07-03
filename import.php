@@ -97,7 +97,7 @@ if (! empty($sql_query)) {
         '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
         $sql_query
     )) {
-        $ajax_reload['reload'] = true;
+        $ajax_reload = array('reload' => true);
     }
 
     // do a dynamic reload if table is RENAMED
@@ -107,8 +107,8 @@ if (! empty($sql_query)) {
         $sql_query,
         $rename_table_names
     )) {
+        $ajax_reload = array('reload' => true);
         $ajax_reload['table_name'] = PMA_Util::unQuote($rename_table_names[2]);
-        $ajax_reload['reload'] = true;
     }
 
     $sql_query = '';
@@ -299,6 +299,9 @@ if (! empty($id_bookmark)) {
             $import_text
         )
         ) {
+            if (! isset($ajax_reload)) {
+                $ajax_reload = array();
+            }
             $ajax_reload['reload'] = true;
         }
         break;

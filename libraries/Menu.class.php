@@ -20,7 +20,7 @@ class PMA_Menu
      * Server id
      *
      * @access private
-     * @var string
+     * @var int
      */
     private $_server;
     /**

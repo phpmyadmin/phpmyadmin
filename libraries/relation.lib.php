@@ -958,7 +958,7 @@ function PMA_getHistory($username)
      * history, use it
      */
     if (! $GLOBALS['cfg']['QueryHistoryDB']) {
-        if(isset($_SESSION['sql_history'])) {
+        if (isset($_SESSION['sql_history'])) {
             return array_reverse($_SESSION['sql_history']);
         }
         return false;

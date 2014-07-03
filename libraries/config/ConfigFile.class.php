@@ -66,7 +66,7 @@ class ConfigFile
 
     /**
      * Result for {@link _flattenArray()}
-     * @var array
+     * @var array|null
      */
     private $_flattenArrayResult;
 
