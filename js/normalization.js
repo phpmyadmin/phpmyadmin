@@ -81,8 +81,8 @@ function goToStep2(extra)
             $('.tblFooters').html('');
             if (data.hasPrimaryKey === "1") {
                 if(extra === 'goToStep3') {
-                    $("#mainContent h4").html(PMA_messages.uniqueColAdded);
-                    $("#mainContent p").html(PMA_messages.toNextStep);
+                    $("#mainContent h4").html(PMA_messages.strPrimaryKeyAdded);
+                    $("#mainContent p").html(PMA_messages.strToNextStep);
                 }
                 if(extra === 'gotoFinish') {
                     goToFinish();
@@ -106,7 +106,7 @@ AJAX.registerTeardown('normalization.js', function () {
     $("#extra").off("click", "#addNewPrimary");
     $(".tblFooters").off("click", "#saveNewPrimary");
     $("#extra").off("click", "#removeRedundant");
-    $("#mainContent p").off("click", "#createUniqueColumns");
+    $("#mainContent p").off("click", "#createPrimaryKey");
 });
 
 AJAX.registerOnload('normalization.js', function() {
@@ -215,8 +215,8 @@ AJAX.registerOnload('normalization.js', function() {
         datastring += "&field_key[0]=primary_0&ajax_request=1&do_save_data=1&field_where=last";
         $.post("tbl_addfield.php", datastring, function(data) {
             if (data.success === true) {
-                $("#mainContent h4").html(PMA_messages.uniqueColAdded);
-                $("#mainContent p").html(PMA_messages.toNextStep);
+                $("#mainContent h4").html(PMA_messages.strPrimaryKeyAdded);
+                $("#mainContent p").html(PMA_messages.strToNextStep);
                 $("#mainContent #extra").html('');
                 $("#mainContent #newCols").html('');
                 $('.tblFooters').html('');
@@ -253,12 +253,20 @@ AJAX.registerOnload('normalization.js', function() {
             }
         );
     });
-    $("#mainContent p").on("click", "#createUniqueColumns", function(event) {
+
+    $("#mainContent p").on("click", "#createPrimaryKey", function(event) {
         event.preventDefault();
-        var url = 'create_index=1&server=' + PMA_commonParams.get('server')
-            + '&db='+PMA_commonParams.get('db')+'&table='+PMA_commonParams.get('table')+'&added_fields=1'
-            + '&token=' +PMA_commonParams.get('token')+'&ajax_request=true';
-        var title = PMA_messages.strAddUniqueIndex;
+        var url = { create_index: 1,
+            server:  PMA_commonParams.get('server'),
+            db: PMA_commonParams.get('db'),
+            table: PMA_commonParams.get('table'),
+            token: PMA_commonParams.get('token'),
+            added_fields: 1,
+            add_fields:1,
+            index: {Key_name:'PRIMARY'},
+            ajax_request: true
+        };
+        var title = PMA_messages.strAddPrimaryKey;
         indexEditorDialog(url, title, function(){
             //on success
             $("#sqlqueryresults").remove();

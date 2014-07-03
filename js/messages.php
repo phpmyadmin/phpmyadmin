@@ -301,9 +301,9 @@ $js_messages['makeConsistentMessage'] = __('This action may change some of the c
 $js_messages['strContinue'] = __('Continue');
 
 /** For normalization */
-$js_messages['strAddUniqueIndex'] = __('Add unique/primary index');
-$js_messages['uniqueColAdded'] = __('Unique column(s) added.');
-$js_messages['toNextStep'] = __('Taking you to next step…');
+$js_messages['strAddPrimaryKey'] = __('Add primary key');
+$js_messages['strPrimaryKeyAdded'] = __('Primary key added.');
+$js_messages['strToNextStep'] = __('Taking you to next step…');
 $js_messages['strFinishMsg'] = __("The first step of normalization is complete for table '%s'.");
 $js_messages['strEndStep'] = __("End of step");
 
