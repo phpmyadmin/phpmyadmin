@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-03 07:42-0400\n"
-"PO-Revision-Date: 2014-07-01 23:19+0200\n"
+"PO-Revision-Date: 2014-07-03 19:40+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -1808,10 +1808,9 @@ msgid "Add primary key"
 msgstr "Dodaj primarni ključ"
 
 #: js/messages.php:305
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "Na %s sem dodal primarni ključ."
+msgstr "Dodal sem primarni ključ."
 
 #: js/messages.php:306 libraries/normalization.lib.php:163
 msgid "Taking you to next step…"
@@ -2041,13 +2040,15 @@ msgstr "Povlecite za preureditev."
 
 #: js/messages.php:392
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Kliknite, da razvrstite rezultate po tem stolpcu."
 
 #: js/messages.php:393
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+CLick to remove column from ORDER BY clause"
 msgstr ""
+"Shift+klik, da dodate stolpec v stavek ORDER BY ali da preklopite ASC/DESC.<"
+"br />- Control+klik, da stolpec odstranite iz stavka ORDER BY"
 
 #: js/messages.php:394
 msgid "Click to mark/unmark."
@@ -2083,10 +2084,9 @@ msgstr ""
 "Prosimo, vnesite veljaven šestnajstiški niz. Veljavni znaki so 0–9, A–F."
 
 #: js/messages.php:404
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
-msgstr "Prekliči"
+msgstr "prekliči"
 
 #: js/messages.php:405 libraries/server_status.lib.php:261
 msgid "Aborted"
@@ -2094,31 +2094,27 @@ msgstr "Prekinjeno"
 
 #: js/messages.php:406
 msgid "Failed"
-msgstr ""
+msgstr "Spodletelo"
 
 #: js/messages.php:407
-#, fuzzy
 #| msgid "Success!"
 msgid "Success"
-msgstr "Uspešno!"
+msgstr "Uspešno"
 
 #: js/messages.php:408
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Privzete možnosti uvoza"
+msgstr "Stanje uvoza"
 
 #: js/messages.php:409 libraries/navigation/Navigation.class.php:102
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "Prag dnevniške datoteke"
+msgstr "Spustite datoteke tukaj"
 
 #: js/messages.php:410
-#, fuzzy
 #| msgid "Select database"
 msgid "Select database first"
-msgstr "Izberite zbirko podatkov"
+msgstr "Najprej izberite zbirko podatkov"
 
 #: js/messages.php:415
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2649,10 +2645,9 @@ msgid "Query failed"
 msgstr "Poizvedba je spodletela"
 
 #: libraries/Console.class.php:152
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Čas izvajanja poizvedbe"
+msgstr "Čas poizvedbe"
 
 #: libraries/Console.class.php:158
 msgid "SQL Query Console"
@@ -7688,7 +7683,7 @@ msgstr "Datoteka za uvoz:"
 
 #: libraries/display_import.lib.php:232 libraries/display_import.lib.php:243
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "Lahko tudi povlečete in spustite datoteko na katero koli stran."
 
 #: libraries/display_import.lib.php:246
 msgid "File uploads are not allowed on this server."
@@ -8742,12 +8737,13 @@ msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
+"Izberite stolpec, ki ga je možno razbiti v več kot enega (z izbiro »ni "
+"takšnega stolpca« se boste pomaknili na naslednji korak)."
 
 #: libraries/normalization.lib.php:131
-#, fuzzy
 #| msgid "Select one ..."
 msgid "Select one…"
-msgstr "Izberite enega ..."
+msgstr "Izberite enega …"
 
 #: libraries/normalization.lib.php:132 normalization.php:20
 msgid "No such column"
@@ -8758,37 +8754,36 @@ msgid "split into "
 msgstr "razbij v "
 
 #: libraries/normalization.lib.php:156
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
-msgstr "Dodaj primarni ključ"
+msgstr "Obstoj primarnega ključa"
 
 #: libraries/normalization.lib.php:162
-#, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "Napaka: razmerje že obstaja."
+msgstr "Primarni ključ že obstaja."
 
 #: libraries/normalization.lib.php:167
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
+"Ni primarnega ključa; prosimo, dodajte ga.<br/>Namig: Primarni ključ je "
+"stolpec (ali kombinacija stolpcev), ki enolično identificira vse vrstice."
 
 #: libraries/normalization.lib.php:174
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "Dodaj primarni ključ na obstoječih stolpcih"
 
 #: libraries/normalization.lib.php:179
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
-msgstr ""
+msgstr "Obstoječe kombinacije stolpcev ni mogoče uporabiti kot primarni ključ"
 
 #: libraries/normalization.lib.php:183
-#, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
-msgstr "Dodaj primarni ključ"
+msgstr "+ Dodaj nov stolpec primarnega ključa"
 
 #: libraries/normalization.lib.php:201
 msgid "Remove redundant columns"
@@ -8801,22 +8796,26 @@ msgid ""
 "then\n"
 "        combining first_name and last_name gives full_name which is redundant"
 msgstr ""
+"Imate skupino stolpcev, ki ob združitvi daje obstoječ\n"
+"        stolpec? Na primer, če imate ime, priimek in polno_ime, potem\n"
+"        združitev stolpcev ime in priimek da polno_ime, ki je odvečen"
 
 #: libraries/normalization.lib.php:209
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
+"Označite stolpce, ki so odvečni, in kliknite Odstrani. Če ni odvečnih "
+"stolpcev, kliknite »Ni odvečnih stolpcev«"
 
 #: libraries/normalization.lib.php:214
 msgid "Remove selected"
 msgstr "Odstrani izbrane"
 
 #: libraries/normalization.lib.php:215
-#, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
-msgstr "Dodaj stolpec"
+msgstr "Ni odvečnih stolpcev"
 
 #: libraries/normalization.lib.php:240
 msgid "Improve table structure (Normalization):"
@@ -8824,21 +8823,22 @@ msgstr "Izboljšaj strukturo tabele (normalizacija):"
 
 #: libraries/normalization.lib.php:241
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "Označite, do katere stopnje želite normalizirati"
 
 #: libraries/normalization.lib.php:244
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "Druga stopnja normalizacije (1NF+2NF)"
 
 #: libraries/normalization.lib.php:245
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "Tretja stopnja normalizacije (1NF+2NF+3NF)"
 
 #: libraries/normalization.lib.php:252
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
+"Namig: Prosimo, pozorno sledite postopku, da dosežete pravilno normalizacijo"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to:"
@@ -13356,7 +13356,7 @@ msgstr "Izberite enega ..."
 
 #: normalization.php:53
 msgid "Second/Third step of normalization"
-msgstr ""
+msgstr "Druga/tretja stopnja normalizacije"
 
 #: pmd_display_field.php:62 pmd_save_pos.php:59
 msgid "Modifications have been saved"
