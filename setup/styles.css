@@ -517,6 +517,7 @@ select {
     color: #333;
     padding: 3px;
     background: white;
+    margin: 6px;
 }
 
 fieldset.simple th, fieldset.simple td {
