@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-02 08:18-0400\n"
-"PO-Revision-Date: 2014-07-02 12:22+0200\n"
+"PO-Revision-Date: 2014-07-03 10:17+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
-">\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2055,13 +2055,15 @@ msgstr "Σύρτε για ανακατανομή."
 
 #: js/messages.php:392
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Πατήστε ταξινόμηση αποτελεσμάτων κατά αυτή τη στήλη."
 
 #: js/messages.php:393
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+CLick to remove column from ORDER BY clause"
 msgstr ""
+"Shift+Κλικ για προσθήκη αυτής της στήλης στον όρο ORDER BY ή για εναλλαγή "
+"ASC/DESC.<br />- Control+Κλικ για απομάκρυνση της στήλης από τον όρο ORDER BY"
 
 #: js/messages.php:394
 msgid "Click to mark/unmark."
@@ -2097,10 +2099,9 @@ msgstr ""
 "Εισάγετε ένα έγκυρο δεκαεξαδικό αριθμό. Έγκυροι χαρακτήρες είναι 0-9, A-F."
 
 #: js/messages.php:404
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
-msgstr "Άκυρο"
+msgstr "άκυρο"
 
 #: js/messages.php:405 libraries/server_status.lib.php:261
 msgid "Aborted"
@@ -2108,31 +2109,27 @@ msgstr "Ακυρωμένες συνδέσεις"
 
 #: js/messages.php:406
 msgid "Failed"
-msgstr ""
+msgstr "Απέτυχε"
 
 #: js/messages.php:407
-#, fuzzy
 #| msgid "Success!"
 msgid "Success"
-msgstr "Επιτυχία!"
+msgstr "Επιτυχία"
 
 #: js/messages.php:408
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Προεπιλογές εισαγωγής"
+msgstr "Κατάσταση εισαγωγής"
 
 #: js/messages.php:409 libraries/navigation/Navigation.class.php:102
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "Όριο αρχείου καταγραφής"
+msgstr "Ρίξτε αρχεία εδώ"
 
 #: js/messages.php:410
-#, fuzzy
 #| msgid "Select database"
 msgid "Select database first"
-msgstr "Επιλογή βάσης δεδομένων"
+msgstr "Επιλέξτε βάση δεδομένων πρώτα"
 
 #: js/messages.php:415
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -7755,7 +7752,7 @@ msgstr "Αρχείο για εισαγωγή:"
 
 #: libraries/display_import.lib.php:232 libraries/display_import.lib.php:243
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "Μπορείτε να σύρετε και να αφήσετε ένα αρχείο σε οποιαδήποτε σελίδα."
 
 #: libraries/display_import.lib.php:246
 msgid "File uploads are not allowed on this server."
