@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-03 07:42-0400\n"
-"PO-Revision-Date: 2014-07-02 17:38+0200\n"
+"PO-Revision-Date: 2014-07-03 23:19+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
-">\n"
+"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1817,10 +1817,9 @@ msgid "Add primary key"
 msgstr "Een primaire sleutel toevoegen"
 
 #: js/messages.php:305
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "Een primaire sleutel is toegevoegd aan %s."
+msgstr "Primaire sleutel toegevoegd."
 
 #: js/messages.php:306 libraries/normalization.lib.php:163
 msgid "Taking you to next step…"
@@ -1856,10 +1855,9 @@ msgid "Range search"
 msgstr "Zoeken op bereik"
 
 #: js/messages.php:317
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Kolomnamen: "
+msgstr "Kolommaximum:"
 
 #: js/messages.php:318
 msgid "Column minimum:"
@@ -2657,28 +2655,24 @@ msgid " bookmarks included."
 msgstr "De bladwijzer werd verwijderd."
 
 #: libraries/Console.class.php:106
-#, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
-msgstr "Nieuwe bladwijzer"
+msgstr "Geen bladwijzers"
 
 #: libraries/Console.class.php:150
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "Querycache"
+msgstr "Query mislukt"
 
 #: libraries/Console.class.php:152
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
 msgstr "Query-uitvoertijd"
 
 #: libraries/Console.class.php:158
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "SQL-queryveld"
+msgstr "SQL-query console"
 
 #: libraries/Console.class.php:159
 msgid "Console"
@@ -2690,10 +2684,9 @@ msgid "Clear"
 msgstr "Leegmaken"
 
 #: libraries/Console.class.php:165
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "SQL-geschiedenis"
+msgstr "Geschiedenis"
 
 #: libraries/Console.class.php:168 libraries/Console.class.php:239
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
@@ -2724,26 +2717,23 @@ msgid "Options"
 msgstr "Opties"
 
 #: libraries/Console.class.php:172 libraries/Console.class.php:211
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Bladwijzertabel"
+msgstr "Bladwijzers"
 
 #: libraries/Console.class.php:181
 msgid "Press"
 msgstr ""
 
 #: libraries/Console.class.php:181
-#, fuzzy
 #| msgid "Execute every"
 msgid "to Execute query"
-msgstr "Uitvoeren iedere"
+msgstr "Uit te voeren query"
 
 #: libraries/Console.class.php:192
-#, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
-msgstr "Sla de huidige fout over"
+msgstr "Tijdens de huidige sessie"
 
 #: libraries/Console.class.php:215 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
@@ -2752,32 +2742,28 @@ msgid "Refresh"
 msgstr "Ververs"
 
 #: libraries/Console.class.php:226
-#, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
-msgstr "Nieuwe bladwijzer"
+msgstr "Bladwijzer toevoegen"
 
 #: libraries/Console.class.php:229
-#, fuzzy
 #| msgid "Label:"
 msgid "Label"
-msgstr "Label:"
+msgstr "Label"
 
 #: libraries/Console.class.php:230
 msgid "Target database"
 msgstr "Doeldatabank"
 
 #: libraries/Console.class.php:231
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
-msgstr "Bladwijzer aanmaken"
+msgstr "Deze bladwijzer delen"
 
 #: libraries/Console.class.php:242
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
-msgstr "Standaardwaarde herstellen"
+msgstr "Standaardwaarde instellen"
 
 #: libraries/Console.class.php:246
 msgid "Always expand queried messages"
@@ -8832,32 +8818,28 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:131
-#, fuzzy
 #| msgid "Select a column."
 msgid "Select one…"
-msgstr "Selecteer een kolom."
+msgstr "Selecteer er één…"
 
 #: libraries/normalization.lib.php:132 normalization.php:20
-#, fuzzy
 #| msgid "Move column"
 msgid "No such column"
-msgstr "Kolom verplaatsen"
+msgstr "Geen dergelijke kolom"
 
 #: libraries/normalization.lib.php:135
 msgid "split into "
 msgstr ""
 
 #: libraries/normalization.lib.php:156
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
-msgstr "Een primaire sleutel toevoegen"
+msgstr "Een primaire sleutel hebben"
 
 #: libraries/normalization.lib.php:162
-#, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "Fout: relatie bestaat reeds."
+msgstr "Primaire sleutel bestaat reeds."
 
 #: libraries/normalization.lib.php:167
 msgid ""
@@ -8875,16 +8857,14 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:183
-#, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
-msgstr "Een primaire sleutel toevoegen"
+msgstr "+ Een nieuwe primaire sleutel kolom toevoegen"
 
 #: libraries/normalization.lib.php:201
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Remove redundant columns"
-msgstr "Verwijderen uit centrale kolommen"
+msgstr "Verwijder overbodige kolommen"
 
 #: libraries/normalization.lib.php:204
 msgid ""
@@ -8901,22 +8881,19 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:214
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "De geselecteerde gebruikers verwijderen"
+msgstr "Verwijder geselecteerde"
 
 #: libraries/normalization.lib.php:215
-#, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
-msgstr "Kolom toevoegen"
+msgstr "Geen overbodige kolom"
 
 #: libraries/normalization.lib.php:240
-#, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Tabel structuur acties verbergen"
+msgstr "Verbeter tabelstructuur (Normalisatie):"
 
 #: libraries/normalization.lib.php:241
 msgid "Select up to what step you want to normalize"
@@ -9939,10 +9916,9 @@ msgid "Display Features"
 msgstr "Toon Opties"
 
 #: libraries/relation.lib.php:153
-#, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Aanmaken van PDF-bestanden"
+msgstr "Ontwerpen en aanmaken van PDF-bestanden"
 
 #: libraries/relation.lib.php:164
 msgid "Displaying Column Comments"
@@ -12898,10 +12874,9 @@ msgid "Propose table structure"
 msgstr "Tabelstructuur voorstellen"
 
 #: libraries/structure.lib.php:1619
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "Tabelstructuur voorstellen"
+msgstr "Tabelstructuur verbeteren"
 
 #: libraries/structure.lib.php:1641
 #: libraries/tbl_columns_definition_form.lib.php:179
