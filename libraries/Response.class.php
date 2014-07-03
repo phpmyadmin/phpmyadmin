@@ -86,7 +86,7 @@ class PMA_Response
      * Workaround for PHP bug
      *
      * @access private
-     * @var bool
+     * @var string|bool
      */
     private $_CWD;
 

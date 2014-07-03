@@ -118,7 +118,7 @@ class PMA_DbQbe
      * Minimum width of a column
      *
      * @access private
-     * @var string
+     * @var int
      */
     private $_form_column_width;
     /**
