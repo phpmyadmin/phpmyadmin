@@ -153,19 +153,19 @@ function PMA_getHtmlFor1NFStep1($db, $table)
 function PMA_getHtmlContentsFor1NFStep2($db, $table)
 {
     $step = 2;
-    $stepTxt = __('Have primary key');
+    $stepTxt = __('Have a primary key');
     $primary = PMA_Index::getPrimary($table, $db);
     $hasPrimaryKey = "0";
     $legendText = __('Step 1.') . $step . " " . $stepTxt;
     $extra = '';
     if ($primary) {
-        $headText = __("Primary key already exist.");
+        $headText = __("Primary key already exists.");
         $subText = __("Taking you to next step…");
         $hasPrimaryKey = "1";
     } else {
         $headText = __(
-            "There is no primary key. Add a primary key<br/>"
-            . "Hint: Primary key is a column "
+            "There is no primary key; please add one.<br/>"
+            . "Hint: A primary key is a column "
             . "(or combination of columns) that uniquely identify all rows."
         );
         $subText = '<a href="#" id="createPrimaryKey">'
