@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-03 07:42-0400\n"
-"PO-Revision-Date: 2014-07-01 22:16+0200\n"
+"PO-Revision-Date: 2014-07-03 16:08+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1815,16 +1815,14 @@ msgid "Add primary key"
 msgstr "Ajouter une clé primaire"
 
 #: js/messages.php:305
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "Une clé primaire a été ajoutée sur %s."
+msgstr "Une clé primaire a été ajoutée."
 
 #: js/messages.php:306 libraries/normalization.lib.php:163
-#, fuzzy
 #| msgid "Taking you to next step ..."
 msgid "Taking you to next step…"
-msgstr "Vous êtes redirigé vers l'étape suivante …"
+msgstr "Vous êtes redirigé vers l'étape suivante…"
 
 #: js/messages.php:307
 #, php-format
@@ -1860,22 +1858,19 @@ msgid "Column maximum:"
 msgstr "Maximum pour la colonne :"
 
 #: js/messages.php:318
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Nom des colonnes : "
+msgstr "Valeur minimum pour la colonne :"
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Nombre maximum de tables"
+msgstr "Valeur minimum :"
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Nombre maximum de tables"
+msgstr "Valeur maximum :"
 
 #: js/messages.php:323
 msgid "Hide find and replace criteria"
@@ -2027,10 +2022,9 @@ msgid "Successfully deleted the page"
 msgstr "La page a été correctement supprimée"
 
 #: js/messages.php:382
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Éditer ou exporter un schéma relationnel"
+msgstr "Exporter un schéma relationnel"
 
 #: js/messages.php:385
 #, php-format
@@ -2103,10 +2097,9 @@ msgstr ""
 "sont 0-9, A-F."
 
 #: js/messages.php:404
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
-msgstr "Annuler"
+msgstr "annuler"
 
 #: js/messages.php:405 libraries/server_status.lib.php:261
 msgid "Aborted"
@@ -2117,28 +2110,24 @@ msgid "Failed"
 msgstr ""
 
 #: js/messages.php:407
-#, fuzzy
 #| msgid "Success!"
 msgid "Success"
-msgstr "Succès !"
+msgstr "Succès"
 
 #: js/messages.php:408
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Valeurs par défaut pour importation"
+msgstr "État de l'importation"
 
 #: js/messages.php:409 libraries/navigation/Navigation.class.php:102
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "Seuil du fichier journal"
+msgstr "Déposez des fichiers ici"
 
 #: js/messages.php:410
-#, fuzzy
 #| msgid "Select database"
 msgid "Select database first"
-msgstr "Choisissez une base de données"
+msgstr "Choisissez d'abord une base de données"
 
 #: js/messages.php:415
 msgid "You can also edit most values<br />by double-clicking directly on them."
