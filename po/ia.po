@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-03 07:42-0400\n"
-"PO-Revision-Date: 2014-07-02 17:15+0200\n"
+"PO-Revision-Date: 2014-07-03 14:56+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1826,10 +1826,9 @@ msgid "Add primary key"
 msgstr ""
 
 #: js/messages.php:305
-#, fuzzy
 #| msgid "The primary key has been dropped."
 msgid "Primary key added."
-msgstr "Le clave primari ha essite delite."
+msgstr "Clave primari addite."
 
 #: js/messages.php:306 libraries/normalization.lib.php:163
 msgid "Taking you to next step…"
@@ -8746,10 +8745,9 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:131
-#, fuzzy
 #| msgid "Select one ..."
 msgid "Select one…"
-msgstr "Selige un ..."
+msgstr "Selige un…"
 
 #: libraries/normalization.lib.php:132 normalization.php:20
 msgid "No such column"
@@ -8764,10 +8762,9 @@ msgid "Have a primary key"
 msgstr ""
 
 #: libraries/normalization.lib.php:162
-#, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "Error: le relation ja existe."
+msgstr "Clave primari ja existe."
 
 #: libraries/normalization.lib.php:167
 msgid ""
@@ -8785,10 +8782,9 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:183
-#, fuzzy
 #| msgid "Add new column"
 msgid "+ Add a new primary key column"
-msgstr "Adde nove columna"
+msgstr "+ Adde un nove columna de clave primari"
 
 #: libraries/normalization.lib.php:201
 msgid "Remove redundant columns"
