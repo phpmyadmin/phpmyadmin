@@ -16,7 +16,7 @@ require_once 'libraries/tbl_columns_definition_form.lib.php';
 require_once 'libraries/Index.class.php';
 
 if (isset($_REQUEST['getColumns'])) {
-    $html = '<option selected disabled>' . __('Select one ...') . '</option>'
+    $html = '<option selected disabled>' . __('Select one…') . '</option>'
         . '<option value="no_such_col">' . __('No such column') . '</option>';
     //get column whose datatype falls under string category
     $html .= PMA_getHtmlForColumnsList($db, $table, 'string');
