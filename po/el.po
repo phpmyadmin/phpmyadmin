@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-02 08:18-0400\n"
+"POT-Creation-Date: 2014-07-03 07:42-0400\n"
 "PO-Revision-Date: 2014-07-03 10:17+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
-"\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
+">\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -566,7 +566,7 @@ msgstr "Προσθήκη γεωμετρίας"
 #: libraries/display_export.lib.php:296 libraries/display_export.lib.php:302
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1604 libraries/insert_edit.lib.php:1641
-#: libraries/normalization.lib.php:156 libraries/normalization.lib.php:271
+#: libraries/normalization.lib.php:137 libraries/normalization.lib.php:255
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:254
 #: libraries/operations.lib.php:627 libraries/operations.lib.php:680
@@ -1814,15 +1814,18 @@ msgstr ""
 msgid "Continue"
 msgstr "Συνέχεια"
 
-#: js/messages.php:304
-msgid "Add unique/primary index"
-msgstr "Προσθήκη μοναδικού/πρωτεύοντος ευρετηρίου"
+#: js/messages.php:304 libraries/structure.lib.php:2124
+#: libraries/structure.lib.php:2127
+msgid "Add primary key"
+msgstr "Προσθήκη πρωτεύοντος κλειδιού"
 
 #: js/messages.php:305
-msgid "Unique column(s) added."
-msgstr "Μοναδική(ές) στήλη(ες) προστέθηκε(αν)."
+#, fuzzy
+#| msgid "A primary key has been added on %s."
+msgid "Primary key added."
+msgstr "Ένα πρωτεύον κλειδί προστέθηκε στο %s."
 
-#: js/messages.php:306 libraries/normalization.lib.php:181
+#: js/messages.php:306 libraries/normalization.lib.php:163
 msgid "Taking you to next step…"
 msgstr "Μεταφέροντάς σας στο επόμενο βήμα…"
 
@@ -2099,7 +2102,6 @@ msgstr ""
 "Εισάγετε ένα έγκυρο δεκαεξαδικό αριθμό. Έγκυροι χαρακτήρες είναι 0-9, A-F."
 
 #: js/messages.php:404
-#| msgid "Cancel"
 msgid "cancel"
 msgstr "άκυρο"
 
@@ -2112,22 +2114,18 @@ msgid "Failed"
 msgstr "Απέτυχε"
 
 #: js/messages.php:407
-#| msgid "Success!"
 msgid "Success"
 msgstr "Επιτυχία"
 
 #: js/messages.php:408
-#| msgid "Import defaults"
 msgid "Import status"
 msgstr "Κατάσταση εισαγωγής"
 
 #: js/messages.php:409 libraries/navigation/Navigation.class.php:102
-#| msgid "Log file threshold"
 msgid "Drop files here"
 msgstr "Ρίξτε αρχεία εδώ"
 
 #: js/messages.php:410
-#| msgid "Select database"
 msgid "Select database first"
 msgstr "Επιλέξτε βάση δεδομένων πρώτα"
 
@@ -8780,20 +8778,20 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "Νέα"
 
-#: libraries/normalization.lib.php:128
+#: libraries/normalization.lib.php:107
 msgid "Make all columns atomic"
 msgstr "Κάνει όλες τις στήλες ατομικές"
 
-#: libraries/normalization.lib.php:130 libraries/normalization.lib.php:259
+#: libraries/normalization.lib.php:109 libraries/normalization.lib.php:243
 msgid "First step of normalization (1NF)"
 msgstr "Πρώτο βήμα κανονικοποίησης (1NF)"
 
-#: libraries/normalization.lib.php:133 libraries/normalization.lib.php:177
-#: libraries/normalization.lib.php:218
+#: libraries/normalization.lib.php:112 libraries/normalization.lib.php:159
+#: libraries/normalization.lib.php:202
 msgid "Step 1."
 msgstr "Βήμα 1."
 
-#: libraries/normalization.lib.php:135
+#: libraries/normalization.lib.php:114
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
@@ -8802,12 +8800,12 @@ msgstr ""
 "παράδειγμα: η διεύθυνση μπορεί να διαιρεθεί σε οδό, πόλη, χώρα και "
 "ταχυδρομικό κώδικα."
 
-#: libraries/normalization.lib.php:141
+#: libraries/normalization.lib.php:121
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 "Προβολή της κεντρικής λίστας στηλών που δεν είναι ήδη σε αυτό τον πίνακα"
 
-#: libraries/normalization.lib.php:143
+#: libraries/normalization.lib.php:124
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
@@ -8815,53 +8813,70 @@ msgstr ""
 "Επιλέξτε μια στήση που μπορεί να διαιρεθεί σε περισσότερες από μια. "
 "(επιλέγοντας το «Καμιά τέτοια στήλη», θα μεταβείτε στο επόμενο βήμα)"
 
-#: libraries/normalization.lib.php:150 normalization.php:18
-msgid "Select one ..."
+#: libraries/normalization.lib.php:131
+#, fuzzy
+#| msgid "Select one ..."
+msgid "Select one…"
 msgstr "Επιλογή ενός ..."
 
-#: libraries/normalization.lib.php:151 normalization.php:19
+#: libraries/normalization.lib.php:132 normalization.php:20
 msgid "No such column"
 msgstr "Καμιά τέτοια στήλη"
 
-#: libraries/normalization.lib.php:154
+#: libraries/normalization.lib.php:135
 msgid "split into "
 msgstr "διαίρεση σε "
 
-#: libraries/normalization.lib.php:175
-msgid "Have unique columns"
-msgstr "Έχει μοναδικές στήλες"
+#: libraries/normalization.lib.php:156
+#, fuzzy
+#| msgid "Add primary key"
+msgid "Have a primary key"
+msgstr "Προσθήκη πρωτεύοντος κλειδιού"
 
-#: libraries/normalization.lib.php:180
-msgid "Unique column(s) already exist"
-msgstr "Μοναδική(ές) στήλη(ες) υπάρχει(ουν) ήδη"
+#: libraries/normalization.lib.php:162
+#, fuzzy
+#| msgid "Error: relation already exists."
+msgid "Primary key already exists."
+msgstr "Σφάλμα: η συσχέτιση υπαρχει ήδη."
 
-#: libraries/normalization.lib.php:184
+#: libraries/normalization.lib.php:167
+#, fuzzy
+#| msgid ""
+#| "There are no unique columns. Add a unique column (or combination of "
+#| "columns) that uniquely identify all rows. "
 msgid ""
-"There are no unique columns. Add a unique column (or combination of columns) "
-"that uniquely identify all rows. "
+"There is no primary key; please add one.<br/>Hint: A primary key is a column "
+"(or combination of columns) that uniquely identify all rows."
 msgstr ""
 "Δεν υπάρχουν μοναδικές στήλες. Προσθέστε μια μοναδική στήλη (ή συνδυασμό "
 "στηλών) που ταυτοποιούν όλες τις εγγραφές. "
 
-#: libraries/normalization.lib.php:190
-msgid "Add unique/primary index on existing column(s)"
+#: libraries/normalization.lib.php:174
+#, fuzzy
+#| msgid "Add unique/primary index on existing column(s)"
+msgid "Add a primary key on existing column(s)"
 msgstr "Προσθήκη μοναδικού/πρωτεύοντος ευρετηρίου σε υπάρχουσα(ες) στήλη(ες)"
 
-#: libraries/normalization.lib.php:195
+#: libraries/normalization.lib.php:179
+#, fuzzy
+#| msgid ""
+#| "If it's not possible to make existing column combinations as unique then"
 msgid ""
-"If it's not possible to make existing column combinations as unique then"
+"If it's not possible to make existing column combinations as primary key"
 msgstr ""
 "Αν δεν είναι δυνατό να κάνετε μοναδικούς συνδυασμούς υπαρχόντων στηλών τότε"
 
-#: libraries/normalization.lib.php:199
-msgid "+ Add a new unique column (primary key)"
+#: libraries/normalization.lib.php:183
+#, fuzzy
+#| msgid "+ Add a new unique column (primary key)"
+msgid "+ Add a new primary key column"
 msgstr "+ Προσθήκη μιας μοναδικής στήλης (πρωτεύον κλειδί)"
 
-#: libraries/normalization.lib.php:217
+#: libraries/normalization.lib.php:201
 msgid "Remove redundant columns"
 msgstr "Απομάκρυνση περιττών στηλών"
 
-#: libraries/normalization.lib.php:220
+#: libraries/normalization.lib.php:204
 msgid ""
 "Do you have group of columns which on combining gives an existing\n"
 "        column? For example, if you have first_name, last_name and full_name "
@@ -8874,7 +8889,7 @@ msgstr ""
 "        συνδυάζοντας τα first_name και last_name έχετε το full_name που "
 "είναι περιττό"
 
-#: libraries/normalization.lib.php:225
+#: libraries/normalization.lib.php:209
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
@@ -8882,31 +8897,31 @@ msgstr ""
 "Ελέγξτε τις στήλες που είναι περιττές και πατήστε για απομάκρυνση. Αν καμιά "
 "στήλη δεν είναι περιττή, πατήστε το «Καμιά περιττή στήλη»"
 
-#: libraries/normalization.lib.php:230
+#: libraries/normalization.lib.php:214
 msgid "Remove selected"
 msgstr "Απομάκρυνση επιλεγμένων"
 
-#: libraries/normalization.lib.php:231
+#: libraries/normalization.lib.php:215
 msgid "No redundant column"
 msgstr "Καμιά περιττή στήλη"
 
-#: libraries/normalization.lib.php:256
+#: libraries/normalization.lib.php:240
 msgid "Improve table structure (Normalization):"
 msgstr "Βελτίωση δομης πίνακα (Κανονικοποίηση):"
 
-#: libraries/normalization.lib.php:257
+#: libraries/normalization.lib.php:241
 msgid "Select up to what step you want to normalize"
 msgstr "Επιλέξτε μέχρι ποιο βήμα θέλετε να κανονικοποιήσετε"
 
-#: libraries/normalization.lib.php:260
+#: libraries/normalization.lib.php:244
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "Δεύτερο βήμα κανονικοποίησης (1NF+2NF)"
 
-#: libraries/normalization.lib.php:261
+#: libraries/normalization.lib.php:245
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Τρίτο βήμα κανονικοποίησης (1NF+2NF+3NF)"
 
-#: libraries/normalization.lib.php:268
+#: libraries/normalization.lib.php:252
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
@@ -12963,10 +12978,6 @@ msgstr "Ένα πρωτεύον κλειδί προστέθηκε στο %s."
 msgid "Distinct values"
 msgstr "Διακριτές τιμές"
 
-#: libraries/structure.lib.php:2124 libraries/structure.lib.php:2127
-msgid "Add primary key"
-msgstr "Προσθήκη πρωτεύοντος κλειδιού"
-
 #: libraries/structure.lib.php:2130 libraries/structure.lib.php:2133
 msgid "Add index"
 msgstr "Προσθήκη ευρετηρίου"
@@ -13511,7 +13522,11 @@ msgstr "Δεν βρέθηκαν αρχεία στο συμπιεσμένο αρ�
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Κρίσιμο σφάλμα: Η πλοήγηση μπορεί να προσπελαστεί μέσω AJAX"
 
-#: normalization.php:52
+#: normalization.php:19
+msgid "Select one ..."
+msgstr "Επιλογή ενός ..."
+
+#: normalization.php:53
 msgid "Second/Third step of normalization"
 msgstr "Δεύτερο/Τρίτο βήμα κανονικοποίησης"
 
@@ -15388,6 +15403,18 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "Το concurrent_insert έχει οριστεί στο 0"
+
+#~ msgid "Add unique/primary index"
+#~ msgstr "Προσθήκη μοναδικού/πρωτεύοντος ευρετηρίου"
+
+#~ msgid "Unique column(s) added."
+#~ msgstr "Μοναδική(ές) στήλη(ες) προστέθηκε(αν)."
+
+#~ msgid "Have unique columns"
+#~ msgstr "Έχει μοναδικές στήλες"
+
+#~ msgid "Unique column(s) already exist"
+#~ msgstr "Μοναδική(ές) στήλη(ες) υπάρχει(ουν) ήδη"
 
 #~ msgid "Click to sort."
 #~ msgstr "Πατήστε για ταξινόμηση."

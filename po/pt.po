@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-02 08:18-0400\n"
+"POT-Creation-Date: 2014-07-03 07:42-0400\n"
 "PO-Revision-Date: 2014-06-18 13:15+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Portuguese <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -569,7 +569,7 @@ msgstr "Adicionar geometria"
 #: libraries/display_export.lib.php:296 libraries/display_export.lib.php:302
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1604 libraries/insert_edit.lib.php:1641
-#: libraries/normalization.lib.php:156 libraries/normalization.lib.php:271
+#: libraries/normalization.lib.php:137 libraries/normalization.lib.php:255
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:254
 #: libraries/operations.lib.php:627 libraries/operations.lib.php:680
@@ -1819,15 +1819,18 @@ msgstr ""
 msgid "Continue"
 msgstr "Continuar"
 
-#: js/messages.php:304
-msgid "Add unique/primary index"
+#: js/messages.php:304 libraries/structure.lib.php:2124
+#: libraries/structure.lib.php:2127
+msgid "Add primary key"
 msgstr ""
 
 #: js/messages.php:305
-msgid "Unique column(s) added."
-msgstr ""
+#, fuzzy
+#| msgid "A primary key has been added on %s."
+msgid "Primary key added."
+msgstr "Uma chave primária foi adicionada a %s."
 
-#: js/messages.php:306 libraries/normalization.lib.php:181
+#: js/messages.php:306 libraries/normalization.lib.php:163
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
@@ -8850,89 +8853,88 @@ msgctxt "Create new view"
 msgid "New"
 msgstr ""
 
-#: libraries/normalization.lib.php:128
+#: libraries/normalization.lib.php:107
 msgid "Make all columns atomic"
 msgstr ""
 
-#: libraries/normalization.lib.php:130 libraries/normalization.lib.php:259
+#: libraries/normalization.lib.php:109 libraries/normalization.lib.php:243
 msgid "First step of normalization (1NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:133 libraries/normalization.lib.php:177
-#: libraries/normalization.lib.php:218
+#: libraries/normalization.lib.php:112 libraries/normalization.lib.php:159
+#: libraries/normalization.lib.php:202
 msgid "Step 1."
 msgstr ""
 
-#: libraries/normalization.lib.php:135
+#: libraries/normalization.lib.php:114
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
 
-#: libraries/normalization.lib.php:141
+#: libraries/normalization.lib.php:121
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 
-#: libraries/normalization.lib.php:143
+#: libraries/normalization.lib.php:124
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
 
-#: libraries/normalization.lib.php:150 normalization.php:18
+#: libraries/normalization.lib.php:131
 #, fuzzy
 #| msgid "Select two columns"
-msgid "Select one ..."
+msgid "Select one…"
 msgstr "Seleccione duas colunas"
 
-#: libraries/normalization.lib.php:151 normalization.php:19
+#: libraries/normalization.lib.php:132 normalization.php:20
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "No such column"
 msgstr "Adicionar/Remover Campos"
 
-#: libraries/normalization.lib.php:154
+#: libraries/normalization.lib.php:135
 msgid "split into "
 msgstr ""
 
-#: libraries/normalization.lib.php:175
+#: libraries/normalization.lib.php:156
+msgid "Have a primary key"
+msgstr ""
+
+#: libraries/normalization.lib.php:162
 #, fuzzy
-#| msgid "Add columns"
-msgid "Have unique columns"
-msgstr "Adicionar colunas"
+#| msgid "Error: relation already exists."
+msgid "Primary key already exists."
+msgstr "Erro: Relação já existe."
 
-#: libraries/normalization.lib.php:180
+#: libraries/normalization.lib.php:167
+msgid ""
+"There is no primary key; please add one.<br/>Hint: A primary key is a column "
+"(or combination of columns) that uniquely identify all rows."
+msgstr ""
+
+#: libraries/normalization.lib.php:174
+msgid "Add a primary key on existing column(s)"
+msgstr ""
+
+#: libraries/normalization.lib.php:179
+msgid ""
+"If it's not possible to make existing column combinations as primary key"
+msgstr ""
+
+#: libraries/normalization.lib.php:183
 #, fuzzy
-#| msgid "The user %s already exists!"
-msgid "Unique column(s) already exist"
-msgstr "O utilizador %s já existe!"
+msgid "+ Add a new primary key column"
+msgstr "Adiciona novo campo"
 
-#: libraries/normalization.lib.php:184
-msgid ""
-"There are no unique columns. Add a unique column (or combination of columns) "
-"that uniquely identify all rows. "
-msgstr ""
-
-#: libraries/normalization.lib.php:190
-msgid "Add unique/primary index on existing column(s)"
-msgstr ""
-
-#: libraries/normalization.lib.php:195
-msgid ""
-"If it's not possible to make existing column combinations as unique then"
-msgstr ""
-
-#: libraries/normalization.lib.php:199
-msgid "+ Add a new unique column (primary key)"
-msgstr ""
-
-#: libraries/normalization.lib.php:217
+#: libraries/normalization.lib.php:201
 #, fuzzy
 #| msgid "Remove from Favorites"
 msgid "Remove redundant columns"
 msgstr "Remover dos Favoritos"
 
-#: libraries/normalization.lib.php:220
+#: libraries/normalization.lib.php:204
 msgid ""
 "Do you have group of columns which on combining gives an existing\n"
 "        column? For example, if you have first_name, last_name and full_name "
@@ -8940,42 +8942,42 @@ msgid ""
 "        combining first_name and last_name gives full_name which is redundant"
 msgstr ""
 
-#: libraries/normalization.lib.php:225
+#: libraries/normalization.lib.php:209
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
 
-#: libraries/normalization.lib.php:230
+#: libraries/normalization.lib.php:214
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "Remover utilizadores seleccionados"
 
-#: libraries/normalization.lib.php:231
+#: libraries/normalization.lib.php:215
 #, fuzzy
 msgid "No redundant column"
 msgstr "Adiciona novo campo"
 
-#: libraries/normalization.lib.php:256
+#: libraries/normalization.lib.php:240
 #, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
 msgstr "Ocultar as acções à estrutura da tabela"
 
-#: libraries/normalization.lib.php:257
+#: libraries/normalization.lib.php:241
 msgid "Select up to what step you want to normalize"
 msgstr ""
 
-#: libraries/normalization.lib.php:260
+#: libraries/normalization.lib.php:244
 msgid "Second step of normalization (1NF+2NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:261
+#: libraries/normalization.lib.php:245
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:268
+#: libraries/normalization.lib.php:252
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
@@ -13001,10 +13003,6 @@ msgstr "Uma chave primária foi adicionada a %s."
 msgid "Distinct values"
 msgstr "Valor de sessão"
 
-#: libraries/structure.lib.php:2124 libraries/structure.lib.php:2127
-msgid "Add primary key"
-msgstr ""
-
 #: libraries/structure.lib.php:2130 libraries/structure.lib.php:2133
 msgid "Add index"
 msgstr ""
@@ -13619,7 +13617,13 @@ msgstr ""
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
-#: normalization.php:52
+#: normalization.php:19
+#, fuzzy
+#| msgid "Select two columns"
+msgid "Select one ..."
+msgstr "Seleccione duas colunas"
+
+#: normalization.php:53
 msgid "Second/Third step of normalization"
 msgstr ""
 
@@ -15404,6 +15408,16 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert é definido como 0"
+
+#, fuzzy
+#~| msgid "Add columns"
+#~ msgid "Have unique columns"
+#~ msgstr "Adicionar colunas"
+
+#, fuzzy
+#~| msgid "The user %s already exists!"
+#~ msgid "Unique column(s) already exist"
+#~ msgstr "O utilizador %s já existe!"
 
 #~ msgid "Click to sort."
 #~ msgstr "Clique para organizar."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-02 08:18-0400\n"
+"POT-Creation-Date: 2014-07-03 07:42-0400\n"
 "PO-Revision-Date: 2014-03-28 11:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Lithuanian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -585,7 +585,7 @@ msgstr "Pridėti geometriją"
 #: libraries/display_export.lib.php:296 libraries/display_export.lib.php:302
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1604 libraries/insert_edit.lib.php:1641
-#: libraries/normalization.lib.php:156 libraries/normalization.lib.php:271
+#: libraries/normalization.lib.php:137 libraries/normalization.lib.php:255
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:254
 #: libraries/operations.lib.php:627 libraries/operations.lib.php:680
@@ -1863,17 +1863,18 @@ msgstr ""
 msgid "Continue"
 msgstr "Prisidėti"
 
-#: js/messages.php:304
-#, fuzzy
-#| msgid "Add unique index"
-msgid "Add unique/primary index"
-msgstr "Pridėti unikalų indeksą"
+#: js/messages.php:304 libraries/structure.lib.php:2124
+#: libraries/structure.lib.php:2127
+msgid "Add primary key"
+msgstr "Pridėti pirminį raktą"
 
 #: js/messages.php:305
-msgid "Unique column(s) added."
-msgstr ""
+#, fuzzy
+#| msgid "A primary key has been added on %s."
+msgid "Primary key added."
+msgstr "Stulpeliui %s sukurtas PIRMINIS raktas."
 
-#: js/messages.php:306 libraries/normalization.lib.php:181
+#: js/messages.php:306 libraries/normalization.lib.php:163
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
@@ -9352,89 +9353,91 @@ msgctxt "Create new view"
 msgid "New"
 msgstr ""
 
-#: libraries/normalization.lib.php:128
+#: libraries/normalization.lib.php:107
 msgid "Make all columns atomic"
 msgstr ""
 
-#: libraries/normalization.lib.php:130 libraries/normalization.lib.php:259
+#: libraries/normalization.lib.php:109 libraries/normalization.lib.php:243
 msgid "First step of normalization (1NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:133 libraries/normalization.lib.php:177
-#: libraries/normalization.lib.php:218
+#: libraries/normalization.lib.php:112 libraries/normalization.lib.php:159
+#: libraries/normalization.lib.php:202
 msgid "Step 1."
 msgstr ""
 
-#: libraries/normalization.lib.php:135
+#: libraries/normalization.lib.php:114
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
 
-#: libraries/normalization.lib.php:141
+#: libraries/normalization.lib.php:121
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 
-#: libraries/normalization.lib.php:143
+#: libraries/normalization.lib.php:124
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
 
-#: libraries/normalization.lib.php:150 normalization.php:18
+#: libraries/normalization.lib.php:131
 #, fuzzy
 #| msgid "Select two columns"
-msgid "Select one ..."
+msgid "Select one…"
 msgstr "Pasirinkite du stulpelius"
 
-#: libraries/normalization.lib.php:151 normalization.php:19
+#: libraries/normalization.lib.php:132 normalization.php:20
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "No such column"
 msgstr "Pašalinti stulpelį(-ius)"
 
-#: libraries/normalization.lib.php:154
+#: libraries/normalization.lib.php:135
 msgid "split into "
 msgstr ""
 
-#: libraries/normalization.lib.php:175
+#: libraries/normalization.lib.php:156
 #, fuzzy
-#| msgid "Remove column(s)"
-msgid "Have unique columns"
-msgstr "Pašalinti stulpelį(-ius)"
+#| msgid "Add primary key"
+msgid "Have a primary key"
+msgstr "Pridėti pirminį raktą"
 
-#: libraries/normalization.lib.php:180
+#: libraries/normalization.lib.php:162
 #, fuzzy
-#| msgid "The user %s already exists!"
-msgid "Unique column(s) already exist"
-msgstr "Vartotojas %s jau yra!"
+#| msgid "Error: relation already exists."
+msgid "Primary key already exists."
+msgstr "Klaida: toks sąryšis jau yra."
 
-#: libraries/normalization.lib.php:184
+#: libraries/normalization.lib.php:167
 msgid ""
-"There are no unique columns. Add a unique column (or combination of columns) "
-"that uniquely identify all rows. "
+"There is no primary key; please add one.<br/>Hint: A primary key is a column "
+"(or combination of columns) that uniquely identify all rows."
 msgstr ""
 
-#: libraries/normalization.lib.php:190
-msgid "Add unique/primary index on existing column(s)"
+#: libraries/normalization.lib.php:174
+msgid "Add a primary key on existing column(s)"
 msgstr ""
 
-#: libraries/normalization.lib.php:195
+#: libraries/normalization.lib.php:179
 msgid ""
-"If it's not possible to make existing column combinations as unique then"
+"If it's not possible to make existing column combinations as primary key"
 msgstr ""
 
-#: libraries/normalization.lib.php:199
-msgid "+ Add a new unique column (primary key)"
-msgstr ""
+#: libraries/normalization.lib.php:183
+#, fuzzy
+#| msgid "Add primary key"
+msgid "+ Add a new primary key column"
+msgstr "Pridėti pirminį raktą"
 
-#: libraries/normalization.lib.php:217
+#: libraries/normalization.lib.php:201
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove redundant columns"
 msgstr "Pašalinti stulpelį(-ius)"
 
-#: libraries/normalization.lib.php:220
+#: libraries/normalization.lib.php:204
 msgid ""
 "Do you have group of columns which on combining gives an existing\n"
 "        column? For example, if you have first_name, last_name and full_name "
@@ -9442,43 +9445,43 @@ msgid ""
 "        combining first_name and last_name gives full_name which is redundant"
 msgstr ""
 
-#: libraries/normalization.lib.php:225
+#: libraries/normalization.lib.php:209
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
 
-#: libraries/normalization.lib.php:230
+#: libraries/normalization.lib.php:214
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "Pašalinti pažymėtus vartotojus"
 
-#: libraries/normalization.lib.php:231
+#: libraries/normalization.lib.php:215
 #, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
 msgstr "Pridėti stulpelį"
 
-#: libraries/normalization.lib.php:256
+#: libraries/normalization.lib.php:240
 #, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure (Normalization):"
 msgstr "Analizuoti lentelės struktūrą"
 
-#: libraries/normalization.lib.php:257
+#: libraries/normalization.lib.php:241
 msgid "Select up to what step you want to normalize"
 msgstr ""
 
-#: libraries/normalization.lib.php:260
+#: libraries/normalization.lib.php:244
 msgid "Second step of normalization (1NF+2NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:261
+#: libraries/normalization.lib.php:245
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:268
+#: libraries/normalization.lib.php:252
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
@@ -13530,10 +13533,6 @@ msgstr "Stulpeliui %s sukurtas PIRMINIS raktas."
 msgid "Distinct values"
 msgstr "Peržiūrėti skirtingas reikšmes"
 
-#: libraries/structure.lib.php:2124 libraries/structure.lib.php:2127
-msgid "Add primary key"
-msgstr "Pridėti pirminį raktą"
-
 #: libraries/structure.lib.php:2130 libraries/structure.lib.php:2133
 msgid "Add index"
 msgstr "Pridėti indeksą"
@@ -14136,7 +14135,13 @@ msgstr "ZIP archyve nerasta failų!"
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
-#: normalization.php:52
+#: normalization.php:19
+#, fuzzy
+#| msgid "Select two columns"
+msgid "Select one ..."
+msgstr "Pasirinkite du stulpelius"
+
+#: normalization.php:53
 msgid "Second/Third step of normalization"
 msgstr ""
 
@@ -15914,6 +15919,21 @@ msgstr ""
 #| msgid "MyISAM concurrent inserts"
 msgid "concurrent_insert is set to 0"
 msgstr "MyISAM concurrent įterpimai"
+
+#, fuzzy
+#~| msgid "Add unique index"
+#~ msgid "Add unique/primary index"
+#~ msgstr "Pridėti unikalų indeksą"
+
+#, fuzzy
+#~| msgid "Remove column(s)"
+#~ msgid "Have unique columns"
+#~ msgstr "Pašalinti stulpelį(-ius)"
+
+#, fuzzy
+#~| msgid "The user %s already exists!"
+#~ msgid "Unique column(s) already exist"
+#~ msgstr "Vartotojas %s jau yra!"
 
 #, fuzzy
 #~| msgid "Click to sort"
