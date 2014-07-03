@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-03 07:42-0400\n"
-"PO-Revision-Date: 2014-07-03 10:17+0200\n"
+"PO-Revision-Date: 2014-07-03 16:02+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
-">\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1820,10 +1820,9 @@ msgid "Add primary key"
 msgstr "Προσθήκη πρωτεύοντος κλειδιού"
 
 #: js/messages.php:305
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "Ένα πρωτεύον κλειδί προστέθηκε στο %s."
+msgstr "Προστέθηκε πρωτεύον κλειδί."
 
 #: js/messages.php:306 libraries/normalization.lib.php:163
 msgid "Taking you to next step…"
@@ -8814,10 +8813,9 @@ msgstr ""
 "(επιλέγοντας το «Καμιά τέτοια στήλη», θα μεταβείτε στο επόμενο βήμα)"
 
 #: libraries/normalization.lib.php:131
-#, fuzzy
 #| msgid "Select one ..."
 msgid "Select one…"
-msgstr "Επιλογή ενός ..."
+msgstr "Επιλογή ενός…"
 
 #: libraries/normalization.lib.php:132 normalization.php:20
 msgid "No such column"
@@ -8828,19 +8826,16 @@ msgid "split into "
 msgstr "διαίρεση σε "
 
 #: libraries/normalization.lib.php:156
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
-msgstr "Προσθήκη πρωτεύοντος κλειδιού"
+msgstr "Κατοχή πρωτεύοντος κλειδιού"
 
 #: libraries/normalization.lib.php:162
-#, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "Σφάλμα: η συσχέτιση υπαρχει ήδη."
+msgstr "Πρωτεύον κλειδί υπάρχει ήδη."
 
 #: libraries/normalization.lib.php:167
-#, fuzzy
 #| msgid ""
 #| "There are no unique columns. Add a unique column (or combination of "
 #| "columns) that uniquely identify all rows. "
@@ -8848,29 +8843,28 @@ msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
-"Δεν υπάρχουν μοναδικές στήλες. Προσθέστε μια μοναδική στήλη (ή συνδυασμό "
-"στηλών) που ταυτοποιούν όλες τις εγγραφές. "
+"Δεν υπάρχει κανένα πρωτεύον κλειδί. Προσθέστε ένα.<br/>Σημείωση: Ένα "
+"πρωτεύον κλειδί (ή συνδυασμός στηλών) που ταυτοποιεί μοναδικά όλες τις "
+"εγγραφές."
 
 #: libraries/normalization.lib.php:174
-#, fuzzy
 #| msgid "Add unique/primary index on existing column(s)"
 msgid "Add a primary key on existing column(s)"
-msgstr "Προσθήκη μοναδικού/πρωτεύοντος ευρετηρίου σε υπάρχουσα(ες) στήλη(ες)"
+msgstr "Προσθήκη πρωτεύοντος κλειδιού σε υπάρχουσα(ες) στήλη(ες)"
 
 #: libraries/normalization.lib.php:179
-#, fuzzy
 #| msgid ""
 #| "If it's not possible to make existing column combinations as unique then"
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
-"Αν δεν είναι δυνατό να κάνετε μοναδικούς συνδυασμούς υπαρχόντων στηλών τότε"
+"Αν δεν είναι δυνατό να κάνετε μοναδικούς συνδυασμούς υπαρχόντων στηλών ως "
+"πρωτεύον κλειδί"
 
 #: libraries/normalization.lib.php:183
-#, fuzzy
 #| msgid "+ Add a new unique column (primary key)"
 msgid "+ Add a new primary key column"
-msgstr "+ Προσθήκη μιας μοναδικής στήλης (πρωτεύον κλειδί)"
+msgstr "+ Προσθήκη μιας νέας στήλης πρωτεύοντος κλειδιού"
 
 #: libraries/normalization.lib.php:201
 msgid "Remove redundant columns"
