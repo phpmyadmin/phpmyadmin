@@ -98,13 +98,36 @@ class PMA_Console
                 . '<span class="text targetdb">' . __('Database') . ': <span>%s</span></span>';
 
             $bookmarks = PMA_Bookmark_getList();
-            $output .= '<div class="message welcome"><span>'
-                    .  (count($bookmarks) > 0 ? __('Total ') .  count($bookmarks) . __(' bookmarks, ')
-                        . '<span class="bookmark_label">' . __('private')
-                        . '</span> and <span class="bookmark_label shared">' . __('shared')
-                        . '</span>' . __(' bookmarks included.')
-                        : __('No bookmarks'))
-                    .  '</span></div>';
+            $output .= '<div class="message welcome"><span>';
+            $count_bookmarks = count($bookmarks);
+            if ($count_bookmarks > 0) {
+                $bookmarks_message = sprintf(
+                    _ngettext(
+                        'Total %d bookmark',
+                        'Total %d bookmarks',
+                        $count_bookmarks),
+                    $count_bookmarks
+                );
+                $private_message = sprintf(
+                    '<span class="bookmark_label">%1$s</span>',
+                    __('private')
+                );
+                $shared_message = sprintf(
+                    '<span class="bookmark_label shared">%1$s</span>',
+                    __('shared')
+                );
+                $output .= sprintf(
+                    /* l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared */
+                    __('%1$s, %2$s and %3$s bookmarks included'),
+                    $bookmarks_message,
+                    $private_message,
+                    $shared_message
+                );
+            } else {
+                $output .= __('No bookmarks');
+            }
+            unset($count_bookmarks, $private_message, $shared_message);
+            $output .= '</span></div>';
             foreach ($bookmarks as $key => $val) {
                 $output .= '<div class="message collapsed bookmark" bookmarkid="'
                 .  $val['id'] . '" bookmarkdb="' . $val['db']
