@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-04 08:42-0400\n"
-"PO-Revision-Date: 2014-07-04 13:45+0200\n"
+"PO-Revision-Date: 2014-07-04 15:09+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1268,11 +1268,11 @@ msgstr "Mettre la surveillance en pause"
 
 #: js/messages.php:140 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Lancer l'actualisation automatique"
 
 #: js/messages.php:141
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Arrêter l'actualisation automatique"
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
@@ -2625,16 +2625,16 @@ msgid "Reedit"
 msgstr ""
 
 #: libraries/Console.class.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "New bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Nouveau signet"
-msgstr[1] "Nouveau signet"
+msgstr[0] "Total de %d signet"
+msgstr[1] "Total de %d signets"
 
 #: libraries/Console.class.php:113
 msgid "private"
-msgstr ""
+msgstr "privé"
 
 #: libraries/Console.class.php:117 libraries/bookmark.lib.php:87
 msgid "shared"
@@ -2642,22 +2642,20 @@ msgstr "partagé"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:121
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "Le signet a été effacé."
+msgstr "%1$s, incluant les signets de type «%2$s» et «%3$s»"
 
 #: libraries/Console.class.php:127
-#, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
-msgstr "Nouveau signet"
+msgstr "Aucun signet"
 
 #: libraries/Console.class.php:173
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "Cache des requêtes"
+msgstr "La requête a échoué"
 
 #: libraries/Console.class.php:175
 #, fuzzy
