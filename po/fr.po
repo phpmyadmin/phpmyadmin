@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-03 07:42-0400\n"
-"PO-Revision-Date: 2014-07-04 13:40+0200\n"
+"PO-Revision-Date: 2014-07-04 13:45+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -2630,20 +2630,18 @@ msgid "Expand"
 msgstr ""
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:147
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "sous-requête"
+msgstr "Exécuter la requête à nouveau"
 
 #: libraries/Console.class.php:96 libraries/Console.class.php:148
 msgid "Reedit"
 msgstr ""
 
 #: libraries/Console.class.php:102
-#, fuzzy
 #| msgid "Total"
 msgid "Total "
-msgstr "Total"
+msgstr "Total "
 
 #: libraries/Console.class.php:102
 #, fuzzy
