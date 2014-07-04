@@ -25,14 +25,19 @@ Code status
 Download
 --------
 
-You can get the newest version at http://www.phpmyadmin.net/.
+You can get the newest release at http://www.phpmyadmin.net/.
+
+If you prefer to follow the git repository, the following branch and tag names may be of interest:
+
+* ``STABLE`` is the current stable release.
+* ``master`` is the development branch.
+* Releases are tagged, for example version 4.0.1 was tagged as ``RELEASE_4_0_1``.
 
 More Information
 ----------------
 
 Please see the documentation in the doc folder or at http://docs.phpmyadmin.net/.
 
-Support
--------
+For support or to learn how to contribute code or by translating to your language,
+visit http://www.phpmyadmin.net/
 
-See reference about support forums under http://www.phpmyadmin.net/
