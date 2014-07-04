@@ -201,7 +201,7 @@ class PMA_Console
             $output .= '<div class="content">';
             $output .= '<div class="console_message_container">'
                     .  '<div class="message welcome"><span>'
-                    .  __('Press') . ' Ctrl+Enter ' . __('to Execute query')
+                    .  __('Press Ctrl+Enter to execute query')
                     .  '</span></div>';
 
             // History support
