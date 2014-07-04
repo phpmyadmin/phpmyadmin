@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-03 07:42-0400\n"
+"POT-Creation-Date: 2014-07-04 08:42-0400\n"
 "PO-Revision-Date: 2014-07-03 23:19+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
-"\n"
+"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
+">\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -334,7 +334,7 @@ msgid "Tracked tables"
 msgstr "Tabellen met tracker"
 
 #: db_tracking.php:80 libraries/Console.class.php:98
-#: libraries/Console.class.php:151 libraries/Menu.class.php:212
+#: libraries/Console.class.php:174 libraries/Menu.class.php:212
 #: libraries/config/messages.inc.php:753
 #: libraries/plugins/export/ExportHtmlword.class.php:149
 #: libraries/plugins/export/ExportOdt.class.php:193
@@ -384,7 +384,7 @@ msgstr "Status"
 msgid "Action"
 msgstr "Actie"
 
-#: db_tracking.php:87 libraries/navigation/Navigation.class.php:207
+#: db_tracking.php:87 libraries/navigation/Navigation.class.php:208
 #: libraries/tbl_tracking.lib.php:201 tbl_change.php:150
 msgid "Show"
 msgstr "Toon"
@@ -615,15 +615,15 @@ msgstr ""
 "U probeerde waarschijnlijk een bestand te uploaden dat te groot is. Zie "
 "%sdocumentatie%s voor oplossingen voor deze beperking."
 
-#: import.php:308 import.php:592
+#: import.php:311 import.php:595
 msgid "Showing bookmark"
 msgstr "Toon bladwijzer"
 
-#: import.php:323 import.php:588
+#: import.php:326 import.php:591
 msgid "The bookmark has been deleted."
 msgstr "De bladwijzer werd verwijderd."
 
-#: import.php:423
+#: import.php:426
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -633,12 +633,12 @@ msgstr ""
 "open_basedir ingeschakeld is zonder toegang tot de map %s (voor tijdelijke "
 "bestanden)."
 
-#: import.php:436 import.php:497 libraries/File.class.php:418
+#: import.php:439 import.php:500 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "Bestand kon niet worden gelezen!"
 
-#: import.php:445 import.php:456 import.php:477 import.php:488
+#: import.php:448 import.php:459 import.php:480 import.php:491
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -649,7 +649,7 @@ msgstr ""
 "uploaden. De ondersteuning is niet geïmplementeerd of uitgeschakeld in de "
 "configuratie."
 
-#: import.php:503
+#: import.php:506
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -660,30 +660,30 @@ msgstr ""
 "de maximale bestandsgrootte zoals opgegeven in de PHP-configuratie. Zie "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:522
+#: import.php:525
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "De karakterset van het bestand kan niet omgezet worden zonder de 'character "
 "set conversion' bibliotheek!"
 
-#: import.php:560 libraries/display_import.inc.php:32
+#: import.php:563 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "De plugins voor het importeren konden niet worden geladen, controleer uw "
 "installatie!"
 
-#: import.php:595 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
+#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bladwijzer %s werd aangemaakt."
 
-#: import.php:604
+#: import.php:607
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Import is geslaagd, %d queries uitgevoerd."
 
-#: import.php:625
+#: import.php:628
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -691,7 +691,7 @@ msgstr ""
 "De maximale uitvoertijd is verstreken, indien u de import wil afmaken kunt u "
 "het bestand opnieuw invoeren."
 
-#: import.php:629
+#: import.php:632
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1817,7 +1817,6 @@ msgid "Add primary key"
 msgstr "Een primaire sleutel toevoegen"
 
 #: js/messages.php:305
-#| msgid "A primary key has been added on %s."
 msgid "Primary key added."
 msgstr "Primaire sleutel toegevoegd."
 
@@ -1855,7 +1854,6 @@ msgid "Range search"
 msgstr "Zoeken op bereik"
 
 #: js/messages.php:317
-#| msgid "Column names: "
 msgid "Column maximum:"
 msgstr "Kolommaximum:"
 
@@ -2610,85 +2608,77 @@ msgstr ""
 msgid "Font size"
 msgstr "Lettertypegrootte"
 
-#: libraries/Console.class.php:93 libraries/Console.class.php:145
+#: libraries/Console.class.php:93 libraries/Console.class.php:168
 msgid "Collapse"
 msgstr "Samenvouwen"
 
-#: libraries/Console.class.php:94 libraries/Console.class.php:146
+#: libraries/Console.class.php:94 libraries/Console.class.php:169
 msgid "Expand"
 msgstr ""
 
-#: libraries/Console.class.php:95 libraries/Console.class.php:147
+#: libraries/Console.class.php:95 libraries/Console.class.php:170
 #, fuzzy
 #| msgid "subquery"
 msgid "Requery"
 msgstr "subquery"
 
-#: libraries/Console.class.php:96 libraries/Console.class.php:148
+#: libraries/Console.class.php:96 libraries/Console.class.php:171
 msgid "Reedit"
 msgstr ""
 
-#: libraries/Console.class.php:102
-#, fuzzy
-#| msgid "Total"
-msgid "Total "
-msgstr "Totaal"
+#: libraries/Console.class.php:106
+#, fuzzy, php-format
+#| msgid "Add bookmark"
+msgid "Total %d bookmark"
+msgid_plural "Total %d bookmarks"
+msgstr[0] "Bladwijzer toevoegen"
+msgstr[1] "Bladwijzer toevoegen"
 
-#: libraries/Console.class.php:102
-#, fuzzy
-#| msgid "New bookmark"
-msgid " bookmarks, "
-msgstr "Nieuwe bladwijzer"
-
-#: libraries/Console.class.php:103
+#: libraries/Console.class.php:113
 msgid "private"
 msgstr ""
 
-#: libraries/Console.class.php:104 libraries/bookmark.lib.php:87
+#: libraries/Console.class.php:117 libraries/bookmark.lib.php:87
 msgid "shared"
 msgstr "gedeeld"
 
-#: libraries/Console.class.php:105
-#, fuzzy
+#. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
+#: libraries/Console.class.php:121
+#, fuzzy, php-format
 #| msgid "The bookmark has been deleted."
-msgid " bookmarks included."
+msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "De bladwijzer werd verwijderd."
 
-#: libraries/Console.class.php:106
-#| msgid "New bookmark"
+#: libraries/Console.class.php:127
 msgid "No bookmarks"
 msgstr "Geen bladwijzers"
 
-#: libraries/Console.class.php:150
-#| msgid "Query cache"
+#: libraries/Console.class.php:173
 msgid "Query failed"
 msgstr "Query mislukt"
 
-#: libraries/Console.class.php:152
-#| msgid "Query execution time"
+#: libraries/Console.class.php:175
 msgid "Queried time"
 msgstr "Query-uitvoertijd"
 
-#: libraries/Console.class.php:158
-#| msgid "SQL Query box"
+#: libraries/Console.class.php:181
 msgid "SQL Query Console"
 msgstr "SQL-query console"
 
-#: libraries/Console.class.php:159
+#: libraries/Console.class.php:182
 msgid "Console"
 msgstr ""
 
-#: libraries/Console.class.php:162 libraries/sql_query_form.lib.php:276
+#: libraries/Console.class.php:185 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
 msgid "Clear"
 msgstr "Leegmaken"
 
-#: libraries/Console.class.php:165
-#| msgid "SQL history"
+#: libraries/Console.class.php:188
 msgid "History"
 msgstr "Geschiedenis"
 
-#: libraries/Console.class.php:168 libraries/Console.class.php:239
+#: libraries/Console.class.php:191 libraries/Console.class.php:268
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
 #: libraries/import.lib.php:1237 libraries/import.lib.php:1269
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2716,66 +2706,59 @@ msgstr "Geschiedenis"
 msgid "Options"
 msgstr "Opties"
 
-#: libraries/Console.class.php:172 libraries/Console.class.php:211
-#| msgid "Bookmark table"
+#: libraries/Console.class.php:195 libraries/Console.class.php:240
 msgid "Bookmarks"
 msgstr "Bladwijzers"
 
-#: libraries/Console.class.php:181
+#: libraries/Console.class.php:204
 msgid "Press"
 msgstr ""
 
-#: libraries/Console.class.php:181
-#| msgid "Execute every"
+#: libraries/Console.class.php:204
 msgid "to Execute query"
 msgstr "Uit te voeren query"
 
-#: libraries/Console.class.php:192
-#| msgid "Skip current error"
+#: libraries/Console.class.php:219
 msgid "During current session"
 msgstr "Tijdens de huidige sessie"
 
-#: libraries/Console.class.php:215 libraries/Util.class.php:1232
+#: libraries/Console.class.php:244 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Ververs"
 
-#: libraries/Console.class.php:226
-#| msgid "New bookmark"
+#: libraries/Console.class.php:255
 msgid "Add bookmark"
 msgstr "Bladwijzer toevoegen"
 
-#: libraries/Console.class.php:229
-#| msgid "Label:"
+#: libraries/Console.class.php:258
 msgid "Label"
 msgstr "Label"
 
-#: libraries/Console.class.php:230
+#: libraries/Console.class.php:259
 msgid "Target database"
 msgstr "Doeldatabank"
 
-#: libraries/Console.class.php:231
-#| msgid "Create bookmark"
+#: libraries/Console.class.php:260
 msgid "Share this bookmark"
 msgstr "Deze bladwijzer delen"
 
-#: libraries/Console.class.php:242
-#| msgid "Reset to default"
+#: libraries/Console.class.php:271
 msgid "Set default"
 msgstr "Standaardwaarde instellen"
 
-#: libraries/Console.class.php:246
+#: libraries/Console.class.php:275
 msgid "Always expand queried messages"
 msgstr ""
 
-#: libraries/Console.class.php:248
+#: libraries/Console.class.php:277
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "Tabel voor SQL-querygeschiedenis"
 
-#: libraries/Console.class.php:250
+#: libraries/Console.class.php:279
 msgid "Show current browsing query"
 msgstr ""
 
@@ -8622,23 +8605,23 @@ msgstr "onbekend"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "Er is een fout opgetreden bij het laden van de navigatieboom"
 
-#: libraries/navigation/Navigation.class.php:181
+#: libraries/navigation/Navigation.class.php:182
 msgid "Events:"
 msgstr "Gebeurtenissen:"
 
-#: libraries/navigation/Navigation.class.php:182
+#: libraries/navigation/Navigation.class.php:183
 msgid "Functions:"
 msgstr "Functies:"
 
-#: libraries/navigation/Navigation.class.php:183
+#: libraries/navigation/Navigation.class.php:184
 msgid "Procedures:"
 msgstr "Procedures:"
 
-#: libraries/navigation/Navigation.class.php:184
+#: libraries/navigation/Navigation.class.php:185
 msgid "Tables:"
 msgstr "Tabellen:"
 
-#: libraries/navigation/Navigation.class.php:185
+#: libraries/navigation/Navigation.class.php:186
 msgid "Views:"
 msgstr "Views:"
 
@@ -8817,13 +8800,11 @@ msgid ""
 "such column', it'll move to next step)"
 msgstr ""
 
-#: libraries/normalization.lib.php:131
-#| msgid "Select a column."
+#: libraries/normalization.lib.php:131 normalization.php:19
 msgid "Select one…"
 msgstr "Selecteer er één…"
 
 #: libraries/normalization.lib.php:132 normalization.php:20
-#| msgid "Move column"
 msgid "No such column"
 msgstr "Geen dergelijke kolom"
 
@@ -8832,12 +8813,10 @@ msgid "split into "
 msgstr ""
 
 #: libraries/normalization.lib.php:156
-#| msgid "Add primary key"
 msgid "Have a primary key"
 msgstr "Een primaire sleutel hebben"
 
 #: libraries/normalization.lib.php:162
-#| msgid "Error: relation already exists."
 msgid "Primary key already exists."
 msgstr "Primaire sleutel bestaat reeds."
 
@@ -8857,12 +8836,10 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:183
-#| msgid "Add primary key"
 msgid "+ Add a new primary key column"
 msgstr "+ Een nieuwe primaire sleutel kolom toevoegen"
 
 #: libraries/normalization.lib.php:201
-#| msgid "Remove from central columns"
 msgid "Remove redundant columns"
 msgstr "Verwijder overbodige kolommen"
 
@@ -8881,17 +8858,14 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:214
-#| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "Verwijder geselecteerde"
 
 #: libraries/normalization.lib.php:215
-#| msgid "Add column"
 msgid "No redundant column"
 msgstr "Geen overbodige kolom"
 
 #: libraries/normalization.lib.php:240
-#| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
 msgstr "Verbeter tabelstructuur (Normalisatie):"
 
@@ -9916,7 +9890,6 @@ msgid "Display Features"
 msgstr "Toon Opties"
 
 #: libraries/relation.lib.php:153
-#| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
 msgstr "Ontwerpen en aanmaken van PDF-bestanden"
 
@@ -12874,7 +12847,6 @@ msgid "Propose table structure"
 msgstr "Tabelstructuur voorstellen"
 
 #: libraries/structure.lib.php:1619
-#| msgid "Propose table structure"
 msgid "Improve table structure"
 msgstr "Tabelstructuur verbeteren"
 
@@ -13492,12 +13464,6 @@ msgstr "Geen bestanden gevonden in ZIP-archief!"
 #: navigation.php:20
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Fatale fout: de navigatie is alleen toegankelijk via AJAX"
-
-#: normalization.php:19
-#, fuzzy
-#| msgid "Select a column."
-msgid "Select one ..."
-msgstr "Selecteer een kolom."
 
 #: normalization.php:53
 msgid "Second/Third step of normalization"
@@ -15358,6 +15324,21 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert is ingesteld op 0"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total "
+#~ msgstr "Totaal"
+
+#, fuzzy
+#~| msgid "New bookmark"
+#~ msgid " bookmarks, "
+#~ msgstr "Nieuwe bladwijzer"
+
+#, fuzzy
+#~| msgid "Select a column."
+#~ msgid "Select one ..."
+#~ msgstr "Selecteer een kolom."
 
 #~| msgid "Add unique index"
 #~ msgid "Add unique/primary index"

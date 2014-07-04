@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-03 07:42-0400\n"
+"POT-Creation-Date: 2014-07-04 08:42-0400\n"
 "PO-Revision-Date: 2014-06-29 07:52+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
@@ -333,7 +333,7 @@ msgid "Tracked tables"
 msgstr "추적된 테이블"
 
 #: db_tracking.php:80 libraries/Console.class.php:98
-#: libraries/Console.class.php:151 libraries/Menu.class.php:212
+#: libraries/Console.class.php:174 libraries/Menu.class.php:212
 #: libraries/config/messages.inc.php:753
 #: libraries/plugins/export/ExportHtmlword.class.php:149
 #: libraries/plugins/export/ExportOdt.class.php:193
@@ -383,7 +383,7 @@ msgstr "상태"
 msgid "Action"
 msgstr "실행"
 
-#: db_tracking.php:87 libraries/navigation/Navigation.class.php:207
+#: db_tracking.php:87 libraries/navigation/Navigation.class.php:208
 #: libraries/tbl_tracking.lib.php:201 tbl_change.php:150
 msgid "Show"
 msgstr "보기"
@@ -608,15 +608,15 @@ msgstr ""
 "너무 큰 파일을 업로드하려고 시도했습니다. 제한을 해결하기 위해서는 "
 "%sdocumentation%s를 참조하여 주십시오."
 
-#: import.php:308 import.php:592
+#: import.php:311 import.php:595
 msgid "Showing bookmark"
 msgstr "북마크 보이기"
 
-#: import.php:323 import.php:588
+#: import.php:326 import.php:591
 msgid "The bookmark has been deleted."
 msgstr "북마크를 제거했습니다."
 
-#: import.php:423
+#: import.php:426
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -625,12 +625,12 @@ msgstr ""
 "업로드된 파일을 이동할 수 없습니다. 서버 설정에 open_basedir이 활성화되어 있"
 "지만, %s 디렉토리(임시 파일 저장용)에 접근 권한이 없습니다."
 
-#: import.php:436 import.php:497 libraries/File.class.php:418
+#: import.php:439 import.php:500 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "파일을 읽을 수 없습니다!"
 
-#: import.php:445 import.php:456 import.php:477 import.php:488
+#: import.php:448 import.php:459 import.php:480 import.php:491
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -640,7 +640,7 @@ msgstr ""
 "지원되지 않는 압축(%s)형식의 파일을 업로드하려고 시도했습니다. 지원이 구현되"
 "지 않았거나 설정에서 사용하지 않게 되어있습니다."
 
-#: import.php:503
+#: import.php:506
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -649,27 +649,27 @@ msgstr ""
 "가져올 데이터가 없습니다. 파일이 지정되지 않았거나 파일 크기가 PHP 설정의 최"
 "대 파일 크기를 초과했을 수 있습니다. [doc@faq1-16]FAQ 1.16[/doc] 참조."
 
-#: import.php:522
+#: import.php:525
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "문자셋 변환 라이브러리 없이 파일의 문자셋을 변환할 수 없습니다!"
 
-#: import.php:560 libraries/display_import.inc.php:32
+#: import.php:563 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "가져오기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
-#: import.php:595 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
+#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "북마크 %s가 생성되었습니다."
 
-#: import.php:604
+#: import.php:607
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "가져오기를 성공적으로 마쳤습니다. %d 쿼리가 실행되었습니다."
 
-#: import.php:625
+#: import.php:628
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -677,7 +677,7 @@ msgstr ""
 "스크립트 타임아웃이 통보되었습니다. 가져오기를 이어서 계속 완료시키려면 같은 "
 "파일을 다시 전송해주십시오."
 
-#: import.php:629
+#: import.php:632
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -2580,92 +2580,88 @@ msgstr ""
 msgid "Font size"
 msgstr "글꼴 크기"
 
-#: libraries/Console.class.php:93 libraries/Console.class.php:145
+#: libraries/Console.class.php:93 libraries/Console.class.php:168
 #, fuzzy
 #| msgid "Expand/Collapse"
 msgid "Collapse"
 msgstr "펼치기/접기"
 
-#: libraries/Console.class.php:94 libraries/Console.class.php:146
+#: libraries/Console.class.php:94 libraries/Console.class.php:169
 msgid "Expand"
 msgstr ""
 
-#: libraries/Console.class.php:95 libraries/Console.class.php:147
+#: libraries/Console.class.php:95 libraries/Console.class.php:170
 #, fuzzy
 #| msgid "subquery"
 msgid "Requery"
 msgstr "서브쿼리"
 
-#: libraries/Console.class.php:96 libraries/Console.class.php:148
+#: libraries/Console.class.php:96 libraries/Console.class.php:171
 msgid "Reedit"
 msgstr ""
 
-#: libraries/Console.class.php:102
-#, fuzzy
-#| msgid "Total"
-msgid "Total "
-msgstr "전체 쿼리수"
-
-#: libraries/Console.class.php:102
-#, fuzzy
+#: libraries/Console.class.php:106
+#, fuzzy, php-format
 #| msgid "New bookmark"
-msgid " bookmarks, "
-msgstr "새 북마크"
+msgid "Total %d bookmark"
+msgid_plural "Total %d bookmarks"
+msgstr[0] "새 북마크"
 
-#: libraries/Console.class.php:103
+#: libraries/Console.class.php:113
 msgid "private"
 msgstr ""
 
-#: libraries/Console.class.php:104 libraries/bookmark.lib.php:87
+#: libraries/Console.class.php:117 libraries/bookmark.lib.php:87
 msgid "shared"
 msgstr "공유"
 
-#: libraries/Console.class.php:105
-#, fuzzy
+#. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
+#: libraries/Console.class.php:121
+#, fuzzy, php-format
 #| msgid "The bookmark has been deleted."
-msgid " bookmarks included."
+msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "북마크를 제거했습니다."
 
-#: libraries/Console.class.php:106
+#: libraries/Console.class.php:127
 #, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
 msgstr "새 북마크"
 
-#: libraries/Console.class.php:150
+#: libraries/Console.class.php:173
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
 msgstr "질의(쿼리) 캐시"
 
-#: libraries/Console.class.php:152
+#: libraries/Console.class.php:175
 #, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
 msgstr "질의 실행 시간"
 
-#: libraries/Console.class.php:158
+#: libraries/Console.class.php:181
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
 msgstr "SQL 질의 상자"
 
-#: libraries/Console.class.php:159
+#: libraries/Console.class.php:182
 msgid "Console"
 msgstr ""
 
-#: libraries/Console.class.php:162 libraries/sql_query_form.lib.php:276
+#: libraries/Console.class.php:185 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
 msgid "Clear"
 msgstr ""
 
-#: libraries/Console.class.php:165
+#: libraries/Console.class.php:188
 #, fuzzy
 #| msgid "SQL history"
 msgid "History"
 msgstr "SQL 내력(히스토리)"
 
-#: libraries/Console.class.php:168 libraries/Console.class.php:239
+#: libraries/Console.class.php:191 libraries/Console.class.php:268
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
 #: libraries/import.lib.php:1237 libraries/import.lib.php:1269
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2693,73 +2689,73 @@ msgstr "SQL 내력(히스토리)"
 msgid "Options"
 msgstr "옵션"
 
-#: libraries/Console.class.php:172 libraries/Console.class.php:211
+#: libraries/Console.class.php:195 libraries/Console.class.php:240
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
 msgstr "테이블 즐겨찾기"
 
-#: libraries/Console.class.php:181
+#: libraries/Console.class.php:204
 msgid "Press"
 msgstr ""
 
-#: libraries/Console.class.php:181
+#: libraries/Console.class.php:204
 #, fuzzy
 #| msgid "Execute every"
 msgid "to Execute query"
 msgstr "실행간격"
 
-#: libraries/Console.class.php:192
+#: libraries/Console.class.php:219
 msgid "During current session"
 msgstr ""
 
-#: libraries/Console.class.php:215 libraries/Util.class.php:1232
+#: libraries/Console.class.php:244 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "다시 보기"
 
-#: libraries/Console.class.php:226
+#: libraries/Console.class.php:255
 #, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
 msgstr "새 북마크"
 
-#: libraries/Console.class.php:229
+#: libraries/Console.class.php:258
 #, fuzzy
 #| msgid "Label key"
 msgid "Label"
 msgstr "레이블 키"
 
-#: libraries/Console.class.php:230
+#: libraries/Console.class.php:259
 #, fuzzy
 #| msgid "Create database"
 msgid "Target database"
 msgstr "새 데이터베이스 만들기"
 
-#: libraries/Console.class.php:231
+#: libraries/Console.class.php:260
 #, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
 msgstr "북마크 생성"
 
-#: libraries/Console.class.php:242
+#: libraries/Console.class.php:271
 #, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
 msgstr "기본값으로 초기화"
 
-#: libraries/Console.class.php:246
+#: libraries/Console.class.php:275
 msgid "Always expand queried messages"
 msgstr ""
 
-#: libraries/Console.class.php:248
+#: libraries/Console.class.php:277
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "SQL 쿼리 히스토리 테이블"
 
-#: libraries/Console.class.php:250
+#: libraries/Console.class.php:279
 msgid "Show current browsing query"
 msgstr ""
 
@@ -8472,23 +8468,23 @@ msgstr "알수없음"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "네비게이션 트리를 불러오는 도중 에러가 발생함"
 
-#: libraries/navigation/Navigation.class.php:181
+#: libraries/navigation/Navigation.class.php:182
 msgid "Events:"
 msgstr "이벤트:"
 
-#: libraries/navigation/Navigation.class.php:182
+#: libraries/navigation/Navigation.class.php:183
 msgid "Functions:"
 msgstr "함수:"
 
-#: libraries/navigation/Navigation.class.php:183
+#: libraries/navigation/Navigation.class.php:184
 msgid "Procedures:"
 msgstr "프로시저:"
 
-#: libraries/navigation/Navigation.class.php:184
+#: libraries/navigation/Navigation.class.php:185
 msgid "Tables:"
 msgstr "테이블:"
 
-#: libraries/navigation/Navigation.class.php:185
+#: libraries/navigation/Navigation.class.php:186
 msgid "Views:"
 msgstr "뷰:"
 
@@ -8677,7 +8673,7 @@ msgid ""
 "such column', it'll move to next step)"
 msgstr ""
 
-#: libraries/normalization.lib.php:131
+#: libraries/normalization.lib.php:131 normalization.php:19
 #, fuzzy
 #| msgid "Select a column."
 msgid "Select one…"
@@ -13242,12 +13238,6 @@ msgstr "ZIP 압축 안에서 파일을 발견하지 못했습니다!"
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "심각한 오류: 네비게이션은 AJAX를 통해서만 접근할 수 있습니다"
 
-#: normalization.php:19
-#, fuzzy
-#| msgid "Select a column."
-msgid "Select one ..."
-msgstr "컬럼 선택."
-
 #: normalization.php:53
 msgid "Second/Third step of normalization"
 msgstr ""
@@ -14991,6 +14981,21 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total "
+#~ msgstr "전체 쿼리수"
+
+#, fuzzy
+#~| msgid "New bookmark"
+#~ msgid " bookmarks, "
+#~ msgstr "새 북마크"
+
+#, fuzzy
+#~| msgid "Select a column."
+#~ msgid "Select one ..."
+#~ msgstr "컬럼 선택."
 
 #, fuzzy
 #~| msgid "Add unique index"

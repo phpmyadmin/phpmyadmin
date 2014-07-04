@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-03 07:42-0400\n"
+"POT-Creation-Date: 2014-07-04 08:42-0400\n"
 "PO-Revision-Date: 2014-07-01 01:40+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani <https://l10n.cihar.com/projects/phpmyadmin/"
@@ -334,7 +334,7 @@ msgid "Tracked tables"
 msgstr "İzlənən cədvəllər"
 
 #: db_tracking.php:80 libraries/Console.class.php:98
-#: libraries/Console.class.php:151 libraries/Menu.class.php:212
+#: libraries/Console.class.php:174 libraries/Menu.class.php:212
 #: libraries/config/messages.inc.php:753
 #: libraries/plugins/export/ExportHtmlword.class.php:149
 #: libraries/plugins/export/ExportOdt.class.php:193
@@ -384,7 +384,7 @@ msgstr "Status"
 msgid "Action"
 msgstr "Fealiyyetler"
 
-#: db_tracking.php:87 libraries/navigation/Navigation.class.php:207
+#: db_tracking.php:87 libraries/navigation/Navigation.class.php:208
 #: libraries/tbl_tracking.lib.php:201 tbl_change.php:150
 msgid "Show"
 msgstr "Göster"
@@ -610,27 +610,27 @@ msgid ""
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
 
-#: import.php:308 import.php:592
+#: import.php:311 import.php:595
 msgid "Showing bookmark"
 msgstr ""
 
-#: import.php:323 import.php:588
+#: import.php:326 import.php:591
 msgid "The bookmark has been deleted."
 msgstr "Bookmark silindi."
 
-#: import.php:423
+#: import.php:426
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
 
-#: import.php:436 import.php:497 libraries/File.class.php:418
+#: import.php:439 import.php:500 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "Fayl oxuna bilmir!"
 
-#: import.php:445 import.php:456 import.php:477 import.php:488
+#: import.php:448 import.php:459 import.php:480 import.php:491
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -638,7 +638,7 @@ msgid ""
 "for it is not implemented or disabled by your configuration."
 msgstr ""
 
-#: import.php:503
+#: import.php:506
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -648,26 +648,26 @@ msgstr ""
 "PHP konfiqurasiyanızda icazə verilən limitdən çoxdur. Baxın [doc@faq1-16]FAQ "
 "1.16[/doc]."
 
-#: import.php:522
+#: import.php:525
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 
-#: import.php:560 libraries/display_import.inc.php:32
+#: import.php:563 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "İmport pluqini yüklənmədi, zəhmət olmasa quraşdırmanı yoxlayın!"
 
-#: import.php:595 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
+#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bookmark %s yaradıldı."
 
-#: import.php:604
+#: import.php:607
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "İmport uğurla başa çatdı, %d sorğu yerinə yetirlidi."
 
-#: import.php:625
+#: import.php:628
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -675,7 +675,7 @@ msgstr ""
 "Skript zaman limitini keçdi, importu tamamlamaq üçün zəhmət olmasa, həmin "
 "faylı yenidən göndərin və import davam edəcəkdir."
 
-#: import.php:629
+#: import.php:632
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -2543,88 +2543,85 @@ msgstr ""
 msgid "Font size"
 msgstr ""
 
-#: libraries/Console.class.php:93 libraries/Console.class.php:145
+#: libraries/Console.class.php:93 libraries/Console.class.php:168
 msgid "Collapse"
 msgstr ""
 
-#: libraries/Console.class.php:94 libraries/Console.class.php:146
+#: libraries/Console.class.php:94 libraries/Console.class.php:169
 msgid "Expand"
 msgstr ""
 
-#: libraries/Console.class.php:95 libraries/Console.class.php:147
+#: libraries/Console.class.php:95 libraries/Console.class.php:170
 #, fuzzy
 #| msgid "in query"
 msgid "Requery"
 msgstr "in query"
 
-#: libraries/Console.class.php:96 libraries/Console.class.php:148
+#: libraries/Console.class.php:96 libraries/Console.class.php:171
 msgid "Reedit"
 msgstr ""
 
-#: libraries/Console.class.php:102
-#, fuzzy
-#| msgid "Total"
-msgid "Total "
-msgstr "Cemi"
-
-#: libraries/Console.class.php:102
-#, fuzzy
+#: libraries/Console.class.php:106
+#, fuzzy, php-format
 #| msgid "New bookmark"
-msgid " bookmarks, "
-msgstr "Yeni bookmark"
+msgid "Total %d bookmark"
+msgid_plural "Total %d bookmarks"
+msgstr[0] "Yeni bookmark"
+msgstr[1] "Yeni bookmark"
 
-#: libraries/Console.class.php:103
+#: libraries/Console.class.php:113
 msgid "private"
 msgstr ""
 
-#: libraries/Console.class.php:104 libraries/bookmark.lib.php:87
+#: libraries/Console.class.php:117 libraries/bookmark.lib.php:87
 msgid "shared"
 msgstr ""
 
-#: libraries/Console.class.php:105
-#, fuzzy
+#. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
+#: libraries/Console.class.php:121
+#, fuzzy, php-format
 #| msgid "The bookmark has been deleted."
-msgid " bookmarks included."
+msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "Bookmark silindi."
 
-#: libraries/Console.class.php:106
+#: libraries/Console.class.php:127
 #, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
 msgstr "Yeni bookmark"
 
-#: libraries/Console.class.php:150
+#: libraries/Console.class.php:173
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
 msgstr "Sorğu keşi"
 
-#: libraries/Console.class.php:152
+#: libraries/Console.class.php:175
 msgid "Queried time"
 msgstr ""
 
-#: libraries/Console.class.php:158
+#: libraries/Console.class.php:181
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
 msgstr "SQL sorğu qutusu"
 
-#: libraries/Console.class.php:159
+#: libraries/Console.class.php:182
 msgid "Console"
 msgstr ""
 
-#: libraries/Console.class.php:162 libraries/sql_query_form.lib.php:276
+#: libraries/Console.class.php:185 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
 msgid "Clear"
 msgstr ""
 
-#: libraries/Console.class.php:165
+#: libraries/Console.class.php:188
 #, fuzzy
 #| msgid "SQL history"
 msgid "History"
 msgstr "SQL tarixçəsi"
 
-#: libraries/Console.class.php:168 libraries/Console.class.php:239
+#: libraries/Console.class.php:191 libraries/Console.class.php:268
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
 #: libraries/import.lib.php:1237 libraries/import.lib.php:1269
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2652,70 +2649,70 @@ msgstr "SQL tarixçəsi"
 msgid "Options"
 msgstr "Parametrlər"
 
-#: libraries/Console.class.php:172 libraries/Console.class.php:211
+#: libraries/Console.class.php:195 libraries/Console.class.php:240
 #, fuzzy
 #| msgid "New bookmark"
 msgid "Bookmarks"
 msgstr "Yeni bookmark"
 
-#: libraries/Console.class.php:181
+#: libraries/Console.class.php:204
 msgid "Press"
 msgstr ""
 
-#: libraries/Console.class.php:181
+#: libraries/Console.class.php:204
 #, fuzzy
 msgid "to Execute query"
 msgstr "SQL sorğusu"
 
-#: libraries/Console.class.php:192
+#: libraries/Console.class.php:219
 msgid "During current session"
 msgstr ""
 
-#: libraries/Console.class.php:215 libraries/Util.class.php:1232
+#: libraries/Console.class.php:244 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr ""
 
-#: libraries/Console.class.php:226
+#: libraries/Console.class.php:255
 #, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
 msgstr "Yeni bookmark"
 
-#: libraries/Console.class.php:229
+#: libraries/Console.class.php:258
 #, fuzzy
 #| msgid "Label:"
 msgid "Label"
 msgstr "Etiket:"
 
-#: libraries/Console.class.php:230
+#: libraries/Console.class.php:259
 #, fuzzy
 msgid "Target database"
 msgstr "Search in database"
 
-#: libraries/Console.class.php:231
+#: libraries/Console.class.php:260
 #, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
 msgstr "Bookmark yarat"
 
-#: libraries/Console.class.php:242
+#: libraries/Console.class.php:271
 #, fuzzy
 #| msgid "Import defaults"
 msgid "Set default"
 msgstr "Susmaya görə İmport"
 
-#: libraries/Console.class.php:246
+#: libraries/Console.class.php:275
 msgid "Always expand queried messages"
 msgstr ""
 
-#: libraries/Console.class.php:248
+#: libraries/Console.class.php:277
 #, fuzzy
 msgid "Show query history at start"
 msgstr "SQL sorğusu"
 
-#: libraries/Console.class.php:250
+#: libraries/Console.class.php:279
 msgid "Show current browsing query"
 msgstr ""
 
@@ -8141,23 +8138,23 @@ msgstr "bilinmir"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "Naviqasiya ağacı yüklənərkən xəta baş verdi"
 
-#: libraries/navigation/Navigation.class.php:181
+#: libraries/navigation/Navigation.class.php:182
 msgid "Events:"
 msgstr "Hadisələr:"
 
-#: libraries/navigation/Navigation.class.php:182
+#: libraries/navigation/Navigation.class.php:183
 msgid "Functions:"
 msgstr "Funksiyalar:"
 
-#: libraries/navigation/Navigation.class.php:183
+#: libraries/navigation/Navigation.class.php:184
 msgid "Procedures:"
 msgstr "Proseduralar:"
 
-#: libraries/navigation/Navigation.class.php:184
+#: libraries/navigation/Navigation.class.php:185
 msgid "Tables:"
 msgstr "Cədvəllər:"
 
-#: libraries/navigation/Navigation.class.php:185
+#: libraries/navigation/Navigation.class.php:186
 msgid "Views:"
 msgstr ""
 
@@ -8336,7 +8333,7 @@ msgid ""
 "such column', it'll move to next step)"
 msgstr ""
 
-#: libraries/normalization.lib.php:131
+#: libraries/normalization.lib.php:131 normalization.php:19
 #, fuzzy
 #| msgid "Select a column."
 msgid "Select one…"
@@ -12811,12 +12808,6 @@ msgstr ""
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
-#: normalization.php:19
-#, fuzzy
-#| msgid "Select a column."
-msgid "Select one ..."
-msgstr "Sütun seçin."
-
 #: normalization.php:53
 msgid "Second/Third step of normalization"
 msgstr ""
@@ -14537,6 +14528,21 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total "
+#~ msgstr "Cemi"
+
+#, fuzzy
+#~| msgid "New bookmark"
+#~ msgid " bookmarks, "
+#~ msgstr "Yeni bookmark"
+
+#, fuzzy
+#~| msgid "Select a column."
+#~ msgid "Select one ..."
+#~ msgstr "Sütun seçin."
 
 #, fuzzy
 #~| msgid "Move columns"

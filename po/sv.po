@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-03 07:42-0400\n"
+"POT-Creation-Date: 2014-07-04 08:42-0400\n"
 "PO-Revision-Date: 2014-06-15 22:04+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://l10n.cihar.com/projects/phpmyadmin/master/sv/"
@@ -336,7 +336,7 @@ msgid "Tracked tables"
 msgstr "Spårade tabeller"
 
 #: db_tracking.php:80 libraries/Console.class.php:98
-#: libraries/Console.class.php:151 libraries/Menu.class.php:212
+#: libraries/Console.class.php:174 libraries/Menu.class.php:212
 #: libraries/config/messages.inc.php:753
 #: libraries/plugins/export/ExportHtmlword.class.php:149
 #: libraries/plugins/export/ExportOdt.class.php:193
@@ -386,7 +386,7 @@ msgstr "Status"
 msgid "Action"
 msgstr "Åtgärd"
 
-#: db_tracking.php:87 libraries/navigation/Navigation.class.php:207
+#: db_tracking.php:87 libraries/navigation/Navigation.class.php:208
 #: libraries/tbl_tracking.lib.php:201 tbl_change.php:150
 msgid "Show"
 msgstr "Visa"
@@ -614,15 +614,15 @@ msgstr ""
 "Du försökte ladda upp en fil som är för stor. Se %sdocumentation%s för att "
 "gå runt denna begränsning."
 
-#: import.php:308 import.php:592
+#: import.php:311 import.php:595
 msgid "Showing bookmark"
 msgstr "Visar bokmärke"
 
-#: import.php:323 import.php:588
+#: import.php:326 import.php:591
 msgid "The bookmark has been deleted."
 msgstr "Bokmärket har tagits bort."
 
-#: import.php:423
+#: import.php:426
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -631,12 +631,12 @@ msgstr ""
 "Skickad fil kan inte flyttas eftersom servern har open_basedir aktiverat "
 "utan åtkomst till katalogen %s (för temporära filer)."
 
-#: import.php:436 import.php:497 libraries/File.class.php:418
+#: import.php:439 import.php:500 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "Filen kunde inte läsas!"
 
-#: import.php:445 import.php:456 import.php:477 import.php:488
+#: import.php:448 import.php:459 import.php:480 import.php:491
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -646,7 +646,7 @@ msgstr ""
 "Du försökte ladda en fil med en komprimering (%s) som inte stöds. Antingen "
 "är detta inte implementerat, eller inaktiverat i din konfiguration."
 
-#: import.php:503
+#: import.php:506
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -656,29 +656,29 @@ msgstr ""
 "översteg filens storlek den maximalt tillåtna storleken i din PHP-"
 "konfiguration. Se [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:522
+#: import.php:525
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Kan inte konvertera filens teckenuppsättning utan teckenuppsättningens "
 "omvandlingsbibliotek!"
 
-#: import.php:560 libraries/display_import.inc.php:32
+#: import.php:563 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Kunde inte läsa in insticksprogram för import, kontrollera din installation!"
 
-#: import.php:595 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
+#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bokmärket %s har skapats."
 
-#: import.php:604
+#: import.php:607
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importen har slutförts korrekt, %d frågor utförda."
 
-#: import.php:625
+#: import.php:628
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -686,7 +686,7 @@ msgstr ""
 "Skriptets tidsbegränsning har överskridits. Om du vill slutföra importen, "
 "importera samma fil igen så kommer importen att återupptas."
 
-#: import.php:629
+#: import.php:632
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -2630,92 +2630,89 @@ msgstr ""
 msgid "Font size"
 msgstr "Teckenstorlek"
 
-#: libraries/Console.class.php:93 libraries/Console.class.php:145
+#: libraries/Console.class.php:93 libraries/Console.class.php:168
 #, fuzzy
 #| msgid "Expand/Collapse"
 msgid "Collapse"
 msgstr "Expandera/Vik ihop"
 
-#: libraries/Console.class.php:94 libraries/Console.class.php:146
+#: libraries/Console.class.php:94 libraries/Console.class.php:169
 msgid "Expand"
 msgstr ""
 
-#: libraries/Console.class.php:95 libraries/Console.class.php:147
+#: libraries/Console.class.php:95 libraries/Console.class.php:170
 #, fuzzy
 #| msgid "subquery"
 msgid "Requery"
 msgstr "underfråga"
 
-#: libraries/Console.class.php:96 libraries/Console.class.php:148
+#: libraries/Console.class.php:96 libraries/Console.class.php:171
 msgid "Reedit"
 msgstr ""
 
-#: libraries/Console.class.php:102
-#, fuzzy
-#| msgid "Total"
-msgid "Total "
-msgstr "Totalt"
-
-#: libraries/Console.class.php:102
-#, fuzzy
+#: libraries/Console.class.php:106
+#, fuzzy, php-format
 #| msgid "New bookmark"
-msgid " bookmarks, "
-msgstr "Nytt bokmärke"
+msgid "Total %d bookmark"
+msgid_plural "Total %d bookmarks"
+msgstr[0] "Nytt bokmärke"
+msgstr[1] "Nytt bokmärke"
 
-#: libraries/Console.class.php:103
+#: libraries/Console.class.php:113
 msgid "private"
 msgstr ""
 
-#: libraries/Console.class.php:104 libraries/bookmark.lib.php:87
+#: libraries/Console.class.php:117 libraries/bookmark.lib.php:87
 msgid "shared"
 msgstr "delad"
 
-#: libraries/Console.class.php:105
-#, fuzzy
+#. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
+#: libraries/Console.class.php:121
+#, fuzzy, php-format
 #| msgid "The bookmark has been deleted."
-msgid " bookmarks included."
+msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "Bokmärket har tagits bort."
 
-#: libraries/Console.class.php:106
+#: libraries/Console.class.php:127
 #, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
 msgstr "Nytt bokmärke"
 
-#: libraries/Console.class.php:150
+#: libraries/Console.class.php:173
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
 msgstr "Frågecache"
 
-#: libraries/Console.class.php:152
+#: libraries/Console.class.php:175
 #, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
 msgstr "Exekveringstid för frågor"
 
-#: libraries/Console.class.php:158
+#: libraries/Console.class.php:181
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
 msgstr "SQL-frågeruta"
 
-#: libraries/Console.class.php:159
+#: libraries/Console.class.php:182
 msgid "Console"
 msgstr ""
 
-#: libraries/Console.class.php:162 libraries/sql_query_form.lib.php:276
+#: libraries/Console.class.php:185 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
 msgid "Clear"
 msgstr "Rensa"
 
-#: libraries/Console.class.php:165
+#: libraries/Console.class.php:188
 #, fuzzy
 #| msgid "SQL history"
 msgid "History"
 msgstr "SQL-historik"
 
-#: libraries/Console.class.php:168 libraries/Console.class.php:239
+#: libraries/Console.class.php:191 libraries/Console.class.php:268
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
 #: libraries/import.lib.php:1237 libraries/import.lib.php:1269
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2743,73 +2740,73 @@ msgstr "SQL-historik"
 msgid "Options"
 msgstr "Alternativ"
 
-#: libraries/Console.class.php:172 libraries/Console.class.php:211
+#: libraries/Console.class.php:195 libraries/Console.class.php:240
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
 msgstr "Tabell för bokmärken"
 
-#: libraries/Console.class.php:181
+#: libraries/Console.class.php:204
 msgid "Press"
 msgstr ""
 
-#: libraries/Console.class.php:181
+#: libraries/Console.class.php:204
 #, fuzzy
 #| msgid "Execute every"
 msgid "to Execute query"
 msgstr "Utför varje"
 
-#: libraries/Console.class.php:192
+#: libraries/Console.class.php:219
 #, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
 msgstr "Hoppa över nuvarande fel"
 
-#: libraries/Console.class.php:215 libraries/Util.class.php:1232
+#: libraries/Console.class.php:244 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Uppdatera"
 
-#: libraries/Console.class.php:226
+#: libraries/Console.class.php:255
 #, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
 msgstr "Nytt bokmärke"
 
-#: libraries/Console.class.php:229
+#: libraries/Console.class.php:258
 #, fuzzy
 #| msgid "Label:"
 msgid "Label"
 msgstr "Etikett:"
 
-#: libraries/Console.class.php:230
+#: libraries/Console.class.php:259
 msgid "Target database"
 msgstr "Måldatabas"
 
-#: libraries/Console.class.php:231
+#: libraries/Console.class.php:260
 #, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
 msgstr "Skapa bokmärke"
 
-#: libraries/Console.class.php:242
+#: libraries/Console.class.php:271
 #, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
 msgstr "Återställ till standardinställningen"
 
-#: libraries/Console.class.php:246
+#: libraries/Console.class.php:275
 msgid "Always expand queried messages"
 msgstr ""
 
-#: libraries/Console.class.php:248
+#: libraries/Console.class.php:277
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "Tabell för SQL-frågehistorik"
 
-#: libraries/Console.class.php:250
+#: libraries/Console.class.php:279
 msgid "Show current browsing query"
 msgstr ""
 
@@ -8612,23 +8609,23 @@ msgstr "okänd"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "Ett fel uppstod vid inläsning av navigeringsträdet"
 
-#: libraries/navigation/Navigation.class.php:181
+#: libraries/navigation/Navigation.class.php:182
 msgid "Events:"
 msgstr "Händelser:"
 
-#: libraries/navigation/Navigation.class.php:182
+#: libraries/navigation/Navigation.class.php:183
 msgid "Functions:"
 msgstr "Funktioner:"
 
-#: libraries/navigation/Navigation.class.php:183
+#: libraries/navigation/Navigation.class.php:184
 msgid "Procedures:"
 msgstr "Procedurer:"
 
-#: libraries/navigation/Navigation.class.php:184
+#: libraries/navigation/Navigation.class.php:185
 msgid "Tables:"
 msgstr "Tabeller:"
 
-#: libraries/navigation/Navigation.class.php:185
+#: libraries/navigation/Navigation.class.php:186
 msgid "Views:"
 msgstr "Vyer:"
 
@@ -8805,7 +8802,7 @@ msgid ""
 "such column', it'll move to next step)"
 msgstr ""
 
-#: libraries/normalization.lib.php:131
+#: libraries/normalization.lib.php:131 normalization.php:19
 #, fuzzy
 #| msgid "Select a column."
 msgid "Select one…"
@@ -13440,12 +13437,6 @@ msgstr "Inga filer hittades i ZIP-arkivet!"
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Oåterkalleligt fel: Navigering kan endast nås via AJAX"
 
-#: normalization.php:19
-#, fuzzy
-#| msgid "Select a column."
-msgid "Select one ..."
-msgstr "Välj en kolumn."
-
 #: normalization.php:53
 msgid "Second/Third step of normalization"
 msgstr ""
@@ -15248,6 +15239,21 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert är satt till 0"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total "
+#~ msgstr "Totalt"
+
+#, fuzzy
+#~| msgid "New bookmark"
+#~ msgid " bookmarks, "
+#~ msgstr "Nytt bokmärke"
+
+#, fuzzy
+#~| msgid "Select a column."
+#~ msgid "Select one ..."
+#~ msgstr "Välj en kolumn."
 
 #, fuzzy
 #~| msgid "Add unique index"

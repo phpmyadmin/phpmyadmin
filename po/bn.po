@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-03 07:42-0400\n"
+"POT-Creation-Date: 2014-07-04 08:42-0400\n"
 "PO-Revision-Date: 2014-03-27 15:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://l10n.cihar.com/projects/phpmyadmin/master/bn/"
@@ -339,7 +339,7 @@ msgid "Tracked tables"
 msgstr "ট্রেক কৃত টেবিলসমূহ"
 
 #: db_tracking.php:80 libraries/Console.class.php:98
-#: libraries/Console.class.php:151 libraries/Menu.class.php:212
+#: libraries/Console.class.php:174 libraries/Menu.class.php:212
 #: libraries/config/messages.inc.php:753
 #: libraries/plugins/export/ExportHtmlword.class.php:149
 #: libraries/plugins/export/ExportOdt.class.php:193
@@ -389,7 +389,7 @@ msgstr "অবস্থা"
 msgid "Action"
 msgstr "কর্ম"
 
-#: db_tracking.php:87 libraries/navigation/Navigation.class.php:207
+#: db_tracking.php:87 libraries/navigation/Navigation.class.php:208
 #: libraries/tbl_tracking.lib.php:201 tbl_change.php:150
 msgid "Show"
 msgstr "দেখাও"
@@ -621,27 +621,27 @@ msgstr ""
 "সম্ভবত আপনি একটি বিশাল ফাইল আপলোড করতে চাচ্ছেন। অনুগ্র্রহ করে %sdocumentation%s "
 "দেখে এই সমস্যা সমাধানের চেষ্টা করুন।"
 
-#: import.php:308 import.php:592
+#: import.php:311 import.php:595
 msgid "Showing bookmark"
 msgstr "বুকর্মাক দেখাচ্ছে"
 
-#: import.php:323 import.php:588
+#: import.php:326 import.php:591
 msgid "The bookmark has been deleted."
 msgstr "বুকর্মাকটি মুছা হয়েছে।"
 
-#: import.php:423
+#: import.php:426
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
 
-#: import.php:436 import.php:497 libraries/File.class.php:418
+#: import.php:439 import.php:500 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "ফাইলটি পড়া যাচ্ছে না"
 
-#: import.php:445 import.php:456 import.php:477 import.php:488
+#: import.php:448 import.php:459 import.php:480 import.php:491
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -651,7 +651,7 @@ msgstr ""
 "আপনি অপরিচিত সংকোচন (%s) এর ফাইল ব্যবহার করছেন। সম্ভব এটি নিয়ে কাজ করার ব্যবস্থা "
 "নাই বা এটি অর্কাযকর করা আছে।"
 
-#: import.php:503
+#: import.php:506
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -660,7 +660,7 @@ msgstr ""
 "আমদানির জন্য কোন তথ্য পাওয়া যায়নি। হয় কোন ফাইলের নাম দেওয়া হয়নি বা অনেক বড় "
 "আকারের ফাইল যা পিএইছপি সমর্থন করছে না। [doc@faq1-16]FAQ 1.16[/doc] দেখুন।"
 
-#: import.php:522
+#: import.php:525
 #, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
@@ -669,29 +669,29 @@ msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "ফাইলের বর্ণ গঠন পরিবর্তন করা যাচ্ছে না। বর্ণ লাইব্রেরী ছাড়া পরিবর্তন সম্ভব নয়"
 
-#: import.php:560 libraries/display_import.inc.php:32
+#: import.php:563 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "আমদানি সহায়ক (plugin) পাওয়া যাচ্ছে না, অনুগ্রহ করে আপনার ইন্সষ্টলেশন পরীক্ষা করুন"
 
-#: import.php:595 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
+#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
 msgstr "বুকমার্ক  %s তৈরী করা হয়েছে"
 
-#: import.php:604
+#: import.php:607
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "আমদানি প্রক্রীয়াটি সফলভাবে সম্পন্ন হয়েছে, %d গুলো অনুসন্ধান ব্যবহৃত হয়েছে।"
 
-#: import.php:625
+#: import.php:628
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr "নির্ধারিত কার্যকাল শেষ হয়ে গেছে, আমদানি শেষ করার জন্য কাজটি আবার শুরু করুন।"
 
-#: import.php:629
+#: import.php:632
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -2646,90 +2646,87 @@ msgstr "কনফিগারেশন ফাইলে ভুল অনুমত
 msgid "Font size"
 msgstr "অক্ষরের আকার"
 
-#: libraries/Console.class.php:93 libraries/Console.class.php:145
+#: libraries/Console.class.php:93 libraries/Console.class.php:168
 msgid "Collapse"
 msgstr ""
 
-#: libraries/Console.class.php:94 libraries/Console.class.php:146
+#: libraries/Console.class.php:94 libraries/Console.class.php:169
 msgid "Expand"
 msgstr ""
 
-#: libraries/Console.class.php:95 libraries/Console.class.php:147
+#: libraries/Console.class.php:95 libraries/Console.class.php:170
 #, fuzzy
 #| msgid "subquery"
 msgid "Requery"
 msgstr "সহ-অনুসন্ধান"
 
-#: libraries/Console.class.php:96 libraries/Console.class.php:148
+#: libraries/Console.class.php:96 libraries/Console.class.php:171
 msgid "Reedit"
 msgstr ""
 
-#: libraries/Console.class.php:102
-#, fuzzy
-#| msgid "Total"
-msgid "Total "
-msgstr "মোট"
-
-#: libraries/Console.class.php:102
-#, fuzzy
+#: libraries/Console.class.php:106
+#, fuzzy, php-format
 #| msgid "Delete relation"
-msgid " bookmarks, "
-msgstr "সর্ম্পক মুছা"
+msgid "Total %d bookmark"
+msgid_plural "Total %d bookmarks"
+msgstr[0] "সর্ম্পক মুছা"
+msgstr[1] "সর্ম্পক মুছা"
 
-#: libraries/Console.class.php:103
+#: libraries/Console.class.php:113
 msgid "private"
 msgstr ""
 
-#: libraries/Console.class.php:104 libraries/bookmark.lib.php:87
+#: libraries/Console.class.php:117 libraries/bookmark.lib.php:87
 msgid "shared"
 msgstr "উন্মুক্ত"
 
-#: libraries/Console.class.php:105
-#, fuzzy
+#. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
+#: libraries/Console.class.php:121
+#, fuzzy, php-format
 #| msgid "The bookmark has been deleted."
-msgid " bookmarks included."
+msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "বুকর্মাকটি মুছা হয়েছে।"
 
-#: libraries/Console.class.php:106
+#: libraries/Console.class.php:127
 #, fuzzy
 #| msgid "Delete relation"
 msgid "No bookmarks"
 msgstr "সর্ম্পক মুছা"
 
-#: libraries/Console.class.php:150
+#: libraries/Console.class.php:173
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
 msgstr "অনুসন্ধান ক্যাশ"
 
-#: libraries/Console.class.php:152
+#: libraries/Console.class.php:175
 #, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
 msgstr "অনুসন্ধানের সম্পাদনের সময়"
 
-#: libraries/Console.class.php:158
+#: libraries/Console.class.php:181
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
 msgstr "SQL অনুসন্ধান বক্স"
 
-#: libraries/Console.class.php:159
+#: libraries/Console.class.php:182
 msgid "Console"
 msgstr ""
 
-#: libraries/Console.class.php:162 libraries/sql_query_form.lib.php:276
+#: libraries/Console.class.php:185 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
 msgid "Clear"
 msgstr "পরিস্কার"
 
-#: libraries/Console.class.php:165
+#: libraries/Console.class.php:188
 #, fuzzy
 #| msgid "SQL history"
 msgid "History"
 msgstr "এসকিউএল ইতিহাস"
 
-#: libraries/Console.class.php:168 libraries/Console.class.php:239
+#: libraries/Console.class.php:191 libraries/Console.class.php:268
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
 #: libraries/import.lib.php:1237 libraries/import.lib.php:1269
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2757,74 +2754,74 @@ msgstr "এসকিউএল ইতিহাস"
 msgid "Options"
 msgstr "অপশনস"
 
-#: libraries/Console.class.php:172 libraries/Console.class.php:211
+#: libraries/Console.class.php:195 libraries/Console.class.php:240
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
 msgstr "বুকর্মাক টেবল"
 
-#: libraries/Console.class.php:181
+#: libraries/Console.class.php:204
 msgid "Press"
 msgstr ""
 
-#: libraries/Console.class.php:181
+#: libraries/Console.class.php:204
 #, fuzzy
 #| msgid "Execute every"
 msgid "to Execute query"
 msgstr "সবগুলো নির্বাহ কর"
 
-#: libraries/Console.class.php:192
+#: libraries/Console.class.php:219
 #, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
 msgstr "বর্তমান ভুলটি এড়িয়ে যাও"
 
-#: libraries/Console.class.php:215 libraries/Util.class.php:1232
+#: libraries/Console.class.php:244 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "রিফ্রেশ"
 
-#: libraries/Console.class.php:226
+#: libraries/Console.class.php:255
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
 msgstr "সর্ম্পক মুছা"
 
-#: libraries/Console.class.php:229
+#: libraries/Console.class.php:258
 #, fuzzy
 #| msgid "Label:"
 msgid "Label"
 msgstr "লেবেল:"
 
-#: libraries/Console.class.php:230
+#: libraries/Console.class.php:259
 #, fuzzy
 msgid "Target database"
 msgstr "ডাটাবে এ খুজুঁনSearch in database"
 
-#: libraries/Console.class.php:231
+#: libraries/Console.class.php:260
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
 msgstr "সর্ম্পক মুছা"
 
-#: libraries/Console.class.php:242
+#: libraries/Console.class.php:271
 #, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
 msgstr "স্বাভাবিকে রিসেট কর"
 
-#: libraries/Console.class.php:246
+#: libraries/Console.class.php:275
 msgid "Always expand queried messages"
 msgstr ""
 
-#: libraries/Console.class.php:248
+#: libraries/Console.class.php:277
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "SQL অনুসন্ধানের হিস্টোরী টেবল"
 
-#: libraries/Console.class.php:250
+#: libraries/Console.class.php:279
 msgid "Show current browsing query"
 msgstr ""
 
@@ -8617,23 +8614,23 @@ msgstr "অজানা"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "চলাচলের ট্রি লোডকরার সময় একটি ভুল হয়েছে"
 
-#: libraries/navigation/Navigation.class.php:181
+#: libraries/navigation/Navigation.class.php:182
 msgid "Events:"
 msgstr "ইভেন্টসমূহ:"
 
-#: libraries/navigation/Navigation.class.php:182
+#: libraries/navigation/Navigation.class.php:183
 msgid "Functions:"
 msgstr "ফাংশনসমূহ:"
 
-#: libraries/navigation/Navigation.class.php:183
+#: libraries/navigation/Navigation.class.php:184
 msgid "Procedures:"
 msgstr "প্রোসিডিউরস:"
 
-#: libraries/navigation/Navigation.class.php:184
+#: libraries/navigation/Navigation.class.php:185
 msgid "Tables:"
 msgstr "টেবলসমুহ:"
 
-#: libraries/navigation/Navigation.class.php:185
+#: libraries/navigation/Navigation.class.php:186
 msgid "Views:"
 msgstr "ভিউসমূহ:"
 
@@ -8810,7 +8807,7 @@ msgid ""
 "such column', it'll move to next step)"
 msgstr ""
 
-#: libraries/normalization.lib.php:131
+#: libraries/normalization.lib.php:131 normalization.php:19
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select one…"
@@ -13380,12 +13377,6 @@ msgstr "জিপ আর্কাইভের ভিতর কোন ফাই�
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "মারাত্মক ভুল: চলাচলের সুবিধা শুধু মাত্র এজাক্সের মাধ্যমে পাওয়া যাবে"
 
-#: normalization.php:19
-#, fuzzy
-#| msgid "Select two columns"
-msgid "Select one ..."
-msgstr "দুইটি স্তম্ভ নির্বাচন করুন"
-
 #: normalization.php:53
 msgid "Second/Third step of normalization"
 msgstr ""
@@ -15131,6 +15122,21 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert এর জন্য ০ নির্ধারন করা হয়েছে"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total "
+#~ msgstr "মোট"
+
+#, fuzzy
+#~| msgid "Delete relation"
+#~ msgid " bookmarks, "
+#~ msgstr "সর্ম্পক মুছা"
+
+#, fuzzy
+#~| msgid "Select two columns"
+#~ msgid "Select one ..."
+#~ msgstr "দুইটি স্তম্ভ নির্বাচন করুন"
 
 #, fuzzy
 #~| msgid "Add unique index"

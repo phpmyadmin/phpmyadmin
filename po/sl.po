@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-03 07:42-0400\n"
+"POT-Creation-Date: 2014-07-04 08:42-0400\n"
 "PO-Revision-Date: 2014-07-03 19:40+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
+"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
+"sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -337,7 +337,7 @@ msgid "Tracked tables"
 msgstr "Sledene tabele"
 
 #: db_tracking.php:80 libraries/Console.class.php:98
-#: libraries/Console.class.php:151 libraries/Menu.class.php:212
+#: libraries/Console.class.php:174 libraries/Menu.class.php:212
 #: libraries/config/messages.inc.php:753
 #: libraries/plugins/export/ExportHtmlword.class.php:149
 #: libraries/plugins/export/ExportOdt.class.php:193
@@ -387,7 +387,7 @@ msgstr "Stanje"
 msgid "Action"
 msgstr "Dejanje"
 
-#: db_tracking.php:87 libraries/navigation/Navigation.class.php:207
+#: db_tracking.php:87 libraries/navigation/Navigation.class.php:208
 #: libraries/tbl_tracking.lib.php:201 tbl_change.php:150
 msgid "Show"
 msgstr "Pokaži"
@@ -617,15 +617,15 @@ msgstr ""
 "Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, da si v "
 "%sdokumentaciji%s ogledate načine, kako obiti omejitev."
 
-#: import.php:308 import.php:592
+#: import.php:311 import.php:595
 msgid "Showing bookmark"
 msgstr "Prikazovanje zaznamka"
 
-#: import.php:323 import.php:588
+#: import.php:326 import.php:591
 msgid "The bookmark has been deleted."
 msgstr "Zaznamek je odstranjen."
 
-#: import.php:423
+#: import.php:426
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -634,12 +634,12 @@ msgstr ""
 "Naložene datoteke ne morem premakniti, ker ima strežnik omogočen "
 "open_basedir brez dostopa do mape %s (za začasne datoteke)."
 
-#: import.php:436 import.php:497 libraries/File.class.php:418
+#: import.php:439 import.php:500 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "Ne morem prebrati datoteke!"
 
-#: import.php:445 import.php:456 import.php:477 import.php:488
+#: import.php:448 import.php:459 import.php:480 import.php:491
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -649,7 +649,7 @@ msgstr ""
 "Poskušali ste naložiti datoteko z nepodprtim stiskanjem (%s). Bodisi podpora "
 "za njega ni vključena ali pa je onemogočena z vašo konfiguracijo."
 
-#: import.php:503
+#: import.php:506
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -659,29 +659,29 @@ msgstr ""
 "je velikost datoteke presegala največjo velikost, dovoljeno v konfiguraciji "
 "PHP. Glej [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:522
+#: import.php:525
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Ne morem pretvoriti nabora znakov datoteke brez knjižnice za pretvorbo "
 "nabora znakov!"
 
-#: import.php:560 libraries/display_import.inc.php:32
+#: import.php:563 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Ne morem naložiti vtičnikov za uvoz, prosimo, preverite vašo namestitev!"
 
-#: import.php:595 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
+#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Ustvaril sem zaznamek %s."
 
-#: import.php:604
+#: import.php:607
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Uvažanje je uspešno zaključeno, izvedenih je bilo %d poizvedb."
 
-#: import.php:625
+#: import.php:628
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -689,7 +689,7 @@ msgstr ""
 "Časovna omejitev skripta je potekla; če želite končati uvoz, prosimo, "
 "ponovno pošljite isto datoteko in uvoz se bo nadaljeval."
 
-#: import.php:629
+#: import.php:632
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1808,7 +1808,6 @@ msgid "Add primary key"
 msgstr "Dodaj primarni ključ"
 
 #: js/messages.php:305
-#| msgid "A primary key has been added on %s."
 msgid "Primary key added."
 msgstr "Dodal sem primarni ključ."
 
@@ -2047,8 +2046,8 @@ msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+CLick to remove column from ORDER BY clause"
 msgstr ""
-"Shift+klik, da dodate stolpec v stavek ORDER BY ali da preklopite ASC/DESC.<"
-"br />- Control+klik, da stolpec odstranite iz stavka ORDER BY"
+"Shift+klik, da dodate stolpec v stavek ORDER BY ali da preklopite ASC/DESC."
+"<br />- Control+klik, da stolpec odstranite iz stavka ORDER BY"
 
 #: js/messages.php:394
 msgid "Click to mark/unmark."
@@ -2084,7 +2083,6 @@ msgstr ""
 "Prosimo, vnesite veljaven šestnajstiški niz. Veljavni znaki so 0–9, A–F."
 
 #: js/messages.php:404
-#| msgid "Cancel"
 msgid "cancel"
 msgstr "prekliči"
 
@@ -2097,22 +2095,18 @@ msgid "Failed"
 msgstr "Spodletelo"
 
 #: js/messages.php:407
-#| msgid "Success!"
 msgid "Success"
 msgstr "Uspešno"
 
 #: js/messages.php:408
-#| msgid "Import defaults"
 msgid "Import status"
 msgstr "Stanje uvoza"
 
 #: js/messages.php:409 libraries/navigation/Navigation.class.php:102
-#| msgid "Log file threshold"
 msgid "Drop files here"
 msgstr "Spustite datoteke tukaj"
 
 #: js/messages.php:410
-#| msgid "Select database"
 msgid "Select database first"
 msgstr "Najprej izberite zbirko podatkov"
 
@@ -2600,73 +2594,77 @@ msgstr ""
 msgid "Font size"
 msgstr "Velikost pisave"
 
-#: libraries/Console.class.php:93 libraries/Console.class.php:145
+#: libraries/Console.class.php:93 libraries/Console.class.php:168
 msgid "Collapse"
 msgstr "Skrči"
 
-#: libraries/Console.class.php:94 libraries/Console.class.php:146
+#: libraries/Console.class.php:94 libraries/Console.class.php:169
 msgid "Expand"
 msgstr "Razširi"
 
-#: libraries/Console.class.php:95 libraries/Console.class.php:147
+#: libraries/Console.class.php:95 libraries/Console.class.php:170
 msgid "Requery"
 msgstr "Ponovna poizvedba"
 
-#: libraries/Console.class.php:96 libraries/Console.class.php:148
+#: libraries/Console.class.php:96 libraries/Console.class.php:171
 msgid "Reedit"
 msgstr "Ponovno urejanje"
 
-#: libraries/Console.class.php:102
-msgid "Total "
-msgstr "Skupaj "
+#: libraries/Console.class.php:106
+#, fuzzy, php-format
+#| msgid "Add bookmark"
+msgid "Total %d bookmark"
+msgid_plural "Total %d bookmarks"
+msgstr[0] "Dodaj zaznamek"
+msgstr[1] "Dodaj zaznamek"
+msgstr[2] "Dodaj zaznamek"
+msgstr[3] "Dodaj zaznamek"
 
-#: libraries/Console.class.php:102
-msgid " bookmarks, "
-msgstr " zaznamkov, "
-
-#: libraries/Console.class.php:103
+#: libraries/Console.class.php:113
 msgid "private"
 msgstr "zasebnih"
 
-#: libraries/Console.class.php:104 libraries/bookmark.lib.php:87
+#: libraries/Console.class.php:117 libraries/bookmark.lib.php:87
 msgid "shared"
 msgstr "deljeno"
 
-#: libraries/Console.class.php:105
-msgid " bookmarks included."
+#. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
+#: libraries/Console.class.php:121
+#, fuzzy, php-format
+#| msgid " bookmarks included."
+msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr " vključenih zaznamkov."
 
-#: libraries/Console.class.php:106
+#: libraries/Console.class.php:127
 msgid "No bookmarks"
 msgstr "Ni zaznamkov"
 
-#: libraries/Console.class.php:150
+#: libraries/Console.class.php:173
 msgid "Query failed"
 msgstr "Poizvedba je spodletela"
 
-#: libraries/Console.class.php:152
-#| msgid "Query execution time"
+#: libraries/Console.class.php:175
 msgid "Queried time"
 msgstr "Čas poizvedbe"
 
-#: libraries/Console.class.php:158
+#: libraries/Console.class.php:181
 msgid "SQL Query Console"
 msgstr "Konzola poizvedb SQL"
 
-#: libraries/Console.class.php:159
+#: libraries/Console.class.php:182
 msgid "Console"
 msgstr "Konzola"
 
-#: libraries/Console.class.php:162 libraries/sql_query_form.lib.php:276
+#: libraries/Console.class.php:185 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
 msgid "Clear"
 msgstr "Počisti"
 
-#: libraries/Console.class.php:165
+#: libraries/Console.class.php:188
 msgid "History"
 msgstr "Zgodovina"
 
-#: libraries/Console.class.php:168 libraries/Console.class.php:239
+#: libraries/Console.class.php:191 libraries/Console.class.php:268
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
 #: libraries/import.lib.php:1237 libraries/import.lib.php:1269
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2694,57 +2692,57 @@ msgstr "Zgodovina"
 msgid "Options"
 msgstr "Možnosti"
 
-#: libraries/Console.class.php:172 libraries/Console.class.php:211
+#: libraries/Console.class.php:195 libraries/Console.class.php:240
 msgid "Bookmarks"
 msgstr "Zaznamki"
 
-#: libraries/Console.class.php:181
+#: libraries/Console.class.php:204
 msgid "Press"
 msgstr "Pritisnite"
 
-#: libraries/Console.class.php:181
+#: libraries/Console.class.php:204
 msgid "to Execute query"
 msgstr "da izvedete poizvedbo"
 
-#: libraries/Console.class.php:192
+#: libraries/Console.class.php:219
 msgid "During current session"
 msgstr "Med trenutno sejo"
 
-#: libraries/Console.class.php:215 libraries/Util.class.php:1232
+#: libraries/Console.class.php:244 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Osveži"
 
-#: libraries/Console.class.php:226
+#: libraries/Console.class.php:255
 msgid "Add bookmark"
 msgstr "Dodaj zaznamek"
 
-#: libraries/Console.class.php:229
+#: libraries/Console.class.php:258
 msgid "Label"
 msgstr "Oznaka"
 
-#: libraries/Console.class.php:230
+#: libraries/Console.class.php:259
 msgid "Target database"
 msgstr "Ciljna zbirka podatkov"
 
-#: libraries/Console.class.php:231
+#: libraries/Console.class.php:260
 msgid "Share this bookmark"
 msgstr "Deli zaznamek"
 
-#: libraries/Console.class.php:242
+#: libraries/Console.class.php:271
 msgid "Set default"
 msgstr "Nastavi privzeto"
 
-#: libraries/Console.class.php:246
+#: libraries/Console.class.php:275
 msgid "Always expand queried messages"
 msgstr "Vedno razširi sporočila poizvedb"
 
-#: libraries/Console.class.php:248
+#: libraries/Console.class.php:277
 msgid "Show query history at start"
 msgstr "Na začetku prikaži zgodovino"
 
-#: libraries/Console.class.php:250
+#: libraries/Console.class.php:279
 msgid "Show current browsing query"
 msgstr "Prikaži trenutno poizvedbo brskanja"
 
@@ -8541,23 +8539,23 @@ msgstr "neznano"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "Med nalaganjem navigacijskega drevesa je prišlo do napake"
 
-#: libraries/navigation/Navigation.class.php:181
+#: libraries/navigation/Navigation.class.php:182
 msgid "Events:"
 msgstr "Dogodki:"
 
-#: libraries/navigation/Navigation.class.php:182
+#: libraries/navigation/Navigation.class.php:183
 msgid "Functions:"
 msgstr "Funkcije:"
 
-#: libraries/navigation/Navigation.class.php:183
+#: libraries/navigation/Navigation.class.php:184
 msgid "Procedures:"
 msgstr "Procedure:"
 
-#: libraries/navigation/Navigation.class.php:184
+#: libraries/navigation/Navigation.class.php:185
 msgid "Tables:"
 msgstr "Tabele:"
 
-#: libraries/navigation/Navigation.class.php:185
+#: libraries/navigation/Navigation.class.php:186
 msgid "Views:"
 msgstr "Pogledi:"
 
@@ -8740,8 +8738,7 @@ msgstr ""
 "Izberite stolpec, ki ga je možno razbiti v več kot enega (z izbiro »ni "
 "takšnega stolpca« se boste pomaknili na naslednji korak)."
 
-#: libraries/normalization.lib.php:131
-#| msgid "Select one ..."
+#: libraries/normalization.lib.php:131 normalization.php:19
 msgid "Select one…"
 msgstr "Izberite enega …"
 
@@ -8754,12 +8751,10 @@ msgid "split into "
 msgstr "razbij v "
 
 #: libraries/normalization.lib.php:156
-#| msgid "Add primary key"
 msgid "Have a primary key"
 msgstr "Obstoj primarnega ključa"
 
 #: libraries/normalization.lib.php:162
-#| msgid "Error: relation already exists."
 msgid "Primary key already exists."
 msgstr "Primarni ključ že obstaja."
 
@@ -8781,7 +8776,6 @@ msgid ""
 msgstr "Obstoječe kombinacije stolpcev ni mogoče uporabiti kot primarni ključ"
 
 #: libraries/normalization.lib.php:183
-#| msgid "Add primary key"
 msgid "+ Add a new primary key column"
 msgstr "+ Dodaj nov stolpec primarnega ključa"
 
@@ -8813,7 +8807,6 @@ msgid "Remove selected"
 msgstr "Odstrani izbrane"
 
 #: libraries/normalization.lib.php:215
-#| msgid "Add column"
 msgid "No redundant column"
 msgstr "Ni odvečnih stolpcev"
 
@@ -13350,10 +13343,6 @@ msgstr "V arhivu ZIP ni bilo najdenih datotek!"
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Usodna napaka: Do navigacije lahko dostopate samo z Ajaxom"
 
-#: normalization.php:19
-msgid "Select one ..."
-msgstr "Izberite enega ..."
-
 #: normalization.php:53
 msgid "Second/Third step of normalization"
 msgstr "Druga/tretja stopnja normalizacije"
@@ -15171,6 +15160,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
+
+#~ msgid "Total "
+#~ msgstr "Skupaj "
+
+#~ msgid " bookmarks, "
+#~ msgstr " zaznamkov, "
+
+#~ msgid "Select one ..."
+#~ msgstr "Izberite enega ..."
 
 #~ msgid "Add unique/primary index"
 #~ msgstr "Dodaj izvirni/primarni indeks"

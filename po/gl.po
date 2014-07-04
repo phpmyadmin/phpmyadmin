@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-03 07:42-0400\n"
+"POT-Creation-Date: 2014-07-04 08:42-0400\n"
 "PO-Revision-Date: 2014-03-31 14:24+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Galician <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -341,7 +341,7 @@ msgid "Tracked tables"
 msgstr "Táboas seguidas"
 
 #: db_tracking.php:80 libraries/Console.class.php:98
-#: libraries/Console.class.php:151 libraries/Menu.class.php:212
+#: libraries/Console.class.php:174 libraries/Menu.class.php:212
 #: libraries/config/messages.inc.php:753
 #: libraries/plugins/export/ExportHtmlword.class.php:149
 #: libraries/plugins/export/ExportOdt.class.php:193
@@ -391,7 +391,7 @@ msgstr "Estado"
 msgid "Action"
 msgstr "Acción"
 
-#: db_tracking.php:87 libraries/navigation/Navigation.class.php:207
+#: db_tracking.php:87 libraries/navigation/Navigation.class.php:208
 #: libraries/tbl_tracking.lib.php:201 tbl_change.php:150
 msgid "Show"
 msgstr "Mostrar"
@@ -620,29 +620,29 @@ msgstr ""
 "Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a "
 "%sdocumentación%s para averiguar como evitar este límite."
 
-#: import.php:308 import.php:592
+#: import.php:311 import.php:595
 msgid "Showing bookmark"
 msgstr "A mostrar o marcador"
 
-#: import.php:323 import.php:588
+#: import.php:326 import.php:591
 msgid "The bookmark has been deleted."
 msgstr "Eliminouse o marcador."
 
-#: import.php:423
+#: import.php:426
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
 
-#: import.php:436 import.php:497 libraries/File.class.php:418
+#: import.php:439 import.php:500 libraries/File.class.php:418
 #: libraries/File.class.php:512
 #, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
 msgstr "Non foi posíbel ler o ficheiro"
 
-#: import.php:445 import.php:456 import.php:477 import.php:488
+#: import.php:448 import.php:459 import.php:480 import.php:491
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -652,7 +652,7 @@ msgstr ""
 "Tentou cargar un ficheiro cunha compresión descoñecida (%s). Ora non se sabe "
 "como descomprimir, ora está desactivada na configuración."
 
-#: import.php:503
+#: import.php:506
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -662,7 +662,7 @@ msgstr ""
 "o seu tamaño excede o máximo permitido pola súa configuración de PHP. "
 "Consulte a [doc@faq1-16]Pregunta frecuente 1.16[/doc]."
 
-#: import.php:522
+#: import.php:525
 #, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
@@ -673,22 +673,22 @@ msgstr ""
 "Non se pode converter o xogo de caracteres do ficheiro sen a biblioteca "
 "correspondente"
 
-#: import.php:560 libraries/display_import.inc.php:32
+#: import.php:563 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Non foi posíbel importar os engadidos - Comprobe a instalación!"
 
-#: import.php:595 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
+#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
 msgstr "Creouse o marcador %s"
 
-#: import.php:604
+#: import.php:607
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "A importación rematou sen problemas. Executáronse %d consultas."
 
-#: import.php:625
+#: import.php:628
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -696,7 +696,7 @@ msgstr ""
 "Excedeuse o tempo de espera do  script. Se quere rematar a importación, "
 "envíe de novo o mesmo ficheiro e a importación continuará."
 
-#: import.php:629
+#: import.php:632
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -2708,90 +2708,87 @@ msgstr ""
 msgid "Font size"
 msgstr "Tamaño da letra"
 
-#: libraries/Console.class.php:93 libraries/Console.class.php:145
+#: libraries/Console.class.php:93 libraries/Console.class.php:168
 msgid "Collapse"
 msgstr ""
 
-#: libraries/Console.class.php:94 libraries/Console.class.php:146
+#: libraries/Console.class.php:94 libraries/Console.class.php:169
 msgid "Expand"
 msgstr ""
 
-#: libraries/Console.class.php:95 libraries/Console.class.php:147
+#: libraries/Console.class.php:95 libraries/Console.class.php:170
 #, fuzzy
 #| msgid "subquery"
 msgid "Requery"
 msgstr "subconsulta"
 
-#: libraries/Console.class.php:96 libraries/Console.class.php:148
+#: libraries/Console.class.php:96 libraries/Console.class.php:171
 msgid "Reedit"
 msgstr ""
 
-#: libraries/Console.class.php:102
-#, fuzzy
-#| msgid "Total"
-msgid "Total "
-msgstr "Total"
-
-#: libraries/Console.class.php:102
-#, fuzzy
+#: libraries/Console.class.php:106
+#, fuzzy, php-format
 #| msgid "Delete relation"
-msgid " bookmarks, "
-msgstr "Eliminar a relación"
+msgid "Total %d bookmark"
+msgid_plural "Total %d bookmarks"
+msgstr[0] "Eliminar a relación"
+msgstr[1] "Eliminar a relación"
 
-#: libraries/Console.class.php:103
+#: libraries/Console.class.php:113
 msgid "private"
 msgstr ""
 
-#: libraries/Console.class.php:104 libraries/bookmark.lib.php:87
+#: libraries/Console.class.php:117 libraries/bookmark.lib.php:87
 msgid "shared"
 msgstr "compartida"
 
-#: libraries/Console.class.php:105
-#, fuzzy
+#. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
+#: libraries/Console.class.php:121
+#, fuzzy, php-format
 #| msgid "The bookmark has been deleted."
-msgid " bookmarks included."
+msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "Eliminouse o marcador."
 
-#: libraries/Console.class.php:106
+#: libraries/Console.class.php:127
 #, fuzzy
 #| msgid "Delete relation"
 msgid "No bookmarks"
 msgstr "Eliminar a relación"
 
-#: libraries/Console.class.php:150
+#: libraries/Console.class.php:173
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
 msgstr "Caché de consultas"
 
-#: libraries/Console.class.php:152
+#: libraries/Console.class.php:175
 #, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
 msgstr "Tempo de execución da consulta"
 
-#: libraries/Console.class.php:158
+#: libraries/Console.class.php:181
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
 msgstr "Caixa de consultas de SQL"
 
-#: libraries/Console.class.php:159
+#: libraries/Console.class.php:182
 msgid "Console"
 msgstr ""
 
-#: libraries/Console.class.php:162 libraries/sql_query_form.lib.php:276
+#: libraries/Console.class.php:185 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
 msgid "Clear"
 msgstr "Limpar"
 
-#: libraries/Console.class.php:165
+#: libraries/Console.class.php:188
 #, fuzzy
 #| msgid "SQL history"
 msgid "History"
 msgstr "Historial de SQL"
 
-#: libraries/Console.class.php:168 libraries/Console.class.php:239
+#: libraries/Console.class.php:191 libraries/Console.class.php:268
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
 #: libraries/import.lib.php:1237 libraries/import.lib.php:1269
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2819,73 +2816,73 @@ msgstr "Historial de SQL"
 msgid "Options"
 msgstr "Opcións"
 
-#: libraries/Console.class.php:172 libraries/Console.class.php:211
+#: libraries/Console.class.php:195 libraries/Console.class.php:240
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
 msgstr "Táboa de marcadores"
 
-#: libraries/Console.class.php:181
+#: libraries/Console.class.php:204
 msgid "Press"
 msgstr ""
 
-#: libraries/Console.class.php:181
+#: libraries/Console.class.php:204
 #, fuzzy
 #| msgid "Execute every"
 msgid "to Execute query"
 msgstr "Executar cada"
 
-#: libraries/Console.class.php:192
+#: libraries/Console.class.php:219
 #, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
 msgstr "Omitir este erro"
 
-#: libraries/Console.class.php:215 libraries/Util.class.php:1232
+#: libraries/Console.class.php:244 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Anovar"
 
-#: libraries/Console.class.php:226
+#: libraries/Console.class.php:255
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
 msgstr "Eliminar a relación"
 
-#: libraries/Console.class.php:229
+#: libraries/Console.class.php:258
 #, fuzzy
 #| msgid "Label:"
 msgid "Label"
 msgstr "Etiqueta:"
 
-#: libraries/Console.class.php:230
+#: libraries/Console.class.php:259
 msgid "Target database"
 msgstr "Base de datos de destino"
 
-#: libraries/Console.class.php:231
+#: libraries/Console.class.php:260
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
 msgstr "Eliminar a relación"
 
-#: libraries/Console.class.php:242
+#: libraries/Console.class.php:271
 #, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
 msgstr "Restabelecer o predeterminado"
 
-#: libraries/Console.class.php:246
+#: libraries/Console.class.php:275
 msgid "Always expand queried messages"
 msgstr ""
 
-#: libraries/Console.class.php:248
+#: libraries/Console.class.php:277
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "Táboa do historial de consultas SQL"
 
-#: libraries/Console.class.php:250
+#: libraries/Console.class.php:279
 msgid "Show current browsing query"
 msgstr ""
 
@@ -9321,31 +9318,31 @@ msgstr "descoñecido"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "Produciuse un erro ao cargar a árbore de navegación"
 
-#: libraries/navigation/Navigation.class.php:181
+#: libraries/navigation/Navigation.class.php:182
 #, fuzzy
 #| msgid "Events"
 msgid "Events:"
 msgstr "Acontecementos"
 
-#: libraries/navigation/Navigation.class.php:182
+#: libraries/navigation/Navigation.class.php:183
 #, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
 msgstr "Funcións"
 
-#: libraries/navigation/Navigation.class.php:183
+#: libraries/navigation/Navigation.class.php:184
 #, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
 msgstr "Procedementos"
 
-#: libraries/navigation/Navigation.class.php:184
+#: libraries/navigation/Navigation.class.php:185
 #, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
 msgstr "Táboas"
 
-#: libraries/navigation/Navigation.class.php:185
+#: libraries/navigation/Navigation.class.php:186
 #, fuzzy
 #| msgid "Views"
 msgid "Views:"
@@ -9543,7 +9540,7 @@ msgid ""
 "such column', it'll move to next step)"
 msgstr ""
 
-#: libraries/normalization.lib.php:131
+#: libraries/normalization.lib.php:131 normalization.php:19
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select one…"
@@ -14334,12 +14331,6 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 "Produciuse un erro fatal: Só é posíbel acceder á navegación mediante AJAX"
 
-#: normalization.php:19
-#, fuzzy
-#| msgid "Select two columns"
-msgid "Select one ..."
-msgstr "Escoller dúas columnas"
-
 #: normalization.php:53
 msgid "Second/Third step of normalization"
 msgstr ""
@@ -16212,6 +16203,21 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert está definido como 0"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total "
+#~ msgstr "Total"
+
+#, fuzzy
+#~| msgid "Delete relation"
+#~ msgid " bookmarks, "
+#~ msgstr "Eliminar a relación"
+
+#, fuzzy
+#~| msgid "Select two columns"
+#~ msgid "Select one ..."
+#~ msgstr "Escoller dúas columnas"
 
 #, fuzzy
 #~| msgid "Add unique index"
