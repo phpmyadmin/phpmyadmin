@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-04 08:42-0400\n"
-"PO-Revision-Date: 2014-07-04 15:09+0200\n"
+"PO-Revision-Date: 2014-07-04 16:26+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -2658,16 +2658,14 @@ msgid "Query failed"
 msgstr "La requête a échoué"
 
 #: libraries/Console.class.php:175
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Durée d'exécution de la requête"
+msgstr "Daté du"
 
 #: libraries/Console.class.php:181
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "Boîte de requêtes SQL"
+msgstr "Console de requêtes SQL"
 
 #: libraries/Console.class.php:182
 msgid "Console"
@@ -2679,10 +2677,9 @@ msgid "Clear"
 msgstr "Vider"
 
 #: libraries/Console.class.php:188
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "Historique SQL"
+msgstr "Historique"
 
 #: libraries/Console.class.php:191 libraries/Console.class.php:268
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
@@ -2713,10 +2710,9 @@ msgid "Options"
 msgstr "Options"
 
 #: libraries/Console.class.php:195 libraries/Console.class.php:240
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Table pour signets"
+msgstr "Signets"
 
 #: libraries/Console.class.php:204
 msgid "Press"
