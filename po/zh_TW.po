@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 08:42-0400\n"
+"POT-Creation-Date: 2014-07-04 10:35-0400\n"
 "PO-Revision-Date: 2014-06-26 18:51+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese <https://l10n.cihar.com/projects/"
@@ -2673,13 +2673,9 @@ msgid "Bookmarks"
 msgstr "書籤表"
 
 #: libraries/Console.class.php:204
-msgid "Press"
-msgstr ""
-
-#: libraries/Console.class.php:204
 #, fuzzy
 #| msgid "Execute every"
-msgid "to Execute query"
+msgid "Press Ctrl+Enter to execute query"
 msgstr "執行每個"
 
 #: libraries/Console.class.php:219

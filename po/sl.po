@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 08:42-0400\n"
+"POT-Creation-Date: 2014-07-04 10:35-0400\n"
 "PO-Revision-Date: 2014-07-03 19:40+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -2697,11 +2697,9 @@ msgid "Bookmarks"
 msgstr "Zaznamki"
 
 #: libraries/Console.class.php:204
-msgid "Press"
-msgstr "Pritisnite"
-
-#: libraries/Console.class.php:204
-msgid "to Execute query"
+#, fuzzy
+#| msgid "to Execute query"
+msgid "Press Ctrl+Enter to execute query"
 msgstr "da izvedete poizvedbo"
 
 #: libraries/Console.class.php:219
@@ -15160,6 +15158,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
+
+#~ msgid "Press"
+#~ msgstr "Pritisnite"
 
 #~ msgid "Total "
 #~ msgstr "Skupaj "

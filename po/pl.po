@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 08:42-0400\n"
+"POT-Creation-Date: 2014-07-04 10:35-0400\n"
 "PO-Revision-Date: 2014-05-12 23:05+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: Polish <https://l10n.cihar.com/projects/phpmyadmin/master/pl/"
@@ -2780,13 +2780,9 @@ msgid "Bookmarks"
 msgstr "Tabela zakładek"
 
 #: libraries/Console.class.php:204
-msgid "Press"
-msgstr ""
-
-#: libraries/Console.class.php:204
 #, fuzzy
 #| msgid "Execute every"
-msgid "to Execute query"
+msgid "Press Ctrl+Enter to execute query"
 msgstr "Wykonaj co"
 
 #: libraries/Console.class.php:219

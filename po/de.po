@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 08:42-0400\n"
+"POT-Creation-Date: 2014-07-04 10:35-0400\n"
 "PO-Revision-Date: 2014-06-18 13:17+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/master/de/"
@@ -2802,13 +2802,9 @@ msgid "Bookmarks"
 msgstr "Lesezeichen Tabelle"
 
 #: libraries/Console.class.php:204
-msgid "Press"
-msgstr ""
-
-#: libraries/Console.class.php:204
 #, fuzzy
 #| msgid "Execute every"
-msgid "to Execute query"
+msgid "Press Ctrl+Enter to execute query"
 msgstr "Abfrage ausführen"
 
 #: libraries/Console.class.php:219

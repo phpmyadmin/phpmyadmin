@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 08:42-0400\n"
+"POT-Creation-Date: 2014-07-04 10:35-0400\n"
 "PO-Revision-Date: 2014-07-03 20:25+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
@@ -2693,11 +2693,9 @@ msgid "Bookmarks"
 msgstr "Yer imleri"
 
 #: libraries/Console.class.php:204
-msgid "Press"
-msgstr "Sorguyu çalıştırmak için"
-
-#: libraries/Console.class.php:204
-msgid "to Execute query"
+#, fuzzy
+#| msgid "to Execute query"
+msgid "Press Ctrl+Enter to execute query"
 msgstr "düğmesine basın"
 
 #: libraries/Console.class.php:219
@@ -15152,6 +15150,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0'a ayarlı"
+
+#~ msgid "Press"
+#~ msgstr "Sorguyu çalıştırmak için"
 
 #~ msgid "Total "
 #~ msgstr "Toplam "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 08:42-0400\n"
+"POT-Creation-Date: 2014-07-04 10:35-0400\n"
 "PO-Revision-Date: 2014-04-19 18:59+0200\n"
 "Last-Translator: Sovichet Tep <sovichet.tep@gmail.com>\n"
 "Language-Team: Central Khmer <https://l10n.cihar.com/projects/phpmyadmin/"
@@ -2605,11 +2605,7 @@ msgid "Bookmarks"
 msgstr "បង្កើត​ចំណាំ​ថ្មី"
 
 #: libraries/Console.class.php:204
-msgid "Press"
-msgstr ""
-
-#: libraries/Console.class.php:204
-msgid "to Execute query"
+msgid "Press Ctrl+Enter to execute query"
 msgstr ""
 
 #: libraries/Console.class.php:219

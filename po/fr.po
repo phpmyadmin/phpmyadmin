@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 08:42-0400\n"
+"POT-Creation-Date: 2014-07-04 10:35-0400\n"
 "PO-Revision-Date: 2014-07-04 15:09+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
-"\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2626,7 +2626,6 @@ msgstr ""
 
 #: libraries/Console.class.php:106
 #, php-format
-#| msgid "New bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
 msgstr[0] "Total de %d signet"
@@ -2643,17 +2642,14 @@ msgstr "partagé"
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:121
 #, php-format
-#| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "%1$s, incluant les signets de type «%2$s» et «%3$s»"
 
 #: libraries/Console.class.php:127
-#| msgid "New bookmark"
 msgid "No bookmarks"
 msgstr "Aucun signet"
 
 #: libraries/Console.class.php:173
-#| msgid "Query cache"
 msgid "Query failed"
 msgstr "La requête a échoué"
 
@@ -2719,13 +2715,9 @@ msgid "Bookmarks"
 msgstr "Table pour signets"
 
 #: libraries/Console.class.php:204
-msgid "Press"
-msgstr ""
-
-#: libraries/Console.class.php:204
 #, fuzzy
 #| msgid "Execute every"
-msgid "to Execute query"
+msgid "Press Ctrl+Enter to execute query"
 msgstr "Exécuter chaque"
 
 #: libraries/Console.class.php:219

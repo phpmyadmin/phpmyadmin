@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 08:42-0400\n"
+"POT-Creation-Date: 2014-07-04 10:35-0400\n"
 "PO-Revision-Date: 2014-06-14 13:28+0200\n"
 "Last-Translator: Haval Abdulkarim <haval.abdulkarim@gmail.com>\n"
 "Language-Team: Kurdish Sorani <https://l10n.cihar.com/projects/phpmyadmin/"
@@ -2727,13 +2727,9 @@ msgid "Bookmarks"
 msgstr "گەڕانی خشتە"
 
 #: libraries/Console.class.php:204
-msgid "Press"
-msgstr ""
-
-#: libraries/Console.class.php:204
 #, fuzzy
 #| msgid "in query"
-msgid "to Execute query"
+msgid "Press Ctrl+Enter to execute query"
 msgstr "لە داواکاری"
 
 #: libraries/Console.class.php:219

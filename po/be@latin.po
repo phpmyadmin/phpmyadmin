@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 08:42-0400\n"
+"POT-Creation-Date: 2014-07-04 10:35-0400\n"
 "PO-Revision-Date: 2014-03-28 11:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian (latin) <https://l10n.cihar.com/projects/"
@@ -2991,13 +2991,9 @@ msgid "Bookmarks"
 msgstr "Vydalić suviaź"
 
 #: libraries/Console.class.php:204
-msgid "Press"
-msgstr ""
-
-#: libraries/Console.class.php:204
 #, fuzzy
 #| msgid "Execute bookmarked query"
-msgid "to Execute query"
+msgid "Press Ctrl+Enter to execute query"
 msgstr "Vykanać zapyt z zakładak"
 
 #: libraries/Console.class.php:219
