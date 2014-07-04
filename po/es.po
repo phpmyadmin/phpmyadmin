@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-03 07:42-0400\n"
-"PO-Revision-Date: 2014-07-03 00:29+0200\n"
+"PO-Revision-Date: 2014-07-04 05:02+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1823,10 +1823,9 @@ msgid "Add primary key"
 msgstr "Agregar clave primaria"
 
 #: js/messages.php:305
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "Se agregó una clave primaria en %s."
+msgstr "Se agregó la clave primaria."
 
 #: js/messages.php:306 libraries/normalization.lib.php:163
 msgid "Taking you to next step…"
@@ -8848,7 +8847,6 @@ msgstr ""
 "'ninguna columna', continuará en el siguiente paso)"
 
 #: libraries/normalization.lib.php:131
-#, fuzzy
 #| msgid "Select one ..."
 msgid "Select one…"
 msgstr "Seleccionar una…"
@@ -8862,19 +8860,16 @@ msgid "split into "
 msgstr "dividir en "
 
 #: libraries/normalization.lib.php:156
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
-msgstr "Agregar clave primaria"
+msgstr "Tener una clave primaria"
 
 #: libraries/normalization.lib.php:162
-#, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "Error: la relación ya existe."
+msgstr "Ya existe una clave primaria."
 
 #: libraries/normalization.lib.php:167
-#, fuzzy
 #| msgid ""
 #| "There are no unique columns. Add a unique column (or combination of "
 #| "columns) that uniquely identify all rows. "
@@ -8882,30 +8877,28 @@ msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
-"No existen columnas únicas. Agregue una columna única (o combinación de "
-"varias columnas) que identifiquen unívocamente a todas las filas. "
+"No existe una clave primaria; agregue una.<br />Sugerencia: una clave "
+"primaria es una columan (o combinación de columnas) que identifiquen "
+"unívocamente a todas las filas."
 
 #: libraries/normalization.lib.php:174
-#, fuzzy
 #| msgid "Add unique/primary index on existing column(s)"
 msgid "Add a primary key on existing column(s)"
-msgstr "Agregar índice único/primario en columna/s existente/s"
+msgstr "Agregar una clave primaria en columna/s existente/s"
 
 #: libraries/normalization.lib.php:179
-#, fuzzy
 #| msgid ""
 #| "If it's not possible to make existing column combinations as unique then"
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
-"No es posible convertir la combinación de columnas existentes en únicas, por "
-"lo tanto"
+"No es posible utilizar la combinación de columnas existentes como clave "
+"primaria"
 
 #: libraries/normalization.lib.php:183
-#, fuzzy
 #| msgid "+ Add a new unique column (primary key)"
 msgid "+ Add a new primary key column"
-msgstr "+ agregar una nueva columna única (clave primaria)"
+msgstr "+ agregar una nueva clave primaria"
 
 #: libraries/normalization.lib.php:201
 msgid "Remove redundant columns"
