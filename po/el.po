@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-04 08:42-0400\n"
-"PO-Revision-Date: 2014-07-03 16:02+0200\n"
+"PO-Revision-Date: 2014-07-04 16:55+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
-">\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2628,12 +2628,12 @@ msgid "Reedit"
 msgstr "Επανεπεξεργασία"
 
 #: libraries/Console.class.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Προσθήκη σελιδοδείκτη"
-msgstr[1] "Προσθήκη σελιδοδείκτη"
+msgstr[0] "Συνολικά %d σελιδοδείκτης"
+msgstr[1] "Συνολικά %d σελιδοδείκτες"
 
 #: libraries/Console.class.php:113
 msgid "private"
