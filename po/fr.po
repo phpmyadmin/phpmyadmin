@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-04 08:42-0400\n"
-"PO-Revision-Date: 2014-07-05 13:55+0200\n"
+"PO-Revision-Date: 2014-07-05 14:00+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -2711,16 +2711,14 @@ msgid "Bookmarks"
 msgstr "Signets"
 
 #: libraries/Console.class.php:204
-#, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Exécuter chaque"
+msgstr "Faites Ctrl+Entrée pour exécuter la requête"
 
 #: libraries/Console.class.php:219
-#, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
-msgstr "Ignorer l'erreur courante"
+msgstr "Durant la session en cours"
 
 #: libraries/Console.class.php:244 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
@@ -2729,10 +2727,9 @@ msgid "Refresh"
 msgstr "Actualiser"
 
 #: libraries/Console.class.php:255
-#, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
-msgstr "Nouveau signet"
+msgstr "Ajouter un signet"
 
 #: libraries/Console.class.php:258
 #, fuzzy
