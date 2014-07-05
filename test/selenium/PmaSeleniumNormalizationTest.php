@@ -91,31 +91,39 @@ class PMA_SeleniumNormalizationTest extends PMA_SeleniumBase
             "First step of normalization (1NF)",
             $this->byCssSelector('#page_content h3')->text()
         );
-        $this->assertTrue($this->isElementPresent(
+        $this->assertTrue(
+            $this->isElementPresent(
                 'byCssSelector', '#mainContent h4'
             )
         );
-        $this->assertTrue($this->isElementPresent(
+        $this->assertTrue(
+            $this->isElementPresent(
                 'byCssSelector', '#mainContent #newCols'
             )
         );
-        $this->assertTrue($this->isElementPresent(
+        $this->assertTrue(
+            $this->isElementPresent(
                 'byCssSelector', '.tblFooters'
             )
         );
-        $this->assertTrue($this->isElementPresent(
+        $this->assertTrue(
+            $this->isElementPresent(
                 'byCssSelector', '#selectNonAtomicCol option[value=val2]'
             )
         );
-        $this->assertFalse($this->isElementPresent(
+        $this->assertFalse(
+            $this->isElementPresent(
                 'byCssSelector', '#selectNonAtomicCol option[value=val]'
             )
         );
-        $this->assertTrue($this->isElementPresent(
+        $this->assertTrue(
+            $this->isElementPresent(
                 'byCssSelector', '#selectNonAtomicCol option[value=no_such_col]'
             )
         );
-        $this->select($this->byId('selectNonAtomicCol'))->selectOptionByValue('no_such_col');
+        $this->select(
+            $this->byId('selectNonAtomicCol')
+        )->selectOptionByValue('no_such_col');
         $this->waitForElement(
             "byXPath",
             "//legend[contains(., 'Step 1.2 Have a primary key')]"
@@ -126,14 +134,18 @@ class PMA_SeleniumNormalizationTest extends PMA_SeleniumBase
             "byXPath",
             "//legend[contains(., 'Step 1.3 Remove redundant columns')]"
         );
-        $this->assertTrue($this->isElementPresent(
-            'byCssSelector','#mainContent #extra'
-        ));
-        $this->assertTrue($this->isElementPresent(
+        $this->assertTrue(
+            $this->isElementPresent(
+                'byCssSelector', '#mainContent #extra'
+            )
+        );
+        $this->assertTrue(
+            $this->isElementPresent(
                 'byCssSelector', '#extra input[value=val2][type=checkbox]'
             )
         );
-        $this->assertTrue($this->isElementPresent(
+        $this->assertTrue(
+            $this->isElementPresent(
                 'byCssSelector', '#extra input[value=id][type=checkbox]'
             )
         );
@@ -143,7 +155,8 @@ class PMA_SeleniumNormalizationTest extends PMA_SeleniumBase
             "byXPath",
             "//legend[contains(., 'Step 1.2 Have a primary key')]"
         );
-        $this->assertTrue($this->isElementPresent(
+        $this->assertTrue(
+            $this->isElementPresent(
                 'byLinkText', 'Add a primary key on existing column(s)'
             )
         );
@@ -154,7 +167,8 @@ class PMA_SeleniumNormalizationTest extends PMA_SeleniumBase
             "byXPath",
             "//legend[contains(., 'Step 1.3 Remove redundant columns')]"
         );
-        $this->assertTrue($this->isElementPresent(
+        $this->assertTrue(
+            $this->isElementPresent(
                 'byCssSelector', '#extra input[value=test_table_id][type=checkbox]'
             )
         );
