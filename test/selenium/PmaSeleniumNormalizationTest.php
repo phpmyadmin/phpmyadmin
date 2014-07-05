@@ -118,10 +118,10 @@ class PMA_SeleniumNormalizationTest extends PMA_SeleniumBase
         $this->select($this->byId('selectNonAtomicCol'))->selectOptionByValue('no_such_col');
         $this->waitForElement(
             "byXPath",
-            "//legend[contains(., 'Step 1.2 Have primary key')]"
+            "//legend[contains(., 'Step 1.2 Have a primary key')]"
         );
         $text = $this->byCssSelector("#mainContent h4")->text();
-        $this->assertContains("Primary key already exist.", $text);
+        $this->assertContains("Primary key already exists.", $text);
         $this->waitForElement(
             "byXPath",
             "//legend[contains(., 'Step 1.3 Remove redundant columns')]"
@@ -141,7 +141,7 @@ class PMA_SeleniumNormalizationTest extends PMA_SeleniumBase
         $this->byCssSelector("#removeRedundant")->click();
         $this->waitForElement(
             "byXPath",
-            "//legend[contains(., 'Step 1.2 Have primary key')]"
+            "//legend[contains(., 'Step 1.2 Have a primary key')]"
         );
         $this->assertTrue($this->isElementPresent(
                 'byLinkText', 'Add a primary key on existing column(s)'
