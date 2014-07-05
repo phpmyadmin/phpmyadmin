@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-04 08:42-0400\n"
-"PO-Revision-Date: 2014-07-04 16:55+0200\n"
+"PO-Revision-Date: 2014-07-05 17:08+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
 "\n"
@@ -2645,10 +2645,10 @@ msgstr "κοινόχρηστο"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:121
-#, fuzzy, php-format
+#, php-format
 #| msgid " bookmarks included."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr " σελιδοδείκτες περιλαμβάνονται."
+msgstr "%1$s, %2$s και %3$s σελιδοδείκτες περιλαμβάνονται"
 
 #: libraries/Console.class.php:127
 msgid "No bookmarks"
@@ -2712,10 +2712,9 @@ msgid "Bookmarks"
 msgstr "Σελιδοδείκτες"
 
 #: libraries/Console.class.php:204
-#, fuzzy
 #| msgid "to Execute query"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "ερώτημα για Εκτέλεση"
+msgstr "Πατήστε Ctrl+Enter για εκτέλεση του ερωτήματος"
 
 #: libraries/Console.class.php:219
 msgid "During current session"
