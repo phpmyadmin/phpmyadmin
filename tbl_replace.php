@@ -312,6 +312,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
         parse_str($_REQUEST['rel_fields_list'], $relation_fields);
 
         // loop for each relation cell
+        /** @var array $relation_fields */
         foreach ($relation_fields as $cell_index => $curr_rel_field) {
             foreach ($curr_rel_field as $relation_field => $relation_field_value) {
                 $where_comparison = "='" . $relation_field_value . "'";
