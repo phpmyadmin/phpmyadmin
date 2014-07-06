@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-04 10:35-0400\n"
-"PO-Revision-Date: 2014-07-06 14:26+0200\n"
+"PO-Revision-Date: 2014-07-06 14:27+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
@@ -2626,7 +2626,7 @@ msgstr "zasebnih"
 
 #: libraries/Console.class.php:117 libraries/bookmark.lib.php:87
 msgid "shared"
-msgstr "deljeno"
+msgstr "deljenih"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:121
