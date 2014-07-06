@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-04 08:42-0400\n"
-"PO-Revision-Date: 2014-07-06 13:15+0200\n"
+"PO-Revision-Date: 2014-07-07 01:24+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -8815,10 +8815,9 @@ msgid "Have a primary key"
 msgstr "Avoir une clé primaire"
 
 #: libraries/normalization.lib.php:162
-#, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "Erreur: relation déjà existante."
+msgstr "La clé primaire existe déjà."
 
 #: libraries/normalization.lib.php:167
 msgid ""
@@ -8836,16 +8835,14 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:183
-#, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
-msgstr "Ajouter une clé primaire"
+msgstr "+ Ajouter une colonne comme clé primaire"
 
 #: libraries/normalization.lib.php:201
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Remove redundant columns"
-msgstr "Supprimer de la liste centrale de colonnes"
+msgstr "Supprimer les colonnes redondantes"
 
 #: libraries/normalization.lib.php:204
 msgid ""
@@ -8862,22 +8859,19 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:214
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "Effacer les utilisateurs sélectionnés"
+msgstr "Supprimer les colonnes sélectionnées"
 
 #: libraries/normalization.lib.php:215
-#, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
-msgstr "Ajouter une colonne"
+msgstr "Aucune colonne redondante"
 
 #: libraries/normalization.lib.php:240
-#, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Cacher les actions dans la structure de table"
+msgstr "Améliorer la structure de la table (normalisation) :"
 
 #: libraries/normalization.lib.php:241
 msgid "Select up to what step you want to normalize"
@@ -11703,7 +11697,6 @@ msgid "Reset to default"
 msgstr "Ramener la valeur par défaut"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
 #| "between the web server and the MySQL server."
@@ -11711,8 +11704,8 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Note: L'activation des statistiques peut causer un trafic important entre le "
-"serveur web et le serveur MySQL."
+"Note: Activer l'actualisation automatique peut causer un trafic important "
+"entre le serveur web et le serveur MySQL."
 
 #: libraries/server_status_processes.lib.php:69
 msgid "ID"
@@ -12846,10 +12839,9 @@ msgid "Propose table structure"
 msgstr "Suggérer des optimisations de structure"
 
 #: libraries/structure.lib.php:1619
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "Suggérer des optimisations de structure"
+msgstr "Améliorer la structure de la table"
 
 #: libraries/structure.lib.php:1641
 #: libraries/tbl_columns_definition_form.lib.php:179
@@ -13534,10 +13526,9 @@ msgid "Toggle relation lines"
 msgstr "Basculement des lignes de relations"
 
 #: pmd_general.php:221
-#, fuzzy
 #| msgid "Export all"
 msgid "Export schema"
-msgstr "Tout exporter"
+msgstr "Exporter le schéma"
 
 #: pmd_general.php:232
 msgid "Build Query"
