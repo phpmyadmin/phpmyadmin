@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-04 08:42-0400\n"
-"PO-Revision-Date: 2014-07-05 14:00+0200\n"
+"PO-Revision-Date: 2014-07-06 13:15+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -2732,36 +2732,32 @@ msgid "Add bookmark"
 msgstr "Ajouter un signet"
 
 #: libraries/Console.class.php:258
-#, fuzzy
 #| msgid "Label:"
 msgid "Label"
-msgstr "Intitulé : "
+msgstr "Intitulé"
 
 #: libraries/Console.class.php:259
 msgid "Target database"
 msgstr "Base de données cible"
 
 #: libraries/Console.class.php:260
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
-msgstr "Créer un signet"
+msgstr "Partager ce signet"
 
 #: libraries/Console.class.php:271
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
-msgstr "Ramener la valeur par défaut"
+msgstr "Mettre par défaut"
 
 #: libraries/Console.class.php:275
 msgid "Always expand queried messages"
 msgstr ""
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "Tables pour historique des requêtes SQL"
+msgstr "Afficher l'historique des requêtes au début"
 
 #: libraries/Console.class.php:279
 msgid "Show current browsing query"
@@ -5423,7 +5419,7 @@ msgstr "Inclure les sous-titres"
 
 #: libraries/config/messages.inc.php:135 libraries/config/messages.inc.php:142
 msgid "Label key"
-msgstr "Clé de l'étiquette"
+msgstr "Clé de l'intitulé"
 
 #: libraries/config/messages.inc.php:136 libraries/config/messages.inc.php:149
 #: libraries/config/messages.inc.php:182
@@ -8787,11 +8783,11 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:121
-#, fuzzy
 #| msgid "The central list of columns for the current database is empty."
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
-"La liste centrale de colonnes pour la base de données actuelle est vide."
+"Me montrer la liste centrale de colonnes qui ne sont pas déjà dans cette "
+"table"
 
 #: libraries/normalization.lib.php:124
 msgid ""
@@ -8800,26 +8796,23 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:131 normalization.php:19
-#, fuzzy
 #| msgid "Select a column."
 msgid "Select one…"
-msgstr "Sélectionnez une colonne."
+msgstr "Choisir…"
 
 #: libraries/normalization.lib.php:132 normalization.php:20
-#, fuzzy
 #| msgid "Move column"
 msgid "No such column"
-msgstr "Déplacer une colonne"
+msgstr "Aucune colonne"
 
 #: libraries/normalization.lib.php:135
 msgid "split into "
 msgstr ""
 
 #: libraries/normalization.lib.php:156
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
-msgstr "Ajouter une clé primaire"
+msgstr "Avoir une clé primaire"
 
 #: libraries/normalization.lib.php:162
 #, fuzzy
@@ -9307,7 +9300,7 @@ msgstr "Sous-titre de la table (suite) : "
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
 msgid "Label key:"
-msgstr "Clé de l'étiquette : "
+msgstr "Clé de l'intitulé :"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:102
@@ -13035,7 +13028,7 @@ msgstr "Séries : "
 
 #: libraries/tbl_chart.lib.php:208
 msgid "X-Axis label:"
-msgstr "Étiquette pour l'axe des X : "
+msgstr "Intitulé pour l'axe des X :"
 
 #: libraries/tbl_chart.lib.php:211
 msgid "X Values"
@@ -13043,7 +13036,7 @@ msgstr "Valeurs en X"
 
 #: libraries/tbl_chart.lib.php:213
 msgid "Y-Axis label:"
-msgstr "Étiquette pour l'axe des Y : "
+msgstr "Intitulé pour l'axe des Y :"
 
 #: libraries/tbl_chart.lib.php:237
 msgid "Series names are in a column"
@@ -13175,7 +13168,7 @@ msgstr "Données non disponibles pour visualisation GIS."
 
 #: libraries/tbl_gis_visualization.lib.php:126
 msgid "Label column"
-msgstr "Colonne pour étiquette"
+msgstr "Colonne pour l'intitulé"
 
 #: libraries/tbl_gis_visualization.lib.php:126
 msgid "Spatial column"
