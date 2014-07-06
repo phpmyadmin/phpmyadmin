@@ -40,16 +40,31 @@ if (isset($_REQUEST['addNewPrimary'])) {
     echo $html;
     exit;
 }
+if (isset($_REQUEST['findPdl'])) {
+    $html = PMA_findPartialDependencies($table, $db);
+    echo $html;
+    exit;
+}
+
+if (isset($_REQUEST['getNewTables2NF'])) {
+    $partialDependencies = json_decode($_REQUEST['pd']);
+    $html = PMA_getHtmlForNewTables2NF($partialDependencies, $table);
+    echo $html;
+    exit;
+}
+
+
 $response = PMA_Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('normalization.js');
 $scripts->addFile('jquery/jquery.uitablefilter.js');
+$normalForm = '1nf';
 if (isset($_REQUEST['normalizeTo'])) {
     $normalForm = $_REQUEST['normalizeTo'];
-    if ($normalForm != '1nf') {
+    if ($normalForm == '3nf') {
         $response->addHTML(
-            '<h3 style="text-align:center">'
+            '<h3 class="center">'
             . __('Second/Third step of normalization') . '</h3>'
             . '<fieldset>'
             . '<legend>Coming soon...</legend>'
@@ -58,15 +73,24 @@ if (isset($_REQUEST['normalizeTo'])) {
         exit;
     }
 }
-
+if (isset($_REQUEST['createNewTables2NF'])) {
+    $partialDependencies = json_decode($_REQUEST['pd']);
+    $tablesName = json_decode($_REQUEST['newTablesName']);
+    $res = PMA_creatNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
+    $response->addJSON($res);
+    exit;
+}
 if (isset($_REQUEST['step1'])) {
-    $html = PMA_getHtmlFor1NFStep1($db, $table);
+    $html = PMA_getHtmlFor1NFStep1($db, $table, $normalForm);
     $response->addHTML($html);
 } else if (isset($_REQUEST['step2'])) {
     $res = PMA_getHtmlContentsFor1NFStep2($db, $table);
     $response->addJSON($res);
 } else if (isset($_REQUEST['step3'])) {
     $res = PMA_getHtmlContentsFor1NFStep3($db, $table);
+    $response->addJSON($res);
+} else if (isset($_REQUEST['step']) && $_REQUEST['step'] == 2.1) {
+    $res = PMA_getHtmlFor2NFstep1($db, $table);
     $response->addJSON($res);
 } else {
     $response->addHTML(PMA_getHtmlForNormalizetable());
