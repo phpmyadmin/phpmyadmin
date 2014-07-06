@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-10 12:45-0400\n"
-"PO-Revision-Date: 2014-06-10 19:15+0200\n"
+"PO-Revision-Date: 2014-07-06 13:12+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/4-2/fr/>\n"
 "Language: fr\n"
@@ -4973,7 +4973,7 @@ msgstr "Inclure les sous-titres"
 
 #: libraries/config/messages.inc.php:137 libraries/config/messages.inc.php:144
 msgid "Label key"
-msgstr "Clé de l'étiquette"
+msgstr "Clé de l'intitulé"
 
 #: libraries/config/messages.inc.php:138 libraries/config/messages.inc.php:151
 #: libraries/config/messages.inc.php:184
@@ -8659,7 +8659,7 @@ msgstr "Sous-titre de la table (suite) : "
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
 msgid "Label key:"
-msgstr "Clé de l'étiquette : "
+msgstr "Clé de l'intitulé :"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:103
@@ -12431,7 +12431,7 @@ msgstr "Séries : "
 
 #: libraries/tbl_chart.lib.php:209
 msgid "X-Axis label:"
-msgstr "Étiquette pour l'axe des X : "
+msgstr "Intitulé pour l'axe des X :"
 
 #: libraries/tbl_chart.lib.php:212
 msgid "X Values"
@@ -12439,7 +12439,7 @@ msgstr "Valeurs en X"
 
 #: libraries/tbl_chart.lib.php:214
 msgid "Y-Axis label:"
-msgstr "Étiquette pour l'axe des Y : "
+msgstr "Intitulé pour l'axe des Y :"
 
 #: libraries/tbl_chart.lib.php:234
 msgid "Start row:"
@@ -12551,7 +12551,7 @@ msgstr "Données non disponibles pour visualisation GIS."
 
 #: libraries/tbl_gis_visualization.lib.php:126
 msgid "Label column"
-msgstr "Colonne pour étiquette"
+msgstr "Colonne pour l'intitulé"
 
 #: libraries/tbl_gis_visualization.lib.php:126
 msgid "Spatial column"
