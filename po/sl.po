@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-04 10:35-0400\n"
-"PO-Revision-Date: 2014-07-03 19:40+0200\n"
+"PO-Revision-Date: 2014-07-06 14:26+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -2611,14 +2611,14 @@ msgid "Reedit"
 msgstr "Ponovno urejanje"
 
 #: libraries/Console.class.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Dodaj zaznamek"
-msgstr[1] "Dodaj zaznamek"
-msgstr[2] "Dodaj zaznamek"
-msgstr[3] "Dodaj zaznamek"
+msgstr[0] "Skupno %d zaznamek"
+msgstr[1] "Skupno %d zaznamka"
+msgstr[2] "Skupno %d zaznamki"
+msgstr[3] "Skupno %d zaznamkov"
 
 #: libraries/Console.class.php:113
 msgid "private"
@@ -2630,10 +2630,10 @@ msgstr "deljeno"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:121
-#, fuzzy, php-format
+#, php-format
 #| msgid " bookmarks included."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr " vključenih zaznamkov."
+msgstr "%1$s, %2$s and %3$s vključenih zaznamkov"
 
 #: libraries/Console.class.php:127
 msgid "No bookmarks"
@@ -2697,10 +2697,9 @@ msgid "Bookmarks"
 msgstr "Zaznamki"
 
 #: libraries/Console.class.php:204
-#, fuzzy
 #| msgid "to Execute query"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "da izvedete poizvedbo"
+msgstr "Pritisnite ctrl+enter, da izvedete poizvedbo"
 
 #: libraries/Console.class.php:219
 msgid "During current session"
