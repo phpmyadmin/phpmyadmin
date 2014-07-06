@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-06-10 12:45-0400\n"
-"PO-Revision-Date: 2014-07-05 00:57+0200\n"
+"PO-Revision-Date: 2014-07-06 08:34+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/4-2/es/>\n"
 "Language: es\n"
@@ -4079,7 +4079,7 @@ msgstr "Última revisión"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr "compartidos"
+msgstr "compartido"
 
 #: libraries/browse_foreigners.lib.php:43
 msgid "Search:"
