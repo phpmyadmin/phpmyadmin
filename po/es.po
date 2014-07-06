@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-04 10:35-0400\n"
-"PO-Revision-Date: 2014-07-04 05:02+0200\n"
+"PO-Revision-Date: 2014-07-06 08:33+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2638,12 +2638,12 @@ msgid "Reedit"
 msgstr "Reeditar"
 
 #: libraries/Console.class.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Agregar favorito"
-msgstr[1] "Agregar favorito"
+msgstr[0] "Total de %d favorito"
+msgstr[1] "Total de %d favoritos"
 
 #: libraries/Console.class.php:113
 msgid "private"
@@ -2655,10 +2655,10 @@ msgstr "compartido"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:121
-#, fuzzy, php-format
+#, php-format
 #| msgid " bookmarks included."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr " favoritos incluidos."
+msgstr "%1$s, %2$s y %3$s favoritos incluidos"
 
 #: libraries/Console.class.php:127
 msgid "No bookmarks"
@@ -2722,10 +2722,9 @@ msgid "Bookmarks"
 msgstr "Favoritos"
 
 #: libraries/Console.class.php:204
-#, fuzzy
 #| msgid "to Execute query"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "para ejecutar la consulta"
+msgstr "Presione Ctrl+Enter para ejecutar la consulta"
 
 #: libraries/Console.class.php:219
 msgid "During current session"
