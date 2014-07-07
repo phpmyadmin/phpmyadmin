@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-07 06:52-0400\n"
-"PO-Revision-Date: 2014-07-06 08:56+0200\n"
+"PO-Revision-Date: 2014-07-07 13:31+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1823,7 +1823,7 @@ msgstr "Continua"
 #: js/messages.php:304 libraries/structure.lib.php:2124
 #: libraries/structure.lib.php:2127
 msgid "Add primary key"
-msgstr ""
+msgstr "Adde clave primari"
 
 #: js/messages.php:305
 msgid "Primary key added."
@@ -1836,7 +1836,7 @@ msgstr "Ducente te al proxime passo…"
 #: js/messages.php:307
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "Le prime passo pro normalisar es complete pro tabella '%s'."
 
 #: js/messages.php:308
 msgid "End of step"
@@ -2061,13 +2061,16 @@ msgstr "Trahe pro reordinar."
 
 #: js/messages.php:392
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Pulsa pro ordinar exitos per iste columna."
 
 #: js/messages.php:393
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
+"Shift+pulsar pro adder iste columna al clausula de ORDER BY (ordina per) o "
+"pro commutar inter ASC/DESC.<br />- Control+pulsar pro remover columna ab le "
+"clausula de ORDER BY"
 
 #: js/messages.php:394
 msgid "Click to mark/unmark."
@@ -2111,15 +2114,15 @@ msgstr "cancella"
 
 #: js/messages.php:405 libraries/server_status.lib.php:261
 msgid "Aborted"
-msgstr ""
+msgstr "Abortate"
 
 #: js/messages.php:406
 msgid "Failed"
-msgstr ""
+msgstr "Fallite"
 
 #: js/messages.php:407
 msgid "Success"
-msgstr ""
+msgstr "Successo"
 
 #: js/messages.php:408
 msgid "Import status"
@@ -2127,7 +2130,7 @@ msgstr "Importa stato"
 
 #: js/messages.php:409 libraries/navigation/Navigation.class.php:102
 msgid "Drop files here"
-msgstr ""
+msgstr "Depone files hic"
 
 #: js/messages.php:410
 msgid "Select database first"
@@ -2146,10 +2149,9 @@ msgstr ""
 "illos."
 
 #: js/messages.php:423
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "Vade al ligamine."
+msgstr "Vade al ligamine:"
 
 #: js/messages.php:424
 msgid "Copy column name."
@@ -2285,7 +2287,7 @@ msgstr ""
 
 #: js/messages.php:493
 msgid "Execute this query again?"
-msgstr ""
+msgstr "Executa novemente iste query?"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:520
@@ -2629,11 +2631,11 @@ msgstr "Grandor de font"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:168
 msgid "Collapse"
-msgstr ""
+msgstr "Plica"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:169
 msgid "Expand"
-msgstr ""
+msgstr "Expande"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:170
 msgid "Requery"
@@ -2641,7 +2643,7 @@ msgstr "Repite Query"
 
 #: libraries/Console.class.php:96 libraries/Console.class.php:171
 msgid "Reedit"
-msgstr ""
+msgstr "Modifica novemente"
 
 #: libraries/Console.class.php:106
 #, php-format
@@ -2652,7 +2654,7 @@ msgstr[1] "Marcatores de libro o favoritos %d total"
 
 #: libraries/Console.class.php:113
 msgid "private"
-msgstr ""
+msgstr "private"
 
 #: libraries/Console.class.php:117 libraries/bookmark.lib.php:87
 msgid "shared"
@@ -2682,12 +2684,12 @@ msgstr "Console de Query de SQL"
 
 #: libraries/Console.class.php:182
 msgid "Console"
-msgstr ""
+msgstr "Console"
 
 #: libraries/Console.class.php:185 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
 msgid "Clear"
-msgstr ""
+msgstr "Netta"
 
 #: libraries/Console.class.php:188
 msgid "History"
@@ -2731,7 +2733,7 @@ msgstr "Pressa Ctrl+Enter pro executar query"
 
 #: libraries/Console.class.php:219
 msgid "During current session"
-msgstr ""
+msgstr "Durante session currente"
 
 #: libraries/Console.class.php:244 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
@@ -2761,7 +2763,7 @@ msgstr "Fixa le valores predefinite"
 
 #: libraries/Console.class.php:275
 msgid "Always expand queried messages"
-msgstr ""
+msgstr "Expande sempre messages del query"
 
 #: libraries/Console.class.php:277
 msgid "Show query history at start"
@@ -2769,7 +2771,7 @@ msgstr "Monstra chronologia de query al initio"
 
 #: libraries/Console.class.php:279
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Monstra query currente que on naviga"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1314
 #: libraries/DisplayResults.class.php:2127
@@ -3736,15 +3738,15 @@ msgstr "Consultor"
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d secunda"
+msgstr[1] "%d secundas"
 
 #: libraries/ServerStatusData.class.php:434
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d minuta"
+msgstr[1] "%d minutas"
 
 #: libraries/StorageEngine.class.php:269
 msgid ""
@@ -7432,43 +7434,43 @@ msgstr "Nomine de nove pagina"
 
 #: libraries/designer.lib.php:154
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "Selige typo de exportation relational"
 
 #: libraries/designer.lib.php:158
 msgid "Show grid"
-msgstr ""
+msgstr "Monstra grillia"
 
 #: libraries/designer.lib.php:161
 msgid "Show color"
-msgstr ""
+msgstr "Monstra color"
 
 #: libraries/designer.lib.php:166
 msgid "Show dimension of tables"
-msgstr ""
+msgstr "Monstra grandor de tabellas"
 
 #: libraries/designer.lib.php:171
 msgid "Same width for all tables"
-msgstr ""
+msgstr "Mesme largessa per omne tabellas"
 
 #: libraries/designer.lib.php:175 libraries/structure.lib.php:402
 msgid "Data Dictionary"
-msgstr ""
+msgstr "Dictionario de datos"
 
 #: libraries/designer.lib.php:177
 msgid "Only show keys"
-msgstr ""
+msgstr "Monstra solo claves"
 
 #: libraries/designer.lib.php:179
 msgid "Landscape"
-msgstr ""
+msgstr "Horizontal"
 
 #: libraries/designer.lib.php:180
 msgid "Portrait"
-msgstr ""
+msgstr "Vertical"
 
 #: libraries/designer.lib.php:182
 msgid "Orientation"
-msgstr ""
+msgstr "Orientation"
 
 #: libraries/display_change_password.lib.php:59
 #: libraries/replication_gui.lib.php:844
@@ -7721,6 +7723,8 @@ msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"Pro favor, sia patiente, durante que le file ha essite cargate. detalios re "
+"le incargamento non es disponibile."
 
 #: libraries/display_import.lib.php:108
 msgid "Importing into the current server"
@@ -7755,7 +7759,7 @@ msgstr "File de importar:"
 
 #: libraries/display_import.lib.php:232 libraries/display_import.lib.php:243
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "Tu anque pot etraher e deponer un file sur qualcunque pagina."
 
 #: libraries/display_import.lib.php:246
 msgid "File uploads are not allowed on this server."
