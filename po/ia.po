@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-07 06:51-0400\n"
-"PO-Revision-Date: 2014-06-25 13:44+0200\n"
+"PO-Revision-Date: 2014-07-07 13:29+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/4-2/"
-"ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/4-2/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7222,6 +7222,8 @@ msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"Pro favor, sia patiente, durante que le file ha essite cargate. detalios re "
+"le incargamento non es disponibile."
 
 #: libraries/display_import.lib.php:108
 msgid "Importing into the current server"
@@ -9987,43 +9989,43 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:438
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "Selige typo de exportation relational"
 
 #: libraries/schema/User_Schema.class.php:462
 msgid "Show grid"
-msgstr ""
+msgstr "Monstra grillia"
 
 #: libraries/schema/User_Schema.class.php:465
 msgid "Show color"
-msgstr ""
+msgstr "Monstra color"
 
 #: libraries/schema/User_Schema.class.php:470
 msgid "Show dimension of tables"
-msgstr ""
+msgstr "Monstra grandor de tabellas"
 
 #: libraries/schema/User_Schema.class.php:475
 msgid "Same width for all tables"
-msgstr ""
+msgstr "Mesme largessa per omne tabellas"
 
 #: libraries/schema/User_Schema.class.php:479 libraries/structure.lib.php:379
 msgid "Data Dictionary"
-msgstr ""
+msgstr "Dictionario de datos"
 
 #: libraries/schema/User_Schema.class.php:481
 msgid "Only show keys"
-msgstr ""
+msgstr "Monstra solo claves"
 
 #: libraries/schema/User_Schema.class.php:483
 msgid "Landscape"
-msgstr ""
+msgstr "Horizontal"
 
 #: libraries/schema/User_Schema.class.php:484
 msgid "Portrait"
-msgstr ""
+msgstr "Vertical"
 
 #: libraries/schema/User_Schema.class.php:486
 msgid "Orientation"
-msgstr ""
+msgstr "Orientation"
 
 #: libraries/schema/User_Schema.class.php:546
 msgid ""
@@ -10689,7 +10691,7 @@ msgstr ""
 
 #: libraries/server_status.lib.php:264
 msgid "Aborted"
-msgstr ""
+msgstr "Abortate"
 
 #: libraries/server_status.lib.php:337
 msgid "ID"
@@ -10734,15 +10736,15 @@ msgstr ""
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d secunda"
+msgstr[1] "%d secundas"
 
 #: libraries/server_status_monitor.lib.php:80
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d minuta"
+msgstr[1] "%d minutas"
 
 #: libraries/server_status_monitor.lib.php:96
 msgid "Log statistics"
@@ -11694,7 +11696,7 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:275 setup/frames/index.inc.php:297
 msgid "Clear"
-msgstr ""
+msgstr "Netta"
 
 #: libraries/sql_query_form.lib.php:318
 msgid "Bookmark this SQL query:"
@@ -11937,7 +11939,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:2031 libraries/structure.lib.php:2034
 msgid "Add primary key"
-msgstr ""
+msgstr "Adde clave primari"
 
 #: libraries/structure.lib.php:2037 libraries/structure.lib.php:2040
 msgid "Add index"
