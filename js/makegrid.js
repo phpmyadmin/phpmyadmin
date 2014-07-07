@@ -753,7 +753,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 if ($td.find('a').length > 0) {
                     var gotoLink = document.createElement('div');
                     gotoLink.className = 'goto_link';
-                    $(gotoLink).append(g.gotoLinkText + ': ').append($td.find('a').clone());
+                    $(gotoLink).append(g.gotoLinkText + ' ').append($td.find('a').clone());
                     $editArea.append(gotoLink);
                 }
 
