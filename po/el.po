@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 08:42-0400\n"
+"POT-Creation-Date: 2014-07-07 06:14-0400\n"
 "PO-Revision-Date: 2014-07-05 17:08+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
-"\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
+">\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2059,9 +2059,13 @@ msgid "Click to sort results by this column."
 msgstr "Πατήστε ταξινόμηση αποτελεσμάτων κατά αυτή τη στήλη."
 
 #: js/messages.php:393
+#, fuzzy
+#| msgid ""
+#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
+#| "<br />- Control+CLick to remove column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
-">- Control+CLick to remove column from ORDER BY clause"
+">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
 "Shift+Κλικ για προσθήκη αυτής της στήλης στον όρο ORDER BY ή για εναλλαγή "
 "ASC/DESC.<br />- Control+Κλικ για απομάκρυνση της στήλης από τον όρο ORDER BY"
@@ -2629,7 +2633,6 @@ msgstr "Επανεπεξεργασία"
 
 #: libraries/Console.class.php:106
 #, php-format
-#| msgid "Add bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
 msgstr[0] "Συνολικά %d σελιδοδείκτης"
@@ -2646,7 +2649,6 @@ msgstr "κοινόχρηστο"
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:121
 #, php-format
-#| msgid " bookmarks included."
 msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "%1$s, %2$s και %3$s σελιδοδείκτες περιλαμβάνονται"
 
@@ -2712,7 +2714,6 @@ msgid "Bookmarks"
 msgstr "Σελιδοδείκτες"
 
 #: libraries/Console.class.php:204
-#| msgid "to Execute query"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Πατήστε Ctrl+Enter για εκτέλεση του ερωτήματος"
 
@@ -4765,28 +4766,28 @@ msgid "neither of the above"
 msgstr "κανένα από τα παραπάνω"
 
 #: libraries/config/FormDisplay.class.php:96
-#: libraries/config/Validator.class.php:555
+#: libraries/config/Validator.class.php:557
 msgid "Not a positive number!"
 msgstr "Δεν είναι θετικός αριθμός!"
 
 #: libraries/config/FormDisplay.class.php:97
-#: libraries/config/Validator.class.php:577
+#: libraries/config/Validator.class.php:579
 msgid "Not a non-negative number!"
 msgstr "Δεν είναι μη αρνητικός αριθμός!"
 
 #: libraries/config/FormDisplay.class.php:98
-#: libraries/config/Validator.class.php:533
+#: libraries/config/Validator.class.php:535
 msgid "Not a valid port number!"
 msgstr "Μη έγκυρος αριθμός θύρας!"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
-#: libraries/config/Validator.class.php:595
+#: libraries/config/Validator.class.php:597
 msgid "Incorrect value!"
 msgstr "Εσφαλμένη τιμή!"
 
 #: libraries/config/FormDisplay.class.php:100
-#: libraries/config/Validator.class.php:611
+#: libraries/config/Validator.class.php:613
 #, php-format
 msgid "Value must be equal or lower than %s!"
 msgstr "Η τιμή πρέπει να είναι ίση ή μικρότερη από %s!"
@@ -5004,24 +5005,24 @@ msgstr ""
 "Η %sαποσυμπίεση Zip%s απαιτεί συναρτήσεις (%s) που δεν είναι διαθέσιμες σε "
 "αυτό το σύστημα."
 
-#: libraries/config/Validator.class.php:243
+#: libraries/config/Validator.class.php:245
 msgid "Could not initialize Drizzle connection library!"
 msgstr "Δεν ήταν δυνατή η εκκίνηση βιβλιοθήκης σύνδεσης Drizzle!"
 
-#: libraries/config/Validator.class.php:252
-#: libraries/config/Validator.class.php:260
-#: libraries/config/Validator.class.php:271
-#: libraries/config/Validator.class.php:278
+#: libraries/config/Validator.class.php:254
+#: libraries/config/Validator.class.php:262
+#: libraries/config/Validator.class.php:273
+#: libraries/config/Validator.class.php:280
 msgid "Could not connect to the database server!"
 msgstr "Αδύνατη η σύνδεση με τον διακομιστή βάσης δεδομένων!"
 
-#: libraries/config/Validator.class.php:311
+#: libraries/config/Validator.class.php:313
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Άδειασμα ονόματος χρήστη ενώ χρησιμοποιείτε μέθοδο επικύρωσης [kbd]config[/"
 "kbd]!"
 
-#: libraries/config/Validator.class.php:318
+#: libraries/config/Validator.class.php:320
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -5029,20 +5030,20 @@ msgstr ""
 "Άδειασμα ονομασίας συνεδρίας σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης "
 "[kbd]signon[/kbd]!"
 
-#: libraries/config/Validator.class.php:327
+#: libraries/config/Validator.class.php:329
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης [kbd]"
 "signon[/kbd]!"
 
-#: libraries/config/Validator.class.php:374
+#: libraries/config/Validator.class.php:376
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Άδειασμα ελέγχου χρήστη του phpMyAdmin ενώ χρησιμοποιείτε phpMyAdmin "
 "configuration storage!"
 
-#: libraries/config/Validator.class.php:379
+#: libraries/config/Validator.class.php:381
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -5050,11 +5051,11 @@ msgstr ""
 "Άδειασμα ελέγχου κωδικού πρόσβασης του phpMyAdmin ενώ χρησιμοποιείτε την "
 "αποθήκευση ρυθμίσεων του phpMyAdmin!"
 
-#: libraries/config/Validator.class.php:463
+#: libraries/config/Validator.class.php:465
 msgid "Incorrect value:"
 msgstr "Εσφαλμένη τιμή:"
 
-#: libraries/config/Validator.class.php:472
+#: libraries/config/Validator.class.php:474
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Εσφαλμένη διεύθυνση IP: %s"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 10:35-0400\n"
+"POT-Creation-Date: 2014-07-07 06:14-0400\n"
 "PO-Revision-Date: 2014-06-23 04:58+0200\n"
 "Last-Translator: Thiago Sabaia <thiago.sabaia@parqueproducoes.com.br>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.cihar.com/projects/"
@@ -2087,7 +2087,7 @@ msgstr ""
 #: js/messages.php:393
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
-">- Control+CLick to remove column from ORDER BY clause"
+">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
 
 #: js/messages.php:394
@@ -4841,28 +4841,28 @@ msgid "neither of the above"
 msgstr "nenhuma das acima"
 
 #: libraries/config/FormDisplay.class.php:96
-#: libraries/config/Validator.class.php:555
+#: libraries/config/Validator.class.php:557
 msgid "Not a positive number!"
 msgstr "Não é um número positivo!"
 
 #: libraries/config/FormDisplay.class.php:97
-#: libraries/config/Validator.class.php:577
+#: libraries/config/Validator.class.php:579
 msgid "Not a non-negative number!"
 msgstr "Não é um número negativo!"
 
 #: libraries/config/FormDisplay.class.php:98
-#: libraries/config/Validator.class.php:533
+#: libraries/config/Validator.class.php:535
 msgid "Not a valid port number!"
 msgstr "Não é um número de porta válido!"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
-#: libraries/config/Validator.class.php:595
+#: libraries/config/Validator.class.php:597
 msgid "Incorrect value!"
 msgstr "Valor incorreto!"
 
 #: libraries/config/FormDisplay.class.php:100
-#: libraries/config/Validator.class.php:611
+#: libraries/config/Validator.class.php:613
 #, php-format
 msgid "Value must be equal or lower than %s!"
 msgstr "O valor precisa ser igual ou menor que %s!"
@@ -5075,24 +5075,24 @@ msgstr ""
 "%sA descompactação ZIP%s requer funções (%s) que não estão disponíveis neste "
 "sistema."
 
-#: libraries/config/Validator.class.php:243
+#: libraries/config/Validator.class.php:245
 msgid "Could not initialize Drizzle connection library!"
 msgstr "Não foi possível iniciar a conexão com a biblioteca Drizzle!"
 
-#: libraries/config/Validator.class.php:252
-#: libraries/config/Validator.class.php:260
-#: libraries/config/Validator.class.php:271
-#: libraries/config/Validator.class.php:278
+#: libraries/config/Validator.class.php:254
+#: libraries/config/Validator.class.php:262
+#: libraries/config/Validator.class.php:273
+#: libraries/config/Validator.class.php:280
 msgid "Could not connect to the database server!"
 msgstr "Não foi possível conectar ao servidor de banco de dados!"
 
-#: libraries/config/Validator.class.php:311
+#: libraries/config/Validator.class.php:313
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Nome de usuário vazio ao utilizar a [kbd]configuração[/kbd] por método de "
 "autenticação!"
 
-#: libraries/config/Validator.class.php:318
+#: libraries/config/Validator.class.php:320
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -5100,19 +5100,19 @@ msgstr ""
 "Nome da sessão de signon vazio quando usado [kbd]signon[/kbd] como método de "
 "autenticação!"
 
-#: libraries/config/Validator.class.php:327
+#: libraries/config/Validator.class.php:329
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "URL de [kbd]signon[/kbd] vazia quando usado o método de autenticação signon!"
 
-#: libraries/config/Validator.class.php:374
+#: libraries/config/Validator.class.php:376
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Controle de usuário phpMyAdmin vazio ao usar o phpMyAdmin configuration "
 "storage!"
 
-#: libraries/config/Validator.class.php:379
+#: libraries/config/Validator.class.php:381
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -5120,11 +5120,11 @@ msgstr ""
 "Senha do usuário administrador do phpMyAdmin vazia no uso do armazenamento "
 "de configurações do phpMyAdmin!"
 
-#: libraries/config/Validator.class.php:463
+#: libraries/config/Validator.class.php:465
 msgid "Incorrect value:"
 msgstr "Valor incorreto:"
 
-#: libraries/config/Validator.class.php:472
+#: libraries/config/Validator.class.php:474
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Endereço de IP incorreto: %s"

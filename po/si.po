@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 10:35-0400\n"
+"POT-Creation-Date: 2014-07-07 06:14-0400\n"
 "PO-Revision-Date: 2014-02-27 10:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Sinhala <https://l10n.cihar.com/projects/phpmyadmin/master/si/"
@@ -2077,7 +2077,7 @@ msgstr ""
 #: js/messages.php:393
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
-">- Control+CLick to remove column from ORDER BY clause"
+">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
 
 #: js/messages.php:394
@@ -4825,28 +4825,28 @@ msgid "neither of the above"
 msgstr "ඉහත එක් වර්ගයක්වත් නොව"
 
 #: libraries/config/FormDisplay.class.php:96
-#: libraries/config/Validator.class.php:555
+#: libraries/config/Validator.class.php:557
 msgid "Not a positive number!"
 msgstr "ධන සංඛ්‍යාවක් නොවේ!"
 
 #: libraries/config/FormDisplay.class.php:97
-#: libraries/config/Validator.class.php:577
+#: libraries/config/Validator.class.php:579
 msgid "Not a non-negative number!"
 msgstr "ඍණ නොවන සංඛ්‍යාවක් නොවේ!"
 
 #: libraries/config/FormDisplay.class.php:98
-#: libraries/config/Validator.class.php:533
+#: libraries/config/Validator.class.php:535
 msgid "Not a valid port number!"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ!"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
-#: libraries/config/Validator.class.php:595
+#: libraries/config/Validator.class.php:597
 msgid "Incorrect value!"
 msgstr "වැරදි අගයකි!"
 
 #: libraries/config/FormDisplay.class.php:100
-#: libraries/config/Validator.class.php:611
+#: libraries/config/Validator.class.php:613
 #, php-format
 msgid "Value must be equal or lower than %s!"
 msgstr "අගය %s ට සමාන හෝ අඩු විය යුතුය!"
@@ -5021,26 +5021,26 @@ msgid ""
 "system."
 msgstr "%sZip දිගහැරුමට%s (%s) කෘත්‍ය අවශ්‍ය අතර එය ඔබගේ පද්ධතියේ නොමැත."
 
-#: libraries/config/Validator.class.php:243
+#: libraries/config/Validator.class.php:245
 msgid "Could not initialize Drizzle connection library!"
 msgstr "Drizzle සබඳතා පුස්තකාලය ඇරඹිය නොහැකි විය!"
 
-#: libraries/config/Validator.class.php:252
-#: libraries/config/Validator.class.php:260
-#: libraries/config/Validator.class.php:271
-#: libraries/config/Validator.class.php:278
+#: libraries/config/Validator.class.php:254
+#: libraries/config/Validator.class.php:262
+#: libraries/config/Validator.class.php:273
+#: libraries/config/Validator.class.php:280
 #, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
 msgstr "ඉලක්කය වෙත සම්බන්ද විය නොහැකි විය"
 
-#: libraries/config/Validator.class.php:311
+#: libraries/config/Validator.class.php:313
 #, fuzzy
 #| msgid "Empty username while using config authentication method!"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "config සත්‍යාපන ක්‍රමය භාවිතා කිරීමේදී හිස් භාවිත නාමයක්!"
 
-#: libraries/config/Validator.class.php:318
+#: libraries/config/Validator.class.php:320
 #, fuzzy
 #| msgid "Empty signon session name while using signon authentication method!"
 msgid ""
@@ -5048,28 +5048,28 @@ msgid ""
 "method!"
 msgstr "signon සත්‍යාපන ක්‍රමය භාවිතා කිරීමේදී හිස් signon සැසි නාමයක්!"
 
-#: libraries/config/Validator.class.php:327
+#: libraries/config/Validator.class.php:329
 #, fuzzy
 #| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "singon සත්‍යාපන ක්‍රමය භාවිතා කිරීමේදී signon URL සඳහා හිස් අගයක්!"
 
-#: libraries/config/Validator.class.php:374
+#: libraries/config/Validator.class.php:376
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr "pmadb භාවිතා කිරීමේදී phpMyAdmin පරිපාලක භාවිතා කරන්නා සඳහා හිස් අගයක්!"
 
-#: libraries/config/Validator.class.php:379
+#: libraries/config/Validator.class.php:381
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr "pmadb භාවිතා කිරීමේදී phpMyAdmin පරිපාලක භාවිතා කරන්නාගේ මුරපදය සඳහා හිස් අගයක්!"
 
-#: libraries/config/Validator.class.php:463
+#: libraries/config/Validator.class.php:465
 msgid "Incorrect value:"
 msgstr "වැරදි අගයකි:"
 
-#: libraries/config/Validator.class.php:472
+#: libraries/config/Validator.class.php:474
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "වැරදි IP යොමුව: %s"

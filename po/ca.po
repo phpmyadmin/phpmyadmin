@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 10:35-0400\n"
+"POT-Creation-Date: 2014-07-07 06:14-0400\n"
 "PO-Revision-Date: 2014-03-28 11:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Catalan <https://l10n.cihar.com/projects/phpmyadmin/master/ca/"
@@ -2139,7 +2139,7 @@ msgstr ""
 #: js/messages.php:393
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
-">- Control+CLick to remove column from ORDER BY clause"
+">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
 
 #: js/messages.php:394
@@ -4957,21 +4957,21 @@ msgid "neither of the above"
 msgstr "cap dels anteriors"
 
 #: libraries/config/FormDisplay.class.php:96
-#: libraries/config/Validator.class.php:555
+#: libraries/config/Validator.class.php:557
 #, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
 msgstr "No és un nombre positiu"
 
 #: libraries/config/FormDisplay.class.php:97
-#: libraries/config/Validator.class.php:577
+#: libraries/config/Validator.class.php:579
 #, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
 msgstr "No és un nombre no-negatiu"
 
 #: libraries/config/FormDisplay.class.php:98
-#: libraries/config/Validator.class.php:533
+#: libraries/config/Validator.class.php:535
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
@@ -4979,14 +4979,14 @@ msgstr "Numero de port incorrecte"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
-#: libraries/config/Validator.class.php:595
+#: libraries/config/Validator.class.php:597
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
 msgstr "Valor incorrecte"
 
 #: libraries/config/FormDisplay.class.php:100
-#: libraries/config/Validator.class.php:611
+#: libraries/config/Validator.class.php:613
 #, fuzzy, php-format
 #| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
@@ -5215,28 +5215,28 @@ msgstr ""
 "%sZip decompression%s necessita les funcions (%s) que no estan disponibles "
 "en aquest sistema."
 
-#: libraries/config/Validator.class.php:243
+#: libraries/config/Validator.class.php:245
 #, fuzzy
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
 msgstr "No s'ha pogut inicialitzar la biblioteca de connexió Drizzle"
 
-#: libraries/config/Validator.class.php:252
-#: libraries/config/Validator.class.php:260
-#: libraries/config/Validator.class.php:271
-#: libraries/config/Validator.class.php:278
+#: libraries/config/Validator.class.php:254
+#: libraries/config/Validator.class.php:262
+#: libraries/config/Validator.class.php:273
+#: libraries/config/Validator.class.php:280
 #, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
 msgstr "No s'ha pogut connectar a la destinació"
 
-#: libraries/config/Validator.class.php:311
+#: libraries/config/Validator.class.php:313
 #, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "Nom d'usuari buit al usar el métode d'autenticació config"
 
-#: libraries/config/Validator.class.php:318
+#: libraries/config/Validator.class.php:320
 #, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid ""
@@ -5244,13 +5244,13 @@ msgid ""
 "method!"
 msgstr "Nom de sessió signon buit al usar el métode d'autenticació signon"
 
-#: libraries/config/Validator.class.php:327
+#: libraries/config/Validator.class.php:329
 #, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "URL signon buida al usar el métode d'autenticació signon"
 
-#: libraries/config/Validator.class.php:374
+#: libraries/config/Validator.class.php:376
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
@@ -5259,7 +5259,7 @@ msgid ""
 msgstr ""
 "Control d'usuari de phpMyAdmin buit al usar phpMyAdmin configuration storage"
 
-#: libraries/config/Validator.class.php:379
+#: libraries/config/Validator.class.php:381
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user password while using phpMyAdmin "
@@ -5271,11 +5271,11 @@ msgstr ""
 "Control de contrasenya de phpMyAdmin buida al usar phpMyAdmin configuration "
 "storage"
 
-#: libraries/config/Validator.class.php:463
+#: libraries/config/Validator.class.php:465
 msgid "Incorrect value:"
 msgstr "Valor incorrecte:"
 
-#: libraries/config/Validator.class.php:472
+#: libraries/config/Validator.class.php:474
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Adreça IP incorrecta: %s"

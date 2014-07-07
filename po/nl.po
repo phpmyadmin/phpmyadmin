@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 10:35-0400\n"
+"POT-Creation-Date: 2014-07-07 06:14-0400\n"
 "PO-Revision-Date: 2014-07-03 23:19+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
@@ -2058,7 +2058,7 @@ msgstr ""
 #: js/messages.php:393
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
-">- Control+CLick to remove column from ORDER BY clause"
+">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
 
 #: js/messages.php:394
@@ -4771,28 +4771,28 @@ msgid "neither of the above"
 msgstr "geen van bovenstaande opties"
 
 #: libraries/config/FormDisplay.class.php:96
-#: libraries/config/Validator.class.php:555
+#: libraries/config/Validator.class.php:557
 msgid "Not a positive number!"
 msgstr "Geen positief getal!"
 
 #: libraries/config/FormDisplay.class.php:97
-#: libraries/config/Validator.class.php:577
+#: libraries/config/Validator.class.php:579
 msgid "Not a non-negative number!"
 msgstr "Geen niet-negatief getal!"
 
 #: libraries/config/FormDisplay.class.php:98
-#: libraries/config/Validator.class.php:533
+#: libraries/config/Validator.class.php:535
 msgid "Not a valid port number!"
 msgstr "Geen geldig poortnummer!"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
-#: libraries/config/Validator.class.php:595
+#: libraries/config/Validator.class.php:597
 msgid "Incorrect value!"
 msgstr "Foutieve waarde!"
 
 #: libraries/config/FormDisplay.class.php:100
-#: libraries/config/Validator.class.php:611
+#: libraries/config/Validator.class.php:613
 #, php-format
 msgid "Value must be equal or lower than %s!"
 msgstr "Waarde moet lager of gelijk zijn aan %s!"
@@ -5005,23 +5005,23 @@ msgstr ""
 "%sZip-decompressie%s vereist functies (%s) die niet beschikbaar zijn op dit "
 "systeem."
 
-#: libraries/config/Validator.class.php:243
+#: libraries/config/Validator.class.php:245
 msgid "Could not initialize Drizzle connection library!"
 msgstr "Drizzle-verbindingsbibliotheek kon niet geïnitialiseerd worden!"
 
-#: libraries/config/Validator.class.php:252
-#: libraries/config/Validator.class.php:260
-#: libraries/config/Validator.class.php:271
-#: libraries/config/Validator.class.php:278
+#: libraries/config/Validator.class.php:254
+#: libraries/config/Validator.class.php:262
+#: libraries/config/Validator.class.php:273
+#: libraries/config/Validator.class.php:280
 msgid "Could not connect to the database server!"
 msgstr "Kan geen verbinding maken met de databank server!"
 
-#: libraries/config/Validator.class.php:311
+#: libraries/config/Validator.class.php:313
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Lege gebruikersnaam bij gebruik van het [kbd]config[/kbd] authenticatietype!"
 
-#: libraries/config/Validator.class.php:318
+#: libraries/config/Validator.class.php:320
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -5029,20 +5029,20 @@ msgstr ""
 "Lege signon-sessienaam wanneer u gebruik maakt van het [kbd]signon[/kbd] "
 "authenticatietype!"
 
-#: libraries/config/Validator.class.php:327
+#: libraries/config/Validator.class.php:329
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "Lege signon-URL wanneer u gebruik maakt van het [kbd]signon[/kbd] "
 "authenticatietype!"
 
-#: libraries/config/Validator.class.php:374
+#: libraries/config/Validator.class.php:376
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "De controlegebruikersnaam is leeg terwijl u wel de configuratie-opslag van "
 "phpMyAdmin gebruikt!"
 
-#: libraries/config/Validator.class.php:379
+#: libraries/config/Validator.class.php:381
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -5050,11 +5050,11 @@ msgstr ""
 "Het wachtwoord voor de controlegebruiker is leeg terwijl u wel de "
 "configuratie-opslag van phpMyAdmin gebruikt!"
 
-#: libraries/config/Validator.class.php:463
+#: libraries/config/Validator.class.php:465
 msgid "Incorrect value:"
 msgstr "Foutieve waarde:"
 
-#: libraries/config/Validator.class.php:472
+#: libraries/config/Validator.class.php:474
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Foutief IP-adres: %s"

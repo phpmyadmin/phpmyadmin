@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 10:35-0400\n"
+"POT-Creation-Date: 2014-07-07 06:14-0400\n"
 "PO-Revision-Date: 2014-05-20 12:55+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: Finnish <https://l10n.cihar.com/projects/phpmyadmin/master/fi/"
@@ -2117,7 +2117,7 @@ msgstr ""
 #: js/messages.php:393
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
-">- Control+CLick to remove column from ORDER BY clause"
+">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
 
 #: js/messages.php:394
@@ -4932,21 +4932,21 @@ msgid "neither of the above"
 msgstr "ei kumpikaan yltä"
 
 #: libraries/config/FormDisplay.class.php:96
-#: libraries/config/Validator.class.php:555
+#: libraries/config/Validator.class.php:557
 #, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
 msgstr "Ei ole positiivinen luku"
 
 #: libraries/config/FormDisplay.class.php:97
-#: libraries/config/Validator.class.php:577
+#: libraries/config/Validator.class.php:579
 #, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
 msgstr "Ei ole epänegatiivinen luku"
 
 #: libraries/config/FormDisplay.class.php:98
-#: libraries/config/Validator.class.php:533
+#: libraries/config/Validator.class.php:535
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
@@ -4954,14 +4954,14 @@ msgstr "Virheellinen porttinumero"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
-#: libraries/config/Validator.class.php:595
+#: libraries/config/Validator.class.php:597
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
 msgstr "Virheellinen arvo"
 
 #: libraries/config/FormDisplay.class.php:100
-#: libraries/config/Validator.class.php:611
+#: libraries/config/Validator.class.php:613
 #, fuzzy, php-format
 #| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
@@ -5222,28 +5222,28 @@ msgstr ""
 "tarvitaan funktioita (%s), jotka eivät ole käytettävissä tässä "
 "järjestelmässä."
 
-#: libraries/config/Validator.class.php:243
+#: libraries/config/Validator.class.php:245
 #, fuzzy
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
 msgstr "Ei voinut alustaa Drizzle tietoyhteyskirjastoa"
 
-#: libraries/config/Validator.class.php:252
-#: libraries/config/Validator.class.php:260
-#: libraries/config/Validator.class.php:271
-#: libraries/config/Validator.class.php:278
+#: libraries/config/Validator.class.php:254
+#: libraries/config/Validator.class.php:262
+#: libraries/config/Validator.class.php:273
+#: libraries/config/Validator.class.php:280
 #, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
 msgstr "Kohteeseen ei voida muodostaa yhteyttä"
 
-#: libraries/config/Validator.class.php:311
+#: libraries/config/Validator.class.php:313
 #, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "Tyhjennä käyttäjänimi käytettäessä config-todennustapaa"
 
-#: libraries/config/Validator.class.php:318
+#: libraries/config/Validator.class.php:320
 #, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid ""
@@ -5251,13 +5251,13 @@ msgid ""
 "method!"
 msgstr "Tyhjennä kirjautumisistunnon nimi käytettäessä signon-todennustapaa"
 
-#: libraries/config/Validator.class.php:327
+#: libraries/config/Validator.class.php:329
 #, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "Tyhjennä kirjautumisen verkko-osoite käytettäessä signon-todennustapaa"
 
-#: libraries/config/Validator.class.php:374
+#: libraries/config/Validator.class.php:376
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
@@ -5267,7 +5267,7 @@ msgstr ""
 "Tyhjennä phpMyAdminin hallintakäyttäjä käytettäessä phpMyAdmin configuration "
 "storage-kantaa"
 
-#: libraries/config/Validator.class.php:379
+#: libraries/config/Validator.class.php:381
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user password while using phpMyAdmin "
@@ -5279,11 +5279,11 @@ msgstr ""
 "Tyhjennä phpMyAdminin hallintakäyttäjän salasana käytettäessä phpMyAdmin "
 "configuration storage-kantaa"
 
-#: libraries/config/Validator.class.php:463
+#: libraries/config/Validator.class.php:465
 msgid "Incorrect value:"
 msgstr "Virheellinen arvo:"
 
-#: libraries/config/Validator.class.php:472
+#: libraries/config/Validator.class.php:474
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Virheellinen IP-osoite: %s"

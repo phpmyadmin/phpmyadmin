@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 10:35-0400\n"
+"POT-Creation-Date: 2014-07-07 06:14-0400\n"
 "PO-Revision-Date: 2014-03-31 14:24+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Galician <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -2130,7 +2130,7 @@ msgstr ""
 #: js/messages.php:393
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
-">- Control+CLick to remove column from ORDER BY clause"
+">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
 
 #: js/messages.php:394
@@ -4968,21 +4968,21 @@ msgid "neither of the above"
 msgstr "nada do anterior"
 
 #: libraries/config/FormDisplay.class.php:96
-#: libraries/config/Validator.class.php:555
+#: libraries/config/Validator.class.php:557
 #, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
 msgstr "Non é un número positivo"
 
 #: libraries/config/FormDisplay.class.php:97
-#: libraries/config/Validator.class.php:577
+#: libraries/config/Validator.class.php:579
 #, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
 msgstr "Non é un número negativo"
 
 #: libraries/config/FormDisplay.class.php:98
-#: libraries/config/Validator.class.php:533
+#: libraries/config/Validator.class.php:535
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
@@ -4990,14 +4990,14 @@ msgstr "Non é un número de porto válido"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
-#: libraries/config/Validator.class.php:595
+#: libraries/config/Validator.class.php:597
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
 msgstr "O valor é incorrecto"
 
 #: libraries/config/FormDisplay.class.php:100
-#: libraries/config/Validator.class.php:611
+#: libraries/config/Validator.class.php:613
 #, fuzzy, php-format
 #| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
@@ -5226,22 +5226,22 @@ msgstr ""
 "A %sdescompresión con zip%s require funcións (%s) que non están dispoñíbeis "
 "neste sistema."
 
-#: libraries/config/Validator.class.php:243
+#: libraries/config/Validator.class.php:245
 #, fuzzy
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
 msgstr "Non foi posíbel iniciar a biblioteca de conexión Drizzle"
 
-#: libraries/config/Validator.class.php:252
-#: libraries/config/Validator.class.php:260
-#: libraries/config/Validator.class.php:271
-#: libraries/config/Validator.class.php:278
+#: libraries/config/Validator.class.php:254
+#: libraries/config/Validator.class.php:262
+#: libraries/config/Validator.class.php:273
+#: libraries/config/Validator.class.php:280
 #, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
 msgstr "Non foi posíbel conectar co destino"
 
-#: libraries/config/Validator.class.php:311
+#: libraries/config/Validator.class.php:313
 #, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -5249,7 +5249,7 @@ msgstr ""
 "Atopouse un nome de usuario baleiro ao empregar o método de autenticación da "
 "configuración"
 
-#: libraries/config/Validator.class.php:318
+#: libraries/config/Validator.class.php:320
 #, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid ""
@@ -5259,7 +5259,7 @@ msgstr ""
 "Atopouse un nome de rexistro da sesión baleiro ao empregar o método de "
 "autenticación mediante rexistro de entrada"
 
-#: libraries/config/Validator.class.php:327
+#: libraries/config/Validator.class.php:329
 #, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
@@ -5267,7 +5267,7 @@ msgstr ""
 "Atopouse un URL de rexistro baleiro ao empregar o método de autenticación "
 "mediante rexistro de entrada"
 
-#: libraries/config/Validator.class.php:374
+#: libraries/config/Validator.class.php:376
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
@@ -5277,7 +5277,7 @@ msgstr ""
 "Atopouse un usuario de control de phpMyAdmin baleiro ao empregar phpMyAdmin "
 "configuration storage"
 
-#: libraries/config/Validator.class.php:379
+#: libraries/config/Validator.class.php:381
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user password while using phpMyAdmin "
@@ -5289,11 +5289,11 @@ msgstr ""
 "Atopouse un contrasinal de control de phpMyAdmin baleiro ao empregar "
 "phpMyAdmin configuration storage"
 
-#: libraries/config/Validator.class.php:463
+#: libraries/config/Validator.class.php:465
 msgid "Incorrect value:"
 msgstr "O valor é incorrecto:"
 
-#: libraries/config/Validator.class.php:472
+#: libraries/config/Validator.class.php:474
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "O enderezo de IP é incorrecto: %s"

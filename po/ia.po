@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-04 10:35-0400\n"
+"POT-Creation-Date: 2014-07-07 06:14-0400\n"
 "PO-Revision-Date: 2014-07-06 08:56+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
+"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
+"master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2066,7 +2066,7 @@ msgstr ""
 #: js/messages.php:393
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
-">- Control+CLick to remove column from ORDER BY clause"
+">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
 
 #: js/messages.php:394
@@ -2643,7 +2643,6 @@ msgstr ""
 
 #: libraries/Console.class.php:106
 #, php-format
-#| msgid "Add bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
 msgstr[0] "Marcator de libro o favorit %d total"
@@ -2660,7 +2659,6 @@ msgstr "compartite"
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:121
 #, php-format
-#| msgid " bookmarks included."
 msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "%1$s, %2$s e %3$s marcatores de libro includite"
 
@@ -2726,7 +2724,6 @@ msgid "Bookmarks"
 msgstr "Marcatores de libro"
 
 #: libraries/Console.class.php:204
-#| msgid "to Execute query"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Pressa Ctrl+Enter pro executar query"
 
@@ -4785,28 +4782,28 @@ msgid "neither of the above"
 msgstr "necun del precedentes"
 
 #: libraries/config/FormDisplay.class.php:96
-#: libraries/config/Validator.class.php:555
+#: libraries/config/Validator.class.php:557
 msgid "Not a positive number!"
 msgstr "Illo non es un numero positive!"
 
 #: libraries/config/FormDisplay.class.php:97
-#: libraries/config/Validator.class.php:577
+#: libraries/config/Validator.class.php:579
 msgid "Not a non-negative number!"
 msgstr "Illo non es un numero non-negative!"
 
 #: libraries/config/FormDisplay.class.php:98
-#: libraries/config/Validator.class.php:533
+#: libraries/config/Validator.class.php:535
 msgid "Not a valid port number!"
 msgstr "Illo non es un valide numero de porto!"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
-#: libraries/config/Validator.class.php:595
+#: libraries/config/Validator.class.php:597
 msgid "Incorrect value!"
 msgstr "Valor incorrecte!"
 
 #: libraries/config/FormDisplay.class.php:100
-#: libraries/config/Validator.class.php:611
+#: libraries/config/Validator.class.php:613
 #, php-format
 msgid "Value must be equal or lower than %s!"
 msgstr "Le valor debe esser equal o minor que %s!"
@@ -5024,24 +5021,24 @@ msgstr ""
 "Le decompression %s %sZip require functiones (%s) que non es disponibile sur "
 "tu systema."
 
-#: libraries/config/Validator.class.php:243
+#: libraries/config/Validator.class.php:245
 msgid "Could not initialize Drizzle connection library!"
 msgstr "Il non pote initialisar bibliotheca de connexion Drizzle!"
 
-#: libraries/config/Validator.class.php:252
-#: libraries/config/Validator.class.php:260
-#: libraries/config/Validator.class.php:271
-#: libraries/config/Validator.class.php:278
+#: libraries/config/Validator.class.php:254
+#: libraries/config/Validator.class.php:262
+#: libraries/config/Validator.class.php:273
+#: libraries/config/Validator.class.php:280
 msgid "Could not connect to the database server!"
 msgstr "Il non pote connecter a servitor de base de datos!"
 
-#: libraries/config/Validator.class.php:311
+#: libraries/config/Validator.class.php:313
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Vacua nomine de usator quando on usa methodo de authentication de [kbd]config"
 "[/kbd]!"
 
-#: libraries/config/Validator.class.php:318
+#: libraries/config/Validator.class.php:320
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -5049,20 +5046,20 @@ msgstr ""
 "Vacua nomine de session de signon quando on usa methodo de authentication "
 "[kbd]signon[/kbd]!"
 
-#: libraries/config/Validator.class.php:327
+#: libraries/config/Validator.class.php:329
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "Vacua URL de signon quando on usa methodo de authentication de [kbd]signon[/"
 "kbd]!"
 
-#: libraries/config/Validator.class.php:374
+#: libraries/config/Validator.class.php:376
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Vacua le usator de controlo de phpMyAdmin quando on usa phpMyAdmin "
 "configuration storage!"
 
-#: libraries/config/Validator.class.php:379
+#: libraries/config/Validator.class.php:381
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -5070,11 +5067,11 @@ msgstr ""
 "Vacua contrasigno de usator de controlo de phpMyAdmin durante que on usa "
 "pmadb!"
 
-#: libraries/config/Validator.class.php:463
+#: libraries/config/Validator.class.php:465
 msgid "Incorrect value:"
 msgstr "Valor incorrecte:"
 
-#: libraries/config/Validator.class.php:472
+#: libraries/config/Validator.class.php:474
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Adresse de IP incorrecte: %s"
