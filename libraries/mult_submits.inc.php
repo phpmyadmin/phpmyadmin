@@ -132,6 +132,12 @@ if (! empty($submit_mult)
     }
 } // end if
 
+if (empty($db)) {
+    $db = '';
+}
+if (empty($table)) {
+    $table = '';
+}
 $views = $GLOBALS['dbi']->getVirtualTables($db);
 
 /**
