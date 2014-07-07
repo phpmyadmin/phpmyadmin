@@ -1087,16 +1087,13 @@ function PMA_findRealEndOfRows($db, $table)
  *
  * @param String $db            the current database
  * @param String $table         the current table
- * @param String $display_field display field
  *
  * @return void
  */
-function PMA_getRelationalValues($db, $table, $display_field)
+function PMA_getRelationalValues($db, $table)
 {
     $column = $_REQUEST['column'];
     if ($_SESSION['tmpval']['relational_display'] == 'D'
-        && isset($display_field)
-        && strlen($display_field)
         && isset($_REQUEST['relation_key_or_display_column'])
         && $_REQUEST['relation_key_or_display_column']
     ) {
