@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-07 06:14-0400\n"
+"POT-Creation-Date: 2014-07-07 06:52-0400\n"
 "PO-Revision-Date: 2014-02-03 16:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek (latin) <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -702,7 +702,7 @@ msgstr ""
 "Import modullari mavjud emas! O‘rnatilgan phpMyAdmin nusxasining libraries/"
 "export katalogini tekshiring!"
 
-#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
+#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -2377,7 +2377,7 @@ msgstr ""
 #: js/messages.php:423
 #, fuzzy
 #| msgid "Go to view"
-msgid "Go to link."
+msgid "Go to link:"
 msgstr "Ushbu ko‘rinishga o‘tish"
 
 #: js/messages.php:424
@@ -3550,7 +3550,7 @@ msgstr ""
 msgid "%d total"
 msgstr "jami"
 
-#: libraries/DisplayResults.class.php:4926 libraries/sql.lib.php:1691
+#: libraries/DisplayResults.class.php:4926 libraries/sql.lib.php:1688
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -9271,12 +9271,12 @@ msgid "Dump has been saved to file %s."
 msgstr "Damp \"%s\" faylida saqlandi."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1685
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1682
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL bo‘sh natija berdi (ya`ni nolta satr)."
 
-#: libraries/import.lib.php:268 libraries/sql.lib.php:1699
+#: libraries/import.lib.php:268 libraries/sql.lib.php:1696
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -9425,11 +9425,11 @@ msgstr ""
 "Maydonlararo o‘tish uchun TAB tugmasi yoki CTRL+strelka tugmalaridan "
 "foydalaning"
 
-#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1682
+#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1679
 msgid "Showing SQL query"
 msgstr "SQL-so‘rovni ko‘rsatish"
 
-#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1662
+#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1659
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Kiritilgan qator identifikatori: %1$d"
@@ -14069,22 +14069,22 @@ msgstr "Barcha foydalanuvchilarga ruxsat berish"
 msgid "Bookmark not created!"
 msgstr "\"%s\" xatcho‘pi tuzildi"
 
-#: libraries/sql.lib.php:1208
+#: libraries/sql.lib.php:1205
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1679
+#: libraries/sql.lib.php:1676
 msgid "Showing as PHP code"
 msgstr "PHP-kod sifatida ko‘rsatish"
 
-#: libraries/sql.lib.php:1973
+#: libraries/sql.lib.php:1970
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 msgstr ""
 
-#: libraries/sql.lib.php:2010
+#: libraries/sql.lib.php:2007
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "`\"%s\"` jadvalidagi indekslarda muammo mavjud"

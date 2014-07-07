@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-07 06:14-0400\n"
+"POT-Creation-Date: 2014-07-07 06:52-0400\n"
 "PO-Revision-Date: 2014-06-18 13:15+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Portuguese <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -674,7 +674,7 @@ msgstr ""
 "Não foi possível carregar os import plugins, por favor verifique a sua "
 "instalação!"
 
-#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
+#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Marcador %s foi criado."
@@ -2176,7 +2176,9 @@ msgstr ""
 "Pode editar a maioria dos valores<br />com um duplo clique no valor a editar."
 
 #: js/messages.php:423
-msgid "Go to link."
+#, fuzzy
+#| msgid "Go to link."
+msgid "Go to link:"
 msgstr "Ir para a hiperligação."
 
 #: js/messages.php:424
@@ -3195,7 +3197,7 @@ msgstr "%1$d no total, %2$d na consulta"
 msgid "%d total"
 msgstr "%d total"
 
-#: libraries/DisplayResults.class.php:4926 libraries/sql.lib.php:1691
+#: libraries/DisplayResults.class.php:4926 libraries/sql.lib.php:1688
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "A consulta demorou %01.4f segundos."
@@ -8253,12 +8255,12 @@ msgid "Dump has been saved to file %s."
 msgstr "O Dump foi gravado para o ficheiro %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1685
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1682
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL não retornou nenhum registo."
 
-#: libraries/import.lib.php:268 libraries/sql.lib.php:1699
+#: libraries/import.lib.php:268 libraries/sql.lib.php:1696
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -8392,12 +8394,12 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1682
+#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1679
 #, fuzzy
 msgid "Showing SQL query"
 msgstr "Mostrar queries completos"
 
-#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1662
+#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1659
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -12645,16 +12647,16 @@ msgstr "Deixar todos os utilizadores acederem a este marcador"
 msgid "Bookmark not created!"
 msgstr "Marcador %s criado"
 
-#: libraries/sql.lib.php:1208
+#: libraries/sql.lib.php:1205
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1679
+#: libraries/sql.lib.php:1676
 msgid "Showing as PHP code"
 msgstr ""
 
-#: libraries/sql.lib.php:1973
+#: libraries/sql.lib.php:1970
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12667,7 +12669,7 @@ msgstr ""
 "edição da tabela, checkbox, Editar, Copiar e Eliminar links podem não "
 "funcionar depois de guardar."
 
-#: libraries/sql.lib.php:2010
+#: libraries/sql.lib.php:2007
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""

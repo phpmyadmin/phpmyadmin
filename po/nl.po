@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-07 06:14-0400\n"
+"POT-Creation-Date: 2014-07-07 06:52-0400\n"
 "PO-Revision-Date: 2014-07-03 23:19+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
@@ -673,7 +673,7 @@ msgstr ""
 "De plugins voor het importeren konden niet worden geladen, controleer uw "
 "installatie!"
 
-#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
+#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bladwijzer %s werd aangemaakt."
@@ -2131,7 +2131,9 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "U kan de meeste waarden bewerken<br />door erop te klikken."
 
 #: js/messages.php:423
-msgid "Go to link."
+#, fuzzy
+#| msgid "Go to link."
+msgid "Go to link:"
 msgstr "Ga naar de link."
 
 #: js/messages.php:424
@@ -3130,7 +3132,7 @@ msgstr "%1$d in totaal, %2$d in de query"
 msgid "%d total"
 msgstr "%d totaal"
 
-#: libraries/DisplayResults.class.php:4926 libraries/sql.lib.php:1691
+#: libraries/DisplayResults.class.php:4926 libraries/sql.lib.php:1688
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Query duurde %01.4f seconden."
@@ -8219,12 +8221,12 @@ msgid "Dump has been saved to file %s."
 msgstr "Het exportbestand is bewaard als %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1685
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1682
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gaf een lege resultatenset terug (0 rijen)."
 
-#: libraries/import.lib.php:268 libraries/sql.lib.php:1699
+#: libraries/import.lib.php:268 libraries/sql.lib.php:1696
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -8354,11 +8356,11 @@ msgstr ""
 "Gebruik de TAB-toets om van waarde naar waarde te navigeren of CTRL+pijltjes "
 "om vrijuit te navigeren"
 
-#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1682
+#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1679
 msgid "Showing SQL query"
 msgstr "Toont SQL-query"
 
-#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1662
+#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1659
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Toegevoegd rijnummer: %1$d"
@@ -12600,16 +12602,16 @@ msgstr "Elke gebruiker toegang geven tot deze bladwijzer"
 msgid "Bookmark not created!"
 msgstr "Bladwijzer niet aangemaakt!"
 
-#: libraries/sql.lib.php:1208
+#: libraries/sql.lib.php:1205
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Bladwijzer \"%s\" wordt gebruikt als standaard browsequery."
 
-#: libraries/sql.lib.php:1679
+#: libraries/sql.lib.php:1676
 msgid "Showing as PHP code"
 msgstr "Getoond als PHP-code"
 
-#: libraries/sql.lib.php:1973
+#: libraries/sql.lib.php:1970
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
@@ -12618,7 +12620,7 @@ msgstr ""
 "rasterbewerkingen, checkboxen, Bewerken, Kopiëren en Verwijderen, zijn niet "
 "beschikbaar."
 
-#: libraries/sql.lib.php:2010
+#: libraries/sql.lib.php:2007
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemen met de indexen van de tabel `%s`"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-07 06:14-0400\n"
+"POT-Creation-Date: 2014-07-07 06:52-0400\n"
 "PO-Revision-Date: 2014-07-06 08:33+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
@@ -672,7 +672,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "No se pudieron cargar los plugins de importación. ¡Revise su instalación!"
 
-#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1862
+#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Se creó el favorito %s."
@@ -2149,7 +2149,9 @@ msgstr ""
 "contenido."
 
 #: js/messages.php:423
-msgid "Go to link."
+#, fuzzy
+#| msgid "Go to link."
+msgid "Go to link:"
 msgstr "Ir al enlace."
 
 #: js/messages.php:424
@@ -3145,7 +3147,7 @@ msgstr "%1$d en total, %2$d en la consulta"
 msgid "%d total"
 msgstr "total de %d"
 
-#: libraries/DisplayResults.class.php:4926 libraries/sql.lib.php:1691
+#: libraries/DisplayResults.class.php:4926 libraries/sql.lib.php:1688
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "La consulta tardó %01.4f segundos."
@@ -8258,13 +8260,13 @@ msgid "Dump has been saved to file %s."
 msgstr "El volcado ha sido guardado al archivo %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1685
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1682
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 "MySQL ha devuelto un conjunto de valores vacío (es decir: cero columnas)."
 
-#: libraries/import.lib.php:268 libraries/sql.lib.php:1699
+#: libraries/import.lib.php:268 libraries/sql.lib.php:1696
 msgid "[ROLLBACK occurred.]"
 msgstr "[Ocurrió un ROLLBACK.]"
 
@@ -8397,11 +8399,11 @@ msgstr ""
 "Use la tecla TAB para saltar de un valor a otro, o CTRL+flechas para moverse "
 "a cualquier parte"
 
-#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1682
+#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1679
 msgid "Showing SQL query"
 msgstr "Mostrando la consulta SQL"
 
-#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1662
+#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1659
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "La Id de la fila insertada es: %1$d"
@@ -12675,17 +12677,17 @@ msgstr "Permitir que todo usuario pueda acceder a este favorito"
 msgid "Bookmark not created!"
 msgstr "¡No se creó el favorito!"
 
-#: libraries/sql.lib.php:1208
+#: libraries/sql.lib.php:1205
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 "Utilizando el favorito \"%s\" como consulta predeterminada para examinar."
 
-#: libraries/sql.lib.php:1679
+#: libraries/sql.lib.php:1676
 msgid "Showing as PHP code"
 msgstr "Mostrar como código PHP"
 
-#: libraries/sql.lib.php:1973
+#: libraries/sql.lib.php:1970
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
@@ -12693,7 +12695,7 @@ msgstr ""
 "La selección actual no contiene una columna única. La edición de la grilla y "
 "los enlaces de copiado, eliminación y edición no están disponibles."
 
-#: libraries/sql.lib.php:2010
+#: libraries/sql.lib.php:2007
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemas con los índices de la tabla `%s`"
