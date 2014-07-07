@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-07 06:52-0400\n"
-"PO-Revision-Date: 2014-07-06 08:33+0200\n"
+"PO-Revision-Date: 2014-07-07 13:33+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2060,7 +2060,6 @@ msgid "Click to sort results by this column."
 msgstr "Pulse para ordenar los resultados según esta columna."
 
 #: js/messages.php:393
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+CLick to remove column from ORDER BY clause"
@@ -2149,10 +2148,9 @@ msgstr ""
 "contenido."
 
 #: js/messages.php:423
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "Ir al enlace."
+msgstr "Ir al enlace:"
 
 #: js/messages.php:424
 msgid "Copy column name."
