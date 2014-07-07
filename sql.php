@@ -83,7 +83,7 @@ if (isset($_POST['bkm_fields']['bkm_database'])) {
 if (isset($_REQUEST['get_relational_values'])
     && $_REQUEST['get_relational_values'] == true
 ) {
-    PMA_getRelationalValues($db, $table, $display_field);
+    PMA_getRelationalValues($db, $table);
     // script has exited at this point
 }
 
