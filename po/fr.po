@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-07 06:52-0400\n"
-"PO-Revision-Date: 2014-07-08 13:11+0200\n"
+"PO-Revision-Date: 2014-07-08 13:39+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -2055,6 +2055,8 @@ msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
+"Maj + clic pour ajouter cette colonne à la clause ORDER BY ou pour basculer "
+"ASC/DESC.<br />- Ctrl + clic pour enlever la colonne de la clause ORDER BY"
 
 #: js/messages.php:394
 msgid "Click to mark/unmark."
@@ -2100,7 +2102,7 @@ msgstr "Arrêts prématurés"
 
 #: js/messages.php:406
 msgid "Failed"
-msgstr ""
+msgstr "Échec"
 
 #: js/messages.php:407
 msgid "Success"
@@ -2615,7 +2617,7 @@ msgstr "Réduire"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:169
 msgid "Expand"
-msgstr ""
+msgstr "Développer"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:170
 msgid "Requery"
@@ -2623,7 +2625,7 @@ msgstr "Exécuter la requête à nouveau"
 
 #: libraries/Console.class.php:96 libraries/Console.class.php:171
 msgid "Reedit"
-msgstr ""
+msgstr "Rééditer"
 
 #: libraries/Console.class.php:106
 #, php-format
@@ -2664,7 +2666,7 @@ msgstr "Console de requêtes SQL"
 
 #: libraries/Console.class.php:182
 msgid "Console"
-msgstr ""
+msgstr "Console de requêtes SQL"
 
 #: libraries/Console.class.php:185 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
