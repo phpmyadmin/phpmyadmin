@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-05-24 19:41+0200\n"
-"Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
+"PO-Revision-Date: 2014-07-08 13:26+0200\n"
+"Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/4-2/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1853,13 +1853,16 @@ msgstr "Træk for at ændre rækkefølge."
 
 #: js/messages.php:344
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Klik for at sortere resultater efter denne kolonne."
 
 #: js/messages.php:345
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
+"Skift+ḱlik for at tilføje denne kolonne til SORTÉR EFTER-klausulen eller "
+"skifte mellem TILTAGENDE/AFTAGENDE.<br />- Ctrl+klik for at fjerne kolonne "
+"fra SORTÉR EFTER-klausul"
 
 #: js/messages.php:346
 msgid "Click to mark/unmark."
@@ -1901,10 +1904,9 @@ msgstr ""
 "Du kan også redigere de fleste værdier<br />ved at klikke direkte på dem."
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "Gå til link."
+msgstr "Gå til linket:"
 
 #: js/messages.php:366
 msgid "Copy column name."
@@ -5021,10 +5023,9 @@ msgid "Add %s"
 msgstr "Tilføj %s"
 
 #: libraries/config/messages.inc.php:178
-#, fuzzy
 #| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "Brug hexadecimal for BLOB"
+msgstr "Brug hexadecimal for BINÆR & BLOB"
 
 #: libraries/config/messages.inc.php:180
 msgid "Use ignore inserts"
