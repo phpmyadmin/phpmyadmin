@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-08 10:36+0200\n"
+"PO-Revision-Date: 2014-07-08 14:04+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/4-2/el/>\n"
 "Language: el\n"
@@ -1876,7 +1876,6 @@ msgid "Click to sort results by this column."
 msgstr "Πατήστε για ταξινόμηση των αποτελεσμάτων κατά αυτή τη στήλη."
 
 #: js/messages.php:345
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+CLick to remove column from ORDER BY clause"
