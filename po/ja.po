@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-07 06:51-0400\n"
+"POT-Creation-Date: 2014-07-08 07:11-0400\n"
 "PO-Revision-Date: 2014-02-14 13:01+0200\n"
 "Last-Translator: Yuki Shira <shirayuking@gmail.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
@@ -168,7 +168,7 @@ msgstr "いいえ"
 #: db_datadict.php:240 js/messages.php:322 libraries/Index.class.php:436
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:80
-#: libraries/mult_submits.inc.php:159 libraries/mult_submits.lib.php:352
+#: libraries/mult_submits.inc.php:165 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
 #: libraries/mult_submits.lib.php:450 libraries/mult_submits.lib.php:492
 #: libraries/mult_submits.lib.php:501 libraries/mult_submits.lib.php:506
@@ -1888,7 +1888,7 @@ msgstr ""
 #: js/messages.php:345
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
-">- Control+CLick to remove column from ORDER BY clause"
+">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
 
 #: js/messages.php:346
@@ -8412,7 +8412,7 @@ msgstr "なし"
 msgid "Convert to Kana"
 msgstr "全角カナに変換する"
 
-#: libraries/mult_submits.inc.php:252 tbl_replace.php:251
+#: libraries/mult_submits.inc.php:258 tbl_replace.php:251
 msgid "No change"
 msgstr "変更なし"
 
