@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-07 06:52-0400\n"
-"PO-Revision-Date: 2014-07-08 13:13+0200\n"
+"PO-Revision-Date: 2014-07-08 14:34+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/>"
 "\n"
@@ -2276,12 +2276,13 @@ msgstr "Ignorér alle"
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
+"I henhold til dine indstillinger, så indsendes de i øjeblikket - udvis "
+"venligst tålmodighed."
 
 #: js/messages.php:493
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Vis forespørgslen her igen"
+msgstr "Udfør denne forespørgsel påny?"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:520
@@ -2621,36 +2622,34 @@ msgid "Font size"
 msgstr "Skriftstørrelse"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:168
-#, fuzzy
 #| msgid "Expand/Collapse"
 msgid "Collapse"
-msgstr "Fold ud/sammen"
+msgstr "Fold sammen"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:169
 msgid "Expand"
-msgstr ""
+msgstr "Fold ud"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:170
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "underforespørgsel"
+msgstr "Genforespørg"
 
 #: libraries/Console.class.php:96 libraries/Console.class.php:171
 msgid "Reedit"
-msgstr ""
+msgstr "Redigér påny"
 
 #: libraries/Console.class.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "New bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Nyt bogmærke"
-msgstr[1] "Nyt bogmærke"
+msgstr[0] "I alt %d bogmærke"
+msgstr[1] "I alt %d bogmærker"
 
 #: libraries/Console.class.php:113
 msgid "private"
-msgstr ""
+msgstr "privat"
 
 #: libraries/Console.class.php:117 libraries/bookmark.lib.php:87
 msgid "shared"
@@ -2658,38 +2657,34 @@ msgstr "delt"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:121
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "Bogmærket er fjernet."
+msgstr "%1$s, %2$s og %3$s bogmærker blev inkluderet"
 
 #: libraries/Console.class.php:127
-#, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
-msgstr "Nyt bogmærke"
+msgstr "Ingen bogmærker"
 
 #: libraries/Console.class.php:173
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "Forespørgsel-mellemlager"
+msgstr "Forespørgslen mislykkedes"
 
 #: libraries/Console.class.php:175
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Eksekveringstid for forespørgsel"
+msgstr "Tid på forespørgsel"
 
 #: libraries/Console.class.php:181
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "SQL Query-boks"
+msgstr "SQL Query-konsol"
 
 #: libraries/Console.class.php:182
 msgid "Console"
-msgstr ""
+msgstr "Konsol"
 
 #: libraries/Console.class.php:185 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
@@ -2697,10 +2692,9 @@ msgid "Clear"
 msgstr "Ryd"
 
 #: libraries/Console.class.php:188
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "SQL-historik"
+msgstr "Historik"
 
 #: libraries/Console.class.php:191 libraries/Console.class.php:268
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
@@ -2731,22 +2725,19 @@ msgid "Options"
 msgstr "Indstillinger"
 
 #: libraries/Console.class.php:195 libraries/Console.class.php:240
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Bogmærketabel"
+msgstr "Bogmærker"
 
 #: libraries/Console.class.php:204
-#, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Udfør hver"
+msgstr "Tast Ctrl+Enter for at udføre forespørgsel"
 
 #: libraries/Console.class.php:219
-#, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
-msgstr "Spring over aktuel fejl"
+msgstr "Under nuværende session"
 
 #: libraries/Console.class.php:244 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
@@ -2755,46 +2746,41 @@ msgid "Refresh"
 msgstr "Opdater"
 
 #: libraries/Console.class.php:255
-#, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
-msgstr "Nyt bogmærke"
+msgstr "Tilføj bogmærke"
 
 #: libraries/Console.class.php:258
-#, fuzzy
 #| msgid "Label:"
 msgid "Label"
-msgstr "Etikette:"
+msgstr "Etikette"
 
 #: libraries/Console.class.php:259
 msgid "Target database"
 msgstr "Måldatabase"
 
 #: libraries/Console.class.php:260
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
-msgstr "Opret bookmark"
+msgstr "Del dette bogmærke"
 
 #: libraries/Console.class.php:271
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
-msgstr "Gendan standardværdi"
+msgstr "Angiv standardværdi"
 
 #: libraries/Console.class.php:275
 msgid "Always expand queried messages"
-msgstr ""
+msgstr "Udvid altid forespurgte beskeder"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "SQL forespørgselsshistoriktabel"
+msgstr "Vis forespørgselshistorik ved start"
 
 #: libraries/Console.class.php:279
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Vis nuværende browsingforespørgsel"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1314
 #: libraries/DisplayResults.class.php:2127
@@ -3246,10 +3232,9 @@ msgid "Too many error messages, some are not displayed."
 msgstr "For mange fejlmeddelelser, nogle vises ikke."
 
 #: libraries/Error_Handler.class.php:333
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
-msgstr "Importér"
+msgstr "Rapport"
 
 #: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:354
 msgid "Automatically send report next time"
@@ -4549,11 +4534,11 @@ msgstr "Kunne ikke fjerne kolonner!"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
-msgstr ""
+msgstr "JA"
 
 #: libraries/central_columns.lib.php:509
 msgid "NO"
-msgstr ""
+msgstr "NEJ"
 
 #: libraries/central_columns.lib.php:629
 #: libraries/display_create_table.lib.php:60
@@ -4594,20 +4579,18 @@ msgid "Select a column."
 msgstr "Vælg en kolonne."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "Autoextend forøgelse"
+msgstr "auto_increment"
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
+msgstr "ved opdatering CURRENT_TIMESTAMP"
 
 #: libraries/central_columns.lib.php:886
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
-msgstr "Tilføj kolonne"
+msgstr "Tilføj ny kolonne"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -6773,10 +6756,9 @@ msgstr ""
 "pma_table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:660
-#, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
-msgstr "PDF-skematik: tabel coordinates"
+msgstr "Designer og PDF-skema: tabelkoordinater"
 
 #: libraries/config/messages.inc.php:662
 msgid ""
@@ -7370,38 +7352,33 @@ msgid "Can't count rows in an unbuffered result set"
 msgstr "Kan ikke tælle rækker i et resultatsæt som ikke er sat i buffer"
 
 #: libraries/designer.lib.php:31
-#, fuzzy
 #| msgid "Page titles"
 msgid "Page to open"
-msgstr "Sidetitler"
+msgstr "Side som skal åbnes"
 
 #: libraries/designer.lib.php:33
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Page to delete"
-msgstr "Relation slettet"
+msgstr "Side som skal slettes"
 
 #: libraries/designer.lib.php:37 libraries/designer.lib.php:73
 msgid "Select page"
 msgstr "Vælg side"
 
 #: libraries/designer.lib.php:59
-#, fuzzy
 #| msgid "Export to selected page."
 msgid "Save to selected page"
-msgstr "Eksportér til valgte side."
+msgstr "Gem til valgte side"
 
 #: libraries/designer.lib.php:60
-#, fuzzy
 #| msgid "Create a page and export to it."
 msgid "Create a page and save to it"
-msgstr "Opret en side og eksportér til denne."
+msgstr "Opret en side og gem i denne"
 
 #: libraries/designer.lib.php:92
-#, fuzzy
 #| msgid "New page name: "
 msgid "New page name"
-msgstr "Nyt sidenavn: "
+msgstr "Nyt sidenavn"
 
 #: libraries/designer.lib.php:154
 msgid "Select Export Relational Type"
@@ -7634,7 +7611,7 @@ msgstr "Se output som tekst"
 
 #: libraries/display_export.lib.php:646 libraries/display_export.lib.php:749
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "Omdøb eksporterede databaser/tabeller/kolonner"
 
 #: libraries/display_export.lib.php:656
 msgid "Save output to a file"
@@ -7645,40 +7622,34 @@ msgid "Skip tables larger than"
 msgstr "Spring over tabeller større end"
 
 #: libraries/display_export.lib.php:776
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select database"
-msgstr "Vælg en tabel"
+msgstr "Vælg en database"
 
 #: libraries/display_export.lib.php:778
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select table"
 msgstr "Vælg en tabel"
 
 #: libraries/display_export.lib.php:794
-#, fuzzy
 #| msgid "Database name"
 msgid "New database name"
-msgstr "Databasenavn"
+msgstr "Nyt databasenavn"
 
 #: libraries/display_export.lib.php:818
-#, fuzzy
 #| msgid "New page name: "
 msgid "New table name"
-msgstr "Nyt sidenavn: "
+msgstr "Nyt tabelnavn"
 
 #: libraries/display_export.lib.php:827
-#, fuzzy
 #| msgid "Copy column name."
 msgid "Old column name"
-msgstr "Kopiér kolonnenavn."
+msgstr "Gammelt kolonnenavn"
 
 #: libraries/display_export.lib.php:828
-#, fuzzy
 #| msgid "Copy column name."
 msgid "New column name"
-msgstr "Kopiér kolonnenavn."
+msgstr "Nyt kolonnenavn"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -7743,7 +7714,7 @@ msgstr "Fil til import:"
 
 #: libraries/display_import.lib.php:232 libraries/display_import.lib.php:243
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "Du kan også trække og slippe en fil på hvilken som helst side."
 
 #: libraries/display_import.lib.php:246
 msgid "File uploads are not allowed on this server."
@@ -8218,7 +8189,7 @@ msgstr "MySQL returnerede ingen data (fx ingen rækker)."
 
 #: libraries/import.lib.php:268 libraries/sql.lib.php:1696
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[ROLLBACK opstod.]"
 
 #: libraries/import.lib.php:1231
 msgid ""
@@ -8268,12 +8239,15 @@ msgstr "Gå til view: %s"
 #: libraries/import.lib.php:1358
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
+"Der kan kun simuleres forespørgsler med UPDATE og DELETE i enkelttabeller."
 
 #: libraries/import.lib.php:1775
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"Kun forespørgslerne INSERT, UPDATE, DELETE og REPLACE SQL indeholdende "
+"'transactional engine'-tabeller kan rulles tilbage."
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -8762,70 +8736,74 @@ msgstr "Ny"
 
 #: libraries/normalization.lib.php:107
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "Gør alle kolonner atomare"
 
 #: libraries/normalization.lib.php:109 libraries/normalization.lib.php:243
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "Først trin af normaliseringen (1NF)"
 
 #: libraries/normalization.lib.php:112 libraries/normalization.lib.php:159
 #: libraries/normalization.lib.php:202
 msgid "Step 1."
-msgstr ""
+msgstr "Trin 1."
 
 #: libraries/normalization.lib.php:114
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"Har du en kolonne, der kan deles op i mere end én kolonne? Eksempelvis: "
+"adresse kan deles op i gadenavn, by, land og postnummer."
 
 #: libraries/normalization.lib.php:121
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
+"Vis mig den centrale liste med kolonner, der ikke allerede er i denne tabel"
 
 #: libraries/normalization.lib.php:124
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
+"Vælg en kolonne der kan deles op i mere end én. (ved valg af 'ingen sådan "
+"kolonne', vil der blive skiftet til næste trin)"
 
 #: libraries/normalization.lib.php:131 normalization.php:19
-#, fuzzy
 #| msgid "Select a column."
 msgid "Select one…"
-msgstr "Vælg en kolonne."
+msgstr "Vælg én…"
 
 #: libraries/normalization.lib.php:132 normalization.php:20
-#, fuzzy
 #| msgid "Move column"
 msgid "No such column"
-msgstr "Fjern kolonne"
+msgstr "Ingen sådan kolonne"
 
 #: libraries/normalization.lib.php:135
 msgid "split into "
-msgstr ""
+msgstr "del op i "
 
 #: libraries/normalization.lib.php:156
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
-msgstr "Tilføj primær nøgle"
+msgstr "Har en primær nøgle"
 
 #: libraries/normalization.lib.php:162
-#, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "Fejl: relation findes allerede."
+msgstr "Primær nøgle findes allerede."
 
 #: libraries/normalization.lib.php:167
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
+"Der er ingen primær nøgle; tilføj venligst én.<br />Tip: En primær nøgle er "
+"en kolonne (eller kombination af kolonner) som unikt identificerer alle "
+"rækker."
 
 #: libraries/normalization.lib.php:174
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "Tilføj en primær nøgle til eksisterende kolonne(r)"
 
 #: libraries/normalization.lib.php:179
 msgid ""
@@ -8833,16 +8811,14 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:183
-#, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
-msgstr "Tilføj primær nøgle"
+msgstr "+ Tilføj en ny primær nøgle-kolonne"
 
 #: libraries/normalization.lib.php:201
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Remove redundant columns"
-msgstr "Fjern kolonner"
+msgstr "Fjern redundante kolonner"
 
 #: libraries/normalization.lib.php:204
 msgid ""
@@ -8851,48 +8827,52 @@ msgid ""
 "then\n"
 "        combining first_name and last_name gives full_name which is redundant"
 msgstr ""
+"Har du en gruppe af kolonner, der tilsammen giver en eksisterende\n"
+"        kolonne? Som eksempel, hvis du har fornavn, efternavn og fuldt_navn, "
+"så\n"
+"        vil fornavn og efternavn kombineret give fuldt_navn, hvilket er "
+"redundant"
 
 #: libraries/normalization.lib.php:209
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
+"Markér kolonnerne som er redundante og klik på fjern. Hvis der ikke er "
+"redundante kolonner, så klik på 'Ingen redundant kolonne'"
 
 #: libraries/normalization.lib.php:214
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "Fjern valgte brugere"
+msgstr "Fjern valgte"
 
 #: libraries/normalization.lib.php:215
-#, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
-msgstr "Tilføj kolonne"
+msgstr "Ingen redundant kolonne"
 
 #: libraries/normalization.lib.php:240
-#, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Skjul handlinger for tabelstruktur"
+msgstr "Foretag forbedring af tabelstruktur (normalisering):"
 
 #: libraries/normalization.lib.php:241
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "Vælg op til det trin du vil normalisere"
 
 #: libraries/normalization.lib.php:244
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "Andet trin af normaliseringen (1NF+2NF)"
 
 #: libraries/normalization.lib.php:245
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "Tredje trin af normaliseringen (1NF+2NF+3NF)"
 
 #: libraries/normalization.lib.php:252
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
-msgstr ""
+msgstr "Tip: Følg venligst proceduren nøje for at opnå korrekt normalisering"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to:"
@@ -9508,22 +9488,22 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:514
 msgid "It appears your database uses procedures;"
-msgstr ""
+msgstr "Det ser ud til at din database benytter procedurer;"
 
 #: libraries/plugins/export/ExportSql.class.php:515
 #: libraries/plugins/export/ExportSql.class.php:547
 #: libraries/plugins/export/ExportSql.class.php:1251
 #: libraries/plugins/export/ExportSql.class.php:1771
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "alias-eksport fungerer muligvis ikke pålideligt i alle tilfælde."
 
 #: libraries/plugins/export/ExportSql.class.php:546
 msgid "It appears your database uses functions;"
-msgstr ""
+msgstr "Det ser ud til at din database bruger funktioner;"
 
 #: libraries/plugins/export/ExportSql.class.php:1248
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "Det ser ud til at din database bruger views;"
 
 #: libraries/plugins/export/ExportSql.class.php:1299
 msgid "Constraints for dumped tables"
@@ -9560,7 +9540,7 @@ msgstr "RELATIONS FOR TABLE (Relationer for tabellen)"
 
 #: libraries/plugins/export/ExportSql.class.php:1768
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Det ser ud til at din tabel bruger triggere;"
 
 #: libraries/plugins/export/ExportSql.class.php:1800
 #, php-format
@@ -9862,7 +9842,7 @@ msgstr ""
 
 #: libraries/pmd_common.php:295
 msgid "*Untitled"
-msgstr ""
+msgstr "*Unavngivet"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -9886,10 +9866,9 @@ msgid "Display Features"
 msgstr "Vis muligheder"
 
 #: libraries/relation.lib.php:153
-#, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Oprettelse af PDFer"
+msgstr "Designer og oprettelse af PDF'er"
 
 #: libraries/relation.lib.php:164
 msgid "Displaying Column Comments"
@@ -11662,7 +11641,6 @@ msgid "Reset to default"
 msgstr "Gendan standardværdi"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
 #| "between the web server and the MySQL server."
@@ -11670,8 +11648,8 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Bemærk: Aktivering af databasestatistikkerne her kan forårsage tung trafik "
-"mellem webserveren og MySQL-serveren."
+"Bemærk: Aktivering af auto-genopfrisk her kan forårsage tung trafik mellem "
+"webserveren og MySQL-serveren."
 
 #: libraries/server_status_processes.lib.php:69
 msgid "ID"
@@ -12610,7 +12588,7 @@ msgstr "Vis forespørgslen her igen"
 
 #: libraries/sql_query_form.lib.php:378
 msgid "Rollback when finished"
-msgstr ""
+msgstr "Rul tilbage/rollback når fuldført"
 
 #: libraries/sql_query_form.lib.php:436
 msgid "View only"
@@ -12733,10 +12711,9 @@ msgid "Remove columns from central list"
 msgstr "Fjern kolonner fra centerliste"
 
 #: libraries/structure.lib.php:345
-#, fuzzy
 #| msgid "Add columns to central list"
 msgid "Make consistent with central list"
-msgstr "Tilføj kolnner til centerliste"
+msgstr "Gør konsistent med central liste"
 
 #: libraries/structure.lib.php:367
 msgid "Check tables having overhead"
@@ -12803,10 +12780,9 @@ msgid "Propose table structure"
 msgstr "Foreslå tabelstruktur"
 
 #: libraries/structure.lib.php:1619
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "Foreslå tabelstruktur"
+msgstr "Forbedring af tabelstruktur"
 
 #: libraries/structure.lib.php:1641
 #: libraries/tbl_columns_definition_form.lib.php:179
@@ -13000,10 +12976,9 @@ msgid "Series names are in a column"
 msgstr "Navne i en kolonne"
 
 #: libraries/tbl_chart.lib.php:240
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "Indeni kolonne:"
+msgstr "Seriekolonne:"
 
 #: libraries/tbl_chart.lib.php:253
 msgid "Value column:"
@@ -13419,7 +13394,7 @@ msgstr "Kritisk fejl: Navigationen kan kun tilgås via AJAX"
 
 #: normalization.php:53
 msgid "Second/Third step of normalization"
-msgstr ""
+msgstr "Andet/tredje trin af normaliseringen"
 
 #: pmd_display_field.php:62 pmd_save_pos.php:59
 msgid "Modifications have been saved"
@@ -13438,26 +13413,23 @@ msgid "Exit fullscreen"
 msgstr "Afslut fuldskærmsvisning"
 
 #: pmd_general.php:142
-#, fuzzy
 #| msgid "New name"
 msgid "New page"
-msgstr "Nyt navn"
+msgstr "Nyt side"
 
 #: pmd_general.php:150
 msgid "Save position"
 msgstr "Gem position"
 
 #: pmd_general.php:154
-#, fuzzy
 #| msgid "Save position"
 msgid "Save positions as"
-msgstr "Gem position"
+msgstr "Gem positioner som"
 
 #: pmd_general.php:158
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete pages"
-msgstr "Vælg side"
+msgstr "Slet sider"
 
 #: pmd_general.php:169 pmd_general.php:508
 msgid "Create relation"
@@ -13496,10 +13468,9 @@ msgid "Toggle relation lines"
 msgstr "Slå relationslinjer til eller fra"
 
 #: pmd_general.php:221
-#, fuzzy
 #| msgid "Export all"
 msgid "Export schema"
-msgstr "Eksportér alle"
+msgstr "Eksportér skema"
 
 #: pmd_general.php:232
 msgid "Build Query"
