@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-07 06:51-0400\n"
-"PO-Revision-Date: 2014-07-06 08:34+0200\n"
+"PO-Revision-Date: 2014-07-08 02:22+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/4-2/es/>\n"
 "Language: es\n"
@@ -1874,13 +1874,16 @@ msgstr "Arrastrar para reordenar."
 
 #: js/messages.php:344
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Pulse para ordenar los resultados según esta columna."
 
 #: js/messages.php:345
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+CLick to remove column from ORDER BY clause"
 msgstr ""
+"Pulsar presionando Shift para agregar esta columna a la cláusula «ORDER BY» "
+"o intercambiar entre orden ascendente y descendente.<br />- Pulsar "
+"presionando Control para eliminar la columna de la cláusula «ORDER BY»"
 
 #: js/messages.php:346
 msgid "Click to mark/unmark."
@@ -1925,10 +1928,9 @@ msgstr ""
 "contenido."
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "Ir al enlace."
+msgstr "Ir al enlace:"
 
 #: js/messages.php:366
 msgid "Copy column name."
