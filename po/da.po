@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-07 06:52-0400\n"
-"PO-Revision-Date: 2014-06-08 00:38+0200\n"
-"Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
-"Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"PO-Revision-Date: 2014-07-08 13:13+0200\n"
+"Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
+"Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/>"
+"\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,13 +25,12 @@ msgstr ""
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Den centrale liste med kolonner for den nuværende database er tom."
 
 #: db_central_columns.php:109
-#, fuzzy
 #| msgid "Click to sort."
 msgid "Click to sort"
-msgstr "Klik for at sortere."
+msgstr "Klik for at sortere"
 
 #: db_central_columns.php:125
 #, php-format
@@ -958,20 +957,18 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Er du sikker på at du vil slette søgningen \"%s\"?"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid ""
 #| "You have edited some data and they have not been saved. Are you sure you "
 #| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
-"Du har redigeret nogle data og de er ikke blevet gemt. Er du sikker på, at "
-"du vil forlade siden uden at gemme data ?"
+"Du har ændringer som ikke blevet gemt; er du sikker på at du vil forlade "
+"siden?"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "Send (download)"
+msgstr "Gem & luk"
 
 #: js/messages.php:50 libraries/config/FormDisplay.tpl.php:393
 #: libraries/insert_edit.lib.php:1608 prefs_manage.php:335
@@ -980,10 +977,9 @@ msgid "Reset"
 msgstr "Nulstil"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Vælg alle"
+msgstr "Nulstil alle"
 
 #: js/messages.php:54
 msgid "Missing value in the form!"
@@ -1021,16 +1017,14 @@ msgid "Preview SQL"
 msgstr "Forhåndsvis SQL"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "i forespørgsel"
+msgstr "Simulér forespørgsel"
 
 #: js/messages.php:67
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "Berørte rækker:"
+msgstr "Rækker som matcher:"
 
 #: js/messages.php:68 libraries/Util.class.php:639 libraries/sql.lib.php:452
 msgid "SQL query:"
@@ -1271,11 +1265,11 @@ msgstr "Sæt monitor på pause"
 
 #: js/messages.php:140 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Start auto-genopfrisk"
 
 #: js/messages.php:141
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Stop auto-genopfrisk"
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
@@ -1797,19 +1791,20 @@ msgstr "Se mere"
 
 #: js/messages.php:299
 msgid "Are you sure?"
-msgstr ""
+msgstr "Er du sikker?"
 
 #: js/messages.php:300
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Denne handling kan ændre nogle af kolonnedefinitionerne.<br />Er du sikker "
+"på at du vil fortsætte?"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "Deltag"
+msgstr "Fortsæt"
 
 #: js/messages.php:304 libraries/structure.lib.php:2124
 #: libraries/structure.lib.php:2127
@@ -1817,27 +1812,24 @@ msgid "Add primary key"
 msgstr "Tilføj primær nøgle"
 
 #: js/messages.php:305
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "En primær nøgle er blevet tilføjet til %s."
+msgstr "Primær nøgle er blevet tilføjet."
 
 #: js/messages.php:306 libraries/normalization.lib.php:163
-#, fuzzy
 #| msgid "Taking you to %s."
 msgid "Taking you to next step…"
-msgstr "Sporingsrapport %s."
+msgstr "Tager dig til næste trin…"
 
 #: js/messages.php:307
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "Det første trin af normaliseringen er fuldført for tabellen '%s'."
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "Linjeafslutning"
+msgstr "Slut på trinnet"
 
 #: js/messages.php:311 libraries/insert_edit.lib.php:1517
 #: libraries/server_variables.lib.php:157
@@ -1856,34 +1848,29 @@ msgid "Show search criteria"
 msgstr "Vis søgekriterie"
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
-msgstr "Tabelsøgning"
+msgstr "Intervalsøgning"
 
 #: js/messages.php:317
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Kolonnenavne: "
+msgstr "Kolonnemaksimum:"
 
 #: js/messages.php:318
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Kolonnenavne: "
+msgstr "Kolonneminimum:"
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Maksimalt antal tabeller"
+msgstr "Minimumsværdi:"
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Maksimalt antal tabeller"
+msgstr "Maksimumsværdi:"
 
 #: js/messages.php:323
 msgid "Hide find and replace criteria"
@@ -2007,48 +1994,42 @@ msgid "Page name"
 msgstr "Sidenavn"
 
 #: js/messages.php:375
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "Vælg side"
+msgstr "Gem side"
 
 #: js/messages.php:376 pmd_general.php:146
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "Frie sider"
+msgstr "Åbn side"
 
 #: js/messages.php:377
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "Vælg side"
+msgstr "Slet side"
 
 #: js/messages.php:378
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Vælg en side, der skal redigeres"
+msgstr "Vælg venligst en side for at fortsætte"
 
 #: js/messages.php:379
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "Angiv venligst et gyldigt nummer!"
+msgstr "Angiv venligst et gyldigt sidenavn"
 
 #: js/messages.php:380
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Ønsker du at gemme ændringerne til nuværende side?"
 
 #: js/messages.php:381
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Sletning af siden er gennemført"
 
 #: js/messages.php:382
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Redigér eller eksportér relationsskema"
+msgstr "Eksportér relationsskema"
 
 #: js/messages.php:385
 #, php-format
@@ -2078,13 +2059,16 @@ msgstr "Træk for at ændre rækkefølge."
 
 #: js/messages.php:392
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Klik for at sortere resultater efter denne kolonne."
 
 #: js/messages.php:393
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
+"Skift+ḱlik for at tilføje denne kolonne til SORTÉR EFTER-klausulen eller "
+"skifte mellem TILTAGENDE/AFTAGENDE.<br />- Ctrl+klik for at fjerne kolonne "
+"fra SORTÉR EFTER-klausul"
 
 #: js/messages.php:394
 msgid "Click to mark/unmark."
@@ -2119,10 +2103,9 @@ msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "Indtast venligst en gyldig heximal streng. Gyldige tegn er 0-9 og A-F."
 
 #: js/messages.php:404
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
-msgstr "Annuller"
+msgstr "annullér"
 
 #: js/messages.php:405 libraries/server_status.lib.php:261
 msgid "Aborted"
@@ -2130,31 +2113,27 @@ msgstr "Afbrudt"
 
 #: js/messages.php:406
 msgid "Failed"
-msgstr ""
+msgstr "Mislykket"
 
 #: js/messages.php:407
-#, fuzzy
 #| msgid "Success!"
 msgid "Success"
-msgstr "Gennemført!"
+msgstr "Gennemført"
 
 #: js/messages.php:408
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Standarder for import"
+msgstr "Importstatus"
 
 #: js/messages.php:409 libraries/navigation/Navigation.class.php:102
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "Tærskel for logfil"
+msgstr "Drop filerne her"
 
 #: js/messages.php:410
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select database first"
-msgstr "Vælg en tabel"
+msgstr "Vælg først en database"
 
 #: js/messages.php:415
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2168,10 +2147,9 @@ msgstr ""
 "Du kan også redigere de fleste værdier<br />ved at klikke direkte på dem."
 
 #: js/messages.php:423
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "Gå til link."
+msgstr "Gå til linket:"
 
 #: js/messages.php:424
 msgid "Copy column name."
@@ -2283,11 +2261,11 @@ msgstr ""
 
 #: js/messages.php:472 js/messages.php:484
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Der er registreret fejl på serveren!"
 
 #: js/messages.php:474
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Gennemse venligst bunden af denne side."
 
 #: js/messages.php:479 libraries/Error_Handler.class.php:350
 #, fuzzy
@@ -5542,10 +5520,9 @@ msgid "Add %s"
 msgstr "Tilføj %s"
 
 #: libraries/config/messages.inc.php:176
-#, fuzzy
 #| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "Brug hexadecimal for BLOB"
+msgstr "Brug hexadecimal for BINÆR & BLOB"
 
 #: libraries/config/messages.inc.php:178
 msgid "Use ignore inserts"
