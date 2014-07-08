@@ -28,6 +28,7 @@ phpMyAdmin - ChangeLog
 - bug #4478 Server validation does not work while in setup/mysqli
 - bug       Undefined variable when grid editing a foreign key column
 - bug #4481 mult_submits.inc.php Undefined variable Error
+- bug #4485 Sorting breaks the copy column feature
 
 4.2.5.0 (2014-06-26)
 - bug #4467 shell_exec() has been disabled for security reasons

@@ -1526,6 +1526,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     })
                     .find("input").focus().select();
                 });
+            $(t).find('th.draggable a')
+                .dblclick(function (e) {
+                    e.stopPropagation();
+                });
             // restore column order when the restore button is clicked
             $('div.restore_column').click(function () {
                 g.restoreColOrder();
