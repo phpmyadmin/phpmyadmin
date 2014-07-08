@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-07 06:52-0400\n"
-"PO-Revision-Date: 2014-07-07 07:09+0200\n"
+"PO-Revision-Date: 2014-07-08 07:42+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2033,7 +2033,6 @@ msgid "Click to sort results by this column."
 msgstr "Klõpsa selle veeru järgi sortimiseks."
 
 #: js/messages.php:393
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+CLick to remove column from ORDER BY clause"
@@ -2041,8 +2040,8 @@ msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
-"Shit+klõps, et lisada see veerg ORDER BY klauslisse või lülitasa ASC/DESC "
-"režiimi.<br />- Control+klõps eemaldab veeru ORDER BY klauslist."
+"Shit+klõps lisab selle veeru ORDER BY klauslisse või vahetab ASC/DESC "
+"režiimi.<br />- Control+klõps eemaldab veeru ORDER BY klauslist"
 
 #: js/messages.php:394
 msgid "Click to mark/unmark."
@@ -2115,10 +2114,9 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "Sa saad ka muuta enamikke väärtuseid,<br />kui klikid nende peal."
 
 #: js/messages.php:423
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "Mine lingile."
+msgstr "Mine lingile:"
 
 #: js/messages.php:424
 msgid "Copy column name."
