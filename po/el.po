@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-07 06:52-0400\n"
-"PO-Revision-Date: 2014-07-05 17:08+0200\n"
+"PO-Revision-Date: 2014-07-08 10:37+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
-">\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2056,10 +2056,9 @@ msgstr "Σύρτε για ανακατανομή."
 
 #: js/messages.php:392
 msgid "Click to sort results by this column."
-msgstr "Πατήστε ταξινόμηση αποτελεσμάτων κατά αυτή τη στήλη."
+msgstr "Πατήστε για ταξινόμηση των αποτελεσμάτων κατά αυτή τη στήλη."
 
 #: js/messages.php:393
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+CLick to remove column from ORDER BY clause"
@@ -2144,10 +2143,9 @@ msgstr ""
 "κατευθείαν σε αυτές."
 
 #: js/messages.php:423
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "Μετάβαση στο σύνδεσμο."
+msgstr "Μετάβαση στο σύνδεσμο:"
 
 #: js/messages.php:424
 msgid "Copy column name."
