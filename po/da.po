@@ -2268,10 +2268,9 @@ msgid "Please look at the bottom of this window."
 msgstr "Gennemse venligst bunden af denne side."
 
 #: js/messages.php:479 libraries/Error_Handler.class.php:350
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Ignorer"
+msgstr "Ignorér alle"
 
 #: js/messages.php:486
 msgid ""
