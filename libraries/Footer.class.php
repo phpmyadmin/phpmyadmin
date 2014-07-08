@@ -307,6 +307,10 @@ class PMA_Footer
                             PMA_escapeJsString($menuHash)
                         )
                     );
+                }
+                if (PMA_getenv('SCRIPT_NAME')
+                    && ! $this->_isAjax
+                ) {
                     $url = $this->getSelfUrl();
                     $retval .= $this->_getSelfLink($url);
                 }

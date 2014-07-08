@@ -9,6 +9,8 @@ phpMyAdmin - ChangeLog
 - bug       Undefined variable when grid editing a foreign key column
 - bug #4481 mult_submits.inc.php Undefined variable Error
 - bug #4485 Sorting breaks the copy column feature
+- bug #4440 Javascript error when renaming table
+- bug #4483 'New window' link (selflink) disappears, causing Javascript error
 
 4.2.5.0 (2014-06-26)
 - bug #4467 shell_exec() has been disabled for security reasons

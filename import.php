@@ -206,6 +206,11 @@ if ($import_type == 'table') {
             : '');
     $_SESSION['Import_message']['go_back_url'] = $err_url;
 }
+// Avoid setting selflink to 'import.php'
+// problem similar to bug 4276
+if (basename($_SERVER['SCRIPT_NAME']) === 'import.php') {
+    $_SERVER['SCRIPT_NAME'] = $goto;
+}
 
 
 if (strlen($db)) {
