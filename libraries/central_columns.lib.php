@@ -138,8 +138,8 @@ function PMA_configErrorMessage()
 {
     return PMA_Message::error(
         __(
-            'Central list of columns configuration Storage '
-            . 'is not completely configured!'
+            'The configuration storage is not ready for the central list'
+            . ' of columns feature.'
         )
     );
 }
