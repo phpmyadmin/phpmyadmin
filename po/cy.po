@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-09 08:12-0400\n"
+"POT-Creation-Date: 2014-07-09 15:24+0200\n"
 "PO-Revision-Date: 2014-03-28 13:26+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Welsh <https://l10n.cihar.com/projects/phpmyadmin/master/cy/"
@@ -1875,7 +1875,8 @@ msgstr "mewn ymholiad"
 msgid "Show query box"
 msgstr "Dangos ymholiad mewnosod"
 
-#: js/messages.php:289 libraries/DisplayResults.class.php:3386
+#: js/messages.php:289 libraries/Console.class.php:96
+#: libraries/Console.class.php:171 libraries/DisplayResults.class.php:3386
 #: libraries/Index.class.php:593 libraries/Util.class.php:664
 #: libraries/Util.class.php:1189 libraries/Util.class.php:3364
 #: libraries/Util.class.php:3365 libraries/central_columns.lib.php:756
@@ -2808,10 +2809,6 @@ msgstr ""
 #| msgid "in query"
 msgid "Requery"
 msgstr "mewn ymholiad"
-
-#: libraries/Console.class.php:96 libraries/Console.class.php:171
-msgid "Reedit"
-msgstr ""
 
 #: libraries/Console.class.php:106
 #, fuzzy, php-format
@@ -5239,8 +5236,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -5385,8 +5382,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:53
@@ -5979,8 +5976,9 @@ msgstr "Enw'r dudalen"
 
 #: libraries/config/messages.inc.php:249
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:253
@@ -6784,8 +6782,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:563
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:566
@@ -6899,8 +6897,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:608
 msgid ""
-"Leave blank for no QBE saved searches support, suggested: [kbd]"
-"pma__savedsearches[/kbd]."
+"Leave blank for no QBE saved searches support, suggested: "
+"[kbd]pma__savedsearches[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:612
@@ -6986,8 +6984,8 @@ msgstr "Dadansoddi tabl"
 
 #: libraries/config/messages.inc.php:641
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:645
@@ -6996,8 +6994,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:647
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 
 #: libraries/config/messages.inc.php:650
@@ -7098,8 +7096,8 @@ msgstr "Datganiadau i'w tracio"
 
 #: libraries/config/messages.inc.php:690
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:693
@@ -7118,8 +7116,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:700
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:701
@@ -7278,8 +7276,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Dangos cysylltiad i allbwn [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]"
+"Dangos cysylltiad i allbwn [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:732
 msgid "Show phpinfo() link"

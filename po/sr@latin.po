@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-09 08:12-0400\n"
+"POT-Creation-Date: 2014-07-09 15:24+0200\n"
 "PO-Revision-Date: 2014-03-31 14:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Serbian (latin) <https://l10n.cihar.com/projects/phpmyadmin/"
@@ -1804,7 +1804,8 @@ msgstr "Sakrij okvir sa upitima"
 msgid "Show query box"
 msgstr "Prikažiokvir sa upitima"
 
-#: js/messages.php:289 libraries/DisplayResults.class.php:3386
+#: js/messages.php:289 libraries/Console.class.php:96
+#: libraries/Console.class.php:171 libraries/DisplayResults.class.php:3386
 #: libraries/Index.class.php:593 libraries/Util.class.php:664
 #: libraries/Util.class.php:1189 libraries/Util.class.php:3364
 #: libraries/Util.class.php:3365 libraries/central_columns.lib.php:756
@@ -2748,10 +2749,6 @@ msgstr ""
 #| msgid "subquery"
 msgid "Requery"
 msgstr "podupit"
-
-#: libraries/Console.class.php:96 libraries/Console.class.php:171
-msgid "Reedit"
-msgstr ""
 
 #: libraries/Console.class.php:106
 #, fuzzy, php-format
@@ -4041,8 +4038,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Neuspelo brisanje podešavanja korisničkog interfejsa tabele (pogledajte $cfg"
-"['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Neuspelo brisanje podešavanja korisničkog interfejsa tabele (pogledajte "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1710
 #, php-format
@@ -5165,8 +5162,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -5262,8 +5259,9 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Omogućavanje ovoga dozvoljava da stranica koja se nalazi na drugom domenu "
-"pozove phpMyAdmin unutar frame-a, i predstavlja potencijalni [strong]"
-"bezbednosni problem[/strong] dozvoljavajući cross-frame scripting napade"
+"pozove phpMyAdmin unutar frame-a, i predstavlja potencijalni "
+"[strong]bezbednosni problem[/strong] dozvoljavajući cross-frame scripting "
+"napade"
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -5327,8 +5325,8 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -5344,8 +5342,8 @@ msgstr "Uređenje CHAR kolona"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:53
@@ -5797,8 +5795,9 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Redosled sortiranja stavki u padajućoj listi sa stranim ključevima; [kbd]"
-"content[/kbd] je referencirani podatak;  [kbd]id[/kbd] je vrednost ključa"
+"Redosled sortiranja stavki u padajućoj listi sa stranim ključevima; "
+"[kbd]content[/kbd] je referencirani podatak;  [kbd]id[/kbd] je vrednost "
+"ključa"
 
 #: libraries/config/messages.inc.php:203
 msgid "Foreign key dropdown order"
@@ -5969,8 +5968,9 @@ msgstr "Naslovi strana"
 
 #: libraries/config/messages.inc.php:249
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:253
@@ -6454,8 +6454,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)."
 msgstr ""
-"Broj bajtova koji je dozvoljen da skript zauzme, primer [kbd]32M[/kbd] ([kbd]"
-"0[/kbd] nema ograničenja)"
+"Broj bajtova koji je dozvoljen da skript zauzme, primer [kbd]32M[/kbd] "
+"([kbd]0[/kbd] nema ograničenja)"
 
 #: libraries/config/messages.inc.php:421
 msgid "Memory limit"
@@ -6910,8 +6910,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:563
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:566
@@ -7019,8 +7019,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:608
 msgid ""
-"Leave blank for no QBE saved searches support, suggested: [kbd]"
-"pma__savedsearches[/kbd]."
+"Leave blank for no QBE saved searches support, suggested: "
+"[kbd]pma__savedsearches[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:612
@@ -7093,8 +7093,8 @@ msgstr "Skorašnje korišćena tabela"
 
 #: libraries/config/messages.inc.php:641
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:645
@@ -7103,8 +7103,8 @@ msgstr "Relaciona tabela"
 
 #: libraries/config/messages.inc.php:647
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 
 #: libraries/config/messages.inc.php:650
@@ -7203,8 +7203,8 @@ msgstr "Praćenje komandi"
 
 #: libraries/config/messages.inc.php:690
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:693
@@ -7223,8 +7223,8 @@ msgstr "Automatski kreiraj verzije"
 
 #: libraries/config/messages.inc.php:700
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:701
@@ -15665,9 +15665,10 @@ msgstr "concurrent_insert je postavljeno na 0"
 
 #~ msgid ""
 #~ "If you wish to use the SQL Validator service, you should be aware that "
-#~ "[strong]all SQL statements are stored anonymously for statistical purposes"
-#~ "[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
-#~ "a], Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
+#~ "[strong]all SQL statements are stored anonymously for statistical "
+#~ "purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+#~ "Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+#~ "reserved.[/em]"
 #~ msgstr ""
 #~ "Ako želite da koristite SQL validator servis, trbalo bi da budete svesni "
 #~ "da su [strong] svi SQL iskazi smešteni anonimno za statističke potrebe[/"
