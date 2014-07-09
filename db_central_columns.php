@@ -106,7 +106,7 @@ $table_struct = '<div id="tableslistcontainer">'
         . 'style="min-width:100%" class="data">';
 $response->addHTML($table_struct);
 $tableheader = PMA_getCentralColumnsTableHeader(
-    'column_heading', __('Click to sort'), 2
+    'column_heading', __('Click to sort.'), 2
 );
 $response->addHTML($tableheader);
 $result = PMA_getColumnsList($db, $pos, $max_rows);
