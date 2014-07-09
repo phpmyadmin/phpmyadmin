@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-09 15:24+0200\n"
-"PO-Revision-Date: 2014-06-16 17:49+0200\n"
+"PO-Revision-Date: 2014-07-09 15:53+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/"
-">\n"
+"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -957,7 +957,6 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Opravdu si přejete odstranit vyhledávání „%s“?"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid ""
 #| "You have edited some data and they have not been saved. Are you sure you "
 #| "want to leave this page before saving the data?"
@@ -965,10 +964,9 @@ msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr "Na stránce jsou neuložené změny. Opravdu si ji přejete opustit?"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "Uložit jako soubor"
+msgstr "Uložit a zavřít"
 
 #: js/messages.php:50 libraries/config/FormDisplay.tpl.php:393
 #: libraries/insert_edit.lib.php:1608 prefs_manage.php:335
@@ -977,10 +975,9 @@ msgid "Reset"
 msgstr "Původní"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Vybrat vše"
+msgstr "Obnovit vše"
 
 #: js/messages.php:54
 msgid "Missing value in the form!"
@@ -1018,16 +1015,14 @@ msgid "Preview SQL"
 msgstr "Náhled SQL"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "v dotazu"
+msgstr "Simulovat dotaz"
 
 #: js/messages.php:67
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "Ovlivněné záznamy:"
+msgstr "Odpovídající záznamy:"
 
 #: js/messages.php:68 libraries/Util.class.php:639 libraries/sql.lib.php:452
 msgid "SQL query:"
@@ -1994,10 +1989,9 @@ msgid "Page name"
 msgstr "Jméno stránky"
 
 #: js/messages.php:375
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "Zvolte stránku"
+msgstr "Uložit stránku"
 
 #: js/messages.php:376 pmd_general.php:146
 #, fuzzy
@@ -2006,10 +2000,9 @@ msgid "Open page"
 msgstr "Volných stránek"
 
 #: js/messages.php:377
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "Zvolte stránku"
+msgstr "Odstranit stránku"
 
 #: js/messages.php:378
 #, fuzzy
@@ -2137,10 +2130,9 @@ msgid "Drop files here"
 msgstr "Hranice záznamového souboru"
 
 #: js/messages.php:410
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select database first"
-msgstr "Zvolte tabulku"
+msgstr "Nejdříve zvolte databázi"
 
 #: js/messages.php:415
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2151,10 +2143,9 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "Většinu polí můžete přímo upravit<br />kliknutím na jejich obsah."
 
 #: js/messages.php:423
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "Přejít na odkaz."
+msgstr "Přejít na odkaz:"
 
 #: js/messages.php:424
 msgid "Copy column name."
@@ -2672,10 +2663,9 @@ msgid "No bookmarks"
 msgstr "Nová záložka"
 
 #: libraries/Console.class.php:173
-#, fuzzy
 #| msgid "Query \"%s\" failed"
 msgid "Query failed"
-msgstr "Dotaz „%s“ selhal"
+msgstr "Dotaz selhal"
 
 #: libraries/Console.class.php:175
 #, fuzzy
@@ -2684,14 +2674,13 @@ msgid "Queried time"
 msgstr "Doba běhu dotazu"
 
 #: libraries/Console.class.php:181
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "Políčko pro SQL dotazy"
+msgstr "Konzole pro SQL dotazy"
 
 #: libraries/Console.class.php:182
 msgid "Console"
-msgstr ""
+msgstr "Konzole"
 
 #: libraries/Console.class.php:185 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
@@ -2699,10 +2688,9 @@ msgid "Clear"
 msgstr "Vyčistit"
 
 #: libraries/Console.class.php:188
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "SQL historie"
+msgstr "Historie"
 
 #: libraries/Console.class.php:191 libraries/Console.class.php:268
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
@@ -2733,16 +2721,14 @@ msgid "Options"
 msgstr "Nastavení"
 
 #: libraries/Console.class.php:195 libraries/Console.class.php:240
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Tabulka záložek"
+msgstr "Záložky"
 
 #: libraries/Console.class.php:204
-#, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Spustit každých"
+msgstr "Stiskněte Ctrl+Enter pro spuštění dotazu"
 
 #: libraries/Console.class.php:219
 #, fuzzy
@@ -13390,10 +13376,9 @@ msgid "Exit fullscreen"
 msgstr "Ukončit režim na celou obrazovku"
 
 #: pmd_general.php:142
-#, fuzzy
 #| msgid "New name"
 msgid "New page"
-msgstr "Nové jméno"
+msgstr "Nová stránka"
 
 #: pmd_general.php:150
 msgid "Save position"
@@ -13406,10 +13391,9 @@ msgid "Save positions as"
 msgstr "Uložit rozmístění"
 
 #: pmd_general.php:158
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete pages"
-msgstr "Zvolte stránku"
+msgstr "Odstranit stránky"
 
 #: pmd_general.php:169 pmd_general.php:508
 msgid "Create relation"
@@ -13448,10 +13432,9 @@ msgid "Toggle relation lines"
 msgstr "Přepnout zobrazení relací"
 
 #: pmd_general.php:221
-#, fuzzy
 #| msgid "Export all"
 msgid "Export schema"
-msgstr "Exportovat vše"
+msgstr "Exportovat schéma"
 
 #: pmd_general.php:232
 msgid "Build Query"
