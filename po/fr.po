@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-09 15:24+0200\n"
-"PO-Revision-Date: 2014-07-08 13:39+0200\n"
+"PO-Revision-Date: 2014-07-09 16:14+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2749,7 +2749,7 @@ msgstr "Afficher l'historique des requêtes au début"
 
 #: libraries/Console.class.php:279
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Montrer la requête courante"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1314
 #: libraries/DisplayResults.class.php:2127
@@ -7716,6 +7716,8 @@ msgstr "Fichier à importer : "
 #: libraries/display_import.lib.php:232 libraries/display_import.lib.php:243
 msgid "You may also drag and drop a file on any page."
 msgstr ""
+"Vous pouvez également faire glisser et déposer un fichier sur n'importe "
+"quelle page."
 
 #: libraries/display_import.lib.php:246
 msgid "File uploads are not allowed on this server."
@@ -8753,22 +8755,24 @@ msgstr "Nouvelle vue"
 
 #: libraries/normalization.lib.php:107
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "Rendre toutes les colonnes atomiques"
 
 #: libraries/normalization.lib.php:109 libraries/normalization.lib.php:243
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "Première étape de la normalisation (1FN)"
 
 #: libraries/normalization.lib.php:112 libraries/normalization.lib.php:159
 #: libraries/normalization.lib.php:202
 msgid "Step 1."
-msgstr ""
+msgstr "Étape 1."
 
 #: libraries/normalization.lib.php:114
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"Avez-vous une colonne qui peut être divisée en plusieurs colonnes? Par "
+"exemple: l'adresse peut être divisée en rue, ville, pays et code postal."
 
 #: libraries/normalization.lib.php:121
 msgid "Show me the central list of columns that are not already in this table"
@@ -8781,6 +8785,8 @@ msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
+"Sélectionnez une colonne qui peut être subdivisée. (en choisissant « aucune "
+"colonne », vous irez à l'étape suivante)"
 
 #: libraries/normalization.lib.php:131 normalization.php:19
 msgid "Select one…"
@@ -8792,7 +8798,7 @@ msgstr "Aucune colonne"
 
 #: libraries/normalization.lib.php:135
 msgid "split into "
-msgstr ""
+msgstr "subdiviser en "
 
 #: libraries/normalization.lib.php:156
 msgid "Have a primary key"
@@ -8807,6 +8813,9 @@ msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
+"Il n'y a pas de clé primaire; veuillez en ajouter une. <br/>Conseil : Une "
+"clé primaire est une colonne (ou une combinaison de colonnes) qui "
+"identifient de manière unique toutes les lignes."
 
 #: libraries/normalization.lib.php:174
 msgid "Add a primary key on existing column(s)"
