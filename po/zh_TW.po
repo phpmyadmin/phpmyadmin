@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-07 06:52-0400\n"
+"POT-Creation-Date: 2014-07-09 08:12-0400\n"
 "PO-Revision-Date: 2014-06-26 18:51+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese <https://l10n.cihar.com/projects/"
@@ -190,7 +190,7 @@ msgstr "否"
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
 #: libraries/central_columns.lib.php:798
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
-#: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
+#: libraries/mult_submits.inc.php:182 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
 #: libraries/mult_submits.lib.php:450 libraries/mult_submits.lib.php:492
 #: libraries/mult_submits.lib.php:501 libraries/mult_submits.lib.php:506
@@ -601,15 +601,15 @@ msgid ""
 "%sdocumentation%s for a workaround for this limit."
 msgstr "您上傳的檔案過大，請參考 %s說明文件%s 了解如何解決此問題。"
 
-#: import.php:311 import.php:595
+#: import.php:316 import.php:600
 msgid "Showing bookmark"
 msgstr "顯示書籤"
 
-#: import.php:326 import.php:591
+#: import.php:331 import.php:596
 msgid "The bookmark has been deleted."
 msgstr "書籤已被刪除。"
 
-#: import.php:426
+#: import.php:431
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -618,12 +618,12 @@ msgstr ""
 "已上傳的檔案無法被移出暫存區，因為伺服器上的 open_basedir 設定被啟用，但卻沒"
 "有提供資料夾 %s 的存取權限。"
 
-#: import.php:439 import.php:500 libraries/File.class.php:418
+#: import.php:444 import.php:505 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "無法讀取檔案！"
 
-#: import.php:448 import.php:459 import.php:480 import.php:491
+#: import.php:453 import.php:464 import.php:485 import.php:496
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -633,7 +633,7 @@ msgstr ""
 "您試圖載入未支援的壓縮檔(%s)。可能是檔案格式尚未被支援或該檔案在您的設定檔中"
 "被停用。"
 
-#: import.php:506
+#: import.php:511
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -642,33 +642,33 @@ msgstr ""
 "沒有接收到要匯入的資料。 可能是檔案名稱沒有被送出或是檔案大小超出 PHP 限制。 "
 "請參考 [doc@faq1-16]FAQ 1.16[/doc]。"
 
-#: import.php:525
+#: import.php:530
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "沒有字元集轉換函式庫，無法轉換檔案字元集！"
 
-#: import.php:563 libraries/display_import.inc.php:32
+#: import.php:568 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "無法載入匯入外掛程式，請檢查您的安裝！"
 
-#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
+#: import.php:603 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已建立書籤 %s。"
 
-#: import.php:607
+#: import.php:612
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "匯入成功完成，共執行了 %d 個查詢指令。"
 
-#: import.php:628
+#: import.php:633
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
 "Script 執行已逾時，若要繼續完成匯入，請重新送出相同檔案，匯入動作會繼續執行。"
 
-#: import.php:632
+#: import.php:637
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1875,7 +1875,7 @@ msgid "Data point content"
 msgstr "資料點內容"
 
 #: js/messages.php:347 js/messages.php:460 js/messages.php:476
-#: libraries/Error_Handler.class.php:345 libraries/insert_edit.lib.php:2602
+#: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2602
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:374
 msgid "Ignore"
 msgstr "略過"
@@ -2208,7 +2208,7 @@ msgstr "已偵測到伺服器上發生部份錯誤！"
 msgid "Please look at the bottom of this window."
 msgstr "請瀏覽此視窗的底部。"
 
-#: js/messages.php:479 libraries/Error_Handler.class.php:350
+#: js/messages.php:479 libraries/Error_Handler.class.php:355
 msgid "Ignore All"
 msgstr "全部略過"
 
@@ -3178,11 +3178,11 @@ msgstr "無此連結！"
 msgid "Too many error messages, some are not displayed."
 msgstr "錯誤訊息過多，有一些沒有被顯示出來。"
 
-#: libraries/Error_Handler.class.php:333
+#: libraries/Error_Handler.class.php:338
 msgid "Report"
 msgstr "報告"
 
-#: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:354
+#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:354
 msgid "Automatically send report next time"
 msgstr "下次自動回傳錯誤報告"
 
@@ -4412,7 +4412,8 @@ msgstr "檢查權限"
 
 #: libraries/central_columns.lib.php:141
 msgid ""
-"Central list of columns configuration Storage is not completely configured!"
+"The configuration storage is not ready for the central list of columns "
+"feature."
 msgstr ""
 
 #: libraries/central_columns.lib.php:264
@@ -7093,7 +7094,7 @@ msgstr "缺少 %s 擴充套件。請檢查 PHP 設定。"
 msgid "possible deep recursion attack"
 msgstr "您可能遭遇多層遞迴攻擊"
 
-#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:282
+#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:288
 #: tbl_replace.php:251
 msgid "No change"
 msgstr "無更改"
@@ -8060,7 +8061,7 @@ msgstr "無"
 msgid "Convert to Kana"
 msgstr "轉換爲假名"
 
-#: libraries/mult_submits.inc.php:279
+#: libraries/mult_submits.inc.php:285
 msgid "Success!"
 msgstr "成功！"
 

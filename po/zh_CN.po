@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-07 06:52-0400\n"
+"POT-Creation-Date: 2014-07-09 08:12-0400\n"
 "PO-Revision-Date: 2014-07-02 17:05+0200\n"
 "Last-Translator: Edward Cheng <c4150221@gmail.com>\n"
 "Language-Team: Simplified Chinese <https://l10n.cihar.com/projects/"
@@ -192,7 +192,7 @@ msgstr "否"
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
 #: libraries/central_columns.lib.php:798
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
-#: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
+#: libraries/mult_submits.inc.php:182 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
 #: libraries/mult_submits.lib.php:450 libraries/mult_submits.lib.php:492
 #: libraries/mult_submits.lib.php:501 libraries/mult_submits.lib.php:506
@@ -602,15 +602,15 @@ msgid ""
 "%sdocumentation%s for a workaround for this limit."
 msgstr "您想要上传的文件可能太大了，请参考%s文档%s来寻找解决方法。"
 
-#: import.php:311 import.php:595
+#: import.php:316 import.php:600
 msgid "Showing bookmark"
 msgstr "显示书签"
 
-#: import.php:326 import.php:591
+#: import.php:331 import.php:596
 msgid "The bookmark has been deleted."
 msgstr "已删除书签。"
 
-#: import.php:426
+#: import.php:431
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -619,12 +619,12 @@ msgstr ""
 "上传的文件无法被移动，因该服务器已启用 open_basedir ，没有相应的权限访问临时"
 "目录（%s）。"
 
-#: import.php:439 import.php:500 libraries/File.class.php:418
+#: import.php:444 import.php:505 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "无法读取文件！"
 
-#: import.php:448 import.php:459 import.php:480 import.php:491
+#: import.php:453 import.php:464 import.php:485 import.php:496
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -634,7 +634,7 @@ msgstr ""
 "您尝试导入的文件是不支持的压缩格式（%s）。可能服务器不支持或您在设置中禁止了"
 "这种格式。"
 
-#: import.php:506
+#: import.php:511
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -643,32 +643,32 @@ msgstr ""
 "没有接收到要导入的数据。可能是文件名没有提交，也可能是文件大小超出 PHP 限制。"
 "参见[doc@faq1-16]常见问题 1.16[/doc]。"
 
-#: import.php:525
+#: import.php:530
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "没有字符集转换库，无法转换文件字符集！"
 
-#: import.php:563 libraries/display_import.inc.php:32
+#: import.php:568 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "无法加载导入插件，请检查您的安装！"
 
-#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
+#: import.php:603 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已创建书签 %s。"
 
-#: import.php:607
+#: import.php:612
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "导入成功，执行了 %d 个查询。"
 
-#: import.php:628
+#: import.php:633
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr "脚本超时，如果您要完成导入，请重新提交相同的文件，导入将会继续进行。"
 
-#: import.php:632
+#: import.php:637
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1857,7 +1857,7 @@ msgid "Data point content"
 msgstr "数据点内容"
 
 #: js/messages.php:347 js/messages.php:460 js/messages.php:476
-#: libraries/Error_Handler.class.php:345 libraries/insert_edit.lib.php:2602
+#: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2602
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:374
 msgid "Ignore"
 msgstr "忽略"
@@ -2197,7 +2197,7 @@ msgstr ""
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:479 libraries/Error_Handler.class.php:350
+#: js/messages.php:479 libraries/Error_Handler.class.php:355
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
@@ -3176,13 +3176,13 @@ msgstr "找不到链接！"
 msgid "Too many error messages, some are not displayed."
 msgstr "错误信息太多，部分未显示。"
 
-#: libraries/Error_Handler.class.php:333
+#: libraries/Error_Handler.class.php:338
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
 msgstr "导入"
 
-#: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:354
+#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:354
 msgid "Automatically send report next time"
 msgstr "下次自动发送错误报告"
 
@@ -4430,7 +4430,8 @@ msgstr "检查权限"
 
 #: libraries/central_columns.lib.php:141
 msgid ""
-"Central list of columns configuration Storage is not completely configured!"
+"The configuration storage is not ready for the central list of columns "
+"feature."
 msgstr ""
 
 #: libraries/central_columns.lib.php:264
@@ -7515,7 +7516,7 @@ msgstr "缺少 %s 扩展。请检查 PHP 配置。"
 msgid "possible deep recursion attack"
 msgstr "可能的深度递归攻击"
 
-#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:282
+#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:288
 #: tbl_replace.php:251
 msgid "No change"
 msgstr "无更改"
@@ -8501,7 +8502,7 @@ msgstr "无"
 msgid "Convert to Kana"
 msgstr "转换为假名"
 
-#: libraries/mult_submits.inc.php:279
+#: libraries/mult_submits.inc.php:285
 msgid "Success!"
 msgstr ""
 

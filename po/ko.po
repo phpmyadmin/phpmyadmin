@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-07 06:52-0400\n"
+"POT-Creation-Date: 2014-07-09 08:12-0400\n"
 "PO-Revision-Date: 2014-06-29 07:52+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
@@ -192,7 +192,7 @@ msgstr "아니오"
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
 #: libraries/central_columns.lib.php:798
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
-#: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
+#: libraries/mult_submits.inc.php:182 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
 #: libraries/mult_submits.lib.php:450 libraries/mult_submits.lib.php:492
 #: libraries/mult_submits.lib.php:501 libraries/mult_submits.lib.php:506
@@ -608,15 +608,15 @@ msgstr ""
 "너무 큰 파일을 업로드하려고 시도했습니다. 제한을 해결하기 위해서는 "
 "%sdocumentation%s를 참조하여 주십시오."
 
-#: import.php:311 import.php:595
+#: import.php:316 import.php:600
 msgid "Showing bookmark"
 msgstr "북마크 보이기"
 
-#: import.php:326 import.php:591
+#: import.php:331 import.php:596
 msgid "The bookmark has been deleted."
 msgstr "북마크를 제거했습니다."
 
-#: import.php:426
+#: import.php:431
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -625,12 +625,12 @@ msgstr ""
 "업로드된 파일을 이동할 수 없습니다. 서버 설정에 open_basedir이 활성화되어 있"
 "지만, %s 디렉토리(임시 파일 저장용)에 접근 권한이 없습니다."
 
-#: import.php:439 import.php:500 libraries/File.class.php:418
+#: import.php:444 import.php:505 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "파일을 읽을 수 없습니다!"
 
-#: import.php:448 import.php:459 import.php:480 import.php:491
+#: import.php:453 import.php:464 import.php:485 import.php:496
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -640,7 +640,7 @@ msgstr ""
 "지원되지 않는 압축(%s)형식의 파일을 업로드하려고 시도했습니다. 지원이 구현되"
 "지 않았거나 설정에서 사용하지 않게 되어있습니다."
 
-#: import.php:506
+#: import.php:511
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -649,27 +649,27 @@ msgstr ""
 "가져올 데이터가 없습니다. 파일이 지정되지 않았거나 파일 크기가 PHP 설정의 최"
 "대 파일 크기를 초과했을 수 있습니다. [doc@faq1-16]FAQ 1.16[/doc] 참조."
 
-#: import.php:525
+#: import.php:530
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "문자셋 변환 라이브러리 없이 파일의 문자셋을 변환할 수 없습니다!"
 
-#: import.php:563 libraries/display_import.inc.php:32
+#: import.php:568 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "가져오기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
-#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
+#: import.php:603 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "북마크 %s가 생성되었습니다."
 
-#: import.php:607
+#: import.php:612
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "가져오기를 성공적으로 마쳤습니다. %d 쿼리가 실행되었습니다."
 
-#: import.php:628
+#: import.php:633
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -677,7 +677,7 @@ msgstr ""
 "스크립트 타임아웃이 통보되었습니다. 가져오기를 이어서 계속 완료시키려면 같은 "
 "파일을 다시 전송해주십시오."
 
-#: import.php:632
+#: import.php:637
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1893,7 +1893,7 @@ msgid "Data point content"
 msgstr "데이터 포인트 내용"
 
 #: js/messages.php:347 js/messages.php:460 js/messages.php:476
-#: libraries/Error_Handler.class.php:345 libraries/insert_edit.lib.php:2602
+#: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2602
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:374
 msgid "Ignore"
 msgstr "무시"
@@ -2230,7 +2230,7 @@ msgstr "서버 에러가 감지되었습니다!"
 msgid "Please look at the bottom of this window."
 msgstr "이 창의 아래쪽을 보세요."
 
-#: js/messages.php:479 libraries/Error_Handler.class.php:350
+#: js/messages.php:479 libraries/Error_Handler.class.php:355
 msgid "Ignore All"
 msgstr "모두 무시"
 
@@ -3203,11 +3203,11 @@ msgstr "링크를 찾을 수 없습니다!"
 msgid "Too many error messages, some are not displayed."
 msgstr "오류메시지가 너무 많기 때문에 일부 메시지는 출력되지 않습니다."
 
-#: libraries/Error_Handler.class.php:333
+#: libraries/Error_Handler.class.php:338
 msgid "Report"
 msgstr "보고"
 
-#: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:354
+#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:354
 msgid "Automatically send report next time"
 msgstr "다음부터 보고를 자동으로 보내기"
 
@@ -4459,7 +4459,8 @@ msgstr "사용권한 검사"
 
 #: libraries/central_columns.lib.php:141
 msgid ""
-"Central list of columns configuration Storage is not completely configured!"
+"The configuration storage is not ready for the central list of columns "
+"feature."
 msgstr ""
 
 #: libraries/central_columns.lib.php:264
@@ -7234,7 +7235,7 @@ msgstr ""
 msgid "possible deep recursion attack"
 msgstr ""
 
-#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:282
+#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:288
 #: tbl_replace.php:251
 msgid "No change"
 msgstr "변화 없음"
@@ -8238,7 +8239,7 @@ msgstr "없음"
 msgid "Convert to Kana"
 msgstr "전각 가나로 변환"
 
-#: libraries/mult_submits.inc.php:279
+#: libraries/mult_submits.inc.php:285
 msgid "Success!"
 msgstr ""
 

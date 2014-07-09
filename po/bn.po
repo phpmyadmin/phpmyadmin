@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-07 06:52-0400\n"
+"POT-Creation-Date: 2014-07-09 08:12-0400\n"
 "PO-Revision-Date: 2014-03-27 15:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://l10n.cihar.com/projects/phpmyadmin/master/bn/"
@@ -193,7 +193,7 @@ msgstr "না"
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
 #: libraries/central_columns.lib.php:798
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
-#: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
+#: libraries/mult_submits.inc.php:182 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
 #: libraries/mult_submits.lib.php:450 libraries/mult_submits.lib.php:492
 #: libraries/mult_submits.lib.php:501 libraries/mult_submits.lib.php:506
@@ -621,27 +621,27 @@ msgstr ""
 "সম্ভবত আপনি একটি বিশাল ফাইল আপলোড করতে চাচ্ছেন। অনুগ্র্রহ করে %sdocumentation%s "
 "দেখে এই সমস্যা সমাধানের চেষ্টা করুন।"
 
-#: import.php:311 import.php:595
+#: import.php:316 import.php:600
 msgid "Showing bookmark"
 msgstr "বুকর্মাক দেখাচ্ছে"
 
-#: import.php:326 import.php:591
+#: import.php:331 import.php:596
 msgid "The bookmark has been deleted."
 msgstr "বুকর্মাকটি মুছা হয়েছে।"
 
-#: import.php:426
+#: import.php:431
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
 
-#: import.php:439 import.php:500 libraries/File.class.php:418
+#: import.php:444 import.php:505 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "ফাইলটি পড়া যাচ্ছে না"
 
-#: import.php:448 import.php:459 import.php:480 import.php:491
+#: import.php:453 import.php:464 import.php:485 import.php:496
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -651,7 +651,7 @@ msgstr ""
 "আপনি অপরিচিত সংকোচন (%s) এর ফাইল ব্যবহার করছেন। সম্ভব এটি নিয়ে কাজ করার ব্যবস্থা "
 "নাই বা এটি অর্কাযকর করা আছে।"
 
-#: import.php:506
+#: import.php:511
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -660,7 +660,7 @@ msgstr ""
 "আমদানির জন্য কোন তথ্য পাওয়া যায়নি। হয় কোন ফাইলের নাম দেওয়া হয়নি বা অনেক বড় "
 "আকারের ফাইল যা পিএইছপি সমর্থন করছে না। [doc@faq1-16]FAQ 1.16[/doc] দেখুন।"
 
-#: import.php:525
+#: import.php:530
 #, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
@@ -669,29 +669,29 @@ msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "ফাইলের বর্ণ গঠন পরিবর্তন করা যাচ্ছে না। বর্ণ লাইব্রেরী ছাড়া পরিবর্তন সম্ভব নয়"
 
-#: import.php:563 libraries/display_import.inc.php:32
+#: import.php:568 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "আমদানি সহায়ক (plugin) পাওয়া যাচ্ছে না, অনুগ্রহ করে আপনার ইন্সষ্টলেশন পরীক্ষা করুন"
 
-#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
+#: import.php:603 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
 msgstr "বুকমার্ক  %s তৈরী করা হয়েছে"
 
-#: import.php:607
+#: import.php:612
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "আমদানি প্রক্রীয়াটি সফলভাবে সম্পন্ন হয়েছে, %d গুলো অনুসন্ধান ব্যবহৃত হয়েছে।"
 
-#: import.php:628
+#: import.php:633
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr "নির্ধারিত কার্যকাল শেষ হয়ে গেছে, আমদানি শেষ করার জন্য কাজটি আবার শুরু করুন।"
 
-#: import.php:632
+#: import.php:637
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1929,7 +1929,7 @@ msgid "Data point content"
 msgstr "প্রতিটি পয়েন্টের বিষয়"
 
 #: js/messages.php:347 js/messages.php:460 js/messages.php:476
-#: libraries/Error_Handler.class.php:345 libraries/insert_edit.lib.php:2602
+#: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2602
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:374
 msgid "Ignore"
 msgstr "উপেক্ষা"
@@ -2295,7 +2295,7 @@ msgstr ""
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:479 libraries/Error_Handler.class.php:350
+#: js/messages.php:479 libraries/Error_Handler.class.php:355
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
@@ -3282,13 +3282,13 @@ msgstr "সংযোগটি পাওয়া যায়নি!"
 msgid "Too many error messages, some are not displayed."
 msgstr "অনেক বেশী ভুল সংক্রান্ত তথ্য, কতগুলো দেখানো হয় নাই।"
 
-#: libraries/Error_Handler.class.php:333
+#: libraries/Error_Handler.class.php:338
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
 msgstr "আমদানি"
 
-#: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:354
+#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:354
 msgid "Automatically send report next time"
 msgstr "পরবর্তী সময়ে স্বয়ংক্রীয়ভাবে প্রতিবেদন পাঠাবে"
 
@@ -4562,7 +4562,8 @@ msgstr "অধিকারসমূহ পরীক্ষা"
 
 #: libraries/central_columns.lib.php:141
 msgid ""
-"Central list of columns configuration Storage is not completely configured!"
+"The configuration storage is not ready for the central list of columns "
+"feature."
 msgstr ""
 
 #: libraries/central_columns.lib.php:264
@@ -7369,7 +7370,7 @@ msgstr "%s সংযোজনক পাওয়া যাচ্ছে না। �
 msgid "possible deep recursion attack"
 msgstr "সাম্ভাব্য গভীর পুনরাবৃত্তির (recursion)আক্রমন"
 
-#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:282
+#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:288
 #: tbl_replace.php:251
 msgid "No change"
 msgstr "পরিবর্তন নয়"
@@ -8380,7 +8381,7 @@ msgstr "কিছু না"
 msgid "Convert to Kana"
 msgstr "কানায় রুপান্তর কর"
 
-#: libraries/mult_submits.inc.php:279
+#: libraries/mult_submits.inc.php:285
 #, fuzzy
 #| msgid "Success."
 msgid "Success!"

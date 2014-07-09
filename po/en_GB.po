@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-07 06:52-0400\n"
+"POT-Creation-Date: 2014-07-09 08:12-0400\n"
 "PO-Revision-Date: 2014-06-14 13:17+0200\n"
 "Last-Translator: Haval Abdulkarim <haval.abdulkarim@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.cihar.com/projects/"
@@ -197,7 +197,7 @@ msgstr "No"
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
 #: libraries/central_columns.lib.php:798
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
-#: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
+#: libraries/mult_submits.inc.php:182 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
 #: libraries/mult_submits.lib.php:450 libraries/mult_submits.lib.php:492
 #: libraries/mult_submits.lib.php:501 libraries/mult_submits.lib.php:506
@@ -618,15 +618,15 @@ msgstr ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 
-#: import.php:311 import.php:595
+#: import.php:316 import.php:600
 msgid "Showing bookmark"
 msgstr "Showing bookmark"
 
-#: import.php:326 import.php:591
+#: import.php:331 import.php:596
 msgid "The bookmark has been deleted."
 msgstr "The bookmark has been deleted."
 
-#: import.php:426
+#: import.php:431
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -635,12 +635,12 @@ msgstr ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 
-#: import.php:439 import.php:500 libraries/File.class.php:418
+#: import.php:444 import.php:505 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "File could not be read!"
 
-#: import.php:448 import.php:459 import.php:480 import.php:491
+#: import.php:453 import.php:464 import.php:485 import.php:496
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -650,7 +650,7 @@ msgstr ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 
-#: import.php:506
+#: import.php:511
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -660,27 +660,27 @@ msgstr ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:525
+#: import.php:530
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Cannot convert file's character set without character set conversion library!"
 
-#: import.php:563 libraries/display_import.inc.php:32
+#: import.php:568 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Could not load import plug-ins, please check your installation!"
 
-#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
+#: import.php:603 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bookmark %s created."
 
-#: import.php:607
+#: import.php:612
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Import has been successfully finished, %d queries executed."
 
-#: import.php:628
+#: import.php:633
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -688,7 +688,7 @@ msgstr ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 
-#: import.php:632
+#: import.php:637
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1943,7 +1943,7 @@ msgid "Data point content"
 msgstr "Data point content"
 
 #: js/messages.php:347 js/messages.php:460 js/messages.php:476
-#: libraries/Error_Handler.class.php:345 libraries/insert_edit.lib.php:2602
+#: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2602
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:374
 msgid "Ignore"
 msgstr "Ignore"
@@ -2317,7 +2317,7 @@ msgstr ""
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:479 libraries/Error_Handler.class.php:350
+#: js/messages.php:479 libraries/Error_Handler.class.php:355
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
@@ -3316,13 +3316,13 @@ msgstr "Link not found"
 msgid "Too many error messages, some are not displayed."
 msgstr "Too many error messages, some are not displayed."
 
-#: libraries/Error_Handler.class.php:333
+#: libraries/Error_Handler.class.php:338
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
 msgstr "Import"
 
-#: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:354
+#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:354
 msgid "Automatically send report next time"
 msgstr "Automatically send report next time"
 
@@ -4613,7 +4613,8 @@ msgstr "Check Privileges"
 
 #: libraries/central_columns.lib.php:141
 msgid ""
-"Central list of columns configuration Storage is not completely configured!"
+"The configuration storage is not ready for the central list of columns "
+"feature."
 msgstr ""
 
 #: libraries/central_columns.lib.php:264
@@ -7886,7 +7887,7 @@ msgstr "The %s extension is missing. Please check your PHP configuration."
 msgid "possible deep recursion attack"
 msgstr "possible deep recursion attack"
 
-#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:282
+#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:288
 #: tbl_replace.php:251
 msgid "No change"
 msgstr "No change"
@@ -8916,7 +8917,7 @@ msgstr "None"
 msgid "Convert to Kana"
 msgstr "Convert to Kana"
 
-#: libraries/mult_submits.inc.php:279
+#: libraries/mult_submits.inc.php:285
 msgid "Success!"
 msgstr ""
 

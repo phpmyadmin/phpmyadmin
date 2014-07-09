@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-07 06:52-0400\n"
+"POT-Creation-Date: 2014-07-09 08:12-0400\n"
 "PO-Revision-Date: 2014-07-08 19:36+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
+">\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -192,7 +192,7 @@ msgstr "Hayır"
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
 #: libraries/central_columns.lib.php:798
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
-#: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
+#: libraries/mult_submits.inc.php:182 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
 #: libraries/mult_submits.lib.php:450 libraries/mult_submits.lib.php:492
 #: libraries/mult_submits.lib.php:501 libraries/mult_submits.lib.php:506
@@ -613,15 +613,15 @@ msgstr ""
 "Muhtemelen çok büyük dosya göndermeyi denediniz. Lütfen bu sınır için çözüm "
 "yolu olarak %sbelgeden%s yararlanın."
 
-#: import.php:311 import.php:595
+#: import.php:316 import.php:600
 msgid "Showing bookmark"
 msgstr "Gösterilen yer imi"
 
-#: import.php:326 import.php:591
+#: import.php:331 import.php:596
 msgid "The bookmark has been deleted."
 msgstr "Yer imi silindi."
 
-#: import.php:426
+#: import.php:431
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -630,12 +630,12 @@ msgstr ""
 "Gönderilen dosya açılamaz çünkü sunucu %s dizinine (geçici dosyalar için) "
 "erişmeden open_basedir etkinleştirildi."
 
-#: import.php:439 import.php:500 libraries/File.class.php:418
+#: import.php:444 import.php:505 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "Dosya okunamadı!"
 
-#: import.php:448 import.php:459 import.php:480 import.php:491
+#: import.php:453 import.php:464 import.php:485 import.php:496
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -645,7 +645,7 @@ msgstr ""
 "Desteklenmeyen sıkıştırmayla (%s) dosya yüklemeyi denediniz. Ya bunun için "
 "destek henüz tamamlanmadı ya da yapılandırmanız tarafından etkisizleştirildi."
 
-#: import.php:506
+#: import.php:511
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -655,28 +655,28 @@ msgstr ""
 "boyutu PHP yapılandırmanız tarafından izin verilen en fazla boyutu aştı. "
 "[doc@faq1-16]SSS 1.16[/doc]'ya bakın."
 
-#: import.php:525
+#: import.php:530
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Karakter grubu dönüştürme kütüphanesi olmadan dosyanın karakter grubu "
 "dönüştürülemez!"
 
-#: import.php:563 libraries/display_import.inc.php:32
+#: import.php:568 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "İçe aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
 
-#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
+#: import.php:603 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Yer imi %s oluşturuldu."
 
-#: import.php:607
+#: import.php:612
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "İçe aktarma başarılı olarak bitti, %d sorgu çalıştırıldı."
 
-#: import.php:628
+#: import.php:633
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -684,7 +684,7 @@ msgstr ""
 "Betik zaman aşımı geçti, eğer içe aktarmayı bitirmek istiyorsanız, lütfen "
 "aynı dosyayı yeniden gönderin ve içe aktarma devam edecektir."
 
-#: import.php:632
+#: import.php:637
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1908,7 +1908,7 @@ msgid "Data point content"
 msgstr "Veri imleci içeriği"
 
 #: js/messages.php:347 js/messages.php:460 js/messages.php:476
-#: libraries/Error_Handler.class.php:345 libraries/insert_edit.lib.php:2602
+#: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2602
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:374
 msgid "Ignore"
 msgstr "Yoksay"
@@ -2048,9 +2048,8 @@ msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
-"Bu sütunu ORDER BY ibaresine eklemek ya da ASC/DESC değiştirmek için "
-"Shift+Tıklayın.<br />- Sütunu ORDER BY ibaresinden kaldırmak için "
-"Control+Tıklayın"
+"Bu sütunu ORDER BY ibaresine eklemek ya da ASC/DESC değiştirmek için Shift"
+"+Tıklayın.<br />- Sütunu ORDER BY ibaresinden kaldırmak için Control+Tıklayın"
 
 #: js/messages.php:394
 msgid "Click to mark/unmark."
@@ -2127,7 +2126,6 @@ msgstr ""
 "düzenleyebilirsiniz."
 
 #: js/messages.php:423
-#| msgid "Go to link."
 msgid "Go to link:"
 msgstr "Bağlantıya git:"
 
@@ -2247,7 +2245,7 @@ msgstr "Sunucu üzerinde bazı hatalar algılandı!"
 msgid "Please look at the bottom of this window."
 msgstr "Lütfen bu pencerenin altına bakın."
 
-#: js/messages.php:479 libraries/Error_Handler.class.php:350
+#: js/messages.php:479 libraries/Error_Handler.class.php:355
 msgid "Ignore All"
 msgstr "Tümünü Yoksay"
 
@@ -3188,11 +3186,11 @@ msgstr "Bağlantı bulunamadı!"
 msgid "Too many error messages, some are not displayed."
 msgstr "Çok fazla hata mesajı, bazıları görüntülenmedi."
 
-#: libraries/Error_Handler.class.php:333
+#: libraries/Error_Handler.class.php:338
 msgid "Report"
 msgstr "Rapor"
 
-#: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:354
+#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:354
 msgid "Automatically send report next time"
 msgstr "Raporu bir dahaki sefere otomatik olarak gönder"
 
@@ -4457,10 +4455,9 @@ msgstr "Yetkileri kontrol et"
 
 #: libraries/central_columns.lib.php:141
 msgid ""
-"Central list of columns configuration Storage is not completely configured!"
+"The configuration storage is not ready for the central list of columns "
+"feature."
 msgstr ""
-"Sütunları yapılandırma Depolamasının merkezi listesi tamamen "
-"yapılandırılmadı!"
 
 #: libraries/central_columns.lib.php:264
 #, php-format
@@ -7296,7 +7293,7 @@ msgstr "%s uzantısı eksik. Lütfen PHP yapılandırmanızı kontrol edin."
 msgid "possible deep recursion attack"
 msgstr "olası aşırı özyinelemeli saldırı"
 
-#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:282
+#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:288
 #: tbl_replace.php:251
 msgid "No change"
 msgstr "Değişiklik yok"
@@ -8309,7 +8306,7 @@ msgstr "Yok"
 msgid "Convert to Kana"
 msgstr "Kana'ya dönüştür"
 
-#: libraries/mult_submits.inc.php:279
+#: libraries/mult_submits.inc.php:285
 msgid "Success!"
 msgstr "Başarılı!"
 
@@ -15151,6 +15148,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0'a ayarlı"
+
+#~ msgid ""
+#~ "Central list of columns configuration Storage is not completely "
+#~ "configured!"
+#~ msgstr ""
+#~ "Sütunları yapılandırma Depolamasının merkezi listesi tamamen "
+#~ "yapılandırılmadı!"
 
 #~ msgid "Press"
 #~ msgstr "Sorguyu çalıştırmak için"

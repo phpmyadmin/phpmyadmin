@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-07 06:52-0400\n"
+"POT-Creation-Date: 2014-07-09 08:12-0400\n"
 "PO-Revision-Date: 2014-06-18 13:15+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Portuguese <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -195,7 +195,7 @@ msgstr "Não"
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
 #: libraries/central_columns.lib.php:798
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
-#: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
+#: libraries/mult_submits.inc.php:182 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
 #: libraries/mult_submits.lib.php:450 libraries/mult_submits.lib.php:492
 #: libraries/mult_submits.lib.php:501 libraries/mult_submits.lib.php:506
@@ -618,15 +618,15 @@ msgstr ""
 "Provavelmente tentou importar um ficheiro demasiado grande. Por favor veja a "
 "%sdocumentação%s para encontrar formas de contornar esta limitação."
 
-#: import.php:311 import.php:595
+#: import.php:316 import.php:600
 msgid "Showing bookmark"
 msgstr "Mostrando Marcador"
 
-#: import.php:326 import.php:591
+#: import.php:331 import.php:596
 msgid "The bookmark has been deleted."
 msgstr "Marcador apagado com sucesso."
 
-#: import.php:426
+#: import.php:431
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -635,12 +635,12 @@ msgstr ""
 "O arquivo carregado não pode ser movido, porque o servidor tem o "
 "open_basedir ligado sem acesso à diretoria (dos ficheiros temporários) %s."
 
-#: import.php:439 import.php:500 libraries/File.class.php:418
+#: import.php:444 import.php:505 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "Não foi possível ler o ficheiro!"
 
-#: import.php:448 import.php:459 import.php:480 import.php:491
+#: import.php:453 import.php:464 import.php:485 import.php:496
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -651,7 +651,7 @@ msgstr ""
 "suporte não se encontra implementado ou está desabilitado na sua "
 "configuração."
 
-#: import.php:506
+#: import.php:511
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -661,30 +661,30 @@ msgstr ""
 "ficheiro, ou o tamanho do ficheiro excede o tamanho máximo permitido pela "
 "sua configuração PHP. Veja [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:525
+#: import.php:530
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Impossível converter o conjunto de caracteres do ficheiro sem a biblioteca "
 "de conversão de caracteres!"
 
-#: import.php:563 libraries/display_import.inc.php:32
+#: import.php:568 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Não foi possível carregar os import plugins, por favor verifique a sua "
 "instalação!"
 
-#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
+#: import.php:603 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Marcador %s foi criado."
 
-#: import.php:607
+#: import.php:612
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Import terminou com sucesso, %d queries executados."
 
-#: import.php:628
+#: import.php:633
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -692,7 +692,7 @@ msgstr ""
 "Script timeout atingido, se pretender concluir o import, por favor volte a "
 "submeter o mesmo ficheiro que o import continuará."
 
-#: import.php:632
+#: import.php:637
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1941,7 +1941,7 @@ msgid "Data point content"
 msgstr "Conteúdo do ponto de dados"
 
 #: js/messages.php:347 js/messages.php:460 js/messages.php:476
-#: libraries/Error_Handler.class.php:345 libraries/insert_edit.lib.php:2602
+#: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2602
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:374
 msgid "Ignore"
 msgstr "Ignora"
@@ -2299,7 +2299,7 @@ msgstr "Foram detectados alguns erros no servidor!"
 msgid "Please look at the bottom of this window."
 msgstr "Por favor olhe para a parte inferior desta janela."
 
-#: js/messages.php:479 libraries/Error_Handler.class.php:350
+#: js/messages.php:479 libraries/Error_Handler.class.php:355
 msgid "Ignore All"
 msgstr "Ignorar tudo"
 
@@ -3276,11 +3276,11 @@ msgstr "Link não encontrado!"
 msgid "Too many error messages, some are not displayed."
 msgstr "Excesso de mensagens de erro, algumas não serão mostradas."
 
-#: libraries/Error_Handler.class.php:333
+#: libraries/Error_Handler.class.php:338
 msgid "Report"
 msgstr "Reportar"
 
-#: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:354
+#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:354
 msgid "Automatically send report next time"
 msgstr "Enviar o relatóro automáticamente da próxima vez"
 
@@ -4560,10 +4560,9 @@ msgstr "Verificar Privilégios"
 
 #: libraries/central_columns.lib.php:141
 msgid ""
-"Central list of columns configuration Storage is not completely configured!"
+"The configuration storage is not ready for the central list of columns "
+"feature."
 msgstr ""
-"A configuração do armazenamento da lista central de colunas não está "
-"completa!"
 
 #: libraries/central_columns.lib.php:264
 #, php-format
@@ -7422,7 +7421,7 @@ msgstr ""
 msgid "possible deep recursion attack"
 msgstr "possível ataque de recursividade em profundidade (deep recursion)"
 
-#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:282
+#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:288
 #: tbl_replace.php:251
 msgid "No change"
 msgstr "Sem alterações"
@@ -8417,7 +8416,7 @@ msgstr "Nenhum"
 msgid "Convert to Kana"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:279
+#: libraries/mult_submits.inc.php:285
 msgid "Success!"
 msgstr ""
 
@@ -15397,6 +15396,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert é definido como 0"
+
+#~ msgid ""
+#~ "Central list of columns configuration Storage is not completely "
+#~ "configured!"
+#~ msgstr ""
+#~ "A configuração do armazenamento da lista central de colunas não está "
+#~ "completa!"
 
 #, fuzzy
 #~| msgid "Total"

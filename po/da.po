@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-07 06:52-0400\n"
+"POT-Creation-Date: 2014-07-09 08:12-0400\n"
 "PO-Revision-Date: 2014-07-08 14:34+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/>"
-"\n"
+"Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/"
+">\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,6 @@ msgid "The central list of columns for the current database is empty."
 msgstr "Den centrale liste med kolonner for den nuværende database er tom."
 
 #: db_central_columns.php:109
-#| msgid "Click to sort."
 msgid "Click to sort"
 msgstr "Klik for at sortere"
 
@@ -192,7 +191,7 @@ msgstr "Nej"
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
 #: libraries/central_columns.lib.php:798
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
-#: libraries/mult_submits.inc.php:176 libraries/mult_submits.lib.php:352
+#: libraries/mult_submits.inc.php:182 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
 #: libraries/mult_submits.lib.php:450 libraries/mult_submits.lib.php:492
 #: libraries/mult_submits.lib.php:501 libraries/mult_submits.lib.php:506
@@ -613,15 +612,15 @@ msgstr ""
 "Du har sandsynligvis forsøgt at overføre en fil som er for stor. Se venligst "
 "%sdokumentationen%s for måder at omgå denne begrænsning."
 
-#: import.php:311 import.php:595
+#: import.php:316 import.php:600
 msgid "Showing bookmark"
 msgstr "Viser bogmærke"
 
-#: import.php:326 import.php:591
+#: import.php:331 import.php:596
 msgid "The bookmark has been deleted."
 msgstr "Bogmærket er fjernet."
 
-#: import.php:426
+#: import.php:431
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -630,12 +629,12 @@ msgstr ""
 "Den uploadede fil kan ikke flyttes, da serveren har open_basedir slået til, "
 "uden adgang til %s mappen (til midlertidige)."
 
-#: import.php:439 import.php:500 libraries/File.class.php:418
+#: import.php:444 import.php:505 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "Filen kunne ikke læses!"
 
-#: import.php:448 import.php:459 import.php:480 import.php:491
+#: import.php:453 import.php:464 import.php:485 import.php:496
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -646,7 +645,7 @@ msgstr ""
 "Understøttelse af denne funktion er ikke implementeret eller ikke slået til "
 "for din konfiguration."
 
-#: import.php:506
+#: import.php:511
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -656,27 +655,27 @@ msgstr ""
 "et filnavn, eller filstørrelsen kan have overskredet maksimal størrelsen "
 "tilladt af din PHP-konfiguration. Se  [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:525
+#: import.php:530
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Kan ikke konvertere filens tegnsæt uden konverteringsbibliotek for tegnsæt!"
 
-#: import.php:563 libraries/display_import.inc.php:32
+#: import.php:568 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Kunne ikke indlæse importplugins, tjek venligst din installation!"
 
-#: import.php:598 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
+#: import.php:603 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bogmærket %s er blevet oprettet."
 
-#: import.php:607
+#: import.php:612
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importen er korrekt gennemført, %d forespørgsler udført."
 
-#: import.php:628
+#: import.php:633
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -684,7 +683,7 @@ msgstr ""
 "Script timeout nået, hvis du vil afslutte importen, indsend venligst samme "
 "fil igen og importen vil blive genoptaget."
 
-#: import.php:632
+#: import.php:637
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -957,16 +956,12 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Er du sikker på at du vil slette søgningen \"%s\"?"
 
 #: js/messages.php:46
-#| msgid ""
-#| "You have edited some data and they have not been saved. Are you sure you "
-#| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
 "Du har ændringer som ikke blevet gemt; er du sikker på at du vil forlade "
 "siden?"
 
 #: js/messages.php:49
-#| msgid "Save as file"
 msgid "Save & Close"
 msgstr "Gem & luk"
 
@@ -977,7 +972,6 @@ msgid "Reset"
 msgstr "Nulstil"
 
 #: js/messages.php:51
-#| msgid "Select All"
 msgid "Reset All"
 msgstr "Nulstil alle"
 
@@ -1017,12 +1011,10 @@ msgid "Preview SQL"
 msgstr "Forhåndsvis SQL"
 
 #: js/messages.php:66
-#| msgid "in query"
 msgid "Simulate query"
 msgstr "Simulér forespørgsel"
 
 #: js/messages.php:67
-#| msgid "Affected rows:"
 msgid "Matched rows:"
 msgstr "Rækker som matcher:"
 
@@ -1802,7 +1794,6 @@ msgstr ""
 "på at du vil fortsætte?"
 
 #: js/messages.php:301
-#| msgid "Contribute"
 msgid "Continue"
 msgstr "Fortsæt"
 
@@ -1812,12 +1803,10 @@ msgid "Add primary key"
 msgstr "Tilføj primær nøgle"
 
 #: js/messages.php:305
-#| msgid "A primary key has been added on %s."
 msgid "Primary key added."
 msgstr "Primær nøgle er blevet tilføjet."
 
 #: js/messages.php:306 libraries/normalization.lib.php:163
-#| msgid "Taking you to %s."
 msgid "Taking you to next step…"
 msgstr "Tager dig til næste trin…"
 
@@ -1827,7 +1816,6 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr "Det første trin af normaliseringen er fuldført for tabellen '%s'."
 
 #: js/messages.php:308
-#| msgid "End of line"
 msgid "End of step"
 msgstr "Slut på trinnet"
 
@@ -1848,27 +1836,22 @@ msgid "Show search criteria"
 msgstr "Vis søgekriterie"
 
 #: js/messages.php:316
-#| msgid "Table Search"
 msgid "Range search"
 msgstr "Intervalsøgning"
 
 #: js/messages.php:317
-#| msgid "Column names: "
 msgid "Column maximum:"
 msgstr "Kolonnemaksimum:"
 
 #: js/messages.php:318
-#| msgid "Column names: "
 msgid "Column minimum:"
 msgstr "Kolonneminimum:"
 
 #: js/messages.php:319
-#| msgid "Maximum tables"
 msgid "Minimum value:"
 msgstr "Minimumsværdi:"
 
 #: js/messages.php:320
-#| msgid "Maximum tables"
 msgid "Maximum value:"
 msgstr "Maksimumsværdi:"
 
@@ -1920,7 +1903,7 @@ msgid "Data point content"
 msgstr "Datapunkt-indhold"
 
 #: js/messages.php:347 js/messages.php:460 js/messages.php:476
-#: libraries/Error_Handler.class.php:345 libraries/insert_edit.lib.php:2602
+#: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2602
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:374
 msgid "Ignore"
 msgstr "Ignorer"
@@ -1994,27 +1977,22 @@ msgid "Page name"
 msgstr "Sidenavn"
 
 #: js/messages.php:375
-#| msgid "Select page"
 msgid "Save page"
 msgstr "Gem side"
 
 #: js/messages.php:376 pmd_general.php:146
-#| msgid "Free pages"
 msgid "Open page"
 msgstr "Åbn side"
 
 #: js/messages.php:377
-#| msgid "Select page"
 msgid "Delete page"
 msgstr "Slet side"
 
 #: js/messages.php:378
-#| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Vælg venligst en side for at fortsætte"
 
 #: js/messages.php:379
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
 msgstr "Angiv venligst et gyldigt sidenavn"
 
@@ -2027,7 +2005,6 @@ msgid "Successfully deleted the page"
 msgstr "Sletning af siden er gennemført"
 
 #: js/messages.php:382
-#| msgid "Edit or export relational schema"
 msgid "Export relational schema"
 msgstr "Eksportér relationsskema"
 
@@ -2103,7 +2080,6 @@ msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "Indtast venligst en gyldig heximal streng. Gyldige tegn er 0-9 og A-F."
 
 #: js/messages.php:404
-#| msgid "Cancel"
 msgid "cancel"
 msgstr "annullér"
 
@@ -2116,22 +2092,18 @@ msgid "Failed"
 msgstr "Mislykket"
 
 #: js/messages.php:407
-#| msgid "Success!"
 msgid "Success"
 msgstr "Gennemført"
 
 #: js/messages.php:408
-#| msgid "Import defaults"
 msgid "Import status"
 msgstr "Importstatus"
 
 #: js/messages.php:409 libraries/navigation/Navigation.class.php:102
-#| msgid "Log file threshold"
 msgid "Drop files here"
 msgstr "Drop filerne her"
 
 #: js/messages.php:410
-#| msgid "Select a table"
 msgid "Select database first"
 msgstr "Vælg først en database"
 
@@ -2147,7 +2119,6 @@ msgstr ""
 "Du kan også redigere de fleste værdier<br />ved at klikke direkte på dem."
 
 #: js/messages.php:423
-#| msgid "Go to link."
 msgid "Go to link:"
 msgstr "Gå til linket:"
 
@@ -2267,8 +2238,7 @@ msgstr "Der er registreret fejl på serveren!"
 msgid "Please look at the bottom of this window."
 msgstr "Gennemse venligst bunden af denne side."
 
-#: js/messages.php:479 libraries/Error_Handler.class.php:350
-#| msgid "Ignore"
+#: js/messages.php:479 libraries/Error_Handler.class.php:355
 msgid "Ignore All"
 msgstr "Ignorér alle"
 
@@ -2280,7 +2250,6 @@ msgstr ""
 "venligst tålmodighed."
 
 #: js/messages.php:493
-#| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "Udfør denne forespørgsel påny?"
 
@@ -2622,7 +2591,6 @@ msgid "Font size"
 msgstr "Skriftstørrelse"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:168
-#| msgid "Expand/Collapse"
 msgid "Collapse"
 msgstr "Fold sammen"
 
@@ -2631,7 +2599,6 @@ msgid "Expand"
 msgstr "Fold ud"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:170
-#| msgid "subquery"
 msgid "Requery"
 msgstr "Genforespørg"
 
@@ -2641,7 +2608,6 @@ msgstr "Redigér påny"
 
 #: libraries/Console.class.php:106
 #, php-format
-#| msgid "New bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
 msgstr[0] "I alt %d bogmærke"
@@ -2658,27 +2624,22 @@ msgstr "delt"
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:121
 #, php-format
-#| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "%1$s, %2$s og %3$s bogmærker blev inkluderet"
 
 #: libraries/Console.class.php:127
-#| msgid "New bookmark"
 msgid "No bookmarks"
 msgstr "Ingen bogmærker"
 
 #: libraries/Console.class.php:173
-#| msgid "Query cache"
 msgid "Query failed"
 msgstr "Forespørgslen mislykkedes"
 
 #: libraries/Console.class.php:175
-#| msgid "Query execution time"
 msgid "Queried time"
 msgstr "Tid på forespørgsel"
 
 #: libraries/Console.class.php:181
-#| msgid "SQL Query box"
 msgid "SQL Query Console"
 msgstr "SQL Query-konsol"
 
@@ -2692,7 +2653,6 @@ msgid "Clear"
 msgstr "Ryd"
 
 #: libraries/Console.class.php:188
-#| msgid "SQL history"
 msgid "History"
 msgstr "Historik"
 
@@ -2725,17 +2685,14 @@ msgid "Options"
 msgstr "Indstillinger"
 
 #: libraries/Console.class.php:195 libraries/Console.class.php:240
-#| msgid "Bookmark table"
 msgid "Bookmarks"
 msgstr "Bogmærker"
 
 #: libraries/Console.class.php:204
-#| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Tast Ctrl+Enter for at udføre forespørgsel"
 
 #: libraries/Console.class.php:219
-#| msgid "Skip current error"
 msgid "During current session"
 msgstr "Under nuværende session"
 
@@ -2746,12 +2703,10 @@ msgid "Refresh"
 msgstr "Opdater"
 
 #: libraries/Console.class.php:255
-#| msgid "New bookmark"
 msgid "Add bookmark"
 msgstr "Tilføj bogmærke"
 
 #: libraries/Console.class.php:258
-#| msgid "Label:"
 msgid "Label"
 msgstr "Etikette"
 
@@ -2760,12 +2715,10 @@ msgid "Target database"
 msgstr "Måldatabase"
 
 #: libraries/Console.class.php:260
-#| msgid "Create bookmark"
 msgid "Share this bookmark"
 msgstr "Del dette bogmærke"
 
 #: libraries/Console.class.php:271
-#| msgid "Reset to default"
 msgid "Set default"
 msgstr "Angiv standardværdi"
 
@@ -2774,7 +2727,6 @@ msgid "Always expand queried messages"
 msgstr "Udvid altid forespurgte beskeder"
 
 #: libraries/Console.class.php:277
-#| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "Vis forespørgselshistorik ved start"
 
@@ -3231,12 +3183,11 @@ msgstr "Link ikke fundet!"
 msgid "Too many error messages, some are not displayed."
 msgstr "For mange fejlmeddelelser, nogle vises ikke."
 
-#: libraries/Error_Handler.class.php:333
-#| msgid "Import"
+#: libraries/Error_Handler.class.php:338
 msgid "Report"
 msgstr "Rapport"
 
-#: libraries/Error_Handler.class.php:338 libraries/error_report.lib.php:354
+#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:354
 msgid "Automatically send report next time"
 msgstr "Send automatisk rapport næste gang"
 
@@ -4508,10 +4459,10 @@ msgid "Check Privileges"
 msgstr "Tjek privilegier"
 
 #: libraries/central_columns.lib.php:141
-#, fuzzy
 msgid ""
-"Central list of columns configuration Storage is not completely configured!"
-msgstr "Centerliste af kolonners konfiguration er ikke komplet konfigureret!"
+"The configuration storage is not ready for the central list of columns "
+"feature."
+msgstr ""
 
 #: libraries/central_columns.lib.php:264
 #, php-format
@@ -4579,7 +4530,6 @@ msgid "Select a column."
 msgstr "Vælg en kolonne."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#| msgid "Autoextend increment"
 msgid "auto_increment"
 msgstr "auto_increment"
 
@@ -4588,7 +4538,6 @@ msgid "on update CURRENT_TIMESTAMP"
 msgstr "ved opdatering CURRENT_TIMESTAMP"
 
 #: libraries/central_columns.lib.php:886
-#| msgid "Add column"
 msgid "Add new column"
 msgstr "Tilføj ny kolonne"
 
@@ -5502,7 +5451,6 @@ msgid "Add %s"
 msgstr "Tilføj %s"
 
 #: libraries/config/messages.inc.php:176
-#| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Brug hexadecimal for BINÆR & BLOB"
 
@@ -6756,7 +6704,6 @@ msgstr ""
 "pma_table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:660
-#| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
 msgstr "Designer og PDF-skema: tabelkoordinater"
 
@@ -7325,7 +7272,7 @@ msgstr "%s-udvidelsen mangler. Tjek din PHP-konfiguration."
 msgid "possible deep recursion attack"
 msgstr "muligt dybt rekursionsangreb"
 
-#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:282
+#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:288
 #: tbl_replace.php:251
 msgid "No change"
 msgstr "Ingen ændring"
@@ -7352,12 +7299,10 @@ msgid "Can't count rows in an unbuffered result set"
 msgstr "Kan ikke tælle rækker i et resultatsæt som ikke er sat i buffer"
 
 #: libraries/designer.lib.php:31
-#| msgid "Page titles"
 msgid "Page to open"
 msgstr "Side som skal åbnes"
 
 #: libraries/designer.lib.php:33
-#| msgid "Relation deleted"
 msgid "Page to delete"
 msgstr "Side som skal slettes"
 
@@ -7366,17 +7311,14 @@ msgid "Select page"
 msgstr "Vælg side"
 
 #: libraries/designer.lib.php:59
-#| msgid "Export to selected page."
 msgid "Save to selected page"
 msgstr "Gem til valgte side"
 
 #: libraries/designer.lib.php:60
-#| msgid "Create a page and export to it."
 msgid "Create a page and save to it"
 msgstr "Opret en side og gem i denne"
 
 #: libraries/designer.lib.php:92
-#| msgid "New page name: "
 msgid "New page name"
 msgstr "Nyt sidenavn"
 
@@ -7622,32 +7564,26 @@ msgid "Skip tables larger than"
 msgstr "Spring over tabeller større end"
 
 #: libraries/display_export.lib.php:776
-#| msgid "Select a table"
 msgid "Select database"
 msgstr "Vælg en database"
 
 #: libraries/display_export.lib.php:778
-#| msgid "Select a table"
 msgid "Select table"
 msgstr "Vælg en tabel"
 
 #: libraries/display_export.lib.php:794
-#| msgid "Database name"
 msgid "New database name"
 msgstr "Nyt databasenavn"
 
 #: libraries/display_export.lib.php:818
-#| msgid "New page name: "
 msgid "New table name"
 msgstr "Nyt tabelnavn"
 
 #: libraries/display_export.lib.php:827
-#| msgid "Copy column name."
 msgid "Old column name"
 msgstr "Gammelt kolonnenavn"
 
 #: libraries/display_export.lib.php:828
-#| msgid "Copy column name."
 msgid "New column name"
 msgstr "Nyt kolonnenavn"
 
@@ -8341,7 +8277,7 @@ msgstr "Ingen"
 msgid "Convert to Kana"
 msgstr "Konverter til Kana"
 
-#: libraries/mult_submits.inc.php:279
+#: libraries/mult_submits.inc.php:285
 msgid "Success!"
 msgstr "Gennemført!"
 
@@ -8769,12 +8705,10 @@ msgstr ""
 "kolonne', vil der blive skiftet til næste trin)"
 
 #: libraries/normalization.lib.php:131 normalization.php:19
-#| msgid "Select a column."
 msgid "Select one…"
 msgstr "Vælg én…"
 
 #: libraries/normalization.lib.php:132 normalization.php:20
-#| msgid "Move column"
 msgid "No such column"
 msgstr "Ingen sådan kolonne"
 
@@ -8783,12 +8717,10 @@ msgid "split into "
 msgstr "del op i "
 
 #: libraries/normalization.lib.php:156
-#| msgid "Add primary key"
 msgid "Have a primary key"
 msgstr "Har en primær nøgle"
 
 #: libraries/normalization.lib.php:162
-#| msgid "Error: relation already exists."
 msgid "Primary key already exists."
 msgstr "Primær nøgle findes allerede."
 
@@ -8811,12 +8743,10 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:183
-#| msgid "Add primary key"
 msgid "+ Add a new primary key column"
 msgstr "+ Tilføj en ny primær nøgle-kolonne"
 
 #: libraries/normalization.lib.php:201
-#| msgid "Remove from central columns"
 msgid "Remove redundant columns"
 msgstr "Fjern redundante kolonner"
 
@@ -8842,17 +8772,14 @@ msgstr ""
 "redundante kolonner, så klik på 'Ingen redundant kolonne'"
 
 #: libraries/normalization.lib.php:214
-#| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "Fjern valgte"
 
 #: libraries/normalization.lib.php:215
-#| msgid "Add column"
 msgid "No redundant column"
 msgstr "Ingen redundant kolonne"
 
 #: libraries/normalization.lib.php:240
-#| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
 msgstr "Foretag forbedring af tabelstruktur (normalisering):"
 
@@ -9866,7 +9793,6 @@ msgid "Display Features"
 msgstr "Vis muligheder"
 
 #: libraries/relation.lib.php:153
-#| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
 msgstr "Designer og oprettelse af PDF'er"
 
@@ -11641,9 +11567,6 @@ msgid "Reset to default"
 msgstr "Gendan standardværdi"
 
 #: libraries/server_status_processes.lib.php:24
-#| msgid ""
-#| "Note: Enabling the database statistics here might cause heavy traffic "
-#| "between the web server and the MySQL server."
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
@@ -12711,7 +12634,6 @@ msgid "Remove columns from central list"
 msgstr "Fjern kolonner fra centerliste"
 
 #: libraries/structure.lib.php:345
-#| msgid "Add columns to central list"
 msgid "Make consistent with central list"
 msgstr "Gør konsistent med central liste"
 
@@ -12780,7 +12702,6 @@ msgid "Propose table structure"
 msgstr "Foreslå tabelstruktur"
 
 #: libraries/structure.lib.php:1619
-#| msgid "Propose table structure"
 msgid "Improve table structure"
 msgstr "Forbedring af tabelstruktur"
 
@@ -12976,7 +12897,6 @@ msgid "Series names are in a column"
 msgstr "Navne i en kolonne"
 
 #: libraries/tbl_chart.lib.php:240
-#| msgid "Inside column:"
 msgid "Series column:"
 msgstr "Seriekolonne:"
 
@@ -13413,7 +13333,6 @@ msgid "Exit fullscreen"
 msgstr "Afslut fuldskærmsvisning"
 
 #: pmd_general.php:142
-#| msgid "New name"
 msgid "New page"
 msgstr "Nyt side"
 
@@ -13422,12 +13341,10 @@ msgid "Save position"
 msgstr "Gem position"
 
 #: pmd_general.php:154
-#| msgid "Save position"
 msgid "Save positions as"
 msgstr "Gem positioner som"
 
 #: pmd_general.php:158
-#| msgid "Select page"
 msgid "Delete pages"
 msgstr "Slet sider"
 
@@ -13468,7 +13385,6 @@ msgid "Toggle relation lines"
 msgstr "Slå relationslinjer til eller fra"
 
 #: pmd_general.php:221
-#| msgid "Export all"
 msgid "Export schema"
 msgstr "Eksportér skema"
 
@@ -15207,6 +15123,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er sat til 0"
+
+#, fuzzy
+#~ msgid ""
+#~ "Central list of columns configuration Storage is not completely "
+#~ "configured!"
+#~ msgstr ""
+#~ "Centerliste af kolonners konfiguration er ikke komplet konfigureret!"
 
 #, fuzzy
 #~| msgid "Total"
