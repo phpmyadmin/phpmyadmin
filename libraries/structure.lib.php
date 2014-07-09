@@ -3045,9 +3045,8 @@ function PMA_getHtmlShowCreate($db, $db_objects)
     }
     // Compile the final html.
     $html_output .= $tables . $views . '</div>';
-    // Send response to client.
-    $response = PMA_Response::getInstance();
-    $response->addJSON('message', $html_output);
+
+    return $html_output;
 }
 
 /**
