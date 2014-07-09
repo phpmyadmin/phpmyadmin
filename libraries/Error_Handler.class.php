@@ -109,6 +109,7 @@ class PMA_Error_Handler
      * Error handler - called when errors are triggered/occurred
      *
      * This calls the addError() function, escaping the error string
+     * Ignores the errors wherever Error Control Operator (@) is used.
      *
      * @param integer $errno   error number
      * @param string  $errstr  error string
@@ -119,6 +120,10 @@ class PMA_Error_Handler
      */
     public function handleError($errno, $errstr, $errfile, $errline)
     {
+        // check if Error Control Operator (@) was used.
+        if (error_reporting() == 0) {
+            return;
+        }
         $this->addError($errstr, $errno, $errfile, $errline, true);
     }
 
