@@ -201,9 +201,10 @@ function PMA_getHtmlContentsFor1NFStep3($db, $table)
     $stepTxt = __('Remove redundant columns');
     $legendText = __('Step 1.') . $step . " " . $stepTxt;
     $headText = __(
-        "Do you have group of columns which on combining gives an existing
-        column? For example, if you have first_name, last_name and full_name then
-        combining first_name and last_name gives full_name which is redundant"
+        "Do you have a group of columns which on combining gives an existing"
+        . " column? For example, if you have first_name, last_name and"
+        . " full_name then combining first_name and last_name gives full_name"
+        . " which is redundant."
     );
     $subText = __(
         "Check the columns which are redundant and click on remove. "
