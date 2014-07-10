@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-04 21:56+0200\n"
+"PO-Revision-Date: 2014-07-10 23:28+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/4-2/sl/"
-">\n"
+"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/4-2/sl/>"
+"\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -1858,13 +1858,15 @@ msgstr "Povlecite za preureditev."
 
 #: js/messages.php:344
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Kliknite, da razvrstite rezultate po tem stolpcu."
 
 #: js/messages.php:345
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
+"Shift+klik, da dodate stolpec v stavek ORDER BY ali da preklopite ASC/DESC.<"
+"br />- Control+klik, da stolpec odstranite iz stavka ORDER BY"
 
 #: js/messages.php:346
 msgid "Click to mark/unmark."
@@ -1904,10 +1906,9 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "Večino vrednosti lahko urejate<br />neposredno s klikom na njih."
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "Pojdi na povezavo."
+msgstr "Pojdi na povezavo:"
 
 #: js/messages.php:366
 msgid "Copy column name."
