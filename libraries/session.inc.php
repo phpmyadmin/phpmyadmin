@@ -90,8 +90,8 @@ if (! isset($_COOKIE[$session_name])) {
          * can not use translations here.
          */
         PMA_fatalError(
-            'Cannot start session without errors, please check errors given '
-            . 'in your PHP and/or webserver log file and configure your PHP '
+            'Error during session start; please check your PHP and/or '
+            . 'webserver log file and configure your PHP '
             . 'installation properly. Also ensure that cookies are enabled '
             . 'in your browser.'
         );
