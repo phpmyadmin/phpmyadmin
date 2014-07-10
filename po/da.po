@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-09 15:24+0200\n"
+"POT-Creation-Date: 2014-07-10 06:43-0400\n"
 "PO-Revision-Date: 2014-07-08 14:34+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/"
@@ -28,8 +28,8 @@ msgid "The central list of columns for the current database is empty."
 msgstr "Den centrale liste med kolonner for den nuværende database er tom."
 
 #: db_central_columns.php:109
-msgid "Click to sort"
-msgstr "Klik for at sortere"
+msgid "Click to sort."
+msgstr "Klik for at sortere."
 
 #: db_central_columns.php:125
 #, php-format
@@ -191,7 +191,7 @@ msgstr "Nej"
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
 #: libraries/central_columns.lib.php:798
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
-#: libraries/mult_submits.inc.php:182 libraries/mult_submits.lib.php:352
+#: libraries/mult_submits.inc.php:185 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
 #: libraries/mult_submits.lib.php:450 libraries/mult_submits.lib.php:492
 #: libraries/mult_submits.lib.php:501 libraries/mult_submits.lib.php:506
@@ -563,7 +563,7 @@ msgstr "Tilføj geometri"
 #: libraries/display_export.lib.php:296 libraries/display_export.lib.php:302
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1604 libraries/insert_edit.lib.php:1641
-#: libraries/normalization.lib.php:137 libraries/normalization.lib.php:255
+#: libraries/normalization.lib.php:137 libraries/normalization.lib.php:256
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:254
 #: libraries/operations.lib.php:627 libraries/operations.lib.php:680
@@ -4931,8 +4931,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 "Du har sat  [kbd]config[/kbd] autentifikation og inkluderet brugernavn og "
 "adgangskode for auto-login, hvilket er ikke en ønskværdig konfiguration for "
@@ -5083,8 +5083,8 @@ msgid ""
 "kbd] - allows newlines in columns."
 msgstr ""
 "Definerer typen af redigeringskontroller som skal anvendes i CHAR og VARCHAR "
-"kolonner. [kbd]input[/kbd] - tillader begrænsning i længden af input, "
-"[kbd]textarea[/kbd] - tillader linjeskift i kolonner."
+"kolonner. [kbd]input[/kbd] - tillader begrænsning i længden af input, [kbd]"
+"textarea[/kbd] - tillader linjeskift i kolonner."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
@@ -5092,8 +5092,8 @@ msgstr "Redigering af CHAR-kolonner"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Brug et brugervenligt tekstredigereingsprogram til at redigere SQL-"
 "forespørgsler, ([a@http://codemirror.net/]CodeMirror[/a]) med fremhævelse af "
@@ -5632,9 +5632,8 @@ msgstr "Sidetitler"
 
 #: libraries/config/messages.inc.php:249
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "Angiv browserens tekst i titelbaren. Se [doc@cfg_TitleTable]dokumentationen[/"
 "doc] for tekststrenge der indeholder særlige værdier."
@@ -6091,8 +6090,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
 msgstr ""
-"Åbn den linkede side i hovedvinduet ([kbd]main[/kbd]) eller i et nyt "
-"([kbd]new[/kbd])."
+"Åbn den linkede side i hovedvinduet ([kbd]main[/kbd]) eller i et nyt ([kbd]"
+"new[/kbd])."
 
 #: libraries/config/messages.inc.php:431
 msgid "Logo link target"
@@ -6449,11 +6448,11 @@ msgstr "Bogmærketabel"
 
 #: libraries/config/messages.inc.php:563
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]."
 msgstr ""
-"Efterlades tom for ingen kolonnekommentar-/mime-typer, forslag: "
-"[kbd]pma_column_info[/kbd]."
+"Efterlades tom for ingen kolonnekommentar-/mime-typer, forslag: [kbd]"
+"pma_column_info[/kbd]."
 
 #: libraries/config/messages.inc.php:566
 msgid "Column information table"
@@ -6568,11 +6567,11 @@ msgstr "QBE gemte søger tabel"
 
 #: libraries/config/messages.inc.php:608
 msgid ""
-"Leave blank for no QBE saved searches support, suggested: "
-"[kbd]pma__savedsearches[/kbd]."
+"Leave blank for no QBE saved searches support, suggested: [kbd]"
+"pma__savedsearches[/kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af QBE-skematik, forslag: "
-"[kbd]pma_pdf_pages[/kbd]."
+"Efterlades tom for at undlade understøttelse af QBE-skematik, forslag: [kbd]"
+"pma_pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:612
 msgid "Try to connect without password."
@@ -6607,8 +6606,8 @@ msgstr "Adgangskode for config auth"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
-"[kbd]pma_pdf_pages[/kbd]."
+"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: [kbd]"
+"pma_pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:625
 msgid "PDF schema: pages table"
@@ -6651,8 +6650,8 @@ msgstr "Senest benyttede tabel"
 
 #: libraries/config/messages.inc.php:641
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Efterlades tom for at undlade understøttelse af [a@http://wiki.phpmyadmin."
 "net/pma/relation]relation-links[/a], forslag: [kbd]pma_relation[/kbd]."
@@ -6663,8 +6662,8 @@ msgstr "Relationstabel"
 
 #: libraries/config/messages.inc.php:647
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example."
 msgstr ""
 "Se [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types[/"
 "a] for et eksempel."
@@ -6698,8 +6697,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
-"[kbd]pma_table_coords[/kbd]."
+"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: [kbd]"
+"pma_table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:660
 msgid "Designer and PDF schema: table coordinates"
@@ -6776,8 +6775,8 @@ msgstr "Forespørgsler, der skal spores"
 
 #: libraries/config/messages.inc.php:690
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]."
 msgstr ""
 "Efterlades tom for at undlade understøttelse af sporing på SQL-forspørgsler, "
 "forslag: [kbd]pma_tracking[/kbd]."
@@ -6799,8 +6798,8 @@ msgstr "Opret versioner automatisk"
 
 #: libraries/config/messages.inc.php:700
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]."
 msgstr ""
 "Efterlades tom for at undlade lagring af bruger-præferencer i database, "
 "forslag: [kbd]pma_userconfig[/kbd]."
@@ -7270,7 +7269,7 @@ msgstr "%s-udvidelsen mangler. Tjek din PHP-konfiguration."
 msgid "possible deep recursion attack"
 msgstr "muligt dybt rekursionsangreb"
 
-#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:288
+#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:291
 #: tbl_replace.php:251
 msgid "No change"
 msgstr "Ingen ændring"
@@ -8275,7 +8274,7 @@ msgstr "Ingen"
 msgid "Convert to Kana"
 msgstr "Konverter til Kana"
 
-#: libraries/mult_submits.inc.php:285
+#: libraries/mult_submits.inc.php:288
 msgid "Success!"
 msgstr "Gennemført!"
 
@@ -8672,7 +8671,7 @@ msgstr "Ny"
 msgid "Make all columns atomic"
 msgstr "Gør alle kolonner atomare"
 
-#: libraries/normalization.lib.php:109 libraries/normalization.lib.php:243
+#: libraries/normalization.lib.php:109 libraries/normalization.lib.php:244
 msgid "First step of normalization (1NF)"
 msgstr "Først trin af normaliseringen (1NF)"
 
@@ -8749,11 +8748,17 @@ msgid "Remove redundant columns"
 msgstr "Fjern redundante kolonner"
 
 #: libraries/normalization.lib.php:204
+#, fuzzy
+#| msgid ""
+#| "Do you have group of columns which on combining gives an existing\n"
+#| "        column? For example, if you have first_name, last_name and "
+#| "full_name then\n"
+#| "        combining first_name and last_name gives full_name which is "
+#| "redundant"
 msgid ""
-"Do you have group of columns which on combining gives an existing\n"
-"        column? For example, if you have first_name, last_name and full_name "
-"then\n"
-"        combining first_name and last_name gives full_name which is redundant"
+"Do you have a group of columns which on combining gives an existing column? "
+"For example, if you have first_name, last_name and full_name then combining "
+"first_name and last_name gives full_name which is redundant."
 msgstr ""
 "Har du en gruppe af kolonner, der tilsammen giver en eksisterende\n"
 "        kolonne? Som eksempel, hvis du har fornavn, efternavn og fuldt_navn, "
@@ -8761,7 +8766,7 @@ msgstr ""
 "        vil fornavn og efternavn kombineret give fuldt_navn, hvilket er "
 "redundant"
 
-#: libraries/normalization.lib.php:209
+#: libraries/normalization.lib.php:210
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
@@ -8769,31 +8774,31 @@ msgstr ""
 "Markér kolonnerne som er redundante og klik på fjern. Hvis der ikke er "
 "redundante kolonner, så klik på 'Ingen redundant kolonne'"
 
-#: libraries/normalization.lib.php:214
+#: libraries/normalization.lib.php:215
 msgid "Remove selected"
 msgstr "Fjern valgte"
 
-#: libraries/normalization.lib.php:215
+#: libraries/normalization.lib.php:216
 msgid "No redundant column"
 msgstr "Ingen redundant kolonne"
 
-#: libraries/normalization.lib.php:240
+#: libraries/normalization.lib.php:241
 msgid "Improve table structure (Normalization):"
 msgstr "Foretag forbedring af tabelstruktur (normalisering):"
 
-#: libraries/normalization.lib.php:241
+#: libraries/normalization.lib.php:242
 msgid "Select up to what step you want to normalize"
 msgstr "Vælg op til det trin du vil normalisere"
 
-#: libraries/normalization.lib.php:244
+#: libraries/normalization.lib.php:245
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "Andet trin af normaliseringen (1NF+2NF)"
 
-#: libraries/normalization.lib.php:245
+#: libraries/normalization.lib.php:246
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Tredje trin af normaliseringen (1NF+2NF+3NF)"
 
-#: libraries/normalization.lib.php:252
+#: libraries/normalization.lib.php:253
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
@@ -15122,6 +15127,9 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er sat til 0"
 
+#~ msgid "Click to sort"
+#~ msgstr "Klik for at sortere"
+
 #~ msgid "Reedit"
 #~ msgstr "Redigér påny"
 
@@ -15161,9 +15169,6 @@ msgstr "concurrent_insert er sat til 0"
 #~| msgid "The user %s already exists!"
 #~ msgid "Unique column(s) already exist"
 #~ msgstr "Brugeren %s findes i forvejen!"
-
-#~ msgid "Click to sort."
-#~ msgstr "Klik for at sortere."
 
 #~ msgid "Hold shift and click to remove column from ORDER BY clause."
 #~ msgstr "Hold shift og klik for at fjerne kolonne fra ORDER BY udsagn."
@@ -15206,18 +15211,18 @@ msgstr "concurrent_insert er sat til 0"
 #~ "Disable the default warning that is displayed if mcrypt is missing for "
 #~ "[kbd]cookie[/kbd] authentication."
 #~ msgstr ""
-#~ "Deaktiver standardadvarslen som vises, hvis mcrypt mangler til "
-#~ "[kbd]cookie[/kbd] godkendelse."
+#~ "Deaktiver standardadvarslen som vises, hvis mcrypt mangler til [kbd]cookie"
+#~ "[/kbd] godkendelse."
 
 #~ msgid "mcrypt warning"
 #~ msgstr "mcrypt advarsel"
 
 #~ msgid ""
-#~ "Leave blank for no Designer support, suggested: "
-#~ "[kbd]pma__designer_coords[/kbd]."
+#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
+#~ "[/kbd]."
 #~ msgstr ""
-#~ "Efterlades tom for at undlade Designer-understøttelse, forslag: "
-#~ "[kbd]pma_designer_coords[/kbd]."
+#~ "Efterlades tom for at undlade Designer-understøttelse, forslag: [kbd]"
+#~ "pma_designer_coords[/kbd]."
 
 #~ msgid "Designer table"
 #~ msgstr "Designer tabel"
@@ -15291,10 +15296,9 @@ msgstr "concurrent_insert er sat til 0"
 
 #~ msgid ""
 #~ "If you wish to use the SQL Validator service, you should be aware that "
-#~ "[strong]all SQL statements are stored anonymously for statistical "
-#~ "purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
-#~ "Validator[/a], Copyright 2002 Upright Database Technology. All rights "
-#~ "reserved.[/em]"
+#~ "[strong]all SQL statements are stored anonymously for statistical purposes"
+#~ "[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
+#~ "a], Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 #~ msgstr ""
 #~ "Hvis du ønsker at bruge servicen SQL Validator, skal du huske på, at "
 #~ "[strong]alle SQL forespørgsler lagres anonymt til statistiske formål[/"
@@ -15322,14 +15326,14 @@ msgstr "concurrent_insert er sat til 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "If you have a custom username, specify it here (defaults to "
-#~| "[kbd]anonymous[/kbd])"
+#~| "If you have a custom username, specify it here (defaults to [kbd]"
+#~| "anonymous[/kbd])"
 #~ msgid ""
-#~ "If you have a custom username, specify it here (defaults to "
-#~ "[kbd]anonymous[/kbd])."
+#~ "If you have a custom username, specify it here (defaults to [kbd]anonymous"
+#~ "[/kbd])."
 #~ msgstr ""
-#~ "Hvis du har dit eger brugernavn, så angiv det her (standard "
-#~ "[kbd]anonymous[/kbd])"
+#~ "Hvis du har dit eger brugernavn, så angiv det her (standard [kbd]anonymous"
+#~ "[/kbd])"
 
 #~ msgid "Validated SQL"
 #~ msgstr "Valideret SQL"
@@ -15358,22 +15362,22 @@ msgstr "concurrent_insert er sat til 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank to disable configurable menus feature, suggested: "
-#~| "[kbd]pma__users[/kbd]"
+#~| "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~| "pma__users[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: "
-#~ "[kbd]pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__users[/kbd]."
 #~ msgstr ""
 #~ "Efterlades tom for at deaktivere muligheden for konfigurérbare menuer, "
 #~ "forslag: [kbd]pma_users[/kbd]"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank to disable configurable menus feature, suggested: "
-#~| "[kbd]pma__usergroups[/kbd]"
+#~| "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~| "pma__usergroups[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: "
-#~ "[kbd]pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Efterlades tom for at deaktivere muligheden for konfigurérbare menuer, "
 #~ "forslag: [kbd]pma__usergroups[/kbd]"
@@ -15483,13 +15487,11 @@ msgstr "concurrent_insert er sat til 0"
 #~ msgstr "Aktivér rapportering for javascript-fejl"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
-#~ "Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 #~ msgstr ""
-#~ "Mere information om [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA bug tracker[/a] og [a@http://bugs.mysql.com/19588]MySQL "
-#~ "Bugs[/a]"
+#~ "Mere information om [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+#~ "PMA bug tracker[/a] og [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "Deaktiver brug af INFORMATION_SCHEMA"
@@ -15815,13 +15817,13 @@ msgstr "concurrent_insert er sat til 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the "
-#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
-#~ "like the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the $cfg"
+#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
+#~ "the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Når denne sættes til [kbd]nested[/kbd] bruges alias for tabelnavnet kun "
-#~ "til at splitte/samle tabellerne i henhold til direktivet "
-#~ "$cfg['LeftFrameTableSeparator'], så kun mappen benævnes som aliaset; "
+#~ "til at splitte/samle tabellerne i henhold til direktivet $cfg"
+#~ "['LeftFrameTableSeparator'], så kun mappen benævnes som aliaset; "
 #~ "tabelnavnet selv forbliver uændret"
 
 #~ msgid "Display table comment instead of its name"

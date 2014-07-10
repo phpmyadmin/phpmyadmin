@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-09 15:24+0200\n"
+"POT-Creation-Date: 2014-07-10 06:43-0400\n"
 "PO-Revision-Date: 2014-06-08 22:28+0200\n"
 "Last-Translator: Marco Pozzato <ironpotts@gmail.com>\n"
 "Language-Team: Italian <https://l10n.cihar.com/projects/phpmyadmin/master/it/"
@@ -29,9 +29,7 @@ msgid "The central list of columns for the current database is empty."
 msgstr ""
 
 #: db_central_columns.php:109
-#, fuzzy
-#| msgid "Click to sort."
-msgid "Click to sort"
+msgid "Click to sort."
 msgstr "Clicca per ordinare."
 
 #: db_central_columns.php:125
@@ -194,7 +192,7 @@ msgstr "No"
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
 #: libraries/central_columns.lib.php:798
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
-#: libraries/mult_submits.inc.php:182 libraries/mult_submits.lib.php:352
+#: libraries/mult_submits.inc.php:185 libraries/mult_submits.lib.php:352
 #: libraries/mult_submits.lib.php:385 libraries/mult_submits.lib.php:449
 #: libraries/mult_submits.lib.php:450 libraries/mult_submits.lib.php:492
 #: libraries/mult_submits.lib.php:501 libraries/mult_submits.lib.php:506
@@ -566,7 +564,7 @@ msgstr "Aggiungi una geometria"
 #: libraries/display_export.lib.php:296 libraries/display_export.lib.php:302
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1604 libraries/insert_edit.lib.php:1641
-#: libraries/normalization.lib.php:137 libraries/normalization.lib.php:255
+#: libraries/normalization.lib.php:137 libraries/normalization.lib.php:256
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:254
 #: libraries/operations.lib.php:627 libraries/operations.lib.php:680
@@ -5067,8 +5065,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 "Hai impostato il tipo di autenticazione [kbd]config[/kbd] e hai inclusi il "
 "nome utente e la parola chiave per l'auto-login, questo non è desiderato per "
@@ -5108,8 +5106,8 @@ msgstr "Impossibile connettersi al server del database!"
 #: libraries/config/Validator.class.php:313
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
-"Rimuovi il nome utente durante l'utilizzo del metodo di autenticazione "
-"[kbd]config[/kbd]!"
+"Rimuovi il nome utente durante l'utilizzo del metodo di autenticazione [kbd]"
+"config[/kbd]!"
 
 #: libraries/config/Validator.class.php:320
 msgid ""
@@ -5122,8 +5120,8 @@ msgstr ""
 #: libraries/config/Validator.class.php:329
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
-"Rimuovi l'URL di signon durante l'utilizzo del metodo di autenticazione "
-"[kbd]signon[/kbd]!"
+"Rimuovi l'URL di signon durante l'utilizzo del metodo di autenticazione [kbd]"
+"signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:376
 msgid ""
@@ -5167,9 +5165,9 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "L'abilitazione di questa opzione consente l'integrazione di phpMyAdmin "
-"all'interno di pagine situate in altri domini; ed è una potenziale "
-"[strong]falla di sicurezza[/strong] che permetterebbe attacchi di cross-"
-"frame scripting (XSS)."
+"all'interno di pagine situate in altri domini; ed è una potenziale [strong]"
+"falla di sicurezza[/strong] che permetterebbe attacchi di cross-frame "
+"scripting (XSS)."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -5236,8 +5234,8 @@ msgstr "Modifica dei campi CHAR"
 #: libraries/config/messages.inc.php:49
 #, fuzzy
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Utilizza editor di facile utilizzo per editare le query SQL ([a@http://"
 "codemirror.net/]CodeMirror[/a]) con evidenziazione della sintassi e numeri "
@@ -5638,9 +5636,9 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Ordinamento degli elementi nel menu a tendina delle chiavi esterne; "
-"[kbd]content[/kbd] sono i dati di rifereimento, [kbd]id[/kbd] é il valore "
-"della chiave."
+"Ordinamento degli elementi nel menu a tendina delle chiavi esterne; [kbd]"
+"content[/kbd] sono i dati di rifereimento, [kbd]id[/kbd] é il valore della "
+"chiave."
 
 #: libraries/config/messages.inc.php:203
 msgid "Foreign key dropdown order"
@@ -5781,9 +5779,8 @@ msgstr "Titoli delle pagine"
 
 #: libraries/config/messages.inc.php:249
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "Specifica il testo per la barra del titolo. Puoi consultare la "
 "[doc@cfg_TitleTable]documentazione[/doc] per vedere delle stringhe che "
@@ -6668,8 +6665,8 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)."
 msgstr ""
-"Il percorso per il file di configurazione per [a@http://swekey."
-"com]autenticazione hardware SweKey[/a] (not salvata nella cartella document "
+"Il percorso per il file di configurazione per [a@http://swekey.com]"
+"autenticazione hardware SweKey[/a] (not salvata nella cartella document "
 "root; percorso consigliato: /etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:554
@@ -6705,11 +6702,11 @@ msgstr "Tabella dei segnalibri"
 #: libraries/config/messages.inc.php:563
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma_column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: [kbd]"
+#| "pma_column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]."
 msgstr ""
 "Lascia vuoto per diattivare i commenti/tipi mime per i campi, consigliato: "
 "[kbd]pma_column_info[/kbd]"
@@ -6746,8 +6743,8 @@ msgstr "Parola chiave per l'utente di controllo"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
+#| "wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6808,8 +6805,8 @@ msgstr "Nascondi i database"
 #: libraries/config/messages.inc.php:593
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: "
-#| "[kbd]pma_history[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
+#| "[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6862,11 +6859,11 @@ msgstr "Vedi la tabella di stato dello slave"
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
-"Leave blank for no QBE saved searches support, suggested: "
-"[kbd]pma__savedsearches[/kbd]."
+"Leave blank for no QBE saved searches support, suggested: [kbd]"
+"pma__savedsearches[/kbd]."
 msgstr ""
-"Lascia vuoto disabilitare il supporto per i schemi PDF, consigliato: "
-"[kbd]pma_pdf_pages[/kbd]"
+"Lascia vuoto disabilitare il supporto per i schemi PDF, consigliato: [kbd]"
+"pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:612
 #, fuzzy
@@ -6918,8 +6915,8 @@ msgstr "Parola chiave per config auth"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Lascia vuoto disabilitare il supporto per i schemi PDF, consigliato: "
-"[kbd]pma_pdf_pages[/kbd]"
+"Lascia vuoto disabilitare il supporto per i schemi PDF, consigliato: [kbd]"
+"pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:625
 msgid "PDF schema: pages table"
@@ -6978,8 +6975,8 @@ msgstr "Tabella utilizzata recentemente"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Lascia vuoto per disabilitare il supporto per [a@http://wiki.phpmyadmin.net/"
 "pma/relation]relation-links[/a], consigliato: [kbd]pma_relation[/kbd]"
@@ -6994,8 +6991,8 @@ msgstr "Tabella relazionale"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example."
 msgstr ""
 "Vedi [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]tipi di "
 "autenticazione[/a] per un esempio"
@@ -7039,8 +7036,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Lascia vuoto per disabilita il supporto dello schema PDF, consigliato: "
-"[kbd]pma_table_coords[/kbd]"
+"Lascia vuoto per disabilita il supporto dello schema PDF, consigliato: [kbd]"
+"pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:660
 #, fuzzy
@@ -7130,11 +7127,11 @@ msgstr "Istruzioni da monitorare"
 #: libraries/config/messages.inc.php:690
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: "
-#| "[kbd]pma_tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
+#| "pma_tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]."
 msgstr ""
 "Lascia vuoto per disabilitare il supporto per il monitoriaggio delle query "
 "SQL, consigliato: [kbd]pma_tracking[/kbd]"
@@ -7158,11 +7155,11 @@ msgstr "Crea versioni automaticamente"
 #: libraries/config/messages.inc.php:700
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma_userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]."
 msgstr ""
 "Lascia vuoto per disabilitare la memorizzazione delle preferenze degli "
 "utenti nel database, consigliato: [kbd]pma_userconfig[/kbd]"
@@ -7200,8 +7197,8 @@ msgstr "Utilizza la Tabella dell'Host"
 #: libraries/config/messages.inc.php:706
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma_userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -7251,10 +7248,10 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
-"Si prega di notare che l'attivazione di questo non ha effetto con "
-"[kbd]config[/kbd] la modalità di autenticazione perché la password è salvata "
-"nel file di configurazione; questo non limita la capacità di eseguire lo "
-"stesso comando direttamente"
+"Si prega di notare che l'attivazione di questo non ha effetto con [kbd]config"
+"[/kbd] la modalità di autenticazione perché la password è salvata nel file "
+"di configurazione; questo non limita la capacità di eseguire lo stesso "
+"comando direttamente"
 
 #: libraries/config/messages.inc.php:715
 msgid "Show password change form"
@@ -7615,8 +7612,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
 msgstr ""
-"Abilita la compressione [a@http://en.wikipedia.org/wiki/"
-"ZIP_(file_format)]ZIP[/a] per le operazioni di importazione ed esportazione"
+"Abilita la compressione [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP"
+"[/a] per le operazioni di importazione ed esportazione"
 
 #: libraries/config/messages.inc.php:779
 msgid "ZIP"
@@ -7718,7 +7715,7 @@ msgstr "L'estensione %s è mancante. Controlla la tua configurazione di PHP."
 msgid "possible deep recursion attack"
 msgstr "possibile attacco di ricorsione in profondità"
 
-#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:288
+#: libraries/core.lib.php:920 libraries/mult_submits.inc.php:291
 #: tbl_replace.php:251
 msgid "No change"
 msgstr "Nessun cambiamento"
@@ -8772,7 +8769,7 @@ msgstr "Nessuno"
 msgid "Convert to Kana"
 msgstr "Converti a Kana"
 
-#: libraries/mult_submits.inc.php:285
+#: libraries/mult_submits.inc.php:288
 msgid "Success!"
 msgstr ""
 
@@ -9204,7 +9201,7 @@ msgstr "Nuova"
 msgid "Make all columns atomic"
 msgstr ""
 
-#: libraries/normalization.lib.php:109 libraries/normalization.lib.php:243
+#: libraries/normalization.lib.php:109 libraries/normalization.lib.php:244
 msgid "First step of normalization (1NF)"
 msgstr ""
 
@@ -9286,49 +9283,48 @@ msgstr "Rimuovi campo/i"
 
 #: libraries/normalization.lib.php:204
 msgid ""
-"Do you have group of columns which on combining gives an existing\n"
-"        column? For example, if you have first_name, last_name and full_name "
-"then\n"
-"        combining first_name and last_name gives full_name which is redundant"
+"Do you have a group of columns which on combining gives an existing column? "
+"For example, if you have first_name, last_name and full_name then combining "
+"first_name and last_name gives full_name which is redundant."
 msgstr ""
 
-#: libraries/normalization.lib.php:209
+#: libraries/normalization.lib.php:210
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
 
-#: libraries/normalization.lib.php:214
+#: libraries/normalization.lib.php:215
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "Rimuove gli utenti selezionati"
 
-#: libraries/normalization.lib.php:215
+#: libraries/normalization.lib.php:216
 #, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
 msgstr "Aggiungi campo"
 
-#: libraries/normalization.lib.php:240
+#: libraries/normalization.lib.php:241
 #, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
 msgstr "Nascondi le azioni relative alla struttura della tabella"
 
-#: libraries/normalization.lib.php:241
+#: libraries/normalization.lib.php:242
 msgid "Select up to what step you want to normalize"
 msgstr ""
 
-#: libraries/normalization.lib.php:244
+#: libraries/normalization.lib.php:245
 msgid "Second step of normalization (1NF+2NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:245
+#: libraries/normalization.lib.php:246
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:252
+#: libraries/normalization.lib.php:253
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
@@ -9891,8 +9887,8 @@ msgid ""
 "names formed with special characters or keywords)</i>"
 msgstr ""
 "Racchiudi i nomi dei campi e delle tabelle in virgolette ` <i>(Protegge i "
-"nomi dei campi e tabelle che contengono caratteri speciali or parole "
-"chiave)</i>"
+"nomi dei campi e tabelle che contengono caratteri speciali or parole chiave)"
+"</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:337
 #, fuzzy
@@ -14475,9 +14471,8 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "Prego, crea una cartella scrivibile dal web server [em]config[/em] nella "
-"cartella principale di phpMyAdmin come descritto nella "
-"[doc@setup_script]documentazione[/doc]. Altrimenti potrai solo scaricarlo o "
-"visualizzarlo."
+"cartella principale di phpMyAdmin come descritto nella [doc@setup_script]"
+"documentazione[/doc]. Altrimenti potrai solo scaricarlo o visualizzarlo."
 
 #: setup/frames/index.inc.php:70
 msgid ""
@@ -16092,6 +16087,11 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert è impostato a 0"
 
 #, fuzzy
+#~| msgid "Click to sort."
+#~ msgid "Click to sort"
+#~ msgstr "Clicca per ordinare."
+
+#, fuzzy
 #~ msgid ""
 #~ "Central list of columns configuration Storage is not completely "
 #~ "configured!"
@@ -16127,9 +16127,6 @@ msgstr "concurrent_insert è impostato a 0"
 #~| msgid "The user %s already exists!"
 #~ msgid "Unique column(s) already exist"
 #~ msgstr "L'utente %s esiste già!"
-
-#~ msgid "Click to sort."
-#~ msgstr "Clicca per ordinare."
 
 #~ msgid "Hold shift and click to remove column from ORDER BY clause."
 #~ msgstr ""
@@ -16182,14 +16179,14 @@ msgstr "concurrent_insert è impostato a 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no Designer support, suggested: "
-#~| "[kbd]pma_designer_coords[/kbd]"
+#~| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords"
+#~| "[/kbd]"
 #~ msgid ""
-#~ "Leave blank for no Designer support, suggested: "
-#~ "[kbd]pma__designer_coords[/kbd]."
+#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
+#~ "[/kbd]."
 #~ msgstr ""
-#~ "Lascia vuoto disattivare il supporto per Designer, consigliato: "
-#~ "[kbd]pma_designer_coords[/kbd]"
+#~ "Lascia vuoto disattivare il supporto per Designer, consigliato: [kbd]"
+#~ "pma_designer_coords[/kbd]"
 
 #~ msgid "Designer table"
 #~ msgstr "Tabella di design assistito"
@@ -16274,10 +16271,9 @@ msgstr "concurrent_insert è impostato a 0"
 
 #~ msgid ""
 #~ "If you wish to use the SQL Validator service, you should be aware that "
-#~ "[strong]all SQL statements are stored anonymously for statistical "
-#~ "purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
-#~ "Validator[/a], Copyright 2002 Upright Database Technology. All rights "
-#~ "reserved.[/em]"
+#~ "[strong]all SQL statements are stored anonymously for statistical purposes"
+#~ "[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
+#~ "a], Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 #~ msgstr ""
 #~ "Se si desideri utilizzare il servizio di validazione SQL, dovi essere "
 #~ "consapevole del fatto che [strong]tutte le istruzioni SQL vengono "
@@ -16306,11 +16302,11 @@ msgstr "concurrent_insert è impostato a 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "If you have a custom username, specify it here (defaults to "
-#~| "[kbd]anonymous[/kbd])"
+#~| "If you have a custom username, specify it here (defaults to [kbd]"
+#~| "anonymous[/kbd])"
 #~ msgid ""
-#~ "If you have a custom username, specify it here (defaults to "
-#~ "[kbd]anonymous[/kbd])."
+#~ "If you have a custom username, specify it here (defaults to [kbd]anonymous"
+#~ "[/kbd])."
 #~ msgstr ""
 #~ "Se hai un nome utente personalizzato, specificalo qui (il predefinito é "
 #~ "[kbd]anonymous[/kbd])"
@@ -16348,22 +16344,22 @@ msgstr "concurrent_insert è impostato a 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: "
-#~| "[kbd]pma_userconfig[/kbd]"
+#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#~| "pma_userconfig[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: "
-#~ "[kbd]pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__users[/kbd]."
 #~ msgstr ""
 #~ "Lascia vuoto per disabilitare la memorizzazione delle preferenze degli "
 #~ "utenti nel database, consigliato: [kbd]pma_userconfig[/kbd]"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: "
-#~| "[kbd]pma_userconfig[/kbd]"
+#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#~| "pma_userconfig[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: "
-#~ "[kbd]pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Lascia vuoto per disabilitare la memorizzazione delle preferenze degli "
 #~ "utenti nel database, consigliato: [kbd]pma_userconfig[/kbd]"
@@ -16459,13 +16455,12 @@ msgstr "concurrent_insert è impostato a 0"
 #~ "descrizioni%s"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
-#~ "Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 #~ msgstr ""
 #~ "Maggiori informazioni su [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA bug tracker[/a] e [a@http://bugs.mysql.com/19588]MySQL "
-#~ "Bugs[/a]"
+#~ "bugs/2606/]PMA bug tracker[/a] e [a@http://bugs.mysql.com/19588]MySQL Bugs"
+#~ "[/a]"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "Disabilita l'utilizzo di INFORMATION_SCHEMA"
@@ -16820,9 +16815,9 @@ msgstr "concurrent_insert è impostato a 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the "
-#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
-#~ "like the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the $cfg"
+#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
+#~ "the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Quando questo é impostato a [kbd]nested[/kbd], l'alias del nome della "
 #~ "tabella è utilizzato solo per dividere/nidificare le tabelle in accordo "
