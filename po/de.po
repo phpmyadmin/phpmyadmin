@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-06-09 16:32+0200\n"
-"Last-Translator: Yasar <yashha2@gmail.com>\n"
+"PO-Revision-Date: 2014-07-10 13:01+0200\n"
+"Last-Translator: Jan Erik Zassenhaus <jan.zassenhaus@jgerman.de>\n"
 "Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/4-2/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -12785,10 +12785,9 @@ msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "Der Spaltenname '%s' ist ein reserviertes MySQL-Schlüsselwort."
 
 #: libraries/structure.lib.php:2754
-#, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
-msgstr "Diese Serie hinzufügen"
+msgstr "Zu den Favoriten hinzufügen"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
