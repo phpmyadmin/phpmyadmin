@@ -19,7 +19,11 @@ if (isset($_REQUEST['getColumns'])) {
     $html = '<option selected disabled>' . __('Select one…') . '</option>'
         . '<option value="no_such_col">' . __('No such column') . '</option>';
     //get column whose datatype falls under string category
-    $html .= PMA_getHtmlForColumnsList($db, $table, 'string');
+    $html .= PMA_getHtmlForColumnsList(
+        $db,
+        $table,
+        _pgettext('string types', 'String')
+    );
     echo $html;
     exit;
 }
