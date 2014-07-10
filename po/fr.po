@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-09 15:24+0200\n"
-"PO-Revision-Date: 2014-07-09 16:14+0200\n"
+"PO-Revision-Date: 2014-07-10 12:36+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -4496,6 +4496,8 @@ msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
+"Le stockage de la configuration n'est pas prêt pour la fonctionnalité «liste "
+"centrale des colonnes»."
 
 #: libraries/central_columns.lib.php:264
 #, php-format
@@ -8819,12 +8821,14 @@ msgstr ""
 
 #: libraries/normalization.lib.php:174
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "Ajouter une clé primaire sur la colonne existante"
 
 #: libraries/normalization.lib.php:179
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
+"S'il n'est pas possible d'utiliser des combinaisons de colonnes existantes "
+"comme clé primaire"
 
 #: libraries/normalization.lib.php:183
 msgid "+ Add a new primary key column"
