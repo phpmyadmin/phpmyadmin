@@ -11,12 +11,13 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 /**
- * build the html for columns of $colTypeCategory catgory
+ * build the html for columns of $colTypeCategory category
  * in form of given $listType in a table
  *
  * @param string $db              current databse
  * @param string $table           current table
- * @param string $colTypeCategory supported all|numeric|string|spatial|date and time
+ * @param string $colTypeCategory supported all|Numeric|String|Spatial
+ *                                |Date and time using the _pgettext() format
  * @param string $listType        type of list to build, supported dropdown|checkbox
  *
  * @return HTML for list of columns in form of given list types
@@ -27,7 +28,7 @@ function PMA_getHtmlForColumnsList(
     $columnTypeList = array();
     if ($colTypeCategory != 'all') {
         $types = $GLOBALS['PMA_Types']->getColumns();
-        $columnTypeList = $types[ucfirst($colTypeCategory)];
+        $columnTypeList = $types[$colTypeCategory];
     }
     $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
     $columns = (array) $GLOBALS['dbi']->getColumns(
@@ -128,10 +129,14 @@ function PMA_getHtmlFor1NFStep1($db, $table)
         . "<div id='extra'>"
         . "<select id='selectNonAtomicCol' name='makeAtomic'>"
         . '<option selected="selected" disabled="disabled">'
-        . __('Select one…') . "</option>" .
-        "<option value='no_such_col'>" . __('No such column') . "</option>" .
-        PMA_getHtmlForColumnsList($db, $table, 'string') .
-        "</select>"
+        . __('Select one…') . "</option>"
+        . "<option value='no_such_col'>" . __('No such column') . "</option>"
+        . PMA_getHtmlForColumnsList(
+            $db,
+            $table,
+            _pgettext('string types', 'String')
+        )
+        . "</select>"
         . "<span>" . __('split into ')
         . "</span><input id='numField' type='number' value='2'>"
         . "<input type='submit' id='splitGo' value='" . __('Go') . "'/></div>"
