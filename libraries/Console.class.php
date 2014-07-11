@@ -105,7 +105,8 @@ class PMA_Console
                     _ngettext(
                         'Total %d bookmark',
                         'Total %d bookmarks',
-                        $count_bookmarks),
+                        $count_bookmarks
+                    ),
                     $count_bookmarks
                 );
                 $private_message = sprintf(
