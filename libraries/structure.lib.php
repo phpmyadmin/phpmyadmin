@@ -53,7 +53,8 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
     $search_table .= '</a>';
 
     $browse_table_label = '<a href="sql.php?' . $tbl_url_query
-        . '&amp;pos=0" title="' . $current_table['TABLE_COMMENT'] . '">'
+        . '&amp;pos=0" title="'
+        . htmlspecialchars($current_table['TABLE_COMMENT']) . '">'
         . $truename . '</a>';
 
     if (!$db_is_system_schema) {
