@@ -148,8 +148,6 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     if ($routine['ROUTINE_DEFINITION'] !== null
-        && PMA_Util::currentUserHasPrivilege('ALTER ROUTINE', $db)
-        && PMA_Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
     ) {
         $retval .= '                <a ' . $ajax_class['edit']
                                          . ' href="db_routines.php?'
