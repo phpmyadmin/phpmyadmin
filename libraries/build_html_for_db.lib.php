@@ -103,6 +103,7 @@ function PMA_buildHtmlForDb(
 
     foreach ($column_order as $stat_name => $stat) {
         if (array_key_exists($stat_name, $current)) {
+            $unit = '';
             if (is_numeric($stat['footer'])) {
                 $column_order[$stat_name]['footer'] += $current[$stat_name];
             }
