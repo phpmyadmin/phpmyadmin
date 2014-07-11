@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-10 06:43-0400\n"
-"PO-Revision-Date: 2014-07-02 17:05+0200\n"
-"Last-Translator: Edward Cheng <c4150221@gmail.com>\n"
-"Language-Team: Simplified Chinese <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/zh_CN/>\n"
+"PO-Revision-Date: 2014-07-11 10:37+0200\n"
+"Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
+"Language-Team: Simplified Chinese "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1506,7 +1506,7 @@ msgstr "请选择您要导入的文件。"
 
 #: js/messages.php:221
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "服务器上没有可用文件来导入！"
 
 #: js/messages.php:223
 msgid "Analyse Query"
@@ -1626,10 +1626,9 @@ msgid "(Disabled)"
 msgstr "（已禁用）"
 
 #: js/messages.php:264
-#, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
-msgstr "获取头失败"
+msgstr "获取实际行数失败。"
 
 #: js/messages.php:267
 msgid "Searching"
@@ -1757,10 +1756,9 @@ msgid "Add primary key"
 msgstr "添加主键"
 
 #: js/messages.php:305
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "已将 %s 设为主键"
+msgstr "主键已添加。"
 
 #: js/messages.php:306 libraries/normalization.lib.php:163
 msgid "Taking you to next step…"
@@ -1894,14 +1892,13 @@ msgid "Shift + Click on function name to apply to all rows."
 msgstr "按住 Shift 并点击列名称来应用到所有行"
 
 #: js/messages.php:362
-#, fuzzy
 #| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
-msgstr "是否导入其余的设置？"
+msgstr "是否要复制加密密匙？"
 
 #: js/messages.php:363
 msgid "Encryption key"
-msgstr ""
+msgstr "加密密匙"
 
 #: js/messages.php:366
 msgid "Select referenced key"
@@ -1930,48 +1927,42 @@ msgid "Page name"
 msgstr "页面名称"
 
 #: js/messages.php:375
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "选择页"
+msgstr "保存页面"
 
 #: js/messages.php:376 pmd_general.php:146
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "空闲页"
+msgstr "打开页面"
 
 #: js/messages.php:377
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "选择页"
+msgstr "删除页面"
 
 #: js/messages.php:378
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "请选择需要编辑的页"
+msgstr "请选择一个页面"
 
 #: js/messages.php:379
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "请输入一个有效的数字！"
+msgstr "请输入有效页面名称"
 
 #: js/messages.php:380
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "是否保存对该页面的更改？"
 
 #: js/messages.php:381
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "成功删除页面"
 
 #: js/messages.php:382
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "编辑或导出关系模式"
+msgstr "导出关系模式"
 
 #: js/messages.php:385
 #, php-format
@@ -1999,7 +1990,7 @@ msgstr "拖拽以调整顺序。"
 
 #: js/messages.php:392
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "点此排序此列的结果。"
 
 #: js/messages.php:393
 msgid ""
