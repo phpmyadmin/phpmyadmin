@@ -211,17 +211,13 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
                                      . '">' . $titles['Export'] . "</a>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    if (PMA_Util::currentUserHasPrivilege('ALTER ROUTINE', $db)) {
-        $retval .= '                <a ' . $ajax_class['drop']
+    $retval .= '                <a ' . $ajax_class['drop']
                                          . ' href="sql.php?'
                                          . $url_query
                                          . '&amp;sql_query=' . urlencode($sql_drop)
                                          . '&amp;goto=db_routines.php'
                                          . urlencode("?db={$db}")
                                          . '" >' . $titles['Drop'] . "</a>\n";
-    } else {
-        $retval .= "                {$titles['NoDrop']}\n";
-    }
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     $retval .= "                 {$routine['ROUTINE_TYPE']}\n";
