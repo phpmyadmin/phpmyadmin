@@ -310,7 +310,7 @@ class PMA_DatabaseInterface
     private function _getTableCondition($table, $tbl_is_group, $tble_type)
     {
         // get table information from information_schema
-        if ($table) {
+        if ($table && is_string($table)) {
             if (true === $tbl_is_group) {
                 $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
                     . PMA_Util::escapeMysqlWildcards(
