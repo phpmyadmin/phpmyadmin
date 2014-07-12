@@ -303,11 +303,11 @@ class PMA_DatabaseInterface
      *
      * @param string|bool $table        table or false
      * @param boolean     $tbl_is_group $table is a table group
-     * @param string      $tble_type    whether table or view
+     * @param string      $table_type   whether table or view
      *
      * @return string a segment of the WHERE clause
      */
-    private function _getTableCondition($table, $tbl_is_group, $tble_type)
+    private function _getTableCondition($table, $tbl_is_group, $table_type)
     {
         // get table information from information_schema
         if ($table && is_string($table)) {
@@ -325,14 +325,14 @@ class PMA_DatabaseInterface
             $sql_where_table = '';
         }
 
-        if ($tble_type) {
-            if ($tble_type == 'view') {
+        if ($table_type) {
+            if ($table_type == 'view') {
                 if (PMA_DRIZZLE) {
                     $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE'";
                 } else {
                     $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE TABLE'";
                 }
-            } else if ($tble_type == 'table') {
+            } else if ($table_type == 'table') {
                 if (PMA_DRIZZLE) {
                     $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE'";
                 } else {
@@ -449,7 +449,7 @@ class PMA_DatabaseInterface
      * @param boolean|integer $limit_count  number of tables to return
      * @param string          $sort_by      table attribute to sort by
      * @param string          $sort_order   direction to sort (ASC or DESC)
-     * @param string          $tble_type    whether table or view
+     * @param string          $table_type   whether table or view
      *
      * @todo    move into PMA_Table
      *
@@ -458,7 +458,7 @@ class PMA_DatabaseInterface
     public function getTablesFull($database, $table = false,
         $tbl_is_group = false,  $link = null, $limit_offset = 0,
         $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC',
-        $tble_type = null
+        $table_type = null
     ) {
         if (true === $limit_count) {
             $limit_count = $GLOBALS['cfg']['MaxTableList'];
@@ -471,7 +471,7 @@ class PMA_DatabaseInterface
         }
 
         $sql_where_table = $this->_getTableCondition(
-            $table, $tbl_is_group, $tble_type
+            $table, $tbl_is_group, $table_type
         );
 
         // for PMA bc:
