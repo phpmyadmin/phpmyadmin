@@ -602,7 +602,7 @@ Server connection settings
     'transformation', 'transformation\_options'.
 
     Starting with release 4.3.0, a new input-oriented transformation system
-    is been introduced. Also, backward compatibilty code used in the old
+    has been introduced. Also, backward compatibility code used in the old
     transformations system was removed. As a result, an update to column\_info
     table is necessary for previous transformations and the new input-oriented
     transformation system to work. phpMyAdmin will upgrade it automatically
