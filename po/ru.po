@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-10 06:43-0400\n"
+"POT-Creation-Date: 2014-07-12 17:32-0400\n"
 "PO-Revision-Date: 2014-03-28 11:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Russian <https://l10n.cihar.com/projects/phpmyadmin/master/ru/"
@@ -70,7 +70,7 @@ msgstr "Комментарии к таблице:"
 #: libraries/plugins/export/ExportTexytext.class.php:444
 #: libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/schema/Pdf_Relation_Schema.class.php:1375
-#: libraries/tbl_columns_definition_form.lib.php:585
+#: libraries/tbl_columns_definition_form.lib.php:592
 #: libraries/tbl_indexes.lib.php:320 libraries/tbl_printview.lib.php:473
 #: libraries/tbl_relation.lib.php:325 libraries/tbl_relation.lib.php:414
 #: libraries/tbl_relation.lib.php:542 libraries/tbl_tracking.lib.php:809
@@ -215,7 +215,7 @@ msgstr "Нет"
 #: libraries/server_privileges.lib.php:2718
 #: libraries/server_privileges.lib.php:3057
 #: libraries/server_privileges.lib.php:3082 libraries/structure.lib.php:1339
-#: libraries/structure.lib.php:2755 libraries/tbl_printview.lib.php:115
+#: libraries/structure.lib.php:2757 libraries/tbl_printview.lib.php:115
 #: libraries/tbl_tracking.lib.php:856 libraries/tbl_tracking.lib.php:931
 #: libraries/tbl_tracking.lib.php:936 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -344,7 +344,7 @@ msgid "Tracked tables"
 msgstr "Отслеживаемые таблицы"
 
 #: db_tracking.php:80 libraries/Console.class.php:98
-#: libraries/Console.class.php:174 libraries/Menu.class.php:212
+#: libraries/Console.class.php:175 libraries/Menu.class.php:212
 #: libraries/config/messages.inc.php:753
 #: libraries/plugins/export/ExportHtmlword.class.php:149
 #: libraries/plugins/export/ExportOdt.class.php:193
@@ -395,7 +395,7 @@ msgid "Action"
 msgstr "Действие"
 
 #: db_tracking.php:87 libraries/navigation/Navigation.class.php:208
-#: libraries/tbl_tracking.lib.php:201 tbl_change.php:150
+#: libraries/tbl_tracking.lib.php:201 tbl_change.php:154
 msgid "Show"
 msgstr "Показать"
 
@@ -570,7 +570,7 @@ msgstr "Добавить геометрии"
 #: libraries/display_export.lib.php:296 libraries/display_export.lib.php:302
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1604 libraries/insert_edit.lib.php:1641
-#: libraries/normalization.lib.php:137 libraries/normalization.lib.php:256
+#: libraries/normalization.lib.php:142 libraries/normalization.lib.php:261
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:254
 #: libraries/operations.lib.php:627 libraries/operations.lib.php:680
@@ -1289,7 +1289,7 @@ msgstr "Пожалуйста, добавьте в серию хотя бы од�
 #: libraries/server_privileges.lib.php:2688
 #: libraries/server_status_monitor.lib.php:248
 #: libraries/server_status_processes.lib.php:261
-#: libraries/tbl_columns_definition_form.lib.php:726 pmd_general.php:671
+#: libraries/tbl_columns_definition_form.lib.php:739 pmd_general.php:671
 msgid "None"
 msgstr "Нет"
 
@@ -1788,7 +1788,7 @@ msgid "Show query box"
 msgstr "Отобразить поле запроса"
 
 #: js/messages.php:289 libraries/Console.class.php:96
-#: libraries/Console.class.php:171 libraries/DisplayResults.class.php:3386
+#: libraries/Console.class.php:172 libraries/DisplayResults.class.php:3389
 #: libraries/Index.class.php:593 libraries/Util.class.php:664
 #: libraries/Util.class.php:1189 libraries/Util.class.php:3364
 #: libraries/Util.class.php:3365 libraries/central_columns.lib.php:756
@@ -1806,7 +1806,7 @@ msgstr "Число %d не является правильным номером 
 
 #: js/messages.php:291 libraries/TableSearch.class.php:929
 #: libraries/TableSearch.class.php:1253 libraries/sql.lib.php:394
-#: tbl_change.php:145
+#: tbl_change.php:149
 msgid "Browse foreign values"
 msgstr "Обзор внешних значений"
 
@@ -1866,7 +1866,7 @@ msgstr "Добавить первичный ключ"
 msgid "Primary key added."
 msgstr "Был добавлен первичный ключ к %s."
 
-#: js/messages.php:306 libraries/normalization.lib.php:163
+#: js/messages.php:306 libraries/normalization.lib.php:168
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
@@ -1976,12 +1976,12 @@ msgid "Data point content"
 msgstr "Содержание точки данных"
 
 #: js/messages.php:347 js/messages.php:460 js/messages.php:476
-#: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2602
+#: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2609
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:374
 msgid "Ignore"
 msgstr "Игнорировать"
 
-#: js/messages.php:348 libraries/DisplayResults.class.php:3389
+#: js/messages.php:348 libraries/DisplayResults.class.php:3392
 msgid "Copy"
 msgstr "Копировать"
 
@@ -2302,7 +2302,7 @@ msgstr ", последняя стабильная версия:"
 msgid "up to date"
 msgstr "актуально"
 
-#: js/messages.php:450 libraries/DisplayResults.class.php:5136
+#: js/messages.php:450 libraries/DisplayResults.class.php:5139
 #: view_create.php:178
 msgid "Create view"
 msgstr "Создать представление"
@@ -2715,15 +2715,15 @@ msgstr ""
 msgid "Font size"
 msgstr "Размер шрифта"
 
-#: libraries/Console.class.php:93 libraries/Console.class.php:168
+#: libraries/Console.class.php:93 libraries/Console.class.php:169
 msgid "Collapse"
 msgstr ""
 
-#: libraries/Console.class.php:94 libraries/Console.class.php:169
+#: libraries/Console.class.php:94 libraries/Console.class.php:170
 msgid "Expand"
 msgstr ""
 
-#: libraries/Console.class.php:95 libraries/Console.class.php:170
+#: libraries/Console.class.php:95 libraries/Console.class.php:171
 #, fuzzy
 #| msgid "subquery"
 msgid "Requery"
@@ -2738,61 +2738,61 @@ msgstr[0] "Удалить связь"
 msgstr[1] "Удалить связь"
 msgstr[2] "Удалить связь"
 
-#: libraries/Console.class.php:113
+#: libraries/Console.class.php:114
 msgid "private"
 msgstr ""
 
-#: libraries/Console.class.php:117 libraries/bookmark.lib.php:87
+#: libraries/Console.class.php:118 libraries/bookmark.lib.php:87
 msgid "shared"
 msgstr "общий"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
-#: libraries/Console.class.php:121
+#: libraries/Console.class.php:122
 #, fuzzy, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "Закладка удалена."
 
-#: libraries/Console.class.php:127
+#: libraries/Console.class.php:128
 #, fuzzy
 #| msgid "Delete relation"
 msgid "No bookmarks"
 msgstr "Удалить связь"
 
-#: libraries/Console.class.php:173
+#: libraries/Console.class.php:174
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
 msgstr "Кеш запросов"
 
-#: libraries/Console.class.php:175
+#: libraries/Console.class.php:176
 #, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
 msgstr "Время выполнения запроса"
 
-#: libraries/Console.class.php:181
+#: libraries/Console.class.php:182
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
 msgstr "SQL Запрос"
 
-#: libraries/Console.class.php:182
+#: libraries/Console.class.php:183
 msgid "Console"
 msgstr ""
 
-#: libraries/Console.class.php:185 libraries/sql_query_form.lib.php:276
+#: libraries/Console.class.php:186 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
 msgid "Clear"
 msgstr "Очистить"
 
-#: libraries/Console.class.php:188
+#: libraries/Console.class.php:189
 #, fuzzy
 #| msgid "SQL history"
 msgid "History"
 msgstr "История SQL-запросов"
 
-#: libraries/Console.class.php:191 libraries/Console.class.php:268
+#: libraries/Console.class.php:192 libraries/Console.class.php:269
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
 #: libraries/import.lib.php:1237 libraries/import.lib.php:1269
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2820,69 +2820,69 @@ msgstr "История SQL-запросов"
 msgid "Options"
 msgstr "Параметры"
 
-#: libraries/Console.class.php:195 libraries/Console.class.php:240
+#: libraries/Console.class.php:196 libraries/Console.class.php:241
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
 msgstr "Таблица закладок"
 
-#: libraries/Console.class.php:204
+#: libraries/Console.class.php:205
 #, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Выполнять каждые"
 
-#: libraries/Console.class.php:219
+#: libraries/Console.class.php:220
 #, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
 msgstr "Игнорировать текущую ошибку"
 
-#: libraries/Console.class.php:244 libraries/Util.class.php:1232
+#: libraries/Console.class.php:245 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Обновить"
 
-#: libraries/Console.class.php:255
+#: libraries/Console.class.php:256
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
 msgstr "Удалить связь"
 
-#: libraries/Console.class.php:258
+#: libraries/Console.class.php:259
 #, fuzzy
 #| msgid "Label:"
 msgid "Label"
 msgstr "Метка:"
 
-#: libraries/Console.class.php:259
+#: libraries/Console.class.php:260
 msgid "Target database"
 msgstr "Целевая база данных"
 
-#: libraries/Console.class.php:260
+#: libraries/Console.class.php:261
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
 msgstr "Удалить связь"
 
-#: libraries/Console.class.php:271
+#: libraries/Console.class.php:272
 #, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
 msgstr "Восстановить изначальное значение"
 
-#: libraries/Console.class.php:275
+#: libraries/Console.class.php:276
 msgid "Always expand queried messages"
 msgstr ""
 
-#: libraries/Console.class.php:277
+#: libraries/Console.class.php:278
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "Таблица истории SQL запросов"
 
-#: libraries/Console.class.php:279
+#: libraries/Console.class.php:280
 msgid "Show current browsing query"
 msgstr ""
 
@@ -3078,8 +3078,8 @@ msgstr "Обзор"
 msgid "Delete the matches for the %s table?"
 msgstr "Удалить соответствия для таблицы %s?"
 
-#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3457
-#: libraries/DisplayResults.class.php:5003
+#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3460
+#: libraries/DisplayResults.class.php:5006
 #: libraries/central_columns.lib.php:758
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:440 libraries/tbl_tracking.lib.php:373
@@ -3224,26 +3224,26 @@ msgstr "Текст (WKT)"
 msgid "Well Known Binary"
 msgstr "Бинарный (WKB)"
 
-#: libraries/DisplayResults.class.php:3431
-#: libraries/DisplayResults.class.php:3447
+#: libraries/DisplayResults.class.php:3434
+#: libraries/DisplayResults.class.php:3450
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Запись была удалена"
 
-#: libraries/DisplayResults.class.php:3485
-#: libraries/DisplayResults.class.php:5003
+#: libraries/DisplayResults.class.php:3488
+#: libraries/DisplayResults.class.php:5006
 #: libraries/server_status_processes.lib.php:256
 msgid "Kill"
 msgstr "Завершить"
 
-#: libraries/DisplayResults.class.php:4447
+#: libraries/DisplayResults.class.php:4450
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Может быть приблизительно. Смотрите [doc@faq3-11]FAQ 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4504 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4507 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:904
 #: tbl_find_replace.php:49 tbl_operations.php:184 tbl_row_action.php:117
@@ -3253,7 +3253,7 @@ msgstr "Может быть приблизительно. Смотрите [doc@
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL-запрос был успешно выполнен"
 
-#: libraries/DisplayResults.class.php:4881 libraries/structure.lib.php:682
+#: libraries/DisplayResults.class.php:4884 libraries/structure.lib.php:682
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -3262,29 +3262,29 @@ msgstr ""
 "Данное представление имеет, по меньшей мере, указанное количество строк. "
 "Пожалуйста, обратитесь к %sдокументации%s."
 
-#: libraries/DisplayResults.class.php:4894
+#: libraries/DisplayResults.class.php:4897
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Отображение строк %1s - %2s"
 
-#: libraries/DisplayResults.class.php:4909
+#: libraries/DisplayResults.class.php:4912
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4914
+#: libraries/DisplayResults.class.php:4917
 #, php-format
 msgid "%d total"
 msgstr "%d всего"
 
-#: libraries/DisplayResults.class.php:4926 libraries/sql.lib.php:1688
+#: libraries/DisplayResults.class.php:4929 libraries/sql.lib.php:1688
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Запрос занял %01.4f сек."
 
-#: libraries/DisplayResults.class.php:5010
-#: libraries/DisplayResults.class.php:5016 libraries/mult_submits.inc.php:45
+#: libraries/DisplayResults.class.php:5013
+#: libraries/DisplayResults.class.php:5019 libraries/mult_submits.inc.php:45
 #: libraries/server_databases.lib.php:141
 #: libraries/server_databases.lib.php:145
 #: libraries/server_privileges.lib.php:2983
@@ -3294,8 +3294,8 @@ msgstr "Запрос занял %01.4f сек."
 msgid "With selected:"
 msgstr "С отмеченными:"
 
-#: libraries/DisplayResults.class.php:5014
-#: libraries/DisplayResults.class.php:5015
+#: libraries/DisplayResults.class.php:5017
+#: libraries/DisplayResults.class.php:5018
 #: libraries/server_databases.lib.php:143
 #: libraries/server_databases.lib.php:144
 #: libraries/server_privileges.lib.php:1014
@@ -3308,13 +3308,13 @@ msgstr "С отмеченными:"
 msgid "Check All"
 msgstr "Отметить все"
 
-#: libraries/DisplayResults.class.php:5020 libraries/structure.lib.php:1445
+#: libraries/DisplayResults.class.php:5023 libraries/structure.lib.php:1445
 #: libraries/structure.lib.php:2166 querywindow.php:85
 msgid "Change"
 msgstr "Изменить"
 
-#: libraries/DisplayResults.class.php:5033
-#: libraries/DisplayResults.class.php:5304 libraries/Menu.class.php:324
+#: libraries/DisplayResults.class.php:5036
+#: libraries/DisplayResults.class.php:5307 libraries/Menu.class.php:324
 #: libraries/Menu.class.php:422 libraries/Menu.class.php:545
 #: libraries/Util.class.php:3366 libraries/Util.class.php:3367
 #: libraries/Util.class.php:4075 libraries/Util.class.php:4090
@@ -3327,29 +3327,29 @@ msgstr "Изменить"
 msgid "Export"
 msgstr "Экспорт"
 
-#: libraries/DisplayResults.class.php:5192
+#: libraries/DisplayResults.class.php:5195
 msgid "Query results operations"
 msgstr "Использование результатов запроса"
 
-#: libraries/DisplayResults.class.php:5228 libraries/Header.class.php:358
+#: libraries/DisplayResults.class.php:5231 libraries/Header.class.php:358
 #: libraries/structure.lib.php:314 libraries/structure.lib.php:385
 #: libraries/structure.lib.php:1580
 msgid "Print view"
 msgstr "Версия для печати"
 
-#: libraries/DisplayResults.class.php:5246
+#: libraries/DisplayResults.class.php:5249
 msgid "Print view (with full texts)"
 msgstr "Версия для печати (полностью)"
 
-#: libraries/DisplayResults.class.php:5317 libraries/tbl_chart.lib.php:351
+#: libraries/DisplayResults.class.php:5320 libraries/tbl_chart.lib.php:351
 msgid "Display chart"
 msgstr "Отобразить график"
 
-#: libraries/DisplayResults.class.php:5342
+#: libraries/DisplayResults.class.php:5345
 msgid "Visualize GIS data"
 msgstr "Визуализация GIS данных"
 
-#: libraries/DisplayResults.class.php:5569
+#: libraries/DisplayResults.class.php:5572
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -3587,7 +3587,7 @@ msgstr "Операции"
 
 #: libraries/Menu.class.php:353 libraries/Menu.class.php:469
 #: libraries/Util.class.php:4097 libraries/Util.class.php:4111
-#: libraries/relation.lib.php:230
+#: libraries/relation.lib.php:234
 msgid "Tracking"
 msgstr "Слежение"
 
@@ -3730,7 +3730,7 @@ msgid "Could not save favorite table!"
 msgstr "Не удалось сохранить последнюю таблицу"
 
 #: libraries/RecentFavoriteTable.class.php:232
-#: libraries/structure.lib.php:2846
+#: libraries/structure.lib.php:2848
 #, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
@@ -3844,7 +3844,7 @@ msgstr "Сортировка"
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:116
-#: libraries/structure.lib.php:3035
+#: libraries/structure.lib.php:3037
 msgid "Tables"
 msgstr "Таблицы"
 
@@ -4435,6 +4435,7 @@ msgid "Date and time"
 msgstr "Дата и время"
 
 #: libraries/Types.class.php:677 libraries/Types.class.php:1047
+#: libraries/normalization.lib.php:137 normalization.php:25
 msgctxt "string types"
 msgid "String"
 msgstr "Символьные"
@@ -4665,20 +4666,20 @@ msgstr "Фрагментировано"
 msgid "Jump to database"
 msgstr "Перейти к базе данных"
 
-#: libraries/build_html_for_db.lib.php:144
+#: libraries/build_html_for_db.lib.php:145
 msgid "Not replicated"
 msgstr "Не реплицировано"
 
-#: libraries/build_html_for_db.lib.php:155
+#: libraries/build_html_for_db.lib.php:156
 msgid "Replicated"
 msgstr "Реплицировано"
 
-#: libraries/build_html_for_db.lib.php:173
+#: libraries/build_html_for_db.lib.php:174
 #, php-format
 msgid "Check privileges for database \"%s\"."
 msgstr "Проверить привилегии для базы данных \"%s\"."
 
-#: libraries/build_html_for_db.lib.php:178
+#: libraries/build_html_for_db.lib.php:179
 msgid "Check Privileges"
 msgstr "Проверить привилегии"
 
@@ -8039,7 +8040,7 @@ msgid "possible deep recursion attack"
 msgstr "возможная атака глубокой рекурсии"
 
 #: libraries/core.lib.php:920 libraries/mult_submits.inc.php:291
-#: tbl_replace.php:251
+#: tbl_replace.php:307
 msgid "No change"
 msgstr "Нет изменений"
 
@@ -9052,11 +9053,11 @@ msgstr ""
 "Для перемещения между полями значения, используйте клавишу TAB, либо CTRL"
 "+клавиши со стрелками - для свободного перемещения"
 
-#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1679
+#: libraries/insert_edit.lib.php:1980 libraries/sql.lib.php:1679
 msgid "Showing SQL query"
 msgstr "Отображает SQL-запрос"
 
-#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1659
+#: libraries/insert_edit.lib.php:2005 libraries/sql.lib.php:1659
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Идентификатор вставленной строки: %1$d"
@@ -9491,7 +9492,7 @@ msgstr "Новый"
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:125
-#: libraries/structure.lib.php:3041
+#: libraries/structure.lib.php:3043
 msgid "Views"
 msgstr "Представления"
 
@@ -9500,134 +9501,134 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "Новое"
 
-#: libraries/normalization.lib.php:107
+#: libraries/normalization.lib.php:108
 msgid "Make all columns atomic"
 msgstr ""
 
-#: libraries/normalization.lib.php:109 libraries/normalization.lib.php:244
+#: libraries/normalization.lib.php:110 libraries/normalization.lib.php:249
 msgid "First step of normalization (1NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:112 libraries/normalization.lib.php:159
-#: libraries/normalization.lib.php:202
+#: libraries/normalization.lib.php:113 libraries/normalization.lib.php:164
+#: libraries/normalization.lib.php:207
 msgid "Step 1."
 msgstr ""
 
-#: libraries/normalization.lib.php:114
+#: libraries/normalization.lib.php:115
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
 
-#: libraries/normalization.lib.php:121
+#: libraries/normalization.lib.php:122
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 
-#: libraries/normalization.lib.php:124
+#: libraries/normalization.lib.php:125
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
 
-#: libraries/normalization.lib.php:131 normalization.php:19
+#: libraries/normalization.lib.php:132 normalization.php:19
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select one…"
 msgstr "Выберите два столбца"
 
-#: libraries/normalization.lib.php:132 normalization.php:20
+#: libraries/normalization.lib.php:133 normalization.php:20
 #, fuzzy
 #| msgid "Move column"
 msgid "No such column"
 msgstr "Переместить поле"
 
-#: libraries/normalization.lib.php:135
+#: libraries/normalization.lib.php:140
 msgid "split into "
 msgstr ""
 
-#: libraries/normalization.lib.php:156
+#: libraries/normalization.lib.php:161
 #, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
 msgstr "Добавить первичный ключ"
 
-#: libraries/normalization.lib.php:162
+#: libraries/normalization.lib.php:167
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
 msgstr "Ошибка: Связь уже существует."
 
-#: libraries/normalization.lib.php:167
+#: libraries/normalization.lib.php:172
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
 
-#: libraries/normalization.lib.php:174
+#: libraries/normalization.lib.php:179
 msgid "Add a primary key on existing column(s)"
 msgstr ""
 
-#: libraries/normalization.lib.php:179
+#: libraries/normalization.lib.php:184
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 
-#: libraries/normalization.lib.php:183
+#: libraries/normalization.lib.php:188
 #, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
 msgstr "Добавить первичный ключ"
 
-#: libraries/normalization.lib.php:201
+#: libraries/normalization.lib.php:206
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove redundant columns"
 msgstr "Удалить поле(я)"
 
-#: libraries/normalization.lib.php:204
+#: libraries/normalization.lib.php:209
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
 
-#: libraries/normalization.lib.php:210
+#: libraries/normalization.lib.php:215
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
 
-#: libraries/normalization.lib.php:215
+#: libraries/normalization.lib.php:220
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "Удалить выделенных пользователей"
 
-#: libraries/normalization.lib.php:216
+#: libraries/normalization.lib.php:221
 #, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
 msgstr "Добавить столбец"
 
-#: libraries/normalization.lib.php:241
+#: libraries/normalization.lib.php:246
 #, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
 msgstr "Спрятать действия над структурой таблицы"
 
-#: libraries/normalization.lib.php:242
+#: libraries/normalization.lib.php:247
 msgid "Select up to what step you want to normalize"
 msgstr ""
 
-#: libraries/normalization.lib.php:245
+#: libraries/normalization.lib.php:250
 msgid "Second step of normalization (1NF+2NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:246
+#: libraries/normalization.lib.php:251
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:253
+#: libraries/normalization.lib.php:258
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
@@ -10552,6 +10553,16 @@ msgstr ""
 msgid "Displays a link to download this image."
 msgstr "Отображает ссылку для загрузки изображения."
 
+#: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:31
+msgid ""
+"Image upload functionality which also displays a thumbnail. The options are "
+"the width and height of the thumbnail in pixels. Defaults to 100 X 100."
+msgstr ""
+
+#: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:78
+msgid "Image preview here"
+msgstr ""
+
 #: libraries/plugins/transformations/abstract/InlineTransformationsPlugin.class.php:33
 msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
@@ -10582,6 +10593,17 @@ msgstr ""
 "Добавить текст к строке. Единственный параметр - добавляемый текст (закрытый "
 "в одиночные кавычки, по умолчанию - пустая строка)."
 
+#: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:33
+msgid ""
+"Validates the string using regular expression and performs insert only if "
+"string matches it. The first option is the Regular Expression."
+msgstr ""
+
+#: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
+#, php-format
+msgid "Validation failed for the input string %s."
+msgstr ""
+
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
 msgstr "Форматирует текст в виде SQL запроса с подсветкой синтаксиса."
@@ -10599,6 +10621,12 @@ msgstr ""
 "возвращаемых символов (по умолчанию: до конца строки). Третий параметр "
 "определяет строку добавляемую вначале и/или в конце существующего отрывка "
 "(по умолчанию: \"…\")."
+
+#: libraries/plugins/transformations/abstract/TextFileUploadTransformationsPlugin.class.php:33
+msgid ""
+"File upload functionality for text field. It does not have a textarea for "
+"input."
+msgstr ""
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -10655,73 +10683,73 @@ msgid "Displaying Column Comments"
 msgstr "Отображать комментарии столбцов"
 
 #: libraries/relation.lib.php:170
-#: libraries/tbl_columns_definition_form.lib.php:322
-#: transformation_overview.php:39
 msgid "Browser transformation"
 msgstr "Преобразование"
 
-#: libraries/relation.lib.php:176
-msgid ""
-"Please see the documentation on how to update your column_comments table."
+#: libraries/relation.lib.php:177
+#, fuzzy
+#| msgid ""
+#| "Please see the documentation on how to update your column_comments table."
+msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
 "Необходимо обновить таблицу column_comments. Детали смотрите в документации."
 
-#: libraries/relation.lib.php:186 libraries/sql_query_form.lib.php:412
+#: libraries/relation.lib.php:190 libraries/sql_query_form.lib.php:412
 msgid "Bookmarked SQL query"
 msgstr "Созданные закладки"
 
-#: libraries/relation.lib.php:197 querywindow.php:70
+#: libraries/relation.lib.php:201 querywindow.php:70
 msgid "SQL history"
 msgstr "История SQL-запросов"
 
-#: libraries/relation.lib.php:208
+#: libraries/relation.lib.php:212
 msgid "Persistent recently used tables"
 msgstr "Недавно использованные таблицы"
 
-#: libraries/relation.lib.php:219
+#: libraries/relation.lib.php:223
 msgid "Persistent tables' UI preferences"
 msgstr "Настройки интерфейса часто используемых таблиц"
 
-#: libraries/relation.lib.php:241
+#: libraries/relation.lib.php:245
 msgid "User preferences"
 msgstr "Пользовательские настройки"
 
-#: libraries/relation.lib.php:258
+#: libraries/relation.lib.php:262
 #, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
 msgstr "Настройки: %s"
 
-#: libraries/relation.lib.php:269
+#: libraries/relation.lib.php:273
 #, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
 msgstr "Обновить фрейм навигации"
 
-#: libraries/relation.lib.php:280
+#: libraries/relation.lib.php:284
 msgid "Saving Query-By-Example searches"
 msgstr ""
 
-#: libraries/relation.lib.php:291
+#: libraries/relation.lib.php:295
 msgid "Managing Central list of columns"
 msgstr ""
 
-#: libraries/relation.lib.php:297
+#: libraries/relation.lib.php:301
 msgid "Quick steps to setup advanced features:"
 msgstr "Шаги необходимые для установки дополнительных функций:"
 
-#: libraries/relation.lib.php:301
+#: libraries/relation.lib.php:305
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr ""
 "Создайте необходимые таблицы с помощью скрипта <code>examples/create_tables."
 "sql</code>."
 
-#: libraries/relation.lib.php:307
+#: libraries/relation.lib.php:311
 msgid "Create a pma user and give access to these tables."
 msgstr "Создайте пользователя pma и предоставьте доступ к этим таблицам."
 
-#: libraries/relation.lib.php:312
+#: libraries/relation.lib.php:316
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -10729,12 +10757,12 @@ msgstr ""
 "Подключите дополнительные функции в конфигурационном файле (<code>config.inc."
 "php</code>), начните с примера в <code>config.sample.inc.php</code>."
 
-#: libraries/relation.lib.php:320
+#: libraries/relation.lib.php:324
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 "Перезайдите в phpMyAdmin, чтобы загрузить обновленный конфигурационный файл."
 
-#: libraries/relation.lib.php:1514
+#: libraries/relation.lib.php:1583
 msgid "no description"
 msgstr "нет описания"
 
@@ -11227,15 +11255,15 @@ msgstr "Необходимо задать корректный тип событ
 msgid "You must provide an event definition."
 msgstr "Вы должны задать определение события."
 
-#: libraries/rte/rte_footer.lib.php:91
+#: libraries/rte/rte_footer.lib.php:86
 msgid "OFF"
 msgstr "ВЫКЛЮЧИТЬ"
 
-#: libraries/rte/rte_footer.lib.php:96
+#: libraries/rte/rte_footer.lib.php:91
 msgid "ON"
 msgstr "ВКЛЮЧИТЬ"
 
-#: libraries/rte/rte_footer.lib.php:108
+#: libraries/rte/rte_footer.lib.php:103
 msgid "Event scheduler status"
 msgstr "Статус планировщика событий"
 
@@ -13807,7 +13835,7 @@ msgid "Effective"
 msgstr "Эффективность"
 
 #: libraries/structure.lib.php:2524 libraries/tbl_indexes.lib.php:61
-#: tbl_addfield.php:84
+#: tbl_addfield.php:86
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Таблица %1$s была успешно изменена."
@@ -13817,26 +13845,26 @@ msgstr "Таблица %1$s была успешно изменена."
 msgid "Query error"
 msgstr "Ошибка запроса"
 
-#: libraries/structure.lib.php:2670
+#: libraries/structure.lib.php:2672
 msgid "The columns have been moved successfully."
 msgstr "Поля были успешно перемещены."
 
-#: libraries/structure.lib.php:2718
+#: libraries/structure.lib.php:2720
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "Столбец с именем '%s' является зарезервированным словом MySQL."
 
-#: libraries/structure.lib.php:2847
+#: libraries/structure.lib.php:2849
 #, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
 msgstr "Добавить данные серии"
 
-#: libraries/structure.lib.php:2893
+#: libraries/structure.lib.php:2895
 msgid "Favorite List is full!"
 msgstr ""
 
-#: libraries/structure.lib.php:2982
+#: libraries/structure.lib.php:2984
 #, fuzzy
 #| msgid "Show SQL queries"
 msgid "Showing create queries"
@@ -13983,10 +14011,6 @@ msgid "List of available transformations and their options"
 msgstr "Доступные преобразования"
 
 #: libraries/tbl_columns_definition_form.lib.php:324
-msgid "Transformation options"
-msgstr "Параметры преобразований"
-
-#: libraries/tbl_columns_definition_form.lib.php:327
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -13998,43 +14022,69 @@ msgstr ""
 "необходимо экранировать (предварять) символом обратной косой черты, "
 "например: '\\\\xyz' или 'a\\'b'."
 
-#: libraries/tbl_columns_definition_form.lib.php:573
+#: libraries/tbl_columns_definition_form.lib.php:332
+#: transformation_overview.php:41
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Browser display transformation"
+msgstr "Преобразование"
+
+#: libraries/tbl_columns_definition_form.lib.php:334
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Browser display transformation options"
+msgstr "Преобразование"
+
+#: libraries/tbl_columns_definition_form.lib.php:337
+#: transformation_overview.php:42
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Input transformation"
+msgstr "Преобразование"
+
+#: libraries/tbl_columns_definition_form.lib.php:339
+#, fuzzy
+#| msgid "Transformation options"
+msgid "Input transformation options"
+msgstr "Параметры преобразований"
+
+#: libraries/tbl_columns_definition_form.lib.php:580
 #, fuzzy, php-format
 #| msgid "Select referenced key"
 msgid "Referenced by %s."
 msgstr "Выберите ссылочный ключ"
 
-#: libraries/tbl_columns_definition_form.lib.php:581
+#: libraries/tbl_columns_definition_form.lib.php:588
 #, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Is a foreign key."
 msgstr "Выберите внешний ключ"
 
-#: libraries/tbl_columns_definition_form.lib.php:606
+#: libraries/tbl_columns_definition_form.lib.php:613
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Pick from Central Columns"
 msgstr "Удалить поле(я)"
 
-#: libraries/tbl_columns_definition_form.lib.php:784
+#: libraries/tbl_columns_definition_form.lib.php:797
 msgid "first"
 msgstr "первый"
 
-#: libraries/tbl_columns_definition_form.lib.php:793
+#: libraries/tbl_columns_definition_form.lib.php:806
 #, php-format
 msgid "after %s"
 msgstr "после %s"
 
-#: libraries/tbl_columns_definition_form.lib.php:1082
+#: libraries/tbl_columns_definition_form.lib.php:1095
 msgid "Edit ENUM/SET values"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1107
+#: libraries/tbl_columns_definition_form.lib.php:1120
 msgctxt "for default"
 msgid "None"
 msgstr "Нет"
 
-#: libraries/tbl_columns_definition_form.lib.php:1108
+#: libraries/tbl_columns_definition_form.lib.php:1121
 msgid "As defined:"
 msgstr "Как определено:"
 
@@ -14341,7 +14391,7 @@ msgstr ""
 "Неисправимая ошибка: Панель навигации может быть доступна только с помощью "
 "AJAX"
 
-#: normalization.php:53
+#: normalization.php:57
 msgid "Second/Third step of normalization"
 msgstr ""
 
@@ -14863,6 +14913,11 @@ msgstr "Таблица %s была скопирована в %s."
 msgid "The table name is empty!"
 msgstr "Не задано имя таблицы!"
 
+#: tbl_replace.php:236
+#, php-format
+msgid "Row: %s, Column: %s, Error: %s"
+msgstr ""
+
 #: tbl_structure.php:93
 msgid "No column selected."
 msgstr "Не выбран столбец."
@@ -14879,11 +14934,19 @@ msgstr "Другие темы!"
 msgid "Available MIME types"
 msgstr "Доступные MIME-типы"
 
-#: transformation_overview.php:35
-msgid "Available transformations"
+#: transformation_overview.php:37
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available browser display transformations"
 msgstr "Доступные преобразования"
 
-#: transformation_overview.php:40
+#: transformation_overview.php:38
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available input transformations"
+msgstr "Доступные преобразования"
+
+#: transformation_overview.php:53
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Описание"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-10 06:43-0400\n"
+"POT-Creation-Date: 2014-07-12 17:32-0400\n"
 "PO-Revision-Date: 2014-03-27 15:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://l10n.cihar.com/projects/phpmyadmin/master/bn/"
@@ -67,7 +67,7 @@ msgstr "টেবিলের মন্তব্য সমূহ:"
 #: libraries/plugins/export/ExportTexytext.class.php:444
 #: libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/schema/Pdf_Relation_Schema.class.php:1375
-#: libraries/tbl_columns_definition_form.lib.php:585
+#: libraries/tbl_columns_definition_form.lib.php:592
 #: libraries/tbl_indexes.lib.php:320 libraries/tbl_printview.lib.php:473
 #: libraries/tbl_relation.lib.php:325 libraries/tbl_relation.lib.php:414
 #: libraries/tbl_relation.lib.php:542 libraries/tbl_tracking.lib.php:809
@@ -212,7 +212,7 @@ msgstr "না"
 #: libraries/server_privileges.lib.php:2718
 #: libraries/server_privileges.lib.php:3057
 #: libraries/server_privileges.lib.php:3082 libraries/structure.lib.php:1339
-#: libraries/structure.lib.php:2755 libraries/tbl_printview.lib.php:115
+#: libraries/structure.lib.php:2757 libraries/tbl_printview.lib.php:115
 #: libraries/tbl_tracking.lib.php:856 libraries/tbl_tracking.lib.php:931
 #: libraries/tbl_tracking.lib.php:936 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -339,7 +339,7 @@ msgid "Tracked tables"
 msgstr "ট্রেক কৃত টেবিলসমূহ"
 
 #: db_tracking.php:80 libraries/Console.class.php:98
-#: libraries/Console.class.php:174 libraries/Menu.class.php:212
+#: libraries/Console.class.php:175 libraries/Menu.class.php:212
 #: libraries/config/messages.inc.php:753
 #: libraries/plugins/export/ExportHtmlword.class.php:149
 #: libraries/plugins/export/ExportOdt.class.php:193
@@ -390,7 +390,7 @@ msgid "Action"
 msgstr "কর্ম"
 
 #: db_tracking.php:87 libraries/navigation/Navigation.class.php:208
-#: libraries/tbl_tracking.lib.php:201 tbl_change.php:150
+#: libraries/tbl_tracking.lib.php:201 tbl_change.php:154
 msgid "Show"
 msgstr "দেখাও"
 
@@ -568,7 +568,7 @@ msgstr "জ্যামিতি যোগ কর"
 #: libraries/display_export.lib.php:296 libraries/display_export.lib.php:302
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1604 libraries/insert_edit.lib.php:1641
-#: libraries/normalization.lib.php:137 libraries/normalization.lib.php:256
+#: libraries/normalization.lib.php:142 libraries/normalization.lib.php:261
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:254
 #: libraries/operations.lib.php:627 libraries/operations.lib.php:680
@@ -1257,7 +1257,7 @@ msgstr "সিরিজে অন্তত একটি চলক যোগ ক�
 #: libraries/server_privileges.lib.php:2688
 #: libraries/server_status_monitor.lib.php:248
 #: libraries/server_status_processes.lib.php:261
-#: libraries/tbl_columns_definition_form.lib.php:726 pmd_general.php:671
+#: libraries/tbl_columns_definition_form.lib.php:739 pmd_general.php:671
 msgid "None"
 msgstr "কিছু না"
 
@@ -1743,7 +1743,7 @@ msgid "Show query box"
 msgstr "অনুসন্ধান বক্সটি দেখাও"
 
 #: js/messages.php:289 libraries/Console.class.php:96
-#: libraries/Console.class.php:171 libraries/DisplayResults.class.php:3386
+#: libraries/Console.class.php:172 libraries/DisplayResults.class.php:3389
 #: libraries/Index.class.php:593 libraries/Util.class.php:664
 #: libraries/Util.class.php:1189 libraries/Util.class.php:3364
 #: libraries/Util.class.php:3365 libraries/central_columns.lib.php:756
@@ -1761,7 +1761,7 @@ msgstr "%d বৈধ রো নাম্বার নয়।"
 
 #: js/messages.php:291 libraries/TableSearch.class.php:929
 #: libraries/TableSearch.class.php:1253 libraries/sql.lib.php:394
-#: tbl_change.php:145
+#: tbl_change.php:149
 msgid "Browse foreign values"
 msgstr "ফরেন মান দেখা"
 
@@ -1821,7 +1821,7 @@ msgstr "প্রাইমারি কী যোগ কর"
 msgid "Primary key added."
 msgstr "%s একটি প্রাইমারি কী যোগ করা হয়েছে"
 
-#: js/messages.php:306 libraries/normalization.lib.php:163
+#: js/messages.php:306 libraries/normalization.lib.php:168
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
@@ -1930,12 +1930,12 @@ msgid "Data point content"
 msgstr "প্রতিটি পয়েন্টের বিষয়"
 
 #: js/messages.php:347 js/messages.php:460 js/messages.php:476
-#: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2602
+#: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2609
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:374
 msgid "Ignore"
 msgstr "উপেক্ষা"
 
-#: js/messages.php:348 libraries/DisplayResults.class.php:3389
+#: js/messages.php:348 libraries/DisplayResults.class.php:3392
 msgid "Copy"
 msgstr "প্রতিলিপি"
 
@@ -2248,7 +2248,7 @@ msgstr ", সর্বশেষ সুস্থিত সংস্করন:"
 msgid "up to date"
 msgstr "তারিখ পর্যন্ত"
 
-#: js/messages.php:450 libraries/DisplayResults.class.php:5136
+#: js/messages.php:450 libraries/DisplayResults.class.php:5139
 #: view_create.php:178
 msgid "Create view"
 msgstr "ভিউ তৈরী"
@@ -2647,15 +2647,15 @@ msgstr "কনফিগারেশন ফাইলে ভুল অনুমত
 msgid "Font size"
 msgstr "অক্ষরের আকার"
 
-#: libraries/Console.class.php:93 libraries/Console.class.php:168
+#: libraries/Console.class.php:93 libraries/Console.class.php:169
 msgid "Collapse"
 msgstr ""
 
-#: libraries/Console.class.php:94 libraries/Console.class.php:169
+#: libraries/Console.class.php:94 libraries/Console.class.php:170
 msgid "Expand"
 msgstr ""
 
-#: libraries/Console.class.php:95 libraries/Console.class.php:170
+#: libraries/Console.class.php:95 libraries/Console.class.php:171
 #, fuzzy
 #| msgid "subquery"
 msgid "Requery"
@@ -2669,61 +2669,61 @@ msgid_plural "Total %d bookmarks"
 msgstr[0] "সর্ম্পক মুছা"
 msgstr[1] "সর্ম্পক মুছা"
 
-#: libraries/Console.class.php:113
+#: libraries/Console.class.php:114
 msgid "private"
 msgstr ""
 
-#: libraries/Console.class.php:117 libraries/bookmark.lib.php:87
+#: libraries/Console.class.php:118 libraries/bookmark.lib.php:87
 msgid "shared"
 msgstr "উন্মুক্ত"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
-#: libraries/Console.class.php:121
+#: libraries/Console.class.php:122
 #, fuzzy, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "বুকর্মাকটি মুছা হয়েছে।"
 
-#: libraries/Console.class.php:127
+#: libraries/Console.class.php:128
 #, fuzzy
 #| msgid "Delete relation"
 msgid "No bookmarks"
 msgstr "সর্ম্পক মুছা"
 
-#: libraries/Console.class.php:173
+#: libraries/Console.class.php:174
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
 msgstr "অনুসন্ধান ক্যাশ"
 
-#: libraries/Console.class.php:175
+#: libraries/Console.class.php:176
 #, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
 msgstr "অনুসন্ধানের সম্পাদনের সময়"
 
-#: libraries/Console.class.php:181
+#: libraries/Console.class.php:182
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
 msgstr "SQL অনুসন্ধান বক্স"
 
-#: libraries/Console.class.php:182
+#: libraries/Console.class.php:183
 msgid "Console"
 msgstr ""
 
-#: libraries/Console.class.php:185 libraries/sql_query_form.lib.php:276
+#: libraries/Console.class.php:186 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
 msgid "Clear"
 msgstr "পরিস্কার"
 
-#: libraries/Console.class.php:188
+#: libraries/Console.class.php:189
 #, fuzzy
 #| msgid "SQL history"
 msgid "History"
 msgstr "এসকিউএল ইতিহাস"
 
-#: libraries/Console.class.php:191 libraries/Console.class.php:268
+#: libraries/Console.class.php:192 libraries/Console.class.php:269
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
 #: libraries/import.lib.php:1237 libraries/import.lib.php:1269
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2751,70 +2751,70 @@ msgstr "এসকিউএল ইতিহাস"
 msgid "Options"
 msgstr "অপশনস"
 
-#: libraries/Console.class.php:195 libraries/Console.class.php:240
+#: libraries/Console.class.php:196 libraries/Console.class.php:241
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
 msgstr "বুকর্মাক টেবল"
 
-#: libraries/Console.class.php:204
+#: libraries/Console.class.php:205
 #, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "সবগুলো নির্বাহ কর"
 
-#: libraries/Console.class.php:219
+#: libraries/Console.class.php:220
 #, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
 msgstr "বর্তমান ভুলটি এড়িয়ে যাও"
 
-#: libraries/Console.class.php:244 libraries/Util.class.php:1232
+#: libraries/Console.class.php:245 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "রিফ্রেশ"
 
-#: libraries/Console.class.php:255
+#: libraries/Console.class.php:256
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
 msgstr "সর্ম্পক মুছা"
 
-#: libraries/Console.class.php:258
+#: libraries/Console.class.php:259
 #, fuzzy
 #| msgid "Label:"
 msgid "Label"
 msgstr "লেবেল:"
 
-#: libraries/Console.class.php:259
+#: libraries/Console.class.php:260
 #, fuzzy
 msgid "Target database"
 msgstr "ডাটাবে এ খুজুঁনSearch in database"
 
-#: libraries/Console.class.php:260
+#: libraries/Console.class.php:261
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
 msgstr "সর্ম্পক মুছা"
 
-#: libraries/Console.class.php:271
+#: libraries/Console.class.php:272
 #, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
 msgstr "স্বাভাবিকে রিসেট কর"
 
-#: libraries/Console.class.php:275
+#: libraries/Console.class.php:276
 msgid "Always expand queried messages"
 msgstr ""
 
-#: libraries/Console.class.php:277
+#: libraries/Console.class.php:278
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "SQL অনুসন্ধানের হিস্টোরী টেবল"
 
-#: libraries/Console.class.php:279
+#: libraries/Console.class.php:280
 msgid "Show current browsing query"
 msgstr ""
 
@@ -3008,8 +3008,8 @@ msgstr "দেখা"
 msgid "Delete the matches for the %s table?"
 msgstr "%s টেবলের মিলগুলো কি মুছব?"
 
-#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3457
-#: libraries/DisplayResults.class.php:5003
+#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3460
+#: libraries/DisplayResults.class.php:5006
 #: libraries/central_columns.lib.php:758
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:440 libraries/tbl_tracking.lib.php:373
@@ -3154,22 +3154,22 @@ msgstr "ভালভাবে জানা লেখা"
 msgid "Well Known Binary"
 msgstr "ভালভাবে জানা বাইনারী"
 
-#: libraries/DisplayResults.class.php:3431
-#: libraries/DisplayResults.class.php:3447
+#: libraries/DisplayResults.class.php:3434
+#: libraries/DisplayResults.class.php:3450
 msgid "The row has been deleted."
 msgstr "রো টি মুছা হয়েছে।"
 
-#: libraries/DisplayResults.class.php:3485
-#: libraries/DisplayResults.class.php:5003
+#: libraries/DisplayResults.class.php:3488
+#: libraries/DisplayResults.class.php:5006
 #: libraries/server_status_processes.lib.php:256
 msgid "Kill"
 msgstr "হত্যা"
 
-#: libraries/DisplayResults.class.php:4447
+#: libraries/DisplayResults.class.php:4450
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "সম্ভবত আনুমানিক। [doc@faq3-11]FAQ 3.11[/doc] দেখুন।"
 
-#: libraries/DisplayResults.class.php:4504 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4507 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:904
 #: tbl_find_replace.php:49 tbl_operations.php:184 tbl_row_action.php:117
@@ -3177,7 +3177,7 @@ msgstr "সম্ভবত আনুমানিক। [doc@faq3-11]FAQ 3.11[/do
 msgid "Your SQL query has been executed successfully."
 msgstr "আপনার SQL অনুসন্ধানটি সফলভাবে কাজ করেছে"
 
-#: libraries/DisplayResults.class.php:4881 libraries/structure.lib.php:682
+#: libraries/DisplayResults.class.php:4884 libraries/structure.lib.php:682
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -3185,28 +3185,28 @@ msgid ""
 msgstr ""
 "এই ভিউটির অন্তত পক্ষে এক সারি তথ্য রয়েছে। অনুগ্রহ করে %sdocumentation%s দেখুন।"
 
-#: libraries/DisplayResults.class.php:4894
+#: libraries/DisplayResults.class.php:4897
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "রো দেখাচ্ছে %1s - %2s"
 
-#: libraries/DisplayResults.class.php:4909
+#: libraries/DisplayResults.class.php:4912
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "মোট %1$d, অনুসন্ধানে %2$d"
 
-#: libraries/DisplayResults.class.php:4914
+#: libraries/DisplayResults.class.php:4917
 #, php-format
 msgid "%d total"
 msgstr "%d মোট"
 
-#: libraries/DisplayResults.class.php:4926 libraries/sql.lib.php:1688
+#: libraries/DisplayResults.class.php:4929 libraries/sql.lib.php:1688
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "অনুসন্ধানে %01.4f সেঃ লেগেছ"
 
-#: libraries/DisplayResults.class.php:5010
-#: libraries/DisplayResults.class.php:5016 libraries/mult_submits.inc.php:45
+#: libraries/DisplayResults.class.php:5013
+#: libraries/DisplayResults.class.php:5019 libraries/mult_submits.inc.php:45
 #: libraries/server_databases.lib.php:141
 #: libraries/server_databases.lib.php:145
 #: libraries/server_privileges.lib.php:2983
@@ -3216,8 +3216,8 @@ msgstr "অনুসন্ধানে %01.4f সেঃ লেগেছ"
 msgid "With selected:"
 msgstr "নিবার্চিত গুলো নিয়ে:"
 
-#: libraries/DisplayResults.class.php:5014
-#: libraries/DisplayResults.class.php:5015
+#: libraries/DisplayResults.class.php:5017
+#: libraries/DisplayResults.class.php:5018
 #: libraries/server_databases.lib.php:143
 #: libraries/server_databases.lib.php:144
 #: libraries/server_privileges.lib.php:1014
@@ -3230,13 +3230,13 @@ msgstr "নিবার্চিত গুলো নিয়ে:"
 msgid "Check All"
 msgstr "সবগুলোতে টিক দাও"
 
-#: libraries/DisplayResults.class.php:5020 libraries/structure.lib.php:1445
+#: libraries/DisplayResults.class.php:5023 libraries/structure.lib.php:1445
 #: libraries/structure.lib.php:2166 querywindow.php:85
 msgid "Change"
 msgstr "পরিবর্তন"
 
-#: libraries/DisplayResults.class.php:5033
-#: libraries/DisplayResults.class.php:5304 libraries/Menu.class.php:324
+#: libraries/DisplayResults.class.php:5036
+#: libraries/DisplayResults.class.php:5307 libraries/Menu.class.php:324
 #: libraries/Menu.class.php:422 libraries/Menu.class.php:545
 #: libraries/Util.class.php:3366 libraries/Util.class.php:3367
 #: libraries/Util.class.php:4075 libraries/Util.class.php:4090
@@ -3249,29 +3249,29 @@ msgstr "পরিবর্তন"
 msgid "Export"
 msgstr "রফতানী"
 
-#: libraries/DisplayResults.class.php:5192
+#: libraries/DisplayResults.class.php:5195
 msgid "Query results operations"
 msgstr "অনুসন্ধান ফল"
 
-#: libraries/DisplayResults.class.php:5228 libraries/Header.class.php:358
+#: libraries/DisplayResults.class.php:5231 libraries/Header.class.php:358
 #: libraries/structure.lib.php:314 libraries/structure.lib.php:385
 #: libraries/structure.lib.php:1580
 msgid "Print view"
 msgstr "মুদ্রনের দেখা"
 
-#: libraries/DisplayResults.class.php:5246
+#: libraries/DisplayResults.class.php:5249
 msgid "Print view (with full texts)"
 msgstr "প্রিন্টের দেখা (with full texts)"
 
-#: libraries/DisplayResults.class.php:5317 libraries/tbl_chart.lib.php:351
+#: libraries/DisplayResults.class.php:5320 libraries/tbl_chart.lib.php:351
 msgid "Display chart"
 msgstr "চিত্র দেখাও"
 
-#: libraries/DisplayResults.class.php:5342
+#: libraries/DisplayResults.class.php:5345
 msgid "Visualize GIS data"
 msgstr "জিআইএস তথ্য দেখা"
 
-#: libraries/DisplayResults.class.php:5569
+#: libraries/DisplayResults.class.php:5572
 msgid "Link not found!"
 msgstr "সংযোগটি পাওয়া যায়নি!"
 
@@ -3493,7 +3493,7 @@ msgstr "কাজসমূহ"
 
 #: libraries/Menu.class.php:353 libraries/Menu.class.php:469
 #: libraries/Util.class.php:4097 libraries/Util.class.php:4111
-#: libraries/relation.lib.php:230
+#: libraries/relation.lib.php:234
 msgid "Tracking"
 msgstr "ট্রেকিং"
 
@@ -3633,7 +3633,7 @@ msgid "Could not save favorite table!"
 msgstr "সাম্প্রতিক টেবিল সংরক্ষন করা হয় নাই"
 
 #: libraries/RecentFavoriteTable.class.php:232
-#: libraries/structure.lib.php:2846
+#: libraries/structure.lib.php:2848
 #, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
@@ -3747,7 +3747,7 @@ msgstr "গুছানো"
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:116
-#: libraries/structure.lib.php:3035
+#: libraries/structure.lib.php:3037
 msgid "Tables"
 msgstr "টেবল"
 
@@ -4314,6 +4314,7 @@ msgid "Date and time"
 msgstr "সময় এবং তারিখ"
 
 #: libraries/Types.class.php:677 libraries/Types.class.php:1047
+#: libraries/normalization.lib.php:137 normalization.php:25
 msgctxt "string types"
 msgid "String"
 msgstr "স্ট্রিং"
@@ -4540,20 +4541,20 @@ msgstr "অতিরিক্ত"
 msgid "Jump to database"
 msgstr "ডাটাবেইজে যাও"
 
-#: libraries/build_html_for_db.lib.php:144
+#: libraries/build_html_for_db.lib.php:145
 msgid "Not replicated"
 msgstr "প্রতিলিপি হয় নাই"
 
-#: libraries/build_html_for_db.lib.php:155
+#: libraries/build_html_for_db.lib.php:156
 msgid "Replicated"
 msgstr "প্রতিলিপি করা হয়েছে"
 
-#: libraries/build_html_for_db.lib.php:173
+#: libraries/build_html_for_db.lib.php:174
 #, php-format
 msgid "Check privileges for database \"%s\"."
 msgstr "ডাটাবেইজের অধিকার পরীক্ষা \"%s\"।"
 
-#: libraries/build_html_for_db.lib.php:178
+#: libraries/build_html_for_db.lib.php:179
 msgid "Check Privileges"
 msgstr "অধিকারসমূহ পরীক্ষা"
 
@@ -7368,7 +7369,7 @@ msgid "possible deep recursion attack"
 msgstr "সাম্ভাব্য গভীর পুনরাবৃত্তির (recursion)আক্রমন"
 
 #: libraries/core.lib.php:920 libraries/mult_submits.inc.php:291
-#: tbl_replace.php:251
+#: tbl_replace.php:307
 msgid "No change"
 msgstr "পরিবর্তন নয়"
 
@@ -8358,11 +8359,11 @@ msgstr ""
 "ট্যাব কি দিয়ে মান থেকে মানে যাওয়া যাবে বা CTRL+arrows দিয়ে যে কোন জায়গায় "
 "যাওয়া যাবে।"
 
-#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1679
+#: libraries/insert_edit.lib.php:1980 libraries/sql.lib.php:1679
 msgid "Showing SQL query"
 msgstr "এসকিউএল অনুসন্ধান দেখাচ্ছে"
 
-#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1659
+#: libraries/insert_edit.lib.php:2005 libraries/sql.lib.php:1659
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "প্রবেশকৃত রো আইডি: %1$d"
@@ -8763,7 +8764,7 @@ msgstr "নতুন"
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:125
-#: libraries/structure.lib.php:3041
+#: libraries/structure.lib.php:3043
 msgid "Views"
 msgstr "ভিউসমূহ"
 
@@ -8772,134 +8773,134 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "নতুন"
 
-#: libraries/normalization.lib.php:107
+#: libraries/normalization.lib.php:108
 msgid "Make all columns atomic"
 msgstr ""
 
-#: libraries/normalization.lib.php:109 libraries/normalization.lib.php:244
+#: libraries/normalization.lib.php:110 libraries/normalization.lib.php:249
 msgid "First step of normalization (1NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:112 libraries/normalization.lib.php:159
-#: libraries/normalization.lib.php:202
+#: libraries/normalization.lib.php:113 libraries/normalization.lib.php:164
+#: libraries/normalization.lib.php:207
 msgid "Step 1."
 msgstr ""
 
-#: libraries/normalization.lib.php:114
+#: libraries/normalization.lib.php:115
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
 
-#: libraries/normalization.lib.php:121
+#: libraries/normalization.lib.php:122
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 
-#: libraries/normalization.lib.php:124
+#: libraries/normalization.lib.php:125
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
 
-#: libraries/normalization.lib.php:131 normalization.php:19
+#: libraries/normalization.lib.php:132 normalization.php:19
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select one…"
 msgstr "দুইটি স্তম্ভ নির্বাচন করুন"
 
-#: libraries/normalization.lib.php:132 normalization.php:20
+#: libraries/normalization.lib.php:133 normalization.php:20
 #, fuzzy
 #| msgid "Move column"
 msgid "No such column"
 msgstr "স্বম্ভ সরাও"
 
-#: libraries/normalization.lib.php:135
+#: libraries/normalization.lib.php:140
 msgid "split into "
 msgstr ""
 
-#: libraries/normalization.lib.php:156
+#: libraries/normalization.lib.php:161
 #, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
 msgstr "প্রাইমারি কী যোগ কর"
 
-#: libraries/normalization.lib.php:162
+#: libraries/normalization.lib.php:167
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
 msgstr "ভুল: সর্ম্পক পূর্ব থেকেই তৈরী আছে।"
 
-#: libraries/normalization.lib.php:167
+#: libraries/normalization.lib.php:172
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
 
-#: libraries/normalization.lib.php:174
+#: libraries/normalization.lib.php:179
 msgid "Add a primary key on existing column(s)"
 msgstr ""
 
-#: libraries/normalization.lib.php:179
+#: libraries/normalization.lib.php:184
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 
-#: libraries/normalization.lib.php:183
+#: libraries/normalization.lib.php:188
 #, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
 msgstr "প্রাইমারি কী যোগ কর"
 
-#: libraries/normalization.lib.php:201
+#: libraries/normalization.lib.php:206
 #, fuzzy
 #| msgid "Remove chart"
 msgid "Remove redundant columns"
 msgstr "চিত্র মুছ"
 
-#: libraries/normalization.lib.php:204
+#: libraries/normalization.lib.php:209
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
 
-#: libraries/normalization.lib.php:210
+#: libraries/normalization.lib.php:215
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
 
-#: libraries/normalization.lib.php:215
+#: libraries/normalization.lib.php:220
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "নির্বাচিত ব্যবহারকারীদের মুছ"
 
-#: libraries/normalization.lib.php:216
+#: libraries/normalization.lib.php:221
 #, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
 msgstr "স্বম্ভ যোগ করা"
 
-#: libraries/normalization.lib.php:241
+#: libraries/normalization.lib.php:246
 #, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
 msgstr "টেবল গঠনের কার্যাবলী লুকাও"
 
-#: libraries/normalization.lib.php:242
+#: libraries/normalization.lib.php:247
 msgid "Select up to what step you want to normalize"
 msgstr ""
 
-#: libraries/normalization.lib.php:245
+#: libraries/normalization.lib.php:250
 msgid "Second step of normalization (1NF+2NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:246
+#: libraries/normalization.lib.php:251
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:253
+#: libraries/normalization.lib.php:258
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
@@ -9790,6 +9791,16 @@ msgstr ""
 msgid "Displays a link to download this image."
 msgstr "এই ছবিটি ডাউনলোডের সংযোগ দেখাও।"
 
+#: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:31
+msgid ""
+"Image upload functionality which also displays a thumbnail. The options are "
+"the width and height of the thumbnail in pixels. Defaults to 100 X 100."
+msgstr ""
+
+#: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:78
+msgid "Image preview here"
+msgstr ""
+
 #: libraries/plugins/transformations/abstract/InlineTransformationsPlugin.class.php:33
 msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
@@ -9814,6 +9825,17 @@ msgstr ""
 "একটি স্ট্রিং এ লেখা যোগ কর। একমাত্র অপশনটি হল যুক্ত হওয়ার লেখাটি (একটি কৌওট দ্বারা "
 "সীমিত হবে, স্বাভাবিক হলো শুন্য স্থান)।"
 
+#: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:33
+msgid ""
+"Validates the string using regular expression and performs insert only if "
+"string matches it. The first option is the Regular Expression."
+msgstr ""
+
+#: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
+#, php-format
+msgid "Validation failed for the input string %s."
+msgstr ""
+
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
 msgstr "বাক্য চিহ্নিত করনসহ SQL অনুসন্ধান গঠন কর।"
@@ -9830,6 +9852,12 @@ msgstr ""
 "এড়িয়ে যাওয়া হবে (স্বাভাবিক ০)। দ্বিতীয় অপশনটি হলো ফেরত দেওয়ার অক্ষরের সংখ্যা "
 "(স্বাভাবিক: স্ট্রিং এর শেষ পর্যন্ত।)। তৃতীয় অপশনটি হল কাটার সময় শেষে যোগ করার এবং/"
 "বা পরে যোগ করার স্ট্রিং (স্বাভাবিক:\"…\")।"
+
+#: libraries/plugins/transformations/abstract/TextFileUploadTransformationsPlugin.class.php:33
+msgid ""
+"File upload functionality for text field. It does not have a textarea for "
+"input."
+msgstr ""
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -9886,68 +9914,68 @@ msgid "Displaying Column Comments"
 msgstr "স্তম্ভের মন্তব্য দেখাচ্ছে"
 
 #: libraries/relation.lib.php:170
-#: libraries/tbl_columns_definition_form.lib.php:322
-#: transformation_overview.php:39
 msgid "Browser transformation"
 msgstr "ব্রাউজারের রুপান্তর"
 
-#: libraries/relation.lib.php:176
-msgid ""
-"Please see the documentation on how to update your column_comments table."
+#: libraries/relation.lib.php:177
+#, fuzzy
+#| msgid ""
+#| "Please see the documentation on how to update your column_comments table."
+msgid "Please see the documentation on how to update your column_info table. "
 msgstr "কিভাবে column_comments টেবল আপডেট করতে হবে তার জন্য সহায়িকা দেখুন।"
 
-#: libraries/relation.lib.php:186 libraries/sql_query_form.lib.php:412
+#: libraries/relation.lib.php:190 libraries/sql_query_form.lib.php:412
 msgid "Bookmarked SQL query"
 msgstr "বুকর্মাককৃত SQL অনুসন্ধান"
 
-#: libraries/relation.lib.php:197 querywindow.php:70
+#: libraries/relation.lib.php:201 querywindow.php:70
 msgid "SQL history"
 msgstr "এসকিউএল ইতিহাস"
 
-#: libraries/relation.lib.php:208
+#: libraries/relation.lib.php:212
 msgid "Persistent recently used tables"
 msgstr "স্থায়ী সাম্প্রতিক ব্যবহৃত টেবলসমূহ"
 
-#: libraries/relation.lib.php:219
+#: libraries/relation.lib.php:223
 msgid "Persistent tables' UI preferences"
 msgstr "Persistent tables' UI পছন্দ"
 
-#: libraries/relation.lib.php:241
+#: libraries/relation.lib.php:245
 msgid "User preferences"
 msgstr "ব্যবহারকারীর পছন্দ (preferences)"
 
-#: libraries/relation.lib.php:258
+#: libraries/relation.lib.php:262
 msgid "Configurable menus"
 msgstr "কনফিগার করারমত মেনু"
 
-#: libraries/relation.lib.php:269
+#: libraries/relation.lib.php:273
 msgid "Hide/show navigation items"
 msgstr "চলাচল ফ্রেম লুকাও/দেখাও"
 
-#: libraries/relation.lib.php:280
+#: libraries/relation.lib.php:284
 msgid "Saving Query-By-Example searches"
 msgstr ""
 
-#: libraries/relation.lib.php:291
+#: libraries/relation.lib.php:295
 msgid "Managing Central list of columns"
 msgstr ""
 
-#: libraries/relation.lib.php:297
+#: libraries/relation.lib.php:301
 msgid "Quick steps to setup advanced features:"
 msgstr "উন্নততর বিষয়গুলো দ্রুত সেটআপের পদক্ষেপসমূহ:"
 
-#: libraries/relation.lib.php:301
+#: libraries/relation.lib.php:305
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr ""
 "প্রয়োজনীয় টেবলসমূহ  <code>examples/create_tables.sql</code> এর সাহায্যে তৈরী কর "
 "।"
 
-#: libraries/relation.lib.php:307
+#: libraries/relation.lib.php:311
 msgid "Create a pma user and give access to these tables."
 msgstr "একটি PMA ব্যবহারকারী তৈরী কর এবং টেবিলসমূহে প্রবেশাধীকার দাও।"
 
-#: libraries/relation.lib.php:312
+#: libraries/relation.lib.php:316
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -9955,11 +9983,11 @@ msgstr ""
 "কনফিগারেশন ফাইলে (<code>config.inc.php</code>) উন্নততর বিষয়গুলো কার্যকর কর, "
 "উদাহরণ স্বরুপ <code>config.sample.inc.php</code> থেকে শুরু কর।"
 
-#: libraries/relation.lib.php:320
+#: libraries/relation.lib.php:324
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr "আধুনিক কনফিগারেশন ফাইল লোড করার জন্য phpMyAdmin এ আবার লগইন করুন।"
 
-#: libraries/relation.lib.php:1514
+#: libraries/relation.lib.php:1583
 msgid "no description"
 msgstr "বণর্না নাই"
 
@@ -10421,15 +10449,15 @@ msgstr "আপনাকে অবশ্যই এই ইভেন্টের �
 msgid "You must provide an event definition."
 msgstr "আপনাকে অবশ্যই ইভেন্টের সংজ্ঞা দিতে হবে।"
 
-#: libraries/rte/rte_footer.lib.php:91
+#: libraries/rte/rte_footer.lib.php:86
 msgid "OFF"
 msgstr "বন্ধ"
 
-#: libraries/rte/rte_footer.lib.php:96
+#: libraries/rte/rte_footer.lib.php:91
 msgid "ON"
 msgstr "খোলা"
 
-#: libraries/rte/rte_footer.lib.php:108
+#: libraries/rte/rte_footer.lib.php:103
 msgid "Event scheduler status"
 msgstr "ইভেন্ট সময়সূচীর অবস্থা"
 
@@ -12845,7 +12873,7 @@ msgid "Effective"
 msgstr "কার্যকর"
 
 #: libraries/structure.lib.php:2524 libraries/tbl_indexes.lib.php:61
-#: tbl_addfield.php:84
+#: tbl_addfield.php:86
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "%1$s টেবিলটি সফলভাবে পরিবর্তন করা হয়েছে।"
@@ -12855,26 +12883,26 @@ msgstr "%1$s টেবিলটি সফলভাবে পরিবর্ত�
 msgid "Query error"
 msgstr "অনুসন্ধানে ভুল"
 
-#: libraries/structure.lib.php:2670
+#: libraries/structure.lib.php:2672
 msgid "The columns have been moved successfully."
 msgstr "স্তম্ভগুলো সফলভাবে সরানো হয়েছে।"
 
-#: libraries/structure.lib.php:2718
+#: libraries/structure.lib.php:2720
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "স্তম্ভের নাম '%s'টি MySQL'র সংরক্ষিত শব্দ।"
 
-#: libraries/structure.lib.php:2847
+#: libraries/structure.lib.php:2849
 #, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
 msgstr "এই ধারাটি যোগ কর"
 
-#: libraries/structure.lib.php:2893
+#: libraries/structure.lib.php:2895
 msgid "Favorite List is full!"
 msgstr ""
 
-#: libraries/structure.lib.php:2982
+#: libraries/structure.lib.php:2984
 #, fuzzy
 #| msgid "Show SQL queries"
 msgid "Showing create queries"
@@ -13018,10 +13046,6 @@ msgid "List of available transformations and their options"
 msgstr "প্রাপপীয় রুপান্তরসমূহের তালিকা এবং উহাদের অপশন"
 
 #: libraries/tbl_columns_definition_form.lib.php:324
-msgid "Transformation options"
-msgstr "রুপান্তরের অপশন"
-
-#: libraries/tbl_columns_definition_form.lib.php:327
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -13032,43 +13056,69 @@ msgstr ""
 "ব্যাক স্ল্যাশ (\"\\\") বা একটি কঔট (\"'\") চিহ্ন দিতে হয় তবে মানটির আগে একটি "
 "ব্যাক স্ল্যাশ দিন ('\\\\কখগ' বা 'অ\\'ক'।"
 
-#: libraries/tbl_columns_definition_form.lib.php:573
+#: libraries/tbl_columns_definition_form.lib.php:332
+#: transformation_overview.php:41
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Browser display transformation"
+msgstr "ব্রাউজারের রুপান্তর"
+
+#: libraries/tbl_columns_definition_form.lib.php:334
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Browser display transformation options"
+msgstr "ব্রাউজারের রুপান্তর"
+
+#: libraries/tbl_columns_definition_form.lib.php:337
+#: transformation_overview.php:42
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Input transformation"
+msgstr "ব্রাউজারের রুপান্তর"
+
+#: libraries/tbl_columns_definition_form.lib.php:339
+#, fuzzy
+#| msgid "Transformation options"
+msgid "Input transformation options"
+msgstr "রুপান্তরের অপশন"
+
+#: libraries/tbl_columns_definition_form.lib.php:580
 #, fuzzy, php-format
 #| msgid "Select referenced key"
 msgid "Referenced by %s."
 msgstr "রেফারেন্সড কী নির্বাচন করুন"
 
-#: libraries/tbl_columns_definition_form.lib.php:581
+#: libraries/tbl_columns_definition_form.lib.php:588
 #, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Is a foreign key."
 msgstr "ফরেন কী নির্বাচন করুন"
 
-#: libraries/tbl_columns_definition_form.lib.php:606
+#: libraries/tbl_columns_definition_form.lib.php:613
 #, fuzzy
 #| msgid "Remove chart"
 msgid "Pick from Central Columns"
 msgstr "চিত্র মুছ"
 
-#: libraries/tbl_columns_definition_form.lib.php:784
+#: libraries/tbl_columns_definition_form.lib.php:797
 msgid "first"
 msgstr "প্রথম"
 
-#: libraries/tbl_columns_definition_form.lib.php:793
+#: libraries/tbl_columns_definition_form.lib.php:806
 #, php-format
 msgid "after %s"
 msgstr "%s এর পরে"
 
-#: libraries/tbl_columns_definition_form.lib.php:1082
+#: libraries/tbl_columns_definition_form.lib.php:1095
 msgid "Edit ENUM/SET values"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1107
+#: libraries/tbl_columns_definition_form.lib.php:1120
 msgctxt "for default"
 msgid "None"
 msgstr "কিছু না"
 
-#: libraries/tbl_columns_definition_form.lib.php:1108
+#: libraries/tbl_columns_definition_form.lib.php:1121
 msgid "As defined:"
 msgstr "যেমন বলা হয়েছে:"
 
@@ -13370,7 +13420,7 @@ msgstr "জিপ আর্কাইভের ভিতর কোন ফাই�
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "মারাত্মক ভুল: চলাচলের সুবিধা শুধু মাত্র এজাক্সের মাধ্যমে পাওয়া যাবে"
 
-#: normalization.php:53
+#: normalization.php:57
 msgid "Second/Third step of normalization"
 msgstr ""
 
@@ -13883,6 +13933,11 @@ msgstr "%s টেবিল টি %s এ প্রতিলিপি করা �
 msgid "The table name is empty!"
 msgstr "টেবিলের নামটি খালি!"
 
+#: tbl_replace.php:236
+#, php-format
+msgid "Row: %s, Column: %s, Error: %s"
+msgstr ""
+
 #: tbl_structure.php:93
 msgid "No column selected."
 msgstr "কোন স্তম্ভ নির্বাচন করা হয় নাই"
@@ -13899,11 +13954,19 @@ msgstr "আরও থীমের জন্য!"
 msgid "Available MIME types"
 msgstr "মাইমের ধরন"
 
-#: transformation_overview.php:35
-msgid "Available transformations"
+#: transformation_overview.php:37
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available browser display transformations"
 msgstr "প্রাপ্ত রুপান্তরসমূহ"
 
-#: transformation_overview.php:40
+#: transformation_overview.php:38
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available input transformations"
+msgstr "প্রাপ্ত রুপান্তরসমূহ"
+
+#: transformation_overview.php:53
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "বর্ণনা"
