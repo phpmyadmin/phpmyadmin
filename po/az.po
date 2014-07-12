@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-10 06:43-0400\n"
-"PO-Revision-Date: 2014-07-12 21:49+0200\n"
+"PO-Revision-Date: 2014-07-12 22:42+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
@@ -9774,21 +9774,23 @@ msgstr "Xəta."
 
 #: libraries/replication_gui.lib.php:957
 msgid "Unknown error"
-msgstr ""
+msgstr "Naməlum xəta"
 
 #: libraries/replication_gui.lib.php:967
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "Əsas %s serverə bağlanmaq mümkün deyil."
 
 #: libraries/replication_gui.lib.php:978
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
+"Əsas server log mövqeyi oxuna bilmir. Əsas serverdə imtiyaz tənzimləmə "
+"problemləri ola bilər."
 
 #: libraries/replication_gui.lib.php:996
 msgid "Unable to change master!"
-msgstr ""
+msgstr "Əsas(master) dəyişdirilə bilmir!"
 
 #: libraries/replication_gui.lib.php:1000
 #, php-format
@@ -9804,16 +9806,16 @@ msgstr "Master server %s olaraq uğurla dəyişdirildi."
 #: libraries/rte/rte_triggers.lib.php:129
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr ""
+msgstr "Aşağıdakı sorğu yerinə yetirilə bilmədi: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:134
 msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
+msgstr "Bağışlayın, yığışdırılmış(dropped) hadisəni bərpa eləmək mümkün deyil."
 
 #: libraries/rte/rte_events.lib.php:137 libraries/rte/rte_routines.lib.php:336
 #: libraries/rte/rte_triggers.lib.php:109
 msgid "The backed up query was:"
-msgstr ""
+msgstr "Saxlanılmış sorğu:"
 
 #: libraries/rte/rte_events.lib.php:144
 #, php-format
@@ -9828,7 +9830,7 @@ msgstr "%1$s hadisəsi yaradıldı."
 #: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_routines.lib.php:378
 #: libraries/rte/rte_triggers.lib.php:150
 msgid "One or more errors have occurred while processing your request:"
-msgstr ""
+msgstr "İstəyiniz yerinə yetirilərkən bir və ya daha çox xəta yarandı:"
 
 #: libraries/rte/rte_events.lib.php:234
 msgid "Edit event"
@@ -9847,7 +9849,7 @@ msgstr "Prosesler"
 #: libraries/rte/rte_events.lib.php:423 libraries/rte/rte_routines.lib.php:946
 #: libraries/rte/rte_triggers.lib.php:353 view_create.php:177
 msgid "Details"
-msgstr ""
+msgstr "Təfsilatları"
 
 #: libraries/rte/rte_events.lib.php:426
 msgid "Event name"
@@ -9864,11 +9866,11 @@ msgstr "%s buna dəyiş"
 
 #: libraries/rte/rte_events.lib.php:475
 msgid "Execute at"
-msgstr ""
+msgstr "Yerinə yetir"
 
 #: libraries/rte/rte_events.lib.php:483
 msgid "Execute every"
-msgstr ""
+msgstr "Yerinə yetir; hər biri"
 
 #: libraries/rte/rte_events.lib.php:502
 msgctxt "Start of recurring event"
@@ -9888,50 +9890,49 @@ msgstr "Tamamlamada qoruma"
 #: libraries/rte/rte_routines.lib.php:1056
 #: libraries/rte/rte_triggers.lib.php:413 view_create.php:206
 msgid "Definer"
-msgstr ""
+msgstr "Təyinedici"
 
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr ""
+msgstr "Təyinedici\"username@hostname\" formatında olmalıdır!"
 
 #: libraries/rte/rte_events.lib.php:580
 msgid "You must provide an event name!"
-msgstr ""
+msgstr "Bir hadisə adı vermək məcburiyyətindəsiniz!"
 
 #: libraries/rte/rte_events.lib.php:595
 msgid "You must provide a valid interval value for the event."
-msgstr ""
+msgstr "Hər hadisə üçün düzgün interval verməlisiniz."
 
 #: libraries/rte/rte_events.lib.php:611
 msgid "You must provide a valid execution time for the event."
-msgstr ""
+msgstr "Hadisə üçün düzgün icra zamanı verməlisiniz."
 
 #: libraries/rte/rte_events.lib.php:615
 msgid "You must provide a valid type for the event."
-msgstr ""
+msgstr "Hadisə üçün düzgün bir tip verməlisiniz."
 
 #: libraries/rte/rte_events.lib.php:639
 msgid "You must provide an event definition."
-msgstr ""
+msgstr "Bir hadisə tərifi verməlisiniz."
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
-msgstr ""
+msgstr "Bağlı"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "Açmaq"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
-msgstr ""
+msgstr "Hadisə planlaşdırıcısının statusu"
 
 #: libraries/rte/rte_list.lib.php:55
-#, fuzzy
 msgid "Returns"
-msgstr "Cedvel başlığı"
+msgstr "Geri dönüşlər"
 
 #: libraries/rte/rte_routines.lib.php:76
 msgid ""
@@ -9940,41 +9941,45 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
+"Çoxlu sayda sorğu yerinə yetirə bilməyən PHP-nin dəstəkləmədiyi 'mysql' "
+"genişləmsi istifadə edirsiniz.[strong] Yadda saxlanılmış bəzi proseduraların "
+"icrasında xəta ola bilər![/strong]. Zəhmət olmasa, problemlərin qarşısın "
+"almaq üçün təkmilləşdirilmiş 'mysqli' genişlənməsi istifadə edin."
 
 #: libraries/rte/rte_routines.lib.php:292
 #: libraries/rte/rte_routines.lib.php:1132
 #, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr ""
+msgstr "Səhv tip prosedurları: \"%s\""
 
 #: libraries/rte/rte_routines.lib.php:332
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
+"Bağışlayın, silinmiş(dropped) proseduraların bərpa edilməsi uğursuz oldu."
 
 #: libraries/rte/rte_routines.lib.php:344
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified."
-msgstr "%s cedveli leğv edildi"
+msgstr "Prosedura %1$s dəyişdirildi."
 
 #: libraries/rte/rte_routines.lib.php:365
-#, fuzzy, php-format
+#, php-format
 msgid "Routine %1$s has been created."
-msgstr "%s cedveli leğv edildi"
+msgstr "Prosedura %1$s yaradıldı."
 
 #: libraries/rte/rte_routines.lib.php:446
 msgid "Edit routine"
-msgstr ""
+msgstr "Proseduranı redaktə et"
 
 #: libraries/rte/rte_routines.lib.php:949
-#, fuzzy
 #| msgid "Column names"
 msgid "Routine name"
-msgstr "Sütun adları"
+msgstr "Prosedura adı"
 
 #: libraries/rte/rte_routines.lib.php:975
 msgid "Parameters"
-msgstr ""
+msgstr "Parametrlər"
 
 #: libraries/rte/rte_routines.lib.php:981
 msgid "Direction"
@@ -9985,24 +9990,21 @@ msgid "Add parameter"
 msgstr "Parametr əlavə et"
 
 #: libraries/rte/rte_routines.lib.php:1003
-#, fuzzy
 msgid "Remove last parameter"
-msgstr "Cedveli yeniden adlandır"
+msgstr "Son parametri sil"
 
 #: libraries/rte/rte_routines.lib.php:1008
 msgid "Return type"
-msgstr ""
+msgstr "Geri dönüş tipi"
 
 #: libraries/rte/rte_routines.lib.php:1014
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "Uzunluq/Deyerler*"
+msgstr "Geri dönüş uzunluğu/qiymətləri"
 
 #: libraries/rte/rte_routines.lib.php:1020
-#, fuzzy
 msgid "Return options"
-msgstr "Cedvel başlığı"
+msgstr "Geri dönüş seçənəkləri"
 
 #: libraries/rte/rte_routines.lib.php:1051
 msgid "Is deterministic"
