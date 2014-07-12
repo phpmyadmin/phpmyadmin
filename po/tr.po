@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-10 06:43-0400\n"
-"PO-Revision-Date: 2014-07-11 14:09+0200\n"
+"PO-Revision-Date: 2014-07-12 23:04+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -8658,7 +8658,7 @@ msgstr "Yeni"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
 msgid "Procedure"
-msgstr "Yordam"
+msgstr "İşlem"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
@@ -8765,6 +8765,7 @@ msgstr "Var olan sütun(lar)a birincil anahtar ekleyin"
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
+"Birincil anahtar olarak var olan sütun birleşimleri yapmak mümkün değilse"
 
 #: libraries/normalization.lib.php:183
 msgid "+ Add a new primary key column"
@@ -8786,6 +8787,8 @@ msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
+"Gereksiz sütunları kontrol edin ve kaldır seçeneğine tıklayın. Eğer gereksiz "
+"sütun yoksa, 'Gereksiz sütun yok' seçeneğine tıklayın"
 
 #: libraries/normalization.lib.php:215
 msgid "Remove selected"
@@ -8801,7 +8804,7 @@ msgstr "Tablo yapısını iyileştir (Normalleştirme):"
 
 #: libraries/normalization.lib.php:242
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "Normalleştirmek istediğiniz adıma kadar seçin"
 
 #: libraries/normalization.lib.php:245
 msgid "Second step of normalization (1NF+2NF)"
@@ -8816,6 +8819,7 @@ msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
+"İpucu: Doğru normalleştirmeyi elde etmek için işlemi dikkatlice takip edin"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to:"
