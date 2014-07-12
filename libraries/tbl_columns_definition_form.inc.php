@@ -145,8 +145,8 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     }
 
     $content_cells[$columnNumber] = PMA_getHtmlForColumnAttributes(
-        $columnNumber, isset($columnMeta) ? $columnMeta : null, strtoupper($type),
-        $length_values_input_size, $length,
+        $columnNumber, isset($columnMeta) ? $columnMeta : array(),
+        strtoupper($type), $length_values_input_size, $length,
         isset($default_current_timestamp) ? $default_current_timestamp : null,
         isset($extracted_columnspec) ? $extracted_columnspec : null,
         isset($submit_attribute) ? $submit_attribute : null,
@@ -156,7 +156,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $comments_map, isset($fields_meta) ? $fields_meta : null, $is_backup,
         isset($move_columns) ? $move_columns : null, $cfgRelation,
         isset($available_mime) ? $available_mime : null,
-        isset($mime_map) ? $mime_map : null
+        isset($mime_map) ? $mime_map : array()
     );
 } // end for
 $html = PMA_getHtmlForTableCreateOrAddField(

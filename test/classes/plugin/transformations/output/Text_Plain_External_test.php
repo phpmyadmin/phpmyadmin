@@ -10,7 +10,8 @@
  */
 
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/plugins/transformations/Text_Plain_External.class.php';
+require_once 'libraries/plugins/transformations/output/'
+    . 'Text_Plain_External.class.php';
 
 /**
  * Tests for Text_Plain_External class

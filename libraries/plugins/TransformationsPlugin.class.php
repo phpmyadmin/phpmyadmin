@@ -39,7 +39,7 @@ abstract class TransformationsPlugin implements TransformationsInterface
      * @param array  $options transformation options
      * @param string $meta    meta information
      *
-     * @return void
+     * @return string the transformed text
      */
     abstract public function applyTransformation(
         $buffer, $options = array(), $meta = ''

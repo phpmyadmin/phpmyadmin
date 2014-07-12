@@ -1,25 +1,27 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Image PNG Inline Transformations plugin for phpMyAdmin
+ * Image JPEG Upload Input Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Inline
+ * @subpackage ImageUpload
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the inline transformations interface */
-require_once 'abstract/InlineTransformationsPlugin.class.php';
+/* Get the image upload transformations class */
+require_once 'libraries/plugins/transformations/abstract/'
+    . 'ImageUploadTransformationsPlugin.class.php';
 
 /**
- * Handles the inline transformation for image png
+ * Handles the image upload input transformation for JPEG.
+ * Has two option: width & height of the thumbnail
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Inline
+ * @subpackage ImageUpload
  */
-class Image_PNG_Inline extends InlineTransformationsPlugin
+class Image_JPEG_Upload extends ImageUploadTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type
@@ -38,7 +40,7 @@ class Image_PNG_Inline extends InlineTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "PNG";
+        return "JPEG";
     }
 }
 ?>

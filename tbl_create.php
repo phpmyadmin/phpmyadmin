@@ -76,9 +76,12 @@ if (isset($_REQUEST['do_save_data'])) {
                     && strlen($_REQUEST['field_name'][$fieldindex])
                 ) {
                     PMA_setMIME(
-                        $db, $table, $_REQUEST['field_name'][$fieldindex], $mimetype,
+                        $db, $table,
+                        $_REQUEST['field_name'][$fieldindex], $mimetype,
                         $_REQUEST['field_transformation'][$fieldindex],
-                        $_REQUEST['field_transformation_options'][$fieldindex]
+                        $_REQUEST['field_transformation_options'][$fieldindex],
+                        $_REQUEST['field_input_transformation'][$fieldindex],
+                        $_REQUEST['field_input_transformation_options'][$fieldindex]
                     );
                 }
             }

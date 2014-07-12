@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for Text_Plain_Imagelink class
+ * Tests for Text_Plain_Sql class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,15 +9,18 @@
  * Include to test.
  */
 
-require_once 'libraries/plugins/transformations/Text_Plain_Imagelink.class.php';
+require_once 'libraries/Util.class.php';
+require_once 'libraries/plugins/transformations/output/'
+    . 'Text_Plain_Sql.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/sqlparser.lib.php';
 
 /**
- * Tests for Text_Plain_Imagelink class
+ * Tests for Text_Plain_Sql class
  *
  * @package PhpMyAdmin-test
  */
-class Text_Plain_Imagelink_Test extends PHPUnit_Framework_TestCase
+class Text_Plain_Sql_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -33,7 +36,7 @@ class Text_Plain_Imagelink_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Text_Plain_Imagelink();
+        $this->object = new Text_Plain_Sql();
     }
 
     /**
@@ -57,14 +60,10 @@ class Text_Plain_Imagelink_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetInfo()
     {
-        $info = 'Displays an image and a link; '
-            . 'the column contains the filename. The first option'
-            . ' is a URL prefix like "http://www.example.com/". '
-            . 'The second and third options'
-            . ' are the width and the height in pixels.';
+        $info = 'Formats text as SQL query with syntax highlighting.';
         $this->assertEquals(
             $info,
-            Text_Plain_Imagelink::getInfo()
+            Text_Plain_Sql::getInfo()
         );
 
     }
@@ -79,8 +78,8 @@ class Text_Plain_Imagelink_Test extends PHPUnit_Framework_TestCase
     public function testGetName()
     {
         $this->assertEquals(
-            "Image Link",
-            Text_Plain_Imagelink::getName()
+            "SQL",
+            Text_Plain_Sql::getName()
         );
     }
 
@@ -95,7 +94,7 @@ class Text_Plain_Imagelink_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             "Text",
-            Text_Plain_Imagelink::getMIMEType()
+            Text_Plain_Sql::getMIMEType()
         );
     }
 
@@ -110,7 +109,7 @@ class Text_Plain_Imagelink_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             "Plain",
-            Text_Plain_Imagelink::getMIMESubtype()
+            Text_Plain_Sql::getMIMESubtype()
         );
     }
 
@@ -123,11 +122,11 @@ class Text_Plain_Imagelink_Test extends PHPUnit_Framework_TestCase
      */
     public function testApplyTransformation()
     {
-        $buffer = "PMA_IMAGE";
-        $options = array("./image/", "200");
-        $result = '<a href="./image/PMA_IMAGE" target="_blank">'
-             . '<img src="./image/PMA_IMAGE" border="0" width="200" '
-             . 'height="50" />PMA_IMAGE</a>';
+        $buffer = "select *";
+        $options = array("option1", "option2");
+        $result = '<code class="sql"><pre>' . "\n"
+            . 'select *' . "\n"
+            . '</pre></code>';
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($buffer, $options)

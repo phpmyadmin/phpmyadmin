@@ -124,6 +124,22 @@ class PMA_Scripts
     }
 
     /**
+     * Add new files to the list of scripts
+     *
+     * @param array $filelist       The array of file names
+     * @param bool  $conditional_ie Whether to wrap the script tag in
+     *                              conditional comments for IE
+     *
+     * @return void
+     */
+    public function addFiles($filelist, $conditional_ie = false)
+    {
+        foreach ($filelist as $filename) {
+            $this->addFile($filename, $conditional_ie);
+        }
+    }
+
+    /**
      * Determines whether to fire up an onload event for a file
      *
      * @param string $filename The name of the file to be checked

@@ -22,6 +22,7 @@ require_once 'libraries/db_table_exists.lib.php';
  * functions implementation for this script
  */
 require_once 'libraries/insert_edit.lib.php';
+require_once 'libraries/transformations.lib.php';
 
 /**
  * Determine whether Insert or Edit and set global variables
@@ -32,7 +33,10 @@ list(
 ) = PMA_determineInsertOrEdit(
     isset($where_clause) ? $where_clause : null, $db, $table
 );
-
+// Increase number of rows if unsaved rows are more
+if (!empty($unsaved_values) && count($rows) < count($unsaved_values)) {
+    $rows = array_fill(0, count($unsaved_values), false);
+}
 /**
  * file listing
 */
@@ -158,6 +162,7 @@ if (! $cfg['ShowFieldTypesInDataEditView']) {
     $html_output .= PMA_showColumnTypesInDataEditView($url_params, false);
 }
 
+$GLOBALS['plugin_scripts'] = array();
 foreach ($rows as $row_id => $current_row) {
     if ($current_row === false) {
         unset($current_row);
@@ -169,8 +174,14 @@ foreach ($rows as $row_id => $current_row) {
     $current_result = (isset($result) && is_array($result) && isset($result[$row_id])
         ? $result[$row_id]
         : $result);
+    $repopulate = array();
+    $checked = true;
+    if (isset($unsaved_values[$row_id])) {
+        $repopulate = $unsaved_values[$row_id];
+        $checked = false;
+    }
     if ($insert_mode && $row_id > 0) {
-        $html_output .= PMA_getHtmlForIgnoreOption($row_id);
+        $html_output .= PMA_getHtmlForIgnoreOption($row_id, $checked);
     }
 
     $html_output .= PMA_getHtmlForInsertEditRow(
@@ -179,9 +190,11 @@ foreach ($rows as $row_id => $current_row) {
         isset($current_row) ? $current_row : null, $o_rows, $tabindex, $columns_cnt,
         $is_upload, $tabindex_for_function, $foreigners, $tabindex_for_null,
         $tabindex_for_value, $table, $db, $row_id, $titles,
-        $biggest_max_file_size, $text_dir
+        $biggest_max_file_size, $text_dir, $repopulate, $where_clause_array
     );
 } // end foreach on multi-edit
+$scripts->addFiles($GLOBALS['plugin_scripts']);
+unset($unsaved_values, $checked, $repopulate, $GLOBALS['plugin_scripts']);
 
 $html_output .= PMA_getHtmlForGisEditor();
 

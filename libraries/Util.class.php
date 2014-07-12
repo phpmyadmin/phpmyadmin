@@ -1038,7 +1038,7 @@ class PMA_Util
             $retval .= '</div>';
         }
 
-        if ($cfg['ShowSQL'] == true && ! empty($sql_query)) {
+        if ($cfg['ShowSQL'] == true && ! empty($sql_query) && $sql_query !== ';') {
             // Html format the query to be displayed
             // If we want to show some sql code it is easiest to create it here
             /* SQL-Parser-Analyzer */

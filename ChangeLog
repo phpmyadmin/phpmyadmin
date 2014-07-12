@@ -20,6 +20,7 @@ phpMyAdmin - ChangeLog
 + rfe #654  Range Search Capability
 + rfe #1490 Dynamic process list
 + rfe #1522 Drag and Drop SQL import
++ rfe #637  Custom Field Handlers
 
 4.2.6.0 (not yet released)
 - bug #4471 Undefined index warning with referenced column.

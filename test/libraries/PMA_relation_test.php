@@ -252,4 +252,43 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             PMA_getComments($db, $table)
         );
     }
+
+    /**
+     * Test for PMA_tryUpgradeTransformations
+     *
+     * @return void
+     */
+    public function testPMATryUpgradeTransformations()
+    {
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->any())
+            ->method('tryQuery')
+            ->will($this->returnValue(true));
+        $dbi->expects($this->any())
+            ->method('numRows')
+            ->will($this->returnValue(0));
+        $dbi->expects($this->any())
+            ->method('getError')
+            ->will($this->onConsecutiveCalls(true, false));
+        $GLOBALS['dbi'] = $dbi;
+
+        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
+        $GLOBALS['cfg']['Server']['column_info'] = 'column_info';
+
+        // Case 1
+        $actual = PMA_tryUpgradeTransformations();
+        $this->assertEquals(
+            false,
+            $actual
+        );
+
+        // Case 2
+        $actual = PMA_tryUpgradeTransformations();
+        $this->assertEquals(
+            true,
+            $actual
+        );
+    }
 }

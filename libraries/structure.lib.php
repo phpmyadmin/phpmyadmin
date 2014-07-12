@@ -2566,7 +2566,9 @@ function PMA_updateColumns($db, $table)
                     $db, $table, $_REQUEST['field_name'][$fieldindex],
                     $mimetype,
                     $_REQUEST['field_transformation'][$fieldindex],
-                    $_REQUEST['field_transformation_options'][$fieldindex]
+                    $_REQUEST['field_transformation_options'][$fieldindex],
+                    $_REQUEST['field_input_transformation'][$fieldindex],
+                    $_REQUEST['field_input_transformation_options'][$fieldindex]
                 );
             }
         }

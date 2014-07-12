@@ -9,7 +9,7 @@
  * Include to test.
  */
 
-require_once 'libraries/plugins/transformations/Image_JPEG_Link.class.php';
+require_once 'libraries/plugins/transformations/output/Image_JPEG_Link.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**

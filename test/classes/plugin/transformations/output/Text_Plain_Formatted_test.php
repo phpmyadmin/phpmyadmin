@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for Application_Octetstream_Hex class
+ * Tests for Text_Plain_Formatted class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,15 +9,16 @@
  * Include to test.
  */
 
+require_once 'libraries/plugins/transformations/output/'
+    . 'Text_Plain_Formatted.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/plugins/transformations/Application_Octetstream_Hex.class.php';
 
 /**
- * Tests for Application_Octetstream_Hex class
+ * Tests for Text_Plain_Formatted class
  *
  * @package PhpMyAdmin-test
  */
-class Application_Octetstream_Hex_Test extends PHPUnit_Framework_TestCase
+class Text_Plain_Formatted_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -33,7 +34,7 @@ class Application_Octetstream_Hex_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Application_Octetstream_Hex();
+        $this->object = new Text_Plain_Formatted();
     }
 
     /**
@@ -57,13 +58,12 @@ class Application_Octetstream_Hex_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetInfo()
     {
-        $info
-            = 'Displays hexadecimal representation of data. Optional first'
-            . ' parameter specifies how often space will be added (defaults'
-            . ' to 2 nibbles).';
+        $info = 'Displays the contents of the column as-is, without running it'
+            . ' through htmlspecialchars(). That is, the column is assumed'
+            . ' to contain valid HTML.';
         $this->assertEquals(
             $info,
-            Application_Octetstream_Hex::getInfo()
+            Text_Plain_Formatted::getInfo()
         );
 
     }
@@ -78,8 +78,8 @@ class Application_Octetstream_Hex_Test extends PHPUnit_Framework_TestCase
     public function testGetName()
     {
         $this->assertEquals(
-            "Hex",
-            Application_Octetstream_Hex::getName()
+            "Formatted",
+            Text_Plain_Formatted::getName()
         );
     }
 
@@ -93,8 +93,8 @@ class Application_Octetstream_Hex_Test extends PHPUnit_Framework_TestCase
     public function testGetMIMEType()
     {
         $this->assertEquals(
-            "Application",
-            Application_Octetstream_Hex::getMIMEType()
+            "Text",
+            Text_Plain_Formatted::getMIMEType()
         );
     }
 
@@ -108,8 +108,8 @@ class Application_Octetstream_Hex_Test extends PHPUnit_Framework_TestCase
     public function testGetMIMESubtype()
     {
         $this->assertEquals(
-            "OctetStream",
-            Application_Octetstream_Hex::getMIMESubtype()
+            "Plain",
+            Text_Plain_Formatted::getMIMESubtype()
         );
     }
 
@@ -122,26 +122,11 @@ class Application_Octetstream_Hex_Test extends PHPUnit_Framework_TestCase
      */
     public function testApplyTransformation()
     {
-        $buffer = "11111001";
-        $options = array(3);
+        $buffer = "<a ref='http://ci.phpmyadmin.net/'>PMA_BUFFER</a>";
+        $options = array("option1", "option2");
         $this->assertEquals(
-            "313 131 313 130 303 1 ",
+            $buffer,
             $this->object->applyTransformation($buffer, $options)
         );
-
-        $buffer = "11111001";
-        $options = array(0);
-        $this->assertEquals(
-            "3131313131303031",
-            $this->object->applyTransformation($buffer, $options)
-        );
-
-        //no option
-        $buffer = "11111001";
-        $this->assertEquals(
-            "31 31 31 31 31 30 30 31 ",
-            $this->object->applyTransformation($buffer)
-        );
-
     }
 }

@@ -202,15 +202,21 @@ $GLOBALS['dummy_queries'] = array(
     ),
     array(
         'query' => 'SELECT `column_name`, `mimetype`, `transformation`,'
-            . ' `transformation_options` FROM `pmadb`.`column_info`'
+            . ' `transformation_options`, `input_transformation`,'
+            . ' `input_transformation_options`'
+            . ' FROM `pmadb`.`column_info`'
             . ' WHERE `db_name` = \'pma_test\' AND `table_name` = \'table1\''
             . ' AND ( `mimetype` != \'\' OR `transformation` != \'\''
-            . ' OR `transformation_options` != \'\')',
+            . ' OR `transformation_options` != \'\''
+            . ' OR `input_transformation` != \'\''
+            . ' OR `input_transformation_options` != \'\')',
         'columns' => array(
-            'column_name', 'mimetype', 'transformation', 'transformation_options'
+            'column_name', 'mimetype', 'transformation', 'transformation_options',
+            'input_transformation', 'input_transformation_options'
         ),
         'result' => array(
-            array('o', 'text/plain', 'sql'),
+            array('o', 'text/plain', 'sql', '', 'regex', '/pma/i'),
+            array('col', 't', 'o/p', '', 'i/p', '')
         )
     ),
     array(

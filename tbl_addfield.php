@@ -73,7 +73,9 @@ if (isset($_REQUEST['do_save_data'])) {
                         $_REQUEST['field_name'][$fieldindex],
                         $mimetype,
                         $_REQUEST['field_transformation'][$fieldindex],
-                        $_REQUEST['field_transformation_options'][$fieldindex]
+                        $_REQUEST['field_transformation_options'][$fieldindex],
+                        $_REQUEST['field_input_transformation'][$fieldindex],
+                        $_REQUEST['field_input_transformation_options'][$fieldindex]
                     );
                 }
             }

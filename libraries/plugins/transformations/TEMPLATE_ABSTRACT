@@ -21,7 +21,7 @@ require_once 'libraries/plugins/TransformationsPlugin.class.php';
  * @package PhpMyAdmin
  */
 abstract class [TransformationName]TransformationsPlugin
-    extends TransformationsPlugin
+    extends IOTransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
