@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-13 08:05-0400\n"
-"PO-Revision-Date: 2014-07-10 18:03+0200\n"
+"PO-Revision-Date: 2014-07-13 20:22+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9657,10 +9657,12 @@ msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"Pildi üles laadimise funktsionaalsus, mis kuvab ka pisipildi. Sätted on "
+"pisipildi laius ja kõrgus pikselites, vaikimisi 100x100."
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:78
 msgid "Image preview here"
-msgstr ""
+msgstr "Pildi eelvaade"
 
 #: libraries/plugins/transformations/abstract/InlineTransformationsPlugin.class.php:33
 msgid ""
@@ -9692,11 +9694,13 @@ msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"Valideerib stringi kasutades regulaaravaldist ja teostab lisamise ainult "
+"siis, kui string vastab avaldisele. Esimene säte on regulaaravaldis."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "Sisendstringi %s valideerimine nurjus."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -9720,6 +9724,8 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"Faili üleslaadimise funktsionaalsus TEXT tüüpi veergudele. Sisestamiseks ei "
+"kasutata tekstikasti."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -9778,12 +9784,10 @@ msgid "Browser transformation"
 msgstr "Veebilehitseja transformatsioon"
 
 #: libraries/relation.lib.php:177
-#, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
-msgstr ""
-"Palun loe dokumentatsioonist, kuidas uuendada oma column_comments tabelit."
+msgstr "Palun loe dokumentatsioonist, kuidas uuendada oma column_info tabelit. "
 
 #: libraries/relation.lib.php:190 libraries/sql_query_form.lib.php:412
 msgid "Bookmarked SQL query"
@@ -12921,29 +12925,25 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:332
 #: transformation_overview.php:41
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "Veebilehitseja transformatsioon"
+msgstr "Veebilehitseja kuva transformatsioon"
 
 #: libraries/tbl_columns_definition_form.lib.php:334
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation options"
-msgstr "Veebilehitseja transformatsioon"
+msgstr "Veebilehitseja kuva transformatsiooni sätted"
 
 #: libraries/tbl_columns_definition_form.lib.php:337
 #: transformation_overview.php:42
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Input transformation"
-msgstr "Veebilehitseja transformatsioon"
+msgstr "Sisendi transformatsioon"
 
 #: libraries/tbl_columns_definition_form.lib.php:339
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Input transformation options"
-msgstr "Transformatsiooni valikud"
+msgstr "Sisendi transformatsiooni sätted"
 
 #: libraries/tbl_columns_definition_form.lib.php:580
 #, php-format
@@ -13776,7 +13776,7 @@ msgstr "Tabeli nimi on tühi!"
 #: tbl_replace.php:236
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "Rida: %1$s, veerg: %2$s, viga: %3$s"
 
 #: tbl_structure.php:93
 msgid "No column selected."
@@ -13795,16 +13795,14 @@ msgid "Available MIME types"
 msgstr "Saadavalolevad MIME-tüübid"
 
 #: transformation_overview.php:37
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "Saadavalolevad transformatsioonid"
+msgstr "Saadavalolevad veebilehitseja kuva transformatsioonid"
 
 #: transformation_overview.php:38
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available input transformations"
-msgstr "Saadavalolevad transformatsioonid"
+msgstr "Saadavalolevad sisendi transformatsioonid"
 
 #: transformation_overview.php:53
 msgctxt "for MIME transformation"
