@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-12 17:32-0400\n"
-"PO-Revision-Date: 2014-07-12 23:04+0200\n"
+"PO-Revision-Date: 2014-07-13 11:10+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9855,13 +9855,12 @@ msgid "Browser transformation"
 msgstr "Tarayıcı dönüşümü"
 
 #: libraries/relation.lib.php:177
-#, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
-"Lütfen column_comments tablonuzun nasıl güncelleneceğini öğrenmek için "
-"belgeye bakın."
+"Lütfen column_info tablonuzun nasıl güncelleneceğini öğrenmek için belgelere "
+"bakın. "
 
 #: libraries/relation.lib.php:190 libraries/sql_query_form.lib.php:412
 msgid "Bookmarked SQL query"
@@ -13026,29 +13025,25 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:332
 #: transformation_overview.php:41
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "Tarayıcı dönüşümü"
+msgstr "Tarayıcı görüntüleme dönüşümü"
 
 #: libraries/tbl_columns_definition_form.lib.php:334
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation options"
-msgstr "Tarayıcı dönüşümü"
+msgstr "Tarayıcı görüntüleme dönüşümü seçenekleri"
 
 #: libraries/tbl_columns_definition_form.lib.php:337
 #: transformation_overview.php:42
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Input transformation"
-msgstr "Tarayıcı dönüşümü"
+msgstr "Girdi dönüşümü"
 
 #: libraries/tbl_columns_definition_form.lib.php:339
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Input transformation options"
-msgstr "Dönüşüm seçenekleri"
+msgstr "Girdi dönüşümü seçenekleri"
 
 #: libraries/tbl_columns_definition_form.lib.php:580
 #, php-format
@@ -13891,7 +13886,7 @@ msgstr "Tablo adı boş!"
 #: tbl_replace.php:236
 #, php-format
 msgid "Row: %s, Column: %s, Error: %s"
-msgstr ""
+msgstr "Satır: %s, Sütun: %s, Hata: %s"
 
 #: tbl_structure.php:93
 msgid "No column selected."
@@ -13910,16 +13905,14 @@ msgid "Available MIME types"
 msgstr "Mevcut MIME türleri"
 
 #: transformation_overview.php:37
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "Mevcut dönüşümler"
+msgstr "Mevcut tarayıcı görüntüleme dönüşümleri"
 
 #: transformation_overview.php:38
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available input transformations"
-msgstr "Mevcut dönüşümler"
+msgstr "Mevcut girdi dönüşümleri"
 
 #: transformation_overview.php:53
 msgctxt "for MIME transformation"
