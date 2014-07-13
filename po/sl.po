@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-13 08:05-0400\n"
-"PO-Revision-Date: 2014-07-13 13:24+0200\n"
+"PO-Revision-Date: 2014-07-13 22:49+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -9794,7 +9794,6 @@ msgstr ""
 "(Privzeto: \"…\")."
 
 #: libraries/plugins/transformations/abstract/TextFileUploadTransformationsPlugin.class.php:33
-#, fuzzy
 #| msgid ""
 #| "File upload functionality for text field. It does not have a textarea for "
 #| "input."
@@ -9802,7 +9801,7 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
-"Funkcionalnost nalaganja datoteke za besedilno polje. Nima besedilnega polja "
+"Funkcionalnost nalaganja datoteke za stolpce TEXT. Nima besedilnega polja "
 "(textarea) za vnos."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
@@ -13880,10 +13879,10 @@ msgid "The table name is empty!"
 msgstr "Ime tabele je prazno!"
 
 #: tbl_replace.php:236
-#, fuzzy, php-format
+#, php-format
 #| msgid "Row: %s, Column: %s, Error: %s"
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr "Vrstica: %s, Stolpec: %s, Napaka: %s"
+msgstr "Vrstica: %1$s, Stolpec: %2$s, Napaka: %3$s"
 
 #: tbl_structure.php:93
 msgid "No column selected."
