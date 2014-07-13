@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-12 17:32-0400\n"
+"POT-Creation-Date: 2014-07-13 07:46-0400\n"
 "PO-Revision-Date: 2014-06-14 13:17+0200\n"
 "Last-Translator: Haval Abdulkarim <haval.abdulkarim@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.cihar.com/projects/"
@@ -14578,7 +14578,7 @@ msgstr "The table name is empty!"
 
 #: tbl_replace.php:236
 #, php-format
-msgid "Row: %s, Column: %s, Error: %s"
+msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
 #: tbl_structure.php:93

@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-12 17:32-0400\n"
+"POT-Creation-Date: 2014-07-13 07:46-0400\n"
 "PO-Revision-Date: 2014-07-13 02:08+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
+"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
+">\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9994,8 +9994,6 @@ msgid "Browser transformation"
 msgstr "Transformación del navegador"
 
 #: libraries/relation.lib.php:177
-#| msgid ""
-#| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr "Para actualizar su tabla column_info, revise la documentación. "
 
@@ -13219,23 +13217,19 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:332
 #: transformation_overview.php:41
-#| msgid "Browser transformation"
 msgid "Browser display transformation"
 msgstr "Transformación de visualización en el navegador"
 
 #: libraries/tbl_columns_definition_form.lib.php:334
-#| msgid "Browser transformation"
 msgid "Browser display transformation options"
 msgstr "Opciones de transformación de visualización en el navegador"
 
 #: libraries/tbl_columns_definition_form.lib.php:337
 #: transformation_overview.php:42
-#| msgid "Browser transformation"
 msgid "Input transformation"
 msgstr "Transformación de entrada"
 
 #: libraries/tbl_columns_definition_form.lib.php:339
-#| msgid "Transformation options"
 msgid "Input transformation options"
 msgstr "Opciones de transformación de entrada"
 
@@ -14086,8 +14080,9 @@ msgid "The table name is empty!"
 msgstr "¡El nombre de la tabla está vacío!"
 
 #: tbl_replace.php:236
-#, php-format
-msgid "Row: %s, Column: %s, Error: %s"
+#, fuzzy, php-format
+#| msgid "Row: %s, Column: %s, Error: %s"
+msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Fila: %s, Columna: %s, Error: %s"
 
 #: tbl_structure.php:93
@@ -14107,12 +14102,10 @@ msgid "Available MIME types"
 msgstr "MIME-types disponibles"
 
 #: transformation_overview.php:37
-#| msgid "Available transformations"
 msgid "Available browser display transformations"
 msgstr "Transformaciones de visualización en el navegador disponibles"
 
 #: transformation_overview.php:38
-#| msgid "Available transformations"
 msgid "Available input transformations"
 msgstr "Transformaciones de entrada disponibles"
 

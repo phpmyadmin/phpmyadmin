@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-12 17:32-0400\n"
+"POT-Creation-Date: 2014-07-13 07:46-0400\n"
 "PO-Revision-Date: 2014-03-31 14:26+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Kazakh <https://l10n.cihar.com/projects/phpmyadmin/master/kk/"
@@ -13402,7 +13402,7 @@ msgstr ""
 
 #: tbl_replace.php:236
 #, php-format
-msgid "Row: %s, Column: %s, Error: %s"
+msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
 #: tbl_structure.php:93

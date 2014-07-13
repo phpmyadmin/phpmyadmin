@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-12 17:32-0400\n"
+"POT-Creation-Date: 2014-07-13 07:46-0400\n"
 "PO-Revision-Date: 2014-07-13 13:24+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
+"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
+"sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -9858,8 +9858,6 @@ msgid "Browser transformation"
 msgstr "Pretvorba z brskalnikom"
 
 #: libraries/relation.lib.php:177
-#| msgid ""
-#| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr "Navodila za posodobitev tabele column_info najdete v dokumentaciji. "
 
@@ -13029,23 +13027,19 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:332
 #: transformation_overview.php:41
-#| msgid "Browser transformation"
 msgid "Browser display transformation"
 msgstr "Pretvorba brskalnikovega prikaza"
 
 #: libraries/tbl_columns_definition_form.lib.php:334
-#| msgid "Browser transformation"
 msgid "Browser display transformation options"
 msgstr "Možnosti pretvorbe brskalnikovega prikaza"
 
 #: libraries/tbl_columns_definition_form.lib.php:337
 #: transformation_overview.php:42
-#| msgid "Browser transformation"
 msgid "Input transformation"
 msgstr "Pretvorbe vnosa"
 
 #: libraries/tbl_columns_definition_form.lib.php:339
-#| msgid "Transformation options"
 msgid "Input transformation options"
 msgstr "Možnosti pretvorbe vnosa"
 
@@ -13882,8 +13876,9 @@ msgid "The table name is empty!"
 msgstr "Ime tabele je prazno!"
 
 #: tbl_replace.php:236
-#, php-format
-msgid "Row: %s, Column: %s, Error: %s"
+#, fuzzy, php-format
+#| msgid "Row: %s, Column: %s, Error: %s"
+msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Vrstica: %s, Stolpec: %s, Napaka: %s"
 
 #: tbl_structure.php:93
@@ -13903,12 +13898,10 @@ msgid "Available MIME types"
 msgstr "Razpoložljive vrste MIME"
 
 #: transformation_overview.php:37
-#| msgid "Available transformations"
 msgid "Available browser display transformations"
 msgstr "Razpoložljive pretvorbe brskalnikovega prikaza"
 
 #: transformation_overview.php:38
-#| msgid "Available transformations"
 msgid "Available input transformations"
 msgstr "Razpoložljive pretvorbe vnosa"
 
