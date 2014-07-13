@@ -233,7 +233,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
                     $insert_fail = true;
                     $row_skipped = true;
                     $insert_errors[] = sprintf(
-                        __('Row: %s, Column: %s, Error: %s'),
+                        __('Row: %1$s, Column: %2$s, Error: %3$s'),
                         $rownumber, $colummn_name,
                         $transformation_plugin->getError()
                     );
