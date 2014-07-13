@@ -611,7 +611,6 @@ Server connection settings
     use the SQL script found in ``./examples/upgrade_column_info_4_3_0+.sql``
     to upgrade it manually.
 
-
     To allow the usage of this functionality:
 
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
@@ -630,6 +629,14 @@ Server connection settings
            ADD `transformation_options` VARCHAR( 255 ) NOT NULL;
     * to update your PRE-4.3.0 Column\_info table manually use this
       ``./examples/upgrade_column_info_4_3_0+.sql`` SQL script.
+
+    .. note::
+
+        For auto-upgrade functionality to work, your
+        ``$cfg['Servers'][$i]['controluser']`` must have ALTER privilege on
+        ``phpmyadmin`` database. See the `MySQL documentation
+        <http://dev.mysql.com/doc/mysql/en/grant.html>`_ on how to
+        ``GRANT`` privileges to a user.
 
 .. _history:
 .. config:option:: $cfg['Servers'][$i]['history']
