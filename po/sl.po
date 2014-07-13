@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-13 08:05-0400\n"
-"PO-Revision-Date: 2014-07-13 22:49+0200\n"
+"PO-Revision-Date: 2014-07-13 22:50+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
@@ -13858,21 +13858,21 @@ msgstr "Neveljavno ime tabele"
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
-msgstr "Tabele ni mogoče premakniti same vase!"
+msgstr "Tabele ne morete premakniti same vase!"
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
-msgstr "Tabele ni mogoče kopirati same vase!"
+msgstr "Tabele ne morete kopirati same vase!"
 
 #: tbl_move_copy.php:56
 #, php-format
 msgid "Table %s has been moved to %s."
-msgstr "Tabela %s je bila premaknjena v %s."
+msgstr "Tabelo %s smo premaknili na %s."
 
 #: tbl_move_copy.php:58
 #, php-format
 msgid "Table %s has been copied to %s."
-msgstr "Tabela %s je skopirana v %s."
+msgstr "Tabelo %s smo skopirali na %s."
 
 #: tbl_move_copy.php:80
 msgid "The table name is empty!"
@@ -13894,7 +13894,7 @@ msgstr "Motiv"
 
 #: themes.php:25
 msgid "Get more themes!"
-msgstr "Dobi več preoblek!"
+msgstr "Pridobi več preoblek!"
 
 #: transformation_overview.php:22
 msgid "Available MIME types"
