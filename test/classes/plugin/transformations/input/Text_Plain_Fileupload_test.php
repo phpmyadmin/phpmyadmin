@@ -59,7 +59,7 @@ class Text_Plain_Fileupload_Test extends PHPUnit_Framework_TestCase
     public function testGetInfo()
     {
         $info
-            = 'File upload functionality for text field. '
+            = 'File upload functionality for TEXT columns. '
             . 'It does not have a textarea for input.';
         $this->assertEquals(
             $info,
