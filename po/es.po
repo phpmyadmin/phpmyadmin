@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-12 17:32-0400\n"
-"PO-Revision-Date: 2014-07-11 05:00+0200\n"
+"PO-Revision-Date: 2014-07-13 02:08+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9860,10 +9860,13 @@ msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"Funcionalidad para subir imágenes y mostrar miniaturas. Las opciones son "
+"ancho y alto en pixeles de la miniatura. El valor predeterminado es 100 x "
+"100."
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:78
 msgid "Image preview here"
-msgstr ""
+msgstr "Previsiualización de la imagen"
 
 #: libraries/plugins/transformations/abstract/InlineTransformationsPlugin.class.php:33
 msgid ""
@@ -9896,11 +9899,13 @@ msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"Valida la cadena utilizando expresiones regulares y sólo inserta el valor si "
+"coincide. La primera opción es la expresión regular."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "Falló la validación de la cadena «%s»."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -9926,6 +9931,8 @@ msgid ""
 "File upload functionality for text field. It does not have a textarea for "
 "input."
 msgstr ""
+"Funcionalidad para subir archivos en campos de texto. No provee un área de "
+"texto para la entrada."
 
 # Per IANA's regulations example domains MUST be example.com
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
@@ -9987,11 +9994,10 @@ msgid "Browser transformation"
 msgstr "Transformación del navegador"
 
 #: libraries/relation.lib.php:177
-#, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
-msgstr "Para actualizar su tabla column_comments, revise la documentación."
+msgstr "Para actualizar su tabla column_info, revise la documentación. "
 
 #: libraries/relation.lib.php:190 libraries/sql_query_form.lib.php:412
 msgid "Bookmarked SQL query"
@@ -13213,29 +13219,25 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:332
 #: transformation_overview.php:41
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "Transformación del navegador"
+msgstr "Transformación de visualización en el navegador"
 
 #: libraries/tbl_columns_definition_form.lib.php:334
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation options"
-msgstr "Transformación del navegador"
+msgstr "Opciones de transformación de visualización en el navegador"
 
 #: libraries/tbl_columns_definition_form.lib.php:337
 #: transformation_overview.php:42
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Input transformation"
-msgstr "Transformación del navegador"
+msgstr "Transformación de entrada"
 
 #: libraries/tbl_columns_definition_form.lib.php:339
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Input transformation options"
-msgstr "Opciones de transformación"
+msgstr "Opciones de transformación de entrada"
 
 #: libraries/tbl_columns_definition_form.lib.php:580
 #, php-format
@@ -14086,7 +14088,7 @@ msgstr "¡El nombre de la tabla está vacío!"
 #: tbl_replace.php:236
 #, php-format
 msgid "Row: %s, Column: %s, Error: %s"
-msgstr ""
+msgstr "Fila: %s, Columna: %s, Error: %s"
 
 #: tbl_structure.php:93
 msgid "No column selected."
@@ -14105,16 +14107,14 @@ msgid "Available MIME types"
 msgstr "MIME-types disponibles"
 
 #: transformation_overview.php:37
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "Transformaciones disponibles"
+msgstr "Transformaciones de visualización en el navegador disponibles"
 
 #: transformation_overview.php:38
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available input transformations"
-msgstr "Transformaciones disponibles"
+msgstr "Transformaciones de entrada disponibles"
 
 #: transformation_overview.php:53
 msgctxt "for MIME transformation"
