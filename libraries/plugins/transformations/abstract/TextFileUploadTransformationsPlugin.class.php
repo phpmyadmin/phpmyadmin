@@ -30,7 +30,7 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
     public static function getInfo()
     {
         return __(
-            'File upload functionality for text field. '
+            'File upload functionality for TEXT columns. '
             . 'It does not have a textarea for input.'
         );
     }
