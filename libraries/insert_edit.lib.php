@@ -2177,20 +2177,20 @@ function PMA_transformEditedValues($db, $table,
 /**
  * Get current value in multi edit mode
  *
- * @param array  $multi_edit_colummns     multiple edit column array
+ * @param array  $multi_edit_columns      multiple edit column array
  * @param array  $multi_edit_columns_name multiple edit columns name array
  * @param array  $multi_edit_funcs        multiple edit functions array
  * @param array  $multi_edit_salt         multiple edit array with encryption salt
  * @param array  $gis_from_text_functions array that contains gis from text functions
  * @param string $current_value           current value in the column
- * @param array  $gis_from_wkb_functions  initialy $val is $multi_edit_colummns[$key]
+ * @param array  $gis_from_wkb_functions  initially $val is $multi_edit_columns[$key]
  * @param array  $func_optional_param     array('RAND','UNIX_TIMESTAMP')
  * @param array  $func_no_param           array of set of string
  * @param string $key                     an md5 of the column name
  *
  * @return array $cur_value
  */
-function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
+function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_columns,
     $multi_edit_columns_name, $multi_edit_funcs, $multi_edit_salt,
     $gis_from_text_functions, $current_value, $gis_from_wkb_functions,
     $func_optional_param, $func_no_param, $key

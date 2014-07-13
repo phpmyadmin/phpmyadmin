@@ -146,7 +146,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
     $query_values = array();
 
     // Map multi-edit keys to single-level arrays, dependent on how we got the fields
-    $multi_edit_colummns
+    $multi_edit_columns
         = isset($_REQUEST['fields']['multi_edit'][$rownumber])
         ? $_REQUEST['fields']['multi_edit'][$rownumber]
         : array();
@@ -184,19 +184,19 @@ foreach ($loop_array as $rownumber => $where_clause) {
         : null;
 
     // When a select field is nullified, it's not present in $_REQUEST
-    // so initialize it; this way, the foreach($multi_edit_colummns) will process it
+    // so initialize it; this way, the foreach($multi_edit_columns) will process it
     foreach ($multi_edit_columns_name as $key => $val) {
-        if (! isset($multi_edit_colummns[$key])) {
-            $multi_edit_colummns[$key] = '';
+        if (! isset($multi_edit_columns[$key])) {
+            $multi_edit_columns[$key] = '';
         }
     }
 
     // Iterate in the order of $multi_edit_columns_name,
-    // not $multi_edit_colummns, to avoid problems
+    // not $multi_edit_columns, to avoid problems
     // when inserting multiple entries
     $insert_fail = false;
-    foreach ($multi_edit_columns_name as $key => $colummn_name) {
-        $current_value = $multi_edit_colummns[$key];
+    foreach ($multi_edit_columns_name as $key => $column_name) {
+        $current_value = $multi_edit_columns[$key];
         // Note: $key is an md5 of the fieldname. The actual fieldname is
         // available in $multi_edit_columns_name[$key]
 
@@ -208,19 +208,19 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $current_value = $possibly_uploaded_val;
         }
         // Apply Input Transformation if defined
-        if (!empty($mime_map[$colummn_name])
-            && !empty($mime_map[$colummn_name]['input_transformation'])
+        if (!empty($mime_map[$column_name])
+            && !empty($mime_map[$column_name]['input_transformation'])
         ) {
             $filename = 'libraries/plugins/transformations/'
-                . $mime_map[$colummn_name]['input_transformation'];
+                . $mime_map[$column_name]['input_transformation'];
             if (is_file($filename)) {
                 include_once $filename;
                 $classname = PMA_getTransformationClassName(
-                    $mime_map[$colummn_name]['input_transformation']
+                    $mime_map[$column_name]['input_transformation']
                 );
                 $transformation_plugin = new $classname();
                 $transformation_options = PMA_Transformation_getOptions(
-                    $mime_map[$colummn_name]['input_transformation_options']
+                    $mime_map[$column_name]['input_transformation_options']
                 );
                 $current_value = $transformation_plugin->applyTransformation(
                     $current_value, $transformation_options
@@ -233,8 +233,8 @@ foreach ($loop_array as $rownumber => $where_clause) {
                     $insert_fail = true;
                     $row_skipped = true;
                     $insert_errors[] = sprintf(
-                        __('Row: %s, Column: %s, Error: %s'),
-                        $rownumber, $colummn_name,
+                        __('Row: %1$s, Column: %2$s, Error: %3$s'),
+                        $rownumber, $column_name,
                         $transformation_plugin->getError()
                     );
                 }
@@ -256,7 +256,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
         );
 
         $current_value_as_an_array = PMA_getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_colummns, $multi_edit_columns_name, $multi_edit_funcs,
+            $multi_edit_columns, $multi_edit_columns_name, $multi_edit_funcs,
             $multi_edit_salt, $gis_from_text_functions, $current_value,
             $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key
         );
@@ -269,14 +269,14 @@ foreach ($loop_array as $rownumber => $where_clause) {
                 $value_sets, $key, $multi_edit_columns_null_prev
             );
         if (isset($multi_edit_columns_null[$key])) {
-            $multi_edit_colummns[$key] = null;
+            $multi_edit_columns[$key] = null;
         }
     } //end of foreach
 
     // temporarily store rows not inserted
     // so that they can be populated again.
     if ($insert_fail) {
-        $unsaved_values[$rownumber] = $multi_edit_colummns;
+        $unsaved_values[$rownumber] = $multi_edit_columns;
     }
     if (!$insert_fail && count($query_values) > 0) {
         if ($is_insert) {
@@ -309,7 +309,7 @@ if ($is_insert && count($value_sets) > 0) {
     include '' . PMA_securePath($goto_include);
     exit;
 }
-unset($multi_edit_colummns, $is_insertignore);
+unset($multi_edit_columns, $is_insertignore);
 
 // If there is a request for SQL previewing.
 if (isset($_REQUEST['preview_sql'])) {
