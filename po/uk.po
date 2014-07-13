@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-13 07:46-0400\n"
+"POT-Creation-Date: 2014-07-13 08:05-0400\n"
 "PO-Revision-Date: 2014-04-23 16:10+0200\n"
 "Last-Translator: Vitaliy Perekupka <vperekupka@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -10180,7 +10180,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/abstract/TextFileUploadTransformationsPlugin.class.php:33
 msgid ""
-"File upload functionality for text field. It does not have a textarea for "
+"File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
 
