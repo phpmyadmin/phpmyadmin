@@ -21,6 +21,8 @@ phpMyAdmin - ChangeLog
 + rfe #1490 Dynamic process list
 + rfe #1522 Drag and Drop SQL import
 + rfe #637  Custom Field Handlers
++ rfe #1488 User privilege tab not shown in all relevant cases
++ rfe #781  Privileges for non superuser
 
 4.2.6.0 (not yet released)
 - bug #4471 Undefined index warning with referenced column.
