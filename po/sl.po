@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-14 13:33-0400\n"
-"PO-Revision-Date: 2014-07-13 22:50+0200\n"
+"PO-Revision-Date: 2014-07-15 01:16+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -1827,10 +1827,9 @@ msgid "End of step"
 msgstr "Konec koraka"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Second step of normalization (1NF+2NF)"
 msgid "Second step of normalization (2NF)"
-msgstr "Druga stopnja normalizacije (1NF+2NF)"
+msgstr "Druga stopnja normalizacije (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:310 js/messages.php:531
@@ -1872,10 +1871,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Step 1."
 msgid "Step"
-msgstr "Korak 1."
+msgstr "Korak"
 
 #: js/messages.php:322 libraries/insert_edit.lib.php:1517
 #: libraries/server_variables.lib.php:157
@@ -8851,10 +8849,9 @@ msgid "No redundant column"
 msgstr "Ni odvečnih stolpcev"
 
 #: libraries/normalization.lib.php:242
-#, fuzzy
 #| msgid "Step 1."
 msgid "Step 2."
-msgstr "Korak 1."
+msgstr "Korak 2."
 
 #: libraries/normalization.lib.php:242
 msgid "Find partial dependencies"
@@ -8869,7 +8866,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:269
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "Tabela je že v drugi normalni obliki."
 
 #: libraries/normalization.lib.php:274
 #, php-format
@@ -8909,7 +8906,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:310
 msgid "Table is already in second normal form"
-msgstr ""
+msgstr "Tabela je že v drugi normalni obliki"
 
 #: libraries/normalization.lib.php:331
 #, php-format
@@ -8919,16 +8916,15 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:367
-#, fuzzy, php-format
+#, php-format
 #| msgid "The first step of normalization is complete for table '%s'."
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr "Prvi korak normalizacije je končan za tabelo '%s'."
+msgstr "Drugi korak normalizacije je končan za tabelo '%1$s'."
 
 #: libraries/normalization.lib.php:407
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing!"
-msgstr "Napaka v obdelovanju zahteve:"
+msgstr "Napaka v obdelovanju!"
 
 #: libraries/normalization.lib.php:438
 msgid "Improve table structure (Normalization):"
@@ -8957,7 +8953,7 @@ msgstr ""
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
-msgstr ""
+msgstr "Seznam temelji na podmnožici podatkov iz tabele in ni nujno točen. "
 
 #: libraries/normalization.lib.php:527
 msgid "No partial dependencies found!"
