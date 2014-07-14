@@ -210,8 +210,9 @@ class PMA_Console
             if ($_sql_history) {
                 foreach (array_reverse($_sql_history) as $record) {
                     $output .= '<div class="message history collapsed hide" targetdb="'
-                            . $record['db'] . '" targettable="' . $record['table']
-                            . '""><div class="action_content">'
+                            . htmlspecialchars($record['db'])
+                            . '" targettable="' . htmlspecialchars($record['table'])
+                            . '"><div class="action_content">'
                             . sprintf(
                                   $tpl_query_actions,
                                   $record['db'],
@@ -221,7 +222,7 @@ class PMA_Console
                                   )
                               )
                             . '</div><span class="query">'
-                            . $record['sqlquery']
+                            . htmlspecialchars($record['sqlquery'])
                             . '</span></div>';
                 }
             }
