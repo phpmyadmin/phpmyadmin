@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-14 13:33-0400\n"
-"PO-Revision-Date: 2014-07-13 19:17+0200\n"
+"PO-Revision-Date: 2014-07-14 21:38+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1825,10 +1825,9 @@ msgid "End of step"
 msgstr "Adım sonu"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Second step of normalization (1NF+2NF)"
 msgid "Second step of normalization (2NF)"
-msgstr "Normalleştirmenin ikinci adımı (1NF+2NF)"
+msgstr "Normalleştirmenin ikinci adımı (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:310 js/messages.php:531
@@ -1870,10 +1869,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Step 1."
 msgid "Step"
-msgstr "Adım 1."
+msgstr "Adım"
 
 #: js/messages.php:322 libraries/insert_edit.lib.php:1517
 #: libraries/server_variables.lib.php:157
@@ -8847,10 +8845,9 @@ msgid "No redundant column"
 msgstr "Gereksiz sütun yok"
 
 #: libraries/normalization.lib.php:242
-#, fuzzy
 #| msgid "Step 1."
 msgid "Step 2."
-msgstr "Adım 1."
+msgstr "Adım 2."
 
 #: libraries/normalization.lib.php:242
 msgid "Find partial dependencies"
@@ -8915,16 +8912,15 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:367
-#, fuzzy, php-format
+#, php-format
 #| msgid "The first step of normalization is complete for table '%s'."
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr "Normalleştirmenin ilk adımı '%s' tablosu için tamamlandı."
+msgstr "Normalleştirmenin ikinci adımı '%1$s' tablosu için tamamlandı."
 
 #: libraries/normalization.lib.php:407
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing!"
-msgstr "İstek işlemede hata:"
+msgstr "İşlemede hata!"
 
 #: libraries/normalization.lib.php:438
 msgid "Improve table structure (Normalization):"
