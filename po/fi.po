@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-14 13:33-0400\n"
-"PO-Revision-Date: 2014-07-15 00:59+0200\n"
+"PO-Revision-Date: 2014-07-15 01:20+0200\n"
 "Last-Translator: Valtteri Laitinen <valtteri.laitinen@gmail.com>\n"
 "Language-Team: Finnish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/fi/>\n"
@@ -447,16 +447,19 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Virhe on havaittu ja virheraportti on lähetetty automaattisesti riippuen "
+"asetuksistasi."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Kiitos tämän ilmoituksen lähettämisestä."
 
 #: error_report.php:76
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Havaittiin virhe, josta luotiin ilmoitus, mutta sitä ei kyetty lähettämään."
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
@@ -464,7 +467,7 @@ msgstr ""
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Haluat ehkä päivittää tämän sivun."
 
 #: export.php:183
 msgid "Bad type!"
@@ -918,7 +921,7 @@ msgstr "\"DROP DATABASE\" -kyselyjen käyttö on estetty."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Vahvista"
 
 #: js/messages.php:36
 #, php-format
@@ -1568,7 +1571,7 @@ msgstr "Valitse tuotava tiedosto."
 
 #: js/messages.php:221
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "Tuotavia tiedostoja ei ole saatavilla palvelimella!"
 
 #: js/messages.php:223
 msgid "Analyse Query"
@@ -1620,7 +1623,7 @@ msgstr "Lataa…"
 
 #: js/messages.php:243
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Pyyntö keskeytetty!"
 
 #: js/messages.php:244
 msgid "Processing Request"
@@ -2014,14 +2017,16 @@ msgstr "Ulkoympyrä"
 #: js/messages.php:371
 msgid "Shift + Click on function name to apply to all rows."
 msgstr ""
+"Sovella kaikille riveille painamalla vaihtonäppäintä ja napsauttamalla "
+"funktion nimeä."
 
 #: js/messages.php:373
 msgid "Do you want to copy encryption key?"
-msgstr ""
+msgstr "Haluatko kopioida salausavaimen?"
 
 #: js/messages.php:374
 msgid "Encryption key"
-msgstr ""
+msgstr "Salausavain"
 
 #: js/messages.php:377
 msgid "Select referenced key"
@@ -2122,7 +2127,7 @@ msgstr "Muuta järjestystä vetämällä."
 
 #: js/messages.php:403
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Järjestä tämän sarakkeen tulokset napsauttamalla."
 
 #: js/messages.php:404
 msgid ""
@@ -2292,13 +2297,13 @@ msgstr "Lähetä virheraportti"
 
 #: js/messages.php:465
 msgid "Submit Error Report"
-msgstr ""
+msgstr "Lähetä virheraportti"
 
 #: js/messages.php:467
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr ""
+msgstr "Tapahtui vakava JavaScript-virhe. Haluatko lähettää virheraportin?"
 
 #: js/messages.php:469
 #| msgid "Change settings"
@@ -3371,7 +3376,7 @@ msgstr "Ladattua (ja siirrettyä) tiedostoa ei voi lukea."
 #: libraries/Footer.class.php:74
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Tällä hetkellä käynnissä Git-painos %1$s %2$s-haarasta."
 
 #: libraries/Footer.class.php:81
 #| msgid "Version information"
@@ -3704,7 +3709,7 @@ msgstr "Suosikit"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "Tarjoa tämän kirjanmerkiksi tallennetun haun nimi."
 
 #: libraries/SavedSearches.class.php:261
 msgid "Missing information to save the bookmarked search."
@@ -4804,15 +4809,15 @@ msgstr "Suljettu"
 
 #: libraries/config.values.php:117
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "Kysy ennen virheraporttien lähetystä"
 
 #: libraries/config.values.php:118
 msgid "Always send error reports"
-msgstr ""
+msgstr "Lähetä virheraportteja aina"
 
 #: libraries/config.values.php:119
 msgid "Never send error reports"
-msgstr ""
+msgstr "Älä lähetä virheraportteja koskaan"
 
 #: libraries/config.values.php:148
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -13879,7 +13884,7 @@ msgstr "Lisää uusi palvelin"
 
 #: libraries/structure.lib.php:2895
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "Suosikkilista on täynnä!"
 
 #: libraries/structure.lib.php:2984
 #, fuzzy
