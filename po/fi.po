@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-14 13:33-0400\n"
-"PO-Revision-Date: 2014-05-20 12:55+0200\n"
-"Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
-"Language-Team: Finnish <https://l10n.cihar.com/projects/phpmyadmin/master/fi/"
-">\n"
+"PO-Revision-Date: 2014-07-15 00:59+0200\n"
+"Last-Translator: Valtteri Laitinen <valtteri.laitinen@gmail.com>\n"
+"Language-Team: Finnish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -29,16 +29,15 @@ msgid "The central list of columns for the current database is empty."
 msgstr ""
 
 #: db_central_columns.php:109
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "Lajittele painamalla"
+msgstr "Järjestä napsauttamalla."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "Näytetään rivit %1s - %2s"
+msgstr "Näytetään rivi(t) %1$s–%2$s"
 
 #: db_create.php:61
 #, php-format
@@ -245,16 +244,16 @@ msgid "The database name is empty!"
 msgstr "Tietokannan nimi on tyhjä!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Tietokannan %1$s nimi on nyt %2$s"
+msgstr "Tietokannan %1$s nimi on nyt %2$s."
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Tietokanta %1$s on kopioitu tietokantaan %2$s"
+msgstr "Tietokanta %1$s on kopioitu kohteeseen %2$s."
 
 #: db_operations.php:260
 #, php-format
@@ -319,10 +318,9 @@ msgstr[0] "%s taulu"
 msgstr[1] "%s taulua"
 
 #: db_qbe.php:103
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Valitse vähintään yksi sarake"
+msgstr "Valitse vähintään yksi sarake!"
 
 #: db_qbe.php:124
 #, php-format
@@ -600,7 +598,6 @@ msgid "Output"
 msgstr "Tulos"
 
 #: gis_data_editor.php:410
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -608,8 +605,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Valitse \"Toiminto\"-sarakkeesta \"GeomFromText\" ja liitä alla oleva "
-"merkkijono \"Arvo\"-kenttään"
+"Valitse ”Toiminto”-sarakkeesta ”GeomFromText” ja liitä alla oleva merkkijono "
+"”Arvo”-kenttään."
 
 #: import.php:137
 #, php-format
@@ -637,10 +634,9 @@ msgstr ""
 
 #: import.php:444 import.php:505 libraries/File.class.php:418
 #: libraries/File.class.php:512
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "Tiedostoa ei voi lukea"
+msgstr "Tiedostoa ei voi lukea!"
 
 #: import.php:453 import.php:464 import.php:485 import.php:496
 #: libraries/File.class.php:578
@@ -664,23 +660,22 @@ msgstr ""
 "doc]."
 
 #: import.php:530
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
-msgstr "Tiedoston merkistöä ei voida muuttaa ilman merkistökirjastoa"
+msgstr "Tiedoston merkistöä ei voida muuttaa ilman merkistönmuuntokirjastoa!"
 
 #: import.php:568 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Tuontiin tarvittavaa lisäosaa ei voida tuoda, tarkista asetukset!"
 
 #: import.php:603 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "Kirjanmerkki %s luotu"
+msgstr "Kirjanmerkki %s on nyt luotu."
 
 #: import.php:612
 #, php-format
@@ -711,10 +706,9 @@ msgid "Back"
 msgstr "Takaisin"
 
 #: index.php:127 libraries/Footer.class.php:70
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdminin verkkosivut"
+msgstr "phpMyAdminin demo-palvelin"
 
 #: index.php:131
 #, php-format
@@ -956,32 +950,30 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Tämä toiminto voi kestää kauan. Jatketaanko silti?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Haluatko varmasti suorittaa \"%s\"?"
+msgstr "Haluatko varmasti poistaa käyttäjäryhmän ”%s”?"
 
 #: js/messages.php:45
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Haluatko varmasti suorittaa \"%s\"?"
+msgstr "Haluatko varmasti poistaa haun ”%s”?"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid ""
 #| "You have edited some data and they have not been saved. Are you sure you "
 #| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
-"Olet muuttanut joitakin tietoja ja niitä ei ole tallennettu. Haluatko "
-"varmasti poistua tältä sivulta ennen tietojen tallentamista?"
+"Sinulla on tallentamattomia muutoksia. Haluatko varmasti poistua tältä "
+"sivulta?"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "Tallenna tiedostoon"
+msgstr "Tallenna & sulje"
 
 #: js/messages.php:50 libraries/config/FormDisplay.tpl.php:393
 #: libraries/insert_edit.lib.php:1608 prefs_manage.php:335
@@ -990,32 +982,28 @@ msgid "Reset"
 msgstr "Palauta"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Valitse kaikki"
+msgstr "Palauta kaikki"
 
 #: js/messages.php:54
 msgid "Missing value in the form!"
 msgstr "Tarvittava tieto puuttuu lomakkeesta!"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "vähintään yksi sanoista"
+msgstr "Valitse vaihtoehdoista vähintään yksi!"
 
 #: js/messages.php:56
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number!"
-msgstr "Virheellinen porttinumero"
+msgstr "Annathan kelvollisen porttinumeron!"
 
 #: js/messages.php:57
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid length!"
-msgstr "Virheellinen porttinumero"
+msgstr "Annathan kelvollisen pituuden!"
 
 #: js/messages.php:58
 msgid "Add Index"
@@ -1037,16 +1025,14 @@ msgid "Preview SQL"
 msgstr ""
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "lauseessa"
+msgstr "Jäljittele kyselyä"
 
 #: js/messages.php:67
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "Käsitellyt rivit:"
+msgstr "Täsmänneet rivit:"
 
 #: js/messages.php:68 libraries/Util.class.php:639 libraries/sql.lib.php:452
 msgid "SQL query:"
@@ -1265,10 +1251,9 @@ msgid "Add chart to grid"
 msgstr "Lisää taulukko ruudukkoon"
 
 #: js/messages.php:136
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "Lisää sarjaan vähintään yksi muuttuja"
+msgstr "Lisää sarjaan vähintään yksi muuttuja!"
 
 #: js/messages.php:137 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:878 libraries/TableSearch.class.php:1042
@@ -1365,10 +1350,10 @@ msgstr "Ota %s pois käytöstä"
 
 #. l10n: %d seconds
 #: js/messages.php:159
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "Aseta long_query_time arvoon %ds"
+msgstr "Aseta long_query_time arvoon %d sekuntia."
 
 #: js/messages.php:161
 msgid ""
@@ -1577,10 +1562,9 @@ msgid "Import monitor configuration"
 msgstr "Tuo seuranta-asetukset"
 
 #: js/messages.php:220
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "Valitse tuotava tiedosto"
+msgstr "Valitse tuotava tiedosto."
 
 #: js/messages.php:221
 msgid "No files available on server for import!"
@@ -1704,10 +1688,9 @@ msgid "(Disabled)"
 msgstr "(Pois päältä)"
 
 #: js/messages.php:264
-#, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
-msgstr "Otsakkeiden nouto epäonnistui"
+msgstr "Oikean rivimäärän nouto epäonnistui."
 
 #: js/messages.php:267
 msgid "Searching"
@@ -1747,10 +1730,9 @@ msgid "Values for a new column"
 msgstr "Arvot uudelle sarakkeelle"
 
 #: js/messages.php:280
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "Syötä jokainen arvo omaan kenttäänsä"
+msgstr "Syötä jokainen arvo eri kenttään."
 
 #: js/messages.php:281
 #, php-format
@@ -1799,16 +1781,14 @@ msgid "Pick"
 msgstr ""
 
 #: js/messages.php:295
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "Ei valittua saraketta."
+msgstr "Sarakkeenvalitsin"
 
 #: js/messages.php:296
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
-msgstr "Hae tietokannasta"
+msgstr "Hae tästä listasta"
 
 #: js/messages.php:297
 #, php-format
@@ -1818,10 +1798,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:298
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "Vapaata muistia"
+msgstr "Katso lisää"
 
 #: js/messages.php:299
 msgid "Are you sure?"
@@ -1834,29 +1813,25 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "Osallistu"
+msgstr "Jatka"
 
 #: js/messages.php:304 libraries/structure.lib.php:2124
 #: libraries/structure.lib.php:2127
-#, fuzzy
 #| msgid "Adding Primary Key"
 msgid "Add primary key"
-msgstr "Pääavaimen lisäys"
+msgstr "Lisää pääavain"
 
 #: js/messages.php:305
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "Sarakkeelle %s on luotu perusavain."
+msgstr "Pääavain lisätty."
 
 #: js/messages.php:306 libraries/normalization.lib.php:170
-#, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "Seurantaraportti"
+msgstr "Viedään sinut seuraavaan vaiheeseen…"
 
 #: js/messages.php:307
 #, php-format
@@ -1865,10 +1840,9 @@ msgstr ""
 
 #: js/messages.php:308 libraries/normalization.lib.php:372
 #: libraries/normalization.lib.php:419
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "Rivin loppu"
+msgstr "Vaiheen loppu"
 
 #: js/messages.php:309
 msgid "Second step of normalization (2NF)"
@@ -1940,28 +1914,24 @@ msgid "Range search"
 msgstr "Taulu haku"
 
 #: js/messages.php:328
-#, fuzzy
 #| msgid "Column names"
 msgid "Column maximum:"
-msgstr "Sarakkeiden nimet"
+msgstr "Sarakkeiden enimmäismäärä:"
 
 #: js/messages.php:329
-#, fuzzy
 #| msgid "Column names"
 msgid "Column minimum:"
-msgstr "Sarakkeiden nimet"
+msgstr "Sarakkeiden vähimmäismäärä:"
 
 #: js/messages.php:330
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Tauluja enintään"
+msgstr "Vähimmäisarvo:"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Tauluja enintään"
+msgstr "Enimmäisarvo:"
 
 #: js/messages.php:334
 msgid "Hide find and replace criteria"
@@ -2062,10 +2032,9 @@ msgid "Select Foreign Key"
 msgstr "Valitse liiteavain"
 
 #: js/messages.php:379
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "Valitse perusavain tai uniikki avain"
+msgstr "Valitse pää- tai uniikkiavain!"
 
 #: js/messages.php:380 pmd_general.php:174
 msgid "Choose column to display"
@@ -2084,34 +2053,29 @@ msgid "Page name"
 msgstr "Sivun nimi"
 
 #: js/messages.php:386
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Save page"
-msgstr "Valitse taulut"
+msgstr "Tallenna sivu"
 
 #: js/messages.php:387 pmd_general.php:146
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "Vapaat sivut"
+msgstr "Avaa sivu"
 
 #: js/messages.php:388
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Delete page"
-msgstr "Valitse taulut"
+msgstr "Poista sivu"
 
 #: js/messages.php:389
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Valitse muokattava sivu"
+msgstr "Valitse sivu jatkaaksesi"
 
 #: js/messages.php:390
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid page name"
-msgstr "Virheellinen porttinumero"
+msgstr "Annathan kelvollisen sivun nimen"
 
 #: js/messages.php:391
 msgid "Do you want to save the changes to the current page?"
@@ -2122,28 +2086,26 @@ msgid "Successfully deleted the page"
 msgstr ""
 
 #: js/messages.php:393
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Relaatioskeeman muokkaus tai vienti"
+msgstr "Vie relaatioskeema"
 
 #: js/messages.php:396
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
-msgstr "Lisää valinta sarakkeelle "
+msgstr "Lisää valinta sarakkeelle ”%s”."
 
 #: js/messages.php:397
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
-msgstr "%d objekti(a) luotu"
+msgstr "%d objekti(a) luotu."
 
 #: js/messages.php:400
-#, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "Peruuta muokkaaminen painamalla Esc-näppäintä"
+msgstr "Peruuta muokkaaminen painamalla Esc-näppäintä."
 
 #: js/messages.php:401
 msgid ""
@@ -2154,10 +2116,9 @@ msgstr ""
 "varmasti poistua tältä sivulta ennen tietojen tallentamista?"
 
 #: js/messages.php:402
-#, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
-msgstr "Muunna järjestystä raahaamalla"
+msgstr "Muuta järjestystä vetämällä."
 
 #: js/messages.php:403
 msgid "Click to sort results by this column."
@@ -2170,22 +2131,19 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:405
-#, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
-msgstr "Valitse tai poista valinta painamalla"
+msgstr "Merkitse tai poista merkintä napsauttamalla."
 
 #: js/messages.php:406
-#, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
-msgstr "Kopoio kentän nimi kaksoisnäpäyksellä"
+msgstr "Kopioi kentän nimi kaksoisnapsauttamalla."
 
 #: js/messages.php:408
-#, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr "Muuta sarakkeen näkymistä<br />painamalla pudotusvalikon nuolta"
+msgstr "Muuta sarakkeen näkyvyyttä<br />napsauttamalla pudotusvalikon nuolta."
 
 #: js/messages.php:410 libraries/DisplayResults.class.php:850
 #: libraries/browse_foreigners.lib.php:254
@@ -2208,10 +2166,9 @@ msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
 #: js/messages.php:415
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
-msgstr "Peruuta"
+msgstr "peruuta"
 
 #: js/messages.php:416 libraries/server_status.lib.php:261
 msgid "Aborted"
@@ -2226,22 +2183,19 @@ msgid "Success"
 msgstr ""
 
 #: js/messages.php:419
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Tuo oletusarvot"
+msgstr "Tuo tila"
 
 #: js/messages.php:420 libraries/navigation/Navigation.class.php:102
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "Lokitiedoston kynnysarvo"
+msgstr "Vedä tiedostot tähän"
 
 #: js/messages.php:421
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
-msgstr "Valitse taulut"
+msgstr "Valitse ensin tietokanta"
 
 #: js/messages.php:426
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2255,16 +2209,14 @@ msgstr ""
 "Useimpia sarakkeita voi myös muokata<br/>painamalla suoraan niiden sisältöä."
 
 #: js/messages.php:434
-#, fuzzy
 #| msgid "Go to link"
 msgid "Go to link:"
-msgstr "Siirry linkkiin"
+msgstr "Siirry linkkiin:"
 
 #: js/messages.php:435
-#, fuzzy
 #| msgid "Copy column name"
 msgid "Copy column name."
-msgstr "Kopioi kenttän nimi"
+msgstr "Kopioi kentän nimi."
 
 #: js/messages.php:436
 msgid "Right-click the column name to copy it to your clipboard."
@@ -2273,10 +2225,9 @@ msgstr ""
 "leikepöydälle."
 
 #: js/messages.php:437
-#, fuzzy
 #| msgid "Show data row(s)"
 msgid "Show data row(s)."
-msgstr "Näytä rivi(t)"
+msgstr "Näytä tietorivi(t)."
 
 #: js/messages.php:440
 msgid "Generate password"
@@ -2303,10 +2254,9 @@ msgid "Hide Panel"
 msgstr "Piilota paneeli"
 
 #: js/messages.php:450
-#, fuzzy
 #| msgid "Show hidden navigation tree items"
 msgid "Show hidden navigation tree items."
-msgstr "Näytä piilotetun navigointipuun kohteet"
+msgstr "Näytä piilotetut navigointipuun kohteet."
 
 #: js/messages.php:453
 msgid "The requested page was not found in the history, it may have expired."
@@ -2336,10 +2286,9 @@ msgid "Create view"
 msgstr "Luo näkymä"
 
 #: js/messages.php:464
-#, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
-msgstr "Palvelinportti"
+msgstr "Lähetä virheraportti"
 
 #: js/messages.php:465
 msgid "Submit Error Report"
@@ -2352,16 +2301,14 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:469
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "Muuta asetuksia"
+msgstr "Muuta raportin asetuksia"
 
 #: js/messages.php:470
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
-msgstr "Näytä avoimet taulut"
+msgstr "Näytä raportin tarkat tiedot"
 
 #: js/messages.php:473
 msgid ""
@@ -2385,10 +2332,9 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: js/messages.php:490 libraries/Error_Handler.class.php:355
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Älä huomioi"
+msgstr "Sivuuta kaikki"
 
 #: js/messages.php:497
 msgid ""
@@ -2396,10 +2342,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:504
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Näytä tämä kyselylause uudestaan"
+msgstr "Suoritetaanko tämä kysely uudelleen?"
 
 #: js/messages.php:535
 msgctxt "Previous month"
@@ -2751,12 +2696,12 @@ msgid "Requery"
 msgstr "lauseessa"
 
 #: libraries/Console.class.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete relation"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Poista relaatio"
-msgstr[1] "Poista relaatio"
+msgstr[0] "Yhteensä %d kirjanmerkki"
+msgstr[1] "Yhteensä %d kirjanmerkkiä"
 
 #: libraries/Console.class.php:114
 msgid "private"
@@ -2774,16 +2719,14 @@ msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "Kirjanmerkki on poistettu."
 
 #: libraries/Console.class.php:128
-#, fuzzy
 #| msgid "Delete relation"
 msgid "No bookmarks"
-msgstr "Poista relaatio"
+msgstr "Ei kirjanmerkkejä"
 
 #: libraries/Console.class.php:174
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "Kyselyvälimuisti"
+msgstr "Kysely epäonnistui"
 
 #: libraries/Console.class.php:176
 #, fuzzy
@@ -2792,10 +2735,9 @@ msgid "Queried time"
 msgstr "Kyselyn suoritusaika"
 
 #: libraries/Console.class.php:182
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "SQL-kyselykenttä"
+msgstr "SQL-kyselykonsoli"
 
 #: libraries/Console.class.php:183
 msgid "Console"
@@ -2807,10 +2749,9 @@ msgid "Clear"
 msgstr "Tyhjennä"
 
 #: libraries/Console.class.php:189
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "SQL-historia"
+msgstr "Historia"
 
 #: libraries/Console.class.php:192 libraries/Console.class.php:269
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
@@ -2841,22 +2782,19 @@ msgid "Options"
 msgstr "Valinnat"
 
 #: libraries/Console.class.php:196 libraries/Console.class.php:241
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Kirjanmerkkitaulu"
+msgstr "Kirjanmerkit"
 
 #: libraries/Console.class.php:205
-#, fuzzy
 #| msgid "Execute bookmarked query"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Suorita kysely kirjanmerkeistä"
+msgstr "Suorita kysely painamalla Ctrl+Enter"
 
 #: libraries/Console.class.php:220
-#, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
-msgstr "Ohita nykyinen virhe"
+msgstr "Nykyisen istunnon aikana"
 
 #: libraries/Console.class.php:245 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
@@ -2865,10 +2803,9 @@ msgid "Refresh"
 msgstr "Päivitä"
 
 #: libraries/Console.class.php:256
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
-msgstr "Poista relaatio"
+msgstr "Lisää kirjanmerkki"
 
 #: libraries/Console.class.php:259
 #, fuzzy
@@ -2881,26 +2818,23 @@ msgid "Target database"
 msgstr "Kohdetietokanta"
 
 #: libraries/Console.class.php:261
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
-msgstr "Poista relaatio"
+msgstr "Jaa tämä kirjanmerkki"
 
 #: libraries/Console.class.php:272
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
-msgstr "Palauta oletusarvoon"
+msgstr "Aseta oletukseksi"
 
 #: libraries/Console.class.php:276
 msgid "Always expand queried messages"
 msgstr ""
 
 #: libraries/Console.class.php:278
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "SQL-kyselyhistorian taulu"
+msgstr "Näytä kyselyhistoria käynnistyksessä"
 
 #: libraries/Console.class.php:280
 msgid "Show current browsing query"
@@ -3002,28 +2936,24 @@ msgid "Saved bookmarked search:"
 msgstr "Etsi"
 
 #: libraries/DBQbe.class.php:1460
-#, fuzzy
 #| msgid "Delete relation"
 msgid "New bookmark"
-msgstr "Poista relaatio"
+msgstr "Uusi kirjanmerkki"
 
 #: libraries/DBQbe.class.php:1486
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Create bookmark"
-msgstr "Poista relaatio"
+msgstr "Luo kirjanmerkki"
 
 #: libraries/DBQbe.class.php:1489
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Update bookmark"
-msgstr "Näytetään kirjanmerkki"
+msgstr "Päivitä kirjanmerkki"
 
 #: libraries/DBQbe.class.php:1491
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Delete bookmark"
-msgstr "Poista relaatio"
+msgstr "Poista kirjanmerkki"
 
 #: libraries/DatabaseInterface.class.php:1807
 msgid ""
@@ -3143,16 +3073,14 @@ msgstr "Palauta sarakkeiden järjestys"
 
 #: libraries/DisplayResults.class.php:787
 #: libraries/central_columns.lib.php:598
-#, fuzzy
 msgid "Filter rows"
-msgstr "Suodatin"
+msgstr "Suodata rivejä"
 
 #: libraries/DisplayResults.class.php:789
 #: libraries/central_columns.lib.php:600
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "Hae tietokannasta"
+msgstr "Hae tästä taulusta"
 
 #: libraries/DisplayResults.class.php:816 libraries/Util.class.php:2440
 #: libraries/Util.class.php:2444
@@ -3247,10 +3175,9 @@ msgstr "Hyvin tunnettu ohjelmakoodi"
 
 #: libraries/DisplayResults.class.php:3434
 #: libraries/DisplayResults.class.php:3450
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
-msgstr "Rivi on poistettu"
+msgstr "Rivi on nyt poistettu."
 
 #: libraries/DisplayResults.class.php:3488
 #: libraries/DisplayResults.class.php:5006
@@ -3259,20 +3186,18 @@ msgid "Kill"
 msgstr "Lopeta"
 
 #: libraries/DisplayResults.class.php:4450
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Saattaa olla summittainen. Katso [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Saattaa olla likimääräinen. Katso [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4507 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:904
 #: tbl_find_replace.php:49 tbl_operations.php:184 tbl_row_action.php:117
 #: view_operations.php:62
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
-msgstr "SQL-kyselyn suoritus onnistui"
+msgstr "SQL-kyselysi on suoritettu onnistuneesti."
 
 #: libraries/DisplayResults.class.php:4884 libraries/structure.lib.php:682
 #, php-format
@@ -3284,10 +3209,10 @@ msgstr ""
 "%sohjeista%s."
 
 #: libraries/DisplayResults.class.php:4897
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Näytetään rivit %1s - %2s"
+msgstr "Näytetään rivit %1s–%2s"
 
 #: libraries/DisplayResults.class.php:4912
 #, php-format
@@ -3300,10 +3225,10 @@ msgid "%d total"
 msgstr "%d tulos"
 
 #: libraries/DisplayResults.class.php:4929 libraries/sql.lib.php:1688
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
-msgstr "Kysely kesti %01.4f s."
+msgstr "Kysely kesti %01.4f sekuntia."
 
 #: libraries/DisplayResults.class.php:5013
 #: libraries/DisplayResults.class.php:5019 libraries/mult_submits.inc.php:45
@@ -3372,10 +3297,9 @@ msgid "Visualize GIS data"
 msgstr "Visualisoi paikkatieto"
 
 #: libraries/DisplayResults.class.php:5572
-#, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
-msgstr "Linkkiä ei löydy"
+msgstr "Linkkiä ei löydy!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
@@ -3388,10 +3312,9 @@ msgid "Report"
 msgstr "Tuonti"
 
 #: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:354
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "Automaattisesti luodut versiot"
+msgstr "Lähetä raportti seuraavalla kerralla automaattisesti"
 
 #: libraries/File.class.php:225
 msgid "File was not an uploaded file."
@@ -3432,10 +3355,10 @@ msgid "Unknown error in file upload."
 msgstr "Tuntematon virhe tiedostoa lähetettäessä."
 
 #: libraries/File.class.php:461
-#, fuzzy
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
-msgstr "Virhe lähetettäessä tiedostoa, katso [doc@faq1-11]FAQ 1.11[/doc]"
+msgstr ""
+"Virhe siirrettäessä ladattua tiedostoa, katso  [doc@faq1-11]FAQ 1.11[/doc]."
 
 #: libraries/File.class.php:479
 msgid "Error while moving uploaded file."
@@ -3451,10 +3374,9 @@ msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr ""
 
 #: libraries/Footer.class.php:81
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Versiotiedot"
+msgstr "Git-tiedot puuttuvat!"
 
 #: libraries/Footer.class.php:185 libraries/Footer.class.php:189
 #: libraries/Footer.class.php:192
@@ -3467,10 +3389,9 @@ msgstr "Palkin klikkaus vierittää sivun ylös"
 
 #: libraries/Header.class.php:690
 #: libraries/plugins/auth/AuthenticationCookie.class.php:149
-#, fuzzy
 #| msgid "Javascript must be enabled past this point"
 msgid "Javascript must be enabled past this point!"
-msgstr "Javaskripti on oltava päällä tämän jälkeen"
+msgstr "JavaScriptin on oltava päällä tämän jälkeen!"
 
 #: libraries/Index.class.php:535
 msgid "No index defined!"
@@ -3651,10 +3572,9 @@ msgid "Designer"
 msgstr "Suunnittelija"
 
 #: libraries/Menu.class.php:480 libraries/Util.class.php:4099
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "Tekstikenttä kentät"
+msgstr "Keskisarakkeet"
 
 #: libraries/Menu.class.php:512 libraries/Util.class.php:4071
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
@@ -3737,58 +3657,50 @@ msgid "Error while creating PDF:"
 msgstr "Virhe luotaessa PDF-tiedostoa:"
 
 #: libraries/RecentFavoriteTable.class.php:151
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save recent table!"
-msgstr "Äskeistä taulua ei voitu tallentaa"
+msgstr "Äskettäistä taulua ei voida tallentaa!"
 
 #: libraries/RecentFavoriteTable.class.php:155
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save favorite table!"
-msgstr "Äskeistä taulua ei voitu tallentaa"
+msgstr "Suosikkitaulua ei voida tallentaa!"
 
 #: libraries/RecentFavoriteTable.class.php:232
 #: libraries/structure.lib.php:2848
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "Poista kaavio"
+msgstr "Poista suosikeista"
 
 #: libraries/RecentFavoriteTable.class.php:254
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no recent tables."
-msgstr "Äskeisiä tauluja ei ole"
+msgstr "Äskettäisiä tauluja ei ole."
 
 #: libraries/RecentFavoriteTable.class.php:255
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no favorite tables."
-msgstr "Äskeisiä tauluja ei ole"
+msgstr "Suosikkitauluja ei ole."
 
 #: libraries/RecentFavoriteTable.class.php:270
 msgid "Recent tables"
 msgstr "Äskeiset taulut"
 
 #: libraries/RecentFavoriteTable.class.php:272
-#, fuzzy
 #| msgid "Reset"
 msgid "Recent"
-msgstr "Palauta"
+msgstr "Äskettäinen"
 
 #: libraries/RecentFavoriteTable.class.php:274
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
-msgstr "Muuttujat"
+msgstr "Suosikkitaulut"
 
 #: libraries/RecentFavoriteTable.class.php:276
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorites"
-msgstr "Muuttujat"
+msgstr "Suosikit"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
@@ -3799,10 +3711,9 @@ msgid "Missing information to save the bookmarked search."
 msgstr ""
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
-#, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "Käyttäjä %s on jo olemassa!"
+msgstr "Tämänniminen merkintä on jo olemassa."
 
 #: libraries/SavedSearches.class.php:347
 msgid "Missing information to delete the search."
@@ -3813,10 +3724,9 @@ msgid "Missing information to load the search."
 msgstr ""
 
 #: libraries/SavedSearches.class.php:394
-#, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "Virhe siirrettäessä ladattua tiedostoa."
+msgstr "Virhe ladattaessa hakua."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status_processes.lib.php:97
@@ -3921,20 +3831,20 @@ msgid "Advisor"
 msgstr "Neuvonantaja"
 
 #: libraries/ServerStatusData.class.php:429
-#, fuzzy, php-format
+#, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "Sekunti"
-msgstr[1] "Sekunti"
+msgstr[0] "%d sekunti"
+msgstr[1] "%d sekuntia"
 
 #: libraries/ServerStatusData.class.php:434
-#, fuzzy, php-format
+#, php-format
 #| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "Minuutti"
-msgstr[1] "Minuutti"
+msgstr[0] "%d minuutti"
+msgstr[1] "%d minuuttia"
 
 #: libraries/StorageEngine.class.php:269
 msgid ""
@@ -3963,10 +3873,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Tämä MySQL-palvelin ei tue %s-tallennusmoottoria."
 
 #: libraries/Table.class.php:385
-#, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "tuntematon taulun tila: "
+msgstr "Tuntematon taulun tila:"
 
 #: libraries/Table.class.php:797
 #, php-format
@@ -3987,10 +3896,10 @@ msgid "Invalid table name:"
 msgstr "Virheellinen taulukon nimi:"
 
 #: libraries/Table.class.php:1360
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "Virhe annettaessa taululle %1$s nimeä %2$s"
+msgstr "Virhe nimettäessä uudelleen taulua %1$s muotoon %2$s!"
 
 #: libraries/Table.class.php:1379
 #, php-format
@@ -3998,10 +3907,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "Taulu %1$s on nimeltään %2$s."
 
 #: libraries/Table.class.php:1527
-#, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
-msgstr "Taulun käyttöliittymäasetuksia ei voitu tallentaa"
+msgstr "Taulukon käyttöliittymäasetuksia ei voida tallentaa!"
 
 #: libraries/Table.class.php:1556
 #, php-format
@@ -4597,10 +4505,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Tiedostojen lähetykseen valittua hakemistoa ei voida käyttää."
 
 #: libraries/Util.class.php:3337
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "Lähetettäviä tiedostoja ei ole"
+msgstr "Palvelimelle ladattavia tiedostoja ei ole!"
 
 #: libraries/Util.class.php:3362 libraries/Util.class.php:3363
 #: libraries/structure.lib.php:320
@@ -4703,10 +4610,9 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
 #: libraries/central_columns.lib.php:280
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not add columns!"
-msgstr "Asetuksia ei voi ladata tai tallentaa"
+msgstr "Sarakkeita ei voida lisätä!"
 
 #: libraries/central_columns.lib.php:356
 #, php-format
@@ -4715,10 +4621,9 @@ msgid ""
 msgstr ""
 
 #: libraries/central_columns.lib.php:368
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not remove columns!"
-msgstr "Äskeistä taulua ei voitu tallentaa"
+msgstr "Sarakkeita ei voida poistaa!"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
@@ -4755,44 +4660,38 @@ msgid "Extra"
 msgstr "Lisätiedot"
 
 #: libraries/central_columns.lib.php:660
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Valitse taulut"
+msgstr "Valitse taulu"
 
 #: libraries/central_columns.lib.php:714 libraries/structure.lib.php:1652
-#, fuzzy
 #| msgid "Add column(s)"
 msgid "Add column"
-msgstr "Lisää sarake/sarakkeita"
+msgstr "Lisää sarake"
 
 #: libraries/central_columns.lib.php:726
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Valitse kaksi saraketta"
+msgstr "Valitse sarake."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "Automaattisen laajentamisen koko"
+msgstr "auto_increment"
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 msgid "on update CURRENT_TIMESTAMP"
 msgstr ""
 
 #: libraries/central_columns.lib.php:886
-#, fuzzy
 #| msgid "Add column(s)"
 msgid "Add new column"
-msgstr "Lisää sarake/sarakkeita"
+msgstr "Lisää uusi sarake"
 
 #: libraries/common.inc.php:583
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "Asetustiedostoa ei voi lukea"
+msgstr "Asetustiedoston lukeminen epäonnistui!"
 
 #: libraries/common.inc.php:585
 msgid ""
@@ -4975,39 +4874,35 @@ msgstr "ei kumpikaan yltä"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:557
-#, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
-msgstr "Ei ole positiivinen luku"
+msgstr "Ei positiivinen luku!"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:579
-#, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
-msgstr "Ei ole epänegatiivinen luku"
+msgstr "Ei epänegatiivinen luku!"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:535
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
-msgstr "Virheellinen porttinumero"
+msgstr "Virheellinen porttinumero!"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:597
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
-msgstr "Virheellinen arvo"
+msgstr "Virheellinen arvo!"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:613
-#, fuzzy, php-format
+#, php-format
 #| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
-msgstr "Arvon on oltava yhtä suuri tai pienempi kuin %s"
+msgstr "Arvo voi olla korkeintaan %s!"
 
 #: libraries/config/FormDisplay.class.php:570
 #, php-format
@@ -5065,27 +4960,24 @@ msgid "Apply"
 msgstr "Käytä"
 
 #: libraries/config/ServerConfigChecks.class.php:168
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "You should use SSL connections if your database server supports it."
-msgstr "SSL-yhteyttä tulisi käyttää, jos verkkopalvelin tukee sitä."
+msgstr "SSL-yhteyttä tulisi käyttää, jos tietokantapalvelin tukee sitä."
 
 #: libraries/config/ServerConfigChecks.class.php:205
 msgid "You allow for connecting to the server without a password."
 msgstr "Sallit yhteyden muodostamisen palvelimeen ilman salasanaa."
 
 #: libraries/config/ServerConfigChecks.class.php:343
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters"
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "Avain on liian lyhyt; siinä tulisi olla ainakin 8 merkkiä"
+msgstr "Avain on liian lyhyt; siinä tulisi olla ainakin 8 merkkiä."
 
 #: libraries/config/ServerConfigChecks.class.php:350
-#, fuzzy
 #| msgid " should contain letters, numbers [em]and[/em] special characters"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
-"Avaimen tulisi sisältää merkkejä, numeroita [em]ja[/em] erikoismerkkejä"
+"Avaimen pitäisi sisältää kirjaimia, numeroita [em]ja[/em] erikoismerkkejä."
 
 #: libraries/config/ServerConfigChecks.class.php:371
 #, fuzzy, php-format
@@ -5147,10 +5039,10 @@ msgstr ""
 "käyttäjät voi lukea tai kirjoittaa siihen."
 
 #: libraries/config/ServerConfigChecks.class.php:386
-#, fuzzy, php-format
+#, php-format
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr "SSL-yhteyttä tulisi käyttää, jos verkkopalvelin tukee sitä."
+msgstr "Tämä %svalinta%s tulisi olla valittuna, jos verkkopalvelin tukee sitä."
 
 #: libraries/config/ServerConfigChecks.class.php:392
 #, fuzzy, php-format
@@ -5265,39 +5157,38 @@ msgstr ""
 "järjestelmässä."
 
 #: libraries/config/Validator.class.php:245
-#, fuzzy
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
-msgstr "Ei voinut alustaa Drizzle tietoyhteyskirjastoa"
+msgstr "Ei voida alustaa Drizzle-yhteyskirjastoa!"
 
 #: libraries/config/Validator.class.php:254
 #: libraries/config/Validator.class.php:262
 #: libraries/config/Validator.class.php:273
 #: libraries/config/Validator.class.php:280
-#, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
-msgstr "Kohteeseen ei voida muodostaa yhteyttä"
+msgstr "Ei voida yhdistää tietokantapalvelimeen!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "Tyhjennä käyttäjänimi käytettäessä config-todennustapaa"
+msgstr "Tyhjennä käyttäjänimi käytettäessä [kbd]config[/kbd]-todennustapaa!"
 
 #: libraries/config/Validator.class.php:320
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Tyhjennä kirjautumisistunnon nimi käytettäessä signon-todennustapaa"
+msgstr ""
+"Tyhjennä kirjautumisistunnon nimi käytettäessä "
+"[kbd]signon[/kbd]-todennustapaa!"
 
 #: libraries/config/Validator.class.php:329
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "Tyhjennä kirjautumisen verkko-osoite käytettäessä signon-todennustapaa"
+msgstr ""
+"Tyhjennä kirjautumisen URL-osoite käytettäessä "
+"[kbd]signon[/kbd]-todennustapaa!"
 
 #: libraries/config/Validator.class.php:376
 #, fuzzy
@@ -5390,10 +5281,9 @@ msgid "Row marker"
 msgstr "Rivin merkintä"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "Korosta rivi, jota kohdistin osoittaa"
+msgstr "Korosta kohdistimen osoittama rivi."
 
 #: libraries/config/messages.inc.php:36
 msgid "Highlight pointer"
@@ -5435,7 +5325,6 @@ msgid "CHAR columns editing"
 msgstr "CHAR-sarakkeiden muokkaus"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
@@ -5443,15 +5332,15 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
-"Käyttäjäystävällisellä editorilla voi muokata SQL kyselyitä ([a@http://"
-"codemirror.net/]CodeMirror[/a]) syntaksia korostamalla ja rivi numeroilla"
+"Käytä käyttäjäystävällistä editoria SQL-kyselyiden muokkaamiseen "
+"([a@http://codemirror.net/]CodeMirror[/a]) syntaksin korostuksella ja "
+"rivinumeroilla."
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
 msgstr "Ota käyttöön CodeMirror"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid ""
 #| "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -5459,15 +5348,14 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
-"Määrittää CHAR ja VARCHAR sarakkeista muodostettujen syötekenttien minimi "
-"koon"
+"Määrittää CHAR- ja VARCHAR -sarakkeista muodostettujen syötekenttien "
+"vähimmäiskoon."
 
 #: libraries/config/messages.inc.php:58
 msgid "Minimum size for input field"
 msgstr "Syöttökentän minimikoko"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid ""
 #| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -5475,28 +5363,26 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
-"Määrittää CHAR ja VARCHAR sarakkeista muodostettujen syötekenttien maksimi "
-"koon \t"
+"Määrittää CHAR- ja VARCHAR-sarakkeista muodostettujen syötekenttien "
+"enimmäiskoon."
 
 #: libraries/config/messages.inc.php:63
 msgid "Maximum size for input field"
 msgstr "Syöttökentän maksimikoko"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "CHAR- ja VARCHAR-tekstikenttien sarakemäärä"
+msgstr "CHAR- ja VARCHAR-tekstialueiden sarakemäärä."
 
 #: libraries/config/messages.inc.php:65
 msgid "CHAR textarea columns"
 msgstr "CHAR-tekstikentän sarakkeet"
 
 #: libraries/config/messages.inc.php:66
-#, fuzzy
 #| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "CHAR- ja VARCHAR-tekstikenttien rivimäärä"
+msgstr "CHAR- ja VARCHAR-tekstialueiden rivimäärä."
 
 #: libraries/config/messages.inc.php:67
 msgid "CHAR textarea rows"
@@ -5530,7 +5416,6 @@ msgid "Configuration file"
 msgstr "Asetustiedosto"
 
 #: libraries/config/messages.inc.php:76
-#, fuzzy
 #| msgid ""
 #| "Whether a warning (\"Are your really sure…\") should be displayed when "
 #| "you're about to lose data"
@@ -5538,8 +5423,8 @@ msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
 msgstr ""
-"Pitääkö näyttää varoitus (\"Haluatko varmasti…\"), kun tietoja aiotaan "
-"kadottaa"
+"Pitäisikö näyttää varoitus (”Haluatko varmasti…”), kun tietoja aiotaan "
+"kadottaa."
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -5614,10 +5499,9 @@ msgid "Disable multi table maintenance"
 msgstr "Estä monen taulun hallinta"
 
 #: libraries/config/messages.inc.php:100
-#, fuzzy
 #| msgid "Edit SQL queries in popup window"
 msgid "Edit SQL queries in popup window."
-msgstr "Muokkaa SQL-kyselyitä uudessa ikkunassa"
+msgstr "Muokkaa SQL-kyselyitä ponnahdusikkunassa."
 
 #: libraries/config/messages.inc.php:101
 msgid "Edit in window"
@@ -5628,7 +5512,6 @@ msgid "Display errors"
 msgstr "Näytä virheet"
 
 #: libraries/config/messages.inc.php:104
-#, fuzzy
 #| msgid ""
 #| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 #| "limit)"
@@ -5636,8 +5519,8 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
 msgstr ""
-"Aseta enimmäissekuntimäärä, jonka skripti saa ajaa ([kbd]0[/kbd] = ei "
-"aikarajaa)"
+"Määritä suurin sallittu skriptin suorittamiseen käytettävä sekuntimäärä "
+"([kbd]0[/kbd], jos ei rajoitusta)."
 
 #: libraries/config/messages.inc.php:107
 msgid "Maximum execution time"
@@ -5818,10 +5701,9 @@ msgstr "Älä tarkista viiteavaimia"
 
 #: libraries/config/messages.inc.php:168
 #: libraries/plugins/export/ExportSql.class.php:155
-#, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "Tuo rivejä taulusta %s"
+msgstr "Vie näkymiä tauluina"
 
 #: libraries/config/messages.inc.php:169 libraries/config/messages.inc.php:171
 #: libraries/config/messages.inc.php:172 libraries/config/messages.inc.php:173
@@ -16429,10 +16311,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:464
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
-msgstr "concurrent_insert on asetettu 0"
+msgstr "concurrent_insert on asetettu arvoon 0"
 
 #, fuzzy
 #~| msgid "Click to sort"
