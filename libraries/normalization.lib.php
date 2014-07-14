@@ -266,12 +266,12 @@ function PMA_getHtmlFor2NFstep1($db, $table)
                     . 'is composed of all the columns in the table '
                 ), htmlspecialchars($key)
             ) . '<br/>';
-            $extra = '<h3>' . __('Table is already in second normal form!')
+            $extra = '<h3>' . __('Table is already in second normal form.')
                 . '</h3>';
         } else {
             $headText = sprintf(
                 __(
-                    'Primary key ( %1$s ) consists more than one columns '
+                    'The primary key ( %1$s ) consists of more than one column '
                     . 'so we need to find the partial dependencies.'
                 ), htmlspecialchars($key)
             ) . '<br/>' . __(
@@ -303,11 +303,11 @@ function PMA_getHtmlFor2NFstep1($db, $table)
     } else {
         $headText = sprintf(
             __(
-                'No partial dependencies possible as primary key'
+                'No partial dependencies possible as the primary key'
                 . ' ( %1$s ) has just one column '
             ), htmlspecialchars($key)
         ) . '<br/>';
-        $extra = '<h3>' . __('Table is already in second normal form!') . '</h3>';
+        $extra = '<h3>' . __('Table is already in second normal form') . '</h3>';
     }
     $res = array(
         'legendText'=>$legendText, 'headText'=>$headText,
@@ -330,9 +330,9 @@ function PMA_getHtmlForNewTables2NF($partialDependencies,$table)
         __(
             'As per above partial dependencies, in order to put the '
             . 'original table \'%1$s\' into Second normal form we need '
-            . 'to create the following tables'
+            . 'to create the following tables:'
         ), $table
-    ) . ':</b></p>';
+    ) . '</b></p>';
     $tableName = $table;
     $i=1;
     foreach ($partialDependencies as $key=>$dependents) {
@@ -364,7 +364,7 @@ function PMA_creatNewTablesFor2NF($partialDependencies, $tablesName, $table, $db
     $queries = array();
     $error = false;
     $headText = '<h3>' . sprintf(
-        __('The second step of normalization is complete for table \'%1$s\'.!'),
+        __('The second step of normalization is complete for table \'%1$s\'.'),
         htmlspecialchars($table)
     ) . '</h3>';
     if (count((array)$partialDependencies) == 1) {
