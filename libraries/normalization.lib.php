@@ -262,7 +262,7 @@ function PMA_getHtmlFor2NFstep1($db, $table)
             $headText = sprintf(
                 __(
                     'No partial dependencies possible as '
-                    . 'no non-primary coulmn exists since primary key ( %1$s ) '
+                    . 'no non-primary column exists since primary key ( %1$s ) '
                     . 'is composed of all the columns in the table '
                 ), htmlspecialchars($key)
             ) . '<br/>';
@@ -357,7 +357,7 @@ function PMA_getHtmlForNewTables2NF($partialDependencies,$table)
  *
  * @return array
  */
-function PMA_creatNewTablesFor2NF($partialDependencies, $tablesName, $table, $db)
+function PMA_createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db)
 {
     $dropCols = false;
     $nonPKCols = array();
@@ -377,14 +377,14 @@ function PMA_creatNewTablesFor2NF($partialDependencies, $tablesName, $table, $db
     $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
     foreach ($partialDependencies as $key=>$dependents) {
         if ($tablesName->$key != $table) {
-            $keyBackqoeted = implode(', ', PMA_Util::backquote(explode(', ', $key)));
+            $backquotedKey = implode(', ', PMA_Util::backquote(explode(', ', $key)));
             $queries[] = 'CREATE TABLE ' . PMA_Util::backquote($tablesName->$key)
-                . ' SELECT DISTINCT ' . $keyBackqoeted
+                . ' SELECT DISTINCT ' . $backquotedKey
                 . (count($dependents)>0?', ':'')
                 . implode(',', PMA_Util::backquote($dependents))
                 . ' FROM ' . PMA_Util::backquote($table) . ';';
             $queries[] = 'ALTER TABLE ' . PMA_Util::backquote($tablesName->$key)
-                . ' ADD PRIMARY KEY(' . $keyBackqoeted . ');';
+                . ' ADD PRIMARY KEY(' . $backquotedKey . ');';
             $nonPKCols = array_merge($nonPKCols, $dependents);
         } else {
             $dropCols = true;
@@ -524,7 +524,7 @@ function PMA_findPartialDependencies($table, $db)
     }
     if (empty($dependencyList)) {
         $html .= '<p class="displayblock desc">'
-            . __('No Partial dependencies found!') . '</p>';
+            . __('No partial dependencies found!') . '</p>';
     }
     $html .= '</div>';
     return $html;

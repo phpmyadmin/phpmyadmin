@@ -80,7 +80,7 @@ if (isset($_REQUEST['normalizeTo'])) {
 if (isset($_REQUEST['createNewTables2NF'])) {
     $partialDependencies = json_decode($_REQUEST['pd']);
     $tablesName = json_decode($_REQUEST['newTablesName']);
-    $res = PMA_creatNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
+    $res = PMA_createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
     $response->addJSON($res);
     exit;
 }
