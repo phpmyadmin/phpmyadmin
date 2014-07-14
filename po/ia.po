@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-08 16:41+0200\n"
+"PO-Revision-Date: 2014-07-14 12:07+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/ia/>\n"
@@ -1878,13 +1878,16 @@ msgstr "Trahe pro reordinar."
 
 #: js/messages.php:344
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Pulsa pro ordinar exitos per iste columna."
 
 #: js/messages.php:345
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
+"Shift+pulsar pro adder iste columna al clausula de ORDER BY (ordina per) o "
+"pro commutar inter ASC/DESC.<br />- Control+pulsar pro remover columna ab le "
+"clausula de ORDER BY"
 
 #: js/messages.php:346
 msgid "Click to mark/unmark."
@@ -7159,6 +7162,10 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
+"Iste valor es interpretate per usar %1$sstrftime%2$s, assi que tu pote usar "
+"catenas de formatation per le datas/tempore. Anque on potera adder le "
+"sequente transformationes: %3$s. Altere texto essera mantenite assi como il "
+"es. Vide le %4$sFAQ%5$s pro detalios."
 
 #: libraries/display_export.lib.php:518
 msgid "use this for future exports"
@@ -7268,6 +7275,8 @@ msgstr "Importation partial:"
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
+"Previe importation expirava, post un nove submission il continuara ab "
+"position %d."
 
 #: libraries/display_import.lib.php:289
 msgid ""
@@ -7284,10 +7293,12 @@ msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
 msgstr ""
+"Salta iste numero de query (pro SQL) o de rangos (pro altere formatos), "
+"initiante ab le prime:"
 
 #: libraries/display_import.lib.php:338
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "Optiones specific de formato:"
 
 #: libraries/display_import.lib.php:446
 msgid ""
@@ -7295,37 +7306,40 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
+"Le file incargate probabilemente es plus grande que le maxime grandor "
+"permittite o iste es un defecto cognoscite per le navigatores basate sur "
+"webkit (Safari, Google Chrome, Arora etc.)."
 
 #: libraries/display_import.lib.php:452
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s de %s"
 
 #: libraries/display_import.lib.php:453
 msgid "Uploading your import file…"
-msgstr ""
+msgstr "Incargante tu file de importar…"
 
 #: libraries/display_import.lib.php:454
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/sec."
 
 #: libraries/display_import.lib.php:455
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "Il ha circa %MIN min. %SEC sec. remanente."
 
 #: libraries/display_import.lib.php:456
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "Il ha circa %SEC sec. remanente."
 
 #: libraries/display_import.lib.php:458
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "Le file es in elaboration, pro favor tu sia patiente."
 
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:96
 msgid "Language"
-msgstr ""
+msgstr "Linguage"
 
 #: libraries/engines/bdb.lib.php:28
 msgid "Version information"
@@ -7333,123 +7347,132 @@ msgstr "Information de version"
 
 #: libraries/engines/innodb.lib.php:28
 msgid "Data home directory"
-msgstr ""
+msgstr "Directorio principal o domo de datos"
 
 #: libraries/engines/innodb.lib.php:29
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
+"Le parte commun del percurso de directorio pro omne files de datos InnoDB."
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Data files"
-msgstr ""
+msgstr "Files de datos"
 
 #: libraries/engines/innodb.lib.php:35
 msgid "Autoextend increment"
-msgstr ""
+msgstr "Incremento de autoextend (extension automatic)"
 
 #: libraries/engines/innodb.lib.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
+"Le dimension de incremento pro extender le grandor del spatio de tabella de "
+"autoextending quando il deveni plen."
 
 #: libraries/engines/innodb.lib.php:40
 msgid "Buffer pool size"
-msgstr ""
+msgstr "Grandor del pool de buffer"
 
 #: libraries/engines/innodb.lib.php:41
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
+"Le dimension del buffer (tampon) de memoria que InnoDB usa pro memorisar "
+"datos in cache e como indices pro su tabellas."
 
 #: libraries/engines/innodb.lib.php:143
 msgid "Buffer Pool"
-msgstr ""
+msgstr "Pool de buffer (insimul commun de tampon)"
 
 #: libraries/engines/innodb.lib.php:166
 msgid "Buffer Pool Usage"
-msgstr ""
+msgstr "Usage de pool de buffer"
 
 #: libraries/engines/innodb.lib.php:176
 msgid "pages"
-msgstr ""
+msgstr "paginas"
 
 #: libraries/engines/innodb.lib.php:190
 msgid "Free pages"
-msgstr ""
+msgstr "Paginas libere"
 
 #: libraries/engines/innodb.lib.php:198
 msgid "Dirty pages"
-msgstr ""
+msgstr "Paginas immunde"
 
 #: libraries/engines/innodb.lib.php:206
 msgid "Pages containing data"
-msgstr ""
+msgstr "Paginas continente datos"
 
 #: libraries/engines/innodb.lib.php:214
 msgid "Pages to be flushed"
-msgstr ""
+msgstr "Paginas que on debe inviar in flush"
 
 #: libraries/engines/innodb.lib.php:222
 msgid "Busy pages"
-msgstr ""
+msgstr "Paginas occupate"
 
 #: libraries/engines/innodb.lib.php:233
 msgid "Latched pages"
-msgstr ""
+msgstr "Paginas in latch (con un pessulo)"
 
 #: libraries/engines/innodb.lib.php:246
 msgid "Buffer Pool Activity"
-msgstr ""
+msgstr "Activitate del Buffer Pool (Insimul commun de tampon)"
 
 #: libraries/engines/innodb.lib.php:250
 msgid "Read requests"
-msgstr ""
+msgstr "Requestas de lectura"
 
 #: libraries/engines/innodb.lib.php:258
 msgid "Write requests"
-msgstr ""
+msgstr "Requestas de scriptura"
 
 #: libraries/engines/innodb.lib.php:266
 msgid "Read misses"
-msgstr ""
+msgstr "Quantitate non legite"
 
 #: libraries/engines/innodb.lib.php:274
 msgid "Write waits"
-msgstr ""
+msgstr "In expectation de scriptura"
 
 #: libraries/engines/innodb.lib.php:282
 msgid "Read misses in %"
-msgstr ""
+msgstr "Quantitate non legite in %"
 
 #: libraries/engines/innodb.lib.php:297
 msgid "Write waits in %"
-msgstr ""
+msgstr "Expectante per scriptura in %"
 
 #: libraries/engines/myisam.lib.php:28
 msgid "Data pointer size"
-msgstr ""
+msgstr "Grandor de punctator de datos"
 
 #: libraries/engines/myisam.lib.php:29
 msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
 msgstr ""
+"Le dimension predefinite de punctator in bytes que on debe usar per CREATE "
+"TABLE pro tabellas de myISAM quando necun option de MAX_ROWS es specificate."
 
 #: libraries/engines/myisam.lib.php:33
 msgid "Automatic recovery mode"
-msgstr ""
+msgstr "Modo de recuperation automatic"
 
 #: libraries/engines/myisam.lib.php:34
 msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
 msgstr ""
+"Le modo de recuperation automatic de tabellas myISAM rumpite, assi como il "
+"es fixate per le option de initio del servitor  --myisam-recover."
 
 #: libraries/engines/myisam.lib.php:37
 msgid "Maximum size for temporary sort files"
-msgstr ""
+msgstr "Maxime grandor pro files per ordinar temporanee"
 
 #: libraries/engines/myisam.lib.php:38
 msgid ""
