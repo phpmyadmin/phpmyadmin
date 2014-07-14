@@ -2478,7 +2478,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $multi_edit_funcs = array(null);
 
         $result = PMA_getCurrentValueAsAnArrayForMultipleEdit(
-            null, null, $multi_edit_funcs, null, null, 'currVal', null,
+            $multi_edit_funcs, null, null, 'currVal', null,
             null, null, 0
         );
 
@@ -2499,7 +2499,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
 
         $result = PMA_getCurrentValueAsAnArrayForMultipleEdit(
-            null, null, $multi_edit_funcs, null, null, 'currVal', null,
+            $multi_edit_funcs, null, null, 'currVal', null,
             null, null, 0
         );
 
@@ -2509,7 +2509,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $multi_edit_funcs = array('AES_ENCRYPT');
         $multi_edit_salt = array("");
         $result = PMA_getCurrentValueAsAnArrayForMultipleEdit(
-            null, null, $multi_edit_funcs, $multi_edit_salt, array(), "'''", array(),
+            $multi_edit_funcs, $multi_edit_salt, array(), "'''", array(),
             array('func'), array('func'), 0
         );
         $this->assertEquals("AES_ENCRYPT(''','')", $result);
@@ -2518,14 +2518,14 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $multi_edit_funcs = array('func');
         $multi_edit_salt = array();
         $result = PMA_getCurrentValueAsAnArrayForMultipleEdit(
-            null, null, $multi_edit_funcs, $multi_edit_salt, array(), "'''", array(),
+            $multi_edit_funcs, $multi_edit_salt, array(), "'''", array(),
             array('func'), array('func'), 0
         );
         $this->assertEquals("func(''')", $result);
 
         // case 5
         $result = PMA_getCurrentValueAsAnArrayForMultipleEdit(
-            null, null, $multi_edit_funcs, $multi_edit_salt, array(), "''", array(),
+            $multi_edit_funcs, $multi_edit_salt, array(), "''", array(),
             array('func'), array('func'), 0
         );
         $this->assertEquals("func()", $result);
