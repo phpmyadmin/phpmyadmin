@@ -434,6 +434,10 @@ select[multiple] {
     text-align: center;
 }
 
+.displayblock {
+    display: block;
+}
+
 table.nospacing {
     border-spacing: 0;
 }
@@ -3362,4 +3366,9 @@ html.ie7 #pma_console .query_input {
     float: right;
     margin-right: 5px;
     padding: 0px 10px;
+}
+
+.dependencies_box {
+    background-color: white;
+    border: 3px ridge black;
 }

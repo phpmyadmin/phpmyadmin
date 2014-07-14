@@ -306,6 +306,17 @@ $js_messages['strPrimaryKeyAdded'] = __('Primary key added.');
 $js_messages['strToNextStep'] = __('Taking you to next step…');
 $js_messages['strFinishMsg'] = __("The first step of normalization is complete for table '%s'.");
 $js_messages['strEndStep'] = __("End of step");
+$js_messages['str2NFNormalization'] = __('Second step of normalization (2NF)');
+$js_messages['strDone'] = __('Done');
+$js_messages['strConfirmPd'] = __('Confirm partial dependencies');
+$js_messages['strSelectedPd'] = __('Selected partial dependencies are as follows:');
+$js_messages['strPdHintNote'] = __('Note: a, b -> d,f implies values of columns a and b combined together can determine values of column d and column f.');
+$js_messages['strNoPdSelected'] = __('No partial dependencies selected!');
+$js_messages['strBack'] = __('Back');
+$js_messages['strShowPossiblePd'] = __('Show me the possible partial dependencies based on data in the table');
+$js_messages['strHidePd'] = __('Hide partial dependencies list');
+$js_messages['strWaitForPd'] = __('Sit tight! It may take few seconds depending on data size and column count of the table.');
+$js_messages['strStep'] = __('Step');
 
 /* For server_variables.js */
 $js_messages['strSave'] = __('Save');
