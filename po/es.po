@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-14 13:33-0400\n"
-"PO-Revision-Date: 2014-07-15 02:33+0200\n"
+"PO-Revision-Date: 2014-07-15 02:34+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -9090,7 +9090,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:527
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "¡No se encontraron dependencias parciales!"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to:"
