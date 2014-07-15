@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-14 13:33-0400\n"
-"PO-Revision-Date: 2014-07-14 21:38+0200\n"
+"PO-Revision-Date: 2014-07-15 07:07+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -1836,11 +1836,11 @@ msgstr "Bitti"
 
 #: js/messages.php:311
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Kısmi bağımlılıkları doğrula"
 
 #: js/messages.php:312
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Seçilen kısmi bağımlılıkları aşağıdaki gibidir:"
 
 #: js/messages.php:313
 msgid ""
@@ -1849,24 +1849,25 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Seçilen veritabanları yok."
+msgstr "Seçilen kısmi bağımlılıklar yok!"
 
 #: js/messages.php:316
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "Tablodaki veriye dayanarak olası kısmi bağımlılıkları bana göster"
 
 #: js/messages.php:317
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Kısmi bağımlılıklar listesini gizle"
 
 #: js/messages.php:318
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Sıkı durun! Tablonun veri boyutuna ve sütun sayısına bağlı olarak birkaç "
+"saniye sürebilir."
 
 #: js/messages.php:319
 #| msgid "Step 1."
@@ -8851,7 +8852,7 @@ msgstr "Adım 2."
 
 #: libraries/normalization.lib.php:242
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "Kısmi bağımlılıkları bul"
 
 #: libraries/normalization.lib.php:264
 #, php-format
