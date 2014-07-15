@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-14 13:33-0400\n"
-"PO-Revision-Date: 2014-07-13 16:05+0200\n"
+"PO-Revision-Date: 2014-07-15 02:33+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1842,10 +1842,9 @@ msgid "End of step"
 msgstr "Final de los pasos"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Second step of normalization (1NF+2NF)"
 msgid "Second step of normalization (2NF)"
-msgstr "Segundo paso de normalización (1NF+2NF)"
+msgstr "Segundo paso de normalización (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:310 js/messages.php:531
@@ -1854,43 +1853,47 @@ msgstr "Terminado"
 
 #: js/messages.php:311
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Confirmar dependencias parciales"
 
 #: js/messages.php:312
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Las dependencias parciales seleccionadas son:"
 
 #: js/messages.php:313
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Nota: «a, b -> d, f» implica que los valores combinados de las columnas a y "
+"b pueden determinar el valor de las columnas d y f."
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "No se seleccionaron bases de datos."
+msgstr "¡No se seleccionaron dependencias parciales!"
 
 #: js/messages.php:316
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"Mostrar las posibles dependencias parciales basadas en los datos actuales de "
+"la tabla"
 
 #: js/messages.php:317
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Esconder lista de dependencias parciales"
 
 #: js/messages.php:318
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"¡Paciencia! Puede tomar unos segundos, dependiendo del tamaño de los datos y "
+"la cantidad de columnas de la tabla."
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Step 1."
 msgid "Step"
-msgstr "Paso 1."
+msgstr "Paso"
 
 #: js/messages.php:322 libraries/insert_edit.lib.php:1517
 #: libraries/server_variables.lib.php:157
@@ -8963,14 +8966,13 @@ msgid "No redundant column"
 msgstr "Ninguna columna redundante"
 
 #: libraries/normalization.lib.php:242
-#, fuzzy
 #| msgid "Step 1."
 msgid "Step 2."
-msgstr "Paso 1."
+msgstr "Paso 2."
 
 #: libraries/normalization.lib.php:242
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "Buscar dependencias parciales"
 
 #: libraries/normalization.lib.php:264
 #, php-format
@@ -8978,10 +8980,13 @@ msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table "
 msgstr ""
+"No son posibles las dependencias parciales ya que no existen columnas no "
+"primarias debido a que la clave primaria («%1$s») contiene a todas las "
+"columnas de la tabla "
 
 #: libraries/normalization.lib.php:269
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "La tabla ya se encuentra en segunda forma normal."
 
 #: libraries/normalization.lib.php:274
 #, php-format
@@ -8989,9 +8994,10 @@ msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"La clave primaria («%1$s») contiene más de una columna, por lo que "
+"necesitamos encontrar las dependencias parciales."
 
 #: libraries/normalization.lib.php:278
-#, fuzzy
 #| msgid ""
 #| "Hint: Please follow the procedure carefully in order to obtain correct "
 #| "normalization"
@@ -8999,8 +9005,8 @@ msgid ""
 "Please read and answer the following question(s) carefully to get correct "
 "normalization."
 msgstr ""
-"Consejo: siga el procedimiento cuidadosamente para obtener una normalización "
-"correcta"
+"Lea y responda la(s) siguente(s) pregunta(s) cuidadosamente para obtener una "
+"normalización correcta."
 
 #: libraries/normalization.lib.php:282
 msgid "+ Show me the possible partial dependencies based on data in the table"
@@ -9012,6 +9018,9 @@ msgid ""
 "columns among given set whose values combined together are sufficient to "
 "determine the value of the column."
 msgstr ""
+"Para cada una de las columnas a continuación, seleccione el <b>conjunto "
+"mínimo</b> de columnas entre ellas cuyos valores combinados son suficientes "
+"para determinar el valor de la columna."
 
 #: libraries/normalization.lib.php:306
 #, php-format
@@ -9019,10 +9028,12 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column "
 msgstr ""
+"No existen dependencias parciales posibles debido a que la clave primaria "
+"(«%1$s») sólo contiene una columna "
 
 #: libraries/normalization.lib.php:310
 msgid "Table is already in second normal form"
-msgstr ""
+msgstr "La tabla ya se encuentra en segunda forma normal"
 
 #: libraries/normalization.lib.php:331
 #, php-format
@@ -9030,18 +9041,20 @@ msgid ""
 "As per above partial dependencies, in order to put the original table '%1$s' "
 "into Second normal form we need to create the following tables:"
 msgstr ""
+"Debido a las dependencias parciales anteriores, para poder convertir la "
+"tabla original «%1$s» a segunda forma normal necesitamos crear las "
+"siguientes tablas:"
 
 #: libraries/normalization.lib.php:367
-#, fuzzy, php-format
+#, php-format
 #| msgid "The first step of normalization is complete for table '%s'."
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr "Se completó el primer paso de la normalización para la tabla '%s'."
+msgstr "Se completó el segundo paso de la normalización para la tabla '%1$s'."
 
 #: libraries/normalization.lib.php:407
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing!"
-msgstr "Error al procesar la petición:"
+msgstr "¡Error durante el procesamiento!"
 
 #: libraries/normalization.lib.php:438
 msgid "Improve table structure (Normalization):"
@@ -9072,6 +9085,8 @@ msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
+"Esta lista está basada en un subconjunto de los datos de la tabla y no es "
+"necesariamente precisa. "
 
 #: libraries/normalization.lib.php:527
 msgid "No partial dependencies found!"
