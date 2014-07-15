@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-15 10:44-0400\n"
-"PO-Revision-Date: 2014-07-15 08:08+0200\n"
+"PO-Revision-Date: 2014-07-15 22:45+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8785,7 +8785,7 @@ msgid "Find partial dependencies"
 msgstr "Lisa osalised sõltuvused"
 
 #: libraries/normalization.lib.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "No partial dependencies possible as no non-primary column exists since "
 #| "primary key ( %1$s ) is composed of all the columns in the table "
@@ -8794,7 +8794,7 @@ msgid ""
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
 "Osalised sõltuvused ei ole võimalikud, sest puuduvad mitteprimaarsed veerud, "
-"kuna primaarvõti ( %1$s ) on loodud tabeli kõigist veergudest. "
+"kuna primaarvõti ( %1$s ) on loodud tabeli kõigist veergudest."
 
 #: libraries/normalization.lib.php:269 libraries/normalization.lib.php:310
 msgid "Table is already in second normal form."
@@ -8810,7 +8810,6 @@ msgstr ""
 "sõltuvused."
 
 #: libraries/normalization.lib.php:278
-#, fuzzy
 #| msgid ""
 #| "Please read and answer the following question(s) carefully to get correct "
 #| "normalization."
@@ -8818,7 +8817,7 @@ msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
-"Palun loe ja vasta hoolikalt jörgmistele küsimus(t)ele, et saada korrektne "
+"Palun vasta hoolikalt jörgmistele küsimus(t)ele, et saada korrektne "
 "normaalkuju."
 
 #: libraries/normalization.lib.php:282
@@ -8835,7 +8834,7 @@ msgstr ""
 "väärtused kombineeritult on piisavad, et määrata veeru väärtus."
 
 #: libraries/normalization.lib.php:306
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "No partial dependencies possible as the primary key ( %1$s ) has just one "
 #| "column "
@@ -8844,7 +8843,7 @@ msgid ""
 "column."
 msgstr ""
 "Osalised sõltuvused ei ole võimalikud, sest primaarvõti ( %1$s ) sisaldab "
-"ainult ühe veeru. "
+"ainult ühe veeru."
 
 #: libraries/normalization.lib.php:331
 #, php-format
