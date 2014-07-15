@@ -304,10 +304,10 @@ function PMA_getHtmlFor2NFstep1($db, $table)
         $headText = sprintf(
             __(
                 'No partial dependencies possible as the primary key'
-                . ' ( %1$s ) has just one column '
+                . ' ( %1$s ) has just one column.'
             ), htmlspecialchars($key)
         ) . '<br/>';
-        $extra = '<h3>' . __('Table is already in second normal form') . '</h3>';
+        $extra = '<h3>' . __('Table is already in second normal form.') . '</h3>';
     }
     $res = array(
         'legendText'=>$legendText, 'headText'=>$headText,
