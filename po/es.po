@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-15 10:44-0400\n"
-"PO-Revision-Date: 2014-07-15 02:34+0200\n"
+"PO-Revision-Date: 2014-07-15 19:05+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8971,7 +8971,7 @@ msgid "Find partial dependencies"
 msgstr "Buscar dependencias parciales"
 
 #: libraries/normalization.lib.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "No partial dependencies possible as no non-primary column exists since "
 #| "primary key ( %1$s ) is composed of all the columns in the table "
@@ -8981,7 +8981,7 @@ msgid ""
 msgstr ""
 "No son posibles las dependencias parciales ya que no existen columnas no "
 "primarias debido a que la clave primaria («%1$s») contiene a todas las "
-"columnas de la tabla "
+"columnas de la tabla."
 
 #: libraries/normalization.lib.php:269 libraries/normalization.lib.php:310
 msgid "Table is already in second normal form."
@@ -8997,7 +8997,6 @@ msgstr ""
 "necesitamos encontrar las dependencias parciales."
 
 #: libraries/normalization.lib.php:278
-#, fuzzy
 #| msgid ""
 #| "Please read and answer the following question(s) carefully to get correct "
 #| "normalization."
@@ -9005,12 +9004,14 @@ msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
-"Lea y responda la(s) siguente(s) pregunta(s) cuidadosamente para obtener una "
+"Responda la(s) siguente(s) pregunta(s) cuidadosamente para obtener una "
 "normalización correcta."
 
 #: libraries/normalization.lib.php:282
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"+ Mostrar las dependencias parciales posibles según los datos actuales de la "
+"tabla"
 
 #: libraries/normalization.lib.php:286
 msgid ""
@@ -9023,7 +9024,7 @@ msgstr ""
 "para determinar el valor de la columna."
 
 #: libraries/normalization.lib.php:306
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "No partial dependencies possible as the primary key ( %1$s ) has just one "
 #| "column "
@@ -9032,7 +9033,7 @@ msgid ""
 "column."
 msgstr ""
 "No existen dependencias parciales posibles debido a que la clave primaria "
-"(«%1$s») sólo contiene una columna "
+"(«%1$s») sólo contiene una columna."
 
 #: libraries/normalization.lib.php:331
 #, php-format
