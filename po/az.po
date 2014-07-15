@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-14 13:33-0400\n"
+"POT-Creation-Date: 2014-07-15 07:25-0400\n"
 "PO-Revision-Date: 2014-07-15 11:35+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
+"Language-Team: Azerbaijani <https://l10n.cihar.com/projects/phpmyadmin/"
+"master/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2663,7 +2663,7 @@ msgstr ""
 msgid "History"
 msgstr "SQL tarixçəsi"
 
-#: libraries/Console.class.php:192 libraries/Console.class.php:269
+#: libraries/Console.class.php:192 libraries/Console.class.php:270
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
 #: libraries/import.lib.php:1237 libraries/import.lib.php:1269
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2691,7 +2691,7 @@ msgstr "SQL tarixçəsi"
 msgid "Options"
 msgstr "Parametrlər"
 
-#: libraries/Console.class.php:196 libraries/Console.class.php:241
+#: libraries/Console.class.php:196 libraries/Console.class.php:242
 #, fuzzy
 #| msgid "New bookmark"
 msgid "Bookmarks"
@@ -2702,55 +2702,55 @@ msgstr "Yeni bookmark"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "SQL sorğusu"
 
-#: libraries/Console.class.php:220
+#: libraries/Console.class.php:221
 msgid "During current session"
 msgstr ""
 
-#: libraries/Console.class.php:245 libraries/Util.class.php:1232
+#: libraries/Console.class.php:246 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr ""
 
-#: libraries/Console.class.php:256
+#: libraries/Console.class.php:257
 #, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
 msgstr "Yeni bookmark"
 
-#: libraries/Console.class.php:259
+#: libraries/Console.class.php:260
 #, fuzzy
 #| msgid "Label:"
 msgid "Label"
 msgstr "Etiket:"
 
-#: libraries/Console.class.php:260
+#: libraries/Console.class.php:261
 #, fuzzy
 msgid "Target database"
 msgstr "Search in database"
 
-#: libraries/Console.class.php:261
+#: libraries/Console.class.php:262
 #, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
 msgstr "Bookmark yarat"
 
-#: libraries/Console.class.php:272
+#: libraries/Console.class.php:273
 #, fuzzy
 #| msgid "Import defaults"
 msgid "Set default"
 msgstr "Susmaya görə İmport"
 
-#: libraries/Console.class.php:276
+#: libraries/Console.class.php:277
 msgid "Always expand queried messages"
 msgstr ""
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:279
 #, fuzzy
 msgid "Show query history at start"
 msgstr "SQL sorğusu"
 
-#: libraries/Console.class.php:280
+#: libraries/Console.class.php:281
 msgid "Show current browsing query"
 msgstr ""
 
@@ -8477,7 +8477,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:278
 msgid ""
-"Please read and answer the following question(s) carefully to get correct "
+"Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
 

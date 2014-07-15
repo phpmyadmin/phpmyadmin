@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-14 13:33-0400\n"
+"POT-Creation-Date: 2014-07-15 07:25-0400\n"
 "PO-Revision-Date: 2014-07-15 08:56+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
+"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
+"master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1868,7 +1868,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:314
-#| msgid "No databases selected."
 msgid "No partial dependencies selected!"
 msgstr "Necun dependentias partial seligite!"
 
@@ -2733,7 +2732,7 @@ msgstr "Netta"
 msgid "History"
 msgstr "Chronologia"
 
-#: libraries/Console.class.php:192 libraries/Console.class.php:269
+#: libraries/Console.class.php:192 libraries/Console.class.php:270
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
 #: libraries/import.lib.php:1237 libraries/import.lib.php:1269
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2761,7 +2760,7 @@ msgstr "Chronologia"
 msgid "Options"
 msgstr "Optiones"
 
-#: libraries/Console.class.php:196 libraries/Console.class.php:241
+#: libraries/Console.class.php:196 libraries/Console.class.php:242
 msgid "Bookmarks"
 msgstr "Marcatores de libro"
 
@@ -2769,45 +2768,45 @@ msgstr "Marcatores de libro"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Pressa Ctrl+Enter pro executar query"
 
-#: libraries/Console.class.php:220
+#: libraries/Console.class.php:221
 msgid "During current session"
 msgstr "Durante session currente"
 
-#: libraries/Console.class.php:245 libraries/Util.class.php:1232
+#: libraries/Console.class.php:246 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Refresca"
 
-#: libraries/Console.class.php:256
+#: libraries/Console.class.php:257
 msgid "Add bookmark"
 msgstr "Adde marcator de libro o favorito"
 
-#: libraries/Console.class.php:259
+#: libraries/Console.class.php:260
 msgid "Label"
 msgstr "Etiquetta"
 
-#: libraries/Console.class.php:260
+#: libraries/Console.class.php:261
 msgid "Target database"
 msgstr "Base de datos objectivo"
 
-#: libraries/Console.class.php:261
+#: libraries/Console.class.php:262
 msgid "Share this bookmark"
 msgstr "Comparti iste marcator de libro o favorito"
 
-#: libraries/Console.class.php:272
+#: libraries/Console.class.php:273
 msgid "Set default"
 msgstr "Fixa le valores predefinite"
 
-#: libraries/Console.class.php:276
+#: libraries/Console.class.php:277
 msgid "Always expand queried messages"
 msgstr "Expande sempre messages del query"
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:279
 msgid "Show query history at start"
 msgstr "Monstra chronologia de query al initio"
 
-#: libraries/Console.class.php:280
+#: libraries/Console.class.php:281
 msgid "Show current browsing query"
 msgstr "Monstra query currente que on naviga"
 
@@ -8898,7 +8897,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:278
 msgid ""
-"Please read and answer the following question(s) carefully to get correct "
+"Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
 
@@ -8933,12 +8932,10 @@ msgstr ""
 
 #: libraries/normalization.lib.php:367
 #, php-format
-#| msgid "The first step of normalization is complete for table '%s'."
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "Le secunde passo pro normalisar es complete pro tabella '%1$s'."
 
 #: libraries/normalization.lib.php:407
-#| msgid "Error in Processing Request"
 msgid "Error in processing!"
 msgstr "Error in le tractamento!"
 

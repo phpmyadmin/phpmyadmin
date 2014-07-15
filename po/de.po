@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-14 13:33-0400\n"
+"POT-Creation-Date: 2014-07-15 07:25-0400\n"
 "PO-Revision-Date: 2014-07-10 13:05+0200\n"
 "Last-Translator: Jan Erik Zassenhaus <jan.zassenhaus@jgerman.de>\n"
 "Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/master/de/"
@@ -2797,7 +2797,7 @@ msgstr "Werte löschen"
 msgid "History"
 msgstr "SQL-Verlaufsprotokoll"
 
-#: libraries/Console.class.php:192 libraries/Console.class.php:269
+#: libraries/Console.class.php:192 libraries/Console.class.php:270
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
 #: libraries/import.lib.php:1237 libraries/import.lib.php:1269
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2825,7 +2825,7 @@ msgstr "SQL-Verlaufsprotokoll"
 msgid "Options"
 msgstr "Optionen"
 
-#: libraries/Console.class.php:196 libraries/Console.class.php:241
+#: libraries/Console.class.php:196 libraries/Console.class.php:242
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
@@ -2837,57 +2837,57 @@ msgstr "Lesezeichen Tabelle"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Abfrage ausführen"
 
-#: libraries/Console.class.php:220
+#: libraries/Console.class.php:221
 #, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
 msgstr "Überspringe aktuellen Fehler"
 
-#: libraries/Console.class.php:245 libraries/Util.class.php:1232
+#: libraries/Console.class.php:246 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Aktualisieren"
 
-#: libraries/Console.class.php:256
+#: libraries/Console.class.php:257
 #, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
 msgstr "Neues Lesezeichen"
 
-#: libraries/Console.class.php:259
+#: libraries/Console.class.php:260
 #, fuzzy
 #| msgid "Label:"
 msgid "Label"
 msgstr "Titel:"
 
-#: libraries/Console.class.php:260
+#: libraries/Console.class.php:261
 msgid "Target database"
 msgstr "Ziel-Datenbank"
 
-#: libraries/Console.class.php:261
+#: libraries/Console.class.php:262
 #, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
 msgstr "Lesezeichen erstellen"
 
-#: libraries/Console.class.php:272
+#: libraries/Console.class.php:273
 #, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
 msgstr "Zurücksetzen"
 
-#: libraries/Console.class.php:276
+#: libraries/Console.class.php:277
 msgid "Always expand queried messages"
 msgstr ""
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:279
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "SQL Abfragehistorien Tabelle"
 
-#: libraries/Console.class.php:280
+#: libraries/Console.class.php:281
 msgid "Show current browsing query"
 msgstr ""
 
@@ -9361,7 +9361,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:278
 msgid ""
-"Please read and answer the following question(s) carefully to get correct "
+"Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
 

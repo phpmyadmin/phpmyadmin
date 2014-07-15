@@ -5,11 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-14 13:33-0400\n"
+"POT-Creation-Date: 2014-07-15 07:25-0400\n"
 "PO-Revision-Date: 2014-07-15 08:08+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
+"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
+"et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1818,7 +1818,6 @@ msgid "End of step"
 msgstr "Sammu lõpp"
 
 #: js/messages.php:309
-#| msgid "Second step of normalization (1NF+2NF)"
 msgid "Second step of normalization (2NF)"
 msgstr "Normaliseeriminse teine samm (2NK)"
 
@@ -1844,7 +1843,6 @@ msgstr ""
 "määravad väärtused veergudes d ja f."
 
 #: js/messages.php:314
-#| msgid "No databases selected."
 msgid "No partial dependencies selected!"
 msgstr "Ühtegi osalist sõltuvust ei ole valitud!"
 
@@ -1867,7 +1865,6 @@ msgstr ""
 "tabeli veergude arvust."
 
 #: js/messages.php:319
-#| msgid "Step 1."
 msgid "Step"
 msgstr "Samm"
 
@@ -2690,7 +2687,7 @@ msgstr "Puhasta"
 msgid "History"
 msgstr "Ajalugu"
 
-#: libraries/Console.class.php:192 libraries/Console.class.php:269
+#: libraries/Console.class.php:192 libraries/Console.class.php:270
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
 #: libraries/import.lib.php:1237 libraries/import.lib.php:1269
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2718,7 +2715,7 @@ msgstr "Ajalugu"
 msgid "Options"
 msgstr "Valikud"
 
-#: libraries/Console.class.php:196 libraries/Console.class.php:241
+#: libraries/Console.class.php:196 libraries/Console.class.php:242
 msgid "Bookmarks"
 msgstr "Järjehoidjad"
 
@@ -2726,45 +2723,45 @@ msgstr "Järjehoidjad"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Vajuta päringu käivitamiseks Ctrl+Enter"
 
-#: libraries/Console.class.php:220
+#: libraries/Console.class.php:221
 msgid "During current session"
 msgstr "Jooksvas sessioonis"
 
-#: libraries/Console.class.php:245 libraries/Util.class.php:1232
+#: libraries/Console.class.php:246 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:744
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Uuenda"
 
-#: libraries/Console.class.php:256
+#: libraries/Console.class.php:257
 msgid "Add bookmark"
 msgstr "Lisa järjehoidja"
 
-#: libraries/Console.class.php:259
+#: libraries/Console.class.php:260
 msgid "Label"
 msgstr "Nimi"
 
-#: libraries/Console.class.php:260
+#: libraries/Console.class.php:261
 msgid "Target database"
 msgstr "Sihtandmebaas"
 
-#: libraries/Console.class.php:261
+#: libraries/Console.class.php:262
 msgid "Share this bookmark"
 msgstr "Jaga seda järjehoidjat"
 
-#: libraries/Console.class.php:272
+#: libraries/Console.class.php:273
 msgid "Set default"
 msgstr "Määra vaikeväärtuseks"
 
-#: libraries/Console.class.php:276
+#: libraries/Console.class.php:277
 msgid "Always expand queried messages"
 msgstr "Laienda päritud teated alati"
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:279
 msgid "Show query history at start"
 msgstr "Kuva päringu ajalugu alguses"
 
-#: libraries/Console.class.php:280
+#: libraries/Console.class.php:281
 msgid "Show current browsing query"
 msgstr "Kuva valitud lehitsemise päring"
 
@@ -8780,7 +8777,6 @@ msgid "No redundant column"
 msgstr "Liigsed veerud puuduvad"
 
 #: libraries/normalization.lib.php:242
-#| msgid "Step 1."
 msgid "Step 2."
 msgstr "Samm 2."
 
@@ -8811,11 +8807,12 @@ msgstr ""
 "sõltuvused."
 
 #: libraries/normalization.lib.php:278
+#, fuzzy
 #| msgid ""
-#| "Hint: Please follow the procedure carefully in order to obtain correct "
-#| "normalization"
+#| "Please read and answer the following question(s) carefully to get correct "
+#| "normalization."
 msgid ""
-"Please read and answer the following question(s) carefully to get correct "
+"Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
 "Palun loe ja vasta hoolikalt jörgmistele küsimus(t)ele, et saada korrektne "
@@ -8858,12 +8855,10 @@ msgstr ""
 
 #: libraries/normalization.lib.php:367
 #, php-format
-#| msgid "The first step of normalization is complete for table '%s'."
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "Tabeli \"%1$s\" normaliseerimise teine samm on lõpetatud."
 
 #: libraries/normalization.lib.php:407
-#| msgid "Error in processing request:"
 msgid "Error in processing!"
 msgstr "Töötlemisel esines viga!"
 
