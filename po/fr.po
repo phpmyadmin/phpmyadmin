@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-15 08:19-0400\n"
-"PO-Revision-Date: 2014-07-15 14:15+0200\n"
+"PO-Revision-Date: 2014-07-15 16:41+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8925,10 +8925,13 @@ msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
+"Pas de dépendances partielles possibles car aucune colonne non-primaire "
+"n'existe puisque la clé primaire (%1$s) est composée de toutes les colonnes "
+"de la table."
 
 #: libraries/normalization.lib.php:269
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "La table est déjà dans la deuxième forme normale."
 
 #: libraries/normalization.lib.php:274
 #, php-format
@@ -8936,6 +8939,8 @@ msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"La clé primaire (%1$s) se compose de plusieurs colonnes et nous devons donc "
+"trouver les dépendances partielles."
 
 #: libraries/normalization.lib.php:278
 msgid ""
@@ -8946,8 +8951,11 @@ msgstr ""
 "normalisation correcte."
 
 #: libraries/normalization.lib.php:282
+#, fuzzy
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"Montrez-moi les dépendances partielles possibles en se basant sur les "
+"données de la table"
 
 #: libraries/normalization.lib.php:286
 msgid ""
@@ -8955,6 +8963,9 @@ msgid ""
 "columns among given set whose values combined together are sufficient to "
 "determine the value of the column."
 msgstr ""
+"Pour chacune des colonnes ci-dessous, veuillez sélectionner l'<b>ensemble "
+"minimal</b> de colonnes dont les valeurs combinées sont suffisantes pour "
+"déterminer la valeur de la colonne."
 
 #: libraries/normalization.lib.php:306
 #, php-format
@@ -8962,10 +8973,12 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column "
 msgstr ""
+"Aucune dépendance partielle possible car la clé primaire (%1$s) comporte une "
+"seule colonne "
 
 #: libraries/normalization.lib.php:310
 msgid "Table is already in second normal form"
-msgstr ""
+msgstr "La table est déjà dans la deuxième forme normale."
 
 #: libraries/normalization.lib.php:331
 #, php-format
