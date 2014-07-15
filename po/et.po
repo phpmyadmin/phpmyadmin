@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-15 08:19-0400\n"
+"POT-Creation-Date: 2014-07-15 10:44-0400\n"
 "PO-Revision-Date: 2014-07-15 08:08+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -8796,7 +8796,7 @@ msgstr ""
 "Osalised sõltuvused ei ole võimalikud, sest puuduvad mitteprimaarsed veerud, "
 "kuna primaarvõti ( %1$s ) on loodud tabeli kõigist veergudest. "
 
-#: libraries/normalization.lib.php:269
+#: libraries/normalization.lib.php:269 libraries/normalization.lib.php:310
 msgid "Table is already in second normal form."
 msgstr "Tabel on juba teisel normaalkujul."
 
@@ -8835,17 +8835,16 @@ msgstr ""
 "väärtused kombineeritult on piisavad, et määrata veeru väärtus."
 
 #: libraries/normalization.lib.php:306
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "No partial dependencies possible as the primary key ( %1$s ) has just one "
+#| "column "
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
-"column "
+"column."
 msgstr ""
 "Osalised sõltuvused ei ole võimalikud, sest primaarvõti ( %1$s ) sisaldab "
 "ainult ühe veeru. "
-
-#: libraries/normalization.lib.php:310
-msgid "Table is already in second normal form"
-msgstr "Tabel on juba teisel normaalkujul"
 
 #: libraries/normalization.lib.php:331
 #, php-format
@@ -15241,6 +15240,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert väärtuseks on määratud 0"
+
+#~ msgid "Table is already in second normal form"
+#~ msgstr "Tabel on juba teisel normaalkujul"
 
 #~ msgid "Click to sort"
 #~ msgstr "Kliki sorteerimiseks"

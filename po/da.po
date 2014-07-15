@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-15 08:19-0400\n"
+"POT-Creation-Date: 2014-07-15 10:44-0400\n"
 "PO-Revision-Date: 2014-07-10 16:29+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/"
@@ -8842,7 +8842,7 @@ msgid ""
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
 
-#: libraries/normalization.lib.php:269
+#: libraries/normalization.lib.php:269 libraries/normalization.lib.php:310
 msgid "Table is already in second normal form."
 msgstr ""
 
@@ -8878,11 +8878,7 @@ msgstr ""
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
-"column "
-msgstr ""
-
-#: libraries/normalization.lib.php:310
-msgid "Table is already in second normal form"
+"column."
 msgstr ""
 
 #: libraries/normalization.lib.php:331

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-15 08:19-0400\n"
+"POT-Creation-Date: 2014-07-15 10:44-0400\n"
 "PO-Revision-Date: 2014-07-15 01:16+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -8861,7 +8861,7 @@ msgid ""
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
 
-#: libraries/normalization.lib.php:269
+#: libraries/normalization.lib.php:269 libraries/normalization.lib.php:310
 msgid "Table is already in second normal form."
 msgstr "Tabela je že v drugi normalni obliki."
 
@@ -8898,12 +8898,8 @@ msgstr ""
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
-"column "
+"column."
 msgstr ""
-
-#: libraries/normalization.lib.php:310
-msgid "Table is already in second normal form"
-msgstr "Tabela je že v drugi normalni obliki"
 
 #: libraries/normalization.lib.php:331
 #, php-format
@@ -15333,6 +15329,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
+
+#~ msgid "Table is already in second normal form"
+#~ msgstr "Tabela je že v drugi normalni obliki"
 
 #~ msgid "Click to sort"
 #~ msgstr "Kliknite za razvrščanje"

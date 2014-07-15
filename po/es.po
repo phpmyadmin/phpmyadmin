@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-15 08:19-0400\n"
+"POT-Creation-Date: 2014-07-15 10:44-0400\n"
 "PO-Revision-Date: 2014-07-15 02:34+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
@@ -8983,7 +8983,7 @@ msgstr ""
 "primarias debido a que la clave primaria («%1$s») contiene a todas las "
 "columnas de la tabla "
 
-#: libraries/normalization.lib.php:269
+#: libraries/normalization.lib.php:269 libraries/normalization.lib.php:310
 msgid "Table is already in second normal form."
 msgstr "La tabla ya se encuentra en segunda forma normal."
 
@@ -9023,17 +9023,16 @@ msgstr ""
 "para determinar el valor de la columna."
 
 #: libraries/normalization.lib.php:306
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "No partial dependencies possible as the primary key ( %1$s ) has just one "
+#| "column "
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
-"column "
+"column."
 msgstr ""
 "No existen dependencias parciales posibles debido a que la clave primaria "
 "(«%1$s») sólo contiene una columna "
-
-#: libraries/normalization.lib.php:310
-msgid "Table is already in second normal form"
-msgstr "La tabla ya se encuentra en segunda forma normal"
 
 #: libraries/normalization.lib.php:331
 #, php-format
@@ -15600,6 +15599,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "«concurrent_insert» está definido como 0"
+
+#~ msgid "Table is already in second normal form"
+#~ msgstr "La tabla ya se encuentra en segunda forma normal"
 
 #~ msgid "Click to sort"
 #~ msgstr "Pulsar para ordenar"
