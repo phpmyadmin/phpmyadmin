@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-01 01:40+0200\n"
+"PO-Revision-Date: 2014-07-15 18:30+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://l10n.cihar.com/projects/phpmyadmin/4-2/"
-"az/>\n"
+"Language-Team: Azerbaijani "
+"<https://l10n.cihar.com/projects/phpmyadmin/4-2/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9008,7 +9008,7 @@ msgstr "Replikasiya uğurla başladıldı."
 
 #: libraries/replication_gui.lib.php:904
 msgid "Error starting replication."
-msgstr ""
+msgstr "Replikasiya başlatma xətası."
 
 #: libraries/replication_gui.lib.php:907
 msgid "Replication stopped successfully."
@@ -9016,7 +9016,7 @@ msgstr "Replikasiya uğurla dayandırıldı."
 
 #: libraries/replication_gui.lib.php:908
 msgid "Error stopping replication."
-msgstr ""
+msgstr "Replikasiyanı dayandırma xətası."
 
 #: libraries/replication_gui.lib.php:911
 msgid "Replication resetting successfully."
@@ -9024,11 +9024,11 @@ msgstr "Replikasiya uğurla sıfırlandı."
 
 #: libraries/replication_gui.lib.php:912
 msgid "Error resetting replication."
-msgstr ""
+msgstr "Replikasiyanı sıfırlama xətası."
 
 #: libraries/replication_gui.lib.php:915
 msgid "Success."
-msgstr ""
+msgstr "Uğurlu."
 
 #: libraries/replication_gui.lib.php:916
 msgid "Error."
@@ -9036,21 +9036,23 @@ msgstr "Xəta."
 
 #: libraries/replication_gui.lib.php:959
 msgid "Unknown error"
-msgstr ""
+msgstr "Naməlum xəta"
 
 #: libraries/replication_gui.lib.php:969
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "Əsas %s serverə bağlanmaq mümkün deyil."
 
 #: libraries/replication_gui.lib.php:980
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
+"Əsas server log mövqeyi oxuna bilmir. Əsas serverdə imtiyaz tənzimləmə "
+"problemləri ola bilər."
 
 #: libraries/replication_gui.lib.php:998
 msgid "Unable to change master!"
-msgstr ""
+msgstr "Əsas(master) dəyişdirilə bilmir!"
 
 #: libraries/replication_gui.lib.php:1002
 #, php-format
@@ -9066,16 +9068,16 @@ msgstr "Master server %s olaraq uğurla dəyişdirildi."
 #: libraries/rte/rte_triggers.lib.php:129
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr ""
+msgstr "Aşağıdakı sorğu yerinə yetirilə bilmədi: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:134
 msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
+msgstr "Bağışlayın, yığışdırılmış(dropped) hadisəni bərpa eləmək mümkün deyil."
 
 #: libraries/rte/rte_events.lib.php:137 libraries/rte/rte_routines.lib.php:336
 #: libraries/rte/rte_triggers.lib.php:109
 msgid "The backed up query was:"
-msgstr ""
+msgstr "Saxlanılmış sorğu:"
 
 #: libraries/rte/rte_events.lib.php:144
 #, php-format
@@ -9090,7 +9092,7 @@ msgstr "%1$s hadisəsi yaradıldı."
 #: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_routines.lib.php:378
 #: libraries/rte/rte_triggers.lib.php:150
 msgid "One or more errors have occurred while processing your request:"
-msgstr ""
+msgstr "İstəyiniz yerinə yetirilərkən bir və ya daha çox xəta yarandı:"
 
 #: libraries/rte/rte_events.lib.php:234
 msgid "Edit event"
@@ -9109,7 +9111,7 @@ msgstr "Prosesler"
 #: libraries/rte/rte_events.lib.php:423 libraries/rte/rte_routines.lib.php:946
 #: libraries/rte/rte_triggers.lib.php:353 view_create.php:177
 msgid "Details"
-msgstr ""
+msgstr "Təfsilatları"
 
 #: libraries/rte/rte_events.lib.php:426
 msgid "Event name"
@@ -9126,11 +9128,11 @@ msgstr "%s buna dəyiş"
 
 #: libraries/rte/rte_events.lib.php:475
 msgid "Execute at"
-msgstr ""
+msgstr "Yerinə yetir"
 
 #: libraries/rte/rte_events.lib.php:483
 msgid "Execute every"
-msgstr ""
+msgstr "Yerinə yetir; hər biri"
 
 #: libraries/rte/rte_events.lib.php:502
 msgctxt "Start of recurring event"
@@ -9150,50 +9152,49 @@ msgstr "Tamamlamada qoruma"
 #: libraries/rte/rte_routines.lib.php:1056
 #: libraries/rte/rte_triggers.lib.php:413 view_create.php:206
 msgid "Definer"
-msgstr ""
+msgstr "Təyinedici"
 
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr ""
+msgstr "Təyinedici\"username@hostname\" formatında olmalıdır!"
 
 #: libraries/rte/rte_events.lib.php:580
 msgid "You must provide an event name!"
-msgstr ""
+msgstr "Bir hadisə adı vermək məcburiyyətindəsiniz!"
 
 #: libraries/rte/rte_events.lib.php:595
 msgid "You must provide a valid interval value for the event."
-msgstr ""
+msgstr "Hər hadisə üçün düzgün interval verməlisiniz."
 
 #: libraries/rte/rte_events.lib.php:611
 msgid "You must provide a valid execution time for the event."
-msgstr ""
+msgstr "Hadisə üçün düzgün icra zamanı verməlisiniz."
 
 #: libraries/rte/rte_events.lib.php:615
 msgid "You must provide a valid type for the event."
-msgstr ""
+msgstr "Hadisə üçün düzgün bir tip verməlisiniz."
 
 #: libraries/rte/rte_events.lib.php:639
 msgid "You must provide an event definition."
-msgstr ""
+msgstr "Bir hadisə tərifi verməlisiniz."
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
-msgstr ""
+msgstr "Bağlı"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "Açmaq"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
-msgstr ""
+msgstr "Hadisə planlaşdırıcısının statusu"
 
 #: libraries/rte/rte_list.lib.php:55
-#, fuzzy
 msgid "Returns"
-msgstr "Cedvel başlığı"
+msgstr "Geri dönüşlər"
 
 #: libraries/rte/rte_routines.lib.php:76
 msgid ""
@@ -9202,41 +9203,45 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
+"Çoxlu sayda sorğu yerinə yetirə bilməyən PHP-nin dəstəkləmədiyi 'mysql' "
+"genişləmsi istifadə edirsiniz.[strong] Yadda saxlanılmış bəzi proseduraların "
+"icrasında xəta ola bilər![/strong]. Zəhmət olmasa, problemlərin qarşısın "
+"almaq üçün təkmilləşdirilmiş 'mysqli' genişlənməsi istifadə edin."
 
 #: libraries/rte/rte_routines.lib.php:292
 #: libraries/rte/rte_routines.lib.php:1132
 #, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr ""
+msgstr "Səhv tip prosedurları: \"%s\""
 
 #: libraries/rte/rte_routines.lib.php:332
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
+"Bağışlayın, silinmiş(dropped) proseduraların bərpa edilməsi uğursuz oldu."
 
 #: libraries/rte/rte_routines.lib.php:344
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified."
-msgstr "%s cedveli leğv edildi"
+msgstr "Prosedura %1$s dəyişdirildi."
 
 #: libraries/rte/rte_routines.lib.php:365
-#, fuzzy, php-format
+#, php-format
 msgid "Routine %1$s has been created."
-msgstr "%s cedveli leğv edildi"
+msgstr "Prosedura %1$s yaradıldı."
 
 #: libraries/rte/rte_routines.lib.php:446
 msgid "Edit routine"
-msgstr ""
+msgstr "Proseduranı redaktə et"
 
 #: libraries/rte/rte_routines.lib.php:949
-#, fuzzy
 #| msgid "Column names"
 msgid "Routine name"
-msgstr "Sütun adları"
+msgstr "Prosedura adı"
 
 #: libraries/rte/rte_routines.lib.php:975
 msgid "Parameters"
-msgstr ""
+msgstr "Parametrlər"
 
 #: libraries/rte/rte_routines.lib.php:981
 msgid "Direction"
@@ -9252,24 +9257,21 @@ msgid "Add parameter"
 msgstr "Parametr əlavə et"
 
 #: libraries/rte/rte_routines.lib.php:1003
-#, fuzzy
 msgid "Remove last parameter"
-msgstr "Cedveli yeniden adlandır"
+msgstr "Son parametri sil"
 
 #: libraries/rte/rte_routines.lib.php:1008
 msgid "Return type"
-msgstr ""
+msgstr "Geri dönüş tipi"
 
 #: libraries/rte/rte_routines.lib.php:1014
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "Uzunluq/Deyerler*"
+msgstr "Geri dönüş uzunluğu/qiymətləri"
 
 #: libraries/rte/rte_routines.lib.php:1020
-#, fuzzy
 msgid "Return options"
-msgstr "Cedvel başlığı"
+msgstr "Geri dönüş seçənəkləri"
 
 #: libraries/rte/rte_routines.lib.php:1051
 msgid "Is deterministic"
@@ -10839,61 +10841,64 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:537
 msgid "The number of bytes written to the log file."
-msgstr ""
+msgstr "Log faylına yazılan bayt sayı."
 
 #: libraries/server_status_variables.lib.php:540
 msgid "The number of pages created."
-msgstr ""
+msgstr "Yaradılmış səhifələrin sayı."
 
 #: libraries/server_status_variables.lib.php:543
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
 msgstr ""
+"Kompiliyasiya edilmiş InnoDB səhifə ölçüsü(susmaya görə 16KB). Səhifələrdə "
+"çoxlu sayda dəyərlər sayılıb; səhifə ölçüsü bunları asanlıqla bayta "
+"çevirməyə icazə verir."
 
 #: libraries/server_status_variables.lib.php:548
 msgid "The number of pages read."
-msgstr ""
+msgstr "Oxunmuş səhifələrin sayı."
 
 #: libraries/server_status_variables.lib.php:551
 msgid "The number of pages written."
-msgstr ""
+msgstr "Yazılmış səhifələrin sayı."
 
 #: libraries/server_status_variables.lib.php:554
 msgid "The number of row locks currently being waited for."
-msgstr ""
+msgstr "Hal-hazırda gözlənən kilidli sətirlərin  sayı."
 
 #: libraries/server_status_variables.lib.php:557
 msgid "The average time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "Kilidli sətirləri əldə etmək üçün orta zaman(millisaniyə)."
 
 #: libraries/server_status_variables.lib.php:560
 msgid "The total time spent in acquiring row locks, in milliseconds."
-msgstr ""
+msgstr "Kilidli sətirləri əldə etmək üçün ümumi zaman(millisaniyə)."
 
 #: libraries/server_status_variables.lib.php:563
 msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "Kilidli sətirləri əldə etmək üçün maksimum zaman(millisaniyə)."
 
 #: libraries/server_status_variables.lib.php:566
 msgid "The number of times a row lock had to be waited for."
-msgstr ""
+msgstr "Kilidli sətirlərin ümumi gözləmə miqdarı."
 
 #: libraries/server_status_variables.lib.php:569
 msgid "The number of rows deleted from InnoDB tables."
-msgstr ""
+msgstr "InnoDB cədvəlindən silinmiş sətirlərin sayı."
 
 #: libraries/server_status_variables.lib.php:572
 msgid "The number of rows inserted in InnoDB tables."
-msgstr ""
+msgstr "InnoDB cədvəlinə əlavə olunmuş sətirlərin sayı."
 
 #: libraries/server_status_variables.lib.php:575
 msgid "The number of rows read from InnoDB tables."
-msgstr ""
+msgstr "InnoDB cədvəlindən oxunmuş sətirlərin sayı."
 
 #: libraries/server_status_variables.lib.php:578
 msgid "The number of rows updated in InnoDB tables."
-msgstr ""
+msgstr "InnoDB cədvəlində yenilənmiş sətirlərin sayı."
 
 #: libraries/server_status_variables.lib.php:581
 msgid ""
@@ -10906,6 +10911,8 @@ msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
+"Açar keşində istifadə olunmayan blok sayı. Bu dəyər ilə açar keşindəki "
+"istifadənin miqdarını təyin edə bilərsiniz."
 
 #: libraries/server_status_variables.lib.php:590
 msgid ""
@@ -10915,13 +10922,12 @@ msgid ""
 msgstr ""
 
 #: libraries/server_status_variables.lib.php:595
-#, fuzzy
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Faylın Charset-i:"
+msgstr "İstifadə olunan açar keşinin faizi(hesablanmış dəyər)"
 
 #: libraries/server_status_variables.lib.php:598
 msgid "The number of requests to read a key block from the cache."
-msgstr ""
+msgstr "Keşdən açar blokunun oxunması üçün sorğu sayı."
 
 #: libraries/server_status_variables.lib.php:601
 msgid ""
@@ -10929,6 +10935,9 @@ msgid ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
+"Diskdən açar blokunun fiziki oxunma sayı. Əgər Key_reads böyükdürsə, onda "
+"sizin key_buffer_size dəyəriniz çox kişikdir. Əksik keş nisbəti Key_reads/"
+"Key_read_requests kimi hesablanmalıdır."
 
 #: libraries/server_status_variables.lib.php:607
 msgid ""
@@ -10938,16 +10947,18 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:611
 msgid "The number of requests to write a key block to the cache."
-msgstr ""
+msgstr "Keşə açar bloku yazmaq üçün sorğuların sayı."
 
 #: libraries/server_status_variables.lib.php:614
 msgid "The number of physical writes of a key block to disk."
-msgstr ""
+msgstr "Diskə açar bloklarının fiziki yazma sayı."
 
 #: libraries/server_status_variables.lib.php:617
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Fiziki yazmaların faizi yazma sorğuları ilə  müqayisə edilir(hesablanmış "
+"dəyər)"
 
 #: libraries/server_status_variables.lib.php:621
 msgid ""
@@ -10961,20 +10972,24 @@ msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
+"Serverin başladılmasından bu yana istifadədə olan eyni zamanlı ən çox əlaqə "
+"sayı."
 
 #: libraries/server_status_variables.lib.php:631
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
-msgstr ""
+msgstr "INSERT DELAYED sıralarında yazılmaq üçün gözləyən sətir sayı."
 
 #: libraries/server_status_variables.lib.php:634
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 msgstr ""
+"Açıq olan cədvəl sayı. Əgər açıq cədvəllər böyükdürsə, cədvəl keş dəyəriniz "
+"ehtimal ki çox kişikdir."
 
 #: libraries/server_status_variables.lib.php:638
 msgid "The number of files that are open."
-msgstr ""
+msgstr "Açıq olan fayl sayı."
 
 #: libraries/server_status_variables.lib.php:641
 msgid "The number of streams that are open (used mainly for logging)."
@@ -10982,7 +10997,7 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:644
 msgid "The number of tables that are open."
-msgstr ""
+msgstr "Açıq olan cədvəl sayı."
 
 #: libraries/server_status_variables.lib.php:647
 msgid ""
@@ -11019,11 +11034,11 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:672
 msgid "The number of queries registered in the cache."
-msgstr ""
+msgstr "Keşdə qeydiyyatlı sorğuların sayı."
 
 #: libraries/server_status_variables.lib.php:675
 msgid "The total number of blocks in the query cache."
-msgstr ""
+msgstr "Sorğu keşi içindəki toplam blok sayı."
 
 #: libraries/server_status_variables.lib.php:678
 msgid "The status of failsafe replication (not yet implemented)."
@@ -11044,6 +11059,9 @@ msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
+"Hər bir sətirdən sonra açar istifadəsini yoxlayan açarsız birləşdirmə "
+"sayıdır.(Əgər bu dəyər 0 deyildirsə, cədvəllərinizin açarlarını diqqətli "
+"olaraq yoxlamalısınız.)"
 
 #: libraries/server_status_variables.lib.php:693
 msgid ""
