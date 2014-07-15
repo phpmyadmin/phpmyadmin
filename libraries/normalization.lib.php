@@ -275,8 +275,8 @@ function PMA_getHtmlFor2NFstep1($db, $table)
                     . 'so we need to find the partial dependencies.'
                 ), htmlspecialchars($key)
             ) . '<br/>' . __(
-                'Please read and answer the following question(s) '
-                . 'carefully to get correct normalization.'
+                'Please answer the following question(s) '
+                . 'carefully to obtain a correct normalization.'
             )
                 . '<br/><a href="#" id="showPossiblePd">' . __(
                     '+ Show me the possible partial dependencies '
