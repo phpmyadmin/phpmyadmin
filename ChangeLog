@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.1.14.2 (not yet released)
+- bug #4491 [security] Missing validation for accessing User groups feature
+
 4.1.14.1 (2014-06-21)
 - bug #4464 [security] XSS injection due to unescaped db/table name in navigation hiding
 
