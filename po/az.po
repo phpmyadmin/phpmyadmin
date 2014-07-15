@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-15 10:44-0400\n"
-"PO-Revision-Date: 2014-07-15 11:35+0200\n"
+"PO-Revision-Date: 2014-07-15 18:30+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/az/>\n"
+"Language-Team: Azerbaijani "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11614,7 +11614,7 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:537
 msgid "The number of bytes written to the log file."
-msgstr ""
+msgstr "Log faylına yazılan bayt sayı."
 
 #: libraries/server_status_variables.lib.php:540
 msgid "The number of pages created."
@@ -11684,6 +11684,8 @@ msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
+"Açar keşində istifadə olunmayan blok sayı. Bu dəyər ilə açar keşindəki "
+"istifadənin miqdarını təyin edə bilərsiniz."
 
 #: libraries/server_status_variables.lib.php:590
 msgid ""
@@ -11805,11 +11807,11 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:672
 msgid "The number of queries registered in the cache."
-msgstr ""
+msgstr "Keşdə qeydiyyatlı sorğuların sayı."
 
 #: libraries/server_status_variables.lib.php:675
 msgid "The total number of blocks in the query cache."
-msgstr ""
+msgstr "Sorğu keşi içindəki toplam blok sayı."
 
 #: libraries/server_status_variables.lib.php:678
 msgid "The status of failsafe replication (not yet implemented)."
@@ -11830,6 +11832,9 @@ msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
+"Hər bir sətirdən sonra açar istifadəsini yoxlayan açarsız birləşdirmə "
+"sayıdır.(Əgər bu dəyər 0 deyildirsə, cədvəllərinizin açarlarını diqqətli "
+"olaraq yoxlamalısınız.)"
 
 #: libraries/server_status_variables.lib.php:693
 msgid ""
