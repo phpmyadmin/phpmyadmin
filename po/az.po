@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-14 13:33-0400\n"
-"PO-Revision-Date: 2014-07-14 19:50+0200\n"
+"PO-Revision-Date: 2014-07-15 11:35+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
@@ -11732,7 +11732,7 @@ msgstr "Diskə açar bloklarının fiziki yazma sayı."
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
-"Fiziki yazmaların faizi yazma sorğuları ilə  müqayisə edilir.(hesablanmış "
+"Fiziki yazmaların faizi yazma sorğuları ilə  müqayisə edilir(hesablanmış "
 "dəyər)"
 
 #: libraries/server_status_variables.lib.php:621
@@ -11747,20 +11747,24 @@ msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
+"Serverin başladılmasından bu yana istifadədə olan eyni zamanlı ən çox əlaqə "
+"sayı."
 
 #: libraries/server_status_variables.lib.php:631
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
-msgstr ""
+msgstr "INSERT DELAYED sıralarında yazılmaq üçün gözləyən sətir sayı."
 
 #: libraries/server_status_variables.lib.php:634
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 msgstr ""
+"Açıq olan cədvəl sayı. Əgər açıq cədvəllər böyükdürsə, cədvəl keş dəyəriniz "
+"ehtimal ki çox kişikdir."
 
 #: libraries/server_status_variables.lib.php:638
 msgid "The number of files that are open."
-msgstr ""
+msgstr "Açıq olan fayl sayı."
 
 #: libraries/server_status_variables.lib.php:641
 msgid "The number of streams that are open (used mainly for logging)."
@@ -11768,7 +11772,7 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:644
 msgid "The number of tables that are open."
-msgstr ""
+msgstr "Açıq olan cədvəl sayı."
 
 #: libraries/server_status_variables.lib.php:647
 msgid ""
