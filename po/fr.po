@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-15 07:25-0400\n"
-"PO-Revision-Date: 2014-07-15 13:28+0200\n"
+"PO-Revision-Date: 2014-07-15 14:15+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -1844,17 +1844,19 @@ msgstr "Fermer"
 
 #: js/messages.php:311
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Confirmer les dépendances partielles"
 
 #: js/messages.php:312
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Les dépendances partielles sélectionnées sont les suivantes :"
 
 #: js/messages.php:313
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Remarque: a, b -> d, f implique que les valeurs des colonnes a et b "
+"combinées peuvent déterminer les valeurs des colonnes d et f."
 
 #: js/messages.php:314
 msgid "No partial dependencies selected!"
@@ -1863,16 +1865,20 @@ msgstr "Pas de dépendances partielles sélectionnées !"
 #: js/messages.php:316
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"Montrez-moi les dépendances partielles possibles en se basant sur les "
+"données de la table"
 
 #: js/messages.php:317
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Masquer la liste des dépendances partielles"
 
 #: js/messages.php:318
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Soyez patient ! Cela peut prendre quelques secondes selon la taille des "
+"données et le nombre de colonnes de la table."
 
 #: js/messages.php:319
 msgid "Step"
@@ -8911,7 +8917,7 @@ msgstr "Étape 2."
 
 #: libraries/normalization.lib.php:242
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "Trouver les dépendances partielles"
 
 #: libraries/normalization.lib.php:264
 #, php-format
@@ -8932,7 +8938,6 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:278
-#, fuzzy
 #| msgid ""
 #| "Hint: Please follow the procedure carefully in order to obtain correct "
 #| "normalization"
@@ -8940,8 +8945,8 @@ msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
-"Conseil : Veuillez suivre la procédure avec soin afin d'obtenir une "
-"normalisation correcte"
+"Veuillez répondre soigneusement aux questions suivantes afin d'obtenir une "
+"normalisation correcte."
 
 #: libraries/normalization.lib.php:282
 msgid "+ Show me the possible partial dependencies based on data in the table"
