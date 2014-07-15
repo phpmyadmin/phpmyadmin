@@ -263,7 +263,7 @@ function PMA_getHtmlFor2NFstep1($db, $table)
                 __(
                     'No partial dependencies possible as '
                     . 'no non-primary column exists since primary key ( %1$s ) '
-                    . 'is composed of all the columns in the table '
+                    . 'is composed of all the columns in the table.'
                 ), htmlspecialchars($key)
             ) . '<br/>';
             $extra = '<h3>' . __('Table is already in second normal form.')
