@@ -27,7 +27,7 @@ USE phpmyadmin;
 -- Privileges
 --
 -- (activate this statement if necessary)
--- GRANT SELECT, INSERT, DELETE, UPDATE ON `phpmyadmin`.* TO
+-- GRANT SELECT, INSERT, DELETE, UPDATE, ALTER ON `phpmyadmin`.* TO
 --    'pma'@localhost;
 
 -- --------------------------------------------------------
