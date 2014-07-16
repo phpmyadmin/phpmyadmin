@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-15 10:44-0400\n"
-"PO-Revision-Date: 2014-07-15 08:56+0200\n"
+"PO-Revision-Date: 2014-07-16 09:24+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1846,7 +1846,7 @@ msgstr "Fin del passo"
 
 #: js/messages.php:309
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "Secunde passo de normalisation (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:310 js/messages.php:531
@@ -1855,17 +1855,19 @@ msgstr "Facite"
 
 #: js/messages.php:311
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Confirma dependentias partial"
 
 #: js/messages.php:312
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Dependentias partial seligite es como il seque:"
 
 #: js/messages.php:313
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Nota:  a, b -> d,f implica que valore de columnas a e b combinate insimul "
+"pte determinar valores de columna d e columna f."
 
 #: js/messages.php:314
 msgid "No partial dependencies selected!"
@@ -1874,20 +1876,23 @@ msgstr "Necun dependentias partial seligite!"
 #: js/messages.php:316
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"Monstra me le possibile dependentias partial basate sur datos in le tabella"
 
 #: js/messages.php:317
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Cela lista de dependentias partial"
 
 #: js/messages.php:318
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Mantene te firme! Il poterea prender alcun secundas in dependentia del "
+"grandor de datos e del computo de columna sur le tabella."
 
 #: js/messages.php:319
 msgid "Step"
-msgstr ""
+msgstr "Passo"
 
 #: js/messages.php:322 libraries/insert_edit.lib.php:1517
 #: libraries/server_variables.lib.php:157
@@ -8022,10 +8027,13 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
+"Le grandor maxime del file temporanee MYSQL pote esser utilisate pro "
+"regenerar un indice MyISAM (durante un REPAIR TABLE, ALTER TABLE, o LOAD "
+"DATA INFILE)."
 
 #: libraries/engines/myisam.lib.php:42
 msgid "Maximum size for temporary files on index creation"
-msgstr ""
+msgstr "Grandor maxime pro le files temporanee quando on crea indice"
 
 #: libraries/engines/myisam.lib.php:43
 msgid ""
@@ -8033,40 +8041,51 @@ msgid ""
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
+"Si le file temporanee usate per le creation rapide de indice MyISAM esserea "
+"plus grande que le uso del cache de clave per le quantitate specificate ci, "
+"tu prefere le methodo de cache de clave."
 
 #: libraries/engines/myisam.lib.php:47
 msgid "Repair threads"
-msgstr ""
+msgstr "Threads (filos) per reparar"
 
 #: libraries/engines/myisam.lib.php:48
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
+"Si iste valor es plus grande que 1, le indices de tabella MyISAM essera "
+"create in parallel (cata indice in su proprie thread) durante le processo de "
+"ordinar per reparation (Repair by)."
 
 #: libraries/engines/myisam.lib.php:52
 msgid "Sort buffer size"
-msgstr ""
+msgstr "Ordina grandor de buffer (tampon)"
 
 #: libraries/engines/myisam.lib.php:53
 msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
+"Le buffer o tampon es allocate quando on ordina indices MyISAM durante un "
+"REPAIR TABLE o quando on crea indice con CREATE INDEX o ALTER TABLE."
 
 #: libraries/engines/pbxt.lib.php:28
 msgid "Index cache size"
-msgstr ""
+msgstr "Grandor de cache de indice"
 
 #: libraries/engines/pbxt.lib.php:29
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
+"Isto es le quantitate de memoria allocate per le cache de indice. Le valor "
+"predefinite es 32MB. Le memoria allocate ci es solo usate per le cache del "
+"paginas de indice."
 
 #: libraries/engines/pbxt.lib.php:33
 msgid "Record cache size"
-msgstr ""
+msgstr "Grandor de cache de record (registro)"
 
 #: libraries/engines/pbxt.lib.php:34
 msgid ""
@@ -8074,20 +8093,26 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
+"Le quantitate de memoria allocate in le cache de record (registro) usate per "
+"la cache de datos de tabella. Le valor predefinite es 32MB. Iste memoria es "
+"usate pro cambios de cache per manear datos (.xtd) e files punctator de "
+"rango (.xtr) (row pointer)."
 
 #: libraries/engines/pbxt.lib.php:38
 msgid "Log cache size"
-msgstr ""
+msgstr "Grandor de cache de log (registro)"
 
 #: libraries/engines/pbxt.lib.php:39
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
+"Le quantitate de memoria allocate in le cache de log de transaction per le "
+"cache de log de transaction. Le valor predefinite es 16MB."
 
 #: libraries/engines/pbxt.lib.php:43
 msgid "Log file threshold"
-msgstr ""
+msgstr "Limine de file de log (registro)"
 
 #: libraries/engines/pbxt.lib.php:44
 msgid ""
