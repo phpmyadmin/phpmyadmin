@@ -2223,7 +2223,7 @@ Design customization
 .. config:option:: $cfg['DefaultDisplay']
 
     :type: string
-    :default: ``'horizonta'``
+    :default: ``'horizontal'``
 
     There are 3 display modes: horizontal, horizontalflipped and vertical.
     Define which one is displayed by default. The first mode displays each
