@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-14 12:07+0200\n"
+"PO-Revision-Date: 2014-07-16 09:24+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/ia/>\n"
@@ -7480,10 +7480,13 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
+"Le grandor maxime del file temporanee MYSQL pote esser utilisate pro "
+"regenerar un indice MyISAM (durante un REPAIR TABLE, ALTER TABLE, o LOAD "
+"DATA INFILE)."
 
 #: libraries/engines/myisam.lib.php:42
 msgid "Maximum size for temporary files on index creation"
-msgstr ""
+msgstr "Grandor maxime pro le files temporanee quando on crea indice"
 
 #: libraries/engines/myisam.lib.php:43
 msgid ""
@@ -7491,40 +7494,51 @@ msgid ""
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
+"Si le file temporanee usate per le creation rapide de indice MyISAM esserea "
+"plus grande que le uso del cache de clave per le quantitate specificate ci, "
+"tu prefere le methodo de cache de clave."
 
 #: libraries/engines/myisam.lib.php:47
 msgid "Repair threads"
-msgstr ""
+msgstr "Threads (filos) per reparar"
 
 #: libraries/engines/myisam.lib.php:48
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
+"Si iste valor es plus grande que 1, le indices de tabella MyISAM essera "
+"create in parallel (cata indice in su proprie thread) durante le processo de "
+"ordinar per reparation (Repair by)."
 
 #: libraries/engines/myisam.lib.php:52
 msgid "Sort buffer size"
-msgstr ""
+msgstr "Ordina grandor de buffer (tampon)"
 
 #: libraries/engines/myisam.lib.php:53
 msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
+"Le buffer o tampon es allocate quando on ordina indices MyISAM durante un "
+"REPAIR TABLE o quando on crea indice con CREATE INDEX o ALTER TABLE."
 
 #: libraries/engines/pbxt.lib.php:28
 msgid "Index cache size"
-msgstr ""
+msgstr "Grandor de cache de indice"
 
 #: libraries/engines/pbxt.lib.php:29
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
+"Isto es le quantitate de memoria allocate per le cache de indice. Le valor "
+"predefinite es 32MB. Le memoria allocate ci es solo usate per le cache del "
+"paginas de indice."
 
 #: libraries/engines/pbxt.lib.php:33
 msgid "Record cache size"
-msgstr ""
+msgstr "Grandor de cache de record (registro)"
 
 #: libraries/engines/pbxt.lib.php:34
 msgid ""
@@ -7532,20 +7546,26 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
+"Le quantitate de memoria allocate in le cache de record (registro) usate per "
+"la cache de datos de tabella. Le valor predefinite es 32MB. Iste memoria es "
+"usate pro cambios de cache per manear datos (.xtd) e files punctator de "
+"rango (.xtr) (row pointer)."
 
 #: libraries/engines/pbxt.lib.php:38
 msgid "Log cache size"
-msgstr ""
+msgstr "Grandor de cache de log (registro)"
 
 #: libraries/engines/pbxt.lib.php:39
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
+"Le quantitate de memoria allocate in le cache de log de transaction per le "
+"cache de log de transaction. Le valor predefinite es 16MB."
 
 #: libraries/engines/pbxt.lib.php:43
 msgid "Log file threshold"
-msgstr ""
+msgstr "Limine de file de log (registro)"
 
 #: libraries/engines/pbxt.lib.php:44
 msgid ""
