@@ -1883,19 +1883,19 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
  * This function returns common HTML <td> for Primary, Unique, Index,
  * Spatial actions
  *
- * @param string  $type               column type
- * @param string  $tbl_storage_engine table storage engine
- * @param string  $class              class attribute for <td>
- * @param boolean $hasField           has field
- * @param boolean $hasLinkClass       has <a> the class attribute
- * @param string  $url_query          url query
- * @param boolean $primary            primary if set, false otherwise
- * @param string  $syntax             Sql syntax
- * @param string  $message            message to show
- * @param string  $action             action
- * @param array   $titles             titles array
- * @param array   $row                current row
- * @param boolean $isPrimary          is primary action
+ * @param string         $type               column type
+ * @param string         $tbl_storage_engine table storage engine
+ * @param string         $class              class attribute for <td>
+ * @param boolean        $hasField           has field
+ * @param boolean        $hasLinkClass       has <a> the class attribute
+ * @param string         $url_query          url query
+ * @param object|boolean $primary            primary if set, false otherwise
+ * @param string         $syntax             Sql syntax
+ * @param string         $message            message to show
+ * @param string         $action             action
+ * @param array          $titles             titles array
+ * @param array          $row                current row
+ * @param boolean        $isPrimary          is primary action
  *
  * @return string $html_output
  */
