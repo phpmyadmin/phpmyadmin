@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-15 10:44-0400\n"
+"POT-Creation-Date: 2014-07-17 15:47-0400\n"
 "PO-Revision-Date: 2014-07-15 10:53+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Simplified Chinese <https://l10n.cihar.com/projects/"
@@ -65,7 +65,7 @@ msgstr "表注释："
 #: libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/schema/Pdf_Relation_Schema.class.php:1375
 #: libraries/tbl_columns_definition_form.lib.php:592
-#: libraries/tbl_indexes.lib.php:320 libraries/tbl_printview.lib.php:473
+#: libraries/tbl_indexes.lib.php:321 libraries/tbl_printview.lib.php:473
 #: libraries/tbl_relation.lib.php:325 libraries/tbl_relation.lib.php:414
 #: libraries/tbl_relation.lib.php:542 libraries/tbl_tracking.lib.php:809
 #: libraries/tbl_tracking.lib.php:898
@@ -186,7 +186,7 @@ msgstr "主键"
 msgid "No"
 msgstr "否"
 
-#: db_datadict.php:206 js/messages.php:372 libraries/Index.class.php:436
+#: db_datadict.php:206 js/messages.php:377 libraries/Index.class.php:436
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
 #: libraries/central_columns.lib.php:798
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:79
@@ -278,7 +278,7 @@ msgid "Rows"
 msgstr "行数"
 
 #: db_printview.php:51 libraries/structure.lib.php:842
-#: libraries/tbl_indexes.lib.php:321
+#: libraries/tbl_indexes.lib.php:322
 msgid "Size"
 msgstr "大小"
 
@@ -492,23 +492,23 @@ msgid "Point:"
 msgstr "点："
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:292
-#: gis_data_editor.php:365 js/messages.php:360
+#: gis_data_editor.php:365 js/messages.php:365
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:212 gis_data_editor.php:240 gis_data_editor.php:296
-#: gis_data_editor.php:371 js/messages.php:361
+#: gis_data_editor.php:371 js/messages.php:366
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:234 gis_data_editor.php:290 gis_data_editor.php:363
-#: js/messages.php:363
+#: js/messages.php:368
 #, php-format
 msgid "Point %d"
 msgstr "点 %d"
 
 #: gis_data_editor.php:247 gis_data_editor.php:303 gis_data_editor.php:381
-#: js/messages.php:369
+#: js/messages.php:374
 msgid "Add a point"
 msgstr "添加点"
 
@@ -530,7 +530,7 @@ msgstr "内环 %d："
 msgid "Add a linestring"
 msgstr "添加线"
 
-#: gis_data_editor.php:307 gis_data_editor.php:386 js/messages.php:370
+#: gis_data_editor.php:307 gis_data_editor.php:386 js/messages.php:375
 msgid "Add an inner ring"
 msgstr "添加内环"
 
@@ -555,7 +555,7 @@ msgstr "添加几何体"
 #: libraries/display_export.lib.php:296 libraries/display_export.lib.php:302
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1604 libraries/insert_edit.lib.php:1641
-#: libraries/normalization.lib.php:144 libraries/normalization.lib.php:453
+#: libraries/normalization.lib.php:144 libraries/normalization.lib.php:561
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:254
 #: libraries/operations.lib.php:627 libraries/operations.lib.php:680
@@ -971,7 +971,7 @@ msgstr "添加索引"
 msgid "Edit Index"
 msgstr "编辑索引"
 
-#: js/messages.php:60 libraries/tbl_indexes.lib.php:399
+#: js/messages.php:60 libraries/tbl_indexes.lib.php:400
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "添加 %s 个字段至索引"
@@ -1400,7 +1400,7 @@ msgstr "正在分析…"
 msgid "Explain output"
 msgstr "解析输出"
 
-#: js/messages.php:192 js/messages.php:662
+#: js/messages.php:192 js/messages.php:667
 #: libraries/plugins/export/ExportHtmlword.class.php:498
 #: libraries/plugins/export/ExportOdt.class.php:595
 #: libraries/plugins/export/ExportTexytext.class.php:447
@@ -1712,7 +1712,7 @@ msgstr "%d 不是有效行数。"
 msgid "Browse foreign values"
 msgstr "浏览不相关的值"
 
-#: js/messages.php:294 libraries/normalization.lib.php:517
+#: js/messages.php:294 libraries/normalization.lib.php:625
 msgid "Pick"
 msgstr "检出"
 
@@ -1767,8 +1767,8 @@ msgstr "等待进入下一步…"
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
-#: js/messages.php:308 libraries/normalization.lib.php:372
-#: libraries/normalization.lib.php:419
+#: js/messages.php:308 libraries/normalization.lib.php:417
+#: libraries/normalization.lib.php:464
 msgid "End of step"
 msgstr "完成"
 
@@ -1777,7 +1777,7 @@ msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:310 js/messages.php:531
+#: js/messages.php:310 js/messages.php:536 libraries/normalization.lib.php:260
 msgid "Done"
 msgstr "完成"
 
@@ -1819,7 +1819,24 @@ msgstr ""
 msgid "Step"
 msgstr ""
 
-#: js/messages.php:322 libraries/insert_edit.lib.php:1517
+#: js/messages.php:320
+#, fuzzy
+#| msgid "The following queries have been executed:"
+msgid "The following actions will be performed:"
+msgstr "下列查询被执行:"
+
+#: js/messages.php:321
+#, php-format
+msgid "DROP columns %1s from the table %2s"
+msgstr ""
+
+#: js/messages.php:322
+#, fuzzy
+#| msgid "Add privileges on the following table"
+msgid "Create the following new table"
+msgstr "在下列数据表添加权限"
+
+#: js/messages.php:327 libraries/insert_edit.lib.php:1517
 #: libraries/server_variables.lib.php:157
 #: libraries/tbl_columns_definition_form.lib.php:142
 #: libraries/tbl_relation.lib.php:366 setup/frames/config.inc.php:42
@@ -1827,236 +1844,236 @@ msgstr ""
 msgid "Save"
 msgstr "保存"
 
-#: js/messages.php:325
+#: js/messages.php:330
 msgid "Hide search criteria"
 msgstr "隐藏搜索条件"
 
-#: js/messages.php:326
+#: js/messages.php:331
 msgid "Show search criteria"
 msgstr "显示搜索条件"
 
-#: js/messages.php:327
+#: js/messages.php:332
 msgid "Range search"
 msgstr "范围搜索"
 
-#: js/messages.php:328
+#: js/messages.php:333
 msgid "Column maximum:"
 msgstr "最大列数目:"
 
-#: js/messages.php:329
+#: js/messages.php:334
 msgid "Column minimum:"
 msgstr "最小列数目:"
 
-#: js/messages.php:330
+#: js/messages.php:335
 msgid "Minimum value:"
 msgstr "最小值："
 
-#: js/messages.php:331
+#: js/messages.php:336
 msgid "Maximum value:"
 msgstr "最大值："
 
-#: js/messages.php:334
+#: js/messages.php:339
 msgid "Hide find and replace criteria"
 msgstr "隐藏搜索替换条件"
 
-#: js/messages.php:335
+#: js/messages.php:340
 msgid "Show find and replace criteria"
 msgstr "显示搜索替换条件"
 
-#: js/messages.php:339
+#: js/messages.php:344
 msgid "Each point represents a data row."
 msgstr "每个点代表一个数据行。"
 
-#: js/messages.php:341
+#: js/messages.php:346
 msgid "Hovering over a point will show its label."
 msgstr "悬浮至一个点上会显示它的标签。"
 
-#: js/messages.php:343
+#: js/messages.php:348
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "要放大，请用鼠标选择图表的一块区域。"
 
-#: js/messages.php:345
+#: js/messages.php:350
 msgid "Click reset zoom button to come back to original state."
 msgstr "点击重置缩放按钮以回到初始状态。"
 
-#: js/messages.php:347
+#: js/messages.php:352
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "点击数据点以查看或编辑数据行。"
 
-#: js/messages.php:349
+#: js/messages.php:354
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "拖拽右下角以改变图表大小。"
 
-#: js/messages.php:351
+#: js/messages.php:356
 msgid "Select two columns"
 msgstr "选择两列"
 
-#: js/messages.php:353
+#: js/messages.php:358
 msgid "Select two different columns"
 msgstr "选择两个不同的列"
 
-#: js/messages.php:355
+#: js/messages.php:360
 msgid "Data point content"
 msgstr "数据点内容"
 
-#: js/messages.php:358 js/messages.php:471 js/messages.php:487
+#: js/messages.php:363 js/messages.php:476 js/messages.php:492
 #: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2607
-#: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:374
+#: libraries/tbl_indexes.lib.php:339 libraries/tbl_indexes.lib.php:375
 msgid "Ignore"
 msgstr "忽略"
 
-#: js/messages.php:359 libraries/DisplayResults.class.php:3392
+#: js/messages.php:364 libraries/DisplayResults.class.php:3392
 msgid "Copy"
 msgstr "复制"
 
-#: js/messages.php:362
+#: js/messages.php:367
 msgid "Point"
 msgstr "点"
 
-#: js/messages.php:364
+#: js/messages.php:369
 msgid "Linestring"
 msgstr "线"
 
-#: js/messages.php:365
+#: js/messages.php:370
 msgid "Polygon"
 msgstr "多边形"
 
-#: js/messages.php:366 libraries/DisplayResults.class.php:1672
+#: js/messages.php:371 libraries/DisplayResults.class.php:1672
 msgid "Geometry"
 msgstr "几何体"
 
-#: js/messages.php:367
+#: js/messages.php:372
 msgid "Inner Ring"
 msgstr "内环"
 
-#: js/messages.php:368
+#: js/messages.php:373
 msgid "Outer Ring"
 msgstr "外环"
 
-#: js/messages.php:371
+#: js/messages.php:376
 msgid "Shift + Click on function name to apply to all rows."
 msgstr "按住 Shift 并点击列名称来应用到所有行"
 
-#: js/messages.php:373
+#: js/messages.php:378
 msgid "Do you want to copy encryption key?"
 msgstr "是否要复制加密密匙？"
 
-#: js/messages.php:374
+#: js/messages.php:379
 msgid "Encryption key"
 msgstr "加密密匙"
 
-#: js/messages.php:377
+#: js/messages.php:382
 msgid "Select referenced key"
 msgstr "选择外键"
 
-#: js/messages.php:378
+#: js/messages.php:383
 msgid "Select Foreign Key"
 msgstr "选择外键"
 
-#: js/messages.php:379
+#: js/messages.php:384
 msgid "Please select the primary key or a unique key!"
 msgstr "请选择主键或唯一键！"
 
-#: js/messages.php:380 pmd_general.php:174
+#: js/messages.php:385 pmd_general.php:174
 msgid "Choose column to display"
 msgstr "选择要显示的字段"
 
-#: js/messages.php:382
+#: js/messages.php:387
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr "尚未保存当前布局。如果继续将会丢失本次的修改。是否继续？"
 
-#: js/messages.php:385
+#: js/messages.php:390
 msgid "Page name"
 msgstr "页面名称"
 
-#: js/messages.php:386
+#: js/messages.php:391
 msgid "Save page"
 msgstr "保存页面"
 
-#: js/messages.php:387 pmd_general.php:146
+#: js/messages.php:392 pmd_general.php:146
 msgid "Open page"
 msgstr "打开页面"
 
-#: js/messages.php:388
+#: js/messages.php:393
 msgid "Delete page"
 msgstr "删除页面"
 
-#: js/messages.php:389
+#: js/messages.php:394
 msgid "Please select a page to continue"
 msgstr "请选择一个页面"
 
-#: js/messages.php:390
+#: js/messages.php:395
 msgid "Please enter a valid page name"
 msgstr "请输入有效页面名称"
 
-#: js/messages.php:391
+#: js/messages.php:396
 msgid "Do you want to save the changes to the current page?"
 msgstr "是否保存对该页面的更改？"
 
-#: js/messages.php:392
+#: js/messages.php:397
 msgid "Successfully deleted the page"
 msgstr "成功删除页面"
 
-#: js/messages.php:393
+#: js/messages.php:398
 msgid "Export relational schema"
 msgstr "导出关系模式"
 
-#: js/messages.php:396
+#: js/messages.php:401
 #, php-format
 msgid "Add an option for column \"%s\"."
 msgstr "给字段“%s”添加选项。"
 
-#: js/messages.php:397
+#: js/messages.php:402
 #, php-format
 msgid "%d object(s) created."
 msgstr "已创建 %d 个对象。"
 
-#: js/messages.php:400
+#: js/messages.php:405
 msgid "Press escape to cancel editing."
 msgstr "按 Esc 键取消编辑。"
 
-#: js/messages.php:401
+#: js/messages.php:406
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr "您已修改了一些数据但尚未保存。您真的要放弃保存并离开吗？"
 
-#: js/messages.php:402
+#: js/messages.php:407
 msgid "Drag to reorder."
 msgstr "拖拽以调整顺序。"
 
-#: js/messages.php:403
+#: js/messages.php:408
 msgid "Click to sort results by this column."
 msgstr "点此排序此列的结果。"
 
-#: js/messages.php:404
+#: js/messages.php:409
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
 
-#: js/messages.php:405
+#: js/messages.php:410
 msgid "Click to mark/unmark."
 msgstr "点击以标记/取消标记。"
 
-#: js/messages.php:406
+#: js/messages.php:411
 msgid "Double-click to copy column name."
 msgstr "双击以复制字段名。"
 
-#: js/messages.php:408
+#: js/messages.php:413
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "点击下箭头<br />以设置显示的字段。"
 
-#: js/messages.php:410 libraries/DisplayResults.class.php:850
+#: js/messages.php:415 libraries/DisplayResults.class.php:850
 #: libraries/browse_foreigners.lib.php:254
 #: libraries/browse_foreigners.lib.php:307
 #: libraries/server_privileges.lib.php:3225
 msgid "Show all"
 msgstr "显示全部"
 
-#: js/messages.php:411
+#: js/messages.php:416
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -2064,105 +2081,105 @@ msgstr ""
 "该表没有唯一字段。在保存后单元格编辑、多选、编辑、复制和删除等功能可能无法正"
 "常使用。"
 
-#: js/messages.php:412
+#: js/messages.php:417
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: js/messages.php:415
+#: js/messages.php:420
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "取消"
 
-#: js/messages.php:416 libraries/server_status.lib.php:261
+#: js/messages.php:421 libraries/server_status.lib.php:261
 msgid "Aborted"
 msgstr "已取消"
 
-#: js/messages.php:417
+#: js/messages.php:422
 msgid "Failed"
 msgstr ""
 
-#: js/messages.php:418
+#: js/messages.php:423
 msgid "Success"
 msgstr ""
 
-#: js/messages.php:419
+#: js/messages.php:424
 #, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
 msgstr "导入选项"
 
-#: js/messages.php:420 libraries/navigation/Navigation.class.php:102
+#: js/messages.php:425 libraries/navigation/Navigation.class.php:102
 #, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
 msgstr "日志文件阈值"
 
-#: js/messages.php:421
+#: js/messages.php:426
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "选择表"
 
-#: js/messages.php:426
+#: js/messages.php:431
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr "您可以直接双击大部分<br />单元格以修改其值。"
 
-#: js/messages.php:429
+#: js/messages.php:434
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "您可以直接点击大部分<br />单元格以修改其值。"
 
-#: js/messages.php:434
+#: js/messages.php:439
 #, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
 msgstr "打开链接。"
 
-#: js/messages.php:435
+#: js/messages.php:440
 msgid "Copy column name."
 msgstr "复制字段名。"
 
-#: js/messages.php:436
+#: js/messages.php:441
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "在字段名上右键以复制到剪贴板。"
 
-#: js/messages.php:437
+#: js/messages.php:442
 msgid "Show data row(s)."
 msgstr "显示数据行。"
 
-#: js/messages.php:440
+#: js/messages.php:445
 msgid "Generate password"
 msgstr "生成密码"
 
-#: js/messages.php:441 libraries/replication_gui.lib.php:867
+#: js/messages.php:446 libraries/replication_gui.lib.php:867
 msgid "Generate"
 msgstr "生成"
 
-#: js/messages.php:442
+#: js/messages.php:447
 msgid "Change Password"
 msgstr "修改密码"
 
-#: js/messages.php:445
+#: js/messages.php:450
 msgid "More"
 msgstr "更多"
 
-#: js/messages.php:448
+#: js/messages.php:453
 msgid "Show Panel"
 msgstr "显示导航面板"
 
-#: js/messages.php:449
+#: js/messages.php:454
 msgid "Hide Panel"
 msgstr "隐藏导航面板"
 
-#: js/messages.php:450
+#: js/messages.php:455
 msgid "Show hidden navigation tree items."
 msgstr "显示隐藏的导航树节点。"
 
-#: js/messages.php:453
+#: js/messages.php:458
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "没有在历史记录中找到所请求的页面，页面可能已过期。"
 
-#: js/messages.php:456 setup/lib/index.lib.php:157
+#: js/messages.php:461 setup/lib/index.lib.php:157
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2170,326 +2187,326 @@ msgid ""
 msgstr "phpMyAdmin 有新版本了，请您考虑升级。最新的版本是 %s，于 %s 发布。"
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:458
+#: js/messages.php:463
 msgid ", latest stable version:"
 msgstr "，最新稳定版本："
 
-#: js/messages.php:459
+#: js/messages.php:464
 msgid "up to date"
 msgstr "已更新"
 
-#: js/messages.php:461 libraries/DisplayResults.class.php:5139
+#: js/messages.php:466 libraries/DisplayResults.class.php:5139
 #: view_create.php:178
 msgid "Create view"
 msgstr "新建视图"
 
-#: js/messages.php:464
+#: js/messages.php:469
 msgid "Send Error Report"
 msgstr "发送错误报告"
 
-#: js/messages.php:465
+#: js/messages.php:470
 msgid "Submit Error Report"
 msgstr "提交错误报告"
 
-#: js/messages.php:467
+#: js/messages.php:472
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "发生致命JavaScript错误。是否发送错误报告？"
 
-#: js/messages.php:469
+#: js/messages.php:474
 msgid "Change Report Settings"
 msgstr "更改报告设置"
 
-#: js/messages.php:470
+#: js/messages.php:475
 msgid "Show Report Details"
 msgstr "显示报告详细信息"
 
-#: js/messages.php:473
+#: js/messages.php:478
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr "由于PHP设置的执行限制时间过低，您的导入未能完成！"
 
-#: js/messages.php:477
+#: js/messages.php:482
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: js/messages.php:483 js/messages.php:495
+#: js/messages.php:488 js/messages.php:500
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: js/messages.php:485
+#: js/messages.php:490
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:490 libraries/Error_Handler.class.php:355
+#: js/messages.php:495 libraries/Error_Handler.class.php:355
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "忽略"
 
-#: js/messages.php:497
+#: js/messages.php:502
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: js/messages.php:504
+#: js/messages.php:509
 msgid "Execute this query again?"
 msgstr "再次执行该查询？"
 
-#: js/messages.php:535
+#: js/messages.php:540
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "上个月"
 
-#: js/messages.php:540
+#: js/messages.php:545
 msgctxt "Next month"
 msgid "Next"
 msgstr "下个月"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:543
+#: js/messages.php:548
 msgid "Today"
 msgstr "今天"
 
-#: js/messages.php:547
+#: js/messages.php:552
 msgid "January"
 msgstr "一月"
 
-#: js/messages.php:548
+#: js/messages.php:553
 msgid "February"
 msgstr "二月"
 
-#: js/messages.php:549
+#: js/messages.php:554
 msgid "March"
 msgstr "三月"
 
-#: js/messages.php:550
+#: js/messages.php:555
 msgid "April"
 msgstr "四月"
 
-#: js/messages.php:551
+#: js/messages.php:556
 msgid "May"
 msgstr "五月"
 
-#: js/messages.php:552
+#: js/messages.php:557
 msgid "June"
 msgstr "六月"
 
-#: js/messages.php:553
+#: js/messages.php:558
 msgid "July"
 msgstr "七月"
 
-#: js/messages.php:554
+#: js/messages.php:559
 msgid "August"
 msgstr "八月"
 
-#: js/messages.php:555
+#: js/messages.php:560
 msgid "September"
 msgstr "九月"
 
-#: js/messages.php:556
+#: js/messages.php:561
 msgid "October"
 msgstr "十月"
 
-#: js/messages.php:557
+#: js/messages.php:562
 msgid "November"
 msgstr "十一月"
 
-#: js/messages.php:558
+#: js/messages.php:563
 msgid "December"
 msgstr "十二月"
 
 #. l10n: Short month name
-#: js/messages.php:565 libraries/Util.class.php:1553
+#: js/messages.php:570 libraries/Util.class.php:1553
 msgid "Jan"
 msgstr "一月"
 
 #. l10n: Short month name
-#: js/messages.php:567 libraries/Util.class.php:1555
+#: js/messages.php:572 libraries/Util.class.php:1555
 msgid "Feb"
 msgstr "二月"
 
 #. l10n: Short month name
-#: js/messages.php:569 libraries/Util.class.php:1557
+#: js/messages.php:574 libraries/Util.class.php:1557
 msgid "Mar"
 msgstr "三月"
 
 #. l10n: Short month name
-#: js/messages.php:571 libraries/Util.class.php:1559
+#: js/messages.php:576 libraries/Util.class.php:1559
 msgid "Apr"
 msgstr "四月"
 
 #. l10n: Short month name
-#: js/messages.php:573 libraries/Util.class.php:1561
+#: js/messages.php:578 libraries/Util.class.php:1561
 msgctxt "Short month name"
 msgid "May"
 msgstr "五月"
 
 #. l10n: Short month name
-#: js/messages.php:575 libraries/Util.class.php:1563
+#: js/messages.php:580 libraries/Util.class.php:1563
 msgid "Jun"
 msgstr "六月"
 
 #. l10n: Short month name
-#: js/messages.php:577 libraries/Util.class.php:1565
+#: js/messages.php:582 libraries/Util.class.php:1565
 msgid "Jul"
 msgstr "七月"
 
 #. l10n: Short month name
-#: js/messages.php:579 libraries/Util.class.php:1567
+#: js/messages.php:584 libraries/Util.class.php:1567
 msgid "Aug"
 msgstr "八月"
 
 #. l10n: Short month name
-#: js/messages.php:581 libraries/Util.class.php:1569
+#: js/messages.php:586 libraries/Util.class.php:1569
 msgid "Sep"
 msgstr "九月"
 
 #. l10n: Short month name
-#: js/messages.php:583 libraries/Util.class.php:1571
+#: js/messages.php:588 libraries/Util.class.php:1571
 msgid "Oct"
 msgstr "十月"
 
 #. l10n: Short month name
-#: js/messages.php:585 libraries/Util.class.php:1573
+#: js/messages.php:590 libraries/Util.class.php:1573
 msgid "Nov"
 msgstr "十一月"
 
 #. l10n: Short month name
-#: js/messages.php:587 libraries/Util.class.php:1575
+#: js/messages.php:592 libraries/Util.class.php:1575
 msgid "Dec"
 msgstr "十二月"
 
-#: js/messages.php:593
+#: js/messages.php:598
 msgid "Sunday"
 msgstr "星期日"
 
-#: js/messages.php:594
+#: js/messages.php:599
 msgid "Monday"
 msgstr "星期一"
 
-#: js/messages.php:595
+#: js/messages.php:600
 msgid "Tuesday"
 msgstr "星期二"
 
-#: js/messages.php:596
+#: js/messages.php:601
 msgid "Wednesday"
 msgstr "星期三"
 
-#: js/messages.php:597
+#: js/messages.php:602
 msgid "Thursday"
 msgstr "星期四"
 
-#: js/messages.php:598
+#: js/messages.php:603
 msgid "Friday"
 msgstr "星期五"
 
-#: js/messages.php:599
+#: js/messages.php:604
 msgid "Saturday"
 msgstr "星期六"
 
 #. l10n: Short week day name
-#: js/messages.php:606
+#: js/messages.php:611
 msgid "Sun"
 msgstr "周日"
 
 #. l10n: Short week day name
-#: js/messages.php:608 libraries/Util.class.php:1580
+#: js/messages.php:613 libraries/Util.class.php:1580
 msgid "Mon"
 msgstr "周一"
 
 #. l10n: Short week day name
-#: js/messages.php:610 libraries/Util.class.php:1582
+#: js/messages.php:615 libraries/Util.class.php:1582
 msgid "Tue"
 msgstr "周二"
 
 #. l10n: Short week day name
-#: js/messages.php:612 libraries/Util.class.php:1584
+#: js/messages.php:617 libraries/Util.class.php:1584
 msgid "Wed"
 msgstr "周三"
 
 #. l10n: Short week day name
-#: js/messages.php:614 libraries/Util.class.php:1586
+#: js/messages.php:619 libraries/Util.class.php:1586
 msgid "Thu"
 msgstr "周四"
 
 #. l10n: Short week day name
-#: js/messages.php:616 libraries/Util.class.php:1588
+#: js/messages.php:621 libraries/Util.class.php:1588
 msgid "Fri"
 msgstr "周五"
 
 #. l10n: Short week day name
-#: js/messages.php:618 libraries/Util.class.php:1590
+#: js/messages.php:623 libraries/Util.class.php:1590
 msgid "Sat"
 msgstr "周六"
 
 #. l10n: Minimal week day name
-#: js/messages.php:625
+#: js/messages.php:630
 msgid "Su"
 msgstr "日"
 
 #. l10n: Minimal week day name
-#: js/messages.php:627
+#: js/messages.php:632
 msgid "Mo"
 msgstr "一"
 
 #. l10n: Minimal week day name
-#: js/messages.php:629
+#: js/messages.php:634
 msgid "Tu"
 msgstr "二"
 
 #. l10n: Minimal week day name
-#: js/messages.php:631
+#: js/messages.php:636
 msgid "We"
 msgstr "三"
 
 #. l10n: Minimal week day name
-#: js/messages.php:633
+#: js/messages.php:638
 msgid "Th"
 msgstr "四"
 
 #. l10n: Minimal week day name
-#: js/messages.php:635
+#: js/messages.php:640
 msgid "Fr"
 msgstr "五"
 
 #. l10n: Minimal week day name
-#: js/messages.php:637
+#: js/messages.php:642
 msgid "Sa"
 msgstr "六"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:641
+#: js/messages.php:646
 msgid "Wk"
 msgstr "周"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:648
+#: js/messages.php:653
 msgid "calendar-month-year"
 msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:651
+#: js/messages.php:656
 msgctxt "Year suffix"
 msgid "none"
 msgstr "年"
 
-#: js/messages.php:663
+#: js/messages.php:668
 msgid "Hour"
 msgstr "时"
 
-#: js/messages.php:664
+#: js/messages.php:669
 msgid "Minute"
 msgstr "分"
 
-#: js/messages.php:665
+#: js/messages.php:670
 msgid "Second"
 msgstr "秒"
 
@@ -8947,12 +8964,12 @@ msgstr "新建"
 msgid "Make all columns atomic"
 msgstr ""
 
-#: libraries/normalization.lib.php:112 libraries/normalization.lib.php:441
+#: libraries/normalization.lib.php:112 libraries/normalization.lib.php:549
 msgid "First step of normalization (1NF)"
 msgstr ""
 
 #: libraries/normalization.lib.php:115 libraries/normalization.lib.php:166
-#: libraries/normalization.lib.php:209
+#: libraries/normalization.lib.php:209 libraries/normalization.lib.php:245
 msgid "Step 1."
 msgstr ""
 
@@ -9052,105 +9069,134 @@ msgstr "删除选中的用户"
 msgid "No redundant column"
 msgstr "添加字段"
 
-#: libraries/normalization.lib.php:242
+#: libraries/normalization.lib.php:244
+msgid "Move repeating groups"
+msgstr ""
+
+#: libraries/normalization.lib.php:247
+msgid ""
+"Do you have a group of two or more columns that are closely  related and are "
+"all repeating the same attribute? For example, a table that holds data on "
+"books might have columns such as book_id, author1, author2, author3 and so "
+"on which form a repeating group. In this case a new table (book_id, author) "
+"should be created."
+msgstr ""
+
+#: libraries/normalization.lib.php:255
+msgid ""
+"Check the columns which form a repeating group. If no such group, click on "
+"'No repeating group'"
+msgstr ""
+
+#: libraries/normalization.lib.php:261
+msgid "No repeating group"
+msgstr ""
+
+#: libraries/normalization.lib.php:287
 msgid "Step 2."
 msgstr ""
 
-#: libraries/normalization.lib.php:242
+#: libraries/normalization.lib.php:287
 msgid "Find partial dependencies"
 msgstr ""
 
-#: libraries/normalization.lib.php:264
+#: libraries/normalization.lib.php:309
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
 
-#: libraries/normalization.lib.php:269 libraries/normalization.lib.php:310
+#: libraries/normalization.lib.php:314 libraries/normalization.lib.php:355
 msgid "Table is already in second normal form."
 msgstr ""
 
-#: libraries/normalization.lib.php:274
+#: libraries/normalization.lib.php:319
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
 
-#: libraries/normalization.lib.php:278
+#: libraries/normalization.lib.php:323
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
 
-#: libraries/normalization.lib.php:282
+#: libraries/normalization.lib.php:327
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: libraries/normalization.lib.php:286
+#: libraries/normalization.lib.php:331
 msgid ""
 "For each of the column below, please select the <b>minimal set</b> of "
 "columns among given set whose values combined together are sufficient to "
 "determine the value of the column."
 msgstr ""
 
-#: libraries/normalization.lib.php:306
+#: libraries/normalization.lib.php:351
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
 
-#: libraries/normalization.lib.php:331
+#: libraries/normalization.lib.php:376
 #, php-format
 msgid ""
 "As per above partial dependencies, in order to put the original table '%1$s' "
 "into Second normal form we need to create the following tables:"
 msgstr ""
 
-#: libraries/normalization.lib.php:367
+#: libraries/normalization.lib.php:412
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
 
-#: libraries/normalization.lib.php:407
+#: libraries/normalization.lib.php:452 libraries/normalization.lib.php:516
 #, fuzzy
 #| msgid "Error in processing request"
 msgid "Error in processing!"
 msgstr "处理请求时的错误"
 
-#: libraries/normalization.lib.php:438
+#: libraries/normalization.lib.php:495
+#, fuzzy, php-format
+#| msgid "Selected target tables have been synchronized with source tables."
+msgid "Selected repeating group has been moved the to the table '%s'"
+msgstr "选中的数据表已根据源数据表同步。"
+
+#: libraries/normalization.lib.php:546
 #, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
 msgstr "隐藏表结构操作"
 
-#: libraries/normalization.lib.php:439
+#: libraries/normalization.lib.php:547
 msgid "Select up to what step you want to normalize"
 msgstr ""
 
-#: libraries/normalization.lib.php:442
+#: libraries/normalization.lib.php:550
 msgid "Second step of normalization (1NF+2NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:443
+#: libraries/normalization.lib.php:551
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:450
+#: libraries/normalization.lib.php:558
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
 
-#: libraries/normalization.lib.php:511
+#: libraries/normalization.lib.php:619
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
 
-#: libraries/normalization.lib.php:527
+#: libraries/normalization.lib.php:635
 msgid "No partial dependencies found!"
 msgstr ""
 
@@ -13515,20 +13561,20 @@ msgstr "无法将索引改为主键 (PRIMARY) ！"
 msgid "No index parts defined!"
 msgstr "没有定义的索引部分！"
 
-#: libraries/tbl_indexes.lib.php:264
+#: libraries/tbl_indexes.lib.php:265
 msgid "Index name:"
 msgstr "索引名称："
 
-#: libraries/tbl_indexes.lib.php:268
+#: libraries/tbl_indexes.lib.php:269
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr "“PRIMARY”<b>必须</b>而且<b>只能</b>作为主键的名称！"
 
-#: libraries/tbl_indexes.lib.php:287
+#: libraries/tbl_indexes.lib.php:288
 msgid "Comment:"
 msgstr "注释:"
 
-#: libraries/tbl_indexes.lib.php:302
+#: libraries/tbl_indexes.lib.php:303
 msgid "Index type:"
 msgstr "索引类型："
 
@@ -16064,9 +16110,6 @@ msgstr "concurrent_insert 被设为 0"
 #~ msgid "Synchronize Databases"
 #~ msgstr "同步数据库"
 
-#~ msgid "Selected target tables have been synchronized with source tables."
-#~ msgstr "选中的数据表已根据源数据表同步。"
-
 #~ msgid "Target database has been synchronized with source database."
 #~ msgstr "已根据源数据库同步目标数据库"
 
@@ -16559,9 +16602,6 @@ msgstr "concurrent_insert 被设为 0"
 #~ "No themes support; please check your configuration and/or your themes in "
 #~ "directory %s."
 #~ msgstr "不支持主题，请检查你的设置和主题文件夹 %s 。"
-
-#~ msgid "The following queries have been executed:"
-#~ msgstr "下列查询被执行:"
 
 #~ msgid "Switch to"
 #~ msgstr "切换到"
