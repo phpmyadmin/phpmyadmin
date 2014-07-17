@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-15 10:44-0400\n"
-"PO-Revision-Date: 2014-07-15 18:30+0200\n"
+"PO-Revision-Date: 2014-07-17 14:12+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
@@ -21,7 +21,7 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"%s faylı sistəmdə yoxdur. Bütün lazımi informasiyanı www.phpmyadmin.net "
+"%s faylı sistemdə yoxdur. Bütün lazımi informasiyanı www.phpmyadmin.net "
 "saytından tapa bilərsiniz."
 
 #: db_central_columns.php:85
@@ -7642,7 +7642,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:38
 msgid "Log cache size"
-msgstr ""
+msgstr "Log keş ölçüsü"
 
 #: libraries/engines/pbxt.lib.php:39
 msgid ""
@@ -8581,7 +8581,7 @@ msgstr "Quruluş ve me'lumat"
 #: libraries/operations.lib.php:147 libraries/operations.lib.php:1004
 #: libraries/tbl_tracking.lib.php:417
 msgid "Data only"
-msgstr "Sadece me'lumat"
+msgstr "Sadəcə məlumat"
 
 #: libraries/operations.lib.php:175
 msgid "Copy database to:"
@@ -8589,7 +8589,7 @@ msgstr "Verilənlər Bazasını buraya kopyala:"
 
 #: libraries/operations.lib.php:186
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "Koçürmədən əvvəl VERİLƏNLƏR BAZASI YARAT(CREATE DATABASE)"
 
 #: libraries/operations.lib.php:199 libraries/operations.lib.php:1025
 msgid "Add constraints"
@@ -8645,7 +8645,7 @@ msgstr "Cedveli yoxla"
 
 #: libraries/operations.lib.php:1118
 msgid "Defragment table"
-msgstr ""
+msgstr "Cədvəli birləşdir(defragment)"
 
 #: libraries/operations.lib.php:1132 libraries/structure.lib.php:332
 msgid "Analyze table"
@@ -8675,7 +8675,7 @@ msgstr "Cədvəl və ya veriləni sil"
 
 #: libraries/operations.lib.php:1232
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Cədvəli boşalt(TRUNCATE)"
 
 #: libraries/operations.lib.php:1240
 msgid "Delete the table (DROP)"
@@ -8683,19 +8683,19 @@ msgstr "Cədvəli sil(DROP)"
 
 #: libraries/operations.lib.php:1280
 msgid "Analyze"
-msgstr ""
+msgstr "Analiz et"
 
 #: libraries/operations.lib.php:1281
 msgid "Check"
-msgstr ""
+msgstr "Yoxlama"
 
 #: libraries/operations.lib.php:1282
 msgid "Optimize"
-msgstr ""
+msgstr "Optimallaşdır"
 
 #: libraries/operations.lib.php:1283
 msgid "Rebuild"
-msgstr ""
+msgstr "Yenidən Qur"
 
 #: libraries/operations.lib.php:1284
 msgid "Repair"
@@ -8708,7 +8708,7 @@ msgstr "Bölüm sazlaması"
 #: libraries/operations.lib.php:1300
 #, php-format
 msgid "Partition %s"
-msgstr ""
+msgstr "Bölmə %s"
 
 #: libraries/operations.lib.php:1316
 msgid "Remove partitioning"
@@ -8731,22 +8731,24 @@ msgstr ""
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr ""
+"%s saniyə içərisində heç bir aktivlik olmadı; zəhmət olmasa yenidən giriş "
+"edin."
 
 #: libraries/plugins/AuthenticationPlugin.class.php:73
 #: libraries/plugins/AuthenticationPlugin.class.php:75
 msgid "Cannot log in to the MySQL server"
-msgstr "MySQL server-e gire bilmirem"
+msgstr "MySQL serverinə giriş etmək olmur"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:77
 msgid "Cannot connect: invalid settings."
-msgstr "Elaqe qura bilmirem: yalnış quruluş."
+msgstr "Əlaqə qurula bilmir: yalnış tənzimləmə."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:90
 #: libraries/plugins/auth/AuthenticationCookie.class.php:131
 #: libraries/plugins/auth/AuthenticationHttp.class.php:74
 #, php-format
 msgid "Welcome to %s"
-msgstr "%s - e Xoş Gelmişsiniz"
+msgstr "%s - ə Xoş Gəlmisiniz"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
@@ -8754,6 +8756,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
+"Çox güman ki bunun səbəbi konfiurasiya faylını yaratmadığınızdandır. Bir "
+"dənəsin yaratmaq üçün %1$ssetup script%2$s istifadə edə bilərsiniz."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:126
 msgid ""
@@ -8762,10 +8766,14 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
+"phpMyAdmin MySQL serverinə qoşulmaq istədi, amma server qoşulmanı rədd etdi. "
+"Konfiqurasiya faylındakı host, istifadəçi adı və şifrəni yoxlayın və MySQL "
+"server adminstratoru tərəfindən verilən məlumatlarla eyni olduğundan əmin "
+"olun."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:146
 msgid "Retry to connect"
-msgstr ""
+msgstr "Təkara qoşul"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:143
 msgid "Your session has expired. Please log in again."
@@ -8773,7 +8781,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:167
 msgid "Log in"
-msgstr "Sisteme Giriş"
+msgstr "Giriş et"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:175
 #: libraries/plugins/auth/AuthenticationCookie.class.php:185
@@ -8782,7 +8790,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:190
 msgid "Username:"
-msgstr "İstifadeçi Adı:"
+msgstr "İstifadəçi Adı:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:202
 msgid "Server Choice:"
@@ -8790,15 +8798,15 @@ msgstr "Server seçimi:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:375
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "Daxil edilən captcha yanlışdır, təkrar sınayın!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:384
 msgid "Please enter correct captcha!"
-msgstr ""
+msgstr "Lütfən düzgün captcha daxil edin!"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:79
 msgid "Wrong username/password. Access denied."
-msgstr "Yanlış istifadeçi adı ve ya parol. Giriş tesdiq edilmedi."
+msgstr "Yanlış istifadəçi adı və ya parol. Giriş təsdiq edilmədi."
 
 #: libraries/plugins/auth/AuthenticationSignon.class.php:109
 msgid "Can not find signon authentication script:"
@@ -8807,12 +8815,12 @@ msgstr ""
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:147
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr ""
+msgstr "%s faylında hər hansı key id yoxdur"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:195
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
 msgid "Hardware authentication failed!"
-msgstr ""
+msgstr "Hardware autentifikasiyası uğursuz oldu!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:203
 msgid "No valid authentication key plugged"
@@ -8820,7 +8828,7 @@ msgstr ""
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:236
 msgid "Authenticating…"
-msgstr ""
+msgstr "İdentifikasiya olunur…"
 
 #: libraries/plugins/export/ExportCsv.class.php:65
 #: libraries/plugins/import/AbstractImportCsv.class.php:59
@@ -9708,11 +9716,11 @@ msgstr "Tam Başlat"
 
 #: libraries/replication_gui.lib.php:224
 msgid "Full stop"
-msgstr ""
+msgstr "Bütünlükdə durdur"
 
 #: libraries/replication_gui.lib.php:226
 msgid "Reset slave"
-msgstr ""
+msgstr "Slave-i sıfırla"
 
 #: libraries/replication_gui.lib.php:229
 #, fuzzy
@@ -9736,7 +9744,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:248 libraries/replication_gui.lib.php:374
 msgid "Change or reconfigure master server"
-msgstr ""
+msgstr "Master Serveri dəyişdir və ya yenidən konfiqurasiya et"
 
 #: libraries/replication_gui.lib.php:259
 #, php-format
@@ -9744,10 +9752,12 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Bu server, köçürmə əməliyyatı anında slave server olaraq konfiqurasiya edilə "
+"bilməz. Bunu <a href=\"%s\">konfiqurasiya</a> etmək istəyirsiniz?"
 
 #: libraries/replication_gui.lib.php:280
 msgid "Error management:"
-msgstr ""
+msgstr "Xəta idarəetməsi:"
 
 #: libraries/replication_gui.lib.php:283
 msgid "Skipping errors might lead into unsynchronized master and slave!"
@@ -9755,12 +9765,12 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:287
 msgid "Skip current error"
-msgstr ""
+msgstr "Cari xətanı keç"
 
 #: libraries/replication_gui.lib.php:292
 #, php-format
 msgid "Skip next %s errors."
-msgstr ""
+msgstr "Sonrakı %s xətanı keç."
 
 #: libraries/replication_gui.lib.php:319
 #, php-format
@@ -9771,11 +9781,11 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:351
 msgid "Uncheck All"
-msgstr "Heç Birini Seçme"
+msgstr "Heç Birini Seçmə"
 
 #: libraries/replication_gui.lib.php:373
 msgid "Slave configuration"
-msgstr ""
+msgstr "Slave konfiqurasiyası"
 
 #: libraries/replication_gui.lib.php:376
 msgid ""
@@ -9793,7 +9803,7 @@ msgstr "İstifadəçi adı:"
 #: libraries/server_privileges.lib.php:1274
 #: libraries/server_privileges.lib.php:1306
 msgid "User name"
-msgstr "İstifadeçi adı"
+msgstr "İstifadəçi adı"
 
 #: libraries/replication_gui.lib.php:400 libraries/replication_gui.lib.php:835
 #: libraries/replication_gui.lib.php:851
@@ -9809,17 +9819,17 @@ msgstr "Port:"
 
 #: libraries/replication_gui.lib.php:502
 msgid "Master status"
-msgstr ""
+msgstr "Master statusu"
 
 #: libraries/replication_gui.lib.php:505
 msgid "Slave status"
-msgstr ""
+msgstr "Slave statusu"
 
 #: libraries/replication_gui.lib.php:514
 #: libraries/server_status_variables.lib.php:219
 #: libraries/server_variables.lib.php:195 libraries/sql_query_form.lib.php:424
 msgid "Variable"
-msgstr "Deyişen"
+msgstr "Dəyişən"
 
 #: libraries/replication_gui.lib.php:591 libraries/server_bin_log.lib.php:131
 msgid "Server ID"
@@ -9841,11 +9851,13 @@ msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"Sadəcə slave-lər, bu siyahıda --report-host=host_name seçimi ilə görünən bu "
+"şəkildə başlar."
 
 #: libraries/replication_gui.lib.php:722
 #: libraries/server_privileges.lib.php:1395
 msgid "Any host"
-msgstr "Her hansı host"
+msgstr "Hər hansı host"
 
 #: libraries/replication_gui.lib.php:727
 #: libraries/server_privileges.lib.php:1403
@@ -9860,7 +9872,7 @@ msgstr "Bu Host"
 #: libraries/replication_gui.lib.php:776
 #: libraries/server_privileges.lib.php:1290
 msgid "Any user"
-msgstr "Her hansı istifadeçi"
+msgstr "Hər hansı istifadəçi"
 
 #: libraries/replication_gui.lib.php:781 libraries/replication_gui.lib.php:814
 #: libraries/replication_gui.lib.php:847
@@ -9871,7 +9883,7 @@ msgstr "Mətn sahəsini istifadə et:"
 #: libraries/replication_gui.lib.php:808
 #: libraries/server_privileges.lib.php:1422
 msgid "Use Host Table"
-msgstr ""
+msgstr "Host cədvəlini istifadə et"
 
 #: libraries/replication_gui.lib.php:824
 #: libraries/server_privileges.lib.php:1449
@@ -9883,7 +9895,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:859
 #: libraries/server_privileges.lib.php:1502
 msgid "Re-type"
-msgstr ""
+msgstr "Yenidən yazın"
 
 #: libraries/replication_gui.lib.php:863
 msgid "Generate Password:"
@@ -10375,7 +10387,7 @@ msgstr "%s Bazasının sxemi - Səhifə %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:211
 msgid "This page does not contain any tables!"
-msgstr ""
+msgstr "Bu səhifədə hər hansı cədvəl yoxdur!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:239
 msgid "SCHEMA ERROR: "
@@ -14710,7 +14722,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:462
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr ""
+msgstr "{concurrent_insert} dəyərini 1 edərək bunu aktivləşdirin"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
@@ -14721,7 +14733,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert 0-a konfiqurasiya edilib"
 
 #~ msgid "Click to sort"
 #~ msgstr "Sıralamaq üçün klikləyin"
