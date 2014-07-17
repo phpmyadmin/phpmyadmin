@@ -257,8 +257,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier"
-"%s um herauszufinden warum."
+"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier%"
+"s um herauszufinden warum."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:210
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:759
@@ -827,11 +827,11 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
-"Ihre Konfigurationsdatei enthält Einstellungen (Benutzer root ohne "
-"Passwort), welche denen des MySQL-Standardbenutzers entsprechen. Wird Ihr "
-"MySQL-Server mit diesen Einstellungen betrieben, so können Unbefugte leicht "
-"von außen auf ihn zugreifen. Sie sollten diese Sicherheitslücke unbedingt "
-"durch das Setze eines Passworts für den Benutzer 'root' schließen."
+"Ihre Konfigurationsdatei enthält Einstellungen (Benutzer root ohne Passwort)"
+", welche denen des MySQL-Standardbenutzers entsprechen. Wird Ihr MySQL-"
+"Server mit diesen Einstellungen betrieben, so können Unbefugte leicht von "
+"außen auf ihn zugreifen. Sie sollten diese Sicherheitslücke unbedingt durch "
+"das Setze eines Passworts für den Benutzer 'root' schließen."
 
 #: index.php:441
 msgid ""
@@ -861,10 +861,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Ihre PHP Einstellung [a@http://php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] ist "
-"niedriger als die in phpMyAdmin konfigurierte Cookiegültigkeit, deshalb wird "
-"Ihre Anmeldung eher ablaufen als in phpMyAdmin konfiguriert."
+"Ihre PHP Einstellung "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] ist niedriger als die in "
+"phpMyAdmin konfigurierte Cookiegültigkeit, deshalb wird Ihre Anmeldung eher "
+"ablaufen als in phpMyAdmin konfiguriert."
 
 #: index.php:483
 msgid ""
@@ -967,8 +968,7 @@ msgstr ""
 #: js/messages.php:45
 #, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr ""
-"Möchten Sie die wirklich die Suchanfrage \"%s\" unwiderruflich löschen?"
+msgstr "Möchten Sie die wirklich die Suchanfrage \"%s\" unwiderruflich löschen?"
 
 #: js/messages.php:46
 #, fuzzy
@@ -1170,7 +1170,7 @@ msgstr "Zwischengespeicherter Swap"
 
 #: js/messages.php:112
 msgid "Used Swap"
-msgstr "Benutzer Swap"
+msgstr "Verwendeter Swap"
 
 #: js/messages.php:113
 msgid "Free Swap"
@@ -3399,8 +3399,8 @@ msgstr "Unbekannter Fehler beim hochladen der Datei."
 #: libraries/File.class.php:461
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
-"Fehler beim Verschieben der hochgeladenen Datei, siehe [doc@faq1-11]FAQ 1.11"
-"[/doc]."
+"Fehler beim Verschieben der hochgeladenen Datei, siehe [doc@faq1-11]FAQ "
+"1.11[/doc]."
 
 #: libraries/File.class.php:479
 msgid "Error while moving uploaded file."
@@ -3943,8 +3943,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Bereinigen der Tabellen UI Einstellungen fehlgeschlagen (siehe $cfg"
-"['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Bereinigen der Tabellen UI Einstellungen fehlgeschlagen (siehe "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1710
 #, php-format
@@ -4434,8 +4434,8 @@ msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
-"Ein Zeitstempel, Bereich ist '0001-01-01 00:00:00' UTC bis '9999-12-31 "
-"23:59:59' UTC; TIMESTAMP(6) kann Mikrosekunden speichern"
+"Ein Zeitstempel, Bereich ist '0001-01-01 00:00:00' UTC bis '9999-12-31 23:59:"
+"59' UTC; TIMESTAMP(6) kann Mikrosekunden speichern"
 
 #: libraries/Types.class.php:801
 msgid ""
@@ -5088,8 +5088,8 @@ msgid ""
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
 "%sLogincookie-Gültigkeit%s größer als %ssession.gc_maxlifetime%s kann "
-"zufälligen Ablauf von Sitzungen verursachen (aktuell beträgt session."
-"gc_maxlifetime: %d)."
+"zufälligen Ablauf von Sitzungen verursachen (aktuell beträgt "
+"session.gc_maxlifetime: %d)."
 
 #: libraries/config/ServerConfigChecks.class.php:410
 #, php-format
@@ -5231,8 +5231,9 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Wenn diese Option aktiviert ist, kann eine Webseite einer fremden Domäne "
-"phpMyAdmin in einem Frame aufrufen. Dies stellt eine potentielle [strong]"
-"Sicherheitslücke[/strong] für Cross-Frame Scripting Attacken (XSS) dar."
+"phpMyAdmin in einem Frame aufrufen. Dies stellt eine potentielle "
+"[strong]Sicherheitslücke[/strong] für Cross-Frame Scripting Attacken (XSS) "
+"dar."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -5247,8 +5248,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Geheime Passphrase zum Verschlüsseln der Cookies bei [kbd]Cookie[/kbd]-"
-"Authentifizierung."
+"Geheime Passphrase zum Verschlüsseln der Cookies bei "
+"[kbd]Cookie[/kbd]-Authentifizierung."
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -6081,8 +6082,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
 msgstr ""
-"Voreingestelltes Format. Bitte beachten, dass diese Liste vom Ort abhängt "
-"(Datenbank, Tabelle) und nur SQL immer verfügbar ist."
+"Voreingestelltes Format. Bitte beachten, dass diese Liste vom Ort abhängt ("
+"Datenbank, Tabelle) und nur SQL immer verfügbar ist."
 
 #: libraries/config/messages.inc.php:341
 msgid "Format of imported file"
@@ -6604,8 +6605,8 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Einschalten, wenn ein datenbankbasierter Abfrageverlauf gewünscht wird "
-"(erfordert phpMyAdmin-Konfigurationsspeicher). Wenn ausgeschaltet, werden JS-"
+"Einschalten, wenn ein datenbankbasierter Abfrageverlauf gewünscht wird ("
+"erfordert phpMyAdmin-Konfigurationsspeicher). Wenn ausgeschaltet, werden JS-"
 "Routinen zur Darstellung des Abfrageverlaufs eingesetzt (sie gehen beim "
 "Schließen des Fensters verloren)."
 
@@ -6777,8 +6778,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Leer lassen für keine [a@http://wiki.phpmyadmin.net/pma/bookmark]Lesezeichen"
-"[/a]-Unterstützung, Vorschlag: [kbd]pma_bookmark[/kbd]"
+"Leer lassen für keine "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]Lesezeichen[/a]-Unterstützung, "
+"Vorschlag: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:561
 msgid "Bookmark table"
@@ -8177,8 +8179,8 @@ msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
-"Der Dateiname einer komprimierten Datei muss mit <b>.[Format].[Komprimierung]"
-"</b> enden. Beispiel: <b>.sql.zip</b>"
+"Der Dateiname einer komprimierten Datei muss mit "
+"<b>.[Format].[Komprimierung]</b> enden. Beispiel: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:222
 msgid "File to Import:"
@@ -8210,8 +8212,8 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"Import abbrechen, wenn die maximale PHP-Scriptlaufzeit erreicht wird. <i>"
-"(Damit ist es möglich, große Dateien zu importieren, allerdings kann es "
+"Import abbrechen, wenn die maximale PHP-Scriptlaufzeit erreicht wird. <i>("
+"Damit ist es möglich, große Dateien zu importieren, allerdings kann es "
 "Transaktionen zerstören.)</i>"
 
 #: libraries/display_import.lib.php:301
@@ -9930,8 +9932,8 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:100
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"Individuelle Kommentare für den Kopfbereich (\\n erzeugt einen "
-"Zeilenumbruch):"
+"Individuelle Kommentare für den Kopfbereich (\\n"
+" erzeugt einen Zeilenumbruch):"
 
 #: libraries/plugins/export/ExportSql.class.php:107
 msgid ""
@@ -10008,8 +10010,8 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "Spaltennamen bei jedem <code>INSERT</code> Schlüsselwort verwenden <br /> "
-"&nbsp; &nbsp; &nbsp; Beispiel: <code>INSERT INTO tbl_name (col_A,col_B,"
-"col_C) VALUES (1,2,3)</code>"
+"&nbsp; &nbsp; &nbsp; Beispiel: <code>INSERT INTO tbl_name (col_A,col_B,col_C)"
+" VALUES (1,2,3)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:403
 msgid ""
@@ -10026,9 +10028,8 @@ msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"beide obigen Optionen verwenden<br /> &nbsp; &nbsp; &nbsp; Beispiel: "
-"<code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</"
-"code>"
+"beide obigen Optionen verwenden<br /> &nbsp; &nbsp; &nbsp; Beispiel: <code>"
+"INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:413
 msgid ""
@@ -10052,8 +10053,8 @@ msgid ""
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 "TIMESTAMP-Spalten als UTC exportieren <i>(damit können TIMESTAMP-Spalten ex- "
-"und importiert werden, auch wenn die Server in verschiedenen Zeitzonen sind)"
-"</i>"
+"und importiert werden, auch wenn die Server in verschiedenen Zeitzonen "
+"sind)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:514
 msgid "It appears your database uses procedures;"
@@ -10209,8 +10210,8 @@ msgstr "Ungültiges Format des Mediawiki-Inputs in Zeile: <br />%s."
 #: libraries/plugins/import/ImportOds.class.php:89
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
-"Prozentwerte als normale Dezimalzahlen importieren <i>(z.B. wird 12.00% "
-"zu .12)</i>"
+"Prozentwerte als normale Dezimalzahlen importieren <i>(z.B. wird 12.00% zu "
+".12)</i>"
 
 #: libraries/plugins/import/ImportOds.class.php:95
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
@@ -10255,8 +10256,7 @@ msgstr ""
 #: libraries/plugins/import/ImportShp.class.php:197
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
-"Der ESRI-Typ \"%s\" wird von MySQL Spatial Extension nicht unterstützt."
+msgstr "Der ESRI-Typ \"%s\" wird von MySQL Spatial Extension nicht unterstützt."
 
 #: libraries/plugins/import/ImportShp.class.php:245
 #, fuzzy
@@ -10337,15 +10337,15 @@ msgstr ""
 "NUR FÜR LINUX: Startet ein externes Programm und verwendet die Daten der "
 "Spalte für die Standardeingabe. Gibt die Standardausgabe der Anwendung "
 "zurück. Die Voreinstellung wurde für Tidy optimiert, um HTML code optisch zu "
-"formatieren. Aus Sicherheitsgründen müssen Sie die Datei libraries/plugins/"
-"transformations/Text_Plain_External.class.php von Hand bearbeiten, um "
-"weitere Programme verfügbar zu machen. Die erste Option ist die Nummer des "
-"dort hinterlegten Programmes und die zweite Option legt die Parameter für "
-"das externe Programm fest. Die dritte Option bestimmt, falls auf 1 gesetzt, "
-"dass die Ausgabe mit htmlspecialchars() formatiert wird (Standard: 1). Die "
-"vierte Option bestimmt, falls auf 1 gesetzt, ob ein NOWRAP-Parameter der "
-"Tabellenzelle hinzugefügt wird, um einen automatischen Umbruch der "
-"Standardausgabe zu verhindern (Standard: 1)."
+"formatieren. Aus Sicherheitsgründen müssen Sie die Datei "
+"libraries/plugins/transformations/Text_Plain_External.class.php von Hand "
+"bearbeiten, um weitere Programme verfügbar zu machen. Die erste Option ist "
+"die Nummer des dort hinterlegten Programmes und die zweite Option legt die "
+"Parameter für das externe Programm fest. Die dritte Option bestimmt, falls "
+"auf 1 gesetzt, dass die Ausgabe mit htmlspecialchars() formatiert wird "
+"(Standard: 1). Die vierte Option bestimmt, falls auf 1 gesetzt, ob ein "
+"NOWRAP-Parameter der Tabellenzelle hinzugefügt wird, um einen automatischen "
+"Umbruch der Standardausgabe zu verhindern (Standard: 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -10362,8 +10362,8 @@ msgid ""
 "specifies how often space will be added (defaults to 2 nibbles)."
 msgstr ""
 "Daten in hexadezimaler Schreibweise darstellen. Der optionale Parameter legt "
-"fest, nach wie vielen Halbbyte ein Leerzeichen eingefügt werden soll "
-"(Standardwert ist 2)."
+"fest, nach wie vielen Halbbyte ein Leerzeichen eingefügt werden soll ("
+"Standardwert ist 2)."
 
 #: libraries/plugins/transformations/abstract/ImageLinkTransformationsPlugin.class.php:33
 msgid "Displays a link to download this image."
@@ -10437,8 +10437,8 @@ msgstr ""
 "Option gibt an wieviel Zeichen ab dort dargestellt werden sollen. Falls "
 "diese Option leer ist, wird der gesamte verbleibende Text dargestellt. Die "
 "dritte Option kann einen Text enthalten, der bei partieller Ausgabe des "
-"Textes angehängt wird, um eine Abschneidung kenntlich zu machen (Standard: "
-"\"…\")."
+"Textes angehängt wird, um eine Abschneidung kenntlich zu machen (Standard: \""
+"…\")."
 
 #: libraries/plugins/transformations/abstract/TextFileUploadTransformationsPlugin.class.php:33
 msgid ""
@@ -10558,8 +10558,8 @@ msgstr "Kurzanleitung zum Einrichten der zusätzlichen Funktionen:"
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr ""
-"Erstellen der benötigten Tabellen mittels <code>examples/create_tables.sql</"
-"code>."
+"Erstellen der benötigten Tabellen mittels "
+"<code>examples/create_tables.sql</code>."
 
 #: libraries/relation.lib.php:311
 msgid "Create a pma user and give access to these tables."
@@ -10570,14 +10570,13 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Zusätzliche Funktionen können in der Konfigurationsdatei (<code>config.inc."
-"php</code>) aktiviert werden. Beispiele finden sich in der <code>config."
-"sample.inc.php</code>."
+"Zusätzliche Funktionen können in der Konfigurationsdatei "
+"(<code>config.inc.php</code>) aktiviert werden. Beispiele finden sich in der "
+"<code>config.sample.inc.php</code>."
 
 #: libraries/relation.lib.php:324
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
-"Erneut in phpMyAdmin anmelden um die neue Konfigurationsdatei zu laden."
+msgstr "Erneut in phpMyAdmin anmelden um die neue Konfigurationsdatei zu laden."
 
 #: libraries/relation.lib.php:1583
 msgid "no description"
@@ -11088,8 +11087,8 @@ msgid ""
 msgstr ""
 "Sie verwenden die von PHP als veraltet gekennzeichnete 'mysql'-Erweiterung, "
 "die nicht in der Lage ist, mehrere Abfragen zu verarbeiten. [strong]Die "
-"Ausführung von einigen gespeicherten Prozeduren könnte fehlschlagen![/"
-"strong] Bitte verwenden Sie die neuere 'mysqli'-Erweiterung, um Probleme zu "
+"Ausführung von einigen gespeicherten Prozeduren könnte fehlschlagen![/strong]"
+" Bitte verwenden Sie die neuere 'mysqli'-Erweiterung, um Probleme zu "
 "vermeiden."
 
 #: libraries/rte/rte_routines.lib.php:292
@@ -11835,8 +11834,8 @@ msgstr "Erstelle eine Datenbank mit gleichem Namen und gewähre alle Rechte."
 #: libraries/server_privileges.lib.php:1729
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
-"Gewähre alle Rechte auf Datenbanken die mit dem Benutzernamen beginnen "
-"(username\\_%)."
+"Gewähre alle Rechte auf Datenbanken die mit dem Benutzernamen beginnen ("
+"username\\_%)."
 
 #: libraries/server_privileges.lib.php:1738
 #, php-format
@@ -12065,8 +12064,8 @@ msgstr ""
 #: libraries/server_status.lib.php:81
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"Dieser MySQL Server arbeitet als <b>Master</b> im <b>Replikations</b>-"
-"Prozess."
+"Dieser MySQL Server arbeitet als <b>Master</b> im "
+"<b>Replikations</b>-Prozess."
 
 #: libraries/server_status.lib.php:86
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
@@ -13022,8 +13021,8 @@ msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 msgstr ""
-"Anzahl der Joins, bei denen Bereiche auf die erste Tabelle benutzt wurden. "
-"(Es ist normalerweise unkritisch, wenn dieser Wert hoch ist.)"
+"Anzahl der Joins, bei denen Bereiche auf die erste Tabelle benutzt wurden. ("
+"Es ist normalerweise unkritisch, wenn dieser Wert hoch ist.)"
 
 #: libraries/server_status_variables.lib.php:697
 msgid "The number of joins that did a full scan of the first table."
@@ -13098,8 +13097,8 @@ msgid ""
 msgstr ""
 "Wie oft eine Tabellensperre nicht sofort erlangt werden konnte und gewartet "
 "werden musste. Wenn dieser Wert hoch ist und Sie Performance-Probleme haben, "
-"sollten Sie zunächst Ihre Anfragen optimieren und dann entweder Ihre Tabelle"
-"(n) zerteilen oder Replikation benutzen."
+"sollten Sie zunächst Ihre Anfragen optimieren und dann entweder Ihre "
+"Tabelle(n) zerteilen oder Replikation benutzen."
 
 #: libraries/server_status_variables.lib.php:742
 msgid ""
@@ -14489,10 +14488,10 @@ msgid ""
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
-"Bitte erstellen Sie einen vom Webserver beschreibbaren Ordner [em]config[/"
-"em] im phpMyAdmin-Hauptverzeichnis wie in der [doc@setup_script]Dokumentation"
-"[/doc] beschrieben. Ansonsten können Sie die Konfiguration nur herunterladen "
-"bzw. anzeigen."
+"Bitte erstellen Sie einen vom Webserver beschreibbaren Ordner [em]config[/em]"
+" im phpMyAdmin-Hauptverzeichnis wie in der "
+"[doc@setup_script]Dokumentation[/doc] beschrieben. Ansonsten können Sie die "
+"Konfiguration nur herunterladen bzw. anzeigen."
 
 #: setup/frames/index.inc.php:70
 msgid ""
@@ -14969,8 +14968,7 @@ msgstr "Distribution"
 
 #: libraries/advisory_rules.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
-"Version ist aus Quellen übersetzt, keine offizielle MySQL-Binärversion."
+msgstr "Version ist aus Quellen übersetzt, keine offizielle MySQL-Binärversion."
 
 #: libraries/advisory_rules.txt:125
 msgid ""
@@ -15074,9 +15072,10 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Sie verwenden den MySQL-Anfragen-Cache mit einer relativ hohen Traffic-"
-"Datenbank. Es wäre überlegenswert, <a href=\"http://dev.mysql.com/doc/"
-"refman/5.5/en/ha-memcached.html\"> Memcached</a> statt MySQL Query Cache "
-"verwenden vor allem, wenn Sie mehrere Slaves einsetzen."
+"Datenbank. Es wäre überlegenswert, <a href=\""
+"http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\"> Memcached</a> "
+"statt MySQL Query Cache verwenden vor allem, wenn Sie mehrere Slaves "
+"einsetzen."
 
 #: libraries/advisory_rules.txt:165
 #, php-format
@@ -15257,8 +15256,8 @@ msgstr ""
 "viele Abfrageergebnisse über 1 MiB gibt die sich auch zwischenspeichern "
 "lassen (viele Lesevorgänge, wenig schreibt) dann kann ein erhöhen von "
 "{query_cache_limit} die Effizienz erhöhen. Während bei viele "
-"Abfrageergebnisse über 1 MiB die nicht sehr gut zwischenspeicherbar sind "
-"(oft aufgrund von Aktualisierungen der Tabelle ungültig) ein Erhöhen von "
+"Abfrageergebnisse über 1 MiB die nicht sehr gut zwischenspeicherbar sind ("
+"oft aufgrund von Aktualisierungen der Tabelle ungültig) ein Erhöhen von "
 "{query_cache_limit} die Effizienz reduzieren kann."
 
 #: libraries/advisory_rules.txt:207
@@ -15371,8 +15370,8 @@ msgstr ""
 "Dies bedeutet in der Regel häufig vollständige Indexscans. Vollständige "
 "Indexscans sind schneller als Tablenscans aber sie kosten viele CPU-Zyklen "
 "in großen Tabellen, wenn diese Tabellen ein große Mengen von "
-"Aktualisierungen und Löschungen haben oder hatten. Ein Ausführen von "
-"\"OPTIMIZE TABLE\" auf diese Tabllen kann die Menge verringern und/oder die "
+"Aktualisierungen und Löschungen haben oder hatten. Ein Ausführen von \""
+"OPTIMIZE TABLE\" auf diese Tabllen kann die Menge verringern und/oder die "
 "Geschwindigkeit der  vollständige Indexscans beschleunigen. Abgesehen davon "
 "können vollständige Indexscans nur durch umschreiben der Abfragen reduziert "
 "werden."
@@ -15442,8 +15441,7 @@ msgstr "tmp_table_size vs. max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr ""
-"{tmp_table_size} und {max_heap_table_size} sind nicht identisch belegt."
+msgstr "{tmp_table_size} und {max_heap_table_size} sind nicht identisch belegt."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -15487,11 +15485,11 @@ msgstr ""
 "Erhöhen von {max_heap_table_size} und {tmp_table_size} könnten helfen. "
 "Jedoch werden einige temporären Tabellen immer unabhängig vom Wert dieser "
 "Variablen auf den Datenträger geschrieben. Um diese zu verhindern müssen Sie "
-"Ihre Abfragen so umschreiben das es nicht zu diesen Bedingungen kommt "
-"(Innerhalb einer temporären Tabelle: Vorhandensein eines BLOB- oder TEXT-"
-"Spalte oder eine Spalte größer als 512 Bytes) wie am Anfang von <a href="
-"\"http://www.facebook.com/note.php?note_id=10150111255065841&comments"
-"\">Artikel der Pythian Group</a> erwähnt wird"
+"Ihre Abfragen so umschreiben das es nicht zu diesen Bedingungen kommt ("
+"Innerhalb einer temporären Tabelle: Vorhandensein eines BLOB- oder TEXT-"
+"Spalte oder eine Spalte größer als 512 Bytes) wie am Anfang von <a href=\""
+"http://www.facebook.com/note.php?note_id=10150111255065841&comments\">"
+"Artikel der Pythian Group</a> erwähnt wird"
 
 #: libraries/advisory_rules.txt:274
 #, php-format
@@ -15521,9 +15519,9 @@ msgstr ""
 "auf den Datenträger geschrieben. Um diese zu verhindern müssen Sie Ihre "
 "Abfragen so umschreiben das es nicht zu diesen Bedingungen kommt (Innerhalb "
 "einer temporären Tabelle: Vorhandensein eines BLOB- oder TEXT-Spalte oder "
-"eine Spalte größer als 512 Bytes) wie in der <a href=\"http://dev.mysql.com/"
-"doc/refman/5.5/en/internal-temporary-tables.html\">MySQL-Dokumentation</a> "
-"erwähnt wird"
+"eine Spalte größer als 512 Bytes) wie in der <a href=\""
+"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html\""
+">MySQL-Dokumentation</a> erwähnt wird"
 
 #: libraries/advisory_rules.txt:281
 #, php-format
@@ -15953,9 +15951,9 @@ msgstr ""
 "beachten Sie jedoch, dass Sie nicht einfach den Wert dieser Variablen ändern "
 "können. Sie müssen den Server herunterfahren, die InnoDB-Logdateien löschen, "
 "den neuen Wert in my.cnf eintragen, den Server neu starten und dann das "
-"Fehlerprotokoll überprüfen ob alles gut ging. Siehe auch <a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">diesen Blog-Eintrag</a>"
+"Fehlerprotokoll überprüfen ob alles gut ging. Siehe auch <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">diesen Blog-Eintrag</a>"
 
 #: libraries/advisory_rules.txt:441
 #, php-format
@@ -15990,13 +15988,14 @@ msgstr ""
 "Es üblicherweise ausreichend {innodb_log_file_size} auf 25%% der Größe von "
 "{Innodb_buffer_pool_size} einzustellen. Eine sehr große "
 "{innodb_log_file_size} verlangsamt die Wiederherstellungszeit nach einem "
-"Datenbank Absturz erheblich. Siehe auch <a href=\"http://www."
-"mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/"
-"\">diesen Artikels</a>. Sie müssen den Server herunterfahren, die InnoDB-"
-"Logdateien löschen, den neuen Wert in my.cnf eintragen, den Server neu "
-"starten und dann das Fehlerprotokoll überprüfen ob alles gut ging. Siehe "
-"auch <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
-"increase-innodblogfilesize-proper-way.html\">diesen Blog-Eintrag</a>"
+"Datenbank Absturz erheblich. Siehe auch <a href=\""
+"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">diesen Artikels</a>. Sie müssen den Server "
+"herunterfahren, die InnoDB-Logdateien löschen, den neuen Wert in my.cnf "
+"eintragen, den Server neu starten und dann das Fehlerprotokoll überprüfen ob "
+"alles gut ging. Siehe auch <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">diesen Blog-Eintrag</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -16034,9 +16033,9 @@ msgstr ""
 "den Speicherverbrauch von anderen Diensten und nicht-InnoDB-Tabellen "
 "bewerten und stellen Sie diese Variable entsprechend ein. Wenn der Wert zu "
 "hoch ist, startet Ihr System Speicher auf die Festplatte auszulagen, was die "
-"Leistung erheblich senkt. Siehe auch <a href=\"http://www."
-"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/"
-"\">diesen Artikel</a>"
+"Leistung erheblich senkt. Siehe auch <a href=\""
+"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">diesen Artikel</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
@@ -16066,8 +16065,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "{Concurrent_insert} auf 1 setzen verringert Konflikte zwischen Lese- und "
-"Schreibzugriffen auf Tabellen. Siehe auch <a href=\"http://dev.mysql.com/doc/"
-"refman/5.5/en/concurrent-inserts.html\">MySQL Dokumentation</a>"
+"Schreibzugriffen auf Tabellen. Siehe auch <a href=\""
+"http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL "
+"Dokumentation</a>"
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
