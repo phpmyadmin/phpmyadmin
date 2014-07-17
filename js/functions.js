@@ -3548,7 +3548,7 @@ AJAX.registerOnload('functions.js', function () {
         var question = PMA_messages.strDropTableStrongWarning + ' ';
         question += $.sprintf(
             PMA_messages.strDoYouReally,
-            'DROP TABLE ' + PMA_commonParams.get('table')
+            'DROP TABLE ' + escapeHtml(PMA_commonParams.get('table'))
         );
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
@@ -3614,7 +3614,7 @@ AJAX.registerOnload('functions.js', function () {
         var question = PMA_messages.strTruncateTableStrongWarning + ' ';
         question += $.sprintf(
             PMA_messages.strDoYouReally,
-            'TRUNCATE ' + PMA_commonParams.get('table')
+            'TRUNCATE ' + escapeHtml(PMA_commonParams.get('table'))
         );
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);

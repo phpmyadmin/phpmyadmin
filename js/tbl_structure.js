@@ -198,6 +198,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
          * @var curr_column_name    String containing name of the field referred to by {@link curr_row}
          */
         var curr_column_name = $curr_row.children('th').children('label').text();
+        curr_column_name = escapeHtml(curr_column_name);
         /**
          * @var $after_field_item    Corresponding entry in the 'After' field.
          */
