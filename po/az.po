@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-15 10:44-0400\n"
-"PO-Revision-Date: 2014-07-17 14:12+0200\n"
+"PO-Revision-Date: 2014-07-17 21:34+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
@@ -612,11 +612,11 @@ msgstr ""
 
 #: import.php:316 import.php:600
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Göstərilən əlfəcin"
 
 #: import.php:331 import.php:596
 msgid "The bookmark has been deleted."
-msgstr "Bookmark silindi."
+msgstr "Əlfəcin silindi."
 
 #: import.php:431
 #, php-format
@@ -660,7 +660,7 @@ msgstr "İmport pluqini yüklənmədi, zəhmət olmasa quraşdırmanı yoxlayın
 #: import.php:603 libraries/sql.lib.php:1048 libraries/sql.lib.php:1859
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr "Bookmark %s yaradıldı."
+msgstr "Əlfəcin %s yaradıldı."
 
 #: import.php:612
 #, php-format
@@ -2229,6 +2229,7 @@ msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
+"Eksport PHP səviyyəsindəki aşağı icra(execution) vaxtına görə tamamlanmadı!"
 
 #: js/messages.php:477
 #, php-format
@@ -2236,14 +2237,17 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Xəbərdarlıq: Bu səhifədəki form %d sahələrdən çoxuna sahibdir. Təqdim "
+"edilmədə, bəzi sahələr, PHP-nin max_input_vars konfiqurasiyasından dolayı "
+"göz ardı edilə bilər."
 
 #: js/messages.php:483 js/messages.php:495
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Serverdə bəzi xətalar aşkar edildi!"
 
 #: js/messages.php:485
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Zəhmət olmasa bu pəncərənin altına baxın."
 
 #: js/messages.php:490 libraries/Error_Handler.class.php:355
 msgid "Ignore All"
@@ -2253,12 +2257,13 @@ msgstr "Heç birin diqqətə alma"
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
+"Hər tənzimləmələriniz kimi bunlar da hal-hazırda göndərilir, zəhmət olmasa "
+"səbirli olun."
 
 #: js/messages.php:504
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Bu sorğunu burada yene göster"
+msgstr "Bu sorğu təkrar icra olunsunmu?"
 
 #: js/messages.php:535
 msgctxt "Previous month"
@@ -2398,11 +2403,11 @@ msgstr "Çərşənbə axşamı"
 
 #: js/messages.php:596
 msgid "Wednesday"
-msgstr ""
+msgstr "Çərşənbə"
 
 #: js/messages.php:597
 msgid "Thursday"
-msgstr ""
+msgstr "Cümə axşamı"
 
 #: js/messages.php:598
 msgid "Friday"
@@ -2410,7 +2415,7 @@ msgstr "Cümə"
 
 #: js/messages.php:599
 msgid "Saturday"
-msgstr ""
+msgstr "Şənbə"
 
 #. l10n: Short week day name
 #: js/messages.php:606
@@ -2492,7 +2497,7 @@ msgstr ""
 #.
 #: js/messages.php:648
 msgid "calendar-month-year"
-msgstr ""
+msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:651
@@ -2502,7 +2507,7 @@ msgstr "Heç biri"
 
 #: js/messages.php:663
 msgid "Hour"
-msgstr ""
+msgstr "Saat"
 
 #: js/messages.php:664
 msgid "Minute"
@@ -2515,7 +2520,7 @@ msgstr "Saniyə"
 #: libraries/Advisor.class.php:79
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP aşağıdakı xətanı verdi: %s"
 
 #: libraries/Advisor.class.php:108
 #, php-format
@@ -2551,16 +2556,18 @@ msgstr ""
 #: libraries/Advisor.class.php:423
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr ""
+msgstr "%s. sətirində gözlənilməyən simvollar."
 
 #: libraries/Advisor.class.php:438
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
+"%1$s. sətirində gözlənilməyən simvollar. Gözlənən pəncərə, amma tapılan \"%2$"
+"s\"."
 
 #: libraries/Advisor.class.php:473
 msgid "per second"
-msgstr "saniyede"
+msgstr "saniyədə"
 
 #: libraries/Advisor.class.php:476
 msgid "per minute"
@@ -2574,20 +2581,21 @@ msgstr "saatda"
 
 #: libraries/Advisor.class.php:482
 msgid "per day"
-msgstr ""
+msgstr "Günə"
 
 #: libraries/Config.class.php:1139
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "Mövcud konfiqurasiya faylı(%s) oxuna bilən deyil."
 
 #: libraries/Config.class.php:1169
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Konfiqurasiya faylında yanlış icazələr, hərkəsə yazılabilən olmamalıdır!"
 
 #: libraries/Config.class.php:1746
 msgid "Font size"
-msgstr ""
+msgstr "Font ölçüsü"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:169
 msgid "Collapse"
@@ -2595,7 +2603,7 @@ msgstr ""
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:170
 msgid "Expand"
-msgstr ""
+msgstr "Genişlət"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:171
 #, fuzzy
@@ -2604,16 +2612,16 @@ msgid "Requery"
 msgstr "in query"
 
 #: libraries/Console.class.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "New bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Yeni bookmark"
-msgstr[1] "Yeni bookmark"
+msgstr[0] "Toplam %d əlfəcin"
+msgstr[1] "Toplam %d əlfəcin"
 
 #: libraries/Console.class.php:114
 msgid "private"
-msgstr ""
+msgstr "özəl"
 
 #: libraries/Console.class.php:118 libraries/bookmark.lib.php:87
 msgid "shared"
@@ -2621,16 +2629,15 @@ msgstr ""
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:122
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "Bookmark silindi."
+msgstr "%1$s, %2$s and %3$s əlfəcin daxil edildi"
 
 #: libraries/Console.class.php:128
-#, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
-msgstr "Yeni bookmark"
+msgstr "Əlfəcinlər yoxdur"
 
 #: libraries/Console.class.php:174
 #, fuzzy
@@ -2692,10 +2699,9 @@ msgid "Options"
 msgstr "Parametrlər"
 
 #: libraries/Console.class.php:196 libraries/Console.class.php:242
-#, fuzzy
 #| msgid "New bookmark"
 msgid "Bookmarks"
-msgstr "Yeni bookmark"
+msgstr "Əlfəcinlər"
 
 #: libraries/Console.class.php:205
 #, fuzzy
@@ -2713,10 +2719,9 @@ msgid "Refresh"
 msgstr ""
 
 #: libraries/Console.class.php:257
-#, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
-msgstr "Yeni bookmark"
+msgstr "Əlfəcin əlavə et"
 
 #: libraries/Console.class.php:260
 #, fuzzy
@@ -2730,10 +2735,9 @@ msgid "Target database"
 msgstr "Search in database"
 
 #: libraries/Console.class.php:262
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
-msgstr "Bookmark yarat"
+msgstr "Əlfəcini paylaş"
 
 #: libraries/Console.class.php:273
 #, fuzzy
