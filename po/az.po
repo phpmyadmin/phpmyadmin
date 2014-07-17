@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-15 10:44-0400\n"
-"PO-Revision-Date: 2014-07-17 21:45+0200\n"
+"PO-Revision-Date: 2014-07-17 21:46+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
@@ -12097,7 +12097,7 @@ msgstr "Hər istifadəçinin bu əlfəcinə çatmasına icazə ver"
 
 #: libraries/sql.lib.php:1052
 msgid "Bookmark not created!"
-msgstr ""
+msgstr "Əlfəcin yaradıla bilmədi!"
 
 #: libraries/sql.lib.php:1205
 #, php-format
@@ -12137,7 +12137,7 @@ msgstr "Bu SQL sorğusunu bookmark-la"
 
 #: libraries/sql_query_form.lib.php:334
 msgid "Replace existing bookmark of same name"
-msgstr ""
+msgstr "Eyni adın mövcud əlfəcini dəyişdir"
 
 #: libraries/sql_query_form.lib.php:350
 msgid "Do not overwrite this query from outside the window"
