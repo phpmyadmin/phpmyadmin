@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-15 10:44-0400\n"
-"PO-Revision-Date: 2014-07-09 22:52+0200\n"
+"PO-Revision-Date: 2014-07-17 13:14+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
-">\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1839,10 +1839,9 @@ msgid "End of step"
 msgstr "Τέλος βήματος"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Second step of normalization (1NF+2NF)"
 msgid "Second step of normalization (2NF)"
-msgstr "Δεύτερο βήμα κανονικοποίησης (1NF+2NF)"
+msgstr "Δεύτερο βήμα κανονικοποίησης (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:310 js/messages.php:531
@@ -1851,43 +1850,45 @@ msgstr "Ολοκληρώθηκε"
 
 #: js/messages.php:311
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Επιβεβαίωση μερικών εξαρτήσεων"
 
 #: js/messages.php:312
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Οι επιλεγμένες μερικές εξαρτήσεις είναι ως ακολούθως:"
 
 #: js/messages.php:313
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Σημείωση: a, b -> d,f αναφέρει τιμές των στηλών a και b όπου συνδυαζόμενες "
+"μπορούν να ορίσουν τις τιμές των στηλών d και f."
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Δεν έχετε επιλέξει βάσεις δεδομένων."
+msgstr "Δεν έχετε επιλέξει μερικές εξαρτήσεις!"
 
 #: js/messages.php:316
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "Προβολή των πιθανών μερικών εξαρτήσεων με βάση δεδομένα στον πίνακα"
 
 #: js/messages.php:317
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Απόκρυψη λίστας μερικών εξαρτήσεων"
 
 #: js/messages.php:318
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Καθήστε αναπαυτικά! Ίσως διαρκέσει μερικά δευτερόλεπτα βάσει του μεγέθους "
+"των δεδομένων και του αριθμού στηλών στον πίνακα."
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Step 1."
 msgid "Step"
-msgstr "Βήμα 1."
+msgstr "Βήμα"
 
 #: js/messages.php:322 libraries/insert_edit.lib.php:1517
 #: libraries/server_variables.lib.php:157
@@ -8905,7 +8906,6 @@ msgid "Remove redundant columns"
 msgstr "Απομάκρυνση περιττών στηλών"
 
 #: libraries/normalization.lib.php:211
-#, fuzzy
 #| msgid ""
 #| "Do you have group of columns which on combining gives an existing\n"
 #| "        column? For example, if you have first_name, last_name and "
@@ -8917,11 +8917,9 @@ msgid ""
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
-"Έχετε ομάδα στηλών όπου συνδυαζόμενη δίνει υπάρχουσα\n"
-"        στήλη; Για παράδειγμα, αν έχετε first_name, last_name και full_name "
-"τότε\n"
-"        συνδυάζοντας τα first_name και last_name έχετε το full_name που "
-"είναι περιττό"
+"Έχετε μια ομάδα στηλών όπου συνδυαζόμενη δίνει υπάρχουσα στήλη; Για "
+"παράδειγμα, αν έχετε first_name, last_name και full_name τότε συνδυάζοντας "
+"τα first_name και last_name έχετε το full_name που είναι περιττό."
 
 #: libraries/normalization.lib.php:217
 msgid ""
@@ -8940,14 +8938,13 @@ msgid "No redundant column"
 msgstr "Καμιά περιττή στήλη"
 
 #: libraries/normalization.lib.php:242
-#, fuzzy
 #| msgid "Step 1."
 msgid "Step 2."
-msgstr "Βήμα 1."
+msgstr "Βήμα 2."
 
 #: libraries/normalization.lib.php:242
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "Εύρεση μερικών εξαρτήσεων"
 
 #: libraries/normalization.lib.php:264
 #, php-format
@@ -8955,10 +8952,12 @@ msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
+"Καμιά μερική εξάρτηση δεν είναι δυνατή καθώς δεν υπάρχει μη πρωτεύουσα στήλη "
+"και το πρωτεύον κλειδί ( %1$s ) συνδυάζεται σε όλες τις στήλες στον πίνακα."
 
 #: libraries/normalization.lib.php:269 libraries/normalization.lib.php:310
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "Ο πίνακας είναι ήδη σε δεύτερη κανονική μορφή."
 
 #: libraries/normalization.lib.php:274
 #, php-format
@@ -8966,9 +8965,10 @@ msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"Το πρωτεύον κλειδί ( %1$s ) απαρτίζεται από περισσότερες από μια στήλες έτσι "
+"χρειάζεται να βρεθούν οι μερικές εξαρτήσεις."
 
 #: libraries/normalization.lib.php:278
-#, fuzzy
 #| msgid ""
 #| "Hint: Please follow the procedure carefully in order to obtain correct "
 #| "normalization"
@@ -8976,12 +8976,12 @@ msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
-"Σημείωση: Ακολουθήστε τη διαδικασία προσεκτικά ώστε να έχετε σωστή "
-"κανονικοποίηση"
+"Απαντήστε την(ις) ακόλουθη(ες) ερώτηση(εις) προσεκτικά ώστε να έχετε μια "
+"σωστή κανονικοποίηση."
 
 #: libraries/normalization.lib.php:282
 msgid "+ Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "+ Προβολή των πιθανών μερικών εξαρτήσεων με βάση δεδομένα στον πίνακα"
 
 #: libraries/normalization.lib.php:286
 msgid ""
@@ -8989,6 +8989,9 @@ msgid ""
 "columns among given set whose values combined together are sufficient to "
 "determine the value of the column."
 msgstr ""
+"Για κάθε μια από τις στήλες παρακάτω, επιλέξτε την <b>ελάχιστη ομάδα</b> "
+"στηλών μεταξύ των δοθέντων ομάδων των οποίων οι συνδυασμένες τιμές είναι "
+"επαρκείς για να ορίσουν την τιμή της στήλης."
 
 #: libraries/normalization.lib.php:306
 #, php-format
@@ -9003,18 +9006,20 @@ msgid ""
 "As per above partial dependencies, in order to put the original table '%1$s' "
 "into Second normal form we need to create the following tables:"
 msgstr ""
+"Αναφορικά με τις παραπάνω μερικές εξαρτήσεις, με σκοπό την τοποθέτηση του "
+"αρχικού πίνακα «%1$s» στην Δεύτερη κανονική μορφή χρειαζόμαστε να "
+"δημιουργήσουμε τους ακόλουθους πίνακες:"
 
 #: libraries/normalization.lib.php:367
-#, fuzzy, php-format
+#, php-format
 #| msgid "The first step of normalization is complete for table '%s'."
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr "Το πρώτο βήμα κανονικοποίησης ολοκληρώθηκε για τον πίνακα «%s»."
+msgstr "Το δεύτερο βήμα κανονικοποίησης ολοκληρώθηκε για τον πίνακα «%1$s»."
 
 #: libraries/normalization.lib.php:407
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing!"
-msgstr "Σφάλμα στην προώθηση αιτημάτος:"
+msgstr "Σφάλμα στην προώθηση!"
 
 #: libraries/normalization.lib.php:438
 msgid "Improve table structure (Normalization):"
@@ -9045,10 +9050,12 @@ msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
+"Αυτή η λίστα βασίζεται σε μια υποομάδα δεδομένων του πίνακα που δεν είναι "
+"απαραίτητα ακριβής. "
 
 #: libraries/normalization.lib.php:527
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "Δεν βρέθηκαν μερικές εξαρτήσεις!"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to:"
@@ -9967,10 +9974,13 @@ msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"Η λειτουργικότητα αποστολής εικόνας που προβάλει μια μικρογραφία. Οι "
+"επιλογές είναι το πλάτος και ύψος της μικρογραφίας σε εικονοστοιχεία. "
+"Προεπιλογή είναι 100 x 100."
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:78
 msgid "Image preview here"
-msgstr ""
+msgstr "Η προεπισκόπιση εικόνας εδώ"
 
 #: libraries/plugins/transformations/abstract/InlineTransformationsPlugin.class.php:33
 msgid ""
@@ -10003,11 +10013,13 @@ msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"Επικυρώνει το κείμενο με χρήση κανονικής έκφρασης και εκτελεί εισαγωγή αν το "
+"κείμενο ταιριάζει. Η πρώτη επιλογή είναι η Κανονική Έκφραση."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "Η επικύρωση απέτυχε για το κείμενο εισόδου %s."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -10032,6 +10044,8 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"Η λειτουργικότητα αποστολής αρχείου για στήλες TEXT. Δεν έχει ένα textarea "
+"για εισαγωγή."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -10091,13 +10105,12 @@ msgid "Browser transformation"
 msgstr "Μετατροπή περιηγητή"
 
 #: libraries/relation.lib.php:177
-#, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
 "Παρακαλώ διαβάστε στην τεκμηρίωση για το πως μπορείτε να ανανεώσετε τον "
-"πίνακα column_comments."
+"πίνακα column_info. "
 
 #: libraries/relation.lib.php:190 libraries/sql_query_form.lib.php:412
 msgid "Bookmarked SQL query"
@@ -12826,8 +12839,8 @@ msgid ""
 "Edit, Copy and Delete features are not available."
 msgstr ""
 "Η τρέχουσα επιλογή δεν περιέχει μια μοναδική στήλη. Τα χαρακτηριστικά "
-"Επεξεργασίας Καννάβου, επικογής, Επεξεργασίας, Αντιγραφής και Διαγραφής δεν "
-"είναι διαθέσιμα."
+"επεξεργασίας πλέγματος, πλαίσια ελέγχου, Επεξεργασίας, Αντιγραφής και "
+"Διαγραφής δεν είναι διαθέσιμα."
 
 #: libraries/sql.lib.php:2007
 #, php-format
@@ -13328,29 +13341,25 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:332
 #: transformation_overview.php:41
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "Μετατροπή περιηγητή"
+msgstr "Μετατροπή προβολής περιηγητή"
 
 #: libraries/tbl_columns_definition_form.lib.php:334
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation options"
-msgstr "Μετατροπή περιηγητή"
+msgstr "Επιλογές μετατροπής προβολής περιηγητή"
 
 #: libraries/tbl_columns_definition_form.lib.php:337
 #: transformation_overview.php:42
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Input transformation"
-msgstr "Μετατροπή περιηγητή"
+msgstr "Μετατροπή εισαγωγής"
 
 #: libraries/tbl_columns_definition_form.lib.php:339
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Input transformation options"
-msgstr "Επιλογές μετατροπής"
+msgstr "Επιλογές μετατροπής εισαγωγής"
 
 #: libraries/tbl_columns_definition_form.lib.php:580
 #, php-format
@@ -14196,7 +14205,7 @@ msgstr "Το όνομα του πίνακα είναι κενό!"
 #: tbl_replace.php:236
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "Γραμμή: %1$s, Στήλη: %2$s, Σφάλμα: %3$s"
 
 #: tbl_structure.php:93
 msgid "No column selected."
@@ -14215,16 +14224,14 @@ msgid "Available MIME types"
 msgstr "Διαθέσιμοι τύποι MIME"
 
 #: transformation_overview.php:37
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "Διαθέσιμες μετατροπές"
+msgstr "Διαθέσιμες μετατροπές προβολής φυλλομετρητή"
 
 #: transformation_overview.php:38
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available input transformations"
-msgstr "Διαθέσιμες μετατροπές"
+msgstr "Διαθέσιμες μετατροπές εισαγωγής"
 
 #: transformation_overview.php:53
 msgctxt "for MIME transformation"
