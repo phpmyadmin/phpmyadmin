@@ -195,16 +195,16 @@ function PMA_getHtmlContentsFor1NFStep2($db, $table)
 }
 
 /**
- * build the html contents of various html elements in step 1.3
+ * build the html contents of various html elements in step 1.4
  *
  * @param string $db    current database
  * @param string $table current table
  *
- * @return HTML contents for step 1.3
+ * @return HTML contents for step 1.4
  */
-function PMA_getHtmlContentsFor1NFStep3($db, $table)
+function PMA_getHtmlContentsFor1NFStep4($db, $table)
 {
-    $step = 3;
+    $step = 4;
     $stepTxt = __('Remove redundant columns');
     $legendText = __('Step 1.') . $step . " " . $stepTxt;
     $headText = __(
@@ -229,6 +229,52 @@ function PMA_getHtmlContentsFor1NFStep3($db, $table)
         );
     return $res;
 }
+
+/**
+ * build the html contents of various html elements in step 1.3
+ *
+ * @param string $db    current database
+ * @param string $table current table
+ *
+ * @return HTML contents for step 1.3
+ */
+function PMA_getHtmlContentsFor1NFStep3($db, $table)
+{
+    $step = 3;
+    $stepTxt = __('Move repeating groups');
+    $legendText = __('Step 1.') . $step . " " . $stepTxt;
+    $headText = __(
+        "Do you have group of two or more columns that are closely "
+        . " related and are all repeating same attribute? For example, "
+        . "if a table that records data on book, has "
+        . " columns book_id, author1, author2, author3 and so on which form a "
+        . "repeating group. In this case new table (book_id, author) should "
+        . "be created. another examples can be"
+        . " phone1, phone2, phone3 and so on Or picture1, picture2 etc"
+    );
+    $subText = __(
+        "Check the columns which form a repeating group. "
+        . "If no such group, click on 'No repeating group'"
+    );
+    $extra = PMA_getHtmlForColumnsList($db, $table, 'all', "checkbox") . "</br>"
+        . '<input type="submit" id="moveRepeatingGroup" value="'
+        . __('Done') . '"/>'
+        . '<input type="submit" value="' . __('No repeating group')
+        . '" onclick="goToStep4();"'
+        . '/>';
+    $primary = PMA_Index::getPrimary($table, $db);
+    $primarycols = $primary->getColumns();
+    $pk = array();
+    foreach ($primarycols as $col) {
+        $pk[] = $col->getName();
+    }
+    $res = array(
+            'legendText'=>$legendText, 'headText'=>$headText,
+            'subText'=>$subText, 'extra'=>$extra, 'primary_key'=> json_encode($pk)
+        );
+    return $res;
+}
+
 /**
  * build html contents for 2NF step 2.1
  *
@@ -418,6 +464,69 @@ function PMA_createNewTablesFor2NF($partialDependencies, $tablesName, $table, $d
     return array(
         'legendText'=>__('End of step'), 'headText'=>$headText,
         'queryError'=>$error, 'extra'=>$message
+    );
+}
+
+/**
+ * move the repeating group of columns to a new table
+ *
+ * @param string $repeatingColumns comma separated list of repeating group columns
+ * @param string $primary_columns  comma separated list of column in primary key
+ * of $table
+ * @param string $newTable         name of the new table to be created
+ * @param string $newColumn        name of the new column in the new table
+ * @param string $table            current table
+ * @param string $db               current database
+ *
+ * @return array
+ */
+function PMA_moveRepeatingGroup(
+    $repeatingColumns, $primary_columns, $newTable, $newColumn, $table, $db
+) {
+    $repeatingColumnsArr = (array)PMA_Util::backquote(
+        explode(', ', $repeatingColumns)
+    );
+    $primary_columns = implode(
+        ',', PMA_Util::backquote(explode(',', $primary_columns))
+    );
+    $query1 = 'CREATE TABLE ' . PMA_Util::backquote($newTable);
+    $query2 = 'ALTER TABLE ' . PMA_Util::backquote($table);
+    $message = PMA_Message::success(
+        sprintf(
+            __('Selected repeating group has been moved the to the table \'%s\''),
+            htmlspecialchars($table)
+        )
+    );
+    $first = true;
+    $error = false;
+    foreach ($repeatingColumnsArr as $repeatingColumn) {
+        if (!$first) {
+            $query1 .= ' UNION ';
+        }
+        $first = false;
+        $query1 .=  ' SELECT ' . $primary_columns . ',' . $repeatingColumn
+            . ' as ' . PMA_Util::backquote($newColumn)
+            . ' FROM ' . PMA_Util::backquote($table);
+        $query2 .= ' DROP ' . $repeatingColumn . ',';
+    }
+    $query2 = trim($query2, ',');
+    $queries = array($query1, $query2);
+    $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+    foreach ($queries as $query) {
+        if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['userlink'])) {
+            $message = PMA_Message::error(__('Error in processing!'));
+            $message->addMessage('<br /><br />');
+            $message->addMessage(
+                PMA_Message::rawError(
+                    $GLOBALS['dbi']->getError($GLOBALS['userlink'])
+                )
+            );
+            $error = true;
+            break;
+        }
+    }
+    return array(
+        'queryError'=>$error, 'message'=>$message
     );
 }
 /**

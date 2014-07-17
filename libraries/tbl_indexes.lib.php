@@ -192,8 +192,9 @@ function PMA_getNumberOfFieldsForForm($index)
     if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
         // coming already from form
         $add_fields
-            = count($_REQUEST['index']['columns']['names'])
-            - $index->getColumnCount();
+            = isset($_REQUEST['index']['columns'])?
+            count($_REQUEST['index']['columns']['names'])
+            - $index->getColumnCount():0;
         if (isset($_REQUEST['add_fields'])) {
             $add_fields += $_REQUEST['added_fields'];
         }
