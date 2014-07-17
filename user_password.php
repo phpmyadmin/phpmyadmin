@@ -21,8 +21,8 @@ $scripts->addFile('server_privileges.js');
  * Displays an error message and exits if the user isn't allowed to use this
  * script
  */
-if (! $cfg['ShowChgPassword']) {
-    $cfg['ShowChgPassword'] = $GLOBALS['dbi']->selectDb('mysql');
+if (! $GLOBALS['cfg']['ShowChgPassword']) {
+    $GLOBALS['cfg']['ShowChgPassword'] = $GLOBALS['dbi']->selectDb('mysql');
 }
 if ($cfg['Server']['auth_type'] == 'config' || ! $cfg['ShowChgPassword']) {
     PMA_Message::error(
