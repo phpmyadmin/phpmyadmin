@@ -244,13 +244,12 @@ function PMA_getHtmlContentsFor1NFStep3($db, $table)
     $stepTxt = __('Move repeating groups');
     $legendText = __('Step 1.') . $step . " " . $stepTxt;
     $headText = __(
-        "Do you have group of two or more columns that are closely "
-        . " related and are all repeating same attribute? For example, "
-        . "if a table that records data on book, has "
-        . " columns book_id, author1, author2, author3 and so on which form a "
-        . "repeating group. In this case new table (book_id, author) should "
-        . "be created. another examples can be"
-        . " phone1, phone2, phone3 and so on Or picture1, picture2 etc"
+        "Do you have a group of two or more columns that are closely "
+        . " related and are all repeating the same attribute? For example, "
+        . "a table that holds data on books might have columns such as book_id, "
+        . "author1, author2, author3 and so on which form a "
+        . "repeating group. In this case a new table (book_id, author) should "
+        . "be created."
     );
     $subText = __(
         "Check the columns which form a repeating group. "
