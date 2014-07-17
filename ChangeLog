@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.2.6.0 (not yet released)
+4.2.6.0 (2014-07-17)
 - bug #4471 Undefined index warning with referenced column.
 - bug #4027 $cfg['MaxExactCount'] is ignored when BROWSING is back
 - bug #4482 Multi Column sorting (improved user experience)
