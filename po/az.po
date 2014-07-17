@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-15 10:44-0400\n"
-"PO-Revision-Date: 2014-07-17 21:34+0200\n"
+"PO-Revision-Date: 2014-07-17 21:45+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
@@ -2849,23 +2849,23 @@ msgstr "Emri İcra Et"
 
 #: libraries/DBQbe.class.php:1458
 msgid "Saved bookmarked search:"
-msgstr "Yaddaşa verilmiş bookmark axtarma:"
+msgstr "Yaddaşa verilmiş əlfəcin axtarma:"
 
 #: libraries/DBQbe.class.php:1460
 msgid "New bookmark"
-msgstr "Yeni bookmark"
+msgstr "Yeni əlfəcin"
 
 #: libraries/DBQbe.class.php:1486
 msgid "Create bookmark"
-msgstr "Bookmark yarat"
+msgstr "əlfəcin yarat"
 
 #: libraries/DBQbe.class.php:1489
 msgid "Update bookmark"
-msgstr "Bookmarkı yenilə"
+msgstr "Əlfəcini yenilə"
 
 #: libraries/DBQbe.class.php:1491
 msgid "Delete bookmark"
-msgstr "Bookmarkı sil"
+msgstr "Əlfəcini sil"
 
 #: libraries/DatabaseInterface.class.php:1807
 msgid ""
@@ -6263,7 +6263,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:561
 msgid "Bookmark table"
-msgstr ""
+msgstr "Əlfəcin cədvəli"
 
 #: libraries/config/messages.inc.php:563
 msgid ""
@@ -6418,6 +6418,10 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
+"Əlaqələr, əlfəcinlər və PDF özəllikləri üçün istifadə olunan Verilənlər "
+"Bazası. Tam İnformasiya üçün  "
+"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]-a baxın. Dəstək "
+"istəmirsinizsə boş buraxın. Təklif olunan: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:631
 #: libraries/display_create_database.lib.php:31
@@ -12089,7 +12093,7 @@ msgstr "Etiket:"
 
 #: libraries/sql.lib.php:799 libraries/sql_query_form.lib.php:328
 msgid "Let every user access this bookmark"
-msgstr ""
+msgstr "Hər istifadəçinin bu əlfəcinə çatmasına icazə ver"
 
 #: libraries/sql.lib.php:1052
 msgid "Bookmark not created!"
