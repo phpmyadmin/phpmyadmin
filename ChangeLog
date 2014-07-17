@@ -35,6 +35,7 @@ phpMyAdmin - ChangeLog
 - bug #4489 Incorrect detection of privileges for routine creation
 - bug #4459 First few characters of database name aren't clickable when expanded
 - bug #4486 [security] XSS injection due to unescaped table comment
+- bug #4488 [security] XSS injection due to unescaped table name (triggers)
 
 4.2.5.0 (2014-06-26)
 - bug #4467 shell_exec() has been disabled for security reasons
