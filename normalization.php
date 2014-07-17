@@ -84,6 +84,17 @@ if (isset($_REQUEST['createNewTables2NF'])) {
     $response->addJSON($res);
     exit;
 }
+if (isset($_POST['repeatingColumns'])) {
+    $repeatingColumns = $_POST['repeatingColumns'];
+    $newTable = $_POST['newTable'];
+    $newColumn = $_POST['newColumn'];
+    $primary_columns = $_POST['primary_columns'];
+    $res = PMA_moveRepeatingGroup(
+        $repeatingColumns, $primary_columns, $newTable, $newColumn, $table, $db
+    );
+    $response->addJSON($res);
+    exit;
+}
 if (isset($_REQUEST['step1'])) {
     $html = PMA_getHtmlFor1NFStep1($db, $table, $normalForm);
     $response->addHTML($html);
@@ -92,6 +103,9 @@ if (isset($_REQUEST['step1'])) {
     $response->addJSON($res);
 } else if (isset($_REQUEST['step3'])) {
     $res = PMA_getHtmlContentsFor1NFStep3($db, $table);
+    $response->addJSON($res);
+} else if (isset ($_REQUEST['step4'])) {
+    $res = PMA_getHtmlContentsFor1NFStep4($db, $table);
     $response->addJSON($res);
 } else if (isset($_REQUEST['step']) && $_REQUEST['step'] == 2.1) {
     $res = PMA_getHtmlFor2NFstep1($db, $table);

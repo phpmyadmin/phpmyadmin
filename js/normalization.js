@@ -12,7 +12,7 @@
  */
 
 var normalizeto = '1nf';
-
+var primary_key;
 function appendHtmlColumnsList()
 {
     $.get(
@@ -70,6 +70,30 @@ function goToFinish1NF()
     $('.tblFooters').html('');
 }
 
+function goToStep4()
+{
+    $.post(
+        "normalization.php",
+        {
+            "token": PMA_commonParams.get('token'),
+            "ajax_request": true,
+            "db": PMA_commonParams.get('db'),
+            "table": PMA_commonParams.get('table'),
+            "step4": true
+        }, function(data) {
+            $("#mainContent legend").html(data.legendText);
+            $("#mainContent h4").html(data.headText);
+            $("#mainContent p").html(data.subText);
+            $("#mainContent #extra").html(data.extra);
+            $("#mainContent #newCols").html('');
+            $('.tblFooters').html('');
+            for(var pk in primary_key) {
+                $("#extra input[value='"+primary_key[pk]+"']").attr("disabled","disabled");
+            }
+        }
+    );
+}
+
 function goToStep3()
 {
     $.post(
@@ -87,6 +111,10 @@ function goToStep3()
             $("#mainContent #extra").html(data.extra);
             $("#mainContent #newCols").html('');
             $('.tblFooters').html('');
+            primary_key = $.parseJSON(data.primary_key);
+            for(var pk in primary_key) {
+                $("#extra input[value='"+primary_key[pk]+"']").attr("disabled","disabled");
+            }
         }
     );
 }
@@ -238,7 +266,44 @@ function processPartialDependancies(primary_key)
     goTo2NFStep2(pd, primary_key);
     return false;
 }
-
+function moveRepeatingGroup(repeatingCols) {
+    newTable = $("input[name=repeatGroupTable]").val();
+    newColumn = $("input[name=repeatGroupColumn]").val();
+    if (!newTable) {
+        $("input[name=repeatGroupTable]").focus();
+        return false;
+    }
+    if (!newColumn) {
+        $("input[name=repeatGroupColumn]").focus();
+        return false;
+    }
+    datastring = {"token": PMA_commonParams.get('token'),
+        "ajax_request": true,
+        "db": PMA_commonParams.get('db'),
+        "table": PMA_commonParams.get('table'),
+        "repeatingColumns": repeatingCols,
+        "newTable":newTable,
+        "newColumn":newColumn,
+        "primary_columns":primary_key.toString()
+    };
+    $.ajax({
+        type: "POST",
+        url: "normalization.php",
+        data: datastring,
+        async:false,
+        success: function(data) {
+            if (data.success === true) {
+                if(data.queryError === false) {
+                    goToStep3();
+                }
+                PMA_ajaxShowMessage(data.message, false);
+                $("#pma_navigation_reload").click();
+            } else {
+                PMA_ajaxShowMessage(data.error, false);
+            }
+        }
+    });
+}
 AJAX.registerTeardown('normalization.js', function () {
     $("#extra").off("click", "#selectNonAtomicCol");
     $("#splitGo").unbind('click');
@@ -397,7 +462,24 @@ AJAX.registerOnload('normalization.js', function() {
             }
         );
     });
+    $("#extra").on("click", "#moveRepeatingGroup", function() {
+        var repeatingCols = '';
+        $("#extra input[type=checkbox]:checked").each(function() {
+            repeatingCols += $(this).val() + ', ';
+        });
 
+        if (repeatingCols !== '') {
+            newColName = $("#extra input[type=checkbox]:checked:first").val();
+            repeatingCols = repeatingCols.slice(0, -2);
+            confirmStr = $.sprintf(PMA_messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(PMA_commonParams.get('table')));
+            confirmStr += '<input type="text" name="repeatGroupTable" placeholder="'+PMA_messages.strNewTablePlaceholder+'"/>'+
+                '( '+escapeHtml(primary_key.toString())+', <input type="text" name="repeatGroupColumn" placeholder="'+PMA_messages.strNewColumnPlaceholder+'" value="'+escapeHtml(newColName)+'">)'+
+                '</ol>';
+            $("#newCols").html(confirmStr);
+            $('.tblFooters').html('<input type="submit" value="'+PMA_messages.strCancel+'" onclick="$(\'#newCols\').html(\'\');$(\'#extra input[type=checkbox]\').removeAttr(\'checked\')"/>'+
+                '<input type="submit" value="'+PMA_messages.strGo+'" onclick="moveRepeatingGroup(\''+repeatingCols+'\')"/>');
+        }
+    });
     $("#mainContent p").on("click", "#createPrimaryKey", function(event) {
         event.preventDefault();
         var url = { create_index: 1,
