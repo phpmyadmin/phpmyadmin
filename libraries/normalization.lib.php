@@ -492,7 +492,7 @@ function PMA_moveRepeatingGroup(
     $query2 = 'ALTER TABLE ' . PMA_Util::backquote($table);
     $message = PMA_Message::success(
         sprintf(
-            __('Selected repeating group has been moved the to the table \'%s\''),
+            __('Selected repeating group has been moved to the table \'%s\''),
             htmlspecialchars($table)
         )
     );
