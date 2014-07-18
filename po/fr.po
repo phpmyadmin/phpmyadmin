@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-17 15:47-0400\n"
-"PO-Revision-Date: 2014-07-15 18:36+0200\n"
+"PO-Revision-Date: 2014-07-18 15:59+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1885,16 +1885,15 @@ msgid "Step"
 msgstr "Étape"
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
-msgstr "Ces requêtes ont été exécutées :"
+msgstr "Les actions suivantes seront effectuées :"
 
 #: js/messages.php:321
-#, fuzzy, php-format
+#, php-format
 #| msgid "Remove columns from central list"
 msgid "DROP columns %1s from the table %2s"
-msgstr "Supprimer les colonnes de la liste centrale"
+msgstr "Supprimer les colonnes %1s de la table %2s"
 
 #: js/messages.php:322
 #, fuzzy
