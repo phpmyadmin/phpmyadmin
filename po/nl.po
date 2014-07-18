@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-18 10:58-0400\n"
+"POT-Creation-Date: 2014-07-18 11:55-0400\n"
 "PO-Revision-Date: 2014-07-03 23:19+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
@@ -9016,7 +9016,7 @@ msgstr "Fout tijdens het uitvoeren van de opdracht:"
 #: libraries/normalization.lib.php:495
 #, fuzzy, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
-msgid "Selected repeating group has been moved the to the table '%s'"
+msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "De geselecteerde tabellen zijn gesynchroniseerd met de brontabellen."
 
 #: libraries/normalization.lib.php:546

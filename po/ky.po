@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-18 10:58-0400\n"
+"POT-Creation-Date: 2014-07-18 11:55-0400\n"
 "PO-Revision-Date: 2014-02-03 16:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Kyrgyz <http://l10n.cihar.com/projects/phpmyadmin/master/ky/"
@@ -8439,7 +8439,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:495
 #, php-format
-msgid "Selected repeating group has been moved the to the table '%s'"
+msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
 #: libraries/normalization.lib.php:546

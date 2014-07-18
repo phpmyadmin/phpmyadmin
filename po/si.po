@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-18 10:58-0400\n"
+"POT-Creation-Date: 2014-07-18 11:55-0400\n"
 "PO-Revision-Date: 2014-02-27 10:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Sinhala <https://l10n.cihar.com/projects/phpmyadmin/master/si/"
@@ -9133,7 +9133,7 @@ msgstr "ඉල්ලීම පිරිසැකසීමේදී දෝශ ඇ
 #: libraries/normalization.lib.php:495
 #, fuzzy, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
-msgid "Selected repeating group has been moved the to the table '%s'"
+msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "ඉලක්ක ලෙස තෝරාගත් වගු මූලාශ්‍ර වගු සමඟ සමමුහුර්ත කර ඇත."
 
 #: libraries/normalization.lib.php:546

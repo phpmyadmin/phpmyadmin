@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-18 10:58-0400\n"
+"POT-Creation-Date: 2014-07-18 11:55-0400\n"
 "PO-Revision-Date: 2014-07-17 01:07+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -8975,7 +8975,7 @@ msgstr "Napaka v obdelovanju!"
 #: libraries/normalization.lib.php:495
 #, fuzzy, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
-msgid "Selected repeating group has been moved the to the table '%s'"
+msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Izbrane ciljne tabele so bile sinhronizirane z izvornimi tabelami."
 
 #: libraries/normalization.lib.php:546
