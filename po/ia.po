@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-16 09:24+0200\n"
+"PO-Revision-Date: 2014-07-18 13:33+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/ia/>\n"
@@ -7572,30 +7572,36 @@ msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
 msgstr ""
+"Le grandor de un registro (log) de transactiones ante le rollover, e un nove "
+"registro (log) es create. Le valor predefinite es 16MB."
 
 #: libraries/engines/pbxt.lib.php:48
 msgid "Transaction buffer size"
-msgstr ""
+msgstr "Grandor del buffer (tampon) de transaction"
 
 #: libraries/engines/pbxt.lib.php:49
 msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
+"Le grandor del buffer (tampon) global de log (registro) de transaction (le "
+"motor alloca 2 bufferes de iste dimension). Le valor predefinite es 1MB."
 
 #: libraries/engines/pbxt.lib.php:53
 msgid "Checkpoint frequency"
-msgstr ""
+msgstr "Frequentia de checkpoint (puncto de verifica)"
 
 #: libraries/engines/pbxt.lib.php:54
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
 msgstr ""
+"Le quantitate d edatos scribite in le registro (log) de transaction ante que "
+"on exeque un checkpoint (puncto de verifica). Le valor predefinite es 24MB."
 
 #: libraries/engines/pbxt.lib.php:58
 msgid "Data log threshold"
-msgstr ""
+msgstr "Limine del log (registro) de datos"
 
 #: libraries/engines/pbxt.lib.php:59
 msgid ""
@@ -7607,7 +7613,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:63
 msgid "Garbage threshold"
-msgstr ""
+msgstr "Limine de corbe (garbage)"
 
 #: libraries/engines/pbxt.lib.php:64
 msgid ""
