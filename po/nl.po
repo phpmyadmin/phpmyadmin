@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-06-17 14:20+0200\n"
+"PO-Revision-Date: 2014-07-18 23:00+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/4-2/nl/>\n"
 "Language: nl\n"
@@ -1869,13 +1869,16 @@ msgstr "Sleep om te herschikken."
 
 #: js/messages.php:344
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Klik om resultaten te sorteren op deze kolom."
 
 #: js/messages.php:345
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
+"Shift + klik om deze kolom toevoegen aan de ORDER BY-component of om te "
+"wisselen tussen ASC (oplopend) / DESC (aflopend). <br />-Control + klik om "
+"de kolom uit de ORDER BY-component verwijderen"
 
 #: js/messages.php:346
 msgid "Click to mark/unmark."
@@ -1914,10 +1917,9 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "U kan de meeste waarden bewerken<br />door erop te klikken."
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "Ga naar de link."
+msgstr "Volg de link:"
 
 #: js/messages.php:366
 msgid "Copy column name."
