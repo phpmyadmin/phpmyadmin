@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-15 10:44-0400\n"
-"PO-Revision-Date: 2014-07-17 21:46+0200\n"
+"PO-Revision-Date: 2014-07-18 13:48+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/az/>\n"
+"Language-Team: Azerbaijani "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -936,10 +936,9 @@ msgstr ""
 "istədiyinizdən əminsinizmi?"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "Fayl olaraq qeyd et"
+msgstr "Yaddaşa ver və Bağla"
 
 #: js/messages.php:50 libraries/config/FormDisplay.tpl.php:393
 #: libraries/insert_edit.lib.php:1608 prefs_manage.php:335
@@ -948,10 +947,9 @@ msgid "Reset"
 msgstr "Yenile"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Hamısını Seç"
+msgstr "Hamısını Sıfırla"
 
 #: js/messages.php:54
 msgid "Missing value in the form!"
@@ -1758,16 +1756,14 @@ msgid "Add primary key"
 msgstr ""
 
 #: js/messages.php:305
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "%s üzərinə Birinci Dərəcəli Açar əlavə edildi."
+msgstr "Birinci Dərəcəli Açar əlavə edildi."
 
 #: js/messages.php:306 libraries/normalization.lib.php:170
-#, fuzzy
 #| msgid "Change"
 msgid "Taking you to next step…"
-msgstr "Deyişdir"
+msgstr "Sizi növbəti addıma aparır…"
 
 #: js/messages.php:307
 #, php-format
@@ -1776,10 +1772,9 @@ msgstr ""
 
 #: js/messages.php:308 libraries/normalization.lib.php:417
 #: libraries/normalization.lib.php:464
-#, fuzzy
 #| msgid "At End of Table"
 msgid "End of step"
-msgstr "Cedvelin sonuna"
+msgstr "Addım sonu"
 
 #: js/messages.php:309
 msgid "Second step of normalization (2NF)"
@@ -1838,10 +1833,9 @@ msgid "DROP columns %1s from the table %2s"
 msgstr ""
 
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following new table"
-msgstr "Aşağıdakı cədvəl üçün səlahiyyətləri müəyyən et:"
+msgstr "Aşağıdakı yeni cədvəli yarat"
 
 #: js/messages.php:327 libraries/insert_edit.lib.php:1517
 #: libraries/server_variables.lib.php:157
@@ -1860,22 +1854,19 @@ msgid "Show search criteria"
 msgstr "Axtarış kriteriyalarını göstər"
 
 #: js/messages.php:332
-#, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
-msgstr "Cədvəl Axtarma"
+msgstr "Aralıq Axtarma"
 
 #: js/messages.php:333
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Sütun adları: "
+msgstr "Maksimum Sütun:"
 
 #: js/messages.php:334
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Sütun adları: "
+msgstr "Minimum Sütun:"
 
 #: js/messages.php:335
 msgid "Minimum value:"
@@ -2032,10 +2023,9 @@ msgid "Successfully deleted the page"
 msgstr ""
 
 #: js/messages.php:398
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Əlaqəli sxemləri redaktə və ya eksport et"
+msgstr "Əlaqəli sxemləri eksport et"
 
 #: js/messages.php:401
 #, php-format
@@ -2105,10 +2095,9 @@ msgstr ""
 "F."
 
 #: js/messages.php:420
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
-msgstr "Ləğv et"
+msgstr "ləğv et"
 
 #: js/messages.php:421 libraries/server_status.lib.php:261
 msgid "Aborted"
@@ -2123,20 +2112,18 @@ msgid "Success"
 msgstr ""
 
 #: js/messages.php:424
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Susmaya görə İmport"
+msgstr "İmport statusu"
 
 #: js/messages.php:425 libraries/navigation/Navigation.class.php:102
 msgid "Drop files here"
 msgstr ""
 
 #: js/messages.php:426
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select database first"
-msgstr "Bir Cədvəl Seç"
+msgstr "Əvvəlcə Verilənlər Bazasını seçin"
 
 #: js/messages.php:431
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2147,10 +2134,9 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
 #: js/messages.php:439
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "Bağlantıya get."
+msgstr "Bağlantıya get:"
 
 #: js/messages.php:440
 msgid "Copy column name."
@@ -2651,20 +2637,18 @@ msgid "No bookmarks"
 msgstr "Əlfəcinlər yoxdur"
 
 #: libraries/Console.class.php:174
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "Sorğu keşi"
+msgstr "Sorğu uğursuz oldu"
 
 #: libraries/Console.class.php:176
 msgid "Queried time"
 msgstr ""
 
 #: libraries/Console.class.php:182
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "SQL sorğu qutusu"
+msgstr "SQL Sorğu konsolu"
 
 #: libraries/Console.class.php:183
 msgid "Console"
@@ -2676,10 +2660,9 @@ msgid "Clear"
 msgstr ""
 
 #: libraries/Console.class.php:189
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "SQL tarixçəsi"
+msgstr "Tarix"
 
 #: libraries/Console.class.php:192 libraries/Console.class.php:270
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:790
@@ -2714,9 +2697,8 @@ msgid "Bookmarks"
 msgstr "Əlfəcinlər"
 
 #: libraries/Console.class.php:205
-#, fuzzy
 msgid "Press Ctrl+Enter to execute query"
-msgstr "SQL sorğusu"
+msgstr "Sorğunu icra etmək üçün Ctrl+Enter düymələrinə basın"
 
 #: libraries/Console.class.php:221
 msgid "During current session"
@@ -2733,34 +2715,30 @@ msgid "Add bookmark"
 msgstr "Əlfəcin əlavə et"
 
 #: libraries/Console.class.php:260
-#, fuzzy
 #| msgid "Label:"
 msgid "Label"
-msgstr "Etiket:"
+msgstr "Etiket"
 
 #: libraries/Console.class.php:261
-#, fuzzy
 msgid "Target database"
-msgstr "Search in database"
+msgstr "Hədəf Verilənlər Bazası"
 
 #: libraries/Console.class.php:262
 msgid "Share this bookmark"
 msgstr "Əlfəcini paylaş"
 
 #: libraries/Console.class.php:273
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Set default"
-msgstr "Susmaya görə İmport"
+msgstr "Susmaya görəni tənzimlə"
 
 #: libraries/Console.class.php:277
 msgid "Always expand queried messages"
 msgstr ""
 
 #: libraries/Console.class.php:279
-#, fuzzy
 msgid "Show query history at start"
-msgstr "SQL sorğusu"
+msgstr "Başlanğıcda sorğu keçmişini göstər"
 
 #: libraries/Console.class.php:281
 msgid "Show current browsing query"
@@ -4496,10 +4474,9 @@ msgid "on update CURRENT_TIMESTAMP"
 msgstr ""
 
 #: libraries/central_columns.lib.php:886
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
-msgstr "Sütun əlavə et"
+msgstr "Yeni sütun əlavə et"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -7032,37 +7009,32 @@ msgid "Can't count rows in an unbuffered result set"
 msgstr ""
 
 #: libraries/designer.lib.php:31
-#, fuzzy
 #| msgid "Page titles"
 msgid "Page to open"
-msgstr "Səhifə başlığı"
+msgstr "Açmaq üçün Səhifə"
 
 #: libraries/designer.lib.php:33
-#, fuzzy
 msgid "Page to delete"
-msgstr "Relation view"
+msgstr "Silmək üçün səhifə"
 
 #: libraries/designer.lib.php:37 libraries/designer.lib.php:73
 msgid "Select page"
 msgstr "Səhifə Seç"
 
 #: libraries/designer.lib.php:59
-#, fuzzy
 #| msgid "Import files"
 msgid "Save to selected page"
-msgstr "Faylları import et"
+msgstr "Seçilən səhifəni yaddaşa ver"
 
 #: libraries/designer.lib.php:60
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and save to it"
-msgstr "Yeni indeks qur"
+msgstr "Səhifə yarat və ona yaddaşa ver"
 
 #: libraries/designer.lib.php:92
-#, fuzzy
 #| msgid "User name"
 msgid "New page name"
-msgstr "İstifadeçi adı"
+msgstr "Yeni səhifə adı"
 
 #: libraries/designer.lib.php:154
 msgid "Select Export Relational Type"
@@ -7289,7 +7261,6 @@ msgid "gzipped"
 msgstr "gzip olaraq"
 
 #: libraries/display_export.lib.php:620
-#, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
 msgstr "Çıxış verilənlərini mətn olaraq göstər"
@@ -7307,40 +7278,34 @@ msgid "Skip tables larger than"
 msgstr ""
 
 #: libraries/display_export.lib.php:776
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select database"
-msgstr "Bir Cədvəl Seç"
+msgstr "Verilənlər Bazası Seç"
 
 #: libraries/display_export.lib.php:778
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select table"
-msgstr "Bir Cədvəl Seç"
+msgstr "Cədvəl Seç"
 
 #: libraries/display_export.lib.php:794
-#, fuzzy
 #| msgid "Database name"
 msgid "New database name"
-msgstr "Verilənlər Bazasının adı"
+msgstr "Yeni Verilənlər Bazasının adı"
 
 #: libraries/display_export.lib.php:818
-#, fuzzy
 #| msgid "New table"
 msgid "New table name"
-msgstr "Cedvel yoxdur"
+msgstr "Yeni cədvəl adı"
 
 #: libraries/display_export.lib.php:827
-#, fuzzy
 #| msgid "Copy column name."
 msgid "Old column name"
-msgstr "Sütun adını kopyala."
+msgstr "Köhnə sütun adı"
 
 #: libraries/display_export.lib.php:828
-#, fuzzy
 #| msgid "Copy column name."
 msgid "New column name"
-msgstr "Sütun adını kopyala."
+msgstr "Yeni sütun adı"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -7891,7 +7856,6 @@ msgid "Binary"
 msgstr ""
 
 #: libraries/insert_edit.lib.php:660
-#, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr "Uzun olduğuna görə,<br /> bu sütun redaktə edilməyə bilər."
@@ -8378,10 +8342,9 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:124
-#, fuzzy
 #| msgid "The central list of columns for the current database is empty."
 msgid "Show me the central list of columns that are not already in this table"
-msgstr "Cari Verilənlər Bazası üçün sütunların orta siyahısı boşdur."
+msgstr "Mənə, artıq bu cədvəldə olmayan sütunların orta siyahısını göstər"
 
 #: libraries/normalization.lib.php:127
 msgid ""
@@ -8390,16 +8353,14 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:134 normalization.php:19
-#, fuzzy
 #| msgid "Select a column."
 msgid "Select one…"
-msgstr "Sütun seçin."
+msgstr "Birini seçin…"
 
 #: libraries/normalization.lib.php:135 normalization.php:20
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "No such column"
-msgstr "Sahe Sütunlarını Elave Et/Sil"
+msgstr "Belə sütun yoxdur"
 
 #: libraries/normalization.lib.php:142
 msgid "split into "
@@ -8410,9 +8371,8 @@ msgid "Have a primary key"
 msgstr ""
 
 #: libraries/normalization.lib.php:169
-#, fuzzy
 msgid "Primary key already exists."
-msgstr "%s istifadeçisi mövcuddur!"
+msgstr "Birinci dərəcəli açar onsuzda vardır."
 
 #: libraries/normalization.lib.php:174
 msgid ""
@@ -8430,15 +8390,13 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:190
-#, fuzzy
 #| msgid "Add column"
 msgid "+ Add a new primary key column"
-msgstr "Sütun əlavə et"
+msgstr "+ Yeni birinci dərəcəli açar sütunu əlavə et"
 
 #: libraries/normalization.lib.php:208
-#, fuzzy
 msgid "Remove redundant columns"
-msgstr "Cedveli yeniden adlandır"
+msgstr "Lazımsız sütunları yığışdır"
 
 #: libraries/normalization.lib.php:211
 msgid ""
@@ -8460,10 +8418,9 @@ msgid "Remove selected"
 msgstr "Seçilən İstifadəçilər Silinir"
 
 #: libraries/normalization.lib.php:223
-#, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
-msgstr "Sütun əlavə et"
+msgstr "Lazımsız sütun yoxdur"
 
 #: libraries/normalization.lib.php:244
 msgid "Move repeating groups"
@@ -8562,10 +8519,9 @@ msgid "Selected repeating group has been moved the to the table '%s'"
 msgstr ""
 
 #: libraries/normalization.lib.php:546
-#, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Cədvəl strukturu əməliyyatlarını gizlət"
+msgstr "Cədvəl strukturu yaxşılaşdır(Normallaşdırma):"
 
 #: libraries/normalization.lib.php:547
 msgid "Select up to what step you want to normalize"
@@ -9536,7 +9492,6 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
-#, fuzzy
 #| msgid ""
 #| "plays an image and a link; the field contains the filename. The first ion "
 #| "is a URL prefix like \"http://www.example.com/\". The second and rd "
@@ -9546,12 +9501,11 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Displays an image and a link, the field contains the filename; first option "
-"is a prefix like \"http://domain.com/\", second option is the width in "
-"pixels, third is the height."
+"Bir rəsm və link göstərir, sütun fayl adını özündə ehtiva edir; ilk seçim \""
+"http://domain.com/\" kimi URL prefiksidir, ikinci və üçüncü seçim isə piksel "
+"olaraq eni və hündürlüyü göstərir."
 
 #: libraries/plugins/transformations/abstract/TextLinkTransformationsPlugin.class.php:33
-#, fuzzy
 #| msgid ""
 #| "plays a link; the field contains the filename. The first option is a  "
 #| "prefix like \"http://www.example.com/\". The second option is a title  "
@@ -9561,8 +9515,9 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Displays a link, the field contains the filename; first option is a prefix "
-"like \"http://domain.com/\", second option is a title for the link."
+"Linki göstərir; sütun fayl adını ehtiva edir. Birinci seçim \""
+"http://www.example.com/\" kimi URL prefiksidir. İkinci seçim isə link "
+"başlığıdır."
 
 #: libraries/pmd_common.php:295
 msgid "*Untitled"
@@ -9590,10 +9545,9 @@ msgid "Display Features"
 msgstr "Xüsusiyyetleri Göster"
 
 #: libraries/relation.lib.php:153
-#, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "PDF-lerin qurulması"
+msgstr "PDF-lərin dizayneri və yaradılması"
 
 #: libraries/relation.lib.php:164
 msgid "Displaying Column Comments"
@@ -9604,11 +9558,12 @@ msgid "Browser transformation"
 msgstr ""
 
 #: libraries/relation.lib.php:177
-#, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
-msgstr "Please see Documentation on how to update your Column_comments Table."
+msgstr ""
+"Lütfən, column_info cədvəlinizi necə yeniləyəcəyiniz barədə öyrənmək üçün "
+"dokumentasiyaya baxın. "
 
 #: libraries/relation.lib.php:190 libraries/sql_query_form.lib.php:412
 msgid "Bookmarked SQL query"
@@ -13132,29 +13087,26 @@ msgid "Export schema"
 msgstr "Eksport"
 
 #: pmd_general.php:232
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Emri İcra Et"
+msgstr "Sorğu yarat"
 
 #: pmd_general.php:239
 msgid "Move Menu"
 msgstr ""
 
 #: pmd_general.php:253
-#, fuzzy
 msgid "Hide/Show all"
-msgstr "Hamısını göster"
+msgstr "Hamısını Göstər/Gizlət"
 
 #: pmd_general.php:257
 msgid "Hide/Show Tables with no relation"
 msgstr ""
 
 #: pmd_general.php:301
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of tables:"
-msgstr "Sehife başına düşen setir sayı"
+msgstr "Cədvəl sayı:"
 
 #: pmd_general.php:576
 msgid "Delete relation"
@@ -13167,17 +13119,15 @@ msgstr "Relation view"
 
 #: pmd_general.php:631 pmd_general.php:690 pmd_general.php:820
 #: pmd_general.php:939
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "Eksport"
+msgstr "Xaric"
 
 #: pmd_general.php:637 pmd_general.php:698 pmd_general.php:826
 #: pmd_general.php:945
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "in query"
+msgstr "alt sorğu"
 
 #: pmd_general.php:641 pmd_general.php:743
 #, fuzzy
