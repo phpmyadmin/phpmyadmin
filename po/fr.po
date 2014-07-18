@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-18 10:58-0400\n"
-"PO-Revision-Date: 2014-07-18 15:59+0200\n"
+"PO-Revision-Date: 2014-07-18 17:52+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1894,10 +1894,9 @@ msgid "DROP columns %1s from the table %2s"
 msgstr "Supprimer les colonnes %1s de la table %2s"
 
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following table"
-msgstr "Ajouter des privilèges sur cette table : "
+msgstr "Créer la table suivante :"
 
 #: js/messages.php:327 libraries/insert_edit.lib.php:1517
 #: libraries/server_variables.lib.php:157
@@ -8940,7 +8939,6 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:255
-#, fuzzy
 #| msgid ""
 #| "Check the columns which are redundant and click on remove. If no "
 #| "redundant column, click on 'No redundant column'"
@@ -8948,8 +8946,8 @@ msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
-"Sélectionnez les colonnes qui sont redondantes et cliquez sur supprimer. Si "
-"aucune colonne n'est redondante, cliquez sur «Aucune colonne redondante»"
+"Sélectionnez les colonnes qui forment un groupe répétitif. S'il n'y en a "
+"pas, cliquez sur « Aucun groupe répétitif »"
 
 #: libraries/normalization.lib.php:261
 msgid "No repeating group"
