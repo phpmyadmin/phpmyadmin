@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-18 11:55-0400\n"
-"PO-Revision-Date: 2014-07-17 01:07+0200\n"
+"PO-Revision-Date: 2014-07-18 21:04+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -1876,22 +1876,20 @@ msgid "Step"
 msgstr "Korak"
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
-msgstr "Izvedene so bile naslednje poizvedbe:"
+msgstr "Izvedli bomo naslednja dejanja:"
 
 #: js/messages.php:321
-#, fuzzy, php-format
+#, php-format
 #| msgid "Remove columns from central list"
 msgid "DROP columns %1s from the table %2s"
-msgstr "Odstrani stolpce z osrednjega seznama"
+msgstr "ZAVRZI stolpce %1s v tabeli %2s"
 
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following table"
-msgstr "Dodaj privilegije na naslednji tabeli:"
+msgstr "Ustvari naslednjo tabelo"
 
 #: js/messages.php:327 libraries/insert_edit.lib.php:1517
 #: libraries/server_variables.lib.php:157
@@ -8868,7 +8866,7 @@ msgstr "Ni odvečnih stolpcev"
 
 #: libraries/normalization.lib.php:244
 msgid "Move repeating groups"
-msgstr ""
+msgstr "Premakni ponavljajoče se skupine"
 
 #: libraries/normalization.lib.php:247
 msgid ""
@@ -8878,9 +8876,13 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"Imate skupino dveh ali več stolpcev, ki so sorodni in vsi ponavljajo enako "
+"lastnost? Na primer, tabela, ki vsebuje podatke o knjigah, morda vsebuje "
+"stolpce id_knjige, avtor1, avtor2, avtor3 in tako naprej, ki tvorijo "
+"ponavljajočo skupino. V takem primeru je bolje ustvariti novo tabelo ("
+"id_knjige, avtor)."
 
 #: libraries/normalization.lib.php:255
-#, fuzzy
 #| msgid ""
 #| "Check the columns which are redundant and click on remove. If no "
 #| "redundant column, click on 'No redundant column'"
@@ -8888,12 +8890,12 @@ msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
-"Označite stolpce, ki so odvečni, in kliknite Odstrani. Če ni odvečnih "
-"stolpcev, kliknite »Ni odvečnih stolpcev«"
+"Označite stolpce, ki tvorijo ponavljajočo skupino. Če ni take skupine, "
+"kliknite na »Ni ponavljajoče skupine«"
 
 #: libraries/normalization.lib.php:261
 msgid "No repeating group"
-msgstr ""
+msgstr "Ni ponavljajoče skupine"
 
 #: libraries/normalization.lib.php:287
 msgid "Step 2."
@@ -8953,6 +8955,7 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
+"Delne odvisnosti niso možne, saj ima primarni ključ (%1$s) samo en stolpec."
 
 #: libraries/normalization.lib.php:376
 #, php-format
@@ -8973,10 +8976,10 @@ msgid "Error in processing!"
 msgstr "Napaka v obdelovanju!"
 
 #: libraries/normalization.lib.php:495
-#, fuzzy, php-format
+#, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr "Izbrane ciljne tabele so bile sinhronizirane z izvornimi tabelami."
+msgstr "Izbrano ponavljajočo skupino smo prestavili v tabelo '%s'"
 
 #: libraries/normalization.lib.php:546
 msgid "Improve table structure (Normalization):"
