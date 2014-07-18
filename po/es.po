@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-17 15:47-0400\n"
-"PO-Revision-Date: 2014-07-15 19:05+0200\n"
+"PO-Revision-Date: 2014-07-18 15:52+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1894,19 +1894,18 @@ msgstr "Paso"
 
 #: js/messages.php:320
 msgid "The following actions will be performed:"
-msgstr ""
+msgstr "Se realizarán las siguientes acciones:"
 
 #: js/messages.php:321
-#, fuzzy, php-format
+#, php-format
 #| msgid "Remove columns from central list"
 msgid "DROP columns %1s from the table %2s"
-msgstr "Eliminar columnas de la lista central"
+msgstr "Eliminar columnas %1s de la tabla %2s"
 
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following new table"
-msgstr "Añadir privilegios a esta tabla:"
+msgstr "Crear la siguiente tabla nueva"
 
 #: js/messages.php:327 libraries/insert_edit.lib.php:1517
 #: libraries/server_variables.lib.php:157
@@ -8980,7 +8979,7 @@ msgstr "Ninguna columna redundante"
 
 #: libraries/normalization.lib.php:244
 msgid "Move repeating groups"
-msgstr ""
+msgstr "Mover grupos repetidos"
 
 #: libraries/normalization.lib.php:247
 msgid ""
@@ -8990,9 +8989,13 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"¿Tiene un grupo de dos o más columnas que están muy relacionadas y repiten "
+"el mismo atributo? Por ejemplo, una tabla que contiene datos sobre libros "
+"puede tener columnas como id_libro, autor1, autor2, autor3, etc. que forman "
+"un grupo repetido. En este caso debería crear una nueva tabla con id_libro y "
+"autor."
 
 #: libraries/normalization.lib.php:255
-#, fuzzy
 #| msgid ""
 #| "Check the columns which are redundant and click on remove. If no "
 #| "redundant column, click on 'No redundant column'"
@@ -9000,12 +9003,12 @@ msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
-"Revise las columnas redundantes y pulse para eliminar. Si no encuentra "
-"ninguna, pulse en 'Ninguna columna redundante'"
+"Revise las columnas redundantes. Si no encuentra ninguna, pulse en 'Ninguna "
+"columna redundante'"
 
 #: libraries/normalization.lib.php:261
 msgid "No repeating group"
-msgstr ""
+msgstr "Niguna columna redundante"
 
 #: libraries/normalization.lib.php:287
 msgid "Step 2."
@@ -9093,7 +9096,7 @@ msgstr "¡Error durante el procesamiento!"
 #: libraries/normalization.lib.php:495
 #, php-format
 msgid "Selected repeating group has been moved the to the table '%s'"
-msgstr ""
+msgstr "Se movieron las columnas redundantes seleccionadas a la tabla «%s»"
 
 #: libraries/normalization.lib.php:546
 msgid "Improve table structure (Normalization):"
