@@ -319,7 +319,7 @@ $js_messages['strWaitForPd'] = __('Sit tight! It may take few seconds depending 
 $js_messages['strStep'] = __('Step');
 $js_messages['strMoveRepeatingGroup'] = '<ol><b>' . __('The following actions will be performed:') . '</b>'
     . '<li>' . __('DROP columns %1s from the table %2s') . '</li>'
-    . '<li>' . __('Create the following new table') . '</li>';
+    . '<li>' . __('Create the following table') . '</li>';
 $js_messages['strNewTablePlaceholder'] = 'Enter new table name';
 $js_messages['strNewColumnPlaceholder'] = 'Enter column name';
 
