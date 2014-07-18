@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-18 13:46+0200\n"
+"PO-Revision-Date: 2014-07-18 20:11+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/az/>\n"
@@ -10536,16 +10536,14 @@ msgid "per hour:"
 msgstr "saat başına:"
 
 #: libraries/server_status_queries.lib.php:47
-#, fuzzy
 #| msgid "per minute"
 msgid "per minute:"
-msgstr "deqiqede"
+msgstr "dəqiqədə:"
 
 #: libraries/server_status_queries.lib.php:54
-#, fuzzy
 #| msgid "per second"
 msgid "per second:"
-msgstr "saniyede"
+msgstr "saniyədə:"
 
 #: libraries/server_status_queries.lib.php:93
 msgid "Statements"
@@ -10583,10 +10581,9 @@ msgid "Show unformatted values"
 msgstr "Cedvelleri göster"
 
 #: libraries/server_status_variables.lib.php:98
-#, fuzzy
 #| msgid "Relations"
 msgid "Related links:"
-msgstr "Relations"
+msgstr "Əlaqəli linklər:"
 
 #: libraries/server_status_variables.lib.php:329
 msgid ""
@@ -10595,9 +10592,8 @@ msgid ""
 msgstr ""
 
 #: libraries/server_status_variables.lib.php:333
-#, fuzzy
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Limits the number of new connections the user may open per hour."
+msgstr "MySQL serverinə bağlanmaq üçün uğursuz cəhdlərin sayıdır."
 
 #: libraries/server_status_variables.lib.php:336
 msgid ""
@@ -11186,40 +11182,34 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:65 libraries/server_users.lib.php:30
-#, fuzzy
 #| msgid "User"
 msgid "User groups"
-msgstr "İstifadeçi"
+msgstr "İstifadəçi qrupları"
 
 #: libraries/server_user_groups.lib.php:79
-#, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Server versiyası"
+msgstr "Server səviyyə pəncərələri"
 
 #: libraries/server_user_groups.lib.php:80
-#, fuzzy
 #| msgid "Databases"
 msgid "Database level tabs"
-msgstr "Me'lumat Bazaları"
+msgstr "Verilənlər Bazaları səviyyə pəncərələri"
 
 #: libraries/server_user_groups.lib.php:81
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Cədvəl haqqında izahat"
+msgstr "Cədvəl səviyyə pəncərələri"
 
 #: libraries/server_user_groups.lib.php:110
-#, fuzzy
 msgid "View users"
-msgstr "Her hansı istifadeçi"
+msgstr "İstifadəçiləri göstər"
 
 #: libraries/server_user_groups.lib.php:147
 #: libraries/server_user_groups.lib.php:208
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user group"
-msgstr "Her hansı istifadeçi"
+msgstr "İstifadəçi qrupları əlavə et"
 
 #: libraries/server_user_groups.lib.php:211
 #, php-format
