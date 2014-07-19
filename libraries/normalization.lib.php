@@ -245,7 +245,7 @@ function PMA_getHtmlContentsFor1NFStep3($db, $table)
     $legendText = __('Step 1.') . $step . " " . $stepTxt;
     $headText = __(
         "Do you have a group of two or more columns that are closely "
-        . " related and are all repeating the same attribute? For example, "
+        . "related and are all repeating the same attribute? For example, "
         . "a table that holds data on books might have columns such as book_id, "
         . "author1, author2, author3 and so on which form a "
         . "repeating group. In this case a new table (book_id, author) should "
