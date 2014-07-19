@@ -116,7 +116,7 @@ class PMA_TblIndexTest extends PHPUnit_Framework_TestCase
         $add_fields = PMA_getNumberOfFieldsForForm($index);
 
         $this->assertEquals(
-            1,
+            0,
             $add_fields
         );
 
