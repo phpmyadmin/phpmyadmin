@@ -396,7 +396,7 @@ function PMA_getHtmlForNewTables2NF($partialDependencies,$table)
  * create/alter the tables needed for 2NF
  *
  * @param array  $partialDependencies array containing all the partial dependencies
- * @param array  $tablesName          array containing name of new tables
+ * @param object $tablesName          name of new tables
  * @param string $table               current table
  * @param string $db                  current database
  *
