@@ -494,6 +494,7 @@ class Node
         if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
             return '';
         } elseif ($match && ! $this->is_group) {
+            $this->visible = true;
             return PMA_Util::getImage('b_minus.png');
         } else {
             return PMA_Util::getImage('b_plus.png', __('Expand/Collapse'));

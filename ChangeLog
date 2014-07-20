@@ -24,6 +24,8 @@ phpMyAdmin - ChangeLog
 + rfe #1488 User privilege tab not shown in all relevant cases
 + rfe #781  Privileges for non superuser
 + rfe #908  Improvements for the table editor (index creation)
++ rfe #1426 Navigation state lost on reload
+- bug #4439 Table list in left panel doesn't expand
 
 4.2.7.0 (not yet released)
 - bug       Broken links on home page
