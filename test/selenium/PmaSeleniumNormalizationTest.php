@@ -132,7 +132,12 @@ class PMA_SeleniumNormalizationTest extends PMA_SeleniumBase
         $this->assertContains("Primary key already exists.", $text);
         $this->waitForElement(
             "byXPath",
-            "//legend[contains(., 'Step 1.3 Remove redundant columns')]"
+            "//legend[contains(., 'Step 1.3 Move repeating groups')]"
+        );
+        $this->byCssSelector('input[value="No repeating group"]')->click();
+        $this->waitForElement(
+            "byXPath",
+            "//legend[contains(., 'Step 1.4 Remove redundant columns')]"
         );
         $this->assertTrue(
             $this->isElementPresent(
@@ -149,30 +154,8 @@ class PMA_SeleniumNormalizationTest extends PMA_SeleniumBase
                 'byCssSelector', '#extra input[value=id][type=checkbox]'
             )
         );
-        $this->byCssSelector('#extra input[value=id][type=checkbox]')->click();
+        $this->byCssSelector('#extra input[value=val][type=checkbox]')->click();
         $this->byCssSelector("#removeRedundant")->click();
-        $this->waitForElement(
-            "byXPath",
-            "//legend[contains(., 'Step 1.2 Have a primary key')]"
-        );
-        $this->assertTrue(
-            $this->isElementPresent(
-                'byLinkText', 'Add a primary key on existing column(s)'
-            )
-        );
-        $this->byId('addNewPrimary')->click();
-        $this->waitForElement("byId", "table_columns");
-        $this->byId('saveNewPrimary')->click();
-        $this->waitForElement(
-            "byXPath",
-            "//legend[contains(., 'Step 1.3 Remove redundant columns')]"
-        );
-        $this->assertTrue(
-            $this->isElementPresent(
-                'byCssSelector', '#extra input[value=test_table_id][type=checkbox]'
-            )
-        );
-        $this->byCssSelector('input[value="No redundant column"]')->click();
         $this->waitForElement(
             "byXPath",
             "//legend[contains(., 'End of step')]"
