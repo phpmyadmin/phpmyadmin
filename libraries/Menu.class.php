@@ -288,6 +288,8 @@ class PMA_Menu
         $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($this->_db);
         $tbl_is_view = PMA_Table::isView($this->_db, $this->_table);
         $is_superuser = $GLOBALS['dbi']->isSuperuser();
+        $isCreateOrGrantUser = $GLOBALS['dbi']->isUserType('grant')
+            || $GLOBALS['dbi']->isUserType('create');
 
         $tabs = array();
 
@@ -331,7 +333,9 @@ class PMA_Menu
             $tabs['import']['link'] = 'tbl_import.php';
             $tabs['import']['text'] = __('Import');
         }
-        if ($is_superuser && ! PMA_DRIZZLE && ! $db_is_system_schema) {
+        if (($is_superuser || $isCreateOrGrantUser)
+            && ! PMA_DRIZZLE && ! $db_is_system_schema
+        ) {
             $tabs['privileges']['link'] = 'server_privileges.php';
             $tabs['privileges']['args']['checkprivsdb'] = $this->_db;
             $tabs['privileges']['args']['checkprivstable'] = $this->_table;
@@ -389,6 +393,8 @@ class PMA_Menu
         $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($this->_db);
         $num_tables = count($GLOBALS['dbi']->getTables($this->_db));
         $is_superuser = $GLOBALS['dbi']->isSuperuser();
+        $isCreateOrGrantUser = $GLOBALS['dbi']->isUserType('grant')
+            || $GLOBALS['dbi']->isUserType('create');
 
         /**
          * Gets the relation settings
@@ -435,7 +441,7 @@ class PMA_Menu
             $tabs['operation']['text'] = __('Operations');
             $tabs['operation']['icon'] = 'b_tblops.png';
 
-            if ($is_superuser && ! PMA_DRIZZLE) {
+            if (($is_superuser || $isCreateOrGrantUser) && ! PMA_DRIZZLE) {
                 $tabs['privileges']['link'] = 'server_privileges.php';
                 $tabs['privileges']['args']['checkprivsdb'] = $this->_db;
                 // stay on database view
@@ -492,6 +498,8 @@ class PMA_Menu
     private function _getServerTabs()
     {
         $is_superuser = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isSuperuser();
+        $isCreateOrGrantUser = $GLOBALS['dbi']->isUserType('grant')
+            || $GLOBALS['dbi']->isUserType('create');
         $binary_logs = null;
         $notDrizzle = ! defined('PMA_DRIZZLE')
             || (defined('PMA_DRIZZLE') && ! PMA_DRIZZLE);
@@ -529,7 +537,7 @@ class PMA_Menu
             )
         );
 
-        if ($is_superuser && ! PMA_DRIZZLE) {
+        if (($is_superuser || $isCreateOrGrantUser) && ! PMA_DRIZZLE) {
             $tabs['rights']['icon'] = 's_rights.png';
             $tabs['rights']['link'] = 'server_privileges.php';
             $tabs['rights']['text'] = __('Users');

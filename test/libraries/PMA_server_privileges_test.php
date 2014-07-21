@@ -126,6 +126,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(true));
 
         $GLOBALS['dbi'] = $dbi;
+        $GLOBALS['is_superuser'] = true;
+        $GLOBALS['is_grantuser'] = true;
+        $GLOBALS['is_createuser'] = true;
     }
 
     /**

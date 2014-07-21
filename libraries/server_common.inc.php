@@ -32,10 +32,12 @@ $err_url = 'index.php' . $GLOBALS['url_query'];
 /**
  * @global boolean Checks for superuser privileges
  */
-$is_superuser = $GLOBALS['dbi']->isSuperuser();
+$GLOBALS['is_superuser'] = $GLOBALS['dbi']->isSuperuser();
+$GLOBALS['is_grantuser'] = $GLOBALS['dbi']->isUserType('grant');
+$GLOBALS['is_createuser'] = $GLOBALS['dbi']->isUserType('create');
 
 // now, select the mysql db
-if ($is_superuser && ! PMA_DRIZZLE) {
+if ($GLOBALS['is_superuser'] && ! PMA_DRIZZLE) {
     $GLOBALS['dbi']->selectDb('mysql', $GLOBALS['userlink']);
 }
 

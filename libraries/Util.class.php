@@ -2796,6 +2796,8 @@ class PMA_Util
     public static function clearUserCache()
     {
         self::cacheUnset('is_superuser');
+        self::cacheUnset('is_createuser');
+        self::cacheUnset('is_grantuser');
     }
 
     /**

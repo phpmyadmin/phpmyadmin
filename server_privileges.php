@@ -125,7 +125,9 @@ list(
 /**
  * Checks if the user is allowed to do what he tries to...
  */
-if (! $is_superuser) {
+if (!$GLOBALS['is_superuser'] && !$GLOBALS['is_grantuser']
+    && !$GLOBALS['is_createuser']
+) {
     $response->addHTML(PMA_getHtmlForSubPageHeader('privileges', '', false));
     $response->addHTML(PMA_Message::error(__('No Privileges'))->getDisplay());
     exit;
@@ -209,7 +211,9 @@ if (! empty($_POST['update_privs'])) {
 /**
  * Assign users to user groups
  */
-if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']) {
+if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']
+    && $GLOBALS['is_superuser'] && $GLOBALS['is_createuser']
+) {
     PMA_setUserGroup($username, $_REQUEST['userGroup']);
     $message = PMA_Message::success();
 }
