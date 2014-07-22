@@ -7282,10 +7282,9 @@ msgid "Skip tables larger than"
 msgstr ""
 
 #: libraries/display_export.lib.php:776
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select database"
-msgstr "ஒரு அட்டவணையை தேர்வுசெய்க"
+msgstr "ஒரு தரவுத்தளத்தை தேர்வுசெய்க"
 
 #: libraries/display_export.lib.php:778
 #, fuzzy
