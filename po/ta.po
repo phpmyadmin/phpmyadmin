@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:49+0200\n"
+"PO-Revision-Date: 2014-07-22 20:50+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -7307,10 +7307,9 @@ msgid "Old column name"
 msgstr "பழைய நிரல்வரிசையின் பெயர்"
 
 #: libraries/display_export.lib.php:828
-#, fuzzy
 #| msgid "Copy column name."
 msgid "New column name"
-msgstr "நிரல்வரிசை பெயரை படியெடுக்கவும்."
+msgstr "புதிய நிரல்வரிசையின் பெயர்"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
