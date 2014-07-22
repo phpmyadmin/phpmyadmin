@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:02+0200\n"
+"PO-Revision-Date: 2014-07-22 20:06+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1836,10 +1836,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:318
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "எந்த தரவுத்தளமும் தேர்ந்தெடுக்கப்படவில்லை."
+msgstr "எந்த பகுதியளவு சார்புகளும் தேர்ந்தெடுக்கப்படவில்லை!"
 
 #: js/messages.php:320
 msgid "Show me the possible partial dependencies based on data in the table"
