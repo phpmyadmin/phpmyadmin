@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 19:48+0200\n"
+"PO-Revision-Date: 2014-07-22 19:50+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1004,10 +1004,9 @@ msgid "Composite with:"
 msgstr ""
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "%s நிரல்வரிசை(களை) சுட்டுதொகுப்புக்குறியில் சேர்க்க"
+msgstr "சுட்டுதொகுப்புக்குறியில் சேர்ப்பதற்க்கான நிரல்வரிசை(களை) தேர்ந்தெடுக்க."
 
 #: js/messages.php:67 libraries/insert_edit.lib.php:1606
 #: libraries/tbl_columns_definition_form.lib.php:141
