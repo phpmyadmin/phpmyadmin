@@ -335,7 +335,7 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         $html .= '<tr class="';
         $html .= $odd_row ? 'odd' : 'even';
         $html .= 'noclick">';
-        $html .= '<td><span class="drag_icon" title="' . __('Drag to re-order') . '"'
+        $html .= '<td><span class="drag_icon" title="' . __('Drag to reorder') . '"'
             . '></span>';
         $html .= '<select name="index[columns][names][]">';
         $html .= '<option value="">-- ' . __('Ignore') . ' --</option>';
@@ -372,7 +372,7 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         $html .= '<tr class="';
         $html .= $odd_row ? 'odd' : 'even';
         $html .= 'noclick">';
-        $html .= '<td><span class="drag_icon" title="' . __('Drag to re-order') . '"'
+        $html .= '<td><span class="drag_icon" title="' . __('Drag to reorder') . '"'
             . '></span>';
         $html .= '<select name="index[columns][names][]">';
         $html .= '<option value="">-- ' . __('Ignore') . ' --</option>';
