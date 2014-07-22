@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:08+0200\n"
+"PO-Revision-Date: 2014-07-22 20:10+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1898,10 +1898,9 @@ msgid "Column maximum:"
 msgstr "நெடுவரிசையில் மீயளவு:"
 
 #: js/messages.php:338
-#, fuzzy
 #| msgid "Column:"
 msgid "Column minimum:"
-msgstr "நெடுவரிசை:"
+msgstr "நெடுவரிசையில் மீச்சிற்றளவு:"
 
 #: js/messages.php:339
 msgid "Minimum value:"
