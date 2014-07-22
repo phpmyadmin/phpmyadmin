@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:22+0200\n"
+"PO-Revision-Date: 2014-07-22 20:26+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2631,18 +2631,17 @@ msgid "Expand"
 msgstr ""
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:171
-#, fuzzy
 #| msgid "SQL query"
 msgid "Requery"
-msgstr "SQL வினவல்"
+msgstr "மீள்வினவல்"
 
 #: libraries/Console.class.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "New bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "புது புத்தகக்குறி"
-msgstr[1] "புது புத்தகக்குறி"
+msgstr[0] "மொத்தம் %d புத்தகக்குறி"
+msgstr[1] "மொத்தம் %d புத்தகக்குறிகள்"
 
 #: libraries/Console.class.php:114
 msgid "private"
