@@ -2664,10 +2664,9 @@ msgid "No bookmarks"
 msgstr "புத்தகக்குறிகள் இல்லை"
 
 #: libraries/Console.class.php:174
-#, fuzzy
 #| msgid "Query cache disabled"
 msgid "Query failed"
-msgstr "வினவல் இடைமாற்று முடக்கப்பட்டுள்ளது"
+msgstr "வினவல் தோல்வியடைந்தது"
 
 #: libraries/Console.class.php:176
 #, fuzzy
