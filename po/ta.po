@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 21:02+0200\n"
+"PO-Revision-Date: 2014-07-22 21:05+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -8521,10 +8521,9 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
 #: libraries/normalization.lib.php:546
-#, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "தரவுதள வடிவமைப்பு நடவடிக்கைகளை மறை"
+msgstr "அட்டவணை வடிவமைப்பை மெருகேற்று (சீராக்கம்):"
 
 #: libraries/normalization.lib.php:547
 msgid "Select up to what step you want to normalize"
