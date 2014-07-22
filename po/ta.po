@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 21:08+0200\n"
+"PO-Revision-Date: 2014-07-22 21:10+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -12799,10 +12799,9 @@ msgid "Save position"
 msgstr ""
 
 #: pmd_general.php:154
-#, fuzzy
 #| msgid "Slave status"
 msgid "Save positions as"
-msgstr "துணைநிலை நிகழ்நிலை"
+msgstr "இருப்புநிலைகளை இவ்வாறு சேமிக்க"
 
 #: pmd_general.php:158
 #, fuzzy
