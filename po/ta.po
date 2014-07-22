@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:38+0200\n"
+"PO-Revision-Date: 2014-07-22 20:39+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2760,10 +2760,9 @@ msgid "Share this bookmark"
 msgstr "இப்புத்தகக்குறியை பகிர்க"
 
 #: libraries/Console.class.php:273
-#, fuzzy
 #| msgid "Default"
 msgid "Set default"
-msgstr "இயல்நிலை"
+msgstr "இயல்நிலையை அமைக்க"
 
 #: libraries/Console.class.php:277
 msgid "Always expand queried messages"
