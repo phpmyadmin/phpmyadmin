@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 19:58+0200\n"
+"PO-Revision-Date: 2014-07-22 19:59+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1020,10 +1020,9 @@ msgid "Simulate query"
 msgstr "வினவலை பாவித்து காண்பி"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "மாற்றமடைந்த நிரல்வரிசைகள்:"
+msgstr "பொருந்திய நிரல்வரிசைகள்:"
 
 #: js/messages.php:72 libraries/Util.class.php:639 libraries/sql.lib.php:452
 msgid "SQL query:"
