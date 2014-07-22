@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 21:05+0200\n"
+"PO-Revision-Date: 2014-07-22 21:06+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -12157,10 +12157,9 @@ msgid "Propose table structure"
 msgstr ""
 
 #: libraries/structure.lib.php:1620
-#, fuzzy
 #| msgid "Table structure"
 msgid "Improve table structure"
-msgstr "தரவுத்தளங்கள்->அட்டவணை கட்டமைப்பு"
+msgstr "அட்டவணை கட்டமைப்பை மெருகேற்றுக"
 
 #: libraries/structure.lib.php:1642
 #: libraries/tbl_columns_definition_form.lib.php:179
