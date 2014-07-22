@@ -12790,10 +12790,9 @@ msgid "Exit fullscreen"
 msgstr ""
 
 #: pmd_general.php:142
-#, fuzzy
 #| msgid "Reload page"
 msgid "New page"
-msgstr "பக்கத்தை மீளேற்று"
+msgstr "புது பக்கம்"
 
 #: pmd_general.php:150
 msgid "Save position"
