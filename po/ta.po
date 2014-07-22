@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:06+0200\n"
+"PO-Revision-Date: 2014-07-22 20:07+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1868,10 +1868,9 @@ msgid "DROP columns %1s from the table %2s"
 msgstr ""
 
 #: js/messages.php:326
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following table"
-msgstr "பின்வரும் அட்டவணையின் மீதான தனிச்சலுகையை சேர்க்க:"
+msgstr "பின்வரும் அட்டவணையை உருவாக்குக"
 
 #: js/messages.php:331 libraries/insert_edit.lib.php:1517
 #: libraries/server_variables.lib.php:157
