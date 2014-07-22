@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 21:07+0200\n"
+"PO-Revision-Date: 2014-07-22 21:08+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -12434,10 +12434,9 @@ msgid "Input transformation"
 msgstr "உள்ளிடு மாற்றம்"
 
 #: libraries/tbl_columns_definition_form.lib.php:343
-#, fuzzy
 #| msgid "Data creation options"
 msgid "Input transformation options"
-msgstr "தரவேற்ற விருப்பங்கள்"
+msgstr "உள்ளிடு மாற்றம் விருப்பங்கள்"
 
 #: libraries/tbl_columns_definition_form.lib.php:584
 #, php-format
