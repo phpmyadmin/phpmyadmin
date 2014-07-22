@@ -2755,10 +2755,9 @@ msgid "Target database"
 msgstr "இலக்கு தரவுத்தளம்"
 
 #: libraries/Console.class.php:262
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
-msgstr "புத்தகக்குறி இடுக"
+msgstr "புத்தகக்குறி பகிர்க"
 
 #: libraries/Console.class.php:273
 #, fuzzy
