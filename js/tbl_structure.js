@@ -82,6 +82,12 @@ AJAX.registerTeardown('tbl_structure.js', function () {
 
 AJAX.registerOnload('tbl_structure.js', function () {
 
+    // Re-initialize variables.
+    primary_indexes = [];
+    unique_indexes = [];
+    indexes = [];
+    fulltext_indexes = [];
+
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
      */

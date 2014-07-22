@@ -2239,7 +2239,8 @@ table#index_columns {
 }
 
 table#index_columns select {
-    width: 100%;
+    width: 85%;
+    float: right;
 }
 
 #move_columns_dialog div {
@@ -3371,4 +3372,19 @@ html.ie7 #pma_console .query_input {
 .dependencies_box {
     background-color: white;
     border: 3px ridge black;
+}
+
+#composite_index_list {
+    list-style-type: none;
+    list-style-position: inside;
+}
+
+span.drag_icon {
+    display: inline-block;
+    background-image: url('<?php echo $_SESSION['PMA_Theme']->getImgPath('s_sortable.png');?>');
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 1em;
+    height: 3em;
+    cursor: move;
 }

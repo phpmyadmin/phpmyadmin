@@ -58,6 +58,10 @@ $js_messages['strEnterValidLength'] = __('Please enter a valid length!');
 $js_messages['strAddIndex'] = __('Add Index');
 $js_messages['strEditIndex'] = __('Edit Index');
 $js_messages['strAddToIndex'] = __('Add %s column(s) to index');
+$js_messages['strCreateSingleColumnIndex'] = __('Create single-column index');
+$js_messages['strCreateCompositeIndex'] = __('Create composite index');
+$js_messages['strCompositeWith'] = __('Composite with:');
+$js_messages['strMissingColumn'] = __('Please select column(s) for the index.');
 
 /* For Preview SQL*/
 $js_messages['strPreviewSQL'] = __('Preview SQL');

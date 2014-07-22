@@ -168,5 +168,6 @@ $response = PMA_Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('jquery/jquery.uitablefilter.js');
+$scripts->addFile('indexes.js');
 $response->addHTML($html);
 ?>

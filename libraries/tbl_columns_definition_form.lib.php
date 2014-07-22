@@ -241,6 +241,10 @@ function PMA_getHtmlForTableCreateOrAddField($action, $form_params, $content_cel
         . ($action == 'tbl_create.php' ? 'create_table' : 'append_fields')
         . '_form ajax lock-page">';
     $html .= PMA_URL_getHiddenInputs($form_params);
+    $html .= '<input type="hidden" name="primary_indexes" value="[]">';
+    $html .= '<input type="hidden" name="unique_indexes" value="[]">';
+    $html .= '<input type="hidden" name="indexes" value="[]">';
+    $html .= '<input type="hidden" name="fulltext_indexes" value="[]">';
 
     if ($action == 'tbl_create.php') {
         $html .= PMA_getHtmlForTableNameAndNoOfColumns();
@@ -884,7 +888,8 @@ function PMA_getHtmlForColumnAutoIncrement($columnNumber, $ci, $ci_offset,
 function PMA_getHtmlForColumnIndexes($columnNumber, $ci, $ci_offset, $columnMeta)
 {
     $html = '<select name="field_key[' . $columnNumber . ']"'
-        . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '">';
+        . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset)
+        . '" data-index="">';
     $html .= '<option value="none_' . $columnNumber . '">---</option>';
 
     $html .= PMA_getHtmlForIndexTypeOption(
