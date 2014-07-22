@@ -2032,10 +2032,9 @@ msgid "Save page"
 msgstr "பக்கத்தை சேமிக்க"
 
 #: js/messages.php:396 pmd_general.php:146
-#, fuzzy
 #| msgid "Open"
 msgid "Open page"
-msgstr "திற"
+msgstr "பக்கத்தை திறக்க"
 
 #: js/messages.php:397
 #, fuzzy
