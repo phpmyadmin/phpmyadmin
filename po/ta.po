@@ -7297,10 +7297,9 @@ msgid "New database name"
 msgstr "தரவுத்தளத்தின் புதிய பெயர்"
 
 #: libraries/display_export.lib.php:818
-#, fuzzy
 #| msgid "Export table names"
 msgid "New table name"
-msgstr "அட்டவணை பெயர்களை தரவாக்குக"
+msgstr "அட்டவணையின் புதிய பெயர்"
 
 #: libraries/display_export.lib.php:827
 #, fuzzy
