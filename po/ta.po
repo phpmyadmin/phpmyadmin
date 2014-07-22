@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:37+0200\n"
+"PO-Revision-Date: 2014-07-22 20:38+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2757,7 +2757,7 @@ msgstr "இலக்கு தரவுத்தளம்"
 #: libraries/Console.class.php:262
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
-msgstr "புத்தகக்குறி பகிர்க"
+msgstr "இப்புத்தகக்குறியை பகிர்க"
 
 #: libraries/Console.class.php:273
 #, fuzzy
