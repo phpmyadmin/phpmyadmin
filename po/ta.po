@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:45+0200\n"
+"PO-Revision-Date: 2014-07-22 20:46+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -7034,10 +7034,9 @@ msgid "Select page"
 msgstr ""
 
 #: libraries/designer.lib.php:59
-#, fuzzy
 #| msgid "Export to selected page."
 msgid "Save to selected page"
-msgstr "தெரிவுசெய்யப்பட பக்கத்திற்கு தரவேற்றுக."
+msgstr "தெரிவுசெய்யப்பட பக்கத்திற்கு சேமிக்க"
 
 #: libraries/designer.lib.php:60
 msgid "Create a page and save to it"
