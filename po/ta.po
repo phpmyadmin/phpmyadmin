@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:43+0200\n"
+"PO-Revision-Date: 2014-07-22 20:44+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -7020,10 +7020,9 @@ msgid "Can't count rows in an unbuffered result set"
 msgstr ""
 
 #: libraries/designer.lib.php:31
-#, fuzzy
 #| msgid "Rate of table open"
 msgid "Page to open"
-msgstr "திறந்தநிலை அட்டவணைகளின் விழுக்காடு"
+msgstr "திறக்கவேண்டிய பக்கம்"
 
 #: libraries/designer.lib.php:33
 #, fuzzy
