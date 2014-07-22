@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:52+0200\n"
+"PO-Revision-Date: 2014-07-22 20:53+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -8373,10 +8373,9 @@ msgid "Have a primary key"
 msgstr ""
 
 #: libraries/normalization.lib.php:169
-#, fuzzy
 #| msgid "Table %s already exists!"
 msgid "Primary key already exists."
-msgstr "%s இந்த அட்டவணை ஏற்கனவே உள்ளது!"
+msgstr "முதன்மை குறிப்பெழுத்து ஏற்கனவே உள்ளது."
 
 #: libraries/normalization.lib.php:174
 msgid ""
