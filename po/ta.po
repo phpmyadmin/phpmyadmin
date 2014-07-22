@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:51+0200\n"
+"PO-Revision-Date: 2014-07-22 20:52+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -8360,10 +8360,9 @@ msgid "Select one…"
 msgstr "ஒன்றை தேர்ந்தெடுக்கவும்…"
 
 #: libraries/normalization.lib.php:135 normalization.php:20
-#, fuzzy
 #| msgid "Move column"
 msgid "No such column"
-msgstr "நிரல்வரிசையை நகர்த்து"
+msgstr "அதுபோல் நிரல்வரிசை இல்லை"
 
 #: libraries/normalization.lib.php:142
 msgid "split into "
