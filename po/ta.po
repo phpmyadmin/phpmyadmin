@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:21+0200\n"
+"PO-Revision-Date: 2014-07-22 20:22+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2289,10 +2289,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:513
-#, fuzzy
 #| msgid "Executed queries"
 msgid "Execute this query again?"
-msgstr "வினவல்கள் நிறைவடைந்தது"
+msgstr "இந்த வினவலை மீண்டும் செயல்படுத்த வேண்டுமா?"
 
 #: js/messages.php:544
 msgctxt "Previous month"
