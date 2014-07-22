@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 21:11+0200\n"
+"PO-Revision-Date: 2014-07-22 21:12+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -12845,10 +12845,9 @@ msgid "Toggle relation lines"
 msgstr ""
 
 #: pmd_general.php:221
-#, fuzzy
 #| msgid "Export"
 msgid "Export schema"
-msgstr "ஏற்றுமதி"
+msgstr "ஒழுங்கமைவை தரவேற்றுக"
 
 #: pmd_general.php:232
 msgid "Build Query"
