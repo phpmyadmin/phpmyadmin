@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:19+0200\n"
+"PO-Revision-Date: 2014-07-22 20:21+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2153,10 +2153,9 @@ msgid "Drop files here"
 msgstr ""
 
 #: js/messages.php:430
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select database first"
-msgstr "ஒரு அட்டவணையை தேர்வுசெய்க"
+msgstr "ஒரு தரவுத்தளத்தை முதலில் தேர்வுசெய்க"
 
 #: js/messages.php:435
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2167,10 +2166,9 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
 #: js/messages.php:443
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "இணைப்புக்கு செல்."
+msgstr "இணைப்புக்கு செல்:"
 
 #: js/messages.php:444
 msgid "Copy column name."
