@@ -2144,10 +2144,9 @@ msgid "Success"
 msgstr ""
 
 #: js/messages.php:428
-#, fuzzy
 #| msgid "Import"
 msgid "Import status"
-msgstr "தரவிறக்கம்"
+msgstr "தரவிறக்க நிலை"
 
 #: js/messages.php:429 libraries/navigation/Navigation.class.php:102
 msgid "Drop files here"
