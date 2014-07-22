@@ -2279,10 +2279,9 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: js/messages.php:499 libraries/Error_Handler.class.php:355
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "புறக்கணி"
+msgstr "அனைத்தையும் புறக்கணி"
 
 #: js/messages.php:506
 msgid ""
