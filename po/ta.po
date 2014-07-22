@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:44+0200\n"
+"PO-Revision-Date: 2014-07-22 20:45+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -7025,10 +7025,9 @@ msgid "Page to open"
 msgstr "திறக்கவேண்டிய பக்கம்"
 
 #: libraries/designer.lib.php:33
-#, fuzzy
 #| msgid "Save to file"
 msgid "Page to delete"
-msgstr "கோப்பை சேமி"
+msgstr "அழிக்கவேண்டிய பக்கம்"
 
 #: libraries/designer.lib.php:37 libraries/designer.lib.php:73
 msgid "Select page"
