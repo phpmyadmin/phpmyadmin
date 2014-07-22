@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:54+0200\n"
+"PO-Revision-Date: 2014-07-22 20:59+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -8398,10 +8398,9 @@ msgid "+ Add a new primary key column"
 msgstr "+ புதிய முதன்மை குறிப்பெழுத்து நெடுவரிசையை சேர்க்க"
 
 #: libraries/normalization.lib.php:208
-#, fuzzy
 #| msgid "Remove from central columns"
 msgid "Remove redundant columns"
-msgstr "முதன்மைநிரல்வரிசைகளிலிருந்து நீக்கவும்"
+msgstr "மிகை நிரல்வரிசைகளை நீக்கவும்"
 
 #: libraries/normalization.lib.php:211
 msgid ""
