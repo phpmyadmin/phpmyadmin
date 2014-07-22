@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:53+0200\n"
+"PO-Revision-Date: 2014-07-22 20:54+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -8393,10 +8393,9 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:190
-#, fuzzy
 #| msgid "Add column"
 msgid "+ Add a new primary key column"
-msgstr "நெடுவரிசையை சேர்க்க"
+msgstr "+ புதிய முதன்மை குறிப்பெழுத்து நெடுவரிசையை சேர்க்க"
 
 #: libraries/normalization.lib.php:208
 #, fuzzy
