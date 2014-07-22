@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:50+0200\n"
+"PO-Revision-Date: 2014-07-22 20:51+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -8355,10 +8355,9 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:134 normalization.php:19
-#, fuzzy
 #| msgid "Select a column."
 msgid "Select one…"
-msgstr "ஒரு நெடுவரிசையை தேர்ந்தெடுக்கவும்."
+msgstr "ஒன்றை தேர்ந்தெடுக்கவும்…"
 
 #: libraries/normalization.lib.php:135 normalization.php:20
 #, fuzzy
