@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:47+0200\n"
+"PO-Revision-Date: 2014-07-22 20:48+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -7292,10 +7292,9 @@ msgid "Select table"
 msgstr "அட்டவணையை தேர்வுசெய்க"
 
 #: libraries/display_export.lib.php:794
-#, fuzzy
 #| msgid "The database name is empty!"
 msgid "New database name"
-msgstr "தரவுத்தளத்தின் பெயர் வெறுமையாக உள்ளது!"
+msgstr "தரவுத்தளத்தின் புதிய பெயர்"
 
 #: libraries/display_export.lib.php:818
 #, fuzzy
