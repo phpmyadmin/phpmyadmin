@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 20:10+0200\n"
+"PO-Revision-Date: 2014-07-22 20:11+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2027,10 +2027,9 @@ msgid "Page name"
 msgstr ""
 
 #: js/messages.php:395
-#, fuzzy
 #| msgid "Save"
 msgid "Save page"
-msgstr "சேமி"
+msgstr "பக்கத்தை சேமிக்க"
 
 #: js/messages.php:396 pmd_general.php:146
 #, fuzzy
