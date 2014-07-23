@@ -340,11 +340,11 @@ class Table_Stats_Eps extends TableStats
      */
     function __construct(
         $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
-        $showKeys = false, $showInfo = false
+        $showKeys = false, $showInfo = false, $offline = false
     ) {
         global $eps, $cfgRelation, $db;
         parent::__construct(
-            $eps, $db, $pageNumber, $tableName, $showKeys, $showInfo
+            $eps, $db, $pageNumber, $tableName, $showKeys, $showInfo, $offline
         );
 
         // height and width
@@ -701,6 +701,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         $this->setAllTablesSameWidth($_POST['all_tables_same_width']);
         $this->setOrientation($_POST['orientation']);
         $this->setExportType($_POST['export_type']);
+        $this->setOffline($_POST['offline_export']);
 
         $eps = new PMA_EPS();
         $eps->setTitle(
@@ -715,13 +716,21 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         $eps->setOrientation($this->orientation);
         $eps->setFont('Verdana', '10');
 
-        $alltables = $this->getAllTables($db, $this->pageNumber);
+        if ($this->isOffline()) {
+            $alltables = array();
+            $tbl_coords = json_decode($GLOBALS['tbl_coords']);
+            foreach ($tbl_coords as $tbl) {
+                $alltables[] = $tbl->table_name;
+            }
+        } else {
+            $alltables = $this->getAllTables($db, $this->pageNumber);
+        }
 
         foreach ($alltables as $table) {
             if (! isset($this->_tables[$table])) {
                 $this->_tables[$table] = new Table_Stats_Eps(
                     $table, $eps->getFont(), $eps->getFontSize(), $this->pageNumber,
-                    $this->_tablewidth, $this->showKeys, $this->tableDimension
+                    $this->_tablewidth, $this->showKeys, $this->tableDimension, $this->isOffline()
                 );
             }
 
@@ -768,7 +777,11 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
     function showOutput()
     {
         global $eps,$db;
-        $eps->showOutput($db . '-' . $this->pageNumber);
+        $filename = $db . '-' . $this->pageNumber;
+        if ($this->isOffline()) {
+            $filename = __("eps export page");
+        }
+        $eps->showOutput($filename);
     }
 
     /**
