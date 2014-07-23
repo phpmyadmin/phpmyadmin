@@ -12,7 +12,7 @@
  * @param array  $data           the entries to filter
  * @param string $filter_ts_from "from" date
  * @param string $filter_ts_to   "to" date
- * @param string $filter_users   users
+ * @param array  $filter_users   users
  *
  * @return array filtered entries
  */
