@@ -47,6 +47,7 @@ class PMA_Eps_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $_POST['all_tables_same_width'] = 'on';
         $_POST['paper'] = 'paper';
         $_POST['export_type'] = 'PMA_ExportType';
+        $_POST['offline_export'] = false;
         $GLOBALS['server'] = 1;
         $GLOBALS['controllink'] = null;
         $GLOBALS['db'] = 'information_schema';
