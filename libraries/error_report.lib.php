@@ -277,6 +277,9 @@ function PMA_getLineNumber($filenames, $cumulative_number)
         }
         $cumulative_sum += $filecount + 2;
     }
+    if (! isset($filename)) {
+        $filename = '';
+    }
     return array($filename, $linenumber);
 }
 
