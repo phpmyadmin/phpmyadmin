@@ -147,56 +147,44 @@ function PMA_getHtmlForInstructionsDialog()
         . ' by up to 15%.'
     );
 
-    if (PMA_MYSQL_INT_VERSION < 50106) {
-        $retval .= '<p>';
-        $retval .= PMA_Util::getImage('s_attention.png');
-        $retval .=  __(
-            'Unfortunately your Database server does not support logging to table,'
-            . ' which is a requirement for analyzing the database logs with'
-            . ' phpMyAdmin. Logging to table is supported by MySQL 5.1.6 and'
-            . ' onwards. You may still use the server charting features however.'
-        );
-        $retval .= '</p>';
-    } else {
-        $retval .= '<p></p>';
-        $retval .= '<img class="ajaxIcon" src="';
-        $retval .= $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif"';
-        $retval .= ' alt="' . __('Loading…') . '" />';
-        $retval .= '<div class="ajaxContent"></div>';
-        $retval .= '<div class="monitorUse" style="display:none;">';
-        $retval .= '<p></p>';
-        $retval .= '<strong>';
-        $retval .= __('Using the monitor:');
-        $retval .= '</strong><p>';
-        $retval .= __(
-            'Your browser will refresh all displayed charts in a regular interval.'
-            . ' You may add charts and change the refresh rate under \'Settings\','
-            . ' or remove any chart using the cog icon on each respective chart.'
-        );
-        $retval .= '</p><p>';
-        $retval .= __(
-            'To display queries from the logs, select the relevant time span on any'
-            . ' chart by holding down the left mouse button and panning over the'
-            . ' chart. Once confirmed, this will load a table of grouped queries,'
-            . ' there you may click on any occurring SELECT statements to further'
-            . ' analyze them.'
-        );
-        $retval .= '</p>';
-        $retval .= '<p>';
-        $retval .= PMA_Util::getImage('s_attention.png');
-        $retval .= '<strong>';
-        $retval .= __('Please note:');
-        $retval .= '</strong><br />';
-        $retval .= __(
-            'Enabling the general_log may increase the server load by'
-            . ' 5-15%. Also be aware that generating statistics from the logs is a'
-            . ' load intensive task, so it is advisable to select only a small time'
-            . ' span and to disable the general_log and empty its table once'
-            . ' monitoring is not required any more.'
-        );
-        $retval .= '</p>';
-        $retval .= '</div>';
-    }
+    $retval .= '<p></p>';
+    $retval .= '<img class="ajaxIcon" src="';
+    $retval .= $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif"';
+    $retval .= ' alt="' . __('Loading…') . '" />';
+    $retval .= '<div class="ajaxContent"></div>';
+    $retval .= '<div class="monitorUse" style="display:none;">';
+    $retval .= '<p></p>';
+    $retval .= '<strong>';
+    $retval .= __('Using the monitor:');
+    $retval .= '</strong><p>';
+    $retval .= __(
+        'Your browser will refresh all displayed charts in a regular interval.'
+        . ' You may add charts and change the refresh rate under \'Settings\','
+        . ' or remove any chart using the cog icon on each respective chart.'
+    );
+    $retval .= '</p><p>';
+    $retval .= __(
+        'To display queries from the logs, select the relevant time span on any'
+        . ' chart by holding down the left mouse button and panning over the'
+        . ' chart. Once confirmed, this will load a table of grouped queries,'
+        . ' there you may click on any occurring SELECT statements to further'
+        . ' analyze them.'
+    );
+    $retval .= '</p>';
+    $retval .= '<p>';
+    $retval .= PMA_Util::getImage('s_attention.png');
+    $retval .= '<strong>';
+    $retval .= __('Please note:');
+    $retval .= '</strong><br />';
+    $retval .= __(
+        'Enabling the general_log may increase the server load by'
+        . ' 5-15%. Also be aware that generating statistics from the logs is a'
+        . ' load intensive task, so it is advisable to select only a small time'
+        . ' span and to disable the general_log and empty its table once'
+        . ' monitoring is not required any more.'
+    );
+    $retval .= '</p>';
+    $retval .= '</div>';
     $retval .= '</div>';
 
     return $retval;
