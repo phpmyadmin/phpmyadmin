@@ -399,12 +399,10 @@ var AJAX = {
                         .insertAfter('#selflink')
                         .append(data._errors);
                     // bind for php error reporting forms (bottom)
-                    $("#pma_ignore_errors_bottom").bind("click",
-                        function() {
-                            PMA_ignorePhpErrors();
+                    $("#pma_ignore_errors_bottom").bind("click", function() {
+                        PMA_ignorePhpErrors();
                     });
-                    $("#pma_ignore_all_errors_bottom").bind("click",
-                        function() {
+                    $("#pma_ignore_all_errors_bottom").bind("click", function() {
                         PMA_ignorePhpErrors(false);
                     });
                     // In case of 'sendErrorReport'='always'
@@ -413,11 +411,11 @@ var AJAX = {
                         && data._stopErrorReportLoop != '1'
                     ) {
                         $("#pma_report_errors_form").submit();
-                        PMA_ajaxShowMessage(PMA_messages['phpErrorsBeingSubmitted'], false);
+                        PMA_ajaxShowMessage(PMA_messages.phpErrorsBeingSubmitted, false);
                         $('html, body').animate({scrollTop:$(document).height()}, 'slow');
                     } else if (data._promptPhpErrors) {
                         // otherwise just prompt user if it is set so.
-                        msg = msg + PMA_messages['phpErrorsFound'];
+                        msg = msg + PMA_messages.phpErrorsFound;
                         // scroll to bottom where all the erros are displayed.
                         $('html, body').animate({scrollTop:$(document).height()}, 'slow');
                     }
@@ -425,10 +423,10 @@ var AJAX = {
                 PMA_ajaxShowMessage(msg, false);
                 // bind for php error reporting forms (popup)
                 $("#pma_ignore_errors_popup").bind("click", function() {
-                    PMA_ignorePhpErrors()
+                    PMA_ignorePhpErrors();
                 });
                 $("#pma_ignore_all_errors_popup").bind("click", function() {
-                    PMA_ignorePhpErrors(false)
+                    PMA_ignorePhpErrors(false);
                 });
 
                 if (typeof AJAX._callback === 'function') {

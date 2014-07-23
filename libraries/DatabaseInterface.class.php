@@ -303,14 +303,14 @@ class PMA_DatabaseInterface
      *
      * @param string|bool $table        table or false
      * @param boolean     $tbl_is_group $table is a table group
-     * @param string      $tble_type    whether table or view
+     * @param string      $table_type   whether table or view
      *
      * @return string a segment of the WHERE clause
      */
-    private function _getTableCondition($table, $tbl_is_group, $tble_type)
+    private function _getTableCondition($table, $tbl_is_group, $table_type)
     {
         // get table information from information_schema
-        if ($table) {
+        if ($table && is_string($table)) {
             if (true === $tbl_is_group) {
                 $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
                     . PMA_Util::escapeMysqlWildcards(
@@ -325,14 +325,14 @@ class PMA_DatabaseInterface
             $sql_where_table = '';
         }
 
-        if ($tble_type) {
-            if ($tble_type == 'view') {
+        if ($table_type) {
+            if ($table_type == 'view') {
                 if (PMA_DRIZZLE) {
                     $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE'";
                 } else {
                     $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE TABLE'";
                 }
-            } else if ($tble_type == 'table') {
+            } else if ($table_type == 'table') {
                 if (PMA_DRIZZLE) {
                     $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE'";
                 } else {
@@ -449,7 +449,7 @@ class PMA_DatabaseInterface
      * @param boolean|integer $limit_count  number of tables to return
      * @param string          $sort_by      table attribute to sort by
      * @param string          $sort_order   direction to sort (ASC or DESC)
-     * @param string          $tble_type    whether table or view
+     * @param string          $table_type   whether table or view
      *
      * @todo    move into PMA_Table
      *
@@ -458,7 +458,7 @@ class PMA_DatabaseInterface
     public function getTablesFull($database, $table = false,
         $tbl_is_group = false,  $link = null, $limit_offset = 0,
         $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC',
-        $tble_type = null
+        $table_type = null
     ) {
         if (true === $limit_count) {
             $limit_count = $GLOBALS['cfg']['MaxTableList'];
@@ -471,7 +471,7 @@ class PMA_DatabaseInterface
         }
 
         $sql_where_table = $this->_getTableCondition(
-            $table, $tbl_is_group, $tble_type
+            $table, $tbl_is_group, $table_type
         );
 
         // for PMA bc:
@@ -1834,40 +1834,90 @@ class PMA_DatabaseInterface
     }
 
     /**
-     * Checks if current user is superuser while caching
-     * the result in session.
+     * gets the current user with host
      *
-     * @return bool Whether use is a superuser
+     * @return string the current user i.e. user@host
+     */
+    public function getCurrentUser()
+    {
+        if (PMA_Util::cacheExists('mysql_cur_user')) {
+            return PMA_Util::cacheGet('mysql_cur_user');
+        }
+        $user = $GLOBALS['dbi']->fetchValue('SELECT USER();');
+        if ($user !== false) {
+            PMA_Util::cacheSet('mysql_cur_user', $user);
+            return PMA_Util::cacheGet('mysql_cur_user');
+        }
+        return '';
+    }
+
+    /**
+     * Checks if current user is superuser
+     *
+     * @return bool Whether user is a superuser
      */
     public function isSuperuser()
     {
-        if (PMA_Util::cacheExists('is_superuser')) {
-            return PMA_Util::cacheGet('is_superuser');
+        return self::isUserType('super');
+    }
+
+    /**
+     * Checks if current user has global create user/grant privilege
+     * or is a superuser (i.e. SELECT on mysql.users)
+     * while caching the result in session.
+     *
+     * @param string $type type of user to check for
+     *                     i.e. 'create', 'grant', 'super'
+     *
+     * @return bool Whether user is a given type of user
+     */
+    public function isUserType($type)
+    {
+        if (PMA_Util::cacheExists('is_' . $type . 'user')) {
+            return PMA_Util::cacheGet('is_' . $type . 'user');
+        }
+
+        // Prepare query for each user type check
+        $query = '';
+        if ($type === 'super') {
+            $query = 'SELECT 1 FROM mysql.user LIMIT 1';
+        } elseif ($type === 'create') {
+            $query = 'SELECT 1 FROM INFORMATION_SCHEMA.USER_PRIVILEGES '
+                . 'WHERE PRIVILEGE_TYPE = \'CREATE USER\' LIMIT 1';
+        } elseif ($type === 'grant') {
+            $query = 'SELECT 1 FROM INFORMATION_SCHEMA.USER_PRIVILEGES '
+                . 'WHERE IS_GRANTABLE = \'YES\' LIMIT 1';
         }
 
         // when connection failed we don't have a $userlink
         if (isset($GLOBALS['userlink'])) {
+            $is = false;
             if (PMA_DRIZZLE) {
                 // Drizzle has no authorization by default, so when no plugin is
                 // enabled everyone is a superuser
                 // Known authorization libraries: regex_policy, simple_user_policy
                 // Plugins limit object visibility (dbs, tables, processes), we can
                 // safely assume we always deal with superuser
-                $result = true;
+                $is = true;
             } else {
-                // check access to mysql.user table
-                $result = (bool) $GLOBALS['dbi']->tryQuery(
-                    'SELECT COUNT(*) FROM mysql.user',
+                // Check information_schema.user_privileges table
+                // for global create user rights
+                $result = $GLOBALS['dbi']->tryQuery(
+                    $query,
                     $GLOBALS['userlink'],
                     self::QUERY_STORE
                 );
+                if ($result) {
+                    $is = (bool) $GLOBALS['dbi']->numRows($result);
+                }
+                $GLOBALS['dbi']->freeResult($result);
             }
-            PMA_Util::cacheSet('is_superuser', $result);
+            PMA_Util::cacheSet('is_' . $type . 'user', $is);
         } else {
-            PMA_Util::cacheSet('is_superuser', false);
+            PMA_Util::cacheSet('is_' . $type . 'user', false);
         }
 
-        return PMA_Util::cacheGet('is_superuser');
+        return PMA_Util::cacheGet('is_' . $type . 'user');
     }
 
     /**
@@ -2046,7 +2096,7 @@ class PMA_DatabaseInterface
         if ($link === false) {
             return false;
         }
-        return $this->_extension->nextResult($link = null);
+        return $this->_extension->nextResult($link);
     }
 
     /**

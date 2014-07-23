@@ -27,7 +27,7 @@ USE phpmyadmin;
 -- Privileges
 --
 -- (activate this statement if necessary)
--- GRANT SELECT, INSERT, DELETE, UPDATE ON `phpmyadmin`.* TO
+-- GRANT SELECT, INSERT, DELETE, UPDATE, ALTER ON `phpmyadmin`.* TO
 --    'pma'@localhost;
 
 -- --------------------------------------------------------
@@ -62,6 +62,8 @@ CREATE TABLE IF NOT EXISTS `pma__column_info` (
   `mimetype` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
   `transformation` varchar(255) NOT NULL default '',
   `transformation_options` varchar(255) NOT NULL default '',
+  `input_transformation` varchar(255) NOT NULL default '',
+  `input_transformation_options` varchar(255) NOT NULL default '',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`)
 )

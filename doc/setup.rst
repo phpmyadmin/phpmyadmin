@@ -256,10 +256,14 @@ Please look at your ``./examples/`` directory, where you should find a
 file called *create\_tables.sql*. (If you are using a Windows server,
 pay special attention to :ref:`faq1_23`).
 
-If you already had this infrastructure and upgraded to MySQL 4.1.2 or
-newer, please use :file:`examples/upgrade_tables_mysql_4_1_2+.sql`
-and then create new tables by importing
-:file:`examples/create_tables.sql`.
+If you already had this infrastructure and:
+
+* upgraded to MySQL 4.1.2 or newer, please use
+  :file:`examples/upgrade_tables_mysql_4_1_2+.sql`.
+* upgraded to phpMyAdmin 4.3.0 or newer from 2.5.0 or newer (<= 4.2.x),
+  please use :file:`examples/upgrade_column_info_4_3_0+.sql`.
+
+and then create new tables by importing :file:`examples/create_tables.sql`.
 
 You can use your phpMyAdmin to create the tables for you. Please be
 aware that you may need special (administrator) privileges to create
@@ -300,6 +304,11 @@ If you have upgraded your MySQL server from a version previous to 4.1.2 to
 version 5.x or newer and if you use the phpMyAdmin configuration storage, you
 should run the :term:`SQL` script found in
 :file:`examples/upgrade_tables_mysql_4_1_2+.sql`.
+
+If you have upgraded your phpMyAdmin to 4.3.0 or newer from 2.5.0 or
+newer (<= 4.2.x) and if you use the phpMyAdmin configuration storage, you
+should run the :term:`SQL` script found in
+:file:`examples/upgrade_column_info_4_3_0+.sql`.
 
 .. index:: Authentication mode
 
@@ -361,7 +370,7 @@ Cookie authentication mode
 --------------------------
 
 * Username and password are stored in cookies during the session and password
-  is deleted when it ends. 
+  is deleted when it ends.
 * With this mode, the user can truly log out of phpMyAdmin and log
   back in with the same username.
 * If you want to allow users to enter any hostname to connect (rather than only
@@ -381,11 +390,11 @@ Signon authentication mode
   application to authenticate to phpMyAdmin to implement signle signon
   solution.
 * The other application has to store login information into session
-  data (see :config:option:`$cfg['Servers'][$i]['SignonSession']`) or you 
+  data (see :config:option:`$cfg['Servers'][$i]['SignonSession']`) or you
   need to implement script to return the credentials (see
   :config:option:`$cfg['Servers'][$i]['SignonScript']`).
-* When no credentials are available, the user is being redirected to 
-  :config:option:`$cfg['Servers'][$i]['SignonURL']`, where you should handle 
+* When no credentials are available, the user is being redirected to
+  :config:option:`$cfg['Servers'][$i]['SignonURL']`, where you should handle
   the login process.
 
 The very basic example of saving credentials in a session is available as
@@ -400,8 +409,8 @@ in :file:`examples/openid.php`:
 .. literalinclude:: ../examples/openid.php
     :language: php
 
-If you intend to pass the credentials using some other means than, you have to 
-implement wrapper in PHP to get that data and set it to 
+If you intend to pass the credentials using some other means than, you have to
+implement wrapper in PHP to get that data and set it to
 :config:option:`$cfg['Servers'][$i]['SignonScript']`. There is very minimal example
 in :file:`examples/signon-script.php`:
 

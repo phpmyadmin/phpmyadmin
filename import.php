@@ -29,7 +29,7 @@ if (isset($_REQUEST['simulate_dml'])) {
 }
 
 // If it's a refresh console bookmarks request
-if(isset($_GET['console_bookmark_refresh'])) {
+if (isset($_GET['console_bookmark_refresh'])) {
     $response = PMA_Response::getInstance();
     $response->addJSON('console_message_bookmark', PMA_Console::getBookmarkContent());
     exit;
@@ -97,7 +97,7 @@ if (! empty($sql_query)) {
         '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
         $sql_query
     )) {
-        $ajax_reload['reload'] = true;
+        $ajax_reload = array('reload' => true);
     }
 
     // do a dynamic reload if table is RENAMED
@@ -107,8 +107,8 @@ if (! empty($sql_query)) {
         $sql_query,
         $rename_table_names
     )) {
+        $ajax_reload = array('reload' => true);
         $ajax_reload['table_name'] = PMA_Util::unQuote($rename_table_names[2]);
-        $ajax_reload['reload'] = true;
     }
 
     $sql_query = '';
@@ -148,7 +148,7 @@ if ($_POST == array() && $_GET == array()) {
 }
 
 // Add console message id to response output
-if(isset($_POST['console_message_id'])) {
+if (isset($_POST['console_message_id'])) {
     $response = PMA_Response::getInstance();
     $response->addJSON('console_message_id', $_POST['console_message_id']);
 }
@@ -230,6 +230,11 @@ if ($import_type == 'table') {
             : '');
     $_SESSION['Import_message']['go_back_url'] = $err_url;
 }
+// Avoid setting selflink to 'import.php'
+// problem similar to bug 4276
+if (basename($_SERVER['SCRIPT_NAME']) === 'import.php') {
+    $_SERVER['SCRIPT_NAME'] = $goto;
+}
 
 
 if (strlen($db)) {
@@ -299,6 +304,9 @@ if (! empty($id_bookmark)) {
             $import_text
         )
         ) {
+            if (! isset($ajax_reload)) {
+                $ajax_reload = array();
+            }
             $ajax_reload['reload'] = true;
         }
         break;

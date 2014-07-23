@@ -1,25 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain Formatted Transformations plugin for phpMyAdmin
+ * Text Plain SQL Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Formatted
+ * @subpackage SQL
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the formatted transformations interface */
-require_once 'abstract/FormattedTransformationsPlugin.class.php';
+/* Get the sql transformations interface */
+require_once 'libraries/plugins/transformations/abstract/'
+    . 'SQLTransformationsPlugin.class.php';
 
 /**
- * Handles the formatted transformation for text plain
+ * Handles the sql transformation for text plain
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Formatted
+ * @subpackage SQL
  */
-class Text_Plain_Formatted extends FormattedTransformationsPlugin
+class Text_Plain_Sql extends SQLTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type

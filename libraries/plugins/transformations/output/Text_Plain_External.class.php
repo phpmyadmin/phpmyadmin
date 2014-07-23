@@ -1,25 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain Date Format Transformations plugin for phpMyAdmin
+ * Text Plain External Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage DateFormat
+ * @subpackage External
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the date format transformations interface */
-require_once 'abstract/DateFormatTransformationsPlugin.class.php';
+/* Get the external transformations interface */
+require_once 'libraries/plugins/transformations/abstract/'
+    . 'ExternalTransformationsPlugin.class.php';
 
 /**
- * Handles the date format transformation for text plain
+ * Handles the external transformation for text plain
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage DateFormat
+ * @subpackage External
  */
-class Text_Plain_Dateformat extends DateFormatTransformationsPlugin
+class Text_Plain_External extends ExternalTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type

@@ -126,8 +126,9 @@ var PMA_console = {
             PMA_console.$consoleToolbar.children('.console_switch').click(PMA_console.toggle);
             $(document).keydown(function(event) {
                 // 27 keycode is ESC
-                if(event.keyCode === 27)
+                if(event.keyCode === 27) {
                     PMA_console.toggle();
+                }
             });
 
             $('#pma_console .toolbar').children().mousedown(function(event) {
@@ -173,9 +174,11 @@ var PMA_console = {
             case 'collapse':
                 PMA_console.collapse();
                 break;
+            /* jshint -W086 */// no break needed in default section
             default:
                 $.cookie('pma_console_mode', 'info');
             case 'info':
+            /* jshint +W086 */
                 PMA_console.info();
                 break;
             case 'show':
@@ -262,8 +265,9 @@ var PMA_console = {
             return;
         }
         PMA_console.$consoleContent.css({display:'block'});
-        if(PMA_console.$consoleToolbar.hasClass('collapsed'))
+        if(PMA_console.$consoleToolbar.hasClass('collapsed')) {
             PMA_console.$consoleToolbar.removeClass('collapsed');
+        }
         PMA_console.$consoleAllContents.height(pmaConsoleHeight);
         PMA_console.$consoleContent.stop();
         PMA_console.$consoleContent.animate({'margin-bottom': 0},
@@ -387,8 +391,9 @@ var PMA_consoleResizer = {
      * @return void
      */
     _mousedown: function(event) {
-        if($.cookie('pma_console_mode') !== 'show')
+        if($.cookie('pma_console_mode') !== 'show') {
             return;
+        }
         PMA_consoleResizer._posY = event.pageY;
         PMA_consoleResizer._height = PMA_console.$consoleContent.height();
         $(document).mousemove(PMA_consoleResizer._mousemove);
@@ -617,7 +622,7 @@ var PMA_consoleMessages = {
     },
     _msgEventBinds: function($targetMessage) {
         // Leave unbinded elements, remove binded.
-        var $targetMessage = $targetMessage.filter(':not(.binded)');
+        $targetMessage = $targetMessage.filter(':not(.binded)');
         if($targetMessage.length === 0) {
             return;
         }
@@ -720,5 +725,4 @@ var PMA_consoleBookmarks = {
                 });
         });
     }
-
-}
+};

@@ -430,25 +430,24 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 if ($(t).find('th.marker').length > 0) {
                     g.showMarkHint = true;
                 }
-
-                if (g.showReorderHint && g.reorderHint) {
-                    text += g.reorderHint;
-                }
                 if (g.showSortHint && g.sortHint) {
                     text += text.length > 0 ? '<br />' : '';
-                    text += g.sortHint;
+                    text += '- ' + g.sortHint;
                 }
-                if (g.showRemColHint && g.strRemColHint) {
+                if (g.showMultiSortHint && g.strMultiSortHint) {
                     text += text.length > 0 ? '<br />' : '';
-                    text += g.strRemColHint;
+                    text += '- ' + g.strMultiSortHint;
                 }
-                if (g.showMarkHint && g.markHint &&
-                    !g.showSortHint      // we do not show mark hint, when sort hint is shown
+                if (g.showMarkHint && g.markHint
+                    && !g.showSortHint // we do not show mark hint, when sort hint is shown
+                    && g.showReorderHint && g.reorderHint
                 ) {
                     text += text.length > 0 ? '<br />' : '';
-                    text += g.markHint;
+                    text += '- ' + g.reorderHint;
                     text += text.length > 0 ? '<br />' : '';
-                    text += g.copyHint;
+                    text += '- ' + g.markHint;
+                    text += text.length > 0 ? '<br />' : '';
+                    text += '- ' + g.copyHint;
                 }
             }
             return text;
@@ -754,7 +753,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 if ($td.find('a').length > 0) {
                     var gotoLink = document.createElement('div');
                     gotoLink.className = 'goto_link';
-                    $(gotoLink).append(g.gotoLinkText + ': ').append($td.find('a').clone());
+                    $(gotoLink).append(g.gotoLinkText + ' ').append($td.find('a').clone());
                     $editArea.append(gotoLink);
                 }
 
@@ -1325,6 +1324,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             g.isCellEdited = false;
                         } else {
                             PMA_ajaxShowMessage(data.error, false);
+                            if (!g.saveCellsAtOnce) {
+                                $(g.t).find('.to_be_saved')
+                                    .removeClass('to_be_saved');
+                            }
                         }
                     }
             }); // end $.ajax()
@@ -1526,6 +1529,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         modal: true
                     })
                     .find("input").focus().select();
+                });
+            $(t).find('th.draggable a')
+                .dblclick(function (e) {
+                    e.stopPropagation();
                 });
             // restore column order when the restore button is clicked
             $('div.restore_column').click(function () {
@@ -1852,7 +1859,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
     // assign the hints
     g.sortHint = PMA_messages.strSortHint;
-    g.strRemColHint = PMA_messages.strRemColHint;
+    g.strMultiSortHint = PMA_messages.strMultiSortHint;
     g.markHint = PMA_messages.strColMarkHint;
     g.copyHint = PMA_messages.strColNameCopyHint;
 
@@ -1906,14 +1913,14 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
     $(t).find('th.draggable a')
         .mouseenter(function (e) {
             g.showSortHint = true;
-            g.showRemColHint = true;
+            g.showMultiSortHint = true;
             $(t).find("th.draggable").tooltip("option", {
                 content: g.updateHint()
             });
         })
         .mouseleave(function (e) {
             g.showSortHint = false;
-            g.showRemColHint = false;
+            g.showMultiSortHint = false;
             $(t).find("th.draggable").tooltip("option", {
                 content: g.updateHint()
             });

@@ -40,11 +40,11 @@ $(document).ready(function(){
     $('ul.tabs li').each(function(){
         tabWidth = $(this).width() + 10;
         width += tabWidth;
-     });
-     contentWidth = width;
-     width += 250;
-     $('body').css('min-width', width);
-     $('.tabs_contents').css('min-width', contentWidth);
+    });
+    contentWidth = width;
+    width += 250;
+    $('body').css('min-width', width);
+    $('.tabs_contents').css('min-width', contentWidth);
 });
 
 //

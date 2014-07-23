@@ -1891,6 +1891,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $meta = new StdClass();
         $meta->type = 'BLOB';
         $meta->flags = 'blob binary';
+        $meta->name = 'tblob';
 
         $meta2 = new StdClass();
         $meta2->type = 'string';

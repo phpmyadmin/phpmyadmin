@@ -192,15 +192,16 @@ function PMA_getNumberOfFieldsForForm($index)
     if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
         // coming already from form
         $add_fields
-            = count($_REQUEST['index']['columns']['names'])
-            - $index->getColumnCount();
+            = isset($_REQUEST['index']['columns']['names'])?
+            count($_REQUEST['index']['columns']['names'])
+            - $index->getColumnCount():0;
         if (isset($_REQUEST['add_fields'])) {
             $add_fields += $_REQUEST['added_fields'];
         }
     } elseif (isset($_REQUEST['create_index'])) {
         $add_fields = $_REQUEST['added_fields'];
     } else {
-        $add_fields = 1;
+        $add_fields = 0;
     }// end preparing form values
 
     return $add_fields;
@@ -304,7 +305,8 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         . '</label>'
         . '</strong>'
         . '</div>'
-        . '<select name="index[Index_type]" id="select_index_type" >'
+        . '<select name="index[Index_type]" id="select_index_type" '
+        . (isset($_REQUEST['create_edit_table']) ? 'disabled="disabled"' : '') . '>'
         . $index->generateIndexSelector()
         . '</select>'
         . '</div>';
@@ -333,7 +335,8 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         $html .= '<tr class="';
         $html .= $odd_row ? 'odd' : 'even';
         $html .= 'noclick">';
-        $html .= '<td>';
+        $html .= '<td><span class="drag_icon" title="' . __('Drag to reorder') . '"'
+            . '></span>';
         $html .= '<select name="index[columns][names][]">';
         $html .= '<option value="">-- ' . __('Ignore') . ' --</option>';
         foreach ($fields as $field_name => $field_type) {
@@ -369,11 +372,19 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         $html .= '<tr class="';
         $html .= $odd_row ? 'odd' : 'even';
         $html .= 'noclick">';
-        $html .= '<td>';
+        $html .= '<td><span class="drag_icon" title="' . __('Drag to reorder') . '"'
+            . '></span>';
         $html .= '<select name="index[columns][names][]">';
         $html .= '<option value="">-- ' . __('Ignore') . ' --</option>';
+        $j = 0;
         foreach ($fields as $field_name => $field_type) {
-            $html .= '<option value="' . htmlspecialchars($field_name) . '">'
+            if (isset($_REQUEST['create_edit_table'])) {
+                $col_index = $field_type[1];
+                $field_type = $field_type[0];
+            }
+            $html .= '<option value="'
+                . htmlspecialchars((isset($col_index)) ? $col_index : $field_name)
+                . '" ' . ($j++ == $i ? 'selected="selected"' : '') . '>'
                 . htmlspecialchars($field_name) . ' ['
                 . htmlspecialchars($field_type) . ']'
                 . '</option>' . "\n";

@@ -1,24 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Application OctetStream Download Transformations plugin for phpMyAdmin
+ * Text Plain Formatted Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Download
+ * @subpackage Formatted
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-/* Get the download transformations interface */
-require_once 'abstract/DownloadTransformationsPlugin.class.php';
+
+/* Get the formatted transformations interface */
+require_once 'libraries/plugins/transformations/abstract/'
+    . 'FormattedTransformationsPlugin.class.php';
 
 /**
- * Handles the download transformation for application octetstream
+ * Handles the formatted transformation for text plain
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Download
+ * @subpackage Formatted
  */
-class Application_Octetstream_Download extends DownloadTransformationsPlugin
+class Text_Plain_Formatted extends FormattedTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type
@@ -27,7 +29,7 @@ class Application_Octetstream_Download extends DownloadTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Application";
+        return "Text";
     }
 
     /**
@@ -37,7 +39,7 @@ class Application_Octetstream_Download extends DownloadTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "OctetStream";
+        return "Plain";
     }
 }
 ?>

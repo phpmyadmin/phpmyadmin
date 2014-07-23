@@ -130,7 +130,7 @@ function PMA_findExistingColNames($db, $cols, $allFields=false)
 
 /**
  * return error message to be displayed if central columns
- * configurartion storage is not completely configured
+ * configuration storage is not completely configured
  *
  * @return PMA_Message
  */
@@ -138,8 +138,8 @@ function PMA_configErrorMessage()
 {
     return PMA_Message::error(
         __(
-            'Central list of columns configuration Storage '
-            . 'is not completely configured!'
+            'The configuration storage is not ready for the central list'
+            . ' of columns feature.'
         )
     );
 }

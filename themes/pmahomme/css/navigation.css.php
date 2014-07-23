@@ -113,6 +113,10 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     position: absolute;
     height: 100%;
 }
+#pma_navigation_tree_content a.hover_show_full {
+    position: relative;
+    z-index: 100;
+}
 #pma_navigation_tree a {
     color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
@@ -189,6 +193,8 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     display: block;
     border-<?php echo $left; ?>: 1px solid #666;
     border-bottom: 1px solid #666;
+    position: relative;
+    z-index: 0;
 }
 #pma_navigation_tree div.block i.first { /* Removes top segment */
     border-<?php echo $left; ?>: 0;

@@ -56,6 +56,7 @@ class PMA_Navigation
             // closes the tags that were opened by the navigation header
             $retval .= '</div>';
             $retval .= '</div>';
+            $retval .= $this->_getDropHandler();
             $retval .= '</div>';
         }
 
@@ -87,6 +88,27 @@ class PMA_Navigation
             . "'" . (! empty($tableName)? PMA_Util::sqlAddSlashes($tableName) : "" )
             . "')";
         PMA_queryAsControlUser($sqlQuery, false);
+    }
+
+    /**
+     * Inserts Drag and Drop Import handler
+     *
+     * @return string html code for drop handler
+     */
+    private function _getDropHandler()
+    {
+        $retval = '';
+        $retval .= '<div class="pma_drop_handler">'
+            . __('Drop files here')
+            . '</div>';
+        $retval .= '<div class="pma_sql_import_status">';
+        $retval .= '<h2>SQL upload ( ';
+        $retval .= '<span class="pma_import_count">0</span> ';
+        $retval .= ') <span class="close">x</span>';
+        $retval .= '<span class="minimize">-</span></h2>';
+        $retval .= '<div></div>';
+        $retval .= '</div>';
+        return $retval;
     }
 
     /**

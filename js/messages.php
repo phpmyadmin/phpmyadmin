@@ -58,6 +58,10 @@ $js_messages['strEnterValidLength'] = __('Please enter a valid length!');
 $js_messages['strAddIndex'] = __('Add Index');
 $js_messages['strEditIndex'] = __('Edit Index');
 $js_messages['strAddToIndex'] = __('Add %s column(s) to index');
+$js_messages['strCreateSingleColumnIndex'] = __('Create single-column index');
+$js_messages['strCreateCompositeIndex'] = __('Create composite index');
+$js_messages['strCompositeWith'] = __('Composite with:');
+$js_messages['strMissingColumn'] = __('Please select column(s) for the index.');
 
 /* For Preview SQL*/
 $js_messages['strPreviewSQL'] = __('Preview SQL');
@@ -301,11 +305,27 @@ $js_messages['makeConsistentMessage'] = __('This action may change some of the c
 $js_messages['strContinue'] = __('Continue');
 
 /** For normalization */
-$js_messages['strAddUniqueIndex'] = __('Add unique/primary index');
-$js_messages['uniqueColAdded'] = __('Unique column(s) added.');
-$js_messages['toNextStep'] = __('Taking you to next step ...');
+$js_messages['strAddPrimaryKey'] = __('Add primary key');
+$js_messages['strPrimaryKeyAdded'] = __('Primary key added.');
+$js_messages['strToNextStep'] = __('Taking you to next step…');
 $js_messages['strFinishMsg'] = __("The first step of normalization is complete for table '%s'.");
 $js_messages['strEndStep'] = __("End of step");
+$js_messages['str2NFNormalization'] = __('Second step of normalization (2NF)');
+$js_messages['strDone'] = __('Done');
+$js_messages['strConfirmPd'] = __('Confirm partial dependencies');
+$js_messages['strSelectedPd'] = __('Selected partial dependencies are as follows:');
+$js_messages['strPdHintNote'] = __('Note: a, b -> d,f implies values of columns a and b combined together can determine values of column d and column f.');
+$js_messages['strNoPdSelected'] = __('No partial dependencies selected!');
+$js_messages['strBack'] = __('Back');
+$js_messages['strShowPossiblePd'] = __('Show me the possible partial dependencies based on data in the table');
+$js_messages['strHidePd'] = __('Hide partial dependencies list');
+$js_messages['strWaitForPd'] = __('Sit tight! It may take few seconds depending on data size and column count of the table.');
+$js_messages['strStep'] = __('Step');
+$js_messages['strMoveRepeatingGroup'] = '<ol><b>' . __('The following actions will be performed:') . '</b>'
+    . '<li>' . __('DROP columns %1s from the table %2s') . '</li>'
+    . '<li>' . __('Create the following table') . '</li>';
+$js_messages['strNewTablePlaceholder'] = 'Enter new table name';
+$js_messages['strNewColumnPlaceholder'] = 'Enter column name';
 
 /* For server_variables.js */
 $js_messages['strSave'] = __('Save');
@@ -390,8 +410,8 @@ $js_messages['strObjectsCreated'] = __('%d object(s) created.');
 $js_messages['strCellEditHint'] = __('Press escape to cancel editing.');
 $js_messages['strSaveCellWarning'] = __('You have edited some data and they have not been saved. Are you sure you want to leave this page before saving the data?');
 $js_messages['strColOrderHint'] = __('Drag to reorder.');
-$js_messages['strSortHint'] = __('Click to sort.');
-$js_messages['strRemColHint'] = __('Hold shift and click to remove column from ORDER BY clause.');
+$js_messages['strSortHint'] = __('Click to sort results by this column.');
+$js_messages['strMultiSortHint'] = __('Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br />- Control+Click to remove column from ORDER BY clause');
 $js_messages['strColMarkHint'] = __('Click to mark/unmark.');
 $js_messages['strColNameCopyHint'] = __('Double-click to copy column name.');
 $js_messages['strColVisibHint'] = __(
@@ -400,6 +420,15 @@ $js_messages['strColVisibHint'] = __(
 $js_messages['strShowAllCol'] = __('Show all');
 $js_messages['strAlertNonUnique'] = __('This table does not contain a unique column. Features related to the grid edit, checkbox, Edit, Copy and Delete links may not work after saving.');
 $js_messages['strEnterValidHex'] = __('Please enter a valid hexadecimal string. Valid characters are 0-9, A-F.');
+
+/** Drag & Drop sql import messages */
+$js_messages['dropImportMessageCancel'] = __('cancel');
+$js_messages['dropImportMessageAborted'] = __('Aborted');
+$js_messages['dropImportMessageFailed'] = __('Failed');
+$js_messages['dropImportMessageSuccess'] = __('Success');
+$js_messages['dropImportImportResultHeader'] = __('Import status');
+$js_messages['dropImportDropFiles'] = __('Drop files here');
+$js_messages['dropImportSelectDB'] = __('Select database first');
 
 // this approach does not work when the parameter is changed via user prefs
 switch ($GLOBALS['cfg']['GridEditing']) {
@@ -412,7 +441,7 @@ case 'click':
 default:
     break;
 }
-$js_messages['strGoToLink'] = __('Go to link.');
+$js_messages['strGoToLink'] = __('Go to link:');
 $js_messages['strColNameCopyTitle'] = __('Copy column name.');
 $js_messages['strColNameCopyText'] = __('Right-click the column name to copy it to your clipboard.');
 $js_messages['strShowDataRowLink'] = __('Show data row(s).');

@@ -148,8 +148,6 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     if ($routine['ROUTINE_DEFINITION'] !== null
-        && PMA_Util::currentUserHasPrivilege('ALTER ROUTINE', $db)
-        && PMA_Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
     ) {
         $retval .= '                <a ' . $ajax_class['edit']
                                          . ' href="db_routines.php?'
@@ -213,17 +211,13 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
                                      . '">' . $titles['Export'] . "</a>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    if (PMA_Util::currentUserHasPrivilege('ALTER ROUTINE', $db)) {
-        $retval .= '                <a ' . $ajax_class['drop']
+    $retval .= '                <a ' . $ajax_class['drop']
                                          . ' href="sql.php?'
                                          . $url_query
                                          . '&amp;sql_query=' . urlencode($sql_drop)
                                          . '&amp;goto=db_routines.php'
                                          . urlencode("?db={$db}")
                                          . '" >' . $titles['Drop'] . "</a>\n";
-    } else {
-        $retval .= "                {$titles['NoDrop']}\n";
-    }
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     $retval .= "                 {$routine['ROUTINE_TYPE']}\n";
@@ -259,9 +253,9 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
     $retval .= "            </td>\n";
     if (empty($table)) {
         $retval .= "            <td>\n";
-        $retval .= "                <a href='db_triggers.php?{$url_query}"
-                                     . "&amp;table={$trigger['table']}'>"
-                                     . $trigger['table'] . "</a>\n";
+        $retval .= "<a href='db_triggers.php?{$url_query}"
+            . "&amp;table=" . urlencode($trigger['table']) . "'>"
+            . urlencode($trigger['table']) . "</a>";
         $retval .= "            </td>\n";
     }
     $retval .= "            <td>\n";

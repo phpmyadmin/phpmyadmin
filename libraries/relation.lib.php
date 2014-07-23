@@ -172,8 +172,12 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             $messages
         );
         if ($cfgRelation['commwork'] && ! $cfgRelation['mimework']) {
-            $retval .= '<tr><td colspan=2 class="left">';
-            $retval .=  __('Please see the documentation on how to update your column_comments table.');
+            $retval .= '<tr><td colspan=2 class="left error">';
+            $retval .=  __(
+                'Please see the documentation on how to'
+                . ' update your column_info table. '
+            );
+            $retval .= PMA_Util::showDocu('config', 'cfg_Servers_column_info');
             $retval .= '</td></tr>';
         }
         $retval .= PMA_getDiagMessageForParameter(
@@ -496,7 +500,9 @@ function PMA_checkRelationsParam()
 
     if (isset($cfgRelation['column_info'])) {
         $cfgRelation['commwork']    = true;
-        $cfgRelation['mimework'] = true;
+        // phpMyAdmin 4.3+
+        // Check for input transformations upgrade.
+        $cfgRelation['mimework'] = PMA_tryUpgradeTransformations();
     }
 
     if (isset($cfgRelation['history'])) {
@@ -553,6 +559,69 @@ function PMA_checkRelationsParam()
 
     return $cfgRelation;
 } // end of the 'PMA_getRelationsParam()' function
+
+/**
+ * Check whether column_info table input transformation
+ * upgrade is required and try to upgrade silently
+ *
+ * @return bool false if upgrade failed
+ *
+ * @access  public
+ */
+function PMA_tryUpgradeTransformations()
+{
+    // From 4.3, new input oriented transformation feature was introduced.
+    // Check whether column_info table has input transformation columns
+    $new_cols = array(
+        "input_transformation",
+        "input_transformation_options"
+    );
+    $query = 'SHOW COLUMNS FROM '
+        . PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+        . '.' . PMA_Util::backquote($GLOBALS['cfg']['Server']['column_info'])
+        . ' WHERE Field IN (\'' . implode('\', \'', $new_cols) . '\')';
+    $result = PMA_queryAsControlUser(
+        $query, false, PMA_DatabaseInterface::QUERY_STORE
+    );
+    if ($result) {
+        $rows = $GLOBALS['dbi']->numRows($result);
+        $GLOBALS['dbi']->freeResult($result);
+        // input transformations are present
+        // no need to upgrade
+        if ($rows === 2) {
+            return true;
+            // try silent upgrade without disturbing the user
+        } else {
+            // read upgrade query file
+            $query = @file_get_contents('examples/upgrade_column_info_4_3_0+.sql');
+            // replace database name from query to with set in config.inc.php
+            $query = str_replace(
+                '`phpmyadmin`',
+                PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']),
+                $query
+            );
+            // replace pma__column_info table name from query
+            // to with set in config.inc.php
+            $query = str_replace(
+                '`pma__column_info`',
+                PMA_Util::backquote($GLOBALS['cfg']['Server']['column_info']),
+                $query
+            );
+            $GLOBALS['dbi']->tryMultiQuery($query, $GLOBALS['controllink']);
+            // skips result sets of query as we are not interested in it
+            while ($GLOBALS['dbi']->moreResults($GLOBALS['controllink'])
+                && $GLOBALS['dbi']->nextResult($GLOBALS['controllink'])
+            ) {
+            }
+            $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
+            // return true if no error exists otherwise false
+            return empty($error);
+        }
+    }
+    // some failure, either in upgrading or something else
+    // make some noise, time to wake up user.
+    return false;
+}
 
 /**
  * Gets all Relations to foreign tables for a given table or
@@ -958,7 +1027,7 @@ function PMA_getHistory($username)
      * history, use it
      */
     if (! $GLOBALS['cfg']['QueryHistoryDB']) {
-        if(isset($_SESSION['sql_history'])) {
+        if (isset($_SESSION['sql_history'])) {
             return array_reverse($_SESSION['sql_history']);
         }
         return false;

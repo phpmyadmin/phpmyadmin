@@ -84,7 +84,10 @@ if (! empty($submit_mult)
                 exit;
                 break;
             case 'show_create':
-                PMA_getHtmlShowCreate($db, $selected);
+                $show_create = PMA_getHtmlShowCreate($db, $selected);
+                // Send response to client.
+                $response = PMA_Response::getInstance();
+                $response->addJSON('message', $show_create);
                 exit;
             case 'sync_unique_columns_central_list':
                 include_once 'libraries/central_columns.lib.php';
@@ -132,6 +135,12 @@ if (! empty($submit_mult)
     }
 } // end if
 
+if (empty($db)) {
+    $db = '';
+}
+if (empty($table)) {
+    $table = '';
+}
 $views = $GLOBALS['dbi']->getVirtualTables($db);
 
 /**

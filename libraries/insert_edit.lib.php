@@ -47,12 +47,12 @@ function PMA_getFormParametersForInsertForm($db, $table, $where_clauses,
  *
  * @param array|string|null $where_clause where clause
  *
- * @return array|void whereClauseArray array of where clauses
+ * @return array whereClauseArray array of where clauses
  */
 function PMA_getWhereClauseArray($where_clause)
 {
     if (!isset($where_clause)) {
-        return;
+        return array();
     }
 
     if (is_array($where_clause)) {
@@ -1656,13 +1656,14 @@ function PMA_getHeadAndFootOfInsertRowTable($url_params)
  * @param boolean $real_null_value      whether column value null or not null
  * @param array   $gis_data_types       list of GIS data types
  * @param string  $column_name_appendix string to append to column name in input
+ * @param bool    $as_is                use the data as is, used in repopulating
  *
  * @return array $real_null_value, $data, $special_chars, $backup_field,
  *               $special_chars_encoded
  */
 function PMA_getSpecialCharsAndBackupFieldForExistingRow(
     $current_row, $column, $extracted_columnspec,
-    $real_null_value, $gis_data_types, $column_name_appendix
+    $real_null_value, $gis_data_types, $column_name_appendix, $as_is
 ) {
     $special_chars_encoded = '';
     $data = null;
@@ -1673,32 +1674,41 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         $special_chars = '';
         $data = $current_row[$column['Field']];
     } elseif ($column['True_Type'] == 'bit') {
-        $special_chars = PMA_Util::printableBitValue(
-            $current_row[$column['Field']], $extracted_columnspec['spec_in_brackets']
-        );
+        $special_chars = $as_is
+            ? $current_row[$column['Field']]
+            : PMA_Util::printableBitValue(
+                $current_row[$column['Field']],
+                $extracted_columnspec['spec_in_brackets']
+            );
     } elseif ((substr($column['True_Type'], 0, 9) == 'timestamp'
         || $column['True_Type'] == 'datetime'
         || $column['True_Type'] == 'time')
         && (strpos($current_row[$column['Field']], ".") === true)
     ) {
-        $current_row[$column['Field']] = PMA_Util::addMicroseconds(
-            $current_row[$column['Field']]
-        );
+        $current_row[$column['Field']] = $as_is
+            ? $current_row[$column['Field']]
+            : PMA_Util::addMicroseconds(
+                $current_row[$column['Field']]
+            );
         $special_chars = htmlspecialchars($current_row[$column['Field']]);
     } elseif (in_array($column['True_Type'], $gis_data_types)) {
         // Convert gis data to Well Know Text format
-        $current_row[$column['Field']] = PMA_Util::asWKT(
-            $current_row[$column['Field']], true
-        );
+        $current_row[$column['Field']] = $as_is
+            ? $current_row[$column['Field']]
+            : PMA_Util::asWKT(
+                $current_row[$column['Field']], true
+            );
         $special_chars = htmlspecialchars($current_row[$column['Field']]);
     } else {
         // special binary "characters"
         if ($column['is_binary']
             || ($column['is_blob'] && $GLOBALS['cfg']['ProtectBinary'] !== 'all')
         ) {
-            $current_row[$column['Field']] = bin2hex(
-                $current_row[$column['Field']]
-            );
+            $current_row[$column['Field']] = $as_is
+                ? $current_row[$column['Field']]
+                : bin2hex(
+                    $current_row[$column['Field']]
+                );
         } // end if
         $special_chars = htmlspecialchars($current_row[$column['Field']]);
 
@@ -1741,7 +1751,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
 /**
  * display default values
  *
- * @param string  $column          description of column in given table
+ * @param array   $column          description of column in given table
  * @param boolean $real_null_value whether column value null or not null
  *
  * @return array $real_null_value, $data, $special_chars,
@@ -2119,74 +2129,67 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
  * @param string $table          table name
  * @param array  $transformation mimetypes for all columns of a table
  *                               [field_name][field_key]
- * @param array  $edited_values  transform columns list and new values
+ * @param array  &$edited_values transform columns list and new values
  * @param string $file           file containing the transformation plugin
  * @param string $column_name    column name
  * @param array  $extra_data     extra data array
+ * @param string $type           the type of transformation
  *
  * @return array $extra_data
  */
 function PMA_transformEditedValues($db, $table,
-    $transformation, $edited_values, $file, $column_name, $extra_data
+    $transformation, &$edited_values, $file, $column_name, $extra_data, $type
 ) {
-    foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
-        if (isset($curr_cell_edited_values[$column_name])) {
-            $column_data = $curr_cell_edited_values[$column_name];
+    $include_file = 'libraries/plugins/transformations/' . $file;
+    if (is_file($include_file)) {
+        include_once $include_file;
+        $_url_params = array(
+            'db'            => $db,
+            'table'         => $table,
+            'where_clause'  => $_REQUEST['where_clause'],
+            'transform_key' => $column_name
+        );
+        $transform_options  = PMA_Transformation_getOptions(
+            isset($transformation[$type . '_options'])
+            ? $transformation[$type . '_options']
+            : ''
+        );
+        $transform_options['wrapper_link']
+            = PMA_URL_getCommon($_url_params);
+        $class_name = PMA_getTransformationClassName($file);
+        $transformation_plugin = new $class_name();
 
-            $_url_params = array(
-                'db'            => $db,
-                'table'         => $table,
-                'where_clause'  => $_REQUEST['where_clause'],
-                'transform_key' => $column_name
-            );
-
-            $include_file = 'libraries/plugins/transformations/' . $file;
-            if (file_exists($include_file)) {
-                include_once $include_file;
-
-                $transform_options  = PMA_Transformation_getOptions(
-                    isset($transformation['transformation_options'])
-                    ? $transformation['transformation_options']
-                    : ''
-                );
-                $transform_options['wrapper_link']
-                    = PMA_URL_getCommon($_url_params);
-                $class_name = str_replace('.class.php', '', $file);
-                $plugin_manager = null;
-                $transformation_plugin = new $class_name(
-                    $plugin_manager
-                );
+        foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
+            if (isset($curr_cell_edited_values[$column_name])) {
+                $edited_values[$cell_index][$column_name]
+                    = $extra_data['transformations'][$cell_index]
+                        = $transformation_plugin->applyTransformation(
+                            $curr_cell_edited_values[$column_name],
+                            $transform_options,
+                            ''
+                        );
             }
-
-            $extra_data['transformations'][$cell_index]
-                = $transformation_plugin->applyTransformation(
-                    $column_data,
-                    $transform_options,
-                    ''
-                );
-        }
-    }   // end of loop for each transformation cell
+        }   // end of loop for each transformation cell
+    }
     return $extra_data;
 }
 
 /**
  * Get current value in multi edit mode
  *
- * @param array  $multi_edit_colummns     multiple edit column array
- * @param array  $multi_edit_columns_name multiple edit columns name array
  * @param array  $multi_edit_funcs        multiple edit functions array
  * @param array  $multi_edit_salt         multiple edit array with encryption salt
  * @param array  $gis_from_text_functions array that contains gis from text functions
  * @param string $current_value           current value in the column
- * @param array  $gis_from_wkb_functions  initialy $val is $multi_edit_colummns[$key]
+ * @param array  $gis_from_wkb_functions  initially $val is $multi_edit_columns[$key]
  * @param array  $func_optional_param     array('RAND','UNIX_TIMESTAMP')
  * @param array  $func_no_param           array of set of string
  * @param string $key                     an md5 of the column name
  *
  * @return array $cur_value
  */
-function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
-    $multi_edit_columns_name, $multi_edit_funcs, $multi_edit_salt,
+function PMA_getCurrentValueAsAnArrayForMultipleEdit( $multi_edit_funcs,
+    $multi_edit_salt,
     $gis_from_text_functions, $current_value, $gis_from_wkb_functions,
     $func_optional_param, $func_no_param, $key
 ) {
@@ -2502,7 +2505,7 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
         $where_clause = null;
         list($result, $rows) = PMA_loadFirstRow($table, $db);
         $where_clauses = null;
-        $where_clause_array = null;
+        $where_clause_array = array();
         $found_unique_key = false;
     }
 
@@ -2589,13 +2592,15 @@ function PMA_getHtmlForGisEditor()
 /**
  * Function to get html for the ignore option in insert mode
  *
- * @param int $row_id row id
+ * @param int  $row_id  row id
+ * @param bool $checked ignore option is checked or not
  *
  * @return string
  */
-function PMA_getHtmlForIgnoreOption($row_id)
+function PMA_getHtmlForIgnoreOption($row_id, $checked = true)
 {
-    return '<input type="checkbox" checked="checked"'
+    return '<input type="checkbox"'
+            . ($checked ? ' checked="checked"' : '')
             . ' name="insert_ignore_' . $row_id . '"'
             . ' id="insert_ignore_' . $row_id . '" />'
             . '<label for="insert_ignore_' . $row_id . '">'
@@ -2698,6 +2703,9 @@ function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
  * @param string $default_char_editing  default char editing mode which is stroe
  *                                      in the config.inc.php script
  * @param string $text_dir              text direction
+ * @param array  $repopulate            the data to be repopulated
+ * @param array  $column_mime           the mime information of column
+ * @param string $where_clause          the where clause
  *
  * @return string
  */
@@ -2705,15 +2713,20 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
     $comments_map, $timestamp_seen, $current_result, $chg_evt_handler,
     $jsvkey, $vkey, $insert_mode, $current_row, $odd_row, &$o_rows,
     &$tabindex, $columns_cnt, $is_upload, $tabindex_for_function,
-    $foreigners, $tabindex_for_null, $tabindex_for_value,
-    $table, $db, $row_id, $titles, $biggest_max_file_size,
-    $default_char_editing, $text_dir
+    $foreigners, $tabindex_for_null, $tabindex_for_value, $table, $db,
+    $row_id, $titles, $biggest_max_file_size, $default_char_editing,
+    $text_dir, $repopulate, $column_mime, $where_clause
 ) {
     if (! isset($table_columns[$i]['processed'])) {
         $column = $table_columns[$i];
         $column = PMA_analyzeTableColumnsArray(
             $column, $comments_map, $timestamp_seen
         );
+    }
+    $as_is = false;
+    if (!empty($repopulate) && isset($current_row)) {
+        $current_row[$column['Field']] = $repopulate[$column['Field_md5']];
+        $as_is = true;
     }
 
     $extracted_columnspec
@@ -2737,14 +2750,11 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
     // in the name atttibute (see bug #1746964 )
     $column_name_appendix = $vkey . '[' . $column['Field_md5'] . ']';
 
-    if ($column['Type'] == 'datetime'
+    if ($column['Type'] === 'datetime'
         && ! isset($column['Default'])
-        && ! is_null($column['Default'])
-        && ($insert_mode || ! isset($current_row[$column['Field']]))
+        && $insert_mode
     ) {
-        // INSERT case or
-        // UPDATE case with an NULL value
-        $current_row[$column['Field']] = date('Y-m-d H:i:s', time());
+        $column['Default'] = date('Y-m-d H:i:s', time());
     }
 
     $html_output = PMA_getHtmlForFunctionOption(
@@ -2769,17 +2779,22 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
         )
             = PMA_getSpecialCharsAndBackupFieldForExistingRow(
                 $current_row, $column, $extracted_columnspec,
-                $real_null_value, $gis_data_types, $column_name_appendix
+                $real_null_value, $gis_data_types, $column_name_appendix, $as_is
             );
     } else {
         // (we are inserting)
         // display default values
+        $tmp = $column;
+        if (isset($repopulate[$column['Field_md5']])) {
+            $tmp['Default'] = $repopulate[$column['Field_md5']];
+        }
         list($real_null_value, $data, $special_chars, $backup_field,
             $special_chars_encoded
         )
             = PMA_getSpecialCharsAndBackupFieldForInsertingMode(
-                $column, $real_null_value
+                $tmp, $real_null_value
             );
+        unset($tmp);
     }
 
     $idindex = ($o_rows * $columns_cnt) + $i + 1;
@@ -2828,17 +2843,57 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
     $html_output .= '<span class="default_value hide">'
         . $special_chars . '</span>';
 
-    $html_output .= PMA_getValueColumn(
-        $column, $backup_field, $column_name_appendix, $unnullify_trigger,
-        $tabindex, $tabindex_for_value, $idindex, $data, $special_chars,
-        $foreignData, $odd_row, array($table, $db), $row_id, $titles,
-        $text_dir, $special_chars_encoded, $vkey, $is_upload,
-        $biggest_max_file_size, $default_char_editing,
-        $no_support_types, $gis_data_types, $extracted_columnspec
-    );
-
+    // Check input transformation of column
+    $transformed_html = '';
+    if (!empty($column_mime['input_transformation'])) {
+        $file = $column_mime['input_transformation'];
+        $include_file = 'libraries/plugins/transformations/' . $file;
+        if (is_file($include_file)) {
+            include_once $include_file;
+            $class_name = PMA_getTransformationClassName($file);
+            $transformation_plugin = new $class_name();
+            $transformation_options = PMA_Transformation_getOptions(
+                $column_mime['input_transformation_options']
+            );
+            $_url_params = array(
+                'db'            => $db,
+                'table'         => $table,
+                'transform_key' => $column['Field'],
+                'where_clause'  => $where_clause
+            );
+            $transformation_options['wrapper_link']
+                = PMA_URL_getCommon($_url_params);
+            $current_value = '';
+            if (isset($current_row[$column['Field']])) {
+                $current_value = $current_row[$column['Field']];
+            }
+            if (method_exists($transformation_plugin, 'getInputHtml')) {
+                $transformed_html = $transformation_plugin->getInputHtml(
+                    $column, $row_id, $column_name_appendix,
+                    $transformation_options, $current_value
+                );
+            }
+            if (method_exists($transformation_plugin, 'getScripts')) {
+                $GLOBALS['plugin_scripts'] = array_merge(
+                    $GLOBALS['plugin_scripts'], $transformation_plugin->getScripts()
+                );
+            }
+        }
+    }
+    if (!empty($transformed_html)) {
+        $html_output .= $transformed_html;
+    } else {
+        $html_output .= PMA_getValueColumn(
+            $column, $backup_field, $column_name_appendix, $unnullify_trigger,
+            $tabindex, $tabindex_for_value, $idindex, $data, $special_chars,
+            $foreignData, $odd_row, array($table, $db), $row_id, $titles,
+            $text_dir, $special_chars_encoded, $vkey, $is_upload,
+            $biggest_max_file_size, $default_char_editing,
+            $no_support_types, $gis_data_types, $extracted_columnspec
+        );
+    }
     $html_output .= '</td>'
-    . '</tr>';
+        . '</tr>';
 
     return $html_output;
 }
@@ -2871,6 +2926,8 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
  * @param array  $titles                titles
  * @param int    $biggest_max_file_size biggest max file size
  * @param string $text_dir              text direction
+ * @param array  $repopulate            the data to be repopulated
+ * @param array  $where_clause_array    the array of where clauses
  *
  * @return string
  */
@@ -2879,23 +2936,32 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
     $jsvkey, $vkey, $insert_mode, $current_row, &$o_rows, &$tabindex, $columns_cnt,
     $is_upload, $tabindex_for_function, $foreigners, $tabindex_for_null,
     $tabindex_for_value, $table, $db, $row_id, $titles,
-    $biggest_max_file_size, $text_dir
+    $biggest_max_file_size, $text_dir, $repopulate, $where_clause_array
 ) {
     $html_output = PMA_getHeadAndFootOfInsertRowTable($url_params)
         . '<tbody>';
 
     //store the default value for CharEditing
     $default_char_editing  = $GLOBALS['cfg']['CharEditing'];
-
+    $mime_map = PMA_getMIME($db, $table);
     $odd_row = true;
+    $where_clause = '';
+    if (isset($where_clause_array[$row_id])) {
+        $where_clause = $where_clause_array[$row_id];
+    }
     for ($i = 0; $i < $columns_cnt; $i++) {
+        $column_mime = array();
+        if (isset($mime_map[$table_columns[$i]['Field']])) {
+            $column_mime = $mime_map[$table_columns[$i]['Field']];
+        }
         $html_output .= PMA_getHtmlForInsertEditFormColumn(
             $table_columns, $i, $column, $comments_map, $timestamp_seen,
             $current_result, $chg_evt_handler, $jsvkey, $vkey, $insert_mode,
             $current_row, $odd_row, $o_rows, $tabindex, $columns_cnt, $is_upload,
             $tabindex_for_function, $foreigners, $tabindex_for_null,
             $tabindex_for_value, $table, $db, $row_id, $titles,
-            $biggest_max_file_size, $default_char_editing, $text_dir
+            $biggest_max_file_size, $default_char_editing, $text_dir, $repopulate,
+            $column_mime, $where_clause
         );
         $odd_row = !$odd_row;
     } // end for

@@ -70,7 +70,7 @@ function PMA_queryChart(data, columnNames, settings) {
         dataTable.addColumn(ColumnType.STRING, columnNames[settings.mainAxis]);
     }
 
-    if (settings.seriesColumn == null) {
+    if (settings.seriesColumn === null) {
         $.each(settings.selectedSeries, function (index, element) {
             dataTable.addColumn(ColumnType.NUMBER, columnNames[element]);
         });
@@ -295,7 +295,7 @@ AJAX.registerOnload('tbl_chart.js', function () {
     });
 
     var numericCols = [];
-    var vals = $('input[name="numericCols"]').val().split(' ');
+    vals = $('input[name="numericCols"]').val().split(' ');
     $.each(vals, function (i, v) {
         numericCols.push(parseInt(v, 10));
     });

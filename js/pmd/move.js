@@ -345,7 +345,7 @@ function Re_load()
                     //alert(1);
 
                     row_offset_top = 0;
-                    var tab_hide_button = document.getElementById('id_hide_tbody_' + contr[K][key][key2][key3][0]);
+                    tab_hide_button = document.getElementById('id_hide_tbody_' + contr[K][key][key2][key3][0]);
                     if (tab_hide_button.innerHTML == 'v') {
                         row_offset_top = document.getElementById(contr[K][key][key2][key3][0]
                             + '.' + contr[K][key][key2][key3][1]).offsetTop;
@@ -571,7 +571,7 @@ function Save2(callback)
         var poststr = 'IS_AJAX=1&server=' + server + '&db=' + db + '&token=' + token + '&die_save_pos=1&selected_page=' + selected_page;
         poststr += Get_url_pos();
         makeRequest('pmd_save_pos.php', poststr);
-        if (callback != null) {
+        if (callback !== null) {
             callback();
         }
     } else {
@@ -625,7 +625,7 @@ function Save3(callback)
                         selected_page = page.pg_nr;
                     }
                     $('#page_name').text(page.page_descr);
-                    if (callback != null) {
+                    if (callback !== null) {
                         callback();
                     }
                 });
@@ -679,7 +679,7 @@ function Edit_pages()
         var $msgbox = PMA_ajaxShowMessage();
         var params = 'ajax_request=true&dialog=edit&token=' + token + '&db=' + db;
         $.get("pmd_general.php", params, function (data) {
-            if (data.success == false) {
+            if (data.success === false) {
                 PMA_ajaxShowMessage(data.error, false);
             } else {
                 PMA_ajaxRemoveMessage($msgbox);
@@ -757,7 +757,7 @@ function Delete_pages()
     var $msgbox = PMA_ajaxShowMessage();
     var params = 'ajax_request=true&dialog=delete&token=' + token + '&db=' + db;
     $.get("pmd_general.php", params, function (data) {
-        if (data.success == false) {
+        if (data.success === false) {
             PMA_ajaxShowMessage(data.error, false);
         } else {
             PMA_ajaxRemoveMessage($msgbox);
@@ -982,7 +982,7 @@ function getParamsForExport($from)
 function Load_page(page) {
     if (pmd_tables_enabled) {
         var param_page = '';
-        if (page != null) {
+        if (page !== null) {
             param_page = '&page=' + page;
         }
         $('<a href="pmd_general.php?db=' + db + '&token=' + token + param_page + '"></a>')
@@ -1128,8 +1128,9 @@ function Start_tab_upd(table)
 
 function Small_tab_all(id_this) // max/min all tables
 {
+    var key;
     if (id_this.alt == "v") {
-        for (var key in j_tabs) {
+        for (key in j_tabs) {
             if (document.getElementById('id_hide_tbody_' + key).innerHTML == "v") {
                 Small_tab(key, 0);
             }
@@ -1137,7 +1138,7 @@ function Small_tab_all(id_this) // max/min all tables
         id_this.alt = ">";
         id_this.src = pmaThemeImage + "pmd/rightarrow1.png";
     } else {
-        for (var key in j_tabs) {
+        for (key in j_tabs) {
             if (document.getElementById('id_hide_tbody_' + key).innerHTML != "v") {
                 Small_tab(key, 0);
             }
@@ -1538,8 +1539,8 @@ function getColorByTarget(target)
 
         var r = Math.round(a * 200 * e);
         var g = Math.round(b * 200 * e);
-        var b = Math.round(c * 200 * e);
-        var color = "rgba(" + r + "," + g + "," + b + ",1)";
+        b = Math.round(c * 200 * e);
+        color = "rgba(" + r + "," + g + "," + b + ",1)";
 
         TargetColors.push(new Array(target, color));
     }
@@ -1654,6 +1655,7 @@ function store_column(id_this, owner, col)
 
 function add_object()
 {
+    var p, where_obj;
     var rel = document.getElementById('rel_opt');
     var sum = 0;
     var init = history_array.length;
@@ -1663,8 +1665,8 @@ function add_object()
             document.getElementById('pmd_hint').style.display = 'block';
             return;
         }
-        var p = document.getElementById('Query');
-        var where_obj = new where(rel.value, p.value);//make where object
+        p = document.getElementById('Query');
+        where_obj = new where(rel.value, p.value);//make where object
         history_array.push(new history(col_name, where_obj, tab_name, h_tabs[downer + '.' + tab_name], "Where"));
         sum = sum + 1;
         rel.value = '--';
@@ -1695,8 +1697,8 @@ function add_object()
             document.getElementById('pmd_hint').style.display = 'block';
             return;
         }
-        var p = document.getElementById('having');
-        var where_obj = new having(
+        p = document.getElementById('having');
+        where_obj = new having(
             document.getElementById('h_rel_opt').value,
             p.value,
             document.getElementById('h_operator').value

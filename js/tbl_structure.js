@@ -82,6 +82,12 @@ AJAX.registerTeardown('tbl_structure.js', function () {
 
 AJAX.registerOnload('tbl_structure.js', function () {
 
+    // Re-initialize variables.
+    primary_indexes = [];
+    unique_indexes = [];
+    indexes = [];
+    fulltext_indexes = [];
+
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
      */
@@ -198,6 +204,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
          * @var curr_column_name    String containing name of the field referred to by {@link curr_row}
          */
         var curr_column_name = $curr_row.children('th').children('label').text();
+        curr_column_name = escapeHtml(curr_column_name);
         /**
          * @var $after_field_item    Corresponding entry in the 'After' field.
          */

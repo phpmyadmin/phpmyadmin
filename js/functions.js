@@ -43,6 +43,27 @@ var chart_activeTimeouts = {};
  * @var central_column_list array to hold the columns in central list per db.
  */
 var central_column_list = [];
+
+/**
+ * @var primary_indexes array to hold 'Primary' indexe columns.
+ */
+var primary_indexes = [];
+
+/**
+ * @var unique_indexes array to hold 'Unique' indexe columns.
+ */
+var unique_indexes = [];
+
+/**
+ * @var indexes array to hold 'Index' columns.
+ */
+var indexes = [];
+
+/**
+ * @var fulltext_indexes array to hold 'Fulltext' columns.
+ */
+var fulltext_indexes = [];
+
 /**
  * Make sure that ajax requests will not be cached
  * by appending a random variable to their parameters
@@ -3243,6 +3264,10 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
             });
             checkIndexType();
             checkIndexName("index_frm");
+            $('#index_columns td').each(function () {
+                $(this).css("width", $(this).width() + 'px');
+            });
+            $('#index_columns tbody').sortable();
             PMA_showHints($div);
             // Add a slider for selecting how many columns to add to the index
             $div.find('.slider').slider({
@@ -3780,7 +3805,7 @@ AJAX.registerOnload('functions.js', function () {
         var question = PMA_messages.strDropTableStrongWarning + ' ';
         question += $.sprintf(
             PMA_messages.strDoYouReally,
-            'DROP TABLE ' + PMA_commonParams.get('table')
+            'DROP TABLE ' + escapeHtml(PMA_commonParams.get('table'))
         );
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
@@ -3846,7 +3871,7 @@ AJAX.registerOnload('functions.js', function () {
         var question = PMA_messages.strTruncateTableStrongWarning + ' ';
         question += $.sprintf(
             PMA_messages.strDoYouReally,
-            'TRUNCATE ' + PMA_commonParams.get('table')
+            'TRUNCATE ' + escapeHtml(PMA_commonParams.get('table'))
         );
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);

@@ -87,24 +87,48 @@ class PMA_Console
     {
         $output = '';
         $cfgBookmark = PMA_Bookmark_getParams();
-        if($cfgBookmark) {
+        if ($cfgBookmark) {
 
-            $tpl_bookmark_actions =
-                   '<span class="action collapse">' . __('Collapse') . '</span> '
-                .  '<span class="action expand">' . __('Expand') . '</span> '
-                .  '<span class="action requery">' . __('Requery') . '</span> '
-                .  '<span class="action reedit">' . __('Reedit') . '</span> '
+            $tpl_bookmark_actions
+                = '<span class="action collapse">' . __('Collapse') . '</span> '
+                . '<span class="action expand">' . __('Expand') . '</span> '
+                . '<span class="action requery">' . __('Requery') . '</span> '
+                . '<span class="action reedit">' . __('Edit') . '</span> '
                 // .  '<span class="action bookmark">' . __('Delete') . '</span> '
-                .  '<span class="text targetdb">' . __('Database') . ': <span>%s</span></span>';
+                . '<span class="text targetdb">' . __('Database') . ': <span>%s</span></span>';
 
             $bookmarks = PMA_Bookmark_getList();
-            $output .= '<div class="message welcome"><span>'
-                    .  (count($bookmarks) > 0 ? __('Total ') .  count($bookmarks) . __(' bookmarks, ')
-                        . '<span class="bookmark_label">' . __('private')
-                        . '</span> and <span class="bookmark_label shared">' . __('shared')
-                        . '</span>' . __(' bookmarks included.')
-                        : __('No bookmarks'))
-                    .  '</span></div>';
+            $output .= '<div class="message welcome"><span>';
+            $count_bookmarks = count($bookmarks);
+            if ($count_bookmarks > 0) {
+                $bookmarks_message = sprintf(
+                    _ngettext(
+                        'Total %d bookmark',
+                        'Total %d bookmarks',
+                        $count_bookmarks
+                    ),
+                    $count_bookmarks
+                );
+                $private_message = sprintf(
+                    '<span class="bookmark_label">%1$s</span>',
+                    __('private')
+                );
+                $shared_message = sprintf(
+                    '<span class="bookmark_label shared">%1$s</span>',
+                    __('shared')
+                );
+                $output .= sprintf(
+                    /* l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared */
+                    __('%1$s, %2$s and %3$s bookmarks included'),
+                    $bookmarks_message,
+                    $private_message,
+                    $shared_message
+                );
+            } else {
+                $output .= __('No bookmarks');
+            }
+            unset($count_bookmarks, $private_message, $shared_message);
+            $output .= '</span></div>';
             foreach ($bookmarks as $key => $val) {
                 $output .= '<div class="message collapsed bookmark" bookmarkid="'
                 .  $val['id'] . '" bookmarkdb="' . $val['db']
@@ -129,7 +153,7 @@ class PMA_Console
     public function getDisplay()
     {
         $output  = '';
-        if((! $this->_isAjax) && $this->_isEnabled) {
+        if ((! $this->_isAjax) && $this->_isEnabled) {
             $cfgBookmark = PMA_Bookmark_getParams();
             $this->_scripts->addFile('codemirror/lib/codemirror.js');
             $this->_scripts->addFile('codemirror/mode/sql/sql.js');
@@ -141,15 +165,15 @@ class PMA_Console
             // The templates, use sprintf() to output them
             // There're white space at the end of every <span>,
             // for double-click selection
-            $tpl_query_actions =
-                       '<span class="action collapse">' . __('Collapse') . '</span> '
-                    .  '<span class="action expand">' . __('Expand') . '</span> '
-                    .  '<span class="action requery">' . __('Requery') . '</span> '
-                    .  '<span class="action reedit">' . __('Reedit') . '</span> '
+            $tpl_query_actions
+                    = '<span class="action collapse">' . __('Collapse') . '</span> '
+                    . '<span class="action expand">' . __('Expand') . '</span> '
+                    . '<span class="action requery">' . __('Requery') . '</span> '
+                    . '<span class="action reedit">' . __('Edit') . '</span> '
                     // .  ($cfgBookmark ? '<span class="action bookmark">' . __('Bookmark') . '</span> ' : '')
-                    .  '<span class="text failed">' . __('Query failed') . '</span> '
-                    .  '<span class="text targetdb">' . __('Database') . ': <span>%s</span></span> '
-                    .  '<span class="text query_time">' . __('Queried time') . ': <span>%s</span></span> ';
+                    . '<span class="text failed">' . __('Query failed') . '</span> '
+                    . '<span class="text targetdb">' . __('Database') . ': <span>%s</span></span> '
+                    . '<span class="text query_time">' . __('Queried time') . ': <span>%s</span></span> ';
 
             // Console toolbar
             $output .= '<div class="toolbar collapsed">';
@@ -167,7 +191,7 @@ class PMA_Console
             $output .= '<div class="button options"><span>'
                     . __('Options') . '</span></div>';
 
-            if($cfgBookmark) {
+            if ($cfgBookmark) {
                 $output .= '<div class="button bookmarks"><span>'
                         . __('Bookmarks') . '</span></div>';
             }
@@ -178,21 +202,28 @@ class PMA_Console
             $output .= '<div class="content">';
             $output .= '<div class="console_message_container">'
                     .  '<div class="message welcome"><span>'
-                    .  __('Press') . ' Ctrl+Enter ' . __('to Execute query')
+                    .  __('Press Ctrl+Enter to execute query')
                     .  '</span></div>';
 
             // History support
             $_sql_history = PMA_getHistory($GLOBALS['cfg']['Server']['user']);
-            if($_sql_history) {
+            if ($_sql_history) {
                 foreach (array_reverse($_sql_history) as $record) {
                     $output .= '<div class="message history collapsed hide" targetdb="'
-                            .  $record['db'] . '" targettable="' . $record['table']
-                            .  '""><div class="action_content">'
-                            .  sprintf($tpl_query_actions, $record['db'],
-                                (isset($record['timevalue']) ? $record['timevalue'] : __('During current session')))
-                            .  '</div><span class="query">'
-                            .  $record['sqlquery']
-                            .  '</span></div>';
+                            . htmlspecialchars($record['db'])
+                            . '" targettable="' . htmlspecialchars($record['table'])
+                            . '"><div class="action_content">'
+                            . sprintf(
+                                  $tpl_query_actions,
+                                  $record['db'],
+                                  (isset($record['timevalue'])
+                                      ? $record['timevalue']
+                                      : __('During current session')
+                                  )
+                              )
+                            . '</div><span class="query">'
+                            . htmlspecialchars($record['sqlquery'])
+                            . '</span></div>';
                 }
             }
 
@@ -205,7 +236,7 @@ class PMA_Console
 
             // Bookmarks card:
 
-            if($cfgBookmark) {
+            if ($cfgBookmark) {
                 $output .= '<div class="card" id="pma_bookmarks">';
                 $output .= '<div class="toolbar">'
                         .  '<div class="switch_button"><span>' . __('Bookmarks')

@@ -26,7 +26,7 @@ function captureURL(url)
  * @param object   parent HTMLDom Object
  */
 
-function redirect(target, parent)
+function removeColumnFromMultiSort(target, parent)
 {
     var URL = captureURL(target);
     var begin = target.indexOf('ORDER+BY') + 8;
@@ -36,7 +36,7 @@ function redirect(target, parent)
     var columns = between_part.split('%2C+');
     // If the given column is not part of the order clause exit from this function
     var index = parent.find('small').length ? parent.find('small').text() : '';
-    if (index === "") {
+    if (index === ''){
         return;
     }
     // Remove the current clicked column
@@ -53,15 +53,21 @@ function redirect(target, parent)
     }
     var middle_part = columns.join('%2C+');
     url = URL.head + middle_part + URL.tail;
-    window.location.replace(url);
+    return url;
 }
 
-
 AJAX.registerOnload('keyhandler.js', function () {
-    $("th.draggable.column_heading.pointer.marker  a").live('click', function (event) {
-        if (event.shiftKey) {
+    $("th.draggable.column_heading.pointer.marker a").on('click', function (event) {
+        var url = $(this).parent().find('input').val();
+        if (event.ctrlKey) {
             event.preventDefault();
-            redirect($(this).attr("href"), $(this).parent());
+            url = removeColumnFromMultiSort(url, $(this).parent());
+            AJAX.source = $(this);
+            $.get(url, {'ajax_request' : true, 'ajax_page_request' : true}, AJAX.responseHandler);
+        } else if (event.shiftKey) {
+            event.preventDefault();
+            AJAX.source = $(this);
+            $.get(url, {'ajax_request' : true, 'ajax_page_request' : true}, AJAX.responseHandler);
         }
     });
 });

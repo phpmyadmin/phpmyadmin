@@ -1087,16 +1087,13 @@ function PMA_findRealEndOfRows($db, $table)
  *
  * @param String $db            the current database
  * @param String $table         the current table
- * @param String $display_field display field
  *
  * @return void
  */
-function PMA_getRelationalValues($db, $table, $display_field)
+function PMA_getRelationalValues($db, $table)
 {
     $column = $_REQUEST['column'];
     if ($_SESSION['tmpval']['relational_display'] == 'D'
-        && isset($display_field)
-        && strlen($display_field)
         && isset($_REQUEST['relation_key_or_display_column'])
         && $_REQUEST['relation_key_or_display_column']
     ) {
@@ -1431,7 +1428,7 @@ function PMA_countQueryResults(
                 false
             );
             /**
-             * @todo Can we know at this point that this is InnoDB, 
+             * @todo Can we know at this point that this is InnoDB,
              *       (in this case there would be no need for getting
              *       an exact count)?
              */
@@ -1440,7 +1437,7 @@ function PMA_countQueryResults(
                 // is less than MaxExactCount
                 /**
                  * @todo In countRecords(), MaxExactCount is also verified,
-                 *       so can we avoid checking it twice? 
+                 *       so can we avoid checking it twice?
                  */
                 $unlim_num_rows = PMA_Table::countRecords(
                     $db,
@@ -2289,29 +2286,29 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
 /**
  * Function to execute the query and send the response
  *
- * @param array  $analyzed_sql_results   analysed sql results
- * @param bool   $is_gotofile            whether goto file or not
- * @param string $db                     current database
- * @param string $table                  current table
- * @param bool   $find_real_end          whether to find real end or not
- * @param string $sql_query_for_bookmark the sql query to be stored as bookmark
- * @param array  $extra_data             extra data
- * @param bool   $is_affected            whether affected or not
- * @param string $message_to_show        message to show
- * @param string $disp_mode              display mode
- * @param string $message                message
- * @param array  $sql_data               sql data
- * @param string $goto                   goto page url
- * @param string $pmaThemeImage          uri of the PMA theme image
- * @param string $disp_query             display query
- * @param string $disp_message           display message
- * @param string $query_type             query type
- * @param string $sql_query              sql query
- * @param array  $selectedTables         array of table names selected from the
- *                                       database structure page, for an action
- *                                       like check table, optimize table,
- *                                       analyze table or repair table
- * @param string $complete_query         complete query
+ * @param array      $analyzed_sql_results   analysed sql results
+ * @param bool       $is_gotofile            whether goto file or not
+ * @param string     $db                     current database
+ * @param string     $table                  current table
+ * @param bool|null  $find_real_end          whether to find real end or not
+ * @param string     $sql_query_for_bookmark the sql query to be stored as bookmark
+ * @param array|null $extra_data             extra data
+ * @param bool       $is_affected            whether affected or not
+ * @param string     $message_to_show        message to show
+ * @param string     $disp_mode              display mode
+ * @param string     $message                message
+ * @param array|null $sql_data               sql data
+ * @param string     $goto                   goto page url
+ * @param string     $pmaThemeImage          uri of the PMA theme image
+ * @param string     $disp_query             display query
+ * @param string     $disp_message           display message
+ * @param string     $query_type             query type
+ * @param string     $sql_query              sql query
+ * @param array      $selectedTables         array of table names selected from the
+ *                                           database structure page, for an action
+ *                                           like check table, optimize table,
+ *                                           analyze table or repair table
+ * @param string     $complete_query         complete query
  *
  * @return void
  */

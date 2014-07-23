@@ -53,7 +53,8 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
     $search_table .= '</a>';
 
     $browse_table_label = '<a href="sql.php?' . $tbl_url_query
-        . '&amp;pos=0" title="' . $current_table['TABLE_COMMENT'] . '">'
+        . '&amp;pos=0" title="'
+        . htmlspecialchars($current_table['TABLE_COMMENT']) . '">'
         . $truename . '</a>';
 
     if (!$db_is_system_schema) {
@@ -1883,19 +1884,19 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
  * This function returns common HTML <td> for Primary, Unique, Index,
  * Spatial actions
  *
- * @param string  $type               column type
- * @param string  $tbl_storage_engine table storage engine
- * @param string  $class              class attribute for <td>
- * @param boolean $hasField           has field
- * @param boolean $hasLinkClass       has <a> the class attribute
- * @param string  $url_query          url query
- * @param boolean $primary            primary if set, false otherwise
- * @param string  $syntax             Sql syntax
- * @param string  $message            message to show
- * @param string  $action             action
- * @param array   $titles             titles array
- * @param array   $row                current row
- * @param boolean $isPrimary          is primary action
+ * @param string         $type               column type
+ * @param string         $tbl_storage_engine table storage engine
+ * @param string         $class              class attribute for <td>
+ * @param boolean        $hasField           has field
+ * @param boolean        $hasLinkClass       has <a> the class attribute
+ * @param string         $url_query          url query
+ * @param object|boolean $primary            primary if set, false otherwise
+ * @param string         $syntax             Sql syntax
+ * @param string         $message            message to show
+ * @param string         $action             action
+ * @param array          $titles             titles array
+ * @param array          $row                current row
+ * @param boolean        $isPrimary          is primary action
  *
  * @return string $html_output
  */
@@ -2566,7 +2567,9 @@ function PMA_updateColumns($db, $table)
                     $db, $table, $_REQUEST['field_name'][$fieldindex],
                     $mimetype,
                     $_REQUEST['field_transformation'][$fieldindex],
-                    $_REQUEST['field_transformation_options'][$fieldindex]
+                    $_REQUEST['field_transformation_options'][$fieldindex],
+                    $_REQUEST['field_input_transformation'][$fieldindex],
+                    $_REQUEST['field_input_transformation_options'][$fieldindex]
                 );
             }
         }
@@ -3045,9 +3048,8 @@ function PMA_getHtmlShowCreate($db, $db_objects)
     }
     // Compile the final html.
     $html_output .= $tables . $views . '</div>';
-    // Send response to client.
-    $response = PMA_Response::getInstance();
-    $response->addJSON('message', $html_output);
+
+    return $html_output;
 }
 
 /**
