@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - bug       Broken links on home page
 - bug #4494 Overlap in navigation panel
 - bug #4427 Action icons not in horizontal order
+- bug #4493 s_attention.png is missing
 
 4.2.6.0 (2014-07-17)
 - bug #4471 Undefined index warning with referenced column.
