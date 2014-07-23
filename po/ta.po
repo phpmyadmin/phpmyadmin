@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-22 21:12+0200\n"
+"PO-Revision-Date: 2014-07-22 21:14+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2771,7 +2771,7 @@ msgstr ""
 #: libraries/Console.class.php:279
 #| msgid "Slow query rate"
 msgid "Show query history at start"
-msgstr "துவக்கத்தின் போது வினவல் வரலாற்றை காண்பி."
+msgstr "துவக்கத்தின் போது வினவல் வரலாற்றை காண்பி"
 
 #: libraries/Console.class.php:281
 msgid "Show current browsing query"
@@ -13270,10 +13270,9 @@ msgid "Available MIME types"
 msgstr ""
 
 #: transformation_overview.php:37
-#, fuzzy
 #| msgid "Tables display options."
 msgid "Available browser display transformations"
-msgstr "அட்டவணைகளின் காட்சித்தெரிவுகள்."
+msgstr "கிடைக்கபெறும் உலவியின் காட்சித்தெரிவு மாற்றமைப்புகள்"
 
 #: transformation_overview.php:38
 msgid "Available input transformations"
