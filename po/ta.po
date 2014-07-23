@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-02 07:56+0200\n"
-"Last-Translator: Lakshmanan M <send2lakshman@gmail.com>\n"
+"PO-Revision-Date: 2014-07-22 20:21+0200\n"
+"Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
@@ -830,17 +830,16 @@ msgstr ""
 "பிரிக்கவியலாது அதனால் எதிர்பாரா முடிவுகள் கிடைக்கலாம்."
 
 #: index.php:471
-#, fuzzy
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"உங்கள் PHP அளவுரு [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] , கால் தேக்கரண்டி உப்பு "
-"கட்டமைக்கப்பட்ட குக்கீ செல்லுபடியாகும் விட குறைவாக உள்ளது, ஏனெனில் இந்த, உங்கள் உள்நுழைவு "
-"விரைவில் உதாரணமாக, கட்டமைக்கப்பட்ட விட காலாவதியாகிவிடும்."
+"உங்கள் PHP [a@http://php.net/manual/en/session.configuration.php#ini.session"
+".gc-maxlifetime@_blank]session.gc_maxlifetime[/a] அளவுரு, கட்டமைக்கப்பட்ட "
+"பயனர் நிலை பதிவுத்துணுக்கு செல்லுபடியாகும் காலத்தை விட குறைவாக உள்ளது, இதனால்"
+" உங்கள் அமர்வு phpMyAdmin கட்டமைக்கப்பட்டதை விட விரைவில் காலாவதியாகிவிடும்."
 
 #: index.php:483
 msgid ""
@@ -1868,10 +1867,9 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "இணைப்புக்கு செல்."
+msgstr "இணைப்புக்கு செல்:"
 
 #: js/messages.php:366
 msgid "Copy column name."

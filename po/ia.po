@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-18 13:33+0200\n"
+"PO-Revision-Date: 2014-07-22 19:45+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/ia/>\n"
@@ -7610,6 +7610,11 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
+"Le maxime grandor del file de registro de datos. Le valor predefinite es "
+"64MB. PBXT pote crear un maximo de 32000 registros (log) de datos, que es "
+"usate per omne tabellas. Le valor pote esser augmentate per augmentar le "
+"quantitate maxime del datos que on pote esser immagazinate in le base de "
+"datos."
 
 #: libraries/engines/pbxt.lib.php:63
 msgid "Garbage threshold"
@@ -7620,10 +7625,13 @@ msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr ""
+"Le percentage  de corbe (immunditias) in un file de registro de datos ante "
+"que esser compactate. Isto es un valor inter 1 e 99. Le valor predefinite es "
+"50."
 
 #: libraries/engines/pbxt.lib.php:68
 msgid "Log buffer size"
-msgstr ""
+msgstr "Grandor del tampon de registro (log buffer)"
 
 #: libraries/engines/pbxt.lib.php:69
 msgid ""
@@ -7631,18 +7639,21 @@ msgid ""
 "The engine allocates one buffer per thread, but only if the thread is "
 "required to write a data log."
 msgstr ""
+"Le grandor del tampon usate quando on scribe un registro (log) de datos. Le "
+"valor predefinite es de 256MB. Le motor alloca un tampon per thread, ma "
+"solmente si le thread es requirite de scriber un registro de datos."
 
 #: libraries/engines/pbxt.lib.php:73
 msgid "Data file grow size"
-msgstr ""
+msgstr "Grandor de crescita de file de datos"
 
 #: libraries/engines/pbxt.lib.php:74
 msgid "The grow size of the handle data (.xtd) files."
-msgstr ""
+msgstr "Le grandor de crescita del files de datos de handle (.xtd)."
 
 #: libraries/engines/pbxt.lib.php:78
 msgid "Row file grow size"
-msgstr ""
+msgstr "Grandor de crescita de file de rango"
 
 #: libraries/engines/pbxt.lib.php:79
 msgid "The grow size of the row pointer (.xtr) files."
