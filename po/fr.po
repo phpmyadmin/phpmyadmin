@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-22 07:31-0700\n"
-"PO-Revision-Date: 2014-07-19 14:03+0200\n"
+"PO-Revision-Date: 2014-07-23 15:40+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1014,28 +1014,24 @@ msgid "Add %s column(s) to index"
 msgstr "Ajouter %s colonne(s) à l'index"
 
 #: js/messages.php:61
-#, fuzzy
 #| msgid "Create an index"
 msgid "Create single-column index"
-msgstr "Créer un index"
+msgstr "Créer un index sur une seule colonne"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "Create an index"
 msgid "Create composite index"
-msgstr "Créer un index"
+msgstr "Créer un index sur plusieurs colonnes"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "Colonnes entourées par : "
+msgstr "Autres colonnes formant l'index :"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Ajouter %s colonne(s) à l'index"
+msgstr "Veuillez sélectionner les colonnes de l'index."
 
 #: js/messages.php:67 libraries/insert_edit.lib.php:1606
 #: libraries/tbl_columns_definition_form.lib.php:141
@@ -11471,7 +11467,7 @@ msgstr "«Grant»"
 
 #: libraries/server_privileges.lib.php:2020
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "Privilèges insuffisants pour visualiser les utilisateurs."
 
 #: libraries/server_privileges.lib.php:2039
 #: libraries/server_privileges.lib.php:3389
@@ -11621,6 +11617,8 @@ msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
+"Remarque : Vous tentez de modifier les privilèges de l'utilisateur avec "
+"lequel vous êtes actuellement connecté."
 
 #: libraries/server_privileges.lib.php:3884 libraries/server_users.lib.php:25
 msgid "Users overview"
@@ -13471,10 +13469,9 @@ msgid "Index type:"
 msgstr "Type d'index : "
 
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:375
-#, fuzzy
 #| msgid "Drag to reorder."
 msgid "Drag to reorder"
-msgstr "Faire glisser pour réordonner."
+msgstr "Faire glisser pour réordonner"
 
 #: libraries/tbl_printview.lib.php:30
 msgid "Showing tables:"
