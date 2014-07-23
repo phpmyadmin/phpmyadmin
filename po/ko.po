@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-22 07:31-0700\n"
+"POT-Creation-Date: 2014-07-23 08:38-0700\n"
 "PO-Revision-Date: 2014-06-29 07:52+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
@@ -1186,14 +1186,14 @@ msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:126 libraries/Util.class.php:1342
-#: libraries/server_status_monitor.lib.php:229
+#: libraries/server_status_monitor.lib.php:217
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:127 libraries/Util.class.php:1344
 #: libraries/display_export.lib.php:684
-#: libraries/server_status_monitor.lib.php:230
+#: libraries/server_status_monitor.lib.php:218
 msgid "MiB"
 msgstr "MB"
 
@@ -1232,7 +1232,7 @@ msgid "Traffic"
 msgstr "소통량"
 
 #: js/messages.php:137 libraries/Menu.class.php:561
-#: libraries/Util.class.php:4079 libraries/server_status_monitor.lib.php:269
+#: libraries/Util.class.php:4079 libraries/server_status_monitor.lib.php:257
 msgid "Settings"
 msgstr "설정"
 
@@ -1249,7 +1249,7 @@ msgstr "하나 이상의 변수를 시리즈에 추가하십시오!"
 #: libraries/display_export.lib.php:580
 #: libraries/plugins/export/ExportSql.class.php:1871
 #: libraries/server_privileges.lib.php:2673
-#: libraries/server_status_monitor.lib.php:248
+#: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:261
 #: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:671
 msgid "None"
@@ -1359,7 +1359,7 @@ msgstr "설정 변경"
 msgid "Current settings"
 msgstr "현재 설정"
 
-#: js/messages.php:171 libraries/server_status_monitor.lib.php:186
+#: js/messages.php:171 libraries/server_status_monitor.lib.php:174
 msgid "Chart Title"
 msgstr "차트 제목"
 
@@ -1536,7 +1536,7 @@ msgstr "가져온 설정과 차트 격자를 그리는데 실패했습니다. �
 #: libraries/Util.class.php:4078 libraries/Util.class.php:4093
 #: libraries/Util.class.php:4110 libraries/config/messages.inc.php:223
 #: libraries/display_import.lib.php:105
-#: libraries/server_status_monitor.lib.php:330 prefs_manage.php:232
+#: libraries/server_status_monitor.lib.php:318 prefs_manage.php:232
 #: setup/frames/menu.inc.php:26
 msgid "Import"
 msgstr "가져오기"
@@ -1597,7 +1597,7 @@ msgid "Cancel"
 msgstr "취소"
 
 #: js/messages.php:246 libraries/navigation/NavigationHeader.class.php:54
-#: libraries/server_status_monitor.lib.php:134
+#: libraries/server_status_monitor.lib.php:123
 msgid "Loading…"
 msgstr "불러오는 중…"
 
@@ -3241,7 +3241,7 @@ msgstr "변경"
 #: libraries/display_export.lib.php:164
 #: libraries/server_privileges.lib.php:2272
 #: libraries/server_privileges.lib.php:2976
-#: libraries/server_status_monitor.lib.php:334 libraries/structure.lib.php:313
+#: libraries/server_status_monitor.lib.php:322 libraries/structure.lib.php:313
 #: prefs_manage.php:293 setup/frames/menu.inc.php:27
 msgid "Export"
 msgstr "내보내기"
@@ -3280,7 +3280,7 @@ msgstr "오류메시지가 너무 많기 때문에 일부 메시지는 출력되
 msgid "Report"
 msgstr "보고"
 
-#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:354
+#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:357
 msgid "Automatically send report next time"
 msgstr "다음부터 보고를 자동으로 보내기"
 
@@ -8115,18 +8115,18 @@ msgstr "연관 링크"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr ""
 
-#: libraries/error_report.lib.php:332
+#: libraries/error_report.lib.php:335
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
 
-#: libraries/error_report.lib.php:339
+#: libraries/error_report.lib.php:342
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: libraries/error_report.lib.php:346
+#: libraries/error_report.lib.php:349
 msgid "Please explain the steps that lead to the error:"
 msgstr ""
 
@@ -11593,22 +11593,11 @@ msgid ""
 "increases server load by up to 15%."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:124
-msgid ""
-"Unfortunately your Database server does not support logging to table, which "
-"is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
-"table is supported by MySQL 5.1.6 and onwards. You may still use the server "
-"charting features however."
-msgstr ""
-"데이터베이스 서버가 테이블 로깅을 지원하지 않습니다. 이 기능은 phpMyAdmin으"
-"로 데이터베이스 로그를 분석하는데 필요합니다. 테이블 로깅은 MySQL 5.1.6 이상"
-"에서 지원합니다. 하지만, 서버 그래프 기능은 지금도 사용할 수 있습니다."
-
-#: libraries/server_status_monitor.lib.php:139
+#: libraries/server_status_monitor.lib.php:128
 msgid "Using the monitor:"
 msgstr "모니터 사용 방식:"
 
-#: libraries/server_status_monitor.lib.php:142
+#: libraries/server_status_monitor.lib.php:131
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -11618,7 +11607,7 @@ msgstr ""
 "를 추가하거나, 새로고침 주기를 수정할 수 있습니다. 또한 각 차트의 톱니바퀴 아"
 "이콘을 통해 차트를 제거할 수 있습니다."
 
-#: libraries/server_status_monitor.lib.php:148
+#: libraries/server_status_monitor.lib.php:137
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -11629,11 +11618,11 @@ msgstr ""
 "래그하여 선택하세요. 시간대가 결정되면, 쿼리 그룹 테이블을 불러옵니다. 여기"
 "서 SELECT 구문을 클릭하여 추가적인 분석을 할 수 있습니다."
 
-#: libraries/server_status_monitor.lib.php:158
+#: libraries/server_status_monitor.lib.php:147
 msgid "Please note:"
 msgstr "주의사항:"
 
-#: libraries/server_status_monitor.lib.php:161
+#: libraries/server_status_monitor.lib.php:150
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -11645,85 +11634,85 @@ msgstr ""
 "시간대를 선택, general_log를 비활성화, 및 모니터링이 더 이상 필요하지 않는 테"
 "이블은 비우는 것을 추천합니다."
 
-#: libraries/server_status_monitor.lib.php:183
-#: libraries/server_status_monitor.lib.php:293
+#: libraries/server_status_monitor.lib.php:171
+#: libraries/server_status_monitor.lib.php:281
 msgid "Add chart"
 msgstr "차트 추가"
 
-#: libraries/server_status_monitor.lib.php:189
+#: libraries/server_status_monitor.lib.php:177
 msgid "Preset chart"
 msgstr "프리셋 차트"
 
-#: libraries/server_status_monitor.lib.php:194
+#: libraries/server_status_monitor.lib.php:182
 msgid "Status variable(s)"
 msgstr "상태 변수"
 
-#: libraries/server_status_monitor.lib.php:197
+#: libraries/server_status_monitor.lib.php:185
 msgid "Select series:"
 msgstr "시리즈 선택:"
 
-#: libraries/server_status_monitor.lib.php:199
+#: libraries/server_status_monitor.lib.php:187
 msgid "Commonly monitored"
 msgstr "일반 모니터링 대상"
 
-#: libraries/server_status_monitor.lib.php:215
+#: libraries/server_status_monitor.lib.php:203
 msgid "or type variable name:"
 msgstr "또는 타입 변수 이름:"
 
-#: libraries/server_status_monitor.lib.php:222
+#: libraries/server_status_monitor.lib.php:210
 msgid "Display as differential value"
 msgstr "차이값으로 출력"
 
-#: libraries/server_status_monitor.lib.php:226
+#: libraries/server_status_monitor.lib.php:214
 msgid "Apply a divisor"
 msgstr "나누는 수 적용"
 
-#: libraries/server_status_monitor.lib.php:234
+#: libraries/server_status_monitor.lib.php:222
 msgid "Append unit to data values"
 msgstr "데이터 값에 단위를 덧붙임"
 
-#: libraries/server_status_monitor.lib.php:240
+#: libraries/server_status_monitor.lib.php:228
 msgid "Add this series"
 msgstr "이 시리즈 추가"
 
-#: libraries/server_status_monitor.lib.php:242
+#: libraries/server_status_monitor.lib.php:230
 msgid "Clear series"
 msgstr "시리즈 없애기"
 
-#: libraries/server_status_monitor.lib.php:245
+#: libraries/server_status_monitor.lib.php:233
 msgid "Series in Chart:"
 msgstr "차트의 시리즈:"
 
-#: libraries/server_status_monitor.lib.php:266
+#: libraries/server_status_monitor.lib.php:254
 msgid "Start Monitor"
 msgstr "모니터링 시작"
 
-#: libraries/server_status_monitor.lib.php:273
+#: libraries/server_status_monitor.lib.php:261
 msgid "Instructions/Setup"
 msgstr "사용방법/셋업"
 
-#: libraries/server_status_monitor.lib.php:277
+#: libraries/server_status_monitor.lib.php:265
 msgid "Done dragging (rearranging) charts"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:296
+#: libraries/server_status_monitor.lib.php:284
 msgid "Enable charts dragging"
 msgstr "﻿그래프 드래그 사용"
 
-#: libraries/server_status_monitor.lib.php:300
+#: libraries/server_status_monitor.lib.php:288
 #: libraries/server_status_processes.lib.php:29
 msgid "Refresh rate"
 msgstr "새로고침 간격"
 
-#: libraries/server_status_monitor.lib.php:309
+#: libraries/server_status_monitor.lib.php:297
 msgid "Chart columns"
 msgstr "그래프 상의 컬럼 갯수"
 
-#: libraries/server_status_monitor.lib.php:321
+#: libraries/server_status_monitor.lib.php:309
 msgid "Chart arrangement"
 msgstr "그래프 정렬"
 
-#: libraries/server_status_monitor.lib.php:324
+#: libraries/server_status_monitor.lib.php:312
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -11731,7 +11720,7 @@ msgstr ""
 "차트 설정은 브라우저의 로컬 스토리지에 저장됩니다. 설정된 내용이 있다면 내보"
 "내기를 할 수 있습니다."
 
-#: libraries/server_status_monitor.lib.php:338
+#: libraries/server_status_monitor.lib.php:326
 msgid "Reset to default"
 msgstr "기본값으로 초기화"
 
@@ -15228,6 +15217,16 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다"
+
+#~ msgid ""
+#~ "Unfortunately your Database server does not support logging to table, "
+#~ "which is a requirement for analyzing the database logs with phpMyAdmin. "
+#~ "Logging to table is supported by MySQL 5.1.6 and onwards. You may still "
+#~ "use the server charting features however."
+#~ msgstr ""
+#~ "데이터베이스 서버가 테이블 로깅을 지원하지 않습니다. 이 기능은 phpMyAdmin"
+#~ "으로 데이터베이스 로그를 분석하는데 필요합니다. 테이블 로깅은 MySQL 5.1.6 "
+#~ "이상에서 지원합니다. 하지만, 서버 그래프 기능은 지금도 사용할 수 있습니다."
 
 #~ msgid "Click to sort"
 #~ msgstr "정렬하려면 클릭"

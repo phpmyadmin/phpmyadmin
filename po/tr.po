@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-22 07:31-0700\n"
+"POT-Creation-Date: 2014-07-23 08:38-0700\n"
 "PO-Revision-Date: 2014-07-23 13:52+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
+">\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1008,7 +1008,6 @@ msgid "Add %s column(s) to index"
 msgstr "İndekse %s sütun ekle"
 
 #: js/messages.php:61
-#| msgid "Create an index"
 msgid "Create single-column index"
 msgstr "Tek sütun indeks oluştur"
 
@@ -1025,7 +1024,6 @@ msgid "Composite with:"
 msgstr "Sütunlar şununla kapatılmış:"
 
 #: js/messages.php:64
-#| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
 msgstr "İndeks için lütfen sütun(ları) seçin."
 
@@ -1203,14 +1201,14 @@ msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:126 libraries/Util.class.php:1342
-#: libraries/server_status_monitor.lib.php:229
+#: libraries/server_status_monitor.lib.php:217
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:127 libraries/Util.class.php:1344
 #: libraries/display_export.lib.php:684
-#: libraries/server_status_monitor.lib.php:230
+#: libraries/server_status_monitor.lib.php:218
 msgid "MiB"
 msgstr "MiB"
 
@@ -1249,7 +1247,7 @@ msgid "Traffic"
 msgstr "Trafik"
 
 #: js/messages.php:137 libraries/Menu.class.php:561
-#: libraries/Util.class.php:4079 libraries/server_status_monitor.lib.php:269
+#: libraries/Util.class.php:4079 libraries/server_status_monitor.lib.php:257
 msgid "Settings"
 msgstr "Ayarlar"
 
@@ -1266,7 +1264,7 @@ msgstr "Lütfen diziye en az bir değişken ekleyin!"
 #: libraries/display_export.lib.php:580
 #: libraries/plugins/export/ExportSql.class.php:1871
 #: libraries/server_privileges.lib.php:2673
-#: libraries/server_status_monitor.lib.php:248
+#: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:261
 #: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:671
 msgid "None"
@@ -1376,7 +1374,7 @@ msgstr "Değiştirme ayarları"
 msgid "Current settings"
 msgstr "Şu anki ayarlar"
 
-#: js/messages.php:171 libraries/server_status_monitor.lib.php:186
+#: js/messages.php:171 libraries/server_status_monitor.lib.php:174
 msgid "Chart Title"
 msgstr "Çizelge Başlığı"
 
@@ -1558,7 +1556,7 @@ msgstr ""
 #: libraries/Util.class.php:4078 libraries/Util.class.php:4093
 #: libraries/Util.class.php:4110 libraries/config/messages.inc.php:223
 #: libraries/display_import.lib.php:105
-#: libraries/server_status_monitor.lib.php:330 prefs_manage.php:232
+#: libraries/server_status_monitor.lib.php:318 prefs_manage.php:232
 #: setup/frames/menu.inc.php:26
 msgid "Import"
 msgstr "İçe Aktar"
@@ -1619,7 +1617,7 @@ msgid "Cancel"
 msgstr "İptal"
 
 #: js/messages.php:246 libraries/navigation/NavigationHeader.class.php:54
-#: libraries/server_status_monitor.lib.php:134
+#: libraries/server_status_monitor.lib.php:123
 msgid "Loading…"
 msgstr "Yükleniyor…"
 
@@ -1892,18 +1890,15 @@ msgid "Step"
 msgstr "Adım"
 
 #: js/messages.php:324
-#| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
 msgstr "Aşağıdaki eylemler gerçekleştirilecektir:"
 
 #: js/messages.php:325
 #, php-format
-#| msgid "Remove columns from central list"
 msgid "DROP columns %1s from the table %2s"
 msgstr "%2s tablosundan %1s sütunlarını KALDIR"
 
 #: js/messages.php:326
-#| msgid "Add privileges on the following table:"
 msgid "Create the following table"
 msgstr "Aşağıdaki tabloyu oluştur"
 
@@ -3227,7 +3222,7 @@ msgstr "Değiştir"
 #: libraries/display_export.lib.php:164
 #: libraries/server_privileges.lib.php:2272
 #: libraries/server_privileges.lib.php:2976
-#: libraries/server_status_monitor.lib.php:334 libraries/structure.lib.php:313
+#: libraries/server_status_monitor.lib.php:322 libraries/structure.lib.php:313
 #: prefs_manage.php:293 setup/frames/menu.inc.php:27
 msgid "Export"
 msgstr "Dışa Aktar"
@@ -3266,7 +3261,7 @@ msgstr "Çok fazla hata mesajı, bazıları görüntülenmedi."
 msgid "Report"
 msgstr "Rapor"
 
-#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:354
+#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:357
 msgid "Automatically send report next time"
 msgstr "Raporu bir dahaki sefere otomatik olarak gönder"
 
@@ -8181,7 +8176,7 @@ msgstr "İlgili Bağlantılar"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "Paul McCullagh'ın The PrimeBase XT Bloğu"
 
-#: libraries/error_report.lib.php:332
+#: libraries/error_report.lib.php:335
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
@@ -8191,11 +8186,11 @@ msgstr ""
 "ilgili yapılandırma hakkındaki bilgiyi de sorunun hatasını ayıklamada bize "
 "yardımcı olması için phpMyAdmin takımına göndermek amacıyla bilgi topladık."
 
-#: libraries/error_report.lib.php:339
+#: libraries/error_report.lib.php:342
 msgid "You may examine the data in the error report:"
 msgstr "Hata raporundaki verileri inceleyebilirsiniz:"
 
-#: libraries/error_report.lib.php:346
+#: libraries/error_report.lib.php:349
 msgid "Please explain the steps that lead to the error:"
 msgstr "Lütfen hataya neden adımları açıklayın:"
 
@@ -11670,23 +11665,11 @@ msgstr ""
 "etkinleştirilir. Ancak unutmayın, general_log çok fazla veri üretir ve "
 "sunucu yükünü %15'e kadar arttırır."
 
-#: libraries/server_status_monitor.lib.php:124
-msgid ""
-"Unfortunately your Database server does not support logging to table, which "
-"is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
-"table is supported by MySQL 5.1.6 and onwards. You may still use the server "
-"charting features however."
-msgstr ""
-"Ne yazık ki Veritabanı sunucunuz phpMyAdmin ile veritabanı günlüklerini "
-"çözümlemek için gereken tabloları günlüklemeyi desteklemiyor. Tabloyu "
-"günlükleme MySQL 5.1.6 ve sonrakiler tarafından desteklenir. Yinede hala "
-"sunucu çizelgeleme özelliklerini kullanabilirsiniz."
-
-#: libraries/server_status_monitor.lib.php:139
+#: libraries/server_status_monitor.lib.php:128
 msgid "Using the monitor:"
 msgstr "İzleyici kullanımı:"
 
-#: libraries/server_status_monitor.lib.php:142
+#: libraries/server_status_monitor.lib.php:131
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -11697,7 +11680,7 @@ msgstr ""
 "değiştirebilirsiniz veya her çizelgenin kendi dişli çark simgesini "
 "kullanarak herhangi bir çizelgeyi kaldırabilirsiniz."
 
-#: libraries/server_status_monitor.lib.php:148
+#: libraries/server_status_monitor.lib.php:137
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -11710,11 +11693,11 @@ msgstr ""
 "yükleyecek. Daha fazla çözümlemesi için herhangi bir meydana gelen SELECT "
 "ifadesine tıklayabilirsiniz."
 
-#: libraries/server_status_monitor.lib.php:158
+#: libraries/server_status_monitor.lib.php:147
 msgid "Please note:"
 msgstr "Lütfen unutmayın:"
 
-#: libraries/server_status_monitor.lib.php:161
+#: libraries/server_status_monitor.lib.php:150
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -11727,85 +11710,85 @@ msgstr ""
 "etkisizleştirmek tavsiye edilir ve tablolarını bir defa boşaltmak daha fazla "
 "izlemeyi gerektirmez."
 
-#: libraries/server_status_monitor.lib.php:183
-#: libraries/server_status_monitor.lib.php:293
+#: libraries/server_status_monitor.lib.php:171
+#: libraries/server_status_monitor.lib.php:281
 msgid "Add chart"
 msgstr "Çizelge ekle"
 
-#: libraries/server_status_monitor.lib.php:189
+#: libraries/server_status_monitor.lib.php:177
 msgid "Preset chart"
 msgstr "Hazır çizelge"
 
-#: libraries/server_status_monitor.lib.php:194
+#: libraries/server_status_monitor.lib.php:182
 msgid "Status variable(s)"
 msgstr "Durum değişken(leri)i"
 
-#: libraries/server_status_monitor.lib.php:197
+#: libraries/server_status_monitor.lib.php:185
 msgid "Select series:"
 msgstr "Dizi seç:"
 
-#: libraries/server_status_monitor.lib.php:199
+#: libraries/server_status_monitor.lib.php:187
 msgid "Commonly monitored"
 msgstr "Genellikle izlenen"
 
-#: libraries/server_status_monitor.lib.php:215
+#: libraries/server_status_monitor.lib.php:203
 msgid "or type variable name:"
 msgstr "veya değişken adını yazın:"
 
-#: libraries/server_status_monitor.lib.php:222
+#: libraries/server_status_monitor.lib.php:210
 msgid "Display as differential value"
 msgstr "Ayırdedici değer olarak görüntüle"
 
-#: libraries/server_status_monitor.lib.php:226
+#: libraries/server_status_monitor.lib.php:214
 msgid "Apply a divisor"
 msgstr "Bir bölen uygula"
 
-#: libraries/server_status_monitor.lib.php:234
+#: libraries/server_status_monitor.lib.php:222
 msgid "Append unit to data values"
 msgstr "Veri değerlerine birimi ekle"
 
-#: libraries/server_status_monitor.lib.php:240
+#: libraries/server_status_monitor.lib.php:228
 msgid "Add this series"
 msgstr "Bu diziyi ekle"
 
-#: libraries/server_status_monitor.lib.php:242
+#: libraries/server_status_monitor.lib.php:230
 msgid "Clear series"
 msgstr "Diziyi temizle"
 
-#: libraries/server_status_monitor.lib.php:245
+#: libraries/server_status_monitor.lib.php:233
 msgid "Series in Chart:"
 msgstr "Çizelgedeki Dizi:"
 
-#: libraries/server_status_monitor.lib.php:266
+#: libraries/server_status_monitor.lib.php:254
 msgid "Start Monitor"
 msgstr "İzlemeyi başlat"
 
-#: libraries/server_status_monitor.lib.php:273
+#: libraries/server_status_monitor.lib.php:261
 msgid "Instructions/Setup"
 msgstr "Yönergeler/Ayarlama"
 
-#: libraries/server_status_monitor.lib.php:277
+#: libraries/server_status_monitor.lib.php:265
 msgid "Done dragging (rearranging) charts"
 msgstr "Çizelgeleri sürüklemeyi (yeniden düzenlemeyi) bitir"
 
-#: libraries/server_status_monitor.lib.php:296
+#: libraries/server_status_monitor.lib.php:284
 msgid "Enable charts dragging"
 msgstr "Çizelgeleri sürüklemeyi etkinleştir"
 
-#: libraries/server_status_monitor.lib.php:300
+#: libraries/server_status_monitor.lib.php:288
 #: libraries/server_status_processes.lib.php:29
 msgid "Refresh rate"
 msgstr "Yenileme oranı"
 
-#: libraries/server_status_monitor.lib.php:309
+#: libraries/server_status_monitor.lib.php:297
 msgid "Chart columns"
 msgstr "Çizelge sütunu"
 
-#: libraries/server_status_monitor.lib.php:321
+#: libraries/server_status_monitor.lib.php:309
 msgid "Chart arrangement"
 msgstr "Çizelge ayarlaması"
 
-#: libraries/server_status_monitor.lib.php:324
+#: libraries/server_status_monitor.lib.php:312
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -11813,7 +11796,7 @@ msgstr ""
 "Çizelgelerin ayarlanması tarayıcının yerel deposunda saklanır. Eğer karışık "
 "ayarlamalarınız varsa, bunu dışa aktarmak isteyebilirsiniz."
 
-#: libraries/server_status_monitor.lib.php:338
+#: libraries/server_status_monitor.lib.php:326
 msgid "Reset to default"
 msgstr "Varsayılana sıfırla"
 
@@ -15399,6 +15382,17 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0'a ayarlı"
+
+#~ msgid ""
+#~ "Unfortunately your Database server does not support logging to table, "
+#~ "which is a requirement for analyzing the database logs with phpMyAdmin. "
+#~ "Logging to table is supported by MySQL 5.1.6 and onwards. You may still "
+#~ "use the server charting features however."
+#~ msgstr ""
+#~ "Ne yazık ki Veritabanı sunucunuz phpMyAdmin ile veritabanı günlüklerini "
+#~ "çözümlemek için gereken tabloları günlüklemeyi desteklemiyor. Tabloyu "
+#~ "günlükleme MySQL 5.1.6 ve sonrakiler tarafından desteklenir. Yinede hala "
+#~ "sunucu çizelgeleme özelliklerini kullanabilirsiniz."
 
 #~ msgid "Click to sort"
 #~ msgstr "Sıralamak için tıklayın"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-22 07:31-0700\n"
+"POT-Creation-Date: 2014-07-23 08:38-0700\n"
 "PO-Revision-Date: 2014-07-10 16:29+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/"
@@ -1200,14 +1200,14 @@ msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:126 libraries/Util.class.php:1342
-#: libraries/server_status_monitor.lib.php:229
+#: libraries/server_status_monitor.lib.php:217
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:127 libraries/Util.class.php:1344
 #: libraries/display_export.lib.php:684
-#: libraries/server_status_monitor.lib.php:230
+#: libraries/server_status_monitor.lib.php:218
 msgid "MiB"
 msgstr "MiB"
 
@@ -1246,7 +1246,7 @@ msgid "Traffic"
 msgstr "Trafik"
 
 #: js/messages.php:137 libraries/Menu.class.php:561
-#: libraries/Util.class.php:4079 libraries/server_status_monitor.lib.php:269
+#: libraries/Util.class.php:4079 libraries/server_status_monitor.lib.php:257
 msgid "Settings"
 msgstr "Indstillinger"
 
@@ -1263,7 +1263,7 @@ msgstr "Tilføj mindst en variabel til serien!"
 #: libraries/display_export.lib.php:580
 #: libraries/plugins/export/ExportSql.class.php:1871
 #: libraries/server_privileges.lib.php:2673
-#: libraries/server_status_monitor.lib.php:248
+#: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:261
 #: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:671
 msgid "None"
@@ -1373,7 +1373,7 @@ msgstr "Ændre indstillinger"
 msgid "Current settings"
 msgstr "Aktuelle indstillinger"
 
-#: js/messages.php:171 libraries/server_status_monitor.lib.php:186
+#: js/messages.php:171 libraries/server_status_monitor.lib.php:174
 msgid "Chart Title"
 msgstr "Diagramtitel"
 
@@ -1556,7 +1556,7 @@ msgstr ""
 #: libraries/Util.class.php:4078 libraries/Util.class.php:4093
 #: libraries/Util.class.php:4110 libraries/config/messages.inc.php:223
 #: libraries/display_import.lib.php:105
-#: libraries/server_status_monitor.lib.php:330 prefs_manage.php:232
+#: libraries/server_status_monitor.lib.php:318 prefs_manage.php:232
 #: setup/frames/menu.inc.php:26
 msgid "Import"
 msgstr "Importér"
@@ -1617,7 +1617,7 @@ msgid "Cancel"
 msgstr "Annuller"
 
 #: js/messages.php:246 libraries/navigation/NavigationHeader.class.php:54
-#: libraries/server_status_monitor.lib.php:134
+#: libraries/server_status_monitor.lib.php:123
 msgid "Loading…"
 msgstr "Indlæser…"
 
@@ -3232,7 +3232,7 @@ msgstr "Ret"
 #: libraries/display_export.lib.php:164
 #: libraries/server_privileges.lib.php:2272
 #: libraries/server_privileges.lib.php:2976
-#: libraries/server_status_monitor.lib.php:334 libraries/structure.lib.php:313
+#: libraries/server_status_monitor.lib.php:322 libraries/structure.lib.php:313
 #: prefs_manage.php:293 setup/frames/menu.inc.php:27
 msgid "Export"
 msgstr "Eksportér"
@@ -3271,7 +3271,7 @@ msgstr "For mange fejlmeddelelser, nogle vises ikke."
 msgid "Report"
 msgstr "Rapport"
 
-#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:354
+#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:357
 msgid "Automatically send report next time"
 msgstr "Send automatisk rapport næste gang"
 
@@ -8160,7 +8160,7 @@ msgstr "Relaterede links"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "Bloggen The PrimeBase XT af Paul McCullagh"
 
-#: libraries/error_report.lib.php:332
+#: libraries/error_report.lib.php:335
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
@@ -8170,11 +8170,11 @@ msgstr ""
 "som information om relevante konfigurationsindstillinger til phpMyAdmin-"
 "holdet, til hjælp for vores fejlsøgning af problemet."
 
-#: libraries/error_report.lib.php:339
+#: libraries/error_report.lib.php:342
 msgid "You may examine the data in the error report:"
 msgstr "Du kan gennemse indholdet i fejlrapporten:"
 
-#: libraries/error_report.lib.php:346
+#: libraries/error_report.lib.php:349
 msgid "Please explain the steps that lead to the error:"
 msgstr "Forklar venligst de trin som førte til fejlen:"
 
@@ -11655,23 +11655,11 @@ msgstr ""
 "dog, at general_log genererer en mængde data og forøger server load med op "
 "til 15%."
 
-#: libraries/server_status_monitor.lib.php:124
-msgid ""
-"Unfortunately your Database server does not support logging to table, which "
-"is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
-"table is supported by MySQL 5.1.6 and onwards. You may still use the server "
-"charting features however."
-msgstr ""
-"Uheldigvis understøtter din databaseserver ikke logning til tabel, som "
-"kræves for at kunnne analysere databaselogs med phpMyAdmin. Logning til "
-"tabel understøttes af MySQL 5.1.6 og senere versioner. Man kan dog stadig "
-"bruge funktionerne for serverdiagrammer."
-
-#: libraries/server_status_monitor.lib.php:139
+#: libraries/server_status_monitor.lib.php:128
 msgid "Using the monitor:"
 msgstr "Brug af monitor:"
 
-#: libraries/server_status_monitor.lib.php:142
+#: libraries/server_status_monitor.lib.php:131
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -11682,7 +11670,7 @@ msgstr ""
 "'Indstillinger', eller fjerne hvilket som helst diagram ved at bruge ikonet "
 "cog på det relevante diagram."
 
-#: libraries/server_status_monitor.lib.php:148
+#: libraries/server_status_monitor.lib.php:137
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -11694,11 +11682,11 @@ msgstr ""
 "Når det er bekræftet, vil dette indlæse en tabel af grupperede forspørgsler, "
 "hvor man kan klikke på en given SELECT-forespørgsel for at analysere det."
 
-#: libraries/server_status_monitor.lib.php:158
+#: libraries/server_status_monitor.lib.php:147
 msgid "Please note:"
 msgstr "Bemærk venligst:"
 
-#: libraries/server_status_monitor.lib.php:161
+#: libraries/server_status_monitor.lib.php:150
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -11710,85 +11698,85 @@ msgstr ""
 "tilrådes at vælge kun en lille tidsinterval og at deaktivere general_log og "
 "tømme dens tabel, når der ikke er behov for den længere."
 
-#: libraries/server_status_monitor.lib.php:183
-#: libraries/server_status_monitor.lib.php:293
+#: libraries/server_status_monitor.lib.php:171
+#: libraries/server_status_monitor.lib.php:281
 msgid "Add chart"
 msgstr "Tilføj diagram"
 
-#: libraries/server_status_monitor.lib.php:189
+#: libraries/server_status_monitor.lib.php:177
 msgid "Preset chart"
 msgstr "Foruddefineret diagram"
 
-#: libraries/server_status_monitor.lib.php:194
+#: libraries/server_status_monitor.lib.php:182
 msgid "Status variable(s)"
 msgstr "Statusvariabel/-ble"
 
-#: libraries/server_status_monitor.lib.php:197
+#: libraries/server_status_monitor.lib.php:185
 msgid "Select series:"
 msgstr "Vælg serie:"
 
-#: libraries/server_status_monitor.lib.php:199
+#: libraries/server_status_monitor.lib.php:187
 msgid "Commonly monitored"
 msgstr "Almindeligt overvåget"
 
-#: libraries/server_status_monitor.lib.php:215
+#: libraries/server_status_monitor.lib.php:203
 msgid "or type variable name:"
 msgstr "eller indtast variabelnavn:"
 
-#: libraries/server_status_monitor.lib.php:222
+#: libraries/server_status_monitor.lib.php:210
 msgid "Display as differential value"
 msgstr "Vis som forskelsværdi"
 
-#: libraries/server_status_monitor.lib.php:226
+#: libraries/server_status_monitor.lib.php:214
 msgid "Apply a divisor"
 msgstr "Anvend divisor"
 
-#: libraries/server_status_monitor.lib.php:234
+#: libraries/server_status_monitor.lib.php:222
 msgid "Append unit to data values"
 msgstr "Tilføj enhed til dataværdier"
 
-#: libraries/server_status_monitor.lib.php:240
+#: libraries/server_status_monitor.lib.php:228
 msgid "Add this series"
 msgstr "Tilføj denne serie"
 
-#: libraries/server_status_monitor.lib.php:242
+#: libraries/server_status_monitor.lib.php:230
 msgid "Clear series"
 msgstr "Slet serie"
 
-#: libraries/server_status_monitor.lib.php:245
+#: libraries/server_status_monitor.lib.php:233
 msgid "Series in Chart:"
 msgstr "Serier i diagram:"
 
-#: libraries/server_status_monitor.lib.php:266
+#: libraries/server_status_monitor.lib.php:254
 msgid "Start Monitor"
 msgstr "Start monitorering"
 
-#: libraries/server_status_monitor.lib.php:273
+#: libraries/server_status_monitor.lib.php:261
 msgid "Instructions/Setup"
 msgstr "Instruktioner/Opsætning"
 
-#: libraries/server_status_monitor.lib.php:277
+#: libraries/server_status_monitor.lib.php:265
 msgid "Done dragging (rearranging) charts"
 msgstr "Færdig med at trække (flytte) rundt på diagrammer"
 
-#: libraries/server_status_monitor.lib.php:296
+#: libraries/server_status_monitor.lib.php:284
 msgid "Enable charts dragging"
 msgstr "Aktivér mulighed for at trække rundt på diagrammer"
 
-#: libraries/server_status_monitor.lib.php:300
+#: libraries/server_status_monitor.lib.php:288
 #: libraries/server_status_processes.lib.php:29
 msgid "Refresh rate"
 msgstr "Opdateringsfrekvens"
 
-#: libraries/server_status_monitor.lib.php:309
+#: libraries/server_status_monitor.lib.php:297
 msgid "Chart columns"
 msgstr "Diagramkolonner"
 
-#: libraries/server_status_monitor.lib.php:321
+#: libraries/server_status_monitor.lib.php:309
 msgid "Chart arrangement"
 msgstr "Diagramopstilling"
 
-#: libraries/server_status_monitor.lib.php:324
+#: libraries/server_status_monitor.lib.php:312
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -11796,7 +11784,7 @@ msgstr ""
 "Opsætningen af diagrammerne er lagret i browserens lokale lager. Det er "
 "muligt at eksportere den, hvis man har en kompleks opstilling."
 
-#: libraries/server_status_monitor.lib.php:338
+#: libraries/server_status_monitor.lib.php:326
 msgid "Reset to default"
 msgstr "Gendan standardværdi"
 
@@ -15398,6 +15386,17 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er sat til 0"
+
+#~ msgid ""
+#~ "Unfortunately your Database server does not support logging to table, "
+#~ "which is a requirement for analyzing the database logs with phpMyAdmin. "
+#~ "Logging to table is supported by MySQL 5.1.6 and onwards. You may still "
+#~ "use the server charting features however."
+#~ msgstr ""
+#~ "Uheldigvis understøtter din databaseserver ikke logning til tabel, som "
+#~ "kræves for at kunnne analysere databaselogs med phpMyAdmin. Logning til "
+#~ "tabel understøttes af MySQL 5.1.6 og senere versioner. Man kan dog stadig "
+#~ "bruge funktionerne for serverdiagrammer."
 
 #~ msgid "Click to sort"
 #~ msgstr "Klik for at sortere"

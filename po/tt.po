@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-22 07:31-0700\n"
+"POT-Creation-Date: 2014-07-23 08:38-0700\n"
 "PO-Revision-Date: 2014-03-27 15:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tatar <https://l10n.cihar.com/projects/phpmyadmin/master/tt/"
@@ -1279,14 +1279,14 @@ msgstr "Bayt"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:126 libraries/Util.class.php:1342
-#: libraries/server_status_monitor.lib.php:229
+#: libraries/server_status_monitor.lib.php:217
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:127 libraries/Util.class.php:1344
 #: libraries/display_export.lib.php:684
-#: libraries/server_status_monitor.lib.php:230
+#: libraries/server_status_monitor.lib.php:218
 msgid "MiB"
 msgstr "MB"
 
@@ -1327,7 +1327,7 @@ msgid "Traffic"
 msgstr "Taşım"
 
 #: js/messages.php:137 libraries/Menu.class.php:561
-#: libraries/Util.class.php:4079 libraries/server_status_monitor.lib.php:269
+#: libraries/Util.class.php:4079 libraries/server_status_monitor.lib.php:257
 #, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
@@ -1346,7 +1346,7 @@ msgstr ""
 #: libraries/display_export.lib.php:580
 #: libraries/plugins/export/ExportSql.class.php:1871
 #: libraries/server_privileges.lib.php:2673
-#: libraries/server_status_monitor.lib.php:248
+#: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:261
 #: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:671
 msgid "None"
@@ -1457,7 +1457,7 @@ msgstr "Bäyläneşlär buyınça töp mömkinleklär"
 msgid "Current settings"
 msgstr "Bäyläneşlär buyınça töp mömkinleklär"
 
-#: js/messages.php:171 libraries/server_status_monitor.lib.php:186
+#: js/messages.php:171 libraries/server_status_monitor.lib.php:174
 #, fuzzy
 #| msgid "Report title"
 msgid "Chart Title"
@@ -1652,7 +1652,7 @@ msgstr ""
 #: libraries/Util.class.php:4078 libraries/Util.class.php:4093
 #: libraries/Util.class.php:4110 libraries/config/messages.inc.php:223
 #: libraries/display_import.lib.php:105
-#: libraries/server_status_monitor.lib.php:330 prefs_manage.php:232
+#: libraries/server_status_monitor.lib.php:318 prefs_manage.php:232
 #: setup/frames/menu.inc.php:26
 msgid "Import"
 msgstr "Yökläw"
@@ -1721,7 +1721,7 @@ msgid "Cancel"
 msgstr ""
 
 #: js/messages.php:246 libraries/navigation/NavigationHeader.class.php:54
-#: libraries/server_status_monitor.lib.php:134
+#: libraries/server_status_monitor.lib.php:123
 #, fuzzy
 msgid "Loading…"
 msgstr "Cirle"
@@ -3551,7 +3551,7 @@ msgstr "Üzgärt"
 #: libraries/display_export.lib.php:164
 #: libraries/server_privileges.lib.php:2272
 #: libraries/server_privileges.lib.php:2976
-#: libraries/server_status_monitor.lib.php:334 libraries/structure.lib.php:313
+#: libraries/server_status_monitor.lib.php:322 libraries/structure.lib.php:313
 #: prefs_manage.php:293 setup/frames/menu.inc.php:27
 msgid "Export"
 msgstr "Export"
@@ -3596,7 +3596,7 @@ msgstr ""
 msgid "Report"
 msgstr "Yökläw"
 
-#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:354
+#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:357
 #, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically send report next time"
@@ -8511,18 +8511,18 @@ msgstr "Bäyläneşlär"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr ""
 
-#: libraries/error_report.lib.php:332
+#: libraries/error_report.lib.php:335
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
 
-#: libraries/error_report.lib.php:339
+#: libraries/error_report.lib.php:342
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: libraries/error_report.lib.php:346
+#: libraries/error_report.lib.php:349
 msgid "Please explain the steps that lead to the error:"
 msgstr ""
 
@@ -12169,26 +12169,18 @@ msgid ""
 "increases server load by up to 15%."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:124
-msgid ""
-"Unfortunately your Database server does not support logging to table, which "
-"is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
-"table is supported by MySQL 5.1.6 and onwards. You may still use the server "
-"charting features however."
-msgstr ""
-
-#: libraries/server_status_monitor.lib.php:139
+#: libraries/server_status_monitor.lib.php:128
 msgid "Using the monitor:"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:142
+#: libraries/server_status_monitor.lib.php:131
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:148
+#: libraries/server_status_monitor.lib.php:137
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -12196,11 +12188,11 @@ msgid ""
 "any occurring SELECT statements to further analyze them."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:158
+#: libraries/server_status_monitor.lib.php:147
 msgid "Please note:"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:161
+#: libraries/server_status_monitor.lib.php:150
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -12208,106 +12200,106 @@ msgid ""
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:183
-#: libraries/server_status_monitor.lib.php:293
+#: libraries/server_status_monitor.lib.php:171
+#: libraries/server_status_monitor.lib.php:281
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add chart"
 msgstr "%s alan östäw"
 
-#: libraries/server_status_monitor.lib.php:189
+#: libraries/server_status_monitor.lib.php:177
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Preset chart"
 msgstr "Biremlekne bolay atap quy"
 
-#: libraries/server_status_monitor.lib.php:194
+#: libraries/server_status_monitor.lib.php:182
 msgid "Status variable(s)"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:197
+#: libraries/server_status_monitor.lib.php:185
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
 msgstr "Tüşämä Saylaw"
 
-#: libraries/server_status_monitor.lib.php:199
+#: libraries/server_status_monitor.lib.php:187
 msgid "Commonly monitored"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:215
+#: libraries/server_status_monitor.lib.php:203
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
 msgstr "Tüşämä adı yaraqsız"
 
-#: libraries/server_status_monitor.lib.php:222
+#: libraries/server_status_monitor.lib.php:210
 msgid "Display as differential value"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:226
+#: libraries/server_status_monitor.lib.php:214
 msgid "Apply a divisor"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:234
+#: libraries/server_status_monitor.lib.php:222
 msgid "Append unit to data values"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:240
+#: libraries/server_status_monitor.lib.php:228
 #, fuzzy
 msgid "Add this series"
 msgstr "Yaña qullanuçı östäw"
 
-#: libraries/server_status_monitor.lib.php:242
+#: libraries/server_status_monitor.lib.php:230
 msgid "Clear series"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:245
+#: libraries/server_status_monitor.lib.php:233
 #, fuzzy
 msgid "Series in Chart:"
 msgstr "SQL-soraw"
 
-#: libraries/server_status_monitor.lib.php:266
+#: libraries/server_status_monitor.lib.php:254
 #, fuzzy
 #| msgid "Start"
 msgid "Start Monitor"
 msgstr "Şmb"
 
-#: libraries/server_status_monitor.lib.php:273
+#: libraries/server_status_monitor.lib.php:261
 msgid "Instructions/Setup"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:277
+#: libraries/server_status_monitor.lib.php:265
 msgid "Done dragging (rearranging) charts"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:296
+#: libraries/server_status_monitor.lib.php:284
 msgid "Enable charts dragging"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:300
+#: libraries/server_status_monitor.lib.php:288
 #: libraries/server_status_processes.lib.php:29
 #, fuzzy
 msgid "Refresh rate"
 msgstr "Yañart"
 
-#: libraries/server_status_monitor.lib.php:309
+#: libraries/server_status_monitor.lib.php:297
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Chart columns"
 msgstr "Add/Delete Field Columns"
 
-#: libraries/server_status_monitor.lib.php:321
+#: libraries/server_status_monitor.lib.php:309
 msgid "Chart arrangement"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:324
+#: libraries/server_status_monitor.lib.php:312
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:338
+#: libraries/server_status_monitor.lib.php:326
 msgid "Reset to default"
 msgstr ""
 

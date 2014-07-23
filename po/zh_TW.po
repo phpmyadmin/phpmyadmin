@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-22 07:31-0700\n"
+"POT-Creation-Date: 2014-07-23 08:38-0700\n"
 "PO-Revision-Date: 2014-07-09 12:20+0200\n"
 "Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
 "Language-Team: Traditional Chinese <https://l10n.cihar.com/projects/"
@@ -1177,14 +1177,14 @@ msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:126 libraries/Util.class.php:1342
-#: libraries/server_status_monitor.lib.php:229
+#: libraries/server_status_monitor.lib.php:217
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:127 libraries/Util.class.php:1344
 #: libraries/display_export.lib.php:684
-#: libraries/server_status_monitor.lib.php:230
+#: libraries/server_status_monitor.lib.php:218
 msgid "MiB"
 msgstr "MB"
 
@@ -1223,7 +1223,7 @@ msgid "Traffic"
 msgstr "流量"
 
 #: js/messages.php:137 libraries/Menu.class.php:561
-#: libraries/Util.class.php:4079 libraries/server_status_monitor.lib.php:269
+#: libraries/Util.class.php:4079 libraries/server_status_monitor.lib.php:257
 msgid "Settings"
 msgstr "設定"
 
@@ -1240,7 +1240,7 @@ msgstr "請至少增加一個變數到資料序列！"
 #: libraries/display_export.lib.php:580
 #: libraries/plugins/export/ExportSql.class.php:1871
 #: libraries/server_privileges.lib.php:2673
-#: libraries/server_status_monitor.lib.php:248
+#: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:261
 #: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:671
 msgid "None"
@@ -1345,7 +1345,7 @@ msgstr "更改設定"
 msgid "Current settings"
 msgstr "目前設定"
 
-#: js/messages.php:171 libraries/server_status_monitor.lib.php:186
+#: js/messages.php:171 libraries/server_status_monitor.lib.php:174
 msgid "Chart Title"
 msgstr "圖表標題"
 
@@ -1522,7 +1522,7 @@ msgstr "無法使用匯入的設定檔建立圖表，將重設為預設的設定
 #: libraries/Util.class.php:4078 libraries/Util.class.php:4093
 #: libraries/Util.class.php:4110 libraries/config/messages.inc.php:223
 #: libraries/display_import.lib.php:105
-#: libraries/server_status_monitor.lib.php:330 prefs_manage.php:232
+#: libraries/server_status_monitor.lib.php:318 prefs_manage.php:232
 #: setup/frames/menu.inc.php:26
 msgid "Import"
 msgstr "匯入"
@@ -1583,7 +1583,7 @@ msgid "Cancel"
 msgstr "取消"
 
 #: js/messages.php:246 libraries/navigation/NavigationHeader.class.php:54
-#: libraries/server_status_monitor.lib.php:134
+#: libraries/server_status_monitor.lib.php:123
 msgid "Loading…"
 msgstr "載入中…"
 
@@ -3220,7 +3220,7 @@ msgstr "修改"
 #: libraries/display_export.lib.php:164
 #: libraries/server_privileges.lib.php:2272
 #: libraries/server_privileges.lib.php:2976
-#: libraries/server_status_monitor.lib.php:334 libraries/structure.lib.php:313
+#: libraries/server_status_monitor.lib.php:322 libraries/structure.lib.php:313
 #: prefs_manage.php:293 setup/frames/menu.inc.php:27
 msgid "Export"
 msgstr "匯出"
@@ -3259,7 +3259,7 @@ msgstr "錯誤訊息過多，有一些沒有被顯示出來。"
 msgid "Report"
 msgstr "報告"
 
-#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:354
+#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:357
 msgid "Automatically send report next time"
 msgstr "下次自動回傳錯誤報告"
 
@@ -7943,7 +7943,7 @@ msgstr "相關連結"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "PrimeBase XT 博客 —— Paul McCullagh 著"
 
-#: libraries/error_report.lib.php:332
+#: libraries/error_report.lib.php:335
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
@@ -7952,11 +7952,11 @@ msgstr ""
 "phpMyAdmin 已發生錯誤，系統已收集錯誤資訊與相關的系統設定並傳送給 phpMyAdmin "
 "開發團隊以協助問題的解決。"
 
-#: libraries/error_report.lib.php:339
+#: libraries/error_report.lib.php:342
 msgid "You may examine the data in the error report:"
 msgstr "您可以檢視錯誤報告內的資料："
 
-#: libraries/error_report.lib.php:346
+#: libraries/error_report.lib.php:349
 msgid "Please explain the steps that lead to the error:"
 msgstr "請說明造成此問題的原因："
 
@@ -11340,22 +11340,11 @@ msgstr ""
 "將 log_output 設為 'TABLE'，並啟用 slow_query_log 或 general_log。但請注意 "
 "general_log 會產生大量的資料，並可能增加伺服器的負載達 15%。"
 
-#: libraries/server_status_monitor.lib.php:124
-msgid ""
-"Unfortunately your Database server does not support logging to table, which "
-"is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
-"table is supported by MySQL 5.1.6 and onwards. You may still use the server "
-"charting features however."
-msgstr ""
-"您的資料庫伺服器不支援資料表記錄，phpMyAdmin 必須要透過這個功能才有辦法進行資"
-"料庫記錄的分析，自 MySQL 5.1.6 起已支援資料表記錄。不論如何，您仍可以使用伺服"
-"器圖表的功能。"
-
-#: libraries/server_status_monitor.lib.php:139
+#: libraries/server_status_monitor.lib.php:128
 msgid "Using the monitor:"
 msgstr "使用即時監控:"
 
-#: libraries/server_status_monitor.lib.php:142
+#: libraries/server_status_monitor.lib.php:131
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -11364,7 +11353,7 @@ msgstr ""
 "您瀏覽器在固定的時間內會刷新顯示所有圖表。你可以增加圖表和更改 '設置' 下的更"
 "新率，或在各個圖表上用齒輪圖示來刪除該圖表。"
 
-#: libraries/server_status_monitor.lib.php:148
+#: libraries/server_status_monitor.lib.php:137
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -11374,11 +11363,11 @@ msgstr ""
 "要從日誌中來顯示查詢，請在任何圖表上按下滑鼠左鍵並拖拽選擇一段時間範圍。確定"
 "後將會載入分好组別的查詢，然後您可以點選任意 SELECT 語句做進一步分析。"
 
-#: libraries/server_status_monitor.lib.php:158
+#: libraries/server_status_monitor.lib.php:147
 msgid "Please note:"
 msgstr "請注意:"
 
-#: libraries/server_status_monitor.lib.php:161
+#: libraries/server_status_monitor.lib.php:150
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -11389,91 +11378,91 @@ msgstr ""
 "沉重的任務，所以最好只選擇短的時間片段，並禁用 general_log，一但不再使用監控"
 "時應該要將這個表清空。"
 
-#: libraries/server_status_monitor.lib.php:183
-#: libraries/server_status_monitor.lib.php:293
+#: libraries/server_status_monitor.lib.php:171
+#: libraries/server_status_monitor.lib.php:281
 msgid "Add chart"
 msgstr "新增圖表"
 
-#: libraries/server_status_monitor.lib.php:189
+#: libraries/server_status_monitor.lib.php:177
 msgid "Preset chart"
 msgstr "預設圖表"
 
-#: libraries/server_status_monitor.lib.php:194
+#: libraries/server_status_monitor.lib.php:182
 msgid "Status variable(s)"
 msgstr "變數狀態"
 
-#: libraries/server_status_monitor.lib.php:197
+#: libraries/server_status_monitor.lib.php:185
 msgid "Select series:"
 msgstr "選擇序列:"
 
-#: libraries/server_status_monitor.lib.php:199
+#: libraries/server_status_monitor.lib.php:187
 msgid "Commonly monitored"
 msgstr "常用的即時監控"
 
-#: libraries/server_status_monitor.lib.php:215
+#: libraries/server_status_monitor.lib.php:203
 msgid "or type variable name:"
 msgstr "或變數型態名稱:"
 
-#: libraries/server_status_monitor.lib.php:222
+#: libraries/server_status_monitor.lib.php:210
 msgid "Display as differential value"
 msgstr "顯示為差異的值"
 
-#: libraries/server_status_monitor.lib.php:226
+#: libraries/server_status_monitor.lib.php:214
 msgid "Apply a divisor"
 msgstr "用於除數"
 
-#: libraries/server_status_monitor.lib.php:234
+#: libraries/server_status_monitor.lib.php:222
 msgid "Append unit to data values"
 msgstr "在資料後面增加單位"
 
-#: libraries/server_status_monitor.lib.php:240
+#: libraries/server_status_monitor.lib.php:228
 msgid "Add this series"
 msgstr "新增這個序列"
 
-#: libraries/server_status_monitor.lib.php:242
+#: libraries/server_status_monitor.lib.php:230
 msgid "Clear series"
 msgstr "清除序列"
 
-#: libraries/server_status_monitor.lib.php:245
+#: libraries/server_status_monitor.lib.php:233
 msgid "Series in Chart:"
 msgstr "圖表中的序列:"
 
-#: libraries/server_status_monitor.lib.php:266
+#: libraries/server_status_monitor.lib.php:254
 msgid "Start Monitor"
 msgstr "開始監控"
 
-#: libraries/server_status_monitor.lib.php:273
+#: libraries/server_status_monitor.lib.php:261
 msgid "Instructions/Setup"
 msgstr "說明/安裝程式"
 
-#: libraries/server_status_monitor.lib.php:277
+#: libraries/server_status_monitor.lib.php:265
 msgid "Done dragging (rearranging) charts"
 msgstr "完成拖拉 (重新排列) 圖表"
 
-#: libraries/server_status_monitor.lib.php:296
+#: libraries/server_status_monitor.lib.php:284
 msgid "Enable charts dragging"
 msgstr "啓用圖表拖放"
 
-#: libraries/server_status_monitor.lib.php:300
+#: libraries/server_status_monitor.lib.php:288
 #: libraries/server_status_processes.lib.php:29
 msgid "Refresh rate"
 msgstr "更新頻率"
 
-#: libraries/server_status_monitor.lib.php:309
+#: libraries/server_status_monitor.lib.php:297
 msgid "Chart columns"
 msgstr "圖表欄位"
 
-#: libraries/server_status_monitor.lib.php:321
+#: libraries/server_status_monitor.lib.php:309
 msgid "Chart arrangement"
 msgstr "圖表排列"
 
-#: libraries/server_status_monitor.lib.php:324
+#: libraries/server_status_monitor.lib.php:312
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr "圖表的排列存已儲到瀏覽器的本機儲存區。如果您的設定很複雜最好將之匯出。"
 
-#: libraries/server_status_monitor.lib.php:338
+#: libraries/server_status_monitor.lib.php:326
 msgid "Reset to default"
 msgstr "還原預設值"
 
@@ -14888,6 +14877,16 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 目前設定為 0"
+
+#~ msgid ""
+#~ "Unfortunately your Database server does not support logging to table, "
+#~ "which is a requirement for analyzing the database logs with phpMyAdmin. "
+#~ "Logging to table is supported by MySQL 5.1.6 and onwards. You may still "
+#~ "use the server charting features however."
+#~ msgstr ""
+#~ "您的資料庫伺服器不支援資料表記錄，phpMyAdmin 必須要透過這個功能才有辦法進"
+#~ "行資料庫記錄的分析，自 MySQL 5.1.6 起已支援資料表記錄。不論如何，您仍可以"
+#~ "使用伺服器圖表的功能。"
 
 #~ msgid "Click to sort"
 #~ msgstr "點此排序"

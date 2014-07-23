@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-22 07:31-0700\n"
+"POT-Creation-Date: 2014-07-23 08:38-0700\n"
 "PO-Revision-Date: 2014-07-22 21:23+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
+"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
+"sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -1011,22 +1011,18 @@ msgid "Add %s column(s) to index"
 msgstr "Dodaj %s stolpec(-cev) k indeksu"
 
 #: js/messages.php:61
-#| msgid "Create routine"
 msgid "Create single-column index"
 msgstr "Ustvari enostolpični indeks"
 
 #: js/messages.php:62
-#| msgid "Create routine"
 msgid "Create composite index"
 msgstr "Ustvari sestavljen indeks"
 
 #: js/messages.php:63
-#| msgid "Columns enclosed with:"
 msgid "Composite with:"
 msgstr "Ustvari z:"
 
 #: js/messages.php:64
-#| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
 msgstr "Prosimo, izberite stolpce za indeks."
 
@@ -1204,14 +1200,14 @@ msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:126 libraries/Util.class.php:1342
-#: libraries/server_status_monitor.lib.php:229
+#: libraries/server_status_monitor.lib.php:217
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:127 libraries/Util.class.php:1344
 #: libraries/display_export.lib.php:684
-#: libraries/server_status_monitor.lib.php:230
+#: libraries/server_status_monitor.lib.php:218
 msgid "MiB"
 msgstr "MiB"
 
@@ -1250,7 +1246,7 @@ msgid "Traffic"
 msgstr "Promet"
 
 #: js/messages.php:137 libraries/Menu.class.php:561
-#: libraries/Util.class.php:4079 libraries/server_status_monitor.lib.php:269
+#: libraries/Util.class.php:4079 libraries/server_status_monitor.lib.php:257
 msgid "Settings"
 msgstr "Nastavitve"
 
@@ -1267,7 +1263,7 @@ msgstr "Prosimo, da v serijo dodate vsaj eno spremenljivko!"
 #: libraries/display_export.lib.php:580
 #: libraries/plugins/export/ExportSql.class.php:1871
 #: libraries/server_privileges.lib.php:2673
-#: libraries/server_status_monitor.lib.php:248
+#: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:261
 #: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:671
 msgid "None"
@@ -1377,7 +1373,7 @@ msgstr "Spremeni nastavitve"
 msgid "Current settings"
 msgstr "Trenutne nastavitve"
 
-#: js/messages.php:171 libraries/server_status_monitor.lib.php:186
+#: js/messages.php:171 libraries/server_status_monitor.lib.php:174
 msgid "Chart Title"
 msgstr "Naslov grafikona"
 
@@ -1560,7 +1556,7 @@ msgstr ""
 #: libraries/Util.class.php:4078 libraries/Util.class.php:4093
 #: libraries/Util.class.php:4110 libraries/config/messages.inc.php:223
 #: libraries/display_import.lib.php:105
-#: libraries/server_status_monitor.lib.php:330 prefs_manage.php:232
+#: libraries/server_status_monitor.lib.php:318 prefs_manage.php:232
 #: setup/frames/menu.inc.php:26
 msgid "Import"
 msgstr "Uvozi"
@@ -1621,7 +1617,7 @@ msgid "Cancel"
 msgstr "Prekliči"
 
 #: js/messages.php:246 libraries/navigation/NavigationHeader.class.php:54
-#: libraries/server_status_monitor.lib.php:134
+#: libraries/server_status_monitor.lib.php:123
 msgid "Loading…"
 msgstr "Nalaganje…"
 
@@ -3231,7 +3227,7 @@ msgstr "Spremeni"
 #: libraries/display_export.lib.php:164
 #: libraries/server_privileges.lib.php:2272
 #: libraries/server_privileges.lib.php:2976
-#: libraries/server_status_monitor.lib.php:334 libraries/structure.lib.php:313
+#: libraries/server_status_monitor.lib.php:322 libraries/structure.lib.php:313
 #: prefs_manage.php:293 setup/frames/menu.inc.php:27
 msgid "Export"
 msgstr "Izvozi"
@@ -3270,7 +3266,7 @@ msgstr "Preveč sporočil o napakah; nekatera zato niso prikazana."
 msgid "Report"
 msgstr "Poročaj"
 
-#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:354
+#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:357
 msgid "Automatically send report next time"
 msgstr "Naslednjič poročilo pošlji samodejno"
 
@@ -8177,7 +8173,7 @@ msgstr "Sorodne povezave"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "Blog PrimeBase XT avtorja Paula McCullagha"
 
-#: libraries/error_report.lib.php:332
+#: libraries/error_report.lib.php:335
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
@@ -8187,11 +8183,11 @@ msgstr ""
 "informacije o bistvenih konfiguracijskih nastavitvah, za pošiljanje "
 "administratorski skupini, ki nam bo pomagala pri odpravljanju težave."
 
-#: libraries/error_report.lib.php:339
+#: libraries/error_report.lib.php:342
 msgid "You may examine the data in the error report:"
 msgstr "Pregledate lahko podatke v poročilo o napaki:"
 
-#: libraries/error_report.lib.php:346
+#: libraries/error_report.lib.php:349
 msgid "Please explain the steps that lead to the error:"
 msgstr "Prosimo, obrazložite korake, ki so vodili do napake:"
 
@@ -11685,23 +11681,11 @@ msgstr ""
 "general_log. Vendar pomnite, da general_log ustvari ogromno podatkov in "
 "poveča obremenitev strežnika do 15 %."
 
-#: libraries/server_status_monitor.lib.php:124
-msgid ""
-"Unfortunately your Database server does not support logging to table, which "
-"is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
-"table is supported by MySQL 5.1.6 and onwards. You may still use the server "
-"charting features however."
-msgstr ""
-"Žal vaš strežnik zbirk podatkov ne podpira beleženja v tabelo, ki je "
-"zahtevano za analiziranje dnevnikov zbirk podatov s phpMyAdmin. Beleženje v "
-"tabelo podpira MySQL 5.1.6 in novejši. Kljub temu lahko še vedno uporabljate "
-"strežniške zmožnosti izrisa grafikonov."
-
-#: libraries/server_status_monitor.lib.php:139
+#: libraries/server_status_monitor.lib.php:128
 msgid "Using the monitor:"
 msgstr "Uporaba monitorja:"
 
-#: libraries/server_status_monitor.lib.php:142
+#: libraries/server_status_monitor.lib.php:131
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -11712,7 +11696,7 @@ msgstr ""
 "pa odstranite kateri koli grafikon s klikom na ikono zobnika ob ustreznem "
 "grafikonu."
 
-#: libraries/server_status_monitor.lib.php:148
+#: libraries/server_status_monitor.lib.php:137
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -11724,11 +11708,11 @@ msgstr ""
 "grafikon. Ko potrdite, bo to naložilo tabelo združenih poizvedb, kjer lahko "
 "kliknete na katere koli ponavljajoče stavke SELECT in jih naprej analizirate."
 
-#: libraries/server_status_monitor.lib.php:158
+#: libraries/server_status_monitor.lib.php:147
 msgid "Please note:"
 msgstr "Prosimo, pomnite:"
 
-#: libraries/server_status_monitor.lib.php:161
+#: libraries/server_status_monitor.lib.php:150
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -11741,85 +11725,85 @@ msgstr ""
 "časovni razpon ter onemogočite general_log in počistite njene tabele, ko "
 "nadziranja ne potrebujete več."
 
-#: libraries/server_status_monitor.lib.php:183
-#: libraries/server_status_monitor.lib.php:293
+#: libraries/server_status_monitor.lib.php:171
+#: libraries/server_status_monitor.lib.php:281
 msgid "Add chart"
 msgstr "Dodaj grafikon"
 
-#: libraries/server_status_monitor.lib.php:189
+#: libraries/server_status_monitor.lib.php:177
 msgid "Preset chart"
 msgstr "Prednastavljeni grafikon"
 
-#: libraries/server_status_monitor.lib.php:194
+#: libraries/server_status_monitor.lib.php:182
 msgid "Status variable(s)"
 msgstr "Spremenljivke stanja"
 
-#: libraries/server_status_monitor.lib.php:197
+#: libraries/server_status_monitor.lib.php:185
 msgid "Select series:"
 msgstr "Izberite serije:"
 
-#: libraries/server_status_monitor.lib.php:199
+#: libraries/server_status_monitor.lib.php:187
 msgid "Commonly monitored"
 msgstr "Pogosto nadzirano"
 
-#: libraries/server_status_monitor.lib.php:215
+#: libraries/server_status_monitor.lib.php:203
 msgid "or type variable name:"
 msgstr "ali vnesite ime spremenljivke:"
 
-#: libraries/server_status_monitor.lib.php:222
+#: libraries/server_status_monitor.lib.php:210
 msgid "Display as differential value"
 msgstr "Prikaži kot vrednost razlike"
 
-#: libraries/server_status_monitor.lib.php:226
+#: libraries/server_status_monitor.lib.php:214
 msgid "Apply a divisor"
 msgstr "Uporabi delitelja"
 
-#: libraries/server_status_monitor.lib.php:234
+#: libraries/server_status_monitor.lib.php:222
 msgid "Append unit to data values"
 msgstr "Pripni enoto k vrednostim podatkov"
 
-#: libraries/server_status_monitor.lib.php:240
+#: libraries/server_status_monitor.lib.php:228
 msgid "Add this series"
 msgstr "Dodaj serijo"
 
-#: libraries/server_status_monitor.lib.php:242
+#: libraries/server_status_monitor.lib.php:230
 msgid "Clear series"
 msgstr "Počisti serije"
 
-#: libraries/server_status_monitor.lib.php:245
+#: libraries/server_status_monitor.lib.php:233
 msgid "Series in Chart:"
 msgstr "Serije v grafikonu:"
 
-#: libraries/server_status_monitor.lib.php:266
+#: libraries/server_status_monitor.lib.php:254
 msgid "Start Monitor"
 msgstr "Začni nadziranje"
 
-#: libraries/server_status_monitor.lib.php:273
+#: libraries/server_status_monitor.lib.php:261
 msgid "Instructions/Setup"
 msgstr "Navodila/Namestitev"
 
-#: libraries/server_status_monitor.lib.php:277
+#: libraries/server_status_monitor.lib.php:265
 msgid "Done dragging (rearranging) charts"
 msgstr "Premikanje (preurejanje) grafikonov je končano"
 
-#: libraries/server_status_monitor.lib.php:296
+#: libraries/server_status_monitor.lib.php:284
 msgid "Enable charts dragging"
 msgstr "Omogoči premikanje grafikonov"
 
-#: libraries/server_status_monitor.lib.php:300
+#: libraries/server_status_monitor.lib.php:288
 #: libraries/server_status_processes.lib.php:29
 msgid "Refresh rate"
 msgstr "Hitrost osveževanja"
 
-#: libraries/server_status_monitor.lib.php:309
+#: libraries/server_status_monitor.lib.php:297
 msgid "Chart columns"
 msgstr "Stolpci grafikona"
 
-#: libraries/server_status_monitor.lib.php:321
+#: libraries/server_status_monitor.lib.php:309
 msgid "Chart arrangement"
 msgstr "Razvrstitev grafikonov"
 
-#: libraries/server_status_monitor.lib.php:324
+#: libraries/server_status_monitor.lib.php:312
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -11827,7 +11811,7 @@ msgstr ""
 "Razvrstitev grafikonov je shranjena v lokalni shrambi brskalnika. Če imate "
 "zapleteno nastavitev, jo boste morda želeli izvoziti."
 
-#: libraries/server_status_monitor.lib.php:338
+#: libraries/server_status_monitor.lib.php:326
 msgid "Reset to default"
 msgstr "Povrni na privzeto"
 
@@ -13348,7 +13332,6 @@ msgid "Index type:"
 msgstr "Vrsta indeksa:"
 
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:375
-#| msgid "Drag to reorder."
 msgid "Drag to reorder"
 msgstr "Povlecite za preureditev"
 
@@ -15412,6 +15395,17 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
+
+#~ msgid ""
+#~ "Unfortunately your Database server does not support logging to table, "
+#~ "which is a requirement for analyzing the database logs with phpMyAdmin. "
+#~ "Logging to table is supported by MySQL 5.1.6 and onwards. You may still "
+#~ "use the server charting features however."
+#~ msgstr ""
+#~ "Žal vaš strežnik zbirk podatkov ne podpira beleženja v tabelo, ki je "
+#~ "zahtevano za analiziranje dnevnikov zbirk podatov s phpMyAdmin. Beleženje "
+#~ "v tabelo podpira MySQL 5.1.6 in novejši. Kljub temu lahko še vedno "
+#~ "uporabljate strežniške zmožnosti izrisa grafikonov."
 
 #~ msgid "Table is already in second normal form"
 #~ msgstr "Tabela je že v drugi normalni obliki"

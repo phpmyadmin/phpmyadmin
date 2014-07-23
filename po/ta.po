@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-22 07:31-0700\n"
+"POT-Creation-Date: 2014-07-23 08:38-0700\n"
 "PO-Revision-Date: 2014-07-22 21:14+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
-"Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
-"\n"
+"Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/"
+">\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -849,10 +849,10 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"உங்கள் PHP [a@http://php.net/manual/en/session.configuration.php#ini.session"
-".gc-maxlifetime@_blank]session.gc_maxlifetime[/a] அளவுரு, கட்டமைக்கப்பட்ட "
-"பயனர் நிலை பதிவுத்துணுக்கு செல்லுபடியாகும் காலத்தை விட குறைவாக உள்ளது, இதனால்"
-" உங்கள் அமர்வு phpMyAdmin கட்டமைக்கப்பட்டதை விட விரைவில் காலாவதியாகிவிடும்."
+"உங்கள் PHP [a@http://php.net/manual/en/session.configuration.php#ini.session."
+"gc-maxlifetime@_blank]session.gc_maxlifetime[/a] அளவுரு, கட்டமைக்கப்பட்ட பயனர் "
+"நிலை பதிவுத்துணுக்கு செல்லுபடியாகும் காலத்தை விட குறைவாக உள்ளது, இதனால் உங்கள் அமர்வு "
+"phpMyAdmin கட்டமைக்கப்பட்டதை விட விரைவில் காலாவதியாகிவிடும்."
 
 #: index.php:483
 msgid ""
@@ -1004,7 +1004,6 @@ msgid "Composite with:"
 msgstr ""
 
 #: js/messages.php:64
-#| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
 msgstr "சுட்டுதொகுப்புக்குறியில் சேர்ப்பதற்க்கான நிரல்வரிசை(களை) தேர்ந்தெடுக்க."
 
@@ -1015,12 +1014,10 @@ msgid "Preview SQL"
 msgstr ""
 
 #: js/messages.php:70
-#| msgid "Update Query"
 msgid "Simulate query"
 msgstr "வினவலை பாவித்து காண்பி"
 
 #: js/messages.php:71
-#| msgid "Affected rows:"
 msgid "Matched rows:"
 msgstr "பொருந்திய நிரல்வரிசைகள்:"
 
@@ -1180,14 +1177,14 @@ msgstr "து"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:126 libraries/Util.class.php:1342
-#: libraries/server_status_monitor.lib.php:229
+#: libraries/server_status_monitor.lib.php:217
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:127 libraries/Util.class.php:1344
 #: libraries/display_export.lib.php:684
-#: libraries/server_status_monitor.lib.php:230
+#: libraries/server_status_monitor.lib.php:218
 msgid "MiB"
 msgstr "MiB"
 
@@ -1226,7 +1223,7 @@ msgid "Traffic"
 msgstr "போக்குவரத்து"
 
 #: js/messages.php:137 libraries/Menu.class.php:561
-#: libraries/Util.class.php:4079 libraries/server_status_monitor.lib.php:269
+#: libraries/Util.class.php:4079 libraries/server_status_monitor.lib.php:257
 msgid "Settings"
 msgstr "அமைவுகள்"
 
@@ -1243,7 +1240,7 @@ msgstr "தயவுசெய்து குறைந்தது ஒரு ம
 #: libraries/display_export.lib.php:580
 #: libraries/plugins/export/ExportSql.class.php:1871
 #: libraries/server_privileges.lib.php:2673
-#: libraries/server_status_monitor.lib.php:248
+#: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:261
 #: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:671
 msgid "None"
@@ -1353,7 +1350,7 @@ msgstr "அமைப்புக்களை மாற்று"
 msgid "Current settings"
 msgstr "நடப்பு அமைப்புக்கள்"
 
-#: js/messages.php:171 libraries/server_status_monitor.lib.php:186
+#: js/messages.php:171 libraries/server_status_monitor.lib.php:174
 msgid "Chart Title"
 msgstr "விளக்கப்படத் தலைப்பு"
 
@@ -1531,7 +1528,7 @@ msgstr ""
 #: libraries/Util.class.php:4078 libraries/Util.class.php:4093
 #: libraries/Util.class.php:4110 libraries/config/messages.inc.php:223
 #: libraries/display_import.lib.php:105
-#: libraries/server_status_monitor.lib.php:330 prefs_manage.php:232
+#: libraries/server_status_monitor.lib.php:318 prefs_manage.php:232
 #: setup/frames/menu.inc.php:26
 msgid "Import"
 msgstr "தரவிறக்கம்"
@@ -1592,7 +1589,7 @@ msgid "Cancel"
 msgstr "விலக்கு"
 
 #: js/messages.php:246 libraries/navigation/NavigationHeader.class.php:54
-#: libraries/server_status_monitor.lib.php:134
+#: libraries/server_status_monitor.lib.php:123
 msgid "Loading…"
 msgstr "ஏற்றப்படுகிறது…"
 
@@ -1808,7 +1805,6 @@ msgstr ""
 
 #: js/messages.php:312 libraries/normalization.lib.php:417
 #: libraries/normalization.lib.php:464
-#| msgid "End of line"
 msgid "End of step"
 msgstr "செயல்முறையின் முடிவு"
 
@@ -1836,7 +1832,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:318
-#| msgid "No databases selected."
 msgid "No partial dependencies selected!"
 msgstr "எந்த பகுதியளவு சார்புகளும் தேர்ந்தெடுக்கப்படவில்லை!"
 
@@ -1868,7 +1863,6 @@ msgid "DROP columns %1s from the table %2s"
 msgstr ""
 
 #: js/messages.php:326
-#| msgid "Add privileges on the following table:"
 msgid "Create the following table"
 msgstr "பின்வரும் அட்டவணையை உருவாக்குக"
 
@@ -1893,12 +1887,10 @@ msgid "Range search"
 msgstr "வரம்பு தேடல்"
 
 #: js/messages.php:337
-#| msgid "Column:"
 msgid "Column maximum:"
 msgstr "நெடுவரிசையில் மீயளவு:"
 
 #: js/messages.php:338
-#| msgid "Column:"
 msgid "Column minimum:"
 msgstr "நெடுவரிசையில் மீச்சிற்றளவு:"
 
@@ -2027,17 +2019,14 @@ msgid "Page name"
 msgstr ""
 
 #: js/messages.php:395
-#| msgid "Save"
 msgid "Save page"
 msgstr "பக்கத்தை சேமிக்க"
 
 #: js/messages.php:396 pmd_general.php:146
-#| msgid "Open"
 msgid "Open page"
 msgstr "பக்கத்தை திறக்க"
 
 #: js/messages.php:397
-#| msgid "Delete"
 msgid "Delete page"
 msgstr "பக்கத்தை அழிக்க"
 
@@ -2046,7 +2035,6 @@ msgid "Please select a page to continue"
 msgstr ""
 
 #: js/messages.php:399
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
@@ -2059,7 +2047,6 @@ msgid "Successfully deleted the page"
 msgstr ""
 
 #: js/messages.php:402
-#| msgid "Edit or export relational schema"
 msgid "Export relational schema"
 msgstr "தொடர்புசார் ஒழுங்கமைப்பை தரவேற்றுக"
 
@@ -2127,7 +2114,6 @@ msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
 #: js/messages.php:424
-#| msgid "Cancel"
 msgid "cancel"
 msgstr "விலக்கு"
 
@@ -2144,7 +2130,6 @@ msgid "Success"
 msgstr ""
 
 #: js/messages.php:428
-#| msgid "Import"
 msgid "Import status"
 msgstr "தரவிறக்க நிலை"
 
@@ -2153,7 +2138,6 @@ msgid "Drop files here"
 msgstr ""
 
 #: js/messages.php:430
-#| msgid "Select a table"
 msgid "Select database first"
 msgstr "ஒரு தரவுத்தளத்தை முதலில் தேர்வுசெய்க"
 
@@ -2166,7 +2150,6 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
 #: js/messages.php:443
-#| msgid "Go to link."
 msgid "Go to link:"
 msgstr "இணைப்புக்கு செல்:"
 
@@ -2279,7 +2262,6 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: js/messages.php:499 libraries/Error_Handler.class.php:355
-#| msgid "Ignore"
 msgid "Ignore All"
 msgstr "அனைத்தையும் புறக்கணி"
 
@@ -2289,7 +2271,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:513
-#| msgid "Executed queries"
 msgid "Execute this query again?"
 msgstr "இந்த வினவலை மீண்டும் செயல்படுத்த வேண்டுமா?"
 
@@ -2631,13 +2612,11 @@ msgid "Expand"
 msgstr ""
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:171
-#| msgid "SQL query"
 msgid "Requery"
 msgstr "மீள்வினவல்"
 
 #: libraries/Console.class.php:106
 #, php-format
-#| msgid "New bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
 msgstr[0] "மொத்தம் %d புத்தகக்குறி"
@@ -2654,27 +2633,22 @@ msgstr "பகிரப்பட்டது"
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:122
 #, php-format
-#| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "%1$s, %2$s மற்றும் %3$s புத்தகக்குறிகள் சேர்க்கப்பட்டன"
 
 #: libraries/Console.class.php:128
-#| msgid "New bookmark"
 msgid "No bookmarks"
 msgstr "புத்தகக்குறிகள் இல்லை"
 
 #: libraries/Console.class.php:174
-#| msgid "Query cache disabled"
 msgid "Query failed"
 msgstr "வினவல் தோல்வியடைந்தது"
 
 #: libraries/Console.class.php:176
-#| msgid "Query execution time"
 msgid "Queried time"
 msgstr "வினவலின் நேரம்"
 
 #: libraries/Console.class.php:182
-#| msgid "SQL query"
 msgid "SQL Query Console"
 msgstr "SQL வினவல் காட்சிமுனையம்"
 
@@ -2720,12 +2694,10 @@ msgid "Options"
 msgstr ""
 
 #: libraries/Console.class.php:196 libraries/Console.class.php:242
-#| msgid "New bookmark"
 msgid "Bookmarks"
 msgstr "புத்தகக்குறிகள்"
 
 #: libraries/Console.class.php:205
-#| msgid "Executed queries"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "வினவலை செயல்படுத்த Ctrl+Enter அழுத்துக"
 
@@ -2740,27 +2712,22 @@ msgid "Refresh"
 msgstr "புதுப்பி"
 
 #: libraries/Console.class.php:257
-#| msgid "New bookmark"
 msgid "Add bookmark"
 msgstr "புத்தகக்குறி சேர்க்க"
 
 #: libraries/Console.class.php:260
-#| msgid "Label:"
 msgid "Label"
 msgstr "சிட்டை"
 
 #: libraries/Console.class.php:261
-#| msgid "Create database:"
 msgid "Target database"
 msgstr "இலக்கு தரவுத்தளம்"
 
 #: libraries/Console.class.php:262
-#| msgid "Create bookmark"
 msgid "Share this bookmark"
 msgstr "இப்புத்தகக்குறியை பகிர்க"
 
 #: libraries/Console.class.php:273
-#| msgid "Default"
 msgid "Set default"
 msgstr "இயல்நிலையை அமைக்க"
 
@@ -2769,7 +2736,6 @@ msgid "Always expand queried messages"
 msgstr ""
 
 #: libraries/Console.class.php:279
-#| msgid "Slow query rate"
 msgid "Show query history at start"
 msgstr "துவக்கத்தின் போது வினவல் வரலாற்றை காண்பி"
 
@@ -3187,7 +3153,7 @@ msgstr "மாற்று"
 #: libraries/display_export.lib.php:164
 #: libraries/server_privileges.lib.php:2272
 #: libraries/server_privileges.lib.php:2976
-#: libraries/server_status_monitor.lib.php:334 libraries/structure.lib.php:313
+#: libraries/server_status_monitor.lib.php:322 libraries/structure.lib.php:313
 #: prefs_manage.php:293 setup/frames/menu.inc.php:27
 msgid "Export"
 msgstr "ஏற்றுமதி"
@@ -3223,11 +3189,10 @@ msgid "Too many error messages, some are not displayed."
 msgstr ""
 
 #: libraries/Error_Handler.class.php:338
-#| msgid "Import"
 msgid "Report"
 msgstr "அறிவிக்கை"
 
-#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:354
+#: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:357
 msgid "Automatically send report next time"
 msgstr ""
 
@@ -4501,7 +4466,6 @@ msgid "on update CURRENT_TIMESTAMP"
 msgstr ""
 
 #: libraries/central_columns.lib.php:886
-#| msgid "Add column"
 msgid "Add new column"
 msgstr "புதிய நெடுவரிசையை சேர்க்க"
 
@@ -7020,12 +6984,10 @@ msgid "Can't count rows in an unbuffered result set"
 msgstr ""
 
 #: libraries/designer.lib.php:31
-#| msgid "Rate of table open"
 msgid "Page to open"
 msgstr "திறக்கவேண்டிய பக்கம்"
 
 #: libraries/designer.lib.php:33
-#| msgid "Save to file"
 msgid "Page to delete"
 msgstr "அழிக்கவேண்டிய பக்கம்"
 
@@ -7034,7 +6996,6 @@ msgid "Select page"
 msgstr ""
 
 #: libraries/designer.lib.php:59
-#| msgid "Export to selected page."
 msgid "Save to selected page"
 msgstr "தெரிவுசெய்யப்பட பக்கத்திற்கு சேமிக்க"
 
@@ -7282,32 +7243,26 @@ msgid "Skip tables larger than"
 msgstr ""
 
 #: libraries/display_export.lib.php:776
-#| msgid "Select a table"
 msgid "Select database"
 msgstr "ஒரு தரவுத்தளத்தை தேர்வுசெய்க"
 
 #: libraries/display_export.lib.php:778
-#| msgid "Select a table"
 msgid "Select table"
 msgstr "அட்டவணையை தேர்வுசெய்க"
 
 #: libraries/display_export.lib.php:794
-#| msgid "The database name is empty!"
 msgid "New database name"
 msgstr "தரவுத்தளத்தின் புதிய பெயர்"
 
 #: libraries/display_export.lib.php:818
-#| msgid "Export table names"
 msgid "New table name"
 msgstr "அட்டவணையின் புதிய பெயர்"
 
 #: libraries/display_export.lib.php:827
-#| msgid "Copy column name."
 msgid "Old column name"
 msgstr "பழைய நிரல்வரிசையின் பெயர்"
 
 #: libraries/display_export.lib.php:828
-#| msgid "Copy column name."
 msgid "New column name"
 msgstr "புதிய நிரல்வரிசையின் பெயர்"
 
@@ -7741,18 +7696,18 @@ msgstr ""
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr ""
 
-#: libraries/error_report.lib.php:332
+#: libraries/error_report.lib.php:335
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
 
-#: libraries/error_report.lib.php:339
+#: libraries/error_report.lib.php:342
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: libraries/error_report.lib.php:346
+#: libraries/error_report.lib.php:349
 msgid "Please explain the steps that lead to the error:"
 msgstr ""
 
@@ -8355,12 +8310,10 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:134 normalization.php:19
-#| msgid "Select a column."
 msgid "Select one…"
 msgstr "ஒன்றை தேர்ந்தெடுக்கவும்…"
 
 #: libraries/normalization.lib.php:135 normalization.php:20
-#| msgid "Move column"
 msgid "No such column"
 msgstr "அதுபோல் நிரல்வரிசை இல்லை"
 
@@ -8373,7 +8326,6 @@ msgid "Have a primary key"
 msgstr ""
 
 #: libraries/normalization.lib.php:169
-#| msgid "Table %s already exists!"
 msgid "Primary key already exists."
 msgstr "முதன்மை குறிப்பெழுத்து ஏற்கனவே உள்ளது."
 
@@ -8393,12 +8345,10 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:190
-#| msgid "Add column"
 msgid "+ Add a new primary key column"
 msgstr "+ புதிய முதன்மை குறிப்பெழுத்து நெடுவரிசையை சேர்க்க"
 
 #: libraries/normalization.lib.php:208
-#| msgid "Remove from central columns"
 msgid "Remove redundant columns"
 msgstr "மிகை நிரல்வரிசைகளை நீக்கவும்"
 
@@ -8416,12 +8366,10 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:222
-#| msgid "Removing Selected Users"
 msgid "Remove selected"
 msgstr "தேர்ந்தெடுத்தவற்றை நீக்குக"
 
 #: libraries/normalization.lib.php:223
-#| msgid "Add column"
 msgid "No redundant column"
 msgstr "மிகுதியான நெடுவரிசை இல்லை"
 
@@ -8511,7 +8459,6 @@ msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
 
 #: libraries/normalization.lib.php:452 libraries/normalization.lib.php:516
-#| msgid "Error in processing request:"
 msgid "Error in processing!"
 msgstr "செயலாக்கதில் பிழை!"
 
@@ -8521,7 +8468,6 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
 #: libraries/normalization.lib.php:546
-#| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
 msgstr "அட்டவணை வடிவமைப்பை மெருகேற்று (சீராக்கம்):"
 
@@ -11039,26 +10985,18 @@ msgid ""
 "increases server load by up to 15%."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:124
-msgid ""
-"Unfortunately your Database server does not support logging to table, which "
-"is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
-"table is supported by MySQL 5.1.6 and onwards. You may still use the server "
-"charting features however."
-msgstr ""
-
-#: libraries/server_status_monitor.lib.php:139
+#: libraries/server_status_monitor.lib.php:128
 msgid "Using the monitor:"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:142
+#: libraries/server_status_monitor.lib.php:131
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:148
+#: libraries/server_status_monitor.lib.php:137
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -11066,11 +11004,11 @@ msgid ""
 "any occurring SELECT statements to further analyze them."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:158
+#: libraries/server_status_monitor.lib.php:147
 msgid "Please note:"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:161
+#: libraries/server_status_monitor.lib.php:150
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -11078,91 +11016,91 @@ msgid ""
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:183
-#: libraries/server_status_monitor.lib.php:293
+#: libraries/server_status_monitor.lib.php:171
+#: libraries/server_status_monitor.lib.php:281
 msgid "Add chart"
 msgstr "விளக்கப்படத்தை சேர்"
 
-#: libraries/server_status_monitor.lib.php:189
+#: libraries/server_status_monitor.lib.php:177
 msgid "Preset chart"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:194
+#: libraries/server_status_monitor.lib.php:182
 msgid "Status variable(s)"
 msgstr "நிகழ்நிலை மாறி(கள்)"
 
-#: libraries/server_status_monitor.lib.php:197
+#: libraries/server_status_monitor.lib.php:185
 msgid "Select series:"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:199
+#: libraries/server_status_monitor.lib.php:187
 msgid "Commonly monitored"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:215
+#: libraries/server_status_monitor.lib.php:203
 msgid "or type variable name:"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:222
+#: libraries/server_status_monitor.lib.php:210
 msgid "Display as differential value"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:226
+#: libraries/server_status_monitor.lib.php:214
 msgid "Apply a divisor"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:234
+#: libraries/server_status_monitor.lib.php:222
 msgid "Append unit to data values"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:240
+#: libraries/server_status_monitor.lib.php:228
 msgid "Add this series"
 msgstr "இத்தொகுதியை சேர்க்க"
 
-#: libraries/server_status_monitor.lib.php:242
+#: libraries/server_status_monitor.lib.php:230
 msgid "Clear series"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:245
+#: libraries/server_status_monitor.lib.php:233
 msgid "Series in Chart:"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:266
+#: libraries/server_status_monitor.lib.php:254
 msgid "Start Monitor"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:273
+#: libraries/server_status_monitor.lib.php:261
 msgid "Instructions/Setup"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:277
+#: libraries/server_status_monitor.lib.php:265
 msgid "Done dragging (rearranging) charts"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:296
+#: libraries/server_status_monitor.lib.php:284
 msgid "Enable charts dragging"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:300
+#: libraries/server_status_monitor.lib.php:288
 #: libraries/server_status_processes.lib.php:29
 msgid "Refresh rate"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:309
+#: libraries/server_status_monitor.lib.php:297
 msgid "Chart columns"
 msgstr "விளக்கப்பட நெடுவரிசைகள்"
 
-#: libraries/server_status_monitor.lib.php:321
+#: libraries/server_status_monitor.lib.php:309
 msgid "Chart arrangement"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:324
+#: libraries/server_status_monitor.lib.php:312
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:338
+#: libraries/server_status_monitor.lib.php:326
 msgid "Reset to default"
 msgstr ""
 
@@ -12157,7 +12095,6 @@ msgid "Propose table structure"
 msgstr ""
 
 #: libraries/structure.lib.php:1620
-#| msgid "Table structure"
 msgid "Improve table structure"
 msgstr "அட்டவணை கட்டமைப்பை மெருகேற்றுக"
 
@@ -12429,12 +12366,10 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:341
 #: transformation_overview.php:42
-#| msgid "Login Information"
 msgid "Input transformation"
 msgstr "உள்ளிடு மாற்றம்"
 
 #: libraries/tbl_columns_definition_form.lib.php:343
-#| msgid "Data creation options"
 msgid "Input transformation options"
 msgstr "உள்ளிடு மாற்றம் விருப்பங்கள்"
 
@@ -12790,7 +12725,6 @@ msgid "Exit fullscreen"
 msgstr ""
 
 #: pmd_general.php:142
-#| msgid "Reload page"
 msgid "New page"
 msgstr "புது பக்கம்"
 
@@ -12799,12 +12733,10 @@ msgid "Save position"
 msgstr ""
 
 #: pmd_general.php:154
-#| msgid "Slave status"
 msgid "Save positions as"
 msgstr "இருப்புநிலைகளை இவ்வாறு சேமிக்க"
 
 #: pmd_general.php:158
-#| msgid "Delete"
 msgid "Delete pages"
 msgstr "பக்கங்களை அழிக்க"
 
@@ -12845,7 +12777,6 @@ msgid "Toggle relation lines"
 msgstr ""
 
 #: pmd_general.php:221
-#| msgid "Export"
 msgid "Export schema"
 msgstr "ஒழுங்கமைவை தரவேற்றுக"
 
@@ -13270,7 +13201,6 @@ msgid "Available MIME types"
 msgstr ""
 
 #: transformation_overview.php:37
-#| msgid "Tables display options."
 msgid "Available browser display transformations"
 msgstr "கிடைக்கபெறும் உலவியின் காட்சித்தெரிவு மாற்றமைப்புகள்"
 
