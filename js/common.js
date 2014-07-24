@@ -539,8 +539,11 @@ PMA_DROP_IMPORT = {
         var dbname = PMA_commonParams.get('db');
         //if no database is selected -- no
         if (dbname !== '') {
-            $(".pma_sql_import_status").slideDown();
             var files = event.originalEvent.dataTransfer.files;
+            if (files.length == 0) {
+                return;     // No files actually transfered
+            }
+            $(".pma_sql_import_status").slideDown();
             for (var i = 0; i < files.length; i++) {
                 var ext  = (PMA_DROP_IMPORT._getExtension(files[i].name));
                 var hash = AJAX.hash(++PMA_DROP_IMPORT.uploadCount);
