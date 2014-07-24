@@ -2300,7 +2300,7 @@ class PMA_DatabaseInterface
      *
      * @param array|null $server host/port/socket/persistent
      *
-     * @return false|integer
+     * @return null|integer
      */
     public function getServerPort($server = null)
     {
@@ -2309,7 +2309,7 @@ class PMA_DatabaseInterface
         }
 
         if (empty($server['port'])) {
-            return false;
+            return null;
         } else {
             return intval($server['port']);
         }
