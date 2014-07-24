@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-23 08:38-0700\n"
-"PO-Revision-Date: 2014-07-18 20:11+0200\n"
+"PO-Revision-Date: 2014-07-24 21:40+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/az/>\n"
+"Language-Team: Azerbaijani "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10244,10 +10244,9 @@ msgid "You must provide a trigger definition."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:27
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add routine"
-msgstr "Yeni sahe elave et"
+msgstr "Rutin əlavə et"
 
 #: libraries/rte/rte_words.lib.php:29
 #, php-format
@@ -10255,10 +10254,9 @@ msgid "Export of routine %s"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add new field"
 msgid "routine"
-msgstr "Yeni sahe elave et"
+msgstr "rutin"
 
 #: libraries/rte/rte_words.lib.php:32
 #, fuzzy
@@ -12269,10 +12267,9 @@ msgid "Propose table structure"
 msgstr "Alternativ cedvel strukturu"
 
 #: libraries/structure.lib.php:1620
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "Alternativ cedvel strukturu"
+msgstr "Cədvəl strukturunu yaxşılaşdır"
 
 #: libraries/structure.lib.php:1642
 #: libraries/tbl_columns_definition_form.lib.php:179
