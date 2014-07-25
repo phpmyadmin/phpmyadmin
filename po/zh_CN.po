@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-11 10:37+0200\n"
-"Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
+"PO-Revision-Date: 2014-07-25 04:35+0200\n"
+"Last-Translator: Edward Cheng <c4150221@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -304,7 +304,7 @@ msgstr "访问被拒绝！"
 
 #: db_structure.php:72
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "收藏夹数量已达上限"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -910,16 +910,16 @@ msgid "Do you really want to delete user group \"%s\"?"
 msgstr "您真的要删除用户组“%s”吗？"
 
 #: js/messages.php:45
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "您真的要删除用户组“%s”吗？"
+msgstr "您真的要删除搜索“%s”吗？"
 
 #: js/messages.php:46
 msgid ""
 "Are you sure you want to navigate away from this page? Press OK to continue "
 "or Cancel to stay on the current page."
-msgstr ""
+msgstr "当真要离开当前页面吗？按下“确定”将离开，按下“取消”将驻留在当前页面。"
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
@@ -1846,10 +1846,9 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "您可以直接点击大部分<br />单元格以修改其值。"
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "打开链接。"
+msgstr "前往："
 
 #: js/messages.php:366
 msgid "Copy column name."
@@ -1949,7 +1948,7 @@ msgstr "由于PHP设置的执行限制时间过低，您的导入未能完成！
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
-msgstr ""
+msgstr "警告：当前表单包含的字段多于 %d，受限于 PHP 中 max_input_vars 值的配置，该次提交有可能忽略其中一部分。"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -2373,34 +2372,29 @@ msgid "Submit Query"
 msgstr "提交查询"
 
 #: libraries/DBQbe.class.php:1458
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "搜索"
+msgstr "搜索已经保存的书签："
 
 #: libraries/DBQbe.class.php:1460
-#, fuzzy
 #| msgid "Delete relation"
 msgid "New bookmark"
-msgstr "删除关系"
+msgstr "新建书签"
 
 #: libraries/DBQbe.class.php:1486
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Create bookmark"
-msgstr "删除关系"
+msgstr "创建书签"
 
 #: libraries/DBQbe.class.php:1489
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Update bookmark"
-msgstr "显示书签"
+msgstr "更新书签"
 
 #: libraries/DBQbe.class.php:1491
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Delete bookmark"
-msgstr "删除关系"
+msgstr "删除书签"
 
 #: libraries/DatabaseInterface.class.php:1976
 msgid ""
@@ -2512,16 +2506,14 @@ msgid "Restore column order"
 msgstr "恢复字段顺序"
 
 #: libraries/DisplayResults.class.php:795
-#, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
-msgstr "过滤器"
+msgstr "过滤行"
 
 #: libraries/DisplayResults.class.php:797
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "在数据库中搜索"
+msgstr "在表中搜索"
 
 #: libraries/DisplayResults.class.php:824 libraries/Util.class.php:2446
 #: libraries/Util.class.php:2450
@@ -2681,7 +2673,7 @@ msgstr "正在显示第 %1s - %2s 行"
 #: libraries/DisplayResults.class.php:5065
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "总数为 %1$d，查询包含 %2$d"
 
 #: libraries/DisplayResults.class.php:5070
 #, php-format
@@ -3095,80 +3087,71 @@ msgid "Could not save recent table!"
 msgstr "无法保存最近使用的表！"
 
 #: libraries/RecentFavoriteTable.class.php:154
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not save favorite table!"
-msgstr "无法保存最近使用的表！"
+msgstr "无法保存到表收藏夹！"
 
 #: libraries/RecentFavoriteTable.class.php:231
 #: libraries/structure.lib.php:2753
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "删除图表"
+msgstr "从收藏夹中移除"
 
 #: libraries/RecentFavoriteTable.class.php:253
 msgid "There are no recent tables."
 msgstr "没有最近使用的表。"
 
 #: libraries/RecentFavoriteTable.class.php:254
-#, fuzzy
 #| msgid "There are no recent tables."
 msgid "There are no favorite tables."
-msgstr "没有最近使用的表。"
+msgstr "表收藏夹为空。"
 
 #: libraries/RecentFavoriteTable.class.php:269
 msgid "Recent tables"
 msgstr "最近使用的表"
 
 #: libraries/RecentFavoriteTable.class.php:271
-#, fuzzy
 #| msgid "Reset"
 msgid "Recent"
-msgstr "重置"
+msgstr "近期访问"
 
 #: libraries/RecentFavoriteTable.class.php:273
 #: libraries/config/messages.inc.php:469
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
-msgstr "变量"
+msgstr "表收藏夹"
 
 #: libraries/RecentFavoriteTable.class.php:275
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorites"
-msgstr "变量"
+msgstr "表收藏夹"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "请为该搜索的书签提供一个名字。"
 
 #: libraries/SavedSearches.class.php:261
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the bookmarked search."
-msgstr "丢失 phpMyAdmin 高级功能数据表"
+msgstr "缺少保存搜索书签所必要的数据。"
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
-#, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "用户 %s 己存在！"
+msgstr "该书签名已经存在。"
 
 #: libraries/SavedSearches.class.php:347
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "缺少删除搜索书签所必要的数据。"
 
 #: libraries/SavedSearches.class.php:375
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "缺少载入搜索书签所必要的数据。"
 
 #: libraries/SavedSearches.class.php:394
-#, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "移动已上传的文件时发生错误。"
+msgstr "加载搜索时出现错误"
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -3297,10 +3280,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "该 MySQL 服务器不支持 %s 存储引擎。"
 
 #: libraries/Table.class.php:385
-#, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "未知表状态： "
+msgstr "未知表状态："
 
 #: libraries/Table.class.php:797
 #, php-format
@@ -4315,7 +4297,6 @@ msgstr ""
 "用%s可信代理表%s。但如果您和许多人共用一个 IP 地址，该措施的安全性将下降。"
 
 #: libraries/config/ServerConfigChecks.class.php:378
-#, fuzzy
 #| msgid ""
 #| "You didn't have blowfish secret set and have enabled cookie "
 #| "authentication, so a key was automatically generated for you. It is used "
@@ -4325,8 +4306,8 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"您打开了 Cookies 认证方式，但没有设置短语密码，因此系统自动生成了一个短语密"
-"码，该密语用于加密 Cookies。您不需要记住这个短语密码。"
+"您打开了 [kbd]cookie[/kbd] 认证方式，但没有设置短语密码，因此系统自动生成了一个短语密码，该密语用于加密 "
+"Cookies。您不需要记住这个短语密码。"
 
 #: libraries/config/ServerConfigChecks.class.php:379
 #, php-format
@@ -4374,7 +4355,7 @@ msgstr ""
 "会增加安全风险。"
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If using cookie authentication and %sLogin cookie store%s is not 0, "
 #| "%sLogin cookie validity%s must be set to a value less or equal to it."
@@ -4382,11 +4363,10 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"如果使用 cookie 认证且%s登录 cookie 保存时间%s不为 0，%s登录 cookie 有效期%s"
-"的值不能超过前者。"
+"如果使用 [kbd]cookie[/kbd] 认证且%s登录 cookie 保存时间%s不为 0，%s登录 cookie 有效期%s的值不能超过前者。"
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - "
 #| "%shost authentication%s settings and %strusted proxies list%s. However, "
@@ -4397,9 +4377,7 @@ msgid ""
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
-msgstr ""
-"如果有必要，您可以使用额外的保护设置 - %s主机认证%s和%s可信代理表%s。但如果您"
-"和许多人共用一个 IP 地址，该措施的安全性将下降。"
+msgstr "如果有必要，您可以使用额外的保护设置 - %s主机认证%s和%s可信代理表%s。但如果您和许多人共用一个 IP 地址，该措施的安全性将下降。"
 
 #: libraries/config/ServerConfigChecks.class.php:431
 #, php-format
@@ -4441,24 +4419,21 @@ msgid "Could not connect to the database server!"
 msgstr "无法连接到数据库！"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty username while using config authentication method!"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "使用 config 认证方式时用户名不能为空！"
+msgstr "使用 [kbd]config[/kbd] 认证方式时用户名不能为空！"
 
 #: libraries/config/Validator.class.php:320
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method!"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "使用 singon 认证方式时 signon 会话名不能为空！"
+msgstr "使用 singon 认证方式时 [kbd]signon[/kbd] 会话名不能为空！"
 
 #: libraries/config/Validator.class.php:329
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "使用 singon 认证方式时 singon 地址不能为空！"
+msgstr "使用 singon 认证方式时 [kbd]signon[/kbd] 地址不能为空！"
 
 #: libraries/config/Validator.class.php:376
 msgid ""
@@ -4569,35 +4544,32 @@ msgid "Enable CodeMirror"
 msgstr "启用 CodeMirror"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid ""
 #| "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr "当编辑 CHAR 和 VARCHAR 字段时所使用输入框的最小大小"
+msgstr "定义了当编辑 CHAR 和 VARCHAR 字段时所使用输入框的最小大小"
 
 #: libraries/config/messages.inc.php:58
 msgid "Minimum size for input field"
 msgstr "输入框最小大小"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid ""
 #| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr "当编辑 CHAR 和 VARCHAR 字段时所使用输入框的最大大小"
+msgstr "定义了当编辑 CHAR 和 VARCHAR 字段时所使用输入框的最大大小"
 
 #: libraries/config/messages.inc.php:63
 msgid "Maximum size for input field"
 msgstr "输入框最大大小"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
 msgstr "CHAR/VARCHAR 文本框的列数"
@@ -4607,7 +4579,6 @@ msgid "CHAR textarea columns"
 msgstr "CHAR 文本框列"
 
 #: libraries/config/messages.inc.php:66
-#, fuzzy
 #| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "CHAR/VARCHAR 文本框的行数"
@@ -4621,7 +4592,6 @@ msgid "Check config file permissions"
 msgstr "检查配置文件权限"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4629,9 +4599,7 @@ msgstr "检查配置文件权限"
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
-msgstr ""
-"在导出时使用较少的内存对 gzip/bzip2 进行实时压缩；如果您在创建 gzip/bzip2 压"
-"缩文件时遇到问题，请禁用该功能"
+msgstr "在导出时使用较少的内存对 gzip/bzip2 进行实时压缩；如果您在创建 gzip/bzip2 压缩文件时遇到问题，请禁用该功能"
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -4643,7 +4611,6 @@ msgid "Configuration file"
 msgstr "配置文件"
 
 #: libraries/config/messages.inc.php:76
-#, fuzzy
 #| msgid ""
 #| "Whether a warning (\"Are your really sure…\") should be displayed when "
 #| "you're about to lose data"
@@ -4665,7 +4632,6 @@ msgid "Default display direction"
 msgstr "默认显示模式"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 #| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
 msgstr "当进入数据库时默认显示的标签页"
@@ -4675,7 +4641,6 @@ msgid "Default database tab"
 msgstr "数据库默认标签页"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 #| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
 msgstr "当进入服务器时默认显示的标签页"
@@ -4685,7 +4650,6 @@ msgid "Default server tab"
 msgstr "服务器默认标签页"
 
 #: libraries/config/messages.inc.php:87
-#, fuzzy
 #| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
 msgstr "当进入表时默认显示的标签页"
@@ -4695,7 +4659,6 @@ msgid "Default table tab"
 msgstr "表默认标签页"
 
 #: libraries/config/messages.inc.php:90
-#, fuzzy
 #| msgid "Whether the table structure actions should be hidden"
 msgid "Whether the table structure actions should be hidden."
 msgstr "是否隐藏对表结构的相关操作"
@@ -4705,7 +4668,6 @@ msgid "Hide table structure actions"
 msgstr "隐藏表结构操作"
 
 #: libraries/config/messages.inc.php:92
-#, fuzzy
 #| msgid "Show binary contents as HEX by default"
 msgid "Show binary contents as HEX by default."
 msgstr "默认以十六进制显示二进制内容"
@@ -4729,7 +4691,6 @@ msgid "Disable multi table maintenance"
 msgstr "禁止多表维护"
 
 #: libraries/config/messages.inc.php:102
-#, fuzzy
 #| msgid "Edit SQL queries in popup window"
 msgid "Edit SQL queries in popup window."
 msgstr "在弹出窗口中编辑 SQL 语句"
@@ -4743,7 +4704,6 @@ msgid "Display errors"
 msgstr "显示错误"
 
 #: libraries/config/messages.inc.php:106
-#, fuzzy
 #| msgid ""
 #| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 #| "limit)"
@@ -4944,10 +4904,9 @@ msgid "Add %s"
 msgstr "添加 %s"
 
 #: libraries/config/messages.inc.php:178
-#, fuzzy
 #| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "使用十六进制表示 BLOB 数据"
+msgstr "使用十六进制表示 BINARY 和 BLOB 数据"
 
 #: libraries/config/messages.inc.php:180
 msgid "Use ignore inserts"
@@ -4976,7 +4935,6 @@ msgid "Export time in UTC"
 msgstr "导出时间为协调世界时"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
 #| msgid "Force secured connection while using phpMyAdmin"
 msgid "Force secured connection while using phpMyAdmin."
 msgstr "强制使用安全连接访问 phpMyAdmin"
@@ -4986,16 +4944,13 @@ msgid "Force SSL connection"
 msgstr "强制 SSL 连接"
 
 #: libraries/config/messages.inc.php:202
-#, fuzzy
 #| msgid ""
 #| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 #| "the referenced data, [kbd]id[/kbd] is the key value"
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
-msgstr ""
-"外键下拉框中选项的排序顺序，[kbd]content[/kbd] 为关联内容，[kbd]id[/kbd] 为键"
-"值"
+msgstr "外键下拉框中选项的排序顺序，[kbd]content[/kbd] 为关联内容，[kbd]id[/kbd] 为键值"
 
 #: libraries/config/messages.inc.php:205
 msgid "Foreign key dropdown order"
@@ -5024,7 +4979,6 @@ msgstr "自定义浏览模式"
 #: libraries/config/messages.inc.php:212 libraries/config/messages.inc.php:214
 #: libraries/config/messages.inc.php:232 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:245 libraries/config/messages.inc.php:291
-#, fuzzy
 #| msgid "Customize default options"
 msgid "Customize default options."
 msgstr "自定义默认选项"
@@ -5041,7 +4995,6 @@ msgid "Developer"
 msgstr "开发"
 
 #: libraries/config/messages.inc.php:216
-#, fuzzy
 #| msgid "Settings for phpMyAdmin developers"
 msgid "Settings for phpMyAdmin developers."
 msgstr "phpMyAdmin 开发设置"
@@ -5051,7 +5004,6 @@ msgid "Edit mode"
 msgstr "编辑模式"
 
 #: libraries/config/messages.inc.php:218
-#, fuzzy
 #| msgid "Customize edit mode"
 msgid "Customize edit mode."
 msgstr "自定义编辑模式"
@@ -5061,7 +5013,6 @@ msgid "Export defaults"
 msgstr "导出选项"
 
 #: libraries/config/messages.inc.php:221
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default export options."
 msgstr "自定义默认导出选项"
@@ -5076,7 +5027,6 @@ msgid "General"
 msgstr "常规"
 
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 #| msgid "Set some commonly used options"
 msgid "Set some commonly used options."
 msgstr "设置某些常用选项"
