@@ -448,14 +448,31 @@ PMA_DROP_IMPORT = {
      * @return void
      */
     _dragenter : function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+        if (!PMA_DROP_IMPORT._hasFiles(event)) {
+            return;
+        }
         if (PMA_commonParams.get('db') === '') {
             $(".pma_drop_handler").html(PMA_messages.dropImportSelectDB);
         } else {
             $(".pma_drop_handler").html(PMA_messages.dropImportDropFiles);
         }
         $(".pma_drop_handler").fadeIn();
-        event.stopPropagation();
-        event.preventDefault();
+    },
+    /**
+     * Check if dragged element contains Files
+     *
+     * @param event the event object
+     *
+     * @return bool
+     */
+    _hasFiles: function (event) {
+        if (typeof event.originalEvent.dataTransfer.types === 'undefined'
+            || $.inArray('Files', event.originalEvent.dataTransfer.types) < 0) {
+            return false;
+        }
+        return true;
     },
     /**
      * Triggered when dragged file is being dragged over PMA UI
@@ -465,9 +482,12 @@ PMA_DROP_IMPORT = {
      * @return void
      */
     _dragover: function (event) {
-        $(".pma_drop_handler").fadeIn();
         event.stopPropagation();
         event.preventDefault();
+        if (!PMA_DROP_IMPORT._hasFiles(event)) {
+            return;
+        }
+        $(".pma_drop_handler").fadeIn();
     },
     /**
      * Triggered when dragged objects are left
