@@ -1,5 +1,4 @@
 var designer_tables = [{name: "pdf_pages", key: "pg_nr", auto_inc: true},
-                       {name: "relation", key: "rel_nr", auto_inc: true},
                        {name: "table_coords", key: "id", auto_inc: true}];
 
 var DesignerOfflineDB = (function () {
@@ -8,7 +7,7 @@ var DesignerOfflineDB = (function () {
 
     designerDB.open = function (callback)
     {
-        var version = 2;
+        var version = 1;
         var request = window.indexedDB.open("pmd_designer", version);
 
         request.onupgradeneeded = function (e) {
