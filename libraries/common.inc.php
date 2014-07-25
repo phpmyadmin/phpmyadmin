@@ -250,6 +250,11 @@ if (isset($_POST['usesubform'])) {
  * This setting was removed in PHP 5.4, but get_magic_quotes_gpc
  * always returns False since then.
  */
+if(!function_exists("get_magic_quotes_gpc")) {
+    function get_magic_quotes_gpc() { 
+        return 0; 
+    }
+}
 if (get_magic_quotes_gpc()) {
     PMA_arrayWalkRecursive($_GET, 'stripslashes', true);
     PMA_arrayWalkRecursive($_POST, 'stripslashes', true);
