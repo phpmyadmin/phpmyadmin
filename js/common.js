@@ -468,8 +468,8 @@ PMA_DROP_IMPORT = {
      * @return bool
      */
     _hasFiles: function (event) {
-        if (typeof event.originalEvent.dataTransfer.types === 'undefined'
-            || $.inArray('Files', event.originalEvent.dataTransfer.types) < 0) {
+        if (typeof event.originalEvent.dataTransfer.types === 'undefined' ||
+            $.inArray('Files', event.originalEvent.dataTransfer.types) < 0) {
             return false;
         }
         return true;
@@ -560,7 +560,7 @@ PMA_DROP_IMPORT = {
         //if no database is selected -- no
         if (dbname !== '') {
             var files = event.originalEvent.dataTransfer.files;
-            if (files.length == 0) {
+            if (files.length === 0) {
                 // No files actually transfered
                 $(".pma_drop_handler").fadeOut();
                 event.stopPropagation();
