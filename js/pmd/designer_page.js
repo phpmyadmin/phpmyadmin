@@ -10,7 +10,7 @@ function Show_tables_in_landing_page()
     });
 }
 
-function Save_to_new_page(db, page_name, table_positions, callbcak)
+function Save_to_new_page(db, page_name, table_positions, callback)
 {
     Create_new_page(db, page_name, function (page) {
         if (page) {
@@ -21,8 +21,10 @@ function Save_to_new_page(db, page_name, table_positions, callbcak)
                     tbl_cords.push(id);
                     if (table_positions.length === tbl_cords.length) {
                         page.tbl_cords = tbl_cords;
-                        DesignerOfflineDB.addObject('pdf_pages', page, function() {});
-                        callbcak(page);
+                        DesignerOfflineDB.addObject('pdf_pages', page);
+                        if (typeof callback !== 'undefined') {
+                            callback(page);
+                        }
                     }
                 });
             }
@@ -30,11 +32,13 @@ function Save_to_new_page(db, page_name, table_positions, callbcak)
     });
 }
 
-function Save_to_selected_page(db, page_id, page_name, table_positions, callbcak)
+function Save_to_selected_page(db, page_id, page_name, table_positions, callback)
 {
-    Delete_page(page_id, function() {});
+    Delete_page(page_id);
     Save_to_new_page(db, page_name, table_positions, function (page) {
-        callbcak(page);
+        if (typeof callback !== 'undefined') {
+            callback(page);
+        }
         selected_page = page.pg_nr;
     });
 }
@@ -44,14 +48,18 @@ function Create_new_page(db, page_name, callback)
     var newPage = new PDFPage(db, page_name);
     DesignerOfflineDB.addObject('pdf_pages', newPage, function (pg_nr) {
         newPage.pg_nr = pg_nr;
-        callback(newPage);
+        if (typeof callback !== 'undefined') {
+            callback(newPage);
+        }
     });
 }
 
 function Save_table_positions(positions, callback)
 {
     DesignerOfflineDB.addObject('table_coords', positions, function (id) {
-        callback(id);
+        if (typeof callback !== 'undefined') {
+            callback(id);
+        }
     });
 }
 
@@ -63,7 +71,9 @@ function Create_page_list(callback)
             html += '<option value="' + pages[p].pg_nr + '">';
             html += (pages[p].page_descr) + '</option>';
         }
-        callback(html);
+        if (typeof callback !== 'undefined') {
+            callback(html);
+        }
     });
 }
 
@@ -72,10 +82,12 @@ function Delete_page(page_id, callback)
     DesignerOfflineDB.loadObject('pdf_pages', page_id, function (page) {
         if (page) {            
             for (i in page.tbl_cords) {
-                DesignerOfflineDB.deleteObject('table_coords', page.tbl_cords[i], function() {});
+                DesignerOfflineDB.deleteObject('table_coords', page.tbl_cords[i]);
             }
             DesignerOfflineDB.deleteObject('pdf_pages', page_id, function (state) {
-            	callback(state);
+                if (typeof callback !== 'undefined') {
+                    callback(state);
+                }
             });            
         }
     });
@@ -84,7 +96,9 @@ function Delete_page(page_id, callback)
 function Load_first_page(callback)
 {
     DesignerOfflineDB.loadFirstObject('pdf_pages', function (page) {
-        callback(page);
+        if (typeof callback !== 'undefined') {
+            callback(page);
+        }
     });
 }
 
@@ -132,7 +146,9 @@ function Load_page_objects(page_id, callback)
             DesignerOfflineDB.loadObject('table_coords', page.tbl_cords[i], function (tbl_cord) {
                 tbl_cords.push(tbl_cord);
                 if (tbl_cords.length === page.tbl_cords.length) {
-                    callback(page,tbl_cords);
+                    if (typeof callback !== 'undefined') {
+                        callback(page,tbl_cords);
+                    }
                 }
             });
         }
