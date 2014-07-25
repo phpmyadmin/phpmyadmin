@@ -3260,7 +3260,7 @@ function PMA_getDbRightsForUserOverview()
 /**
  * Delete user and get message and sql query for delete user in privileges
  *
- * @param string $queries queries
+ * @param array $queries queries
  *
  * @return array PMA_message
  */
