@@ -141,7 +141,7 @@ if ($_POST == array() && $_GET == array()) {
 
     // so we can obtain the message
     $_SESSION['Import_message']['message'] = $message->getDisplay();
-    $_SESSION['Import_message']['go_back_url'] = $goto;
+    $_SESSION['Import_message']['go_back_url'] = $GLOBALS['goto'];
 
     $message->display();
     exit; // the footer is displayed automatically
