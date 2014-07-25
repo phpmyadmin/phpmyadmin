@@ -613,6 +613,8 @@ PMA_DROP_IMPORT = {
 
                     // init uploading
                     PMA_DROP_IMPORT._sendFileToServer(fd, hash);
+                } else if (!PMA_DROP_IMPORT.liveUploadCount) {
+                    $('.pma_sql_import_status h2 .close').fadeIn();
                 }
             }
         }
@@ -640,9 +642,11 @@ $(document).on('click', '.pma_sql_import_status h2 .minimize', function() {
     if ($(this).attr('toggle') === 'off') {
         $('.pma_sql_import_status div').css('height','270px');
         $(this).attr('toggle','on');
+        $(this).html('-');  // to minimize
     } else {
         $('.pma_sql_import_status div').css("height","0px");
         $(this).attr('toggle','off');
+        $(this).html('+');  // to maximise
     }
 });
 
