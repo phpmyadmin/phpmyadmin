@@ -620,7 +620,6 @@ function Save3(callback)
             } else {
                 Save_to_new_page(db, name, Get_url_pos(), function (page) {
                     _change = 0;
-                    debugger;
                     if (page.pg_nr) {
                         selected_page = page.pg_nr;
                     }
