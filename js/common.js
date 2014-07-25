@@ -541,7 +541,11 @@ PMA_DROP_IMPORT = {
         if (dbname !== '') {
             var files = event.originalEvent.dataTransfer.files;
             if (files.length == 0) {
-                return;     // No files actually transfered
+                // No files actually transfered
+                $(".pma_drop_handler").fadeOut();
+                event.stopPropagation();
+                event.preventDefault();
+                return;
             }
             $(".pma_sql_import_status").slideDown();
             for (var i = 0; i < files.length; i++) {
