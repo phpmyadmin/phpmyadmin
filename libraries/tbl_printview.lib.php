@@ -54,7 +54,6 @@ function PMA_getHtmlForPrintViewFooter()
  *
  * @param array  $columns      columns list
  * @param array  $analyzed_sql analyzed sql
- * @param array  $pk_array     primary key array
  * @param bool   $have_rel     have relation?
  * @param array  $res_rel      relations array
  * @param string $db           database name
@@ -64,7 +63,7 @@ function PMA_getHtmlForPrintViewFooter()
  * @return string
  */
 function PMA_getHtmlForPrintViewColumns(
-    $columns, $analyzed_sql, $pk_array, $have_rel,
+    $columns, $analyzed_sql, $have_rel,
     $res_rel, $db, $table, $cfgRelation
 ) {
     $html = '';
@@ -485,7 +484,7 @@ function PMA_getHtmlForTableStructure(
     $html .= '</thead>';
     $html .= '<tbody>';
     $html .= PMA_getHtmlForPrintViewColumns(
-        $columns, $analyzed_sql, $pk_array, $have_rel,
+        $columns, $analyzed_sql, $have_rel,
         $res_rel, $db, $table, $cfgRelation
     );
     $html .= '</tbody>';
