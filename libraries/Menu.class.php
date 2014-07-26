@@ -477,11 +477,13 @@ class PMA_Menu
             $tabs['tracking']['link'] = 'db_tracking.php';
         }
 
-        if (! $db_is_system_schema && $cfgRelation['pdfwork']) {
+        if (! $db_is_system_schema) {
             $tabs['designer']['text'] = __('Designer');
             $tabs['designer']['icon'] = 'b_relations.png';
             $tabs['designer']['link'] = 'pmd_general.php';
+            $tabs['designer']['id'] = 'designer_tab';
         }
+
         if (! $db_is_system_schema && $cfgRelation['central_columnswork']) {
             $tabs['central_columns']['text'] = __('Central columns');
             $tabs['central_columns']['icon'] = 'centralColumns.png';

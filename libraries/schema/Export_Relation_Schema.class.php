@@ -30,6 +30,7 @@ class PMA_Export_Relation_Schema
     public $paper;
     public $pageNumber;
     public $exportType;
+    public $offline;
 
     /**
      * Set Page Number
@@ -181,6 +182,32 @@ class PMA_Export_Relation_Schema
     public function setExportType($value)
     {
         $this->exportType=$value;
+    }
+
+    /**
+     * Set whether the document is generated from client side DB
+     *
+     * @param string $value 'on' if offline
+     *
+     * @return void
+     *
+     * @access public
+     */
+    public function setOffline($value)
+    {
+        $this->offline = (isset($value) && $value == 'on');
+    }
+
+    /**
+     * Returns whether the client side database is used
+     *
+     * @return boolean
+     *
+     * @access public
+     */
+    public function isOffline()
+    {
+        return $this->offline;
     }
 
     /**

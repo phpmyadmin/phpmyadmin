@@ -84,6 +84,9 @@ $header   = $response->getHeader();
 $header->setBodyId('pmd_body');
 $scripts = $header->getScripts();
 $scripts->addFile('jquery/jquery.fullscreen.js');
+$scripts->addFile('pmd/designer_db.js');
+$scripts->addFile('pmd/designer_objects.js');
+$scripts->addFile('pmd/designer_page.js');
 $scripts->addFile('pmd/ajax.js');
 $scripts->addFile('pmd/history.js');
 $scripts->addFile('pmd/move.js');
@@ -116,7 +119,9 @@ echo '</div>';
 echo '<div id="script_display_page" class="hide">';
 echo htmlspecialchars($display_page);
 echo '</div>';
-
+echo '<div id="pmd_tables_enabled" class="hide">';
+echo htmlspecialchars($cfgRelation['pdfwork']);
+echo '</div>';
 ?>
 <div class="pmd_header" id="top_menu">
     <a href="#" onclick="Show_left_menu(document.getElementById('key_Show_left_menu')); return false"
