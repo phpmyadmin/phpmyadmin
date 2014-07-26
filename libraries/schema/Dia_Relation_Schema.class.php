@@ -221,10 +221,10 @@ class Table_Stats_Dia extends TableStats
      *
      * @see PMA_DIA
      */
-    function __construct($tableName, $pageNumber, $showKeys = false)
+    function __construct($tableName, $pageNumber, $showKeys = false, $offline = false)
     {
         global $dia, $cfgRelation, $db;
-        parent::__construct($dia, $db, $pageNumber, $tableName, $showKeys, false);
+        parent::__construct($dia, $db, $pageNumber, $tableName, $showKeys, false, $offline);
 
         /**
          * Every object in Dia document needs an ID to identify
@@ -674,17 +674,28 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         $this->setOrientation(isset($_POST['orientation']));
         $this->setPaper($_POST['paper']);
         $this->setExportType($_POST['export_type']);
+        $this->setOffline($_POST['offline_export']);
 
         $dia = new PMA_DIA();
         $dia->startDiaDoc(
             $this->paper, $this->_topMargin, $this->_bottomMargin,
             $this->_leftMargin, $this->_rightMargin, $this->orientation
         );
-        $alltables = $this->getAllTables($db, $this->pageNumber);
+
+        if ($this->isOffline()) {
+            $alltables = array();
+            $tbl_coords = json_decode($GLOBALS['tbl_coords']);
+            foreach ($tbl_coords as $tbl) {
+                $alltables[] = $tbl->table_name;
+            }
+        } else {
+            $alltables = $this->getAllTables($db, $this->pageNumber);
+        }
+
         foreach ($alltables as $table) {
             if (! isset($this->tables[$table])) {
                 $this->_tables[$table] = new Table_Stats_Dia(
-                    $table, $this->pageNumber, $this->showKeys
+                    $table, $this->pageNumber, $this->showKeys, $this->isOffline()
                 );
             }
         }
@@ -726,7 +737,11 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
     function showOutput()
     {
         global $dia, $db;
-        $dia->showOutput($db . '-' . $this->pageNumber);
+        $filename = $db . '-' . $this->pageNumber;
+        if ($this->isOffline()) {
+            $filename = __("dia export page");
+        }
+        $dia->showOutput($filename);
     }
 
     /**

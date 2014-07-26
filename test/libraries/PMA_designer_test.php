@@ -37,7 +37,11 @@ class PMA_DesginerTest extends PHPUnit_Framework_TestCase
 
         $_SESSION = array(
             'relation' => array(
-                '1' => array('db' => 'pmadb', 'pdf_pages' => 'pdf_pages')
+                '1' => array(
+                    'db' => 'pmadb',
+                    'pdf_pages' => 'pdf_pages',
+                    'pdfwork' => true
+                )
             ),
             ' PMA_token ' => 'token'
         );

@@ -21,6 +21,7 @@ require_once 'libraries/relation.lib.php';
  */
 function PMA_getHtmlForEditOrDeletePages($db, $operation)
 {
+    $cfgRelation = PMA_getRelationsParam();
     $html  = '<form action="pmd_general.php" method="post"'
         . ' name="edit_delete_pages" id="edit_delete_pages" class="ajax">';
     $html .= PMA_URL_getHiddenInputs($db);
@@ -35,10 +36,12 @@ function PMA_getHtmlForEditOrDeletePages($db, $operation)
     $html .= ': </label>';
     $html .= '<select name="selected_page" id="selected_page">';
     $html .= '<option value="0">-- ' . __('Select page').' --</option>';
-    $pages = PMA_getPageIdsAndNames($db);
-    foreach ($pages as $nr => $desc) {
-        $html .= '<option value="' . $nr . '">';
-        $html .= htmlspecialchars($desc) . '</option>';
+    if ($cfgRelation['pdfwork']) {
+        $pages = PMA_getPageIdsAndNames($db);
+        foreach ($pages as $nr => $desc) {
+            $html .= '<option value="' . $nr . '">';
+            $html .= htmlspecialchars($desc) . '</option>';
+        }
     }
     $html .= '</select>';
     $html .= '</fieldset>';
@@ -55,6 +58,7 @@ function PMA_getHtmlForEditOrDeletePages($db, $operation)
  */
 function PMA_getHtmlForPageSaveAs($db)
 {
+    $cfgRelation = PMA_getRelationsParam();
     $choices = array(
         'same' => __('Save to selected page'),
         'new' => __('Create a page and save to it')
@@ -72,10 +76,12 @@ function PMA_getHtmlForPageSaveAs($db)
     $html .= '<select name="selected_page" id="selected_page">';
     $html .= '<option value="0">-- ' . __('Select page') . ' --</option>';
 
-    $pages = PMA_getPageIdsAndNames($db);
-    foreach ($pages as $nr => $desc) {
-        $html .= '<option value="' . $nr . '">';
-        $html .= htmlspecialchars($desc) . '</option>';
+    if ($cfgRelation['pdfwork']) {
+        $pages = PMA_getPageIdsAndNames($db);
+        foreach ($pages as $nr => $desc) {
+            $html .= '<option value="' . $nr . '">';
+            $html .= htmlspecialchars($desc) . '</option>';
+        }
     }
     $html .= '</select>';
     $html .= '</td>';

@@ -395,6 +395,7 @@ $js_messages['strPageName'] = __('Page name');
 $js_messages['strSavePage'] = __('Save page');
 $js_messages['strOpenPage'] = __('Open page');
 $js_messages['strDeletePage'] = __('Delete page');
+$js_messages['strUntitled'] = __('*Untitled');
 $js_messages['strSelectPage'] = __('Please select a page to continue');
 $js_messages['strEnterValidPageName'] = __('Please enter a valid page name');
 $js_messages['strLeavingPage'] = __('Do you want to save the changes to the current page?');

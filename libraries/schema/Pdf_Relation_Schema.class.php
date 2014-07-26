@@ -50,6 +50,7 @@ class PMA_Schema_PDF extends PMA_PDF
     var $def_outlines;
     var $widths;
     private $_ff = PMA_PDF_FONT;
+    private $offline;
 
     /**
      * Sets the value for margins
@@ -224,15 +225,21 @@ class PMA_Schema_PDF extends PMA_PDF
         // This function must be named "Header" to work with the TCPDF library
         global $cfgRelation, $db, $pdf_page_number, $with_doc;
         if ($with_doc) {
-            $test_query = 'SELECT * FROM '
-                . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-                . PMA_Util::backquote($cfgRelation['pdf_pages'])
-                . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-                . ' AND page_nr = \'' . $pdf_page_number . '\'';
-            $test_rs = PMA_queryAsControlUser($test_query);
-            $pages = @$GLOBALS['dbi']->fetchAssoc($test_rs);
+            if ($this->offline) {
+                $pg_name = __("pdf export page");
+            } else {
+                $test_query = 'SELECT * FROM '
+                    . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+                    . PMA_Util::backquote($cfgRelation['pdf_pages'])
+                    . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                    . ' AND page_nr = \'' . $pdf_page_number . '\'';
+                $test_rs = PMA_queryAsControlUser($test_query);
+                $pages = @$GLOBALS['dbi']->fetchAssoc($test_rs);
+                $pg_name = ucfirst($pages['page_descr']);
+            }
+
             $this->SetFont($this->_ff, 'B', 14);
-            $this->Cell(0, 6, ucfirst($pages['page_descr']), 'B', 1, 'C');
+            $this->Cell(0, 6, $pg_name, 'B', 1, 'C');
             $this->SetFont($this->_ff, '');
             $this->Ln();
         }
@@ -364,6 +371,20 @@ class PMA_Schema_PDF extends PMA_PDF
         }
         return $nl;
     }
+
+   /**
+    * Set whether the document is generated from client side DB
+    *
+    * @param string $value 'on' if offline
+    *
+    * @return void
+    *
+    * @access private
+    */
+   public function setOffline($value)
+   {
+       $this->offline = (isset($value) && $value == 'on');
+   }
 }
 
 require_once './libraries/schema/TableStats.class.php';
@@ -406,11 +427,11 @@ class Table_Stats_Pdf extends TableStats
      *     Table_Stats_Pdf::Table_Stats_setHeight
      */
     function __construct($tableName, $fontSize, $pageNumber, &$sameWideWidth,
-        $showKeys = false, $showInfo = false
+        $showKeys = false, $showInfo = false, $offline = false
     ) {
         global $pdf, $cfgRelation, $db;
         parent::__construct(
-            $pdf, $db, $pageNumber, $tableName, $showKeys, $showInfo
+            $pdf, $db, $pageNumber, $tableName, $showKeys, $showInfo, $offline
         );
 
         $this->heightCell = 6;
@@ -837,6 +858,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $this->setOrientation($_POST['orientation']);
         $this->setPaper($_POST['paper']);
         $this->setExportType($_POST['export_type']);
+        $this->setOffline($_POST['offline_export']);
 
          // Initializes a new document
         $pdf = new PMA_Schema_PDF($this->orientation, 'mm', $this->paper);
@@ -850,7 +872,16 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $pdf->setCMargin(0);
         $pdf->Open();
         $pdf->SetAutoPageBreak('auto');
-        $alltables = $this->getAllTables($db, $this->pageNumber);
+        $pdf->setOffline($this->isOffline());
+        if ($this->isOffline()){
+            $alltables = array();
+            $tbl_coords = json_decode($GLOBALS['tbl_coords']);
+            foreach ($tbl_coords as $tbl) {
+                $alltables[] = $tbl->table_name;
+            }
+        } else {
+            $alltables = $this->getAllTables($db, $this->pageNumber);
+        }
 
         if ($this->withDoc) {
             $pdf->SetAutoPageBreak('auto', 15);
@@ -879,7 +910,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                     $this->pageNumber,
                     $this->_tablewidth,
                     $this->showKeys,
-                    $this->tableDimension
+                    $this->tableDimension,
+                    $this->isOffline()
                 );
             }
             if ($this->sameWide) {
@@ -1146,19 +1178,24 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         global $pdf, $cfgRelation;
 
         // Get the name of this pdfpage to use as filename
-        $editingPage = $_POST['chpage'] != '-1' ? $_POST['chpage'] : $pageNumber;
-        $_name_sql = 'SELECT page_descr FROM '
-            . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['pdf_pages'])
-            . ' WHERE page_nr = ' . $editingPage;
-        $_name_rs = PMA_queryAsControlUser($_name_sql);
-        if ($_name_rs) {
-            $_name_row = $GLOBALS['dbi']->fetchRow($_name_rs);
-            $filename = $_name_row[0] . '.pdf';
+        if ($this->isOffline()) {
+            $filename = __("pdf export page") . '.pdf';
+        } else {
+            $editingPage = $_POST['chpage'] != '-1' ? $_POST['chpage'] : $pageNumber;
+            $_name_sql = 'SELECT page_descr FROM '
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+                . PMA_Util::backquote($cfgRelation['pdf_pages'])
+                . ' WHERE page_nr = ' . $editingPage;
+            $_name_rs = PMA_queryAsControlUser($_name_sql);
+            if ($_name_rs) {
+                $_name_row = $GLOBALS['dbi']->fetchRow($_name_rs);
+                $filename = $_name_row[0] . '.pdf';
+            }
+            if (empty($filename)) {
+                $filename = $editingPage . '.pdf';
+            }
         }
-        if (empty($filename)) {
-            $filename = $editingPage . '.pdf';
-        }
+
         $pdf->Download($filename);
     }
 
