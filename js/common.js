@@ -469,7 +469,11 @@ PMA_DROP_IMPORT = {
      */
     _hasFiles: function (event) {
         if (typeof event.originalEvent.dataTransfer.types === 'undefined' ||
-            $.inArray('Files', event.originalEvent.dataTransfer.types) < 0) {
+            $.inArray('Files', event.originalEvent.dataTransfer.types) < 0 ||
+            $.inArray(
+                'application/x-moz-nativeimage',
+                event.originalEvent.dataTransfer.types
+            ) >= 0) {
             return false;
         }
         return true;
