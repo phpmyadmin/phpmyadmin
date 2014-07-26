@@ -447,7 +447,6 @@ function PMA_getHtmlForSpaceUsageAndRowStatistics(
  * @param array  $tbl_is_view     Is a table view?
  * @param array  $columns         columns list
  * @param array  $analyzed_sql    analyzed sql
- * @param array  $pk_array        primary key array
  * @param array  $res_rel         relations array
  * @param string $db              database
  * @param string $table           table
@@ -460,7 +459,7 @@ function PMA_getHtmlForSpaceUsageAndRowStatistics(
  */
 function PMA_getHtmlForTableStructure(
     $have_rel, $tbl_is_view, $columns, $analyzed_sql,
-    $pk_array, $res_rel, $db, $table, $cfgRelation,
+    $res_rel, $db, $table, $cfgRelation,
     $cfg, $showtable, $cell_align_left
 ) {
     /**
@@ -581,7 +580,7 @@ function PMA_getHtmlForTablesDetail(
 
         $html .= PMA_getHtmlForTableStructure(
             $have_rel, $tbl_is_view, $columns, $analyzed_sql,
-            $pk_array, $res_rel, $db, $table, $cfgRelation,
+            $res_rel, $db, $table, $cfgRelation,
             $cfg, $showtable, $cell_align_left
         );
 
