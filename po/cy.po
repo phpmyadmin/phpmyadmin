@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-23 08:38-0700\n"
+"POT-Creation-Date: 2014-07-26 09:18-0400\n"
 "PO-Revision-Date: 2014-03-28 13:26+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Welsh <https://l10n.cihar.com/projects/phpmyadmin/master/cy/"
@@ -52,7 +52,7 @@ msgstr "Cafodd y gronfa ddata %1$s ei chreu."
 msgid "Database comment:"
 msgstr "Sylw cronfa ddata:"
 
-#: db_datadict.php:143 libraries/schema/Pdf_Relation_Schema.class.php:1326
+#: db_datadict.php:143 libraries/schema/Pdf_Relation_Schema.class.php:1363
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
 #, fuzzy
@@ -72,8 +72,8 @@ msgstr "Sylwadau tabl"
 #: libraries/plugins/export/ExportTexytext.class.php:272
 #: libraries/plugins/export/ExportTexytext.class.php:380
 #: libraries/plugins/export/ExportTexytext.class.php:444
-#: libraries/schema/Pdf_Relation_Schema.class.php:1352
-#: libraries/schema/Pdf_Relation_Schema.class.php:1375
+#: libraries/schema/Pdf_Relation_Schema.class.php:1389
+#: libraries/schema/Pdf_Relation_Schema.class.php:1412
 #: libraries/tbl_columns_definition_form.lib.php:596
 #: libraries/tbl_indexes.lib.php:322 libraries/tbl_printview.lib.php:473
 #: libraries/tbl_relation.lib.php:325 libraries/tbl_relation.lib.php:414
@@ -96,8 +96,8 @@ msgstr "Colofn"
 #: libraries/rte/rte_routines.lib.php:954
 #: libraries/rte/rte_routines.lib.php:983
 #: libraries/rte/rte_routines.lib.php:1604
-#: libraries/schema/Pdf_Relation_Schema.class.php:1353
-#: libraries/schema/Pdf_Relation_Schema.class.php:1376
+#: libraries/schema/Pdf_Relation_Schema.class.php:1390
+#: libraries/schema/Pdf_Relation_Schema.class.php:1413
 #: libraries/server_privileges.lib.php:2003 libraries/structure.lib.php:832
 #: libraries/structure.lib.php:1252
 #: libraries/tbl_columns_definition_form.lib.php:281
@@ -116,8 +116,8 @@ msgstr "Math"
 #: libraries/plugins/export/ExportOdt.class.php:479
 #: libraries/plugins/export/ExportTexytext.class.php:274
 #: libraries/plugins/export/ExportTexytext.class.php:382
-#: libraries/schema/Pdf_Relation_Schema.class.php:1355
-#: libraries/schema/Pdf_Relation_Schema.class.php:1378
+#: libraries/schema/Pdf_Relation_Schema.class.php:1392
+#: libraries/schema/Pdf_Relation_Schema.class.php:1415
 #: libraries/structure.lib.php:1255
 #: libraries/tbl_columns_definition_form.lib.php:302
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:812
@@ -133,8 +133,8 @@ msgstr "Null"
 #: libraries/plugins/export/ExportOdt.class.php:482
 #: libraries/plugins/export/ExportTexytext.class.php:275
 #: libraries/plugins/export/ExportTexytext.class.php:383
-#: libraries/schema/Pdf_Relation_Schema.class.php:1356
-#: libraries/schema/Pdf_Relation_Schema.class.php:1379
+#: libraries/schema/Pdf_Relation_Schema.class.php:1393
+#: libraries/schema/Pdf_Relation_Schema.class.php:1416
 #: libraries/structure.lib.php:218 libraries/structure.lib.php:1256
 #: libraries/tbl_columns_definition_form.lib.php:293
 #: libraries/tbl_printview.lib.php:476 libraries/tbl_tracking.lib.php:813
@@ -145,8 +145,8 @@ msgstr "Diofyn"
 #: libraries/plugins/export/ExportLatex.class.php:524
 #: libraries/plugins/export/ExportOdt.class.php:486
 #: libraries/plugins/export/ExportTexytext.class.php:385
-#: libraries/schema/Pdf_Relation_Schema.class.php:1358
-#: libraries/schema/Pdf_Relation_Schema.class.php:1381
+#: libraries/schema/Pdf_Relation_Schema.class.php:1395
+#: libraries/schema/Pdf_Relation_Schema.class.php:1418
 #: libraries/tbl_printview.lib.php:478
 msgid "Links to"
 msgstr "Cysylltu i"
@@ -158,8 +158,8 @@ msgstr "Cysylltu i"
 #: libraries/plugins/export/ExportLatex.class.php:527
 #: libraries/plugins/export/ExportOdt.class.php:491
 #: libraries/plugins/export/ExportTexytext.class.php:388
-#: libraries/schema/Pdf_Relation_Schema.class.php:1369
-#: libraries/schema/Pdf_Relation_Schema.class.php:1382
+#: libraries/schema/Pdf_Relation_Schema.class.php:1406
+#: libraries/schema/Pdf_Relation_Schema.class.php:1419
 #: libraries/tbl_columns_definition_form.lib.php:312
 #: libraries/tbl_printview.lib.php:480
 msgid "Comments"
@@ -181,7 +181,7 @@ msgstr "Cynradd"
 #: libraries/plugins/export/ExportLatex.class.php:601
 #: libraries/plugins/export/ExportOdt.class.php:763
 #: libraries/plugins/export/ExportTexytext.class.php:588
-#: libraries/schema/Pdf_Relation_Schema.class.php:1408
+#: libraries/schema/Pdf_Relation_Schema.class.php:1445
 #: libraries/server_privileges.lib.php:2169
 #: libraries/server_privileges.lib.php:2366
 #: libraries/server_privileges.lib.php:2387
@@ -208,7 +208,7 @@ msgstr "Na"
 #: libraries/plugins/export/ExportLatex.class.php:601
 #: libraries/plugins/export/ExportOdt.class.php:764
 #: libraries/plugins/export/ExportTexytext.class.php:588
-#: libraries/schema/Pdf_Relation_Schema.class.php:1409
+#: libraries/schema/Pdf_Relation_Schema.class.php:1446
 #: libraries/server_databases.lib.php:472
 #: libraries/server_databases.lib.php:482
 #: libraries/server_privileges.lib.php:2169
@@ -277,7 +277,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2536
 #: libraries/server_privileges.lib.php:2758
 #: libraries/server_privileges.lib.php:2769
-#: libraries/server_privileges.lib.php:3839 libraries/structure.lib.php:810
+#: libraries/server_privileges.lib.php:3840 libraries/structure.lib.php:810
 #: libraries/tbl_relation.lib.php:308 libraries/tbl_relation.lib.php:525
 #: libraries/tbl_tracking.lib.php:196
 msgid "Table"
@@ -301,21 +301,21 @@ msgid "in use"
 msgstr "ar ddefnydd"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1135
-#: libraries/schema/Pdf_Relation_Schema.class.php:1331
+#: libraries/schema/Pdf_Relation_Schema.class.php:1368
 #, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
 msgstr "Cread"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1148
-#: libraries/schema/Pdf_Relation_Schema.class.php:1336
+#: libraries/schema/Pdf_Relation_Schema.class.php:1373
 #, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "Diweddariad diwethaf"
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1161
-#: libraries/schema/Pdf_Relation_Schema.class.php:1341
+#: libraries/schema/Pdf_Relation_Schema.class.php:1378
 #, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
@@ -361,7 +361,7 @@ msgstr "Tablau a draciwyd"
 #: libraries/server_privileges.lib.php:2520
 #: libraries/server_privileges.lib.php:2757
 #: libraries/server_privileges.lib.php:2769
-#: libraries/server_privileges.lib.php:3825
+#: libraries/server_privileges.lib.php:3826
 #: libraries/server_status_processes.lib.php:81
 #: libraries/tbl_relation.lib.php:285 libraries/tbl_relation.lib.php:475
 #: libraries/tbl_tracking.lib.php:195
@@ -380,7 +380,7 @@ msgstr "Crëwyd"
 msgid "Updated"
 msgstr "Diweddarwyd"
 
-#: db_tracking.php:85 js/messages.php:195 libraries/Menu.class.php:528
+#: db_tracking.php:85 js/messages.php:195 libraries/Menu.class.php:530
 #: libraries/Util.class.php:4075 libraries/rte/rte_events.lib.php:432
 #: libraries/rte/rte_list.lib.php:78
 #: libraries/server_status_processes.lib.php:93
@@ -608,7 +608,7 @@ msgstr "Ychwanegwch weinydd newydd"
 #: libraries/server_privileges.lib.php:1767
 #: libraries/server_privileges.lib.php:2502
 #: libraries/server_privileges.lib.php:3141
-#: libraries/server_privileges.lib.php:4075
+#: libraries/server_privileges.lib.php:4076
 #: libraries/sql_query_form.lib.php:389 libraries/sql_query_form.lib.php:448
 #: libraries/sql_query_form.lib.php:516 libraries/structure.lib.php:1684
 #: libraries/tbl_chart.lib.php:296
@@ -718,7 +718,7 @@ msgstr ""
 
 #: import_status.php:95 js/messages.php:319 libraries/Util.class.php:732
 #: libraries/export.lib.php:439
-#: libraries/schema/Export_Relation_Schema.class.php:249 user_password.php:197
+#: libraries/schema/Export_Relation_Schema.class.php:276 user_password.php:197
 msgid "Back"
 msgstr "Nôl"
 
@@ -1320,7 +1320,7 @@ msgstr "Fersiynau"
 msgid "Traffic"
 msgstr ""
 
-#: js/messages.php:137 libraries/Menu.class.php:561
+#: js/messages.php:137 libraries/Menu.class.php:563
 #: libraries/Util.class.php:4079 libraries/server_status_monitor.lib.php:257
 #, fuzzy
 #| msgid "General relation features"
@@ -1344,7 +1344,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2673
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:261
-#: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:671
+#: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:676
 msgid "None"
 msgstr "Dim"
 
@@ -1550,7 +1550,7 @@ msgstr "Dadansoddi"
 msgid "Explain output"
 msgstr "Esbonio SQL"
 
-#: js/messages.php:196 js/messages.php:671
+#: js/messages.php:196 js/messages.php:672
 #: libraries/plugins/export/ExportHtmlword.class.php:498
 #: libraries/plugins/export/ExportOdt.class.php:595
 #: libraries/plugins/export/ExportTexytext.class.php:447
@@ -1653,7 +1653,7 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:222 libraries/Menu.class.php:334
-#: libraries/Menu.class.php:437 libraries/Menu.class.php:557
+#: libraries/Menu.class.php:437 libraries/Menu.class.php:559
 #: libraries/Util.class.php:4078 libraries/Util.class.php:4093
 #: libraries/Util.class.php:4110 libraries/config/messages.inc.php:223
 #: libraries/display_import.lib.php:105
@@ -1721,9 +1721,9 @@ msgid "Test"
 msgstr ""
 
 #: js/messages.php:243 libraries/server_variables.lib.php:159
-#: pmd_general.php:545 pmd_general.php:584 pmd_general.php:711
-#: pmd_general.php:761 pmd_general.php:837 pmd_general.php:893
-#: pmd_general.php:956 pmd_general.php:989
+#: pmd_general.php:550 pmd_general.php:589 pmd_general.php:716
+#: pmd_general.php:766 pmd_general.php:842 pmd_general.php:898
+#: pmd_general.php:961 pmd_general.php:994
 msgid "Cancel"
 msgstr "Diddymu"
 
@@ -1771,9 +1771,9 @@ msgstr ""
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:255 pmd_general.php:543 pmd_general.php:709
-#: pmd_general.php:759 pmd_general.php:835 pmd_general.php:891
-#: pmd_general.php:954
+#: js/messages.php:255 pmd_general.php:548 pmd_general.php:714
+#: pmd_general.php:764 pmd_general.php:840 pmd_general.php:896
+#: pmd_general.php:959
 msgid "OK"
 msgstr ""
 
@@ -1997,7 +1997,7 @@ msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:314 js/messages.php:540 libraries/normalization.lib.php:260
+#: js/messages.php:314 js/messages.php:541 libraries/normalization.lib.php:260
 msgid "Done"
 msgstr "Gorffen"
 
@@ -2152,7 +2152,7 @@ msgstr ""
 msgid "Data point content"
 msgstr "Datganiad diffiniad data"
 
-#: js/messages.php:367 js/messages.php:480 js/messages.php:496
+#: js/messages.php:367 js/messages.php:481 js/messages.php:497
 #: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2607
 #: libraries/tbl_indexes.lib.php:341 libraries/tbl_indexes.lib.php:378
 msgid "Ignore"
@@ -2212,7 +2212,7 @@ msgstr "Dewis Allwedd Estron"
 msgid "Please select the primary key or a unique key!"
 msgstr ""
 
-#: js/messages.php:389 pmd_general.php:174
+#: js/messages.php:389 pmd_general.php:179
 msgid "Choose column to display"
 msgstr "Dewis colofn i'w dangos"
 
@@ -2232,7 +2232,7 @@ msgstr "Enw'r dudalen"
 msgid "Save page"
 msgstr "Dewis Tablau"
 
-#: js/messages.php:396 pmd_general.php:146
+#: js/messages.php:396 pmd_general.php:151
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
@@ -2244,209 +2244,213 @@ msgstr "Tudalennau rhydd"
 msgid "Delete page"
 msgstr "Dewis Tablau"
 
-#: js/messages.php:398
+#: js/messages.php:398 libraries/pmd_common.php:295
+msgid "*Untitled"
+msgstr ""
+
+#: js/messages.php:399
 #, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a page to continue"
 msgstr "Dewiswch gronfa ddata"
 
-#: js/messages.php:399
+#: js/messages.php:400
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid page name"
 msgstr "Nid yn rhif porth ddilys"
 
-#: js/messages.php:400
+#: js/messages.php:401
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: js/messages.php:401
+#: js/messages.php:402
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: js/messages.php:402
+#: js/messages.php:403
 #, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
 msgstr "Golygu neu allforio sgema perthynol"
 
-#: js/messages.php:405
+#: js/messages.php:406
 #, fuzzy, php-format
 #| msgid "Number of columns"
 msgid "Add an option for column \"%s\"."
 msgstr "Nifer y colofnau"
 
-#: js/messages.php:406
+#: js/messages.php:407
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
 
-#: js/messages.php:409
+#: js/messages.php:410
 msgid "Press escape to cancel editing."
 msgstr ""
 
-#: js/messages.php:410
+#: js/messages.php:411
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:411
+#: js/messages.php:412
 msgid "Drag to reorder."
 msgstr ""
 
-#: js/messages.php:412
+#: js/messages.php:413
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: js/messages.php:413
+#: js/messages.php:414
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
 
-#: js/messages.php:414
+#: js/messages.php:415
 msgid "Click to mark/unmark."
 msgstr ""
 
-#: js/messages.php:415
+#: js/messages.php:416
 #, fuzzy
 #| msgid "Columns"
 msgid "Double-click to copy column name."
 msgstr "Colofnau"
 
-#: js/messages.php:417
+#: js/messages.php:418
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
-#: js/messages.php:419 libraries/DisplayResults.class.php:850
+#: js/messages.php:420 libraries/DisplayResults.class.php:850
 #: libraries/browse_foreigners.lib.php:254
 #: libraries/browse_foreigners.lib.php:307
 #: libraries/server_privileges.lib.php:3203
 msgid "Show all"
 msgstr "Dangos pob"
 
-#: js/messages.php:420
+#: js/messages.php:421
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:421
+#: js/messages.php:422
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: js/messages.php:424
+#: js/messages.php:425
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "Diddymu"
 
-#: js/messages.php:425 libraries/server_status.lib.php:261
+#: js/messages.php:426 libraries/server_status.lib.php:261
 msgid "Aborted"
 msgstr ""
 
-#: js/messages.php:426
+#: js/messages.php:427
 msgid "Failed"
 msgstr ""
 
-#: js/messages.php:427
+#: js/messages.php:428
 msgid "Success"
 msgstr ""
 
-#: js/messages.php:428
+#: js/messages.php:429
 #, fuzzy
 #| msgid "Import files"
 msgid "Import status"
 msgstr "Mewnforiwch ffeiliau"
 
-#: js/messages.php:429 libraries/navigation/Navigation.class.php:102
+#: js/messages.php:430 libraries/navigation/Navigation.class.php:102
 #, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
 msgstr "Trothwy'r ffeil log"
 
-#: js/messages.php:430
+#: js/messages.php:431
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "Dewis Tablau"
 
-#: js/messages.php:435
+#: js/messages.php:436
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:438
+#: js/messages.php:439
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:443
+#: js/messages.php:444
 #, fuzzy
 #| msgid "Count tables"
 msgid "Go to link:"
 msgstr "Cyfrifwch y tablau"
 
-#: js/messages.php:444
+#: js/messages.php:445
 #, fuzzy
 #| msgid "Columns"
 msgid "Copy column name."
 msgstr "Colofnau"
 
-#: js/messages.php:445
+#: js/messages.php:446
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:446
+#: js/messages.php:447
 #, fuzzy
 #| msgid "Showing rows"
 msgid "Show data row(s)."
 msgstr "Yn dangos rhesi"
 
-#: js/messages.php:449
+#: js/messages.php:450
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Generadu Cyfrinair"
 
-#: js/messages.php:450 libraries/replication_gui.lib.php:867
+#: js/messages.php:451 libraries/replication_gui.lib.php:867
 msgid "Generate"
 msgstr "Generadu"
 
-#: js/messages.php:451
+#: js/messages.php:452
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Newid cyfrinair"
 
-#: js/messages.php:454
+#: js/messages.php:455
 #, fuzzy
 #| msgid "Mo"
 msgid "More"
 msgstr "Llu"
 
-#: js/messages.php:457
+#: js/messages.php:458
 #, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
 msgstr "Dangos pob"
 
-#: js/messages.php:458
+#: js/messages.php:459
 #, fuzzy
 #| msgid "Indexes"
 msgid "Hide Panel"
 msgstr "Indecsau"
 
-#: js/messages.php:459
+#: js/messages.php:460
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show hidden navigation tree items."
 msgstr "Dangos grid"
 
-#: js/messages.php:462
+#: js/messages.php:463
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 
-#: js/messages.php:465 setup/lib/index.lib.php:157
+#: js/messages.php:466 setup/lib/index.lib.php:157
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2454,97 +2458,97 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:467
+#: js/messages.php:468
 #, fuzzy
 #| msgid "Check for latest version"
 msgid ", latest stable version:"
 msgstr "Gwiriwch y fersiwn diweddaraf"
 
-#: js/messages.php:468
+#: js/messages.php:469
 #, fuzzy
 #| msgid "Jump to database"
 msgid "up to date"
 msgstr "Neidiwch i'r gronfa ddata"
 
-#: js/messages.php:470 libraries/DisplayResults.class.php:5139
+#: js/messages.php:471 libraries/DisplayResults.class.php:5139
 #: view_create.php:178
 #, fuzzy
 #| msgid "Create version"
 msgid "Create view"
 msgstr "Crëwch fersiwn"
 
-#: js/messages.php:473
+#: js/messages.php:474
 msgid "Send Error Report"
 msgstr ""
 
-#: js/messages.php:474
+#: js/messages.php:475
 msgid "Submit Error Report"
 msgstr ""
 
-#: js/messages.php:476
+#: js/messages.php:477
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: js/messages.php:478
+#: js/messages.php:479
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change Report Settings"
 msgstr "Nodweddion perthynas cyffredinol"
 
-#: js/messages.php:479
+#: js/messages.php:480
 #, fuzzy
 #| msgid "Report title"
 msgid "Show Report Details"
 msgstr "Teitl yr adroddiad"
 
-#: js/messages.php:482
+#: js/messages.php:483
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: js/messages.php:486
+#: js/messages.php:487
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: js/messages.php:492 js/messages.php:504
+#: js/messages.php:493 js/messages.php:505
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: js/messages.php:494
+#: js/messages.php:495
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:499 libraries/Error_Handler.class.php:355
+#: js/messages.php:500 libraries/Error_Handler.class.php:355
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "Anwybyddu"
 
-#: js/messages.php:506
+#: js/messages.php:507
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: js/messages.php:513
+#: js/messages.php:514
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "Dangoswch  yr ymholiad hwn yma eto"
 
-#: js/messages.php:544
+#: js/messages.php:545
 #, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Cynt"
 
-#: js/messages.php:549
+#: js/messages.php:550
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2552,149 +2556,149 @@ msgid "Next"
 msgstr "Nesaf"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:552
+#: js/messages.php:553
 msgid "Today"
 msgstr "Heddiw"
 
-#: js/messages.php:556
+#: js/messages.php:557
 msgid "January"
 msgstr "Ionawr"
 
-#: js/messages.php:557
+#: js/messages.php:558
 msgid "February"
 msgstr "Chwefror"
 
-#: js/messages.php:558
+#: js/messages.php:559
 msgid "March"
 msgstr "Mawrth"
 
-#: js/messages.php:559
+#: js/messages.php:560
 msgid "April"
 msgstr "Ebrill"
 
-#: js/messages.php:560
+#: js/messages.php:561
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:561
+#: js/messages.php:562
 msgid "June"
 msgstr "Mehefin"
 
-#: js/messages.php:562
+#: js/messages.php:563
 msgid "July"
 msgstr "Gorffennaf"
 
-#: js/messages.php:563
+#: js/messages.php:564
 msgid "August"
 msgstr "Awst"
 
-#: js/messages.php:564
+#: js/messages.php:565
 msgid "September"
 msgstr "Medi"
 
-#: js/messages.php:565
+#: js/messages.php:566
 msgid "October"
 msgstr "Hydref"
 
-#: js/messages.php:566
+#: js/messages.php:567
 msgid "November"
 msgstr "Tachwedd"
 
-#: js/messages.php:567
+#: js/messages.php:568
 msgid "December"
 msgstr "Rhagfyr"
 
 #. l10n: Short month name
-#: js/messages.php:574 libraries/Util.class.php:1553
+#: js/messages.php:575 libraries/Util.class.php:1553
 msgid "Jan"
 msgstr "Ion"
 
 #. l10n: Short month name
-#: js/messages.php:576 libraries/Util.class.php:1555
+#: js/messages.php:577 libraries/Util.class.php:1555
 msgid "Feb"
 msgstr "Chwe"
 
 #. l10n: Short month name
-#: js/messages.php:578 libraries/Util.class.php:1557
+#: js/messages.php:579 libraries/Util.class.php:1557
 msgid "Mar"
 msgstr "Maw"
 
 #. l10n: Short month name
-#: js/messages.php:580 libraries/Util.class.php:1559
+#: js/messages.php:581 libraries/Util.class.php:1559
 msgid "Apr"
 msgstr "Ebr"
 
 #. l10n: Short month name
-#: js/messages.php:582 libraries/Util.class.php:1561
+#: js/messages.php:583 libraries/Util.class.php:1561
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:584 libraries/Util.class.php:1563
+#: js/messages.php:585 libraries/Util.class.php:1563
 msgid "Jun"
 msgstr "Meh"
 
 #. l10n: Short month name
-#: js/messages.php:586 libraries/Util.class.php:1565
+#: js/messages.php:587 libraries/Util.class.php:1565
 msgid "Jul"
 msgstr "Gor"
 
 #. l10n: Short month name
-#: js/messages.php:588 libraries/Util.class.php:1567
+#: js/messages.php:589 libraries/Util.class.php:1567
 msgid "Aug"
 msgstr "Aws"
 
 #. l10n: Short month name
-#: js/messages.php:590 libraries/Util.class.php:1569
+#: js/messages.php:591 libraries/Util.class.php:1569
 msgid "Sep"
 msgstr "Med"
 
 #. l10n: Short month name
-#: js/messages.php:592 libraries/Util.class.php:1571
+#: js/messages.php:593 libraries/Util.class.php:1571
 msgid "Oct"
 msgstr "Hyd"
 
 #. l10n: Short month name
-#: js/messages.php:594 libraries/Util.class.php:1573
+#: js/messages.php:595 libraries/Util.class.php:1573
 msgid "Nov"
 msgstr "Tach"
 
 #. l10n: Short month name
-#: js/messages.php:596 libraries/Util.class.php:1575
+#: js/messages.php:597 libraries/Util.class.php:1575
 msgid "Dec"
 msgstr "Rhag"
 
-#: js/messages.php:602
+#: js/messages.php:603
 msgid "Sunday"
 msgstr "Dydd Sul"
 
-#: js/messages.php:603
+#: js/messages.php:604
 msgid "Monday"
 msgstr "Dydd Llun"
 
-#: js/messages.php:604
+#: js/messages.php:605
 msgid "Tuesday"
 msgstr "Dydd Mawrth"
 
-#: js/messages.php:605
+#: js/messages.php:606
 msgid "Wednesday"
 msgstr "DYdd Mercher"
 
-#: js/messages.php:606
+#: js/messages.php:607
 msgid "Thursday"
 msgstr "Dydd Iau"
 
-#: js/messages.php:607
+#: js/messages.php:608
 msgid "Friday"
 msgstr "Dydd Gwener"
 
-#: js/messages.php:608
+#: js/messages.php:609
 msgid "Saturday"
 msgstr "Dydd Sadwrn"
 
 #. l10n: Short week day name
-#: js/messages.php:615
+#: js/messages.php:616
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2702,99 +2706,99 @@ msgid "Sun"
 msgstr "Sul"
 
 #. l10n: Short week day name
-#: js/messages.php:617 libraries/Util.class.php:1580
+#: js/messages.php:618 libraries/Util.class.php:1580
 msgid "Mon"
 msgstr "Llun"
 
 #. l10n: Short week day name
-#: js/messages.php:619 libraries/Util.class.php:1582
+#: js/messages.php:620 libraries/Util.class.php:1582
 msgid "Tue"
 msgstr "Maw"
 
 #. l10n: Short week day name
-#: js/messages.php:621 libraries/Util.class.php:1584
+#: js/messages.php:622 libraries/Util.class.php:1584
 msgid "Wed"
 msgstr "Mer"
 
 #. l10n: Short week day name
-#: js/messages.php:623 libraries/Util.class.php:1586
+#: js/messages.php:624 libraries/Util.class.php:1586
 msgid "Thu"
 msgstr "Iau"
 
 #. l10n: Short week day name
-#: js/messages.php:625 libraries/Util.class.php:1588
+#: js/messages.php:626 libraries/Util.class.php:1588
 msgid "Fri"
 msgstr "Gwe"
 
 #. l10n: Short week day name
-#: js/messages.php:627 libraries/Util.class.php:1590
+#: js/messages.php:628 libraries/Util.class.php:1590
 msgid "Sat"
 msgstr "Sad"
 
 #. l10n: Minimal week day name
-#: js/messages.php:634
+#: js/messages.php:635
 msgid "Su"
 msgstr "Su"
 
 #. l10n: Minimal week day name
-#: js/messages.php:636
+#: js/messages.php:637
 msgid "Mo"
 msgstr "Llu"
 
 #. l10n: Minimal week day name
-#: js/messages.php:638
+#: js/messages.php:639
 msgid "Tu"
 msgstr "Ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:640
+#: js/messages.php:641
 msgid "We"
 msgstr "Me"
 
 #. l10n: Minimal week day name
-#: js/messages.php:642
+#: js/messages.php:643
 msgid "Th"
 msgstr "Ia"
 
 #. l10n: Minimal week day name
-#: js/messages.php:644
+#: js/messages.php:645
 msgid "Fr"
 msgstr "Gw"
 
 #. l10n: Minimal week day name
-#: js/messages.php:646
+#: js/messages.php:647
 msgid "Sa"
 msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:650
+#: js/messages.php:651
 msgid "Wk"
 msgstr "Wy"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:657
+#: js/messages.php:658
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:660
+#: js/messages.php:661
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Dim"
 
-#: js/messages.php:672
+#: js/messages.php:673
 msgid "Hour"
 msgstr "Awr"
 
-#: js/messages.php:673
+#: js/messages.php:674
 msgid "Minute"
 msgstr "Munud"
 
-#: js/messages.php:674
+#: js/messages.php:675
 msgid "Second"
 msgstr "Eiliad"
 
@@ -3254,7 +3258,7 @@ msgstr "Dileu'r cydweddau ar gyfer tabl %s?"
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:440 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:582 setup/frames/index.inc.php:182
+#: pmd_general.php:587 setup/frames/index.inc.php:182
 #: setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "Dileu"
@@ -3507,7 +3511,7 @@ msgstr "Newid"
 
 #: libraries/DisplayResults.class.php:5036
 #: libraries/DisplayResults.class.php:5307 libraries/Menu.class.php:326
-#: libraries/Menu.class.php:428 libraries/Menu.class.php:553
+#: libraries/Menu.class.php:428 libraries/Menu.class.php:555
 #: libraries/Util.class.php:3368 libraries/Util.class.php:3369
 #: libraries/Util.class.php:4077 libraries/Util.class.php:4092
 #: libraries/Util.class.php:4109 libraries/config/messages.inc.php:217
@@ -3726,12 +3730,12 @@ msgstr "Dangos"
 #: libraries/navigation/Nodes/Node_Table.class.php:36
 #: libraries/server_privileges.lib.php:991
 #: libraries/tbl_columns_definition_form.lib.php:200
-#: libraries/tbl_tracking.lib.php:805 pmd_general.php:267
+#: libraries/tbl_tracking.lib.php:805 pmd_general.php:272
 msgid "Structure"
 msgstr "Strwythur"
 
 #: libraries/Menu.class.php:307 libraries/Menu.class.php:411
-#: libraries/Menu.class.php:524 libraries/Util.class.php:3135
+#: libraries/Menu.class.php:526 libraries/Util.class.php:3135
 #: libraries/Util.class.php:3142 libraries/Util.class.php:4074
 #: libraries/Util.class.php:4089 libraries/Util.class.php:4106
 #: libraries/config/messages.inc.php:286
@@ -3759,7 +3763,7 @@ msgstr "Mewnosod"
 #: libraries/Util.class.php:4095 libraries/Util.class.php:4111
 #: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:2004
 #: libraries/server_privileges.lib.php:2771
-#: libraries/server_privileges.lib.php:3719
+#: libraries/server_privileges.lib.php:3720
 msgid "Privileges"
 msgstr "Breintiau"
 
@@ -3813,51 +3817,51 @@ msgstr "Digwyddiadau"
 msgid "Designer"
 msgstr "Dyluniwr"
 
-#: libraries/Menu.class.php:486 libraries/Util.class.php:4101
+#: libraries/Menu.class.php:488 libraries/Util.class.php:4101
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Central columns"
 msgstr "Ychwanegu/Dileu colofnau"
 
-#: libraries/Menu.class.php:520 libraries/Util.class.php:4073
+#: libraries/Menu.class.php:522 libraries/Util.class.php:4073
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
-#: libraries/server_privileges.lib.php:3825
+#: libraries/server_privileges.lib.php:3826
 msgid "Databases"
 msgstr "Cronfeydd Data"
 
-#: libraries/Menu.class.php:543 libraries/Util.class.php:4076
+#: libraries/Menu.class.php:545 libraries/Util.class.php:4076
 #, fuzzy
 #| msgid "User"
 msgid "Users"
 msgstr "Defnyddiwr"
 
-#: libraries/Menu.class.php:570 libraries/ServerStatusData.class.php:194
+#: libraries/Menu.class.php:572 libraries/ServerStatusData.class.php:194
 #: libraries/Util.class.php:4080 libraries/server_common.lib.php:36
 msgid "Binary log"
 msgstr "Log deuaidd"
 
-#: libraries/Menu.class.php:576 libraries/ServerStatusData.class.php:199
+#: libraries/Menu.class.php:578 libraries/ServerStatusData.class.php:199
 #: libraries/Util.class.php:4081 libraries/server_common.lib.php:42
 #: libraries/structure.lib.php:175 libraries/structure.lib.php:814
 msgid "Replication"
 msgstr "Dyblygiad"
 
-#: libraries/Menu.class.php:581 libraries/ServerStatusData.class.php:261
+#: libraries/Menu.class.php:583 libraries/ServerStatusData.class.php:261
 #: libraries/Util.class.php:4082 libraries/server_engines.lib.php:108
 #: libraries/server_engines.lib.php:112
 msgid "Variables"
 msgstr "Newidynnau"
 
-#: libraries/Menu.class.php:585 libraries/Util.class.php:4083
+#: libraries/Menu.class.php:587 libraries/Util.class.php:4083
 msgid "Charsets"
 msgstr "Setiau nod"
 
-#: libraries/Menu.class.php:590 libraries/Util.class.php:4084
+#: libraries/Menu.class.php:592 libraries/Util.class.php:4084
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
 msgid "Plugins"
 msgstr ""
 
-#: libraries/Menu.class.php:594 libraries/Util.class.php:4085
+#: libraries/Menu.class.php:596 libraries/Util.class.php:4085
 msgid "Engines"
 msgstr "Peiriannau"
 
@@ -3891,8 +3895,8 @@ msgstr[1] "%1$d rhes wedi'u hychwanegu."
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2432
 #: libraries/browse_foreigners.lib.php:291
-#: libraries/schema/Pdf_Relation_Schema.class.php:1185
-#: libraries/schema/Pdf_Relation_Schema.class.php:1209
+#: libraries/schema/Pdf_Relation_Schema.class.php:1222
+#: libraries/schema/Pdf_Relation_Schema.class.php:1246
 #: libraries/select_lang.lib.php:591
 msgid "Page number:"
 msgstr "Rhif tudalen:"
@@ -4198,17 +4202,17 @@ msgstr ""
 msgid "Function"
 msgstr "Swyddogaeth"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:648 pmd_general.php:668
-#: pmd_general.php:797 pmd_general.php:810 pmd_general.php:875
-#: pmd_general.php:929
+#: libraries/TableSearch.class.php:188 pmd_general.php:653 pmd_general.php:673
+#: pmd_general.php:802 pmd_general.php:815 pmd_general.php:880
+#: pmd_general.php:934
 msgid "Operator"
 msgstr ""
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1288
 #: libraries/insert_edit.lib.php:1635 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:637
-#: pmd_general.php:697 pmd_general.php:826 pmd_general.php:945
+#: libraries/server_status_variables.lib.php:220 pmd_general.php:642
+#: pmd_general.php:702 pmd_general.php:831 pmd_general.php:950
 msgid "Value"
 msgstr "Gwerth"
 
@@ -4899,8 +4903,8 @@ msgid "Length/Values"
 msgstr ""
 
 #: libraries/central_columns.lib.php:639
-#: libraries/schema/Pdf_Relation_Schema.class.php:1357
-#: libraries/schema/Pdf_Relation_Schema.class.php:1380
+#: libraries/schema/Pdf_Relation_Schema.class.php:1394
+#: libraries/schema/Pdf_Relation_Schema.class.php:1417
 #: libraries/structure.lib.php:1257 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr "Ychwanegol"
@@ -6216,7 +6220,7 @@ msgstr ""
 msgid "Display relational schema"
 msgstr "Sgema perthynol"
 
-#: libraries/config/messages.inc.php:304 libraries/designer.lib.php:195
+#: libraries/config/messages.inc.php:304 libraries/designer.lib.php:201
 msgid "Paper size"
 msgstr "Maint papur"
 
@@ -7683,79 +7687,79 @@ msgstr ""
 msgid "Can't count rows in an unbuffered result set"
 msgstr ""
 
-#: libraries/designer.lib.php:31
+#: libraries/designer.lib.php:32
 #, fuzzy
 #| msgid "Page name"
 msgid "Page to open"
 msgstr "Enw'r dudalen"
 
-#: libraries/designer.lib.php:33
+#: libraries/designer.lib.php:34
 #, fuzzy
 #| msgid "Relation deleted"
 msgid "Page to delete"
 msgstr "Perthynas wedi'i ddileu"
 
-#: libraries/designer.lib.php:37 libraries/designer.lib.php:73
+#: libraries/designer.lib.php:38 libraries/designer.lib.php:77
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
 msgstr "Dewis Tablau"
 
-#: libraries/designer.lib.php:59
+#: libraries/designer.lib.php:63
 #, fuzzy
 #| msgid "Import files"
 msgid "Save to selected page"
 msgstr "Mewnforiwch ffeiliau"
 
-#: libraries/designer.lib.php:60
+#: libraries/designer.lib.php:64
 #, fuzzy
 #| msgid "Create a page"
 msgid "Create a page and save to it"
 msgstr "Crëwch dudalen"
 
-#: libraries/designer.lib.php:92
+#: libraries/designer.lib.php:98
 #, fuzzy
 #| msgid "Page name"
 msgid "New page name"
 msgstr "Enw'r dudalen"
 
-#: libraries/designer.lib.php:154
+#: libraries/designer.lib.php:160
 msgid "Select Export Relational Type"
 msgstr ""
 
-#: libraries/designer.lib.php:158
+#: libraries/designer.lib.php:164
 msgid "Show grid"
 msgstr "Dangos grid"
 
-#: libraries/designer.lib.php:161
+#: libraries/designer.lib.php:167
 msgid "Show color"
 msgstr "Dangos lliw"
 
-#: libraries/designer.lib.php:166
+#: libraries/designer.lib.php:172
 msgid "Show dimension of tables"
 msgstr "Dangos dimensiynau'r tabl"
 
-#: libraries/designer.lib.php:171
+#: libraries/designer.lib.php:177
 msgid "Same width for all tables"
 msgstr ""
 
-#: libraries/designer.lib.php:175 libraries/structure.lib.php:403
+#: libraries/designer.lib.php:181 libraries/structure.lib.php:403
 msgid "Data Dictionary"
 msgstr "Geiriadur Data"
 
-#: libraries/designer.lib.php:177
+#: libraries/designer.lib.php:183
 msgid "Only show keys"
 msgstr "Dangos allweddau'n unig"
 
-#: libraries/designer.lib.php:179
+#: libraries/designer.lib.php:185
 msgid "Landscape"
 msgstr "Tirlun"
 
-#: libraries/designer.lib.php:180
+#: libraries/designer.lib.php:186
 msgid "Portrait"
 msgstr "Portread"
 
-#: libraries/designer.lib.php:182
+#: libraries/designer.lib.php:188
 #, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
@@ -7813,7 +7817,7 @@ msgstr "Creu cronfa ddata newydd"
 msgid "No Privileges"
 msgstr "Dim Breintiau"
 
-#: libraries/display_create_table.lib.php:55 pmd_general.php:164
+#: libraries/display_create_table.lib.php:55 pmd_general.php:169
 msgid "Create table"
 msgstr "Crëwch dabl"
 
@@ -8588,7 +8592,7 @@ msgstr ""
 
 #: libraries/insert_edit.lib.php:218 libraries/insert_edit.lib.php:249
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
-#: pmd_general.php:279
+#: pmd_general.php:284
 msgid "Hide"
 msgstr "Cuddio"
 
@@ -10237,7 +10241,7 @@ msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
 "default is Tidy, to pretty-print HTML code. For security reasons, you have "
-"to manually edit the file libraries/plugins/transformations/"
+"to manually edit the file libraries/plugins/transformations/output/"
 "Text_Plain_External.class.php and list the tools you want to make available. "
 "The first option is then the number of the program you want to use and the "
 "second option is the parameters for the program. The third option, if set to "
@@ -10333,10 +10337,6 @@ msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
-msgstr ""
-
-#: libraries/pmd_common.php:295
-msgid "*Untitled"
 msgstr ""
 
 #: libraries/relation.lib.php:90
@@ -11239,7 +11239,7 @@ msgstr "Nid oes unrhyw gweinyddion a ffurfweddwyd"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:247
 #: libraries/schema/Eps_Relation_Schema.class.php:370
-#: libraries/schema/Pdf_Relation_Schema.class.php:438
+#: libraries/schema/Pdf_Relation_Schema.class.php:459
 #: libraries/schema/Svg_Relation_Schema.class.php:337
 #, php-format
 msgid "The %s table doesn't exist!"
@@ -11247,44 +11247,69 @@ msgstr ""
 
 #: libraries/schema/Dia_Relation_Schema.class.php:262
 #: libraries/schema/Eps_Relation_Schema.class.php:385
-#: libraries/schema/Pdf_Relation_Schema.class.php:453
+#: libraries/schema/Pdf_Relation_Schema.class.php:474
 #: libraries/schema/Svg_Relation_Schema.class.php:352
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr ""
 
-#: libraries/schema/Eps_Relation_Schema.class.php:708
-#: libraries/schema/Pdf_Relation_Schema.class.php:845
-#: libraries/schema/Svg_Relation_Schema.class.php:679
+#: libraries/schema/Dia_Relation_Schema.class.php:742
+#, fuzzy
+#| msgid "Export"
+msgid "dia export page"
+msgstr "Allforio"
+
+#: libraries/schema/Eps_Relation_Schema.class.php:709
+#: libraries/schema/Pdf_Relation_Schema.class.php:867
+#: libraries/schema/Svg_Relation_Schema.class.php:680
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr ""
 
-#: libraries/schema/Export_Relation_Schema.class.php:211
+#: libraries/schema/Eps_Relation_Schema.class.php:782
+#, fuzzy
+#| msgid "Export"
+msgid "eps export page"
+msgstr "Allforio"
+
+#: libraries/schema/Export_Relation_Schema.class.php:238
 #, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
 msgstr "Nid yw ffeil %s yn cynnwys unrhyw id allwedd"
 
-#: libraries/schema/Export_Relation_Schema.class.php:239
+#: libraries/schema/Export_Relation_Schema.class.php:266
 msgid "SCHEMA ERROR: "
 msgstr ""
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:867
-#: libraries/schema/Pdf_Relation_Schema.class.php:1214
+#: libraries/schema/Pdf_Relation_Schema.class.php:229
+#: libraries/schema/Pdf_Relation_Schema.class.php:1182
+#, fuzzy
+#| msgid "Export"
+msgid "pdf export page"
+msgstr "Allforio"
+
+#: libraries/schema/Pdf_Relation_Schema.class.php:898
+#: libraries/schema/Pdf_Relation_Schema.class.php:1251
 msgid "Relational schema"
 msgstr "Sgema perthynol"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1177
+#: libraries/schema/Pdf_Relation_Schema.class.php:1214
 msgid "Table of contents"
 msgstr "Tabl cynnwys"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1354
-#: libraries/schema/Pdf_Relation_Schema.class.php:1377
+#: libraries/schema/Pdf_Relation_Schema.class.php:1391
+#: libraries/schema/Pdf_Relation_Schema.class.php:1414
 #: libraries/structure.lib.php:1254
 #: libraries/tbl_columns_definition_form.lib.php:301
 msgid "Attributes"
 msgstr ""
+
+#: libraries/schema/Svg_Relation_Schema.class.php:753
+#, fuzzy
+#| msgid "Export"
+msgid "svg export page"
+msgstr "Allforio"
 
 #: libraries/select_lang.lib.php:598 libraries/select_lang.lib.php:607
 #: libraries/select_lang.lib.php:616
@@ -11674,7 +11699,7 @@ msgid "You have revoked the privileges for %s."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1722
-#: libraries/server_privileges.lib.php:3783
+#: libraries/server_privileges.lib.php:3784
 #, fuzzy
 #| msgid "Any user"
 msgid "Add user"
@@ -11711,8 +11736,8 @@ msgstr "Cafodd golwg %s ei ollwng"
 
 #: libraries/server_privileges.lib.php:2001
 #: libraries/server_privileges.lib.php:2942
-#: libraries/server_privileges.lib.php:3734
-#: libraries/server_privileges.lib.php:3805
+#: libraries/server_privileges.lib.php:3735
+#: libraries/server_privileges.lib.php:3806
 #: libraries/server_status_processes.lib.php:73
 #: libraries/server_user_groups.lib.php:38
 msgid "User"
@@ -11729,7 +11754,7 @@ msgid "Not enough privilege to view users."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2039
-#: libraries/server_privileges.lib.php:3389
+#: libraries/server_privileges.lib.php:3390
 msgid "No user found."
 msgstr ""
 
@@ -11826,67 +11851,67 @@ msgstr ""
 msgid "Drop the databases that have the same names as the users."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3270
+#: libraries/server_privileges.lib.php:3271
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3273
+#: libraries/server_privileges.lib.php:3274
 msgid "Reloading the privileges"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3292
+#: libraries/server_privileges.lib.php:3293
 msgid "The selected users have been deleted successfully."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3359
+#: libraries/server_privileges.lib.php:3360
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3428
+#: libraries/server_privileges.lib.php:3429
 #, php-format
 msgid "Deleting %s"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3457
+#: libraries/server_privileges.lib.php:3458
 msgid "The privileges were reloaded successfully."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3539
+#: libraries/server_privileges.lib.php:3540
 #, php-format
 msgid "The user %s already exists!"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3725
+#: libraries/server_privileges.lib.php:3726
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Breintiau"
 
-#: libraries/server_privileges.lib.php:3775
+#: libraries/server_privileges.lib.php:3776
 msgctxt "Create new user"
 msgid "New"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3804
+#: libraries/server_privileges.lib.php:3805
 #, fuzzy
 #| msgid "Privileges"
 msgid "Edit Privileges:"
 msgstr "Breintiau"
 
-#: libraries/server_privileges.lib.php:3864
+#: libraries/server_privileges.lib.php:3865
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3884 libraries/server_users.lib.php:25
+#: libraries/server_privileges.lib.php:3885 libraries/server_users.lib.php:25
 #, fuzzy
 #| msgid "Overview"
 msgid "Users overview"
 msgstr "Gorolwg"
 
-#: libraries/server_privileges.lib.php:3969
+#: libraries/server_privileges.lib.php:3970
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -11895,11 +11920,11 @@ msgid ""
 "%sreload the privileges%s before you continue."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4019
+#: libraries/server_privileges.lib.php:4020
 msgid "The selected user was not found in the privilege table."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4244
+#: libraries/server_privileges.lib.php:4245
 msgid "You have added a new user."
 msgstr ""
 
@@ -13946,155 +13971,155 @@ msgstr ""
 msgid "Second/Third step of normalization"
 msgstr ""
 
-#: pmd_display_field.php:62 pmd_save_pos.php:59
+#: pmd_display_field.php:62 pmd_save_pos.php:61
 msgid "Modifications have been saved"
 msgstr "Cafodd yr addasiadau eu cadw"
 
-#: pmd_general.php:125
+#: pmd_general.php:130
 msgid "Show/Hide left menu"
 msgstr ""
 
-#: pmd_general.php:130
+#: pmd_general.php:135
 msgid "View in fullscreen"
 msgstr ""
 
-#: pmd_general.php:135
+#: pmd_general.php:140
 msgid "Exit fullscreen"
 msgstr ""
 
-#: pmd_general.php:142
+#: pmd_general.php:147
 #, fuzzy
 #| msgid "Page name"
 msgid "New page"
 msgstr "Enw'r dudalen"
 
-#: pmd_general.php:150
+#: pmd_general.php:155
 msgid "Save position"
 msgstr "Cadw safle"
 
-#: pmd_general.php:154
+#: pmd_general.php:159
 #, fuzzy
 #| msgid "Save position"
 msgid "Save positions as"
 msgstr "Cadw safle"
 
-#: pmd_general.php:158
+#: pmd_general.php:163
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Delete pages"
 msgstr "Dewis Tablau"
 
-#: pmd_general.php:169 pmd_general.php:508
+#: pmd_general.php:174 pmd_general.php:513
 msgid "Create relation"
 msgstr "Crëwch berthynas"
 
-#: pmd_general.php:179
+#: pmd_general.php:184
 msgid "Reload"
 msgstr "Ail-lwytho"
 
-#: pmd_general.php:184
+#: pmd_general.php:189
 msgid "Help"
 msgstr "Cymorth"
 
-#: pmd_general.php:192
+#: pmd_general.php:197
 msgid "Angular links"
 msgstr "Cysylltiadau onglog"
 
-#: pmd_general.php:192
+#: pmd_general.php:197
 msgid "Direct links"
 msgstr "Cysylltiadau uniongyrchol"
 
-#: pmd_general.php:197
+#: pmd_general.php:202
 msgid "Snap to grid"
 msgstr "Snap i'r grid"
 
-#: pmd_general.php:203
+#: pmd_general.php:208
 msgid "Small/Big All"
 msgstr ""
 
-#: pmd_general.php:208
+#: pmd_general.php:213
 msgid "Toggle small/big"
 msgstr ""
 
-#: pmd_general.php:213
+#: pmd_general.php:218
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Toggle relation lines"
 msgstr "Dilëwch berthynas"
 
-#: pmd_general.php:221
+#: pmd_general.php:226
 #, fuzzy
 #| msgid "Export"
 msgid "Export schema"
 msgstr "Allforio"
 
-#: pmd_general.php:232
+#: pmd_general.php:237
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
 msgstr "Cyflwynwch yr Ymholiad"
 
-#: pmd_general.php:239
+#: pmd_general.php:244
 msgid "Move Menu"
 msgstr ""
 
-#: pmd_general.php:253
+#: pmd_general.php:258
 msgid "Hide/Show all"
 msgstr "Cuddio/Dangos pob"
 
-#: pmd_general.php:257
+#: pmd_general.php:262
 msgid "Hide/Show Tables with no relation"
 msgstr "Cuddio/Dangos Tablau heb berthynas"
 
-#: pmd_general.php:301
+#: pmd_general.php:306
 #, fuzzy
 #| msgid "Number of tables"
 msgid "Number of tables:"
 msgstr "Nifer y tablau"
 
-#: pmd_general.php:576
+#: pmd_general.php:581
 msgid "Delete relation"
 msgstr "Dilëwch berthynas"
 
-#: pmd_general.php:621 pmd_general.php:680
+#: pmd_general.php:626 pmd_general.php:685
 #, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
 msgstr "Perthynas wedi'i ddileu"
 
-#: pmd_general.php:631 pmd_general.php:690 pmd_general.php:820
-#: pmd_general.php:939
+#: pmd_general.php:636 pmd_general.php:695 pmd_general.php:825
+#: pmd_general.php:944
 #, fuzzy
 #| msgid "Export"
 msgid "Except"
 msgstr "Allforio"
 
-#: pmd_general.php:637 pmd_general.php:698 pmd_general.php:826
-#: pmd_general.php:945
+#: pmd_general.php:642 pmd_general.php:703 pmd_general.php:831
+#: pmd_general.php:950
 #, fuzzy
 #| msgid "in query"
 msgid "subquery"
 msgstr "mewn ymholiad"
 
-#: pmd_general.php:641 pmd_general.php:743
+#: pmd_general.php:646 pmd_general.php:748
 #, fuzzy
 #| msgid "Rename view to"
 msgid "Rename to"
 msgstr "Ailenwch golwg i"
 
-#: pmd_general.php:643 pmd_general.php:749
+#: pmd_general.php:648 pmd_general.php:754
 #, fuzzy
 #| msgid "Page name"
 msgid "New name"
 msgstr "Enw'r dudalen"
 
-#: pmd_general.php:646 pmd_general.php:869
+#: pmd_general.php:651 pmd_general.php:874
 #, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
 msgstr "Creu"
 
-#: pmd_general.php:980
+#: pmd_general.php:985
 #, fuzzy
 #| msgid "Actions"
 msgid "Active options"
@@ -14132,7 +14157,7 @@ msgstr "Perthynas mewnol wedi'i ychwanegu"
 msgid "Relation deleted"
 msgstr "Perthynas wedi'i ddileu"
 
-#: pmd_save_pos.php:49
+#: pmd_save_pos.php:51
 msgid "Error saving coordinates for Designer."
 msgstr "Gwall wrth gadw cyfesurynnau ar gyfer y Dyluniwr."
 
@@ -14219,11 +14244,11 @@ msgstr "Pob"
 msgid "SQL history:"
 msgstr "Sgipio Dilysu SQL"
 
-#: schema_export.php:88
+#: schema_export.php:95
 msgid "File doesn't exist"
 msgstr ""
 
-#: schema_export.php:97
+#: schema_export.php:104
 #, fuzzy
 #| msgid "Disabled"
 msgid "Plugin is disabled"

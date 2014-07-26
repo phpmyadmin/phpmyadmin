@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-23 08:38-0700\n"
+"POT-Creation-Date: 2014-07-26 09:18-0400\n"
 "PO-Revision-Date: 2014-03-27 15:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Mongolian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -47,7 +47,7 @@ msgstr "%1$s өгөгдлийн сан үүслээ."
 msgid "Database comment:"
 msgstr "ӨС-ийн тайлбар:"
 
-#: db_datadict.php:143 libraries/schema/Pdf_Relation_Schema.class.php:1326
+#: db_datadict.php:143 libraries/schema/Pdf_Relation_Schema.class.php:1363
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
 #, fuzzy
@@ -67,8 +67,8 @@ msgstr "Хүснэгтийн тайлбар"
 #: libraries/plugins/export/ExportTexytext.class.php:272
 #: libraries/plugins/export/ExportTexytext.class.php:380
 #: libraries/plugins/export/ExportTexytext.class.php:444
-#: libraries/schema/Pdf_Relation_Schema.class.php:1352
-#: libraries/schema/Pdf_Relation_Schema.class.php:1375
+#: libraries/schema/Pdf_Relation_Schema.class.php:1389
+#: libraries/schema/Pdf_Relation_Schema.class.php:1412
 #: libraries/tbl_columns_definition_form.lib.php:596
 #: libraries/tbl_indexes.lib.php:322 libraries/tbl_printview.lib.php:473
 #: libraries/tbl_relation.lib.php:325 libraries/tbl_relation.lib.php:414
@@ -91,8 +91,8 @@ msgstr "Багана"
 #: libraries/rte/rte_routines.lib.php:954
 #: libraries/rte/rte_routines.lib.php:983
 #: libraries/rte/rte_routines.lib.php:1604
-#: libraries/schema/Pdf_Relation_Schema.class.php:1353
-#: libraries/schema/Pdf_Relation_Schema.class.php:1376
+#: libraries/schema/Pdf_Relation_Schema.class.php:1390
+#: libraries/schema/Pdf_Relation_Schema.class.php:1413
 #: libraries/server_privileges.lib.php:2003 libraries/structure.lib.php:832
 #: libraries/structure.lib.php:1252
 #: libraries/tbl_columns_definition_form.lib.php:281
@@ -111,8 +111,8 @@ msgstr "Төрөл"
 #: libraries/plugins/export/ExportOdt.class.php:479
 #: libraries/plugins/export/ExportTexytext.class.php:274
 #: libraries/plugins/export/ExportTexytext.class.php:382
-#: libraries/schema/Pdf_Relation_Schema.class.php:1355
-#: libraries/schema/Pdf_Relation_Schema.class.php:1378
+#: libraries/schema/Pdf_Relation_Schema.class.php:1392
+#: libraries/schema/Pdf_Relation_Schema.class.php:1415
 #: libraries/structure.lib.php:1255
 #: libraries/tbl_columns_definition_form.lib.php:302
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:812
@@ -128,8 +128,8 @@ msgstr "Хоосон"
 #: libraries/plugins/export/ExportOdt.class.php:482
 #: libraries/plugins/export/ExportTexytext.class.php:275
 #: libraries/plugins/export/ExportTexytext.class.php:383
-#: libraries/schema/Pdf_Relation_Schema.class.php:1356
-#: libraries/schema/Pdf_Relation_Schema.class.php:1379
+#: libraries/schema/Pdf_Relation_Schema.class.php:1393
+#: libraries/schema/Pdf_Relation_Schema.class.php:1416
 #: libraries/structure.lib.php:218 libraries/structure.lib.php:1256
 #: libraries/tbl_columns_definition_form.lib.php:293
 #: libraries/tbl_printview.lib.php:476 libraries/tbl_tracking.lib.php:813
@@ -140,8 +140,8 @@ msgstr "Анхдагч"
 #: libraries/plugins/export/ExportLatex.class.php:524
 #: libraries/plugins/export/ExportOdt.class.php:486
 #: libraries/plugins/export/ExportTexytext.class.php:385
-#: libraries/schema/Pdf_Relation_Schema.class.php:1358
-#: libraries/schema/Pdf_Relation_Schema.class.php:1381
+#: libraries/schema/Pdf_Relation_Schema.class.php:1395
+#: libraries/schema/Pdf_Relation_Schema.class.php:1418
 #: libraries/tbl_printview.lib.php:478
 msgid "Links to"
 msgstr "Холбоос"
@@ -153,8 +153,8 @@ msgstr "Холбоос"
 #: libraries/plugins/export/ExportLatex.class.php:527
 #: libraries/plugins/export/ExportOdt.class.php:491
 #: libraries/plugins/export/ExportTexytext.class.php:388
-#: libraries/schema/Pdf_Relation_Schema.class.php:1369
-#: libraries/schema/Pdf_Relation_Schema.class.php:1382
+#: libraries/schema/Pdf_Relation_Schema.class.php:1406
+#: libraries/schema/Pdf_Relation_Schema.class.php:1419
 #: libraries/tbl_columns_definition_form.lib.php:312
 #: libraries/tbl_printview.lib.php:480
 msgid "Comments"
@@ -176,7 +176,7 @@ msgstr "Үндсэн"
 #: libraries/plugins/export/ExportLatex.class.php:601
 #: libraries/plugins/export/ExportOdt.class.php:763
 #: libraries/plugins/export/ExportTexytext.class.php:588
-#: libraries/schema/Pdf_Relation_Schema.class.php:1408
+#: libraries/schema/Pdf_Relation_Schema.class.php:1445
 #: libraries/server_privileges.lib.php:2169
 #: libraries/server_privileges.lib.php:2366
 #: libraries/server_privileges.lib.php:2387
@@ -203,7 +203,7 @@ msgstr "Үгүй"
 #: libraries/plugins/export/ExportLatex.class.php:601
 #: libraries/plugins/export/ExportOdt.class.php:764
 #: libraries/plugins/export/ExportTexytext.class.php:588
-#: libraries/schema/Pdf_Relation_Schema.class.php:1409
+#: libraries/schema/Pdf_Relation_Schema.class.php:1446
 #: libraries/server_databases.lib.php:472
 #: libraries/server_databases.lib.php:482
 #: libraries/server_privileges.lib.php:2169
@@ -272,7 +272,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2536
 #: libraries/server_privileges.lib.php:2758
 #: libraries/server_privileges.lib.php:2769
-#: libraries/server_privileges.lib.php:3839 libraries/structure.lib.php:810
+#: libraries/server_privileges.lib.php:3840 libraries/structure.lib.php:810
 #: libraries/tbl_relation.lib.php:308 libraries/tbl_relation.lib.php:525
 #: libraries/tbl_tracking.lib.php:196
 msgid "Table"
@@ -296,21 +296,21 @@ msgid "in use"
 msgstr "хэрэглэгдэж байна"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1135
-#: libraries/schema/Pdf_Relation_Schema.class.php:1331
+#: libraries/schema/Pdf_Relation_Schema.class.php:1368
 #, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
 msgstr "Үүсгэлт"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1148
-#: libraries/schema/Pdf_Relation_Schema.class.php:1336
+#: libraries/schema/Pdf_Relation_Schema.class.php:1373
 #, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "Сүүлийн шинэчлэл"
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1161
-#: libraries/schema/Pdf_Relation_Schema.class.php:1341
+#: libraries/schema/Pdf_Relation_Schema.class.php:1378
 #, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
@@ -356,7 +356,7 @@ msgstr "Хөөсөн хүснэгтүүд"
 #: libraries/server_privileges.lib.php:2520
 #: libraries/server_privileges.lib.php:2757
 #: libraries/server_privileges.lib.php:2769
-#: libraries/server_privileges.lib.php:3825
+#: libraries/server_privileges.lib.php:3826
 #: libraries/server_status_processes.lib.php:81
 #: libraries/tbl_relation.lib.php:285 libraries/tbl_relation.lib.php:475
 #: libraries/tbl_tracking.lib.php:195
@@ -375,7 +375,7 @@ msgstr "Үүссэн"
 msgid "Updated"
 msgstr "Шинэчлэгдсэн"
 
-#: db_tracking.php:85 js/messages.php:195 libraries/Menu.class.php:528
+#: db_tracking.php:85 js/messages.php:195 libraries/Menu.class.php:530
 #: libraries/Util.class.php:4075 libraries/rte/rte_events.lib.php:432
 #: libraries/rte/rte_list.lib.php:78
 #: libraries/server_status_processes.lib.php:93
@@ -590,7 +590,7 @@ msgstr "Геометр нэмэх"
 #: libraries/server_privileges.lib.php:1767
 #: libraries/server_privileges.lib.php:2502
 #: libraries/server_privileges.lib.php:3141
-#: libraries/server_privileges.lib.php:4075
+#: libraries/server_privileges.lib.php:4076
 #: libraries/sql_query_form.lib.php:389 libraries/sql_query_form.lib.php:448
 #: libraries/sql_query_form.lib.php:516 libraries/structure.lib.php:1684
 #: libraries/tbl_chart.lib.php:296
@@ -699,7 +699,7 @@ msgstr ""
 
 #: import_status.php:95 js/messages.php:319 libraries/Util.class.php:732
 #: libraries/export.lib.php:439
-#: libraries/schema/Export_Relation_Schema.class.php:249 user_password.php:197
+#: libraries/schema/Export_Relation_Schema.class.php:276 user_password.php:197
 msgid "Back"
 msgstr "Өмнөх"
 
@@ -1315,7 +1315,7 @@ msgstr "Хамаарал"
 msgid "Traffic"
 msgstr "Гуйвуулга"
 
-#: js/messages.php:137 libraries/Menu.class.php:561
+#: js/messages.php:137 libraries/Menu.class.php:563
 #: libraries/Util.class.php:4079 libraries/server_status_monitor.lib.php:257
 #, fuzzy
 #| msgid "General relation features"
@@ -1337,7 +1337,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2673
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:261
-#: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:671
+#: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:676
 msgid "None"
 msgstr "Байхгүй"
 
@@ -1538,7 +1538,7 @@ msgstr ""
 msgid "Explain output"
 msgstr "SQL тайлбар"
 
-#: js/messages.php:196 js/messages.php:671
+#: js/messages.php:196 js/messages.php:672
 #: libraries/plugins/export/ExportHtmlword.class.php:498
 #: libraries/plugins/export/ExportOdt.class.php:595
 #: libraries/plugins/export/ExportTexytext.class.php:447
@@ -1640,7 +1640,7 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:222 libraries/Menu.class.php:334
-#: libraries/Menu.class.php:437 libraries/Menu.class.php:557
+#: libraries/Menu.class.php:437 libraries/Menu.class.php:559
 #: libraries/Util.class.php:4078 libraries/Util.class.php:4093
 #: libraries/Util.class.php:4110 libraries/config/messages.inc.php:223
 #: libraries/display_import.lib.php:105
@@ -1708,9 +1708,9 @@ msgid "Test"
 msgstr ""
 
 #: js/messages.php:243 libraries/server_variables.lib.php:159
-#: pmd_general.php:545 pmd_general.php:584 pmd_general.php:711
-#: pmd_general.php:761 pmd_general.php:837 pmd_general.php:893
-#: pmd_general.php:956 pmd_general.php:989
+#: pmd_general.php:550 pmd_general.php:589 pmd_general.php:716
+#: pmd_general.php:766 pmd_general.php:842 pmd_general.php:898
+#: pmd_general.php:961 pmd_general.php:994
 msgid "Cancel"
 msgstr "Болих"
 
@@ -1758,9 +1758,9 @@ msgstr ""
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:255 pmd_general.php:543 pmd_general.php:709
-#: pmd_general.php:759 pmd_general.php:835 pmd_general.php:891
-#: pmd_general.php:954
+#: js/messages.php:255 pmd_general.php:548 pmd_general.php:714
+#: pmd_general.php:764 pmd_general.php:840 pmd_general.php:896
+#: pmd_general.php:959
 msgid "OK"
 msgstr "Бэлэн"
 
@@ -1983,7 +1983,7 @@ msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:314 js/messages.php:540 libraries/normalization.lib.php:260
+#: js/messages.php:314 js/messages.php:541 libraries/normalization.lib.php:260
 #, fuzzy
 #| msgid "None"
 msgid "Done"
@@ -2140,7 +2140,7 @@ msgstr ""
 msgid "Data point content"
 msgstr "Өгөгдөл заагчийн хэмжээ"
 
-#: js/messages.php:367 js/messages.php:480 js/messages.php:496
+#: js/messages.php:367 js/messages.php:481 js/messages.php:497
 #: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2607
 #: libraries/tbl_indexes.lib.php:341 libraries/tbl_indexes.lib.php:378
 msgid "Ignore"
@@ -2200,7 +2200,7 @@ msgstr "Гадаад түлхүүр сонгох"
 msgid "Please select the primary key or a unique key!"
 msgstr "Үндсэн түлхүүр эсвэл орь ганц түлхүүр сонгон уу"
 
-#: js/messages.php:389 pmd_general.php:174
+#: js/messages.php:389 pmd_general.php:179
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
@@ -2224,7 +2224,7 @@ msgstr "Хуудасны дугаар:"
 msgid "Save page"
 msgstr "Бүгдийг сонгох"
 
-#: js/messages.php:396 pmd_general.php:146
+#: js/messages.php:396 pmd_general.php:151
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
@@ -2236,209 +2236,213 @@ msgstr "Чөлөөт хуудсууд"
 msgid "Delete page"
 msgstr "Бүгдийг сонгох"
 
-#: js/messages.php:398
+#: js/messages.php:398 libraries/pmd_common.php:295
+msgid "*Untitled"
+msgstr ""
+
+#: js/messages.php:399
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Засах Хуудсаа сонго"
 
-#: js/messages.php:399
+#: js/messages.php:400
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid page name"
 msgstr "%d нь мөрийн буруу дугаар байна."
 
-#: js/messages.php:400
+#: js/messages.php:401
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: js/messages.php:401
+#: js/messages.php:402
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: js/messages.php:402
+#: js/messages.php:403
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Export relational schema"
 msgstr "Хамааралтай схем"
 
-#: js/messages.php:405
+#: js/messages.php:406
 #, fuzzy, php-format
 #| msgid "Value for the column \"%s\""
 msgid "Add an option for column \"%s\"."
 msgstr "\"%s\" баганын утга"
 
-#: js/messages.php:406
+#: js/messages.php:407
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
 
-#: js/messages.php:409
+#: js/messages.php:410
 msgid "Press escape to cancel editing."
 msgstr ""
 
-#: js/messages.php:410
+#: js/messages.php:411
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:411
+#: js/messages.php:412
 msgid "Drag to reorder."
 msgstr ""
 
-#: js/messages.php:412
+#: js/messages.php:413
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: js/messages.php:413
+#: js/messages.php:414
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
 
-#: js/messages.php:414
+#: js/messages.php:415
 msgid "Click to mark/unmark."
 msgstr ""
 
-#: js/messages.php:415
+#: js/messages.php:416
 #, fuzzy
 #| msgid "Column names"
 msgid "Double-click to copy column name."
 msgstr "Баганын нэрс"
 
-#: js/messages.php:417
+#: js/messages.php:418
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
-#: js/messages.php:419 libraries/DisplayResults.class.php:850
+#: js/messages.php:420 libraries/DisplayResults.class.php:850
 #: libraries/browse_foreigners.lib.php:254
 #: libraries/browse_foreigners.lib.php:307
 #: libraries/server_privileges.lib.php:3203
 msgid "Show all"
 msgstr "Бүгдийг харах"
 
-#: js/messages.php:420
+#: js/messages.php:421
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:421
+#: js/messages.php:422
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: js/messages.php:424
+#: js/messages.php:425
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "Болих"
 
-#: js/messages.php:425 libraries/server_status.lib.php:261
+#: js/messages.php:426 libraries/server_status.lib.php:261
 msgid "Aborted"
 msgstr "Таслагдсан"
 
-#: js/messages.php:426
+#: js/messages.php:427
 msgid "Failed"
 msgstr ""
 
-#: js/messages.php:427
+#: js/messages.php:428
 msgid "Success"
 msgstr ""
 
-#: js/messages.php:428
+#: js/messages.php:429
 #, fuzzy
 #| msgid "Import files"
 msgid "Import status"
 msgstr "Файл оруулах"
 
-#: js/messages.php:429 libraries/navigation/Navigation.class.php:102
+#: js/messages.php:430 libraries/navigation/Navigation.class.php:102
 msgid "Drop files here"
 msgstr ""
 
-#: js/messages.php:430
+#: js/messages.php:431
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "Хүснэгтүүд сонго"
 
-#: js/messages.php:435
+#: js/messages.php:436
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:438
+#: js/messages.php:439
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:443
+#: js/messages.php:444
 #, fuzzy
 #| msgid "No tables"
 msgid "Go to link:"
 msgstr "Хүснэгт алга"
 
-#: js/messages.php:444
+#: js/messages.php:445
 #, fuzzy
 #| msgid "Column names"
 msgid "Copy column name."
 msgstr "Баганын нэрс"
 
-#: js/messages.php:445
+#: js/messages.php:446
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:446
+#: js/messages.php:447
 #, fuzzy
 #| msgid "Showing rows"
 msgid "Show data row(s)."
 msgstr "Мөрүүдийг харуулж байна "
 
-#: js/messages.php:449
+#: js/messages.php:450
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Нууц үг бий болгох"
 
-#: js/messages.php:450 libraries/replication_gui.lib.php:867
+#: js/messages.php:451 libraries/replication_gui.lib.php:867
 msgid "Generate"
 msgstr "Бий болгох"
 
-#: js/messages.php:451
+#: js/messages.php:452
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Нууц үг солих"
 
-#: js/messages.php:454
+#: js/messages.php:455
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Да"
 
-#: js/messages.php:457
+#: js/messages.php:458
 #, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
 msgstr "Бүгдийг харах"
 
-#: js/messages.php:458
+#: js/messages.php:459
 #, fuzzy
 #| msgid "Add new field"
 msgid "Hide Panel"
 msgstr "Шинэ талбар нэмэх"
 
-#: js/messages.php:459
+#: js/messages.php:460
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show hidden navigation tree items."
 msgstr "Тор харуулах"
 
-#: js/messages.php:462
+#: js/messages.php:463
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Сонгогдсон хэрэглэгч онцгой эрхийн хүснэгтэд алга байна."
 
-#: js/messages.php:465 setup/lib/index.lib.php:157
+#: js/messages.php:466 setup/lib/index.lib.php:157
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2446,95 +2450,95 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:467
+#: js/messages.php:468
 msgid ", latest stable version:"
 msgstr ""
 
-#: js/messages.php:468
+#: js/messages.php:469
 #, fuzzy
 #| msgid "No databases"
 msgid "up to date"
 msgstr "ӨС байхгүй"
 
-#: js/messages.php:470 libraries/DisplayResults.class.php:5139
+#: js/messages.php:471 libraries/DisplayResults.class.php:5139
 #: view_create.php:178
 #, fuzzy
 #| msgid "Create"
 msgid "Create view"
 msgstr "Үүсгэх"
 
-#: js/messages.php:473
+#: js/messages.php:474
 msgid "Send Error Report"
 msgstr ""
 
-#: js/messages.php:474
+#: js/messages.php:475
 msgid "Submit Error Report"
 msgstr ""
 
-#: js/messages.php:476
+#: js/messages.php:477
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: js/messages.php:478
+#: js/messages.php:479
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change Report Settings"
 msgstr "Ерөнхий хамаатай онцлог"
 
-#: js/messages.php:479
+#: js/messages.php:480
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
 msgstr "Нээлттэй хүснэгтүүдийг харуулах"
 
-#: js/messages.php:482
+#: js/messages.php:483
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: js/messages.php:486
+#: js/messages.php:487
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: js/messages.php:492 js/messages.php:504
+#: js/messages.php:493 js/messages.php:505
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: js/messages.php:494
+#: js/messages.php:495
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:499 libraries/Error_Handler.class.php:355
+#: js/messages.php:500 libraries/Error_Handler.class.php:355
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "Үл тоох"
 
-#: js/messages.php:506
+#: js/messages.php:507
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: js/messages.php:513
+#: js/messages.php:514
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "Уг асуултыг энд дахин харуулах"
 
-#: js/messages.php:544
+#: js/messages.php:545
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Өмнөх"
 
-#: js/messages.php:549
+#: js/messages.php:550
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2542,96 +2546,96 @@ msgid "Next"
 msgstr "Цааш"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:552
+#: js/messages.php:553
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Нийт"
 
-#: js/messages.php:556
+#: js/messages.php:557
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Хоёртын "
 
-#: js/messages.php:557
+#: js/messages.php:558
 msgid "February"
 msgstr ""
 
-#: js/messages.php:558
+#: js/messages.php:559
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "3-р"
 
-#: js/messages.php:559
+#: js/messages.php:560
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "4-р"
 
-#: js/messages.php:560
+#: js/messages.php:561
 msgid "May"
 msgstr "5-р"
 
-#: js/messages.php:561
+#: js/messages.php:562
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "6-р"
 
-#: js/messages.php:562
+#: js/messages.php:563
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "7-р"
 
-#: js/messages.php:563
+#: js/messages.php:564
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "8-р"
 
-#: js/messages.php:564
+#: js/messages.php:565
 msgid "September"
 msgstr ""
 
-#: js/messages.php:565
+#: js/messages.php:566
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "10р"
 
-#: js/messages.php:566
+#: js/messages.php:567
 msgid "November"
 msgstr ""
 
-#: js/messages.php:567
+#: js/messages.php:568
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:574 libraries/Util.class.php:1553
+#: js/messages.php:575 libraries/Util.class.php:1553
 msgid "Jan"
 msgstr "1-р"
 
 #. l10n: Short month name
-#: js/messages.php:576 libraries/Util.class.php:1555
+#: js/messages.php:577 libraries/Util.class.php:1555
 msgid "Feb"
 msgstr "2-р"
 
 #. l10n: Short month name
-#: js/messages.php:578 libraries/Util.class.php:1557
+#: js/messages.php:579 libraries/Util.class.php:1557
 msgid "Mar"
 msgstr "3-р"
 
 #. l10n: Short month name
-#: js/messages.php:580 libraries/Util.class.php:1559
+#: js/messages.php:581 libraries/Util.class.php:1559
 msgid "Apr"
 msgstr "4-р"
 
 #. l10n: Short month name
-#: js/messages.php:582 libraries/Util.class.php:1561
+#: js/messages.php:583 libraries/Util.class.php:1561
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2639,78 +2643,78 @@ msgid "May"
 msgstr "5-р"
 
 #. l10n: Short month name
-#: js/messages.php:584 libraries/Util.class.php:1563
+#: js/messages.php:585 libraries/Util.class.php:1563
 msgid "Jun"
 msgstr "6-р"
 
 #. l10n: Short month name
-#: js/messages.php:586 libraries/Util.class.php:1565
+#: js/messages.php:587 libraries/Util.class.php:1565
 msgid "Jul"
 msgstr "7-р"
 
 #. l10n: Short month name
-#: js/messages.php:588 libraries/Util.class.php:1567
+#: js/messages.php:589 libraries/Util.class.php:1567
 msgid "Aug"
 msgstr "8-р"
 
 #. l10n: Short month name
-#: js/messages.php:590 libraries/Util.class.php:1569
+#: js/messages.php:591 libraries/Util.class.php:1569
 msgid "Sep"
 msgstr "9-р"
 
 #. l10n: Short month name
-#: js/messages.php:592 libraries/Util.class.php:1571
+#: js/messages.php:593 libraries/Util.class.php:1571
 msgid "Oct"
 msgstr "10р"
 
 #. l10n: Short month name
-#: js/messages.php:594 libraries/Util.class.php:1573
+#: js/messages.php:595 libraries/Util.class.php:1573
 msgid "Nov"
 msgstr "11р"
 
 #. l10n: Short month name
-#: js/messages.php:596 libraries/Util.class.php:1575
+#: js/messages.php:597 libraries/Util.class.php:1575
 msgid "Dec"
 msgstr "12р"
 
-#: js/messages.php:602
+#: js/messages.php:603
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Ня"
 
-#: js/messages.php:603
+#: js/messages.php:604
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Да"
 
-#: js/messages.php:604
+#: js/messages.php:605
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Мя"
 
-#: js/messages.php:605
+#: js/messages.php:606
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:606
+#: js/messages.php:607
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:607
+#: js/messages.php:608
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Ба"
 
-#: js/messages.php:608
+#: js/messages.php:609
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:615
+#: js/messages.php:616
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2718,115 +2722,115 @@ msgid "Sun"
 msgstr "Ня"
 
 #. l10n: Short week day name
-#: js/messages.php:617 libraries/Util.class.php:1580
+#: js/messages.php:618 libraries/Util.class.php:1580
 msgid "Mon"
 msgstr "Да"
 
 #. l10n: Short week day name
-#: js/messages.php:619 libraries/Util.class.php:1582
+#: js/messages.php:620 libraries/Util.class.php:1582
 msgid "Tue"
 msgstr "Мя"
 
 #. l10n: Short week day name
-#: js/messages.php:621 libraries/Util.class.php:1584
+#: js/messages.php:622 libraries/Util.class.php:1584
 msgid "Wed"
 msgstr "Лх"
 
 #. l10n: Short week day name
-#: js/messages.php:623 libraries/Util.class.php:1586
+#: js/messages.php:624 libraries/Util.class.php:1586
 msgid "Thu"
 msgstr "Пү"
 
 #. l10n: Short week day name
-#: js/messages.php:625 libraries/Util.class.php:1588
+#: js/messages.php:626 libraries/Util.class.php:1588
 msgid "Fri"
 msgstr "Ба"
 
 #. l10n: Short week day name
-#: js/messages.php:627 libraries/Util.class.php:1590
+#: js/messages.php:628 libraries/Util.class.php:1590
 msgid "Sat"
 msgstr "Бя"
 
 #. l10n: Minimal week day name
-#: js/messages.php:634
+#: js/messages.php:635
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Ня"
 
 #. l10n: Minimal week day name
-#: js/messages.php:636
+#: js/messages.php:637
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Да"
 
 #. l10n: Minimal week day name
-#: js/messages.php:638
+#: js/messages.php:639
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Мя"
 
 #. l10n: Minimal week day name
-#: js/messages.php:640
+#: js/messages.php:641
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Лх"
 
 #. l10n: Minimal week day name
-#: js/messages.php:642
+#: js/messages.php:643
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Пү"
 
 #. l10n: Minimal week day name
-#: js/messages.php:644
+#: js/messages.php:645
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Ба"
 
 #. l10n: Minimal week day name
-#: js/messages.php:646
+#: js/messages.php:647
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Бя"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:650
+#: js/messages.php:651
 msgid "Wk"
 msgstr ""
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:657
+#: js/messages.php:658
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:660
+#: js/messages.php:661
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Байхгүй"
 
-#: js/messages.php:672
+#: js/messages.php:673
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:673
+#: js/messages.php:674
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "хэрэглэгдэж байна"
 
-#: js/messages.php:674
+#: js/messages.php:675
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -3296,7 +3300,7 @@ msgstr "Хүснэгтийн өгөгдлийг устгах"
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:440 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:582 setup/frames/index.inc.php:182
+#: pmd_general.php:587 setup/frames/index.inc.php:182
 #: setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "Устгах"
@@ -3553,7 +3557,7 @@ msgstr "Солих"
 
 #: libraries/DisplayResults.class.php:5036
 #: libraries/DisplayResults.class.php:5307 libraries/Menu.class.php:326
-#: libraries/Menu.class.php:428 libraries/Menu.class.php:553
+#: libraries/Menu.class.php:428 libraries/Menu.class.php:555
 #: libraries/Util.class.php:3368 libraries/Util.class.php:3369
 #: libraries/Util.class.php:4077 libraries/Util.class.php:4092
 #: libraries/Util.class.php:4109 libraries/config/messages.inc.php:217
@@ -3772,12 +3776,12 @@ msgstr "Харц"
 #: libraries/navigation/Nodes/Node_Table.class.php:36
 #: libraries/server_privileges.lib.php:991
 #: libraries/tbl_columns_definition_form.lib.php:200
-#: libraries/tbl_tracking.lib.php:805 pmd_general.php:267
+#: libraries/tbl_tracking.lib.php:805 pmd_general.php:272
 msgid "Structure"
 msgstr "Бүтэц"
 
 #: libraries/Menu.class.php:307 libraries/Menu.class.php:411
-#: libraries/Menu.class.php:524 libraries/Util.class.php:3135
+#: libraries/Menu.class.php:526 libraries/Util.class.php:3135
 #: libraries/Util.class.php:3142 libraries/Util.class.php:4074
 #: libraries/Util.class.php:4089 libraries/Util.class.php:4106
 #: libraries/config/messages.inc.php:286
@@ -3805,7 +3809,7 @@ msgstr "Оруулах"
 #: libraries/Util.class.php:4095 libraries/Util.class.php:4111
 #: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:2004
 #: libraries/server_privileges.lib.php:2771
-#: libraries/server_privileges.lib.php:3719
+#: libraries/server_privileges.lib.php:3720
 msgid "Privileges"
 msgstr "Онцгой эрхүүд"
 
@@ -3859,51 +3863,51 @@ msgstr ""
 msgid "Designer"
 msgstr "Дизайнч"
 
-#: libraries/Menu.class.php:486 libraries/Util.class.php:4101
+#: libraries/Menu.class.php:488 libraries/Util.class.php:4101
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Central columns"
 msgstr "Багана нэмэх/устгах"
 
-#: libraries/Menu.class.php:520 libraries/Util.class.php:4073
+#: libraries/Menu.class.php:522 libraries/Util.class.php:4073
 #: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
-#: libraries/server_privileges.lib.php:3825
+#: libraries/server_privileges.lib.php:3826
 msgid "Databases"
 msgstr "Өгөгдлийн сангууд"
 
-#: libraries/Menu.class.php:543 libraries/Util.class.php:4076
+#: libraries/Menu.class.php:545 libraries/Util.class.php:4076
 #, fuzzy
 #| msgid "User"
 msgid "Users"
 msgstr "Хэрэглэгч"
 
-#: libraries/Menu.class.php:570 libraries/ServerStatusData.class.php:194
+#: libraries/Menu.class.php:572 libraries/ServerStatusData.class.php:194
 #: libraries/Util.class.php:4080 libraries/server_common.lib.php:36
 msgid "Binary log"
 msgstr "Хоёртын log"
 
-#: libraries/Menu.class.php:576 libraries/ServerStatusData.class.php:199
+#: libraries/Menu.class.php:578 libraries/ServerStatusData.class.php:199
 #: libraries/Util.class.php:4081 libraries/server_common.lib.php:42
 #: libraries/structure.lib.php:175 libraries/structure.lib.php:814
 msgid "Replication"
 msgstr "Олшруулалт"
 
-#: libraries/Menu.class.php:581 libraries/ServerStatusData.class.php:261
+#: libraries/Menu.class.php:583 libraries/ServerStatusData.class.php:261
 #: libraries/Util.class.php:4082 libraries/server_engines.lib.php:108
 #: libraries/server_engines.lib.php:112
 msgid "Variables"
 msgstr "Утгууд"
 
-#: libraries/Menu.class.php:585 libraries/Util.class.php:4083
+#: libraries/Menu.class.php:587 libraries/Util.class.php:4083
 msgid "Charsets"
 msgstr "Кодлолууд"
 
-#: libraries/Menu.class.php:590 libraries/Util.class.php:4084
+#: libraries/Menu.class.php:592 libraries/Util.class.php:4084
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
 msgid "Plugins"
 msgstr ""
 
-#: libraries/Menu.class.php:594 libraries/Util.class.php:4085
+#: libraries/Menu.class.php:596 libraries/Util.class.php:4085
 msgid "Engines"
 msgstr "Хөдөлгүүрүүд"
 
@@ -3939,8 +3943,8 @@ msgstr[1] "Сонгогдсон мөргүй"
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2432
 #: libraries/browse_foreigners.lib.php:291
-#: libraries/schema/Pdf_Relation_Schema.class.php:1185
-#: libraries/schema/Pdf_Relation_Schema.class.php:1209
+#: libraries/schema/Pdf_Relation_Schema.class.php:1222
+#: libraries/schema/Pdf_Relation_Schema.class.php:1246
 #: libraries/select_lang.lib.php:591
 msgid "Page number:"
 msgstr "Хуудасны дугаар:"
@@ -4249,17 +4253,17 @@ msgstr ""
 msgid "Function"
 msgstr "Функц"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:648 pmd_general.php:668
-#: pmd_general.php:797 pmd_general.php:810 pmd_general.php:875
-#: pmd_general.php:929
+#: libraries/TableSearch.class.php:188 pmd_general.php:653 pmd_general.php:673
+#: pmd_general.php:802 pmd_general.php:815 pmd_general.php:880
+#: pmd_general.php:934
 msgid "Operator"
 msgstr "Оператор"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1288
 #: libraries/insert_edit.lib.php:1635 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:637
-#: pmd_general.php:697 pmd_general.php:826 pmd_general.php:945
+#: libraries/server_status_variables.lib.php:220 pmd_general.php:642
+#: pmd_general.php:702 pmd_general.php:831 pmd_general.php:950
 msgid "Value"
 msgstr "Утга"
 
@@ -4952,8 +4956,8 @@ msgid "Length/Values"
 msgstr "Урт/Утгууд*"
 
 #: libraries/central_columns.lib.php:639
-#: libraries/schema/Pdf_Relation_Schema.class.php:1357
-#: libraries/schema/Pdf_Relation_Schema.class.php:1380
+#: libraries/schema/Pdf_Relation_Schema.class.php:1394
+#: libraries/schema/Pdf_Relation_Schema.class.php:1417
 #: libraries/structure.lib.php:1257 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr "Нэмэлт"
@@ -6256,7 +6260,7 @@ msgstr ""
 msgid "Display relational schema"
 msgstr "Хамааралтай схем"
 
-#: libraries/config/messages.inc.php:304 libraries/designer.lib.php:195
+#: libraries/config/messages.inc.php:304 libraries/designer.lib.php:201
 msgid "Paper size"
 msgstr "Цаасны хэмжээ"
 
@@ -7704,79 +7708,79 @@ msgstr ""
 msgid "Can't count rows in an unbuffered result set"
 msgstr ""
 
-#: libraries/designer.lib.php:31
+#: libraries/designer.lib.php:32
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page to open"
 msgstr "Хуудасны дугаар:"
 
-#: libraries/designer.lib.php:33
+#: libraries/designer.lib.php:34
 #, fuzzy
 #| msgid "Relation deleted"
 msgid "Page to delete"
 msgstr "Холбоо устав"
 
-#: libraries/designer.lib.php:37 libraries/designer.lib.php:73
+#: libraries/designer.lib.php:38 libraries/designer.lib.php:77
 #, fuzzy
 #| msgid "Select All"
 msgid "Select page"
 msgstr "Бүгдийг сонгох"
 
-#: libraries/designer.lib.php:59
+#: libraries/designer.lib.php:63
 #, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Save to selected page"
 msgstr "Гаргах/Оруулах хэмжээс"
 
-#: libraries/designer.lib.php:60
+#: libraries/designer.lib.php:64
 #, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and save to it"
 msgstr "Шинэ индекс үүсгэх"
 
-#: libraries/designer.lib.php:92
+#: libraries/designer.lib.php:98
 #, fuzzy
 #| msgid "User name"
 msgid "New page name"
 msgstr "Хэрэглэгчийн нэр"
 
-#: libraries/designer.lib.php:154
+#: libraries/designer.lib.php:160
 msgid "Select Export Relational Type"
 msgstr ""
 
-#: libraries/designer.lib.php:158
+#: libraries/designer.lib.php:164
 msgid "Show grid"
 msgstr "Тор харуулах"
 
-#: libraries/designer.lib.php:161
+#: libraries/designer.lib.php:167
 msgid "Show color"
 msgstr "Өнгө харах"
 
-#: libraries/designer.lib.php:166
+#: libraries/designer.lib.php:172
 msgid "Show dimension of tables"
 msgstr "Хүснэгтийн харьцаа харуулах"
 
-#: libraries/designer.lib.php:171
+#: libraries/designer.lib.php:177
 msgid "Same width for all tables"
 msgstr ""
 
-#: libraries/designer.lib.php:175 libraries/structure.lib.php:403
+#: libraries/designer.lib.php:181 libraries/structure.lib.php:403
 msgid "Data Dictionary"
 msgstr "Өгөгдлийн толь"
 
-#: libraries/designer.lib.php:177
+#: libraries/designer.lib.php:183
 msgid "Only show keys"
 msgstr ""
 
-#: libraries/designer.lib.php:179
+#: libraries/designer.lib.php:185
 msgid "Landscape"
 msgstr "Ландшафт"
 
-#: libraries/designer.lib.php:180
+#: libraries/designer.lib.php:186
 msgid "Portrait"
 msgstr "Дүрслэл"
 
-#: libraries/designer.lib.php:182
+#: libraries/designer.lib.php:188
 #, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
@@ -7836,7 +7840,7 @@ msgstr "Шинэ ӨС үүсгэх"
 msgid "No Privileges"
 msgstr "Онцгой эрхгүй"
 
-#: libraries/display_create_table.lib.php:55 pmd_general.php:164
+#: libraries/display_create_table.lib.php:55 pmd_general.php:169
 msgid "Create table"
 msgstr "Хүснэгт үүсгэх"
 
@@ -8640,7 +8644,7 @@ msgstr "&nbsp;%s&nbsp;багануудад индекс үүсгэх"
 
 #: libraries/insert_edit.lib.php:218 libraries/insert_edit.lib.php:249
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
-#: pmd_general.php:279
+#: pmd_general.php:284
 msgid "Hide"
 msgstr "Нуух"
 
@@ -10329,7 +10333,7 @@ msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
 "default is Tidy, to pretty-print HTML code. For security reasons, you have "
-"to manually edit the file libraries/plugins/transformations/"
+"to manually edit the file libraries/plugins/transformations/output/"
 "Text_Plain_External.class.php and list the tools you want to make available. "
 "The first option is then the number of the program you want to use and the "
 "second option is the parameters for the program. The third option, if set to "
@@ -10464,10 +10468,6 @@ msgid ""
 msgstr ""
 "Холбоос харуулж байна, талбар нь файлнэр агуулна; эхний сонголт - энэ нь "
 "өмнө нь тавигдах \"http://domain.com/\", хоёр дахь - холбоосын гарчгийг авна."
-
-#: libraries/pmd_common.php:295
-msgid "*Untitled"
-msgstr ""
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -11383,7 +11383,7 @@ msgstr ""
 
 #: libraries/schema/Dia_Relation_Schema.class.php:247
 #: libraries/schema/Eps_Relation_Schema.class.php:370
-#: libraries/schema/Pdf_Relation_Schema.class.php:438
+#: libraries/schema/Pdf_Relation_Schema.class.php:459
 #: libraries/schema/Svg_Relation_Schema.class.php:337
 #, fuzzy, php-format
 #| msgid "The \"%s\" table doesn't exist!"
@@ -11392,43 +11392,68 @@ msgstr "Хүснэгт \"%s\" байхгүй байна!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:262
 #: libraries/schema/Eps_Relation_Schema.class.php:385
-#: libraries/schema/Pdf_Relation_Schema.class.php:453
+#: libraries/schema/Pdf_Relation_Schema.class.php:474
 #: libraries/schema/Svg_Relation_Schema.class.php:352
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr "%s хүснэгтийн координатыг тохируулна уу"
 
-#: libraries/schema/Eps_Relation_Schema.class.php:708
-#: libraries/schema/Pdf_Relation_Schema.class.php:845
-#: libraries/schema/Svg_Relation_Schema.class.php:679
+#: libraries/schema/Dia_Relation_Schema.class.php:742
+#, fuzzy
+#| msgid "Invalid export type"
+msgid "dia export page"
+msgstr "Буруу экспортын төрөл"
+
+#: libraries/schema/Eps_Relation_Schema.class.php:709
+#: libraries/schema/Pdf_Relation_Schema.class.php:867
+#: libraries/schema/Svg_Relation_Schema.class.php:680
 #, fuzzy, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "\"%s\" өгөгдлийн сангийн схем - Хуудас %s"
 
-#: libraries/schema/Export_Relation_Schema.class.php:211
+#: libraries/schema/Eps_Relation_Schema.class.php:782
+#, fuzzy
+#| msgid "Export"
+msgid "eps export page"
+msgstr "Гаргах"
+
+#: libraries/schema/Export_Relation_Schema.class.php:238
 msgid "This page does not contain any tables!"
 msgstr ""
 
-#: libraries/schema/Export_Relation_Schema.class.php:239
+#: libraries/schema/Export_Relation_Schema.class.php:266
 msgid "SCHEMA ERROR: "
 msgstr ""
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:867
-#: libraries/schema/Pdf_Relation_Schema.class.php:1214
+#: libraries/schema/Pdf_Relation_Schema.class.php:229
+#: libraries/schema/Pdf_Relation_Schema.class.php:1182
+#, fuzzy
+#| msgid "Invalid export type"
+msgid "pdf export page"
+msgstr "Буруу экспортын төрөл"
+
+#: libraries/schema/Pdf_Relation_Schema.class.php:898
+#: libraries/schema/Pdf_Relation_Schema.class.php:1251
 msgid "Relational schema"
 msgstr "Хамааралтай схем"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1177
+#: libraries/schema/Pdf_Relation_Schema.class.php:1214
 msgid "Table of contents"
 msgstr "Агуулгын хүснэгт"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1354
-#: libraries/schema/Pdf_Relation_Schema.class.php:1377
+#: libraries/schema/Pdf_Relation_Schema.class.php:1391
+#: libraries/schema/Pdf_Relation_Schema.class.php:1414
 #: libraries/structure.lib.php:1254
 #: libraries/tbl_columns_definition_form.lib.php:301
 msgid "Attributes"
 msgstr "Атрибутууд"
+
+#: libraries/schema/Svg_Relation_Schema.class.php:753
+#, fuzzy
+#| msgid "Invalid export type"
+msgid "svg export page"
+msgstr "Буруу экспортын төрөл"
 
 #: libraries/select_lang.lib.php:598 libraries/select_lang.lib.php:607
 #: libraries/select_lang.lib.php:616
@@ -11835,7 +11860,7 @@ msgid "You have revoked the privileges for %s."
 msgstr "Онцгой эрх %s -ыг хүчингүй болголоо."
 
 #: libraries/server_privileges.lib.php:1722
-#: libraries/server_privileges.lib.php:3783
+#: libraries/server_privileges.lib.php:3784
 #, fuzzy
 #| msgid "Any user"
 msgid "Add user"
@@ -11872,8 +11897,8 @@ msgstr "Харц %s нь устгагдсан"
 
 #: libraries/server_privileges.lib.php:2001
 #: libraries/server_privileges.lib.php:2942
-#: libraries/server_privileges.lib.php:3734
-#: libraries/server_privileges.lib.php:3805
+#: libraries/server_privileges.lib.php:3735
+#: libraries/server_privileges.lib.php:3806
 #: libraries/server_status_processes.lib.php:73
 #: libraries/server_user_groups.lib.php:38
 msgid "User"
@@ -11890,7 +11915,7 @@ msgid "Not enough privilege to view users."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2039
-#: libraries/server_privileges.lib.php:3389
+#: libraries/server_privileges.lib.php:3390
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
@@ -11999,67 +12024,67 @@ msgstr ""
 msgid "Drop the databases that have the same names as the users."
 msgstr "Хэрэглэгчтэй адил нэртэй өгөгдлийн санг устгах."
 
-#: libraries/server_privileges.lib.php:3270
+#: libraries/server_privileges.lib.php:3271
 msgid "No users selected for deleting!"
 msgstr "Устгахаар хэрэглэгч сонгогдсонгүй!"
 
-#: libraries/server_privileges.lib.php:3273
+#: libraries/server_privileges.lib.php:3274
 msgid "Reloading the privileges"
 msgstr "Онцгой эрхийг дахин дуудаж байна"
 
-#: libraries/server_privileges.lib.php:3292
+#: libraries/server_privileges.lib.php:3293
 msgid "The selected users have been deleted successfully."
 msgstr "Сонгогдсон хэрэглэгч устгагдлаа."
 
-#: libraries/server_privileges.lib.php:3359
+#: libraries/server_privileges.lib.php:3360
 #, fuzzy, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Онцгой эрх шинэчлэгдлээ"
 
-#: libraries/server_privileges.lib.php:3428
+#: libraries/server_privileges.lib.php:3429
 #, php-format
 msgid "Deleting %s"
 msgstr "%s-г устгаж байна"
 
-#: libraries/server_privileges.lib.php:3457
+#: libraries/server_privileges.lib.php:3458
 msgid "The privileges were reloaded successfully."
 msgstr "Онцгой эрхүүд дахин дуудагдлаа."
 
-#: libraries/server_privileges.lib.php:3539
+#: libraries/server_privileges.lib.php:3540
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Хэрэглэгч %s оршин байна!"
 
-#: libraries/server_privileges.lib.php:3725
+#: libraries/server_privileges.lib.php:3726
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Онцгой эрхүүд"
 
-#: libraries/server_privileges.lib.php:3775
+#: libraries/server_privileges.lib.php:3776
 msgctxt "Create new user"
 msgid "New"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3804
+#: libraries/server_privileges.lib.php:3805
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit Privileges:"
 msgstr "Онцгой эрхүүдийг засах"
 
-#: libraries/server_privileges.lib.php:3864
+#: libraries/server_privileges.lib.php:3865
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3884 libraries/server_users.lib.php:25
+#: libraries/server_privileges.lib.php:3885 libraries/server_users.lib.php:25
 #, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "User overview"
 
-#: libraries/server_privileges.lib.php:3969
+#: libraries/server_privileges.lib.php:3970
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -12072,11 +12097,11 @@ msgstr ""
 "агуулга нь сервэрт хэрэглэгдэж буйгаас өөр байна. Энэ тохиолдолд %sдахин "
 "дуудаж%s үргэлжлүүлнэ үү."
 
-#: libraries/server_privileges.lib.php:4019
+#: libraries/server_privileges.lib.php:4020
 msgid "The selected user was not found in the privilege table."
 msgstr "Сонгогдсон хэрэглэгч онцгой эрхийн хүснэгтэд алга байна."
 
-#: libraries/server_privileges.lib.php:4244
+#: libraries/server_privileges.lib.php:4245
 msgid "You have added a new user."
 msgstr "Шинэ хэрэглэгч нэмэгдлээ."
 
@@ -14198,155 +14223,155 @@ msgstr ""
 msgid "Second/Third step of normalization"
 msgstr ""
 
-#: pmd_display_field.php:62 pmd_save_pos.php:59
+#: pmd_display_field.php:62 pmd_save_pos.php:61
 msgid "Modifications have been saved"
 msgstr "Өөрчлөлт хадгалагдав"
 
-#: pmd_general.php:125
+#: pmd_general.php:130
 msgid "Show/Hide left menu"
 msgstr "Харуулах/Нуух зүүн цэс"
 
-#: pmd_general.php:130
+#: pmd_general.php:135
 msgid "View in fullscreen"
 msgstr ""
 
-#: pmd_general.php:135
+#: pmd_general.php:140
 msgid "Exit fullscreen"
 msgstr ""
 
-#: pmd_general.php:142
+#: pmd_general.php:147
 #, fuzzy
 #| msgid "User name"
 msgid "New page"
 msgstr "Хэрэглэгчийн нэр"
 
-#: pmd_general.php:150
+#: pmd_general.php:155
 msgid "Save position"
 msgstr "Байрлал хадгалах"
 
-#: pmd_general.php:154
+#: pmd_general.php:159
 #, fuzzy
 #| msgid "Save position"
 msgid "Save positions as"
 msgstr "Байрлал хадгалах"
 
-#: pmd_general.php:158
+#: pmd_general.php:163
 #, fuzzy
 #| msgid "Select All"
 msgid "Delete pages"
 msgstr "Бүгдийг сонгох"
 
-#: pmd_general.php:169 pmd_general.php:508
+#: pmd_general.php:174 pmd_general.php:513
 msgid "Create relation"
 msgstr "Холбоо үүсгэх"
 
-#: pmd_general.php:179
+#: pmd_general.php:184
 msgid "Reload"
 msgstr "Да.дууд"
 
-#: pmd_general.php:184
+#: pmd_general.php:189
 msgid "Help"
 msgstr "Тусламж"
 
-#: pmd_general.php:192
+#: pmd_general.php:197
 msgid "Angular links"
 msgstr "Шууд бус холбоос"
 
-#: pmd_general.php:192
+#: pmd_general.php:197
 msgid "Direct links"
 msgstr "Шууд холбоос"
 
-#: pmd_general.php:197
+#: pmd_general.php:202
 msgid "Snap to grid"
 msgstr ""
 
-#: pmd_general.php:203
+#: pmd_general.php:208
 msgid "Small/Big All"
 msgstr "Жижиш/Том Бүгдийг"
 
-#: pmd_general.php:208
+#: pmd_general.php:213
 msgid "Toggle small/big"
 msgstr ""
 
-#: pmd_general.php:213
+#: pmd_general.php:218
 #, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
 msgstr "Холбоо сонгохдоо, дарах нь :"
 
-#: pmd_general.php:221
+#: pmd_general.php:226
 #, fuzzy
 #| msgid "Export"
 msgid "Export schema"
 msgstr "Гаргах"
 
-#: pmd_general.php:232
+#: pmd_general.php:237
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
 msgstr "Асуултыг илгээх"
 
-#: pmd_general.php:239
+#: pmd_general.php:244
 msgid "Move Menu"
 msgstr "Цэс зөөх"
 
-#: pmd_general.php:253
+#: pmd_general.php:258
 msgid "Hide/Show all"
 msgstr "Нуух/Харуулах бүгдийг"
 
-#: pmd_general.php:257
+#: pmd_general.php:262
 msgid "Hide/Show Tables with no relation"
 msgstr "Нуух/Харуулах Холбоо байхгүй Хүснэгтүүд"
 
-#: pmd_general.php:301
+#: pmd_general.php:306
 #, fuzzy
 #| msgid "Number of tables"
 msgid "Number of tables:"
 msgstr "Хүснэгтийн тоо"
 
-#: pmd_general.php:576
+#: pmd_general.php:581
 msgid "Delete relation"
 msgstr "Холбоог устгах"
 
-#: pmd_general.php:621 pmd_general.php:680
+#: pmd_general.php:626 pmd_general.php:685
 #, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
 msgstr "Холбоо устав"
 
-#: pmd_general.php:631 pmd_general.php:690 pmd_general.php:820
-#: pmd_general.php:939
+#: pmd_general.php:636 pmd_general.php:695 pmd_general.php:825
+#: pmd_general.php:944
 #, fuzzy
 #| msgid "Export"
 msgid "Except"
 msgstr "Гаргах"
 
-#: pmd_general.php:637 pmd_general.php:698 pmd_general.php:826
-#: pmd_general.php:945
+#: pmd_general.php:642 pmd_general.php:703 pmd_general.php:831
+#: pmd_general.php:950
 #, fuzzy
 #| msgid "in query"
 msgid "subquery"
 msgstr "асуултад"
 
-#: pmd_general.php:641 pmd_general.php:743
+#: pmd_general.php:646 pmd_general.php:748
 #, fuzzy
 #| msgid "Rename table to"
 msgid "Rename to"
 msgstr "Хүснэгтийг да.нэрлэх"
 
-#: pmd_general.php:643 pmd_general.php:749
+#: pmd_general.php:648 pmd_general.php:754
 #, fuzzy
 #| msgid "User name"
 msgid "New name"
 msgstr "Хэрэглэгчийн нэр"
 
-#: pmd_general.php:646 pmd_general.php:869
+#: pmd_general.php:651 pmd_general.php:874
 #, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
 msgstr "Үүсгэх"
 
-#: pmd_general.php:980
+#: pmd_general.php:985
 #, fuzzy
 #| msgid "Table options"
 msgid "Active options"
@@ -14382,7 +14407,7 @@ msgstr "Дотоод холбоо нэмэгдэв"
 msgid "Relation deleted"
 msgstr "Холбоо устав"
 
-#: pmd_save_pos.php:49
+#: pmd_save_pos.php:51
 msgid "Error saving coordinates for Designer."
 msgstr ""
 
@@ -14471,13 +14496,13 @@ msgstr "Бүх"
 msgid "SQL history:"
 msgstr "SQL түүх"
 
-#: schema_export.php:88
+#: schema_export.php:95
 #, fuzzy
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
 msgstr "Хүснэгт \"%s\" байхгүй байна!"
 
-#: schema_export.php:97
+#: schema_export.php:104
 #, fuzzy
 #| msgid "Disabled"
 msgid "Plugin is disabled"
