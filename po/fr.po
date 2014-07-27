@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-27 04:13+0200\n"
+"PO-Revision-Date: 2014-07-27 15:08+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -10984,10 +10984,9 @@ msgid "Please configure the coordinates for table %s"
 msgstr "Les coordonnées de la table %s n'ont pas été configurées"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:742
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "Dia export page"
-msgstr "Type d'exportation invalide"
+msgstr "Page d'exportation Dia"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:709
 #: libraries/schema/Pdf_Relation_Schema.class.php:867
@@ -10997,10 +10996,9 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Schéma de la base %s - Page %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:782
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "EPS export page"
-msgstr "Type d'exportation invalide"
+msgstr "Page d'exportation EPS"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
 msgid "This page does not contain any tables!"
@@ -11012,10 +11010,9 @@ msgstr "Erreur de schéma : "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:229
 #: libraries/schema/Pdf_Relation_Schema.class.php:1182
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "PDF export page"
-msgstr "Type d'exportation invalide"
+msgstr "Page d'exportation PDF"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:898
 #: libraries/schema/Pdf_Relation_Schema.class.php:1251
@@ -11034,10 +11031,9 @@ msgid "Attributes"
 msgstr "Attributs"
 
 #: libraries/schema/Svg_Relation_Schema.class.php:753
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "SVG export page"
-msgstr "Type d'exportation invalide"
+msgstr "Page d'exportation SVG"
 
 #: libraries/select_lang.lib.php:598 libraries/select_lang.lib.php:607
 #: libraries/select_lang.lib.php:616
