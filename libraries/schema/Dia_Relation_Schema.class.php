@@ -739,7 +739,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         global $dia, $db;
         $filename = $db . '-' . $this->pageNumber;
         if ($this->isOffline()) {
-            $filename = __("dia export page");
+            $filename = __("Dia export page");
         }
         $dia->showOutput($filename);
     }

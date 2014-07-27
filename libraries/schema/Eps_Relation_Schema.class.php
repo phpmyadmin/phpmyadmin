@@ -779,7 +779,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         global $eps,$db;
         $filename = $db . '-' . $this->pageNumber;
         if ($this->isOffline()) {
-            $filename = __("eps export page");
+            $filename = __("EPS export page");
         }
         $eps->showOutput($filename);
     }
