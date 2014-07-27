@@ -750,7 +750,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         global $svg,$db;
         $filename = $db . '-' . $this->pageNumber;
         if ($this->isOffline()) {
-            $filename = __("svg export page");
+            $filename = __("SVG export page");
         }
         $svg->showOutput($filename);
     }

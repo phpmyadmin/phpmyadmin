@@ -226,7 +226,7 @@ class PMA_Schema_PDF extends PMA_PDF
         global $cfgRelation, $db, $pdf_page_number, $with_doc;
         if ($with_doc) {
             if ($this->offline) {
-                $pg_name = __("pdf export page");
+                $pg_name = __("PDF export page");
             } else {
                 $test_query = 'SELECT * FROM '
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
@@ -1179,7 +1179,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 
         // Get the name of this pdfpage to use as filename
         if ($this->isOffline()) {
-            $filename = __("pdf export page") . '.pdf';
+            $filename = __("PDF export page") . '.pdf';
         } else {
             $editingPage = $_POST['chpage'] != '-1' ? $_POST['chpage'] : $pageNumber;
             $_name_sql = 'SELECT page_descr FROM '
