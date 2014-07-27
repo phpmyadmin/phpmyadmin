@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-26 09:18-0400\n"
+"POT-Creation-Date: 2014-07-26 21:46-0400\n"
 "PO-Revision-Date: 2014-06-21 16:04+0200\n"
 "Last-Translator: Richard G. Nielsen <richard@plaza.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.cihar.com/projects/phpmyadmin/"
@@ -51,7 +51,7 @@ msgstr "Database kommentar:"
 
 #: db_datadict.php:143 libraries/schema/Pdf_Relation_Schema.class.php:1363
 #: libraries/tbl_columns_definition_form.lib.php:70
-#: libraries/tbl_printview.lib.php:579
+#: libraries/tbl_printview.lib.php:577
 msgid "Table comments:"
 msgstr "Tabellkommentarer:"
 
@@ -70,7 +70,7 @@ msgstr "Tabellkommentarer:"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1389
 #: libraries/schema/Pdf_Relation_Schema.class.php:1412
 #: libraries/tbl_columns_definition_form.lib.php:596
-#: libraries/tbl_indexes.lib.php:322 libraries/tbl_printview.lib.php:473
+#: libraries/tbl_indexes.lib.php:322 libraries/tbl_printview.lib.php:471
 #: libraries/tbl_relation.lib.php:325 libraries/tbl_relation.lib.php:414
 #: libraries/tbl_relation.lib.php:542 libraries/tbl_tracking.lib.php:809
 #: libraries/tbl_tracking.lib.php:898
@@ -96,7 +96,7 @@ msgstr "Kolonne"
 #: libraries/server_privileges.lib.php:2003 libraries/structure.lib.php:832
 #: libraries/structure.lib.php:1252
 #: libraries/tbl_columns_definition_form.lib.php:281
-#: libraries/tbl_printview.lib.php:474 libraries/tbl_tracking.lib.php:810
+#: libraries/tbl_printview.lib.php:472 libraries/tbl_tracking.lib.php:810
 #: libraries/tbl_tracking.lib.php:895
 msgid "Type"
 msgstr "Type"
@@ -115,7 +115,7 @@ msgstr "Type"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1415
 #: libraries/structure.lib.php:1255
 #: libraries/tbl_columns_definition_form.lib.php:302
-#: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:812
+#: libraries/tbl_printview.lib.php:473 libraries/tbl_tracking.lib.php:812
 #: libraries/tbl_tracking.lib.php:901
 msgid "Null"
 msgstr "Null"
@@ -132,7 +132,7 @@ msgstr "Null"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1416
 #: libraries/structure.lib.php:218 libraries/structure.lib.php:1256
 #: libraries/tbl_columns_definition_form.lib.php:293
-#: libraries/tbl_printview.lib.php:476 libraries/tbl_tracking.lib.php:813
+#: libraries/tbl_printview.lib.php:474 libraries/tbl_tracking.lib.php:813
 msgid "Default"
 msgstr "Standard"
 
@@ -142,7 +142,7 @@ msgstr "Standard"
 #: libraries/plugins/export/ExportTexytext.class.php:385
 #: libraries/schema/Pdf_Relation_Schema.class.php:1395
 #: libraries/schema/Pdf_Relation_Schema.class.php:1418
-#: libraries/tbl_printview.lib.php:478
+#: libraries/tbl_printview.lib.php:476
 msgid "Links to"
 msgstr "Lenker til"
 
@@ -156,13 +156,13 @@ msgstr "Lenker til"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1406
 #: libraries/schema/Pdf_Relation_Schema.class.php:1419
 #: libraries/tbl_columns_definition_form.lib.php:312
-#: libraries/tbl_printview.lib.php:480
+#: libraries/tbl_printview.lib.php:478
 msgid "Comments"
 msgstr "Kommentarer"
 
 #: db_datadict.php:201 libraries/display_structure.inc.php:164
 #: libraries/structure.lib.php:1455 libraries/structure.lib.php:2173
-#: libraries/structure.lib.php:2183 libraries/tbl_printview.lib.php:107
+#: libraries/structure.lib.php:2183 libraries/tbl_printview.lib.php:106
 #: libraries/tbl_tracking.lib.php:849
 msgid "Primary"
 msgstr "Primær"
@@ -184,7 +184,7 @@ msgstr "Primær"
 #: libraries/server_privileges.lib.php:2705
 #: libraries/server_privileges.lib.php:3045
 #: libraries/server_privileges.lib.php:3067 libraries/structure.lib.php:1340
-#: libraries/tbl_printview.lib.php:114 libraries/tbl_tracking.lib.php:856
+#: libraries/tbl_printview.lib.php:113 libraries/tbl_tracking.lib.php:856
 #: libraries/tbl_tracking.lib.php:933 libraries/tbl_tracking.lib.php:938
 #: libraries/user_preferences.lib.php:296 prefs_manage.php:138
 msgid "No"
@@ -204,8 +204,8 @@ msgstr "Nei"
 #: libraries/plugins/export/ExportOdt.class.php:764
 #: libraries/plugins/export/ExportTexytext.class.php:588
 #: libraries/schema/Pdf_Relation_Schema.class.php:1446
-#: libraries/server_databases.lib.php:472
-#: libraries/server_databases.lib.php:482
+#: libraries/server_databases.lib.php:474
+#: libraries/server_databases.lib.php:484
 #: libraries/server_privileges.lib.php:2169
 #: libraries/server_privileges.lib.php:2363
 #: libraries/server_privileges.lib.php:2385
@@ -213,7 +213,7 @@ msgstr "Nei"
 #: libraries/server_privileges.lib.php:2703
 #: libraries/server_privileges.lib.php:3042
 #: libraries/server_privileges.lib.php:3067 libraries/structure.lib.php:1340
-#: libraries/structure.lib.php:2758 libraries/tbl_printview.lib.php:115
+#: libraries/structure.lib.php:2758 libraries/tbl_printview.lib.php:114
 #: libraries/tbl_tracking.lib.php:856 libraries/tbl_tracking.lib.php:931
 #: libraries/tbl_tracking.lib.php:936 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -281,7 +281,7 @@ msgstr "Tabell"
 #: db_printview.php:48 libraries/build_html_for_db.lib.php:33
 #: libraries/import.lib.php:191 libraries/structure.lib.php:821
 #: libraries/structure.lib.php:1810 libraries/structure.lib.php:2001
-#: libraries/tbl_printview.lib.php:194
+#: libraries/tbl_printview.lib.php:193
 msgid "Rows"
 msgstr "Rader"
 
@@ -345,7 +345,7 @@ msgstr "Overvåkede tabeller"
 #: libraries/plugins/export/ExportHtmlword.class.php:149
 #: libraries/plugins/export/ExportOdt.class.php:193
 #: libraries/plugins/export/ExportTexytext.class.php:133
-#: libraries/server_databases.lib.php:305
+#: libraries/server_databases.lib.php:307
 #: libraries/server_privileges.lib.php:1016
 #: libraries/server_privileges.lib.php:2520
 #: libraries/server_privileges.lib.php:2757
@@ -380,7 +380,7 @@ msgstr "Status"
 #: db_tracking.php:86 libraries/Index.class.php:561
 #: libraries/central_columns.lib.php:622 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
-#: libraries/server_databases.lib.php:401
+#: libraries/server_databases.lib.php:403
 #: libraries/server_privileges.lib.php:2006
 #: libraries/server_privileges.lib.php:2779
 #: libraries/server_privileges.lib.php:2955
@@ -1676,7 +1676,7 @@ msgid "Error text: %s"
 msgstr "Feilmelding: %s"
 
 #: js/messages.php:252 libraries/db_common.inc.php:60
-#: libraries/db_table_exists.lib.php:28 libraries/server_databases.lib.php:458
+#: libraries/db_table_exists.lib.php:28 libraries/server_databases.lib.php:460
 msgid "No databases selected."
 msgstr "Ingen databaser er valgt."
 
@@ -2934,8 +2934,8 @@ msgstr ""
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1314
 #: libraries/DisplayResults.class.php:2127
 #: libraries/DisplayResults.class.php:2133 libraries/TableSearch.class.php:849
-#: libraries/operations.lib.php:620 libraries/server_databases.lib.php:309
-#: libraries/server_databases.lib.php:337
+#: libraries/operations.lib.php:620 libraries/server_databases.lib.php:311
+#: libraries/server_databases.lib.php:339
 #: libraries/server_status_processes.lib.php:182
 #: libraries/structure.lib.php:916 libraries/structure.lib.php:933
 msgid "Ascending"
@@ -2944,8 +2944,8 @@ msgstr "Stigende"
 #: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1326
 #: libraries/DisplayResults.class.php:2123
 #: libraries/DisplayResults.class.php:2137 libraries/TableSearch.class.php:850
-#: libraries/operations.lib.php:623 libraries/server_databases.lib.php:309
-#: libraries/server_databases.lib.php:337
+#: libraries/operations.lib.php:623 libraries/server_databases.lib.php:311
+#: libraries/server_databases.lib.php:339
 #: libraries/server_status_processes.lib.php:179
 #: libraries/structure.lib.php:921 libraries/structure.lib.php:938
 msgid "Descending"
@@ -4584,17 +4584,17 @@ msgid "Print"
 msgstr "Skriv ut"
 
 #: libraries/Util.class.php:4018 libraries/structure.lib.php:854
-#: libraries/structure.lib.php:1856 libraries/tbl_printview.lib.php:239
+#: libraries/structure.lib.php:1856 libraries/tbl_printview.lib.php:238
 msgid "Creation"
 msgstr "Opprettet"
 
 #: libraries/Util.class.php:4024 libraries/structure.lib.php:861
-#: libraries/structure.lib.php:1864 libraries/tbl_printview.lib.php:250
+#: libraries/structure.lib.php:1864 libraries/tbl_printview.lib.php:249
 msgid "Last update"
 msgstr "Sist oppdatert"
 
 #: libraries/Util.class.php:4030 libraries/structure.lib.php:868
-#: libraries/structure.lib.php:1872 libraries/tbl_printview.lib.php:261
+#: libraries/structure.lib.php:1872 libraries/tbl_printview.lib.php:260
 msgid "Last check"
 msgstr "Sist kontrollert"
 
@@ -4622,19 +4622,19 @@ msgstr "Bruk denne verdien"
 #: libraries/config/user_preferences.forms.php:271
 #: libraries/config/user_preferences.forms.php:276
 #: libraries/server_privileges.lib.php:990 libraries/structure.lib.php:2283
-#: libraries/tbl_printview.lib.php:304
+#: libraries/tbl_printview.lib.php:303
 msgid "Data"
 msgstr "Data"
 
 #: libraries/build_html_for_db.lib.php:48 libraries/engines/innodb.lib.php:171
 #: libraries/server_databases.lib.php:177 libraries/server_status.lib.php:177
 #: libraries/server_status.lib.php:288 libraries/structure.lib.php:2305
-#: libraries/tbl_printview.lib.php:336
+#: libraries/tbl_printview.lib.php:335
 msgid "Total"
 msgstr "Totalt"
 
 #: libraries/build_html_for_db.lib.php:53 libraries/structure.lib.php:847
-#: libraries/structure.lib.php:2296 libraries/tbl_printview.lib.php:320
+#: libraries/structure.lib.php:2296 libraries/tbl_printview.lib.php:319
 msgid "Overhead"
 msgstr "Overheng"
 
@@ -5613,7 +5613,7 @@ msgstr "Filas tegnsett"
 #: libraries/config/messages.inc.php:110 libraries/config/messages.inc.php:126
 #: libraries/structure.lib.php:1784
 #: libraries/tbl_gis_visualization.lib.php:233
-#: libraries/tbl_printview.lib.php:179
+#: libraries/tbl_printview.lib.php:178
 msgid "Format"
 msgstr "Format"
 
@@ -9379,7 +9379,7 @@ msgstr ""
 #: libraries/structure.lib.php:1463 libraries/structure.lib.php:2175
 #: libraries/structure.lib.php:2185 libraries/structure.lib.php:2289
 #: libraries/tbl_columns_definition_form.lib.php:308
-#: libraries/tbl_printview.lib.php:311
+#: libraries/tbl_printview.lib.php:310
 msgid "Index"
 msgstr "Indeks"
 
@@ -10841,7 +10841,7 @@ msgid "no description"
 msgstr "ingen beskrivelse"
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:316
-#: libraries/server_databases.lib.php:390
+#: libraries/server_databases.lib.php:392
 msgid "Master replication"
 msgstr "Masterreplikasjon"
 
@@ -10906,7 +10906,7 @@ msgstr ""
 "konfigurert som master."
 
 #: libraries/replication_gui.lib.php:141
-#: libraries/server_databases.lib.php:392
+#: libraries/server_databases.lib.php:394
 msgid "Slave replication"
 msgstr "Slavereplikasjon"
 
@@ -11740,7 +11740,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:1182
 #, fuzzy
 #| msgid "Invalid export type"
-msgid "pdf export page"
+msgid "PDF export page"
 msgstr "Ugyldig eksport-type"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:898
@@ -11762,7 +11762,7 @@ msgstr "Attributter"
 #: libraries/schema/Svg_Relation_Schema.class.php:753
 #, fuzzy
 #| msgid "Invalid export type"
-msgid "svg export page"
+msgid "SVG export page"
 msgstr "Ugyldig eksport-type"
 
 #: libraries/select_lang.lib.php:598 libraries/select_lang.lib.php:607
@@ -11823,7 +11823,7 @@ msgstr "Tegnsett og sammenligninger"
 msgid "Databases statistics"
 msgstr "Statistikk for databaser"
 
-#: libraries/server_databases.lib.php:359
+#: libraries/server_databases.lib.php:361
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -11831,12 +11831,12 @@ msgstr ""
 "OBS: Når du slår på databasestatistikk så kan det medføre stor traffik "
 "mellom webtjeneren og MySQL-tjeneren."
 
-#: libraries/server_databases.lib.php:367
-#: libraries/server_databases.lib.php:368
+#: libraries/server_databases.lib.php:369
+#: libraries/server_databases.lib.php:370
 msgid "Enable Statistics"
 msgstr "Slå på statistikk"
 
-#: libraries/server_databases.lib.php:489
+#: libraries/server_databases.lib.php:491
 #, fuzzy, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
@@ -13938,11 +13938,11 @@ msgstr "Etter %s"
 msgid "Row statistics"
 msgstr "Radstatistikk"
 
-#: libraries/structure.lib.php:1777 libraries/tbl_printview.lib.php:182
+#: libraries/structure.lib.php:1777 libraries/tbl_printview.lib.php:181
 msgid "static"
 msgstr "statisk"
 
-#: libraries/structure.lib.php:1779 libraries/tbl_printview.lib.php:184
+#: libraries/structure.lib.php:1779 libraries/tbl_printview.lib.php:183
 msgid "dynamic"
 msgstr "dynamisk"
 
@@ -13950,15 +13950,15 @@ msgstr "dynamisk"
 msgid "partitioned"
 msgstr "partisjonert"
 
-#: libraries/structure.lib.php:1827 libraries/tbl_printview.lib.php:205
+#: libraries/structure.lib.php:1827 libraries/tbl_printview.lib.php:204
 msgid "Row length"
 msgstr "Radlengde"
 
-#: libraries/structure.lib.php:1840 libraries/tbl_printview.lib.php:219
+#: libraries/structure.lib.php:1840 libraries/tbl_printview.lib.php:218
 msgid "Row size"
 msgstr "Radstørrelse"
 
-#: libraries/structure.lib.php:1848 libraries/tbl_printview.lib.php:228
+#: libraries/structure.lib.php:1848 libraries/tbl_printview.lib.php:227
 msgid "Next autoindex"
 msgstr ""
 
@@ -14003,7 +14003,7 @@ msgstr ""
 msgid "Space usage"
 msgstr "Plassbruk"
 
-#: libraries/structure.lib.php:2299 libraries/tbl_printview.lib.php:327
+#: libraries/structure.lib.php:2299 libraries/tbl_printview.lib.php:326
 msgid "Effective"
 msgstr "Effektiv"
 
@@ -14389,13 +14389,13 @@ msgstr "Dra for å omplassere"
 msgid "Showing tables:"
 msgstr "Vis tabeller"
 
-#: libraries/tbl_printview.lib.php:174
+#: libraries/tbl_printview.lib.php:173
 #, fuzzy
 #| msgid "Row Statistics"
 msgid "Row Statistics:"
 msgstr "Radstatistikk"
 
-#: libraries/tbl_printview.lib.php:301
+#: libraries/tbl_printview.lib.php:300
 #, fuzzy
 #| msgid "Space usage"
 msgid "Space usage:"
@@ -16479,6 +16479,16 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er satt til 0"
+
+#, fuzzy
+#~| msgid "Invalid export type"
+#~ msgid "pdf export page"
+#~ msgstr "Ugyldig eksport-type"
+
+#, fuzzy
+#~| msgid "Invalid export type"
+#~ msgid "svg export page"
+#~ msgstr "Ugyldig eksport-type"
 
 #, fuzzy
 #~| msgid "Click to sort"
