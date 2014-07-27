@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-24 21:40+0200\n"
+"PO-Revision-Date: 2014-07-27 19:44+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/az/>\n"
+"Language-Team: Azerbaijani "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13138,14 +13138,12 @@ msgid "Error: Relational features are disabled!"
 msgstr ""
 
 #: pmd_relation_new.php:104
-#, fuzzy
 msgid "Internal relation has been added."
-msgstr "Ümumi elaqe variantları"
+msgstr "Daxili əlaqə əlavə edildi."
 
 #: pmd_relation_upd.php:67
-#, fuzzy
 msgid "Relation deleted"
-msgstr "Relation view"
+msgstr "Əlaqə silindi"
 
 #: pmd_save_pos.php:51
 msgid "Error saving coordinates for Designer."
@@ -13172,10 +13170,9 @@ msgid "Saved on: @DATE@"
 msgstr ""
 
 #: prefs_manage.php:240
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from file"
-msgstr "Faylları import et"
+msgstr "Fayldan import et"
 
 #: prefs_manage.php:248
 msgid "Import from browser's storage"
@@ -13229,10 +13226,9 @@ msgid "All"
 msgstr ""
 
 #: querywindow.php:154
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL history:"
-msgstr "SQL-tarixçesi"
+msgstr "SQL tarixi:"
 
 #: schema_export.php:95
 msgid "File doesn't exist"
@@ -13300,10 +13296,9 @@ msgid "Insecure connection"
 msgstr ""
 
 #: setup/frames/index.inc.php:118
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration saved."
-msgstr "Modifications have been saved"
+msgstr "Konfiqurasiya yaddaşa verildi."
 
 #: setup/frames/index.inc.php:121
 msgid ""
@@ -13352,14 +13347,12 @@ msgid "Display"
 msgstr ""
 
 #: setup/frames/index.inc.php:284
-#, fuzzy
 msgid "Load"
-msgstr "Yerli"
+msgstr "Yüklə"
 
 #: setup/frames/index.inc.php:307
-#, fuzzy
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin dokumentasiyası (etraflı me'lumat üçün)"
+msgstr "phpMyAdmin əsas səhifəsi"
 
 #: setup/frames/index.inc.php:309
 msgid "Donate"
@@ -13370,9 +13363,8 @@ msgid "Edit server"
 msgstr ""
 
 #: setup/frames/servers.inc.php:39
-#, fuzzy
 msgid "Add a new server"
-msgstr "Yeni İstifadeçi elave Et"
+msgstr "Yeni server əlavə et"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
@@ -13395,9 +13387,8 @@ msgid "Ignore errors"
 msgstr ""
 
 #: setup/lib/form_processing.lib.php:60
-#, fuzzy
 msgid "Show form"
-msgstr "Rengini göster"
+msgstr "Formu göstər"
 
 #: setup/lib/index.lib.php:118
 msgid ""
@@ -13425,16 +13416,14 @@ msgid "No newer stable version is available"
 msgstr ""
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No databases"
 msgid "Wrong data"
-msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
+msgstr "Səhv məlumatlar"
 
 #: tbl_chart.php:34
-#, fuzzy
 #| msgid "No databases"
 msgid "No data to display"
-msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
+msgstr "Göstərmək üçün məlumat yoxdur"
 
 #: tbl_chart.php:58 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
@@ -13450,9 +13439,9 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: tbl_create.php:40
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s already exists!"
-msgstr "%s istifadeçisi mövcuddur!"
+msgstr "%s cədvəli artıq mövcuddur!"
 
 #: tbl_export.php:28
 msgid "View dump (schema) of table"
@@ -13490,10 +13479,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
 #: tbl_structure.php:93
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No column selected."
-msgstr "Heç bir baza seçilmemişdir."
+msgstr "Sütun seçilməmişdir."
 
 #: themes.php:17 themes.php:22
 msgid "Theme"
@@ -13520,11 +13508,10 @@ msgid "Available input transformations"
 msgstr "Mövcud transformasiyalar"
 
 #: transformation_overview.php:53
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
-msgstr "Haqqında"
+msgstr "Açıqlama"
 
 #: url.php:31
 #, fuzzy, php-format
@@ -13578,9 +13565,8 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:56
-#, fuzzy
 msgid "Questions below 1,000"
-msgstr "Emeliyyatlar"
+msgstr "1000-dən az suallar"
 
 #: libraries/advisory_rules.txt:59
 msgid ""
@@ -13595,15 +13581,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:61
-#, fuzzy, php-format
+#, php-format
 #| msgid "Connections"
 msgid "Current amount of Questions: %s"
-msgstr "Elaqeler"
+msgstr "Cari sualların sayı: %s"
 
 #: libraries/advisory_rules.txt:63
-#, fuzzy
 msgid "Percentage of slow queries"
-msgstr "Emrleri Tam Olaraq Göster"
+msgstr "Yavaş sorğuların faizi"
 
 #: libraries/advisory_rules.txt:66
 msgid ""
@@ -13622,9 +13607,8 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:70
-#, fuzzy
 msgid "Slow query rate"
-msgstr "SQL sorğusu"
+msgstr "Yavaş sorğu nisbəti"
 
 #: libraries/advisory_rules.txt:73
 msgid ""
@@ -13639,9 +13623,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:77
-#, fuzzy
 msgid "Long query time"
-msgstr "SQL sorğusu"
+msgstr "Uzun sorğu zamanı"
 
 #: libraries/advisory_rules.txt:80
 msgid ""
@@ -13691,10 +13674,9 @@ msgid "slow_query_log is set to 'OFF'"
 msgstr ""
 
 #: libraries/advisory_rules.txt:100
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Release Series"
-msgstr "Select Tables"
+msgstr "Seriyaları yayınla"
 
 #: libraries/advisory_rules.txt:103
 msgid "The MySQL server version less than 5.1."
@@ -13845,9 +13827,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:167
-#, fuzzy, php-format
+#, php-format
 msgid "Query cache efficiency (%%)"
-msgstr "Sorğu tipi"
+msgstr "Sorğu keşinin effektivliyi(%%)"
 
 #: libraries/advisory_rules.txt:170
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -13864,9 +13846,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "Sıralama buferinin (keçici yaddaşının) boyu"
 
 #: libraries/advisory_rules.txt:174
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Sorğu tipi"
+msgstr "Sorğu keşinin istifadəsi"
 
 #: libraries/advisory_rules.txt:177
 #, php-format
@@ -13917,9 +13898,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:188
-#, fuzzy
 msgid "Query cache low memory prunes"
-msgstr "Sorğu tipi"
+msgstr "Aşağı  sorğu keş yaddaşının azalması"
 
 #: libraries/advisory_rules.txt:191
 msgid ""
@@ -13942,9 +13922,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:195
-#, fuzzy
 msgid "Query cache max size"
-msgstr "Sorğu tipi"
+msgstr "Sorğu keşinin maksimal ölçüsü"
 
 #: libraries/advisory_rules.txt:198
 msgid ""
@@ -13959,15 +13938,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:200
-#, fuzzy, php-format
+#, php-format
 msgid "Current query cache size: %s"
-msgstr "Server versiyası"
+msgstr "Cari sorğu keşinin ölçüsü: %s"
 
 #: libraries/advisory_rules.txt:202
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "SQL result"
+msgstr "Sorğu keşinin minimal nəticə ölçüsü"
 
 #: libraries/advisory_rules.txt:205
 msgid ""
@@ -13991,16 +13969,14 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: libraries/advisory_rules.txt:211
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Keçici cedveller qurmağa icaze verir."
+msgstr "Keçici cədvəllərə səbəb olan sıralama faizi"
 
 #: libraries/advisory_rules.txt:214 libraries/advisory_rules.txt:221
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Keçici cedveller qurmağa icaze verir."
+msgstr "Həddən artıq çox sıralama keçici cədvəllərə səbəb olur."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
 msgid ""
@@ -14016,23 +13992,21 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Keçici cedveller qurmağa icaze verir."
+msgstr "Keçici cədvəllərə səbəb olan sıralamaların faizi"
 
 #: libraries/advisory_rules.txt:223
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "Sıralama buferinin (keçici yaddaşının) boyu"
+msgstr "Keçici cədvəllərin ortalamsı: %s, bu qiymət saatda 1-dən az olmalıdır."
 
 #: libraries/advisory_rules.txt:225
-#, fuzzy
 #| msgid "Start"
 msgid "Sort rows"
-msgstr "Şen"
+msgstr "Sətirləri sırala"
 
 #: libraries/advisory_rules.txt:228
 msgid "There are lots of rows being sorted."
@@ -14066,10 +14040,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:238
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "Sıralama buferinin (keçici yaddaşının) boyu"
+msgstr "Cədvəl birləşdirmə ortalaması: %s, bu qiymət saatda 1-dən az olmalıdır"
 
 #: libraries/advisory_rules.txt:240
 #, fuzzy
