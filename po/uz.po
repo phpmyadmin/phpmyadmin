@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-26 21:46-0400\n"
+"POT-Creation-Date: 2014-07-26 22:11-0400\n"
 "PO-Revision-Date: 2014-02-02 13:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/master/uz/>\n"
@@ -12250,7 +12250,7 @@ msgstr "\"%s\" жадвалининг координаталарини ўзга�
 #: libraries/schema/Dia_Relation_Schema.class.php:742
 #, fuzzy
 #| msgid "Invalid export type"
-msgid "dia export page"
+msgid "Dia export page"
 msgstr "Экспорт тури нотугри"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:709
@@ -12263,9 +12263,9 @@ msgstr "\"%s\" маълумотлар базаси тузилиши - \"%s\" с�
 
 #: libraries/schema/Eps_Relation_Schema.class.php:782
 #, fuzzy
-#| msgid "Export tables"
-msgid "eps export page"
-msgstr "Жадвалларни экспорт қилиш"
+#| msgid "Invalid export type"
+msgid "EPS export page"
+msgstr "Экспорт тури нотугри"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
 #, fuzzy
@@ -17059,6 +17059,11 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "Максимал уланишлар сони "
+
+#, fuzzy
+#~| msgid "Export tables"
+#~ msgid "eps export page"
+#~ msgstr "Жадвалларни экспорт қилиш"
 
 #, fuzzy
 #~| msgid "Invalid export type"

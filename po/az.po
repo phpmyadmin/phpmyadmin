@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-26 21:46-0400\n"
+"POT-Creation-Date: 2014-07-26 22:11-0400\n"
 "PO-Revision-Date: 2014-07-24 21:40+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani <https://l10n.cihar.com/projects/phpmyadmin/"
@@ -10347,7 +10347,7 @@ msgstr "Xahiş edirem, %s cedveli üçün koordinatları yeniden müeyyen et"
 #: libraries/schema/Dia_Relation_Schema.class.php:742
 #, fuzzy
 #| msgid "Invalid export type"
-msgid "dia export page"
+msgid "Dia export page"
 msgstr "Etibarsız eksport tipi"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:709
@@ -10359,9 +10359,9 @@ msgstr "%s Bazasının sxemi - Səhifə %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:782
 #, fuzzy
-#| msgid "Export type"
-msgid "eps export page"
-msgstr "Eksport tipi"
+#| msgid "Invalid export type"
+msgid "EPS export page"
+msgstr "Etibarsız eksport tipi"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
 msgid "This page does not contain any tables!"
@@ -14694,6 +14694,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0-a konfiqurasiya edilib"
+
+#, fuzzy
+#~| msgid "Export type"
+#~ msgid "eps export page"
+#~ msgstr "Eksport tipi"
 
 #, fuzzy
 #~| msgid "Invalid export type"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-26 21:46-0400\n"
+"POT-Creation-Date: 2014-07-26 22:11-0400\n"
 "PO-Revision-Date: 2014-03-27 15:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://l10n.cihar.com/projects/phpmyadmin/master/bn/"
@@ -10947,7 +10947,7 @@ msgstr "%s টেবলের coordinate কনফিগার করুন"
 #: libraries/schema/Dia_Relation_Schema.class.php:742
 #, fuzzy
 #| msgid "Invalid export type"
-msgid "dia export page"
+msgid "Dia export page"
 msgstr "রফতানীর ধরন সঠিক নয়"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:709
@@ -10959,9 +10959,9 @@ msgstr "%s ডাটাবেইজের রূপরেখা - পাতা %
 
 #: libraries/schema/Eps_Relation_Schema.class.php:782
 #, fuzzy
-#| msgid "Export type"
-msgid "eps export page"
-msgstr "রফাতানীর ধরন"
+#| msgid "Invalid export type"
+msgid "EPS export page"
+msgstr "রফতানীর ধরন সঠিক নয়"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
 msgid "This page does not contain any tables!"
@@ -15396,6 +15396,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert এর জন্য ০ নির্ধারন করা হয়েছে"
+
+#, fuzzy
+#~| msgid "Export type"
+#~ msgid "eps export page"
+#~ msgstr "রফাতানীর ধরন"
 
 #, fuzzy
 #~| msgid "Invalid export type"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-26 21:46-0400\n"
+"POT-Creation-Date: 2014-07-26 22:11-0400\n"
 "PO-Revision-Date: 2014-05-07 17:41+0200\n"
 "Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
 "Language-Team: Slovak <https://l10n.cihar.com/projects/phpmyadmin/master/sk/"
@@ -11314,7 +11314,7 @@ msgstr "Prosím skonfigurujte koordináty pre tabuľku %s"
 #: libraries/schema/Dia_Relation_Schema.class.php:742
 #, fuzzy
 #| msgid "Invalid export type"
-msgid "dia export page"
+msgid "Dia export page"
 msgstr "Chybný typ exportu"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:709
@@ -11326,9 +11326,9 @@ msgstr "Schéma databázy %s - Strana %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:782
 #, fuzzy
-#| msgid "Export type"
-msgid "eps export page"
-msgstr "Typ exportu"
+#| msgid "Invalid export type"
+msgid "EPS export page"
+msgstr "Chybný typ exportu"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
 msgid "This page does not contain any tables!"
@@ -15695,6 +15695,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavené na 0"
+
+#, fuzzy
+#~| msgid "Export type"
+#~ msgid "eps export page"
+#~ msgstr "Typ exportu"
 
 #, fuzzy
 #~| msgid "Invalid export type"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-26 21:46-0400\n"
+"POT-Creation-Date: 2014-07-26 22:11-0400\n"
 "PO-Revision-Date: 2014-06-18 13:15+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Portuguese <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -11083,7 +11083,7 @@ msgstr "Configure as cordenadas para a tabela %s"
 #: libraries/schema/Dia_Relation_Schema.class.php:742
 #, fuzzy
 #| msgid "Invalid export type"
-msgid "dia export page"
+msgid "Dia export page"
 msgstr "Tipo de exportação inválido"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:709
@@ -11096,9 +11096,9 @@ msgstr "Esquema da base de dados \"%s\" - Página %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:782
 #, fuzzy
-#| msgid "Export type"
-msgid "eps export page"
-msgstr "Tipo de Exportação"
+#| msgid "Invalid export type"
+msgid "EPS export page"
+msgstr "Tipo de exportação inválido"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
 msgid "This page does not contain any tables!"
@@ -15663,6 +15663,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert é definido como 0"
+
+#, fuzzy
+#~| msgid "Export type"
+#~ msgid "eps export page"
+#~ msgstr "Tipo de Exportação"
 
 #, fuzzy
 #~| msgid "Invalid export type"

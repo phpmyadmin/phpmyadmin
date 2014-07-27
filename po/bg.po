@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-26 21:46-0400\n"
+"POT-Creation-Date: 2014-07-26 22:11-0400\n"
 "PO-Revision-Date: 2014-04-02 11:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bulgarian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -11270,7 +11270,7 @@ msgstr "Моля конфигурирайте координатите за та
 #: libraries/schema/Dia_Relation_Schema.class.php:742
 #, fuzzy
 #| msgid "Invalid export type"
-msgid "dia export page"
+msgid "Dia export page"
 msgstr "Невалиден тип експорт"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:709
@@ -11282,9 +11282,9 @@ msgstr "Схема на БД %s - страница %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:782
 #, fuzzy
-#| msgid "Export type"
-msgid "eps export page"
-msgstr "Тип експорт"
+#| msgid "Invalid export type"
+msgid "EPS export page"
+msgstr "Невалиден тип експорт"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
 msgid "This page does not contain any tables!"
@@ -15685,6 +15685,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert e 0"
+
+#, fuzzy
+#~| msgid "Export type"
+#~ msgid "eps export page"
+#~ msgstr "Тип експорт"
 
 #, fuzzy
 #~| msgid "Invalid export type"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-26 21:46-0400\n"
+"POT-Creation-Date: 2014-07-26 22:11-0400\n"
 "PO-Revision-Date: 2014-04-19 18:59+0200\n"
 "Last-Translator: Sovichet Tep <sovichet.tep@gmail.com>\n"
 "Language-Team: Central Khmer <https://l10n.cihar.com/projects/phpmyadmin/"
@@ -10228,7 +10228,7 @@ msgstr ""
 #: libraries/schema/Dia_Relation_Schema.class.php:742
 #, fuzzy
 #| msgid "Invalid export type"
-msgid "dia export page"
+msgid "Dia export page"
 msgstr "ប្រភេទ​នាំ​ចេញ​មិន​ត្រឹម​ត្រូវ"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:709
@@ -10240,9 +10240,9 @@ msgstr ""
 
 #: libraries/schema/Eps_Relation_Schema.class.php:782
 #, fuzzy
-#| msgid "Reload page"
-msgid "eps export page"
-msgstr "ផ្ទុក​ទំព័រ​ឡើង​វិញ"
+#| msgid "Invalid export type"
+msgid "EPS export page"
+msgstr "ប្រភេទ​នាំ​ចេញ​មិន​ត្រឹម​ត្រូវ"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
 msgid "This page does not contain any tables!"
@@ -14319,6 +14319,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ត្រូវវ​បាន​កំណត់​ទៅ 0"
+
+#, fuzzy
+#~| msgid "Reload page"
+#~ msgid "eps export page"
+#~ msgstr "ផ្ទុក​ទំព័រ​ឡើង​វិញ"
 
 #, fuzzy
 #~| msgid "Invalid export type"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-26 21:46-0400\n"
+"POT-Creation-Date: 2014-07-26 22:11-0400\n"
 "PO-Revision-Date: 2014-02-03 16:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Kyrgyz <http://l10n.cihar.com/projects/phpmyadmin/master/ky/"
@@ -10214,7 +10214,7 @@ msgid "Please configure the coordinates for table %s"
 msgstr ""
 
 #: libraries/schema/Dia_Relation_Schema.class.php:742
-msgid "dia export page"
+msgid "Dia export page"
 msgstr ""
 
 #: libraries/schema/Eps_Relation_Schema.class.php:709
@@ -10225,7 +10225,7 @@ msgid "Schema of the %s database - Page %s"
 msgstr ""
 
 #: libraries/schema/Eps_Relation_Schema.class.php:782
-msgid "eps export page"
+msgid "EPS export page"
 msgstr ""
 
 #: libraries/schema/Export_Relation_Schema.class.php:238

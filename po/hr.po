@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-26 21:46-0400\n"
+"POT-Creation-Date: 2014-07-26 22:11-0400\n"
 "PO-Revision-Date: 2014-03-28 11:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Croatian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -11553,7 +11553,7 @@ msgstr "Konfigurirajte koordinate tablice %s"
 #: libraries/schema/Dia_Relation_Schema.class.php:742
 #, fuzzy
 #| msgid "Invalid export type"
-msgid "dia export page"
+msgid "Dia export page"
 msgstr "Pogrešna vrsta izvoza"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:709
@@ -11566,8 +11566,9 @@ msgstr "Shema \"%s\" baza podataka - stranica %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:782
 #, fuzzy
-msgid "eps export page"
-msgstr "Vrsta izvoza"
+#| msgid "Invalid export type"
+msgid "EPS export page"
+msgstr "Pogrešna vrsta izvoza"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
 msgid "This page does not contain any tables!"
@@ -16276,6 +16277,10 @@ msgstr ""
 #| msgid "MyISAM concurrent inserts"
 msgid "concurrent_insert is set to 0"
 msgstr "najv. uzastopnih veza"
+
+#, fuzzy
+#~ msgid "eps export page"
+#~ msgstr "Vrsta izvoza"
 
 #, fuzzy
 #~| msgid "Invalid export type"

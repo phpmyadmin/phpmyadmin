@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-26 21:46-0400\n"
+"POT-Creation-Date: 2014-07-26 22:11-0400\n"
 "PO-Revision-Date: 2014-06-26 20:47+0200\n"
 "Last-Translator: Dhananjay Nakrani <dhananjaynakrani@gmail.com>\n"
 "Language-Team: Hindi <https://l10n.cihar.com/projects/phpmyadmin/master/hi/"
@@ -11418,7 +11418,7 @@ msgstr ""
 #: libraries/schema/Dia_Relation_Schema.class.php:742
 #, fuzzy
 #| msgid "Invalid export type"
-msgid "dia export page"
+msgid "Dia export page"
 msgstr "अमान्य निर्यात प्रकार"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:709
@@ -11430,9 +11430,9 @@ msgstr ""
 
 #: libraries/schema/Eps_Relation_Schema.class.php:782
 #, fuzzy
-#| msgid "Export type"
-msgid "eps export page"
-msgstr "निर्यात प्रकार"
+#| msgid "Invalid export type"
+msgid "EPS export page"
+msgstr "अमान्य निर्यात प्रकार"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
 #, fuzzy
@@ -15991,6 +15991,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0 पर सेट है"
+
+#, fuzzy
+#~| msgid "Export type"
+#~ msgid "eps export page"
+#~ msgstr "निर्यात प्रकार"
 
 #, fuzzy
 #~| msgid "Invalid export type"

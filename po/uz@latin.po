@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-26 21:46-0400\n"
+"POT-Creation-Date: 2014-07-26 22:11-0400\n"
 "PO-Revision-Date: 2014-02-03 16:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek (latin) <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -12318,7 +12318,7 @@ msgstr "\"%s\" jadvalining koordinatalarini o‘zgartirish"
 #: libraries/schema/Dia_Relation_Schema.class.php:742
 #, fuzzy
 #| msgid "Export tables"
-msgid "dia export page"
+msgid "Dia export page"
 msgstr "Jadvallarni eksport qilish"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:709
@@ -12332,7 +12332,7 @@ msgstr "\"%s\" ma`lumotlar bazasi tuzilishi - \"%s\" sahifa"
 #: libraries/schema/Eps_Relation_Schema.class.php:782
 #, fuzzy
 #| msgid "Export tables"
-msgid "eps export page"
+msgid "EPS export page"
 msgstr "Jadvallarni eksport qilish"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
@@ -17159,6 +17159,11 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "Maksimal ulanishlar soni "
+
+#, fuzzy
+#~| msgid "Export tables"
+#~ msgid "eps export page"
+#~ msgstr "Jadvallarni eksport qilish"
 
 #, fuzzy
 #~| msgid "Export tables"

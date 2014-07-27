@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-26 21:46-0400\n"
+"POT-Creation-Date: 2014-07-26 22:11-0400\n"
 "PO-Revision-Date: 2014-03-27 15:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tatar <https://l10n.cihar.com/projects/phpmyadmin/master/tt/"
@@ -11365,7 +11365,7 @@ msgstr ""
 
 #: libraries/schema/Dia_Relation_Schema.class.php:742
 #, fuzzy
-msgid "dia export page"
+msgid "Dia export page"
 msgstr "Çığaru ısulı"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:709
@@ -11378,7 +11378,7 @@ msgstr "\"%s\" biremlek tözeleşe - %s. bit"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:782
 #, fuzzy
-msgid "eps export page"
+msgid "EPS export page"
 msgstr "Çığaru ısulı"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
@@ -15908,6 +15908,10 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~ msgid "eps export page"
+#~ msgstr "Çığaru ısulı"
 
 #, fuzzy
 #~ msgid "pdf export page"

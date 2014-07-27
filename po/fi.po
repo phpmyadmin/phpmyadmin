@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-26 21:46-0400\n"
+"POT-Creation-Date: 2014-07-26 22:11-0400\n"
 "PO-Revision-Date: 2014-07-15 01:20+0200\n"
 "Last-Translator: Valtteri Laitinen <valtteri.laitinen@gmail.com>\n"
 "Language-Team: Finnish <https://l10n.cihar.com/projects/phpmyadmin/master/fi/"
@@ -11449,7 +11449,7 @@ msgstr "Määrittele koordinaatit taululle %s"
 #: libraries/schema/Dia_Relation_Schema.class.php:742
 #, fuzzy
 #| msgid "Invalid export type"
-msgid "dia export page"
+msgid "Dia export page"
 msgstr "Virheellinen vientitapa"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:709
@@ -11462,9 +11462,9 @@ msgstr "Tietokannan \"%s\" kaavio - Sivu %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:782
 #, fuzzy
-#| msgid "Export type"
-msgid "eps export page"
-msgstr "Viennin tyyppi"
+#| msgid "Invalid export type"
+msgid "EPS export page"
+msgstr "Virheellinen vientitapa"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
 #, fuzzy
@@ -16249,6 +16249,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert on asetettu arvoon 0"
+
+#, fuzzy
+#~| msgid "Export type"
+#~ msgid "eps export page"
+#~ msgstr "Viennin tyyppi"
 
 #, fuzzy
 #~| msgid "Invalid export type"

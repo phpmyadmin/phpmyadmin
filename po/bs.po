@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-07-26 21:46-0400\n"
+"POT-Creation-Date: 2014-07-26 22:11-0400\n"
 "PO-Revision-Date: 2014-03-31 14:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bosnian <https://l10n.cihar.com/projects/phpmyadmin/master/bs/"
@@ -11203,7 +11203,7 @@ msgstr "Podesite koordinate za tabelu %s"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:742
 #, fuzzy
-msgid "dia export page"
+msgid "Dia export page"
 msgstr "Nema tabela"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:709
@@ -11216,7 +11216,7 @@ msgstr "Shema baze \"%s\" - Strana %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:782
 #, fuzzy
-msgid "eps export page"
+msgid "EPS export page"
 msgstr "Nema tabela"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
@@ -15667,6 +15667,10 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~ msgid "eps export page"
+#~ msgstr "Nema tabela"
 
 #, fuzzy
 #~ msgid "pdf export page"
