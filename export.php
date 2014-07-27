@@ -198,6 +198,10 @@ if (!defined('TESTSUITE')) {
     $onserver = false;
     $save_on_server = false;
     $buffer_needed = false;
+    $back_button = '';
+    $save_filename = '';
+    $file_handle = '';
+    $err_url = '';
 
     // Is it a quick or custom export?
     if ($_REQUEST['quick_or_custom'] == 'quick') {
