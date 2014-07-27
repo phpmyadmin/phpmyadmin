@@ -564,7 +564,7 @@ PMA_DROP_IMPORT = {
         //if no database is selected -- no
         if (dbname !== '') {
             var files = event.originalEvent.dataTransfer.files;
-            if (files.length === 0) {
+            if (!files || files.length === 0) {
                 // No files actually transfered
                 $(".pma_drop_handler").fadeOut();
                 event.stopPropagation();
