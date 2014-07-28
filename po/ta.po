@@ -859,9 +859,9 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"நிலை பதிவுத்துணுக்கு குவையின் ஏற்புடைமைகாலம், phpMyAdmin கட்டமைக்கப்பட்ட "
-"குக்கீ ஏற்புடைமைகாலத்தை விட குறைவாக உள்ளதால் உங்கள் புகுபதிவு phpMyAdmin ல் "
-"கட்டமைக்கப்பட்டதை விட விரைவில் காலாவதியாகும்"
+"நிலை பதிவுத்துணுக்கு குவையின் ஏற்புடைமைகாலம், phpMyAdmin கட்டமைக்கப்பட்ட நிலை"
+" பதிவுத்துணுக்கு ஏற்புடைமைகாலத்தை விட குறைவாக உள்ளதால் உங்கள் புகுபதிவு "
+"phpMyAdmin ல் கட்டமைக்கப்பட்டதை விட விரைவில் காலாவதியாகும்"
 
 #: index.php:495
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
