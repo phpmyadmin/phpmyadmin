@@ -10258,10 +10258,9 @@ msgstr ""
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:229
 #: libraries/schema/Pdf_Relation_Schema.class.php:1182
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "PDF export page"
-msgstr "தகா தரவேற்ற சுட்டுவகை"
+msgstr "PDF தரவேற்ற பக்கம்"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:898
 #: libraries/schema/Pdf_Relation_Schema.class.php:1251
