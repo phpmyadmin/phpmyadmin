@@ -574,7 +574,7 @@ if (! $error) {
     }
 }
 
-if (isset($import_handle) && false !== $import_handle && null !== $import_handle) {
+if (! empty($import_handle)) {
     fclose($import_handle);
 }
 
