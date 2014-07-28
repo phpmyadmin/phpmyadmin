@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-28 22:09+0200\n"
+"PO-Revision-Date: 2014-07-28 22:10+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -10279,10 +10279,9 @@ msgid "Attributes"
 msgstr ""
 
 #: libraries/schema/Svg_Relation_Schema.class.php:753
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "SVG export page"
-msgstr "தகா தரவேற்ற சுட்டுவகை"
+msgstr "SVG தரவேற்ற பக்கம்"
 
 #: libraries/select_lang.lib.php:598 libraries/select_lang.lib.php:607
 #: libraries/select_lang.lib.php:616
