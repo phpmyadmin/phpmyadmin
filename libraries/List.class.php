@@ -27,28 +27,18 @@ abstract class PMA_List extends ArrayObject
     /**
      * PMA_List constructor
      *
-     * @param array  $array          The input parameter accepts an array or an Object.
-     * @param int    $flags          Flags to control the behaviour of the ArrayObject object.
-     * @param string $iterator_class Specify the class that will be used for iteration of the ArrayObject object. ArrayIterator is the default class used.
+     * @param array  $array          The input parameter accepts an array or an
+     *                               Object.
+     * @param int    $flags          Flags to control the behaviour of the
+     *                               ArrayObject object.
+     * @param string $iterator_class Specify the class that will be used for
+     *                               iteration of the ArrayObject object.
+     *                               ArrayIterator is the default class used.
      */
     public function __construct(
         $array = array(), $flags = 0, $iterator_class = "ArrayIterator"
     ) {
         parent::__construct($array, $flags, $iterator_class);
-    }
-
-    /**
-     * returns item only if there is only one in the list
-     *
-     * @return PMA_List single item
-     */
-    public function getSingleItem()
-    {
-        if (count($this) === 1) {
-            return reset($this);
-        }
-
-        return $this->getEmpty();
     }
 
     /**

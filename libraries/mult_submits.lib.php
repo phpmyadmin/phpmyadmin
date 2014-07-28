@@ -40,7 +40,7 @@ function PMA_getUrlParams(
         $_url_params['db']= $db;
         $_url_params['table']= $table;
     }
-    foreach ($selected as $idx => $sval) {
+    foreach ($selected as $sval) {
         if ($what == 'row_delete') {
             $_url_params['selected'][] = 'DELETE FROM '
                 . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table)
@@ -275,7 +275,9 @@ function PMA_getQueryStrFromSelected(
     } // end for
 
     if ($deletes) {
-        $_REQUEST['pos'] = PMA_calculatePosForLastPage($db, $table, $_REQUEST['pos']);
+        $_REQUEST['pos'] = PMA_calculatePosForLastPage(
+            $db, $table, $_REQUEST['pos']
+        );
     }
 
     return array(
@@ -406,6 +408,17 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
         $html .=  __('You are about to DESTROY a complete database!') . ' ';
     }
     $html .= __('Do you really want to execute the following query?');
+    if ($what == 'row_delete') {
+        $response = array('Yes','No');
+        foreach ($response as $resp) {
+            $html .= '<form action="' . $action . '" method="post">';
+            $html .= PMA_URL_getHiddenInputs($_url_params);
+            $html .= '<input type="hidden" name="mult_btn" value="'
+                . __($resp) . '" />';
+            $html .= '<input type="submit" value="' . __($resp) . '" />';
+            $html .= '</form>';
+        }
+    }
     $html .= '</legend>';
     $html .= '<code>' . $full_query . '</code>';
     $html .= '</fieldset>';
@@ -538,7 +551,7 @@ function PMA_getQueryFromSelected($what, $db, $table, $selected, $action, $views
 
     $selected_cnt   = count($selected);
     $i = 0;
-    foreach ($selected as $idx => $sval) {
+    foreach ($selected as $sval) {
         switch ($what) {
         case 'row_delete':
             $full_query .= 'DELETE FROM ' . PMA_Util::backquote($db)

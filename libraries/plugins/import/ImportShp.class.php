@@ -202,7 +202,7 @@ class ImportShp extends ImportPlugin
                 $message = PMA_Message::error(
                     __(
                         'You tried to import an invalid file or the imported file'
-                        . ' contains invalid data'
+                        . ' contains invalid data!'
                     )
                 );
             } else {
@@ -215,7 +215,7 @@ class ImportShp extends ImportPlugin
         }
 
         if (isset($gis_type)) {
-            include_once './libraries/gis/pma_gis_factory.php';
+            include_once './libraries/gis/GIS_Factory.class.php';
             $gis_obj =  PMA_GIS_Factory::factory($gis_type);
         } else {
             $gis_obj = null;
@@ -255,7 +255,7 @@ class ImportShp extends ImportPlugin
         if (count($rows) == 0) {
             $error = true;
             $message = PMA_Message::error(
-                __('The imported file does not contain any data')
+                __('The imported file does not contain any data!')
             );
             return;
         }
@@ -270,7 +270,7 @@ class ImportShp extends ImportPlugin
         // Set table name based on the number of tables
         if (strlen($db)) {
             $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
-            $table_name = 'TABLE '.(count($result) + 1);
+            $table_name = 'TABLE ' . (count($result) + 1);
         } else {
             $table_name = 'TBL_NAME';
         }

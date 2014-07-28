@@ -23,9 +23,11 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
+$scripts->addFile('jquery/jquery.uitablefilter.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
+$scripts->addFile('multi_column_sort.js');
 
 /**
  * Set ajax_reload in the response if it was already set
@@ -81,7 +83,7 @@ if (isset($_POST['bkm_fields']['bkm_database'])) {
 if (isset($_REQUEST['get_relational_values'])
     && $_REQUEST['get_relational_values'] == true
 ) {
-    PMA_getRelationalValues($db, $table, $display_field);
+    PMA_getRelationalValues($db, $table);
     // script has exited at this point
 }
 

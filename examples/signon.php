@@ -12,10 +12,12 @@
  */
 
 /* Need to have cookie visible from parent directory */
-session_set_cookie_params(0, '/', '', 0);
+session_set_cookie_params(0, '/', '', false);
 /* Create signon session */
 $session_name = 'SignonSession';
 session_name($session_name);
+// Uncomment and change the following line to match your $cfg['SessionSavePath']
+//session_save_path('/foobar');
 session_start();
 
 /* Was data posted? */

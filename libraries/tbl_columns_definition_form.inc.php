@@ -128,6 +128,14 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $length = $submit_length;
     }
 
+    // Variable tell if current column is bound in a foreign key constraint or not.
+    if (isset($columnMeta['Field']) && isset($_form_params['table'])) {
+        $columnMeta['column_status'] = PMA_checkChildForeignReferences(
+            $_form_params['db'],
+            $_form_params['table'],
+            $columnMeta['Field']
+        );
+    }
     // old column attributes
     if ($is_backup) {
         $_form_params = PMA_getFormParamsForOldColumn(
@@ -151,7 +159,6 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         isset($mime_map) ? $mime_map : null
     );
 } // end for
-
 $html = PMA_getHtmlForTableCreateOrAddField(
     $action, $_form_params, $content_cells, $header_cells
 );

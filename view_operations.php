@@ -59,7 +59,7 @@ if (isset($result)) {
     $_type = 'success';
     if (empty($_message)) {
         $_message = $result
-            ? __('Your SQL query has been executed successfully')
+            ? __('Your SQL query has been executed successfully.')
             : __('Error');
         // $result should exist, regardless of $_message
         $_type = $result ? 'success' : 'error';
@@ -116,7 +116,7 @@ $drop_view_url_params = array_merge(
         'reload' => '1',
         'purge' => '1',
         'message_to_show' => sprintf(
-            __('View %s has been dropped'),
+            __('View %s has been dropped.'),
             htmlspecialchars($GLOBALS['table'])
         ),
         'table' => $GLOBALS['table']
@@ -136,4 +136,3 @@ echo PMA_getDeleteDataOrTableLink(
 echo '</ul>';
 echo '</fieldset>';
 echo '</div>';
-

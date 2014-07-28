@@ -19,7 +19,7 @@ require_once './libraries/engines/innodb.lib.php';
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_innobase extends PMA_StorageEngine_innodb
+class PMA_StorageEngine_Innobase extends PMA_StorageEngine_Innodb
 {
 }
 ?>

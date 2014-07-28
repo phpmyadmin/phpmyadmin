@@ -1,5 +1,7 @@
 <?php
 /**
+ * Authentication functions
+ *
  * @package Swekey
  */
 ?>
@@ -22,8 +24,10 @@
     			g_SwekeyPlugin = document.getElementById("swekey_activex");
     			if (g_SwekeyPlugin == null)
     			{
-                    // we must create the activex that way instead of new ActiveXObject("FbAuthAx.FbAuthCtl");
-                    // ortherwise SetClientSite is not called and we can not get the url
+                        // we must create the activex that way instead of
+                        // new ActiveXObject("FbAuthAx.FbAuthCtl");
+			// otherwise SetClientSite is not called and
+			// we can not get the url
   			  		var div = document.createElement('div');
 	   				div.innerHTML='<object id="swekey_activex" style="display:none" CLASSID="CLSID:8E02E3F9-57AA-4EE1-AA68-A42DD7B0FADE"></object>';
 

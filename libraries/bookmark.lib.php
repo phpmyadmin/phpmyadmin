@@ -61,7 +61,7 @@ function PMA_Bookmark_getList($db)
         return array();
     }
 
-    $query  = 'SELECT label, id FROM '. PMA_Util::backquote($cfgBookmark['db'])
+    $query  = 'SELECT label, id FROM ' . PMA_Util::backquote($cfgBookmark['db'])
         . '.' . PMA_Util::backquote($cfgBookmark['table'])
         . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
         . ' AND user = \'' . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
@@ -70,7 +70,7 @@ function PMA_Bookmark_getList($db)
         $query, 'id', 'label', $controllink, PMA_DatabaseInterface::QUERY_STORE
     );
 
-    $query  = 'SELECT label, id FROM '. PMA_Util::backquote($cfgBookmark['db'])
+    $query  = 'SELECT label, id FROM ' . PMA_Util::backquote($cfgBookmark['db'])
         . '.' . PMA_Util::backquote($cfgBookmark['table'])
         . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
         . ' AND user = \'\''
@@ -179,8 +179,7 @@ function PMA_Bookmark_save($bkm_fields, $all_users = false)
 /**
  * Deletes a bookmark
  *
- * @param string  $db the current database name
- * @param integer $id the id of the bookmark to get
+ * @param integer $id the id of the bookmark to delete
  *
  * @return bool true if successful
  *
@@ -188,7 +187,7 @@ function PMA_Bookmark_save($bkm_fields, $all_users = false)
  *
  * @global  resource $controllink the controluser db connection handle
  */
-function PMA_Bookmark_delete($db, $id)
+function PMA_Bookmark_delete($id)
 {
     global $controllink;
 

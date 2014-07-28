@@ -114,7 +114,7 @@ class PMA_Config
      */
     function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.1.14');
+        $this->set('PMA_VERSION', '4.2.6');
         /**
          * @deprecated
          */
@@ -515,8 +515,10 @@ class PMA_Config
                     // File missing. May be we can look in the .git/object/pack
                     // directory for all the .pack files and use that list of
                     // files instead
-                    $it = new DirectoryIterator($git_folder . '/objects/pack');
-                    foreach ($it as $file_info) {
+                    $dirIterator = new DirectoryIterator(
+                        $git_folder . '/objects/pack'
+                    );
+                    foreach ($dirIterator as $file_info) {
                         $file_name = $file_info->getFilename();
                         // if this is a .pack file
                         if ($file_info->isFile()
@@ -561,7 +563,6 @@ class PMA_Config
                     $end = $fanout[$firstbyte + 1];
 
                     // stupid linear search for our sha
-                    $position = $start;
                     $found = false;
                     $offset = 8 + (256 * 4);
                     for ($position = $start; $position < $end; $position++) {
@@ -629,7 +630,6 @@ class PMA_Config
         }
 
         // check if commit exists in Github
-        $is_remote_commit = false;
         if ($commit !== false
             && isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])
         ) {
@@ -758,10 +758,10 @@ class PMA_Config
         }
         $data = @curl_exec($ch);
         if (! defined('TESTSUITE')) {
-            ini_set('session.use_only_cookies', false);
-            ini_set('session.use_cookies', false);
-            ini_set('session.use_trans_sid', false);
-            ini_set('session.cache_limiter', null);
+            ini_set('session.use_only_cookies', '0');
+            ini_set('session.use_cookies', '0');
+            ini_set('session.use_trans_sid', '0');
+            ini_set('session.cache_limiter', '');
             session_start();
         }
         if ($data === false) {
@@ -1543,7 +1543,6 @@ class PMA_Config
         }
 
         $url = parse_url($this->get('PmaAbsoluteUri'));
-        $is_https = null;
 
         if (isset($url['scheme']) && $url['scheme'] == 'https') {
             $is_https = true;
@@ -1568,8 +1567,6 @@ class PMA_Config
      */
     function detectHttps()
     {
-        $is_https = false;
-
         $url = array();
 
         // At first we try to parse REQUEST_URI, it might contain full URL,
@@ -1593,7 +1590,8 @@ class PMA_Config
                 $url['scheme'] = 'https';
                 // A10 Networks load balancer:
             } elseif (PMA_getenv('HTTP_HTTPS_FROM_LB')
-                && strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on') {
+                && strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on'
+            ) {
                 $url['scheme'] = 'https';
             } elseif (PMA_getenv('HTTP_X_FORWARDED_PROTO')) {
                 $url['scheme'] = strtolower(PMA_getenv('HTTP_X_FORWARDED_PROTO'));

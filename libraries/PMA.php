@@ -20,6 +20,8 @@ require_once './libraries/List_Database.class.php';
  * phpMyAdmin main Controller
  *
  * @package PhpMyAdmin
+ * @property resource $userlink
+ * @property resource $controllink
  */
 class PMA
 {
@@ -99,8 +101,7 @@ class PMA
     {
         if (null === $this->databases) {
             $this->databases = new PMA_List_Database(
-                $this->userlink,
-                $this->controllink
+                $this->userlink
             );
         }
 

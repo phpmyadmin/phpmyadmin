@@ -204,6 +204,7 @@ function PMA_getHtmlForCommonForm($db, $table, $columns, $cfgRelation,
 function PMA_getHtmlForCommonFormRows($columns, $cfgRelation, $tbl_storage_engine,
     $existrel, $existrel_foreign, $options_array, $db, $table
 ) {
+    $save_row = array();
     foreach ($columns as $row) {
         $save_row[] = $row;
     }
@@ -211,7 +212,7 @@ function PMA_getHtmlForCommonFormRows($columns, $cfgRelation, $tbl_storage_engin
     $saved_row_cnt  = count($save_row);
 
     $html_output = '<fieldset>'
-        . '<legend>' . __('Relations'). '</legend>'
+        . '<legend>' . __('Relations') . '</legend>'
         . '<table id="relationalTable">';
 
     $html_output .= PMA_getHtmlForCommonFormTableHeaders(
@@ -394,7 +395,7 @@ function PMA_getHtmlForDisplayFieldInfos($db, $table, $save_row)
             $html_output .= ' selected="selected"';
         }
         $html_output .= '>' . htmlspecialchars($row['Field'])
-            . '</option>'. "\n";
+            . '</option>' . "\n";
     } // end while
 
     $html_output .= '</select>'
@@ -892,7 +893,7 @@ function PMA_handleUpdatesForForeignKeys($destination_foreign_db,
     if (! empty($display_query) && ! $seen_error) {
         $GLOBALS['display_query'] = $display_query;
         $html_output = PMA_Util::getMessage(
-            __('Your SQL query has been executed successfully'),
+            __('Your SQL query has been executed successfully.'),
             null, 'success'
         );
     }

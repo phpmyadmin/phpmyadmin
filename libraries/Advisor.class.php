@@ -48,7 +48,8 @@ class Advisor
         include_once 'libraries/sysinfo.lib.php';
         $sysinfo = PMA_getSysInfo();
         $memory  = $sysinfo->memory();
-        $this->variables['system_memory'] = $memory['MemTotal'];
+        $this->variables['system_memory']
+            = isset($memory['MemTotal']) ? $memory['MemTotal'] : 0;
 
         // Step 2: Read and parse the list of rules
         $this->parseResult = $this->parseRulesFile();
@@ -176,7 +177,7 @@ class Advisor
     {
         $string = _gettext(Advisor::escapePercent($str));
         if ( ! is_null($param)) {
-            $params = $this->ruleExprEvaluate('array('. $param . ')');
+            $params = $this->ruleExprEvaluate('array(' . $param . ')');
         } else {
             $params = array();
         }
@@ -186,7 +187,7 @@ class Advisor
     /**
      * Splits justification to text and formula.
      *
-     * @param string $rule the rule
+     * @param array $rule the rule
      *
      * @return array
      */
@@ -203,7 +204,7 @@ class Advisor
      * Adds a rule to the result list
      *
      * @param string $type type of rule
-     * @param array  $rule rule itslef
+     * @param array  $rule rule itself
      *
      * @return void
      */
@@ -467,7 +468,6 @@ class Advisor
  */
 function ADVISOR_bytime($num, $precision)
 {
-    $per = '';
     if ($num >= 1) { // per second
         $per = __('per second');
     } elseif ($num * 60 >= 1) { // per minute
@@ -513,7 +513,7 @@ function ADVISOR_timespanFormat($seconds)
  */
 function ADVISOR_formatByteDown($value, $limes = 6, $comma = 0)
 {
-    return PMA_Util::formatByteDown($value, $limes, $comma);
+    return implode(' ', PMA_Util::formatByteDown($value, $limes, $comma));
 }
 
 ?>

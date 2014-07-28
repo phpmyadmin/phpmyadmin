@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Classes to create relation schema in EPS format.
  *
  * @package PhpMyAdmin
  */
@@ -9,6 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once 'Export_Relation_Schema.class.php';
+require_once 'libraries/Font.class.php';
 
 /**
  * This Class is EPS Library and
@@ -125,8 +127,10 @@ class PMA_EPS
         $this->font = $value;
         $this->fontSize = $size;
         $this->stringCommands .= "/" . $value . " findfont   % Get the basic font\n";
-        $this->stringCommands .= "" . $size . " scalefont            % Scale the font to $size points\n";
-        $this->stringCommands .= "setfont                 % Make it the current font\n";
+        $this->stringCommands .= ""
+            . $size . " scalefont            % Scale the font to $size points\n";
+        $this->stringCommands
+            .= "setfont                 % Make it the current font\n";
     }
 
     /**
@@ -262,76 +266,6 @@ class PMA_EPS
     }
 
     /**
-     * get width of string/text
-     *
-     * EPS text width is calcualted depending on font name
-     * and font size. It is very important to know the width of text
-     * because rectangle is drawn around it.
-     *
-     * This is a bit hardcore method. I didn't found any other better than this.
-     * if someone found better than this. would love to hear that method
-     *
-     * @param string  $text     string that width will be calculated
-     * @param integer $font     name of the font like Arial,sans-serif etc
-     * @param integer $fontSize size of font
-     *
-     * @return integer width of the text
-     *
-     * @access public
-     */
-    function getStringWidth($text,$font,$fontSize)
-    {
-        /*
-         * Start by counting the width, giving each character a modifying value
-         */
-        $count = 0;
-        $count = $count + ((strlen($text) - strlen(str_replace(array("i", "j", "l"), "", $text))) * 0.23);//ijl
-        $count = $count + ((strlen($text) - strlen(str_replace(array("f"), "", $text))) * 0.27);//f
-        $count = $count + ((strlen($text) - strlen(str_replace(array("t", "I"), "", $text))) * 0.28);//tI
-        $count = $count + ((strlen($text) - strlen(str_replace(array("r"), "", $text))) * 0.34);//r
-        $count = $count + ((strlen($text) - strlen(str_replace(array("1"), "", $text))) * 0.49);//1
-        $count = $count + ((strlen($text) - strlen(str_replace(array("c", "k", "s", "v", "x", "y", "z", "J"), "", $text))) * 0.5);//cksvxyzJ
-        $count = $count + ((strlen($text) - strlen(str_replace(array("a", "b", "d", "e", "g", "h", "n", "o", "p", "q", "u", "L", "0", "2", "3", "4", "5", "6", "7", "8", "9"), "", $text))) * 0.56);//abdeghnopquL023456789
-        $count = $count + ((strlen($text) - strlen(str_replace(array("F", "T", "Z"), "", $text))) * 0.61);//FTZ
-        $count = $count + ((strlen($text) - strlen(str_replace(array("A", "B", "E", "K", "P", "S", "V", "X", "Y"), "", $text))) * 0.67);//ABEKPSVXY
-        $count = $count + ((strlen($text) - strlen(str_replace(array("w", "C", "D", "H", "N", "R", "U"), "", $text))) * 0.73);//wCDHNRU
-        $count = $count + ((strlen($text) - strlen(str_replace(array("G", "O", "Q"), "", $text))) * 0.78);//GOQ
-        $count = $count + ((strlen($text) - strlen(str_replace(array("m", "M"), "", $text))) * 0.84);//mM
-        $count = $count + ((strlen($text) - strlen(str_replace("W", "", $text))) * .95);//W
-        $count = $count + ((strlen($text) - strlen(str_replace(" ", "", $text))) * .28);//" "
-        $text  = str_replace(" ", "", $text);//remove the " "'s
-        $count = $count + (strlen(preg_replace("/[a-z0-9]/i", "", $text)) * 0.3); //all other chrs
-
-        $modifier = 1;
-        $font = strtolower($font);
-        switch ($font) {
-        /*
-         * no modifier for arial and sans-serif
-         */
-        case 'arial':
-        case 'sans-serif':
-            break;
-        /*
-         * .92 modifer for time, serif, brushscriptstd, and californian fb
-         */
-        case 'times':
-        case 'serif':
-        case 'brushscriptstd':
-        case 'californian fb':
-            $modifier = .92;
-            break;
-        /*
-         * 1.23 modifier for broadway
-         */
-        case 'broadway':
-            $modifier = 1.23;
-            break;
-        }
-        $textWidth = $count*$fontSize;
-        return ceil($textWidth*$modifier);
-    }
-
-    /**
      * Ends EPS Document
      *
      * @return void
@@ -363,6 +297,8 @@ class PMA_EPS
     }
 }
 
+require_once './libraries/schema/TableStats.class.php';
+
 /**
  * Table preferences/statistics
  *
@@ -373,22 +309,13 @@ class PMA_EPS
  * @name    Table_Stats_Eps
  * @see     PMA_EPS
  */
-class Table_Stats_Eps
+class Table_Stats_Eps extends TableStats
 {
     /**
      * Defines properties
      */
-
-    private $_tableName;
-    private $_showInfo = false;
-
-    public $width = 0;
     public $height;
-    public $fields = array();
-    public $heightCell = 0;
     public $currentCell = 0;
-    public $x, $y;
-    public $primary = array();
 
     /**
      * The "Table_Stats_Eps" constructor
@@ -416,102 +343,49 @@ class Table_Stats_Eps
         $showKeys = false, $showInfo = false
     ) {
         global $eps, $cfgRelation, $db;
-
-        $this->_tableName = $tableName;
-        $sql = 'DESCRIBE ' . PMA_Util::backquote($tableName);
-        $result = $GLOBALS['dbi']->tryQuery(
-            $sql, null, PMA_DatabaseInterface::QUERY_STORE
+        parent::__construct(
+            $eps, $db, $pageNumber, $tableName, $showKeys, $showInfo
         );
-        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
-            $eps->dieSchema(
-                $pageNumber, "EPS",
-                sprintf(__('The %s table doesn\'t exist!'), $tableName)
-            );
-        }
-
-        /*
-        * load fields
-        * check to see if it will load all fields or only the foreign keys
-        */
-        if ($showKeys) {
-            $indexes = PMA_Index::getFromTable($this->_tableName, $db);
-            $all_columns = array();
-            foreach ($indexes as $index) {
-                $all_columns = array_merge(
-                    $all_columns,
-                    array_flip(array_keys($index->getColumns()))
-                );
-            }
-            $this->fields = array_keys($all_columns);
-        } else {
-            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
-                $this->fields[] = $row[0];
-            }
-        }
-
-        $this->_showInfo = $showInfo;
 
         // height and width
         $this->_setHeightTable($fontSize);
-
         // setWidth must me after setHeight, because title
         // can include table height which changes table width
         $this->_setWidthTable($font, $fontSize);
         if ($same_wide_width < $this->width) {
             $same_wide_width = $this->width;
         }
-
-        // x and y
-        $sql = 'SELECT x, y FROM '
-            . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['table_coords'])
-            . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-            . ' AND   table_name = \'' . PMA_Util::sqlAddSlashes($tableName) . '\''
-            . ' AND   pdf_page_number = ' . $pageNumber;
-        $result = PMA_queryAsControlUser(
-            $sql, false, PMA_DatabaseInterface::QUERY_STORE
-        );
-
-        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
-            $eps->dieSchema(
-                $pageNumber, "EPS",
-                sprintf(
-                    __('Please configure the coordinates for table %s'),
-                    $tableName
-                )
-            );
-        }
-        list($this->x, $this->y) = $GLOBALS['dbi']->fetchRow($result);
-        $this->x = (double) $this->x;
-        $this->y = (double) $this->y;
-        // displayfield
-        $this->displayfield = PMA_getDisplayField($db, $tableName);
-        // index
-        $result = $GLOBALS['dbi']->query(
-            'SHOW INDEX FROM ' . PMA_Util::backquote($tableName) . ';',
-            null, PMA_DatabaseInterface::QUERY_STORE
-        );
-        if ($GLOBALS['dbi']->numRows($result) > 0) {
-            while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                if ($row['Key_name'] == 'PRIMARY') {
-                    $this->primary[] = $row['Column_name'];
-                }
-            }
-        }
     }
 
     /**
-     * Returns title of the current table,
-     * title can have the dimensions/co-ordinates of the table
+     * Displays an error when the table cannot be found.
      *
-     * @return string The relation/table name
-     * @access private
+     * @return void
      */
-    private function _getTitle()
+    protected function showMissingTableError()
     {
-        return ($this->_showInfo
-            ? sprintf('%.0f', $this->width) . 'x' . sprintf('%.0f', $this->heightCell)
-            : '') . ' ' . $this->_tableName;
+        $this->diagram->dieSchema(
+            $this->pageNumber,
+            "EPS",
+            sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
+        );
+    }
+
+    /**
+     * Displays an error on missing coordinates
+     *
+     * @return void
+     */
+    protected function showMissingCoordinatesError()
+    {
+        $this->diagram->dieSchema(
+            $this->pageNumber,
+            "EPS",
+            sprintf(
+                __('Please configure the coordinates for table %s'),
+                $this->tableName
+            )
+        );
     }
 
     /**
@@ -529,20 +403,19 @@ class Table_Stats_Eps
      */
     private function _setWidthTable($font,$fontSize)
     {
-        global $eps;
-
         foreach ($this->fields as $field) {
             $this->width = max(
                 $this->width,
-                $eps->getStringWidth($field, $font, $fontSize)
+                PMA_Font::getStringWidth($field, $font, $fontSize)
             );
         }
-        $this->width += $eps->getStringWidth('      ', $font, $fontSize);
+        $this->width += PMA_Font::getStringWidth('      ', $font, $fontSize);
         /*
          * it is unknown what value must be added, because
          * table title is affected by the tabe width value
          */
-        while ($this->width < $eps->getStringWidth($this->_getTitle(), $font, $fontSize)) {
+        while ($this->width
+            < PMA_Font::getStringWidth($this->getTitle(), $font, $fontSize)) {
             $this->width += 7;
         }
     }
@@ -576,9 +449,9 @@ class Table_Stats_Eps
     public function tableDraw($showColor)
     {
         global $eps;
-        //echo $this->_tableName.'<br />';
+        //echo $this->tableName.'<br />';
         $eps->rect($this->x, $this->y + 12, $this->width, $this->heightCell, 1);
-        $eps->showXY($this->_getTitle(), $this->x + 5, $this->y + 14);
+        $eps->showXY($this->getTitle(), $this->x + 5, $this->y + 14);
         foreach ($this->fields as $field) {
             $this->currentCell += $this->heightCell;
             $showColor    = 'none';
@@ -632,8 +505,9 @@ class Relation_Stats_Eps
      *
      * @see Relation_Stats_Eps::_getXy
      */
-    function __construct($master_table, $master_field, $foreign_table, $foreign_field)
-    {
+    function __construct(
+        $master_table, $master_field, $foreign_table, $foreign_field
+    ) {
         $src_pos  = $this->_getXy($master_table, $master_field);
         $dest_pos = $this->_getXy($foreign_table, $foreign_field);
         /*
@@ -911,7 +785,8 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      * @return void
      *
      * @access private
-     * @see _setMinMax,Table_Stats_Eps::__construct(),Relation_Stats_Eps::__construct()
+     * @see _setMinMax,Table_Stats_Eps::__construct(),
+     * Relation_Stats_Eps::__construct()
      */
     private function _addRelation(
         $masterTable, $font, $fontSize, $masterField,

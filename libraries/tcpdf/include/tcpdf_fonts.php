@@ -1,13 +1,13 @@
 <?php
 //============================================================+
 // File name   : tcpdf_fonts.php
-// Version     : 1.0.009
+// Version     : 1.0.011
 // Begin       : 2008-01-01
-// Last Update : 2013-09-04
+// Last Update : 2014-01-03
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
-// Copyright (C) 2008-2013 Nicola Asuni - Tecnick.com LTD
+// Copyright (C) 2008-2014 Nicola Asuni - Tecnick.com LTD
 //
 // This file is part of TCPDF software library.
 //
@@ -42,10 +42,16 @@
  * @class TCPDF_FONTS
  * Font methods for TCPDF library.
  * @package com.tecnick.tcpdf
- * @version 1.0.009
+ * @version 1.0.011
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_FONTS {
+
+	/**
+	 * Static cache used for speed up uniord performances
+	 * @protected
+	 */
+	protected static $cache_uniord = array();
 
 	/**
 	 * Convert and add the selected TrueType or Type1 font to the fonts folder (that must be writeable).
@@ -607,7 +613,7 @@ class TCPDF_FONTS {
 										// combine high and low bytes
 										$c = (($i << 8) + $j);
 										$idRangeOffset = ($subHeaders[$k]['idRangeOffset'] + $j - $subHeaders[$k]['firstCode']);
-										$g = ($glyphIndexArray[$idRangeOffset] + $idDelta[$k]) % 65536;
+										$g = ($glyphIndexArray[$idRangeOffset] + $subHeaders[$k]['idDelta']) % 65536;
 										if ($g < 0) {
 											$g = 0;
 										}
@@ -793,10 +799,10 @@ class TCPDF_FONTS {
 					}
 					if ($addcbbox AND isset($indexToLoc[$ctg[$cid]])) {
 						$offset = ($table['glyf']['offset'] + $indexToLoc[$ctg[$cid]]);
-						$xMin = round(TCPDF_STATIC::_getFWORD($font, $offset + 2)) * $urk;
-						$yMin = round(TCPDF_STATIC::_getFWORD($font, $offset + 4)) * $urk;
-						$xMax = round(TCPDF_STATIC::_getFWORD($font, $offset + 6)) * $urk;
-						$yMax = round(TCPDF_STATIC::_getFWORD($font, $offset + 8)) * $urk;
+						$xMin = round(TCPDF_STATIC::_getFWORD($font, $offset + 2) * $urk);
+						$yMin = round(TCPDF_STATIC::_getFWORD($font, $offset + 4) * $urk);
+						$xMax = round(TCPDF_STATIC::_getFWORD($font, $offset + 6) * $urk);
+						$yMax = round(TCPDF_STATIC::_getFWORD($font, $offset + 8) * $urk);
 						$fmetric['cbbox'] .= ','.$cid.'=>array('.$xMin.','.$yMin.','.$xMax.','.$yMax.')';
 					}
 				}
@@ -1074,7 +1080,7 @@ class TCPDF_FONTS {
 								$c = (($i << 8) + $j);
 								if (isset($subsetchars[$c])) {
 									$idRangeOffset = ($subHeaders[$k]['idRangeOffset'] + $j - $subHeaders[$k]['firstCode']);
-									$g = ($glyphIndexArray[$idRangeOffset] + $idDelta[$k]) % 65536;
+									$g = ($glyphIndexArray[$idRangeOffset] + $subHeaders[$k]['idDelta']) % 65536;
 									if ($g < 0) {
 										$g = 0;
 									}
@@ -1134,7 +1140,7 @@ class TCPDF_FONTS {
 								$subsetglyphs[$g] = true;
 							}
 						}
-					}
+					}	
 					break;
 				}
 				case 6: { // Format 6: Trimmed table mapping
@@ -1597,9 +1603,9 @@ class TCPDF_FONTS {
 	 */
 	public static function UTF8ArrayToUniArray($ta, $isunicode=true) {
 		if ($isunicode) {
-			return array_map(array('self', 'unichrUnicode'), $ta);
+			return array_map(array('TCPDF_FONTS', 'unichrUnicode'), $ta);
 		}
-		return array_map(array('self', 'unichrASCII'), $ta);
+		return array_map(array('TCPDF_FONTS', 'unichrASCII'), $ta);
 	}
 
 	/**
@@ -1758,6 +1764,20 @@ class TCPDF_FONTS {
 
 	/**
 	 * Converts UTF-8 character to integer value.<br>
+	 * Uses the getUniord() method if the value is not cached.
+	 * @param $uch (string) character string to process.
+	 * @return integer Unicode value
+	 * @public static
+	 */
+	public static function uniord($uch) {
+		if (!isset(self::$cache_uniord[$uch])) {
+			self::$cache_uniord[$uch] = self::getUniord($uch);
+		}
+		return self::$cache_uniord[$uch];
+	}
+
+	/**
+	 * Converts UTF-8 character to integer value.<br>
 	 * Invalid byte sequences will be replaced with 0xFFFD (replacement character)<br>
 	 * Based on: http://www.faqs.org/rfcs/rfc3629.html
 	 * <pre>
@@ -1789,7 +1809,7 @@ class TCPDF_FONTS {
 	 * @author Nicola Asuni
 	 * @public static
 	 */
-	public static function uniord($uch) {
+	public static function getUniord($uch) {
 		if (function_exists('mb_convert_encoding')) {
 			list(, $char) = @unpack('N', mb_convert_encoding($uch, 'UCS-4BE', 'UTF-8'));
 			if ($char >= 0) {
@@ -1862,7 +1882,7 @@ class TCPDF_FONTS {
 		if ($isunicode) {
 			// requires PCRE unicode support turned on
 			$chars = TCPDF_STATIC::pregSplit('//','u', $str, -1, PREG_SPLIT_NO_EMPTY);
-			$carr = array_map(array('self', 'uniord'), $chars);
+			$carr = array_map(array('TCPDF_FONTS', 'uniord'), $chars);
 		} else {
 			$chars = str_split($str);
 			$carr = array_map('ord', $chars);

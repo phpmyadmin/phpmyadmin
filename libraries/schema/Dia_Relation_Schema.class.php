@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Classes to create relation schema in Dia format.
  *
  * @package PhpMyAdmin
  */
@@ -186,6 +187,8 @@ class PMA_DIA extends XMLWriter
     }
 }
 
+require_once './libraries/schema/TableStats.class.php';
+
 /**
  * Table preferences/statistics
  *
@@ -196,15 +199,11 @@ class PMA_DIA extends XMLWriter
  * @name    Table_Stats_Dia
  * @see     PMA_DIA
  */
-class Table_Stats_Dia
+class Table_Stats_Dia extends TableStats
 {
     /**
      * Defines properties
      */
-    public $tableName;
-    public $fields = array();
-    public $x, $y;
-    public $primary = array();
     public $tableId;
     public $tableColor;
 
@@ -225,80 +224,8 @@ class Table_Stats_Dia
     function __construct($tableName, $pageNumber, $showKeys = false)
     {
         global $dia, $cfgRelation, $db;
+        parent::__construct($dia, $db, $pageNumber, $tableName, $showKeys, false);
 
-        $this->tableName = $tableName;
-        $sql = 'DESCRIBE ' . PMA_Util::backquote($tableName);
-        $result = $GLOBALS['dbi']->tryQuery(
-            $sql, null, PMA_DatabaseInterface::QUERY_STORE
-        );
-        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
-            $dia->dieSchema(
-                $pageNumber, "DIA",
-                sprintf(__('The %s table doesn\'t exist!'), $tableName)
-            );
-        }
-        /*
-         * load fields
-         * check to see if it will load all fields or only the foreign keys
-         */
-        if ($showKeys) {
-            $indexes = PMA_Index::getFromTable($this->tableName, $db);
-            $all_columns = array();
-            foreach ($indexes as $index) {
-                $all_columns = array_merge(
-                    $all_columns,
-                    array_flip(array_keys($index->getColumns()))
-                );
-            }
-            $this->fields = array_keys($all_columns);
-        } else {
-            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
-                $this->fields[] = $row[0];
-            }
-        }
-
-        $sql = 'SELECT x, y FROM '
-            . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['table_coords'])
-            . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-            . ' AND table_name = \''
-            . PMA_Util::sqlAddSlashes($tableName) . '\''
-            . ' AND pdf_page_number = ' . $pageNumber;
-        $result = PMA_queryAsControlUser(
-            $sql, false, PMA_DatabaseInterface::QUERY_STORE
-        );
-        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
-            $dia->dieSchema(
-                $pageNumber,
-                "DIA",
-                sprintf(
-                    __('Please configure the coordinates for table %s'),
-                    $tableName
-                )
-            );
-        }
-        list($this->x, $this->y) = $GLOBALS['dbi']->fetchRow($result);
-        $this->x = (double) $this->x;
-        $this->y = (double) $this->y;
-        /*
-         * displayfield
-         */
-        $this->displayfield = PMA_getDisplayField($db, $tableName);
-        /*
-         * index
-         */
-        $result = $GLOBALS['dbi']->query(
-            'SHOW INDEX FROM ' . PMA_Util::backquote($tableName) . ';',
-            null,
-            PMA_DatabaseInterface::QUERY_STORE
-        );
-        if ($GLOBALS['dbi']->numRows($result) > 0) {
-            while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                if ($row['Key_name'] == 'PRIMARY') {
-                    $this->primary[] = $row['Column_name'];
-                }
-            }
-        }
         /**
          * Every object in Dia document needs an ID to identify
          * so, we used a static variable to keep the things unique
@@ -306,6 +233,38 @@ class Table_Stats_Dia
         PMA_Dia_Relation_Schema::$objectId += 1;
         $this->tableId = PMA_Dia_Relation_Schema::$objectId;
     }
+
+    /**
+     * Displays an error when the table cannot be found.
+     *
+     * @return void
+     */
+    protected function showMissingTableError()
+    {
+        $this->diagram->dieSchema(
+            $this->pageNumber,
+            "DIA",
+            sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
+        );
+    }
+
+    /**
+     * Displays an error on missing coordinates
+     *
+     * @return void
+     */
+    protected function showMissingCoordinatesError()
+    {
+        $this->diagram->dieSchema(
+            $this->pageNumber,
+            "DIA",
+            sprintf(
+                __('Please configure the coordinates for table %s'),
+                $this->tableName
+            )
+        );
+    }
+
 
     /**
      * Do draw the table
@@ -356,7 +315,7 @@ class Table_Stats_Dia
             </dia:attribute>
             <dia:attribute name="obj_bb">
                 <dia:rectangle val="'
-            .($this->x * $factor) . ',' . ($this->y * $factor) . ';9.97,9.2"/>
+            . ($this->x * $factor) . ',' . ($this->y * $factor) . ';9.97,9.2"/>
             </dia:attribute>
             <dia:attribute name="meta">
                 <dia:composite type="dict"/>

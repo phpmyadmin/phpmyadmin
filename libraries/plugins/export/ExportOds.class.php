@@ -110,7 +110,7 @@ class ExportOds extends ExportPlugin
                 . $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
             . '<office:automatic-styles>'
                 . '<number:date-style style:name="N37"'
-                    .' number:automatic-order="true">'
+                    . ' number:automatic-order="true">'
                 . '<number:month number:style="long"/>'
                 . '<number:text>/</number:text>'
                 . '<number:day number:style="long"/>'

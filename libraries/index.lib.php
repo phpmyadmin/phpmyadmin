@@ -32,8 +32,8 @@ function PMA_getHtmlForDisplayIndexes()
     );
     $html_output .= sprintf(
         __('Create an index on &nbsp;%s&nbsp;columns'),
-        '<input type="number" size="2" name="added_fields" value="1" '
-        . 'min="1" required />'
+        '<input type="number" name="added_fields" value="1" '
+        . 'min="1" required="required" />'
     );
     $html_output .= '<input type="hidden" name="create_index" value="1" />'
         . '<input class="add_index ajax"'
@@ -46,4 +46,3 @@ function PMA_getHtmlForDisplayIndexes()
 
     return $html_output;
 }
-

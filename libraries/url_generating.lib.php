@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Generates text with hidden inputs.
  *
- * @param string       $db     optional database name
+ * @param string|array $db     optional database name
  *                             (can also be an array of parameters)
  * @param string       $table  optional table name
  * @param int          $indent indenting level
@@ -118,7 +118,7 @@ function PMA_getHiddenFields($values, $pre = '')
 
     foreach ($values as $name => $value) {
         if (! empty($pre)) {
-            $name = $pre. '[' . $name . ']';
+            $name = $pre . '[' . $name . ']';
         }
 
         if (is_array($value)) {
@@ -206,6 +206,8 @@ function PMA_URL_getCommon()
     } else {
         // old style
 
+        $params = array();
+
         if (PMA_isValid($args[0])) {
             $params['db'] = $args[0];
         }
@@ -274,24 +276,27 @@ function PMA_URL_getCommon()
 function PMA_URL_getArgSeparator($encode = 'none')
 {
     static $separator = null;
+    static $html_separator = null;
 
     if (null === $separator) {
         // use separators defined by php, but prefer ';'
         // as recommended by W3C
-        // (see http://www.w3.org/TR/1999/REC-html401-19991224/appendix/notes.html#h-B.2.2)
-        $php_arg_separator_input = ini_get('arg_separator.input');
-        if (strpos($php_arg_separator_input, ';') !== false) {
+        // (see http://www.w3.org/TR/1999/REC-html401-19991224/appendix
+        // /notes.html#h-B.2.2)
+        $arg_separator = ini_get('arg_separator.input');
+        if (strpos($arg_separator, ';') !== false) {
             $separator = ';';
-        } elseif (strlen($php_arg_separator_input) > 0) {
-            $separator = $php_arg_separator_input{0};
+        } elseif (strlen($arg_separator) > 0) {
+            $separator = $arg_separator{0};
         } else {
             $separator = '&';
         }
+        $html_separator = htmlentities($separator);
     }
 
     switch ($encode) {
     case 'html':
-        return htmlentities($separator);
+        return $html_separator;
         break;
     case 'text' :
     case 'none' :

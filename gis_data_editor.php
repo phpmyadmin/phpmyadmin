@@ -20,8 +20,8 @@ function escape($variable)
 }
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/gis/pma_gis_factory.php';
-require_once 'libraries/gis/pma_gis_visualization.php';
+require_once 'libraries/gis/GIS_Factory.class.php';
+require_once 'libraries/gis/GIS_Visualization.class.php';
 require_once 'libraries/tbl_gis_visualization.lib.php';
 
 // Get data if any posted
@@ -240,7 +240,7 @@ for ($a = 0; $a < $geom_count; $a++) {
             echo '<label for="y">' . __("Y") . '</label>';
             echo '<input type="text"'
                 . ' name="gis_data[' . $a . '][' . $type . '][' . $i . '][y]"'
-                . ' value="' . escape($gis_data[$a][$type][$i]['y']). '" />';
+                . ' value="' . escape($gis_data[$a][$type][$i]['y']) . '" />';
         }
         echo '<input type="submit"'
             . ' name="gis_data[' . $a . '][' . $type . '][add_point]"'
@@ -282,23 +282,24 @@ for ($a = 0; $a < $geom_count; $a++) {
                 $no_of_points++;
             }
             echo '<input type="hidden" value="' . $no_of_points . '"'
-               . ' name="gis_data[' . $a . '][' . $type . '][' . $i . '][no_of_points]" />';
+                . ' name="gis_data[' . $a . '][' . $type . '][' . $i
+                . '][no_of_points]" />';
 
             for ($j = 0; $j < $no_of_points; $j++) {
                 echo('<br/>');
                 printf(__('Point %d'), $j + 1);
                 echo ': ';
                 echo '<label for="x">' .  __("X") . '</label>';
-                echo '<input type="text"'
-                    . ' name="gis_data[' . $a . '][' . $type . '][' . $i . '][' . $j . '][x]"'
-                    . ' value="' . escape($gis_data[$a][$type][$i][$j]['x']) . '" />';
+                echo '<input type="text" name="gis_data[' . $a . '][' . $type . ']['
+                    . $i . '][' . $j . '][x]" value="'
+                    . escape($gis_data[$a][$type][$i][$j]['x']) . '" />';
                 echo '<label for="y">' . __("Y") . '</label>';
-                echo '<input type="text"'
-                    . ' name="gis_data[' . $a . '][' . $type . '][' . $i . '][' . $j . '][y]"'
-                    . ' value="' . escape($gis_data[$a][$type][$i][$j]['x']) . '" />';
+                echo '<input type="text" name="gis_data[' . $a . '][' . $type . ']['
+                    . $i . '][' . $j . '][y]"' . ' value="'
+                    . escape($gis_data[$a][$type][$i][$j]['x']) . '" />';
             }
-            echo '<input type="submit"'
-                . ' name="gis_data[' . $a . '][' . $type . '][' . $i . '][add_point]"'
+            echo '<input type="submit" name="gis_data[' . $a . '][' . $type . ']['
+                . $i . '][add_point]"'
                 . ' class="add addPoint" value="' . __("Add a point") . '" />';
         }
         $caption = ($type == 'MULTILINESTRING')
@@ -334,8 +335,8 @@ for ($a = 0; $a < $geom_count; $a++) {
                 $no_of_lines++;
             }
             echo '<input type="hidden"'
-                . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][no_of_lines]"'
-                . ' value="' . $no_of_lines . '" />';
+                . ' name="gis_data[' . $a . '][' . $type . '][' . $k
+                . '][no_of_lines]"' . ' value="' . $no_of_lines . '" />';
 
             for ($i = 0; $i < $no_of_lines; $i++) {
                 echo '<br/><br/>';
@@ -354,8 +355,8 @@ for ($a = 0; $a < $geom_count; $a++) {
                     $no_of_points++;
                 }
                 echo '<input type="hidden"'
-                    . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][' . $i . '][no_of_points]"'
-                    . ' value="' . $no_of_points . '" />';
+                    . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][' . $i
+                    . '][no_of_points]"' . ' value="' . $no_of_points . '" />';
 
                 for ($j = 0; $j < $no_of_points; $j++) {
                     echo '<br/>';
@@ -363,21 +364,26 @@ for ($a = 0; $a < $geom_count; $a++) {
                     echo ': ';
                     echo '<label for="x">' .  __("X") . '</label>';
                     echo '<input type="text"'
-                        . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][' . $i . '][' . $j . '][x]"'
-                        . ' value="' . escape($gis_data[$a][$type][$k][$i][$j]['x']). '" />';
+                        . ' name="gis_data[' . $a . '][' . $type . '][' . $k . ']['
+                        . $i . '][' . $j . '][x]"'
+                        . ' value="' . escape($gis_data[$a][$type][$k][$i][$j]['x'])
+                        . '" />';
                     echo '<label for="y">' . __("Y") . '</label>';
                     echo '<input type="text"'
-                        . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][' . $i . '][' . $j . '][y]"'
-                        . ' value="' . escape($gis_data[$a][$type][$k][$i][$j]['y']) . '" />';
+                        . ' name="gis_data[' . $a . '][' . $type . '][' . $k . ']['
+                        . $i . '][' . $j . '][y]"'
+                        . ' value="' . escape($gis_data[$a][$type][$k][$i][$j]['y'])
+                        . '" />';
                 }
                 echo '<input type="submit"'
-                    . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][' . $i . '][add_point]"'
+                    . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][' . $i
+                    . '][add_point]"'
                     . ' class="add addPoint" value="' . __("Add a point") . '" />';
             }
             echo '<br/>';
             echo '<input type="submit"'
                 . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][add_line]"'
-                . ' class="add addLine" value="' . __('Add an inner ring'). '" />';
+                . ' class="add addLine" value="' . __('Add an inner ring') . '" />';
             echo '<br/>';
         }
         echo '<br/>';
@@ -402,7 +408,7 @@ echo '<h3>' . __('Output') . '</h3>';
 echo '<p>';
 echo __(
     'Choose "GeomFromText" from the "Function" column and paste the'
-    . ' string below into the "Value" field'
+    . ' string below into the "Value" field.'
 );
 echo '</p>';
 echo '<textarea id="gis_data_textarea" cols="95" rows="5">';

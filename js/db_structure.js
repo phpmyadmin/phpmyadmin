@@ -28,6 +28,7 @@ AJAX.registerTeardown('db_structure.js', function () {
     $("a.drop_table_anchor.ajax").die('click');
     $('a.drop_tracking_anchor.ajax').die('click');
     $('#real_end_input').die('click');
+    $("a.favorite_table_anchor.ajax").die('click');
 });
 
 /**
@@ -63,8 +64,8 @@ function PMA_adjustTotals() {
         // If the value is approximated
         if (strRows.indexOf('~') === 0) {
             rowSumApproximated = true;
-            // The approximated value contains a preceding ~ and a following 2 (Eg 100 --> ~1002)
-            strRows = strRows.substring(1, strRows.length - 1);
+            // The approximated value contains a preceding ~ (Eg 100 --> ~100)
+            strRows = strRows.substring(1, strRows.length);
         }
         strRows = strRows.replace(/[,.]/g, '');
         var intRow = parseInt(strRows, 10);
@@ -382,4 +383,17 @@ AJAX.registerOnload('db_structure.js', function () {
         return false;
     }); //end Calculate Real End for InnoDB
 
+    PMA_tooltip(
+        $("select[name*='funcs']"),
+        'select',
+        PMA_messages.strFunctionHint
+    );
+    // Add tooltip to favorite icons.
+    $(".favorite_table_anchor").each(function () {
+        PMA_tooltip(
+            $(this),
+            'a',
+            $(this).attr("title")
+        );
+    });
 }); // end $()

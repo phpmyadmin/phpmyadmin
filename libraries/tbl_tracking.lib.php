@@ -169,8 +169,8 @@ function PMA_getListOfVersionsOfTable()
     $sql_query = " SELECT * FROM " .
          PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
          PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
-         " WHERE db_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['db']) . "' ".
-         " AND table_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['table']) ."' ".
+         " WHERE db_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['db']) . "' " .
+         " AND table_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['table']) . "' " .
          " ORDER BY version DESC ";
 
     return PMA_queryAsControlUser($sql_query);
@@ -232,7 +232,8 @@ function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_para
             )
         );
         $html .= '">' . __('Tracking report') . '</a>';
-        $html .= '| <a href="tbl_tracking.php';
+        $html .= '&nbsp;|&nbsp;';
+        $html .= '<a href="tbl_tracking.php';
         $html .= PMA_URL_getCommon(
             $url_params + array(
                 'snapshot' => 'true', 'version' => $version['version']
@@ -357,37 +358,8 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
         . htmlspecialchars($data['tracking']) . '</small><br/>';
     $html .= '<br/>';
 
-    $html .= '<form method="post" action="tbl_tracking.php'
-        . PMA_URL_getCommon(
-            $url_params + array(
-                'report' => 'true', 'version' => $_REQUEST['version']
-            )
-        )
-        . '">';
-
-    $str1 = '<select name="logtype">'
-        . '<option value="schema"'
-        . ($selection_schema ? ' selected="selected"' : '') . '>'
-        . __('Structure only') . '</option>'
-        . '<option value="data"'
-        . ($selection_data ? ' selected="selected"' : ''). '>'
-        . __('Data only') . '</option>'
-        . '<option value="schema_and_data"'
-        . ($selection_both ? ' selected="selected"' : '') . '>'
-        . __('Structure and data') . '</option>'
-        . '</select>';
-    $str2 = '<input type="text" name="date_from" value="'
-        . htmlspecialchars($_REQUEST['date_from']) . '" size="19" />';
-    $str3 = '<input type="text" name="date_to" value="'
-        . htmlspecialchars($_REQUEST['date_to']) . '" size="19" />';
-    $str4 = '<input type="text" name="users" value="'
-        . htmlspecialchars($_REQUEST['users']) . '" />';
-    $str5 = '<input type="hidden" name="list_report" value="1" />'
-      . '<input type="submit" value="' . __('Go') . '" />';
-
-    $html .= sprintf(
-        __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
-        $str1, $str2, $str3, $str4, $str5
+    list($str1, $str2, $str3, $str4, $str5) = PMA_getHtmlForElementsOfTrackingReport(
+        $selection_schema, $selection_data, $selection_both
     );
 
     // Prepare delete link content here
@@ -409,7 +381,94 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
         $msg->display();
     }
 
-    if ($selection_schema || $selection_both  && count($data['ddlog']) > 0) {
+    $html .= PMA_getHtmlForTrackingReportExportForm1(
+        $data, $url_params, $selection_schema, $selection_data, $selection_both,
+        $filter_ts_to, $filter_ts_from, $filter_users, $str1, $str2, $str3,
+        $str4, $str5, $drop_image_or_text
+    );
+
+    $html .= PMA_getHtmlForTrackingReportExportForm2(
+        $url_params, $str1, $str2, $str3, $str4, $str5
+    );
+
+    $html .= "<br/><br/><hr/><br/>\n";
+
+    return $html;
+}
+
+/**
+ * Generate HTML element for report form
+ *
+ * @param boolean $selection_schema selection schema
+ * @param boolean $selection_data   selection data
+ * @param boolean $selection_both   selection both
+ *
+ * @return array
+ */
+function PMA_getHtmlForElementsOfTrackingReport(
+    $selection_schema, $selection_data, $selection_both
+) {
+    $str1 = '<select name="logtype">'
+        . '<option value="schema"'
+        . ($selection_schema ? ' selected="selected"' : '') . '>'
+        . __('Structure only') . '</option>'
+        . '<option value="data"'
+        . ($selection_data ? ' selected="selected"' : '') . '>'
+        . __('Data only') . '</option>'
+        . '<option value="schema_and_data"'
+        . ($selection_both ? ' selected="selected"' : '') . '>'
+        . __('Structure and data') . '</option>'
+        . '</select>';
+    $str2 = '<input type="text" name="date_from" value="'
+        . htmlspecialchars($_REQUEST['date_from']) . '" size="19" />';
+    $str3 = '<input type="text" name="date_to" value="'
+        . htmlspecialchars($_REQUEST['date_to']) . '" size="19" />';
+    $str4 = '<input type="text" name="users" value="'
+        . htmlspecialchars($_REQUEST['users']) . '" />';
+    $str5 = '<input type="hidden" name="list_report" value="1" />'
+        . '<input type="submit" value="' . __('Go') . '" />';
+    return array($str1, $str2, $str3, $str4, $str5);
+}
+
+/**
+ * Generate HTML for export form
+ *
+ * @param array   $data               data
+ * @param array   $url_params         url params
+ * @param boolean $selection_schema   selection schema
+ * @param boolean $selection_data     selection data
+ * @param boolean $selection_both     selection both
+ * @param int     $filter_ts_to       filter time stamp from
+ * @param int     $filter_ts_from     filter time stamp tp
+ * @param array   $filter_users       filter users
+ * @param string  $str1               HTML for logtype select
+ * @param string  $str2               HTML for "from date"
+ * @param string  $str3               HTML for "to date"
+ * @param string  $str4               HTML for user
+ * @param string  $str5               HTML for "list report"
+ * @param string  $drop_image_or_text HTML for image or text
+ *
+ * @return string HTML for form
+ */
+function PMA_getHtmlForTrackingReportExportForm1(
+    $data, $url_params, $selection_schema, $selection_data, $selection_both,
+    $filter_ts_to, $filter_ts_from, $filter_users, $str1, $str2, $str3,
+    $str4, $str5, $drop_image_or_text
+) {
+    $html = '<form method="post" action="tbl_tracking.php'
+        . PMA_URL_getCommon(
+            $url_params + array(
+                'report' => 'true', 'version' => $_REQUEST['version']
+            )
+        )
+        . '">';
+
+    $html .= sprintf(
+        __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
+        $str1, $str2, $str3, $str4, $str5
+    );
+
+    if ($selection_schema || $selection_both && count($data['ddlog']) > 0) {
         list($temp, $ddlog_count) = PMA_getHtmlForDataDefinitionStatements(
             $data, $filter_users, $filter_ts_from, $filter_ts_to, $url_params,
             $drop_image_or_text
@@ -428,7 +487,25 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
         );
     }
     $html .= '</form>';
-    $html .= '<form method="post" action="tbl_tracking.php'
+    return $html;
+}
+
+/**
+ * Generate HTML for export form
+ *
+ * @param array  $url_params Parameters
+ * @param string $str1       HTML for logtype select
+ * @param string $str2       HTML for "from date"
+ * @param string $str3       HTML for "to date"
+ * @param string $str4       HTML for user
+ * @param string $str5       HTML for "list report"
+ *
+ * @return string HTML for form
+ */
+function PMA_getHtmlForTrackingReportExportForm2(
+    $url_params, $str1, $str2, $str3, $str4, $str5
+) {
+    $html = '<form method="post" action="tbl_tracking.php'
         . PMA_URL_getCommon(
             $url_params + array(
                 'report' => 'true', 'version' => $_REQUEST['version']
@@ -439,20 +516,8 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
         __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
         $str1, $str2, $str3, $str4, $str5
     );
-
-    $str_export1 =  '<select name="export_type">'
-        . '<option value="sqldumpfile">' . __('SQL dump (file download)')
-        . '</option>'
-        . '<option value="sqldump">' . __('SQL dump') . '</option>'
-        . '<option value="execution" onclick="alert(\''
-        . PMA_escapeJsString(
-            __('This option will replace your table and contained data.')
-        )
-        .'\')">' . __('SQL execution') . '</option>' . '</select>';
-
-    $str_export2 = '<input type="hidden" name="report_export" value="1" />'
-                 . '<input type="submit" value="' . __('Go') .'" />';
     $html .= '</form>';
+
     $html .= '<form class="disableAjax" method="post" action="tbl_tracking.php'
         . PMA_URL_getCommon(
             $url_params
@@ -467,13 +532,26 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
         . htmlspecialchars($_REQUEST['date_to']) . '" />';
     $html .= '<input type="hidden" name="users" value="'
         . htmlspecialchars($_REQUEST['users']) . '" />';
+
+    $str_export1 = '<select name="export_type">'
+        . '<option value="sqldumpfile">' . __('SQL dump (file download)')
+        . '</option>'
+        . '<option value="sqldump">' . __('SQL dump') . '</option>'
+        . '<option value="execution" onclick="alert(\''
+        . PMA_escapeJsString(
+            __('This option will replace your table and contained data.')
+        )
+        . '\')">' . __('SQL execution') . '</option>' . '</select>';
+
+    $str_export2 = '<input type="hidden" name="report_export" value="1" />'
+        . '<input type="submit" value="' . __('Go') . '" />';
+
     $html .= "<br/>" . sprintf(__('Export as %s'), $str_export1)
         . $str_export2 . "<br/>";
     $html .= '</form>';
-    $html .= "<br/><br/><hr/><br/>\n";
-
     return $html;
 }
+
 /**
  * Function to get html for data manipulation statements
  *
@@ -1193,6 +1271,7 @@ function PMA_getEntries($data, $filter_ts_from, $filter_ts_to, $filter_users)
     }
 
     // Sort it
+    $ids = $timestamps = $usernames = $statements = array();
     foreach ($entries as $key => $row) {
         $ids[$key]        = $row['id'];
         $timestamps[$key] = $row['timestamp'];

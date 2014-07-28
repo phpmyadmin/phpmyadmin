@@ -404,7 +404,7 @@ class PMA_Index
                  . (($this->_choice == $each_index_choice)
                  ? ' selected="selected"'
                  : '')
-                 . '>'. $each_index_choice . '</option>' . "\n";
+                 . '>' . $each_index_choice . '</option>' . "\n";
         }
 
         return $html_options;
@@ -508,7 +508,7 @@ class PMA_Index
     /**
      * Returns the columns of the index
      *
-     * @return array the columns of the index
+     * @return PMA_Index_Column[] the columns of the index
      */
     public function getColumns()
     {
@@ -598,7 +598,7 @@ class PMA_Index
                         . PMA_Util::backquote($table)
                         . ' DROP PRIMARY KEY;';
                     $this_params['message_to_show']
-                        = __('The primary key has been dropped');
+                        = __('The primary key has been dropped.');
                     $js_msg = PMA_jsFormat(
                         'ALTER TABLE ' . $table . ' DROP PRIMARY KEY'
                     );
@@ -727,7 +727,8 @@ class PMA_Index
         while ($while_index = array_pop($indexes)) {
             // ... compare with every remaining index in stack
             foreach ($indexes as $each_index) {
-                if ($each_index->getCompareData() !== $while_index->getCompareData()) {
+                if ($each_index->getCompareData() !== $while_index->getCompareData()
+                ) {
                     continue;
                 }
 

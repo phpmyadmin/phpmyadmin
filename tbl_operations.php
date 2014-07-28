@@ -182,7 +182,7 @@ if (isset($result) && empty($message_to_show)) {
     if (empty($_message)) {
         $_message = $result
             ? PMA_Message::success(
-                __('Your SQL query has been executed successfully')
+                __('Your SQL query has been executed successfully.')
             )
             : PMA_Message::error(__('Error'));
         // $result should exist, regardless of $_message
@@ -321,12 +321,12 @@ $response->addHTML(
     )
 );
 
-if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
+if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
     $truncate_table_url_params = array();
     $drop_table_url_params = array();
 
     if (! $tbl_is_view
-        && ! (isset($db_is_information_schema) && $db_is_information_schema)
+        && ! (isset($db_is_system_schema) && $db_is_system_schema)
     ) {
         $this_sql_query = 'TRUNCATE TABLE '
             . PMA_Util::backquote($GLOBALS['table']);
@@ -337,13 +337,13 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
                 'goto' => 'tbl_structure.php',
                 'reload' => '1',
                 'message_to_show' => sprintf(
-                    __('Table %s has been emptied'),
+                    __('Table %s has been emptied.'),
                     htmlspecialchars($table)
                 ),
             )
         );
     }
-    if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
+    if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
         $this_sql_query = 'DROP TABLE '
             . PMA_Util::backquote($GLOBALS['table']);
         $drop_table_url_params = array_merge(
@@ -355,8 +355,8 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
                 'purge' => '1',
                 'message_to_show' => sprintf(
                     ($tbl_is_view
-                        ? __('View %s has been dropped')
-                        : __('Table %s has been dropped')
+                        ? __('View %s has been dropped.')
+                        : __('Table %s has been dropped.')
                     ),
                     htmlspecialchars($table)
                 ),

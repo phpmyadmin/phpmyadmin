@@ -23,7 +23,6 @@ foreach ($hosts as $host) {
     $cfg['Servers'][$i]['port']     = '';
     $cfg['Servers'][$i]['socket']   = '';
     $cfg['Servers'][$i]['connect_type']     = 'tcp';
-    $cfg['Servers'][$i]['extension']        = 'mysql';
     $cfg['Servers'][$i]['compress'] = false;
     $cfg['Servers'][$i]['controluser']      = 'pma';
     $cfg['Servers'][$i]['controlpass']      = 'pmapass';
@@ -48,4 +47,5 @@ foreach ($hosts as $host) {
     $cfg['Servers'][$i]['users'] = 'pma__users';
     $cfg['Servers'][$i]['usergroups'] = 'pma__usergroups';
     $cfg['Servers'][$i]['navigationhiding'] = 'pma__navigationhiding';
+    $cfg['Servers'][$i]['savedsearches'] = 'pma__savedsearches';
 }

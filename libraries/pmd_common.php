@@ -1,17 +1,12 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Common functions for Designer
+ *
  * @package PhpMyAdmin-Designer
  */
 /**
- * block attempts to directly run this script
- */
-if (getcwd() == dirname(__FILE__)) {
-    die('Attack stopped');
-}
-
-/**
- *
+ * Block attempts to directly run this script
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -22,11 +17,11 @@ $GLOBALS['PMD']['STYLE']          = 'default';
 $cfgRelation = PMA_getRelationsParam();
 
 /**
- * retrieves table info and stores it in $GLOBALS['PMD']
+ * Retrieves table info and stores it in $GLOBALS['PMD']
  *
  * @return array with table info
  */
-function get_tables_info()
+function PMA_getTablesInfo()
 {
     $retval = array();
 
@@ -74,11 +69,11 @@ function get_tables_info()
 }
 
 /**
- * retrieves table column info
+ * Retrieves table column info
  *
  * @return array   table column nfo
  */
-function get_columns_info()
+function PMA_getColumnsInfo()
 {
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
     $tab_column = array();
@@ -107,13 +102,14 @@ function get_columns_info()
 }
 
 /**
- * returns JavaScript code for intializing vars
+ * Returns JavaScript code for initializing vars
  *
  * @return string   JavaScript code
  */
-function get_script_contr()
+function PMA_getScriptContr()
 {
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+    $con = array();
     $con["C_NAME"] = array();
     $i = 0;
     $alltab_rs = $GLOBALS['dbi']->query(
@@ -143,10 +139,10 @@ function get_script_contr()
         if ($row !== false) {
             foreach ($row as $field => $value) {
                 $con['C_NAME'][$i] = '';
-                $con['DTN'][$i]    = urlencode($GLOBALS['db'].".".$val[0]);
+                $con['DTN'][$i]    = urlencode($GLOBALS['db'] . "." . $val[0]);
                 $con['DCN'][$i]    = urlencode($field);
                 $con['STN'][$i]    = urlencode(
-                    $value['foreign_db'].".".$value['foreign_table']
+                    $value['foreign_db'] . "." . $value['foreign_table']
                 );
                 $con['SCN'][$i]    = urlencode($value['foreign_field']);
                 $i++;
@@ -180,19 +176,19 @@ function get_script_contr()
  *
  * @return array unique or primary indices
  */
-function get_pk_or_unique_keys()
+function PMA_getPKOrUniqueKeys()
 {
-    return get_all_keys(true);
+    return PMA_getAllKeys(true);
 }
 
 /**
- * returns all indices
+ * Returns all indices
  *
  * @param bool $unique_only whether to include only unique ones
  *
  * @return array indices
  */
-function get_all_keys($unique_only = false)
+function PMA_getAllKeys($unique_only = false)
 {
     include_once './libraries/Index.class.php';
 
@@ -207,7 +203,7 @@ function get_all_keys($unique_only = false)
             }
             $columns = $index->getColumns();
             foreach ($columns as $column_name => $dummy) {
-                $keys[$schema . '.' .$table . '.' . $column_name] = 1;
+                $keys[$schema . '.' . $table . '.' . $column_name] = 1;
             }
         }
     }
@@ -219,7 +215,7 @@ function get_all_keys($unique_only = false)
  *
  * @return string
  */
-function get_script_tabs()
+function PMA_getScriptTabs()
 {
     $retval = array(
         'j_tabs' => array(),
@@ -242,7 +238,7 @@ function get_script_tabs()
  *
  * @return array table positions and sizes
  */
-function get_tab_pos()
+function PMA_getTabPos()
 {
     $cfgRelation = PMA_getRelationsParam();
 
@@ -271,14 +267,21 @@ function get_tab_pos()
 /**
  * Prepares XML output for js/pmd/ajax.js to display a message
  *
+ * @param string $b   b attribute value
+ * @param string $ret Return attribute value
+ *
+ * @return void
  */
-function PMD_return_upd($b, $ret)
+function PMA_returnUpd($b, $ret)
 {
     // not sure where this was defined...
     global $K;
 
     header("Content-Type: text/xml; charset=utf-8");
     header("Cache-Control: no-cache");
-    die('<root act="relation_upd" return="'.$ret.'" b="'.$b.'" K="'.$K.'"></root>');
+    die(
+        '<root act="relation_upd" return="' . $ret . '" b="'
+        . $b . '" K="' . $K . '"></root>'
+    );
 }
 ?>

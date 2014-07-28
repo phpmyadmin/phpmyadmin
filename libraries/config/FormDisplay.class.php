@@ -93,11 +93,11 @@ class FormDisplay
     public function __construct(ConfigFile $cf)
     {
         $this->_jsLangStrings = array(
-            'error_nan_p' => __('Not a positive number'),
-            'error_nan_nneg' => __('Not a non-negative number'),
-            'error_incorrect_port' => __('Not a valid port number'),
-            'error_invalid_value' => __('Incorrect value'),
-            'error_value_lte' => __('Value must be equal or lower than %s'));
+            'error_nan_p' => __('Not a positive number!'),
+            'error_nan_nneg' => __('Not a non-negative number!'),
+            'error_incorrect_port' => __('Not a valid port number!'),
+            'error_invalid_value' => __('Incorrect value!'),
+            'error_value_lte' => __('Value must be equal or lower than %s!'));
         $this->_configFile = $cf;
         // initialize validators
         PMA_Validator::getValidators($this->_configFile);
@@ -605,7 +605,7 @@ class FormDisplay
                         $form->getOptionValueList($system_path)
                     );
                     if (! $successfully_validated) {
-                        $this->_errors[$work_path][] = __('Incorrect value');
+                        $this->_errors[$work_path][] = __('Incorrect value!');
                         $result = false;
                         continue;
                     }
@@ -620,12 +620,7 @@ class FormDisplay
                         ? $_POST[$key]
                         : explode("\n", $_POST[$key]);
                     $_POST[$key] = array();
-                    foreach ($post_values as $v) {
-                        $v = trim($v);
-                        if ($v !== '') {
-                            $_POST[$key][] = $v;
-                        }
-                    }
+                    $this->_fillPostArrayParameters($post_values, $key);
                     break;
                 }
 
@@ -642,37 +637,41 @@ class FormDisplay
         }
 
         // save forms
-        if ($allow_partial_save || empty($this->_errors)) {
-            foreach ($to_save as $work_path => $path) {
-                // TrustedProxies requires changes before saving
-                if ($path == 'TrustedProxies') {
-                    $proxies = array();
-                    $i = 0;
-                    foreach ($values[$path] as $value) {
-                        $matches = array();
-                        $match = preg_match(
-                            "/^(.+):(?:[ ]?)(\\w+)$/", $value, $matches
-                        );
-                        if ($match) {
-                            // correct 'IP: HTTP header' pair
-                            $ip = trim($matches[1]);
-                            $proxies[$ip] = trim($matches[2]);
-                        } else {
-                            // save also incorrect values
-                            $proxies["-$i"] = $value;
-                            $i++;
-                        }
+        if (!$allow_partial_save && !empty($this->_errors)) {
+            // don't look for non-critical errors
+            $this->_validate();
+            return $result;
+        }
+
+        foreach ($to_save as $work_path => $path) {
+            // TrustedProxies requires changes before saving
+            if ($path == 'TrustedProxies') {
+                $proxies = array();
+                $i = 0;
+                foreach ($values[$path] as $value) {
+                    $matches = array();
+                    $match = preg_match(
+                        "/^(.+):(?:[ ]?)(\\w+)$/", $value, $matches
+                    );
+                    if ($match) {
+                        // correct 'IP: HTTP header' pair
+                        $ip = trim($matches[1]);
+                        $proxies[$ip] = trim($matches[2]);
+                    } else {
+                        // save also incorrect values
+                        $proxies["-$i"] = $value;
+                        $i++;
                     }
-                    $values[$path] = $proxies;
                 }
-                $this->_configFile->set($work_path, $values[$path], $path);
+                $values[$path] = $proxies;
             }
-            if ($is_setup_script) {
-                $this->_configFile->set(
-                    'UserprefsDisallow',
-                    array_keys($this->_userprefsDisallow)
-                );
-            }
+            $this->_configFile->set($work_path, $values[$path], $path);
+        }
+        if ($is_setup_script) {
+            $this->_configFile->set(
+                'UserprefsDisallow',
+                array_keys($this->_userprefsDisallow)
+            );
         }
 
         // don't look for non-critical errors
@@ -730,14 +729,16 @@ class FormDisplay
      */
     private function _loadUserprefsInfo()
     {
-        if ($this->_userprefsKeys === null) {
-            $this->_userprefsKeys = array_flip(PMA_readUserprefsFieldNames());
-            // read real config for user preferences display
-            $userprefs_disallow = defined('PMA_SETUP')
-                ? $this->_configFile->get('UserprefsDisallow', array())
-                : $GLOBALS['cfg']['UserprefsDisallow'];
-            $this->_userprefsDisallow = array_flip($userprefs_disallow);
+        if ($this->_userprefsKeys !== null) {
+            return;
         }
+
+        $this->_userprefsKeys = array_flip(PMA_readUserprefsFieldNames());
+        // read real config for user preferences display
+        $userprefs_disallow = defined('PMA_SETUP')
+            ? $this->_configFile->get('UserprefsDisallow', array())
+            : $GLOBALS['cfg']['UserprefsDisallow'];
+        $this->_userprefsDisallow = array_flip($userprefs_disallow);
     }
 
     /**
@@ -794,27 +795,14 @@ class FormDisplay
             }
             if (!function_exists($funcs[$system_path][1])) {
                 $comment .= ($comment ? '; ' : '') . sprintf(
-                    __('Compressed export will not work due to missing function %s.'),
+                    __(
+                        'Compressed export will not work due to missing function %s.'
+                    ),
                     $funcs[$system_path][1]
                 );
             }
             $opts['comment'] = $comment;
             $opts['comment_warning'] = true;
-        }
-        if ($system_path == 'SQLQuery/Validate'
-            && ! $GLOBALS['cfg']['SQLValidator']['use']
-        ) {
-            $opts['comment'] = __('SQL Validator is disabled');
-            $opts['comment_warning'] = true;
-        }
-        if ($system_path == 'SQLValidator/use') {
-            if (!class_exists('SOAPClient')) {
-                @include_once 'SOAP/Client.php';
-                if (!class_exists('SOAP_Client')) {
-                    $opts['comment'] = __('SOAP extension not found');
-                    $opts['comment_warning'] = true;
-                }
-            }
         }
         if (!defined('PMA_SETUP')) {
             if (($system_path == 'MaxDbList' || $system_path == 'MaxTableList'
@@ -823,6 +811,24 @@ class FormDisplay
                 $opts['comment'] = sprintf(
                     __('maximum %s'), $GLOBALS['cfg'][$system_path]
                 );
+            }
+        }
+    }
+
+    /**
+     * Copy items of an array to $_POST variable
+     *
+     * @param array  $post_values List of parameters
+     * @param string $key         Array key
+     *
+     * @return void
+     */
+    private function _fillPostArrayParameters($post_values, $key)
+    {
+        foreach ($post_values as $v) {
+            $v = trim($v);
+            if ($v !== '') {
+                $_POST[$key][] = $v;
             }
         }
     }

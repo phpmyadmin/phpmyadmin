@@ -76,7 +76,6 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('jquery/jquery.tablesorter.js');
-$scripts->addFile('jquery/jquery.json-2.4.js');
 $scripts->addFile('jquery/jquery.sortableTable.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 /* < IE 9 doesn't support canvas natively */

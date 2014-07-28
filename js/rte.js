@@ -304,13 +304,19 @@ RTE.COMMON = {
                     buttons: that.buttonOptions,
                     title: data.title,
                     modal: true,
+                    open: function () {
+                        $(this).find('input[name=item_name]').focus();
+                        $(this).find('input.datefield').each(function () {
+                            PMA_addDatepicker($(this).css('width', '95%'), 'date');
+                        });
+                        $(this).find('input.datetimefield').each(function () {
+                            PMA_addDatepicker($(this).css('width', '95%'), 'datetime');
+                        });
+                        $.datepicker.initialized = false;
+                    },
                     close: function () {
                         $(this).remove();
                     }
-                });
-                that.$ajaxDialog.find('input[name=item_name]').focus();
-                that.$ajaxDialog.find('input.datefield, input.datetimefield').each(function () {
-                    PMA_addDatepicker($(this).css('width', '95%'));
                 });
                 /**
                  * @var mode Used to remeber whether the editor is in

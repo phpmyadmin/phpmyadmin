@@ -66,7 +66,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         $response = PMA_Response::getInstance();
         $response->getFooter()->setMinimal();
         $header = $response->getHeader();
-        $header->setTitle(__('Access denied'));
+        $header->setTitle(__('Access denied!'));
         $header->disableMenu();
         $header->setBodyId('loginform');
 
@@ -226,6 +226,10 @@ class AuthenticationHttp extends AuthenticationPlugin
         // Avoid showing the password in phpinfo()'s output
         unset($GLOBALS['PHP_AUTH_PW']);
         unset($_SERVER['PHP_AUTH_PW']);
+
+        // try to workaround PHP 5 session garbage collection which
+        // looks at the session file's last modified time
+        $_SESSION['last_access_time'] = time();
 
         return true;
     }

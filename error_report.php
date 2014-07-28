@@ -31,7 +31,7 @@ if (isset($_REQUEST['send_error_report'])
                 PMA_Message::error(
                     __(
                         'An error has been detected and an error report has been '
-                        .'automatically submitted based on your settings.'
+                        . 'automatically submitted based on your settings.'
                     )
                     . '<br />'
                     . __('You may want to refresh the page.')

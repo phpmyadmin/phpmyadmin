@@ -18,7 +18,8 @@ if (is_readable($_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php')) {
 ?>
 /* Icon sprites */
 .icon {
-    margin: 0 .3em;
+    margin: 0;
+    margin-<?php echo $left; ?>: .3em;
     padding: 0 !important;
     width: 16px;
     height: 16px;

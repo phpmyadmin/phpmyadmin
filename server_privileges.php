@@ -68,7 +68,7 @@ $strPrivDescCreateView = __('Allows creating new views.');
 $strPrivDescDelete = __('Allows deleting data.');
 $strPrivDescDropDb = __('Allows dropping databases and tables.');
 $strPrivDescDropTbl = __('Allows dropping tables.');
-$strPrivDescEvent = __('Allows to set up events for the event scheduler');
+$strPrivDescEvent = __('Allows to set up events for the event scheduler.');
 $strPrivDescExecute = __('Allows executing stored routines.');
 $strPrivDescFile = __('Allows importing data from and exporting data into files.');
 $strPrivDescGrant = __(
@@ -90,7 +90,7 @@ $strPrivDescMaxUpdates = __(
 $strPrivDescMaxUserConnections = __(
     'Limits the number of simultaneous connections the user may have.'
 );
-$strPrivDescProcess = __('Allows viewing processes of all users');
+$strPrivDescProcess = __('Allows viewing processes of all users.');
 $strPrivDescReferences = __('Has no effect in this MySQL version.');
 $strPrivDescReload = __(
     'Allows reloading server settings and flushing the server\'s caches.'
@@ -108,7 +108,7 @@ $strPrivDescSuper = __(
     . 'required for most administrative operations like setting global variables '
     . 'or killing threads of other users.'
 );
-$strPrivDescTrigger = __('Allows creating and dropping triggers');
+$strPrivDescTrigger = __('Allows creating and dropping triggers.');
 $strPrivDescUpdate = __('Allows changing data.');
 $strPrivDescUsage = __('No privileges.');
 
@@ -128,6 +128,20 @@ list(
 if (! $is_superuser) {
     $response->addHTML(PMA_getHtmlForSubPageHeader('privileges', '', false));
     $response->addHTML(PMA_Message::error(__('No Privileges'))->getDisplay());
+    exit;
+}
+
+/**
+ * Checks if the user is using "Change Login Information / Copy User" dialog
+ * only to update the password
+ */
+if (isset($_REQUEST['change_copy']) && $username == $_REQUEST['old_username']
+    && $hostname == $_REQUEST['old_hostname']
+) {
+    $response->addHTML(
+        PMA_Message::error(__('Username and hostname didn\'t change.'))->getDisplay()
+    );
+    $response->isSuccess(false);
     exit;
 }
 
@@ -346,7 +360,7 @@ if (isset($_REQUEST['adduser'])) {
     if (! isset($username)) {
         // No username is given --> display the overview
         $response->addHTML(
-            PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
+            PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
         );
     } else {
         // A user was selected -> display the user's properties
@@ -361,7 +375,7 @@ if (isset($_REQUEST['adduser'])) {
             )
         );
         $response->addHTML(
-            PMA_getHtmlForDisplayUserProperties(
+            PMA_getHtmlForUserProperties(
                 ((isset ($dbname_is_wildcard)) ? $dbname_is_wildcard : ''),
                 $url_dbname, $username, $hostname,
                 (isset($dbname) ? $dbname : ''),

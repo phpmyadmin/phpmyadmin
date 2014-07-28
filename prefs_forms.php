@@ -83,7 +83,7 @@ if ($form_display->hasErrors()) {
     // form has errors
     ?>
     <div class="error config-form">
-        <b><?php echo __('Cannot save settings, submitted form contains errors') ?></b>
+        <b><?php echo __('Cannot save settings, submitted form contains errors!') ?></b>
         <?php $form_display->displayErrors(); ?>
     </div>
     <?php

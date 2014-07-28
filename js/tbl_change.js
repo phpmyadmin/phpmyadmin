@@ -154,11 +154,14 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
 
     //To generate the textbox that can take the salt
     var new_salt_box = "<br><input type=text name=salt[multi_edit][" + multi_edit + "][" + urlField + "]" +
-        " id=salt_" + target.id + " placeholder='enter Salt'>";
+        " id=salt_" + target.id + " placeholder='" + PMA_messages.strEncryptionKey + "'>";
 
     //If AES_ENCRYPT is Selected then append the new textbox for salt
-    if (target.value == "AES_ENCRYPT" && !($("#salt_" + target.id).length)) {
-        $("input[name='fields[multi_edit][" + multi_edit + "][" + urlField + "]']").after(new_salt_box);
+    if (target.value == "AES_DECRYPT" || target.value == "AES_ENCRYPT") {
+        if (!($("#salt_" + target.id).length)) {
+            $("#" + target.id).parent().next("td").next("td").find("input[name*='fields']").after(new_salt_box);
+        }
+
     } else {
         //The value of the select is no longer AES_ENCRYPT, remove the textbox for salt
         $("#salt_" + target.id).remove();
@@ -239,6 +242,7 @@ AJAX.registerTeardown('tbl_change.js', function () {
     $('input.checkbox_null').die('click');
     $('select[name="submit_type"]').unbind('change');
     $("#insert_rows").die('change');
+    $("select[name*='funcs']").die('click');
 });
 
 /**
@@ -328,7 +332,10 @@ AJAX.registerOnload('tbl_change.js', function () {
      */
     $("#insert_rows").live('change', function (event) {
         event.preventDefault();
-
+        /**
+         * @var columnCount   Number of number of columns table has.
+         */
+        var columnCount = $("table.insertRowTable:first").find("tr").has("input[name*='fields_name']").length;
         /**
          * @var curr_rows   Number of current insert rows already on page
          */
@@ -358,7 +365,7 @@ AJAX.registerOnload('tbl_change.js', function () {
 
                 //Clone the insert tables
                 $last_row
-                .clone()
+                .clone(true, true)
                 .insertBefore("#actions_panel")
                 .find('input[name*=multi_edit],select[name*=multi_edit],textarea[name*=multi_edit]')
                 .each(function () {
@@ -387,6 +394,26 @@ AJAX.registerOnload('tbl_change.js', function () {
 
                     var hashed_field = name_parts[1].match(/\[(.+)\]/)[1];
                     $this_element.attr('name', new_name);
+
+                    /** If element is select[name*='funcs'], update id */
+                    if ($this_element.is("select[name*='funcs']")) {
+                        var this_id = $this_element.attr("id");
+                        var id_parts = this_id.split(/\_/);
+                        var old_id_index = id_parts[1];
+                        var prevSelectedValue = $("#field_" + old_id_index + "_1").val();
+                        var new_id_index = parseInt(old_id_index) + columnCount;
+                        var new_id = 'field_' + new_id_index + '_1';
+                        $this_element.attr('id', new_id);
+                        $this_element.find("option").filter(function () {
+                            return $(this).text() === prevSelectedValue;
+                        }).attr("selected","selected");
+
+                        // If salt field is there then update its id.
+                        var nextSaltInput = $this_element.parent().next("td").next("td").find("input[name*='salt']");
+                        if (nextSaltInput.length !== 0) {
+                            nextSaltInput.attr("id", "salt_" + new_id);
+                        }
+                    }
 
                     // handle input text fields and textareas
                     if ($this_element.is('.textfield') || $this_element.is('.char')) {
@@ -503,6 +530,86 @@ AJAX.registerOnload('tbl_change.js', function () {
     });
     // Add all the required datepickers back
     addDateTimePicker();
+
+    /**
+     * @var $function_option_dialog object holds dialog for selected function options.
+     */
+     var $function_option_dialog = null;
+
+    PMA_tooltip(
+        $("select[name*='funcs']"),
+        'select',
+        PMA_messages.strFunctionHint
+    );
+
+    $("select[name*='funcs']").live('click', function (event) {
+        if (! event.shiftKey) {
+            return false;
+        }
+
+        // Name of selected function.
+        var functionName = $(this).find("option:selected").html();
+        var currId = $(this).attr("id");
+        // Name of column.
+        var columnName = $(this).closest("tr").find("input[name*='fields_name']").val();
+        var targetRows = $("tr").has("input[value='" + columnName + "']");
+        var salt;
+        var copySalt = false;
+
+        if (functionName === 'AES_ENCRYPT' || functionName === 'AES_DECRYPT') {
+            // Dialog title.
+            var title = functionName;
+            // Dialog buttons functions.
+            var buttonOptions = {};
+            buttonOptions[PMA_messages.strYes] = function () {
+                // Go function.
+                copySalt = true;
+                salt = $("#salt_" + currId).val();
+                applyFunctionToAllRows(currId, functionName, copySalt, salt, targetRows);
+                $(this).dialog("close");
+            };
+            buttonOptions[PMA_messages.strNo] = function () {
+                copySalt = false;
+                salt = "";
+                applyFunctionToAllRows(currId, functionName, copySalt, salt, targetRows);
+                $(this).dialog("close");
+            };
+
+            // Contents of dialog.
+            var dialog = "<div>" +
+                        "<fieldset>" +
+                        "<span style='font-weight: bold;'>" +
+                        PMA_messages.strCopyEncryptionKey +
+                        "</fieldset>" +
+                        "</div>";
+
+            // Show the dialog
+            var width = parseInt(
+                (parseInt($('html').css('font-size'), 10) / 13) * 340,
+                10
+            );
+            if (! width) {
+                width = 340;
+            }
+
+            $function_option_dialog = $(dialog).dialog({
+                minWidth: width,
+                modal: true,
+                title: title,
+                buttons: buttonOptions,
+                resizable: false,
+                open: function () {
+                    // Focus the "Go" button after opening the dialog
+                    $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').focus();
+                },
+                close: function () {
+                    $(this).remove();
+                }
+            });
+        }
+
+        applyFunctionToAllRows(currId, functionName, copySalt, "", targetRows);
+    });
 });
 
 function changeValueFieldType(elem, searchIndex)
@@ -523,4 +630,49 @@ function changeValueFieldType(elem, searchIndex)
     } else {
         $("#fieldID_" + searchIndex).removeAttr('multiple');
     }
+}
+
+function applyFunctionToAllRows(currId, functionName, copySalt, salt, targetRows)
+{
+    targetRows.each(function () {
+        var currentRowNum = /\d/.exec($(this).find("input[name*='fields_name']").attr("name"));
+/*        // Ignore the rows whose insert_ignore_* checkbox is checked.
+        var insert_ignore = $(this).closest("table.insertRowTable").prevAll("input[name*='insert_ignore']");
+        if (insert_ignore.length) {
+            if ($(insert_ignore).attr("checked")) {
+                return;
+            }
+        } */
+
+        // Append the function select list.
+        var targetSelectList = $(this).find("select[name*='funcs[multi_edit]']");
+
+        if (targetSelectList.attr("id") === currId) {
+            return;
+        }
+        targetSelectList.find("option").filter(function () {
+            return $(this).text() === functionName;
+        }).attr("selected","selected");
+
+        // Handle salt field.
+        if (functionName === 'AES_ENCRYPT' || functionName === 'AES_DECRYPT') {
+            if ($("#salt_" + targetSelectList.attr("id")).length === 0) {
+                // Get hash value.
+                var hashed_value = targetSelectList.attr("name").match(/\[multi\_edit\]\[\d\]\[(.*)\]/);
+                //To generate the textbox that can take the salt
+                var new_salt_box = "<br><input type=text name=salt[multi_edit][" + currentRowNum + "][" + hashed_value[1] + "]" +
+                    " id=salt_" + targetSelectList.attr("id") + " placeholder='" + PMA_messages.strEncryptionKey + "'>";
+                targetSelectList.parent().next("td").next("td").find("input[name*='fields']").after(new_salt_box);
+            }
+
+            if (copySalt) {
+                $("#salt_" + targetSelectList.attr("id")).attr("value", salt);
+            }
+        } else {
+            var id = targetSelectList.attr("id");
+            if ($("#salt_" + id).length) {
+                $("#salt_" + id).remove();
+            }
+        }
+    });
 }

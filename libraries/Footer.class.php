@@ -22,7 +22,7 @@ class PMA_Footer
      * PMA_Scripts instance
      *
      * @access private
-     * @var object
+     * @var PMA_Scripts
      */
     private $_scripts;
     /**
@@ -73,7 +73,7 @@ class PMA_Footer
             $message .= sprintf(
                 __('Currently running Git revision %1$s from the %2$s branch.'),
                 '<a target="_blank" href="' . $repobase . $fullrevision . '">'
-                . $revision .'</a>',
+                . $revision . '</a>',
                 '<a target="_blank" href="' . $repobranchbase . $branch . '">'
                 . $branch . '</a>'
             );
@@ -142,13 +142,15 @@ class PMA_Footer
             $params['viewing_mode'] = $_REQUEST['viewing_mode'];
         }
         if (isset($_REQUEST['checkprivsdb'])
-            //TODO: coming from server_privileges.php, here $db is not set, uncomment below line when that is fixed
+            //TODO: coming from server_privileges.php, here $db is not set,
+            //uncomment below line when that is fixed
             //&& $_REQUEST['checkprivsdb'] == $db
         ) {
             $params['checkprivsdb'] = $_REQUEST['checkprivsdb'];
         }
         if (isset($_REQUEST['checkprivstable'])
-            //TODO: coming from server_privileges.php, here $table is not set, uncomment below line when that is fixed
+            //TODO: coming from server_privileges.php, here $table is not set,
+            //uncomment below line when that is fixed
             //&& $_REQUEST['checkprivstable'] == $table
         ) {
             $params['checkprivstable'] = $_REQUEST['checkprivstable'];
@@ -157,7 +159,7 @@ class PMA_Footer
             && in_array($_REQUEST['single_table'], array(true, false))
         ) {
             $params['single_table'] = $_REQUEST['single_table'];
-        }        
+        }
         return basename(PMA_getenv('SCRIPT_NAME')) . PMA_URL_getCommon(
             $params,
             $encoding
@@ -305,6 +307,10 @@ class PMA_Footer
                             PMA_escapeJsString($menuHash)
                         )
                     );
+                }
+                if (PMA_getenv('SCRIPT_NAME')
+                    && ! $this->_isAjax
+                ) {
                     $url = $this->getSelfUrl();
                     $retval .= $this->_getSelfLink($url);
                 }

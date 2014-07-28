@@ -29,7 +29,9 @@ class Node_Database_Container extends Node
     {
         parent::__construct($name, Node::CONTAINER);
 
-        if ($GLOBALS['is_create_db_priv']) {
+        if ($GLOBALS['is_create_db_priv']
+            && $GLOBALS['cfg']['ShowCreateDb'] !== false
+        ) {
             $new        = PMA_NodeFactory::getInstance(
                 'Node', _pgettext('Create new database', 'New')
             );

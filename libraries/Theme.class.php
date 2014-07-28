@@ -381,7 +381,7 @@ class PMA_Theme
     public function getPrintPreview()
     {
         $url_params = array('set_theme' => $this->getId());
-        $url = 'index.php'. PMA_URL_getCommon($url_params);
+        $url = 'index.php' . PMA_URL_getCommon($url_params);
 
         $retval  = '<div class="theme_preview">';
         $retval .= '<h2>';

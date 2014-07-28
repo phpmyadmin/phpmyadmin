@@ -25,6 +25,7 @@ $scripts->addFile('sql.js');
 $scripts->addFile('tbl_select.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
+$scripts->addFile('jquery/jquery.uitablefilter.js');
 $scripts->addFile('gis_data_editor.js');
 
 $table_search = new PMA_TableSearch($db, $table, "normal");

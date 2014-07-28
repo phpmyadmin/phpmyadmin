@@ -23,106 +23,27 @@ require_once 'libraries/sql.lib.php';
 function PMA_GIS_modifyQuery($sql_query, $visualizationSettings)
 {
     $modified_query = 'SELECT ';
-
-    $analyzed_query = PMA_SQP_analyze(PMA_SQP_parse($sql_query));
-    // If select clause is not *
-    if (trim($analyzed_query[0]['select_expr_clause']) != '*') {
-        // If label column is chosen add it to the query
-        if (isset($visualizationSettings['labelColumn'])
-            && $visualizationSettings['labelColumn'] != ''
-        ) {
-            // Check to see whether an alias has been used on the label column
-            $is_label_alias = false;
-            foreach ($analyzed_query[0]['select_expr'] as $select) {
-                if ($select['alias'] == $visualizationSettings['labelColumn']) {
-                    $modified_query .= sanitize($select) . ' AS `'
-                    . $select['alias'] . '`, ';
-                    $is_label_alias = true;
-                    break;
-                }
-            }
-            // If no alias have been used on the label column
-            if (! $is_label_alias) {
-                foreach ($analyzed_query[0]['select_expr'] as $select) {
-                    if ($select['column'] == $visualizationSettings['labelColumn']) {
-                        $modified_query .= sanitize($select) . ', ';
-                    }
-                }
-            }
-        }
-
-        // Check to see whether an alias has been used on the spatial column
-        $is_spatial_alias = false;
-        foreach ($analyzed_query[0]['select_expr'] as $select) {
-            if ($select['alias'] == $visualizationSettings['spatialColumn']) {
-                $sanitized = sanitize($select);
-                $modified_query .= 'ASTEXT(' . $sanitized . ') AS `'
-                . $select['alias'] . '`, ';
-                // Get the SRID
-                $modified_query .= 'SRID(' . $sanitized . ') AS `srid` ';
-                $is_spatial_alias = true;
-                break;
-            }
-        }
-        // If no alias have been used on the spatial column
-        if (! $is_spatial_alias) {
-            foreach ($analyzed_query[0]['select_expr'] as $select) {
-                if ($select['column'] == $visualizationSettings['spatialColumn']) {
-                    $sanitized = sanitize($select);
-                    $modified_query .= 'ASTEXT(' . $sanitized
-                        . ') AS `' . $select['column'] . '`, ';
-                    // Get the SRID
-                    $modified_query .= 'SRID(' . $sanitized . ') AS `srid` ';
-                }
-            }
-        }
-        // If select clause is *
-    } else {
-        // If label column is chosen add it to the query
-        if (isset($visualizationSettings['labelColumn'])
-            && $visualizationSettings['labelColumn'] != ''
-        ) {
-            $modified_query .= '`' . $visualizationSettings['labelColumn'] .'`, ';
-        }
-
-        // Wrap the spatial column with 'ASTEXT()' function and add it
-        $modified_query .= 'ASTEXT(`' . $visualizationSettings['spatialColumn']
-            . '`) AS `' . $visualizationSettings['spatialColumn'] . '`, ';
-
-        // Get the SRID
-        $modified_query .= 'SRID(`' . $visualizationSettings['spatialColumn']
-            . '`) AS `srid` ';
+    // If label column is chosen add it to the query
+    if (! empty($visualizationSettings['labelColumn'])) {
+        $modified_query .= PMA_Util::backquote($visualizationSettings['labelColumn'])
+            . ', ';
     }
+    // Wrap the spatial column with 'ASTEXT()' function and add it
+    $modified_query .= 'ASTEXT('
+        . PMA_Util::backquote($visualizationSettings['spatialColumn'])
+        . ') AS ' . PMA_Util::backquote($visualizationSettings['spatialColumn'])
+        . ', ';
 
-    // Append the rest of the query
-    $from_pos = stripos($sql_query, 'FROM');
-    $modified_query .= substr($sql_query, $from_pos);
+    // Get the SRID
+    $modified_query .= 'SRID('
+        . PMA_Util::backquote($visualizationSettings['spatialColumn'])
+        . ') AS ' . PMA_Util::backquote('srid') . ' ';
+
+    // Append the original query as the inner query
+    $modified_query .= 'FROM (' . $sql_query . ') AS '
+        . PMA_Util::backquote('temp_gis');
+
     return $modified_query;
-}
-
-/**
- * Local function to sanitize the expression taken
- * from the results of PMA_SQP_analyze function.
- *
- * @param array $select Select to sanitize.
- *
- * @return string Sanitized string.
- */
-function sanitize($select)
-{
-    $table_col = $select['table_name'] . "." . $select['column'];
-    $db_table_col = $select['db'] . "." . $select['table_name']
-        . "." . $select['column'];
-
-    if ($select['expr'] == $select['column']) {
-        return "`" . $select['column'] . "`";
-    } elseif ($select['expr'] == $table_col) {
-        return "`" . $select['table_name'] . "`.`" . $select['column'] . "`";
-    } elseif ($select['expr'] == $db_table_col) {
-        return "`" . $select['db'] . "`.`" . $select['table_name']
-            . "`.`" . $select['column'] . "`";
-    }
-    return $select['expr'];
 }
 
 /**
@@ -136,8 +57,8 @@ function sanitize($select)
  */
 function PMA_GIS_visualizationResults($data, &$visualizationSettings, $format)
 {
-    include_once './libraries/gis/pma_gis_visualization.php';
-    include_once './libraries/gis/pma_gis_factory.php';
+    include_once './libraries/gis/GIS_Visualization.class.php';
+    include_once './libraries/gis/GIS_Factory.class.php';
 
     if (! isset($data[0])) {
         // empty data
@@ -173,8 +94,8 @@ function PMA_GIS_visualizationResults($data, &$visualizationSettings, $format)
  */
 function PMA_GIS_saveToFile($data, $visualizationSettings, $format, $fileName)
 {
-    include_once './libraries/gis/pma_gis_visualization.php';
-    include_once './libraries/gis/pma_gis_factory.php';
+    include_once './libraries/gis/GIS_Visualization.class.php';
+    include_once './libraries/gis/GIS_Factory.class.php';
 
     if (isset($data[0])) {
         $visualization = new PMA_GIS_Visualization($data, $visualizationSettings);

@@ -50,7 +50,7 @@ $data = PMA_Tracker::getTrackedData($_REQUEST['db'], '', '1');
 if ($num_tables == 0 && count($data['ddlog']) == 0) {
     echo '<p>' . __('No tables found in database.') . '</p>' . "\n";
 
-    if (empty($db_is_information_schema)) {
+    if (empty($db_is_system_schema)) {
         include 'libraries/display_create_table.lib.php';
     }
     exit;
@@ -218,7 +218,7 @@ if (isset($my_tables)) {
     foreach ($my_tables as $key => $tablename) {
         if (PMA_Tracker::getVersion($GLOBALS['db'], $tablename) == -1) {
             $my_link = '<a href="tbl_tracking.php?' . $url_query
-                . '&amp;table=' . htmlspecialchars($tablename) .'">';
+                . '&amp;table=' . htmlspecialchars($tablename) . '">';
             $my_link .= PMA_Util::getIcon('eye.png', __('Track table'));
             $my_link .= '</a>';
             ?>

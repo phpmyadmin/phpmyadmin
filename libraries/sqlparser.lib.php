@@ -334,6 +334,7 @@ function PMA_SQP_parse($sql)
             switch ($c) {
             case '#':
                 $type = 'mysql';
+                break;
             case '-':
                 $type = 'ansi';
                 $pos  = $GLOBALS['PMA_String']->strpos($sql, "\n", $count2);
@@ -347,7 +348,9 @@ function PMA_SQP_parse($sql)
                 break;
             } // end switch
             $count2 = ($pos < $count2) ? $len : $pos;
-            $str    = $GLOBALS['PMA_String']->substr($sql, $count1, $count2 - $count1);
+            $str    = $GLOBALS['PMA_String']->substr(
+                $sql, $count1, $count2 - $count1
+            );
             PMA_SQP_arrayAdd($sql_array, 'comment_' . $type, $str, $arraysize);
             continue;
         } // end if
@@ -361,7 +364,9 @@ function PMA_SQP_parse($sql)
             $oldpos          = 0;
             do {
                 $oldpos = $pos;
-                $pos    = $GLOBALS['PMA_String']->strpos(' ' . $sql, $quotetype, $oldpos + 1) - 1;
+                $pos    = $GLOBALS['PMA_String']->strpos(
+                    ' ' . $sql, $quotetype, $oldpos + 1
+                ) - 1;
                 // ($pos === false)
                 if ($pos < 0) {
                     if ($c == '`') {
@@ -386,8 +391,11 @@ function PMA_SQP_parse($sql)
                             $pos = $len;
                         } else {
                             $len += 1;
-                            $sql = $GLOBALS['PMA_String']->substr($sql, 0, $pos_quote_separator)
-                                . '`' . $GLOBALS['PMA_String']->substr($sql, $pos_quote_separator);
+                            $sql = $GLOBALS['PMA_String']->substr(
+                                $sql, 0, $pos_quote_separator
+                            ) . '`' . $GLOBALS['PMA_String']->substr(
+                                $sql, $pos_quote_separator
+                            );
                             $sql_array['raw'] = $sql;
                             $pos = $pos_quote_separator;
                         }
@@ -400,7 +408,7 @@ function PMA_SQP_parse($sql)
                         }
                     } else {
                         $debugstr = __('Unclosed quote')
-                            . ' @ ' . $startquotepos. "\n"
+                            . ' @ ' . $startquotepos . "\n"
                             . 'STR: ' . htmlspecialchars($quotetype);
                         PMA_SQP_throwError($debugstr, $sql);
                         return $sql_array;
@@ -487,7 +495,11 @@ function PMA_SQP_parse($sql)
         var_dump($GLOBALS['PMA_String']->isSqlIdentifier($c, false));
         var_dump($c == '@');
         var_dump($c == '.');
-        var_dump($GLOBALS['PMA_String']->isDigit($GLOBALS['PMA_String']->substr($sql, $count2 + 1, 1)));
+        var_dump(
+            $GLOBALS['PMA_String']->isDigit(
+                $GLOBALS['PMA_String']->substr($sql, $count2 + 1, 1)
+            )
+        );
         var_dump($previous_was_space);
         var_dump($previous_was_bracket);
         var_dump($previous_was_listsep);
@@ -570,13 +582,18 @@ function PMA_SQP_parse($sql)
                         $debugstr = __('Invalid Identifer')
                             . ' @ ' . ($count1+1) . "\n"
                             . 'STR: ' . htmlspecialchars(
-                                $GLOBALS['PMA_String']->substr($sql, $count1, $count2 - $count1)
+                                $GLOBALS['PMA_String']->substr(
+                                    $sql, $count1, $count2 - $count1
+                                )
                             );
                         PMA_SQP_throwError($debugstr, $sql);
                         return $sql_array;
                     }
                 }
-                if ($is_digit && (!$is_hex_digit) && (($c2 == 'e') || ($c2 == 'E'))) {
+                if ($is_digit
+                    && (!$is_hex_digit)
+                    && (($c2 == 'e') || ($c2 == 'E'))
+                ) {
                     if (!$is_float_digit_exponent) {
                         $is_float_digit_exponent = true;
                         $is_float_digit          = true;
@@ -587,7 +604,9 @@ function PMA_SQP_parse($sql)
                         $is_float_digit          = false;
                     }
                 }
-                if (($is_hex_digit && $GLOBALS['PMA_String']->isHexDigit($c2)) || ($is_digit && $GLOBALS['PMA_String']->isDigit($c2))) {
+                if (($is_hex_digit && $GLOBALS['PMA_String']->isHexDigit($c2))
+                    || ($is_digit && $GLOBALS['PMA_String']->isDigit($c2))
+                ) {
                     $count2++;
                     continue;
                 } else {
@@ -661,8 +680,12 @@ function PMA_SQP_parse($sql)
                 default:
                     break;
                 }
-                PMA_SQP_arrayAdd($sql_array, 'punct' . $t_suffix, $punct_data, $arraysize);
-            } elseif ($punct_data == $GLOBALS['sql_delimiter'] || isset($allpunct_list_pair[$punct_data])) {
+                PMA_SQP_arrayAdd(
+                    $sql_array, 'punct' . $t_suffix, $punct_data, $arraysize
+                );
+            } elseif ($punct_data == $GLOBALS['sql_delimiter']
+                || isset($allpunct_list_pair[$punct_data])
+            ) {
                 // Ok, we have one of the valid combined punct expressions
                 PMA_SQP_arrayAdd($sql_array, 'punct', $punct_data, $arraysize);
             } else {
@@ -670,15 +693,21 @@ function PMA_SQP_parse($sql)
                 $first  = $punct_data[0];
                 $last2  = $punct_data[$l - 2] . $punct_data[$l - 1];
                 $last   = $punct_data[$l - 1];
-                if (($first == ',') || ($first == ';') || ($first == '.') || ($first == '*')) {
+                if (($first == ',') || ($first == ';') || ($first == '.')
+                    || ($first == '*')
+                ) {
                     $count2     = $count1 + 1;
                     $punct_data = $first;
                 } elseif (($last2 == '/*') || (($last2 == '--') && ($count2 == $len || $GLOBALS['PMA_String']->substr($sql, $count2, 1) <= ' '))) {
                     $count2     -= 2;
-                    $punct_data = $GLOBALS['PMA_String']->substr($sql, $count1, $count2 - $count1);
+                    $punct_data = $GLOBALS['PMA_String']->substr(
+                        $sql, $count1, $count2 - $count1
+                    );
                 } elseif (($last == '-') || ($last == '+') || ($last == '!')) {
                     $count2--;
-                    $punct_data = $GLOBALS['PMA_String']->substr($sql, $count1, $count2 - $count1);
+                    $punct_data = $GLOBALS['PMA_String']->substr(
+                        $sql, $count1, $count2 - $count1
+                    );
                 } elseif ($last != '~') {
                     /**
                      * @todo for negation operator, split in 2 tokens ?
@@ -701,7 +730,9 @@ function PMA_SQP_parse($sql)
         $count2++;
 
         $debugstr = 'C1 C2 LEN: ' . $count1 . ' ' . $count2 . ' ' . $len .  "\n"
-            . 'STR: ' . $GLOBALS['PMA_String']->substr($sql, $count1, $count2 - $count1) . "\n";
+            . 'STR: ' . $GLOBALS['PMA_String']->substr(
+                $sql, $count1, $count2 - $count1
+            ) . "\n";
         PMA_SQP_bug($debugstr, $sql);
         return $sql_array;
 
@@ -748,14 +779,22 @@ function PMA_SQP_parse($sql)
             $d_next_upper = '';
         }
 
-        //DEBUG echo "[prev: <strong>".$d_prev."</strong> ".$t_prev."][cur: <strong>".$d_cur."</strong> ".$t_cur."][next: <strong>".$d_next."</strong> ".$t_next."]<br />";
+        /* DEBUG
+        echo "[prev: <strong>".$d_prev."</strong> ".$t_prev."][cur: <strong>"
+            . $d_cur."</strong> ".$t_cur."][next: <strong>".$d_next."</strong> "
+            . $t_next."]<br />";
+        */
 
         if ($t_cur == 'alpha') {
             $t_suffix     = '_identifier';
             // for example: `thebit` bit(8) NOT NULL DEFAULT b'0'
-            if ($t_prev == 'alpha' && $d_prev == 'DEFAULT' && $d_cur == 'b' && $t_next == 'quote_single') {
+            if ($t_prev == 'alpha' && $d_prev == 'DEFAULT' && $d_cur == 'b'
+                && $t_next == 'quote_single'
+            ) {
                 $t_suffix = '_bitfield_constant_introducer';
-            } elseif (($t_next == 'punct_qualifier') || ($t_prev == 'punct_qualifier')) {
+            } elseif (($t_next == 'punct_qualifier')
+                || ($t_prev == 'punct_qualifier')
+            ) {
                 $t_suffix = '_identifier';
             } elseif (($t_next == 'punct_bracket_open_round')
                 && isset($PMA_SQPdata_function_name[$d_cur_upper])
@@ -779,7 +818,9 @@ function PMA_SQP_parse($sql)
                  *
                  * @todo FIX PROPERLY NEEDS OVERHAUL OF SQL TOKENIZER
                  */
-                if (($d_cur_upper == 'SET' || $d_cur_upper == 'BINARY') && $t_next != 'punct_bracket_open_round') {
+                if (($d_cur_upper == 'SET' || $d_cur_upper == 'BINARY')
+                    && $t_next != 'punct_bracket_open_round'
+                ) {
                     $t_suffix = '_reservedWord';
                 }
                 //END OF TEMPORARY FIX
@@ -900,7 +941,8 @@ function PMA_SQP_analyze($arr)
     $size            = $arr['len'];
     $subresult       = array(
         'querytype'      => '',
-        'select_expr_clause'=> '', // the whole stuff between SELECT and FROM , except DISTINCT
+        // the whole stuff between SELECT and FROM , except DISTINCT
+        'select_expr_clause'=> '',
         'position_of_first_select' => '', // the array index
         'from_clause'=> '',
         'group_by_clause'=> '',
@@ -996,7 +1038,7 @@ function PMA_SQP_analyze($arr)
      *                                     |MIN|MAX|BIT_OR|BIT_AND
      * ['queryflags']['is_count'] = 1;     for the presence of SELECT COUNT
      * ['queryflags']['is_procedure'] = 1; for the presence of CALL
-     * ['queryflags']['is_subquery'] = 1;  contains a subquery 
+     * ['queryflags']['is_subquery'] = 1;  contains a subquery
      *
      * query clauses
      * -------------
@@ -1275,6 +1317,9 @@ function PMA_SQP_analyze($arr)
                         // setting the alias)
                         $alias_for_select_expr = $identifier;
                     } else {
+                        if (! isset($chain)) {
+                            $chain = array();
+                        }
                         $chain[] = $identifier;
                         $previous_was_identifier = true;
 
@@ -1287,6 +1332,9 @@ function PMA_SQP_analyze($arr)
                             // save it for later
                             $alias_for_table_ref = $identifier;
                         } else {
+                            if (! isset($chain)) {
+                                $chain = array();
+                            }
                             $chain[] = $identifier;
                             $previous_was_identifier = true;
 
@@ -1334,18 +1382,23 @@ function PMA_SQP_analyze($arr)
 
             if (isset($alias_for_select_expr) && strlen($alias_for_select_expr)) {
                 // we had found an alias for this select expression
-                $subresult['select_expr'][$current_select_expr]['alias'] = $alias_for_select_expr;
+                $subresult['select_expr'][$current_select_expr]['alias']
+                    = $alias_for_select_expr;
                 unset($alias_for_select_expr);
             }
             // there is at least a column
-            $subresult['select_expr'][$current_select_expr]['column'] = $chain[$size_chain - 1];
-            $subresult['select_expr'][$current_select_expr]['expr'] = $chain[$size_chain - 1];
+            $subresult['select_expr'][$current_select_expr]['column']
+                = $chain[$size_chain - 1];
+            $subresult['select_expr'][$current_select_expr]['expr']
+                = $chain[$size_chain - 1];
 
             // maybe a table
             if ($size_chain > 1) {
-                $subresult['select_expr'][$current_select_expr]['table_name'] = $chain[$size_chain - 2];
+                $subresult['select_expr'][$current_select_expr]['table_name']
+                    = $chain[$size_chain - 2];
                 // we assume for now that this is also the true name
-                $subresult['select_expr'][$current_select_expr]['table_true_name'] = $chain[$size_chain - 2];
+                $subresult['select_expr'][$current_select_expr]['table_true_name']
+                    = $chain[$size_chain - 2];
                 $subresult['select_expr'][$current_select_expr]['expr']
                     = $subresult['select_expr'][$current_select_expr]['table_name']
                     . '.' . $subresult['select_expr'][$current_select_expr]['expr'];
@@ -1353,7 +1406,8 @@ function PMA_SQP_analyze($arr)
 
             // maybe a db
             if ($size_chain > 2) {
-                $subresult['select_expr'][$current_select_expr]['db'] = $chain[$size_chain - 3];
+                $subresult['select_expr'][$current_select_expr]['db']
+                    = $chain[$size_chain - 3];
                 $subresult['select_expr'][$current_select_expr]['expr']
                     = $subresult['select_expr'][$current_select_expr]['db']
                     . '.' . $subresult['select_expr'][$current_select_expr]['expr'];
@@ -1401,17 +1455,21 @@ function PMA_SQP_analyze($arr)
               'table_true_name' => ''
              );
             if (isset($alias_for_table_ref) && strlen($alias_for_table_ref)) {
-                $subresult['table_ref'][$current_table_ref]['table_alias'] = $alias_for_table_ref;
+                $subresult['table_ref'][$current_table_ref]['table_alias']
+                    = $alias_for_table_ref;
                 unset($alias_for_table_ref);
             }
-            $subresult['table_ref'][$current_table_ref]['table_name'] = $chain[$size_chain - 1];
+            $subresult['table_ref'][$current_table_ref]['table_name']
+                = $chain[$size_chain - 1];
             // we assume for now that this is also the true name
-            $subresult['table_ref'][$current_table_ref]['table_true_name'] = $chain[$size_chain - 1];
+            $subresult['table_ref'][$current_table_ref]['table_true_name']
+                = $chain[$size_chain - 1];
             $subresult['table_ref'][$current_table_ref]['expr']
                 = $subresult['table_ref'][$current_table_ref]['table_name'];
             // maybe a db
             if ($size_chain > 1) {
-                $subresult['table_ref'][$current_table_ref]['db'] = $chain[$size_chain - 2];
+                $subresult['table_ref'][$current_table_ref]['db']
+                    = $chain[$size_chain - 2];
                 $subresult['table_ref'][$current_table_ref]['expr']
                     = $subresult['table_ref'][$current_table_ref]['db']
                     . '.' . $subresult['table_ref'][$current_table_ref]['expr'];
@@ -1444,7 +1502,8 @@ function PMA_SQP_analyze($arr)
                         && strlen($alias)
                         && $subresult['select_expr'][$se]['table_true_name'] == $alias
                     ) {
-                        $subresult['select_expr'][$se]['table_true_name'] = $truename;
+                        $subresult['select_expr'][$se]['table_true_name']
+                            = $truename;
                     } // end if (found the alias)
                 } // end for (select expressions)
 
@@ -1576,6 +1635,11 @@ function PMA_SQP_analyze($arr)
     $number_of_brackets = 0;
     $in_subquery = false;
 
+    $arrayFunctions = array(
+        "SUM","AVG","STD","STDDEV","MIN","MAX","BIT_OR","BIT_AND"
+    );
+    $arrayKeyWords = array("BY", "HAVING", "SELECT");
+
     for ($i = 0; $i < $size; $i++) {
         //DEBUG echo "Loop2 <strong>"  . $arr[$i]['data']
         //. "</strong> (" . $arr[$i]['type'] . ")<br />";
@@ -1603,28 +1667,22 @@ function PMA_SQP_analyze($arr)
                 $subresult['querytype'] = $upper_data;
                 $seen_reserved_word = true;
 
-                if ($first_reserved_word == 'SELECT') {
+                if ($first_reserved_word === 'SELECT') {
                     $position_of_first_select = $i;
-                }
-
-                if ($first_reserved_word == 'EXPLAIN') {
+                } elseif ($first_reserved_word === 'EXPLAIN') {
                     $subresult['queryflags']['is_explain'] = 1;
-                }
-
-                if ($first_reserved_word == 'DELETE') {
+                } elseif ($first_reserved_word === 'DELETE') {
                     $subresult['queryflags']['is_delete'] = 1;
                     $subresult['queryflags']['is_affected'] = 1;
-                }
-
-                if ($first_reserved_word == 'UPDATE') {
+                } elseif ($first_reserved_word === 'UPDATE') {
                     $subresult['queryflags']['is_affected'] = 1;
-                }
-
-                if ($first_reserved_word == 'REPLACE') {
+                } elseif ($first_reserved_word === 'REPLACE') {
                     $subresult['queryflags']['is_replace'] = 1;
-                }
-
-                if ($first_reserved_word == 'SHOW') {
+                    $subresult['queryflags']['is_affected'] = 1;
+                } elseif ($first_reserved_word === 'INSERT') {
+                    $subresult['queryflags']['is_insert'] = 1;
+                    $subresult['queryflags']['is_affected'] = 1;
+                } elseif ($first_reserved_word === 'SHOW') {
                     $subresult['queryflags']['is_show'] = 1;
                 }
 
@@ -1642,15 +1700,6 @@ function PMA_SQP_analyze($arr)
                 ) {
                     $subresult['queryflags']['reload'] = 1;
                 }
-
-                // for the presence of INSERT|LOAD DATA
-                if (in_array($first_reserved_word, array('INSERT', 'LOAD'))
-                    && $upper_data == 'REPLACE'
-                ) {
-                    $subresult['queryflags']['is_insert'] = 1;
-                    $subresult['queryflags']['is_affected'] = 1;
-                }
-
                 // for the presence of CHECK|ANALYZE|REPAIR|OPTIMIZE TABLE
                 $keywords = array(
                     'CHECK', 'ANALYZE', 'REPAIR', 'OPTIMIZE'
@@ -1767,7 +1816,7 @@ function PMA_SQP_analyze($arr)
                     && $subresult['queryflags']['select_from'] == 1
                     && ($i + 1) < $size
                     && $arr[$i + 1]['type'] == 'alpha_reservedWord'
-                    && in_array(strtoupper($arr[$i + 1]['data']), array("BY", "HAVING", "SELECT"))
+                    && in_array(strtoupper($arr[$i + 1]['data']), $arrayKeyWords)
                     && ($i + 2) < $size
                     && $arr[$i + 2]['type'] == 'alpha_reservedWord'
                     && strtoupper($arr[$i + 2]['data']) == 'DISTINCT'
@@ -1818,8 +1867,8 @@ function PMA_SQP_analyze($arr)
                     $seen_order_by = true;
                     // Here we assume that the ORDER BY keywords took
                     // exactly 8 characters.
-                    // We use $GLOBALS['PMA_String']->substr() to be charset-safe; otherwise
-                    // if the table name contains accents, the unsorted
+                    // We use $GLOBALS['PMA_String']->substr() to be charset-safe;
+                    // otherwise if the table name contains accents, the unsorted
                     // query would be missing some characters.
                     $unsorted_query = $GLOBALS['PMA_String']->substr(
                         $arr['raw'], 0, $arr[$i]['pos'] - 8
@@ -1899,7 +1948,7 @@ function PMA_SQP_analyze($arr)
 
         // for the presence of SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND
         if ($arr[$i]['type'] == 'alpha_functionName'
-            && in_array(strtoupper($arr[$i]['data']), array("SUM","AVG","STD","STDDEV","MIN","MAX","BIT_OR","BIT_AND"))
+            && in_array(strtoupper($arr[$i]['data']), $arrayFunctions)
             && isset($subresult['queryflags']['select_from'])
             && $subresult['queryflags']['select_from'] == 1
             && !isset($subresult['queryflags']['is_group'])
@@ -2005,7 +2054,11 @@ function PMA_SQP_analyze($arr)
             $upper_data = strtoupper($arr[$i]['data']);
 
             if ($upper_data == 'NOT' && $in_timestamp_options) {
-                $create_table_fields[$current_identifier]['timestamp_not_null'] = true;
+                if (! isset($create_table_fields)) {
+                    $create_table_fields = array();
+                }
+                $create_table_fields[$current_identifier]['timestamp_not_null']
+                    = true;
 
             }
 
@@ -2059,7 +2112,9 @@ function PMA_SQP_analyze($arr)
             // ON UPDATE CURRENT_TIMESTAMP
 
             if ($upper_data == 'ON') {
-                if (isset($arr[$i+1]) && $arr[$i+1]['type'] == 'alpha_reservedWord') {
+                if (isset($arr[$i+1])
+                    && $arr[$i+1]['type'] == 'alpha_reservedWord'
+                ) {
                     $second_upper_data = strtoupper($arr[$i+1]['data']);
                     if ($second_upper_data == 'DELETE') {
                         $clause = 'on_delete';
@@ -2100,6 +2155,9 @@ function PMA_SQP_analyze($arr)
                             $value = '';
                         }
                         if (!empty($value)) {
+                            if (! isset($foreign)) {
+                                $foreign = array();
+                            }
                             $foreign[$foreign_key_number][$clause] = $value;
                         }
                         unset($clause);
@@ -2133,7 +2191,8 @@ function PMA_SQP_analyze($arr)
             if ($seen_create_table && $in_create_table_fields) {
                 if ($upper_data == 'DEFAULT') {
                     $seen_default = true;
-                    $create_table_fields[$current_identifier]['default_value'] = $arr[$i + 1]['data'];
+                    $create_table_fields[$current_identifier]['default_value']
+                        = $arr[$i + 1]['data'];
                 }
             }
         }
@@ -2176,7 +2235,8 @@ function PMA_SQP_analyze($arr)
             if ($seen_create_table && $in_create_table_fields) {
                 $current_identifier = $identifier;
                 // we set this one even for non TIMESTAMP type
-                $create_table_fields[$current_identifier]['timestamp_not_null'] = false;
+                $create_table_fields[$current_identifier]['timestamp_not_null']
+                    = false;
             }
 
             if ($seen_constraint) {

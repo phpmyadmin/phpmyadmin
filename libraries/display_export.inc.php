@@ -22,7 +22,7 @@ require_once './libraries/display_export.lib.php';
 
 /* Scan for plugins */
 $export_list = PMA_getPlugins(
-    "export",
+    'export',
     'libraries/plugins/export/',
     array(
         'export_type' => $export_type,

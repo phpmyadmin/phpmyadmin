@@ -107,7 +107,7 @@ function PMA_getAvailableMIMEtypes()
     sort($filestack);
 
     foreach ($filestack as $file) {
-        if (preg_match('|^.*_.*_.*\.class\.php$|', $file)) {
+        if (preg_match('|^[^.].*_.*_.*\.class\.php$|', $file)) {
             // File contains transformation functions.
             $parts = explode('_', str_replace('.class.php', '', $file));
             $mimetype = $parts[0] . "/" . $parts[1];
@@ -115,7 +115,7 @@ function PMA_getAvailableMIMEtypes()
             $stack['transformation'][] = $mimetype . ': ' . $parts[2];
             $stack['transformation_file'][] = $file;
 
-        } elseif (preg_match('|^.*\.class.php$|', $file)) {
+        } elseif (preg_match('|^[^.].*\.class.php$|', $file)) {
             // File is a plain mimetype, no functions.
             $base = str_replace('.class.php', '', $file);
 
@@ -232,21 +232,21 @@ function PMA_getMIME($db, $table, $strict = false)
 /**
  * Set a single mimetype to a certain value.
  *
- * @param string  $db                     the name of the db
- * @param string  $table                  the name of the table
- * @param string  $key                    the name of the column
- * @param string  $mimetype               the mimetype of the column
- * @param string  $transformation         the transformation of the column
- * @param string  $transformation_options the transformation options of the column
- * @param boolean $forcedelete            force delete, will erase any existing
- *                                        comments for this column
+ * @param string  $db                 the name of the db
+ * @param string  $table              the name of the table
+ * @param string  $key                the name of the column
+ * @param string  $mimetype           the mimetype of the column
+ * @param string  $transformation     the transformation of the column
+ * @param string  $transformationOpts the transformation options of the column
+ * @param boolean $forcedelete        force delete, will erase any existing
+ *                                    comments for this column
  *
  * @access  public
  *
  * @return boolean  true, if comment-query was made.
  */
 function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
-    $transformation_options, $forcedelete = false
+    $transformationOpts, $forcedelete = false
 ) {
     $cfgRelation = PMA_getRelationsParam();
 
@@ -287,7 +287,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
 
         if (! $forcedelete
             && (strlen($mimetype) || strlen($transformation)
-            || strlen($transformation_options) || strlen($row['comment']))
+            || strlen($transformationOpts) || strlen($row['comment']))
         ) {
             $upd_query = 'UPDATE ' . PMA_Util::backquote($cfgRelation['db']) . '.'
                 . PMA_Util::backquote($cfgRelation['column_info'])
@@ -297,7 +297,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
                 . '`transformation` = \''
                 . PMA_Util::sqlAddSlashes($transformation) . '\', '
                 . '`transformation_options` = \''
-                . PMA_Util::sqlAddSlashes($transformation_options) . '\'';
+                . PMA_Util::sqlAddSlashes($transformationOpts) . '\'';
         } else {
             $upd_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
                 . '.' . PMA_Util::backquote($cfgRelation['column_info']);
@@ -308,7 +308,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
               AND `column_name` = \'' . PMA_Util::sqlAddSlashes($key) . '\'';
     } elseif (strlen($mimetype)
         || strlen($transformation)
-        || strlen($transformation_options)
+        || strlen($transformationOpts)
     ) {
 
         $upd_query = 'INSERT INTO ' . PMA_Util::backquote($cfgRelation['db'])
@@ -321,7 +321,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
             . '\'' . PMA_Util::sqlAddSlashes($key) . '\','
             . '\'' . PMA_Util::sqlAddSlashes($mimetype) . '\','
             . '\'' . PMA_Util::sqlAddSlashes($transformation) . '\','
-            . '\'' . PMA_Util::sqlAddSlashes($transformation_options) . '\')';
+            . '\'' . PMA_Util::sqlAddSlashes($transformationOpts) . '\')';
     }
 
     if (isset($upd_query)) {

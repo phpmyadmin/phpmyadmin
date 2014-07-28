@@ -144,7 +144,7 @@ rule 'MySQL Architecture'
 	value > 3072*1024 && !preg_match('/64/',version_compile_machine) && !preg_match('/64/',version_compile_os)
 	MySQL is not compiled as a 64-bit package.
 	Your memory capacity is above 3 GiB (assuming the Server is on localhost), so MySQL might not be able to access all of your memory. You might want to consider installing the 64-bit version of MySQL.
-	Available memory on this host: %s | implode(' ',ADVISOR_formatByteDown(value*1024, 2, 2))
+	Available memory on this host: %s | ADVISOR_formatByteDown(value*1024, 2, 2)
 
 #
 # Query cache
@@ -197,7 +197,7 @@ rule 'Query cache max size' [!fired('Query cache disabled')]
 	value > 1024 * 1024 * 128
 	The query cache size is above 128 MiB. Big query caches may cause significant overhead that is required to maintain the cache.
 	Depending on your environment, it might be performance increasing to reduce this value.
-	Current query cache size: %s | implode(' ',ADVISOR_formatByteDown(value, 2, 2))
+	Current query cache size: %s | ADVISOR_formatByteDown(value, 2, 2)
 
 rule 'Query cache min result size' [!fired('Query cache disabled')]
 	query_cache_limit
@@ -259,12 +259,12 @@ rule 'Rate of reading next table row'
 	Rate of reading next table row: %s, this value should be less than 1 per hour | ADVISOR_bytime(value,2)
 
 # temp tables
-rule 'tmp_table_size vs. max_heap_table_size'
+rule 'Different tmp_table_size and max_heap_table_size'
 	tmp_table_size - max_heap_table_size
 	value !=0
 	{tmp_table_size} and {max_heap_table_size} are not the same.
 	If you have deliberately changed one of either: The server uses the lower value of either to determine the maximum size of in-memory tables. So if you wish to increase the in-memory table limit you will have to increase the other value as well.
-	Current values are tmp_table_size: %s, max_heap_table_size: %s | implode(' ',ADVISOR_formatByteDown(tmp_table_size, 2, 2)), implode(' ',ADVISOR_formatByteDown(max_heap_table_size, 2, 2))
+	Current values are tmp_table_size: %s, max_heap_table_size: %s | ADVISOR_formatByteDown(tmp_table_size, 2, 2), ADVISOR_formatByteDown(max_heap_table_size, 2, 2)
 
 rule 'Percentage of temp tables on disk' [Created_tmp_tables + Created_tmp_disk_tables > 0]
 	Created_tmp_disk_tables / (Created_tmp_tables + Created_tmp_disk_tables) * 100

@@ -291,10 +291,11 @@ var AJAX = {
                         "<div id='page_content'>" + data.message + "</div>"
                     );
                     PMA_highlightSQL($('#page_content'));
+                    checkNumberOfFields();
                 }
 
                 if (data._selflink) {
-                    
+
                     var source = data._selflink.split('?')[0];
                     //Check for faulty links
                     if (source == "import.php") {
@@ -339,6 +340,15 @@ var AJAX = {
             PMA_ajaxShowMessage(data.error, false);
             AJAX.active = false;
             AJAX.xhr = null;
+            if (parseInt(data.redirect_flag) == 1) {
+                // add one more GET param to display session expiry msg
+                window.location.href += '&session_expired=1';
+                window.location.reload();
+            }
+            if (data.fieldWithError) {
+                $(':input.error').removeClass("error");
+                $('#'+data.fieldWithError).addClass("error");
+            }
         }
     },
     /**

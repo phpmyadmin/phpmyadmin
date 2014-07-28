@@ -17,6 +17,7 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_getColumnOrder()
 {
+    $column_order = array();
     $column_order['DEFAULT_COLLATION_NAME'] = array(
         'disp_name' => __('Collation'),
         'description_function' => 'PMA_getCollationDescr',
@@ -169,7 +170,7 @@ function PMA_buildHtmlForDb(
                . '&amp;checkprivsdb=' . urlencode($current['SCHEMA_NAME'])
                . '" title="'
                . sprintf(
-                   __('Check privileges for database &quot;%s&quot;.'),
+                   __('Check privileges for database "%s".'),
                    htmlspecialchars($current['SCHEMA_NAME'])
                )
                . '">'

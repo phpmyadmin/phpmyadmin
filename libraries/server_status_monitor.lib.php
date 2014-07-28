@@ -15,7 +15,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Prints html with monitor
  *
- * @param object $ServerStatusData An instance of the PMA_ServerStatusData class
+ * @param PMA_ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -345,10 +345,6 @@ function PMA_getHtmlForSettingsDialog()
     $retval .= '<option>4</option>';
     $retval .= '<option>5</option>';
     $retval .= '<option>6</option>';
-    $retval .= '<option>7</option>';
-    $retval .= '<option>8</option>';
-    $retval .= '<option>9</option>';
-    $retval .= '<option>10</option>';
     $retval .= '</select>';
     $retval .= '</div>';
     $retval .= '<div class="clearfloat paddingtop">';
@@ -381,7 +377,7 @@ function PMA_getHtmlForSettingsDialog()
 /**
  * Define some data and links needed on the client side
  *
- * @param object $ServerStatusData An instance of the PMA_ServerStatusData class
+ * @param PMA_ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -423,78 +419,11 @@ function PMA_getJsonForChartingData()
     $statusVars = array();
     $serverVars = array();
     $sysinfo = $cpuload = $memory = 0;
-    $pName = '';
 
     /* Accumulate all required variables and data */
-    // For each chart
-    foreach ($ret as $chart_id => $chartNodes) {
-        // For each data series
-        foreach ($chartNodes as $node_id => $nodeDataPoints) {
-            // For each data point in the series (usually just 1)
-            foreach ($nodeDataPoints as $point_id => $dataPoint) {
-                $pName = $dataPoint['name'];
-
-                switch ($dataPoint['type']) {
-                /* We only collect the status and server variables here to
-                 * read them all in one query,
-                 * and only afterwards assign them.
-                 * Also do some white list filtering on the names
-                */
-                case 'servervar':
-                    if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
-                        $serverVars[] = $pName;
-                    }
-                    break;
-
-                case 'statusvar':
-                    if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
-                        $statusVars[] = $pName;
-                    }
-                    break;
-
-                case 'proc':
-                    $result = $GLOBALS['dbi']->query('SHOW PROCESSLIST');
-                    $ret[$chart_id][$node_id][$point_id]['value']
-                        = $GLOBALS['dbi']->numRows($result);
-                    break;
-
-                case 'cpu':
-                    if (!$sysinfo) {
-                        include_once 'libraries/sysinfo.lib.php';
-                        $sysinfo = PMA_getSysInfo();
-                    }
-                    if (!$cpuload) {
-                        $cpuload = $sysinfo->loadavg();
-                    }
-
-                    if (PMA_getSysInfoOs() == 'Linux') {
-                        $ret[$chart_id][$node_id][$point_id]['idle']
-                            = $cpuload['idle'];
-                        $ret[$chart_id][$node_id][$point_id]['busy']
-                            = $cpuload['busy'];
-                    } else {
-                        $ret[$chart_id][$node_id][$point_id]['value']
-                            = $cpuload['loadavg'];
-                    }
-
-                    break;
-
-                case 'memory':
-                    if (!$sysinfo) {
-                        include_once 'libraries/sysinfo.lib.php';
-                        $sysinfo = PMA_getSysInfo();
-                    }
-                    if (!$memory) {
-                        $memory  = $sysinfo->memory();
-                    }
-
-                    $ret[$chart_id][$node_id][$point_id]['value']
-                        = $memory[$pName];
-                    break;
-                } /* switch */
-            } /* foreach */
-        } /* foreach */
-    } /* foreach */
+    list($serverVars, $statusVars, $ret) = PMA_getJsonForChartingDataGet(
+        $ret, $serverVars, $statusVars, $sysinfo, $cpuload, $memory
+    );
 
     // Retrieve all required status variables
     if (count($statusVars)) {
@@ -521,10 +450,27 @@ function PMA_getJsonForChartingData()
     }
 
     // ...and now assign them
+    $ret = PMA_getJsonForChartingDataSet($ret, $statusVarValues, $serverVarValues);
+
+    $ret['x'] = microtime(true) * 1000;
+    return $ret;
+}
+
+/**
+ * Assign the variables for real-time charting data
+ *
+ * @param array $ret             Real-time charting data
+ * @param array $statusVarValues Status variable values
+ * @param array $serverVarValues Server variable values
+ *
+ * @return array
+ */
+function PMA_getJsonForChartingDataSet($ret, $statusVarValues, $serverVarValues)
+{
     foreach ($ret as $chart_id => $chartNodes) {
         foreach ($chartNodes as $node_id => $nodeDataPoints) {
             foreach ($nodeDataPoints as $point_id => $dataPoint) {
-                switch($dataPoint['type']) {
+                switch ($dataPoint['type']) {
                 case 'statusvar':
                     $ret[$chart_id][$node_id][$point_id]['value']
                         = $statusVarValues[$dataPoint['name']];
@@ -537,9 +483,115 @@ function PMA_getJsonForChartingData()
             }
         }
     }
+    return $ret;
+}
 
-    $ret['x'] = microtime(true) * 1000;
-    return  $ret;
+/**
+ * Get called to get JSON for charting data
+ *
+ * @param array $ret        Real-time charting data
+ * @param array $serverVars Server variable values
+ * @param array $statusVars Status variable values
+ * @param mixed $sysinfo    System info
+ * @param mixed $cpuload    CPU load
+ * @param mixed $memory     Memory
+ *
+ * @return array
+ */
+function PMA_getJsonForChartingDataGet(
+    $ret, $serverVars, $statusVars, $sysinfo, $cpuload, $memory
+) {
+    // For each chart
+    foreach ($ret as $chart_id => $chartNodes) {
+        // For each data series
+        foreach ($chartNodes as $node_id => $nodeDataPoints) {
+            // For each data point in the series (usually just 1)
+            foreach ($nodeDataPoints as $point_id => $dataPoint) {
+                list($serverVars, $statusVars, $ret[$chart_id][$node_id][$point_id])
+                    = PMA_getJsonForChartingDataSwitch(
+                        $dataPoint['type'], $dataPoint['name'], $serverVars,
+                        $statusVars, $ret[$chart_id][$node_id][$point_id],
+                        $sysinfo, $cpuload, $memory
+                    );
+            } /* foreach */
+        } /* foreach */
+    }
+    return array($serverVars, $statusVars, $ret);
+}
+
+/**
+ * Switch called to get JSON for charting data
+ *
+ * @param string $type       Type
+ * @param string $pName      Name
+ * @param array  $serverVars Server variable values
+ * @param array  $statusVars Status variable values
+ * @param array  $ret        Real-time charting data
+ * @param mixed  $sysinfo    System info
+ * @param mixed  $cpuload    CPU load
+ * @param mixed  $memory     Memory
+ *
+ * @return array
+ */
+function PMA_getJsonForChartingDataSwitch(
+    $type, $pName, $serverVars, $statusVars, $ret,
+    $sysinfo, $cpuload, $memory
+) {
+    switch ($type) {
+    /* We only collect the status and server variables here to
+     * read them all in one query,
+     * and only afterwards assign them.
+     * Also do some white list filtering on the names
+    */
+    case 'servervar':
+        if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
+            $serverVars[] = $pName;
+        }
+        break;
+
+    case 'statusvar':
+        if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
+            $statusVars[] = $pName;
+        }
+        break;
+
+    case 'proc':
+        $result = $GLOBALS['dbi']->query('SHOW PROCESSLIST');
+        $ret['value'] = $GLOBALS['dbi']->numRows($result);
+        break;
+
+    case 'cpu':
+        if (!$sysinfo) {
+            include_once 'libraries/sysinfo.lib.php';
+            $sysinfo = PMA_getSysInfo();
+        }
+        if (!$cpuload) {
+            $cpuload = $sysinfo->loadavg();
+        }
+
+        if (PMA_getSysInfoOs() == 'Linux') {
+            $ret['idle'] = $cpuload['idle'];
+            $ret['busy'] = $cpuload['busy'];
+        } else {
+            $ret['value'] = $cpuload['loadavg'];
+        }
+
+        break;
+
+    case 'memory':
+        if (!$sysinfo) {
+            include_once 'libraries/sysinfo.lib.php';
+            $sysinfo = PMA_getSysInfo();
+        }
+        if (!$memory) {
+            $memory = $sysinfo->memory();
+        }
+
+        $ret['value'] = isset($memory[$pName]) ? $memory[$pName] : 0;
+        break;
+    }
+
+    return array($serverVars, $statusVars, $ret);
 }
 
 /**
@@ -552,20 +604,19 @@ function PMA_getJsonForChartingData()
  */
 function PMA_getJsonForLogDataTypeSlow($start, $end)
 {
-    $q  = 'SELECT start_time, user_host, ';
-    $q .= 'Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, ';
-    $q .= 'Sec_to_Time(Sum(Time_to_Sec(lock_time))) as lock_time, ';
-    $q .= 'SUM(rows_sent) AS rows_sent, ';
-    $q .= 'SUM(rows_examined) AS rows_examined, db, sql_text, ';
-    $q .= 'COUNT(sql_text) AS \'#\' ';
-    $q .= 'FROM `mysql`.`slow_log` ';
-    $q .= 'WHERE start_time > FROM_UNIXTIME(' . $start . ') ';
-    $q .= 'AND start_time < FROM_UNIXTIME(' . $end . ') GROUP BY sql_text';
+    $query  = 'SELECT start_time, user_host, ';
+    $query .= 'Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, ';
+    $query .= 'Sec_to_Time(Sum(Time_to_Sec(lock_time))) as lock_time, ';
+    $query .= 'SUM(rows_sent) AS rows_sent, ';
+    $query .= 'SUM(rows_examined) AS rows_examined, db, sql_text, ';
+    $query .= 'COUNT(sql_text) AS \'#\' ';
+    $query .= 'FROM `mysql`.`slow_log` ';
+    $query .= 'WHERE start_time > FROM_UNIXTIME(' . $start . ') ';
+    $query .= 'AND start_time < FROM_UNIXTIME(' . $end . ') GROUP BY sql_text';
 
-    $result = $GLOBALS['dbi']->tryQuery($q);
+    $result = $GLOBALS['dbi']->tryQuery($query);
 
     $return = array('rows' => array(), 'sum' => array());
-    $type = '';
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         $type = strtolower(
@@ -621,18 +672,17 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
             = 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' ';
     }
 
-    $q = 'SELECT TIME(event_time) as event_time, user_host, thread_id, ';
-    $q .= 'server_id, argument, count(argument) as \'#\' ';
-    $q .= 'FROM `mysql`.`general_log` ';
-    $q .= 'WHERE command_type=\'Query\' ';
-    $q .= 'AND event_time > FROM_UNIXTIME(' . $start . ') ';
-    $q .= 'AND event_time < FROM_UNIXTIME(' . $end . ') ';
-    $q .= $limitTypes . 'GROUP by argument'; // HAVING count > 1';
+    $query = 'SELECT TIME(event_time) as event_time, user_host, thread_id, ';
+    $query .= 'server_id, argument, count(argument) as \'#\' ';
+    $query .= 'FROM `mysql`.`general_log` ';
+    $query .= 'WHERE command_type=\'Query\' ';
+    $query .= 'AND event_time > FROM_UNIXTIME(' . $start . ') ';
+    $query .= 'AND event_time < FROM_UNIXTIME(' . $end . ') ';
+    $query .= $limitTypes . 'GROUP by argument'; // HAVING count > 1';
 
-    $result = $GLOBALS['dbi']->tryQuery($q);
+    $result = $GLOBALS['dbi']->tryQuery($query);
 
     $return = array('rows' => array(), 'sum' => array());
-    $type = '';
     $insertTables = array();
     $insertTablesFirst = -1;
     $i = 0;
@@ -794,5 +844,3 @@ function PMA_getJsonForQueryAnalyzer()
 }
 
 ?>
-
-

@@ -28,7 +28,9 @@ function PMA_RTE_getWord($index)
             'docu'      => 'STORED_ROUTINES',
             'export'    => __('Export of routine %s'),
             'human'     => __('routine'),
-            'no_create' => __('You do not have the necessary privileges to create a routine'),
+            'no_create' => __(
+                'You do not have the necessary privileges to create a routine'
+            ),
             'not_found' => __('No routine with name %1$s found in database %2$s'),
             'nothing'   => __('There are no routines to display.'),
             'title'     => __('Routines'),
@@ -40,7 +42,9 @@ function PMA_RTE_getWord($index)
             'docu'      => 'TRIGGERS',
             'export'    => __('Export of trigger %s'),
             'human'     => __('trigger'),
-            'no_create' => __('You do not have the necessary privileges to create a trigger'),
+            'no_create' => __(
+                'You do not have the necessary privileges to create a trigger'
+            ),
             'not_found' => __('No trigger with name %1$s found in database %2$s'),
             'nothing'   => __('There are no triggers to display.'),
             'title'     => __('Triggers'),
@@ -52,7 +56,9 @@ function PMA_RTE_getWord($index)
             'docu'      => 'EVENTS',
             'export'    => __('Export of event %s'),
             'human'     => __('event'),
-            'no_create' => __('You do not have the necessary privileges to create an event'),
+            'no_create' => __(
+                'You do not have the necessary privileges to create an event'
+            ),
             'not_found' => __('No event with name %1$s found in database %2$s'),
             'nothing'   => __('There are no events to display.'),
             'title'     => __('Events'),

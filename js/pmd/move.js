@@ -404,7 +404,7 @@ function Line0(x1, y1, x2, y2, color_line)
 }
 
 /**
- * draws a angualr relation/constraint line
+ * draws a angular relation/constraint line
  */
 function Line2(x1, y1, x2, y2, color_line)
 {
@@ -1111,7 +1111,7 @@ function Click_option(id_this, column_name, table_name)
     // var top = Glob_Y - document.getElementById(id_this).offsetHeight - 10;
     document.getElementById(id_this).style.top  = (screen.height / 4) + 'px';
     document.getElementById(id_this).style.display = 'block';
-    document.getElementById('option_col_name').innerHTML = '<strong>' + PMA_messages.strAddOption + '"' + column_name + '"</strong>';
+    document.getElementById('option_col_name').innerHTML = '<strong>' + $.sprintf(PMA_messages.strAddOption, column_name) + '</strong>';
     col_name = column_name;
     tab_name = table_name;
 }

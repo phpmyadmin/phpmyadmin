@@ -123,6 +123,12 @@ class PMA_Error extends PMA_Message
      * @param array $backtrace backtrace
      *
      * @return void
+     *
+     * @todo This function should store only processed backtrace as full
+     *       backtrace requires too much memory (especially with Response
+     *       object included). It could probably store only printable
+     *       representation as created by getBacktraceDisplay or some
+     *       intermediate form.
      */
     public function setBacktrace($backtrace)
     {

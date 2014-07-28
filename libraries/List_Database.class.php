@@ -19,12 +19,10 @@ require_once './libraries/List.class.php';
  * handles database lists
  *
  * <code>
- * $PMA_List_Database = new PMA_List_Database($userlink, $controllink);
+ * $PMA_List_Database = new PMA_List_Database($userlink);
  * </code>
  *
  * @todo this object should be attached to the PMA_Server object
- * @todo ? make use of INFORMATION_SCHEMA
- * @todo ? support --skip-showdatabases and user has only global rights
  *
  * @package PhpMyAdmin
  * @since   phpMyAdmin 2.9.10
@@ -44,12 +42,6 @@ class PMA_List_Database extends PMA_List
     protected $db_link_user = null;
 
     /**
-     * @var mixed   controluser database link resource|object
-     * @access protected
-     */
-    protected $db_link_control = null;
-
-    /**
      * @var boolean whether we can retrieve the list of databases
      * @access protected
      */
@@ -58,14 +50,12 @@ class PMA_List_Database extends PMA_List
     /**
      * Constructor
      *
-     * @param mixed $db_link_user    user database link resource|object
-     * @param mixed $db_link_control control database link resource|object
+     * @param mixed $db_link_user user database link resource|object
      */
-    public function __construct($db_link_user = null, $db_link_control = null)
+    public function __construct($db_link_user = null)
     {
         $this->db_link = $db_link_user;
         $this->db_link_user = $db_link_user;
-        $this->db_link_control = $db_link_control;
 
         parent::__construct();
         $this->build();
@@ -115,22 +105,7 @@ class PMA_List_Database extends PMA_List
         $GLOBALS['dbi']->getError();
 
         if ($GLOBALS['errno'] !== 0) {
-            // failed to get database list, try the control user
-            // (hopefully there is one and he has the necessary rights)
-            $this->db_link = $this->db_link_control;
-            $database_list = $GLOBALS['dbi']->fetchResult(
-                $command, null, null, $this->db_link
-            );
-
-            $GLOBALS['dbi']->getError();
-
-            if ($GLOBALS['errno'] !== 0) {
-                // failed! we will display a warning that phpMyAdmin could not
-                // safely retrieve database list, the admin has to setup a
-                // control user
-                $GLOBALS['error_showdatabases'] = true;
-                $this->can_retrieve_databases = false;
-            }
+            $this->can_retrieve_databases = false;
         }
 
         if ($GLOBALS['cfg']['NaturalOrder']) {

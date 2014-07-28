@@ -353,9 +353,9 @@ class PMA_User_Schema
                 echo '</td>';
 
                 echo '<td>';
-                echo '<input type="checkbox" id="id_c_table_' . $i .'" '
+                echo '<input type="checkbox" id="id_c_table_' . $i . '" '
                     . 'name="c_table_' . $i . '[delete]" value="y" />';
-                echo '<label for="id_c_table_' . $i .'">'
+                echo '<label for="id_c_table_' . $i . '">'
                     . __('Delete') . '</label>';
                 echo '</td>';
 
@@ -384,7 +384,7 @@ class PMA_User_Schema
                 . '" />';
             echo '<input type="checkbox" id="id_with_field_names" '
                 . 'name="with_field_names" '
-                . (isset($with_field_names) ? 'checked="checked"' : ''). ' />';
+                . (isset($with_field_names) ? 'checked="checked"' : '') . ' />';
             echo '<label for="id_with_field_names">'
                 . __('Column names') . '</label><br />';
             echo '<input type="submit" value="' . __('Save') . '" />';
@@ -480,7 +480,7 @@ class PMA_User_Schema
             . '<input type="checkbox" name="show_keys" id="show_keys" />'
             . '<label for="show_keys">' . __('Only show keys') . '</label><br />'
             . '<select name="orientation" id="orientation_opt" class="paper-change">'
-            . '<option value="L">' . __('Landscape'). '</option>'
+            . '<option value="L">' . __('Landscape') . '</option>'
             . '<option value="P">' . __('Portrait') . '</option>'
             . '</select>'
             . '<label for="orientation_opt">' . __('Orientation') . '</label>'
@@ -582,7 +582,7 @@ class PMA_User_Schema
             $drag_y = $temp_sh_page['y'];
 
             echo '<div id="table_' . $i . '" '
-                . 'data-number="' . $i .'" '
+                . 'data-number="' . $i . '" '
                 . 'data-x="' . $drag_x . '" '
                 . 'data-y="' . $drag_y . '" '
                 . 'class="pdflayout_table"'

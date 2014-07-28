@@ -35,10 +35,10 @@ class Node_Procedure extends Node_DatabaseChild
         $this->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=PROCEDURE'
-                    . '&amp;edit_item=1&amp;token=' . $GLOBALS['token'],
+                    . '&amp;execute_dialog=1&amp;token=' . $GLOBALS['token'],
             'icon' => 'db_routines.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=PROCEDURE'
-                    . '&amp;export_item=1&amp;token=' . $GLOBALS['token']
+                    . '&amp;edit_item=1&amp;token=' . $GLOBALS['token']
         );
         $this->classes = 'procedure';
     }

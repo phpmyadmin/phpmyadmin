@@ -3,7 +3,8 @@
  * Conditionally included if framing is not allowed
  */
 if (self == top) {
-    document.documentElement.style.display = 'block';
+    var style_element = document.getElementById("cfs-style");
+    style_element.parentNode.removeChild(style_element);
 } else {
     top.location = self.location;
 }

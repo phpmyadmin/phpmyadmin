@@ -31,15 +31,17 @@ function PMA_getColumnMap($sql_query, $view_columns)
             $real_source_result
         );
 
-        if (count($real_source_fields_meta) > 0) {
+        $nbColumns = count($view_columns);
+        $nbFields = count($real_source_fields_meta);
+        if ($nbFields > 0) {
 
-            for ($i=0; $i<count($real_source_fields_meta); $i++) {
+            for ($i=0; $i < $nbFields; $i++) {
 
                 $map = array();
                 $map['table_name'] = $real_source_fields_meta[$i]->table;
                 $map['refering_column'] = $real_source_fields_meta[$i]->name;
 
-                if (count($view_columns) > 1) {
+                if ($nbColumns > 1) {
                     $map['real_column'] = $view_columns[$i];
                 }
 

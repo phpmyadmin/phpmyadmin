@@ -232,7 +232,7 @@ function check_time_out(time_limit)
         'check_time_out' : true
     };
      clearTimeout(time_out);
-     time_out = setTimeout(function(){        
+     time_out = setTimeout(function(){
          $.get(href, params, function (data) {
             if (data['message'] === 'timeout') {
                 PMA_ajaxShowMessage(
@@ -244,19 +244,11 @@ function check_time_out(time_limit)
             }
         });
      }, time_limit * 1000);
-     
+
 }
 AJAX.registerOnload('export.js', function () {
     $("input[type='radio'][name='quick_or_custom']").change(toggle_quick_or_custom);
 
-    /**
-     * Sets up the interface for Javascript-enabled browsers since the default is for
-     *  Javascript-disabled browsers
-     * TODO: drop non-JS behaviour
-     */
-    if ($("input[type='hidden'][name='export_method']").val() != "custom-no-form") {
-        $("#quick_or_custom").show();
-    }
     $("#scroll_to_options_msg").hide();
     $("#format_specific_opts div.format_specific_options")
     .hide()

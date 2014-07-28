@@ -272,6 +272,29 @@ class PMA_Types
             'DATE',
         );
     }
+
+    /**
+     * Returns an array of integer types
+     *
+     * @return string[] integer types
+     */
+    public function getIntegerTypes()
+    {
+        return array();
+    }
+
+    /**
+     * Returns the min and max values of a given integer type
+     *
+     * @param string  $type   integer type
+     * @param boolean $signed whether signed
+     *
+     * @return string[] min and max values
+     */
+    public function getIntegerRange($type, $signed = true)
+    {
+        return array('', '');
+    }
 }
 
 /**
@@ -452,6 +475,7 @@ class PMA_Types_MySQL extends PMA_Types
         switch ($class) {
         case 'CHAR':
             return array(
+                'AES_DECRYPT',
                 'AES_ENCRYPT',
                 'BIN',
                 'CHAR',
@@ -684,6 +708,48 @@ class PMA_Types_MySQL extends PMA_Types
         );
 
         return $ret;
+    }
+
+    /**
+     * Returns an array of integer types
+     *
+     * @return string[] integer types
+     */
+    public function getIntegerTypes()
+    {
+        return array('tinyint', 'smallint', 'mediumint', 'int', 'bigint');
+    }
+
+    /**
+     * Returns the min and max values of a given integer type
+     *
+     * @param string  $type   integer type
+     * @param boolean $signed whether signed
+     *
+     * @return string[] min and max values
+     */
+    public function getIntegerRange($type, $signed = true)
+    {
+        static $min_max_data = array(
+            'unsigned' => array(
+                'tinyint'   => array('0', '255'),
+                'smallint'  => array('0', '65535'),
+                'mediumint' => array('0', '16777215'),
+                'int'       => array('0', '4294967295'),
+                'bigint'    => array('0', '18446744073709551615')
+            ),
+            'signed' => array(
+                'tinyint'   => array('-128', '127'),
+                'smallint'  => array('-32768', '32767'),
+                'mediumint' => array('-8388608', '8388607'),
+                'int'       => array('-2147483648', '2147483647'),
+                'bigint'    => array('-9223372036854775808', '9223372036854775807')
+            )
+        );
+        $relevantArray = $signed
+            ? $min_max_data['signed']
+            : $min_max_data['unsigned'];
+        return isset($relevantArray[$type]) ? $relevantArray[$type] : array('', '');
     }
 }
 
@@ -982,5 +1048,32 @@ class PMA_Types_Drizzle extends PMA_Types
         $ret[_pgettext('string types', 'String')] = $types_string;
 
         return $ret;
+    }
+
+    /**
+     * Returns an array of integer types
+     *
+     * @return string[] integer types
+     */
+    public function getIntegerTypes()
+    {
+        return array('integer', 'bigint');
+    }
+
+    /**
+     * Returns the min and max values of a given integer type
+     *
+     * @param string  $type   integer type
+     * @param boolean $signed whether signed (ignored for Drizzle)
+     *
+     * @return string[] min and max values
+     */
+    public function getIntegerRange($type, $signed = true)
+    {
+        static $min_max_data = array(
+            'integer' => array('-2147483648', '2147483647'),
+            'bigint'  => array('-9223372036854775808', '9223372036854775807')
+        );
+        return isset($min_max_data[$type]) ? $min_max_data[$type] : array('', '');
     }
 }

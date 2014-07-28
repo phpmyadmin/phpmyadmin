@@ -309,6 +309,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             var $input = $('#edit_fieldID_' + it);
             if ($input.hasClass('bit')) {
                 sqlTypes[key] = 'bit';
+            } else {
+                sqlTypes[key] = null;
             }
             it++;
         } //End data update

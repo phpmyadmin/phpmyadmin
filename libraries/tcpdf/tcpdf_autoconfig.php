@@ -3,11 +3,11 @@
 // File name   : tcpdf_autoconfig.php
 // Version     : 1.0.000
 // Begin       : 2013-05-16
-// Last Update : 2013-05-16
+// Last Update : 2014-01-25
 // Authors     : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
-// Copyright (C) 2011-2013 Nicola Asuni - Tecnick.com LTD
+// Copyright (C) 2011-2014 Nicola Asuni - Tecnick.com LTD
 //
 // This file is part of TCPDF software library.
 //
@@ -117,7 +117,11 @@ if (!defined('PDF_HEADER_LOGO_WIDTH')) {
 }
 
 if (!defined('K_PATH_CACHE')) {
-	define ('K_PATH_CACHE', sys_get_temp_dir().'/');
+	$K_PATH_CACHE = ini_get('upload_tmp_dir') ? ini_get('upload_tmp_dir') : sys_get_temp_dir();
+	if (substr($K_PATH_CACHE, -1) != '/') {
+		$K_PATH_CACHE .= '/';
+	}
+	define ('K_PATH_CACHE', $K_PATH_CACHE);
 }
 
 if (!defined('K_BLANK_IMAGE')) {

@@ -70,7 +70,7 @@ function PMA_RTN_main($type)
     /**
      * Display a warning for users with PHP's old "mysql" extension.
      */
-    if ($GLOBALS['cfg']['Server']['extension'] === 'mysql') {
+    if (! PMA_DatabaseInterface::checkDbExtension('mysqli')) {
         trigger_error(
             __(
                 'You are using PHP\'s deprecated \'mysql\' extension, '
@@ -375,8 +375,8 @@ function PMA_RTN_handleEditor()
         if (count($errors)) {
             $message = PMA_Message::error(
                 __(
-                    '<b>One or more errors have occurred while'
-                    . ' processing your request:</b>'
+                    'One or more errors have occurred while'
+                    . ' processing your request:'
                 )
             );
             $message->addString('<ul>');
@@ -656,75 +656,78 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
     $retval['item_param_opts_text'] = $params['opts'];
 
     // Get extra data
-    if ($all) {
-        if ($retval['item_type'] == 'FUNCTION') {
-            $retval['item_type_toggle'] = 'PROCEDURE';
-        } else {
-            $retval['item_type_toggle'] = 'FUNCTION';
-        }
-        $retval['item_returntype']   = '';
-        $retval['item_returnlength'] = '';
-        $retval['item_returnopts_num']  = '';
-        $retval['item_returnopts_text'] = '';
-        if (! empty($routine['DTD_IDENTIFIER'])) {
-            if (strlen($routine['DTD_IDENTIFIER']) > 63) {
-                // If the DTD_IDENTIFIER string from INFORMATION_SCHEMA is
-                // at least 64 characters, then it may actually have been
-                // chopped because that column is a varchar(64), so we will
-                // parse the output of SHOW CREATE query to get accurate
-                // information about the return variable.
-                $dtd = '';
-                $fetching = false;
-                for ($i=0; $i<$parsed_query['len']; $i++) {
-                    if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
-                        && strtoupper($parsed_query[$i]['data']) == 'RETURNS'
-                    ) {
-                        $fetching = true;
-                    } else if ($fetching == true
-                        && $parsed_query[$i]['type'] == 'alpha_reservedWord'
-                    ) {
-                        // We will not be looking for options such as UNSIGNED
-                        // or ZEROFILL because there is no way that a numeric
-                        // field's DTD_IDENTIFIER can be longer than 64
-                        // characters. We can safely assume that the return
-                        // datatype is either ENUM or SET, so we only look
-                        // for CHARSET.
-                        $word = strtoupper($parsed_query[$i]['data']);
-                        if ($word == 'CHARSET'
-                            && ($parsed_query[$i+1]['type'] == 'alpha_charset'
-                            || $parsed_query[$i+1]['type'] == 'alpha_identifier')
-                        ) {
-                            $dtd .= $word . ' ' . $parsed_query[$i+1]['data'];
-                        }
-                        break;
-                    } else if ($fetching == true) {
-                        $dtd .= $parsed_query[$i]['data'] . ' ';
-                    }
-                }
-                $routine['DTD_IDENTIFIER'] = $dtd;
-            }
-            $returnparam = PMA_RTN_parseOneParameter($routine['DTD_IDENTIFIER']);
-            $retval['item_returntype']      = $returnparam[2];
-            $retval['item_returnlength']    = $returnparam[3];
-            $retval['item_returnopts_num']  = $returnparam[4];
-            $retval['item_returnopts_text'] = $returnparam[4];
-        }
-        $retval['item_definer'] = PMA_RTN_parseRoutineDefiner($parsed_query);
-        $retval['item_definition'] = $routine['ROUTINE_DEFINITION'];
-        $retval['item_isdeterministic'] = '';
-        if ($routine['IS_DETERMINISTIC'] == 'YES') {
-            $retval['item_isdeterministic'] = " checked='checked'";
-        }
-        $retval['item_securitytype_definer'] = '';
-        $retval['item_securitytype_invoker'] = '';
-        if ($routine['SECURITY_TYPE'] == 'DEFINER') {
-            $retval['item_securitytype_definer'] = " selected='selected'";
-        } else if ($routine['SECURITY_TYPE'] == 'INVOKER') {
-            $retval['item_securitytype_invoker'] = " selected='selected'";
-        }
-        $retval['item_sqldataaccess'] = $routine['SQL_DATA_ACCESS'];
-        $retval['item_comment']       = $routine['ROUTINE_COMMENT'];
+    if (!$all) {
+        return $retval;
     }
+
+    if ($retval['item_type'] == 'FUNCTION') {
+        $retval['item_type_toggle'] = 'PROCEDURE';
+    } else {
+        $retval['item_type_toggle'] = 'FUNCTION';
+    }
+    $retval['item_returntype']   = '';
+    $retval['item_returnlength'] = '';
+    $retval['item_returnopts_num']  = '';
+    $retval['item_returnopts_text'] = '';
+    if (! empty($routine['DTD_IDENTIFIER'])) {
+        if (strlen($routine['DTD_IDENTIFIER']) > 63) {
+            // If the DTD_IDENTIFIER string from INFORMATION_SCHEMA is
+            // at least 64 characters, then it may actually have been
+            // chopped because that column is a varchar(64), so we will
+            // parse the output of SHOW CREATE query to get accurate
+            // information about the return variable.
+            $dtd = '';
+            $fetching = false;
+            for ($i=0; $i<$parsed_query['len']; $i++) {
+                if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
+                    && strtoupper($parsed_query[$i]['data']) == 'RETURNS'
+                ) {
+                    $fetching = true;
+                } else if ($fetching == true
+                    && $parsed_query[$i]['type'] == 'alpha_reservedWord'
+                ) {
+                    // We will not be looking for options such as UNSIGNED
+                    // or ZEROFILL because there is no way that a numeric
+                    // field's DTD_IDENTIFIER can be longer than 64
+                    // characters. We can safely assume that the return
+                    // datatype is either ENUM or SET, so we only look
+                    // for CHARSET.
+                    $word = strtoupper($parsed_query[$i]['data']);
+                    if ($word == 'CHARSET'
+                        && ($parsed_query[$i+1]['type'] == 'alpha_charset'
+                        || $parsed_query[$i+1]['type'] == 'alpha_identifier')
+                    ) {
+                        $dtd .= $word . ' ' . $parsed_query[$i+1]['data'];
+                    }
+                    break;
+                } else if ($fetching == true) {
+                    $dtd .= $parsed_query[$i]['data'] . ' ';
+                }
+            }
+            $routine['DTD_IDENTIFIER'] = $dtd;
+        }
+        $returnparam = PMA_RTN_parseOneParameter($routine['DTD_IDENTIFIER']);
+        $retval['item_returntype']      = $returnparam[2];
+        $retval['item_returnlength']    = $returnparam[3];
+        $retval['item_returnopts_num']  = $returnparam[4];
+        $retval['item_returnopts_text'] = $returnparam[4];
+    }
+
+    $retval['item_definer'] = PMA_RTN_parseRoutineDefiner($parsed_query);
+    $retval['item_definition'] = $routine['ROUTINE_DEFINITION'];
+    $retval['item_isdeterministic'] = '';
+    if ($routine['IS_DETERMINISTIC'] == 'YES') {
+        $retval['item_isdeterministic'] = " checked='checked'";
+    }
+    $retval['item_securitytype_definer'] = '';
+    $retval['item_securitytype_invoker'] = '';
+    if ($routine['SECURITY_TYPE'] == 'DEFINER') {
+        $retval['item_securitytype_definer'] = " selected='selected'";
+    } else if ($routine['SECURITY_TYPE'] == 'INVOKER') {
+        $retval['item_securitytype_invoker'] = " selected='selected'";
+    }
+    $retval['item_sqldataaccess'] = $routine['SQL_DATA_ACCESS'];
+    $retval['item_comment']       = $routine['ROUTINE_COMMENT'];
 
     return $retval;
 } // PMA_RTN_getDataFromName()
@@ -907,9 +910,9 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         unset($routine['item_param_opts_text'][$routine['item_num_params']-1]);
         $routine['item_num_params']--;
     }
-    $disable_remove_parameter = '';
+    $disableRemoveParam = '';
     if (! $routine['item_num_params']) {
-        $disable_remove_parameter = " color: gray;' disabled='disabled";
+        $disableRemoveParam = " color: gray;' disabled='disabled";
     }
     $original_routine = '';
     if ($mode == 'edit') {
@@ -985,46 +988,45 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     for ($i=0; $i<$routine['item_num_params']; $i++) { // each parameter
         $retval .= PMA_RTN_getParameterRow($routine, $i, $isprocedure_class);
     }
-    $retval .= "        </table>\n";
-    $retval .= "    </td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr>\n";
-    $retval .= "    <td>&nbsp;</td>\n";
-    $retval .= "    <td>\n";
-    $retval .= "        <input style='width: 49%;' type='button' \n";
-    $retval .= "               name='routine_addparameter'\n";
-    $retval .= "               value='" . __('Add parameter') . "' />\n";
-    $retval .= "        <input style='width: 49%;$disable_remove_parameter'\n";
-    $retval .= "               type='submit' \n";
-    $retval .= "               name='routine_removeparameter'\n";
-    $retval .= "               value='" . __('Remove last parameter') . "' />\n";
-    $retval .= "    </td>\n";
-    $retval .= "</tr>\n";
+    $retval .= "        </table>";
+    $retval .= "    </td>";
+    $retval .= "</tr>";
+    $retval .= "<tr>";
+    $retval .= "    <td>&nbsp;</td>";
+    $retval .= "    <td>";
+    $retval .= "        <input style='width: 49%;' type='button'";
+    $retval .= "               name='routine_addparameter'";
+    $retval .= "               value='" . __('Add parameter') . "' />";
+    $retval .= "        <input style='width: 49%;" . $disableRemoveParam . "'";
+    $retval .= "               type='submit' ";
+    $retval .= "               name='routine_removeparameter'";
+    $retval .= "               value='" . __('Remove last parameter') . "' />";
+    $retval .= "    </td>";
+    $retval .= "</tr>";
     // parameter handling end
-    $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
-    $retval .= "    <td>" . __('Return type') . "</td>\n";
-    $retval .= "    <td><select name='item_returntype'>\n";
-    $retval .= PMA_Util::getSupportedDatatypes(true, $routine['item_returntype'])
-        . "\n";
-    $retval .= "    </select></td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
-    $retval .= "    <td>" . __('Return length/values') . "</td>\n";
-    $retval .= "    <td><input type='text' name='item_returnlength'\n";
-    $retval .= "               value='{$routine['item_returnlength']}' /></td>\n";
-    $retval .= "    <td class='hide no_len'>---</td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
-    $retval .= "    <td>" . __('Return options') . "</td>\n";
-    $retval .= "    <td><div>\n";
+    $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
+    $retval .= "    <td>" . __('Return type') . "</td>";
+    $retval .= "    <td><select name='item_returntype'>";
+    $retval .= PMA_Util::getSupportedDatatypes(true, $routine['item_returntype']);
+    $retval .= "    </select></td>";
+    $retval .= "</tr>";
+    $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
+    $retval .= "    <td>" . __('Return length/values') . "</td>";
+    $retval .= "    <td><input type='text' name='item_returnlength'";
+    $retval .= "               value='" . $routine['item_returnlength'] . "' /></td>";
+    $retval .= "    <td class='hide no_len'>---</td>";
+    $retval .= "</tr>";
+    $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
+    $retval .= "    <td>" . __('Return options') . "</td>";
+    $retval .= "    <td><div>";
     $retval .= PMA_generateCharsetDropdownBox(
         PMA_CSDROPDOWN_CHARSET,
         "item_returnopts_text",
         null,
         $routine['item_returnopts_text']
     );
-    $retval .= "\n    </div>\n";
-    $retval .= "    <div><select name='item_returnopts_num'>\n";
+    $retval .= "    </div>";
+    $retval .= "    <div><select name='item_returnopts_num'>";
     $retval .= "        <option value=''></option>";
     foreach ($param_opts_num as $key => $value) {
         $selected = "";
@@ -1033,68 +1035,68 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         ) {
             $selected = " selected='selected'";
         }
-        $retval .= "<option$selected>$value</option>";
+        $retval .= "<option" . $selected . ">" . $value . "</option>";
     }
-    $retval .= "\n    </select></div>\n";
-    $retval .= "    <div class='hide no_opts'>---</div>\n";
-    $retval .= "</td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('Definition') . "</td>\n";
+    $retval .= "    </select></div>";
+    $retval .= "    <div class='hide no_opts'>---</div>";
+    $retval .= "</td>";
+    $retval .= "</tr>";
+    $retval .= "<tr>";
+    $retval .= "    <td>" . __('Definition') . "</td>";
     $retval .= "    <td><textarea name='item_definition' rows='15' cols='40'>";
     $retval .= $routine['item_definition'];
-    $retval .= "</textarea></td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('Is deterministic') . "</td>\n";
+    $retval .= "</textarea></td>";
+    $retval .= "</tr>";
+    $retval .= "<tr>";
+    $retval .= "    <td>" . __('Is deterministic') . "</td>";
     $retval .= "    <td><input type='checkbox' name='item_isdeterministic'"
-        . $routine['item_isdeterministic'] . " /></td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('Definer') . "</td>\n";
-    $retval .= "    <td><input type='text' name='item_definer'\n";
-    $retval .= "               value='{$routine['item_definer']}' /></td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('Security type') . "</td>\n";
-    $retval .= "    <td><select name='item_securitytype'>\n";
+        . $routine['item_isdeterministic'] . " /></td>";
+    $retval .= "</tr>";
+    $retval .= "<tr>";
+    $retval .= "    <td>" . __('Definer') . "</td>";
+    $retval .= "    <td><input type='text' name='item_definer'";
+    $retval .= "               value='" . $routine['item_definer'] . "' /></td>";
+    $retval .= "</tr>";
+    $retval .= "<tr>";
+    $retval .= "    <td>" . __('Security type') . "</td>";
+    $retval .= "    <td><select name='item_securitytype'>";
     $retval .= "        <option value='DEFINER'"
-        . $routine['item_securitytype_definer'] . ">DEFINER</option>\n";
+        . $routine['item_securitytype_definer'] . ">DEFINER</option>";
     $retval .= "        <option value='INVOKER'"
-        . $routine['item_securitytype_invoker'] . ">INVOKER</option>\n";
-    $retval .= "    </select></td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('SQL data access') . "</td>\n";
-    $retval .= "    <td><select name='item_sqldataaccess'>\n";
+        . $routine['item_securitytype_invoker'] . ">INVOKER</option>";
+    $retval .= "    </select></td>";
+    $retval .= "</tr>";
+    $retval .= "<tr>";
+    $retval .= "    <td>" . __('SQL data access') . "</td>";
+    $retval .= "    <td><select name='item_sqldataaccess'>";
     foreach ($param_sqldataaccess as $key => $value) {
         $selected = "";
         if ($routine['item_sqldataaccess'] == $value) {
             $selected = " selected='selected'";
         }
-        $retval .= "        <option$selected>$value</option>\n";
+        $retval .= "        <option" . $selected . ">" . $value . "</option>";
     }
-    $retval .= "    </select></td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('Comment') . "</td>\n";
-    $retval .= "    <td><input type='text' name='item_comment' maxlength='64'\n";
-    $retval .= "               value='{$routine['item_comment']}' /></td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "</table>\n";
-    $retval .= "</fieldset>\n";
+    $retval .= "    </select></td>";
+    $retval .= "</tr>";
+    $retval .= "<tr>";
+    $retval .= "    <td>" . __('Comment') . "</td>";
+    $retval .= "    <td><input type='text' name='item_comment' maxlength='64'";
+    $retval .= "    value='" . $routine['item_comment'] . "' /></td>";
+    $retval .= "</tr>";
+    $retval .= "</table>";
+    $retval .= "</fieldset>";
     if ($GLOBALS['is_ajax_request']) {
-        $retval .= "<input type='hidden' name='editor_process_{$mode}'\n";
-        $retval .= "       value='true' />\n";
-        $retval .= "<input type='hidden' name='ajax_request' value='true' />\n";
+        $retval .= "<input type='hidden' name='editor_process_" . $mode . "'";
+        $retval .= "       value='true' />";
+        $retval .= "<input type='hidden' name='ajax_request' value='true' />";
     } else {
-        $retval .= "<fieldset class='tblFooters'>\n";
-        $retval .= "    <input type='submit' name='editor_process_{$mode}'\n";
-        $retval .= "           value='" . __('Go') . "' />\n";
-        $retval .= "</fieldset>\n";
+        $retval .= "<fieldset class='tblFooters'>";
+        $retval .= "    <input type='submit' name='editor_process_" . $mode . "'";
+        $retval .= "           value='" . __('Go') . "' />";
+        $retval .= "</fieldset>";
     }
-    $retval .= "</form>\n\n";
-    $retval .= "<!-- END " . strtoupper($mode) . " ROUTINE FORM -->\n\n";
+    $retval .= "</form>";
+    $retval .= "<!-- END " . strtoupper($mode) . " ROUTINE FORM -->";
 
     return $retval;
 } // end PMA_RTN_getEditorForm()
@@ -1118,7 +1120,7 @@ function PMA_RTN_getQueryFromRequest()
             $query .= 'DEFINER=' . PMA_Util::backquote($arr[0]);
             $query .= '@' . PMA_Util::backquote($arr[1]) . ' ';
         } else {
-            $errors[] = __('The definer must be in the "username@hostname" format');
+            $errors[] = __('The definer must be in the "username@hostname" format!');
         }
     }
     if ($_REQUEST['item_type'] == 'FUNCTION'
@@ -1134,7 +1136,7 @@ function PMA_RTN_getQueryFromRequest()
     if (! empty($_REQUEST['item_name'])) {
         $query .= PMA_Util::backquote($_REQUEST['item_name']);
     } else {
-        $errors[] = __('You must provide a routine name');
+        $errors[] = __('You must provide a routine name!');
     }
     $params = '';
     $warned_about_dir    = false;
@@ -1152,7 +1154,7 @@ function PMA_RTN_getQueryFromRequest()
         $item_param_type = $_REQUEST['item_param_type'];
         $item_param_length = $_REQUEST['item_param_length'];
 
-        for ($i=0; $i < count($item_param_name); $i++) {
+        for ($i=0, $nb = count($item_param_name); $i < $nb; $i++) {
             if (! empty($item_param_name[$i])
                 && ! empty($item_param_type[$i])
             ) {
@@ -1316,188 +1318,7 @@ function PMA_RTN_handleExecute()
         $routine = PMA_RTN_getDataFromName(
             $_REQUEST['item_name'], $_REQUEST['item_type'], false
         );
-        if ($routine !== false) {
-            $queries   = array();
-            $end_query = array();
-            $args      = array();
-            $all_functions = $GLOBALS['PMA_Types']->getAllFunctions();
-            for ($i=0; $i<$routine['item_num_params']; $i++) {
-                if (isset($_REQUEST['params'][$routine['item_param_name'][$i]])) {
-                    $value = $_REQUEST['params'][$routine['item_param_name'][$i]];
-                    if (is_array($value)) { // is SET type
-                        $value = implode(',', $value);
-                    }
-                    $value = PMA_Util::sqlAddSlashes($value);
-                    if (! empty($_REQUEST['funcs'][$routine['item_param_name'][$i]])
-                        && in_array(
-                            $_REQUEST['funcs'][$routine['item_param_name'][$i]],
-                            $all_functions
-                        )
-                    ) {
-                        $queries[] = "SET @p$i="
-                            . $_REQUEST['funcs'][$routine['item_param_name'][$i]]
-                            . "('$value');\n";
-                    } else {
-                        $queries[] = "SET @p$i='$value';\n";
-                    }
-                    $args[] = "@p$i";
-                } else {
-                    $args[] = "@p$i";
-                }
-                if ($routine['item_type'] == 'PROCEDURE') {
-                    if ($routine['item_param_dir'][$i] == 'OUT'
-                        || $routine['item_param_dir'][$i] == 'INOUT'
-                    ) {
-                        $end_query[] = "@p$i AS "
-                            . PMA_Util::backquote($routine['item_param_name'][$i]);
-                    }
-                }
-            }
-            if ($routine['item_type'] == 'PROCEDURE') {
-                $queries[] = "CALL " . PMA_Util::backquote($routine['item_name'])
-                           . "(" . implode(', ', $args) . ");\n";
-                if (count($end_query)) {
-                    $queries[] = "SELECT " . implode(', ', $end_query) . ";\n";
-                }
-            } else {
-                $queries[] = "SELECT " . PMA_Util::backquote($routine['item_name'])
-                           . "(" . implode(', ', $args) . ") "
-                           . "AS " . PMA_Util::backquote($routine['item_name'])
-                            . ";\n";
-            }
-
-            // Get all the queries as one SQL statement
-            $multiple_query = implode("", $queries);
-
-            $outcome = true;
-            $affected = 0;
-
-            // Execute query
-            if (! $GLOBALS['dbi']->tryMultiQuery($multiple_query)) {
-                $outcome = false;
-            }
-
-            // Generate output
-            if ($outcome) {
-
-                // Pass the SQL queries through the "pretty printer"
-                $output  = PMA_Util::formatSql(implode($queries, "\n"));
-
-                // Display results
-                $output .= "<fieldset><legend>";
-                $output .= sprintf(
-                    __('Execution results of routine %s'),
-                    PMA_Util::backquote(htmlspecialchars($routine['item_name']))
-                );
-                $output .= "</legend>";
-
-                $num_of_rusults_set_to_display = 0;
-
-                do {
-
-                    $result = $GLOBALS['dbi']->storeResult();
-                    $num_rows = $GLOBALS['dbi']->numRows($result);
-
-                    if (($result !== false) && ($num_rows > 0)) {
-
-                        $output .= "<table><tr>";
-                        foreach ($GLOBALS['dbi']->getFieldsMeta($result)
-                            as $key => $field) {
-                            $output .= "<th>";
-                            $output .= htmlspecialchars($field->name);
-                            $output .= "</th>";
-                        }
-                        $output .= "</tr>";
-
-                        $color_class = 'odd';
-
-                        while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                            $output .= "<tr>";
-                            foreach ($row as $key => $value) {
-                                if ($value === null) {
-                                    $value = '<i>NULL</i>';
-                                } else {
-                                    $value = htmlspecialchars($value);
-                                }
-                                $output .= "<td class='" . $color_class . "'>"
-                                    . $value . "</td>";
-                            }
-                            $output .= "</tr>";
-                            $color_class = ($color_class == 'odd') ? 'even' : 'odd';
-                        }
-
-                        $output .= "</table>";
-                        $num_of_rusults_set_to_display++;
-                        $affected = $num_rows;
-
-                    }
-
-                    if (! $GLOBALS['dbi']->moreResults()) {
-                        break;
-                    }
-
-                    $output .= "<br/>";
-
-                    $GLOBALS['dbi']->freeResult($result);
-
-                } while ($GLOBALS['dbi']->nextResult());
-
-                $output .= "</fieldset>";
-
-                $message = __('Your SQL query has been executed successfully');
-                if ($routine['item_type'] == 'PROCEDURE') {
-                    $message .= '<br />';
-
-                    // TODO : message need to be modified according to the
-                    // output from the routine
-                    $message .= sprintf(
-                        _ngettext(
-                            '%d row affected by the last statement inside the procedure',
-                            '%d rows affected by the last statement inside the procedure',
-                            $affected
-                        ),
-                        $affected
-                    );
-                }
-                $message = PMA_message::success($message);
-
-                if ($num_of_rusults_set_to_display == 0) {
-                    $notice = __(
-                        'MySQL returned an empty result set (i.e. zero rows).'
-                    );
-                    $output .= PMA_message::notice($notice)->getDisplay();
-                }
-
-            } else {
-                $output = '';
-                $message = PMA_message::error(
-                    sprintf(
-                        __('The following query has failed: "%s"'),
-                        htmlspecialchars($multiple_query)
-                    )
-                    . '<br /><br />'
-                    . __('MySQL said: ') . $GLOBALS['dbi']->getError(null)
-                );
-            }
-
-            // Print/send output
-            if ($GLOBALS['is_ajax_request']) {
-                $response = PMA_Response::getInstance();
-                $response->isSuccess($message->isSuccess());
-                $response->addJSON('message', $message->getDisplay() . $output);
-                $response->addJSON('dialog', false);
-                exit;
-            } else {
-                echo $message->getDisplay() . $output;
-                if ($message->isError()) {
-                    // At least one query has failed, so shouldn't
-                    // execute any more queries, so we quit.
-                    exit;
-                }
-                unset($_POST);
-                // Now deliberately fall through to displaying the routines list
-            }
-        } else {
+        if ($routine === false) {
             $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
@@ -1515,6 +1336,189 @@ function PMA_RTN_handleExecute()
                 unset($_POST);
             }
         }
+
+        $queries   = array();
+        $end_query = array();
+        $args      = array();
+        $all_functions = $GLOBALS['PMA_Types']->getAllFunctions();
+        for ($i=0; $i<$routine['item_num_params']; $i++) {
+            if (isset($_REQUEST['params'][$routine['item_param_name'][$i]])) {
+                $value = $_REQUEST['params'][$routine['item_param_name'][$i]];
+                if (is_array($value)) { // is SET type
+                    $value = implode(',', $value);
+                }
+                $value = PMA_Util::sqlAddSlashes($value);
+                if (! empty($_REQUEST['funcs'][$routine['item_param_name'][$i]])
+                    && in_array(
+                        $_REQUEST['funcs'][$routine['item_param_name'][$i]],
+                        $all_functions
+                    )
+                ) {
+                    $queries[] = "SET @p$i="
+                        . $_REQUEST['funcs'][$routine['item_param_name'][$i]]
+                        . "('$value');\n";
+                } else {
+                    $queries[] = "SET @p$i='$value';\n";
+                }
+                $args[] = "@p$i";
+            } else {
+                $args[] = "@p$i";
+            }
+            if ($routine['item_type'] == 'PROCEDURE') {
+                if ($routine['item_param_dir'][$i] == 'OUT'
+                    || $routine['item_param_dir'][$i] == 'INOUT'
+                ) {
+                    $end_query[] = "@p$i AS "
+                        . PMA_Util::backquote($routine['item_param_name'][$i]);
+                }
+            }
+        }
+        if ($routine['item_type'] == 'PROCEDURE') {
+            $queries[] = "CALL " . PMA_Util::backquote($routine['item_name'])
+                       . "(" . implode(', ', $args) . ");\n";
+            if (count($end_query)) {
+                $queries[] = "SELECT " . implode(', ', $end_query) . ";\n";
+            }
+        } else {
+            $queries[] = "SELECT " . PMA_Util::backquote($routine['item_name'])
+                       . "(" . implode(', ', $args) . ") "
+                       . "AS " . PMA_Util::backquote($routine['item_name'])
+                        . ";\n";
+        }
+
+        // Get all the queries as one SQL statement
+        $multiple_query = implode("", $queries);
+
+        $outcome = true;
+        $affected = 0;
+
+        // Execute query
+        if (! $GLOBALS['dbi']->tryMultiQuery($multiple_query)) {
+            $outcome = false;
+        }
+
+        // Generate output
+        if ($outcome) {
+
+            // Pass the SQL queries through the "pretty printer"
+            $output  = PMA_Util::formatSql(implode($queries, "\n"));
+
+            // Display results
+            $output .= "<fieldset><legend>";
+            $output .= sprintf(
+                __('Execution results of routine %s'),
+                PMA_Util::backquote(htmlspecialchars($routine['item_name']))
+            );
+            $output .= "</legend>";
+
+            $nbResultsetToDisplay = 0;
+
+            do {
+
+                $result = $GLOBALS['dbi']->storeResult();
+                $num_rows = $GLOBALS['dbi']->numRows($result);
+
+                if (($result !== false) && ($num_rows > 0)) {
+
+                    $output .= "<table><tr>";
+                    foreach ($GLOBALS['dbi']->getFieldsMeta($result)
+                        as $key => $field) {
+                        $output .= "<th>";
+                        $output .= htmlspecialchars($field->name);
+                        $output .= "</th>";
+                    }
+                    $output .= "</tr>";
+
+                    $color_class = 'odd';
+
+                    while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+                        $output .= "<tr>";
+                        foreach ($row as $key => $value) {
+                            if ($value === null) {
+                                $value = '<i>NULL</i>';
+                            } else {
+                                $value = htmlspecialchars($value);
+                            }
+                            $output .= "<td class='" . $color_class . "'>"
+                                . $value . "</td>";
+                        }
+                        $output .= "</tr>";
+                        $color_class = ($color_class == 'odd') ? 'even' : 'odd';
+                    }
+
+                    $output .= "</table>";
+                    $nbResultsetToDisplay++;
+                    $affected = $num_rows;
+
+                }
+
+                if (! $GLOBALS['dbi']->moreResults()) {
+                    break;
+                }
+
+                $output .= "<br/>";
+
+                $GLOBALS['dbi']->freeResult($result);
+
+            } while ($GLOBALS['dbi']->nextResult());
+
+            $output .= "</fieldset>";
+
+            $message = __('Your SQL query has been executed successfully.');
+            if ($routine['item_type'] == 'PROCEDURE') {
+                $message .= '<br />';
+
+                // TODO : message need to be modified according to the
+                // output from the routine
+                $message .= sprintf(
+                    _ngettext(
+                        '%d row affected by the last statement inside the procedure.',
+                        '%d rows affected by the last statement inside the '
+                        . 'procedure.',
+                        $affected
+                    ),
+                    $affected
+                );
+            }
+            $message = PMA_message::success($message);
+
+            if ($nbResultsetToDisplay == 0) {
+                $notice = __(
+                    'MySQL returned an empty result set (i.e. zero rows).'
+                );
+                $output .= PMA_message::notice($notice)->getDisplay();
+            }
+
+        } else {
+            $output = '';
+            $message = PMA_message::error(
+                sprintf(
+                    __('The following query has failed: "%s"'),
+                    htmlspecialchars($multiple_query)
+                )
+                . '<br /><br />'
+                . __('MySQL said: ') . $GLOBALS['dbi']->getError(null)
+            );
+        }
+
+        // Print/send output
+        if ($GLOBALS['is_ajax_request']) {
+            $response = PMA_Response::getInstance();
+            $response->isSuccess($message->isSuccess());
+            $response->addJSON('message', $message->getDisplay() . $output);
+            $response->addJSON('dialog', false);
+            exit;
+        } else {
+            echo $message->getDisplay() . $output;
+            if ($message->isError()) {
+                // At least one query has failed, so shouldn't
+                // execute any more queries, so we quit.
+                exit;
+            }
+            unset($_POST);
+            // Now deliberately fall through to displaying the routines list
+        }
+        return;
     } else if (! empty($_GET['execute_dialog']) && ! empty($_GET['item_name'])) {
         /**
          * Display the execute form for a routine.

@@ -3,7 +3,8 @@ var runtime = {},
     server_time_diff,
     server_os,
     is_superuser,
-    server_db_isLocal;
+    server_db_isLocal,
+    chartSize;
 AJAX.registerOnload('server_status_monitor.js', function () {
     var $js_data_form = $('#js_data');
     server_time_diff  = new Date().getTime() - $js_data_form.find("input[name=server_time]").val();
@@ -383,7 +384,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             $("#chartGrid").sortableTable({
                 ignoreRect: {
                     top: 8,
-                    left: chartSize().width - 63,
+                    left: chartSize.width - 63,
                     width: 54,
                     height: 24
                 }
@@ -400,10 +401,13 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     $('div.popupContent select[name="chartColumns"]').change(function () {
         monitorSettings.columns = parseInt(this.value, 10);
 
-        var newSize = chartSize();
-
+        calculateChartSize();
         // Empty cells should keep their size so you can drop onto them
-        $('#chartGrid tr td').css('width', newSize.width + 'px');
+        $('#chartGrid tr td').css('width', chartSize.width + 'px');
+        $('#chartGrid .monitorChart').css({
+            width: chartSize.width + 'px',
+            height: chartSize.height + 'px'
+        });
 
         /* Reorder all charts that it fills all column cells */
         var numColumns;
@@ -441,7 +445,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         }
 
         if (monitorSettings.gridMaxPoints == 'auto') {
-            runtime.gridMaxPoints = Math.round((newSize.width - 40) / 12);
+            runtime.gridMaxPoints = Math.round((chartSize.width - 40) / 12);
         }
 
         runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
@@ -451,6 +455,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             $("#chartGrid").sortableTable('refresh');
         }
 
+        refreshChartGrid();
         saveMonitor(); // Save settings
     });
 
@@ -569,7 +574,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             $('<input />', {
                 type: "hidden",
                 name: "monitorconfig",
-                value: $.toJSON(exportData)
+                value: JSON.stringify(exportData)
             })
         )
         .appendTo('body')
@@ -600,7 +605,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 try {
                     var data = $('body', $('iframe#monitorConfigUpload')[0].contentWindow.document).html();
                     // Chrome wraps around '<pre style="word-wrap: break-word; white-space: pre-wrap;">' to any text content -.-
-                    json = $.secureEvalJSON(data.substring(data.indexOf("{"), data.lastIndexOf("}") + 1));
+                    json = $.parseJSON(data.substring(data.indexOf("{"), data.lastIndexOf("}") + 1));
                 } catch (err) {
                     alert(PMA_messages.strFailedParsingConfig);
                     $('#emptyDialog').dialog('close');
@@ -616,8 +621,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
                 // If json ok, try applying config
                 try {
-                    window.localStorage['monitorCharts'] = $.toJSON(json.monitorCharts);
-                    window.localStorage['monitorSettings'] = $.toJSON(json.monitorSettings);
+                    window.localStorage['monitorCharts'] = JSON.stringify(json.monitorCharts);
+                    window.localStorage['monitorSettings'] = JSON.stringify(json.monitorSettings);
                     rebuildGrid();
                 } catch (err) {
                     alert(PMA_messages.strFailedBuildingGrid);
@@ -999,7 +1004,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         }
 
         // Empty cells should keep their size so you can drop onto them
-        $('#chartGrid tr td').css('width', chartSize().width + 'px');
+        calculateChartSize();
+        $('#chartGrid tr td').css('width', chartSize.width + 'px');
 
         buildRequiredDataList();
         refreshChartGrid();
@@ -1026,11 +1032,18 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     }
 
     /* Calculactes the dynamic chart size that depends on the column width */
-    function chartSize() {
-        var wdt = $('#logTable').innerWidth() / monitorSettings.columns - (monitorSettings.columns - 1) * chartSpacing.width;
-        return {
-            width: wdt,
-            height: 0.75 * wdt
+    function calculateChartSize() {
+        var panelWidth;
+        if ($("body").height() > $(window).height()) { // has vertical scroll bar
+            panelWidth = $('#logTable').innerWidth();
+        } else {
+            panelWidth = $('#logTable').innerWidth() - 10; // leave some space for vertical scroll bar
+        }
+
+        var wdt = (panelWidth - monitorSettings.columns * chartSpacing.width) / monitorSettings.columns;
+        chartSize = {
+            width: Math.floor(wdt),
+            height: Math.floor(0.75 * wdt)
         };
     }
 
@@ -1115,10 +1128,15 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 $('#chartGrid').append('<tr></tr>');
             }
 
+            if (!chartSize) {
+                calculateChartSize();
+            }
             $('#chartGrid tr:last').append(
                 '<td><div id="gridChartContainer' + runtime.chartAI + '" class="">' +
-                '<div class="ui-state-default monitorChart" id="' +
-                'gridchart' + runtime.chartAI + '"></div></div></td>'
+                '<div class="ui-state-default monitorChart"' +
+                ' id="gridchart' + runtime.chartAI + '"' +
+                ' style="width:' + chartSize.width + 'px; height:' + chartSize.height + 'px;"></div>' +
+                '</div></td>'
             );
         }
 
@@ -1272,10 +1290,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     }
 
     function PMA_getLogAnalyseDialog(min, max) {
-        $('#logAnalyseDialog input[name="dateStart"]')
-            .val(PMA_formatDateTime(min, true));
-        $('#logAnalyseDialog input[name="dateEnd"]')
-            .val(PMA_formatDateTime(max, true));
+        var $dateStart = $('#logAnalyseDialog input[name="dateStart"]');
+        var $dateEnd = $('#logAnalyseDialog input[name="dateEnd"]');
+        $dateStart.prop("readonly", true);
+        $dateEnd.prop("readonly", true);
 
         var dlgBtns = { };
 
@@ -1294,11 +1312,24 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             height: 'auto',
             buttons: dlgBtns
         });
+
+        PMA_addDatepicker($dateStart, 'datetime', {
+            showMillisec: false,
+            showMicrosec: false,
+            timeFormat: 'HH:mm:ss'
+        });
+        PMA_addDatepicker($dateEnd, 'datetime', {
+            showMillisec: false,
+            showMicrosec: false,
+            timeFormat: 'HH:mm:ss'
+        });
+        $('#logAnalyseDialog input[name="dateStart"]').datepicker('setDate', min);
+        $('#logAnalyseDialog input[name="dateEnd"]').datepicker('setDate', max);
     }
 
     function loadLog(type, min, max) {
-        var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').prop('value')) || min;
-        var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').prop('value')) || max;
+        var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').datepicker('getDate')) || min;
+        var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').datepicker('getDate')) || max;
 
         loadLogStatistics({
             src: type,
@@ -1316,7 +1347,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             ajax_request: true,
             chart_data: 1,
             type: 'chartgrid',
-            requiredData: $.toJSON(runtime.dataList)
+            requiredData: JSON.stringify(runtime.dataList)
         }, function (data) {
             var chartData;
             if (data.success === true) {
@@ -2076,8 +2107,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         });
 
         if (window.localStorage) {
-            window.localStorage['monitorCharts'] = $.toJSON(gridCopy);
-            window.localStorage['monitorSettings'] = $.toJSON(monitorSettings);
+            window.localStorage['monitorCharts'] = JSON.stringify(gridCopy);
+            window.localStorage['monitorSettings'] = JSON.stringify(monitorSettings);
             window.localStorage['monitorVersion'] = monitorProtocolVersion;
         }
 

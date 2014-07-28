@@ -54,14 +54,6 @@ $cfg['PmaNoRelation_DisableWarning'] = false;
 $cfg['SuhosinDisableWarning'] = false;
 
 /**
- * Disable the default warning that is displayed if mcrypt is missing for
- * cookie authentication.
- *
- * @global boolean $cfg['McryptDisableWarning']
- */
-$cfg['McryptDisableWarning'] = false;
-
-/**
  * Disable the default warning that is displayed if a diffrence between
  * the MySQL library and server is detected.
  *
@@ -186,13 +178,6 @@ $cfg['Servers'][$i]['ssl_ciphers'] = null;
  * @global string $cfg['Servers'][$i]['connect_type']
  */
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
-
-/**
- * The PHP MySQL extension to use ('mysql' or 'mysqli')
- *
- * @global string $cfg['Servers'][$i]['extension']
- */
-$cfg['Servers'][$i]['extension'] = 'mysqli';
 
 /**
  * Use compressed protocol for the MySQL connection
@@ -421,6 +406,13 @@ $cfg['Servers'][$i]['designer_coords'] = '';
 $cfg['Servers'][$i]['recent'] = '';
 
 /**
+ * table to store favorite tables
+ *   - leave blank for no favorite tables
+ *     SUGGESTED: 'pma__favorite'
+ */
+$cfg['Servers'][$i]['favorite'] = '';
+
+/**
  * table to store UI preferences for tables
  *   - leave blank for no "persistent" UI preferences
  *     SUGGESTED: 'pma__table_uiprefs'
@@ -464,13 +456,22 @@ $cfg['Servers'][$i]['users'] = '';
 $cfg['Servers'][$i]['usergroups'] = '';
 
 /**
- * table to store information about item hidden from navigation triee
+ * table to store information about item hidden from navigation tree
  *   - leave blank to disable hide/show navigation items feature
  *     SUGGESTED: 'pma__navigationhiding'
  *
  * @global string $cfg['Servers'][$i]['navigationhiding']
  */
 $cfg['Servers'][$i]['navigationhiding'] = '';
+
+/**
+ * table to store information about saved searches from query-by-example on a db
+ *   - leave blank to disable saved searches feature
+ *     SUGGESTED: 'pma__savedsearches'
+ *
+ * @global string $cfg['Servers'][$i]['savedsearches']
+ */
+$cfg['Servers'][$i]['savedsearches'] = '';
 
 /**
  * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
@@ -839,11 +840,18 @@ $cfg['Error_Handler']['display'] = false;
  */
 
 /**
+ * maximum number of first level databases displayed in navigation panel
+ *
+ * @global integer $cfg['FirstLevelNavigationItems']
+ */
+$cfg['FirstLevelNavigationItems'] = 250;
+
+/**
  * maximum number of items displayed in navigation panel
  *
- * @global integer $cfg['MaxDbList']
+ * @global integer $cfg['MaxNavigationItems']
  */
-$cfg['MaxNavigationItems'] = 250;
+$cfg['MaxNavigationItems'] = 50;
 
 /**
  * turn the select-based light menu into a tree
@@ -905,6 +913,13 @@ $cfg['NavigationLogoLinkWindow'] = 'main';
 $cfg['NumRecentTables'] = 10;
 
 /**
+ * number of favorite tables displayed in the navigation panel
+ *
+ * @global integer $cfg['NumFavoriteTables']
+ */
+$cfg['NumFavoriteTables'] = 10;
+
+/**
  * display a JavaScript table filter in the navigation panel
  * when more then x tables are present
  *
@@ -948,6 +963,12 @@ $cfg['NavigationTreeDisplayDbFilterMinimum'] = 30;
  */
 $cfg['NavigationTreeDefaultTabTable'] = 'tbl_structure.php';
 
+/**
+ * Disables the possibility of database expansion
+ *
+ * @global boolean $cfg['DisableDatabaseExpansion']
+ */
+$cfg['NavigationTreeDisableDatabaseExpansion'] = false;
 
 /*******************************************************************************
  * In the main panel, at startup...
@@ -1260,6 +1281,12 @@ $cfg['DefaultTabDatabase'] = 'db_structure.php';
  * @global string $cfg['DefaultTabTable']
  */
 $cfg['DefaultTabTable'] = 'sql.php';
+
+/**
+ * Whether to display image or text or both image and text in table row
+ * action segment. Value can be either of ``image``, ``text`` or ``both``.
+ */
+$cfg['RowActionType'] = 'both';
 
 /*******************************************************************************
  * Export defaults
@@ -1824,6 +1851,27 @@ $cfg['Export']['sql_procedure_function'] = true;
 /**
  *
  *
+ * @global boolean $cfg['Export']['sql_create_table']
+ */
+$cfg['Export']['sql_create_table'] = true;
+
+/**
+ *
+ *
+ * @global boolean $cfg['Export']['sql_create_view']
+ */
+$cfg['Export']['sql_create_view'] = true;
+
+/**
+ *
+ *
+ * @global boolean $cfg['Export']['sql_create_trigger']
+ */
+$cfg['Export']['sql_create_trigger'] = true;
+
+/**
+ *
+ *
  * @global boolean $cfg['Export']['sql_auto_increment']
  */
 $cfg['Export']['sql_auto_increment'] = true;
@@ -1880,9 +1928,9 @@ $cfg['Export']['sql_utc_time'] = true;
 /**
  *
  *
- * @global boolean $cfg['Export']['sql_hex_for_blob']
+ * @global boolean $cfg['Export']['sql_hex_for_binary']
  */
-$cfg['Export']['sql_hex_for_blob'] = true;
+$cfg['Export']['sql_hex_for_binary'] = true;
 
 /**
  * insert/update/replace
@@ -2517,7 +2565,7 @@ $cfg['BrowseMIME'] = true;
  *
  * @global integer $cfg['MaxExactCount']
  */
-$cfg['MaxExactCount'] = 0;
+$cfg['MaxExactCount'] = 500000;
 
 /**
  * Zero means that no row count is done for views; see the doc
@@ -2670,13 +2718,6 @@ $cfg['SQLQuery']['Explain'] = true;
 $cfg['SQLQuery']['ShowAsPHP'] = true;
 
 /**
- * Validate a query (see $cfg['SQLValidator'] as well)
- *
- * @global boolean $cfg['SQLQuery']['Validate']
- */
-$cfg['SQLQuery']['Validate'] = false;
-
-/**
  * Refresh the results page
  *
  * @global boolean $cfg['SQLQuery']['Refresh']
@@ -2774,38 +2815,6 @@ $cfg['DisableMultiTableMaintenance'] = false;
  * @global string $cfg['SendErrorReports']
  */
 $cfg['SendErrorReports'] = 'ask';
-
-/*******************************************************************************
- * If you wish to use the SQL Validator service, you should be aware of the
- * following:
- * All SQL statements are stored anonymously for statistical purposes.
- * Mimer SQL Validator, Copyright 2002 Upright Database Technology.
- * All rights reserved.
- *
- * @global array $cfg['SQLValidator']
- */
-$cfg['SQLValidator'] = array();
-
-/**
- * Make the SQL Validator available
- *
- * @global boolean $cfg['SQLValidator']['use']
- */
-$cfg['SQLValidator']['use'] = false;
-
-/**
- * If you have a custom username, specify it here (defaults to anonymous)
- *
- * @global string $cfg['SQLValidator']['username']
- */
-$cfg['SQLValidator']['username'] = '';
-
-/**
- * Password for username
- *
- * @global string $cfg['SQLValidator']['password']
- */
-$cfg['SQLValidator']['password'] = '';
 
 
 /*******************************************************************************

@@ -307,7 +307,7 @@ class PMA_SysInfoSunos extends PMA_SysInfo
      */
     private function _kstat($key)
     {
-        if ($m = shell_exec('kstat -p d '.$key)) {
+        if ($m = shell_exec('kstat -p d ' . $key)) {
             list($key, $value) = preg_split("/\t/", trim($m), 2);
             return $value;
         } else {
@@ -345,6 +345,7 @@ class PMA_SysInfoSunos extends PMA_SysInfo
      */
     public function memory()
     {
+        $mem = array();
         $pagesize = $this->_kstat('unix:0:seg_cache:slab_size');
         $mem['MemTotal']
             = $this->_kstat('unix:0:system_pages:pagestotal') * $pagesize;

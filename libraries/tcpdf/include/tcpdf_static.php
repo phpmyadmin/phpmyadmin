@@ -55,7 +55,7 @@ class TCPDF_STATIC {
 	 * Current TCPDF version.
 	 * @private static
 	 */
-	private static $tcpdf_version = '6.0.039';
+	private static $tcpdf_version = '6.0.062';
 
 	/**
 	 * String alias for total number of pages.
@@ -1092,13 +1092,13 @@ class TCPDF_STATIC {
 
 	/**
 	 * Returns a temporary filename for caching object on filesystem.
-	 * @param $name (string) Prefix to add to the file name.
+	 * @param $type (string) Type of file (name of the subdir on the tcpdf cache folder).
 	 * @return string filename.
 	 * @since 4.5.000 (2008-12-31)
 	 * @public static
 	 */
-	public static function getObjFilename($name) {
-		return tempnam(K_PATH_CACHE, $name.'_');
+	public static function getObjFilename($type='tmp') {
+		return tempnam(K_PATH_CACHE, '__tcpdf_'.$type.'_'.md5(getmypid().uniqid('', true).rand().microtime(true)).'_');
 	}
 
 	/**

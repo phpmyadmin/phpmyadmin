@@ -33,7 +33,6 @@ $forms['Servers']['Server'] = array('Servers' => array(1 => array(
     'socket',
     'ssl',
     'connect_type',
-    'extension',
     'compress',
     'nopassword')));
 $forms['Servers']['Server_auth'] = array('Servers' => array(1 => array(
@@ -80,6 +79,7 @@ $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
     'table_coords' => 'pma__table_coords',
     'pdf_pages' => 'pma__pdf_pages',
     'designer_coords' => 'pma__designer_coords',
+    'savedsearches' => 'pma__savedsearches',
     'MaxTableUiprefs' => 100)));
 $forms['Servers']['Server_tracking'] = array('Servers' => array(1 => array(
     'tracking_version_auto_create',
@@ -119,8 +119,7 @@ $forms['Features']['Page_titles'] = array(
 $forms['Features']['Warnings'] = array(
     'ServerLibraryDifference_DisableWarning',
     'PmaNoRelation_DisableWarning',
-    'SuhosinDisableWarning',
-    'McryptDisableWarning');
+    'SuhosinDisableWarning');
 $forms['Features']['Developer'] = array(
     'UserprefsDeveloperTab',
     'Error_Handler/display',
@@ -131,6 +130,7 @@ $forms['Features']['Other_core_settings'] = array(
     'MaxDbList',
     'MaxTableList',
     'NumRecentTables',
+    'NumFavoriteTables',
     'ShowHint',
     'OBGzip',
     'PersistentConnections',
@@ -163,19 +163,16 @@ $forms['Sql_queries']['Sql_box'] = array('SQLQuery' => array(
     'Edit',
     'Explain',
     'ShowAsPHP',
-    'Validate',
     'Refresh'));
-$forms['Sql_queries']['Sql_validator'] = array('SQLValidator' => array(
-    'use',
-    'username',
-    'password'));
 $forms['Navi_panel']['Navi_panel'] = array(
     'NavigationDisplayLogo',
     'NavigationLogoLink',
     'NavigationLogoLinkWindow',
     'NavigationTreePointerEnable',
+    'FirstLevelNavigationItems',
     'MaxNavigationItems',
     'NavigationTreeEnableGrouping',
+    'NavigationTreeDisableDatabaseExpansion',
     'NavigationTreeDisplayItemFilterMinimum');
 $forms['Navi_panel']['Navi_servers'] = array(
     'NavigationDisplayServers',
@@ -302,6 +299,9 @@ $forms['Export']['Sql'] = array('Export' => array(
     ':group:' . __('Structure'),
         'sql_drop_table',
         'sql_procedure_function',
+        'sql_create_table',
+        'sql_create_view',
+        'sql_create_trigger',
         'sql_create_table_statements' => ':group',
             'sql_if_not_exists',
             'sql_auto_increment',
@@ -314,7 +314,7 @@ $forms['Export']['Sql'] = array('Export' => array(
         'sql_type',
         'sql_insert_syntax',
         'sql_max_query_size',
-        'sql_hex_for_blob',
+        'sql_hex_for_binary',
         'sql_utc_time'));
 $forms['Export']['CodeGen'] = array('Export' => array(
     'codegen_format'));

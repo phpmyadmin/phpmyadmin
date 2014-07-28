@@ -50,10 +50,10 @@ if (isset($_POST['mode'])) {
     if ('create_export' == $_POST['mode']) {
         $pdf_page_number = PMA_REL_createPage($_POST['newpage'], $cfgRelation, $db);
         if ($pdf_page_number > 0) {
-            $message = PMA_Message::success(__('Page has been created'));
+            $message = PMA_Message::success(__('Page has been created.'));
             $_POST['mode'] = 'export';
         } else {
-            $message = PMA_Message::error(__('Page creation failed'));
+            $message = PMA_Message::error(__('Page creation has failed!'));
         }
     } else {
         $pdf_page_number = $_POST['pdf_page_number'];
@@ -75,14 +75,14 @@ if (isset($_POST['mode'])) {
     if ('import' == $_POST['mode']) {
         PMA_queryAsControlUser(
             'UPDATE ' . $pma_table . ',' . $pmd_table .
-            ' SET ' . $pmd_table . '.`x`= ' . $pma_table . '.`x` * '. $scale_q . ',
-            ' . $pmd_table . '.`y`= ' . $pma_table . '.`y` * '. $scale_q .'
+            ' SET ' . $pmd_table . '.`x`= ' . $pma_table . '.`x` * ' . $scale_q . ',
+            ' . $pmd_table . '.`y`= ' . $pma_table . '.`y` * ' . $scale_q . '
             WHERE
             ' . $pmd_table . '.`db_name`=' . $pma_table . '.`db_name`
             AND
             ' . $pmd_table . '.`table_name` = ' . $pma_table . '.`table_name`
             AND
-            ' . $pmd_table . '.`db_name`=\''. PMA_Util::sqlAddSlashes($db) . '\'
+            ' . $pmd_table . '.`db_name`=\'' . PMA_Util::sqlAddSlashes($db) . '\'
             AND pdf_page_number = ' . $pdf_page_number_q . ';',
             true, PMA_DatabaseInterface::QUERY_STORE
         );
@@ -92,19 +92,15 @@ if (isset($_POST['mode'])) {
 $response = PMA_Response::getInstance();
 $response->getFooter()->setMinimal();
 
-?>
-<br/>
-<div>
-<?php
+echo '<br/>';
+echo '<div>';
 if (! empty($message)) {
     $message->display();
 }
-?>
-  <form name="form1" method="post" action="pmd_pdf.php">
-<?php
+echo '<form name="form1" method="post" action="pmd_pdf.php">';
 echo PMA_URL_getHiddenInputs($db);
 echo '<div>';
-echo '<fieldset><legend>' . __('Import/Export coordinates for PDF schema') . '</legend>';
+echo '<fieldset><legend>' . __('Import/Export coordinates for relational schema') . '</legend>';
 
 $choices = array();
 
@@ -125,10 +121,10 @@ if ($GLOBALS['dbi']->numRows($table_info_result) > 0) {
     }
     echo '</select>';
     echo '</p>';
-    $choices['import'] = __('Import from selected page');
-    $choices['export'] = __('Export to selected page');
+    $choices['import'] = __('Import from selected page.');
+    $choices['export'] = __('Export to selected page.');
 }
-$choices['create_export'] = __('Create a page and export to it');
+$choices['create_export'] = __('Create a page and export to it.');
 
 if (1 == count($choices)) {
     echo $choices['create_export'];
@@ -144,20 +140,20 @@ echo '<label for="newpage">' . __('New page name: ') . '</label>';
 echo '<input id="newpage" type="text" name="newpage" />';
 
 echo '<p>' . __('Export/Import to scale:');
-?>
-      <select name="scale">
-        <option value="1">1:1</option>
-        <option value="2">1:2</option>
-        <option value="3" selected="selected">
-            1:3 (<?php echo __('recommended'); ?>)
-        </option>
-        <option value="4">1:4</option>
-        <option value="5">1:5</option>
-      </select>
-      </p>
-      <input type="submit" value="<?php echo __('Go'); ?>"/>
-    </fieldset>
-    </div>
-  </form>
-</div>
+echo '<select name="scale">';
+echo '<option value="1">1:1</option>';
+echo '<option value="2">1:2</option>';
+echo '<option value="3" selected="selected">1:3 ('
+    . __('recommended') . ')</option>';
+echo '<option value="4">1:4</option>';
+echo '<option value="5">1:5</option>';
+echo '</select>';
+echo '</p>';
 
+echo '<input type="submit" value="' . __('Go') . '"/>';
+
+echo '</fieldset>';
+echo '</div>';
+echo '</form>';
+echo '</div>';
+?>

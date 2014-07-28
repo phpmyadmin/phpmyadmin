@@ -252,6 +252,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
                 $('#gis_data_textarea').val(data.result);
                 $('#placeholder').empty().removeClass('hasSVG').html(data.visualization);
                 $('#openlayersmap').empty();
+                /* TODO: the gis_data_editor should rather return JSON than JS code to eval */
                 eval(data.openLayers);
                 initGISEditorVisualization();
             } else {

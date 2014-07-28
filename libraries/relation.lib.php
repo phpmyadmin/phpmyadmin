@@ -85,6 +85,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
 {
     $retval = '';
 
+    $messages = array();
     $messages['error'] = '<font color="red"><strong>'
         . __('not OK')
         . '</strong></font>'
@@ -280,6 +281,17 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             'navwork',
             $messages
         );
+        $retval .= PMA_getDiagMessageForParameter(
+            'savedsearches',
+            isset($cfgRelation['savedsearches']),
+            $messages,
+            'savedsearches'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Saving Query-By-Example searches'),
+            'savedsearcheswork',
+            $messages
+        );
         $retval .= '</table>' . "\n";
 
         $retval .= '<p>' . __('Quick steps to setup advanced features:') . '</p>';
@@ -343,25 +355,25 @@ function PMA_getDiagMessageForFeature($feature_name,
 /**
  * prints out one diagnostic message for a configuration parameter
  *
- * @param string  $parameter              config parameter name to display
- * @param boolean $relation_parameter_set whether this parameter is set
- * @param array   $messages               utility messages
- * @param string  $doc_anchor             anchor in documentation
+ * @param string  $parameter            config parameter name to display
+ * @param boolean $relationParameterSet whether this parameter is set
+ * @param array   $messages             utility messages
+ * @param string  $docAnchor            anchor in documentation
  *
  * @return string
  */
 function PMA_getDiagMessageForParameter($parameter,
-    $relation_parameter_set, $messages, $doc_anchor
+    $relationParameterSet, $messages, $docAnchor
 ) {
     $retval = '<tr><th class="left">';
     $retval .= '$cfg[\'Servers\'][$i][\'' . $parameter . '\']  ... ';
     $retval .= '</th><td class="right">';
-    if ($relation_parameter_set) {
+    if ($relationParameterSet) {
         $retval .= $messages['ok'];
     } else {
         $retval .= sprintf(
             $messages['error'],
-            PMA_Util::getDocuLink('config', 'cfg_Servers_' . $doc_anchor)
+            PMA_Util::getDocuLink('config', 'cfg_Servers_' . $docAnchor)
         );
     }
     $retval .= '</td></tr>' . "\n";
@@ -395,6 +407,7 @@ function PMA_checkRelationsParam()
     $cfgRelation['menuswork']      = false;
     $cfgRelation['navwork']        = false;
     $cfgRelation['allworks']       = false;
+    $cfgRelation['savedsearcheswork'] = false;
     $cfgRelation['user']           = null;
     $cfgRelation['db']             = null;
 
@@ -463,6 +476,8 @@ function PMA_checkRelationsParam()
             $cfgRelation['usergroups']      = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['navigationhiding']) {
             $cfgRelation['navigationhiding']      = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['savedsearches']) {
+            $cfgRelation['savedsearches']    = $curr_table[0];
         }
     } // end while
     $GLOBALS['dbi']->freeResult($tab_rs);
@@ -521,6 +536,10 @@ function PMA_checkRelationsParam()
         $cfgRelation['navwork']          = true;
     }
 
+    if (isset($cfgRelation['savedsearches'])) {
+        $cfgRelation['savedsearcheswork']      = true;
+    }
+
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
         && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
         && $cfgRelation['mimework'] && $cfgRelation['historywork']
@@ -528,6 +547,7 @@ function PMA_checkRelationsParam()
         && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
         && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']
         && $cfgRelation['menuswork'] && $cfgRelation['navwork']
+        && $cfgRelation['savedsearcheswork']
     ) {
         $cfgRelation['allworks'] = true;
     }
@@ -574,9 +594,11 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
 
     if (($source == 'both' || $source == 'foreign') && strlen($table)) {
 
-        $show_create_table_query = 'SHOW CREATE TABLE '
+        $showCreateTableQuery = 'SHOW CREATE TABLE '
             . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table);
-        $show_create_table = $GLOBALS['dbi']->fetchValue($show_create_table_query, 0, 1);
+        $show_create_table = $GLOBALS['dbi']->fetchValue(
+            $showCreateTableQuery, 0, 1
+        );
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
 
         foreach ($analyzed_sql[0]['foreign_keys'] as $one_key) {
@@ -607,7 +629,8 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
                         $foreign[$field]['foreign_db'] = $db;
                     }
                     $foreign[$field]['foreign_table'] = $one_key['ref_table_name'];
-                    $foreign[$field]['foreign_field'] = $one_key['ref_index_list'][$i];
+                    $foreign[$field]['foreign_field']
+                        = $one_key['ref_index_list'][$i];
                     if (isset($one_key['on_delete'])) {
                         $foreign[$field]['on_delete'] = $one_key['on_delete'];
                     }
@@ -622,12 +645,12 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
     /**
      * Emulating relations for some information_schema and data_dictionary tables
      */
-    $is_information_schema = strtolower($db) == 'information_schema';
+    $isInformationSchema = strtolower($db) == 'information_schema';
     $is_data_dictionary = PMA_DRIZZLE && strtolower($db) == 'data_dictionary';
-    if (($is_information_schema || $is_data_dictionary)
+    if (($isInformationSchema || $is_data_dictionary)
         && ($source == 'internal' || $source == 'both')
     ) {
-        if ($is_information_schema) {
+        if ($isInformationSchema) {
             $relations_key = 'information_schema_relations';
             include_once './libraries/information_schema_relations.lib.php';
         } else {
@@ -948,7 +971,9 @@ function PMA_getHistory($username)
           WHERE `username` = \'' . PMA_Util::sqlAddSlashes($username) . '\'
        ORDER BY `id` DESC';
 
-    return $GLOBALS['dbi']->fetchResult($hist_query, null, null, $GLOBALS['controllink']);
+    return $GLOBALS['dbi']->fetchResult(
+        $hist_query, null, null, $GLOBALS['controllink']
+    );
 } // end of 'PMA_getHistory()' function
 
 /**
@@ -1027,7 +1052,8 @@ function PMA_buildForeignDropdown($foreign, $data, $mode)
     }
 
     foreach ($foreign as $key => $value) {
-        if ($GLOBALS['PMA_String']->strlen($value) <= $GLOBALS['cfg']['LimitChars']) {
+        if ($GLOBALS['PMA_String']->strlen($value) <= $GLOBALS['cfg']['LimitChars']
+        ) {
             $vtitle = '';
             $value  = htmlspecialchars($value);
         } else {
@@ -1185,14 +1211,22 @@ function PMA_getForeignData(
             $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);
 
             $f_query_main = 'SELECT ' . PMA_Util::backquote($foreign_field)
-                . (($foreign_display == false) ? '' : ', ' . PMA_Util::backquote($foreign_display));
+                . (
+                    ($foreign_display == false)
+                        ? ''
+                        : ', ' . PMA_Util::backquote($foreign_display)
+                );
             $f_query_from = ' FROM ' . PMA_Util::backquote($foreign_db)
                 . '.' . PMA_Util::backquote($foreign_table);
             $f_query_filter = empty($foreign_filter) ? '' : ' WHERE '
                 . PMA_Util::backquote($foreign_field)
                 . ' LIKE "%' . PMA_Util::sqlAddSlashes($foreign_filter, true) . '%"'
-                . (($foreign_display == false) ? '' : ' OR ' . PMA_Util::backquote($foreign_display)
-                    . ' LIKE "%' . PMA_Util::sqlAddSlashes($foreign_filter, true) . '%"'
+                . (
+                    ($foreign_display == false)
+                    ? ''
+                    : ' OR ' . PMA_Util::backquote($foreign_display)
+                        . ' LIKE "%' . PMA_Util::sqlAddSlashes($foreign_filter, true)
+                        . '%"'
                 );
             $f_query_order = ($foreign_display == false) ? '' :' ORDER BY '
                 . PMA_Util::backquote($foreign_table) . '.'
@@ -1232,6 +1266,7 @@ function PMA_getForeignData(
         }
     }  // end if $foreigners
 
+    $foreignData = array();
     $foreignData['foreign_link'] = $foreign_link;
     $foreignData['the_total'] = isset($the_total) ? $the_total : null;
     $foreignData['foreign_display'] = (
@@ -1260,6 +1295,7 @@ function PMA_getRelatives($all_tables, $master)
     $remaining_tables = $all_tables;
     unset($remaining_tables[$master]);
     // The list of allready connected tables
+    $known_tables = array();
     $known_tables[$master] = $master;
     $run = 0;
     while (count($remaining_tables) > 0) {
@@ -1276,8 +1312,10 @@ function PMA_getRelatives($all_tables, $master)
         $rel_query = 'SELECT *'
             . '  FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
             .       '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['relation'])
-            . ' WHERE ' . $from . '_db = \'' . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\''
-            . '   AND ' . $to   . '_db = \'' . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\''
+            . ' WHERE ' . $from . '_db = \''
+            . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\''
+            . '   AND ' . $to   . '_db = \''
+            . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\''
             . '   AND ' . $from . '_table IN ' . $in_know
             . '   AND ' . $to   . '_table IN ' . $in_left;
         $relations = @$GLOBALS['dbi']->query($rel_query, $GLOBALS['controllink']);
@@ -1286,7 +1324,8 @@ function PMA_getRelatives($all_tables, $master)
             if (isset($remaining_tables[$found_table])) {
                 $fromclause
                     .= "\n" . ' LEFT JOIN '
-                    . PMA_Util::backquote($GLOBALS['db']) . '.' . PMA_Util::backquote($row[$to . '_table']) . ' ON '
+                    . PMA_Util::backquote($GLOBALS['db']) . '.'
+                    . PMA_Util::backquote($row[$to . '_table']) . ' ON '
                     . PMA_Util::backquote($row[$from . '_table']) . '.'
                     . PMA_Util::backquote($row[$from . '_field']) . ' = '
                     . PMA_Util::backquote($row[$to . '_table']) . '.'
@@ -1493,5 +1532,81 @@ function PMA_REL_createPage($newpage, $cfgRelation, $db)
     return $GLOBALS['dbi']->insertId(
         isset($GLOBALS['controllink']) ? $GLOBALS['controllink'] : ''
     );
+}
+
+/**
+ * Get child table references for a table column.
+ *
+ * @param string $db     name of master table db.
+ * @param string $table  name of master table.
+ * @param string $column name of master table column.
+ *
+ * @return array $child_references
+ */
+function PMA_getChildReferences($db, $table, $column)
+{
+    $child_references = array();
+    $i=0;
+    $rel_query = 'SELECT `column_name`,'
+                . ' `table_name`,'
+                . '`table_schema`'
+                . ' FROM `information_schema`.`key_column_usage`'
+                . ' WHERE `referenced_column_name` = \''
+                . PMA_Util::sqlAddSlashes($column) . '\''
+                . ' AND `referenced_table_name` = \''
+                . PMA_Util::sqlAddSlashes($table) . '\''
+                . ' AND `referenced_table_schema` = \''
+                . PMA_Util::sqlAddSlashes($db) . '\'';
+
+    $result = $GLOBALS['dbi']->tryQuery($rel_query, $GLOBALS['controllink']);
+    if ($result == true) {
+        while (($row = $GLOBALS['dbi']->fetchAssoc($result))) {
+            $child_references[$i++] = $row;
+        }
+    }
+    return $child_references;
+}
+
+/**
+ * Check child table references and foreign key for a table column.
+ *
+ * @param string $db     name of master table db.
+ * @param string $table  name of master table.
+ * @param string $column name of master table column.
+ *
+ * @return array $column_status telling about references if foreign key.
+ */
+function PMA_checkChildForeignReferences($db, $table, $column)
+{
+    $column_status = array();
+    $column_status['isEditable'] = false;
+    $column_status['isReferenced'] = false;
+    $column_status['isForeignKey'] = false;
+    $column_status['references'] = array();
+    $foreigners = PMA_getForeigners($db, $table, $column);
+    $child_references = PMA_getChildReferences($db, $table, $column);
+
+    if (sizeof($child_references, 0) > 0
+        || (! empty($foreigners[$column]) && sizeof($foreigners[$column], 0) > 0)
+    ) {
+        if (sizeof($child_references, 0) > 0) {
+            $column_status['isReferenced'] = true;
+            foreach ($child_references as $row => $columns) {
+                array_push(
+                    $column_status['references'],
+                    PMA_Util::backquote($columns['table_schema'])
+                    . '.' . PMA_Util::backquote($columns['table_name'])
+                );
+            }
+        }
+
+        if (!empty($foreigners[$column]) && sizeof($foreigners[$column], 0) > 0) {
+            $column_status['isForeignKey'] = true;
+        }
+    } else {
+        $column_status['isEditable'] = true;
+    }
+
+    return $column_status;
 }
 ?>

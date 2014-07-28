@@ -94,19 +94,6 @@ $(function () {
         }
     );
 
-    /**
-     * Jump to recent table
-     */
-    $('#recentTable').live('change', function () {
-        if (this.value !== '') {
-            var arr = jQuery.parseJSON(this.value);
-            var $form = $(this).closest('form');
-            $form.find('input[name=db]').val(arr.db);
-            $form.find('input[name=table]').val(arr.table);
-            $form.submit();
-        }
-    });
-
     /** Create a Routine, Trigger or Event */
     $('li.new_procedure a.ajax, li.new_function a.ajax').live('click', function (event) {
         event.preventDefault();
@@ -124,12 +111,13 @@ $(function () {
         dialog.editorDialog(1, $(this));
     });
 
-    /** Edit Routines, Triggers and Events */
+    /** Execute Routines */
     $('li.procedure > a.ajax, li.function > a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('routine');
-        dialog.editorDialog(0, $(this));
+        dialog.executeDialog($(this));
     });
+    /** Edit Triggers and Events */
     $('li.trigger > a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('trigger');
@@ -141,10 +129,15 @@ $(function () {
         dialog.editorDialog(0, $(this));
     });
 
-    /** Export Routines, Triggers and Events */
-    $('li.procedure div:eq(1) a.ajax img,' +
-        ' li.function div:eq(1) a.ajax img,' +
-        ' li.trigger div:eq(1) a.ajax img,' +
+    /** Edit Routines */
+    $('li.procedure div a.ajax img,' +
+        ' li.function div a.ajax img').live('click', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object('routine');
+        dialog.editorDialog(0, $(this).parent());
+    });
+    /** Export Triggers and Events */
+    $('li.trigger div:eq(1) a.ajax img,' +
         ' li.event div:eq(1) a.ajax img'
         ).live('click', function (event) {
         event.preventDefault();
@@ -153,7 +146,7 @@ $(function () {
     });
 
     /** New index */
-    $('li.new_index a.ajax').live('click', function (event) {
+    $('#pma_navigation_tree li.new_index a.ajax').live('click', function (event) {
         event.preventDefault();
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
@@ -204,7 +197,7 @@ $(function () {
                 buttonOptions[PMA_messages.strClose] = function () {
                     $(this).dialog("close");
                 };
-                var $dialog = $('<div/>')
+                $('<div/>')
                     .attr('id', 'unhideNavItemDialog')
                     .append(data.message)
                     .dialog({
@@ -242,6 +235,49 @@ $(function () {
         });
     });
 
+    // Add/Remove favorite table using Ajax.
+    $(".favorite_table_anchor").live("click", function (event) {
+        event.preventDefault();
+        $self = $(this);
+        var anchor_id = $self.attr("id");
+        if($self.data("favtargetn") != null)
+            if($('a[data-favtargets="' + $self.data("favtargetn") + '"]').length > 0)
+            {
+                $('a[data-favtargets="' + $self.data("favtargetn") + '"]').trigger('click');
+                return;
+            }
+
+        $.ajax({
+            url: $self.attr('href'),
+            cache: false,
+            type: 'POST',
+            data: {
+                favorite_tables: (window.localStorage['favorite_tables']
+                    !== undefined)
+                    ? window.localStorage['favorite_tables']
+                    : ''
+            },
+            success: function (data) {
+                if (data.changes) {
+                    $('#pma_favorite_list').html(data.list);
+                    $('#' + anchor_id).parent().html(data.anchor);
+                    PMA_tooltip(
+                        $('#' + anchor_id),
+                        'a',
+                        $('#' + anchor_id).attr("title")
+                    );
+                    // Update localStorage.
+                    if (window.localStorage !== undefined) {
+                        window.localStorage['favorite_tables']
+                            = data.favorite_tables;
+                    }
+                } else {
+                    PMA_ajaxShowMessage(data.message);
+                }
+            }
+        });
+    });
+
     PMA_showCurrentNavigation();
 });
 
@@ -253,14 +289,13 @@ $(function () {
  *
  * @returns void
  */
-function expandTreeNode($expandElem, callback)
-{
+function expandTreeNode($expandElem, callback) {
     var $children = $expandElem.closest('li').children('div.list_container');
     var $icon = $expandElem.find('img');
     if ($expandElem.hasClass('loaded')) {
         if ($icon.is('.ic_b_plus')) {
             $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-            $children.show('fast');
+            $children.slideDown('fast');
         }
         if (callback && typeof callback == 'function') {
             callback.call();
@@ -280,7 +315,7 @@ function expandTreeNode($expandElem, callback)
                 $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
                 $destination
                     .children('div.list_container')
-                    .show('fast');
+                    .slideDown('fast');
                 if ($destination.find('ul > li').length == 1) {
                     $destination.find('ul > li')
                         .find('a.expander.container')
@@ -289,6 +324,7 @@ function expandTreeNode($expandElem, callback)
                 if (callback && typeof callback == 'function') {
                     callback.call();
                 }
+                PMA_showFullName($destination);
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
@@ -335,7 +371,7 @@ function collapseTreeNode($expandElem) {
     if ($expandElem.hasClass('loaded')) {
         if ($icon.is('.ic_b_minus')) {
             $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
-            $children.hide('fast');
+            $children.slideUp('fast');
         }
     }
     $expandElem.blur();
@@ -350,6 +386,9 @@ function collapseTreeNode($expandElem) {
  * @returns void
  */
 function loadChildNodes($expandElem, callback) {
+    if (!$expandElem.hasClass('expander')) {
+        return;
+    }
     var $destination = $expandElem.closest('li');
 
     var searchClause = PMA_fastFilter.getSearchClause();
@@ -374,6 +413,9 @@ function loadChildNodes($expandElem, callback) {
             if (callback && typeof callback == 'function') {
                 callback(data);
             }
+        } else if(data.redirect_flag == "1") {
+            window.location.href += '&session_expired=1';
+            window.location.reload();
         } else {
             var $throbber = $expandElem.find('img.throbber');
             $throbber.hide();
@@ -389,8 +431,7 @@ function loadChildNodes($expandElem, callback) {
  *
  * @returns void
  */
-function PMA_showCurrentNavigation()
-{
+function PMA_showCurrentNavigation() {
     var db = PMA_commonParams.get('db');
     var table = PMA_commonParams.get('table');
     $('#pma_navigation_tree')
@@ -414,6 +455,7 @@ function PMA_showCurrentNavigation()
             }
         }
     }
+    PMA_showFullName($('#pma_navigation_tree'));
 
     function handleTableOrDb(table, $dbItem) {
         if (table) {
@@ -619,8 +661,7 @@ function PMA_reloadNavigation(callback) {
  *
  * @return void
  */
-function PMA_navigationTreePagination($this)
-{
+function PMA_navigationTreePagination($this) {
     var $msgbox = PMA_ajaxShowMessage();
     var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
     var url, params;
@@ -817,6 +858,9 @@ var ResizeHandler = function () {
             var pos = event.data.resize_handler.getPos(event);
             event.data.resize_handler.setWidth(pos);
         }
+        if($('#sticky_columns').length !== 0) {
+            handleStickyColumns();
+        }
     };
     /**
      * Event handler for collapsing the panel
@@ -849,12 +893,9 @@ var ResizeHandler = function () {
         $nav_tree.height($nav.height() - $nav_header.height());
         if ($nav_tree_content.length > 0) {
             $nav_tree_content.height($nav_tree.height() - $nav_tree_content.position().top);
-            $nav_tree.css({
-                'overflow': 'hidden'
-            });
         } else {
+            //TODO: in fast filter search response there is no #pma_navigation_tree_content, needs to be added in php
             $nav_tree.css({
-                'overflow': 'hidden',
                 'overflow-y': 'auto'
             });
         }
@@ -881,6 +922,7 @@ var ResizeHandler = function () {
     // need to call this now and then, browser might decide
     // to show/hide horizontal scrollbars depending on page content width
     setInterval(this.treeResize, 2000);
+    this.treeResize();
 }; // End of ResizeHandler
 
 /**
@@ -1095,8 +1137,7 @@ var PMA_fastFilter = {
  *
  * @return void
  */
-PMA_fastFilter.filter.prototype.update = function (searchClause)
-{
+PMA_fastFilter.filter.prototype.update = function (searchClause) {
     if (this.searchClause != searchClause) {
         this.searchClause = searchClause;
         this.$this.find('.moreResults').remove();
@@ -1109,8 +1150,7 @@ PMA_fastFilter.filter.prototype.update = function (searchClause)
  *
  * @return void
  */
-PMA_fastFilter.filter.prototype.request = function ()
-{
+PMA_fastFilter.filter.prototype.request = function () {
     var self = this;
     clearTimeout(self.timeout);
     if (self.$this.find('li.fast_filter').find('img.throbber').length === 0) {
@@ -1128,7 +1168,7 @@ PMA_fastFilter.filter.prototype.request = function ()
             self.xhr.abort();
         }
         var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-        var results = self.$this.find('li:not(.hidden):not(.fast_filter):not(.navGroup)').not('[class^=new]').length;
+        var results = self.$this.find('li:not(.hidden):not(.fast_filter):not(.navGroup)').not('[class^=new]').not('[class^=warp_link]').length;
         var params = self.$this.find('> ul > li > form.fast_filter').first().serialize() + "&results=" + results;
         if (self.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length === 0) {
             var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
@@ -1147,7 +1187,7 @@ PMA_fastFilter.filter.prototype.request = function ()
                 if (data && data.results) {
                     var $listItem = $('<li />', {'class': 'moreResults'})
                         .appendTo(self.$this.find('li.fast_filter'));
-                    var $link = $('<a />', {href: '#'})
+                    $('<a />', {href: '#'})
                         .text(data.results)
                         .appendTo($listItem)
                         .click(function (event) {
@@ -1166,8 +1206,7 @@ PMA_fastFilter.filter.prototype.request = function ()
  *
  * @return void
  */
-PMA_fastFilter.filter.prototype.swap = function (list)
-{
+PMA_fastFilter.filter.prototype.swap = function (list) {
     this.swapped = true;
     this.$this
         .html($(list).html())
@@ -1185,8 +1224,7 @@ PMA_fastFilter.filter.prototype.swap = function (list)
  *
  * @return void
  */
-PMA_fastFilter.filter.prototype.restore = function (focus)
-{
+PMA_fastFilter.filter.prototype.restore = function (focus) {
     if (this.swapped) {
         this.swapped = false;
         this.$this.html(this.$clone.html()).children().show();
@@ -1200,3 +1238,49 @@ PMA_fastFilter.filter.prototype.restore = function (focus)
     this.$this.find('div.pageselector').show();
     this.$this.find('div.throbber').remove();
 };
+
+/**
+ * Show full name when cursor hover and name not shown completely
+ *
+ * @param object $containerELem Container element
+ *
+ * @return void
+ */
+function PMA_showFullName($containerELem) {
+
+    $containerELem.find('.hover_show_full').mouseenter(function() {
+        /** mouseenter */
+        var $this = $(this);
+        var thisOffset = $this.offset();
+        if($this.text() == '')
+            return;
+        var $parent = $this.parent();
+        if(  ($parent.offset().left + $parent.outerWidth())
+           < (thisOffset.left + $this.outerWidth()))
+        {
+            var $fullNameLayer = $('#full_name_layer');
+            if($fullNameLayer.length == 0)
+            {
+                $('body').append('<div id="full_name_layer" class="hide"></div>');
+                $('#full_name_layer').mouseleave(function() {
+                    /** mouseleave */
+                    $(this).addClass('hide')
+                           .removeClass('hovering');
+                }).mouseenter(function() {
+                    /** mouseenter */
+                    $(this).addClass('hovering');
+                });
+                $fullNameLayer = $('#full_name_layer');
+            }
+            $fullNameLayer.removeClass('hide');
+            $fullNameLayer.css({left: thisOffset.left, top: thisOffset.top});
+            $fullNameLayer.html($this.clone());
+            setTimeout(function() {
+                if(! $fullNameLayer.hasClass('hovering'))
+                {
+                    $fullNameLayer.trigger('mouseleave');
+                }
+            }, 200);
+        }
+    });
+}

@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Functions for the replication GUI
  *
  * @package PhpMyAdmin
  */
@@ -107,7 +108,7 @@ function PMA_getHtmlForMasterConfiguration()
     $html .= __(
         'Now, add the following lines at the end of [mysqld] section'
         . ' in your my.cnf and please restart the MySQL server afterwards.'
-    ). '<br />';
+    ) . '<br />';
     $html .= '<pre id="rep"></pre>';
     $html .= __(
         'Once you restarted MySQL server, please click on Go button. '
@@ -216,12 +217,12 @@ function PMA_getHtmlForSlaveConfiguration(
         $html .= __('Control slave:') . '</a>';
         $html .= ' <div id="slave_control_gui" style="display: none">';
         $html .= '  <ul>';
-        $html .= '   <li><a href="'. $slave_control_full_link . '">';
+        $html .= '   <li><a href="' . $slave_control_full_link . '">';
         $html .= (($server_slave_replication[0]['Slave_IO_Running'] == 'No' ||
                    $server_slave_replication[0]['Slave_SQL_Running'] == 'No')
                  ? __('Full start')
                  : __('Full stop')) . ' </a></li>';
-        $html .= '   <li><a href="'. $slave_control_reset_link . '">';
+        $html .= '   <li><a href="' . $slave_control_reset_link . '">';
         $html .= __('Reset slave') . '</a></li>';
         if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
             $html .= '   <li><a href="' . $slave_control_sql_link . '">';
@@ -284,11 +285,14 @@ function PMA_getHtmlForSlaveErrorManagement($slave_skip_error_link)
     $html .= '  <ul>';
     $html .= '   <li><a href="' . $slave_skip_error_link . '">';
     $html .= __('Skip current error') . '</a></li>';
-    $html .= '   <li>' . __('Skip next');
+    $html .= '   <li>';
     $html .= '    <form method="post" action="server_replication.php">';
     $html .= PMA_URL_getHiddenInputs('', '');
-    $html .= '      <input type="text" name="sr_skip_errors_count" value="1" ';
-    $html .= 'style="width: 30px" />' . __('errors.');
+    $html .= sprintf(
+        __('Skip next %s errors.'),
+        '<input type="text" name="sr_skip_errors_count" value="1" '
+        . 'style="width: 30px" />'
+    );
     $html .= '              <input type="submit" name="sr_slave_skip_error" ';
     $html .= 'value="' . __('Go') . '" />';
     $html .= '      <input type="hidden" name="sr_take_action" value="1" />';
@@ -336,18 +340,9 @@ function PMA_getHtmlForReplicationDbMultibox()
         if ($GLOBALS['dbi']->isSystemSchema($current_db)) {
             continue;
         }
-        /* TODO: where $selectall should come from? */
-        if (! empty($selectall)
-            || (isset($tmp_select)
-            && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
-        ) {
-            $is_selected = ' selected="selected"';
-        } else {
-            $is_selected = '';
-        }
         $current_db = htmlspecialchars($current_db);
         $multi_values .= '                <option value="' . $current_db . '" ';
-        $multi_values .= $is_selected . '>';
+        $multi_values .= '>';
         $multi_values .= $current_db . '</option>';
     } // end while
 
@@ -459,7 +454,7 @@ function PMA_getHtmlForAddUserInputDiv($label_array, $input_array)
 
     $html .= '    <input ';
     foreach ($input_array as $key=>$value) {
-        $html .= ' ' . $key . '="' . $value. '" ';
+        $html .= ' ' . $key . '="' . $value . '" ';
     }
     $html .= ' />';
     $html .= '  </div>';
@@ -904,25 +899,22 @@ function PMA_handleControlRequest()
             $refresh = true;
 
             switch ($_REQUEST['sr_slave_action']) {
-                case 'start':
-                    $messageSuccess = __('Replication started successfully.');
-                    $messageError = __('Error starting replication.');
-                    break;
-
-                case 'stop':
-                    $messageSuccess = __('Replication stopped successfully.');
-                    $messageError = __('Error stopping replication.');
-                    break;
-
-                case 'reset':
-                    $messageSuccess = __('Replication resetting successfully.');
-                    $messageError = __('Error resetting replication.');
-                    break;
-
-                default:
-                    $messageSuccess = __('Success.');
-                    $messageError = __('Error.');
-                    break;
+            case 'start':
+                $messageSuccess = __('Replication started successfully.');
+                $messageError = __('Error starting replication.');
+                break;
+            case 'stop':
+                $messageSuccess = __('Replication stopped successfully.');
+                $messageError = __('Error stopping replication.');
+                break;
+            case 'reset':
+                $messageSuccess = __('Replication resetting successfully.');
+                $messageError = __('Error resetting replication.');
+                break;
+            default:
+                $messageSuccess = __('Success.');
+                $messageError = __('Error.');
+                break;
             }
         } elseif (isset($_REQUEST['sr_slave_skip_error'])) {
             $result = PMA_handleRequestForSlaveSkipError();
@@ -953,6 +945,7 @@ function PMA_handleControlRequest()
  */
 function PMA_handleRequestForSlaveChangeMaster()
 {
+    $sr = array();
     $_SESSION['replication']['m_username'] = $sr['username']
         = PMA_Util::sqlAddSlashes($_REQUEST['username']);
     $_SESSION['replication']['m_password'] = $sr['pma_pw']
@@ -1002,11 +995,11 @@ function PMA_handleRequestForSlaveChangeMaster()
             ) {
                 $_SESSION['replication']['sr_action_status'] = 'error';
                 $_SESSION['replication']['sr_action_info']
-                    = __('Unable to change master');
+                    = __('Unable to change master!');
             } else {
                 $_SESSION['replication']['sr_action_status'] = 'success';
                 $_SESSION['replication']['sr_action_info'] = sprintf(
-                    __('Master server changed successfully to %s'),
+                    __('Master server changed successfully to %s.'),
                     htmlspecialchars($sr['hostname'])
                 );
             }
@@ -1059,7 +1052,9 @@ function PMA_handleRequestForSlaveSkipError()
     }
 
     $qStop = PMA_Replication_Slave_control("STOP");
-    $qSkip = $GLOBALS['dbi']->tryQuery("SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ".$count.";");
+    $qSkip = $GLOBALS['dbi']->tryQuery(
+        "SET GLOBAL SQL_SLAVE_SKIP_COUNTER = " . $count . ";"
+    );
     $qStart = PMA_Replication_Slave_control("START");
 
     $result = ($qStop !== false && $qStop !== -1 &&

@@ -33,7 +33,7 @@ if (PMA_Util::isForeignKeySupported($type_T1)
     if (isset($existrel_foreign[$F2])
         && isset($existrel_foreign[$F2]['constraint'])
     ) {
-         PMD_return_new(0, __('Error: relation already exists.'));
+         PMD_Return_new(0, __('Error: relation already exists.'));
     }
     // note: in InnoDB, the index does not requires to be on a PRIMARY
     // or UNIQUE key
@@ -76,30 +76,34 @@ if (PMA_Util::isForeignKeySupported($type_T1)
             $upd_query   .= ' ON UPDATE ' . $on_update;
         }
         $upd_query .= ';';
-        $GLOBALS['dbi']->tryQuery($upd_query) or PMD_return_new(0, __('Error: Relation not added.'));
-        PMD_return_new(1, __('FOREIGN KEY relation added'));
+        $GLOBALS['dbi']->tryQuery($upd_query)
+        || PMD_Return_new(0, __('Error: Relation could not be added!'));
+        PMD_Return_new(1, __('FOREIGN KEY relation has been added.'));
     }
 } else { // internal (pmadb) relation
     if ($GLOBALS['cfgRelation']['relwork'] == false) {
-        PMD_return_new(0, __('Error: Relational features are disabled!'));
+        PMD_Return_new(0, __('Error: Relational features are disabled!'));
     } else {
         // no need to recheck if the keys are primary or unique at this point,
         // this was checked on the interface part
 
-        $q  = 'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($cfgRelation['relation'])
-                            . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
-                            . ' values('
-                            . '\'' . PMA_Util::sqlAddSlashes($db) . '\', '
-                            . '\'' . PMA_Util::sqlAddSlashes($T2) . '\', '
-                            . '\'' . PMA_Util::sqlAddSlashes($F2) . '\', '
-                            . '\'' . PMA_Util::sqlAddSlashes($db) . '\', '
-                            . '\'' . PMA_Util::sqlAddSlashes($T1) . '\','
-                            . '\'' . PMA_Util::sqlAddSlashes($F1) . '\')';
+        $q  = 'INSERT INTO '
+            . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+            . '.' . PMA_Util::backquote($cfgRelation['relation'])
+            . '(master_db, master_table, master_field,'
+            . 'foreign_db, foreign_table, foreign_field)'
+            . ' values('
+            . '\'' . PMA_Util::sqlAddSlashes($db) . '\', '
+            . '\'' . PMA_Util::sqlAddSlashes($T2) . '\', '
+            . '\'' . PMA_Util::sqlAddSlashes($F2) . '\', '
+            . '\'' . PMA_Util::sqlAddSlashes($db) . '\', '
+            . '\'' . PMA_Util::sqlAddSlashes($T1) . '\','
+            . '\'' . PMA_Util::sqlAddSlashes($F1) . '\')';
 
         if (PMA_queryAsControlUser($q, false, PMA_DatabaseInterface::QUERY_STORE)) {
-            PMD_return_new(1, __('Internal relation added'));
+            PMD_Return_new(1, __('Internal relation has been added.'));
         } else {
-            PMD_return_new(0, __('Error: Relation not added.'));
+            PMD_Return_new(0, __('Error: Relation could not be added!'));
         }
     }
 }
@@ -109,19 +113,21 @@ if (PMA_Util::isForeignKeySupported($type_T1)
  *
  * @param string $b   Value of attribute "b"
  * @param string $ret Value of attribute "return"
+ *
+ * @return void
  */
-function PMD_return_new($b,$ret)
+function PMD_Return_new($b,$ret)
 {
     global $db,$T1,$F1,$T2,$F2;
     header("Content-Type: text/xml; charset=utf-8");
     header("Cache-Control: no-cache");
-    die('<root act="relation_new" return="'.$ret.'" b="'.$b.
-    '" DB1="'.urlencode($db).
-    '" T1="'.urlencode($T1).
-    '" F1="'.urlencode($F1).
-    '" DB2="'.urlencode($db).
-    '" T2="'.urlencode($T2).
-    '" F2="'.urlencode($F2).
+    die('<root act="relation_new" return="' . $ret . '" b="' . $b .
+    '" DB1="' . urlencode($db) .
+    '" T1="' . urlencode($T1) .
+    '" F1="' . urlencode($F1) .
+    '" DB2="' . urlencode($db) .
+    '" T2="' . urlencode($T2) .
+    '" F2="' . urlencode($F2) .
     '"></root>');
 }
 ?>

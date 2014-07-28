@@ -151,7 +151,7 @@ if (! in_array(
 
 $post_patterns = array(
     '/^force_file_/',
-    '/^'. $format . '_/'
+    '/^' . $format . '_/'
 );
 foreach (array_keys($_POST) as $post_key) {
     foreach ($post_patterns as $one_post_pattern) {
@@ -205,6 +205,11 @@ if ($import_type == 'table') {
             ? '&amp;table=' . htmlspecialchars($table)
             : '');
     $_SESSION['Import_message']['go_back_url'] = $err_url;
+}
+// Avoid setting selflink to 'import.php'
+// problem similar to bug 4276
+if (basename($_SERVER['SCRIPT_NAME']) === 'import.php') {
+    $_SERVER['SCRIPT_NAME'] = $goto;
 }
 
 
@@ -294,7 +299,7 @@ if (! empty($id_bookmark)) {
         break;
     case 2: // bookmarked query that have to be deleted
         $import_text = PMA_Bookmark_get($db, $id_bookmark);
-        PMA_Bookmark_delete($db, $id_bookmark);
+        PMA_Bookmark_delete($id_bookmark);
         if ($GLOBALS['is_ajax_request'] == true) {
             $message = PMA_Message::success(__('The bookmark has been deleted.'));
             $response = PMA_Response::getInstance();
@@ -365,15 +370,20 @@ if ($import_file != 'none' && ! $error) {
     $open_basedir = @ini_get('open_basedir');
 
     // If we are on a server with open_basedir, we must move the file
-    // before opening it. The doc explains how to create the "./tmp"
-    // directory
+    // before opening it.
 
     if (! empty($open_basedir)) {
 
-        $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : 'tmp/');
+        /**
+         * @todo make use of the config's temp dir with fallback to the
+         * system's tmp dir
+         */
+        $tmp_subdir = ini_get('upload_tmp_dir');
+        if (empty($tmp_subdir)) {
+            $tmp_subdir = sys_get_temp_dir();
+        }
 
         if (is_writable($tmp_subdir)) {
-
 
             $import_file_new = $tmp_subdir . basename($import_file) . uniqid();
             if (move_uploaded_file($import_file, $import_file_new)) {
@@ -382,6 +392,19 @@ if ($import_file != 'none' && ! $error) {
             }
 
             $size = filesize($import_file);
+        } else {
+
+            // If the php.ini is misconfigured (eg. there is no /tmp access defined
+            // with open_basedir), $tmp_subdir won't be writable and the user gets
+            // a 'File could not be read!' error (at PMA_detectCompression), which
+            // is not too meaningful. Show a meaningful error message to the user
+            // instead.
+
+            $message = PMA_Message::error(
+                __('Uploaded file cannot be moved, because the server has open_basedir enabled without access to the %s directory (for temporary files).')
+            );
+            $message->addParam($tmp_subdir);
+            PMA_stopImport($message);
         }
     }
 
@@ -391,8 +414,8 @@ if ($import_file != 'none' && ! $error) {
      */
     $compression = PMA_detectCompression($import_file);
     if ($compression === false) {
-        $message = PMA_Message::error(__('File could not be read'));
-        $error = true;
+        $message = PMA_Message::error(__('File could not be read!'));
+        PMA_stopImport($message);
     } else {
         switch ($compression) {
         case 'application/bzip2':
@@ -403,7 +426,7 @@ if ($import_file != 'none' && ! $error) {
                     __('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.')
                 );
                 $message->addParam($compression);
-                $error = true;
+                PMA_stopImport($message);
             }
             break;
         case 'application/gzip':
@@ -414,7 +437,7 @@ if ($import_file != 'none' && ! $error) {
                     __('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.')
                 );
                 $message->addParam($compression);
-                $error = true;
+                PMA_stopImport($message);
             }
             break;
         case 'application/zip':
@@ -423,19 +446,19 @@ if ($import_file != 'none' && ! $error) {
                  * Load interface for zip extension.
                  */
                 include_once 'libraries/zip_extension.lib.php';
-                $result = PMA_getZipContents($import_file);
-                if (! empty($result['error'])) {
-                    $message = PMA_Message::rawError($result['error']);
-                    $error = true;
+                $zipResult = PMA_getZipContents($import_file);
+                if (! empty($zipResult['error'])) {
+                    $message = PMA_Message::rawError($zipResult['error']);
+                    PMA_stopImport($message);
                 } else {
-                    $import_text = $result['data'];
+                    $import_text = $zipResult['data'];
                 }
             } else {
                 $message = PMA_Message::error(
                     __('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.')
                 );
                 $message->addParam($compression);
-                $error = true;
+                PMA_stopImport($message);
             }
             break;
         case 'none':
@@ -446,21 +469,21 @@ if ($import_file != 'none' && ! $error) {
                 __('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.')
             );
             $message->addParam($compression);
-            $error = true;
+            PMA_stopImport($message);
             break;
         }
     }
     // use isset() because zip compression type does not use a handle
     if (! $error && isset($import_handle) && $import_handle === false) {
-        $message = PMA_Message::error(__('File could not be read'));
-        $error = true;
+        $message = PMA_Message::error(__('File could not be read!'));
+        PMA_stopImport($message);
     }
 } elseif (! $error) {
     if (! isset($import_text) || empty($import_text)) {
         $message = PMA_Message::error(
             __('No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See [doc@faq1-16]FAQ 1.16[/doc].')
         );
-        $error = true;
+        PMA_stopImport($message);
     }
 }
 
@@ -476,10 +499,10 @@ if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_fil
     if (PMA_DRIZZLE) {
         // Drizzle doesn't support other character sets,
         // so we can't fallback to SET NAMES - throw an error
-        $error = true;
         $message = PMA_Message::error(
-            __('Cannot convert file\'s character set without character set conversion library')
+            __('Cannot convert file\'s character set without character set conversion library!')
         );
+        PMA_stopImport($message);
     } else {
         $GLOBALS['dbi']->query('SET NAMES \'' . $charset_of_file . '\'');
         // We can not show query in this case, it is in different charset
@@ -493,7 +516,7 @@ if (! $error && isset($skip)) {
     $original_skip = $skip;
     while ($skip > 0) {
         PMA_importGetNextChunk($skip < $read_limit ? $skip : $read_limit);
-        // Disable read progresivity, otherwise we eat all memory!
+        // Disable read progressivity, otherwise we eat all memory!
         $read_multiply = 1;
         $skip -= $read_limit;
     }
@@ -514,17 +537,17 @@ if (! $error) {
         $import_type
     );
     if ($import_plugin == null) {
-        $error = true;
         $message = PMA_Message::error(
             __('Could not load import plugins, please check your installation!')
         );
+        PMA_stopImport($message);
     } else {
         // Do the real import
         $import_plugin->doImport($sql_data);
     }
 }
 
-if (! $error && false !== $import_handle && null !== $import_handle) {
+if (false !== $import_handle && null !== $import_handle) {
     fclose($import_handle);
 }
 
@@ -550,7 +573,7 @@ if (! empty($id_bookmark) && $action_bookmark == 2) {
     $message = PMA_Message::notice(__('Showing bookmark'));
 } elseif ($bookmark_created) {
     $special_message = '[br]'  . sprintf(
-        __('Bookmark %s created'),
+        __('Bookmark %s has been created.'),
         htmlspecialchars($bkm_label)
     );
 } elseif ($finished && ! $error) {
@@ -570,7 +593,9 @@ if (! empty($id_bookmark) && $action_bookmark == 2) {
         if (isset($local_import_file)) {
             $message->addString('(' . htmlspecialchars($local_import_file) . ')');
         } else {
-            $message->addString('(' . htmlspecialchars($_FILES['import_file']['name']) . ')');
+            $message->addString(
+                '(' . htmlspecialchars($_FILES['import_file']['name']) . ')'
+            );
         }
     }
 }
@@ -604,7 +629,7 @@ if (strlen($sql_query) <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
 if (isset($my_die)) {
     foreach ($my_die as $key => $die) {
         PMA_Util::mysqlDie(
-            $die['error'], $die['sql'], '', $err_url, $error
+            $die['error'], $die['sql'], false, $err_url, $error
         );
     }
 }

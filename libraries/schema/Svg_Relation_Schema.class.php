@@ -10,6 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once 'Export_Relation_Schema.class.php';
+require_once 'libraries/Font.class.php';
 
 /**
  * This Class inherits the XMLwriter class and
@@ -260,116 +261,9 @@ class PMA_SVG extends XMLWriter
         $this->writeAttribute('style', $styles);
         $this->endElement();
     }
-
-    /**
-     * get width of string/text
-     *
-     * Svg text element width is calculated depending on font name
-     * and font size. It is very important to know the width of text
-     * because rectangle is drawn around it.
-     *
-     * This is a bit hardcore method. I didn't found any other than this.
-     *
-     * @param string  $text     string that width will be calculated
-     * @param integer $font     name of the font like Arial,sans-serif etc
-     * @param integer $fontSize size of font
-     *
-     * @return integer width of the text
-     * @access public
-     */
-    function getStringWidth($text, $font, $fontSize)
-    {
-        // list of characters and their width modifiers
-        $charLists = array();
-
-        //ijl
-        $charLists[] = array("chars" => array("i", "j", "l"), "modifier" => 0.23);
-        //f
-        $charLists[] = array("chars" => array("f"), "modifier" => 0.27);
-        //tI
-        $charLists[] = array("chars" => array("t", "I"), "modifier" => 0.28);
-        //r
-        $charLists[] = array("chars" => array("r"), "modifier" => 0.34);
-        //1
-        $charLists[] = array("chars" => array("1"), "modifier" => 0.49);
-        //cksvxyzJ
-        $charLists[] = array(
-            "chars" => array("c", "k", "s", "v", "x", "y", "z", "J"),
-            "modifier" => 0.5
-        );
-        //abdeghnopquL023456789
-        $charLists[] = array(
-            "chars" => array(
-                "a", "b", "d", "e", "g", "h", "n", "o", "p", "q", "u", "L",
-                "0", "2", "3", "4", "5", "6", "7", "8", "9"
-            ),
-            "modifier" => 0.56
-        );
-        //FTZ
-        $charLists[] = array("chars" => array("F", "T", "Z"), "modifier" => 0.61);
-        //ABEKPSVXY
-        $charLists[] = array(
-            "chars" => array("A", "B", "E", "K", "P", "S", "V", "X", "Y"),
-            "modifier" => 0.67
-        );
-        //wCDHNRU
-        $charLists[] = array(
-            "chars" => array("w", "C", "D", "H", "N", "R", "U"),
-            "modifier" => 0.73
-        );
-        //GOQ
-        $charLists[] = array("chars" => array("G", "O", "Q"), "modifier" => 0.78);
-        //mM
-        $charLists[] = array("chars" => array("m", "M"), "modifier" => 0.84);
-        //W
-        $charLists[] = array("chars" => array("W"), "modifier" => 0.95);
-        //" "
-        $charLists[] = array("chars" => array(" "), "modifier" => 0.28);
-
-        /*
-         * Start by counting the width, giving each character a modifying value
-         */
-        $count = 0;
-
-        foreach ($charLists as $charList) {
-            $count += ((strlen($text)
-                - strlen(str_replace($charList["chars"], "", $text))
-                ) * $charList["modifier"]);
-        }
-
-        $text  = str_replace(" ", "", $text);//remove the " "'s
-        //all other chars
-        $count = $count + (strlen(preg_replace("/[a-z0-9]/i", "", $text)) * 0.3);
-
-        $modifier = 1;
-        $font = strtolower($font);
-        switch ($font) {
-        /*
-         * no modifier for arial and sans-serif
-         */
-        case 'arial':
-        case 'sans-serif':
-            break;
-        /*
-         * .92 modifer for time, serif, brushscriptstd, and californian fb
-         */
-        case 'times':
-        case 'serif':
-        case 'brushscriptstd':
-        case 'californian fb':
-            $modifier = .92;
-            break;
-        /*
-         * 1.23 modifier for broadway
-         */
-        case 'broadway':
-            $modifier = 1.23;
-            break;
-        }
-        $textWidth = $count*$fontSize;
-        return ceil($textWidth*$modifier);
-    }
 }
+
+require_once './libraries/schema/TableStats.class.php';
 
 /**
  * Table preferences/statistics
@@ -381,22 +275,13 @@ class PMA_SVG extends XMLWriter
  * @name    Table_Stats_Svg
  * @see     PMA_SVG
  */
-class Table_Stats_Svg
+class Table_Stats_Svg extends TableStats
 {
     /**
      * Defines properties
      */
-
-    private $_tableName;
-    private $_showInfo = false;
-
-    public $width = 0;
     public $height;
-    public $fields = array();
-    public $heightCell = 0;
     public $currentCell = 0;
-    public $x, $y;
-    public $primary = array();
 
     /**
      * The "Table_Stats_Svg" constructor
@@ -425,108 +310,49 @@ class Table_Stats_Svg
         &$same_wide_width, $showKeys = false, $showInfo = false
     ) {
         global $svg, $cfgRelation, $db;
-
-        $this->_tableName = $tableName;
-        $sql = 'DESCRIBE ' . PMA_Util::backquote($tableName);
-        $result = $GLOBALS['dbi']->tryQuery(
-            $sql, null, PMA_DatabaseInterface::QUERY_STORE
+        parent::__construct(
+            $svg, $db, $pageNumber, $tableName, $showKeys, $showInfo
         );
-        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
-            $svg->dieSchema(
-                $pageNumber,
-                "SVG",
-                sprintf(__('The %s table doesn\'t exist!'), $tableName)
-            );
-        }
-
-        /*
-        * load fields
-        * check to see if it will load all fields or only the foreign keys
-        */
-
-        if ($showKeys) {
-            $indexes = PMA_Index::getFromTable($this->_tableName, $db);
-            $all_columns = array();
-            foreach ($indexes as $index) {
-                $all_columns = array_merge(
-                    $all_columns,
-                    array_flip(array_keys($index->getColumns()))
-                );
-            }
-            $this->fields = array_keys($all_columns);
-        } else {
-            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
-                $this->fields[] = $row[0];
-            }
-        }
-
-        $this->_showInfo = $showInfo;
 
         // height and width
         $this->_setHeightTable($fontSize);
-
         // setWidth must me after setHeight, because title
         // can include table height which changes table width
         $this->_setWidthTable($font, $fontSize);
         if ($same_wide_width < $this->width) {
             $same_wide_width = $this->width;
         }
-
-        // x and y
-        $sql = 'SELECT x, y FROM '
-         . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-         . PMA_Util::backquote($cfgRelation['table_coords'])
-         . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-         . ' AND   table_name = \'' . PMA_Util::sqlAddSlashes($tableName) . '\''
-         . ' AND   pdf_page_number = ' . $pageNumber;
-        $result = PMA_queryAsControlUser(
-            $sql, false, PMA_DatabaseInterface::QUERY_STORE
-        );
-
-        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
-            $svg->dieSchema(
-                $pageNumber,
-                "SVG",
-                sprintf(
-                    __('Please configure the coordinates for table %s'),
-                    $tableName
-                )
-            );
-        }
-        list($this->x, $this->y) = $GLOBALS['dbi']->fetchRow($result);
-        $this->x = (double) $this->x;
-        $this->y = (double) $this->y;
-        // displayfield
-        $this->displayfield = PMA_getDisplayField($db, $tableName);
-        // index
-        $result = $GLOBALS['dbi']->query(
-            'SHOW INDEX FROM ' . PMA_Util::backquote($tableName) . ';',
-            null,
-            PMA_DatabaseInterface::QUERY_STORE
-        );
-        if ($GLOBALS['dbi']->numRows($result) > 0) {
-            while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                if ($row['Key_name'] == 'PRIMARY') {
-                    $this->primary[] = $row['Column_name'];
-                }
-            }
-        }
     }
 
     /**
-     * Returns title of the current table,
-     * title can have the dimensions/co-ordinates of the table
+     * Displays an error when the table cannot be found.
      *
-     * @return string title of the current table
-     * @access private
+     * @return void
      */
-    private function _getTitle()
+    protected function showMissingTableError()
     {
-        return ($this->_showInfo
-            ? sprintf('%.0f', $this->width) . 'x'
-            . sprintf('%.0f', $this->heightCell)
-            : ''
-        ) . ' ' . $this->_tableName;
+        $this->diagram->dieSchema(
+            $this->pageNumber,
+            "SVG",
+            sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
+        );
+    }
+
+    /**
+     * Displays an error on missing coordinates
+     *
+     * @return void
+     */
+    protected function showMissingCoordinatesError()
+    {
+        $this->diagram->dieSchema(
+            $this->pageNumber,
+            "SVG",
+            sprintf(
+                __('Please configure the coordinates for table %s'),
+                $this->tableName
+            )
+        );
     }
 
     /**
@@ -544,22 +370,20 @@ class Table_Stats_Svg
      */
     private function _setWidthTable($font,$fontSize)
     {
-        global $svg;
-
         foreach ($this->fields as $field) {
             $this->width = max(
                 $this->width,
-                $svg->getStringWidth($field, $font, $fontSize)
+                PMA_Font::getStringWidth($field, $font, $fontSize)
             );
         }
-        $this->width += $svg->getStringWidth('  ', $font, $fontSize);
+        $this->width += PMA_Font::getStringWidth('  ', $font, $fontSize);
 
         /*
          * it is unknown what value must be added, because
          * table title is affected by the tabe width value
          */
         while ($this->width
-            < $svg->getStringWidth($this->_getTitle(), $font, $fontSize)
+            < PMA_Font::getStringWidth($this->getTitle(), $font, $fontSize)
         ) {
             $this->width += 7;
         }
@@ -594,14 +418,14 @@ class Table_Stats_Svg
     public function tableDraw($showColor)
     {
         global $svg;
-        //echo $this->_tableName.'<br />';
+        //echo $this->tableName.'<br />';
         $svg->printElement(
             'rect', $this->x, $this->y, $this->width,
             $this->heightCell, null, 'fill:red;stroke:black;'
         );
         $svg->printElement(
             'text', $this->x + 5, $this->y+ 14, $this->width, $this->heightCell,
-            $this->_getTitle(), 'fill:none;stroke:black;'
+            $this->getTitle(), 'fill:none;stroke:black;'
         );
         foreach ($this->fields as $field) {
             $this->currentCell += $this->heightCell;
@@ -616,7 +440,7 @@ class Table_Stats_Svg
             }
             $svg->printElement(
                 'rect', $this->x, $this->y + $this->currentCell, $this->width,
-                $this->heightCell, null, 'fill:'.$showColor.';stroke:black;'
+                $this->heightCell, null, 'fill:' . $showColor . ';stroke:black;'
             );
             $svg->printElement(
                 'text', $this->x + 5, $this->y + 14 + $this->currentCell,
@@ -914,7 +738,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
     function showOutput()
     {
         global $svg,$db;
-        $svg->showOutput($db.'-'.$this->pageNumber);
+        $svg->showOutput($db . '-' . $this->pageNumber);
     }
 
 

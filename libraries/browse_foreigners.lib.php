@@ -57,129 +57,111 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
 
     $output .= '<table width="100%">';
 
-    if (is_array($foreignData['disp_row'])) {
-        $header = '<tr>
-            <th>' . __('Keyname') . '</th>
-            <th>' . __('Description') . '</th>
-            <td width="20%"></td>
-            <th>' . __('Description') . '</th>
-            <th>' . __('Keyname') . '</th>
-        </tr>';
+    if (!is_array($foreignData['disp_row'])) {
+        $output .= '</tbody>'
+            . '</table>';
 
-        $output .= '<thead>' . $header . '</thead>' . "\n"
-            . '<tfoot>' . $header . '</tfoot>' . "\n"
-            . '<tbody>' . "\n";
+        return $output;
+    }
 
-        $values = array();
-        $keys   = array();
-        foreach ($foreignData['disp_row'] as $relrow) {
-            if ($foreignData['foreign_display'] != false) {
-                $values[] = $relrow[$foreignData['foreign_display']];
-            } else {
-                $values[] = '';
-            }
+    $header = '<tr>
+        <th>' . __('Keyname') . '</th>
+        <th>' . __('Description') . '</th>
+        <td width="20%"></td>
+        <th>' . __('Description') . '</th>
+        <th>' . __('Keyname') . '</th>
+    </tr>';
 
-            $keys[] = $relrow[$foreignData['foreign_field']];
+    $output .= '<thead>' . $header . '</thead>' . "\n"
+        . '<tfoot>' . $header . '</tfoot>' . "\n"
+        . '<tbody>' . "\n";
+
+    $descriptions = array();
+    $keys   = array();
+    foreach ($foreignData['disp_row'] as $relrow) {
+        if ($foreignData['foreign_display'] != false) {
+            $descriptions[] = $relrow[$foreignData['foreign_display']];
+        } else {
+            $descriptions[] = '';
         }
 
-        asort($keys);
-
-        $hcount = 0;
-        $odd_row = true;
-        $val_ordered_current_row = 0;
-        $val_ordered_current_equals_data = false;
-        $key_ordered_current_equals_data = false;
-        foreach ($keys as $key_ordered_current_row => $value) {
-            $hcount++;
-
-            if ($GLOBALS['cfg']['RepeatCells'] > 0
-                && $hcount > $GLOBALS['cfg']['RepeatCells']
-            ) {
-                $output .= $header;
-                $hcount = 0;
-                $odd_row = true;
-            }
-
-            $key_ordered_current_key = $keys[$key_ordered_current_row];
-            $key_ordered_current_val = $values[$key_ordered_current_row];
-
-            $val_ordered_current_key = $keys[$val_ordered_current_row];
-            $val_ordered_current_val = $values[$val_ordered_current_row];
-
-            $val_ordered_current_row++;
-
-            $pmaString = $GLOBALS['PMA_String'];
-            $limitChars = $GLOBALS['cfg']['LimitChars'];
-            if ($pmaString->strlen($val_ordered_current_val) <= $limitChars) {
-                $val_ordered_current_val = htmlspecialchars(
-                    $val_ordered_current_val
-                );
-                $val_ordered_current_val_title = '';
-            } else {
-                $val_ordered_current_val_title = htmlspecialchars(
-                    $val_ordered_current_val
-                );
-                $val_ordered_current_val = htmlspecialchars(
-                    $pmaString->substr(
-                        $val_ordered_current_val, 0, $limitChars
-                    )
-                    . '...'
-                );
-            }
-            if ($pmaString->strlen($key_ordered_current_val) <= $limitChars) {
-                $key_ordered_current_val = htmlspecialchars(
-                    $key_ordered_current_val
-                );
-                $key_ordered_current_val_title = '';
-            } else {
-                $key_ordered_current_val_title = htmlspecialchars(
-                    $key_ordered_current_val
-                );
-                $key_ordered_current_val = htmlspecialchars(
-                    $pmaString->substr(
-                        $key_ordered_current_val, 0, $limitChars
-                    ) . '...'
-                );
-            }
-
-            if (! empty($data)) {
-                $val_ordered_current_equals_data
-                    = $val_ordered_current_key == $data;
-                $key_ordered_current_equals_data
-                    = $key_ordered_current_key == $data;
-            }
-
-            $output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
-            $odd_row = ! $odd_row;
-
-            $output .= PMA_getHtmlForColumnElement(
-                'class="nowrap"', $key_ordered_current_equals_data,
-                $key_ordered_current_key, $key_ordered_current_val,
-                $key_ordered_current_val_title, $field
-            );
-
-            $output .= PMA_getHtmlForColumnElement(
-                '', $key_ordered_current_equals_data, $key_ordered_current_key,
-                $key_ordered_current_val, $key_ordered_current_val_title, $field
-            );
-
-            $output .= '<td width="20%">'
-                . '<img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png" alt=""'
-                . ' width="1" height="1" /></td>';
-
-            $output .= PMA_getHtmlForColumnElement(
-                '', $val_ordered_current_equals_data, $key_ordered_current_key,
-                $val_ordered_current_val, $val_ordered_current_val_title, $field
-            );
-
-            $output .= PMA_getHtmlForColumnElement(
-                'class="nowrap"', $val_ordered_current_equals_data,
-                $val_ordered_current_key, $val_ordered_current_val,
-                $val_ordered_current_val_title, $field
-            );
-            $output .= '</tr>';
-        } // end while
+        $keys[] = $relrow[$foreignData['foreign_field']];
     }
+
+    asort($keys);
+
+    $hcount = 0;
+    $odd_row = true;
+    $indexByDescription = 0;
+
+    // whether the keyname corresponds to the selected value in the form
+    $rightKeynameIsSelected = false;
+    $leftKeynameIsSelected = false;
+
+    foreach ($keys as $indexByKeyname => $value) {
+        $hcount++;
+
+        if ($GLOBALS['cfg']['RepeatCells'] > 0
+            && $hcount > $GLOBALS['cfg']['RepeatCells']
+        ) {
+            $output .= $header;
+            $hcount = 0;
+            $odd_row = true;
+        }
+
+        // keynames and descriptions for the left section,
+        // sorted by keynames
+        $leftKeyname = $keys[$indexByKeyname];
+        list(
+            $leftDescription,
+            $leftDescriptionTitle
+        ) = PMA_getDescriptionAndTitle($descriptions[$indexByKeyname]);
+
+        // keynames and descriptions for the right section,
+        // sorted by descriptions
+        $rightKeyname = $keys[$indexByDescription];
+        list(
+            $rightDescription,
+            $rightDescriptionTitle
+        ) = PMA_getDescriptionAndTitle($descriptions[$indexByDescription]);
+
+        $indexByDescription++;
+
+        if (! empty($data)) {
+            $rightKeynameIsSelected = $rightKeyname == $data;
+            $leftKeynameIsSelected = $leftKeyname == $data;
+        }
+
+        $output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+        $odd_row = ! $odd_row;
+
+        $output .= PMA_getHtmlForColumnElement(
+            'class="nowrap"', $leftKeynameIsSelected,
+            $leftKeyname, $leftDescription,
+            $leftDescriptionTitle, $field
+        );
+
+        $output .= PMA_getHtmlForColumnElement(
+            '', $leftKeynameIsSelected, $leftKeyname,
+            $leftDescription, $leftDescriptionTitle, $field
+        );
+
+        $output .= '<td width="20%">'
+            . '<img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png" alt=""'
+            . ' width="1" height="1" /></td>';
+
+        $output .= PMA_getHtmlForColumnElement(
+            '', $rightKeynameIsSelected, $leftKeyname,
+            $rightDescription, $rightDescriptionTitle, $field
+        );
+
+        $output .= PMA_getHtmlForColumnElement(
+            'class="nowrap"', $rightKeynameIsSelected,
+            $rightKeyname, $rightDescription,
+            $rightDescriptionTitle, $field
+        );
+        $output .= '</tr>';
+    } // end while
     $output .= '</tbody>'
         . '</table>';
 
@@ -187,36 +169,66 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
 }
 
 /**
+ * Get the description (possibly truncated) and the title
+ *
+ * @param string $description the keyname's description
+ *
+ * @return array the new description and title
+ */
+function PMA_getDescriptionAndTitle($description)
+{
+    $pmaString = $GLOBALS['PMA_String'];
+    $limitChars = $GLOBALS['cfg']['LimitChars'];
+    if ($pmaString->strlen($description) <= $limitChars) {
+        $description = htmlspecialchars(
+            $description
+        );
+        $descriptionTitle = '';
+    } else {
+        $descriptionTitle = htmlspecialchars(
+            $description
+        );
+        $description = htmlspecialchars(
+            $pmaString->substr(
+                $description, 0, $limitChars
+            )
+            . '...'
+        );
+    }
+    return array($description, $descriptionTitle);
+}
+
+/**
  * Function to get html for each column element
  *
- * @param string $cssClass          class="nowrap" or ''
- * @param bool   $currentEqualsData whether current equals data
- * @param string $currentKey        current key
- * @param string $currentVal        current value
- * @param string $currentTitle      current title
- * @param string $field             field
+ * @param string $cssClass    class="nowrap" or ''
+ * @param bool   $isSelected  whether current equals form's value
+ * @param string $keyname     current key
+ * @param string $description current value
+ * @param string $title       current title
+ * @param string $field       field
  *
  * @return string
  */
-function PMA_getHtmlForColumnElement($cssClass, $currentEqualsData, $currentKey,
-    $currentVal, $currentTitle, $field
+function PMA_getHtmlForColumnElement($cssClass, $isSelected, $keyname,
+    $description, $title, $field
 ) {
     $output = '<td ' . $cssClass . '>'
-        . ($currentEqualsData ? '<strong>' : '')
+        . ($isSelected ? '<strong>' : '')
         . '<a href="#" title="' . __('Use this value')
-        . ($currentTitle != ''
-            ? ': ' . $currentTitle
+        . ($title != ''
+            ? ': ' . $title
             : '')
         . '" onclick="formupdate(\'' . md5($field) . '\', \''
-        . PMA_jsFormat($currentKey, false)
+        . PMA_jsFormat($keyname, false)
         . '\'); return false;">';
     if ($cssClass !== '') {
-        $output .= htmlspecialchars($currentKey);
+        $output .= htmlspecialchars($keyname);
     } else {
-        $output .= $currentVal;
+        $output .= $description;
     }
 
-    $output .=  '</a>' . ($currentEqualsData ? '</strong>' : '') . '</td>';
+    $output .=  '</a>' . ($isSelected ? '</strong>' : '') . '</td>';
 
     return $output;
 }
@@ -374,26 +386,29 @@ function PMA_getHtmlForGotoPage($foreignData)
 {
     $gotopage = '';
     isset($_REQUEST['pos']) ? $pos = $_REQUEST['pos'] : $pos = 0;
-    if (is_array($foreignData['disp_row'])) {
-        $session_max_rows = $GLOBALS['cfg']['MaxRows'];
-        $pageNow = @floor($pos / $session_max_rows) + 1;
-        $nbTotalPage = @ceil($foreignData['the_total'] / $session_max_rows);
-
-        if ($foreignData['the_total'] > $GLOBALS['cfg']['MaxRows']) {
-            $gotopage = PMA_Util::pageselector(
-                'pos',
-                $session_max_rows,
-                $pageNow,
-                $nbTotalPage,
-                200,
-                5,
-                5,
-                20,
-                10,
-                __('Page number:')
-            );
-        }
+    if (!is_array($foreignData['disp_row'])) {
+        return $gotopage;
     }
+
+    $session_max_rows = $GLOBALS['cfg']['MaxRows'];
+    $pageNow = @floor($pos / $session_max_rows) + 1;
+    $nbTotalPage = @ceil($foreignData['the_total'] / $session_max_rows);
+
+    if ($foreignData['the_total'] > $GLOBALS['cfg']['MaxRows']) {
+        $gotopage = PMA_Util::pageselector(
+            'pos',
+            $session_max_rows,
+            $pageNow,
+            $nbTotalPage,
+            200,
+            5,
+            5,
+            20,
+            10,
+            __('Page number:')
+        );
+    }
+
     return $gotopage;
 }
 

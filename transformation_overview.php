@@ -56,4 +56,3 @@ foreach ($types['transformation'] as $key => $transform) {
 ?>
 </tbody>
 </table>
-

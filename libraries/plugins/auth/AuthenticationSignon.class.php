@@ -50,7 +50,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         }
     }
 
-     /**
+    /**
      * Gets advanced authentication settings
      *
      * @global  string $PHP_AUTH_USER the username if register_globals is on
@@ -61,8 +61,10 @@ class AuthenticationSignon extends AuthenticationPlugin
      *                                register_globals is off
      * @global  string                the username for the ? server
      * @global  string                the password for the ? server
-     * @global  string                the username for the WebSite Professional server
-     * @global  string                the password for the WebSite Professional server
+     * @global  string                the username for the WebSite Professional
+     *                                server
+     * @global  string                the password for the WebSite Professional
+     *                                server
      * @global  string                the username of the user who logs out
      *
      * @return boolean   whether we get authentication settings or not
@@ -105,7 +107,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             if (! file_exists($script_name)) {
                 PMA_fatalError(
                     __('Can not find signon authentication script:')
-                    . ' '. $script_name
+                    . ' ' . $script_name
                 );
             }
             include $script_name;
@@ -265,7 +267,7 @@ class AuthenticationSignon extends AuthenticationPlugin
                     . '(see AllowNoPassword)'
                 );
             } elseif (! empty($GLOBALS['allowDeny_forbidden'])) {
-                $_SESSION['PMA_single_signon_error_message'] = __('Access denied');
+                $_SESSION['PMA_single_signon_error_message'] = __('Access denied!');
             } elseif (! empty($GLOBALS['no_activity'])) {
                 $_SESSION['PMA_single_signon_error_message'] = sprintf(
                     __('No activity within %s seconds; please log in again.'),

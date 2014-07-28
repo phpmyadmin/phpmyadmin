@@ -144,7 +144,13 @@ function PMA_TRI_handleEditor()
         }
 
         if (count($errors)) {
-            $message = PMA_Message::error(__('<b>One or more errors have occurred while processing your request:</b>'));
+            $message = PMA_Message::error(
+                '<b>'
+                . __(
+                    'One or more errors have occurred while processing your request:'
+                )
+                . '</b>'
+            );
             $message->addString('<ul>');
             foreach ($errors as $string) {
                 $message->addString('<li>' . $string . '</li>');
@@ -442,28 +448,28 @@ function PMA_TRI_getQueryFromRequest()
             $query .= 'DEFINER=' . PMA_Util::backquote($arr[0]);
             $query .= '@' . PMA_Util::backquote($arr[1]) . ' ';
         } else {
-            $errors[] = __('The definer must be in the "username@hostname" format');
+            $errors[] = __('The definer must be in the "username@hostname" format!');
         }
     }
     $query .= 'TRIGGER ';
     if (! empty($_REQUEST['item_name'])) {
         $query .= PMA_Util::backquote($_REQUEST['item_name']) . ' ';
     } else {
-        $errors[] = __('You must provide a trigger name');
+        $errors[] = __('You must provide a trigger name!');
     }
     if (! empty($_REQUEST['item_timing'])
         && in_array($_REQUEST['item_timing'], $action_timings)
     ) {
         $query .= $_REQUEST['item_timing'] . ' ';
     } else {
-        $errors[] = __('You must provide a valid timing for the trigger');
+        $errors[] = __('You must provide a valid timing for the trigger!');
     }
     if (! empty($_REQUEST['item_event'])
         && in_array($_REQUEST['item_event'], $event_manipulations)
     ) {
         $query .= $_REQUEST['item_event'] . ' ';
     } else {
-        $errors[] = __('You must provide a valid event for the trigger');
+        $errors[] = __('You must provide a valid event for the trigger!');
     }
     $query .= 'ON ';
     if (! empty($_REQUEST['item_table'])
@@ -471,7 +477,7 @@ function PMA_TRI_getQueryFromRequest()
     ) {
         $query .= PMA_Util::backquote($_REQUEST['item_table']);
     } else {
-        $errors[] = __('You must provide a valid table name');
+        $errors[] = __('You must provide a valid table name!');
     }
     $query .= ' FOR EACH ROW ';
     if (! empty($_REQUEST['item_definition'])) {

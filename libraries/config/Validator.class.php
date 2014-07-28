@@ -7,6 +7,11 @@
  */
 
 /**
+ * Core libraries.
+ */
+require_once './libraries/DatabaseInterface.class.php';
+
+/**
  * Validation class for various validation functions
  *
  * Validation function takes two argument: id for which it is called
@@ -33,34 +38,38 @@ class PMA_Validator
     {
         static $validators = null;
 
-        if ($validators === null) {
-            $validators = $cf->getDbEntry('_validators', array());
-            if (!defined('PMA_SETUP')) {
-                // not in setup script: load additional validators for user
-                // preferences we need original config values not overwritten
-                // by user preferences, creating a new PMA_Config instance is a
-                // better idea than hacking into its code
-                $uvs = $cf->getDbEntry('_userValidators', array());
-                foreach ($uvs as $field => $uv_list) {
-                    $uv_list = (array)$uv_list;
-                    foreach ($uv_list as &$uv) {
-                        if (!is_array($uv)) {
-                            continue;
-                        }
-                        for ($i = 1; $i < count($uv); $i++) {
-                            if (substr($uv[$i], 0, 6) == 'value:') {
-                                $uv[$i] = PMA_arrayRead(
-                                    substr($uv[$i], 6),
-                                    $GLOBALS['PMA_Config']->base_settings
-                                );
-                            }
-                        }
+        if ($validators !== null) {
+            return $validators;
+        }
+
+        $validators = $cf->getDbEntry('_validators', array());
+        if (defined('PMA_SETUP')) {
+            return $validators;
+        }
+
+        // not in setup script: load additional validators for user
+        // preferences we need original config values not overwritten
+        // by user preferences, creating a new PMA_Config instance is a
+        // better idea than hacking into its code
+        $uvs = $cf->getDbEntry('_userValidators', array());
+        foreach ($uvs as $field => $uv_list) {
+            $uv_list = (array)$uv_list;
+            foreach ($uv_list as &$uv) {
+                if (!is_array($uv)) {
+                    continue;
+                }
+                for ($i = 1, $nb = count($uv); $i < $nb; $i++) {
+                    if (substr($uv[$i], 0, 6) == 'value:') {
+                        $uv[$i] = PMA_arrayRead(
+                            substr($uv[$i], 6),
+                            $GLOBALS['PMA_Config']->base_settings
+                        );
                     }
-                    $validators[$field] = isset($validators[$field])
-                        ? array_merge((array)$validators[$field], $uv_list)
-                        : $uv_list;
                 }
             }
+            $validators[$field] = isset($validators[$field])
+                ? array_merge((array)$validators[$field], $uv_list)
+                : $uv_list;
         }
         return $validators;
     }
@@ -121,19 +130,21 @@ class PMA_Validator
                 $r = call_user_func_array($vname, $args);
 
                 // merge results
-                if (is_array($r)) {
-                    foreach ($r as $key => $error_list) {
-                        // skip empty values if $isPostSource is false
-                        if (! $isPostSource && empty($error_list)) {
-                            continue;
-                        }
-                        if (! isset($result[$key])) {
-                            $result[$key] = array();
-                        }
-                        $result[$key] = array_merge(
-                            $result[$key], (array)$error_list
-                        );
+                if (!is_array($r)) {
+                    continue;
+                }
+
+                foreach ($r as $key => $error_list) {
+                    // skip empty values if $isPostSource is false
+                    if (! $isPostSource && empty($error_list)) {
+                        continue;
                     }
+                    if (! isset($result[$key])) {
+                        $result[$key] = array();
+                    }
+                    $result[$key] = array_merge(
+                        $result[$key], (array)$error_list
+                    );
                 }
             }
         }
@@ -176,9 +187,9 @@ class PMA_Validator
             $old_track_errors = ini_get('track_errors');
             $old_display_errors = ini_get('display_errors');
             $old_error_reporting = error_reporting(E_ALL);
-            ini_set('html_errors', false);
-            ini_set('track_errors', true);
-            ini_set('display_errors', true);
+            ini_set('html_errors', '0');
+            ini_set('track_errors', '1');
+            ini_set('display_errors', '1');
             set_error_handler(array("PMA_Validator", "nullErrorHandler"));
             ob_start();
         } else {
@@ -194,7 +205,6 @@ class PMA_Validator
     /**
      * Test database connection
      *
-     * @param string $extension    'drizzle', 'mysql' or 'mysqli'
      * @param string $connect_type 'tcp' or 'socket'
      * @param string $host         host name
      * @param string $port         tcp port to use
@@ -206,7 +216,6 @@ class PMA_Validator
      * @return bool|array
      */
     public static function testDBConnection(
-        $extension,
         $connect_type,
         $host,
         $port,
@@ -216,14 +225,24 @@ class PMA_Validator
         $error_key = 'Server'
     ) {
         //    static::testPHPErrorMsg();
-        $socket = empty($socket) || $connect_type == 'tcp' ? null : $socket;
-        $port = empty($port) || $connect_type == 'socket' ? null : ':' . $port;
         $error = null;
+
+        if (PMA_DatabaseInterface::checkDbExtension('mysqli')) {
+            $socket = empty($socket) || $connect_type == 'tcp' ? null : $socket;
+            $port = empty($port) || $connect_type == 'socket' ? null : $port;
+            $extension = 'mysqli';
+        } else {
+            $socket = empty($socket) || $connect_type == 'tcp' ? null : ':' . ($socket[0] == '/' ? '' : '/') . $socket;
+            $port = empty($port) || $connect_type == 'socket' ? null : ':' . $port;
+            $extension = 'mysql';
+        }
+
+        // dead code (drizzle extension)
         if ($extension == 'drizzle') {
             while (1) {
                 $drizzle = @drizzle_create();
                 if (! $drizzle) {
-                    $error = __('Could not initialize Drizzle connection library');
+                    $error = __('Could not initialize Drizzle connection library!');
                     break;
                 }
                 $conn = $socket
@@ -232,7 +251,7 @@ class PMA_Validator
                         $drizzle, $host, $port, $user, $pass, null, 0
                     );
                 if (! $conn) {
-                    $error = __('Could not connect to Drizzle server');
+                    $error = __('Could not connect to the database server!');
                     drizzle_free($drizzle);
                     break;
                 }
@@ -240,7 +259,7 @@ class PMA_Validator
                 // to actually connect
                 $res = @drizzle_query($conn, 'SELECT 1');
                 if (! $res) {
-                    $error = __('Could not connect to Drizzle server');
+                    $error = __('Could not connect to the database server!');
                 } else {
                     drizzle_result_free($res);
                 }
@@ -249,16 +268,16 @@ class PMA_Validator
                 break;
             }
         } else if ($extension == 'mysql') {
-            $conn = @mysql_connect($host . $socket . $port, $user, $pass);
+            $conn = @mysql_connect($host . $port . $socket, $user, $pass);
             if (! $conn) {
-                $error = __('Could not connect to MySQL server');
+                $error = __('Could not connect to the database server!');
             } else {
                 mysql_close($conn);
             }
         } else {
             $conn = @mysqli_connect($host, $user, $pass, null, $port, $socket);
             if (! $conn) {
-                $error = __('Could not connect to MySQL server');
+                $error = __('Could not connect to the database server!');
             } else {
                 mysqli_close($conn);
             }
@@ -291,7 +310,7 @@ class PMA_Validator
             && empty($values['Servers/1/user'])
         ) {
             $result['Servers/1/user']
-                = __('Empty username while using config authentication method');
+                = __('Empty username while using [kbd]config[/kbd] authentication method!');
             $error = true;
         }
         if ($values['Servers/1/auth_type'] == 'signon'
@@ -299,7 +318,7 @@ class PMA_Validator
         ) {
             $result['Servers/1/SignonSession'] = __(
                 'Empty signon session name '
-                . 'while using signon authentication method'
+                . 'while using [kbd]signon[/kbd] authentication method!'
             );
             $error = true;
         }
@@ -307,7 +326,7 @@ class PMA_Validator
             && empty($values['Servers/1/SignonURL'])
         ) {
             $result['Servers/1/SignonURL']
-                = __('Empty signon URL while using signon authentication method');
+                = __('Empty signon URL while using [kbd]signon[/kbd] authentication method!');
             $error = true;
         }
 
@@ -315,7 +334,6 @@ class PMA_Validator
             $password = $values['Servers/1/nopassword'] ? null
                 : $values['Servers/1/password'];
             $test = static::testDBConnection(
-                $values['Servers/1/extension'],
                 $values['Servers/1/connect_type'],
                 $values['Servers/1/host'],
                 $values['Servers/1/port'],
@@ -355,17 +373,17 @@ class PMA_Validator
         $result = array();
         if ($values['Servers/1/controluser'] == '') {
             $result['Servers/1/controluser']
-                = __('Empty phpMyAdmin control user while using pmadb');
+                = __('Empty phpMyAdmin control user while using phpMyAdmin configuration storage!');
             $error = true;
         }
         if ($values['Servers/1/controlpass'] == '') {
             $result['Servers/1/controlpass']
-                = __('Empty phpMyAdmin control user password while using pmadb');
+                = __('Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!');
             $error = true;
         }
         if (! $error) {
             $test = static::testDBConnection(
-                $values['Servers/1/extension'], $values['Servers/1/connect_type'],
+                $values['Servers/1/connect_type'],
                 $values['Servers/1/host'], $values['Servers/1/port'],
                 $values['Servers/1/socket'], $values['Servers/1/controluser'],
                 $values['Servers/1/controlpass'], 'Server_pmadb'
@@ -514,7 +532,7 @@ class PMA_Validator
                 false,
                 false,
                 65535,
-                __('Not a valid port number')
+                __('Not a valid port number!')
             )
         );
     }
@@ -536,7 +554,7 @@ class PMA_Validator
                 false,
                 false,
                 PHP_INT_MAX,
-                __('Not a positive number')
+                __('Not a positive number!')
             )
         );
     }
@@ -558,7 +576,7 @@ class PMA_Validator
                 false,
                 true,
                 PHP_INT_MAX,
-                __('Not a non-negative number')
+                __('Not a non-negative number!')
             )
         );
     }
@@ -576,7 +594,7 @@ class PMA_Validator
     public static function validateByRegex($path, $values, $regex)
     {
         $result = preg_match($regex, $values[$path]);
-        return array($path => ($result ? '' : __('Incorrect value')));
+        return array($path => ($result ? '' : __('Incorrect value!')));
     }
 
     /**
@@ -592,7 +610,7 @@ class PMA_Validator
     {
         $result = $values[$path] <= $max_value;
         return array($path => ($result ? ''
-            : sprintf(__('Value must be equal or lower than %s'), $max_value)));
+            : sprintf(__('Value must be equal or lower than %s!'), $max_value)));
     }
 }
 ?>

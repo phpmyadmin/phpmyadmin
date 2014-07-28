@@ -21,7 +21,7 @@ if (! defined('PHPMYADMIN')) {
 function PMA_getHtmlForDatabaseComment($db)
 {
     $html_output = '<div class="operations_half_width">'
-        . '<form method="post" action="db_operations.php">'
+        . '<form method="post" action="db_operations.php" id="formDatabaseComment">'
         . PMA_URL_getHiddenInputs($db)
         . '<fieldset>'
         . '<legend>';
@@ -29,7 +29,7 @@ function PMA_getHtmlForDatabaseComment($db)
         $html_output .= '<img class="icon ic_b_comment" '
             . 'src="themes/dot.gif" alt="" />';
     }
-    $html_output .=  __('Database comment: ');
+    $html_output .=  __('Database comment:');
     $html_output .= '</legend>';
     $html_output .= '<input type="text" name="comment" '
         . 'class="textfield" size="30"'
@@ -61,7 +61,7 @@ function PMA_getHtmlForRenameDatabase($db)
     if (isset($_REQUEST['db_collation'])) {
         $html_output .= '<input type="hidden" name="db_collation" '
             . 'value="' . $_REQUEST['db_collation']
-            .'" />' . "\n";
+            . '" />' . "\n";
     }
     $html_output .= '<input type="hidden" name="what" value="data" />'
         . '<input type="hidden" name="db_rename" value="true" />'
@@ -76,7 +76,7 @@ function PMA_getHtmlForRenameDatabase($db)
         . '</legend>';
 
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
-        . 'size="30" class="textfield" value="" />'
+        . 'size="30" class="textfield" value="" required="required" />'
         . '</fieldset>'
         . '<fieldset class="tblFooters">'
         . '<input id="rename_db_input" type="submit" value="' . __('Go') . '" />'
@@ -162,7 +162,7 @@ function PMA_getHtmlForCopyDatabase($db)
 
     if (isset($_REQUEST['db_collation'])) {
         $html_output .= '<input type="hidden" name="db_collation" '
-        . 'value="' . $_REQUEST['db_collation'] .'" />' . "\n";
+        . 'value="' . $_REQUEST['db_collation'] . '" />' . "\n";
     }
     $html_output .= '<input type="hidden" name="db_copy" value="true" />' . "\n"
         . PMA_URL_getHiddenInputs($db);
@@ -175,7 +175,7 @@ function PMA_getHtmlForCopyDatabase($db)
     $html_output .= __('Copy database to:')
         . '</legend>'
         . '<input type="text" name="newname" size="30" '
-        . 'class="textfield" value="" /><br />'
+        . 'class="textfield" value="" required="required" /><br />'
         . PMA_Util::getRadioFields(
             'what', $choices, 'data', true
         );
@@ -332,10 +332,10 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
 {
     // lower_case_table_names=1 `DB` becomes `db`
     if (! PMA_DRIZZLE) {
-        $lower_case_table_names = $GLOBALS['dbi']->fetchValue(
+        $lowerCaseTableNames = $GLOBALS['dbi']->fetchValue(
             'SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1
         );
-        if ($lower_case_table_names === '1') {
+        if ($lowerCaseTableNames === '1') {
             $_REQUEST['newname'] = $GLOBALS['PMA_String']->strtolower(
                 $_REQUEST['newname']
             );
@@ -373,10 +373,10 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
  * remove all foreign key constraints and return
  * sql constraints query for full database
  *
- * @param array   $tables_full       array of all tables in given db or dbs
- * @param object  $export_sql_plugin export plugin instance
- * @param boolean $move              whether database name is empty or not
- * @param string  $db                database name
+ * @param array     $tables_full       array of all tables in given db or dbs
+ * @param ExportSql $export_sql_plugin export plugin instance
+ * @param boolean   $move              whether database name is empty or not
+ * @param string    $db                database name
  *
  * @return string sql constraints query for full databases
  */
@@ -390,7 +390,7 @@ function PMA_getSqlConstraintsQueryForFullDb(
         $sql_constraints = '';
         $sql_drop_foreign_keys = '';
         $export_sql_plugin->getTableDef(
-            $db, $each_table, "\n", '', false, false
+            $db, $each_table, "\n", '', false, false, false, false
         );
         if ($move && ! empty($sql_drop_foreign_keys)) {
             $GLOBALS['dbi']->query($sql_drop_foreign_keys);
@@ -406,9 +406,9 @@ function PMA_getSqlConstraintsQueryForFullDb(
 /**
  * Get views as an array and create SQL view stand-in
  *
- * @param array  $tables_full       array of all tables in given db or dbs
- * @param object $export_sql_plugin export plugin instance
- * @param string $db                database name
+ * @param array     $tables_full       array of all tables in given db or dbs
+ * @param ExportSql $export_sql_plugin export plugin instance
+ * @param string    $db                database name
  *
  * @return array $views
  */
@@ -686,7 +686,7 @@ function PMA_getHtmlForMoveTable()
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
     $html_output .= '<input class="halfWidth" type="text" size="20" name="new_name"'
-        . ' onfocus="this.select()" required '
+        . ' onfocus="this.select()" required="required" '
         . 'value="' . htmlspecialchars($GLOBALS['table']) . '" /><br />';
 
     // starting with MySQL 5.0.24, SHOW CREATE TABLE includes the AUTO_INCREMENT
@@ -790,7 +790,8 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
     $html_output .= '<tr><td>' . __('Rename table to') . '</td>'
         . '<td>'
         . '<input type="text" size="20" name="new_name" onfocus="this.select()"'
-        . 'value="' . htmlspecialchars($GLOBALS['table']) . '" required />'
+        . 'value="' . htmlspecialchars($GLOBALS['table'])
+        . '" required="required" />'
         . '</td>'
         . '</tr>';
 
@@ -927,8 +928,8 @@ function PMA_getHtmlForTableRow($attribute, $label, $val)
 {
     return '<tr>'
         . '<td><label for="' . $attribute . '">' . $label . '</label></td>'
-        . '<td><input type="checkbox" name="'. $attribute .'"'
-        . ' id="' . $attribute .'"'
+        . '<td><input type="checkbox" name="' . $attribute . '"'
+        . ' id="' . $attribute . '"'
         . ' value="1"'
         . ((!empty($val) && $val == 1) ? ' checked="checked"' : '') . '/></td>'
         . '</tr>';
@@ -969,15 +970,15 @@ function PMA_getPossibleRowFormat()
         )
     );
 
-    $innodb_engine_plugin = PMA_StorageEngine::getEngine('innodb');
-    $innodb_plugin_version = $innodb_engine_plugin->getInnodbPluginVersion();
-    if (!empty($innodb_plugin_version)) {
-        $innodb_file_format = $innodb_engine_plugin->getInnodbFileFormat();
+    $innodbEnginePlugin = PMA_StorageEngine::getEngine('innodb');
+    $innodbPluginVersion = $innodbEnginePlugin->getInnodbPluginVersion();
+    if (!empty($innodbPluginVersion)) {
+        $innodb_file_format = $innodbEnginePlugin->getInnodbFileFormat();
     } else {
         $innodb_file_format = '';
     }
     if ('Barracuda' == $innodb_file_format
-        && $innodb_engine_plugin->supportsFilePerTable()
+        && $innodbEnginePlugin->supportsFilePerTable()
     ) {
         $possible_row_formats['INNODB']['DYNAMIC'] = 'DYNAMIC';
         $possible_row_formats['INNODB']['COMPRESSED'] = 'COMPRESSED';
@@ -1009,16 +1010,16 @@ function PMA_getHtmlForCopytable()
     if (count($GLOBALS['pma']->databases) > $GLOBALS['cfg']['MaxDbList']) {
         $html_output .= '<input class="halfWidth" type="text" maxlength="100" '
             . 'size="30" name="target_db" '
-            . 'value="'. htmlspecialchars($GLOBALS['db']) . '"/>';
+            . 'value="' . htmlspecialchars($GLOBALS['db']) . '"/>';
     } else {
         $html_output .= '<select class="halfWidth" name="target_db">'
             . $GLOBALS['pma']->databases->getHtmlOptions(true, false)
             . '</select>';
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
-    $html_output .= '<input class="halfWidth" type="text" required '
+    $html_output .= '<input class="halfWidth" type="text" required="required" '
         . 'size="20" name="new_name" onfocus="this.select()" '
-        . 'value="'. htmlspecialchars($GLOBALS['table']) . '"/><br />';
+        . 'value="' . htmlspecialchars($GLOBALS['table']) . '"/><br />';
 
     $choices = array(
             'structure' => __('Structure only'),
@@ -1044,7 +1045,7 @@ function PMA_getHtmlForCopytable()
         $html_output .= '<input type="checkbox" name="add_constraints" '
             . 'value="1" id="checkbox_constraints" />';
         $html_output .= '<label for="checkbox_constraints">'
-            .__('Add constraints') . '</label><br />';
+            . __('Add constraints') . '</label><br />';
     } // endif
 
     if (isset($_COOKIE['pma_switch_to_new'])
@@ -1063,7 +1064,7 @@ function PMA_getHtmlForCopytable()
         . '</fieldset>';
 
     $html_output .= '<fieldset class="tblFooters">'
-        . '<input type="submit" name="submit_copy" value="' .__('Go') . '" />'
+        . '<input type="submit" name="submit_copy" value="' . __('Go') . '" />'
         . '</fieldset>'
         . '</form>'
         . '</div>';
@@ -1191,7 +1192,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
         'sql_query' => 'FLUSH TABLE '
             . PMA_Util::backquote($GLOBALS['table']),
         'message_to_show' => sprintf(
-            __('Table %s has been flushed'),
+            __('Table %s has been flushed.'),
             htmlspecialchars($GLOBALS['table'])
         ),
         'reload' => 1,
@@ -1222,7 +1223,7 @@ function PMA_getMaintainActionlink($action, $params, $url_params, $link)
     return '<li>'
         . '<a class="maintain_action ajax" '
         . 'href="sql.php'
-        . PMA_URL_getCommon(array_merge($url_params, $params)) .'">'
+        . PMA_URL_getCommon(array_merge($url_params, $params)) . '">'
         . $action
         . '</a>'
         . PMA_Util::showMySQLDocu($link)
@@ -1233,13 +1234,13 @@ function PMA_getMaintainActionlink($action, $params, $url_params, $link)
  * Get HTML for Delete data or table (truncate table, drop table)
  *
  * @param array $truncate_table_url_params url parameter array for truncate table
- * @param array $drop_table_url_params     url parameter array for drop table
+ * @param array $dropTableUrlParams        url parameter array for drop table
  *
  * @return string $html_output
  */
 function PMA_getHtmlForDeleteDataOrTable(
     $truncate_table_url_params,
-    $drop_table_url_params
+    $dropTableUrlParams
 ) {
     $html_output = '<div class="operations_half_width">'
         . '<fieldset class="caution">'
@@ -1255,9 +1256,9 @@ function PMA_getHtmlForDeleteDataOrTable(
             'truncate_tbl_anchor'
         );
     }
-    if (!empty ($drop_table_url_params)) {
+    if (!empty ($dropTableUrlParams)) {
         $html_output .= PMA_getDeleteDataOrTablelink(
-            $drop_table_url_params,
+            $dropTableUrlParams,
             'DROP_TABLE',
             __('Delete the table (DROP)'),
             'drop_tbl_anchor'
@@ -1274,15 +1275,15 @@ function PMA_getHtmlForDeleteDataOrTable(
  * @param array  $url_params url parameter array for delete data or table
  * @param string $syntax     TRUNCATE_TABLE or DROP_TABLE or DROP_DATABASE
  * @param string $link       link to be shown
- * @param string $id         id of the link
+ * @param string $htmlId     id of the link
  *
  * @return String html output
  */
-function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $id)
+function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $htmlId)
 {
     return  '<li><a '
         . 'href="sql.php' . PMA_URL_getCommon($url_params) . '"'
-        . ' id="' . $id . '" class="ajax">'
+        . ' id="' . $htmlId . '" class="ajax">'
         . $link . '</a>'
         . PMA_Util::showMySQLDocu($syntax)
         . '</li>';
@@ -1439,25 +1440,25 @@ function PMA_getQueryAndResultForReorderingTable()
 /**
  * Get table alters array
  *
- * @param boolean $is_myisam_or_aria      whether MYISAM | ARIA or not
- * @param boolean $is_isam                whether ISAM or not
- * @param string  $pack_keys              pack keys
- * @param string  $checksum               value of checksum
- * @param boolean $is_aria                whether ARIA or not
- * @param string  $page_checksum          value of page checksum
- * @param string  $delay_key_write        delay key write
- * @param boolean $is_innodb              whether INNODB or not
- * @param boolean $is_pbxt                whether PBXT or not
- * @param string  $row_format             row format
- * @param string  $new_tbl_storage_engine table storage engine
- * @param string  $transactional          value of transactional
- * @param string  $tbl_collation          collation of the table
+ * @param boolean $is_myisam_or_aria   whether MYISAM | ARIA or not
+ * @param boolean $is_isam             whether ISAM or not
+ * @param string  $pack_keys           pack keys
+ * @param string  $checksum            value of checksum
+ * @param boolean $is_aria             whether ARIA or not
+ * @param string  $page_checksum       value of page checksum
+ * @param string  $delay_key_write     delay key write
+ * @param boolean $is_innodb           whether INNODB or not
+ * @param boolean $is_pbxt             whether PBXT or not
+ * @param string  $row_format          row format
+ * @param string  $newTblStorageEngine table storage engine
+ * @param string  $transactional       value of transactional
+ * @param string  $tbl_collation       collation of the table
  *
  * @return array  $table_alters
  */
 function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
     $checksum, $is_aria, $page_checksum, $delay_key_write, $is_innodb,
-    $is_pbxt, $row_format, $new_tbl_storage_engine, $transactional, $tbl_collation
+    $is_pbxt, $row_format, $newTblStorageEngine, $transactional, $tbl_collation
 ) {
     global $auto_increment;
 
@@ -1469,10 +1470,10 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
         $table_alters[] = 'COMMENT = \''
             . PMA_Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
-    if (! empty($new_tbl_storage_engine)
-        && strtolower($new_tbl_storage_engine) !== strtolower($GLOBALS['tbl_storage_engine'])
+    if (! empty($newTblStorageEngine)
+        && strtolower($newTblStorageEngine) !== strtolower($GLOBALS['tbl_storage_engine'])
     ) {
-        $table_alters[] = 'ENGINE = ' . $new_tbl_storage_engine;
+        $table_alters[] = 'ENGINE = ' . $newTblStorageEngine;
     }
     if (! empty($_REQUEST['tbl_collation'])
         && $_REQUEST['tbl_collation'] !== $tbl_collation
@@ -1550,21 +1551,19 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
  */
 function PMA_setGlobalVariablesForEngine($tbl_storage_engine)
 {
-    $is_myisam_or_aria = $is_isam = $is_innodb = $is_berkeleydb
-        = $is_aria = $is_pbxt = false;
-    $upper_tbl_storage_engine = strtoupper($tbl_storage_engine);
+    $upperTblStorEngine = strtoupper($tbl_storage_engine);
 
     //Options that apply to MYISAM usually apply to ARIA
-    $is_myisam_or_aria = ($upper_tbl_storage_engine == 'MYISAM'
-        || $upper_tbl_storage_engine == 'ARIA'
-        || $upper_tbl_storage_engine == 'MARIA'
+    $is_myisam_or_aria = ($upperTblStorEngine == 'MYISAM'
+        || $upperTblStorEngine == 'ARIA'
+        || $upperTblStorEngine == 'MARIA'
     );
-    $is_aria = ($upper_tbl_storage_engine == 'ARIA');
+    $is_aria = ($upperTblStorEngine == 'ARIA');
 
-    $is_isam = ($upper_tbl_storage_engine == 'ISAM');
-    $is_innodb = ($upper_tbl_storage_engine == 'INNODB');
-    $is_berkeleydb = ($upper_tbl_storage_engine == 'BERKELEYDB');
-    $is_pbxt = ($upper_tbl_storage_engine == 'PBXT');
+    $is_isam = ($upperTblStorEngine == 'ISAM');
+    $is_innodb = ($upperTblStorEngine == 'INNODB');
+    $is_berkeleydb = ($upperTblStorEngine == 'BERKELEYDB');
+    $is_pbxt = ($upperTblStorEngine == 'PBXT');
 
     return array(
         $is_myisam_or_aria, $is_innodb, $is_isam,

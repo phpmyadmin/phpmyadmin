@@ -314,6 +314,9 @@ function PMA_getHeaderCells($is_backup, $columnMeta, $mimework, $db, $table)
         $header_cells[] = __('MIME type');
         $header_cells[] = '<a href="transformation_overview.php?'
             . PMA_URL_getCommon($db, $table)
+            . '" title="' . __(
+                'List of available transformations and their options'
+            )
             . '" target="_blank">'
             . __('Browser transformation')
             . '</a>';
@@ -356,13 +359,14 @@ function PMA_getMoveColumns($db, $table)
 /**
  * Function to get row data for regenerating previous when error occurred.
  *
- * @param int   $columnNumber    coulmn number
+ * @param int   $columnNumber    column number
  * @param array $submit_fulltext submit full text
  *
  * @return array
  */
 function PMA_getRowDataForRegeneration($columnNumber, $submit_fulltext)
 {
+    $columnMeta = array();
     $columnMeta['Field'] = isset($_REQUEST['field_name'][$columnNumber])
         ? $_REQUEST['field_name'][$columnNumber]
         : false;
@@ -436,7 +440,7 @@ function PMA_getRowDataForRegeneration($columnNumber, $submit_fulltext)
 /**
  * Function to get submit properties for regenerating previous when error occurred.
  *
- * @param int $columnNumber coulmn number
+ * @param int $columnNumber column number
  *
  * @return array
  */
@@ -465,7 +469,7 @@ function PMA_getSubmitPropertiesForRegeneration($columnNumber)
  * An error happened with previous inputs, so we will restore the data
  * to embed it once again in this form.
  *
- * @param int   $columnNumber    coulmn number
+ * @param int   $columnNumber    column number
  * @param array $submit_fulltext submit full text
  * @param array $comments_map    comments map
  * @param array $mime_map        mime map
@@ -509,7 +513,7 @@ function PMA_handleRegeneration($columnNumber, $submit_fulltext, $comments_map,
 }
 
 /**
- * Function to get row data for $columnMeta set
+ * Function to update default value info in $columnMeta and get this array
  *
  * @param array $columnMeta column meta
  * @param bool  $isDefault  whether the row value is default
@@ -559,9 +563,29 @@ function PMA_getColumnMetaForDefault($columnMeta, $isDefault)
  */
 function PMA_getHtmlForColumnName($columnNumber, $ci, $ci_offset, $columnMeta)
 {
-    $html = '<input id="field_' . $columnNumber . '_' . ($ci - $ci_offset)
+    $title = '';
+    if (isset($columnMeta['column_status'])) {
+        if ($columnMeta['column_status']['isReferenced']) {
+            $title .= sprintf(
+                __('Referenced by %s.'),
+                implode(",", $columnMeta['column_status']['references'])
+            );
+        }
+        if ($columnMeta['column_status']['isForeignKey']) {
+            if (!empty($title)) {
+                $title .= "\n";
+            }
+            $title .=  __('Is a foreign key.');
+        }
+    }
+    if (empty($title)) {
+        $title = __('Column');
+    }
+    $html = '<input' . (isset($columnMeta['column_status'])
+        && !$columnMeta['column_status']['isEditable']?' disabled="disabled" ':' ')
+        . 'id="field_' . $columnNumber . '_' . ($ci - $ci_offset)
         . '"' . ' type="text" name="field_name[' . $columnNumber . ']"'
-        . ' maxlength="64" class="textfield" title="' . __('Column') . '"'
+        . ' maxlength="64" class="textfield" title="' . $title . '"'
         . ' size="10"'
         . ' value="'
         . (isset($columnMeta['Field'])
@@ -578,14 +602,18 @@ function PMA_getHtmlForColumnName($columnNumber, $ci, $ci_offset, $columnMeta)
  * @param int    $ci           cell index
  * @param int    $ci_offset    cell index offset
  * @param string $type_upper   type inuppercase
+ * @param array  $columnMeta   meta data
  *
  * @return string
  */
-function PMA_getHtmlForColumnType($columnNumber, $ci, $ci_offset, $type_upper)
-{
+function PMA_getHtmlForColumnType($columnNumber, $ci, $ci_offset,
+    $type_upper, $columnMeta
+) {
     $select_id = 'field_' . $columnNumber . '_' . ($ci - $ci_offset);
-    $html = '<select class="column_type" name="field_type[' .
-        $columnNumber . ']"' .' id="' . $select_id . '">';
+    $html = '<select' . (isset($columnMeta['column_status'])
+        && !$columnMeta['column_status']['isEditable']?' disabled="disabled" ':' ')
+        . 'class="column_type" name="field_type['
+        . $columnNumber . ']"' . ' id="' . $select_id . '">';
     $html .= PMA_Util::getSupportedDatatypes(true, $type_upper);
     $html .= '    </select>';
 
@@ -746,7 +774,7 @@ function PMA_getHtmlForMoveColumn($columnNumber, $ci, $ci_offset, $move_columns,
             . (($current_index == $mi || $current_index == $mi + 1)
                 ? ' disabled="disabled"'
                 : '')
-            .'>'
+            . '>'
             . sprintf(
                 __('after %s'),
                 PMA_Util::backquote(
@@ -1036,9 +1064,8 @@ function PMA_getHtmlForColumnLength($columnNumber, $ci, $ci_offset,
         . '<p class="enum_notice" id="enum_notice_' . $columnNumber . '_'
         . ($ci - $ci_offset)
         . '">';
-    $html .= __('ENUM or SET data too long?')
-        . '<a href="#" class="open_enum_editor"> '
-        . __('Get more editing space') . '</a>'
+    $html .= '<a href="#" class="open_enum_editor"> '
+        . __('Edit ENUM/SET values') . '</a>'
         . '</p>';
 
     return $html;
@@ -1098,12 +1125,22 @@ function PMA_getHtmlForColumnDefault($columnNumber, $ci, $ci_offset, $type_upper
     }
     $html .= '</select>';
     $html .= '<br />';
-    $html .= '<input type="text"'
-        . ' name="field_default_value[' . $columnNumber . ']" size="12"'
-        . ' value="' . (isset($columnMeta['DefaultValue'])
-            ? htmlspecialchars($columnMeta['DefaultValue'])
-            : '') . '"'
-        . ' class="textfield default_value" />';
+
+    $value = isset($columnMeta['DefaultValue'])
+        ? htmlspecialchars($columnMeta['DefaultValue'])
+        : '';
+    if ($GLOBALS['cfg']['CharEditing'] == 'textarea') {
+        $html .= '<textarea'
+            . ' name="field_default_value[' . $columnNumber . ']" cols="15"'
+            . ' class="textfield default_value">'
+            . $value
+            . '</textarea>';
+    } else {
+        $html .= '<input type="text"'
+            . ' name="field_default_value[' . $columnNumber . ']" size="12"'
+            . ' value="' . $value . '"'
+            . ' class="textfield default_value" />';
+    }
 
     return $html;
 }
@@ -1153,7 +1190,7 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
 
     // column type
     $content_cell[$ci] = PMA_getHtmlForColumnType(
-        $columnNumber, $ci, $ci_offset, $type_upper
+        $columnNumber, $ci, $ci_offset, $type_upper, isset($columnMeta) ? $columnMeta : null
     );
     $ci++;
 
@@ -1260,7 +1297,7 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
  * @param array  $form_params          form parameters
  * @param int    $columnNumber         column/field number
  * @param string $type                 type in lowercase without the length
- * @param array  $extracted_columnspec details about the column spec 
+ * @param array  $extracted_columnspec details about the column spec
  *
  * @return array
  */
@@ -1272,6 +1309,12 @@ function PMA_getFormParamsForOldColumn(
     if (isset($columnMeta['Field'])) {
         $form_params['field_orig[' . $columnNumber . ']']
             = $columnMeta['Field'];
+        if (isset($columnMeta['column_status'])
+            && !$columnMeta['column_status']['isEditable']
+        ) {
+            $form_params['field_name[' . $columnNumber . ']']
+                = $columnMeta['Field'];
+        }
     } else {
         $form_params['field_orig[' . $columnNumber . ']'] = '';
     }
@@ -1280,6 +1323,12 @@ function PMA_getFormParamsForOldColumn(
         // keep in uppercase because the new type will be in uppercase
         $form_params['field_type_orig[' . $columnNumber . ']']
             = strtoupper($type);
+        if (isset($columnMeta['column_status'])
+            && !$columnMeta['column_status']['isEditable']
+        ) {
+            $form_params['field_type[' . $columnNumber . ']']
+                = strtoupper($type);
+        }
     } else {
         $form_params['field_type_orig[' . $columnNumber . ']'] = '';
     }
@@ -1309,7 +1358,7 @@ function PMA_getFormParamsForOldColumn(
         $form_params['field_attribute_orig[' . $columnNumber . ']'] = '';
     }
 
-    // old column null 
+    // old column null
     if (isset($columnMeta['Null'])) {
         $form_params['field_null_orig[' . $columnNumber . ']']
             = $columnMeta['Null'];
@@ -1317,7 +1366,7 @@ function PMA_getFormParamsForOldColumn(
         $form_params['field_null_orig[' . $columnNumber . ']'] = '';
     }
 
-    // old column extra (for auto_increment) 
+    // old column extra (for auto_increment)
     if (isset($columnMeta['Extra'])) {
         $form_params['field_extra_orig[' . $columnNumber . ']']
             = $columnMeta['Extra'];
@@ -1325,7 +1374,7 @@ function PMA_getFormParamsForOldColumn(
         $form_params['field_extra_orig[' . $columnNumber . ']'] = '';
     }
 
-    // old column comment 
+    // old column comment
     if (isset($columnMeta['Comment'])) {
         $form_params['field_comments_orig[' . $columnNumber . ']']
             = $columnMeta['Comment'];

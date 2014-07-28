@@ -33,7 +33,7 @@ foreach ($drops as $each_drop) {
 }
 unset($drops, $each_drop);
 
-/* 
+/*
  * Black list of all scripts to which front-end must submit data.
  * Such scripts must not be loaded on home page.
  *
@@ -46,7 +46,7 @@ unset($drops, $each_drop);
 if (! empty($_REQUEST['target'])
     && is_string($_REQUEST['target'])
     && ! preg_match('/^index/', $_REQUEST['target'])
-    && ! in_array($_REQUEST['target'], $target_blacklist )      // Check if target is not in blacklist.
+    && ! in_array($_REQUEST['target'], $target_blacklist)
     && in_array($_REQUEST['target'], $goto_whitelist)
 ) {
     include $_REQUEST['target'];
@@ -56,12 +56,12 @@ if (! empty($_REQUEST['target'])
 /**
  * Check if it is an ajax request to reload the recent tables list.
  */
-require_once 'libraries/RecentTable.class.php';
+require_once 'libraries/RecentFavoriteTable.class.php';
 if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['recent_table'])) {
     $response = PMA_Response::getInstance();
     $response->addJSON(
-        'options',
-        PMA_RecentTable::getInstance()->getHtmlSelectOption()
+        'list',
+        PMA_RecentFavoriteTable::getInstance('recent')->getHtmlList()
     );
     exit;
 }
@@ -117,6 +117,8 @@ if ($server > 0) {
 }
 
 echo '<div id="maincontainer">' . "\n";
+// Anchor for favorite tables synchronization.
+echo PMA_RecentFavoriteTable::getInstance('favorite')->getHtmlSyncFavoriteTables();
 echo '<div id="main_pane_left">';
 if ($server > 0 || count($cfg['Servers']) > 1
 ) {
@@ -179,7 +181,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
         echo '        <form method="post" action="index.php">' . "\n"
            . PMA_URL_getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
-           . '                '. PMA_Util::getImage('s_asci.png') . " "
+           . '                ' . PMA_Util::getImage('s_asci.png') . " "
                                . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
            . PMA_Util::showMySQLDocu('Charset-connection')
@@ -233,7 +235,7 @@ echo '</ul>';
 if ($server > 0) {
     echo '<ul>';
     PMA_printListItem(
-        PMA_Util::getImage('b_tblops.png')." " .__('More settings'),
+        PMA_Util::getImage('b_tblops.png') . " " . __('More settings'),
         'li_user_preferences',
         'prefs_manage.php?' . $common_url_query,
         null,
@@ -283,7 +285,8 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     echo '        ' . __('Server charset:') . ' '
        . '        <span lang="en" dir="ltr">';
     if (! PMA_DRIZZLE) {
-        echo '           ' . $mysql_charsets_descriptions[$mysql_charset_map['utf-8']];
+        echo '           '
+            . $mysql_charsets_descriptions[$mysql_charset_map['utf-8']];
     }
     echo '           (' . $mysql_charset_map['utf-8'] . ')'
        . '        </span>'
@@ -301,12 +304,7 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
 
         if ($server > 0) {
             $client_version_str = $GLOBALS['dbi']->getClientInfo();
-            if (preg_match('#\d+\.\d+\.\d+#', $client_version_str)
-                && in_array(
-                    $GLOBALS['cfg']['Server']['extension'],
-                    array('mysql', 'mysqli')
-                )
-            ) {
+            if (preg_match('#\d+\.\d+\.\d+#', $client_version_str)) {
                 $client_version_str = 'libmysql - ' . $client_version_str;
             }
             PMA_printListItem(
@@ -314,15 +312,15 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
                 'li_mysql_client_version'
             );
 
-            $php_ext_string = __('PHP extension:') . ' '
-                . $GLOBALS['cfg']['Server']['extension'] . ' ';
-            if (!empty($GLOBALS['cfg']['Server']['extension'])) {
-                $php_ext_string  .= PMA_Util::showPHPDocu('book.' . $GLOBALS['cfg']['Server']['extension'] . '.php' );
+            $php_ext_string = __('PHP extension:') . ' ';
+            if (PMA_DatabaseInterface::checkDbExtension('mysqli')) {
+                $extension = 'mysqli';
+            } else {
+                $extension = 'mysql';
             }
-            else {
-                $php_ext_string  .= __('None');
-            }
-            
+            $php_ext_string  .= $extension . ' '
+                . PMA_Util::showPHPDocu('book.' . $extension . '.php');
+
             PMA_printListItem(
                 $php_ext_string,
                 'li_used_php_extension'
@@ -584,15 +582,6 @@ if ($cfg['SuhosinDisableWarning'] == false
 }
 
 /**
- * Warning about mcrypt.
- */
-if (! function_exists('mcrypt_encrypt')
-    && ! $GLOBALS['cfg']['McryptDisableWarning']
-) {
-    PMA_warnMissingExtension('mcrypt');
-}
-
-/**
  * Warning about incomplete translations.
  *
  * The data file is created while creating release by ./scripts/remove-incomplete-mo
@@ -620,7 +609,7 @@ if (file_exists('libraries/language_stats.inc.php')) {
  * prints list item for main page
  *
  * @param string $name            displayed text
- * @param string $id              id, used for css styles
+ * @param string $listId          id, used for css styles
  * @param string $url             make item as link with $url as target
  * @param string $mysql_help_page display a link to MySQL's manual
  * @param string $target          special target for $url
@@ -631,11 +620,11 @@ if (file_exists('libraries/language_stats.inc.php')) {
  *
  * @return void
  */
-function PMA_printListItem($name, $id = null, $url = null,
+function PMA_printListItem($name, $listId = null, $url = null,
     $mysql_help_page = null, $target = null, $a_id = null, $class = null,
     $a_class = null
 ) {
-    echo '<li id="' . $id . '"';
+    echo '<li id="' . $listId . '"';
     if (null !== $class) {
         echo ' class="' . $class . '"';
     }
@@ -646,10 +635,10 @@ function PMA_printListItem($name, $id = null, $url = null,
             echo ' target="' . $target . '"';
         }
         if (null != $a_id) {
-            echo ' id="' . $a_id .'"';
+            echo ' id="' . $a_id . '"';
         }
         if (null != $a_class) {
-            echo ' class="' . $a_class .'"';
+            echo ' class="' . $a_class . '"';
         }
         echo '>';
     }

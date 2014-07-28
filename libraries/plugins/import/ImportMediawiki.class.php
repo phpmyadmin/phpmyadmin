@@ -360,7 +360,7 @@ class ImportMediawiki extends ImportPlugin
         if (empty($table_name)) {
             $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
             // todo check if the name below already exists
-            $table_name = 'TABLE '.(count($result) + 1);
+            $table_name = 'TABLE ' . (count($result) + 1);
         }
     }
 
@@ -380,7 +380,7 @@ class ImportMediawiki extends ImportPlugin
             // If they are not set, generic names will be given (COL 1, COL 2, etc)
             $num_cols = count($table_row);
             for ($i = 0; $i < $num_cols; ++ $i) {
-                $table_headers [$i] = 'COL '. ($i + 1);
+                $table_headers [$i] = 'COL ' . ($i + 1);
             }
         }
     }

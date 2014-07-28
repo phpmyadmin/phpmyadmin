@@ -43,7 +43,7 @@ echo '</ul><div class="clearfloat"></div>';
 
 // show "configuration saved" message and reload navigation panel if needed
 if (!empty($_GET['saved'])) {
-    PMA_Message::rawSuccess(__('Configuration has been saved'))->display();
+    PMA_Message::rawSuccess(__('Configuration has been saved.'))->display();
 }
 
 /* debug code
