@@ -10244,10 +10244,9 @@ msgid "Schema of the %s database - Page %s"
 msgstr ""
 
 #: libraries/schema/Eps_Relation_Schema.class.php:782
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "EPS export page"
-msgstr "தகா தரவேற்ற சுட்டுவகை"
+msgstr "EPS தரவேற்ற பக்கம்"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
 msgid "This page does not contain any tables!"
