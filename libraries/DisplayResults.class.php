@@ -2145,12 +2145,12 @@ class PMA_DisplayResults
     /**
      * Get sort order link
      *
-     * @param string  $order_img   the sort order image
-     * @param integer $col_index   the index of the column
-     * @param string  $direction   the display direction
-     * @param array   $fields_meta set of field properties
-     * @param string  $order_url   the url for sort
-     * @param string  $multi_order_url   the url for sort
+     * @param string  $order_img       the sort order image
+     * @param integer $col_index       the index of the column
+     * @param string  $direction       the display direction
+     * @param array   $fields_meta     set of field properties
+     * @param string  $order_url       the url for sort
+     * @param string  $multi_order_url the url for sort
      *
      * @return  string                      the sort order link
      *
