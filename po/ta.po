@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-28 22:48+0200\n"
+"PO-Revision-Date: 2014-07-28 22:52+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1012,7 +1012,7 @@ msgstr "கலப்புரு நிரல்வரிசை தொகுப�
 
 #: js/messages.php:63
 msgid "Composite with:"
-msgstr ""
+msgstr "உடன் கலப்புருவாக்குக:"
 
 #: js/messages.php:64
 msgid "Please select column(s) for the index."
