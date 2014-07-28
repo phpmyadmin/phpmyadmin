@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-18 23:03+0200\n"
+"PO-Revision-Date: 2014-07-28 18:09+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
-">\n"
+"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1013,28 +1013,24 @@ msgid "Add %s column(s) to index"
 msgstr "Voeg %s kolom(men) toe aan index"
 
 #: js/messages.php:61
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Maak relatie"
+msgstr "Index van één kolom maken"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Maak relatie"
+msgstr "Samengestelde index maken"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "Kolommen omsloten met:"
+msgstr "Samenstellen met:"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Voeg %s kolom(men) toe aan index"
+msgstr "Gelieve de kolom(men) voor de index te selecteren."
 
 #: js/messages.php:67 libraries/insert_edit.lib.php:1606
 #: libraries/tbl_columns_definition_form.lib.php:141
@@ -1907,16 +1903,15 @@ msgid "The following actions will be performed:"
 msgstr "De volgende acties worden uitgevoerd:"
 
 #: js/messages.php:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Remove columns from central list"
 msgid "DROP columns %1s from the table %2s"
-msgstr "Verwijder kolommen uit de centrale lijst"
+msgstr "Verwijder (DROP) kolommen %1s uit tabel %2s"
 
 #: js/messages.php:326
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following table"
-msgstr "Rechten toevoegen op de volgende tabel:"
+msgstr "Maak de volgende tabel aan"
 
 #: js/messages.php:331 libraries/insert_edit.lib.php:1517
 #: libraries/server_variables.lib.php:157
@@ -2704,18 +2699,17 @@ msgid "Expand"
 msgstr ""
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:171
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "subquery"
+msgstr "Query opnieuw uitvoeren"
 
 #: libraries/Console.class.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Bladwijzer toevoegen"
-msgstr[1] "Bladwijzer toevoegen"
+msgstr[0] "In totaal %d bladwijzer"
+msgstr[1] "In totaal %d bladwijzers"
 
 #: libraries/Console.class.php:114
 msgid "private"
@@ -2727,10 +2721,10 @@ msgstr "gedeeld"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:122
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "De bladwijzer werd verwijderd."
+msgstr "%1$s, %2$s en %3$s bladwijzers inbegrepen"
 
 #: libraries/Console.class.php:128
 msgid "No bookmarks"
@@ -2794,10 +2788,9 @@ msgid "Bookmarks"
 msgstr "Bladwijzers"
 
 #: libraries/Console.class.php:205
-#, fuzzy
 #| msgid "to Execute query"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Uit te voeren query"
+msgstr "Druk Ctrl+Enter om de query uit te voeren"
 
 #: libraries/Console.class.php:221
 msgid "During current session"
@@ -2834,10 +2827,9 @@ msgid "Always expand queried messages"
 msgstr ""
 
 #: libraries/Console.class.php:279
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "Tabel voor SQL-querygeschiedenis"
+msgstr "Query geschiedenis aan begin weergeven"
 
 #: libraries/Console.class.php:281
 msgid "Show current browsing query"
@@ -9029,10 +9021,9 @@ msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
 
 #: libraries/normalization.lib.php:452 libraries/normalization.lib.php:516
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing!"
-msgstr "Fout tijdens het uitvoeren van de opdracht:"
+msgstr "Verwerkingsfout!"
 
 #: libraries/normalization.lib.php:495
 #, fuzzy, php-format
@@ -9685,10 +9676,9 @@ msgstr ""
 "verschillende tijdszones)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:514
-#, fuzzy
 #| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses procedures;"
-msgstr "Het lijkt erop dat uw tabel triggers gebruikt;"
+msgstr "Het lijkt erop dat uw database procedures gebruikt;"
 
 #: libraries/plugins/export/ExportSql.class.php:515
 #: libraries/plugins/export/ExportSql.class.php:547
@@ -9698,16 +9688,14 @@ msgid "alias export may not work reliably in all cases."
 msgstr "alias uitvoer mogelijk niet betrouwbaar in alle gevallen."
 
 #: libraries/plugins/export/ExportSql.class.php:546
-#, fuzzy
 #| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses functions;"
-msgstr "Het lijkt erop dat uw tabel triggers gebruikt;"
+msgstr "Het lijkt erop dat uw database functies gebruikt;"
 
 #: libraries/plugins/export/ExportSql.class.php:1248
-#, fuzzy
 #| msgid "It appears your table uses triggers;"
 msgid "It appears your database uses views;"
-msgstr "Het lijkt erop dat uw tabel triggers gebruikt;"
+msgstr "Het lijkt erop dat uw database views gebruikt;"
 
 #: libraries/plugins/export/ExportSql.class.php:1299
 msgid "Constraints for dumped tables"
@@ -9940,7 +9928,6 @@ msgstr ""
 "gekozen is het vereist dat de eerste optie leeg is."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -9967,14 +9954,14 @@ msgstr ""
 "ALLEEN LINUX: Start een externe applicatie op en voedt de kolomdata via "
 "standaard invoer. Geeft standaard uitvoer van de applicatie terug. Standaard "
 "is Tidy, om nette HTML-code te tonen. Om veiligheidsredenen zult u handmatig "
-"het bestand libraries/plugins/transformations/Text_Plain_External.class.php "
-"moeten aanpassen en de tools die u mag draaien invoegen. De eerste optie is "
-"het nummer van het programma dat u wilt gebruiken, de tweede optie zijn de "
-"parameters voor dit programma. De derde parameter, wanneer ingesteld op 1, "
-"zal de output omzetten door middel van htmlspecialchars() (Standaard is 1). "
-"Een vierde parameter, wanneer ingesteld als 1 zal NOWRAP aan de inhoudscel "
-"toevoegen, zodat de gehele output getoond zal worden zonder te "
-"herstructureren (Standaard 1)."
+"het bestand libraries/plugins/transformations/output/"
+"Text_Plain_External.class.php moeten aanpassen en de tools oplijsten die u "
+"mag uitvoeren. De eerste optie is het nummer van het programma dat u wilt "
+"gebruiken, de tweede optie zijn de parameters voor dit programma. De derde "
+"parameter, wanneer ingesteld op 1, zal de output omzetten door middel van "
+"htmlspecialchars() (Standaardwaarde is 1). Een vierde parameter, wanneer "
+"ingesteld als 1 zal NOWRAP aan de inhoudscel toevoegen, zodat de gehele "
+"output getoond zal worden op 1 regel (Standaardwaarde is 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -10122,12 +10109,11 @@ msgid "Browser transformation"
 msgstr "Browsertransformaties"
 
 #: libraries/relation.lib.php:177
-#, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
-"Raadpleeg de documentatie over hoe u de tabel column_comments kunt bijwerkt."
+"Raadpleeg de documentatie over hoe u de tabel column_info kunt bijwerkt. "
 
 #: libraries/relation.lib.php:190 libraries/sql_query_form.lib.php:412
 msgid "Bookmarked SQL query"
@@ -10955,10 +10941,9 @@ msgid "Please configure the coordinates for table %s"
 msgstr "Configureer de coördinaten voor de tabel %s"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:742
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "Dia export page"
-msgstr "Ongeldig exporttype"
+msgstr "Dia export pagina"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:709
 #: libraries/schema/Pdf_Relation_Schema.class.php:867
@@ -10968,10 +10953,9 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Schema van de databank %s - Pagina %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:782
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "EPS export page"
-msgstr "Ongeldig exporttype"
+msgstr "EPS export pagina"
 
 #: libraries/schema/Export_Relation_Schema.class.php:238
 msgid "This page does not contain any tables!"
@@ -10983,10 +10967,9 @@ msgstr "SCHEMA ERROR: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:229
 #: libraries/schema/Pdf_Relation_Schema.class.php:1182
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "PDF export page"
-msgstr "Ongeldig exporttype"
+msgstr "PDF export pagina"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:898
 #: libraries/schema/Pdf_Relation_Schema.class.php:1251
@@ -11005,10 +10988,9 @@ msgid "Attributes"
 msgstr "Attributen"
 
 #: libraries/schema/Svg_Relation_Schema.class.php:753
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "SVG export page"
-msgstr "Ongeldig exporttype"
+msgstr "SVG export pagina"
 
 #: libraries/select_lang.lib.php:598 libraries/select_lang.lib.php:607
 #: libraries/select_lang.lib.php:616
@@ -11934,7 +11916,6 @@ msgid "Reset to default"
 msgstr "Standaardwaarde herstellen"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
 #| "between the web server and the MySQL server."
@@ -11942,7 +11923,7 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Let op: het inschakelen van databankstatistieken kan zorgen voor veel "
+"Let op: het inschakelen van automatisch verversen kan zorgen voor veel "
 "gegevensverkeer tussen de webserver en de MySQL-server."
 
 #: libraries/server_status_processes.lib.php:69
@@ -13357,29 +13338,25 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:336
 #: transformation_overview.php:41
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "Browsertransformaties"
+msgstr "Browserweergavetransformaties"
 
 #: libraries/tbl_columns_definition_form.lib.php:338
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation options"
-msgstr "Browsertransformaties"
+msgstr "Browserweergavetransformatieopties"
 
 #: libraries/tbl_columns_definition_form.lib.php:341
 #: transformation_overview.php:42
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Input transformation"
-msgstr "Browsertransformaties"
+msgstr "Invoertransformaties"
 
 #: libraries/tbl_columns_definition_form.lib.php:343
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Input transformation options"
-msgstr "Transformatieopties"
+msgstr "Invoertransformatieopties"
 
 #: libraries/tbl_columns_definition_form.lib.php:584
 #, php-format
