@@ -49,7 +49,9 @@ var PMA_commonParams = (function () {
                 }
                 params[i] = obj[i];
             }
-            if (updateNavigation) {
+            if (updateNavigation &&
+                    $('#pma_navigation_tree').hasClass('synced')
+            ) {
                 PMA_showCurrentNavigation();
             }
             if (reload) {
@@ -84,7 +86,9 @@ var PMA_commonParams = (function () {
                 updateNavigation = true;
             }
             params[name] = value;
-            if (updateNavigation) {
+            if (updateNavigation &&
+                    $('#pma_navigation_tree').hasClass('synced')
+            ) {
                 PMA_showCurrentNavigation();
             }
             return this;

@@ -59,6 +59,42 @@ $(function () {
     });
 
     /**
+     * Register event handler for click on the collapse all
+     * navigation icon at the top of the navigation tree
+     */
+    $('#navigation_controls').on('click', '#pma_navigation_collapse', function (event) {
+        event.preventDefault();
+        $('#pma_navigation_tree a.expander').each(function() {
+            var $icon = $(this).find('img');
+            if ($icon.is('.ic_b_minus')) {
+                $(this).click();
+            }
+        });
+    });
+
+    /**
+     * Register event handler to toggle
+     * the linking with main panel behavior
+     */
+    $('#navigation_controls').on('click', '#pma_navigation_sync', function (event) {
+        event.preventDefault();
+        var synced = $('#pma_navigation_tree').hasClass('synced');
+        var $img = $('#pma_navigation_sync').children('img');
+        var imgUrl = $img.attr('src');
+        if (synced) {
+            $img.attr('src', imgUrl.replace('s_synced', 's_unsynced'));
+            $('#pma_navigation_tree')
+                .removeClass('synced')
+                .find('li.selected')
+                .removeClass('selected');
+        } else {
+            $img.attr('src', imgUrl.replace('s_unsynced', 's_synced'));
+            $('#pma_navigation_tree').addClass('synced');
+            PMA_showCurrentNavigation();
+        }
+    });
+
+    /**
      * Bind all "fast filter" events
      */
     $('#pma_navigation_tree li.fast_filter span')
@@ -234,6 +270,10 @@ $(function () {
             }
         });
     });
+
+    if ($('#pma_navigation_tree').hasClass('synced')) {
+        PMA_showCurrentNavigation();
+    }
 
     // Add/Remove favorite table using Ajax.
     $(".favorite_table_anchor").live("click", function (event) {
@@ -639,7 +679,9 @@ function PMA_reloadNavigation(callback) {
     $.post(url, params, function (data) {
         if (data.success) {
             $('#pma_navigation_tree').html(data.message).children('div').show();
-            PMA_showCurrentNavigation();
+            if ($('#pma_navigation_tree').hasClass('synced')) {
+                PMA_showCurrentNavigation();
+            }
             // Fire the callback, if any
             if (typeof callback === 'function') {
                 callback.call();
