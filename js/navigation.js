@@ -277,8 +277,53 @@ $(function () {
         });
     });
 
-    PMA_showCurrentNavigation();
+    // Check if session storage is supported
+    if (isStorageSupported('sessionStorage')) {
+        var storage = window.sessionStorage;
+        // remove tree from storage if Navi_panel config form is submitted
+        $(document).on('submit', 'form.config-form', function(event) {
+            if ($(this).attr('action').indexOf('form=Navi_panel') >= 0) {
+                storage.removeItem('navTree');
+            }
+        });
+        // Initialize if no previous state is defined
+        if (typeof storage.navTree === 'undefined') {
+            PMA_showCurrentNavigation();
+            navTreeStateUpdate();
+        } else if (PMA_commonParams.get('server') === storage.server) {
+            // Restore the tree from storage
+            $('#pma_navigation_tree_content').html(storage.navTree);
+            $('div.pageselector.dbselector').html(storage.page);
+        }
+    } else {
+        PMA_showCurrentNavigation();
+    }
 });
+
+/**
+ * updates the tree state in sessionStorage
+ *
+ * @returns void
+ */
+function navTreeStateUpdate() {
+    // update if session storage is supported
+    if (isStorageSupported('sessionStorage')) {
+        var storage = window.sessionStorage;
+        // try catch necessary here to detect whether
+        // content to be stored exceeds storage capacity
+        try {
+            storage.setItem('navTree', $('#pma_navigation_tree_content').html());
+            storage.setItem('server', PMA_commonParams.get('server'));
+            storage.setItem('page', $('div.pageselector.dbselector').html());
+        } catch(error) {
+            // storage capacity exceeded & old navigation tree
+            // state is no more valid, so remove it
+            storage.removeItem('navTree');
+            storage.removeItem('server');
+            storage.removeItem('page');
+        }
+    }
+}
 
 /**
  * Expands a node in navigation tree.
@@ -299,6 +344,7 @@ function expandTreeNode($expandElem, callback) {
         if (callback && typeof callback == 'function') {
             callback.call();
         }
+        $children.promise().done(navTreeStateUpdate);
     } else {
         var $throbber = $('#pma_navigation .throbber')
             .first()
@@ -312,9 +358,8 @@ function expandTreeNode($expandElem, callback) {
             if (data.success === true) {
                 var $destination = $expandElem.closest('li');
                 $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-                $destination
-                    .children('div.list_container')
-                    .slideDown('fast');
+                $children = $destination.children('div.list_container');
+                $children.slideDown('fast');
                 if ($destination.find('ul > li').length == 1) {
                     $destination.find('ul > li')
                         .find('a.expander.container')
@@ -329,6 +374,7 @@ function expandTreeNode($expandElem, callback) {
             }
             $icon.show();
             $throbber.remove();
+            $children.promise().done(navTreeStateUpdate);
         });
     }
     $expandElem.blur();
@@ -374,6 +420,7 @@ function collapseTreeNode($expandElem) {
         }
     }
     $expandElem.blur();
+    $children.promise().done(navTreeStateUpdate);
 }
 
 /**
@@ -644,6 +691,7 @@ function PMA_reloadNavigation(callback) {
             if (typeof callback === 'function') {
                 callback.call();
             }
+            navTreeStateUpdate();
         } else {
             PMA_ajaxShowMessage(data.error);
         }
@@ -716,6 +764,7 @@ function PMA_navigationTreePagination($this) {
         } else {
             PMA_ajaxShowMessage(data.error);
         }
+        navTreeStateUpdate();
     });
 }
 

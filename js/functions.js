@@ -4482,3 +4482,26 @@ function PMA_ignorePhpErrors(clearPrevErrors){
     $('#pma_errors').fadeOut( "slow");
     $('#pma_errors').remove();
 }
+
+/**
+ * checks whether browser supports web storage
+ *
+ * @param type the type of storage i.e. localStorage or sessionStorage
+ *
+ * @returns bool
+ */
+function isStorageSupported(type)
+{
+    try {
+        window[type].setItem('PMATest', 'test');
+        // Check whether key-value pair was set successfully
+        if (window[type].getItem('PMATest') === 'test') {
+            // Supported, remove test variable from storage
+            window[type].removeItem('PMATest');
+            return true;
+        }
+    } catch(error) {
+        // Not supported
+    }
+    return false;
+}
