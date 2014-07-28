@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-28 22:32+0200\n"
+"PO-Revision-Date: 2014-07-28 22:39+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -885,6 +885,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
+"phpMyAdminஇன் கட்டமைப்பு சேமிப்பகம் இன்னும் முழுமையாய் கட்டமைக்கப்படவில்லை.சி"
+"ல நீட்டிக்கப்பட்ட வசதிகள் முடக்கப்படுள்ளன.ஏனென்று அறிய %sஇங்கு%s சொடுக்குக."
 
 #: index.php:552
 #, php-format
