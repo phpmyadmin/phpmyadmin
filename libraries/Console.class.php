@@ -165,8 +165,7 @@ class PMA_Console
             // The templates, use sprintf() to output them
             // There're white space at the end of every <span>,
             // for double-click selection
-            $tpl_query_actions
-                    = '<span class="action collapse">' . __('Collapse') . '</span> '
+            $tpl_query_actions = '<span class="action collapse">' . __('Collapse') . '</span> '
                     . '<span class="action expand">' . __('Expand') . '</span> '
                     . '<span class="action requery">' . __('Requery') . '</span> '
                     . '<span class="action reedit">' . __('Edit') . '</span> '
@@ -214,13 +213,13 @@ class PMA_Console
                             . '" targettable="' . htmlspecialchars($record['table'])
                             . '"><div class="action_content">'
                             . sprintf(
-                                  $tpl_query_actions,
-                                  $record['db'],
-                                  (isset($record['timevalue'])
-                                      ? $record['timevalue']
-                                      : __('During current session')
-                                  )
-                              )
+                                $tpl_query_actions,
+                                $record['db'],
+                                (isset($record['timevalue'])
+                                    ? $record['timevalue']
+                                    : __('During current session')
+                                )
+                            )
                             . '</div><span class="query">'
                             . htmlspecialchars($record['sqlquery'])
                             . '</span></div>';

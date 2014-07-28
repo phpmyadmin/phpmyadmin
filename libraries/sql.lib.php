@@ -1085,8 +1085,8 @@ function PMA_findRealEndOfRows($db, $table)
 /**
  * Function to get values for the relational columns
  *
- * @param String $db            the current database
- * @param String $table         the current table
+ * @param String $db    the current database
+ * @param String $table the current table
  *
  * @return void
  */
