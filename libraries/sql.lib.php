@@ -100,6 +100,7 @@ function PMA_getTableHtmlForMultipleQueries(
     do {
         $analyzed_sql = array();
         $is_affected = false;
+        $showtable = array();
 
         $result = $GLOBALS['dbi']->storeResult();
         $fields_meta = ($result !== false)
