@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-28 22:52+0200\n"
+"PO-Revision-Date: 2014-07-29 08:32+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -861,7 +861,7 @@ msgid ""
 msgstr ""
 "நிலை பதிவுத்துணுக்கு குவையின் ஏற்புடைமைகாலம், phpMyAdmin கட்டமைக்கப்பட்ட நிலை"
 " பதிவுத்துணுக்கு ஏற்புடைமைகாலத்தை விட குறைவாக உள்ளதால் உங்கள் புகுபதிவு "
-"phpMyAdmin ல் கட்டமைக்கப்பட்டதை விட விரைவில் காலாவதியாகும்"
+"phpMyAdmin ல் கட்டமைக்கப்பட்டதை விட விரைவில் காலாவதியாகும்."
 
 #: index.php:495
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -1022,7 +1022,7 @@ msgstr "சுட்டுதொகுப்புக்குறியில்
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:365
 msgid "Preview SQL"
-msgstr ""
+msgstr "SQLஐ முன்பார்வையிடு"
 
 #: js/messages.php:70
 msgid "Simulate query"
