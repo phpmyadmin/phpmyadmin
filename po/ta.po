@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-22 20:21+0200\n"
+"PO-Revision-Date: 2014-07-29 08:32+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -846,6 +846,9 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"நிலை பதிவுத்துணுக்கு குவையின் ஏற்புடைமைகாலம், phpMyAdmin கட்டமைக்கப்பட்ட நிலை"
+" பதிவுத்துணுக்கு ஏற்புடைமைகாலத்தை விட குறைவாக உள்ளதால் உங்கள் புகுபதிவு "
+"phpMyAdmin ல் கட்டமைக்கப்பட்டதை விட விரைவில் காலாவதியாகும்."
 
 #: index.php:495
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -858,6 +861,10 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
+"நிறுவல்கோவையால் பயன்படுத்தப்படும் [code]config[/code]அடைவு இன்னும் உங்கள் "
+"phpMyAdmin அடைவில் உள்ளது. phpMyAdmin ஐ கட்டமைத்தவுடன் அவ்வடைவை நீக்க "
+"phpMyAdmin மிகவும் பரிந்துரைக்கிறது. இல்லையெனில் உங்கள் சர்வர் பாதுகாப்பு "
+"கட்டமைப்பு கோவையை அங்கீகரிக்கப்படாத பயனர் பதிவிறக்குவதால் பாதிப்பு ஏற்படும்."
 
 #: index.php:516
 #, php-format
@@ -865,6 +872,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
+"phpMyAdminஇன் கட்டமைப்பு சேமிப்பகம் இன்னும் முழுமையாய் கட்டமைக்கப்படவில்லை.சி"
+"ல நீட்டிக்கப்பட்ட வசதிகள் முடக்கப்படுள்ளன.ஏனென்று அறிய %sஇங்கு%s சொடுக்குக."
 
 #: index.php:552
 #, php-format
@@ -4241,7 +4250,7 @@ msgstr ""
 #: libraries/schema/User_Schema.class.php:574 prefs_manage.php:335
 #: prefs_manage.php:342
 msgid "Reset"
-msgstr ""
+msgstr "மீட்டமைக்கவும்"
 
 #: libraries/config/ServerConfigChecks.class.php:168
 msgid "You should use SSL connections if your database server supports it."
