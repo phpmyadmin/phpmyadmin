@@ -93,8 +93,8 @@ class PMA_Console
                 = '<span class="action collapse">' . __('Collapse') . '</span> '
                 . '<span class="action expand">' . __('Expand') . '</span> '
                 . '<span class="action requery">' . __('Requery') . '</span> '
-                . '<span class="action reedit">' . __('Edit') . '</span> '
-                // .  '<span class="action bookmark">' . __('Delete') . '</span> '
+                . '<span class="action edit_bookmark">' . __('Edit') . '</span> '
+                .  '<span class="action delete_bookmark">' . __('Delete') . '</span> '
                 . '<span class="text targetdb">' . __('Database') . ': <span>%s</span></span>';
 
             $bookmarks = PMA_Bookmark_getList();
@@ -131,13 +131,13 @@ class PMA_Console
             $output .= '</span></div>';
             foreach ($bookmarks as $key => $val) {
                 $output .= '<div class="message collapsed bookmark" bookmarkid="'
-                .  $val['id'] . '" bookmarkdb="' . $val['db']
+                .  $val['id'] . '" targetdb="' . htmlspecialchars($val['db'])
                 .  '"><div class="action_content">'
-                .  sprintf($tpl_bookmark_actions, $val['db'])
+                .  sprintf($tpl_bookmark_actions, htmlspecialchars($val['db']))
                 .  '</div><span class="bookmark_label ' . ($val['shared'] ? 'shared' : '') . '">'
-                .  $val['label']
+                .  htmlspecialchars($val['label'])
                 .  '</span> <span class="query">'
-                .  $val['query']
+                .  htmlspecialchars($val['query'])
                 .  '</span></div>';
             }
         }
@@ -155,9 +155,11 @@ class PMA_Console
         $output  = '';
         if ((! $this->_isAjax) && $this->_isEnabled) {
             $cfgBookmark = PMA_Bookmark_getParams();
-            $this->_scripts->addFile('codemirror/lib/codemirror.js');
-            $this->_scripts->addFile('codemirror/mode/sql/sql.js');
-            $this->_scripts->addFile('codemirror/addon/runmode/runmode.js');
+            if ($GLOBALS['cfg']['CodemirrorEnable']) {
+                $this->_scripts->addFile('codemirror/lib/codemirror.js');
+                $this->_scripts->addFile('codemirror/mode/sql/sql.js');
+                $this->_scripts->addFile('codemirror/addon/runmode/runmode.js');
+            }
             $this->_scripts->addFile('console.js');
             $output .= $this->_scripts->getDisplay();
             $output .= '<div id="pma_console_container"><div id="pma_console">';
@@ -168,8 +170,10 @@ class PMA_Console
             $tpl_query_actions = '<span class="action collapse">' . __('Collapse') . '</span> '
                     . '<span class="action expand">' . __('Expand') . '</span> '
                     . '<span class="action requery">' . __('Requery') . '</span> '
-                    . '<span class="action reedit">' . __('Edit') . '</span> '
-                    // .  ($cfgBookmark ? '<span class="action bookmark">' . __('Bookmark') . '</span> ' : '')
+                    . '<span class="action edit">' . __('Edit') . '</span> '
+                    . '<span class="action explain">' . __('Explain') . '</span> '
+                    . '<span class="action profiling">' . __('Profiling') . '</span> '
+                    . ($cfgBookmark ? '<span class="action bookmark">' . __('Bookmark') . '</span> ' : '')
                     . '<span class="text failed">' . __('Query failed') . '</span> '
                     . '<span class="text targetdb">' . __('Database') . ': <span>%s</span></span> '
                     . '<span class="text query_time">' . __('Queried time') . ': <span>%s</span></span> ';
@@ -208,13 +212,16 @@ class PMA_Console
             $_sql_history = PMA_getHistory($GLOBALS['cfg']['Server']['user']);
             if ($_sql_history) {
                 foreach (array_reverse($_sql_history) as $record) {
-                    $output .= '<div class="message history collapsed hide" targetdb="'
+                    $isSelect = preg_match('@^SELECT[[:space:]]+@i', $record['sqlquery']);
+                    $output .= '<div class="message history collapsed hide'
+                            . ($isSelect ? ' select' : '')
+                            . '" targetdb="'
                             . htmlspecialchars($record['db'])
                             . '" targettable="' . htmlspecialchars($record['table'])
                             . '"><div class="action_content">'
                             . sprintf(
                                 $tpl_query_actions,
-                                $record['db'],
+                                htmlspecialchars($record['db']),
                                 (isset($record['timevalue'])
                                     ? $record['timevalue']
                                     : __('During current session')
@@ -227,7 +234,7 @@ class PMA_Console
             }
 
             $output .= '</div>'; // .console_message_container
-            $output .= '<div class="query_input"><span id="query_input"></span></div>'
+            $output .= '<div class="query_input"><span class="console_query_input"></span></div>'
                     .  '</div>'; // Messages end
 
             // Dark the console while other cards cover it
@@ -244,8 +251,8 @@ class PMA_Console
                 $output .= '<div class="button refresh"><span>'
                         . __('Refresh') . '</span></div>';
 
-                // $output .= '<div class="button add"><span>'
-                //         . __('Add') . '</span></div>';
+                $output .= '<div class="button add"><span>'
+                        . __('Add') . '</span></div>';
 
                 $output .= '</div><div class="content bookmark">';
                 $output .= $this->getBookmarkContent();
@@ -256,11 +263,16 @@ class PMA_Console
                             .  '<div class="switch_button"><span>' . __('Add bookmark')
                             .  '</span></div>';
                     $output .= '</div><div class="content add_bookmark">'
-                            .  '<label>'. __('Label') . ':<input type="text" name="label"></label> '
-                            .  '<label>'. __('Target database') . ':<input type="text" name="targetdb"></label> '
-                            .  '<label><input type="checkbox" name="shared">'. __('Share this bookmark') . '</label>';
+                            .  '<div class="options">'
+                            .  '<label>'. __('Label') . ': <input type="text" name="label"></label> '
+                            .  '<label>'. __('Target database') . ': <input type="text" name="targetdb"></label> '
+                            .  '<label><input type="checkbox" name="shared">'. __('Share this bookmark') . '</label>'
+                            .  '<button type="submit" name="submit">Ok</button>'
+                            .  '</div>' // .options
+                            .  '<div class="query_input"><span class="bookmark_add_input"></span></div>';
                     $output .= '</div>';
-                $output .= '</div></div>'; // Bookmarks card
+                    $output .= '</div>'; // Add bookmark card
+                $output .= '</div>'; // Bookmarks card
             }
 
             // Options card:
@@ -273,7 +285,7 @@ class PMA_Console
 
             $output .= '</div><div class="content">'
                     .  '<label><input type="checkbox" name="always_expand">'
-                    .  __('Always expand queried messages') . '</label><br>'
+                    .  __('Always expand query messages') . '</label><br>'
                     .  '<label><input type="checkbox" name="start_history">'
                     .  __('Show query history at start') . '</label><br>'
                     .  '<label><input type="checkbox" name="current_query">'

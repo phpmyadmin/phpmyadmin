@@ -296,7 +296,11 @@ class PMA_Response
             unset($this->_JSON['message']);
         }
 
-        if ($this->_isAjaxPage && $this->_isSuccess) {
+        if ($this->_isSuccess) {
+            // Note: the old judge sentence is:
+            // $this->_isAjaxPage && $this->_isSuccess
+            // Removal the first, because console need log all queries, if casued any
+            // bug, contact Edward Cheng
             $this->addJSON('_title', $this->getHeader()->getTitleTag());
 
             $menuHash = $this->getHeader()->getMenu()->getHash();
@@ -326,7 +330,7 @@ class PMA_Response
                 if (isset($GLOBALS['sql_query'])
                     && strlen($GLOBALS['sql_query']) < $maxChars
                 ) {
-                    $query = PMA_escapeJsString($GLOBALS['sql_query']);
+                    $query = $GLOBALS['sql_query'];
                 }
                 $this->addJSON(
                     '_reloadQuerywindow',
