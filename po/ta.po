@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-31 00:08+0200\n"
+"PO-Revision-Date: 2014-07-31 00:13+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1704,6 +1704,8 @@ msgstr "அழித்தல்"
 #: js/messages.php:278
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
+"சேமிக்கபட்ட செயல்கூற்றின் வரையறையில் ஓர் RETURN கூற்று கண்டிப்பாக "
+"இருக்கவேண்டும்!"
 
 #: js/messages.php:281 libraries/rte/rte_routines.lib.php:805
 msgid "ENUM/SET editor"
