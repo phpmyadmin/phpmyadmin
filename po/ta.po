@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-30 23:51+0200\n"
+"PO-Revision-Date: 2014-07-30 23:52+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1707,7 +1707,7 @@ msgstr ""
 
 #: js/messages.php:281 libraries/rte/rte_routines.lib.php:805
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/கணம் தொகுப்பான்"
 
 #: js/messages.php:282
 #, php-format
