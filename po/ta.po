@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-30 23:53+0200\n"
+"PO-Revision-Date: 2014-07-30 23:55+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1720,7 +1720,7 @@ msgstr "புதிய நிரல்வரிசைக்கான மதி�
 
 #: js/messages.php:284
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "ஒவ்வொரு மதிப்புபையும் தனித்தனி கலங்களில் உள்ளிடுக."
 
 #: js/messages.php:285
 #, php-format
