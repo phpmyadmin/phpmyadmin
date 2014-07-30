@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-30 23:08+0200\n"
+"PO-Revision-Date: 2014-07-30 23:11+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -7293,7 +7293,7 @@ msgstr ""
 
 #: libraries/display_git_revision.lib.php:64
 msgid "Git revision:"
-msgstr ""
+msgstr "Git திருத்தபதிப்பு:"
 
 #: libraries/display_git_revision.lib.php:67
 #, php-format
