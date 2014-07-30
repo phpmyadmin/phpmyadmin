@@ -31,7 +31,39 @@ function appendHtmlColumnsList()
         }
     );
 }
-
+function goTo3NFStep1(newTables)
+{
+    if (Object.keys(newTables).length === 1) {
+        newTables = [PMA_commonParams.get('table')];
+    }
+    $.post(
+        "normalization.php",
+        {
+            "token": PMA_commonParams.get('token'),
+            "ajax_request": true,
+            "db": PMA_commonParams.get('db'),
+            "tables": newTables,
+            "step": '3.1'
+        }, function(data) {
+            $("#page_content h3").html(PMA_messages.str3NFNormalization);
+            $("#mainContent legend").html(data.legendText);
+            $("#mainContent h4").html(data.headText);
+            $("#mainContent p").html(data.subText);
+            $("#mainContent #extra").html(data.extra);
+            $("#extra form").each(function() {
+                form_id = $(this).attr('id');
+                colname = $(this).data('colname');
+                $("#"+form_id+" input[value='"+colname+"']").next().remove();
+                $("#"+form_id+" input[value='"+colname+"']").remove();
+            });
+            $("#mainContent #newCols").html('');
+            $('.tblFooters').html('');
+            if (data.subText !== "") {
+                $('.tblFooters').html('<input type="button" onClick="processDependencies(\'\', true);" value="'+PMA_messages.strDone+'"/>');
+            }
+        }
+    );
+}
 function goTo2NFStep1() {
     $.post(
         "normalization.php",
@@ -49,7 +81,14 @@ function goTo2NFStep1() {
             $("#mainContent #extra").html(data.extra);
             $("#mainContent #newCols").html('');
             if (data.subText !== '') {
-                $('.tblFooters').html('<input type="submit" value="'+PMA_messages.strDone+'" onclick="processPartialDependancies(\''+data.primary_key+'\');">');
+                $('.tblFooters').html('<input type="submit" value="'+PMA_messages.strDone+'" onclick="processDependencies(\''+data.primary_key+'\');">');
+            } else {
+                if (normalizeto === '3nf') {
+                    $("#mainContent #newCols").html(PMA_messages.strToNextStep);
+                    setTimeout(function() {
+                        goTo3NFStep1([PMA_commonParams.get('table')]);
+                    }, 3000);
+                }
             }
         });
 }
@@ -154,6 +193,7 @@ function goToStep2(extra)
         }
     );
 }
+
 function goTo2NFFinish(pd)
 {
     var tables = {};
@@ -167,6 +207,51 @@ function goTo2NFFinish(pd)
             "pd": JSON.stringify(pd),
             "newTablesName":JSON.stringify(tables),
             "createNewTables2NF":1};
+    $.ajax({
+            type: "GET",
+            url: "normalization.php",
+            data: datastring,
+            async:false,
+            success: function(data) {
+                if (data.success === true) {
+                    if(data.queryError === false) {
+                        if (normalizeto === '3nf') {
+                            $("#pma_navigation_reload").click();
+                            goTo3NFStep1(tables);
+                            return true;
+                        }
+                        $("#mainContent legend").html(data.legendText);
+                        $("#mainContent h4").html(data.headText);
+                        $("#mainContent p").html('');
+                        $("#mainContent #extra").html('');
+                        $('.tblFooters').html('');
+                    } else {
+                        PMA_ajaxShowMessage(data.extra, false);
+                    }
+                    $("#pma_navigation_reload").click();
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                }
+            }
+        });
+}
+
+function goTo3NFFinish(newTables)
+{
+    for (var table in newTables) {
+        for (var newtbl in newTables[table]) {
+            updatedname = $('#extra input[name="'+newtbl+'"]').val();
+            newTables[table][updatedname] = newTables[table][newtbl];
+            if (updatedname !== newtbl) {
+                delete newTables[table][newtbl];
+            }
+        }
+    }
+    datastring = {"token": PMA_commonParams.get('token'),
+            "ajax_request": true,
+            "db": PMA_commonParams.get('db'),
+            "newTables":JSON.stringify(newTables),
+            "createNewTables3NF":1};
     $.ajax({
             type: "GET",
             url: "normalization.php",
@@ -202,7 +287,7 @@ function goTo2NFStep2(pd, primary_key)
     for (var dependson in pd) {
         if (dependson !== primary_key) {
             pdFound = true;
-            extra += '<p class="displayblock desc">'+dependson +" -> "+pd[dependson].toString()+'</p>';
+            extra += '<p class="displayblock desc">'+escapeHtml(dependson) +" -> "+escapeHtml(pd[dependson].toString())+'</p>';
         }
     }
     if(!pdFound) {
@@ -237,12 +322,74 @@ function goTo2NFStep2(pd, primary_key)
     });
 }
 
-function processPartialDependancies(primary_key)
+function goTo3NFStep2(pd, tablesTds)
+{
+    $("#newCols").html('');
+    $("#mainContent legend").html(PMA_messages.strStep+' 3.2 '+PMA_messages.strConfirmTd);
+    $("#mainContent h4").html(PMA_messages.strSelectedTd);
+    $("#mainContent p").html(PMA_messages.strPdHintNote);
+    var extra = '<div class="dependencies_box">';
+    var pdFound = false;
+    for (var table in tablesTds) {
+        for (var i in tablesTds[table]) {
+            dependson = tablesTds[table][i];
+            if (dependson !== '' && dependson !== table) {
+                pdFound = true;
+                extra += '<p class="displayblock desc">'+escapeHtml(dependson) +" -> "+escapeHtml(pd[dependson].toString())+'</p>';
+            }
+        }
+    }
+    if(!pdFound) {
+        extra += '<p class="displayblock desc">'+PMA_messages.strNoTdSelected+'</p>';
+        extra += '</div>';
+    } else {
+        extra += '</div>';
+        datastring = {"token": PMA_commonParams.get('token'),
+            "ajax_request": true,
+            "db": PMA_commonParams.get('db'),
+            "tables": JSON.stringify(tablesTds),
+            "pd": JSON.stringify(pd),
+            "getNewTables3NF":1};
+        $.ajax({
+            type: "GET",
+            url: "normalization.php",
+            data: datastring,
+            async:false,
+            success: function(data) {
+                data_parsed = $.parseJSON(data.message);
+                if (data.success === true) {
+                    extra += data_parsed.html;
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                }
+            }
+        });
+    }
+    $("#mainContent #extra").html(extra);
+    $('.tblFooters').html('<input type="button" value="'+PMA_messages.strBack+'" id="backEditPd"/><input type="button" id="goTo3NFFinish" value="'+PMA_messages.strGo+'"/>');
+    $("#goTo3NFFinish").click(function(){
+        if (!pdFound) {
+            goTo3NFFinish([]);
+        } else {
+            goTo3NFFinish(data_parsed.newTables);
+        }
+    });
+}
+function processDependencies(primary_key, isTransitive)
 {
     var pd = {};
+    var tablesTds = {};
     var dependsOn;
     pd[primary_key] = [];
     $("#extra form").each(function() {
+        if (isTransitive === true) {
+            tblname = $(this).data('tablename');
+            primary_key = tblname;
+            if (!(tblname in tablesTds)) {
+                tablesTds[tblname] = [];
+            }
+            tablesTds[tblname].push(primary_key);
+        }
         form_id = $(this).attr('id');
         $('#'+form_id+' input[type=checkbox]:not(:checked)').removeAttr('checked');
         dependsOn = '';
@@ -251,9 +398,7 @@ function processPartialDependancies(primary_key)
             $(this).attr("checked","checked");
         });
         if (dependsOn === '') {
-            $('#'+form_id+' input[type=checkbox]').each(function(){
-                dependsOn = primary_key;
-            });
+            dependsOn = primary_key;
         } else {
             dependsOn = dependsOn.slice(0, -2);
         }
@@ -261,11 +406,24 @@ function processPartialDependancies(primary_key)
             pd[dependsOn] = [];
         }
         pd[dependsOn].push($(this).data('colname'));
+        if (isTransitive === true) {
+            if (!(tblname in tablesTds)) {
+                tablesTds[tblname] = [];
+            }
+            if ($.inArray(dependsOn, tablesTds[tblname]) === -1) {
+                tablesTds[tblname].push(dependsOn);
+            }
+        }
     });
     backup = $("#mainContent").html();
-    goTo2NFStep2(pd, primary_key);
+    if (isTransitive === true) {
+        goTo3NFStep2(pd, tablesTds);
+    } else {
+        goTo2NFStep2(pd, primary_key);
+    }
     return false;
 }
+
 function moveRepeatingGroup(repeatingCols) {
     newTable = $("input[name=repeatGroupTable]").val();
     newColumn = $("input[name=repeatGroupColumn]").val();
