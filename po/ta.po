@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-30 23:55+0200\n"
+"PO-Revision-Date: 2014-07-30 23:59+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1730,7 +1730,7 @@ msgstr "%d மதிப்பு(களை) சேர்க்க"
 #: js/messages.php:288
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr ""
+msgstr "குறிப்பு: கோப்பில் பல்வேறு அட்டவணைகள் இருப்பின், அவை ஒன்றிணைக்கபடும்."
 
 #: js/messages.php:291
 msgid "Hide query box"
