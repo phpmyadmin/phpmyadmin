@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-30 23:11+0200\n"
+"PO-Revision-Date: 2014-07-30 23:17+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -3484,7 +3484,7 @@ msgstr "படியெடுத்தல்"
 #: libraries/Util.class.php:4082 libraries/server_engines.lib.php:108
 #: libraries/server_engines.lib.php:112
 msgid "Variables"
-msgstr ""
+msgstr "மாறிகள்"
 
 #: libraries/Menu.class.php:587 libraries/Util.class.php:4083
 msgid "Charsets"
