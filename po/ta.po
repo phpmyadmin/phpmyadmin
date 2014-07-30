@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-29 08:32+0200\n"
+"PO-Revision-Date: 2014-07-30 21:30+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -8978,7 +8978,7 @@ msgstr "அட்டவணை பெயர்களை தரவாக்கு�
 
 #: libraries/plugins/export/ExportMediawiki.class.php:90
 msgid "Export table headers"
-msgstr "ஏற்றுமதி->அட்டவணை தலைப்புகளை தரவாக்குக"
+msgstr "அட்டவணை தலைப்புகளை தரவேற்றுக"
 
 #: libraries/plugins/export/ExportPdf.class.php:105
 msgid "(Generates a report containing the data of a single table)"
