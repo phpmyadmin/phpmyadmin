@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-30 23:06+0200\n"
+"PO-Revision-Date: 2014-07-30 23:08+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -14207,7 +14207,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "வழக்கமாக InnoDB அட்டவணை செயல்பொறிகளுக்கான சிறப்பான தேர்வாகும்."
 
 #: libraries/advisory_rules.txt:434
 msgid "have_innodb is set to 'value'"
