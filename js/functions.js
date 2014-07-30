@@ -78,6 +78,34 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
 });
 
 /**
+ * Create a jQuery UI tooltip
+ *
+ * @param $elements     jQuery object representing the elements
+ * @param item          the item
+ *                      (see http://api.jqueryui.com/tooltip/#option-items)
+ * @param myContent     content of the tooltip
+ * @param additionalOptions to override the default options
+ *
+ */
+function PMA_tooltip($elements, item, myContent, additionalOptions)
+{
+    if ($('#no_hint').length > 0) {
+        return;
+    }
+
+    var defaultOptions = {
+        content: myContent,
+        items:  item,
+        tooltipClass: "tooltip",
+        track: true,
+        show: false,
+        hide: false
+    };
+
+    $elements.tooltip($.extend(true, defaultOptions, additionalOptions));
+}
+
+/**
  * HTML escaping
  */
 function escapeHtml(unsafe) {
@@ -3984,34 +4012,6 @@ AJAX.registerTeardown('functions.js', function () {
         });
     };
 })(jQuery);
-
-/**
- * Create a jQuery UI tooltip
- *
- * @param $elements     jQuery object representing the elements
- * @param item          the item
- *                      (see http://api.jqueryui.com/tooltip/#option-items)
- * @param myContent     content of the tooltip
- * @param additionalOptions to override the default options
- *
- */
-function PMA_tooltip($elements, item, myContent, additionalOptions)
-{
-    if ($('#no_hint').length > 0) {
-        return;
-    }
-
-    var defaultOptions = {
-        content: myContent,
-        items:  item,
-        tooltipClass: "tooltip",
-        track: true,
-        show: false,
-        hide: false
-    };
-
-    $elements.tooltip($.extend(true, defaultOptions, additionalOptions));
-}
 
 /**
  * Return value of a cell in a table.
