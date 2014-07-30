@@ -290,7 +290,9 @@ $(function () {
         if (typeof storage.navTree === 'undefined') {
             PMA_showCurrentNavigation();
             navTreeStateUpdate();
-        } else if (PMA_commonParams.get('server') === storage.server) {
+        } else if (PMA_commonParams.get('server') === storage.server &&
+            PMA_commonParams.get('token') === storage.token
+        ) {
             // Restore the tree from storage
             $('#pma_navigation_tree_content').html(storage.navTree);
             $('div.pageselector.dbselector').html(storage.page);
@@ -314,12 +316,14 @@ function navTreeStateUpdate() {
         try {
             storage.setItem('navTree', $('#pma_navigation_tree_content').html());
             storage.setItem('server', PMA_commonParams.get('server'));
+            storage.setItem('token', PMA_commonParams.get('token'));
             storage.setItem('page', $('div.pageselector.dbselector').html());
         } catch(error) {
             // storage capacity exceeded & old navigation tree
             // state is no more valid, so remove it
             storage.removeItem('navTree');
             storage.removeItem('server');
+            storage.removeItem('token');
             storage.removeItem('page');
         }
     }
