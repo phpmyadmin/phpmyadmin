@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-05-07 17:41+0200\n"
-"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
+"PO-Revision-Date: 2014-07-30 14:19+0200\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak <https://l10n.cihar.com/projects/phpmyadmin/4-2/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 1.9\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -613,6 +613,8 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Nahraný súbor nemôže byť presunutý, pretože na serveri je nastavená premenná "
+"open_basedir bez prístupu k %s adresáru (pre dočasné súbory)."
 
 #: import.php:412 import.php:473 libraries/File.class.php:433
 #: libraries/File.class.php:527
@@ -1498,7 +1500,7 @@ msgstr "Prosím zvoľte súbor, ktorý chcete importovať."
 
 #: js/messages.php:206
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "Na serveri nie sú dostupné žiadne súbory na import!"
 
 #: js/messages.php:208
 msgid "Analyse Query"
@@ -1831,7 +1833,7 @@ msgstr "Pridať voľbu pre stĺpec \"%s\"."
 #: js/messages.php:338
 #, php-format
 msgid "%d object(s) created."
-msgstr "Vytvorené objekty: %d"
+msgstr "Bolo vytvorených %d objektov."
 
 #: js/messages.php:341
 msgid "Press escape to cancel editing."
@@ -1849,7 +1851,7 @@ msgstr "Usporiadajte pretiahnutím."
 
 #: js/messages.php:344
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Kliknutím zoradíte výsledky podľa tohto stĺpca."
 
 #: js/messages.php:345
 msgid ""
@@ -1895,10 +1897,9 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "Väčšinu stĺpcov môžete upraviť<br />kliknutím na ich obsah."
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "Prejsť na odkaz."
+msgstr "Prejsť na odkaz:"
 
 #: js/messages.php:366
 msgid "Copy column name."
@@ -4287,7 +4288,6 @@ msgstr "Nie je kladné číslo!"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:579
-#, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
 msgstr "Nie je nezáporné číslo!"
@@ -4584,7 +4584,6 @@ msgid "Show \"Drop database\" link to normal users"
 msgstr "Zobraziť príkaz \"Zrušiť databázu\" bežným užívateľom"
 
 #: libraries/config/messages.inc.php:29
-#, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 #| "authentication"
@@ -4592,8 +4591,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Tajné heslo používané pre šifrovanie cookies pri prihlasovaní pomocou [kbd]"
-"cookie[/kbd]"
+"Tajné heslo používané pre šifrovanie cookies pri prihlasovaní pomocou "
+"[kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4608,17 +4607,15 @@ msgid "Row marker"
 msgstr "Značkovač riadkov"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "Zvýrazniť riadok označený kurzórom myši"
+msgstr "Zvýrazniť riadok označený kurzórom myši."
 
 #: libraries/config/messages.inc.php:36
 msgid "Highlight pointer"
 msgstr "Zvýrazňovač"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -4627,14 +4624,13 @@ msgid ""
 "import operations."
 msgstr ""
 "Povoliť [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] kompresiu pre "
-"importovanie a exportovanie"
+"importovanie."
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
 msgstr "BZip2"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -4646,14 +4642,13 @@ msgid ""
 msgstr ""
 "Nastavte, ktorý typ ovládacích prvkov sa má použiť pri editácii polí typu "
 "CHAR a VARCHAR; [kbd]vstup[/kbd] - umožňuje obmedziť dĺžku vstupu, [kbd]"
-"textová oblasť[/kbd] - umožňuje použitie nových riadkov v poli"
+"textová oblasť[/kbd] - umožňuje použitie nových riadkov v poli."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
 msgstr "Úprava polí typu CHAR"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
@@ -4661,15 +4656,15 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
-"Použiť užívateľsky príjemný editor na úpravu SQL dozatazov ([a@http://"
-"codemirror.net/]CodeMirror[/a]) s číslovaním riadkov a zvýrazňovaním syntaxe"
+"Použiť užívateľsky príjemný editor na úpravu SQL dozatazov "
+"([a@http://codemirror.net/]CodeMirror[/a]) s číslovaním riadkov a "
+"zvýrazňovaním syntaxe."
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
 msgstr "Povoliť CodeMirror"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid ""
 #| "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -4678,14 +4673,13 @@ msgid ""
 "columns."
 msgstr ""
 "Definuje minimálnu veľkosť pre vstupné polia generované pre stĺpce typu CHAR "
-"a VARCHAR"
+"a VARCHAR."
 
 #: libraries/config/messages.inc.php:58
 msgid "Minimum size for input field"
 msgstr "Minimálna veľkosť vstupného poľa"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid ""
 #| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -4694,27 +4688,25 @@ msgid ""
 "columns."
 msgstr ""
 "Definuje maximálnu veľkosť pre vstupné polia generované pre stĺpce typu CHAR "
-"a VARCHAR"
+"a VARCHAR."
 
 #: libraries/config/messages.inc.php:63
 msgid "Maximum size for input field"
 msgstr "Maximálna veľkosť vstupného poľa"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "Počet stĺpcov techtový oblastí typu CHAR/VARCHAR"
+msgstr "Počet stĺpcov techtový oblastí typu CHAR/VARCHAR."
 
 #: libraries/config/messages.inc.php:65
 msgid "CHAR textarea columns"
 msgstr "Stĺpce techtovej oblasti typu CHAR"
 
 #: libraries/config/messages.inc.php:66
-#, fuzzy
 #| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "Počet riadkov textových oblastí typu CHAR/VARCHAR"
+msgstr "Počet riadkov textových oblastí typu CHAR/VARCHAR."
 
 #: libraries/config/messages.inc.php:67
 msgid "CHAR textarea rows"
@@ -4725,7 +4717,6 @@ msgid "Check config file permissions"
 msgstr "Skontrolujte prístupové práva konfiguračného súboru"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4734,9 +4725,9 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Komprimovať exporty za behu pomocou gzip/bzip2 bez veľkých pamäťových "
-"nárokov. Pokiaľ zistíte problémy s takto vytvorenými gzip/bzip2 súbormi, "
-"vypnite túto funkciu"
+"Komprimovať exporty za behu pomocou gzip bez veľkých pamäťových nárokov. "
+"Pokiaľ zistíte problémy s takto vytvorenými gzip súbormi, vypnite túto "
+"funkciu."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -4748,7 +4739,6 @@ msgid "Configuration file"
 msgstr "Konfiguračný súbor"
 
 #: libraries/config/messages.inc.php:76
-#, fuzzy
 #| msgid ""
 #| "Whether a warning (\"Are your really sure…\") should be displayed when "
 #| "you're about to lose data"
@@ -4757,7 +4747,7 @@ msgid ""
 "you're about to lose data."
 msgstr ""
 "Či sa má zobrazovať varovanie (\"Ste si naozaj istí…\") pokiaľ hrozí strata "
-"dát"
+"dát."
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -4772,50 +4762,45 @@ msgid "Default display direction"
 msgstr "Východzí smer zobrazovania"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 #| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
-msgstr "Panel, ktorý je zobrazený pri prístupe k databáze"
+msgstr "Panel, ktorý je zobrazený pri prístupe k databáze."
 
 #: libraries/config/messages.inc.php:84
 msgid "Default database tab"
 msgstr "Prednastavený panel databázy"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 #| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
-msgstr "Panel, ktorý je zobrazený pri prístupe na server"
+msgstr "Panel, ktorý je zobrazený pri prístupe na server."
 
 #: libraries/config/messages.inc.php:86
 msgid "Default server tab"
 msgstr "Východzí panel servera"
 
 #: libraries/config/messages.inc.php:87
-#, fuzzy
 #| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
-msgstr "Panel, ktorý je zobrazený pri prístupe k tabuľke"
+msgstr "Panel, ktorý je zobrazený pri prístupe k tabuľke."
 
 #: libraries/config/messages.inc.php:88
 msgid "Default table tab"
 msgstr "Východzí panel tabuľky"
 
 #: libraries/config/messages.inc.php:90
-#, fuzzy
 #| msgid "Whether the table structure actions should be hidden"
 msgid "Whether the table structure actions should be hidden."
-msgstr "Určuje, či akcie štruktúry tabuliek majú byť skryté"
+msgstr "Určuje, či akcie štruktúry tabuliek majú byť skryté."
 
 #: libraries/config/messages.inc.php:91
 msgid "Hide table structure actions"
 msgstr "Skryť akcie štruktúry tabuľky"
 
 #: libraries/config/messages.inc.php:92
-#, fuzzy
 #| msgid "Show binary contents as HEX by default"
 msgid "Show binary contents as HEX by default."
-msgstr "Zobrazenie binárneho obsahu štandardne v HEX formáte"
+msgstr "Zobrazenie binárneho obsahu štandardne v HEX formáte."
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down."
@@ -4838,10 +4823,9 @@ msgid "Disable multi table maintenance"
 msgstr "Vypnúť hromadné operácie s tabuľkami"
 
 #: libraries/config/messages.inc.php:102
-#, fuzzy
 #| msgid "Edit SQL queries in popup window"
 msgid "Edit SQL queries in popup window."
-msgstr "Upravovať SQL dopyty vo vyskakovacom okne"
+msgstr "Upravovať SQL dopyty vo vyskakovacom okne."
 
 #: libraries/config/messages.inc.php:103
 msgid "Edit in window"
@@ -4852,14 +4836,14 @@ msgid "Display errors"
 msgstr "Zobraziť chyby"
 
 #: libraries/config/messages.inc.php:106
-#, fuzzy
 #| msgid ""
 #| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 #| "limit)"
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
-msgstr "Nastavte dĺžku behu skriptu v sekundách ([kbd]0[/kbd] bez obmedzení)"
+msgstr ""
+"Nastavte dĺžku behu skriptu v sekundách ([kbd]0[/kbd] znamená bez obmedzení)."
 
 #: libraries/config/messages.inc.php:109
 msgid "Maximum execution time"
@@ -5053,10 +5037,9 @@ msgid "Add %s"
 msgstr "Pridať %s"
 
 #: libraries/config/messages.inc.php:178
-#, fuzzy
 #| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "Použiť hexadecimálne zobrazenie pre BLOB"
+msgstr "Použiť hexadecimálne zobrazenie pre BINARY & BLOB"
 
 #: libraries/config/messages.inc.php:180
 msgid "Use ignore inserts"
@@ -5085,17 +5068,15 @@ msgid "Export time in UTC"
 msgstr "Exportovať čas v UTC"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
 #| msgid "Force secured connection while using phpMyAdmin"
 msgid "Force secured connection while using phpMyAdmin."
-msgstr "Vynutiť zabezpečené spojenie pri použití phpMyAdmina"
+msgstr "Vynútiť zabezpečené spojenie pri použití phpMyAdmina."
 
 #: libraries/config/messages.inc.php:200
 msgid "Force SSL connection"
 msgstr "Vynutit SSL spojenie"
 
 #: libraries/config/messages.inc.php:202
-#, fuzzy
 #| msgid ""
 #| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 #| "the referenced data, [kbd]id[/kbd] is the key value"
@@ -5103,18 +5084,17 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Poradie radenia položiek v rozbaľovacej ponuke cudzích kľúčov; [kbd]obsah[/"
-"kbd] sú referenčné dáta, [kbd]id[/kbd] je hodnota kľúča"
+"Poradie radenia položiek v rozbaľovacej ponuke cudzích kľúčov; "
+"[kbd]obsah[/kbd] sú referenčné dáta, [kbd]id[/kbd] je hodnota kľúča."
 
 #: libraries/config/messages.inc.php:205
 msgid "Foreign key dropdown order"
 msgstr "Poradie cudzích kľúčov v rozbaľovacej ponuke"
 
 #: libraries/config/messages.inc.php:207
-#, fuzzy
 #| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
-msgstr "Pokiaľ je dostupných menej položiek, bude použitá rozbaľovacia ponuka"
+msgstr "Pokiaľ je dostupných menej položiek, bude použitá rozbaľovacia ponuka."
 
 #: libraries/config/messages.inc.php:208
 msgid "Foreign key limit"
@@ -7371,7 +7351,7 @@ msgstr "Metóda exportu:"
 
 #: libraries/display_export.lib.php:208
 msgid "Quick - display only the minimal options"
-msgstr ""
+msgstr "Rýchla - zobraziť len minimum možností"
 
 #: libraries/display_export.lib.php:220
 msgid "Custom - display all possible options"
@@ -9798,10 +9778,9 @@ msgstr "Akýkoľvek používateľ"
 #: libraries/replication_gui.lib.php:849
 #: libraries/server_privileges.lib.php:1426
 #: libraries/server_privileges.lib.php:2845
-#, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
-msgstr "Požiť textové pole"
+msgstr "Použiť textové pole:"
 
 #: libraries/replication_gui.lib.php:810
 #: libraries/server_privileges.lib.php:1417
