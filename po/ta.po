@@ -10181,7 +10181,7 @@ msgstr "புதிய பயனாளரை சேர்க்க->செய�
 #: libraries/rte/rte_words.lib.php:43
 #, php-format
 msgid "Export of trigger %s"
-msgstr ""
+msgstr "%s செயல்தூண்டியின் தரவேற்றம்"
 
 #: libraries/rte/rte_words.lib.php:44
 msgid "trigger"
