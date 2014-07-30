@@ -6715,7 +6715,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:735
 msgid "Show SQL queries"
-msgstr ""
+msgstr "SQL வினவல் காட்டுக"
 
 #: libraries/config/messages.inc.php:736
 msgid ""
