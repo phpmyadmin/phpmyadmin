@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-30 22:55+0200\n"
+"PO-Revision-Date: 2014-07-30 22:57+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -8710,7 +8710,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationHttp.class.php:74
 #, php-format
 msgid "Welcome to %s"
-msgstr "வரவேற்கிறது %s"
+msgstr "%sக்கு வருக"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
