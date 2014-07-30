@@ -10341,7 +10341,7 @@ msgstr "சேவையக மாறிகள் மற்றும் அமை
 
 #: libraries/server_common.lib.php:30
 msgid "Storage Engines"
-msgstr "சேமிப்பக செயல்பொறி"
+msgstr "சேமிப்பக செயல்பொறிகள்"
 
 #: libraries/server_common.lib.php:39
 msgid "Character Sets and Collations"
