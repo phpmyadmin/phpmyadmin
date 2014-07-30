@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-30 22:01+0200\n"
+"PO-Revision-Date: 2014-07-30 22:05+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -8741,7 +8741,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:167
 msgid "Log in"
-msgstr "உள்நுழையா"
+msgstr "புகுபதிவு"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:175
 #: libraries/plugins/auth/AuthenticationCookie.class.php:185
