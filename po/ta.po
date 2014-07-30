@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-29 08:32+0200\n"
+"PO-Revision-Date: 2014-07-31 00:13+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -826,8 +826,8 @@ msgid ""
 "split strings correctly and it may result in unexpected results."
 msgstr ""
 "mbstring PHP நீட்சி காணப்படவில்லை மேலும் நீங்கள் பல்லுரு எழுத்துக்கணத்தை "
-"பயன்படுத்துகிறீர்கள். mbstring PHP நீட்சி இல்லாமல் PHPMyAdminஆல் சரங்களை சரியாக "
-"பிரிக்கவியலாது அதனால் எதிர்பாரா முடிவுகள் கிடைக்கலாம்."
+"பயன்படுத்துகின்றீர்கள். mbstring PHP நீட்சி இல்லாமல் PHPMyAdminஆல் சரங்களை "
+"சரியாக பிரிக்கவியலாது அதனால் எதிர்பாரா முடிவுகள் கிடைக்கலாம்."
 
 #: index.php:471
 msgid ""
@@ -984,7 +984,7 @@ msgstr "கு மதிப்புக்கள்"
 
 #: js/messages.php:62
 msgid "The host name is empty!"
-msgstr "புரவலர் பெயர் வெறுமையாக உள்ளது!"
+msgstr "வழங்கியின் பெயர் வெறுமையாக உள்ளது!"
 
 #: js/messages.php:63
 msgid "The user name is empty!"
@@ -1040,6 +1040,10 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"கண்காணிப்பு உரையாடலின் புதிய பதிப்புக்கு உங்கள் உலவியின் உள்சேமிப்பிலுள்ள "
+"விளக்கப்பட அமைப்புருவாக்கம் இனிமேல் ஏற்றதாக இல்லை. தற்போதைய அமைப்புருவாக்கம் "
+"இனி இயங்காது. தயவுசெய்து உங்கள் முன்னிருப்பு அமைப்புருவாக்கத்திற்கு "
+"<i>அமைவுகள்</i> பட்டி மூலம் மீட்டமைக்கவும்."
 
 #: js/messages.php:82
 msgid "Query cache efficiency"
@@ -1579,7 +1583,7 @@ msgstr "சரி"
 
 #: js/messages.php:237
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "இந்த அறிவுறுத்தலை நீக்க சொடுக்குக"
 
 #: js/messages.php:240
 msgid "Renaming Databases"
@@ -1595,7 +1599,7 @@ msgstr "எழுத்துத்தொகுதி மாற்றப்ப�
 
 #: js/messages.php:246 libraries/mult_submits.lib.php:432
 msgid "Foreign key check:"
-msgstr ""
+msgstr "அயல் குறியெண் சரிபார்க்க:"
 
 #: js/messages.php:247 libraries/mult_submits.lib.php:445
 msgid "(Enabled)"
@@ -1628,10 +1632,12 @@ msgstr "அழித்தல்"
 #: js/messages.php:258
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
+"சேமிக்கபட்ட செயல்கூற்றின் வரையறையில் ஓர் RETURN கூற்று கண்டிப்பாக "
+"இருக்கவேண்டும்!"
 
 #: js/messages.php:261 libraries/rte/rte_routines.lib.php:805
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/கணம் தொகுப்பான்"
 
 #: js/messages.php:262
 #, php-format
@@ -1640,11 +1646,11 @@ msgstr "நெடுவரிசை %sகான மதிப்பு.கள்"
 
 #: js/messages.php:263
 msgid "Values for a new column"
-msgstr ""
+msgstr "புதிய நிரல்வரிசைக்கான மதிப்புகள்"
 
 #: js/messages.php:264
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "ஒவ்வொரு மதிப்பையும் தனித்தனி கலங்களில் உள்ளிடுக."
 
 #: js/messages.php:265
 #, php-format
@@ -1654,7 +1660,7 @@ msgstr "%d மதிப்பு(களை) சேர்க்க"
 #: js/messages.php:268
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr ""
+msgstr "குறிப்பு: கோப்பில் பல்வேறு அட்டவணைகள் இருப்பின், அவை ஒன்றிணைக்கபடும்."
 
 #: js/messages.php:271
 msgid "Hide query box"
@@ -1678,7 +1684,7 @@ msgstr "தொகு"
 #: libraries/DisplayResults.class.php:772
 #, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "%d என்பது சரியான நிரைவரிசை எண் அல்ல."
 
 #: js/messages.php:277 libraries/insert_edit.lib.php:1509
 #: libraries/schema/User_Schema.class.php:390
@@ -2752,7 +2758,7 @@ msgstr "மாற்று"
 #: libraries/server_status_monitor.lib.php:364 libraries/structure.lib.php:297
 #: prefs_manage.php:293 setup/frames/menu.inc.php:27
 msgid "Export"
-msgstr "ஏற்றுமதி"
+msgstr "தரவேற்றுக"
 
 #: libraries/DisplayResults.class.php:5348
 msgid "Query results operations"
@@ -2833,7 +2839,7 @@ msgstr ""
 #: libraries/Footer.class.php:74
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "தற்போது Git %2$s கிளையிலிருந்து %1$s திருத்தபதிப்பு இயங்குகிறது."
 
 #: libraries/Footer.class.php:81
 msgid "Git information missing!"
@@ -3054,7 +3060,7 @@ msgstr "படியெடுத்தல்"
 #: libraries/Util.class.php:4105 libraries/server_engines.lib.php:109
 #: libraries/server_engines.lib.php:113
 msgid "Variables"
-msgstr ""
+msgstr "மாறிகள்"
 
 #: libraries/Menu.class.php:575 libraries/Util.class.php:4106
 msgid "Charsets"
@@ -3067,7 +3073,7 @@ msgstr ""
 
 #: libraries/Menu.class.php:584 libraries/Util.class.php:4108
 msgid "Engines"
-msgstr ""
+msgstr "செயல்பொறிகள்"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
@@ -3263,7 +3269,7 @@ msgstr "வினவல் புள்ளிவிவரவியல்"
 
 #: libraries/ServerStatusData.class.php:374
 msgid "All status variables"
-msgstr ""
+msgstr "அனைத்து நிலை மாறிகள்"
 
 #: libraries/ServerStatusData.class.php:378
 msgid "Monitor"
@@ -3405,7 +3411,7 @@ msgstr ""
 
 #: libraries/TableSearch.class.php:842
 msgid "Display order:"
-msgstr ""
+msgstr "காட்சிபடுத்தல் வரிசைமுறை:"
 
 #: libraries/TableSearch.class.php:878
 msgid "Use this column to label each point"
@@ -3418,7 +3424,7 @@ msgstr ""
 #: libraries/TableSearch.class.php:931 libraries/TableSearch.class.php:1258
 #: libraries/sql.lib.php:394 tbl_change.php:144
 msgid "Browse foreign values"
-msgstr ""
+msgstr "அயல் குறியெண் மதிப்புகளை உலவு"
 
 #: libraries/TableSearch.class.php:1037
 msgid "Additional search criteria"
@@ -4618,7 +4624,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:102
 msgid "Edit SQL queries in popup window."
-msgstr ""
+msgstr "SQL வினவல்களை வெளிசாளரத்தில் தொகுக்க."
 
 #: libraries/config/messages.inc.php:103
 msgid "Edit in window"
@@ -4929,7 +4935,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:222 libraries/config/messages.inc.php:283
 #: setup/frames/menu.inc.php:22
 msgid "Features"
-msgstr ""
+msgstr "பயன்முறைகள்"
 
 #: libraries/config/messages.inc.php:223
 msgid "General"
@@ -4949,7 +4955,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:228
 msgid "Import / export"
-msgstr ""
+msgstr "தரவிறக்கம் / தரவேற்றம்"
 
 #: libraries/config/messages.inc.php:230
 msgid "Set import and export directories and compression options."
@@ -5095,7 +5101,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:287 libraries/config/messages.inc.php:292
 #: setup/frames/menu.inc.php:23
 msgid "SQL queries"
-msgstr ""
+msgstr "SQL வினவல்கள்"
 
 #: libraries/config/messages.inc.php:289
 msgid "SQL Query box"
@@ -5107,7 +5113,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:293
 msgid "SQL queries settings."
-msgstr "SQL வினவல் அமைப்புமுறைமை."
+msgstr "SQL வினவல் அமைவுகள்."
 
 #: libraries/config/messages.inc.php:294
 msgid "Startup"
@@ -5412,7 +5418,7 @@ msgstr "வழிசெலுத்தல் பலகத்தில் இல�
 
 #: libraries/config/messages.inc.php:425
 msgid "Display logo"
-msgstr ""
+msgstr "சின்னத்தை காட்டுக"
 
 #: libraries/config/messages.inc.php:427
 msgid "URL where logo in the navigation panel will point to."
@@ -6233,10 +6239,11 @@ msgstr ""
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr ""
+"phpMyAdminஆல் உருவாக்கபட்ட SQL வினவல் காட்டப்படவேண்டுமா என்பதை வரையறுக்கிறது."
 
 #: libraries/config/messages.inc.php:742
 msgid "Show SQL queries"
-msgstr ""
+msgstr "SQL வினவல்களை காட்டுக"
 
 #: libraries/config/messages.inc.php:743
 msgid ""
@@ -6485,7 +6492,7 @@ msgstr ""
 #: libraries/config/setup.forms.php:363
 #: libraries/config/user_preferences.forms.php:265
 msgid "OpenDocument Text"
-msgstr "ஆவணச்சான்று->கட்டற்றஆவண உரை"
+msgstr "கட்டற்றஆவண உரை"
 
 #: libraries/core.lib.php:287
 #, php-format
@@ -6735,7 +6742,7 @@ msgstr ""
 
 #: libraries/display_git_revision.lib.php:64
 msgid "Git revision:"
-msgstr ""
+msgstr "Git திருத்தபதிப்பு:"
 
 #: libraries/display_git_revision.lib.php:67
 #, php-format
@@ -6780,7 +6787,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:222
 msgid "File to Import:"
-msgstr ""
+msgstr "தரவிறக்கத்திற்கான கோப்பு:"
 
 #: libraries/display_import.lib.php:244
 msgid "File uploads are not allowed on this server."
@@ -6788,7 +6795,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:268
 msgid "Partial Import:"
-msgstr ""
+msgstr "பகுதியளவு தரவிறக்கம்:"
 
 #: libraries/display_import.lib.php:275
 #, php-format
@@ -6849,7 +6856,7 @@ msgstr ""
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:96
 msgid "Language"
-msgstr ""
+msgstr "மொழி"
 
 #: libraries/engines/bdb.lib.php:28
 msgid "Version information"
@@ -7371,7 +7378,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:47
 msgid "Charset"
-msgstr ""
+msgstr "எழுத்துக்கணம்"
 
 #: libraries/mysql_charsets.lib.php:163
 msgid "Bulgarian"
@@ -7907,7 +7914,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationHttp.class.php:74
 #, php-format
 msgid "Welcome to %s"
-msgstr "வரவேற்கிறது %s"
+msgstr "%sக்கு வருக"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
@@ -7935,11 +7942,11 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:137
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "உங்கள் அமர்வு முடிவுற்றது.மீண்டும் புகுபதிவு செய்க."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:161
 msgid "Log in"
-msgstr "உள்நுழையா"
+msgstr "புகுபதிவு"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:169
 #: libraries/plugins/auth/AuthenticationCookie.class.php:179
@@ -7978,7 +7985,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationCookie.class.php:674
 #: libraries/plugins/auth/AuthenticationSignon.class.php:282
 msgid "Cannot log in to the MySQL server"
-msgstr ""
+msgstr "MySQL சேவையகத்துக்குள் புகுபதியமுடியவில்லை"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:783
 msgid "Failed to use Blowfish from mcrypt!"
@@ -8198,7 +8205,7 @@ msgstr "அட்டவணை பெயர்களை தரவாக்கு�
 
 #: libraries/plugins/export/ExportMediawiki.class.php:90
 msgid "Export table headers"
-msgstr "ஏற்றுமதி->அட்டவணை தலைப்புகளை தரவாக்குக"
+msgstr "அட்டவணை தலைப்புகளை தரவேற்றுக"
 
 #: libraries/plugins/export/ExportPdf.class.php:105
 msgid "(Generates a report containing the data of a single table)"
@@ -8365,7 +8372,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportXml.class.php:137
 msgid "Export contents"
-msgstr ""
+msgstr "உள்ளடக்கத்தை தரவேற்றுக"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:117
 msgid "Table:"
@@ -8611,7 +8618,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:136
 msgid "Display Features"
-msgstr ""
+msgstr "பயன்முறைகளை காட்டுக"
 
 #: libraries/relation.lib.php:153
 msgid "Creation of PDFs"
@@ -9331,7 +9338,7 @@ msgstr "%s களத்தை சேர்க்க->செயல்முறை
 #: libraries/rte/rte_words.lib.php:29
 #, php-format
 msgid "Export of routine %s"
-msgstr ""
+msgstr "%s செயல்முறையின் தரவேற்றம்"
 
 #: libraries/rte/rte_words.lib.php:30
 msgid "routine"
@@ -9357,7 +9364,7 @@ msgstr "புதிய பயனாளரை சேர்க்க->செய�
 #: libraries/rte/rte_words.lib.php:43
 #, php-format
 msgid "Export of trigger %s"
-msgstr ""
+msgstr "%s செயல்தூண்டியின் தரவேற்றம்"
 
 #: libraries/rte/rte_words.lib.php:44
 msgid "trigger"
@@ -9383,7 +9390,7 @@ msgstr "புதிய பயனாளரை சேர்க்க->நிக�
 #: libraries/rte/rte_words.lib.php:57
 #, php-format
 msgid "Export of event %s"
-msgstr ""
+msgstr "%s நிகழ்வின் தரவேற்றம்"
 
 #: libraries/rte/rte_words.lib.php:58
 msgid "event"
@@ -9553,7 +9560,7 @@ msgstr "செருகுநிரல் முடக்கப்பட்ட�
 #: libraries/select_lang.lib.php:616
 #, php-format
 msgid "Unknown language: %1$s."
-msgstr ""
+msgstr "அறிந்திராத மொழி: %1$s."
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
 msgid "Current Server:"
@@ -9593,11 +9600,11 @@ msgstr "சேவையக மாறிகள் மற்றும் அமை
 
 #: libraries/server_common.lib.php:30
 msgid "Storage Engines"
-msgstr ""
+msgstr "சேமிப்பக செயல்பொறிகள்"
 
 #: libraries/server_common.lib.php:39
 msgid "Character Sets and Collations"
-msgstr ""
+msgstr "எழுத்து கணங்கள் மற்றும் அடுக்குவரிசைகள்"
 
 #: libraries/server_common.lib.php:45
 msgid "Databases statistics"
@@ -10214,6 +10221,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"சேவையக நிலை மாறிகளை கணினி அறிவுறுத்துனர் முறைமையால் பகுப்பாய்வு செய்து\n"
+"சேவையக மாறிகள் தொடர்பான பரிந்துரைகளை வழங்க முடியும்."
 
 #: libraries/server_status_advisor.lib.php:35
 msgid ""
@@ -10301,7 +10310,7 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:169
 msgid "Using the monitor:"
-msgstr ""
+msgstr "கண்காணிப்பை பயன்படுத்துதல்:"
 
 #: libraries/server_status_monitor.lib.php:172
 msgid ""
@@ -11189,12 +11198,12 @@ msgstr ""
 #: libraries/sql_query_form.lib.php:184
 #, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr ""
+msgstr "SQL வினவலை/களை %s வழங்கியில் செயலாக்குக"
 
 #: libraries/sql_query_form.lib.php:205 libraries/sql_query_form.lib.php:233
 #, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr ""
+msgstr "SQL வினவலை/களை %s தரவுத்தளத்தில் செயலாக்குக"
 
 #: libraries/sql_query_form.lib.php:275 setup/frames/index.inc.php:297
 msgid "Clear"
@@ -11829,7 +11838,7 @@ msgstr ""
 #: libraries/tbl_tracking.lib.php:549
 #, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "%s ஆக தரவேற்றுக"
 
 #: libraries/tbl_tracking.lib.php:577 libraries/tbl_tracking.lib.php:675
 msgid "Date"
@@ -12136,7 +12145,7 @@ msgstr ""
 
 #: prefs_manage.php:240
 msgid "Import from file"
-msgstr ""
+msgstr "கோப்பிலிருந்து தரவிறக்குக"
 
 #: prefs_manage.php:248
 msgid "Import from browser's storage"
@@ -12183,7 +12192,7 @@ msgstr ""
 
 #: querywindow.php:64
 msgid "Import files"
-msgstr ""
+msgstr "கோப்புகளை தரவிறக்குக"
 
 #: querywindow.php:77
 msgid "All"
@@ -12301,7 +12310,7 @@ msgstr "முடிவுக்கோடு"
 
 #: setup/frames/index.inc.php:274
 msgid "Display"
-msgstr "திரை"
+msgstr "காட்டுக"
 
 #: setup/frames/index.inc.php:284
 msgid "Load"
@@ -13410,7 +13419,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "வழக்கமாக InnoDB அட்டவணை செயல்பொறிகளுக்கான சிறப்பான தேர்வாகும்."
 
 #: libraries/advisory_rules.txt:434
 msgid "have_innodb is set to 'value'"
