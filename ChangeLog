@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #4427 Action icons not in horizontal order
 - bug #4493 s_attention.png is missing
 - bug #4499 Uncaught TypeError: Cannot call method 'substr' of undefined
+- bug #4498 PMA 4.2.x and HHVM
 
 4.2.6.0 (2014-07-17)
 - bug #4471 Undefined index warning with referenced column.
