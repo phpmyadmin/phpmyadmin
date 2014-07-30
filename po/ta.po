@@ -10298,7 +10298,7 @@ msgstr "SVG தரவேற்ற பக்கம்"
 #: libraries/select_lang.lib.php:616
 #, php-format
 msgid "Unknown language: %1$s."
-msgstr ""
+msgstr "அறிந்திராத மொழி: %1$s."
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
 msgid "Current Server:"
