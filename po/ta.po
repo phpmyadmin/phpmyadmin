@@ -1271,7 +1271,7 @@ msgstr "கண்காணிப்பை இடைநிறுத்துக"
 
 #: js/messages.php:144 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr "தன்னிச்சை புதுப்பித்தலை துவக்குக"
+msgstr "தன்னிச்சையானபுதுப்பித்தலை துவக்குக"
 
 #: js/messages.php:145
 msgid "Stop auto refresh"
