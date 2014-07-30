@@ -5585,7 +5585,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:285 libraries/config/messages.inc.php:290
 #: setup/frames/menu.inc.php:23
 msgid "SQL queries"
-msgstr ""
+msgstr "SQL வினவல்கள்"
 
 #: libraries/config/messages.inc.php:287
 msgid "SQL Query box"
