@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-30 21:33+0200\n"
+"PO-Revision-Date: 2014-07-30 21:34+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -10207,7 +10207,7 @@ msgstr "புதிய பயனாளரை சேர்க்க->நிக�
 #: libraries/rte/rte_words.lib.php:57
 #, php-format
 msgid "Export of event %s"
-msgstr ""
+msgstr "%s நிகழ்வின் தரவேற்றம்"
 
 #: libraries/rte/rte_words.lib.php:58
 msgid "event"
