@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-30 22:31+0200\n"
+"PO-Revision-Date: 2014-07-30 22:37+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -839,8 +839,8 @@ msgid ""
 "split strings correctly and it may result in unexpected results."
 msgstr ""
 "mbstring PHP நீட்சி காணப்படவில்லை மேலும் நீங்கள் பல்லுரு எழுத்துக்கணத்தை "
-"பயன்படுத்துகிறீர்கள். mbstring PHP நீட்சி இல்லாமல் PHPMyAdminஆல் சரங்களை சரியாக "
-"பிரிக்கவியலாது அதனால் எதிர்பாரா முடிவுகள் கிடைக்கலாம்."
+"பயன்படுத்துகின்றீர்கள். mbstring PHP நீட்சி இல்லாமல் PHPMyAdminஆல் சரங்களை "
+"சரியாக பிரிக்கவியலாது அதனால் எதிர்பாரா முடிவுகள் கிடைக்கலாம்."
 
 #: index.php:471
 msgid ""
@@ -13085,7 +13085,7 @@ msgstr "முடிவுக்கோடு"
 
 #: setup/frames/index.inc.php:274
 msgid "Display"
-msgstr "திரை"
+msgstr "காட்டுக"
 
 #: setup/frames/index.inc.php:284
 msgid "Load"
