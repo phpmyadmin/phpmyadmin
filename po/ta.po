@@ -1275,7 +1275,7 @@ msgstr "தன்னிச்சையானபுதுப்பித்தல
 
 #: js/messages.php:145
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "தன்னிச்சையான புதுப்பித்தலை நிறுத்துக"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
