@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-25 04:35+0200\n"
-"Last-Translator: Edward Cheng <c4150221@gmail.com>\n"
+"PO-Revision-Date: 2014-07-30 18:11+0200\n"
+"Last-Translator: Yunqi Ouyang <oyyq99999@users.noreply.github.com>\n"
 "Language-Team: Simplified Chinese "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -8507,10 +8507,9 @@ msgid "Username:"
 msgstr "用户名："
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:196
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "选择服务器"
+msgstr "选择服务器:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:373
 msgid "Entered captcha is wrong, try again!"
@@ -10269,10 +10268,9 @@ msgid "Unknown language: %1$s."
 msgstr "未知的语言：%1$s."
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
-#, fuzzy
 #| msgid "Current Server"
 msgid "Current Server:"
-msgstr "当前服务器"
+msgstr "当前服务器:"
 
 #: libraries/server_bin_log.lib.php:30
 msgid "Select binary log to view"
@@ -12457,10 +12455,9 @@ msgid "Chart title"
 msgstr "图表标题"
 
 #: libraries/tbl_columns_definition_form.lib.php:72
-#, fuzzy
 #| msgid "Storage Engine"
 msgid "Storage Engine:"
-msgstr "存储引擎"
+msgstr "存储引擎:"
 
 #: libraries/tbl_columns_definition_form.lib.php:76
 #, fuzzy
