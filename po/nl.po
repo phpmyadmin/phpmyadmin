@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-28 18:09+0200\n"
+"PO-Revision-Date: 2014-07-31 17:50+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
 "\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "De centrale lijst met kolommen voor de huidige database is leeg."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
@@ -1286,11 +1286,11 @@ msgstr "Monitor pauzeren"
 
 #: js/messages.php:144 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Start automatisch vernieuwen"
 
 #: js/messages.php:145
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Stop automatisch vernieuwen"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
