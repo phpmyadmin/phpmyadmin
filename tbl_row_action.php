@@ -30,6 +30,10 @@ if (isset($_REQUEST['mult_btn'])) {
     $submit_mult = 'row_delete';
 }
 
+if (! isset($submit_mult)) {
+    $submit_mult = 'row_edit';
+}
+
 switch($submit_mult) {
 case 'row_delete':
 case 'row_edit':
