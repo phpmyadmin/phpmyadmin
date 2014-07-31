@@ -586,7 +586,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  * @param integer $tabindex_for_value    offset for the values tabindex
  * @param integer $idindex               id index
  * @param array   $data                  description of the column field
- * @param array   $special_chars         special characters
+ * @param string  $special_chars         special characters
  * @param array   $foreignData           data about the foreign keys
  * @param boolean $odd_row               whether row is odd
  * @param array   $paramTableDbArray     array containing $table and $db
@@ -618,6 +618,8 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
     $is_upload, $biggest_max_file_size,
     $default_char_editing, $no_support_types, $gis_data_types, $extracted_columnspec
 ) {
+    // HTML5 data-* attribute data-type
+    $data_type = $GLOBALS['PMA_Types']->getTypeClass($column['True_Type']);
     $html_output = '';
 
     if ($foreignData['foreign_link'] == true) {
@@ -644,7 +646,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         $html_output .= PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
-            $special_chars_encoded
+            $special_chars_encoded, $data_type
         );
 
     } elseif (strstr($column['pma_type'], 'text')) {
@@ -652,7 +654,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         $html_output .= PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
-            $special_chars_encoded
+            $special_chars_encoded, $data_type
         );
         $html_output .= "\n";
         if (strlen($special_chars) > 32000) {
@@ -802,12 +804,13 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
  * @param string  $text_dir              text direction
  * @param string  $special_chars_encoded replaced char if the string starts
  *                                       with a \r\n pair (0x0d0a) add an extra \n
+ * @param string  $data_type             the html5 data-* attribute type
  *
  * @return string                       an html snippet
  */
 function PMA_getTextarea($column, $backup_field, $column_name_appendix,
-    $unnullify_trigger,
-    $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded
+    $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex,
+    $text_dir, $special_chars_encoded, $data_type
 ) {
     $the_class = '';
     $textAreaRows = $GLOBALS['cfg']['TextareaRows'];
@@ -832,13 +835,14 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
     $html_output = $backup_field . "\n"
         . '<textarea name="fields' . $column_name_appendix . '"'
         . ' class="' . $the_class . '"'
-        . (isset($maxlength) ? ' maxlength="' . $maxlength . '"' : '')
+        . (isset($maxlength) ? ' data-maxlength="' . $maxlength . '"' : '')
         . ' rows="' . $textAreaRows . '"'
         . ' cols="' . $textareaCols . '"'
         . ' dir="' . $text_dir . '"'
         . ' id="field_' . ($idindex) . '_3"'
         . ' ' . $unnullify_trigger
-        . ' tabindex="' . ($tabindex + $tabindex_for_value) . '">'
+        . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
+        . ' data-type="' . $data_type . '">'
         . $special_chars_encoded
         . '</textarea>';
 
@@ -1076,7 +1080,7 @@ function PMA_getColumnSetValueAndSelectSize($column, $extracted_columnspec)
  *
  * @param array   $column                description of column in given table
  * @param array   $data                  data to edit
- * @param array   $special_chars         special characters
+ * @param string  $special_chars         special characters
  * @param integer $biggest_max_file_size biggest max file size for uploading
  * @param string  $backup_field          hidden input field
  * @param string  $column_name_appendix  the name atttibute
@@ -1125,14 +1129,14 @@ function PMA_getBinaryAndBlobColumn(
         $html_output .= "\n" . PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
-            $special_chars_encoded
+            $special_chars_encoded, 'HEX'
         );
     } else {
         // field size should be at least 4 and max $GLOBALS['cfg']['LimitChars']
         $fieldsize = min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']);
         $html_output .= "\n" . $backup_field . "\n" . PMA_getHTMLinput(
             $column, $column_name_appendix, $special_chars, $fieldsize,
-            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
+            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, 'HEX'
         );
     }
     $html_output .= sprintf($fields_type_html, $fields_type_val);
@@ -1161,17 +1165,19 @@ function PMA_getBinaryAndBlobColumn(
  *
  * @param array   $column               description of column in given table
  * @param string  $column_name_appendix the name attribute
- * @param array   $special_chars        special characters
+ * @param string  $special_chars        special characters
  * @param integer $fieldsize            html field size
  * @param string  $unnullify_trigger    validation string
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
+ * @param string  $data_type            the html5 data-* attribute type
  *
  * @return string                       an html snippet
  */
-function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
-    $fieldsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
+function PMA_getHTMLinput(
+    $column, $column_name_appendix, $special_chars, $fieldsize, $unnullify_trigger,
+    $tabindex, $tabindex_for_value, $idindex, $data_type
 ) {
     $input_type = 'text';
     // do not use the 'date' or 'time' types here; they have no effect on some
@@ -1189,27 +1195,24 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
         $the_class .= ' datetimefield';
     }
     $input_min_max = false;
-    if (!$GLOBALS['cfg']['ShowFunctionFields']) {
-        if (in_array(
-            $column['True_Type'],
-            $GLOBALS['PMA_Types']->getIntegerTypes()
-        )) {
-            $input_type = 'number';
-            $is_unsigned = substr($column['pma_type'], -9) === ' unsigned';
-            $min_max_values = $GLOBALS['PMA_Types']->getIntegerRange(
-                $column['True_Type'], ! $is_unsigned
-            );
-            $input_min_max = 'min="' . $min_max_values[0] . '" '
-                . 'max="' . $min_max_values[1] . '" ';
-        }
+    if (in_array($column['True_Type'], $GLOBALS['PMA_Types']->getIntegerTypes())) {
+        $extracted_columnspec = PMA_Util::extractColumnSpec($column['Type']);
+        $is_unsigned = $extracted_columnspec['unsigned'];
+        $min_max_values = $GLOBALS['PMA_Types']->getIntegerRange(
+            $column['True_Type'], ! $is_unsigned
+        );
+        $input_min_max = 'min="' . $min_max_values[0] . '" '
+            . 'max="' . $min_max_values[1] . '"';
+        $data_type = 'INT';
     }
     return '<input type="' . $input_type . '"'
         . ' name="fields' . $column_name_appendix . '"'
         . ' value="' . $special_chars . '" size="' . $fieldsize . '"'
         . ((isset($column['is_char']) && $column['is_char'])
-        ? ' maxlength="' . $fieldsize . '"'
+        ? ' data-maxlength="' . $fieldsize . '"'
         : '')
         . ($input_min_max !== false ? ' ' . $input_min_max : '')
+        . ' data-type="' . $data_type . '"'
         . ($input_type === 'time' ? ' step="1"' : '')
         . ' class="' . $the_class . '" ' . $unnullify_trigger
         . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
@@ -1297,7 +1300,7 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
  * @param string  $column_name_appendix  the name atttibute
  * @param string  $unnullify_trigger     validation string
  * @param integer $tabindex              tab index
- * @param array   $special_chars         special characters
+ * @param string  $special_chars         special characters
  * @param integer $tabindex_for_value    offset for the values tabindex
  * @param integer $idindex               id index
  * @param string  $text_dir              text direction
@@ -1316,6 +1319,8 @@ function PMA_getValueColumnForOtherDatatypes($column, $default_char_editing,
     $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded, $data,
     $extracted_columnspec
 ) {
+    // HTML5 data-* attribute data-type
+    $data_type = $GLOBALS['PMA_Types']->getTypeClass($column['True_Type']);
     $fieldsize = PMA_getColumnSize($column, $extracted_columnspec);
     $html_output = $backup_field . "\n";
     if ($column['is_char']
@@ -1327,12 +1332,12 @@ function PMA_getValueColumnForOtherDatatypes($column, $default_char_editing,
         $html_output .= PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
-            $special_chars_encoded
+            $special_chars_encoded, $data_type
         );
     } else {
         $html_output .= PMA_getHTMLinput(
-            $column, $column_name_appendix, $special_chars,
-            $fieldsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
+            $column, $column_name_appendix, $special_chars, $fieldsize,
+            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data_type
         );
 
         if ($column['Extra'] == 'auto_increment') {

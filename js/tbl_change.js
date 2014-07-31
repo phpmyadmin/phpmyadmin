@@ -151,19 +151,37 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
 {
     var evt = window.event || arguments.callee.caller.arguments[0];
     var target = evt.target || evt.srcElement;
+    var $this_input = $("input[name='fields[multi_edit][" + multi_edit + "][" +
+        urlField + "]']");
+    // check if it is textarea rather than input
+    if ($this_input.length === 0) {
+        $this_input = $("textarea[name='fields[multi_edit][" + multi_edit + "][" +
+            urlField + "]']");
+    }
 
     //To generate the textbox that can take the salt
     var new_salt_box = "<br><input type=text name=salt[multi_edit][" + multi_edit + "][" + urlField + "]" +
         " id=salt_" + target.id + " placeholder='" + PMA_messages.strEncryptionKey + "'>";
 
     //If AES_ENCRYPT is Selected then append the new textbox for salt
-    if (target.value == "AES_DECRYPT" || target.value == "AES_ENCRYPT") {
+    if (target.value === 'AES_DECRYPT' || target.value === 'AES_ENCRYPT') {
         if (!($("#salt_" + target.id).length)) {
-            $("#" + target.id).parent().next("td").next("td").find("input[name*='fields']").after(new_salt_box);
+            $this_input.after(new_salt_box);
         }
-
+        if ($this_input.data('type') !== 'HEX') {
+            $('#' + target.id).addClass('invalid_value');
+            return false;
+        }
+    } else if(target.value === 'MD5' &&
+        typeof $this_input.data('maxlength') !== 'undefined' &&
+        $this_input.data('maxlength') < 32
+    ){
+        $('#' + target.id).addClass('invalid_value');
+        return false;
     } else {
+        $('#' + target.id).removeClass('invalid_value');
         //The value of the select is no longer AES_ENCRYPT, remove the textbox for salt
+        $('#salt_' + target.id).prev('br').remove();
         $("#salt_" + target.id).remove();
     }
 
@@ -172,11 +190,6 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
 
     // Unchecks the Ignore checkbox for the current row
     $("input[name='insert_ignore_" + multi_edit + "']").prop('checked', false);
-    var $this_input = $("input[name='fields[multi_edit][" + multi_edit + "][" + urlField + "]']");
-    // check if it is textarea rather than input
-    if ($this_input.length === 0) {
-        $this_input = $("textarea[name='fields[multi_edit][" + multi_edit + "][" + urlField + "]']");
-    }
 
     // Does this field come from datepicker?
     if ($this_input.data('comes_from') == 'datepicker') {
@@ -224,16 +237,29 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
                 }
             }
         }
-        //validate for integer type
-        if (theType.substring(0, 3) == "int") {
+        //validation for integer type
+        if ($this_input.data('type') === 'INT') {
+            var min = $this_input.attr('min');
+            var max = $this_input.attr('max');
+            var value = $this_input.val();
             $this_input.removeClass("invalid_value");
-            if (isNaN($this_input.val())) {
+            if (isNaN(value) || BigInts.compare(value, min) < 0 ||
+                BigInts.compare(value, max) > 0
+            ) {
                 $this_input.addClass("invalid_value");
                 return false;
             }
-        }
-        // validate binary & blob types
-        if (theType.indexOf('blob') > -1 || theType.indexOf('binary') > -1) {
+            //validation for CHAR types
+        } else if ($this_input.data('type') === 'CHAR') {
+            var len = $this_input.val().length;
+            var maxlen = $this_input.data('maxlength');
+            $this_input.removeClass("invalid_value");
+            if (typeof maxlen !== 'undefined' && len > maxlen) {
+                $this_input.addClass("invalid_value");
+                return false;
+            }
+            // validate binary & blob types
+        } else if ($this_input.data('type') === 'HEX') {
             $this_input.removeClass("invalid_value");
             if ($this_input.val().match(/^[a-f0-9]*$/i) === null) {
                 $this_input.addClass("invalid_value");
