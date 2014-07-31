@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-26 22:11-0400\n"
-"PO-Revision-Date: 2014-07-31 17:50+0200\n"
+"PO-Revision-Date: 2014-07-31 17:57+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
 "\n"
@@ -1846,7 +1846,7 @@ msgstr "Naar de volgende stap…"
 #: js/messages.php:311
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "De eerste stap van normalisatie is voltooid voor tabel '%s'."
 
 #: js/messages.php:312 libraries/normalization.lib.php:417
 #: libraries/normalization.lib.php:464
@@ -1855,7 +1855,7 @@ msgstr "Einde van de stap"
 
 #: js/messages.php:313
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "Tweede stap van normalisatie (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:314 js/messages.php:541 libraries/normalization.lib.php:260
@@ -1864,7 +1864,7 @@ msgstr "Klaar"
 
 #: js/messages.php:315
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Gedeeltelijke afhankelijkheden bevestigen"
 
 #: js/messages.php:316
 msgid "Selected partial dependencies are as follows:"
@@ -1883,20 +1883,24 @@ msgstr "Er zijn geen gedeeltelijke afhankelijkheden geselecteerd!"
 #: js/messages.php:320
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"Toon de mogelijke gedeeltelijke afhankelijkheden op basis van gegevens in de "
+"tabel"
 
 #: js/messages.php:321
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Verberg lijst met gedeeltelijke afhankelijkheden"
 
 #: js/messages.php:322
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Even geduld! Het kan enkele seconden duren, afhankelijk van de hoeveelheid "
+"gegevens en het aantal kolommen in de tabel."
 
 #: js/messages.php:323
 msgid "Step"
-msgstr ""
+msgstr "Stap"
 
 #: js/messages.php:324
 msgid "The following actions will be performed:"
@@ -2087,7 +2091,7 @@ msgstr "Pagina verwijderen"
 
 #: js/messages.php:398 libraries/pmd_common.php:295
 msgid "*Untitled"
-msgstr ""
+msgstr "*Naamloos"
 
 #: js/messages.php:399
 msgid "Please select a page to continue"
@@ -2099,11 +2103,11 @@ msgstr "Gelieve een geldige paginanaam in te geven"
 
 #: js/messages.php:401
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Wilt u de wijzigingen in de huidige pagina opslaan?"
 
 #: js/messages.php:402
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Pagina werd succesvol verwijderd"
 
 #: js/messages.php:403
 msgid "Export relational schema"
@@ -2191,7 +2195,7 @@ msgstr "Afgehaakte"
 
 #: js/messages.php:427
 msgid "Failed"
-msgstr ""
+msgstr "Mislukt"
 
 #: js/messages.php:428
 msgid "Success"
@@ -2696,7 +2700,7 @@ msgstr "Samenvouwen"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:170
 msgid "Expand"
-msgstr ""
+msgstr "Uitklappen"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:171
 #| msgid "subquery"
@@ -2713,7 +2717,7 @@ msgstr[1] "In totaal %d bladwijzers"
 
 #: libraries/Console.class.php:114
 msgid "private"
-msgstr ""
+msgstr "privaat"
 
 #: libraries/Console.class.php:118 libraries/bookmark.lib.php:87
 msgid "shared"
