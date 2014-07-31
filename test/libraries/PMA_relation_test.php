@@ -291,4 +291,44 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             $actual
         );
     }
+
+    /**
+     * Test for PMA_searchColumnInForeigners
+     *
+     * @return void
+     */
+    public function testPMASearchColumnInForeigners()
+    {
+        $foreigners = array(
+            'value' => array(
+                  'master_field' => 'value',
+                  'foreign_db' => 'GSoC14',
+                  'foreign_table' => 'test',
+                  'foreign_field' => 'value'
+            ),
+            'foreign_keys_data' => array(
+                0 => array(
+                    'constraint' => 'ad',
+                    'index_list' => array('id', 'value'),
+                    'ref_db_name' => 'GSoC14',
+                    'ref_table_name' => 'table_1',
+                    'ref_index_list' => array('id', 'value'),
+                    'on_delete' => 'CASCADE',
+                    'on_update' => 'CASCADE'
+                )
+            )
+        );
+
+        $foreigner = PMA_searchColumnInForeigners($foreigners, 'id');
+        $expected = array();
+        $expected['foreign_field'] = 'id';
+        $expected['foreign_db'] = 'GSoC14';
+        $expected['foreign_table'] = 'table_1';
+        $expected['constraint'] = 'ad';
+
+        $this->assertEquals(
+            $expected,
+            $foreigner
+        );
+    }
 }

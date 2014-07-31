@@ -383,7 +383,9 @@ EOT;
 
         // Get inputbox based on different column types
         // (Foreign key, geometrical, enum)
-        if ($this->_foreigners && isset($this->_foreigners[$column_name])) {
+        if ($this->_foreigners
+            && PMA_searchColumnInForeigners($this->_foreigners, $column_name)
+        ) {
             $str .= $this->_getForeignKeyInputBox(
                 $foreignData, $column_name, $column_index, $titles,
                 $foreignMaxLimit, $criteriaValues, $column_id
@@ -1195,7 +1197,10 @@ EOT;
             $html_output .= '<fieldset id="fieldset_zoom_search">';
             $html_output .= '<fieldset id="inputSection">';
             $html_output .= '<legend>'
-                . __('Do a "query by example" (wildcard: "%") for two different columns')
+                . __(
+                    'Do a "query by example" (wildcard: "%") for two'
+                    . ' different columns'
+                )
                 . '</legend>';
             $html_output .= $this->_getFieldsTableHtml();
             $html_output .= $this->_getOptionsZoom($dataLabel);

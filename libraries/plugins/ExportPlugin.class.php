@@ -308,9 +308,10 @@ abstract class ExportPlugin
         $res_rel, $field_name, $db, $aliases = array()
     ) {
         $relation = '';
-        if (isset($res_rel[$field_name])) {
-            $ftable = $res_rel[$field_name]['foreign_table'];
-            $ffield = $res_rel[$field_name]['foreign_field'];
+        $foreigner = PMA_searchColumnInForeigners($res_rel, $field_name);
+        if ($foreigner) {
+            $ftable = $foreigner['foreign_table'];
+            $ffield = $foreigner['foreign_field'];
             if (!empty($aliases[$db]['tables'][$ftable]['columns'][$ffield])) {
                 $ffield = $aliases[$db]['tables'][$ftable]['columns'][$ffield];
             }

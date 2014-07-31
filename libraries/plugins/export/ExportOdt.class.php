@@ -510,9 +510,10 @@ class ExportOdt extends ExportPlugin
                 $column, $col_as
             );
             if ($do_relation && $have_rel) {
-                if (isset($res_rel[$field_name])) {
-                    $rtable = $res_rel[$field_name]['foreign_table'];
-                    $rfield = $res_rel[$field_name]['foreign_field'];
+                $foreigner = PMA_searchColumnInForeigners($res_rel, $field_name);
+                if ($foreigner) {
+                    $rtable = $foreigner['foreign_table'];
+                    $rfield = $foreigner['foreign_field'];
                     if (!empty($aliases[$db]['tables'][$rtable]['columns'][$rfield])
                     ) {
                         $rfield

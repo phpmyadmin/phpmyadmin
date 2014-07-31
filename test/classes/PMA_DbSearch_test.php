@@ -81,6 +81,18 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetSearchSqls()
     {
+        //mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->any())
+            ->method('getColumns')
+            ->with('pma', 'table1')
+            ->will($this->returnValue(array()));
+
+        $GLOBALS['dbi'] = $dbi;
+
         $this->assertEquals(
             array (
                 'select_columns' => 'SELECT *  FROM `pma`.`table1` WHERE FALSE',
