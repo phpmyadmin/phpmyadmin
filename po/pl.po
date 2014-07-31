@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-05-12 23:05+0200\n"
-"Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
+"PO-Revision-Date: 2014-07-31 22:19+0200\n"
+"Last-Translator: Krzysztof Ciszewski <krzysztof.ciszewski@outlook.com>\n"
 "Language-Team: Polish <https://l10n.cihar.com/projects/phpmyadmin/4-2/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.9\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -860,7 +860,6 @@ msgstr ""
 "Plik konfiguracyjny wymaga teraz tajnej frazy kodującej (blowfish_secret)."
 
 #: index.php:506
-#, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
 #| "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -871,9 +870,11 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
-"Katalog [code]config[/code], który jest używany przez skrypt konfiguracyjny. "
-"Będzie on nadal znajdował się w katalogu phpMyAdmina. Możesz go usunąć po "
-"skonfigurowaniu phpMyAdmina."
+"Katalog [code]config[/code], który jest używany przez skrypt konfiguracyjny, "
+"nadal znajduje się w katalogu phpMyAdmin. Zaleca się usunięcie go po "
+"skonfigurowaniu phpMyAdmin. W przeciwnym wypadku bezpieczeństwo twojego "
+"serwera jest zagrożone przez osoby nieupoważnione ściągające twoją "
+"konfigurację."
 
 #: index.php:516
 #, php-format
@@ -1880,10 +1881,9 @@ msgid "Double-click to copy column name."
 msgstr "Kliknij dwukrotnie, aby skopiować nazwę kolumny."
 
 #: js/messages.php:349
-#, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr "Kliknij rozwijane strzałki, <br/> aby przełączyć widoczność kolumn"
+msgstr "Kliknij rozwijane strzałki, <br/> aby przełączyć widoczność kolumn."
 
 #: js/messages.php:351 libraries/DisplayResults.class.php:858
 #: libraries/browse_foreigners.lib.php:371
@@ -1914,10 +1914,9 @@ msgstr ""
 "nich."
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "Idź do linku."
+msgstr "Idź do linku:"
 
 #: js/messages.php:366
 msgid "Copy column name."
@@ -1996,12 +1995,11 @@ msgid "Submit Error Report"
 msgstr "Wyślij zgłoszenie błędu"
 
 #: js/messages.php:398
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr "Wystąpił błąd podczas ładowania drzewa nawigacyjnego"
+msgstr "Wystąpił błąd krytyczny JavaScript. Czy chcesz wysłać raport błędu?"
 
 #: js/messages.php:400
 msgid "Change Report Settings"
@@ -2327,12 +2325,12 @@ msgid "Unexpected characters on line %s."
 msgstr "Nieoczekiwane znaki w linii %s."
 
 #: libraries/Advisor.class.php:438
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"Nieoczekiwane znaki w linii %1$s. Spodziewana zakładka, ale nie znaleziono "
-"\"%2$s\""
+"Nieoczekiwany znak w linii %1$s. Spodziewano się taba, ale znaleziono \"%2$"
+"s\"."
 
 #: libraries/Advisor.class.php:472
 msgid "per second"
@@ -2727,10 +2725,9 @@ msgid "Kill"
 msgstr "Zabij"
 
 #: libraries/DisplayResults.class.php:4602 libraries/structure.lib.php:776
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Może być w przybliżeniu. Zobacz [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Może być w przybliżeniu. Zobacz [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4659 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
@@ -2765,10 +2762,10 @@ msgid "%d total"
 msgstr "%d ogółem"
 
 #: libraries/DisplayResults.class.php:5082 libraries/sql.lib.php:1687
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
-msgstr "Wykonanie zapytania trwało %01.4f sekund(y)"
+msgstr "Wykonanie zapytania trwało %01.4f sekund(y)."
 
 #: libraries/DisplayResults.class.php:5166
 #: libraries/DisplayResults.class.php:5172 libraries/mult_submits.inc.php:46
@@ -3531,7 +3528,7 @@ msgstr "Znajdź i zamień - podgląd"
 #, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Kolumna"
+msgstr "Liczba"
 
 #: libraries/TableSearch.class.php:1417
 msgid "Original string"
@@ -4428,7 +4425,6 @@ msgstr ""
 "którym tysiące użytkowników, w tym Ty, są podłączone."
 
 #: libraries/config/ServerConfigChecks.class.php:378
-#, fuzzy
 #| msgid ""
 #| "You didn't have blowfish secret set and have enabled cookie "
 #| "authentication, so a key was automatically generated for you. It is used "
@@ -4438,9 +4434,9 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Nie masz ustawionej ochrony blowfish i masz uwierzytelnienie cookie, więc "
-"klucz był generowany automatycznie dla Ciebie. Jest on używany do "
-"szyfrowania plików cookie, nie trzeba o tym pamiętać."
+"Nie miałeś ustawionego sekretu blowfish i masz uwierzytelnienie "
+"[kbd]cookie[/kbd], więc klucz został automatycznie wygenerowany dla Ciebie. "
+"Jest on używany do szyfrowania plików cookie, nie musisz go pamiętać."
 
 #: libraries/config/ServerConfigChecks.class.php:379
 #, php-format
@@ -4483,9 +4479,9 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"%sWażności ciasteczko logowania%s większa niż 1440 sekund może spowodować "
-"losowe unieważnienie sesji, jeśli %ssession.gc_maxlifetime%s jest niższa niż "
-"jego wartość (obecnie %d)."
+"%sWażności ciasteczka logowania%s większa niż %ssession.gc_maxlifetime%s "
+"może spowodować losowe unieważnienie sesji(obecnie session.gc_maxlifetime to "
+"%d)."
 
 #: libraries/config/ServerConfigChecks.class.php:410
 #, php-format
@@ -4506,9 +4502,9 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"W przypadku korzystania z uwierzytelniania cookie i przechowywać "
-"%sciasteczek logowania%s nie jest 0, %sWażności plików cookie%s logowania "
-"muszą być ustawione na wartość mniejsza lub równa jej."
+"W przypadku korzystania z uwierzytelniania [kbd]cookie[/kbd] i %"
+"Przechowalnia sciasteczek logowania%s nie jest 0, %sWażności plików cookie%s "
+"musi być ustawiona na wartość mniejsza lub równą jej."
 
 #: libraries/config/ServerConfigChecks.class.php:423
 #, fuzzy, php-format
