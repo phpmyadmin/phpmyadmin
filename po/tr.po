@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-01 12:58-0400\n"
-"PO-Revision-Date: 2014-07-26 00:28+0200\n"
+"PO-Revision-Date: 2014-08-01 19:55+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -604,20 +604,18 @@ msgstr ""
 "alta dizgiyi yapıştırın."
 
 #: import.php:52
-#, fuzzy
 #| msgid "Success"
 msgid "Successed"
-msgstr "Başarılı"
+msgstr "Başarılı oldu"
 
 #: import.php:56 js/messages.php:427
 msgid "Failed"
-msgstr "Başarısız"
+msgstr "Başarısız oldu"
 
 #: import.php:60
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "tam eklemeler"
+msgstr "Tamamlanmamış parametreler"
 
 #: import.php:164
 #, php-format
@@ -2355,10 +2353,9 @@ msgid "Execute this query again?"
 msgstr "Bu sorgu tekrar çalıştırılsın mı?"
 
 #: js/messages.php:515
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "\"%s\" aramasını silmek istediğinize emin misiniz?"
+msgstr "Bu yer imini silmek istediğinize emin misiniz?"
 
 #: js/messages.php:546
 msgctxt "Previous month"
@@ -2741,10 +2738,9 @@ msgid "No bookmarks"
 msgstr "Yer imleri yok"
 
 #: libraries/Console.class.php:174
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "SQL'i açıkla"
+msgstr "Açıkla"
 
 #: libraries/Console.class.php:175 libraries/Util.class.php:1263
 #: libraries/sql.lib.php:484
@@ -2752,10 +2748,9 @@ msgid "Profiling"
 msgstr "Profil çıkart"
 
 #: libraries/Console.class.php:176
-#, fuzzy
 #| msgid "Bookmarks"
 msgid "Bookmark"
-msgstr "Yer imleri"
+msgstr "Yer imi"
 
 #: libraries/Console.class.php:177
 msgid "Query failed"
@@ -2829,10 +2824,9 @@ msgid "Refresh"
 msgstr "Yenile"
 
 #: libraries/Console.class.php:255
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "Ve"
+msgstr "Ekle"
 
 #: libraries/Console.class.php:263
 msgid "Add bookmark"
@@ -2855,10 +2849,9 @@ msgid "Set default"
 msgstr "Varsayılana ayarla"
 
 #: libraries/Console.class.php:288
-#, fuzzy
 #| msgid "Always expand queried messages"
 msgid "Always expand query messages"
-msgstr "Her zaman sorgulanmış mesajları genişlet"
+msgstr "Her zaman sorgu mesajlarını genişlet"
 
 #: libraries/Console.class.php:290
 msgid "Show query history at start"
