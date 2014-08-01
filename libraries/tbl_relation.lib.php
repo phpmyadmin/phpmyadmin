@@ -228,7 +228,7 @@ function PMA_getHtmlForInternalRelationForm($columns, $tbl_storage_engine,
     $saved_row_cnt  = count($save_row);
 
     $html_output = '<fieldset>'
-        . '<legend>' . __('Internal Relations') . '</legend>'
+        . '<legend>' . __('Internal relations') . '</legend>'
         . '<table id="internal_relations" class="relationalTable">';
 
     $html_output .= '<tr><th>' . __('Column') . '</th>';
