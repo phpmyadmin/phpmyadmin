@@ -376,7 +376,7 @@ function PMA_getHtmlForForeignKeyForm($columns, $existrel_foreign, $db,
         . __('Column')
         . PMA_Util::showHint(
             __(
-                'Only columns with index will be displayed. You can define a'
+                'Only columns with index will be displayed. You can define an'
                 . ' index below.'
             )
         )

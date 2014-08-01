@@ -1386,7 +1386,7 @@ class PMA_Table
     /**
      * Get all unique columns
      *
-     * returns an array with all columns with unqiue content, in fact these are
+     * returns an array with all columns with unique content, in fact these are
      * all columns being single indexed in PRIMARY or UNIQUE
      *
      * e.g.
@@ -1428,7 +1428,7 @@ class PMA_Table
     /**
      * Get all indexed columns
      *
-     * returns an array with all columns make use of an index
+     * returns an array with all columns that make use of an index
      *
      * e.g. index(col1, col2) would return col1, col2
      *
