@@ -511,8 +511,14 @@ class ExportSql extends ExportPlugin
                 $proc_query .= $create_query . $delimiter . $crlf . $crlf;
             }
             if ($used_alias) {
-                $text .= $this->_exportComment(__('It appears your database uses procedures;'))
-                . $this->_exportComment(__('alias export may not work reliably in all cases.'))
+                $text .= $this->_exportComment(
+                    __(
+                        'It appears your database uses procedures;'
+                    )
+                )
+                . $this->_exportComment(
+                    __('alias export may not work reliably in all cases.')
+                )
                 . $this->_exportComment();
             }
             $text .= $proc_query;
@@ -543,8 +549,12 @@ class ExportSql extends ExportPlugin
                 $function_query .= $create_query . $delimiter . $crlf . $crlf;
             }
             if ($used_alias) {
-                $text .= $this->_exportComment(__('It appears your database uses functions;'))
-                . $this->_exportComment(__('alias export may not work reliably in all cases.'))
+                $text .= $this->_exportComment(
+                    __('It appears your database uses functions;')
+                )
+                . $this->_exportComment(
+                    __('alias export may not work reliably in all cases.')
+                )
                 . $this->_exportComment();
             }
             $text .= $function_query;
@@ -1638,28 +1648,60 @@ class ExportSql extends ExportPlugin
                     . PMA_Util::backquote($table_alias, $sql_backquotes)
                     . ':'
                 );
+
             foreach ($res_rel as $rel_field => $rel) {
-                $rel_field_alias = !empty(
-                    $aliases[$db]['tables'][$table]['columns'][$rel_field]
-                ) ? $aliases[$db]['tables'][$table]['columns'][$rel_field]
-                  : $rel_field;
-                $schema_create .=
-                    $this->_exportComment(
-                        '  '
-                        . PMA_Util::backquote($rel_field_alias, $sql_backquotes)
-                    )
-                    . $this->_exportComment(
-                        '      '
-                        . PMA_Util::backquote(
-                            $rel['foreign_table'],
-                            $sql_backquotes
+                if ($rel_field != 'foreign_keys_data') {
+                    $rel_field_alias = !empty(
+                        $aliases[$db]['tables'][$table]['columns'][$rel_field]
+                    ) ? $aliases[$db]['tables'][$table]['columns'][$rel_field]
+                      : $rel_field;
+                    $schema_create .=
+                        $this->_exportComment(
+                            '  '
+                            . PMA_Util::backquote($rel_field_alias, $sql_backquotes)
                         )
-                        . ' -> '
-                        . PMA_Util::backquote(
-                            $rel['foreign_field'],
-                            $sql_backquotes
-                        )
-                    );
+                        . $this->_exportComment(
+                            '      '
+                            . PMA_Util::backquote(
+                                $rel['foreign_table'],
+                                $sql_backquotes
+                            )
+                            . ' -> '
+                            . PMA_Util::backquote(
+                                $rel['foreign_field'],
+                                $sql_backquotes
+                            )
+                        );
+                } else {
+                    foreach ($rel as $one_key) {
+                        foreach ($one_key['index_list'] as $index => $field) {
+                            $rel_field_alias = !empty(
+                                $aliases[$db]['tables'][$table]['columns'][$field]
+                            ) ? $aliases[$db]['tables'][$table]['columns'][$field]
+                              : $field;
+                            $schema_create .=
+                                $this->_exportComment(
+                                    '  '
+                                    . PMA_Util::backquote(
+                                        $rel_field_alias,
+                                        $sql_backquotes
+                                    )
+                                )
+                                . $this->_exportComment(
+                                    '      '
+                                    . PMA_Util::backquote(
+                                        $one_key['ref_table_name'],
+                                        $sql_backquotes
+                                    )
+                                    . ' -> '
+                                    . PMA_Util::backquote(
+                                        $one_key['ref_index_list'][$index],
+                                        $sql_backquotes
+                                    )
+                                );
+                        }
+                    }
+                }
             }
             $schema_create .= $this->_exportComment();
         }

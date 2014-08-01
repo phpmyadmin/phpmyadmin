@@ -531,14 +531,14 @@ fieldset .formelement {
     fieldset .formelement {
         clear: none;
     }
-    #relationalTable td:first-child + td {
+    .relationalTable td:first-child + td {
         width: 25%;
     }
-    #relationalTable td:first-child + td select {
+    .relationalTable td:first-child + td select {
         width: 32%;
         margin-right: 1%;
     }
-    #relationalTable {
+    .relationalTable {
         width: 100%;
     }
 
@@ -2919,7 +2919,7 @@ fieldset .disabled-field td {
     padding-<?php echo $left; ?>: 20px;
 }
 
-#relationalTable select {
+.relationalTable select {
     width: 125px;
     margin-right: 5px;
 }

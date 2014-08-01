@@ -120,10 +120,11 @@ function PMA_getHtmlForPrintViewColumns(
         $html .= '&nbsp;</td>';
         if ($have_rel) {
             $html .= '    <td>';
-            if (isset($res_rel[$field_name])) {
+            $foreigner = PMA_searchColumnInForeigners($res_rel, $field_name);
+            if ($foreigner) {
                 $html .= htmlspecialchars(
-                    $res_rel[$field_name]['foreign_table']
-                    . ' -> ' . $res_rel[$field_name]['foreign_field']
+                    $foreigner['foreign_table']
+                    . ' -> ' . $foreigner['foreign_field']
                 );
             }
             $html .= '&nbsp;</td>' . "\n";

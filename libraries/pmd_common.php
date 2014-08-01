@@ -137,15 +137,19 @@ function PMA_getScriptContr()
         //echo "<br> INNO ";
         //print_r($row);
         if ($row !== false) {
-            foreach ($row as $field => $value) {
-                $con['C_NAME'][$i] = '';
-                $con['DTN'][$i]    = urlencode($GLOBALS['db'] . "." . $val[0]);
-                $con['DCN'][$i]    = urlencode($field);
-                $con['STN'][$i]    = urlencode(
-                    $value['foreign_db'] . "." . $value['foreign_table']
-                );
-                $con['SCN'][$i]    = urlencode($value['foreign_field']);
-                $i++;
+            foreach ($row['foreign_keys_data'] as $key => $one_key) {
+                foreach ($one_key['index_list'] as $index => $one_field) {
+                    $con['C_NAME'][$i] = '';
+                    $con['DTN'][$i]    = urlencode($GLOBALS['db'] . "." . $val[0]);
+                    $con['DCN'][$i]    = urlencode($one_field);
+                    $con['STN'][$i]    = urlencode(
+                        (isset($one_key['ref_db_name']) ?
+                            $one_key['ref_db_name'] : $GLOBALS['db'])
+                        . "." . $one_key['ref_table_name']
+                    );
+                    $con['SCN'][$i] = urlencode($one_key['ref_index_list'][$index]);
+                    $i++;
+                }
             }
         }
     }

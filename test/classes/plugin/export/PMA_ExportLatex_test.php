@@ -825,7 +825,8 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
                         'name1' => array(
                             'foreign_table' => 'ftable',
                             'foreign_field' => 'ffield'
-                        )
+                        ),
+                        'foreign_keys_data' => array()
                     )
                 )
             );

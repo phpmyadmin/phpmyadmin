@@ -650,15 +650,18 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetNullColumn()
     {
-        $column = array();
+        $column = array('Field' => '');
         $column['Null'] = 'YES';
         $column['first_timestamp'] = false;
         $column['True_Type'] = 'enum';
         $column['Type'] = 0;
         $column['Field_md5'] = 'foobar';
+        $foreigners = array(
+            'foreign_keys_data' => array()
+        );
 
         $result = PMA_getNullColumn(
-            $column, 'a', true, 2, 0, 1, "<script>", array(), array()
+            $column, 'a', true, 2, 0, 1, "<script>", $foreigners, array()
         );
 
         $this->assertTag(
@@ -719,29 +722,32 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetNullifyCodeForNullColumn()
     {
-        $column = $foreigners = $foreignData = array();
+        $column = $foreignData = array();
+        $foreigners = array(
+            'foreign_keys_data' => array()
+        );
+        $column['Field'] = 'f';
         $column['True_Type'] = 'enum';
         $column['Type'] = 'ababababababababababa';
         $this->assertEquals(
             '1',
-            PMA_getNullifyCodeForNullColumn($column, array(), array())
+            PMA_getNullifyCodeForNullColumn($column, $foreigners, array())
         );
 
         $column['True_Type'] = 'enum';
         $column['Type'] = 'abababababababababab';
         $this->assertEquals(
             '2',
-            PMA_getNullifyCodeForNullColumn($column, array(), array())
+            PMA_getNullifyCodeForNullColumn($column, $foreigners, array())
         );
 
         $column['True_Type'] = 'set';
         $this->assertEquals(
             '3',
-            PMA_getNullifyCodeForNullColumn($column, array(), array())
+            PMA_getNullifyCodeForNullColumn($column, $foreigners, array())
         );
 
         $column['True_Type'] = '';
-        $column['Field'] = 'f';
         $foreigners['f'] = true;
         $foreignData['foreign_link'] = '';
         $this->assertEquals(

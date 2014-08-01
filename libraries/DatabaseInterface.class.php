@@ -10,6 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once './libraries/logging.lib.php';
+require_once './libraries/Index.class.php';
 
 /**
  * Main interface for database interactions
@@ -1063,6 +1064,24 @@ class PMA_DatabaseInterface
         $fields = $this->fetchResult($sql, 'Field', null, $link);
         if (! is_array($fields) || count($fields) == 0) {
             return null;
+        }
+        // Check if column is a part of multiple-column index and set its 'Key'.
+        $indexes = PMA_Index::getFromTable($table, $database);
+        foreach ($fields as $field => $field_data) {
+            if (empty($field_data['Key'])) {
+                foreach ($indexes as $index) {
+                    if ($index->hasColumn($field)) {
+                        $index_columns = $index->getColumns();
+                        if ($index_columns[$field]->getSeqInIndex() > 1) {
+                            if ($index->isUnique()) {
+                                $fields[$field]['Key'] = 'UNI';
+                            } else {
+                                $fields[$field]['Key'] = 'MUL';
+                            }
+                        }
+                    }
+                }
+            }
         }
         if (PMA_DRIZZLE) {
             // fix Key column, it's much simpler in PHP than in SQL

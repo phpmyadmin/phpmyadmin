@@ -730,7 +730,8 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
             if (! isset($this->_tables[$table])) {
                 $this->_tables[$table] = new Table_Stats_Eps(
                     $table, $eps->getFont(), $eps->getFontSize(), $this->pageNumber,
-                    $this->_tablewidth, $this->showKeys, $this->tableDimension, $this->isOffline()
+                    $this->_tablewidth, $this->showKeys,
+                    $this->tableDimension, $this->isOffline()
                 );
             }
 
@@ -750,12 +751,30 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
                     * (do not use array_search() because we would have to
                     * to do a === false and this is not PHP3 compatible)
                     */
-                    if (in_array($rel['foreign_table'], $alltables)) {
-                        $this->_addRelation(
-                            $one_table, $eps->getFont(), $eps->getFontSize(),
-                            $master_field, $rel['foreign_table'],
-                            $rel['foreign_field'], $this->tableDimension
-                        );
+                    if ($master_field != 'foreign_keys_data') {
+                        if (in_array($rel['foreign_table'], $alltables)) {
+                            $this->_addRelation(
+                                $one_table, $eps->getFont(), $eps->getFontSize(),
+                                $master_field, $rel['foreign_table'],
+                                $rel['foreign_field'], $this->tableDimension
+                            );
+                        }
+                    } else {
+                        foreach ($rel as $key => $one_key) {
+                            if (in_array($one_key['ref_table_name'], $alltables)) {
+                                foreach ($one_key['index_list']
+                                    as $index => $one_field
+                                ) {
+                                    $this->_addRelation(
+                                        $one_table, $eps->getFont(),
+                                        $eps->getFontSize(),
+                                        $one_field, $one_key['ref_table_name'],
+                                        $one_key['ref_index_list'][$index],
+                                        $this->tableDimension
+                                    );
+                                }
+                            }
+                        }
                     }
                 }
             }

@@ -873,7 +873,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $pdf->Open();
         $pdf->SetAutoPageBreak('auto');
         $pdf->setOffline($this->isOffline());
-        if ($this->isOffline()){
+        if ($this->isOffline()) {
             $alltables = array();
             $tbl_coords = json_decode($GLOBALS['tbl_coords']);
             foreach ($tbl_coords as $tbl) {
@@ -958,14 +958,30 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                     // by the user
                     // (do not use array_search() because we would have to
                     // to do a === false and this is not PHP3 compatible)
-                    if (in_array($rel['foreign_table'], $alltables)) {
-                        $this->_addRelation(
-                            $one_table,
-                            $master_field,
-                            $rel['foreign_table'],
-                            $rel['foreign_field'],
-                            $this->tableDimension
-                        );
+                    if ($master_field != 'foreign_keys_data') {
+                        if (in_array($rel['foreign_table'], $alltables)) {
+                            $this->_addRelation(
+                                $one_table,
+                                $master_field,
+                                $rel['foreign_table'],
+                                $rel['foreign_field']
+                            );
+                        }
+                    } else {
+                        foreach ($rel as $key => $one_key) {
+                            if (in_array($one_key['ref_table_name'], $alltables)) {
+                                foreach ($one_key['index_list']
+                                    as $index => $one_field
+                                ) {
+                                    $this->_addRelation(
+                                        $one_table,
+                                        $one_field,
+                                        $one_key['ref_table_name'],
+                                        $rel['foreign_field'][$index]
+                                    );
+                                }
+                            }
+                        }
                     }
                 } // end while
             } // end if
@@ -1087,7 +1103,10 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             );
             // Avoid duplicates
             if ($l > 0
-                && $l <= intval(($pdf->getPageHeight() - $topSpace - $bottomSpace - $labelHeight) / $gridSize)
+                && $l <= intval(
+                    ($pdf->getPageHeight() - $topSpace - $bottomSpace - $labelHeight)
+                    / $gridSize
+                )
             ) {
                 $pdf->SetXY(0, $l * $gridSize + $topSpace);
                 $label = (string) sprintf(
@@ -1437,6 +1456,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 $pdf->PMA_links['RT'][$table][$field_name] = $pdf->AddLink();
                 $pdf->Bookmark($field_name, 1, -1);
                 $pdf->SetLink($pdf->PMA_links['doc'][$table][$field_name], -1);
+                $foreigner = PMA_searchColumnInForeigners($res_rel, $field_name);
                 $pdf_row = array(
                     $field_name,
                     $type,
@@ -1446,9 +1466,9 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                     : __('Yes'),
                     (isset($row['Default']) ? $row['Default'] : ''),
                     $row['Extra'],
-                    (isset($res_rel[$field_name])
-                        ? $res_rel[$field_name]['foreign_table'] . ' -> '
-                            . $res_rel[$field_name]['foreign_field']
+                    ($foreigner
+                        ? $foreigner['foreign_table'] . ' -> '
+                            . $foreigner['foreign_field']
                         : ''),
                     (isset($comments[$field_name])
                         ? $comments[$field_name]
@@ -1459,11 +1479,10 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 );
                 $links = array();
                 $links[0] = $pdf->PMA_links['RT'][$table][$field_name];
-                if (isset($res_rel[$field_name]['foreign_table'])
-                    && isset($res_rel[$field_name]['foreign_field'])
-                    && isset($pdf->PMA_links['doc'][$res_rel[$field_name]['foreign_table']][$res_rel[$field_name]['foreign_field']])
+                if ($foreigner
+                    && isset($pdf->PMA_links['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']])
                 ) {
-                    $links[6] = $pdf->PMA_links['doc'][$res_rel[$field_name]['foreign_table']][$res_rel[$field_name]['foreign_field']];
+                    $links[6] = $pdf->PMA_links['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']];
                 } else {
                     unset($links[6]);
                 }

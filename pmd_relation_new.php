@@ -30,8 +30,9 @@ if (PMA_Util::isForeignKeySupported($type_T1)
 ) {
     // relation exists?
     $existrel_foreign = PMA_getForeigners($db, $T2, '', 'foreign');
-    if (isset($existrel_foreign[$F2])
-        && isset($existrel_foreign[$F2]['constraint'])
+    $foreigner = PMA_searchColumnInForeigners($existrel_foreign, $F2);
+    if ($foreigner
+        && isset($foreigner['constraint'])
     ) {
          PMD_Return_new(0, __('Error: relation already exists.'));
     }
