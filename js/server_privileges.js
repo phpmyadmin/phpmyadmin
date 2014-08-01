@@ -52,6 +52,7 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
     var $insert_position;
     var dummy_tr_inserted;
     var $tbody;
+    var new_last_row_index;
 
     if ($curr_last_row.length) {
         // at least one tr exists inside the tbody
@@ -60,7 +61,7 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
         curr_shown_initial = $curr_last_row.find('label').html().substr(0, 1).toUpperCase();
         var curr_last_row_index_string = $curr_last_row.find('input:checkbox').attr('id').match(/\d+/)[0];
         var curr_last_row_index = parseFloat(curr_last_row_index_string);
-        var new_last_row_index = curr_last_row_index + 1;
+        new_last_row_index = curr_last_row_index + 1;
         is_show_all = (first_row_initial != curr_shown_initial) ? true : false;
         $insert_position = $curr_last_row;
         dummy_tr_inserted = false;
