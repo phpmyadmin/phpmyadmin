@@ -1026,8 +1026,17 @@ function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_m
     }
 
     $empty_fields = false;
-    if (in_array('', $master_field) || in_array('', $foreign_field)) {
-        $empty_fields = true;
+    foreach ($master_field as $key => $one_field) {
+        if ((! empty($one_field) && empty($foreign_field[$key]))
+            || (empty($one_field) && ! empty($foreign_field[$key]))
+        ) {
+            $empty_fields = true;
+        }
+
+        if (empty($one_field) && empty($foreign_field[$key])) {
+            unset($master_field[$key]);
+            unset($foreign_field[$key]);
+        }
     }
 
     if (! empty($foreign_db)
