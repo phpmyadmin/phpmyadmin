@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-02 08:22-0400\n"
-"PO-Revision-Date: 2014-08-02 14:45+0200\n"
+"PO-Revision-Date: 2014-08-02 16:03+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -3004,7 +3004,7 @@ msgstr "kesin ifade"
 
 #: libraries/DbSearch.class.php:101 libraries/DbSearch.class.php:409
 msgid "as regular expression"
-msgstr "kurallı ifade olarak"
+msgstr "düzenli ifade olarak"
 
 #: libraries/DbSearch.class.php:271
 #, php-format
@@ -6639,7 +6639,7 @@ msgstr "Denetim bağlantı noktası"
 
 #: libraries/config/messages.inc.php:590
 msgid "Hide databases matching regular expression (PCRE)."
-msgstr "Düzenli anlatıma (PCRE) uyan veritabanlarını gizler."
+msgstr "Düzenli ifadeye (PCRE) uyan veritabanlarını gizler."
 
 #: libraries/config/messages.inc.php:591
 msgid "Hide databases"
@@ -10001,6 +10001,8 @@ msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"Düzenli ifade kullanarak dizgiyi doğrular ve eğer dizgi eşleşiyorsa sadece "
+"eklemeyi yapar. İlk seçenek Düzenli İfade'dir."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
 #, php-format
