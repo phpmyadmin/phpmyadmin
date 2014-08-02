@@ -2016,7 +2016,7 @@ msgstr "உள்ப்புற வளையம்"
 
 #: js/messages.php:377
 msgid "Outer Ring"
-msgstr ""
+msgstr "வெளிவளையம்"
 
 #: js/messages.php:380
 msgid "Shift + Click on function name to apply to all rows."
