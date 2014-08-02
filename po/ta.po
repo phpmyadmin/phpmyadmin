@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-01 12:58-0400\n"
-"PO-Revision-Date: 2014-08-02 08:53+0200\n"
+"PO-Revision-Date: 2014-08-02 08:56+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1938,7 +1938,7 @@ msgstr "மீச்சிற்றளவு:"
 
 #: js/messages.php:340
 msgid "Maximum value:"
-msgstr ""
+msgstr "மீப்பெருவளவு:"
 
 #: js/messages.php:343
 msgid "Hide find and replace criteria"
