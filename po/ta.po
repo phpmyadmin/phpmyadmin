@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-01 12:58-0400\n"
-"PO-Revision-Date: 2014-08-02 08:41+0200\n"
+"PO-Revision-Date: 2014-08-02 08:46+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1884,10 +1884,12 @@ msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"பொறுத்திருங்கள்!தரவின் அளவு,நெடுவரிசை எண்ணிக்கையை பொருத்தது சில நொடிகள் "
+"ஆகலாம்."
 
 #: js/messages.php:323
 msgid "Step"
-msgstr ""
+msgstr "படிநிலை"
 
 #: js/messages.php:324
 msgid "The following actions will be performed:"
