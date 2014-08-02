@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-02 08:22-0400\n"
-"PO-Revision-Date: 2014-08-02 16:55+0200\n"
+"PO-Revision-Date: 2014-08-02 16:56+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -12990,7 +12990,7 @@ msgstr ""
 
 #: prefs_manage.php:251
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "உங்கள் உலாவியின் உள்சேமிப்பிலிருந்து அமைப்புகளை தரவிறக்குக."
 
 #: prefs_manage.php:257
 msgid "You have no saved settings!"
