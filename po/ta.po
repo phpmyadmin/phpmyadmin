@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-02 08:22-0400\n"
-"PO-Revision-Date: 2014-08-02 18:32+0200\n"
+"PO-Revision-Date: 2014-08-02 18:43+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2239,6 +2239,7 @@ msgstr "மறைத்துள்ள வழிசெலுத்தல் ப�
 #: js/messages.php:463
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
+"நீங்கள் கோரிய பக்கம் வரலாற்றில் இல்லை, அது செல்லுபடி இல்லாமல் போயிருக்கலாம்."
 
 #: js/messages.php:466 setup/lib/index.lib.php:157
 #, php-format
