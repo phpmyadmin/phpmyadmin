@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-01 12:58-0400\n"
-"PO-Revision-Date: 2014-08-02 08:49+0200\n"
+"PO-Revision-Date: 2014-08-02 08:51+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1898,7 +1898,7 @@ msgstr "பின்வரும் நடவடிக்கைகள் செ�
 #: js/messages.php:325
 #, php-format
 msgid "DROP columns %1s from the table %2s"
-msgstr ""
+msgstr "%2s அட்டவணையிலிருந்து %1s நிரல்வரிசைகளை கைவிடுக"
 
 #: js/messages.php:326
 msgid "Create the following table"
