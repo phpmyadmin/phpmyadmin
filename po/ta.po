@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-01 12:58-0400\n"
-"PO-Revision-Date: 2014-08-02 10:38+0200\n"
+"PO-Revision-Date: 2014-08-02 10:48+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2208,7 +2208,7 @@ msgstr "நிரல்வரிசை பெயரை படியெடுக�
 
 #: js/messages.php:446
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "நிரல்வரிசை பெயரை இடைபிடிப்புக்கு படியெடுக்க வலமுறை-சொடுக்குக."
 
 #: js/messages.php:447
 msgid "Show data row(s)."
@@ -12780,7 +12780,7 @@ msgstr ""
 
 #: libraries/user_preferences.inc.php:29
 msgid "Manage your settings"
-msgstr ""
+msgstr "உங்கள் அமைவுகளை கையாளுக"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved."
