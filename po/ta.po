@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-02 08:22-0400\n"
-"PO-Revision-Date: 2014-08-02 16:57+0200\n"
+"PO-Revision-Date: 2014-08-02 17:09+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -606,7 +606,6 @@ msgstr ""
 "கீழுள்ள \"மதிப்பு\" களத்தில் சரத்தை ஒட்டுக."
 
 #: import.php:52
-#, fuzzy
 #| msgid "Successed"
 msgid "Succeeded"
 msgstr "நிறைவுற்றது"
