@@ -49,7 +49,7 @@ if (isset($_REQUEST['console_bookmark_add'])) {
         );
         $isShared = ($_REQUEST['shared'] == 'true' ? true : false);
         if(PMA_Bookmark_save($bookmarkFields, $isShared)) {
-            $response->addJSON('message', __('Successed'));
+            $response->addJSON('message', __('Succeeded'));
             $response->addJSON('data', $bookmarkFields);
             $response->addJSON('isShared', $isShared);
         } else {
