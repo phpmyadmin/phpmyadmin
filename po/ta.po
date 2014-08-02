@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-02 08:22-0400\n"
-"PO-Revision-Date: 2014-08-02 18:11+0200\n"
+"PO-Revision-Date: 2014-08-02 18:16+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -7464,7 +7464,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:28
 msgid "Data home directory"
-msgstr ""
+msgstr "தரவின் முகப்பு அடைவு"
 
 #: libraries/engines/innodb.lib.php:29
 msgid "The common part of the directory path for all InnoDB data files."
