@@ -6189,7 +6189,7 @@ msgstr "வினவல் சாளர அகலம்(ஒளிப்பட �
 
 #: libraries/config/messages.inc.php:525
 msgid "Query window width"
-msgstr ""
+msgstr "வினவல் சாளர அகலம்"
 
 #: libraries/config/messages.inc.php:527
 msgid "Select which functions will be used for character set conversion."
