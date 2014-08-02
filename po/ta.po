@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-01 12:58-0400\n"
-"PO-Revision-Date: 2014-08-02 08:26+0200\n"
+"PO-Revision-Date: 2014-08-02 08:27+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1856,7 +1856,7 @@ msgstr "பகுதியளவு சார்புகளை உறுதி�
 
 #: js/messages.php:316
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட பகுதியளவு சார்புகளை பின்வருமாறு:"
 
 #: js/messages.php:317
 msgid ""
