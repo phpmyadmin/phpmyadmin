@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-01 12:58-0400\n"
-"PO-Revision-Date: 2014-08-02 07:58+0200\n"
+"PO-Revision-Date: 2014-08-02 08:00+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -612,7 +612,7 @@ msgstr "நிறைவுற்றது"
 
 #: import.php:56 js/messages.php:427
 msgid "Failed"
-msgstr ""
+msgstr "தோல்வியடைந்தது"
 
 #: import.php:60
 msgid "Incomplete params"
@@ -12592,20 +12592,18 @@ msgid "Foreign key constraint"
 msgstr ""
 
 #: libraries/tbl_relation.lib.php:405
-#, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
-msgstr "கட்டுப்பாடுகளை சேர்க்க"
+msgstr "+கட்டுப்பாட்டை சேர்க்க"
 
 #: libraries/tbl_relation.lib.php:435
 msgid "Constraint name"
 msgstr "கட்டுப்பாட்டின் பெயர்"
 
 #: libraries/tbl_relation.lib.php:500
-#, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
-msgstr "நெடுவரிசையை சேர்க்க"
+msgstr "+ நெடுவரிசையை சேர்க்க"
 
 #: libraries/tbl_relation.lib.php:646
 msgid "Choose column to display:"
