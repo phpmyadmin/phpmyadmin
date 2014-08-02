@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-01 12:58-0400\n"
-"PO-Revision-Date: 2014-08-02 07:57+0200\n"
+"PO-Revision-Date: 2014-08-02 07:58+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -12578,10 +12578,9 @@ msgid "Foreign key constraints"
 msgstr "அயல் குறியெண் கட்டுப்பாடுகள்"
 
 #: libraries/tbl_relation.lib.php:374
-#, fuzzy
 #| msgid "Constraint name"
 msgid "Constraint properties"
-msgstr "கட்டுப்பாட்டின் பெயர்"
+msgstr "கட்டுப்பாட்டின் பண்புகள்"
 
 #: libraries/tbl_relation.lib.php:379
 msgid ""
