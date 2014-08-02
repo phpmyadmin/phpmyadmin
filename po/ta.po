@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-02 08:22-0400\n"
-"PO-Revision-Date: 2014-08-02 18:52+0200\n"
+"PO-Revision-Date: 2014-08-02 18:53+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2263,7 +2263,7 @@ msgstr "இன்றுவரை"
 #: js/messages.php:471 libraries/DisplayResults.class.php:5159
 #: view_create.php:178
 msgid "Create view"
-msgstr ""
+msgstr "விவரபார்வையை உருவாக்குக"
 
 #: js/messages.php:474
 msgid "Send Error Report"
