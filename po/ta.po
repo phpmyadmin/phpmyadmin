@@ -8199,7 +8199,7 @@ msgstr "விவரபார்வைகள்:"
 
 #: libraries/navigation/NavigationHeader.class.php:192
 msgid "Home"
-msgstr ""
+msgstr "முகப்புப்பக்கம்"
 
 #: libraries/navigation/NavigationHeader.class.php:205
 msgid "Log out"
