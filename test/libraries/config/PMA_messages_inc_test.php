@@ -31,6 +31,7 @@ class PMA_MessagesIncTest extends PHPUnit_Framework_TestCase
      * Tests messages variables
      *
      * @return void
+     * @group medium
      */
     function testMessages()
     {
