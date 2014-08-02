@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-01 12:58-0400\n"
-"PO-Revision-Date: 2014-08-02 09:33+0200\n"
+"PO-Revision-Date: 2014-08-02 09:34+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2077,7 +2077,7 @@ msgstr "*பெயரிடாதது"
 
 #: js/messages.php:399
 msgid "Please select a page to continue"
-msgstr ""
+msgstr "தொடர்வதற்கு ஒரு பக்கத்தை தேர்ந்தெடுக்க"
 
 #: js/messages.php:400
 msgid "Please enter a valid page name"
