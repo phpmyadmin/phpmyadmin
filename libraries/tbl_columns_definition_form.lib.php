@@ -266,11 +266,11 @@ function PMA_getHtmlForTableCreateOrAddField($action, $form_params, $content_cel
 /**
  * Function to get header cells
  *
- * @param bool   $is_backup  whether backup or not
- * @param array  $columnMeta column meta data
- * @param bool   $mimework   whether mimework or not
- * @param string $db         current database
- * @param string $table      current table
+ * @param bool       $is_backup  whether backup or not
+ * @param array|null $columnMeta column meta data
+ * @param bool       $mimework   whether mimework or not
+ * @param string     $db         current database
+ * @param string     $table      current table
  *
  * @return array
  */
