@@ -1825,7 +1825,7 @@ msgstr "முதனிலை குறிப்பெழுத்து சே�
 
 #: js/messages.php:309
 msgid "Primary key added."
-msgstr ""
+msgstr "முதனிலை குறிப்பெழுத்து சேர்க்கப்பட்டது."
 
 #: js/messages.php:310 libraries/normalization.lib.php:170
 msgid "Taking you to next step…"
