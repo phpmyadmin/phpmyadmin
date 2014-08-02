@@ -2687,10 +2687,9 @@ msgid "No bookmarks"
 msgstr "புத்தகக்குறிகள் இல்லை"
 
 #: libraries/Console.class.php:174
-#, fuzzy
 #| msgid "Explain output"
 msgid "Explain"
-msgstr "வெளியீட்டை விளக்குக"
+msgstr "விளக்குக"
 
 #: libraries/Console.class.php:175 libraries/Util.class.php:1263
 #: libraries/sql.lib.php:484
@@ -2698,10 +2697,9 @@ msgid "Profiling"
 msgstr "விவரக்குறிப்பு"
 
 #: libraries/Console.class.php:176
-#, fuzzy
 #| msgid "Bookmarks"
 msgid "Bookmark"
-msgstr "புத்தகக்குறிகள்"
+msgstr "புத்தகக்குறி"
 
 #: libraries/Console.class.php:177
 msgid "Query failed"
