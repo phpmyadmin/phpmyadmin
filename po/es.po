@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-01 12:58-0400\n"
-"PO-Revision-Date: 2014-07-27 07:20+0200\n"
+"PO-Revision-Date: 2014-08-02 09:32+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -608,20 +608,18 @@ msgstr ""
 "ubicada debajo en el campo \"Valor\"."
 
 #: import.php:52
-#, fuzzy
 #| msgid "Success"
 msgid "Successed"
-msgstr "Éxito"
+msgstr "Exitoso"
 
 #: import.php:56 js/messages.php:427
 msgid "Failed"
 msgstr "falló"
 
 #: import.php:60
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "INSERTs completos"
+msgstr "Parámetros incompletos"
 
 #: import.php:164
 #, php-format
@@ -2379,10 +2377,9 @@ msgid "Execute this query again?"
 msgstr "¿Ejecutar esta consulta nuevamente?"
 
 #: js/messages.php:515
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "¿Realmente desea eliminar la búsqueda \"%s\"?"
+msgstr "¿Realmente desea eliminar este favorito?"
 
 #: js/messages.php:546
 msgctxt "Previous month"
@@ -2769,10 +2766,9 @@ msgid "No bookmarks"
 msgstr "Ningún favorito"
 
 #: libraries/Console.class.php:174
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Explicar SQL"
+msgstr "Explicar"
 
 #: libraries/Console.class.php:175 libraries/Util.class.php:1263
 #: libraries/sql.lib.php:484
@@ -2780,10 +2776,9 @@ msgid "Profiling"
 msgstr "Perfilando"
 
 #: libraries/Console.class.php:176
-#, fuzzy
 #| msgid "Bookmarks"
 msgid "Bookmark"
-msgstr "Favoritos"
+msgstr "Agregar a favoritos"
 
 #: libraries/Console.class.php:177
 msgid "Query failed"
@@ -2857,10 +2852,9 @@ msgid "Refresh"
 msgstr "Actualizar"
 
 #: libraries/Console.class.php:255
-#, fuzzy
 #| msgid "Add %s"
 msgid "Add"
-msgstr "Añada %s"
+msgstr "Agregar"
 
 #: libraries/Console.class.php:263
 msgid "Add bookmark"
@@ -2883,7 +2877,6 @@ msgid "Set default"
 msgstr "Definir predeterminado"
 
 #: libraries/Console.class.php:288
-#, fuzzy
 #| msgid "Always expand queried messages"
 msgid "Always expand query messages"
 msgstr "Siempre expandir mensajes de consultas"
@@ -13632,41 +13625,37 @@ msgstr ""
 "FORÁNEA correspondiente."
 
 #: libraries/tbl_relation.lib.php:371
-#, fuzzy
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraints"
-msgstr "Restricción de clave foránea"
+msgstr "Restricciones de clave foránea"
 
 #: libraries/tbl_relation.lib.php:374
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint properties"
-msgstr "Filtros para la tabla"
+msgstr "Propiedades de la restricción"
 
 #: libraries/tbl_relation.lib.php:379
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
-msgstr ""
+msgstr "Sólo se mostrarán columnas con índices. Abajo puede definir un índice."
 
 #: libraries/tbl_relation.lib.php:384
 msgid "Foreign key constraint"
 msgstr "Restricción de clave foránea"
 
 #: libraries/tbl_relation.lib.php:405
-#, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
-msgstr "Añadir restricciones"
+msgstr "+ Añadir restricción"
 
 #: libraries/tbl_relation.lib.php:435
 msgid "Constraint name"
 msgstr "Nombre de la restricción"
 
 #: libraries/tbl_relation.lib.php:500
-#, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
-msgstr "Añadir columna"
+msgstr "+ Añadir columna"
 
 #: libraries/tbl_relation.lib.php:646
 msgid "Choose column to display:"
