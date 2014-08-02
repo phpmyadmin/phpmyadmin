@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-01 12:58-0400\n"
-"PO-Revision-Date: 2014-08-02 10:12+0200\n"
+"PO-Revision-Date: 2014-08-02 10:13+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2136,7 +2136,7 @@ msgstr ""
 
 #: js/messages.php:415
 msgid "Click to mark/unmark."
-msgstr ""
+msgstr "சேர்க்க/நீக்க சொடுக்கவும்."
 
 #: js/messages.php:416
 msgid "Double-click to copy column name."
