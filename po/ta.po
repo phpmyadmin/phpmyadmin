@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-01 12:58-0400\n"
-"PO-Revision-Date: 2014-08-02 09:10+0200\n"
+"PO-Revision-Date: 2014-08-02 09:11+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2041,7 +2041,7 @@ msgstr "அயல் குறிப்பெழுத்தை தேர்ந�
 
 #: js/messages.php:388
 msgid "Please select the primary key or a unique key!"
-msgstr ""
+msgstr "முதனிலை குறிப்பெழுத்து அல்லது தனித்த குறிப்பெழுத்தை தேர்ந்தெடுக்க!"
 
 #: js/messages.php:389 pmd_general.php:179
 msgid "Choose column to display"
