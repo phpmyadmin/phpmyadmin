@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-12 23:01+0200\n"
+"PO-Revision-Date: 2014-08-02 20:08+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/4-2/tr/>\n"
 "Language: tr\n"
@@ -718,7 +718,7 @@ msgstr "Görünüm Ayarları"
 
 #: index.php:238 prefs_manage.php:279
 msgid "More settings"
-msgstr "Daha fazla ayarlar"
+msgstr "Daha fazla ayar"
 
 #: index.php:259
 msgid "Database server"
@@ -816,8 +816,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
-"PHP yapılandırmanızda mbstring.func_overload işlevini etkinleştirmişsiniz. "
-"Bu seçenek phpMyAdmin ile uyumlusuzdur ve bazı veri bozulmalarına sebep "
+"PHP yapılandırmanızda mbstring.func_overload işlevini etkinleştirdiniz. Bu "
+"seçenek phpMyAdmin ile uyumlusuzdur ve bazı veri bozulmalarına sebep "
 "olabilir!"
 
 #: index.php:456
@@ -1216,7 +1216,7 @@ msgstr "İzlemeyi duraklat"
 
 #: js/messages.php:128
 msgid "general_log and slow_query_log are enabled."
-msgstr "general_log ve slow_query_log etkin."
+msgstr "general_log ve slow_query_log etkinleştirildi."
 
 #: js/messages.php:129
 msgid "general_log is enabled."
@@ -1272,7 +1272,7 @@ msgstr "log_output'u %s'a ayarla"
 #: js/messages.php:140
 #, php-format
 msgid "Enable %s"
-msgstr "%s etkin"
+msgstr "%s etkinleştir"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:142
@@ -1940,7 +1940,7 @@ msgstr "Parola Değiştir"
 
 #: js/messages.php:376
 msgid "More"
-msgstr "Daha Fazla"
+msgstr "Daha fazla"
 
 #: js/messages.php:379
 msgid "Show Panel"
@@ -2500,7 +2500,7 @@ msgstr "kesin ifade"
 
 #: libraries/DbSearch.class.php:101 libraries/DbSearch.class.php:412
 msgid "as regular expression"
-msgstr "kurallı ifade olarak"
+msgstr "düzenli ifade olarak"
 
 #: libraries/DbSearch.class.php:272
 #, php-format
@@ -2900,7 +2900,7 @@ msgstr "Sayfanın en üstüne kaydırmak için çubuğa tklayın"
 #: libraries/Header.class.php:684
 #: libraries/plugins/auth/AuthenticationCookie.class.php:143
 msgid "Javascript must be enabled past this point!"
-msgstr "Bu kısmı geçmek için Javascript etkinleştirilmiş olmalıdır!"
+msgstr "Bu kısmı geçmek için Javascript etkinleştirilmek zorundadır!"
 
 #: libraries/Index.class.php:535
 msgid "No index defined!"
@@ -4673,7 +4673,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
-msgstr "CodeMirror etkin"
+msgstr "CodeMirror etkinleştir"
 
 #: libraries/config/messages.inc.php:55
 msgid ""
@@ -5396,8 +5396,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations."
 msgstr ""
-"İçe ve dışa aktarma işlemleri için [a@http://en.wikipedia.org/wiki/Gzip]gzip"
-"[/a] sıkıştırmayı etkinleştir."
+"İçe ve dışa aktarma işlemleri için "
+"[a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] sıkıştırmayı etkinleştirin."
 
 #: libraries/config/messages.inc.php:319
 msgid "GZip"
@@ -5701,7 +5701,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:443
 msgid "Minimum number of items to display the filter box"
-msgstr "Süzgeç kutusunu görüntülemek için en az öğe sayısıdır"
+msgstr "Süzgeç kutusunu görüntülemek için en az öğe sayısı"
 
 #: libraries/config/messages.inc.php:445
 msgid "Minimum number of databases to display the database filter box"
@@ -5746,7 +5746,7 @@ msgstr "Fare imleci altında sunucuyu vurgular."
 
 #: libraries/config/messages.inc.php:459
 msgid "Enable highlighting"
-msgstr "Vurgulamalar etkin"
+msgstr "Vurgulamaları etkinleştir"
 
 #: libraries/config/messages.inc.php:461
 msgid "Whether to disable the possibility of database expansion or not."
@@ -6123,7 +6123,7 @@ msgstr "Tasarımcı tablosu"
 
 #: libraries/config/messages.inc.php:597
 msgid "Hide databases matching regular expression (PCRE)."
-msgstr "Düzenli anlatıma (PCRE) uyan veritabanlarını gizler."
+msgstr "Düzenli ifadeye (PCRE) uyan veritabanlarını gizler."
 
 #: libraries/config/messages.inc.php:598
 msgid "Hide databases"
@@ -6294,7 +6294,7 @@ msgstr "Sunucu soketi"
 
 #: libraries/config/messages.inc.php:662
 msgid "Enable SSL for connection to MySQL server."
-msgstr "MySQL sunucusuna bağlantı için SSL etkinleştirir."
+msgstr "MySQL sunucusuna bağlantı için SSL'i etkinleştirin."
 
 #: libraries/config/messages.inc.php:663
 msgid "Use SSL"
@@ -6504,8 +6504,8 @@ msgstr "Veritabanı oluşturma formu göster"
 #: libraries/config/messages.inc.php:724
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
-"Tüm tablolar için Oluşturma zaman damgasını görüntüleyen sütunu göster veya "
-"gizle."
+"Tüm tablolar için Oluşturma zaman damgasını görüntüleyen sütunu gösterin "
+"veya gizleyin."
 
 #: libraries/config/messages.inc.php:725
 msgid "Show Creation timestamp"
@@ -6515,8 +6515,8 @@ msgstr "Oluşturma zaman damgasını göster"
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
-"Tüm tablolar için Son güncelleme zaman damgasını görüntüleyen sütunu göster "
-"veya gizle."
+"Tüm tablolar için Son güncelleme zaman damgasını görüntüleyen sütunu "
+"gösterin veya gizleyin."
 
 #: libraries/config/messages.inc.php:727
 msgid "Show Last update timestamp"
@@ -6526,8 +6526,8 @@ msgstr "Son güncelleme zaman damgasını göster"
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
-"Tüm tablolar için Son kontrol zaman damgasını görüntüleyen sütunu göster "
-"veya gizle."
+"Tüm tablolar için Son kontrol zaman damgasını görüntüleyen sütunu gösterin "
+"veya gizleyin."
 
 #: libraries/config/messages.inc.php:729
 msgid "Show Last check timestamp"
@@ -6725,7 +6725,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:774
 msgid "Enable the Developer tab in settings"
-msgstr "Ayarlarda Geliştirici sekmesi etkin"
+msgstr "Ayarlarda Geliştirici sekmesini etkinleştir"
 
 #: libraries/config/messages.inc.php:775 setup/frames/index.inc.php:312
 msgid "Check for latest version"
@@ -6733,7 +6733,7 @@ msgstr "Son sürümü kontrol et"
 
 #: libraries/config/messages.inc.php:776
 msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr "Ana phpMyAdmin sayfasında son sürümü kontrol etmeyi etkinleştir."
+msgstr "Ana phpMyAdmin sayfasında son sürümü kontrol etmeyi etkinleştirir."
 
 #: libraries/config/messages.inc.php:777 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:144
@@ -6785,8 +6785,9 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
 msgstr ""
-"İçe ve dışa aktarma işlemleri için [a@http://en.wikipedia.org/wiki/ZIP_"
-"(file_format)]ZIP[/a] sıkıştırmayı etkinleştir."
+"İçe ve dışa aktarma işlemleri için "
+"[a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] sıkıştırmayı "
+"etkinleştirin."
 
 #: libraries/config/messages.inc.php:786
 msgid "ZIP"
@@ -10206,7 +10207,7 @@ msgstr ""
 #: libraries/server_databases.lib.php:367
 #: libraries/server_databases.lib.php:368
 msgid "Enable Statistics"
-msgstr "İstatistikler etkin"
+msgstr "İstatistikleri etkinleştir"
 
 #: libraries/server_databases.lib.php:489
 #, php-format
@@ -10922,8 +10923,8 @@ msgid ""
 msgstr ""
 "phpMyAdmin İzleyici sunucu yapılandırmasını uyarlamada ve yoğun sorgularda "
 "iz sürme süresinde size yardımcı olabilir. Sonrası için log_output'u "
-"'TABLE'a ayarlamanız gerekecektir ve ya slow_query_log ya da general_log "
-"etkinleştirilir. Ancak unutmayın, general_log çok fazla veri üretir ve "
+"'TABLE'a ayarlamanız gerekecektir ve, ya slow_query_log ya da general_log "
+"etkinleştireceksiniz. Ancak unutmayın, general_log çok fazla veri üretir ve "
 "sunucu yükünü %15'e kadar arttırır."
 
 #: libraries/server_status_monitor.lib.php:154
@@ -13624,8 +13625,8 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
-"Sorgu önbelleği etkin ve sunucu her saniyede %d sorgu alıyor. Eğer her "
-"saniyede 100'den fazla sorgu varsa bu kural işe yaramaz."
+"Sorgu önbelleği etkinleştirildi ve sunucu her saniyede %d sorgu alıyor. Eğer "
+"her saniyede 100'den fazla sorgu varsa bu kural işe yaramaz."
 
 #: libraries/advisory_rules.txt:167
 #, php-format
