@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-02 08:22-0400\n"
-"PO-Revision-Date: 2014-08-02 10:48+0200\n"
+"PO-Revision-Date: 2014-08-02 16:53+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
-"Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/"
-">\n"
+"Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
+"\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12994,7 +12994,7 @@ msgstr ""
 
 #: prefs_manage.php:257
 msgid "You have no saved settings!"
-msgstr ""
+msgstr "நீங்கள் அமைவுகள் எதுவும் சேமித்து வைத்திருக்கவில்லை!"
 
 #: prefs_manage.php:262 prefs_manage.php:322
 msgid "This feature is not supported by your web browser"
