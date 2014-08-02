@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-02 08:22-0400\n"
-"PO-Revision-Date: 2014-08-02 17:56+0200\n"
+"PO-Revision-Date: 2014-08-02 18:03+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2726,7 +2726,7 @@ msgstr "SQL வினவல் காட்சிமுனையம்"
 
 #: libraries/Console.class.php:186
 msgid "Console"
-msgstr ""
+msgstr "முனையம்"
 
 #: libraries/Console.class.php:189 libraries/sql_query_form.lib.php:276
 #: setup/frames/index.inc.php:297
@@ -5549,7 +5549,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:253
 #: libraries/navigation/NavigationHeader.class.php:218
 msgid "Query window"
-msgstr ""
+msgstr "வினவல் சாளரம்"
 
 #: libraries/config/messages.inc.php:254
 msgid "Customize query window options"
@@ -13029,6 +13029,8 @@ msgstr ""
 #: prefs_manage.php:339
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"நீங்கள் உங்கள் அனைத்து அமைப்புக்களையும் அவற்றின் இயல்நிலை மதிப்புக்கு "
+"மீட்டமைக்கலாம்."
 
 #: querywindow.php:64
 msgid "Import files"
