@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-01 12:58-0400\n"
-"PO-Revision-Date: 2014-08-02 10:14+0200\n"
+"PO-Revision-Date: 2014-08-02 10:16+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2144,7 +2144,7 @@ msgstr "நிரல்வரிசை பெயரை படியெடுக�
 
 #: js/messages.php:418
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr ""
+msgstr "நிரல்வரிசையின் காட்சிப்பண்பை <br/>மாற்ற கீழிறங்கு குறியை சொடுக்குக."
 
 #: js/messages.php:420 libraries/DisplayResults.class.php:850
 #: libraries/browse_foreigners.lib.php:254
