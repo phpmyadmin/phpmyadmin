@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-02 08:22-0400\n"
-"PO-Revision-Date: 2014-08-02 18:10+0200\n"
+"PO-Revision-Date: 2014-08-02 18:11+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -6181,7 +6181,7 @@ msgstr "வினவல் சாளர உயரம்(ஒளிப்பட �
 
 #: libraries/config/messages.inc.php:523
 msgid "Query window height"
-msgstr ""
+msgstr "வினவல் சாளர உயரம்"
 
 #: libraries/config/messages.inc.php:524
 msgid "Query window width (in pixels)."
