@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-02 08:22-0400\n"
-"PO-Revision-Date: 2014-08-02 19:06+0200\n"
+"PO-Revision-Date: 2014-08-02 19:08+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -13031,7 +13031,7 @@ msgstr "உலவியின் நினைவகத்துள் சேம�
 
 #: prefs_manage.php:315
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "அமைப்புகள் உங்கள் உலவியின் உள்நினைவகத்துள் சேமிக்கப்படும்."
 
 #: prefs_manage.php:317
 msgid "Existing settings will be overwritten!"
