@@ -29,15 +29,6 @@ require_once './libraries/Partition.class.php';
 
 require_once './libraries/tbl_columns_definition_form.lib.php';
 
-/**
- * We are in transition between old-style echo and new-style PMA_Response
- * so this script generates $html and at the bottom, either echos it
- * or uses addHTML on it.
- *
- * Initialize $html in case this variable was used by a caller
- * (yes, this script should be refactored into functions)
- */
-
 $length_values_input_size = 8;
 
 $_form_params = PMA_getFormsParameters(
