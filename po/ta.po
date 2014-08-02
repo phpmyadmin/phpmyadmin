@@ -12558,10 +12558,9 @@ msgid "Space usage:"
 msgstr "வினவல் இடைமாற்றல் பாவனையளவு->இடம் பயனளவு:"
 
 #: libraries/tbl_relation.lib.php:231
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relations"
-msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
+msgstr "உள்ளமை உறவுமுறைகள்"
 
 #: libraries/tbl_relation.lib.php:236
 msgid "Internal relation"
