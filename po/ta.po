@@ -7297,7 +7297,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:656
 msgid "Save output to a file"
-msgstr ""
+msgstr "வெளியீட்டை ஒரு கோப்பாக சேமிக்க"
 
 #: libraries/display_export.lib.php:683
 msgid "Skip tables larger than"
