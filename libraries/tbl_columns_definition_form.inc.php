@@ -17,6 +17,23 @@ require_once './libraries/Util.class.php';
 
 PMA_Util::checkParameters(array('db', 'table', 'action', 'num_fields'));
 
+/**
+ * Initialize to avoid code execution path warnings 
+ */
+
+if (! isset($num_fields)) {
+    $num_fields = 0;
+}
+if (! isset($mime_map)) {
+    $mime_map = null;
+}
+if (! isset($columnMeta)) {
+    $columnMeta = array();
+}
+if (! isset($content_cells)) {
+    $content_cells = array();
+}
+
 
 // Get available character sets and storage engines
 require_once './libraries/mysql_charsets.inc.php';
