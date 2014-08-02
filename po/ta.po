@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-02 08:22-0400\n"
-"PO-Revision-Date: 2014-08-02 19:22+0200\n"
+"PO-Revision-Date: 2014-08-02 19:23+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2309,7 +2309,7 @@ msgstr ""
 
 #: js/messages.php:493 js/messages.php:505
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "சேவையகத்தில் சில பிழைகள் கண்டறியப்பட்டுள்ளன!"
 
 #: js/messages.php:495
 msgid "Please look at the bottom of this window."
