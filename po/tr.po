@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-02 08:22-0400\n"
-"PO-Revision-Date: 2014-08-02 16:03+0200\n"
+"PO-Revision-Date: 2014-08-02 16:11+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -2345,7 +2345,7 @@ msgstr "Tümünü Yoksay"
 #: js/messages.php:507
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr "Her ayarınız gibi bunlar da şu anda gönderiliyor, lütfen sabırlı olun."
+msgstr "Ayarlarınıza göre, bunlar şu anda gönderiliyor, lütfen sabırlı olun."
 
 #: js/messages.php:514
 msgid "Execute this query again?"
@@ -9004,6 +9004,8 @@ msgid ""
 "As per above partial dependencies, in order to put the original table '%1$s' "
 "into Second normal form we need to create the following tables:"
 msgstr ""
+"Yukarıdaki kısmi başımlılıklara göre, İkinci normal form içine orijinal '%1$"
+"s' tablosunu koymak için aşağıdaki tabloları oluşturmamız gerekli:"
 
 #: libraries/normalization.lib.php:412
 #, php-format
