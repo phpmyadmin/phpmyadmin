@@ -6185,7 +6185,7 @@ msgstr "வினவல் சாளர உயரம்"
 
 #: libraries/config/messages.inc.php:524
 msgid "Query window width (in pixels)."
-msgstr ""
+msgstr "வினவல் சாளர அகலம்(ஒளிப்பட அலகுகளில்)."
 
 #: libraries/config/messages.inc.php:525
 msgid "Query window width"
