@@ -8208,7 +8208,7 @@ msgstr "முகப்புப்பக்கம்"
 
 #: libraries/navigation/NavigationHeader.class.php:205
 msgid "Log out"
-msgstr ""
+msgstr "செல்பதிகை"
 
 #: libraries/navigation/NavigationHeader.class.php:228
 msgid "phpMyAdmin documentation"
