@@ -2029,7 +2029,7 @@ msgstr "மறைகுறியாக்க குறிப்பெழுத�
 
 #: js/messages.php:383
 msgid "Encryption key"
-msgstr ""
+msgstr "மறைகுறியாக்க குறிப்பெழுத்து"
 
 #: js/messages.php:386
 msgid "Select referenced key"
