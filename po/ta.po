@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-02 08:22-0400\n"
-"PO-Revision-Date: 2014-08-02 19:26+0200\n"
+"PO-Revision-Date: 2014-08-02 19:27+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2565,7 +2565,7 @@ msgstr "கிழமை"
 #.
 #: js/messages.php:659
 msgid "calendar-month-year"
-msgstr ""
+msgstr "நாள்காட்டி-மாதம்-ஆண்டு"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:662
