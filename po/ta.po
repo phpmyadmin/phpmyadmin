@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-01 12:58-0400\n"
-"PO-Revision-Date: 2014-08-02 08:18+0200\n"
+"PO-Revision-Date: 2014-08-02 08:20+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1829,7 +1829,7 @@ msgstr "முதனிலை குறிப்பெழுத்து சே�
 
 #: js/messages.php:310 libraries/normalization.lib.php:170
 msgid "Taking you to next step…"
-msgstr ""
+msgstr "அடுத்த படிநிலைக்கு செல்கிறோம்…"
 
 #: js/messages.php:311
 #, php-format
