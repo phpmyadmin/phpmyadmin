@@ -17,6 +17,23 @@ require_once './libraries/Util.class.php';
 
 PMA_Util::checkParameters(array('db', 'table', 'action', 'num_fields'));
 
+/**
+ * Initialize to avoid code execution path warnings 
+ */
+
+if (! isset($num_fields)) {
+    $num_fields = 0;
+}
+if (! isset($mime_map)) {
+    $mime_map = null;
+}
+if (! isset($columnMeta)) {
+    $columnMeta = array();
+}
+if (! isset($content_cells)) {
+    $content_cells = array();
+}
+
 
 // Get available character sets and storage engines
 require_once './libraries/mysql_charsets.inc.php';
@@ -28,15 +45,6 @@ require_once './libraries/StorageEngine.class.php';
 require_once './libraries/Partition.class.php';
 
 require_once './libraries/tbl_columns_definition_form.lib.php';
-
-/**
- * We are in transition between old-style echo and new-style PMA_Response
- * so this script generates $html and at the bottom, either echos it
- * or uses addHTML on it.
- *
- * Initialize $html in case this variable was used by a caller
- * (yes, this script should be refactored into functions)
- */
 
 $length_values_input_size = 8;
 
