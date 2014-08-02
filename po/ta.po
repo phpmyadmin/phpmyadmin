@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-01 12:58-0400\n"
-"PO-Revision-Date: 2014-08-02 09:36+0200\n"
+"PO-Revision-Date: 2014-08-02 09:37+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2089,7 +2089,7 @@ msgstr "இப்பக்கத்தில் செய்த மாற்ற�
 
 #: js/messages.php:402
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "பக்கம் நீக்கப்பட்டது"
 
 #: js/messages.php:403
 msgid "Export relational schema"
