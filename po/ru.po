@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-01 12:58-0400\n"
+"POT-Creation-Date: 2014-08-02 08:22-0400\n"
 "PO-Revision-Date: 2014-03-28 11:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Russian <https://l10n.cihar.com/projects/phpmyadmin/master/ru/"
@@ -616,7 +616,7 @@ msgstr ""
 #: import.php:52
 #, fuzzy
 #| msgid "Access denied!"
-msgid "Successed"
+msgid "Succeeded"
 msgstr "В доступе отказано!"
 
 #: import.php:56 js/messages.php:427
@@ -14484,7 +14484,7 @@ msgstr "Добавить столбец"
 msgid "Choose column to display:"
 msgstr "Выбор отображаемого столбца:"
 
-#: libraries/tbl_relation.lib.php:1109
+#: libraries/tbl_relation.lib.php:1118
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Ошибка создания внешнего ключа на %1$s (проверьте типы данных)"

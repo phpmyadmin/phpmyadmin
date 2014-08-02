@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-01 12:58-0400\n"
+"POT-Creation-Date: 2014-08-02 08:22-0400\n"
 "PO-Revision-Date: 2014-08-01 23:40+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
+"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
+"sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -608,8 +608,9 @@ msgstr ""
 "polje \"Vrednost\"."
 
 #: import.php:52
-#| msgid "Success"
-msgid "Successed"
+#, fuzzy
+#| msgid "Successed"
+msgid "Succeeded"
 msgstr "Uspelo"
 
 #: import.php:56 js/messages.php:427
@@ -617,7 +618,6 @@ msgid "Failed"
 msgstr "Spodletelo"
 
 #: import.php:60
-#| msgid "complete inserts"
 msgid "Incomplete params"
 msgstr "Nepopolni parametri"
 
@@ -2349,7 +2349,6 @@ msgid "Execute this query again?"
 msgstr "Ponovno izvedem poizvedbo?"
 
 #: js/messages.php:515
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
 msgstr "Ali res želite izbrisati zaznamek?"
 
@@ -2739,7 +2738,6 @@ msgid "No bookmarks"
 msgstr "Ni zaznamkov"
 
 #: libraries/Console.class.php:174
-#| msgid "Explain SQL"
 msgid "Explain"
 msgstr "Razloži"
 
@@ -2749,7 +2747,6 @@ msgid "Profiling"
 msgstr "Profiliranje"
 
 #: libraries/Console.class.php:176
-#| msgid "Bookmarks"
 msgid "Bookmark"
 msgstr "Zaznamek"
 
@@ -2825,7 +2822,6 @@ msgid "Refresh"
 msgstr "Osveži"
 
 #: libraries/Console.class.php:255
-#| msgid "And"
 msgid "Add"
 msgstr "Dodaj"
 
@@ -2850,7 +2846,6 @@ msgid "Set default"
 msgstr "Nastavi privzeto"
 
 #: libraries/Console.class.php:288
-#| msgid "Always expand queried messages"
 msgid "Always expand query messages"
 msgstr "Vedno razširi sporočila poizvedb"
 
@@ -13414,26 +13409,24 @@ msgid ""
 msgstr "Notranja relacija ni nujna, ko obstaja ustrezna relacija FOREIGN KEY."
 
 #: libraries/tbl_relation.lib.php:371
-#| msgid "Foreign key constraint"
 msgid "Foreign key constraints"
 msgstr "Omejitve tujih ključev"
 
 #: libraries/tbl_relation.lib.php:374
-#| msgid "Constraints for table"
 msgid "Constraint properties"
 msgstr "Lastnosti omejitev"
 
 #: libraries/tbl_relation.lib.php:379
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
-msgstr "Prikazani bodo samo stolpci z indeksom. Spodaj lahko opredelite indeks."
+msgstr ""
+"Prikazani bodo samo stolpci z indeksom. Spodaj lahko opredelite indeks."
 
 #: libraries/tbl_relation.lib.php:384
 msgid "Foreign key constraint"
 msgstr "Omejitev tujih ključev"
 
 #: libraries/tbl_relation.lib.php:405
-#| msgid "Add constraints"
 msgid "+ Add constraint"
 msgstr "+ Dodaj omejitev"
 
@@ -13442,7 +13435,6 @@ msgid "Constraint name"
 msgstr "Ime omejitve"
 
 #: libraries/tbl_relation.lib.php:500
-#| msgid "Add column"
 msgid "+ Add column"
 msgstr "+ Dodaj stolpec"
 
@@ -13450,7 +13442,7 @@ msgstr "+ Dodaj stolpec"
 msgid "Choose column to display:"
 msgstr "Izberite stolpec za prikaz:"
 
-#: libraries/tbl_relation.lib.php:1109
+#: libraries/tbl_relation.lib.php:1118
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""

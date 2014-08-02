@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-01 12:58-0400\n"
+"POT-Creation-Date: 2014-08-02 08:22-0400\n"
 "PO-Revision-Date: 2014-06-17 16:11+0200\n"
 "Last-Translator: cherbib mehdi <mehdi.cherbib@live.fr>\n"
 "Language-Team: Arabic <https://l10n.cihar.com/projects/phpmyadmin/master/ar/"
@@ -628,7 +628,7 @@ msgstr ""
 #: import.php:52
 #, fuzzy
 #| msgid "Access denied!"
-msgid "Successed"
+msgid "Succeeded"
 msgstr "ممنوع الوصول!"
 
 #: import.php:56 js/messages.php:427
@@ -13851,7 +13851,7 @@ msgstr "إضافة عمود"
 msgid "Choose column to display:"
 msgstr "اختر الحقل لإظهاره"
 
-#: libraries/tbl_relation.lib.php:1109
+#: libraries/tbl_relation.lib.php:1118
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""

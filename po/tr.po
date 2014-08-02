@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-01 12:58-0400\n"
+"POT-Creation-Date: 2014-08-02 08:22-0400\n"
 "PO-Revision-Date: 2014-08-02 13:53+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
+">\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -604,8 +604,9 @@ msgstr ""
 "alta dizgiyi yapıştırın."
 
 #: import.php:52
-#| msgid "Success"
-msgid "Successed"
+#, fuzzy
+#| msgid "Successed"
+msgid "Succeeded"
 msgstr "Başarılı oldu"
 
 #: import.php:56 js/messages.php:427
@@ -613,7 +614,6 @@ msgid "Failed"
 msgstr "Başarısız oldu"
 
 #: import.php:60
-#| msgid "complete inserts"
 msgid "Incomplete params"
 msgstr "Tamamlanmamış parametreler"
 
@@ -2353,7 +2353,6 @@ msgid "Execute this query again?"
 msgstr "Bu sorgu tekrar çalıştırılsın mı?"
 
 #: js/messages.php:515
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
 msgstr "Bu yer imini silmek istediğinize emin misiniz?"
 
@@ -2738,7 +2737,6 @@ msgid "No bookmarks"
 msgstr "Yer imleri yok"
 
 #: libraries/Console.class.php:174
-#| msgid "Explain SQL"
 msgid "Explain"
 msgstr "Açıkla"
 
@@ -2748,7 +2746,6 @@ msgid "Profiling"
 msgstr "Profil çıkart"
 
 #: libraries/Console.class.php:176
-#| msgid "Bookmarks"
 msgid "Bookmark"
 msgstr "Yer imi"
 
@@ -2824,7 +2821,6 @@ msgid "Refresh"
 msgstr "Yenile"
 
 #: libraries/Console.class.php:255
-#| msgid "And"
 msgid "Add"
 msgstr "Ekle"
 
@@ -2849,7 +2845,6 @@ msgid "Set default"
 msgstr "Varsayılana ayarla"
 
 #: libraries/Console.class.php:288
-#| msgid "Always expand queried messages"
 msgid "Always expand query messages"
 msgstr "Her zaman sorgu mesajlarını genişlet"
 
@@ -5930,8 +5925,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations."
 msgstr ""
-"İçe ve dışa aktarma işlemleri için "
-"[a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] sıkıştırmayı etkinleştirin."
+"İçe ve dışa aktarma işlemleri için [a@http://en.wikipedia.org/wiki/Gzip]gzip"
+"[/a] sıkıştırmayı etkinleştirin."
 
 #: libraries/config/messages.inc.php:317
 msgid "GZip"
@@ -7307,9 +7302,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
 msgstr ""
-"İçe ve dışa aktarma işlemleri için "
-"[a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] sıkıştırmayı "
-"etkinleştirin."
+"İçe ve dışa aktarma işlemleri için [a@http://en.wikipedia.org/wiki/ZIP_"
+"(file_format)]ZIP[/a] sıkıştırmayı etkinleştirin."
 
 #: libraries/config/messages.inc.php:779
 msgid "ZIP"
@@ -8929,13 +8923,10 @@ msgstr ""
 "Yakından ilgili olan ve tümü aynı özniteliği tekrarlayan iki ya da daha "
 "fazla sütun grubuna sahip misiniz? Örneğin, kitaplardaki veriyi tutan bir "
 "tablo, tekrarlayan bir gruptan olan kitap_id, yazar1, yazar2, yazar3 ve "
-"benzerleri gibi sütunlara sahip olabilir. Bu durumda yeni bir tablo ("
-"kitap_id, yazar) oluşturulmalıdır."
+"benzerleri gibi sütunlara sahip olabilir. Bu durumda yeni bir tablo "
+"(kitap_id, yazar) oluşturulmalıdır."
 
 #: libraries/normalization.lib.php:255
-#| msgid ""
-#| "Check the columns which are redundant and click on remove. If no "
-#| "redundant column, click on 'No redundant column'"
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
@@ -8978,9 +8969,6 @@ msgstr ""
 "kısmi bağımlılıkları bulamamız gerekli."
 
 #: libraries/normalization.lib.php:323
-#| msgid ""
-#| "Hint: Please follow the procedure carefully in order to obtain correct "
-#| "normalization"
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
@@ -9029,7 +9017,6 @@ msgstr "İşlemede hata!"
 
 #: libraries/normalization.lib.php:495
 #, php-format
-#| msgid "Selected target tables have been synchronized with source tables."
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Seçili tekrarlayan grup '%s' tablosuna taşındı"
 
@@ -9929,17 +9916,6 @@ msgstr ""
 "gerekir."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/plugins/transformations/"
-#| "Text_Plain_External.class.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -9954,14 +9930,14 @@ msgid ""
 msgstr ""
 "SADECE LINUX: Harici bir uygulama çalıştırır ve sütun verisini standart "
 "girdi yoluyla besler. Uygulamanın standart çıktısı döner. Düzgün HTML kodu "
-"baskısı için varsayılan düzenlidir. Güvenlik nedeniyle "
-"libraries/plugins/transformations/output/Text_Plain_External.class.php "
-"dosyasını elle düzenlemeli ve olmasını istediğiniz araçları "
-"listelemelisiniz. İlk seçenek kullanmak istediğiniz program sayısı ve ikinci "
-"seçenek program için parametrelerdir. Üçüncü seçenek, eğer 1'e ayarlanırsa, "
-"htmlspecialchars() işlevi kullanılarak çıktıyı dönüştürecektir (Varsayılan 1)"
-". Dördüncü seçenek, eğer 1'e ayarlanırsa, sözcük kaydırma korunacak ve tüm "
-"çıktı tek bir satırda görünecektir (Varsayılan 1)."
+"baskısı için varsayılan düzenlidir. Güvenlik nedeniyle libraries/plugins/"
+"transformations/output/Text_Plain_External.class.php dosyasını elle "
+"düzenlemeli ve olmasını istediğiniz araçları listelemelisiniz. İlk seçenek "
+"kullanmak istediğiniz program sayısı ve ikinci seçenek program için "
+"parametrelerdir. Üçüncü seçenek, eğer 1'e ayarlanırsa, htmlspecialchars() "
+"işlevi kullanılarak çıktıyı dönüştürecektir (Varsayılan 1). Dördüncü "
+"seçenek, eğer 1'e ayarlanırsa, sözcük kaydırma korunacak ve tüm çıktı tek "
+"bir satırda görünecektir (Varsayılan 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -10936,7 +10912,6 @@ msgid "Please configure the coordinates for table %s"
 msgstr "Lütfen %s tablosu için koordinatları yapılandırın"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:755
-#| msgid "Invalid export type"
 msgid "Dia export page"
 msgstr "Dia dışa aktarma sayfası"
 
@@ -10948,7 +10923,6 @@ msgid "Schema of the %s database - Page %s"
 msgstr "%s veritabanının şeması - Sayfa %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:801
-#| msgid "Invalid export type"
 msgid "EPS export page"
 msgstr "EPS dışa aktarma sayfası"
 
@@ -10962,7 +10936,6 @@ msgstr "ŞEMA HATASI: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:229
 #: libraries/schema/Pdf_Relation_Schema.class.php:1201
-#| msgid "Invalid export type"
 msgid "PDF export page"
 msgstr "PDF dışa aktarma sayfası"
 
@@ -10983,7 +10956,6 @@ msgid "Attributes"
 msgstr "Öznitelikler"
 
 #: libraries/schema/Svg_Relation_Schema.class.php:772
-#| msgid "Invalid export type"
 msgid "SVG export page"
 msgstr "SVG dışa aktarma sayfası"
 
@@ -13447,12 +13419,10 @@ msgstr ""
 "mümkün değildir."
 
 #: libraries/tbl_relation.lib.php:371
-#| msgid "Foreign key constraint"
 msgid "Foreign key constraints"
 msgstr "Dış anahtar kısıtlamaları"
 
 #: libraries/tbl_relation.lib.php:374
-#| msgid "Constraints for table"
 msgid "Constraint properties"
 msgstr "Kısıtlama özellikleri"
 
@@ -13468,7 +13438,6 @@ msgid "Foreign key constraint"
 msgstr "Dış anahtar kısıtlaması"
 
 #: libraries/tbl_relation.lib.php:405
-#| msgid "Add constraints"
 msgid "+ Add constraint"
 msgstr "+ Kısıtlama ekle"
 
@@ -13477,7 +13446,6 @@ msgid "Constraint name"
 msgstr "Kısıtlama adı"
 
 #: libraries/tbl_relation.lib.php:500
-#| msgid "Add column"
 msgid "+ Add column"
 msgstr "+ Sütun ekle"
 
@@ -13485,7 +13453,7 @@ msgstr "+ Sütun ekle"
 msgid "Choose column to display:"
 msgstr "Görüntülemek için sütun seçin:"
 
-#: libraries/tbl_relation.lib.php:1109
+#: libraries/tbl_relation.lib.php:1118
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""

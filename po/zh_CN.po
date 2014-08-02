@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-01 12:58-0400\n"
+"POT-Creation-Date: 2014-08-02 08:22-0400\n"
 "PO-Revision-Date: 2014-07-30 18:11+0200\n"
 "Last-Translator: Yunqi Ouyang <oyyq99999@users.noreply.github.com>\n"
 "Language-Team: Simplified Chinese <https://l10n.cihar.com/projects/"
@@ -595,7 +595,7 @@ msgstr "从“函数”列中选择“GeomFromText”并粘贴下列内容到“
 #: import.php:52
 #, fuzzy
 #| msgid "Access denied!"
-msgid "Successed"
+msgid "Succeeded"
 msgstr "访问被拒绝！"
 
 #: import.php:56 js/messages.php:427
@@ -13625,7 +13625,7 @@ msgstr "添加字段"
 msgid "Choose column to display:"
 msgstr "选择要显示的字段"
 
-#: libraries/tbl_relation.lib.php:1109
+#: libraries/tbl_relation.lib.php:1118
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "在 %1$s 创建外键时发生错误 (检查数据类型)"

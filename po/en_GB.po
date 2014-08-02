@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-01 12:58-0400\n"
+"POT-Creation-Date: 2014-08-02 08:22-0400\n"
 "PO-Revision-Date: 2014-06-14 13:17+0200\n"
 "Last-Translator: Haval Abdulkarim <haval.abdulkarim@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.cihar.com/projects/"
@@ -611,7 +611,7 @@ msgstr ""
 #: import.php:52
 #, fuzzy
 #| msgid "Access denied!"
-msgid "Successed"
+msgid "Succeeded"
 msgstr "Access denied!"
 
 #: import.php:56 js/messages.php:427
@@ -14164,7 +14164,7 @@ msgstr "Add column"
 msgid "Choose column to display:"
 msgstr "Choose column to display:"
 
-#: libraries/tbl_relation.lib.php:1109
+#: libraries/tbl_relation.lib.php:1118
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Error creating foreign key on %1$s (check data types)"

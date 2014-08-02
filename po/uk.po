@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-01 12:58-0400\n"
+"POT-Creation-Date: 2014-08-02 08:22-0400\n"
 "PO-Revision-Date: 2014-04-23 16:10+0200\n"
 "Last-Translator: Vitaliy Perekupka <vperekupka@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -611,7 +611,7 @@ msgstr ""
 #: import.php:52
 #, fuzzy
 #| msgid "Access denied!"
-msgid "Successed"
+msgid "Succeeded"
 msgstr "Доступ заборонено!"
 
 #: import.php:56 js/messages.php:427
@@ -13955,7 +13955,7 @@ msgstr "Додати стовпчик"
 msgid "Choose column to display:"
 msgstr "Виберіть стовпець для відображення:"
 
-#: libraries/tbl_relation.lib.php:1109
+#: libraries/tbl_relation.lib.php:1118
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Помилка при створенні зовнішнього ключа на %1$s (перевірте типи даних)"

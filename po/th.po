@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-01 12:58-0400\n"
+"POT-Creation-Date: 2014-08-02 08:22-0400\n"
 "PO-Revision-Date: 2014-05-17 07:11+0200\n"
 "Last-Translator: Sorawee Porncharoenwase <nullzero.free@gmail.com>\n"
 "Language-Team: Thai <https://l10n.cihar.com/projects/phpmyadmin/master/th/>\n"
@@ -622,7 +622,7 @@ msgstr "เลือก \"GeomFromText\" จากแถวฟังก์ชั
 #: import.php:52
 #, fuzzy
 #| msgid "Access denied!"
-msgid "Successed"
+msgid "Succeeded"
 msgstr "ไม่อนุญาตให้ใช้งาน"
 
 #: import.php:56 js/messages.php:427
@@ -13740,7 +13740,7 @@ msgstr "เพิ่มฟิลด์ใหม่"
 msgid "Choose column to display:"
 msgstr "เลือกฟิลด์ที่ต้องการแสดง"
 
-#: libraries/tbl_relation.lib.php:1109
+#: libraries/tbl_relation.lib.php:1118
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""

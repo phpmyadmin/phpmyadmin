@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-01 12:58-0400\n"
+"POT-Creation-Date: 2014-08-02 08:22-0400\n"
 "PO-Revision-Date: 2014-06-15 22:04+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://l10n.cihar.com/projects/phpmyadmin/master/sv/"
@@ -605,7 +605,7 @@ msgstr ""
 #: import.php:52
 #, fuzzy
 #| msgid "Success!"
-msgid "Successed"
+msgid "Succeeded"
 msgstr "Lyckades!"
 
 #: import.php:56 js/messages.php:427
@@ -13578,7 +13578,7 @@ msgstr "Lägg till kolumn"
 msgid "Choose column to display:"
 msgstr "Välj kolumn att visa:"
 
-#: libraries/tbl_relation.lib.php:1109
+#: libraries/tbl_relation.lib.php:1118
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Fel vid skapande av främmande nyckel för %1$s (kontrollera datatyper)"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-01 12:58-0400\n"
+"POT-Creation-Date: 2014-08-02 08:22-0400\n"
 "PO-Revision-Date: 2014-07-28 16:23+0200\n"
 "Last-Translator: Abbas <m.abbas.baku@gmail.com>\n"
 "Language-Team: Azerbaijani <https://l10n.cihar.com/projects/phpmyadmin/"
@@ -605,7 +605,7 @@ msgstr ""
 #: import.php:52
 #, fuzzy
 #| msgid "Success."
-msgid "Successed"
+msgid "Succeeded"
 msgstr "Uğurlu."
 
 #: import.php:56 js/messages.php:427
@@ -12837,7 +12837,7 @@ msgstr "Sütun əlavə et"
 msgid "Choose column to display:"
 msgstr "Gösterilecek Saheni Seç"
 
-#: libraries/tbl_relation.lib.php:1109
+#: libraries/tbl_relation.lib.php:1118
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""

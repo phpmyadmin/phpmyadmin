@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-01 12:58-0400\n"
+"POT-Creation-Date: 2014-08-02 08:22-0400\n"
 "PO-Revision-Date: 2014-07-27 07:55+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -608,7 +608,7 @@ msgstr ""
 #: import.php:52
 #, fuzzy
 #| msgid "Success"
-msgid "Successed"
+msgid "Succeeded"
 msgstr "Õnnestus"
 
 #: import.php:56 js/messages.php:427
@@ -13362,7 +13362,7 @@ msgstr "Lisa veerg"
 msgid "Choose column to display:"
 msgstr "Vali veerg, mida näidata:"
 
-#: libraries/tbl_relation.lib.php:1109
+#: libraries/tbl_relation.lib.php:1118
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Viga võõrvõtme loomisel kohas %1$s (kontrolli andmete tüüpe)"

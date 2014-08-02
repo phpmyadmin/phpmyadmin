@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-01 12:58-0400\n"
+"POT-Creation-Date: 2014-08-02 08:22-0400\n"
 "PO-Revision-Date: 2014-07-15 01:20+0200\n"
 "Last-Translator: Valtteri Laitinen <valtteri.laitinen@gmail.com>\n"
 "Language-Team: Finnish <https://l10n.cihar.com/projects/phpmyadmin/master/fi/"
@@ -605,7 +605,7 @@ msgstr ""
 #: import.php:52
 #, fuzzy
 #| msgid "Access denied!"
-msgid "Successed"
+msgid "Succeeded"
 msgstr "Käyttö estetty!"
 
 #: import.php:56 js/messages.php:427
@@ -14279,7 +14279,7 @@ msgstr "Lisää sarake"
 msgid "Choose column to display:"
 msgstr "Valitse näytettävä sarake"
 
-#: libraries/tbl_relation.lib.php:1109
+#: libraries/tbl_relation.lib.php:1118
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Virhe luotaessa kohteen %1$s viiteavainta (tarkista tietotyypit)"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-01 12:58-0400\n"
+"POT-Creation-Date: 2014-08-02 08:22-0400\n"
 "PO-Revision-Date: 2014-07-09 12:20+0200\n"
 "Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
 "Language-Team: Traditional Chinese <https://l10n.cihar.com/projects/"
@@ -596,7 +596,7 @@ msgstr ""
 #: import.php:52
 #, fuzzy
 #| msgid "Success!"
-msgid "Successed"
+msgid "Succeeded"
 msgstr "成功！"
 
 #: import.php:56 js/messages.php:427
@@ -13090,7 +13090,7 @@ msgstr "新增欄位"
 msgid "Choose column to display:"
 msgstr "選擇要顯示的欄位:"
 
-#: libraries/tbl_relation.lib.php:1109
+#: libraries/tbl_relation.lib.php:1118
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "建立外鍵 %1$s 時發生錯誤 (檢查資料類型)"
