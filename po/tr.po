@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-03 07:42-0400\n"
-"PO-Revision-Date: 2014-08-02 20:08+0200\n"
+"PO-Revision-Date: 2014-08-03 14:17+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6180,14 +6180,13 @@ msgstr "Bellek sınırı"
 
 #: libraries/config/messages.inc.php:422
 msgid "Link with main panel by highlighting the current database or table."
-msgstr ""
+msgstr "Şu anki veritabanı veya tabloyu vurgulayarak ana panel ile bağlantıla."
 
 #: libraries/config/messages.inc.php:423
 #: libraries/navigation/NavigationTree.class.php:1142
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Ana paneli özelleştir"
+msgstr "Ana panel ile bağlantıla"
 
 #: libraries/config/messages.inc.php:424
 msgid "Show logo in navigation panel."
@@ -8704,10 +8703,9 @@ msgid "Filter by name or regex"
 msgstr "Adına ya da düzenli ifadesine göre süz"
 
 #: libraries/navigation/NavigationTree.class.php:1130
-#, fuzzy
 #| msgid "Collapse"
 msgid "Collapse all"
-msgstr "Daralt"
+msgstr "Tümünü daralt"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
