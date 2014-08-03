@@ -1356,7 +1356,7 @@ EOT;
         $htmlOutput .= '<br>' . PMA_Util::getCheckbox('useRegex' , __('Use regular expression'));
         return $htmlOutput;
     }
-    
+
     /**
      * Finds and returns Regex pattern and their replacements
      *
