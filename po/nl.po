@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-03 07:42-0400\n"
-"PO-Revision-Date: 2014-07-31 17:57+0200\n"
+"PO-Revision-Date: 2014-08-03 19:05+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
-">\n"
+"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -606,7 +606,6 @@ msgstr ""
 "string in het veld \"Waarde\"."
 
 #: import.php:52
-#, fuzzy
 #| msgid "Success"
 msgid "Succeeded"
 msgstr "Geslaagd"
@@ -616,10 +615,9 @@ msgid "Failed"
 msgstr "Mislukt"
 
 #: import.php:60
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "volledige invoegingen"
+msgstr "Onvolledige parameters"
 
 #: import.php:164
 #, php-format
@@ -2369,10 +2367,9 @@ msgid "Execute this query again?"
 msgstr "Deze query opnieuw uitvoeren?"
 
 #: js/messages.php:515
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Weet u zeker dat u opzoeking \"%s\" wil verwijderen?"
+msgstr "Weet u zeker dat u deze bladwijzer wil verwijderen?"
 
 #: js/messages.php:546
 msgctxt "Previous month"
@@ -2757,10 +2754,9 @@ msgid "No bookmarks"
 msgstr "Geen bladwijzers"
 
 #: libraries/Console.class.php:174
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Verklaar SQL"
+msgstr "Verklaar"
 
 #: libraries/Console.class.php:175 libraries/Util.class.php:1263
 #: libraries/sql.lib.php:484
@@ -2768,10 +2764,9 @@ msgid "Profiling"
 msgstr "Profiling"
 
 #: libraries/Console.class.php:176
-#, fuzzy
 #| msgid "Bookmarks"
 msgid "Bookmark"
-msgstr "Bladwijzers"
+msgstr "Bladwijzer"
 
 #: libraries/Console.class.php:177
 msgid "Query failed"
@@ -2845,10 +2840,9 @@ msgid "Refresh"
 msgstr "Ververs"
 
 #: libraries/Console.class.php:255
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "En"
+msgstr "Toevoegen"
 
 #: libraries/Console.class.php:263
 msgid "Add bookmark"
@@ -6241,10 +6235,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:423
 #: libraries/navigation/NavigationTree.class.php:1142
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Aanpassen hoofdpaneel"
+msgstr "Verbinden met hoofdpaneel"
 
 #: libraries/config/messages.inc.php:424
 msgid "Show logo in navigation panel."
@@ -8779,10 +8772,9 @@ msgid "Filter by name or regex"
 msgstr "Filter op naam of regex"
 
 #: libraries/navigation/NavigationTree.class.php:1130
-#, fuzzy
 #| msgid "Collapse"
 msgid "Collapse all"
-msgstr "Samenvouwen"
+msgstr "Alles samenvouwen"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -13487,10 +13479,9 @@ msgid "Index type:"
 msgstr "Indextype:"
 
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:375
-#, fuzzy
 #| msgid "Drag to reorder."
 msgid "Drag to reorder"
-msgstr "Sleep om te herschikken."
+msgstr "Sleep om te herschikken"
 
 #: libraries/tbl_printview.lib.php:30
 msgid "Showing tables:"
@@ -13521,16 +13512,14 @@ msgstr ""
 "relatie bestaat."
 
 #: libraries/tbl_relation.lib.php:371
-#, fuzzy
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraints"
-msgstr "Beperking voor externe sleutel"
+msgstr "Beperkingen voor externe sleutel"
 
 #: libraries/tbl_relation.lib.php:374
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint properties"
-msgstr "Beperkingen voor tabel"
+msgstr "Beperkingseigenschappen"
 
 #: libraries/tbl_relation.lib.php:379
 msgid ""
@@ -13542,20 +13531,18 @@ msgid "Foreign key constraint"
 msgstr "Beperking voor externe sleutel"
 
 #: libraries/tbl_relation.lib.php:405
-#, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
-msgstr "Voeg beperkingen toe"
+msgstr "+ Voeg beperking toe"
 
 #: libraries/tbl_relation.lib.php:435
 msgid "Constraint name"
 msgstr "Naam van de beperking"
 
 #: libraries/tbl_relation.lib.php:500
-#, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
-msgstr "Kolom toevoegen"
+msgstr "+ Kolom toevoegen"
 
 #: libraries/tbl_relation.lib.php:646
 msgid "Choose column to display:"
@@ -13831,10 +13818,9 @@ msgid "Toggle relation lines"
 msgstr "Relatielijnen wisselen"
 
 #: pmd_general.php:226
-#, fuzzy
 #| msgid "Export all"
 msgid "Export schema"
-msgstr "Alles exporteren"
+msgstr "Schema exporteren"
 
 #: pmd_general.php:237
 msgid "Build Query"
@@ -14285,16 +14271,14 @@ msgid "Available MIME types"
 msgstr "Beschikbare MIME-types"
 
 #: transformation_overview.php:37
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "Beschikbare transformaties"
+msgstr "Beschikbare browserweergave transformaties"
 
 #: transformation_overview.php:38
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available input transformations"
-msgstr "Beschikbare transformaties"
+msgstr "Beschikbare invoer transformaties"
 
 #: transformation_overview.php:53
 msgctxt "for MIME transformation"
