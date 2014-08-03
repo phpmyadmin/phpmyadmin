@@ -675,33 +675,43 @@ function PMA_sprites()
             'width'    => '16',
             'height'   => '16'
         ),
-        's_tbl' => array(
+        's_synced' => array(
             'position' => '133',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_theme' => array(
+        's_tbl' => array(
             'position' => '134',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_top' => array(
+        's_theme' => array(
             'position' => '135',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_vars' => array(
+        's_top' => array(
             'position' => '136',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_views' => array(
+        's_unsynced' => array(
             'position' => '137',
+            'width'    => '16',
+            'height'   => '16'
+        ),
+        's_vars' => array(
+            'position' => '138',
+            'width'    => '16',
+            'height'   => '16'
+        ),
+        's_views' => array(
+            'position' => '139',
             'width'    => '10',
             'height'   => '10'
         ),
         'window-new' => array(
-            'position' => '138',
+            'position' => '140',
             'width'    => '16',
             'height'   => '16'
         ),
