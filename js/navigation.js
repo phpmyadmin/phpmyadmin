@@ -62,7 +62,7 @@ $(function () {
      * Register event handler for click on the collapse all
      * navigation icon at the top of the navigation tree
      */
-    $('#navigation_controls').on('click', '#pma_navigation_collapse', function (event) {
+    $(document).on('click', '#pma_navigation_collapse', function (event) {
         event.preventDefault();
         $('#pma_navigation_tree a.expander').each(function() {
             var $icon = $(this).find('img');
@@ -76,18 +76,26 @@ $(function () {
      * Register event handler to toggle
      * the linking with main panel behavior
      */
-    $('#navigation_controls').on('click', '#pma_navigation_sync', function (event) {
+    $(document).on('click', '#pma_navigation_sync', function (event) {
         event.preventDefault();
         var synced = $('#pma_navigation_tree').hasClass('synced');
         var $img = $('#pma_navigation_sync').children('img');
         if (synced) {
-            $img.removeClass('ic_s_synced').addClass('ic_s_unsynced');
+            $img
+                .removeClass('ic_s_unlink')
+                .addClass('ic_s_link')
+                .attr('alt', PMA_messages.linkWithMain)
+                .attr('title', PMA_messages.linkWithMain);
             $('#pma_navigation_tree')
                 .removeClass('synced')
                 .find('li.selected')
                 .removeClass('selected');
         } else {
-            $img.removeClass('ic_s_unsynced').addClass('ic_s_synced');
+            $img
+                .removeClass('ic_s_link')
+                .addClass('ic_s_unlink')
+                .attr('alt', PMA_messages.unlinkWithMain)
+                .attr('title', PMA_messages.unlinkWithMain);
             $('#pma_navigation_tree').addClass('synced');
             PMA_showCurrentNavigation();
         }

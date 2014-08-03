@@ -760,7 +760,7 @@ function PMA_sprites()
             'width'    => '16',
             'height'   => '16'
         ),
-        's_synced' => array(
+        's_link' => array(
             'position' => '150',
             'width'    => '16',
             'height'   => '16'
@@ -780,7 +780,7 @@ function PMA_sprites()
             'width'    => '16',
             'height'   => '16'
         ),
-        's_unsynced' => array(
+        's_unlink' => array(
             'position' => '154',
             'width'    => '16',
             'height'   => '16'
