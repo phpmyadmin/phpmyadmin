@@ -296,12 +296,14 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         $columnIndex = 0;
         $find = "Field";
         $replaceWith = "Column";
+        $useRegex = false;
         $charSet = "UTF-8";
 
         $html = $tableSearch->getReplacePreview(
             $columnIndex,
             $find,
             $replaceWith,
+            $useRegex,
             $charSet
         );
 
