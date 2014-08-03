@@ -459,7 +459,7 @@ $js_messages['strShowPanel'] = __('Show Panel');
 $js_messages['strHidePanel'] = __('Hide Panel');
 $js_messages['strUnhideNavItem'] = __('Show hidden navigation tree items.');
 $js_messages['linkWithMain'] = __('Link with main panel');
-$js_messages['unlinkWithMain'] = __('Unlink with main panel');
+$js_messages['unlinkWithMain'] = __('Unlink from main panel');
 
 /* microhistory */
 $js_messages['strInvalidPage'] = __('The requested page was not found in the history, it may have expired.');

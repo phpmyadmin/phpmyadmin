@@ -1136,7 +1136,7 @@ class PMA_NavigationTree
         $title = __('Link with main panel');
         if ($GLOBALS['cfg']['NavigationLinkWithMainPanel']) {
             $syncImage = 's_unlink.png';
-            $title = __('Unlink with main panel');
+            $title = __('Unlink from main panel');
         }
         $retval .= PMA_Util::getNavigationLink(
             '#',
