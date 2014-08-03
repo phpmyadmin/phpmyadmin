@@ -282,6 +282,21 @@ html.ie.ie8 li.fast_filter input {
 }
 li.fast_filter.db_fast_filter {
     border: 0;
+    margin-left: 0px;
+    margin-right: 10px;
+}
+
+#navigation_controls_outer {
+    min-height: 21px !important;
+}
+
+#navigation_controls_outer.activePointer {
+    background-color: transparent !important;
+}
+
+#navigation_controls {
+    float: right;
+    padding-right: 23px;
 }
 
 /* Resize handler */
