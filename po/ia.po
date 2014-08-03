@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-03 07:42-0400\n"
-"PO-Revision-Date: 2014-07-28 14:59+0200\n"
+"PO-Revision-Date: 2014-08-03 18:13+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -610,20 +610,18 @@ msgstr ""
 "catena a basso in le campo \"Value\" (Valor)."
 
 #: import.php:52
-#, fuzzy
 #| msgid "Success"
 msgid "Succeeded"
-msgstr "Successo"
+msgstr "Ha havite successo"
 
 #: import.php:56 js/messages.php:427
 msgid "Failed"
 msgstr "Fallite"
 
 #: import.php:60
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "insertiones complete"
+msgstr "Parametros incomplete"
 
 #: import.php:164
 #, php-format
@@ -2385,10 +2383,9 @@ msgid "Execute this query again?"
 msgstr "Executa novemente iste query?"
 
 #: js/messages.php:515
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Tu es vermente secur que tu vole deler le cerca \"%s\"?"
+msgstr "Tu es vermente secur que tu vole deler iste marcator de libro?"
 
 #: js/messages.php:546
 msgctxt "Previous month"
@@ -2775,10 +2772,9 @@ msgid "No bookmarks"
 msgstr "Necun marcator de libro o favorito"
 
 #: libraries/Console.class.php:174
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Explica SQL"
+msgstr "Explica"
 
 #: libraries/Console.class.php:175 libraries/Util.class.php:1263
 #: libraries/sql.lib.php:484
@@ -2786,10 +2782,9 @@ msgid "Profiling"
 msgstr "Profiling"
 
 #: libraries/Console.class.php:176
-#, fuzzy
 #| msgid "Bookmarks"
 msgid "Bookmark"
-msgstr "Marcatores de libro"
+msgstr "Marcator de libro"
 
 #: libraries/Console.class.php:177
 msgid "Query failed"
@@ -2863,10 +2858,9 @@ msgid "Refresh"
 msgstr "Refresca"
 
 #: libraries/Console.class.php:255
-#, fuzzy
 #| msgid "Add %s"
 msgid "Add"
-msgstr "Adde %s"
+msgstr "Adde"
 
 #: libraries/Console.class.php:263
 msgid "Add bookmark"
@@ -2889,10 +2883,9 @@ msgid "Set default"
 msgstr "Fixa le valores predefinite"
 
 #: libraries/Console.class.php:288
-#, fuzzy
 #| msgid "Always expand queried messages"
 msgid "Always expand query messages"
-msgstr "Expande sempre messages del query"
+msgstr "Expande sempre messages de query"
 
 #: libraries/Console.class.php:290
 msgid "Show query history at start"
@@ -6270,10 +6263,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:423
 #: libraries/navigation/NavigationTree.class.php:1142
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Personalisa pannello principal"
+msgstr "Ligamine con pannello principal"
 
 #: libraries/config/messages.inc.php:424
 msgid "Show logo in navigation panel."
@@ -8791,10 +8783,9 @@ msgid "Filter by name or regex"
 msgstr "Filtra per nomine o regex"
 
 #: libraries/navigation/NavigationTree.class.php:1130
-#, fuzzy
 #| msgid "Collapse"
 msgid "Collapse all"
-msgstr "Plica"
+msgstr "Plica toto"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -13153,10 +13144,9 @@ msgid "Space usage:"
 msgstr ""
 
 #: libraries/tbl_relation.lib.php:231
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relations"
-msgstr "Relation interne ha essite addite."
+msgstr "Relationes interne"
 
 #: libraries/tbl_relation.lib.php:236
 msgid "Internal relation"
@@ -13169,16 +13159,14 @@ msgid ""
 msgstr ""
 
 #: libraries/tbl_relation.lib.php:371
-#, fuzzy
 #| msgid "Foreign key limit"
 msgid "Foreign key constraints"
-msgstr "Limite de clave externe"
+msgstr "Limites de clave externe"
 
 #: libraries/tbl_relation.lib.php:374
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint properties"
-msgstr "Limites pro tabella"
+msgstr "Limita proprietates"
 
 #: libraries/tbl_relation.lib.php:379
 msgid ""
@@ -13190,20 +13178,18 @@ msgid "Foreign key constraint"
 msgstr ""
 
 #: libraries/tbl_relation.lib.php:405
-#, fuzzy
 #| msgid "Add a linestring"
 msgid "+ Add constraint"
-msgstr "Adde un linestring"
+msgstr "+ Adde un limite"
 
 #: libraries/tbl_relation.lib.php:435
 msgid "Constraint name"
 msgstr ""
 
 #: libraries/tbl_relation.lib.php:500
-#, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
-msgstr "Adde columna"
+msgstr "+ Adde columna"
 
 #: libraries/tbl_relation.lib.php:646
 msgid "Choose column to display:"
