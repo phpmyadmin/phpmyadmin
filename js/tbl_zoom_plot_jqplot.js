@@ -329,7 +329,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                     series[0][searchedDataKey][0] =
                         getTimeStamp(selectedRow[xLabel], $('#types_0').val());
                 } else {
-                    ; // TODO: text values
+                    series[0][searchedDataKey][0] = '';
+                    // TODO: text values
                 }
                 currentChart.series[0].data = series[0];
                 // TODO: axis changing
@@ -345,7 +346,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                     series[0][searchedDataKey][1] =
                         getTimeStamp(selectedRow[yLabel], $('#types_1').val());
                 } else {
-                    ; // TODO: text values
+                    series[0][searchedDataKey][1] = '';
+                    // TODO: text values
                 }
                 currentChart.series[0].data = series[0];
                 // TODO: axis changing
