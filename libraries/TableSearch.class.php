@@ -1352,32 +1352,32 @@ EOT;
             }
         }
         $htmlOutput .= '</select>';
+
+        $htmlOutput .= '<br>' . PMA_Util::getCheckbox('useRegex' , __('Use regular expression'), false, false);
         return $htmlOutput;
     }
 
     /**
-     * Returns HTML for prviewing strings found and their replacements
+     * Finds and returns Regex pattern and their replacements
      *
-     * @param int    $columnIndex index of the column
-     * @param string $find        string to find in the column
-     * @param string $replaceWith string to replace with
-     * @param string $charSet     character set of the connection
+     * @param int     $columnIndex index of the column
+     * @param string  $find        string to find in the column
+     * @param string  $replaceWith string to replace with
+     * @param string  $charSet     character set of the connection
      *
      * @return string HTML for prviewing strings found and their replacements
      */
-    function getReplacePreview($columnIndex, $find, $replaceWith, $charSet)
+    function _getRegexReplaceRows($columnIndex, $find, $replaceWith, $charSet)
     {
         $column = $this->_columnNames[$columnIndex];
         $sql_query = "SELECT "
             . PMA_Util::backquote($column) . ","
-            . " REPLACE("
-            . PMA_Util::backquote($column) . ", '" . $find . "', '" . $replaceWith
-            . "'),"
+            . " 1," // to add an extra column that will have replaced value
             . " COUNT(*)"
             . " FROM " . PMA_Util::backquote($this->_db)
             . "." . PMA_Util::backquote($this->_table)
             . " WHERE " . PMA_Util::backquote($column)
-            . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin"; // here we
+            . " RLIKE '" . PMA_Util::sqlAddSlashes($find) . "' COLLATE " . $charSet . "_bin"; // here we
             // change the collation of the 2nd operand to a case sensitive
             // binary collation to make sure that the comparison is case sensitive
         $sql_query .= " GROUP BY " . PMA_Util::backquote($column)
@@ -1386,17 +1386,64 @@ EOT;
         $resultSet = $GLOBALS['dbi']->query(
             $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
         );
+        $result = $GLOBALS['dbi']->fetchResult($resultSet, 0);
 
-        $htmlOutput = '<form method="post" action="tbl_find_replace.php"'
+        foreach ($result as $index=>$row) {
+            $result[$index][1] = preg_replace("/" . $find . "/" , $replaceWith, $row[0]);
+        }
+        return $result;
+    }
+
+    /**
+     * Returns HTML for prviewing strings found and their replacements
+     *
+     * @param int     $columnIndex index of the column
+     * @param string  $find        string to find in the column
+     * @param string  $replaceWith string to replace with
+     * @param boolean $useRegex    to use Regex replace or not
+     * @param string  $charSet     character set of the connection
+     *
+     * @return string HTML for prviewing strings found and their replacements
+     */
+    function getReplacePreview($columnIndex, $find, $replaceWith, $useRegex, $charSet)
+    {
+        $column = $this->_columnNames[$columnIndex];
+        if( $useRegex ) {
+            $result = $this->_getRegexReplaceRows($columnIndex, $find, $replaceWith, $charSet);
+        } else {
+            $sql_query = "SELECT "
+                . PMA_Util::backquote($column) . ","
+                . " REPLACE("
+                . PMA_Util::backquote($column) . ", '" . $find . "', '" . $replaceWith
+                . "'),"
+                . " COUNT(*)"
+                . " FROM " . PMA_Util::backquote($this->_db)
+                . "." . PMA_Util::backquote($this->_table)
+                . " WHERE " . PMA_Util::backquote($column)
+                . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin"; // here we
+                // change the collation of the 2nd operand to a case sensitive
+                // binary collation to make sure that the comparison is case sensitive
+            $sql_query .= " GROUP BY " . PMA_Util::backquote($column)
+                . " ORDER BY " . PMA_Util::backquote($column) . " ASC";
+
+            $resultSet = $GLOBALS['dbi']->query(
+                $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
+            );
+            $result = $GLOBALS['dbi']->fetchResult($resultSet, 0);
+        }
+
+        $htmlOutput  = '<form method="post" action="tbl_find_replace.php"'
             . ' name="previewForm" id="previewForm" class="ajax">';
         $htmlOutput .= PMA_URL_getHiddenInputs($this->_db, $this->_table);
         $htmlOutput .= '<input type="hidden" name="replace" value="true" />';
         $htmlOutput .= '<input type="hidden" name="columnIndex" value="'
             . $columnIndex . '" />';
         $htmlOutput .= '<input type="hidden" name="findString"'
-            . ' value="' . $find . '" />';
+            . ' value="' . htmlspecialchars($find) . '" />';
         $htmlOutput .= '<input type="hidden" name="replaceWith"'
-            . ' value="' . $replaceWith . '" />';
+            . ' value="' . htmlspecialchars($replaceWith) . '" />';
+        $htmlOutput .= '<input type="hidden" name="useRegex"'
+            . ' value="' . $useRegex . '" />';
 
         $htmlOutput .= '<fieldset id="fieldset_find_replace_preview">';
         $htmlOutput .= '<legend>' . __('Find and replace - preview') . '</legend>';
@@ -1410,7 +1457,7 @@ EOT;
 
         $htmlOutput .= '<tbody>';
         $odd = true;
-        while ($row = $GLOBALS['dbi']->fetchRow($resultSet)) {
+        foreach ($result as $row) {
             $val = $row[0];
             $replaced = $row[1];
             $count = $row[2];
@@ -1439,26 +1486,43 @@ EOT;
     /**
      * Replaces a given string in a column with a give replacement
      *
-     * @param int    $columnIndex index of the column
-     * @param string $find        string to find in the column
-     * @param string $replaceWith string to replace with
-     * @param string $charSet     character set of the connection
+     * @param int     $columnIndex index of the column
+     * @param string  $find        string to find in the column
+     * @param string  $replaceWith string to replace with
+     * @param boolean $useRegex    to use Regex replace or not
+     * @param string  $charSet     character set of the connection
      *
      * @return void
      */
-    function replace($columnIndex, $find, $replaceWith, $charSet)
+    function replace($columnIndex, $find, $replaceWith, $useRegex, $charSet)
     {
         $column = $this->_columnNames[$columnIndex];
-        $sql_query = "UPDATE " . PMA_Util::backquote($this->_db)
-            . "." . PMA_Util::backquote($this->_table)
-            . " SET " . PMA_Util::backquote($column) . " ="
-            . " REPLACE("
-            . PMA_Util::backquote($column) . ", '" . $find . "', '" . $replaceWith
-            . "')"
-            . " WHERE " . PMA_Util::backquote($column)
-            . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin"; // here we
-            // change the collation of the 2nd operand to a case sensitive
-            // binary collation to make sure that the comparison is case sensitive
+        if ($useRegex) {
+            $toReplace = $this->_getRegexReplaceRows($columnIndex, $find, $replaceWith, $charSet);
+            $sql_query = "UPDATE " . PMA_Util::backquote($this->_db)
+                . "." . PMA_Util::backquote($this->_table)
+                . " SET " . PMA_Util::backquote($column) . " = CASE";
+            foreach ($toReplace as $row) {
+                $sql_query .= "\n WHEN " . PMA_Util::backquote($column) . " = '" . PMA_Util::sqlAddSlashes($row[0]) . "' THEN '" . PMA_Util::sqlAddSlashes($row[1]) . "'";
+            }
+            $sql_query .= " END"
+                . " WHERE " . PMA_Util::backquote($column)
+                . " RLIKE '" . PMA_Util::sqlAddSlashes($find) . "' COLLATE " . $charSet . "_bin"; // here we
+                // change the collation of the 2nd operand to a case sensitive
+                // binary collation to make sure that the comparison is case sensitive
+        }
+        else {
+            $sql_query = "UPDATE " . PMA_Util::backquote($this->_db)
+                . "." . PMA_Util::backquote($this->_table)
+                . " SET " . PMA_Util::backquote($column) . " ="
+                . " REPLACE("
+                . PMA_Util::backquote($column) . ", '" . $find . "', '" . $replaceWith
+                . "')"
+                . " WHERE " . PMA_Util::backquote($column)
+                . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin"; // here we
+                // change the collation of the 2nd operand to a case sensitive
+                // binary collation to make sure that the comparison is case sensitive
+        }
         $GLOBALS['dbi']->query(
             $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
         );
