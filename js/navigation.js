@@ -80,15 +80,14 @@ $(function () {
         event.preventDefault();
         var synced = $('#pma_navigation_tree').hasClass('synced');
         var $img = $('#pma_navigation_sync').children('img');
-        var imgUrl = $img.attr('src');
         if (synced) {
-            $img.attr('src', imgUrl.replace('s_synced', 's_unsynced'));
+            $img.removeClass('ic_s_synced').addClass('ic_s_unsynced');
             $('#pma_navigation_tree')
                 .removeClass('synced')
                 .find('li.selected')
                 .removeClass('selected');
         } else {
-            $img.attr('src', imgUrl.replace('s_unsynced', 's_synced'));
+            $img.removeClass('ic_s_unsynced').addClass('ic_s_synced');
             $('#pma_navigation_tree').addClass('synced');
             PMA_showCurrentNavigation();
         }
