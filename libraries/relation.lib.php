@@ -1323,7 +1323,9 @@ function PMA_getForeignData(
 function PMA_getRelatives($all_tables, $master)
 {
     $fromclause = '';
+    $left_joins = array();
     $emerg = '';
+    $ignore_internal_relations = false;
 
     // The list of tables that we still couldn't connect
     $remaining_tables = $all_tables;
@@ -1356,14 +1358,18 @@ function PMA_getRelatives($all_tables, $master)
         while ($row = $GLOBALS['dbi']->fetchAssoc($relations)) {
             $found_table                = $row[$to . '_table'];
             if (isset($remaining_tables[$found_table])) {
-                $fromclause
-                    .= "\n" . ' LEFT JOIN '
-                    . PMA_Util::backquote($GLOBALS['db']) . '.'
-                    . PMA_Util::backquote($row[$to . '_table']) . ' ON '
-                    . PMA_Util::backquote($row[$from . '_table']) . '.'
+                $left_join_with = PMA_Util::backquote($GLOBALS['db']) . '.'
+                        . PMA_Util::backquote($row[$to . '_table']);
+                $on_condition = PMA_Util::backquote($row[$from . '_table']) . '.'
                     . PMA_Util::backquote($row[$from . '_field']) . ' = '
                     . PMA_Util::backquote($row[$to . '_table']) . '.'
-                    . PMA_Util::backquote($row[$to . '_field']) . ' ';
+                    . PMA_Util::backquote($row[$to . '_field']);
+
+                $left_joins[$left_join_with] = array(
+                    'left_join_with' => $left_join_with,
+                    'on_condition' => array($on_condition)
+                );
+
                 $known_tables[$found_table] = $found_table;
                 unset($remaining_tables[$found_table]);
             }
@@ -1376,6 +1382,55 @@ function PMA_getRelatives($all_tables, $master)
             }
         }
     } // end while
+
+    // Generate 'LEFT JOIN's for InnoDB foreign keys.
+    $remaining_tables = $all_tables;
+    foreach ($remaining_tables as $one_table) {
+        $foreigners = PMA_getForeigners($GLOBALS['db'], $one_table, '', 'foreign');
+        foreach ($foreigners['foreign_keys_data'] as $one_key) {
+            if (in_array($one_key['ref_table_name'], $all_tables)
+                && ! isset($one_key['ref_db_name'])
+                && ($one_key['ref_table_name'] == $master
+                || $one_key['ref_table_name'] == $one_table)
+            ) {
+                $left_join_with = PMA_Util::backquote($GLOBALS['db']) . '.'
+                    . PMA_Util::backquote($one_table);
+                if (! isset($left_joins[$left_join_with])) {
+                    $left_joins[$left_join_with] = array(
+                        'left_join_with' =>$left_join_with,
+                        'on_condition' => array()
+                    );
+                }
+
+                foreach ($one_key['ref_index_list'] as $key => $one_column) {
+                    $on_condition = PMA_Util::backquote($one_key['ref_table_name'])
+                    . '.' . PMA_Util::backquote($one_column) . ' = '
+                    . PMA_Util::backquote($one_table) . '.'
+                    . PMA_Util::backquote($one_key['index_list'][$key]);
+
+                    if (! in_array($on_condition, $left_joins[$left_join_with]['on_condition'])) {
+                        $left_joins[$left_join_with]['on_condition'][] = $on_condition;
+                    }
+                }
+                $ignore_internal_relations = true;
+                unset($remaining_tables[$one_table]);
+            }
+        }
+    }
+
+    if ($ignore_internal_relations) {
+        $emerg = '';
+        $remaining_tables = array();
+    }
+
+    // Build the 'FROM' clause.
+    foreach ($left_joins as $one_join) {
+        $fromclause .= "\n" . ' LEFT JOIN '
+            . $one_join['left_join_with']
+            . ' ON '
+            . implode(' AND ', $one_join['on_condition']);
+    }
+
     $fromclause = $emerg . $fromclause;
     return $fromclause;
 } // end of the "PMA_getRelatives()" function
