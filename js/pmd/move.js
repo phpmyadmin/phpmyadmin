@@ -557,7 +557,7 @@ function Save2(callback)
     var poststr = 'IS_AJAX=1&server=' + server + '&db=' + db + '&token=' + token + '&die_save_pos=1&selected_page=' + selected_page;
     poststr += Get_url_pos();
     makeRequest('pmd_save_pos.php', poststr);
-    if (callback !== null) {
+    if (callback != null) {
         callback();
     }
 }
@@ -589,7 +589,7 @@ function Save3(callback)
                         selected_page = data.id;
                     }
                     $('#page_name').text(name);
-                    if (callback !== null) {
+                    if (callback != null) {
                         callback();
                     }
                 }
