@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-28 16:23+0200\n"
-"Last-Translator: Abbas <m.abbas.baku@gmail.com>\n"
+"PO-Revision-Date: 2014-08-04 21:27+0200\n"
+"Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/az/>\n"
 "Language: az\n"
@@ -3727,7 +3727,7 @@ msgstr ""
 
 #: libraries/Types.class.php:784
 msgid "True or false"
-msgstr ""
+msgstr "True vəya false"
 
 #: libraries/Types.class.php:786
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
