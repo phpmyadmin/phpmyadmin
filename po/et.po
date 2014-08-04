@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-03 07:42-0400\n"
-"PO-Revision-Date: 2014-07-27 07:55+0200\n"
+"PO-Revision-Date: 2014-08-04 12:15+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -606,7 +606,6 @@ msgstr ""
 "väljale \"Value\"."
 
 #: import.php:52
-#, fuzzy
 #| msgid "Success"
 msgid "Succeeded"
 msgstr "Õnnestus"
@@ -616,10 +615,9 @@ msgid "Failed"
 msgstr "Nurjus"
 
 #: import.php:60
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "lõpeta lisamised"
+msgstr "Puudulikud parameetrid"
 
 #: import.php:164
 #, php-format
@@ -2339,10 +2337,9 @@ msgid "Execute this query again?"
 msgstr "Kas käivitada see päring uuesti?"
 
 #: js/messages.php:515
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Kas sa soovid tõesti kustutada otsingu \"%s\"?"
+msgstr "Kas sa soovid tõesti kustutada selle järjehoidja?"
 
 #: js/messages.php:546
 msgctxt "Previous month"
@@ -2725,10 +2722,9 @@ msgid "No bookmarks"
 msgstr "Järjehoidjad puuduvad"
 
 #: libraries/Console.class.php:174
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Selgita SQL"
+msgstr "Selgita"
 
 #: libraries/Console.class.php:175 libraries/Util.class.php:1263
 #: libraries/sql.lib.php:484
@@ -2736,10 +2732,9 @@ msgid "Profiling"
 msgstr "Profileerimine"
 
 #: libraries/Console.class.php:176
-#, fuzzy
 #| msgid "Bookmarks"
 msgid "Bookmark"
-msgstr "Järjehoidjad"
+msgstr "Järjehoidja"
 
 #: libraries/Console.class.php:177
 msgid "Query failed"
@@ -2813,10 +2808,9 @@ msgid "Refresh"
 msgstr "Uuenda"
 
 #: libraries/Console.class.php:255
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "Ja"
+msgstr "Lisa"
 
 #: libraries/Console.class.php:263
 msgid "Add bookmark"
@@ -2839,10 +2833,9 @@ msgid "Set default"
 msgstr "Määra vaikeväärtuseks"
 
 #: libraries/Console.class.php:288
-#, fuzzy
 #| msgid "Always expand queried messages"
 msgid "Always expand query messages"
-msgstr "Laienda päritud teated alati"
+msgstr "Laienda päringu teated alati"
 
 #: libraries/Console.class.php:290
 msgid "Show query history at start"
@@ -6158,14 +6151,13 @@ msgstr "Mälu piirang"
 
 #: libraries/config/messages.inc.php:422
 msgid "Link with main panel by highlighting the current database or table."
-msgstr ""
+msgstr "Lingi peapaneeliga tõstes esile aktiivse andmebaasi või tabeli."
 
 #: libraries/config/messages.inc.php:423
 #: libraries/navigation/NavigationTree.class.php:1142
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Muuda peapaneeli"
+msgstr "Lingi peapaneeli"
 
 #: libraries/config/messages.inc.php:424
 msgid "Show logo in navigation panel."
@@ -8641,10 +8633,9 @@ msgid "Filter by name or regex"
 msgstr "Filtreeri nime või regulaaravaldise alusel"
 
 #: libraries/navigation/NavigationTree.class.php:1130
-#, fuzzy
 #| msgid "Collapse"
 msgid "Collapse all"
-msgstr "Ahenda"
+msgstr "Ahenda kõik"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -13339,41 +13330,37 @@ msgstr ""
 "Sisemine seos on mittevajalik, kui vastav FOREIGN KEY seos on juba olemas."
 
 #: libraries/tbl_relation.lib.php:371
-#, fuzzy
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraints"
-msgstr "Võõrvõtme piirang"
+msgstr "Võõrvõtme piirangud"
 
 #: libraries/tbl_relation.lib.php:374
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint properties"
-msgstr "Piirangud tabelile"
+msgstr "Piirangud omadustele"
 
 #: libraries/tbl_relation.lib.php:379
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
-msgstr ""
+msgstr "Kuvatakse ainult indeksiga veerud. Sa võid defineerida indeksi allpool."
 
 #: libraries/tbl_relation.lib.php:384
 msgid "Foreign key constraint"
 msgstr "Võõrvõtme piirang"
 
 #: libraries/tbl_relation.lib.php:405
-#, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
-msgstr "Lisa piiranguid"
+msgstr "+ Lisa piirang"
 
 #: libraries/tbl_relation.lib.php:435
 msgid "Constraint name"
 msgstr "Piirangu nimi"
 
 #: libraries/tbl_relation.lib.php:500
-#, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
-msgstr "Lisa veerg"
+msgstr "+ Lisa veerg"
 
 #: libraries/tbl_relation.lib.php:646
 msgid "Choose column to display:"
