@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-04 06:53-0400\n"
-"PO-Revision-Date: 2014-08-03 14:17+0200\n"
+"PO-Revision-Date: 2014-08-04 14:57+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -2264,13 +2264,12 @@ msgstr "Gizli gezinti ağacı öğelerini göster."
 #: js/messages.php:461 libraries/config/messages.inc.php:423
 #: libraries/navigation/NavigationTree.class.php:1136
 msgid "Link with main panel"
-msgstr "Ana panel ile bağlantıla"
+msgstr "Ana panel ile bağla"
 
 #: js/messages.php:462 libraries/navigation/NavigationTree.class.php:1139
-#, fuzzy
 #| msgid "Link with main panel"
 msgid "Unlink from main panel"
-msgstr "Ana panel ile bağlantıla"
+msgstr "Ana panel ile bağlantıyı kopar"
 
 #: js/messages.php:465
 msgid "The requested page was not found in the history, it may have expired."
