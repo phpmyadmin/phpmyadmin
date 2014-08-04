@@ -1238,6 +1238,37 @@ class PMA_DbQbe
         $candidate_columns = $this->_getLeftJoinColumnCandidates(
             $all_tables, $all_columns, $where_clause_columns
         );
+
+        // Generally, we need to display all the rows of foreign (referenced)
+        // table, whether they have any matching row in child table or not.
+        // So we select candidate tables which are foreign tables.
+        $foreign_tables = array();
+        foreach ($candidate_columns as $key => $one_table) {
+            $foreigners = PMA_getForeigners($this->_db, $one_table);
+            foreach ($foreigners as $key => $foreigner) {
+                if ($key != 'foreign_keys_data') {
+                    if (in_array($foreigner['foreign_table'], $candidate_columns)) {
+                        $foreign_tables[$foreigner['foreign_table']]
+                            = $foreigner['foreign_table'];
+                    }
+                } else {
+                    foreach ($foreigner as $one_key) {
+                        if (in_array(
+                            $one_key['ref_table_name'],
+                            $candidate_columns
+                        )
+                        ) {
+                            $foreign_tables[$one_key['ref_table_name']]
+                                = $one_key['ref_table_name'];
+                        }
+                    }
+                }
+            }
+        }
+        if (count($foreign_tables)) {
+            $candidate_columns = $foreign_tables;
+        }
+
         // If our array of candidates has more than one member we'll just
         // find the smallest table.
         // Of course the actual query would be faster if we check for
@@ -1264,9 +1295,9 @@ class PMA_DbQbe
             }
             $csize[$table] = $tsize[$table];
         }
-        asort($csize);
+        arsort($csize);
         reset($csize);
-        $master = key($csize); // Smallest
+        $master = key($csize); // Largest
 
         return $master;
     }
