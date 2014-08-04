@@ -312,6 +312,17 @@ input.button:active {
     text-shadow: none;
 }
 
+input[type=submit]:disabled,
+input[type=button]:disabled,
+button[type=submit]:not(.mult_submit):disabled,
+input[type=reset]:disabled,
+input[name=submit_reset]:disabled,
+input.button:disabled {
+    background: #ccc;
+    color: #666;
+    text-shadow: none;
+}
+
 textarea {
     overflow: visible;
     height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 1.2); ?>em;
@@ -520,14 +531,14 @@ fieldset .formelement {
     fieldset .formelement {
         clear: none;
     }
-    #relationalTable td:first-child + td {
+    .relationalTable td:first-child + td {
         width: 25%;
     }
-    #relationalTable td:first-child + td select {
+    .relationalTable td:first-child + td select {
         width: 32%;
         margin-right: 1%;
     }
-    #relationalTable {
+    .relationalTable {
         width: 100%;
     }
 
@@ -2908,7 +2919,7 @@ fieldset .disabled-field td {
     padding-<?php echo $left; ?>: 20px;
 }
 
-#relationalTable select {
+.relationalTable select {
     width: 125px;
     margin-right: 5px;
 }
@@ -3099,6 +3110,11 @@ table.show_create td {
 #pma_console .query_input:before {
     top: -2px;
 }
+#pma_console .query_input textarea {
+    width: 100%;
+    height: 4em;
+    resize: vertical;
+}
 #pma_console .message:hover:before {
     color: #7cf;
     font-weight: bold;
@@ -3132,9 +3148,13 @@ table.show_create td {
 #pma_console .message.collapsed .action.collapse,
 #pma_console .message.expanded .action.expand,
 #pma_console .message .action.requery,
+#pma_console .message .action.profiling,
+#pma_console .message .action.explain,
 #pma_console .message .action.bookmark {
     display: none;
 }
+#pma_console .message.select .action.profiling,
+#pma_console .message.select .action.explain,
 #pma_console .message.history .text.targetdb,
 #pma_console .message.successed .text.targetdb,
 #pma_console .message.history .action.requery,
@@ -3229,6 +3249,16 @@ html.ie7 #pma_console .query_input {
 #pma_console_options .content {
     padding: 4px 6px;
 }
+#pma_bookmarks .content.add_bookmark .options {
+    margin-<?php echo $left; ?>: 1.4em;
+    padding-bottom: .4em;
+    margin-bottom: .4em;
+    border-bottom: solid 1px #ccc;
+}
+#pma_bookmarks .content.add_bookmark .options button {
+    margin: 0 7px;
+    vertical-align: bottom;
+}
 #pma_bookmarks .content.add_bookmark input[type=text] {
     margin: 0;
     padding: 2px 4px;
@@ -3252,10 +3282,15 @@ html.ie7 #pma_console .query_input {
     min-height: initial;
     max-height: initial;
 }
+.firefox .cm-s-pma.CodeMirror {
+    font-size: 120%;
+}
 .cm-s-pma .CodeMirror-scroll {
     padding-bottom: 2em;
     cursor: text;
 }
+
+/* PMA drop-improt style */
 
 .pma_drop_handler {
     display: none;

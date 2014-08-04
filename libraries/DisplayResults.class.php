@@ -2145,12 +2145,12 @@ class PMA_DisplayResults
     /**
      * Get sort order link
      *
-     * @param string  $order_img   the sort order image
-     * @param integer $col_index   the index of the column
-     * @param string  $direction   the display direction
-     * @param array   $fields_meta set of field properties
-     * @param string  $order_url   the url for sort
-     * @param string  $multi_order_url   the url for sort
+     * @param string  $order_img       the sort order image
+     * @param integer $col_index       the index of the column
+     * @param string  $direction       the display direction
+     * @param array   $fields_meta     set of field properties
+     * @param string  $order_url       the url for sort
+     * @param string  $multi_order_url the url for sort
      *
      * @return  string                      the sort order link
      *
@@ -4966,17 +4966,37 @@ class PMA_DisplayResults
         if ($exist_rel) {
 
             foreach ($exist_rel as $master_field => $rel) {
-
-                $display_field = PMA_getDisplayField(
-                    $rel['foreign_db'], $rel['foreign_table']
-                );
-
-                $map[$master_field] = array(
+                if ($master_field != 'foreign_keys_data') {
+                    $display_field = PMA_getDisplayField(
+                        $rel['foreign_db'], $rel['foreign_table']
+                    );
+                    $map[$master_field] = array(
                         $rel['foreign_table'],
                         $rel['foreign_field'],
                         $display_field,
                         $rel['foreign_db']
                     );
+                } else {
+                    foreach ($rel as $key => $one_key) {
+                        foreach ($one_key['index_list'] as $index => $one_field) {
+                            $display_field = PMA_getDisplayField(
+                                isset($one_key['ref_db_name'])
+                                ? $one_key['ref_db_name']
+                                : $GLOBALS['db'],
+                                $one_key['ref_table_name']
+                            );
+
+                            $map[$one_field] = array(
+                                $one_key['ref_table_name'],
+                                $one_key['ref_index_list'][$index],
+                                $display_field,
+                                isset($one_key['ref_db_name'])
+                                ? $one_key['ref_db_name']
+                                : $GLOBALS['db']
+                            );
+                        }
+                    }
+                }
             } // end while
         } // end if
 

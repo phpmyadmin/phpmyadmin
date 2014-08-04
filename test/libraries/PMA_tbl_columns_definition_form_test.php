@@ -361,7 +361,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['cfg']['BrowseMIME'] = true;
         $GLOBALS['cfg']['ShowHint'] = false;
-        $result = PMA_getHeaderCells(false, true, true, 'db', 'table');
+        $result = PMA_getHeaderCells(false, array(), true, 'db', 'table');
 
         $this->assertContains(
             'Index',

@@ -45,6 +45,7 @@ $post_params = array(
     'destination_foreign_column',
     'display_field',
     'fields_name',
+    'foreign_key_fields_name',
     'on_delete',
     'on_update'
 );
@@ -103,6 +104,10 @@ if (isset($_POST['destination_db']) && $cfgRelation['relwork']) {
 
 $html_output = '';
 
+$multi_edit_columns_name = isset($_REQUEST['foreign_key_fields_name'])
+    ? $_REQUEST['foreign_key_fields_name']
+    : null;
+
 // u p d a t e s    f o r    f o r e i g n    k e y s
 // (for now, one index name only; we keep the definitions if the
 // foreign db is not the same)
@@ -111,10 +116,9 @@ if (isset($destination_foreign_db)) {
         $destination_foreign_db,
         $multi_edit_columns_name, $destination_foreign_table,
         $destination_foreign_column, $options_array, $table,
-        isset($existrel_foreign) ? $existrel_foreign : null
+        isset($existrel_foreign) ? $existrel_foreign['foreign_keys_data'] : null
     );
 } // end if isset($destination_foreign)
-
 
 // U p d a t e s   f o r   d i s p l a y   f i e l d
 if ($cfgRelation['displaywork'] && isset($display_field)) {
@@ -149,7 +153,8 @@ $columns = $GLOBALS['dbi']->getColumns($db, $table);
 // common form
 $html_output .= PMA_getHtmlForCommonForm(
     $db, $table, $columns, $cfgRelation, $tbl_storage_engine, $existrel,
-    isset($existrel_foreign) ? $existrel_foreign : null, $options_array
+    isset($existrel_foreign) ? $existrel_foreign['foreign_keys_data'] : null,
+    $options_array
 );
 
 if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {

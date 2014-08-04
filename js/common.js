@@ -448,14 +448,35 @@ PMA_DROP_IMPORT = {
      * @return void
      */
     _dragenter : function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+        if (!PMA_DROP_IMPORT._hasFiles(event)) {
+            return;
+        }
         if (PMA_commonParams.get('db') === '') {
             $(".pma_drop_handler").html(PMA_messages.dropImportSelectDB);
         } else {
             $(".pma_drop_handler").html(PMA_messages.dropImportDropFiles);
         }
         $(".pma_drop_handler").fadeIn();
-        event.stopPropagation();
-        event.preventDefault();
+    },
+    /**
+     * Check if dragged element contains Files
+     *
+     * @param event the event object
+     *
+     * @return bool
+     */
+    _hasFiles: function (event) {
+        if (typeof event.originalEvent.dataTransfer.types === 'undefined' ||
+            $.inArray('Files', event.originalEvent.dataTransfer.types) < 0 ||
+            $.inArray(
+                'application/x-moz-nativeimage',
+                event.originalEvent.dataTransfer.types
+            ) >= 0) {
+            return false;
+        }
+        return true;
     },
     /**
      * Triggered when dragged file is being dragged over PMA UI
@@ -465,9 +486,12 @@ PMA_DROP_IMPORT = {
      * @return void
      */
     _dragover: function (event) {
-        $(".pma_drop_handler").fadeIn();
         event.stopPropagation();
         event.preventDefault();
+        if (!PMA_DROP_IMPORT._hasFiles(event)) {
+            return;
+        }
+        $(".pma_drop_handler").fadeIn();
     },
     /**
      * Triggered when dragged objects are left
@@ -539,8 +563,15 @@ PMA_DROP_IMPORT = {
         var dbname = PMA_commonParams.get('db');
         //if no database is selected -- no
         if (dbname !== '') {
-            $(".pma_sql_import_status").slideDown();
             var files = event.originalEvent.dataTransfer.files;
+            if (!files || files.length === 0) {
+                // No files actually transfered
+                $(".pma_drop_handler").fadeOut();
+                event.stopPropagation();
+                event.preventDefault();
+                return;
+            }
+            $(".pma_sql_import_status").slideDown();
             for (var i = 0; i < files.length; i++) {
                 var ext  = (PMA_DROP_IMPORT._getExtension(files[i].name));
                 var hash = AJAX.hash(++PMA_DROP_IMPORT.uploadCount);
@@ -586,6 +617,8 @@ PMA_DROP_IMPORT = {
 
                     // init uploading
                     PMA_DROP_IMPORT._sendFileToServer(fd, hash);
+                } else if (!PMA_DROP_IMPORT.liveUploadCount) {
+                    $('.pma_sql_import_status h2 .close').fadeIn();
                 }
             }
         }
@@ -613,9 +646,11 @@ $(document).on('click', '.pma_sql_import_status h2 .minimize', function() {
     if ($(this).attr('toggle') === 'off') {
         $('.pma_sql_import_status div').css('height','270px');
         $(this).attr('toggle','on');
+        $(this).html('-');  // to minimize
     } else {
         $('.pma_sql_import_status div').css("height","0px");
         $(this).attr('toggle','off');
+        $(this).html('+');  // to maximise
     }
 });
 

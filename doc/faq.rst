@@ -879,8 +879,7 @@ TableSeparator or disabling that feature.
 3.6 What is currently not supported in phpMyAdmin about InnoDB?
 ---------------------------------------------------------------
 
-In Relation view, having more than one index column in the foreign key. In Query-by-
-example (Query), automatic generation of the query LEFT JOIN from the
+In Query-by-example (Query), automatic generation of the query LEFT JOIN from the
 foreign table.
 
 .. _faq3_7:

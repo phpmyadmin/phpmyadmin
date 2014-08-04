@@ -50,7 +50,7 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $_POST['paper'] = 'paper';
         $_POST['export_type'] = 'PMA_ExportType';
         $_POST['with_doc'] = 'on';
-
+        $_POST['offline_export'] = false;
         $GLOBALS['server'] = 1;
         $GLOBALS['controllink'] = null;
         $GLOBALS['db'] = 'information_schema';

@@ -547,6 +547,7 @@ function PMA_getNullColumn($column, $column_name_appendix, $real_null_value,
  */
 function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
 {
+    $foreigner = PMA_searchColumnInForeigners($foreigners, $column['Field']);
     if (strstr($column['True_Type'], 'enum')) {
         if (strlen($column['Type']) > 20) {
             $nullify_code = '1';
@@ -556,13 +557,13 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
     } elseif (strstr($column['True_Type'], 'set')) {
         $nullify_code = '3';
     } elseif ($foreigners
-        && isset($foreigners[$column['Field']])
+        && $foreigner
         && $foreignData['foreign_link'] == false
     ) {
         // foreign key in a drop-down
         $nullify_code = '4';
     } elseif ($foreigners
-        && isset($foreigners[$column['Field']])
+        && $foreigner
         && $foreignData['foreign_link'] == true
     ) {
         // foreign key with a browsing icon
@@ -2050,16 +2051,17 @@ function PMA_getWarningMessages()
 function PMA_getDisplayValueForForeignTableColumn($where_comparison,
     $relation_field_value, $map, $relation_field
 ) {
+    $foreigner = PMA_searchColumnInForeigners($map, $relation_field);
     $display_field = PMA_getDisplayField(
-        $map[$relation_field]['foreign_db'],
-        $map[$relation_field]['foreign_table']
+        $foreigner['foreign_db'],
+        $foreigner['foreign_table']
     );
     // Field to display from the foreign table?
     if (isset($display_field) && strlen($display_field)) {
         $dispsql = 'SELECT ' . PMA_Util::backquote($display_field)
-            . ' FROM ' . PMA_Util::backquote($map[$relation_field]['foreign_db'])
-            . '.' . PMA_Util::backquote($map[$relation_field]['foreign_table'])
-            . ' WHERE ' . PMA_Util::backquote($map[$relation_field]['foreign_field'])
+            . ' FROM ' . PMA_Util::backquote($foreigner['foreign_db'])
+            . '.' . PMA_Util::backquote($foreigner['foreign_table'])
+            . ' WHERE ' . PMA_Util::backquote($foreigner['foreign_field'])
             . $where_comparison;
         $dispresult  = $GLOBALS['dbi']->tryQuery(
             $dispsql, null, PMA_DatabaseInterface::QUERY_STORE
@@ -2088,6 +2090,7 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
 function PMA_getLinkForRelationalDisplayField($map, $relation_field,
     $where_comparison, $dispval, $relation_field_value
 ) {
+    $foreigner = PMA_searchColumnInForeigners($map, $relation_field);
     if ('K' == $_SESSION['tmpval']['relational_display']) {
         // user chose "relational key" in the display options, so
         // the title contains the display field
@@ -2098,13 +2101,13 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
         $title = ' title="' . htmlspecialchars($relation_field_value) . '"';
     }
     $_url_params = array(
-        'db'    => $map[$relation_field]['foreign_db'],
-        'table' => $map[$relation_field]['foreign_table'],
+        'db'    => $foreigner['foreign_db'],
+        'table' => $foreigner['foreign_table'],
         'pos'   => '0',
         'sql_query' => 'SELECT * FROM '
-            . PMA_Util::backquote($map[$relation_field]['foreign_db'])
-            . '.' . PMA_Util::backquote($map[$relation_field]['foreign_table'])
-            . ' WHERE ' . PMA_Util::backquote($map[$relation_field]['foreign_field'])
+            . PMA_Util::backquote($foreigner['foreign_db'])
+            . '.' . PMA_Util::backquote($foreigner['foreign_table'])
+            . ' WHERE ' . PMA_Util::backquote($foreigner['foreign_field'])
             . $where_comparison
     );
     $output = '<a href="sql.php'

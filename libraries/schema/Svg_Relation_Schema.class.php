@@ -306,12 +306,12 @@ class Table_Stats_Svg extends TableStats
      *       Table_Stats_Svg::Table_Stats_setHeight
      */
     function __construct(
-        $tableName, $font, $fontSize, $pageNumber,
-        &$same_wide_width, $showKeys = false, $showInfo = false
+        $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
+        $showKeys = false, $showInfo = false, $offline = false
     ) {
         global $svg, $cfgRelation, $db;
         parent::__construct(
-            $svg, $db, $pageNumber, $tableName, $showKeys, $showInfo
+            $svg, $db, $pageNumber, $tableName, $showKeys, $showInfo, $offline
         );
 
         // height and width
@@ -672,6 +672,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         $this->setTableDimension($_POST['show_table_dimension']);
         $this->setAllTablesSameWidth($_POST['all_tables_same_width']);
         $this->setExportType($_POST['export_type']);
+        $this->setOffline($_POST['offline_export']);
 
         $svg = new PMA_SVG();
         $svg->setTitle(
@@ -685,13 +686,23 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         $svg->setFont('Arial');
         $svg->setFontSize('16px');
         $svg->startSvgDoc('1000px', '1000px');
-        $alltables = $this->getAllTables($db, $this->pageNumber);
+
+        if ($this->isOffline()) {
+            $alltables = array();
+            $tbl_coords = json_decode($GLOBALS['tbl_coords']);
+            foreach ($tbl_coords as $tbl) {
+                $alltables[] = $tbl->table_name;
+            }
+        } else {
+            $alltables = $this->getAllTables($db, $this->pageNumber);
+        }
 
         foreach ($alltables as $table) {
             if (! isset($this->_tables[$table])) {
                 $this->_tables[$table] = new Table_Stats_Svg(
                     $table, $svg->getFont(), $svg->getFontSize(), $this->pageNumber,
-                    $this->_tablewidth, $this->showKeys, $this->tableDimension
+                    $this->_tablewidth, $this->showKeys, $this->tableDimension,
+                    $this->isOffline()
                 );
             }
 
@@ -711,12 +722,30 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
                     * (do not use array_search() because we would have to
                     * to do a === false and this is not PHP3 compatible)
                     */
-                    if (in_array($rel['foreign_table'], $alltables)) {
-                        $this->_addRelation(
-                            $one_table, $svg->getFont(), $svg->getFontSize(),
-                            $master_field, $rel['foreign_table'],
-                            $rel['foreign_field'], $this->tableDimension
-                        );
+                    if ($master_field != 'foreign_keys_data') {
+                        if (in_array($rel['foreign_table'], $alltables)) {
+                            $this->_addRelation(
+                                $one_table, $svg->getFont(), $svg->getFontSize(),
+                                $master_field, $rel['foreign_table'],
+                                $rel['foreign_field'], $this->tableDimension
+                            );
+                        }
+                    } else {
+                        foreach ($rel as $key => $one_key) {
+                            if (in_array($one_key['ref_table_name'], $alltables)) {
+                                foreach ($one_key['index_list']
+                                    as $index => $one_field
+                                ) {
+                                    $this->_addRelation(
+                                        $one_table, $svg->getFont(),
+                                        $svg->getFontSize(),
+                                        $one_field, $one_key['ref_table_name'],
+                                        $one_key['ref_index_list'][$index],
+                                        $this->tableDimension
+                                    );
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -738,7 +767,11 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
     function showOutput()
     {
         global $svg,$db;
-        $svg->showOutput($db . '-' . $this->pageNumber);
+        $filename = $db . '-' . $this->pageNumber;
+        if ($this->isOffline()) {
+            $filename = __("SVG export page");
+        }
+        $svg->showOutput($filename);
     }
 
 

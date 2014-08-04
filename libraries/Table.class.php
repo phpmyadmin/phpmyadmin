@@ -1386,7 +1386,7 @@ class PMA_Table
     /**
      * Get all unique columns
      *
-     * returns an array with all columns with unqiue content, in fact these are
+     * returns an array with all columns with unique content, in fact these are
      * all columns being single indexed in PRIMARY or UNIQUE
      *
      * e.g.
@@ -1428,27 +1428,27 @@ class PMA_Table
     /**
      * Get all indexed columns
      *
-     * returns an array with all columns make use of an index, in fact only
-     * first columns in an index
+     * returns an array with all columns that make use of an index
      *
-     * e.g. index(col1, col2) would only return col1
+     * e.g. index(col1, col2) would return col1, col2
      *
      * @param bool $backquoted whether to quote name with backticks ``
+     * @param bool $fullName   whether to include full name of the table as a prefix
      *
      * @return array
      */
-    public function getIndexedColumns($backquoted = true)
+    public function getIndexedColumns($backquoted = true, $fullName = true)
     {
         $sql = $GLOBALS['dbi']->getTableIndexesSql(
             $this->getDbName(),
             $this->getName(),
-            'Seq_in_index = 1'
+            ''
         );
         $indexed = $GLOBALS['dbi']->fetchResult($sql, 'Column_name', 'Column_name');
 
         $return = array();
         foreach ($indexed as $column) {
-            $return[] = $this->getFullName($backquoted) . '.'
+            $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
                 . ($backquoted ? PMA_Util::backquote($column) : $column);
         }
 

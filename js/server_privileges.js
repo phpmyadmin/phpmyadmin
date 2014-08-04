@@ -47,19 +47,43 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
     //Append the newly retrieved user to the table now
     //Calculate the index for the new row
     var $curr_last_row = $("#usersForm").find('tbody').find('tr:last');
-    var $curr_first_row = $("#usersForm").find('tbody').find('tr:first');
-    var first_row_initial = $curr_first_row.find('label').html().substr(0, 1).toUpperCase();
-    var curr_shown_initial = $curr_last_row.find('label').html().substr(0, 1).toUpperCase();
-    var curr_last_row_index_string = $curr_last_row.find('input:checkbox').attr('id').match(/\d+/)[0];
-    var curr_last_row_index = parseFloat(curr_last_row_index_string);
-    var new_last_row_index = curr_last_row_index + 1;
+    var curr_shown_initial;
+    var is_show_all;
+    var $insert_position;
+    var dummy_tr_inserted;
+    var $tbody;
+    var new_last_row_index;
+
+    if ($curr_last_row.length) {
+        // at least one tr exists inside the tbody
+        var $curr_first_row = $("#usersForm").find('tbody').find('tr:first');
+        var first_row_initial = $curr_first_row.find('label').html().substr(0, 1).toUpperCase();
+        curr_shown_initial = $curr_last_row.find('label').html().substr(0, 1).toUpperCase();
+        var curr_last_row_index_string = $curr_last_row.find('input:checkbox').attr('id').match(/\d+/)[0];
+        var curr_last_row_index = parseFloat(curr_last_row_index_string);
+        new_last_row_index = curr_last_row_index + 1;
+        is_show_all = (first_row_initial != curr_shown_initial) ? true : false;
+        $insert_position = $curr_last_row;
+        dummy_tr_inserted = false;
+    } else {
+        // no tr exists inside the tbody
+        $tbody = $("#usersForm").find('tbody');
+        // append a dummy tr
+        $tbody.append('<tr></tr>');
+        dummy_tr_inserted = true;
+        $insert_position = $tbody.find('tr:first');
+        is_show_all = true;
+        //todo: the case when the new user's initial does not match
+        //      the currently selected initial
+        curr_shown_initial = '';
+        new_last_row_index = 0;
+    }
     var new_last_row_id = 'checkbox_sel_users_' + new_last_row_index;
-    var is_show_all = (first_row_initial != curr_shown_initial) ? true : false;
 
     //Append to the table and set the id/names correctly
     if ((curr_shown_initial == new_user_initial) || is_show_all) {
         $(new_user_string)
-        .insertAfter($curr_last_row)
+        .insertAfter($insert_position)
         .find('input:checkbox')
         .attr('id', new_last_row_id)
         .val(function () {
@@ -70,6 +94,11 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
         .find('label')
         .attr('for', new_last_row_id)
         .end();
+    }
+
+    if (dummy_tr_inserted) {
+        // remove the dummy tr
+        $tbody.find('tr:first').remove();
     }
 
     //Let us sort the table alphabetically

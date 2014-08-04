@@ -541,30 +541,52 @@ function Save(url) // (del?) no for pdf
 
 function Get_url_pos()
 {
-    var poststr = '';
-    for (var key in j_tabs) {
-        poststr += '&t_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
-        poststr += '&t_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
-        poststr += '&t_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display == 'none' ? 0 : 1);
-        poststr += '&t_h[' + key + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
+    if (pmd_tables_enabled) {
+        var poststr = '';
+        for (var key in j_tabs) {
+            poststr += '&t_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
+            poststr += '&t_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
+            poststr += '&t_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display == 'none' ? 0 : 1);
+            poststr += '&t_h[' + key + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
+        }
+        return poststr;
+    } else {
+        var coords = [];
+        for (var key in j_tabs) {
+            if (document.getElementById('check_vis_' + key).checked) {
+                var x = parseInt(document.getElementById(key).style.left, 10);
+                var y = parseInt(document.getElementById(key).style.top, 10);
+                var tbCoords = new TableCoordinate(db, key.split(".")[1], -1, x, y);
+                coords.push(tbCoords);
+            }
+        }
+        return coords;
     }
-    return poststr;
 }
 
 function Save2(callback)
 {
     _change = 0;
-    var poststr = 'IS_AJAX=1&server=' + server + '&db=' + db + '&token=' + token + '&die_save_pos=1&selected_page=' + selected_page;
-    poststr += Get_url_pos();
-    makeRequest('pmd_save_pos.php', poststr);
-    if (callback != null) {
-        callback();
+    if (pmd_tables_enabled) {
+        var poststr = 'IS_AJAX=1&server=' + server + '&db=' + db + '&token=' + token + '&die_save_pos=1&selected_page=' + selected_page;
+        poststr += Get_url_pos();
+        makeRequest('pmd_save_pos.php', poststr);
+        if (callback != null) {
+            callback();
+        }
+    } else {
+        var name = $("#page_name").html().trim();
+        Save_to_selected_page(db, selected_page, name, Get_url_pos(), function (page){
+            if (callback != null) {
+                callback();
+            }
+        });
     }
 }
 
 function Save3(callback)
 {
-    if (selected_page !== '-1') {
+    if (parseInt(selected_page) !== -1) {
         Save2(callback);
     } else {
         var button_options = {};
@@ -577,23 +599,36 @@ function Save3(callback)
             }
             $(this).dialog('close');
 
-            var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            PMA_prepareForAjaxRequest($form);
-            $.post($form.attr('action'), $form.serialize() + Get_url_pos(), function (data) {
-                if (data.success === false) {
-                    PMA_ajaxShowMessage(data.error, false);
-                } else {
-                    PMA_ajaxRemoveMessage($msgbox);
-                    _change = 0;
-                    if (data.id) {
-                        selected_page = data.id;
+            if (pmd_tables_enabled) {
+                var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+                PMA_prepareForAjaxRequest($form);
+                $.post($form.attr('action'), $form.serialize() + Get_url_pos(), function (data) {
+                    if (data.success === false) {
+                        PMA_ajaxShowMessage(data.error, false);
+                    } else {
+                        PMA_ajaxRemoveMessage($msgbox);
+                        _change = 0;
+                        if (data.id) {
+                            selected_page = data.id;
+                        }
+                        $('#page_name').text(name);
+                        if (callback != null) {
+                            callback();
+                        }
                     }
-                    $('#page_name').text(name);
+                });
+            } else {
+                Save_to_new_page(db, name, Get_url_pos(), function (page) {
+                    _change = 0;
+                    if (page.pg_nr) {
+                        selected_page = page.pg_nr;
+                    }
+                    $('#page_name').text(page.page_descr);
                     if (callback != null) {
                         callback();
                     }
-                }
-            }); // end $.post()
+                });
+            }
         };
         button_options[PMA_messages.strCancel] = function () {
             $(this).dialog('close');
@@ -647,6 +682,12 @@ function Edit_pages()
                 PMA_ajaxShowMessage(data.error, false);
             } else {
                 PMA_ajaxRemoveMessage($msgbox);
+
+                if (! pmd_tables_enabled) {
+                    Create_page_list(function (options) {
+                        $("#page_edit_dialog #selected_page").append(options);
+                    });
+                }
                 $('<div id="page_edit_dialog"></div>')
                     .append(data.message)
                     .dialog({
@@ -675,20 +716,36 @@ function Delete_pages()
         }
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-        var deleting_current_page = selected === selected_page;
+        var deleting_current_page = selected == selected_page;
         PMA_prepareForAjaxRequest($form);
-        $.post($form.attr('action'), $form.serialize(), function (data) {
-            if (data.success === false) {
-                PMA_ajaxShowMessage(data.error, false);
-            } else {
-                PMA_ajaxRemoveMessage($msgbox);
-                if (deleting_current_page) {
-                    Load_page(null);
+
+        if (pmd_tables_enabled) {
+            $.post($form.attr('action'), $form.serialize(), function (data) {
+                if (data.success === false) {
+                    PMA_ajaxShowMessage(data.error, false);
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages.strSuccessfulPageDelete);
+                    PMA_ajaxRemoveMessage($msgbox);
+                    if (deleting_current_page) {
+                        Load_page(null);
+                    } else {
+                        PMA_ajaxShowMessage(PMA_messages.strSuccessfulPageDelete);
+                    }
                 }
-            }
-        }); // end $.post()
+            }); // end $.post()
+        } else {
+            Delete_page(selected, function (success) {
+                if (! success) {
+                    PMA_ajaxShowMessage("Error", false);
+                } else {
+                    PMA_ajaxRemoveMessage($msgbox);
+                    if (deleting_current_page) {
+                        Load_page(null);
+                    } else {
+                        PMA_ajaxShowMessage(PMA_messages.strSuccessfulPageDelete);
+                    }
+                }
+            });
+        }
 
         $(this).dialog('close');
     };
@@ -703,6 +760,13 @@ function Delete_pages()
             PMA_ajaxShowMessage(data.error, false);
         } else {
             PMA_ajaxRemoveMessage($msgbox);
+
+            if (! pmd_tables_enabled) {
+                Create_page_list(function (options) {
+                    $("#page_delete_dialog #selected_page").append(options);
+                });
+            }
+
             $('<div id="page_delete_dialog"></div>')
                 .append(data.message)
                 .dialog({
@@ -744,19 +808,42 @@ function Save_as()
         }
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-        PMA_prepareForAjaxRequest($form);
-        $.post($form.attr('action'), $form.serialize() + Get_url_pos(), function (data) {
-            if (data.success === false) {
-                PMA_ajaxShowMessage(data.error, false);
-            } else {
-                PMA_ajaxRemoveMessage($msgbox);
-                _change = 0;
-                if (data.id) {
-                    selected_page = data.id;
+        if (pmd_tables_enabled) {
+            PMA_prepareForAjaxRequest($form);
+            $.post($form.attr('action'), $form.serialize() + Get_url_pos(), function (data) {
+                if (data.success === false) {
+                    PMA_ajaxShowMessage(data.error, false);
+                } else {
+                    PMA_ajaxRemoveMessage($msgbox);
+                    _change = 0;
+                    if (data.id) {
+                        selected_page = data.id;
+                    }
+                    $('#page_name').text(name);
                 }
-                $('#page_name').text(name);
+            }); // end $.post()
+        } else {
+            if (choice === 'same') {
+                var selected_page_id = $selected_page.find('option:selected').val();
+                Save_to_selected_page(db, selected_page_id, name, Get_url_pos(), function (page) {
+                    PMA_ajaxRemoveMessage($msgbox);
+                    _change = 0;
+                    if (page.pg_nr) {
+                        selected_page = page.pg_nr;
+                    }
+                    $('#page_name').text(page.page_descr);
+                });
+            } else if (choice === 'new') {
+                Save_to_new_page(db, name, Get_url_pos(), function (page) {
+                    PMA_ajaxRemoveMessage($msgbox);
+                    _change = 0;
+                    if (page.pg_nr) {
+                        selected_page = page.pg_nr;
+                    }
+                    $('#page_name').text(page.page_descr);
+                });
             }
-        }); // end $.post()
+        }
 
         $(this).dialog('close');
     };
@@ -771,6 +858,13 @@ function Save_as()
             PMA_ajaxShowMessage(data.error, false);
         } else {
             PMA_ajaxRemoveMessage($msgbox);
+
+            if (! pmd_tables_enabled) {
+                Create_page_list(function (options) {
+                    $("#page_save_as_dialog #selected_page").append(options);
+                });
+            }
+
             $('<div id="page_save_as_dialog"></div>')
                 .append(data.message)
                 .dialog({
@@ -828,7 +922,7 @@ function Export_pages()
     button_options[PMA_messages.strGo] = function () {
         var $form = $("#id_export_pages");
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-        location.href = $form.attr('action') + '?' + getParamsForExport($form) + Get_url_pos();
+        location.href = $form.attr('action') + '?' + getParamsForExport($form);
         $msgbox.remove();
         $(this).dialog('close');
     };
@@ -873,19 +967,35 @@ function getParamsForExport($from)
     url += "&show_grid=" + ($from.find('input[name="show_grid"]').is(":checked") ? "on" : "off");
     url += "&show_keys=" + ($from.find('input[name="show_keys"]').is(":checked") ? "on" : "off");
     url += "&show_table_dimension=" + ($from.find('input[name="show_table_dimension"]').is(":checked") ? "on" : "off");
+    url += "&offline_export=" + (pmd_tables_enabled ? "off" : "on");
+    if (pmd_tables_enabled) {
+        url += Get_url_pos();
+    } else {
+        url += "&tbl_coords=" + JSON.stringify(Get_url_pos());
+    }
 
     return url;
 }
 
 
 function Load_page(page) {
-    var param_page = '';
-    if (page !== null) {
-        param_page = '&page=' + page;
+    if (pmd_tables_enabled) {
+        var param_page = '';
+        if (page !== null) {
+            param_page = '&page=' + page;
+        }
+        $('<a href="pmd_general.php?db=' + db + '&token=' + token + param_page + '"></a>')
+            .appendTo($('#page_content'))
+            .click();
+    } else {
+        if (page == null) {
+            Show_tables_in_landing_page();
+        } else if (page > -1) {
+            Load_HTML_for_page(page);
+        } else if (page === -1) {
+            Show_new_page_tables(true);
+        }
     }
-    $('<a href="pmd_general.php?db=' + db + '&token=' + token + param_page + '"></a>')
-        .appendTo($('#page_content'))
-        .click();
     _change = 0;
 }
 

@@ -392,7 +392,7 @@ unset($partition_names);
 
 if ($cfgRelation['relwork'] && ! $is_innodb) {
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
-    $foreign = PMA_getForeigners($GLOBALS['db'], $GLOBALS['table']);
+    $foreign = PMA_getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'internal');
 
     if ($foreign) {
         $response->addHTML(

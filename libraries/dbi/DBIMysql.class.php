@@ -99,7 +99,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
         $server_port = $GLOBALS['dbi']->getServerPort($server);
         $server_socket = $GLOBALS['dbi']->getServerSocket($server);
 
-        if ($server_port === false) {
+        if ($server_port === null) {
             $server_port = '';
         } else {
             $server_port = ':' . $server_port;

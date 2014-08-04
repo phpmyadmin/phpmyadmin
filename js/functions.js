@@ -78,6 +78,34 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
 });
 
 /**
+ * Create a jQuery UI tooltip
+ *
+ * @param $elements     jQuery object representing the elements
+ * @param item          the item
+ *                      (see http://api.jqueryui.com/tooltip/#option-items)
+ * @param myContent     content of the tooltip
+ * @param additionalOptions to override the default options
+ *
+ */
+function PMA_tooltip($elements, item, myContent, additionalOptions)
+{
+    if ($('#no_hint').length > 0) {
+        return;
+    }
+
+    var defaultOptions = {
+        content: myContent,
+        items:  item,
+        tooltipClass: "tooltip",
+        track: true,
+        show: false,
+        hide: false
+    };
+
+    $elements.tooltip($.extend(true, defaultOptions, additionalOptions));
+}
+
+/**
  * HTML escaping
  */
 function escapeHtml(unsafe) {
@@ -1624,6 +1652,10 @@ function catchKeypressesFromSqlTextboxes(event) {
  */
 function PMA_doc_add($elm, params)
 {
+    if (typeof mysql_doc_template == 'undefined') {
+        return;
+    }
+
     var url = $.sprintf(
         mysql_doc_template,
         params[0]
@@ -3982,34 +4014,6 @@ AJAX.registerTeardown('functions.js', function () {
 })(jQuery);
 
 /**
- * Create a jQuery UI tooltip
- *
- * @param $elements     jQuery object representing the elements
- * @param item          the item
- *                      (see http://api.jqueryui.com/tooltip/#option-items)
- * @param myContent     content of the tooltip
- * @param additionalOptions to override the default options
- *
- */
-function PMA_tooltip($elements, item, myContent, additionalOptions)
-{
-    if ($('#no_hint').length > 0) {
-        return;
-    }
-
-    var defaultOptions = {
-        content: myContent,
-        items:  item,
-        tooltipClass: "tooltip",
-        track: true,
-        show: false,
-        hide: false
-    };
-
-    $elements.tooltip($.extend(true, defaultOptions, additionalOptions));
-}
-
-/**
  * Return value of a cell in a table.
  */
 function PMA_getCellValue(td) {
@@ -4481,4 +4485,27 @@ function PMA_ignorePhpErrors(clearPrevErrors){
     // remove dislayed errors
     $('#pma_errors').fadeOut( "slow");
     $('#pma_errors').remove();
+}
+
+/**
+ * checks whether browser supports web storage
+ *
+ * @param type the type of storage i.e. localStorage or sessionStorage
+ *
+ * @returns bool
+ */
+function isStorageSupported(type)
+{
+    try {
+        window[type].setItem('PMATest', 'test');
+        // Check whether key-value pair was set successfully
+        if (window[type].getItem('PMATest') === 'test') {
+            // Supported, remove test variable from storage
+            window[type].removeItem('PMATest');
+            return true;
+        }
+    } catch(error) {
+        // Not supported
+    }
+    return false;
 }

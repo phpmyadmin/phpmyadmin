@@ -266,11 +266,11 @@ function PMA_getHtmlForTableCreateOrAddField($action, $form_params, $content_cel
 /**
  * Function to get header cells
  *
- * @param bool   $is_backup  whether backup or not
- * @param array  $columnMeta column meta data
- * @param bool   $mimework   whether mimework or not
- * @param string $db         current database
- * @param string $table      current table
+ * @param bool       $is_backup  whether backup or not
+ * @param array|null $columnMeta column meta data
+ * @param bool       $mimework   whether mimework or not
+ * @param string     $db         current database
+ * @param string     $table      current table
  *
  * @return array
  */
@@ -1180,23 +1180,24 @@ function PMA_getHtmlForColumnDefault($columnNumber, $ci, $ci_offset, $type_upper
 /**
  * Function to get html for column attributes
  *
- * @param int    $columnNumber                     column number
- * @param array  $columnMeta                       column meta
- * @param string $type_upper                       type upper
- * @param int    $length_values_input_size         length values input size
- * @param int    $length                           length
- * @param string $default_current_timestamp        default current time stamp
- * @param array  $extracted_columnspec             extracted column spec
- * @param string $submit_attribute                 submit attribute
- * @param array  $analyzed_sql                     analyzed sql
- * @param string $submit_default_current_timestamp submit default current time stamp
- * @param array  $comments_map                     comments map
- * @param array  $fields_meta                      fields map
- * @param bool   $is_backup                        is backup
- * @param array  $move_columns                     move columns
- * @param array  $cfgRelation                      configuration relation
- * @param array  $available_mime                   available mime
- * @param array  $mime_map                         mime map
+ * @param int        $columnNumber                     column number
+ * @param array      $columnMeta                       column meta
+ * @param string     $type_upper                       type upper
+ * @param int        $length_values_input_size         length values input size
+ * @param int        $length                           length
+ * @param string     $default_current_timestamp        default current time stamp
+ * @param array|null $extracted_columnspec             extracted column spec
+ * @param string     $submit_attribute                 submit attribute
+ * @param array      $analyzed_sql                     analyzed sql
+ * @param string     $submit_default_current_timestamp submit default current
+ *                                                     timestamp
+ * @param array      $comments_map                     comments map
+ * @param array      $fields_meta                      fields map
+ * @param bool       $is_backup                        is backup
+ * @param array      $move_columns                     move columns
+ * @param array      $cfgRelation                      configuration relation
+ * @param array      $available_mime                   available mime
+ * @param array      $mime_map                         mime map
  *
  * @return array
  */

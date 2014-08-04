@@ -24,12 +24,19 @@ phpMyAdmin - ChangeLog
 + rfe #1488 User privilege tab not shown in all relevant cases
 + rfe #781  Privileges for non superuser
 + rfe #908  Improvements for the table editor (index creation)
++ rfe #1426 Navigation state lost on reload
+- bug #4439 Table list in left panel doesn't expand
 
-4.2.7.0 (not yet released)
+4.2.8.0 (not yet released)
+
+4.2.7.0 (2014-07-31)
 - bug       Broken links on home page
 - bug #4494 Overlap in navigation panel
 - bug #4427 Action icons not in horizontal order
 - bug #4493 s_attention.png is missing
+- bug #4499 Uncaught TypeError: Cannot call method 'substr' of undefined
+- bug #4498 PMA 4.2.x and HHVM
+- bug #4500 mysql_doc_template is not defined
 
 4.2.6.0 (2014-07-17)
 - bug #4471 Undefined index warning with referenced column.

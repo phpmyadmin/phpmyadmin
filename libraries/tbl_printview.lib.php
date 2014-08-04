@@ -54,7 +54,6 @@ function PMA_getHtmlForPrintViewFooter()
  *
  * @param array  $columns      columns list
  * @param array  $analyzed_sql analyzed sql
- * @param array  $pk_array     primary key array
  * @param bool   $have_rel     have relation?
  * @param array  $res_rel      relations array
  * @param string $db           database name
@@ -64,7 +63,7 @@ function PMA_getHtmlForPrintViewFooter()
  * @return string
  */
 function PMA_getHtmlForPrintViewColumns(
-    $columns, $analyzed_sql, $pk_array, $have_rel,
+    $columns, $analyzed_sql, $have_rel,
     $res_rel, $db, $table, $cfgRelation
 ) {
     $html = '';
@@ -121,10 +120,11 @@ function PMA_getHtmlForPrintViewColumns(
         $html .= '&nbsp;</td>';
         if ($have_rel) {
             $html .= '    <td>';
-            if (isset($res_rel[$field_name])) {
+            $foreigner = PMA_searchColumnInForeigners($res_rel, $field_name);
+            if ($foreigner) {
                 $html .= htmlspecialchars(
-                    $res_rel[$field_name]['foreign_table']
-                    . ' -> ' . $res_rel[$field_name]['foreign_field']
+                    $foreigner['foreign_table']
+                    . ' -> ' . $foreigner['foreign_field']
                 );
             }
             $html .= '&nbsp;</td>' . "\n";
@@ -448,7 +448,6 @@ function PMA_getHtmlForSpaceUsageAndRowStatistics(
  * @param array  $tbl_is_view     Is a table view?
  * @param array  $columns         columns list
  * @param array  $analyzed_sql    analyzed sql
- * @param array  $pk_array        primary key array
  * @param array  $res_rel         relations array
  * @param string $db              database
  * @param string $table           table
@@ -461,7 +460,7 @@ function PMA_getHtmlForSpaceUsageAndRowStatistics(
  */
 function PMA_getHtmlForTableStructure(
     $have_rel, $tbl_is_view, $columns, $analyzed_sql,
-    $pk_array, $res_rel, $db, $table, $cfgRelation,
+    $res_rel, $db, $table, $cfgRelation,
     $cfg, $showtable, $cell_align_left
 ) {
     /**
@@ -485,7 +484,7 @@ function PMA_getHtmlForTableStructure(
     $html .= '</thead>';
     $html .= '<tbody>';
     $html .= PMA_getHtmlForPrintViewColumns(
-        $columns, $analyzed_sql, $pk_array, $have_rel,
+        $columns, $analyzed_sql, $have_rel,
         $res_rel, $db, $table, $cfgRelation
     );
     $html .= '</tbody>';
@@ -582,7 +581,7 @@ function PMA_getHtmlForTablesDetail(
 
         $html .= PMA_getHtmlForTableStructure(
             $have_rel, $tbl_is_view, $columns, $analyzed_sql,
-            $pk_array, $res_rel, $db, $table, $cfgRelation,
+            $res_rel, $db, $table, $cfgRelation,
             $cfg, $showtable, $cell_align_left
         );
 

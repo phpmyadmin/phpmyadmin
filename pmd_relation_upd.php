@@ -34,11 +34,12 @@ if (PMA_Util::isForeignKeySupported($type_T1)
 ) {
     // InnoDB
     $existrel_foreign = PMA_getForeigners($DB2, $T2, '', 'foreign');
+    $foreigner = PMA_searchColumnInForeigners($existrel_foreign, $F2);
 
-    if (isset($existrel_foreign[$F2]['constraint'])) {
+    if (isset($foreigner['constraint'])) {
         $upd_query  = 'ALTER TABLE ' . PMA_Util::backquote($DB2)
             . '.' . PMA_Util::backquote($T2) . ' DROP FOREIGN KEY '
-            . PMA_Util::backquote($existrel_foreign[$F2]['constraint'])
+            . PMA_Util::backquote($foreigner['constraint'])
             . ';';
         $upd_rs     = $GLOBALS['dbi']->query($upd_query);
     } else {

@@ -87,6 +87,9 @@ $header   = $response->getHeader();
 $header->setBodyId('pmd_body');
 $scripts  = $header->getScripts();
 $scripts->addFile('jquery/jquery.fullscreen.js');
+$scripts->addFile('pmd/designer_db.js');
+$scripts->addFile('pmd/designer_objects.js');
+$scripts->addFile('pmd/designer_page.js');
 $scripts->addFile('pmd/ajax.js');
 $scripts->addFile('pmd/history.js');
 $scripts->addFile('pmd/move.js');
@@ -103,7 +106,6 @@ $response->addHTML(
         $script_tables, $script_contr, $script_display_field, $display_page
     )
 );
-
 $response->addHTML(PMA_getDesignerPageTopMenu($selected_page));
 
 $response->addHTML('<div id="canvas_outer">');

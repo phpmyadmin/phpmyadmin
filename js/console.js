@@ -104,16 +104,16 @@ var PMA_console = {
             var tempConfig = JSON.parse($.cookie('pma_console_config'));
             if(tempConfig) {
                 if(tempConfig.alwaysExpand === true) {
-                    $('#pma_console_options input[name=always_expand]').attr('checked', true);
+                    $('#pma_console_options input[name=always_expand]').prop('checked', true);
                 }
                 if(tempConfig.startHistory === true) {
-                    $('#pma_console_options input[name=start_history]').attr('checked', true);
+                    $('#pma_console_options input[name=start_history]').prop('checked', true);
                 }
                 if(tempConfig.currentQuery === true) {
-                    $('#pma_console_options input[name=current_query]').attr('checked', true);
+                    $('#pma_console_options input[name=current_query]').prop('checked', true);
                 }
             } else {
-                $('#pma_console_options input[name=current_query]').attr('checked', true);
+                $('#pma_console_options input[name=current_query]').prop('checked', true);
             }
 
             PMA_console.updateConfig();
@@ -166,6 +166,11 @@ var PMA_console = {
                 PMA_console.updateConfig();
             });
 
+            $(document).ajaxComplete(function (event, xhr) {
+                var data = $.parseJSON(xhr.responseText);
+                PMA_console.ajaxCallback(data);
+            });
+
             PMA_console.isInitialized = true;
         }
 
@@ -192,15 +197,15 @@ var PMA_console = {
      *
      * @return void
      */
-    execute: function(queryString, target) {
+    execute: function(queryString, options) {
         if(typeof(queryString) != 'string' || ! /[a-z]|[A-Z]/.test(queryString)){
             return;
         }
         PMA_console.$requestForm.children('textarea').val(queryString);
-        if(target && target.db) {
-            PMA_console.$requestForm.children('[name=db]').attr('value', target.db);
-            if(target.table) {
-                PMA_console.$requestForm.children('[name=table]').attr('value', target.table);
+        if(options && options.db) {
+            PMA_console.$requestForm.children('[name=db]').attr('value', options.db);
+            if(options.table) {
+                PMA_console.$requestForm.children('[name=table]').attr('value', options.table);
             } else {
                 PMA_console.$requestForm.children('[name=table]').attr('value', '');
             }
@@ -208,21 +213,26 @@ var PMA_console = {
             PMA_console.$requestForm.children('[name=db]').attr('value',
                 (PMA_commonParams.get('db').length > 0 ? PMA_commonParams.get('db') : ''));
         }
+        PMA_console.$requestForm.find('[name=profiling]').remove();
+        if(options && options.profiling === true) {
+            PMA_console.$requestForm.append('<input name="profiling" value="on">');
+        }
         if (! confirmQuery(PMA_console.$requestForm[0], PMA_console.$requestForm.children('textarea')[0])) {
             return;
         }
         PMA_console.$requestForm.children('[name=console_message_id]')
-            .attr('value', PMA_consoleMessages.appendQuery({sql_query: queryString}));
+            .attr('value', PMA_consoleMessages.appendQuery({sql_query: queryString}).message_id);
         PMA_console.$requestForm.trigger('submit');
         PMA_consoleInput.clear();
     },
     ajaxCallback: function(data) {
-        if(data.console_message_id) {
+        if(data && data.console_message_id) {
             PMA_consoleMessages.updateQuery(data.console_message_id, data.success,
                 (data._reloadQuerywindow ? data._reloadQuerywindow : false));
-        } else if(data._reloadQuerywindow) {
+        } else if( data && data._reloadQuerywindow) {
             if(data._reloadQuerywindow.sql_query.length > 0) {
-                PMA_consoleMessages.appendQuery(data._reloadQuerywindow, 'successed');
+                PMA_consoleMessages.appendQuery(data._reloadQuerywindow, 'successed')
+                    .$message.addClass(PMA_console.config.currentQuery ? '' : 'hide');
             }
         }
     },
@@ -373,6 +383,10 @@ var PMA_console = {
             currentQuery: $('#pma_console_options input[name=current_query]').prop('checked')
         };
         $.cookie('pma_console_config', JSON.stringify(PMA_console.config));
+    },
+    isSelect: function (queryString) {
+        var reg_exp = /^SELECT\s+/i;
+        return reg_exp.test(queryString);
     }
 };
 
@@ -453,10 +467,15 @@ var PMA_consoleResizer = {
  */
 var PMA_consoleInput = {
     /**
-     * @var CodeMirror object
+     * @var array, contains Codemirror objects or input jQuery objects
      * @access private
      */
-    _cm: null,
+    _inputs: null,
+    /**
+     * @var bool, if codemirror enabled
+     * @access private
+     */
+    _codemirror: false,
     /**
      * Used for console input initialize
      *
@@ -464,15 +483,35 @@ var PMA_consoleInput = {
      */
     initialize: function() {
         // _cm object can't be reinitialize
-        if(PMA_consoleInput._cm !== null) {
+        if(PMA_consoleInput._inputs !== null) {
             return;
         }
-        PMA_consoleInput._cm = CodeMirror($('#query_input')[0], {
-            theme: 'pma',
-            mode: 'text/x-sql',
-            lineWrapping: true
-        });
-        $('#pma_console .CodeMirror.cm-s-pma').keydown(PMA_consoleInput._keydown);
+        if(typeof CodeMirror !== 'undefined') {
+            PMA_consoleInput._codemirror = true;
+        }
+        PMA_consoleInput._inputs = [];
+        if (PMA_consoleInput._codemirror) {
+            PMA_consoleInput._inputs.console = CodeMirror($('#pma_console .console_query_input')[0], {
+                theme: 'pma',
+                mode: 'text/x-sql',
+                lineWrapping: true
+            });
+            if ($('#pma_bookmarks').length !== 0) {
+                PMA_consoleInput._inputs.bookmark = CodeMirror($('#pma_console .bookmark_add_input')[0], {
+                    theme: 'pma',
+                    mode: 'text/x-sql',
+                    lineWrapping: true
+                });
+            }
+        } else {
+            PMA_consoleInput._inputs.console =
+                $('<textarea>').appendTo('#pma_console .console_query_input');
+            if ($('#pma_bookmarks').length !== 0) {
+                PMA_consoleInput._inputs.bookmark =
+                    $('<textarea>').appendTo('#pma_console .bookmark_add_input');
+            }
+        }
+        $('#pma_console .console_query_input').keydown(PMA_consoleInput._keydown);
     },
     /**
      * Mousedown event handler for bind to input
@@ -491,19 +530,20 @@ var PMA_consoleInput = {
      * @return void
      */
     execute: function() {
-        PMA_console.execute(PMA_consoleInput._cm.getValue());
+        if (PMA_consoleInput._codemirror) {
+            PMA_console.execute(PMA_consoleInput._inputs.console.getValue());
+        } else {
+            PMA_console.execute(PMA_consoleInput._inputs.console.val());
+        }
     },
     /**
      * Used for clear the input
      *
-     * @param bool clearHistory if true, clear type history
+     * @param string target, default target is console input
      * @return void
      */
-    clear: function(clearHistory) {
-        PMA_consoleInput._cm.setValue('');
-        if(clearHistory){
-            PMA_consoleInput._cm.clearHistory();
-        }
+    clear: function(target) {
+        PMA_consoleInput.setText('', target);
     },
     /**
      * Used for set focus to input
@@ -511,7 +551,7 @@ var PMA_consoleInput = {
      * @return void
      */
     focus: function() {
-        PMA_consoleInput._cm.focus();
+        PMA_consoleInput._inputs.console.focus();
     },
     /**
      * Used for blur input
@@ -519,15 +559,60 @@ var PMA_consoleInput = {
      * @return void
      */
     blur: function() {
-        PMA_consoleInput._cm.getInputField().blur();
+        if (PMA_consoleInput._codemirror) {
+            PMA_consoleInput._inputs.console.getInputField().blur();
+        } else {
+            PMA_consoleInput._inputs.console.blur();
+        }
     },
     /**
      * Used for set text in input
      *
+     * @param string text
+     * @param string target
      * @return void
      */
-    setText: function(text) {
-        PMA_consoleInput._cm.setValue(text);
+    setText: function(text, target) {
+        if (PMA_consoleInput._codemirror) {
+            switch(target) {
+                case 'bookmark':
+                    PMA_console.execute(PMA_consoleInput._inputs.bookmark.setValue(text));
+                    break;
+                default:
+                case 'console':
+                    PMA_console.execute(PMA_consoleInput._inputs.console.setValue(text));
+            }
+        } else {
+            switch(target) {
+                case 'bookmark':
+                    PMA_console.execute(PMA_consoleInput._inputs.bookmark.val(text));
+                    break;
+                default:
+                case 'console':
+                    PMA_console.execute(PMA_consoleInput._inputs.console.val(text));
+            }
+        }
+    },
+    getText: function(target) {
+        if (PMA_consoleInput._codemirror) {
+            switch(target) {
+                case 'bookmark':
+                    return PMA_consoleInput._inputs.bookmark.getValue();
+                    break;
+                default:
+                case 'console':
+                    return PMA_consoleInput._inputs.console.getValue();
+            }
+        } else {
+            switch(target) {
+                case 'bookmark':
+                    return PMA_consoleInput._inputs.bookmark.val();
+                    break;
+                default:
+                case 'console':
+                    return PMA_consoleInput._inputs.console.val();
+            }
+        }
     }
 
 };
@@ -545,6 +630,7 @@ var PMA_consoleMessages = {
     clear: function() {
         $('#pma_console .content .console_message_container .message:not(.welcome)').addClass('hide');
         $('#pma_console .content .console_message_container .message.failed').remove();
+        $('#pma_console .content .console_message_container .message.expanded').find('.action.collapse').click();
     },
     /**
      * Used for show history messages
@@ -567,6 +653,7 @@ var PMA_consoleMessages = {
         }
         // Generate an ID for each message, we can find them later
         var msgId = Math.round(Math.random()*(899999999999)+100000000000);
+        var now = new Date();
         var $newMessage =
             $('<div class="message '
                 + (PMA_console.config.alwaysExpand ? 'expanded' : 'collapsed')
@@ -574,8 +661,12 @@ var PMA_consoleMessages = {
         switch(msgType) {
             case 'query':
                 $newMessage.append('<div class="query highlighted"></div>');
-                CodeMirror.runMode(msgString,
-                    'text/x-sql', $newMessage.children('.query')[0]);
+                if(PMA_consoleInput._codemirror) {
+                    CodeMirror.runMode(msgString,
+                        'text/x-sql', $newMessage.children('.query')[0]);
+                } else {
+                    $newMessage.children('.query').text(msgString);
+                }
                 $newMessage.children('.action_content')
                     .append(PMA_console.$consoleTemplates.children('.query_actions').html());
                 break;
@@ -584,7 +675,9 @@ var PMA_consoleMessages = {
                 $newMessage.append('<div>' + msgString + '</div>');
         }
         PMA_consoleMessages._msgEventBinds($newMessage);
-        $newMessage.find('span.text.query_time span').text(Date());
+        $newMessage.find('span.text.query_time span')
+            .text(now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds())
+            .parent().attr('title', now);
         return {message_id: msgId,
                 $message: $newMessage.appendTo('#pma_console .content .console_message_container')};
     },
@@ -606,19 +699,21 @@ var PMA_consoleMessages = {
             targetMessage.$message.attr('targettable', queryData.table);
             targetMessage.$message.find('.text.targetdb span').text(queryData.db);
         }
+        if(PMA_console.isSelect(queryData.sql_query)) {
+            targetMessage.$message.addClass('select');
+        }
         switch(state) {
             case 'failed':
                 targetMessage.$message.addClass('failed');
                 break;
             case 'successed':
-                console.dir(targetMessage.$message);
                 targetMessage.$message.addClass('successed');
                 break;
             default:
             case 'pending':
                 targetMessage.$message.addClass('pending');
         }
-        return targetMessage.message_id;
+        return targetMessage;
     },
     _msgEventBinds: function($targetMessage) {
         // Leave unbinded elements, remove binded.
@@ -636,7 +731,7 @@ var PMA_consoleMessages = {
             $(this).closest('.message').addClass('collapsed');
             $(this).closest('.message').removeClass('expanded');
         });
-        $targetMessage.find('.action.reedit').click(function () {
+        $targetMessage.find('.action.edit').click(function () {
             PMA_consoleInput.setText($(this).parent().siblings('.query').text());
             PMA_consoleInput.focus();
         });
@@ -648,6 +743,53 @@ var PMA_consoleMessages = {
                 PMA_console.execute(query, {db: $message.attr('targetdb'), table: $message.attr('targettable')});
             }
         });
+        $targetMessage.find('.action.bookmark').click(function () {
+            var query = $(this).parent().siblings('.query').text();
+            var $message = $(this).closest('.message');
+            PMA_consoleBookmarks.addBookmark(query, $message.attr('targetdb'));
+            PMA_console.showCard('#pma_bookmarks .card.add');
+        });
+        $targetMessage.find('.action.edit_bookmark').click(function () {
+            var query = $(this).parent().siblings('.query').text();
+            var $message = $(this).closest('.message');
+            var isShared = $message.find('span.bookmark_label').hasClass('shared');
+            var label = $message.find('span.bookmark_label').text();
+            PMA_consoleBookmarks.addBookmark(query, $message.attr('targetdb'), label, isShared);
+            PMA_console.showCard('#pma_bookmarks .card.add');
+        });
+        $targetMessage.find('.action.delete_bookmark').click(function () {
+            var $message = $(this).closest('.message');
+            if(confirm(PMA_messages.strConsoleDeleteBookmarkConfirm + '\n' + $message.find('.bookmark_label').text())) {
+                $.post('import.php',
+                    {token: PMA_commonParams.get('token'),
+                    action_bookmark: 2,
+                    ajax_request: true,
+                    id_bookmark: $message.attr('bookmarkid')},
+                    function () {
+                        PMA_consoleBookmarks.refresh();
+                    });
+            }
+        });
+        $targetMessage.find('.action.profiling').click(function () {
+            var $message = $(this).closest('.message');
+            PMA_console.execute($(this).parent().siblings('.query').text(),
+                {db: $message.attr('targetdb'),
+                table: $message.attr('targettable'),
+                profiling: true});
+        });
+        $targetMessage.find('.action.explain').click(function () {
+            var $message = $(this).closest('.message');
+            PMA_console.execute('EXPLAIN ' + $(this).parent().siblings('.query').text(),
+                {db: $message.attr('targetdb'),
+                table: $message.attr('targettable')});
+        });
+        if(PMA_consoleInput._codemirror) {
+            $targetMessage.find('.query:not(.highlighted)').each(function(index, elem) {
+                    CodeMirror.runMode($(elem).text(),
+                        'text/x-sql', elem);
+                    $(this).addClass('highlighted');
+                });
+        }
     },
     msgAppend: function(msgId, msgString, msgType) {
         var $targetMessage = $('#pma_console .content .console_message_container .message[msgid=' + msgId +']');
@@ -666,7 +808,15 @@ var PMA_consoleMessages = {
             $targetMessage.addClass('successed');
             if(queryData) {
                 $targetMessage.children('.query').text('');
-                CodeMirror.runMode(queryData.sql_query, 'text/x-sql', $targetMessage.children('.query')[0]);
+                $targetMessage.removeClass('select');
+                if(PMA_console.isSelect(queryData.sql_query)) {
+                    $targetMessage.addClass('select');
+                }
+                if(PMA_consoleInput._codemirror) {
+                    CodeMirror.runMode(queryData.sql_query, 'text/x-sql', $targetMessage.children('.query')[0]);
+                } else {
+                    $targetMessage.children('.query').text(queryData.sql_query);
+                }
                 $targetMessage.attr('targetdb', queryData.db);
                 $targetMessage.attr('targettable', queryData.table);
                 $targetMessage.find('.text.targetdb span').text(queryData.db);
@@ -682,11 +832,6 @@ var PMA_consoleMessages = {
      */
     initialize: function() {
         PMA_consoleMessages._msgEventBinds($('#pma_console .message:not(.binded)'));
-        $('#pma_console .message .query:not(.highlighted)').each(function(index, elem) {
-            CodeMirror.runMode(elem.innerHTML,
-                'text/x-sql', elem);
-            $(this).addClass('highlighted');
-        });
         if(PMA_console.config.startHistory) {
             PMA_consoleMessages.showHistory();
         }
@@ -698,6 +843,37 @@ var PMA_consoleMessages = {
  * Console bookmarks card, and bookmarks items management object
  */
 var PMA_consoleBookmarks = {
+    _bookmarks: [],
+    addBookmark: function (queryString, targetDb, label, isShared, id) {
+        $('#pma_bookmarks .add [name=shared]').prop('checked', false);
+        $('#pma_bookmarks .add [name=label]').val('');
+        $('#pma_bookmarks .add [name=targetdb]').val('');
+        $('#pma_bookmarks .add [name=id_bookmark]').val('');
+        PMA_consoleInput.setText('', 'bookmark');
+
+        switch(arguments.length) {
+            case 4:
+                $('#pma_bookmarks .add [name=shared]').prop('checked', isShared);
+            case 3:
+                $('#pma_bookmarks .add [name=label]').val(label);
+            case 2:
+                $('#pma_bookmarks .add [name=targetdb]').val(targetDb);
+            case 1:
+                PMA_consoleInput.setText(queryString, 'bookmark');
+            default:
+                break;
+        }
+    },
+    refresh: function () {
+        $.get('import.php?console_bookmark_refresh=refresh&token=' + PMA_commonParams.get('token'),
+            {'ajax_request': true},
+            function(data) {
+                if(data.console_message_bookmark) {
+                    $('#pma_bookmarks .content.bookmark').html(data.console_message_bookmark);
+                    PMA_consoleMessages._msgEventBinds($('#pma_bookmarks .message:not(.binded)'));
+                }
+            });
+    },
     /**
      * Used for console bookmarks initialize
      * message events are already binded by PMA_consoleMsg._msgEventBinds
@@ -714,15 +890,30 @@ var PMA_consoleBookmarks = {
         $('#pma_bookmarks .button.add').click(function() {
             PMA_console.showCard('#pma_bookmarks .card.add');
         });
-        $('#pma_console .button.refresh').click(function() {
-            $.get('import.php?console_bookmark_refresh=refresh&token=' + PMA_commonParams.get('token'),
-                {'ajax_request': true},
-                function(data) {
-                    if(data.console_message_bookmark) {
-                        $('#pma_bookmarks .content.bookmark').html(data.console_message_bookmark);
-                        PMA_consoleMessages._msgEventBinds($('#pma_bookmarks .message:not(.binded)'));
-                    }
+        $('#pma_bookmarks .card.add [name=submit]').click(function () {
+            if ($('#pma_bookmarks .card.add [name=label]').val().length === 0
+                || PMA_consoleInput.getText('bookmark').length === 0)
+            {
+                alert(PMA_messages.strFormEmpty);
+                return;
+            }
+            $(this).prop('disabled', true);
+            $.post('import.php',
+                {token: PMA_commonParams.get('token'),
+                ajax_request: true,
+                console_bookmark_add: 'true',
+                label: $('#pma_bookmarks .card.add [name=label]').val(),
+                db: $('#pma_bookmarks .card.add [name=targetdb]').val(),
+                bookmark_query: PMA_consoleInput.getText('bookmark'),
+                shared: $('#pma_bookmarks .card.add [name=shared]').prop('checked')},
+                function () {
+                    PMA_consoleBookmarks.refresh();
+                    $('#pma_bookmarks .card.add [name=submit]').prop('disabled', false);
+                    PMA_console.hideCard($('#pma_bookmarks .card.add'));
                 });
+        });
+        $('#pma_console .button.refresh').click(function() {
+            PMA_consoleBookmarks.refresh();
         });
     }
 };

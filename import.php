@@ -29,10 +29,37 @@ if (isset($_REQUEST['simulate_dml'])) {
 }
 
 // If it's a refresh console bookmarks request
-if (isset($_GET['console_bookmark_refresh'])) {
+if (isset($_REQUEST['console_bookmark_refresh'])) {
     $response = PMA_Response::getInstance();
     $response->addJSON('console_message_bookmark', PMA_Console::getBookmarkContent());
     exit;
+}
+// If it's a console bookmark add request
+if (isset($_REQUEST['console_bookmark_add'])) {
+    $response = PMA_Response::getInstance();
+    if(isset($_REQUEST['label']) && isset($_REQUEST['db'])
+        && isset($_REQUEST['bookmark_query']) && isset($_REQUEST['shared']))
+    {
+        $cfgBookmark = PMA_Bookmark_getParams();
+        $bookmarkFields = array(
+            'bkm_database' => $_REQUEST['db'],
+            'bkm_user'  => $cfgBookmark['user'],
+            'bkm_sql_query' => urlencode($_REQUEST['bookmark_query']),
+            'bkm_label' => $_REQUEST['label']
+        );
+        $isShared = ($_REQUEST['shared'] == 'true' ? true : false);
+        if(PMA_Bookmark_save($bookmarkFields, $isShared)) {
+            $response->addJSON('message', __('Succeeded'));
+            $response->addJSON('data', $bookmarkFields);
+            $response->addJSON('isShared', $isShared);
+        } else {
+            $response->addJSON('message', __('Failed'));
+        }
+        die();
+    } else {
+        $response->addJSON('message', __('Incomplete params'));
+        die();
+    }
 }
 
 /**
@@ -141,7 +168,7 @@ if ($_POST == array() && $_GET == array()) {
 
     // so we can obtain the message
     $_SESSION['Import_message']['message'] = $message->getDisplay();
-    $_SESSION['Import_message']['go_back_url'] = $goto;
+    $_SESSION['Import_message']['go_back_url'] = $GLOBALS['goto'];
 
     $message->display();
     exit; // the footer is displayed automatically
@@ -574,7 +601,7 @@ if (! $error) {
     }
 }
 
-if (false !== $import_handle && null !== $import_handle) {
+if (! empty($import_handle)) {
     fclose($import_handle);
 }
 

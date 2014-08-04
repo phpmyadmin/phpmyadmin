@@ -249,6 +249,8 @@ function PMA_getHtmlAndColumnOrderForDatabaseList(
 function PMA_getHtmlForColumnOrder($column_order, $first_database)
 {
     $html = "";
+    // avoid execution path notice
+    $unit = "";
     foreach ($column_order as $stat_name => $stat) {
         if (array_key_exists($stat_name, $first_database)) {
             if ($stat['format'] === 'byte') {

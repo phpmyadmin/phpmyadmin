@@ -41,7 +41,9 @@ $post_params = array(
     'show_grid',
     'show_keys',
     'show_table_dimension',
-    'with_doc'
+    'with_doc',
+    'offline_export',
+    'tbl_coords'
 );
 foreach ($post_params as $one_post_param) {
     if (isset($_REQUEST[$one_post_param])) {
@@ -50,15 +52,20 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
-$temp_page = PMA_createNewPage("_temp" . rand(), $GLOBALS['db']);
-try {
-    PMA_saveTablePositions($temp_page);
-    $_POST['pdf_page_number'] = $temp_page;
+if ($_POST['offline_export'] === "on") {
+    $_POST['pdf_page_number'] = -1;
     PMA_processExportSchema();
-    PMA_deletePage($temp_page);
-} catch (Exception $e) {
-    PMA_deletePage($temp_page); // delete temp page even if an exception occured
-    throw $e;
+} else {
+    $temp_page = PMA_createNewPage("_temp" . rand(), $GLOBALS['db']);
+    try {
+        PMA_saveTablePositions($temp_page);
+        $_POST['pdf_page_number'] = $temp_page;
+        PMA_processExportSchema();
+        PMA_deletePage($temp_page);
+    } catch (Exception $e) {
+        PMA_deletePage($temp_page); // delete temp page even if an exception occured
+        throw $e;
+    }
 }
 
 /**

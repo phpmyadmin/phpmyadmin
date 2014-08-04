@@ -213,11 +213,11 @@ foreach ($tables as $table) {
 
         if ($have_rel) {
             echo '    <td>';
-            if (isset($res_rel[$column_name])) {
+            if ($foreigner = PMA_searchColumnInForeigners($res_rel, $column_name)) {
                 echo htmlspecialchars(
-                    $res_rel[$column_name]['foreign_table']
+                    $foreigner['foreign_table']
                     . ' -> '
-                    . $res_rel[$column_name]['foreign_field']
+                    . $foreigner['foreign_field']
                 );
             }
             echo '</td>' . "\n";

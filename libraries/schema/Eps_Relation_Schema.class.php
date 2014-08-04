@@ -340,11 +340,11 @@ class Table_Stats_Eps extends TableStats
      */
     function __construct(
         $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
-        $showKeys = false, $showInfo = false
+        $showKeys = false, $showInfo = false, $offline = false
     ) {
         global $eps, $cfgRelation, $db;
         parent::__construct(
-            $eps, $db, $pageNumber, $tableName, $showKeys, $showInfo
+            $eps, $db, $pageNumber, $tableName, $showKeys, $showInfo, $offline
         );
 
         // height and width
@@ -701,6 +701,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         $this->setAllTablesSameWidth($_POST['all_tables_same_width']);
         $this->setOrientation($_POST['orientation']);
         $this->setExportType($_POST['export_type']);
+        $this->setOffline($_POST['offline_export']);
 
         $eps = new PMA_EPS();
         $eps->setTitle(
@@ -715,13 +716,22 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         $eps->setOrientation($this->orientation);
         $eps->setFont('Verdana', '10');
 
-        $alltables = $this->getAllTables($db, $this->pageNumber);
+        if ($this->isOffline()) {
+            $alltables = array();
+            $tbl_coords = json_decode($GLOBALS['tbl_coords']);
+            foreach ($tbl_coords as $tbl) {
+                $alltables[] = $tbl->table_name;
+            }
+        } else {
+            $alltables = $this->getAllTables($db, $this->pageNumber);
+        }
 
         foreach ($alltables as $table) {
             if (! isset($this->_tables[$table])) {
                 $this->_tables[$table] = new Table_Stats_Eps(
                     $table, $eps->getFont(), $eps->getFontSize(), $this->pageNumber,
-                    $this->_tablewidth, $this->showKeys, $this->tableDimension
+                    $this->_tablewidth, $this->showKeys,
+                    $this->tableDimension, $this->isOffline()
                 );
             }
 
@@ -741,12 +751,30 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
                     * (do not use array_search() because we would have to
                     * to do a === false and this is not PHP3 compatible)
                     */
-                    if (in_array($rel['foreign_table'], $alltables)) {
-                        $this->_addRelation(
-                            $one_table, $eps->getFont(), $eps->getFontSize(),
-                            $master_field, $rel['foreign_table'],
-                            $rel['foreign_field'], $this->tableDimension
-                        );
+                    if ($master_field != 'foreign_keys_data') {
+                        if (in_array($rel['foreign_table'], $alltables)) {
+                            $this->_addRelation(
+                                $one_table, $eps->getFont(), $eps->getFontSize(),
+                                $master_field, $rel['foreign_table'],
+                                $rel['foreign_field'], $this->tableDimension
+                            );
+                        }
+                    } else {
+                        foreach ($rel as $key => $one_key) {
+                            if (in_array($one_key['ref_table_name'], $alltables)) {
+                                foreach ($one_key['index_list']
+                                    as $index => $one_field
+                                ) {
+                                    $this->_addRelation(
+                                        $one_table, $eps->getFont(),
+                                        $eps->getFontSize(),
+                                        $one_field, $one_key['ref_table_name'],
+                                        $one_key['ref_index_list'][$index],
+                                        $this->tableDimension
+                                    );
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -768,7 +796,11 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
     function showOutput()
     {
         global $eps,$db;
-        $eps->showOutput($db . '-' . $this->pageNumber);
+        $filename = $db . '-' . $this->pageNumber;
+        if ($this->isOffline()) {
+            $filename = __("EPS export page");
+        }
+        $eps->showOutput($filename);
     }
 
     /**

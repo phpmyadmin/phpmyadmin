@@ -23,6 +23,8 @@ if (! defined('PHPMYADMIN')) {
 function PMA_getHtmlForJSFields(
     $script_tables, $script_contr, $script_display_field, $display_page
 ) {
+    $cfgRelation = PMA_getRelationsParam();
+
     $html  = '<div id="script_server" class="hide">';
     $html .= htmlspecialchars($GLOBALS['server']);
     $html .= '</div>';
@@ -43,6 +45,9 @@ function PMA_getHtmlForJSFields(
     $html .= '</div>';
     $html .= '<div id="script_display_page" class="hide">';
     $html .= htmlspecialchars($display_page);
+    $html .= '</div>';
+    $html .= '<div id="pmd_tables_enabled" class="hide">';
+    $html .= htmlspecialchars($cfgRelation['pdfwork']);
     $html .= '</div>';
 
     return $html;

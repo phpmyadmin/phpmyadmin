@@ -453,9 +453,6 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
                  )
             )
         );
-        $pk_array = array(
-            "Field1" => "pk_array"
-        );
         $have_rel = false;
         $res_rel = array();
         $db = "pma_db";
@@ -463,7 +460,7 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
         $cfgRelation = array('mimework' => true);
 
         $html = PMA_getHtmlForPrintViewColumns(
-            $columns, $analyzed_sql, $pk_array, $have_rel,
+            $columns, $analyzed_sql, $have_rel,
             $res_rel, $db, $table, $cfgRelation
         );
 
@@ -478,7 +475,7 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validation 2 : $pk_array
+        //validation 2 : $field_name
         $field_name = htmlspecialchars($row['Field']);
         $comments = PMA_getComments($db, $table);
         $this->assertContains(

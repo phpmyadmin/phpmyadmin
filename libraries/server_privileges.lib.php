@@ -3260,12 +3260,13 @@ function PMA_getDbRightsForUserOverview()
 /**
  * Delete user and get message and sql query for delete user in privileges
  *
- * @param string $queries queries
+ * @param array $queries queries
  *
- * @return PMA_message
+ * @return array PMA_message
  */
 function PMA_deleteUser($queries)
 {
+    $sql_query = '';
     if (empty($queries)) {
         $message = PMA_Message::error(__('No users selected for deleting!'));
     } else {

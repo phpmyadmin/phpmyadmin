@@ -36,6 +36,8 @@ abstract class TableStats
     public $width = 0;
     public $heightCell = 0;
 
+    protected $offline;
+
     /**
      * Constructor
      *
@@ -48,7 +50,7 @@ abstract class TableStats
      * @param boolean $showInfo   whether to display table position or not
      */
     public function __construct(
-        $diagram, $db, $pageNumber, $tableName, $showKeys, $showInfo
+        $diagram, $db, $pageNumber, $tableName, $showKeys, $showInfo, $offline
     ) {
         $this->diagram    = $diagram;
         $this->db         = $db;
@@ -57,6 +59,8 @@ abstract class TableStats
 
         $this->showKeys   = $showKeys;
         $this->showInfo   = $showInfo;
+
+        $this->offline    = $offline;
 
         // checks whether the table exists
         // and loads fields
@@ -118,21 +122,32 @@ abstract class TableStats
     {
         global $cfgRelation;
 
-        $sql = "SELECT x, y FROM "
-            . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
+        if ($this->offline){
+            $tbl_coords = json_decode($GLOBALS['tbl_coords']);
+            foreach ($tbl_coords as $tbl) {
+                if( $this->tableName === $tbl->table_name){
+                    $this->x = (double) $tbl->x;
+                    $this->y = (double) $tbl->y;
+                    break;
+                }
+            }
+        } else {
+            $sql = "SELECT x, y FROM "
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
                 . PMA_Util::backquote($cfgRelation['table_coords'])
                 . " WHERE db_name = '" . PMA_Util::sqlAddSlashes($this->db) . "'"
                 . " AND   table_name = '" . PMA_Util::sqlAddSlashes($this->tableName) . "'"
                 . " AND   pdf_page_number = " . $this->pageNumber;
-        $result = PMA_queryAsControlUser(
-            $sql, false, PMA_DatabaseInterface::QUERY_STORE
-        );
-        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
-            $this->showMissingCoordinatesError();
+            $result = PMA_queryAsControlUser(
+                $sql, false, PMA_DatabaseInterface::QUERY_STORE
+            );
+            if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
+                $this->showMissingCoordinatesError();
+            }
+            list($this->x, $this->y) = $GLOBALS['dbi']->fetchRow($result);
+            $this->x = (double) $this->x;
+            $this->y = (double) $this->y;
         }
-        list($this->x, $this->y) = $GLOBALS['dbi']->fetchRow($result);
-        $this->x = (double) $this->x;
-        $this->y = (double) $this->y;
     }
 
     /**

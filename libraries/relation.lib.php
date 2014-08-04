@@ -669,45 +669,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         );
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
 
-        foreach ($analyzed_sql[0]['foreign_keys'] as $one_key) {
-            // The analyzer may return more than one column name in the
-            // index list or the ref_index_list; if this happens,
-            // the current logic just discards the whole index; having
-            // more than one index field is currently unsupported (see FAQ 3.6)
-            if (count($one_key['index_list']) == 1) {
-                foreach ($one_key['index_list'] as $i => $field) {
-                    // If a foreign key is defined in the 'internal' source (pmadb)
-                    // and as a native foreign key, we won't get it twice
-                    // if $source='both' because we use $field as key
-
-                    // The parser looks for a CONSTRAINT clause just before
-                    // the FOREIGN KEY clause. It finds it (as output from
-                    // SHOW CREATE TABLE) in MySQL 4.0.13, but not in older
-                    // versions like 3.23.58.
-                    // In those cases, the FOREIGN KEY parsing will put numbers
-                    // like -1, 0, 1... instead of the constraint number.
-
-                    if (isset($one_key['constraint'])) {
-                        $foreign[$field]['constraint'] = $one_key['constraint'];
-                    }
-
-                    if (isset($one_key['ref_db_name'])) {
-                        $foreign[$field]['foreign_db'] = $one_key['ref_db_name'];
-                    } else {
-                        $foreign[$field]['foreign_db'] = $db;
-                    }
-                    $foreign[$field]['foreign_table'] = $one_key['ref_table_name'];
-                    $foreign[$field]['foreign_field']
-                        = $one_key['ref_index_list'][$i];
-                    if (isset($one_key['on_delete'])) {
-                        $foreign[$field]['on_delete'] = $one_key['on_delete'];
-                    }
-                    if (isset($one_key['on_update'])) {
-                        $foreign[$field]['on_update'] = $one_key['on_update'];
-                    }
-                }
-            }
-        }
+        $foreign['foreign_keys_data'] = $analyzed_sql[0]['foreign_keys'];
     }
 
     /**
@@ -966,13 +928,7 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
         $_SESSION['sql_history'] = array();
     }
 
-    $key = md5($sqlquery . $db . $table);
-
-    if (isset($_SESSION['sql_history'][$key])) {
-        unset($_SESSION['sql_history'][$key]);
-    }
-
-    $_SESSION['sql_history'][$key] = array(
+    $_SESSION['sql_history'][] = array(
         'db' => $db,
         'table' => $table,
         'sqlquery' => $sqlquery,
@@ -1262,11 +1218,18 @@ function PMA_getForeignData(
     // we always show the foreign field in the drop-down; if a display
     // field is defined, we show it besides the foreign field
     $foreign_link = false;
-    if ($foreigners && isset($foreigners[$field])) {
-        $foreigner       = $foreigners[$field];
-        $foreign_db      = $foreigner['foreign_db'];
-        $foreign_table   = $foreigner['foreign_table'];
-        $foreign_field   = $foreigner['foreign_field'];
+    do {
+        if (! $foreigners) {
+            break;
+        }
+        $foreigner = PMA_searchColumnInForeigners($foreigners, $field);
+        if ($foreigner != false) {
+            $foreign_db      = $foreigner['foreign_db'];
+            $foreign_table   = $foreigner['foreign_table'];
+            $foreign_field   = $foreigner['foreign_field'];
+        } else {
+            break;
+        }
 
         // Count number of rows in the foreign table. Currently we do
         // not use a drop-down if more than ForeignKeyMaxLimit rows in the
@@ -1335,7 +1298,7 @@ function PMA_getForeignData(
             $disp_row = null;
             $foreign_link = true;
         }
-    }  // end if $foreigners
+    } while (false);
 
     $foreignData = array();
     $foreignData['foreign_link'] = $foreign_link;
@@ -1646,10 +1609,11 @@ function PMA_checkChildForeignReferences($db, $table, $column)
     $column_status['isForeignKey'] = false;
     $column_status['references'] = array();
     $foreigners = PMA_getForeigners($db, $table, $column);
+    $foreigner = PMA_searchColumnInForeigners($foreigners, $column);
     $child_references = PMA_getChildReferences($db, $table, $column);
 
     if (sizeof($child_references, 0) > 0
-        || (! empty($foreigners[$column]) && sizeof($foreigners[$column], 0) > 0)
+        || $foreigner
     ) {
         if (sizeof($child_references, 0) > 0) {
             $column_status['isReferenced'] = true;
@@ -1662,7 +1626,7 @@ function PMA_checkChildForeignReferences($db, $table, $column)
             }
         }
 
-        if (!empty($foreigners[$column]) && sizeof($foreigners[$column], 0) > 0) {
+        if ($foreigner) {
             $column_status['isForeignKey'] = true;
         }
     } else {
@@ -1670,5 +1634,38 @@ function PMA_checkChildForeignReferences($db, $table, $column)
     }
 
     return $column_status;
+}
+
+/**
+ * Search a table column in foreign data.
+ *
+ * @param array  $foreigners Table Foreign data
+ * @param string $column     Column name
+ *
+ * @return bool|array
+ */
+function PMA_searchColumnInForeigners($foreigners, $column)
+{
+    if (isset($foreigners[$column])) {
+        return $foreigners[$column];
+    } else {
+        $foreigner = array();
+        foreach ($foreigners['foreign_keys_data'] as $key => $one_key) {
+            $column_index = array_search($column, $one_key['index_list']);
+            if ($column_index !== false) {
+                $foreigner['foreign_field']
+                    = $one_key['ref_index_list'][$column_index];
+                $foreigner['foreign_db'] = isset($one_key['ref_db_name'])
+                    ? $one_key['ref_db_name']
+                    : $GLOBALS['db'];
+                $foreigner['foreign_table'] = $one_key['ref_table_name'];
+                $foreigner['constraint'] = $one_key['constraint'];
+
+                return $foreigner;
+            }
+        }
+    }
+
+    return false;
 }
 ?>

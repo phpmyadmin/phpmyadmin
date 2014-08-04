@@ -375,9 +375,6 @@ AJAX.registerOnload('sql.js', function () {
                         }
                     }
                 }
-                if(PMA_console && PMA_console.isEnabled) {
-                    PMA_console.ajaxCallback(data);
-                }
             } else if (data.success === false) {
                 // show an error message that stays on screen
                 $('#sqlqueryform').before(data.error);

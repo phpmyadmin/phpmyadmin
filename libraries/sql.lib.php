@@ -100,6 +100,7 @@ function PMA_getTableHtmlForMultipleQueries(
     do {
         $analyzed_sql = array();
         $is_affected = false;
+        $showtable = array();
 
         $result = $GLOBALS['dbi']->storeResult();
         $fields_meta = ($result !== false)
@@ -1085,8 +1086,8 @@ function PMA_findRealEndOfRows($db, $table)
 /**
  * Function to get values for the relational columns
  *
- * @param String $db            the current database
- * @param String $table         the current table
+ * @param String $db    the current database
+ * @param String $table the current table
  *
  * @return void
  */
