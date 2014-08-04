@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-04 06:53-0400\n"
-"PO-Revision-Date: 2014-08-03 19:05+0200\n"
+"POT-Creation-Date: 2014-08-03 07:42-0400\n"
+"PO-Revision-Date: 2014-08-04 11:41+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
 ">\n"
@@ -2870,10 +2870,9 @@ msgid "Set default"
 msgstr "Standaardwaarde instellen"
 
 #: libraries/Console.class.php:288
-#, fuzzy
 #| msgid "Always send error reports"
 msgid "Always expand query messages"
-msgstr "Foutmeldingsverslagen altijd verzenden"
+msgstr "Queryberichten altijd volledig weergeven"
 
 #: libraries/Console.class.php:290
 msgid "Show query history at start"
@@ -4610,6 +4609,8 @@ msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
+"De configuratie-opslag is niet klaar voor de centrale lijst van kolommen "
+"functie."
 
 #: libraries/central_columns.lib.php:264
 #, php-format
@@ -4634,11 +4635,11 @@ msgstr "Kolommen konden niet verwijderd worden!"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
-msgstr ""
+msgstr "JA"
 
 #: libraries/central_columns.lib.php:509
 msgid "NO"
-msgstr ""
+msgstr "NEE"
 
 #: libraries/central_columns.lib.php:629
 #: libraries/display_create_table.lib.php:60
@@ -4679,10 +4680,9 @@ msgid "Select a column."
 msgstr "Selecteer een kolom."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "Zelfgroei stapgrootte"
+msgstr ""
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 msgid "on update CURRENT_TIMESTAMP"
@@ -6236,7 +6236,7 @@ msgstr "Geheugenlimiet"
 
 #: libraries/config/messages.inc.php:422
 msgid "Link with main panel by highlighting the current database or table."
-msgstr ""
+msgstr "Koppelen met hoofdpaneel door de huidige database of tabel te markeren."
 
 #: libraries/config/messages.inc.php:424
 msgid "Show logo in navigation panel."
@@ -7752,7 +7752,7 @@ msgstr "Bekijk output als tekst"
 
 #: libraries/display_export.lib.php:646 libraries/display_export.lib.php:749
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "Geëxporteerde databases/tabellen/kolommen hernoemen"
 
 #: libraries/display_export.lib.php:656
 msgid "Save output to a file"
@@ -7850,7 +7850,7 @@ msgstr "Te importeren bestand:"
 
 #: libraries/display_import.lib.php:232 libraries/display_import.lib.php:243
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "U kan ook een bestand slepen en neerzetten op gelijk welke pagina."
 
 #: libraries/display_import.lib.php:246
 msgid "File uploads are not allowed on this server."
@@ -8336,7 +8336,7 @@ msgstr "MySQL gaf een lege resultatenset terug (0 rijen)."
 
 #: libraries/import.lib.php:268 libraries/sql.lib.php:1697
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[ROLLBACK is uitgevoerd]"
 
 #: libraries/import.lib.php:1231
 msgid ""
