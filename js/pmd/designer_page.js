@@ -80,7 +80,7 @@ function Create_page_list(callback)
 function Delete_page(page_id, callback)
 {
     DesignerOfflineDB.loadObject('pdf_pages', page_id, function (page) {
-        if (page) {            
+        if (page) {
             for (i in page.tbl_cords) {
                 DesignerOfflineDB.deleteObject('table_coords', page.tbl_cords[i]);
             }
@@ -88,7 +88,7 @@ function Delete_page(page_id, callback)
                 if (typeof callback !== 'undefined') {
                     callback(state);
                 }
-            });            
+            });
         }
     });
 }
