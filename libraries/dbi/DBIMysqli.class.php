@@ -135,7 +135,7 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
 
         if ($server) {
             $server_port   = (empty($server['port']))
-                ? false
+                ? null
                 : (int)$server['port'];
             $server_socket = (empty($server['socket']))
                 ? ''
@@ -145,7 +145,7 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
                 : $server['host'];
         } else {
             $server_port   = (empty($cfg['Server']['port']))
-                ? false
+                ? null
                 : (int) $cfg['Server']['port'];
             $server_socket = (empty($cfg['Server']['socket']))
                 ? null

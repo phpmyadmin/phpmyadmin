@@ -838,7 +838,7 @@ function PMA_isAllowedDomain($url)
         /* Include current domain */
         $_SERVER['SERVER_NAME'],
         /* phpMyAdmin domains */
-        'wiki.phpmyadmin.net', 'www.phpMyAdmin.net', 'phpmyadmin.net',
+        'wiki.phpmyadmin.net', 'www.phpmyadmin.net', 'phpmyadmin.net',
         'docs.phpmyadmin.net',
         /* mysql.com domains */
         'dev.mysql.com','bugs.mysql.com',
@@ -849,7 +849,7 @@ function PMA_isAllowedDomain($url)
         /* Following are doubtful ones. */
         'www.primebase.com','pbxt.blogspot.com'
     );
-    if (in_array($domain, $domainWhiteList)) {
+    if (in_array(strtolower($domain), $domainWhiteList)) {
         return true;
     }
 

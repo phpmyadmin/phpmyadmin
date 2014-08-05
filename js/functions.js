@@ -1526,6 +1526,10 @@ function catchKeypressesFromSqlTextboxes(event) {
  */
 function PMA_doc_add($elm, params)
 {
+    if (typeof mysql_doc_template == 'undefined') {
+        return;
+    }
+
     var url = $.sprintf(
         mysql_doc_template,
         params[0]

@@ -1,6 +1,15 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.2.7.0 (2014-07-31)
+- bug       Broken links on home page
+- bug #4494 Overlap in navigation panel
+- bug #4427 Action icons not in horizontal order
+- bug #4493 s_attention.png is missing
+- bug #4499 Uncaught TypeError: Cannot call method 'substr' of undefined
+- bug #4498 PMA 4.2.x and HHVM
+- bug #4500 mysql_doc_template is not defined
+
 4.2.6.0 (2014-07-17)
 - bug #4471 Undefined index warning with referenced column.
 - bug #4027 $cfg['MaxExactCount'] is ignored when BROWSING is back
