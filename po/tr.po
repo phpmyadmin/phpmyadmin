@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-05 10:15-0400\n"
-"PO-Revision-Date: 2014-08-04 14:57+0200\n"
+"PO-Revision-Date: 2014-08-05 20:23+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -1916,28 +1916,24 @@ msgid "Create the following table"
 msgstr "Aşağıdaki tabloyu oluştur"
 
 #: js/messages.php:329
-#, fuzzy
 #| msgid "Third step of normalization (1NF+2NF+3NF)"
 msgid "Third step of normalization (3NF)"
-msgstr "Normalleştirmenin üçüncü adımı (1NF+2NF+3NF)"
+msgstr "Normalleştirmenin üçüncü adımı (3NF)"
 
 #: js/messages.php:330
-#, fuzzy
 #| msgid "Confirm partial dependencies"
 msgid "Confirm transitive dependencies"
-msgstr "Kısmi bağımlılıkları doğrula"
+msgstr "Karşılıklı bağımlılıkları onayla"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Selected partial dependencies are as follows:"
 msgid "Selected dependencies are as follows:"
-msgstr "Seçilen kısmi bağımlılıkları aşağıdaki gibidir:"
+msgstr "Seçilen bağımlılıklar aşağıdaki gibidir:"
 
 #: js/messages.php:332
-#, fuzzy
 #| msgid "No partial dependencies selected!"
 msgid "No dependencies selected!"
-msgstr "Seçilen kısmi bağımlılıklar yok!"
+msgstr "Seçilen bağımlılıklar yok!"
 
 #: js/messages.php:335 libraries/insert_edit.lib.php:1523
 #: libraries/server_variables.lib.php:157
@@ -8735,10 +8731,9 @@ msgid "Collapse all"
 msgstr "Tümünü daralt"
 
 #: libraries/navigation/NavigationTree.class.php:1139
-#, fuzzy
 #| msgid "Link with main panel"
 msgid "Unlink with main panel"
-msgstr "Ana panel ile bağla"
+msgstr "Ana panel ile bağlantıyı kopar"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9039,7 +9034,7 @@ msgstr ""
 #: libraries/normalization.lib.php:341 libraries/normalization.lib.php:726
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s' bağlı olduğu:"
 
 #: libraries/normalization.lib.php:352
 #, php-format
@@ -9056,8 +9051,8 @@ msgid ""
 "As per above partial dependencies, in order to put the original table '%1$s' "
 "into Second normal form we need to create the following tables:"
 msgstr ""
-"Yukarıdaki kısmi başımlılıklara göre, İkinci normal form içine orijinal '%1"
-"$s' tablosunu koymak için aşağıdaki tabloları oluşturmamız gerekli:"
+"Yukarıdaki kısmi bağımlılıklara göre, İkinci normal form içine orijinal '%1$"
+"s' tablosunu koymak için aşağıdaki tabloları oluşturmamız gerekli:"
 
 #: libraries/normalization.lib.php:413
 #, php-format
@@ -9070,7 +9065,7 @@ msgid "Error in processing!"
 msgstr "İşlemede hata!"
 
 #: libraries/normalization.lib.php:497
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above partial dependencies, in order to put the original table '%1"
 #| "$s' into Second normal form we need to create the following tables:"
@@ -9078,14 +9073,13 @@ msgid ""
 "As per above dependencies, in order to put the original table '%1$s' into "
 "Third normal form we need to create the following tables:"
 msgstr ""
-"Yukarıdaki kısmi başımlılıklara göre, İkinci normal form içine orijinal '%1"
-"$s' tablosunu koymak için aşağıdaki tabloları oluşturmamız gerekli:"
+"Yukarıdaki bağımlılıklara göre, Üçüncü normal form içine orijinal '%1$s' "
+"tablosunu koymak için aşağıdaki tabloları oluşturmamız gerekli:"
 
 #: libraries/normalization.lib.php:544
-#, fuzzy
 #| msgid "The first step of normalization is complete for table '%s'."
 msgid "The third step of normalization is complete."
-msgstr "Normalleştirmenin ilk adımı '%s' tablosu için tamamlandı."
+msgstr "Normalleştirmenin üçüncü adımı tamamlandı."
 
 #: libraries/normalization.lib.php:638
 #, php-format
@@ -9093,19 +9087,16 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Seçili tekrarlayan grup '%s' tablosuna taşındı"
 
 #: libraries/normalization.lib.php:685
-#, fuzzy
 #| msgid "Step 1."
 msgid "Step 3."
-msgstr "Adım 1."
+msgstr "Adım 3."
 
 #: libraries/normalization.lib.php:685
-#, fuzzy
 #| msgid "Find partial dependencies"
 msgid "Find transitive dependencies"
-msgstr "Kısmi bağımlılıkları bul"
+msgstr "Karşılıklı bağımlılıkları bul"
 
 #: libraries/normalization.lib.php:692
-#, fuzzy
 #| msgid ""
 #| "For each of the column below, please select the <b>minimal set</b> of "
 #| "columns among given set whose values combined together are sufficient to "
@@ -9118,10 +9109,10 @@ msgid ""
 msgstr ""
 "Aşağıdaki her sütun için lütfen sütunun değerini yeteri kadar belirleyen "
 "değerlerle birlikte birleştirilip verilen küme arasındaki sütunların <b>en "
-"az olan kümesini</b> seçin."
+"az olan kümesini</b> seçin.<br>Not: Bir sütun karşılıklı bağımlılıklara "
+"sahip olamayabilir, bu durumda hiç seçmemek zorundasınız."
 
 #: libraries/normalization.lib.php:739
-#, fuzzy
 #| msgid ""
 #| "No partial dependencies possible as the primary key ( %1$s ) has just one "
 #| "column."
@@ -9129,14 +9120,13 @@ msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
-"Birincil anahtar ( %1$s ) olarak mümkün olmayan kısmi bağımlılıklar sadece "
-"bir sütuna sahiptir."
+"Herhangi bir birincil anahtar olmayan sütunlara sahip olmayan tablo gibi "
+"Karşılıklı bağımlılıklar da mümkün değil"
 
 #: libraries/normalization.lib.php:743
-#, fuzzy
 #| msgid "Table is already in second normal form."
 msgid "Table is already in Third normal form!"
-msgstr "Tablo zaten ikinci normal biçiminde."
+msgstr "Tablo zaten Üçüncü normal biçiminde!"
 
 #: libraries/normalization.lib.php:766
 msgid "Improve table structure (Normalization):"
