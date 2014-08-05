@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-05 10:15-0400\n"
+"POT-Creation-Date: 2014-08-05 17:34-0400\n"
 "PO-Revision-Date: 2014-03-27 15:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://l10n.cihar.com/projects/phpmyadmin/master/bn/"
 ">\n"
+"Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bn\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -260,8 +260,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"phpMyAdmin কনফিগারেশন সংরক্ষন ব্যবস্থা কার্যকর নয়। কেন জানার জন্য ক্লীক করুন %shere%"
-"s।"
+"phpMyAdmin কনফিগারেশন সংরক্ষন ব্যবস্থা কার্যকর নয়। কেন জানার জন্য ক্লীক করুন %shere"
+"%s।"
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:210
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:761
@@ -630,8 +630,8 @@ msgstr "সম্পুর্ন ইনর্সাট"
 #: import.php:164
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "সম্ভবত আপনি একটি বিশাল ফাইল আপলোড করতে চাচ্ছেন। অনুগ্র্রহ করে %sdocumentation%s "
 "দেখে এই সমস্যা সমাধানের চেষ্টা করুন।"
@@ -1293,10 +1293,10 @@ msgstr "সিরিজে অন্তত একটি চলক যোগ ক�
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1044
 #: libraries/display_export.lib.php:580
 #: libraries/plugins/export/ExportSql.class.php:1913
-#: libraries/server_privileges.lib.php:2673
+#: libraries/pmd_general.lib.php:788 libraries/server_privileges.lib.php:2673
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:261
-#: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:676
+#: libraries/tbl_columns_definition_form.lib.php:743
 msgid "None"
 msgstr "কিছু না"
 
@@ -1635,10 +1635,11 @@ msgstr "ব্যবহৃত চলক / ফর্মূলা"
 msgid "Test"
 msgstr "টেষ্ট"
 
-#: js/messages.php:243 libraries/server_variables.lib.php:159
-#: pmd_general.php:550 pmd_general.php:589 pmd_general.php:716
-#: pmd_general.php:766 pmd_general.php:842 pmd_general.php:898
-#: pmd_general.php:961 pmd_general.php:994
+#: js/messages.php:243 libraries/pmd_general.lib.php:635
+#: libraries/pmd_general.lib.php:684 libraries/pmd_general.lib.php:828
+#: libraries/pmd_general.lib.php:890 libraries/pmd_general.lib.php:978
+#: libraries/pmd_general.lib.php:1046 libraries/pmd_general.lib.php:1122
+#: libraries/pmd_general.lib.php:1164 libraries/server_variables.lib.php:159
 msgid "Cancel"
 msgstr "বাতিল"
 
@@ -1682,9 +1683,10 @@ msgstr "স্তম্ভ মুছছি"
 msgid "Adding Primary Key"
 msgstr "প্রাইমারী কী যোগ করছি"
 
-#: js/messages.php:255 pmd_general.php:548 pmd_general.php:714
-#: pmd_general.php:764 pmd_general.php:840 pmd_general.php:896
-#: pmd_general.php:959
+#: js/messages.php:255 libraries/pmd_general.lib.php:633
+#: libraries/pmd_general.lib.php:826 libraries/pmd_general.lib.php:888
+#: libraries/pmd_general.lib.php:976 libraries/pmd_general.lib.php:1044
+#: libraries/pmd_general.lib.php:1120
 msgid "OK"
 msgstr "ওকে"
 
@@ -2110,7 +2112,7 @@ msgstr "ফরেন কী নির্বাচন করুন"
 msgid "Please select the primary key or a unique key!"
 msgstr "অনুগ্রহ করে প্রাথমিক কী বা একটি অনন্য কী নির্বাচন করুন!"
 
-#: js/messages.php:393 pmd_general.php:179
+#: js/messages.php:393 libraries/pmd_general.lib.php:147
 msgid "Choose column to display"
 msgstr "দেখানোর জন্য স্বম্ভ পছন্দ করেন"
 
@@ -2132,7 +2134,7 @@ msgstr "পাতার নাম"
 msgid "Save page"
 msgstr "পাতা নির্বাচন"
 
-#: js/messages.php:400 pmd_general.php:151
+#: js/messages.php:400 libraries/pmd_general.lib.php:104
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
@@ -2354,7 +2356,7 @@ msgstr "চলাচল ফ্রেইমে লোগো দেখাও"
 msgid "Link with main panel"
 msgstr "প্রধান ফ্রেম পরিবর্তন"
 
-#: js/messages.php:466
+#: js/messages.php:466 libraries/navigation/NavigationTree.class.php:1139
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
@@ -2799,12 +2801,11 @@ msgstr "সহ-অনুসন্ধান"
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:361
 #: libraries/DisplayResults.class.php:3460
 #: libraries/DisplayResults.class.php:5026
-#: libraries/central_columns.lib.php:758
+#: libraries/central_columns.lib.php:758 libraries/pmd_general.lib.php:682
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:440 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:587 setup/frames/index.inc.php:182
-#: setup/frames/index.inc.php:290
+#: setup/frames/index.inc.php:182 setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "মুছ"
 
@@ -3341,8 +3342,8 @@ msgstr "আপনার SQL অনুসন্ধানটি সফলভাব
 #: libraries/DisplayResults.class.php:4884 libraries/structure.lib.php:683
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "এই ভিউটির অন্তত পক্ষে এক সারি তথ্য রয়েছে। অনুগ্রহ করে %sdocumentation%s দেখুন।"
 
@@ -3605,9 +3606,9 @@ msgstr "দেখা"
 #: libraries/config/user_preferences.forms.php:267
 #: libraries/import.lib.php:1269
 #: libraries/navigation/Nodes/Node_Table.class.php:36
-#: libraries/server_privileges.lib.php:991
+#: libraries/pmd_general.lib.php:301 libraries/server_privileges.lib.php:991
 #: libraries/tbl_columns_definition_form.lib.php:200
-#: libraries/tbl_tracking.lib.php:805 pmd_general.php:272
+#: libraries/tbl_tracking.lib.php:805
 msgid "Structure"
 msgstr "গঠন"
 
@@ -4071,17 +4072,19 @@ msgstr ""
 msgid "Function"
 msgstr "ফাংশন"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:653 pmd_general.php:673
-#: pmd_general.php:802 pmd_general.php:815 pmd_general.php:880
-#: pmd_general.php:934
+#: libraries/TableSearch.class.php:188 libraries/pmd_general.lib.php:765
+#: libraries/pmd_general.lib.php:785 libraries/pmd_general.lib.php:937
+#: libraries/pmd_general.lib.php:950 libraries/pmd_general.lib.php:1028
+#: libraries/pmd_general.lib.php:1094
 msgid "Operator"
 msgstr "পরিচালক"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1293
-#: libraries/insert_edit.lib.php:1641 libraries/replication_gui.lib.php:515
+#: libraries/insert_edit.lib.php:1641 libraries/pmd_general.lib.php:749
+#: libraries/pmd_general.lib.php:814 libraries/pmd_general.lib.php:966
+#: libraries/pmd_general.lib.php:1110 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:642
-#: pmd_general.php:702 pmd_general.php:831 pmd_general.php:950
+#: libraries/server_status_variables.lib.php:220
 msgid "Value"
 msgstr "মান"
 
@@ -4258,16 +4261,16 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"একটি ছোট দশমিক-পয়েন্টের অনুমোদিত মান হল -৩.৪০২৮২৬৪৬৬E+৩৮ থেকে -১.১৭৫৪৯৪৩৫১E-"
-"৩৮, ০ এবং ১.১৭৫৪৯৪৩৫১E-৩৮ থেকে ৩.৪০২৮২৬৪৬৬E+৩৮"
+"একটি ছোট দশমিক-পয়েন্টের অনুমোদিত মান হল -৩.৪০২৮২৬৪৬৬E+৩৮ থেকে "
+"-১.১৭৫৪৯৪৩৫১E-৩৮, ০ এবং ১.১৭৫৪৯৪৩৫১E-৩৮ থেকে ৩.৪০২৮২৬৪৬৬E+৩৮"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "একটি double-precision দশমিক পয়েন্ট হল -১.৭৯৭৬৯৩১৩৪৮৬২৩১৫৭E+৩০৮ থেকে - "
@@ -5178,22 +5181,22 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:416
 #, fuzzy, php-format
 #| msgid ""
-#| "If using cookie authentication and %sLogin cookie store%s is not 0, %"
-#| "sLogin cookie validity%s must be set to a value less or equal to it."
+#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
+#| "%sLogin cookie validity%s must be set to a value less or equal to it."
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"যদি কুকি প্রমাণীকরন ব্যবহার করেন এবং %sLogin cookie store%s যদি ০ না হয়, %"
-"sLogin cookie validity%s 'র মান অবশ্যই এর থেকে কম বা সমান এ সেট করতে হবে।"
+"যদি কুকি প্রমাণীকরন ব্যবহার করেন এবং %sLogin cookie store%s যদি ০ না হয়, "
+"%sLogin cookie validity%s 'র মান অবশ্যই এর থেকে কম বা সমান এ সেট করতে হবে।"
 
 #: libraries/config/ServerConfigChecks.class.php:423
 #, fuzzy, php-format
 #| msgid ""
-#| "If you feel this is necessary, use additional protection settings - %"
-#| "shost authentication%s settings and %strusted proxies list%s. However, IP-"
-#| "based protection may not be reliable if your IP belongs to an ISP where "
-#| "thousands of users, including you, are connected to."
+#| "If you feel this is necessary, use additional protection settings - "
+#| "%shost authentication%s settings and %strusted proxies list%s. However, "
+#| "IP-based protection may not be reliable if your IP belongs to an ISP "
+#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
@@ -7672,7 +7675,7 @@ msgstr "ডাটাবেজ় তৈরী কর:"
 msgid "No Privileges"
 msgstr "কোন অধিকার নাই"
 
-#: libraries/display_create_table.lib.php:55 pmd_general.php:169
+#: libraries/display_create_table.lib.php:55 libraries/pmd_general.lib.php:134
 msgid "Create table"
 msgstr "টেবিল তৈরী কর"
 
@@ -7782,8 +7785,8 @@ msgstr "@TABLE@ হবে টেবলের নাম"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "এই মানটি %1$sstrftime%2$s ভাবে অনুবাদিত হবে, আপনি সময় গঠনের স্ট্রিং ব্যবহার করতে "
 "পারেন। এখন এই রুপান্তরটি হবে:%3$s। অন্যান্য লেখা ঠিকই থাকবে।  %4$sFAQ%5$s এ বিশদ "
@@ -8322,8 +8325,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "নথিপত্রাদি এবং PBXT'র  অন্যান্য তথ্য %sPrimeBase XT Home Page%s এ পাওয়া যাবে।"
 
@@ -8451,7 +8454,7 @@ msgstr "&nbsp;%s&nbsp; কলামসমূহে একটি ইনডেক�
 
 #: libraries/insert_edit.lib.php:218 libraries/insert_edit.lib.php:249
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
-#: pmd_general.php:284
+#: libraries/pmd_general.lib.php:313
 msgid "Hide"
 msgstr "লুকাও"
 
@@ -8827,12 +8830,6 @@ msgstr "নাম বা regex অনুযায়ী ফিল্টার"
 #: libraries/navigation/NavigationTree.class.php:1130
 msgid "Collapse all"
 msgstr ""
-
-#: libraries/navigation/NavigationTree.class.php:1139
-#, fuzzy
-#| msgid "Customize main panel"
-msgid "Unlink with main panel"
-msgstr "প্রধান ফ্রেম পরিবর্তন"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9426,8 +9423,8 @@ msgstr "%s এ স্বাগতম"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "সম্ভবত আপনি কোন কনফিগারেশন ফাইল তৈরী করেন নাই। আপনি %1$ssetup script%2$s "
 "ব্যবহার করে একটি তৈরী করতে পারেন।"
@@ -10209,6 +10206,136 @@ msgid ""
 msgstr ""
 "একটি সংযোগ দেখাও: স্তম্ভে একটি ফাইলের নাম আছে, প্রথম অপশনটি URL প্রিফিক্স যেমন "
 "\"http://www.example.com/\"। দ্বিতীয়টি সংযোগের শিরোনাম।"
+
+#: libraries/pmd_general.lib.php:71
+msgid "Show/Hide left menu"
+msgstr "বামদিকের মেন্যু দেখা/লুকানো"
+
+#: libraries/pmd_general.lib.php:79
+msgid "View in fullscreen"
+msgstr "পুর্ণ পর্দায় দেখা"
+
+#: libraries/pmd_general.lib.php:87
+msgid "Exit fullscreen"
+msgstr "পূর্ণ পর্দা বন্ধ"
+
+#: libraries/pmd_general.lib.php:97
+#, fuzzy
+#| msgid "New name"
+msgid "New page"
+msgstr "নতুন নাম"
+
+#: libraries/pmd_general.lib.php:111
+msgid "Save position"
+msgstr "অবস্থান সংরক্ষন করা"
+
+#: libraries/pmd_general.lib.php:117
+#, fuzzy
+#| msgid "Save position"
+msgid "Save positions as"
+msgstr "অবস্থান সংরক্ষন করা"
+
+#: libraries/pmd_general.lib.php:124
+#, fuzzy
+#| msgid "Select page"
+msgid "Delete pages"
+msgstr "পাতা নির্বাচন"
+
+#: libraries/pmd_general.lib.php:140 libraries/pmd_general.lib.php:597
+msgid "Create relation"
+msgstr "সম্পর্ক তৈরী কর"
+
+#: libraries/pmd_general.lib.php:154
+msgid "Reload"
+msgstr "রিলোড"
+
+#: libraries/pmd_general.lib.php:160
+msgid "Help"
+msgstr "সাহায্য"
+
+#: libraries/pmd_general.lib.php:170
+msgid "Angular links"
+msgstr "কোণিক সংযোগ"
+
+#: libraries/pmd_general.lib.php:170
+msgid "Direct links"
+msgstr "সরাসরি সংযোগ"
+
+#: libraries/pmd_general.lib.php:177
+msgid "Snap to grid"
+msgstr "গ্রীড অনুযায়ী"
+
+#: libraries/pmd_general.lib.php:187
+msgid "Small/Big All"
+msgstr "ছোট/বড় সব"
+
+#: libraries/pmd_general.lib.php:194
+msgid "Toggle small/big"
+msgstr "ছোট/বড় টোগল"
+
+#: libraries/pmd_general.lib.php:201
+msgid "Toggle relation lines"
+msgstr "সর্ম্পক রেখা টোগল"
+
+#: libraries/pmd_general.lib.php:214
+#, fuzzy
+#| msgid "Export"
+msgid "Export schema"
+msgstr "Export"
+
+#: libraries/pmd_general.lib.php:225
+msgid "Build Query"
+msgstr "অনুসন্ধান তৈরী"
+
+#: libraries/pmd_general.lib.php:234
+msgid "Move Menu"
+msgstr "মেন্যু সরান"
+
+#: libraries/pmd_general.lib.php:276
+msgid "Hide/Show all"
+msgstr "সব দেখা/লুকানো"
+
+#: libraries/pmd_general.lib.php:285
+msgid "Hide/Show Tables with no relation"
+msgstr "সম্পর্কহীন টেবল দেখাও/লুকাও"
+
+#: libraries/pmd_general.lib.php:340
+msgid "Number of tables:"
+msgstr "টেবলের সংখ্যা:"
+
+#: libraries/pmd_general.lib.php:676
+msgid "Delete relation"
+msgstr "সর্ম্পক মুছা"
+
+#: libraries/pmd_general.lib.php:733 libraries/pmd_general.lib.php:797
+msgid "Relation operator"
+msgstr "সর্ম্পক পরিচালক"
+
+#: libraries/pmd_general.lib.php:743 libraries/pmd_general.lib.php:807
+#: libraries/pmd_general.lib.php:960 libraries/pmd_general.lib.php:1104
+msgid "Except"
+msgstr "ব্যতিত"
+
+#: libraries/pmd_general.lib.php:749 libraries/pmd_general.lib.php:815
+#: libraries/pmd_general.lib.php:966 libraries/pmd_general.lib.php:1110
+msgid "subquery"
+msgstr "সহ-অনুসন্ধান"
+
+#: libraries/pmd_general.lib.php:755 libraries/pmd_general.lib.php:872
+msgid "Rename to"
+msgstr "নাম পরিবর্তন"
+
+#: libraries/pmd_general.lib.php:758 libraries/pmd_general.lib.php:878
+msgid "New name"
+msgstr "নতুন নাম"
+
+#: libraries/pmd_general.lib.php:762 libraries/pmd_general.lib.php:1022
+msgid "Aggregate"
+msgstr "সমষ্টিগত"
+
+#: libraries/pmd_general.lib.php:1155
+msgid "Active options"
+msgstr "কার্যকর অপশনসমূহ"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -11738,8 +11865,8 @@ msgstr "একনজরে ব্যবহারকারীগণ"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "টিকা: phpMyAdmin সরাসরি মাইএসকিউএল অধিকার টেবিল থেকে ব্যবহারকারীর অধিকার "
 "সংক্রান্ত তথ্য সমূহ নেয়। টেবিলে থাকা অধিকার সম্পর্কিত তথ্য এবং সার্ভারের মধ্য পার্থক্য "
@@ -13771,8 +13898,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
-"আপনার কনফিগারেশন শুধু এই সেশনের জন্য সংরক্ষন হবে। স্থায়ীভাবে সংরক্ষনের জন্য %"
-"sphpMyAdmin configuration storage%s প্রয়োজন।"
+"আপনার কনফিগারেশন শুধু এই সেশনের জন্য সংরক্ষন হবে। স্থায়ীভাবে সংরক্ষনের জন্য "
+"%sphpMyAdmin configuration storage%s প্রয়োজন।"
 
 #: libraries/user_preferences.lib.php:129
 msgid "Could not save configuration"
@@ -13802,136 +13929,6 @@ msgstr "মারাত্মক ভুল: চলাচলের সুবি�
 #: pmd_display_field.php:62 pmd_save_pos.php:61
 msgid "Modifications have been saved"
 msgstr "পরিবর্তন সংরক্ষন করা হয়েছে"
-
-#: pmd_general.php:130
-msgid "Show/Hide left menu"
-msgstr "বামদিকের মেন্যু দেখা/লুকানো"
-
-#: pmd_general.php:135
-msgid "View in fullscreen"
-msgstr "পুর্ণ পর্দায় দেখা"
-
-#: pmd_general.php:140
-msgid "Exit fullscreen"
-msgstr "পূর্ণ পর্দা বন্ধ"
-
-#: pmd_general.php:147
-#, fuzzy
-#| msgid "New name"
-msgid "New page"
-msgstr "নতুন নাম"
-
-#: pmd_general.php:155
-msgid "Save position"
-msgstr "অবস্থান সংরক্ষন করা"
-
-#: pmd_general.php:159
-#, fuzzy
-#| msgid "Save position"
-msgid "Save positions as"
-msgstr "অবস্থান সংরক্ষন করা"
-
-#: pmd_general.php:163
-#, fuzzy
-#| msgid "Select page"
-msgid "Delete pages"
-msgstr "পাতা নির্বাচন"
-
-#: pmd_general.php:174 pmd_general.php:513
-msgid "Create relation"
-msgstr "সম্পর্ক তৈরী কর"
-
-#: pmd_general.php:184
-msgid "Reload"
-msgstr "রিলোড"
-
-#: pmd_general.php:189
-msgid "Help"
-msgstr "সাহায্য"
-
-#: pmd_general.php:197
-msgid "Angular links"
-msgstr "কোণিক সংযোগ"
-
-#: pmd_general.php:197
-msgid "Direct links"
-msgstr "সরাসরি সংযোগ"
-
-#: pmd_general.php:202
-msgid "Snap to grid"
-msgstr "গ্রীড অনুযায়ী"
-
-#: pmd_general.php:208
-msgid "Small/Big All"
-msgstr "ছোট/বড় সব"
-
-#: pmd_general.php:213
-msgid "Toggle small/big"
-msgstr "ছোট/বড় টোগল"
-
-#: pmd_general.php:218
-msgid "Toggle relation lines"
-msgstr "সর্ম্পক রেখা টোগল"
-
-#: pmd_general.php:226
-#, fuzzy
-#| msgid "Export"
-msgid "Export schema"
-msgstr "Export"
-
-#: pmd_general.php:237
-msgid "Build Query"
-msgstr "অনুসন্ধান তৈরী"
-
-#: pmd_general.php:244
-msgid "Move Menu"
-msgstr "মেন্যু সরান"
-
-#: pmd_general.php:258
-msgid "Hide/Show all"
-msgstr "সব দেখা/লুকানো"
-
-#: pmd_general.php:262
-msgid "Hide/Show Tables with no relation"
-msgstr "সম্পর্কহীন টেবল দেখাও/লুকাও"
-
-#: pmd_general.php:306
-msgid "Number of tables:"
-msgstr "টেবলের সংখ্যা:"
-
-#: pmd_general.php:581
-msgid "Delete relation"
-msgstr "সর্ম্পক মুছা"
-
-#: pmd_general.php:626 pmd_general.php:685
-msgid "Relation operator"
-msgstr "সর্ম্পক পরিচালক"
-
-#: pmd_general.php:636 pmd_general.php:695 pmd_general.php:825
-#: pmd_general.php:944
-msgid "Except"
-msgstr "ব্যতিত"
-
-#: pmd_general.php:642 pmd_general.php:703 pmd_general.php:831
-#: pmd_general.php:950
-msgid "subquery"
-msgstr "সহ-অনুসন্ধান"
-
-#: pmd_general.php:646 pmd_general.php:748
-msgid "Rename to"
-msgstr "নাম পরিবর্তন"
-
-#: pmd_general.php:648 pmd_general.php:754
-msgid "New name"
-msgstr "নতুন নাম"
-
-#: pmd_general.php:651 pmd_general.php:874
-msgid "Aggregate"
-msgstr "সমষ্টিগত"
-
-#: pmd_general.php:985
-msgid "Active options"
-msgstr "কার্যকর অপশনসমূহ"
 
 #: pmd_relation_new.php:37
 msgid "Error: relation already exists."
@@ -14719,11 +14716,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
-"বর্তমান মুক্ত ক্যাশ মেমোরীর হার হল মোট অনুসন্ধান ক্যাশের আকারের %s%%। ইহা অবশ্যই 80%"
-"% বেশী থাকবে"
+"বর্তমান মুক্ত ক্যাশ মেমোরীর হার হল মোট অনুসন্ধান ক্যাশের আকারের %s%%। ইহা অবশ্যই "
+"80%% বেশী থাকবে"
 
 #: libraries/advisory_rules.txt:181
 msgid "Query cache fragmentation"
@@ -14778,8 +14775,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
-"ইনসার্টেড অনুসন্ধানে অনুসন্ধান সরানোর হার %s%%। এর মান যত কম হবে তত ভাল, ভাল (০.১%"
-"%)"
+"ইনসার্টেড অনুসন্ধানে অনুসন্ধান সরানোর হার %s%%। এর মান যত কম হবে তত ভাল, ভাল "
+"(০.১%%)"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache max size"
@@ -14847,8 +14844,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr "সমস্ত সর্টের %s%% সাময়িক টেবল তৈরী করছে, এই মানটি 10%% এর কম হবে।"
 
 #: libraries/advisory_rules.txt:218
@@ -15553,6 +15550,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert এর জন্য ০ নির্ধারন করা হয়েছে"
+
+#, fuzzy
+#~| msgid "Customize main panel"
+#~ msgid "Unlink with main panel"
+#~ msgstr "প্রধান ফ্রেম পরিবর্তন"
 
 #~ msgid "No index defined! Create one below"
 #~ msgstr "কোন ইনডেক্স তৈরী করা হয়নি!"

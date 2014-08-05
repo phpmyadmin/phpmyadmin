@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-05 10:15-0400\n"
+"POT-Creation-Date: 2014-08-05 17:34-0400\n"
 "PO-Revision-Date: 2014-07-09 12:20+0200\n"
 "Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
 "Language-Team: Traditional Chinese <https://l10n.cihar.com/projects/"
 "phpmyadmin/master/zh_TW/>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -612,8 +612,8 @@ msgstr "完整新增"
 #: import.php:164
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr "您上傳的檔案過大，請參考 %s說明文件%s 了解如何解決此問題。"
 
 #: import.php:343 import.php:627
@@ -1256,10 +1256,10 @@ msgstr "請至少增加一個變數到資料序列！"
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1044
 #: libraries/display_export.lib.php:580
 #: libraries/plugins/export/ExportSql.class.php:1913
-#: libraries/server_privileges.lib.php:2673
+#: libraries/pmd_general.lib.php:788 libraries/server_privileges.lib.php:2673
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:261
-#: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:676
+#: libraries/tbl_columns_definition_form.lib.php:743
 msgid "None"
 msgstr "無"
 
@@ -1592,10 +1592,11 @@ msgstr "使用的變數 / 公式"
 msgid "Test"
 msgstr "檢驗方式"
 
-#: js/messages.php:243 libraries/server_variables.lib.php:159
-#: pmd_general.php:550 pmd_general.php:589 pmd_general.php:716
-#: pmd_general.php:766 pmd_general.php:842 pmd_general.php:898
-#: pmd_general.php:961 pmd_general.php:994
+#: js/messages.php:243 libraries/pmd_general.lib.php:635
+#: libraries/pmd_general.lib.php:684 libraries/pmd_general.lib.php:828
+#: libraries/pmd_general.lib.php:890 libraries/pmd_general.lib.php:978
+#: libraries/pmd_general.lib.php:1046 libraries/pmd_general.lib.php:1122
+#: libraries/pmd_general.lib.php:1164 libraries/server_variables.lib.php:159
 msgid "Cancel"
 msgstr "取消"
 
@@ -1639,9 +1640,10 @@ msgstr "刪除欄位"
 msgid "Adding Primary Key"
 msgstr "正在新增主鍵(Primary Key)"
 
-#: js/messages.php:255 pmd_general.php:548 pmd_general.php:714
-#: pmd_general.php:764 pmd_general.php:840 pmd_general.php:896
-#: pmd_general.php:959
+#: js/messages.php:255 libraries/pmd_general.lib.php:633
+#: libraries/pmd_general.lib.php:826 libraries/pmd_general.lib.php:888
+#: libraries/pmd_general.lib.php:976 libraries/pmd_general.lib.php:1044
+#: libraries/pmd_general.lib.php:1120
 msgid "OK"
 msgstr "確定"
 
@@ -2056,7 +2058,7 @@ msgstr "請選擇外鍵(Foreign Key)"
 msgid "Please select the primary key or a unique key!"
 msgstr "請選擇主鍵(Primary Key)或唯一鍵(Unique Key)！"
 
-#: js/messages.php:393 pmd_general.php:179
+#: js/messages.php:393 libraries/pmd_general.lib.php:147
 msgid "Choose column to display"
 msgstr "請選擇要顯示的欄位"
 
@@ -2074,7 +2076,7 @@ msgstr "頁面名稱"
 msgid "Save page"
 msgstr "儲存頁面"
 
-#: js/messages.php:400 pmd_general.php:151
+#: js/messages.php:400 libraries/pmd_general.lib.php:104
 msgid "Open page"
 msgstr "開啟頁面"
 
@@ -2266,7 +2268,7 @@ msgstr "顯示隱藏的導覽樹項目。"
 msgid "Link with main panel"
 msgstr "自訂主面板"
 
-#: js/messages.php:466
+#: js/messages.php:466 libraries/navigation/NavigationTree.class.php:1139
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
@@ -2714,12 +2716,11 @@ msgstr "子查詢"
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:361
 #: libraries/DisplayResults.class.php:3460
 #: libraries/DisplayResults.class.php:5026
-#: libraries/central_columns.lib.php:758
+#: libraries/central_columns.lib.php:758 libraries/pmd_general.lib.php:682
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:440 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:587 setup/frames/index.inc.php:182
-#: setup/frames/index.inc.php:290
+#: setup/frames/index.inc.php:182 setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "刪除"
 
@@ -3238,8 +3239,8 @@ msgstr "您的 SQL 語法已順利執行。"
 #: libraries/DisplayResults.class.php:4884 libraries/structure.lib.php:683
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "這個檢視表至少需有此數量的資料列，請參考%sdocumentation%s。"
 
 #: libraries/DisplayResults.class.php:4897
@@ -3499,9 +3500,9 @@ msgstr "檢視表"
 #: libraries/config/user_preferences.forms.php:267
 #: libraries/import.lib.php:1269
 #: libraries/navigation/Nodes/Node_Table.class.php:36
-#: libraries/server_privileges.lib.php:991
+#: libraries/pmd_general.lib.php:301 libraries/server_privileges.lib.php:991
 #: libraries/tbl_columns_definition_form.lib.php:200
-#: libraries/tbl_tracking.lib.php:805 pmd_general.php:272
+#: libraries/tbl_tracking.lib.php:805
 msgid "Structure"
 msgstr "結構"
 
@@ -3932,17 +3933,19 @@ msgstr ""
 msgid "Function"
 msgstr "函數"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:653 pmd_general.php:673
-#: pmd_general.php:802 pmd_general.php:815 pmd_general.php:880
-#: pmd_general.php:934
+#: libraries/TableSearch.class.php:188 libraries/pmd_general.lib.php:765
+#: libraries/pmd_general.lib.php:785 libraries/pmd_general.lib.php:937
+#: libraries/pmd_general.lib.php:950 libraries/pmd_general.lib.php:1028
+#: libraries/pmd_general.lib.php:1094
 msgid "Operator"
 msgstr "運算子"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1293
-#: libraries/insert_edit.lib.php:1641 libraries/replication_gui.lib.php:515
+#: libraries/insert_edit.lib.php:1641 libraries/pmd_general.lib.php:749
+#: libraries/pmd_general.lib.php:814 libraries/pmd_general.lib.php:966
+#: libraries/pmd_general.lib.php:1110 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:642
-#: pmd_general.php:702 pmd_general.php:831 pmd_general.php:950
+#: libraries/server_status_variables.lib.php:220
 msgid "Value"
 msgstr "值"
 
@@ -4115,16 +4118,16 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "浮點數，範圍為 -3.402823466E+38 至 -1.175494351E-38、0 及 1.175494351E-38 至 "
 "3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "倍準浮點數，範圍為 -1.7976931348623157E+308 至 -2.2250738585072014E-308、0 "
@@ -7386,7 +7389,7 @@ msgstr "建立新資料庫："
 msgid "No Privileges"
 msgstr "無權限"
 
-#: libraries/display_create_table.lib.php:55 pmd_general.php:169
+#: libraries/display_create_table.lib.php:55 libraries/pmd_general.lib.php:134
 msgid "Create table"
 msgstr "建立資料表"
 
@@ -7496,8 +7499,8 @@ msgstr "，@TABLE@ 會替換為資料表名稱"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "此數值會使用 %1$sstrftime%2$s 來解析，所以您可以使用時間格式的字串。除此之"
 "外，以下資料格式也會被轉換: %3$s。其他的文字則會保持原樣。請參考 %4$s常見問"
@@ -8012,8 +8015,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr "有關 PBXT 的更相關資訊請可以 %sPrimeBase XT 首頁%s 中找到。"
 
 #: libraries/engines/pbxt.lib.php:138
@@ -8135,7 +8138,7 @@ msgstr "在第 %s 個欄位建立索引"
 
 #: libraries/insert_edit.lib.php:218 libraries/insert_edit.lib.php:249
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
-#: pmd_general.php:284
+#: libraries/pmd_general.lib.php:313
 msgid "Hide"
 msgstr "隱藏"
 
@@ -8506,12 +8509,6 @@ msgstr "依名稱或 Regex 搜尋"
 #| msgid "Expand/Collapse"
 msgid "Collapse all"
 msgstr "展開/摺疊"
-
-#: libraries/navigation/NavigationTree.class.php:1139
-#, fuzzy
-#| msgid "Customize main panel"
-msgid "Unlink with main panel"
-msgstr "自訂主面板"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9106,8 +9103,8 @@ msgstr "歡迎使用 %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr "您可能還沒有建立設定檔案。您可以使用 %1$s 設定指令 %2$s 來建立。"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:126
@@ -9871,6 +9868,130 @@ msgid ""
 msgstr ""
 "顯示連結，欄位內包含檔案名稱。第一個選項是類似 \"http://www.example.com/ \" "
 "這樣的 URL 前綴。第二個選項是連結的標題。"
+
+#: libraries/pmd_general.lib.php:71
+msgid "Show/Hide left menu"
+msgstr "顯示/隱藏左側選單"
+
+#: libraries/pmd_general.lib.php:79
+msgid "View in fullscreen"
+msgstr "全螢幕檢視"
+
+#: libraries/pmd_general.lib.php:87
+msgid "Exit fullscreen"
+msgstr "退出全螢幕"
+
+#: libraries/pmd_general.lib.php:97
+msgid "New page"
+msgstr "新頁面"
+
+#: libraries/pmd_general.lib.php:111
+msgid "Save position"
+msgstr "儲存位置"
+
+#: libraries/pmd_general.lib.php:117
+msgid "Save positions as"
+msgstr "儲存位置為"
+
+#: libraries/pmd_general.lib.php:124
+msgid "Delete pages"
+msgstr "刪除頁面"
+
+#: libraries/pmd_general.lib.php:140 libraries/pmd_general.lib.php:597
+msgid "Create relation"
+msgstr "建立關聯"
+
+#: libraries/pmd_general.lib.php:154
+msgid "Reload"
+msgstr "重新讀取"
+
+#: libraries/pmd_general.lib.php:160
+msgid "Help"
+msgstr "說明"
+
+#: libraries/pmd_general.lib.php:170
+msgid "Angular links"
+msgstr "直角連結"
+
+#: libraries/pmd_general.lib.php:170
+msgid "Direct links"
+msgstr "直線連結"
+
+#: libraries/pmd_general.lib.php:177
+msgid "Snap to grid"
+msgstr "對齊格線"
+
+#: libraries/pmd_general.lib.php:187
+msgid "Small/Big All"
+msgstr "全部折疊/展開"
+
+#: libraries/pmd_general.lib.php:194
+msgid "Toggle small/big"
+msgstr "折疊/展開"
+
+#: libraries/pmd_general.lib.php:201
+msgid "Toggle relation lines"
+msgstr "請點選關聯行"
+
+#: libraries/pmd_general.lib.php:214
+#, fuzzy
+#| msgid "Export"
+msgid "Export schema"
+msgstr "匯出"
+
+#: libraries/pmd_general.lib.php:225
+msgid "Build Query"
+msgstr "產生查詢"
+
+#: libraries/pmd_general.lib.php:234
+msgid "Move Menu"
+msgstr "移動選單"
+
+#: libraries/pmd_general.lib.php:276
+msgid "Hide/Show all"
+msgstr "全部隱藏/顯示"
+
+#: libraries/pmd_general.lib.php:285
+msgid "Hide/Show Tables with no relation"
+msgstr "隱藏/顯示沒有關聯的表"
+
+#: libraries/pmd_general.lib.php:340
+msgid "Number of tables:"
+msgstr "資料表數:"
+
+#: libraries/pmd_general.lib.php:676
+msgid "Delete relation"
+msgstr "刪除關聯"
+
+#: libraries/pmd_general.lib.php:733 libraries/pmd_general.lib.php:797
+msgid "Relation operator"
+msgstr "關聯運算子"
+
+#: libraries/pmd_general.lib.php:743 libraries/pmd_general.lib.php:807
+#: libraries/pmd_general.lib.php:960 libraries/pmd_general.lib.php:1104
+msgid "Except"
+msgstr "例外"
+
+#: libraries/pmd_general.lib.php:749 libraries/pmd_general.lib.php:815
+#: libraries/pmd_general.lib.php:966 libraries/pmd_general.lib.php:1110
+msgid "subquery"
+msgstr "子查詢"
+
+#: libraries/pmd_general.lib.php:755 libraries/pmd_general.lib.php:872
+msgid "Rename to"
+msgstr "重新命名爲"
+
+#: libraries/pmd_general.lib.php:758 libraries/pmd_general.lib.php:878
+msgid "New name"
+msgstr "新名稱"
+
+#: libraries/pmd_general.lib.php:762 libraries/pmd_general.lib.php:1022
+msgid "Aggregate"
+msgstr "聚合"
+
+#: libraries/pmd_general.lib.php:1155
+msgid "Active options"
+msgstr "目前選項"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -11362,8 +11483,8 @@ msgstr "檢視使用者"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin 直接由 MySQL 權限表取得使用者權限。若有使用者中途手動更改權"
 "限，則表中顯示的內容可能與伺服器實際使用的使用者權限有異。在這種情況下，您應"
@@ -13376,130 +13497,6 @@ msgstr "嚴重錯誤: 導覽頁只能使用 AJAX 存取"
 msgid "Modifications have been saved"
 msgstr "已儲存修改"
 
-#: pmd_general.php:130
-msgid "Show/Hide left menu"
-msgstr "顯示/隱藏左側選單"
-
-#: pmd_general.php:135
-msgid "View in fullscreen"
-msgstr "全螢幕檢視"
-
-#: pmd_general.php:140
-msgid "Exit fullscreen"
-msgstr "退出全螢幕"
-
-#: pmd_general.php:147
-msgid "New page"
-msgstr "新頁面"
-
-#: pmd_general.php:155
-msgid "Save position"
-msgstr "儲存位置"
-
-#: pmd_general.php:159
-msgid "Save positions as"
-msgstr "儲存位置為"
-
-#: pmd_general.php:163
-msgid "Delete pages"
-msgstr "刪除頁面"
-
-#: pmd_general.php:174 pmd_general.php:513
-msgid "Create relation"
-msgstr "建立關聯"
-
-#: pmd_general.php:184
-msgid "Reload"
-msgstr "重新讀取"
-
-#: pmd_general.php:189
-msgid "Help"
-msgstr "說明"
-
-#: pmd_general.php:197
-msgid "Angular links"
-msgstr "直角連結"
-
-#: pmd_general.php:197
-msgid "Direct links"
-msgstr "直線連結"
-
-#: pmd_general.php:202
-msgid "Snap to grid"
-msgstr "對齊格線"
-
-#: pmd_general.php:208
-msgid "Small/Big All"
-msgstr "全部折疊/展開"
-
-#: pmd_general.php:213
-msgid "Toggle small/big"
-msgstr "折疊/展開"
-
-#: pmd_general.php:218
-msgid "Toggle relation lines"
-msgstr "請點選關聯行"
-
-#: pmd_general.php:226
-#, fuzzy
-#| msgid "Export"
-msgid "Export schema"
-msgstr "匯出"
-
-#: pmd_general.php:237
-msgid "Build Query"
-msgstr "產生查詢"
-
-#: pmd_general.php:244
-msgid "Move Menu"
-msgstr "移動選單"
-
-#: pmd_general.php:258
-msgid "Hide/Show all"
-msgstr "全部隱藏/顯示"
-
-#: pmd_general.php:262
-msgid "Hide/Show Tables with no relation"
-msgstr "隱藏/顯示沒有關聯的表"
-
-#: pmd_general.php:306
-msgid "Number of tables:"
-msgstr "資料表數:"
-
-#: pmd_general.php:581
-msgid "Delete relation"
-msgstr "刪除關聯"
-
-#: pmd_general.php:626 pmd_general.php:685
-msgid "Relation operator"
-msgstr "關聯運算子"
-
-#: pmd_general.php:636 pmd_general.php:695 pmd_general.php:825
-#: pmd_general.php:944
-msgid "Except"
-msgstr "例外"
-
-#: pmd_general.php:642 pmd_general.php:703 pmd_general.php:831
-#: pmd_general.php:950
-msgid "subquery"
-msgstr "子查詢"
-
-#: pmd_general.php:646 pmd_general.php:748
-msgid "Rename to"
-msgstr "重新命名爲"
-
-#: pmd_general.php:648 pmd_general.php:754
-msgid "New name"
-msgstr "新名稱"
-
-#: pmd_general.php:651 pmd_general.php:874
-msgid "Aggregate"
-msgstr "聚合"
-
-#: pmd_general.php:985
-msgid "Active options"
-msgstr "目前選項"
-
 #: pmd_relation_new.php:37
 msgid "Error: relation already exists."
 msgstr "錯誤: 關聯已存在。"
@@ -13578,8 +13575,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"透過修改 config.inc.php 設定檔您可以調整更多的設定項目，如: 使用 %s安裝程式%"
-"s 。"
+"透過修改 config.inc.php 設定檔您可以調整更多的設定項目，如: 使用 %s安裝程"
+"式%s 。"
 
 #: prefs_manage.php:311
 msgid "Save to browser's storage"
@@ -14250,8 +14247,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr "目前閒置查詢快取記憶體為全部查詢快取的大小的 %s%%，這個值應高於 80%%"
 
 #: libraries/advisory_rules.txt:181
@@ -14387,8 +14384,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr "有 %s%% 的排序會產生暫存表，這個值應低於 10%%。"
 
 #: libraries/advisory_rules.txt:218
@@ -15073,6 +15070,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 目前設定為 0"
+
+#, fuzzy
+#~| msgid "Customize main panel"
+#~ msgid "Unlink with main panel"
+#~ msgstr "自訂主面板"
 
 #~ msgid "No index defined! Create one below"
 #~ msgstr "尚未定義索引，請於下方建立"
@@ -16263,8 +16265,8 @@ msgstr "concurrent_insert 目前設定為 0"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation.html#faq6-29"
-#~ "\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
+#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation."
+#~ "html#faq6-29\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "新增新使用者"

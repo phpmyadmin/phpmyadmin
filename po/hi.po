@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-05 10:15-0400\n"
+"POT-Creation-Date: 2014-08-05 17:34-0400\n"
 "PO-Revision-Date: 2014-06-26 20:47+0200\n"
 "Last-Translator: Dhananjay Nakrani <dhananjaynakrani@gmail.com>\n"
 "Language-Team: Hindi <https://l10n.cihar.com/projects/phpmyadmin/master/hi/"
 ">\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hi\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -260,8 +260,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"phpMyAdmin विन्यास भंडारण को निष्क्रिय किया गया हैक्यों ये किया गया है, जानने के लिए %"
-"sयहाँ%s पर क्लिक करें."
+"phpMyAdmin विन्यास भंडारण को निष्क्रिय किया गया हैक्यों ये किया गया है, जानने के लिए "
+"%sयहाँ%s पर क्लिक करें."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:210
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:761
@@ -631,11 +631,11 @@ msgstr "पूरा इनसर्टस"
 #: import.php:164
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"आप शायद बहुत बड़ी फाइल अपलोड करने की कोशिश कर रहे हैं. इस दुविधा के लिए कृपया करके %"
-"sdocumentation%s पढ़ें."
+"आप शायद बहुत बड़ी फाइल अपलोड करने की कोशिश कर रहे हैं. इस दुविधा के लिए कृपया करके "
+"%sdocumentation%s पढ़ें."
 
 #: import.php:343 import.php:627
 msgid "Showing bookmark"
@@ -1309,10 +1309,10 @@ msgstr "कृपया, श्रृंखला में कम से कम
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1044
 #: libraries/display_export.lib.php:580
 #: libraries/plugins/export/ExportSql.class.php:1913
-#: libraries/server_privileges.lib.php:2673
+#: libraries/pmd_general.lib.php:788 libraries/server_privileges.lib.php:2673
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:261
-#: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:676
+#: libraries/tbl_columns_definition_form.lib.php:743
 msgid "None"
 msgstr "कुछ नहीं"
 
@@ -1666,10 +1666,11 @@ msgstr "प्रयुक्त चर (variable) / सूत्र (formula)"
 msgid "Test"
 msgstr "जाँच"
 
-#: js/messages.php:243 libraries/server_variables.lib.php:159
-#: pmd_general.php:550 pmd_general.php:589 pmd_general.php:716
-#: pmd_general.php:766 pmd_general.php:842 pmd_general.php:898
-#: pmd_general.php:961 pmd_general.php:994
+#: js/messages.php:243 libraries/pmd_general.lib.php:635
+#: libraries/pmd_general.lib.php:684 libraries/pmd_general.lib.php:828
+#: libraries/pmd_general.lib.php:890 libraries/pmd_general.lib.php:978
+#: libraries/pmd_general.lib.php:1046 libraries/pmd_general.lib.php:1122
+#: libraries/pmd_general.lib.php:1164 libraries/server_variables.lib.php:159
 msgid "Cancel"
 msgstr "रद्द"
 
@@ -1713,9 +1714,10 @@ msgstr "कॉलम को हटाया जाना"
 msgid "Adding Primary Key"
 msgstr "प्राथमिक कुञ्जी जोड़ना"
 
-#: js/messages.php:255 pmd_general.php:548 pmd_general.php:714
-#: pmd_general.php:764 pmd_general.php:840 pmd_general.php:896
-#: pmd_general.php:959
+#: js/messages.php:255 libraries/pmd_general.lib.php:633
+#: libraries/pmd_general.lib.php:826 libraries/pmd_general.lib.php:888
+#: libraries/pmd_general.lib.php:976 libraries/pmd_general.lib.php:1044
+#: libraries/pmd_general.lib.php:1120
 msgid "OK"
 msgstr "ठीक है"
 
@@ -2158,7 +2160,7 @@ msgstr "परदेशी कुंजी का चयन करें"
 msgid "Please select the primary key or a unique key!"
 msgstr "कृपया प्राथमिक कुंजी या एक अद्वितीय कुंजी का चयन करें"
 
-#: js/messages.php:393 pmd_general.php:179
+#: js/messages.php:393 libraries/pmd_general.lib.php:147
 msgid "Choose column to display"
 msgstr "प्रदर्शित करने के लिए काँलम चुनें"
 
@@ -2182,7 +2184,7 @@ msgstr "पृष्ठ नाम:"
 msgid "Save page"
 msgstr "पेज चुनिये"
 
-#: js/messages.php:400 pmd_general.php:151
+#: js/messages.php:400 libraries/pmd_general.lib.php:104
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
@@ -2403,7 +2405,7 @@ msgstr "बाईं फ्रेम में लोगो देखिये�
 msgid "Link with main panel"
 msgstr "मुख्य फ्रेम को अनुकूलित करें"
 
-#: js/messages.php:466
+#: js/messages.php:466 libraries/navigation/NavigationTree.class.php:1139
 #, fuzzy
 #| msgid "Customize main frame"
 msgid "Unlink from main panel"
@@ -2857,12 +2859,11 @@ msgstr "उप-क्वरी"
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:361
 #: libraries/DisplayResults.class.php:3460
 #: libraries/DisplayResults.class.php:5026
-#: libraries/central_columns.lib.php:758
+#: libraries/central_columns.lib.php:758 libraries/pmd_general.lib.php:682
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:440 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:587 setup/frames/index.inc.php:182
-#: setup/frames/index.inc.php:290
+#: setup/frames/index.inc.php:182 setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "मिटाएँ"
 
@@ -3432,8 +3433,8 @@ msgstr "आपकी SQL कुएरी सफलता के साथ पू
 #: libraries/DisplayResults.class.php:4884 libraries/structure.lib.php:683
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "इस द्रश्य में कम से कम इतनी रो हैं. और जानने के लिए %s दस्तावेज़%s  पढ़ें."
 
 #: libraries/DisplayResults.class.php:4897
@@ -3712,9 +3713,9 @@ msgstr "दृश्य"
 #: libraries/config/user_preferences.forms.php:267
 #: libraries/import.lib.php:1269
 #: libraries/navigation/Nodes/Node_Table.class.php:36
-#: libraries/server_privileges.lib.php:991
+#: libraries/pmd_general.lib.php:301 libraries/server_privileges.lib.php:991
 #: libraries/tbl_columns_definition_form.lib.php:200
-#: libraries/tbl_tracking.lib.php:805 pmd_general.php:272
+#: libraries/tbl_tracking.lib.php:805
 msgid "Structure"
 msgstr "संरचना"
 
@@ -4189,17 +4190,19 @@ msgstr ""
 msgid "Function"
 msgstr ""
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:653 pmd_general.php:673
-#: pmd_general.php:802 pmd_general.php:815 pmd_general.php:880
-#: pmd_general.php:934
+#: libraries/TableSearch.class.php:188 libraries/pmd_general.lib.php:765
+#: libraries/pmd_general.lib.php:785 libraries/pmd_general.lib.php:937
+#: libraries/pmd_general.lib.php:950 libraries/pmd_general.lib.php:1028
+#: libraries/pmd_general.lib.php:1094
 msgid "Operator"
 msgstr "ऑपरेटर"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1293
-#: libraries/insert_edit.lib.php:1641 libraries/replication_gui.lib.php:515
+#: libraries/insert_edit.lib.php:1641 libraries/pmd_general.lib.php:749
+#: libraries/pmd_general.lib.php:814 libraries/pmd_general.lib.php:966
+#: libraries/pmd_general.lib.php:1110 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:642
-#: pmd_general.php:702 pmd_general.php:831 pmd_general.php:950
+#: libraries/server_status_variables.lib.php:220
 msgid "Value"
 msgstr "मूल्य"
 
@@ -4387,14 +4390,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -8055,7 +8058,7 @@ msgstr "नया डाटाबेस बनाओ"
 msgid "No Privileges"
 msgstr "कोइ प्रिविलेज नहीं"
 
-#: libraries/display_create_table.lib.php:55 pmd_general.php:169
+#: libraries/display_create_table.lib.php:55 libraries/pmd_general.lib.php:134
 msgid "Create table"
 msgstr "टेबल बनायें"
 
@@ -8165,8 +8168,8 @@ msgstr ", @टेबल@ टेबल का नाम बन जायेगा
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:519
@@ -8666,8 +8669,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -8800,7 +8803,7 @@ msgstr "&nbsp;%s&nbsp; कोलम पर इन्डेक्स बनाऐ
 
 #: libraries/insert_edit.lib.php:218 libraries/insert_edit.lib.php:249
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
-#: pmd_general.php:284
+#: libraries/pmd_general.lib.php:313
 msgid "Hide"
 msgstr "छिपाना"
 
@@ -9204,12 +9207,6 @@ msgstr "टेबल क्रमांक को बदलिये "
 #: libraries/navigation/NavigationTree.class.php:1130
 msgid "Collapse all"
 msgstr ""
-
-#: libraries/navigation/NavigationTree.class.php:1139
-#, fuzzy
-#| msgid "Customize main frame"
-msgid "Unlink with main panel"
-msgstr "मुख्य फ्रेम को अनुकूलित करें"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9818,11 +9815,11 @@ msgstr "%s मे स्वागत है"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"आपने शायद एक विन्यास फाइल नहीं बने थी. विन्यास फाइल बनाने के लिए %1$ssetup script%2"
-"$s का उपयोग करें."
+"आपने शायद एक विन्यास फाइल नहीं बने थी. विन्यास फाइल बनाने के लिए %1$ssetup script"
+"%2$s का उपयोग करें."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:126
 msgid ""
@@ -10597,6 +10594,156 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
+
+#: libraries/pmd_general.lib.php:71
+msgid "Show/Hide left menu"
+msgstr "शो/छिपाना बाएँ मेनू"
+
+#: libraries/pmd_general.lib.php:79
+msgid "View in fullscreen"
+msgstr ""
+
+#: libraries/pmd_general.lib.php:87
+msgid "Exit fullscreen"
+msgstr ""
+
+#: libraries/pmd_general.lib.php:97
+#, fuzzy
+#| msgid "User name"
+msgid "New page"
+msgstr "नया नेम"
+
+#: libraries/pmd_general.lib.php:111
+msgid "Save position"
+msgstr "स्थिति को बचा"
+
+#: libraries/pmd_general.lib.php:117
+#, fuzzy
+#| msgid "Save position"
+msgid "Save positions as"
+msgstr "स्थिति को बचा"
+
+#: libraries/pmd_general.lib.php:124
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Delete pages"
+msgstr "पेज चुनिये"
+
+#: libraries/pmd_general.lib.php:140 libraries/pmd_general.lib.php:597
+msgid "Create relation"
+msgstr "संबंध बनायें"
+
+#: libraries/pmd_general.lib.php:154
+msgid "Reload"
+msgstr "पुनः लोड"
+
+#: libraries/pmd_general.lib.php:160
+msgid "Help"
+msgstr "मदद"
+
+#: libraries/pmd_general.lib.php:170
+msgid "Angular links"
+msgstr "कोणीय लिंक"
+
+#: libraries/pmd_general.lib.php:170
+msgid "Direct links"
+msgstr "सीधे संपर्क"
+
+#: libraries/pmd_general.lib.php:177
+msgid "Snap to grid"
+msgstr "ग्रिड पर स्नैप"
+
+#: libraries/pmd_general.lib.php:187
+msgid "Small/Big All"
+msgstr "सभी छोटे/बड़े"
+
+#: libraries/pmd_general.lib.php:194
+msgid "Toggle small/big"
+msgstr "टोग्ल छोटे/बड़े"
+
+#: libraries/pmd_general.lib.php:201
+#, fuzzy
+#| msgid "To select relation, click :"
+msgid "Toggle relation lines"
+msgstr "संबंध चयन करने के लिए क्लिक करें :"
+
+#: libraries/pmd_general.lib.php:214
+#, fuzzy
+#| msgid "Export"
+msgid "Export schema"
+msgstr "निर्यात"
+
+#: libraries/pmd_general.lib.php:225
+#, fuzzy
+#| msgid "Submit Query"
+msgid "Build Query"
+msgstr "क्वरी प्रस्तुत करें"
+
+#: libraries/pmd_general.lib.php:234
+msgid "Move Menu"
+msgstr "चाल मेनू"
+
+#: libraries/pmd_general.lib.php:276
+msgid "Hide/Show all"
+msgstr "सभी दिखाना/छिपाना"
+
+#: libraries/pmd_general.lib.php:285
+msgid "Hide/Show Tables with no relation"
+msgstr "बिना रिश्ते की टेबलओं को दिखाना/छिपाना"
+
+#: libraries/pmd_general.lib.php:340
+#, fuzzy
+#| msgid "Number of tables"
+msgid "Number of tables:"
+msgstr "टेबल की संख्या"
+
+#: libraries/pmd_general.lib.php:676
+msgid "Delete relation"
+msgstr "संबंध हटाना"
+
+#: libraries/pmd_general.lib.php:733 libraries/pmd_general.lib.php:797
+#, fuzzy
+#| msgid "Relation deleted"
+msgid "Relation operator"
+msgstr "संबंध ऑपरेटर"
+
+#: libraries/pmd_general.lib.php:743 libraries/pmd_general.lib.php:807
+#: libraries/pmd_general.lib.php:960 libraries/pmd_general.lib.php:1104
+#, fuzzy
+#| msgid "Export"
+msgid "Except"
+msgstr "सिवाय"
+
+#: libraries/pmd_general.lib.php:749 libraries/pmd_general.lib.php:815
+#: libraries/pmd_general.lib.php:966 libraries/pmd_general.lib.php:1110
+#, fuzzy
+#| msgid "Query"
+msgid "subquery"
+msgstr "उप-क्वरी"
+
+#: libraries/pmd_general.lib.php:755 libraries/pmd_general.lib.php:872
+#, fuzzy
+#| msgid "Rename database to"
+msgid "Rename to"
+msgstr "नाम बदल कर ____ रखें"
+
+#: libraries/pmd_general.lib.php:758 libraries/pmd_general.lib.php:878
+#, fuzzy
+#| msgid "User name"
+msgid "New name"
+msgstr "नया नेम"
+
+#: libraries/pmd_general.lib.php:762 libraries/pmd_general.lib.php:1022
+#, fuzzy
+#| msgid "Create"
+msgid "Aggregate"
+msgstr "कुल"
+
+#: libraries/pmd_general.lib.php:1155
+#, fuzzy
+#| msgid "Actions"
+msgid "Active options"
+msgstr "सक्रिय विकल्प"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -12228,8 +12375,8 @@ msgstr "यूसर सिंहावलोकन"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4020
@@ -14359,156 +14506,6 @@ msgstr ""
 msgid "Modifications have been saved"
 msgstr "संशोधनों को बचाया गया है"
 
-#: pmd_general.php:130
-msgid "Show/Hide left menu"
-msgstr "शो/छिपाना बाएँ मेनू"
-
-#: pmd_general.php:135
-msgid "View in fullscreen"
-msgstr ""
-
-#: pmd_general.php:140
-msgid "Exit fullscreen"
-msgstr ""
-
-#: pmd_general.php:147
-#, fuzzy
-#| msgid "User name"
-msgid "New page"
-msgstr "नया नेम"
-
-#: pmd_general.php:155
-msgid "Save position"
-msgstr "स्थिति को बचा"
-
-#: pmd_general.php:159
-#, fuzzy
-#| msgid "Save position"
-msgid "Save positions as"
-msgstr "स्थिति को बचा"
-
-#: pmd_general.php:163
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Delete pages"
-msgstr "पेज चुनिये"
-
-#: pmd_general.php:174 pmd_general.php:513
-msgid "Create relation"
-msgstr "संबंध बनायें"
-
-#: pmd_general.php:184
-msgid "Reload"
-msgstr "पुनः लोड"
-
-#: pmd_general.php:189
-msgid "Help"
-msgstr "मदद"
-
-#: pmd_general.php:197
-msgid "Angular links"
-msgstr "कोणीय लिंक"
-
-#: pmd_general.php:197
-msgid "Direct links"
-msgstr "सीधे संपर्क"
-
-#: pmd_general.php:202
-msgid "Snap to grid"
-msgstr "ग्रिड पर स्नैप"
-
-#: pmd_general.php:208
-msgid "Small/Big All"
-msgstr "सभी छोटे/बड़े"
-
-#: pmd_general.php:213
-msgid "Toggle small/big"
-msgstr "टोग्ल छोटे/बड़े"
-
-#: pmd_general.php:218
-#, fuzzy
-#| msgid "To select relation, click :"
-msgid "Toggle relation lines"
-msgstr "संबंध चयन करने के लिए क्लिक करें :"
-
-#: pmd_general.php:226
-#, fuzzy
-#| msgid "Export"
-msgid "Export schema"
-msgstr "निर्यात"
-
-#: pmd_general.php:237
-#, fuzzy
-#| msgid "Submit Query"
-msgid "Build Query"
-msgstr "क्वरी प्रस्तुत करें"
-
-#: pmd_general.php:244
-msgid "Move Menu"
-msgstr "चाल मेनू"
-
-#: pmd_general.php:258
-msgid "Hide/Show all"
-msgstr "सभी दिखाना/छिपाना"
-
-#: pmd_general.php:262
-msgid "Hide/Show Tables with no relation"
-msgstr "बिना रिश्ते की टेबलओं को दिखाना/छिपाना"
-
-#: pmd_general.php:306
-#, fuzzy
-#| msgid "Number of tables"
-msgid "Number of tables:"
-msgstr "टेबल की संख्या"
-
-#: pmd_general.php:581
-msgid "Delete relation"
-msgstr "संबंध हटाना"
-
-#: pmd_general.php:626 pmd_general.php:685
-#, fuzzy
-#| msgid "Relation deleted"
-msgid "Relation operator"
-msgstr "संबंध ऑपरेटर"
-
-#: pmd_general.php:636 pmd_general.php:695 pmd_general.php:825
-#: pmd_general.php:944
-#, fuzzy
-#| msgid "Export"
-msgid "Except"
-msgstr "सिवाय"
-
-#: pmd_general.php:642 pmd_general.php:703 pmd_general.php:831
-#: pmd_general.php:950
-#, fuzzy
-#| msgid "Query"
-msgid "subquery"
-msgstr "उप-क्वरी"
-
-#: pmd_general.php:646 pmd_general.php:748
-#, fuzzy
-#| msgid "Rename database to"
-msgid "Rename to"
-msgstr "नाम बदल कर ____ रखें"
-
-#: pmd_general.php:648 pmd_general.php:754
-#, fuzzy
-#| msgid "User name"
-msgid "New name"
-msgstr "नया नेम"
-
-#: pmd_general.php:651 pmd_general.php:874
-#, fuzzy
-#| msgid "Create"
-msgid "Aggregate"
-msgstr "कुल"
-
-#: pmd_general.php:985
-#, fuzzy
-#| msgid "Actions"
-msgid "Active options"
-msgstr "सक्रिय विकल्प"
-
 #: pmd_relation_new.php:37
 msgid "Error: relation already exists."
 msgstr "त्रुटि: रिश्ता पहले से ही मौजूद है."
@@ -15290,8 +15287,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -15424,8 +15421,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -16144,6 +16141,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0 पर सेट है"
+
+#, fuzzy
+#~| msgid "Customize main frame"
+#~ msgid "Unlink with main panel"
+#~ msgstr "मुख्य फ्रेम को अनुकूलित करें"
 
 #, fuzzy
 #~| msgid "No index defined!"

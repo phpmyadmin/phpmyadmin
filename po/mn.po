@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-05 10:15-0400\n"
+"POT-Creation-Date: 2014-08-05 17:34-0400\n"
 "PO-Revision-Date: 2014-03-27 15:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Mongolian <https://l10n.cihar.com/projects/phpmyadmin/master/"
 "mn/>\n"
+"Language: mn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: mn\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -637,8 +637,8 @@ msgstr "Оруулалтыг дуусгах"
 #: import.php:164
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Хэтэрхий том хэмжээтэй файл ачаалахыг оролдсон бололтой. Үүнийг хэрхэн "
 "шийдэхийг %sбаримтжуулалт%s-с уншина уу."
@@ -1351,10 +1351,10 @@ msgstr ""
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1044
 #: libraries/display_export.lib.php:580
 #: libraries/plugins/export/ExportSql.class.php:1913
-#: libraries/server_privileges.lib.php:2673
+#: libraries/pmd_general.lib.php:788 libraries/server_privileges.lib.php:2673
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:261
-#: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:676
+#: libraries/tbl_columns_definition_form.lib.php:743
 msgid "None"
 msgstr "Байхгүй"
 
@@ -1724,10 +1724,11 @@ msgstr ""
 msgid "Test"
 msgstr ""
 
-#: js/messages.php:243 libraries/server_variables.lib.php:159
-#: pmd_general.php:550 pmd_general.php:589 pmd_general.php:716
-#: pmd_general.php:766 pmd_general.php:842 pmd_general.php:898
-#: pmd_general.php:961 pmd_general.php:994
+#: js/messages.php:243 libraries/pmd_general.lib.php:635
+#: libraries/pmd_general.lib.php:684 libraries/pmd_general.lib.php:828
+#: libraries/pmd_general.lib.php:890 libraries/pmd_general.lib.php:978
+#: libraries/pmd_general.lib.php:1046 libraries/pmd_general.lib.php:1122
+#: libraries/pmd_general.lib.php:1164 libraries/server_variables.lib.php:159
 msgid "Cancel"
 msgstr "Болих"
 
@@ -1775,9 +1776,10 @@ msgstr ""
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:255 pmd_general.php:548 pmd_general.php:714
-#: pmd_general.php:764 pmd_general.php:840 pmd_general.php:896
-#: pmd_general.php:959
+#: js/messages.php:255 libraries/pmd_general.lib.php:633
+#: libraries/pmd_general.lib.php:826 libraries/pmd_general.lib.php:888
+#: libraries/pmd_general.lib.php:976 libraries/pmd_general.lib.php:1044
+#: libraries/pmd_general.lib.php:1120
 msgid "OK"
 msgstr "Бэлэн"
 
@@ -2236,7 +2238,7 @@ msgstr "Гадаад түлхүүр сонгох"
 msgid "Please select the primary key or a unique key!"
 msgstr "Үндсэн түлхүүр эсвэл орь ганц түлхүүр сонгон уу"
 
-#: js/messages.php:393 pmd_general.php:179
+#: js/messages.php:393 libraries/pmd_general.lib.php:147
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
@@ -2260,7 +2262,7 @@ msgstr "Хуудасны дугаар:"
 msgid "Save page"
 msgstr "Бүгдийг сонгох"
 
-#: js/messages.php:400 pmd_general.php:151
+#: js/messages.php:400 libraries/pmd_general.lib.php:104
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
@@ -2475,7 +2477,7 @@ msgstr "Тор харуулах"
 msgid "Link with main panel"
 msgstr "Бичвэр талбар хэрэглэх"
 
-#: js/messages.php:466
+#: js/messages.php:466 libraries/navigation/NavigationTree.class.php:1139
 #, fuzzy
 #| msgid "Use text field"
 msgid "Unlink from main panel"
@@ -2982,12 +2984,11 @@ msgstr "асуултад"
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:361
 #: libraries/DisplayResults.class.php:3460
 #: libraries/DisplayResults.class.php:5026
-#: libraries/central_columns.lib.php:758
+#: libraries/central_columns.lib.php:758 libraries/pmd_general.lib.php:682
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:440 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:587 setup/frames/index.inc.php:182
-#: setup/frames/index.inc.php:290
+#: setup/frames/index.inc.php:182 setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "Устгах"
 
@@ -3573,8 +3574,8 @@ msgstr "Таны SQL-асуулт амжилттай ажиллав"
 #: libraries/DisplayResults.class.php:4884 libraries/structure.lib.php:683
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4897
@@ -3849,9 +3850,9 @@ msgstr "Харц"
 #: libraries/config/user_preferences.forms.php:267
 #: libraries/import.lib.php:1269
 #: libraries/navigation/Nodes/Node_Table.class.php:36
-#: libraries/server_privileges.lib.php:991
+#: libraries/pmd_general.lib.php:301 libraries/server_privileges.lib.php:991
 #: libraries/tbl_columns_definition_form.lib.php:200
-#: libraries/tbl_tracking.lib.php:805 pmd_general.php:272
+#: libraries/tbl_tracking.lib.php:805
 msgid "Structure"
 msgstr "Бүтэц"
 
@@ -4328,17 +4329,19 @@ msgstr ""
 msgid "Function"
 msgstr "Функц"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:653 pmd_general.php:673
-#: pmd_general.php:802 pmd_general.php:815 pmd_general.php:880
-#: pmd_general.php:934
+#: libraries/TableSearch.class.php:188 libraries/pmd_general.lib.php:765
+#: libraries/pmd_general.lib.php:785 libraries/pmd_general.lib.php:937
+#: libraries/pmd_general.lib.php:950 libraries/pmd_general.lib.php:1028
+#: libraries/pmd_general.lib.php:1094
 msgid "Operator"
 msgstr "Оператор"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1293
-#: libraries/insert_edit.lib.php:1641 libraries/replication_gui.lib.php:515
+#: libraries/insert_edit.lib.php:1641 libraries/pmd_general.lib.php:749
+#: libraries/pmd_general.lib.php:814 libraries/pmd_general.lib.php:966
+#: libraries/pmd_general.lib.php:1110 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:642
-#: pmd_general.php:702 pmd_general.php:831 pmd_general.php:950
+#: libraries/server_status_variables.lib.php:220
 msgid "Value"
 msgstr "Утга"
 
@@ -4528,14 +4531,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -7915,7 +7918,7 @@ msgstr "Шинэ ӨС үүсгэх"
 msgid "No Privileges"
 msgstr "Онцгой эрхгүй"
 
-#: libraries/display_create_table.lib.php:55 pmd_general.php:169
+#: libraries/display_create_table.lib.php:55 libraries/pmd_general.lib.php:134
 msgid "Create table"
 msgstr "Хүснэгт үүсгэх"
 
@@ -8050,12 +8053,12 @@ msgstr ""
 #| "will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Энэ утга нь %1$sstrftime%2$s -ийг хэрэглэж үүссэн, тиймээс та хугацааны "
-"тогтнолын тэмдэгтийг хэрэглэж болно. Нэмэлтээр дараах хувиргалт байх болно: %"
-"3$s. Бусад бичвэрүүд үүн шиг хадгалагдана."
+"тогтнолын тэмдэгтийг хэрэглэж болно. Нэмэлтээр дараах хувиргалт байх болно: "
+"%3$s. Бусад бичвэрүүд үүн шиг хадгалагдана."
 
 #: libraries/display_export.lib.php:519
 msgid "use this for future exports"
@@ -8593,8 +8596,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -8719,7 +8722,7 @@ msgstr "&nbsp;%s&nbsp;багануудад индекс үүсгэх"
 
 #: libraries/insert_edit.lib.php:218 libraries/insert_edit.lib.php:249
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
-#: pmd_general.php:284
+#: libraries/pmd_general.lib.php:313
 msgid "Hide"
 msgstr "Нуух"
 
@@ -9127,12 +9130,6 @@ msgstr "хүснэгтийн нэр"
 #: libraries/navigation/NavigationTree.class.php:1130
 msgid "Collapse all"
 msgstr ""
-
-#: libraries/navigation/NavigationTree.class.php:1139
-#, fuzzy
-#| msgid "Use text field"
-msgid "Unlink with main panel"
-msgstr "Бичвэр талбар хэрэглэх"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9750,11 +9747,11 @@ msgstr "%s-д тавтай морилно уу"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"Үүний шалтгаан нь магадгүй та тохиргооны файл үүсгээгүй байж болох юм. Та %1"
-"$ssetup script%2$s -ийг ашиглаж нэгийг үүсгэж болно."
+"Үүний шалтгаан нь магадгүй та тохиргооны файл үүсгээгүй байж болох юм. Та "
+"%1$ssetup script%2$s -ийг ашиглаж нэгийг үүсгэж болно."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:126
 msgid ""
@@ -10598,6 +10595,156 @@ msgid ""
 msgstr ""
 "Холбоос харуулж байна, талбар нь файлнэр агуулна; эхний сонголт - энэ нь "
 "өмнө нь тавигдах \"http://domain.com/\", хоёр дахь - холбоосын гарчгийг авна."
+
+#: libraries/pmd_general.lib.php:71
+msgid "Show/Hide left menu"
+msgstr "Харуулах/Нуух зүүн цэс"
+
+#: libraries/pmd_general.lib.php:79
+msgid "View in fullscreen"
+msgstr ""
+
+#: libraries/pmd_general.lib.php:87
+msgid "Exit fullscreen"
+msgstr ""
+
+#: libraries/pmd_general.lib.php:97
+#, fuzzy
+#| msgid "User name"
+msgid "New page"
+msgstr "Хэрэглэгчийн нэр"
+
+#: libraries/pmd_general.lib.php:111
+msgid "Save position"
+msgstr "Байрлал хадгалах"
+
+#: libraries/pmd_general.lib.php:117
+#, fuzzy
+#| msgid "Save position"
+msgid "Save positions as"
+msgstr "Байрлал хадгалах"
+
+#: libraries/pmd_general.lib.php:124
+#, fuzzy
+#| msgid "Select All"
+msgid "Delete pages"
+msgstr "Бүгдийг сонгох"
+
+#: libraries/pmd_general.lib.php:140 libraries/pmd_general.lib.php:597
+msgid "Create relation"
+msgstr "Холбоо үүсгэх"
+
+#: libraries/pmd_general.lib.php:154
+msgid "Reload"
+msgstr "Да.дууд"
+
+#: libraries/pmd_general.lib.php:160
+msgid "Help"
+msgstr "Тусламж"
+
+#: libraries/pmd_general.lib.php:170
+msgid "Angular links"
+msgstr "Шууд бус холбоос"
+
+#: libraries/pmd_general.lib.php:170
+msgid "Direct links"
+msgstr "Шууд холбоос"
+
+#: libraries/pmd_general.lib.php:177
+msgid "Snap to grid"
+msgstr ""
+
+#: libraries/pmd_general.lib.php:187
+msgid "Small/Big All"
+msgstr "Жижиш/Том Бүгдийг"
+
+#: libraries/pmd_general.lib.php:194
+msgid "Toggle small/big"
+msgstr ""
+
+#: libraries/pmd_general.lib.php:201
+#, fuzzy
+#| msgid "To select relation, click :"
+msgid "Toggle relation lines"
+msgstr "Холбоо сонгохдоо, дарах нь :"
+
+#: libraries/pmd_general.lib.php:214
+#, fuzzy
+#| msgid "Export"
+msgid "Export schema"
+msgstr "Гаргах"
+
+#: libraries/pmd_general.lib.php:225
+#, fuzzy
+#| msgid "Submit Query"
+msgid "Build Query"
+msgstr "Асуултыг илгээх"
+
+#: libraries/pmd_general.lib.php:234
+msgid "Move Menu"
+msgstr "Цэс зөөх"
+
+#: libraries/pmd_general.lib.php:276
+msgid "Hide/Show all"
+msgstr "Нуух/Харуулах бүгдийг"
+
+#: libraries/pmd_general.lib.php:285
+msgid "Hide/Show Tables with no relation"
+msgstr "Нуух/Харуулах Холбоо байхгүй Хүснэгтүүд"
+
+#: libraries/pmd_general.lib.php:340
+#, fuzzy
+#| msgid "Number of tables"
+msgid "Number of tables:"
+msgstr "Хүснэгтийн тоо"
+
+#: libraries/pmd_general.lib.php:676
+msgid "Delete relation"
+msgstr "Холбоог устгах"
+
+#: libraries/pmd_general.lib.php:733 libraries/pmd_general.lib.php:797
+#, fuzzy
+#| msgid "Relation deleted"
+msgid "Relation operator"
+msgstr "Холбоо устав"
+
+#: libraries/pmd_general.lib.php:743 libraries/pmd_general.lib.php:807
+#: libraries/pmd_general.lib.php:960 libraries/pmd_general.lib.php:1104
+#, fuzzy
+#| msgid "Export"
+msgid "Except"
+msgstr "Гаргах"
+
+#: libraries/pmd_general.lib.php:749 libraries/pmd_general.lib.php:815
+#: libraries/pmd_general.lib.php:966 libraries/pmd_general.lib.php:1110
+#, fuzzy
+#| msgid "in query"
+msgid "subquery"
+msgstr "асуултад"
+
+#: libraries/pmd_general.lib.php:755 libraries/pmd_general.lib.php:872
+#, fuzzy
+#| msgid "Rename table to"
+msgid "Rename to"
+msgstr "Хүснэгтийг да.нэрлэх"
+
+#: libraries/pmd_general.lib.php:758 libraries/pmd_general.lib.php:878
+#, fuzzy
+#| msgid "User name"
+msgid "New name"
+msgstr "Хэрэглэгчийн нэр"
+
+#: libraries/pmd_general.lib.php:762 libraries/pmd_general.lib.php:1022
+#, fuzzy
+#| msgid "Create"
+msgid "Aggregate"
+msgstr "Үүсгэх"
+
+#: libraries/pmd_general.lib.php:1155
+#, fuzzy
+#| msgid "Table options"
+msgid "Active options"
+msgstr "Хүснэгтийн сонголтууд"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -12219,8 +12366,8 @@ msgstr "User overview"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Тэмдэглэл: phpMyAdmin нь MySQL-ийн онцгой эрхийн хүснэгтээс хэрэглэгчдийн "
 "онцгой эрхийг авна. Хэрэв тэд гараар өөрчлөгдсөн бол эдгээр хүснэгтийн "
@@ -14380,156 +14527,6 @@ msgstr ""
 msgid "Modifications have been saved"
 msgstr "Өөрчлөлт хадгалагдав"
 
-#: pmd_general.php:130
-msgid "Show/Hide left menu"
-msgstr "Харуулах/Нуух зүүн цэс"
-
-#: pmd_general.php:135
-msgid "View in fullscreen"
-msgstr ""
-
-#: pmd_general.php:140
-msgid "Exit fullscreen"
-msgstr ""
-
-#: pmd_general.php:147
-#, fuzzy
-#| msgid "User name"
-msgid "New page"
-msgstr "Хэрэглэгчийн нэр"
-
-#: pmd_general.php:155
-msgid "Save position"
-msgstr "Байрлал хадгалах"
-
-#: pmd_general.php:159
-#, fuzzy
-#| msgid "Save position"
-msgid "Save positions as"
-msgstr "Байрлал хадгалах"
-
-#: pmd_general.php:163
-#, fuzzy
-#| msgid "Select All"
-msgid "Delete pages"
-msgstr "Бүгдийг сонгох"
-
-#: pmd_general.php:174 pmd_general.php:513
-msgid "Create relation"
-msgstr "Холбоо үүсгэх"
-
-#: pmd_general.php:184
-msgid "Reload"
-msgstr "Да.дууд"
-
-#: pmd_general.php:189
-msgid "Help"
-msgstr "Тусламж"
-
-#: pmd_general.php:197
-msgid "Angular links"
-msgstr "Шууд бус холбоос"
-
-#: pmd_general.php:197
-msgid "Direct links"
-msgstr "Шууд холбоос"
-
-#: pmd_general.php:202
-msgid "Snap to grid"
-msgstr ""
-
-#: pmd_general.php:208
-msgid "Small/Big All"
-msgstr "Жижиш/Том Бүгдийг"
-
-#: pmd_general.php:213
-msgid "Toggle small/big"
-msgstr ""
-
-#: pmd_general.php:218
-#, fuzzy
-#| msgid "To select relation, click :"
-msgid "Toggle relation lines"
-msgstr "Холбоо сонгохдоо, дарах нь :"
-
-#: pmd_general.php:226
-#, fuzzy
-#| msgid "Export"
-msgid "Export schema"
-msgstr "Гаргах"
-
-#: pmd_general.php:237
-#, fuzzy
-#| msgid "Submit Query"
-msgid "Build Query"
-msgstr "Асуултыг илгээх"
-
-#: pmd_general.php:244
-msgid "Move Menu"
-msgstr "Цэс зөөх"
-
-#: pmd_general.php:258
-msgid "Hide/Show all"
-msgstr "Нуух/Харуулах бүгдийг"
-
-#: pmd_general.php:262
-msgid "Hide/Show Tables with no relation"
-msgstr "Нуух/Харуулах Холбоо байхгүй Хүснэгтүүд"
-
-#: pmd_general.php:306
-#, fuzzy
-#| msgid "Number of tables"
-msgid "Number of tables:"
-msgstr "Хүснэгтийн тоо"
-
-#: pmd_general.php:581
-msgid "Delete relation"
-msgstr "Холбоог устгах"
-
-#: pmd_general.php:626 pmd_general.php:685
-#, fuzzy
-#| msgid "Relation deleted"
-msgid "Relation operator"
-msgstr "Холбоо устав"
-
-#: pmd_general.php:636 pmd_general.php:695 pmd_general.php:825
-#: pmd_general.php:944
-#, fuzzy
-#| msgid "Export"
-msgid "Except"
-msgstr "Гаргах"
-
-#: pmd_general.php:642 pmd_general.php:703 pmd_general.php:831
-#: pmd_general.php:950
-#, fuzzy
-#| msgid "in query"
-msgid "subquery"
-msgstr "асуултад"
-
-#: pmd_general.php:646 pmd_general.php:748
-#, fuzzy
-#| msgid "Rename table to"
-msgid "Rename to"
-msgstr "Хүснэгтийг да.нэрлэх"
-
-#: pmd_general.php:648 pmd_general.php:754
-#, fuzzy
-#| msgid "User name"
-msgid "New name"
-msgstr "Хэрэглэгчийн нэр"
-
-#: pmd_general.php:651 pmd_general.php:874
-#, fuzzy
-#| msgid "Create"
-msgid "Aggregate"
-msgstr "Үүсгэх"
-
-#: pmd_general.php:985
-#, fuzzy
-#| msgid "Table options"
-msgid "Active options"
-msgstr "Хүснэгтийн сонголтууд"
-
 #: pmd_relation_new.php:37
 msgid "Error: relation already exists."
 msgstr ""
@@ -15314,8 +15311,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -15447,8 +15444,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -16163,6 +16160,11 @@ msgid "concurrent_insert is set to 0"
 msgstr "ХИ. давхацсан холболтууд"
 
 #, fuzzy
+#~| msgid "Use text field"
+#~ msgid "Unlink with main panel"
+#~ msgstr "Бичвэр талбар хэрэглэх"
+
+#, fuzzy
 #~| msgid "No index defined!"
 #~ msgid "No index defined! Create one below"
 #~ msgstr "Индекс тодорхойлогдоогүй!"
@@ -16779,8 +16781,8 @@ msgstr "ХИ. давхацсан холболтууд"
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
-#~ "Холбогдсон хүснэгтүүдтэй ажиллах нэмэлт онцлогууд идэвхгүй болжээ. %sЭнд%"
-#~ "s дарж шалгах."
+#~ "Холбогдсон хүснэгтүүдтэй ажиллах нэмэлт онцлогууд идэвхгүй болжээ. %sЭнд"
+#~ "%s дарж шалгах."
 
 #~ msgid "Ignore duplicate rows"
 #~ msgstr "Давхардсан мөрүүдийг алгасах"

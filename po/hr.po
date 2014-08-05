@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-05 10:15-0400\n"
+"POT-Creation-Date: 2014-08-05 17:34-0400\n"
 "PO-Revision-Date: 2014-03-28 11:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Croatian <https://l10n.cihar.com/projects/phpmyadmin/master/"
 "hr/>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hr\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -640,14 +640,14 @@ msgstr "Dovrši umetanja"
 #: import.php:164
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Vjerojatno ste pokušali s učitavanjem prevelike datoteke. Pogledajte %"
-"sdokumentaciju%s radi uputa o načinima rješavanja ovog ograničenja."
+"Vjerojatno ste pokušali s učitavanjem prevelike datoteke. Pogledajte "
+"%sdokumentaciju%s radi uputa o načinima rješavanja ovog ograničenja."
 
 #: import.php:343 import.php:627
 msgid "Showing bookmark"
@@ -1361,10 +1361,10 @@ msgstr ""
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1044
 #: libraries/display_export.lib.php:580
 #: libraries/plugins/export/ExportSql.class.php:1913
-#: libraries/server_privileges.lib.php:2673
+#: libraries/pmd_general.lib.php:788 libraries/server_privileges.lib.php:2673
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:261
-#: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:676
+#: libraries/tbl_columns_definition_form.lib.php:743
 msgid "None"
 msgstr "bez kompresije"
 
@@ -1735,10 +1735,11 @@ msgstr ""
 msgid "Test"
 msgstr "Test"
 
-#: js/messages.php:243 libraries/server_variables.lib.php:159
-#: pmd_general.php:550 pmd_general.php:589 pmd_general.php:716
-#: pmd_general.php:766 pmd_general.php:842 pmd_general.php:898
-#: pmd_general.php:961 pmd_general.php:994
+#: js/messages.php:243 libraries/pmd_general.lib.php:635
+#: libraries/pmd_general.lib.php:684 libraries/pmd_general.lib.php:828
+#: libraries/pmd_general.lib.php:890 libraries/pmd_general.lib.php:978
+#: libraries/pmd_general.lib.php:1046 libraries/pmd_general.lib.php:1122
+#: libraries/pmd_general.lib.php:1164 libraries/server_variables.lib.php:159
 msgid "Cancel"
 msgstr "Odustani"
 
@@ -1785,9 +1786,10 @@ msgstr "Brisanje stupca"
 msgid "Adding Primary Key"
 msgstr "Dodavanje primarnog ključa"
 
-#: js/messages.php:255 pmd_general.php:548 pmd_general.php:714
-#: pmd_general.php:764 pmd_general.php:840 pmd_general.php:896
-#: pmd_general.php:959
+#: js/messages.php:255 libraries/pmd_general.lib.php:633
+#: libraries/pmd_general.lib.php:826 libraries/pmd_general.lib.php:888
+#: libraries/pmd_general.lib.php:976 libraries/pmd_general.lib.php:1044
+#: libraries/pmd_general.lib.php:1120
 msgid "OK"
 msgstr "U redu"
 
@@ -2241,7 +2243,7 @@ msgstr "Odaberite strani ključ"
 msgid "Please select the primary key or a unique key!"
 msgstr "Odaberite primarni ključ ili jedinstveni ključ"
 
-#: js/messages.php:393 pmd_general.php:179
+#: js/messages.php:393 libraries/pmd_general.lib.php:147
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
@@ -2265,7 +2267,7 @@ msgstr "Broj stranice:"
 msgid "Save page"
 msgstr "Odaberite tablice"
 
-#: js/messages.php:400 pmd_general.php:151
+#: js/messages.php:400 libraries/pmd_general.lib.php:104
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
@@ -2480,7 +2482,7 @@ msgstr "Prikaži logo u lijevom okviru"
 msgid "Link with main panel"
 msgstr "Postavi glavni okvir"
 
-#: js/messages.php:466
+#: js/messages.php:466 libraries/navigation/NavigationTree.class.php:1139
 #, fuzzy
 #| msgid "Customize main frame"
 msgid "Unlink from main panel"
@@ -2991,12 +2993,11 @@ msgstr "unutar upita"
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:361
 #: libraries/DisplayResults.class.php:3460
 #: libraries/DisplayResults.class.php:5026
-#: libraries/central_columns.lib.php:758
+#: libraries/central_columns.lib.php:758 libraries/pmd_general.lib.php:682
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:440 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:587 setup/frames/index.inc.php:182
-#: setup/frames/index.inc.php:290
+#: setup/frames/index.inc.php:182 setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "Izbriši"
 
@@ -3578,8 +3579,8 @@ msgstr "Vaš SQL upit uspješno je izvršen"
 #: libraries/DisplayResults.class.php:4884 libraries/structure.lib.php:683
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Ovaj prikaz sadrži najmanje ovoliko redaka. Proučite %sdokumentaciju%s."
 
@@ -3864,9 +3865,9 @@ msgstr "Prikaz"
 #: libraries/config/user_preferences.forms.php:267
 #: libraries/import.lib.php:1269
 #: libraries/navigation/Nodes/Node_Table.class.php:36
-#: libraries/server_privileges.lib.php:991
+#: libraries/pmd_general.lib.php:301 libraries/server_privileges.lib.php:991
 #: libraries/tbl_columns_definition_form.lib.php:200
-#: libraries/tbl_tracking.lib.php:805 pmd_general.php:272
+#: libraries/tbl_tracking.lib.php:805
 msgid "Structure"
 msgstr "Strukturu"
 
@@ -4342,17 +4343,19 @@ msgstr ""
 msgid "Function"
 msgstr "Funkcija"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:653 pmd_general.php:673
-#: pmd_general.php:802 pmd_general.php:815 pmd_general.php:880
-#: pmd_general.php:934
+#: libraries/TableSearch.class.php:188 libraries/pmd_general.lib.php:765
+#: libraries/pmd_general.lib.php:785 libraries/pmd_general.lib.php:937
+#: libraries/pmd_general.lib.php:950 libraries/pmd_general.lib.php:1028
+#: libraries/pmd_general.lib.php:1094
 msgid "Operator"
 msgstr "Operator"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1293
-#: libraries/insert_edit.lib.php:1641 libraries/replication_gui.lib.php:515
+#: libraries/insert_edit.lib.php:1641 libraries/pmd_general.lib.php:749
+#: libraries/pmd_general.lib.php:814 libraries/pmd_general.lib.php:966
+#: libraries/pmd_general.lib.php:1110 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:642
-#: pmd_general.php:702 pmd_general.php:831 pmd_general.php:950
+#: libraries/server_status_variables.lib.php:220
 msgid "Value"
 msgstr "Vrijednost"
 
@@ -4544,14 +4547,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -7984,7 +7987,7 @@ msgstr "Izradi novu bazu podataka"
 msgid "No Privileges"
 msgstr "Bez privilegija"
 
-#: libraries/display_create_table.lib.php:55 pmd_general.php:169
+#: libraries/display_create_table.lib.php:55 libraries/pmd_general.lib.php:134
 msgid "Create table"
 msgstr "Izradi tablicu"
 
@@ -8117,12 +8120,12 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid ""
 #| "s value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "matting strings. Additionally the following transformations will pen: %3"
-#| "$s. Other text will be kept as is."
+#| "matting strings. Additionally the following transformations will pen: "
+#| "%3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Vrijednost se interpretira pomoću %1$sstrftime%2$s, pa možete upotrijebiti "
 "naredbe oblikovanja vremena. Dodatno se mogu dogoditi sljedeća "
@@ -8695,8 +8698,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -8821,7 +8824,7 @@ msgstr "Izradi indeks &nbsp;%s&nbsp;stupaca"
 
 #: libraries/insert_edit.lib.php:218 libraries/insert_edit.lib.php:249
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
-#: pmd_general.php:284
+#: libraries/pmd_general.lib.php:313
 msgid "Hide"
 msgstr "Sakrij"
 
@@ -9231,12 +9234,6 @@ msgstr "naziv tablice"
 #: libraries/navigation/NavigationTree.class.php:1130
 msgid "Collapse all"
 msgstr ""
-
-#: libraries/navigation/NavigationTree.class.php:1139
-#, fuzzy
-#| msgid "Customize main frame"
-msgid "Unlink with main panel"
-msgstr "Postavi glavni okvir"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9869,8 +9866,8 @@ msgstr "Dobro došli u %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Vjerojatan razlog za ovo je da niste napravili konfiguracijsku datoteku. Za "
 "izradu možete upotrijebiti %1$sskriptu za instalaciju%2$s da biste je "
@@ -10739,6 +10736,155 @@ msgid ""
 msgstr ""
 "Prikazuje vezu. Polje sadrži naziv datoteke. Prva opcija je URL prefiks, "
 "poput \"http://www.example.com/\". Druga opcija je naziv veze."
+
+#: libraries/pmd_general.lib.php:71
+msgid "Show/Hide left menu"
+msgstr "Prikaži/sakrij lijevi izbornik"
+
+#: libraries/pmd_general.lib.php:79
+msgid "View in fullscreen"
+msgstr ""
+
+#: libraries/pmd_general.lib.php:87
+msgid "Exit fullscreen"
+msgstr ""
+
+#: libraries/pmd_general.lib.php:97
+#, fuzzy
+#| msgid "User name"
+msgid "New page"
+msgstr "Korisničko ime"
+
+#: libraries/pmd_general.lib.php:111
+msgid "Save position"
+msgstr "Spremi položaj"
+
+#: libraries/pmd_general.lib.php:117
+#, fuzzy
+#| msgid "Save position"
+msgid "Save positions as"
+msgstr "Spremi položaj"
+
+#: libraries/pmd_general.lib.php:124
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Delete pages"
+msgstr "Odaberite tablice"
+
+#: libraries/pmd_general.lib.php:140 libraries/pmd_general.lib.php:597
+msgid "Create relation"
+msgstr "Izradi relaciju"
+
+#: libraries/pmd_general.lib.php:154
+msgid "Reload"
+msgstr "Osvježi"
+
+#: libraries/pmd_general.lib.php:160
+msgid "Help"
+msgstr "Pomoć"
+
+#: libraries/pmd_general.lib.php:170
+msgid "Angular links"
+msgstr "Kutne veze"
+
+#: libraries/pmd_general.lib.php:170
+msgid "Direct links"
+msgstr "Izravne veze"
+
+#: libraries/pmd_general.lib.php:177
+msgid "Snap to grid"
+msgstr "Poravnaj s mrežom"
+
+#: libraries/pmd_general.lib.php:187
+msgid "Small/Big All"
+msgstr "Malo / Sve veliko"
+
+#: libraries/pmd_general.lib.php:194
+msgid "Toggle small/big"
+msgstr "Malo / Veliko"
+
+#: libraries/pmd_general.lib.php:201
+#, fuzzy
+#| msgid "To select relation, click :"
+msgid "Toggle relation lines"
+msgstr "Za odabir relacije pritisnite:"
+
+#: libraries/pmd_general.lib.php:214
+#, fuzzy
+#| msgid "Export"
+msgid "Export schema"
+msgstr "Izvoz"
+
+#: libraries/pmd_general.lib.php:225
+#, fuzzy
+#| msgid "Submit Query"
+msgid "Build Query"
+msgstr "Podnesi upit"
+
+#: libraries/pmd_general.lib.php:234
+msgid "Move Menu"
+msgstr "Premjesti izbornik"
+
+#: libraries/pmd_general.lib.php:276
+msgid "Hide/Show all"
+msgstr "Prikaži / Sakrij sve"
+
+#: libraries/pmd_general.lib.php:285
+msgid "Hide/Show Tables with no relation"
+msgstr "Prikaži / Sakrij tablice bez relacija"
+
+#: libraries/pmd_general.lib.php:340
+#, fuzzy
+#| msgid "Number of tables"
+msgid "Number of tables:"
+msgstr "Broj tablica"
+
+#: libraries/pmd_general.lib.php:676
+msgid "Delete relation"
+msgstr "Izbriši relaciju"
+
+#: libraries/pmd_general.lib.php:733 libraries/pmd_general.lib.php:797
+#, fuzzy
+#| msgid "Relation deleted"
+msgid "Relation operator"
+msgstr "Relacija je izbrisana"
+
+#: libraries/pmd_general.lib.php:743 libraries/pmd_general.lib.php:807
+#: libraries/pmd_general.lib.php:960 libraries/pmd_general.lib.php:1104
+#, fuzzy
+#| msgid "Export"
+msgid "Except"
+msgstr "Izvoz"
+
+#: libraries/pmd_general.lib.php:749 libraries/pmd_general.lib.php:815
+#: libraries/pmd_general.lib.php:966 libraries/pmd_general.lib.php:1110
+#, fuzzy
+#| msgid "in query"
+msgid "subquery"
+msgstr "unutar upita"
+
+#: libraries/pmd_general.lib.php:755 libraries/pmd_general.lib.php:872
+#, fuzzy
+msgid "Rename to"
+msgstr "Preimenuj tablicu u"
+
+#: libraries/pmd_general.lib.php:758 libraries/pmd_general.lib.php:878
+#, fuzzy
+#| msgid "User name"
+msgid "New name"
+msgstr "Korisničko ime"
+
+#: libraries/pmd_general.lib.php:762 libraries/pmd_general.lib.php:1022
+#, fuzzy
+#| msgid "Create"
+msgid "Aggregate"
+msgstr "Izradi"
+
+#: libraries/pmd_general.lib.php:1155
+#, fuzzy
+#| msgid "Table options"
+msgid "Active options"
+msgstr "Opcije tablice"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -12380,8 +12526,8 @@ msgstr "Pregled korisnika"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Napomena: phpMyAdmin preuzima korisničke privilegije izravno iz MySQL "
 "tablica privilegija. U slučaju da su ručno mijenjane, sadržaj ovih tablica "
@@ -14639,155 +14785,6 @@ msgstr ""
 msgid "Modifications have been saved"
 msgstr "Izmjene su spremljene"
 
-#: pmd_general.php:130
-msgid "Show/Hide left menu"
-msgstr "Prikaži/sakrij lijevi izbornik"
-
-#: pmd_general.php:135
-msgid "View in fullscreen"
-msgstr ""
-
-#: pmd_general.php:140
-msgid "Exit fullscreen"
-msgstr ""
-
-#: pmd_general.php:147
-#, fuzzy
-#| msgid "User name"
-msgid "New page"
-msgstr "Korisničko ime"
-
-#: pmd_general.php:155
-msgid "Save position"
-msgstr "Spremi položaj"
-
-#: pmd_general.php:159
-#, fuzzy
-#| msgid "Save position"
-msgid "Save positions as"
-msgstr "Spremi položaj"
-
-#: pmd_general.php:163
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Delete pages"
-msgstr "Odaberite tablice"
-
-#: pmd_general.php:174 pmd_general.php:513
-msgid "Create relation"
-msgstr "Izradi relaciju"
-
-#: pmd_general.php:184
-msgid "Reload"
-msgstr "Osvježi"
-
-#: pmd_general.php:189
-msgid "Help"
-msgstr "Pomoć"
-
-#: pmd_general.php:197
-msgid "Angular links"
-msgstr "Kutne veze"
-
-#: pmd_general.php:197
-msgid "Direct links"
-msgstr "Izravne veze"
-
-#: pmd_general.php:202
-msgid "Snap to grid"
-msgstr "Poravnaj s mrežom"
-
-#: pmd_general.php:208
-msgid "Small/Big All"
-msgstr "Malo / Sve veliko"
-
-#: pmd_general.php:213
-msgid "Toggle small/big"
-msgstr "Malo / Veliko"
-
-#: pmd_general.php:218
-#, fuzzy
-#| msgid "To select relation, click :"
-msgid "Toggle relation lines"
-msgstr "Za odabir relacije pritisnite:"
-
-#: pmd_general.php:226
-#, fuzzy
-#| msgid "Export"
-msgid "Export schema"
-msgstr "Izvoz"
-
-#: pmd_general.php:237
-#, fuzzy
-#| msgid "Submit Query"
-msgid "Build Query"
-msgstr "Podnesi upit"
-
-#: pmd_general.php:244
-msgid "Move Menu"
-msgstr "Premjesti izbornik"
-
-#: pmd_general.php:258
-msgid "Hide/Show all"
-msgstr "Prikaži / Sakrij sve"
-
-#: pmd_general.php:262
-msgid "Hide/Show Tables with no relation"
-msgstr "Prikaži / Sakrij tablice bez relacija"
-
-#: pmd_general.php:306
-#, fuzzy
-#| msgid "Number of tables"
-msgid "Number of tables:"
-msgstr "Broj tablica"
-
-#: pmd_general.php:581
-msgid "Delete relation"
-msgstr "Izbriši relaciju"
-
-#: pmd_general.php:626 pmd_general.php:685
-#, fuzzy
-#| msgid "Relation deleted"
-msgid "Relation operator"
-msgstr "Relacija je izbrisana"
-
-#: pmd_general.php:636 pmd_general.php:695 pmd_general.php:825
-#: pmd_general.php:944
-#, fuzzy
-#| msgid "Export"
-msgid "Except"
-msgstr "Izvoz"
-
-#: pmd_general.php:642 pmd_general.php:703 pmd_general.php:831
-#: pmd_general.php:950
-#, fuzzy
-#| msgid "in query"
-msgid "subquery"
-msgstr "unutar upita"
-
-#: pmd_general.php:646 pmd_general.php:748
-#, fuzzy
-msgid "Rename to"
-msgstr "Preimenuj tablicu u"
-
-#: pmd_general.php:648 pmd_general.php:754
-#, fuzzy
-#| msgid "User name"
-msgid "New name"
-msgstr "Korisničko ime"
-
-#: pmd_general.php:651 pmd_general.php:874
-#, fuzzy
-#| msgid "Create"
-msgid "Aggregate"
-msgstr "Izradi"
-
-#: pmd_general.php:985
-#, fuzzy
-#| msgid "Table options"
-msgid "Active options"
-msgstr "Opcije tablice"
-
 #: pmd_relation_new.php:37
 msgid "Error: relation already exists."
 msgstr "Pogreška: Relacija već postoji."
@@ -15575,8 +15572,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -15710,8 +15707,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -16430,6 +16427,11 @@ msgstr ""
 #| msgid "MyISAM concurrent inserts"
 msgid "concurrent_insert is set to 0"
 msgstr "najv. uzastopnih veza"
+
+#, fuzzy
+#~| msgid "Customize main frame"
+#~ msgid "Unlink with main panel"
+#~ msgstr "Postavi glavni okvir"
 
 #, fuzzy
 #~| msgid "No index defined!"
@@ -17347,8 +17349,8 @@ msgstr "najv. uzastopnih veza"
 #~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
-#~ "Nije moguće učitati proširenje [a@http://php.net/%1$s@Documentation][em]%1"
-#~ "$s[/em][/a] . Provjerite svoju PHP konfiguraciju."
+#~ "Nije moguće učitati proširenje [a@http://php.net/%1$s@Documentation]"
+#~ "[em]%1$s[/em][/a] . Provjerite svoju PHP konfiguraciju."
 
 #~ msgid ""
 #~ "Couldn't load the iconv or recode extension needed for charset "

@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-05 10:15-0400\n"
+"POT-Creation-Date: 2014-08-05 17:34-0400\n"
 "PO-Revision-Date: 2014-07-30 14:19+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak <https://l10n.cihar.com/projects/phpmyadmin/master/sk/"
 ">\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -624,8 +624,8 @@ msgstr "úplné vloženia"
 #: import.php:164
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Pravdepodobne ste sa pokúsili uploadnuť príliš veľký súbor. Prečítajte si "
 "prosím %sdokumentáciu%s, ako sa dá toto obmedzenie obísť."
@@ -924,8 +924,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Webový server beží so Suhosin-patchom. Možné dôsledky konzultujte s %"
-"sdokumentáciou%s."
+"Webový server beží so Suhosin-patchom. Možné dôsledky konzultujte s "
+"%sdokumentáciou%s."
 
 #: js/messages.php:29 libraries/import.lib.php:122 sql.php:140
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -1293,10 +1293,10 @@ msgstr "Pridajte prosím aspoň jednu hodnotu do série!"
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1044
 #: libraries/display_export.lib.php:580
 #: libraries/plugins/export/ExportSql.class.php:1913
-#: libraries/server_privileges.lib.php:2673
+#: libraries/pmd_general.lib.php:788 libraries/server_privileges.lib.php:2673
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:261
-#: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:676
+#: libraries/tbl_columns_definition_form.lib.php:743
 msgid "None"
 msgstr "Žiadny"
 
@@ -1642,10 +1642,11 @@ msgstr "Použitá premenná / vzorec"
 msgid "Test"
 msgstr "Kontrola"
 
-#: js/messages.php:243 libraries/server_variables.lib.php:159
-#: pmd_general.php:550 pmd_general.php:589 pmd_general.php:716
-#: pmd_general.php:766 pmd_general.php:842 pmd_general.php:898
-#: pmd_general.php:961 pmd_general.php:994
+#: js/messages.php:243 libraries/pmd_general.lib.php:635
+#: libraries/pmd_general.lib.php:684 libraries/pmd_general.lib.php:828
+#: libraries/pmd_general.lib.php:890 libraries/pmd_general.lib.php:978
+#: libraries/pmd_general.lib.php:1046 libraries/pmd_general.lib.php:1122
+#: libraries/pmd_general.lib.php:1164 libraries/server_variables.lib.php:159
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -1689,9 +1690,10 @@ msgstr "Odstraňujem stĺpce"
 msgid "Adding Primary Key"
 msgstr "Pridavam primarny kľúč"
 
-#: js/messages.php:255 pmd_general.php:548 pmd_general.php:714
-#: pmd_general.php:764 pmd_general.php:840 pmd_general.php:896
-#: pmd_general.php:959
+#: js/messages.php:255 libraries/pmd_general.lib.php:633
+#: libraries/pmd_general.lib.php:826 libraries/pmd_general.lib.php:888
+#: libraries/pmd_general.lib.php:976 libraries/pmd_general.lib.php:1044
+#: libraries/pmd_general.lib.php:1120
 msgid "OK"
 msgstr "OK"
 
@@ -2115,7 +2117,7 @@ msgstr "Zvoliť cudzí kľúč"
 msgid "Please select the primary key or a unique key!"
 msgstr "Zvoľte, prosím, primárny alebo unikátny kľúč!"
 
-#: js/messages.php:393 pmd_general.php:179
+#: js/messages.php:393 libraries/pmd_general.lib.php:147
 msgid "Choose column to display"
 msgstr "Zvoľte, ktoré polia zobraziť"
 
@@ -2137,7 +2139,7 @@ msgstr "Názov stránky"
 msgid "Save page"
 msgstr "Zvoliť stránku"
 
-#: js/messages.php:400 pmd_general.php:151
+#: js/messages.php:400 libraries/pmd_general.lib.php:104
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
@@ -2336,7 +2338,7 @@ msgstr "Zobraziť skryté položky navigácie."
 msgid "Link with main panel"
 msgstr "Prispôsobiť hlavný panel"
 
-#: js/messages.php:466
+#: js/messages.php:466 libraries/navigation/NavigationTree.class.php:1139
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
@@ -2788,12 +2790,11 @@ msgstr "poddopyt"
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:361
 #: libraries/DisplayResults.class.php:3460
 #: libraries/DisplayResults.class.php:5026
-#: libraries/central_columns.lib.php:758
+#: libraries/central_columns.lib.php:758 libraries/pmd_general.lib.php:682
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:440 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:587 setup/frames/index.inc.php:182
-#: setup/frames/index.inc.php:290
+#: setup/frames/index.inc.php:182 setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "Zmazať"
 
@@ -3319,8 +3320,8 @@ msgstr "SQL dopyt bol úspešne vykonaný."
 #: libraries/DisplayResults.class.php:4884 libraries/structure.lib.php:683
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Tento pohľad má aspoň toľko riadok. Podrobnosti nájdete v %sdokumentaci%s."
 
@@ -3590,9 +3591,9 @@ msgstr "Pohľad"
 #: libraries/config/user_preferences.forms.php:267
 #: libraries/import.lib.php:1269
 #: libraries/navigation/Nodes/Node_Table.class.php:36
-#: libraries/server_privileges.lib.php:991
+#: libraries/pmd_general.lib.php:301 libraries/server_privileges.lib.php:991
 #: libraries/tbl_columns_definition_form.lib.php:200
-#: libraries/tbl_tracking.lib.php:805 pmd_general.php:272
+#: libraries/tbl_tracking.lib.php:805
 msgid "Structure"
 msgstr "Štruktúra"
 
@@ -4036,17 +4037,19 @@ msgstr ""
 msgid "Function"
 msgstr "Funkcia"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:653 pmd_general.php:673
-#: pmd_general.php:802 pmd_general.php:815 pmd_general.php:880
-#: pmd_general.php:934
+#: libraries/TableSearch.class.php:188 libraries/pmd_general.lib.php:765
+#: libraries/pmd_general.lib.php:785 libraries/pmd_general.lib.php:937
+#: libraries/pmd_general.lib.php:950 libraries/pmd_general.lib.php:1028
+#: libraries/pmd_general.lib.php:1094
 msgid "Operator"
 msgstr "Operátor"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1293
-#: libraries/insert_edit.lib.php:1641 libraries/replication_gui.lib.php:515
+#: libraries/insert_edit.lib.php:1641 libraries/pmd_general.lib.php:749
+#: libraries/pmd_general.lib.php:814 libraries/pmd_general.lib.php:966
+#: libraries/pmd_general.lib.php:1110 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:642
-#: pmd_general.php:702 pmd_general.php:831 pmd_general.php:950
+#: libraries/server_status_variables.lib.php:220
 msgid "Value"
 msgstr "Hodnota"
 
@@ -4226,20 +4229,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Číslo s plávajúcou desatinnou čiarkou, rozsahy: od -3,402823466E+38 do -"
-"1,175494351E-38; 0; od 1,175494351E-38 do 3,402823466E+38"
+"Číslo s plávajúcou desatinnou čiarkou, rozsahy: od -3,402823466E+38 do "
+"-1,175494351E-38; 0; od 1,175494351E-38 do 3,402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Číslo s dvojitou presnosťou a plávajúcou desatinnou čiarkou, rozsah: od -"
-"1,7976931348623157E+308 do -2,2250738585072014E-308; 0; od "
+"Číslo s dvojitou presnosťou a plávajúcou desatinnou čiarkou, rozsah: od "
+"-1,7976931348623157E+308 do -2,2250738585072014E-308; 0; od "
 "2,2250738585072014E-308 do 1,7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -8002,7 +8005,7 @@ msgstr "Vytvoriť databázu:"
 msgid "No Privileges"
 msgstr "Žiadne oprávnenia"
 
-#: libraries/display_create_table.lib.php:55 pmd_general.php:169
+#: libraries/display_create_table.lib.php:55 libraries/pmd_general.lib.php:134
 msgid "Create table"
 msgstr "Vytvoriť tabuľku"
 
@@ -8115,8 +8118,8 @@ msgstr ", meno tabuľky bude zmenené na @TABLE@"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Táto hodnota je interpretovaná pomocou %1$sstrftime%2$s, takže môžete použiť "
 "reťazec pre formátovanie dátumu a času. Naviac budú vykonané tieto "
@@ -8651,8 +8654,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -8779,7 +8782,7 @@ msgstr "Vytvoriť index na&nbsp;%s&nbsp;stĺpcoch"
 
 #: libraries/insert_edit.lib.php:218 libraries/insert_edit.lib.php:249
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
-#: pmd_general.php:284
+#: libraries/pmd_general.lib.php:313
 msgid "Hide"
 msgstr "Skryť"
 
@@ -9154,12 +9157,6 @@ msgstr "Filtrovať podľa mena alebo regulárneho výrazu"
 #: libraries/navigation/NavigationTree.class.php:1130
 msgid "Collapse all"
 msgstr ""
-
-#: libraries/navigation/NavigationTree.class.php:1139
-#, fuzzy
-#| msgid "Customize main panel"
-msgid "Unlink with main panel"
-msgstr "Prispôsobiť hlavný panel"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9752,8 +9749,8 @@ msgstr "Vitajte v %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Pravdepodobná príčina je, že neexistuje konfiguračný súbor. Na jeho "
 "vytvorenie môžete použiť %1$skonfiguračný skript%2$s."
@@ -10512,6 +10509,136 @@ msgid ""
 msgstr ""
 "Zobrazí odkaz; pole obsahuje meno súboru. Prvý parameter je prefix URL "
 "(napr. \"http://www.example.com/\"), druhý parameter je názov odkazu."
+
+#: libraries/pmd_general.lib.php:71
+msgid "Show/Hide left menu"
+msgstr ""
+
+#: libraries/pmd_general.lib.php:79
+msgid "View in fullscreen"
+msgstr ""
+
+#: libraries/pmd_general.lib.php:87
+msgid "Exit fullscreen"
+msgstr ""
+
+#: libraries/pmd_general.lib.php:97
+#, fuzzy
+#| msgid "New name"
+msgid "New page"
+msgstr "Nové meno"
+
+#: libraries/pmd_general.lib.php:111
+msgid "Save position"
+msgstr ""
+
+#: libraries/pmd_general.lib.php:117
+#, fuzzy
+#| msgid "Slave replication"
+msgid "Save positions as"
+msgstr "Slave replikácia"
+
+#: libraries/pmd_general.lib.php:124
+#, fuzzy
+#| msgid "Select page"
+msgid "Delete pages"
+msgstr "Zvoliť stránku"
+
+#: libraries/pmd_general.lib.php:140 libraries/pmd_general.lib.php:597
+msgid "Create relation"
+msgstr "Vytvoriť relaciu"
+
+#: libraries/pmd_general.lib.php:154
+msgid "Reload"
+msgstr "Znovu načítať"
+
+#: libraries/pmd_general.lib.php:160
+msgid "Help"
+msgstr "Pomoc"
+
+#: libraries/pmd_general.lib.php:170
+msgid "Angular links"
+msgstr "Pravouhlé spoje"
+
+#: libraries/pmd_general.lib.php:170
+msgid "Direct links"
+msgstr "Priame odkazy"
+
+#: libraries/pmd_general.lib.php:177
+msgid "Snap to grid"
+msgstr ""
+
+#: libraries/pmd_general.lib.php:187
+msgid "Small/Big All"
+msgstr ""
+
+#: libraries/pmd_general.lib.php:194
+msgid "Toggle small/big"
+msgstr ""
+
+#: libraries/pmd_general.lib.php:201
+msgid "Toggle relation lines"
+msgstr "Prepnúť príbuzné riadky"
+
+#: libraries/pmd_general.lib.php:214
+#, fuzzy
+#| msgid "Export"
+msgid "Export schema"
+msgstr "Exportovať"
+
+#: libraries/pmd_general.lib.php:225
+msgid "Build Query"
+msgstr "Vytvoriť dopyt"
+
+#: libraries/pmd_general.lib.php:234
+msgid "Move Menu"
+msgstr "Presunúť Menu"
+
+#: libraries/pmd_general.lib.php:276
+msgid "Hide/Show all"
+msgstr "Skryť/Zobraziť všetko"
+
+#: libraries/pmd_general.lib.php:285
+msgid "Hide/Show Tables with no relation"
+msgstr ""
+
+#: libraries/pmd_general.lib.php:340
+msgid "Number of tables:"
+msgstr "Počet tabuliek:"
+
+#: libraries/pmd_general.lib.php:676
+msgid "Delete relation"
+msgstr "Zmazať reláciu"
+
+#: libraries/pmd_general.lib.php:733 libraries/pmd_general.lib.php:797
+msgid "Relation operator"
+msgstr "Relačný operátor"
+
+#: libraries/pmd_general.lib.php:743 libraries/pmd_general.lib.php:807
+#: libraries/pmd_general.lib.php:960 libraries/pmd_general.lib.php:1104
+msgid "Except"
+msgstr "Okrem"
+
+#: libraries/pmd_general.lib.php:749 libraries/pmd_general.lib.php:815
+#: libraries/pmd_general.lib.php:966 libraries/pmd_general.lib.php:1110
+msgid "subquery"
+msgstr "poddopyt"
+
+#: libraries/pmd_general.lib.php:755 libraries/pmd_general.lib.php:872
+msgid "Rename to"
+msgstr "Premenovať na"
+
+#: libraries/pmd_general.lib.php:758 libraries/pmd_general.lib.php:878
+msgid "New name"
+msgstr "Nové meno"
+
+#: libraries/pmd_general.lib.php:762 libraries/pmd_general.lib.php:1022
+msgid "Aggregate"
+msgstr "Zlúčiť"
+
+#: libraries/pmd_general.lib.php:1155
+msgid "Active options"
+msgstr "Zapnuté parametre"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -12051,13 +12178,13 @@ msgstr "Zoznam používatelov"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získava práva používateľov priamo z tabuliek MySQL. "
 "Obsah týchto tabuliek sa môže líšiť od práv, ktoré používa server, ak boli "
-"tieto tabuľky ručne upravené. V tomto prípade sa odporúča vykonať %"
-"sznovunačítanie práv%s predtým ako budete pokračovať."
+"tieto tabuľky ručne upravené. V tomto prípade sa odporúča vykonať "
+"%sznovunačítanie práv%s predtým ako budete pokračovať."
 
 #: libraries/server_privileges.lib.php:4020
 msgid "The selected user was not found in the privilege table."
@@ -14155,136 +14282,6 @@ msgstr ""
 msgid "Modifications have been saved"
 msgstr "Zmeny boli uložené"
 
-#: pmd_general.php:130
-msgid "Show/Hide left menu"
-msgstr ""
-
-#: pmd_general.php:135
-msgid "View in fullscreen"
-msgstr ""
-
-#: pmd_general.php:140
-msgid "Exit fullscreen"
-msgstr ""
-
-#: pmd_general.php:147
-#, fuzzy
-#| msgid "New name"
-msgid "New page"
-msgstr "Nové meno"
-
-#: pmd_general.php:155
-msgid "Save position"
-msgstr ""
-
-#: pmd_general.php:159
-#, fuzzy
-#| msgid "Slave replication"
-msgid "Save positions as"
-msgstr "Slave replikácia"
-
-#: pmd_general.php:163
-#, fuzzy
-#| msgid "Select page"
-msgid "Delete pages"
-msgstr "Zvoliť stránku"
-
-#: pmd_general.php:174 pmd_general.php:513
-msgid "Create relation"
-msgstr "Vytvoriť relaciu"
-
-#: pmd_general.php:184
-msgid "Reload"
-msgstr "Znovu načítať"
-
-#: pmd_general.php:189
-msgid "Help"
-msgstr "Pomoc"
-
-#: pmd_general.php:197
-msgid "Angular links"
-msgstr "Pravouhlé spoje"
-
-#: pmd_general.php:197
-msgid "Direct links"
-msgstr "Priame odkazy"
-
-#: pmd_general.php:202
-msgid "Snap to grid"
-msgstr ""
-
-#: pmd_general.php:208
-msgid "Small/Big All"
-msgstr ""
-
-#: pmd_general.php:213
-msgid "Toggle small/big"
-msgstr ""
-
-#: pmd_general.php:218
-msgid "Toggle relation lines"
-msgstr "Prepnúť príbuzné riadky"
-
-#: pmd_general.php:226
-#, fuzzy
-#| msgid "Export"
-msgid "Export schema"
-msgstr "Exportovať"
-
-#: pmd_general.php:237
-msgid "Build Query"
-msgstr "Vytvoriť dopyt"
-
-#: pmd_general.php:244
-msgid "Move Menu"
-msgstr "Presunúť Menu"
-
-#: pmd_general.php:258
-msgid "Hide/Show all"
-msgstr "Skryť/Zobraziť všetko"
-
-#: pmd_general.php:262
-msgid "Hide/Show Tables with no relation"
-msgstr ""
-
-#: pmd_general.php:306
-msgid "Number of tables:"
-msgstr "Počet tabuliek:"
-
-#: pmd_general.php:581
-msgid "Delete relation"
-msgstr "Zmazať reláciu"
-
-#: pmd_general.php:626 pmd_general.php:685
-msgid "Relation operator"
-msgstr "Relačný operátor"
-
-#: pmd_general.php:636 pmd_general.php:695 pmd_general.php:825
-#: pmd_general.php:944
-msgid "Except"
-msgstr "Okrem"
-
-#: pmd_general.php:642 pmd_general.php:703 pmd_general.php:831
-#: pmd_general.php:950
-msgid "subquery"
-msgstr "poddopyt"
-
-#: pmd_general.php:646 pmd_general.php:748
-msgid "Rename to"
-msgstr "Premenovať na"
-
-#: pmd_general.php:648 pmd_general.php:754
-msgid "New name"
-msgstr "Nové meno"
-
-#: pmd_general.php:651 pmd_general.php:874
-msgid "Aggregate"
-msgstr "Zlúčiť"
-
-#: pmd_general.php:985
-msgid "Active options"
-msgstr "Zapnuté parametre"
-
 #: pmd_relation_new.php:37
 msgid "Error: relation already exists."
 msgstr ""
@@ -14371,8 +14368,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Ďalšie nastavenia môžete urobiť úpravou config.inc.php, napr. použitím %"
-"sNastavovacieho skriptu%s."
+"Ďalšie nastavenia môžete urobiť úpravou config.inc.php, napr. použitím "
+"%sNastavovacieho skriptu%s."
 
 #: prefs_manage.php:311
 msgid "Save to browser's storage"
@@ -15019,8 +15016,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -15138,8 +15135,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -15786,6 +15783,11 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavené na 0"
 
+#, fuzzy
+#~| msgid "Customize main panel"
+#~ msgid "Unlink with main panel"
+#~ msgstr "Prispôsobiť hlavný panel"
+
 #~ msgid "No index defined! Create one below"
 #~ msgstr "Nebol definovaný žiadny index! Vytvorte ho nižšie"
 
@@ -16019,8 +16021,8 @@ msgstr "concurrent_insert je nastavené na 0"
 #~ "%s."
 #~ msgstr ""
 #~ "SQL validator nemohol byť inicializovaný. Prosím skontrolujte, či sú "
-#~ "nainštalované všetky potrebné rozšírenia php, tak ako sú popísané v %"
-#~ "sdocumentation%s."
+#~ "nainštalované všetky potrebné rozšírenia php, tak ako sú popísané v "
+#~ "%sdocumentation%s."
 
 #, fuzzy
 #~| msgid "Copy"
@@ -16872,8 +16874,8 @@ msgstr "concurrent_insert je nastavené na 0"
 
 #~ msgid "Imported file compression will be automatically detected from: %s"
 #~ msgstr ""
-#~ "Kompresia importovaného súboru bude rozpoznaná automaticky. Podporované: %"
-#~ "s"
+#~ "Kompresia importovaného súboru bude rozpoznaná automaticky. Podporované: "
+#~ "%s"
 
 #~ msgid "Add into comments"
 #~ msgstr "Pridať do komentárov"

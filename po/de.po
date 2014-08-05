@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-05 10:15-0400\n"
+"POT-Creation-Date: 2014-08-05 17:34-0400\n"
 "PO-Revision-Date: 2014-07-29 17:30+0200\n"
 "Last-Translator: Matthias Bluthardt <matthias@bluthardt.org>\n"
 "Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/master/de/"
 ">\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -257,8 +257,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier%"
-"s um herauszufinden warum."
+"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier"
+"%s um herauszufinden warum."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:210
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:761
@@ -624,11 +624,11 @@ msgstr "Vollständige INSERTs"
 #: import.php:164
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die %"
-"sDokumentation%s zur Lösung diese Problems."
+"Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die "
+"%sDokumentation%s zur Lösung diese Problems."
 
 #: import.php:343 import.php:627
 msgid "Showing bookmark"
@@ -1301,10 +1301,10 @@ msgstr "Bitte fügen Sie mindestens eine Variable der Serie hinzu!"
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1044
 #: libraries/display_export.lib.php:580
 #: libraries/plugins/export/ExportSql.class.php:1913
-#: libraries/server_privileges.lib.php:2673
+#: libraries/pmd_general.lib.php:788 libraries/server_privileges.lib.php:2673
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:261
-#: libraries/tbl_columns_definition_form.lib.php:743 pmd_general.php:676
+#: libraries/tbl_columns_definition_form.lib.php:743
 msgid "None"
 msgstr "keine"
 
@@ -1652,10 +1652,11 @@ msgstr "Benutzte Variable/Formel"
 msgid "Test"
 msgstr "Test"
 
-#: js/messages.php:243 libraries/server_variables.lib.php:159
-#: pmd_general.php:550 pmd_general.php:589 pmd_general.php:716
-#: pmd_general.php:766 pmd_general.php:842 pmd_general.php:898
-#: pmd_general.php:961 pmd_general.php:994
+#: js/messages.php:243 libraries/pmd_general.lib.php:635
+#: libraries/pmd_general.lib.php:684 libraries/pmd_general.lib.php:828
+#: libraries/pmd_general.lib.php:890 libraries/pmd_general.lib.php:978
+#: libraries/pmd_general.lib.php:1046 libraries/pmd_general.lib.php:1122
+#: libraries/pmd_general.lib.php:1164 libraries/server_variables.lib.php:159
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -1699,9 +1700,10 @@ msgstr "Spalte wird gelöscht"
 msgid "Adding Primary Key"
 msgstr "Primärschlüssel wird hinzugefügt"
 
-#: js/messages.php:255 pmd_general.php:548 pmd_general.php:714
-#: pmd_general.php:764 pmd_general.php:840 pmd_general.php:896
-#: pmd_general.php:959
+#: js/messages.php:255 libraries/pmd_general.lib.php:633
+#: libraries/pmd_general.lib.php:826 libraries/pmd_general.lib.php:888
+#: libraries/pmd_general.lib.php:976 libraries/pmd_general.lib.php:1044
+#: libraries/pmd_general.lib.php:1120
 msgid "OK"
 msgstr "OK"
 
@@ -2137,7 +2139,7 @@ msgstr "Wähle Fremdschlüssel"
 msgid "Please select the primary key or a unique key!"
 msgstr "Bitte den PRIMARY KEY oder einen UNIQUE KEY wählen!"
 
-#: js/messages.php:393 pmd_general.php:179
+#: js/messages.php:393 libraries/pmd_general.lib.php:147
 msgid "Choose column to display"
 msgstr "Anzuzeigende Spalte auswählen"
 
@@ -2159,7 +2161,7 @@ msgstr "Seitenname"
 msgid "Save page"
 msgstr "Seite auswählen"
 
-#: js/messages.php:400 pmd_general.php:151
+#: js/messages.php:400 libraries/pmd_general.lib.php:104
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
@@ -2374,7 +2376,7 @@ msgstr "Zeige versteckte Navigationselemente."
 msgid "Link with main panel"
 msgstr "Hauptpanel anpassen"
 
-#: js/messages.php:466
+#: js/messages.php:466 libraries/navigation/NavigationTree.class.php:1139
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
@@ -2836,12 +2838,11 @@ msgstr "Unterabfrage"
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:361
 #: libraries/DisplayResults.class.php:3460
 #: libraries/DisplayResults.class.php:5026
-#: libraries/central_columns.lib.php:758
+#: libraries/central_columns.lib.php:758 libraries/pmd_general.lib.php:682
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:440 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:587 setup/frames/index.inc.php:182
-#: setup/frames/index.inc.php:290
+#: setup/frames/index.inc.php:182 setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "Löschen"
 
@@ -3370,8 +3371,8 @@ msgstr "Ihr SQL-Befehl wurde erfolgreich ausgeführt."
 #: libraries/DisplayResults.class.php:4884 libraries/structure.lib.php:683
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Dieser Ansicht hat mindestens diese Anzahl von Datensätzen. Bitte lesen Sie "
 "die %sDokumentation%s."
@@ -3645,9 +3646,9 @@ msgstr "Ansicht"
 #: libraries/config/user_preferences.forms.php:267
 #: libraries/import.lib.php:1269
 #: libraries/navigation/Nodes/Node_Table.class.php:36
-#: libraries/server_privileges.lib.php:991
+#: libraries/pmd_general.lib.php:301 libraries/server_privileges.lib.php:991
 #: libraries/tbl_columns_definition_form.lib.php:200
-#: libraries/tbl_tracking.lib.php:805 pmd_general.php:272
+#: libraries/tbl_tracking.lib.php:805
 msgid "Structure"
 msgstr "Struktur"
 
@@ -4087,17 +4088,19 @@ msgstr ""
 msgid "Function"
 msgstr "Funktion"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:653 pmd_general.php:673
-#: pmd_general.php:802 pmd_general.php:815 pmd_general.php:880
-#: pmd_general.php:934
+#: libraries/TableSearch.class.php:188 libraries/pmd_general.lib.php:765
+#: libraries/pmd_general.lib.php:785 libraries/pmd_general.lib.php:937
+#: libraries/pmd_general.lib.php:950 libraries/pmd_general.lib.php:1028
+#: libraries/pmd_general.lib.php:1094
 msgid "Operator"
 msgstr "Operator"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1293
-#: libraries/insert_edit.lib.php:1641 libraries/replication_gui.lib.php:515
+#: libraries/insert_edit.lib.php:1641 libraries/pmd_general.lib.php:749
+#: libraries/pmd_general.lib.php:814 libraries/pmd_general.lib.php:966
+#: libraries/pmd_general.lib.php:1110 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:642
-#: pmd_general.php:702 pmd_general.php:831 pmd_general.php:950
+#: libraries/server_status_variables.lib.php:220
 msgid "Value"
 msgstr "Wert"
 
@@ -4278,20 +4281,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Eine kleine Fließkommazahl, erlaubte Werte sind -3,402823466E+38 bis -"
-"1,175494351E-38, 0, und 1,175494351E-38 bis 3,402823466E+38"
+"Eine kleine Fließkommazahl, erlaubte Werte sind -3,402823466E+38 bis "
+"-1,175494351E-38, 0, und 1,175494351E-38 bis 3,402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Eine Fließkommazahl mit doppelter Genauigkeit, erlaubte Werte sind -"
-"1,7976931348623157E+308 bis -2,2250738585072014E-308, 0, und "
+"Eine Fließkommazahl mit doppelter Genauigkeit, erlaubte Werte sind "
+"-1,7976931348623157E+308 bis -2,2250738585072014E-308, 0, und "
 "2,2250738585072014E-308 bis 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -4331,8 +4334,8 @@ msgstr "Ein Datum, unterstützter Bereich ist %1$s bis %2$s"
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
-"Eine Kombination aus Datum und Uhrzeit, unterstützter Bereich ist %1$s bis %2"
-"$s"
+"Eine Kombination aus Datum und Uhrzeit, unterstützter Bereich ist %1$s bis "
+"%2$s"
 
 #: libraries/Types.class.php:348
 msgid ""
@@ -5226,8 +5229,8 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Falls Sie die [kbd]Cookie[/kbd]-Authentifizierung verwenden und der %"
-"sLogincookiespeicher%s ungleich 0 ist, muss die %sLogincookie-Gültigkeit%s "
+"Falls Sie die [kbd]Cookie[/kbd]-Authentifizierung verwenden und der "
+"%sLogincookiespeicher%s ungleich 0 ist, muss die %sLogincookie-Gültigkeit%s "
 "auf den gleichen oder einen niedrigeren Wert gesetzt sein."
 
 #: libraries/config/ServerConfigChecks.class.php:423
@@ -5256,8 +5259,8 @@ msgstr ""
 "Sie haben die [kbd]config[/kbd] Authentifizierung gewählt und einen "
 "Benutzernamen und Passwort für Auto-Login eingegeben, was für Server im "
 "Internet nicht wünschenswert ist. Jeder, der Ihre phpMyAdmin-URL kennt oder "
-"errät, kann direkt auf Ihre phpMyAdmin-Oberfläche zugreifen. Setzen Sie den %"
-"sAuthentifizierungstyp%s auf [kbd]cookie[/kbd] oder [kbd]http[/kbd]."
+"errät, kann direkt auf Ihre phpMyAdmin-Oberfläche zugreifen. Setzen Sie den "
+"%sAuthentifizierungstyp%s auf [kbd]cookie[/kbd] oder [kbd]http[/kbd]."
 
 #: libraries/config/ServerConfigChecks.class.php:437
 #, php-format
@@ -8049,7 +8052,7 @@ msgstr "Neue Datenbank anlegen:"
 msgid "No Privileges"
 msgstr "Keine Rechte"
 
-#: libraries/display_create_table.lib.php:55 pmd_general.php:169
+#: libraries/display_create_table.lib.php:55 libraries/pmd_general.lib.php:134
 msgid "Create table"
 msgstr "Erzeuge Tabelle"
 
@@ -8163,8 +8166,8 @@ msgstr ", @TABLE@ wird durch den Tabellennamen ersetzt"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Dieser Wert wird mit %1$sstrftime%2$s geparst. Sie können also Platzhalter "
 "für Datum und Uhrzeit verwenden. Darüber hinaus werden folgende Umformungen "
@@ -8723,8 +8726,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentation und weitere Informationen über PBXT sind auf der %sPrimeBase "
 "XT-Website%s verfügbar."
@@ -8863,7 +8866,7 @@ msgstr "Index über&nbsp;%s&nbsp;Spalten anlegen"
 # Hide heist im deutschen in der EDV ausblenden
 #: libraries/insert_edit.lib.php:218 libraries/insert_edit.lib.php:249
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
-#: pmd_general.php:284
+#: libraries/pmd_general.lib.php:313
 msgid "Hide"
 msgstr "Verstecken"
 
@@ -9241,12 +9244,6 @@ msgstr "Nach Name oder Regex filtern"
 #| msgid "Expand/Collapse"
 msgid "Collapse all"
 msgstr "Auf-/Zuklappen"
-
-#: libraries/navigation/NavigationTree.class.php:1139
-#, fuzzy
-#| msgid "Customize main panel"
-msgid "Unlink with main panel"
-msgstr "Hauptpanel anpassen"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9849,8 +9846,8 @@ msgstr "Willkommen bei %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Sie haben möglicherweise noch keine Konfigurationsdatei erstellt. Sei können "
 "das %1$sSetup-Skript%2$s verwenden, um eine zu erstellen."
@@ -10685,6 +10682,136 @@ msgstr ""
 "Zeigt einen Link an; die Spalte enthält den Dateinamen. Die erste Option ist "
 "ein Präfix, wie \"http://www.example.com/\". Die zweite Option ist der "
 "darzustellende Titel des Links."
+
+#: libraries/pmd_general.lib.php:71
+msgid "Show/Hide left menu"
+msgstr "Zeige/Verstecke linkes Menü"
+
+#: libraries/pmd_general.lib.php:79
+msgid "View in fullscreen"
+msgstr "Zeige als Vollbild"
+
+#: libraries/pmd_general.lib.php:87
+msgid "Exit fullscreen"
+msgstr "Beende Vollbild"
+
+#: libraries/pmd_general.lib.php:97
+#, fuzzy
+#| msgid "New name"
+msgid "New page"
+msgstr "Neuer Name"
+
+#: libraries/pmd_general.lib.php:111
+msgid "Save position"
+msgstr "Speichere Position"
+
+#: libraries/pmd_general.lib.php:117
+#, fuzzy
+#| msgid "Save position"
+msgid "Save positions as"
+msgstr "Speichere Position"
+
+#: libraries/pmd_general.lib.php:124
+#, fuzzy
+#| msgid "Select page"
+msgid "Delete pages"
+msgstr "Seite auswählen"
+
+#: libraries/pmd_general.lib.php:140 libraries/pmd_general.lib.php:597
+msgid "Create relation"
+msgstr "Erzeuge Verknüpfung"
+
+#: libraries/pmd_general.lib.php:154
+msgid "Reload"
+msgstr "Neuladen"
+
+#: libraries/pmd_general.lib.php:160
+msgid "Help"
+msgstr "Hilfe"
+
+#: libraries/pmd_general.lib.php:170
+msgid "Angular links"
+msgstr "Winklige Verbindung"
+
+#: libraries/pmd_general.lib.php:170
+msgid "Direct links"
+msgstr "Direkte Verbindung"
+
+#: libraries/pmd_general.lib.php:177
+msgid "Snap to grid"
+msgstr "Am Gitter anordnen"
+
+#: libraries/pmd_general.lib.php:187
+msgid "Small/Big All"
+msgstr "Alles klein/groß"
+
+#: libraries/pmd_general.lib.php:194
+msgid "Toggle small/big"
+msgstr "Wechseln klein/groß"
+
+#: libraries/pmd_general.lib.php:201
+msgid "Toggle relation lines"
+msgstr "Beziehungen anzeigen an/aus"
+
+#: libraries/pmd_general.lib.php:214
+#, fuzzy
+#| msgid "Export all"
+msgid "Export schema"
+msgstr "Alle exportieren"
+
+#: libraries/pmd_general.lib.php:225
+msgid "Build Query"
+msgstr "Abfrage erstellen"
+
+#: libraries/pmd_general.lib.php:234
+msgid "Move Menu"
+msgstr "Verschiebe Menü"
+
+#: libraries/pmd_general.lib.php:276
+msgid "Hide/Show all"
+msgstr "Alles ein-/ausblenden"
+
+#: libraries/pmd_general.lib.php:285
+msgid "Hide/Show Tables with no relation"
+msgstr "Tabellen ohne Verknüpfung aus-/einblenden"
+
+#: libraries/pmd_general.lib.php:340
+msgid "Number of tables:"
+msgstr "Anzahl Tabellen:"
+
+#: libraries/pmd_general.lib.php:676
+msgid "Delete relation"
+msgstr "Verknüpfung löschen"
+
+#: libraries/pmd_general.lib.php:733 libraries/pmd_general.lib.php:797
+msgid "Relation operator"
+msgstr "Beziehungsoperator"
+
+#: libraries/pmd_general.lib.php:743 libraries/pmd_general.lib.php:807
+#: libraries/pmd_general.lib.php:960 libraries/pmd_general.lib.php:1104
+msgid "Except"
+msgstr "Ausnahme"
+
+#: libraries/pmd_general.lib.php:749 libraries/pmd_general.lib.php:815
+#: libraries/pmd_general.lib.php:966 libraries/pmd_general.lib.php:1110
+msgid "subquery"
+msgstr "Unterabfrage"
+
+#: libraries/pmd_general.lib.php:755 libraries/pmd_general.lib.php:872
+msgid "Rename to"
+msgstr "Umbenennen nach"
+
+#: libraries/pmd_general.lib.php:758 libraries/pmd_general.lib.php:878
+msgid "New name"
+msgstr "Neuer Name"
+
+#: libraries/pmd_general.lib.php:762 libraries/pmd_general.lib.php:1022
+msgid "Aggregate"
+msgstr "Anlegen"
+
+#: libraries/pmd_general.lib.php:1155
+msgid "Active options"
+msgstr "Aktive Optionen"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -12271,8 +12398,8 @@ msgstr "Benutzerübersicht"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Hinweis: phpMyAdmin liest die Benutzerprofile direkt aus den entsprechenden "
 "MySQL-Tabellen aus. Der Inhalt dieser Tabellen kann sich von den "
@@ -14453,136 +14580,6 @@ msgstr ""
 msgid "Modifications have been saved"
 msgstr "Änderungen gespeichert"
 
-#: pmd_general.php:130
-msgid "Show/Hide left menu"
-msgstr "Zeige/Verstecke linkes Menü"
-
-#: pmd_general.php:135
-msgid "View in fullscreen"
-msgstr "Zeige als Vollbild"
-
-#: pmd_general.php:140
-msgid "Exit fullscreen"
-msgstr "Beende Vollbild"
-
-#: pmd_general.php:147
-#, fuzzy
-#| msgid "New name"
-msgid "New page"
-msgstr "Neuer Name"
-
-#: pmd_general.php:155
-msgid "Save position"
-msgstr "Speichere Position"
-
-#: pmd_general.php:159
-#, fuzzy
-#| msgid "Save position"
-msgid "Save positions as"
-msgstr "Speichere Position"
-
-#: pmd_general.php:163
-#, fuzzy
-#| msgid "Select page"
-msgid "Delete pages"
-msgstr "Seite auswählen"
-
-#: pmd_general.php:174 pmd_general.php:513
-msgid "Create relation"
-msgstr "Erzeuge Verknüpfung"
-
-#: pmd_general.php:184
-msgid "Reload"
-msgstr "Neuladen"
-
-#: pmd_general.php:189
-msgid "Help"
-msgstr "Hilfe"
-
-#: pmd_general.php:197
-msgid "Angular links"
-msgstr "Winklige Verbindung"
-
-#: pmd_general.php:197
-msgid "Direct links"
-msgstr "Direkte Verbindung"
-
-#: pmd_general.php:202
-msgid "Snap to grid"
-msgstr "Am Gitter anordnen"
-
-#: pmd_general.php:208
-msgid "Small/Big All"
-msgstr "Alles klein/groß"
-
-#: pmd_general.php:213
-msgid "Toggle small/big"
-msgstr "Wechseln klein/groß"
-
-#: pmd_general.php:218
-msgid "Toggle relation lines"
-msgstr "Beziehungen anzeigen an/aus"
-
-#: pmd_general.php:226
-#, fuzzy
-#| msgid "Export all"
-msgid "Export schema"
-msgstr "Alle exportieren"
-
-#: pmd_general.php:237
-msgid "Build Query"
-msgstr "Abfrage erstellen"
-
-#: pmd_general.php:244
-msgid "Move Menu"
-msgstr "Verschiebe Menü"
-
-#: pmd_general.php:258
-msgid "Hide/Show all"
-msgstr "Alles ein-/ausblenden"
-
-#: pmd_general.php:262
-msgid "Hide/Show Tables with no relation"
-msgstr "Tabellen ohne Verknüpfung aus-/einblenden"
-
-#: pmd_general.php:306
-msgid "Number of tables:"
-msgstr "Anzahl Tabellen:"
-
-#: pmd_general.php:581
-msgid "Delete relation"
-msgstr "Verknüpfung löschen"
-
-#: pmd_general.php:626 pmd_general.php:685
-msgid "Relation operator"
-msgstr "Beziehungsoperator"
-
-#: pmd_general.php:636 pmd_general.php:695 pmd_general.php:825
-#: pmd_general.php:944
-msgid "Except"
-msgstr "Ausnahme"
-
-#: pmd_general.php:642 pmd_general.php:703 pmd_general.php:831
-#: pmd_general.php:950
-msgid "subquery"
-msgstr "Unterabfrage"
-
-#: pmd_general.php:646 pmd_general.php:748
-msgid "Rename to"
-msgstr "Umbenennen nach"
-
-#: pmd_general.php:648 pmd_general.php:754
-msgid "New name"
-msgstr "Neuer Name"
-
-#: pmd_general.php:651 pmd_general.php:874
-msgid "Aggregate"
-msgstr "Anlegen"
-
-#: pmd_general.php:985
-msgid "Active options"
-msgstr "Aktive Optionen"
-
 #: pmd_relation_new.php:37
 msgid "Error: relation already exists."
 msgstr "Fehler: Verknüpfung existiert bereits."
@@ -15389,8 +15386,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Das aktuelle Verhältnis von freiem Abfrage-Zwischenspeicher zur Größe des "
 "gesamten Abfrage-Zwischenspeichers ist %s%%. Es sollte über 80%% betragen"
@@ -15547,8 +15544,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% aller Sortierungen verursachen temporäre Tabellen, dieser Wert sollte "
 "kleiner als 10%% sein."
@@ -16335,6 +16332,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ist auf 0 gesetzt"
+
+#, fuzzy
+#~| msgid "Customize main panel"
+#~ msgid "Unlink with main panel"
+#~ msgstr "Hauptpanel anpassen"
 
 #~ msgid "No index defined! Create one below"
 #~ msgstr "Kein Index definiert! Erstellen Sie unten einen"
@@ -17523,8 +17525,8 @@ msgstr "concurrent_insert ist auf 0 gesetzt"
 #~ "directory %s."
 #~ msgstr ""
 #~ "Die Unterstützung für Oberflächendesigns ist deaktiviert. Bitte "
-#~ "überprüfen Sie Ihre Konfiguration und / oder Ihre Designs im Verzeichnis %"
-#~ "s."
+#~ "überprüfen Sie Ihre Konfiguration und / oder Ihre Designs im Verzeichnis "
+#~ "%s."
 
 #~ msgid "Switch to"
 #~ msgstr "Wechseln zu"
