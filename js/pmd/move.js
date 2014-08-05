@@ -571,13 +571,13 @@ function Save2(callback)
         var poststr = 'IS_AJAX=1&server=' + server + '&db=' + db + '&token=' + token + '&die_save_pos=1&selected_page=' + selected_page;
         poststr += Get_url_pos();
         makeRequest('pmd_save_pos.php', poststr);
-        if (callback != null) {
+        if (typeof callback !== 'undefined') {
             callback();
         }
     } else {
         var name = $("#page_name").html().trim();
         Save_to_selected_page(db, selected_page, name, Get_url_pos(), function (page){
-            if (callback != null) {
+            if (typeof callback !== 'undefined') {
                 callback();
             }
         });
@@ -612,7 +612,7 @@ function Save3(callback)
                             selected_page = data.id;
                         }
                         $('#page_name').text(name);
-                        if (callback != null) {
+                        if (typeof callback !== 'undefined') {
                             callback();
                         }
                     }
@@ -624,7 +624,7 @@ function Save3(callback)
                         selected_page = page.pg_nr;
                     }
                     $('#page_name').text(page.page_descr);
-                    if (callback != null) {
+                    if (typeof callback !== 'undefined') {
                         callback();
                     }
                 });
