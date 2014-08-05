@@ -2255,7 +2255,7 @@ msgstr "Lingi peapaneeli"
 #: js/messages.php:462 libraries/navigation/NavigationTree.class.php:1139
 #| msgid "Link with main panel"
 msgid "Unlink from main panel"
-msgstr "Kustuta kink peapaneeli"
+msgstr "Kustuta link peapaneeli"
 
 #: js/messages.php:465
 msgid "The requested page was not found in the history, it may have expired."
