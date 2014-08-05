@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-05 10:15-0400\n"
-"PO-Revision-Date: 2014-08-05 22:38+0200\n"
+"PO-Revision-Date: 2014-08-05 22:39+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2258,10 +2258,9 @@ msgstr "மறைத்துள்ள வழிசெலுத்தல் ப�
 
 #: js/messages.php:465 libraries/config/messages.inc.php:423
 #: libraries/navigation/NavigationTree.class.php:1136
-#, fuzzy
 #| msgid "Main panel"
 msgid "Link with main panel"
-msgstr "முதன்மை பலகம்"
+msgstr "முதன்மை பலகத்துடன் இணைக்க"
 
 #: js/messages.php:466
 #, fuzzy
