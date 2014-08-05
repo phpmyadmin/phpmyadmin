@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-03 07:42-0400\n"
+"POT-Creation-Date: 2014-08-04 06:53-0400\n"
 "PO-Revision-Date: 2014-07-09 12:20+0200\n"
 "Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
 "Language-Team: Traditional Chinese <https://l10n.cihar.com/projects/"
 "phpmyadmin/master/zh_TW/>\n"
-"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -52,7 +52,7 @@ msgstr "資料表備註:"
 
 #: db_datadict.php:152 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1291
-#: libraries/insert_edit.lib.php:1626
+#: libraries/insert_edit.lib.php:1631
 #: libraries/navigation/Nodes/Node_Column.class.php:32
 #: libraries/plugins/export/ExportHtmlword.class.php:280
 #: libraries/plugins/export/ExportHtmlword.class.php:402
@@ -99,7 +99,7 @@ msgstr "型態"
 
 #: db_datadict.php:154 libraries/Index.class.php:570
 #: libraries/TableSearch.class.php:1292 libraries/central_columns.lib.php:637
-#: libraries/insert_edit.lib.php:1635
+#: libraries/insert_edit.lib.php:1640
 #: libraries/plugins/export/ExportHtmlword.class.php:286
 #: libraries/plugins/export/ExportHtmlword.class.php:408
 #: libraries/plugins/export/ExportLatex.class.php:521
@@ -379,7 +379,7 @@ msgid "Action"
 msgstr "動作"
 
 #: db_tracking.php:87 libraries/navigation/Navigation.class.php:208
-#: libraries/tbl_tracking.lib.php:201 tbl_change.php:154
+#: libraries/tbl_tracking.lib.php:201 tbl_change.php:155
 msgid "Show"
 msgstr "顯示"
 
@@ -553,7 +553,7 @@ msgstr "新增幾何形"
 #: libraries/display_create_table.lib.php:71
 #: libraries/display_export.lib.php:296 libraries/display_export.lib.php:302
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
-#: libraries/insert_edit.lib.php:1605 libraries/insert_edit.lib.php:1642
+#: libraries/insert_edit.lib.php:1610 libraries/insert_edit.lib.php:1647
 #: libraries/normalization.lib.php:144 libraries/normalization.lib.php:561
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:254
@@ -612,8 +612,8 @@ msgstr "完整新增"
 #: import.php:164
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr "您上傳的檔案過大，請參考 %s說明文件%s 了解如何解決此問題。"
 
 #: import.php:343 import.php:627
@@ -958,7 +958,7 @@ msgid "Save & Close"
 msgstr "另存新檔"
 
 #: js/messages.php:50 libraries/config/FormDisplay.tpl.php:393
-#: libraries/insert_edit.lib.php:1609 prefs_manage.php:335
+#: libraries/insert_edit.lib.php:1614 prefs_manage.php:335
 #: prefs_manage.php:342
 msgid "Reset"
 msgstr "重新設定"
@@ -1022,7 +1022,7 @@ msgstr "內容分隔符號:"
 msgid "Please select column(s) for the index."
 msgstr "增加 %s 個欄位至索引"
 
-#: js/messages.php:67 libraries/insert_edit.lib.php:1607
+#: js/messages.php:67 libraries/insert_edit.lib.php:1612
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:627
 msgid "Preview SQL"
@@ -1446,7 +1446,7 @@ msgstr "分析中…"
 msgid "Explain output"
 msgstr "輸出說明"
 
-#: js/messages.php:196 js/messages.php:673
+#: js/messages.php:196 js/messages.php:675
 #: libraries/plugins/export/ExportHtmlword.class.php:498
 #: libraries/plugins/export/ExportOdt.class.php:596
 #: libraries/plugins/export/ExportTexytext.class.php:447
@@ -1755,7 +1755,7 @@ msgstr "%d 不是有效的資料列號。"
 
 #: js/messages.php:295 libraries/TableSearch.class.php:931
 #: libraries/TableSearch.class.php:1258 libraries/sql.lib.php:395
-#: tbl_change.php:149
+#: tbl_change.php:150
 msgid "Browse foreign values"
 msgstr "瀏覽關聯的值"
 
@@ -1830,7 +1830,7 @@ msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:314 js/messages.php:542 libraries/normalization.lib.php:260
+#: js/messages.php:314 js/messages.php:544 libraries/normalization.lib.php:260
 msgid "Done"
 msgstr "完成"
 
@@ -1889,7 +1889,7 @@ msgstr ""
 msgid "Create the following table"
 msgstr "在下列資料表新增權限："
 
-#: js/messages.php:331 libraries/insert_edit.lib.php:1518
+#: js/messages.php:331 libraries/insert_edit.lib.php:1523
 #: libraries/server_variables.lib.php:157
 #: libraries/tbl_columns_definition_form.lib.php:142
 #: libraries/tbl_relation.lib.php:628 setup/frames/config.inc.php:42
@@ -1979,8 +1979,8 @@ msgstr "請選擇兩個不同的欄位"
 msgid "Data point content"
 msgstr "資料點內容"
 
-#: js/messages.php:367 js/messages.php:481 js/messages.php:497
-#: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2610
+#: js/messages.php:367 js/messages.php:483 js/messages.php:499
+#: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2615
 #: libraries/tbl_indexes.lib.php:341 libraries/tbl_indexes.lib.php:378
 msgid "Ignore"
 msgstr "略過"
@@ -2240,11 +2240,24 @@ msgstr "隱藏控制面板"
 msgid "Show hidden navigation tree items."
 msgstr "顯示隱藏的導覽樹項目。"
 
-#: js/messages.php:463
+#: js/messages.php:461 libraries/config/messages.inc.php:423
+#: libraries/navigation/NavigationTree.class.php:1136
+#, fuzzy
+#| msgid "Customize main panel"
+msgid "Link with main panel"
+msgstr "自訂主面板"
+
+#: js/messages.php:462 libraries/navigation/NavigationTree.class.php:1139
+#, fuzzy
+#| msgid "Customize main panel"
+msgid "Unlink from main panel"
+msgstr "自訂主面板"
+
+#: js/messages.php:465
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "已無歷史記錄頁面或頁面已經逾期。"
 
-#: js/messages.php:466 setup/lib/index.lib.php:157
+#: js/messages.php:468 setup/lib/index.lib.php:157
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2253,48 +2266,48 @@ msgstr ""
 "新的 phpMyAdmin 已經發佈，請考慮升級至最新的版本（版本 %s，於 %s 發佈）。"
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:468
+#: js/messages.php:470
 msgid ", latest stable version:"
 msgstr "，最新的穩定版:"
 
-#: js/messages.php:469
+#: js/messages.php:471
 msgid "up to date"
 msgstr "最新"
 
-#: js/messages.php:471 libraries/DisplayResults.class.php:5159
+#: js/messages.php:473 libraries/DisplayResults.class.php:5159
 #: view_create.php:178
 msgid "Create view"
 msgstr "新增檢視表"
 
-#: js/messages.php:474
+#: js/messages.php:476
 msgid "Send Error Report"
 msgstr "傳送錯誤報告"
 
-#: js/messages.php:475
+#: js/messages.php:477
 msgid "Submit Error Report"
 msgstr "送出錯誤報告"
 
-#: js/messages.php:477
+#: js/messages.php:479
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "發生 JavaScript 嚴重錯誤，您是否要回報錯誤報告?"
 
-#: js/messages.php:479
+#: js/messages.php:481
 msgid "Change Report Settings"
 msgstr "更改報告設定"
 
-#: js/messages.php:480
+#: js/messages.php:482
 msgid "Show Report Details"
 msgstr "顯示報告詳細資訊"
 
-#: js/messages.php:483
+#: js/messages.php:485
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr "因 PHP 執行期時間限制太短，您的資料未完成匯出動作！"
 
-#: js/messages.php:487
+#: js/messages.php:489
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -2303,286 +2316,286 @@ msgstr ""
 "警告: 此頁面中的表單超過 %d 個欄位，因超出 PHP 中 max_input_vars 設定值的限"
 "制，在送出時可能會忽略部份欄位。"
 
-#: js/messages.php:493 js/messages.php:505
+#: js/messages.php:495 js/messages.php:507
 msgid "Some errors have been detected on the server!"
 msgstr "已偵測到伺服器上發生部份錯誤！"
 
-#: js/messages.php:495
+#: js/messages.php:497
 msgid "Please look at the bottom of this window."
 msgstr "請瀏覽此視窗的底部。"
 
-#: js/messages.php:500 libraries/Error_Handler.class.php:355
+#: js/messages.php:502 libraries/Error_Handler.class.php:355
 msgid "Ignore All"
 msgstr "全部略過"
 
-#: js/messages.php:507
+#: js/messages.php:509
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: js/messages.php:514
+#: js/messages.php:516
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "在此再次顯示此查詢"
 
-#: js/messages.php:515
+#: js/messages.php:517
 #, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
 msgstr "您確定要刪除查詢「%s」？"
 
 # 這應該是使用於選擇日期的月曆
-#: js/messages.php:546
+#: js/messages.php:548
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "上個月"
 
 # 這應該使用於選擇日期的小月曆
-#: js/messages.php:551
+#: js/messages.php:553
 msgctxt "Next month"
 msgid "Next"
 msgstr "下個月"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:554
+#: js/messages.php:556
 msgid "Today"
 msgstr "今天"
 
-#: js/messages.php:558
+#: js/messages.php:560
 msgid "January"
 msgstr "一月"
 
-#: js/messages.php:559
+#: js/messages.php:561
 msgid "February"
 msgstr "二月"
 
-#: js/messages.php:560
+#: js/messages.php:562
 msgid "March"
 msgstr "三月"
 
-#: js/messages.php:561
+#: js/messages.php:563
 msgid "April"
 msgstr "四月"
 
-#: js/messages.php:562
+#: js/messages.php:564
 msgid "May"
 msgstr "五月"
 
-#: js/messages.php:563
+#: js/messages.php:565
 msgid "June"
 msgstr "六月"
 
-#: js/messages.php:564
+#: js/messages.php:566
 msgid "July"
 msgstr "七月"
 
-#: js/messages.php:565
+#: js/messages.php:567
 msgid "August"
 msgstr "八月"
 
-#: js/messages.php:566
+#: js/messages.php:568
 msgid "September"
 msgstr "九月"
 
-#: js/messages.php:567
+#: js/messages.php:569
 msgid "October"
 msgstr "十月"
 
-#: js/messages.php:568
+#: js/messages.php:570
 msgid "November"
 msgstr "十一月"
 
-#: js/messages.php:569
+#: js/messages.php:571
 msgid "December"
 msgstr "十二月"
 
 #. l10n: Short month name
-#: js/messages.php:576 libraries/Util.class.php:1553
+#: js/messages.php:578 libraries/Util.class.php:1553
 msgid "Jan"
 msgstr "一月"
 
 #. l10n: Short month name
-#: js/messages.php:578 libraries/Util.class.php:1555
+#: js/messages.php:580 libraries/Util.class.php:1555
 msgid "Feb"
 msgstr "二月"
 
 #. l10n: Short month name
-#: js/messages.php:580 libraries/Util.class.php:1557
+#: js/messages.php:582 libraries/Util.class.php:1557
 msgid "Mar"
 msgstr "三月"
 
 #. l10n: Short month name
-#: js/messages.php:582 libraries/Util.class.php:1559
+#: js/messages.php:584 libraries/Util.class.php:1559
 msgid "Apr"
 msgstr "四月"
 
 #. l10n: Short month name
-#: js/messages.php:584 libraries/Util.class.php:1561
+#: js/messages.php:586 libraries/Util.class.php:1561
 msgctxt "Short month name"
 msgid "May"
 msgstr "五月"
 
 #. l10n: Short month name
-#: js/messages.php:586 libraries/Util.class.php:1563
+#: js/messages.php:588 libraries/Util.class.php:1563
 msgid "Jun"
 msgstr "六月"
 
 #. l10n: Short month name
-#: js/messages.php:588 libraries/Util.class.php:1565
+#: js/messages.php:590 libraries/Util.class.php:1565
 msgid "Jul"
 msgstr "七月"
 
 #. l10n: Short month name
-#: js/messages.php:590 libraries/Util.class.php:1567
+#: js/messages.php:592 libraries/Util.class.php:1567
 msgid "Aug"
 msgstr "八月"
 
 #. l10n: Short month name
-#: js/messages.php:592 libraries/Util.class.php:1569
+#: js/messages.php:594 libraries/Util.class.php:1569
 msgid "Sep"
 msgstr "九月"
 
 #. l10n: Short month name
-#: js/messages.php:594 libraries/Util.class.php:1571
+#: js/messages.php:596 libraries/Util.class.php:1571
 msgid "Oct"
 msgstr "十月"
 
 #. l10n: Short month name
-#: js/messages.php:596 libraries/Util.class.php:1573
+#: js/messages.php:598 libraries/Util.class.php:1573
 msgid "Nov"
 msgstr "十一月"
 
 #. l10n: Short month name
-#: js/messages.php:598 libraries/Util.class.php:1575
+#: js/messages.php:600 libraries/Util.class.php:1575
 msgid "Dec"
 msgstr "十二月"
 
-#: js/messages.php:604
+#: js/messages.php:606
 msgid "Sunday"
 msgstr "星期日"
 
-#: js/messages.php:605
+#: js/messages.php:607
 msgid "Monday"
 msgstr "星期一"
 
-#: js/messages.php:606
+#: js/messages.php:608
 msgid "Tuesday"
 msgstr "星期二"
 
-#: js/messages.php:607
+#: js/messages.php:609
 msgid "Wednesday"
 msgstr "星期三"
 
-#: js/messages.php:608
+#: js/messages.php:610
 msgid "Thursday"
 msgstr "星期四"
 
-#: js/messages.php:609
+#: js/messages.php:611
 msgid "Friday"
 msgstr "星期五"
 
-#: js/messages.php:610
+#: js/messages.php:612
 msgid "Saturday"
 msgstr "星期六"
 
 #. l10n: Short week day name
-#: js/messages.php:617
+#: js/messages.php:619
 msgid "Sun"
 msgstr "週日"
 
 #. l10n: Short week day name
-#: js/messages.php:619 libraries/Util.class.php:1580
+#: js/messages.php:621 libraries/Util.class.php:1580
 msgid "Mon"
 msgstr "週一"
 
 #. l10n: Short week day name
-#: js/messages.php:621 libraries/Util.class.php:1582
+#: js/messages.php:623 libraries/Util.class.php:1582
 msgid "Tue"
 msgstr "週二"
 
 #. l10n: Short week day name
-#: js/messages.php:623 libraries/Util.class.php:1584
+#: js/messages.php:625 libraries/Util.class.php:1584
 msgid "Wed"
 msgstr "週三"
 
 #. l10n: Short week day name
-#: js/messages.php:625 libraries/Util.class.php:1586
+#: js/messages.php:627 libraries/Util.class.php:1586
 msgid "Thu"
 msgstr "週四"
 
 #. l10n: Short week day name
-#: js/messages.php:627 libraries/Util.class.php:1588
+#: js/messages.php:629 libraries/Util.class.php:1588
 msgid "Fri"
 msgstr "週五"
 
 #. l10n: Short week day name
-#: js/messages.php:629 libraries/Util.class.php:1590
+#: js/messages.php:631 libraries/Util.class.php:1590
 msgid "Sat"
 msgstr "週六"
 
 #. l10n: Minimal week day name
-#: js/messages.php:636
+#: js/messages.php:638
 msgid "Su"
 msgstr "日"
 
 #. l10n: Minimal week day name
-#: js/messages.php:638
+#: js/messages.php:640
 msgid "Mo"
 msgstr "一"
 
 #. l10n: Minimal week day name
-#: js/messages.php:640
+#: js/messages.php:642
 msgid "Tu"
 msgstr "二"
 
 #. l10n: Minimal week day name
-#: js/messages.php:642
+#: js/messages.php:644
 msgid "We"
 msgstr "三"
 
 #. l10n: Minimal week day name
-#: js/messages.php:644
+#: js/messages.php:646
 msgid "Th"
 msgstr "四"
 
 #. l10n: Minimal week day name
-#: js/messages.php:646
+#: js/messages.php:648
 msgid "Fr"
 msgstr "五"
 
 #. l10n: Minimal week day name
-#: js/messages.php:648
+#: js/messages.php:650
 msgid "Sa"
 msgstr "六"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:652
+#: js/messages.php:654
 msgid "Wk"
 msgstr "週"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:659
+#: js/messages.php:661
 msgid "calendar-month-year"
 msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:662
+#: js/messages.php:664
 msgctxt "Year suffix"
 msgid "none"
 msgstr "none"
 
-#: js/messages.php:674
+#: js/messages.php:676
 msgid "Hour"
 msgstr "時"
 
-#: js/messages.php:675
+#: js/messages.php:677
 msgid "Minute"
 msgstr "分"
 
-#: js/messages.php:676
+#: js/messages.php:678
 msgid "Second"
 msgstr "秒"
 
@@ -3206,8 +3219,8 @@ msgstr "您的 SQL 語法已順利執行。"
 #: libraries/DisplayResults.class.php:4884 libraries/structure.lib.php:683
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "這個檢視表至少需有此數量的資料列，請參考%sdocumentation%s。"
 
 #: libraries/DisplayResults.class.php:4897
@@ -3602,7 +3615,7 @@ msgstr "引擎"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:626
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1234 tbl_operations.php:186
+#: libraries/insert_edit.lib.php:1237 tbl_operations.php:186
 #: view_operations.php:63
 msgid "Error"
 msgstr "錯誤"
@@ -3907,7 +3920,7 @@ msgid "Operator"
 msgstr "運算子"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1293
-#: libraries/insert_edit.lib.php:1636 libraries/replication_gui.lib.php:515
+#: libraries/insert_edit.lib.php:1641 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
 #: libraries/server_status_variables.lib.php:220 pmd_general.php:642
 #: pmd_general.php:702 pmd_general.php:831 pmd_general.php:950
@@ -3926,7 +3939,7 @@ msgstr "圖表搜尋"
 msgid "Find and Replace"
 msgstr "搜尋與取代"
 
-#: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1408
+#: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1413
 msgid "Edit/Insert"
 msgstr "修改/新增"
 
@@ -3934,7 +3947,7 @@ msgstr "修改/新增"
 msgid "Select columns (at least one):"
 msgstr "選擇欄位 (至少一個):"
 
-#: libraries/TableSearch.class.php:819 libraries/insert_edit.lib.php:1238
+#: libraries/TableSearch.class.php:819 libraries/insert_edit.lib.php:1241
 #: libraries/server_privileges.lib.php:468
 msgid "Or"
 msgstr "或"
@@ -4083,16 +4096,16 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "浮點數，範圍為 -3.402823466E+38 至 -1.175494351E-38、0 及 1.175494351E-38 至 "
 "3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "倍準浮點數，範圍為 -1.7976931348623157E+308 至 -2.2250738585072014E-308、0 "
@@ -4434,7 +4447,7 @@ msgstr "由電腦上傳:"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "由網頁伺服器上傳目錄中選擇 <b>%s</b>:"
 
-#: libraries/Util.class.php:3328 libraries/insert_edit.lib.php:1235
+#: libraries/Util.class.php:3328 libraries/insert_edit.lib.php:1238
 #: libraries/sql_query_form.lib.php:495
 msgid "The directory you set for upload work cannot be reached."
 msgstr "設定之上傳目錄錯誤，無法使用。"
@@ -6084,13 +6097,6 @@ msgstr "記憶體限制"
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 
-#: libraries/config/messages.inc.php:423
-#: libraries/navigation/NavigationTree.class.php:1142
-#, fuzzy
-#| msgid "Customize main panel"
-msgid "Link with main panel"
-msgstr "自訂主面板"
-
 #: libraries/config/messages.inc.php:424
 msgid "Show logo in navigation panel."
 msgstr "在導覽面板中顯示圖示。"
@@ -7471,8 +7477,8 @@ msgstr "，@TABLE@ 會替換為資料表名稱"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "此數值會使用 %1$sstrftime%2$s 來解析，所以您可以使用時間格式的字串。除此之"
 "外，以下資料格式也會被轉換: %3$s。其他的文字則會保持原樣。請參考 %4$s常見問"
@@ -7987,8 +7993,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr "有關 PBXT 的更相關資訊請可以 %sPrimeBase XT 首頁%s 中找到。"
 
 #: libraries/engines/pbxt.lib.php:138
@@ -8119,65 +8125,65 @@ msgstr "隱藏"
 msgid "Binary"
 msgstr "二進位"
 
-#: libraries/insert_edit.lib.php:661
+#: libraries/insert_edit.lib.php:663
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr "因長度問題，<br /> 該欄位可能無法編輯。"
 
-#: libraries/insert_edit.lib.php:1111
+#: libraries/insert_edit.lib.php:1115
 msgid "Binary - do not edit"
 msgstr "二進位 - 無法編輯"
 
-#: libraries/insert_edit.lib.php:1239 libraries/sql_query_form.lib.php:499
+#: libraries/insert_edit.lib.php:1242 libraries/sql_query_form.lib.php:499
 msgid "web server upload directory:"
 msgstr "網站伺服器上傳資料夾："
 
-#: libraries/insert_edit.lib.php:1458
+#: libraries/insert_edit.lib.php:1463
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr "繼續新增 %s 列"
 
-#: libraries/insert_edit.lib.php:1488
+#: libraries/insert_edit.lib.php:1493
 msgid "and then"
 msgstr "然後"
 
-#: libraries/insert_edit.lib.php:1521
+#: libraries/insert_edit.lib.php:1526
 msgid "Insert as new row"
 msgstr "以新資料列新增"
 
-#: libraries/insert_edit.lib.php:1524
+#: libraries/insert_edit.lib.php:1529
 msgid "Insert as new row and ignore errors"
 msgstr "以新資料列新增 (忽略錯誤)"
 
-#: libraries/insert_edit.lib.php:1527
+#: libraries/insert_edit.lib.php:1532
 msgid "Show insert query"
 msgstr "顯示新增指令"
 
-#: libraries/insert_edit.lib.php:1547
+#: libraries/insert_edit.lib.php:1552
 msgid "Go back to previous page"
 msgstr "返回上一頁"
 
-#: libraries/insert_edit.lib.php:1550
+#: libraries/insert_edit.lib.php:1555
 msgid "Insert another new row"
 msgstr "新增其他新資料列"
 
-#: libraries/insert_edit.lib.php:1555
+#: libraries/insert_edit.lib.php:1560
 msgid "Go back to this page"
 msgstr "返回到本頁"
 
-#: libraries/insert_edit.lib.php:1577
+#: libraries/insert_edit.lib.php:1582
 msgid "Edit next row"
 msgstr "編輯下一行"
 
-#: libraries/insert_edit.lib.php:1599
+#: libraries/insert_edit.lib.php:1604
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr "按 TAB 鍵跳到下一個數值，或 CTRL+方向鍵 作隨意移動"
 
-#: libraries/insert_edit.lib.php:1981 libraries/sql.lib.php:1680
+#: libraries/insert_edit.lib.php:1986 libraries/sql.lib.php:1680
 msgid "Showing SQL query"
 msgstr "顯示 SQL 查詢"
 
-#: libraries/insert_edit.lib.php:2006 libraries/sql.lib.php:1660
+#: libraries/insert_edit.lib.php:2011 libraries/sql.lib.php:1660
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "新增的資料列行 id: %1$d"
@@ -9030,8 +9036,8 @@ msgstr "歡迎使用 %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr "您可能還沒有建立設定檔案。您可以使用 %1$s 設定指令 %2$s 來建立。"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:126
@@ -11286,8 +11292,8 @@ msgstr "檢視使用者"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin 直接由 MySQL 權限表取得使用者權限。若有使用者中途手動更改權"
 "限，則表中顯示的內容可能與伺服器實際使用的使用者權限有異。在這種情況下，您應"
@@ -13506,8 +13512,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"透過修改 config.inc.php 設定檔您可以調整更多的設定項目，如: 使用 %s安裝程"
-"式%s 。"
+"透過修改 config.inc.php 設定檔您可以調整更多的設定項目，如: 使用 %s安裝程式%"
+"s 。"
 
 #: prefs_manage.php:311
 msgid "Save to browser's storage"
@@ -14178,8 +14184,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr "目前閒置查詢快取記憶體為全部查詢快取的大小的 %s%%，這個值應高於 80%%"
 
 #: libraries/advisory_rules.txt:181
@@ -14315,8 +14321,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr "有 %s%% 的排序會產生暫存表，這個值應低於 10%%。"
 
 #: libraries/advisory_rules.txt:218
@@ -16191,8 +16197,8 @@ msgstr "concurrent_insert 目前設定為 0"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation."
-#~ "html#faq6-29\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
+#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation.html#faq6-29"
+#~ "\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "新增新使用者"

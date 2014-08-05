@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-03 07:42-0400\n"
+"POT-Creation-Date: 2014-08-04 06:53-0400\n"
 "PO-Revision-Date: 2014-05-17 07:11+0200\n"
 "Last-Translator: Sorawee Porncharoenwase <nullzero.free@gmail.com>\n"
 "Language-Team: Thai <https://l10n.cihar.com/projects/phpmyadmin/master/th/>\n"
-"Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: th\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.9\n"
 
@@ -55,7 +55,7 @@ msgstr "หมายเหตุของตาราง:"
 
 #: db_datadict.php:152 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1291
-#: libraries/insert_edit.lib.php:1626
+#: libraries/insert_edit.lib.php:1631
 #: libraries/navigation/Nodes/Node_Column.class.php:32
 #: libraries/plugins/export/ExportHtmlword.class.php:280
 #: libraries/plugins/export/ExportHtmlword.class.php:402
@@ -102,7 +102,7 @@ msgstr "ชนิด"
 
 #: db_datadict.php:154 libraries/Index.class.php:570
 #: libraries/TableSearch.class.php:1292 libraries/central_columns.lib.php:637
-#: libraries/insert_edit.lib.php:1635
+#: libraries/insert_edit.lib.php:1640
 #: libraries/plugins/export/ExportHtmlword.class.php:286
 #: libraries/plugins/export/ExportHtmlword.class.php:408
 #: libraries/plugins/export/ExportLatex.class.php:521
@@ -392,7 +392,7 @@ msgid "Action"
 msgstr "กระทำการ"
 
 #: db_tracking.php:87 libraries/navigation/Navigation.class.php:208
-#: libraries/tbl_tracking.lib.php:201 tbl_change.php:154
+#: libraries/tbl_tracking.lib.php:201 tbl_change.php:155
 msgid "Show"
 msgstr "แสดง"
 
@@ -576,7 +576,7 @@ msgstr "เพิ่มเรขาคณิต"
 #: libraries/display_create_table.lib.php:71
 #: libraries/display_export.lib.php:296 libraries/display_export.lib.php:302
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
-#: libraries/insert_edit.lib.php:1605 libraries/insert_edit.lib.php:1642
+#: libraries/insert_edit.lib.php:1610 libraries/insert_edit.lib.php:1647
 #: libraries/normalization.lib.php:144 libraries/normalization.lib.php:561
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:254
@@ -638,8 +638,8 @@ msgstr "คำสั่ง INSERT เต็มรูปแบบ"
 #: import.php:164
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "คุณพยายามที่จะอัพโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %sdocumentation%s เอกสารช่วยเหลือ "
 "เพื่อแก้ไขปัญหาดังกล่าวนี้"
@@ -1002,7 +1002,7 @@ msgid "Save & Close"
 msgstr "บันทึกเป็นไฟล์"
 
 #: js/messages.php:50 libraries/config/FormDisplay.tpl.php:393
-#: libraries/insert_edit.lib.php:1609 prefs_manage.php:335
+#: libraries/insert_edit.lib.php:1614 prefs_manage.php:335
 #: prefs_manage.php:342
 msgid "Reset"
 msgstr "ตั้งค่าใหม่"
@@ -1072,7 +1072,7 @@ msgstr "คร่อมฟิลด์ด้วย"
 msgid "Please select column(s) for the index."
 msgstr "เพิ่มคอลัมน์ %s ไปยังดัชนี"
 
-#: js/messages.php:67 libraries/insert_edit.lib.php:1607
+#: js/messages.php:67 libraries/insert_edit.lib.php:1612
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:627
 msgid "Preview SQL"
@@ -1509,7 +1509,7 @@ msgstr "กำลังวิเคราะห์…"
 msgid "Explain output"
 msgstr "อธิบายผลคำสั่ง"
 
-#: js/messages.php:196 js/messages.php:673
+#: js/messages.php:196 js/messages.php:675
 #: libraries/plugins/export/ExportHtmlword.class.php:498
 #: libraries/plugins/export/ExportOdt.class.php:596
 #: libraries/plugins/export/ExportTexytext.class.php:447
@@ -1825,7 +1825,7 @@ msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูก
 
 #: js/messages.php:295 libraries/TableSearch.class.php:931
 #: libraries/TableSearch.class.php:1258 libraries/sql.lib.php:395
-#: tbl_change.php:149
+#: tbl_change.php:150
 msgid "Browse foreign values"
 msgstr ""
 
@@ -1908,7 +1908,7 @@ msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:314 js/messages.php:542 libraries/normalization.lib.php:260
+#: js/messages.php:314 js/messages.php:544 libraries/normalization.lib.php:260
 msgid "Done"
 msgstr "จบ"
 
@@ -1965,7 +1965,7 @@ msgstr ""
 msgid "Create the following table"
 msgstr "เพิ่มสิทธิของตารางต่อไปนี้"
 
-#: js/messages.php:331 libraries/insert_edit.lib.php:1518
+#: js/messages.php:331 libraries/insert_edit.lib.php:1523
 #: libraries/server_variables.lib.php:157
 #: libraries/tbl_columns_definition_form.lib.php:142
 #: libraries/tbl_relation.lib.php:628 setup/frames/config.inc.php:42
@@ -2062,8 +2062,8 @@ msgstr "เลือกสองสดมภ์ใดๆ"
 msgid "Data point content"
 msgstr "สารบัญ"
 
-#: js/messages.php:367 js/messages.php:481 js/messages.php:497
-#: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2610
+#: js/messages.php:367 js/messages.php:483 js/messages.php:499
+#: libraries/Error_Handler.class.php:350 libraries/insert_edit.lib.php:2615
 #: libraries/tbl_indexes.lib.php:341 libraries/tbl_indexes.lib.php:378
 msgid "Ignore"
 msgstr "ข้าม"
@@ -2358,11 +2358,24 @@ msgstr "ซ่อนแผง"
 msgid "Show hidden navigation tree items."
 msgstr "โหลดกรอบนำทางใหม่"
 
-#: js/messages.php:463
+#: js/messages.php:461 libraries/config/messages.inc.php:423
+#: libraries/navigation/NavigationTree.class.php:1136
+#, fuzzy
+#| msgid "Use text field"
+msgid "Link with main panel"
+msgstr "ใช้ช่องใส่ข้อความ (text field)"
+
+#: js/messages.php:462 libraries/navigation/NavigationTree.class.php:1139
+#, fuzzy
+#| msgid "Use text field"
+msgid "Unlink from main panel"
+msgstr "ใช้ช่องใส่ข้อความ (text field)"
+
+#: js/messages.php:465
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "ไม่พบหน้าดังกล่าวในประวัติการเรียกดู อาจเป็นเพราะหน้านั้นไม่มีหรือหมดอายุที่จะแสดงได้แล้ว"
 
-#: js/messages.php:466 setup/lib/index.lib.php:157
+#: js/messages.php:468 setup/lib/index.lib.php:157
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2370,339 +2383,339 @@ msgid ""
 msgstr "phpMyAdmin มีรุ่นใหม่แล้ว กรุณาพิจารณาอัพเกรดเป็นรุ่นใหม่ %s โดยออกเมื่อ %s"
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:468
+#: js/messages.php:470
 msgid ", latest stable version:"
 msgstr ", รุ่นเสถียรล่าสุด:"
 
-#: js/messages.php:469
+#: js/messages.php:471
 msgid "up to date"
 msgstr "ล่าสุด"
 
-#: js/messages.php:471 libraries/DisplayResults.class.php:5159
+#: js/messages.php:473 libraries/DisplayResults.class.php:5159
 #: view_create.php:178
 msgid "Create view"
 msgstr "สร้างมุมมอง"
 
-#: js/messages.php:474
+#: js/messages.php:476
 #, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
 msgstr "พอร์ตของเซิร์ฟเวอร์"
 
-#: js/messages.php:475
+#: js/messages.php:477
 msgid "Submit Error Report"
 msgstr ""
 
-#: js/messages.php:477
+#: js/messages.php:479
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: js/messages.php:479
+#: js/messages.php:481
 #, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
 msgstr "เปลี่ยนการตั้งค่า"
 
-#: js/messages.php:480
+#: js/messages.php:482
 #, fuzzy
 msgid "Show Report Details"
 msgstr "แสดงตาราง"
 
-#: js/messages.php:483
+#: js/messages.php:485
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: js/messages.php:487
+#: js/messages.php:489
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: js/messages.php:493 js/messages.php:505
+#: js/messages.php:495 js/messages.php:507
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: js/messages.php:495
+#: js/messages.php:497
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:500 libraries/Error_Handler.class.php:355
+#: js/messages.php:502 libraries/Error_Handler.class.php:355
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "ข้าม"
 
-#: js/messages.php:507
+#: js/messages.php:509
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: js/messages.php:514
+#: js/messages.php:516
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "แสดงคำค้นนี้อีกที"
 
-#: js/messages.php:515
+#: js/messages.php:517
 #, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
 msgstr "คุณแน่ใจที่ต้องการจะ  \"%s\"?"
 
-#: js/messages.php:546
+#: js/messages.php:548
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "ก่อนหน้า"
 
-#: js/messages.php:551
+#: js/messages.php:553
 msgctxt "Next month"
 msgid "Next"
 msgstr "ต่อไป"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:554
+#: js/messages.php:556
 msgid "Today"
 msgstr "วันนี้"
 
-#: js/messages.php:558
+#: js/messages.php:560
 msgid "January"
 msgstr "มกราคม"
 
-#: js/messages.php:559
+#: js/messages.php:561
 msgid "February"
 msgstr "กุมภาพันธ์"
 
-#: js/messages.php:560
+#: js/messages.php:562
 msgid "March"
 msgstr "มีนาคม"
 
-#: js/messages.php:561
+#: js/messages.php:563
 msgid "April"
 msgstr "เมษายน"
 
-#: js/messages.php:562
+#: js/messages.php:564
 msgid "May"
 msgstr "พฤษภาคม"
 
-#: js/messages.php:563
+#: js/messages.php:565
 msgid "June"
 msgstr "มิถุนายน"
 
-#: js/messages.php:564
+#: js/messages.php:566
 msgid "July"
 msgstr "กรกฎาคม"
 
-#: js/messages.php:565
+#: js/messages.php:567
 msgid "August"
 msgstr "สิงหาคม"
 
-#: js/messages.php:566
+#: js/messages.php:568
 msgid "September"
 msgstr "กันยายน"
 
-#: js/messages.php:567
+#: js/messages.php:569
 msgid "October"
 msgstr "ตุลาคม"
 
-#: js/messages.php:568
+#: js/messages.php:570
 msgid "November"
 msgstr "พฤศจิกายน"
 
-#: js/messages.php:569
+#: js/messages.php:571
 msgid "December"
 msgstr "ธันวาคม"
 
 #. l10n: Short month name
-#: js/messages.php:576 libraries/Util.class.php:1553
+#: js/messages.php:578 libraries/Util.class.php:1553
 msgid "Jan"
 msgstr "ม.ค."
 
 #. l10n: Short month name
-#: js/messages.php:578 libraries/Util.class.php:1555
+#: js/messages.php:580 libraries/Util.class.php:1555
 msgid "Feb"
 msgstr "ก.พ."
 
 #. l10n: Short month name
-#: js/messages.php:580 libraries/Util.class.php:1557
+#: js/messages.php:582 libraries/Util.class.php:1557
 msgid "Mar"
 msgstr "มี.ค."
 
 #. l10n: Short month name
-#: js/messages.php:582 libraries/Util.class.php:1559
+#: js/messages.php:584 libraries/Util.class.php:1559
 msgid "Apr"
 msgstr "เม.ย."
 
 #. l10n: Short month name
-#: js/messages.php:584 libraries/Util.class.php:1561
+#: js/messages.php:586 libraries/Util.class.php:1561
 msgctxt "Short month name"
 msgid "May"
 msgstr "พ.ค."
 
 #. l10n: Short month name
-#: js/messages.php:586 libraries/Util.class.php:1563
+#: js/messages.php:588 libraries/Util.class.php:1563
 msgid "Jun"
 msgstr "มิ.ย."
 
 #. l10n: Short month name
-#: js/messages.php:588 libraries/Util.class.php:1565
+#: js/messages.php:590 libraries/Util.class.php:1565
 msgid "Jul"
 msgstr "ก.ค."
 
 #. l10n: Short month name
-#: js/messages.php:590 libraries/Util.class.php:1567
+#: js/messages.php:592 libraries/Util.class.php:1567
 msgid "Aug"
 msgstr "ส.ค."
 
 #. l10n: Short month name
-#: js/messages.php:592 libraries/Util.class.php:1569
+#: js/messages.php:594 libraries/Util.class.php:1569
 msgid "Sep"
 msgstr "ก.ย."
 
 #. l10n: Short month name
-#: js/messages.php:594 libraries/Util.class.php:1571
+#: js/messages.php:596 libraries/Util.class.php:1571
 msgid "Oct"
 msgstr "ต.ค."
 
 #. l10n: Short month name
-#: js/messages.php:596 libraries/Util.class.php:1573
+#: js/messages.php:598 libraries/Util.class.php:1573
 msgid "Nov"
 msgstr "พ.ย."
 
 #. l10n: Short month name
-#: js/messages.php:598 libraries/Util.class.php:1575
+#: js/messages.php:600 libraries/Util.class.php:1575
 msgid "Dec"
 msgstr "ธ.ค."
 
-#: js/messages.php:604
+#: js/messages.php:606
 msgid "Sunday"
 msgstr "อาทิตย์"
 
-#: js/messages.php:605
+#: js/messages.php:607
 msgid "Monday"
 msgstr "วันจันทร์"
 
-#: js/messages.php:606
+#: js/messages.php:608
 msgid "Tuesday"
 msgstr "วันอังคาร"
 
-#: js/messages.php:607
+#: js/messages.php:609
 msgid "Wednesday"
 msgstr "วันพุธ"
 
-#: js/messages.php:608
+#: js/messages.php:610
 msgid "Thursday"
 msgstr "วันพฤหัสบดี"
 
-#: js/messages.php:609
+#: js/messages.php:611
 msgid "Friday"
 msgstr "วันศุกร์"
 
-#: js/messages.php:610
+#: js/messages.php:612
 msgid "Saturday"
 msgstr "วันเสาร์"
 
 #. l10n: Short week day name
-#: js/messages.php:617
+#: js/messages.php:619
 msgid "Sun"
 msgstr "อ."
 
 #. l10n: Short week day name
-#: js/messages.php:619 libraries/Util.class.php:1580
+#: js/messages.php:621 libraries/Util.class.php:1580
 msgid "Mon"
 msgstr "จ."
 
 #. l10n: Short week day name
-#: js/messages.php:621 libraries/Util.class.php:1582
+#: js/messages.php:623 libraries/Util.class.php:1582
 msgid "Tue"
 msgstr "อ."
 
 #. l10n: Short week day name
-#: js/messages.php:623 libraries/Util.class.php:1584
+#: js/messages.php:625 libraries/Util.class.php:1584
 msgid "Wed"
 msgstr "พ."
 
 #. l10n: Short week day name
-#: js/messages.php:625 libraries/Util.class.php:1586
+#: js/messages.php:627 libraries/Util.class.php:1586
 msgid "Thu"
 msgstr "พฤ."
 
 #. l10n: Short week day name
-#: js/messages.php:627 libraries/Util.class.php:1588
+#: js/messages.php:629 libraries/Util.class.php:1588
 msgid "Fri"
 msgstr "ศ."
 
 #. l10n: Short week day name
-#: js/messages.php:629 libraries/Util.class.php:1590
+#: js/messages.php:631 libraries/Util.class.php:1590
 msgid "Sat"
 msgstr "ส."
 
 #. l10n: Minimal week day name
-#: js/messages.php:636
+#: js/messages.php:638
 msgid "Su"
 msgstr "อา."
 
 #. l10n: Minimal week day name
-#: js/messages.php:638
+#: js/messages.php:640
 msgid "Mo"
 msgstr "จ."
 
 #. l10n: Minimal week day name
-#: js/messages.php:640
+#: js/messages.php:642
 msgid "Tu"
 msgstr "อ."
 
 #. l10n: Minimal week day name
-#: js/messages.php:642
+#: js/messages.php:644
 msgid "We"
 msgstr "พ."
 
 #. l10n: Minimal week day name
-#: js/messages.php:644
+#: js/messages.php:646
 msgid "Th"
 msgstr "พฤ."
 
 #. l10n: Minimal week day name
-#: js/messages.php:646
+#: js/messages.php:648
 msgid "Fr"
 msgstr "ศ."
 
 #. l10n: Minimal week day name
-#: js/messages.php:648
+#: js/messages.php:650
 msgid "Sa"
 msgstr "ส."
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:652
+#: js/messages.php:654
 msgid "Wk"
 msgstr "สัปดาห์"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:659
+#: js/messages.php:661
 msgid "calendar-month-year"
 msgstr "ปฎิทินแบบ เดือน/ปี"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:662
+#: js/messages.php:664
 msgctxt "Year suffix"
 msgid "none"
 msgstr "ไม่มี"
 
-#: js/messages.php:674
+#: js/messages.php:676
 msgid "Hour"
 msgstr "ชั่วโมง"
 
-#: js/messages.php:675
+#: js/messages.php:677
 msgid "Minute"
 msgstr "นาที"
 
-#: js/messages.php:676
+#: js/messages.php:678
 msgid "Second"
 msgstr "วินาที"
 
@@ -3370,8 +3383,8 @@ msgstr "ทำคำค้นเสร็จเรียบร้อยแล้
 #: libraries/DisplayResults.class.php:4884 libraries/structure.lib.php:683
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "การแสดงผลนี้ จะแสดงเพียงจำนวนข้อมูลนี้เท่านั้น ดูข้อมูลเพิ่มเติมได้ที่ %sdocumentation%s"
 
 #: libraries/DisplayResults.class.php:4897
@@ -3786,7 +3799,7 @@ msgstr "เครื่องมือ"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:626
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1234 tbl_operations.php:186
+#: libraries/insert_edit.lib.php:1237 tbl_operations.php:186
 #: view_operations.php:63
 msgid "Error"
 msgstr "ผิดพลาด"
@@ -4130,7 +4143,7 @@ msgid "Operator"
 msgstr "กระบวนการ"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1293
-#: libraries/insert_edit.lib.php:1636 libraries/replication_gui.lib.php:515
+#: libraries/insert_edit.lib.php:1641 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
 #: libraries/server_status_variables.lib.php:220 pmd_general.php:642
 #: pmd_general.php:702 pmd_general.php:831 pmd_general.php:950
@@ -4151,7 +4164,7 @@ msgstr "ค้นหาแบบ Zoom"
 msgid "Find and Replace"
 msgstr ""
 
-#: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1408
+#: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1413
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
@@ -4163,7 +4176,7 @@ msgstr "แทรก"
 msgid "Select columns (at least one):"
 msgstr "เลือกฟิลด์ (อย่างน้อยหนึ่งฟิลด์):"
 
-#: libraries/TableSearch.class.php:819 libraries/insert_edit.lib.php:1238
+#: libraries/TableSearch.class.php:819 libraries/insert_edit.lib.php:1241
 #: libraries/server_privileges.lib.php:468
 msgid "Or"
 msgstr "หรือ"
@@ -4322,14 +4335,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4663,7 +4676,7 @@ msgstr "เรียกดูคอมพิวเตอร์ของคุณ
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
 
-#: libraries/Util.class.php:3328 libraries/insert_edit.lib.php:1235
+#: libraries/Util.class.php:3328 libraries/insert_edit.lib.php:1238
 #: libraries/sql_query_form.lib.php:495
 msgid "The directory you set for upload work cannot be reached."
 msgstr "ไม่สามารถใช้งาน ไดเรกทอรีที่ตั้งไว้สำหรับอัพโหลดได้"
@@ -6417,13 +6430,6 @@ msgstr "ขีดจำกัดของทรัพยากร"
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 
-#: libraries/config/messages.inc.php:423
-#: libraries/navigation/NavigationTree.class.php:1142
-#, fuzzy
-#| msgid "Use text field"
-msgid "Link with main panel"
-msgstr "ใช้ช่องใส่ข้อความ (text field)"
-
 #: libraries/config/messages.inc.php:424
 #, fuzzy
 #| msgid "Reload navigation frame"
@@ -7865,8 +7871,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:519
@@ -8372,8 +8378,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -8504,70 +8510,70 @@ msgstr ""
 msgid "Binary"
 msgstr "ข้อมูลไบนารี"
 
-#: libraries/insert_edit.lib.php:661
+#: libraries/insert_edit.lib.php:663
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr "เนื่องจากความยาวของมัน <br />ฟิลด์นี้ ไม่อาจแก้ไขได้"
 
-#: libraries/insert_edit.lib.php:1111
+#: libraries/insert_edit.lib.php:1115
 msgid "Binary - do not edit"
 msgstr "ข้อมูลไบนารี - ห้ามแก้ไข"
 
-#: libraries/insert_edit.lib.php:1239 libraries/sql_query_form.lib.php:499
+#: libraries/insert_edit.lib.php:1242 libraries/sql_query_form.lib.php:499
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
 
-#: libraries/insert_edit.lib.php:1458
+#: libraries/insert_edit.lib.php:1463
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1488
+#: libraries/insert_edit.lib.php:1493
 msgid "and then"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1521
+#: libraries/insert_edit.lib.php:1526
 msgid "Insert as new row"
 msgstr "แทรกเป็นแถวใหม่"
 
-#: libraries/insert_edit.lib.php:1524
+#: libraries/insert_edit.lib.php:1529
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1527
+#: libraries/insert_edit.lib.php:1532
 msgid "Show insert query"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1547
+#: libraries/insert_edit.lib.php:1552
 msgid "Go back to previous page"
 msgstr "ส่งกลับ"
 
-#: libraries/insert_edit.lib.php:1550
+#: libraries/insert_edit.lib.php:1555
 msgid "Insert another new row"
 msgstr "แทรกระเบียนใหม่"
 
-#: libraries/insert_edit.lib.php:1555
+#: libraries/insert_edit.lib.php:1560
 #, fuzzy
 msgid "Go back to this page"
 msgstr "ส่งกลับ"
 
-#: libraries/insert_edit.lib.php:1577
+#: libraries/insert_edit.lib.php:1582
 msgid "Edit next row"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1599
+#: libraries/insert_edit.lib.php:1604
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1981 libraries/sql.lib.php:1680
+#: libraries/insert_edit.lib.php:1986 libraries/sql.lib.php:1680
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:2006 libraries/sql.lib.php:1660
+#: libraries/insert_edit.lib.php:2011 libraries/sql.lib.php:1660
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -9462,8 +9468,8 @@ msgstr "%s ยินดีต้อนรับ"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "﻿คุณคงไม่ได้สร้างแฟ้มการกำหนดค่า คุณอาจต้องการใช้ %1$ssetup script%2$s "
 "เพื่อสร้างอย่างใดอย่างหนึ่ง"
@@ -11855,8 +11861,8 @@ msgstr "ข้อมูลทั่วไปของผู้ใช้"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4020
@@ -14879,8 +14885,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -15012,8 +15018,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -15708,8 +15714,8 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
-"คุณกำลังใช้ %s%% ของหน่วยความจำของคุณสำหรับการบัฟเฟอร์ InnoDB ถ้าคุณกำลังกำหนดน้อยกว่า "
-"60%% อย่างไรก็ตาม ที่นี้อาจไม่สมบูรณ์เพียงพอสำหรับระบบของคุณ ถ้าคุณไม่มีตาราง InnoDB "
+"คุณกำลังใช้ %s%% ของหน่วยความจำของคุณสำหรับการบัฟเฟอร์ InnoDB ถ้าคุณกำลังกำหนดน้อยกว่า 60%"
+"% อย่างไรก็ตาม ที่นี้อาจไม่สมบูรณ์เพียงพอสำหรับระบบของคุณ ถ้าคุณไม่มีตาราง InnoDB "
 "มากหรือบริการอื่นๆ ที่ทำงานบนเครื่องเดียวกัน"
 
 #: libraries/advisory_rules.txt:459
@@ -16365,8 +16371,8 @@ msgstr "concurrent_insert ถูกตั้งค่าไว้ที่ 0"
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
-#~ "ความสามารถเพิ่มเติมสำหรับ linked Tables ได้ถูกระงับเอาไว้ ตามเหตุผลที่แจ้งไว้ใน %shere"
-#~ "%s"
+#~ "ความสามารถเพิ่มเติมสำหรับ linked Tables ได้ถูกระงับเอาไว้ ตามเหตุผลที่แจ้งไว้ใน %shere%"
+#~ "s"
 
 #~ msgid "No tables"
 #~ msgstr "ไม่มีตาราง"
