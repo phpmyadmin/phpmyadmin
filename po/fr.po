@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-05 10:15-0400\n"
-"PO-Revision-Date: 2014-08-03 15:13+0200\n"
+"PO-Revision-Date: 2014-08-05 23:20+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
+"\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -1926,28 +1926,24 @@ msgid "Create the following table"
 msgstr "Créer la table suivante :"
 
 #: js/messages.php:329
-#, fuzzy
 #| msgid "Third step of normalization (1NF+2NF+3NF)"
 msgid "Third step of normalization (3NF)"
-msgstr "Troisième étape de la normalisation (1FN + 2FN + 3FN)"
+msgstr "Troisième étape de la normalisation (3FN)"
 
 #: js/messages.php:330
-#, fuzzy
 #| msgid "Confirm partial dependencies"
 msgid "Confirm transitive dependencies"
-msgstr "Confirmer les dépendances partielles"
+msgstr "Confirmer les dépendances transitives"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Selected partial dependencies are as follows:"
 msgid "Selected dependencies are as follows:"
-msgstr "Les dépendances partielles sélectionnées sont les suivantes :"
+msgstr "Les dépendances sélectionnées sont les suivantes :"
 
 #: js/messages.php:332
-#, fuzzy
 #| msgid "No partial dependencies selected!"
 msgid "No dependencies selected!"
-msgstr "Pas de dépendances partielles sélectionnées !"
+msgstr "Aucune dépendance sélectionnée !"
 
 #: js/messages.php:335 libraries/insert_edit.lib.php:1523
 #: libraries/server_variables.lib.php:157
@@ -2302,10 +2298,9 @@ msgid "Link with main panel"
 msgstr "Relier au panneau principal"
 
 #: js/messages.php:466
-#, fuzzy
 #| msgid "Link with main panel"
 msgid "Unlink from main panel"
-msgstr "Relier au panneau principal"
+msgstr "Supprimer la liaison au panneau principal"
 
 #: js/messages.php:469
 msgid "The requested page was not found in the history, it may have expired."
