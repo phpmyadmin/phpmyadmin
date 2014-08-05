@@ -28,6 +28,7 @@ phpMyAdmin - ChangeLog
 - bug #4439 Table list in left panel doesn't expand
 + rfe       Improved validation when inserting data
 + rfe #1491 Support InnoDB for database Query by example
++ rfe #345  Normalize a table 
 
 4.2.8.0 (not yet released)
 
