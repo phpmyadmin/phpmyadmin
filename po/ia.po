@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-05 10:15-0400\n"
-"PO-Revision-Date: 2014-08-05 10:06+0200\n"
+"PO-Revision-Date: 2014-08-05 22:01+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -1936,28 +1936,24 @@ msgid "Create the following table"
 msgstr "Crea le sequente tabella"
 
 #: js/messages.php:329
-#, fuzzy
 #| msgid "Second step of normalization (2NF)"
 msgid "Third step of normalization (3NF)"
-msgstr "Secunde passo de normalisation (2NF)"
+msgstr "Tertie passo de normalisation (2NF)"
 
 #: js/messages.php:330
-#, fuzzy
 #| msgid "Confirm partial dependencies"
 msgid "Confirm transitive dependencies"
-msgstr "Confirma dependentias partial"
+msgstr "Confirma dependentias transitive"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Selected partial dependencies are as follows:"
 msgid "Selected dependencies are as follows:"
-msgstr "Dependentias partial seligite es como il seque:"
+msgstr "Dependentias seligite es como il seque:"
 
 #: js/messages.php:332
-#, fuzzy
 #| msgid "No partial dependencies selected!"
 msgid "No dependencies selected!"
-msgstr "Necun dependentias partial seligite!"
+msgstr "Necun dependentias seligite!"
 
 #: js/messages.php:335 libraries/insert_edit.lib.php:1523
 #: libraries/server_variables.lib.php:157
@@ -8807,10 +8803,9 @@ msgid "Collapse all"
 msgstr "Plica toto"
 
 #: libraries/navigation/NavigationTree.class.php:1139
-#, fuzzy
 #| msgid "Link with main panel"
 msgid "Unlink with main panel"
-msgstr "Ligamine con pannello principal"
+msgstr "Leva ligamine con pannello principal"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9117,10 +9112,9 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:544
-#, fuzzy
 #| msgid "The first step of normalization is complete for table '%s'."
 msgid "The third step of normalization is complete."
-msgstr "Le prime passo pro normalisar es complete pro tabella '%s'."
+msgstr "Le tertie passo pro normalisar es complete."
 
 #: libraries/normalization.lib.php:638
 #, php-format
@@ -9128,16 +9122,14 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
 #: libraries/normalization.lib.php:685
-#, fuzzy
 #| msgid "Step"
 msgid "Step 3."
-msgstr "Passo"
+msgstr "Passo 3."
 
 #: libraries/normalization.lib.php:685
-#, fuzzy
 #| msgid "Hide partial dependencies list"
 msgid "Find transitive dependencies"
-msgstr "Cela lista de dependentias partial"
+msgstr "Trova dependentias transitive"
 
 #: libraries/normalization.lib.php:692
 msgid ""
