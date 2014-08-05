@@ -165,8 +165,8 @@ if (! $cfg['ShowFieldTypesInDataEditView']) {
 
 $GLOBALS['plugin_scripts'] = array();
 foreach ($rows as $row_id => $current_row) {
-    if ($current_row === false) {
-        unset($current_row);
+    if (empty($current_row)) {
+        $current_row = array();
     }
 
     $jsvkey = $row_id;
@@ -188,7 +188,7 @@ foreach ($rows as $row_id => $current_row) {
     $html_output .= PMA_getHtmlForInsertEditRow(
         $url_params, $table_columns, $column, $comments_map, $timestamp_seen,
         $current_result, $chg_evt_handler, $jsvkey, $vkey, $insert_mode,
-        isset($current_row) ? $current_row : null, $o_rows, $tabindex, $columns_cnt,
+        $current_row, $o_rows, $tabindex, $columns_cnt,
         $is_upload, $tabindex_for_function, $foreigners, $tabindex_for_null,
         $tabindex_for_value, $table, $db, $row_id, $titles,
         $biggest_max_file_size, $text_dir, $repopulate, $where_clause_array
