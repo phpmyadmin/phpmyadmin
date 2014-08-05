@@ -2263,10 +2263,9 @@ msgid "Link with main panel"
 msgstr "முதன்மை பலகத்துடன் இணைக்க"
 
 #: js/messages.php:466
-#, fuzzy
 #| msgid "Main panel"
 msgid "Unlink from main panel"
-msgstr "முதன்மை பலகம்"
+msgstr "முதன்மை பலகத்திலிருந்து பிரிக்க"
 
 #: js/messages.php:469
 msgid "The requested page was not found in the history, it may have expired."
