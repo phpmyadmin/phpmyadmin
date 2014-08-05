@@ -74,6 +74,36 @@ $(function () {
 
     /**
      * Register event handler to toggle
+     * the 'link with main panel' icon on mouseenter.
+     */
+    $(document).on('mouseenter', '#pma_navigation_sync', function (event) {
+        event.preventDefault();
+        var synced = $('#pma_navigation_tree').hasClass('synced');
+        var $img = $('#pma_navigation_sync').children('img');
+        if (synced) {
+            $img.removeClass('ic_s_link').addClass('ic_s_unlink');
+        } else {
+            $img.removeClass('ic_s_unlink').addClass('ic_s_link');
+        }
+    });
+
+    /**
+     * Register event handler to toggle
+     * the 'link with main panel' icon on mouseout.
+     */
+    $(document).on('mouseout', '#pma_navigation_sync', function (event) {
+        event.preventDefault();
+        var synced = $('#pma_navigation_tree').hasClass('synced');
+        var $img = $('#pma_navigation_sync').children('img');
+        if (synced) {
+            $img.removeClass('ic_s_unlink').addClass('ic_s_link');
+        } else {
+            $img.removeClass('ic_s_link').addClass('ic_s_unlink');
+        }
+    });
+
+    /**
+     * Register event handler to toggle
      * the linking with main panel behavior
      */
     $(document).on('click', '#pma_navigation_sync', function (event) {
