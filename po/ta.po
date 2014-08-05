@@ -8602,10 +8602,9 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
 #: libraries/normalization.lib.php:685
-#, fuzzy
 #| msgid "Step"
 msgid "Step 3."
-msgstr "படிநிலை"
+msgstr "படிநிலை 3."
 
 #: libraries/normalization.lib.php:685
 #, fuzzy
