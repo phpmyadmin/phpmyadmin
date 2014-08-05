@@ -1132,11 +1132,11 @@ class PMA_NavigationTree
             's_collapseall.png',
             'pma_navigation_collapse'
         );
-        $syncImage = 's_link.png';
+        $syncImage = 's_unlink.png';
         $title = __('Link with main panel');
         if ($GLOBALS['cfg']['NavigationLinkWithMainPanel']) {
-            $syncImage = 's_unlink.png';
-            $title = __('Unlink from main panel');
+            $syncImage = 's_link.png';
+            $title = __('Unlink with main panel');
         }
         $retval .= PMA_Util::getNavigationLink(
             '#',
