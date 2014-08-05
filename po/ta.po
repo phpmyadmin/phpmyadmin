@@ -1912,10 +1912,9 @@ msgid "Confirm transitive dependencies"
 msgstr "நிலைபெறா சார்புகளை உறுதிசெய்க"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Selected partial dependencies are as follows:"
 msgid "Selected dependencies are as follows:"
-msgstr "தேர்ந்தெடுக்கப்பட்ட பகுதியளவு சார்புகளை பின்வருமாறு:"
+msgstr "தேர்ந்தெடுக்கப்பட்ட சார்புகளை பின்வருமாறு:"
 
 #: js/messages.php:332
 #, fuzzy
