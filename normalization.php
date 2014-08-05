@@ -57,6 +57,13 @@ if (isset($_REQUEST['getNewTables2NF'])) {
     exit;
 }
 
+if (isset($_REQUEST['getNewTables3NF'])) {
+    $dependencies = json_decode($_REQUEST['pd']);
+    $tables = json_decode($_REQUEST['tables']);
+    $newTables = PMA_getHtmlForNewTables3NF($dependencies, $tables, $db);
+    echo json_encode($newTables);
+    exit;
+}
 
 $response = PMA_Response::getInstance();
 $header = $response->getHeader();
@@ -66,21 +73,17 @@ $scripts->addFile('jquery/jquery.uitablefilter.js');
 $normalForm = '1nf';
 if (isset($_REQUEST['normalizeTo'])) {
     $normalForm = $_REQUEST['normalizeTo'];
-    if ($normalForm == '3nf') {
-        $response->addHTML(
-            '<h3 class="center">'
-            . __('Second/Third step of normalization') . '</h3>'
-            . '<fieldset>'
-            . '<legend>Coming soon...</legend>'
-            . 'Wait is worth it :-)</fieldset>'
-        );
-        exit;
-    }
 }
 if (isset($_REQUEST['createNewTables2NF'])) {
     $partialDependencies = json_decode($_REQUEST['pd']);
     $tablesName = json_decode($_REQUEST['newTablesName']);
     $res = PMA_createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
+    $response->addJSON($res);
+    exit;
+}
+if (isset($_REQUEST['createNewTables3NF'])) {
+    $newtables = json_decode($_REQUEST['newTables']);
+    $res = PMA_createNewTablesFor3NF($newtables, $db);
     $response->addJSON($res);
     exit;
 }
@@ -109,6 +112,10 @@ if (isset($_REQUEST['step1'])) {
     $response->addJSON($res);
 } else if (isset($_REQUEST['step']) && $_REQUEST['step'] == 2.1) {
     $res = PMA_getHtmlFor2NFstep1($db, $table);
+    $response->addJSON($res);
+} else if (isset($_REQUEST['step']) && $_REQUEST['step'] == 3.1) {
+    $tables = $_REQUEST['tables'];
+    $res = PMA_getHtmlFor3NFstep1($db, $tables);
     $response->addJSON($res);
 } else {
     $response->addHTML(PMA_getHtmlForNormalizetable());
