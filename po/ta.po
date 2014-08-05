@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-05 10:15-0400\n"
-"PO-Revision-Date: 2014-08-05 22:41+0200\n"
+"PO-Revision-Date: 2014-08-05 22:43+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -8607,10 +8607,9 @@ msgid "Step 3."
 msgstr "படிநிலை 3."
 
 #: libraries/normalization.lib.php:685
-#, fuzzy
 #| msgid "Hide partial dependencies list"
 msgid "Find transitive dependencies"
-msgstr "பகுதியளவு சார்பு பட்டியலை மறைக்க"
+msgstr "நிலைபெறா சார்பு பட்டியலை கண்டறிக"
 
 #: libraries/normalization.lib.php:692
 msgid ""
