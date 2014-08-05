@@ -876,11 +876,8 @@ TableSeparator or disabling that feature.
 
 .. _faq3_6:
 
-3.6 What is currently not supported in phpMyAdmin about InnoDB?
----------------------------------------------------------------
-
-In Query-by-example (Query), automatic generation of the query LEFT JOIN from the
-foreign table.
+3.6 (withdrawn).
+-----------------
 
 .. _faq3_7:
 
