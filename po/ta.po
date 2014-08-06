@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-06 22:20+0200\n"
+"PO-Revision-Date: 2014-08-06 22:21+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -4547,7 +4547,7 @@ msgstr "நீளம்/மதிப்புகள்"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1436
 #: libraries/structure.lib.php:1257 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
-msgstr ""
+msgstr "மிகை"
 
 #: libraries/central_columns.lib.php:660
 msgid "Select a table"
