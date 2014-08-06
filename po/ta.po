@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-06 22:01+0200\n"
+"PO-Revision-Date: 2014-08-06 22:02+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -4412,7 +4412,7 @@ msgstr "செயலாக்குக"
 
 #: libraries/Util.class.php:3917
 msgid "Print"
-msgstr "அச்சிடு"
+msgstr "அச்சிடுக"
 
 #: libraries/Util.class.php:4018 libraries/structure.lib.php:854
 #: libraries/structure.lib.php:1856 libraries/tbl_printview.lib.php:239
