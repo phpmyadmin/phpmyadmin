@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-06 20:53+0200\n"
+"PO-Revision-Date: 2014-08-06 20:54+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2636,8 +2636,8 @@ msgstr "'%s' விதிக்கான சரம் சரியமைத்�
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
-"%1$sம் வரியில் செல்லாத விதி வரையறை உள்ளது, முந்திய விதியின் %2$sம் வரி "
-"எதிர்பார்க்கப்பட்டது."
+"%1$sம் வரியில் செல்லுபடியாகாத விதி வரையறை உள்ளது, முந்திய விதியின் %2$sம் வரி"
+" எதிர்பார்க்கப்பட்டது."
 
 #: libraries/Advisor.class.php:415
 #, php-format
