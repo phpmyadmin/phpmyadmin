@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-06 22:19+0200\n"
+"PO-Revision-Date: 2014-08-06 22:20+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -4521,7 +4521,7 @@ msgstr "ஆம்"
 
 #: libraries/central_columns.lib.php:509
 msgid "NO"
-msgstr ""
+msgstr "இல்லை"
 
 #: libraries/central_columns.lib.php:629
 #: libraries/display_create_table.lib.php:60
@@ -4534,7 +4534,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:280
 #: setup/frames/index.inc.php:161
 msgid "Name"
-msgstr ""
+msgstr "பெயர்"
 
 #: libraries/central_columns.lib.php:633
 #: libraries/rte/rte_routines.lib.php:984
