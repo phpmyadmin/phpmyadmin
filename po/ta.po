@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-05 22:43+0200\n"
+"PO-Revision-Date: 2014-08-06 20:39+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
-"Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/"
-">\n"
+"Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
+"\n"
+"Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ta\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -2614,7 +2614,7 @@ msgstr "PHP பின்வரும் பிழை அளித்துள்
 #: libraries/Advisor.class.php:108
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr ""
+msgstr "'%s' விதிக்கான முன்னீட்டு மதிப்பீடு தோல்வியுற்றது."
 
 #: libraries/Advisor.class.php:125
 #, php-format
