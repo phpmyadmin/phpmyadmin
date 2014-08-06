@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-04 19:39+0200\n"
+"PO-Revision-Date: 2014-08-06 20:16+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -1919,28 +1919,24 @@ msgid "Create the following table"
 msgstr "Ustvari naslednjo tabelo"
 
 #: js/messages.php:329
-#, fuzzy
 #| msgid "Third step of normalization (1NF+2NF+3NF)"
 msgid "Third step of normalization (3NF)"
-msgstr "Tretja stopnja normalizacije (1NF+2NF+3NF)"
+msgstr "Tretja stopnja normalizacije (3NF)"
 
 #: js/messages.php:330
-#, fuzzy
 #| msgid "Confirm partial dependencies"
 msgid "Confirm transitive dependencies"
-msgstr "Potrdi delne odvisnosti"
+msgstr "Potrdi prehodne odvisnosti"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Selected partial dependencies are as follows:"
 msgid "Selected dependencies are as follows:"
-msgstr "Izbrane so naslednje delne odvisnosti:"
+msgstr "Izbrane so naslednje odvisnosti:"
 
 #: js/messages.php:332
-#, fuzzy
 #| msgid "No partial dependencies selected!"
 msgid "No dependencies selected!"
-msgstr "Ni izbranih delnih odvisnosti!"
+msgstr "Ni izbranih odvisnosti!"
 
 #: js/messages.php:335 libraries/insert_edit.lib.php:1523
 #: libraries/server_variables.lib.php:157
@@ -2285,16 +2281,14 @@ msgstr "Prikaži skrite predmete v navigacijskem drevesu."
 
 #: js/messages.php:465 libraries/config/messages.inc.php:423
 #: libraries/navigation/NavigationTree.class.php:1136
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Prilagodi glavno ploščo"
+msgstr "Poveži z glavno ploščo"
 
 #: js/messages.php:466 libraries/navigation/NavigationTree.class.php:1139
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Prilagodi glavno ploščo"
+msgstr "Ne poveži z glavno ploščo"
 
 #: js/messages.php:469
 msgid "The requested page was not found in the history, it may have expired."
@@ -6236,6 +6230,7 @@ msgstr "Omejitev spomina"
 #: libraries/config/messages.inc.php:422
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
+"Poveži z glavno ploščo tako, da označiš trenutno zbirko podatkov ali tabelo."
 
 #: libraries/config/messages.inc.php:424
 msgid "Show logo in navigation panel."
@@ -9026,7 +9021,6 @@ msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr "+ Pokaži mi možne delne odvisnosti glede na podatke v tabeli"
 
 #: libraries/normalization.lib.php:331
-#, fuzzy
 #| msgid ""
 #| "For each of the column below, please select the <b>minimal set</b> of "
 #| "columns among given set whose values combined together are sufficient to "
@@ -9043,7 +9037,7 @@ msgstr ""
 #: libraries/normalization.lib.php:341 libraries/normalization.lib.php:726
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s' je odvisno od:"
 
 #: libraries/normalization.lib.php:352
 #, php-format
@@ -9073,7 +9067,7 @@ msgid "Error in processing!"
 msgstr "Napaka v obdelovanju!"
 
 #: libraries/normalization.lib.php:497
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above partial dependencies, in order to put the original table '%1"
 #| "$s' into Second normal form we need to create the following tables:"
@@ -9081,14 +9075,13 @@ msgid ""
 "As per above dependencies, in order to put the original table '%1$s' into "
 "Third normal form we need to create the following tables:"
 msgstr ""
-"Glede na zgornje delne odvisnosti moramo ustvariti naslednje tabele, da "
-"pretvorimo izvirno tabelo '%1$s' v drugo normalno obliko:"
+"Glede na zgornje odvisnosti moramo ustvariti naslednje tabele, da pretvorimo "
+"izvirno tabelo '%1$s' v tretjo normalno obliko:"
 
 #: libraries/normalization.lib.php:544
-#, fuzzy
 #| msgid "The first step of normalization is complete for table '%s'."
 msgid "The third step of normalization is complete."
-msgstr "Prvi korak normalizacije je končan za tabelo '%s'."
+msgstr "Tretji korak normalizacije je končan."
 
 #: libraries/normalization.lib.php:638
 #, php-format
@@ -9096,19 +9089,16 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Izbrano ponavljajočo skupino smo prestavili v tabelo '%s'"
 
 #: libraries/normalization.lib.php:685
-#, fuzzy
 #| msgid "Step 1."
 msgid "Step 3."
-msgstr "Korak 1."
+msgstr "Korak 3."
 
 #: libraries/normalization.lib.php:685
-#, fuzzy
 #| msgid "Find partial dependencies"
 msgid "Find transitive dependencies"
-msgstr "Najdi delne odvisnosti"
+msgstr "Najdi prehodne odvisnosti"
 
 #: libraries/normalization.lib.php:692
-#, fuzzy
 #| msgid ""
 #| "For each of the column below, please select the <b>minimal set</b> of "
 #| "columns among given set whose values combined together are sufficient to "
@@ -9121,10 +9111,10 @@ msgid ""
 msgstr ""
 "Za vsak stolpec spodaj izberite <b>najmanjši nabor</b> stolpcev iz dane "
 "množice, katerih vrednosti, če jih združimo, zadostujejo, da lahko določimo "
-"vrednost stolpca."
+"vrednost stolpca.<br />Opomba: Stolpec ne rabi imeti prehodnih odvisnosti; v "
+"tem primeru ne rabite izbrati nobenega."
 
 #: libraries/normalization.lib.php:739
-#, fuzzy
 #| msgid ""
 #| "No partial dependencies possible as the primary key ( %1$s ) has just one "
 #| "column."
@@ -9132,13 +9122,13 @@ msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
-"Delne odvisnosti niso možne, saj ima primarni ključ (%1$s) samo en stolpec."
+"Prehodne odvisnosti niso možne, saj tabela nima nobenega stolpca z "
+"neprimarnim ključem"
 
 #: libraries/normalization.lib.php:743
-#, fuzzy
 #| msgid "Table is already in second normal form"
 msgid "Table is already in Third normal form!"
-msgstr "Tabela je že v drugi normalni obliki"
+msgstr "Tabela je že v tretji normalni obliki!"
 
 #: libraries/normalization.lib.php:766
 msgid "Improve table structure (Normalization):"
