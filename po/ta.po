@@ -4540,7 +4540,7 @@ msgstr "பெயர்"
 #: libraries/rte/rte_routines.lib.php:984
 #: libraries/tbl_columns_definition_form.lib.php:283
 msgid "Length/Values"
-msgstr ""
+msgstr "நீளம்/மதிப்புகள்"
 
 #: libraries/central_columns.lib.php:639
 #: libraries/schema/Pdf_Relation_Schema.class.php:1413
