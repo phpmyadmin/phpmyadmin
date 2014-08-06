@@ -4431,7 +4431,7 @@ msgstr "கடைசி சரிபார்ப்பு"
 
 #: libraries/browse_foreigners.lib.php:48
 msgid "Search:"
-msgstr "தேடு:"
+msgstr "தேடுக:"
 
 #: libraries/browse_foreigners.lib.php:72
 #: libraries/browse_foreigners.lib.php:74
