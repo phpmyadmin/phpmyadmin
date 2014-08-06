@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-06 21:27+0200\n"
+"PO-Revision-Date: 2014-08-06 21:31+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2801,7 +2801,7 @@ msgstr "வரலாறு"
 #: libraries/plugins/import/ImportXml.class.php:58
 #: libraries/rte/rte_routines.lib.php:985 libraries/structure.lib.php:1795
 msgid "Options"
-msgstr ""
+msgstr "விருப்பத்தேர்வுகள்"
 
 #: libraries/Console.class.php:199 libraries/Console.class.php:248
 msgid "Bookmarks"
