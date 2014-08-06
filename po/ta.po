@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-06 21:57+0200\n"
+"PO-Revision-Date: 2014-08-06 21:59+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -4399,7 +4399,7 @@ msgstr ""
 
 #: libraries/Util.class.php:3339
 msgid "There are no files to upload!"
-msgstr "பதிவேற்ற எந்த கோப்புகளும் இல்லை!"
+msgstr "பதிவேற்றுவதற்கு எந்த கோப்புகளும் இல்லை!"
 
 #: libraries/Util.class.php:3364 libraries/Util.class.php:3365
 #: libraries/structure.lib.php:321
