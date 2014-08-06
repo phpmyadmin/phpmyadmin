@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-05 17:34-0400\n"
-"PO-Revision-Date: 2014-08-05 05:13+0200\n"
+"PO-Revision-Date: 2014-08-06 06:19+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1936,28 +1936,24 @@ msgid "Create the following table"
 msgstr "Crear la siguiente tabla"
 
 #: js/messages.php:329
-#, fuzzy
 #| msgid "Third step of normalization (1NF+2NF+3NF)"
 msgid "Third step of normalization (3NF)"
-msgstr "Tercer paso de la normalización (1NF+2NF+3NF)"
+msgstr "Tercer paso de la normalización (3NF)"
 
 #: js/messages.php:330
-#, fuzzy
 #| msgid "Confirm partial dependencies"
 msgid "Confirm transitive dependencies"
-msgstr "Confirmar dependencias parciales"
+msgstr "Confirmar dependencias transitivas"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Selected partial dependencies are as follows:"
 msgid "Selected dependencies are as follows:"
-msgstr "Las dependencias parciales seleccionadas son:"
+msgstr "Las dependencias seleccionadas son:"
 
 #: js/messages.php:332
-#, fuzzy
 #| msgid "No partial dependencies selected!"
 msgid "No dependencies selected!"
-msgstr "¡No se seleccionaron dependencias parciales!"
+msgstr "¡No se seleccionaron dependencias!"
 
 #: js/messages.php:335 libraries/insert_edit.lib.php:1523
 #: libraries/server_variables.lib.php:157
@@ -9152,7 +9148,7 @@ msgstr ""
 #: libraries/normalization.lib.php:341 libraries/normalization.lib.php:726
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "«%1$s» depende de:"
 
 #: libraries/normalization.lib.php:352
 #, php-format
@@ -9184,7 +9180,7 @@ msgid "Error in processing!"
 msgstr "¡Error durante el procesamiento!"
 
 #: libraries/normalization.lib.php:497
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above partial dependencies, in order to put the original table "
 #| "'%1$s' into Second normal form we need to create the following tables:"
@@ -9192,15 +9188,13 @@ msgid ""
 "As per above dependencies, in order to put the original table '%1$s' into "
 "Third normal form we need to create the following tables:"
 msgstr ""
-"Debido a las dependencias parciales anteriores, para poder convertir la "
-"tabla original «%1$s» a segunda forma normal necesitamos crear las "
-"siguientes tablas:"
+"Debido a las dependencias anteriores, para poder convertir la tabla original "
+"«%1$s» a tercera forma normal necesitamos crear las siguientes tablas:"
 
 #: libraries/normalization.lib.php:544
-#, fuzzy
 #| msgid "The first step of normalization is complete for table '%s'."
 msgid "The third step of normalization is complete."
-msgstr "Se completó el primer paso de la normalización para la tabla '%s'."
+msgstr "Se completó el tercer paso de la normalización."
 
 #: libraries/normalization.lib.php:638
 #, php-format
@@ -9208,19 +9202,16 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Se movieron las columnas redundantes seleccionadas a la tabla «%s»"
 
 #: libraries/normalization.lib.php:685
-#, fuzzy
 #| msgid "Step 1."
 msgid "Step 3."
-msgstr "Paso 1."
+msgstr "Paso 3."
 
 #: libraries/normalization.lib.php:685
-#, fuzzy
 #| msgid "Find partial dependencies"
 msgid "Find transitive dependencies"
-msgstr "Buscar dependencias parciales"
+msgstr "Buscar dependencias transitivas"
 
 #: libraries/normalization.lib.php:692
-#, fuzzy
 #| msgid ""
 #| "For each of the column below, please select the <b>minimal set</b> of "
 #| "columns among given set whose values combined together are sufficient to "
@@ -9233,10 +9224,10 @@ msgid ""
 msgstr ""
 "Para cada una de las columnas a continuación, seleccione el <b>conjunto "
 "mínimo</b> de columnas entre ellas cuyos valores combinados son suficientes "
-"para determinar el valor de la columna."
+"para determinar el valor de la columna. <br>Nota: una columna puede no tener "
+"dependencias transitivas, en cuyo caso no es obligatorio seleccionar una."
 
 #: libraries/normalization.lib.php:739
-#, fuzzy
 #| msgid ""
 #| "No partial dependencies possible as the primary key ( %1$s ) has just one "
 #| "column."
@@ -9244,14 +9235,13 @@ msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
-"No existen dependencias parciales posibles debido a que la clave primaria "
-"(«%1$s») sólo contiene una columna."
+"No existen dependencias transitivas posibles debido a que la tabla no "
+"contiene columnas que no sean parte de una clave primaria"
 
 #: libraries/normalization.lib.php:743
-#, fuzzy
 #| msgid "Table is already in second normal form"
 msgid "Table is already in Third normal form!"
-msgstr "La tabla ya se encuentra en segunda forma normal"
+msgstr "¡La tabla ya se encuentra en tercera forma normal!"
 
 #: libraries/normalization.lib.php:766
 msgid "Improve table structure (Normalization):"
