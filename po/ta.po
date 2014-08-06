@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-06 22:17+0200\n"
+"PO-Revision-Date: 2014-08-06 22:19+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -4509,7 +4509,7 @@ msgstr "நிரல்வரிசைகளை சேர்க்க முட�
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr ""
+msgstr "மைய பட்டியலில் %1$s முன்பே இல்லாதால் நெடுவரிசை(களை) நீக்க இயலவில்லை!"
 
 #: libraries/central_columns.lib.php:368
 msgid "Could not remove columns!"
