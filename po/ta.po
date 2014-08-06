@@ -8674,7 +8674,7 @@ msgstr "தரவுத்தளத்தை நீக்குக"
 
 #: libraries/operations.lib.php:125
 msgid "Drop the database (DROP)"
-msgstr "தரவுத்தளத்தை இரத்து செய் (DROP)"
+msgstr "தரவுத்தளத்தை கைவிடுக (DROP)"
 
 #: libraries/operations.lib.php:145 libraries/operations.lib.php:1002
 #: libraries/tbl_tracking.lib.php:414
