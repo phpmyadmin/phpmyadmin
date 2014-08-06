@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-06 22:13+0200\n"
+"PO-Revision-Date: 2014-08-06 22:15+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -4494,7 +4494,7 @@ msgstr "தனிசலுகைகளை சரிபார்க்க"
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr ""
+msgstr "அமைப்பாக்க சேமிப்பகம் மைய நிரல்வரிசைகள் பட்டியல் வசதிக்கு ஏதுவாக இல்லை."
 
 #: libraries/central_columns.lib.php:264
 #, php-format
