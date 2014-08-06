@@ -2935,7 +2935,7 @@ msgstr "செருகு:"
 
 #: libraries/DBQbe.class.php:820
 msgid "Del:"
-msgstr ""
+msgstr "நீக்குக:"
 
 #: libraries/DBQbe.class.php:1461
 #, php-format
