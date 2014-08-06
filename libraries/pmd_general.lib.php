@@ -912,7 +912,7 @@ function PMA_getRenameToPanel()
  *
  * @return string html
  */
-function PMA_getHavingQueuryPanel()
+function PMA_getHavingQueryPanel()
 {
     $html  = '<table id="query_having" style="display:none;" ';
     $html .= 'width="5%" cellpadding="0" cellspacing="0">';
@@ -1000,7 +1000,7 @@ function PMA_getHavingQueuryPanel()
  *
  * @return string html
  */
-function PMA_getAggregateQueuryPanel()
+function PMA_getAggregateQueryPanel()
 {
     $html  = '<table id="query_Aggregate" style="display:none;"';
     $html .= 'width="5%" cellpadding="0" cellspacing="0">';
@@ -1068,7 +1068,7 @@ function PMA_getAggregateQueuryPanel()
  *
  * @return string html
  */
-function PMA_getWhereQueuryPanel()
+function PMA_getWhereQueryPanel()
 {
     $html  = '<table id="query_where" style="display:none;"';
     $html .= 'width="5%" cellpadding="0" cellspacing="0">';
@@ -1145,7 +1145,7 @@ function PMA_getWhereQueuryPanel()
  *
  * @return string html
  */
-function PMA_getQueuryDetails()
+function PMA_getQueryDetails()
 {
     $html  = '<div class="panel">';
     $html .= '<div style="clear:both;"></div>';
