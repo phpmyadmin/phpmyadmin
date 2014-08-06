@@ -130,11 +130,11 @@ $response->addHTML(PMA_getDeleteRelationPanel());
 
 $response->addHTML(PMA_getOptionsPanel());
 $response->addHTML(PMA_getRenameToPanel());
-$response->addHTML(PMA_getHavingQueuryPanel());
-$response->addHTML(PMA_getAggregateQueuryPanel());
-$response->addHTML(PMA_getWhereQueuryPanel());
+$response->addHTML(PMA_getHavingQueryPanel());
+$response->addHTML(PMA_getAggregateQueryPanel());
+$response->addHTML(PMA_getWhereQueryPanel());
 if (! empty($_REQUEST['query'])) {
-    $response->addHTML(PMA_getQueuryDetails());
+    $response->addHTML(PMA_getQueryDetails());
 }
 
 $response->addHTML(PMA_getCacheImages());
