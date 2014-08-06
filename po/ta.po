@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-06 21:55+0200\n"
+"PO-Revision-Date: 2014-08-06 21:57+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -4393,7 +4393,9 @@ msgstr "வலை சேவையகத்தின் பதிவேற்ற 
 #: libraries/Util.class.php:3328 libraries/insert_edit.lib.php:1238
 #: libraries/sql_query_form.lib.php:495
 msgid "The directory you set for upload work cannot be reached."
-msgstr "நீங்கள் தேர்வு செய்த வலை சேவையகம் பதிவேற்றை அடைய இயலவில்லை."
+msgstr ""
+"பதிவேற்றத்திற்கு நீங்கள் தேர்வு செய்த வலை சேவையக பதிவேற்ற அடைவை "
+"எட்டமுடியவில்லை."
 
 #: libraries/Util.class.php:3339
 msgid "There are no files to upload!"
