@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.0.10.1 (Not yet released)
+4.0.10.2 (Not yet released)
 - bug #4501 [security] XSS in table browse page
 - bug #4502 [security] Self-XSS in enum value editor
 - bug #4503 [security] Self-XSSes in monitor
