@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-06 21:16+0200\n"
+"PO-Revision-Date: 2014-08-06 21:23+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2682,6 +2682,8 @@ msgstr "இப்போதுள்ள அமைப்பாக்க கோப�
 #: libraries/Config.class.php:1169
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"அமைப்பாக்க கோப்பு தவறான அணுகல்இசைவுடன் உள்ளது.அனைவரும் திருத்தக்கூடியதாக "
+"இருக்ககூடாது!"
 
 #: libraries/Config.class.php:1746
 msgid "Font size"
@@ -2689,7 +2691,7 @@ msgstr "எழுத்துரு அளவு"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:170
 msgid "Collapse"
-msgstr ""
+msgstr "சுருக்கு"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:171
 msgid "Expand"
