@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-06-23 04:58+0200\n"
-"Last-Translator: Thiago Sabaia <thiago.sabaia@parqueproducoes.com.br>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2014-08-06 21:14+0200\n"
+"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -2212,13 +2212,15 @@ msgstr "Arraste para reordenar."
 
 #: js/messages.php:417
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Clique para ordenar os resultados por esta coluna."
 
 #: js/messages.php:418
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
+"Shift+Clique para adicionar essa coluna a cláusula ORDER BY ou para alternar "
+"ASC/DESC.<br />- Control+Clique para remover a coluna da cláusula ORDER BY"
 
 #: js/messages.php:419
 msgid "Click to mark/unmark."
@@ -2301,10 +2303,9 @@ msgstr ""
 "eles."
 
 #: js/messages.php:448
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "Ir para o link."
+msgstr "Ir para o link:"
 
 #: js/messages.php:449
 msgid "Copy column name."
@@ -6860,13 +6861,11 @@ msgid "Maximal number of table preferences to store"
 msgstr "Número máximo de preferências de tabela a armazenar"
 
 #: libraries/config/messages.inc.php:608
-#, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
-msgstr "Ver a tabela de status dos escravos"
+msgstr "Tabela de buscas salvas QBE"
 
 #: libraries/config/messages.inc.php:610
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]."
@@ -6874,12 +6873,12 @@ msgid ""
 "Leave blank for no QBE saved searches support, suggested: [kbd]"
 "pma__savedsearches[/kbd]."
 msgstr ""
-"Deixe em branco se não houver suporte a PDF, sugestão: [kbd]pma_pdf_pages[/"
-"kbd]."
+"Deixe em branco se não houver suporte à buscas salvas QBE, sugestão: "
+"[kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:614
 msgid "Try to connect without password."
-msgstr "Tentando conectar sem senha."
+msgstr "Tenta conectar sem senha."
 
 #: libraries/config/messages.inc.php:615
 msgid "Connect without password"
@@ -9506,7 +9505,7 @@ msgstr "Não pode conectar: configurações inválidas."
 #: libraries/plugins/auth/AuthenticationHttp.class.php:74
 #, php-format
 msgid "Welcome to %s"
-msgstr "Bem vindo ao %s"
+msgstr "Bem-vindo ao %s"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
