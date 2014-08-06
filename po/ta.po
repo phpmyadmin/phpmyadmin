@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-06 21:59+0200\n"
+"PO-Revision-Date: 2014-08-06 22:01+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -4388,7 +4388,7 @@ msgstr "உமது கணினியிலிருந்து:"
 #: libraries/Util.class.php:3299
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "வலை சேவையகத்தின் பதிவேற்ற அடைவிலிருந்து <b>%s</b> தேர்ந்தெடுங்கள்:"
+msgstr "வலை சேவையகத்தின் பதிவேற்ற அடைவுகளிலிருந்து <b>%s</b> தேர்ந்தெடுங்கள்:"
 
 #: libraries/Util.class.php:3328 libraries/insert_edit.lib.php:1238
 #: libraries/sql_query_form.lib.php:495
@@ -4408,7 +4408,7 @@ msgstr "வெறுமை"
 
 #: libraries/Util.class.php:3370 libraries/Util.class.php:3371
 msgid "Execute"
-msgstr "நிறைவேற்று"
+msgstr "செயலாக்குக"
 
 #: libraries/Util.class.php:3917
 msgid "Print"
