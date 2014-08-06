@@ -328,7 +328,7 @@ function PMA_getHtmlFor2NFstep1($db, $table)
                     . 'based on data in the table'
                 ) . '</a>';
             $subText = __(
-                'For each of the column below, '
+                'For each column below, '
                 . 'please select the <b>minimal set</b> of columns among given set '
                 . 'whose values combined together are sufficient'
                 . ' to determine the value of the column.'
@@ -689,10 +689,10 @@ function PMA_getHtmlFor3NFstep1($db, $tables)
         . 'carefully to obtain a correct normalization.'
     );
     $subText = __(
-        'For each of the column below, '
+        'For each column below, '
         . 'please select the <b>minimal set</b> of columns among given set '
         . 'whose values combined together are sufficient'
-        . ' to determine the value of the column.<br>'
+        . ' to determine the value of the column.<br />'
         . 'Note: A column may have no transitive dependency, '
         . 'in that case you don\'t have to select any.'
     );
