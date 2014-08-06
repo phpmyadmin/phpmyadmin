@@ -9057,7 +9057,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:314 libraries/normalization.lib.php:356
 msgid "Table is already in second normal form."
-msgstr "La table est déjà dans la deuxième forme normale."
+msgstr "La table est déjà en deuxième forme normale."
 
 #: libraries/normalization.lib.php:319
 #, php-format
