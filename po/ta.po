@@ -2813,7 +2813,7 @@ msgstr "வினவலை செயல்படுத்த Ctrl+Enter அழ�
 
 #: libraries/Console.class.php:227
 msgid "During current session"
-msgstr ""
+msgstr "அமர்வின் போது"
 
 #: libraries/Console.class.php:252 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:746
