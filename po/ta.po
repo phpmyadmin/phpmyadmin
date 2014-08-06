@@ -2855,7 +2855,7 @@ msgstr "துவக்கத்தின் போது வினவல் வ
 
 #: libraries/Console.class.php:292
 msgid "Show current browsing query"
-msgstr ""
+msgstr "தற்போது உலவும் வினவலை காண்பிக்க"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1314
 #: libraries/DisplayResults.class.php:2127
