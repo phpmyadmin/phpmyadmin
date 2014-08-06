@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-05 17:34-0400\n"
+"POT-Creation-Date: 2014-08-06 08:01-0400\n"
 "PO-Revision-Date: 2014-08-05 22:43+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/"
 ">\n"
-"Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ta\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -620,8 +620,8 @@ msgstr "முழுமையடையா மதிப்புருபுக�
 #: import.php:164
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "நீங்கள் பதிவேற்ற முயன்ற கோப்பு மிகப்பெரியதாக இருக்கலாம். இவ்வரம்பின் மாற்ற தயவுசெய்து %s "
 "ஆவணஉரையை %s பார்வையிடவும்."
@@ -916,8 +916,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"வழங்கி SUSHOSIN உடன் இயங்குகிறது. நிகழக்கூடிய பிழைமுறைகளுக்கு தயவுசெய்து "
-"%sஆவணச்சான்றை%s காண்க."
+"வழங்கி SUSHOSIN உடன் இயங்குகிறது. நிகழக்கூடிய பிழைமுறைகளுக்கு தயவுசெய்து %"
+"sஆவணச்சான்றை%s காண்க."
 
 #: js/messages.php:29 libraries/import.lib.php:122 sql.php:140
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -3187,8 +3187,8 @@ msgstr "உங்கள் SQL வினவல் வெற்றிகரமா
 #: libraries/DisplayResults.class.php:4884 libraries/structure.lib.php:683
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4897
@@ -4060,14 +4060,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -7305,8 +7305,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:519
@@ -7788,8 +7788,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -8542,9 +8542,9 @@ msgstr ""
 
 #: libraries/normalization.lib.php:331
 msgid ""
-"For each of the column below, please select the <b>minimal set</b> of "
-"columns among given set whose values combined together are sufficient to "
-"determine the value of the column."
+"For each column below, please select the <b>minimal set</b> of columns among "
+"given set whose values combined together are sufficient to determine the "
+"value of the column."
 msgstr ""
 
 #: libraries/normalization.lib.php:341 libraries/normalization.lib.php:726
@@ -8602,10 +8602,10 @@ msgstr "நிலைபெறா சார்பு பட்டியலை க
 
 #: libraries/normalization.lib.php:692
 msgid ""
-"For each of the column below, please select the <b>minimal set</b> of "
-"columns among given set whose values combined together are sufficient to "
-"determine the value of the column.<br>Note: A column may have no transitive "
-"dependency, in that case you don't have to select any."
+"For each column below, please select the <b>minimal set</b> of columns among "
+"given set whose values combined together are sufficient to determine the "
+"value of the column.<br />Note: A column may have no transitive dependency, "
+"in that case you don't have to select any."
 msgstr ""
 
 #: libraries/normalization.lib.php:739
@@ -8850,8 +8850,8 @@ msgstr "%sக்கு வருக"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "நீங்கள் அமைப்பு கோப்பை உருவாக்கவில்லை. அதை உருவாக்க நீங்கள் %1$s உருவாக்க கோவையை %2$s "
 "பயன்படுத்தலாம்."
@@ -11137,8 +11137,8 @@ msgstr "பயனர்கள் கண்ணோட்டம்"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4020
@@ -12989,8 +12989,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
-"உங்கள் முன்னுரிமைகள் இந்த அமர்வுக்காக மட்டும் சேமிக்கப்படும். அவற்றை நிலையாக சேமிப்க்க "
-"%sphpMyAdmin அமைப்பாக்க நினைவகம்%s தேவை."
+"உங்கள் முன்னுரிமைகள் இந்த அமர்வுக்காக மட்டும் சேமிக்கப்படும். அவற்றை நிலையாக சேமிப்க்க %"
+"sphpMyAdmin அமைப்பாக்க நினைவகம்%s தேவை."
 
 #: libraries/user_preferences.lib.php:129
 msgid "Could not save configuration"
@@ -13097,8 +13097,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"நீங்கள் config.inc.phpஐ மாற்றுவதன் மூலம் மேலும் அதிக அமைவுகளை அமைக்கலாம், எகா. "
-"%sநிறுவல்கோவை%s மூலம்."
+"நீங்கள் config.inc.phpஐ மாற்றுவதன் மூலம் மேலும் அதிக அமைவுகளை அமைக்கலாம், எகா. %"
+"sநிறுவல்கோவை%s மூலம்."
 
 #: prefs_manage.php:311
 msgid "Save to browser's storage"
@@ -13736,8 +13736,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13855,8 +13855,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
