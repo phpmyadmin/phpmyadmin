@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-22 19:45+0200\n"
+"PO-Revision-Date: 2014-08-06 16:54+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/ia/>\n"
@@ -7657,11 +7657,11 @@ msgstr "Grandor de crescita de file de rango"
 
 #: libraries/engines/pbxt.lib.php:79
 msgid "The grow size of the row pointer (.xtr) files."
-msgstr ""
+msgstr "Le accrescimento del files (.xtr) con le punctator de rango."
 
 #: libraries/engines/pbxt.lib.php:83
 msgid "Log file count"
-msgstr ""
+msgstr "Computo de file de registro (log)"
 
 #: libraries/engines/pbxt.lib.php:84
 msgid ""
@@ -7670,6 +7670,10 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
+"Isto es le numero de files de registro (log) de transactiones "
+"(pbxt/system/xlog*.xt) que le systema mantene. Si le numero de registros "
+"(logs) excede iste valor alora le vetere registros essera delite, "
+"alteremente illos essera renominate e on dara lor le numero plus alte."
 
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
@@ -7677,14 +7681,16 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
+"Documentation e ulterior information re PBXT pote esser trovate a %"
+"sPrimeBase XT Home Page%s."
 
 #: libraries/engines/pbxt.lib.php:156
 msgid "Related Links"
-msgstr ""
+msgstr "Ligamines connectite"
 
 #: libraries/engines/pbxt.lib.php:159
 msgid "The PrimeBase XT Blog by Paul McCullagh"
-msgstr ""
+msgstr "Le Blog The PrimeBase XT Blog de Paul McCullagh"
 
 #: libraries/error_report.lib.php:272
 msgid ""
@@ -7692,14 +7698,17 @@ msgid ""
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
+"phpMyAdmin ha incontrate un error. Nos ha colligite datos re iste error assi "
+"como informationes re preferentias de configuration relevante pro inviar al "
+"equipa de phpMyAdmin pro adjutar nos a analysar le problema."
 
 #: libraries/error_report.lib.php:279
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "Tu pote examinar le datos in le reporto de error:"
 
 #: libraries/error_report.lib.php:286
 msgid "Please explain the steps that lead to the error:"
-msgstr ""
+msgstr "Pro favor tu explica le passos ducente al error:"
 
 #: libraries/error_report.lib.php:294
 msgid "Automatically send report next time"
@@ -7733,66 +7742,68 @@ msgstr "Le discargamento (dump) ha essite salveguardate in file %s."
 #: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1681
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr ""
+msgstr "MySQL retornava un insimul de exito vacue (i.e. zero rangos)."
 
 #: libraries/import.lib.php:1227
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr ""
+msgstr "Le sequente structuras ha essite o create o alterate. Ci tu pote:"
 
 #: libraries/import.lib.php:1228
 msgid "View a structure's contents by clicking on its name."
-msgstr ""
+msgstr "Vide contentos de un structura per pulsar super su nomine."
 
 #: libraries/import.lib.php:1229
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
+"Modifica ulle de su preferentias per pulsar le correspondente ligamine de \""
+"Optiones\"."
 
 #: libraries/import.lib.php:1230
 msgid "Edit structure by following the \"Structure\" link."
-msgstr ""
+msgstr "Modifica le structura per sequer le ligamine de \"Structura\"."
 
 #: libraries/import.lib.php:1236
 #, php-format
 msgid "Go to database: %s"
-msgstr ""
+msgstr "Vade al base de datos: %s"
 
 #: libraries/import.lib.php:1242 libraries/import.lib.php:1283
 #, php-format
 msgid "Edit settings for %s"
-msgstr ""
+msgstr "Modifica preferentias per %s"
 
 #: libraries/import.lib.php:1268
 #, php-format
 msgid "Go to table: %s"
-msgstr ""
+msgstr "Vade a tabella: %s"
 
 #: libraries/import.lib.php:1276
 #, php-format
 msgid "Structure of %s"
-msgstr ""
+msgstr "Structura de %s"
 
 #: libraries/import.lib.php:1294
 #, php-format
 msgid "Go to view: %s"
-msgstr ""
+msgstr "Vade a vista: %s"
 
 #: libraries/index.lib.php:34
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr ""
+msgstr "Crea un indice sur &nbsp;%s&nbsp;columnas"
 
 #: libraries/insert_edit.lib.php:218 libraries/insert_edit.lib.php:249
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
 #: pmd_general.php:202
 msgid "Hide"
-msgstr ""
+msgstr "Cela"
 
 #: libraries/insert_edit.lib.php:462 libraries/mysql_charsets.lib.php:151
 #: libraries/mysql_charsets.lib.php:354
 msgid "Binary"
-msgstr ""
+msgstr "Binari"
 
 #: libraries/insert_edit.lib.php:658
 msgid "Because of its length,<br /> this column might not be editable."
@@ -7800,48 +7811,48 @@ msgstr "Per su longitudine,<br /> iste columna poterea non esser modificabile."
 
 #: libraries/insert_edit.lib.php:1106
 msgid "Binary - do not edit"
-msgstr ""
+msgstr "Dato binari - non modifica"
 
 #: libraries/insert_edit.lib.php:1232 libraries/sql_query_form.lib.php:491
 msgid "web server upload directory:"
-msgstr ""
+msgstr "directorio de incargamento de servitor web:"
 
 #: libraries/insert_edit.lib.php:1449
 #, php-format
 msgid "Continue insertion with %s rows"
-msgstr ""
+msgstr "Continua insertion con %s rangos"
 
 #: libraries/insert_edit.lib.php:1479
 msgid "and then"
-msgstr ""
+msgstr "e alora"
 
 #: libraries/insert_edit.lib.php:1512
 msgid "Insert as new row"
-msgstr ""
+msgstr "inserta como nove rango"
 
 #: libraries/insert_edit.lib.php:1515
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Inserta como nove rango e ignora errores"
 
 #: libraries/insert_edit.lib.php:1518
 msgid "Show insert query"
-msgstr ""
+msgstr "Monstra query de insertar"
 
 #: libraries/insert_edit.lib.php:1538
 msgid "Go back to previous page"
-msgstr ""
+msgstr "Vade a previe pagina"
 
 #: libraries/insert_edit.lib.php:1541
 msgid "Insert another new row"
-msgstr ""
+msgstr "Inserta un altere nove rango"
 
 #: libraries/insert_edit.lib.php:1546
 msgid "Go back to this page"
-msgstr ""
+msgstr "Vade retro a iste pagina"
 
 #: libraries/insert_edit.lib.php:1568
 msgid "Edit next row"
-msgstr ""
+msgstr "Modifica nove rango"
 
 #: libraries/insert_edit.lib.php:1590
 msgid ""
@@ -7850,23 +7861,23 @@ msgstr ""
 
 #: libraries/insert_edit.lib.php:1979 libraries/sql.lib.php:1678
 msgid "Showing SQL query"
-msgstr ""
+msgstr "Monstrante query de SQL"
 
 #: libraries/insert_edit.lib.php:2004 libraries/sql.lib.php:1658
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr ""
+msgstr "Insertate id de rango: %1$d"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:147
 msgctxt "None encoding conversion"
 msgid "None"
-msgstr ""
+msgstr "Necun"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:158
 msgid "Convert to Kana"
-msgstr ""
+msgstr "Converte a Kana"
 
 #: libraries/mult_submits.inc.php:258 tbl_replace.php:251
 msgid "No change"
@@ -7874,7 +7885,7 @@ msgstr "Necun modification"
 
 #: libraries/mult_submits.lib.php:331
 msgid "Replace table prefix:"
-msgstr ""
+msgstr "Reimplacia prefixo de tabella:"
 
 #: libraries/mult_submits.lib.php:333
 msgid "Copy table with prefix:"
@@ -7882,72 +7893,72 @@ msgstr "Copia tabula con prefixo:"
 
 #: libraries/mult_submits.lib.php:338
 msgid "From"
-msgstr ""
+msgstr "Ex"
 
 #: libraries/mult_submits.lib.php:344
 msgid "To"
-msgstr ""
+msgstr "A"
 
 #: libraries/mult_submits.lib.php:353 libraries/mult_submits.lib.php:386
 #: libraries/sql_query_form.lib.php:424
 msgid "Submit"
-msgstr ""
+msgstr "Invia"
 
 #: libraries/mult_submits.lib.php:373
 msgid "Add table prefix:"
-msgstr ""
+msgstr "Adde prefixo de tabella:"
 
 #: libraries/mult_submits.lib.php:376
 msgid "Add prefix"
-msgstr ""
+msgstr "Adde prefixo"
 
 #: libraries/mult_submits.lib.php:410
 msgid "Do you really want to execute the following query?"
-msgstr ""
+msgstr "Tu es secur que tu vermente vole executar le query sequente?"
 
 #: libraries/mysql_charsets.lib.php:47
 msgid "Charset"
-msgstr ""
+msgstr "Insimul de characteres"
 
 #: libraries/mysql_charsets.lib.php:163
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgaro"
 
 #: libraries/mysql_charsets.lib.php:167 libraries/mysql_charsets.lib.php:294
 msgid "Simplified Chinese"
-msgstr ""
+msgstr "Chinese simplificate"
 
 #: libraries/mysql_charsets.lib.php:169 libraries/mysql_charsets.lib.php:314
 msgid "Traditional Chinese"
-msgstr ""
+msgstr "Chinese traditional"
 
 #: libraries/mysql_charsets.lib.php:173 libraries/mysql_charsets.lib.php:361
 msgid "case-insensitive"
-msgstr ""
+msgstr "insensibile al differentia inter majusculas e minusculas"
 
 #: libraries/mysql_charsets.lib.php:176 libraries/mysql_charsets.lib.php:363
 msgid "case-sensitive"
-msgstr ""
+msgstr "sensibile al differentia inter majusculas e minusculas"
 
 #: libraries/mysql_charsets.lib.php:179
 msgid "Croatian"
-msgstr ""
+msgstr "Croato"
 
 #: libraries/mysql_charsets.lib.php:182
 msgid "Czech"
-msgstr ""
+msgstr "Checo"
 
 #: libraries/mysql_charsets.lib.php:185
 msgid "Danish"
-msgstr ""
+msgstr "Danese"
 
 #: libraries/mysql_charsets.lib.php:188
 msgid "English"
-msgstr ""
+msgstr "Anglese"
 
 #: libraries/mysql_charsets.lib.php:191
 msgid "Esperanto"
-msgstr ""
+msgstr "Esperanto"
 
 #: libraries/mysql_charsets.lib.php:194
 msgid "Estonian"
@@ -7955,11 +7966,11 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:197 libraries/mysql_charsets.lib.php:200
 msgid "German"
-msgstr ""
+msgstr "Germano"
 
 #: libraries/mysql_charsets.lib.php:197
 msgid "dictionary"
-msgstr ""
+msgstr "dictionario"
 
 #: libraries/mysql_charsets.lib.php:200
 msgid "phone book"
@@ -7967,15 +7978,15 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:203
 msgid "Hungarian"
-msgstr ""
+msgstr "Hungaro"
 
 #: libraries/mysql_charsets.lib.php:206
 msgid "Icelandic"
-msgstr ""
+msgstr "Islandese"
 
 #: libraries/mysql_charsets.lib.php:209 libraries/mysql_charsets.lib.php:301
 msgid "Japanese"
-msgstr ""
+msgstr "Japonese"
 
 #: libraries/mysql_charsets.lib.php:212
 msgid "Latvian"
@@ -7987,27 +7998,27 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:218 libraries/mysql_charsets.lib.php:323
 msgid "Korean"
-msgstr ""
+msgstr "Coreano"
 
 #: libraries/mysql_charsets.lib.php:221
 msgid "Persian"
-msgstr ""
+msgstr "Persiano"
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Polish"
-msgstr ""
+msgstr "Polonese"
 
 #: libraries/mysql_charsets.lib.php:227 libraries/mysql_charsets.lib.php:277
 msgid "West European"
-msgstr ""
+msgstr "Europeo Occidental"
 
 #: libraries/mysql_charsets.lib.php:230
 msgid "Romanian"
-msgstr ""
+msgstr "Romaniano"
 
 #: libraries/mysql_charsets.lib.php:233
 msgid "Slovak"
-msgstr ""
+msgstr "Slovaco"
 
 #: libraries/mysql_charsets.lib.php:236
 msgid "Slovenian"
@@ -8035,25 +8046,25 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:254 libraries/mysql_charsets.lib.php:338
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukrainiano"
 
 #: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:268
 msgid "Unicode"
-msgstr ""
+msgstr "Unicode"
 
 #: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:268
 #: libraries/mysql_charsets.lib.php:277 libraries/mysql_charsets.lib.php:284
 #: libraries/mysql_charsets.lib.php:306 libraries/mysql_charsets.lib.php:317
 msgid "multilingual"
-msgstr ""
+msgstr "multilingue"
 
 #: libraries/mysql_charsets.lib.php:284
 msgid "Central European"
-msgstr ""
+msgstr "Europeo central"
 
 #: libraries/mysql_charsets.lib.php:289
 msgid "Russian"
-msgstr ""
+msgstr "Russo"
 
 #: libraries/mysql_charsets.lib.php:306
 msgid "Baltic"
@@ -8069,11 +8080,11 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:320
 msgid "Arabic"
-msgstr ""
+msgstr "Arabe"
 
 #: libraries/mysql_charsets.lib.php:326
 msgid "Hebrew"
-msgstr ""
+msgstr "Hebreo"
 
 #: libraries/mysql_charsets.lib.php:329
 msgid "Georgian"
@@ -8090,7 +8101,7 @@ msgstr ""
 #: libraries/mysql_charsets.lib.php:350 libraries/mysql_charsets.lib.php:357
 #: libraries/structure.lib.php:1083
 msgid "unknown"
-msgstr ""
+msgstr "incognite"
 
 #: libraries/navigation/Navigation.class.php:59
 msgid "An error has occurred while loading the navigation tree"
@@ -10024,7 +10035,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:149
 msgid "Internal relations"
-msgstr ""
+msgstr "Relationes interne"
 
 #: libraries/schema/User_Schema.class.php:163
 msgid "FOREIGN KEY"
