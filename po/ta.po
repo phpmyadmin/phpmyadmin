@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-06 22:11+0200\n"
+"PO-Revision-Date: 2014-08-06 22:12+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -4484,7 +4484,7 @@ msgstr "இரட்டையாக்கப்பட்டது"
 #: libraries/build_html_for_db.lib.php:174
 #, php-format
 msgid "Check privileges for database \"%s\"."
-msgstr ""
+msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுகைகளை சரிபார்க்க."
 
 #: libraries/build_html_for_db.lib.php:179
 msgid "Check Privileges"
