@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-31 00:13+0200\n"
+"PO-Revision-Date: 2014-08-06 22:44+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -201,7 +201,7 @@ msgstr "தரவுத்தளத்தின் குவியலமைப�
 #: db_export.php:33 db_printview.php:41 db_structure.php:165
 #: db_tracking.php:51 export.php:338 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
-msgstr "தரவுத்தளத்தில் அட்டவணைகள் எதுவும் காணப்படவில்லை."
+msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
 #: db_export.php:41 libraries/DbSearch.class.php:445
 #: libraries/display_export.lib.php:42
@@ -1461,7 +1461,9 @@ msgstr "மாற்றமடைந்த நிரல்வரிசைகள�
 
 #: js/messages.php:200
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr "அமைப்பாக்க கோப்பில் பிழை உள்ளது. இது சரியான JSON நிரல் போலில்லை."
+msgstr ""
+"அமைப்பாக்க கோப்பினை வழிச்செலுத்தல் தோல்வியுற்றது. இது சரியான JSON நிரல் "
+"போலில்லை."
 
 #: js/messages.php:202
 msgid ""
@@ -1778,41 +1780,44 @@ msgstr "உள்ப்புற வளையம்"
 
 #: js/messages.php:318
 msgid "Outer Ring"
-msgstr ""
+msgstr "வெளிவளையம்"
 
 #: js/messages.php:321
 msgid "Shift + Click on function name to apply to all rows."
 msgstr ""
+"செயல்கூற்றின் பெயரில் shift+click செய்து அனைத்து நிரைவரிசைகளையும் கையாளுக."
 
 #: js/messages.php:323
 msgid "Do you want to copy encryption key?"
-msgstr ""
+msgstr "மறைகுறியாக்க குறிப்பெழுத்தை படியெடுக்க வேண்டுமா?"
 
 #: js/messages.php:324
 msgid "Encryption key"
-msgstr ""
+msgstr "மறைகுறியாக்க குறிப்பெழுத்து"
 
 #: js/messages.php:327
 msgid "Select referenced key"
-msgstr ""
+msgstr "மேற்கோள்காட்டப்பட்ட குறிப்பெழுத்தை தேர்ந்தெடுக்க"
 
 #: js/messages.php:328
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "அயல் குறிப்பெழுத்தை தேர்ந்தெடுக்க"
 
 #: js/messages.php:329
 msgid "Please select the primary key or a unique key!"
-msgstr ""
+msgstr "முதனிலை குறிப்பெழுத்து அல்லது தனித்த குறிப்பெழுத்தை தேர்ந்தெடுக்க!"
 
 #: js/messages.php:330 pmd_general.php:101
 msgid "Choose column to display"
-msgstr ""
+msgstr "காட்டுவதற்க்கான நிரல்வரிசையை தேர்ந்தெடுக்க"
 
 #: js/messages.php:332
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
+"நீங்கள் திட்டஅமைப்பில் செய்த மாற்றங்களை சேமிக்கவில்லை.எனவே அவற்றை "
+"இழக்கநேரிடும். தொடரவேண்டுமா?"
 
 #: js/messages.php:337
 #, php-format
@@ -1822,43 +1827,48 @@ msgstr "நெடுவரிசை \"%s\" க்கு ஒரு விரு�
 #: js/messages.php:338
 #, php-format
 msgid "%d object(s) created."
-msgstr ""
+msgstr "%d கருப்பொதிவு(கள்) உருவாக்கப்பட்டன."
 
 #: js/messages.php:341
 msgid "Press escape to cancel editing."
-msgstr ""
+msgstr "தொகுப்பதை நிறுத்த Esc அழுத்தவும்."
 
 #: js/messages.php:342
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"நீங்கள் சில தரவுகளை தொகுத்துள்ளீர்கள். தரவை செமிக்காமல் இப்பக்கத்தைவிட்டு "
+"வெளியேறவேண்டுமா என உறுதிசெய்க?"
 
 #: js/messages.php:343
 msgid "Drag to reorder."
-msgstr ""
+msgstr "மறுவரிசைப்படுத்த இழுக்கவும்."
 
 #: js/messages.php:344
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "இந்நெடுவரிசையை பொருத்து முடிவுகளை வரிசைப்படுத்த சொடுக்குக."
 
 #: js/messages.php:345
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
+"இந்நெடுவரிசையை ORDER BY உறுப்புரையில் சேர்க்க அல்லது ASC/DESCஐ மாற்ற "
+"shift+சொடுக்கவும். <br/>- ORDER BY உறுப்புரையிலிருந்து  நீக்க "
+"Ctrl+சொடுக்கவும்"
 
 #: js/messages.php:346
 msgid "Click to mark/unmark."
-msgstr ""
+msgstr "சேர்க்க/நீக்க சொடுக்கவும்."
 
 #: js/messages.php:347
 msgid "Double-click to copy column name."
-msgstr ""
+msgstr "நிரல்வரிசை பெயரை படியெடுக்க இருமுறை சொடுக்குக."
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr ""
+msgstr "நிரல்வரிசையின் காட்சிப்பண்பை <br/>மாற்ற கீழிறங்கு குறியை சொடுக்குக."
 
 #: js/messages.php:351 libraries/DisplayResults.class.php:858
 #: libraries/browse_foreigners.lib.php:371
@@ -1872,14 +1882,17 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"இவ்வட்டவணையில் தனித்தநிரல்வரிசை இல்லை.சேமித்த பின்னர் நெய்யரியில் தொகுத்தல், "
+"தேர்வுபெட்டி, தொகுத்தல், படியெடுத்தல், மற்றும் நீக்கல் வசதிகள் செயல்படாமல் "
+"போகலாம்."
 
 #: js/messages.php:357
 msgid "You can also edit most values<br />by double-clicking directly on them."
-msgstr ""
+msgstr "நீங்கள் பெரும்பாலான மதிப்புகளை தொகுக்க <br/> அவற்றை இருமுறை-சொடுக்குக."
 
 #: js/messages.php:360
 msgid "You can also edit most values<br />by clicking directly on them."
-msgstr ""
+msgstr "நீங்கள் பெரும்பாலான மதிப்புகளை தொகுக்க <br/> அவற்றை சொடுக்குக."
 
 #: js/messages.php:365
 #| msgid "Go to link."
@@ -1892,7 +1905,7 @@ msgstr "நிரல்வரிசை பெயரை படியெடுக�
 
 #: js/messages.php:367
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "நிரல்வரிசை பெயரை இடைபிடிப்புக்கு படியெடுக்க வலமுறை-சொடுக்குக."
 
 #: js/messages.php:368
 msgid "Show data row(s)."
@@ -1929,6 +1942,7 @@ msgstr "மறைத்துள்ள வழிசெலுத்தல் ப�
 #: js/messages.php:384
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
+"நீங்கள் கோரிய பக்கம் வரலாற்றில் இல்லை, அது செல்லுபடி இல்லாமல் போயிருக்கலாம்."
 
 #: js/messages.php:387 setup/lib/index.lib.php:157
 #, php-format
@@ -1936,6 +1950,9 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"phpMyAdminனின் புதிய பதிப்பு பெறக்கூடியதாக உள்ளது மேலும் நீங்கள் "
+"மேம்படுத்துவதை கருத்தில் கொள்ளவும்.மிக அண்மைய பதிப்பு %s,%s அன்று "
+"வெளியிடப்பட்டது."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:389
@@ -1949,21 +1966,23 @@ msgstr "இன்றுவரை"
 #: js/messages.php:392 libraries/DisplayResults.class.php:5292
 #: view_create.php:178
 msgid "Create view"
-msgstr ""
+msgstr "விவரபார்வையை உருவாக்குக"
 
 #: js/messages.php:395
 msgid "Send Error Report"
-msgstr ""
+msgstr "பிழை அறிக்கை அனுப்புக"
 
 #: js/messages.php:396
 msgid "Submit Error Report"
-msgstr ""
+msgstr "பிழை அறிக்கை அளிக்க"
 
 #: js/messages.php:398
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
+"ஒரு ஆபத்தான ஜாவா ஸ்க்ரிப்ட் பிழை நிகழ்ந்துள்ளது. பிழை அறிக்கை அளிக்க "
+"விரும்புகிறீர்களா?"
 
 #: js/messages.php:400
 msgid "Change Report Settings"
@@ -1971,13 +1990,15 @@ msgstr "அறிக்கை அமைப்புக்களை மாற்�
 
 #: js/messages.php:401
 msgid "Show Report Details"
-msgstr ""
+msgstr "அறிவிக்கை விவரங்களை காட்டுக"
 
 #: js/messages.php:404
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
+"PHPயின் நிலையில் குறைந்த செயலாக்கநேர வரம்பின் விளைவாக உங்கள் தரவேற்றம் "
+"முடிவுறவில்லை!"
 
 #: js/messages.php:408
 #, php-format
@@ -1985,6 +2006,9 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"எச்சரிக்கை: இப்பக்கத்திலுள்ள ஒரு படிவத்தில் %dஐ விட அதிகமான கலங்கள் "
+"உள்ளன.PHPயின் max_input_vars அமைப்பாக்கத்தின் விளைவாக அனுப்பும்போது சில "
+"கலங்கள் விடப்படலாம்."
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -2223,7 +2247,7 @@ msgstr "கிழமை"
 #.
 #: js/messages.php:555
 msgid "calendar-month-year"
-msgstr ""
+msgstr "நாள்காட்டி-மாதம்-ஆண்டு"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:558
@@ -2246,48 +2270,52 @@ msgstr "வினாடிகள்"
 #: libraries/Advisor.class.php:79
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP பின்வரும் பிழை அளித்துள்ளது: %s"
 
 #: libraries/Advisor.class.php:108
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr ""
+msgstr "'%s' விதிக்கான முன்னீட்டு மதிப்பீடு தோல்வியுற்றது."
 
 #: libraries/Advisor.class.php:125
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr ""
+msgstr "'%s' விதிக்கான மதிப்பு கணக்கிடல் தோல்வியுற்றது."
 
 #: libraries/Advisor.class.php:144
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr ""
+msgstr "'%s' விதிக்கான தேர்வாராய்தல் தோல்வியுற்றது."
 
 #: libraries/Advisor.class.php:224
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
+msgstr "'%s' விதிக்கான சரம் சரியமைத்தல் தோல்வியுற்றது."
 
 #: libraries/Advisor.class.php:396
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
+"%1$sம் வரியில் செல்லுபடியாகாத விதி வரையறை உள்ளது, முந்திய விதியின் %2$sம் வரி"
+" எதிர்பார்க்கப்பட்டது."
 
 #: libraries/Advisor.class.php:415
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr ""
+msgstr "%sம் வரியில் செல்லுபடியாகாத விதி வரையறை உள்ளது."
 
 #: libraries/Advisor.class.php:423
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr ""
+msgstr "%sம் வரியில் எதிர்பாராத எழுத்துக்கள் உள்ளன."
 
 #: libraries/Advisor.class.php:438
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
+"%1$sம் வரியில் எதிர்பாராத எழுத்துக்கள் உள்ளன.தத்தல் உரு எதிர்பார்க்கப்பட்டது"
+", \"%2$s\" காணப்பட்டது."
 
 #: libraries/Advisor.class.php:472
 msgid "per second"
@@ -2310,11 +2338,13 @@ msgstr "ஒரு நாளைக்கு"
 #: libraries/Config.class.php:1161
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "இப்போதுள்ள அமைப்பாக்க கோப்பு (%s) படிக்கமுடியாததாக உள்ளது."
 
 #: libraries/Config.class.php:1191
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"அமைப்பாக்க கோப்பு தவறான அணுகல்இசைவுடன் உள்ளது.அனைவரும் திருத்தக்கூடியதாக "
+"இருக்ககூடாது!"
 
 #: libraries/Config.class.php:1766
 msgid "Font size"
@@ -2376,7 +2406,7 @@ msgstr "அல்லது:"
 
 #: libraries/DBQbe.class.php:720 libraries/DBQbe.class.php:810
 msgid "And:"
-msgstr ""
+msgstr "மற்றும்:"
 
 #: libraries/DBQbe.class.php:724
 msgid "Ins"
@@ -2392,11 +2422,11 @@ msgstr "மாற்று:"
 
 #: libraries/DBQbe.class.php:805
 msgid "Ins:"
-msgstr ""
+msgstr "செருகுக:"
 
 #: libraries/DBQbe.class.php:820
 msgid "Del:"
-msgstr ""
+msgstr "நீக்குக:"
 
 #: libraries/DBQbe.class.php:1430
 #, php-format
@@ -2622,7 +2652,7 @@ msgstr ""
 #: libraries/plugins/import/ImportXml.class.php:58
 #: libraries/rte/rte_routines.lib.php:985 libraries/structure.lib.php:1729
 msgid "Options"
-msgstr ""
+msgstr "விருப்பத்தேர்வுகள்"
 
 #: libraries/DisplayResults.class.php:1627
 #: libraries/DisplayResults.class.php:1734
@@ -2810,7 +2840,7 @@ msgstr ""
 
 #: libraries/File.class.php:288
 msgid "Missing a temporary folder."
-msgstr "ஒரு தற்காலிய உறையை காணவில்லை."
+msgstr "ஓர் தற்காலிக அடைவை காணவில்லை."
 
 #: libraries/File.class.php:291
 msgid "Failed to write file to disk."
@@ -3064,7 +3094,7 @@ msgstr "மாறிகள்"
 
 #: libraries/Menu.class.php:575 libraries/Util.class.php:4106
 msgid "Charsets"
-msgstr ""
+msgstr "எழுத்துக்கணங்கள்"
 
 #: libraries/Menu.class.php:580 libraries/Util.class.php:4107
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
@@ -3862,30 +3892,33 @@ msgstr "தரவுத்தளம் தாவி செல்லவும் 
 #: libraries/Util.class.php:2582
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr "%s செயல்பாடு ஒரு அறியப்படுகிற பிழையால் பாதிக்கப்பட்டுள்ளது, %s பார்க்க"
+msgstr ""
+"%s செயல்பாடு எதுவென்று தெரிந்த ஓர் பிழையால் பாதிக்கப்பட்டுள்ளது, %sஐ பார்க்க"
 
 #: libraries/Util.class.php:2763
 msgid "Click to toggle"
-msgstr "மாறுவதற்கு கிளிக் செய்யவும்"
+msgstr "நிலைமாற்ற சொடுக்குக"
 
 #: libraries/Util.class.php:3292 libraries/sql_query_form.lib.php:477
 #: prefs_manage.php:242
 msgid "Browse your computer:"
-msgstr "உனது கணினியை உலாவு:"
+msgstr "உமது கணினியிலிருந்து:"
 
 #: libraries/Util.class.php:3317
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "வலை சேவையகம் பதிவேற்ற அடைவை <b>%s</b> தேர்ந்தெடுங்கள்:"
+msgstr "வலை சேவையகத்தின் பதிவேற்ற அடைவுகளிலிருந்து <b>%s</b> தேர்ந்தெடுங்கள்:"
 
 #: libraries/Util.class.php:3346 libraries/insert_edit.lib.php:1228
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
-msgstr "நீங்கள் தேர்வு செய்த வலை சேவையகம் பதிவேற்றை அடைய இயலவில்லை."
+msgstr ""
+"பதிவேற்றத்திற்கு நீங்கள் தேர்வு செய்த வலை சேவையக பதிவேற்ற அடைவை "
+"எட்டமுடியவில்லை."
 
 #: libraries/Util.class.php:3357
 msgid "There are no files to upload!"
-msgstr "பதிவேற்ற எந்த கோப்புகளும் இல்லை!"
+msgstr "பதிவேற்றுவதற்கு எந்த கோப்புகளும் இல்லை!"
 
 #: libraries/Util.class.php:3382 libraries/Util.class.php:3383
 #: libraries/structure.lib.php:305
@@ -3894,11 +3927,11 @@ msgstr "வெறுமை"
 
 #: libraries/Util.class.php:3388 libraries/Util.class.php:3389
 msgid "Execute"
-msgstr "நிறைவேற்று"
+msgstr "செயலாக்குக"
 
 #: libraries/Util.class.php:3940
 msgid "Print"
-msgstr "அச்சிடு"
+msgstr "அச்சிடுக"
 
 #: libraries/Util.class.php:4041 libraries/structure.lib.php:803
 #: libraries/structure.lib.php:1790 libraries/tbl_printview.lib.php:238
@@ -3908,12 +3941,12 @@ msgstr "உருவாக்கம்"
 #: libraries/Util.class.php:4047 libraries/structure.lib.php:810
 #: libraries/structure.lib.php:1798 libraries/tbl_printview.lib.php:249
 msgid "Last update"
-msgstr "இறுதி இற்றைப்படுத்தல்"
+msgstr "முந்தைய நிகழ்நிலையாக்கம்"
 
 #: libraries/Util.class.php:4053 libraries/structure.lib.php:817
 #: libraries/structure.lib.php:1806 libraries/tbl_printview.lib.php:260
 msgid "Last check"
-msgstr "கடைசி சோதனை"
+msgstr "கடைசி சரிபார்ப்பு"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
@@ -3921,7 +3954,7 @@ msgstr "பகிரப்பட்டது"
 
 #: libraries/browse_foreigners.lib.php:43
 msgid "Search:"
-msgstr "தேடு:"
+msgstr "தேடுக:"
 
 #: libraries/browse_foreigners.lib.php:69
 #: libraries/browse_foreigners.lib.php:71
@@ -3929,11 +3962,11 @@ msgstr "தேடு:"
 #: libraries/server_plugins.lib.php:133
 #: libraries/server_status_variables.lib.php:221
 msgid "Description"
-msgstr "விளக்கம்"
+msgstr "சிறுகுறிப்பு"
 
 #: libraries/browse_foreigners.lib.php:218
 msgid "Use this value"
-msgstr "இந்த மதிப்பை பயன்படுத்துக"
+msgstr "இம்மதிப்பை பயன்படுத்துக"
 
 #: libraries/browse_foreigners.lib.php:304
 msgid ""
@@ -3967,28 +4000,28 @@ msgstr "மொத்தம்"
 #: libraries/build_html_for_db.lib.php:53 libraries/structure.lib.php:796
 #: libraries/structure.lib.php:2208 libraries/tbl_printview.lib.php:319
 msgid "Overhead"
-msgstr ""
+msgstr "பயனீட்டளவு"
 
 #: libraries/build_html_for_db.lib.php:96
 msgid "Jump to database"
-msgstr ""
+msgstr "தரவுத்தளத்துக்கு செல்க"
 
 #: libraries/build_html_for_db.lib.php:144
 msgid "Not replicated"
-msgstr ""
+msgstr "இரட்டையாக்கப்படாதது"
 
 #: libraries/build_html_for_db.lib.php:155
 msgid "Replicated"
-msgstr ""
+msgstr "இரட்டையாக்கப்பட்டது"
 
 #: libraries/build_html_for_db.lib.php:173
 #, php-format
 msgid "Check privileges for database \"%s\"."
-msgstr ""
+msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுகைகளை சரிபார்க்க."
 
 #: libraries/build_html_for_db.lib.php:178
 msgid "Check Privileges"
-msgstr ""
+msgstr "தனிசலுகைகளை சரிபார்க்க"
 
 #: libraries/common.inc.php:583
 msgid "Failed to read configuration file!"
@@ -4646,7 +4679,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:110 prefs_manage.php:306
 msgid "Save as file"
-msgstr ""
+msgstr "கோப்பாக சேமிக்க"
 
 #: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:332
 msgid "Character set of the file"
@@ -5019,11 +5052,11 @@ msgstr ""
 #: libraries/config/messages.inc.php:255
 #: libraries/navigation/NavigationHeader.class.php:218
 msgid "Query window"
-msgstr ""
+msgstr "வினவல் சாளரம்"
 
 #: libraries/config/messages.inc.php:256
 msgid "Customize query window options"
-msgstr ""
+msgstr "வினவல் சாளர விருப்பங்களை தனிப்பயனாக்குக"
 
 #: libraries/config/messages.inc.php:257
 msgid "Security"
@@ -5300,6 +5333,11 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
+"TRUEஆக இருந்தால் செல்பதிகை அனைத்து சேவையகங்களிருந்தும் பயனர் நிலை "
+"பதிவுத்துணுக்கை நீக்கிவிடும்;\n"
+"FALSEஆக அமைக்கப்படும்போது நடப்பு சேவையகத்திலிருந்து மட்டுமே செல்பதிகை நிகழும்"
+". பல சேவையகங்களுடன் இணைத்திருக்கும்போது இதை FALSEஆக அமைத்தால் எளிதில் மற்ற "
+"சேவையகங்களிருந்து செல்பதிகை செய்வதை மறக்க நேரிடலாம்."
 
 #: libraries/config/messages.inc.php:375
 msgid "Delete all cookies on logout"
@@ -5641,27 +5679,27 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:522
 msgid "Tab displayed when opening a new query window."
-msgstr ""
+msgstr "புதிய வினவல் சாளரம் திறக்கப்படும்போது தத்தல் காண்பிக்கப்படும்."
 
 #: libraries/config/messages.inc.php:523
 msgid "Default query window tab"
-msgstr ""
+msgstr "இயல்நிலை வினவல் சாளர தத்தல்"
 
 #: libraries/config/messages.inc.php:524
 msgid "Query window height (in pixels)."
-msgstr ""
+msgstr "வினவல் சாளர உயரம்(ஒளிப்பட அலகுகளில்)."
 
 #: libraries/config/messages.inc.php:525
 msgid "Query window height"
-msgstr ""
+msgstr "வினவல் சாளர உயரம்"
 
 #: libraries/config/messages.inc.php:526
 msgid "Query window width (in pixels)."
-msgstr ""
+msgstr "வினவல் சாளர அகலம்(ஒளிப்பட அலகுகளில்)."
 
 #: libraries/config/messages.inc.php:527
 msgid "Query window width"
-msgstr ""
+msgstr "வினவல் சாளர அகலம்"
 
 #: libraries/config/messages.inc.php:529
 msgid "Select which functions will be used for character set conversion."
@@ -6586,7 +6624,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:275
 #: setup/frames/index.inc.php:161
 msgid "Name"
-msgstr ""
+msgstr "பெயர்"
 
 #: libraries/display_create_table.lib.php:65
 msgid "Number of columns"
@@ -6725,7 +6763,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:644
 msgid "Save output to a file"
-msgstr ""
+msgstr "வெளியீட்டை ஒரு கோப்பாக சேமிக்க"
 
 #: libraries/display_export.lib.php:671
 msgid "Skip tables larger than"
@@ -6864,7 +6902,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:28
 msgid "Data home directory"
-msgstr ""
+msgstr "தரவின் முகப்பு அடைவு"
 
 #: libraries/engines/innodb.lib.php:29
 msgid "The common part of the directory path for all InnoDB data files."
@@ -7589,11 +7627,11 @@ msgstr "விவரபார்வைகள்:"
 
 #: libraries/navigation/NavigationHeader.class.php:192
 msgid "Home"
-msgstr ""
+msgstr "முகப்புப்பக்கம்"
 
 #: libraries/navigation/NavigationHeader.class.php:205
 msgid "Log out"
-msgstr ""
+msgstr "செல்பதிகை"
 
 #: libraries/navigation/NavigationHeader.class.php:228
 msgid "phpMyAdmin documentation"
@@ -7647,7 +7685,7 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "புதியது"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
 msgid "Database operations"
@@ -7660,12 +7698,12 @@ msgstr "மறைக்கப்பட்ட உருப்படிகளை �
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:36
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "புதியது"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:37
 msgctxt "Create new event"
 msgid "New"
-msgstr ""
+msgstr "புதியது"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:24
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:25
@@ -7677,7 +7715,7 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
 msgctxt "Create new function"
 msgid "New"
-msgstr ""
+msgstr "புதியது"
 
 #: libraries/navigation/Nodes/Node_Index.class.php:32
 #: libraries/structure.lib.php:1412 libraries/structure.lib.php:2081
@@ -7690,7 +7728,7 @@ msgstr "சுட்டுதொகுப்புக்குறி"
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
 msgctxt "Create new index"
 msgid "New"
-msgstr ""
+msgstr "புதியது"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
 msgid "Procedure"
@@ -7707,17 +7745,17 @@ msgstr ""
 #: libraries/rte/rte_footer.lib.php:29
 msgctxt "Create new procedure"
 msgid "New"
-msgstr ""
+msgstr "புதியது"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:45
 msgctxt "Create new table"
 msgid "New"
-msgstr ""
+msgstr "புதியது"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:37
 msgctxt "Create new trigger"
 msgid "New"
-msgstr ""
+msgstr "புதியது"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
@@ -7728,7 +7766,7 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_View_Container.class.php:45
 msgctxt "Create new view"
 msgid "New"
-msgstr ""
+msgstr "புதியது"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to:"
@@ -7737,15 +7775,15 @@ msgstr "தரவுத்தளத்தைப் இப்படி மறு�
 #: libraries/operations.lib.php:107
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "%s தரவுத்தளம் இரத்து செய்யப்பட்டது."
+msgstr "%s தரவுத்தளம் கைவிடப்பட்டது."
 
 #: libraries/operations.lib.php:119
 msgid "Remove database"
-msgstr "தரவுத்தளத்தை நீக்கு"
+msgstr "தரவுத்தளத்தை நீக்குக"
 
 #: libraries/operations.lib.php:125
 msgid "Drop the database (DROP)"
-msgstr "தரவுத்தளத்தை இரத்து செய் (DROP)"
+msgstr "தரவுத்தளத்தை கைவிடுக (DROP)"
 
 #: libraries/operations.lib.php:145 libraries/operations.lib.php:1025
 #: libraries/tbl_tracking.lib.php:414
@@ -9200,7 +9238,7 @@ msgstr "செயல்->திசைப்பாடு"
 #: libraries/rte/rte_routines.lib.php:984
 #: libraries/tbl_columns_definition_form.lib.php:278
 msgid "Length/Values"
-msgstr ""
+msgstr "நீளம்/மதிப்புகள்"
 
 #: libraries/rte/rte_routines.lib.php:999
 msgid "Add parameter"
@@ -9460,7 +9498,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:1383
 #: libraries/structure.lib.php:1206 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
-msgstr ""
+msgstr "மிகை"
 
 #: libraries/schema/User_Schema.class.php:132
 msgid "Create a page"
@@ -9468,7 +9506,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:138
 msgid "Page name"
-msgstr ""
+msgstr "பக்கத்தின் பெயர்"
 
 #: libraries/schema/User_Schema.class.php:145
 msgid "Automatic layout based on"
@@ -9476,7 +9514,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:149
 msgid "Internal relations"
-msgstr ""
+msgstr "உள்ளமை உறவுமுறைகள்"
 
 #: libraries/schema/User_Schema.class.php:163
 msgid "FOREIGN KEY"
@@ -9991,7 +10029,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2015
 msgctxt "Create new user"
 msgid "New"
-msgstr ""
+msgstr "புதியது"
 
 #: libraries/server_privileges.lib.php:2049
 #: libraries/server_privileges.lib.php:3410
@@ -10202,7 +10240,7 @@ msgstr ""
 
 #: libraries/server_status.lib.php:264
 msgid "Aborted"
-msgstr "நிறுத்தப்பட்டுள்ளது"
+msgstr "கைவிடப்பட்டது"
 
 #: libraries/server_status.lib.php:337
 msgid "ID"
@@ -11207,7 +11245,7 @@ msgstr "SQL வினவலை/களை %s தரவுத்தளத்தி
 
 #: libraries/sql_query_form.lib.php:275 setup/frames/index.inc.php:297
 msgid "Clear"
-msgstr ""
+msgstr "அகற்று"
 
 #: libraries/sql_query_form.lib.php:318
 msgid "Bookmark this SQL query:"
@@ -11219,7 +11257,7 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:348
 msgid "Do not overwrite this query from outside the window"
-msgstr ""
+msgstr "இவ்வினவலை அதன் சாளரத்துக்கு வெளியிலிருந்து மாற்ற வேண்டாம்"
 
 #: libraries/sql_query_form.lib.php:353
 msgid "Delimiter"
@@ -11450,7 +11488,7 @@ msgstr "தனித்த மதிப்புகள்"
 
 #: libraries/structure.lib.php:2031 libraries/structure.lib.php:2034
 msgid "Add primary key"
-msgstr ""
+msgstr "முதனிலை குறிப்பெழுத்து சேர்க்க"
 
 #: libraries/structure.lib.php:2037 libraries/structure.lib.php:2040
 msgid "Add index"
@@ -11909,7 +11947,7 @@ msgstr ""
 
 #: libraries/user_preferences.inc.php:29
 msgid "Manage your settings"
-msgstr ""
+msgstr "உங்கள் அமைவுகளை கையாளுக"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved."
@@ -11921,6 +11959,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
+"உங்கள் முன்னுரிமைகள் இந்த அமர்வுக்காக மட்டும் சேமிக்கப்படும். அவற்றை நிலையாக "
+"சேமிப்க்க %sphpMyAdmin அமைப்பாக்க நினைவகம்%s தேவை."
 
 #: libraries/user_preferences.lib.php:129
 msgid "Could not save configuration"
@@ -12149,15 +12189,15 @@ msgstr "கோப்பிலிருந்து தரவிறக்கு�
 
 #: prefs_manage.php:248
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "உலாவியின் உள்சேமிப்பிலிருந்து தரவிறக்குக"
 
 #: prefs_manage.php:251
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "உங்கள் உலாவியின் உள்சேமிப்பிலிருந்து அமைப்புகளை தரவிறக்குக."
 
 #: prefs_manage.php:257
 msgid "You have no saved settings!"
-msgstr ""
+msgstr "நீங்கள் அமைவுகள் எதுவும் சேமித்து வைத்திருக்கவில்லை!"
 
 #: prefs_manage.php:262 prefs_manage.php:322
 msgid "This feature is not supported by your web browser"
@@ -12165,7 +12205,7 @@ msgstr ""
 
 #: prefs_manage.php:268
 msgid "Merge with current configuration"
-msgstr ""
+msgstr "தற்போதைய அமைப்பாக்கத்துடன் இணைக்கவும்"
 
 #: prefs_manage.php:282
 #, php-format
@@ -12173,14 +12213,16 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
+"நீங்கள் config.inc.phpஐ மாற்றுவதன் மூலம் மேலும் அதிக அமைவுகளை அமைக்கலாம், எகா"
+". %sநிறுவல்கோவை%s மூலம்."
 
 #: prefs_manage.php:311
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "உலவியின் நினைவகத்துள் சேமிக்க"
 
 #: prefs_manage.php:315
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "அமைப்புகள் உங்கள் உலவியின் உள்நினைவகத்துள் சேமிக்கப்படும்."
 
 #: prefs_manage.php:317
 msgid "Existing settings will be overwritten!"
@@ -12189,6 +12231,8 @@ msgstr ""
 #: prefs_manage.php:339
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"நீங்கள் உங்கள் அனைத்து அமைப்புக்களையும் அவற்றின் இயல்நிலை மதிப்புக்கு "
+"மீட்டமைக்கலாம்."
 
 #: querywindow.php:64
 msgid "Import files"
