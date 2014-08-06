@@ -4513,7 +4513,7 @@ msgstr "மைய பட்டியலில் %1$s முன்பே இல�
 
 #: libraries/central_columns.lib.php:368
 msgid "Could not remove columns!"
-msgstr ""
+msgstr "நெடுவரிசைகளை நீக்க இயலவில்லை!"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
