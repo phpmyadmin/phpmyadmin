@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-06 22:15+0200\n"
+"PO-Revision-Date: 2014-08-06 22:17+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -4499,7 +4499,7 @@ msgstr "அமைப்பாக்க சேமிப்பகம் மைய 
 #: libraries/central_columns.lib.php:264
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "மைய பட்டியலில் %1$s முன்பே இருப்பதால் மீண்டும் சேர்க்க இயலவில்லை!"
 
 #: libraries/central_columns.lib.php:280
 msgid "Could not add columns!"
