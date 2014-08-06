@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-06 21:44+0200\n"
+"PO-Revision-Date: 2014-08-06 21:51+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -4373,7 +4373,8 @@ msgstr "தரவுத்தளம் தாவி செல்லவும் 
 #: libraries/Util.class.php:2576
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr "%s செயல்பாடு ஒரு அறியப்படுகிற பிழையால் பாதிக்கப்பட்டுள்ளது, %s பார்க்க"
+msgstr ""
+"%s செயல்பாடு எதுவென்று தெரிந்த ஓர் பிழையால் பாதிக்கப்பட்டுள்ளது, %sஐ பார்க்க"
 
 #: libraries/Util.class.php:2757
 msgid "Click to toggle"
