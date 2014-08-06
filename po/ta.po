@@ -4517,7 +4517,7 @@ msgstr "நெடுவரிசைகளை நீக்க இயலவில�
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
-msgstr ""
+msgstr "ஆம்"
 
 #: libraries/central_columns.lib.php:509
 msgid "NO"
