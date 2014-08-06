@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-05 17:34-0400\n"
-"PO-Revision-Date: 2014-08-05 08:36+0200\n"
+"PO-Revision-Date: 2014-08-06 09:21+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1912,28 +1912,24 @@ msgid "Create the following table"
 msgstr "Loo järgmine tabel"
 
 #: js/messages.php:329
-#, fuzzy
 #| msgid "Third step of normalization (1NF+2NF+3NF)"
 msgid "Third step of normalization (3NF)"
-msgstr "Normaliseerimise kolmas samm (1NK + 2NK + 3NK)"
+msgstr "Normaliseerimise kolmas samm (3NK)"
 
 #: js/messages.php:330
-#, fuzzy
 #| msgid "Confirm partial dependencies"
 msgid "Confirm transitive dependencies"
-msgstr "Kinnita osalised sõltuvused"
+msgstr "Kinnita transitiivsed sõltuvused"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Selected partial dependencies are as follows:"
 msgid "Selected dependencies are as follows:"
-msgstr "Valitud osalised sõltuvused on järgnevad:"
+msgstr "Valitud sõltuvused on järgnevad:"
 
 #: js/messages.php:332
-#, fuzzy
 #| msgid "No partial dependencies selected!"
 msgid "No dependencies selected!"
-msgstr "Ühtegi osalist sõltuvust ei ole valitud!"
+msgstr "Ühtegi sõltuvust ei ole valitud!"
 
 #: js/messages.php:335 libraries/insert_edit.lib.php:1523
 #: libraries/server_variables.lib.php:157
@@ -8961,7 +8957,7 @@ msgstr ""
 #: libraries/normalization.lib.php:341 libraries/normalization.lib.php:726
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s' sõltuvused:"
 
 #: libraries/normalization.lib.php:352
 #, php-format
@@ -8992,7 +8988,7 @@ msgid "Error in processing!"
 msgstr "Töötlemisel esines viga!"
 
 #: libraries/normalization.lib.php:497
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above partial dependencies, in order to put the original table "
 #| "'%1$s' into Second normal form we need to create the following tables:"
@@ -9000,14 +8996,13 @@ msgid ""
 "As per above dependencies, in order to put the original table '%1$s' into "
 "Third normal form we need to create the following tables:"
 msgstr ""
-"Vastavalt ülaltoodud osalistele sõltuvustele peame originaaltabeli '%1$s' "
-"viimiseks teisele normaalkujule looma järgmised tabelid:"
+"Vastavalt ülaltoodud sõltuvustele peame originaaltabeli '%1$s' viimiseks "
+"kolmandale normaalkujule looma järgmised tabelid:"
 
 #: libraries/normalization.lib.php:544
-#, fuzzy
 #| msgid "The first step of normalization is complete for table '%s'."
 msgid "The third step of normalization is complete."
-msgstr "Tabeli \"%s\" normaliseerimise esimene samm on lõpetatud."
+msgstr "Tabeli \"%s\" normaliseerimise kolmas samm on lõpetatud."
 
 #: libraries/normalization.lib.php:638
 #, php-format
@@ -9015,19 +9010,16 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Valitud korduv grupp teisaldati tabelisse \"%s\""
 
 #: libraries/normalization.lib.php:685
-#, fuzzy
 #| msgid "Step 1."
 msgid "Step 3."
-msgstr "Samm 1."
+msgstr "Samm 3."
 
 #: libraries/normalization.lib.php:685
-#, fuzzy
 #| msgid "Find partial dependencies"
 msgid "Find transitive dependencies"
-msgstr "Lisa osalised sõltuvused"
+msgstr "Leia transitiivsed sõltuvused"
 
 #: libraries/normalization.lib.php:692
-#, fuzzy
 #| msgid ""
 #| "For each of the column below, please select the <b>minimal set</b> of "
 #| "columns among given set whose values combined together are sufficient to "
@@ -9039,10 +9031,11 @@ msgid ""
 "dependency, in that case you don't have to select any."
 msgstr ""
 "Palun vali alljärgnevatest veergudest <b>vähim arv</b> veerge, mille "
-"väärtused kombineeritult on piisavad, et määrata veeru väärtus."
+"väärtused kombineeritult on piisavad, et määrata veeru väärtus.<br> Märkus: "
+"veerul võib transitiivne sõltuvus puududa, sellisel juhul ei pea sa valima "
+"mitte midagi."
 
 #: libraries/normalization.lib.php:739
-#, fuzzy
 #| msgid ""
 #| "No partial dependencies possible as the primary key ( %1$s ) has just one "
 #| "column."
@@ -9050,14 +9043,13 @@ msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
-"Osalised sõltuvused ei ole võimalikud, sest primaarvõti ( %1$s ) sisaldab "
-"ainult ühe veeru."
+"Transitiivsed sõltuvused ei ole võimalikud, sest tabelis ei ole mitte ühtegi "
+"mitte primaarvõtme veergu"
 
 #: libraries/normalization.lib.php:743
-#, fuzzy
 #| msgid "Table is already in second normal form"
 msgid "Table is already in Third normal form!"
-msgstr "Tabel on juba teisel normaalkujul"
+msgstr "Tabel on juba kolmandal normaalkujul!"
 
 #: libraries/normalization.lib.php:766
 msgid "Improve table structure (Normalization):"
