@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - bug #4501 [security] XSS in table browse page
 - bug #4502 [security] Self-XSS in enum value editor
 - bug #4503 [security] Self-XSSes in monitor
+- bug #4504 [security] Self-XSS in query charts
 
 4.0.10.1 (2014-07-17)
 - bug #4488 [security] XSS injection due to unescaped table name (triggers)
