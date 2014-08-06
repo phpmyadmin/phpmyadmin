@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-06 20:47+0200\n"
+"PO-Revision-Date: 2014-08-06 20:49+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2629,7 +2629,7 @@ msgstr "'%s' விதிக்கான தேர்வாராய்தல்
 #: libraries/Advisor.class.php:224
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
+msgstr "'%s' விதிக்கான சரம் சரியமைத்தல் தோல்வியுற்றது."
 
 #: libraries/Advisor.class.php:396
 #, php-format
