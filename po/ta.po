@@ -2642,7 +2642,7 @@ msgstr ""
 #: libraries/Advisor.class.php:415
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr ""
+msgstr "%1$sம் வரியில் செல்லுபடியாகாத விதி வரையறை உள்ளது."
 
 #: libraries/Advisor.class.php:423
 #, php-format
