@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-08-08 09:05+0200\n"
+"PO-Revision-Date: 2014-08-08 09:42+0200\n"
 "Last-Translator: Chirayu Chiripal <chirayu.chiripal@gmail.com>\n"
 "Language-Team: Hindi <https://l10n.cihar.com/projects/phpmyadmin/4-2/hi/>\n"
 "Language: hi\n"
@@ -3056,7 +3056,7 @@ msgstr "टिप्पणी"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "प्राथमिक कुंजी गिरा दी गयी है"
+msgstr "प्राथमिक कुंजी गिरा दी गयी है ।"
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -4148,7 +4148,7 @@ msgstr "साझा"
 
 #: libraries/browse_foreigners.lib.php:43
 msgid "Search:"
-msgstr "खोज करे"
+msgstr "खोज करे:"
 
 #: libraries/browse_foreigners.lib.php:69
 #: libraries/browse_foreigners.lib.php:71
@@ -4231,7 +4231,7 @@ msgstr ""
 #: libraries/common.inc.php:592
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr "%1$s से मूलभूत विन्यास लोड नहीं की जा सकी।"
+msgstr "%1$s से मूलभूत विन्यास लोड नहीं की जा सकी ।"
 
 #: libraries/common.inc.php:599
 #, fuzzy
@@ -7322,7 +7322,7 @@ msgstr "काँलम की संख्या"
 
 #: libraries/display_export.inc.php:36
 msgid "Could not load export plugins, please check your installation!"
-msgstr "निर्यात plugins लोड नहीं कर सका, अपने अधिष्ठापन को जांचें"
+msgstr "निर्यात plugins लोड नहीं कर सका, अपने अधिष्ठापन को जांचें!"
 
 #: libraries/display_export.lib.php:165
 msgid "Exporting databases from the current server"
@@ -7340,7 +7340,7 @@ msgstr "\"%s\" डेटाबेस से रो निर्यात"
 
 #: libraries/display_export.lib.php:198
 msgid "Export Method:"
-msgstr "निर्यात विधि"
+msgstr "निर्यात विधि:"
 
 #: libraries/display_export.lib.php:208
 msgid "Quick - display only the minimal options"
@@ -7352,7 +7352,7 @@ msgstr "कस्टम - कॉन्फ़िगर करने के लि
 
 #: libraries/display_export.lib.php:242
 msgid "Database(s):"
-msgstr "डाटाबेस(s)"
+msgstr "डाटाबेस(s):"
 
 #: libraries/display_export.lib.php:244
 msgid "Table(s):"
@@ -7361,7 +7361,7 @@ msgstr "टेबल(s) :"
 #: libraries/display_export.lib.php:264 libraries/display_import.lib.php:332
 #: libraries/plugins/export/ExportCodegen.class.php:107
 msgid "Format:"
-msgstr "प्रारूप"
+msgstr "प्रारूप:"
 
 #: libraries/display_export.lib.php:269
 msgid "Format-specific options:"
@@ -7375,11 +7375,11 @@ msgstr ""
 
 #: libraries/display_export.lib.php:283 libraries/display_import.lib.php:349
 msgid "Encoding Conversion:"
-msgstr "एन्कोडिंग रूपांतरण"
+msgstr "एन्कोडिंग रूपांतरण:"
 
 #: libraries/display_export.lib.php:319 libraries/sql.lib.php:456
 msgid "Rows:"
-msgstr "रोयाँ"
+msgstr "पंक्तियाँ:"
 
 #: libraries/display_export.lib.php:327
 msgid "Dump some row(s)"
@@ -7387,7 +7387,7 @@ msgstr "कुछ रो डंप"
 
 #: libraries/display_export.lib.php:342
 msgid "Row to begin at:"
-msgstr "रो में शुरू करने के लिए"
+msgstr "पंक्ति पर शुरू करने के लिए:"
 
 #: libraries/display_export.lib.php:359
 msgid "Dump all rows"
@@ -7395,7 +7395,7 @@ msgstr "सभी रोयों को डंप"
 
 #: libraries/display_export.lib.php:375 libraries/display_export.lib.php:634
 msgid "Output:"
-msgstr "उत्पादन"
+msgstr "उत्पादन:"
 
 #: libraries/display_export.lib.php:384 libraries/display_export.lib.php:419
 #, php-format
@@ -7404,7 +7404,7 @@ msgstr "सर्वर पर <b>%s</b>निर्देशिका में
 
 #: libraries/display_export.lib.php:449
 msgid "File name template:"
-msgstr "फ़ाइल नाम टेम्पलेट"
+msgstr "फ़ाइल नाम टेम्पलेट:"
 
 #: libraries/display_export.lib.php:451
 msgid "@SERVER@ will become the server name"
@@ -7433,11 +7433,11 @@ msgstr "भविष्य के निर्यात के लिए इस 
 #: libraries/display_export.lib.php:533 libraries/display_import.lib.php:179
 #: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:504
 msgid "Character set of the file:"
-msgstr "फ़ाइल का चरित्र सेट"
+msgstr "फ़ाइल का चरित्र सेट:"
 
 #: libraries/display_export.lib.php:577
 msgid "Compression:"
-msgstr "संपीड़न"
+msgstr "संपीड़न:"
 
 #: libraries/display_export.lib.php:585
 msgid "zipped"
@@ -7517,7 +7517,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:222
 msgid "File to Import:"
-msgstr "आयात करने के लिए फ़ाइल"
+msgstr "आयात करने के लिए फ़ाइल:"
 
 #: libraries/display_import.lib.php:244
 msgid "File uploads are not allowed on this server."
@@ -7525,7 +7525,7 @@ msgstr "इस सर्वर पर फाइल अपलोड की अन
 
 #: libraries/display_import.lib.php:268
 msgid "Partial Import:"
-msgstr "आंशिक आयात"
+msgstr "आंशिक आयात:"
 
 #: libraries/display_import.lib.php:275
 #, php-format
@@ -7539,8 +7539,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"यदि स्क्रिप्ट पता लगाए की वो PHP मध्यांतर सीमा के करीब है तब एक रुकावट के आयात की "
-"अनुमति दें. यह बड़ी फाइल के आयात के लिए अच्छा है लेकिन, लेकिन यह लेनदेन तोड़ सकता है।"
+"यदि स्क्रिप्ट पता लगाए की वो PHP मध्यांतर सीमा के करीब है तब आयात की रुकावट "
+"की अनुमति दें. <i>(यह बड़ी फाइल के आयात के लिए अच्छा है लेकिन यह लेनदेन भंग "
+"कर सकता है ।)</i>"
 
 #: libraries/display_import.lib.php:299
 msgid ""
@@ -7550,7 +7551,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:338
 msgid "Format-Specific Options:"
-msgstr "प्रारूप निर्दिष्ट विकल्पों"
+msgstr "प्रारूप निर्दिष्ट विकल्प:"
 
 #: libraries/display_import.lib.php:446
 msgid ""
@@ -8601,7 +8602,7 @@ msgstr "टेबल का नाम बदलें"
 
 #: libraries/operations.lib.php:799
 msgid "Table comments"
-msgstr "टेबल टिप्पणी:"
+msgstr "टेबल की टिप्पणी:"
 
 #: libraries/operations.lib.php:808 libraries/server_engines.lib.php:49
 msgid "Storage Engine"
@@ -8643,7 +8644,7 @@ msgstr "टेबल को अनुकूलित करें"
 #: libraries/operations.lib.php:1195
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "टेबल %s को flush किया"
+msgstr "टेबल %s को ताज़ा किया गया ।"
 
 #: libraries/operations.lib.php:1202
 msgid "Flush the table (FLUSH)"
@@ -8696,7 +8697,7 @@ msgstr "विभाजन हटायें"
 
 #: libraries/operations.lib.php:1365
 msgid "Check referential integrity:"
-msgstr "Referential अखंडता की जाँच करें"
+msgstr "सम्बन्ध की अखंडता की जाँच करें:"
 
 #: libraries/plugin_interface.lib.php:516
 msgid "This format has no options"
@@ -8772,7 +8773,8 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:266
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr "पासवर्ड के बिना लॉग इन विन्यास से मना किया गया है (AllowNoPassword देखें)."
+msgstr ""
+"पासवर्ड के बिना लॉग इन विन्यास से मना किया गया है (AllowNoPassword देखें)"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
 #: libraries/plugins/auth/AuthenticationSignon.class.php:273
@@ -8808,11 +8810,11 @@ msgstr "%s फाइल में कोई भी प्रमुख आईड�
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:195
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
 msgid "Hardware authentication failed!"
-msgstr "हार्डवेयर प्रमाणीकरण असफल"
+msgstr "हार्डवेयर प्रमाणीकरण असफल!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:203
 msgid "No valid authentication key plugged"
-msgstr "कोई वैध प्रमाणीकरण कुंजी नहीं पाई गई।"
+msgstr "कोई वैध प्रमाणीकरण कुंजी नहीं पाई गई"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:236
 msgid "Authenticating…"
