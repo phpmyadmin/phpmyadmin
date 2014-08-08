@@ -585,12 +585,12 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  * @param integer $tabindex              tab index
  * @param integer $tabindex_for_value    offset for the values tabindex
  * @param integer $idindex               id index
- * @param array   $data                  description of the column field
+ * @param string  $data                  description of the column field
  * @param string  $special_chars         special characters
  * @param array   $foreignData           data about the foreign keys
  * @param boolean $odd_row               whether row is odd
  * @param array   $paramTableDbArray     array containing $table and $db
- * @param array   $rownumber             the row number
+ * @param integer $rownumber             the row number
  * @param array   $titles                An HTML IMG tag for a particular icon from
  *                                       a theme, which may be an actual file or
  *                                       an icon from a sprite
@@ -711,9 +711,9 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
- * @param array   $data                 data to edit
+ * @param string  $data                 data to edit
  * @param array   $paramTableDbArray    array containing $table and $db
- * @param array   $rownumber            the row number
+ * @param integer $rownumber            the row number
  * @param array   $titles               An HTML IMG tag for a particular icon from
  *                                      a theme, which may be an actual file or
  *                                      an icon from a sprite
@@ -761,7 +761,7 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
- * @param array   $data                 data to edit
+ * @param string  $data                 data to edit
  * @param array   $foreignData          data about the foreign keys
  *
  * @return string                       an html snippet
@@ -969,7 +969,7 @@ function PMA_getDropDownDependingOnLength(
  * @param array   $column               description of column in given table
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
- * @param array   $data                 data to edit
+ * @param string  $data                 data to edit
  * @param array   $column_enum_values   $column['values']
  *
  * @return string                       an html snippet
@@ -1016,7 +1016,7 @@ function PMA_getRadioButtonDependingOnLength(
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
- * @param array   $data                 description of the column field
+ * @param string  $data                 description of the column field
  *
  * @return string                       an html snippet
  */
@@ -1079,7 +1079,7 @@ function PMA_getColumnSetValueAndSelectSize($column, $extracted_columnspec)
  * Get HTML for binary and blob column
  *
  * @param array   $column                description of column in given table
- * @param array   $data                  data to edit
+ * @param string  $data                  data to edit
  * @param string  $special_chars         special characters
  * @param integer $biggest_max_file_size biggest max file size for uploading
  * @param string  $backup_field          hidden input field
@@ -1674,7 +1674,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
     $special_chars_encoded = '';
     $data = null;
     // (we are editing)
-    if (is_null($current_row[$column['Field']])) {
+    if (!isset($current_row[$column['Field']])) {
         $real_null_value = true;
         $current_row[$column['Field']] = '';
         $special_chars = '';
@@ -2305,21 +2305,21 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
 /**
  * Get the current column value in the form for different data types
  *
- * @param string  $possibly_uploaded_val        uploaded file content
- * @param string  $key                          an md5 of the column name
- * @param array   $multi_edit_columns_type      array of multi edit column types
- * @param string  $current_value                current column value in the form
- * @param array   $multi_edit_auto_increment    multi edit auto increment
- * @param string  $rownumber                    index of where clause array
- * @param array   $multi_edit_columns_name      multi edit column names array
- * @param array   $multi_edit_columns_null      multi edit columns null array
- * @param array   $multi_edit_columns_null_prev multi edit columns previous null
- * @param boolean $is_insert                    whether insert or not
- * @param boolean $using_key                    whether editing or new row
- * @param array   $where_clause                 where clauses
- * @param string  $table                        table name
+ * @param string|false $possibly_uploaded_val        uploaded file content
+ * @param string       $key                          an md5 of the column name
+ * @param array        $multi_edit_columns_type      array of multi edit column types
+ * @param string       $current_value                current column value in the form
+ * @param array        $multi_edit_auto_increment    multi edit auto increment
+ * @param integer      $rownumber                    index of where clause array
+ * @param array        $multi_edit_columns_name      multi edit column names array
+ * @param array        $multi_edit_columns_null      multi edit columns null array
+ * @param array        $multi_edit_columns_null_prev multi edit columns previous null
+ * @param boolean      $is_insert                    whether insert or not
+ * @param boolean      $using_key                    whether editing or new row
+ * @param string       $where_clause                 where clause
+ * @param string       $table                        table name
  *
- * @return string $current_value                current column value in the form
+ * @return string $current_value  current column value in the form
  */
 function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
     $multi_edit_columns_type, $current_value, $multi_edit_auto_increment,
@@ -2329,7 +2329,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
     // Fetch the current values of a row to use in case we have a protected field
     if ($is_insert
         && $using_key && isset($multi_edit_columns_type)
-        && is_array($multi_edit_columns_type) && isset($where_clause)
+        && is_array($multi_edit_columns_type) && !empty($where_clause)
     ) {
         $protected_row = $GLOBALS['dbi']->fetchSingleRow(
             'SELECT * FROM ' . PMA_Util::backquote($table)
@@ -2732,7 +2732,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
         );
     }
     $as_is = false;
-    if (!empty($repopulate) && isset($current_row)) {
+    if (!empty($repopulate) && !empty($current_row)) {
         $current_row[$column['Field']] = $repopulate[$column['Field_md5']];
         $as_is = true;
     }
@@ -2779,7 +2779,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
     // Prepares the field value
     $real_null_value = false;
     $special_chars_encoded = '';
-    if (isset($current_row)) {
+    if (!empty($current_row)) {
         // (we are editing)
         list(
             $real_null_value, $special_chars_encoded, $special_chars,
