@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-06-26 20:47+0200\n"
-"Last-Translator: Dhananjay Nakrani <dhananjaynakrani@gmail.com>\n"
-"Language-Team: Hindi <https://l10n.cihar.com/projects/phpmyadmin/master/hi/"
-">\n"
+"PO-Revision-Date: 2014-08-08 09:42+0200\n"
+"Last-Translator: Chirayu Chiripal <chirayu.chiripal@gmail.com>\n"
+"Language-Team: Hindi <https://l10n.cihar.com/projects/phpmyadmin/master/hi/>"
+"\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hi\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -247,7 +247,7 @@ msgstr "डेटाबेस का नाम खाली है!"
 #: db_operations.php:131
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "डेटाबेस  %1$s का नाम बदल कर %2$s रखा गया है"
+msgstr "डेटाबेस %1$s का नाम बदल कर %2$s रखा गया है ।"
 
 #: db_operations.php:137
 #, php-format
@@ -334,7 +334,7 @@ msgstr "%s दृश्य निर्माता %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:100
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 msgid "Access denied!"
-msgstr "पहुँच निषेधित"
+msgstr "प्रवेश निषेध!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -3677,7 +3677,7 @@ msgstr "टिप्पणी"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "प्राथमिक कुंजी गिरा दी गयी है"
+msgstr "प्राथमिक कुंजी गिरा दी गयी है ।"
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -4768,7 +4768,7 @@ msgstr "पिछली जाँच"
 
 #: libraries/browse_foreigners.lib.php:48
 msgid "Search:"
-msgstr "खोज करे"
+msgstr "खोज करे:"
 
 #: libraries/browse_foreigners.lib.php:72
 #: libraries/browse_foreigners.lib.php:74
@@ -4937,7 +4937,7 @@ msgstr ""
 #: libraries/common.inc.php:592
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr "%1$s से मूलभूत विन्यास लोड नहीं की जा सकी।"
+msgstr "%1$s से मूलभूत विन्यास लोड नहीं की जा सकी ।"
 
 #: libraries/common.inc.php:599
 #, fuzzy
@@ -8068,7 +8068,7 @@ msgstr "काँलम की संख्या"
 
 #: libraries/display_export.inc.php:36
 msgid "Could not load export plugins, please check your installation!"
-msgstr "निर्यात plugins लोड नहीं कर सका, अपने अधिष्ठापन को जांचें"
+msgstr "निर्यात plugins लोड नहीं कर सका, अपने अधिष्ठापन को जांचें!"
 
 #: libraries/display_export.lib.php:166
 msgid "Exporting databases from the current server"
@@ -8086,7 +8086,7 @@ msgstr "\"%s\" डेटाबेस से रो निर्यात"
 
 #: libraries/display_export.lib.php:199
 msgid "Export Method:"
-msgstr "निर्यात विधि"
+msgstr "निर्यात विधि:"
 
 #: libraries/display_export.lib.php:209
 msgid "Quick - display only the minimal options"
@@ -8098,7 +8098,7 @@ msgstr "कस्टम - कॉन्फ़िगर करने के लि
 
 #: libraries/display_export.lib.php:243
 msgid "Database(s):"
-msgstr "डाटाबेस(s)"
+msgstr "डाटाबेस(s):"
 
 #: libraries/display_export.lib.php:245
 msgid "Table(s):"
@@ -8107,7 +8107,7 @@ msgstr "टेबल(s) :"
 #: libraries/display_export.lib.php:265 libraries/display_import.lib.php:334
 #: libraries/plugins/export/ExportCodegen.class.php:107
 msgid "Format:"
-msgstr "प्रारूप"
+msgstr "प्रारूप:"
 
 #: libraries/display_export.lib.php:270
 msgid "Format-specific options:"
@@ -8121,11 +8121,11 @@ msgstr ""
 
 #: libraries/display_export.lib.php:284 libraries/display_import.lib.php:351
 msgid "Encoding Conversion:"
-msgstr "एन्कोडिंग रूपांतरण"
+msgstr "एन्कोडिंग रूपांतरण:"
 
 #: libraries/display_export.lib.php:320 libraries/sql.lib.php:457
 msgid "Rows:"
-msgstr "रोयाँ"
+msgstr "पंक्तियाँ:"
 
 #: libraries/display_export.lib.php:328
 msgid "Dump some row(s)"
@@ -8133,7 +8133,7 @@ msgstr "कुछ रो डंप"
 
 #: libraries/display_export.lib.php:343
 msgid "Row to begin at:"
-msgstr "रो में शुरू करने के लिए"
+msgstr "पंक्ति पर शुरू करने के लिए:"
 
 #: libraries/display_export.lib.php:360
 msgid "Dump all rows"
@@ -8141,7 +8141,7 @@ msgstr "सभी रोयों को डंप"
 
 #: libraries/display_export.lib.php:376 libraries/display_export.lib.php:635
 msgid "Output:"
-msgstr "उत्पादन"
+msgstr "उत्पादन:"
 
 #: libraries/display_export.lib.php:385 libraries/display_export.lib.php:420
 #, php-format
@@ -8150,7 +8150,7 @@ msgstr "सर्वर पर <b>%s</b>निर्देशिका में
 
 #: libraries/display_export.lib.php:450
 msgid "File name template:"
-msgstr "फ़ाइल नाम टेम्पलेट"
+msgstr "फ़ाइल नाम टेम्पलेट:"
 
 #: libraries/display_export.lib.php:452
 msgid "@SERVER@ will become the server name"
@@ -8179,11 +8179,11 @@ msgstr "भविष्य के निर्यात के लिए इस 
 #: libraries/display_export.lib.php:534 libraries/display_import.lib.php:179
 #: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:511
 msgid "Character set of the file:"
-msgstr "फ़ाइल का चरित्र सेट"
+msgstr "फ़ाइल का चरित्र सेट:"
 
 #: libraries/display_export.lib.php:578
 msgid "Compression:"
-msgstr "संपीड़न"
+msgstr "संपीड़न:"
 
 #: libraries/display_export.lib.php:586
 msgid "zipped"
@@ -8303,7 +8303,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:222
 msgid "File to Import:"
-msgstr "आयात करने के लिए फ़ाइल"
+msgstr "आयात करने के लिए फ़ाइल:"
 
 #: libraries/display_import.lib.php:232 libraries/display_import.lib.php:243
 msgid "You may also drag and drop a file on any page."
@@ -8315,7 +8315,7 @@ msgstr "इस सर्वर पर फाइल अपलोड की अन
 
 #: libraries/display_import.lib.php:270
 msgid "Partial Import:"
-msgstr "आंशिक आयात"
+msgstr "आंशिक आयात:"
 
 #: libraries/display_import.lib.php:277
 #, php-format
@@ -8329,8 +8329,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"यदि स्क्रिप्ट पता लगाए की वो PHP मध्यांतर सीमा के करीब है तब एक रुकावट के आयात की "
-"अनुमति दें. यह बड़ी फाइल के आयात के लिए अच्छा है लेकिन, लेकिन यह लेनदेन तोड़ सकता है।"
+"यदि स्क्रिप्ट पता लगाए की वो PHP मध्यांतर सीमा के करीब है तब आयात की रुकावट "
+"की अनुमति दें. <i>(यह बड़ी फाइल के आयात के लिए अच्छा है लेकिन यह लेनदेन भंग "
+"कर सकता है ।)</i>"
 
 #: libraries/display_import.lib.php:301
 msgid ""
@@ -8340,7 +8341,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:340
 msgid "Format-Specific Options:"
-msgstr "प्रारूप निर्दिष्ट विकल्पों"
+msgstr "प्रारूप निर्दिष्ट विकल्प:"
 
 #: libraries/display_import.lib.php:448
 msgid ""
@@ -9685,7 +9686,7 @@ msgstr "टेबल का नाम बदलें"
 
 #: libraries/operations.lib.php:776
 msgid "Table comments"
-msgstr "टेबल टिप्पणी:"
+msgstr "टेबल की टिप्पणी:"
 
 #: libraries/operations.lib.php:785 libraries/server_engines.lib.php:49
 msgid "Storage Engine"
@@ -9727,7 +9728,7 @@ msgstr "टेबल को अनुकूलित करें"
 #: libraries/operations.lib.php:1172
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "टेबल %s को flush किया"
+msgstr "टेबल %s को ताज़ा किया गया ।"
 
 #: libraries/operations.lib.php:1179
 msgid "Flush the table (FLUSH)"
@@ -9780,7 +9781,7 @@ msgstr "विभाजन हटायें"
 
 #: libraries/operations.lib.php:1342
 msgid "Check referential integrity:"
-msgstr "Referential अखंडता की जाँच करें"
+msgstr "सम्बन्ध की अखंडता की जाँच करें:"
 
 #: libraries/plugin_interface.lib.php:515
 msgid "This format has no options"
@@ -9789,7 +9790,8 @@ msgstr "इस प्रारूप के कोई विकल्प नह�
 #: libraries/plugins/AuthenticationPlugin.class.php:57
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr "पासवर्ड के बिना लॉग इन विन्यास से मना किया गया है (AllowNoPassword देखें)."
+msgstr ""
+"पासवर्ड के बिना लॉग इन विन्यास से मना किया गया है (AllowNoPassword देखें)"
 
 #: libraries/plugins/AuthenticationPlugin.class.php:64
 #, php-format
@@ -9885,11 +9887,11 @@ msgstr "%s फाइल में कोई भी प्रमुख आईड�
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:195
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
 msgid "Hardware authentication failed!"
-msgstr "हार्डवेयर प्रमाणीकरण असफल"
+msgstr "हार्डवेयर प्रमाणीकरण असफल!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:203
 msgid "No valid authentication key plugged"
-msgstr "कोई वैध प्रमाणीकरण कुंजी नहीं पाई गई।"
+msgstr "कोई वैध प्रमाणीकरण कुंजी नहीं पाई गई"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:236
 msgid "Authenticating…"
