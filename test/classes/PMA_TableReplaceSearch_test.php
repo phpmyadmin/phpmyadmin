@@ -74,6 +74,7 @@ class PMA_TableReplaceSearchTest extends PHPUnit_Framework_TestCase
 
         $find = 'findValue';
         $replaceWith = 'replaceWithValue';
+        $useRegex = false;
         $charSet = 'charSetValue';
 
         $expectedQuery = "SELECT `column1`, REPLACE(`column1`, '" . $find . "', '"
@@ -95,7 +96,7 @@ class PMA_TableReplaceSearchTest extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(false));
         $GLOBALS['dbi'] = $dbi;
 
-        $ret = $this->_object->getReplacePreview(0, $find, $replaceWith, $charSet);
+        $ret = $this->_object->getReplacePreview(0, $find, $replaceWith, $useRegex, $charSet);
 
         // assert whether hidden values are properly set
         $this->assertContains(
@@ -141,6 +142,7 @@ class PMA_TableReplaceSearchTest extends PHPUnit_Framework_TestCase
 
         $find = 'findValue';
         $replaceWith = 'replaceWithValue';
+        $useRegex = false;
         $charSet = 'charSetValue';
 
         $expectedQuery = "UPDATE `dbName`.`tableName`"
@@ -153,7 +155,7 @@ class PMA_TableReplaceSearchTest extends PHPUnit_Framework_TestCase
             ->with($expectedQuery);
         $GLOBALS['dbi'] = $dbi;
 
-        $this->_object->replace(0, $find, $replaceWith, $charSet);
+        $this->_object->replace(0, $find, $replaceWith, $useRegex, $charSet);
     }
 }
 ?>

@@ -239,8 +239,9 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         $columnIndex = 0;
         $find = "Field";
         $replaceWith = "Column";
+        $useRegex = false;
         $charSet = "UTF-8";
-        $tableSearch->replace($columnIndex, $find, $replaceWith, $charSet);
+        $tableSearch->replace($columnIndex, $find, $replaceWith, $useRegex, $charSet);
 
         $sql_query = $GLOBALS['sql_query'];
         $result = "UPDATE `PMA`.`PMA_BookMark` SET `Field1` = "
@@ -300,12 +301,14 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         $columnIndex = 0;
         $find = "Field";
         $replaceWith = "Column";
+        $useRegex = false;
         $charSet = "UTF-8";
 
         $html = $tableSearch->getReplacePreview(
             $columnIndex,
             $find,
             $replaceWith,
+            $useRegex,
             $charSet
         );
 
