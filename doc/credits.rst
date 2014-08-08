@@ -374,6 +374,16 @@ Credits, in chronological order
 
   * Load/save query by example (database search bookmarks)
 
+* Smita Kumari (Google Summer of Code 2014)
+
+  * Central list of columns
+
+  * Improve table structure (normalization)
+
+* Ashutosh Dhundhara (Google Summer of Code 2014)
+
+  * Interface improvements
+
 
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version
