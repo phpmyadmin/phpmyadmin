@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-08-08 09:02+0200\n"
+"PO-Revision-Date: 2014-08-08 09:05+0200\n"
 "Last-Translator: Chirayu Chiripal <chirayu.chiripal@gmail.com>\n"
 "Language-Team: Hindi <https://l10n.cihar.com/projects/phpmyadmin/4-2/hi/>\n"
 "Language: hi\n"
@@ -308,7 +308,7 @@ msgstr "%s दृश्य निर्माता %s"
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
-msgstr "पहुँच निषेधित"
+msgstr "प्रवेश निषेध!"
 
 #: db_structure.php:72
 msgid "Favorite List is full!"
