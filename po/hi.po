@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-06-26 20:47+0200\n"
-"Last-Translator: Dhananjay Nakrani <dhananjaynakrani@gmail.com>\n"
+"PO-Revision-Date: 2014-08-08 09:02+0200\n"
+"Last-Translator: Chirayu Chiripal <chirayu.chiripal@gmail.com>\n"
 "Language-Team: Hindi <https://l10n.cihar.com/projects/phpmyadmin/4-2/hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
@@ -219,7 +219,7 @@ msgstr "डेटाबेस का नाम खाली है!"
 #: db_operations.php:130
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "डेटाबेस  %1$s का नाम बदल कर %2$s रखा गया है"
+msgstr "डेटाबेस %1$s का नाम बदल कर %2$s रखा गया है ।"
 
 #: db_operations.php:136
 #, php-format
