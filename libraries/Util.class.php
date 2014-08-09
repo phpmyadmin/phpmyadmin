@@ -4366,6 +4366,58 @@ class PMA_Util
         }
         return 'none';
     }
+
+    /**
+     * Renders a single link for the top of the navigation panel
+     *
+     * @param string  $link        The url for the link
+     * @param bool    $showText    Whether to show the text or to
+     *                             only use it for title attributes
+     * @param string  $text        The text to display and use for title attributes
+     * @param bool    $showIcon    Whether to show the icon
+     * @param string  $icon        The filename of the icon to show
+     * @param string  $linkId      Value to use for the ID attribute
+     * @param boolean $disableAjax Whether to disable ajax page loading for this link
+     * @param string  $linkTarget  The name of the target frame for the link
+     *
+     * @return string HTML code for one link
+     */
+    public static function getNavigationLink(
+        $link,
+        $showText,
+        $text,
+        $showIcon,
+        $icon,
+        $linkId = '',
+        $disableAjax = false,
+        $linkTarget = ''
+    ) {
+        $retval = '<a href="' . $link . '"';
+        if (! empty($linkId)) {
+            $retval .= ' id="' . $linkId . '"';
+        }
+        if (! empty($linkTarget)) {
+            $retval .= ' target="' . $linkTarget . '"';
+        }
+        if ($disableAjax) {
+            $retval .= ' class="disableAjax"';
+        }
+        $retval .= ' title="' . $text . '">';
+        if ($showIcon) {
+            $retval .= PMA_Util::getImage(
+                $icon,
+                $text
+            );
+        }
+        if ($showText) {
+            $retval .= $text;
+        }
+        $retval .= '</a>';
+        if ($showText) {
+            $retval .= '<br />';
+        }
+        return $retval;
+    }
 }
 
 ?>

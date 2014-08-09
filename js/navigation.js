@@ -59,6 +59,79 @@ $(function () {
     });
 
     /**
+     * Register event handler for click on the collapse all
+     * navigation icon at the top of the navigation tree
+     */
+    $(document).on('click', '#pma_navigation_collapse', function (event) {
+        event.preventDefault();
+        $('#pma_navigation_tree a.expander').each(function() {
+            var $icon = $(this).find('img');
+            if ($icon.is('.ic_b_minus')) {
+                $(this).click();
+            }
+        });
+    });
+
+    /**
+     * Register event handler to toggle
+     * the 'link with main panel' icon on mouseenter.
+     */
+    $(document).on('mouseenter', '#pma_navigation_sync', function (event) {
+        event.preventDefault();
+        var synced = $('#pma_navigation_tree').hasClass('synced');
+        var $img = $('#pma_navigation_sync').children('img');
+        if (synced) {
+            $img.removeClass('ic_s_link').addClass('ic_s_unlink');
+        } else {
+            $img.removeClass('ic_s_unlink').addClass('ic_s_link');
+        }
+    });
+
+    /**
+     * Register event handler to toggle
+     * the 'link with main panel' icon on mouseout.
+     */
+    $(document).on('mouseout', '#pma_navigation_sync', function (event) {
+        event.preventDefault();
+        var synced = $('#pma_navigation_tree').hasClass('synced');
+        var $img = $('#pma_navigation_sync').children('img');
+        if (synced) {
+            $img.removeClass('ic_s_unlink').addClass('ic_s_link');
+        } else {
+            $img.removeClass('ic_s_link').addClass('ic_s_unlink');
+        }
+    });
+
+    /**
+     * Register event handler to toggle
+     * the linking with main panel behavior
+     */
+    $(document).on('click', '#pma_navigation_sync', function (event) {
+        event.preventDefault();
+        var synced = $('#pma_navigation_tree').hasClass('synced');
+        var $img = $('#pma_navigation_sync').children('img');
+        if (synced) {
+            $img
+                .removeClass('ic_s_unlink')
+                .addClass('ic_s_link')
+                .attr('alt', PMA_messages.linkWithMain)
+                .attr('title', PMA_messages.linkWithMain);
+            $('#pma_navigation_tree')
+                .removeClass('synced')
+                .find('li.selected')
+                .removeClass('selected');
+        } else {
+            $img
+                .removeClass('ic_s_link')
+                .addClass('ic_s_unlink')
+                .attr('alt', PMA_messages.unlinkWithMain)
+                .attr('title', PMA_messages.unlinkWithMain);
+            $('#pma_navigation_tree').addClass('synced');
+            PMA_showCurrentNavigation();
+        }
+    });
+
+    /**
      * Bind all "fast filter" events
      */
     $('#pma_navigation_tree li.fast_filter span')
@@ -234,6 +307,10 @@ $(function () {
             }
         });
     });
+
+    if ($('#pma_navigation_tree').hasClass('synced')) {
+        PMA_showCurrentNavigation();
+    }
 
     // Add/Remove favorite table using Ajax.
     $(".favorite_table_anchor").live("click", function (event) {
@@ -690,7 +767,9 @@ function PMA_reloadNavigation(callback) {
     $.post(url, params, function (data) {
         if (data.success) {
             $('#pma_navigation_tree').html(data.message).children('div').show();
-            PMA_showCurrentNavigation();
+            if ($('#pma_navigation_tree').hasClass('synced')) {
+                PMA_showCurrentNavigation();
+            }
             // Fire the callback, if any
             if (typeof callback === 'function') {
                 callback.call();

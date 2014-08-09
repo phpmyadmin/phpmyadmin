@@ -866,6 +866,13 @@ $cfg['NavigationTreeTableSeparator'] = '__';
 $cfg['NavigationTreeTableLevel'] = 1;
 
 /**
+ * link with main panel by highlighting the current db/table
+ *
+ * @global boolean $cfg['NavigationLinkWithMainPanel']
+ */
+$cfg['NavigationLinkWithMainPanel'] = true;
+
+/**
  * display logo at top of navigation panel
  *
  * @global boolean $cfg['NavigationDisplayLogo']

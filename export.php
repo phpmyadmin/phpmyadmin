@@ -202,6 +202,7 @@ if (!defined('TESTSUITE')) {
     $save_filename = '';
     $file_handle = '';
     $err_url = '';
+    $filename = '';
 
     // Is it a quick or custom export?
     if ($_REQUEST['quick_or_custom'] == 'quick') {

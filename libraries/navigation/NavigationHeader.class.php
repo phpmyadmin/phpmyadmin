@@ -33,6 +33,9 @@ class PMA_NavigationHeader
             )
         );
         $class = ' class="list_container';
+        if ($GLOBALS['cfg']['NavigationLinkWithMainPanel']) {
+            $class .= ' synced';
+        }
         if ($GLOBALS['cfg']['NavigationTreePointerEnable']) {
             $class .= ' highlight';
         }
@@ -121,58 +124,6 @@ class PMA_NavigationHeader
     }
 
     /**
-     * Renders a single link for the top of the navigation panel
-     *
-     * @param string  $link        The url for the link
-     * @param bool    $showText    Whether to show the text or to
-     *                             only use it for title attributes
-     * @param string  $text        The text to display and use for title attributes
-     * @param bool    $showIcon    Whether to show the icon
-     * @param string  $icon        The filename of the icon to show
-     * @param string  $linkId      Value to use for the ID attribute
-     * @param boolean $disableAjax Whether to disable ajax page loading for this link
-     * @param string  $linkTarget  The name of the target frame for the link
-     *
-     * @return string HTML code for one link
-     */
-    private function _getLink(
-        $link,
-        $showText,
-        $text,
-        $showIcon,
-        $icon,
-        $linkId = '',
-        $disableAjax = false,
-        $linkTarget = ''
-    ) {
-        $retval = '<a href="' . $link . '"';
-        if (! empty($linkId)) {
-            $retval .= ' id="' . $linkId . '"';
-        }
-        if (! empty($linkTarget)) {
-            $retval .= ' target="' . $linkTarget . '"';
-        }
-        if ($disableAjax) {
-            $retval .= ' class="disableAjax"';
-        }
-        $retval .= ' title="' . $text . '">';
-        if ($showIcon) {
-            $retval .= PMA_Util::getImage(
-                $icon,
-                $text
-            );
-        }
-        if ($showText) {
-            $retval .= $text;
-        }
-        $retval .= '</a>';
-        if ($showText) {
-            $retval .= '<br />';
-        }
-        return $retval;
-    }
-
-    /**
      * Creates the code for displaying the links
      * at the top of the navigation panel
      *
@@ -186,7 +137,7 @@ class PMA_NavigationHeader
 
         $retval  = '<!-- LINKS START -->';
         $retval .= '<div id="navipanellinks">';
-        $retval .= $this->_getLink(
+        $retval .= PMA_Util::getNavigationLink(
             'index.php?' . PMA_URL_getCommon(),
             $showText,
             __('Home'),
@@ -199,7 +150,7 @@ class PMA_NavigationHeader
             if ($GLOBALS['cfg']['Server']['auth_type'] != 'config') {
                 $link  = 'index.php?' . $GLOBALS['url_query'];
                 $link .= '&amp;old_usr=' . urlencode($GLOBALS['PHP_AUTH_USER']);
-                $retval .= $this->_getLink(
+                $retval .= PMA_Util::getNavigationLink(
                     $link,
                     $showText,
                     __('Log out'),
@@ -212,7 +163,7 @@ class PMA_NavigationHeader
             $link  = 'querywindow.php?';
             $link .= PMA_URL_getCommon($GLOBALS['db'], $GLOBALS['table']);
             $link .= '&amp;no_js=true';
-            $retval .= $this->_getLink(
+            $retval .= PMA_Util::getNavigationLink(
                 $link,
                 $showText,
                 __('Query window'),
@@ -222,7 +173,7 @@ class PMA_NavigationHeader
                 true
             );
         }
-        $retval .= $this->_getLink(
+        $retval .= PMA_Util::getNavigationLink(
             PMA_Util::getDocuLink('index'),
             $showText,
             __('phpMyAdmin documentation'),
@@ -246,7 +197,7 @@ class PMA_NavigationHeader
             $retval .= $link;
             $retval .= '<br />';
         }
-        $retval .= $this->_getLink(
+        $retval .= PMA_Util::getNavigationLink(
             '#',
             $showText,
             __('Reload navigation panel'),

@@ -676,7 +676,12 @@ class PMA_NavigationTree
         $this->_buildPath();
         $retval  = $this->_quickWarp();
         $retval .= '<div class="clearfloat"></div>';
+        $retval .= '<ul>';
         $retval .= $this->_fastFilterHtml($this->_tree);
+        if (! $GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
+            $retval .= $this->_controls();
+        }
+        $retval .= '</ul>';
         $retval .= $this->_getPageSelector($this->_tree);
         $this->groupTree();
         $retval .= "<div id='pma_navigation_tree_content'><ul>";
@@ -1048,7 +1053,6 @@ class PMA_NavigationTree
             $url_params = array(
                 'pos' => 0
             );
-            $retval .= '<ul>';
             $retval .= '<li class="fast_filter db_fast_filter">';
             $retval .= '<form class="ajax fast_filter">';
             $retval .= PMA_getHiddenFields($url_params);
@@ -1067,7 +1071,6 @@ class PMA_NavigationTree
             $retval .= '<span title="' . __('Clear fast filter') . '">X</span>';
             $retval .= "</form>";
             $retval .= "</li>";
-            $retval .= "</ul>";
         } else if (($node->type == Node::CONTAINER
             && (   $node->real_name == 'tables'
             || $node->real_name == 'views'
@@ -1103,6 +1106,49 @@ class PMA_NavigationTree
             $retval .= "</form>";
             $retval .= "</li>";
         }
+        return $retval;
+    }
+
+    /**
+     * Creates the code for displaying the controls
+     * at the top of the navigation tree
+     *
+     * @return string HTML code for the controls
+     */
+    private function _controls()
+    {
+        // always iconic
+        $showIcon = true;
+        $showText = false;
+
+        $retval  = '<!-- CONTROLS START -->';
+        $retval .= '<li id="navigation_controls_outer">';
+        $retval .= '<div id="navigation_controls">';
+        $retval .= PMA_Util::getNavigationLink(
+            '#',
+            $showText,
+            __('Collapse all'),
+            $showIcon,
+            's_collapseall.png',
+            'pma_navigation_collapse'
+        );
+        $syncImage = 's_unlink.png';
+        $title = __('Link with main panel');
+        if ($GLOBALS['cfg']['NavigationLinkWithMainPanel']) {
+            $syncImage = 's_link.png';
+            $title = __('Unlink from main panel');
+        }
+        $retval .= PMA_Util::getNavigationLink(
+            '#',
+            $showText,
+            $title,
+            $showIcon,
+            $syncImage,
+            'pma_navigation_sync'
+        );
+        $retval .= '</div>';
+        $retval .= '</li>';
+        $retval .= '<!-- CONTROLS ENDS -->';
         return $retval;
     }
 

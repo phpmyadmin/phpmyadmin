@@ -326,6 +326,10 @@ $js_messages['strMoveRepeatingGroup'] = '<ol><b>' . __('The following actions wi
     . '<li>' . __('Create the following table') . '</li>';
 $js_messages['strNewTablePlaceholder'] = 'Enter new table name';
 $js_messages['strNewColumnPlaceholder'] = 'Enter column name';
+$js_messages['str3NFNormalization'] = __('Third step of normalization (3NF)');
+$js_messages['strConfirmTd'] = __('Confirm transitive dependencies');
+$js_messages['strSelectedTd'] = __('Selected dependencies are as follows:');
+$js_messages['strNoTdSelected'] = __('No dependencies selected!');
 
 /* For server_variables.js */
 $js_messages['strSave'] = __('Save');
@@ -458,6 +462,8 @@ $js_messages['strMore'] = __('More');
 $js_messages['strShowPanel'] = __('Show Panel');
 $js_messages['strHidePanel'] = __('Hide Panel');
 $js_messages['strUnhideNavItem'] = __('Show hidden navigation tree items.');
+$js_messages['linkWithMain'] = __('Link with main panel');
+$js_messages['unlinkWithMain'] = __('Unlink from main panel');
 
 /* microhistory */
 $js_messages['strInvalidPage'] = __('The requested page was not found in the history, it may have expired.');

@@ -18,7 +18,7 @@ require_once './libraries/Util.class.php';
 PMA_Util::checkParameters(array('db', 'table', 'action', 'num_fields'));
 
 /**
- * Initialize to avoid code execution path warnings 
+ * Initialize to avoid code execution path warnings
  */
 
 if (! isset($num_fields)) {

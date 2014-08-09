@@ -419,6 +419,8 @@ $strConfigMemoryLimit_desc = __(
     . '([kbd]0[/kbd] for no limit).'
 );
 $strConfigMemoryLimit_name = __('Memory limit');
+$strConfigNavigationLinkWithMainPanel_desc = __('Link with main panel by highlighting the current database or table.');
+$strConfigNavigationLinkWithMainPanel_name = __('Link with main panel');
 $strConfigNavigationDisplayLogo_desc = __('Show logo in navigation panel.');
 $strConfigNavigationDisplayLogo_name = __('Display logo');
 $strConfigNavigationLogoLink_desc

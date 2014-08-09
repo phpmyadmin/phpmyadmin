@@ -1530,6 +1530,7 @@ input[type=text].invalid_value,
 input[type=password].invalid_value,
 input[type=number].invalid_value,
 input[type=date].invalid_value,
+select.invalid_value,
 .invalid_value {
     background: #FFCCCC;
 }

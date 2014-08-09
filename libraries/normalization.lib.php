@@ -328,7 +328,7 @@ function PMA_getHtmlFor2NFstep1($db, $table)
                     . 'based on data in the table'
                 ) . '</a>';
             $subText = __(
-                'For each of the column below, '
+                'For each column below, '
                 . 'please select the <b>minimal set</b> of columns among given set '
                 . 'whose values combined together are sufficient'
                 . ' to determine the value of the column.'
@@ -337,8 +337,9 @@ function PMA_getHtmlFor2NFstep1($db, $table)
             foreach ($columns as $column) {
                 if (!in_array($column, $pk)) {
                     $cnt++;
-                    $extra .= "<b>'" . htmlspecialchars($column)
-                        . "' depends on:</b><br>";
+                    $extra .= "<b>" . sprintf(
+                        __('\'%1$s\' depends on:'), htmlspecialchars($column)
+                    ) . "</b><br>";
                     $extra .= '<form id="pk_' . $cnt . '" data-colname="'
                         . htmlspecialchars($column) . '" class="smallIndent">'
                         . $selectPkForm . '</form><br/><br/>';
@@ -376,7 +377,7 @@ function PMA_getHtmlForNewTables2NF($partialDependencies,$table)
             'As per above partial dependencies, in order to put the '
             . 'original table \'%1$s\' into Second normal form we need '
             . 'to create the following tables:'
-        ), $table
+        ), htmlspecialchars($table)
     ) . '</b></p>';
     $tableName = $table;
     $i=1;
@@ -467,6 +468,148 @@ function PMA_createNewTablesFor2NF($partialDependencies, $tablesName, $table, $d
 }
 
 /**
+ * build the html for showing the new tables to have in order
+ * to put given tables in 3NF
+ *
+ * @param array  $dependencies containing all the dependencies
+ * @param array  $tables       tables formed after 2NF and need to convert to 3NF
+ * @param string $db           current database
+ *
+ * @return array containing html and the list of new tables
+ */
+function PMA_getHtmlForNewTables3NF($dependencies, $tables, $db)
+{
+    $html = "";
+    $i=1;
+    $newTables = array();
+    foreach ($tables as $table=>$arrDependson) {
+        if (count(array_unique($arrDependson)) == 1) {
+            continue;
+        }
+        $primary = PMA_Index::getPrimary($table, $db);
+        $primarycols = $primary->getColumns();
+        $pk = array();
+        foreach ($primarycols as $col) {
+            $pk[] = $col->getName();
+        }
+        $html .= '<p><b>' . sprintf(
+            __(
+                'As per above dependencies, in order to put the '
+                . 'original table \'%1$s\' into Third normal form we need '
+                . 'to create the following tables:'
+            ), htmlspecialchars($table)
+        ) . '</b></p>';
+        $tableName = $table;
+        $columnList = array();
+        foreach ($arrDependson as $key) {
+            $dependents = $dependencies->$key;
+            if ($key == $table) {
+                $key = implode(', ', $pk);
+            }
+            $tmpTableCols =array_merge(explode(', ', $key), $dependents);
+            sort($tmpTableCols);
+            if (!in_array($tmpTableCols, $columnList)) {
+                $columnList[] = $tmpTableCols;
+                    $html .= '<p><input type="text" name="'
+                        . htmlspecialchars($tableName)
+                        . '" value="' . htmlspecialchars($tableName) . '"/>'
+                        . '( <u>' . htmlspecialchars($key) . '</u>'
+                        .  (count($dependents)>0?', ':'')
+                        . htmlspecialchars(implode(', ', $dependents)) . ' )';
+                    $newTables[$table][$tableName] = array(
+                        "pk"=>$key, "nonpk"=>implode(', ', $dependents)
+                    );
+                    $i++;
+                    $tableName = 'table' . $i;
+            }
+        }
+    }
+    return array('html'=>$html, 'newTables'=>$newTables);
+}
+
+/**
+ * create new tables or alter existing to get 3NF
+ *
+ * @param array  $newTables list of new tables to be created
+ * @param string $db        current database
+ *
+ * @return array
+ */
+function PMA_createNewTablesFor3NF($newTables, $db)
+{
+    $queries = array();
+    $dropCols = false;
+    $error = false;
+    $headText = '<h3>' .
+        __('The third step of normalization is complete.')
+        . '</h3>';
+    if (count((array)$newTables) == 0) {
+        return array(
+            'legendText'=>__('End of step'), 'headText'=>$headText,
+            'queryError'=>$error
+        );
+    }
+    $message = '';
+    $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+    foreach ($newTables as $originalTable=>$tablesList) {
+        foreach ($tablesList as $table=>$cols) {
+            if ($table != $originalTable) {
+                $quotedPk = implode(
+                    ', ', PMA_Util::backquote(explode(', ', $cols->pk))
+                );
+                $quotedNonpk = implode(
+                    ', ', PMA_Util::backquote(explode(', ', $cols->nonpk))
+                );
+                $queries[] = 'CREATE TABLE ' . PMA_Util::backquote($table)
+                    . ' SELECT DISTINCT ' . $quotedPk
+                    . ', ' . $quotedNonpk
+                    . ' FROM ' . PMA_Util::backquote($originalTable) . ';';
+                $queries[] = 'ALTER TABLE ' . PMA_Util::backquote($table)
+                    . ' ADD PRIMARY KEY(' . $quotedPk . ');';
+            } else {
+                $dropCols = $cols;
+            }
+        }
+        if ($dropCols) {
+            $columns = (array) $GLOBALS['dbi']->getColumnNames(
+                $db, $originalTable, $GLOBALS['userlink']
+            );
+            $colPresent = array_merge(
+                explode(', ', $dropCols->pk), explode(', ', $dropCols->nonpk)
+            );
+            $query = 'ALTER TABLE ' . PMA_Util::backquote($originalTable);
+            foreach ($columns as $col) {
+                if (!in_array($col, $colPresent)) {
+                    $query .= ' DROP ' . PMA_Util::backquote($col) . ',';
+                }
+            }
+            $query = trim($query, ', ');
+            $query .= ';';
+            $queries[] = $query;
+        } else {
+            $queries[] = 'DROP TABLE ' . PMA_Util::backquote($originalTable);
+        }
+        $dropCols = false;
+    }
+    foreach ($queries as $query) {
+        if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['userlink'])) {
+            $message = PMA_Message::error(__('Error in processing!'));
+            $message->addMessage('<br /><br />');
+            $message->addMessage(
+                PMA_Message::rawError(
+                    $GLOBALS['dbi']->getError($GLOBALS['userlink'])
+                )
+            );
+            $error = true;
+            break;
+        }
+    }
+    return array(
+        'legendText'=>__('End of step'), 'headText'=>$headText,
+        'queryError'=>$error, 'extra'=>$message
+    );
+}
+/**
  * move the repeating group of columns to a new table
  *
  * @param string $repeatingColumns comma separated list of repeating group columns
@@ -527,6 +670,83 @@ function PMA_moveRepeatingGroup(
     return array(
         'queryError'=>$error, 'message'=>$message
     );
+}
+
+/**
+ * build html for 3NF step 1 to find the transitive dependencies
+ *
+ * @param string $db     current database
+ * @param array  $tables tables formed after 2NF and need to process for 3NF
+ *
+ * @return string
+ */
+function PMA_getHtmlFor3NFstep1($db, $tables)
+{
+    $legendText = __('Step 3.') . "1 " . __('Find transitive dependencies');
+    $extra = "";
+    $headText = __(
+        'Please answer the following question(s) '
+        . 'carefully to obtain a correct normalization.'
+    );
+    $subText = __(
+        'For each column below, '
+        . 'please select the <b>minimal set</b> of columns among given set '
+        . 'whose values combined together are sufficient'
+        . ' to determine the value of the column.<br />'
+        . 'Note: A column may have no transitive dependency, '
+        . 'in that case you don\'t have to select any.'
+    );
+    $cnt=0;
+    foreach ($tables as $key=>$table) {
+        $primary = PMA_Index::getPrimary($table, $db);
+        $primarycols = $primary->getColumns();
+        $selectTdForm = "";
+        $pk = array();
+        foreach ($primarycols as $col) {
+            $pk[] = $col->getName();
+        }
+        $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+            $columns = (array) $GLOBALS['dbi']->getColumnNames(
+                $db, $table, $GLOBALS['userlink']
+            );
+        if (count($columns)-count($pk)<=1) {
+            continue;
+        }
+        foreach ($columns as $column) {
+            if (!in_array($column, $pk)) {
+                $selectTdForm .= '<input type="checkbox" name="pd" value="'
+                . htmlspecialchars($column) . '">'
+                . '<span>' . htmlspecialchars($column) . '</span>';
+            }
+        }
+        foreach ($columns as $column) {
+            if (!in_array($column, $pk)) {
+                $cnt++;
+                $extra .= "<b>" . sprintf(
+                    __('\'%1$s\' depends on:'), htmlspecialchars($column)
+                )
+                    . "</b><br>";
+                $extra .= '<form id="td_' . $cnt . '" data-colname="'
+                    . htmlspecialchars($column) . '" data-tablename="'
+                    . htmlspecialchars($table) . '" class="smallIndent">'
+                    . $selectTdForm
+                    . '</form><br/><br/>';
+            }
+        }
+    }
+    if ($extra == "") {
+        $headText = __(
+            "No Transitive dependencies possible as the table "
+            . "doesn't have any non primary key columns"
+        );
+        $subText = "";
+        $extra = "<h3>" . __("Table is already in Third normal form!") . "</h3>";
+    }
+    $res = array(
+        'legendText'=>$legendText, 'headText'=>$headText,
+        'subText'=>$subText,'extra'=>$extra
+    );
+    return $res;
 }
 /**
  * get html for options to normalize table

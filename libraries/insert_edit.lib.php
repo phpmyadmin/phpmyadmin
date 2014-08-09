@@ -585,12 +585,12 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  * @param integer $tabindex              tab index
  * @param integer $tabindex_for_value    offset for the values tabindex
  * @param integer $idindex               id index
- * @param array   $data                  description of the column field
- * @param array   $special_chars         special characters
+ * @param string  $data                  description of the column field
+ * @param string  $special_chars         special characters
  * @param array   $foreignData           data about the foreign keys
  * @param boolean $odd_row               whether row is odd
  * @param array   $paramTableDbArray     array containing $table and $db
- * @param array   $rownumber             the row number
+ * @param integer $rownumber             the row number
  * @param array   $titles                An HTML IMG tag for a particular icon from
  *                                       a theme, which may be an actual file or
  *                                       an icon from a sprite
@@ -618,6 +618,8 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
     $is_upload, $biggest_max_file_size,
     $default_char_editing, $no_support_types, $gis_data_types, $extracted_columnspec
 ) {
+    // HTML5 data-* attribute data-type
+    $data_type = $GLOBALS['PMA_Types']->getTypeClass($column['True_Type']);
     $html_output = '';
 
     if ($foreignData['foreign_link'] == true) {
@@ -644,7 +646,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         $html_output .= PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
-            $special_chars_encoded
+            $special_chars_encoded, $data_type
         );
 
     } elseif (strstr($column['pma_type'], 'text')) {
@@ -652,7 +654,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         $html_output .= PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
-            $special_chars_encoded
+            $special_chars_encoded, $data_type
         );
         $html_output .= "\n";
         if (strlen($special_chars) > 32000) {
@@ -709,9 +711,9 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
- * @param array   $data                 data to edit
+ * @param string  $data                 data to edit
  * @param array   $paramTableDbArray    array containing $table and $db
- * @param array   $rownumber            the row number
+ * @param integer $rownumber            the row number
  * @param array   $titles               An HTML IMG tag for a particular icon from
  *                                      a theme, which may be an actual file or
  *                                      an icon from a sprite
@@ -759,7 +761,7 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
- * @param array   $data                 data to edit
+ * @param string  $data                 data to edit
  * @param array   $foreignData          data about the foreign keys
  *
  * @return string                       an html snippet
@@ -802,12 +804,13 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
  * @param string  $text_dir              text direction
  * @param string  $special_chars_encoded replaced char if the string starts
  *                                       with a \r\n pair (0x0d0a) add an extra \n
+ * @param string  $data_type             the html5 data-* attribute type
  *
  * @return string                       an html snippet
  */
 function PMA_getTextarea($column, $backup_field, $column_name_appendix,
-    $unnullify_trigger,
-    $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded
+    $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex,
+    $text_dir, $special_chars_encoded, $data_type
 ) {
     $the_class = '';
     $textAreaRows = $GLOBALS['cfg']['TextareaRows'];
@@ -832,13 +835,14 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
     $html_output = $backup_field . "\n"
         . '<textarea name="fields' . $column_name_appendix . '"'
         . ' class="' . $the_class . '"'
-        . (isset($maxlength) ? ' maxlength="' . $maxlength . '"' : '')
+        . (isset($maxlength) ? ' data-maxlength="' . $maxlength . '"' : '')
         . ' rows="' . $textAreaRows . '"'
         . ' cols="' . $textareaCols . '"'
         . ' dir="' . $text_dir . '"'
         . ' id="field_' . ($idindex) . '_3"'
         . ' ' . $unnullify_trigger
-        . ' tabindex="' . ($tabindex + $tabindex_for_value) . '">'
+        . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
+        . ' data-type="' . $data_type . '">'
         . $special_chars_encoded
         . '</textarea>';
 
@@ -965,7 +969,7 @@ function PMA_getDropDownDependingOnLength(
  * @param array   $column               description of column in given table
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
- * @param array   $data                 data to edit
+ * @param string  $data                 data to edit
  * @param array   $column_enum_values   $column['values']
  *
  * @return string                       an html snippet
@@ -1012,7 +1016,7 @@ function PMA_getRadioButtonDependingOnLength(
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
- * @param array   $data                 description of the column field
+ * @param string  $data                 description of the column field
  *
  * @return string                       an html snippet
  */
@@ -1075,8 +1079,8 @@ function PMA_getColumnSetValueAndSelectSize($column, $extracted_columnspec)
  * Get HTML for binary and blob column
  *
  * @param array   $column                description of column in given table
- * @param array   $data                  data to edit
- * @param array   $special_chars         special characters
+ * @param string  $data                  data to edit
+ * @param string  $special_chars         special characters
  * @param integer $biggest_max_file_size biggest max file size for uploading
  * @param string  $backup_field          hidden input field
  * @param string  $column_name_appendix  the name atttibute
@@ -1125,14 +1129,14 @@ function PMA_getBinaryAndBlobColumn(
         $html_output .= "\n" . PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
-            $special_chars_encoded
+            $special_chars_encoded, 'HEX'
         );
     } else {
         // field size should be at least 4 and max $GLOBALS['cfg']['LimitChars']
         $fieldsize = min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']);
         $html_output .= "\n" . $backup_field . "\n" . PMA_getHTMLinput(
             $column, $column_name_appendix, $special_chars, $fieldsize,
-            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
+            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, 'HEX'
         );
     }
     $html_output .= sprintf($fields_type_html, $fields_type_val);
@@ -1161,17 +1165,19 @@ function PMA_getBinaryAndBlobColumn(
  *
  * @param array   $column               description of column in given table
  * @param string  $column_name_appendix the name attribute
- * @param array   $special_chars        special characters
+ * @param string  $special_chars        special characters
  * @param integer $fieldsize            html field size
  * @param string  $unnullify_trigger    validation string
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
+ * @param string  $data_type            the html5 data-* attribute type
  *
  * @return string                       an html snippet
  */
-function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
-    $fieldsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
+function PMA_getHTMLinput(
+    $column, $column_name_appendix, $special_chars, $fieldsize, $unnullify_trigger,
+    $tabindex, $tabindex_for_value, $idindex, $data_type
 ) {
     $input_type = 'text';
     // do not use the 'date' or 'time' types here; they have no effect on some
@@ -1189,27 +1195,24 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
         $the_class .= ' datetimefield';
     }
     $input_min_max = false;
-    if (!$GLOBALS['cfg']['ShowFunctionFields']) {
-        if (in_array(
-            $column['True_Type'],
-            $GLOBALS['PMA_Types']->getIntegerTypes()
-        )) {
-            $input_type = 'number';
-            $is_unsigned = substr($column['pma_type'], -9) === ' unsigned';
-            $min_max_values = $GLOBALS['PMA_Types']->getIntegerRange(
-                $column['True_Type'], ! $is_unsigned
-            );
-            $input_min_max = 'min="' . $min_max_values[0] . '" '
-                . 'max="' . $min_max_values[1] . '" ';
-        }
+    if (in_array($column['True_Type'], $GLOBALS['PMA_Types']->getIntegerTypes())) {
+        $extracted_columnspec = PMA_Util::extractColumnSpec($column['Type']);
+        $is_unsigned = $extracted_columnspec['unsigned'];
+        $min_max_values = $GLOBALS['PMA_Types']->getIntegerRange(
+            $column['True_Type'], ! $is_unsigned
+        );
+        $input_min_max = 'min="' . $min_max_values[0] . '" '
+            . 'max="' . $min_max_values[1] . '"';
+        $data_type = 'INT';
     }
     return '<input type="' . $input_type . '"'
         . ' name="fields' . $column_name_appendix . '"'
         . ' value="' . $special_chars . '" size="' . $fieldsize . '"'
         . ((isset($column['is_char']) && $column['is_char'])
-        ? ' maxlength="' . $fieldsize . '"'
+        ? ' data-maxlength="' . $fieldsize . '"'
         : '')
         . ($input_min_max !== false ? ' ' . $input_min_max : '')
+        . ' data-type="' . $data_type . '"'
         . ($input_type === 'time' ? ' step="1"' : '')
         . ' class="' . $the_class . '" ' . $unnullify_trigger
         . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
@@ -1297,7 +1300,7 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
  * @param string  $column_name_appendix  the name atttibute
  * @param string  $unnullify_trigger     validation string
  * @param integer $tabindex              tab index
- * @param array   $special_chars         special characters
+ * @param string  $special_chars         special characters
  * @param integer $tabindex_for_value    offset for the values tabindex
  * @param integer $idindex               id index
  * @param string  $text_dir              text direction
@@ -1316,6 +1319,8 @@ function PMA_getValueColumnForOtherDatatypes($column, $default_char_editing,
     $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded, $data,
     $extracted_columnspec
 ) {
+    // HTML5 data-* attribute data-type
+    $data_type = $GLOBALS['PMA_Types']->getTypeClass($column['True_Type']);
     $fieldsize = PMA_getColumnSize($column, $extracted_columnspec);
     $html_output = $backup_field . "\n";
     if ($column['is_char']
@@ -1327,12 +1332,12 @@ function PMA_getValueColumnForOtherDatatypes($column, $default_char_editing,
         $html_output .= PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
-            $special_chars_encoded
+            $special_chars_encoded, $data_type
         );
     } else {
         $html_output .= PMA_getHTMLinput(
-            $column, $column_name_appendix, $special_chars,
-            $fieldsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
+            $column, $column_name_appendix, $special_chars, $fieldsize,
+            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data_type
         );
 
         if ($column['Extra'] == 'auto_increment') {
@@ -1669,7 +1674,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
     $special_chars_encoded = '';
     $data = null;
     // (we are editing)
-    if (is_null($current_row[$column['Field']])) {
+    if (!isset($current_row[$column['Field']])) {
         $real_null_value = true;
         $current_row[$column['Field']] = '';
         $special_chars = '';
@@ -2300,21 +2305,21 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
 /**
  * Get the current column value in the form for different data types
  *
- * @param string  $possibly_uploaded_val        uploaded file content
- * @param string  $key                          an md5 of the column name
- * @param array   $multi_edit_columns_type      array of multi edit column types
- * @param string  $current_value                current column value in the form
- * @param array   $multi_edit_auto_increment    multi edit auto increment
- * @param string  $rownumber                    index of where clause array
- * @param array   $multi_edit_columns_name      multi edit column names array
- * @param array   $multi_edit_columns_null      multi edit columns null array
- * @param array   $multi_edit_columns_null_prev multi edit columns previous null
- * @param boolean $is_insert                    whether insert or not
- * @param boolean $using_key                    whether editing or new row
- * @param array   $where_clause                 where clauses
- * @param string  $table                        table name
+ * @param string|false $possibly_uploaded_val        uploaded file content
+ * @param string       $key                          an md5 of the column name
+ * @param array        $multi_edit_columns_type      array of multi edit column types
+ * @param string       $current_value                current column value in the form
+ * @param array        $multi_edit_auto_increment    multi edit auto increment
+ * @param integer      $rownumber                    index of where clause array
+ * @param array        $multi_edit_columns_name      multi edit column names array
+ * @param array        $multi_edit_columns_null      multi edit columns null array
+ * @param array        $multi_edit_columns_null_prev multi edit columns previous null
+ * @param boolean      $is_insert                    whether insert or not
+ * @param boolean      $using_key                    whether editing or new row
+ * @param string       $where_clause                 where clause
+ * @param string       $table                        table name
  *
- * @return string $current_value                current column value in the form
+ * @return string $current_value  current column value in the form
  */
 function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
     $multi_edit_columns_type, $current_value, $multi_edit_auto_increment,
@@ -2324,7 +2329,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
     // Fetch the current values of a row to use in case we have a protected field
     if ($is_insert
         && $using_key && isset($multi_edit_columns_type)
-        && is_array($multi_edit_columns_type) && isset($where_clause)
+        && is_array($multi_edit_columns_type) && !empty($where_clause)
     ) {
         $protected_row = $GLOBALS['dbi']->fetchSingleRow(
             'SELECT * FROM ' . PMA_Util::backquote($table)
@@ -2727,7 +2732,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
         );
     }
     $as_is = false;
-    if (!empty($repopulate) && isset($current_row)) {
+    if (!empty($repopulate) && !empty($current_row)) {
         $current_row[$column['Field']] = $repopulate[$column['Field_md5']];
         $as_is = true;
     }
@@ -2774,7 +2779,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
     // Prepares the field value
     $real_null_value = false;
     $special_chars_encoded = '';
-    if (isset($current_row)) {
+    if (!empty($current_row)) {
         // (we are editing)
         list(
             $real_null_value, $special_chars_encoded, $special_chars,

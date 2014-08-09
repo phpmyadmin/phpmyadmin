@@ -189,6 +189,8 @@ function PMA_getListOfVersionsOfTable()
 function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_params,
     $url_query
 ) {
+    $tracking_active = false;
+
     $html = '<table id="versions" class="data">';
     $html .= '<thead>';
     $html .= '<tr>';
@@ -455,6 +457,8 @@ function PMA_getHtmlForTrackingReportExportForm1(
     $filter_ts_to, $filter_ts_from, $filter_users, $str1, $str2, $str3,
     $str4, $str5, $drop_image_or_text
 ) {
+    $ddlog_count = 0;
+
     $html = '<form method="post" action="tbl_tracking.php'
         . PMA_URL_getCommon(
             $url_params + array(
@@ -1083,6 +1087,7 @@ function PMA_exportAsSQLDump($entries)
  */
 function PMA_exportAsSQLExecution($entries)
 {
+    $sql_result = array();
     foreach ($entries as $entry) {
         $sql_result = $GLOBALS['dbi']->query("/*NOTRACK*/\n" . $entry['statement']);
     }

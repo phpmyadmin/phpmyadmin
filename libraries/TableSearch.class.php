@@ -1366,14 +1366,14 @@ EOT;
     }
 
     /**
-     * Returns HTML for prviewing strings found and their replacements
+     * Returns HTML for previewing strings found and their replacements
      *
      * @param int    $columnIndex index of the column
      * @param string $find        string to find in the column
      * @param string $replaceWith string to replace with
      * @param string $charSet     character set of the connection
      *
-     * @return string HTML for prviewing strings found and their replacements
+     * @return string HTML for previewing strings found and their replacements
      */
     function getReplacePreview($columnIndex, $find, $replaceWith, $charSet)
     {

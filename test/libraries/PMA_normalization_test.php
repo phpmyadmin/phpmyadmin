@@ -329,6 +329,81 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_getHtmlForNewTables3NF
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForNewTables3NF()
+    {
+        $tables= array("PMA_table"=>array('col1'));
+        $db = 'PMA_db';
+        $dependencies = array('col1'=>array('col2'));
+        $result = PMA_getHtmlForNewTables3NF($dependencies, $tables, $db);
+        $this->assertEquals(
+            array(
+                'html' => '',
+                'newTables' => array()
+                ), $result
+        );
+        $tables= array("PMA_table"=>array('col1', 'PMA_table'));
+        $dependencies = new stdClass();
+        $dependencies->col1 = array('col2');
+        $dependencies->PMA_table = array('col4', 'col5');
+        $result1 = PMA_getHtmlForNewTables3NF($dependencies, $tables, $db);
+        $this->assertInternalType('array', $result1);
+        $this->assertTag(
+            array(
+                'tag'=>'input', 'attributes'=>array('name'=>'PMA_table')
+            ), $result1['html']
+        );
+        $this->assertEquals(
+            array(
+                'PMA_table' => array (
+                    'PMA_table' => array (
+                        'pk' => 'col1',
+                        'nonpk' => 'col2'
+                    ),
+                    'table2' => array (
+                        'pk' => 'id',
+                        'nonpk' => 'col4, col5'
+                    )
+                )
+            ), $result1['newTables']
+        );
+    }
+
+    /**
+     * Test for PMA_createNewTablesFor3NF
+     *
+     * @return void
+     */
+    public function testPMACreateNewTablesFor3NF()
+    {
+        $db = 'PMA_db';
+        $cols = new stdClass();
+        $cols->pk = 'id';
+        $cols->nonpk = 'col1, col2';
+        $cols1 = new stdClass();
+        $cols1->pk = 'col2';
+        $cols1->nonpk = 'col3, col4';
+        $newTables = array('PMA_table'=>array('PMA_table'=>$cols, 'table1'=>$cols1));
+        $result = PMA_createNewTablesFor3NF(
+            $newTables, $db
+        );
+        $this->assertInternalType('array', $result);
+        $this->assertArrayHasKey('legendText', $result);
+        $this->assertArrayHasKey('headText', $result);
+        $this->assertArrayHasKey('queryError', $result);
+        $newTables1 = array();
+        $result1 = PMA_createNewTablesFor3NF(
+            $newTables1, $db
+        );
+        $this->assertArrayHasKey('queryError', $result1);
+        $this->assertEquals(__('End of step'), $result1['legendText']);
+        $this->assertEquals(false, $result1['queryError']);
+    }
+
+    /**
      * Test for PMA_moveRepeatingGroup
      *
      * @return void
@@ -349,6 +424,39 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('message', $result);
         $this->assertInstanceOf(
             'PMA_Message', $result['message']
+        );
+    }
+
+    /**
+     * Test for PMA_getHtmlFor3NFstep1
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlFor3NFstep1()
+    {
+        $db = "PMA_db";
+        $tables= array("PMA_table");
+        $result = PMA_getHtmlFor3NFstep1($db, $tables);
+        $this->assertInternalType('array', $result);
+        $this->assertArrayHasKey('legendText', $result);
+        $this->assertArrayHasKey('headText', $result);
+        $this->assertArrayHasKey('subText', $result);
+        $this->assertArrayHasKey('extra', $result);
+        $this->assertContains(__('Step 3.') . 1, $result['legendText']);
+        $this->assertTag(
+            array(
+                'tag'=>'form'
+            ), $result['extra']
+        );
+        $this->assertTag(
+            array(
+                'tag'=>'input',
+                'attributes'=>array('value'=>'col1', 'type'=>'checkbox')
+            ), $result['extra']
+        );
+        $result1 = PMA_getHtmlFor3NFstep1($db, array("PMA_table2"));
+        $this->assertEquals(
+            '', $result1['subText']
         );
     }
 

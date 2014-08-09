@@ -690,103 +690,113 @@ function PMA_sprites()
             'width'    => '16',
             'height'   => '16'
         ),
-        's_lock' => array(
+        's_link' => array(
             'position' => '136',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_loggoff' => array(
+        's_lock' => array(
             'position' => '137',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_notice' => array(
+        's_loggoff' => array(
             'position' => '138',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_okay' => array(
+        's_notice' => array(
             'position' => '139',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_passwd' => array(
+        's_okay' => array(
             'position' => '140',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_process' => array(
+        's_passwd' => array(
             'position' => '141',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_really' => array(
+        's_process' => array(
             'position' => '142',
+            'width'    => '16',
+            'height'   => '16'
+        ),
+        's_really' => array(
+            'position' => '143',
             'width'    => '11',
             'height'   => '11'
         ),
         's_reload' => array(
-            'position' => '143',
-            'width'    => '16',
-            'height'   => '16'
-        ),
-        's_replication' => array(
             'position' => '144',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_rights' => array(
+        's_replication' => array(
             'position' => '145',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_sortable' => array(
+        's_rights' => array(
             'position' => '146',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_status' => array(
+        's_sortable' => array(
             'position' => '147',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_success' => array(
+        's_status' => array(
             'position' => '148',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_sync' => array(
+        's_success' => array(
             'position' => '149',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_tbl' => array(
+        's_sync' => array(
             'position' => '150',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_theme' => array(
+        's_tbl' => array(
             'position' => '151',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_top' => array(
+        's_theme' => array(
             'position' => '152',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_vars' => array(
+        's_top' => array(
             'position' => '153',
             'width'    => '16',
             'height'   => '16'
         ),
-        's_views' => array(
+        's_unlink' => array(
             'position' => '154',
             'width'    => '16',
             'height'   => '16'
         ),
-        'window-new' => array(
+        's_vars' => array(
             'position' => '155',
+            'width'    => '16',
+            'height'   => '16'
+        ),
+        's_views' => array(
+            'position' => '156',
+            'width'    => '16',
+            'height'   => '16'
+        ),
+        'window-new' => array(
+            'position' => '157',
             'width'    => '16',
             'height'   => '16'
         ),
