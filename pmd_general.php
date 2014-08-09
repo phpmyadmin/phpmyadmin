@@ -31,6 +31,7 @@ if (isset($_REQUEST['dialog'])) {
     } else if ($_REQUEST['dialog'] == 'save_as') {
         $html = PMA_getHtmlForPageSaveAs($GLOBALS['db']);
     } else if ($_REQUEST['dialog'] == 'export') {
+        include_once 'libraries/plugin_interface.lib.php';
         $html = PMA_getHtmlForSchemaExport($GLOBALS['db'], $_REQUEST['selected_page']);
     }
 

@@ -18,10 +18,9 @@ require 'libraries/StorageEngine.class.php';
  */
 $cfgRelation = PMA_getRelationsParam();
 
-require_once 'libraries/transformations.lib.php';
 require_once 'libraries/Index.class.php';
 require_once 'libraries/pmd_common.php';
-require_once 'libraries/schema/Export_Relation_Schema.class.php';
+require_once 'libraries/plugin_interface.lib.php';
 
 /**
  * get all the export options and verify
@@ -30,37 +29,26 @@ require_once 'libraries/schema/Export_Relation_Schema.class.php';
  */
 
 $post_params = array(
-    'all_tables_same_width',
-    'chpage',
     'db',
-    'export_type',
-    'orientation',
-    'paper',
-    'names',
-    'show_color',
-    'show_grid',
-    'show_keys',
-    'show_table_dimension',
-    'with_doc',
-    'offline_export',
-    'tbl_coords'
+    'pdf_with_doc',
+    'pdf_orientation',
+    'pdf_paper'
 );
 foreach ($post_params as $one_post_param) {
     if (isset($_REQUEST[$one_post_param])) {
         $GLOBALS[$one_post_param] = $_REQUEST[$one_post_param];
-        $_POST[$one_post_param] = $_REQUEST[$one_post_param];
     }
 }
 
-if ($_POST['offline_export'] === "on") {
-    $_POST['pdf_page_number'] = -1;
-    PMA_processExportSchema();
+if (isset($_REQUEST['offline_export'])) {
+    $_REQUEST['page_number'] = -1;
+    PMA_processExportSchema($_REQUEST['export_type']);
 } else {
     $temp_page = PMA_createNewPage("_temp" . rand(), $GLOBALS['db']);
     try {
         PMA_saveTablePositions($temp_page);
-        $_POST['pdf_page_number'] = $temp_page;
-        PMA_processExportSchema();
+        $_REQUEST['page_number'] = $temp_page;
+        PMA_processExportSchema($_REQUEST['export_type']);
         PMA_deletePage($temp_page);
     } catch (Exception $e) {
         PMA_deletePage($temp_page); // delete temp page even if an exception occured
@@ -72,40 +60,35 @@ if ($_POST['offline_export'] === "on") {
  * get all the export options and verify
  * call and include the appropriate Schema Class depending on $export_type
  *
+ * @param string $export_type format of the export
+ *
  * @return void
  */
-function PMA_processExportSchema()
+function PMA_processExportSchema($export_type)
 {
     /**
      * default is PDF, otherwise validate it's only letters a-z
      */
-    global  $db,$export_type;
-
     if (! isset($export_type) || ! preg_match('/^[a-zA-Z]+$/', $export_type)) {
         $export_type = 'pdf';
     }
-    $GLOBALS['dbi']->selectDb($db);
 
-    $path = PMA_securePath(ucfirst($export_type));
-    $filename = 'libraries/schema/' . $path . '_Relation_Schema.class.php';
-    if (!file_exists($filename)) {
-        PMA_Export_Relation_Schema::dieSchema(
-            $_POST['chpage'],
-            $export_type,
-            __('File doesn\'t exist')
-        );
+    // sanitize this parameter which will be used below in a file inclusion
+    $export_type = PMA_securePath($export_type);
+
+    // get the specific plugin
+    $export_plugin = PMA_getPlugin(
+        "Schema",
+        $export_type,
+        'libraries/plugins/schema/'
+    );
+
+    // Check schema export type
+    if (! isset($export_plugin)) {
+        PMA_fatalError(__('Bad type!'));
     }
-    $GLOBALS['skip_import'] = false;
-    include $filename;
-    if ( $GLOBALS['skip_import']) {
-        PMA_Export_Relation_Schema::dieSchema(
-            $_POST['chpage'],
-            $export_type,
-            __('Plugin is disabled')
-        );
-    }
-    $class_name = 'PMA_' . $path . '_Relation_Schema';
-    $obj_schema = new $class_name();
-    $obj_schema->showOutput();
+
+    $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+    $export_plugin->exportSchema($GLOBALS['db']);
 }
 ?>

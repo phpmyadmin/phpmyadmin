@@ -143,64 +143,34 @@ function PMA_getPageIdsAndNames($db)
  */
 function PMA_getHtmlForSchemaExport($db, $page)
 {
-    $htmlString = '<form method="post" action="schema_export.php"'
-        . ' class="disableAjax" id="id_export_pages">'
-        . '<fieldset>'
-        . PMA_URL_getHiddenInputs($db)
-        . '<select name="export_type" id="export_type">';
+    /* Scan for schema plugins */
+    $export_list = PMA_getPlugins(
+        "schema",
+        'libraries/plugins/schema/'
+    );
 
-    if (file_exists(TCPDF_INC)) {
-        $htmlString .= '<option value="pdf" selected="selected">PDF</option>';
+    /* Fail if we didn't find any schema plugin */
+    if (empty($export_list)) {
+        return PMA_Message::error(
+            __('Could not load schema plugins, please check your installation!')
+        )->getDisplay();
     }
 
-    $htmlString .=' <option value="svg">SVG</option>'
-        . '<option value="dia">DIA</option>'
-        . '<option value="eps">EPS</option>'
-        . '</select>'
-        . '<label>' . __('Select Export Relational Type') . '</label><br />';
 
-    $htmlString .= '<input type="hidden" name="chpage" value="' . htmlspecialchars($page) . '" />'
-        . '<input type="checkbox" name="show_grid" id="show_grid_opt" />'
-        . '<label for="show_grid_opt">' . __('Show grid') . '</label><br />'
-        . '<input type="checkbox" name="show_color"'
-        . ' id="show_color_opt" checked="checked" />'
-        . '<label for="show_color_opt">' . __('Show color') . '</label>'
-        . '<br />'
-        . '<input type="checkbox" name="show_table_dimension"'
-        . ' id="show_table_dim_opt" />'
-        . '<label for="show_table_dim_opt">'
-        . __('Show dimension of tables')
-        . '</label><br />'
-        . '<input type="checkbox" name="all_tables_same_width"'
-        . ' id="all_tables_same_width" />'
-        . '<label for="all_tables_same_width">'
-        . __('Same width for all tables')
-        . '</label><br />'
-        . '<input type="checkbox" name="with_doc"'
-        . ' id="with_doc" checked="checked" />'
-        . '<label for="with_doc">' . __('Data Dictionary') . '</label><br />'
-        . '<input type="checkbox" name="show_keys" id="show_keys" />'
-        . '<label for="show_keys">' . __('Only show keys') . '</label><br />'
-        . '<select name="orientation" id="orientation_opt" class="paper-change">'
-        . '<option value="L">' . __('Landscape') . '</option>'
-        . '<option value="P">' . __('Portrait') . '</option>'
-        . '</select>'
-        . '<label for="orientation_opt">' . __('Orientation') . '</label>'
-        . '<br />'
-        . '<select name="paper" id="paper_opt" class="paper-change">';
-
-    foreach ($GLOBALS['cfg']['PDFPageSizes'] as $val) {
-        $htmlString .= '<option value="' . htmlspecialchars($val) . '"';
-        if ($val == $GLOBALS['cfg']['PDFDefaultPageSize']) {
-            $htmlString .= ' selected="selected"';
-        }
-        $htmlString .= '>' . htmlspecialchars($val) . '</option>' . "\n";
-    }
-
-    $htmlString  .= '</select>'
-        . '<label for="paper_opt">' . __('Paper size') . '</label>'
-        . '</fieldset>'
-        . '</form>';
+    $htmlString  = '<form method="post" action="schema_export.php"'
+        . ' class="disableAjax" id="id_export_pages">';
+    $htmlString .= '<fieldset>';
+    $htmlString .= PMA_URL_getHiddenInputs($db);
+    $htmlString .= '<label>' . __('Select Export Relational Type')
+        . '</label><br />';
+    $htmlString .= PMA_pluginGetChoice(
+        'Schema', 'export_type', $export_list, 'schema_export_format'
+    );
+    $htmlString .= '<input type="hidden" name="chpage"'
+        . ' value="' . htmlspecialchars($page) . '" />';
+    $htmlString .= PMA_pluginGetOptions('Schema', $export_list);
+    $htmlString .= '</fieldset>';
+    $htmlString .= '</form>';
 
     return $htmlString;
 }
