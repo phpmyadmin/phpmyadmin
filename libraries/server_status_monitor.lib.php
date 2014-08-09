@@ -791,7 +791,6 @@ function PMA_getJsonForQueryAnalyzer()
         $_REQUEST['query']
     );
 
-    $result = $GLOBALS['dbi']->tryQuery($query);
     $return['affectedRows'] = $GLOBALS['cached_affected_rows'];
 
     $result = $GLOBALS['dbi']->tryQuery('EXPLAIN ' . $query);

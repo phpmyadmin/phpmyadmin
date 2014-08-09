@@ -2661,70 +2661,11 @@ function PMA_SQP_format(
                 $before    .= ' ';
             }
 
-            switch ($arr[$i]['data']) {
-            case 'CREATE':
-            case 'ALTER':
-            case 'DROP':
-            case 'RENAME';
-            case 'TRUNCATE':
-            case 'ANALYZE':
-            case 'ANALYSE':
-            case 'OPTIMIZE':
-                if (!$in_priv_list) {
-                    $space_punct_listsep       = $html_line_break;
-                    $space_alpha_reserved_word = ' ';
-                }
-                break;
-            case 'EVENT':
-            case 'TABLESPACE':
-            case 'TABLE':
-            case 'FUNCTION':
-            case 'INDEX':
-            case 'PROCEDURE':
-            case 'SERVER':
-            case 'TRIGGER':
-            case 'DATABASE':
-            case 'VIEW':
-            case 'GROUP':
-                break;
-            case 'SET':
-                if (!$in_priv_list) {
-                    $space_punct_listsep       = $html_line_break;
-                    $space_alpha_reserved_word = ' ';
-                }
-                break;
-            case 'EXPLAIN':
-            case 'DESCRIBE':
-            case 'DELETE':
-            case 'SHOW':
-            case 'UPDATE':
-                if (!$in_priv_list) {
-                    $space_punct_listsep       = $html_line_break;
-                    $space_alpha_reserved_word = ' ';
-                }
-                break;
-            case 'INSERT':
-            case 'REPLACE':
-                if (!$in_priv_list) {
-                    $space_punct_listsep       = $html_line_break;
-                    $space_alpha_reserved_word = $html_line_break;
-                }
-                break;
-            case 'VALUES':
-                $space_punct_listsep       = ' ';
-                $space_alpha_reserved_word = $html_line_break;
-                break;
-            case 'SELECT':
-                $space_punct_listsep       = ' ';
-                $space_alpha_reserved_word = $html_line_break;
-                break;
-            case 'CALL':
-            case 'DO':
-            case 'HANDLER':
-                break;
-            default:
-                break;
-            } // end switch ($arr[$i]['data'])
+            list($space_punct_listsep, $space_alpha_reserved_word)
+                = PMA_SQP_format_getListsepAndReservedWord(
+                    $arr[$i]['data'], $in_priv_list, $html_line_break,
+                    $space_punct_listsep, $space_alpha_reserved_word
+                );
 
             $after         .= ' ';
             break;
@@ -2806,6 +2747,91 @@ function PMA_SQP_format(
 
     return $str;
 } // end of the "PMA_SQP_format()" function
+
+/**
+ * Define variables for PMA_SQP_format
+ *
+ * @param string  $data                      Data to check
+ * @param boolean $in_priv_list              In privilege list
+ * @param string  $html_line_break           HTML line break
+ * @param string  $space_punct_listsep       List separator
+ * @param string  $space_alpha_reserved_word Space between reserved words
+ *
+ * @todo check definition of $space_punct_listsep and $space_alpha_reserved_word
+ *
+ * @return array Variables needed by PMA_SQP_format
+ */
+function PMA_SQP_format_getListsepAndReservedWord(
+    $data, $in_priv_list, $html_line_break, $space_punct_listsep,
+    $space_alpha_reserved_word
+)
+{
+    switch ($data) {
+    case 'CREATE':
+    case 'ALTER':
+    case 'DROP':
+    case 'RENAME';
+    case 'TRUNCATE':
+    case 'ANALYZE':
+    case 'ANALYSE':
+    case 'OPTIMIZE':
+        if (!$in_priv_list) {
+            $space_punct_listsep = $html_line_break;
+            $space_alpha_reserved_word = ' ';
+        }
+        break;
+    case 'EVENT':
+    case 'TABLESPACE':
+    case 'TABLE':
+    case 'FUNCTION':
+    case 'INDEX':
+    case 'PROCEDURE':
+    case 'SERVER':
+    case 'TRIGGER':
+    case 'DATABASE':
+    case 'VIEW':
+    case 'GROUP':
+        break;
+    case 'SET':
+        if (!$in_priv_list) {
+            $space_punct_listsep = $html_line_break;
+            $space_alpha_reserved_word = ' ';
+        }
+        break;
+    case 'EXPLAIN':
+    case 'DESCRIBE':
+    case 'DELETE':
+    case 'SHOW':
+    case 'UPDATE':
+        if (!$in_priv_list) {
+            $space_punct_listsep = $html_line_break;
+            $space_alpha_reserved_word = ' ';
+        }
+        break;
+    case 'INSERT':
+    case 'REPLACE':
+        if (!$in_priv_list) {
+            $space_punct_listsep = $html_line_break;
+            $space_alpha_reserved_word = $html_line_break;
+        }
+        break;
+    case 'VALUES':
+        $space_punct_listsep = ' ';
+        $space_alpha_reserved_word = $html_line_break;
+        break;
+    case 'SELECT':
+        $space_punct_listsep = ' ';
+        $space_alpha_reserved_word = $html_line_break;
+        break;
+    case 'CALL':
+    case 'DO':
+    case 'HANDLER':
+        break;
+    default:
+        break;
+    }
+    return array($space_punct_listsep, $space_alpha_reserved_word);
+}
 
 /**
  * Gets SQL queries with no format
