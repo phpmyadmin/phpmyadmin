@@ -48,6 +48,7 @@ abstract class TableStats
      * @param string  $tableName  table name
      * @param boolean $showKeys   whether to display keys or not
      * @param boolean $showInfo   whether to display table position or not
+     * @param boolean $offline    load without query
      */
     public function __construct(
         $diagram, $db, $pageNumber, $tableName, $showKeys, $showInfo, $offline
@@ -122,10 +123,10 @@ abstract class TableStats
     {
         global $cfgRelation;
 
-        if ($this->offline){
+        if ($this->offline) {
             $tbl_coords = json_decode($GLOBALS['tbl_coords']);
             foreach ($tbl_coords as $tbl) {
-                if( $this->tableName === $tbl->table_name){
+                if ($this->tableName === $tbl->table_name) {
                     $this->x = (double) $tbl->x;
                     $this->y = (double) $tbl->y;
                     break;
@@ -136,7 +137,8 @@ abstract class TableStats
                 . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
                 . PMA_Util::backquote($cfgRelation['table_coords'])
                 . " WHERE db_name = '" . PMA_Util::sqlAddSlashes($this->db) . "'"
-                . " AND   table_name = '" . PMA_Util::sqlAddSlashes($this->tableName) . "'"
+                . " AND   table_name = '" . PMA_Util::sqlAddSlashes($this->tableName)
+                . "'"
                 . " AND   pdf_page_number = " . $this->pageNumber;
             $result = PMA_queryAsControlUser(
                 $sql, false, PMA_DatabaseInterface::QUERY_STORE

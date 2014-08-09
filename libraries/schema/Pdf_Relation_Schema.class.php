@@ -418,6 +418,7 @@ class Table_Stats_Pdf extends TableStats
      * @param integer &$sameWideWidth The max. with among tables
      * @param boolean $showKeys       Whether to display keys or not
      * @param boolean $showInfo       Whether to display table position or not
+     * @param boolean $offline        Load without query
      *
      * @global object $pdf         The current PDF document
      * @global array  $cfgRelation The relations settings
@@ -429,7 +430,7 @@ class Table_Stats_Pdf extends TableStats
     function __construct($tableName, $fontSize, $pageNumber, &$sameWideWidth,
         $showKeys = false, $showInfo = false, $offline = false
     ) {
-        global $pdf, $cfgRelation, $db;
+        global $pdf, $db;
         parent::__construct(
             $pdf, $db, $pageNumber, $tableName, $showKeys, $showInfo, $offline
         );

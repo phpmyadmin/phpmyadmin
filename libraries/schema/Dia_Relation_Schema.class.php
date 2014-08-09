@@ -214,6 +214,7 @@ class Table_Stats_Dia extends TableStats
      * @param integer $pageNumber The current page number (from the
      *                            $cfg['Servers'][$i]['table_coords'] table)
      * @param boolean $showKeys   Whether to display ONLY keys or not
+     * @param boolean $offline    Load without query
      *
      * @global object $dia         The current dia document
      * @global array  $cfgRelation The relations settings
@@ -223,8 +224,10 @@ class Table_Stats_Dia extends TableStats
      */
     function __construct($tableName, $pageNumber, $showKeys = false, $offline = false)
     {
-        global $dia, $cfgRelation, $db;
-        parent::__construct($dia, $db, $pageNumber, $tableName, $showKeys, false, $offline);
+        global $dia, $db;
+        parent::__construct(
+            $dia, $db, $pageNumber, $tableName, $showKeys, false, $offline
+        );
 
         /**
          * Every object in Dia document needs an ID to identify

@@ -327,6 +327,7 @@ class Table_Stats_Eps extends TableStats
      * @param integer &$same_wide_width The max width among tables
      * @param boolean $showKeys         Whether to display keys or not
      * @param boolean $showInfo         Whether to display table position or not
+     * @param boolean $offline          Load without query
      *
      * @global object  $eps         The current eps document
      * @global integer              The current page number (from the
@@ -342,7 +343,7 @@ class Table_Stats_Eps extends TableStats
         $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
         $showKeys = false, $showInfo = false, $offline = false
     ) {
-        global $eps, $cfgRelation, $db;
+        global $eps, $db;
         parent::__construct(
             $eps, $db, $pageNumber, $tableName, $showKeys, $showInfo, $offline
         );

@@ -181,8 +181,8 @@ function PMA_changePassUrlParamsAndSubmitQuery(
 /**
  * Display the page
  *
- * @param string $message     Message
- * @param string $sql_query   SQL query
+ * @param string $message   Message
+ * @param string $sql_query SQL query
  *
  * @return void
  */

@@ -57,7 +57,8 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->at(0))
             ->method('fetchResult')
-            ->with("
+            ->with(
+                "
         SELECT CONCAT_WS('.', `db_name`, `table_name`) AS `name`,
             `x` AS `X`,
             `y` AS `Y`,

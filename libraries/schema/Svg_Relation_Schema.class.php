@@ -293,6 +293,7 @@ class Table_Stats_Svg extends TableStats
      * @param integer &$same_wide_width The max. with among tables
      * @param boolean $showKeys         Whether to display keys or not
      * @param boolean $showInfo         Whether to display table position or not
+     * @param boolean $offline          Load without query
      *
      * @global object  $svg         The current SVG image document
      * @global integer              The current page number (from the
@@ -309,7 +310,7 @@ class Table_Stats_Svg extends TableStats
         $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
         $showKeys = false, $showInfo = false, $offline = false
     ) {
-        global $svg, $cfgRelation, $db;
+        global $svg, $db;
         parent::__construct(
             $svg, $db, $pageNumber, $tableName, $showKeys, $showInfo, $offline
         );
