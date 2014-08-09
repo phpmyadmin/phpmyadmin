@@ -29,10 +29,7 @@ require_once 'libraries/plugin_interface.lib.php';
  */
 
 $post_params = array(
-    'db',
-    'pdf_with_doc',
-    'pdf_orientation',
-    'pdf_paper'
+    'db'
 );
 foreach ($post_params as $one_post_param) {
     if (isset($_REQUEST[$one_post_param])) {

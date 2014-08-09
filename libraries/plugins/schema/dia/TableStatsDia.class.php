@@ -36,17 +36,15 @@ class Table_Stats_Dia extends TableStats
      * @param boolean $offline    Whether the coordinates are sent from the browser
      *
      * @global object $dia         The current dia document
-     * @global array  $cfgRelation The relations settings
-     * @global string $db          The current db name
      *
      * @see PMA_DIA
      */
     function __construct(
         $tableName, $pageNumber, $showKeys = false, $offline = false
     ) {
-        global $dia, $cfgRelation, $db;
+        global $dia;
         parent::__construct(
-            $dia, $db, $pageNumber, $tableName, $showKeys, false, $offline
+            $dia, $GLOBALS['db'], $pageNumber, $tableName, $showKeys, false, $offline
         );
 
         /**

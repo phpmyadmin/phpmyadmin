@@ -303,7 +303,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
     {
         parent::__construct();
 
-        global $svg, $db;
+        global $svg;
 
         $this->setShowColor(isset($_REQUEST['svg_show_color']));
         $this->setShowKeys(isset($_REQUEST['svg_show_keys']));
@@ -314,7 +314,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         $svg->setTitle(
             sprintf(
                 __('Schema of the %s database - Page %s'),
-                $db,
+                $GLOBALS['db'],
                 $this->pageNumber
             )
         );
@@ -330,7 +330,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
                 $alltables[] = $tbl->table_name;
             }
         } else {
-            $alltables = $this->getAllTables($db, $this->pageNumber);
+            $alltables = $this->getAllTables($GLOBALS['db'], $this->pageNumber);
         }
 
         foreach ($alltables as $table) {
@@ -349,7 +349,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         }
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
-            $exist_rel = PMA_getForeigners($db, $one_table, '', 'both');
+            $exist_rel = PMA_getForeigners($GLOBALS['db'], $one_table, '', 'both');
             if ($exist_rel) {
                 $seen_a_relation = true;
                 foreach ($exist_rel as $master_field => $rel) {
@@ -402,8 +402,8 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      */
     function showOutput()
     {
-        global $svg, $db;
-        $filename = $db . '-' . $this->pageNumber;
+        global $svg;
+        $filename = $GLOBALS['db'] . '-' . $this->pageNumber;
         if ($this->isOffline()) {
             $filename = __("SVG export page");
         }

@@ -54,22 +54,25 @@ class PMA_Schema_PDF extends PMA_PDF
     private $_ff = PMA_PDF_FONT;
     private $_offline;
     private $_exportingPage;
+    private $_withDoc;
 
     /**
      * Constructs PDF for schema export.
      *
-     * @param string $orientation   page orientation
-     * @param string $unit          unit
-     * @param string $format        the format used for pages
-     * @param int    $exportingPage schema page number that is being exported
+     * @param string  $orientation   page orientation
+     * @param string  $unit          unit
+     * @param string  $paper         the format used for pages
+     * @param int     $exportingPage schema page number that is being exported
+     * @param boolean $withDoc       with document dictionary
      *
      * @access public
      */
     public function __construct(
-        $orientation, $unit, $format, $exportingPage
+        $orientation, $unit, $paper, $exportingPage, $withDoc
     ) {
-        parent::__construct($orientation, $unit, $format);
+        parent::__construct($orientation, $unit, $paper);
         $this->_exportingPage = $exportingPage;
+        $this->_withDoc = $withDoc;
     }
 
     /**
@@ -243,15 +246,14 @@ class PMA_Schema_PDF extends PMA_PDF
         // We only show this if we find something in the new pdf_pages table
 
         // This function must be named "Header" to work with the TCPDF library
-        global $cfgRelation, $db, $pdf_with_doc;
-        if ($pdf_with_doc) {
+        if ($this->_withDoc) {
             if ($this->_offline) {
                 $pg_name = __("PDF export page");
             } else {
                 $test_query = 'SELECT * FROM '
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
-                    . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                    . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\''
                     . ' AND page_nr = \'' . $this->_exportingPage . '\'';
                 $test_rs = PMA_queryAsControlUser($test_query);
                 $pages = @$GLOBALS['dbi']->fetchAssoc($test_rs);
@@ -274,8 +276,7 @@ class PMA_Schema_PDF extends PMA_PDF
      */
     function Footer()
     {
-        global $pdf_with_doc;
-        if ($pdf_with_doc) {
+        if ($this->_withDoc) {
             parent::Footer();
         }
     }
@@ -444,7 +445,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      * The "PMA_Pdf_Relation_Schema" constructor
      *
      * @global object $pdf The current PDF Schema document
-     * @global string $db  The current db name
      * @access private
      * @see PMA_Schema_PDF
      */
@@ -452,7 +452,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     {
         parent::__construct();
 
-        global $pdf, $db;
+        global $pdf;
 
         $this->setShowGrid(isset($_REQUEST['pdf_show_grid']));
         $this->setShowColor(isset($_REQUEST['pdf_show_color']));
@@ -465,7 +465,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 
          // Initializes a new document
         $pdf = new PMA_Schema_PDF(
-            $this->orientation, 'mm', $this->paper, intval($_REQUEST['chpage'])
+            $this->orientation, 'mm', $this->paper,
+            intval($_REQUEST['chpage']), $this->_withDoc
         );
         $pdf->SetTitle(
             sprintf(
@@ -485,7 +486,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 $alltables[] = $tbl->table_name;
             }
         } else {
-            $alltables = $this->getAllTables($db, $this->pageNumber);
+            $alltables = $this->getAllTables($GLOBALS['db'], $this->pageNumber);
         }
 
         if ($this->_withDoc) {
@@ -555,7 +556,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         // and finding its foreigns is OK (then we can support innodb)
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
-            $exist_rel = PMA_getForeigners($db, $one_table, '', 'both');
+            $exist_rel = PMA_getForeigners($GLOBALS['db'], $one_table, '', 'both');
             if ($exist_rel) {
                 $seen_a_relation = true;
                 foreach ($exist_rel as $master_field => $rel) {
@@ -811,10 +812,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @param integer $pageNumber page number
      *
-     * @global object  $pdf         The current PDF document
-     * @global string  $cfgRelation The current database name
-     * @global integer              The current page number (from the
-     *                              $cfg['Servers'][$i]['table_coords'] table)
+     * @global object  $pdf  The current PDF document
      * @access private
      *
      * @return void
@@ -858,7 +856,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      */
     public function dataDictionaryDoc($alltables)
     {
-        global $db, $pdf, $pdf_orientation, $pdf_paper;
+        global $pdf;
         // TOC
         $pdf->addpage($this->orientation);
         $pdf->Cell(0, 9, __('Table of contents'), 1, 0, 'C');
@@ -919,15 +917,15 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $pdf->ln();
 
             $cfgRelation = PMA_getRelationsParam();
-            $comments = PMA_getComments($db, $table);
+            $comments = PMA_getComments($GLOBALS['db'], $table);
             if ($cfgRelation['mimework']) {
-                $mime_map = PMA_getMIME($db, $table, true);
+                $mime_map = PMA_getMIME($GLOBALS['db'], $table, true);
             }
 
             /**
              * Gets table informations
              */
-            $showtable    = PMA_Table::sGetStatusInfo($db, $table);
+            $showtable    = PMA_Table::sGetStatusInfo($GLOBALS['db'], $table);
             $show_comment = isset($showtable['Comment'])
                 ? $showtable['Comment']
                 : '';
@@ -996,12 +994,12 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             /**
              * Gets fields properties
              */
-            $columns = $GLOBALS['dbi']->getColumns($db, $table);
+            $columns = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $table);
             // Check if we can use Relations
             if (!empty($cfgRelation['relation'])) {
                 // Find which tables are related with the current one and write it in
                 // an array
-                $res_rel = PMA_getForeigners($db, $table);
+                $res_rel = PMA_getForeigners($GLOBALS['db'], $table);
             } // end if
 
             /**
@@ -1035,7 +1033,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             }
 
             $pdf->SetFont($this->_ff, 'B');
-            if (isset($pdf_orientation) && $pdf_orientation == 'L') {
+            if (isset($this->orientation) && $this->orientation == 'L') {
                 $pdf->Cell(25, 8, __('Column'), 1, 0, 'C');
                 $pdf->Cell(20, 8, __('Type'), 1, 0, 'C');
                 $pdf->Cell(20, 8, __('Attributes'), 1, 0, 'C');
@@ -1044,7 +1042,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 $pdf->Cell(25, 8, __('Extra'), 1, 0, 'C');
                 $pdf->Cell(45, 8, __('Links to'), 1, 0, 'C');
 
-                if ($pdf_paper == 'A4') {
+                if ($this->paper == 'A4') {
                     $comments_width = 67;
                 } else {
                     // this is really intended for 'letter'

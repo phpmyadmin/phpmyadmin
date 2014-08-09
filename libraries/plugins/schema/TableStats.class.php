@@ -122,8 +122,6 @@ abstract class TableStats
      */
     protected function loadCoordinates()
     {
-        global $cfgRelation;
-
         if ($this->offline) {
             $tbl_coords = json_decode($_REQUEST['tbl_coords']);
             foreach ($tbl_coords as $tbl) {
@@ -136,7 +134,7 @@ abstract class TableStats
         } else {
             $sql = "SELECT x, y FROM "
                 . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
-                . PMA_Util::backquote($cfgRelation['table_coords'])
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
                 . " WHERE db_name = '" . PMA_Util::sqlAddSlashes($this->db) . "'"
                 . " AND table_name = '" . PMA_Util::sqlAddSlashes($this->tableName) . "'"
                 . " AND pdf_page_number = " . $this->pageNumber;

@@ -222,7 +222,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
     {
         parent::__construct();
 
-        global $dia, $db;
+        global $dia;
 
         $this->setShowColor(isset($_REQUEST['dia_show_color']));
         $this->setShowKeys(isset($_REQUEST['dia_show_keys']));
@@ -242,7 +242,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
                 $alltables[] = $tbl->table_name;
             }
         } else {
-            $alltables = $this->getAllTables($db, $this->pageNumber);
+            $alltables = $this->getAllTables($GLOBALS['db'], $this->pageNumber);
         }
 
         foreach ($alltables as $table) {
@@ -302,8 +302,8 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      */
     function showOutput()
     {
-        global $dia, $db;
-        $filename = $db . '-' . $this->pageNumber;
+        global $dia;
+        $filename = $GLOBALS['db'] . '-' . $this->pageNumber;
         if ($this->isOffline()) {
             $filename = __("Dia export page");
         }

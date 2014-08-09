@@ -44,8 +44,6 @@ class Table_Stats_Pdf extends TableStats
      *                                from the browser
      *
      * @global object $pdf         The current PDF document
-     * @global array  $cfgRelation The relations settings
-     * @global string $db          The current db name
      *
      * @see PMA_Schema_PDF, Table_Stats_Pdf::Table_Stats_setWidth,
      *     Table_Stats_Pdf::Table_Stats_setHeight
@@ -53,9 +51,10 @@ class Table_Stats_Pdf extends TableStats
     function __construct($tableName, $fontSize, $pageNumber, &$sameWideWidth,
         $showKeys = false, $tableDimension = false, $offline = false
     ) {
-        global $pdf, $cfgRelation, $db;
+        global $pdf;
         parent::__construct(
-            $pdf, $db, $pageNumber, $tableName, $showKeys, $tableDimension, $offline
+            $pdf, $GLOBALS['db'], $pageNumber, $tableName,
+            $showKeys, $tableDimension, $offline
         );
 
         $this->heightCell = 6;

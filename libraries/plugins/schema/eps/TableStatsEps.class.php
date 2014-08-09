@@ -43,10 +43,6 @@ class Table_Stats_Eps extends TableStats
      *                                  from the browser
      *
      * @global object  $eps         The current eps document
-     * @global integer              The current page number (from the
-     *                              $cfg['Servers'][$i]['table_coords'] table)
-     * @global array   $cfgRelation The relations settings
-     * @global string  $db          The current db name
      *
      * @access private
      * @see PMA_EPS, Table_Stats_Eps::Table_Stats_setWidth,
@@ -56,9 +52,9 @@ class Table_Stats_Eps extends TableStats
         $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
         $showKeys = false, $tableDimension = false, $offline = false
     ) {
-        global $eps, $cfgRelation, $db;
+        global $eps;
         parent::__construct(
-            $eps, $db, $pageNumber, $tableName, $showKeys, $tableDimension, $offline
+            $eps, $GLOBALS['db'], $pageNumber, $tableName, $showKeys, $tableDimension, $offline
         );
 
         // height and width
@@ -107,8 +103,6 @@ class Table_Stats_Eps extends TableStats
      *
      * @param string  $font     The font name
      * @param integer $fontSize The font size
-     *
-     * @global object $eps The current eps document
      *
      * @return void
      *

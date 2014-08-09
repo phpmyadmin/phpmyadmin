@@ -43,8 +43,6 @@ class Table_Stats_Svg extends TableStats
      *                                  from the browser
      *
      * @global object  $svg         The current SVG image document
-     * @global array   $cfgRelation The relations settings
-     * @global string  $db          The current db name
      *
      * @access private
      *
@@ -55,9 +53,9 @@ class Table_Stats_Svg extends TableStats
         $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
         $showKeys = false, $tableDimension = false, $offline = false
     ) {
-        global $svg, $cfgRelation, $db;
+        global $svg;
         parent::__construct(
-            $svg, $db, $pageNumber, $tableName, $showKeys, $tableDimension, $offline
+            $svg, $GLOBALS['db'], $pageNumber, $tableName, $showKeys, $tableDimension, $offline
         );
 
         // height and width

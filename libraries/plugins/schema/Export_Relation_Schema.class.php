@@ -202,17 +202,12 @@ class PMA_Export_Relation_Schema
      * @param string  $type          Schema Type
      * @param string  $error_message The error mesage
      *
-     * @global array      the PMA configuration array
-     * @global string $db the current database name
-     *
      * @access public
      *
      * @return void
      */
     function dieSchema($pageNumber, $type = '', $error_message = '')
     {
-        global $db;
-
         echo "<p><strong>" . __("SCHEMA ERROR: ") .  $type . "</strong></p>" . "\n";
         if (!empty($error_message)) {
             $error_message = htmlspecialchars($error_message);
@@ -220,7 +215,7 @@ class PMA_Export_Relation_Schema
         echo '<p>' . "\n";
         echo '    ' . $error_message . "\n";
         echo '</p>' . "\n";
-        echo '<a href="schema_edit.php?' . PMA_URL_getCommon($db)
+        echo '<a href="schema_edit.php?' . PMA_URL_getCommon($GLOBALS['db'])
             . '&do=selectpage&chpage=' . htmlspecialchars($pageNumber)
             . '&action_choose=0'
             . '">' . __('Back') . '</a>';
