@@ -35,7 +35,7 @@ function PMA_getHtmlForEditOrDeletePages($db, $operation)
     }
     $html .= ': </label>';
     $html .= '<select name="selected_page" id="selected_page">';
-    $html .= '<option value="0">-- ' . __('Select page').' --</option>';
+    $html .= '<option value="0">-- ' . __('Select page') . ' --</option>';
     if ($cfgRelation['pdfwork']) {
         $pages = PMA_getPageIdsAndNames($db);
         foreach ($pages as $nr => $desc) {

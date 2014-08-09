@@ -50,7 +50,7 @@ class PMA_Schema_PDF extends PMA_PDF
     var $def_outlines;
     var $widths;
     private $_ff = PMA_PDF_FONT;
-    private $offline;
+    private $_offline;
 
     /**
      * Sets the value for margins
@@ -225,7 +225,7 @@ class PMA_Schema_PDF extends PMA_PDF
         // This function must be named "Header" to work with the TCPDF library
         global $cfgRelation, $db, $pdf_page_number, $with_doc;
         if ($with_doc) {
-            if ($this->offline) {
+            if ($this->_offline) {
                 $pg_name = __("PDF export page");
             } else {
                 $test_query = 'SELECT * FROM '
@@ -383,7 +383,7 @@ class PMA_Schema_PDF extends PMA_PDF
     */
    public function setOffline($value)
    {
-       $this->offline = (isset($value) && $value == 'on');
+       $this->_offline = (isset($value) && $value == 'on');
    }
 }
 

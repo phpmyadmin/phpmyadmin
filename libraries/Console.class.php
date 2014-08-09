@@ -260,16 +260,21 @@ class PMA_Console
                     $output .= '<div class="mid_layer"></div>';
                     $output .= '<div class="card add">';
                     $output .= '<div class="toolbar">'
-                            .  '<div class="switch_button"><span>' . __('Add bookmark')
-                            .  '</span></div>';
+                            . '<div class="switch_button"><span>'
+                            . __('Add bookmark')
+                            . '</span></div>';
                     $output .= '</div><div class="content add_bookmark">'
-                            .  '<div class="options">'
-                            .  '<label>'. __('Label') . ': <input type="text" name="label"></label> '
-                            .  '<label>'. __('Target database') . ': <input type="text" name="targetdb"></label> '
-                            .  '<label><input type="checkbox" name="shared">'. __('Share this bookmark') . '</label>'
-                            .  '<button type="submit" name="submit">Ok</button>'
-                            .  '</div>' // .options
-                            .  '<div class="query_input"><span class="bookmark_add_input"></span></div>';
+                            . '<div class="options">'
+                            . '<label>' . __('Label')
+                            . ': <input type="text" name="label"></label> '
+                            . '<label>' . __('Target database')
+                            . ': <input type="text" name="targetdb"></label> '
+                            . '<label><input type="checkbox" name="shared">'
+                            . __('Share this bookmark') . '</label>'
+                            . '<button type="submit" name="submit">Ok</button>'
+                            . '</div>' // .options
+                            . '<div class="query_input">'
+                            . '<span class="bookmark_add_input"></span></div>';
                     $output .= '</div>';
                     $output .= '</div>'; // Add bookmark card
                 $output .= '</div>'; // Bookmarks card
