@@ -9,8 +9,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/plugins/schema/RelationStats.class.php';
-
 /**
  * Relation preferences/statistics
  *
@@ -23,7 +21,7 @@ require_once 'libraries/plugins/schema/RelationStats.class.php';
  * @name    Relation_Stats_Dia
  * @see     PMA_DIA
  */
-class Relation_Stats_Dia extends RealtionStats
+class Relation_Stats_Dia
 {
     /**
      * Defines properties
