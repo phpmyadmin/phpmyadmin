@@ -610,7 +610,17 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      */
     public function setShowGrid($value)
     {
-        $this->_showGrid = (isset($value) && $value == 'on');
+        $this->_showGrid = $value;
+    }
+
+    /**
+     * Returns whether to show grid
+     *
+     * @return boolean whether to show grid
+     */
+    public function isShowGrid()
+    {
+        return $this->_showGrid;
     }
 
     /**
@@ -624,7 +634,17 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      */
     public function setWithDataDictionary($value)
     {
-        $this->_withDoc = (isset($value) && $value == 'on');
+        $this->_withDoc = $value;
+    }
+
+    /**
+     * Return whether to show selected database data dictionary or not
+     *
+     * @return boolean whether to show selected database data dictionary or not
+     */
+    public function isWithDataDictionary()
+    {
+        return $this->_withDoc;
     }
 
     /**

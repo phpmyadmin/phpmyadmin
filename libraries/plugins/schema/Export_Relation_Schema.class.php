@@ -55,6 +55,16 @@ class PMA_Export_Relation_Schema
     }
 
     /**
+     * Returns the schema page number
+     *
+     * @return integer schema page number
+     */
+    public function getPageNumber()
+    {
+        return $this->pageNumber;
+    }
+
+    /**
      * Sets showColor
      *
      * @param boolean $value whether to show colors
@@ -64,6 +74,16 @@ class PMA_Export_Relation_Schema
     public function setShowColor($value)
     {
         $this->showColor = $value;
+    }
+
+    /**
+     * Returns whether to show colors
+     *
+     * @return boolean whether to show colors
+     */
+    public function isShowColor()
+    {
+        return $this->showColor;
     }
 
     /**
@@ -81,6 +101,16 @@ class PMA_Export_Relation_Schema
     }
 
     /**
+     * Returns whether to show table dimensions
+     *
+     * @return boolean whether to show table dimensions
+     */
+    public function isTableDimension()
+    {
+        return $this->tableDimension;
+    }
+
+    /**
      * Set same width of All Tables
      *
      * @param boolean $value set same width of all tables or not
@@ -92,6 +122,16 @@ class PMA_Export_Relation_Schema
     public function setAllTablesSameWidth($value)
     {
         $this->sameWide = $value;
+    }
+
+    /**
+     * Returns whether to use same width for all tables or not
+     *
+     * @return boolean whether to use same width for all tables or not
+     */
+    public function isAllTableSameWidth()
+    {
+        return $this->sameWide;
     }
 
     /**
@@ -109,6 +149,16 @@ class PMA_Export_Relation_Schema
     }
 
     /**
+     * Returns whether to show keys
+     *
+     * @return boolean whether to show keys
+     */
+    public function isShowKeys()
+    {
+        return $this->showKeys;
+    }
+
+    /**
      * Set Orientation
      *
      * @param string $value Orientation will be portrait or landscape
@@ -120,6 +170,16 @@ class PMA_Export_Relation_Schema
     public function setOrientation($value)
     {
         $this->orientation = ($value == 'P') ? 'P' : 'L';
+    }
+
+    /**
+     * Returns orientation
+     *
+     * @return string orientation
+     */
+    public function getOrientation()
+    {
+        return $this->orientation;
     }
 
     /**
@@ -137,9 +197,19 @@ class PMA_Export_Relation_Schema
     }
 
     /**
+     * Returns the paper size
+     *
+     * @return string paper size
+     */
+    public function getPaper()
+    {
+        return $this->paper;
+    }
+
+    /**
      * Set whether the document is generated from client side DB
      *
-     * @param string $value 'on' if offline
+     * @param string $value offline or not
      *
      * @return void
      *
