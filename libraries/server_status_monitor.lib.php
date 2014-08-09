@@ -657,6 +657,7 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
         $return['sum'][$type] += $row['#'];
 
         switch($type) {
+        /** @noinspection PhpMissingBreakStatementInspection */
         case 'insert':
             // Group inserts if selected
             if ($removeVars
@@ -673,10 +674,10 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
                     // Add a ... to the end of this query to indicate that
                     // there's been other queries
                     $temp = $return['rows'][$insertTablesFirst]['argument'];
-                    if ($temp[strlen($temp) - 1] != '.') {
-                        $return['rows'][$insertTablesFirst]['argument']
-                            .= '<br/>...';
-                    }
+                    $return['rows'][$insertTablesFirst]['argument']
+                        .= PMA_getJsonForLogDataTypeGeneral_getSuspensionPoints(
+                            $temp[strlen($temp) - 1]
+                        );
 
                     // Group this value, thus do not add to the result list
                     continue 2;
@@ -719,6 +720,22 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
     $GLOBALS['dbi']->freeResult($result);
 
     return $return;
+}
+
+/**
+ * Return suspension points if needed
+ *
+ * @param string $lastChar Last char
+ *
+ * @return null|string Return suspension points if needed
+ */
+function PMA_getJsonForLogDataTypeGeneral_getSuspensionPoints($lastChar)
+{
+    if ($lastChar != '.') {
+        return '<br/>...';
+    }
+
+    return null;
 }
 /**
  * Returns JSon for logging vars
