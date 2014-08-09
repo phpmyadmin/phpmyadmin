@@ -135,11 +135,11 @@ abstract class PMA_GIS_Geometry
      */
     protected function setMinMax($point_set, $min_max)
     {
-        // Seperate each point
+        // Separate each point
         $points = explode(",", $point_set);
 
         foreach ($points as $point) {
-            // Extract cordinates of the point
+            // Extract coordinates of the point
             $cordinates = explode(" ", $point);
 
             $x = (float) $cordinates[0];
@@ -189,7 +189,7 @@ abstract class PMA_GIS_Geometry
     /**
      * Extracts points, scales and returns them as an array.
      *
-     * @param string  $point_set  string of comma sperated points
+     * @param string  $point_set  string of comma separated points
      * @param array   $scale_data data related to scaling
      * @param boolean $linear     if true, as a 1D array, else as a 2D array
      *
@@ -200,11 +200,11 @@ abstract class PMA_GIS_Geometry
     {
         $points_arr = array();
 
-        // Seperate each point
+        // Separate each point
         $points = explode(",", $point_set);
 
         foreach ($points as $point) {
-            // Extract cordinates of the point
+            // Extract coordinates of the point
             $cordinates = explode(" ", $point);
 
             if (isset($cordinates[0]) && trim($cordinates[0]) != ''

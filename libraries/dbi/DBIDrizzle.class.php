@@ -439,7 +439,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
 
         // array of DrizzleColumn
         $columns = $result->getColumns();
-        // columns in a standarized format
+        // columns in a standardized format
         $std_columns = array();
 
         foreach ($columns as $k => $column) {

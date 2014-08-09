@@ -84,7 +84,7 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      * @param int    $server_port   server port
      * @param string $server_socket server socket
      * @param int    $client_flags  client flags of connection
-     * @param bool   $persistent    whether to use peristent connection
+     * @param bool   $persistent    whether to use persistent connection
      *
      * @return bool
      */
@@ -520,7 +520,7 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
             $fields[$k]->_flags = $field->flags;
             $fields[$k]->flags = $this->fieldFlags($result, $k);
 
-            // Enhance the field objects for mysql-extension compatibilty
+            // Enhance the field objects for mysql-extension compatibility
             //$flags = explode(' ', $fields[$k]->flags);
             //array_unshift($flags, 'dummy');
             $fields[$k]->multiple_key

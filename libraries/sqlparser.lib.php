@@ -52,7 +52,7 @@ if (! isset($mysql_charsets)) {
 }
 
 /**
- * Stores parsed elemented of query to array.
+ * Stores parsed elements of query to array.
  *
  * @param array  &$arr     Array to store element
  * @param string $type     Type of element
@@ -664,8 +664,8 @@ function PMA_SQP_parse($sql)
                 $punct_data = $GLOBALS['PMA_String']->substr($sql, $count1, $l);
             }
 
-            // Special case, sometimes, althought two characters are
-            // adjectent directly, they ACTUALLY need to be seperate
+            // Special case, sometimes, although two characters are
+            // adjacent directly, they ACTUALLY need to be separate
             /* DEBUG
             echo '<pre>';
             var_dump($l);
@@ -1012,7 +1012,7 @@ function PMA_SQP_analyze($arr)
      *
      * ['select_expr'] is filled with each expression, the key represents the
      * expression position in the list (0-based) (so we don't lose track of
-     * multiple occurences of the same column).
+     * multiple occurrences of the same column).
      *
      * ['table_ref'] is filled with each table ref, same thing for the key.
      *
@@ -1061,7 +1061,7 @@ function PMA_SQP_analyze($arr)
      * query clauses
      * -------------
      *
-     * The select is splitted in those clauses:
+     * The select is split in those clauses:
      * ['select_expr_clause']
      * ['from_clause']
      * ['group_by_clause']

@@ -50,7 +50,7 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array array containing the min, max values for x and y cordinates
+     * @return array array containing the min, max values for x and y coordinates
      * @access public
      */
     public function scaleRow($spatial)
@@ -73,7 +73,7 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             }
             $scale_data = $gis_obj->scaleRow($sub_part);
 
-            // Upadate minimum/maximum values for x and y cordinates.
+            // Update minimum/maximum values for x and y coordinates.
             $c_maxX = (float) $scale_data['maxX'];
             if (! isset($min_max['maxX']) || $c_maxX > $min_max['maxX']) {
                 $min_max['maxX'] = $c_maxX;
@@ -141,7 +141,7 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
      * @param TCPDF  $pdf        TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
-     * @access pubilc
+     * @access public
      */
     public function prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf)
     {

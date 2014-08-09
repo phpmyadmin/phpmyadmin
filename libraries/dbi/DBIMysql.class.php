@@ -32,7 +32,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      * @param string $user         mysql user name
      * @param string $password     mysql user password
      * @param int    $client_flags client flags of connection
-     * @param bool   $persistent   whether to use peristent connection
+     * @param bool   $persistent   whether to use persistent connection
      *
      * @return mixed   false on error or a mysql connection resource on success
      */
@@ -66,7 +66,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      * @param mysqli $link  mysqli object
      * @param string $query multi query statement to execute
      *
-     * @return boolean false always false since mysql extention not support
+     * @return boolean false always false since mysql extension not support
      *                       for multi query executions
      */
     public function realMultiQuery($link, $query)
