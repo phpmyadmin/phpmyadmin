@@ -40,8 +40,8 @@ class Relation_Stats_Eps extends RealtionStats
         parent::__construct(
             $master_table, $master_field, $foreign_table, $foreign_field
         );
-        $this->ySrc   = $src_pos[2] + 10;
-        $this->yDest = $dest_pos[2] + 10;
+        $this->ySrc  += 10;
+        $this->yDest += 10;
     }
 
     /**

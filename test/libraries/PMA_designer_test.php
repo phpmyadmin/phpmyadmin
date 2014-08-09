@@ -190,7 +190,7 @@ class PMA_DesginerTest extends PHPUnit_Framework_TestCase
         $result = PMA_getHtmlForSchemaExport($db, $page);
         // export type
         $this->assertContains(
-            '<select name="export_type" id="export_type">',
+            '<select id="plugins" name="export_type">',
             $result
         );
 
@@ -202,7 +202,7 @@ class PMA_DesginerTest extends PHPUnit_Framework_TestCase
 
         // orientation
         $this->assertContains(
-            '<select name="orientation" id="orientation_opt" class="paper-change">',
+            '<select name="pdf_orientation" id="select_pdf_orientation">',
             $result
         );
         $this->assertContains('<option value="L">Landscape</option>', $result);
@@ -210,14 +210,11 @@ class PMA_DesginerTest extends PHPUnit_Framework_TestCase
 
         // paper size
         $this->assertContains(
-            '<select name="paper" id="paper_opt" class="paper-change">',
+            '<select name="pdf_paper" id="select_pdf_paper">',
             $result
         );
         $this->assertContains('<option value="A3">A3</option>', $result);
-        $this->assertContains(
-            '<option value="A4" selected="selected">A4</option>',
-            $result
-        );
+        $this->assertContains('<option value="A4">A4</option>', $result);
     }
 }
 ?>

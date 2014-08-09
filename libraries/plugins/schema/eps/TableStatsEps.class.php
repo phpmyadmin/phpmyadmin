@@ -54,7 +54,8 @@ class Table_Stats_Eps extends TableStats
     ) {
         global $eps;
         parent::__construct(
-            $eps, $GLOBALS['db'], $pageNumber, $tableName, $showKeys, $tableDimension, $offline
+            $eps, $GLOBALS['db'], $pageNumber, $tableName,
+            $showKeys, $tableDimension, $offline
         );
 
         // height and width

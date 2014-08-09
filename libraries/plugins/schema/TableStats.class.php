@@ -144,9 +144,9 @@ abstract class TableStats
             if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
                 $this->showMissingCoordinatesError();
             }
-            list($this->x, $this->y) = $GLOBALS['dbi']->fetchRow($result);
-            $this->x = (double) $this->x;
-            $this->y = (double) $this->y;
+            list($x, $y) = $GLOBALS['dbi']->fetchRow($result);
+            $this->x = (double) $x;
+            $this->y = (double) $y;
         }
     }
 

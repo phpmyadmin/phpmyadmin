@@ -255,7 +255,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
 
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
-            $exist_rel = PMA_getForeigners($db, $one_table, '', 'both');
+            $exist_rel = PMA_getForeigners($GLOBALS['db'], $one_table, '', 'both');
             if ($exist_rel) {
                 $seen_a_relation = true;
                 foreach ($exist_rel as $master_field => $rel) {

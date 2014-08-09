@@ -146,7 +146,8 @@ function PMA_getHtmlForSchemaExport($db, $page)
     /* Scan for schema plugins */
     $export_list = PMA_getPlugins(
         "schema",
-        'libraries/plugins/schema/'
+        'libraries/plugins/schema/',
+        null
     );
 
     /* Fail if we didn't find any schema plugin */

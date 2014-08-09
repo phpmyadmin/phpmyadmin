@@ -55,7 +55,8 @@ class Table_Stats_Svg extends TableStats
     ) {
         global $svg;
         parent::__construct(
-            $svg, $GLOBALS['db'], $pageNumber, $tableName, $showKeys, $tableDimension, $offline
+            $svg, $GLOBALS['db'], $pageNumber, $tableName,
+            $showKeys, $tableDimension, $offline
         );
 
         // height and width

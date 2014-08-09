@@ -39,7 +39,6 @@ class PMA_Svg_Relation_Schema_Test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $_REQUEST['page_number'] = 33;
-        $_REQUEST['offline_export'] = false;
         $_REQUEST['svg_show_color'] = true;
         $_REQUEST['svg_show_keys'] = true;
         $_REQUEST['svg_show_table_dimension'] = true;
@@ -60,6 +59,7 @@ class PMA_Svg_Relation_Schema_Test extends PHPUnit_Framework_TestCase
             'relwork' => 'relwork',
             'relation' => 'relation'
         );
+        PMA_getRelationsParam();
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()

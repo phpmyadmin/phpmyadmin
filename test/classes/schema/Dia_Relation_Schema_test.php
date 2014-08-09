@@ -40,7 +40,6 @@ class PMA_Dia_Relation_Schema_Test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $_REQUEST['page_number'] = 33;
-        $_REQUEST['offline_export'] = false;
         $_REQUEST['dia_show_color'] = true;
         $_REQUEST['dia_show_keys'] = true;
         $_REQUEST['dia_orientation'] = 'orientation';
@@ -61,6 +60,7 @@ class PMA_Dia_Relation_Schema_Test extends PHPUnit_Framework_TestCase
             'relwork' => 'relwork',
             'relation' => 'relation'
         );
+        PMA_getRelationsParam();
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -163,7 +163,7 @@ class PMA_Dia_Relation_Schema_Test extends PHPUnit_Framework_TestCase
             $this->object->isShowKeys()
         );
         $this->assertEquals(
-            'P',
+            'L',
             $this->object->getOrientation()
         );
         $this->assertEquals(

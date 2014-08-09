@@ -41,7 +41,7 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $_REQUEST['page_number'] = 33;
-        $_REQUEST['offline_export'] = false;
+        $_REQUEST['chpage'] = 32;
         $_REQUEST['pdf_show_grid'] = true;
         $_REQUEST['pdf_show_color'] = true;
         $_REQUEST['pdf_show_keys'] = true;
@@ -49,7 +49,6 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['pdf_show_table_dimension'] = true;
         $_REQUEST['pdf_all_tables_same_width'] = true;
         $_REQUEST['pdf_paper'] = 'paper';
-        $_REQUEST['pdf_with_doc'] = true;
 
         $GLOBALS['server'] = 1;
         $GLOBALS['controllink'] = null;
@@ -73,8 +72,10 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
             'relation' => 'relation',
             'mimework' => 'mimework',
             'commwork' => 'commwork',
-            'column_info' => 'column_info'
+            'column_info' => 'column_info',
+            'pdf_pages' => 'pdf_pages'
         );
+        PMA_getRelationsParam();
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -113,7 +114,8 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(false));
 
         $fetchRowReturn = array(
-                'table_name'
+            'table_name',
+            'table_name'
         );
 
         //let fetchRow have more results
@@ -224,10 +226,6 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             true,
             $this->object->isAllTableSameWidth()
-        );
-        $this->assertEquals(
-            true,
-            $this->object->isWithDataDictionary()
         );
         $this->assertEquals(
             'L',
