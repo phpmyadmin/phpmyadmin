@@ -513,7 +513,19 @@ if ($server > 0) {
     if (! $cfgRelation['allworks']
         && $cfg['PmaNoRelation_DisableWarning'] == false
     ) {
-        $msg = PMA_Message::notice(__('The phpMyAdmin configuration storage is not completely configured, some extended features have been deactivated. To find out why click %shere%s.'));
+        $msg_text = __(
+            'The phpMyAdmin configuration storage is not completely '
+            . 'configured, some extended features have been deactivated. '
+            . 'To find out why click %shere%s. '
+        );
+        if ($cfg['ZeroConf'] == true) {
+            $msg_text .= __(
+                '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+                . 'Or alternately go to \'Operations\' tab of any database '
+                . 'to set it up there.'
+            );
+        }
+        $msg = PMA_Message::notice($msg_text);
         $msg->addParam(
             '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?'
             . $common_url_query . '">',

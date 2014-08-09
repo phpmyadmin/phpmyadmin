@@ -253,8 +253,7 @@ if (!$is_information_schema) {
      */
     $response->addHTML(PMA_getHtmlForChangeDatabaseCharset($GLOBALS['db'], $table));
 
-    if ($num_tables > 0
-        && ! $cfgRelation['allworks']
+    if (! $cfgRelation['allworks']
         && $cfg['PmaNoRelation_DisableWarning'] == false
     ) {
         $message = PMA_Message::notice(
@@ -270,9 +269,6 @@ if (!$is_information_schema) {
         if (!empty($cfg['Servers'][$server]['pmadb'])) {
             $message->isError(true);
         }
-        $response->addHTML('<div class="operations_full_width">');
-        $response->addHTML($message->getDisplay());
-        $response->addHTML('</div>');
     } // end if
 } // end if (!$is_information_schema)
 

@@ -773,6 +773,8 @@ function PMA_getHtmlForBookmark($disp_mode, $cfgBookmark, $sql_query, $db, $tabl
             . '\'bkm_fields[bkm_label]\');"'
             . ' id="bookmarkQueryForm">';
         $html .= PMA_URL_getHiddenInputs();
+        $html .= '<input type="hidden" name="db"'
+            . ' value="' . htmlspecialchars($db) . '" />';
         $html .= '<input type="hidden" name="goto" value="' . $goto . '" />';
         $html .= '<input type="hidden" name="bkm_fields[bkm_database]"'
             . ' value="' . htmlspecialchars($db) . '" />';
