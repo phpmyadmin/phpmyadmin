@@ -2715,8 +2715,9 @@ function PMA_SQP_format(
  *
  * @param array   $arr                       The SQL queries
  * @param array   $typearr                   Types
- * @param array   $keywords_no_newline       Reserved words without newline placed near them
- * @param int     $i                         Counter
+ * @param array   $keywords_no_newline       Reserved words without newline placed
+ *                                           near them
+ * @param int     $index                     Index in $arr
  * @param boolean $in_priv_list              Is in privilege list
  * @param string  $space_alpha_reserved_word Reserved word separator
  * @param string  $before                    String before
@@ -2725,17 +2726,14 @@ function PMA_SQP_format(
  * @return array
  */
 function PMA_SQP_format_getBeforeAndInPrivList(
-    $arr, $typearr, $keywords_no_newline, $i, $in_priv_list,
+    $arr, $typearr, $keywords_no_newline, $index, $in_priv_list,
     $space_alpha_reserved_word, $before, $keywords_priv_list
-)
-{
-    if (!
-        ((($typearr[1] != 'alpha_reservedWord')
-            || (($typearr[1] == 'alpha_reservedWord')
-                && isset($keywords_no_newline[strtoupper($arr[$i - 1]['data'])])))
+) {
+    if (!((($typearr[1] != 'alpha_reservedWord')
+        || (($typearr[1] == 'alpha_reservedWord')
+        && isset($keywords_no_newline[strtoupper($arr[$index - 1]['data'])])))
         && ($typearr[1] != 'punct_level_plus')
-        && (!isset($keywords_no_newline[$arr[$i]['data']]))
-        )
+        && (!isset($keywords_no_newline[$arr[$index]['data']])))
     ) {
         $before .= ' ';
         return array($before, $in_priv_list);
@@ -2747,7 +2745,7 @@ function PMA_SQP_format_getBeforeAndInPrivList(
     // so do not put a newline before
     //
     // also we must not be inside a privilege list
-    if ($i > 0) {
+    if ($index > 0) {
         // the alpha_identifier exception is there to
         // catch cases like
         // GRANT SELECT ON mydb.mytable TO myuser@localhost
@@ -2761,18 +2759,20 @@ function PMA_SQP_format_getBeforeAndInPrivList(
          */
 
         if (!$in_priv_list
-            || $typearr[1] == 'alpha_identifier'
-            || $typearr[1] == 'quote_single'
-            || $typearr[1] == 'white_newline'
+            || in_array(
+                $typearr[1],
+                array('alpha_identifier', 'quote_single', 'white_newline')
+            )
         ) {
             $before .= $space_alpha_reserved_word;
         }
-    } else {
-        // on first keyword, check if it introduces a
-        // privilege list
-        if (isset($keywords_priv_list[$arr[$i]['data']])) {
-            $in_priv_list = true;
-        }
+        return array($before, $in_priv_list);
+    }
+
+    // on first keyword, check if it introduces a
+    // privilege list
+    if (isset($keywords_priv_list[$arr[$index]['data']])) {
+        $in_priv_list = true;
     }
     return array($before, $in_priv_list);
 }
