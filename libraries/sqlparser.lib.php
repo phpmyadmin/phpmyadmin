@@ -2618,48 +2618,10 @@ function PMA_SQP_format(
                 $arr[$i]['data'] = strtoupper($arr[$i]['data']);
             }
 
-            if ((($typearr[1] != 'alpha_reservedWord')
-                || (($typearr[1] == 'alpha_reservedWord')
-                && isset($keywords_no_newline[strtoupper($arr[$i - 1]['data'])])))
-                && ($typearr[1] != 'punct_level_plus')
-                && (!isset($keywords_no_newline[$arr[$i]['data']]))
-            ) {
-                // do not put a space before the first token, because
-                // we use a lot of pattern matching checking for the
-                // first reserved word at beginning of query
-                // so do not put a newline before
-                //
-                // also we must not be inside a privilege list
-                if ($i > 0) {
-                    // the alpha_identifier exception is there to
-                    // catch cases like
-                    // GRANT SELECT ON mydb.mytable TO myuser@localhost
-                    // (else, we get mydb.mytableTO)
-                    //
-                    // the quote_single exception is there to
-                    // catch cases like
-                    // GRANT ... TO 'marc'@'domain.com' IDENTIFIED...
-                    /**
-                     * @todo fix all cases and find why this happens
-                     */
-
-                    if (!$in_priv_list
-                        || $typearr[1] == 'alpha_identifier'
-                        || $typearr[1] == 'quote_single'
-                        || $typearr[1] == 'white_newline'
-                    ) {
-                        $before    .= $space_alpha_reserved_word;
-                    }
-                } else {
-                    // on first keyword, check if it introduces a
-                    // privilege list
-                    if (isset($keywords_priv_list[$arr[$i]['data']])) {
-                        $in_priv_list = true;
-                    }
-                }
-            } else {
-                $before    .= ' ';
-            }
+            list($before, $in_priv_list) = PMA_SQP_format_getBeforeAndInPrivList(
+                $arr, $typearr, $keywords_no_newline, $i, $in_priv_list,
+                $space_alpha_reserved_word, $before, $keywords_priv_list
+            );
 
             list($space_punct_listsep, $space_alpha_reserved_word)
                 = PMA_SQP_format_getListsepAndReservedWord(
@@ -2747,6 +2709,73 @@ function PMA_SQP_format(
 
     return $str;
 } // end of the "PMA_SQP_format()" function
+
+/**
+ * Define variables for PMA_SQP_format
+ *
+ * @param array   $arr                       The SQL queries
+ * @param array   $typearr                   Types
+ * @param array   $keywords_no_newline       Reserved words without newline placed near them
+ * @param int     $i                         Counter
+ * @param boolean $in_priv_list              Is in privilege list
+ * @param string  $space_alpha_reserved_word Reserved word separator
+ * @param string  $before                    String before
+ * @param array   $keywords_priv_list        Keywords list of privileges
+ *
+ * @return array
+ */
+function PMA_SQP_format_getBeforeAndInPrivList(
+    $arr, $typearr, $keywords_no_newline, $i, $in_priv_list,
+    $space_alpha_reserved_word, $before, $keywords_priv_list
+)
+{
+    if (!
+        ((($typearr[1] != 'alpha_reservedWord')
+            || (($typearr[1] == 'alpha_reservedWord')
+                && isset($keywords_no_newline[strtoupper($arr[$i - 1]['data'])])))
+        && ($typearr[1] != 'punct_level_plus')
+        && (!isset($keywords_no_newline[$arr[$i]['data']]))
+        )
+    ) {
+        $before .= ' ';
+        return array($before, $in_priv_list);
+    }
+
+    // do not put a space before the first token, because
+    // we use a lot of pattern matching checking for the
+    // first reserved word at beginning of query
+    // so do not put a newline before
+    //
+    // also we must not be inside a privilege list
+    if ($i > 0) {
+        // the alpha_identifier exception is there to
+        // catch cases like
+        // GRANT SELECT ON mydb.mytable TO myuser@localhost
+        // (else, we get mydb.mytableTO)
+        //
+        // the quote_single exception is there to
+        // catch cases like
+        // GRANT ... TO 'marc'@'domain.com' IDENTIFIED...
+        /**
+         * @todo fix all cases and find why this happens
+         */
+
+        if (!$in_priv_list
+            || $typearr[1] == 'alpha_identifier'
+            || $typearr[1] == 'quote_single'
+            || $typearr[1] == 'white_newline'
+        ) {
+            $before .= $space_alpha_reserved_word;
+        }
+    } else {
+        // on first keyword, check if it introduces a
+        // privilege list
+        if (isset($keywords_priv_list[$arr[$i]['data']])) {
+            $in_priv_list = true;
+        }
+    }
+    return array($before, $in_priv_list);
+}
 
 /**
  * Define variables for PMA_SQP_format
