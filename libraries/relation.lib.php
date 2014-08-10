@@ -1334,7 +1334,7 @@ function PMA_getRelatives($all_tables, $master)
     $known_tables = array();
     $known_tables[$master] = $master;
     $run = 0;
-    while (count($remaining_tables) > 0) {
+    while ($GLOBALS['cfgRelation']['relwork'] && count($remaining_tables) > 0) {
         // Whether to go from master to foreign or vice versa
         if ($run % 2 == 0) {
             $from = 'master';
