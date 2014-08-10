@@ -205,7 +205,10 @@ class PMA_DesginerTest extends PHPUnit_Framework_TestCase
             '<select name="pdf_orientation" id="select_pdf_orientation">',
             $result
         );
-        $this->assertContains('<option value="L">Landscape</option>', $result);
+        $this->assertContains(
+            '<option value="L" selected="selected">Landscape</option>',
+            $result
+        );
         $this->assertContains('<option value="P">Portrait</option>', $result);
 
         // paper size
@@ -214,7 +217,10 @@ class PMA_DesginerTest extends PHPUnit_Framework_TestCase
             $result
         );
         $this->assertContains('<option value="A3">A3</option>', $result);
-        $this->assertContains('<option value="A4">A4</option>', $result);
+        $this->assertContains(
+            '<option value="A4" selected="selected">A4</option>',
+            $result
+        );
     }
 }
 ?>
