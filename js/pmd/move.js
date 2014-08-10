@@ -936,11 +936,20 @@ function Export_pages()
             PMA_ajaxShowMessage(data.error, false);
         } else {
             PMA_ajaxRemoveMessage($msgbox);
+
+            var $form = $(data.message);
+            var $formatDropDown = $form.find('#plugins');
+            $formatDropDown.change(function() {
+                var format = $formatDropDown.val();
+                $form.find('.format_specific_options').hide();
+                $form.find('#' + format + '_options').show();
+            }).trigger('change');
+
             $('<div id="page_export_dialog"></div>')
-                .append(data.message)
+                .append($form)
                 .dialog({
                     title: PMA_messages.strExportRelationalSchema,
-                    width: 400,
+                    width: 550,
                     modal: true,
                     buttons: button_options,
                     close: function () {
@@ -951,26 +960,13 @@ function Export_pages()
     }); // end $.get()
 }// end export pages
 
-function getParamsForExport($from)
+function getParamsForExport($form)
 {
-    var url = "";
-    url += "&db=" + $from.find('input[name="db"]').val();
-    url += "&token=" + $from.find('input[name="token"]').val();
-    url += "&do=" + $from.find('input[name="do"]').val();
-    url += "&export_type=" + $from.find("#export_type").val();
-    url += "&chpage=" + $from.find('input[name="chpage"]').val();
-    url += "&orientation=" + $from.find('select[name="orientation"]').val();
-    url += "&paper=" + $from.find('select[name="paper"]').val();
-    url += "&show_color=" + ($from.find('input[name="show_color"]').is(":checked") ? "on" : "off");
-    url += "&with_doc=" + ($from.find('input[name="with_doc"]').is(":checked") ? "on" : "off");
-    url += "&all_tables_same_width=" + ($from.find('input[name="all_tables_same_width"]').is(":checked") ? "on" : "off");
-    url += "&show_grid=" + ($from.find('input[name="show_grid"]').is(":checked") ? "on" : "off");
-    url += "&show_keys=" + ($from.find('input[name="show_keys"]').is(":checked") ? "on" : "off");
-    url += "&show_table_dimension=" + ($from.find('input[name="show_table_dimension"]').is(":checked") ? "on" : "off");
-    url += "&offline_export=" + (pmd_tables_enabled ? "off" : "on");
+    var url = $form.serialize();
     if (pmd_tables_enabled) {
         url += Get_url_pos();
     } else {
+        url += "&offline_export=true";
         url += "&tbl_coords=" + JSON.stringify(Get_url_pos());
     }
 

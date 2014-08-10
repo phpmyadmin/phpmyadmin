@@ -2235,6 +2235,144 @@ $cfg['Import']['xls_empty_rows'] = true;
 $cfg['Import']['xlsx_col_names'] = false;
 
 /*******************************************************************************
+ * Schema export defaults
+*/
+$cfg['Schema'] = array();
+
+/**
+ * pdf/eps/dia/svg
+ *
+ * @global string $cfg['Schema']['format']
+*/
+$cfg['Schema']['format'] = 'pdf';
+
+/**
+ *
+ *
+ * @global string $cfg['Schema']['pdf_show_color']
+ */
+$cfg['Schema']['pdf_show_color'] = true;
+
+/**
+ *
+ *
+ * @global string $cfg['Schema']['pdf_show_keys']
+ */
+$cfg['Schema']['pdf_show_keys'] = false;
+
+/**
+ *
+ *
+ * @global string $cfg['Schema']['pdf_all_tables_same_width']
+ */
+$cfg['Schema']['pdf_all_tables_same_width'] = false;
+
+/**
+ * L/P
+ *
+ * @global string $cfg['Schema']['pdf_orientation']
+ */
+$cfg['Schema']['pdf_orientation'] = 'L';
+
+/**
+ *
+ *
+ * @global string $cfg['Schema']['pdf_paper']
+ */
+$cfg['Schema']['pdf_paper'] = 'A4';
+
+/**
+ *
+ *
+ * @global string $cfg['Schema']['pdf_show_grid']
+ */
+$cfg['Schema']['pdf_show_grid'] = false;
+
+/**
+ *
+ *
+ * @global string $cfg['Schema']['pdf_with_doc']
+ */
+$cfg['Schema']['pdf_with_doc'] = true;
+
+/**
+ *
+ *
+ * @global string $cfg['Schema']['dia_show_color']
+ */
+$cfg['Schema']['dia_show_color'] = true;
+
+/**
+ *
+ *
+ * @global string $cfg['Schema']['dia_show_keys']
+ */
+$cfg['Schema']['dia_show_keys'] = false;
+
+/**
+ * L/P
+ *
+ * @global string $cfg['Schema']['dia_orientation']
+ */
+$cfg['Schema']['dia_orientation'] = 'L';
+
+/**
+ *
+ *
+ * @global string $cfg['Schema']['dia_paper']
+ */
+$cfg['Schema']['dia_paper'] = 'A4';
+
+/**
+ *
+ *
+ * @global string $cfg['Schema']['eps_show_color']
+ */
+$cfg['Schema']['eps_show_color'] = true;
+
+/**
+ *
+ *
+ * @global string $cfg['Schema']['eps_show_keys']
+ */
+$cfg['Schema']['eps_show_keys'] = false;
+
+/**
+ *
+ *
+ * @global string $cfg['Schema']['eps_all_tables_same_width']
+ */
+$cfg['Schema']['eps_all_tables_same_width'] = false;
+
+/**
+ * L/P
+ *
+ * @global string $cfg['Schema']['eps_orientation']
+ */
+$cfg['Schema']['eps_orientation'] = 'L';
+
+/**
+ *
+ *
+ * @global string $cfg['Schema']['svg_show_color']
+ */
+$cfg['Schema']['svg_show_color'] = true;
+
+/**
+ *
+ *
+ * @global string $cfg['Schema']['svg_show_keys']
+ */
+$cfg['Schema']['svg_show_keys'] = false;
+
+/**
+ *
+ *
+ * @global string $cfg['Schema']['svg_all_tables_same_width']
+ */
+$cfg['Schema']['svg_all_tables_same_width'] = false;
+
+/*******************************************************************************
  * PDF options
  */
 
