@@ -1188,7 +1188,7 @@ function PMA_getHtmlForColumnDefault($columnNumber, $ci, $ci_offset, $type_upper
  * @param string     $default_current_timestamp        default current time stamp
  * @param array|null $extracted_columnspec             extracted column spec
  * @param string     $submit_attribute                 submit attribute
- * @param array      $analyzed_sql                     analyzed sql
+ * @param array|null $analyzed_sql                     analyzed sql
  * @param string     $submit_default_current_timestamp submit default current
  *                                                     timestamp
  * @param array      $comments_map                     comments map
