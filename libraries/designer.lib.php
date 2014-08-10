@@ -157,7 +157,6 @@ function PMA_getHtmlForSchemaExport($db, $page)
         )->getDisplay();
     }
 
-
     $htmlString  = '<form method="post" action="schema_export.php"'
         . ' class="disableAjax" id="id_export_pages">';
     $htmlString .= '<fieldset>';
