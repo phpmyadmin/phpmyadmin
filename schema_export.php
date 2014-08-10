@@ -75,7 +75,7 @@ function PMA_processExportSchema($export_type)
 
     // get the specific plugin
     $export_plugin = PMA_getPlugin(
-        "Schema",
+        "schema",
         $export_type,
         'libraries/plugins/schema/'
     );

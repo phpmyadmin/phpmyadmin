@@ -165,7 +165,7 @@ function PMA_getHtmlForSchemaExport($db, $page)
     $htmlString .= '<label>' . __('Select Export Relational Type')
         . '</label><br />';
     $htmlString .= PMA_pluginGetChoice(
-        'Schema', 'export_type', $export_list, 'schema_export_format'
+        'Schema', 'export_type', $export_list, 'format'
     );
     $htmlString .= '<input type="hidden" name="chpage"'
         . ' value="' . htmlspecialchars($page) . '" />';
