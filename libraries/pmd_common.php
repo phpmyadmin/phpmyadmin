@@ -288,7 +288,7 @@ function PMA_getPageName($pg)
     $query = "SELECT `page_descr`"
         . " FROM " . PMA_Util::backquote($cfgRelation['db'])
         . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
-        . " WHERE " . PMA_Util::backquote('page_nr'). " = " . $pg;
+        . " WHERE " . PMA_Util::backquote('page_nr') . " = " . $pg;
     $page_name = $GLOBALS['dbi']->fetchResult(
         $query,
         null,
@@ -315,7 +315,7 @@ function PMA_deletePage($pg)
 
     $query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
              . "." . PMA_Util::backquote($cfgRelation['table_coords'])
-             . " WHERE " . PMA_Util::backquote('pdf_page_number'). " = " . $pg;
+             . " WHERE " . PMA_Util::backquote('pdf_page_number') . " = " . $pg;
     $success = PMA_queryAsControlUser(
         $query, true, PMA_DatabaseInterface::QUERY_STORE
     );
@@ -323,7 +323,7 @@ function PMA_deletePage($pg)
     if ($success) {
         $query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
                  . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
-                 . " WHERE ". PMA_Util::backquote('page_nr'). " = " . $pg;
+                 . " WHERE " . PMA_Util::backquote('page_nr') . " = " . $pg;
         $success = PMA_queryAsControlUser(
             $query, true, PMA_DatabaseInterface::QUERY_STORE
         );

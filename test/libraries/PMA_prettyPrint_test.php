@@ -40,7 +40,9 @@ class PMA_PrettyPrint_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             "key[test0]: \"value0\"\nkey[test1]: \"value1\"\n",
-            PMA_prettyPrint(array('key' => array('test0' => 'value0', 'test1' => 'value1')))
+            PMA_prettyPrint(
+                array('key' => array('test0' => 'value0', 'test1' => 'value1'))
+            )
         );
     }
 

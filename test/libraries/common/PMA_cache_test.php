@@ -102,9 +102,15 @@ class PMA_Cache_Test extends PHPUnit_Framework_TestCase
         PMA_Util::cacheSet('test_data_2', 25);
 
         PMA_Util::cacheUnset('test_data');
-        $this->assertArrayNotHasKey('test_data', $_SESSION['cache']['server_server']);
+        $this->assertArrayNotHasKey(
+            'test_data',
+            $_SESSION['cache']['server_server']
+        );
         PMA_Util::cacheUnset('test_data_2');
-        $this->assertArrayNotHasKey('test_data_2', $_SESSION['cache']['server_server']);
+        $this->assertArrayNotHasKey(
+            'test_data_2',
+            $_SESSION['cache']['server_server']
+        );
     }
 
     /**
@@ -116,10 +122,16 @@ class PMA_Cache_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 'server';
         PMA_Util::cacheSet('is_superuser', 'yes');
-        $this->assertEquals('yes', $_SESSION['cache']['server_server']['is_superuser']);
+        $this->assertEquals(
+            'yes',
+            $_SESSION['cache']['server_server']['is_superuser']
+        );
 
         PMA_Util::clearUserCache();
-        $this->assertArrayNotHasKey('is_superuser', $_SESSION['cache']['server_server']);
+        $this->assertArrayNotHasKey(
+            'is_superuser',
+            $_SESSION['cache']['server_server']
+        );
     }
 }
 ?>

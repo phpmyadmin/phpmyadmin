@@ -40,7 +40,7 @@ if (isset($ajax_reload) && $ajax_reload['reload'] === true) {
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-// Security checkings
+// Security checks
 if (! empty($goto)) {
     $is_gotofile     = preg_replace('@^([^?]+).*$@s', '\\1', $goto);
     if (! @file_exists('' . $is_gotofile)) {

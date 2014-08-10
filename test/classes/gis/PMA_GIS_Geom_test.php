@@ -61,7 +61,7 @@ abstract class PMA_GIS_GeomTest extends PHPUnit_Framework_TestCase
     /**
      * Tests whether content is a valid image.
      *
-     * @param object $image Image
+     * @param object $object Image
      *
      * @return void
      */

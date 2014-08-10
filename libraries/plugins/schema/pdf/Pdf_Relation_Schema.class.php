@@ -396,7 +396,7 @@ class PMA_Schema_PDF extends PMA_PDF
     /**
      * Set whether the document is generated from client side DB
      *
-     * @param string $value 'on' if offline
+     * @param string $value whether offline
      *
      * @return void
      *
@@ -404,7 +404,7 @@ class PMA_Schema_PDF extends PMA_PDF
      */
     public function setOffline($value)
     {
-        $this->_offline = (isset($value) && $value == 'on');
+        $this->_offline = $value;
     }
 }
 

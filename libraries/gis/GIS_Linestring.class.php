@@ -50,7 +50,7 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array an array containing the min, max values for x and y cordinates
+     * @return array an array containing the min, max values for x and y coordinates
      * @access public
      */
     public function scaleRow($spatial)

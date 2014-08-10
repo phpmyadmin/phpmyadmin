@@ -50,7 +50,7 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array an array containing the min, max values for x and y cordinates
+     * @return array an array containing the min, max values for x and y coordinates
      * @access public
      */
     public function scaleRow($spatial)
@@ -59,7 +59,7 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng = substr($spatial, 17, (strlen($spatial) - 19));
-        // Seperate each linestring
+        // Separate each linestring
         $linestirngs = explode("),(", $multilinestirng);
 
         foreach ($linestirngs as $linestring) {

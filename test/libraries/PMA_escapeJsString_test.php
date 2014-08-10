@@ -43,7 +43,10 @@ class PMA_EscapeJsString_Test extends PHPUnit_Framework_TestCase
             array('\\\';', '\';'),
             array('\r\n\\\'<scrIpt></\' + \'script>', "\r\n'<scrIpt></sCRIPT>"),
             array('\\\';[XSS]', '\';[XSS]'),
-            array('</\' + \'script></head><body>[HTML]', '</SCRIPT></head><body>[HTML]'),
+            array(
+                '</\' + \'script></head><body>[HTML]',
+                '</SCRIPT></head><body>[HTML]'
+            ),
             array('\"\\\'\\\\\\\'\"', '"\'\\\'"'),
             array("\\\\\'\'\'\'\'\'\'\'\'\'\'\'\\\\", "\\''''''''''''\\")
         );
