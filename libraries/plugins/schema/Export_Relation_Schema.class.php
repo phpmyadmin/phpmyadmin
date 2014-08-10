@@ -209,7 +209,7 @@ class PMA_Export_Relation_Schema
     /**
      * Set whether the document is generated from client side DB
      *
-     * @param string $value offline or not
+     * @param boolean $value offline or not
      *
      * @return void
      *
