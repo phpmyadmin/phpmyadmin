@@ -1955,24 +1955,24 @@ Note: The Range search feature will work only `Numeric` and `Date` data type col
 6.36 What is Central columns and How can I use this feature?
 ---------------------------------------------------------
 
-As the name suggest, Central columns feature enables to maintain a central list of
-columns per database to avoid similar name for the same data element and consistency
+As the name suggests, the Central columns feature enables to maintain a central list of
+columns per database to avoid similar name for the same data element and bring consistency
 of data type for the same data element. You can use the central list of columns to
 add an element to any table structure in that database which will save from writing
 similar column name and column definition.
 
-To add a column to central list, Go to table structure page, check the columns you want
+To add a column to central list, go to table structure page, check the columns you want
 to include and then simply click on "Add to central columns". If you want to add all
-unique columns from more than one tables from a database then go to database structure page,
+unique columns from more than one table from a database then go to database structure page,
 check the tables you want to include and then select "Add columns to central list".
 
-To remove a column from central list, Go to Table structure page, check the columns you want
+To remove a column from central list, go to Table structure page, check the columns you want
 to remove and then simply click on "Remove from central columns". If you want to remove all
 columns from more than one tables from a database then go to database structure page,
 check the tables you want to include and then select "Remove columns from central list".
 
-To View and Manage the central list, select the database you want to manage central columns
-for then from the top menu click on "Central columns". You will be taken to a a page where
+To view and manage the central list, select the database you want to manage central columns
+for then from the top menu click on "Central columns". You will be taken to a page where
 you will have options to edit, delete or add new columns to central list.
 
 .. _faq6_37:
@@ -1981,13 +1981,13 @@ you will have options to edit, delete or add new columns to central list.
 ---------------------------------------------------------
 
 Improve table structure feature helps to bring the table structure upto
-Third Normal Form. A wizard is presented to user which asks question about the
-elements during the various steps for normalization and new structure is proposed
-accordingly to make table into the First/Second/Third Normal form.
+Third Normal Form. A wizard is presented to user which asks questions about the
+elements during the various steps for normalization and a new structure is proposed
+accordingly to bring the table into the First/Second/Third Normal form.
 On startup of the wizard, user gets to select upto what normal form they want to
 normalize the table structure.
 
-Here is an example table which you can use to test all the three First, Second and
+Here is an example table which you can use to test all of the three First, Second and
 Third Normal From.
 
 .. code-block:: mysql
@@ -2003,7 +2003,7 @@ Third Normal From.
      `ownerEmail` varchar(64) NOT NULL,
     );
 
-The above table is not in First normal Form as no primary key exist. Primary key
+The above table is not in First normal Form as no primary key exists. Primary key
 is supposed to be (`petName`,`ownerLastName`,`ownerFirstName`) . If the primary key
 is chosen as suggested the resultant table won't be in Second as well as Third Normal
 form as the following dependencies exists.
