@@ -9,7 +9,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'Export_Relation_Schema.class.php';
+require_once 'libraries/plugins/schema/Export_Relation_Schema.class.php';
+require_once 'libraries/plugins/schema/eps/RelationStatsEps.class.php';
+require_once 'libraries/plugins/schema/eps/TableStatsEps.class.php';
 require_once 'libraries/Font.class.php';
 
 /**
@@ -89,21 +91,21 @@ class PMA_EPS
     /**
      * Set document orientation
      *
-     * @param string $value sets the author
+     * @param string $orientation sets the orientation
      *
      * @return void
      *
      * @access public
      */
-    function setOrientation($value)
+    function setOrientation($orientation)
     {
         $this->stringCommands .= "%%PageOrder: Ascend \n";
-        if ($value == "L") {
-            $value = "Landscape";
-            $this->stringCommands .= '%%Orientation: ' . $value . "\n";
+        if ($orientation == "L") {
+            $orientation = "Landscape";
+            $this->stringCommands .= '%%Orientation: ' . $orientation . "\n";
         } else {
-            $value = "Portrait";
-            $this->stringCommands .= '%%Orientation: ' . $value . "\n";
+            $orientation = "Portrait";
+            $this->stringCommands .= '%%Orientation: ' . $orientation . "\n";
         }
         $this->stringCommands .= "%%EndComments \n";
         $this->stringCommands .= "%%Pages 1 \n";
@@ -297,373 +299,6 @@ class PMA_EPS
     }
 }
 
-require_once './libraries/schema/TableStats.class.php';
-
-/**
- * Table preferences/statistics
- *
- * This class preserves the table co-ordinates,fields
- * and helps in drawing/generating the Tables in EPS.
- *
- * @package PhpMyAdmin
- * @name    Table_Stats_Eps
- * @see     PMA_EPS
- */
-class Table_Stats_Eps extends TableStats
-{
-    /**
-     * Defines properties
-     */
-    public $height;
-    public $currentCell = 0;
-
-    /**
-     * The "Table_Stats_Eps" constructor
-     *
-     * @param string  $tableName        The table name
-     * @param string  $font             The font  name
-     * @param integer $fontSize         The font size
-     * @param integer $pageNumber       Page number
-     * @param integer &$same_wide_width The max width among tables
-     * @param boolean $showKeys         Whether to display keys or not
-     * @param boolean $showInfo         Whether to display table position or not
-     * @param boolean $offline          Load without query
-     *
-     * @global object  $eps         The current eps document
-     * @global integer              The current page number (from the
-     *                              $cfg['Servers'][$i]['table_coords'] table)
-     * @global array   $cfgRelation The relations settings
-     * @global string  $db          The current db name
-     *
-     * @access private
-     * @see PMA_EPS, Table_Stats_Eps::Table_Stats_setWidth,
-     *      Table_Stats_Eps::Table_Stats_setHeight
-     */
-    function __construct(
-        $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
-        $showKeys = false, $showInfo = false, $offline = false
-    ) {
-        global $eps, $db;
-        parent::__construct(
-            $eps, $db, $pageNumber, $tableName, $showKeys, $showInfo, $offline
-        );
-
-        // height and width
-        $this->_setHeightTable($fontSize);
-        // setWidth must me after setHeight, because title
-        // can include table height which changes table width
-        $this->_setWidthTable($font, $fontSize);
-        if ($same_wide_width < $this->width) {
-            $same_wide_width = $this->width;
-        }
-    }
-
-    /**
-     * Displays an error when the table cannot be found.
-     *
-     * @return void
-     */
-    protected function showMissingTableError()
-    {
-        $this->diagram->dieSchema(
-            $this->pageNumber,
-            "EPS",
-            sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
-        );
-    }
-
-    /**
-     * Displays an error on missing coordinates
-     *
-     * @return void
-     */
-    protected function showMissingCoordinatesError()
-    {
-        $this->diagram->dieSchema(
-            $this->pageNumber,
-            "EPS",
-            sprintf(
-                __('Please configure the coordinates for table %s'),
-                $this->tableName
-            )
-        );
-    }
-
-    /**
-     * Sets the width of the table
-     *
-     * @param string  $font     The font name
-     * @param integer $fontSize The font size
-     *
-     * @global object $eps The current eps document
-     *
-     * @return void
-     *
-     * @access private
-     * @see PMA_EPS
-     */
-    private function _setWidthTable($font,$fontSize)
-    {
-        foreach ($this->fields as $field) {
-            $this->width = max(
-                $this->width,
-                PMA_Font::getStringWidth($field, $font, $fontSize)
-            );
-        }
-        $this->width += PMA_Font::getStringWidth('      ', $font, $fontSize);
-        /*
-         * it is unknown what value must be added, because
-         * table title is affected by the tabe width value
-         */
-        while ($this->width
-            < PMA_Font::getStringWidth($this->getTitle(), $font, $fontSize)) {
-            $this->width += 7;
-        }
-    }
-
-    /**
-     * Sets the height of the table
-     *
-     * @param integer $fontSize The font size
-     *
-     * @return void
-     * @access private
-     */
-    private function _setHeightTable($fontSize)
-    {
-        $this->heightCell = $fontSize + 4;
-        $this->height = (count($this->fields) + 1) * $this->heightCell;
-    }
-
-    /**
-     * Draw the table
-     *
-     * @param boolean $showColor Whether to display color
-     *
-     * @global object $eps The current eps document
-     *
-     * @return void
-     *
-     * @access public
-     * @see PMA_EPS,PMA_EPS::line,PMA_EPS::rect
-     */
-    public function tableDraw($showColor)
-    {
-        global $eps;
-        //echo $this->tableName.'<br />';
-        $eps->rect($this->x, $this->y + 12, $this->width, $this->heightCell, 1);
-        $eps->showXY($this->getTitle(), $this->x + 5, $this->y + 14);
-        foreach ($this->fields as $field) {
-            $this->currentCell += $this->heightCell;
-            $showColor    = 'none';
-            if ($showColor) {
-                if (in_array($field, $this->primary)) {
-                    $showColor = '#0c0';
-                }
-                if ($field == $this->displayfield) {
-                    $showColor = 'none';
-                }
-            }
-            $eps->rect(
-                $this->x, $this->y + 12  + $this->currentCell,
-                $this->width, $this->heightCell, 1
-            );
-            $eps->showXY($field, $this->x + 5, $this->y + 14 + $this->currentCell);
-        }
-    }
-}
-
-/**
- * Relation preferences/statistics
- *
- * This class fetches the table master and foreign fields positions
- * and helps in generating the Table references and then connects
- * master table's master field to foreign table's foreign key
- * in EPS document.
- *
- * @package PhpMyAdmin
- * @name    Relation_Stats_Eps
- * @see     PMA_EPS
- */
-class Relation_Stats_Eps
-{
-    /**
-     * Defines properties
-     */
-    public $xSrc, $ySrc;
-    public $srcDir ;
-    public $destDir;
-    public $xDest, $yDest;
-    public $wTick = 10;
-
-    /**
-     * The "Relation_Stats_Eps" constructor
-     *
-     * @param string $master_table  The master table name
-     * @param string $master_field  The relation field in the master table
-     * @param string $foreign_table The foreign table name
-     * @param string $foreign_field The relation field in the foreign table
-     *
-     * @see Relation_Stats_Eps::_getXy
-     */
-    function __construct(
-        $master_table, $master_field, $foreign_table, $foreign_field
-    ) {
-        $src_pos  = $this->_getXy($master_table, $master_field);
-        $dest_pos = $this->_getXy($foreign_table, $foreign_field);
-        /*
-        * [0] is x-left
-        * [1] is x-right
-        * [2] is y
-        */
-        $src_left   = $src_pos[0] - $this->wTick;
-        $src_right  = $src_pos[1] + $this->wTick;
-        $dest_left  = $dest_pos[0] - $this->wTick;
-        $dest_right = $dest_pos[1] + $this->wTick;
-
-        $d1 = abs($src_left - $dest_left);
-        $d2 = abs($src_right - $dest_left);
-        $d3 = abs($src_left - $dest_right);
-        $d4 = abs($src_right - $dest_right);
-        $d  = min($d1, $d2, $d3, $d4);
-
-        if ($d == $d1) {
-            $this->xSrc    = $src_pos[0];
-            $this->srcDir  = -1;
-            $this->xDest   = $dest_pos[0];
-            $this->destDir = -1;
-        } elseif ($d == $d2) {
-            $this->xSrc    = $src_pos[1];
-            $this->srcDir  = 1;
-            $this->xDest   = $dest_pos[0];
-            $this->destDir = -1;
-        } elseif ($d == $d3) {
-            $this->xSrc    = $src_pos[0];
-            $this->srcDir  = -1;
-            $this->xDest   = $dest_pos[1];
-            $this->destDir = 1;
-        } else {
-            $this->xSrc    = $src_pos[1];
-            $this->srcDir  = 1;
-            $this->xDest   = $dest_pos[1];
-            $this->destDir = 1;
-        }
-        $this->ySrc   = $src_pos[2] + 10;
-        $this->yDest = $dest_pos[2] + 10;
-    }
-
-    /**
-     * Gets arrows coordinates
-     *
-     * @param string $table  The current table name
-     * @param string $column The relation column name
-     *
-     * @return array Arrows coordinates
-     *
-     * @access private
-     */
-    private function _getXy($table, $column)
-    {
-        $pos = array_search($column, $table->fields);
-        // x_left, x_right, y
-        return array(
-            $table->x,
-            $table->x + $table->width,
-            $table->y + ($pos + 1.5) * $table->heightCell
-        );
-    }
-
-    /**
-     * draws relation links and arrows
-     * shows foreign key relations
-     *
-     * @param boolean $changeColor Whether to use one color per relation or not
-     *
-     * @global object $eps The current EPS document
-     *
-     * @access public
-     * @see PMA_EPS
-     *
-     * @return void
-     */
-    public function relationDraw($changeColor)
-    {
-        global $eps;
-
-        if ($changeColor) {
-            $listOfColors = array(
-                'red',
-                'grey',
-                'black',
-                'yellow',
-                'green',
-                'cyan',
-            '    orange'
-            );
-            shuffle($listOfColors);
-            $color =  $listOfColors[0];
-        } else {
-            $color = 'black';
-        }
-        // draw a line like -- to foreign field
-        $eps->line(
-            $this->xSrc,
-            $this->ySrc,
-            $this->xSrc + $this->srcDir * $this->wTick,
-            $this->ySrc,
-            1
-        );
-        // draw a line like -- to master field
-        $eps->line(
-            $this->xDest + $this->destDir * $this->wTick,
-            $this->yDest,
-            $this->xDest,
-            $this->yDest,
-            1
-        );
-        // draw a line that connects to master field line and foreign field line
-        $eps->line(
-            $this->xSrc + $this->srcDir * $this->wTick,
-            $this->ySrc,
-            $this->xDest + $this->destDir * $this->wTick,
-            $this->yDest,
-            1
-        );
-        $root2 = 2 * sqrt(2);
-        $eps->line(
-            $this->xSrc + $this->srcDir * $this->wTick * 0.75,
-            $this->ySrc,
-            $this->xSrc + $this->srcDir * (0.75 - 1 / $root2) * $this->wTick,
-            $this->ySrc + $this->wTick / $root2,
-            1
-        );
-        $eps->line(
-            $this->xSrc + $this->srcDir * $this->wTick * 0.75,
-            $this->ySrc,
-            $this->xSrc + $this->srcDir * (0.75 - 1 / $root2) * $this->wTick,
-            $this->ySrc - $this->wTick / $root2,
-            1
-        );
-        $eps->line(
-            $this->xDest + $this->destDir * $this->wTick / 2,
-            $this->yDest,
-            $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick,
-            $this->yDest + $this->wTick / $root2,
-            1
-        );
-        $eps->line(
-            $this->xDest + $this->destDir * $this->wTick / 2,
-            $this->yDest,
-            $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick,
-            $this->yDest - $this->wTick / $root2,
-            1
-        );
-    }
-}
-/*
-* end of the "Relation_Stats_Eps" class
-*/
-
 /**
  * EPS Relation Schema Class
  *
@@ -693,22 +328,21 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      */
     function __construct()
     {
-        global $eps,$db;
+        parent::__construct();
 
-        $this->setPageNumber($_POST['pdf_page_number']);
-        $this->setShowColor($_POST['show_color']);
-        $this->setShowKeys($_POST['show_keys']);
-        $this->setTableDimension($_POST['show_table_dimension']);
-        $this->setAllTablesSameWidth($_POST['all_tables_same_width']);
-        $this->setOrientation($_POST['orientation']);
-        $this->setExportType($_POST['export_type']);
-        $this->setOffline($_POST['offline_export']);
+        global $eps;
+
+        $this->setShowColor(isset($_REQUEST['eps_show_color']));
+        $this->setShowKeys(isset($_REQUEST['eps_show_keys']));
+        $this->setTableDimension(isset($_REQUEST['eps_show_table_dimension']));
+        $this->setAllTablesSameWidth(isset($_REQUEST['eps_all_tables_same_width']));
+        $this->setOrientation($_REQUEST['eps_orientation']);
 
         $eps = new PMA_EPS();
         $eps->setTitle(
             sprintf(
                 __('Schema of the %s database - Page %s'),
-                $db,
+                $GLOBALS['db'],
                 $this->pageNumber
             )
         );
@@ -719,12 +353,12 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
 
         if ($this->isOffline()) {
             $alltables = array();
-            $tbl_coords = json_decode($GLOBALS['tbl_coords']);
+            $tbl_coords = json_decode($_REQUEST['tbl_coords']);
             foreach ($tbl_coords as $tbl) {
                 $alltables[] = $tbl->table_name;
             }
         } else {
-            $alltables = $this->getAllTables($db, $this->pageNumber);
+            $alltables = $this->getAllTables($GLOBALS['db'], $this->pageNumber);
         }
 
         foreach ($alltables as $table) {
@@ -743,7 +377,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
 
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
-            $exist_rel = PMA_getForeigners($db, $one_table, '', 'both');
+            $exist_rel = PMA_getForeigners($GLOBALS['db'], $one_table, '', 'both');
             if ($exist_rel) {
                 $seen_a_relation = true;
                 foreach ($exist_rel as $master_field => $rel) {
@@ -781,10 +415,10 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
             }
         }
         if ($seen_a_relation) {
-            $this->_drawRelations($this->showColor);
+            $this->_drawRelations();
         }
 
-        $this->_drawTables($this->showColor);
+        $this->_drawTables();
         $eps->endEpsDoc();
     }
 
@@ -796,8 +430,8 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      */
     function showOutput()
     {
-        global $eps,$db;
-        $filename = $db . '-' . $this->pageNumber;
+        global $eps;
+        $filename = $GLOBALS['db'] . '-' . $this->pageNumber;
         if ($this->isOffline()) {
             $filename = __("EPS export page");
         }
@@ -807,13 +441,13 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Defines relation objects
      *
-     * @param string  $masterTable  The master table name
-     * @param string  $font         The font
-     * @param int     $fontSize     The font size
-     * @param string  $masterField  The relation field in the master table
-     * @param string  $foreignTable The foreign table name
-     * @param string  $foreignField The relation field in the foreign table
-     * @param boolean $showInfo     Whether to display table position or not
+     * @param string  $masterTable    The master table name
+     * @param string  $font           The font
+     * @param int     $fontSize       The font size
+     * @param string  $masterField    The relation field in the master table
+     * @param string  $foreignTable   The foreign table name
+     * @param string  $foreignField   The relation field in the foreign table
+     * @param boolean $tableDimension Whether to display table position or not
      *
      * @return void
      *
@@ -823,18 +457,18 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      */
     private function _addRelation(
         $masterTable, $font, $fontSize, $masterField,
-        $foreignTable, $foreignField, $showInfo
+        $foreignTable, $foreignField, $tableDimension
     ) {
         if (! isset($this->_tables[$masterTable])) {
             $this->_tables[$masterTable] = new Table_Stats_Eps(
                 $masterTable, $font, $fontSize, $this->pageNumber,
-                $this->_tablewidth, false, $showInfo
+                $this->_tablewidth, false, $tableDimension
             );
         }
         if (! isset($this->_tables[$foreignTable])) {
             $this->_tables[$foreignTable] = new Table_Stats_Eps(
                 $foreignTable, $font, $fontSize, $this->pageNumber,
-                $this->_tablewidth, false, $showInfo
+                $this->_tablewidth, false, $tableDimension
             );
         }
         $this->_relations[] = new Relation_Stats_Eps(
@@ -847,34 +481,30 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      * Draws relation arrows and lines connects master table's master field to
      * foreign table's forein field
      *
-     * @param boolean $changeColor Whether to use one color per relation or not
-     *
      * @return void
      *
      * @access private
      * @see Relation_Stats_Eps::relationDraw()
      */
-    private function _drawRelations($changeColor)
+    private function _drawRelations()
     {
         foreach ($this->_relations as $relation) {
-            $relation->relationDraw($changeColor);
+            $relation->relationDraw($this->showColor);
         }
     }
 
     /**
      * Draws tables
      *
-     * @param boolean $changeColor Whether to show color for primary fields or not
-     *
      * @return void
      *
      * @access private
      * @see Table_Stats_Eps::Table_Stats_tableDraw()
      */
-    private function _drawTables($changeColor)
+    private function _drawTables()
     {
         foreach ($this->_tables as $table) {
-            $table->tableDraw($changeColor);
+            $table->tableDraw($this->showColor);
         }
     }
 }

@@ -19,18 +19,26 @@ if (! defined('PHPMYADMIN')) {
  */
 class PMA_Export_Relation_Schema
 {
-    private $_pageTitle;
-    public $showGrid;
-    public $showColor;
-    public $tableDimension;
-    public $sameWide;
-    public $withDoc;
-    public $showKeys;
-    public $orientation;
-    public $paper;
-    public $pageNumber;
-    public $exportType;
-    public $offline;
+    /**
+     * Constructor.
+     *
+     * @see PMA_SVG
+     */
+    function __construct()
+    {
+        $this->setPageNumber($_REQUEST['page_number']);
+        $this->setOffline(isset($_REQUEST['offline_export']));
+    }
+
+    protected $showColor;
+    protected $tableDimension;
+    protected $sameWide;
+    protected $showKeys;
+    protected $orientation;
+    protected $paper;
+
+    protected $pageNumber;
+    protected $offline;
 
     /**
      * Set Page Number
@@ -43,33 +51,39 @@ class PMA_Export_Relation_Schema
      */
     public function setPageNumber($value)
     {
-        $this->pageNumber = isset($value) ? $value : 1;
+        $this->pageNumber = $value;
     }
 
     /**
-     * Set Show Grid
+     * Returns the schema page number
      *
-     * @param boolean $value show grid of the document or not
-     *
-     * @return void
-     *
-     * @access public
+     * @return integer schema page number
      */
-    public function setShowGrid($value)
+    public function getPageNumber()
     {
-        $this->showGrid = (isset($value) && $value == 'on');
+        return $this->pageNumber;
     }
 
     /**
      * Sets showColor
      *
-     * @param string $value 'on' to set the the variable
+     * @param boolean $value whether to show colors
      *
      * @return void
      */
     public function setShowColor($value)
     {
-        $this->showColor = (isset($value) && $value == 'on');
+        $this->showColor = $value;
+    }
+
+    /**
+     * Returns whether to show colors
+     *
+     * @return boolean whether to show colors
+     */
+    public function isShowColor()
+    {
+        return $this->showColor;
     }
 
     /**
@@ -83,7 +97,17 @@ class PMA_Export_Relation_Schema
      */
     public function setTableDimension($value)
     {
-        $this->tableDimension = (isset($value) && $value == 'on');
+        $this->tableDimension = $value;
+    }
+
+    /**
+     * Returns whether to show table dimensions
+     *
+     * @return boolean whether to show table dimensions
+     */
+    public function isTableDimension()
+    {
+        return $this->tableDimension;
     }
 
     /**
@@ -97,21 +121,17 @@ class PMA_Export_Relation_Schema
      */
     public function setAllTablesSameWidth($value)
     {
-        $this->sameWide = (isset($value) && $value == 'on');
+        $this->sameWide = $value;
     }
 
     /**
-     * Set Data Dictionary
+     * Returns whether to use same width for all tables or not
      *
-     * @param boolean $value show selected database data dictionary or not
-     *
-     * @return void
-     *
-     * @access public
+     * @return boolean whether to use same width for all tables or not
      */
-    public function setWithDataDictionary($value)
+    public function isAllTableSameWidth()
     {
-        $this->withDoc = (isset($value) && $value == 'on');
+        return $this->sameWide;
     }
 
     /**
@@ -125,7 +145,17 @@ class PMA_Export_Relation_Schema
      */
     public function setShowKeys($value)
     {
-        $this->showKeys = (isset($value) && $value == 'on');
+        $this->showKeys = $value;
+    }
+
+    /**
+     * Returns whether to show keys
+     *
+     * @return boolean whether to show keys
+     */
+    public function isShowKeys()
+    {
+        return $this->showKeys;
     }
 
     /**
@@ -139,7 +169,17 @@ class PMA_Export_Relation_Schema
      */
     public function setOrientation($value)
     {
-        $this->orientation = (isset($value) && $value == 'P') ? 'P' : 'L';
+        $this->orientation = ($value == 'P') ? 'P' : 'L';
+    }
+
+    /**
+     * Returns orientation
+     *
+     * @return string orientation
+     */
+    public function getOrientation()
+    {
+        return $this->orientation;
     }
 
     /**
@@ -153,41 +193,23 @@ class PMA_Export_Relation_Schema
      */
     public function setPaper($value)
     {
-        $this->paper = isset($value) ? $value : 'A4';
+        $this->paper = $value;
     }
 
     /**
-     * Set title of the page
+     * Returns the paper size
      *
-     * @param string $title title of the page displayed at top of the document
-     *
-     * @return void
-     *
-     * @access public
+     * @return string paper size
      */
-    public function setPageTitle($title)
+    public function getPaper()
     {
-        $this->_pageTitle=$title;
-    }
-
-    /**
-     * Set type of export relational schema
-     *
-     * @param string $value can be pdf,svg,dia,eps etc
-     *
-     * @return void
-     *
-     * @access public
-     */
-    public function setExportType($value)
-    {
-        $this->exportType=$value;
+        return $this->paper;
     }
 
     /**
      * Set whether the document is generated from client side DB
      *
-     * @param string $value 'on' if offline
+     * @param boolean $value offline or not
      *
      * @return void
      *
@@ -195,7 +217,7 @@ class PMA_Export_Relation_Schema
      */
     public function setOffline($value)
     {
-        $this->offline = (isset($value) && $value == 'on');
+        $this->offline = $value;
     }
 
     /**
@@ -222,12 +244,10 @@ class PMA_Export_Relation_Schema
      */
     public function getAllTables($db, $pageNumber)
     {
-        global $cfgRelation;
-
         // Get All tables
         $tab_sql = 'SELECT table_name FROM '
             . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['table_coords'])
+            . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
             . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
             . ' AND pdf_page_number = ' . $pageNumber;
 
@@ -252,17 +272,12 @@ class PMA_Export_Relation_Schema
      * @param string  $type          Schema Type
      * @param string  $error_message The error mesage
      *
-     * @global array      the PMA configuration array
-     * @global string $db the current database name
-     *
      * @access public
      *
      * @return void
      */
     function dieSchema($pageNumber, $type = '', $error_message = '')
     {
-        global $db;
-
         echo "<p><strong>" . __("SCHEMA ERROR: ") .  $type . "</strong></p>" . "\n";
         if (!empty($error_message)) {
             $error_message = htmlspecialchars($error_message);
@@ -270,7 +285,7 @@ class PMA_Export_Relation_Schema
         echo '<p>' . "\n";
         echo '    ' . $error_message . "\n";
         echo '</p>' . "\n";
-        echo '<a href="schema_edit.php?' . PMA_URL_getCommon($db)
+        echo '<a href="schema_edit.php?' . PMA_URL_getCommon($GLOBALS['db'])
             . '&do=selectpage&chpage=' . htmlspecialchars($pageNumber)
             . '&action_choose=0'
             . '">' . __('Back') . '</a>';

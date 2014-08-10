@@ -26,7 +26,7 @@ abstract class TableStats
     protected $tableName;
 
     protected $showKeys;
-    protected $showInfo;
+    protected $tableDimension;
 
     public $displayfield;
     public $fields = array();
@@ -41,17 +41,18 @@ abstract class TableStats
     /**
      * Constructor
      *
-     * @param object  $diagram    schema diagram
-     * @param string  $db         current db name
-     * @param integer $pageNumber current page number (from the
-     *                            $cfg['Servers'][$i]['table_coords'] table)
-     * @param string  $tableName  table name
-     * @param boolean $showKeys   whether to display keys or not
-     * @param boolean $showInfo   whether to display table position or not
-     * @param boolean $offline    load without query
+     * @param object  $diagram        schema diagram
+     * @param string  $db             current db name
+     * @param integer $pageNumber     current page number (from the
+     *                                $cfg['Servers'][$i]['table_coords'] table)
+     * @param string  $tableName      table name
+     * @param boolean $showKeys       whether to display keys or not
+     * @param boolean $tableDimension whether to display table position or not
+     * @param boolean $offline        whether the coordinates are sent
+     *                                from the browser
      */
     public function __construct(
-        $diagram, $db, $pageNumber, $tableName, $showKeys, $showInfo, $offline
+        $diagram, $db, $pageNumber, $tableName, $showKeys, $tableDimension, $offline
     ) {
         $this->diagram    = $diagram;
         $this->db         = $db;
@@ -59,7 +60,7 @@ abstract class TableStats
         $this->tableName  = $tableName;
 
         $this->showKeys   = $showKeys;
-        $this->showInfo   = $showInfo;
+        $this->tableDimension   = $tableDimension;
 
         $this->offline    = $offline;
 
@@ -121,10 +122,8 @@ abstract class TableStats
      */
     protected function loadCoordinates()
     {
-        global $cfgRelation;
-
         if ($this->offline) {
-            $tbl_coords = json_decode($GLOBALS['tbl_coords']);
+            $tbl_coords = json_decode($_REQUEST['tbl_coords']);
             foreach ($tbl_coords as $tbl) {
                 if ($this->tableName === $tbl->table_name) {
                     $this->x = (double) $tbl->x;
@@ -135,20 +134,19 @@ abstract class TableStats
         } else {
             $sql = "SELECT x, y FROM "
                 . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
-                . PMA_Util::backquote($cfgRelation['table_coords'])
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
                 . " WHERE db_name = '" . PMA_Util::sqlAddSlashes($this->db) . "'"
-                . " AND   table_name = '" . PMA_Util::sqlAddSlashes($this->tableName)
-                . "'"
-                . " AND   pdf_page_number = " . $this->pageNumber;
+                . " AND table_name = '" . PMA_Util::sqlAddSlashes($this->tableName) . "'"
+                . " AND pdf_page_number = " . $this->pageNumber;
             $result = PMA_queryAsControlUser(
                 $sql, false, PMA_DatabaseInterface::QUERY_STORE
             );
             if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
                 $this->showMissingCoordinatesError();
             }
-            list($this->x, $this->y) = $GLOBALS['dbi']->fetchRow($result);
-            $this->x = (double) $this->x;
-            $this->y = (double) $this->y;
+            list($x, $y) = $GLOBALS['dbi']->fetchRow($result);
+            $this->x = (double) $x;
+            $this->y = (double) $y;
         }
     }
 
@@ -198,7 +196,7 @@ abstract class TableStats
      */
     protected function getTitle()
     {
-        return ($this->showInfo
+        return ($this->tableDimension
             ? sprintf('%.0fx%0.f', $this->width, $this->heightCell)
             : ''
         )
