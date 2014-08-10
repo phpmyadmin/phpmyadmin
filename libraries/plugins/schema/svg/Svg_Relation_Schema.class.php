@@ -350,38 +350,43 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
             $exist_rel = PMA_getForeigners($GLOBALS['db'], $one_table, '', 'both');
-            if ($exist_rel) {
-                $seen_a_relation = true;
-                foreach ($exist_rel as $master_field => $rel) {
-                    /* put the foreign table on the schema only if selected
-                    * by the user
-                    * (do not use array_search() because we would have to
-                    * to do a === false and this is not PHP3 compatible)
-                    */
-                    if ($master_field != 'foreign_keys_data') {
-                        if (in_array($rel['foreign_table'], $alltables)) {
-                            $this->_addRelation(
-                                $one_table, $svg->getFont(), $svg->getFontSize(),
-                                $master_field, $rel['foreign_table'],
-                                $rel['foreign_field'], $this->tableDimension
-                            );
-                        }
-                    } else {
-                        foreach ($rel as $key => $one_key) {
-                            if (in_array($one_key['ref_table_name'], $alltables)) {
-                                foreach ($one_key['index_list']
-                                    as $index => $one_field
-                                ) {
-                                    $this->_addRelation(
-                                        $one_table, $svg->getFont(),
-                                        $svg->getFontSize(),
-                                        $one_field, $one_key['ref_table_name'],
-                                        $one_key['ref_index_list'][$index],
-                                        $this->tableDimension
-                                    );
-                                }
-                            }
-                        }
+            if (!$exist_rel) {
+                continue;
+            }
+
+            $seen_a_relation = true;
+            foreach ($exist_rel as $master_field => $rel) {
+                /* put the foreign table on the schema only if selected
+                * by the user
+                * (do not use array_search() because we would have to
+                * to do a === false and this is not PHP3 compatible)
+                */
+                if ($master_field != 'foreign_keys_data') {
+                    if (in_array($rel['foreign_table'], $alltables)) {
+                        $this->_addRelation(
+                            $one_table, $svg->getFont(), $svg->getFontSize(),
+                            $master_field, $rel['foreign_table'],
+                            $rel['foreign_field'], $this->tableDimension
+                        );
+                    }
+                    continue;
+                }
+
+                foreach ($rel as $one_key) {
+                    if (!in_array($one_key['ref_table_name'], $alltables)) {
+                        continue;
+                    }
+
+                    foreach ($one_key['index_list']
+                        as $index => $one_field
+                    ) {
+                        $this->_addRelation(
+                            $one_table, $svg->getFont(),
+                            $svg->getFontSize(),
+                            $one_field, $one_key['ref_table_name'],
+                            $one_key['ref_index_list'][$index],
+                            $this->tableDimension
+                        );
                     }
                 }
             }
