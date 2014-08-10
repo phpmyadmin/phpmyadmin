@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-10 08:35+0200\n"
+"PO-Revision-Date: 2014-08-10 18:15+0200\n"
 "Last-Translator: Alex Smirnov <alex-smirnov@mail.ru>\n"
 "Language-Team: Russian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/ru/>\n"
@@ -4752,7 +4752,7 @@ msgstr "Хранилище конфигурации ещё не готово д�
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
-"Не удалось добавить %1$ s, т. к. они уже существуют в центральном списке!"
+"Не удалось добавить %1$s, т. к. они уже существуют в центральном списке!"
 
 #: libraries/central_columns.lib.php:280
 #| msgid "Could not save configuration"
@@ -9444,10 +9444,9 @@ msgstr ""
 "Если такого столбца нет, кликните на «Нет избыточного столбца»"
 
 #: libraries/normalization.lib.php:222
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "Удалить выделенных пользователей"
+msgstr "Удалить выделенное"
 
 #: libraries/normalization.lib.php:223
 #| msgid "Add column"
@@ -9548,10 +9547,9 @@ msgstr ""
 
 #: libraries/normalization.lib.php:453 libraries/normalization.lib.php:596
 #: libraries/normalization.lib.php:659
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing!"
-msgstr "Ошибка при обработке запроса:"
+msgstr "Ошибка при обработке!"
 
 #: libraries/normalization.lib.php:497
 #, php-format
@@ -9565,16 +9563,15 @@ msgid "The third step of normalization is complete."
 msgstr ""
 
 #: libraries/normalization.lib.php:638
-#, fuzzy, php-format
+#, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr "Выбранные целевые таблицы были синхронизированы с таблицами источника."
+msgstr ""
 
 #: libraries/normalization.lib.php:685
-#, fuzzy
 #| msgid "Sep"
 msgid "Step 3."
-msgstr "Сен"
+msgstr "Этап 3."
 
 #: libraries/normalization.lib.php:685
 msgid "Find transitive dependencies"
@@ -9599,10 +9596,9 @@ msgid "Table is already in Third normal form!"
 msgstr ""
 
 #: libraries/normalization.lib.php:766
-#, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Спрятать действия над структурой таблицы"
+msgstr "Улучшить структуру таблицы (Нормализация):"
 
 #: libraries/normalization.lib.php:767
 msgid "Select up to what step you want to normalize"
@@ -10662,26 +10658,23 @@ msgid "Exit fullscreen"
 msgstr "Выйти из полноэкранного режима"
 
 #: libraries/pmd_general.lib.php:97
-#, fuzzy
 #| msgid "New name"
 msgid "New page"
-msgstr "Новое имя"
+msgstr "Новая страница"
 
 #: libraries/pmd_general.lib.php:111
 msgid "Save position"
 msgstr "Сохранить расположение таблиц"
 
 #: libraries/pmd_general.lib.php:117
-#, fuzzy
 #| msgid "Save position"
 msgid "Save positions as"
-msgstr "Сохранить расположение таблиц"
+msgstr "Сохранить расположения как"
 
 #: libraries/pmd_general.lib.php:124
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete pages"
-msgstr "Выберите страницу"
+msgstr "Удалить страницы"
 
 #: libraries/pmd_general.lib.php:140 libraries/pmd_general.lib.php:597
 msgid "Create relation"
@@ -10720,10 +10713,9 @@ msgid "Toggle relation lines"
 msgstr "Переключение линий связи"
 
 #: libraries/pmd_general.lib.php:214
-#, fuzzy
 #| msgid "Export all"
 msgid "Export schema"
-msgstr "Экспорт"
+msgstr "Экспорт схемы"
 
 #: libraries/pmd_general.lib.php:225
 msgid "Build Query"
@@ -10801,10 +10793,9 @@ msgid "Display Features"
 msgstr "Показать возможности"
 
 #: libraries/relation.lib.php:153
-#, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Создание PDF-схемы"
+msgstr "Дизайнер и создание PDF"
 
 #: libraries/relation.lib.php:164
 msgid "Displaying Column Comments"
@@ -10815,12 +10806,11 @@ msgid "Browser transformation"
 msgstr "Преобразование"
 
 #: libraries/relation.lib.php:177
-#, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
-"Необходимо обновить таблицу column_comments. Детали смотрите в документации."
+"Необходимо обновить таблицу column_info. Детали смотрите в документации. "
 
 #: libraries/relation.lib.php:190 libraries/sql_query_form.lib.php:412
 msgid "Bookmarked SQL query"
