@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-11 23:04+0200\n"
+"PO-Revision-Date: 2014-08-11 23:05+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -3113,7 +3113,7 @@ msgstr "முடிவு"
 #: libraries/DisplayResults.class.php:952 libraries/display_export.lib.php:331
 #: libraries/tbl_chart.lib.php:290
 msgid "Number of rows:"
-msgstr ""
+msgstr "நிரைவரிசைகளின் எண்ணிக்கை:"
 
 #: libraries/DisplayResults.class.php:960
 msgid "Mode:"
@@ -3121,7 +3121,7 @@ msgstr "பயன்முறை:"
 
 #: libraries/DisplayResults.class.php:962
 msgid "horizontal"
-msgstr ""
+msgstr "கிடைமட்டம்"
 
 #: libraries/DisplayResults.class.php:963
 msgid "horizontal (rotated headers)"
