@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-11 23:13+0200\n"
+"PO-Revision-Date: 2014-08-11 23:15+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -3155,7 +3155,7 @@ msgstr "தொடர்புடை நிரல்வரிசை காண்�
 
 #: libraries/DisplayResults.class.php:1648
 msgid "Show binary contents"
-msgstr ""
+msgstr "இரும உள்ளடக்கங்களை காண்பி"
 
 #: libraries/DisplayResults.class.php:1653
 msgid "Show BLOB contents"
