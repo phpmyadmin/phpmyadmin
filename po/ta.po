@@ -3182,7 +3182,7 @@ msgstr "இந்நிரைவரிசை அழிக்கப்பட்�
 #: libraries/DisplayResults.class.php:5026
 #: libraries/server_status_processes.lib.php:256
 msgid "Kill"
-msgstr ""
+msgstr "கொல்க"
 
 #: libraries/DisplayResults.class.php:4450
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
