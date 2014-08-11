@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-11 23:26+0200\n"
+"PO-Revision-Date: 2014-08-11 23:29+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -3223,7 +3223,7 @@ msgstr "%d மொத்தம்"
 #: libraries/DisplayResults.class.php:4929 libraries/sql.lib.php:1689
 #, php-format
 msgid "Query took %01.4f seconds."
-msgstr ""
+msgstr "வினவல் %01.4f நொடிகள் எடுத்துக்கொண்டது."
 
 #: libraries/DisplayResults.class.php:5033
 #: libraries/DisplayResults.class.php:5039 libraries/mult_submits.inc.php:45
