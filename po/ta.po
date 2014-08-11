@@ -3163,7 +3163,7 @@ msgstr "உருவிலி உள்ளடக்கங்களை காண�
 
 #: libraries/DisplayResults.class.php:1664
 msgid "Hide browser transformation"
-msgstr ""
+msgstr "உலவியின் மாற்றுருவாக்கத்தை மறைக்க"
 
 #: libraries/DisplayResults.class.php:1673
 msgid "Well Known Text"
