@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-11 22:41+0200\n"
+"PO-Revision-Date: 2014-08-11 22:43+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -8862,8 +8862,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the %"
 "1$ssetup script%2$s to create one."
 msgstr ""
-"நீங்கள் அமைப்பு கோப்பை உருவாக்கவில்லை. அதை உருவாக்க நீங்கள் %1$s உருவாக்க கோவையை %2$s "
-"பயன்படுத்தலாம்."
+"நீங்கள் அமைப்பாக்க கோப்பை உருவாக்கவில்லை. அதை உருவாக்க நீங்கள் "
+"%1$sநிரல்கோவையை%2$s பயன்படுத்த வேண்டும்."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:126
 msgid ""
@@ -12564,7 +12564,7 @@ msgstr ""
 
 #: libraries/tbl_chart.lib.php:100
 msgid "X-Axis:"
-msgstr "X-அச்சு:"
+msgstr "கு-அச்சு:"
 
 #: libraries/tbl_chart.lib.php:133
 msgid "Series:"
