@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-11 22:32+0200\n"
+"PO-Revision-Date: 2014-08-11 22:35+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2942,7 +2942,7 @@ msgstr "நீக்குக:"
 #: libraries/DBQbe.class.php:1461
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "தரவுத்தளம் மீது <b>%s</b> SQL வினவல்:"
+msgstr "தரவுத்தளம் <b>%s</b>ன் மீது SQL வினவல்:"
 
 #: libraries/DBQbe.class.php:1475 libraries/Util.class.php:1218
 msgid "Submit Query"
@@ -4335,7 +4335,7 @@ msgstr ""
 
 #: libraries/Util.class.php:1203
 msgid "Without PHP Code"
-msgstr "PHP குறிமுறை இல்லாமல்"
+msgstr "PHP நிரல் இல்லாமல்"
 
 #: libraries/Util.class.php:1206 libraries/config/messages.inc.php:747
 msgid "Create PHP Code"
