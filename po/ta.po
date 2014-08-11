@@ -3138,7 +3138,7 @@ msgstr "குறிப்பெழுத்தின்படி வரிச�
 #: libraries/DisplayResults.class.php:1619
 #: libraries/DisplayResults.class.php:1721
 msgid "Partial texts"
-msgstr ""
+msgstr "பகுதியளவு உரை"
 
 #: libraries/DisplayResults.class.php:1620
 #: libraries/DisplayResults.class.php:1725
