@@ -16,6 +16,7 @@ require_once 'libraries/core.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/relation.lib.php';
+require_once 'libraries/sqlparser.lib.php';
 
 /**
  * Tests for PMA_DBQbe class
@@ -39,6 +40,30 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->object = new PMA_DBQbe('pma_test');
+        $GLOBALS['server'] = 0;
+        $GLOBALS['db'] = 'pma_test';
+        //mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $create_table = 'CREATE TABLE `table1` ('
+            . '`id` int(11) NOT NULL,'
+            . '`value` int(11) NOT NULL,'
+            . 'PRIMARY KEY (`id`,`value`),'
+            . 'KEY `value` (`value`)'
+            . ') ENGINE=InnoDB DEFAULT CHARSET=latin1';
+
+        $dbi->expects($this->any())
+            ->method('fetchValue')
+            ->with('SHOW CREATE TABLE `pma_test`.`table1`', 0, 1)
+            ->will($this->returnValue($create_table));
+
+        $dbi->expects($this->any())
+            ->method('getTableIndexes')
+            ->will($this->returnValue(array()));
+
+        $GLOBALS['dbi'] = $dbi;
     }
 
     /**
@@ -400,7 +425,7 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
             $this->_callProtectedFunction(
                 '_getIndexes',
                 array(
-                    array('table1','table2'),
+                    array('`table1`','table2'),
                     array('column1', 'column2', 'column3'),
                     array('column2')
                 )
@@ -422,7 +447,7 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
             $this->_callProtectedFunction(
                 '_getLeftJoinColumnCandidates',
                 array(
-                    array('table1','table2'),
+                    array('`table1`','table2'),
                     array('column1', 'column2', 'column3'),
                     array('column2')
                 )
@@ -490,7 +515,7 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
             'table1.deleted'
         );
         $this->assertEquals(
-            'table1',
+            '`table1`',
             $this->_callProtectedFunction(
                 '_getFromClause',
                 array(array('relwork' => false))
@@ -512,7 +537,7 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
             'table1.deleted'
         );
         $this->assertEquals(
-            'FROM table1
+            'FROM `table1`
 ',
             $this->_callProtectedFunction(
                 '_getSQLQuery',
