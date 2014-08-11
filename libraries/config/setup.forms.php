@@ -145,6 +145,7 @@ $forms['Features']['Other_core_settings'] = array(
     'ProxyUser',
     'ProxyPass',
     'AllowThirdPartyFraming',
+    'ZeroConf'
 );
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',

@@ -1439,6 +1439,20 @@ Navigation panel setup
     The maximum number of recently used tables shown in the navigation
     panel. Set this to 0 (zero) to disable the listing of recent tables.
 
+.. config:option:: $cfg['ZeroConf']
+
+    :type: boolean
+    :default: true
+
+    Enables Zero Configuration mode in which user will be offered a choice to
+    create phpMyAdmin configuration storage in the current database
+    or use existing, if already present.
+
+    .. note::
+    If there is no central configuration storage defined then you may end up with
+    different set of phpMyAdmin configuration storage tables for different
+    databases.
+
 .. config:option:: $cfg['NavigationLinkWithMainPanel']
 
     :type: boolean
