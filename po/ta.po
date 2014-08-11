@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-11 23:05+0200\n"
+"PO-Revision-Date: 2014-08-11 23:08+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -3125,11 +3125,11 @@ msgstr "கிடைமட்டம்"
 
 #: libraries/DisplayResults.class.php:963
 msgid "horizontal (rotated headers)"
-msgstr ""
+msgstr "கிடைமட்டம்(சுழற்றப்பட்ட தலைப்புக்கள்)"
 
 #: libraries/DisplayResults.class.php:964
 msgid "vertical"
-msgstr ""
+msgstr "செங்குத்து"
 
 #: libraries/DisplayResults.class.php:1272
 msgid "Sort by key"
