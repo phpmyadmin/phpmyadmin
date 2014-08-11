@@ -787,7 +787,7 @@ $strConfigCaptchaLoginPrivateKey_name = __('Private key for reCaptcha');
 $strConfigSendErrorReports_desc = __('Choose the default action when sending error reports.');
 $strConfigSendErrorReports_name = __('Send error reports');
 $strConfigZeroConf_desc = __(
-    'Enable Zero Configuration mode which lets you to setup phpMyAdmin '
+    'Enable Zero Configuration mode which lets you setup phpMyAdmin '
     . 'configuration storage tables automatically.'
 );
 $strConfigZeroConf_name = __('Enable Zero Configuration mode');

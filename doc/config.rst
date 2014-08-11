@@ -1444,9 +1444,9 @@ Navigation panel setup
     :type: boolean
     :default: true
 
-    Enables Zero Configuration mode in which user will be offered a choice to
+    Enables Zero Configuration mode in which the user will be offered a choice to
     create phpMyAdmin configuration storage in the current database
-    or use existing, if already present.
+    or use the existing one, if already present.
 
     .. note::
     If there is no central configuration storage defined then you may end up with
