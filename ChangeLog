@@ -29,6 +29,7 @@ phpMyAdmin - ChangeLog
 + rfe       Improved validation when inserting data
 + rfe #1491 Support InnoDB for database Query by example
 + rfe #345  Normalize a table 
++ rfe #1123 Zeroconf PMA tables support
 
 4.2.8.0 (not yet released)
 
