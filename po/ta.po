@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-11 23:18+0200\n"
+"PO-Revision-Date: 2014-08-11 23:20+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -3186,7 +3186,7 @@ msgstr "கொல்க"
 
 #: libraries/DisplayResults.class.php:4450
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr ""
+msgstr "அண்ணளவாக இருக்கலாம்.[doc@faq3-11]FAQ 3.11[/doc]ஐ காண்க."
 
 #: libraries/DisplayResults.class.php:4507 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
