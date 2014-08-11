@@ -1176,12 +1176,7 @@ class PMA_Util
             // even if the query is big and was truncated, offer the chance
             // to edit it (unless it's enormous, see linkOrButton() )
             if (! empty($cfg['SQLQuery']['Edit'])) {
-                if ($cfg['EditInWindow'] == true) {
-                    $onclick = 'PMA_querywindow.focus(\''
-                        . PMA_jsFormat($sql_query, false) . '\'); return false;';
-                } else {
-                    $onclick = '';
-                }
+                $onclick = '';
 
                 $edit_link .= PMA_URL_getCommon($url_params) . '#querybox';
                 $edit_link = ' ['

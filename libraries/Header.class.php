@@ -221,8 +221,6 @@ class PMA_Header
             'common_query' => PMA_URL_getCommon('', '', '&'),
             'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
             'safari_browser' => PMA_USR_BROWSER_AGENT == 'SAFARI' ? 1 : 0,
-            'querywindow_height' => $GLOBALS['cfg']['QueryWindowHeight'],
-            'querywindow_width' => $GLOBALS['cfg']['QueryWindowWidth'],
             'collation_connection' => $GLOBALS['collation_connection'],
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],

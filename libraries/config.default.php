@@ -2636,42 +2636,12 @@ $cfg['ShowDisplayDirection'] = false;
 $cfg['RepeatCells'] = 100;
 
 /**
- * Set to true if Edit link should open the query to edit in the query window
- * and to false if we should edit in the right panel
- *
- * @global boolean $cfg['EditInWindow']
- */
-$cfg['EditInWindow'] = true;
-
-/**
- * Width of Query window
- *
- * @global integer $cfg['QueryWindowWidth']
- */
-$cfg['QueryWindowWidth'] = 550;
-
-/**
- * Height of Query window
- *
- * @global integer $cfg['QueryWindowHeight']
- */
-$cfg['QueryWindowHeight'] = 310;
-
-/**
  * Set to true if you want DB-based query history.If false, this utilizes
  * JS-routines to display query history (lost by window close)
  *
  * @global boolean $cfg['QueryHistoryDB']
  */
 $cfg['QueryHistoryDB'] = false;
-
-/**
- * which tab to display in the querywindow on startup
- * (sql|files|history|full)
- *
- * @global string $cfg['QueryWindowDefTab']
- */
-$cfg['QueryWindowDefTab'] = 'sql';
 
 /**
  * When using DB-based query history, how many entries should be kept?
