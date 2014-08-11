@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-11 22:59+0200\n"
+"PO-Revision-Date: 2014-08-11 23:03+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2991,6 +2991,8 @@ msgstr "தகவல்கள்…"
 #: libraries/DatabaseInterface.class.php:1990
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
+"அமைப்பாக்கத்தில் உள்ளவாறு அமைத்த கட்டுபாட்டுபயனருக்கான இணைப்பு "
+"தோல்வியடைந்தது."
 
 #: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:400
 msgid "at least one of the words"
