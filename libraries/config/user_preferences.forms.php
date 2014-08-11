@@ -35,7 +35,8 @@ $forms['Features']['General'] = array(
     'NumRecentTables',
     'NumFavoriteTables',
     'ShowHint',
-    'SendErrorReports');
+    'SendErrorReports'
+);
 $forms['Features']['Text_fields'] = array(
     'CharEditing',
     'MinSizeForInputField',
