@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-11 23:25+0200\n"
+"PO-Revision-Date: 2014-08-11 23:26+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -3213,7 +3213,7 @@ msgstr "%1s - %2s நிரைவரிசைகள் காட்டப்ப�
 #: libraries/DisplayResults.class.php:4912
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "இவ்வினவலில் %1$d மொத்தம், - %2$d"
 
 #: libraries/DisplayResults.class.php:4917
 #, php-format
