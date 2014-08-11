@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-06 21:14+0200\n"
-"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
+"PO-Revision-Date: 2014-08-11 04:00+0200\n"
+"Last-Translator: A.Torres <israeltorres29@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -25,12 +25,10 @@ msgstr ""
 "net para mais informações."
 
 #: db_central_columns.php:85
-#, fuzzy
 #| msgid ""
 #| "There are no columns in central list to display for the current database."
 msgid "The central list of columns for the current database is empty."
-msgstr ""
-"Não há colunas na lista central para mostrar para o banco de dados atual."
+msgstr "A lista central de colunas para o banco de dados atual está vazia."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
@@ -617,7 +615,7 @@ msgstr "Sucesso."
 
 #: import.php:56 js/messages.php:431
 msgid "Failed"
-msgstr ""
+msgstr "Falha"
 
 #: import.php:60
 #, fuzzy
@@ -990,10 +988,9 @@ msgstr ""
 "sair desta página antes de salvar os dados?"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "Salvar como arquivo"
+msgstr "Salvar & Fechar"
 
 #: js/messages.php:50 libraries/config/FormDisplay.tpl.php:393
 #: libraries/insert_edit.lib.php:1614 prefs_manage.php:335
@@ -1002,10 +999,9 @@ msgid "Reset"
 msgstr "Resetar"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Selecionar todos"
+msgstr "Redefinir Tudo ( Todos )"
 
 #: js/messages.php:54
 msgid "Missing value in the form!"
@@ -1037,10 +1033,9 @@ msgid "Add %s column(s) to index"
 msgstr "Adicionar %s coluna(s) ao índice"
 
 #: js/messages.php:61
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Criar rotina"
+msgstr "Criar um índice de coluna única"
 
 #: js/messages.php:62
 #, fuzzy
@@ -1049,16 +1044,14 @@ msgid "Create composite index"
 msgstr "Criar rotina"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "Colunas delimitadas por:"
+msgstr "Composto com:"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Adicionar %s coluna(s) ao índice"
+msgstr "Por favor. Selecione a(as) coluna(as)para o Índice."
 
 #: js/messages.php:67 libraries/insert_edit.lib.php:1612
 #: libraries/tbl_columns_definition_form.lib.php:141
@@ -1316,11 +1309,11 @@ msgstr "Pausar o monitoramento"
 
 #: js/messages.php:144 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Iniciar a Atualização Automática"
 
 #: js/messages.php:145
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Parar a Atualização Automática"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
@@ -1831,7 +1824,7 @@ msgstr "Escolher"
 
 #: js/messages.php:299
 msgid "Column selector"
-msgstr "Nenhuma coluna foi selecionada"
+msgstr "Seletor de Coluna"
 
 #: js/messages.php:300
 msgid "Search this list"
@@ -1849,7 +1842,7 @@ msgstr ""
 
 #: js/messages.php:302
 msgid "See more"
-msgstr "Memória livre"
+msgstr "Visualizar Mais"
 
 #: js/messages.php:303
 msgid "Are you sure?"
@@ -1865,7 +1858,7 @@ msgstr ""
 
 #: js/messages.php:305
 msgid "Continue"
-msgstr "Contribuir"
+msgstr "Continuar"
 
 #: js/messages.php:308 libraries/structure.lib.php:2125
 #: libraries/structure.lib.php:2128
@@ -1873,29 +1866,26 @@ msgid "Add primary key"
 msgstr "Adicionar chave primária"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "Uma chave primária foi adicionada a %s."
+msgstr "Chave Primária adicionada."
 
 #: js/messages.php:310 libraries/normalization.lib.php:170
-#, fuzzy
 #| msgid "Taking you to %s."
 msgid "Taking you to next step…"
-msgstr "Levando você para %s."
+msgstr "Indo para a próxima etapa…"
 
 #: js/messages.php:311
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "O primeira etapa de normalização está completa para a tabela '%s'."
 
 #: js/messages.php:312 libraries/normalization.lib.php:418
 #: libraries/normalization.lib.php:465 libraries/normalization.lib.php:548
 #: libraries/normalization.lib.php:608
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "Fim de linha"
+msgstr "Fim da etapa"
 
 #: js/messages.php:313
 msgid "Second step of normalization (2NF)"
@@ -2219,8 +2209,10 @@ msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
-"Shift+Clique para adicionar essa coluna a cláusula ORDER BY ou para alternar "
-"ASC/DESC.<br />- Control+Clique para remover a coluna da cláusula ORDER BY"
+"*Shift+Clique* para adicionar esta coluna à (ORDER BY - UMA ÓRDEM DE "
+"EXIBIÇÃO ) na cláusula. Ou para alternar a exibição desta coluna nas órdens ("
+" ASC )ASCENDENTE ou (DESC ) DECRESCENTE .<br />- *Control+Clique* para você "
+"remover a coluna da ÓRDEM DE EXIBIÇÃO da cláusula"
 
 #: js/messages.php:419
 msgid "Click to mark/unmark."
