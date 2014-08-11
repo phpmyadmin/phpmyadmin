@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-11 23:16+0200\n"
+"PO-Revision-Date: 2014-08-11 23:18+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -3167,11 +3167,11 @@ msgstr "உலவியின் மாற்றுருவாக்கத்�
 
 #: libraries/DisplayResults.class.php:1673
 msgid "Well Known Text"
-msgstr ""
+msgstr "நன்கறிந்த உரை"
 
 #: libraries/DisplayResults.class.php:1674
 msgid "Well Known Binary"
-msgstr ""
+msgstr "நன்கறிந்த இருமதரவு"
 
 #: libraries/DisplayResults.class.php:3434
 #: libraries/DisplayResults.class.php:3450
