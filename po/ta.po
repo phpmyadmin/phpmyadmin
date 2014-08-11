@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-08-06 22:44+0200\n"
+"PO-Revision-Date: 2014-08-11 23:32+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -508,7 +508,7 @@ msgstr "ஒரு புள்ளியை சேர்"
 #: gis_data_editor.php:264
 #, php-format
 msgid "Linestring %d:"
-msgstr "வரி சரம் %d:"
+msgstr "வரிச்சரம் %d:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:344
 msgid "Outer ring:"
@@ -521,7 +521,7 @@ msgstr "உட்புற வளையம் %d:"
 
 #: gis_data_editor.php:306
 msgid "Add a linestring"
-msgstr "வரி சரம் சேர்க்க"
+msgstr "வரிச்சரம் சேர்க்க"
 
 #: gis_data_editor.php:307 gis_data_editor.php:386 js/messages.php:320
 msgid "Add an inner ring"
@@ -1764,7 +1764,7 @@ msgstr "புள்ளி"
 
 #: js/messages.php:314
 msgid "Linestring"
-msgstr "கோட்டு சரம்"
+msgstr "வரிச்சரம்"
 
 #: js/messages.php:315
 msgid "Polygon"
@@ -2323,13 +2323,13 @@ msgstr "ஒரு வினாடிக்கு"
 
 #: libraries/Advisor.class.php:475
 msgid "per minute"
-msgstr "ஒரு நிமிடத்திற்கு"
+msgstr "ஒவ்வொரு நிமிடத்திற்கும்"
 
 #: libraries/Advisor.class.php:478 libraries/server_status.lib.php:137
 #: libraries/server_status.lib.php:221
 #: libraries/server_status_queries.lib.php:98
 msgid "per hour"
-msgstr "ஒரு மணி நேரத்திற்கு"
+msgstr "ஒவ்வொரு மணிக்கும்"
 
 #: libraries/Advisor.class.php:481
 msgid "per day"
@@ -2431,7 +2431,7 @@ msgstr "நீக்குக:"
 #: libraries/DBQbe.class.php:1430
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "தரவுத்தளம் மீது <b>%s</b> SQL வினவல்:"
+msgstr "தரவுத்தளம் <b>%s</b>ன் மீது SQL வினவல்:"
 
 #: libraries/DBQbe.class.php:1444 libraries/Util.class.php:1224
 msgid "Submit Query"
@@ -2462,6 +2462,8 @@ msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
+"வழங்கி பதிலளிக்கவில்லை(அல்லது உள்வழங்கியின் இணைவுக்கொள்குழி சரியாக "
+"அமைக்கப்படவில்லை)."
 
 #: libraries/DatabaseInterface.class.php:1981
 msgid "The server is not responding."
@@ -2469,11 +2471,11 @@ msgstr "வழங்கி பதிலளிக்கவில்லை."
 
 #: libraries/DatabaseInterface.class.php:1986
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "தரவுத்தளத்தை கொண்டுள்ள அடைவின் உரிமைகளை சரிபார்க்க."
 
 #: libraries/DatabaseInterface.class.php:1996
 msgid "Details…"
-msgstr ""
+msgstr "தகவல்கள்…"
 
 #: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:403
 msgid "at least one of the words"
@@ -2562,7 +2564,7 @@ msgstr "நிரல் உள்ளே:"
 
 #: libraries/DisplayResults.class.php:741
 msgid "Save edited data"
-msgstr ""
+msgstr "தொகுத்தை சேமிக்க"
 
 #: libraries/DisplayResults.class.php:747
 msgid "Restore column order"
@@ -2605,7 +2607,7 @@ msgstr "முடிவு"
 #: libraries/DisplayResults.class.php:960 libraries/display_export.lib.php:330
 #: libraries/tbl_chart.lib.php:238
 msgid "Number of rows:"
-msgstr ""
+msgstr "நிரைவரிசைகளின் எண்ணிக்கை:"
 
 #: libraries/DisplayResults.class.php:968
 msgid "Mode:"
@@ -2613,19 +2615,19 @@ msgstr "பயன்முறை:"
 
 #: libraries/DisplayResults.class.php:970
 msgid "horizontal"
-msgstr ""
+msgstr "கிடைமட்டம்"
 
 #: libraries/DisplayResults.class.php:971
 msgid "horizontal (rotated headers)"
-msgstr ""
+msgstr "கிடைமட்டம்(சுழற்றப்பட்ட தலைப்புக்கள்)"
 
 #: libraries/DisplayResults.class.php:972
 msgid "vertical"
-msgstr ""
+msgstr "செங்குத்து"
 
 #: libraries/DisplayResults.class.php:1280
 msgid "Sort by key"
-msgstr ""
+msgstr "குறிப்பெழுத்தின்படி வரிசைபடுத்துக"
 
 #: libraries/DisplayResults.class.php:1621 libraries/TableSearch.class.php:793
 #: libraries/import.lib.php:1233 libraries/import.lib.php:1265
@@ -2657,28 +2659,28 @@ msgstr "விருப்பத்தேர்வுகள்"
 #: libraries/DisplayResults.class.php:1627
 #: libraries/DisplayResults.class.php:1734
 msgid "Partial texts"
-msgstr ""
+msgstr "பகுதியளவு உரை"
 
 #: libraries/DisplayResults.class.php:1628
 #: libraries/DisplayResults.class.php:1738
 msgid "Full texts"
-msgstr ""
+msgstr "முழுவுரைகள்"
 
 #: libraries/DisplayResults.class.php:1643
 msgid "Relational key"
-msgstr ""
+msgstr "தொடர்புசார் குறிப்பெழுத்து"
 
 #: libraries/DisplayResults.class.php:1644
 msgid "Relational display column"
-msgstr ""
+msgstr "தொடர்புடை நிரல்வரிசை காண்பிக்க"
 
 #: libraries/DisplayResults.class.php:1656
 msgid "Show binary contents"
-msgstr ""
+msgstr "இரும உள்ளடக்கங்களை காண்பி"
 
 #: libraries/DisplayResults.class.php:1661
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "உருவிலி உள்ளடக்கங்களை காண்பி"
 
 #: libraries/DisplayResults.class.php:1666
 #: libraries/config/messages.inc.php:93
@@ -2687,15 +2689,15 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:1677
 msgid "Hide browser transformation"
-msgstr ""
+msgstr "உலவியின் மாற்றுருவாக்கத்தை மறைக்க"
 
 #: libraries/DisplayResults.class.php:1686
 msgid "Well Known Text"
-msgstr ""
+msgstr "நன்கறிந்த உரை"
 
 #: libraries/DisplayResults.class.php:1687
 msgid "Well Known Binary"
-msgstr ""
+msgstr "நன்கறிந்த இருமதரவு"
 
 #: libraries/DisplayResults.class.php:3466
 #: libraries/DisplayResults.class.php:3482
@@ -2705,11 +2707,11 @@ msgstr "இந்நிரைவரிசை அழிக்கப்பட்�
 #: libraries/DisplayResults.class.php:3518
 #: libraries/DisplayResults.class.php:5159 libraries/server_status.lib.php:519
 msgid "Kill"
-msgstr ""
+msgstr "கொல்க"
 
 #: libraries/DisplayResults.class.php:4602 libraries/structure.lib.php:776
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr ""
+msgstr "அண்ணளவாக இருக்கலாம்.[doc@faq3-11]FAQ 3.11[/doc]ஐ காண்க."
 
 #: libraries/DisplayResults.class.php:4659 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
@@ -2725,16 +2727,18 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
+"இவ்விவரபார்வை குறைந்தளவு இத்தனை நிரைவரிசைகள் கொண்டிருக்கலாம். %sஆவணச்சான்றை%"
+"s காண்க."
 
 #: libraries/DisplayResults.class.php:5050
 #, php-format
 msgid "Showing rows %1s - %2s"
-msgstr ""
+msgstr "%1s - %2s நிரைவரிசைகள் காட்டப்படுகின்றன"
 
 #: libraries/DisplayResults.class.php:5065
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "இவ்வினவலில் %1$d மொத்தம், - %2$d"
 
 #: libraries/DisplayResults.class.php:5070
 #, php-format
@@ -2744,7 +2748,7 @@ msgstr "%d மொத்தம்"
 #: libraries/DisplayResults.class.php:5082 libraries/sql.lib.php:1687
 #, php-format
 msgid "Query took %01.4f seconds."
-msgstr ""
+msgstr "வினவல் %01.4f நொடிகள் எடுத்துக்கொண்டது."
 
 #: libraries/DisplayResults.class.php:5166
 #: libraries/DisplayResults.class.php:5172 libraries/mult_submits.inc.php:46
@@ -2792,7 +2796,7 @@ msgstr "தரவேற்றுக"
 
 #: libraries/DisplayResults.class.php:5348
 msgid "Query results operations"
-msgstr ""
+msgstr "வினவலின் பயன்முடிவுகளின் செயல்பாடுகள்"
 
 #: libraries/DisplayResults.class.php:5384 libraries/Header.class.php:343
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
@@ -2802,7 +2806,7 @@ msgstr "அச்சுப் பார்வை"
 
 #: libraries/DisplayResults.class.php:5402
 msgid "Print view (with full texts)"
-msgstr ""
+msgstr "அச்சுப்பார்வை(முழுவுரைகளுடன்)"
 
 #: libraries/DisplayResults.class.php:5473 libraries/tbl_chart.lib.php:294
 msgid "Display chart"
@@ -3843,7 +3847,7 @@ msgstr ""
 
 #: libraries/Util.class.php:1209
 msgid "Without PHP Code"
-msgstr "PHP குறிமுறை இல்லாமல்"
+msgstr "PHP நிரல் இல்லாமல்"
 
 #: libraries/Util.class.php:1212 libraries/config/messages.inc.php:752
 msgid "Create PHP Code"
@@ -3856,7 +3860,7 @@ msgstr "புதுப்பி"
 
 #: libraries/Util.class.php:1269 libraries/sql.lib.php:483
 msgid "Profiling"
-msgstr "விவரக்குறிப்பு"
+msgstr "பகுமுறையிடல்"
 
 #: libraries/Util.class.php:1281
 msgctxt "Inline edit query"
@@ -3897,7 +3901,7 @@ msgstr ""
 
 #: libraries/Util.class.php:2763
 msgid "Click to toggle"
-msgstr "நிலைமாற்ற சொடுக்குக"
+msgstr "பிறழ்வதற்கு சொடுக்குக"
 
 #: libraries/Util.class.php:3292 libraries/sql_query_form.lib.php:477
 #: prefs_manage.php:242
@@ -3912,9 +3916,7 @@ msgstr "வலை சேவையகத்தின் பதிவேற்ற 
 #: libraries/Util.class.php:3346 libraries/insert_edit.lib.php:1228
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
-msgstr ""
-"பதிவேற்றத்திற்கு நீங்கள் தேர்வு செய்த வலை சேவையக பதிவேற்ற அடைவை "
-"எட்டமுடியவில்லை."
+msgstr "பதிவேற்றத்திற்காக நீங்கள் தேர்வு செய்த அடைவை எட்டமுடியவில்லை."
 
 #: libraries/Util.class.php:3357
 msgid "There are no files to upload!"
@@ -6556,6 +6558,8 @@ msgstr ""
 #: libraries/dbi/DBIMysqli.class.php:229
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
+"அமைப்பாக்கத்தில் உள்ளவாறு அமைத்த கட்டுபாட்டுபயனருக்கான இணைப்பு "
+"தோல்வியடைந்தது."
 
 #: libraries/dbi/drizzle-wrappers.lib.php:385
 msgid "Can't seek in an unbuffered result set"
@@ -7960,8 +7964,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
-"நீங்கள் அமைப்பு கோப்பை உருவாக்கவில்லை. அதை உருவாக்க நீங்கள் %1$s உருவாக்க கோவையை %2$s "
-"பயன்படுத்தலாம்."
+"நீங்கள் அமைப்பாக்க கோப்பை உருவாக்கவில்லை. அதை உருவாக்க நீங்கள் "
+"%1$sநிரல்கோவையை%2$s பயன்படுத்த வேண்டும்."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:126
 msgid ""
@@ -11584,7 +11588,7 @@ msgstr ""
 
 #: libraries/tbl_chart.lib.php:100
 msgid "X-Axis:"
-msgstr "X-அச்சு:"
+msgstr "கு-அச்சு:"
 
 #: libraries/tbl_chart.lib.php:134
 msgid "Series:"
@@ -12423,7 +12427,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:172
 msgid "No newer stable version is available"
-msgstr "புதிய நிலையான பதிப்புகள் ஒன்றும் இல்லை"
+msgstr "புதிய நிலையான பதிப்புகள் ஏதுமில்லை"
 
 #: setup/validate.php:22
 msgid "Wrong data"
@@ -12483,7 +12487,7 @@ msgstr ""
 
 #: tbl_structure.php:93
 msgid "No column selected."
-msgstr "தெரிவுசெய்யப்பட தூண் இல்லை."
+msgstr "எந்த நிரல்வரிசையும் தெரிவுசெய்யப்படவில்லை."
 
 #: themes.php:17 themes.php:22
 msgid "Theme"
