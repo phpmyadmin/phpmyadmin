@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-03-31 14:26+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Romanian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"ro/>\n"
+"PO-Revision-Date: 2014-08-11 05:55+0200\n"
+"Last-Translator: Alecsandru Prună <alecsandrucpruna@gmail.com>\n"
+"Language-Team: Romanian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ro/>\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ro\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -251,10 +251,10 @@ msgid "Database %1$s has been renamed to %2$s."
 msgstr "Baza de date %1$s a fost redenumită în %2$s ."
 
 #: db_operations.php:137
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Baza de date %1$s a fost copiată la %2$s"
+msgstr "Baza de date %1$s a fost copiată la %2$s."
 
 #: db_operations.php:261
 #, php-format
@@ -468,7 +468,7 @@ msgstr "Dacă întâmpunaţi probleme vă rugăm să raportaţi un bug manual."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr "Ar fi bine să reîncărcaţi pagina."
+msgstr "Este posibil să doriți reîncărcați pagina."
 
 #: export.php:183
 msgid "Bad type!"
@@ -547,10 +547,9 @@ msgid "Add a linestring"
 msgstr "Adaugă un nou rând de caractere"
 
 #: gis_data_editor.php:307 gis_data_editor.php:386 js/messages.php:383
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Adaugă un utilizator nou"
+msgstr "Adăugați un inel interior"
 
 #: gis_data_editor.php:328
 #, php-format
@@ -606,7 +605,6 @@ msgid "Output"
 msgstr "Rezultat"
 
 #: gis_data_editor.php:410
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -614,8 +612,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Alege \"GeomFromText\" din coloana \"Function\" si salveaza valoarea "
-"alaturata in atributul \"Value\""
+"Alege \"GeomFromText\" din coloana \"Function\" și salvează valoarea "
+"alăturată în atributul \"Value\"."
 
 #: import.php:52
 #, fuzzy
@@ -656,13 +654,15 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Fișierul încărcat nu poate fi mutat, deoarece server-ul are activat "
+"open_basedir , dar fără drepturi de acces la directorul %s (pentru fișiere "
+"temporare)."
 
 #: import.php:471 import.php:532 libraries/File.class.php:418
 #: libraries/File.class.php:512
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "Fișierul nu poate fi citit"
+msgstr "Fișierul nu poate fi citit!"
 
 #: import.php:480 import.php:491 import.php:512 import.php:523
 #: libraries/File.class.php:578
@@ -687,7 +687,6 @@ msgstr ""
 "[/doc]."
 
 #: import.php:557
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
@@ -695,7 +694,7 @@ msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Nu se poate converti setul de caractere al fișierului fără o bibliotecă de "
-"conversie a seturilor de caractere"
+"conversie a set-urilor de caractere!"
 
 #: import.php:595 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
@@ -704,10 +703,10 @@ msgstr ""
 "instalarea!"
 
 #: import.php:630 libraries/sql.lib.php:1049 libraries/sql.lib.php:1860
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "Semnul de carte %s a fost creat"
+msgstr "Semnul de carte %s a fost creat."
 
 #: import.php:639
 #, php-format
@@ -735,7 +734,6 @@ msgid "Back"
 msgstr "Înapoi"
 
 #: index.php:127 libraries/Footer.class.php:70
-#, fuzzy
 msgid "phpMyAdmin Demo Server"
 msgstr "Server Demo phpMyAdmin"
 
@@ -760,10 +758,9 @@ msgid "Change password"
 msgstr "Modifică parola"
 
 #: index.php:185
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "MySQL connection collation"
+msgstr "Conexiune colaționare server"
 
 #: index.php:208
 msgid "Appearance Settings"
@@ -782,24 +779,21 @@ msgid "Server:"
 msgstr "Server:"
 
 #: index.php:266
-#, fuzzy
 #| msgid "Server port"
 msgid "Server type:"
-msgstr "Port-ul server-ului:"
+msgstr "Tipul server-ului:"
 
 #: index.php:270 libraries/plugins/export/ExportLatex.class.php:212
 #: libraries/plugins/export/ExportSql.class.php:686
 #: libraries/plugins/export/ExportXml.class.php:185
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "Versiune server"
+msgstr "Versiune server:"
 
 #: index.php:276
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Versiune protocol"
+msgstr "Versiune protocol:"
 
 #: index.php:280
 msgid "User:"
@@ -816,25 +810,22 @@ msgid "Web server"
 msgstr "Server web"
 
 #: index.php:311
-#, fuzzy
 msgid "Database client version:"
-msgstr "Versiunea clientului MySQL"
+msgstr "Versiunea client-ului bazei de date:"
 
 #: index.php:315
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "Extensie PHP"
+msgstr "Extensie PHP:"
 
 #: index.php:333
 msgid "Show PHP information"
 msgstr "Arată informații PHP"
 
 #: index.php:356
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "Informații despre versiune"
+msgstr "Informații despre versiune:"
 
 #: index.php:365 libraries/Util.class.php:428 libraries/Util.class.php:493
 #: libraries/config/FormDisplay.tpl.php:148
@@ -960,7 +951,7 @@ msgstr "Comenzile \"DROP DATABASE\" sunt dezactivate."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmare"
 
 #: js/messages.php:36
 #, php-format
@@ -992,16 +983,16 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Această operație poate dura mult timp. Continuați oricum?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Sigur doriți să ştergeţi grupul de utilizatori \"%s\"?"
 
 #: js/messages.php:45
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Sigur doriți să ştergeţi grupul de utilizatori \"%s\"?"
+msgstr "Sigur doriți să ştergeţi interogarea \"%s\"?"
 
 #: js/messages.php:46
 #, fuzzy
@@ -1036,22 +1027,19 @@ msgid "Missing value in the form!"
 msgstr "Valoarea lipsește din formular!"
 
 #: js/messages.php:55
-#, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "cel puțin unul dintre cuvinte"
+msgstr "Selectați cel puțin o opțiune!"
 
 #: js/messages.php:56
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number!"
-msgstr "Introduceţi un număr valid pentru port"
+msgstr "Introduceţi un număr valid!"
 
 #: js/messages.php:57
-#, fuzzy
 #| msgid "Please enter a valid length"
 msgid "Please enter a valid length!"
-msgstr "Vă rugăm să introduceţi o dimensiune validă"
+msgstr "Vă rugăm să introduceţi o lungime validă!"
 
 #: js/messages.php:58
 msgid "Add Index"
@@ -1167,10 +1155,9 @@ msgid "Connections / Processes"
 msgstr "Conexiuni / Procese"
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Local monitor configuration incompatible!"
-msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
+msgstr "Configurația monitorului local este incompatibilă!"
 
 #: js/messages.php:97
 msgid ""
@@ -1323,10 +1310,9 @@ msgid "Add chart to grid"
 msgstr "Adaugă grafic la grilă"
 
 #: js/messages.php:140
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "Adăugați cel puțin o variabilă la serie"
+msgstr "Adăugați cel puțin o variabilă la serie!"
 
 #: js/messages.php:141 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1044
@@ -1423,10 +1409,10 @@ msgstr "Dezactivează %s"
 
 #. l10n: %d seconds
 #: js/messages.php:163
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "Stabilește long_query_time la %ds"
+msgstr "Stabilește long_query_time la %d secunde."
 
 #: js/messages.php:165
 msgid ""
@@ -1474,7 +1460,7 @@ msgstr "Din jurnalul general"
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 "Numele bazei de date nu este cunoscut pentru această interogare în log-urile "
-"server-uui."
+"server-ului."
 
 #: js/messages.php:182
 msgid "Analysing logs"
@@ -1482,7 +1468,7 @@ msgstr "Se analizează jurnalele"
 
 #: js/messages.php:183
 msgid "Analysing & loading logs. This may take a while."
-msgstr "Se analizează și se încarcă jurnalele. Poate dura o vvreme."
+msgstr "Se analizează și se încarcă jurnalele. Poate dura o vreme."
 
 #: js/messages.php:184
 msgid "Cancel request"
@@ -1516,9 +1502,8 @@ msgstr ""
 "inverval de timp:"
 
 #: js/messages.php:189
-#, fuzzy
 msgid "Jump to Log table"
-msgstr "Nu sunt baze de date"
+msgstr "Mergi la jurnal"
 
 #: js/messages.php:190
 msgid "No data found"
@@ -1643,10 +1628,9 @@ msgid "Import monitor configuration"
 msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
 
 #: js/messages.php:224
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "Alegeți fișierul care doriți să fie importat"
+msgstr "Alegeți fișierul care doriți să fie importat."
 
 #: js/messages.php:225
 msgid "No files available on server for import!"
@@ -1814,10 +1798,9 @@ msgid "Values for a new column"
 msgstr "Valori pentru o coloană nouă"
 
 #: js/messages.php:284
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "Introduceți fiecare valoare într-un câmp separat"
+msgstr "Introduceți fiecare valoare într-un câmp separat."
 
 #: js/messages.php:285
 #, php-format
@@ -2070,10 +2053,9 @@ msgid "Hide find and replace criteria"
 msgstr "Ascunde criteriile de căutare"
 
 #: js/messages.php:348
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Afișează criteriile de căutare"
+msgstr "Afișează criteriile de căutare și înlocuire"
 
 #: js/messages.php:352
 msgid "Each point represents a data row."
@@ -2132,7 +2114,6 @@ msgid "Point"
 msgstr "Punct"
 
 #: js/messages.php:377
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "Linii terminate de"
@@ -2176,10 +2157,9 @@ msgid "Select Foreign Key"
 msgstr "Alegeți cheia străină"
 
 #: js/messages.php:392
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "Vă rugăm să alegeți cheia primară sau o cheie unică"
+msgstr "Vă rugăm să alegeți cheia primară sau o cheie unică!"
 
 #: js/messages.php:393 libraries/pmd_general.lib.php:147
 msgid "Choose column to display"
@@ -2248,10 +2228,10 @@ msgid "Export relational schema"
 msgstr "Editați sau exportați schema relațională"
 
 #: js/messages.php:410
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
-msgstr "Adăugați o opțiune pentru coloană "
+msgstr "Adăugați o opțiune pentru coloana \"%s\"."
 
 #: js/messages.php:411
 #, php-format
@@ -2259,10 +2239,9 @@ msgid "%d object(s) created."
 msgstr ""
 
 #: js/messages.php:414
-#, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "Apăsați escape pentru a anula editarea"
+msgstr "Apăsați escape pentru a anula editarea."
 
 #: js/messages.php:415
 msgid ""
@@ -14486,8 +14465,9 @@ msgid "Add to Favorites"
 msgstr "Adaugă un server nou"
 
 #: libraries/structure.lib.php:2896
+#, fuzzy
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "Lista de favorite este plină!"
 
 #: libraries/structure.lib.php:2985
 #, fuzzy
