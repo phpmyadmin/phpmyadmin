@@ -10581,7 +10581,7 @@ msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 "%sCrear%s las tablas de almacenamiento de configuración de phpMyAdmin en la "
-"base de datos actua."
+"base de datos actual."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:316
 #: libraries/server_databases.lib.php:392
