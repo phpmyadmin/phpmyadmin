@@ -634,7 +634,7 @@ Server connection settings
 
         For auto-upgrade functionality to work, your
         ``$cfg['Servers'][$i]['controluser']`` must have ALTER privilege on
-        ``phpmyadmin`` database. See the `MySQL documentation
+        ``phpmyadmin`` database. See the `MySQL documentation for GRANT
         <http://dev.mysql.com/doc/mysql/en/grant.html>`_ on how to
         ``GRANT`` privileges to a user.
 
@@ -1449,9 +1449,10 @@ Navigation panel setup
     or use the existing one, if already present.
 
     .. note::
-    If there is no central configuration storage defined then you may end up with
-    different set of phpMyAdmin configuration storage tables for different
-    databases.
+
+        If there is no central configuration storage defined then you may end
+        up with different set of phpMyAdmin configuration storage tables for
+        different databases.
 
 .. config:option:: $cfg['NavigationLinkWithMainPanel']
 
@@ -1921,8 +1922,9 @@ Languages
     :default: ``'utf8_general_ci'``
 
     Defines the default connection collation to use, if not user-defined.
-    See the `MySQL documentation <http://dev.mysql.com/doc/mysql/en
-    /charset-charsets.html>`_ for list of possible values. This setting is
+    See the `MySQL documentation for charsets 
+    <http://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_ 
+    for list of possible values. This setting is
     ignored when connected to Drizzle server.
 
 .. config:option:: $cfg['Lang']
