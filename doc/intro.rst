@@ -40,7 +40,7 @@ Currently phpMyAdmin can:
 * transform stored data into any format using a set of predefined
   functions, like displaying BLOB-data as image or download-link
 * track changes on databases, tables and views
-* support InnoDB tables and foreign keys see :ref:`faq3_6`
+* support InnoDB tables and foreign keys
 * support mysqli, the improved MySQL extension see :ref:`faq1_17`
 * create, edit, call, export and drop stored procedures and functions
 * create, edit, export and drop events and triggers
