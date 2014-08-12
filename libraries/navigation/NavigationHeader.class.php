@@ -160,18 +160,6 @@ class PMA_NavigationHeader
                     true
                 );
             }
-            $link  = 'querywindow.php?';
-            $link .= PMA_URL_getCommon($GLOBALS['db'], $GLOBALS['table']);
-            $link .= '&amp;no_js=true';
-            $retval .= PMA_Util::getNavigationLink(
-                $link,
-                $showText,
-                __('Query window'),
-                $showIcon,
-                'b_selboard.png',
-                'pma_open_querywindow',
-                true
-            );
         }
         $retval .= PMA_Util::getNavigationLink(
             PMA_Util::getDocuLink('index'),

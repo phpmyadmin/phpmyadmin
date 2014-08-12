@@ -29,7 +29,6 @@ class PMA_CheckPageValidity_Test extends PHPUnit_Framework_TestCase
         'index.php',
         'pdf_pages.php',
         'pdf_schema.php',
-        'querywindow.php',
         'server_binlog.php',
         'server_variables.php',
         'sql.php',

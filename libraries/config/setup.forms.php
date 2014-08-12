@@ -154,10 +154,6 @@ $forms['Sql_queries']['Sql_queries'] = array(
     'QueryHistoryMax',
     'IgnoreMultiSubmitErrors',
     'MaxCharactersInDisplayedSQL',
-    'EditInWindow',
-    //'QueryWindowWidth', // overridden in theme
-    //'QueryWindowHeight',
-    'QueryWindowDefTab',
     'RetainQueryBox',
     'CodemirrorEnable');
 $forms['Sql_queries']['Sql_box'] = array('SQLQuery' => array(
@@ -233,8 +229,8 @@ $forms['Main_panel']['Tabs'] = array(
     'ActionLinksMode',
     'DefaultTabServer',
     'DefaultTabDatabase',
-    'DefaultTabTable',
-    'QueryWindowDefTab');
+    'DefaultTabTable'
+);
 $forms['Import']['Import_defaults'] = array('Import' => array(
     'format',
     'charset',
