@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-06 08:01-0400\n"
-"PO-Revision-Date: 2014-08-12 00:13+0200\n"
+"PO-Revision-Date: 2014-08-12 12:18+0200\n"
 "Last-Translator: Alecsandru Prună <alecsandrucpruna@gmail.com>\n"
 "Language-Team: Romanian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/ro/>\n"
@@ -30,16 +30,15 @@ msgid "The central list of columns for the current database is empty."
 msgstr ""
 
 #: db_central_columns.php:109
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "Apăsați pentru a sorta"
+msgstr "Apăsați pentru a sorta."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "Afișează înregistrări"
+msgstr "Afișează înregistrarea(ile) %1$s - %2$s"
 
 #: db_create.php:61
 #, php-format
@@ -1581,7 +1580,7 @@ msgstr "Se încarcă jurnalele"
 
 #: js/messages.php:212
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Reîncărcarea monitorului a eșuat"
 
 #: js/messages.php:213
 msgid ""
@@ -1589,6 +1588,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"În timpul solicitării datelor noi de tip diagramă serverul a returnat un "
+"răspuns invalid. Acest lucru este cel mai probabil din cauză că a expirat "
+"sesiunea. Reîncărcarea paginii şi reautentificarea ar trebui să ajute."
 
 #: js/messages.php:214
 msgid "Reload page"
@@ -1634,7 +1636,7 @@ msgstr "Alegeți fișierul care doriți să fie importat."
 
 #: js/messages.php:225
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "Nu sunt fișiere disponibile pe server pentru import!"
 
 #: js/messages.php:227
 msgid "Analyse Query"
@@ -1687,7 +1689,7 @@ msgstr "Încărcare…"
 
 #: js/messages.php:247
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Cerere terminată!"
 
 #: js/messages.php:248
 msgid "Processing Request"
@@ -2139,14 +2141,13 @@ msgid "Shift + Click on function name to apply to all rows."
 msgstr ""
 
 #: js/messages.php:386
-#, fuzzy
 #| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
-msgstr "Doriți să importați setările rămase?"
+msgstr "Doriți să copiați cheia de criptare?"
 
 #: js/messages.php:387
 msgid "Encryption key"
-msgstr ""
+msgstr "Cheie de criptare"
 
 #: js/messages.php:390
 msgid "Select referenced key"
@@ -2236,7 +2237,7 @@ msgstr "Adăugați o opțiune pentru coloana \"%s\"."
 #: js/messages.php:411
 #, php-format
 msgid "%d object(s) created."
-msgstr ""
+msgstr "%d obiect(e) creat(e)."
 
 #: js/messages.php:414
 #| msgid "Press escape to cancel editing"
@@ -2258,7 +2259,7 @@ msgstr "Deplasați pentru a reordona."
 
 #: js/messages.php:417
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Click pentru a sorta rezultatele după această coloană."
 
 #: js/messages.php:418
 msgid ""
@@ -16662,10 +16663,9 @@ msgid "InnoDB buffer pool size"
 msgstr "Mărimea buffer-ului pool al InnoDB"
 
 #: libraries/advisory_rules.txt:453
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Buffer pool size"
+msgstr "Buffer-ul pentru InnoDB este destul de mic."
 
 #: libraries/advisory_rules.txt:454
 #, php-format
