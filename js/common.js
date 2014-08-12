@@ -1,17 +1,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Functionality for communicating with the querywindow
- */
-$(function () {
-    /**
-     * Event handler for click on the open query window link
-     * in the top menu of the navigation panel
-     */
-    $('#pma_open_querywindow').click(function (event) {
-        event.preventDefault();
-        PMA_querywindow.focus();
-    });
 
+$(function () {
     checkNumberOfFields();
 });
 

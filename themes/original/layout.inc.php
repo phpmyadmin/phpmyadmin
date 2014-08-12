@@ -76,14 +76,6 @@ $GLOBALS['cfg']['BgOne']                = '#E5E5E5';
 $GLOBALS['cfg']['BgTwo']                = '#D5D5D5';
 
 /**
- * query window
- */
-// Width of Query window
-$GLOBALS['cfg']['QueryWindowWidth']     = 600;
-// Height of Query window
-$GLOBALS['cfg']['QueryWindowHeight']    = 400;
-
-/**
  * Chart colors
  */
 

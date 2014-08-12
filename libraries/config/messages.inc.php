@@ -97,8 +97,6 @@ $strConfigDisableMultiTableMaintenance_desc = __(
     . 'the selected tables of a database.'
 );
 $strConfigDisableMultiTableMaintenance_name = __('Disable multi table maintenance');
-$strConfigEditInWindow_desc = __('Edit SQL queries in popup window.');
-$strConfigEditInWindow_name = __('Edit in window');
 $strConfigError_Handler_display_name = __('Display errors');
 $strConfigExecTimeLimit_desc = __(
     'Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no '
@@ -518,13 +516,6 @@ $strConfigQueryHistoryDB_name = __('Permanent query history');
 $strConfigQueryHistoryMax_cmt = __('Users cannot set a higher value');
 $strConfigQueryHistoryMax_desc = __('How many queries are kept in history.');
 $strConfigQueryHistoryMax_name = __('Query history length');
-$strConfigQueryWindowDefTab_desc
-    = __('Tab displayed when opening a new query window.');
-$strConfigQueryWindowDefTab_name = __('Default query window tab');
-$strConfigQueryWindowHeight_desc = __('Query window height (in pixels).');
-$strConfigQueryWindowHeight_name = __('Query window height');
-$strConfigQueryWindowWidth_desc = __('Query window width (in pixels).');
-$strConfigQueryWindowWidth_name = __('Query window width');
 $strConfigRecodingEngine_desc
     = __('Select which functions will be used for character set conversion.');
 $strConfigRecodingEngine_name = __('Recoding engine');
