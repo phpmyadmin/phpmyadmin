@@ -182,6 +182,11 @@ And to edit an existing configuration, copy it over first:
     cp config.inc.php config/           # copy current configuration for editing
     chmod o+w config/config.inc.php     # give it world writable permissions
 
+.. note::
+
+    Debian and Ubuntu have simplified this setup and all you need to do is to
+    execute :program:`/usr/sbin/pma-configure`.
+
 On other platforms, simply create the folder and ensure that your web
 server has read and write access to it. :ref:`faq1_26` can help with
 this.
@@ -207,6 +212,11 @@ measure:
     mv config/config.inc.php .         # move file to current directory
     chmod o-rw config.inc.php          # remove world read and write permissions
     rm -rf config                      # remove not needed directory
+
+.. note::
+
+    Debian and Ubuntu have simplified this setup and all you need to do is to
+    execute :program:`/usr/sbin/pma-secure`.
 
 Now the file is ready to be used. You can choose to review or edit the
 file with your favorite editor, if you prefer to set some advanced
