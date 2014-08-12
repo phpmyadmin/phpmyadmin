@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-12 08:38-0400\n"
-"PO-Revision-Date: 2014-08-12 17:46+0200\n"
+"PO-Revision-Date: 2014-08-12 18:39+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
 "\n"
@@ -7522,11 +7522,10 @@ msgid "New page name"
 msgstr "Nom de la nouvelle page"
 
 #: libraries/designer.lib.php:156
-#, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
-"Chargement impossible des greffons d'importation, veuillez vérifier votre "
+"Chargement impossible des greffons de schéma, veuillez vérifier votre "
 "installation !"
 
 #: libraries/designer.lib.php:164
@@ -10518,11 +10517,13 @@ msgid "no description"
 msgstr "pas de description"
 
 #: libraries/relation.lib.php:1870
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Tables manquantes pour le stockage de configurations phpMyAdmin"
+msgstr ""
+"%sCréer%s le stockage de configurations phpMyAdmin dans la base de données "
+"active."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:316
 #: libraries/server_databases.lib.php:392
