@@ -30,6 +30,7 @@ phpMyAdmin - ChangeLog
 + rfe #1491 Support InnoDB for database Query by example
 + rfe #345  Normalize a table 
 + rfe #1123 Zeroconf PMA tables support
++ rfe #1492 Remove the distinct query window / Add SQL log+history panel
 
 4.2.8.0 (not yet released)
 
