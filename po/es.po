@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-12 08:38-0400\n"
-"PO-Revision-Date: 2014-08-06 15:36+0200\n"
+"PO-Revision-Date: 2014-08-12 16:42+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -908,7 +908,7 @@ msgstr ""
 "configuración."
 
 #: index.php:517
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -918,13 +918,15 @@ msgid ""
 msgstr ""
 "El almacenamiento de configuración phpMyAdmin no está completamente "
 "configurado, algunas funcionalidades extendidas fueron deshabilitadas. %"
-"sPulsa aquí para averiguar por qué%s."
+"sPulsa aquí para averiguar por qué%s. "
 
 #: index.php:523
 msgid ""
 "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or alternately go to 'Operations' "
 "tab of any database to set it up there."
 msgstr ""
+"<br>Una alternativa sería utilizar la pestaña «Operaciones» de cualquier "
+"base de datos y configurarlo allí."
 
 #: index.php:564
 #, php-format
@@ -7444,12 +7446,13 @@ msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
+"Activar el modo de «Configuración Zero» que le permite definir las tablas "
+"del almacenamiento de configuración de phpMyAdmin automáticamente."
 
 #: libraries/config/messages.inc.php:784
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
-msgstr "Configuración del servidor"
+msgstr "Activar modo «Configuración Zero»"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7570,11 +7573,9 @@ msgid "New page name"
 msgstr "Nuevo nombre de página"
 
 #: libraries/designer.lib.php:156
-#, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
-msgstr ""
-"No se pudieron cargar los plugins de importación. ¡Revise su instalación!"
+msgstr "No se pudieron cargar los plugins de esquema. ¡Revise su instalación!"
 
 #: libraries/designer.lib.php:164
 msgid "Select Export Relational Type"
@@ -10574,11 +10575,13 @@ msgid "no description"
 msgstr "Sin descripción"
 
 #: libraries/relation.lib.php:1870
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Faltan las tablas de almacenaje de configuración de phpMyAdmin"
+msgstr ""
+"%sCrear%s las tablas de almacenamiento de configuración de phpMyAdmin en la "
+"base de datos actua."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:316
 #: libraries/server_databases.lib.php:392
