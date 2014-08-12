@@ -164,8 +164,8 @@ Using Setup script
 
 Instead of manually editing :file:`config.inc.php`, you can use the `Setup
 Script <setup/>`_. First you must manually create a folder ``config``
-in the phpMyAdmin directory. This is a security measure. On a
-Linux/Unix system you can use the following commands:
+in the phpMyAdmin directory. This directory is contained in:  /etc/phpmyadmin (for Ubuntu users).
+This is a security measure. On a Linux/Unix system you can use the following commands:
 
 .. code-block:: sh
 
