@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-12 08:38-0400\n"
-"PO-Revision-Date: 2014-08-06 20:16+0200\n"
+"PO-Revision-Date: 2014-08-13 23:39+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -903,7 +903,7 @@ msgstr ""
 "konfiguracijo."
 
 #: index.php:517
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -913,13 +913,15 @@ msgid ""
 msgstr ""
 "Hramba konfiguracije phpMyAdmin ni konfigurirana v celoti, zato so bile "
 "nekatere razširjene zmožnosti onemogočene. Če želite izvedeti zakaj, "
-"kliknite %stukaj%s."
+"kliknite %stukaj%s. "
 
 #: index.php:523
 msgid ""
 "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or alternately go to 'Operations' "
 "tab of any database to set it up there."
 msgstr ""
+"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ali pa pojdite na zavihek »Dejanja« "
+"katere koli zbirke podatkov, da to nastavite tam."
 
 #: index.php:564
 #, php-format
@@ -7348,12 +7350,13 @@ msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
+"Omogoči način ničelne konfiguracije, ki omogoča, da phpMyAdmin samodejno "
+"nastavi hrambene tabele konfiguracije."
 
 #: libraries/config/messages.inc.php:784
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
-msgstr "Konfiguracija strežnika"
+msgstr "Omogoči način ničelne konfiguracije"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7472,11 +7475,9 @@ msgid "New page name"
 msgstr "Ime nove strani"
 
 #: libraries/designer.lib.php:156
-#, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
-msgstr ""
-"Ne morem naložiti vtičnikov za uvoz, prosimo, preverite vašo namestitev!"
+msgstr "Ne morem naložiti vtičnikov sheme, prosimo, preverite vašo namestitev!"
 
 #: libraries/designer.lib.php:164
 msgid "Select Export Relational Type"
@@ -10416,11 +10417,13 @@ msgid "no description"
 msgstr "brez opisa"
 
 #: libraries/relation.lib.php:1870
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Manjkajoče tabele hrambe konfiguracije phpMyAdmin"
+msgstr ""
+"%sCreate%s tabele hrambe konfiguracije phpMyAdmin in trenutni zbirki "
+"podatkov."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:316
 #: libraries/server_databases.lib.php:392
