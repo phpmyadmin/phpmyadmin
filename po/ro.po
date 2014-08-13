@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-08-12 00:13+0200\n"
+"PO-Revision-Date: 2014-08-14 00:52+0200\n"
 "Last-Translator: Alecsandru Prună <alecsandrucpruna@gmail.com>\n"
 "Language-Team: Romanian <https://l10n.cihar.com/projects/phpmyadmin/4-2/ro/>"
 "\n"
@@ -768,10 +768,9 @@ msgid "User:"
 msgstr "Utilizator:"
 
 #: index.php:285
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset:"
-msgstr "Soclul serverului"
+msgstr "Setul de caractere al serverului:"
 
 #: index.php:300
 msgid "Web server"
@@ -1472,7 +1471,7 @@ msgstr "Se încarcă jurnalele"
 
 #: js/messages.php:193
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Reîncărcarea monitorului a eșuat"
 
 #: js/messages.php:194
 msgid ""
@@ -1480,6 +1479,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"În timpul solicitării datelor noi de tip diagramă serverul a returnat un "
+"răspuns invalid. Acest lucru este cel mai probabil din cauză că a expirat "
+"sesiunea. Reîncărcarea paginii şi reautentificarea ar trebui să ajute."
 
 #: js/messages.php:195
 msgid "Reload page"
@@ -1513,10 +1515,9 @@ msgid "Import"
 msgstr "Import"
 
 #: js/messages.php:204
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Import monitor configuration"
-msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
+msgstr "Importă configuraţie pentru monitor"
 
 #: js/messages.php:205
 #| msgid "Please select the file you want to import"
@@ -1525,7 +1526,7 @@ msgstr "Alegeți fișierul care doriți să fie importat."
 
 #: js/messages.php:206
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "Nu sunt fișiere disponibile pe server pentru import!"
 
 #: js/messages.php:208
 msgid "Analyse Query"
@@ -1577,7 +1578,7 @@ msgstr "Încărcare…"
 
 #: js/messages.php:228
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Cerere terminată!"
 
 #: js/messages.php:229
 msgid "Processing Request"
@@ -1740,10 +1741,9 @@ msgid "Show search criteria"
 msgstr "Afișează criteriile de căutare"
 
 #: js/messages.php:284
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Ascunde criteriile de căutare"
+msgstr "Ascunde criteriile de căutare și înlocuire"
 
 #: js/messages.php:285
 #| msgid "Show search criteria"
@@ -1760,14 +1760,13 @@ msgstr "Ducând mouse-ul deasupra unui punct, i se va afișa eticheta."
 
 #: js/messages.php:293
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Pentru a mări, selectaţi o secţiune cu mouse-ul."
 
 #: js/messages.php:295
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
-"Click pe link-ul de resetare zoom pentru a te întoarce la starea originală."
+"Faceţi click pe butonul de resetare zoom pentru a reveni la starea iniţială."
 
 #: js/messages.php:297
 msgid "Click a data point to view and possibly edit the data row."
@@ -1828,17 +1827,16 @@ msgstr ""
 
 #: js/messages.php:321
 msgid "Shift + Click on function name to apply to all rows."
-msgstr ""
+msgstr "Shift + Click pe numele funcției pentru a aplica la toate rândurile."
 
 #: js/messages.php:323
-#, fuzzy
 #| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
-msgstr "Doriți să importați setările rămase?"
+msgstr "Doriți să copiați cheia de criptare?"
 
 #: js/messages.php:324
 msgid "Encryption key"
-msgstr ""
+msgstr "Cheie de criptare"
 
 #: js/messages.php:327
 msgid "Select referenced key"
@@ -1874,7 +1872,7 @@ msgstr "Adăugați o opțiune pentru coloana \"%s\"."
 #: js/messages.php:338
 #, php-format
 msgid "%d object(s) created."
-msgstr ""
+msgstr "%d obiect(e) creat(e)."
 
 #: js/messages.php:341
 #| msgid "Press escape to cancel editing"
@@ -1896,7 +1894,7 @@ msgstr "Deplasați pentru a reordona."
 
 #: js/messages.php:344
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Click pentru a sorta rezultatele după această coloană."
 
 #: js/messages.php:345
 msgid ""
@@ -1938,13 +1936,12 @@ msgstr ""
 "funcționeze după salvare."
 
 #: js/messages.php:357
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
-"Puteți de asemenea edita coloane<br />facând click direct pe conținutul "
-"acestora."
+"De asemenea puteți edita majoritatea valorilor<br/>făcând dublu-click direct "
+"pe acestea."
 
 #: js/messages.php:360
 #, fuzzy
@@ -2012,10 +2009,11 @@ msgid "Show hidden navigation tree items."
 msgstr "Afișează logo în cadrul din stânga"
 
 #: js/messages.php:384
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Utilizatorul selectat nu a fost găsit în tabelul de drepturi."
+msgstr ""
+"Pagina solicitată nu a fost găsită în istorie, este posibil ca acesta să fi "
+"expirat."
 
 #: js/messages.php:387 setup/lib/index.lib.php:157
 #, php-format
@@ -2346,31 +2344,29 @@ msgstr "Secundă"
 #: libraries/Advisor.class.php:79
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP a aruncat următoarea eroare: %s"
 
 #: libraries/Advisor.class.php:108
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr ""
+msgstr "Imposibil de evaluat precondiţia pentru regula '%s'."
 
 #: libraries/Advisor.class.php:125
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr ""
+msgstr "Imposibil de calculat valoarea pentru regula '%s'."
 
 #: libraries/Advisor.class.php:144
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr ""
+msgstr "Imposibil de rulat testul pentru regula'%s'."
 
 #: libraries/Advisor.class.php:224
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
-"Formatarea string-ului pentru regula \"%s\" a eșuat. PHP a aruncat "
-"următoarea eroare: %s"
+msgstr "Imposibil de formatat șirul pentru regula '%s'."
 
 #: libraries/Advisor.class.php:396
 #, php-format
@@ -2387,12 +2383,12 @@ msgstr "Index de server nevalid: „%s”"
 #: libraries/Advisor.class.php:423
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr ""
+msgstr "Caractere neaşteptate pe linia %s."
 
 #: libraries/Advisor.class.php:438
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr ""
+msgstr "Caracter neașteptat pe linia %1$s. Aşteptam tab, dar am găsit \"%2$s\"."
 
 #: libraries/Advisor.class.php:472
 msgid "per second"
@@ -2488,7 +2484,7 @@ msgstr "Sau:"
 
 #: libraries/DBQbe.class.php:720 libraries/DBQbe.class.php:810
 msgid "And:"
-msgstr ""
+msgstr "Şi:"
 
 #: libraries/DBQbe.class.php:724
 msgid "Ins"
@@ -2504,12 +2500,14 @@ msgid "Modify:"
 msgstr "Modificare:"
 
 #: libraries/DBQbe.class.php:805
+#, fuzzy
 msgid "Ins:"
-msgstr ""
+msgstr "Ins:"
 
 #: libraries/DBQbe.class.php:820
+#, fuzzy
 msgid "Del:"
-msgstr ""
+msgstr "Del:"
 
 #: libraries/DBQbe.class.php:1430
 #, php-format
@@ -2527,28 +2525,24 @@ msgid "Saved bookmarked search:"
 msgstr "Caută"
 
 #: libraries/DBQbe.class.php:1460
-#, fuzzy
 #| msgid "Delete relation"
 msgid "New bookmark"
-msgstr "Șterge relația"
+msgstr "Semn de carte nou"
 
 #: libraries/DBQbe.class.php:1486
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Create bookmark"
-msgstr "Șterge relația"
+msgstr "Creare semn de carte"
 
 #: libraries/DBQbe.class.php:1489
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Update bookmark"
-msgstr "Afișând semn de carte"
+msgstr "Actualizare semn de carte"
 
 #: libraries/DBQbe.class.php:1491
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Delete bookmark"
-msgstr "Șterge relația"
+msgstr "Ștergeți semnul de carte"
 
 #: libraries/DatabaseInterface.class.php:1976
 msgid ""
@@ -2662,9 +2656,8 @@ msgid "Inside column:"
 msgstr "In interiorul coloanei::"
 
 #: libraries/DisplayResults.class.php:741
-#, fuzzy
 msgid "Save edited data"
-msgstr "Directorul de bază pentru date"
+msgstr "Salvaţi datele editate"
 
 #: libraries/DisplayResults.class.php:747
 #| msgid "Add/Delete Field Columns"
@@ -2851,9 +2844,9 @@ msgid "Showing rows %1s - %2s"
 msgstr "Afișează înregistrările %1s - %2s"
 
 #: libraries/DisplayResults.class.php:5065
-#, php-format
+#, fuzzy, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d în total, %2$d în interogare"
 
 #: libraries/DisplayResults.class.php:5070
 #, php-format
@@ -2931,8 +2924,9 @@ msgid "Display chart"
 msgstr "Arată diagramă"
 
 #: libraries/DisplayResults.class.php:5498
+#, fuzzy
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Vizualizarea datelor GIS"
 
 #: libraries/DisplayResults.class.php:5718
 #| msgid "Link not found"
@@ -2996,7 +2990,7 @@ msgstr "Nu se poate citi fișierul încărcat (și mutat)."
 #: libraries/Footer.class.php:74
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "În prezent se rulează Git revizuirea %1$s din ramura %2$s."
 
 #: libraries/Footer.class.php:81
 #| msgid "Version information"
@@ -3010,7 +3004,7 @@ msgstr "Deschide fereastră phpMyAdmin nouă"
 
 #: libraries/Header.class.php:403
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Faceţi click pe bară pentru a defila la partea de sus a paginii"
 
 #: libraries/Header.class.php:684
 #: libraries/plugins/auth/AuthenticationCookie.class.php:143
@@ -3228,7 +3222,7 @@ msgstr "Seturi de caractere"
 #: libraries/Menu.class.php:580 libraries/Util.class.php:4107
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
 msgid "Plugins"
-msgstr ""
+msgstr "Extensii"
 
 #: libraries/Menu.class.php:584 libraries/Util.class.php:4108
 msgid "Engines"
@@ -3284,10 +3278,9 @@ msgid "Could not save recent table!"
 msgstr "Nu s-a putut salva tabelul recent!"
 
 #: libraries/RecentFavoriteTable.class.php:154
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save favorite table!"
-msgstr "Nu s-a putut salva tabelul recent"
+msgstr "Nu s-a putut salva tabelul favorit!"
 
 #: libraries/RecentFavoriteTable.class.php:231
 #: libraries/structure.lib.php:2753
@@ -3328,12 +3321,13 @@ msgstr "Favorite"
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
 msgstr ""
+"Vă rugăm să furnizaţi un nume pentru această căutare marcată ca semn de "
+"carte."
 
 #: libraries/SavedSearches.class.php:261
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the bookmarked search."
-msgstr "Tabele de stocare a configurării phpMyAdmin absente"
+msgstr "Lipsesc informații pentru a putea salva această căutare."
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
 #| msgid "The user %s already exists!"
@@ -3342,11 +3336,11 @@ msgstr "O înregistrare cu acest nume deja există."
 
 #: libraries/SavedSearches.class.php:347
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "Lipsesc informații pentru a putea șterge căutarea."
 
 #: libraries/SavedSearches.class.php:375
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Lipsesc informații pentru a putea încărca căutarea."
 
 #: libraries/SavedSearches.class.php:394
 #| msgid "Error while moving uploaded file."
@@ -3493,10 +3487,10 @@ msgid "Source database `%s` was not found!"
 msgstr "Baza de date sursă"
 
 #: libraries/Table.class.php:805
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "Tema %s nu a fost găsită!"
+msgstr "Baza de date țintă `%s` nu a fost găsită!"
 
 #: libraries/Table.class.php:1332
 #| msgid "Invalid database"
@@ -3563,10 +3557,9 @@ msgid "Value"
 msgstr "Valoare"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Caută"
+msgstr "Caută în tabelă"
 
 #: libraries/TableSearch.class.php:212
 #, fuzzy
@@ -3579,16 +3572,14 @@ msgid "Find and Replace"
 msgstr "Caută şi Înlocuieşte"
 
 #: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1399
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Editează/Inserare"
+msgstr "Editare/Inserare"
 
 #: libraries/TableSearch.class.php:800
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Selectează câmpurile (cel puțin unul):"
+msgstr "Selectaţi coloanele (cel puţin una):"
 
 #: libraries/TableSearch.class.php:820 libraries/insert_edit.lib.php:1231
 #: libraries/server_privileges.lib.php:438
@@ -3621,15 +3612,15 @@ msgid "Browse foreign values"
 msgstr "Caută printre valori necunoscute"
 
 #: libraries/TableSearch.class.php:1037
-#, fuzzy
 msgid "Additional search criteria"
-msgstr "Comanda SQL"
+msgstr "Criterii de căutare suplimentare"
 
 #: libraries/TableSearch.class.php:1203
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Execută o interogare prin exemplu (metacaracter: \"%\")"
+msgstr ""
+"Faceți o \"interogare prin exemplu\" (metacaracter: \"%\") pentru două "
+"coloane diferite"
 
 #: libraries/TableSearch.class.php:1213
 msgid "Do a \"query by example\" (wildcard: \"%\")"
@@ -3640,50 +3631,43 @@ msgid "Browse/Edit the points"
 msgstr "Parcurge/Editează punctele"
 
 #: libraries/TableSearch.class.php:1277
-#, fuzzy
 #| msgid "PHP extension to use"
 msgid "How to use"
-msgstr "Extensia PHP de utilizat"
+msgstr "Cum să utilizaţi"
 
 #: libraries/TableSearch.class.php:1282
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Resetare"
+msgstr "Resetare zoom"
 
 #: libraries/TableSearch.class.php:1352
-#, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace with:"
-msgstr "Înlocuire NULL cu"
+msgstr "Înlocuiţi cu:"
 
 #: libraries/TableSearch.class.php:1412
 msgid "Find and replace - preview"
 msgstr "Caută şi înlocuieşte - previzualizare"
 
 #: libraries/TableSearch.class.php:1416
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Coloană"
+msgstr "Numără"
 
 #: libraries/TableSearch.class.php:1417
-#, fuzzy
 #| msgid "Original position"
 msgid "Original string"
-msgstr "Pozitie originală"
+msgstr "Textul original"
 
 #: libraries/TableSearch.class.php:1418
-#, fuzzy
 #| msgid "Relations"
 msgid "Replaced string"
-msgstr "Legături"
+msgstr "Text înlocuit"
 
 #: libraries/TableSearch.class.php:1442
-#, fuzzy
 #| msgid "Replication"
 msgid "Replace"
-msgstr "Replicare"
+msgstr "Înlocuire"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -3714,10 +3698,9 @@ msgid "Theme path not found for theme %s!"
 msgstr "Calea temei nu a fost găsită pentru tema %s!"
 
 #: libraries/Theme_Manager.class.php:369
-#, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
-msgstr "Temă"
+msgstr "Temă:"
 
 #: libraries/Types.class.php:320
 msgid ""
@@ -3795,15 +3778,17 @@ msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
+"Un sinonim pentru TINYINT(1), o valoare nulă este considerată fals, valorile "
+"nenule sunt considerate adevărate"
 
 #: libraries/Types.class.php:342
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Un sinonim pentru BIGINT FĂRĂ SEMN NENUL INCREMENTARE_AUTOMATĂ UNIC"
 
 #: libraries/Types.class.php:344 libraries/Types.class.php:790
-#, fuzzy, php-format
+#, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Creare relație"
+msgstr "O combinaţie de dată şi timp, intervalul suportat este de %1$s la %2$s"
 
 #: libraries/Types.class.php:346 libraries/Types.class.php:792
 #, php-format
@@ -3817,22 +3802,28 @@ msgid ""
 msgstr ""
 
 #: libraries/Types.class.php:350 libraries/Types.class.php:796
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
-msgstr "Eroare la redenumirea tabelului %1$s în %2$s"
+msgstr "Perioadă de timp, intervalul suportat este de la %1$s la %2$s"
 
 #: libraries/Types.class.php:352
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"Un an în format de patru cifre (4, implicit) sau în format de două cifre (2)"
+", valorile admisibile sunt de la 70 (1970) la 69(2069) sau din 1901 la 2155 "
+"şi 0000"
 
 #: libraries/Types.class.php:354
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"Un șir de caractere cu o lungime fixă (0-255, implicit 1) care este "
+"întotdeauna umplut la dreapta cu spații până la lungimea specificată atunci "
+"când este stocat"
 
 #: libraries/Types.class.php:356 libraries/Types.class.php:798
 #, php-format
@@ -3840,24 +3831,32 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"Un şir de caractere de lungime variabilă (%s), lungimea maximă efectivă "
+"depinde de dimensiunea maximă a înregistrării"
 
 #: libraries/Types.class.php:358
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"O coloană TEXT cu o lungime maximă de 255 (2^8 - 1) de caractere, stocate cu "
+"un prefix de un octet care indică lungimea de valoare în octeţi"
 
 #: libraries/Types.class.php:360 libraries/Types.class.php:800
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"O coloană TEXT cu o lungime maximă de 65.535 (2^16-1) de caractere, stocate "
+"cu un prefix de doi octeți care indică lungimea valorii în octeţi"
 
 #: libraries/Types.class.php:362
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"O coloană TEXT cu o lungime maximă de 16.777.215 (2^24 - 1) de caractere, "
+"stocate cu un prefix de trei octeți care indică lungimea valorii în octeţi"
 
 #: libraries/Types.class.php:364
 msgid ""
@@ -3865,18 +3864,25 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"O coloană TEXT cu o lungime maximă de 4.294.967.295 sau 4GB (2^32 - 1) de "
+"caractere, stocate cu un prefix de patru octeți care indică lungimea valorii "
+"în octeţi"
 
 #: libraries/Types.class.php:366
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Similar cu tipul CHAR, dar stochează șiruri de caractere binare decât siruri "
+"de caractere non-binare"
 
 #: libraries/Types.class.php:368
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Similar cu tipul VARCHAR, dar stochează șiruri de caractere binare decât "
+"șiruri de caractere non-binare"
 
 #: libraries/Types.class.php:370
 msgid ""
@@ -3925,10 +3931,9 @@ msgid "A curve with linear interpolation between points"
 msgstr "O curbă cu o interpolare liniară între două puncte"
 
 #: libraries/Types.class.php:388
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "A polygon"
-msgstr "Adaugă %s câmp(uri)"
+msgstr "Un poligon"
 
 #: libraries/Types.class.php:390
 msgid "A collection of points"
@@ -3952,18 +3957,16 @@ msgid "Numeric"
 msgstr "tip numeric"
 
 #: libraries/Types.class.php:669 libraries/Types.class.php:1045
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Creează un nou index"
+msgstr "Dată şi oră"
 
 #: libraries/Types.class.php:678 libraries/Types.class.php:1048
-#, fuzzy
 #| msgid "Lines terminated by"
 msgctxt "string types"
 msgid "String"
-msgstr "Linii terminate de"
+msgstr "Şir de caractere"
 
 #: libraries/Types.class.php:699
 #, fuzzy
@@ -3998,7 +4001,7 @@ msgstr ""
 
 #: libraries/Types.class.php:788
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "Stochează un Identificator Universal Unic (IDUU)"
 
 #: libraries/Types.class.php:794
 msgid ""
@@ -4022,10 +4025,9 @@ msgid "Max: %s%s"
 msgstr "Mărime maximă: %s%s"
 
 #: libraries/Util.class.php:640 libraries/sql.lib.php:452
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "Comanda SQL"
+msgstr "Interogare SQL:"
 
 #: libraries/Util.class.php:684 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
@@ -8289,10 +8291,9 @@ msgid "Please explain the steps that lead to the error:"
 msgstr ""
 
 #: libraries/error_report.lib.php:294
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically send report next time"
-msgstr "Regim de recuperare automată"
+msgstr "Trimite automat raportul data viitoare"
 
 #: libraries/export.lib.php:113 libraries/export.lib.php:144
 #: libraries/export.lib.php:364
@@ -10955,10 +10956,9 @@ msgid "Create a page"
 msgstr "Creează o nouă pagină"
 
 #: libraries/schema/User_Schema.class.php:138
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Numărul paginii:"
+msgstr "Numele paginii"
 
 #: libraries/schema/User_Schema.class.php:145
 #, fuzzy
@@ -11816,22 +11816,22 @@ msgid ""
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:77
-#, fuzzy, php-format
+#, php-format
 #| msgid "per second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "pe secundă"
-msgstr[1] "pe secundă"
-msgstr[2] "pe secundă"
+msgstr[0] "%d secundă"
+msgstr[1] "%d secunde"
+msgstr[2] "%d secunde"
 
 #: libraries/server_status_monitor.lib.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "in use"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "în folosință"
-msgstr[1] "în folosință"
-msgstr[2] "în folosință"
+msgstr[0] "%d minut"
+msgstr[1] "%d minute"
+msgstr[2] "%d minute"
 
 #: libraries/server_status_monitor.lib.php:96
 #, fuzzy
@@ -12880,9 +12880,8 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Execută interogare SQL asupra bazei de date %s"
 
 #: libraries/sql_query_form.lib.php:275 setup/frames/index.inc.php:297
-#, fuzzy
 msgid "Clear"
-msgstr "Calendar"
+msgstr "Goliți"
 
 #: libraries/sql_query_form.lib.php:318
 #, fuzzy
@@ -13155,7 +13154,7 @@ msgstr "Răsfoiește valori distincte"
 
 #: libraries/structure.lib.php:2031 libraries/structure.lib.php:2034
 msgid "Add primary key"
-msgstr ""
+msgstr "Adaugă cheie primară"
 
 #: libraries/structure.lib.php:2037 libraries/structure.lib.php:2040
 msgid "Add index"
@@ -15412,26 +15411,26 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:420
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Formatul fișierului importat"
+msgstr "Rata de clienți abandonați"
 
 #: libraries/advisory_rules.txt:425
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr "Sortare Mărime tampon"
+msgstr ""
+"Rata de abandon a clientului este la %s, această valoare trebuie să fie mai "
+"mică de 1 pe oră"
 
 #: libraries/advisory_rules.txt:429
 msgid "Is InnoDB disabled?"
 msgstr ""
 
 #: libraries/advisory_rules.txt:432
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "You do not have InnoDB enabled."
-msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
+msgstr "Nu aveţi InnoDB activat."
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
@@ -15442,10 +15441,9 @@ msgid "have_innodb is set to 'value'"
 msgstr ""
 
 #: libraries/advisory_rules.txt:436
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "Buffer pool size"
+msgstr "Dimensiunea jurnalului InnoDB"
 
 #: libraries/advisory_rules.txt:439
 #, fuzzy
@@ -15520,10 +15518,9 @@ msgid "InnoDB buffer pool size"
 msgstr "Mărimea buffer-ului pool al InnoDB"
 
 #: libraries/advisory_rules.txt:453
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Buffer pool size"
+msgstr "Buffer-ul pentru InnoDB este destul de mic."
 
 #: libraries/advisory_rules.txt:454
 #, php-format
