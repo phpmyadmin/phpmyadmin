@@ -1999,7 +1999,8 @@ Third Normal From.
      `petDOB` date NOT NULL,
      `ownerLastName` varchar(64) NOT NULL,
      `ownerFirstName` varchar(64) NOT NULL,
-     `ownerPhone` int(12) NOT NULL,
+     `ownerPhone1` int(12) NOT NULL,
+     `ownerPhone2` int(12) NOT NULL,
      `ownerEmail` varchar(64) NOT NULL,
     );
 
