@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-12 08:38-0400\n"
-"PO-Revision-Date: 2014-08-12 12:18+0200\n"
+"PO-Revision-Date: 2014-08-13 02:05+0200\n"
 "Last-Translator: Alecsandru Prună <alecsandrucpruna@gmail.com>\n"
-"Language-Team: Romanian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"ro/>\n"
+"Language-Team: Romanian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ro/>\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ro\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
 "X-Generator: Weblate 1.10-dev\n"
@@ -27,7 +27,7 @@ msgstr ""
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Lista centrală de coloane pentru baza de date curentă este goală."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
@@ -609,20 +609,18 @@ msgstr ""
 "alăturată în atributul \"Value\"."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Acces refuzat!"
+msgstr "Reușit"
 
 #: import.php:58 js/messages.php:431
 msgid "Failed"
-msgstr ""
+msgstr "Eșuat"
 
 #: import.php:62
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "Incomplete params"
-msgstr "Inserări complete"
+msgstr "Parametrii incompleți"
 
 #: import.php:166
 #, php-format
@@ -785,10 +783,9 @@ msgid "User:"
 msgstr "Utilizator:"
 
 #: index.php:285
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset:"
-msgstr "Soclul serverului"
+msgstr "Setul de caractere al serverului:"
 
 #: index.php:300
 msgid "Web server"
@@ -898,7 +895,7 @@ msgid ""
 msgstr ""
 
 #: index.php:517
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
@@ -906,8 +903,9 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s. "
 msgstr ""
-"Opțiunile adiționale pentru folosirea tabelelor intercalate au fost "
-"dezactivate. Pentru a afla de ce …  %shere%s."
+"Configurarea pentru stocarea phpMyAdmin nu este complet configurată, astfel "
+"că unele caracteristici avansate au fost dezactivate. Pentru a afla de ce "
+"dați click  %shere%s. "
 
 #: index.php:523
 msgid ""
@@ -982,20 +980,16 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Sigur doriți să ştergeţi interogarea \"%s\"?"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid ""
 #| "You have edited some data and they have not been saved. Are you sure you "
 #| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
-msgstr ""
-"Ați editat unele date și acestea nu au fost salvate. Sigur vreți să părăsiți "
-"această pagină fără să salvați datele?"
+msgstr "Există modificări nesalvateș; sigur vreți să părăsiți această pagină?"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "Salvează ca fișier"
+msgstr "Salvează & Închide"
 
 #: js/messages.php:50 libraries/config/FormDisplay.tpl.php:393
 #: libraries/insert_edit.lib.php:1614 prefs_manage.php:335
@@ -1004,10 +998,9 @@ msgid "Reset"
 msgstr "Resetare"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Selectează tot"
+msgstr "Resetează tot"
 
 #: js/messages.php:54
 msgid "Missing value in the form!"
@@ -1039,52 +1032,45 @@ msgid "Add %s column(s) to index"
 msgstr "Adaugă %s coloane la index"
 
 #: js/messages.php:61
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Creare relație"
+msgstr "Creaţi un index cu o singură coloană"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Creare relație"
+msgstr "Creare index compus"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Composite with:"
-msgstr "câmpuri încadrate de"
+msgstr "Compus cu:"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Adaugă %s coloane la index"
+msgstr "Selectați coloana(ele) pentru index."
 
 #: js/messages.php:67 libraries/insert_edit.lib.php:1612
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:627
 msgid "Preview SQL"
-msgstr ""
+msgstr "Previzualizare SQL"
 
 #: js/messages.php:70
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "în interogarea"
+msgstr "Simulează interogarea"
 
 #: js/messages.php:71
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
 msgstr "Rânduri afectate:"
 
 #: js/messages.php:72 libraries/Util.class.php:639 libraries/sql.lib.php:453
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "Comanda SQL"
+msgstr "Interogare SQL:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:76 libraries/tbl_chart.lib.php:215
@@ -1317,11 +1303,11 @@ msgstr "Întrerupe monitorul"
 
 #: js/messages.php:144 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Pornește împrospătarea automată"
 
 #: js/messages.php:145
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Oprește împrospătarea automată"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
@@ -1739,9 +1725,8 @@ msgid "(Disabled)"
 msgstr "(Dezactivată)"
 
 #: js/messages.php:268
-#, fuzzy
 msgid "Failed to get real row count."
-msgstr "Eșec la scrierea fișierului pe disc."
+msgstr "Nu pot obţine numărul real de rânduri."
 
 #: js/messages.php:271
 msgid "Searching"
@@ -1829,19 +1814,17 @@ msgstr "Caută printre valori necunoscute"
 
 #: js/messages.php:298 libraries/normalization.lib.php:845
 msgid "Pick"
-msgstr ""
+msgstr "Alege"
 
 #: js/messages.php:299
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "Nicio coloană aleasă."
+msgstr "Selectorul de coloană"
 
 #: js/messages.php:300
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
-msgstr "Caută în baza de date"
+msgstr "Caută în această listă"
 
 #: js/messages.php:301
 #, php-format
@@ -1851,60 +1834,58 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "Memorie disponibilă"
+msgstr "Vezi mai mult"
 
 #: js/messages.php:303
 msgid "Are you sure?"
-msgstr ""
+msgstr "Sunteți sigur?"
 
 #: js/messages.php:304
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Această acţiune poate modifica definiţia anumitor coloane.<br/>Sunteţi sigur "
+"că doriţi să continuaţi?"
 
 #: js/messages.php:305
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "Contribuie"
+msgstr "Continuă"
 
 #: js/messages.php:308 libraries/structure.lib.php:2125
 #: libraries/structure.lib.php:2128
 msgid "Add primary key"
-msgstr ""
+msgstr "Adaugă cheie primară"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "A fost adăugată o cheie primară la %s."
+msgstr "Cheia primară a fost adăugată."
 
 #: js/messages.php:310 libraries/normalization.lib.php:170
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "Raport de monitorizare"
+msgstr "Continuați cu pasul următor…"
 
 #: js/messages.php:311
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "Primul pas de normalizare este complet pentru tabela '%s'."
 
 #: js/messages.php:312 libraries/normalization.lib.php:418
 #: libraries/normalization.lib.php:465 libraries/normalization.lib.php:548
 #: libraries/normalization.lib.php:608
-#, fuzzy
 #| msgid "At End of Table"
 msgid "End of step"
-msgstr "La sfîrșitul tabelului"
+msgstr "Sfârşitul pasului"
 
 #: js/messages.php:313
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "Al doilea pas de normalizare (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:314 js/messages.php:548 libraries/normalization.lib.php:260
@@ -1913,11 +1894,11 @@ msgstr "Gata"
 
 #: js/messages.php:315
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Confirmați dependenţele parţiale"
 
 #: js/messages.php:316
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Dependenţe parţiale selectate sunt după cum urmează:"
 
 #: js/messages.php:317
 msgid ""
@@ -1926,10 +1907,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:318
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Nu a fost aleasă nici o bază de date."
+msgstr "Nici o dependenţă parţială selectată!"
 
 #: js/messages.php:320
 msgid "Show me the possible partial dependencies based on data in the table"
@@ -1937,7 +1917,7 @@ msgstr ""
 
 #: js/messages.php:321
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Ascunde lista dependenţelor parţiale"
 
 #: js/messages.php:322
 msgid ""
@@ -1947,40 +1927,38 @@ msgstr ""
 
 #: js/messages.php:323
 msgid "Step"
-msgstr ""
+msgstr "Pas"
 
 #: js/messages.php:324
 msgid "The following actions will be performed:"
-msgstr ""
+msgstr "Vor fi efectuate următoarele acţiuni:"
 
 #: js/messages.php:325
 #, php-format
 msgid "DROP columns %1s from the table %2s"
-msgstr ""
+msgstr "Șterge coloanele %1s din tabelul %2s"
 
 #: js/messages.php:326
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Create the following table"
-msgstr "Adaugă drepturi la următorul tabel"
+msgstr "Creaţi tabelul următor"
 
 #: js/messages.php:329
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "Al treilea pas de normalizare (3NF)"
 
 #: js/messages.php:330
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "Confirmați dependenţele tranzitive"
 
 #: js/messages.php:331
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "Dependenţe selectate sunt după cum urmează:"
 
 #: js/messages.php:332
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Nu a fost aleasă nici o bază de date."
+msgstr "Nici o dependenţă selectată!"
 
 #: js/messages.php:335 libraries/insert_edit.lib.php:1523
 #: libraries/server_variables.lib.php:157
@@ -1999,40 +1977,34 @@ msgid "Show search criteria"
 msgstr "Afișează criteriile de căutare"
 
 #: js/messages.php:340
-#, fuzzy
 #| msgid "Search"
 msgid "Range search"
-msgstr "Caută"
+msgstr "Intervalul de căutare"
 
 #: js/messages.php:341
-#, fuzzy
 #| msgid "Column names"
 msgid "Column maximum:"
-msgstr "Denumirile coloanelor"
+msgstr "Maximul coloanei:"
 
 #: js/messages.php:342
-#, fuzzy
 #| msgid "Column names"
 msgid "Column minimum:"
-msgstr "Denumirile coloanelor"
+msgstr "Minimul coloanei:"
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Numărul maxim de tabele"
+msgstr "Valorea minimă:"
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Numărul maxim de tabele"
+msgstr "Valorea maximă:"
 
 #: js/messages.php:347
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Ascunde criteriile de căutare"
+msgstr "Ascunde criteriile de căutare și înlocuire"
 
 #: js/messages.php:348
 msgid "Show find and replace criteria"
@@ -2051,11 +2023,10 @@ msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
-"Click pe link-ul de resetare zoom pentru a te întoarce la starea originală."
+"Faceţi click pe butonul de resetare zoom pentru a reveni la starea iniţială."
 
 #: js/messages.php:360
 msgid "Click a data point to view and possibly edit the data row."
@@ -2116,7 +2087,7 @@ msgstr ""
 
 #: js/messages.php:384
 msgid "Shift + Click on function name to apply to all rows."
-msgstr ""
+msgstr "Shift + Click pe numele funcției pentru a aplica la toate rândurile."
 
 #: js/messages.php:386
 msgid "Do you want to copy encryption key?"
@@ -2151,58 +2122,51 @@ msgstr ""
 "salvați. Doriți să continuați?"
 
 #: js/messages.php:398
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Numărul paginii:"
+msgstr "Numele paginii"
 
 #: js/messages.php:399
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Save page"
-msgstr "Selectează tabele"
+msgstr "Salvează pagina"
 
 #: js/messages.php:400 libraries/pmd_general.lib.php:104
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "Pagini libere"
+msgstr "Pagina de deschidere"
 
 #: js/messages.php:401
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Delete page"
-msgstr "Selectează tabele"
+msgstr "Șterge pagina"
 
 #: js/messages.php:402 libraries/pmd_common.php:299
 msgid "*Untitled"
-msgstr ""
+msgstr "*Fără titlu"
 
 #: js/messages.php:403
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Selectează o pagină pentru a fi editată"
+msgstr "Selectează o pagină pentru a continua"
 
 #: js/messages.php:404
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid page name"
-msgstr "Introduceţi un număr valid pentru port"
+msgstr "Introduceţi un nume valid pentru pagină"
 
 #: js/messages.php:405
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Doriţi să salvaţi modificările aduse paginii curente?"
 
 #: js/messages.php:406
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Pagina a fost ștearsă cu succes"
 
 #: js/messages.php:407
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Editați sau exportați schema relațională"
+msgstr "Exportați schema relațională"
 
 #: js/messages.php:410
 #, php-format
@@ -2274,12 +2238,13 @@ msgstr ""
 #: js/messages.php:426
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
+"Vă rugăm să introduceţi un şir hexazecimal valid. Caracterele valide sunt 0-"
+"9, A-F."
 
 #: js/messages.php:429
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
-msgstr "Renunță"
+msgstr "anulează"
 
 #: js/messages.php:430 libraries/server_status.lib.php:261
 msgid "Aborted"
@@ -2287,34 +2252,30 @@ msgstr "Întrerupt"
 
 #: js/messages.php:432
 msgid "Success"
-msgstr ""
+msgstr "Succes"
 
 #: js/messages.php:433
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Importă valorile implicite"
+msgstr "Starea importului"
 
 #: js/messages.php:434 libraries/navigation/Navigation.class.php:102
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "Prag fișiere-jurnal"
+msgstr "Dați drumul la fişiere aici"
 
 #: js/messages.php:435
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
-msgstr "Selectează tabele"
+msgstr "Selectaţi mai întâi baza de date"
 
 #: js/messages.php:440
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
-"Puteți de asemenea edita coloane<br />facând click direct pe conținutul "
-"acestora."
+"De asemenea puteți edita majoritatea valorilor<br/>făcând dublu-click direct "
+"pe acestea."
 
 #: js/messages.php:443
 #, fuzzy
@@ -2378,22 +2339,21 @@ msgstr "Afișează logo în cadrul din stânga"
 
 #: js/messages.php:465 libraries/config/messages.inc.php:421
 #: libraries/navigation/NavigationTree.class.php:1136
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Link with main panel"
-msgstr "Personalizează cadrul principal"
+msgstr "Link-ul cu panoul principal"
 
 #: js/messages.php:466 libraries/navigation/NavigationTree.class.php:1139
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Unlink from main panel"
-msgstr "Personalizează cadrul principal"
+msgstr "Deconectarea de la panoul principal"
 
 #: js/messages.php:469
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Utilizatorul selectat nu a fost găsit în tabelul de drepturi."
+msgstr ""
+"Pagina solicitată nu a fost găsită în istorie, este posibil ca acesta să fi "
+"expirat."
 
 #: js/messages.php:472 setup/lib/index.lib.php:157
 #, php-format
@@ -2456,17 +2416,16 @@ msgstr ""
 
 #: js/messages.php:499 js/messages.php:511
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Anumite erori au fost detectate pe server!"
 
 #: js/messages.php:501
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Vă rugăm să vă uitați la partea de jos a acestei ferestre."
 
 #: js/messages.php:506 libraries/Error_Handler.class.php:355
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Ignoră"
+msgstr "Ignoră tot"
 
 #: js/messages.php:513
 msgid ""
@@ -2474,16 +2433,14 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:520
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Afișează această interogare din nou aici"
+msgstr "Executați această interogare din nou?"
 
 #: js/messages.php:521
-#, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to delete this bookmark?"
-msgstr "Sigur doriți să ştergeţi grupul de utilizatori \"%s\"?"
+msgstr "Sigur doriți să ştergeţi acest marcaj?"
 
 #: js/messages.php:552
 msgctxt "Previous month"
@@ -2740,31 +2697,29 @@ msgstr "Secundă"
 #: libraries/Advisor.class.php:79
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP a aruncat următoarea eroare: %s"
 
 #: libraries/Advisor.class.php:108
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr ""
+msgstr "Imposibil de evaluat precondiţia pentru regula '%s'."
 
 #: libraries/Advisor.class.php:125
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr ""
+msgstr "Imposibil de calculat valoarea pentru regula '%s'."
 
 #: libraries/Advisor.class.php:144
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr ""
+msgstr "Imposibil de rulat testul pentru regula'%s'."
 
 #: libraries/Advisor.class.php:224
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
-"Formatarea string-ului pentru regula \"%s\" a eșuat. PHP a aruncat "
-"următoarea eroare: %s"
+msgstr "Imposibil de formatat șirul pentru regula '%s'."
 
 #: libraries/Advisor.class.php:396
 #, php-format
