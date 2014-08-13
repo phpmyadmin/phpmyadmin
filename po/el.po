@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-12 08:38-0400\n"
-"PO-Revision-Date: 2014-07-27 12:03+0200\n"
+"PO-Revision-Date: 2014-08-13 11:26+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
-">\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
+"\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -607,20 +607,18 @@ msgstr ""
 "κείμενο στο πεδίο «Value»."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Success"
 msgid "Succeeded"
-msgstr "Επιτυχία"
+msgstr "Επιτεύχθηκε"
 
 #: import.php:58 js/messages.php:431
 msgid "Failed"
 msgstr "Απέτυχε"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "πλήρεις εντολές Insert"
+msgstr "Ελλιπείς παράμετροι"
 
 #: import.php:166
 #, php-format
@@ -910,7 +908,7 @@ msgstr ""
 "μπορούν να λάβουν τη ρύθμισή σας."
 
 #: index.php:517
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -919,14 +917,16 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s. "
 msgstr ""
 "Η αποθήκευση ρυθμίσεων του phpMyAdmin δεν έχει ρυθμιστεί πλήρως. Μερικά "
-"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί πατήστε %"
-"sεδώ%s."
+"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί, πατήστε "
+"%sεδώ%s. "
 
 #: index.php:523
 msgid ""
 "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or alternately go to 'Operations' "
 "tab of any database to set it up there."
 msgstr ""
+"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ή εναλλακτικά μεταβείτε στην καρτέλα "
+"«Λειτουργίες» οποιασδήποτε βάσης δεδομένων για να το ορίσετε εκεί."
 
 #: index.php:564
 #, php-format
@@ -1946,28 +1946,24 @@ msgid "Create the following table"
 msgstr "Δημιουργία του ακόλουθου πίνακα"
 
 #: js/messages.php:329
-#, fuzzy
 #| msgid "Third step of normalization (1NF+2NF+3NF)"
 msgid "Third step of normalization (3NF)"
-msgstr "Τρίτο βήμα κανονικοποίησης (1NF+2NF+3NF)"
+msgstr "Τρίτο βήμα κανονικοποίησης (3NF)"
 
 #: js/messages.php:330
-#, fuzzy
 #| msgid "Confirm partial dependencies"
 msgid "Confirm transitive dependencies"
-msgstr "Επιβεβαίωση μερικών εξαρτήσεων"
+msgstr "Επιβεβαίωση μεταβατικών εξαρτήσεων"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Selected partial dependencies are as follows:"
 msgid "Selected dependencies are as follows:"
-msgstr "Οι επιλεγμένες μερικές εξαρτήσεις είναι ως ακολούθως:"
+msgstr "Οι επιλεγμένες εξαρτήσεις είναι ως ακολούθως:"
 
 #: js/messages.php:332
-#, fuzzy
 #| msgid "No partial dependencies selected!"
 msgid "No dependencies selected!"
-msgstr "Δεν έχετε επιλέξει μερικές εξαρτήσεις!"
+msgstr "Δεν έχετε επιλέξει εξαρτήσεις!"
 
 #: js/messages.php:335 libraries/insert_edit.lib.php:1523
 #: libraries/server_variables.lib.php:157
@@ -2319,16 +2315,14 @@ msgstr "Προβολή κρυφών αντικειμένων δέντρου πλ
 
 #: js/messages.php:465 libraries/config/messages.inc.php:421
 #: libraries/navigation/NavigationTree.class.php:1136
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Προσαρμογή βασικού πίνακα"
+msgstr "Σύνδεσμος με τον βασικό πίνακα"
 
 #: js/messages.php:466 libraries/navigation/NavigationTree.class.php:1139
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Προσαρμογή βασικού πίνακα"
+msgstr "Αποσύνδεση από τον βασικό πίνακα"
 
 #: js/messages.php:469
 msgid "The requested page was not found in the history, it may have expired."
@@ -2419,10 +2413,9 @@ msgid "Execute this query again?"
 msgstr "Επανεκτέλεση αυτού του ερώτηματος ξανά;"
 
 #: js/messages.php:521
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Θέλετε πραγματικά να διαγράψετε την αναζήτηση «%s»;"
+msgstr "Θέλετε πραγματικά να διαγράψετε αυτό το σελιδοδείκτη;"
 
 #: js/messages.php:552
 msgctxt "Previous month"
@@ -2808,10 +2801,9 @@ msgid "No bookmarks"
 msgstr "Κανένας σελιδοδείκτης"
 
 #: libraries/Console.class.php:174
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Ανάλυση SQL"
+msgstr "Εξήγηση"
 
 #: libraries/Console.class.php:175 libraries/Util.class.php:1258
 #: libraries/sql.lib.php:484
@@ -2819,10 +2811,9 @@ msgid "Profiling"
 msgstr "Δημιουργία προφίλ"
 
 #: libraries/Console.class.php:176
-#, fuzzy
 #| msgid "Bookmarks"
 msgid "Bookmark"
-msgstr "Σελιδοδείκτες"
+msgstr "Σελιδοδείκτης"
 
 #: libraries/Console.class.php:177
 msgid "Query failed"
@@ -2896,10 +2887,9 @@ msgid "Refresh"
 msgstr "Ανανέωση"
 
 #: libraries/Console.class.php:255
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "Τομή"
+msgstr "Προσθήκη"
 
 #: libraries/Console.class.php:264
 msgid "Add bookmark"
@@ -2922,7 +2912,6 @@ msgid "Set default"
 msgstr "Ορισμός προεπιλογής"
 
 #: libraries/Console.class.php:293
-#, fuzzy
 #| msgid "Always expand queried messages"
 msgid "Always expand query messages"
 msgstr "Πάντα ανάπτυξη των μηνυμάτων ερωτημάτων"
@@ -6288,6 +6277,8 @@ msgstr "Όριο μνήμης"
 #: libraries/config/messages.inc.php:420
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
+"Σύνδεση με τον βασικό πίνακα επισημαίνοντας την τρέχουσα βάση δεδομένων ή "
+"πίνακα."
 
 #: libraries/config/messages.inc.php:422
 msgid "Show logo in navigation panel."
@@ -7441,12 +7432,13 @@ msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
+"Ενεργοποιεί την κατάσταση Μηδενικής Ρύθμισης που σας επιτρέπει να ρυθμίσετε "
+"τους πίνακες αποθήκευσης ρυθμίσεων του phpMyAdmin αυτόματα."
 
 #: libraries/config/messages.inc.php:784
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
-msgstr "Προσαρμογή διακομιστή"
+msgstr "Ενεργοποίηση κατάστασης Μηδενικής Ρύθμισης"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7566,11 +7558,10 @@ msgid "New page name"
 msgstr "Νέο όνομα σελίδα"
 
 #: libraries/designer.lib.php:156
-#, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
-"Αδύνατη η φόρτωση προσθέτων εισαγωγής, για αυτό ελέξτε την εγκατάστασή σας!"
+"Αδύνατη η φόρτωση προσθέτων σχήματος, για αυτό ελέξτε την εγκατάστασή σας!"
 
 #: libraries/designer.lib.php:164
 msgid "Select Export Relational Type"
@@ -8787,10 +8778,9 @@ msgid "Filter by name or regex"
 msgstr "Φιλτράρισμα κατά όνομα ή κανονική έκφραση"
 
 #: libraries/navigation/NavigationTree.class.php:1130
-#, fuzzy
 #| msgid "Collapse"
 msgid "Collapse all"
-msgstr "Σύμπτηξη"
+msgstr "Σύμπτηξη όλων"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9083,7 +9073,6 @@ msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr "+ Προβολή των πιθανών μερικών εξαρτήσεων με βάση δεδομένα στον πίνακα"
 
 #: libraries/normalization.lib.php:331
-#, fuzzy
 #| msgid ""
 #| "For each of the column below, please select the <b>minimal set</b> of "
 #| "columns among given set whose values combined together are sufficient to "
@@ -9100,7 +9089,7 @@ msgstr ""
 #: libraries/normalization.lib.php:341 libraries/normalization.lib.php:726
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "Το «%1$s» εξαρτάται από:"
 
 #: libraries/normalization.lib.php:352
 #, php-format
@@ -9132,7 +9121,7 @@ msgid "Error in processing!"
 msgstr "Σφάλμα στην προώθηση!"
 
 #: libraries/normalization.lib.php:497
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above partial dependencies, in order to put the original table '%1"
 #| "$s' into Second normal form we need to create the following tables:"
@@ -9140,15 +9129,14 @@ msgid ""
 "As per above dependencies, in order to put the original table '%1$s' into "
 "Third normal form we need to create the following tables:"
 msgstr ""
-"Αναφορικά με τις παραπάνω μερικές εξαρτήσεις, με σκοπό την τοποθέτηση του "
-"αρχικού πίνακα «%1$s» στην Δεύτερη κανονική μορφή χρειαζόμαστε να "
-"δημιουργήσουμε τους ακόλουθους πίνακες:"
+"Αναφορικά με τις παραπάνω εξαρτήσεις, με σκοπό την τοποθέτηση του αρχικού "
+"πίνακα «%1$s» στην Τρίτη κανονική μορφή χρειαζόμαστε να δημιουργήσουμε τους "
+"ακόλουθους πίνακες:"
 
 #: libraries/normalization.lib.php:544
-#, fuzzy
 #| msgid "The first step of normalization is complete for table '%s'."
 msgid "The third step of normalization is complete."
-msgstr "Το πρώτο βήμα κανονικοποίησης ολοκληρώθηκε για τον πίνακα «%s»."
+msgstr "Το τρίτο βήμα κανονικοποίησης ολοκληρώθηκε."
 
 #: libraries/normalization.lib.php:638
 #, php-format
@@ -9156,19 +9144,16 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Η επιλεγμένη επαναλαμβανόμενη ομάδα έχει μετακινηθεί στον πίνακα «%s»"
 
 #: libraries/normalization.lib.php:685
-#, fuzzy
 #| msgid "Step 1."
 msgid "Step 3."
-msgstr "Βήμα 1."
+msgstr "Βήμα 3."
 
 #: libraries/normalization.lib.php:685
-#, fuzzy
 #| msgid "Find partial dependencies"
 msgid "Find transitive dependencies"
-msgstr "Εύρεση μερικών εξαρτήσεων"
+msgstr "Εύρεση μεταβατικών εξαρτήσεων"
 
 #: libraries/normalization.lib.php:692
-#, fuzzy
 #| msgid ""
 #| "For each of the column below, please select the <b>minimal set</b> of "
 #| "columns among given set whose values combined together are sufficient to "
@@ -9181,10 +9166,11 @@ msgid ""
 msgstr ""
 "Για κάθε μια από τις στήλες παρακάτω, επιλέξτε την <b>ελάχιστη ομάδα</b> "
 "στηλών μεταξύ των δοθέντων ομάδων των οποίων οι συνδυασμένες τιμές είναι "
-"επαρκείς για να ορίσουν την τιμή της στήλης."
+"επαρκείς για να ορίσουν την τιμή της στήλης.<br />Σημείωση: Μια στήλη μπορεί "
+"να μην έχει μεταβατική εξάρτηση, σε αυτή την περίπτωση δεν έχετε να "
+"επιλέξετε κάποια."
 
 #: libraries/normalization.lib.php:739
-#, fuzzy
 #| msgid ""
 #| "No partial dependencies possible as the primary key ( %1$s ) has just one "
 #| "column."
@@ -9192,14 +9178,13 @@ msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
-"Καμιά πιθανή μερική εξάρτηση καθώς το πρωτεύον κλειδί ( %1$s ) έχει μόνο μια "
-"στήλη."
+"Καμιά πιθανή μεταβατική εξάρτηση καθώς ο πίνακας δεν έχει καμιά στήλη με μη "
+"πρωτεύον κλειδί"
 
 #: libraries/normalization.lib.php:743
-#, fuzzy
 #| msgid "Table is already in second normal form."
 msgid "Table is already in Third normal form!"
-msgstr "Ο πίνακας είναι ήδη σε δεύτερη κανονική μορφή."
+msgstr "Ο πίνακας είναι ήδη σε Τρίτη κανονική μορφή!"
 
 #: libraries/normalization.lib.php:766
 msgid "Improve table structure (Normalization):"
@@ -10572,11 +10557,13 @@ msgid "no description"
 msgstr "χωρίς περιγραφή"
 
 #: libraries/relation.lib.php:1870
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Λείπουν πίνακες αποθήκευσης ρυθμίσεων του phpMyAdmin"
+msgstr ""
+"%sΔημιουργία%s του τρέχοντος χώρου αποθήκευσης ρυθμίσεων του phpMyAdmin στην "
+"τρέχουσα βάση δεδομένων."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:316
 #: libraries/server_databases.lib.php:392
@@ -13831,41 +13818,39 @@ msgstr ""
 "συσχέτιση FOREIGN KEY."
 
 #: libraries/tbl_relation.lib.php:371
-#, fuzzy
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraints"
-msgstr "Όριο μη διακριτού κλειδιού"
+msgstr "Περιορισμοί ξένου κλειδιού"
 
 #: libraries/tbl_relation.lib.php:374
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint properties"
-msgstr "Περιορισμοί για πίνακα"
+msgstr "Ιδιότητες περιορισμών"
 
 #: libraries/tbl_relation.lib.php:379
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
+"Μόνο στήλες με ευρετήριο θα εμφανίζονται. Μπορείτε να ορίσετε ευρετήριο "
+"παρακάτω."
 
 #: libraries/tbl_relation.lib.php:384
 msgid "Foreign key constraint"
 msgstr "Όριο μη διακριτού κλειδιού"
 
 #: libraries/tbl_relation.lib.php:405
-#, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
-msgstr "Προσθήκη περιορισμών"
+msgstr "+Προσθήκη περιορισμού"
 
 #: libraries/tbl_relation.lib.php:435
 msgid "Constraint name"
 msgstr "Όνομα μεταβλητής"
 
 #: libraries/tbl_relation.lib.php:500
-#, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
-msgstr "Προσθήκη στήλης"
+msgstr "+ Προσθήκη στήλης"
 
 #: libraries/tbl_relation.lib.php:646
 msgid "Choose column to display:"
