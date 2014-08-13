@@ -464,7 +464,7 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
         ? $one_key['constraint'] : '';
     $html_output .= __('Constraint name');
     $html_output .= '<input type="text" name="constraint_name[' . $i . ']"'
-        . ' value="' . $constraint_name . '"/>';
+        . ' value="' . htmlspecialchars($constraint_name) . '"/>';
     $html_output .= '</span>' . "\n";
 
     $html_output .= '<span class="formelement clearfloat">';

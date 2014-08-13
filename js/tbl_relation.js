@@ -202,11 +202,13 @@ AJAX.registerOnload('tbl_relation.js', function () {
         // Object containing reference to the current field's row
         var $curr_row = $anchor.parents('tr');
 
-        var question = escapeHtml(
+        var drop_query = escapeHtml(
             $curr_row.children('td')
                 .children('.drop_foreign_key_msg')
                 .val()
         );
+
+        var question = $.sprintf(PMA_messages.strDoYouReally, drop_query);
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingForeignKey, false);
