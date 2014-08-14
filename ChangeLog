@@ -31,6 +31,7 @@ phpMyAdmin - ChangeLog
 + rfe #345  Normalize a table 
 + rfe #1123 Zeroconf PMA tables support
 + rfe #1492 Remove the distinct query window / Add SQL log+history panel
++ rfe #919  Multiple-column foreign key relation
 
 4.2.8.0 (not yet released)
 
