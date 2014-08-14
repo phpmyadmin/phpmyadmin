@@ -112,7 +112,7 @@ $db_qbe = new PMA_DBQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
  * Displays the Query by example form
  */
 if ($cfgRelation['pdfwork']) {
-    $url = 'pmd_general.php' . PMA_URL_getCommon(
+    $url = 'db_designer.php' . PMA_URL_getCommon(
         array_merge(
             $url_params,
             array('query' => 1)

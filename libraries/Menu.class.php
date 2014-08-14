@@ -480,7 +480,7 @@ class PMA_Menu
         if (! $db_is_system_schema) {
             $tabs['designer']['text'] = __('Designer');
             $tabs['designer']['icon'] = 'b_relations.png';
-            $tabs['designer']['link'] = 'pmd_general.php';
+            $tabs['designer']['link'] = 'db_designer.php';
             $tabs['designer']['id'] = 'designer_tab';
         }
 

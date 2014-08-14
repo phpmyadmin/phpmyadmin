@@ -6,12 +6,9 @@
  * @package PhpMyAdmin-Designer
  */
 
-/**
- *
- */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
-require_once 'libraries/pmd_general.lib.php';
+require_once 'libraries/db_designer.lib.php';
 
 $script_display_field = PMA_getTablesInfo();
 $tab_column       = PMA_getColumnsInfo();
@@ -24,11 +21,10 @@ $response = PMA_Response::getInstance();
 
 if (isset($_REQUEST['dialog'])) {
 
-    include_once 'libraries/designer.lib.php';
     if ($_REQUEST['dialog'] == 'edit') {
-        $html = PMA_getHtmlForEditOrDeletePages($GLOBALS['db'], 'edit');
+        $html = PMA_getHtmlForEditOrDeletePages($GLOBALS['db'], 'editPage');
     } else if ($_REQUEST['dialog'] == 'delete') {
-        $html = PMA_getHtmlForEditOrDeletePages($GLOBALS['db'], 'delete');
+        $html = PMA_getHtmlForEditOrDeletePages($GLOBALS['db'], 'deletePage');
     } else if ($_REQUEST['dialog'] == 'save_as') {
         $html = PMA_getHtmlForPageSaveAs($GLOBALS['db']);
     } else if ($_REQUEST['dialog'] == 'export') {
@@ -44,14 +40,14 @@ if (isset($_REQUEST['dialog'])) {
 
 if (isset($_REQUEST['operation'])) {
 
-    if ($_REQUEST['operation'] == 'delete') {
+    if ($_REQUEST['operation'] == 'deletePage') {
         $result = PMA_deletePage($_REQUEST['selected_page']);
         if ($result) {
             $response->isSuccess(true);
         } else {
             $response->isSuccess(false);
         }
-    } elseif ($_REQUEST['operation'] == 'save') {
+    } elseif ($_REQUEST['operation'] == 'savePage') {
         if ($_REQUEST['save_page'] == 'same') {
             $page = $_REQUEST['selected_page'];
         } elseif ($_REQUEST['save_page'] == 'new') {
@@ -63,6 +59,31 @@ if (isset($_REQUEST['operation'])) {
         } else {
             $response->isSuccess(false);
         }
+    } elseif ($_REQUEST['operation'] == 'setDisplayField') {
+        PMA_saveDisplayField(
+            $_REQUEST['db'], $_REQUEST['table'], $_REQUEST['field']
+        );
+        $response->isSuccess(true);
+    } elseif ($_REQUEST['operation'] == 'addNewRelation') {
+        list($success, $message) = PMA_addNewRelation(
+            $_REQUEST['db'],
+            $_REQUEST['T1'],
+            $_REQUEST['F1'],
+            $_REQUEST['T2'],
+            $_REQUEST['F2'],
+            $_REQUEST['on_delete'],
+            $_REQUEST['on_update']
+        );
+        $response->isSuccess($success);
+        $response->addJSON($success ? 'message' : 'error', $message);
+    } elseif ($_REQUEST['operation'] == 'removeRelation') {
+        PMA_removeRelation(
+            $_REQUEST['T1'],
+            $_REQUEST['F1'],
+            $_REQUEST['T2'],
+            $_REQUEST['F2']
+        );
+        $response->isSuccess(true);
     }
     return;
 } else {
@@ -86,12 +107,12 @@ $response = PMA_Response::getInstance();
 $response->getFooter()->setMinimal();
 $header   = $response->getHeader();
 $header->setBodyId('pmd_body');
+
 $scripts  = $header->getScripts();
 $scripts->addFile('jquery/jquery.fullscreen.js');
 $scripts->addFile('pmd/designer_db.js');
 $scripts->addFile('pmd/designer_objects.js');
 $scripts->addFile('pmd/designer_page.js');
-$scripts->addFile('pmd/ajax.js');
 $scripts->addFile('pmd/history.js');
 $scripts->addFile('pmd/move.js');
 $scripts->addFile('pmd/iecanvas.js', true);
