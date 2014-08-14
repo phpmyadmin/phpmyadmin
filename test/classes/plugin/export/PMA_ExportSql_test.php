@@ -1178,7 +1178,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->at(0))
             ->method('query')
             ->with(
-                'SHOW TABLE STATUS FROM `db` LIKE \'table\'', null,
+                'SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'', null,
                 PMA_DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue('res'));
@@ -1358,7 +1358,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->at(0))
             ->method('query')
             ->with(
-                'SHOW TABLE STATUS FROM `db` LIKE \'table\'', null,
+                'SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'', null,
                 PMA_DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue('res'));
@@ -1483,7 +1483,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->at(0))
             ->method('query')
             ->with(
-                'SHOW TABLE STATUS FROM `db` LIKE \'table\'', null,
+                'SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'', null,
                 PMA_DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue('res'));

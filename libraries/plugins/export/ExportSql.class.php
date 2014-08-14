@@ -1043,7 +1043,7 @@ class ExportSql extends ExportPlugin
         // with $GLOBALS['dbi']->numRows() in mysqli
         $result = $GLOBALS['dbi']->query(
             'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db)
-            . ' LIKE \'' . PMA_Util::sqlAddSlashes($table, true) . '\'',
+            . ' WHERE Name = \'' . PMA_Util::sqlAddSlashes($table) . '\'',
             null,
             PMA_DatabaseInterface::QUERY_STORE
         );
