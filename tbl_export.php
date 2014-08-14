@@ -41,7 +41,8 @@ if (! empty($sql_query)) {
         // Regular expressions which can appear in sql query,
         // before the sql segment which remains as it is.
         $regex_array = array(
-            '/\bwhere\b/i', '/\bgroup by\b/i', '/\bhaving\b/i', '/\border by\b/i'
+            '/\bwhere\b/i', '/\bgroup by\b/i', '/\bhaving\b/i',
+            '/\border by\b/i', '/\bas\b/i'
         );
 
         $first_occurring_regex = PMA_Util::getFirstOccurringRegularExpression(
