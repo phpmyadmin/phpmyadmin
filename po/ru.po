@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-08-10 08:16+0200\n"
+"PO-Revision-Date: 2014-08-14 10:52+0200\n"
 "Last-Translator: Alex Smirnov <alex-smirnov@mail.ru>\n"
 "Language-Team: Russian <https://l10n.cihar.com/projects/phpmyadmin/4-2/ru/>\n"
 "Language: ru\n"
@@ -3453,7 +3453,7 @@ msgstr "Некорректное имя таблицы:"
 #, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "Ошибка при переименовании таблицы %1$s в %2$s!"
+msgstr "Не удалось переименовать таблицу %1$s в %2$s!"
 
 #: libraries/Table.class.php:1400
 #, php-format
@@ -6912,6 +6912,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr ""
+"Определяет, должны ли введенные поля изначально отображаться в режиме "
+"редактирования/вставки."
 
 #: libraries/config/messages.inc.php:733
 msgid "Show field types"
@@ -7144,6 +7146,10 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"Адрес прокси, которые будут использоваться при извлечении информации о "
+"последней версии phpMyAdmin или при отправке отчётов об ошибках. Это "
+"необходимо, если сервер, на котором установлен phpMyAdmin, не имеет прямого "
+"доступа к Интернету. Формат: «hostname:portnumber»."
 
 #: libraries/config/messages.inc.php:779
 msgid "Proxy url"
@@ -10951,7 +10957,7 @@ msgstr "Глобальные привилегии"
 #: libraries/server_privileges.lib.php:998
 #| msgid "global"
 msgid "Global"
-msgstr ""
+msgstr "Глобальный"
 
 #: libraries/server_privileges.lib.php:1000
 #: libraries/server_privileges.lib.php:2772
