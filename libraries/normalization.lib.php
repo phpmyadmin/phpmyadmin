@@ -89,7 +89,7 @@ function PMA_getHtmlForCreateNewColumn(
             8, '', null, array(), null, null, null,
             $comments_map, null, true,
             array(), $cfgRelation,
-            $available_mime, $mime_map
+            isset($available_mime)?$available_mime:array(), $mime_map
         );
     }
     return PMA_getHtmlForTableFieldDefinitions($header_cells, $content_cells);
@@ -471,7 +471,7 @@ function PMA_createNewTablesFor2NF($partialDependencies, $tablesName, $table, $d
  * build the html for showing the new tables to have in order
  * to put given tables in 3NF
  *
- * @param array  $dependencies containing all the dependencies
+ * @param object $dependencies containing all the dependencies
  * @param array  $tables       tables formed after 2NF and need to convert to 3NF
  * @param string $db           current database
  *

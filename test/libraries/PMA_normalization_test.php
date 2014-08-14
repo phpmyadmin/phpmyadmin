@@ -337,7 +337,8 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
     {
         $tables= array("PMA_table"=>array('col1'));
         $db = 'PMA_db';
-        $dependencies = array('col1'=>array('col2'));
+        $dependencies = new stdClass();
+        $dependencies->col1 = array('col2');
         $result = PMA_getHtmlForNewTables3NF($dependencies, $tables, $db);
         $this->assertEquals(
             array(
@@ -346,8 +347,6 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
                 ), $result
         );
         $tables= array("PMA_table"=>array('col1', 'PMA_table'));
-        $dependencies = new stdClass();
-        $dependencies->col1 = array('col2');
         $dependencies->PMA_table = array('col4', 'col5');
         $result1 = PMA_getHtmlForNewTables3NF($dependencies, $tables, $db);
         $this->assertInternalType('array', $result1);
