@@ -1,13 +1,13 @@
 <?php
 /**
- * Tests for libraries/designer.lib.php
+ * Tests for libraries/db_designer.lib.php
  *
  * @package PhpMyAdmin-test
  */
 /*
  * Include to test.
  */
-require_once 'libraries/designer.lib.php';
+require_once 'libraries/db_designer.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Util.class.php';
@@ -16,7 +16,7 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/relation.lib.php';
 
 /**
- * Tests for libraries/designer.lib.php
+ * Tests for libraries/db_designer.lib.php
  *
  * @package PhpMyAdmin-test
  */
@@ -151,7 +151,7 @@ class PMA_DesginerTest extends PHPUnit_Framework_TestCase
 
         $result = PMA_getHtmlForPageSaveAs($db);
         $this->assertContains(
-            '<input type="hidden" name="operation" value="save" />',
+            '<input type="hidden" name="operation" value="savePage" />',
             $result
         );
         $this->assertContains(

@@ -566,14 +566,24 @@ function Get_url_pos()
 
 function Save2(callback)
 {
-    _change = 0;
     if (pmd_tables_enabled) {
-        var poststr = 'IS_AJAX=1&server=' + server + '&db=' + db + '&token=' + token + '&die_save_pos=1&selected_page=' + selected_page;
+        var poststr = '&operation=savePage&save_page=same&ajax_request=true';
+        poststr += '&server=' + server + '&db=' + db + '&token=' + token + '&selected_page=' + selected_page;
         poststr += Get_url_pos();
-        makeRequest('pmd_save_pos.php', poststr);
-        if (typeof callback !== 'undefined') {
-            callback();
-        }
+
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+        $.post('db_designer.php', poststr, function (data) {
+            if (data.success === false) {
+                PMA_ajaxShowMessage(data.error, false);
+            } else {
+                PMA_ajaxRemoveMessage($msgbox);
+                PMA_ajaxShowMessage(PMA_messages.strModificationSaved);
+                _change = 0;
+                if (typeof callback !== 'undefined') {
+                    callback();
+                }
+            }
+        });
     } else {
         var name = $("#page_name").html().trim();
         Save_to_selected_page(db, selected_page, name, Get_url_pos(), function (page){
@@ -634,10 +644,10 @@ function Save3(callback)
             $(this).dialog('close');
         };
 
-        var $form = $('<form action="pmd_general.php" method="post" name="save_page" id="save_page" class="ajax"></form>')
+        var $form = $('<form action="db_designer.php" method="post" name="save_page" id="save_page" class="ajax"></form>')
             .append('<input type="hidden" name="db" value="' + db + '" />')
             .append('<input type="hidden" name="token" value="' + token + '" />')
-            .append('<input type="hidden" name="operation" value="save" />')
+            .append('<input type="hidden" name="operation" value="savePage" />')
             .append('<input type="hidden" name="save_page" value="new" />')
             .append('<label for="selected_value">' + PMA_messages.strPageName
                 + '</label>:<input type="text" name="selected_value" />');
@@ -677,7 +687,7 @@ function Edit_pages()
 
         var $msgbox = PMA_ajaxShowMessage();
         var params = 'ajax_request=true&dialog=edit&token=' + token + '&db=' + db;
-        $.get("pmd_general.php", params, function (data) {
+        $.get("db_designer.php", params, function (data) {
             if (data.success === false) {
                 PMA_ajaxShowMessage(data.error, false);
             } else {
@@ -703,6 +713,7 @@ function Edit_pages()
         }); // end $.get()
     });
 }
+
 // -----------------------------  DELETE PAGES ---------------------------------------
 function Delete_pages()
 {
@@ -755,7 +766,7 @@ function Delete_pages()
 
     var $msgbox = PMA_ajaxShowMessage();
     var params = 'ajax_request=true&dialog=delete&token=' + token + '&db=' + db;
-    $.get("pmd_general.php", params, function (data) {
+    $.get("db_designer.php", params, function (data) {
         if (data.success === false) {
             PMA_ajaxShowMessage(data.error, false);
         } else {
@@ -853,7 +864,7 @@ function Save_as()
 
     var $msgbox = PMA_ajaxShowMessage();
     var params = 'ajax_request=true&dialog=save_as&token=' + token + '&db=' + db;
-    $.get("pmd_general.php", params, function (data) {
+    $.get("db_designer.php", params, function (data) {
         if (data.success === false) {
             PMA_ajaxShowMessage(data.error, false);
         } else {
@@ -931,7 +942,7 @@ function Export_pages()
     };
     var $msgbox = PMA_ajaxShowMessage();
     var params = 'ajax_request=true&dialog=export&token=' + token + '&db=' + db + '&selected_page=' + selected_page;
-    $.get("pmd_general.php", params, function (data) {
+    $.get("db_designer.php", params, function (data) {
         if (data.success === false) {
             PMA_ajaxShowMessage(data.error, false);
         } else {
@@ -980,7 +991,7 @@ function Load_page(page) {
         if (page !== null) {
             param_page = '&page=' + page;
         }
-        $('<a href="pmd_general.php?db=' + db + '&token=' + token + param_page + '"></a>')
+        $('<a href="db_designer.php?db=' + db + '&token=' + token + param_page + '"></a>')
             .appendTo($('#page_content'))
             .click();
     } else {
@@ -1091,19 +1102,37 @@ function Click_field(T, f, PK) // table field
         document.getElementById('pmd_hint').innerHTML = "";
         document.getElementById('pmd_hint').style.display = 'none';
         document.getElementById('display_field_button').className = 'M_butt';
-        makeRequest('pmd_display_field.php', 'T=' + T + '&F=' + f + '&server=' + server + '&db=' + db + '&token=' + token);
+
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+        $.post('db_designer.php',
+            {operation: 'setDisplayField', ajax_request: true, server: server, token: token, db: db, table: T, field: f},
+            function (data) {
+            if (data.success === false) {
+                PMA_ajaxShowMessage(data.error, false);
+            } else {
+                PMA_ajaxRemoveMessage($msgbox);
+                PMA_ajaxShowMessage(PMA_messages.strModificationSaved);
+            }
+        });
     }
 }
 
 function New_relation()
 {
     document.getElementById('layer_new_relation').style.display = 'none';
-    link_relation += '&server=' + server + '&db=' + db + '&token=' + token + '&die_save_pos=0';
+    link_relation += '&server=' + server + '&db=' + db + '&token=' + token;
     link_relation += '&on_delete=' + document.getElementById('on_delete').value + '&on_update=' + document.getElementById('on_update').value;
-    link_relation += Get_url_pos();
+    link_relation += '&operation=addNewRelation&ajax_request=true';
 
-    //alert(link_relation);
-    makeRequest('pmd_relation_new.php', link_relation);
+    var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+    $.post('db_designer.php', link_relation, function (data) {
+        if (data.success === false) {
+            PMA_ajaxShowMessage(data.error, false);
+        } else {
+            PMA_ajaxRemoveMessage($msgbox);
+            Load_page(selected_page);
+        }
+    }); // end $.post()
 }
 
 //-------------------------- create tables -------------------------------------
@@ -1305,9 +1334,18 @@ function Canvas_click(id)
 function Upd_relation()
 {
     document.getElementById('layer_upd_relation').style.display = 'none';
-    link_relation += '&server=' + server + '&db=' + db + '&token=' + token + '&die_save_pos=0';
-    link_relation += Get_url_pos();
-    makeRequest('pmd_relation_upd.php', link_relation);
+    link_relation += '&server=' + server + '&db=' + db + '&token=' + token;
+    link_relation += '&operation=removeRelation&ajax_request=true';
+
+    var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+    $.post('db_designer.php', link_relation, function (data) {
+        if (data.success === false) {
+            PMA_ajaxShowMessage(data.error, false);
+        } else {
+            PMA_ajaxRemoveMessage($msgbox);
+            Load_page(selected_page);
+        }
+    }); // end $.post()
 }
 
 function VisibleTab(id, t_n)

@@ -767,7 +767,7 @@ function PMA_sendHtmlForTableDropdownList()
 /**
  * Function to handle update for display field
  *
- * @param string $disp          field name
+ * @param string $disp          current display field
  * @param string $display_field display field
  * @param string $db            current database
  * @param string $table         current table
@@ -789,7 +789,7 @@ function PMA_handleUpdateForDisplayField($disp, $display_field, $db, $table,
 /**
  * Function to get display query for handlingdisplay update
  *
- * @param string $disp          field name
+ * @param string $disp          current display field
  * @param string $display_field display field
  * @param string $db            current database
  * @param string $table         current table
