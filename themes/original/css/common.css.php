@@ -295,35 +295,35 @@ table tr.even {
 }
 
 <?php if ($GLOBALS['cfg']['BrowseMarkerEnable']) { ?>
-/* marked table rows */
-td.marked,
-table tr.marked td,
-table tr.marked th,
-table tr.marked {
-    background:   <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
-    color:   <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
-}
-<?php
+    /* marked table rows */
+    td.marked,
+    table tr.marked td,
+    table tr.marked th,
+    table tr.marked {
+        background:   <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+        color:   <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+    }
+    <?php
 }
 ?>
 
 <?php if ($GLOBALS['cfg']['BrowsePointerEnable']) { ?>
-/* hovered items */
-.odd:hover,
-.even:hover,
-.hover {
-    background: <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
-    color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
-}
+    /* hovered items */
+    .odd:hover,
+    .even:hover,
+    .hover {
+        background: <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
+        color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
+    }
 
-/* hovered table rows */
-table tr.odd:hover th,
-table tr.even:hover th,
-table tr.hover th {
-    background:   <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
-    color:   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
-}
-<?php
+    /* hovered table rows */
+    table tr.odd:hover th,
+    table tr.even:hover th,
+    table tr.hover th {
+        background:   <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
+        color:   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
+    }
+    <?php
 }
 ?>
 
@@ -358,10 +358,10 @@ table [class=value] {
 
 
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
-.value {
-    font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
-}
-<?php
+    .value {
+        font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
+    }
+    <?php
 }
 ?>
 .attention {
@@ -443,15 +443,16 @@ div.error {
     margin:             0.3em 0 0 0;
     border:             2px solid;
     background-repeat:  no-repeat;
-        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
-    background-position: 10px 50%;
-    padding:            0.1em 0.1em 0.1em 36px;
+    <?php
+    if ($GLOBALS['text_dir'] === 'ltr') { ?>
+        background-position: 10px 50%;
+        padding:            0.1em 0.1em 0.1em 36px;
+    <?php
+    } else { ?>
+        background-position: 99% 50%;
+        padding:            0.1em 46px 0.1em 0.1em;
         <?php
-} else { ?>
-    background-position: 99% 50%;
-    padding:            0.1em 46px 0.1em 0.1em;
-        <?php
-}
+    }
 ?>
 }
 
@@ -504,15 +505,16 @@ fieldset.confirmation legend {
     font-weight:        bold;
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_really.png');?>);
     background-repeat:  no-repeat;
-        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
-    background-position: 5px 50%;
-    padding:            0.2em 0.2em 0.2em 25px;
+    <?php
+    if ($GLOBALS['text_dir'] === 'ltr') { ?>
+        background-position: 5px 50%;
+        padding:            0.2em 0.2em 0.2em 25px;
         <?php
-} else { ?>
-    background-position: 97% 50%;
-    padding:            0.2em 25px 0.2em 0.2em;
+    } else { ?>
+        background-position: 97% 50%;
+        padding:            0.2em 25px 0.2em 0.2em;
         <?php
-}
+    }
 ?>
 }
 /* end messageboxes */
