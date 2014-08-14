@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-12 08:38-0400\n"
-"PO-Revision-Date: 2014-08-10 18:15+0200\n"
+"PO-Revision-Date: 2014-08-14 11:02+0200\n"
 "Last-Translator: Alex Smirnov <alex-smirnov@mail.ru>\n"
-"Language-Team: Russian <https://l10n.cihar.com/projects/phpmyadmin/master/ru/"
-">\n"
+"Language-Team: Russian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ru/>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -900,7 +900,7 @@ msgstr ""
 "конфигурационного файла."
 
 #: index.php:517
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -908,14 +908,17 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s. "
 msgstr ""
-"Дополнительные возможности phpMyAdmin не настроены в полной мере, некоторые "
-"функции были отключены. Для определения причины нажмите %sздесь%s."
+"Хранилище конфигурации phpMyAdmin не полностью настроено, некоторые "
+"расширенные функции были отключены. Для определения причины нажмите %shere%"
+"s. "
 
 #: index.php:523
 msgid ""
 "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or alternately go to 'Operations' "
 "tab of any database to set it up there."
 msgstr ""
+"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Или перейдите на вкладку 'Операции' "
+"любой базы данных, чтобы настроить там."
 
 #: index.php:564
 #, php-format
@@ -1300,11 +1303,11 @@ msgstr "Приостановить монитор"
 
 #: js/messages.php:144 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Начать автообновление"
 
 #: js/messages.php:145
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Остановить автообновление"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
@@ -1804,7 +1807,7 @@ msgstr "Обзор внешних значений"
 
 #: js/messages.php:298 libraries/normalization.lib.php:845
 msgid "Pick"
-msgstr ""
+msgstr "Выбрать"
 
 #: js/messages.php:299
 msgid "Column selector"
@@ -1883,7 +1886,7 @@ msgstr "Подтвердите частичные зависимости"
 
 #: js/messages.php:316
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Выбранные частичные зависимости показаны ниже:"
 
 #: js/messages.php:317
 msgid ""
@@ -1909,6 +1912,8 @@ msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Подождите, пожалуйста! Это может занять несколько секунд, в зависимости от "
+"объёма данных и количества столбцов таблицы."
 
 #: js/messages.php:323
 msgid "Step"
@@ -1937,7 +1942,7 @@ msgstr "Подтвердите транзитивные зависимости"
 
 #: js/messages.php:331
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "Выбранные зависимости показаны ниже:"
 
 #: js/messages.php:332
 msgid "No dependencies selected!"
@@ -2382,6 +2387,8 @@ msgstr "Игнорировать всё"
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
+"В соответствии с вашими настройками они заносятся в данное время, подождите, "
+"пожалуйста."
 
 #: js/messages.php:520
 msgid "Execute this query again?"
@@ -2793,10 +2800,9 @@ msgid "Query failed"
 msgstr "Сбой выполнения запроса"
 
 #: libraries/Console.class.php:179
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Время выполнения запроса"
+msgstr "Запрошенное время"
 
 #: libraries/Console.class.php:185
 msgid "SQL Query Console"
@@ -3597,7 +3603,7 @@ msgstr "Дизайнер"
 
 #: libraries/Menu.class.php:488 libraries/Util.class.php:4096
 msgid "Central columns"
-msgstr ""
+msgstr "Центральные столбцы"
 
 #: libraries/Menu.class.php:522 libraries/Util.class.php:4068
 #: libraries/config/messages.inc.php:229 libraries/server_common.lib.php:48
@@ -3913,7 +3919,7 @@ msgstr "Некорректное имя таблицы:"
 #: libraries/Table.class.php:1360
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "Ошибка при переименовании таблицы %1$s в %2$s!"
+msgstr "Не удалось переименовать таблицу %1$s в %2$s!"
 
 #: libraries/Table.class.php:1379
 #, php-format
@@ -4697,7 +4703,7 @@ msgstr ""
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
+msgstr "на обновление CURRENT_TIMESTAMP"
 
 #: libraries/central_columns.lib.php:886
 msgid "Add new column"
@@ -7081,6 +7087,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr ""
+"Определяет, должны ли введенные поля изначально отображаться в режиме "
+"редактирования/вставки."
 
 #: libraries/config/messages.inc.php:719
 msgid "Show field types"
@@ -7279,6 +7287,10 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"Адрес прокси, которые будут использоваться при извлечении информации о "
+"последней версии phpMyAdmin или при отправке отчётов об ошибках. Это "
+"необходимо, если сервер, на котором установлен phpMyAdmin, не имеет прямого "
+"доступа к Интернету. Формат: «hostname:portnumber»."
 
 #: libraries/config/messages.inc.php:765
 msgid "Proxy url"
@@ -7348,12 +7360,13 @@ msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
+"Включить режим нулевой конфигурации, который позволяет настроить хранилище "
+"конфигурации phpMyAdmin автоматически."
 
 #: libraries/config/messages.inc.php:784
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
-msgstr "Параметры сервера"
+msgstr "Включить режим нулевой конфигурации"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7472,12 +7485,11 @@ msgid "New page name"
 msgstr "Название новой страницы"
 
 #: libraries/designer.lib.php:156
-#, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
-"Отсутствуют модули импорта. Проверьте содержимое установленной копии "
-"phpMyAdmin!"
+"Не удалось загрузить плагины схемы, проверьте содержимое установленной копии "
+"phpMyAdmin, пожалуйста!"
 
 #: libraries/designer.lib.php:164
 msgid "Select Export Relational Type"
@@ -8252,7 +8264,7 @@ msgstr "MySQL вернула пустой результат (т.е. ноль с
 
 #: libraries/import.lib.php:268 libraries/sql.lib.php:1699
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[Произошел откат.]"
 
 #: libraries/import.lib.php:1231
 msgid ""
@@ -8307,6 +8319,8 @@ msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"Только для INSERT, UPDATE, DELETE и REPLACE SQL запросов, содержащих "
+"транзакционные таблицы движка, может быть произведен откат."
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -8799,7 +8813,7 @@ msgstr "Новое"
 
 #: libraries/normalization.lib.php:110
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "Сделать все столбцы atomic"
 
 #: libraries/normalization.lib.php:112 libraries/normalization.lib.php:769
 msgid "First step of normalization (1NF)"
@@ -8829,6 +8843,8 @@ msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
+"Выберите столбец, который может быть разбит на более чем один. (или выберите "
+"'нет такого столбца' для перехода к следующему шагу)"
 
 #: libraries/normalization.lib.php:134 normalization.php:19
 msgid "Select one…"
@@ -8844,7 +8860,7 @@ msgstr "разделить на "
 
 #: libraries/normalization.lib.php:163
 msgid "Have a primary key"
-msgstr ""
+msgstr "Есть первичный ключ"
 
 #: libraries/normalization.lib.php:169
 msgid "Primary key already exists."
@@ -8861,7 +8877,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:181
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "Добавить первичный ключ на существующий(ие) столбец(ы)"
 
 #: libraries/normalization.lib.php:186
 msgid ""
@@ -8882,6 +8898,10 @@ msgid ""
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
+"Есть ли у вас группа столбцов, которые при объединении дают существующий "
+"столбец? Например, если у вас есть first_name, last_name и full_name, то при "
+"объединении first_name и last_name получается full_name, что является "
+"избыточным."
 
 #: libraries/normalization.lib.php:217
 msgid ""
@@ -8911,6 +8931,11 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"Есть ли у вас группа из двух или более столбцов, которые тесно связаны и все "
+"повторяют тот же атрибут? Например, таблица, которая содержит данные о "
+"книгах, может столбцы book_id, author1, author2, author3 и так далее, "
+"которые образуют повторяющуюся группу. В этом случае должна быть создана "
+"новая таблица (book_id, author)."
 
 #: libraries/normalization.lib.php:255
 msgid ""
@@ -8930,7 +8955,7 @@ msgstr "Этап 2."
 
 #: libraries/normalization.lib.php:287
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "Найти частичные зависимости"
 
 #: libraries/normalization.lib.php:309
 #, php-format
@@ -8938,10 +8963,12 @@ msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
+"Невозможны частичные зависимости, т. к. нет столбца вне первичного ключа ( "
+"%1$s )."
 
 #: libraries/normalization.lib.php:314 libraries/normalization.lib.php:356
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "Таблица уже во второй нормальной форме."
 
 #: libraries/normalization.lib.php:319
 #, php-format
@@ -8949,12 +8976,16 @@ msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"Первичный ключ (%1$s) состоит из более чем одного столбца, поэтому "
+"необходимо найти частичные зависимости."
 
 #: libraries/normalization.lib.php:323 libraries/normalization.lib.php:688
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
+"Пожалуйста, ответьте на следующий(ие) вопрос(ы) тщательно, чтобы получить "
+"правильную нормализацию."
 
 #: libraries/normalization.lib.php:327
 msgid "+ Show me the possible partial dependencies based on data in the table"
@@ -8967,6 +8998,9 @@ msgid ""
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
+"Для каждого столбца ниже, пожалуйста, выберите <b>минимальный набор</b> "
+"столбцов среди данного набора, чьи объединённые вместе значения достаточны "
+"для определения значения данного столбца."
 
 #: libraries/normalization.lib.php:341 libraries/normalization.lib.php:726
 #, php-format
@@ -8979,6 +9013,8 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
+"Невозможны частичные зависимости, т. к. первичный ключ ( %1$s ) имеет только "
+"один столбец."
 
 #: libraries/normalization.lib.php:377
 #, php-format
@@ -8990,7 +9026,7 @@ msgstr ""
 #: libraries/normalization.lib.php:413
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr ""
+msgstr "Второй этап нормализации таблицы '%1$s' завершён."
 
 #: libraries/normalization.lib.php:453 libraries/normalization.lib.php:596
 #: libraries/normalization.lib.php:659
@@ -9006,12 +9042,12 @@ msgstr ""
 
 #: libraries/normalization.lib.php:544
 msgid "The third step of normalization is complete."
-msgstr ""
+msgstr "Третий этап нормализации завершён."
 
 #: libraries/normalization.lib.php:638
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr ""
+msgstr "Выбранная повторяющаяся группа перемещена в таблицу '%s'"
 
 #: libraries/normalization.lib.php:685
 msgid "Step 3."
@@ -9019,7 +9055,7 @@ msgstr "Этап 3."
 
 #: libraries/normalization.lib.php:685
 msgid "Find transitive dependencies"
-msgstr ""
+msgstr "Найти транзитивные зависимости"
 
 #: libraries/normalization.lib.php:692
 msgid ""
@@ -9034,10 +9070,12 @@ msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
+"Транзитивные зависимости невозможны, т. к. таблица не имеет каких-либо "
+"столбцов вне первичного ключа"
 
 #: libraries/normalization.lib.php:743
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "Таблица уже в третьей нормальной форме!"
 
 #: libraries/normalization.lib.php:766
 msgid "Improve table structure (Normalization):"
@@ -9045,31 +9083,35 @@ msgstr "Улучшить структуру таблицы (Нормализац
 
 #: libraries/normalization.lib.php:767
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "Выберите до какого этапа вы хотите нормализовать"
 
 #: libraries/normalization.lib.php:770
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "Второй этап нормализации (1NF+2NF)"
 
 #: libraries/normalization.lib.php:771
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "Третий этап нормализации (1NF+2NF+3NF)"
 
 #: libraries/normalization.lib.php:778
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
+"Подсказка: Пожалуйста, следуйте процедуре тщательно, чтобы получить "
+"правильную нормализацию"
 
 #: libraries/normalization.lib.php:839
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
+"Этот список основан на подмножестве данных таблицы и необязательно "
+"достоверен. "
 
 #: libraries/normalization.lib.php:855
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "Частичных зависимостей не найдено!"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to:"
@@ -9692,22 +9734,22 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:516
 msgid "It appears your database uses procedures;"
-msgstr ""
+msgstr "Похоже, что база данных использует процедуры;"
 
 #: libraries/plugins/export/ExportSql.class.php:520
 #: libraries/plugins/export/ExportSql.class.php:556
 #: libraries/plugins/export/ExportSql.class.php:1261
 #: libraries/plugins/export/ExportSql.class.php:1813
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "экспорт псевдонима не может надёжно работать во всех случаях."
 
 #: libraries/plugins/export/ExportSql.class.php:553
 msgid "It appears your database uses functions;"
-msgstr ""
+msgstr "Похоже, что база данных использует функции;"
 
 #: libraries/plugins/export/ExportSql.class.php:1258
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "Похоже, что база данных использует представления;"
 
 #: libraries/plugins/export/ExportSql.class.php:1309
 msgid "Constraints for dumped tables"
@@ -9743,7 +9785,7 @@ msgstr "СВЯЗИ ТАБЛИЦЫ"
 
 #: libraries/plugins/export/ExportSql.class.php:1810
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Похоже, что ваша таблица использует триггеры;"
 
 #: libraries/plugins/export/ExportSql.class.php:1842
 #, php-format
@@ -9928,10 +9970,9 @@ msgid "Data Dictionary"
 msgstr "Словарь данных"
 
 #: libraries/plugins/schema/dia/Dia_Relation_Schema.class.php:313
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "Dia export page"
-msgstr "Ошибочный тип экспорта"
+msgstr ""
 
 #: libraries/plugins/schema/dia/TableStatsDia.class.php:68
 #: libraries/plugins/schema/eps/TableStatsEps.class.php:81
@@ -9957,17 +9998,15 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Схема базы данных %s - Страница %s"
 
 #: libraries/plugins/schema/eps/Eps_Relation_Schema.class.php:441
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "EPS export page"
-msgstr "Ошибочный тип экспорта"
+msgstr "Страница экспорта EPS"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:251
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:853
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "PDF export page"
-msgstr "Ошибочный тип экспорта"
+msgstr "Страница экспорта PDF"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:504
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:924
@@ -9986,10 +10025,9 @@ msgid "Attributes"
 msgstr "Атрибуты"
 
 #: libraries/plugins/schema/svg/Svg_Relation_Schema.class.php:413
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "SVG export page"
-msgstr "Ошибочный тип экспорта"
+msgstr "Страница экспорта SVG"
 
 #: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
 msgid ""
@@ -10032,7 +10070,6 @@ msgstr ""
 "строки."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -10057,15 +10094,15 @@ msgid ""
 "appears all on one line (Default 1)."
 msgstr ""
 "ТОЛЬКО LINUX: Запускает внешнее приложение и подает ему на ввод данные поля. "
-"Возвращает обычный вывод приложения. По умолчанию используется Tidy "
-"(форматирование HTML-кода). По соображениям безопасности, необходимо вручную "
-"отредактировать файл libraries/plugins/transformations/Text_Plain_External."
-"class.php вписав доступные программы. Первый параметр задает номер "
-"используемой программы, во втором параметре передаются параметры собственно "
-"программы. При установке третьего параметра в 1, данные вывода будут "
-"преобразованы функцией PHP htmlspecialchars() (по умолчанию: 1). Установка "
-"четвертого параметра в 1, предотвратит переносы строки и выведет данные в "
-"одну строку (по умолчанию: 1)."
+"Возвращает обычный вывод приложения. По-умолчанию используется Tidy ("
+"форматирование HTML-кода). По соображениям безопасности необходимо вручную "
+"отредактировать файл libraries/plugins/transformations/"
+"Text_Plain_External.class.php, вписав доступные программы. Первый параметр "
+"задает номер используемой программы, во втором параметре передаются "
+"параметры собственно программы. При установке третьего параметра в 1 данные "
+"вывода будут преобразованы функцией htmlspecialchars() (по-умолчанию, 1). "
+"При установке четвёртого параметра в 1 будут предотвращены переносы строк и "
+"данные будут выведены в одну строку (по-умолчанию, 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -10096,7 +10133,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:78
 msgid "Image preview here"
-msgstr ""
+msgstr "Предпросмотр изображений"
 
 #: libraries/plugins/transformations/abstract/InlineTransformationsPlugin.class.php:33
 msgid ""
@@ -10127,11 +10164,13 @@ msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"Проверяет строку, используя регулярное выражение, и выполняет вставки только "
+"если строка соответствует ему. Первый вариант является регулярным выражением."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "Ошибка проверки входной строки %s."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -10370,7 +10409,7 @@ msgstr "Сохраняются Query-By-Example"
 
 #: libraries/relation.lib.php:298
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "Управление центральным списком столбцов"
 
 #: libraries/relation.lib.php:306
 msgid "Quick steps to setup advanced features:"
@@ -10405,11 +10444,11 @@ msgid "no description"
 msgstr "нет описания"
 
 #: libraries/relation.lib.php:1870
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Отсутствие таблиц хранения конфигурации phpMyAdmin"
+msgstr ""
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:316
 #: libraries/server_databases.lib.php:392
@@ -11495,7 +11534,7 @@ msgstr "Глобальные привилегии"
 
 #: libraries/server_privileges.lib.php:1013
 msgid "Global"
-msgstr ""
+msgstr "Глобальный"
 
 #: libraries/server_privileges.lib.php:1015
 #: libraries/server_privileges.lib.php:2762
@@ -11603,7 +11642,7 @@ msgstr "GRANT"
 
 #: libraries/server_privileges.lib.php:2020
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "Недостаточно прав для просмотра пользователей."
 
 #: libraries/server_privileges.lib.php:2039
 #: libraries/server_privileges.lib.php:3390
@@ -11676,10 +11715,9 @@ msgid "Column-specific privileges"
 msgstr "Привилегии уровня столбца"
 
 #: libraries/server_privileges.lib.php:2831
-#, fuzzy
 #| msgid "Add privileges on the following database:"
 msgid "Add privileges on the following database(s):"
-msgstr "Добавить привилегии на следующую базу данных:"
+msgstr "Добавить привилегии для следующих(ей) баз(ы) данных:"
 
 #: libraries/server_privileges.lib.php:2855
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -11756,6 +11794,8 @@ msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
+"Примечание: Вы пытаетесь изменить привилегии пользователя, под именем "
+"которого вы в настоящее время вошли в систему."
 
 #: libraries/server_privileges.lib.php:3885 libraries/server_users.lib.php:25
 msgid "Users overview"
@@ -12060,7 +12100,6 @@ msgid "Reset to default"
 msgstr "Восстановить изначальное значение"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
 #| "between the web server and the MySQL server."
@@ -12068,8 +12107,8 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Примечание: Включение статистики баз данных может спровоцировать большой "
-"трафик между веб-сервером и сервером MySQL."
+"Примечание: Включение автообновления может спровоцировать большой трафик "
+"между веб-сервером и сервером MySQL."
 
 #: libraries/server_status_processes.lib.php:69
 msgid "ID"
@@ -13018,7 +13057,7 @@ msgstr "Показать данный запрос снова"
 
 #: libraries/sql_query_form.lib.php:329
 msgid "Rollback when finished"
-msgstr ""
+msgstr "Откат после завершения"
 
 #: libraries/sql_query_form.lib.php:382
 msgid "View only"
@@ -13115,10 +13154,9 @@ msgid "Sum"
 msgstr "Всего"
 
 #: libraries/structure.lib.php:311
-#, fuzzy
 #| msgid "Show color"
 msgid "Show create"
-msgstr "Отображать в цвете"
+msgstr "Вывести форму создания"
 
 #: libraries/structure.lib.php:335
 msgid "Add prefix to table"
@@ -13133,32 +13171,31 @@ msgid "Copy table with prefix"
 msgstr "Копировать таблицу с префиксом"
 
 #: libraries/structure.lib.php:342
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add columns to central list"
-msgstr "Ширина textarea для CHAR"
+msgstr "Добавить столбцы в центральный список"
 
 #: libraries/structure.lib.php:344
 msgid "Remove columns from central list"
-msgstr ""
+msgstr "Удалить столбцы из центрального списка"
 
 #: libraries/structure.lib.php:346
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Make consistent with central list"
-msgstr "Ширина textarea для CHAR"
+msgstr "Привести в соответствие с центральным списком"
 
 #: libraries/structure.lib.php:368
 msgid "Check tables having overhead"
 msgstr "Отметить требующие оптимизации"
 
 #: libraries/structure.lib.php:825
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Может быть приблизительно. Смотрите [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr ""
+"Может быть приблизительно. Нажмите на номер, чтобы получить точное "
+"количество. Смотрите [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/structure.lib.php:907
 msgid "Sort"
@@ -13185,16 +13222,14 @@ msgid "Fulltext"
 msgstr "Полнотекстовый"
 
 #: libraries/structure.lib.php:1486 libraries/structure.lib.php:2103
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "Ширина textarea для CHAR"
+msgstr "Добавить к центральным столбцам"
 
 #: libraries/structure.lib.php:1491 libraries/structure.lib.php:2093
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove from central columns"
-msgstr "Удалить поле(я)"
+msgstr "Удалить из центральных столбцов"
 
 #: libraries/structure.lib.php:1507 libraries/structure.lib.php:1617
 msgid "Move columns"
@@ -13217,10 +13252,9 @@ msgid "Propose table structure"
 msgstr "Анализ структуры таблицы"
 
 #: libraries/structure.lib.php:1620
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "Анализ структуры таблицы"
+msgstr "Улучшить структуру таблицы"
 
 #: libraries/structure.lib.php:1642
 #: libraries/tbl_columns_definition_form.lib.php:179
@@ -13342,10 +13376,9 @@ msgid "Favorite List is full!"
 msgstr "Список избранного полностью заполнен!"
 
 #: libraries/structure.lib.php:2985
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Showing create queries"
-msgstr "Показывать SQL запросы"
+msgstr "Показываются запросы создания"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -13413,29 +13446,26 @@ msgstr "Подпись для оси Y:"
 
 #: libraries/tbl_chart.lib.php:237
 msgid "Series names are in a column"
-msgstr ""
+msgstr "Имена серии находятся в столбце"
 
 #: libraries/tbl_chart.lib.php:240
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "В поле:"
+msgstr "Столбец серии:"
 
 #: libraries/tbl_chart.lib.php:253
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Value column:"
-msgstr "Значения для столбца %s"
+msgstr "Столбец значения:"
 
 #: libraries/tbl_chart.lib.php:286
 msgid "Start row:"
 msgstr "Начальная строка:"
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Сохранить как файл"
+msgstr "Сохранить диаграмму как изображение"
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
@@ -13499,29 +13529,25 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:336
 #: transformation_overview.php:41
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "Преобразование"
+msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:338
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation options"
-msgstr "Преобразование"
+msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:341
 #: transformation_overview.php:42
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Input transformation"
-msgstr "Преобразование"
+msgstr "Преобразование входных"
 
 #: libraries/tbl_columns_definition_form.lib.php:343
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Input transformation options"
-msgstr "Параметры преобразований"
+msgstr "Параметры преобразования входных"
 
 #: libraries/tbl_columns_definition_form.lib.php:584
 #, php-format
@@ -13533,10 +13559,9 @@ msgid "Is a foreign key."
 msgstr "Это внешний ключ."
 
 #: libraries/tbl_columns_definition_form.lib.php:617
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Pick from Central Columns"
-msgstr "Удалить поле(я)"
+msgstr "Выбрать из центральных столбцов"
 
 #: libraries/tbl_columns_definition_form.lib.php:801
 msgid "first"
@@ -13628,10 +13653,9 @@ msgid "Index type:"
 msgstr "Тип индекса&nbsp;:"
 
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:375
-#, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder"
-msgstr "Изменить порядок перетаскиванием"
+msgstr "Перетяните для изменения порядка сортировки"
 
 #: libraries/tbl_printview.lib.php:30
 msgid "Showing tables:"
@@ -13662,41 +13686,39 @@ msgstr ""
 "помощью внешнего ключа (FOREIGN KEY)."
 
 #: libraries/tbl_relation.lib.php:371
-#, fuzzy
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraints"
-msgstr "Ограничение внешнего ключа"
+msgstr "Ограничения внешнего ключа"
 
 #: libraries/tbl_relation.lib.php:374
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint properties"
-msgstr "Ограничения внешнего ключа таблицы"
+msgstr "Свойства ограничения"
 
 #: libraries/tbl_relation.lib.php:379
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
+"Будут отображаться только столбцы с индексом. Вы можете определить индекс "
+"ниже."
 
 #: libraries/tbl_relation.lib.php:384
 msgid "Foreign key constraint"
 msgstr "Ограничение внешнего ключа"
 
 #: libraries/tbl_relation.lib.php:405
-#, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
-msgstr "Добавить ограничения"
+msgstr "+ Добавить ограничение"
 
 #: libraries/tbl_relation.lib.php:435
 msgid "Constraint name"
 msgstr "Ограничения внешнего ключа"
 
 #: libraries/tbl_relation.lib.php:500
-#, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
-msgstr "Добавить столбец"
+msgstr "+ Добавить столбец"
 
 #: libraries/tbl_relation.lib.php:646
 msgid "Choose column to display:"
@@ -14256,7 +14278,7 @@ msgstr "Не задано имя таблицы!"
 #: tbl_replace.php:236
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "Строка: %1$s, Столбец: %2$s, Ошибка: %3$s"
 
 #: tbl_structure.php:93
 msgid "No column selected."
@@ -14281,10 +14303,9 @@ msgid "Available browser display transformations"
 msgstr "Доступные преобразования"
 
 #: transformation_overview.php:38
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available input transformations"
-msgstr "Доступные преобразования"
+msgstr "Доступные преобразования входных"
 
 #: transformation_overview.php:53
 msgctxt "for MIME transformation"
