@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-12 08:38-0400\n"
-"PO-Revision-Date: 2014-08-14 00:52+0200\n"
+"PO-Revision-Date: 2014-08-15 01:51+0200\n"
 "Last-Translator: Alecsandru Prună <alecsandrucpruna@gmail.com>\n"
 "Language-Team: Romanian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/ro/>\n"
@@ -1831,6 +1831,8 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Nu sunt coloane în lista centrală. Asiguraţi-vă că lista de coloane centrale "
+"pentru baza de date %s are coloane care nu sunt prezente în tabelul curent."
 
 #: js/messages.php:302
 #| msgid "Free memory"
@@ -1865,7 +1867,6 @@ msgid "Primary key added."
 msgstr "Cheia primară a fost adăugată."
 
 #: js/messages.php:310 libraries/normalization.lib.php:170
-#, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
 msgstr "Continuați cu pasul următor…"
@@ -1904,6 +1905,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Notă: a, b -> d, f presupune ca valorile coloanelor a şi b combinate "
+"împreună să poată determina valorile din coloana d şi coloana f."
 
 #: js/messages.php:318
 #| msgid "No databases selected."
@@ -1923,6 +1926,8 @@ msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Fiți răbdător! Poate dura câteva secunde în funcţie de dimensiunea datelor "
+"şi numărul coloanelor tabelului."
 
 #: js/messages.php:323
 msgid "Step"
@@ -2077,12 +2082,14 @@ msgid "Geometry"
 msgstr "Geometrie"
 
 #: js/messages.php:380
+#, fuzzy
 msgid "Inner Ring"
-msgstr ""
+msgstr "Inel interior"
 
 #: js/messages.php:381
+#, fuzzy
 msgid "Outer Ring"
-msgstr ""
+msgstr "Inel exterior"
 
 #: js/messages.php:384
 msgid "Shift + Click on function name to apply to all rows."
@@ -2212,11 +2219,10 @@ msgid "Double-click to copy column name."
 msgstr "Dublu click pentru a copia denumirea coloanei."
 
 #: js/messages.php:422
-#, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
-"Apăsați pe săgeata de drop-down<br />pentru a alterna vizibilitatea coloanei"
+"Apăsați pe săgeata verticală<br />pentru a alterna vizibilitatea coloanei."
 
 #: js/messages.php:424 libraries/DisplayResults.class.php:850
 #: libraries/browse_foreigners.lib.php:254
@@ -2277,13 +2283,12 @@ msgstr ""
 "pe acestea."
 
 #: js/messages.php:443
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
-"Puteți de asemenea edita coloane<br />facând click direct pe conținutul "
-"acestora."
+"De asemenea puteți edita majoritatea valorile<br />făcând click direct pe "
+"acestea."
 
 #: js/messages.php:448
 msgid "Go to link:"
@@ -2319,16 +2324,14 @@ msgid "More"
 msgstr "Mai mult"
 
 #: js/messages.php:462
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "Arată toate"
+msgstr "Arată panou"
 
 #: js/messages.php:463
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "Ascunde index-uri"
+msgstr "Ascunde panou"
 
 #: js/messages.php:464
 #, fuzzy
@@ -2430,6 +2433,8 @@ msgstr "Ignoră tot"
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
+"În ceea ce privește setările dumneavoastră, aceste sunt trimise momentan, vă "
+"rugăm să aveți răbdare."
 
 #: js/messages.php:520
 #| msgid "Show this query here again"
@@ -2948,10 +2953,9 @@ msgid "Set default"
 msgstr "Setaţi ca implicit"
 
 #: libraries/Console.class.php:293
-#, fuzzy
 #| msgid "Always send error reports"
 msgid "Always expand query messages"
-msgstr "Trimite mereu rapoarte de eroare"
+msgstr "Extinde întotdeauna mesajele de interogare"
 
 #: libraries/Console.class.php:295
 #| msgid "SQL query history table"
@@ -2960,7 +2964,7 @@ msgstr "Arată istoricul interogărilor la pornire"
 
 #: libraries/Console.class.php:297
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Arată interogarea curentă de navigare"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1314
 #: libraries/DisplayResults.class.php:2127
@@ -3326,14 +3330,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "Afișează înregistrările %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4912
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d în total, %2$d în interogare"
 
 #: libraries/DisplayResults.class.php:4917
 #, php-format
 msgid "%d total"
-msgstr "%d total"
+msgstr "total de %d"
 
 #: libraries/DisplayResults.class.php:4929 libraries/sql.lib.php:1691
 #, php-format
