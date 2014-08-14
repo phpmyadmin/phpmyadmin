@@ -138,7 +138,8 @@ function PMA_getHtmlForTableConfigurations()
 function PMA_getHtmlForFooter()
 {
     $html = '<fieldset class="tblFooters">'
-        . '<input type="button" class="preview_sql" value="' . __('Preview SQL') . '" />'
+        . '<input type="button" class="preview_sql" value="'
+        . __('Preview SQL') . '" />'
         . '<input type="submit" name="do_save_data" value="' . __('Save') . '" />'
         . '</fieldset>'
         . '<div id="properties_message"></div>'
@@ -566,11 +567,11 @@ function PMA_getColumnMetaForDefault($columnMeta, $isDefault)
 /**
  * Function to get html for the column name
  *
- * @param int   $columnNumber column number
- * @param int   $ci           cell index
- * @param int   $ci_offset    cell index offset
- * @param array $columnMeta   column meta
- * @param array $cfgRelation  configuration relation
+ * @param int        $columnNumber column number
+ * @param int        $ci           cell index
+ * @param int        $ci_offset    cell index offset
+ * @param array|null $columnMeta   column meta
+ * @param array      $cfgRelation  configuration relation
  *
  * @return string
  */
