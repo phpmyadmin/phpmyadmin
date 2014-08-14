@@ -51,6 +51,8 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'ActionLinksMode';
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
 
+        $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
