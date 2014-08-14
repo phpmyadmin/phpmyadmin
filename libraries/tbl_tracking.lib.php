@@ -67,27 +67,37 @@ function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
     $html .= '<p>' . __('Track these data definition statements:')
         . '</p>';
     $html .= '<input type="checkbox" name="alter_table" value="true"'
-        . ' checked="checked" /> ALTER TABLE<br/>';
+        . (stripos($GLOBALS['cfg']['Server']['tracking_default_statements'],'ALTER TABLE')!==false ? ' checked="checked"' : '')
+        . ' /> ALTER TABLE<br/>';
     $html .= '<input type="checkbox" name="rename_table" value="true"'
-        . ' checked="checked" /> RENAME TABLE<br/>';
+        . (stripos($GLOBALS['cfg']['Server']['tracking_default_statements'],'RENAME TABLE')!==false ? ' checked="checked"' : '')
+        . ' /> RENAME TABLE<br/>';
     $html .= '<input type="checkbox" name="create_table" value="true"'
-        . ' checked="checked" /> CREATE TABLE<br/>';
+        . (stripos($GLOBALS['cfg']['Server']['tracking_default_statements'],'CREATE TABLE')!==false ? ' checked="checked"' : '')
+        . ' /> CREATE TABLE<br/>';
     $html .= '<input type="checkbox" name="drop_table" value="true"'
-        . ' checked="checked" /> DROP TABLE<br/>';
+        . (stripos($GLOBALS['cfg']['Server']['tracking_default_statements'],'DROP TABLE')!==false ? ' checked="checked"' : '')
+        . ' /> DROP TABLE<br/>';
     $html .= '<br/>';
     $html .= '<input type="checkbox" name="create_index" value="true"'
-        . ' checked="checked" /> CREATE INDEX<br/>';
+        . (stripos($GLOBALS['cfg']['Server']['tracking_default_statements'],'CREATE INDEX')!==false ? ' checked="checked"' : '')
+        . ' /> CREATE INDEX<br/>';
     $html .= '<input type="checkbox" name="drop_index" value="true"'
-        . ' checked="checked" /> DROP INDEX<br/>';
+        . (stripos($GLOBALS['cfg']['Server']['tracking_default_statements'],'DROP INDEX')!==false ? ' checked="checked"' : '')
+        . ' /> DROP INDEX<br/>';
     $html .= '<p>' . __('Track these data manipulation statements:') . '</p>';
     $html .= '<input type="checkbox" name="insert" value="true"'
-        . ' checked="checked" /> INSERT<br/>';
+        . (stripos($GLOBALS['cfg']['Server']['tracking_default_statements'],'INSERT')!==false ? ' checked="checked"' : '')
+        . ' /> INSERT<br/>';
     $html .= '<input type="checkbox" name="update" value="true"'
-        . ' checked="checked" /> UPDATE<br/>';
+        . (stripos($GLOBALS['cfg']['Server']['tracking_default_statements'],'UPDATE')!==false ? ' checked="checked"' : '')
+        . ' /> UPDATE<br/>';
     $html .= '<input type="checkbox" name="delete" value="true"'
-        . ' checked="checked" /> DELETE<br/>';
+        . (stripos($GLOBALS['cfg']['Server']['tracking_default_statements'],'DELETE')!==false ? ' checked="checked"' : '')
+        . ' /> DELETE<br/>';
     $html .= '<input type="checkbox" name="truncate" value="true"'
-        . ' checked="checked" /> TRUNCATE<br/>';
+        . (stripos($GLOBALS['cfg']['Server']['tracking_default_statements'],'TRUNCATE')!==false ? ' checked="checked"' : '')
+        . ' /> TRUNCATE<br/>';
     $html .= '</fieldset>';
 
     $html .= '<fieldset class="tblFooters">';
