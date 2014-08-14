@@ -738,13 +738,16 @@ div.error {
     margin: .5em 0 0.5em;
     border: 1px solid;
     background-repeat: no-repeat;
-        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
-    background-position: 10px 50%;
-    padding: 10px 10px 10px 10px;
-        <?php } else { ?>
-    background-position: 99% 50%;
-    padding: 10px 35px 10px 10px;
-        <?php } ?>
+    <?php
+    if ($GLOBALS['text_dir'] === 'ltr') { ?>
+        background-position: 10px 50%;
+        padding: 10px 10px 10px 10px;
+        <?php
+    } else { ?>
+        background-position: 99% 50%;
+        padding: 10px 35px 10px 10px;
+        <?php
+    } ?>
 
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -1522,13 +1525,16 @@ p.notice {
     margin: 1.5em 0;
     border: 1px solid #000;
     background-repeat: no-repeat;
-        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
-    background-position: 10px 50%;
-    padding: 10px 10px 10px 25px;
-        <?php } else { ?>
-    background-position: 99% 50%;
-    padding: 25px 10px 10px 10px
-        <?php } ?>
+    <?php
+    if ($GLOBALS['text_dir'] === 'ltr') { ?>
+        background-position: 10px 50%;
+        padding: 10px 10px 10px 25px;
+        <?php
+    } else { ?>
+        background-position: 99% 50%;
+        padding: 25px 10px 10px 10px
+        <?php
+    } ?>
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
