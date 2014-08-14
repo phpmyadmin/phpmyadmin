@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.2.8.0 (not yet released)
+- bug #4516 Odd export behavior
 
 4.2.7.0 (2014-07-31)
 - bug       Broken links on home page
