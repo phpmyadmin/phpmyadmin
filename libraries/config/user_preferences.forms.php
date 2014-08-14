@@ -35,7 +35,8 @@ $forms['Features']['General'] = array(
     'NumRecentTables',
     'NumFavoriteTables',
     'ShowHint',
-    'SendErrorReports');
+    'SendErrorReports'
+);
 $forms['Features']['Text_fields'] = array(
     'CharEditing',
     'MinSizeForInputField',
@@ -66,10 +67,6 @@ $forms['Sql_queries']['Sql_queries'] = array(
     'QueryHistoryMax',
     'IgnoreMultiSubmitErrors',
     'MaxCharactersInDisplayedSQL',
-    'EditInWindow',
-    //'QueryWindowWidth', // overridden in theme
-    //'QueryWindowHeight',
-    'QueryWindowDefTab',
     'RetainQueryBox',
     'CodemirrorEnable');
 $forms['Sql_queries']['Sql_box'] = array(

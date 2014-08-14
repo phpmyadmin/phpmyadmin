@@ -371,7 +371,8 @@ function PMA_getHtmlForForeignKeyForm($columns, $existrel_foreign, $db,
         . '<legend>' . __('Foreign key constraints') . '</legend>'
         . '<table id="foreign_keys" class="relationalTable">';
 
-    $html_output .= '<tr><th>' . __('Constraint properties') . '</th>'
+    $html_output .= '<tr><th>' . __('Actions') . '</th>';
+    $html_output .= '<th>' . __('Constraint properties') . '</th>'
         . '<th>'
         . __('Column')
         . PMA_Util::showHint(
@@ -428,13 +429,42 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
     $options_array, $tbl_storage_engine, $db
 ) {
     $html_output = '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
+    // Drop key anchor.
+    $html_output .= '<td>';
+    if (isset($one_key['constraint'])) {
+        $drop_fk_query = 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
+            . ' DROP FOREIGN KEY '
+            . PMA_Util::backquote($one_key['constraint']) . ';';
+        $this_params = $GLOBALS['url_params'];
+        $this_params['goto'] = 'tbl_relation.php';
+        $this_params['back'] = 'tbl_relation.php';
+        $this_params['sql_query'] = $drop_fk_query;
+        $this_params['message_to_show'] = sprintf(
+            __('Foreign key constraint %s has been dropped'),
+            $one_key['constraint']
+        );
+        $js_msg = PMA_jsFormat(
+            'ALTER TABLE ' . $GLOBALS['table']
+            . ' DROP FOREIGN KEY '
+            . $one_key['constraint'] . ';'
+        );
+
+        $html_output .= '<input type="hidden" class="drop_foreign_key_msg"'
+            . ' value="' . $js_msg . '" />';
+        $html_output .= '    <a class="drop_foreign_key_anchor';
+        $html_output .= ' ajax';
+        $html_output .= '" href="sql.php' . PMA_URL_getCommon($this_params)
+           . '" >'
+           . PMA_Util::getIcon('b_drop.png', __('Drop'))  . '</a>';
+    }
+    $html_output .= '</td>';
     $html_output .= '<td>';
     $html_output .= '<span class="formelement clearfloat">';
     $constraint_name = isset($one_key['constraint'])
         ? $one_key['constraint'] : '';
     $html_output .= __('Constraint name');
     $html_output .= '<input type="text" name="constraint_name[' . $i . ']"'
-        . ' value="' . $constraint_name . '"/>';
+        . ' value="' . htmlspecialchars($constraint_name) . '"/>';
     $html_output .= '</span>' . "\n";
 
     $html_output .= '<span class="formelement clearfloat">';

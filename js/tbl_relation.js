@@ -115,6 +115,7 @@ AJAX.registerTeardown('tbl_relation.js', function () {
     );
     $('body').off('click', 'a.add_foreign_key_field');
     $('body').off('click', 'a.add_foreign_key');
+    $('a.drop_foreign_key_anchor.ajax').off('click');
 });
 
 AJAX.registerOnload('tbl_relation.js', function () {
@@ -190,4 +191,37 @@ AJAX.registerOnload('tbl_relation.js', function () {
         // Finally add the row.
         $new_row.insertAfter($prev_row);
     });
+
+    /**
+     * Ajax Event handler for 'Drop Foreign key'
+     */
+    $('a.drop_foreign_key_anchor.ajax').on('click', function (event) {
+        event.preventDefault();
+        var $anchor = $(this);
+
+        // Object containing reference to the current field's row
+        var $curr_row = $anchor.parents('tr');
+
+        var drop_query = escapeHtml(
+            $curr_row.children('td')
+                .children('.drop_foreign_key_msg')
+                .val()
+        );
+
+        var question = $.sprintf(PMA_messages.strDoYouReally, drop_query);
+
+        $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
+            var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingForeignKey, false);
+            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
+                if (data.success === true) {
+                    PMA_ajaxRemoveMessage($msg);
+                    PMA_commonActions.refreshMain(false, function () {
+                        // Do nothing
+                    });
+                } else {
+                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
+                }
+            }); // end $.get()
+        }); // end $.PMA_confirm()
+    }); //end Drop Foreign key
 });

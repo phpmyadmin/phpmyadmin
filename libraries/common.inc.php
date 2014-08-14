@@ -380,7 +380,6 @@ $goto_whitelist = array(
     'pdf_pages.php',
     'pdf_schema.php',
     //'phpinfo.php',
-    'querywindow.php',
     'server_binlog.php',
     'server_collations.php',
     'server_databases.php',
@@ -1147,4 +1146,10 @@ if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     exit();
 }
 
+// If Zero configuration mode enabled, check PMA tables in current db.
+if (isset($GLOBALS['cfg']['ZeroConf'])
+    && $GLOBALS['cfg']['ZeroConf'] == true
+) {
+    PMA_checkAndFixPMATablesInCurrentDb();
+}
 ?>

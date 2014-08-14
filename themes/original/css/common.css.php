@@ -1168,25 +1168,6 @@ div#logTable table {
 }
 /* end server variables */
 
-/* querywindow */
-body#bodyquerywindow {
-    margin: 0;
-    padding: 0;
-    background-image: none;
-    background-color: #F5F5F5;
-}
-
-div#querywindowcontainer {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-div#querywindowcontainer fieldset {
-    margin-top: 0;
-}
-/* end querywindow */
-
 /* profiling */
 
 div#profilingchart {
@@ -1304,10 +1285,6 @@ li.no_bullets {
 #body_browse_foreigners {
     background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     margin: .5em .5em 0 .5em;
-}
-
-#bodyquerywindow {
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
 }
 
 #bodythemes {

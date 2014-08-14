@@ -10,7 +10,7 @@
 var $table_clone = false;
 
 /**
- * @var sql_box_locked lock for the sqlbox textarea in the querybox/querywindow
+ * @var sql_box_locked lock for the sqlbox textarea in the querybox
  */
 var sql_box_locked = false;
 

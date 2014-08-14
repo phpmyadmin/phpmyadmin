@@ -634,7 +634,7 @@ Server connection settings
 
         For auto-upgrade functionality to work, your
         ``$cfg['Servers'][$i]['controluser']`` must have ALTER privilege on
-        ``phpmyadmin`` database. See the `MySQL documentation
+        ``phpmyadmin`` database. See the `MySQL documentation for GRANT
         <http://dev.mysql.com/doc/mysql/en/grant.html>`_ on how to
         ``GRANT`` privileges to a user.
 
@@ -1439,6 +1439,21 @@ Navigation panel setup
     The maximum number of recently used tables shown in the navigation
     panel. Set this to 0 (zero) to disable the listing of recent tables.
 
+.. config:option:: $cfg['ZeroConf']
+
+    :type: boolean
+    :default: true
+
+    Enables Zero Configuration mode in which the user will be offered a choice to
+    create phpMyAdmin configuration storage in the current database
+    or use the existing one, if already present.
+
+    .. note::
+
+        If there is no central configuration storage defined then you may end
+        up with different set of phpMyAdmin configuration storage tables for
+        different databases.
+
 .. config:option:: $cfg['NavigationLinkWithMainPanel']
 
     :type: boolean
@@ -1907,8 +1922,9 @@ Languages
     :default: ``'utf8_general_ci'``
 
     Defines the default connection collation to use, if not user-defined.
-    See the `MySQL documentation <http://dev.mysql.com/doc/mysql/en
-    /charset-charsets.html>`_ for list of possible values. This setting is
+    See the `MySQL documentation for charsets 
+    <http://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_ 
+    for list of possible values. This setting is
     ignored when connected to Drizzle server.
 
 .. config:option:: $cfg['Lang']
@@ -2498,53 +2514,15 @@ Various display setting
 
     Repeat the headers every X cells, or 0 to deactivate.
 
-.. config:option:: $cfg['EditInWindow']
-
-    :type: boolean
-    :default: true
-
-.. config:option:: $cfg['QueryWindowWidth']
-
-    :type: integer
-    :default: 550
-
-.. config:option:: $cfg['QueryWindowHeight']
-
-    :type: integer
-    :default: 310
-
 .. config:option:: $cfg['QueryHistoryDB']
 
     :type: boolean
     :default: false
 
-.. config:option:: $cfg['QueryWindowDefTab']
-
-    :type: string
-    :default: ``'sql'``
-
 .. config:option:: $cfg['QueryHistoryMax']
 
     :type: integer
     :default: 25
-
-    All those variables affect the query window feature. A :term:`SQL` link or
-    icon is always displayed in the navigation panel. If JavaScript is enabled
-    in your browser, a click on this opens a distinct query window, which is a
-    direct interface to enter :term:`SQL` queries. Otherwise, the right panel
-    changes to display a query box.
-
-    The size of this query window can be customized with
-    :config:option:`$cfg['QueryWindowWidth']` and
-    :config:option:`$cfg['QueryWindowHeight']` - both integers for the size in
-    pixels.  Note that normally, those parameters will be modified in
-    :file:`layout.inc.php`` for the theme you are using.
-
-    If :config:option:`$cfg['EditInWindow']` is set to true, a click on [Edit]
-    from the results page (in the :guilabel:`Showing Rows` section) opens the
-    query window and puts the current query inside it. If set to false,
-    clicking on the link puts the :term:`SQL` query
-    in the right panel's query box.
 
     If :config:option:`$cfg['QueryHistoryDB']` is set to ``true``, all your
     Queries are logged to a table, which has to be created by you (see
@@ -2567,11 +2545,6 @@ Various display setting
     If :config:option:`$cfg['QueryHistoryDB']` is set to ``true`` you can
     specify the amount of saved history items using
     :config:option:`$cfg['QueryHistoryMax']`.
-
-    The query window also has a custom tabbed look to group the features.
-    Using the variable :config:option:`$cfg['QueryWindowDefTab']` you can
-    specify the default tab to be used when opening the query window. It can be
-    set to either ``sql``, ``files``, ``history`` or ``full``.
 
 .. config:option:: $cfg['BrowseMIME']
 

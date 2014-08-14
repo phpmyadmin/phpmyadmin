@@ -253,8 +253,8 @@ class PMA_Schema_PDF extends PMA_PDF
                 $test_query = 'SELECT * FROM '
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
-                    . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\''
-                    . ' AND page_nr = \'' . $this->_exportingPage . '\'';
+                    . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($GLOBALS['db'])
+                    . '\' AND page_nr = \'' . $this->_exportingPage . '\'';
                 $test_rs = PMA_queryAsControlUser($test_query);
                 $pages = @$GLOBALS['dbi']->fetchAssoc($test_rs);
                 $pg_name = ucfirst($pages['page_descr']);
@@ -557,40 +557,45 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
             $exist_rel = PMA_getForeigners($GLOBALS['db'], $one_table, '', 'both');
-            if ($exist_rel) {
-                $seen_a_relation = true;
-                foreach ($exist_rel as $master_field => $rel) {
-                    // put the foreign table on the schema only if selected
-                    // by the user
-                    // (do not use array_search() because we would have to
-                    // to do a === false and this is not PHP3 compatible)
-                    if ($master_field != 'foreign_keys_data') {
-                        if (in_array($rel['foreign_table'], $alltables)) {
-                            $this->_addRelation(
-                                $one_table,
-                                $master_field,
-                                $rel['foreign_table'],
-                                $rel['foreign_field']
-                            );
-                        }
-                    } else {
-                        foreach ($rel as $key => $one_key) {
-                            if (in_array($one_key['ref_table_name'], $alltables)) {
-                                foreach ($one_key['index_list']
-                                    as $index => $one_field
-                                ) {
-                                    $this->_addRelation(
-                                        $one_table,
-                                        $one_field,
-                                        $one_key['ref_table_name'],
-                                        $rel['foreign_field'][$index]
-                                    );
-                                }
-                            }
-                        }
+            if (!$exist_rel) {
+                continue;
+            }
+
+            $seen_a_relation = true;
+            foreach ($exist_rel as $master_field => $rel) {
+                // put the foreign table on the schema only if selected
+                // by the user
+                // (do not use array_search() because we would have to
+                // to do a === false and this is not PHP3 compatible)
+                if ($master_field != 'foreign_keys_data') {
+                    if (in_array($rel['foreign_table'], $alltables)) {
+                        $this->_addRelation(
+                            $one_table,
+                            $master_field,
+                            $rel['foreign_table'],
+                            $rel['foreign_field']
+                        );
                     }
-                } // end while
-            } // end if
+                    continue;
+                }
+
+                foreach ($rel as $one_key) {
+                    if (!in_array($one_key['ref_table_name'], $alltables)) {
+                        continue;
+                    }
+
+                    foreach ($one_key['index_list']
+                        as $index => $one_field
+                    ) {
+                        $this->_addRelation(
+                            $one_table,
+                            $one_field,
+                            $one_key['ref_table_name'],
+                            $rel['foreign_field'][$index]
+                        );
+                    }
+                }
+            } // end while
         } // end while
 
         if ($seen_a_relation) {

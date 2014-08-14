@@ -136,8 +136,8 @@ abstract class TableStats
                 . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
                 . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
                 . " WHERE db_name = '" . PMA_Util::sqlAddSlashes($this->db) . "'"
-                . " AND table_name = '" . PMA_Util::sqlAddSlashes($this->tableName) . "'"
-                . " AND pdf_page_number = " . $this->pageNumber;
+                . " AND table_name = '" . PMA_Util::sqlAddSlashes($this->tableName)
+                . "' AND pdf_page_number = " . $this->pageNumber;
             $result = PMA_queryAsControlUser(
                 $sql, false, PMA_DatabaseInterface::QUERY_STORE
             );

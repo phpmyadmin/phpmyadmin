@@ -107,6 +107,9 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
              . __('General relation features')
              . ' <font color="green">' . __('Disabled')
              . '</font>' . "\n";
+        if (! empty($GLOBALS['db']) && $GLOBALS['cfg']['ZeroConf']) {
+            $retval .= PMA_getHtmlFixPMATables();
+        }
     } else {
         $retval .= '<table>' . "\n";
         $retval .= PMA_getDiagMessageForParameter(
@@ -298,33 +301,37 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
         );
         $retval .= '</table>' . "\n";
 
-        $retval .= '<p>' . __('Quick steps to setup advanced features:') . '</p>';
-        $retval .= '<ul>';
-        $retval .= '<li>';
-        $retval .= __(
-            'Create the needed tables with the '
-            . '<code>examples/create_tables.sql</code>.'
-        );
-        $retval .= ' ' . PMA_Util::showDocu('setup', 'linked-tables');
-        $retval .= '</li>';
-        $retval .= '<li>';
-        $retval .= __('Create a pma user and give access to these tables.');
-        $retval .= ' ' . PMA_Util::showDocu('config', 'cfg_Servers_controluser');
-        $retval .= '</li>';
-        $retval .= '<li>';
-        $retval .= __(
-            'Enable advanced features in configuration file '
-            . '(<code>config.inc.php</code>), for example by '
-            . 'starting from <code>config.sample.inc.php</code>.'
-        );
-        $retval .= ' ' . PMA_Util::showDocu('setup', 'quick-install');
-        $retval .= '</li>';
-        $retval .= '<li>';
-        $retval .= __(
-            'Re-login to phpMyAdmin to load the updated configuration file.'
-        );
-        $retval .= '</li>';
-        $retval .= '</ul>';
+        if (! $cfgRelation['allworks']) {
+
+            $retval .= '<p>' . __('Quick steps to setup advanced features:')
+                . '</p>';
+            $retval .= '<ul>';
+            $retval .= '<li>';
+            $retval .= __(
+                'Create the needed tables with the '
+                . '<code>examples/create_tables.sql</code>.'
+            );
+            $retval .= ' ' . PMA_Util::showDocu('setup', 'linked-tables');
+            $retval .= '</li>';
+            $retval .= '<li>';
+            $retval .= __('Create a pma user and give access to these tables.');
+            $retval .= ' ' . PMA_Util::showDocu('config', 'cfg_Servers_controluser');
+            $retval .= '</li>';
+            $retval .= '<li>';
+            $retval .= __(
+                'Enable advanced features in configuration file '
+                . '(<code>config.inc.php</code>), for example by '
+                . 'starting from <code>config.sample.inc.php</code>.'
+            );
+            $retval .= ' ' . PMA_Util::showDocu('setup', 'quick-install');
+            $retval .= '</li>';
+            $retval .= '<li>';
+            $retval .= __(
+                'Re-login to phpMyAdmin to load the updated configuration file.'
+            );
+            $retval .= '</li>';
+            $retval .= '</ul>';
+        }
     }
 
     return $retval;
@@ -1334,7 +1341,7 @@ function PMA_getRelatives($all_tables, $master)
     $known_tables = array();
     $known_tables[$master] = $master;
     $run = 0;
-    while (count($remaining_tables) > 0) {
+    while ($GLOBALS['cfgRelation']['relwork'] && count($remaining_tables) > 0) {
         // Whether to go from master to foreign or vice versa
         if ($run % 2 == 0) {
             $from = 'master';
@@ -1722,5 +1729,157 @@ function PMA_searchColumnInForeigners($foreigners, $column)
     }
 
     return false;
+}
+
+/**
+ * Searches a DB for the existence of PMA tables.
+ *
+ * @param string $db     Database
+ * @param array  $tables Default table names
+ *
+ * @return bool
+ */
+function PMA_searchPMATablesInDb($db, $tables)
+{
+    $tab_rs = $GLOBALS['dbi']->getTables($db);
+
+    if ($tab_rs === false) {
+        return false;
+    }
+
+    foreach ($tab_rs as $curr_table) {
+        if (in_array($curr_table, $tables)) {
+            $tables = array_diff($tables, array($curr_table));
+        }
+    }
+
+    if (count($tables) != 0) {
+        return false;
+    }
+
+    return true;
+}
+
+/**
+ * Returns default PMA table names and their create queries.
+ *
+ * @return array table name, create query
+ */
+function PMA_getDefaultPMATableNames()
+{
+    $pma_tables = array();
+    if (PMA_DRIZZLE) {
+        $create_tables_file = file_get_contents(
+            'examples/create_tables_drizzle.sql'
+        );
+    } else {
+        $create_tables_file = file_get_contents(
+            'examples/create_tables.sql'
+        );
+    }
+
+    $queries = explode(';', $create_tables_file);
+
+    foreach ($queries as $query) {
+        if (preg_match(
+            '/CREATE TABLE IF NOT EXISTS `(.*)` \(/',
+            $query,
+            $table
+        )
+        ) {
+            $pma_tables[$table[1]] = $query . ';';
+        }
+    }
+
+    return $pma_tables;
+}
+
+/**
+ * Creates PMA tables in the given db, updates if already exists.
+ *
+ * @param string $db Database
+ *
+ * @return void
+ */
+function PMA_fixPMATables($db)
+{
+    $default_tables = PMA_getDefaultPMATableNames();
+    $GLOBALS['dbi']->selectDb($db);
+
+    foreach ($default_tables as $table => $create_query) {
+        $GLOBALS['dbi']->tryQuery($create_query);
+
+        if ($error = $GLOBALS['dbi']->getError()) {
+            $GLOBALS['message'] = $error;
+            break;
+        }
+
+        if ($table == 'pma__bookmark') {
+            $GLOBALS['cfg']['Server']['bookmarktable']           = $table;
+        } elseif ($table == 'pma__relation') {
+            $GLOBALS['cfg']['Server']['relation']           = $table;
+        } elseif ($table == 'pma__table_info') {
+            $GLOBALS['cfg']['Server']['table_info']         = $table;
+        } elseif ($table == 'pma__table_coords') {
+            $GLOBALS['cfg']['Server']['table_coords']       = $table;
+        } elseif ($table == 'pma__column_info') {
+            $GLOBALS['cfg']['Server']['column_info']        = $table;
+        } elseif ($table == 'pma__pdf_pages') {
+            $GLOBALS['cfg']['Server']['pdf_pages']          = $table;
+        } elseif ($table == 'pma__history') {
+            $GLOBALS['cfg']['Server']['history']            = $table;
+        } elseif ($table == 'pma__recent') {
+            $GLOBALS['cfg']['Server']['recent']             = $table;
+        } elseif ($table == 'pma__table_uiprefs') {
+            $GLOBALS['cfg']['Server']['table_uiprefs']      = $table;
+        } elseif ($table == 'pma__tracking') {
+            $GLOBALS['cfg']['Server']['tracking']           = $table;
+        } elseif ($table == 'pma__userconfig') {
+            $GLOBALS['cfg']['Server']['userconfig']         = $table;
+        } elseif ($table == 'pma__users') {
+            $GLOBALS['cfg']['Server']['users']              = $table;
+        } elseif ($table == 'pma__usergroups') {
+            $GLOBALS['cfg']['Server']['usergroups']         = $table;
+        } elseif ($table == 'pma__navigationhiding') {
+            $GLOBALS['cfg']['Server']['navigationhiding']   = $table;
+        } elseif ($table == 'pma__savedsearches') {
+            $GLOBALS['cfg']['Server']['savedsearches']      = $table;
+        } elseif ($table == 'pma__central_columns') {
+            $GLOBALS['cfg']['Server']['central_columns']    = $table;
+        } else if ($table == 'pma__designer_coords') {
+            $GLOBALS['cfg']['Server']['designer_coords']    = $table;
+        }
+    }
+    $GLOBALS['cfg']['Server']['pmadb'] = $db;
+    $_SESSION['relation'][$GLOBALS['server']] = PMA_checkRelationsParam();
+}
+
+/**
+ * Get Html for PMA tables fixing anchor.
+ *
+ * @return string Html
+ */
+function PMA_getHtmlFixPMATables()
+{
+    $retval = '';
+
+    $url_query = PMA_URL_getCommon($GLOBALS['db']);
+    $url_query .= '&amp;goto=db_operations.php&amp;fix_pmadb=1';
+    $message = PMA_Message::notice(
+        __(
+            '%sCreate%s the phpMyAdmin configuration storage in the '
+            . 'current database.'
+        )
+    );
+    $message->addParam(
+        '<a href="' . $GLOBALS['cfg']['PmaAbsoluteUri']
+        . 'chk_rel.php?' . $url_query . '">',
+        false
+    );
+    $message->addParam('</a>', false);
+
+    $retval .= $message->getDisplay();
+
+    return $retval;
 }
 ?>
