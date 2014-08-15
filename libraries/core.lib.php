@@ -364,22 +364,12 @@ function PMA_getRealSize($size = 0)
         'b'  =>          1,
     );
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     foreach ($scan as $unit => $factor) {
-        if ($pmaString->strlen($size) > $pmaString->strlen($unit)
-            && $pmaString->strtolower(
-                $pmaString->substr(
-                    $size, $pmaString->strlen($size) - $pmaString->strlen($unit)
-                )
-            )
+        if (strlen($size) > strlen($unit)
+            && strtolower(substr($size, strlen($size) - strlen($unit)))
             == $unit
         ) {
-            return $pmaString->substr(
-                $size,
-                0,
-                $pmaString->strlen($size) - $pmaString->strlen($unit)
-            ) * $factor;
+            return substr($size, 0, strlen($size) - strlen($unit)) * $factor;
         }
     }
 
