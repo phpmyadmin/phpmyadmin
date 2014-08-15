@@ -3894,8 +3894,6 @@ class PMA_DisplayResults
         // if binary fields are protected
         // or transformation plugin is of non text type
         // such as image
-        $posMimeText = $pmaString
-            ->strpos($transformation_plugin->getMIMEtype(), 'Text');
         if ((stristr($field_flags, self::BINARY_FIELD)
             && ($GLOBALS['cfg']['ProtectBinary'] === 'all'
             || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob'
@@ -3903,7 +3901,8 @@ class PMA_DisplayResults
             || ($GLOBALS['cfg']['ProtectBinary'] === 'blob'
             && stristr($meta->type, self::BLOB_FIELD))))
             || (gettype($transformation_plugin) === 'object'
-            && $posMimeText === false)
+            && $pmaString->strpos($transformation_plugin->getMIMEtype(), 'Text')
+                === false)
         ) {
             $class = str_replace('grid_edit', '', $class);
         }
