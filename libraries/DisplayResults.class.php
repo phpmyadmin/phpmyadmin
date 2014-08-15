@@ -5485,47 +5485,50 @@ class PMA_DisplayResults
         $result .= ']';
 
         // if we want to use a text transformation on a BLOB column
-        $posMimeOctetstream = $pmaString
-            ->strpos($transformation_plugin->getMIMESubtype(), 'Octetstream');
-        $posMimeText = $pmaString->strpos($transformation_plugin->getMIMEtype(), 'Text');
-        if (gettype($transformation_plugin) === "object"
-            && ($posMimeOctetstream
-            || $posMimeText !== false)
-        ) {
-            // Applying Transformations on hex string of binary data
-            // seems more appropriate
-            $result = bin2hex($content);
+        if (gettype($transformation_plugin) === "object") {
+            $posMimeOctetstream = $pmaString
+                ->strpos($transformation_plugin->getMIMESubtype(), 'Octetstream');
+            $posMimeText = $pmaString
+                ->strpos($transformation_plugin->getMIMEtype(), 'Text');
+            if ($posMimeOctetstream
+                || $posMimeText !== false
+            ) {
+                // Applying Transformations on hex string of binary data
+                // seems more appropriate
+                $result = bin2hex($content);
+            }
         }
 
-        if ($size > 0) {
+        if ($size <= 0) {
+            return($result);
+        }
 
-            if ($default_function != $transformation_plugin) {
-                $result = $transformation_plugin->applyTransformation(
-                    $result,
-                    $transform_options,
-                    $meta
-                );
-            } else {
+        if ($default_function != $transformation_plugin) {
+            $result = $transformation_plugin->applyTransformation(
+                $result,
+                $transform_options,
+                $meta
+            );
+            return($result);
+        }
 
-                $result = $default_function($result, array(), $meta);
-                if (($_SESSION['tmpval']['display_binary']
-                    && $meta->type === self::STRING_FIELD)
-                    || ($_SESSION['tmpval']['display_blob']
-                    && stristr($meta->type, self::BLOB_FIELD))
-                ) {
-                    // in this case, restart from the original $content
-                    $result = bin2hex($content);
-                    $is_truncated = $this->_getPartialText($result);
-                }
+        $result = $default_function($result, array(), $meta);
+        if (($_SESSION['tmpval']['display_binary']
+            && $meta->type === self::STRING_FIELD)
+            || ($_SESSION['tmpval']['display_blob']
+            && stristr($meta->type, self::BLOB_FIELD))
+        ) {
+            // in this case, restart from the original $content
+            $result = bin2hex($content);
+            $is_truncated = $this->_getPartialText($result);
+        }
 
-                /* Create link to download */
-                if (count($url_params) > 0) {
-                    $result = '<a href="tbl_get_field.php'
-                        . PMA_URL_getCommon($url_params)
-                        . '" class="disableAjax">'
-                        . $result . '</a>';
-                }
-            }
+        /* Create link to download */
+        if (count($url_params) > 0) {
+            $result = '<a href="tbl_get_field.php'
+                . PMA_URL_getCommon($url_params)
+                . '" class="disableAjax">'
+                . $result . '</a>';
         }
 
         return($result);
