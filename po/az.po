@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-08-04 21:27+0200\n"
+"PO-Revision-Date: 2014-08-15 11:35+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/az/>\n"
@@ -5918,7 +5918,7 @@ msgstr "Verilənlər Bazasının adı"
 
 #: libraries/config/messages.inc.php:640
 msgid "Port on which MySQL server is listening, leave empty for default."
-msgstr ""
+msgstr "MySQL serverinin dinlədiyi portu, susmaya görə boş buraxın."
 
 #: libraries/config/messages.inc.php:641
 msgid "Server port"
