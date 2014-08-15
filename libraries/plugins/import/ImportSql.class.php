@@ -398,6 +398,8 @@ class ImportSql extends ImportPlugin
                     // Do not try to execute empty SQL
                     if (! preg_match('/^([\s]*;)*$/', trim($tmp_sql))) {
                         $sql = $tmp_sql;
+                        $sql = preg_replace('/(#|-- ).*?\n/', '', trim($tmp_sql));
+                        $sql = preg_replace('/\/\*.*?\*\//', '', trim($sql));
                         PMA_importRunQuery(
                             $sql,
                             substr($buffer, 0, $i + strlen($sql_delimiter)),
