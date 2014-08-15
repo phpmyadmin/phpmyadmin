@@ -670,7 +670,9 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
     $retval['item_returnopts_num']  = '';
     $retval['item_returnopts_text'] = '';
     if (! empty($routine['DTD_IDENTIFIER'])) {
-        if (strlen($routine['DTD_IDENTIFIER']) > 63) {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+        if ($pmaString->strlen($routine['DTD_IDENTIFIER']) > 63) {
             // If the DTD_IDENTIFIER string from INFORMATION_SCHEMA is
             // at least 64 characters, then it may actually have been
             // chopped because that column is a varchar(64), so we will

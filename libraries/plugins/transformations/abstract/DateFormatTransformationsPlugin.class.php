@@ -58,10 +58,13 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             $options[0] = 0;
         }
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         if (empty($options[2])) {
             $options[2] = 'local';
         } else {
-            $options[2] = strtolower($options[2]);
+            $options[2] = $pmaString->strtolower($options[2]);
         }
 
         if (empty($options[1])) {
@@ -86,19 +89,20 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             // for example TIMESTAMP(8) means YYYYMMDD)
         } else if (preg_match('/^(\d{2}){3,7}$/', $buffer)) {
 
-            if (strlen($buffer) == 14 || strlen($buffer) == 8) {
+            if ($pmaString->strlen($buffer) == 14
+                || $pmaString->strlen($buffer) == 8) {
                 $offset = 4;
             } else {
                 $offset = 2;
             }
 
             $d = array();
-            $d['year']   = substr($buffer, 0, $offset);
-            $d['month']  = substr($buffer, $offset, 2);
-            $d['day']    = substr($buffer, $offset + 2, 2);
-            $d['hour']   = substr($buffer, $offset + 4, 2);
-            $d['minute'] = substr($buffer, $offset + 6, 2);
-            $d['second'] = substr($buffer, $offset + 8, 2);
+            $d['year']   = $pmaString->substr($buffer, 0, $offset);
+            $d['month']  = $pmaString->substr($buffer, $offset, 2);
+            $d['day']    = $pmaString->substr($buffer, $offset + 2, 2);
+            $d['hour']   = $pmaString->substr($buffer, $offset + 4, 2);
+            $d['minute'] = $pmaString->substr($buffer, $offset + 6, 2);
+            $d['second'] = $pmaString->substr($buffer, $offset + 8, 2);
 
             if (checkdate($d['month'], $d['day'], $d['year'])) {
                 $timestamp = mktime(

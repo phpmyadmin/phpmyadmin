@@ -107,8 +107,11 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
         return in_array($var, $type);
     }
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     // allow some aliaes of var types
-    $type = strtolower($type);
+    $type = $pmaString->strtolower($type);
     switch ($type) {
     case 'identic' :
         $type = 'identical';
@@ -156,7 +159,7 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
     if ($type === 'length' || $type === 'scalar') {
         $is_scalar = is_scalar($var);
         if ($is_scalar && $type === 'length') {
-            return (bool) strlen($var);
+            return (bool) $pmaString->strlen($var);
         }
         return $is_scalar;
     }
@@ -361,11 +364,22 @@ function PMA_getRealSize($size = 0)
         'b'  =>          1,
     );
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
     foreach ($scan as $unit => $factor) {
-        if (strlen($size) > strlen($unit)
-            && strtolower(substr($size, strlen($size) - strlen($unit))) == $unit
+        if ($pmaString->strlen($size) > $pmaString->strlen($unit)
+            && $pmaString->strtolower(
+                $pmaString->substr(
+                    $size, $pmaString->strlen($size) - $pmaString->strlen($unit)
+                )
+            )
+            == $unit
         ) {
-            return substr($size, 0, strlen($size) - strlen($unit)) * $factor;
+            return $pmaString->substr(
+                $size,
+                0,
+                $pmaString->strlen($size) - $pmaString->strlen($unit)
+            ) * $factor;
         }
     }
 
@@ -491,12 +505,16 @@ function PMA_checkPageValidity(&$page, $whitelist)
         return true;
     }
 
-    if (in_array(substr($page, 0, strpos($page . '?', '?')), $whitelist)) {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+    $_page = $pmaString->substr($page, 0, $pmaString->strpos($page . '?', '?'));
+    if (in_array($_page, $whitelist)) {
         return true;
     }
 
     $_page = urldecode($page);
-    if (in_array(substr($_page, 0, strpos($_page . '?', '?')), $whitelist)) {
+    $_page = $pmaString->substr($_page, 0, $pmaString->strpos($_page . '?', '?'));
+    if (in_array($_page, $whitelist)) {
         return true;
     }
 
@@ -546,7 +564,9 @@ function PMA_getenv($var_name)
  */
 function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
-    if (PMA_IS_IIS && strlen($uri) > 600) {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+    if (PMA_IS_IIS && $pmaString->strlen($uri) > 600) {
         include_once './libraries/js_escape.lib.php';
         PMA_Response::getInstance()->disable();
 
@@ -575,7 +595,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
     }
 
     if (SID) {
-        if (strpos($uri, '?') === false) {
+        if ($pmaString->strpos($uri, '?') === false) {
             header('Location: ' . $uri . '?' . SID);
         } else {
             $separator = PMA_URL_getArgSeparator();

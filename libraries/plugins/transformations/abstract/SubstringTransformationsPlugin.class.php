@@ -52,16 +52,18 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
         // further operations on $buffer using the $options[] array.
         $options = $this->getOptions($options, array(0, 'all', '…'));
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
         if ($options[1] != 'all') {
-            $newtext = $GLOBALS['PMA_String']->substr(
+            $newtext = $pmaString->substr(
                 $buffer, $options[0], $options[1]
             );
         } else {
-            $newtext = $GLOBALS['PMA_String']->substr($buffer, $options[0]);
+            $newtext = $pmaString->substr($buffer, $options[0]);
         }
 
-        $length = strlen($newtext);
-        $baselength = strlen($buffer);
+        $length = $pmaString->strlen($newtext);
+        $baselength = $pmaString->strlen($buffer);
         if ($length != $baselength) {
             if ($options[0] != 0) {
                 $newtext = $options[2] . $newtext;

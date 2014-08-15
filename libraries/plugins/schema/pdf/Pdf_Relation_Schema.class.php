@@ -345,13 +345,16 @@ class PMA_Schema_PDF extends PMA_PDF
      */
     function NbLines($w, $txt)
     {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         $cw = &$this->CurrentFont['cw'];
         if ($w == 0) {
             $w = $this->w - $this->rMargin - $this->x;
         }
         $wmax = ($w-2 * $this->cMargin) * 1000 / $this->FontSize;
         $s = str_replace("\r", '', $txt);
-        $nb = strlen($s);
+        $nb = $pmaString->strlen($s);
         if ($nb > 0 and $s[$nb-1] == "\n") {
             $nb--;
         }
@@ -373,7 +376,7 @@ class PMA_Schema_PDF extends PMA_PDF
             if ($c == ' ') {
                 $sep = $i;
             }
-            $l += isset($cw[ord($c)])?$cw[ord($c)]:0 ;
+            $l += isset($cw[$pmaString->ord($c)])?$cw[$pmaString->ord($c)]:0 ;
             if ($l > $wmax) {
                 if ($sep == -1) {
                     if ($i == $j) {

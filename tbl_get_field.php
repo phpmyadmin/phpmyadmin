@@ -49,7 +49,7 @@ if ($result === false) {
 PMA_downloadHeader(
     $table . '-' .  $_GET['transform_key'] . '.bin',
     PMA_detectMIME($result),
-    strlen($result)
+    $GLOBALS['PMA_String']->strlen($result)
 );
 echo $result;
 ?>

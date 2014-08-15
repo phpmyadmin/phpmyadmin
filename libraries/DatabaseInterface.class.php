@@ -497,12 +497,15 @@ class PMA_DatabaseInterface
             $sql, array('TABLE_SCHEMA', 'TABLE_NAME'), null, $link
         );
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         if (PMA_DRIZZLE) {
             // correct I_S and D_D names returned by D_D.TABLES -
             // Drizzle generally uses lower case for them,
             // but TABLES returns uppercase
             foreach ((array)$database as $db) {
-                $db_upper = strtoupper($db);
+                $db_upper = $pmaString->strtoupper($db);
                 if (!isset($tables[$db]) && isset($tables[$db_upper])) {
                     $tables[$db] = $tables[$db_upper];
                     unset($tables[$db_upper]);
@@ -543,32 +546,36 @@ class PMA_DatabaseInterface
 
         $this->_cacheTableData($tables, $table);
 
-        if (! is_array($database)) {
-            if (isset($tables[$database])) {
-                return $tables[$database];
-            } elseif (isset($tables[strtolower($database)])) {
-                // on windows with lower_case_table_names = 1
-                // MySQL returns
-                // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
-                // but information_schema.TABLES gives `test`
-                // bug #2036
-                // https://sourceforge.net/p/phpmyadmin/bugs/2036/
-                return $tables[strtolower($database)];
-            } else {
-                // one database but inexact letter case match
-                // as Drizzle is always case insensitive,
-                // we can safely return the only result
-                if (PMA_DRIZZLE && count($tables) == 1) {
-                    $keys = array_keys($tables);
-                    if (strlen(array_pop($keys)) == strlen($database)) {
-                        return array_pop($tables);
-                    }
-                }
-                return $tables;
-            }
-        } else {
+        if (is_array($database)) {
             return $tables;
         }
+
+        if (isset($tables[$database])) {
+            return $tables[$database];
+        }
+
+        if (isset($tables[$pmaString->strtolower($database)])) {
+            // on windows with lower_case_table_names = 1
+            // MySQL returns
+            // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
+            // but information_schema.TABLES gives `test`
+            // bug #2036
+            // https://sourceforge.net/p/phpmyadmin/bugs/2036/
+            return $tables[$pmaString->strtolower($database)];
+        }
+
+        // one database but inexact letter case match
+        // as Drizzle is always case insensitive,
+        // we can safely return the only result
+        if (!PMA_DRIZZLE || !count($tables) == 1) {
+            return $tables;
+        }
+
+        $keys = array_keys($tables);
+        if ($pmaString->strlen(array_pop($keys)) == $pmaString->strlen($database)) {
+            return array_pop($tables);
+        }
+        return $tables;
     }
 
     /**
@@ -640,7 +647,9 @@ class PMA_DatabaseInterface
             $tables[$table_name]['TABLE_COMMENT']
                 =& $tables[$table_name]['Comment'];
 
-            if (strtoupper($tables[$table_name]['Comment']) === 'VIEW'
+            $commentUpper = $GLOBALS['PMA_String']
+                ->strtoupper($tables[$table_name]['Comment']);
+            if ($commentUpper === 'VIEW'
                 && $tables[$table_name]['Engine'] == null
             ) {
                 $tables[$table_name]['TABLE_TYPE'] = 'VIEW';
@@ -701,7 +710,7 @@ class PMA_DatabaseInterface
         $link = null, $sort_by = 'SCHEMA_NAME', $sort_order = 'ASC',
         $limit_offset = 0, $limit_count = false
     ) {
-        $sort_order = strtoupper($sort_order);
+        $sort_order = $GLOBALS['PMA_String']->strtoupper($sort_order);
 
         if (true === $limit_count) {
             $limit_count = $GLOBALS['cfg']['MaxDbList'];

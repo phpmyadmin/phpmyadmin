@@ -426,12 +426,16 @@ class PMA_Config
         if (! $ref_head = @file_get_contents($git_folder . '/HEAD')) {
             return;
         }
+
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
         $branch = false;
         // are we on any branch?
+        //@TODO Implement strstr in PMA_String
         if (strstr($ref_head, '/')) {
-            $ref_head = substr(trim($ref_head), 5);
-            if (substr($ref_head, 0, 11) === 'refs/heads/') {
-                $branch = substr($ref_head, 11);
+            $ref_head = $pmaString->substr(trim($ref_head), 5);
+            if ($pmaString->substr($ref_head, 0, 11) === 'refs/heads/') {
+                $branch = $pmaString->substr($ref_head, 11);
             } else {
                 $branch = basename($ref_head);
             }
@@ -479,8 +483,9 @@ class PMA_Config
 
         $commit = false;
         if (! isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
-            $git_file_name = $git_folder . '/objects/' . substr($hash, 0, 2)
-                    . '/' . substr($hash, 2);
+            $git_file_name = $git_folder . '/objects/'
+                . $pmaString->substr($hash, 0, 2)
+                . '/' . $pmaString->substr($hash, 2);
             if (file_exists($git_file_name) ) {
                 if (! $commit = @file_get_contents($git_file_name)) {
                     return;
@@ -499,7 +504,7 @@ class PMA_Config
                     // packs. (to look for them in .git/object/pack directory later)
                     foreach (explode("\n", $packs) as $line) {
                         // skip blank lines
-                        if (strlen(trim($line)) == 0) {
+                        if ($pmaString->strlen(trim($line)) == 0) {
                             continue;
                         }
                         // skip non pack lines
@@ -507,7 +512,7 @@ class PMA_Config
                             continue;
                         }
                         // parse names
-                        $pack_names[] = substr($line, 2);
+                        $pack_names[] = $pmaString->substr($line, 2);
                     }
                 } else {
                     // '.git/objects/info/packs' file can be missing
@@ -522,13 +527,13 @@ class PMA_Config
                         $file_name = $file_info->getFilename();
                         // if this is a .pack file
                         if ($file_info->isFile()
-                            && substr($file_name, -5) == '.pack'
+                            && $pmaString->substr($file_name, -5) == '.pack'
                         ) {
                             $pack_names[] = $file_name;
                         }
                     }
                 }
-                $hash = strtolower($hash);
+                $hash = $pmaString->strtolower($hash);
                 foreach ($pack_names as $pack_name) {
                     $index_name = str_replace('.pack', '.idx', $pack_name);
 
@@ -540,19 +545,22 @@ class PMA_Config
                         continue;
                     }
                     // check format
-                    if (substr($index_data, 0, 4) != "\377tOc") {
+                    if ($pmaString->substr($index_data, 0, 4) != "\377tOc") {
                         continue;
                     }
                     // check version
-                    $version = unpack('N', substr($index_data, 4, 4));
+                    $version = unpack('N', $pmaString->substr($index_data, 4, 4));
                     if ($version[1] != 2) {
                         continue;
                     }
                     // parse fanout table
-                    $fanout = unpack("N*", substr($index_data, 8, 256 * 4));
+                    $fanout = unpack(
+                        "N*",
+                        $pmaString->substr($index_data, 8, 256 * 4)
+                    );
 
                     // find where we should search
-                    $firstbyte = intval(substr($hash, 0, 2), 16);
+                    $firstbyte = intval($pmaString->substr($hash, 0, 2), 16);
                     // array is indexed from 1 and we need to get
                     // previous entry for start
                     if ($firstbyte == 0) {
@@ -566,9 +574,9 @@ class PMA_Config
                     $found = false;
                     $offset = 8 + (256 * 4);
                     for ($position = $start; $position < $end; $position++) {
-                        $sha = strtolower(
+                        $sha = $pmaString->strtolower(
                             bin2hex(
-                                substr(
+                                $pmaString->substr(
                                     $index_data, $offset + ($position * 20), 20
                                 )
                             )
@@ -584,7 +592,8 @@ class PMA_Config
                     // read pack offset
                     $offset = 8 + (256 * 4) + (24 * $fanout[256]);
                     $pack_offset = unpack(
-                        'N', substr($index_data, $offset + ($position * 4), 4)
+                        'N',
+                        $pmaString->substr($index_data, $offset + ($position * 4), 4)
                     );
                     $pack_offset = $pack_offset[1];
 
@@ -599,14 +608,14 @@ class PMA_Config
                     fseek($pack_file, $pack_offset);
 
                     // parse header
-                    $header = ord(fread($pack_file, 1));
+                    $header = $pmaString->ord(fread($pack_file, 1));
                     $type = ($header >> 4) & 7;
                     $hasnext = ($header & 128) >> 7;
                     $size = $header & 0xf;
                     $offset = 4;
 
                     while ($hasnext) {
-                        $byte = ord(fread($pack_file, 1));
+                        $byte = $pmaString->ord(fread($pack_file, 1));
                         $size |= ($byte & 0x7f) << $offset;
                         $hasnext = ($byte & 128) >> 7;
                         $offset += 7;
@@ -769,10 +778,24 @@ class PMA_Config
         }
         $httpOk = 'HTTP/1.1 200 OK';
         $httpNotFound = 'HTTP/1.1 404 Not Found';
-        if (substr($data, 0, strlen($httpOk)) === $httpOk) {
-            return $get_body ? substr($data, strpos($data, "\r\n\r\n") + 4) : true;
-        } elseif (substr($data, 0, strlen($httpNotFound)) === $httpNotFound) {
-            return false;
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+        if ($pmaString->substr($data, 0, $pmaString->strlen($httpOk)) === $httpOk) {
+            return $get_body
+                ? $pmaString->substr(
+                    $data,
+                    $pmaString->strpos($data, "\r\n\r\n") + 4
+                )
+                : true;
+        } else{
+            $httpNOK = $pmaString->substr(
+                $data,
+                0,
+                $pmaString->strlen($httpNotFound)
+            );
+            if ($httpNOK === $httpNotFound) {
+                return false;
+            }
         }
         return null;
     }
@@ -1259,7 +1282,9 @@ class PMA_Config
         $pma_absolute_uri = $this->get('PmaAbsoluteUri');
         $is_https = $this->detectHttps();
 
-        if (strlen($pma_absolute_uri) < 5) {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+        if ($pmaString->strlen($pma_absolute_uri) < 5) {
             $url = array();
 
             // If we don't have scheme, we didn't have full URL so we need to
@@ -1355,7 +1380,7 @@ class PMA_Config
                 $path = '';
             }
             // in vhost situations, there could be already an ending slash
-            if (substr($path, -1) != '/') {
+            if ($pmaString->substr($path, -1) != '/') {
                 $path .= '/';
             }
             $pma_absolute_uri .= $path;
@@ -1377,18 +1402,21 @@ class PMA_Config
 
             // Adds a trailing slash et the end of the phpMyAdmin uri if it
             // does not exist.
-            if (substr($pma_absolute_uri, -1) != '/') {
+            if ($pmaString->substr($pma_absolute_uri, -1) != '/') {
                 $pma_absolute_uri .= '/';
             }
 
             // If URI doesn't start with http:// or https://, we will add
             // this.
-            if (substr($pma_absolute_uri, 0, 7) != 'http://'
-                && substr($pma_absolute_uri, 0, 8) != 'https://'
+            if ($pmaString->substr($pma_absolute_uri, 0, 7) != 'http://'
+                && $pmaString->substr($pma_absolute_uri, 0, 8) != 'https://'
             ) {
                 $pma_absolute_uri
                     = ($is_https ? 'https' : 'http')
-                    . ':' . (substr($pma_absolute_uri, 0, 2) == '//' ? '' : '//')
+                    . ':'
+                    . (
+                    $pmaString->substr($pma_absolute_uri, 0, 2) == '//' ? '' : '//'
+                    )
                     . $pma_absolute_uri;
             }
         }
@@ -1815,7 +1843,9 @@ class PMA_Config
     function setCookie($cookie, $value, $default = null, $validity = null,
         $httponly = true
     ) {
-        if (strlen($value) && null !== $default && $value === $default) {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+        if ($pmaString->strlen($value) && null !== $default && $value === $default) {
             // default value is used
             if (isset($_COOKIE[$cookie])) {
                 // remove cookie
@@ -1824,7 +1854,7 @@ class PMA_Config
             return false;
         }
 
-        if (! strlen($value) && isset($_COOKIE[$cookie])) {
+        if (!$pmaString->strlen($value) && isset($_COOKIE[$cookie])) {
             // remove cookie, value is empty
             return $this->removeCookie($cookie);
         }

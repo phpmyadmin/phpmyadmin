@@ -2061,6 +2061,8 @@ class ExportSql extends ExportPlugin
                 $separator      = ';';
             }
 
+            /** @var PMA_String $pmaString */
+            $pmaString = $GLOBALS['PMA_String'];
             while ($row = $GLOBALS['dbi']->fetchRow($result)) {
                 if ($current_row == 0) {
                     $head = $this->_possibleCRLF()
@@ -2182,7 +2184,7 @@ class ExportSql extends ExportPlugin
                             $sql_max_size = $GLOBALS['sql_max_query_size'];
                             if (isset($sql_max_size)
                                 && $sql_max_size > 0
-                                && $query_size + strlen($insert_line) > $sql_max_size
+                                && $query_size + $pmaString->strlen($insert_line) > $sql_max_size
                             ) {
                                 if (! PMA_exportOutputHandler(';' . $crlf)) {
                                     return false;
@@ -2192,7 +2194,7 @@ class ExportSql extends ExportPlugin
                                 $insert_line = $schema_insert . $insert_line;
                             }
                         }
-                        $query_size += strlen($insert_line);
+                        $query_size += $pmaString->strlen($insert_line);
                         // Other inserts case
                     } else {
                         $insert_line = $schema_insert

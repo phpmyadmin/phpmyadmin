@@ -34,9 +34,12 @@ function PMA_getUrlParams(
         'query_type' => $what,
         'reload' => (! empty($reload) ? 1 : 0),
     );
-    if (strpos(' ' . $action, 'db_') == 1) {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+    if ($pmaString->strpos(' ' . $action, 'db_') == 1) {
         $_url_params['db']= $db;
-    } elseif (strpos(' ' . $action, 'tbl_') == 1 || $what == 'row_delete') {
+    } elseif ($pmaString->strpos(' ' . $action, 'tbl_') == 1
+        || $what == 'row_delete') {
         $_url_params['db']= $db;
         $_url_params['table']= $table;
     }
@@ -99,6 +102,9 @@ function PMA_getQueryStrFromSelected(
 
     $selected_cnt   = count($selected);
     $deletes = false;
+
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
 
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
@@ -224,8 +230,11 @@ function PMA_getQueryStrFromSelected(
 
         case 'replace_prefix_tbl':
             $current = $selected[$i];
-            if (substr($current, 0, strlen($from_prefix)) == $from_prefix) {
-                $newtablename = $to_prefix . substr($current, strlen($from_prefix));
+            $subFromPrefix = $pmaString
+                ->substr($current, 0, $pmaString->strlen($from_prefix));
+            if ($subFromPrefix == $from_prefix) {
+                $newtablename = $to_prefix
+                    . $pmaString->substr($current, $pmaString->strlen($from_prefix));
             } else {
                 $newtablename = $current;
             }
@@ -239,7 +248,8 @@ function PMA_getQueryStrFromSelected(
 
         case 'copy_tbl_change_prefix':
             $current = $selected[$i];
-            $newtablename = $to_prefix . substr($current, strlen($from_prefix));
+            $newtablename = $to_prefix .
+                $pmaString->substr($current, $pmaString->strlen($from_prefix));
             // COPY TABLE AND CHANGE PREFIX PATTERN
             $a_query = 'CREATE TABLE '
                 . PMA_Util::backquote($newtablename)

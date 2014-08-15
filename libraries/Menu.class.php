@@ -81,7 +81,7 @@ class PMA_Menu
      */
     public function getHash()
     {
-        return substr(
+        return $GLOBALS['PMA_String']->substr(
             md5($this->_getMenu() . $this->_getBreadcrumbs()),
             0,
             8
@@ -98,11 +98,13 @@ class PMA_Menu
         $url_params = array('db' => $this->_db);
         $level = '';
 
-        if (strlen($this->_table)) {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+        if ($pmaString->strlen($this->_table)) {
             $tabs = $this->_getTableTabs();
             $url_params['table'] = $this->_table;
             $level = 'table';
-        } else if (strlen($this->_db)) {
+        } else if ($pmaString->strlen($this->_db)) {
             $tabs = $this->_getDbTabs();
             $level = 'db';
         } else {
@@ -146,8 +148,14 @@ class PMA_Menu
 
             $result = PMA_queryAsControlUser($sql_query, false);
             if ($result) {
+                /** @var PMA_String $pmaString */
+                $pmaString = $GLOBALS['PMA_String'];
+
                 while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                    $tabName = substr($row['tab'], strpos($row['tab'], '_') + 1);
+                    $tabName = $pmaString->substr(
+                        $row['tab'],
+                        $pmaString->strpos($row['tab'], '_') + 1
+                    );
                     unset($allowedTabs[$tabName]);
                 }
             }
@@ -195,7 +203,10 @@ class PMA_Menu
             __('Server')
         );
 
-        if (strlen($this->_db)) {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
+        if ($pmaString->strlen($this->_db)) {
             $retval .= $separator;
             if (PMA_Util::showIcons('TabsMode')) {
                 $retval .= PMA_Util::getImage(
@@ -213,7 +224,7 @@ class PMA_Menu
             );
             // if the table is being dropped, $_REQUEST['purge'] is set to '1'
             // so do not display the table name in upper div
-            if (strlen($this->_table)
+            if ($pmaString->strlen($this->_table)
                 && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')
             ) {
                 include './libraries/tbl_info.inc.php';

@@ -111,7 +111,7 @@ class PMA_Index
         PMA_Index::_loadIndexes($table, $schema);
         if (! isset(PMA_Index::$_registry[$schema][$table][$index_name])) {
             $index = new PMA_Index;
-            if (strlen($index_name)) {
+            if ($GLOBALS['PMA_String']->strlen($index_name)) {
                 $index->setName($index_name);
                 PMA_Index::$_registry[$schema][$table][$index->getName()] = $index;
             }
@@ -199,7 +199,8 @@ class PMA_Index
      */
     public function addColumn($params)
     {
-        if (isset($params['Column_name']) && strlen($params['Column_name'])) {
+        if (isset($params['Column_name'])
+            && $GLOBALS['PMA_String']->strlen($params['Column_name'])) {
             $this->_columns[$params['Column_name']] = new PMA_Index_Column($params);
         }
     }
@@ -339,7 +340,7 @@ class PMA_Index
     public function getComments()
     {
         $comments = $this->getRemarks();
-        if (strlen($comments)) {
+        if ($GLOBALS['PMA_String']->strlen($comments)) {
             $comments .= "\n";
         }
         $comments .= $this->getComment();

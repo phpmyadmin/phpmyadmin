@@ -157,9 +157,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 $PMA_PHP_SELF = PMA_getenv('PHP_SELF');
 $_PATH_INFO = PMA_getenv('PATH_INFO');
 if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
+    //@TODO Implement strrpos in PMA_String
     $path_info_pos = strrpos($PMA_PHP_SELF, $_PATH_INFO);
-    if ($path_info_pos + strlen($_PATH_INFO) === strlen($PMA_PHP_SELF)) {
-        $PMA_PHP_SELF = substr($PMA_PHP_SELF, 0, $path_info_pos);
+    $pathLength = $path_info_pos + $pmaString->strlen($_PATH_INFO);
+    if ($pathLength === $pmaString->strlen($PMA_PHP_SELF)) {
+        $PMA_PHP_SELF = $pmaString->substr($PMA_PHP_SELF, 0, $path_info_pos);
     }
 }
 $PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);

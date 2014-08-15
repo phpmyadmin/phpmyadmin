@@ -855,7 +855,9 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         );
     } // end if (ARIA)
 
-    if (strlen($auto_increment) > 0
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+    if ($pmaString->strlen($auto_increment) > 0
         && ($is_myisam_or_aria || $is_innodb || $is_pbxt)
     ) {
         $html_output .= '<tr><td>'
@@ -875,7 +877,8 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
     // (if the table was compressed, it can be seen on the Structure page)
 
     if (isset($possible_row_formats[$tbl_storage_engine])) {
-        $current_row_format = strtoupper($GLOBALS['showtable']['Row_format']);
+        $current_row_format
+            = $pmaString->strtoupper($GLOBALS['showtable']['Row_format']);
         $html_output .= '<tr><td>'
             . '<label for="new_row_format">ROW_FORMAT</label></td>'
             . '<td>';
@@ -1447,8 +1450,11 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
         $table_alters[] = 'COMMENT = \''
             . PMA_Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
+
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
     if (! empty($newTblStorageEngine)
-        && strtolower($newTblStorageEngine) !== strtolower($GLOBALS['tbl_storage_engine'])
+        && $pmaString->strtolower($newTblStorageEngine) !== $pmaString->strtolower($GLOBALS['tbl_storage_engine'])
     ) {
         $table_alters[] = 'ENGINE = ' . $newTblStorageEngine;
     }
@@ -1508,8 +1514,8 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
 
     if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
         &&  ! empty($_REQUEST['new_row_format'])
-        && (!strlen($row_format)
-        || strtolower($_REQUEST['new_row_format']) !== strtolower($row_format))
+        && (!$pmaString->strlen($row_format)
+        || $pmaString->strtolower($_REQUEST['new_row_format']) !== $pmaString->strtolower($row_format))
     ) {
         $table_alters[] = 'ROW_FORMAT = '
             . PMA_Util::sqlAddSlashes($_REQUEST['new_row_format']);

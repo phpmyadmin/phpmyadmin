@@ -8,6 +8,10 @@
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/tbl_chart.lib.php';
+
+/** @var PMA_String $pmaString */
+$pmaString = $GLOBALS['PMA_String'];
+
 /*
  * Execute the query and return the result
  */
@@ -17,7 +21,7 @@ if (isset($_REQUEST['ajax_request'])
 ) {
     $response = PMA_Response::getInstance();
 
-    if (strlen($GLOBALS['table']) && strlen($GLOBALS['db'])) {
+    if ($pmaString->strlen($GLOBALS['table']) && $pmaString->strlen($GLOBALS['db'])) {
         include './libraries/tbl_common.inc.php';
     }
 
@@ -76,12 +80,12 @@ $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
 /**
  * Runs common work
  */
-if (strlen($GLOBALS['table'])) {
+if ($pmaString->strlen($GLOBALS['table'])) {
     $url_params['goto'] = $cfg['DefaultTabTable'];
     $url_params['back'] = 'tbl_sql.php';
     include 'libraries/tbl_common.inc.php';
     include 'libraries/tbl_info.inc.php';
-} elseif (strlen($GLOBALS['db'])) {
+} elseif ($pmaString->strlen($GLOBALS['db'])) {
     $url_params['goto'] = $cfg['DefaultTabDatabase'];
     $url_params['back'] = 'sql.php';
     include 'libraries/db_common.inc.php';

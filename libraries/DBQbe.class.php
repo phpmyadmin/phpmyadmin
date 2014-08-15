@@ -334,7 +334,7 @@ class PMA_DbQbe
                     $this->_columnNames[] = $each_column;
                     // increase the width if necessary
                     $this->_form_column_width = max(
-                        strlen($each_column),
+                        $GLOBALS['PMA_String']->strlen($each_column),
                         $this->_form_column_width
                     );
                 } // end foreach

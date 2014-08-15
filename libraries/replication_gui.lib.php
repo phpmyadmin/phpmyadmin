@@ -659,7 +659,11 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
     list($username_length, $hostname_length)
         = PMA_replicationGetUsernameHostnameLength();
 
-    if (isset($_REQUEST['username']) && strlen($_REQUEST['username']) === 0) {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
+    if (isset($_REQUEST['username'])
+        && $pmaString->strlen($_REQUEST['username']) === 0) {
         $GLOBALS['pred_username'] = 'any';
     }
     $html .= '<div id="master_addslaveuser_gui">';
@@ -683,7 +687,7 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
         $thishost = str_replace(
             "'",
             '',
-            substr($_current_user, (strrpos($_current_user, '@') + 1))
+            $pmaString->substr($_current_user, (strrpos($_current_user, '@') + 1))
         );
         if ($thishost == 'localhost' || $thishost == '127.0.0.1') {
             unset($thishost);
@@ -704,7 +708,7 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
 
     // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
     if (! isset($GLOBALS['pred_hostname']) && isset($_REQUEST['hostname'])) {
-        switch (strtolower($_REQUEST['hostname'])) {
+        switch ($pmaString->strtolower($_REQUEST['hostname'])) {
         case 'localhost':
         case '127.0.0.1':
             $GLOBALS['pred_hostname'] = 'localhost';
