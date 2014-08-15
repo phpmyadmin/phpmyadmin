@@ -46,7 +46,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_String'] = new PMA_String();
         include_once 'libraries/Response.class.php';
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')

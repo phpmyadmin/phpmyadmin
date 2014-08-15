@@ -501,7 +501,7 @@ class PMA_Message
      */
     public function addMessage($message, $separator = ' ')
     {
-        if (strlen($separator)) {
+        if ($GLOBALS['PMA_String']->strlen($separator)) {
             $this->addedMessages[] = $separator;
         }
 
@@ -628,11 +628,13 @@ class PMA_Message
     {
         $message = $this->message;
 
-        if (0 === strlen($message)) {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+        if (0 === $pmaString->strlen($message)) {
             $string = $this->getString();
             if (isset($GLOBALS[$string])) {
                 $message = $GLOBALS[$string];
-            } elseif (0 === strlen($string)) {
+            } elseif (0 === $pmaString->strlen($string)) {
                 $message = '';
             } else {
                 $message = $string;

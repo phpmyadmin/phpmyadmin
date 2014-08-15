@@ -64,9 +64,11 @@ if (isset($_REQUEST['do_save_data'])) {
             && is_array($_REQUEST['field_mimetype'])
             && $cfg['BrowseMIME']
         ) {
+            /** @var PMA_String $pmaString */
+            $pmaString = $GLOBALS['PMA_String'];
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
-                    && strlen($_REQUEST['field_name'][$fieldindex])
+                    && $pmaString->strlen($_REQUEST['field_name'][$fieldindex])
                 ) {
                     PMA_setMIME(
                         $db, $table,

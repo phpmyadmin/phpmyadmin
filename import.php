@@ -97,7 +97,7 @@ $_SESSION['Import_message']['go_back_url'] = null;
 // default values
 $GLOBALS['reload'] = false;
 
-// Use to identify curren cycle is executing
+// Use to identify current cycle is executing
 // a multiquery statement or stored routine
 if (!isset($_SESSION['is_multi_query'])) {
     $_SESSION['is_multi_query'] = false;
@@ -222,6 +222,8 @@ PMA_Util::checkParameters(array('import_type', 'format'));
 
 // We don't want anything special in format
 $format = PMA_securePath($format);
+/** @var PMA_String $pmaString */
+$pmaString = $GLOBALS['PMA_String'];
 
 // Create error and goto url
 if ($import_type == 'table') {
@@ -238,17 +240,17 @@ if ($import_type == 'table') {
     $goto = 'server_import.php';
 } else {
     if (empty($goto) || !preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
-        if (strlen($table) && strlen($db)) {
+        if ($pmaString->strlen($table) && $pmaString->strlen($db)) {
             $goto = 'tbl_structure.php';
-        } elseif (strlen($db)) {
+        } elseif ($pmaString->strlen($db)) {
             $goto = 'db_structure.php';
         } else {
             $goto = 'server_sql.php';
         }
     }
-    if (strlen($table) && strlen($db)) {
+    if ($pmaString->strlen($table) && $pmaString->strlen($db)) {
         $common = PMA_URL_getCommon($db, $table);
-    } elseif (strlen($db)) {
+    } elseif ($pmaString->strlen($db)) {
         $common = PMA_URL_getCommon($db);
     } else {
         $common = PMA_URL_getCommon();
@@ -266,7 +268,7 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'import.php') {
 }
 
 
-if (strlen($db)) {
+if ($pmaString->strlen($db)) {
     $GLOBALS['dbi']->selectDb($db);
 }
 
@@ -390,12 +392,13 @@ if ($memory_limit == -1) {
 }
 
 // Calculate value of the limit
-if (strtolower(substr($memory_limit, -1)) == 'm') {
-    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024;
-} elseif (strtolower(substr($memory_limit, -1)) == 'k') {
-    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024;
-} elseif (strtolower(substr($memory_limit, -1)) == 'g') {
-    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024 * 1024;
+if ($pmaString->strtolower($pmaString->substr($memory_limit, -1)) == 'm') {
+    $memory_limit = (int)$pmaString->substr($memory_limit, 0, -1) * 1024 * 1024;
+} elseif ($pmaString->strtolower($pmaString->substr($memory_limit, -1)) == 'k') {
+    $memory_limit = (int)$pmaString->substr($memory_limit, 0, -1) * 1024;
+} elseif ($pmaString->strtolower($pmaString->substr($memory_limit, -1)) == 'g') {
+    $memory_limit
+        = (int)$pmaString->substr($memory_limit, 0, -1) * 1024 * 1024 * 1024;
 } else {
     $memory_limit = (int)$memory_limit;
 }
@@ -584,7 +587,7 @@ if (! $error && isset($skip)) {
 $sql_data = array('valid_sql' => array(), 'valid_queries' => 0);
 
 if (! $error) {
-    // Check for file existance
+    // Check for file existence
     include_once "libraries/plugin_interface.lib.php";
     $import_plugin = PMA_getPlugin(
         "import",
@@ -677,7 +680,8 @@ if (isset($message)) {
 // in case of a query typed in the query window
 // (but if the query is too large, in case of an imported file, the parser
 //  can choke on it so avoid parsing)
-if (strlen($sql_query) <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+if ($pmaString->strlen($sql_query) <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
+) {
     include_once 'libraries/parse_analyze.inc.php';
 }
 

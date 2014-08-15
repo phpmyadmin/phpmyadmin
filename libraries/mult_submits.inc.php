@@ -152,11 +152,13 @@ $views = $GLOBALS['dbi']->getVirtualTables($db);
 if (!empty($submit_mult) && !empty($what)) {
     unset($message);
 
-    if (strlen($table)) {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+    if ($pmaString->strlen($table)) {
         include './libraries/tbl_common.inc.php';
         $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
         include './libraries/tbl_info.inc.php';
-    } elseif (strlen($db)) {
+    } elseif ($pmaString->strlen($db)) {
         include './libraries/db_common.inc.php';
         include './libraries/db_info.inc.php';
     } else {

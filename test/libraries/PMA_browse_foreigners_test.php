@@ -232,7 +232,6 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
      */
     function testGetDescriptionAndTitle()
     {
-        $GLOBALS['PMA_String'] = new PMA_String();
         $GLOBALS['cfg']['LimitChars'] = 30;
         $desc = 'foobar<baz';
 

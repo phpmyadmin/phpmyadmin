@@ -69,17 +69,23 @@ function PMA_analyseShowGrant()
     $re0 = '(^|(\\\\\\\\)+|[^\\\\])'; // non-escaped wildcards
     $re1 = '(^|[^\\\\])(\\\)+'; // escaped wildcards
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     while ($row = $GLOBALS['dbi']->fetchRow($rs_usr)) {
         // extract db from GRANT ... ON *.* or GRANT ... ON db.*
-        $db_name_offset = strpos($row[0], ' ON ') + 4;
-        $show_grants_dbname = substr(
+        $db_name_offset = $pmaString->strpos($row[0], ' ON ') + 4;
+        $show_grants_dbname = $pmaString->substr(
             $row[0], $db_name_offset,
-            strpos($row[0], '.', $db_name_offset) - $db_name_offset
+            $pmaString->strpos($row[0], '.', $db_name_offset) - $db_name_offset
         );
-        $show_grants_dbname
-            = PMA_Util::unQuote($show_grants_dbname, '`');
+        $show_grants_dbname = PMA_Util::unQuote($show_grants_dbname, '`');
 
-        $show_grants_str    = substr($row[0], 6, (strpos($row[0], ' ON ') - 6));
+        $show_grants_str    = $pmaString->substr(
+            $row[0],
+            6,
+            ($pmaString->strpos($row[0], ' ON ') - 6)
+        );
         if ($show_grants_str == 'RELOAD') {
             $GLOBALS['is_reload_priv'] = true;
         }
@@ -91,7 +97,7 @@ function PMA_analyseShowGrant()
         if ($show_grants_str == 'ALL'
             || $show_grants_str == 'ALL PRIVILEGES'
             || $show_grants_str == 'CREATE'
-            || strpos($show_grants_str, 'CREATE,') !== false
+            || $pmaString->strpos($show_grants_str, 'CREATE,') !== false
         ) {
             if ($show_grants_dbname == '*') {
                 // a global CREATE privilege
@@ -121,7 +127,7 @@ function PMA_analyseShowGrant()
                             '/' . $re1 . '(%|_)/', '\\1\\3', $dbname_to_test
                         )
                     )
-                    && substr($GLOBALS['dbi']->getError(), 1, 4) != 1044)
+                    && $pmaString->substr($GLOBALS['dbi']->getError(), 1, 4) != 1044)
                 ) {
                     /**
                      * Do not handle the underscore wildcard

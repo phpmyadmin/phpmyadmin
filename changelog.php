@@ -23,7 +23,7 @@ $filename = CHANGELOG_FILE;
 if (is_readable($filename)) {
 
     // Test if the if is in a compressed format
-    if (substr($filename, -3) == '.gz') {
+    if ($GLOBALS['PMA_String']->substr($filename, -3) == '.gz') {
         ob_start();
         readgzfile($filename);
         $changelog = ob_get_contents();

@@ -78,7 +78,7 @@ function PMA_getAjaxReturnForSetVal($variable_doc_links)
         );
         $value = floatval($matches[1]) * PMA_Util::pow(
             1024,
-            $exp[strtolower($matches[3])]
+            $exp[$GLOBALS['PMA_String']->strtolower($matches[3])]
         );
     } else {
         $value = PMA_Util::sqlAddSlashes($value);

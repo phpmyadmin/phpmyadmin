@@ -214,16 +214,18 @@ class PMA_DbSearch
             ? array($this->_criteriaSearchString)
             : explode(' ', $this->_criteriaSearchString));
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
         foreach ($search_words as $search_word) {
             // Eliminates empty values
-            if (strlen($search_word) === 0) {
+            if ($pmaString->strlen($search_word) === 0) {
                 continue;
             }
             $likeClausesPerColumn = array();
             // for each column in the table
             foreach ($allColumns as $column) {
                 if (! isset($this->_criteriaColumnName)
-                    || strlen($this->_criteriaColumnName) == 0
+                    || $pmaString->strlen($this->_criteriaColumnName) == 0
                     || $column['Field'] == $this->_criteriaColumnName
                 ) {
                     // Drizzle has no CONVERT and all text columns are UTF-8

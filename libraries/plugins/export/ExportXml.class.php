@@ -9,7 +9,7 @@
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-if (! strlen($GLOBALS['db'])) { /* Can't do server export */
+if (!$GLOBALS['PMA_String']->strlen($GLOBALS['db'])) { /* Can't do server export */
     $GLOBALS['skip_import'] = true;
     return;
 }
@@ -270,7 +270,8 @@ class ExportXml extends ExportPlugin
                                 . $trigger['name'] . '">' . $crlf;
 
                             // Do some formatting
-                            $code = substr(rtrim($code), 0, -3);
+                            $code = $GLOBALS['PMA_String']
+                                ->substr(rtrim($code), 0, -3);
                             $code = "                " . htmlspecialchars($code);
                             $code = str_replace("\n", "\n                ", $code);
 

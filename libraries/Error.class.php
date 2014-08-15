@@ -251,7 +251,9 @@ class PMA_Error extends PMA_Message
      */
     public function getHtmlTitle()
     {
-        return htmlspecialchars(substr($this->getTitle(), 0, 100));
+        return htmlspecialchars(
+            $GLOBALS['PMA_String']->substr($this->getTitle(), 0, 100)
+        );
     }
 
     /**
@@ -435,7 +437,7 @@ class PMA_Error extends PMA_Message
     {
         $dest = realpath($dest);
 
-        if (substr(PHP_OS, 0, 3) == 'WIN') {
+        if ($GLOBALS['PMA_String']->substr(PHP_OS, 0, 3) == 'WIN') {
             $separator = '\\';
         } else {
             $separator = '/';

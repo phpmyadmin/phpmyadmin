@@ -75,7 +75,13 @@ class Form
      */
     public function getOptionType($option_name)
     {
-        $key = ltrim(substr($option_name, strrpos($option_name, '/')), '/');
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
+        $key = ltrim(
+            $pmaString->substr($option_name, $pmaString->strrpos($option_name, '/')),
+            '/'
+        );
         return isset($this->_fieldsTypes[$key])
             ? $this->_fieldsTypes[$key]
             : null;
@@ -169,12 +175,18 @@ class Form
         $this->fields = array();
         array_walk($form, array($this, '_readFormPathsCallback'), '');
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // $this->fields is an array of the form: [0..n] => 'field path'
         // change numeric indexes to contain field names (last part of the path)
         $paths = $this->fields;
         $this->fields = array();
         foreach ($paths as $path) {
-            $key = ltrim(substr($path, strrpos($path, '/')), '/');
+            $key = ltrim(
+                $pmaString->substr($path, $pmaString->strrpos($path, '/')),
+                '/'
+            );
             $this->fields[$key] = $path;
         }
         // now $this->fields is an array of the form: 'field name' => 'field path'
@@ -187,9 +199,12 @@ class Form
      */
     protected function readTypes()
     {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         $cf = $this->_configFile;
         foreach ($this->fields as $name => $path) {
-            if (strpos($name, ':group:') === 0) {
+            if ($pmaString->strpos($name, ':group:') === 0) {
                 $this->_fieldsTypes[$name] = 'group';
                 continue;
             }
