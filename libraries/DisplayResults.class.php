@@ -3919,10 +3919,9 @@ class PMA_DisplayResults
 
         // Cut all fields to $GLOBALS['cfg']['LimitChars']
         // (unless it's a link-type transformation or binary)
-        $posNameLink = $pmaString
-            ->strpos($transformation_plugin->getName(), 'Link');
         if (!(gettype($transformation_plugin) === "object"
-            && $posNameLink !== false)
+            && $pmaString->strpos($transformation_plugin->getName(), 'Link')
+                !== false)
             && !stristr($field_flags, self::BINARY_FIELD)
         ) {
             $is_field_truncated = $this->_getPartialText($column);
