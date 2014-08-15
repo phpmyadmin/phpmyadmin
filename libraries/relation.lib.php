@@ -88,10 +88,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
     $messages = array();
     $messages['error'] = '<font color="red"><strong>'
         . __('not OK')
-        . '</strong></font>'
-        . ' [ <a href="%s" target="documentation">'
-        . __('Documentation')
-        . '</a> ]';
+        . '</strong></font>';
 
     $messages['ok'] = '<font color="green"><strong>'
         .  _pgettext('Correctly working', 'OK')
@@ -102,7 +99,8 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
 
     if (false === $GLOBALS['cfg']['Server']['pmadb']) {
         $retval .= 'PMA Database ... '
-             . sprintf($messages['error'], 'pmadb')
+             . $messages['error']
+             . PMA_Util::showDocu('setup', 'linked-tables')
              . '<br />' . "\n"
              . __('General relation features')
              . ' <font color="green">' . __('Disabled')
