@@ -148,7 +148,7 @@ class PMA_Config
         }
 
         // disable output-buffering (if set to 'auto') for IE6, else enable it.
-        if (strtolower($this->get('OBGzip')) == 'auto') {
+        if ($GLOBALS['PMA_String']->strtolower($this->get('OBGzip')) == 'auto') {
             if ($this->get('PMA_USR_BROWSER_AGENT') == 'IE'
                 && $this->get('PMA_USR_BROWSER_VER') >= 6
                 && $this->get('PMA_USR_BROWSER_VER') < 7
@@ -432,7 +432,7 @@ class PMA_Config
         $branch = false;
         // are we on any branch?
         //@TODO Implement strstr in PMA_String
-        if (strstr($ref_head, '/')) {
+        if ($pmaString->strstr($ref_head, '/')) {
             $ref_head = $pmaString->substr(trim($ref_head), 5);
             if ($pmaString->substr($ref_head, 0, 11) === 'refs/heads/') {
                 $branch = $pmaString->substr($ref_head, 11);
@@ -1502,14 +1502,15 @@ class PMA_Config
      */
     function checkUpload()
     {
-        if (ini_get('file_uploads')) {
-            $this->set('enable_upload', true);
-            // if set "php_admin_value file_uploads Off" in httpd.conf
-            // ini_get() also returns the string "Off" in this case:
-            if ('off' == strtolower(ini_get('file_uploads'))) {
-                $this->set('enable_upload', false);
-            }
-        } else {
+        if (!ini_get('file_uploads')) {
+            $this->set('enable_upload', false);
+            return;
+        }
+
+        $this->set('enable_upload', true);
+        // if set "php_admin_value file_uploads Off" in httpd.conf
+        // ini_get() also returns the string "Off" in this case:
+        if ('off' == $GLOBALS['PMA_String']->strtolower(ini_get('file_uploads'))) {
             $this->set('enable_upload', false);
         }
     }
@@ -1586,6 +1587,9 @@ class PMA_Config
             }
         }
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // If we don't have scheme, we didn't have full URL so we need to
         // dig deeper
         if (empty($url['scheme'])) {
@@ -1593,18 +1597,19 @@ class PMA_Config
             if (PMA_getenv('HTTP_SCHEME')) {
                 $url['scheme'] = PMA_getenv('HTTP_SCHEME');
             } elseif (PMA_getenv('HTTPS')
-                && strtolower(PMA_getenv('HTTPS')) == 'on'
+                && $pmaString->strtolower(PMA_getenv('HTTPS')) == 'on'
             ) {
                 $url['scheme'] = 'https';
                 // A10 Networks load balancer:
             } elseif (PMA_getenv('HTTP_HTTPS_FROM_LB')
-                && strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on'
+                && $pmaString->strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on'
             ) {
                 $url['scheme'] = 'https';
             } elseif (PMA_getenv('HTTP_X_FORWARDED_PROTO')) {
-                $url['scheme'] = strtolower(PMA_getenv('HTTP_X_FORWARDED_PROTO'));
+                $url['scheme']
+                    = $pmaString->strtolower(PMA_getenv('HTTP_X_FORWARDED_PROTO'));
             } elseif (PMA_getenv('HTTP_FRONT_END_HTTPS')
-                && strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on'
+                && $pmaString->strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on'
             ) {
                 $url['scheme'] = 'https';
             } else {

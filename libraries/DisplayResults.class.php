@@ -3894,12 +3894,12 @@ class PMA_DisplayResults
         // if binary fields are protected
         // or transformation plugin is of non text type
         // such as image
-        if ((stristr($field_flags, self::BINARY_FIELD)
+        if (($pmaString->stristr($field_flags, self::BINARY_FIELD)
             && ($GLOBALS['cfg']['ProtectBinary'] === 'all'
             || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob'
-            && !stristr($meta->type, self::BLOB_FIELD))
+            && !$pmaString->stristr($meta->type, self::BLOB_FIELD))
             || ($GLOBALS['cfg']['ProtectBinary'] === 'blob'
-            && stristr($meta->type, self::BLOB_FIELD))))
+            && $pmaString->stristr($meta->type, self::BLOB_FIELD))))
             || (gettype($transformation_plugin) === 'object'
             && $pmaString->strpos($transformation_plugin->getMIMEtype(), 'Text')
                 === false)
@@ -3922,7 +3922,7 @@ class PMA_DisplayResults
         if (!(gettype($transformation_plugin) === "object"
             && $pmaString->strpos($transformation_plugin->getName(), 'Link')
                 !== false)
-            && !stristr($field_flags, self::BINARY_FIELD)
+            && !$pmaString->stristr($field_flags, self::BINARY_FIELD)
         ) {
             $is_field_truncated = $this->_getPartialText($column);
         }
@@ -3937,7 +3937,7 @@ class PMA_DisplayResults
             // some results of PROCEDURE ANALYSE() are reported as
             // being BINARY but they are quite readable,
             // so don't treat them as BINARY
-        } elseif (stristr($field_flags, self::BINARY_FIELD)
+        } elseif ($pmaString->stristr($field_flags, self::BINARY_FIELD)
             && !(isset($is_analyse) && $is_analyse)
         ) {
             // we show the BINARY or BLOB message and field's size
@@ -3958,7 +3958,7 @@ class PMA_DisplayResults
             $result = strip_tags($column);
             // disable inline grid editing
             // if binary or blob data is not shown
-            if (stristr($result, $binary_or_blob)) {
+            if ($pmaString->stristr($result, $binary_or_blob)) {
                 $class = str_replace('grid_edit', '', $class);
             }
             $formatted = true;

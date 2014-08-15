@@ -364,12 +364,25 @@ function PMA_getRealSize($size = 0)
         'b'  =>          1,
     );
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     foreach ($scan as $unit => $factor) {
-        if (strlen($size) > strlen($unit)
-            && strtolower(substr($size, strlen($size) - strlen($unit)))
+        if ($pmaString->strlen($size) > $pmaString->strlen($unit)
+            && $pmaString->strtolower(
+                $pmaString->substr(
+                    $size,
+                    $pmaString->strlen($size) - $pmaString->strlen($unit
+                    )
+                )
+            )
             == $unit
         ) {
-            return substr($size, 0, strlen($size) - strlen($unit)) * $factor;
+            return $pmaString->substr(
+                $size,
+                0,
+                $pmaString->strlen($size) - $pmaString->strlen($unit)
+            ) * $factor;
         }
     }
 
@@ -856,7 +869,7 @@ function PMA_isAllowedDomain($url)
         /* Following are doubtful ones. */
         'www.primebase.com','pbxt.blogspot.com'
     );
-    if (in_array(strtolower($domain), $domainWhiteList)) {
+    if (in_array($GLOBALS['PMA_String']->strtolower($domain), $domainWhiteList)) {
         return true;
     }
 

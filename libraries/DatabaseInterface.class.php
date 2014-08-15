@@ -1960,9 +1960,13 @@ class PMA_DatabaseInterface
      */
     public function isSystemSchema($schema_name, $testForMysqlSchema = false)
     {
-        return strtolower($schema_name) == 'information_schema'
-            || (!PMA_DRIZZLE && strtolower($schema_name) == 'performance_schema')
-            || (PMA_DRIZZLE && strtolower($schema_name) == 'data_dictionary')
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+        return $pmaString->strtolower($schema_name) == 'information_schema'
+            || (!PMA_DRIZZLE
+                && $pmaString->strtolower($schema_name) == 'performance_schema')
+            || (PMA_DRIZZLE
+                && $pmaString->strtolower($schema_name) == 'data_dictionary')
             || ($testForMysqlSchema && !PMA_DRIZZLE && $schema_name == 'mysql');
     }
 

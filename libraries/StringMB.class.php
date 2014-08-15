@@ -62,6 +62,74 @@ class PMA_StringMB implements PMA_StringByte
     }
 
     /**
+     * Returns position of $needle in $haystack - case insensitive - or false if
+     * not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     * @param int    $offset   the search offset
+     *
+     * @return integer position of $needle in $haystack or false
+     *
+     * @todo add unit tests
+     */
+    public function stripos($haystack, $needle, $offset = 0)
+    {
+        return mb_stripos($haystack, $needle, $offset);
+    }
+
+    /**
+     * Returns position of last $needle in $haystack or false if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     * @param int    $offset   the search offset
+     *
+     * @return integer position of last $needle in $haystack or false
+     *
+     * @todo add unit tests
+     */
+    public function strrpos($haystack, $needle, $offset = 0)
+    {
+        return mb_strrpos($haystack, $needle, $offset);
+    }
+
+    /**
+     * Returns part of $haystack string starting from and including the first
+     * occurrence of $needle to the end of $haystack or false if not found
+     *
+     * @param string $haystack      the string being checked
+     * @param string $needle        the string to find in haystack
+     * @param bool   $before_needle the part before the needle
+     *
+     * @return string part of $haystack or false
+     *
+     * @todo add unit tests
+     */
+    public function strstr($haystack, $needle, $before_needle = false)
+    {
+        return mb_strstr($haystack, $needle, $before_needle);
+    }
+
+    /**
+     * Returns part of $haystack string starting from and including the first
+     * occurrence of $needle to the end of $haystack - case insensitive - or false
+     * if not found
+     *
+     * @param string $haystack      the string being checked
+     * @param string $needle        the string to find in haystack
+     * @param bool   $before_needle the part before the needle
+     *
+     * @return string part of $haystack or false
+     *
+     * @todo add unit tests
+     */
+    public function stristr($haystack, $needle, $before_needle = false)
+    {
+        return mb_stristr($haystack, $needle, $before_needle);
+    }
+
+    /**
      * Make a string lowercase
      *
      * @param string $string the string being lowercased
@@ -71,6 +139,20 @@ class PMA_StringMB implements PMA_StringByte
     public function strtolower($string)
     {
         return mb_strtolower($string);
+    }
+
+    /**
+     * Make a string uppercase
+     *
+     * @param string $string the string being uppercased
+     *
+     * @return string the upper case string
+     *
+     * @todo add unit tests
+     */
+    public function strtoupper($string)
+    {
+        return mb_strtoupper($string);
     }
 
     /**
