@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-16 14:26-0400\n"
-"PO-Revision-Date: 2014-08-13 11:26+0200\n"
+"PO-Revision-Date: 2014-08-16 20:58+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
-">\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -975,10 +975,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Διαγραφή Πρωτεύοντος Κλειδιού/Περιεχομενου"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Is a foreign key."
 msgid "Dropping Foreign key."
-msgstr "Είναι ένα foreign key."
+msgstr "Διαγράφετε ένα Ξένο κλειδί."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1000,10 +999,9 @@ msgstr ""
 "Έχετε μη αποθηκευμένες αλλαγές. Θέλετε σίγουρα να αφήσετε αυτή τη σελίδα;"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Θέλετε πραγματικά να διαγράψετε την αναζήτηση «%s»;"
+msgstr "Θέλετε πραγματικά να ανακαλέσετε τον(ους) επιλεγμένο(ους) χρήστη(ες);"
 
 #: js/messages.php:51
 msgid "Save & Close"
@@ -4067,10 +4065,9 @@ msgid "Replace with:"
 msgstr "Αντικατάσταση με:"
 
 #: libraries/TableSearch.class.php:1369
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "ως κανονική έκφραση"
+msgstr "Χρήση κανονικής έκφρασης"
 
 #: libraries/TableSearch.class.php:1471
 msgid "Find and replace - preview"
@@ -10468,10 +10465,9 @@ msgid "Enabled"
 msgstr "Ενεργοποιημένη"
 
 #: libraries/relation.lib.php:101
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration of pmadb… "
-msgstr "Οι ρυθμίσεις αποθηκεύτηκαν."
+msgstr "Ρύθμιση της pmadb… "
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:126
 msgid "General relation features"
@@ -13834,10 +13830,9 @@ msgid "Foreign key constraints"
 msgstr "Περιορισμοί ξένου κλειδιού"
 
 #: libraries/tbl_relation.lib.php:374
-#, fuzzy
 #| msgid "Action"
 msgid "Actions"
-msgstr "Ενέργεια"
+msgstr "Ενέργειες"
 
 #: libraries/tbl_relation.lib.php:375
 msgid "Constraint properties"
@@ -13859,10 +13854,10 @@ msgid "+ Add constraint"
 msgstr "+Προσθήκη περιορισμού"
 
 #: libraries/tbl_relation.lib.php:443
-#, fuzzy, php-format
+#, php-format
 #| msgid "Foreign key constraints"
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Περιορισμοί ξένου κλειδιού"
+msgstr "Ο περιοσμός ξένου κλειδιού %s έχει διαγραφεί"
 
 #: libraries/tbl_relation.lib.php:465
 msgid "Constraint name"
