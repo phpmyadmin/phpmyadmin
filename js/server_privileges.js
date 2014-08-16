@@ -296,9 +296,9 @@ AJAX.registerOnload('server_privileges.js', function () {
 
         var $thisButton = $(this);
         var $form = $("#usersForm");
-        
+
         $thisButton.PMA_confirm(PMA_messages.strDropUserWarning, $form.attr('action'), function (url) {
-            
+
             $drop_users_db_checkbox = $("#checkbox_drop_users_db");
             if ($drop_users_db_checkbox.is(':checked')) {
                 var is_confirmed = confirm(PMA_messages.strDropDatabaseStrongWarning + '\n' + $.sprintf(PMA_messages.strDoYouReally, 'DROP DATABASE'));
@@ -307,9 +307,9 @@ AJAX.registerOnload('server_privileges.js', function () {
                     $drop_users_db_checkbox.prop('checked', false);
                 }
             }
-            
+
             PMA_ajaxShowMessage(PMA_messages.strRemovingSelectedUsers);
-            
+
             $.post(url, $form.serialize() + "&delete=" + $thisButton.val() + "&ajax_request=true", function (data) {
                 if (data.success === true) {
                     PMA_ajaxShowMessage(data.message);
@@ -343,9 +343,9 @@ AJAX.registerOnload('server_privileges.js', function () {
                     PMA_ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
-            
+
         });
-        
+
     }); // end Revoke User
 
     $("a.edit_user_group_anchor.ajax").live('click', function (event) {
