@@ -79,6 +79,11 @@ if (version_compare(phpversion(), '5.4', 'lt')) {
 require './libraries/core.lib.php';
 
 /**
+ * String handling (security)
+ */
+require_once './libraries/string.inc.php';
+
+/**
  * Input sanitizing
  */
 require './libraries/sanitizing.lib.php';
@@ -126,11 +131,6 @@ require './libraries/Table.class.php';
 require './libraries/Types.class.php';
 
 if (! defined('PMA_MINIMUM_COMMON')) {
-    /**
-     * String handling
-     */
-    include_once './libraries/string.inc.php';
-
     /**
      * common functions
      */
