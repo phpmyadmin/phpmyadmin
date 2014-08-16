@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-16 07:48-0400\n"
-"PO-Revision-Date: 2014-08-12 16:42+0200\n"
+"PO-Revision-Date: 2014-08-16 16:33+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -977,10 +977,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Borrando Claves Primarias/Índice"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Is a foreign key."
 msgid "Dropping Foreign key."
-msgstr "Es una clave foránea."
+msgstr "Eliminando clave foránea."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -4079,10 +4078,9 @@ msgid "Replace with:"
 msgstr "Reemplazar con:"
 
 #: libraries/TableSearch.class.php:1369
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "como expresión regular"
+msgstr "Utilizar expresión regular"
 
 #: libraries/TableSearch.class.php:1471
 msgid "Find and replace - preview"
@@ -10513,10 +10511,9 @@ msgid "Enabled"
 msgstr "Habilitado"
 
 #: libraries/relation.lib.php:101
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration of pmadb… "
-msgstr "Configuración guardada."
+msgstr "Configuración de pmadb… "
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:126
 msgid "General relation features"
@@ -13870,10 +13867,9 @@ msgid "Foreign key constraints"
 msgstr "Restricciones de clave foránea"
 
 #: libraries/tbl_relation.lib.php:374
-#, fuzzy
 #| msgid "Action"
 msgid "Actions"
-msgstr "Acción"
+msgstr "Acciones"
 
 #: libraries/tbl_relation.lib.php:375
 msgid "Constraint properties"
@@ -13893,10 +13889,10 @@ msgid "+ Add constraint"
 msgstr "+ Añadir restricción"
 
 #: libraries/tbl_relation.lib.php:443
-#, fuzzy, php-format
+#, php-format
 #| msgid "Foreign key constraints"
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Restricciones de clave foránea"
+msgstr "Se eliminó la restricción de clave foránea «%s»"
 
 #: libraries/tbl_relation.lib.php:465
 msgid "Constraint name"
