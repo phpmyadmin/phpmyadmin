@@ -268,9 +268,9 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var question = $.sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` ADD PRIMARY KEY(`' + escapeHtml(curr_column_name) + '`);');
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strAddingPrimaryKey, false);
-            $.get(url
-                , {'is_js_confirmed' : 1, 'ajax_request' : true, 'index_change' : true}
-                , function (data) {
+            $.get(url,
+                {'is_js_confirmed' : 1, 'ajax_request' : true, 'index_change' : true},
+                function (data) {
                 if (data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     $(this).remove();
@@ -317,9 +317,9 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var question = $.sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` ADD INDEX(`' + escapeHtml(curr_column_name) + '`);');
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strAddingIndex, false);
-            $.get(url
-                , {'is_js_confirmed' : 1, 'ajax_request' : true, 'index_change' : true}
-                , function (data) {
+            $.get(url,
+                {'is_js_confirmed' : 1, 'ajax_request' : true, 'index_change' : true},
+                function (data) {
                 if (data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     if ($('#result_query').length) {
@@ -361,9 +361,9 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var question = $.sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` ADD UNIQUE(`' + escapeHtml(curr_column_name) + '`);');
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strAddingUnique, false);
-            $.get(url
-                , {'is_js_confirmed' : 1, 'ajax_request' : true, 'index_change' : true}
-                , function (data) {
+            $.get(url,
+                {'is_js_confirmed' : 1, 'ajax_request' : true, 'index_change' : true},
+                function (data) {
                 if (data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     if ($('#result_query').length) {

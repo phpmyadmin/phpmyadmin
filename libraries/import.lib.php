@@ -1381,6 +1381,7 @@ function PMA_handleSimulateDMLRequest()
 
         // Only single-table queries accepted.
         $table_references = PMA_getTableReferences($analyzed_sql_results);
+        $table_references = $table_references ? $table_references : '';
         if (preg_match('/JOIN/i', $table_references)) {
             $error = $error_msg;
             break;
@@ -1393,7 +1394,7 @@ function PMA_handleSimulateDMLRequest()
         }
 
         // Get the matched rows for the query.
-        $result = PMA_getMatchedRows($sql_query, $analyzed_sql_results);
+        $result = PMA_getMatchedRows($analyzed_sql_results);
         if (! $error = $GLOBALS['dbi']->getError()) {
             $sql_data[] = $result;
         } else {
@@ -1413,12 +1414,11 @@ function PMA_handleSimulateDMLRequest()
 /**
  * Find the matching rows for UPDATE/DELETE query.
  *
- * @param string $query                SQL query
- * @param array  $analyzed_sql_results Analyzed SQL results from parser.
+ * @param array $analyzed_sql_results Analyzed SQL results from parser.
  *
  * @return mixed
  */
-function PMA_getMatchedRows($query, $analyzed_sql_results = array())
+function PMA_getMatchedRows($analyzed_sql_results = array())
 {
     // Get the query type.
     $query_type = (isset($analyzed_sql_results['analyzed_sql'][0]['querytype']))
@@ -1841,7 +1841,7 @@ function PMA_checkIfRollbackPossible($sql_query)
 
     // Get table_references from the query.
     $table_references = PMA_getTableReferences($analyzed_sql_results);
-
+    $table_references = $table_references ? $table_references : '';
     // Get table names from table_references.
     $tables = PMA_getTableNamesFromTableReferences($table_references);
 

@@ -1878,6 +1878,56 @@ function PMA_ajaxRemoveMessage($this_msgbox)
     }
 }
 
+/**
+ * Requests SQL for previewing before executing.
+ *
+ * @param jQuery Object $form Form containing query data
+ *
+ * @return void
+ */
+function PMA_previewSQL($form)
+{
+    var form_url = $form.attr('action');
+    var form_data = $form.serialize() +
+        '&do_save_data=1' +
+        '&preview_sql=1' +
+        '&ajax_request=1';
+    $.ajax({
+        type: 'POST',
+        url: form_url,
+        data: form_data,
+        success: function (response) {
+            if (response.success) {
+                var $dialog_content = $('<div/>')
+                    .append(response.sql_data);
+                var button_options = {};
+                button_options[PMA_messages.strClose] = function () {
+                    $(this).dialog('close');
+                };
+                var $response_dialog = $dialog_content.dialog({
+                    minWidth: 550,
+                    maxHeight: 400,
+                    modal: true,
+                    buttons: button_options,
+                    title: PMA_messages.strPreviewSQL,
+                    close: function () {
+                        $(this).remove();
+                    },
+                    open: function () {
+                        // Pretty SQL printing.
+                        PMA_highlightSQL($(this));
+                    }
+                });
+            } else {
+                PMA_ajaxShowMessage(response.message);
+            }
+        },
+        error: function () {
+            PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest);
+        }
+    });
+}
+
 // This event only need to be fired once after the initial page load
 $(function () {
     /**
@@ -3658,16 +3708,14 @@ AJAX.registerOnload('functions.js', function () {
             cache: false,
             type: 'POST',
             data: {
-                favorite_tables: (window.localStorage.favorite_tables
-                    !== undefined)
+                favorite_tables: (window.localStorage.favorite_tables !== undefined)
                     ? window.localStorage.favorite_tables
                     : ''
             },
             success: function (data) {
                 // Update localStorage.
                 if (window.localStorage !== undefined) {
-                    window.localStorage.favorite_tables
-                        = data.favorite_tables;
+                    window.localStorage.favorite_tables = data.favorite_tables;
                 }
                 $('#pma_favorite_list').html(data.list);
             }
@@ -4409,56 +4457,6 @@ function checkNumberOfFields() {
     });
 
     return true;
-}
-
-/**
- * Requests SQL for previewing before executing.
- *
- * @param jQuery Object $form Form containing query data
- *
- * @return void
- */
-function PMA_previewSQL($form)
-{
-    var form_url = $form.attr('action');
-    var form_data = $form.serialize() +
-        '&do_save_data=1' +
-        '&preview_sql=1' +
-        '&ajax_request=1';
-    $.ajax({
-        type: 'POST',
-        url: form_url,
-        data: form_data,
-        success: function (response) {
-            if (response.success) {
-                var $dialog_content = $('<div/>')
-                    .append(response.sql_data);
-                var button_options = {};
-                button_options[PMA_messages.strClose] = function () {
-                    $(this).dialog('close');
-                };
-                var $response_dialog = $dialog_content.dialog({
-                    minWidth: 550,
-                    maxHeight: 400,
-                    modal: true,
-                    buttons: button_options,
-                    title: PMA_messages.strPreviewSQL,
-                    close: function () {
-                        $(this).remove();
-                    },
-                    open: function () {
-                        // Pretty SQL printing.
-                        PMA_highlightSQL($(this));
-                    }
-                });
-            } else {
-                PMA_ajaxShowMessage(response.message);
-            }
-        },
-        error: function () {
-            PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest);
-        }
-    });
 }
 
 /**

@@ -180,6 +180,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
 
     $row_count_sum = PMA_Util::formatNumber($sum_entries, 0);
     // If a table shows approximate rows count, display update-all-real-count anchor.
+    $row_sum_url = array();
     if (isset($approx_rows)) {
         $row_sum_url = array(
             'ajax_request'       => true,
@@ -2824,8 +2825,8 @@ function PMA_checkFavoriteTable($db, $current_table)
  * Get HTML for favorite anchor.
  *
  * @param string $db            current database
- * @param string $current_table current table
- * @param string $titles        titles
+ * @param array  $current_table current table
+ * @param array  $titles        titles
  *
  * @return string The html output
  */
