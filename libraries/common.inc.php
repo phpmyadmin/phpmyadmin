@@ -127,6 +127,11 @@ require './libraries/Types.class.php';
 
 if (! defined('PMA_MINIMUM_COMMON')) {
     /**
+     * String handling
+     */
+    include_once './libraries/string.inc.php';
+
+    /**
      * common functions
      */
     include_once './libraries/Util.class.php';
@@ -188,7 +193,8 @@ $variables_whitelist = array (
     'error_handler',
     'PMA_PHP_SELF',
     'variables_whitelist',
-    'key'
+    'key',
+    'PMA_String'
 );
 
 foreach (get_defined_vars() as $key => $value) {
@@ -741,11 +747,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * Character set conversion.
      */
     include_once './libraries/charset_conversion.lib.php';
-
-    /**
-     * String handling
-     */
-    include_once './libraries/string.inc.php';
 
     /**
      * Lookup server by name
