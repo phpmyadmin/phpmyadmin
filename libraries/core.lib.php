@@ -12,6 +12,11 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * String handling (security)
+ */
+require_once './libraries/string.inc.php';
+
+/**
  * checks given $var and returns it if valid, or $default of not valid
  * given $var is also checked for type being 'similar' as $default
  * or against any other type if $type is provided

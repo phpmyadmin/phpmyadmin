@@ -79,11 +79,6 @@ if (version_compare(phpversion(), '5.4', 'lt')) {
 require './libraries/core.lib.php';
 
 /**
- * String handling (security)
- */
-require_once './libraries/string.inc.php';
-
-/**
  * Input sanitizing
  */
 require './libraries/sanitizing.lib.php';
