@@ -77,10 +77,6 @@ class PMA_TableReplaceSearchTest extends PHPUnit_Framework_TestCase
         $useRegex = false;
         $charSet = 'charSetValue';
 
-        $expectedQuery = "SELECT `column1`, REPLACE(`column1`, '" . $find . "', '"
-            . $replaceWith . "'), COUNT(*) FROM `dbName`.`tableName` WHERE `column1`"
-            . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin GROUP BY"
-            . " `column1` ORDER BY `column1` ASC";
         // set expectations
         $dbi->expects($this->once())
             ->method('fetchResult')
