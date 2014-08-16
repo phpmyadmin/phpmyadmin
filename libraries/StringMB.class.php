@@ -44,7 +44,12 @@ class PMA_StringMB implements PMA_StringByte
      */
     public function substr($string, $start, $length = 2147483647)
     {
-        if ($this->strlen($string) <= $start) {
+        $stringLength = $this->strlen($string);
+        if ($stringLength <= $start) {
+            return false;
+        }
+
+        if ($stringLength + $length < $start) {
             return false;
         }
 
