@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-16 07:48-0400\n"
-"PO-Revision-Date: 2014-08-15 01:51+0200\n"
+"PO-Revision-Date: 2014-08-16 15:20+0200\n"
 "Last-Translator: Alecsandru Prună <alecsandrucpruna@gmail.com>\n"
-"Language-Team: Romanian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"ro/>\n"
+"Language-Team: Romanian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4055,10 +4055,9 @@ msgid "Replace with:"
 msgstr "Înlocuiţi cu:"
 
 #: libraries/TableSearch.class.php:1369
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "ca o expresie"
+msgstr "Utilizați o expresie regulată"
 
 #: libraries/TableSearch.class.php:1471
 msgid "Find and replace - preview"
@@ -4485,10 +4484,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s zile, %s ore, %s minute și %s secunde"
 
 #: libraries/Util.class.php:2026
-#, fuzzy
 #| msgid "Routines"
 msgid "Missing parameter:"
-msgstr "Rutine"
+msgstr "Parametru lipsă:"
 
 #: libraries/Util.class.php:2546
 #, php-format
@@ -4501,10 +4499,9 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funcționalitatea %s este afectată de o eroare cunoscută, vedeți %s"
 
 #: libraries/Util.class.php:2752
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "Click pentru a selecta"
+msgstr "Faceţi click pentru a comuta"
 
 #: libraries/Util.class.php:3269 libraries/sql_query_form.lib.php:431
 #: prefs_manage.php:242
@@ -4523,10 +4520,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Directorul stabilit pentru încărcare nu poate fi găsit."
 
 #: libraries/Util.class.php:3334
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "Nu sunt fișiere pentru încărcare"
+msgstr "Nu sunt fișiere pentru încărcare!"
 
 #: libraries/Util.class.php:3359 libraries/Util.class.php:3360
 #: libraries/structure.lib.php:321
@@ -4557,10 +4553,9 @@ msgid "Last check"
 msgstr "Ultima verficare"
 
 #: libraries/browse_foreigners.lib.php:48
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "Caută"
+msgstr "Căutare:"
 
 #: libraries/browse_foreigners.lib.php:72
 #: libraries/browse_foreigners.lib.php:74
@@ -4607,10 +4602,9 @@ msgid "Not replicated"
 msgstr "Fără replicare"
 
 #: libraries/build_html_for_db.lib.php:156
-#, fuzzy
 #| msgid "Replication"
 msgid "Replicated"
-msgstr "Replicare"
+msgstr "Replicat"
 
 #: libraries/build_html_for_db.lib.php:174
 #, php-format
@@ -4633,10 +4627,9 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
 #: libraries/central_columns.lib.php:280
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not add columns!"
-msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
+msgstr "Nu s-au putut adăuga coloanele!"
 
 #: libraries/central_columns.lib.php:356
 #, php-format
@@ -4645,10 +4638,9 @@ msgid ""
 msgstr ""
 
 #: libraries/central_columns.lib.php:368
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not remove columns!"
-msgstr "Nu s-a putut salva tabelul recent"
+msgstr "Nu s-au putut elimina coloanele!"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
@@ -4685,44 +4677,38 @@ msgid "Extra"
 msgstr "Extra"
 
 #: libraries/central_columns.lib.php:660
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Selectează tabele"
+msgstr "Selectaţi un tabel"
 
 #: libraries/central_columns.lib.php:714 libraries/structure.lib.php:1653
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add column"
-msgstr "Adaugă %s câmp(uri)"
+msgstr "Adaugă coloană"
 
 #: libraries/central_columns.lib.php:726
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Alege două coloane"
+msgstr "Selectaţi o coloană."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "Auto-extinde incrementarea"
+msgstr "auto_incrementare"
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 msgid "on update CURRENT_TIMESTAMP"
 msgstr ""
 
 #: libraries/central_columns.lib.php:886
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add new column"
-msgstr "Adaugă %s câmp(uri)"
+msgstr "Adăugați o coloană nouă"
 
 #: libraries/common.inc.php:582
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to read configuration file!"
-msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
+msgstr "Fișierul de configurare nu poate fi citit!"
 
 #: libraries/common.inc.php:584
 msgid ""
@@ -4731,10 +4717,10 @@ msgid ""
 msgstr ""
 
 #: libraries/common.inc.php:591
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
+msgstr "Nu s-a putut încărca configurația implicită de la: %1$s"
 
 #: libraries/common.inc.php:598
 #, fuzzy
