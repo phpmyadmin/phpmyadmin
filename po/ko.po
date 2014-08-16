@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-16 07:07-0400\n"
+"POT-Creation-Date: 2014-08-16 07:48-0400\n"
 "PO-Revision-Date: 2014-06-29 07:52+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
@@ -3271,7 +3271,7 @@ msgstr "근사값입니다. [doc@faq3-11]FAQ 3.11[/doc]를 참조하세요."
 
 #: libraries/DisplayResults.class.php:4507 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467 libraries/sql_query_form.lib.php:89
-#: libraries/tbl_relation.lib.php:1011 tbl_find_replace.php:49
+#: libraries/tbl_relation.lib.php:1011 tbl_find_replace.php:51
 #: tbl_operations.php:184 tbl_row_action.php:121 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
 msgstr "쿼리가 성공적으로 실행되었습니다."
@@ -4070,23 +4070,29 @@ msgstr "줌 초기화"
 msgid "Replace with:"
 msgstr "변경:"
 
-#: libraries/TableSearch.class.php:1412
+#: libraries/TableSearch.class.php:1369
+#, fuzzy
+#| msgid "as regular expression"
+msgid "Use regular expression"
+msgstr "정규표현식"
+
+#: libraries/TableSearch.class.php:1471
 msgid "Find and replace - preview"
 msgstr "찾기 및 바꾸기 - 미리보기"
 
-#: libraries/TableSearch.class.php:1416
+#: libraries/TableSearch.class.php:1475
 msgid "Count"
 msgstr "개수"
 
-#: libraries/TableSearch.class.php:1417
+#: libraries/TableSearch.class.php:1476
 msgid "Original string"
 msgstr "원본 문자열"
 
-#: libraries/TableSearch.class.php:1418
+#: libraries/TableSearch.class.php:1477
 msgid "Replaced string"
 msgstr "문자열 변경"
 
-#: libraries/TableSearch.class.php:1442
+#: libraries/TableSearch.class.php:1504
 msgid "Replace"
 msgstr "변경"
 

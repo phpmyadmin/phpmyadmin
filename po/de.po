@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-16 07:07-0400\n"
+"POT-Creation-Date: 2014-08-16 07:48-0400\n"
 "PO-Revision-Date: 2014-07-29 17:30+0200\n"
 "Last-Translator: Matthias Bluthardt <matthias@bluthardt.org>\n"
 "Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/master/de/"
@@ -3383,7 +3383,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:4507 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467 libraries/sql_query_form.lib.php:89
-#: libraries/tbl_relation.lib.php:1011 tbl_find_replace.php:49
+#: libraries/tbl_relation.lib.php:1011 tbl_find_replace.php:51
 #: tbl_operations.php:184 tbl_row_action.php:121 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
 msgstr "Ihr SQL-Befehl wurde erfolgreich ausgeführt."
@@ -4199,23 +4199,29 @@ msgstr "Zoom zurücksetzen"
 msgid "Replace with:"
 msgstr "Ersetze durch:"
 
-#: libraries/TableSearch.class.php:1412
+#: libraries/TableSearch.class.php:1369
+#, fuzzy
+#| msgid "as regular expression"
+msgid "Use regular expression"
+msgstr "als regulären Ausdruck"
+
+#: libraries/TableSearch.class.php:1471
 msgid "Find and replace - preview"
 msgstr "Suchen und Ersetzen – Vorschau"
 
-#: libraries/TableSearch.class.php:1416
+#: libraries/TableSearch.class.php:1475
 msgid "Count"
 msgstr "Zähler"
 
-#: libraries/TableSearch.class.php:1417
+#: libraries/TableSearch.class.php:1476
 msgid "Original string"
 msgstr "Ursprungstext"
 
-#: libraries/TableSearch.class.php:1418
+#: libraries/TableSearch.class.php:1477
 msgid "Replaced string"
 msgstr "ersetzter Text"
 
-#: libraries/TableSearch.class.php:1442
+#: libraries/TableSearch.class.php:1504
 msgid "Replace"
 msgstr "Ersetzen"
 

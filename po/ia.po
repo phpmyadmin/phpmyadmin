@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-16 07:07-0400\n"
+"POT-Creation-Date: 2014-08-16 07:48-0400\n"
 "PO-Revision-Date: 2014-08-06 16:54+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
@@ -3269,7 +3269,7 @@ msgstr "Il pote esser approximate. Vide[doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4507 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467 libraries/sql_query_form.lib.php:89
-#: libraries/tbl_relation.lib.php:1011 tbl_find_replace.php:49
+#: libraries/tbl_relation.lib.php:1011 tbl_find_replace.php:51
 #: tbl_operations.php:184 tbl_row_action.php:121 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
 msgstr "Le demanda (query) SQL ha essite executate con successo."
@@ -4079,23 +4079,29 @@ msgstr "Refixa le zoom"
 msgid "Replace with:"
 msgstr "Reimplacia con:"
 
-#: libraries/TableSearch.class.php:1412
+#: libraries/TableSearch.class.php:1369
+#, fuzzy
+#| msgid "as regular expression"
+msgid "Use regular expression"
+msgstr "como expression regular"
+
+#: libraries/TableSearch.class.php:1471
 msgid "Find and replace - preview"
 msgstr "Trova e reimplacia - vista preliminar"
 
-#: libraries/TableSearch.class.php:1416
+#: libraries/TableSearch.class.php:1475
 msgid "Count"
 msgstr "Computo"
 
-#: libraries/TableSearch.class.php:1417
+#: libraries/TableSearch.class.php:1476
 msgid "Original string"
 msgstr "Catena original"
 
-#: libraries/TableSearch.class.php:1418
+#: libraries/TableSearch.class.php:1477
 msgid "Replaced string"
 msgstr "Catena reimplaciate"
 
-#: libraries/TableSearch.class.php:1442
+#: libraries/TableSearch.class.php:1504
 msgid "Replace"
 msgstr "Reimplacia"
 

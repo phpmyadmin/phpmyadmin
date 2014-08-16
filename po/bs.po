@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-08-16 07:07-0400\n"
+"POT-Creation-Date: 2014-08-16 07:48-0400\n"
 "PO-Revision-Date: 2014-03-31 14:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bosnian <https://l10n.cihar.com/projects/phpmyadmin/master/bs/"
@@ -3515,7 +3515,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:4507 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467 libraries/sql_query_form.lib.php:89
-#: libraries/tbl_relation.lib.php:1011 tbl_find_replace.php:49
+#: libraries/tbl_relation.lib.php:1011 tbl_find_replace.php:51
 #: tbl_operations.php:184 tbl_row_action.php:121 view_operations.php:62
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -4377,29 +4377,35 @@ msgstr "Resetuj"
 msgid "Replace with:"
 msgstr "Zamijeni NULL sa"
 
-#: libraries/TableSearch.class.php:1412
+#: libraries/TableSearch.class.php:1369
+#, fuzzy
+#| msgid "as regular expression"
+msgid "Use regular expression"
+msgstr "kao regularni izraz"
+
+#: libraries/TableSearch.class.php:1471
 msgid "Find and replace - preview"
 msgstr ""
 
-#: libraries/TableSearch.class.php:1416
+#: libraries/TableSearch.class.php:1475
 #, fuzzy
 #| msgid "Column"
 msgid "Count"
 msgstr "Kolona"
 
-#: libraries/TableSearch.class.php:1417
+#: libraries/TableSearch.class.php:1476
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Original string"
 msgstr "Linije se završavaju sa"
 
-#: libraries/TableSearch.class.php:1418
+#: libraries/TableSearch.class.php:1477
 #, fuzzy
 #| msgid "Relations"
 msgid "Replaced string"
 msgstr "Relacije"
 
-#: libraries/TableSearch.class.php:1442
+#: libraries/TableSearch.class.php:1504
 #, fuzzy
 msgid "Replace"
 msgstr "Relacije"
