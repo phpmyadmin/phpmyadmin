@@ -67,6 +67,10 @@ class PMA_StringMB implements PMA_StringByte
      */
     public function strpos($haystack, $needle, $offset = 0)
     {
+        if (!is_string($needle) && is_numeric($needle)) {
+            $needle = (int)$needle;
+            $needle = chr($needle);
+        }
         return mb_strpos($haystack, $needle, $offset);
     }
 
@@ -178,6 +182,23 @@ class PMA_StringMB implements PMA_StringByte
         $substr = mb_substr($str, 0, 1, "UCS-4BE");
         $val = unpack("N", $substr);
         return $val[1];
+    }
+
+    /**
+     * Get the multibyte character of an ASCII
+     * (from http://fr2.php.net/manual/en/function.chr.php#69082)
+     *
+     * @param int $ascii the ASCII code for which character is required
+     *
+     * @return string the multibyte character
+     */
+    public function chr($ascii)
+    {
+        return mb_convert_encoding(
+            pack("N", $ascii),
+            mb_internal_encoding(),
+            'UCS-4BE'
+        );
     }
 }
 ?>

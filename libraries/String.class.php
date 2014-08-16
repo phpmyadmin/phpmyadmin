@@ -243,6 +243,18 @@ class PMA_String
     }
 
     /**
+     * Get the character of an ASCII
+     *
+     * @param int $ascii the ASCII code for which character is required
+     *
+     * @return string the character
+     */
+    public function chr($ascii)
+    {
+        return $this->_byte->chr($ascii);
+    }
+
+    /**
      * Checks if a character is an alphanumeric one
      *
      * @param string $c character to check for

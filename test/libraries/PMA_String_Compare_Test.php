@@ -132,6 +132,7 @@ class PMA_String_Compare_Test extends PHPUnit_Framework_TestCase
             array('abcdef', -3, 1),
             array('abcdef', -3, 10),
             array('abcdef', -3, -1),
+            array('abcdef', -3, -3),
             array('abcdef', -3, -5),
             array(false, 0),
             array(false, 0, 2),
@@ -147,13 +148,105 @@ class PMA_String_Compare_Test extends PHPUnit_Framework_TestCase
             array(true, 10, 10),
             array(true, 10, -3),
             array(3, 0),
+            array(3, 0, 1),
+            array(3, 0, 2),
+            array(3, 0, -1),
             array(3, 10),
+            array(3, 10, 1),
+            array(3, 10, 10),
+            array(3, 10, -1),
             array('3', 0),
+            array('3', 0, 1),
+            array('3', 0, 2),
+            array('3', 0, -1),
             array('3', 10),
+            array('3', 10, 1),
+            array('3', 10, 10),
+            array('3', 10, -1),
             array('', 0),
+            array('', 0, 1),
+            array('', 0, 10),
+            array('', 0, -1),
             array('', 10),
-            array("", 0),
-            array("", 10),
+            array('', 10, 1),
+            array('', 10, 10),
+            array('', 10, -1),
+            array(null, 10),
+            array(null, 10, 1),
+            array(null, 10, 10),
+            array(null, 10, -1),
+        );
+    }
+
+    /**
+     * Tests for strpos
+     *
+     * @param string $haystack String to search in
+     * @param mixed  $needle   Characters to search
+     * @param int    $offset   Start position
+     *
+     * @return void
+     * @test
+     * @dataProvider providerStrpos
+     */
+    public function testStrpos($haystack, $needle, $offset = 0)
+    {
+        $native = $this->_native->strpos($haystack, $needle, $offset);
+        $multibytes = $this->_mb->strpos($haystack, $needle, $offset);
+        $this->assertTrue(
+            $native === $multibytes,
+            'native strpos: ' . var_export($native, true)
+            . ' - mb strpos: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Data provider for testStrpos
+     *
+     * @return array Test data
+     */
+    public function providerStrpos()
+    {
+        return array(
+            array('abcdef', 'a'),
+            array('abcdef', 'a', 2),
+            //array('abcdef', 'a', 10),
+            array('abcdef', 'e'),
+            array('abcdef', 'e', 2),
+            //array('abcdef', 'e', 10),
+            array('abcdef', 'z'),
+            array('abcdef', 'z', 2),
+            //array('abcdef', 'z', 10),
+            array('abcdef', ord('a')),
+            array('abcdef', ord('a'), 2),
+            //array('abcdef', ord('a'), 10),
+            array('abcdef', ord('e')),
+            array('abcdef', ord('e'), 2),
+            //array('abcdef', ord('e'), 10),
+            array('abcdef', ord('z')),
+            array('abcdef', ord('z'), 2),
+            //array('abcdef', ord('z'), 10),
+            array(false, 'a'),
+            array(false, 0),
+            //array(false, 0, 1),
+            //array(false, false),
+            array(true, 0),
+            //array(true, 0, 1),
+            array(true, 1),
+            array(true, 1, 1),
+            array(3, 0),
+            //array(3, 0, 2),
+            array(3, 3),
+            //array(3, 3, 2),
+            array(3, '3'),
+            //array(3, '3', 2),
+            array('3', '3'),
+            //array('3', '3', 2),
+            //array(null, false),
+            array(null, 0),
+            //array('', false),
+            array('', 0),
+            //array('', 0, 2),
         );
     }
 }
