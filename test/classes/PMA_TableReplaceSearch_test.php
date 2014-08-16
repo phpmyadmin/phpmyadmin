@@ -80,13 +80,19 @@ class PMA_TableReplaceSearchTest extends PHPUnit_Framework_TestCase
         // set expectations
         $dbi->expects($this->once())
             ->method('fetchResult')
-            ->will($this->returnValue(array(
-                array('val1', 'replace1', 5),
-                array('va<2', 'replac<2', 1)
-            )));
+            ->will(
+                $this->returnValue(
+                    array(
+                        array('val1', 'replace1', 5),
+                        array('va<2', 'replac<2', 1)
+                    )
+                )
+            );
         $GLOBALS['dbi'] = $dbi;
 
-        $ret = $this->_object->getReplacePreview(0, $find, $replaceWith, $useRegex, $charSet);
+        $ret = $this->_object->getReplacePreview(
+            0, $find, $replaceWith, $useRegex, $charSet
+        );
 
         // assert whether hidden values are properly set
         $this->assertContains(
