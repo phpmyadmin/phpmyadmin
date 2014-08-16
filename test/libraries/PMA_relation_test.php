@@ -160,7 +160,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             $result,
             $retval
         );
-        $result = 'PMA Database ... ';
+        $result = 'Configuration of pmadb… ';
         $this->assertContains(
             $result,
             $retval
