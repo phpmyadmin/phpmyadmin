@@ -25,6 +25,7 @@ if (isset($_POST['find'])) {
         $_POST['columnIndex'],
         $_POST['find'],
         $_POST['replaceWith'],
+        $_POST['useRegex'],
         $connectionCharSet
     );
     $response->addJSON('preview', $preview);
@@ -43,6 +44,7 @@ if (isset($_POST['replace'])) {
         $_POST['columnIndex'],
         $_POST['findString'],
         $_POST['replaceWith'],
+        $_POST['useRegex'],
         $connectionCharSet
     );
     $htmlOutput .= PMA_Util::getMessage(
