@@ -498,7 +498,7 @@ if (count($columns) > 0) {
                 $html_output .= __('Constraint name');
                 $html_output .= '<input type="text" name="constraint_name['
                     . $myfield_md5 . ']"'
-                    . ' value="' . $constraint_name . '"/>';
+                    . ' value="' . htmlspecialchars($constraint_name) . '"/>';
                 $html_output .= '</span>' . "\n";
 
                 $html_output .= '<span class="formelement">';
