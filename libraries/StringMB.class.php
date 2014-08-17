@@ -67,9 +67,15 @@ class PMA_StringMB implements PMA_StringByte
      */
     public function strpos($haystack, $needle, $offset = 0)
     {
+        if (null === $haystack) {
+            return false;
+        }
         if (!is_string($needle) && is_numeric($needle)) {
             $needle = (int)$needle;
             $needle = chr($needle);
+        }
+        if (false === $needle) {
+            return false;
         }
         return mb_strpos($haystack, $needle, $offset);
     }
@@ -88,6 +94,16 @@ class PMA_StringMB implements PMA_StringByte
      */
     public function stripos($haystack, $needle, $offset = 0)
     {
+        if (null === $haystack) {
+            return false;
+        }
+        if (!is_string($needle) && is_numeric($needle)) {
+            $needle = (int)$needle;
+            $needle = chr($needle);
+        }
+        if (false === $needle) {
+            return false;
+        }
         return mb_stripos($haystack, $needle, $offset);
     }
 

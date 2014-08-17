@@ -114,26 +114,26 @@ class PMA_String_Compare_Test extends PHPUnit_Framework_TestCase
     public function providerSubstr()
     {
         return array(
-            array('abcdef', 0),
-            array('abcdef', 0, 3),
-            array('abcdef', 0, 10),
-            array('abcdef', 0, -2),
-            array('abcdef', 2),
-            array('abcdef', 2, 3),
-            array('abcdef', 2, 10),
-            array('abcdef', 2, -1),
-            array('abcdef', 2, -4),
-            array('abcdef', 2, -5),
-            array('abcdef', 6),
-            array('abcdef', 6, 2),
-            array('abcdef', 6, 10),
-            array('abcdef', 6, -4),
-            array('abcdef', -3),
-            array('abcdef', -3, 1),
-            array('abcdef', -3, 10),
-            array('abcdef', -3, -1),
-            array('abcdef', -3, -3),
-            array('abcdef', -3, -5),
+            array('abcdefabcdef', 0),
+            array('abcdefabcdef', 0, 3),
+            array('abcdefabcdef', 0, 10),
+            array('abcdefabcdef', 0, -2),
+            array('abcdefabcdef', 2),
+            array('abcdefabcdef', 2, 3),
+            array('abcdefabcdef', 2, 10),
+            array('abcdefabcdef', 2, -1),
+            array('abcdefabcdef', 2, -4),
+            array('abcdefabcdef', 2, -5),
+            array('abcdefabcdef', 6),
+            array('abcdefabcdef', 6, 2),
+            array('abcdefabcdef', 6, 10),
+            array('abcdefabcdef', 6, -4),
+            array('abcdefabcdef', -3),
+            array('abcdefabcdef', -3, 1),
+            array('abcdefabcdef', -3, 10),
+            array('abcdefabcdef', -3, -1),
+            array('abcdefabcdef', -3, -3),
+            array('abcdefabcdef', -3, -5),
             array(false, 0),
             array(false, 0, 2),
             array(false, 10),
@@ -208,45 +208,227 @@ class PMA_String_Compare_Test extends PHPUnit_Framework_TestCase
     public function providerStrpos()
     {
         return array(
-            array('abcdef', 'a'),
-            array('abcdef', 'a', 2),
-            //array('abcdef', 'a', 10),
-            array('abcdef', 'e'),
-            array('abcdef', 'e', 2),
-            //array('abcdef', 'e', 10),
-            array('abcdef', 'z'),
-            array('abcdef', 'z', 2),
-            //array('abcdef', 'z', 10),
-            array('abcdef', ord('a')),
-            array('abcdef', ord('a'), 2),
-            //array('abcdef', ord('a'), 10),
-            array('abcdef', ord('e')),
-            array('abcdef', ord('e'), 2),
-            //array('abcdef', ord('e'), 10),
-            array('abcdef', ord('z')),
-            array('abcdef', ord('z'), 2),
-            //array('abcdef', ord('z'), 10),
+            array('abcdefabcdef', 'a'),
+            array('abcdefabcdef', 'a', 2),
+            array('abcdefabcdef', 'a', 10),
+            array('abcdefabcdef', 'A'),
+            array('abcdefabcdef', 'A', 2),
+            array('abcdefabcdef', 'A', 10),
+            array('abcdefabcdef', 'e'),
+            array('abcdefabcdef', 'e', 2),
+            array('abcdefabcdef', 'e', 10),
+            array('abcdefabcdef', 'e'),
+            array('abcdefabcdef', 'z'),
+            array('abcdefabcdef', 'z', 2),
+            array('abcdefabcdef', ord('a')),
+            array('abcdefabcdef', ord('a'), 2),
+            array('abcdefabcdef', ord('A')),
+            array('abcdefabcdef', ord('A'), 2),
+            array('abcdefabcdef', ord('e')),
+            array('abcdefabcdef', ord('e'), 2),
+            array('abcdefabcdef', ord('z')),
+            array('abcdefabcdef', ord('z'), 2),
+            array('abcdefabcdef', false),
             array(false, 'a'),
             array(false, 0),
-            //array(false, 0, 1),
-            //array(false, false),
+            array(false, false),
             array(true, 0),
-            //array(true, 0, 1),
+            array(true, 0, 1),
             array(true, 1),
             array(true, 1, 1),
             array(3, 0),
-            //array(3, 0, 2),
             array(3, 3),
-            //array(3, 3, 2),
             array(3, '3'),
-            //array(3, '3', 2),
             array('3', '3'),
-            //array('3', '3', 2),
-            //array(null, false),
             array(null, 0),
-            //array('', false),
+            array(null, false),
             array('', 0),
-            //array('', 0, 2),
+            array('', false),
+        );
+    }
+
+    /**
+     * Tests for strpos
+     *
+     * @param string $haystack String to search in
+     * @param mixed  $needle   Characters to search
+     * @param int    $offset   Start position
+     *
+     * @return void
+     * @test
+     * @dataProvider providerStrposException
+     */
+    public function testStrposException($haystack, $needle, $offset = 0)
+    {
+        $native = null;
+        $multibytes = null;
+        $nativeException = false;
+        $multibytesException = false;
+        try {
+            $native = $this->_native->strpos($haystack, $needle, $offset);
+        } catch (PHPUnit_Framework_Error $e) {
+            $nativeException = true;
+        }
+        try {
+            $multibytes = $this->_mb->strpos($haystack, $needle, $offset);
+        } catch (PHPUnit_Framework_Error $e) {
+            $multibytesException = true;
+        }
+
+        $this->assertTrue(
+            true === $nativeException && true === $multibytesException,
+            'native strpos: ' . var_export($native, true)
+            . ' - mb strpos: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Data provider for testStrposException
+     *
+     * @return array Test data
+     */
+    public function providerStrposException()
+    {
+        return array(
+            array('abcdefabcdef', 'a', 20),
+            array('abcdefabcdef', 'e', 20),
+            array('abcdefabcdef', 'z', 20),
+            array('abcdefabcdef', ord('a'), 20),
+            array('abcdefabcdef', ord('e'), 20),
+            array('abcdefabcdef', ord('z'), 20),
+            array(false, 0, 1),
+            array(3, 0, 2),
+            array(3, 3, 2),
+            array(3, '3', 2),
+            array('3', '3', 2),
+            array('', 0, 2),
+        );
+    }
+
+    /**
+     * Tests for stripos
+     *
+     * @param string $haystack String to search in
+     * @param mixed  $needle   Characters to search
+     * @param int    $offset   Start position
+     *
+     * @return void
+     * @test
+     * @dataProvider providerStripos
+     */
+    public function testStripos($haystack, $needle, $offset = 0)
+    {
+        $native = $this->_native->stripos($haystack, $needle, $offset);
+        $multibytes = $this->_mb->stripos($haystack, $needle, $offset);
+        $this->assertTrue(
+            $native === $multibytes,
+            'native stripos: ' . var_export($native, true)
+            . ' - mb stripos: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Data provider for testStripos
+     *
+     * @return array Test data
+     */
+    public function providerStripos()
+    {
+        return array(
+            array('abcdefabcdef', 'a'),
+            array('abcdefabcdef', 'a', 2),
+            array('abcdefabcdef', 'a', 10),
+            array('abcdefabcdef', 'A'),
+            array('abcdefabcdef', 'A', 2),
+            array('abcdefabcdef', 'A', 10),
+            array('abcdefabcdef', 'e'),
+            array('abcdefabcdef', 'e', 2),
+            array('abcdefabcdef', 'e', 10),
+            array('abcdefabcdef', 'e'),
+            array('abcdefabcdef', 'z'),
+            array('abcdefabcdef', 'z', 2),
+            array('abcdefabcdef', ord('a')),
+            array('abcdefabcdef', ord('a'), 2),
+            array('abcdefabcdef', ord('A')),
+            array('abcdefabcdef', ord('A'), 2),
+            array('abcdefabcdef', ord('e')),
+            array('abcdefabcdef', ord('e'), 2),
+            array('abcdefabcdef', ord('z')),
+            array('abcdefabcdef', ord('z'), 2),
+            array('abcdefabcdef', false),
+            array(false, 'a'),
+            array(false, 0),
+            array(false, 0, 1),
+            array(false, false),
+            array(true, 0),
+            array(true, 0, 1),
+            array(true, 1),
+            array(true, 1, 1),
+            array(3, 0),
+            array(3, 3),
+            array(3, '3'),
+            array('3', '3'),
+            array(null, 0),
+            array(null, false),
+            array('', 0),
+            array('', 0, 2),
+            array('', false),
+        );
+    }
+
+    /**
+     * Tests for stripos
+     *
+     * @param string $haystack String to search in
+     * @param mixed  $needle   Characters to search
+     * @param int    $offset   Start position
+     *
+     * @return void
+     * @test
+     * @dataProvider providerStriposException
+     */
+    public function testStriposException($haystack, $needle, $offset = 0)
+    {
+        $native = null;
+        $multibytes = null;
+        $nativeException = false;
+        $multibytesException = false;
+        try {
+            $native = $this->_native->stripos($haystack, $needle, $offset);
+        } catch (PHPUnit_Framework_Error $e) {
+            $nativeException = true;
+        }
+        try {
+            $multibytes = $this->_mb->stripos($haystack, $needle, $offset);
+        } catch (PHPUnit_Framework_Error $e) {
+            $multibytesException = true;
+        }
+
+        $this->assertTrue(
+            true === $nativeException && true === $multibytesException,
+            'native stripos: ' . var_export($native, true)
+            . ' - mb stripos: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Data provider for testStriposException
+     *
+     * @return array Test data
+     */
+    public function providerStriposException()
+    {
+        return array(
+            array('abcdefabcdef', 'a', 20),
+            array('abcdefabcdef', 'e', 20),
+            array('abcdefabcdef', 'z', 20),
+            array('abcdefabcdef', ord('a'), 20),
+            array('abcdefabcdef', ord('e'), 20),
+            array('abcdefabcdef', ord('z'), 20),
+            array(3, 0, 2),
+            array(3, 3, 2),
+            array(3, '3', 2),
+            array('3', '3', 2),
         );
     }
 }
