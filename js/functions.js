@@ -3585,7 +3585,7 @@ AJAX.registerOnload('functions.js', function () {
         var question = PMA_messages.strDropTableStrongWarning + ' ';
         question += $.sprintf(
             PMA_messages.strDoYouReally,
-            'DROP VIEW ' + PMA_commonParams.get('table')
+            'DROP VIEW ' + escapeHtml(PMA_commonParams.get('table'))
         );
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
