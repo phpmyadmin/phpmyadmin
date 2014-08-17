@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-08-17 19:08+0200\n"
-"Last-Translator: Ibrahim Redzhebov <ibrahim.redhzebov@gmail.com>\n"
+"PO-Revision-Date: 2014-08-17 21:05+0200\n"
+"Last-Translator: Pl <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://l10n.cihar.com/projects/phpmyadmin/4-2/bg/>"
 "\n"
 "Language: bg\n"
@@ -613,6 +613,8 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Каченият файл не може да бъде преместен, защото сървърът има разрешен "
+"open_basedir баез достъп до папката %s (за временни файлове)."
 
 #: import.php:412 import.php:473 libraries/File.class.php:433
 #: libraries/File.class.php:527
@@ -838,6 +840,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Вашата настройка на PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] е по-ниска, отколкото "
+"валидността на бисквитката в phpMyAdmin. Поради това, Вашата сесия ще изтече "
+"по-бързо, отколкото е настройката в phpMyAdmin."
 
 #: index.php:483
 msgid ""
@@ -936,6 +943,8 @@ msgid ""
 "Are you sure you want to navigate away from this page? Press OK to continue "
 "or Cancel to stay on the current page."
 msgstr ""
+"Наистина ли искате да напуснете тази страница? Натиснете ОК за да продължите "
+"или Cancel за да останете на тази страница."
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
@@ -962,10 +971,10 @@ msgid "Edit Index"
 msgstr "Редактиране индекс"
 
 #: js/messages.php:55 libraries/tbl_indexes.lib.php:394
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "Добавяне %d колона(и) към индекс"
+msgstr "Добавяне на %s колона(и) към индекса"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:59 libraries/tbl_chart.lib.php:216
@@ -1020,10 +1029,9 @@ msgid "Connections / Processes"
 msgstr "Връзки / Процеси"
 
 #: js/messages.php:79
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
-msgstr "Локалната настройка на наблюдателя е несъвместима"
+msgstr "Локалната настройка на наблюдателя е несъвместима!"
 
 #: js/messages.php:80
 msgid ""
@@ -1179,10 +1187,9 @@ msgid "Add chart to grid"
 msgstr "Добавяне диаграма към мрежата"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "Моля добавете поне една променлива към сериите"
+msgstr "Моля добавете поне една променлива към сериите!"
 
 #: js/messages.php:124 libraries/DisplayResults.class.php:1338
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1047
@@ -1271,10 +1278,10 @@ msgstr "Изключване %s"
 
 #. l10n: %d seconds
 #: js/messages.php:144
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "Задаване на long_query_time на %dс"
+msgstr "Задаване на long_query_time на %d секунди."
 
 #: js/messages.php:146
 msgid ""
@@ -1482,10 +1489,9 @@ msgid "Import monitor configuration"
 msgstr "Импорт настройки за наблюдателя"
 
 #: js/messages.php:205
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "Изберете файла, който искате да импортирате"
+msgstr "Изберете файла, който искате да импортирате."
 
 #: js/messages.php:206
 msgid "No files available on server for import!"
@@ -1559,7 +1565,7 @@ msgstr ""
 #: js/messages.php:232
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Текст на грешката: %s"
 
 #: js/messages.php:233 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 libraries/server_databases.lib.php:458
@@ -1646,10 +1652,9 @@ msgid "Values for a new column"
 msgstr "Стойности за нова колона"
 
 #: js/messages.php:264
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "Въвеждайте всяка стойност в отделно поле"
+msgstr "Въвеждайте всяка стойност в отделно поле."
 
 #: js/messages.php:265
 #, php-format
