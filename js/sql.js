@@ -119,7 +119,7 @@ AJAX.registerOnload('sql.js', function () {
     // Delete row from SQL results
     $('a.delete_row.ajax').live('click', function (e) {
         e.preventDefault();
-        var question = $.sprintf(PMA_messages.strDoYouReally, $(this).closest('td').find('div').text());
+        var question = $.sprintf(PMA_messages.strDoYouReally, escapeHtml($(this).closest('td').find('div').text()));
         var $link = $(this);
         $link.PMA_confirm(question, $link.attr('href'), function (url) {
             $msgbox = PMA_ajaxShowMessage();
