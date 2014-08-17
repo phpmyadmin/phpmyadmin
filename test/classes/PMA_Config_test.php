@@ -953,13 +953,12 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      * Should test checking of config permissions
      *
      * @return void
-     * @todo Implement testCheckPermissions().
      */
     public function testCheckPermissions()
     {
         //load file permissions for the current permissions file
         $perms = @fileperms($this->object->getSource());
-        //testing for permissions for no configration file
+        //testing for permissions for no configuration file
         $this->assertFalse(!($perms === false) && ($perms & 2));
 
         //load file permissions for the current permissions file
