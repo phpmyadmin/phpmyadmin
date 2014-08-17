@@ -2842,7 +2842,7 @@ AJAX.registerOnload('functions.js', function () {
         } else {
             title = PMA_messages.enum_columnVals.replace(
                 /%s/,
-                '"' + decodeURIComponent(colname) + '"'
+                '"' + escapeHtml(decodeURIComponent(colname)) + '"'
             );
         }
         // Get the values as a string
@@ -3870,7 +3870,7 @@ AJAX.registerOnload('functions.js', function () {
         var question = PMA_messages.strDropTableStrongWarning + ' ';
         question += $.sprintf(
             PMA_messages.strDoYouReally,
-            'DROP VIEW ' + PMA_commonParams.get('table')
+            'DROP VIEW ' + escapeHtml(PMA_commonParams.get('table'))
         );
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {

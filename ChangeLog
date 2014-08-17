@@ -39,6 +39,13 @@ phpMyAdmin - ChangeLog
 4.2.8.0 (not yet released)
 - bug #4516 Odd export behavior
 
+4.2.7.1 (2014-08-17)
+- bug #4501 [security] XSS in table browse page
+- bug #4502 [security] Self-XSS in enum value editor
+- bug #4503 [security] Self-XSSes in monitor
+- bug #4504 [security] Self-XSS in query charts
+- bug #4505 [security] XSS in view operations page
+
 4.2.7.0 (2014-07-31)
 - bug       Broken links on home page
 - bug #4494 Overlap in navigation panel
