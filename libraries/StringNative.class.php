@@ -74,7 +74,9 @@ class PMA_StringNative implements PMA_StringByte
      */
     public function stripos($haystack, $needle, $offset = 0)
     {
-        if (('' === $haystack || false === $haystack) && $offset >= $this->strlen($haystack)) {
+        if (('' === $haystack || false === $haystack)
+            && $offset >= $this->strlen($haystack)
+        ) {
             return false;
         }
         return stripos($haystack, $needle, $offset);

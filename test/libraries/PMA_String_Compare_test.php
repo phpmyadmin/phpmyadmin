@@ -431,4 +431,257 @@ class PMA_String_Compare_Test extends PHPUnit_Framework_TestCase
             array('3', '3', 2),
         );
     }
+
+    /**
+     * Tests for strrpos
+     *
+     * @param string $haystack String to search in
+     * @param mixed  $needle   Characters to search
+     * @param int    $offset   Start position
+     *
+     * @return void
+     * @test
+     * @dataProvider providerStrrpos
+     */
+    public function testStrrpos($haystack, $needle, $offset = 0)
+    {
+        $native = $this->_native->strrpos($haystack, $needle, $offset);
+        $multibytes = $this->_mb->strrpos($haystack, $needle, $offset);
+        $this->assertTrue(
+            $native === $multibytes,
+            'native strrpos: ' . var_export($native, true)
+            . ' - mb strrpos: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Data provider for testStrrpos
+     *
+     * @return array Test data
+     */
+    public function providerStrrpos()
+    {
+        return array(
+            array('abcdefabcdef', 'a'),
+            array('abcdefabcdef', 'a', 2),
+            array('abcdefabcdef', 'a', 10),
+            array('abcdefabcdef', 'a', -10),
+            array('abcdefabcdef', 'A'),
+            array('abcdefabcdef', 'A', 2),
+            array('abcdefabcdef', 'A', 10),
+            array('abcdefabcdef', 'A', -10),
+            array('abcdefabcdef', 'e'),
+            array('abcdefabcdef', 'e', 2),
+            array('abcdefabcdef', 'e', 10),
+            array('abcdefabcdef', 'e', -2),
+            array('abcdefabcdef', 'e'),
+            array('abcdefabcdef', 'z'),
+            array('abcdefabcdef', 'z', 2),
+            array('abcdefabcdef', 'z', -2),
+            array('abcdefabcdef', ord('a')),
+            array('abcdefabcdef', ord('a'), 2),
+            array('abcdefabcdef', ord('a'), -2),
+            array('abcdefabcdef', ord('A')),
+            array('abcdefabcdef', ord('A'), 2),
+            array('abcdefabcdef', ord('A'), -2),
+            array('abcdefabcdef', ord('e')),
+            array('abcdefabcdef', ord('e'), 2),
+            array('abcdefabcdef', ord('e'), -2),
+            array('abcdefabcdef', ord('z')),
+            array('abcdefabcdef', ord('z'), 2),
+            array('abcdefabcdef', ord('z'), -2),
+            array('abcdefabcdef', false),
+            array(false, 'a'),
+            array(false, 0),
+            array(false, 0, 1),
+            array(false, false),
+            array(true, 0),
+            array(true, 0, 1),
+            array(true, 1),
+            array(true, 1, 1),
+            array(3, 0),
+            array(3, 3),
+            array(3, '3'),
+            array('3', '3'),
+            array(null, 0),
+            array(null, false),
+            array('', 0),
+            array('', 0, 2),
+            array('', false),
+        );
+    }
+
+    /**
+     * Tests for strrpos
+     *
+     * @param string $haystack String to search in
+     * @param mixed  $needle   Characters to search
+     * @param int    $offset   Start position
+     *
+     * @return void
+     * @test
+     * @dataProvider providerStrrposException
+     */
+    public function testStrrposException($haystack, $needle, $offset = 0)
+    {
+        $native = null;
+        $multibytes = null;
+        $nativeException = false;
+        $multibytesException = false;
+        try {
+            $native = $this->_native->strrpos($haystack, $needle, $offset);
+        } catch (PHPUnit_Framework_Error $e) {
+            $nativeException = true;
+        }
+        try {
+            $multibytes = $this->_mb->strrpos($haystack, $needle, $offset);
+        } catch (PHPUnit_Framework_Error $e) {
+            $multibytesException = true;
+        }
+
+        $this->assertTrue(
+            true === $nativeException && true === $multibytesException,
+            'native strrpos: ' . var_export($native, true)
+            . ' - mb strrpos: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Data provider for testStrrposException
+     *
+     * @return array Test data
+     */
+    public function providerStrrposException()
+    {
+        return array(
+            array('abcdefabcdef', 'a', 20),
+            array('abcdefabcdef', 'a', -20),
+            array('abcdefabcdef', 'e', 20),
+            array('abcdefabcdef', 'e', -20),
+            array('abcdefabcdef', 'z', 20),
+            array('abcdefabcdef', 'z', -20),
+            array('abcdefabcdef', ord('a'), 20),
+            array('abcdefabcdef', ord('e'), 20),
+            array('abcdefabcdef', ord('z'), 20),
+            array(3, 0, 2),
+            array(3, 3, 2),
+            array(3, '3', 2),
+            array('3', '3', 2),
+        );
+    }
+
+    /**
+     * Tests for strstr
+     *
+     * @param string $haystack      String to search in
+     * @param mixed  $needle        Characters to search
+     * @param bool   $before_needle Start position
+     *
+     * @return void
+     * @test
+     * @dataProvider providerStrstr
+     */
+    public function testStrstr($haystack, $needle, $before_needle = false)
+    {
+        $native = $this->_native->strstr($haystack, $needle, $before_needle);
+        $multibytes = $this->_mb->strstr($haystack, $needle, $before_needle);
+        $this->assertTrue(
+            $native === $multibytes,
+            'native strstr: ' . var_export($native, true)
+            . ' - mb strstr: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Data provider for testStrstr
+     *
+     * @return array Test data
+     */
+    public function providerStrstr()
+    {
+        return array(
+            array('abcdefabcdef', 'a'),
+            array('abcdefabcdef', 'a', true),
+            array('abcdefabcdef', 'A'),
+            array('abcdefabcdef', 'A', true),
+            array('abcdefabcdef', 'e'),
+            array('abcdefabcdef', 'e', true),
+            array('abcdefabcdef', 'z'),
+            array('abcdefabcdef', 'z', true),
+            array('abcdefabcdef', null),
+            array('abcdefabcdef', null, true),
+            array('abcdefabcdef', false),
+            array('abcdefabcdef', false, true),
+            array(false, 'a'),
+            array(false, false),
+            array(true, 0),
+            array(true, 1),
+            array(true, true),
+            array(true, true, true),
+            array(3, 0),
+            array(3, 3),
+            array(3, 3, true),
+            array(123456789, 0),
+            array(123456789, 3),
+            array(123456789, 3, true),
+            array('3', '3'),
+            array('3', '3', true),
+            array('123456789', 3),
+            array('123456789', 3),
+            array('123456789', 3, true),
+            array(null, 0),
+            array(null, null),
+            array('', 0),
+            array('', false),
+            array('', null),
+        );
+    }
+
+    /**
+     * Tests for strstr
+     *
+     * @param string $haystack      String to search in
+     * @param mixed  $needle        Characters to search
+     * @param bool   $before_needle Start position
+     *
+     * @return void
+     * @test
+     * @dataProvider providerStrstrException
+     */
+    public function testStrstrException($haystack, $needle, $before_needle = false)
+    {
+        $native = null;
+        $multibytes = null;
+        $nativeException = false;
+        $multibytesException = false;
+        try {
+            $native = $this->_native->strstr($haystack, $needle, $before_needle);
+        } catch (PHPUnit_Framework_Error $e) {
+            $nativeException = true;
+        }
+        try {
+            $multibytes = $this->_mb->strstr($haystack, $needle, $before_needle);
+        } catch (PHPUnit_Framework_Error $e) {
+            $multibytesException = true;
+        }
+
+        $this->assertTrue(
+            true === $nativeException && true === $multibytesException,
+            'native strstr: ' . var_export($native, true)
+            . ' - mb strstr: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Data provider for testStrrposException
+     *
+     * @return array Test data
+     */
+    public function providerStrstrException()
+    {
+        return array(
+            array('abcdefabcdef', ''),
+            array('abcdefabcdef', '', true),
+        );
+    }
 }
