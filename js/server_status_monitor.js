@@ -908,7 +908,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             label: $('#variableInput').val().replace(/_/g, " ")
         };
         newChart.series.push(newSeries);
-        $('#seriesPreview').append('- ' + newSeries.label + str + '<br/>');
+        $('#seriesPreview').append('- ' + escapeHtml(newSeries.label + str) + '<br/>');
         newChart.nodes.push(serie);
         $('#variableInput').val('');
         $('input[name="differentialValue"]').prop('checked', true);
