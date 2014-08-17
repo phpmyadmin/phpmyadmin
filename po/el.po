@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-16 14:26-0400\n"
-"PO-Revision-Date: 2014-08-16 20:58+0200\n"
+"PO-Revision-Date: 2014-08-16 21:00+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
 "\n"
@@ -13857,7 +13857,7 @@ msgstr "+Προσθήκη περιορισμού"
 #, php-format
 #| msgid "Foreign key constraints"
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Ο περιοσμός ξένου κλειδιού %s έχει διαγραφεί"
+msgstr "Ο περιορισμός ξένου κλειδιού %s έχει διαγραφεί"
 
 #: libraries/tbl_relation.lib.php:465
 msgid "Constraint name"
