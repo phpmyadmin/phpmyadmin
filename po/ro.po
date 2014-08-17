@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-08-17 15:47+0200\n"
+"PO-Revision-Date: 2014-08-17 15:57+0200\n"
 "Last-Translator: Alecsandru Prună <alecsandrucpruna@gmail.com>\n"
 "Language-Team: Romanian <https://l10n.cihar.com/projects/phpmyadmin/4-2/ro/>"
 "\n"
@@ -2798,7 +2798,6 @@ msgid "Well Known Text"
 msgstr "Text Bine Cunoscut"
 
 #: libraries/DisplayResults.class.php:1687
-#, fuzzy
 msgid "Well Known Binary"
 msgstr "Binar Bine Cunoscut"
 
@@ -3479,10 +3478,10 @@ msgid "Unknown table status:"
 msgstr "Stare tabel necunoscută:"
 
 #: libraries/Table.class.php:797
-#, fuzzy, php-format
+#, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "Baza de date sursă"
+msgstr "Baza de date `%s` nu a fost găsită!"
 
 #: libraries/Table.class.php:805
 #, php-format
@@ -3513,10 +3512,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabelul %1$s a fost redenumit în  %2$s."
 
 #: libraries/Table.class.php:1548
-#, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
-msgstr "Nu am putut salva tabela cu preferinţele UI"
+msgstr "Nu am putut salva tabela cu preferinţele UI!"
 
 #: libraries/Table.class.php:1577
 #, php-format
@@ -3967,11 +3965,10 @@ msgid "String"
 msgstr "Şir de caractere"
 
 #: libraries/Types.class.php:699
-#, fuzzy
 #| msgid "Log file count"
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "Număr de fișiere-jurnal"
+msgstr "Spaţial"
 
 #: libraries/Types.class.php:776
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -4070,7 +4067,7 @@ msgstr "Creare profil"
 #| msgid "Engines"
 msgctxt "Inline edit query"
 msgid "Inline"
-msgstr "Motoare"
+msgstr "Intercalat"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1584
@@ -4115,10 +4112,10 @@ msgid "Browse your computer:"
 msgstr "Caută în calculatorul tău:"
 
 #: libraries/Util.class.php:3317
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "director de încărcare al serverului Web"
+msgstr "Selectați de pe serverul web un director <b>%s</b>: pentru încărcări:"
 
 #: libraries/Util.class.php:3346 libraries/insert_edit.lib.php:1228
 #: libraries/sql_query_form.lib.php:487
@@ -4654,24 +4651,25 @@ msgid "Could not connect to the database server!"
 msgstr "Nu s-a putut realiza conexiunea cu serverul de baze de date!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "Nume de utilizator gol la folosirea autentificării de tipul config"
+msgstr ""
+"Nume de utilizator gol la folosirea autentificării de tipul "
+"[kbd]config[/kbd]!"
 
 #: libraries/config/Validator.class.php:320
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Nume de sesiune signon gol la folosirea autentificării de tipul signon"
+msgstr ""
+"Nume de sesiune signon gol la folosirea autentificării de tipul "
+"[kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:329
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "URL signon gol la folosirea autentificării de tip signon"
+msgstr "URL signon gol la folosirea autentificării de tip [kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:376
 #, fuzzy
@@ -15477,10 +15475,9 @@ msgid "MyISAM concurrent inserts"
 msgstr "inserări concurente MyISAM"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "Activează concurrent_insert setându-i valoarea la 1"
+msgstr "Activează {concurrent_insert} setându-i valoarea la 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
