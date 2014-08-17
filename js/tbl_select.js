@@ -311,11 +311,10 @@ AJAX.registerOnload('tbl_select.js', function () {
                         button_options[PMA_messages.strGo] = function () {
                             var min_value = $('#min_value').val();
                             var max_value = $('#max_value').val();
+                            var final_value = '';
                             if (min_value.length && max_value.length) {
-                                var final_value = min_value + ', ' +
+                                final_value = min_value + ', ' +
                                     max_value;
-                            } else {
-                                final_value = '';
                             }
                             var $target_field = $source_select.closest('tr')
                                 .find('[name*="criteriaValues"]');

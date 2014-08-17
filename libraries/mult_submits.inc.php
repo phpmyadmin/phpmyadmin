@@ -84,7 +84,7 @@ if (! empty($submit_mult)
                 exit;
                 break;
             case 'show_create':
-                $show_create = PMA_getHtmlShowCreate($db, $selected);
+                $show_create = PMA_getHtmlShowCreate($GLOBALS['db'], $selected);
                 // Send response to client.
                 $response = PMA_Response::getInstance();
                 $response->addJSON('message', $show_create);
@@ -99,7 +99,10 @@ if (! empty($submit_mult)
                 break;
             case 'make_consistent_with_central_list':
                 include_once 'libraries/central_columns.lib.php';
-                $centralColsError = PMA_makeConsistentWithList($db, $selected);
+                $centralColsError = PMA_makeConsistentWithList(
+                    $GLOBALS['db'],
+                    $selected
+                );
                 break;
             } // end switch
         }
@@ -112,7 +115,7 @@ if (! empty($submit_mult)
                 $centralColsError
                 )
                     = PMA_getDataForSubmitMult(
-                        $submit_mult, $db, $table,
+                        $submit_mult, $GLOBALS['db'], $table,
                         $selected, $action
                     );
         //update the existing variables

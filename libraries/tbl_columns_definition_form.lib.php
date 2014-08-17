@@ -701,7 +701,9 @@ function PMA_getHtmlForMimeType($columnNumber, $ci, $ci_offset,
             . '" size="1" name="field_mimetype[' . $columnNumber . ']">';
     $html .= '    <option value="">&nbsp;</option>';
 
-    if (is_array($available_mime['mimetype'])) {
+    if (isset($available_mime['mimetype'])
+        && is_array($available_mime['mimetype'])
+    ) {
         foreach ($available_mime['mimetype'] as $mimetype) {
             $checked = (isset($columnMeta['Field'])
                 && isset($mime_map[$columnMeta['Field']]['mimetype'])
@@ -743,7 +745,7 @@ function PMA_getHtmlForTransformation($columnNumber, $ci, $ci_offset,
             . '[' . $columnNumber . ']">';
     $html .= '    <option value="" title="' . __('None')
             . '"></option>';
-    if (is_array($available_mime[$type])) {
+    if (isset($available_mime[$type]) && is_array($available_mime[$type])) {
         foreach ($available_mime[$type] as $mimekey => $transform) {
             $checked = isset($columnMeta['Field'])
                 && isset($mime_map[$columnMeta['Field']][$type])

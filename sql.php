@@ -59,7 +59,7 @@ if (! empty($goto)) {
 
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
-        . '?' . PMA_URL_getCommon($db)
+        . '?' . PMA_URL_getCommon($GLOBALS['db'])
         . ((strpos(' ' . $goto, 'db_') != 1 && strlen($table))
             ? '&amp;table=' . urlencode($table)
             : ''

@@ -162,8 +162,8 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         isset($submit_default_current_timestamp)
         ? $submit_default_current_timestamp : null,
         $comments_map, isset($fields_meta) ? $fields_meta : null, $is_backup,
-        isset($move_columns) ? $move_columns : null, $cfgRelation,
-        isset($available_mime) ? $available_mime : null,
+        isset($move_columns) ? $move_columns : array(), $cfgRelation,
+        isset($available_mime) ? $available_mime : array(),
         isset($mime_map) ? $mime_map : array()
     );
 } // end for

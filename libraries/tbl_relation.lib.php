@@ -289,7 +289,6 @@ function PMA_getHtmlForInternalRelationRow($save_row, $i, $odd_row,
 
     $html_output .= '<td>';
 
-    $foreign_db = false;
     $foreign_table = false;
     $foreign_column = false;
 
@@ -531,7 +530,6 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
         . '</a>';
     $html_output .= '</td>';
     $html_output .= '<td>';
-    $foreign_db = false;
     $foreign_table = false;
     $foreign_column = false;
 
