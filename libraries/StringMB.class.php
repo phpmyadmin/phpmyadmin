@@ -48,7 +48,6 @@ class PMA_StringMB implements PMA_StringByte
         if ($stringLength <= $start) {
             return false;
         }
-
         if ($stringLength + $length < $start) {
             return false;
         }
@@ -57,7 +56,7 @@ class PMA_StringMB implements PMA_StringByte
     }
 
     /**
-     * Returns postion of $needle in $haystack or false if not found
+     * Returns position of $needle in $haystack or false if not found
      *
      * @param string $haystack the string being checked
      * @param string $needle   the string to find in haystack
@@ -70,12 +69,12 @@ class PMA_StringMB implements PMA_StringByte
         if (null === $haystack) {
             return false;
         }
+        if (false === $needle) {
+            return false;
+        }
         if (!is_string($needle) && is_numeric($needle)) {
             $needle = (int)$needle;
             $needle = chr($needle);
-        }
-        if (false === $needle) {
-            return false;
         }
         return mb_strpos($haystack, $needle, $offset);
     }
@@ -97,12 +96,12 @@ class PMA_StringMB implements PMA_StringByte
         if (null === $haystack) {
             return false;
         }
+        if (false === $needle) {
+            return false;
+        }
         if (!is_string($needle) && is_numeric($needle)) {
             $needle = (int)$needle;
             $needle = chr($needle);
-        }
-        if (false === $needle) {
-            return false;
         }
         return mb_stripos($haystack, $needle, $offset);
     }
@@ -123,12 +122,12 @@ class PMA_StringMB implements PMA_StringByte
         if (null === $haystack) {
             return false;
         }
+        if (false === $needle) {
+            return false;
+        }
         if (!is_string($needle) && is_numeric($needle)) {
             $needle = (int)$needle;
             $needle = chr($needle);
-        }
-        if (false === $needle) {
-            return false;
         }
         return mb_strrpos($haystack, $needle, $offset);
     }
@@ -147,6 +146,10 @@ class PMA_StringMB implements PMA_StringByte
      */
     public function strstr($haystack, $needle, $before_needle = false)
     {
+        if (!is_string($needle) && is_numeric($needle)) {
+            $needle = (int)$needle;
+            $needle = chr($needle);
+        }
         if (!is_string($haystack) || !is_string($needle) || null === $needle) {
             return false;
         }
@@ -168,6 +171,13 @@ class PMA_StringMB implements PMA_StringByte
      */
     public function stristr($haystack, $needle, $before_needle = false)
     {
+        if (!is_string($needle) && is_numeric($needle)) {
+            $needle = (int)$needle;
+            $needle = chr($needle);
+        }
+        if (!is_string($haystack) || !is_string($needle) || null === $needle) {
+            return false;
+        }
         return mb_stristr($haystack, $needle, $before_needle);
     }
 
