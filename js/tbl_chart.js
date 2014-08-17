@@ -47,7 +47,7 @@ function PMA_queryChart(data, columnNames, settings) {
         },
         axes : {
             xaxis : {
-                label : settings.xaxisLabel
+                label : escapeHtml(settings.xaxisLabel)
             },
             yaxis : {
                 label : settings.yaxisLabel
