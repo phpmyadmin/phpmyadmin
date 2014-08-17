@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #4503 [security] Self-XSSes in monitor
 - bug #4504 [security] Self-XSS in query charts
 - bug #4505 [security] XSS in view operations page
+- bug #4517 [security] XSS in relation view
 
 4.2.7.0 (2014-07-31)
 - bug       Broken links on home page
