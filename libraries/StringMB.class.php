@@ -217,6 +217,10 @@ class PMA_StringMB implements PMA_StringByte
      */
     public function ord($string)
     {
+        if (false === $string || null === $string || '' === $string) {
+            return 0;
+        }
+
         $str = mb_convert_encoding($string, "UCS-4BE", "UTF-8");
         $substr = mb_substr($str, 0, 1, "UCS-4BE");
         $val = unpack("N", $substr);

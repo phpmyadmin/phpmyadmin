@@ -872,4 +872,88 @@ class PMA_String_Compare_Test extends PHPUnit_Framework_TestCase
             array(''),
         );
     }
+
+    /**
+     * Tests for ord
+     *
+     * @param string $chr Input char
+     *
+     * @return void
+     * @test
+     * @dataProvider providerOrd
+     */
+    public function testOrd($chr)
+    {
+        $native = $this->_native->ord($chr);
+        $multibytes = $this->_mb->ord($chr);
+        $this->assertTrue(
+            $native === $multibytes,
+            'native ord: ' . var_export($native, true)
+            . ' - mb ord: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Data provider for testOrd
+     *
+     * @return array Test data
+     */
+    public function providerOrd()
+    {
+        return array(
+            array('a'),
+            array('A'),
+            array('az'),
+            array('AZ'),
+            array('3a'),
+            array(3),
+            array(3.1),
+            array(true),
+            array(false),
+            array(null),
+            array(''),
+        );
+    }
+
+    /**
+     * Tests for chr
+     *
+     * @param string $ascii Ascii code
+     *
+     * @return void
+     * @test
+     * @dataProvider providerChr
+     */
+    public function testChr($ascii)
+    {
+        $native = $this->_native->chr($ascii);
+        $multibytes = $this->_mb->chr($ascii);
+        $this->assertTrue(
+            $native === $multibytes,
+            'native chr: ' . var_export($native, true)
+            . ' - mb chr: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Data provider for testChr
+     *
+     * @return array Test data
+     */
+    public function providerChr()
+    {
+        return array(
+            array('a'),
+            array('A'),
+            array('az'),
+            array('AZ'),
+            array('a3'),
+            array(3),
+            array(3.1),
+            array(false),
+            array(true),
+            array(null),
+            array(''),
+        );
+    }
 }
