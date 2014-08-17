@@ -418,7 +418,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
             'analyzed_sql' => $analyzed_sql
         );
 
-        $simulated_data = PMA_getMatchedRows($sql_query, $analyzed_sql_results);
+        $simulated_data = PMA_getMatchedRows($analyzed_sql_results);
 
         // URL to matched rows.
         $_url_params = array(

@@ -308,7 +308,7 @@ $response->addHTML(
     PMA_getHtmlBodyForTableSummary(
         $num_tables, $server_slave_status, $db_is_system_schema, $sum_entries,
         $db_collation, $is_show_stats, $sum_size, $overhead_size, $create_time_all,
-        $update_time_all, $check_time_all, $approx_rows
+        $update_time_all, $check_time_all, isset($approx_rows) ? $approx_rows : false
     )
 );
 $response->addHTML('</table>');
