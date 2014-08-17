@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.1.14.3 (Not yet released)
 - bug #4501 [security] XSS in table browse page
+- bug #4502 [security] Self-XSS in enum value editor
 - bug #4505 [security] XSS in view operations page
 
 4.1.14.2 (2014-07-17)

@@ -2684,7 +2684,7 @@ AJAX.registerOnload('functions.js', function () {
         } else {
             title = PMA_messages.enum_columnVals.replace(
                 /%s/,
-                '"' + decodeURIComponent(colname) + '"'
+                '"' + escapeHtml(decodeURIComponent(colname)) + '"'
             );
         }
         // Get the values as a string
