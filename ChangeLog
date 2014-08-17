@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #4503 [security] Self-XSSes in monitor
 - bug #4505 [security] XSS in view operations page
 - bug #4504 [security] Self-XSS in query charts
+- bug #4517 [security] XSS in relation view
 
 4.1.14.2 (2014-07-17)
 - bug #4488 [security] XSS injection due to unescaped table name (triggers)
