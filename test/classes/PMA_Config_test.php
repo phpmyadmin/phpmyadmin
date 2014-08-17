@@ -40,8 +40,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      */
     protected $permTestObj;
 
-
-
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -387,7 +385,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     /**
      * Web server detection test
      *
-     * @param string  $server Server indentification
+     * @param string  $server Server identification
      * @param boolean $iis    Whether server should be detected as IIS
      *
      * @return void
@@ -439,7 +437,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
                 $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'OS/2')) {
                 $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
-                break;
             } elseif (stristr(PHP_OS, 'Linux')) {
                 $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
             } else {
@@ -883,7 +880,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      * Test for loading user preferences
      *
      * @return void
-     * @todo Test actualy preferences loading
+     * @todo Test actually preferences loading
      */
     public function testLoadUserPreferences()
     {
@@ -919,7 +916,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      * Should test getting unique value for theme
      *
      * @return void
-     * @todo Implement testGetThemeUniqueValue().
      */
     public function testGetThemeUniqueValue()
     {
