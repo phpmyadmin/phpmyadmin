@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-08-17 00:36+0200\n"
+"PO-Revision-Date: 2014-08-18 00:45+0200\n"
 "Last-Translator: Alex Smirnov <alex-smirnov@mail.ru>\n"
 "Language-Team: Ukrainian <https://l10n.cihar.com/projects/phpmyadmin/4-2/uk/>"
 "\n"
@@ -311,7 +311,7 @@ msgstr "Доступ заборонено!"
 
 #: db_structure.php:72
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "Перелік обраного заповнено!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -512,7 +512,7 @@ msgstr "Додати точку"
 #: gis_data_editor.php:264
 #, php-format
 msgid "Linestring %d:"
-msgstr "Ламана %d:"
+msgstr "Відрізок %d:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:344
 msgid "Outer ring:"
@@ -538,11 +538,11 @@ msgstr "Багатокутник %d:"
 
 #: gis_data_editor.php:392
 msgid "Add a polygon"
-msgstr "Додати полігон"
+msgstr "Додати багатокутник"
 
 #: gis_data_editor.php:398
 msgid "Add geometry"
-msgstr "Додати геометрію (geometry)"
+msgstr "Додати геометрію"
 
 #: gis_data_editor.php:404 js/messages.php:223
 #: libraries/DbSearch.class.php:466 libraries/DisplayResults.class.php:1701
@@ -592,8 +592,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Оберіть \"GeomFromText\" зі стовпчика \"Функції\" стовпчика та вставте нижче "
-"у поле \"Значення\"."
+"Оберіть \"GeomFromText\" зі стовпчика \"Функції\" та вставте нижче у поле \""
+"Значення\"."
 
 #: import.php:116
 #, php-format
@@ -601,7 +601,7 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Імовірно ви намагаєтесь завантажити занадто великий файл. Будь ласка "
+"Імовірно ви намагаєтесь завантажити занадто великий файл. Будь ласка, "
 "зверніться до %sдокументації%s для знаходження шляхів вирішення цієї "
 "проблеми."
 
@@ -619,6 +619,8 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Завантажений файл не може бути переміщений, тому що на сервері включений "
+"open_basedir без доступу до директорії %s (для тимчасових файлів)."
 
 #: import.php:412 import.php:473 libraries/File.class.php:433
 #: libraries/File.class.php:527
@@ -632,8 +634,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Ви намагаєтесь завантажитит файл з непідтрумуваною компресією (%s). "
-"Підтримка якої не здійснюється або вимкнена у вашій конфігурації."
+"Ви намагаєтесь завантажити файл з непідтримуваним стисненням (%s). Підтримка "
+"не здійснюється або вимкнена у вашій конфігурації."
 
 #: import.php:479
 msgid ""
@@ -641,30 +643,30 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"Даних для імпорту небуло отримано. Назви файлу не було вказано або розмір "
-"файлу перевищив допустимий максимум для вашої PHP конфігурації. Дивіться "
+"Немає даних для імпорту. Не було вказано назву файлу або його розмір "
+"перевищив допустимий максимум для вашої PHP конфігурації. Дивіться "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:498
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
-msgstr "Неможливо конвертувати кодування файлів без бібліотеки кодування!"
+msgstr "Неможливо конвертувати кодування файлу без бібліотеки перекодування!"
 
 #: import.php:536 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
-"Неможливо завантажити імпортовані плагіни, будь ласка перевірте ваше "
-"інсталювання!"
+"Неможливо завантажити імпортовані плагіни, будь ласка, перевірте вашу "
+"установку!"
 
 #: import.php:571 libraries/sql.lib.php:1048 libraries/sql.lib.php:1848
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr "Закладка %s створена."
+msgstr "Закладку %s створено."
 
 #: import.php:580
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "Імпорт завершився успішно, %d запитів виконано."
+msgstr "Імпорт завершився вдало, %d запитів виконано."
 
 #: import.php:601
 msgid ""
@@ -679,8 +681,8 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"На останньому запиті не було розібрано даних, зазвичай це означає що "
-"phpMyAdmin не зможе закінчити цей імпорт якщо Ви на збільшите час виконання "
+"На останньому запиті не було розібрано дані, зазвичай це означає, що "
+"phpMyAdmin не зможе закінчити цей імпорт, якщо Ви не збільшите час виконання "
 "PHP скриптів."
 
 #: import_status.php:95 libraries/Util.class.php:733
@@ -700,8 +702,8 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
-"Ви знаходитесь на демо-сервері. Можете робити тут усе, що завгодно, але, "
-"будь ласка, не змінюйте користувачів root, debian-sys-maint і pma. Додаткова "
+"Ви використовуєте демо-сервер. Можете робити тут усе, що завгодно, але, будь "
+"ласка, не змінюйте користувачів root, debian-sys-maint і pma. Додаткова "
 "інформація доступна на %s."
 
 #: index.php:141
@@ -753,7 +755,7 @@ msgstr "Користувач:"
 
 #: index.php:285
 msgid "Server charset:"
-msgstr "Кодування символів серверу:"
+msgstr "Символьне кодування сервера:"
 
 #: index.php:300
 msgid "Web server"
@@ -761,7 +763,7 @@ msgstr "Веб-сервер"
 
 #: index.php:311
 msgid "Database client version:"
-msgstr "Версія клієнту бази даних:"
+msgstr "Версія клієнта бази даних:"
 
 #: index.php:315
 msgid "PHP extension:"
@@ -793,7 +795,7 @@ msgstr "Офіційна сторінка phpMyAdmin"
 
 #: index.php:388
 msgid "Contribute"
-msgstr "Атрибути"
+msgstr "Зробити внесок"
 
 #: index.php:395
 msgid "Get support"
@@ -810,7 +812,7 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
-"Ваш файл конфіґурації містить параметри (root без паролю) які відповідають "
+"Ваш файл конфіґурації містить параметри (root без пароля), які відповідають "
 "привілейованому користувачу MySQL. Ваш MySQL сервер у цьому випадку "
 "відкритий для вторгнення і тому Вам обов'язково слід виправити цю прогалину "
 "у безпеці."
@@ -821,8 +823,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
-"У конфігурації PHP увімкнено mbstring.func_overload. Цей параметр є "
-"несумісним з phpMyAdmin і може викликати пошкодження деяких даних!"
+"У конфігурації PHP увімкнено mbstring.func_overload. Цей параметр несумісний "
+"з phpMyAdmin і може викликати пошкодження деяких даних!"
 
 #: index.php:456
 msgid ""
@@ -830,10 +832,9 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"Pозширення PHP mbstring не знайдено, і схоже на те, що використовуються "
-"багатобайтові символи. Без розширення mbstring phpMyAdmin не зможе правильно "
-"виконати поділ текстових рядків, і це може призвести до неочікуваних "
-"результатів."
+"PHP розширення mbstring не знайдено, і, схоже на те, що використовуються "
+"багатобайтові символи. Без mbstring phpMyAdmin не зможе правильно виконати "
+"поділ текстових рядків, що може призвести до неочікуваних результатів."
 
 #: index.php:471
 msgid ""
@@ -842,10 +843,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Параметр PHP [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] менший, ніж термін "
-"придатності cookie налаштованого в phpMyAdmin, і через це термін дії вашого "
-"логіну закінчується раніше, ніж це налаштовано в phpMyAdmin."
+"Параметр PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] менший, ніж термін придатності "
+"cookie в phpMyAdmin, через це термін дії вашої сесії закінчиться раніше, ніж "
+"налаштовано в phpMyAdmin."
 
 #: index.php:483
 msgid ""
@@ -853,12 +855,12 @@ msgid ""
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 "Термін зберігання куків входу менший терміну придатності куків, що "
-"налаштований в phpMyAdmin, і через це термін дії вашого логіну закінчується "
-"раніше терміну, налаштованого в phpMyAdmin."
+"налаштований в phpMyAdmin, через це термін дії вашої сесії закінчиться "
+"раніше, ніж налаштовано в phpMyAdmin."
 
 #: index.php:495
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr "Конфігураційний файл потребує секретну фразу (пароль)."
+msgstr "Конфігураційний файл потребує секретної фрази (blowfish_secret)."
 
 #: index.php:506
 msgid ""
@@ -867,10 +869,10 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
-"Каталог [code]config[/code], який використовується сценарій установки, все "
-"ще існує в каталозі phpMyAdmin. Якщо phpMyAdmin вже налаштовано, його "
-"необхідно видалити. В іншому випадку безпека вашого сервера може бути "
-"скомпрометована через вільний доступ до завантаження конфігураційного файлу."
+"Каталог [code]config[/code], який використовує сценарій установки, все ще "
+"існує в каталозі phpMyAdmin. Якщо phpMyAdmin вже налаштовано, його необхідно "
+"видалити. В іншому випадку безпека вашого сервера може бути скомпрометована "
+"через вільний доступ до завантаження конфігураційного файлу."
 
 #: index.php:516
 #, php-format
@@ -878,8 +880,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"Додаткові можливості phpMyAdmin не налаштовані повною мірою, деякі функції "
-"були відключені. Для визначення причини натисніть %sтут%s."
+"Сховище конфігурації phpMyAdmin не налаштовано повною мірою, деякі функції "
+"відключено. Щоб з'ясувати чому, натисніть %sтут%s."
 
 #: index.php:552
 #, php-format
@@ -896,7 +898,7 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Сервер, що працює з Suhosin. Щодо можливих проблем звертайтеся до "
+"Сервер працює з Suhosin. Щодо можливих проблем звертайтеся до "
 "%sdocumentation%s."
 
 #: js/messages.php:29 libraries/import.lib.php:122 sql.php:140
@@ -914,15 +916,15 @@ msgstr "Ви дійсно бажаєте виконати \"%s\"?"
 
 #: js/messages.php:37 libraries/mult_submits.lib.php:408
 msgid "You are about to DESTROY a complete database!"
-msgstr "Ви збираєтесь здійснити ЗНИЩЕННЯ БД!"
+msgstr "Ви збираєтесь ЗНИЩИТИ базу даних!"
 
 #: js/messages.php:38
 msgid "You are about to DESTROY a complete table!"
-msgstr "Ви збираєтесь здійснити ЗНИЩЕННЯ таблиці!"
+msgstr "Ви збираєтесь ЗНИЩИТИ таблицю!"
 
 #: js/messages.php:39
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Ви збираєтесь здійснити ОБРІЗКУ таблиці!"
+msgstr "Ви збираєтесь ОЧИСТИТИ таблицю!"
 
 #: js/messages.php:41
 msgid "Deleting tracking data"
@@ -930,11 +932,11 @@ msgstr "Видалення даних відстеження"
 
 #: js/messages.php:42
 msgid "Dropping Primary Key/Index"
-msgstr "Знищення Головного Ключа/Індексу"
+msgstr "Знищення первинного ключа/індексу"
 
 #: js/messages.php:43
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Ця операція може зайняти багато часу.  Продовжити ?"
+msgstr "Ця операція може зайняти багато часу. Продовжити?"
 
 #: js/messages.php:44
 #, php-format
@@ -952,8 +954,8 @@ msgid ""
 "Are you sure you want to navigate away from this page? Press OK to continue "
 "or Cancel to stay on the current page."
 msgstr ""
-"Ви впевнені, що хочете залишити цю сторінку? Натисніть OK для продовження "
-"або Скасувати, щоб залишитися на поточній сторінці."
+"Ви впевнені, що хочете залишити цю сторінку? Щоб продовжити, натисніть \"OK\""
+". Щоб залишитися на поточній сторінці, натисніть \"Скасувати\"."
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
@@ -14302,7 +14304,7 @@ msgstr "Відсоток використовуваного буфера клю�
 #: libraries/advisory_rules.txt:316
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr "%% використаного буфера ключів MyISAM: %s%%, має бути вищим 95%%"
+msgstr "%% використаного буфера ключів MyISAM: %s%%, має перевищувати 95%%"
 
 #: libraries/advisory_rules.txt:318
 msgid "Percentage of index reads from memory"
@@ -14311,7 +14313,7 @@ msgstr "Відсоток зчитувань індексу з пам'яті"
 #: libraries/advisory_rules.txt:321
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr "%% індексів, які використовують буфер ключів MyISAM є низьким."
+msgstr "%% індексів, які використовують буфер ключів MyISAM, є низьким."
 
 #: libraries/advisory_rules.txt:322
 msgid "You may need to increase {key_buffer_size}."
@@ -14335,13 +14337,13 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
-"Відкриття таблиці вимагає витратних операції введення/виведення з диском. "
-"Збільшення {table_open_cache} може уникнути цього."
+"Відкриття таблиць вимагає витратних операцій введення/виведення з диском. "
+"Збільшення {table_open_cache} допоможе уникнути цього."
 
 #: libraries/advisory_rules.txt:332
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "Рівень відкритих таблиць: %s, це значення має бути меншим 10 на годину"
+msgstr "Рівень відкритих таблиць: %s, має бути меншим, ніж 10 на годину"
 
 #: libraries/advisory_rules.txt:334
 msgid "Percentage of used open files limit"
@@ -14353,7 +14355,7 @@ msgid ""
 "may get a \"Too many open files\" error."
 msgstr ""
 "Кількість відкритих файлів наближається до максимальної кількості відкритих "
-"файлів.  Можливо виникнення помилки \"Забагато відкритих файлів\"."
+"файлів. Можливе виникнення помилки \"Забагато відкритих файлів\"."
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
 msgid ""
@@ -14368,7 +14370,7 @@ msgstr ""
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
-"Кількість відкритих файлів складає %s%% ліміту. Вона повинна бути нижче 85%%"
+"Кількість відкритих файлів складає %s%% від ліміту. Має бути меншим за 85%%"
 
 #: libraries/advisory_rules.txt:341
 msgid "Rate of open files"
@@ -14381,7 +14383,7 @@ msgstr "Рівень відкритих файлів високий."
 #: libraries/advisory_rules.txt:346
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr "Рівень відкритих файлів: %s, це значення має бути меншим 5 на годину"
+msgstr "Рівень відкритих файлів: %s, має бути меншим, ніж 5 на годину"
 
 #: libraries/advisory_rules.txt:348
 #, php-format
@@ -14390,7 +14392,7 @@ msgstr "Поточні блокування таблиці %%"
 
 #: libraries/advisory_rules.txt:351 libraries/advisory_rules.txt:358
 msgid "Too many table locks were not granted immediately."
-msgstr "Занадто багато блокувань таблиць не були надані негайно."
+msgstr "Занадто багато блокувань таблиць не було надано негайно."
 
 #: libraries/advisory_rules.txt:352 libraries/advisory_rules.txt:359
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
@@ -14411,8 +14413,7 @@ msgstr "Рівень очікувань блокування таблиці"
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
-"Рівень очікувань блокування таблиці: %s, це значення має бути меншим 1 на "
-"годину"
+"Рівень очікувань блокування таблиці: %s, має бути меншим, ніж 1 на годину"
 
 #: libraries/advisory_rules.txt:362
 msgid "Thread cache"
@@ -14423,7 +14424,7 @@ msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
-"Кеш потоку вимкнуто, через це буде збільшено навантаження від нових "
+"Кеш потоку вимкнено, через це буде збільшено навантаження від нових "
 "підключень до MySQL."
 
 #: libraries/advisory_rules.txt:366
@@ -14432,16 +14433,16 @@ msgstr "Увімкнути кеш потоку, встановивши знач�
 
 #: libraries/advisory_rules.txt:367
 msgid "The thread cache is set to 0"
-msgstr "Кеш потоку встановлено рівним 0"
+msgstr "Кеш потоку встановлено у 0"
 
 #: libraries/advisory_rules.txt:369
 #, php-format
 msgid "Thread cache hit rate %%"
-msgstr "%% співвідношень звернень у кеш потоку"
+msgstr "%% співвідношень звернень до кеша потоку"
 
 #: libraries/advisory_rules.txt:372
 msgid "Thread cache is not efficient."
-msgstr "Кеш потоку не ефективний."
+msgstr "Кеш потоку не є ефективним."
 
 #: libraries/advisory_rules.txt:373
 msgid "Increase {thread_cache_size}."
@@ -14450,9 +14451,7 @@ msgstr "Збільшити {thread_cache_size}."
 #: libraries/advisory_rules.txt:374
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr ""
-"Рівень успішних звернень в кеш потоку: %s%%, це значення має перевищувати "
-"80%%"
+msgstr "Рівень вдалих звернень до кеша потоку: %s%%, має перевищувати 80%%"
 
 #: libraries/advisory_rules.txt:376
 msgid "Threads that are slow to launch"
@@ -14467,14 +14466,13 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
-"Це зазвичай буває при перевантаженнях основної системи, оскільки самі "
+"Це, зазвичай, буває при перевантаженнях основної системи, оскільки самі "
 "операції досить прості. Можливо, зверніть увагу на завантаженість системи."
 
 #: libraries/advisory_rules.txt:381
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
-"Запуск %s потоку(потоків) тривав  понад  %s секунд для початку, а має бути 0"
+msgstr "Запуск %s потоку (потоків) тривав понад %s секунд, а має бути 0"
 
 #: libraries/advisory_rules.txt:383
 msgid "Slow launch time"
@@ -14482,15 +14480,15 @@ msgstr "Повільний час запуску"
 
 #: libraries/advisory_rules.txt:386
 msgid "Slow_launch_threads is above 2s"
-msgstr "Slow_launch_threads перевищує 2с"
+msgstr "Slow_launch_threads перевищує 2 с"
 
 #: libraries/advisory_rules.txt:387
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch"
 msgstr ""
-"Встановіть значення {slow_launch_time} у 1с або 2с аби правильно підрахувати "
-"потоки з повільним запуском"
+"Встановіть значення {slow_launch_time} у 1 або 2 с аби правильно "
+"підраховувати потоки з повільним запуском"
 
 #: libraries/advisory_rules.txt:388
 #, php-format
@@ -14525,8 +14523,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
-"Max_used_connections складає %s%% від max_connections, це значення має бути "
-"нижче 80%%"
+"Max_used_connections складає %s%% від max_connections, має бути меншим, ніж "
+"80%%"
 
 #: libraries/advisory_rules.txt:399
 msgid "Percentage of aborted connections"
@@ -14534,7 +14532,7 @@ msgstr "Відсоток перерваних з'єднань"
 
 #: libraries/advisory_rules.txt:402 libraries/advisory_rules.txt:409
 msgid "Too many connections are aborted."
-msgstr "Забагато перерваних з’єднань."
+msgstr "Забагато перерваних з'єднань."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
 msgid ""
@@ -14543,7 +14541,7 @@ msgid ""
 "source-of-aborted_connects/\">This article</a> might help you track down the "
 "source."
 msgstr ""
-"Підключення зазвичай перериваються, коли вони не можуть бути авторизовані. "
+"Підключення, зазвичай, перериваються, коли вони не можуть бути авторизовані. "
 "<a href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-"
 "the-source-of-aborted_connects/\">Ця стаття</a> може допомогти відслідкувати "
 "джерело проблеми."
@@ -14551,7 +14549,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:404
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr "%s%% всіх з'єднань перервано. Це значення має бути нижче 1%%"
+msgstr "%s%% всіх з'єднань перервано. Має бути меншим, ніж 1%%"
 
 #: libraries/advisory_rules.txt:406
 msgid "Rate of aborted connections"
@@ -14561,16 +14559,15 @@ msgstr "Співвідношення перерваних з'єднань"
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
-msgstr ""
-"Рівень перерваних з'єднань %s, це значення має бути меншим ніж 1 на годину"
+msgstr "Рівень перерваних з'єднань %s, має бути меншим, ніж 1 на годину"
 
 #: libraries/advisory_rules.txt:413
 msgid "Percentage of aborted clients"
-msgstr "Відсоток перерваних клієнтських з'єднань"
+msgstr "Відсоток перерваних з'єднань"
 
 #: libraries/advisory_rules.txt:416 libraries/advisory_rules.txt:423
 msgid "Too many clients are aborted."
-msgstr "Забагато перерваних клієнтських з'єднань."
+msgstr "Забагато перерваних з'єднань."
 
 #: libraries/advisory_rules.txt:417 libraries/advisory_rules.txt:424
 msgid ""
@@ -14578,43 +14575,41 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
-"Клієнтське з'єднання, як правило, переривається при некоректному закритті "
-"ними з'єднання з MySQL. Це може бути через проблеми з мережею або "
-"відсутності в коді правильного закриття обробника бази даних. Перевірте вашу "
-"мережу і програмний код."
+"З'єднання, зазвичай, переривається при некоректному закритті з'єднання з "
+"MySQL. Це може бути через проблеми з мережею або за відсутності в коді "
+"правильного закриття обробника бази даних. Перевірте вашу мережу та "
+"програмний код."
 
 #: libraries/advisory_rules.txt:418
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
-"%s%% всіх клієнтських з'єднань перервано. Це значення має бути менше 2%%"
+msgstr "%s%% всіх з'єднань перервано. Має бути менше 2%%"
 
 #: libraries/advisory_rules.txt:420
 msgid "Rate of aborted clients"
-msgstr "Співвідношення перерваних клієнтських з'єднань"
+msgstr "Співвідношення перерваних з'єднань"
 
 #: libraries/advisory_rules.txt:425
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
-"Кількість відмов обслуговування клієнта %s, ця величина має бути меншою ніж "
-"1 за годину"
+"Кількість відмов обслуговування клієнта %s, має бути меншим, ніж 1 за годину"
 
 #: libraries/advisory_rules.txt:429
 msgid "Is InnoDB disabled?"
-msgstr "InnoDB не активний?"
+msgstr "InnoDB вимкнено?"
 
 #: libraries/advisory_rules.txt:432
 msgid "You do not have InnoDB enabled."
-msgstr "Не ввімкнути підтримка InnoDB."
+msgstr "Ви не ввімкнули InnoDB."
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
-msgstr "InnoDB зазвичай найкращий вибір типу таблиці."
+msgstr "InnoDB, зазвичай - найкращий з двигунів таблиць."
 
 #: libraries/advisory_rules.txt:434
 msgid "have_innodb is set to 'value'"
-msgstr "have_innodb встановлений у 'value'"
+msgstr "have_innodb встановлено у 'value'"
 
 #: libraries/advisory_rules.txt:436
 msgid "InnoDB log size"
@@ -14625,7 +14620,7 @@ msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr ""
-"Файл журналу InnoDB не є відповідного розміру, у відношенні до пула буфера "
+"Файл журналу InnoDB не є відповідного розміру у відношенні до пула буфера "
 "InnoDB."
 
 #: libraries/advisory_rules.txt:440
@@ -14648,8 +14643,8 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
-"Розмір журналу InnoDB складає %s%% від розміру буферного пулу InnoDB, а він "
-"не повинен бути нижчим 20%%"
+"Розмір журналу InnoDB складає %s%% від розміру буферного пула InnoDB, а "
+"повинен бути не нижче 20%%"
 
 #: libraries/advisory_rules.txt:443
 msgid "Max InnoDB log size"
@@ -14676,7 +14671,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:448
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr "Ваш абосолютний розмір журналу InnoDB є %s МБ"
+msgstr "Ваш абсолютний розмір журналу InnoDB є %s МБ"
 
 #: libraries/advisory_rules.txt:450
 msgid "InnoDB buffer pool size"
@@ -14730,7 +14725,7 @@ msgstr "Паралельні вставки MyISAM"
 
 #: libraries/advisory_rules.txt:462
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "Включити {concurrent_insert} виставивши його у 1"
+msgstr "Увімкнути {concurrent_insert}"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
@@ -14744,7 +14739,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
-msgstr "concurrent_insert встановлений у 0"
+msgstr "concurrent_insert встановлено у 0"
 
 #~ msgid "Click to sort."
 #~ msgstr "Клацніть для сортування."
