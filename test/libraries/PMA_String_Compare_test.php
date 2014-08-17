@@ -809,4 +809,67 @@ class PMA_String_Compare_Test extends PHPUnit_Framework_TestCase
             array('abcdefabcdef', '', true),
         );
     }
+
+    /**
+     * Tests for strtolower
+     *
+     * @param string $str Input string
+     *
+     * @return void
+     * @test
+     * @dataProvider providerCase
+     */
+    public function testStrtolower($str)
+    {
+        $native = $this->_native->strtolower($str);
+        $multibytes = $this->_mb->strtolower($str);
+        $this->assertTrue(
+            $native === $multibytes,
+            'native strtolower: ' . var_export($native, true)
+            . ' - mb strtolower: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Tests for strtoupper
+     *
+     * @param string $str Input string
+     *
+     * @return void
+     * @test
+     * @dataProvider providerCase
+     */
+    public function testStrtoupper($str)
+    {
+        $native = $this->_native->strtoupper($str);
+        $multibytes = $this->_mb->strtoupper($str);
+        $this->assertTrue(
+            $native === $multibytes,
+            'native strtoupper: ' . var_export($native, true)
+            . ' - mb strtoupper: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Data provider for testStrtolower and testStrtoupper
+     *
+     * @return array Test data
+     */
+    public function providerCase()
+    {
+        return array(
+            array('abcdefabcdef'),
+            array('abcdefABCDEF'),
+            //array('abcdefABCDEF‡È¿…'), //Error with those characters.
+            array('abcdefABCDEF@+12345'),
+            array(false),
+            array(true),
+            array(3),
+            array(123456789),
+            array('3'),
+            array('123456789'),
+            array(null),
+            array(''),
+        );
+    }
 }
