@@ -373,7 +373,7 @@ function PMA_getRealSize($size = 0)
     $pmaString = $GLOBALS['PMA_String'];
 
     if ('2M' !== $size && '8M' !== $size) {
-        var_dump($size);
+        var_dump($size, iconv_get_encoding());
     }
     foreach ($scan as $unit => $factor) {
         $sizeLength = $pmaString->strlen($size);
