@@ -52,6 +52,8 @@ class PMA_StringMB implements PMA_StringByte
             return false;
         }
 
+        var_dump($string, $start, $length);
+
         return mb_substr($string, $start, $length);
     }
 
