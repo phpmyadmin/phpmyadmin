@@ -52,7 +52,7 @@ class PMA_StringMB implements PMA_StringByte
             return false;
         }
 
-        if ('2M' !== $string && '8M' !== $string) {
+        if ('1024k' === $string || '1kb' === $string || '8m' === $string) {
             var_dump($string, $start, $length);
         }
 
