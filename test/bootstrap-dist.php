@@ -45,7 +45,7 @@ foreach ($test_defaults as $varname => $defvalue) {
 
 // Initialize PMA_VERSION variable
 require_once 'libraries/core.lib.php';
-$GLOBALS['PMA_String'] = new PMA_String();
+$GLOBALS['PMA_String'] = $PMA_String;
 require_once 'libraries/Config.class.php';
 $CFG = new PMA_Config();
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
