@@ -48,21 +48,25 @@ function PMA_generateDropdown(
  */
 function PMA_backquoteSplit($text)
 {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     $elements = array();
-    $final_pos = strlen($text) - 1;
+    $final_pos = $pmaString->strlen($text) - 1;
     $pos = 0;
     while ($pos <= $final_pos) {
-        $first_backquote = strpos($text, '`', $pos);
-        $second_backquote = strpos($text, '`', $first_backquote + 1);
+        $first_backquote = $pmaString->strpos($text, '`', $pos);
+        $second_backquote = $pmaString->strpos($text, '`', $first_backquote + 1);
         // after the second one, there might be another one which means
         // this is an escaped backquote
         if ($second_backquote < $final_pos && '`' == $text[$second_backquote + 1]) {
-            $second_backquote = strpos($text, '`', $second_backquote + 2);
+            $second_backquote
+                = $pmaString->strpos($text, '`', $second_backquote + 2);
         }
         if (false === $first_backquote || false === $second_backquote) {
             break;
         }
-        $elements[] = substr(
+        $elements[] = $pmaString->substr(
             $text, $first_backquote, $second_backquote - $first_backquote + 1
         );
         $pos = $second_backquote + 1;

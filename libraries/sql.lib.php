@@ -1374,7 +1374,7 @@ function PMA_hasCurrentDbChanged($db)
     // Checks if the current database has changed
     // This could happen if the user sends a query like "USE `database`;"
     $reload = 0;
-    if (strlen($db)) {
+    if ($GLOBALS['PMA_String']->strlen($db)) {
         $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
         // $current_db is false, except when a USE statement was sent
         if ($current_db != false && $db !== $current_db) {
@@ -1400,18 +1400,21 @@ function PMA_cleanupRelations($db, $table, $dropped_column, $purge, $extra_data)
 {
     include_once 'libraries/relation_cleanup.lib.php';
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     if (isset($purge) && $purge == 1) {
-        if (strlen($table) && strlen($db)) {
+        if ($pmaString->strlen($table) && $pmaString->strlen($db)) {
             PMA_relationsCleanupTable($db, $table);
-        } elseif (strlen($db)) {
+        } elseif ($pmaString->strlen($db)) {
             PMA_relationsCleanupDatabase($db);
         }
     }
 
     if (isset($dropped_column)
         && !empty($dropped_column)
-        && strlen($db)
-        && strlen($table)
+        && $pmaString->strlen($db)
+        && $pmaString->strlen($table)
     ) {
         PMA_relationsCleanupColumn($db, $table, $dropped_column);
         // to refresh the list of indexes (Ajax mode)

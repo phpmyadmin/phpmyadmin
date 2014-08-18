@@ -41,7 +41,10 @@ function PMA_Transformation_getOptions($option_string)
 {
     $result = array();
 
-    if (! strlen($option_string)
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
+    if (! $pmaString->strlen($option_string)
         || ! $transform_options = preg_split('/,/', $option_string)
     ) {
         return $result;
@@ -49,12 +52,12 @@ function PMA_Transformation_getOptions($option_string)
 
     while (($option = array_shift($transform_options)) !== null) {
         $trimmed = trim($option);
-        if (strlen($trimmed) > 1
+        if ($pmaString->strlen($trimmed) > 1
             && $trimmed[0] == "'"
-            && $trimmed[strlen($trimmed) - 1] == "'"
+            && $trimmed[$pmaString->strlen($trimmed) - 1] == "'"
         ) {
             // '...'
-            $option = substr($trimmed, 1, -1);
+            $option = $pmaString->substr($trimmed, 1, -1);
         } elseif (isset($trimmed[0]) && $trimmed[0] == "'") {
             // '...,
             $trimmed = ltrim($option);
@@ -62,12 +65,12 @@ function PMA_Transformation_getOptions($option_string)
                 // ...,
                 $trimmed .= ',' . $option;
                 $rtrimmed = rtrim($trimmed);
-                if ($rtrimmed[strlen($rtrimmed) - 1] == "'") {
+                if ($rtrimmed[$pmaString->strlen($rtrimmed) - 1] == "'") {
                     // ,...'
                     break;
                 }
             }
-            $option = substr($rtrimmed, 1, -1);
+            $option = $pmaString->substr($rtrimmed, 1, -1);
         }
         $result[] = stripslashes($option);
     }
@@ -290,9 +293,12 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
         return false;
     }
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     // lowercase mimetype & transformation
-    $mimetype = strtolower($mimetype);
-    $transformation = strtolower($transformation);
+    $mimetype = $pmaString->strtolower($mimetype);
+    $transformation = $pmaString->strtolower($transformation);
 
     $test_qry = '
          SELECT `mimetype`,
@@ -312,8 +318,9 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
         $GLOBALS['dbi']->freeResult($test_rs);
 
         if (! $forcedelete
-            && (strlen($mimetype) || strlen($transformation)
-            || strlen($transformationOpts) || strlen($row['comment']))
+            && ($pmaString->strlen($mimetype) || $pmaString->strlen($transformation)
+            || $pmaString->strlen($transformationOpts)
+                || $pmaString->strlen($row['comment']))
         ) {
             $upd_query = 'UPDATE ' . PMA_Util::backquote($cfgRelation['db']) . '.'
                 . PMA_Util::backquote($cfgRelation['column_info'])
@@ -336,9 +343,9 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
             WHERE `db_name`     = \'' . PMA_Util::sqlAddSlashes($db) . '\'
               AND `table_name`  = \'' . PMA_Util::sqlAddSlashes($table) . '\'
               AND `column_name` = \'' . PMA_Util::sqlAddSlashes($key) . '\'';
-    } elseif (strlen($mimetype)
-        || strlen($transformation)
-        || strlen($transformationOpts)
+    } elseif ($pmaString->strlen($mimetype)
+        || $pmaString->strlen($transformation)
+        || $pmaString->strlen($transformationOpts)
     ) {
 
         $upd_query = 'INSERT INTO ' . PMA_Util::backquote($cfgRelation['db'])
