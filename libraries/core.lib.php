@@ -372,11 +372,15 @@ function PMA_getRealSize($size = 0)
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
 
-    var_dump($size);
+    if ('2M' !== $size && '8M' !== $size) {
+        var_dump($size);
+    }
     foreach ($scan as $unit => $factor) {
         $sizeLength = $pmaString->strlen($size);
         $unitLength = $pmaString->strlen($unit);
-        var_dump($unit, $sizeLength, $unitLength);
+        if ('2M' !== $size && '8M' !== $size) {
+            var_dump($unit, $sizeLength, $unitLength);
+        }
         if ($sizeLength > $unitLength
             && $pmaString->strtolower(
                 $pmaString->substr(
@@ -385,19 +389,23 @@ function PMA_getRealSize($size = 0)
                 )
             ) == $unit
         ) {
-            $sizeWOUnit = $pmaString->substr(
-                $size,
-                0,
-                $sizeLength - $unitLength
-            );
-            var_dump($sizeWOUnit, $sizeWOUnit * $factor);
+            if ('2M' !== $size && '8M' !== $size) {
+                $sizeWOUnit = $pmaString->substr(
+                    $size,
+                    0,
+                    $sizeLength - $unitLength
+                );
+                var_dump($sizeWOUnit, $sizeWOUnit * $factor);
+            }
             return $pmaString->substr(
                 $size,
                 0,
                 $sizeLength - $unitLength
             ) * $factor;
         }
-        var_dump(false);
+        if ('2M' !== $size && '8M' !== $size) {
+            var_dump(false);
+        }
     }
 
     return $size;
