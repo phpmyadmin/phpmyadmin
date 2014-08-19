@@ -2940,7 +2940,7 @@ function PMA_addRemoveFavoriteTables($db)
  * Synchronize favorite tables
  *
  * @param PMA_RecentFavoriteTable $fav_instance instance of this class
- * @param string $user            The user hash
+ * @param string                  $user         The user hash
  *
  * @return void
  */
