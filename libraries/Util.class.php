@@ -902,11 +902,8 @@ class PMA_Util
 
         if (! $do_it) {
             global $PMA_SQPdata_forbidden_word;
-            if (!in_array(
-                    $pmaString->strtoupper($a_name),
-                    $PMA_SQPdata_forbidden_word
-                )
-            ) {
+            $eltNameUpper = $pmaString->strtoupper($a_name);
+            if (!in_array($eltNameUpper, $PMA_SQPdata_forbidden_word)) {
                 return $a_name;
             }
         }
@@ -955,11 +952,8 @@ class PMA_Util
 
         if (! $do_it) {
             global $PMA_SQPdata_forbidden_word;
-            if (!in_array(
-                    $pmaString->strtoupper($a_name),
-                    $PMA_SQPdata_forbidden_word
-                )
-            ) {
+            $eltNameUpper = $pmaString->strtoupper($a_name);
+            if (!in_array($eltNameUpper, $PMA_SQPdata_forbidden_word)) {
                 return $a_name;
             }
         }
@@ -1083,7 +1077,8 @@ class PMA_Util
             /** @var PMA_String $pmaString */
             $pmaString = $GLOBALS['PMA_String'];
 
-            if ($pmaString->strlen($query_base) > $cfg['MaxCharactersInDisplayedSQL']) {
+            if ($pmaString->strlen($query_base) > $cfg['MaxCharactersInDisplayedSQL']
+            ) {
                 // when the query is large (for example an INSERT of binary
                 // data), the parser chokes; so avoid parsing the query
                 $query_too_big = true;
@@ -4414,7 +4409,8 @@ class PMA_Util
         $len = $pmaString->strlen($test);
         fclose($file);
         if ($len >= 2 && $test[0] == $pmaString->chr(31)
-            && $test[1] == $pmaString->chr(139)) {
+            && $test[1] == $pmaString->chr(139)
+        ) {
             return 'application/gzip';
         }
         if ($len >= 3 && $pmaString->substr($test, 0, 3) == 'BZh') {

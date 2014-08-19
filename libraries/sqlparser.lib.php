@@ -1403,7 +1403,8 @@ function PMA_SQP_analyze($arr)
              );
 
             if (isset($alias_for_select_expr)
-                && $pmaString->strlen($alias_for_select_expr)) {
+                && $pmaString->strlen($alias_for_select_expr)
+            ) {
                 // we had found an alias for this select expression
                 $subresult['select_expr'][$current_select_expr]['alias']
                     = $alias_for_select_expr;
@@ -1477,7 +1478,8 @@ function PMA_SQP_analyze($arr)
               'table_true_name' => ''
              );
             if (isset($alias_for_table_ref)
-                && $pmaString->strlen($alias_for_table_ref)) {
+                && $pmaString->strlen($alias_for_table_ref)
+            ) {
                 $subresult['table_ref'][$current_table_ref]['table_alias']
                     = $alias_for_table_ref;
                 unset($alias_for_table_ref);

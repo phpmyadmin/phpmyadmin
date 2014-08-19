@@ -1912,7 +1912,8 @@ function PMA_getGotoInclude($goto_include)
             $goto_include = $GLOBALS['goto'];
         }
         if ($GLOBALS['goto'] == 'db_sql.php'
-            && $pmaString->strlen($GLOBALS['table'])) {
+            && $pmaString->strlen($GLOBALS['table'])
+        ) {
             $GLOBALS['table'] = '';
         }
     }
@@ -2367,7 +2368,8 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
         }
 
         if ($type != 'protected' && $type != 'set'
-            && 0 === $GLOBALS['PMA_String']->strlen($current_value)) {
+            && 0 === $GLOBALS['PMA_String']->strlen($current_value)
+        ) {
             // best way to avoid problems in strict mode
             // (works also in non-strict mode)
             if (isset($multi_edit_auto_increment)

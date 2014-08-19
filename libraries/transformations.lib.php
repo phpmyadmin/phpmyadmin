@@ -320,7 +320,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
         if (! $forcedelete
             && ($pmaString->strlen($mimetype) || $pmaString->strlen($transformation)
             || $pmaString->strlen($transformationOpts)
-                || $pmaString->strlen($row['comment']))
+            || $pmaString->strlen($row['comment']))
         ) {
             $upd_query = 'UPDATE ' . PMA_Util::backquote($cfgRelation['db']) . '.'
                 . PMA_Util::backquote($cfgRelation['column_info'])

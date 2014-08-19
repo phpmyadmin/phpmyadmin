@@ -21,7 +21,8 @@ if (isset($_REQUEST['ajax_request'])
 ) {
     $response = PMA_Response::getInstance();
 
-    if ($pmaString->strlen($GLOBALS['table']) && $pmaString->strlen($GLOBALS['db'])) {
+    if ($pmaString->strlen($GLOBALS['table']) && $pmaString->strlen($GLOBALS['db'])
+    ) {
         include './libraries/tbl_common.inc.php';
     }
 

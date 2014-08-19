@@ -778,6 +778,7 @@ class PMA_Config
         }
         $httpOk = 'HTTP/1.1 200 OK';
         $httpNotFound = 'HTTP/1.1 404 Not Found';
+
         /** @var PMA_String $pmaString */
         $pmaString = $GLOBALS['PMA_String'];
         if ($pmaString->substr($data, 0, $pmaString->strlen($httpOk)) === $httpOk) {
@@ -787,15 +788,15 @@ class PMA_Config
                     $pmaString->strpos($data, "\r\n\r\n") + 4
                 )
                 : true;
-        } else{
-            $httpNOK = $pmaString->substr(
-                $data,
-                0,
-                $pmaString->strlen($httpNotFound)
-            );
-            if ($httpNOK === $httpNotFound) {
-                return false;
-            }
+        }
+
+        $httpNOK = $pmaString->substr(
+            $data,
+            0,
+            $pmaString->strlen($httpNotFound)
+        );
+        if ($httpNOK === $httpNotFound) {
+            return false;
         }
         return null;
     }

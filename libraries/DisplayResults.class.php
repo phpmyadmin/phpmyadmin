@@ -2950,9 +2950,10 @@ class PMA_DisplayResults
                     : ''
                 );
 
+                $dbLower = $pmaString->strtolower($this->__get('db'));
                 $meta->mimetype = str_replace(
                     '_', '/',
-                    $this->transformation_info[$pmaString->strtolower($this->__get('db'))]
+                    $this->transformation_info[$dbLower]
                     [$pmaString->strtolower($this->__get('table'))]
                     [$pmaString->strtolower($meta->name)][2]
                 );
@@ -5613,7 +5614,8 @@ class PMA_DisplayResults
 
             // Field to display from the foreign table?
             if (isset($map[$meta->name][2])
-                && $pmaString->strlen($map[$meta->name][2])) {
+                && $pmaString->strlen($map[$meta->name][2])
+            ) {
 
                 $dispsql = 'SELECT '
                     . PMA_Util::backquote($map[$meta->name][2])

@@ -663,7 +663,8 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
     $pmaString = $GLOBALS['PMA_String'];
 
     if (isset($_REQUEST['username'])
-        && $pmaString->strlen($_REQUEST['username']) === 0) {
+        && $pmaString->strlen($_REQUEST['username']) === 0
+    ) {
         $GLOBALS['pred_username'] = 'any';
     }
     $html .= '<div id="master_addslaveuser_gui">';

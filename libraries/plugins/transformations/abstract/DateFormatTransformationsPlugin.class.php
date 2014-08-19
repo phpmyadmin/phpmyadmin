@@ -90,28 +90,29 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
         } else if (preg_match('/^(\d{2}){3,7}$/', $buffer)) {
 
             if ($pmaString->strlen($buffer) == 14
-                || $pmaString->strlen($buffer) == 8) {
+                || $pmaString->strlen($buffer) == 8
+            ) {
                 $offset = 4;
             } else {
                 $offset = 2;
             }
 
-            $d = array();
-            $d['year']   = $pmaString->substr($buffer, 0, $offset);
-            $d['month']  = $pmaString->substr($buffer, $offset, 2);
-            $d['day']    = $pmaString->substr($buffer, $offset + 2, 2);
-            $d['hour']   = $pmaString->substr($buffer, $offset + 4, 2);
-            $d['minute'] = $pmaString->substr($buffer, $offset + 6, 2);
-            $d['second'] = $pmaString->substr($buffer, $offset + 8, 2);
+            $aDate = array();
+            $aDate['year']   = $pmaString->substr($buffer, 0, $offset);
+            $aDate['month']  = $pmaString->substr($buffer, $offset, 2);
+            $aDate['day']    = $pmaString->substr($buffer, $offset + 2, 2);
+            $aDate['hour']   = $pmaString->substr($buffer, $offset + 4, 2);
+            $aDate['minute'] = $pmaString->substr($buffer, $offset + 6, 2);
+            $aDate['second'] = $pmaString->substr($buffer, $offset + 8, 2);
 
-            if (checkdate($d['month'], $d['day'], $d['year'])) {
+            if (checkdate($aDate['month'], $aDate['day'], $aDate['year'])) {
                 $timestamp = mktime(
-                    $d['hour'],
-                    $d['minute'],
-                    $d['second'],
-                    $d['month'],
-                    $d['day'],
-                    $d['year']
+                    $aDate['hour'],
+                    $aDate['minute'],
+                    $aDate['second'],
+                    $aDate['month'],
+                    $aDate['day'],
+                    $aDate['year']
                 );
             }
             // If all fails, assume one of the dozens of valid strtime() syntaxes

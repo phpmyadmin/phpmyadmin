@@ -110,7 +110,10 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                 ? true
                 : false;
 
-        $max_sql_len = max($max_sql_len, $pmaString->strlen($import_run_buffer['sql']));
+        $max_sql_len = max(
+            $max_sql_len,
+            $pmaString->strlen($import_run_buffer['sql'])
+        );
         if (! $sql_query_disabled) {
             $sql_query .= $import_run_buffer['full'];
         }

@@ -684,7 +684,8 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
      * Emulating relations for some information_schema and data_dictionary tables
      */
     $isInformationSchema = $pmaString->strtolower($db) == 'information_schema';
-    $is_data_dictionary = PMA_DRIZZLE && $pmaString->strtolower($db) == 'data_dictionary';
+    $is_data_dictionary = PMA_DRIZZLE
+        && $pmaString->strtolower($db) == 'data_dictionary';
     if (($isInformationSchema || $is_data_dictionary)
         && ($source == 'internal' || $source == 'both')
     ) {
@@ -699,7 +700,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
             foreach ($GLOBALS[$relations_key][$table] as $field => $relations) {
                 if ((! $pmaString->strlen($column) || $column == $field)
                     && (! isset($foreign[$field])
-                        || ! $pmaString->strlen($foreign[$field]))
+                    || ! $pmaString->strlen($foreign[$field]))
                 ) {
                     $foreign[$field] = $relations;
                 }
@@ -924,10 +925,10 @@ function PMA_setDbComment($db, $comment = '')
  */
 function PMA_setHistory($db, $table, $username, $sqlquery)
 {
+    $maxCharactersInDisplayedSQL = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
     // Prevent to run this automatically on Footer class destroying in testsuite
     if (defined('TESTSUITE')
-        || $GLOBALS['PMA_String']->strlen($sqlquery)
-            > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
+        || $GLOBALS['PMA_String']->strlen($sqlquery) > $maxCharactersInDisplayedSQL
     ) {
         return;
     }

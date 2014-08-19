@@ -40,6 +40,41 @@ interface PMA_StringByte
     public function strpos($haystack, $needle, $offset = 0);
 
     /**
+     * Returns position of $needle in $haystack - case insensitive - or false if
+     * not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     * @param int    $offset   the search offset
+     *
+     * @return integer position of $needle in $haystack or false
+     */
+    public function stripos($haystack, $needle, $offset = 0);
+
+    /**
+     * Returns position of last $needle in $haystack or false if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     * @param int    $offset   the search offset
+     *
+     * @return integer position of last $needle in $haystack or false
+     */
+    public function strrpos($haystack, $needle, $offset = 0);
+
+    /**
+     * Returns part of $haystack string starting from and including the first
+     * occurrence of $needle to the end of $haystack or false if not found
+     *
+     * @param string $haystack      the string being checked
+     * @param string $needle        the string to find in haystack
+     * @param bool   $before_needle the part before the needle
+     *
+     * @return string part of $haystack or false
+     */
+    public function strstr($haystack, $needle, $before_needle = false);
+
+    /**
      * Make a string lowercase
      *
      * @param string $string the string being lowercased
@@ -47,6 +82,15 @@ interface PMA_StringByte
      * @return string the lower case string
      */
     public function strtolower($string);
+
+    /**
+     * Make a string uppercase
+     *
+     * @param string $string the string being uppercased
+     *
+     * @return string the lower case string
+     */
+    public function strtoupper($string);
 
     /**
      * Get the ordinal value of a string

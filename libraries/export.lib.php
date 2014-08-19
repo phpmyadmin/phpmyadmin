@@ -20,7 +20,8 @@ function PMA_shutdownDuringExport()
 {
     $a = error_get_last();
     if ($a != null
-        && $GLOBALS['PMA_String']->strpos($a['message'], "execution time")) {
+        && $GLOBALS['PMA_String']->strpos($a['message'], "execution time")
+    ) {
         //write in partially downloaded file for future reference of user
         print_r($a);
         //set session variable to check if there was error while exporting
@@ -145,7 +146,8 @@ function PMA_exportOutputHandler($line)
             if ($GLOBALS['save_on_server'] && $pmaString->strlen($line) > 0) {
                 $write_result = @fwrite($GLOBALS['file_handle'], $line);
                 if (! $write_result
-                    || ($write_result != $pmaString->strlen($line))) {
+                    || $write_result != $pmaString->strlen($line)
+                ) {
                     $GLOBALS['message'] = PMA_Message::error(
                         __('Insufficient space to save the file %s.')
                     );
@@ -374,8 +376,7 @@ function PMA_closeExportFile($file_handle, $dump_buffer, $save_filename)
     $write_result = @fwrite($file_handle, $dump_buffer);
     fclose($file_handle);
     if ($pmaString->strlen($dump_buffer) > 0
-        && (! $write_result
-            || ($write_result != $pmaString->strlen($dump_buffer)))
+        && (! $write_result || ($write_result != $pmaString->strlen($dump_buffer)))
     ) {
         $message = new PMA_Message(
             __('Insufficient space to save the file %s.'),

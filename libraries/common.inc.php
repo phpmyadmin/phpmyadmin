@@ -752,12 +752,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         && ! is_numeric($_REQUEST['server'])
     ) {
         foreach ($cfg['Servers'] as $i => $server) {
+            $verboseLower = $PMA_String->strtolower($server['verbose']);
             if ($server['host'] == $_REQUEST['server']
                 || $server['verbose'] == $_REQUEST['server']
-                || $PMA_String->strtolower($server['verbose'])
-                    == $PMA_String->strtolower($_REQUEST['server'])
-                || md5($PMA_String->strtolower($server['verbose']))
-                    == $PMA_String->strtolower($_REQUEST['server'])
+                || $verboseLower == $PMA_String->strtolower($_REQUEST['server'])
+                || md5($verboseLower) == $PMA_String->strtolower($_REQUEST['server'])
             ) {
                 $_REQUEST['server'] = $i;
                 break;

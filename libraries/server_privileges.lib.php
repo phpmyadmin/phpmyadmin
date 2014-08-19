@@ -1297,7 +1297,8 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
     if (isset($GLOBALS['username'])
-        && $pmaString->strlen($GLOBALS['username']) === 0) {
+        && $pmaString->strlen($GLOBALS['username']) === 0
+    ) {
         $GLOBALS['pred_username'] = 'any';
     }
     $html_output = '<fieldset id="fieldset_add_user_login">' . "\n"
@@ -3367,7 +3368,8 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
     // Should not do a GRANT USAGE for a table-specific privilege, it
     // causes problems later (cannot revoke it)
     if (! ($pmaString->strlen($tablename)
-        && 'USAGE' == implode('', PMA_extractPrivInfo()))) {
+        && 'USAGE' == implode('', PMA_extractPrivInfo()))
+    ) {
         $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo())
             . ' ON ' . $db_and_table
             . ' TO \'' . PMA_Util::sqlAddSlashes($username) . '\'@\''
@@ -4092,7 +4094,8 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
     $html_output .= '</form>' . "\n";
 
     if (! is_array($dbname) && ! $pmaString->strlen($tablename)
-        && empty($dbname_is_wildcard)) {
+        && empty($dbname_is_wildcard)
+    ) {
 
         // no table name was given, display all table specific rights
         // but only if $dbname contains no wildcards
@@ -4125,13 +4128,15 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
 
     // Provide a line with links to the relevant database and table
     if (! is_array($dbname) && $pmaString->strlen($dbname)
-        && empty($dbname_is_wildcard)) {
+        && empty($dbname_is_wildcard)
+    ) {
         $html_output .= PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename);
 
     }
 
     if (! is_array($dbname) && ! $pmaString->strlen($dbname)
-        && ! $user_does_not_exists) {
+        && ! $user_does_not_exists
+    ) {
         //change login information
         $html_output .= PMA_getHtmlForChangePassword($username, $hostname);
         $html_output .= PMA_getChangeLoginInformationHtmlForm($username, $hostname);

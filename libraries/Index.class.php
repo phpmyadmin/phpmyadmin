@@ -200,7 +200,8 @@ class PMA_Index
     public function addColumn($params)
     {
         if (isset($params['Column_name'])
-            && $GLOBALS['PMA_String']->strlen($params['Column_name'])) {
+            && $GLOBALS['PMA_String']->strlen($params['Column_name'])
+        ) {
             $this->_columns[$params['Column_name']] = new PMA_Index_Column($params);
         }
     }

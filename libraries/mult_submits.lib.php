@@ -39,7 +39,8 @@ function PMA_getUrlParams(
     if ($pmaString->strpos(' ' . $action, 'db_') == 1) {
         $_url_params['db']= $db;
     } elseif ($pmaString->strpos(' ' . $action, 'tbl_') == 1
-        || $what == 'row_delete') {
+        || $what == 'row_delete'
+    ) {
         $_url_params['db']= $db;
         $_url_params['table']= $table;
     }
