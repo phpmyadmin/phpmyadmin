@@ -296,6 +296,9 @@ var AJAX = {
      * @return void
      */
     responseHandler: function (data) {
+        if (typeof data === 'undefined') {
+            return;
+        }
         if (data.success) {
             $table_clone = false;
             PMA_ajaxRemoveMessage(AJAX.$msgbox);
