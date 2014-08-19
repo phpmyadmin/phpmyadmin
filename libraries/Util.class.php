@@ -1825,7 +1825,7 @@ class PMA_Util
 
         $displayed_message = '';
         // Add text if not already added
-        if ($pmaString->stristr($message, '<img')
+        if (stristr($message, '<img')
             && (! $strip_img || ($GLOBALS['cfg']['ActionLinksMode'] == 'icons'))
             && (strip_tags($message) == $message)
         ) {
@@ -2165,7 +2165,7 @@ class PMA_Util
                 ) {
                     $con_val = '= ' . $row[$i];
                 } elseif ((($meta->type == 'blob') || ($meta->type == 'string'))
-                    && $pmaString->stristr($field_flags, 'BINARY')
+                    && stristr($field_flags, 'BINARY')
                     && ! empty($row[$i])
                 ) {
                     // hexify only if this is a true not empty BLOB or a BINARY

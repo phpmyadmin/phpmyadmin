@@ -145,8 +145,6 @@ class PMA_String
      * @param int    $offset   the search offset
      *
      * @return integer position of $needle in $haystack or false
-     *
-     * @todo add unit tests
      */
     public function stripos($haystack, $needle, $offset = 0)
     {
@@ -161,8 +159,6 @@ class PMA_String
      * @param int    $offset   the search offset
      *
      * @return integer position of last $needle in $haystack or false
-     *
-     * @todo add unit tests
      */
     public function strrpos($haystack, $needle, $offset = 0)
     {
@@ -178,8 +174,6 @@ class PMA_String
      * @param bool   $before_needle the part before the needle
      *
      * @return string part of $haystack or false
-     *
-     * @todo add unit tests
      */
     public function strstr($haystack, $needle, $before_needle = false)
     {
@@ -190,14 +184,13 @@ class PMA_String
      * Returns part of $haystack string starting from and including the first
      * occurrence of $needle to the end of $haystack - case insensitive - or false
      * if not found
+     * DON'T USE UNTIL HHVM IMPLEMENTS THIRD PARAMETER!
      *
      * @param string $haystack      the string being checked
      * @param string $needle        the string to find in haystack
      * @param bool   $before_needle the part before the needle
      *
      * @return string part of $haystack or false
-     *
-     * @todo add unit tests
      */
     public function stristr($haystack, $needle, $before_needle = false)
     {
@@ -222,8 +215,6 @@ class PMA_String
      * @param string $string the string being uppercased
      *
      * @return string the lower case string
-     *
-     * @todo add unit tests
      */
     public function strtoupper($string)
     {
