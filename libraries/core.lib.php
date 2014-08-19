@@ -222,7 +222,7 @@ function PMA_fatalError(
 
         /* Load gettext for fatal errors */
         if (!function_exists('__')) {
-            include_once './libraries/php-gettext/gettext.inc';
+            include_once GETTEXT_INC;
         }
 
         // these variables are used in the included file libraries/error.inc.php
