@@ -355,7 +355,11 @@ abstract class PMA_GIS_Geometry
         /** @var PMA_String $pmaString */
         $pmaString = $GLOBALS['PMA_String'];
 
-        $ol_array = $pmaString->($ol_array, 0, $pmaString->strlen($ol_array) - 2);
+        $ol_array = $pmaString->substr(
+            $ol_array,
+            0,
+            $pmaString->strlen($ol_array) - 2
+        );
         $ol_array .= ')';
 
         return $ol_array;
