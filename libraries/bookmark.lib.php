@@ -43,7 +43,7 @@ function PMA_Bookmark_getParams()
 /**
  * Gets the list of bookmarks defined for the current database
  *
- * @param string $db the current database name
+ * @param string|bool $db the current database name or false
  *
  * @return array the bookmarks list (key as index, label as value),
  *               or if param is empty, function will give more information,
