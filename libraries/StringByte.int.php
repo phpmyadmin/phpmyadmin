@@ -116,5 +116,14 @@ interface PMA_StringByte
      * @return string the ord value
      */
     public function ord($string);
+
+    /**
+     * Get the character of an ASCII
+     *
+     * @param int $ascii the ASCII code for which character is required
+     *
+     * @return string the character
+     */
+    public function chr($ascii);
 }
 ?>
