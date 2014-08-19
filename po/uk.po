@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-16 14:26-0400\n"
-"PO-Revision-Date: 2014-08-18 00:45+0200\n"
+"PO-Revision-Date: 2014-08-20 00:51+0200\n"
 "Last-Translator: Alex Smirnov <alex-smirnov@mail.ru>\n"
 "Language-Team: Ukrainian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
@@ -968,10 +968,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Знищення первинного ключа/індексу"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Обрати зовнішній ключ"
+msgstr ""
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -993,10 +992,9 @@ msgstr ""
 "У вас є незбережені зміни; ви впевнені, що хочете залишити цю сторінку?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Ви дійсно бажаєте видалити пошук \"%s\"?"
+msgstr ""
 
 #: js/messages.php:51
 msgid "Save & Close"
@@ -1923,10 +1921,9 @@ msgid "DROP columns %1s from the table %2s"
 msgstr ""
 
 #: js/messages.php:328
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following table"
-msgstr "Додати права для цієї таблиці:"
+msgstr "Створити наступну таблицю"
 
 #: js/messages.php:331
 msgid "Third step of normalization (3NF)"
@@ -1941,10 +1938,9 @@ msgid "Selected dependencies are as follows:"
 msgstr ""
 
 #: js/messages.php:334
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Жодної бази даних не вибрано."
+msgstr "Жодної залежності не обрано!"
 
 #: js/messages.php:337 libraries/insert_edit.lib.php:1523
 #: libraries/server_variables.lib.php:157
@@ -1963,34 +1959,29 @@ msgid "Show search criteria"
 msgstr "Показати критерії пошуку"
 
 #: js/messages.php:342
-#, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
-msgstr "Пошук в таблиці"
+msgstr "Діапазон пошуку"
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Назви стовпців: "
+msgstr "Максимум стовпчика:"
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Назви стовпців: "
+msgstr "Мінімум стовпчика:"
 
 #: js/messages.php:345
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Максимально таблиць"
+msgstr "Мінімальне значення:"
 
 #: js/messages.php:346
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Максимально таблиць"
+msgstr "Максимальне значення:"
 
 #: js/messages.php:349
 msgid "Hide find and replace criteria"
@@ -2075,6 +2066,7 @@ msgstr "Зовнішнє кільце"
 #: js/messages.php:386
 msgid "Shift + Click on function name to apply to all rows."
 msgstr ""
+"Натисніть Shift та клацніть на імені функції для застосування до всіх рядків."
 
 #: js/messages.php:388
 msgid "Do you want to copy encryption key?"
@@ -2113,38 +2105,33 @@ msgid "Page name"
 msgstr "Назва сторінки"
 
 #: js/messages.php:401
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "Вибрати сторінку"
+msgstr "Зберегти сторінку"
 
 #: js/messages.php:402 libraries/db_designer.lib.php:269
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "Чисті сторінки"
+msgstr "Відкрити сторінку"
 
 #: js/messages.php:403
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "Вибрати сторінку"
+msgstr "Видалити сторінку"
 
 #: js/messages.php:404 libraries/pmd_common.php:299
 msgid "*Untitled"
 msgstr ""
 
 #: js/messages.php:405
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Будь ласка виберіть сторінку для редагування"
+msgstr "Будь ласка, оберіть сторінку для продовження"
 
 #: js/messages.php:406
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "Введіть вірний номер!"
+msgstr ""
 
 #: js/messages.php:407
 msgid "Do you want to save the changes to the current page?"
@@ -2155,10 +2142,9 @@ msgid "Successfully deleted the page"
 msgstr ""
 
 #: js/messages.php:409
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Редагувати або експортувати схему зв'язків"
+msgstr "Експортувати схему зв'язків"
 
 #: js/messages.php:410
 msgid "Modifications have been saved"
@@ -2199,6 +2185,8 @@ msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
+"Натисніть Shift та клацніть для додавання цього стовпчика до ORDER.<br />- "
+"Натисніть Control та клацніть для видалення стовпчика з ORDER BY"
 
 #: js/messages.php:422
 msgid "Click to mark/unmark."
@@ -2235,10 +2223,9 @@ msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
 #: js/messages.php:432
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
-msgstr "Скасувати"
+msgstr "скасувати"
 
 #: js/messages.php:433 libraries/server_status.lib.php:261
 msgid "Aborted"
@@ -2249,22 +2236,19 @@ msgid "Success"
 msgstr ""
 
 #: js/messages.php:436
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Імпортувати властивості по замовчуванню"
+msgstr "Стан імпорту"
 
 #: js/messages.php:437 libraries/navigation/Navigation.class.php:102
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "Поріг файлу журналу"
+msgstr "Скинути файли сюди"
 
 #: js/messages.php:438
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
-msgstr "Вибрати Таблиці"
+msgstr "Спочатку оберіть базу даних"
 
 #: js/messages.php:443
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2325,16 +2309,14 @@ msgstr "Показати приховані пункти дерева навіг
 
 #: js/messages.php:468 libraries/config/messages.inc.php:421
 #: libraries/navigation/NavigationTree.class.php:1136
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Налаштувати головну панель"
+msgstr "Зв'язати з головною панеллю"
 
 #: js/messages.php:469 libraries/navigation/NavigationTree.class.php:1139
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Налаштувати головну панель"
+msgstr "Видалити зв'язок з головною панеллю"
 
 #: js/messages.php:472
 msgid "The requested page was not found in the history, it may have expired."
@@ -2392,6 +2374,8 @@ msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
+"Ваш експорт є неповним у зв'язку з низьким часовим лімітом для виконання на "
+"рівні PHP!"
 
 #: js/messages.php:496
 #, php-format
@@ -2399,6 +2383,9 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Попередження: форма на цій сторінці має більше, ніж %d полів. Під час "
+"надсилання деякі поля може бути проігноровано через значення РНР "
+"max_input_vars."
 
 #: js/messages.php:502 js/messages.php:514
 msgid "Some errors have been detected on the server!"
@@ -2409,10 +2396,9 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: js/messages.php:509 libraries/Error_Handler.class.php:355
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Ігнорувати"
+msgstr "Ігнорувати все"
 
 #: js/messages.php:516
 msgid ""
@@ -2420,16 +2406,14 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:523
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Показати даний запит тут знову"
+msgstr "Виконати цей запит ще раз?"
 
 #: js/messages.php:524
-#, fuzzy
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Ви дійсно бажаєте видалити групу користувачів \"%s\"?"
+msgstr "Ви дійсно бажаєте видалити цю закладку?"
 
 #: js/messages.php:555
 msgctxt "Previous month"
@@ -2774,10 +2758,9 @@ msgid "Expand"
 msgstr ""
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:172
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "підзапит"
+msgstr "Повторити запит"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:361
 #: libraries/DisplayResults.class.php:3460
@@ -2791,13 +2774,13 @@ msgid "Delete"
 msgstr "Видалити"
 
 #: libraries/Console.class.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete relation"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Видалити зв'язок"
-msgstr[1] "Видалити зв'язок"
-msgstr[2] "Видалити зв'язок"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: libraries/Console.class.php:114
 msgid "private"
@@ -2809,22 +2792,20 @@ msgstr "загальні"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:122
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "Закладку було видалено."
+msgstr ""
 
 #: libraries/Console.class.php:128
-#, fuzzy
 #| msgid "Delete relation"
 msgid "No bookmarks"
-msgstr "Видалити зв'язок"
+msgstr "Немає закладок"
 
 #: libraries/Console.class.php:174
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Тлумачити SQL"
+msgstr "Тлумачити"
 
 #: libraries/Console.class.php:175 libraries/Util.class.php:1258
 #: libraries/sql.lib.php:484
@@ -2832,28 +2813,24 @@ msgid "Profiling"
 msgstr "Профілювання"
 
 #: libraries/Console.class.php:176
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark"
-msgstr "Таблиця закладок"
+msgstr "Закласти"
 
 #: libraries/Console.class.php:177
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "Кеш запитів"
+msgstr ""
 
 #: libraries/Console.class.php:179
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Час виконання запиту"
+msgstr ""
 
 #: libraries/Console.class.php:185
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "SQL Запит"
+msgstr "Консоль SQL запиту"
 
 #: libraries/Console.class.php:186
 msgid "Console"
@@ -2865,10 +2842,9 @@ msgid "Clear"
 msgstr "Очистити"
 
 #: libraries/Console.class.php:192
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "SQL історія"
+msgstr "Історія"
 
 #: libraries/Console.class.php:195 libraries/Console.class.php:286
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:792
@@ -2899,22 +2875,19 @@ msgid "Options"
 msgstr "Параметри"
 
 #: libraries/Console.class.php:199 libraries/Console.class.php:248
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Таблиця закладок"
+msgstr "Закладки"
 
 #: libraries/Console.class.php:208
-#, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Виконати кожні"
+msgstr "Натисніть Ctrl+Enter для виконання запиту"
 
 #: libraries/Console.class.php:227
-#, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
-msgstr "Ігнорувати поточну помилку"
+msgstr "Під час поточного сеансу"
 
 #: libraries/Console.class.php:252 libraries/Util.class.php:1227
 #: libraries/config/messages.inc.php:737
@@ -2923,50 +2896,43 @@ msgid "Refresh"
 msgstr "Оновити"
 
 #: libraries/Console.class.php:255
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "Та"
+msgstr "Додати"
 
 #: libraries/Console.class.php:264
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
-msgstr "Видалити зв'язок"
+msgstr "Додати закладку"
 
 #: libraries/Console.class.php:268
-#, fuzzy
 #| msgid "Label:"
 msgid "Label"
-msgstr "Мітка:"
+msgstr "Мітка"
 
 #: libraries/Console.class.php:270
 msgid "Target database"
 msgstr "Цільова база даних"
 
 #: libraries/Console.class.php:273
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
-msgstr "Видалити зв'язок"
+msgstr "Поділитися цією закладкою"
 
 #: libraries/Console.class.php:289
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
-msgstr "Скинути до початкових значень"
+msgstr "Скинути за замовчуванням"
 
 #: libraries/Console.class.php:293
-#, fuzzy
 #| msgid "Always send error reports"
 msgid "Always expand query messages"
-msgstr "Завжди надсилати звіти про помилки"
+msgstr "Завжди розгортати повідомлення запиту"
 
 #: libraries/Console.class.php:295
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "Таблиця історії SQL запитів"
+msgstr "Показати історію на початку"
 
 #: libraries/Console.class.php:297
 msgid "Show current browsing query"
@@ -3280,11 +3246,11 @@ msgstr "Сховати перетворення"
 
 #: libraries/DisplayResults.class.php:1673
 msgid "Well Known Text"
-msgstr "Формат WKT (well known text)"
+msgstr "Добре відомий текст"
 
 #: libraries/DisplayResults.class.php:1674
 msgid "Well Known Binary"
-msgstr "Формат WKB (well known binary)"
+msgstr "Добре відомий бінарний"
 
 #: libraries/DisplayResults.class.php:3434
 #: libraries/DisplayResults.class.php:3450
@@ -3299,14 +3265,14 @@ msgstr "Вбити"
 
 #: libraries/DisplayResults.class.php:4450
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Може бути приблизним. Дивіться [doc@faq3-11]FAQ 3.11 [/doc]."
+msgstr "Може бути приблизним. Дивіться [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4507 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467 libraries/sql_query_form.lib.php:89
 #: libraries/tbl_relation.lib.php:1011 tbl_find_replace.php:51
 #: tbl_operations.php:184 tbl_row_action.php:121 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
-msgstr "Ваш SQL-запит було успішно виконано."
+msgstr "Ваш SQL запит було виконано вдало."
 
 #: libraries/DisplayResults.class.php:4884 libraries/structure.lib.php:683
 #, php-format
@@ -3314,7 +3280,7 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"Подання має щонайменше цю кількість рядків. Будь-ласка звернітся до "
+"Подання має щонайменше цю кількість рядків. Будь-ласка, зверніться до "
 "%sдокументації%s."
 
 #: libraries/DisplayResults.class.php:4897
@@ -3325,7 +3291,7 @@ msgstr "Показано рядки %1s - %2s"
 #: libraries/DisplayResults.class.php:4912
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d total, %2$d в запиті"
 
 #: libraries/DisplayResults.class.php:4917
 #, php-format
@@ -3335,7 +3301,7 @@ msgstr "всього %d"
 #: libraries/DisplayResults.class.php:4929 libraries/sql.lib.php:1691
 #, php-format
 msgid "Query took %01.4f seconds."
-msgstr "Запит виконувався %01.4f сек."
+msgstr "Запит виконувався %01.4f с."
 
 #: libraries/DisplayResults.class.php:5033
 #: libraries/DisplayResults.class.php:5039 libraries/mult_submits.inc.php:45
@@ -3379,7 +3345,7 @@ msgstr "Змінити"
 #: libraries/server_status_monitor.lib.php:322 libraries/structure.lib.php:313
 #: prefs_manage.php:293 setup/frames/menu.inc.php:27
 msgid "Export"
-msgstr "Експорт"
+msgstr "Експортувати"
 
 #: libraries/DisplayResults.class.php:5215
 msgid "Query results operations"
@@ -3393,7 +3359,7 @@ msgstr "Версія для друку"
 
 #: libraries/DisplayResults.class.php:5269
 msgid "Print view (with full texts)"
-msgstr "Подання для друку (з повними текстами)"
+msgstr "Версія для друку (з повними текстами)"
 
 #: libraries/DisplayResults.class.php:5340 libraries/tbl_chart.lib.php:351
 msgid "Display chart"
@@ -3409,13 +3375,12 @@ msgstr "Посилання не знайдено!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
-msgstr "Надто багато помилок, деякі не відобразились."
+msgstr "Занадто багато повідомлень про помилки, деякі не відображаються."
 
 #: libraries/Error_Handler.class.php:338
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
-msgstr "Імпорт"
+msgstr "Звіт"
 
 #: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:357
 msgid "Automatically send report next time"
@@ -3423,23 +3388,24 @@ msgstr "Автоматично надсилати звіт наступного 
 
 #: libraries/File.class.php:225
 msgid "File was not an uploaded file."
-msgstr "Файл не був відвантаженим файлом."
+msgstr "Файл не був завантаженим файлом."
 
 #: libraries/File.class.php:264
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr "Відвантажений файл перевищує директиву upload_max_filesize в php.ini."
+msgstr ""
+"Розмір завантаженого файла перевищує директиву upload_max_filesize в php.ini."
 
 #: libraries/File.class.php:267
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
-"Відвантажений файл перевищує MAX_FILE_SIZE директиву, яка була вказана в "
-"HTML формі."
+"Розмір завантаженого файла перевищує MAX_FILE_SIZE директиву, що була "
+"вказана в HTML формі."
 
 #: libraries/File.class.php:270
 msgid "The uploaded file was only partially uploaded."
-msgstr "Відвантажений файл був відвантажений лише частково."
+msgstr "Завантажуваний файл було завантажено лише частково."
 
 #: libraries/File.class.php:273
 msgid "Missing a temporary folder."
@@ -3447,27 +3413,27 @@ msgstr "Відсутня тимчасова директорія."
 
 #: libraries/File.class.php:276
 msgid "Failed to write file to disk."
-msgstr "Неможливо записати файл на диск."
+msgstr "Не вдалося записати файл на диск."
 
 #: libraries/File.class.php:279
 msgid "File upload stopped by extension."
-msgstr "Відвантаження зупинено розширенням."
+msgstr "Завантаження файла зупинено розширенням."
 
 #: libraries/File.class.php:282
 msgid "Unknown error in file upload."
-msgstr "Невідома помилка при відвантаженні файлу."
+msgstr "Невідома помилка під час завантаження файла."
 
 #: libraries/File.class.php:461
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
-msgstr "Помилка прі переміщенні файлу, дивись [doc@faq1-11]FAQ 1.11[/doc]."
+msgstr "Помилка під час переміщення файла, дивись [doc@faq1-11]FAQ 1.11[/doc]."
 
 #: libraries/File.class.php:479
 msgid "Error while moving uploaded file."
-msgstr "Помилка при переміщенні відвантаженого файлу."
+msgstr "Помилка під час переміщення завантаженого файла."
 
 #: libraries/File.class.php:487
 msgid "Cannot read (moved) upload file."
-msgstr "Неможливо прочитати (перемістити) відвантажений файл."
+msgstr "Не вдалося прочитати (перемістити) завантажений файл."
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -3555,8 +3521,7 @@ msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
-"Схоже що індекси %1$s та %2$s ідентичні, тому один із них може бути "
-"вилученим."
+"Схоже, що індекси %1$s та %2$s ідентичні, тому один із них можна видалити."
 
 #: libraries/Menu.class.php:195 libraries/ServerStatusData.class.php:365
 #: libraries/config/messages.inc.php:750
@@ -3601,7 +3566,7 @@ msgstr "SQL"
 #: libraries/Util.class.php:4085 libraries/Util.class.php:4102
 #: libraries/navigation/Nodes/Node_Table.class.php:39
 msgid "Search"
-msgstr "Пошук"
+msgstr "Шукати"
 
 #: libraries/Menu.class.php:320 libraries/Util.class.php:3132
 #: libraries/Util.class.php:3354 libraries/Util.class.php:3355
@@ -3624,7 +3589,7 @@ msgstr "Привілеї"
 #: libraries/Util.class.php:4089 libraries/Util.class.php:4107
 #: view_operations.php:92
 msgid "Operations"
-msgstr "Операцій"
+msgstr "Операції"
 
 #: libraries/Menu.class.php:357 libraries/Menu.class.php:475
 #: libraries/Util.class.php:4094 libraries/Util.class.php:4108
@@ -3651,7 +3616,7 @@ msgstr "Порожня база даних!"
 
 #: libraries/Menu.class.php:421 libraries/Util.class.php:4086
 msgid "Query"
-msgstr "Запит згідно прикладу"
+msgstr "Запит"
 
 #: libraries/Menu.class.php:454 libraries/Util.class.php:4091
 #: libraries/rte/rte_words.lib.php:36
@@ -3670,16 +3635,15 @@ msgid "Designer"
 msgstr "Дизайнер"
 
 #: libraries/Menu.class.php:488 libraries/Util.class.php:4096
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "Стовпців у текстовому полі"
+msgstr "Центральні стовпчики"
 
 #: libraries/Menu.class.php:522 libraries/Util.class.php:4068
 #: libraries/config/messages.inc.php:229 libraries/server_common.lib.php:48
 #: libraries/server_privileges.lib.php:3826
 msgid "Databases"
-msgstr "Бази Даних"
+msgstr "Бази даних"
 
 #: libraries/Menu.class.php:545 libraries/Util.class.php:4071
 msgid "Users"
@@ -3713,7 +3677,7 @@ msgstr "Плагіни"
 
 #: libraries/Menu.class.php:596 libraries/Util.class.php:4080
 msgid "Engines"
-msgstr "Типи таблиць"
+msgstr "Двигуни"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:626
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
@@ -3742,9 +3706,9 @@ msgstr[2] "%1$d рядків видалено."
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d рядок вставлено."
-msgstr[1] "%1$d рядків вставлено."
-msgstr[2] "%1$d рядків вставлено."
+msgstr[0] "%1$d рядок додано."
+msgstr[1] "%1$d рядків додано."
+msgstr[2] "%1$d рядків додано."
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2427
 #: libraries/browse_foreigners.lib.php:291
@@ -3756,15 +3720,15 @@ msgstr "Номер сторінки:"
 
 #: libraries/PDF.class.php:126
 msgid "Error while creating PDF:"
-msgstr "Помилка при створенні PDF:"
+msgstr "Помилка під час створення PDF:"
 
 #: libraries/RecentFavoriteTable.class.php:151
 msgid "Could not save recent table!"
-msgstr "Неможливо зберегти останню таблицю!"
+msgstr "Не вдалося зберегти останню таблицю!"
 
 #: libraries/RecentFavoriteTable.class.php:155
 msgid "Could not save favorite table!"
-msgstr "Неможливо зберегти улюблену таблицю!"
+msgstr "Не вдалося зберегти улюблену таблицю!"
 
 #: libraries/RecentFavoriteTable.class.php:232
 #: libraries/structure.lib.php:2849
@@ -3818,12 +3782,12 @@ msgstr "Відсутні відомості для завантаження по
 
 #: libraries/SavedSearches.class.php:394
 msgid "Error while loading the search."
-msgstr "Помилка при завантаженні пошуку."
+msgstr "Помилка під час завантаження пошуку."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status_processes.lib.php:97
 msgid "SQL query"
-msgstr "SQL-запит"
+msgstr "SQL запит"
 
 #: libraries/ServerStatusData.class.php:191
 msgid "Handler"
@@ -3865,7 +3829,7 @@ msgstr "Сортування"
 #: libraries/plugins/export/ExportXml.class.php:116
 #: libraries/structure.lib.php:3038
 msgid "Tables"
-msgstr "Таблиць"
+msgstr "Таблиці"
 
 #: libraries/ServerStatusData.class.php:202
 msgid "Transaction coordinator"
@@ -3882,11 +3846,11 @@ msgstr "Вичистити (закрити) всі таблиці"
 
 #: libraries/ServerStatusData.class.php:220
 msgid "Show open tables"
-msgstr "Список відкритих таблиць"
+msgstr "Показати відкриті таблиці"
 
 #: libraries/ServerStatusData.class.php:229
 msgid "Show slave hosts"
-msgstr "Інформація про підлеглих серверах"
+msgstr "Показати підлеглі хости"
 
 #: libraries/ServerStatusData.class.php:236
 #: libraries/replication_gui.lib.php:50
@@ -3895,7 +3859,7 @@ msgstr "Показати стан головного сервера"
 
 #: libraries/ServerStatusData.class.php:239
 msgid "Show slave status"
-msgstr "Інформація про стан сервера реплікації"
+msgstr "Показати стан підлеглих"
 
 #: libraries/ServerStatusData.class.php:244
 msgid "Flush query cache"
@@ -4118,10 +4082,9 @@ msgid "Replace with:"
 msgstr "Замінити на:"
 
 #: libraries/TableSearch.class.php:1369
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "як регулярний вираз"
+msgstr "Використувати регулярний вираз"
 
 #: libraries/TableSearch.class.php:1471
 msgid "Find and replace - preview"
@@ -4305,6 +4268,8 @@ msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"Рядок фіксованої довжини (0-255, за замовчуванням 1), який завжди "
+"доповнюється пробілами з  правого боку до заданої довжини під час зберігання"
 
 #: libraries/Types.class.php:356 libraries/Types.class.php:797
 #, php-format
@@ -4345,12 +4310,16 @@ msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Подібно до типу CHAR, але зберігає двійкові рядки байт, а не рядки "
+"небінарних символів"
 
 #: libraries/Types.class.php:368
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Подібно до типу VARCHAR, але зберігає двійкові рядки байт, а не рядки "
+"небінарних символів"
 
 #: libraries/Types.class.php:370
 msgid ""
@@ -4384,15 +4353,15 @@ msgstr ""
 
 #: libraries/Types.class.php:380
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "Одне значення обране з набору до 64 членів"
 
 #: libraries/Types.class.php:382
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Тип, що може зберігати геометрію будь-якого типу"
 
 #: libraries/Types.class.php:384
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Точка в двомірному просторі"
 
 #: libraries/Types.class.php:386
 msgid "A curve with linear interpolation between points"
@@ -4442,12 +4411,15 @@ msgstr "Просторове"
 #: libraries/Types.class.php:775
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
 msgstr ""
+"Чотирибайтове ціле число в діапазоні від -2,147,483,648 до 2,147,483,647"
 
 #: libraries/Types.class.php:777
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
+"Восьмибайтове ціле число в діапазоні від -9,223,372,036,854,775,808 до "
+"9,223,372,036,854,775,807"
 
 #: libraries/Types.class.php:781
 msgid "A system's default double-precision floating-point number"
@@ -4459,23 +4431,27 @@ msgstr ""
 
 #: libraries/Types.class.php:785
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Псевдонім для BIGINT NOT NULL AUTO_INCREMENT"
 
 #: libraries/Types.class.php:787
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "Зберігає універсальний унікальний ідентифікатор (UUID)"
 
 #: libraries/Types.class.php:793
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"Часова позначка в діапазоні від '0001-01-01 00:00:00' UTC до '9999-12-31 "
+"23:59:59' UTC; у TIMESTAMP(6) можуть зберігатись мікросекунди"
 
 #: libraries/Types.class.php:801
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
+"Рядок змінної довжини (0-65,535), використовує двійкове співставлення для "
+"всіх порівнянь"
 
 #: libraries/Types.class.php:805
 msgid "An enumeration, chosen from the list of defined values"
@@ -4675,10 +4651,9 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
 #: libraries/central_columns.lib.php:280
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "Не вдалось зберегти настройки"
+msgstr "Не вдалося додати стовпчики!"
 
 #: libraries/central_columns.lib.php:356
 #, php-format
@@ -4687,10 +4662,9 @@ msgid ""
 msgstr ""
 
 #: libraries/central_columns.lib.php:368
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not remove columns!"
-msgstr "Неможливо зберегти останню таблицю!"
+msgstr "Не вдалося видалити стовпчики!"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
@@ -4727,33 +4701,29 @@ msgid "Extra"
 msgstr "Додатково"
 
 #: libraries/central_columns.lib.php:660
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Вибрати Таблиці"
+msgstr "Обрати таблицю"
 
 #: libraries/central_columns.lib.php:714 libraries/structure.lib.php:1653
 msgid "Add column"
 msgstr "Додати стовпчик"
 
 #: libraries/central_columns.lib.php:726
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Виділити дві колонки"
+msgstr "Обрати стовпчик."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "Приріст авторозширення"
+msgstr ""
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 msgid "on update CURRENT_TIMESTAMP"
 msgstr ""
 
 #: libraries/central_columns.lib.php:886
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
 msgstr "Додати стовпчик"
@@ -4810,7 +4780,7 @@ msgstr "Вам необхідно оновити до %s %s або пізніш�
 
 #: libraries/common.inc.php:1083
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Помилка: невідповідний токен"
 
 #: libraries/common.inc.php:1115
 msgid "GLOBALS overwrite attempt"
@@ -5204,29 +5174,25 @@ msgid "Could not connect to the database server!"
 msgstr "Не вдалося з'єднатися з сервером бази даних!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty username while using config authentication method!"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
-"При використанні ідентифікації по конфігураційному файлу не встановлено ім'я "
-"користувача!"
+"При використанні ідентифікації [kbd]config[/kbd] порожнє ім'я користувача!"
 
 #: libraries/config/Validator.class.php:320
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method!"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
-"При використанні єдиного методу ідентифікації signon не встановлено ім’я "
+"При використанні методу ідентифікації [kbd]signon[/kbd] не встановлено ім'я "
 "сесії!"
 
 #: libraries/config/Validator.class.php:329
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
-"При використанні єдиного методу ідентифікації signon не встановлений URL!"
+"При використанні методу ідентифікації [kbd]signon[/kbd] не встановлений URL!"
 
 #: libraries/config/Validator.class.php:376
 msgid ""
@@ -5343,7 +5309,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Увімкнути CodeMirror"
 
 #: libraries/config/messages.inc.php:55
 msgid ""
@@ -6004,7 +5970,7 @@ msgstr "Структура таблиці"
 
 #: libraries/config/messages.inc.php:297
 msgid "Settings for the table structure (list of columns)."
-msgstr ""
+msgstr "Налаштування для структури таблиці (перелік стовпчиків)."
 
 #: libraries/config/messages.inc.php:298
 msgid "Tabs"
@@ -6275,7 +6241,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:405
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Максимальна кількість елементів в гілці"
 
 #: libraries/config/messages.inc.php:407
 msgid ""
@@ -6379,7 +6345,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:447
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Групувати елементи в дереві"
 
 #: libraries/config/messages.inc.php:449
 msgid "String that separates databases into different tree levels."
@@ -6411,7 +6377,7 @@ msgstr "Включити підсвічування"
 
 #: libraries/config/messages.inc.php:459
 msgid "Whether to disable the possibility of database expansion or not."
-msgstr ""
+msgstr "Чи потрібно вимкнути можливість розширення бази даних."
 
 #: libraries/config/messages.inc.php:461
 msgid "Disable database expansion"
@@ -6919,10 +6885,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:653
-#, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
-msgstr "PDF схема: координати таблиць"
+msgstr "Дизайнер і PDF схема: координати таблиці"
 
 #: libraries/config/messages.inc.php:655
 msgid ""
@@ -7059,7 +7024,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:700
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Прихована таблиця навігаційних елементів"
 
 #: libraries/config/messages.inc.php:702
 msgid "User for config auth"
@@ -7298,7 +7263,6 @@ msgid "Title of browser window when a table is selected."
 msgstr "Заголовок вікна браузера при виборі таблиці."
 
 #: libraries/config/messages.inc.php:753
-#, fuzzy
 #| msgid ""
 #| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
 #| "example specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-"
@@ -7311,9 +7275,9 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
 "Додайте проксі у вигляді [kbd]IP: довірений HTTP заголовок[/kbd]. Наступний "
-"приклад показує, що phpMyAdmin повинен довіряти HTTP_X_FORWARDED_FOR (X-"
-"Forwarded-For) заголовку, що прийшов з проксі 1.2.3.4: [br][kbd]1.2.3.4:"
-"HTTP_X_FORWARDED_FOR[/kbd]"
+"приклад показує, що phpMyAdmin повинен довіряти HTTP_X_FORWARDED_FOR (X"
+"-Forwarded-For) заголовку, що прийшов з проксі 1.2.3.4:[br][kbd]1.2.3.4: "
+"HTTP_X_FORWARDED_FOR[/kbd]."
 
 #: libraries/config/messages.inc.php:754
 msgid "List of trusted proxies for IP allow/deny"
@@ -7448,10 +7412,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:784
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
-msgstr "Конфігурація сервера"
+msgstr "Увімкнути режим нульової конфігурації"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7537,46 +7500,39 @@ msgid ""
 msgstr ""
 
 #: libraries/db_designer.lib.php:32
-#, fuzzy
 #| msgid "Page titles"
 msgid "Page to open"
-msgstr "Заголовки сторінки"
+msgstr "Відкрити сторінку"
 
 #: libraries/db_designer.lib.php:34
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Page to delete"
-msgstr "Зв'язок видалений"
+msgstr "Видалити сторінку"
 
 #: libraries/db_designer.lib.php:38 libraries/db_designer.lib.php:77
 msgid "Select page"
 msgstr "Вибрати сторінку"
 
 #: libraries/db_designer.lib.php:63
-#, fuzzy
 #| msgid "Export to selected page"
 msgid "Save to selected page"
-msgstr "Експорт у вибрану сторінку"
+msgstr "Зберегти на обрану сторінку"
 
 #: libraries/db_designer.lib.php:64
-#, fuzzy
 #| msgid "Create a page and export to it"
 msgid "Create a page and save to it"
-msgstr "Створити нову сторінку та експортувати в неї"
+msgstr "Створити сторінку та зберегти на неї"
 
 #: libraries/db_designer.lib.php:98
-#, fuzzy
 #| msgid "New page name: "
 msgid "New page name"
-msgstr "Нова назва сторінки: "
+msgstr "Назва нової сторінки"
 
 #: libraries/db_designer.lib.php:156
-#, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
-"Неможливо завантажити імпортовані плагіни, будь ласка перевірте ваше "
-"інсталювання!"
+"Не вдалося завантажити плагіни схеми, будь ласка, перевірте вашу установку!"
 
 #: libraries/db_designer.lib.php:164
 msgid "Select Export Relational Type"
@@ -7595,26 +7551,23 @@ msgid "Exit fullscreen"
 msgstr ""
 
 #: libraries/db_designer.lib.php:262
-#, fuzzy
 #| msgid "New name"
 msgid "New page"
-msgstr "Нове ім'я"
+msgstr "Нова сторінка"
 
 #: libraries/db_designer.lib.php:276
 msgid "Save position"
 msgstr "Зберегти позицію"
 
 #: libraries/db_designer.lib.php:282
-#, fuzzy
 #| msgid "Save position"
 msgid "Save positions as"
-msgstr "Зберегти позицію"
+msgstr "Зберегти позиції"
 
 #: libraries/db_designer.lib.php:289
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete pages"
-msgstr "Вибрати сторінку"
+msgstr "Видалити сторінки"
 
 #: libraries/db_designer.lib.php:299 libraries/display_create_table.lib.php:55
 msgid "Create table"
@@ -7657,10 +7610,9 @@ msgid "Toggle relation lines"
 msgstr "Змінити лінії зв'язків"
 
 #: libraries/db_designer.lib.php:379
-#, fuzzy
 #| msgid "Export"
 msgid "Export schema"
-msgstr "Експорт"
+msgstr "Експортувати схему"
 
 #: libraries/db_designer.lib.php:390
 msgid "Build Query"
@@ -7929,40 +7881,34 @@ msgid "Skip tables larger than"
 msgstr "Ігнорувати таблиці більші за"
 
 #: libraries/display_export.lib.php:776
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database"
-msgstr "Вибрати Таблиці"
+msgstr "Обрати базу даних"
 
 #: libraries/display_export.lib.php:778
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select table"
-msgstr "Вибрати Таблиці"
+msgstr "Обрати таблицю"
 
 #: libraries/display_export.lib.php:794
-#, fuzzy
 #| msgid "Database name"
 msgid "New database name"
-msgstr "Ім'я бази даних"
+msgstr "Ім'я нової бази даних"
 
 #: libraries/display_export.lib.php:818
-#, fuzzy
 #| msgid "New page name: "
 msgid "New table name"
-msgstr "Нова назва сторінки: "
+msgstr "Ім'я нової таблиці"
 
 #: libraries/display_export.lib.php:827
-#, fuzzy
 #| msgid "Copy column name."
 msgid "Old column name"
-msgstr "Копіювати назву стовпчик(ів)."
+msgstr ""
 
 #: libraries/display_export.lib.php:828
-#, fuzzy
 #| msgid "Copy column name."
 msgid "New column name"
-msgstr "Копіювати назву стовпчик(ів)."
+msgstr "Нове ім'я стовпчика"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -9078,16 +9024,14 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:134 normalization.php:19
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select one…"
-msgstr "Виділити дві колонки"
+msgstr "Обрати одне…"
 
 #: libraries/normalization.lib.php:135 normalization.php:20
-#, fuzzy
 #| msgid "Move column"
 msgid "No such column"
-msgstr "Перемістити стовпець"
+msgstr "Немає такого стовпчика"
 
 #: libraries/normalization.lib.php:142
 msgid "split into "
@@ -11710,7 +11654,7 @@ msgstr "Дозволяє знищувати таблиці."
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
-"Дозволити додавання користувачів та прав без перезавантаження таблиці прав."
+"Дозволяє додавання користувачів та прав без перезавантаження таблиці прав."
 
 #: libraries/server_privileges.lib.php:1277
 #: libraries/server_privileges.lib.php:2484
@@ -11728,6 +11672,8 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
+"Вже існує обліковий запис з таким іменем користувача, але, можливо, з іншою "
+"назвою хоста."
 
 #: libraries/server_privileges.lib.php:1485
 msgid "Do not change the password"
@@ -11736,12 +11682,12 @@ msgstr "Не змінювати пароль"
 #: libraries/server_privileges.lib.php:1630
 #, php-format
 msgid "The password for %s was changed successfully."
-msgstr "Пароль для %s успішно змінено."
+msgstr "Пароль для %s змінено вдало."
 
 #: libraries/server_privileges.lib.php:1672
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "Ви відмінили права для %s."
+msgstr "Ви відмінили привілеї для %s."
 
 #: libraries/server_privileges.lib.php:1722
 #: libraries/server_privileges.lib.php:3784
@@ -11754,26 +11700,23 @@ msgstr "База даних для користувача"
 
 #: libraries/server_privileges.lib.php:1734
 msgid "Create database with same name and grant all privileges."
-msgstr ""
-"Створити базу даних з ім'ям користувача в назві та надати на неї повні "
-"привілеї."
+msgstr "Створити базу даних з таким самим іменем та надати всі привілеї."
 
 #: libraries/server_privileges.lib.php:1740
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
-"Надати повні привілеї на бази даних підпадають під шаблон (ім'я користувача"
-"\\_%)."
+"Надати всі привілеї на те, що підпадає під шаблон (ім'я користувача\\_%)."
 
 #: libraries/server_privileges.lib.php:1749
 #, php-format
 msgid "Grant all privileges on database \"%s\"."
-msgstr "Виставити повні привілеї на базу даних \"%s\"."
+msgstr "Надати всі привілеї на базу даних \"%s\"."
 
 #: libraries/server_privileges.lib.php:1849
 #: libraries/server_privileges.lib.php:1902
 #, php-format
 msgid "Users having access to \"%s\""
-msgstr "Користувачі, котрі мають доступ до \"%s\""
+msgstr "Користувачі, що мають доступ до \"%s\""
 
 #: libraries/server_privileges.lib.php:1872
 msgid "User has been added."
@@ -11792,7 +11735,7 @@ msgstr "Користувач"
 #: libraries/server_privileges.lib.php:2772
 #: libraries/server_privileges.lib.php:2953
 msgid "Grant"
-msgstr "Ґрант"
+msgstr "Надати"
 
 #: libraries/server_privileges.lib.php:2020
 msgid "Not enough privilege to view users."
@@ -11827,7 +11770,7 @@ msgstr "специфічний для таблиці"
 
 #: libraries/server_privileges.lib.php:2219
 msgid "Edit Privileges"
-msgstr "Редагування прав"
+msgstr "Редагувати привілеї"
 
 #: libraries/server_privileges.lib.php:2246
 msgid "Revoke"
@@ -11839,24 +11782,26 @@ msgstr "Редагувати групу користувачів"
 
 #: libraries/server_privileges.lib.php:2464
 msgid "… keep the old one."
-msgstr "… залишити старого."
+msgstr "… зберегти попереднього."
 
 #: libraries/server_privileges.lib.php:2465
 msgid "… delete the old one from the user tables."
-msgstr "… знищити старого з таблиці користувачів."
+msgstr "… видалити попереднього з таблиці користувачів."
 
 #: libraries/server_privileges.lib.php:2467
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-"… анулювати всі активні права старого користувача, знищивши його після того."
+"… анулювати всі активні привілеї попереднього користувача та видалити його "
+"після того."
 
 #: libraries/server_privileges.lib.php:2471
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"… знищити старого з таблиці користувачів та перевантажити права після того."
+"… видалити попереднього з таблиці користувачів та перевантажити права після "
+"того."
 
 #: libraries/server_privileges.lib.php:2485
 msgid "Change Login Information / Copy User"
@@ -11864,11 +11809,11 @@ msgstr "Змінити реєстраційні дані / Копіювати к
 
 #: libraries/server_privileges.lib.php:2491
 msgid "Create a new user with the same privileges and …"
-msgstr "Створити нового користувача з такими ж правами і …"
+msgstr "Створити нового користувача з такими ж правами та …"
 
 #: libraries/server_privileges.lib.php:2776
 msgid "Column-specific privileges"
-msgstr "Права, які стосуються колонок таблиці"
+msgstr "Привілеї, що стосуються стовпчиків таблиці"
 
 #: libraries/server_privileges.lib.php:2831
 #, fuzzy
@@ -11879,31 +11824,30 @@ msgstr "Додати права для цієї бази даних:"
 #: libraries/server_privileges.lib.php:2855
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
-"При використанні в імені бази даних символів нижнього підкреслення _ і "
-"відсотка%, необхідно екранувати їх символом зворотної косої межі \\, в "
-"іншому випадку вони будуть інтерпретовані як групові символи."
+"При використанні в імені бази даних символів нижнього підкреслення і "
+"відсотка необхідно екранувати їх символом \\."
 
 #: libraries/server_privileges.lib.php:2873
 msgid "Add privileges on the following table:"
-msgstr "Додати права для цієї таблиці:"
+msgstr "Додати привілеї для цієї таблиці:"
 
 #: libraries/server_privileges.lib.php:3110
 msgid "Remove selected users"
-msgstr "Видалити вибраних користувачів"
+msgstr "Видалити обраних користувачів"
 
 #: libraries/server_privileges.lib.php:3116
 msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "Відмінити всі активні права користувачів та усунути їх після цього."
+msgstr "Відмінити всі активні привілеї користувачів та видалити їх після того."
 
 #: libraries/server_privileges.lib.php:3124
 #: libraries/server_privileges.lib.php:3130
 #: libraries/server_privileges.lib.php:3133
 msgid "Drop the databases that have the same names as the users."
-msgstr "Усунути бази даних, які мають такі ж назви як імена користувачів."
+msgstr "Видалити бази даних, які мають такі ж назви, як імена користувачів."
 
 #: libraries/server_privileges.lib.php:3271
 msgid "No users selected for deleting!"
-msgstr "Не вибрано користувачів для видалення!"
+msgstr "Жодного користувача не обрано для видалення!"
 
 #: libraries/server_privileges.lib.php:3274
 msgid "Reloading the privileges"
@@ -11911,12 +11855,12 @@ msgstr "Перезавантаження прав"
 
 #: libraries/server_privileges.lib.php:3293
 msgid "The selected users have been deleted successfully."
-msgstr "Вибраних користувачів успішно видалено."
+msgstr "Обраних користувачів видалено вдало."
 
 #: libraries/server_privileges.lib.php:3360
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr "Ви оновили права для %s."
+msgstr "Ви оновили привілеї для %s."
 
 #: libraries/server_privileges.lib.php:3429
 #, php-format
@@ -11925,7 +11869,7 @@ msgstr "Видалення %s"
 
 #: libraries/server_privileges.lib.php:3458
 msgid "The privileges were reloaded successfully."
-msgstr "Права успішно перезавантажено."
+msgstr "Привілеї перезавантажено вдало."
 
 #: libraries/server_privileges.lib.php:3540
 #, php-format
@@ -11944,7 +11888,7 @@ msgstr "Новий"
 
 #: libraries/server_privileges.lib.php:3805
 msgid "Edit Privileges:"
-msgstr "Редагування прав:"
+msgstr "Редагувати привілеї:"
 
 #: libraries/server_privileges.lib.php:3865
 msgid ""
@@ -11954,7 +11898,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:3885 libraries/server_users.lib.php:25
 msgid "Users overview"
-msgstr "Огляд користувачів"
+msgstr "Перегляд користувачів"
 
 #: libraries/server_privileges.lib.php:3970
 #, php-format
@@ -11985,7 +11929,7 @@ msgstr "Мережевий трафік з моменту запуску: %s"
 #: libraries/server_status.lib.php:66
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Цей MySQL сервер працює %1$s. Стартував %2$s."
+msgstr "Цей сервер MySQL працює %1$s. Стартував %2$s."
 
 #: libraries/server_status.lib.php:76
 msgid ""
@@ -12013,7 +11957,7 @@ msgid ""
 "reported by the MySQL server may be incorrect."
 msgstr ""
 "На зайнятому сервері лічильники байтів можуть переповнитися, тому "
-"статистичні дані серверу MySQL можуть бути хибними."
+"статистичні дані сервера MySQL можуть бути хибними."
 
 #: libraries/server_status.lib.php:139
 msgid "Received"
@@ -12025,7 +11969,7 @@ msgstr "Відправлено"
 
 #: libraries/server_status.lib.php:224
 msgid "max. concurrent connections"
-msgstr "Макс. кількість одночасних підключень"
+msgstr "макс. кількість одночасних підключень"
 
 #: libraries/server_status.lib.php:234
 msgid "Failed attempts"
@@ -12033,15 +11977,15 @@ msgstr "Невдалих спроб"
 
 #: libraries/server_status_advisor.lib.php:23
 msgid "Instructions"
-msgstr "Команди"
+msgstr "Інструкції"
 
 #: libraries/server_status_advisor.lib.php:29
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
-"Система порад може надавати рекомендації по змінних серверу, ґрунтуючись на "
-"аналізі їх статусу."
+"Система порад може надавати рекомендації щодо змінних сервера, ґрунтуючись "
+"на їх стані."
 
 #: libraries/server_status_advisor.lib.php:35
 msgid ""
@@ -12058,9 +12002,9 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
-"Перед зміною, переконайтесь в тому, що розумієте наслідки (почитайте "
-"документацію) і знаєте як відмінити налаштування. Невірна конфігурація може "
-"негативно вплинути на продуктивність."
+"Перед зміною переконайтесь в тому, що розумієте наслідки (почитайте "
+"документацію) та знаєте, як відмінити налаштування. Невірна конфігурація "
+"може негативно вплинути на продуктивність."
 
 #: libraries/server_status_advisor.lib.php:50
 msgid ""
@@ -12069,13 +12013,12 @@ msgid ""
 "no clearly measurable improvement."
 msgstr ""
 "Найкращим підходом до налаштувань вашої системи буде зміна тільки однієї "
-"опції за раз, наступне тестування продуктивності бази даних і вертання до "
-"початкових налаштувань, якщо не було помічено позитивного покращення в "
-"роботі."
+"опції за раз, наступне тестування продуктивності бази даних і повернення до "
+"початкових налаштувань, якщо не було помічено покращення в роботі."
 
 #: libraries/server_status_monitor.lib.php:66
 msgid "Log statistics"
-msgstr "Статистика журналу"
+msgstr "Статистика"
 
 #: libraries/server_status_monitor.lib.php:67
 msgid "Selected time range:"
@@ -12087,7 +12030,7 @@ msgstr "Виконувати лише вирази SELECT, INSERT, UPDATE і DEL
 
 #: libraries/server_status_monitor.lib.php:81
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr "Для кращого групування, видалити данні змінної у виразах INSERT"
+msgstr "Для покращення групування видаліть дані змінної у виразах INSERT"
 
 #: libraries/server_status_monitor.lib.php:85
 msgid "Choose from which log you want the statistics to be generated from."
@@ -12095,7 +12038,7 @@ msgstr "Оберіть, з якого журналу має генерувати
 
 #: libraries/server_status_monitor.lib.php:89
 msgid "Results are grouped by query text."
-msgstr "Результати, згруповані за текстом запиту."
+msgstr "Результати згруповані за текстом запиту."
 
 #: libraries/server_status_monitor.lib.php:93
 msgid "Query analyzer"
@@ -12113,11 +12056,11 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%."
 msgstr ""
-"phpMyAdmin моніторинг може допомогти вам в оптимізації налаштувань сервера і "
-"відстеженні часово інтенсивних запитів. Для останнього необхідно встановити "
-"log_output у 'TABLE'  і увімкнути або директиву slow_query_log, або "
-"general_log. Зауважимо, однак, що general_log виробляє велику кількість "
-"даних і збільшує навантаження на сервер до 15%."
+"phpMyAdmin моніторинг може допомогти вам в оптимізації налаштувань сервера "
+"та відстеженні повільних запитів. Для цього необхідно встановити log_output "
+"у 'TABLE' та увімкнути директиву slow_query_log або general_log. Зауважимо, "
+"що general_log призводить до великої кількості даних і збільшує навантаження "
+"на сервер до 15%."
 
 #: libraries/server_status_monitor.lib.php:128
 msgid "Using the monitor:"
@@ -12130,9 +12073,9 @@ msgid ""
 "chart using the cog icon on each respective chart."
 msgstr ""
 "Ваш браузер буде оновлювати всі відображувані графіки через певні проміжки "
-"часу. В розділі\"Налаштування\" можна додавати графіки і змінювати частоту "
-"їх оновлення, або видаляти графіки використовуючи відповідну іконку на "
-"кожному з них."
+"часу. В розділі \"Налаштування\" можна додавати графіки та змінювати "
+"інтервал їх оновлення, або видалити будь-який графік за допомогою "
+"відповідної іконки на кожному з них."
 
 #: libraries/server_status_monitor.lib.php:137
 msgid ""
@@ -12141,10 +12084,10 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occurring SELECT statements to further analyze them."
 msgstr ""
-"Для відображення запитів з журналів, виберіть відповідний проміжок часу на "
-"будь-якому графіку, натиснувши ліву кнопку миші і позначивши його. Після "
-"підтвердження, буде завантажена таблиця згрупованих запитів, де можна "
-"клацнути на будь-які вирази SELECT для їх подальшого аналізу."
+"Щоб відобразити запити з журналів виберіть відповідний проміжок часу на будь-"
+"якому графіку, натисніть ліву кнопку миші та позначте його. Після "
+"підтвердження буде завантажена таблиця згрупованих запитів, де можна "
+"клацнути на будь-якому виразі SELECT для подальшого аналізу."
 
 #: libraries/server_status_monitor.lib.php:147
 msgid "Please note:"
@@ -12159,9 +12102,9 @@ msgid ""
 msgstr ""
 "Увімкнення директиви general_log може збільшити навантаження на сервер на "
 "5-15%. Також пам'ятайте, що генерування статистики з журналів є досить "
-"інтенсивною задачею, тому бажано вибрати лише невеликий проміжок часу і "
-"вимикати директиву general_log і чистити таблицю щойно в моніторингу більше "
-"не має потреби."
+"інтенсивною задачею, тому бажано вибрати лише невеликий проміжок часу, "
+"вимикати директиву general_log та чистити таблицю щойно в моніторингу більше "
+"немає потреби."
 
 #: libraries/server_status_monitor.lib.php:171
 #: libraries/server_status_monitor.lib.php:281
@@ -12174,15 +12117,15 @@ msgstr "Вбудований графік"
 
 #: libraries/server_status_monitor.lib.php:182
 msgid "Status variable(s)"
-msgstr "Статусні змінні"
+msgstr "Змінні стана"
 
 #: libraries/server_status_monitor.lib.php:185
 msgid "Select series:"
-msgstr "Виберіть серії:"
+msgstr "Оберіть серії:"
 
 #: libraries/server_status_monitor.lib.php:187
 msgid "Commonly monitored"
-msgstr "Часто застосовуваний моніторинг"
+msgstr "Зазвичай відстежувані"
 
 #: libraries/server_status_monitor.lib.php:203
 msgid "or type variable name:"
@@ -12190,7 +12133,7 @@ msgstr "або введіть назву змінної:"
 
 #: libraries/server_status_monitor.lib.php:210
 msgid "Display as differential value"
-msgstr "Показати як значення різниці"
+msgstr "Показати, як значення різниці"
 
 #: libraries/server_status_monitor.lib.php:214
 msgid "Apply a divisor"
@@ -12231,7 +12174,7 @@ msgstr "Увімкнути перетягування діаграм"
 #: libraries/server_status_monitor.lib.php:288
 #: libraries/server_status_processes.lib.php:29
 msgid "Refresh rate"
-msgstr "Частота оновлення"
+msgstr "Інтервал оновлення"
 
 #: libraries/server_status_monitor.lib.php:297
 msgid "Chart columns"
@@ -12276,7 +12219,7 @@ msgstr "Команда"
 #: libraries/server_status_queries.lib.php:33
 #, php-format
 msgid "Questions since startup: %s"
-msgstr "Запитань починаючи із запуску %s"
+msgstr "Запитань із моменту запуску: %s"
 
 #: libraries/server_status_queries.lib.php:44
 msgid "per hour:"
@@ -12292,12 +12235,12 @@ msgstr "за секунду:"
 
 #: libraries/server_status_queries.lib.php:93
 msgid "Statements"
-msgstr "Параметр"
+msgstr "Параметри"
 
 #. l10n: # = Amount of queries
 #: libraries/server_status_queries.lib.php:96
 msgid "#"
-msgstr "Кількість"
+msgstr "#"
 
 #: libraries/server_status_variables.lib.php:39
 #: libraries/server_variables.lib.php:185
@@ -12307,7 +12250,7 @@ msgstr "Фільтри"
 #: libraries/server_status_variables.lib.php:44
 #: libraries/server_variables.lib.php:187
 msgid "Containing the word:"
-msgstr "Містить слова:"
+msgstr "Містить слово:"
 
 #: libraries/server_status_variables.lib.php:52
 msgid "Show only alert values"
@@ -12315,7 +12258,7 @@ msgstr "Показати тільки оповіщення значень"
 
 #: libraries/server_status_variables.lib.php:57
 msgid "Filter by category…"
-msgstr ""
+msgstr "Фільтрувати за категорією…"
 
 #: libraries/server_status_variables.lib.php:78
 msgid "Show unformatted values"
