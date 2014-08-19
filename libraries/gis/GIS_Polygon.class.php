@@ -55,14 +55,21 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      */
     public function scaleRow($spatial)
     {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = substr($spatial, 9, (strlen($spatial) - 11));
+        $polygon = $pmaString->substr(
+            $spatial,
+            9,
+            $pmaString->strlen($spatial) - 11
+        );
 
         // If the polygon doesn't have an inner ring, use polygon itself
-        if (strpos($polygon, "),(") === false) {
+        if ($pmaString->strpos($polygon, "),(") === false) {
             $ring = $polygon;
         } else {
-            // Seperate outer ring and use it to determin min-max
+            // Separate outer ring and use it to determine min-max
             $parts = explode("),(", $polygon);
             $ring = $parts[0];
         }
@@ -84,21 +91,28 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $fill_color,
         $scale_data, $image
     ) {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
-        $red   = hexdec(substr($fill_color, 1, 2));
-        $green = hexdec(substr($fill_color, 3, 2));
-        $blue  = hexdec(substr($fill_color, 4, 2));
+        $red   = hexdec($pmaString->substr($fill_color, 1, 2));
+        $green = hexdec($pmaString->substr($fill_color, 3, 2));
+        $blue  = hexdec($pmaString->substr($fill_color, 4, 2));
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = substr($spatial, 9, (strlen($spatial) - 11));
+        $polygon = $pmaString->substr(
+            $spatial,
+            9,
+            $pmaString->strlen($spatial) - 11
+        );
 
-        // If the polygon doesnt have an inner polygon
-        if (strpos($polygon, "),(") === false) {
+        // If the polygon doesn't have an inner polygon
+        if ($pmaString->strpos($polygon, "),(") === false) {
             $points_arr = $this->extractPoints($polygon, $scale_data, true);
         } else {
-            // Seperate outer and inner polygons
+            // Separate outer and inner polygons
             $parts = explode("),(", $polygon);
             $outer = $parts[0];
             $inner = array_slice($parts, 1);
@@ -137,14 +151,17 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      */
     public function prepareRowAsPdf($spatial, $label, $fill_color, $scale_data, $pdf)
     {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // allocate colors
-        $red   = hexdec(substr($fill_color, 1, 2));
-        $green = hexdec(substr($fill_color, 3, 2));
-        $blue  = hexdec(substr($fill_color, 4, 2));
+        $red   = hexdec($pmaString->substr($fill_color, 1, 2));
+        $green = hexdec($pmaString->substr($fill_color, 3, 2));
+        $blue  = hexdec($pmaString->substr($fill_color, 4, 2));
         $color = array($red, $green, $blue);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = substr($spatial, 9, (strlen($spatial) - 11));
+        $polygon = $pmaString->substr($spatial, 9, ($pmaString->strlen($spatial) - 11));
 
         // If the polygon doesnt have an inner polygon
         if (strpos($polygon, "),(") === false) {
@@ -199,16 +216,23 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
             'fill-opacity'=> 0.8,
         );
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = substr($spatial, 9, (strlen($spatial) - 11));
+        $polygon = $pmaString->substr(
+            $spatial,
+            9,
+            $pmaString->strlen($spatial) - 11
+        );
 
         $row = '<path d="';
 
         // If the polygon doesnt have an inner polygon
-        if (strpos($polygon, "),(") === false) {
+        if ($pmaString->strpos($polygon, "),(") === false) {
             $row .= $this->_drawPath($polygon, $scale_data);
         } else {
-            // Seperate outer and inner polygons
+            // Separate outer and inner polygons
             $parts = explode("),(", $polygon);
             $outer = $parts[0];
             $inner = array_slice($parts, 1);
@@ -256,10 +280,17 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         }
         $row = $this->getBoundsForOl($srid, $scale_data);
 
-        // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = substr($spatial, 9, (strlen($spatial) - 11));
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
 
-        // Seperate outer and inner polygons
+        // Trim to remove leading 'POLYGON((' and trailing '))'
+        $polygon = $pmaString->substr(
+            $spatial,
+            9,
+            $pmaString->strlen($spatial) - 11
+        );
+
+        // Separate outer and inner polygons
         $parts = explode("),(", $polygon);
         $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
             . $this->getPolygonForOpenLayers($parts, $srid)
@@ -307,6 +338,10 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         if ($no_of_lines < 1) {
             $no_of_lines = 1;
         }
+
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         $wkt = 'POLYGON(';
         for ($i = 0; $i < $no_of_lines; $i++) {
             $no_of_points = isset($gis_data[$index]['POLYGON'][$i]['no_of_points'])
@@ -323,10 +358,10 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
                     && trim($gis_data[$index]['POLYGON'][$i][$j]['y']) != '')
                     ? $gis_data[$index]['POLYGON'][$i][$j]['y'] : $empty) . ',';
             }
-            $wkt = substr($wkt, 0, strlen($wkt) - 1);
+            $wkt = $pmaString->substr($wkt, 0, $pmaString->strlen($wkt) - 1);
             $wkt .= '),';
         }
-        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+        $wkt = $pmaString->substr($wkt, 0, $pmaString->strlen($wkt) - 1);
         $wkt .= ')';
         return $wkt;
     }
@@ -536,8 +571,11 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
             $wkt = $value;
         }
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = substr($wkt, 9, (strlen($wkt) - 11));
+        $polygon = $pmaString->substr($wkt, 9, ($pmaString->strlen($wkt) - 11));
         // Seperate each linestring
         $linerings = explode("),(", $polygon);
         $params[$index]['POLYGON']['no_of_lines'] = count($linerings);

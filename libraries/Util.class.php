@@ -4407,8 +4407,8 @@ class PMA_Util
      */
     public static function getCompressionMimeType($file)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
+        //Can't use PMA_StringMB here, so force use of PMA_StringNative.
+        $pmaString = new PMA_StringNative();
 
         $test = fread($file, 4);
         $len = $pmaString->strlen($test);
