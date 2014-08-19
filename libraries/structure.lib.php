@@ -2574,7 +2574,9 @@ function PMA_updateColumns($db, $table)
     ) {
         foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
             if (isset($_REQUEST['field_name'][$fieldindex])
-                && strlen($_REQUEST['field_name'][$fieldindex])
+                && $GLOBALS['PMA_String']->strlen(
+                    $_REQUEST['field_name'][$fieldindex]
+                )
             ) {
                 PMA_setMIME(
                     $db, $table, $_REQUEST['field_name'][$fieldindex],

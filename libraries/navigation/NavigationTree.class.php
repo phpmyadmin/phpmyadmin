@@ -563,10 +563,13 @@ class PMA_NavigationTree
             return;
         }
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         $separators = array();
         if (is_array($node->separator)) {
             $separators = $node->separator;
-        } else if (strlen($node->separator)) {
+        } else if ($pmaString->strlen($node->separator)) {
             $separators[] = $node->separator;
         }
         $prefixes = array();
@@ -574,9 +577,9 @@ class PMA_NavigationTree
             foreach ($node->children as $child) {
                 $prefix_pos = false;
                 foreach ($separators as $separator) {
-                    $sep_pos = strpos($child->name, $separator);
+                    $sep_pos = $pmaString->strpos($child->name, $separator);
                     if ($sep_pos != false
-                        && $sep_pos != strlen($child->name)
+                        && $sep_pos != $pmaString->strlen($child->name)
                         && $sep_pos != 0
                         && ($prefix_pos == false || $sep_pos < $prefix_pos)
                     ) {
@@ -584,7 +587,7 @@ class PMA_NavigationTree
                     }
                 }
                 if ($prefix_pos !== false) {
-                    $prefix = substr($child->name, 0, $prefix_pos);
+                    $prefix = $pmaString->substr($child->name, 0, $prefix_pos);
                     if (! isset($prefixes[$prefix])) {
                         $prefixes[$prefix] = 1;
                     } else {
@@ -641,8 +644,10 @@ class PMA_NavigationTree
                 foreach ($separators as $separator) {
                     // FIXME: this could be more efficient
                     foreach ($node->children as $child) {
-                        $name_substring = substr(
-                            $child->name, 0, strlen($key) + strlen($separator)
+                        $name_substring = $pmaString->substr(
+                            $child->name,
+                            0,
+                            $pmaString->strlen($key) + $pmaString->strlen($separator)
                         );
                         if (($name_substring != $key . $separator
                             && $child->name != $key)
@@ -653,9 +658,10 @@ class PMA_NavigationTree
                         $class = get_class($child);
                         $new_child = PMA_NodeFactory::getInstance(
                             $class,
-                            substr(
+                            $pmaString->substr(
                                 $child->name,
-                                strlen($key) + strlen($separator)
+                                $pmaString->strlen($key)
+                                + $pmaString->strlen($separator)
                             )
                         );
                         $new_child->real_name = $child->real_name;

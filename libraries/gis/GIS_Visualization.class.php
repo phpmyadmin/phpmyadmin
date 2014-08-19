@@ -126,14 +126,18 @@ class PMA_GIS_Visualization
     {
         $file_name = PMA_sanitizeFilename($file_name);
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included
-        $extension_start_pos = strlen($file_name) - strlen($ext) - 1;
-        $user_extension = substr(
-            $file_name, $extension_start_pos, strlen($file_name)
+        $extension_start_pos = $pmaString->strlen($file_name)
+            - $pmaString->strlen($ext) - 1;
+        $user_extension = $pmaString->substr(
+            $file_name, $extension_start_pos, $pmaString->strlen($file_name)
         );
         $required_extension = "." . $ext;
-        if (strtolower($user_extension) != $required_extension) {
+        if ($pmaString->strtolower($user_extension) != $required_extension) {
             $file_name  .= $required_extension;
         }
         return $file_name;
