@@ -1044,9 +1044,9 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
         }
     }
 
+    $search = array_search($GLOBALS['db'], $server_slave_Ignore_DB);
     if (($pmaString->strlen(array_search($truename, $server_slave_Ignore_Table)) > 0)
-        || $pmaString->strlen(array_search($GLOBALS['db'], $server_slave_Ignore_DB))
-        > 0
+        || $pmaString->strlen($search) > 0
     ) {
         $ignored = true;
     }

@@ -967,9 +967,9 @@ class PMA_Table
                 $cnt = $parsed_sql['len'] - 1;
 
                 for ($j = $i; $j < $cnt; $j++) {
+                    $dataUpper = $pmaString->strtoupper($parsed_sql[$j]['data']);
                     if ($parsed_sql[$j]['type'] == 'alpha_reservedWord'
-                        && $pmaString->strtoupper($parsed_sql[$j]['data'])
-                        == 'CONSTRAINT'
+                        && $dataUpper == 'CONSTRAINT'
                     ) {
                         if ($parsed_sql[$j+1]['type'] == $table_delimiter) {
                             $parsed_sql[$j+1]['data'] = '';
@@ -1004,9 +1004,9 @@ class PMA_Table
                 $cnt = $parsed_sql['len'] - 1;
 
                 for ($j = $i; $j < $cnt; $j++) {
+                    $dataUpper = $pmaString->strtoupper($parsed_sql[$j]['data']);
                     if ($parsed_sql[$j]['type'] == 'alpha_reservedWord'
-                        && $pmaString->strtoupper($parsed_sql[$j]['data'])
-                        == 'CONSTRAINT'
+                        && $dataUpper == 'CONSTRAINT'
                     ) {
                         if ($parsed_sql[$j+1]['type'] == $table_delimiter) {
                             $parsed_sql[$j+1]['data'] = '';

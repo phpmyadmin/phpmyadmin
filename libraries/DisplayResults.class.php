@@ -435,10 +435,7 @@ class PMA_DisplayResults
                     $this->__get('sql_query'), $which
                 );
                 if (isset($which[1])
-                    && ($pmaString->strpos(
-                            ' ' . $pmaString->strtoupper($which[1]),
-                            'PROCESSLIST'
-                        ) > 0)
+                    && ($pmaString->strpos(' ' . $pmaString->strtoupper($which[1]), 'PROCESSLIST') > 0)
                 ) {
                     // no edit link
                     $do_display['edit_lnk'] = self::NO_EDIT_OR_DELETE;
@@ -3902,8 +3899,7 @@ class PMA_DisplayResults
             || ($GLOBALS['cfg']['ProtectBinary'] === 'blob'
             && stristr($meta->type, self::BLOB_FIELD))))
             || (gettype($transformation_plugin) === 'object'
-            && $pmaString->strpos($transformation_plugin->getMIMEtype(), 'Text')
-                === false)
+            && $pmaString->strpos($transformation_plugin->getMIMEtype(), 'Text') === false)
         ) {
             $class = str_replace('grid_edit', '', $class);
         }
@@ -3921,8 +3917,7 @@ class PMA_DisplayResults
         // Cut all fields to $GLOBALS['cfg']['LimitChars']
         // (unless it's a link-type transformation or binary)
         if (!(gettype($transformation_plugin) === "object"
-            && $pmaString->strpos($transformation_plugin->getName(), 'Link')
-                !== false)
+            && $pmaString->strpos($transformation_plugin->getName(), 'Link') !== false)
             && !stristr($field_flags, self::BINARY_FIELD)
         ) {
             $is_field_truncated = $this->_getPartialText($column);

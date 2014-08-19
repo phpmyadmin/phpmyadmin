@@ -2185,10 +2185,11 @@ class ExportSql extends ExportPlugin
                             . implode(', ', $values) . ')';
                     } else {
                         $insert_line  = '(' . implode(', ', $values) . ')';
+                        $insertLineSize = $pmaString->strlen($insert_line);
                         $sql_max_size = $GLOBALS['sql_max_query_size'];
                         if (isset($sql_max_size)
                             && $sql_max_size > 0
-                            && $query_size + $pmaString->strlen($insert_line) > $sql_max_size
+                            && $query_size + $insertLineSize > $sql_max_size
                         ) {
                             if (! PMA_exportOutputHandler(';' . $crlf)) {
                                 return false;

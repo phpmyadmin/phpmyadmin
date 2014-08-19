@@ -1512,13 +1512,14 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
             . PMA_Util::sqlAddSlashes($_REQUEST['new_auto_increment']);
     }
 
+    $newRowFormat = $_REQUEST['new_row_format'];
+    $newRowFormatLower = $pmaString->strtolower($newRowFormat);
     if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
-        &&  ! empty($_REQUEST['new_row_format'])
+        &&  ! empty($newRowFormat)
         && (!$pmaString->strlen($row_format)
-        || $pmaString->strtolower($_REQUEST['new_row_format']) !== $pmaString->strtolower($row_format))
+        || $newRowFormatLower !== $pmaString->strtolower($row_format))
     ) {
-        $table_alters[] = 'ROW_FORMAT = '
-            . PMA_Util::sqlAddSlashes($_REQUEST['new_row_format']);
+        $table_alters[] = 'ROW_FORMAT = ' . PMA_Util::sqlAddSlashes($newRowFormat);
     }
 
     return $table_alters;

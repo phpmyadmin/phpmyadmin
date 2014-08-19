@@ -184,13 +184,15 @@ class PMA_String
      * Returns part of $haystack string starting from and including the first
      * occurrence of $needle to the end of $haystack - case insensitive - or false
      * if not found
-     * DON'T USE UNTIL HHVM IMPLEMENTS THIRD PARAMETER!
      *
      * @param string $haystack      the string being checked
      * @param string $needle        the string to find in haystack
      * @param bool   $before_needle the part before the needle
      *
      * @return string part of $haystack or false
+     *
+     * @deprecated
+     * @see DON'T USE UNTIL HHVM IMPLEMENTS THIRD PARAMETER!
      */
     public function stristr($haystack, $needle, $before_needle = false)
     {

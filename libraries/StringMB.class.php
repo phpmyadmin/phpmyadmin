@@ -166,8 +166,6 @@ class PMA_StringMB implements PMA_StringByte
      * @param bool   $before_needle the part before the needle
      *
      * @return string part of $haystack or false
-     *
-     * @todo add unit tests
      */
     public function stristr($haystack, $needle, $before_needle = false)
     {
