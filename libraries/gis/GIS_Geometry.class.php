@@ -84,7 +84,7 @@ abstract class PMA_GIS_Geometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array array containing the min, max values for x and y cordinates
+     * @return array array containing the min, max values for x and y coordinates
      * @access public
      */
     public abstract function scaleRow($spatial);

@@ -506,7 +506,7 @@ function PMA_getColumnNumberFromName($name)
         // and subtract 64 to get corresponding decimal value
         // ASCII value of "A" is 65, "B" is 66, etc.
         // Decimal equivalent of "A" is 1, "B" is 2, etc.
-        $number = ($pmaString->ord($name[$char_pos]) - 64);
+        $number = (int)($pmaString->ord($name[$char_pos]) - 64);
 
         // base26 to base10 conversion : multiply each number
         // with corresponding value of the position, in this case

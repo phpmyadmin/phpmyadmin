@@ -1243,7 +1243,7 @@ class PMA_DbQbe
         // table, whether they have any matching row in child table or not.
         // So we select candidate tables which are foreign tables.
         $foreign_tables = array();
-        foreach ($candidate_columns as $key => $one_table) {
+        foreach ($candidate_columns as $one_table) {
             $foreigners = PMA_getForeigners($this->_db, $one_table);
             foreach ($foreigners as $key => $foreigner) {
                 if ($key != 'foreign_keys_data') {
@@ -1251,16 +1251,12 @@ class PMA_DbQbe
                         $foreign_tables[$foreigner['foreign_table']]
                             = $foreigner['foreign_table'];
                     }
-                } else {
-                    foreach ($foreigner as $one_key) {
-                        if (in_array(
-                            $one_key['ref_table_name'],
-                            $candidate_columns
-                        )
-                        ) {
-                            $foreign_tables[$one_key['ref_table_name']]
-                                = $one_key['ref_table_name'];
-                        }
+                    continue;
+                }
+                foreach ($foreigner as $one_key) {
+                    if (in_array($one_key['ref_table_name'], $candidate_columns)) {
+                        $foreign_tables[$one_key['ref_table_name']]
+                            = $one_key['ref_table_name'];
                     }
                 }
             }

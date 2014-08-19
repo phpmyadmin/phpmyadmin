@@ -378,13 +378,9 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         /** @var PMA_String $pmaString */
         $pmaString = $GLOBALS['PMA_String'];
 
-        if ($pmaString->substr($ol_array, $pmaString->strlen($ol_array) - 2)
-            == ', ') {
-            $ol_array = $pmaString->substr(
-                $ol_array,
-                0,
-                $pmaString->strlen($ol_array) - 2
-            );
+        $olArrayLength = $pmaString->strlen($ol_array);
+        if ($pmaString->substr($ol_array, $olArrayLength - 2) == ', ') {
+            $ol_array = $pmaString->substr($ol_array, 0, $olArrayLength - 2);
         }
         $ol_array .= ')';
 
