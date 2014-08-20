@@ -4,6 +4,7 @@ phpMyAdmin - ChangeLog
 4.2.8.0 (not yet released)
 - bug #4516 Odd export behavior
 - bug #4519 Uncaught TypeError: Cannot read property 'success' of null
+- bug #4520 sql.js: cannot read property
 
 4.2.7.1 (2014-08-17)
 - bug #4501 [security] XSS in table browse page
