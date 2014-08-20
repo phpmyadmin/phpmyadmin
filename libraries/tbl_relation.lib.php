@@ -1017,7 +1017,7 @@ function PMA_handleUpdatesForForeignKeys($destination_foreign_db,
 /**
  * Function to handle update for a foreign key
  *
- * @param array  $multi_edit_columns_name    multu edit columns name
+ * @param array  $multi_edit_columns_name    multi edit columns name
  * @param string $master_field_md5           master field md5
  * @param array  $destination_foreign_table  destination foreign table
  * @param array  $destination_foreign_column destination foreign column
