@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-16 14:26-0400\n"
-"PO-Revision-Date: 2014-08-21 22:47+0200\n"
+"PO-Revision-Date: 2014-08-21 22:49+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -12864,10 +12864,10 @@ msgid "+ Add constraint"
 msgstr "+கட்டுப்பாட்டை சேர்க்க"
 
 #: libraries/tbl_relation.lib.php:443
-#, fuzzy, php-format
+#, php-format
 #| msgid "Foreign key constraints"
 msgid "Foreign key constraint %s has been dropped"
-msgstr "அயல் குறியெண் கட்டுப்பாடுகள்"
+msgstr "அயல் குறியெண் வரைமுறை %s கைவிடப்பட்டது"
 
 #: libraries/tbl_relation.lib.php:465
 msgid "Constraint name"
