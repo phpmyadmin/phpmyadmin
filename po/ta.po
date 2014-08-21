@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-16 14:26-0400\n"
-"PO-Revision-Date: 2014-08-21 22:13+0200\n"
+"PO-Revision-Date: 2014-08-21 22:16+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -986,10 +986,10 @@ msgstr ""
 "வேண்டுமா?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "உங்களுக்கு உண்மையிலேயே \"%s\" தேடலை நீக்க வேண்டுமா?"
+msgstr ""
+"உங்களுக்கு உண்மையிலேயே தேர்ந்தெடுத்த பயனர்(களை) திருப்பியளிக்க வேண்டுமா?"
 
 #: js/messages.php:51
 msgid "Save & Close"
