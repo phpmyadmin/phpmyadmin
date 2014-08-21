@@ -7010,7 +7010,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:784
 #| msgid "Configuration saved."
 msgid "Enable Zero Configuration mode"
-msgstr "அமைப்பாக்கம் இல்லா முறைமை இயலசெய்க"
+msgstr "அமைப்பாக்கம் இல்லா முறைமையை இயலசெய்க"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
