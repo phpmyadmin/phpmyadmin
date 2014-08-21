@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-16 14:26-0400\n"
-"PO-Revision-Date: 2014-08-21 22:16+0200\n"
+"PO-Revision-Date: 2014-08-21 22:36+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -4002,10 +4002,9 @@ msgid "Replace with:"
 msgstr "ஆல் பதிலிடல்:"
 
 #: libraries/TableSearch.class.php:1369
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "வழக்கமான வெளிப்பாடு"
+msgstr "சுருங்குறியை பயன்படுத்துக"
 
 #: libraries/TableSearch.class.php:1471
 msgid "Find and replace - preview"
@@ -6404,7 +6403,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:583
 msgid "Hide databases matching regular expression (PCRE)."
-msgstr ""
+msgstr "சுருங்குறிக்கு பொருந்தும் தரவுத்தளங்களை மறைக்க (PCRE)."
 
 #: libraries/config/messages.inc.php:584
 msgid "Hide databases"
