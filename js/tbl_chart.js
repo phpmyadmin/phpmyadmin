@@ -6,6 +6,9 @@ var temp_chart_title;
 var currentChart = null;
 var currentSettings = null;
 
+var dateTimeCols = [];
+var numericCols = [];
+
 function extractDate(dateString) {
     var matches, match;
     var dateTimeRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}/;
@@ -134,6 +137,51 @@ function getSelectedSeries() {
     return ret;
 }
 
+function onXAxisChange() {
+    var $xAxisSelect = $('select[name="chartXAxis"]');
+    currentSettings.mainAxis = parseInt($xAxisSelect.val(), 10);
+    if (dateTimeCols.indexOf(currentSettings.mainAxis) != -1) {
+        $('span.span_timeline').show();
+    } else {
+        $('span.span_timeline').hide();
+        if (currentSettings.type == 'timeline') {
+            $('input#radio_line').prop('checked', true);
+            currentSettings.type = 'line';
+        }
+    }
+    if (numericCols.indexOf(currentSettings.mainAxis) != -1) {
+        $('span.span_scatter').show();
+    } else {
+        $('span.span_scatter').hide();
+        if (currentSettings.type == 'scatter') {
+            $('input#radio_line').prop('checked', true);
+            currentSettings.type = 'line';
+        }
+    }
+    var xaxis_title = $xAxisSelect.children('option:selected').text();
+    $('input[name="xaxis_label"]').val(xaxis_title);
+    currentSettings.xaxisLabel = xaxis_title;
+}
+
+function onDataSeriesChange() {
+    var $seriesSelect = $('select[name="chartSeries"]');
+    currentSettings.selectedSeries = getSelectedSeries();
+    var yaxis_title;
+    if (currentSettings.selectedSeries.length == 1) {
+        $('span.span_pie').show();
+        yaxis_title = $seriesSelect.children('option:selected').text();
+    } else {
+        $('span.span_pie').hide();
+        if (currentSettings.type == 'pie') {
+            $('input#radio_line').prop('checked', true);
+            currentSettings.type = 'line';
+        }
+        yaxis_title = PMA_messages.strYValues;
+    }
+    $('input[name="yaxis_label"]').val(yaxis_title);
+    currentSettings.yaxisLabel = yaxis_title;
+}
+
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -220,13 +268,11 @@ AJAX.registerOnload('tbl_chart.js', function () {
         }
     });
 
-    var dateTimeCols = [];
     var vals = $('input[name="dateTimeCols"]').val().split(' ');
     $.each(vals, function (i, v) {
         dateTimeCols.push(parseInt(v, 10));
     });
 
-    var numericCols = [];
     var vals = $('input[name="numericCols"]').val().split(' ');
     $.each(vals, function (i, v) {
         numericCols.push(parseInt(v, 10));
@@ -234,48 +280,13 @@ AJAX.registerOnload('tbl_chart.js', function () {
 
     // handle changing the x-axis
     $('select[name="chartXAxis"]').change(function () {
-        currentSettings.mainAxis = parseInt($(this).val(), 10);
-        if (dateTimeCols.indexOf(currentSettings.mainAxis) != -1) {
-            $('span.span_timeline').show();
-        } else {
-            $('span.span_timeline').hide();
-            if (currentSettings.type == 'timeline') {
-                $('input#radio_line').prop('checked', true);
-                currentSettings.type = 'line';
-            }
-        }
-        if (numericCols.indexOf(currentSettings.mainAxis) != -1) {
-            $('span.span_scatter').show();
-        } else {
-            $('span.span_scatter').hide();
-            if (currentSettings.type == 'scatter') {
-                $('input#radio_line').prop('checked', true);
-                currentSettings.type = 'line';
-            }
-        }
-        var xaxis_title = $(this).children('option:selected').text();
-        $('input[name="xaxis_label"]').val(xaxis_title);
-        currentSettings.xaxisLabel = xaxis_title;
+        onXAxisChange();
         drawChart();
     });
 
     // handle changing the selected data series
     $('select[name="chartSeries"]').change(function () {
-        currentSettings.selectedSeries = getSelectedSeries();
-        var yaxis_title;
-        if (currentSettings.selectedSeries.length == 1) {
-            $('span.span_pie').show();
-            yaxis_title = $(this).children('option:selected').text();
-        } else {
-            $('span.span_pie').hide();
-            if (currentSettings.type == 'pie') {
-                $('input#radio_line').prop('checked', true);
-                currentSettings.type = 'line';
-            }
-            yaxis_title = PMA_messages.strYValues;
-        }
-        $('input[name="yaxis_label"]').val(yaxis_title);
-        currentSettings.yaxisLabel = yaxis_title;
+        onDataSeriesChange();
         drawChart();
     });
 
@@ -288,6 +299,9 @@ AJAX.registerOnload('tbl_chart.js', function () {
         currentSettings.yaxisLabel = $(this).val();
         drawChart();
     });
+
+    onXAxisChange();
+    onDataSeriesChange();
 
     $("#tblchartform").submit();
 });
