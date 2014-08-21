@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-16 14:26-0400\n"
-"PO-Revision-Date: 2014-08-21 22:36+0200\n"
+"PO-Revision-Date: 2014-08-21 22:42+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -9721,6 +9721,8 @@ msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"சரம் சுருங்குறியோடு சரிபார்த்து பொருந்துகிறது என உறுதிப்பட்டால் மட்டுமே "
+"சரத்தை உட்செருகும்.முதல் விருப்பம் சுருங்குறியாகும்."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
 #, php-format
