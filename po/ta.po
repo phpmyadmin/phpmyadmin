@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-16 14:26-0400\n"
-"PO-Revision-Date: 2014-08-13 22:27+0200\n"
+"PO-Revision-Date: 2014-08-21 22:13+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
-"Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/"
-">\n"
+"Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
+"\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -961,10 +961,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "முதனிலை சுட்டு/தொகுப்புக்குறிகாட்டி கைவிடப்படுகிறது"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping Foreign key."
-msgstr "நிரல்வரிசை கைவிடப்படுகிறது"
+msgstr "அயல் குறியெண் கைவிடப்படுகிறது."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
