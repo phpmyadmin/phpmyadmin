@@ -40,6 +40,7 @@ phpMyAdmin - ChangeLog
 - bug #4516 Odd export behavior
 - bug #4519 Uncaught TypeError: Cannot read property 'success' of null
 - bug #4520 sql.js: cannot read property
+- bug #4521 Initially allowed chart types do not match selected data
 
 4.2.7.1 (2014-08-17)
 - bug #4501 [security] XSS in table browse page
