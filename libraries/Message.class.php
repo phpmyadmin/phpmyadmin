@@ -515,8 +515,8 @@ class PMA_Message
     /**
      * set all params at once, usually used in conjunction with string
      *
-     * @param array|string   $params   parameters to set
-     * @param boolean        $sanitize whether to sanitize params
+     * @param array|string $params   parameters to set
+     * @param boolean      $sanitize whether to sanitize params
      *
      * @return void
      */
