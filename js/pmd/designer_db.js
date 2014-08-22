@@ -7,7 +7,7 @@ var DesignerOfflineDB = (function () {
 
     designerDB.open = function (callback) {
         var version = 1;
-        var request = window.indexedDB.open("pmd_designer", version);
+        var request = window.indexedDB.open("pma_designer", version);
 
         request.onupgradeneeded = function (e) {
             var db = e.target.result;
