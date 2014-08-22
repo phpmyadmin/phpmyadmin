@@ -5,8 +5,7 @@ var DesignerOfflineDB = (function () {
     var designerDB = {};
     var datastore = null;
 
-    designerDB.open = function (callback)
-    {
+    designerDB.open = function (callback) {
         var version = 1;
         var request = window.indexedDB.open("pmd_designer", version);
 
@@ -29,7 +28,7 @@ var DesignerOfflineDB = (function () {
 
         request.onsuccess = function (e) {
             datastore = e.target.result;
-            if (callback != null) {
+            if (typeof callback !== 'undefined' && callback != null) {
                 callback(true);
             }
         };
@@ -37,29 +36,25 @@ var DesignerOfflineDB = (function () {
         request.onerror = designerDB.onerror;
     };
 
-    designerDB.loadObject = function (table, id, callback)
-    {
+    designerDB.loadObject = function (table, id, callback) {
         var db = datastore;
         var transaction = db.transaction([table], 'readwrite');
         var objStore = transaction.objectStore(table);
         var cursorRequest = objStore.get(parseInt(id));
 
         cursorRequest.onsuccess = function (e) {
-            var result = e.target.result;
-            callback(result);
+            callback(e.target.result);
         };
 
         cursorRequest.onerror = designerDB.onerror;
     };
 
-    designerDB.loadAllObjects = function (table, callback)
-    {
+    designerDB.loadAllObjects = function (table, callback) {
         var db = datastore;
         var transaction = db.transaction([table], 'readwrite');
         var objStore = transaction.objectStore(table);
         var keyRange = IDBKeyRange.lowerBound(0);
         var cursorRequest = objStore.openCursor(keyRange);
-
         var results = [];
 
         transaction.oncomplete = function (e) {
@@ -68,7 +63,6 @@ var DesignerOfflineDB = (function () {
 
         cursorRequest.onsuccess = function (e) {
             var result = e.target.result;
-
             if (!!result == false) {
                 return;
             }
@@ -79,14 +73,12 @@ var DesignerOfflineDB = (function () {
         cursorRequest.onerror = designerDB.onerror;
     };
 
-    designerDB.loadFirstObject = function(table, callback)
-    {
+    designerDB.loadFirstObject = function(table, callback) {
         var db = datastore;
         var transaction = db.transaction([table], 'readwrite');
         var objStore = transaction.objectStore(table);
         var keyRange = IDBKeyRange.lowerBound(0);
         var cursorRequest = objStore.openCursor(keyRange);
-
         var firstResult = null;
 
         transaction.oncomplete = function(e) {
@@ -95,7 +87,6 @@ var DesignerOfflineDB = (function () {
 
         cursorRequest.onsuccess = function(e) {
             var result = e.target.result;
-
             if (!!result == false) {
                 return;
             }
@@ -105,37 +96,39 @@ var DesignerOfflineDB = (function () {
         cursorRequest.onerror = designerDB.onerror;
     };
 
-    designerDB.addObject = function(table, obj, callback)
-    {
+    designerDB.addObject = function(table, obj, callback) {
         var db = datastore;
         var transaction = db.transaction([table], 'readwrite');
         var objStore = transaction.objectStore(table);
-
         var request = objStore.put(obj);
 
         request.onsuccess = function(e) {
-            callback(e.currentTarget.result);
+            if (typeof callback !== 'undefined' && callback != null) {
+                callback(e.currentTarget.result);
+            }
         };
 
         request.onerror = designerDB.onerror;
     };
 
-    designerDB.deleteObject = function(table, id, callback)
-    {
+    designerDB.deleteObject = function(table, id, callback) {
         var db = datastore;
         var transaction = db.transaction([table], 'readwrite');
         var objStore = transaction.objectStore(table);
-
         var request = objStore.delete(parseInt(id));
 
         request.onsuccess = function(e) {
-            callback(true);
+            if (typeof callback !== 'undefined' && callback != null) {
+                callback(true);
+            }
         }
 
-        request.onerror = function(e) {
-            console.log(e);
-        };
+        request.onerror = designerDB.onerror;
     };
+
+    designerDB.onerror = function(e) {
+        console.log(e);
+    }
 
     // Export the designerDB object.
     return designerDB;

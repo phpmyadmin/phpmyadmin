@@ -586,7 +586,7 @@ function Save2(callback)
         });
     } else {
         var name = $("#page_name").html().trim();
-        Save_to_selected_page(db, selected_page, name, Get_url_pos(), function (page){
+        Save_to_selected_page(db, selected_page, name, Get_url_pos(), function (page) {
             if (typeof callback !== 'undefined') {
                 callback();
             }
