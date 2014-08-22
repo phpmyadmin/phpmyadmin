@@ -776,7 +776,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
         '<td name = "col_type" class="nowrap"><span>'
         . htmlspecialchars($row['col_type']) . '</span>'
         . PMA_getHtmlForColumnType(
-            $row_num, 1, 0, strtoupper($row['col_type']), array()
+            $row_num, 1, 0, mb_strtoupper($row['col_type']), array()
         )
         . '</td>';
     $tableHtml .=
@@ -826,7 +826,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
         ? htmlspecialchars($row['col_default']) : 'None')
         . '</span>'
         . PMA_getHtmlForColumnDefault(
-            $row_num, 5, 0, strtoupper($row['col_type']), '', $meta
+            $row_num, 5, 0, mb_strtoupper($row['col_type']), '', $meta
         )
         . '</td>';
     $tableHtml .= '</tr>';

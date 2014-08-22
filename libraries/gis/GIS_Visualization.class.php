@@ -133,7 +133,7 @@ class PMA_GIS_Visualization
             $file_name, $extension_start_pos, strlen($file_name)
         );
         $required_extension = "." . $ext;
-        if (strtolower($user_extension) != $required_extension) {
+        if (mb_strtolower($user_extension) != $required_extension) {
             $file_name  .= $required_extension;
         }
         return $file_name;

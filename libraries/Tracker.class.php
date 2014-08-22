@@ -709,7 +709,7 @@ class PMA_Tracker
 
         $tokens = explode(" ", $query);
         foreach ($tokens as $key => $value) {
-            $tokens[$key] = strtoupper($value);
+            $tokens[$key] = mb_strtoupper($value);
         }
 
         // Parse USE statement, need it for SQL dump imports
@@ -734,7 +734,7 @@ class PMA_Tracker
 
             $index = array_search('VIEW', $tokens);
 
-            $result['tablename'] = strtolower(
+            $result['tablename'] = mb_strtolower(
                 self::getTableName($tokens[$index + 1])
             );
         }
@@ -749,7 +749,7 @@ class PMA_Tracker
 
             $index = array_search('VIEW', $tokens);
 
-            $result['tablename'] = strtolower(
+            $result['tablename'] = mb_strtolower(
                 self::getTableName($tokens[$index + 1])
             );
         }

@@ -502,7 +502,7 @@ class PMA_DatabaseInterface
             // Drizzle generally uses lower case for them,
             // but TABLES returns uppercase
             foreach ((array)$database as $db) {
-                $db_upper = strtoupper($db);
+                $db_upper = mb_strtoupper($db);
                 if (!isset($tables[$db]) && isset($tables[$db_upper])) {
                     $tables[$db] = $tables[$db_upper];
                     unset($tables[$db_upper]);
@@ -546,14 +546,14 @@ class PMA_DatabaseInterface
         if (! is_array($database)) {
             if (isset($tables[$database])) {
                 return $tables[$database];
-            } elseif (isset($tables[strtolower($database)])) {
+            } elseif (isset($tables[mb_strtolower($database)])) {
                 // on windows with lower_case_table_names = 1
                 // MySQL returns
                 // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
                 // but information_schema.TABLES gives `test`
                 // bug #2036
                 // https://sourceforge.net/p/phpmyadmin/bugs/2036/
-                return $tables[strtolower($database)];
+                return $tables[mb_strtolower($database)];
             } else {
                 // one database but inexact letter case match
                 // as Drizzle is always case insensitive,
@@ -640,7 +640,7 @@ class PMA_DatabaseInterface
             $tables[$table_name]['TABLE_COMMENT']
                 =& $tables[$table_name]['Comment'];
 
-            if (strtoupper($tables[$table_name]['Comment']) === 'VIEW'
+            if (mb_strtoupper($tables[$table_name]['Comment']) === 'VIEW'
                 && $tables[$table_name]['Engine'] == null
             ) {
                 $tables[$table_name]['TABLE_TYPE'] = 'VIEW';
@@ -701,7 +701,7 @@ class PMA_DatabaseInterface
         $link = null, $sort_by = 'SCHEMA_NAME', $sort_order = 'ASC',
         $limit_offset = 0, $limit_count = false
     ) {
-        $sort_order = strtoupper($sort_order);
+        $sort_order = mb_strtoupper($sort_order);
 
         if (true === $limit_count) {
             $limit_count = $GLOBALS['cfg']['MaxDbList'];
@@ -1951,9 +1951,9 @@ class PMA_DatabaseInterface
      */
     public function isSystemSchema($schema_name, $testForMysqlSchema = false)
     {
-        return strtolower($schema_name) == 'information_schema'
-            || (!PMA_DRIZZLE && strtolower($schema_name) == 'performance_schema')
-            || (PMA_DRIZZLE && strtolower($schema_name) == 'data_dictionary')
+        return mb_strtolower($schema_name) == 'information_schema'
+            || (!PMA_DRIZZLE && mb_strtolower($schema_name) == 'performance_schema')
+            || (PMA_DRIZZLE && mb_strtolower($schema_name) == 'data_dictionary')
             || ($testForMysqlSchema && !PMA_DRIZZLE && $schema_name == 'mysql');
     }
 

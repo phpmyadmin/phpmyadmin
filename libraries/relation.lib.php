@@ -680,8 +680,8 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
     /**
      * Emulating relations for some information_schema and data_dictionary tables
      */
-    $isInformationSchema = strtolower($db) == 'information_schema';
-    $is_data_dictionary = PMA_DRIZZLE && strtolower($db) == 'data_dictionary';
+    $isInformationSchema = mb_strtolower($db) == 'information_schema';
+    $is_data_dictionary = PMA_DRIZZLE && mb_strtolower($db) == 'data_dictionary';
     if (($isInformationSchema || $is_data_dictionary)
         && ($source == 'internal' || $source == 'both')
     ) {

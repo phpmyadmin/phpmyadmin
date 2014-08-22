@@ -390,11 +390,11 @@ if ($memory_limit == -1) {
 }
 
 // Calculate value of the limit
-if (strtolower(substr($memory_limit, -1)) == 'm') {
+if (mb_strtolower(substr($memory_limit, -1)) == 'm') {
     $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024;
-} elseif (strtolower(substr($memory_limit, -1)) == 'k') {
+} elseif (mb_strtolower(substr($memory_limit, -1)) == 'k') {
     $memory_limit = (int)substr($memory_limit, 0, -1) * 1024;
-} elseif (strtolower(substr($memory_limit, -1)) == 'g') {
+} elseif (mb_strtolower(substr($memory_limit, -1)) == 'g') {
     $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024 * 1024;
 } else {
     $memory_limit = (int)$memory_limit;

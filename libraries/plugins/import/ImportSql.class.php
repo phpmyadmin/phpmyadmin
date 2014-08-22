@@ -354,7 +354,7 @@ class ImportSql extends ImportPlugin
                 // Change delimiter, if redefined, and skip it
                 // (don't send to server!)
                 if (($i + $length_of_delimiter_keyword < $len)
-                    && strtoupper(
+                    && mb_strtoupper(
                         substr($buffer, $i, $length_of_delimiter_keyword)
                     ) == $delimiter_keyword
                 ) {

@@ -237,7 +237,7 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
     // to display column values
     if (! empty($_REQUEST['order_by_field']) && ! empty($_REQUEST['sort_order']) ) {
         foreach (array_keys($process) as $key) {
-            $new_key = ucfirst(strtolower($key));
+            $new_key = ucfirst(mb_strtolower($key));
             if ($new_key !== $key) {
                 $process[$new_key] = $process[$key];
                 unset($process[$key]);

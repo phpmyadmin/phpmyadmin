@@ -442,7 +442,7 @@ class PMA_Util
     public static function getMySQLDocuURL($link, $anchor = '')
     {
         // Fixup for newly used names:
-        $link = str_replace('_', '-', strtolower($link));
+        $link = str_replace('_', '-', mb_strtolower($link));
 
         if (empty($link)) {
             $link = 'index';
@@ -637,7 +637,7 @@ class PMA_Util
             // ---
             // modified to show the help on sql errors
             $error_msg .= '<p><strong>' . __('SQL query:') . '</strong>' . "\n";
-            if (strstr(strtolower($formatted_sql), 'select')) {
+            if (strstr(mb_strtolower($formatted_sql), 'select')) {
                 // please show me help to the error on select
                 $error_msg .= self::showMySQLDocu('SELECT');
             }
@@ -889,7 +889,7 @@ class PMA_Util
 
         if (! $do_it) {
             global $PMA_SQPdata_forbidden_word;
-            if (! in_array(strtoupper($a_name), $PMA_SQPdata_forbidden_word)) {
+            if (! in_array(mb_strtoupper($a_name), $PMA_SQPdata_forbidden_word)) {
                 return $a_name;
             }
         }
@@ -935,7 +935,7 @@ class PMA_Util
 
         if (! $do_it) {
             global $PMA_SQPdata_forbidden_word;
-            if (! in_array(strtoupper($a_name), $PMA_SQPdata_forbidden_word)) {
+            if (! in_array(mb_strtoupper($a_name), $PMA_SQPdata_forbidden_word)) {
                 return $a_name;
             }
         }
@@ -2935,12 +2935,12 @@ class PMA_Util
                 )
             );
             // convert to lowercase just to be sure
-            $type = strtolower(chop(substr($columnspec, 0, $first_bracket_pos)));
+            $type = mb_strtolower(chop(substr($columnspec, 0, $first_bracket_pos)));
         } else {
             // Split trailing attributes such as unsigned,
             // binary, zerofill and get data type name
             $type_parts = explode(' ', $columnspec);
-            $type = strtolower($type_parts[0]);
+            $type = mb_strtolower($type_parts[0]);
             $spec_in_brackets = '';
         }
 
@@ -2956,7 +2956,7 @@ class PMA_Util
             $enum_set_values = array();
 
             /* Create printable type name */
-            $printtype = strtolower($columnspec);
+            $printtype = mb_strtolower($columnspec);
 
             // Strip the "BINARY" attribute, except if we find "BINARY(" because
             // this would be a BINARY or VARBINARY column type;
@@ -3035,7 +3035,7 @@ class PMA_Util
      */
     public static function isForeignKeySupported($engine)
     {
-        $engine = strtoupper($engine);
+        $engine = mb_strtoupper($engine);
         if (($engine == 'INNODB') || ($engine == 'PBXT')) {
             return true;
         } elseif ($engine == 'NDBCLUSTER' || $engine == 'NDB') {
@@ -3482,7 +3482,7 @@ class PMA_Util
         );
         if ($upper_case) {
             for ($i = 0, $nb = count($gis_data_types); $i < $nb; $i++) {
-                $gis_data_types[$i] = strtoupper($gis_data_types[$i]);
+                $gis_data_types[$i] = mb_strtoupper($gis_data_types[$i]);
             }
         }
         return $gis_data_types;
@@ -3539,7 +3539,7 @@ class PMA_Util
         $funcs['IsEmpty']      = array('params' => 1, 'type' => 'int');
         $funcs['IsSimple']     = array('params' => 1, 'type' => 'int');
 
-        $geom_type = trim(strtolower($geom_type));
+        $geom_type = trim(mb_strtolower($geom_type));
         if ($display && $geom_type != 'geometry' && $geom_type != 'multipoint') {
             $funcs[] = array('display' => '--------');
         }
@@ -4012,19 +4012,19 @@ class PMA_Util
         if (isset($table['Create_time']) && !empty($table['Create_time'])) {
             $tooltip_aliasname[$table['Name']] .= ', ' . __('Creation')
                 . ': '
-                . PMA_Util::localisedDate(strtotime($table['Create_time']));
+                . PMA_Util::localisedDate(mb_strtotime($table['Create_time']));
         }
 
         if (! empty($table['Update_time'])) {
             $tooltip_aliasname[$table['Name']] .= ', ' . __('Last update')
                 . ': '
-                . PMA_Util::localisedDate(strtotime($table['Update_time']));
+                . PMA_Util::localisedDate(mb_strtotime($table['Update_time']));
         }
 
         if (! empty($table['Check_time'])) {
             $tooltip_aliasname[$table['Name']] .= ', ' . __('Last check')
                 . ': '
-                . PMA_Util::localisedDate(strtotime($table['Check_time']));
+                . PMA_Util::localisedDate(mb_strtotime($table['Check_time']));
         }
     }
 

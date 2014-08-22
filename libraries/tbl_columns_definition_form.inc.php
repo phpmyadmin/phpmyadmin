@@ -154,7 +154,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 
     $content_cells[$columnNumber] = PMA_getHtmlForColumnAttributes(
         $columnNumber, isset($columnMeta) ? $columnMeta : array(),
-        strtoupper($type), $length_values_input_size, $length,
+        mb_strtoupper($type), $length_values_input_size, $length,
         isset($default_current_timestamp) ? $default_current_timestamp : null,
         isset($extracted_columnspec) ? $extracted_columnspec : null,
         isset($submit_attribute) ? $submit_attribute : null,

@@ -567,7 +567,7 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
                     'Engine'
                 );
                 if (isset($engine)
-                    && strtoupper($engine) == $tbl_storage_engine
+                    && mb_strtoupper($engine) == $tbl_storage_engine
                 ) {
                     $tables[] = $row[0];
                 }
@@ -580,7 +580,7 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
             );
             while ($row = $GLOBALS['dbi']->fetchRow($tables_rs)) {
                 if (isset($row[1])
-                    && strtoupper($row[1]) == $tbl_storage_engine
+                    && mb_strtoupper($row[1]) == $tbl_storage_engine
                 ) {
                     $tables[] = $row[0];
                 }
@@ -736,7 +736,7 @@ function PMA_sendHtmlForTableDropdownList()
 
     $foreign = isset($_REQUEST['foreign']) && $_REQUEST['foreign'] === 'true';
     if ($foreign) {
-        $tbl_storage_engine = strtoupper(
+        $tbl_storage_engine = mb_strtoupper(
             PMA_Table::sGetStatusInfo(
                 $_REQUEST['db'],
                 $_REQUEST['table'],
@@ -759,7 +759,7 @@ function PMA_sendHtmlForTableDropdownList()
 
         while ($row = $GLOBALS['dbi']->fetchArray($tables_rs)) {
             if (isset($row['Engine'])
-                && strtoupper($row['Engine']) == $tbl_storage_engine
+                && mb_strtoupper($row['Engine']) == $tbl_storage_engine
             ) {
                 $tables[] = htmlspecialchars($row['Name']);
             }
@@ -774,7 +774,7 @@ function PMA_sendHtmlForTableDropdownList()
         );
         while ($row = $GLOBALS['dbi']->fetchArray($tables_rs)) {
             if ($foreign && PMA_DRIZZLE) {
-                $engine = strtoupper(
+                $engine = mb_strtoupper(
                     PMA_Table::sGetStatusInfo(
                         $_REQUEST['foreignDb'],
                         $row[0],

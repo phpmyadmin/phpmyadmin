@@ -262,7 +262,7 @@ class PMA_Table
             );
             foreach ($results as $result) {
                 $analyzed_sql[0]['create_table_fields'][$result['COLUMN_NAME']]
-                    = array('type' => strtoupper($result['DATA_TYPE']));
+                    = array('type' => mb_strtoupper($result['DATA_TYPE']));
             }
         } else {
             $show_create_table = $GLOBALS['dbi']->fetchValue(
@@ -333,7 +333,7 @@ class PMA_Table
         }
 
         // any of known merge engines?
-        return in_array(strtoupper($engine), array('MERGE', 'MRG_MYISAM'));
+        return in_array(mb_strtoupper($engine), array('MERGE', 'MRG_MYISAM'));
     }
 
     /**
@@ -422,7 +422,7 @@ class PMA_Table
         $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
         $comment = '', &$field_primary = null, $move_to = ''
     ) {
-        $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
+        $is_timestamp = strpos(mb_strtoupper($type), 'TIMESTAMP') !== false;
 
         $query = PMA_Util::backquote($name) . ' ' . $type;
 
@@ -965,7 +965,7 @@ class PMA_Table
 
                 for ($j = $i; $j < $cnt; $j++) {
                     if ($parsed_sql[$j]['type'] == 'alpha_reservedWord'
-                        && strtoupper($parsed_sql[$j]['data']) == 'CONSTRAINT'
+                        && mb_strtoupper($parsed_sql[$j]['data']) == 'CONSTRAINT'
                     ) {
                         if ($parsed_sql[$j+1]['type'] == $table_delimiter) {
                             $parsed_sql[$j+1]['data'] = '';
@@ -1001,7 +1001,7 @@ class PMA_Table
 
                 for ($j = $i; $j < $cnt; $j++) {
                     if ($parsed_sql[$j]['type'] == 'alpha_reservedWord'
-                        && strtoupper($parsed_sql[$j]['data']) == 'CONSTRAINT'
+                        && mb_strtoupper($parsed_sql[$j]['data']) == 'CONSTRAINT'
                     ) {
                         if ($parsed_sql[$j+1]['type'] == $table_delimiter) {
                             $parsed_sql[$j+1]['data'] = '';

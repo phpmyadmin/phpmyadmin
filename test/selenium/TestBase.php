@@ -461,7 +461,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
          * Not supported in Safari Webdriver, see
          * http://code.google.com/p/selenium/issues/detail?id=4136
          */
-        if (strtolower($this->getBrowser()) == 'safari') {
+        if (mb_strtolower($this->getBrowser()) == 'safari') {
             $this->markTestSkipped('Can not send keys to Safari browser.');
         }
         parent::keys($text);
@@ -481,7 +481,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
          * Not supported in Safari Webdriver, see
          * http://code.google.com/p/selenium/issues/detail?id=4136
          */
-        if (strtolower($this->getBrowser()) == 'safari') {
+        if (mb_strtolower($this->getBrowser()) == 'safari') {
             $this->markTestSkipped('MoveTo not supported on Safari browser.');
         }
         parent::moveto($element);
@@ -499,7 +499,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
          * Not supported in Safari Webdriver, see
          * http://code.google.com/p/selenium/issues/detail?id=4136
          */
-        if (strtolower($this->getBrowser()) == 'safari') {
+        if (mb_strtolower($this->getBrowser()) == 'safari') {
             $this->markTestSkipped('Alerts not supported on Safari browser.');
         }
         return parent::alertText();
@@ -518,7 +518,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
          * Firefox needs some escaping of a text, see
          * http://code.google.com/p/selenium/issues/detail?id=1723
          */
-        if (strtolower($this->getBrowser()) == 'firefox') {
+        if (mb_strtolower($this->getBrowser()) == 'firefox') {
             $text = str_replace(
                 "(",
                 PHPUnit_Extensions_Selenium2TestCase_Keys::SHIFT

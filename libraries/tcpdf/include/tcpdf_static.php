@@ -477,7 +477,7 @@ class TCPDF_STATIC {
 	 */
 	public static function getPageSizeFromFormat($format) {
 		// Paper cordinates are calculated in this way: (inches * 72) where (1 inch = 25.4 mm)
-		switch (strtoupper($format)) {
+		switch (mb_strtoupper($format)) {
 			// ISO 216 A Series + 2 SIS 014711 extensions
 			case 'A0' : {$pf = array( 2383.937, 3370.394); break;}
 			case 'A1' : {$pf = array( 1683.780, 2383.937); break;}
@@ -1348,7 +1348,7 @@ class TCPDF_STATIC {
 	 */
 	public static function getRandomSeed($seed='') {
 		$seed .= microtime();
-		if (function_exists('openssl_random_pseudo_bytes') AND (strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN')) {
+		if (function_exists('openssl_random_pseudo_bytes') AND (mb_strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN')) {
 			// this is not used on windows systems because it is very slow for a know bug
 			$seed .= openssl_random_pseudo_bytes(512);
 		} else {
@@ -2109,7 +2109,7 @@ class TCPDF_STATIC {
 		$css = str_replace('/*]]>*/', '', $css);
 		preg_match('/<style>(.*)<\/style>/ims', $css, $matches);
 		if (isset($matches[1])) {
-			$css = strtolower($matches[1]);
+			$css = mb_strtolower($matches[1]);
 		} else {
 			$css = '';
 		}
@@ -2145,11 +2145,11 @@ class TCPDF_STATIC {
 		$tag = $dom[$key]['value'];
 		$class = array();
 		if (isset($dom[$key]['attribute']['class']) AND !empty($dom[$key]['attribute']['class'])) {
-			$class = explode(' ', strtolower($dom[$key]['attribute']['class']));
+			$class = explode(' ', mb_strtolower($dom[$key]['attribute']['class']));
 		}
 		$id = '';
 		if (isset($dom[$key]['attribute']['id']) AND !empty($dom[$key]['attribute']['id'])) {
-			$id = strtolower($dom[$key]['attribute']['id']);
+			$id = mb_strtolower($dom[$key]['attribute']['id']);
 		}
 		$selector = preg_replace('/([\>\+\~\s]{1})([\.]{1})([^\>\+\~\s]*)/si', '\\1*.\\3', $selector);
 		$matches = array();
@@ -2158,11 +2158,11 @@ class TCPDF_STATIC {
 			$operator = $parentop[0];
 			$offset = $parentop[1];
 			$lasttag = array_pop($matches[2]);
-			$lasttag = strtolower(trim($lasttag[0]));
+			$lasttag = mb_strtolower(trim($lasttag[0]));
 			if (($lasttag == '*') OR ($lasttag == $tag)) {
 				// the last element on selector is our tag or 'any tag'
 				$attrib = array_pop($matches[3]);
-				$attrib = strtolower(trim($attrib[0]));
+				$attrib = mb_strtolower(trim($attrib[0]));
 				if (!empty($attrib)) {
 					// check if matches class, id, attribute, pseudo-class or pseudo-element
 					switch ($attrib[0]) {
@@ -2181,7 +2181,7 @@ class TCPDF_STATIC {
 						case '[': { // attribute
 							$attrmatch = array();
 							if (preg_match('/\[([a-zA-Z0-9]*)[\s]*([\~\^\$\*\|\=]*)[\s]*["]?([^"\]]*)["]?\]/i', $attrib, $attrmatch) > 0) {
-								$att = strtolower($attrmatch[1]);
+								$att = mb_strtolower($attrmatch[1]);
 								$val = $attrmatch[3];
 								if (isset($dom[$key]['attribute'][$att])) {
 									switch ($attrmatch[2]) {

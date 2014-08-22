@@ -753,8 +753,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         foreach ($cfg['Servers'] as $i => $server) {
             if ($server['host'] == $_REQUEST['server']
                 || $server['verbose'] == $_REQUEST['server']
-                || $PMA_String->strtolower($server['verbose']) == $PMA_String->strtolower($_REQUEST['server'])
-                || md5($PMA_String->strtolower($server['verbose'])) == $PMA_String->strtolower($_REQUEST['server'])
+                || $PMA_String->mb_strtolower($server['verbose']) == $PMA_String->mb_strtolower($_REQUEST['server'])
+                || md5($PMA_String->mb_strtolower($server['verbose'])) == $PMA_String->mb_strtolower($_REQUEST['server'])
             ) {
                 $_REQUEST['server'] = $i;
                 break;
@@ -843,7 +843,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // and run authentication
 
         // to allow HTTP or http
-        $cfg['Server']['auth_type'] = strtolower($cfg['Server']['auth_type']);
+        $cfg['Server']['auth_type'] = mb_strtolower($cfg['Server']['auth_type']);
 
         /**
          * the required auth type plugin
@@ -933,7 +933,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // if using TCP socket is not needed
-        if (strtolower($cfg['Server']['connect_type']) == 'tcp') {
+        if (mb_strtolower($cfg['Server']['connect_type']) == 'tcp') {
             $cfg['Server']['socket'] = '';
         }
 

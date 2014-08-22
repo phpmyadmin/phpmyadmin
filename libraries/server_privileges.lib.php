@@ -82,7 +82,7 @@ function PMA_rangeOfUsers($initial = '')
         $ret = " WHERE `User` LIKE '"
             . PMA_Util::sqlAddSlashes($initial, true) . "%'"
             . " OR `User` LIKE '"
-            . PMA_Util::sqlAddSlashes(strtolower($initial), true) . "%'";
+            . PMA_Util::sqlAddSlashes(mb_strtolower($initial), true) . "%'";
     } else {
         $ret = '';
     }
@@ -967,7 +967,7 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
                 ]
             )
             . '">'
-            . strtoupper(
+            . mb_strtoupper(
                 substr($current_grant, 0, strlen($current_grant) - 5)
             )
             . '</dfn></code></label>' . "\n"
@@ -1384,7 +1384,7 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
 
     // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
     if (! isset($GLOBALS['pred_hostname']) && isset($GLOBALS['hostname'])) {
-        switch (strtolower($GLOBALS['hostname'])) {
+        switch (mb_strtolower($GLOBALS['hostname'])) {
         case 'localhost':
         case '127.0.0.1':
             $GLOBALS['pred_hostname'] = 'localhost';
@@ -2415,7 +2415,7 @@ function PMA_getExtraDataForAjaxBehavior(
          * Generate the string for this alphabet's initial, to update the user
          * pagination
          */
-        $new_user_initial = strtoupper(substr($username, 0, 1));
+        $new_user_initial = mb_strtoupper(substr($username, 0, 1));
         $newUserInitialString = '<a href="server_privileges.php'
             . PMA_URL_getCommon(array('initial' => $new_user_initial)) . '">'
             . $new_user_initial . '</a>';

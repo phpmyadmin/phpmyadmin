@@ -115,7 +115,7 @@ class PMA_Font
         $count = $count + (strlen(preg_replace("/[a-z0-9]/i", "", $text)) * 0.3);
 
         $modifier = 1;
-        $font = strtolower($font);
+        $font = mb_strtolower($font);
         switch ($font) {
         /*
          * no modifier for arial and sans-serif

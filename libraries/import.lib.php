@@ -488,7 +488,7 @@ function PMA_getColumnNumberFromName($name)
         return 0;
     }
 
-    $name = strtoupper($name);
+    $name = mb_strtoupper($name);
     $num_chars = strlen($name);
     $column_number = 0;
     for ($i = 0; $i < $num_chars; ++$i) {

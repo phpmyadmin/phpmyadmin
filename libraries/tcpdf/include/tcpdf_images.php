@@ -73,13 +73,13 @@ class TCPDF_IMAGES {
 		if (isset($iminfo['mime']) AND !empty($iminfo['mime'])) {
 			$mime = explode('/', $iminfo['mime']);
 			if ((count($mime) > 1) AND ($mime[0] == 'image') AND (!empty($mime[1]))) {
-				$type = strtolower(trim($mime[1]));
+				$type = mb_strtolower(trim($mime[1]));
 			}
 		}
 		if (empty($type)) {
 			$fileinfo = pathinfo($imgfile);
 			if (isset($fileinfo['extension']) AND (!TCPDF_STATIC::empty_string($fileinfo['extension']))) {
-				$type = strtolower(trim($fileinfo['extension']));
+				$type = mb_strtolower(trim($fileinfo['extension']));
 			}
 		}
 		if ($type == 'jpg') {

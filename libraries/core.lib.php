@@ -108,7 +108,7 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
     }
 
     // allow some aliaes of var types
-    $type = strtolower($type);
+    $type = mb_strtolower($type);
     switch ($type) {
     case 'identic' :
         $type = 'identical';
@@ -363,7 +363,7 @@ function PMA_getRealSize($size = 0)
 
     foreach ($scan as $unit => $factor) {
         if (strlen($size) > strlen($unit)
-            && strtolower(substr($size, strlen($size) - strlen($unit))) == $unit
+            && mb_strtolower(substr($size, strlen($size) - strlen($unit))) == $unit
         ) {
             return substr($size, 0, strlen($size) - strlen($unit)) * $factor;
         }
@@ -846,7 +846,7 @@ function PMA_isAllowedDomain($url)
         /* Following are doubtful ones. */
         'www.primebase.com','pbxt.blogspot.com'
     );
-    if (in_array(strtolower($domain), $domainWhiteList)) {
+    if (in_array(mb_strtolower($domain), $domainWhiteList)) {
         return true;
     }
 

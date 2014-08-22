@@ -61,7 +61,7 @@ if ($showtable) {
     } else {
         $tbl_is_view     = false;
         $tbl_storage_engine = isset($showtable['Engine'])
-            ? strtoupper($showtable['Engine'])
+            ? mb_strtoupper($showtable['Engine'])
             : '';
         $show_comment = '';
         if (isset($showtable['Comment'])) {

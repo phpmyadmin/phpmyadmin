@@ -568,9 +568,9 @@ class PMAStandard_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_
                     $newContent = str_replace(' ', '_', $content);
                     $nameBits   = explode('_', $newContent);
                     $firstBit   = array_shift($nameBits);
-                    $newName    = strtoupper($firstBit{0}).substr($firstBit, 1).'_';
+                    $newName    = mb_strtoupper($firstBit{0}).substr($firstBit, 1).'_';
                     foreach ($nameBits as $bit) {
-                        $newName .= strtoupper($bit{0}).substr($bit, 1).'_';
+                        $newName .= mb_strtoupper($bit{0}).substr($bit, 1).'_';
                     }
 
                     $error     = 'Package name "%s" is not valid; consider "%s" instead';
@@ -607,9 +607,9 @@ class PMAStandard_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_
                     $newContent = str_replace(' ', '_', $content);
                     $nameBits   = explode('_', $newContent);
                     $firstBit   = array_shift($nameBits);
-                    $newName    = strtoupper($firstBit{0}).substr($firstBit, 1).'_';
+                    $newName    = mb_strtoupper($firstBit{0}).substr($firstBit, 1).'_';
                     foreach ($nameBits as $bit) {
-                        $newName .= strtoupper($bit{0}).substr($bit, 1).'_';
+                        $newName .= mb_strtoupper($bit{0}).substr($bit, 1).'_';
                     }
 
                     $error     = 'Subpackage name "%s" is not valid; consider "%s" instead';

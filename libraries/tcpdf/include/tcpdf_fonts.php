@@ -81,7 +81,7 @@ class TCPDF_FONTS {
 		if (!isset($font_path_parts['filename'])) {
 			$font_path_parts['filename'] = substr($font_path_parts['basename'], 0, -(strlen($font_path_parts['extension']) + 1));
 		}
-		$font_name = strtolower($font_path_parts['filename']);
+		$font_name = mb_strtolower($font_path_parts['filename']);
 		$font_name = preg_replace('/[^a-z0-9_]/', '', $font_name);
 		$search  = array('bold', 'oblique', 'italic', 'regular');
 		$replace = array('b', 'i', 'i', '');

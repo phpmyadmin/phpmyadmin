@@ -104,7 +104,7 @@ class PMA_NavigationHeader
                 case 'main':
                     // do not add our parameters for an external link
                     if (substr(
-                        strtolower($GLOBALS['cfg']['NavigationLogoLink']), 0, 4
+                        mb_strtolower($GLOBALS['cfg']['NavigationLogoLink']), 0, 4
                     ) !== '://') {
                         $retval .= '?' . $GLOBALS['url_query'] . '"';
                     } else {
