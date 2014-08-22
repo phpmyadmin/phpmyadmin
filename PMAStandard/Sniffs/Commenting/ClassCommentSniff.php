@@ -79,7 +79,7 @@ class PMAStandard_Sniffs_Commenting_ClassCommentSniff extends PMAStandard_Sniffs
         $this->currentFile = $phpcsFile;
 
         $tokens    = $phpcsFile->getTokens();
-        $type      = strtolower($tokens[$stackPtr]['content']);
+        $type      = mb_strtolower($tokens[$stackPtr]['content']);
         $errorData = array($type);
         $find      = array(
                       T_ABSTRACT,

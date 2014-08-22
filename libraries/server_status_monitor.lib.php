@@ -577,7 +577,7 @@ function PMA_getJsonForLogDataTypeSlow($start, $end)
     $return = array('rows' => array(), 'sum' => array());
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-        $type = strtolower(
+        $type = mb_strtolower(
             substr($row['sql_text'], 0, strpos($row['sql_text'], ' '))
         );
 
@@ -649,7 +649,7 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         preg_match('/^(\w+)\s/', $row['argument'], $match);
-        $type = strtolower($match[1]);
+        $type = mb_strtolower($match[1]);
 
         if (! isset($return['sum'][$type])) {
             $return['sum'][$type] = 0;

@@ -55,7 +55,7 @@ function PMA_getTablesInfo()
             $one_table['TABLE_NAME'], ENT_QUOTES
         );
 
-        $GLOBALS['PMD']['TABLE_TYPE'][$i] = strtoupper($one_table['ENGINE']);
+        $GLOBALS['PMD']['TABLE_TYPE'][$i] = mb_strtoupper($one_table['ENGINE']);
 
         $DF = PMA_getDisplayField($GLOBALS['db'], $one_table['TABLE_NAME']);
         if ($DF != '') {
@@ -470,9 +470,9 @@ function PMA_saveDisplayField($db, $table, $field)
 function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update)
 {
     $tables = $GLOBALS['dbi']->getTablesFull($db, $T1);
-    $type_T1 = strtoupper($tables[$T1]['ENGINE']);
+    $type_T1 = mb_strtoupper($tables[$T1]['ENGINE']);
     $tables = $GLOBALS['dbi']->getTablesFull($db, $T2);
-    $type_T2 = strtoupper($tables[$T2]['ENGINE']);
+    $type_T2 = mb_strtoupper($tables[$T2]['ENGINE']);
 
     // native foreign key
     if (PMA_Util::isForeignKeySupported($type_T1)
@@ -580,9 +580,9 @@ function PMA_removeRelation($T1, $F1, $T2, $F2)
     list($DB2, $T2) = explode(".", $T2);
 
     $tables = $GLOBALS['dbi']->getTablesFull($DB1, $T1);
-    $type_T1 = strtoupper($tables[$T1]['ENGINE']);
+    $type_T1 = mb_strtoupper($tables[$T1]['ENGINE']);
     $tables = $GLOBALS['dbi']->getTablesFull($DB2, $T2);
-    $type_T2 = strtoupper($tables[$T2]['ENGINE']);
+    $type_T2 = mb_strtoupper($tables[$T2]['ENGINE']);
 
     $try_to_delete_internal_relation = false;
 

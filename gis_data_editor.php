@@ -44,7 +44,7 @@ $gis_types = array(
 // Extract from field's values if availbale, if not use the column type passed.
 if (! isset($gis_data['gis_type'])) {
     if (isset($_REQUEST['type']) && $_REQUEST['type'] != '') {
-        $gis_data['gis_type'] = strtoupper($_REQUEST['type']);
+        $gis_data['gis_type'] = mb_strtoupper($_REQUEST['type']);
     }
     if (isset($_REQUEST['value']) && trim($_REQUEST['value']) != '') {
         $start = (substr($_REQUEST['value'], 0, 1) == "'") ? 1 : 0;

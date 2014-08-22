@@ -155,7 +155,7 @@
     function getIndexFromDBFData($field, $value) {
       $result = -1;
       for ($i = 0; $i < (count($this->records) - 1); $i++) {
-        if (isset($this->records[$i]->DBFData[$field]) && (strtoupper($this->records[$i]->DBFData[$field]) == strtoupper($value))) {
+        if (isset($this->records[$i]->DBFData[$field]) && (mb_strtoupper($this->records[$i]->DBFData[$field]) == mb_strtoupper($value))) {
           $result = $i;
         }
       }

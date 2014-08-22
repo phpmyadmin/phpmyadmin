@@ -178,7 +178,7 @@ function PMA_TRI_handleEditor()
                     $response->addJSON(
                         'name',
                         htmlspecialchars(
-                            strtoupper($_REQUEST['item_name'])
+                            mb_strtoupper($_REQUEST['item_name'])
                         )
                     );
                 }
@@ -344,7 +344,7 @@ function PMA_TRI_getEditorForm($mode, $item)
 
     // Create the output
     $retval  = "";
-    $retval .= "<!-- START " . strtoupper($mode) . " TRIGGER FORM -->\n\n";
+    $retval .= "<!-- START " . mb_strtoupper($mode) . " TRIGGER FORM -->\n\n";
     $retval .= "<form class='rte_form' action='db_triggers.php' method='post'>\n";
     $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
     $retval .= $original_data;
@@ -427,7 +427,7 @@ function PMA_TRI_getEditorForm($mode, $item)
         $retval .= "</fieldset>\n";
     }
     $retval .= "</form>\n\n";
-    $retval .= "<!-- END " . strtoupper($mode) . " TRIGGER FORM -->\n\n";
+    $retval .= "<!-- END " . mb_strtoupper($mode) . " TRIGGER FORM -->\n\n";
 
     return $retval;
 } // end PMA_TRI_getEditorForm()

@@ -1009,7 +1009,7 @@ class PMA_DbQbe
                 && isset($this->_curAndOrCol)
             ) {
                 $where_clause .= ' '
-                    . strtoupper($this->_curAndOrCol[$last_where]) . ' ';
+                    . mb_strtoupper($this->_curAndOrCol[$last_where]) . ' ';
             }
             if (! empty($this->_curField[$column_index])
                 && ! empty($this->_curCriteria[$column_index])
@@ -1045,7 +1045,7 @@ class PMA_DbQbe
                     && $column_index
                 ) {
                     $qry_orwhere .= ' '
-                        . strtoupper($this->_curAndOrCol[$last_orwhere]) . ' ';
+                        . mb_strtoupper($this->_curAndOrCol[$last_orwhere]) . ' ';
                 }
                 if (! empty($this->_curField[$column_index])
                     && ! empty($_REQUEST['Or' . $row_index][$column_index])
@@ -1063,7 +1063,7 @@ class PMA_DbQbe
             }
             if (! empty($qry_orwhere)) {
                 $where_clause .= "\n"
-                    .  strtoupper(
+                    .  mb_strtoupper(
                         isset($this->_curAndOrRow[$row_index])
                         ? $this->_curAndOrRow[$row_index] . ' '
                         : ''

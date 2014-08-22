@@ -369,7 +369,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             PMA_getHtmlForColumnDefault(
-                1, 5, 0, strtoupper($row['col_type']), '',
+                1, 5, 0, mb_strtoupper($row['col_type']), '',
                 array('DefaultType'=>'NONE')
             ),
             $result
@@ -380,7 +380,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             PMA_getHtmlForColumnDefault(
-                1, 5, 0, strtoupper($row['col_type']), '',
+                1, 5, 0, mb_strtoupper($row['col_type']), '',
                 array('DefaultType'=>'USER_DEFINED', 'DefaultValue'=>100)
             ),
             $result_1
@@ -391,7 +391,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             PMA_getHtmlForColumnDefault(
-                1, 5, 0, strtoupper($row['col_type']), '',
+                1, 5, 0, mb_strtoupper($row['col_type']), '',
                 array('DefaultType'=>'CURRENT_TIMESTAMP')
             ),
             $result_2

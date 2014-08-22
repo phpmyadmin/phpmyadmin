@@ -49,7 +49,7 @@ if (!function_exists('crypt_random_string')) {
      *
      * @access private
      */
-    define('CRYPT_RANDOM_IS_WINDOWS', strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
+    define('CRYPT_RANDOM_IS_WINDOWS', mb_strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
 
     /**
      * Generate a random string.

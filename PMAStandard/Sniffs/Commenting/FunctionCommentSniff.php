@@ -278,10 +278,10 @@ class PMAStandard_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSnif
         $className = '';
         if ($this->_classToken !== null) {
             $className = $this->currentFile->getDeclarationName($this->_classToken);
-            $className = strtolower(ltrim($className, '_'));
+            $className = mb_strtolower(ltrim($className, '_'));
         }
 
-        $methodName      = strtolower(ltrim($this->_methodName, '_'));
+        $methodName      = mb_strtolower(ltrim($this->_methodName, '_'));
         $isSpecialMethod = ($this->_methodName === '__construct' || $this->_methodName === '__destruct');
 
         if ($isSpecialMethod === false && $methodName !== $className) {
@@ -413,7 +413,7 @@ class PMAStandard_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSnif
                                 );
 
                         $error  = 'Doc comment for var %s does not match ';
-                        if (strtolower($paramName) === strtolower($realName)) {
+                        if (mb_strtolower($paramName) === mb_strtolower($realName)) {
                             $error .= 'case of ';
                             $code   = 'ParamNameNoCaseMatch';
                         }

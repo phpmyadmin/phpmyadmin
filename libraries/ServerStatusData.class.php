@@ -315,7 +315,7 @@ class PMA_ServerStatusData
 
         // Set all class properties
         $this->db_isLocal = false;
-        if (strtolower($GLOBALS['cfg']['Server']['host']) === 'localhost'
+        if (mb_strtolower($GLOBALS['cfg']['Server']['host']) === 'localhost'
             || $GLOBALS['cfg']['Server']['host'] === '127.0.0.1'
             || $GLOBALS['cfg']['Server']['host'] === '::1'
         ) {

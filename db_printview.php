@@ -58,7 +58,7 @@ if ($num_tables == 0) {
     $odd_row = true;
     foreach ($tables as $sts_data) {
         if (PMA_Table::isMerge($db, $sts_data['TABLE_NAME'])
-            || strtoupper($sts_data['ENGINE']) == 'FEDERATED'
+            || mb_strtoupper($sts_data['ENGINE']) == 'FEDERATED'
         ) {
             $merged_size = true;
         } else {

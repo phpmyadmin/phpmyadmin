@@ -251,7 +251,7 @@ class TCPDF_COLORS {
 			return $spotc[$name];
 		}
 		$color = preg_replace('/[\s]*/', '', $name); // remove extra spaces
-		$color = strtolower($color);
+		$color = mb_strtolower($color);
 		if (isset(self::$spotcolor[$color])) {
 			if (!isset($spotc[$name])) {
 				$i = (1 + count($spotc));
@@ -272,7 +272,7 @@ class TCPDF_COLORS {
 	 */
 	public static function convertHTMLColorToDec($hcolor, &$spotc, $defcol=array('R'=>128,'G'=>128,'B'=>128)) {
 		$color = preg_replace('/[\s]*/', '', $hcolor); // remove extra spaces
-		$color = strtolower($color);
+		$color = mb_strtolower($color);
 		// check for javascript color array syntax
 		if (strpos($color, '[') !== false) {
 			if (preg_match('/[\[][\"\'](t|g|rgb|cmyk)[\"\'][\,]?([0-9\.]*)[\,]?([0-9\.]*)[\,]?([0-9\.]*)[\,]?([0-9\.]*)[\]]/', $color, $m) > 0) {

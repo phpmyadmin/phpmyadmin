@@ -771,7 +771,7 @@ function PMA_SQP_parse($sql)
         $d_prev           = '';
         $d_bef_prev       = '';
         $d_cur            = '';
-        $d_next_upper     = $t_next == 'alpha' ? strtoupper($d_next) : $d_next;
+        $d_next_upper     = $t_next == 'alpha' ? mb_strtoupper($d_next) : $d_next;
         $d_prev_upper     = '';
         $d_bef_prev_upper = '';
         $d_cur_upper      = '';
@@ -790,7 +790,7 @@ function PMA_SQP_parse($sql)
         if (($i + 1) < $arraysize) {
             $t_next = $sql_array[$i + 1]['type'];
             $d_next = $sql_array[$i + 1]['data'];
-            $d_next_upper = $t_next == 'alpha' ? strtoupper($d_next) : $d_next;
+            $d_next_upper = $t_next == 'alpha' ? mb_strtoupper($d_next) : $d_next;
         } else {
             $t_next       = '';
             $d_next       = '';
@@ -1239,7 +1239,7 @@ function PMA_SQP_analyze($arr)
         }
         // ==============================================================
         if ($arr[$i]['type'] == 'alpha_functionName') {
-            $upper_data = strtoupper($arr[$i]['data']);
+            $upper_data = mb_strtoupper($arr[$i]['data']);
             if ($upper_data =='EXTRACT') {
                 $in_extract = true;
                 $number_of_brackets_in_extract = 0;
@@ -1254,7 +1254,7 @@ function PMA_SQP_analyze($arr)
         if ($arr[$i]['type'] == 'alpha_reservedWord') {
             // We don't know what type of query yet, so run this
             if ($subresult['querytype'] == '') {
-                $subresult['querytype'] = strtoupper($arr[$i]['data']);
+                $subresult['querytype'] = mb_strtoupper($arr[$i]['data']);
             } // end if (querytype was empty)
 
             // Check if we support this type of query
@@ -1265,7 +1265,7 @@ function PMA_SQP_analyze($arr)
             } // end if (query not supported)
 
             // upper once
-            $upper_data = strtoupper($arr[$i]['data']);
+            $upper_data = mb_strtoupper($arr[$i]['data']);
             /**
              * @todo reset for each query?
              */
@@ -1671,7 +1671,7 @@ function PMA_SQP_analyze($arr)
         }
 
         if ($arr[$i]['type'] == 'alpha_reservedWord') {
-            $upper_data = strtoupper($arr[$i]['data']);
+            $upper_data = mb_strtoupper($arr[$i]['data']);
 
             if ($upper_data == 'SELECT' && $number_of_brackets > 0) {
                 $in_subquery = true;
@@ -1744,7 +1744,7 @@ function PMA_SQP_analyze($arr)
                     && $subresult['queryflags']['select_from'] == 1
                     && ($i + 1) < $size
                     && $arr[$i + 1]['type'] == 'alpha_reservedWord'
-                    && strtoupper($arr[$i + 1]['data']) == 'ANALYSE'
+                    && mb_strtoupper($arr[$i + 1]['data']) == 'ANALYSE'
                 ) {
                     $subresult['queryflags']['is_analyse'] = 1;
                 }
@@ -1756,7 +1756,7 @@ function PMA_SQP_analyze($arr)
                 && $subresult['queryflags']['select_from'] == 1
                 && ($i + 1) < $size
                 && $arr[$i + 1]['type'] == 'alpha_reservedWord'
-                && strtoupper($arr[$i + 1]['data']) == 'OUTFILE'
+                && mb_strtoupper($arr[$i + 1]['data']) == 'OUTFILE'
             ) {
                 $subresult['queryflags']['is_export'] = 1;
             }
@@ -1773,7 +1773,7 @@ function PMA_SQP_analyze($arr)
                     && !isset($subresult['queryflags']['is_group'])
                     && ($i + 1) < $size
                     && $arr[$i + 1]['type'] == 'alpha_functionName'
-                    && strtoupper($arr[$i + 1]['data']) == 'COUNT'
+                    && mb_strtoupper($arr[$i + 1]['data']) == 'COUNT'
                 ) {
                     $subresult['queryflags']['is_count'] = 1;
                 }
@@ -1830,10 +1830,10 @@ function PMA_SQP_analyze($arr)
                     && $subresult['queryflags']['select_from'] == 1
                     && ($i + 1) < $size
                     && $arr[$i + 1]['type'] == 'alpha_reservedWord'
-                    && in_array(strtoupper($arr[$i + 1]['data']), $arrayKeyWords)
+                    && in_array(mb_strtoupper($arr[$i + 1]['data']), $arrayKeyWords)
                     && ($i + 2) < $size
                     && $arr[$i + 2]['type'] == 'alpha_reservedWord'
-                    && strtoupper($arr[$i + 2]['data']) == 'DISTINCT'
+                    && mb_strtoupper($arr[$i + 2]['data']) == 'DISTINCT'
                 ) {
                     $subresult['queryflags']['is_group'] = 1;
                 }
@@ -1913,7 +1913,7 @@ function PMA_SQP_analyze($arr)
         $sep = ' ';
         if ($arr[$i]['type'] == 'alpha_functionName') {
             $sep='';
-            $upper_data = strtoupper($arr[$i]['data']);
+            $upper_data = mb_strtoupper($arr[$i]['data']);
             if ($upper_data =='GROUP_CONCAT') {
                 $in_group_concat = true;
                 $number_of_brackets_in_group_concat = 0;
@@ -1950,10 +1950,10 @@ function PMA_SQP_analyze($arr)
 
         // for the presence of INSERT|LOAD DATA
         if ($arr[$i]['type'] == 'alpha_identifier'
-            && strtoupper($arr[$i]['data']) == 'DATA'
+            && mb_strtoupper($arr[$i]['data']) == 'DATA'
             && ($i - 1) >= 0
             && $arr[$i - 1]['type'] == 'alpha_reservedWord'
-            && in_array(strtoupper($arr[$i - 1]['data']), array("INSERT", "LOAD"))
+            && in_array(mb_strtoupper($arr[$i - 1]['data']), array("INSERT", "LOAD"))
         ) {
             $subresult['queryflags']['is_insert'] = 1;
             $subresult['queryflags']['is_affected'] = 1;
@@ -1961,7 +1961,7 @@ function PMA_SQP_analyze($arr)
 
         // for the presence of SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND
         if ($arr[$i]['type'] == 'alpha_functionName'
-            && in_array(strtoupper($arr[$i]['data']), $arrayFunctions)
+            && in_array(mb_strtoupper($arr[$i]['data']), $arrayFunctions)
             && isset($subresult['queryflags']['select_from'])
             && $subresult['queryflags']['select_from'] == 1
             && !isset($subresult['queryflags']['is_group'])
@@ -2064,7 +2064,7 @@ function PMA_SQP_analyze($arr)
 
     for ($i = 0; $i < $size; $i++) {
         if ($arr[$i]['type'] == 'alpha_reservedWord') {
-            $upper_data = strtoupper($arr[$i]['data']);
+            $upper_data = mb_strtoupper($arr[$i]['data']);
 
             if ($upper_data == 'NOT' && $in_timestamp_options) {
                 if (! isset($create_table_fields)) {
@@ -2127,7 +2127,7 @@ function PMA_SQP_analyze($arr)
                 if (isset($arr[$i+1])
                     && $arr[$i+1]['type'] == 'alpha_reservedWord'
                 ) {
-                    $second_upper_data = strtoupper($arr[$i+1]['data']);
+                    $second_upper_data = mb_strtoupper($arr[$i+1]['data']);
                     if ($second_upper_data == 'DELETE') {
                         $clause = 'on_delete';
                     }
@@ -2141,9 +2141,9 @@ function PMA_SQP_analyze($arr)
                     if (isset($clause)
                         && ($arr[$i+2]['type'] == 'alpha_reservedWord'
                         || ($arr[$i+2]['type'] == 'alpha_identifier'
-                        && strtoupper($arr[$i+2]['data'])=='NO'))
+                        && mb_strtoupper($arr[$i+2]['data'])=='NO'))
                     ) {
-                        $third_upper_data = strtoupper($arr[$i+2]['data']);
+                        $third_upper_data = mb_strtoupper($arr[$i+2]['data']);
                         if ($third_upper_data == 'CASCADE'
                             || $third_upper_data == 'RESTRICT'
                         ) {
@@ -2153,7 +2153,7 @@ function PMA_SQP_analyze($arr)
                         ) {
                             if ($arr[$i+3]['type'] == 'alpha_reservedWord') {
                                 $value = $third_upper_data . '_'
-                                    . strtoupper($arr[$i+3]['data']);
+                                    . mb_strtoupper($arr[$i+3]['data']);
                             }
                         } elseif ($third_upper_data == 'CURRENT_TIMESTAMP') {
                             if ($clause == 'on_update'
@@ -2197,7 +2197,7 @@ function PMA_SQP_analyze($arr)
         }
 
         if (($arr[$i]['type'] == 'alpha_columnAttrib')) {
-            $upper_data = strtoupper($arr[$i]['data']);
+            $upper_data = mb_strtoupper($arr[$i]['data']);
             if ($seen_create_table && $in_create_table_fields) {
                 if ($upper_data == 'DEFAULT') {
                     $seen_default = true;
@@ -2213,7 +2213,7 @@ function PMA_SQP_analyze($arr)
         if (($arr[$i]['type'] == 'alpha_columnType')
             || ($arr[$i]['type'] == 'alpha_functionName' && $seen_create_table)
         ) {
-            $upper_data = strtoupper($arr[$i]['data']);
+            $upper_data = mb_strtoupper($arr[$i]['data']);
             if ($seen_create_table && $in_create_table_fields
                 && isset($current_identifier)
             ) {
@@ -2464,10 +2464,10 @@ function PMA_SQP_format(
             $bracketlevel++;
             $infunction = false;
             $keyword_brackets_2before = isset(
-                $keywords_with_brackets_2before[strtoupper($arr[$i - 2]['data'])]
+                $keywords_with_brackets_2before[mb_strtoupper($arr[$i - 2]['data'])]
             );
             $keyword_brackets_1before = isset(
-                $keywords_with_brackets_1before[strtoupper($arr[$i - 1]['data'])]
+                $keywords_with_brackets_1before[mb_strtoupper($arr[$i - 1]['data'])]
             );
             // Make sure this array is sorted!
             if (($typearr[1] == 'alpha_functionName')
@@ -2599,7 +2599,7 @@ function PMA_SQP_format(
             // select * from mysql.user where binary user="root"
             // binary is marked as alpha_columnAttrib
             // but should be marked as a reserved word
-            if (strtoupper($arr[$i]['data']) == 'BINARY'
+            if (mb_strtoupper($arr[$i]['data']) == 'BINARY'
                 && $typearr[3] == 'alpha_identifier'
             ) {
                 $after     .= ' ';
@@ -2615,7 +2615,7 @@ function PMA_SQP_format(
             // as an identifier name)
 
             if ($mode != 'query_only') {
-                $arr[$i]['data'] = strtoupper($arr[$i]['data']);
+                $arr[$i]['data'] = mb_strtoupper($arr[$i]['data']);
             }
 
             list($before, $in_priv_list) = PMA_SQP_format_getBeforeAndInPrivList(
@@ -2731,7 +2731,7 @@ function PMA_SQP_format_getBeforeAndInPrivList(
 ) {
     if (!((($typearr[1] != 'alpha_reservedWord')
         || (($typearr[1] == 'alpha_reservedWord')
-        && isset($keywords_no_newline[strtoupper($arr[$index - 1]['data'])])))
+        && isset($keywords_no_newline[mb_strtoupper($arr[$index - 1]['data'])])))
         && ($typearr[1] != 'punct_level_plus')
         && (!isset($keywords_no_newline[$arr[$index]['data']])))
     ) {
@@ -2893,7 +2893,7 @@ function PMA_SQP_formatNone($arr)
 function PMA_SQP_isKeyWord($column)
 {
     global $PMA_SQPdata_forbidden_word;
-    return in_array(strtoupper($column), $PMA_SQPdata_forbidden_word);
+    return in_array(mb_strtoupper($column), $PMA_SQPdata_forbidden_word);
 }
 
 /**

@@ -203,11 +203,11 @@ function PMA_getMemoryLimitForExport()
     // 2 MB as default
     if (empty($memory_limit) || '-1' == $memory_limit) {
         $memory_limit = 2 * 1024 * 1024;
-    } elseif (strtolower(substr($memory_limit, -1)) == 'm') {
+    } elseif (mb_strtolower(substr($memory_limit, -1)) == 'm') {
         $memory_limit = $memory_limit_num * 1024 * 1024;
-    } elseif (strtolower(substr($memory_limit, -1)) == 'k') {
+    } elseif (mb_strtolower(substr($memory_limit, -1)) == 'k') {
         $memory_limit = $memory_limit_num * 1024;
-    } elseif (strtolower(substr($memory_limit, -1)) == 'g') {
+    } elseif (mb_strtolower(substr($memory_limit, -1)) == 'g') {
         $memory_limit = $memory_limit_num * 1024 * 1024 * 1024;
     } else {
         $memory_limit = (int)$memory_limit;
@@ -278,7 +278,7 @@ function PMA_getExportFilenameAndMimetype(
     ) - 1;
     $user_extension = substr($filename, $extension_start_pos, strlen($filename));
     $required_extension = "." . $export_plugin->getProperties()->getExtension();
-    if (strtolower($user_extension) != $required_extension) {
+    if (mb_strtolower($user_extension) != $required_extension) {
         $filename  .= $required_extension;
     }
     $mime_type  = $export_plugin->getProperties()->getMimeType();

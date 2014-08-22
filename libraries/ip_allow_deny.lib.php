@@ -179,8 +179,8 @@ function PMA_ipv6MaskTest($test_range, $ip_to_test)
     $result = true;
 
     // convert to lowercase for easier comparison
-    $test_range = strtolower($test_range);
-    $ip_to_test = strtolower($ip_to_test);
+    $test_range = mb_strtolower($test_range);
+    $ip_to_test = mb_strtolower($ip_to_test);
 
     $is_cidr = strpos($test_range, '/') > -1;
     $is_range = strpos($test_range, '[') > -1;

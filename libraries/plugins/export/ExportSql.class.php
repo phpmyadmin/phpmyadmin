@@ -2401,9 +2401,9 @@ class ExportSql extends ExportPlugin
             $d_unq = PMA_Util::unQuote($data);
             $d_unq_next = PMA_Util::unQuote($data_next);
             $d_unq_prev = PMA_Util::unQuote($data_prev);
-            $d_upper = strtoupper($d_unq);
-            $d_upper_next = strtoupper($d_unq_next);
-            $d_upper_prev = strtoupper($d_unq_prev);
+            $d_upper = mb_strtoupper($d_unq);
+            $d_upper_next = mb_strtoupper($d_unq_next);
+            $d_upper_prev = mb_strtoupper($d_unq_prev);
             $pos = $tokens[$i]['pos'] + $offset;
             if ($type === 'alpha_reservedWord') {
                 if ($query_type === ''

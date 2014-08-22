@@ -291,8 +291,8 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
     }
 
     // lowercase mimetype & transformation
-    $mimetype = strtolower($mimetype);
-    $transformation = strtolower($transformation);
+    $mimetype = mb_strtolower($mimetype);
+    $transformation = mb_strtolower($transformation);
 
     $test_qry = '
          SELECT `mimetype`,

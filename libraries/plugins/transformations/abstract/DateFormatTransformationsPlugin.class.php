@@ -61,7 +61,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
         if (empty($options[2])) {
             $options[2] = 'local';
         } else {
-            $options[2] = strtolower($options[2]);
+            $options[2] = mb_strtolower($options[2]);
         }
 
         if (empty($options[1])) {

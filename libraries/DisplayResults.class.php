@@ -433,7 +433,7 @@ class PMA_DisplayResults
                     $this->__get('sql_query'), $which
                 );
                 if (isset($which[1])
-                    && (strpos(' ' . strtoupper($which[1]), 'PROCESSLIST') > 0)
+                    && (strpos(' ' . mb_strtoupper($which[1]), 'PROCESSLIST') > 0)
                 ) {
                     // no edit link
                     $do_display['edit_lnk'] = self::NO_EDIT_OR_DELETE;
@@ -1999,7 +1999,7 @@ class PMA_DisplayResults
                         $sort_direction, $single_sort_order, $column_index, $index
                     );
                 } else {
-                    $single_sort_order .= strtoupper($sort_direction[$index]);
+                    $single_sort_order .= mb_strtoupper($sort_direction[$index]);
                 }
             }
             if ($current_name == $name_to_use_in_sort && $is_in_sort) {
@@ -2009,7 +2009,7 @@ class PMA_DisplayResults
                 );
                 $order_img .= " <small>" . ($index + 1) . "</small>";
             } else {
-                $sort_order .= strtoupper($sort_direction[$index]);
+                $sort_order .= mb_strtoupper($sort_direction[$index]);
             }
             // Separate columns by a comma
             $sort_order .= ", ";
@@ -2117,7 +2117,7 @@ class PMA_DisplayResults
     private function _getSortingUrlParams(
         $sort_direction, $sort_order, $column_index, $index
     ) {
-        if (strtoupper(trim($sort_direction[$index])) ==  self::DESCENDING_SORT_DIR) {
+        if (mb_strtoupper(trim($sort_direction[$index])) ==  self::DESCENDING_SORT_DIR) {
             $sort_order .= ' ASC';
             $order_img   = ' ' . PMA_Util::getImage(
                 's_desc.png', __('Descending'),
@@ -2912,18 +2912,18 @@ class PMA_DisplayResults
 
             // Check whether the field needs to display with syntax highlighting
 
-            if (! empty($this->transformation_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->name)])
+            if (! empty($this->transformation_info[mb_strtolower($this->__get('db'))][mb_strtolower($this->__get('table'))][mb_strtolower($meta->name)])
                 && (trim($row[$i]) != '')
             ) {
                 $row[$i] = PMA_Util::formatSql($row[$i]);
                 include_once $this->transformation_info
-                    [strtolower($this->__get('db'))]
-                    [strtolower($this->__get('table'))]
-                    [strtolower($meta->name)][0];
+                    [mb_strtolower($this->__get('db'))]
+                    [mb_strtolower($this->__get('table'))]
+                    [mb_strtolower($meta->name)][0];
                 $transformation_plugin = new $this->transformation_info
-                    [strtolower($this->__get('db'))]
-                    [strtolower($this->__get('table'))]
-                    [strtolower($meta->name)][1](null);
+                    [mb_strtolower($this->__get('db'))]
+                    [mb_strtolower($this->__get('table'))]
+                    [mb_strtolower($meta->name)][1](null);
 
                 $transform_options  = PMA_Transformation_getOptions(
                     isset($mime_map[$meta->name]['transformation_options'])
@@ -2933,9 +2933,9 @@ class PMA_DisplayResults
 
                 $meta->mimetype = str_replace(
                     '_', '/',
-                    $this->transformation_info[strtolower($this->__get('db'))]
-                    [strtolower($this->__get('table'))]
-                    [strtolower($meta->name)][2]
+                    $this->transformation_info[mb_strtolower($this->__get('db'))]
+                    [mb_strtolower($this->__get('table'))]
+                    [mb_strtolower($meta->name)][2]
                 );
 
             }
@@ -2944,11 +2944,11 @@ class PMA_DisplayResults
             include_once 'libraries/special_schema_links.lib.php';
 
             if (isset($GLOBALS['special_schema_links'])
-                && (! empty($GLOBALS['special_schema_links'][strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->name)]))
+                && (! empty($GLOBALS['special_schema_links'][mb_strtolower($this->__get('db'))][mb_strtolower($this->__get('table'))][mb_strtolower($meta->name)]))
             ) {
 
                 $linking_url = $this->_getSpecialLinkUrl(
-                    $row[$i], $row_info, strtolower($meta->name)
+                    $row[$i], $row_info, mb_strtolower($meta->name)
                 );
                 include_once
                     "libraries/plugins/transformations/Text_Plain_Link.class.php";
@@ -3153,8 +3153,8 @@ class PMA_DisplayResults
 
         $linking_url_params = array();
         $link_relations = $GLOBALS['special_schema_links']
-            [strtolower($this->__get('db'))]
-            [strtolower($this->__get('table'))]
+            [mb_strtolower($this->__get('db'))]
+            [mb_strtolower($this->__get('table'))]
             [$field_name];
 
         if (! is_array($link_relations['link_param'])) {
@@ -3180,12 +3180,12 @@ class PMA_DisplayResults
                 } else {
 
                     $linking_url_params[$new_param['param_info']]
-                        = $row_info[strtolower($new_param['column_name'])];
+                        = $row_info[mb_strtolower($new_param['column_name'])];
 
                     // Special case 1 - when executing routines, according
                     // to the type of the routine, url param changes
                     if (!empty($row_info['routine_type'])) {
-                        $lowerRoutineType = strtolower($row_info['routine_type']);
+                        $lowerRoutineType = mb_strtolower($row_info['routine_type']);
                         if ($lowerRoutineType == self::ROUTINE_PROCEDURE
                             || $lowerRoutineType == self::ROUTINE_FUNCTION
                         ) {
@@ -3220,7 +3220,7 @@ class PMA_DisplayResults
 
         for ($n = 0; $n < $this->__get('fields_cnt'); ++$n) {
             $m = $col_order ? $col_order[$n] : $n;
-            $row_info[strtolower($fields_meta[$m]->name)] = $row[$m];
+            $row_info[mb_strtolower($fields_meta[$m]->name)] = $row[$m];
         }
 
         return $row_info;
@@ -3761,7 +3761,7 @@ class PMA_DisplayResults
             if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_GEOM) {
 
                 $geometry_text = $this->_handleNonPrintableContents(
-                    strtoupper(self::GEOMETRY_FIELD),
+                    mb_strtoupper(self::GEOMETRY_FIELD),
                     (isset($column) ? $column : ''), $transformation_plugin,
                     $transform_options, $default_function, $meta
                 );
@@ -4781,7 +4781,7 @@ class PMA_DisplayResults
                     $column_for_first_row = $row[$sorted_column_index];
                 }
 
-                $column_for_first_row = strtoupper(
+                $column_for_first_row = mb_strtoupper(
                     substr($column_for_first_row, 0, $GLOBALS['cfg']['LimitChars'])
                 );
 
@@ -4805,7 +4805,7 @@ class PMA_DisplayResults
                     $column_for_last_row = $row[$sorted_column_index];
                 }
 
-                $column_for_last_row = strtoupper(
+                $column_for_last_row = mb_strtoupper(
                     substr($column_for_last_row, 0, $GLOBALS['cfg']['LimitChars'])
                 );
 

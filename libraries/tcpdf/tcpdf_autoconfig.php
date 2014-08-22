@@ -79,7 +79,7 @@ if (!defined('K_PATH_FONTS')) {
 if (!defined('K_PATH_URL')) {
 	$k_path_url = K_PATH_MAIN; // default value for console mode
 	if (isset($_SERVER['HTTP_HOST']) AND (!empty($_SERVER['HTTP_HOST']))) {
-		if(isset($_SERVER['HTTPS']) AND (!empty($_SERVER['HTTPS'])) AND (strtolower($_SERVER['HTTPS']) != 'off')) {
+		if(isset($_SERVER['HTTPS']) AND (!empty($_SERVER['HTTPS'])) AND (mb_strtolower($_SERVER['HTTPS']) != 'off')) {
 			$k_path_url = 'https://';
 		} else {
 			$k_path_url = 'http://';

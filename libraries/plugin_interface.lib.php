@@ -24,10 +24,10 @@ function PMA_getPlugin(
     $plugin_param = false
 ) {
     $GLOBALS['plugin_param'] = $plugin_param;
-    $class_name = strtoupper($plugin_type[0])
-        . strtolower(substr($plugin_type, 1))
-        . strtoupper($plugin_format[0])
-        . strtolower(substr($plugin_format, 1));
+    $class_name = mb_strtoupper($plugin_type[0])
+        . mb_strtolower(substr($plugin_type, 1))
+        . mb_strtoupper($plugin_format[0])
+        . mb_strtolower(substr($plugin_format, 1));
     $file = $class_name . ".class.php";
     if (is_file($plugins_dir . $file)) {
         include_once $plugins_dir . $file;
@@ -191,7 +191,7 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
     $ret = '<select id="plugins" name="' . $name . '">';
     $default = PMA_pluginGetDefault($section, $cfgname);
     foreach ($list as $plugin) {
-        $plugin_name = strtolower(substr(get_class($plugin), strlen($section)));
+        $plugin_name = mb_strtolower(substr(get_class($plugin), strlen($section)));
         $ret .= '<option';
          // If the form is being repopulated using $_GET data, that is priority
         if (isset($_GET[$name])
@@ -215,7 +215,7 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
 
     // Whether each plugin has to be saved as a file
     foreach ($list as $plugin) {
-        $plugin_name = strtolower(substr(get_class($plugin), strlen($section)));
+        $plugin_name = mb_strtolower(substr(get_class($plugin), strlen($section)));
         $ret .= '<input type="hidden" id="force_file_' . $plugin_name
             . '" value="';
         $properties = $plugin->getProperties();
@@ -484,7 +484,7 @@ function PMA_pluginGetOptions($section, &$list)
             $options = $properties->getOptions();
         }
 
-        $plugin_name = strtolower(substr(get_class($plugin), strlen($section)));
+        $plugin_name = mb_strtolower(substr(get_class($plugin), strlen($section)));
         $ret .= '<div id="' . $plugin_name
             . '_options" class="format_specific_options">';
         $ret .= '<h3>' . PMA_getString($text) . '</h3>';

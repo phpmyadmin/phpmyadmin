@@ -76,7 +76,7 @@ function PMA_convertAIXMapCharsets($in_charset, $out_charset)
     global $gnu_iconv_to_aix_iconv_codepage_map;
 
     // Check for transliteration argument at the end of output character set name
-    $translit_search = strpos(strtolower($out_charset), '//translit');
+    $translit_search = strpos(mb_strtolower($out_charset), '//translit');
     $using_translit = (!($translit_search === false));
 
     // Extract "plain" output character set name
@@ -87,21 +87,21 @@ function PMA_convertAIXMapCharsets($in_charset, $out_charset)
 
     // Transform name of input character set (if found)
     $in_charset_exisits = array_key_exists(
-        strtolower($in_charset),
+        mb_strtolower($in_charset),
         $gnu_iconv_to_aix_iconv_codepage_map
     );
     if ($in_charset_exisits) {
-        $in_charset = $gnu_iconv_to_aix_iconv_codepage_map[strtolower($in_charset)];
+        $in_charset = $gnu_iconv_to_aix_iconv_codepage_map[mb_strtolower($in_charset)];
     }
 
     // Transform name of "plain" output character set (if found)
     $out_charset_plain_exists = array_key_exists(
-        strtolower($out_charset_plain),
+        mb_strtolower($out_charset_plain),
         $gnu_iconv_to_aix_iconv_codepage_map
     );
     if ($out_charset_plain_exists) {
         $out_charset_plain = $gnu_iconv_to_aix_iconv_codepage_map[
-            strtolower($out_charset_plain)];
+            mb_strtolower($out_charset_plain)];
     }
 
     // Add transliteration argument again (exactly as specified by user) if used
