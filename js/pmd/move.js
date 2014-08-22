@@ -65,6 +65,17 @@ function make_zero() {   // Function called if the user stays after seeing the c
     _staying = 0;
 }
 
+function MarkSaved()
+{
+    _change = 0;
+    $('#saved_state').text('');
+}
+
+function MarkUnsaved()
+{
+    _change = 1;
+    $('#saved_state').text('*');
+}
 
 var dx, dy, dy2;
 var cur_click = null;
@@ -157,7 +168,7 @@ function MouseMove(e)
     //window.status = "X = "+ Glob_X + " Y = "+ Glob_Y;
 
     if (cur_click !== null) {
-        _change = 1;
+        MarkUnsaved();
         var mGx = Glob_X - dx;
         var mGy = Glob_Y - dy;
         mGx = mGx > 0 ? mGx : 0;
@@ -578,7 +589,7 @@ function Save2(callback)
             } else {
                 PMA_ajaxRemoveMessage($msgbox);
                 PMA_ajaxShowMessage(PMA_messages.strModificationSaved);
-                _change = 0;
+                MarkSaved();
                 if (typeof callback !== 'undefined') {
                     callback();
                 }
@@ -587,6 +598,7 @@ function Save2(callback)
     } else {
         var name = $("#page_name").html().trim();
         Save_to_selected_page(db, selected_page, name, Get_url_pos(), function (page) {
+            MarkSaved();
             if (typeof callback !== 'undefined') {
                 callback();
             }
@@ -617,7 +629,7 @@ function Save3(callback)
                         PMA_ajaxShowMessage(data.error, false);
                     } else {
                         PMA_ajaxRemoveMessage($msgbox);
-                        _change = 0;
+                        MarkSaved();
                         if (data.id) {
                             selected_page = data.id;
                         }
@@ -629,7 +641,7 @@ function Save3(callback)
                 });
             } else {
                 Save_to_new_page(db, name, Get_url_pos(), function (page) {
-                    _change = 0;
+                    MarkSaved();
                     if (page.pg_nr) {
                         selected_page = page.pg_nr;
                     }
@@ -826,7 +838,7 @@ function Save_as()
                     PMA_ajaxShowMessage(data.error, false);
                 } else {
                     PMA_ajaxRemoveMessage($msgbox);
-                    _change = 0;
+                    MarkSaved();
                     if (data.id) {
                         selected_page = data.id;
                     }
@@ -838,7 +850,7 @@ function Save_as()
                 var selected_page_id = $selected_page.find('option:selected').val();
                 Save_to_selected_page(db, selected_page_id, name, Get_url_pos(), function (page) {
                     PMA_ajaxRemoveMessage($msgbox);
-                    _change = 0;
+                    MarkSaved();
                     if (page.pg_nr) {
                         selected_page = page.pg_nr;
                     }
@@ -847,7 +859,7 @@ function Save_as()
             } else if (choice === 'new') {
                 Save_to_new_page(db, name, Get_url_pos(), function (page) {
                     PMA_ajaxRemoveMessage($msgbox);
-                    _change = 0;
+                    MarkSaved();
                     if (page.pg_nr) {
                         selected_page = page.pg_nr;
                     }
@@ -1003,7 +1015,7 @@ function Load_page(page) {
             Show_new_page_tables(true);
         }
     }
-    _change = 0;
+    MarkSaved();
 }
 
 function Grid()
