@@ -126,8 +126,8 @@ function PMA_getHtmlForSqlQueryForm(
 /**
  * return HTML for Sql Query Form Insert
  *
- * @param string  $query          query to display in the textarea
- * @param string  $delimiter      default delimiter to use
+ * @param string $query     query to display in the textarea
+ * @param string $delimiter default delimiter to use
  *
  * @return string
  *
@@ -442,7 +442,7 @@ function PMA_getHtmlForSqlQueryFormUpload()
         );
     } elseif (!empty($files)) {
         $html .= '<div class="formelement">';
-        $html .= '<strong>' . __('web server upload directory:') . '</strong>' . "\n";
+        $html .= '<strong>' . __('web server upload directory:') . '</strong>';
         $html .= '<select size="1" name="sql_localfile">' . "\n";
         $html .= '<option value="" selected="selected"></option>' . "\n";
         $html .= $files;
