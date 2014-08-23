@@ -1195,7 +1195,7 @@ function PMA_getHtmlForColumnDefault($columnNumber, $ci, $ci_offset, $type_upper
  * @param string     $submit_default_current_timestamp submit default current
  *                                                     timestamp
  * @param array      $comments_map                     comments map
- * @param array      $fields_meta                      fields map
+ * @param array|null $fields_meta                      fields map
  * @param bool       $is_backup                        is backup
  * @param array      $move_columns                     move columns
  * @param array      $cfgRelation                      configuration relation
