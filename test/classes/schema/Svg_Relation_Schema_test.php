@@ -43,6 +43,9 @@ class PMA_Svg_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['svg_show_keys'] = true;
         $_REQUEST['svg_show_table_dimension'] = true;
         $_REQUEST['svg_all_tables_same_width'] = true;
+        $_REQUEST['t_h'] = array('information_schema.files' => 1);
+        $_REQUEST['t_x'] = array('information_schema.files' => 0);
+        $_REQUEST['t_y'] = array('information_schema.files' => 0);
 
         $GLOBALS['server'] = 1;
         $GLOBALS['controllink'] = null;

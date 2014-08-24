@@ -44,6 +44,9 @@ class PMA_Dia_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['dia_show_keys'] = true;
         $_REQUEST['dia_orientation'] = 'orientation';
         $_REQUEST['dia_paper'] = 'paper';
+        $_REQUEST['t_h'] = array('information_schema.files' => 1);
+        $_REQUEST['t_x'] = array('information_schema.files' => 0);
+        $_REQUEST['t_y'] = array('information_schema.files' => 0);
 
         $GLOBALS['server'] = 1;
         $GLOBALS['controllink'] = null;

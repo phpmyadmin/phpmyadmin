@@ -44,6 +44,9 @@ class PMA_Eps_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['eps_orientation'] = 'orientation';
         $_REQUEST['eps_show_table_dimension'] = true;
         $_REQUEST['eps_all_tables_same_width'] = true;
+        $_REQUEST['t_h'] = array('information_schema.files' => 1);
+        $_REQUEST['t_x'] = array('information_schema.files' => 0);
+        $_REQUEST['t_y'] = array('information_schema.files' => 0);
 
         $GLOBALS['server'] = 1;
         $GLOBALS['controllink'] = null;
