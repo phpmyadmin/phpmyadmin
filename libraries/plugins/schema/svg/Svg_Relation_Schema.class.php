@@ -198,10 +198,10 @@ class PMA_SVG extends XMLWriter
      * and other elements who have x,y co-ordinates are drawn.
      * specify their width and height and can give styles too.
      *
-     * @param string     $name  Svg element name
-     * @param int        $x     The x attr defines the left position of the element
+     * @param string     $name   Svg element name
+     * @param int        $x      The x attr defines the left position of the element
      * (e.g. x="0" places the element 0 pixels from the left of the browser window)
-     * @param integer    $y     The y attribute defines the top position of the
+     * @param integer    $y      The y attribute defines the top position of the
      * element (e.g. y="0" places the element 0 pixels from the top of the browser
      * window)
      * @param int|string $width  The width attribute defines the width the element
