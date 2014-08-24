@@ -240,7 +240,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         foreach ($alltables as $table) {
             if (! isset($this->tables[$table])) {
                 $this->_tables[$table] = new Table_Stats_Dia(
-                    $table, $this->pageNumber, $this->showKeys, $this->isOffline()
+                    $table, $this->pageNumber, $this->showKeys, $this->offline
                 );
             }
         }
@@ -301,7 +301,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
     {
         global $dia;
         $filename = $GLOBALS['db'] . '-' . $this->pageNumber;
-        if ($this->isOffline()) {
+        if ($this->offline) {
             $filename = __("Dia export page");
         }
         $dia->showOutput($filename);

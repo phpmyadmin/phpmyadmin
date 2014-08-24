@@ -358,7 +358,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
                 $this->_tables[$table] = new Table_Stats_Eps(
                     $table, $eps->getFont(), $eps->getFontSize(), $this->pageNumber,
                     $this->_tablewidth, $this->showKeys,
-                    $this->tableDimension, $this->isOffline()
+                    $this->tableDimension, $this->offline
                 );
             }
 
@@ -429,7 +429,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
     {
         global $eps;
         $filename = $GLOBALS['db'] . '-' . $this->pageNumber;
-        if ($this->isOffline()) {
+        if ($this->offline) {
             $filename = __("EPS export page");
         }
         $eps->showOutput($filename);

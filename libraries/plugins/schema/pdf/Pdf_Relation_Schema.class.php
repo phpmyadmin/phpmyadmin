@@ -53,25 +53,25 @@ class PMA_Schema_PDF extends PMA_PDF
     var $widths;
     private $_ff = PMA_PDF_FONT;
     private $_offline;
-    private $_exportingPage;
+    private $_pageNumber;
     private $_withDoc;
 
     /**
      * Constructs PDF for schema export.
      *
-     * @param string  $orientation   page orientation
-     * @param string  $unit          unit
-     * @param string  $paper         the format used for pages
-     * @param int     $exportingPage schema page number that is being exported
-     * @param boolean $withDoc       with document dictionary
+     * @param string  $orientation page orientation
+     * @param string  $unit        unit
+     * @param string  $paper       the format used for pages
+     * @param int     $pageNumber  schema page number that is being exported
+     * @param boolean $withDoc     with document dictionary
      *
      * @access public
      */
     public function __construct(
-        $orientation, $unit, $paper, $exportingPage, $withDoc
+        $orientation, $unit, $paper, $pageNumber, $withDoc
     ) {
         parent::__construct($orientation, $unit, $paper);
-        $this->_exportingPage = $exportingPage;
+        $this->_pageNumber = $pageNumber;
         $this->_withDoc = $withDoc;
     }
 
@@ -247,14 +247,14 @@ class PMA_Schema_PDF extends PMA_PDF
 
         // This function must be named "Header" to work with the TCPDF library
         if ($this->_withDoc) {
-            if ($this->_offline) {
+            if ($this->_offline || $this->_pageNumber == -1) {
                 $pg_name = __("PDF export page");
             } else {
                 $test_query = 'SELECT * FROM '
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
                     . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($GLOBALS['db'])
-                    . '\' AND page_nr = \'' . $this->_exportingPage . '\'';
+                    . '\' AND page_nr = \'' . $this->_pageNumber . '\'';
                 $test_rs = PMA_queryAsControlUser($test_query);
                 $pages = @$GLOBALS['dbi']->fetchAssoc($test_rs);
                 $pg_name = ucfirst($pages['page_descr']);
@@ -477,7 +477,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $pdf->setCMargin(0);
         $pdf->Open();
         $pdf->SetAutoPageBreak('auto');
-        $pdf->setOffline($this->isOffline());
+        $pdf->setOffline($this->offline);
 
         $alltables = $this->getTablesFromRequest();
 
@@ -509,7 +509,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                     $this->_tablewidth,
                     $this->showKeys,
                     $this->tableDimension,
-                    $this->isOffline()
+                    $this->offline
                 );
             }
             if ($this->sameWide) {
@@ -841,7 +841,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         global $pdf;
 
         // Get the name of this pdfpage to use as filename
-        if ($this->isOffline()) {
+        if ($this->offline) {
             $filename = __("PDF export page") . '.pdf';
         } else {
             $_name_sql = 'SELECT page_descr FROM '

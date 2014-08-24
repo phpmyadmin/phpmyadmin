@@ -331,7 +331,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
                 $this->_tables[$table] = new Table_Stats_Svg(
                     $table, $svg->getFont(), $svg->getFontSize(), $this->pageNumber,
                     $this->_tablewidth, $this->showKeys, $this->tableDimension,
-                    $this->isOffline()
+                    $this->offline
                 );
             }
 
@@ -402,7 +402,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
     {
         global $svg;
         $filename = $GLOBALS['db'] . '-' . $this->pageNumber;
-        if ($this->isOffline()) {
+        if ($this->offline) {
             $filename = __("SVG export page");
         }
         $svg->showOutput($filename);
