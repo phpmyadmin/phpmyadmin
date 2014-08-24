@@ -1985,12 +1985,12 @@ function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $disp_mode)
 /**
  * Function to get html to display problems in indexes
  *
- * @param string $query_type     query type
- * @param array  $selectedTables array of table names selected from the
- *                               database structure page, for an action
- *                               like check table, optimize table,
- *                               analyze table or repair table
- * @param string $db             current database
+ * @param string     $query_type     query type
+ * @param array|null $selectedTables array of table names selected from the
+ *                                   database structure page, for an action
+ *                                   like check table, optimize table,
+ *                                   analyze table or repair table
+ * @param string     $db             current database
  *
  * @return string
  */
@@ -2039,31 +2039,31 @@ function PMA_getHtmlForPrintButton()
 /**
  * Function to display results when the executed query returns non empty results
  *
- * @param array  $result               executed query results
- * @param bool   $justBrowsing         whether just browsing or not
- * @param array  $analyzed_sql_results analysed sql results
- * @param string $db                   current database
- * @param string $table                current table
- * @param string $disp_mode            display mode
- * @param string $message              message to show
- * @param array  $sql_data             sql data
- * @param object $displayResultsObject Instance of DisplyResults.class
- * @param string $goto                 goto page url
- * @param string $pmaThemeImage        uri of the theme image
- * @param string $sql_limit_to_append  sql limit to append
- * @param int    $unlim_num_rows       unlimited number of rows
- * @param int    $num_rows             number of rows
- * @param string $full_sql_query       full sql query
- * @param string $disp_query           display query
- * @param string $disp_message         display message
- * @param array  $profiling_results    profiling results
- * @param string $query_type           query type
- * @param array  $selectedTables       array of table names selected from the
- *                                     database structure page, for an action
- *                                     like check table, optimize table,
- *                                     analyze table or repair table
- * @param string $sql_query            sql query
- * @param string $complete_query       complete sql query
+ * @param array      $result               executed query results
+ * @param bool       $justBrowsing         whether just browsing or not
+ * @param array      $analyzed_sql_results analysed sql results
+ * @param string     $db                   current database
+ * @param string     $table                current table
+ * @param string     $disp_mode            display mode
+ * @param string     $message              message to show
+ * @param array      $sql_data             sql data
+ * @param object     $displayResultsObject Instance of DisplyResults.class
+ * @param string     $goto                 goto page url
+ * @param string     $pmaThemeImage        uri of the theme image
+ * @param string     $sql_limit_to_append  sql limit to append
+ * @param int        $unlim_num_rows       unlimited number of rows
+ * @param int        $num_rows             number of rows
+ * @param string     $full_sql_query       full sql query
+ * @param string     $disp_query           display query
+ * @param string     $disp_message         display message
+ * @param array      $profiling_results    profiling results
+ * @param string     $query_type           query type
+ * @param array|null $selectedTables       array of table names selected from
+ *                                         the database structure page, for an
+ *                                         action like check table, optimize
+ *                                         table, analyze table or repair table
+ * @param string     $sql_query            sql query
+ * @param string     $complete_query       complete sql query
  *
  * @return void
  */
@@ -2222,34 +2222,35 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
 /**
  * Function to send response for both empty results and non empty results
  *
- * @param int    $num_rows             number of rows returned by the executed query
- * @param int    $unlim_num_rows       unlimited number of rows
- * @param bool   $is_affected          is affected
- * @param string $db                   current database
- * @param string $table                current table
- * @param string $message_to_show      message to show
- * @param array  $analyzed_sql_results analyzed Sql Results
- * @param object $displayResultsObject Instance of DisplayResult class
- * @param array  $extra_data           extra data
- * @param array  $result               executed query results
- * @param bool   $justBrowsing         whether just browsing or not
- * @param string $disp_mode            display mode
- * @param object $message              message
- * @param array  $sql_data             sql data
- * @param string $goto                 goto page url
- * @param string $pmaThemeImage        uri of the PMA theme image
- * @param string $sql_limit_to_append  sql limit to append
- * @param string $full_sql_query       full sql query
- * @param string $disp_query           display query
- * @param string $disp_message         display message
- * @param array  $profiling_results    profiling results
- * @param string $query_type           query type
- * @param array  $selectedTables       array of table names selected from the
- *                                     database structure page, for an action
- *                                     like check table, optimize table,
- *                                     analyze table or repair table
- * @param string $sql_query            sql query
- * @param string $complete_query       complete query
+ * @param int        $num_rows             number of rows returned by the
+ *                                         executed query
+ * @param int        $unlim_num_rows       unlimited number of rows
+ * @param bool       $is_affected          is affected
+ * @param string     $db                   current database
+ * @param string     $table                current table
+ * @param string     $message_to_show      message to show
+ * @param array      $analyzed_sql_results analyzed Sql Results
+ * @param object     $displayResultsObject Instance of DisplayResult class
+ * @param array      $extra_data           extra data
+ * @param array      $result               executed query results
+ * @param bool       $justBrowsing         whether just browsing or not
+ * @param string     $disp_mode            display mode
+ * @param object     $message              message
+ * @param array      $sql_data             sql data
+ * @param string     $goto                 goto page url
+ * @param string     $pmaThemeImage        uri of the PMA theme image
+ * @param string     $sql_limit_to_append  sql limit to append
+ * @param string     $full_sql_query       full sql query
+ * @param string     $disp_query           display query
+ * @param string     $disp_message         display message
+ * @param array      $profiling_results    profiling results
+ * @param string     $query_type           query type
+ * @param array|null $selectedTables       array of table names selected from
+ *                                         the database structure page, for an
+ *                                         action like check table, optimize
+ *                                         table, analyze table or repair table
+ * @param string     $sql_query            sql query
+ * @param string     $complete_query       complete query
  *
  * @return void
  */
