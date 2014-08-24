@@ -10,6 +10,7 @@
  *
  */
 require_once 'libraries/common.inc.php';
+require_once 'libraries/db_printview.lib.php';
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
@@ -115,30 +116,24 @@ if ($num_tables == 0) {
             echo '<table width="100%">';
 
             if (! empty($sts_data['Create_time'])) {
-                echo '<tr>';
-                echo '<td class="right">' . __('Creation:') . '</td>';
-                echo '<td class="right">';
-                echo PMA_Util::localisedDate(strtotime($sts_data['Create_time']));
-                echo '</td>';
-                echo '</tr>';
+                echo PMA_getHtmlForOneDate(
+                    __('Creation:'),
+                    $sts_data['Create_time']
+                );
             }
 
             if (! empty($sts_data['Update_time'])) {
-                echo '<tr>';
-                echo '<td class="right">' . __('Last update:') . '</td>';
-                echo '<td class="right">';
-                echo PMA_Util::localisedDate(strtotime($sts_data['Update_time']));
-                echo '</td>';
-                echo '</tr>';
+                echo PMA_getHtmlForOneDate(
+                    __('Last update:'),
+                    $sts_data['Update_time']
+                );
             }
 
             if (! empty($sts_data['Check_time'])) {
-                echo '<tr>';
-                echo '<td class="right">' . __('Last check:') . '</td>';
-                echo '<td class="right">';
-                echo PMA_Util::localisedDate(strtotime($sts_data['Check_time']));
-                echo '</td>';
-                echo '</tr>';
+                echo PMA_getHtmlForOneDate(
+                    __('Last check:'),
+                    $sts_data['Check_time']
+                );
             }
             echo '</table>';
         }
