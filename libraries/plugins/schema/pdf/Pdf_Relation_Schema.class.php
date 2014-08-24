@@ -842,7 +842,10 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 
         // Get the name of this pdfpage to use as filename
         if ($this->offline) {
-            $filename = __("PDF export page") . '.pdf';
+            $filename = $GLOBALS['db'];
+            if ($this->pageNumber != -1) {
+                $filename .= '-' . $this->pageNumber;
+            }
         } else {
             $_name_sql = 'SELECT page_descr FROM '
                 . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
