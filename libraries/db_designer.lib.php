@@ -370,7 +370,10 @@ function PMA_getDesignerPageTopMenu($selected_page)
 
     $html .= '<img class="M_bord" alt="" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png') . '" />';
-    $html .= '<span id="page_name">' . htmlspecialchars($selected_page) . '</span>';
+    $html .= '<span id="page_name" style="border:none;">';
+    $html .= htmlspecialchars($selected_page);
+    $html .= '</span>';
+    $html .= '<span id="saved_state" style="border:none;width:5px"></span>';
     $html .= '<img class="M_bord" alt="" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png') . '" />';
 

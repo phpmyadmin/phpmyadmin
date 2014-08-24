@@ -56,11 +56,7 @@ function Create_new_page(db, page_name, callback)
 
 function Save_table_positions(positions, callback)
 {
-    DesignerOfflineDB.addObject('table_coords', positions, function (id) {
-        if (typeof callback !== 'undefined') {
-            callback(id);
-        }
-    });
+    DesignerOfflineDB.addObject('table_coords', positions, callback);
 }
 
 function Create_page_list(callback)
@@ -84,22 +80,14 @@ function Delete_page(page_id, callback)
             for (i in page.tbl_cords) {
                 DesignerOfflineDB.deleteObject('table_coords', page.tbl_cords[i]);
             }
-            DesignerOfflineDB.deleteObject('pdf_pages', page_id, function (state) {
-                if (typeof callback !== 'undefined') {
-                    callback(state);
-                }
-            });
+            DesignerOfflineDB.deleteObject('pdf_pages', page_id, callback);
         }
     });
 }
 
 function Load_first_page(callback)
 {
-    DesignerOfflineDB.loadFirstObject('pdf_pages', function (page) {
-        if (typeof callback !== 'undefined') {
-            callback(page);
-        }
-    });
+    DesignerOfflineDB.loadFirstObject('pdf_pages', callback);
 }
 
 function Show_new_page_tables(check)

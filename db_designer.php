@@ -34,7 +34,9 @@ if (isset($_REQUEST['dialog'])) {
         );
     }
 
-    $response->addHTML($html);
+    if (! empty($html)) {
+        $response->addHTML($html);
+    }
     return;
 }
 

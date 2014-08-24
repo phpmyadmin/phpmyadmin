@@ -443,7 +443,7 @@ class PMA_DatabaseInterface
      * </code>
      *
      * @param string          $database     database
-     * @param string|false    $table        table name or false
+     * @param string|bool     $table        table name or false
      * @param boolean         $tbl_is_group $table is a table group
      * @param mixed           $link         mysql link
      * @param integer         $limit_offset zero-based offset for the count

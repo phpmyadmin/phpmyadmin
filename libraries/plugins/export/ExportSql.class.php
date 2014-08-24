@@ -1437,10 +1437,11 @@ class ExportSql extends ExportPlugin
                             " AUTO_INCREMENT", "", $sql_lines[$k]
                         );
                     }
-                    if ($update_indexes_increments && preg_match(
-                        '@[\s]+(AUTO_INCREMENT=)@',
-                        $sql_lines[$k]
-                    )) {
+                    if (isset($GLOBALS['sql_auto_increment'])
+                        && $update_indexes_increments && preg_match(
+                            '@[\s]+(AUTO_INCREMENT=)@',
+                            $sql_lines[$k]
+                        )) {
                         //adds auto increment value
                         $increment_value = substr(
                             $sql_lines[$k],

@@ -35,10 +35,15 @@ phpMyAdmin - ChangeLog
 + rfe #919  Multiple-column foreign key relation
 - bug       Incorrect link to documentation
 + rfe #857  Regexp replace
+- bug       Incorrect path in change password when on reverse proxy or
+            non-root directory
 
 4.2.8.0 (not yet released)
 - bug #4516 Odd export behavior
 - bug #4519 Uncaught TypeError: Cannot read property 'success' of null
+- bug #4520 sql.js: cannot read property
+- bug #4521 Initially allowed chart types do not match selected data
+- bug #4518 Export to SQL: CREATE TABLE option AUTO_INCREMENT ignored
 
 4.2.7.1 (2014-08-17)
 - bug #4501 [security] XSS in table browse page

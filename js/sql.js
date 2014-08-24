@@ -286,7 +286,7 @@ AJAX.registerOnload('sql.js', function () {
         PMA_prepareForAjaxRequest($form);
 
         $.post($form.attr('action'), $form.serialize(), function (data) {
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 // success happens if the query returns rows or not
                 //
                 // fade out previous messages, if any
@@ -375,7 +375,7 @@ AJAX.registerOnload('sql.js', function () {
                         }
                     }
                 }
-            } else if (data.success === false) {
+            } else if (typeof data !== 'undefined' && data.success === false) {
                 // show an error message that stays on screen
                 $('#sqlqueryform').before(data.error);
                 $sqlqueryresults.hide();

@@ -183,6 +183,11 @@ if (!defined('TESTSUITE')) {
         PMA_fatalError(__('Bad type!'));
     }
 
+    // Avoid warning from PHP Analyzer
+    if (is_null($export_plugin)) {
+        $export_plugin = new stdClass();
+    }
+
     /**
      * valid compression methods
      */

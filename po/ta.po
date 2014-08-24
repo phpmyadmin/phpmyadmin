@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-16 14:26-0400\n"
-"PO-Revision-Date: 2014-08-13 22:27+0200\n"
+"PO-Revision-Date: 2014-08-21 22:49+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
-"Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/"
-">\n"
+"Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
+"\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -961,10 +961,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "முதனிலை சுட்டு/தொகுப்புக்குறிகாட்டி கைவிடப்படுகிறது"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping Foreign key."
-msgstr "நிரல்வரிசை கைவிடப்படுகிறது"
+msgstr "அயல் குறியெண் கைவிடப்படுகிறது."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -987,10 +986,10 @@ msgstr ""
 "வேண்டுமா?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "உங்களுக்கு உண்மையிலேயே \"%s\" தேடலை நீக்க வேண்டுமா?"
+msgstr ""
+"உங்களுக்கு உண்மையிலேயே தேர்ந்தெடுத்த பயனர்(களை) திருப்பியளிக்க வேண்டுமா?"
 
 #: js/messages.php:51
 msgid "Save & Close"
@@ -4003,10 +4002,9 @@ msgid "Replace with:"
 msgstr "ஆல் பதிலிடல்:"
 
 #: libraries/TableSearch.class.php:1369
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "வழக்கமான வெளிப்பாடு"
+msgstr "சுருங்குறியை பயன்படுத்துக"
 
 #: libraries/TableSearch.class.php:1471
 msgid "Find and replace - preview"
@@ -6405,7 +6403,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:583
 msgid "Hide databases matching regular expression (PCRE)."
-msgstr ""
+msgstr "சுருங்குறிக்கு பொருந்தும் தரவுத்தளங்களை மறைக்க (PCRE)."
 
 #: libraries/config/messages.inc.php:584
 msgid "Hide databases"
@@ -7010,10 +7008,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:784
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Enable Zero Configuration mode"
-msgstr "உள்ளமைவு சேமிக்கப்பட்டது."
+msgstr "அமைப்பாக்கம் இல்லா முறைமையை இயலசெய்க"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7122,11 +7119,11 @@ msgid "New page name"
 msgstr ""
 
 #: libraries/db_designer.lib.php:156
-#, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
-"தரவிறக்க செருகுநிரல்களை நினைவேற்ற இயலவில்லை, தயவுசெய்து உங்கள் நிறுவலை சரிபார்க்கவும்!"
+"ஒழுங்கமைவு செருகுநிரல்களை நினைவேற்ற இயலவில்லை, தயவுசெய்து உங்கள் நிறுவலை "
+"சரிபார்க்கவும்!"
 
 #: libraries/db_designer.lib.php:164
 msgid "Select Export Relational Type"
@@ -9723,6 +9720,8 @@ msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"சரம் சுருங்குறியோடு சரிபார்த்து பொருந்துகிறது என உறுதிப்பட்டால் மட்டுமே "
+"சரத்தை உட்செருகும்.முதல் விருப்பம் சுருங்குறியாகும்."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
 #, php-format
@@ -9796,10 +9795,9 @@ msgid "Enabled"
 msgstr ""
 
 #: libraries/relation.lib.php:101
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration of pmadb… "
-msgstr "உள்ளமைவு சேமிக்கப்பட்டது."
+msgstr "pmadbஇன் அமைப்பாக்கம்... "
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:126
 msgid "General relation features"
@@ -12844,10 +12842,9 @@ msgid "Foreign key constraints"
 msgstr "அயல் குறியெண் கட்டுப்பாடுகள்"
 
 #: libraries/tbl_relation.lib.php:374
-#, fuzzy
 #| msgid "Action"
 msgid "Actions"
-msgstr "செயல்"
+msgstr "செயல்கள்"
 
 #: libraries/tbl_relation.lib.php:375
 msgid "Constraint properties"
@@ -12867,10 +12864,10 @@ msgid "+ Add constraint"
 msgstr "+கட்டுப்பாட்டை சேர்க்க"
 
 #: libraries/tbl_relation.lib.php:443
-#, fuzzy, php-format
+#, php-format
 #| msgid "Foreign key constraints"
 msgid "Foreign key constraint %s has been dropped"
-msgstr "அயல் குறியெண் கட்டுப்பாடுகள்"
+msgstr "அயல் குறியெண் வரைமுறை %s கைவிடப்பட்டது"
 
 #: libraries/tbl_relation.lib.php:465
 msgid "Constraint name"
