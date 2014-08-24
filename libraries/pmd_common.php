@@ -296,7 +296,7 @@ function PMA_getPageName($pg)
         $GLOBALS['controllink'],
         PMA_DatabaseInterface::QUERY_STORE
     );
-    return count($page_name) ? $page_name[0] : __("Untitled");
+    return count($page_name) ? $page_name[0] : null;
 }
 
 /**

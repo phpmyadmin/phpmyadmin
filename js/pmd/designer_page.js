@@ -105,6 +105,7 @@ function Show_new_page_tables(check)
     }
     selected_page = -1;
     $("#top_menu #page_name").text(PMA_messages.strUntitled);
+    MarkUnsaved();
 }
 
 function Load_HTML_for_page(page_id)
@@ -112,6 +113,7 @@ function Load_HTML_for_page(page_id)
     Show_new_page_tables(false);
     Load_page_objects(page_id, function (page, tbl_cords) {
         $("#top_menu #page_name").text(page.page_descr);
+        MarkSaved();
         for (var t in tbl_cords) {
             var tb_id = db + '.' + tbl_cords[t].table_name;
             var table = document.getElementById(tb_id);
