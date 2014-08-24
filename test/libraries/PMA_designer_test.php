@@ -196,7 +196,7 @@ class PMA_DesginerTest extends PHPUnit_Framework_TestCase
 
         // hidden field
         $this->assertContains(
-            '<input type="hidden" name="chpage" value="' . $page . '" />',
+            '<input type="hidden" name="page_number" value="' . $page . '" />',
             $result
         );
 

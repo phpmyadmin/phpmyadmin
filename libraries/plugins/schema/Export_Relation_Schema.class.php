@@ -233,36 +233,18 @@ class PMA_Export_Relation_Schema
     }
 
     /**
-     * get all tables involved or included in page
+     * Get the table names from the request
      *
-     * @param string  $db         name of the database
-     * @param integer $pageNumber page no. whose tables will be fetched in an array
-     *
-     * @return Array an array of tables
-     *
-     * @access public
+     * @return array an array of table names
      */
-    public function getAllTables($db, $pageNumber)
+    protected function getTablesFromRequest()
     {
-        // Get All tables
-        $tab_sql = 'SELECT table_name FROM '
-            . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-            . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
-            . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-            . ' AND pdf_page_number = ' . $pageNumber;
-
-        $tab_rs = PMA_queryAsControlUser(
-            $tab_sql, null, PMA_DatabaseInterface::QUERY_STORE
-        );
-        if (! $tab_rs || ! $GLOBALS['dbi']->numRows($tab_rs) > 0) {
-            $this->dieSchema('', __('This page does not contain any tables!'));
+        $tables = array();
+        foreach ($_REQUEST['t_h'] as $key => $value) {
+            list($db, $table) = explode(".", $key);
+            $tables[] = $table;
         }
-        //Fix undefined error
-        $alltables = array();
-        while ($curr_table = @$GLOBALS['dbi']->fetchAssoc($tab_rs)) {
-            $alltables[] = PMA_Util::sqlAddSlashes($curr_table['table_name']);
-        }
-        return $alltables;
+        return $tables;
     }
 
     /**
@@ -285,10 +267,8 @@ class PMA_Export_Relation_Schema
         echo '<p>' . "\n";
         echo '    ' . $error_message . "\n";
         echo '</p>' . "\n";
-        echo '<a href="schema_edit.php?' . PMA_URL_getCommon($GLOBALS['db'])
-            . '&do=selectpage&chpage=' . htmlspecialchars($pageNumber)
-            . '&action_choose=0'
-            . '">' . __('Back') . '</a>';
+        echo '<a href="db_designer.php?' . PMA_URL_getCommon($GLOBALS['db'])
+            . '&page=' . htmlspecialchars($pageNumber) . '">' . __('Back') . '</a>';
         echo "\n";
         exit;
     }

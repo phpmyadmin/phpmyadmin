@@ -235,15 +235,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
             $this->_leftMargin, $this->_rightMargin, $this->orientation
         );
 
-        if ($this->isOffline()) {
-            $alltables = array();
-            $tbl_coords = json_decode($_REQUEST['tbl_coords']);
-            foreach ($tbl_coords as $tbl) {
-                $alltables[] = $tbl->table_name;
-            }
-        } else {
-            $alltables = $this->getAllTables($GLOBALS['db'], $this->pageNumber);
-        }
+        $alltables = $this->getTablesFromRequest();
 
         foreach ($alltables as $table) {
             if (! isset($this->tables[$table])) {

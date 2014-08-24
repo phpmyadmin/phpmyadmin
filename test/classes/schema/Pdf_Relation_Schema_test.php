@@ -41,7 +41,6 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $_REQUEST['page_number'] = 33;
-        $_REQUEST['chpage'] = 32;
         $_REQUEST['pdf_show_grid'] = true;
         $_REQUEST['pdf_show_color'] = true;
         $_REQUEST['pdf_show_keys'] = true;

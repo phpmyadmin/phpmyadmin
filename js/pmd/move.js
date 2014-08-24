@@ -539,9 +539,9 @@ function Save(url) // (del?) no for pdf
     $(document.form1).submit();
 }
 
-function Get_url_pos()
+function Get_url_pos(forceString)
 {
-    if (pmd_tables_enabled) {
+    if (pmd_tables_enabled || forceString) {
         var poststr = '';
         for (var key in j_tabs) {
             poststr += '&t_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
@@ -931,10 +931,7 @@ function Export_pages()
 {
     var button_options = {};
     button_options[PMA_messages.strGo] = function () {
-        var $form = $("#id_export_pages");
-        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-        location.href = $form.attr('action') + '?' + getParamsForExport($form);
-        $msgbox.remove();
+        $("#id_export_pages").submit();
         $(this).dialog('close');
     };
     button_options[PMA_messages.strCancel] = function () {
@@ -949,6 +946,10 @@ function Export_pages()
             PMA_ajaxRemoveMessage($msgbox);
 
             var $form = $(data.message);
+            $form.attr('action', $form.attr('action') + '?' + (Get_url_pos(true).substring(1)));
+            if (!pmd_tables_enabled) {
+                $form.append('<input type="hidden" name="offline_export" value="true" />');
+            }
             var $formatDropDown = $form.find('#plugins');
             $formatDropDown.change(function() {
                 var format = $formatDropDown.val();
@@ -970,20 +971,6 @@ function Export_pages()
         }
     }); // end $.get()
 }// end export pages
-
-function getParamsForExport($form)
-{
-    var url = $form.serialize();
-    if (pmd_tables_enabled) {
-        url += Get_url_pos();
-    } else {
-        url += "&offline_export=true";
-        url += "&tbl_coords=" + JSON.stringify(Get_url_pos());
-    }
-
-    return url;
-}
-
 
 function Load_page(page) {
     if (pmd_tables_enabled) {

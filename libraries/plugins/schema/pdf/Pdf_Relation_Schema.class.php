@@ -466,28 +466,20 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
          // Initializes a new document
         $pdf = new PMA_Schema_PDF(
             $this->orientation, 'mm', $this->paper,
-            intval($_REQUEST['chpage']), $this->_withDoc
+            $this->pageNumber, $this->_withDoc
         );
         $pdf->SetTitle(
             sprintf(
-                __('Schema of the %s database - Page %s'),
-                $GLOBALS['db'],
-                $this->pageNumber
+                __('Schema of the %s database'),
+                $GLOBALS['db']
             )
         );
         $pdf->setCMargin(0);
         $pdf->Open();
         $pdf->SetAutoPageBreak('auto');
         $pdf->setOffline($this->isOffline());
-        if ($this->isOffline()) {
-            $alltables = array();
-            $tbl_coords = json_decode($_REQUEST['tbl_coords']);
-            foreach ($tbl_coords as $tbl) {
-                $alltables[] = $tbl->table_name;
-            }
-        } else {
-            $alltables = $this->getAllTables($GLOBALS['db'], $this->pageNumber);
-        }
+
+        $alltables = $this->getTablesFromRequest();
 
         if ($this->_withDoc) {
             $pdf->SetAutoPageBreak('auto', 15);
@@ -852,20 +844,17 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         if ($this->isOffline()) {
             $filename = __("PDF export page") . '.pdf';
         } else {
-            $editingPage = $_REQUEST['chpage'] != '-1'
-                ? $_REQUEST['chpage']
-                : $pageNumber;
             $_name_sql = 'SELECT page_descr FROM '
                 . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
                 . PMA_Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
-                . ' WHERE page_nr = ' . $editingPage;
+                . ' WHERE page_nr = ' . $pageNumber;
             $_name_rs = PMA_queryAsControlUser($_name_sql);
             if ($_name_rs) {
                 $_name_row = $GLOBALS['dbi']->fetchRow($_name_rs);
                 $filename = $_name_row[0] . '.pdf';
             }
             if (empty($filename)) {
-                $filename = $editingPage . '.pdf';
+                $filename = $pageNumber . '.pdf';
             }
         }
 

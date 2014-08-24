@@ -166,7 +166,7 @@ function PMA_getHtmlForSchemaExport($db, $page)
     $htmlString .= PMA_pluginGetChoice(
         'Schema', 'export_type', $export_list, 'format'
     );
-    $htmlString .= '<input type="hidden" name="chpage"'
+    $htmlString .= '<input type="hidden" name="page_number"'
         . ' value="' . htmlspecialchars($page) . '" />';
     $htmlString .= PMA_pluginGetOptions('Schema', $export_list);
     $htmlString .= '</fieldset>';

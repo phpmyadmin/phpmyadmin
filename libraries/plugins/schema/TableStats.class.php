@@ -122,31 +122,12 @@ abstract class TableStats
      */
     protected function loadCoordinates()
     {
-        if ($this->offline) {
-            $tbl_coords = json_decode($_REQUEST['tbl_coords']);
-            foreach ($tbl_coords as $tbl) {
-                if ($this->tableName === $tbl->table_name) {
-                    $this->x = (double) $tbl->x;
-                    $this->y = (double) $tbl->y;
-                    break;
-                }
+        foreach ($_REQUEST['t_h'] as $key => $value) {
+            if ($this->db . '.' . $this->tableName == $key) {
+                $this->x = (double) $_REQUEST['t_x'][$key];
+                $this->y = (double) $_REQUEST['t_y'][$key];
+                break;
             }
-        } else {
-            $sql = "SELECT x, y FROM "
-                . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
-                . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
-                . " WHERE db_name = '" . PMA_Util::sqlAddSlashes($this->db) . "'"
-                . " AND table_name = '" . PMA_Util::sqlAddSlashes($this->tableName)
-                . "' AND pdf_page_number = " . $this->pageNumber;
-            $result = PMA_queryAsControlUser(
-                $sql, false, PMA_DatabaseInterface::QUERY_STORE
-            );
-            if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
-                $this->showMissingCoordinatesError();
-            }
-            list($x, $y) = $GLOBALS['dbi']->fetchRow($result);
-            $this->x = (double) $x;
-            $this->y = (double) $y;
         }
     }
 

@@ -37,21 +37,7 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
-if (isset($_REQUEST['offline_export'])) {
-    $_REQUEST['page_number'] = -1;
-    PMA_processExportSchema($_REQUEST['export_type']);
-} else {
-    $temp_page = PMA_createNewPage("_temp" . rand(), $GLOBALS['db']);
-    try {
-        PMA_saveTablePositions($temp_page);
-        $_REQUEST['page_number'] = $temp_page;
-        PMA_processExportSchema($_REQUEST['export_type']);
-        PMA_deletePage($temp_page);
-    } catch (Exception $e) {
-        PMA_deletePage($temp_page); // delete temp page even if an exception occured
-        throw $e;
-    }
-}
+PMA_processExportSchema($_REQUEST['export_type']);
 
 /**
  * get all the export options and verify
