@@ -121,15 +121,11 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         );
 
         //let fetchRow have more results
-        for ($index=0; $index<10; ++$index) {
+        for ($index=0; $index<8; ++$index) {
             $dbi->expects($this->at($index))
                 ->method('fetchRow')
                 ->will($this->returnValue($fetchRowReturn));
         }
-
-        $dbi->expects($this->at(10))
-            ->method('fetchRow')
-            ->will($this->returnValue($fetchRowReturn));
 
         $fields_info = array(
             "Host" => array(
