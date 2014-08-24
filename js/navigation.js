@@ -1295,7 +1295,7 @@ PMA_fastFilter.filter.prototype.request = function () {
             self.xhr.abort();
         }
         var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-        var results = self.$this.find('li:not(.hidden):not(.fast_filter):not(.navGroup)').not('[class^=new]').not('[class^=warp_link]').length;
+        var results = self.$this.find('li:not(.hidden):not(.fast_filter):not(.navGroup):not(#navigation_controls_outer)').not('[class^=new]').not('[class^=warp_link]').length;
         var params = self.$this.find('> ul > li > form.fast_filter').first().serialize() + "&results=" + results;
         if (self.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length === 0) {
             var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
