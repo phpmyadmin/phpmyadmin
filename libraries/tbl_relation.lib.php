@@ -155,7 +155,7 @@ function PMA_generateRelationalDropdown(
         $html_output .= '>' . htmlspecialchars($value) . '</option>';
     }
 
-    if ($foreign && ! $seen_key) {
+    if (is_string($foreign) && ! $seen_key) {
         $html_output .= '<option value="' . htmlspecialchars($foreign) . '"'
             . ' selected="selected">' . htmlspecialchars($foreign) . '</option>';
     }
