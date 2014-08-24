@@ -300,9 +300,9 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
     function showOutput()
     {
         global $dia;
-        $filename = $GLOBALS['db'] . '-' . $this->pageNumber;
-        if ($this->offline) {
-            $filename = __("Dia export page");
+        $filename = $GLOBALS['db'];
+        if ($this->pageNumber != -1) {
+            $filename .= '-' . $this->pageNumber;
         }
         $dia->showOutput($filename);
     }

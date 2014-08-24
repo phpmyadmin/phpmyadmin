@@ -428,9 +428,9 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
     function showOutput()
     {
         global $eps;
-        $filename = $GLOBALS['db'] . '-' . $this->pageNumber;
-        if ($this->offline) {
-            $filename = __("EPS export page");
+        $filename = $GLOBALS['db'];
+        if ($this->pageNumber != -1) {
+            $filename .= '-' . $this->pageNumber;
         }
         $eps->showOutput($filename);
     }
