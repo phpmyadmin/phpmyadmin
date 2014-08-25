@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-25 08:07-0400\n"
-"PO-Revision-Date: 2014-08-16 22:58+0200\n"
+"PO-Revision-Date: 2014-08-25 14:46+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -253,15 +253,14 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "%1$s veritabanı %2$s veritabanına kopyalandı."
 
 #: db_operations.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"phpMyAdmin yapılandırma depolaması devre dışı bırakıldı. Nedenini öğrenmek "
-"için %sburaya%s tıklayın."
+"phpMyAdmin yapılandırma depolaması devre dışı bırakıldı. %sNedenini bulun%s."
 
 #: db_printview.php:48 db_tracking.php:81 db_tracking.php:210
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:752
@@ -901,7 +900,7 @@ msgstr ""
 "insanlar tarafından sunucunuzun güvenliği riske atılabilir."
 
 #: index.php:517
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s. "
@@ -910,8 +909,7 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "phpMyAdmin yapılandırma depolaması tamamiyle yapılandırılmadı, bazı "
-"genişletilmiş özellikler devre dışı bırakıldı. Nedenini öğrenmek için %"
-"sburaya%s tıklayın. "
+"genişletilmiş özellikler devre dışı bırakıldı. %sNedenini bulun%s. "
 
 #: index.php:523
 msgid ""
@@ -2128,10 +2126,9 @@ msgid "Delete page"
 msgstr "Sayfayı sil"
 
 #: js/messages.php:404 libraries/db_designer.lib.php:374
-#, fuzzy
 #| msgid "*Untitled"
 msgid "Untitled"
-msgstr "*Başlıksız"
+msgstr "Başlıksız"
 
 #: js/messages.php:405
 msgid "Please select a page to continue"
@@ -10126,10 +10123,10 @@ msgid "PDF export page"
 msgstr "PDF dışa aktarma sayfası"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:473
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
-msgstr "%s veritabanının şeması - Sayfa %s"
+msgstr "%s veritabanının şeması"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:496
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:916
