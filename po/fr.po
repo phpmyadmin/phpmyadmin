@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-25 08:07-0400\n"
-"PO-Revision-Date: 2014-08-18 15:18+0200\n"
+"PO-Revision-Date: 2014-08-25 18:22+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
+"\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -254,15 +254,15 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "La base de données %1$s a été copiée sur %2$s."
 
 #: db_operations.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Le stockage de configurations phpMyAdmin a été désactivé. Pour une analyse "
-"du problème, cliquez %sici%s."
+"Le stockage de configurations phpMyAdmin a été désactivé. %sVoir l'analyse "
+"du problème%s."
 
 #: db_printview.php:48 db_tracking.php:81 db_tracking.php:210
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:752
@@ -907,7 +907,7 @@ msgstr ""
 "par des personnes non autorisées."
 
 #: index.php:517
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s. "
@@ -916,8 +916,8 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "Le stockage de configurations phpMyAdmin n'est pas complètement configuré, "
-"certaines fonctionnalités ont été désactivée. Pour en connaître la raison, "
-"cliquez %sici%s. "
+"certaines fonctionnalités ont été désactivées. %sVoir l'analyse du problème%"
+"s. "
 
 #: index.php:523
 msgid ""
@@ -2137,10 +2137,9 @@ msgid "Delete page"
 msgstr "Supprimer la page"
 
 #: js/messages.php:404 libraries/db_designer.lib.php:374
-#, fuzzy
 #| msgid "*Untitled"
 msgid "Untitled"
-msgstr "*Sans titre"
+msgstr "Sans titre"
 
 #: js/messages.php:405
 msgid "Please select a page to continue"
@@ -10206,10 +10205,10 @@ msgid "PDF export page"
 msgstr "Page d'exportation PDF"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:473
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
-msgstr "Schéma de la base %s - Page %s"
+msgstr "Schéma de la base %s"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:496
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:916
