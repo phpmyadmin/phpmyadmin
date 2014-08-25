@@ -44,6 +44,7 @@ phpMyAdmin - ChangeLog
 - bug #4520 sql.js: cannot read property
 - bug #4521 Initially allowed chart types do not match selected data
 - bug #4518 Export to SQL: CREATE TABLE option AUTO_INCREMENT ignored
+- bug #4522 Duplicate column names while assigning index
 
 4.2.7.1 (2014-08-17)
 - bug #4501 [security] XSS in table browse page
