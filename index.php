@@ -516,7 +516,7 @@ if ($server > 0) {
         $msg_text = __(
             'The phpMyAdmin configuration storage is not completely '
             . 'configured, some extended features have been deactivated. '
-            . 'To find out why click %shere%s. '
+            . '%sFind out why%s. '
         );
         if ($cfg['ZeroConf'] == true) {
             $msg_text .= __(
