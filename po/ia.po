@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-25 08:07-0400\n"
-"PO-Revision-Date: 2014-08-06 16:54+0200\n"
+"PO-Revision-Date: 2014-08-25 18:36+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -257,15 +257,15 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Le base de datos %1$s ha essite copiate como %2$s."
 
 #: db_operations.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Le immagazinage de configuration de phpAdmin ha essite deactivate. Discoperi "
-"perque pulsante %shic%s."
+"Le immagazinage de configuration de phpMyAdmin ha essite deactivate. %"
+"sDiscoperi perque%s."
 
 #: db_printview.php:48 db_tracking.php:81 db_tracking.php:210
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:752
@@ -911,7 +911,7 @@ msgstr ""
 "authorisate discargante tu configuration."
 
 #: index.php:517
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -919,8 +919,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"Le configuration de phpMyAdmin non es complete, ergo alcuna characteristicas "
-"additional ha essite deactivate. Pro discoperir perque tu pulsa %shic%s."
+"Le configuration de phpMyAdmin non es completemente configurate, alcun "
+"characteristicas additional ha essite deactivate.  %sDiscoperi perque%s. "
 
 #: index.php:523
 msgid ""
@@ -980,10 +980,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Depone clave primari/indice"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Is a foreign key."
 msgid "Dropping Foreign key."
-msgstr "Es un clave estranie."
+msgstr "Abandonante clave estranie."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1006,10 +1005,9 @@ msgstr ""
 "iste pagina?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Tu es vermente secur que tu vole deler le cerca \"%s\"?"
+msgstr "Tu es vermente secur que tu vole revocar le usator(es) seligite?"
 
 #: js/messages.php:51
 msgid "Save & Close"
@@ -2150,10 +2148,9 @@ msgid "Delete page"
 msgstr "Dele pagina"
 
 #: js/messages.php:404 libraries/db_designer.lib.php:374
-#, fuzzy
 #| msgid "*Untitled"
 msgid "Untitled"
-msgstr "*Untitled (Sin titulo)"
+msgstr "Untitled (Sin titulo)"
 
 #: js/messages.php:405
 msgid "Please select a page to continue"
@@ -4090,10 +4087,9 @@ msgid "Replace with:"
 msgstr "Reimplacia con:"
 
 #: libraries/TableSearch.class.php:1369
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "como expression regular"
+msgstr "Usa expression regular"
 
 #: libraries/TableSearch.class.php:1471
 msgid "Find and replace - preview"
@@ -7462,10 +7458,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:784
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
-msgstr "Configuration del servitor"
+msgstr "Habilita modo de Configuration Zero"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7577,11 +7572,10 @@ msgid "New page name"
 msgstr "Nomine de nove pagina"
 
 #: libraries/db_designer.lib.php:156
-#, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
-"Il non es possibile cargar plugins de importar, pro favor tu verifica tu "
+"Il non es possibile cargar plugins de schema, pro favor tu verifica tu "
 "installation!"
 
 #: libraries/db_designer.lib.php:164
@@ -10156,10 +10150,10 @@ msgid "PDF export page"
 msgstr "Pagina de exportar de PDF"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:473
-#, fuzzy, php-format
+#, php-format
 #| msgid "Search in database"
 msgid "Schema of the %s database"
-msgstr "Cerca in le base de datos"
+msgstr "Schema de le base de datos %s"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:496
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:916
@@ -10340,10 +10334,9 @@ msgid "Enabled"
 msgstr ""
 
 #: libraries/relation.lib.php:101
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration of pmadb… "
-msgstr "Configuration salveguardate."
+msgstr "Configuration de pmadb... "
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:126
 msgid "General relation features"
@@ -10433,11 +10426,13 @@ msgid "no description"
 msgstr ""
 
 #: libraries/relation.lib.php:1868
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Tabellas de immagazinage de configuration de phpMyAdmin es mancante"
+msgstr ""
+"%sCrea%s le immagazinage de configuration de phpMyAdmin in le base de datos "
+"currente."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:316
 #: libraries/server_databases.lib.php:392
@@ -13391,10 +13386,9 @@ msgid "Foreign key constraints"
 msgstr "Limites de clave externe"
 
 #: libraries/tbl_relation.lib.php:373
-#, fuzzy
 #| msgid "Action"
 msgid "Actions"
-msgstr "Action"
+msgstr "Actiones"
 
 #: libraries/tbl_relation.lib.php:374
 msgid "Constraint properties"
@@ -13414,10 +13408,10 @@ msgid "+ Add constraint"
 msgstr "+ Adde un limite"
 
 #: libraries/tbl_relation.lib.php:442
-#, fuzzy, php-format
+#, php-format
 #| msgid "Foreign key constraints"
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Limites de clave externe"
+msgstr "Limites de clave externe %s ha essite abandonate"
 
 #: libraries/tbl_relation.lib.php:464
 msgid "Constraint name"
