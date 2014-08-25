@@ -321,6 +321,8 @@ function PMA_langDetails($lang)
         );
     case 'ms':
         return array('ms|malay', 'ms', 'Bahasa Melayu');
+    case 'ne':
+        return array('ne|nepali', 'ne', 'नेपाली');
     case 'nl':
         return array('nl|dutch', 'nl', 'Nederlands');
     case 'nb':
