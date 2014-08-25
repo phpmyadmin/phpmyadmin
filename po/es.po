@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-25 08:07-0400\n"
-"PO-Revision-Date: 2014-08-16 22:40+0200\n"
+"PO-Revision-Date: 2014-08-26 00:55+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -253,15 +253,15 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Se copió la base de datos %1$s a %2$s."
 
 #: db_operations.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"El almacenamiento de la configuración de phpMyAdmin ha sido desactivado. "
-"Para saber por qué haz clic %saquí%s."
+"El almacenamiento de la configuración de phpMyAdmin ha sido desactivado. %"
+"sAverigüe por qué%s."
 
 #: db_printview.php:48 db_tracking.php:81 db_tracking.php:210
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:752
@@ -910,7 +910,7 @@ msgstr ""
 "configuración."
 
 #: index.php:517
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s. "
@@ -920,7 +920,7 @@ msgid ""
 msgstr ""
 "El almacenamiento de configuración phpMyAdmin no está completamente "
 "configurado, algunas funcionalidades extendidas fueron deshabilitadas. %"
-"sPulsa aquí para averiguar por qué%s. "
+"sAverigüe por qué%s. "
 
 #: index.php:523
 msgid ""
@@ -2145,10 +2145,9 @@ msgid "Delete page"
 msgstr "Borrar página"
 
 #: js/messages.php:404 libraries/db_designer.lib.php:374
-#, fuzzy
 #| msgid "*Untitled"
 msgid "Untitled"
-msgstr "*Sin título"
+msgstr "Sin título"
 
 #: js/messages.php:405
 msgid "Please select a page to continue"
@@ -10259,10 +10258,10 @@ msgid "PDF export page"
 msgstr "Página de exportación PDF"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:473
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
-msgstr "Esquema de la base de datos %s - Página %s"
+msgstr "Esquema de la base de datos %s"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:496
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:916
