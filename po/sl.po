@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-25 08:07-0400\n"
-"PO-Revision-Date: 2014-08-17 20:05+0200\n"
+"PO-Revision-Date: 2014-08-26 00:13+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -254,15 +254,13 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Zbirko podatkov %1$s sem skopiral v %2$s."
 
 #: db_operations.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
-"Hramba konfiguracije phpMyAdmin je bila onemogočena. Če želite izvedeti "
-"zakaj, kliknite %stukaj%s."
+msgstr "Hrambo konfiguracije phpMyAdmin smo onemogočili. %sUgotovite, zakaj%s."
 
 #: db_printview.php:48 db_tracking.php:81 db_tracking.php:210
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:752
@@ -905,7 +903,7 @@ msgstr ""
 "konfiguracijo."
 
 #: index.php:517
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s. "
@@ -913,9 +911,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"Hramba konfiguracije phpMyAdmin ni konfigurirana v celoti, zato so bile "
-"nekatere razširjene zmožnosti onemogočene. Če želite izvedeti zakaj, "
-"kliknite %stukaj%s. "
+"Hramba konfiguracije phpMyAdmin ni konfigurirana v celoti, zato smo nekatere "
+"razširjene zmožnosti onemogočili. %sUgotovite, zakaj%s. "
 
 #: index.php:523
 msgid ""
@@ -2125,10 +2122,9 @@ msgid "Delete page"
 msgstr "Izbriši stran"
 
 #: js/messages.php:404 libraries/db_designer.lib.php:374
-#, fuzzy
 #| msgid "*Untitled"
 msgid "Untitled"
-msgstr "*Neimenovano"
+msgstr "Neimenovano"
 
 #: js/messages.php:405
 msgid "Please select a page to continue"
@@ -10118,10 +10114,10 @@ msgid "PDF export page"
 msgstr "Stran za izvoz PDF"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:473
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
-msgstr "Shema zbirke podatkov %s - Stran %s"
+msgstr "Shema zbirke podatkov %s"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:496
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:916
