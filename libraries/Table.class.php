@@ -1439,8 +1439,20 @@ class PMA_Table
             if (count($index) > 1) {
                 continue;
             }
-            $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
-                . ($backquoted ? PMA_Util::backquote($index[0]) : $index[0]);
+            if ($fullName) {
+                $possible_column = $this->getFullName($backquoted) . '.';
+            } else {
+                $possible_column = '';
+            }
+            if ($backquoted) {
+                $possible_column .= PMA_Util::backquote($index[0]);
+            } else {
+                $possible_column .= $index[0];
+            }
+            // a column might have a primary and an unique index on it
+            if (! in_array($possible_column, $return)) {
+                $return[] = $possible_column;
+            }
         }
 
         return $return;
