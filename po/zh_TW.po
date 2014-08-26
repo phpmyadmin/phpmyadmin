@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-25 08:07-0400\n"
-"PO-Revision-Date: 2014-07-09 12:20+0200\n"
-"Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
-"Language-Team: Traditional Chinese <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"PO-Revision-Date: 2014-08-26 20:04+0200\n"
+"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
+"Language-Team: Traditional Chinese "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -24,11 +24,11 @@ msgstr "系統上找不到 %s 檔案，詳情請參考 www.phpmyadmin.net。"
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "目前資料庫的欄位中央清單為空的。"
 
 #: db_central_columns.php:109
 msgid "Click to sort."
-msgstr "點此進行排序。"
+msgstr "點選排序。"
 
 #: db_central_columns.php:125
 #, php-format
@@ -38,18 +38,18 @@ msgstr "顯示第 %1$s - %2$s 列"
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "資料庫 %1$s 建立成功。"
+msgstr "己建立資料庫 %1$s。"
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment:"
-msgstr "資料庫備註:"
+msgstr "資料庫備註："
 
 #: db_datadict.php:143
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1028
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:578
 msgid "Table comments:"
-msgstr "資料表備註:"
+msgstr "資料表備註："
 
 #: db_datadict.php:152 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1291
@@ -251,13 +251,13 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "資料庫 %1$s 已複製爲 %2$s。"
 
 #: db_operations.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr "phpMyAdmin 設定儲存空間尚未啟動，請點選 %s此處%s 了解詳情。"
+msgstr "phpMyAdmin 設定儲存空間己停用。 %s了解原因%s。"
 
 #: db_printview.php:48 db_tracking.php:81 db_tracking.php:210
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:752
@@ -597,20 +597,18 @@ msgstr ""
 "從 \"函數\" 的欄位中選擇 \"GeomFromText\"，然後將下方的字串貼到 \"值\" 欄位。"
 
 #: import.php:54
-#, fuzzy
 #| msgid "Success!"
 msgid "Succeeded"
-msgstr "成功！"
+msgstr "已成功"
 
 #: import.php:58 js/messages.php:434
 msgid "Failed"
-msgstr ""
+msgstr "已失敗"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "完整新增"
+msgstr "參數不完整"
 
 #: import.php:166
 #, php-format
@@ -880,16 +878,14 @@ msgstr ""
 "威脅。"
 
 #: index.php:517
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
-msgstr ""
-"尚未設定 phpMyAdmin 設定儲存空間，部份延伸功能將無法使用。請點選 %s此處%s 取"
-"得詳細資訊。"
+msgstr "尚未設定 phpMyAdmin 設定儲存空間，部份延伸功能將無法使用。 %s了解原因%s。 "
 
 #: index.php:523
 msgid ""
@@ -947,10 +943,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "刪除主鍵(Primary Key)/索引(Index)中"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Is a foreign key."
 msgid "Dropping Foreign key."
-msgstr "此為外鍵(Foreign Key)。"
+msgstr "正在刪除外鍵(Foreign Key)。"
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -971,16 +966,14 @@ msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr "您有尚未儲存的變更，您確定要離開此頁面？"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "您確定要刪除查詢「%s」？"
+msgstr "您確定要解除(Revoke)己選擇使用者的權限？"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "另存新檔"
+msgstr "儲存並關閉"
 
 #: js/messages.php:52 libraries/config/FormDisplay.tpl.php:393
 #: libraries/insert_edit.lib.php:1614 prefs_manage.php:335
@@ -989,10 +982,9 @@ msgid "Reset"
 msgstr "重新設定"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "全部選擇"
+msgstr "全部重設"
 
 #: js/messages.php:56
 msgid "Missing value in the form!"
@@ -1024,28 +1016,24 @@ msgid "Add %s column(s) to index"
 msgstr "增加 %s 個欄位至索引"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "建立關聯"
+msgstr "建立單一欄位索引"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "建立關聯"
+msgstr "建立組合索引"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "內容分隔符號:"
+msgstr "組合使用："
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "增加 %s 個欄位至索引"
+msgstr "請選擇要建立索引的欄位。"
 
 #: js/messages.php:69 libraries/insert_edit.lib.php:1612
 #: libraries/tbl_columns_definition_form.lib.php:142
@@ -1298,11 +1286,11 @@ msgstr "暫停監控"
 
 #: js/messages.php:146 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "開始自動更新"
 
 #: js/messages.php:147
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "停止自動更新"
 
 #: js/messages.php:149
 msgid "general_log and slow_query_log are enabled."
@@ -1829,10 +1817,9 @@ msgid "Add primary key"
 msgstr "新增主鍵"
 
 #: js/messages.php:311
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "已將 %s 設爲主鍵(Primary key)。"
+msgstr "已新增主鍵(Primary key)。"
 
 #: js/messages.php:312 libraries/normalization.lib.php:170
 #, fuzzy
@@ -1848,14 +1835,13 @@ msgstr ""
 #: js/messages.php:314 libraries/normalization.lib.php:418
 #: libraries/normalization.lib.php:465 libraries/normalization.lib.php:548
 #: libraries/normalization.lib.php:608
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "換行符號"
+msgstr "結束步驟"
 
 #: js/messages.php:315
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "第二正規化 (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:316 js/messages.php:551 libraries/normalization.lib.php:260
@@ -1864,11 +1850,11 @@ msgstr "完成"
 
 #: js/messages.php:317
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "確認部份相依"
 
 #: js/messages.php:318
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "己選擇部份相依如下："
 
 #: js/messages.php:319
 msgid ""
@@ -1877,18 +1863,17 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "尚未選擇任何資料庫。"
+msgstr "尚未選擇部份相依！"
 
 #: js/messages.php:322
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "根據資料表中的資料顯示可能的部份相依"
 
 #: js/messages.php:323
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "隱藏部份相依清單"
 
 #: js/messages.php:324
 msgid ""
@@ -1898,42 +1883,39 @@ msgstr ""
 
 #: js/messages.php:325
 msgid "Step"
-msgstr ""
+msgstr "步驟"
 
 #: js/messages.php:326
-#, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
-msgstr "下列查詢被執行:"
+msgstr "將會執行以下動作："
 
 #: js/messages.php:327
 #, php-format
 msgid "DROP columns %1s from the table %2s"
-msgstr ""
+msgstr "從資料表 %2s 移除(DROP)欄位 %1s"
 
 #: js/messages.php:328
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following table"
-msgstr "在下列資料表新增權限："
+msgstr "建立下列資料表"
 
 #: js/messages.php:331
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "第三正規化 (3NF)"
 
 #: js/messages.php:332
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "確認遞移相依"
 
 #: js/messages.php:333
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "己選擇的相依如下："
 
 #: js/messages.php:334
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "尚未選擇任何資料庫。"
+msgstr "尚未選擇任何相依！"
 
 #: js/messages.php:337 libraries/insert_edit.lib.php:1523
 #: libraries/server_variables.lib.php:157
@@ -1952,34 +1934,29 @@ msgid "Show search criteria"
 msgstr "顯示搜尋條件"
 
 #: js/messages.php:342
-#, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
-msgstr "資料表搜尋"
+msgstr "範圍搜尋"
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "欄位名稱: "
+msgstr "欄位最大值："
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "欄位名稱: "
+msgstr "欄位最小值："
 
 #: js/messages.php:345
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "資料表數量上限"
+msgstr "最小值："
 
 #: js/messages.php:346
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "資料表數量上限"
+msgstr "最大值："
 
 #: js/messages.php:349
 msgid "Hide find and replace criteria"
@@ -2110,10 +2087,9 @@ msgid "Delete page"
 msgstr "刪除頁面"
 
 #: js/messages.php:404 libraries/db_designer.lib.php:374
-#, fuzzy
 #| msgid "*Untitled"
 msgid "Untitled"
-msgstr "*未命名"
+msgstr "未命名"
 
 #: js/messages.php:405
 msgid "Please select a page to continue"
@@ -2132,10 +2108,9 @@ msgid "Successfully deleted the page"
 msgstr "已成功刪除頁面"
 
 #: js/messages.php:409
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "編輯或匯出關聯大綱"
+msgstr "匯出關聯式網要"
 
 #: js/messages.php:410
 msgid "Modifications have been saved"
@@ -2207,7 +2182,6 @@ msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "請輸入一個有效的十六進位字串。有效的字元為 0-9, A-F。"
 
 #: js/messages.php:432
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "取消"
@@ -2217,28 +2191,24 @@ msgid "Aborted"
 msgstr "中斷連線"
 
 #: js/messages.php:435
-#, fuzzy
 #| msgid "Success!"
 msgid "Success"
-msgstr "成功！"
+msgstr "成功"
 
 #: js/messages.php:436
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "匯入選項"
+msgstr "匯入狀態"
 
 #: js/messages.php:437 libraries/navigation/Navigation.class.php:102
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "記錄檔案門檻值"
+msgstr "將檔案拖曳至此處"
 
 #: js/messages.php:438
-#, fuzzy
 #| msgid "Select database"
 msgid "Select database first"
-msgstr "選擇資料庫"
+msgstr "請先選擇資料庫"
 
 #: js/messages.php:443
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2294,16 +2264,14 @@ msgstr "顯示隱藏的導覽樹項目。"
 
 #: js/messages.php:468 libraries/config/messages.inc.php:421
 #: libraries/navigation/NavigationTree.class.php:1136
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "自訂主面板"
+msgstr "連結主面板"
 
 #: js/messages.php:469 libraries/navigation/NavigationTree.class.php:1139
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "自訂主面板"
+msgstr "取消連結主面板"
 
 #: js/messages.php:472
 msgid "The requested page was not found in the history, it may have expired."
@@ -2386,16 +2354,14 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:523
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "在此再次顯示此查詢"
+msgstr "再執行此查詢一次？"
 
 #: js/messages.php:524
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "您確定要刪除查詢「%s」？"
+msgstr "您真的要刪除此書籤？"
 
 # 這應該是使用於選擇日期的月曆
 #: js/messages.php:555
@@ -2729,20 +2695,18 @@ msgid "Font size"
 msgstr "字體大小"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:170
-#, fuzzy
 #| msgid "Expand/Collapse"
 msgid "Collapse"
-msgstr "展開/摺疊"
+msgstr "摺疊"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:171
 msgid "Expand"
-msgstr ""
+msgstr "展開"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:172
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "子查詢"
+msgstr "重新查詢"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:361
 #: libraries/DisplayResults.class.php:3460
@@ -2756,15 +2720,15 @@ msgid "Delete"
 msgstr "刪除"
 
 #: libraries/Console.class.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "New bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "新增書籤"
+msgstr[0] "共 %d 筆書籤"
 
 #: libraries/Console.class.php:114
 msgid "private"
-msgstr ""
+msgstr "私有"
 
 #: libraries/Console.class.php:118 libraries/bookmark.lib.php:87
 msgid "shared"
@@ -2778,16 +2742,14 @@ msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "書籤已被刪除。"
 
 #: libraries/Console.class.php:128
-#, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
-msgstr "新增書籤"
+msgstr "無書籤"
 
 #: libraries/Console.class.php:174
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "SQL 語句分析"
+msgstr "語句分析"
 
 #: libraries/Console.class.php:175 libraries/Util.class.php:1259
 #: libraries/sql.lib.php:484
@@ -2795,32 +2757,28 @@ msgid "Profiling"
 msgstr "效能分析"
 
 #: libraries/Console.class.php:176
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark"
-msgstr "書籤表"
+msgstr "書籤"
 
 #: libraries/Console.class.php:177
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "查詢快取"
+msgstr "查詢失敗"
 
 #: libraries/Console.class.php:179
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "查詢執行時間"
+msgstr "查詢時間"
 
 #: libraries/Console.class.php:185
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "SQL 查詢框"
+msgstr "SQL 查詢主控台"
 
 #: libraries/Console.class.php:186
 msgid "Console"
-msgstr ""
+msgstr "主控台"
 
 #: libraries/Console.class.php:189 libraries/sql_query_form.lib.php:236
 #: setup/frames/index.inc.php:297
@@ -2828,10 +2786,9 @@ msgid "Clear"
 msgstr "清除"
 
 #: libraries/Console.class.php:192
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "SQL 紀錄"
+msgstr "歷史記錄"
 
 #: libraries/Console.class.php:195 libraries/Console.class.php:286
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:792
@@ -2862,22 +2819,19 @@ msgid "Options"
 msgstr "選項"
 
 #: libraries/Console.class.php:199 libraries/Console.class.php:248
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "書籤表"
+msgstr "書籤"
 
 #: libraries/Console.class.php:208
-#, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "執行每個"
+msgstr "請按 Ctrl+Enter 執行查詢"
 
 #: libraries/Console.class.php:227
-#, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
-msgstr "忽略目前錯誤"
+msgstr "於目前連線階段"
 
 #: libraries/Console.class.php:252 libraries/Util.class.php:1228
 #: libraries/config/messages.inc.php:737
@@ -2886,54 +2840,47 @@ msgid "Refresh"
 msgstr "重新整理"
 
 #: libraries/Console.class.php:255
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "且"
+msgstr "新增"
 
 #: libraries/Console.class.php:264
-#, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
 msgstr "新增書籤"
 
 #: libraries/Console.class.php:268
-#, fuzzy
 #| msgid "Label:"
 msgid "Label"
-msgstr "標籤："
+msgstr "標籤"
 
 #: libraries/Console.class.php:270
 msgid "Target database"
 msgstr "目標資料庫"
 
 #: libraries/Console.class.php:273
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
-msgstr "建立書籤"
+msgstr "分享此書籤"
 
 #: libraries/Console.class.php:289
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
-msgstr "還原預設值"
+msgstr "設定預設值"
 
 #: libraries/Console.class.php:293
-#, fuzzy
 #| msgid "Always send error reports"
 msgid "Always expand query messages"
-msgstr "往後不詢問直接傳送錯誤報告"
+msgstr "總是展開查詢訊息"
 
 #: libraries/Console.class.php:295
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "SQL 查詢紀錄表"
+msgstr "顯示查詢記錄於一開始"
 
 #: libraries/Console.class.php:297
 msgid "Show current browsing query"
-msgstr ""
+msgstr "顯示目前畫面使用的查詢"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1314
 #: libraries/DisplayResults.class.php:2127
@@ -4053,10 +4000,9 @@ msgid "Replace with:"
 msgstr "取代爲："
 
 #: libraries/TableSearch.class.php:1369
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "使用正則表示法(Regular Expression)"
+msgstr "使用正規表示法"
 
 #: libraries/TableSearch.class.php:1471
 msgid "Find and replace - preview"
@@ -4675,7 +4621,6 @@ msgid "Select a column."
 msgstr "選擇一個欄位。"
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
 msgstr "auto_increment"
@@ -4686,7 +4631,6 @@ msgid "on update CURRENT_TIMESTAMP"
 msgstr "on update CURRENT_TIMESTAMP"
 
 #: libraries/central_columns.lib.php:886
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
 msgstr "新增欄位"
@@ -4720,7 +4664,7 @@ msgstr "無效的伺服器索引: %s"
 #: libraries/common.inc.php:642
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr "伺服器 %1$s 主機名稱錯誤，請檢查設定檔案。"
+msgstr "伺服器 %1$s 主機名稱無效，請重新檢查您的設定檔。"
 
 #: libraries/common.inc.php:658
 #, php-format
@@ -7198,13 +7142,12 @@ msgstr "傳送錯誤報告"
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
-msgstr ""
+msgstr "開啟零設定模式可讓您自動安裝 phpMyAdmin 設定空間資料表。"
 
 #: libraries/config/messages.inc.php:784
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
-msgstr "伺服器設定"
+msgstr "開啟零設定模式"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7315,10 +7258,9 @@ msgid "New page name"
 msgstr "新頁面名稱"
 
 #: libraries/db_designer.lib.php:156
-#, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
-msgstr "無法載入匯入外掛程式，請檢查您的安裝！"
+msgstr "無法載入綱要(Schema)外掛程式，請檢查您的安裝！"
 
 #: libraries/db_designer.lib.php:164
 msgid "Select Export Relational Type"
@@ -7393,10 +7335,9 @@ msgid "Toggle relation lines"
 msgstr "請點選關聯行"
 
 #: libraries/db_designer.lib.php:383
-#, fuzzy
 #| msgid "Export"
 msgid "Export schema"
-msgstr "匯出"
+msgstr "匯出綱要"
 
 #: libraries/db_designer.lib.php:394
 msgid "Build Query"
@@ -7665,7 +7606,6 @@ msgid "Select database"
 msgstr "選擇資料庫"
 
 #: libraries/display_export.lib.php:778
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select table"
 msgstr "選擇資料表"
@@ -8616,10 +8556,9 @@ msgid "Filter by name or regex"
 msgstr "依名稱或 Regex 搜尋"
 
 #: libraries/navigation/NavigationTree.class.php:1130
-#, fuzzy
 #| msgid "Expand/Collapse"
 msgid "Collapse all"
-msgstr "展開/摺疊"
+msgstr "全部摺疊"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -8735,12 +8674,12 @@ msgstr ""
 
 #: libraries/normalization.lib.php:112 libraries/normalization.lib.php:769
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "第一正規化 (1NF)"
 
 #: libraries/normalization.lib.php:115 libraries/normalization.lib.php:166
 #: libraries/normalization.lib.php:209 libraries/normalization.lib.php:245
 msgid "Step 1."
-msgstr ""
+msgstr "步驟 1."
 
 #: libraries/normalization.lib.php:117
 msgid ""
@@ -8759,32 +8698,28 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:134 normalization.php:19
-#, fuzzy
 #| msgid "Select a column."
 msgid "Select one…"
-msgstr "選擇一個欄位。"
+msgstr "請選擇一項…"
 
 #: libraries/normalization.lib.php:135 normalization.php:20
-#, fuzzy
 #| msgid "Move column"
 msgid "No such column"
-msgstr "移動欄位"
+msgstr "沒有這個欄位"
 
 #: libraries/normalization.lib.php:142
 msgid "split into "
-msgstr ""
+msgstr "分割為 "
 
 #: libraries/normalization.lib.php:163
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
-msgstr "新增主鍵"
+msgstr "擁有一個主鍵"
 
 #: libraries/normalization.lib.php:169
-#, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "錯誤: 關聯已存在。"
+msgstr "主鍵己存在。"
 
 #: libraries/normalization.lib.php:174
 msgid ""
@@ -8794,7 +8729,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:181
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "於己存在的欄位上新增主鍵"
 
 #: libraries/normalization.lib.php:186
 msgid ""
@@ -8802,16 +8737,14 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:190
-#, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
-msgstr "新增主鍵"
+msgstr "+ 新增主鍵欄位"
 
 #: libraries/normalization.lib.php:208
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove redundant columns"
-msgstr "刪除欄位"
+msgstr "移除多餘欄位"
 
 #: libraries/normalization.lib.php:211
 msgid ""
@@ -8827,16 +8760,14 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:222
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "刪除選中的使用者"
+msgstr "移除己選擇"
 
 #: libraries/normalization.lib.php:223
-#, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
-msgstr "新增欄位"
+msgstr "無多餘欄位"
 
 #: libraries/normalization.lib.php:244
 msgid "Move repeating groups"
@@ -8863,11 +8794,11 @@ msgstr ""
 
 #: libraries/normalization.lib.php:287
 msgid "Step 2."
-msgstr ""
+msgstr "步驟 2."
 
 #: libraries/normalization.lib.php:287
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "尋找部份相依"
 
 #: libraries/normalization.lib.php:309
 #, php-format
@@ -8878,7 +8809,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:314 libraries/normalization.lib.php:356
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "資料表己完成第二正規化。"
 
 #: libraries/normalization.lib.php:319
 #, php-format
@@ -8891,11 +8822,11 @@ msgstr ""
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
-msgstr ""
+msgstr "請謹慎回答以下問題以完成正確的正規化。"
 
 #: libraries/normalization.lib.php:327
 msgid "+ Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "+ 根據資料表的資料顯示可能的部份相依"
 
 #: libraries/normalization.lib.php:331
 msgid ""
@@ -8926,14 +8857,13 @@ msgstr ""
 #: libraries/normalization.lib.php:413
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr ""
+msgstr "資料表 '%1$s' 己完成第二正規化。"
 
 #: libraries/normalization.lib.php:453 libraries/normalization.lib.php:596
 #: libraries/normalization.lib.php:659
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing!"
-msgstr "處理要求時發生錯誤："
+msgstr "處理時發生錯誤！"
 
 #: libraries/normalization.lib.php:497
 #, php-format
@@ -8944,7 +8874,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:544
 msgid "The third step of normalization is complete."
-msgstr ""
+msgstr "己完成第三正規化。"
 
 #: libraries/normalization.lib.php:638
 #, fuzzy, php-format
@@ -8953,14 +8883,13 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "選中的資料表已根據來源資料表同步"
 
 #: libraries/normalization.lib.php:685
-#, fuzzy
 #| msgid "Sep"
 msgid "Step 3."
-msgstr "九月"
+msgstr "步驟 3."
 
 #: libraries/normalization.lib.php:685
 msgid "Find transitive dependencies"
-msgstr ""
+msgstr "尋找遞移相依"
 
 #: libraries/normalization.lib.php:692
 msgid ""
@@ -8978,13 +8907,12 @@ msgstr ""
 
 #: libraries/normalization.lib.php:743
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "資料表己完成第三正規化！"
 
 #: libraries/normalization.lib.php:766
-#, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "隱藏資料表結構動作"
+msgstr "改進資料表結構 (正規化)："
 
 #: libraries/normalization.lib.php:767
 msgid "Select up to what step you want to normalize"
@@ -8992,17 +8920,17 @@ msgstr ""
 
 #: libraries/normalization.lib.php:770
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "第二正規化 (1NF+2NF)"
 
 #: libraries/normalization.lib.php:771
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "第三正規化 (1NF+2NF+3NF)"
 
 #: libraries/normalization.lib.php:778
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
-msgstr ""
+msgstr "提示：請謹心慎依照程序以完成正確的正規化"
 
 #: libraries/normalization.lib.php:839
 msgid ""
@@ -9012,7 +8940,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:855
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "查無部份相依！"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to:"
@@ -9867,16 +9795,15 @@ msgid "Schema of the %s database - Page %s"
 msgstr "資料庫 %s 的大綱 - 第 %s 頁"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:251
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "PDF export page"
-msgstr "無效的匯出類型"
+msgstr "PDF 匯出頁面"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:473
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
-msgstr "資料庫 %s 的大綱 - 第 %s 頁"
+msgstr "%s 資料庫的綱要"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:496
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:916
@@ -10097,10 +10024,9 @@ msgid "Enabled"
 msgstr "已啓用"
 
 #: libraries/relation.lib.php:101
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration of pmadb… "
-msgstr "設定已儲存。"
+msgstr "設定 pmadb ... "
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:126
 msgid "General relation features"
@@ -10123,11 +10049,10 @@ msgid "Browser transformation"
 msgstr "瀏覽器轉換"
 
 #: libraries/relation.lib.php:178
-#, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
-msgstr "請參見檔案中關於如何更新您的 column_comments 表。"
+msgstr "請參考說明文件中的如何更新您的 column_info 資料表。 "
 
 #: libraries/relation.lib.php:191 libraries/sql_query_form.lib.php:358
 msgid "Bookmarked SQL query"
@@ -10163,7 +10088,7 @@ msgstr "儲存 QBE 查詢"
 
 #: libraries/relation.lib.php:296
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "管理欄位的中央清單"
 
 #: libraries/relation.lib.php:304
 msgid "Quick steps to setup advanced features:"
@@ -10195,11 +10120,11 @@ msgid "no description"
 msgstr "無說明"
 
 #: libraries/relation.lib.php:1868
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "缺少 phpMyAdmin 設定儲存空間資料表"
+msgstr "於目前資料庫 %建立%s phpMyAdmin 設定儲存空間。"
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:316
 #: libraries/server_databases.lib.php:392
@@ -11356,7 +11281,7 @@ msgstr "允許授權"
 
 #: libraries/server_privileges.lib.php:2020
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "權限不足檢視使用者。"
 
 #: libraries/server_privileges.lib.php:2039
 #: libraries/server_privileges.lib.php:3390
@@ -11503,7 +11428,7 @@ msgstr "編輯權限："
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
-msgstr ""
+msgstr "注意：您正嘗試編輯您目前登入使用者的權限。"
 
 #: libraries/server_privileges.lib.php:3885 libraries/server_users.lib.php:25
 msgid "Users overview"
@@ -11790,15 +11715,13 @@ msgid "Reset to default"
 msgstr "還原預設值"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
 #| "between the web server and the MySQL server."
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
-msgstr ""
-"注意: 在此開啟資料庫統計可能導致網頁伺服器和 MySQL 伺服器之間的流量驟增。"
+msgstr "注意：開啟自動更新可能導致網頁伺服器和 MySQL 伺服器之間的流量驟增。"
 
 #: libraries/server_status_processes.lib.php:69
 msgid "ID"
@@ -12777,20 +12700,18 @@ msgid "Copy table with prefix"
 msgstr "複製資料表名稱的前綴文字"
 
 #: libraries/structure.lib.php:343
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add columns to central list"
-msgstr "CHAR 文字框寬度"
+msgstr "新增欄位至中央清單"
 
 #: libraries/structure.lib.php:345
 msgid "Remove columns from central list"
-msgstr ""
+msgstr "從中央清單移除欄位"
 
 #: libraries/structure.lib.php:347
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Make consistent with central list"
-msgstr "CHAR 文字框寬度"
+msgstr "設為與中央清單一致"
 
 #: libraries/structure.lib.php:369
 msgid "Check tables having overhead"
@@ -12829,16 +12750,14 @@ msgid "Fulltext"
 msgstr "全文搜尋"
 
 #: libraries/structure.lib.php:1487 libraries/structure.lib.php:2104
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "CHAR 文字框寬度"
+msgstr "新增至中央欄位"
 
 #: libraries/structure.lib.php:1492 libraries/structure.lib.php:2094
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove from central columns"
-msgstr "刪除欄位"
+msgstr "從中央欄位移除"
 
 #: libraries/structure.lib.php:1508 libraries/structure.lib.php:1618
 msgid "Move columns"
@@ -12861,10 +12780,9 @@ msgid "Propose table structure"
 msgstr "分析資料表結構"
 
 #: libraries/structure.lib.php:1621
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "分析資料表結構"
+msgstr "改進資料表結構"
 
 #: libraries/structure.lib.php:1643
 #: libraries/tbl_columns_definition_form.lib.php:180
@@ -13130,29 +13048,25 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:337
 #: transformation_overview.php:41
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "瀏覽器轉換"
+msgstr "瀏覽器顯示轉換"
 
 #: libraries/tbl_columns_definition_form.lib.php:339
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation options"
-msgstr "瀏覽器轉換"
+msgstr "瀏覽器顯示轉換選項"
 
 #: libraries/tbl_columns_definition_form.lib.php:342
 #: transformation_overview.php:42
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Input transformation"
-msgstr "瀏覽器轉換"
+msgstr "輸入轉換"
 
 #: libraries/tbl_columns_definition_form.lib.php:344
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Input transformation options"
-msgstr "轉換選項"
+msgstr "輸入轉換選項"
 
 #: libraries/tbl_columns_definition_form.lib.php:585
 #, php-format
@@ -13164,10 +13078,9 @@ msgid "Is a foreign key."
 msgstr "此為外鍵(Foreign Key)。"
 
 #: libraries/tbl_columns_definition_form.lib.php:618
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Pick from Central Columns"
-msgstr "刪除欄位"
+msgstr "從中央欄位挑選"
 
 #: libraries/tbl_columns_definition_form.lib.php:804
 msgid "first"
@@ -13259,10 +13172,9 @@ msgid "Index type:"
 msgstr "索引類型:"
 
 #: libraries/tbl_indexes.lib.php:338 libraries/tbl_indexes.lib.php:375
-#, fuzzy
 #| msgid "Drag to reorder."
 msgid "Drag to reorder"
-msgstr "使用拖曳來重新排序。"
+msgstr "使用滑鼠拖曳來重新排序"
 
 #: libraries/tbl_printview.lib.php:30
 msgid "Showing tables:"
@@ -13291,53 +13203,48 @@ msgid ""
 msgstr "當外鍵(FOREIGN KEY)關連存在時就不需要使用內部關聯。"
 
 #: libraries/tbl_relation.lib.php:370
-#, fuzzy
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraints"
-msgstr "外鍵限制式"
+msgstr "外鍵限制"
 
 #: libraries/tbl_relation.lib.php:373
-#, fuzzy
 #| msgid "Action"
 msgid "Actions"
 msgstr "動作"
 
 #: libraries/tbl_relation.lib.php:374
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint properties"
-msgstr "資料表的 Constraints"
+msgstr "限制屬性"
 
 #: libraries/tbl_relation.lib.php:379
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
-msgstr ""
+msgstr "僅顯示己建立索引的欄位。 您可以於下方定義索引。"
 
 #: libraries/tbl_relation.lib.php:384
 msgid "Foreign key constraint"
 msgstr "外鍵限制式"
 
 #: libraries/tbl_relation.lib.php:405
-#, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
 msgstr "加入限制(Constraint)"
 
 #: libraries/tbl_relation.lib.php:442
-#, fuzzy, php-format
+#, php-format
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraint %s has been dropped"
-msgstr "外鍵限制式"
+msgstr "己移除外鍵限制 %s"
 
 #: libraries/tbl_relation.lib.php:464
 msgid "Constraint name"
 msgstr "限制式名稱"
 
 #: libraries/tbl_relation.lib.php:529
-#, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
-msgstr "新增欄位"
+msgstr "+ 新增欄位"
 
 #: libraries/tbl_relation.lib.php:674
 msgid "Choose column to display:"
@@ -13842,7 +13749,7 @@ msgstr "資料表名稱不能爲空！"
 #: tbl_replace.php:236
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "列：%1$s，欄：%2$s，錯誤：%3$s"
 
 #: tbl_structure.php:93
 msgid "No column selected."
@@ -13861,16 +13768,14 @@ msgid "Available MIME types"
 msgstr "可用的 MIME 類型"
 
 #: transformation_overview.php:37
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "可用的轉換"
+msgstr "可用的瀏覽器顯示轉換"
 
 #: transformation_overview.php:38
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available input transformations"
-msgstr "可用的轉換"
+msgstr "可用的輸入轉換"
 
 #: transformation_overview.php:53
 msgctxt "for MIME transformation"
