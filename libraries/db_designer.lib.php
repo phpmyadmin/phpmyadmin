@@ -14,7 +14,7 @@ require_once 'libraries/relation.lib.php';
 /**
  * Function to get html for displaying the page edit/delete form
  *
- * @param string $db        databasae name
+ * @param string $db        database name
  * @param string $operation 'edit' or 'delete' depending on the operation
  *
  * @return string html content
@@ -52,7 +52,7 @@ function PMA_getHtmlForEditOrDeletePages($db, $operation)
 /**
  * Function to get html for displaying the page save as form
  *
- * @param string $db databasae name
+ * @param string $db database name
  *
  * @return string html content
  */

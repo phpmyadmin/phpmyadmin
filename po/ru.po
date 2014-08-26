@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-25 08:07-0400\n"
-"PO-Revision-Date: 2014-08-14 11:02+0200\n"
+"PO-Revision-Date: 2014-08-25 23:56+0200\n"
 "Last-Translator: Alex Smirnov <alex-smirnov@mail.ru>\n"
-"Language-Team: Russian <https://l10n.cihar.com/projects/phpmyadmin/master/ru/"
-">\n"
+"Language-Team: Russian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ru/>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -254,15 +254,14 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "База данных %1$s скопирована в %2$s."
 
 #: db_operations.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Хранилище конфигурации phpMyAdmin неактивно. Для определения причины нажмите "
-"%sздесь%s."
+"Хранилище конфигурации phpMyAdmin неактивно. %sДля определения причины%s."
 
 #: db_printview.php:48 db_tracking.php:81 db_tracking.php:210
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:752
@@ -902,7 +901,7 @@ msgstr ""
 "конфигурационного файла."
 
 #: index.php:517
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s. "
@@ -911,8 +910,7 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "Хранилище конфигурации phpMyAdmin не полностью настроено, некоторые "
-"расширенные функции были отключены. Для определения причины нажмите %shere%"
-"s. "
+"расширенные функции были отключены. %sДля определения причины%s. "
 
 #: index.php:523
 msgid ""
@@ -974,10 +972,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Удаление первичного ключа/индекса"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Is a foreign key."
 msgid "Dropping Foreign key."
-msgstr "Это внешний ключ."
+msgstr "Удаление внешнего ключа."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1000,10 +997,9 @@ msgstr ""
 "страницу без сохранения данных?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Вы действительно хотите удалить поиск \"%s\"?"
+msgstr "Вы действительно хотите отозвать выбранного(ых) пользователя(ей)?"
 
 #: js/messages.php:51
 msgid "Save & Close"
@@ -1058,7 +1054,7 @@ msgstr "Создать составной индекс"
 
 #: js/messages.php:65
 msgid "Composite with:"
-msgstr ""
+msgstr "Составной с:"
 
 #: js/messages.php:66
 msgid "Please select column(s) for the index."
@@ -1907,6 +1903,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Примечание: a, b -> d, f подразумевает, что значения столбцов a и b при "
+"объединении вместе могут определить значения столбца d и столбца f."
 
 #: js/messages.php:320
 msgid "No partial dependencies selected!"
@@ -2132,10 +2130,9 @@ msgid "Delete page"
 msgstr "Удалить страницу"
 
 #: js/messages.php:404 libraries/db_designer.lib.php:374
-#, fuzzy
 #| msgid "*Untitled"
 msgid "Untitled"
-msgstr "*Без названия"
+msgstr "Без названия"
 
 #: js/messages.php:405
 msgid "Please select a page to continue"
@@ -4068,10 +4065,9 @@ msgid "Replace with:"
 msgstr "Заменить на:"
 
 #: libraries/TableSearch.class.php:1369
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "регулярное выражение"
+msgstr "Использовать регулярное выражение"
 
 #: libraries/TableSearch.class.php:1471
 msgid "Find and replace - preview"
@@ -6998,6 +6994,9 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Эта таблица и таблица групп пользователей требуются для включения "
+"возможности настраиваемых меню; если хотя бы одна из них пустая, то эта "
+"возможность будет отключена, предложил: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:696
 msgid "Users table"
@@ -7009,6 +7008,9 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Эта таблица и таблица пользователей требуются для включения возможности "
+"настраиваемых меню; если хотя бы одна из них пустая, то эта возможность "
+"будет отключена, предложил: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:698
 msgid "User groups table"
@@ -10137,10 +10139,10 @@ msgid "PDF export page"
 msgstr "Страница экспорта PDF"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:473
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
-msgstr "Схема базы данных %s - Страница %s"
+msgstr "Схема базы данных %s"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:496
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:916
@@ -10313,6 +10315,8 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"Функциональность по загрузке файлов для текстовых столбцов. Она не содержит "
+"текстовое поле для ввода."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -10367,10 +10371,9 @@ msgid "Enabled"
 msgstr "Доступно"
 
 #: libraries/relation.lib.php:101
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration of pmadb… "
-msgstr "Конфигурация сохранена."
+msgstr "Конфигурация pmadb… "
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:126
 msgid "General relation features"
@@ -10469,7 +10472,7 @@ msgstr "нет описания"
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr ""
+msgstr "%sСоздать%s хранилище конфигурации phpMyAdmin в текущей базе данных."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:316
 #: libraries/server_databases.lib.php:392
@@ -13536,11 +13539,11 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:337
 #: transformation_overview.php:41
 msgid "Browser display transformation"
-msgstr ""
+msgstr "Преобразование отображения браузера"
 
 #: libraries/tbl_columns_definition_form.lib.php:339
 msgid "Browser display transformation options"
-msgstr ""
+msgstr "Параметры преобразования отображения браузера"
 
 #: libraries/tbl_columns_definition_form.lib.php:342
 #: transformation_overview.php:42
@@ -13690,10 +13693,9 @@ msgid "Foreign key constraints"
 msgstr "Ограничения внешнего ключа"
 
 #: libraries/tbl_relation.lib.php:373
-#, fuzzy
 #| msgid "Action"
 msgid "Actions"
-msgstr "Действие"
+msgstr "Действия"
 
 #: libraries/tbl_relation.lib.php:374
 msgid "Constraint properties"
@@ -13715,10 +13717,10 @@ msgid "+ Add constraint"
 msgstr "+ Добавить ограничение"
 
 #: libraries/tbl_relation.lib.php:442
-#, fuzzy, php-format
+#, php-format
 #| msgid "Foreign key constraints"
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Ограничения внешнего ключа"
+msgstr "Ограничение внешнего ключа %s удалено"
 
 #: libraries/tbl_relation.lib.php:464
 msgid "Constraint name"
@@ -14273,10 +14275,9 @@ msgid "Available MIME types"
 msgstr "Доступные MIME-типы"
 
 #: transformation_overview.php:37
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "Доступные преобразования"
+msgstr "Доступные преобразования отображения браузера"
 
 #: transformation_overview.php:38
 msgid "Available input transformations"
