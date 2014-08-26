@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-25 08:07-0400\n"
-"PO-Revision-Date: 2014-08-25 21:27+0200\n"
+"PO-Revision-Date: 2014-08-26 15:28+0200\n"
 "Last-Translator: Nabin Ghimire <nnabinn@hotmail.com>\n"
 "Language-Team: Nepali <https://l10n.cihar.com/projects/phpmyadmin/master/ne/>"
 "\n"
@@ -401,79 +401,86 @@ msgstr "यो तालिकाको लागि ट्रैकिंग �
 #: libraries/structure.lib.php:1451 libraries/structure.lib.php:2170
 #: libraries/structure.lib.php:2172 libraries/tbl_relation.lib.php:457
 msgid "Drop"
-msgstr ""
+msgstr "हटाउ"
 
 #: db_tracking.php:120 libraries/tbl_tracking.lib.php:252
 #: libraries/tbl_tracking.lib.php:354
 msgid "active"
-msgstr ""
+msgstr "सक्रिय"
 
 #: db_tracking.php:122 libraries/tbl_tracking.lib.php:254
 #: libraries/tbl_tracking.lib.php:356
 msgid "not active"
-msgstr ""
+msgstr "सक्रिय छैन"
 
 #: db_tracking.php:143
 msgid "Versions"
-msgstr ""
+msgstr "संस्करण"
 
 #: db_tracking.php:146 libraries/tbl_tracking.lib.php:276
 #: libraries/tbl_tracking.lib.php:395
+#, fuzzy
 msgid "Tracking report"
-msgstr ""
+msgstr "Tracking रिपोर्ट"
 
 #: db_tracking.php:149 libraries/tbl_tracking.lib.php:284
 #: libraries/tbl_tracking.lib.php:802
+#, fuzzy
 msgid "Structure snapshot"
-msgstr ""
+msgstr "संरचना स्न्यापसट"
 
 #: db_tracking.php:205
+#, fuzzy
 msgid "Untracked tables"
-msgstr ""
+msgstr "Untracked तालिकाहरू हेर्नुहोस्"
 
 #: db_tracking.php:224 libraries/structure.lib.php:1614
+#, fuzzy
 msgid "Track table"
-msgstr ""
+msgstr "ट्रैक तालिका"
 
 #: db_tracking.php:251
+#, fuzzy
 msgid "Database Log"
-msgstr ""
+msgstr "तथ्याङ्क प्रवेश"
 
 #: error_report.php:68
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"एउटा त्रुटि पत्ता लागेको छ र तपाईंको सेटिङ्ग अनुसार त्यो त्रुटिको रिपोर्ट "
+"स्वतः पेश गरिएको छ।"
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "यो प्रतिवेदन पेशगर्नु भएकोमा धन्यवाद।"
 
 #: error_report.php:76
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr ""
+msgstr "एउटा त्रुटि पत्ता लागेको छ र त्रुटि रिपोर्ट बनाइयो तर पठाउन असफल भयो।"
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "तपाईंलाई कुनै पनि समस्या अनुभव भए स्वयं एक बग प्रतिवेदन पेस गर्नुहोस्।"
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "तपाईं पृष्ठ ताजा गर्न चाहानुहुन्छ।"
 
 #: export.php:183 schema_export.php:71
 msgid "Bad type!"
-msgstr ""
+msgstr "प्रकार मिलेन!"
 
 #: export.php:254
 msgid "Bad parameters!"
-msgstr ""
+msgstr "मापदण्डहरु मिलेन!"
 
 #: file_echo.php:22
 msgid "Invalid export type"
-msgstr ""
+msgstr "निर्यात प्रकार अवैध भयो"
 
 #: gis_data_editor.php:113
 #, php-format
