@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-09 12:20+0200\n"
-"Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
+"PO-Revision-Date: 2014-08-26 20:02+0200\n"
+"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -25,17 +25,17 @@ msgstr "系統上找不到 %s 檔案，詳情請參考 www.phpmyadmin.net。"
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "資料庫 %1$s 建立成功。"
+msgstr "己建立資料庫 %1$s。"
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment:"
-msgstr "資料庫備註:"
+msgstr "資料庫備註："
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:578
 msgid "Table comments:"
-msgstr "資料表備註:"
+msgstr "資料表備註："
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1291
@@ -4024,7 +4024,7 @@ msgstr "無效的伺服器索引: %s"
 #: libraries/common.inc.php:643
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr "伺服器 %1$s 主機名稱錯誤，請檢查設定檔案。"
+msgstr "伺服器 %1$s 主機名稱無效，請重新檢查您的設定檔。"
 
 #: libraries/common.inc.php:659
 #, php-format
