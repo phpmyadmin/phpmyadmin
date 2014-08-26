@@ -11,10 +11,10 @@ require_once 'libraries/pmd_common.php';
 require_once 'libraries/db_designer.lib.php';
 
 $script_display_field = PMA_getTablesInfo();
-$tab_column       = PMA_getColumnsInfo();
-$script_tables    = PMA_getScriptTabs();
+$tab_column = PMA_getColumnsInfo();
+$script_tables = PMA_getScriptTabs();
 $tables_pk_or_unique_keys = PMA_getPKOrUniqueKeys();
-$tables_all_keys  = PMA_getAllKeys();
+$tables_all_keys = PMA_getAllKeys();
 $display_page = -1;
 
 $response = PMA_Response::getInstance();
