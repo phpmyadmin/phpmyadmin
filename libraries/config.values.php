@@ -57,6 +57,11 @@ $cfg_db['RowActionLinks'] = array(
     'right' => __('Right'),
     'both'  => __('Both')
 );
+$cfg_db['TablePrimaryKeyOrder'] = array(
+    'NONE'  => __('None'),
+    'ASC'   => __('Ascending'),
+    'DESC'  => __('Descending')
+);
 $cfg_db['ProtectBinary'] = array(false, 'blob', 'noblob', 'all');
 $cfg_db['DefaultDisplay'] = array('horizontal', 'vertical', 'horizontalflipped');
 $cfg_db['CharEditing'] = array('input', 'textarea');

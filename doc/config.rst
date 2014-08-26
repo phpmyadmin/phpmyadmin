@@ -2263,6 +2263,15 @@ Design customization
 
     If enabled, remember the sorting of each table when browsing them.
 
+.. config:option:: $cfg['TablePrimaryKeyOrder']
+
+    :type: string
+    :default: ``'NONE'``
+
+    This defines the default sort order for the tables, having a primary key,
+    when there is no sort order defines externally.
+    Acceptable values : ['NONE', 'ASC', 'DESC']
+
 .. config:option:: $cfg['HeaderFlipType']
 
     :type: string

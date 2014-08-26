@@ -522,6 +522,8 @@ $strConfigRecodingEngine_name = __('Recoding engine');
 $strConfigRememberSorting_desc
     = __('When browsing tables, the sorting of each table is remembered.');
 $strConfigRememberSorting_name = __('Remember table\'s sorting');
+$strConfigTablePrimaryKeyOrder_desc = __('Default sort order for tables with primary key.');
+$strConfigTablePrimaryKeyOrder_name = __('The sort order');
 $strConfigRepeatCells_desc
     = __('Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature.');
 $strConfigRepeatCells_name = __('Repeat headers');
