@@ -28,7 +28,7 @@ function PMA_getHtmlForEditOrDeletePages($db, $operation)
     $html .= '<fieldset id="page_edit_delete_options">';
     $html .= '<input type="hidden" name="operation" value="' . $operation . '" />';
     $html .= '<label for="selected_page">';
-    if ($operation == 'edit') {
+    if ($operation == 'editPage') {
         $html .= __("Page to open");
     } else {
         $html .= __("Page to delete");
