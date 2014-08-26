@@ -10,13 +10,6 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 require_once 'libraries/db_designer.lib.php';
 
-$script_display_field = PMA_getTablesInfo();
-$tab_column = PMA_getColumnsInfo();
-$script_tables = PMA_getScriptTabs();
-$tables_pk_or_unique_keys = PMA_getPKOrUniqueKeys();
-$tables_all_keys = PMA_getAllKeys();
-$display_page = -1;
-
 $response = PMA_Response::getInstance();
 
 if (isset($_REQUEST['dialog'])) {
@@ -88,16 +81,28 @@ if (isset($_REQUEST['operation'])) {
         $response->isSuccess(true);
     }
     return;
-} else {
+}
+
+$script_display_field = PMA_getTablesInfo();
+$tab_column = PMA_getColumnsInfo();
+$script_tables = PMA_getScriptTabs();
+$tables_pk_or_unique_keys = PMA_getPKOrUniqueKeys();
+$tables_all_keys = PMA_getAllKeys();
+
+$display_page = -1;
+$selected_page = null;
+
+if (! isset($_REQUEST['query'])) {
     if (! empty($_REQUEST['page'])) {
         $display_page = $_REQUEST['page'];
     } else {
         $display_page = PMA_getFirstPage($_REQUEST['db']);
     }
 }
-
+if ($display_page != -1) {
+    $selected_page = PMA_getPageName($display_page);
+}
 $tab_pos = PMA_getTablePositions($display_page);
-$selected_page = PMA_getPageName($display_page);
 $script_contr = PMA_getScriptContr();
 
 $params = array('lang' => $GLOBALS['lang']);
@@ -130,7 +135,9 @@ $response->addHTML(
         $script_tables, $script_contr, $script_display_field, $display_page
     )
 );
-$response->addHTML(PMA_getDesignerPageTopMenu($selected_page));
+$response->addHTML(
+    PMA_getDesignerPageTopMenu(isset($_REQUEST['query']), $selected_page)
+);
 
 $response->addHTML('<div id="canvas_outer">');
 $response->addHTML('<form action="" method="post" name="form1">');
@@ -152,12 +159,12 @@ $response->addHTML('<div id="pmd_hint"></div>');
 $response->addHTML(PMA_getNewRelationPanel());
 $response->addHTML(PMA_getDeleteRelationPanel());
 
-$response->addHTML(PMA_getOptionsPanel());
-$response->addHTML(PMA_getRenameToPanel());
-$response->addHTML(PMA_getHavingQueryPanel());
-$response->addHTML(PMA_getAggregateQueryPanel());
-$response->addHTML(PMA_getWhereQueryPanel());
-if (! empty($_REQUEST['query'])) {
+if (isset($_REQUEST['query'])) {
+    $response->addHTML(PMA_getOptionsPanel());
+    $response->addHTML(PMA_getRenameToPanel());
+    $response->addHTML(PMA_getHavingQueryPanel());
+    $response->addHTML(PMA_getAggregateQueryPanel());
+    $response->addHTML(PMA_getWhereQueryPanel());
     $response->addHTML(PMA_getQueryDetails());
 }
 

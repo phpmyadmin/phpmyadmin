@@ -221,11 +221,12 @@ function PMA_getHtmlForJSFields(
 /**
  * Returns HTML for the top menu bar of the designer page
  *
- * @param string $selected_page name of the selected page
+ * @param boolean $visualBuilder whether this is visual query builder
+ * @param string  $selected_page name of the selected page
  *
  * @return string html
  */
-function PMA_getDesignerPageTopMenu($selected_page)
+function PMA_getDesignerPageTopMenu($visualBuilder, $selected_page)
 {
     $html  = '<div class="pmd_header" id="top_menu">';
 
@@ -254,42 +255,46 @@ function PMA_getDesignerPageTopMenu($selected_page)
     . '" />';
     $html .= '</a>';
 
-    $html .= '<img class="M_bord" alt="" ';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png') . '" />';
+    if (! $visualBuilder) {
+        $html .= '<img class="M_bord" alt="" ';
+        $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png')
+            . '" />';
 
-    $html .= '<a href="#" onclick="New(); return false" ';
-    $html .= 'class="M_butt" target="_self">';
-    $html .= '<img title="' . __('New page') . '"alt="" ';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/page_add.png')
-        . '" />';
-    $html .= '</a>';
+        $html .= '<a href="#" onclick="New(); return false" ';
+        $html .= 'class="M_butt" target="_self">';
+        $html .= '<img title="' . __('New page') . '"alt="" ';
+        $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/page_add.png')
+            . '" />';
+        $html .= '</a>';
 
-    $html .= '<a href="#" onclick="Edit_pages(); return false" ';
-    $html .= 'class="M_butt ajax" target="_self">';
-    $html .= '<img title="' . __('Open page') . '" alt="" ';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/page_edit.png')
-        . '" />';
-    $html .= '</a>';
+        $html .= '<a href="#" onclick="Edit_pages(); return false" ';
+        $html .= 'class="M_butt ajax" target="_self">';
+        $html .= '<img title="' . __('Open page') . '" alt="" ';
+        $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/page_edit.png')
+            . '" />';
+        $html .= '</a>';
 
-    $html .= '<a href="#" onclick="Save3(); return false" ';
-    $html .= 'class="M_butt" target="_self">';
-    $html .= '<img title="' . __('Save position') . '" alt="" ';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/save.png') . '" />';
-    $html .= '</a>';
+        $html .= '<a href="#" onclick="Save3(); return false" ';
+        $html .= 'class="M_butt" target="_self">';
+        $html .= '<img title="' . __('Save position') . '" alt="" ';
+        $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/save.png')
+            . '" />';
+        $html .= '</a>';
 
-    $html .= '<a href="#" onclick="Save_as(); return false" ';
-    $html .= 'class="M_butt ajax" target="_self">';
-    $html .= '<img title="' . __('Save positions as') . '" alt="" ';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/save_as.png')
-        . '" />';
-    $html .= '</a>';
+        $html .= '<a href="#" onclick="Save_as(); return false" ';
+        $html .= 'class="M_butt ajax" target="_self">';
+        $html .= '<img title="' . __('Save positions as') . '" alt="" ';
+        $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/save_as.png')
+            . '" />';
+        $html .= '</a>';
 
-    $html .= '<a href="#" onclick="Delete_pages(); return false" ';
-    $html .= 'class="M_butt ajax" target="_self">';
-    $html .= '<img title="' . __('Delete pages') . '" alt="" ';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/page_delete.png')
-        . '" />';
-    $html .= '</a>';
+        $html .= '<a href="#" onclick="Delete_pages(); return false" ';
+        $html .= 'class="M_butt ajax" target="_self">';
+        $html .= '<img title="' . __('Delete pages') . '" alt="" ';
+        $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/page_delete.png')
+            . '" />';
+        $html .= '</a>';
+    }
 
     $html .= '<img class="M_bord" alt="" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png') . '" />';
@@ -368,26 +373,32 @@ function PMA_getDesignerPageTopMenu($selected_page)
         . '" />';
     $html .= '</a>';
 
-    $html .= '<img class="M_bord" alt="" ';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png') . '" />';
-    $html .= '<span id="page_name" style="border:none;">';
-    $html .= ($selected_page == null ? __("Untitled") : htmlspecialchars($selected_page));
-    $html .= '</span>';
-    $html .= '<span id="saved_state" style="border:none;width:5px">';
-    $html .= ($selected_page == null ? '*' : '') . '</span>';
-    $html .= '<img class="M_bord" alt="" ';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png') . '" />';
+    if (! $visualBuilder) {
+        $html .= '<img class="M_bord" alt="" ';
+        $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png')
+            . '" />';
+        $html .= '<span id="page_name" style="border:none;">';
+        $html .= ($selected_page == null
+            ? __("Untitled")
+            : htmlspecialchars($selected_page));
+        $html .= '</span>';
+        $html .= '<span id="saved_state" style="border:none;width:5px">';
+        $html .= ($selected_page == null ? '*' : '') . '</span>';
+        $html .= '<img class="M_bord" alt="" ';
+        $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png')
+            . '" />';
 
-    $html .= '<a href="#" onclick="Export_pages(); return false" ';
-    $html .= 'class="M_butt" target="_self" >';
-    $html .= '<img title="' . __('Export schema') . '" alt="key" ';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/export.png') . '" />';
-    $html .= '</a>';
+        $html .= '<a href="#" onclick="Export_pages(); return false" ';
+        $html .= 'class="M_butt" target="_self" >';
+        $html .= '<img title="' . __('Export schema') . '" alt="key" ';
+        $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/export.png')
+            . '" />';
+        $html .= '</a>';
 
-    $html .= '<img class="M_bord" alt="" ';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png') . '" />';
-
-    if (isset($_REQUEST['query'])) {
+        $html .= '<img class="M_bord" alt="" ';
+        $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png')
+            . '" />';
+    } else {
         $html .= '<a href="#" onclick="build_query(\'SQL Query on Database\', 0)" ';
         $html .= 'onmousedown="return false;" class="M_butt" target="_self">';
         $html .= '<img alt="key" width="20" height="20" ';
