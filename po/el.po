@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-27 08:27-0400\n"
-"PO-Revision-Date: 2014-08-16 21:00+0200\n"
+"PO-Revision-Date: 2014-08-27 20:24+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
-">\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
+"\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -253,7 +253,7 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Η βάση δεδομένων %1$s αντιγράφηκε στη %2$s."
 
 #: db_operations.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
@@ -261,7 +261,7 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
 "Οι επιπρόσθετες λειτουργίες για εργασία με συσχετισμένους πίνακες έχουν "
-"απενεργοποιηθεί. Για να μάθετε γιατί, πατήστε %sεδώ%s."
+"απενεργοποιηθεί. %sΜάθετε γιατί%s."
 
 #: db_printview.php:48 db_tracking.php:81 db_tracking.php:210
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:754
@@ -908,7 +908,7 @@ msgstr ""
 "μπορούν να λάβουν τη ρύθμισή σας."
 
 #: index.php:517
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s. "
@@ -917,8 +917,7 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "Η αποθήκευση ρυθμίσεων του phpMyAdmin δεν έχει ρυθμιστεί πλήρως. Μερικά "
-"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί, πατήστε "
-"%sεδώ%s. "
+"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. %sΜάθετε γιατί%s. "
 
 #: index.php:523
 msgid ""
@@ -2143,10 +2142,9 @@ msgid "Delete page"
 msgstr "Διαγραφή σελίδας"
 
 #: js/messages.php:404 libraries/db_designer.lib.php:382
-#, fuzzy
 #| msgid "*Untitled"
 msgid "Untitled"
-msgstr "*Χωρίς τίτλο"
+msgstr "Χωρίς τίτλο"
 
 #: js/messages.php:405
 msgid "Please select a page to continue"
@@ -6565,13 +6563,12 @@ msgstr "Απομνημόνευση ταξινόμησης πινάκων"
 
 #: libraries/config/messages.inc.php:525
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "Προεπιλεγμένη ταξινόμηση για πίνακες με πρωτεύον κλειδί."
 
 #: libraries/config/messages.inc.php:526
-#, fuzzy
 #| msgid "Default sorting order"
 msgid "Primary key default sort order"
-msgstr "Προεπιλεγμένη ταξινόμηση"
+msgstr "Προεπιλεγμένη ταξινόμηση πρωτεύοντος κλειδιού"
 
 #: libraries/config/messages.inc.php:528
 msgid ""
@@ -10227,10 +10224,10 @@ msgid "PDF export page"
 msgstr "Σελίδα εξαγωγής PDF"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:473
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
-msgstr "Σχήμα της βάσης δεδομένων %s - Σελίδα %s"
+msgstr "Σχήμα της βάσης δεδομένων %s"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:496
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:916
