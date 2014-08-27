@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-27 08:27-0400\n"
-"PO-Revision-Date: 2014-08-11 04:00+0200\n"
-"Last-Translator: A.Torres <israeltorres29@hotmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2014-08-27 16:15+0200\n"
+"Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -619,10 +619,9 @@ msgid "Failed"
 msgstr "Falha"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "inserções completas"
+msgstr "Parâmetros incompletos"
 
 #: import.php:166
 #, php-format
@@ -909,7 +908,7 @@ msgstr ""
 "downloads de suas configurações."
 
 #: index.php:517
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -918,8 +917,8 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "O armazenamento de configurações do phpMyAdmin não está completamente "
-"configurado, algumas funções avançadas foram desativadas. Para descobrir "
-"porque, clique %saqui%s."
+"configurado, algumas funções avançadas foram desativadas. %sDescubra porque%"
+"s. "
 
 #: index.php:523
 msgid ""
@@ -979,10 +978,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Eliminando chave/índice primário"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Is a foreign key."
 msgid "Dropping Foreign key."
-msgstr "É uma chave estrangeira."
+msgstr "Descartando chave estrangeira."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1005,10 +1003,9 @@ msgstr ""
 "sair desta página antes de salvar os dados?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Você realmente deseja excluir a busca \"%s\"?"
+msgstr "Você realmente deseja revogar o(s) usuário(s) selecionado(s) ?"
 
 #: js/messages.php:51
 msgid "Save & Close"
@@ -1058,10 +1055,9 @@ msgid "Create single-column index"
 msgstr "Criar um índice de coluna única"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Criar rotina"
+msgstr "Criar índice composto"
 
 #: js/messages.php:65
 msgid "Composite with:"
@@ -1905,7 +1901,7 @@ msgstr "Fim da etapa"
 
 #: js/messages.php:315
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "Segunda etapa da normalização (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:316 js/messages.php:551 libraries/normalization.lib.php:260
@@ -1914,7 +1910,7 @@ msgstr "Concluído"
 
 #: js/messages.php:317
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Confirme dependências parciais"
 
 #: js/messages.php:318
 msgid "Selected partial dependencies are as follows:"
@@ -1925,12 +1921,13 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Nota: a, b _. d, f implica em valores de colunas a e b combinados juntos "
+"podem determinar os valores da coluna d e coluna f."
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Nenhum banco de dados selecionado."
+msgstr "Nenhuma dependência parcial selecionada!"
 
 #: js/messages.php:322
 msgid "Show me the possible partial dependencies based on data in the table"
