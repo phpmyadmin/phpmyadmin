@@ -1555,13 +1555,18 @@ class ExportSql extends ExportPlugin
         // that could be there starting with MySQL 5.0.24
         // in Drizzle it's useless as it contains the value given at table
         // creation time
-        $schema_create = preg_replace(
-            '/AUTO_INCREMENT\s*=\s*([0-9])+/',
-            '',
-            $schema_create
-        );
-
-        $schema_create .= ($compat != 'MSSQL') ? $auto_increment : '';
+        if (preg_match('/AUTO_INCREMENT\s*=\s*([0-9])+/', $schema_create)) {
+            if ($compat == 'MSSQL' || $auto_increment == '') {
+                $auto_increment = ' ';
+            }
+            $schema_create = preg_replace(
+                '/\sAUTO_INCREMENT\s*=\s*([0-9])+\s/',
+                $auto_increment,
+                $schema_create
+            );
+        } else {
+            $schema_create .= ($compat != 'MSSQL') ? $auto_increment : '';
+        }
 
         $GLOBALS['dbi']->freeResult($result);
         return $warning . $schema_create . ($add_semicolon ? ';' . $crlf : '');
