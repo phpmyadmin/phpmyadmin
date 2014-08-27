@@ -1213,7 +1213,37 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
         );
         $sql_query = $book_sql_query;
     } else {
-        $sql_query = 'SELECT * FROM ' . PMA_Util::backquote($table);
+        
+        $defaultOrderByClause = '';
+        
+        if (isset($GLOBALS['cfg']['TablePrimaryKeyOrder'])
+            && ($GLOBALS['cfg']['TablePrimaryKeyOrder'] !== 'NONE')
+        ) {
+            
+            $primaryKey     = null;
+            $primary        = PMA_Index::getPrimary($table, $db);
+            
+            if ($primary !== false) {
+                
+                $primarycols    = $primary->getColumns();
+
+                foreach ($primarycols as $col) {
+                    $primaryKey = $col->getName();
+                    break;
+                }
+
+                if ($primaryKey != null) {
+                    $defaultOrderByClause = ' ORDER BY ' . PMA_Util::backquote($table) . '.'
+                                          . PMA_Util::backquote($primaryKey) . ' '
+                                          . $GLOBALS['cfg']['TablePrimaryKeyOrder'];
+                }
+                
+            }
+            
+        }
+        
+        $sql_query = 'SELECT * FROM ' . PMA_Util::backquote($table) . $defaultOrderByClause;
+        
     }
     unset($book_sql_query);
 

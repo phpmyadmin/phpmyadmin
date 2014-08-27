@@ -117,6 +117,7 @@ $forms['Main_panel']['Browse'] = array(
     'RepeatCells',
     'LimitChars',
     'RowActionLinks',
+    'TablePrimaryKeyOrder',
     'DefaultDisplay',
     'RememberSorting');
 $forms['Main_panel']['Edit'] = array(

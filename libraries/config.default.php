@@ -2588,6 +2588,12 @@ $cfg['LimitChars'] = 50;
 $cfg['RowActionLinks'] = 'left';
 
 /**
+ * Default sort order by primary key.
+ * @global string $cfg['TablePrimaryKeyOrder']
+ */
+$cfg['TablePrimaryKeyOrder'] = 'NONE';
+
+/**
  * default display direction (horizontal|vertical|horizontalflipped)
  *
  * @global string $cfg['DefaultDisplay']
