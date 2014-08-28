@@ -1420,11 +1420,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             $result
         );
 
-        $this->assertContains(
-            "AUTO_INCREMENT=1 ;",
-            $result
-        );
-
         $this->assertNotContains(
             '-- Constraints for table',
             $GLOBALS['sql_constraints']
