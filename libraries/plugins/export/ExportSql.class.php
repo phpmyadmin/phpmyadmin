@@ -1564,8 +1564,6 @@ class ExportSql extends ExportPlugin
                 $auto_increment,
                 $schema_create
             );
-        } else {
-            $schema_create .= ($compat != 'MSSQL') ? $auto_increment : '';
         }
 
         $GLOBALS['dbi']->freeResult($result);
