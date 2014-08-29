@@ -50,10 +50,11 @@ class Node_Database extends Node
      * @param string $type         The type of item we are looking for
      *                             ('tables', 'views', etc)
      * @param string $searchClause A string used to filter the results of the query
+     * @param string $singleItem   Whether to get presence of a single known item
      *
      * @return int
      */
-    public function getPresence($type = '', $searchClause = '')
+    public function getPresence($type = '', $searchClause = '', $singleItem = false)
     {
         $retval = 0;
         $db     = $this->real_name;
@@ -69,11 +70,19 @@ class Node_Database extends Node
                 $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
             }
             if (! empty($searchClause)) {
-                $query .= "AND `TABLE_NAME` LIKE '%";
-                $query .= PMA_Util::sqlAddSlashes(
-                    $searchClause, true
-                );
-                $query .= "%'";
+                if ($singleItem) {
+                    $query .= "AND `TABLE_NAME` = '";
+                    $query .= PMA_Util::sqlAddSlashes(
+                        $searchClause, true
+                    );
+                    $query .= "'";
+                } else {
+                    $query .= "AND `TABLE_NAME` LIKE '%";
+                    $query .= PMA_Util::sqlAddSlashes(
+                        $searchClause, true
+                    );
+                    $query .= "%'";
+                }
             }
             $retval = (int)$GLOBALS['dbi']->fetchValue($query);
             break;
@@ -88,11 +97,19 @@ class Node_Database extends Node
                 $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
             }
             if (! empty($searchClause)) {
-                $query .= "AND `TABLE_NAME` LIKE '%";
-                $query .= PMA_Util::sqlAddSlashes(
-                    $searchClause, true
-                );
-                $query .= "%'";
+                if ($singleItem) {
+                    $query .= "AND `TABLE_NAME` = '";
+                    $query .= PMA_Util::sqlAddSlashes(
+                        $searchClause, true
+                    );
+                    $query .= "'";
+                } else {
+                    $query .= "AND `TABLE_NAME` LIKE '%";
+                    $query .= PMA_Util::sqlAddSlashes(
+                        $searchClause, true
+                    );
+                    $query .= "%'";
+                }
             }
             $retval = (int)$GLOBALS['dbi']->fetchValue($query);
             break;
@@ -103,11 +120,19 @@ class Node_Database extends Node
             $query .= "WHERE `ROUTINE_SCHEMA`='$db'";
             $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
             if (! empty($searchClause)) {
-                $query .= "AND `ROUTINE_NAME` LIKE '%";
-                $query .= PMA_Util::sqlAddSlashes(
-                    $searchClause, true
-                );
-                $query .= "%'";
+                if ($singleItem) {
+                    $query .= "AND `ROUTINE_NAME` = '";
+                    $query .= PMA_Util::sqlAddSlashes(
+                        $searchClause, true
+                    );
+                    $query .= "'";
+                } else {
+                    $query .= "AND `ROUTINE_NAME` LIKE '%";
+                    $query .= PMA_Util::sqlAddSlashes(
+                        $searchClause, true
+                    );
+                    $query .= "%'";
+                }
             }
             $retval = (int)$GLOBALS['dbi']->fetchValue($query);
             break;
@@ -118,11 +143,19 @@ class Node_Database extends Node
             $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
             $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
             if (! empty($searchClause)) {
-                $query .= "AND `ROUTINE_NAME` LIKE '%";
-                $query .= PMA_Util::sqlAddSlashes(
-                    $searchClause, true
-                );
-                $query .= "%'";
+                if ($singleItem) {
+                    $query .= "AND `ROUTINE_NAME` = '";
+                    $query .= PMA_Util::sqlAddSlashes(
+                        $searchClause, true
+                    );
+                    $query .= "'";
+                } else {
+                    $query .= "AND `ROUTINE_NAME` LIKE '%";
+                    $query .= PMA_Util::sqlAddSlashes(
+                        $searchClause, true
+                    );
+                    $query .= "%'";
+                }
             }
             $retval = (int)$GLOBALS['dbi']->fetchValue($query);
             break;
@@ -132,11 +165,19 @@ class Node_Database extends Node
             $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
             $query .= "WHERE `EVENT_SCHEMA`='$db' ";
             if (! empty($searchClause)) {
-                $query .= "AND `EVENT_NAME` LIKE '%";
-                $query .= PMA_Util::sqlAddSlashes(
-                    $searchClause, true
-                );
-                $query .= "%'";
+                if ($singleItem) {
+                    $query .= "AND `EVENT_NAME` = '";
+                    $query .= PMA_Util::sqlAddSlashes(
+                        $searchClause, true
+                    );
+                    $query .= "'";
+                } else {
+                    $query .= "AND `EVENT_NAME` LIKE '%";
+                    $query .= PMA_Util::sqlAddSlashes(
+                        $searchClause, true
+                    );
+                    $query .= "%'";
+                }
             }
             $retval = (int)$GLOBALS['dbi']->fetchValue($query);
             break;
