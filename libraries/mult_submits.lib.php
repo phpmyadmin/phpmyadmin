@@ -239,11 +239,6 @@ function PMA_getQueryStrFromSelected(
 
         case 'copy_tbl_change_prefix':
             $current = $selected[$i];
-            if (substr($current, 0, strlen($from_prefix)) == $from_prefix) {
-                $newtablename = $to_prefix . substr($current, strlen($from_prefix));
-            } else {
-                $newtablename = $current;
-            }
             $newtablename = $to_prefix . substr($current, strlen($from_prefix));
             // COPY TABLE AND CHANGE PREFIX PATTERN
             $a_query = 'CREATE TABLE '
