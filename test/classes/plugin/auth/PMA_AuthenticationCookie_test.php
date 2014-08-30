@@ -29,6 +29,9 @@ require_once 'libraries/select_lang.lib.php';
  */
 class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @var AuthenticationCookie
+     */
     protected $object;
 
     /**
