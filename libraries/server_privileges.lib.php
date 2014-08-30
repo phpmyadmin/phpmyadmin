@@ -3469,8 +3469,8 @@ function PMA_updateMessageForReload()
 /**
  * update Data For Queries from queries_for_display
  *
- * @param array $queries             queries array
- * @param array $queries_for_display queries arry for display
+ * @param array      $queries             queries array
+ * @param array|null $queries_for_display queries arry for display
  *
  * @return null
  */
