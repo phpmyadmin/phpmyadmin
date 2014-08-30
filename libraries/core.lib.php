@@ -683,7 +683,7 @@ function PMA_downloadHeader($filename, $mimetype, $length = 0, $no_cache = true)
  * $path is a string describing position of an element in an associative array,
  * eg. Servers/1/host refers to $array[Servers][1][host]
  *
- * @param string $path  path in the arry
+ * @param string $path  path in the array
  * @param array  $array the array
  *
  * @return mixed    array element or $default
@@ -706,7 +706,7 @@ function PMA_arrayKeyExists($path, $array)
  * $path is a string describing position of an element in an associative array,
  * eg. Servers/1/host refers to $array[Servers][1][host]
  *
- * @param string $path    path in the arry
+ * @param string $path    path in the array
  * @param array  $array   the array
  * @param mixed  $default default value
  *
