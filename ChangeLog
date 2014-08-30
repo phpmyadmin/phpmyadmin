@@ -50,6 +50,7 @@ phpMyAdmin - ChangeLog
 - bug       server_privileges.js: cannot read property
 - bug #4527 Importing ODS files with column names having trailing spaces fails
 - bug #4413 Navigation Error in Nav Tree for Search Results Past the First Page
+- bug       functions.js: Cannot read property 'replace' of undefined
 
 4.2.7.1 (2014-08-17)
 - bug #4501 [security] XSS in table browse page
