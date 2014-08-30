@@ -4403,6 +4403,7 @@ class PMA_Util
     public static function getCompressionMimeType($file)
     {
         //Can't use PMA_StringMB here, so force use of PMA_StringNative.
+        include_once 'libraries/StringNative.class.php';
         $pmaString = new PMA_StringNative();
 
         $test = fread($file, 4);
