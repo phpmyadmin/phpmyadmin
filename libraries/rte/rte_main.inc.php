@@ -48,13 +48,6 @@ if ($GLOBALS['is_ajax_request'] != true) {
  * be used to attach jQuery events to links
  */
 $ajax_class = array(
-    'add'    => '',
-    'edit'   => '',
-    'exec'   => '',
-    'drop'   => '',
-    'export' => ''
-);
-$ajax_class = array(
     'add'    => 'class="ajax add_anchor"',
     'edit'   => 'class="ajax edit_anchor"',
     'exec'   => 'class="ajax exec_anchor"',
