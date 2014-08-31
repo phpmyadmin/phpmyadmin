@@ -292,12 +292,11 @@ class PMA_Validator
     /**
      * Validate server config
      *
-     * @param string $path   path to config, not used
      * @param array  $values config values
      *
      * @return array
      */
-    public static function validateServer($path, $values)
+    public static function validateServer($values)
     {
         $result = array(
             'Server' => '',
@@ -352,12 +351,11 @@ class PMA_Validator
     /**
      * Validate pmadb config
      *
-     * @param string $path   path to config, not used
      * @param array  $values config values
      *
      * @return array
      */
-    public static function validatePMAStorage($path, $values)
+    public static function validatePMAStorage($values)
     {
         $result = array(
             'Server_pmadb' => '',
