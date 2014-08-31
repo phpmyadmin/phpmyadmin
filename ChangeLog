@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.2.9.0 (not yet released)
+
 4.2.8.0 (not yet released)
 - bug #4516 Odd export behavior
 - bug #4519 Uncaught TypeError: Cannot read property 'success' of null
