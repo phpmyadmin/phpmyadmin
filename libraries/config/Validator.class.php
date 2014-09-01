@@ -292,7 +292,7 @@ class PMA_Validator
     /**
      * Validate server config
      *
-     * @param array  $values config values
+     * @param array $values config values
      *
      * @return array
      */
@@ -351,7 +351,7 @@ class PMA_Validator
     /**
      * Validate pmadb config
      *
-     * @param array  $values config values
+     * @param array $values config values
      *
      * @return array
      */
