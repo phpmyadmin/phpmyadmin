@@ -40,6 +40,7 @@ phpMyAdmin - ChangeLog
             non-root directory
 
 4.2.9.0 (not yet released)
+- bug       ajax.js responseHandler: cannot read property of null
 
 4.2.8.0 (2014-08-31)
 - bug #4516 Odd export behavior
