@@ -28,6 +28,7 @@ require_once 'libraries/Message.class.php';
 class ImportShp_Test extends PHPUnit_Framework_TestCase
 {
     /**
+     * @var ImportShp
      * @access protected
      */
     protected $object;
@@ -137,6 +138,7 @@ class ImportShp_Test extends PHPUnit_Framework_TestCase
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
         global $import_notice, $sql_query, $sql_query_disabled;
+        var_dump($sql_query);
         $sql_query_disabled = false;
 
         //Test function called
