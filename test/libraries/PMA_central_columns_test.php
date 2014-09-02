@@ -344,6 +344,9 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetHTMLforCentralColumnsTableRow()
     {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         $row = array(
             'col_name'=>'col_test',
             'col_type'=>'int',
@@ -369,7 +372,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             PMA_getHtmlForColumnDefault(
-                1, 5, 0, strtoupper($row['col_type']), '',
+                1, 5, 0, $pmaString->strtoupper($row['col_type']), '',
                 array('DefaultType'=>'NONE')
             ),
             $result
@@ -380,7 +383,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             PMA_getHtmlForColumnDefault(
-                1, 5, 0, strtoupper($row['col_type']), '',
+                1, 5, 0, $pmaString->strtoupper($row['col_type']), '',
                 array('DefaultType'=>'USER_DEFINED', 'DefaultValue'=>100)
             ),
             $result_1
@@ -391,7 +394,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             PMA_getHtmlForColumnDefault(
-                1, 5, 0, strtoupper($row['col_type']), '',
+                1, 5, 0, $pmaString->strtoupper($row['col_type']), '',
                 array('DefaultType'=>'CURRENT_TIMESTAMP')
             ),
             $result_2

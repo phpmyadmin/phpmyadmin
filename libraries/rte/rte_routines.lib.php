@@ -412,7 +412,10 @@ function PMA_RTN_handleEditor()
                     . " WHERE $where;"
                 );
                 $response->addJSON(
-                    'name', htmlspecialchars(strtoupper($_REQUEST['item_name']))
+                    'name',
+                    htmlspecialchars(
+                        $GLOBALS['PMA_String']->strtoupper($_REQUEST['item_name'])
+                    )
                 );
                 $response->addJSON('new_row', PMA_RTN_getRowForList($routine));
                 $response->addJSON('insert', ! empty($routine));
@@ -695,7 +698,7 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
             $fetching = false;
             for ($i=0; $i<$parsed_query['len']; $i++) {
                 if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
-                    && strtoupper($parsed_query[$i]['data']) == 'RETURNS'
+                    && $pmaString->strtoupper($parsed_query[$i]['data']) == 'RETURNS'
                 ) {
                     $fetching = true;
                 } else if ($fetching == true
@@ -707,7 +710,7 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
                     // characters. We can safely assume that the return
                     // datatype is either ENUM or SET, so we only look
                     // for CHARSET.
-                    $word = strtoupper($parsed_query[$i]['data']);
+                    $word = $pmaString->strtoupper($parsed_query[$i]['data']);
                     if ($word == 'CHARSET'
                         && ($parsed_query[$i+1]['type'] == 'alpha_charset'
                         || $parsed_query[$i+1]['type'] == 'alpha_identifier')
@@ -950,9 +953,13 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         $isfunction_select = " selected='selected'";
     }
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     // Create the output
     $retval  = "";
-    $retval .= "<!-- START " . strtoupper($mode) . " ROUTINE FORM -->\n\n";
+    $retval .= "<!-- START " . $pmaString->strtoupper($mode)
+        . " ROUTINE FORM -->\n\n";
     $retval .= "<form class='rte_form' action='db_routines.php' method='post'>\n";
     $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
     $retval .= $original_routine;
@@ -1111,7 +1118,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         $retval .= "</fieldset>";
     }
     $retval .= "</form>";
-    $retval .= "<!-- END " . strtoupper($mode) . " ROUTINE FORM -->";
+    $retval .= "<!-- END " . $pmaString->strtoupper($mode) . " ROUTINE FORM -->";
 
     return $retval;
 } // end PMA_RTN_getEditorForm()

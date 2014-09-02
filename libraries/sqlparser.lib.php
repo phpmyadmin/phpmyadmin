@@ -792,7 +792,8 @@ function PMA_SQP_parse($sql)
         if (($i + 1) < $arraysize) {
             $t_next = $sql_array[$i + 1]['type'];
             $d_next = $sql_array[$i + 1]['data'];
-            $d_next_upper = $t_next == 'alpha' ? strtoupper($d_next) : $d_next;
+            $d_next_upper =
+                $t_next == 'alpha' ? $pmaString->strtoupper($d_next) : $d_next;
         } else {
             $t_next       = '';
             $d_next       = '';
@@ -2451,6 +2452,9 @@ function PMA_SQP_format(
         $typearr[3] = $arr[$start_token]['type'];
     }
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     $in_priv_list = false;
     for ($i = $start_token; $i < $number_of_tokens; $i++) {
         // DEBUG echo "Loop format <strong>" . $arr[$i]['data']
@@ -2486,10 +2490,14 @@ function PMA_SQP_format(
             $bracketlevel++;
             $infunction = false;
             $keyword_brackets_2before = isset(
-                $keywords_with_brackets_2before[strtoupper($arr[$i - 2]['data'])]
+                $keywords_with_brackets_2before[
+                    $pmaString->strtoupper($arr[$i - 2]['data'])
+                ]
             );
             $keyword_brackets_1before = isset(
-                $keywords_with_brackets_1before[strtoupper($arr[$i - 1]['data'])]
+                $keywords_with_brackets_1before[
+                    $pmaString->strtoupper($arr[$i - 1]['data'])
+                ]
             );
             // Make sure this array is sorted!
             if (($typearr[1] == 'alpha_functionName')
@@ -2621,7 +2629,7 @@ function PMA_SQP_format(
             // select * from mysql.user where binary user="root"
             // binary is marked as alpha_columnAttrib
             // but should be marked as a reserved word
-            if (strtoupper($arr[$i]['data']) == 'BINARY'
+            if ($pmaString->strtoupper($arr[$i]['data']) == 'BINARY'
                 && $typearr[3] == 'alpha_identifier'
             ) {
                 $after     .= ' ';
@@ -2637,7 +2645,7 @@ function PMA_SQP_format(
             // as an identifier name)
 
             if ($mode != 'query_only') {
-                $arr[$i]['data'] = strtoupper($arr[$i]['data']);
+                $arr[$i]['data'] = $pmaString->strtoupper($arr[$i]['data']);
             }
 
             list($before, $in_priv_list) = PMA_SQP_format_getBeforeAndInPrivList(
@@ -2753,7 +2761,7 @@ function PMA_SQP_format_getBeforeAndInPrivList(
 ) {
     if (!((($typearr[1] != 'alpha_reservedWord')
         || (($typearr[1] == 'alpha_reservedWord')
-        && isset($keywords_no_newline[strtoupper($arr[$index - 1]['data'])])))
+        && isset($keywords_no_newline[$GLOBALS['PMA_String']->strtoupper($arr[$index - 1]['data'])])))
         && ($typearr[1] != 'punct_level_plus')
         && (!isset($keywords_no_newline[$arr[$index]['data']])))
     ) {
@@ -2915,7 +2923,10 @@ function PMA_SQP_formatNone($arr)
 function PMA_SQP_isKeyWord($column)
 {
     global $PMA_SQPdata_forbidden_word;
-    return in_array(strtoupper($column), $PMA_SQPdata_forbidden_word);
+    return in_array(
+        $GLOBALS['PMA_String']->strtoupper($column),
+        $PMA_SQPdata_forbidden_word
+    );
 }
 
 /**

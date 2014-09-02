@@ -262,7 +262,11 @@ class PMA_Table
             );
             foreach ($results as $result) {
                 $analyzed_sql[0]['create_table_fields'][$result['COLUMN_NAME']]
-                    = array('type' => strtoupper($result['DATA_TYPE']));
+                    = array(
+                        'type' => $GLOBALS['PMA_String']->strtoupper(
+                                $result['DATA_TYPE']
+                            )
+                    );
             }
         } else {
             $show_create_table = $GLOBALS['dbi']->fetchValue(
@@ -333,7 +337,10 @@ class PMA_Table
         }
 
         // any of known merge engines?
-        return in_array(strtoupper($engine), array('MERGE', 'MRG_MYISAM'));
+        return in_array(
+            $GLOBALS['PMA_String']->strtoupper($engine),
+            array('MERGE', 'MRG_MYISAM')
+        );
     }
 
     /**

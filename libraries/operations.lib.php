@@ -1535,7 +1535,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
  */
 function PMA_setGlobalVariablesForEngine($tbl_storage_engine)
 {
-    $upperTblStorEngine = strtoupper($tbl_storage_engine);
+    $upperTblStorEngine = $GLOBALS['PMA_String']->strtoupper($tbl_storage_engine);
 
     //Options that apply to MYISAM usually apply to ARIA
     $is_myisam_or_aria = ($upperTblStorEngine == 'MYISAM'

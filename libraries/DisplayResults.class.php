@@ -3774,75 +3774,77 @@ class PMA_DisplayResults
         $transformation_plugin, $default_function, $transform_options,
         $is_field_truncated, $analyzed_sql
     ) {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
 
         if (! isset($column) || is_null($column)) {
-
             $cell = $this->_buildNullDisplay($class, $condition_field, $meta);
-
-        } elseif ($column != '') {
-
-            // Display as [GEOMETRY - (size)]
-            if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_GEOM) {
-
-                $geometry_text = $this->_handleNonPrintableContents(
-                    strtoupper(self::GEOMETRY_FIELD),
-                    (isset($column) ? $column : ''), $transformation_plugin,
-                    $transform_options, $default_function, $meta
-                );
-
-                $cell = $this->_buildValueDisplay(
-                    $class, $condition_field, $geometry_text
-                );
-
-            } elseif ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_WKT) {
-                // Prepare in Well Known Text(WKT) format.
-
-                $where_comparison = ' = ' . $column;
-
-                // Convert to WKT format
-                $wktval = PMA_Util::asWKT($column);
-                $is_field_truncated = $this->_getPartialText($wktval);
-
-                $cell = $this->_getRowData(
-                    $class, $condition_field, $analyzed_sql, $meta, $map,
-                    $wktval, $transformation_plugin, $default_function, '',
-                    $where_comparison, $transform_options,
-                    $is_field_truncated
-                );
-
-            } else {
-                // Prepare in  Well Known Binary (WKB) format.
-
-                if ($_SESSION['tmpval']['display_binary']) {
-
-                    $where_comparison = ' = ' . $column;
-
-                    $wkbval = $GLOBALS['PMA_String']->substr(bin2hex($column), 8);
-                    $is_field_truncated = $this->_getPartialText($wkbval);
-
-                    $cell = $this->_getRowData(
-                        $class, $condition_field,
-                        $analyzed_sql, $meta, $map, $wkbval,
-                        $transformation_plugin, $default_function, '',
-                        $where_comparison, $transform_options,
-                        $is_field_truncated
-                    );
-
-                } else {
-                    $wkbval = $this->_handleNonPrintableContents(
-                        self::BINARY_FIELD, $column, $transformation_plugin,
-                        $transform_options, $default_function, $meta,
-                        $_url_params
-                    );
-
-                    $cell = $this->_buildValueDisplay(
-                        $class, $condition_field, $wkbval
-                    );
-                }
-            }
-        } else {
-            $cell = $this->_buildEmptyDisplay($class, $condition_field, $meta);
+            return $cell;
         }
+
+        if ($column == '') {
+            $cell = $this->_buildEmptyDisplay($class, $condition_field, $meta);
+            return $cell;
+        }
+
+        // Display as [GEOMETRY - (size)]
+        if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_GEOM) {
+            $geometry_text = $this->_handleNonPrintableContents(
+                $pmaString->strtoupper(self::GEOMETRY_FIELD),
+                (isset($column) ? $column : ''), $transformation_plugin,
+                $transform_options, $default_function, $meta
+            );
+
+            $cell = $this->_buildValueDisplay(
+                $class, $condition_field, $geometry_text
+            );
+            return $cell;
+        }
+
+        if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_WKT) {
+            // Prepare in Well Known Text(WKT) format.
+            $where_comparison = ' = ' . $column;
+
+            // Convert to WKT format
+            $wktval = PMA_Util::asWKT($column);
+            $is_field_truncated = $this->_getPartialText($wktval);
+
+            $cell = $this->_getRowData(
+                $class, $condition_field, $analyzed_sql, $meta, $map,
+                $wktval, $transformation_plugin, $default_function, '',
+                $where_comparison, $transform_options,
+                $is_field_truncated
+            );
+            return $cell;
+        }
+
+        // Prepare in  Well Known Binary (WKB) format.
+
+        if ($_SESSION['tmpval']['display_binary']) {
+            $where_comparison = ' = ' . $column;
+
+            $wkbval = $pmaString->substr(bin2hex($column), 8);
+            $is_field_truncated = $this->_getPartialText($wkbval);
+
+            $cell = $this->_getRowData(
+                $class, $condition_field,
+                $analyzed_sql, $meta, $map, $wkbval,
+                $transformation_plugin, $default_function, '',
+                $where_comparison, $transform_options,
+                $is_field_truncated
+            );
+            return $cell;
+        }
+
+        $wkbval = $this->_handleNonPrintableContents(
+            self::BINARY_FIELD, $column, $transformation_plugin,
+            $transform_options, $default_function, $meta,
+            $_url_params
+        );
+
+        $cell = $this->_buildValueDisplay(
+            $class, $condition_field, $wkbval
+        );
 
         return $cell;
 

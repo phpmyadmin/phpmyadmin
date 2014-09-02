@@ -2409,6 +2409,10 @@ class ExportSql extends ExportPlugin
         $old_table = $table;
         $on_seen = false;
         $size = $tokens['len'];
+
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         for ($i = 0; $i < $size && !$query_end; $i++) {
             $type = $tokens[$i]['type'];
             $data = $tokens[$i]['data'];
@@ -2418,9 +2422,9 @@ class ExportSql extends ExportPlugin
             $d_unq = PMA_Util::unQuote($data);
             $d_unq_next = PMA_Util::unQuote($data_next);
             $d_unq_prev = PMA_Util::unQuote($data_prev);
-            $d_upper = strtoupper($d_unq);
-            $d_upper_next = strtoupper($d_unq_next);
-            $d_upper_prev = strtoupper($d_unq_prev);
+            $d_upper = $pmaString->strtoupper($d_unq);
+            $d_upper_next = $pmaString->strtoupper($d_unq_next);
+            $d_upper_prev = $pmaString->strtoupper($d_unq_prev);
             $pos = $tokens[$i]['pos'] + $offset;
             if ($type === 'alpha_reservedWord') {
                 if ($query_type === ''

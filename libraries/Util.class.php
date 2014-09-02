@@ -3086,7 +3086,7 @@ class PMA_Util
      */
     public static function isForeignKeySupported($engine)
     {
-        $engine = strtoupper($engine);
+        $engine = $GLOBALS['PMA_String']->strtoupper($engine);
         if (($engine == 'INNODB') || ($engine == 'PBXT')) {
             return true;
         } elseif ($engine == 'NDBCLUSTER' || $engine == 'NDB') {
@@ -3536,7 +3536,8 @@ class PMA_Util
         );
         if ($upper_case) {
             for ($i = 0, $nb = count($gis_data_types); $i < $nb; $i++) {
-                $gis_data_types[$i] = strtoupper($gis_data_types[$i]);
+                $gis_data_types[$i]
+                    = $GLOBALS['PMA_String']->strtoupper($gis_data_types[$i]);
             }
         }
         return $gis_data_types;

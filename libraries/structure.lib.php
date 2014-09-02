@@ -1365,7 +1365,8 @@ function PMA_getHtmlTableStructureRow($row, $rownum,
     }
     $html_output .= '</td>';
 
-    $html_output .= '<td class="nowrap">' . strtoupper($row['Extra']) . '</td>';
+    $html_output .= '<td class="nowrap">'
+        . $GLOBALS['PMA_String']->strtoupper($row['Extra']) . '</td>';
 
     $html_output .= PMA_getHtmlForDropColumn(
         $tbl_is_view, $db_is_system_schema,
@@ -2651,7 +2652,7 @@ function PMA_moveColumns($db, $table)
         $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
             $column,
             $column,
-            strtoupper($extracted_columnspec['type']),
+                $GLOBALS['PMA_String']->strtoupper($extracted_columnspec['type']),
             $extracted_columnspec['spec_in_brackets'],
             $extracted_columnspec['attribute'],
             isset($data['Collation']) ? $data['Collation'] : '',

@@ -999,6 +999,9 @@ class PMA_DbQbe
      */
     private function _getWhereClause()
     {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         $where_clause = '';
         $criteria_cnt = 0;
         for (
@@ -1013,7 +1016,7 @@ class PMA_DbQbe
                 && isset($this->_curAndOrCol)
             ) {
                 $where_clause .= ' '
-                    . strtoupper($this->_curAndOrCol[$last_where]) . ' ';
+                    . $pmaString->strtoupper($this->_curAndOrCol[$last_where]) . ' ';
             }
             if (! empty($this->_curField[$column_index])
                 && ! empty($this->_curCriteria[$column_index])
@@ -1049,7 +1052,8 @@ class PMA_DbQbe
                     && $column_index
                 ) {
                     $qry_orwhere .= ' '
-                        . strtoupper($this->_curAndOrCol[$last_orwhere]) . ' ';
+                        . $pmaString->strtoupper($this->_curAndOrCol[$last_orwhere])
+                        . ' ';
                 }
                 if (! empty($this->_curField[$column_index])
                     && ! empty($_REQUEST['Or' . $row_index][$column_index])
@@ -1067,7 +1071,7 @@ class PMA_DbQbe
             }
             if (! empty($qry_orwhere)) {
                 $where_clause .= "\n"
-                    .  strtoupper(
+                    .  $pmaString->strtoupper(
                         isset($this->_curAndOrRow[$row_index])
                         ? $this->_curAndOrRow[$row_index] . ' '
                         : ''
