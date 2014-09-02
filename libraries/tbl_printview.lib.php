@@ -516,13 +516,12 @@ function PMA_getHtmlForTableStructure(
  * @param string $db              database name
  * @param array  $cfg             global config
  * @param array  $cfgRelation     config from PMA_getRelationsParam
- * @param array  $pk_array        primary key array
  * @param int    $cell_align_left cell align left
  *
  * @return string
  */
 function PMA_getHtmlForTablesDetail(
-    $the_tables, $db, $cfg, $cfgRelation, $pk_array, $cell_align_left
+    $the_tables, $db, $cfg, $cfgRelation, $cell_align_left
 ) {
     $html = '';
     $tables_cnt = count($the_tables);
