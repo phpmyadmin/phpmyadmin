@@ -207,7 +207,7 @@ class PMA_Scripts
         $retval = array();
         foreach ($this->_files as $file) {
             //If filename contains a "?", continue.
-            if ($pmaString->strpos($file['filename'], "?") !== false) {
+            if ($GLOBALS['PMA_String']->strpos($file['filename'], "?") !== false) {
                 continue;
             }
 
