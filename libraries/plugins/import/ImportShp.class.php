@@ -314,18 +314,15 @@ class ImportShp extends ImportPlugin
     {
         global $buffer, $eof;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
-        if ($pmaString->strlen($buffer) < $length) {
+        if (strlen($buffer) < $length) {
             if ($GLOBALS['finished']) {
                 $eof = true;
             } else {
                 $buffer .= PMA_importGetNextChunk();
             }
         }
-        $result = $pmaString->substr($buffer, 0, $length);
-        $buffer = $pmaString->substr($buffer, $length);
+        $result = substr($buffer, 0, $length);
+        $buffer = substr($buffer, $length);
         return $result;
     }
 }
