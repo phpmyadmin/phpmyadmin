@@ -12,7 +12,7 @@
  *
  * @package PhpMyAdmin-String
  */
-class PMA_String
+class PMA_String implements PMA_StringByte, PMA_StringType
 {
     /**
      * @var PMA_StringType
