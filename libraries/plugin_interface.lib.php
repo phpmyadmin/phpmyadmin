@@ -44,7 +44,7 @@ function PMA_getPlugin(
  * Reads all plugin information from directory $plugins_dir
  *
  * @param string $plugin_type  the type of the plugin (import, export, etc)
- * @param string $plugins_dir  directrory with plugins
+ * @param string $plugins_dir  directory with plugins
  * @param mixed  $plugin_param parameter to plugin by which they can
  *                             decide whether they can work
  *
@@ -62,6 +62,7 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
 
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
+    //@todo Find a way to use PMA_StringMB with UTF-8 instead of mb_*.
     while ($file = @readdir($handle)) {
         // In some situations, Mac OS creates a new file for each file
         // (for example ._csv.php) so the following regexp

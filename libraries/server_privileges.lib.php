@@ -1382,7 +1382,10 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         $thishost = str_replace(
             "'",
             '',
-            $pmaString->substr($_current_user, (strrpos($_current_user, '@') + 1))
+            $pmaString->substr(
+                $_current_user,
+                ($pmaString->strrpos($_current_user, '@') + 1)
+            )
         );
         if ($thishost == 'localhost' || $thishost == '127.0.0.1') {
             unset($thishost);
@@ -1412,7 +1415,7 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
 
     // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
     if (! isset($GLOBALS['pred_hostname']) && isset($GLOBALS['hostname'])) {
-        switch (strtolower($GLOBALS['hostname'])) {
+        switch ($pmaString->strtolower($GLOBALS['hostname'])) {
         case 'localhost':
         case '127.0.0.1':
             $GLOBALS['pred_hostname'] = 'localhost';

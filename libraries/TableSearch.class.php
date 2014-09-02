@@ -151,7 +151,7 @@ class PMA_TableSearch
                 }
                 $type = preg_replace('@ZEROFILL@i', '', $type);
                 $type = preg_replace('@UNSIGNED@i', '', $type);
-                $type = strtolower($type);
+                $type = $GLOBALS['PMA_String']->strtolower($type);
             }
             if (empty($type)) {
                 $type = '&nbsp;';

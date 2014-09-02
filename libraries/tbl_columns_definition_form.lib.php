@@ -868,7 +868,7 @@ function PMA_getHtmlForColumnAutoIncrement($columnNumber, $ci, $ci_offset,
     $html = '<input name="field_extra[' . $columnNumber . ']"'
         . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '"';
     if (isset($columnMeta['Extra'])
-        && strtolower($columnMeta['Extra']) == 'auto_increment'
+        && $GLOBALS['PMA_String']->strtolower($columnMeta['Extra']) == 'auto_increment'
     ) {
         $html .= ' checked="checked"';
     }
@@ -928,13 +928,15 @@ function PMA_getHtmlForColumnIndexes($columnNumber, $ci, $ci_offset, $columnMeta
 
 function PMA_getHtmlForIndexTypeOption($columnNumber, $columnMeta, $type, $key)
 {
-    $html = '<option value="' . strtolower($type) . '_' . $columnNumber
-        . '" title="'
-        . __($type) . '"';
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
+    $html = '<option value="' . $pmaString->strtolower($type) . '_' . $columnNumber
+        . '" title="' . __($type) . '"';
     if (isset($columnMeta['Key']) && $columnMeta['Key'] == $key) {
         $html .= ' selected="selected"';
     }
-    $html .= '>' . strtoupper($type) . '</option>';
+    $html .= '>' . $pmaString->strtoupper($type) . '</option>';
 
     return $html;
 }

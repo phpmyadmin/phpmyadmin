@@ -32,7 +32,8 @@ class PMA_GIS_Factory
     {
         include_once './libraries/gis/GIS_Geometry.class.php';
 
-        $file = './libraries/gis/GIS_' . ucfirst(strtolower($type)) . '.class.php';
+        $file = './libraries/gis/GIS_'
+            . ucfirst($GLOBALS['PMA_String']->strtolower($type)) . '.class.php';
         if (! file_exists($file)) {
             return false;
         }

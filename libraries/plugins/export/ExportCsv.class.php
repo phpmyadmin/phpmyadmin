@@ -131,7 +131,9 @@ class ExportCsv extends ExportPlugin
                 $GLOBALS['csv_columns'] = 'yes';
             }
         } else {
-            if (empty($csv_terminated) || strtolower($csv_terminated) == 'auto') {
+            if (empty($csv_terminated)
+                || $GLOBALS['PMA_String']->strtolower($csv_terminated) == 'auto'
+            ) {
                 $csv_terminated = $GLOBALS['crlf'];
             } else {
                 $csv_terminated = str_replace('\\r', "\015", $csv_terminated);

@@ -446,7 +446,7 @@ class PMA_Util
     public static function getMySQLDocuURL($link, $anchor = '')
     {
         // Fixup for newly used names:
-        $link = str_replace('_', '-', strtolower($link));
+        $link = str_replace('_', '-', $GLOBALS['PMA_String']->strtolower($link));
 
         if (empty($link)) {
             $link = 'index';
@@ -3570,7 +3570,7 @@ class PMA_Util
             $funcs[] = array('display' => ' ');
         }
 
-        // Unary functions common to all geomety types
+        // Unary functions common to all geometry types
         $funcs['Dimension']    = array('params' => 1, 'type' => 'int');
         $funcs['Envelope']     = array('params' => 1, 'type' => 'Polygon');
         $funcs['GeometryType'] = array('params' => 1, 'type' => 'text');
@@ -3578,18 +3578,18 @@ class PMA_Util
         $funcs['IsEmpty']      = array('params' => 1, 'type' => 'int');
         $funcs['IsSimple']     = array('params' => 1, 'type' => 'int');
 
-        $geom_type = trim(strtolower($geom_type));
+        $geom_type = trim($GLOBALS['PMA_String']->strtolower($geom_type));
         if ($display && $geom_type != 'geometry' && $geom_type != 'multipoint') {
             $funcs[] = array('display' => '--------');
         }
 
-        // Unary functions that are specific to each geomety type
+        // Unary functions that are specific to each geometry type
         if ($geom_type == 'point') {
             $funcs['X'] = array('params' => 1, 'type' => 'float');
             $funcs['Y'] = array('params' => 1, 'type' => 'float');
 
         } elseif ($geom_type == 'multipoint') {
-            // no fucntions here
+            // no functions here
         } elseif ($geom_type == 'linestring') {
             $funcs['EndPoint']   = array('params' => 1, 'type' => 'point');
             $funcs['GLength']    = array('params' => 1, 'type' => 'float');
