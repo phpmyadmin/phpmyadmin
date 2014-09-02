@@ -21,9 +21,9 @@ $server_master_replication = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS');
 $server_slave_multi_replication = $GLOBALS['dbi']->fetchResult('SHOW ALL SLAVES STATUS');
 
 /**
- * set slave selected server
+ * set selected master server
  */
-if ($server_slave_multi_replication && $_REQUEST['master_connection']) {
+if ($server_slave_multi_replication && isset($_REQUEST['master_connection'])) {
     $GLOBALS['dbi']->query("SET @@default_master_connection = '" . PMA_Util::sqlAddSlashes($_REQUEST['master_connection']) . "'");
     $GLOBALS['url_params']['master_connection'] = $_REQUEST['master_connection'];
 }

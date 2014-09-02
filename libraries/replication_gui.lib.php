@@ -142,12 +142,12 @@ function PMA_getHtmlForSlaveConfiguration(
     if ($GLOBALS['server_slave_multi_replication']) {
         $html .= __('Master connection:');
         $html .= '<form method="get" action="server_replication.php">';
-        $html .= PMA_URL_getHiddenInputs($url_params);
+        $html .= PMA_URL_getHiddenInputs($GLOBALS['url_params']);
         $html .= ' <select name="master_connection">';
         $html .= '<option value="">' . __('Default') . '</option>';
         foreach ($GLOBALS['server_slave_multi_replication'] as $server) {
-            $html .= '<option' . ($server['Connection_name'] == $_REQUEST['master_connection'] ? ' selected="selected"' : '') . '>' .
-            $server['Connection_name'] . '</option>';
+            $html .= '<option' . (isset($_REQUEST['master_connection']) && $_REQUEST['master_connection'] == $server['Connection_name'] 
+                ? ' selected="selected"' : '') . '>' . $server['Connection_name'] . '</option>';
         }
         $html .= '</select>';
         $html .= ' <input type="submit" value="' . __('Go') . '" id="goButton" />';
