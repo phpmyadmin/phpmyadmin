@@ -422,7 +422,13 @@ class PMA_Table
         $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
         $comment = '', &$field_primary = null, $move_to = ''
     ) {
-        $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
+        $is_timestamp = $pmaString->strpos(
+                $pmaString->strtoupper($type),
+                'TIMESTAMP'
+            ) !== false;
 
         $query = PMA_Util::backquote($name) . ' ' . $type;
 

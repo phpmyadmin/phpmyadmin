@@ -897,7 +897,7 @@ class PMA_NavigationTree
                     $iClass = " class='first'";
                 }
                 $retval .= "<i$iClass></i>";
-                if (strpos($class, 'last') === false) {
+                if ($GLOBALS['PMA_String']->strpos($class, 'last') === false) {
                     $retval .= "<b></b>";
                 }
 

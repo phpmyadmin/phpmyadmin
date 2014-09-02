@@ -931,16 +931,19 @@ function PMA_SQP_typeCheck($toCheck, $whatWeWant)
     $typeSeparator = '_';
     if (strcmp($whatWeWant, $toCheck) == 0) {
         return true;
-    } else {
-        if (strpos($whatWeWant, $typeSeparator) === false) {
-            return strncmp(
-                $whatWeWant, $toCheck,
-                strpos($toCheck, $typeSeparator)
-            ) == 0;
-        } else {
-            return false;
-        }
     }
+
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
+    if ($pmaString->strpos($whatWeWant, $typeSeparator) !== false) {
+        return false;
+    }
+
+    return strncmp(
+        $whatWeWant, $toCheck,
+        $pmaString->strpos($toCheck, $typeSeparator)
+    ) == 0;
 }
 
 

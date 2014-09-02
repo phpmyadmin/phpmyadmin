@@ -22,7 +22,8 @@ function PMA_getNewDatabase($sql, $databases)
     $db = '';
     // loop through all the databases
     foreach ($databases as $database) {
-        if (strpos($sql, $database['SCHEMA_NAME']) !== false) {
+        if ($GLOBALS['PMA_String']->strpos($sql, $database['SCHEMA_NAME']) !== false
+        ) {
             $db = $database['SCHEMA_NAME'];
             break;
         }
@@ -46,7 +47,7 @@ function PMA_getTableNameBySQL($sql, $tables)
 
     // loop through all the tables in the database
     foreach ($tables as $tbl) {
-        if (strpos($sql, $tbl)) {
+        if ($GLOBALS['PMA_String']->strpos($sql, $tbl)) {
             $table .= ' ' . $tbl;
         }
     }

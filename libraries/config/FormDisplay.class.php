@@ -387,7 +387,7 @@ class FormDisplay
         case 'group':
             // :group:end is changed to :group:end:{unique id} in Form class
             if ($pmaString->substr($field, 7, 4) != 'end:') {
-                PMA_displayGroupHeader(substr($field, 7));
+                PMA_displayGroupHeader($pmaString->substr($field, 7));
             } else {
                 PMA_displayGroupFooter();
             }

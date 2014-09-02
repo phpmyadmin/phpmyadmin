@@ -67,7 +67,12 @@ function PMA_ipMaskTest($testRange, $ipToTest)
 {
     $result = true;
 
-    if (strpos($testRange, ':') > -1 || strpos($ipToTest, ':') > -1) {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
+    if ($pmaString->strpos($testRange, ':') > -1
+        || $pmaString->strpos($ipToTest, ':') > -1
+    ) {
         // assume IPv6
         $result = PMA_ipv6MaskTest($testRange, $ipToTest);
     } else {

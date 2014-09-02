@@ -840,22 +840,25 @@ function PMA_detectType($last_cumulative_type, $cell)
         return $last_cumulative_type;
     }
 
-    if (is_numeric($cell)) {
-        if ($cell == (string)(float)$cell
-            && strpos($cell, ".") !== false
-            && substr_count($cell, ".") == 1
-        ) {
-            return DECIMAL;
-        }
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
 
-        if (abs($cell) > 2147483647) {
-            return BIGINT;
-        }
-
-        return INT;
+    if (!is_numeric($cell)) {
+        return VARCHAR;
     }
 
-    return VARCHAR;
+    if ($cell == (string)(float)$cell
+        && $pmaString->strpos($cell, ".") !== false
+        && substr_count($cell, ".") == 1
+    ) {
+        return DECIMAL;
+    }
+
+    if (abs($cell) > 2147483647) {
+        return BIGINT;
+    }
+
+    return INT;
 }
 
 /**

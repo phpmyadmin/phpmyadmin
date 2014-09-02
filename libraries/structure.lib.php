@@ -1966,13 +1966,17 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
 function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
     $row, $titles
 ) {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     $html_output = '<li class="fulltext nowrap">';
     if (! empty($tbl_storage_engine)
         && ($tbl_storage_engine == 'MYISAM'
         || $tbl_storage_engine == 'ARIA'
         || $tbl_storage_engine == 'MARIA'
         || ($tbl_storage_engine == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
-        && (strpos($type, 'text') !== false || strpos($type, 'char') !== false)
+        && ($pmaString->strpos($type, 'text') !== false
+        || $pmaString->strpos($type, 'char') !== false)
     ) {
         $html_output .= '<a rel="samepage" href="sql.php?' . $url_query
             . '&amp;sql_query='

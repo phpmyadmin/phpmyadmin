@@ -156,6 +156,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * Configures the selenium and database link.
      *
      * @return void
+     *
+     * @throws Exception
      */
     protected function setUp()
     {
@@ -184,7 +186,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             );
         }
         $this->database_name = $GLOBALS['TESTSUITE_DATABASE']
-            . substr(md5(rand()), 0, 7);
+            . $GLOBALS['PMA_String']->substr(md5(rand()), 0, 7);
         $this->dbQuery(
             'CREATE DATABASE IF NOT EXISTS ' . $this->database_name
         );

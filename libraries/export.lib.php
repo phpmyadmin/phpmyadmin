@@ -497,7 +497,8 @@ function PMA_exportServer(
     // Walk over databases
     foreach ($GLOBALS['pma']->databases as $current_db) {
         if (isset($tmp_select)
-            && strpos(' ' . $tmp_select, '|' . $current_db . '|')
+            && $GLOBALS['PMA_String']
+                ->strpos(' ' . $tmp_select, '|' . $current_db . '|')
         ) {
             $tables = $GLOBALS['dbi']->getTables($current_db);
             PMA_exportDatabase(
@@ -542,7 +543,10 @@ function PMA_exportDatabase(
     }
 
     if (method_exists($export_plugin, 'exportRoutines')
-        && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false
+        && $GLOBALS['PMA_String']->strpos(
+            $GLOBALS['sql_structure_or_data'],
+            'structure'
+        ) !== false
         && isset($GLOBALS['sql_procedure_function'])
     ) {
         $export_plugin->exportRoutines($db, $aliases);

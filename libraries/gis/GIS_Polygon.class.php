@@ -163,11 +163,11 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = $pmaString->substr($spatial, 9, ($pmaString->strlen($spatial) - 11));
 
-        // If the polygon doesnt have an inner polygon
-        if (strpos($polygon, "),(") === false) {
+        // If the polygon doesn't have an inner polygon
+        if ($pmaString->strpos($polygon, "),(") === false) {
             $points_arr = $this->extractPoints($polygon, $scale_data, true);
         } else {
-            // Seperate outer and inner polygons
+            // Separate outer and inner polygons
             $parts = explode("),(", $polygon);
             $outer = $parts[0];
             $inner = array_slice($parts, 1);

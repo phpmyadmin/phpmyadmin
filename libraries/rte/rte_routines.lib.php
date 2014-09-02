@@ -245,6 +245,9 @@ function PMA_RTN_parseAllParameters($parsed_query, $routine_type)
  */
 function PMA_RTN_parseRoutineDefiner($parsed_query)
 {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     $retval = '';
     $fetching = false;
     for ($i=0; $i<$parsed_query['len']; $i++) {
@@ -254,7 +257,7 @@ function PMA_RTN_parseRoutineDefiner($parsed_query)
             $fetching = true;
         } else if ($fetching == true
             && $parsed_query[$i]['type'] != 'quote_backtick'
-            && substr($parsed_query[$i]['type'], 0, 5) != 'punct'
+            && $pmaString->substr($parsed_query[$i]['type'], 0, 5) != 'punct'
         ) {
             break;
         } else if ($fetching == true

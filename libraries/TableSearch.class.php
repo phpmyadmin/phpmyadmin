@@ -563,7 +563,7 @@ EOT;
             // strings to numbers and numbers to strings as necessary
             // during the comparison
             if (preg_match('@char|binary|blob|text|set|date|time|year@i', $types)
-                || strpos(' ' . $func_type, 'LIKE')
+                || $GLOBALS['PMA_String']->strpos(' ' . $func_type, 'LIKE')
             ) {
                 $quot = '\'';
             } else {

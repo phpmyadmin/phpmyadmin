@@ -74,7 +74,10 @@ function PMA_getHtmlForExportSelectOptions($tmp_select = '')
                 $is_selected = '';
             }
         } elseif (!empty($tmp_select)) {
-            if (strpos(' ' . $tmp_select, '|' . $current_db . '|')) {
+            if ($GLOBALS['PMA_String']->strpos(
+                ' ' . $tmp_select,
+                '|' . $current_db . '|'
+            )) {
                 $is_selected = ' selected="selected"';
             } else {
                 $is_selected = '';

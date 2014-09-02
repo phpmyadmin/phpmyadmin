@@ -1839,7 +1839,8 @@ class PMA_DatabaseInterface
             $error .= ' - ' . $error_message;
             $error .= '<br />' . __('The server is not responding.');
         } elseif ($error_number == 1005) {
-            if (strpos($error_message, 'errno: 13') !== false) {
+            if ($GLOBALS['PMA_String']->strpos($error_message, 'errno: 13') !== false
+            ) {
                 $error .= ' - ' . $error_message;
                 $error .= '<br />'
                     . __('Please check privileges of directory containing database.');

@@ -116,7 +116,9 @@ class PMA_Validator
         $key_map = array();
         foreach ($values as $k => $v) {
             $k2 = $isPostSource ? str_replace('-', '/', $k) : $k;
-            $k2 = strpos($k2, '/') ? $cf->getCanonicalPath($k2) : $k2;
+            $k2 = $GLOBALS['PMA_String']->strpos($k2, '/')
+                ? $cf->getCanonicalPath($k2)
+                : $k2;
             $key_map[$k2] = $k;
             $arguments[$k2] = $v;
         }

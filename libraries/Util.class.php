@@ -3157,7 +3157,7 @@ class PMA_Util
      */
     public static function duplicateFirstNewline($string)
     {
-        $first_occurence = strpos($string, "\r\n");
+        $first_occurence = $GLOBALS['PMA_String']->strpos($string, "\r\n");
         if ($first_occurence === 0) {
             $string = "\n" . $string;
         }
@@ -3268,13 +3268,16 @@ class PMA_Util
             }
         }
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         /* Backward compatibility in 3.5.x */
-        if (strpos($string, '@FIELDS@') !== false) {
+        if ($pmaString->strpos($string, '@FIELDS@') !== false) {
             $string = strtr($string, array('@FIELDS@' => '@COLUMNS@'));
         }
 
         /* Fetch columns list if required */
-        if (strpos($string, '@COLUMNS@') !== false) {
+        if ($pmaString->strpos($string, '@COLUMNS@') !== false) {
             $columns_list = $GLOBALS['dbi']->getColumns(
                 $GLOBALS['db'], $GLOBALS['table']
             );
@@ -3296,7 +3299,7 @@ class PMA_Util
         }
 
         /* Do the replacement */
-        return strtr(strftime($string), $replace);
+        return $pmaString->strtr(strftime($string), $replace);
     }
 
     /**
@@ -4394,14 +4397,19 @@ class PMA_Util
      */
     public static function addMicroseconds($value)
     {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         if (empty($value) || $value == 'CURRENT_TIMESTAMP') {
             return $value;
-        } elseif (strpos($value, '.')) {
-            $value .= '000000';
-            return substr($value, 0, strpos($value, '.') + 7);
-        } else {
+        }
+
+        if (!$pmaString->strpos($value, '.')) {
             return $value . '.000000';
         }
+
+        $value .= '000000';
+        return $pmaString->substr($value, 0, $pmaString->strpos($value, '.') + 7);
     }
 
     /**
