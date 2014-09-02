@@ -5,7 +5,11 @@
  *
  * @package PhpMyAdmin-String
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
+require_once 'libraries/StringType.int.php';
 /**
  * Specialized string class for phpMyAdmin.
  * The SQL Parser code relies heavily on these functions.
