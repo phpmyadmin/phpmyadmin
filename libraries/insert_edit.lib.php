@@ -342,12 +342,15 @@ function PMA_getColumnTitle($column, $comments_map)
   */
 function PMA_isColumnBinary($column)
 {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     // The type column.
     // Fix for bug #3152931 'ENUM and SET cannot have "Binary" option'
-    if (stripos($column['Type'], 'binary') === 0
-        || stripos($column['Type'], 'varbinary') === 0
+    if ($pmaString->stripos($column['Type'], 'binary') === 0
+        || $pmaString->stripos($column['Type'], 'varbinary') === 0
     ) {
-        return stristr($column['Type'], 'binary');
+        return $pmaString->stristr($column['Type'], 'binary');
     } else {
         return false;
     }
@@ -365,12 +368,15 @@ function PMA_isColumnBinary($column)
   */
 function PMA_isColumnBlob($column)
 {
-    if (stripos($column['Type'], 'blob') === 0
-        || stripos($column['Type'], 'tinyblob') === 0
-        || stripos($column['Type'], 'mediumblob') === 0
-        || stripos($column['Type'], 'longblob') === 0
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
+    if ($pmaString->stripos($column['Type'], 'blob') === 0
+        || $pmaString->stripos($column['Type'], 'tinyblob') === 0
+        || $pmaString->stripos($column['Type'], 'mediumblob') === 0
+        || $pmaString->stripos($column['Type'], 'longblob') === 0
     ) {
-        return stristr($column['Type'], 'blob');
+        return $pmaString->stristr($column['Type'], 'blob');
     } else {
         return false;
     }
@@ -386,10 +392,13 @@ function PMA_isColumnBlob($column)
  */
 function PMA_isColumnChar($column)
 {
-    if (stripos($column['Type'], 'char') === 0
-        || stripos($column['Type'], 'varchar') === 0
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
+    if ($pmaString->stripos($column['Type'], 'char') === 0
+        || $pmaString->stripos($column['Type'], 'varchar') === 0
     ) {
-        return stristr($column['Type'], 'char');
+        return $pmaString->stristr($column['Type'], 'char');
     } else {
         return false;
     }
@@ -453,6 +462,9 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
     $unnullify_trigger, $no_support_types, $tabindex_for_function,
     $tabindex, $idindex, $insert_mode
 ) {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     $html_output = '';
     if (($GLOBALS['cfg']['ProtectBinary'] === 'blob'
         && $column['is_blob'] && !$is_upload)
@@ -462,8 +474,8 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
         && $column['is_binary'])
     ) {
         $html_output .= '<td class="center">' . __('Binary') . '</td>' . "\n";
-    } elseif (strstr($column['True_Type'], 'enum')
-        || strstr($column['True_Type'], 'set')
+    } elseif ($pmaString->strstr($column['True_Type'], 'enum')
+        || $pmaString->strstr($column['True_Type'], 'set')
         || in_array($column['pma_type'], $no_support_types)
     ) {
         $html_output .= '<td class="center">--</td>' . "\n";
@@ -550,13 +562,13 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
     $foreigner = PMA_searchColumnInForeigners($foreigners, $column['Field']);
-    if (strstr($column['True_Type'], 'enum')) {
+    if ($pmaString->strstr($column['True_Type'], 'enum')) {
         if ($pmaString->strlen($column['Type']) > 20) {
             $nullify_code = '1';
         } else {
             $nullify_code = '2';
         }
-    } elseif (strstr($column['True_Type'], 'set')) {
+    } elseif ($pmaString->strstr($column['True_Type'], 'set')) {
         $nullify_code = '3';
     } elseif ($foreigners
         && $foreigner
@@ -831,7 +843,7 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
         $extracted_columnspec = PMA_Util::extractColumnSpec($column['Type']);
         $maxlength = $extracted_columnspec['spec_in_brackets'];
     } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
-        && strstr($column['pma_type'], 'longtext')
+        && $GLOBALS['PMA_String']->strstr($column['pma_type'], 'longtext')
     ) {
         $textAreaRows = $GLOBALS['cfg']['TextareaRows'] * 2;
         $textareaCols = $GLOBALS['cfg']['TextareaCols'] * 2;
@@ -2654,7 +2666,8 @@ function PMA_getHtmlForFunctionOption($odd_row, $column, $column_name_appendix)
     $longDoubleTextArea = $GLOBALS['cfg']['LongtextDoubleTextarea'];
     return '<tr class="noclick ' . ($odd_row ? 'odd' : 'even' ) . '">'
         . '<td '
-        . ($longDoubleTextArea && strstr($column['True_Type'], 'longtext')
+        . ($longDoubleTextArea
+            && $GLOBALS['PMA_String']->strstr($column['True_Type'], 'longtext')
             ? 'rowspan="2"'
             : ''
         )

@@ -112,7 +112,10 @@ function PMA_getTableHtmlForMultipleQueries(
         // Initialize needed params related to each query in multiquery statement
         if (isset($sql_data['valid_sql'][$sql_no])) {
             // 'Use' query can change the database
-            if (stripos($sql_data['valid_sql'][$sql_no], "use ")) {
+            if ($GLOBALS['PMA_String']->stripos(
+                $sql_data['valid_sql'][$sql_no],
+                "use "
+            )) {
                 $db = PMA_getNewDatabase(
                     $sql_data['valid_sql'][$sql_no],
                     $databases_array
@@ -291,7 +294,7 @@ function PMA_getColumnNameInColumnDropSql($sql)
     $tmpArray1 = explode('DROP', $sql);
     $str_to_check = trim($tmpArray1[1]);
 
-    if (stripos($str_to_check, 'COLUMN') !== false) {
+    if ($GLOBALS['PMA_String']->stripos($str_to_check, 'COLUMN') !== false) {
         $tmpArray2 = explode('COLUMN', $str_to_check);
         $str_to_check = trim($tmpArray2[1]);
     }
@@ -1650,7 +1653,11 @@ function PMA_deleteTransformationInfo($db, $table, $analyzed_sql)
 {
     include_once 'libraries/transformations.lib.php';
     if ($analyzed_sql[0]['querytype'] == 'ALTER') {
-        if (stripos($analyzed_sql[0]['unsorted_query'], 'DROP') !== false) {
+        if ($GLOBALS['PMA_String']->stripos(
+                $analyzed_sql[0]['unsorted_query'],
+                'DROP'
+            ) !== false
+        ) {
             $drop_column = PMA_getColumnNameInColumnDropSql(
                 $analyzed_sql[0]['unsorted_query']
             );

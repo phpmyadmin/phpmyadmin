@@ -688,7 +688,10 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
         $thishost = str_replace(
             "'",
             '',
-            $pmaString->substr($_current_user, (strrpos($_current_user, '@') + 1))
+            $pmaString->substr(
+                $_current_user,
+                ($pmaString->strrpos($_current_user, '@') + 1)
+            )
         );
         if ($thishost == 'localhost' || $thishost == '127.0.0.1') {
             unset($thishost);

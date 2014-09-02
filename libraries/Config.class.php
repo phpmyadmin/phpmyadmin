@@ -176,16 +176,19 @@ class PMA_Config
             $HTTP_USER_AGENT = '';
         }
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // 1. Platform
-        if (strstr($HTTP_USER_AGENT, 'Win')) {
+        if ($pmaString->strstr($HTTP_USER_AGENT, 'Win')) {
             $this->set('PMA_USR_OS', 'Win');
-        } elseif (strstr($HTTP_USER_AGENT, 'Mac')) {
+        } elseif ($pmaString->strstr($HTTP_USER_AGENT, 'Mac')) {
             $this->set('PMA_USR_OS', 'Mac');
-        } elseif (strstr($HTTP_USER_AGENT, 'Linux')) {
+        } elseif ($pmaString->strstr($HTTP_USER_AGENT, 'Linux')) {
             $this->set('PMA_USR_OS', 'Linux');
-        } elseif (strstr($HTTP_USER_AGENT, 'Unix')) {
+        } elseif ($pmaString->strstr($HTTP_USER_AGENT, 'Unix')) {
             $this->set('PMA_USR_OS', 'Unix');
-        } elseif (strstr($HTTP_USER_AGENT, 'OS/2')) {
+        } elseif ($pmaString->strstr($HTTP_USER_AGENT, 'OS/2')) {
             $this->set('PMA_USR_OS', 'OS/2');
         } else {
             $this->set('PMA_USR_OS', 'Other');
@@ -260,7 +263,7 @@ class PMA_Config
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // Firefox
-        } elseif (! strstr($HTTP_USER_AGENT, 'compatible')
+        } elseif (! $pmaString->strstr($HTTP_USER_AGENT, 'compatible')
             && preg_match('@Firefox/([\w.]+)@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set(
@@ -288,23 +291,28 @@ class PMA_Config
     {
         if ($this->get('GD2Available') == 'yes') {
             $this->set('PMA_IS_GD2', 1);
-        } elseif ($this->get('GD2Available') == 'no') {
+            return;
+        }
+
+        if ($this->get('GD2Available') == 'no') {
             $this->set('PMA_IS_GD2', 0);
-        } else {
-            if (!@function_exists('imagecreatetruecolor')) {
-                $this->set('PMA_IS_GD2', 0);
+            return;
+        }
+
+        if (!@function_exists('imagecreatetruecolor')) {
+            $this->set('PMA_IS_GD2', 0);
+            return;
+        }
+
+        if (@function_exists('gd_info')) {
+            $gd_nfo = gd_info();
+            if ($GLOBALS['PMA_String']->strstr($gd_nfo["GD Version"], '2.')) {
+                $this->set('PMA_IS_GD2', 1);
             } else {
-                if (@function_exists('gd_info')) {
-                    $gd_nfo = gd_info();
-                    if (strstr($gd_nfo["GD Version"], '2.')) {
-                        $this->set('PMA_IS_GD2', 1);
-                    } else {
-                        $this->set('PMA_IS_GD2', 0);
-                    }
-                } else {
-                    $this->set('PMA_IS_GD2', 0);
-                }
+                $this->set('PMA_IS_GD2', 0);
             }
+        } else {
+            $this->set('PMA_IS_GD2', 0);
         }
     }
 

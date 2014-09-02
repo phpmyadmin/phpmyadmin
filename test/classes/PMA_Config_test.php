@@ -341,10 +341,13 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             );
         }
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         if (@function_exists('gd_info')) {
             $this->object->checkGd2();
             $gd_nfo = gd_info();
-            if (strstr($gd_nfo["GD Version"], '2.')) {
+            if ($pmaString->strstr($gd_nfo["GD Version"], '2.')) {
                 $this->assertEquals(
                     1,
                     $this->object->get('PMA_IS_GD2'),
@@ -366,7 +369,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         ob_end_clean();
 
         if (preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
-            if (strstr($v, '2.')) {
+            if ($pmaString->strstr($v, '2.')) {
                 $this->assertEquals(
                     1,
                     $this->object->get('PMA_IS_GD2'),

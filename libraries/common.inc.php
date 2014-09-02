@@ -160,8 +160,7 @@ if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
 
-    //@TODO Implement strrpos in PMA_String
-    $path_info_pos = strrpos($PMA_PHP_SELF, $_PATH_INFO);
+    $path_info_pos = $pmaString->strrpos($PMA_PHP_SELF, $_PATH_INFO);
     $pathLength = $path_info_pos + $pmaString->strlen($_PATH_INFO);
     if ($pathLength === $pmaString->strlen($PMA_PHP_SELF)) {
         $PMA_PHP_SELF = $pmaString->substr($PMA_PHP_SELF, 0, $path_info_pos);

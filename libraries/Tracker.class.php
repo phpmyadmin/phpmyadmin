@@ -166,7 +166,7 @@ class PMA_Tracker
      */
     static protected function getTableName($string)
     {
-        if (strstr($string, '.')) {
+        if ($GLOBALS['PMA_String']->strstr($string, '.')) {
             $temp = explode('.', $string);
             $tablename = $temp[1];
         } else {

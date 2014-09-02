@@ -816,7 +816,7 @@ class PMA_Util
             // in $group we save the reference to the place in $table_groups
             // where to store the table info
             if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']
-                && $sep && strstr($table_name, $sep)
+                && $sep && $GLOBALS['PMA_String']->strstr($table_name, $sep)
             ) {
                 $parts = explode($sep, $table_name);
 
@@ -3919,14 +3919,25 @@ class PMA_Util
      */
     public static function getServerType()
     {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         $server_type = 'MySQL';
         if (PMA_DRIZZLE) {
             $server_type = 'Drizzle';
-        } else if (stripos(PMA_MYSQL_STR_VERSION, 'mariadb') !== false) {
-            $server_type = 'MariaDB';
-        } else if (stripos(PMA_MYSQL_VERSION_COMMENT, 'percona') !== false) {
-            $server_type = 'Percona Server';
+            return $server_type;
         }
+
+        if ($pmaString->stripos(PMA_MYSQL_STR_VERSION, 'mariadb') !== false) {
+            $server_type = 'MariaDB';
+            return $server_type;
+        }
+
+        if ($pmaString->stripos(PMA_MYSQL_VERSION_COMMENT, 'percona') !== false) {
+            $server_type = 'Percona Server';
+            return $server_type;
+        }
+
         return $server_type;
     }
 
@@ -4044,8 +4055,11 @@ class PMA_Util
     public static function fillTooltip(
         &$tooltip_truename, &$tooltip_aliasname, $table
     ) {
-        if (strstr($table['Comment'], '; InnoDB free') === false) {
-            if (!strstr($table['Comment'], 'InnoDB free') === false) {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
+        if ($pmaString->strstr($table['Comment'], '; InnoDB free') === false) {
+            if (!$pmaString->strstr($table['Comment'], 'InnoDB free') === false) {
                 // here we have just InnoDB generated part
                 $table['Comment'] = '';
             }

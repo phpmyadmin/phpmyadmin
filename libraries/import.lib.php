@@ -106,7 +106,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
         // USE query changes the database, son need to track
         // while running multiple queries
         $is_use_query
-            = (stripos($import_run_buffer['sql'], "use ") !== false)
+            = ($pmaString->stripos($import_run_buffer['sql'], "use ") !== false)
                 ? true
                 : false;
 

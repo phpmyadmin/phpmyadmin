@@ -2173,13 +2173,15 @@ class PMA_DisplayResults
     private function _getSortOrderLink(
         $order_img, $col_index, $direction, $fields_meta, $order_url, $multi_order_url
     ) {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
 
         $order_link_params = array();
         if (isset($order_img) && ($order_img != '')) {
-            if (strstr($order_img, 'asc')) {
+            if ($pmaString->strstr($order_img, 'asc')) {
                 $order_link_params['onmouseover'] = "$('.soimg$col_index').toggle()";
                 $order_link_params['onmouseout']  = "$('.soimg$col_index').toggle()";
-            } elseif (strstr($order_img, 'desc')) {
+            } elseif ($pmaString->strstr($order_img, 'desc')) {
                 $order_link_params['onmouseover'] = "$('.soimg$col_index').toggle()";
                 $order_link_params['onmouseout']  = "$('.soimg$col_index').toggle()";
             }
