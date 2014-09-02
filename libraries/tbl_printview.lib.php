@@ -445,7 +445,7 @@ function PMA_getHtmlForSpaceUsageAndRowStatistics(
  * return html for Table Structure
  *
  * @param bool   $have_rel        whether have relation
- * @param array  $tbl_is_view     Is a table view?
+ * @param bool   $tbl_is_view     Is a table view?
  * @param array  $columns         columns list
  * @param array  $analyzed_sql    analyzed sql
  * @param array  $res_rel         relations array
