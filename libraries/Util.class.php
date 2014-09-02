@@ -3299,7 +3299,7 @@ class PMA_Util
         }
 
         /* Do the replacement */
-        return $pmaString->strtr(strftime($string), $replace);
+        return strtr(strftime($string), $replace);
     }
 
     /**
