@@ -69,6 +69,9 @@ class ImportShp extends ImportPlugin
         global $db, $error, $finished, $compression,
             $import_file, $local_import_file, $message;
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         $GLOBALS['finished'] = false;
 
         $shp = new PMA_ShapeFile(1);
@@ -107,8 +110,8 @@ class ImportShp extends ImportPlugin
                         $temp_dbf_file = true;
                         // Replace the .dbf with .*, as required
                         // by the bsShapeFiles library.
-                        $file_name = substr(
-                            $dbf_file_path, 0, strlen($dbf_file_path) - 4
+                        $file_name = $pmaString->substr(
+                            $dbf_file_path, 0, $pmaString->strlen($dbf_file_path) - 4
                         ) . '.*';
                         $shp->FileName = $file_name;
                     }
@@ -121,8 +124,11 @@ class ImportShp extends ImportPlugin
                 // to load extra data.
                 // Replace the .shp with .*,
                 // so the bsShapeFiles library correctly locates .dbf file.
-                $file_name = substr($import_file, 0, strlen($import_file) - 4)
-                    . '.*';
+                $file_name = $pmaString->substr(
+                        $import_file,
+                        0,
+                        $pmaString->strlen($import_file) - 4
+                    ) . '.*';
                 $shp->FileName = $file_name;
             }
         }
@@ -255,7 +261,7 @@ class ImportShp extends ImportPlugin
         }
 
         // Set table name based on the number of tables
-        if (strlen($db)) {
+        if ($pmaString->strlen($db)) {
             $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
             $table_name = 'TABLE ' . (count($result) + 1);
         } else {
@@ -272,7 +278,7 @@ class ImportShp extends ImportPlugin
         $analyses[$table_no][FORMATTEDSQL][$spatial_col] = true;
 
         // Set database name to the currently selected one, if applicable
-        if (strlen($db)) {
+        if ($pmaString->strlen($db)) {
             $db_name = $db;
             $options = array('create_db' => false);
         } else {
@@ -308,15 +314,18 @@ class ImportShp extends ImportPlugin
     {
         global $buffer, $eof;
 
-        if (strlen($buffer) < $length) {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
+        if ($pmaString->strlen($buffer) < $length) {
             if ($GLOBALS['finished']) {
                 $eof = true;
             } else {
                 $buffer .= PMA_importGetNextChunk();
             }
         }
-        $result = substr($buffer, 0, $length);
-        $buffer = substr($buffer, $length);
+        $result = $pmaString->substr($buffer, 0, $length);
+        $buffer = $pmaString->substr($buffer, $length);
         return $result;
     }
 }

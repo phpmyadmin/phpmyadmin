@@ -316,7 +316,7 @@ EOT;
         $html_output = '';
         $value = explode(
             ', ',
-            str_replace("'", '', substr($column_type, 5, -1))
+            str_replace("'", '', $GLOBALS['PMA_String']->substr($column_type, 5, -1))
         );
         $cnt_value = count($value);
 
@@ -406,13 +406,16 @@ EOT;
             // other cases
             $the_class = 'textfield';
 
+            /** @var PMA_String $pmaString */
+            $pmaString = $GLOBALS['PMA_String'];
+
             if ($column_type == 'date') {
                 $the_class .= ' datefield';
             } elseif ($column_type == 'datetime'
-                || substr($column_type, 0, 9) == 'timestamp'
+                || $pmaString->substr($column_type, 0, 9) == 'timestamp'
             ) {
                 $the_class .= ' datetimefield';
-            } elseif (substr($column_type, 0, 3) == 'bit') {
+            } elseif ($pmaString->substr($column_type, 0, 3) == 'bit') {
                 $the_class .= ' bit';
             }
 

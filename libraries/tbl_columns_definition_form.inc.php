@@ -124,9 +124,9 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     // some types, for example longtext, are reported as
     // "longtext character set latin7" when their charset and / or collation
     // differs from the ones of the corresponding database.
-    $tmp = strpos($type, 'character set');
+    $tmp = $pmaString->strpos($type, 'character set');
     if ($tmp) {
-        $type = substr($type, 0, $tmp - 1);
+        $type = $pmaString->substr($type, 0, $tmp - 1);
     }
     // rtrim the type, for cases like "float unsigned"
     $type = rtrim($type);
@@ -154,7 +154,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 
     $content_cells[$columnNumber] = PMA_getHtmlForColumnAttributes(
         $columnNumber, isset($columnMeta) ? $columnMeta : array(),
-        strtoupper($type), $length_values_input_size, $length,
+        $pmaString->strtoupper($type), $length_values_input_size, $length,
         isset($default_current_timestamp) ? $default_current_timestamp : null,
         isset($extracted_columnspec) ? $extracted_columnspec : null,
         isset($submit_attribute) ? $submit_attribute : null,

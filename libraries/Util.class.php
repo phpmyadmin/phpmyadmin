@@ -364,11 +364,14 @@ class PMA_Util
             $quotes[] = $quote;
         }
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         foreach ($quotes as $quote) {
-            if (substr($quoted_string, 0, 1) === $quote
-                && substr($quoted_string, -1, 1) === $quote
+            if ($pmaString->substr($quoted_string, 0, 1) === $quote
+                && $pmaString->substr($quoted_string, -1, 1) === $quote
             ) {
-                $unquoted_string = substr($quoted_string, 1, -1);
+                $unquoted_string = $pmaString->substr($quoted_string, 1, -1);
                 // replace escaped quotes
                 $unquoted_string = str_replace(
                     $quote . $quote,
@@ -1084,8 +1087,11 @@ class PMA_Util
                 $query_too_big = true;
                 $shortened_query_base = nl2br(
                     htmlspecialchars(
-                        substr($sql_query, 0, $cfg['MaxCharactersInDisplayedSQL'])
-                        . '[...]'
+                        $pmaString->substr(
+                            $sql_query,
+                            0,
+                            $cfg['MaxCharactersInDisplayedSQL']
+                        ) . '[...]'
                     )
                 );
             } elseif (! empty($GLOBALS['parsed_sql'])
@@ -1180,7 +1186,7 @@ class PMA_Util
                 } elseif (preg_match(
                     '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query
                 )) {
-                    $explain_params['sql_query'] = substr($sql_query, 8);
+                    $explain_params['sql_query'] = $pmaString->substr($sql_query, 8);
                     $_message = __('Skip Explain SQL');
                 }
                 if (isset($explain_params['sql_query']) && isset($_message)) {
@@ -1543,12 +1549,18 @@ class PMA_Util
     {
         $return_value = -1;
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         if (preg_match('/^[0-9]+GB$/', $formatted_size)) {
-            $return_value = substr($formatted_size, 0, -2) * self::pow(1024, 3);
+            $return_value = $pmaString->substr($formatted_size, 0, -2)
+                * self::pow(1024, 3);
         } elseif (preg_match('/^[0-9]+MB$/', $formatted_size)) {
-            $return_value = substr($formatted_size, 0, -2) * self::pow(1024, 2);
+            $return_value = $pmaString->substr($formatted_size, 0, -2)
+                * self::pow(1024, 2);
         } elseif (preg_match('/^[0-9]+K$/', $formatted_size)) {
-            $return_value = substr($formatted_size, 0, -1) * self::pow(1024, 1);
+            $return_value = $pmaString->substr($formatted_size, 0, -1)
+                * self::pow(1024, 1);
         }
         return $return_value;
     }// end of the 'extractValueFromFormattedSize' function
@@ -2545,7 +2557,7 @@ class PMA_Util
     public static function userDir($dir)
     {
         // add trailing slash
-        if (substr($dir, -1) != '/') {
+        if ($GLOBALS['PMA_String']->substr($dir, -1) != '/') {
             $dir .= '/';
         }
 

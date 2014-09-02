@@ -82,11 +82,14 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $line_color,
         $scale_data, $image
     ) {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
-        $red   = hexdec(substr($line_color, 1, 2));
-        $green = hexdec(substr($line_color, 3, 2));
-        $blue  = hexdec(substr($line_color, 4, 2));
+        $red   = hexdec($pmaString->substr($line_color, 1, 2));
+        $green = hexdec($pmaString->substr($line_color, 3, 2));
+        $blue  = hexdec($pmaString->substr($line_color, 4, 2));
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         /** @var PMA_String $pmaString */

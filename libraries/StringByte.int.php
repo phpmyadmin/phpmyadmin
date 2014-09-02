@@ -62,6 +62,18 @@ interface PMA_StringByte
     public function strrpos($haystack, $needle, $offset = 0);
 
     /**
+     * Returns position of last $needle in $haystack - case insensitive - or false
+     * if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     * @param int    $offset   the search offset
+     *
+     * @return integer position of last $needle in $haystack or false
+     */
+    public function strripos($haystack, $needle, $offset = 0);
+
+    /**
      * Returns part of $haystack string starting from and including the first
      * occurrence of $needle to the end of $haystack or false if not found
      *
@@ -106,6 +118,18 @@ interface PMA_StringByte
      * @return string the lower case string
      */
     public function strtoupper($string);
+
+    /**
+     * Returns the portion of haystack which starts at the last occurrence or false
+     * if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     *
+     * @return string portion of haystack which starts at the last occurrence or
+     * false
+     */
+    public function strrchr($haystack, $needle);
 
     /**
      * Get the ordinal value of a string

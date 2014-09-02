@@ -1100,7 +1100,9 @@ function PMA_buildForeignDropdown($foreign, $data, $mode)
         } else {
             $vtitle  = htmlspecialchars($value);
             $value  = htmlspecialchars(
-                substr($value, 0, $GLOBALS['cfg']['LimitChars']) . '...'
+                $GLOBALS['PMA_String']->substr(
+                    $value, 0, $GLOBALS['cfg']['LimitChars']
+                ) . '...'
             );
         }
 

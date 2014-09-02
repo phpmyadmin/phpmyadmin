@@ -129,12 +129,16 @@ function PMA_fillInTablePrivileges(&$row)
     // the view for Show is spelled with lowercase v
     // and there is a space between the words
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     $av_grants = explode(
         '\',\'',
-        substr(
+        $pmaString->substr(
             $row1['Type'],
-            strpos($row1['Type'], '(') + 2,
-            strpos($row1['Type'], ')') - strpos($row1['Type'], '(') - 3
+            $pmaString->strpos($row1['Type'], '(') + 2,
+            $pmaString->strpos($row1['Type'], ')')
+            - $pmaString->strpos($row1['Type'], '(') - 3
         )
     );
 
@@ -645,7 +649,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
             }
             $res = $GLOBALS['dbi']->query($sql_query);
             while ($row1 = $GLOBALS['dbi']->fetchRow($res)) {
-                if (substr($row1[0], 0, 4) == 'max_') {
+                if ($GLOBALS['PMA_String']->substr($row1[0], 0, 4) == 'max_') {
                     $row[$row1[0]] = 0;
                 } else {
                     $row[$row1[0]] = 'N';
@@ -3559,6 +3563,10 @@ function PMA_addUser(
     $queries = null;
     $queries_for_display = null;
     $sql_query = null;
+
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         $sql_query = '';
         if ($_POST['pred_username'] == 'any') {
@@ -3576,7 +3584,10 @@ function PMA_addUser(
             break;
         case 'thishost':
             $_user_name = $GLOBALS['dbi']->fetchValue('SELECT USER()');
-            $hostname = substr($_user_name, (strrpos($_user_name, '@') + 1));
+            $hostname = $pmaString->substr(
+                $_user_name,
+                ($pmaString->strrpos($_user_name, '@') + 1)
+            );
             unset($_user_name);
             break;
         }
@@ -3765,9 +3776,17 @@ function PMA_getListForExportUserDefinition($username, $hostname)
     if (isset($_REQUEST['selected_usr'])) {
         // export privileges for selected users
         $title = __('Privileges');
+
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         foreach ($_REQUEST['selected_usr'] as $export_user) {
-            $export_username = substr($export_user, 0, strpos($export_user, '&'));
-            $export_hostname = substr($export_user, strrpos($export_user, ';') + 1);
+            $export_username = $pmaString->substr(
+                $export_user, 0, $pmaString->strpos($export_user, '&')
+            );
+            $export_hostname = $pmaString->substr(
+                $export_user, $pmaString->strrpos($export_user, ';') + 1
+            );
             $export .= '# '
                 . sprintf(
                     __('Privileges for %s'),

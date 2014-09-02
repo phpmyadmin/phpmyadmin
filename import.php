@@ -97,7 +97,7 @@ $_SESSION['Import_message']['go_back_url'] = null;
 // default values
 $GLOBALS['reload'] = false;
 
-// Use to identify curren cycle is executing
+// Use to identify current cycle is executing
 // a multiquery statement or stored routine
 if (!isset($_SESSION['is_multi_query'])) {
     $_SESSION['is_multi_query'] = false;
@@ -393,9 +393,9 @@ if ($memory_limit == -1) {
 
 // Calculate value of the limit
 if ($pmaString->strtolower($pmaString->substr($memory_limit, -1)) == 'm') {
-    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024;
+    $memory_limit = (int)$pmaString->substr($memory_limit, 0, -1) * 1024 * 1024;
 } elseif ($pmaString->strtolower($pmaString->substr($memory_limit, -1)) == 'k') {
-    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024;
+    $memory_limit = (int)$pmaString->substr($memory_limit, 0, -1) * 1024;
 } elseif ($pmaString->strtolower($pmaString->substr($memory_limit, -1)) == 'g') {
     $memory_limit
         = (int)$pmaString->substr($memory_limit, 0, -1) * 1024 * 1024 * 1024;
@@ -587,7 +587,7 @@ if (! $error && isset($skip)) {
 $sql_data = array('valid_sql' => array(), 'valid_queries' => 0);
 
 if (! $error) {
-    // Check for file existance
+    // Check for file existence
     include_once "libraries/plugin_interface.lib.php";
     $import_plugin = PMA_getPlugin(
         "import",

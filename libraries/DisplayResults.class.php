@@ -3669,7 +3669,7 @@ class PMA_DisplayResults
      */
     private function _getClassForDateTimeRelatedFields($type)
     {
-        if ((substr($type, 0, 9) == self::TIMESTAMP_FIELD)
+        if (($GLOBALS['PMA_String']->substr($type, 0, 9) == self::TIMESTAMP_FIELD)
             || ($type == self::DATETIME_FIELD)
         ) {
             $field_type_class = 'datetimefield';

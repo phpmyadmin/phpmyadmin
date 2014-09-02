@@ -19,10 +19,13 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_getNameAndTypeOfTheColumns($db, $table)
 {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     $columns = array();
     foreach ($GLOBALS['dbi']->getColumnsFull($db, $table) as $row) {
         if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
-            $tmp[2] = substr(
+            $tmp[2] = $pmaString->substr(
                 preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1
             );
             $columns[$row['Field']] = $tmp[1] . '('

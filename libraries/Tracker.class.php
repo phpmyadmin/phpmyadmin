@@ -610,16 +610,21 @@ class PMA_Tracker
         $ddlog = array();
         $i = 0;
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // Iterate tracked data definition statements
         // For each log entry we want to get date, username and statement
         foreach ($log_schema_entries as $log_entry) {
             if (trim($log_entry) != '') {
-                $date      = substr($log_entry, 0, 19);
-                $username  = substr($log_entry, 20, strpos($log_entry, "\n") - 20);
+                $date      = $pmaString->substr($log_entry, 0, 19);
+                $username  = $pmaString->substr(
+                    $log_entry, 20, $pmaString->strpos($log_entry, "\n") - 20
+                );
                 if ($i == 0) {
                     $ddl_date_from = $date;
                 }
-                $statement = rtrim(strstr($log_entry, "\n"));
+                $statement = rtrim($pmaString->strstr($log_entry, "\n"));
 
                 $ddlog[] = array( 'date' => $date,
                                   'username'=> $username,
@@ -640,12 +645,14 @@ class PMA_Tracker
         // For each log entry we want to get date, username and statement
         foreach ($log_data_entries as $log_entry) {
             if (trim($log_entry) != '') {
-                $date      = substr($log_entry, 0, 19);
-                $username  = substr($log_entry, 20, strpos($log_entry, "\n") - 20);
+                $date      = $pmaString->substr($log_entry, 0, 19);
+                $username  = $pmaString->substr(
+                    $log_entry, 20, $pmaString->strpos($log_entry, "\n") - 20
+                );
                 if ($i == 0) {
                     $dml_date_from = $date;
                 }
-                $statement = rtrim(strstr($log_entry, "\n"));
+                $statement = rtrim($pmaString->strstr($log_entry, "\n"));
 
                 $dmlog[] = array( 'date' => $date,
                                   'username' => $username,
@@ -934,12 +941,15 @@ class PMA_Tracker
      */
     static public function handleQuery($query)
     {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // If query is marked as untouchable, leave
-        if (strstr($query, "/*NOTRACK*/")) {
+        if ($pmaString->strstr($query, "/*NOTRACK*/")) {
             return;
         }
 
-        if (! (substr($query, -1) == ';')) {
+        if (! ($pmaString->substr($query, -1) == ';')) {
             $query = $query . ";\n";
         }
         // Get some information about query

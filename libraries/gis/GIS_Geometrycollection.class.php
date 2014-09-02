@@ -292,7 +292,11 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             } elseif ($char == ')') {
                 $br_count--;
                 if ($br_count == 0) {
-                    $sub_parts[] = substr($goem_col, $start, ($count + 1 - $start));
+                    $sub_parts[] = $GLOBALS['PMA_String']->substr(
+                        $goem_col,
+                        $start,
+                        ($count + 1 - $start)
+                    );
                     $start = $count + 2;
                 }
             }

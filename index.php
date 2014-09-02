@@ -553,20 +553,25 @@ if (isset($GLOBALS['dbi'])
     && !PMA_DRIZZLE
     && $cfg['ServerLibraryDifference_DisableWarning'] == false
 ) {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     $_client_info = $GLOBALS['dbi']->getClientInfo();
     if ($server > 0
-        && strpos($_client_info, 'mysqlnd') === false
-        && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(PMA_MYSQL_INT_VERSION, 0, 3)
+        && $pmaString->strpos($_client_info, 'mysqlnd') === false
+        && $pmaString->substr(PMA_MYSQL_CLIENT_API, 0, 3) != $pmaString->substr(
+            PMA_MYSQL_INT_VERSION, 0, 3
+        )
     ) {
         trigger_error(
             PMA_sanitize(
                 sprintf(
                     __('Your PHP MySQL library version %s differs from your MySQL server version %s. This may cause unpredictable behavior.'),
                     $_client_info,
-                    substr(
+                    $pmaString->substr(
                         PMA_MYSQL_STR_VERSION,
                         0,
-                        strpos(PMA_MYSQL_STR_VERSION . '-', '-')
+                        $pmaString->strpos(PMA_MYSQL_STR_VERSION . '-', '-')
                     )
                 )
             ),

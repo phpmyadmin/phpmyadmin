@@ -18,7 +18,12 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_languageName($tmplang)
 {
-    $lang_name = ucfirst(substr(strrchr($tmplang[0], '|'), 1));
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
+    $lang_name = ucfirst(
+        $pmaString->substr($pmaString->strrchr($tmplang[0], '|'), 1)
+    );
 
     // Include native name if non empty
     if (!empty($tmplang[2])) {

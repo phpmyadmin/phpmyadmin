@@ -41,9 +41,15 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
         $filename = $_REQUEST['filename'];
     }
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     /* Decode data */
     if ($extension != 'svg') {
-        $data = substr($_REQUEST['image'], strpos($_REQUEST['image'], ',') + 1);
+        $data = $pmaString->substr(
+            $_REQUEST['image'],
+            $pmaString->strpos($_REQUEST['image'], ',') + 1
+        );
         $data = base64_decode($data);
     } else {
         $data = $_REQUEST['image'];
@@ -53,7 +59,7 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
     PMA_downloadHeader(
         $filename,
         $_REQUEST['type'],
-        $GLOBALS['PMA_String']->strlen($data)
+        $pmaString->strlen($data)
     );
 
     /* Send data */

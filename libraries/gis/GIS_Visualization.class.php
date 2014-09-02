@@ -374,12 +374,15 @@ class PMA_GIS_Visualization
         $plot_width = $this->_settings['width'] - 2 * $border;
         $plot_height = $this->_settings['height'] - 2 * $border;
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         foreach ($data as $row) {
 
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];
-            $type_pos = stripos($ref_data, '(');
-            $type = substr($ref_data, 0, $type_pos);
+            $type_pos = $pmaString->stripos($ref_data, '(');
+            $type = $pmaString->substr($ref_data, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
             if (! $gis_obj) {
@@ -389,7 +392,7 @@ class PMA_GIS_Visualization
                 $row[$this->_settings['spatialColumn']]
             );
 
-            // Upadate minimum/maximum values for x and y cordinates.
+            // Update minimum/maximum values for x and y cordinates.
             $c_maxX = (float) $scale_data['maxX'];
             if (! isset($min_max['maxX']) || $c_maxX > $min_max['maxX']) {
                 $min_max['maxX'] = $c_maxX;
@@ -458,14 +461,17 @@ class PMA_GIS_Visualization
     {
         $color_number = 0;
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // loop through the rows
         foreach ($data as $row) {
             $index = $color_number % sizeof($this->_settings['colors']);
 
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];
-            $type_pos = stripos($ref_data, '(');
-            $type = substr($ref_data, 0, $type_pos);
+            $type_pos = $pmaString->stripos($ref_data, '(');
+            $type = $pmaString->substr($ref_data, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
             if (! $gis_obj) {

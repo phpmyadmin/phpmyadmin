@@ -1130,63 +1130,65 @@ function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_m
         }
     }
     $tmp_error_create = false;
-    if ($create) {
-        $create_query = PMA_getSQLToCreateForeignKey(
-            $table, $master_field, $foreign_db, $foreign_table, $foreign_field,
-            $_REQUEST['constraint_name'][$master_field_md5],
-            $options_array[$_REQUEST['on_delete'][$master_field_md5]],
-            $options_array[$_REQUEST['on_update'][$master_field_md5]]
-        );
+    if (!$create) {
+        return array($html_output, $preview_sql_data);
+    }
 
-        if (! $preview_sql) {
-            $display_query .= $create_query . "\n";
-            $GLOBALS['dbi']->tryQuery($create_query);
-            $tmp_error_create = $GLOBALS['dbi']->getError();
-            if (! empty($tmp_error_create)) {
-                $seen_error = true;
+    $create_query = PMA_getSQLToCreateForeignKey(
+        $table, $master_field, $foreign_db, $foreign_table, $foreign_field,
+        $_REQUEST['constraint_name'][$master_field_md5],
+        $options_array[$_REQUEST['on_delete'][$master_field_md5]],
+        $options_array[$_REQUEST['on_update'][$master_field_md5]]
+    );
 
-                if (substr($tmp_error_create, 1, 4) == '1005') {
-                    $message = PMA_Message::error(
-                        __('Error creating foreign key on %1$s (check data types)')
-                    );
-                    $message->addParam(implode(', ', $master_field));
-                    $html_output .= $message->getDisplay();
-                } else {
-                    $html_output .= PMA_Util::mysqlDie(
-                        $tmp_error_create, $create_query, false, '', false
-                    );
-                }
-                $html_output .= PMA_Util::showMySQLDocu(
-                    'InnoDB_foreign_key_constraints'
-                ) . "\n";
-            }
-        } else {
-            $preview_sql_data .= $create_query . "\n";
-        }
+    if (! $preview_sql) {
+        $display_query .= $create_query . "\n";
+        $GLOBALS['dbi']->tryQuery($create_query);
+        $tmp_error_create = $GLOBALS['dbi']->getError();
+        if (! empty($tmp_error_create)) {
+            $seen_error = true;
 
-        // this is an alteration and the old constraint has been dropped
-        // without creation of a new one
-        if ($drop && $create && empty($tmp_error_drop)
-            && ! empty($tmp_error_create)
-        ) {
-            // a rollback may be better here
-            $sql_query_recreate = '# Restoring the dropped constraint...' . "\n";
-            $sql_query_recreate .= PMA_getSQLToCreateForeignKey(
-                $table,
-                $master_field,
-                $existrel_foreign[$master_field_md5]['ref_db_name'],
-                $existrel_foreign[$master_field_md5]['ref_table_name'],
-                $existrel_foreign[$master_field_md5]['ref_index_list'],
-                $existrel_foreign[$master_field_md5]['constraint'],
-                $options_array[$existrel_foreign[$master_field_md5]['on_delete']],
-                $options_array[$existrel_foreign[$master_field_md5]['on_update']]
-            );
-            if (! $preview_sql) {
-                $display_query .= $sql_query_recreate . "\n";
-                $GLOBALS['dbi']->tryQuery($sql_query_recreate);
+            if ($GLOBALS['PMA_String']->substr($tmp_error_create, 1, 4) == '1005') {
+                $message = PMA_Message::error(
+                    __('Error creating foreign key on %1$s (check data types)')
+                );
+                $message->addParam(implode(', ', $master_field));
+                $html_output .= $message->getDisplay();
             } else {
-                $preview_sql_data .= $sql_query_recreate;
+                $html_output .= PMA_Util::mysqlDie(
+                    $tmp_error_create, $create_query, false, '', false
+                );
             }
+            $html_output .= PMA_Util::showMySQLDocu(
+                'InnoDB_foreign_key_constraints'
+            ) . "\n";
+        }
+    } else {
+        $preview_sql_data .= $create_query . "\n";
+    }
+
+    // this is an alteration and the old constraint has been dropped
+    // without creation of a new one
+    if ($drop && $create && empty($tmp_error_drop)
+        && ! empty($tmp_error_create)
+    ) {
+        // a rollback may be better here
+        $sql_query_recreate = '# Restoring the dropped constraint...' . "\n";
+        $sql_query_recreate .= PMA_getSQLToCreateForeignKey(
+            $table,
+            $master_field,
+            $existrel_foreign[$master_field_md5]['ref_db_name'],
+            $existrel_foreign[$master_field_md5]['ref_table_name'],
+            $existrel_foreign[$master_field_md5]['ref_index_list'],
+            $existrel_foreign[$master_field_md5]['constraint'],
+            $options_array[$existrel_foreign[$master_field_md5]['on_delete']],
+            $options_array[$existrel_foreign[$master_field_md5]['on_update']]
+        );
+        if (! $preview_sql) {
+            $display_query .= $sql_query_recreate . "\n";
+            $GLOBALS['dbi']->tryQuery($sql_query_recreate);
+        } else {
+            $preview_sql_data .= $sql_query_recreate;
         }
     }
 

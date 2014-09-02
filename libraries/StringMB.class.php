@@ -133,6 +133,33 @@ class PMA_StringMB implements PMA_StringByte
     }
 
     /**
+     * Returns position of last $needle in $haystack - case insensitive - or false
+     * if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     * @param int    $offset   the search offset
+     *
+     * @return integer position of last $needle in $haystack or false
+     *
+     * @todo add unit tests
+     */
+    public function strripos($haystack, $needle, $offset = 0)
+    {
+        if (null === $haystack) {
+            return false;
+        }
+        if (false === $needle) {
+            return false;
+        }
+        if (!is_string($needle) && is_numeric($needle)) {
+            $needle = (int)$needle;
+            $needle = chr($needle);
+        }
+        return mb_strripos($haystack, $needle, $offset);
+    }
+
+    /**
      * Returns part of $haystack string starting from and including the first
      * occurrence of $needle to the end of $haystack or false if not found
      *
@@ -203,6 +230,23 @@ class PMA_StringMB implements PMA_StringByte
     public function strtoupper($string)
     {
         return mb_strtoupper($string);
+    }
+
+    /**
+     * Returns the portion of haystack which starts at the last occurrence or false
+     * if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     *
+     * @return string portion of haystack which starts at the last occurrence or
+     * false
+     *
+     * @todo add unit tests
+     */
+    public function strrchr($haystack, $needle)
+    {
+        return mb_strrchr($haystack, $needle);
     }
 
     /**

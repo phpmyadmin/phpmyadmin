@@ -785,42 +785,49 @@ class ExportSql extends ExportPlugin
                 return false;
             }
         }
-        if (isset($GLOBALS['sql_create_database'])) {
-            $create_query = 'CREATE DATABASE IF NOT EXISTS '
-                . (isset($GLOBALS['sql_backquotes'])
-                ? PMA_Util::backquoteCompat($db_alias, $compat) : $db_alias);
-            $collation = PMA_getDbCollation($db);
-            if (PMA_DRIZZLE) {
-                $create_query .= ' COLLATE ' . $collation;
-            } else {
-                if (strpos($collation, '_')) {
-                    $create_query .= ' DEFAULT CHARACTER SET '
-                        . substr($collation, 0, strpos($collation, '_'))
-                        . ' COLLATE ' . $collation;
-                } else {
-                    $create_query .= ' DEFAULT CHARACTER SET ' . $collation;
-                }
-            }
-            $create_query .= ';' . $crlf;
-            if (! PMA_exportOutputHandler($create_query)) {
-                return false;
-            }
-            if (isset($GLOBALS['sql_backquotes'])
-                && ((isset($GLOBALS['sql_compatibility'])
-                && $GLOBALS['sql_compatibility'] == 'NONE')
-                || PMA_DRIZZLE)
-            ) {
-                $result = PMA_exportOutputHandler(
-                    'USE ' . PMA_Util::backquoteCompat($db_alias, $compat)
-                    . ';' . $crlf
-                );
-            } else {
-                $result = PMA_exportOutputHandler('USE ' . $db_alias . ';' . $crlf);
-            }
-            return $result;
-        } else {
+        if (!isset($GLOBALS['sql_create_database'])) {
             return true;
         }
+
+        $create_query = 'CREATE DATABASE IF NOT EXISTS '
+            . (isset($GLOBALS['sql_backquotes'])
+            ? PMA_Util::backquoteCompat($db_alias, $compat) : $db_alias);
+        $collation = PMA_getDbCollation($db);
+        if (PMA_DRIZZLE) {
+            $create_query .= ' COLLATE ' . $collation;
+        } else {
+            /** @var PMA_String $pmaString */
+            $pmaString = $GLOBALS['PMA_String'];
+
+            if ($pmaString->strpos($collation, '_')) {
+                $create_query .= ' DEFAULT CHARACTER SET '
+                    . $pmaString->substr(
+                        $collation,
+                        0,
+                        $pmaString->strpos($collation, '_')
+                    )
+                    . ' COLLATE ' . $collation;
+            } else {
+                $create_query .= ' DEFAULT CHARACTER SET ' . $collation;
+            }
+        }
+        $create_query .= ';' . $crlf;
+        if (! PMA_exportOutputHandler($create_query)) {
+            return false;
+        }
+        if (isset($GLOBALS['sql_backquotes'])
+            && ((isset($GLOBALS['sql_compatibility'])
+            && $GLOBALS['sql_compatibility'] == 'NONE')
+            || PMA_DRIZZLE)
+        ) {
+            $result = PMA_exportOutputHandler(
+                'USE ' . PMA_Util::backquoteCompat($db_alias, $compat)
+                . ';' . $crlf
+            );
+        } else {
+            $result = PMA_exportOutputHandler('USE ' . $db_alias . ';' . $crlf);
+        }
+        return $result;
     }
 
     /**
@@ -1219,17 +1226,20 @@ class ExportSql extends ExportPlugin
             return $this->_exportComment(__('in use') . '(' . $tmp_error . ')');
         }
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         $warning = '';
         if ($result != false && ($row = $GLOBALS['dbi']->fetchRow($result))) {
             $create_query = $row[1];
             unset($row);
             // Convert end of line chars to one that we want (note that MySQL
             // doesn't return query it will accept in all cases)
-            if (strpos($create_query, "(\r\n ")) {
+            if ($pmaString->strpos($create_query, "(\r\n ")) {
                 $create_query = str_replace("\r\n", $crlf, $create_query);
-            } elseif (strpos($create_query, "(\n ")) {
+            } elseif ($pmaString->strpos($create_query, "(\n ")) {
                 $create_query = str_replace("\n", $crlf, $create_query);
-            } elseif (strpos($create_query, "(\r ")) {
+            } elseif ($pmaString->strpos($create_query, "(\r ")) {
                 $create_query = str_replace("\r", $crlf, $create_query);
             }
 
@@ -1443,9 +1453,9 @@ class ExportSql extends ExportPlugin
                             $sql_lines[$k]
                         )) {
                         //adds auto increment value
-                        $increment_value = substr(
+                        $increment_value = $pmaString->substr(
                             $sql_lines[$k],
-                            strpos($sql_lines[$k], "AUTO_INCREMENT")
+                            $pmaString->strpos($sql_lines[$k], "AUTO_INCREMENT")
                         );
                         $increment_value_array = explode(' ', $increment_value);
                         $sql_auto_increments .= $increment_value_array[0] . ";";
@@ -1454,7 +1464,7 @@ class ExportSql extends ExportPlugin
                 }
 
                 if ($sql_auto_increments != '') {
-                    $sql_auto_increments = substr(
+                    $sql_auto_increments = $pmaString->substr(
                         $sql_auto_increments, 0, -1
                     ) . ';';
                 }
@@ -1480,7 +1490,7 @@ class ExportSql extends ExportPlugin
                             if (! $first) {
                                 $sql_constraints .= $crlf;
                             }
-                            if (strpos($sql_lines[$j], 'CONSTRAINT') === false) {
+                            if ($pmaString->strpos($sql_lines[$j], 'CONSTRAINT') === false) {
                                 $tmp_str = preg_replace(
                                     '/(FOREIGN[\s]+KEY)/',
                                     'ADD \1',

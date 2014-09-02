@@ -176,10 +176,14 @@ abstract class PMA_GIS_Geometry
             . '|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
         $srid = 0;
         $wkt = '';
+
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $value)) {
-            $last_comma = strripos($value, ",");
-            $srid = trim(substr($value, $last_comma + 1));
-            $wkt = trim(substr($value, 1, $last_comma - 2));
+            $last_comma = $pmaString->strripos($value, ",");
+            $srid = trim($pmaString->substr($value, $last_comma + 1));
+            $wkt = trim($pmaString->substr($value, 1, $last_comma - 2));
         } elseif (preg_match("/^" . $geom_types . "\(.*\)$/i", $value)) {
             $wkt = $value;
         }

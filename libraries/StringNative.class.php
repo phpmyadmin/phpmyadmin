@@ -99,6 +99,28 @@ class PMA_StringNative implements PMA_StringByte
     }
 
     /**
+     * Returns position of last $needle in $haystack - case insensitive - or false
+     * if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     * @param int    $offset   the search offset
+     *
+     * @return integer position of last $needle in $haystack or false
+     *
+     * @todo add unit tests
+     */
+    public function strripos($haystack, $needle, $offset = 0)
+    {
+        if (('' === $haystack || false === $haystack)
+            && $offset >= $this->strlen($haystack)
+        ) {
+            return false;
+        }
+        return strripos($haystack, $needle, $offset);
+    }
+
+    /**
      * Returns part of $haystack string starting from and including the first
      * occurrence of $needle to the end of $haystack or false if not found
      *
@@ -155,6 +177,23 @@ class PMA_StringNative implements PMA_StringByte
     public function strtoupper($string)
     {
         return strtoupper($string);
+    }
+
+    /**
+     * Returns the portion of haystack which starts at the last occurrence or false
+     * if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     *
+     * @return string portion of haystack which starts at the last occurrence or
+     * false
+     *
+     * @todo add unit tests
+     */
+    public function strrchr($haystack, $needle)
+    {
+        return strrchr($haystack, $needle);
     }
 
     /**

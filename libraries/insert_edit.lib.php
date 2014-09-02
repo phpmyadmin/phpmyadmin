@@ -1784,11 +1784,13 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
         $data                     = $column['Default'];
     }
 
-    if ($column['True_Type'] == 'bit') {
+    $trueType = $column['True_Type'];
+
+    if ($trueType == 'bit') {
         $special_chars = PMA_Util::convertBitDefaultValue($column['Default']);
-    } elseif (substr($column['True_Type'], 0, 9) == 'timestamp'
-        || $column['True_Type'] == 'datetime'
-        || $column['True_Type'] == 'time'
+    } elseif ($GLOBALS['PMA_String']->substr($trueType, 0, 9) == 'timestamp'
+        || $trueType == 'datetime'
+        || $trueType == 'time'
     ) {
         $special_chars = PMA_Util::addMicroseconds($column['Default']);
     } else {

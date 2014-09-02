@@ -571,6 +571,144 @@ class PMA_String_Compare_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests for strripos
+     *
+     * @param string $haystack String to search in
+     * @param mixed  $needle   Characters to search
+     * @param int    $offset   Start position
+     *
+     * @return void
+     * @test
+     * @dataProvider providerStrripos
+     */
+    public function testStrripos($haystack, $needle, $offset = 0)
+    {
+        $native = $this->_native->strripos($haystack, $needle, $offset);
+        $multibytes = $this->_mb->strripos($haystack, $needle, $offset);
+        $this->assertTrue(
+            $native === $multibytes,
+            'native strripos: ' . var_export($native, true)
+            . ' - mb strripos: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Data provider for testStrripos
+     *
+     * @return array Test data
+     */
+    public function providerStrripos()
+    {
+        return array(
+            array('abcdefabcdef', 'a'),
+            array('abcdefabcdef', 'a', 2),
+            array('abcdefabcdef', 'a', 10),
+            array('abcdefabcdef', 'a', -10),
+            array('abcdefabcdef', 'A'),
+            array('abcdefabcdef', 'A', 2),
+            array('abcdefabcdef', 'A', 10),
+            array('abcdefabcdef', 'A', -10),
+            array('abcdefabcdef', 'e'),
+            array('abcdefabcdef', 'e', 2),
+            array('abcdefabcdef', 'e', 10),
+            array('abcdefabcdef', 'e', -2),
+            array('abcdefabcdef', 'e'),
+            array('abcdefabcdef', 'z'),
+            array('abcdefabcdef', 'z', 2),
+            array('abcdefabcdef', 'z', -2),
+            array('abcdefabcdef', ord('a')),
+            array('abcdefabcdef', ord('a'), 2),
+            array('abcdefabcdef', ord('a'), -2),
+            array('abcdefabcdef', ord('A')),
+            array('abcdefabcdef', ord('A'), 2),
+            array('abcdefabcdef', ord('A'), -2),
+            array('abcdefabcdef', ord('e')),
+            array('abcdefabcdef', ord('e'), 2),
+            array('abcdefabcdef', ord('e'), -2),
+            array('abcdefabcdef', ord('z')),
+            array('abcdefabcdef', ord('z'), 2),
+            array('abcdefabcdef', ord('z'), -2),
+            array('abcdefabcdef', false),
+            array(false, 'a'),
+            array(false, 0),
+            array(false, 0, 1),
+            array(false, false),
+            array(true, 0),
+            array(true, 0, 1),
+            array(true, 1),
+            array(true, 1, 1),
+            array(3, 0),
+            array(3, 3),
+            array(3, '3'),
+            array('3', '3'),
+            array(null, 0),
+            array(null, false),
+            array('', 0),
+            array('', 0, 2),
+            array('', false),
+        );
+    }
+
+    /**
+     * Tests for strripos
+     *
+     * @param string $haystack String to search in
+     * @param mixed  $needle   Characters to search
+     * @param int    $offset   Start position
+     *
+     * @return void
+     * @test
+     * @dataProvider providerStrriposException
+     */
+    public function testStrriposException($haystack, $needle, $offset = 0)
+    {
+        $native = null;
+        $multibytes = null;
+        $nativeException = false;
+        $multibytesException = false;
+        try {
+            $native = $this->_native->strripos($haystack, $needle, $offset);
+        } catch (PHPUnit_Framework_Error $e) {
+            $nativeException = true;
+        }
+        try {
+            $multibytes = $this->_mb->strripos($haystack, $needle, $offset);
+        } catch (PHPUnit_Framework_Error $e) {
+            $multibytesException = true;
+        }
+
+        $this->assertTrue(
+            true === $nativeException && true === $multibytesException,
+            'native strripos: ' . var_export($native, true)
+            . ' - mb strripos: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Data provider for testStrriposException
+     *
+     * @return array Test data
+     */
+    public function providerStrriposException()
+    {
+        return array(
+            array('abcdefabcdef', 'a', 20),
+            array('abcdefabcdef', 'a', -20),
+            array('abcdefabcdef', 'e', 20),
+            array('abcdefabcdef', 'e', -20),
+            array('abcdefabcdef', 'z', 20),
+            array('abcdefabcdef', 'z', -20),
+            array('abcdefabcdef', ord('a'), 20),
+            array('abcdefabcdef', ord('e'), 20),
+            array('abcdefabcdef', ord('z'), 20),
+            array(3, 0, 2),
+            array(3, 3, 2),
+            array(3, '3', 2),
+            array('3', '3', 2),
+        );
+    }
+
+    /**
      * Tests for strstr
      *
      * @param string $haystack      String to search in

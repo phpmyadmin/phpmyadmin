@@ -93,12 +93,15 @@ class ImportMediawiki extends ImportPlugin
         // Initialize the name of the current table
         $cur_table_name = "";
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         while (! $finished && ! $error && ! $timeout_passed ) {
             $data = PMA_importGetNextChunk();
 
             if ($data === false) {
                 // Subtract data we didn't handle yet and stop processing
-                $GLOBALS['offset'] -= strlen($buffer);
+                $GLOBALS['offset'] -= $pmaString->strlen($buffer);
                 break;
             } elseif ($data === true) {
                 // Handle rest of buffer
@@ -108,7 +111,7 @@ class ImportMediawiki extends ImportPlugin
                 unset($data);
                 // Don't parse string if we're not at the end
                 // and don't have a new line inside
-                if ( strpos($buffer, $mediawiki_new_line) === false ) {
+                if ($pmaString->strpos($buffer, $mediawiki_new_line) === false ) {
                     continue;
                 }
             }
@@ -141,13 +144,13 @@ class ImportMediawiki extends ImportPlugin
                 $first_character = $cur_buffer_line[0];
                 $matches = array();
 
-                // Check beginnning of comment
-                if (! strcmp(substr($cur_buffer_line, 0, 4), "<!--")) {
+                // Check beginning of comment
+                if (! strcmp($pmaString->substr($cur_buffer_line, 0, 4), "<!--")) {
                     $inside_comment = true;
                     continue;
                 } elseif ($inside_comment) {
                     // Check end of comment
-                    if (! strcmp(substr($cur_buffer_line, 0, 4), "-->")) {
+                    if (!strcmp($pmaString->substr($cur_buffer_line, 0, 4), "-->")) {
                         // Only data comments are closed. The structure comments
                         // will be closed when a data comment begins (in order to
                         // skip structure tables)
@@ -203,9 +206,9 @@ class ImportMediawiki extends ImportPlugin
                     $in_table_header = false;
                     // End processing because the current line does not
                     // contain any column information
-                } elseif (substr($cur_buffer_line, 0, 2) === '|-'
-                    || substr($cur_buffer_line, 0, 2) === '|+'
-                    || substr($cur_buffer_line, 0, 2) === '|}'
+                } elseif ($pmaString->substr($cur_buffer_line, 0, 2) === '|-'
+                    || $pmaString->substr($cur_buffer_line, 0, 2) === '|+'
+                    || $pmaString->substr($cur_buffer_line, 0, 2) === '|}'
                 ) {
                     // Check begin row or end table
 
@@ -227,7 +230,7 @@ class ImportMediawiki extends ImportPlugin
                     $cur_temp_line = array();
 
                     // No more processing required at the end of the table
-                    if (substr($cur_buffer_line, 0, 2) === '|}') {
+                    if ($pmaString->substr($cur_buffer_line, 0, 2) === '|}') {
                         $current_table = array(
                             $cur_table_name,
                             $cur_temp_table_headers,
@@ -263,7 +266,7 @@ class ImportMediawiki extends ImportPlugin
 
                         // A '|' inside an invalid link should not
                         // be mistaken as delimiting cell parameters
-                        if (strpos($cell_data[0], '[[') === true ) {
+                        if ($pmaString->strpos($cell_data[0], '[[') === true ) {
                             if (count($cell_data) == 1) {
                                 $cell = $cell_data[0];
                             } else {
@@ -275,8 +278,8 @@ class ImportMediawiki extends ImportPlugin
                         $cell = trim($cell);
                         $col_start_chars = array( "|", "!");
                         foreach ($col_start_chars as $col_start_char) {
-                            if (strpos($cell, $col_start_char) === 0) {
-                                $cell = trim(substr($cell, 1));
+                            if ($pmaString->strpos($cell, $col_start_char) === 0) {
+                                $cell = trim($pmaString->substr($cell, 1));
                             }
                         }
 

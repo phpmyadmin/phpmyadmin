@@ -406,7 +406,10 @@ function PMA_compressExport($dump_buffer, $compression, $filename)
 {
     if ($compression == 'zip' && @function_exists('gzcompress')) {
         $zipfile = new ZipFile();
-        $zipfile->addFile($dump_buffer, substr($filename, 0, -4));
+        $zipfile->addFile(
+            $dump_buffer,
+            $GLOBALS['PMA_String']->substr($filename, 0, -4)
+        );
         $dump_buffer = $zipfile->file();
     } elseif ($compression == 'gzip' && PMA_gzencodeNeeded()) {
         // without the optional parameter level because it bugs
