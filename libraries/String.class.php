@@ -10,6 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once 'libraries/StringType.int.php';
+require_once 'libraries/StringByte.int.php';
 /**
  * Specialized string class for phpMyAdmin.
  * The SQL Parser code relies heavily on these functions.
