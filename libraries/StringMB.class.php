@@ -88,8 +88,6 @@ class PMA_StringMB implements PMA_StringByte
      * @param int    $offset   the search offset
      *
      * @return integer position of $needle in $haystack or false
-     *
-     * @todo add unit tests
      */
     public function stripos($haystack, $needle, $offset = 0)
     {
@@ -114,8 +112,6 @@ class PMA_StringMB implements PMA_StringByte
      * @param int    $offset   the search offset
      *
      * @return integer position of last $needle in $haystack or false
-     *
-     * @todo add unit tests
      */
     public function strrpos($haystack, $needle, $offset = 0)
     {
@@ -141,8 +137,6 @@ class PMA_StringMB implements PMA_StringByte
      * @param int    $offset   the search offset
      *
      * @return integer position of last $needle in $haystack or false
-     *
-     * @todo add unit tests
      */
     public function strripos($haystack, $needle, $offset = 0)
     {
@@ -168,8 +162,6 @@ class PMA_StringMB implements PMA_StringByte
      * @param bool   $before_needle the part before the needle
      *
      * @return string part of $haystack or false
-     *
-     * @todo add unit tests
      */
     public function strstr($haystack, $needle, $before_needle = false)
     {
@@ -207,6 +199,28 @@ class PMA_StringMB implements PMA_StringByte
     }
 
     /**
+     * Returns the portion of haystack which starts at the last occurrence or false
+     * if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     *
+     * @return string portion of haystack which starts at the last occurrence or
+     * false
+     */
+    public function strrchr($haystack, $needle)
+    {
+        if (!is_string($needle) && is_numeric($needle)) {
+            $needle = (int)$needle;
+            $needle = chr($needle);
+        }
+        if (!is_string($haystack) || !is_string($needle) || null === $needle) {
+            return false;
+        }
+        return mb_strrchr($haystack, $needle);
+    }
+
+    /**
      * Make a string lowercase
      *
      * @param string $string the string being lowercased
@@ -224,29 +238,10 @@ class PMA_StringMB implements PMA_StringByte
      * @param string $string the string being uppercased
      *
      * @return string the upper case string
-     *
-     * @todo add unit tests
      */
     public function strtoupper($string)
     {
         return mb_strtoupper($string);
-    }
-
-    /**
-     * Returns the portion of haystack which starts at the last occurrence or false
-     * if not found
-     *
-     * @param string $haystack the string being checked
-     * @param string $needle   the string to find in haystack
-     *
-     * @return string portion of haystack which starts at the last occurrence or
-     * false
-     *
-     * @todo add unit tests
-     */
-    public function strrchr($haystack, $needle)
-    {
-        return mb_strrchr($haystack, $needle);
     }
 
     /**

@@ -220,6 +220,20 @@ class PMA_String implements PMA_StringByte, PMA_StringType
     }
 
     /**
+     * Returns the portion of haystack which starts at the last occurrence or false
+     * if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     *
+     * @return integer position of $needle in $haystack or false
+     */
+    public function strrchr($haystack, $needle)
+    {
+        return $this->_byte->strrchr($haystack, $needle);
+    }
+
+    /**
      * Make a string lowercase
      *
      * @param string $string the string being lowercased
@@ -241,22 +255,6 @@ class PMA_String implements PMA_StringByte, PMA_StringType
     public function strtoupper($string)
     {
         return $this->_byte->strtoupper($string);
-    }
-
-    /**
-     * Returns the portion of haystack which starts at the last occurrence or false
-     * if not found
-     *
-     * @param string $haystack the string being checked
-     * @param string $needle   the string to find in haystack
-     *
-     * @return integer position of $needle in $haystack or false
-     *
-     * @todo add unit tests
-     */
-    public function strrchr($haystack, $needle)
-    {
-        return $this->_byte->strrchr($haystack, $needle);
     }
 
     /**

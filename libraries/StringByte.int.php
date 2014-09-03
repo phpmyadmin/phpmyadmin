@@ -102,6 +102,18 @@ interface PMA_StringByte
     public function stristr($haystack, $needle, $before_needle = false);
 
     /**
+     * Returns the portion of haystack which starts at the last occurrence or false
+     * if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     *
+     * @return string portion of haystack which starts at the last occurrence or
+     * false
+     */
+    public function strrchr($haystack, $needle);
+
+    /**
      * Make a string lowercase
      *
      * @param string $string the string being lowercased
@@ -118,18 +130,6 @@ interface PMA_StringByte
      * @return string the lower case string
      */
     public function strtoupper($string);
-
-    /**
-     * Returns the portion of haystack which starts at the last occurrence or false
-     * if not found
-     *
-     * @param string $haystack the string being checked
-     * @param string $needle   the string to find in haystack
-     *
-     * @return string portion of haystack which starts at the last occurrence or
-     * false
-     */
-    public function strrchr($haystack, $needle);
 
     /**
      * Get the ordinal value of a string

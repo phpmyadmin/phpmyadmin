@@ -951,6 +951,64 @@ class PMA_String_Compare_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests for strrchr
+     *
+     * @param string $haystack String to search in
+     * @param mixed  $needle   Characters to search
+     *
+     * @return void
+     * @test
+     * @dataProvider providerStrstr
+     */
+    public function testStrrchr($haystack, $needle)
+    {
+        $native = $this->_native->strrchr($haystack, $needle);
+        $multibytes = $this->_mb->strrchr($haystack, $needle);
+        $this->assertTrue(
+            $native === $multibytes,
+            'native strrchr: ' . var_export($native, true)
+            . ' - mb strrchr: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Data provider for testStrrchr
+     *
+     * @return array Test data
+     */
+    public function providerStrrchr()
+    {
+        return array(
+            array('abcdefabcdef', 'a'),
+            array('abcdefabcdef', 'A'),
+            array('abcdefabcdef', 97),
+            array('abcdefabcdef', 65),
+            array('abcdefabcdef', 'e'),
+            array('abcdefabcdef', 'z'),
+            array('abcdefabcdef', ''),
+            array('abcdefabcdef', null),
+            array('abcdefabcdef', false),
+            array(false, 'a'),
+            array(false, false),
+            array(true, 0),
+            array(true, 1),
+            array(true, true),
+            array(3, 0),
+            array(3, 3),
+            array(123456789, 0),
+            array(123456789, 3),
+            array('3', '3'),
+            array('123456789', 3),
+            array('123456789', 49), //ASCII 49 = 1
+            array(null, 0),
+            array(null, null),
+            array('', 0),
+            array('', false),
+            array('', null),
+        );
+    }
+
+    /**
      * Tests for strtolower
      *
      * @param string $str Input string
