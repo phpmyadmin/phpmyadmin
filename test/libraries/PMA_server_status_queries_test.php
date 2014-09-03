@@ -189,9 +189,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
         //Call the test function
         $html = PMA_getHtmlForServerStatusQueriesDetails($this->ServerStatusData);
 
-        $hour_factor   = 3600 / $this->ServerStatusData->status['Uptime'];
         $used_queries = $this->ServerStatusData->used_queries;
-        $total_queries = array_sum($used_queries);
 
         //validate 1: PMA_getHtmlForServerStatusQueriesDetails
         $this->assertContains(
