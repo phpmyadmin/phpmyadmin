@@ -400,9 +400,6 @@ class ImportCsv extends AbstractImportCsv
                         $i = $fallbacki;
                         $ch = $buffer[$i];
                         if ($csv_terminated_len > 1 && $ch == $csv_terminated[0]) {
-                            $this->readCsvTerminatedString(
-                                $buffer, $ch, $i, $csv_terminated_len
-                            );
                             $i += $csv_terminated_len-1;
                         }
                         break;
@@ -417,9 +414,6 @@ class ImportCsv extends AbstractImportCsv
                             if ($csv_terminated_len > 1
                                 && $ch == $csv_terminated[0]
                             ) {
-                                $this->readCsvTerminatedString(
-                                    $buffer, $ch, $i, $csv_terminated_len
-                                );
                                 $i += $csv_terminated_len-1;
                             }
                             break;
@@ -451,9 +445,6 @@ class ImportCsv extends AbstractImportCsv
                             if ($csv_terminated_len > 1
                                 && $ch == $csv_terminated[0]
                             ) {
-                                $this->readCsvTerminatedString(
-                                    $buffer, $ch, $i, $csv_terminated_len
-                                );
                                 $i += $csv_terminated_len-1;
                             }
                             break;

@@ -445,7 +445,7 @@ function PMA_getHtmlForSpaceUsageAndRowStatistics(
  * return html for Table Structure
  *
  * @param bool   $have_rel        whether have relation
- * @param array  $tbl_is_view     Is a table view?
+ * @param bool   $tbl_is_view     Is a table view?
  * @param array  $columns         columns list
  * @param array  $analyzed_sql    analyzed sql
  * @param array  $res_rel         relations array
@@ -516,13 +516,12 @@ function PMA_getHtmlForTableStructure(
  * @param string $db              database name
  * @param array  $cfg             global config
  * @param array  $cfgRelation     config from PMA_getRelationsParam
- * @param array  $pk_array        primary key array
  * @param int    $cell_align_left cell align left
  *
  * @return string
  */
 function PMA_getHtmlForTablesDetail(
-    $the_tables, $db, $cfg, $cfgRelation, $pk_array, $cell_align_left
+    $the_tables, $db, $cfg, $cfgRelation, $cell_align_left
 ) {
     $html = '';
     $tables_cnt = count($the_tables);

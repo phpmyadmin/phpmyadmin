@@ -10055,7 +10055,7 @@ msgstr "無說明"
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "於目前資料庫 %建立%s phpMyAdmin 設定儲存空間。"
+msgstr ""
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:316
 #: libraries/server_databases.lib.php:392

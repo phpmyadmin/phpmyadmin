@@ -62,7 +62,6 @@ $response->addHTML(PMA_getHtmlForTablesInfo($the_tables));
 $response->addHTML(
     PMA_getHtmlForTablesDetail(
         $the_tables, $db, $cfg, $cfgRelation,
-        isset($pk_array)? $pk_array: array(),
         $cell_align_left
     )
 );

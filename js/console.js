@@ -598,7 +598,6 @@ var PMA_consoleInput = {
             switch(target) {
                 case 'bookmark':
                     return PMA_consoleInput._inputs.bookmark.getValue();
-                    break;
                 default:
                 case 'console':
                     return PMA_consoleInput._inputs.console.getValue();
@@ -607,7 +606,6 @@ var PMA_consoleInput = {
             switch(target) {
                 case 'bookmark':
                     return PMA_consoleInput._inputs.bookmark.val();
-                    break;
                 default:
                 case 'console':
                     return PMA_consoleInput._inputs.console.val();
