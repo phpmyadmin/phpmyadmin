@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-27 08:27-0400\n"
-"PO-Revision-Date: 2014-07-10 16:29+0200\n"
+"PO-Revision-Date: 2014-09-03 16:50+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/>"
+"\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -252,14 +252,15 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Databasen %1$s er blevet kopieret til %2$s."
 
 #: db_operations.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"phpMyAdmin er ikke sat op til at gemme tabel-relationer. Se her %shvorfor%s."
+"Konfigurationslageret for phpMyAdmin er blevet slået fra. %sFind ud af "
+"hvorfor%s."
 
 #: db_printview.php:48 db_tracking.php:81 db_tracking.php:210
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:754
@@ -606,20 +607,18 @@ msgstr ""
 "i feltet \"Value\"."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Success"
 msgid "Succeeded"
-msgstr "Gennemført"
+msgstr "Blev gennemført"
 
 #: import.php:58 js/messages.php:434
 msgid "Failed"
 msgstr "Mislykket"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "komplette indsættelser"
+msgstr "Ukomplette parametre"
 
 #: import.php:166
 #, php-format
@@ -902,7 +901,7 @@ msgstr ""
 "konfiguration."
 
 #: index.php:517
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -911,8 +910,7 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "phpMyAdmin configuration storage er ikke fuldstændigt konfigureret; nogle "
-"udvidede funktioner er blevet deaktiverede. For at finde ud af hvorfor klik %"
-"sher%s."
+"udvidede funktioner er blevet deaktiverede. %sFind ud af hvorfor%s. "
 
 #: index.php:523
 msgid ""
