@@ -49,11 +49,9 @@ function PMA_getColumnOrder()
         'format'    => 'byte',
         'footer'    => 0,
     );
-    $column_order['SCHEMA_DATA_FREE'] = array(
-        'disp_name' => __('Overhead'),
-        'format'    => 'byte',
-        'footer'    => 0,
-    );
+    // At this point we were preparing the display of Overhead using DATA_FREE
+    // but its content does not represent the real overhead in the case
+    // of InnoDB
 
     return $column_order;
 }
