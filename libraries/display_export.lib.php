@@ -255,7 +255,7 @@ function PMA_getHtmlForExportOptionsSelection($export_type, $multi_values)
 /**
  * Prints Html For Export Options Format
  *
- * @param String $export_list Export List
+ * @param array $export_list Export List
  *
  * @return string
  */
@@ -696,7 +696,7 @@ function PMA_getHtmlForExportOptionsOutput($export_type)
  * @param String $table          Selected Table
  * @param String $multi_values   Export selection
  * @param String $num_tables     number of tables
- * @param String $export_list    Export List
+ * @param array  $export_list    Export List
  * @param String $unlim_num_rows Number of Rows
  *
  * @return string
