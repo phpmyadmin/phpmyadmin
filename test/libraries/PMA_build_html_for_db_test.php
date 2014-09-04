@@ -90,11 +90,6 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
                     'disp_name' => __('Total'),
                     'format'    => 'byte',
                     'footer'    => 0
-                ),
-                'SCHEMA_DATA_FREE' => array(
-                    'disp_name' => __('Overhead'),
-                    'format'    => 'byte',
-                    'footer'    => 0
                 )
             ),
             PMA_getColumnOrder()
