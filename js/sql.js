@@ -18,7 +18,9 @@ var prevScrollX = 0, fixedTop;
  */
 function PMA_urldecode(str)
 {
-    return decodeURIComponent(str.replace(/\+/g, '%20'));
+    if (typeof str !== 'undefined') {
+        return decodeURIComponent(str.replace(/\+/g, '%20'));
+    }
 }
 
 /**
@@ -29,7 +31,9 @@ function PMA_urldecode(str)
  */
 function PMA_urlencode(str)
 {
-    return encodeURIComponent(str).replace(/\%20/g, '+');
+    if (typeof str !== 'undefined') {
+        return encodeURIComponent(str).replace(/\%20/g, '+');
+    }
 }
 
 /**
