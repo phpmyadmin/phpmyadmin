@@ -861,14 +861,14 @@ function PMA_getQueryForDisplayUpdate($disp, $display_field, $db, $table,
 /**
  * Function to handle updates for internal relations
  *
- * @param string $destination_db          destination database
- * @param string $multi_edit_columns_name multi edit column name
- * @param string $destination_table       destination table
- * @param string $destination_column      destination column
- * @param array  $cfgRelation             configuration relation
- * @param string $db                      current database
- * @param string $table                   current table
- * @param array  $existrel                db, table, column
+ * @param string     $destination_db          destination database
+ * @param string     $multi_edit_columns_name multi edit column name
+ * @param string     $destination_table       destination table
+ * @param string     $destination_column      destination column
+ * @param array      $cfgRelation             configuration relation
+ * @param string     $db                      current database
+ * @param string     $table                   current table
+ * @param array|null $existrel                db, table, column
  *
  * @return void
  */
@@ -891,15 +891,15 @@ function PMA_handleUpdatesForInternalRelations($destination_db,
 /**
  * Function to get update query for updating internal relations
  *
- * @param string $multi_edit_columns_name multi edit column names
- * @param string $master_field_md5        master field md5
- * @param string $foreign_db              foreign database
- * @param string $destination_table       destination table
- * @param string $destination_column      destination column
- * @param array  $cfgRelation             configuration relation
- * @param string $db                      current database
- * @param string $table                   current table
- * @param array  $existrel                db, table, column
+ * @param string     $multi_edit_columns_name multi edit column names
+ * @param string     $master_field_md5        master field md5
+ * @param string     $foreign_db              foreign database
+ * @param string     $destination_table       destination table
+ * @param string     $destination_column      destination column
+ * @param array      $cfgRelation             configuration relation
+ * @param string     $db                      current database
+ * @param string     $table                   current table
+ * @param array|null $existrel                db, table, column
  *
  * @return string
  */
