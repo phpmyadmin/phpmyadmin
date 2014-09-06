@@ -434,9 +434,15 @@ class PMA_DisplayResults
                     . ')@i',
                     $this->__get('sql_query'), $which
                 );
-                if (isset($which[1])
-                    && $pmaString->strpos(' ' . $pmaString->strtoupper($which[1]), 'PROCESSLIST') > 0
-                ) {
+
+                $bIsProcessList = isset($which[1]);
+                if ($bIsProcessList) {
+                    $str = ' ' . $pmaString->strtoupper($which[1]);
+                    $bIsProcessList = $bIsProcessList
+                        && $pmaString->strpos($str, 'PROCESSLIST') > 0;
+                }
+
+                if ($bIsProcessList) {
                     // no edit link
                     $do_display['edit_lnk'] = self::NO_EDIT_OR_DELETE;
                     // "kill process" type edit link
@@ -448,6 +454,7 @@ class PMA_DisplayResults
                     // no delete link
                     $do_display['del_lnk']  = self::NO_EDIT_OR_DELETE;
                 }
+                unset($bIsProcessList);
                 // 2.2.2 Other settings
                 $do_display['sort_lnk']  = (string) '0';
                 $do_display['nav_bar']   = (string) '0';

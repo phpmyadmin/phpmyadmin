@@ -608,13 +608,7 @@ class ImportCsv extends AbstractImportCsv
              */
 
             /* Set database name to the currently selected one, if applicable */
-            if ($pmaString->strlen($db)) {
-                $db_name = $db;
-                $options = array('create_db' => false);
-            } else {
-                $db_name = 'CSV_DB';
-                $options = null;
-            }
+            list($db_name, $options) = $this->getDbnameAndOptions($db, 'CSV_DB');
 
             /* Non-applicable parameters */
             $create = null;

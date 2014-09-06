@@ -435,9 +435,9 @@ class PMA_Table
         $pmaString = $GLOBALS['PMA_String'];
 
         $is_timestamp = $pmaString->strpos(
-                $pmaString->strtoupper($type),
-                'TIMESTAMP'
-            ) !== false;
+            $pmaString->strtoupper($type),
+            'TIMESTAMP'
+        ) !== false;
 
         $query = PMA_Util::backquote($name) . ' ' . $type;
 
