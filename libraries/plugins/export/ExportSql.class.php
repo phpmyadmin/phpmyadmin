@@ -1490,7 +1490,11 @@ class ExportSql extends ExportPlugin
                             if (! $first) {
                                 $sql_constraints .= $crlf;
                             }
-                            if ($pmaString->strpos($sql_lines[$j], 'CONSTRAINT') === false) {
+                            $posConstraint = $pmaString->strpos(
+                                $sql_lines[$j],
+                                'CONSTRAINT'
+                            );
+                            if ($posConstraint === false) {
                                 $tmp_str = preg_replace(
                                     '/(FOREIGN[\s]+KEY)/',
                                     'ADD \1',

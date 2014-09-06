@@ -455,52 +455,52 @@ class PMA_DbQbe
         $html_output .= '<th>' . __('Sort:') . '</th>';
         $new_column_count = 0;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
+        /** @var PMA_String $pmaStr */
+        $pmaStr = $GLOBALS['PMA_String'];
 
         for (
-            $column_index = 0;
-            $column_index < $this->_criteria_column_count;
-            $column_index++
+            $colInd = 0;
+            $colInd < $this->_criteria_column_count;
+            $colInd++
         ) {
             if (! empty($this->_criteriaColumnInsert)
-                && isset($this->_criteriaColumnInsert[$column_index])
-                && $this->_criteriaColumnInsert[$column_index] == 'on'
+                && isset($this->_criteriaColumnInsert[$colInd])
+                && $this->_criteriaColumnInsert[$colInd] == 'on'
             ) {
                 $html_output .= $this->_getSortSelectCell($new_column_count);
                 $new_column_count++;
             } // end if
 
             if (! empty($this->_criteriaColumnDelete)
-                && isset($this->_criteriaColumnDelete[$column_index])
-                && $this->_criteriaColumnDelete[$column_index] == 'on'
+                && isset($this->_criteriaColumnDelete[$colInd])
+                && $this->_criteriaColumnDelete[$colInd] == 'on'
             ) {
                 continue;
             }
             // If they have chosen all fields using the * selector,
             // then sorting is not available, Fix for Bug #570698
-            if (isset($_REQUEST['criteriaSort'][$column_index])
-                && isset($_REQUEST['criteriaColumn'][$column_index])
-                && $pmaString->substr($_REQUEST['criteriaColumn'][$column_index], -2) == '.*'
+            if (isset($_REQUEST['criteriaSort'][$colInd])
+                && isset($_REQUEST['criteriaColumn'][$colInd])
+                && $pmaStr->substr($_REQUEST['criteriaColumn'][$colInd], -2) == '.*'
             ) {
-                $_REQUEST['criteriaSort'][$column_index] = '';
+                $_REQUEST['criteriaSort'][$colInd] = '';
             } //end if
             // Set asc_selected
-            if (isset($_REQUEST['criteriaSort'][$column_index])
-                && $_REQUEST['criteriaSort'][$column_index] == 'ASC'
+            if (isset($_REQUEST['criteriaSort'][$colInd])
+                && $_REQUEST['criteriaSort'][$colInd] == 'ASC'
             ) {
                 $this->_curSort[$new_column_count]
-                    = $_REQUEST['criteriaSort'][$column_index];
+                    = $_REQUEST['criteriaSort'][$colInd];
                 $asc_selected = ' selected="selected"';
             } else {
                 $asc_selected = '';
             } // end if
             // Set desc selected
-            if (isset($_REQUEST['criteriaSort'][$column_index])
-                && $_REQUEST['criteriaSort'][$column_index] == 'DESC'
+            if (isset($_REQUEST['criteriaSort'][$colInd])
+                && $_REQUEST['criteriaSort'][$colInd] == 'DESC'
             ) {
                 $this->_curSort[$new_column_count]
-                    = $_REQUEST['criteriaSort'][$column_index];
+                    = $_REQUEST['criteriaSort'][$colInd];
                 $desc_selected = ' selected="selected"';
             } else {
                 $desc_selected = '';

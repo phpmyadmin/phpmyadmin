@@ -2652,7 +2652,7 @@ function PMA_moveColumns($db, $table)
         $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
             $column,
             $column,
-                $GLOBALS['PMA_String']->strtoupper($extracted_columnspec['type']),
+            $GLOBALS['PMA_String']->strtoupper($extracted_columnspec['type']),
             $extracted_columnspec['spec_in_brackets'],
             $extracted_columnspec['attribute'],
             isset($data['Collation']) ? $data['Collation'] : '',

@@ -151,20 +151,20 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      */
     public function prepareRowAsPdf($spatial, $label, $fill_color, $scale_data, $pdf)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
+        /** @var PMA_String $pmaStr */
+        $pmaStr = $GLOBALS['PMA_String'];
 
         // allocate colors
-        $red   = hexdec($pmaString->substr($fill_color, 1, 2));
-        $green = hexdec($pmaString->substr($fill_color, 3, 2));
-        $blue  = hexdec($pmaString->substr($fill_color, 4, 2));
+        $red   = hexdec($pmaStr->substr($fill_color, 1, 2));
+        $green = hexdec($pmaStr->substr($fill_color, 3, 2));
+        $blue  = hexdec($pmaStr->substr($fill_color, 4, 2));
         $color = array($red, $green, $blue);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = $pmaString->substr($spatial, 9, ($pmaString->strlen($spatial) - 11));
+        $polygon = $pmaStr->substr($spatial, 9, $pmaStr->strlen($spatial) - 11);
 
         // If the polygon doesn't have an inner polygon
-        if ($pmaString->strpos($polygon, "),(") === false) {
+        if ($pmaStr->strpos($polygon, "),(") === false) {
             $points_arr = $this->extractPoints($polygon, $scale_data, true);
         } else {
             // Separate outer and inner polygons

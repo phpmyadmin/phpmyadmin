@@ -1665,8 +1665,8 @@ function PMA_RTN_getExecuteForm($routine)
             } else {
                 $field = array(
                     'True_Type'       => $pmaString->strtolower(
-                            $routine['item_param_type'][$i]
-                        ),
+                        $routine['item_param_type'][$i]
+                    ),
                     'Type'            => '',
                     'Key'             => '',
                     'Field'           => '',

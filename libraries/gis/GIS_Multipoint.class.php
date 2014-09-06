@@ -55,11 +55,11 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
      */
     public function scaleRow($spatial)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
+        /** @var PMA_String $pmaStr */
+        $pmaStr = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $multipoint = $pmaString->substr($spatial, 11, ($pmaString->strlen($spatial) - 12));
+        $multipoint = $pmaStr->substr($spatial, 11, $pmaStr->strlen($spatial) - 12);
         return $this->setMinMax($multipoint, array());
     }
 

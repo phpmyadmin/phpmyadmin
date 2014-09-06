@@ -792,8 +792,8 @@ function PMA_SQP_parse($sql)
         if (($i + 1) < $arraysize) {
             $t_next = $sql_array[$i + 1]['type'];
             $d_next = $sql_array[$i + 1]['data'];
-            $d_next_upper =
-                $t_next == 'alpha' ? $pmaString->strtoupper($d_next) : $d_next;
+            $d_next_upper
+                = $t_next == 'alpha' ? $pmaString->strtoupper($d_next) : $d_next;
         } else {
             $t_next       = '';
             $d_next       = '';
@@ -2759,9 +2759,11 @@ function PMA_SQP_format_getBeforeAndInPrivList(
     $arr, $typearr, $keywords_no_newline, $index, $in_priv_list,
     $space_alpha_reserved_word, $before, $keywords_priv_list
 ) {
+    $data = $arr[$index - 1]['data'];
+
     if (!((($typearr[1] != 'alpha_reservedWord')
         || (($typearr[1] == 'alpha_reservedWord')
-        && isset($keywords_no_newline[$GLOBALS['PMA_String']->strtoupper($arr[$index - 1]['data'])])))
+        && isset($keywords_no_newline[$GLOBALS['PMA_String']->strtoupper($data)])))
         && ($typearr[1] != 'punct_level_plus')
         && (!isset($keywords_no_newline[$arr[$index]['data']])))
     ) {

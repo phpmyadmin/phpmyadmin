@@ -350,7 +350,7 @@ function PMA_isColumnBinary($column)
     if ($pmaString->stripos($column['Type'], 'binary') === 0
         || $pmaString->stripos($column['Type'], 'varbinary') === 0
     ) {
-        return $pmaString->stristr($column['Type'], 'binary');
+        return stristr($column['Type'], 'binary');
     } else {
         return false;
     }
@@ -376,7 +376,7 @@ function PMA_isColumnBlob($column)
         || $pmaString->stripos($column['Type'], 'mediumblob') === 0
         || $pmaString->stripos($column['Type'], 'longblob') === 0
     ) {
-        return $pmaString->stristr($column['Type'], 'blob');
+        return stristr($column['Type'], 'blob');
     } else {
         return false;
     }
@@ -398,7 +398,7 @@ function PMA_isColumnChar($column)
     if ($pmaString->stripos($column['Type'], 'char') === 0
         || $pmaString->stripos($column['Type'], 'varchar') === 0
     ) {
-        return $pmaString->stristr($column['Type'], 'char');
+        return stristr($column['Type'], 'char');
     } else {
         return false;
     }

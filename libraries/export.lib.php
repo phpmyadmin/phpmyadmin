@@ -490,6 +490,9 @@ function PMA_exportServer(
     $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
     $aliases
 ) {
+    /** @var PMA_String $pmaStr */
+    $pmaStr = $GLOBALS['PMA_String'];
+
     if (! empty($db_select)) {
         $tmp_select = implode($db_select, '|');
         $tmp_select = '|' . $tmp_select . '|';
@@ -497,8 +500,7 @@ function PMA_exportServer(
     // Walk over databases
     foreach ($GLOBALS['pma']->databases as $current_db) {
         if (isset($tmp_select)
-            && $GLOBALS['PMA_String']
-                ->strpos(' ' . $tmp_select, '|' . $current_db . '|')
+            && $pmaStr->strpos(' ' . $tmp_select, '|' . $current_db . '|')
         ) {
             $tables = $GLOBALS['dbi']->getTables($current_db);
             PMA_exportDatabase(

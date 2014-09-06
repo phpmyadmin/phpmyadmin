@@ -865,10 +865,13 @@ function PMA_getHtmlForColumnComment($columnNumber, $ci, $ci_offset, $columnMeta
 function PMA_getHtmlForColumnAutoIncrement($columnNumber, $ci, $ci_offset,
     $columnMeta
 ) {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     $html = '<input name="field_extra[' . $columnNumber . ']"'
         . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '"';
     if (isset($columnMeta['Extra'])
-        && $GLOBALS['PMA_String']->strtolower($columnMeta['Extra']) == 'auto_increment'
+        && $pmaString->strtolower($columnMeta['Extra']) == 'auto_increment'
     ) {
         $html .= ' checked="checked"';
     }
@@ -1046,7 +1049,8 @@ function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
     $cnt_attribute_types = count($attribute_types);
     for ($j = 0; $j < $cnt_attribute_types; $j++) {
         $html .= '                <option value="' . $attribute_types[$j] . '"';
-        if ($pmaString->strtoupper($attribute) == $pmaString->strtoupper($attribute_types[$j])) {
+        $attrUpper = $pmaString->strtoupper($attribute);
+        if ($attrUpper == $pmaString->strtoupper($attribute_types[$j])) {
             $html .= ' selected="selected"';
         }
         $html .= '>' . $attribute_types[$j] . '</option>';

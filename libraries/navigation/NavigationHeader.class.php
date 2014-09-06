@@ -113,7 +113,7 @@ class PMA_NavigationHeader
                 $navLogoLinkLower = $pmaString->strtolower(
                     $GLOBALS['cfg']['NavigationLogoLink']
                 );
-                if ($pmaString->substr($navLogoLinkLower , 0, 4) !== '://') {
+                if ($pmaString->substr($navLogoLinkLower, 0, 4) !== '://') {
                     $retval .= '?' . $GLOBALS['url_query'] . '"';
                 } else {
                     $retval .= '" target="_blank"';

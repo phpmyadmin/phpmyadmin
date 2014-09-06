@@ -1653,11 +1653,11 @@ function PMA_deleteTransformationInfo($db, $table, $analyzed_sql)
 {
     include_once 'libraries/transformations.lib.php';
     if ($analyzed_sql[0]['querytype'] == 'ALTER') {
-        if ($GLOBALS['PMA_String']->stripos(
-                $analyzed_sql[0]['unsorted_query'],
-                'DROP'
-            ) !== false
-        ) {
+        $posDrop = $GLOBALS['PMA_String']->stripos(
+            $analyzed_sql[0]['unsorted_query'],
+            'DROP'
+        );
+        if ($posDrop !== false) {
             $drop_column = PMA_getColumnNameInColumnDropSql(
                 $analyzed_sql[0]['unsorted_query']
             );

@@ -260,12 +260,14 @@ class PMA_Table
                 WHERE TABLE_SCHEMA = '" . PMA_Util::sqlAddSlashes($db) . "'
                 AND TABLE_NAME = '" . PMA_Util::sqlAddSlashes($table) . "'"
             );
+
+            /** @var PMA_String $pmaString */
+            $pmaString = $GLOBALS['PMA_String'];
+
             foreach ($results as $result) {
                 $analyzed_sql[0]['create_table_fields'][$result['COLUMN_NAME']]
                     = array(
-                        'type' => $GLOBALS['PMA_String']->strtoupper(
-                                $result['DATA_TYPE']
-                            )
+                        'type' => $pmaString->strtoupper($result['DATA_TYPE'])
                     );
             }
         } else {
@@ -445,13 +447,9 @@ class PMA_Table
         // MySQL permits a non-standard syntax for FLOAT and DOUBLE,
         // see http://dev.mysql.com/doc/refman/5.5/en/floating-point-types.html
         //
-        if ($length != ''
-            && ! preg_match(
-                '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
-                . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i',
-                $type
-            )
-        ) {
+        $pattern = '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
+            . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i';
+        if ($length != '' && ! preg_match($pattern, $type)) {
             $query .= '(' . $length . ')';
         }
 
