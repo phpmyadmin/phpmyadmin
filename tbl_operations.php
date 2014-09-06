@@ -73,6 +73,9 @@ if ($is_aria) {
 $reread_info = false;
 $table_alters = array();
 
+/** @var PMA_String $pmaString */
+$pmaString = $GLOBALS['PMA_String'];
+
 /**
  * If the table has to be moved to some other database
  */
@@ -108,7 +111,7 @@ if (isset($_REQUEST['submitoptions'])) {
     }
 
     if (! empty($_REQUEST['new_tbl_storage_engine'])
-        && strtolower($_REQUEST['new_tbl_storage_engine']) !== strtolower($tbl_storage_engine)
+        && $pmaString->strtolower($_REQUEST['new_tbl_storage_engine']) !== $pmaString->strtolower($tbl_storage_engine)
     ) {
         $new_tbl_storage_engine = $_REQUEST['new_tbl_storage_engine'];
         // reset the globals for the new engine
@@ -270,8 +273,8 @@ if (! $hideOrderTable) {
  */
 $response->addHTML(PMA_getHtmlForMoveTable());
 
-if (strstr($show_comment, '; InnoDB free') === false) {
-    if (strstr($show_comment, 'InnoDB free') === false) {
+if ($pmaString->strstr($show_comment, '; InnoDB free') === false) {
+    if ($pmaString->strstr($show_comment, 'InnoDB free') === false) {
         // only user entered comment
         $comment = $show_comment;
     } else {

@@ -178,7 +178,9 @@ function PMA_TRI_handleEditor()
                     $response->addJSON(
                         'name',
                         htmlspecialchars(
-                            strtoupper($_REQUEST['item_name'])
+                            $GLOBALS['PMA_String']->strtoupper(
+                                $_REQUEST['item_name']
+                            )
                         )
                     );
                 }
@@ -322,6 +324,9 @@ function PMA_TRI_getEditorForm($mode, $item)
 {
     global $db, $table, $event_manipulations, $action_timings;
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     // Escape special characters
     $need_escape = array(
                        'item_original_name',
@@ -344,7 +349,7 @@ function PMA_TRI_getEditorForm($mode, $item)
 
     // Create the output
     $retval  = "";
-    $retval .= "<!-- START " . strtoupper($mode) . " TRIGGER FORM -->\n\n";
+    $retval .= "<!-- START " . $pmaString->strtoupper($mode) . " TRIGGER FORM -->\n\n";
     $retval .= "<form class='rte_form' action='db_triggers.php' method='post'>\n";
     $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
     $retval .= $original_data;
@@ -427,7 +432,7 @@ function PMA_TRI_getEditorForm($mode, $item)
         $retval .= "</fieldset>\n";
     }
     $retval .= "</form>\n\n";
-    $retval .= "<!-- END " . strtoupper($mode) . " TRIGGER FORM -->\n\n";
+    $retval .= "<!-- END " . $pmaString->strtoupper($mode) . " TRIGGER FORM -->\n\n";
 
     return $retval;
 } // end PMA_TRI_getEditorForm()
@@ -443,7 +448,8 @@ function PMA_TRI_getQueryFromRequest()
 
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
-        if (strpos($_REQUEST['item_definer'], '@') !== false) {
+        if ($GLOBALS['PMA_String']->strpos($_REQUEST['item_definer'], '@') !== false
+        ) {
             $arr = explode('@', $_REQUEST['item_definer']);
             $query .= 'DEFINER=' . PMA_Util::backquote($arr[0]);
             $query .= '@' . PMA_Util::backquote($arr[1]) . ' ';

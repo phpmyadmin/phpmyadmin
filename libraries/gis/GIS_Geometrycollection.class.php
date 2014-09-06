@@ -57,15 +57,22 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     {
         $min_max = array();
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = substr($spatial, 19, (strlen($spatial) - 20));
+        $goem_col = $pmaString->substr(
+            $spatial,
+            19,
+            $pmaString->strlen($spatial) - 20
+        );
 
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos = stripos($sub_part, '(');
-            $type = substr($sub_part, 0, $type_pos);
+            $type_pos = $pmaString->stripos($sub_part, '(');
+            $type = $pmaString->substr($sub_part, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
             if (! $gis_obj) {
@@ -111,14 +118,21 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
      */
     public function prepareRowAsPng($spatial, $label, $color, $scale_data, $image)
     {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = substr($spatial, 19, (strlen($spatial) - 20));
+        $goem_col = $pmaString->substr(
+            $spatial,
+            19,
+            $pmaString->strlen($spatial) - 20
+        );
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos = stripos($sub_part, '(');
-            $type = substr($sub_part, 0, $type_pos);
+            $type_pos = $pmaString->stripos($sub_part, '(');
+            $type = $pmaString->substr($sub_part, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
             if (! $gis_obj) {
@@ -145,14 +159,21 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
      */
     public function prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf)
     {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = substr($spatial, 19, (strlen($spatial) - 20));
+        $goem_col = $pmaString->substr(
+            $spatial,
+            19,
+            $pmaString->strlen($spatial) - 20
+        );
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos = stripos($sub_part, '(');
-            $type = substr($sub_part, 0, $type_pos);
+            $type_pos = $pmaString->stripos($sub_part, '(');
+            $type = $pmaString->substr($sub_part, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
             if (! $gis_obj) {
@@ -180,14 +201,21 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     {
         $row = '';
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = substr($spatial, 19, (strlen($spatial) - 20));
+        $goem_col = $pmaString->substr(
+            $spatial,
+            19,
+            $pmaString->strlen($spatial) - 20
+        );
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos = stripos($sub_part, '(');
-            $type = substr($sub_part, 0, $type_pos);
+            $type_pos = $pmaString->stripos($sub_part, '(');
+            $type = $pmaString->substr($sub_part, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
             if (! $gis_obj) {
@@ -217,14 +245,21 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     {
         $row = '';
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = substr($spatial, 19, (strlen($spatial) - 20));
+        $goem_col = $pmaString->substr(
+            $spatial,
+            19,
+            $pmaString->strlen($spatial) - 20
+        );
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
-            $type_pos = stripos($sub_part, '(');
-            $type = substr($sub_part, 0, $type_pos);
+            $type_pos = $pmaString->stripos($sub_part, '(');
+            $type = $pmaString->substr($sub_part, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
             if (! $gis_obj) {
@@ -257,7 +292,11 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             } elseif ($char == ')') {
                 $br_count--;
                 if ($br_count == 0) {
-                    $sub_parts[] = substr($goem_col, $start, ($count + 1 - $start));
+                    $sub_parts[] = $GLOBALS['PMA_String']->substr(
+                        $goem_col,
+                        $start,
+                        ($count + 1 - $start)
+                    );
                     $start = $count + 2;
                 }
             }
@@ -292,7 +331,10 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             }
         }
         if (isset($gis_data[0]['gis_type'])) {
-            $wkt = substr($wkt, 0, strlen($wkt) - 1);
+            /** @var PMA_String $pmaString */
+            $pmaString = $GLOBALS['PMA_String'];
+
+            $wkt = $pmaString->substr($wkt, 0, $pmaString->strlen($wkt) - 1);
         }
         $wkt .= ')';
         return $wkt;
@@ -313,16 +355,19 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
         $params['srid'] = $data['srid'];
         $wkt = $data['wkt'];
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = substr($wkt, 19, (strlen($wkt) - 20));
+        $goem_col = $pmaString->substr($wkt, 19, ($pmaString->strlen($wkt) - 20));
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
         $params['GEOMETRYCOLLECTION']['geom_count'] = count($sub_parts);
 
         $i = 0;
         foreach ($sub_parts as $sub_part) {
-            $type_pos = stripos($sub_part, '(');
-            $type = substr($sub_part, 0, $type_pos);
+            $type_pos = $pmaString->stripos($sub_part, '(');
+            $type = $pmaString->substr($sub_part, 0, $type_pos);
             $gis_obj = PMA_GIS_Factory::factory($type);
             if (! $gis_obj) {
                 continue;

@@ -29,13 +29,15 @@ if ($db_is_system_schema) {
 $err_url_0 = 'index.php?' . PMA_URL_getCommon();
 $err_url   = $cfg['DefaultTabDatabase'] . '?' . PMA_URL_getCommon($db);
 
+/** @var PMA_String $pmaString */
+$pmaString = $GLOBALS['PMA_String'];
 
 /**
  * Ensures the database exists (else move to the "parent" script) and displays
  * headers
  */
 if (! isset($is_db) || ! $is_db) {
-    if (strlen($db)) {
+    if ($pmaString->strlen($db)) {
         $is_db = $GLOBALS['dbi']->selectDb($db);
         // This "Command out of sync" 2014 error may happen, for example
         // after calling a MySQL procedure; at this point we can't select
@@ -51,7 +53,7 @@ if (! isset($is_db) || ! $is_db) {
     $uri = $cfg['PmaAbsoluteUri'] . 'index.php?'
         . PMA_URL_getCommon('', '', '&')
         . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1';
-    if (! strlen($db) || ! $is_db) {
+    if (!$pmaString->strlen($db) || ! $is_db) {
         $response = PMA_Response::getInstance();
         if ($response->isAjax()) {
             $response->isSuccess(false);

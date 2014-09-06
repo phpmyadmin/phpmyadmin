@@ -32,7 +32,9 @@ $scripts->addFile('db_operations.js');
 /**
  * Rename/move or copy database
  */
-if (strlen($GLOBALS['db'])
+/** @var PMA_String $pmaString */
+$pmaString = $GLOBALS['PMA_String'];
+if ($pmaString->strlen($GLOBALS['db'])
     && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_copy']))
 ) {
     if (! empty($_REQUEST['db_rename'])) {
@@ -41,7 +43,9 @@ if (strlen($GLOBALS['db'])
         $move = false;
     }
 
-    if (! isset($_REQUEST['newname']) || ! strlen($_REQUEST['newname'])) {
+    if (! isset($_REQUEST['newname'])
+        || ! $pmaString->strlen($_REQUEST['newname'])
+    ) {
         $message = PMA_Message::error(__('The database name is empty!'));
     } else {
         $sql_query = ''; // in case target db exists

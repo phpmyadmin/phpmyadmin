@@ -40,7 +40,11 @@ function PMA_getHtmlForChangePassword($username, $hostname)
 
     $html .= PMA_URL_getHiddenInputs();
 
-    if (strpos($GLOBALS['PMA_PHP_SELF'], 'server_privileges') !== false) {
+    if ($GLOBALS['PMA_String']->strpos(
+            $GLOBALS['PMA_PHP_SELF'],
+            'server_privileges'
+        ) !== false
+    ) {
         $html .= '<input type="hidden" name="username" '
             . 'value="' . htmlspecialchars($username) . '" />'
             . '<input type="hidden" name="hostname" '
@@ -48,7 +52,10 @@ function PMA_getHtmlForChangePassword($username, $hostname)
     }
     $html .= '<fieldset id="fieldset_change_password">'
         . '<legend'
-        . ($is_privileges ? ' data-submenu-label="' . __('Change password') . '"' : '')
+        . ($is_privileges
+            ? ' data-submenu-label="' . __('Change password') . '"'
+            : ''
+        )
         . '>' . __('Change password') . '</legend>'
         . '<table class="data noclick">'
         . '<tr class="odd">'

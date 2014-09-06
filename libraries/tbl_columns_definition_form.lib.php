@@ -868,7 +868,7 @@ function PMA_getHtmlForColumnAutoIncrement($columnNumber, $ci, $ci_offset,
     $html = '<input name="field_extra[' . $columnNumber . ']"'
         . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '"';
     if (isset($columnMeta['Extra'])
-        && strtolower($columnMeta['Extra']) == 'auto_increment'
+        && $GLOBALS['PMA_String']->strtolower($columnMeta['Extra']) == 'auto_increment'
     ) {
         $html .= ' checked="checked"';
     }
@@ -928,13 +928,15 @@ function PMA_getHtmlForColumnIndexes($columnNumber, $ci, $ci_offset, $columnMeta
 
 function PMA_getHtmlForIndexTypeOption($columnNumber, $columnMeta, $type, $key)
 {
-    $html = '<option value="' . strtolower($type) . '_' . $columnNumber
-        . '" title="'
-        . __($type) . '"';
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
+    $html = '<option value="' . $pmaString->strtolower($type) . '_' . $columnNumber
+        . '" title="' . __($type) . '"';
     if (isset($columnMeta['Key']) && $columnMeta['Key'] == $key) {
         $html .= ' selected="selected"';
     }
-    $html .= '>' . strtoupper($type) . '</option>';
+    $html .= '>' . $pmaString->strtoupper($type) . '</option>';
 
     return $html;
 }
@@ -1037,12 +1039,14 @@ function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
         $default_current_timestamp = false;
     }
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     $attribute_types = $GLOBALS['PMA_Types']->getAttributes();
     $cnt_attribute_types = count($attribute_types);
     for ($j = 0; $j < $cnt_attribute_types; $j++) {
-        $html
-            .= '                <option value="' . $attribute_types[$j] . '"';
-        if (strtoupper($attribute) == strtoupper($attribute_types[$j])) {
+        $html .= '                <option value="' . $attribute_types[$j] . '"';
+        if ($pmaString->strtoupper($attribute) == $pmaString->strtoupper($attribute_types[$j])) {
             $html .= ' selected="selected"';
         }
         $html .= '>' . $attribute_types[$j] . '</option>';
@@ -1369,16 +1373,20 @@ function PMA_getFormParamsForOldColumn(
     } else {
         $form_params['field_orig[' . $columnNumber . ']'] = '';
     }
+
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     // old column type
     if (isset($columnMeta['Type'])) {
         // keep in uppercase because the new type will be in uppercase
         $form_params['field_type_orig[' . $columnNumber . ']']
-            = strtoupper($type);
+            = $pmaString->strtoupper($type);
         if (isset($columnMeta['column_status'])
             && !$columnMeta['column_status']['isEditable']
         ) {
             $form_params['field_type[' . $columnNumber . ']']
-                = strtoupper($type);
+                = $pmaString->strtoupper($type);
         }
     } else {
         $form_params['field_type_orig[' . $columnNumber . ']'] = '';

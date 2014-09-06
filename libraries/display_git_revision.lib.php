@@ -25,8 +25,8 @@ function PMA_printGitRevision()
     // load revision data from repo
     $GLOBALS['PMA_Config']->checkGitRevision();
 
-    // if using a remote commit fast-forwarded, link to Github
-    $commit_hash = substr(
+    // if using a remote commit fast-forwarded, link to GitHub
+    $commit_hash = $GLOBALS['PMA_String']->substr(
         $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITHASH'),
         0,
         7

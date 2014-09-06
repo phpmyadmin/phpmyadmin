@@ -22,14 +22,17 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
 {
     global $db, $url_query, $ajax_class;
 
-    $icon = 'b_' . strtolower($name) . '_add.png';
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
+    $icon = 'b_' . $pmaString->strtolower($name) . '_add.png';
     $retval  = "";
     $retval .= "<!-- ADD " . $name . " FORM START -->\n";
     $retval .= "<fieldset class='left'>\n";
     $retval .= "<legend>" . _pgettext('Create new procedure', 'New') . "</legend>\n";
     $retval .= "        <div class='wrap'>\n";
     $retval .= "            <a {$ajax_class['add']} ";
-    $retval .= "href='db_" . strtolower($name) . "s.php";
+    $retval .= "href='db_" . $pmaString->strtolower($name) . "s.php";
     $retval .= "?$url_query&amp;add_item=1' onclick='$.datepicker.initialized = false;'>";
     $retval .= PMA_Util::getIcon($icon);
     $retval .= PMA_RTE_getWord('add') . "</a>\n";
@@ -80,7 +83,7 @@ function PMA_EVN_getFooterLinks()
         0,
         1
     );
-    $es_state = strtolower($es_state);
+    $es_state = $GLOBALS['PMA_String']->strtolower($es_state);
     $options = array(
                     0 => array(
                         'label' => __('OFF'),

@@ -314,7 +314,7 @@ class PMA_Types_MySQL extends PMA_Types
      */
     public function getTypeDescription($type)
     {
-        $type = strtoupper($type);
+        $type = $GLOBALS['PMA_String']->strtoupper($type);
         switch ($type) {
         case 'TINYINT':
             return __('A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255');
@@ -409,7 +409,7 @@ class PMA_Types_MySQL extends PMA_Types
      */
     public function getTypeClass($type)
     {
-        $type = strtoupper($type);
+        $type = $GLOBALS['PMA_String']->strtoupper($type);
         switch ($type) {
         case 'TINYINT':
         case 'SMALLINT':
@@ -769,7 +769,7 @@ class PMA_Types_Drizzle extends PMA_Types
      */
     public function getTypeDescription($type)
     {
-        $type = strtoupper($type);
+        $type = $GLOBALS['PMA_String']->strtoupper($type);
         switch ($type) {
         case 'INTEGER':
             return __('A 4-byte integer, range is -2,147,483,648 to 2,147,483,647');
@@ -818,7 +818,7 @@ class PMA_Types_Drizzle extends PMA_Types
      */
     public function getTypeClass($type)
     {
-        $type = strtoupper($type);
+        $type = $GLOBALS['PMA_String']->strtoupper($type);
         switch ($type) {
         case 'INTEGER':
         case 'BIGINT':

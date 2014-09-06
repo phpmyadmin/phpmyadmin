@@ -28,6 +28,7 @@ require_once 'libraries/Message.class.php';
 class ImportShp_Test extends PHPUnit_Framework_TestCase
 {
     /**
+     * @var ImportShp
      * @access protected
      */
     protected $object;

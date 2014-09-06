@@ -63,9 +63,12 @@ class PMA_RecentFavoriteTable
      */
     private function __construct($type)
     {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         $this->_tableType = $type;
-        if (strlen($GLOBALS['cfg']['Server']['pmadb'])
-            && strlen($GLOBALS['cfg']['Server'][$this->_tableType])
+        if ($pmaString->strlen($GLOBALS['cfg']['Server']['pmadb'])
+            && $pmaString->strlen($GLOBALS['cfg']['Server'][$this->_tableType])
         ) {
             $this->_pmaTable
                 = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."

@@ -111,6 +111,9 @@ class ImportSql extends ImportPlugin
     {
         global $error, $timeout_passed;
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         $buffer = '';
         // Defaults for parser
         $sql = '';
@@ -120,7 +123,7 @@ class ImportSql extends ImportPlugin
         $big_value = 2147483647;
         // include the space because it's mandatory
         $delimiter_keyword = 'DELIMITER ';
-        $length_of_delimiter_keyword = strlen($delimiter_keyword);
+        $length_of_delimiter_keyword = $pmaString->strlen($delimiter_keyword);
 
         if (isset($_POST['sql_delimiter'])) {
             $sql_delimiter = $_POST['sql_delimiter'];
@@ -159,7 +162,7 @@ class ImportSql extends ImportPlugin
             $data = PMA_importGetNextChunk();
             if ($data === false) {
                 // subtract data we didn't handle yet and stop processing
-                $GLOBALS['offset'] -= strlen($buffer);
+                $GLOBALS['offset'] -= $pmaString->strlen($buffer);
                 break;
             } elseif ($data === true) {
                 // Handle rest of buffer
@@ -170,7 +173,7 @@ class ImportSql extends ImportPlugin
                 unset($data);
                 // Do not parse string when we're not at the end
                 // and don't have ; inside
-                if ((strpos($buffer, $sql_delimiter, $i) === false)
+                if (($pmaString->strpos($buffer, $sql_delimiter, $i) === false)
                     && ! $GLOBALS['finished']
                 ) {
                     continue;
@@ -182,7 +185,7 @@ class ImportSql extends ImportPlugin
             $buffer = preg_replace("/\r($|[^\n])/", "\n$1", $buffer);
 
             // Current length of our buffer
-            $len = strlen($buffer);
+            $len = $pmaString->strlen($buffer);
 
             // Grab some SQL queries out of it
             while ($i < $len) {
@@ -211,7 +214,11 @@ class ImportSql extends ImportPlugin
                  *       inside quotes (or even double-quotes)
                  */
                 // the cost of doing this one with preg_match() would be too high
-                $first_sql_delimiter = strpos($buffer, $sql_delimiter, $i);
+                $first_sql_delimiter = $pmaString->strpos(
+                    $buffer,
+                    $sql_delimiter,
+                    $i
+                );
                 if ($first_sql_delimiter === false) {
                     $first_sql_delimiter = $big_value;
                 } else {
@@ -236,19 +243,19 @@ class ImportSql extends ImportPlugin
                         break;
                     }
                     // We hit end of query, go there!
-                    $i = strlen($buffer) - 1;
+                    $i = $pmaString->strlen($buffer) - 1;
                 }
 
                 // Grab current character
                 $ch = $buffer[$i];
 
                 // Quotes
-                if (strpos('\'"`', $ch) !== false) {
+                if ($pmaString->strpos('\'"`', $ch) !== false) {
                     $quote = $ch;
                     $endq = false;
                     while (! $endq) {
                         // Find next quote
-                        $pos = strpos($buffer, $quote, $i + 1);
+                        $pos = $pmaString->strpos($buffer, $quote, $i + 1);
                         /*
                          * Behave same as MySQL and accept end of query as end
                          * of backtick.
@@ -314,13 +321,17 @@ class ImportSql extends ImportPlugin
                 ) {
                     // Copy current string to SQL
                     if ($start_pos != $i) {
-                        $sql .= substr($buffer, $start_pos, $i - $start_pos);
+                        $sql .= $pmaString->substr(
+                            $buffer,
+                            $start_pos,
+                            $i - $start_pos
+                        );
                     }
                     // Skip the rest
                     $start_of_comment = $i;
                     // do not use PHP_EOL here instead of "\n", because the export
                     // file might have been produced on a different system
-                    $i = strpos($buffer, $ch == '/' ? '*/' : "\n", $i);
+                    $i = $pmaString->strpos($buffer, $ch == '/' ? '*/' : "\n", $i);
                     // didn't we hit end of string?
                     if ($i === false) {
                         if ($GLOBALS['finished']) {
@@ -337,7 +348,7 @@ class ImportSql extends ImportPlugin
                     $i++;
                     // We need to send the comment part in case we are defining
                     // a procedure or function and comments in it are valuable
-                    $sql .= substr(
+                    $sql .= $pmaString->substr(
                         $buffer,
                         $start_of_comment,
                         $i - $start_of_comment
@@ -354,13 +365,13 @@ class ImportSql extends ImportPlugin
                 // Change delimiter, if redefined, and skip it
                 // (don't send to server!)
                 if (($i + $length_of_delimiter_keyword < $len)
-                    && strtoupper(
-                        substr($buffer, $i, $length_of_delimiter_keyword)
+                    && $pmaString->strtoupper(
+                        $pmaString->substr($buffer, $i, $length_of_delimiter_keyword)
                     ) == $delimiter_keyword
                 ) {
                      // look for EOL on the character immediately after 'DELIMITER '
                      // (see previous comment about PHP_EOL)
-                    $new_line_pos = strpos(
+                    $new_line_pos = $pmaString->strpos(
                         $buffer,
                         "\n",
                         $i + $length_of_delimiter_keyword
@@ -369,7 +380,7 @@ class ImportSql extends ImportPlugin
                     if (false === $new_line_pos) {
                         $new_line_pos = $len;
                     }
-                    $sql_delimiter = substr(
+                    $sql_delimiter = $pmaString->substr(
                         $buffer,
                         $i + $length_of_delimiter_keyword,
                         $new_line_pos - $i - $length_of_delimiter_keyword
@@ -392,7 +403,11 @@ class ImportSql extends ImportPlugin
                         if (! $found_delimiter) {
                             $length_to_grab++;
                         }
-                        $tmp_sql .= substr($buffer, $start_pos, $length_to_grab);
+                        $tmp_sql .= $pmaString->substr(
+                            $buffer,
+                            $start_pos,
+                            $length_to_grab
+                        );
                         unset($length_to_grab);
                     }
                     // Do not try to execute empty SQL
@@ -400,20 +415,27 @@ class ImportSql extends ImportPlugin
                         $sql = $tmp_sql;
                         PMA_importRunQuery(
                             $sql,
-                            substr($buffer, 0, $i + strlen($sql_delimiter)),
+                            $pmaString->substr(
+                                $buffer,
+                                0,
+                                $i + $pmaString->strlen($sql_delimiter)
+                            ),
                             false,
                             $sql_data
                         );
-                        $buffer = substr($buffer, $i + strlen($sql_delimiter));
+                        $buffer = $pmaString->substr(
+                            $buffer,
+                            $i + $pmaString->strlen($sql_delimiter)
+                        );
                         // Reset parser:
-                        $len = strlen($buffer);
+                        $len = $pmaString->strlen($buffer);
                         $sql = '';
                         $i = 0;
                         $start_pos = 0;
                         // Any chance we will get a complete query?
                         //if ((strpos($buffer, ';') === false)
                         //&& ! $GLOBALS['finished']) {
-                        if (strpos($buffer, $sql_delimiter) === false
+                        if ($pmaString->strpos($buffer, $sql_delimiter) === false
                             && ! $GLOBALS['finished']
                         ) {
                             break;
@@ -426,7 +448,12 @@ class ImportSql extends ImportPlugin
             } // End of parser loop
         } // End of import loop
         // Commit any possible data in buffers
-        PMA_importRunQuery('', substr($buffer, 0, $len), false, $sql_data);
+        PMA_importRunQuery(
+            '',
+            $pmaString->substr($buffer, 0, $len),
+            false,
+            $sql_data
+        );
         PMA_importRunQuery('', '', false, $sql_data);
     }
 

@@ -44,11 +44,19 @@ class PMA_StringMB implements PMA_StringByte
      */
     public function substr($string, $start, $length = 2147483647)
     {
-        return mb_substr($string, $start, $length);
+        $stringLength = $this->strlen($string);
+        if ($stringLength <= $start) {
+            return false;
+        }
+        if ($stringLength + $length < $start) {
+            return false;
+        }
+
+        return mb_substr($string, $start, $length, 'utf-8');
     }
 
     /**
-     * Returns postion of $needle in $haystack or false if not found
+     * Returns position of $needle in $haystack or false if not found
      *
      * @param string $haystack the string being checked
      * @param string $needle   the string to find in haystack
@@ -58,7 +66,158 @@ class PMA_StringMB implements PMA_StringByte
      */
     public function strpos($haystack, $needle, $offset = 0)
     {
+        if (null === $haystack) {
+            return false;
+        }
+        if (false === $needle) {
+            return false;
+        }
+        if (!is_string($needle) && is_numeric($needle)) {
+            $needle = (int)$needle;
+            $needle = $this->chr($needle);
+        }
         return mb_strpos($haystack, $needle, $offset);
+    }
+
+    /**
+     * Returns position of $needle in $haystack - case insensitive - or false if
+     * not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     * @param int    $offset   the search offset
+     *
+     * @return integer position of $needle in $haystack or false
+     */
+    public function stripos($haystack, $needle, $offset = 0)
+    {
+        if (null === $haystack) {
+            return false;
+        }
+        if (false === $needle) {
+            return false;
+        }
+        if (!is_string($needle) && is_numeric($needle)) {
+            $needle = (int)$needle;
+            $needle = $this->chr($needle);
+        }
+        return mb_stripos($haystack, $needle, $offset);
+    }
+
+    /**
+     * Returns position of last $needle in $haystack or false if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     * @param int    $offset   the search offset
+     *
+     * @return integer position of last $needle in $haystack or false
+     */
+    public function strrpos($haystack, $needle, $offset = 0)
+    {
+        if (null === $haystack) {
+            return false;
+        }
+        if (false === $needle) {
+            return false;
+        }
+        if (!is_string($needle) && is_numeric($needle)) {
+            $needle = (int)$needle;
+            $needle = $this->chr($needle);
+        }
+        return mb_strrpos($haystack, $needle, $offset);
+    }
+
+    /**
+     * Returns position of last $needle in $haystack - case insensitive - or false
+     * if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     * @param int    $offset   the search offset
+     *
+     * @return integer position of last $needle in $haystack or false
+     */
+    public function strripos($haystack, $needle, $offset = 0)
+    {
+        if (null === $haystack) {
+            return false;
+        }
+        if (false === $needle) {
+            return false;
+        }
+        if (!is_string($needle) && is_numeric($needle)) {
+            $needle = (int)$needle;
+            $needle = $this->chr($needle);
+        }
+        return mb_strripos($haystack, $needle, $offset);
+    }
+
+    /**
+     * Returns part of $haystack string starting from and including the first
+     * occurrence of $needle to the end of $haystack or false if not found
+     *
+     * @param string $haystack      the string being checked
+     * @param string $needle        the string to find in haystack
+     * @param bool   $before_needle the part before the needle
+     *
+     * @return string part of $haystack or false
+     */
+    public function strstr($haystack, $needle, $before_needle = false)
+    {
+        if (!is_string($needle) && is_numeric($needle)) {
+            $needle = (int)$needle;
+            $needle = $this->chr($needle);
+        }
+        if (!is_string($haystack) || !is_string($needle) || null === $needle) {
+            return false;
+        }
+        return mb_strstr($haystack, $needle, $before_needle);
+    }
+
+    /**
+     * Returns part of $haystack string starting from and including the first
+     * occurrence of $needle to the end of $haystack - case insensitive - or false
+     * if not found
+     *
+     * @param string $haystack      the string being checked
+     * @param string $needle        the string to find in haystack
+     * @param bool   $before_needle the part before the needle
+     *
+     * @return string part of $haystack or false
+     */
+    public function stristr($haystack, $needle, $before_needle = false)
+    {
+        if (!is_string($needle) && is_numeric($needle)) {
+            $needle = (int)$needle;
+            $needle = $this->chr($needle);
+        }
+        if (!is_string($haystack) || !is_string($needle) || null === $needle) {
+            return false;
+        }
+        return mb_stristr($haystack, $needle, $before_needle);
+    }
+
+    /**
+     * Returns the portion of haystack which starts at the last occurrence or false
+     * if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     *
+     * @return string portion of haystack which starts at the last occurrence or
+     * false
+     */
+    public function strrchr($haystack, $needle)
+    {
+        if (!is_string($needle) && is_numeric($needle)) {
+            $needle = (int)$needle;
+            $needle = $this->chr($needle);
+        }
+        if (!is_string($haystack) || !is_string($needle) || null === $needle) {
+            return false;
+        }
+        return mb_strrchr($haystack, $needle);
     }
 
     /**
@@ -74,6 +233,18 @@ class PMA_StringMB implements PMA_StringByte
     }
 
     /**
+     * Make a string uppercase
+     *
+     * @param string $string the string being uppercased
+     *
+     * @return string the upper case string
+     */
+    public function strtoupper($string)
+    {
+        return mb_strtoupper($string);
+    }
+
+    /**
      * Get the ordinal value of a multibyte string
      * (Adapted from http://www.php.net/manual/en/function.ord.php#72463)
      *
@@ -83,10 +254,31 @@ class PMA_StringMB implements PMA_StringByte
      */
     public function ord($string)
     {
+        if (false === $string || null === $string || '' === $string) {
+            return 0;
+        }
+
         $str = mb_convert_encoding($string, "UCS-4BE", "UTF-8");
         $substr = mb_substr($str, 0, 1, "UCS-4BE");
         $val = unpack("N", $substr);
         return $val[1];
+    }
+
+    /**
+     * Get the multibyte character of an ASCII
+     * (from http://fr2.php.net/manual/en/function.chr.php#69082)
+     *
+     * @param int $ascii the ASCII code for which character is required
+     *
+     * @return string the multibyte character
+     */
+    public function chr($ascii)
+    {
+        return mb_convert_encoding(
+            pack("N", $ascii),
+            mb_internal_encoding(),
+            'UCS-4BE'
+        );
     }
 }
 ?>

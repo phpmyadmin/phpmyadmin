@@ -47,6 +47,9 @@ class PMA_Validator
             return $validators;
         }
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // not in setup script: load additional validators for user
         // preferences we need original config values not overwritten
         // by user preferences, creating a new PMA_Config instance is a
@@ -59,9 +62,9 @@ class PMA_Validator
                     continue;
                 }
                 for ($i = 1, $nb = count($uv); $i < $nb; $i++) {
-                    if (substr($uv[$i], 0, 6) == 'value:') {
+                    if ($pmaString->substr($uv[$i], 0, 6) == 'value:') {
                         $uv[$i] = PMA_arrayRead(
-                            substr($uv[$i], 6),
+                            $pmaString->substr($uv[$i], 6),
                             $GLOBALS['PMA_Config']->base_settings
                         );
                     }
@@ -113,7 +116,9 @@ class PMA_Validator
         $key_map = array();
         foreach ($values as $k => $v) {
             $k2 = $isPostSource ? str_replace('-', '/', $k) : $k;
-            $k2 = strpos($k2, '/') ? $cf->getCanonicalPath($k2) : $k2;
+            $k2 = $GLOBALS['PMA_String']->strpos($k2, '/')
+                ? $cf->getCanonicalPath($k2)
+                : $k2;
             $key_map[$k2] = $k;
             $arguments[$k2] = $v;
         }

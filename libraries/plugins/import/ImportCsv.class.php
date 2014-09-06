@@ -104,6 +104,9 @@ class ImportCsv extends AbstractImportCsv
         // but we use directly from $_POST
         global $error, $timeout_passed, $finished, $message;
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         $replacements = array(
             '\\n'   => "\n",
             '\\t'   => "\t",
@@ -115,7 +118,7 @@ class ImportCsv extends AbstractImportCsv
         $csv_new_line = strtr($csv_new_line, $replacements);
 
         $param_error = false;
-        if (strlen($csv_terminated) < 1) {
+        if ($pmaString->strlen($csv_terminated) < 1) {
             $message = PMA_Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
@@ -130,21 +133,23 @@ class ImportCsv extends AbstractImportCsv
             // confuses this script.
             // But the parser won't work correctly with strings so we allow just
             // one character.
-        } elseif (strlen($csv_enclosed) > 1) {
+        } elseif ($pmaString->strlen($csv_enclosed) > 1) {
             $message = PMA_Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
             $message->addParam(__('Columns enclosed with'), false);
             $error = true;
             $param_error = true;
-        } elseif (strlen($csv_escaped) != 1) {
+        } elseif ($pmaString->strlen($csv_escaped) != 1) {
             $message = PMA_Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
             $message->addParam(__('Columns escaped with'), false);
             $error = true;
             $param_error = true;
-        } elseif (strlen($csv_new_line) != 1 && $csv_new_line != 'auto') {
+        } elseif ($pmaString->strlen($csv_new_line) != 1
+            && $csv_new_line != 'auto'
+        ) {
             $message = PMA_Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
@@ -233,7 +238,7 @@ class ImportCsv extends AbstractImportCsv
 
         $col_count = 0;
         $max_cols = 0;
-        $csv_terminated_len = strlen($csv_terminated);
+        $csv_terminated_len = $pmaString->strlen($csv_terminated);
         while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
             $data = PMA_importGetNextChunk();
             if ($data === false) {
@@ -249,7 +254,7 @@ class ImportCsv extends AbstractImportCsv
 
                 // Force a trailing new line at EOF to prevent parsing problems
                 if ($finished && $buffer) {
-                    $finalch = substr($buffer, -1);
+                    $finalch = $pmaString->substr($buffer, -1);
                     if ($csv_new_line == 'auto'
                         && $finalch != "\r"
                         && $finalch != "\n"
@@ -265,17 +270,17 @@ class ImportCsv extends AbstractImportCsv
                 // Do not parse string when we're not at the end
                 // and don't have new line inside
                 if (($csv_new_line == 'auto'
-                    && strpos($buffer, "\r") === false
-                    && strpos($buffer, "\n") === false)
+                    && $pmaString->strpos($buffer, "\r") === false
+                    && $pmaString->strpos($buffer, "\n") === false)
                     || ($csv_new_line != 'auto'
-                    && strpos($buffer, $csv_new_line) === false)
+                    && $pmaString->strpos($buffer, $csv_new_line) === false)
                 ) {
                     continue;
                 }
             }
 
             // Current length of our buffer
-            $len = strlen($buffer);
+            $len = $pmaString->strlen($buffer);
             // Currently parsed char
             $ch = $buffer[$i];
             if ($csv_terminated_len > 1 && $ch == $csv_terminated[0]) {
@@ -539,8 +544,8 @@ class ImportCsv extends AbstractImportCsv
                     $line++;
                     $csv_finish = false;
                     $values = array();
-                    $buffer = substr($buffer, $i + 1);
-                    $len = strlen($buffer);
+                    $buffer = $pmaString->substr($buffer, $i + 1);
+                    $len = $pmaString->strlen($buffer);
                     $i = 0;
                     $lasti = -1;
                     $ch = $buffer[0];
@@ -575,7 +580,7 @@ class ImportCsv extends AbstractImportCsv
                 }
             }
 
-            if (strlen($db)) {
+            if ($pmaString->strlen($db)) {
                 $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
                 $tbl_name = 'TABLE ' . (count($result) + 1);
             } else {
@@ -603,7 +608,7 @@ class ImportCsv extends AbstractImportCsv
              */
 
             /* Set database name to the currently selected one, if applicable */
-            if (strlen($db)) {
+            if ($pmaString->strlen($db)) {
                 $db_name = $db;
                 $options = array('create_db' => false);
             } else {

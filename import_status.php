@@ -32,9 +32,12 @@ if (version_compare(PHP_VERSION, '5.4.0', '>=')
     define('UPLOAD_PREFIX', ini_get('session.upload_progress.prefix'));
 
     session_start();
+    /** @var PMA_String $pmaString /
+    $pmaString = $GLOBALS['PMA_String'];
     foreach ($_SESSION as $key => $value) {
         // only copy session-prefixed data
-        if (substr($key, 0, strlen(UPLOAD_PREFIX)) == UPLOAD_PREFIX) {
+        if ($pmaString->substr($key, 0, $pmaString->strlen(UPLOAD_PREFIX))
+            == UPLOAD_PREFIX) {
             $sessionupload[$key] = $value;
         }
     }
@@ -61,9 +64,12 @@ if (defined('SESSIONUPLOAD')) {
         $_SESSION[$key] = $value;
     }
 
+    /** @var PMA_String $pmaString /
+    $pmaString = $GLOBALS['PMA_String'];
     // remove session upload data that are not set anymore
     foreach ($_SESSION as $key => $value) {
-        if (substr($key, 0, strlen(UPLOAD_PREFIX)) == UPLOAD_PREFIX
+        if ($pmaString->substr($key, 0, $pmaString->strlen(UPLOAD_PREFIX))
+            == UPLOAD_PREFIX
             && ! isset($sessionupload[$key])
         ) {
             unset($_SESSION[$key]);

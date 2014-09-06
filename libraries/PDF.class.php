@@ -139,7 +139,11 @@ class PMA_PDF extends TCPDF
     {
         $pdfData = $this->getPDFData();
         PMA_Response::getInstance()->disable();
-        PMA_downloadHeader($filename, 'application/pdf', strlen($pdfData));
+        PMA_downloadHeader(
+            $filename,
+            'application/pdf',
+            $GLOBALS['PMA_String']->strlen($pdfData)
+        );
         echo $pdfData;
     }
 }

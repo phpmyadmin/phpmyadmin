@@ -29,8 +29,10 @@ function PMA_checkLink($url)
         $valid_starts[] = '?page=form&';
         $valid_starts[] = '?page=servers&';
     }
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
     foreach ($valid_starts as $val) {
-        if (substr($url, 0, strlen($val)) == $val) {
+        if ($pmaString->substr($url, 0, $pmaString->strlen($val)) == $val) {
             return true;
         }
     }
@@ -62,7 +64,7 @@ function PMA_replaceBBLink($found)
     }
 
     /* Construct url */
-    if (substr($found[1], 0, 4) == 'http') {
+    if ($GLOBALS['PMA_String']->substr($found[1], 0, 4) == 'http') {
         $url = PMA_linkURL($found[1]);
     } else {
         $url = $found[1];

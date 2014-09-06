@@ -55,8 +55,11 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
      */
     public function scaleRow($spatial)
     {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $multipoint = substr($spatial, 11, (strlen($spatial) - 12));
+        $multipoint = $pmaString->substr($spatial, 11, ($pmaString->strlen($spatial) - 12));
         return $this->setMinMax($multipoint, array());
     }
 
@@ -75,15 +78,22 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $point_color,
         $scale_data, $image
     ) {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
-        $red   = hexdec(substr($point_color, 1, 2));
-        $green = hexdec(substr($point_color, 3, 2));
-        $blue  = hexdec(substr($point_color, 4, 2));
+        $red   = hexdec($pmaString->substr($point_color, 1, 2));
+        $green = hexdec($pmaString->substr($point_color, 3, 2));
+        $blue  = hexdec($pmaString->substr($point_color, 4, 2));
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $multipoint = substr($spatial, 11, (strlen($spatial) - 12));
+        $multipoint = $pmaString->substr(
+            $spatial,
+            11,
+            $pmaString->strlen($spatial) - 12
+        );
         $points_arr = $this->extractPoints($multipoint, $scale_data);
 
         foreach ($points_arr as $point) {
@@ -118,14 +128,21 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
     public function prepareRowAsPdf($spatial, $label, $point_color,
         $scale_data, $pdf
     ) {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // allocate colors
-        $red   = hexdec(substr($point_color, 1, 2));
-        $green = hexdec(substr($point_color, 3, 2));
-        $blue  = hexdec(substr($point_color, 4, 2));
+        $red   = hexdec($pmaString->substr($point_color, 1, 2));
+        $green = hexdec($pmaString->substr($point_color, 3, 2));
+        $blue  = hexdec($pmaString->substr($point_color, 4, 2));
         $line  = array('width' => 1.25, 'color' => array($red, $green, $blue));
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $multipoint = substr($spatial, 11, (strlen($spatial) - 12));
+        $multipoint = $pmaString->substr(
+            $spatial,
+            11,
+            $pmaString->strlen($spatial) - 12
+        );
         $points_arr = $this->extractPoints($multipoint, $scale_data);
 
         foreach ($points_arr as $point) {
@@ -166,8 +183,15 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
             'stroke-width'=> 2,
         );
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $multipoint = substr($spatial, 11, (strlen($spatial) - 12));
+        $multipoint = $pmaString->substr(
+            $spatial,
+            11,
+            $pmaString->strlen($spatial) - 12
+        );
         $points_arr = $this->extractPoints($multipoint, $scale_data);
 
         $row = '';
@@ -216,8 +240,15 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         }
         $result = $this->getBoundsForOl($srid, $scale_data);
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $multipoint = substr($spatial, 11, (strlen($spatial) - 12));
+        $multipoint = $pmaString->substr(
+            $spatial,
+            11,
+            $pmaString->strlen($spatial) - 12
+        );
         $points_arr = $this->extractPoints($multipoint, null);
 
         $result .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
@@ -253,7 +284,11 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
                 && trim($gis_data[$index]['MULTIPOINT'][$i]['y']) != '')
                 ? $gis_data[$index]['MULTIPOINT'][$i]['y'] : '') . ',';
         }
-        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
+        $wkt = $pmaString->substr($wkt, 0, $pmaString->strlen($wkt) - 1);
         $wkt .= ')';
         return $wkt;
     }
@@ -273,7 +308,11 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
             $wkt .= $row_data['points'][$i]['x'] . ' '
                 . $row_data['points'][$i]['y'] . ',';
         }
-        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
+        $wkt = $pmaString->substr($wkt, 0, $pmaString->strlen($wkt) - 1);
         $wkt .= ')';
         return $wkt;
     }
@@ -300,8 +339,11 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
             $wkt = $value;
         }
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $points = substr($wkt, 11, (strlen($wkt) - 12));
+        $points = $pmaString->substr($wkt, 11, $pmaString->strlen($wkt) - 12);
         $points_arr = $this->extractPoints($points, null);
 
         $no_of_points = count($points_arr);
@@ -332,8 +374,13 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
                 $ol_array .= $this->getPointForOpenLayers($point, $srid) . ', ';
             }
         }
-        if (substr($ol_array, strlen($ol_array) - 2) == ', ') {
-            $ol_array = substr($ol_array, 0, strlen($ol_array) - 2);
+
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
+        $olArrayLength = $pmaString->strlen($ol_array);
+        if ($pmaString->substr($ol_array, $olArrayLength - 2) == ', ') {
+            $ol_array = $pmaString->substr($ol_array, 0, $olArrayLength - 2);
         }
         $ol_array .= ')';
 

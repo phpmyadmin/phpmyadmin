@@ -3,7 +3,6 @@
  * Defines a set of specialized string functions.
  *
  * @package PhpMyAdmin-String
- * @todo    May be move this into file of its own
  */
 interface PMA_StringType
 {
