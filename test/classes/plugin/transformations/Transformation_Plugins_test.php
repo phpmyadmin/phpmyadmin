@@ -40,7 +40,6 @@ require_once 'libraries/plugins/transformations/Text_Plain_Link.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Longtoipv4.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Preappend.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Substring.class.php';
-require_once 'libraries/string.inc.php';
 
 /**
  * Tests for different input/output transformation plugins

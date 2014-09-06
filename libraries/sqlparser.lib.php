@@ -31,11 +31,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Include the string handling class as we use it heavily
- */
-require_once './libraries/string.inc.php';
-
-/**
  * Include data for the SQL Parser
  */
 require_once './libraries/sqlparser.data.php';
