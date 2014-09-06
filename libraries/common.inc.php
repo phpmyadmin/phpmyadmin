@@ -157,9 +157,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 $PMA_PHP_SELF = PMA_getenv('PHP_SELF');
 $_PATH_INFO = PMA_getenv('PATH_INFO');
 if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
-    $path_info_pos = strrpos($PMA_PHP_SELF, $_PATH_INFO);
-    if ($path_info_pos + strlen($_PATH_INFO) === strlen($PMA_PHP_SELF)) {
-        $PMA_PHP_SELF = substr($PMA_PHP_SELF, 0, $path_info_pos);
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
+    $path_info_pos = $pmaString->strrpos($PMA_PHP_SELF, $_PATH_INFO);
+    $pathLength = $path_info_pos + $pmaString->strlen($_PATH_INFO);
+    if ($pathLength === $pmaString->strlen($PMA_PHP_SELF)) {
+        $PMA_PHP_SELF = $pmaString->substr($PMA_PHP_SELF, 0, $path_info_pos);
     }
 }
 $PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);
@@ -183,7 +187,8 @@ $variables_whitelist = array (
     'error_handler',
     'PMA_PHP_SELF',
     'variables_whitelist',
-    'key'
+    'key',
+    'PMA_String'
 );
 
 foreach (get_defined_vars() as $key => $value) {
@@ -738,11 +743,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     include_once './libraries/charset_conversion.lib.php';
 
     /**
-     * String handling
-     */
-    include_once './libraries/string.inc.php';
-
-    /**
      * Lookup server by name
      * (see FAQ 4.8)
      */
@@ -751,10 +751,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         && ! is_numeric($_REQUEST['server'])
     ) {
         foreach ($cfg['Servers'] as $i => $server) {
+            $verboseLower = $PMA_String->strtolower($server['verbose']);
             if ($server['host'] == $_REQUEST['server']
                 || $server['verbose'] == $_REQUEST['server']
-                || $PMA_String->strtolower($server['verbose']) == $PMA_String->strtolower($_REQUEST['server'])
-                || md5($PMA_String->strtolower($server['verbose'])) == $PMA_String->strtolower($_REQUEST['server'])
+                || $verboseLower == $PMA_String->strtolower($_REQUEST['server'])
+                || md5($verboseLower) == $PMA_String->strtolower($_REQUEST['server'])
             ) {
                 $_REQUEST['server'] = $i;
                 break;
@@ -843,7 +844,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // and run authentication
 
         // to allow HTTP or http
-        $cfg['Server']['auth_type'] = strtolower($cfg['Server']['auth_type']);
+        $cfg['Server']['auth_type']
+            = $PMA_String->strtolower($cfg['Server']['auth_type']);
 
         /**
          * the required auth type plugin
@@ -933,7 +935,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // if using TCP socket is not needed
-        if (strtolower($cfg['Server']['connect_type']) == 'tcp') {
+        if ($PMA_String->strtolower($cfg['Server']['connect_type']) == 'tcp') {
             $cfg['Server']['socket'] = '';
         }
 

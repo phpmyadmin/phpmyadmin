@@ -576,23 +576,29 @@ function PMA_getJsonForLogDataTypeSlow($start, $end)
 
     $return = array('rows' => array(), 'sum' => array());
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-        $type = strtolower(
-            substr($row['sql_text'], 0, strpos($row['sql_text'], ' '))
+        $type = $pmaString->strtolower(
+            $pmaString->substr(
+                $row['sql_text'],
+                0,
+                $pmaString->strpos($row['sql_text'], ' ')
+            )
         );
 
         switch($type) {
         case 'insert':
         case 'update':
             //Cut off big inserts and updates, but append byte count instead
-            if (strlen($row['sql_text']) > 220) {
+            if ($pmaString->strlen($row['sql_text']) > 220) {
                 $implode_sql_text = implode(
                     ' ',
                     PMA_Util::formatByteDown(
-                        strlen($row['sql_text']), 2, 2
+                        $pmaString->strlen($row['sql_text']), 2, 2
                     )
                 );
-                $row['sql_text'] = substr($row['sql_text'], 0, 200)
+                $row['sql_text'] = $pmaString->substr($row['sql_text'], 0, 200)
                     . '... [' . $implode_sql_text . ']';
             }
             break;
@@ -647,9 +653,11 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
     $removeVars = isset($_REQUEST['removeVariables'])
         && $_REQUEST['removeVariables'];
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         preg_match('/^(\w+)\s/', $row['argument'], $match);
-        $type = strtolower($match[1]);
+        $type = $pmaString->strtolower($match[1]);
 
         if (! isset($return['sum'][$type])) {
             $return['sum'][$type] = 0;
@@ -676,7 +684,7 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
                     $temp = $return['rows'][$insertTablesFirst]['argument'];
                     $return['rows'][$insertTablesFirst]['argument']
                         .= PMA_getJsonForLogDataTypeGeneral_getSuspensionPoints(
-                            $temp[strlen($temp) - 1]
+                            $temp[$pmaString->strlen($temp) - 1]
                         );
 
                     // Group this value, thus do not add to the result list
@@ -691,13 +699,13 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
         case 'update':
             // Cut off big inserts and updates,
             // but append byte count therefor
-            if (strlen($row['argument']) > 220) {
-                $row['argument'] = substr($row['argument'], 0, 200)
+            if ($pmaString->strlen($row['argument']) > 220) {
+                $row['argument'] = $pmaString->substr($row['argument'], 0, 200)
                     . '... ['
                     .  implode(
                         ' ',
                         PMA_Util::formatByteDown(
-                            strlen($row['argument']),
+                            $pmaString->strlen($row['argument']),
                             2,
                             2
                         )
@@ -776,7 +784,7 @@ function PMA_getJsonForQueryAnalyzer()
 {
     $return = array();
 
-    if (strlen($_REQUEST['database'])) {
+    if ($GLOBALS['PMA_String']->strlen($_REQUEST['database'])) {
         $GLOBALS['dbi']->selectDb($_REQUEST['database']);
     }
 

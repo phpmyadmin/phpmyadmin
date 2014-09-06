@@ -5,14 +5,19 @@
  *
  * @package PhpMyAdmin-String
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
+require_once 'libraries/StringType.int.php';
+require_once 'libraries/StringByte.int.php';
 /**
  * Specialized string class for phpMyAdmin.
  * The SQL Parser code relies heavily on these functions.
  *
  * @package PhpMyAdmin-String
  */
-class PMA_String
+class PMA_String implements PMA_StringByte, PMA_StringType
 {
     /**
      * @var PMA_StringType
@@ -123,7 +128,20 @@ class PMA_String
     }
 
     /**
-     * Returns postion of $needle in $haystack or false if not found
+     * Returns number of substrings from string.
+     *
+     * @param string $string string to count
+     * @param int    $start  start of substring
+     *
+     * @return int number of substrings from the string
+     */
+    public function substrCount($string, $start)
+    {
+        return $this->_byte->substrCount($string, $start);
+    }
+
+    /**
+     * Returns position of $needle in $haystack or false if not found
      *
      * @param string $haystack the string being checked
      * @param string $needle   the string to find in haystack
@@ -134,6 +152,98 @@ class PMA_String
     public function strpos($haystack, $needle, $offset = 0)
     {
         return $this->_byte->strpos($haystack, $needle, $offset);
+    }
+
+    /**
+     * Returns position of $needle in $haystack - case insensitive - or false if
+     * not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     * @param int    $offset   the search offset
+     *
+     * @return integer position of $needle in $haystack or false
+     */
+    public function stripos($haystack, $needle, $offset = 0)
+    {
+        return $this->_byte->stripos($haystack, $needle, $offset);
+    }
+
+    /**
+     * Returns position of last $needle in $haystack or false if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     * @param int    $offset   the search offset
+     *
+     * @return integer position of last $needle in $haystack or false
+     */
+    public function strrpos($haystack, $needle, $offset = 0)
+    {
+        return $this->_byte->strrpos($haystack, $needle, $offset);
+    }
+
+    /**
+     * Returns position of last $needle in $haystack - case insensitive - or false
+     * if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     * @param int    $offset   the search offset
+     *
+     * @return integer position of last $needle in $haystack or false
+     */
+    public function strripos($haystack, $needle, $offset = 0)
+    {
+        return $this->_byte->strripos($haystack, $needle, $offset);
+    }
+
+    /**
+     * Returns part of $haystack string starting from and including the first
+     * occurrence of $needle to the end of $haystack or false if not found
+     *
+     * @param string $haystack      the string being checked
+     * @param string $needle        the string to find in haystack
+     * @param bool   $before_needle the part before the needle
+     *
+     * @return string part of $haystack or false
+     */
+    public function strstr($haystack, $needle, $before_needle = false)
+    {
+        return $this->_byte->strstr($haystack, $needle, $before_needle);
+    }
+
+    /**
+     * Returns part of $haystack string starting from and including the first
+     * occurrence of $needle to the end of $haystack - case insensitive - or false
+     * if not found
+     *
+     * @param string $haystack      the string being checked
+     * @param string $needle        the string to find in haystack
+     * @param bool   $before_needle the part before the needle
+     *
+     * @return string part of $haystack or false
+     *
+     * @deprecated
+     * @see DON'T USE UNTIL HHVM IMPLEMENTS THIRD PARAMETER!
+     */
+    public function stristr($haystack, $needle, $before_needle = false)
+    {
+        return $this->_byte->stristr($haystack, $needle, $before_needle);
+    }
+
+    /**
+     * Returns the portion of haystack which starts at the last occurrence or false
+     * if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     *
+     * @return integer position of $needle in $haystack or false
+     */
+    public function strrchr($haystack, $needle)
+    {
+        return $this->_byte->strrchr($haystack, $needle);
     }
 
     /**
@@ -149,6 +259,18 @@ class PMA_String
     }
 
     /**
+     * Make a string uppercase
+     *
+     * @param string $string the string being uppercased
+     *
+     * @return string the lower case string
+     */
+    public function strtoupper($string)
+    {
+        return $this->_byte->strtoupper($string);
+    }
+
+    /**
      * Get the ordinal value of a string
      *
      * @param string $string the string for which ord is required
@@ -158,6 +280,18 @@ class PMA_String
     public function ord($string)
     {
         return $this->_byte->ord($string);
+    }
+
+    /**
+     * Get the character of an ASCII
+     *
+     * @param int $ascii the ASCII code for which character is required
+     *
+     * @return string the character
+     */
+    public function chr($ascii)
+    {
+        return $this->_byte->chr($ascii);
     }
 
     /**

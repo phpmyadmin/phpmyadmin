@@ -40,8 +40,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      */
     protected $permTestObj;
 
-
-
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -343,10 +341,13 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             );
         }
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         if (@function_exists('gd_info')) {
             $this->object->checkGd2();
             $gd_nfo = gd_info();
-            if (strstr($gd_nfo["GD Version"], '2.')) {
+            if ($pmaString->strstr($gd_nfo["GD Version"], '2.')) {
                 $this->assertEquals(
                     1,
                     $this->object->get('PMA_IS_GD2'),
@@ -368,7 +369,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         ob_end_clean();
 
         if (preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
-            if (strstr($v, '2.')) {
+            if ($pmaString->strstr($v, '2.')) {
                 $this->assertEquals(
                     1,
                     $this->object->get('PMA_IS_GD2'),
@@ -387,7 +388,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     /**
      * Web server detection test
      *
-     * @param string  $server Server indentification
+     * @param string  $server Server identification
      * @param boolean $iis    Whether server should be detected as IIS
      *
      * @return void
@@ -439,7 +440,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
                 $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'OS/2')) {
                 $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
-                break;
             } elseif (stristr(PHP_OS, 'Linux')) {
                 $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
             } else {
@@ -883,7 +883,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      * Test for loading user preferences
      *
      * @return void
-     * @todo Test actualy preferences loading
+     * @todo Test actually preferences loading
      */
     public function testLoadUserPreferences()
     {
@@ -919,7 +919,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      * Should test getting unique value for theme
      *
      * @return void
-     * @todo Implement testGetThemeUniqueValue().
      */
     public function testGetThemeUniqueValue()
     {
@@ -953,13 +952,12 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      * Should test checking of config permissions
      *
      * @return void
-     * @todo Implement testCheckPermissions().
      */
     public function testCheckPermissions()
     {
         //load file permissions for the current permissions file
         $perms = @fileperms($this->object->getSource());
-        //testing for permissions for no configration file
+        //testing for permissions for no configuration file
         $this->assertFalse(!($perms === false) && ($perms & 2));
 
         //load file permissions for the current permissions file

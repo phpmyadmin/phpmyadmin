@@ -249,15 +249,20 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
             . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
         $result = PMA_queryAsControlUser($sql_query, false);
         if ($result) {
+            /** @var PMA_String $pmaString */
+            $pmaString = $GLOBALS['PMA_String'];
+
             while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
                 $key = $row['tab'];
                 $value = $row['allowed'];
-                if (substr($key, 0, 7) == 'server_' && $value == 'Y') {
-                    $allowedTabs['server'][] = substr($key, 7);
-                } elseif (substr($key, 0, 3) == 'db_' && $value == 'Y') {
-                    $allowedTabs['db'][] = substr($key, 3);
-                } elseif (substr($key, 0, 6) == 'table_' && $value == 'Y') {
-                    $allowedTabs['table'][] = substr($key, 6);
+                if ($pmaString->substr($key, 0, 7) == 'server_' && $value == 'Y') {
+                    $allowedTabs['server'][] = $pmaString->substr($key, 7);
+                } elseif ($pmaString->substr($key, 0, 3) == 'db_' && $value == 'Y') {
+                    $allowedTabs['db'][] = $pmaString->substr($key, 3);
+                } elseif ($pmaString->substr($key, 0, 6) == 'table_'
+                    && $value == 'Y'
+                ) {
+                    $allowedTabs['table'][] = $pmaString->substr($key, 6);
                 }
             }
         }

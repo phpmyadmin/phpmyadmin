@@ -382,6 +382,9 @@ class Advisor
         $ruleNo = -1;
         $ruleLine = -1;
 
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         for ($i = 0; $i < $numLines; $i++) {
             $line = $file[$i];
             if ($line == "" || $line[0] == '#') {
@@ -389,7 +392,7 @@ class Advisor
             }
 
             // Reading new rule
-            if (substr($line, 0, 4) == 'rule') {
+            if ($pmaString->substr($line, 0, 4) == 'rule') {
                 if ($ruleLine > 0) {
                     $errors[] = sprintf(
                         __(
@@ -443,7 +446,9 @@ class Advisor
                     );
                     continue;
                 }
-                $rules[$ruleNo][$ruleSyntax[$ruleLine]] = chop(substr($line, 1));
+                $rules[$ruleNo][$ruleSyntax[$ruleLine]] = chop(
+                    $pmaString->substr($line, 1)
+                );
                 $lines[$ruleNo][$ruleSyntax[$ruleLine]] = $i + 1;
                 $ruleLine += 1;
             }

@@ -47,6 +47,19 @@ class PMA_StringNative implements PMA_StringByte
     }
 
     /**
+     * Returns number of substrings from string.
+     *
+     * @param string $string string to count
+     * @param int    $start  start of substring
+     *
+     * @return int number of substrings from the string
+     */
+    public function substrCount($string, $start)
+    {
+        return substr_count($string, $start);
+    }
+
+    /**
      * Returns postion of $needle in $haystack or false if not found
      *
      * @param string $haystack the string being checked
@@ -58,6 +71,106 @@ class PMA_StringNative implements PMA_StringByte
     public function strpos($haystack, $needle, $offset = 0)
     {
         return strpos($haystack, $needle, $offset);
+    }
+
+    /**
+     * Returns position of $needle in $haystack - case insensitive - or false if
+     * not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     * @param int    $offset   the search offset
+     *
+     * @return integer position of $needle in $haystack or false
+     */
+    public function stripos($haystack, $needle, $offset = 0)
+    {
+        if (('' === $haystack || false === $haystack)
+            && $offset >= $this->strlen($haystack)
+        ) {
+            return false;
+        }
+        return stripos($haystack, $needle, $offset);
+    }
+
+    /**
+     * Returns position of last $needle in $haystack or false if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     * @param int    $offset   the search offset
+     *
+     * @return integer position of last $needle in $haystack or false
+     */
+    public function strrpos($haystack, $needle, $offset = 0)
+    {
+        return strrpos($haystack, $needle, $offset);
+    }
+
+    /**
+     * Returns position of last $needle in $haystack - case insensitive - or false
+     * if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     * @param int    $offset   the search offset
+     *
+     * @return integer position of last $needle in $haystack or false
+     */
+    public function strripos($haystack, $needle, $offset = 0)
+    {
+        if (('' === $haystack || false === $haystack)
+            && $offset >= $this->strlen($haystack)
+        ) {
+            return false;
+        }
+        return strripos($haystack, $needle, $offset);
+    }
+
+    /**
+     * Returns part of $haystack string starting from and including the first
+     * occurrence of $needle to the end of $haystack or false if not found
+     *
+     * @param string $haystack      the string being checked
+     * @param string $needle        the string to find in haystack
+     * @param bool   $before_needle the part before the needle
+     *
+     * @return string part of $haystack or false
+     */
+    public function strstr($haystack, $needle, $before_needle = false)
+    {
+        return strstr($haystack, $needle, $before_needle);
+    }
+
+    /**
+     * Returns part of $haystack string starting from and including the first
+     * occurrence of $needle to the end of $haystack - case insensitive - or false
+     * if not found
+     *
+     * @param string $haystack      the string being checked
+     * @param string $needle        the string to find in haystack
+     * @param bool   $before_needle the part before the needle
+     *
+     * @return string part of $haystack or false
+     */
+    public function stristr($haystack, $needle, $before_needle = false)
+    {
+        return stristr($haystack, $needle, $before_needle);
+    }
+
+    /**
+     * Returns the portion of haystack which starts at the last occurrence or false
+     * if not found
+     *
+     * @param string $haystack the string being checked
+     * @param string $needle   the string to find in haystack
+     *
+     * @return string portion of haystack which starts at the last occurrence or
+     * false
+     */
+    public function strrchr($haystack, $needle)
+    {
+        return strrchr($haystack, $needle);
     }
 
     /**
@@ -73,6 +186,18 @@ class PMA_StringNative implements PMA_StringByte
     }
 
     /**
+     * Make a string uppercase
+     *
+     * @param string $string the string being uppercased
+     *
+     * @return string the upper case string
+     */
+    public function strtoupper($string)
+    {
+        return strtoupper($string);
+    }
+
+    /**
      * Get the ordinal value of a string
      *
      * @param string $string the string for which ord is required
@@ -82,6 +207,18 @@ class PMA_StringNative implements PMA_StringByte
     public function ord($string)
     {
         return ord($string);
+    }
+
+    /**
+     * Get the character of an ASCII
+     *
+     * @param int $ascii the ASCII code for which character is required
+     *
+     * @return string the character
+     */
+    public function chr($ascii)
+    {
+        return chr($ascii);
     }
 };
 ?>

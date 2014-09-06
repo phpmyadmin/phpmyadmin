@@ -40,6 +40,54 @@ class PMA_String_Mb_Test extends PMA_StringNative_Test
     }
 
     /**
+     * Test for PMA_StringNative::strrchr
+     *
+     * @param string $expected Expected substring
+     * @param string $haystack String to cut
+     * @param string $needle   Searched string
+     *
+     * @return void
+     * @test
+     * @dataProvider providerStrrchr
+     */
+    public function testStrrchr($expected, $haystack, $needle)
+    {
+        $this->assertEquals(
+            $expected,
+            $this->testObject->strrchr($haystack, $needle)
+        );
+    }
+
+    /**
+     * Data provider for testStrrchr
+     *
+     * @return array Test data
+     */
+    public function providerStrrchr()
+    {
+        return array(
+            array('abcdef', 'abcdefabcdef', 'a'),
+            array(false, 'abcdefabcdef', 'A'),
+            array('f', 'abcdefabcdef', 'f'),
+            array(false, 'abcdefabcdef', 'z'),
+            array(false, 'abcdefabcdef', ''),
+            array(false, 'abcdefabcdef', false),
+            array(false, 'abcdefabcdef', true),
+            array(false, '789456123', true),
+            array(false, 'abcdefabcdef', null),
+            array(false, null, null),
+            array(false, null, 'a'),
+            array(false, null, '0'),
+            array(false, false, null),
+            array(false, false, 'a'),
+            array(false, false, '0'),
+            array(false, true, null),
+            array(false, true, 'a'),
+            array(false, true, '0'),
+        );
+    }
+
+    /**
      * TearDown function for tests, restores internal encoding
      *
      * @access protected

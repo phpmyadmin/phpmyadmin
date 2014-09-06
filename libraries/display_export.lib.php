@@ -74,7 +74,10 @@ function PMA_getHtmlForExportSelectOptions($tmp_select = '')
                 $is_selected = '';
             }
         } elseif (!empty($tmp_select)) {
-            if (strpos(' ' . $tmp_select, '|' . $current_db . '|')) {
+            if ($GLOBALS['PMA_String']->strpos(
+                ' ' . $tmp_select,
+                '|' . $current_db . '|'
+            )) {
                 $is_selected = ' selected="selected"';
             } else {
                 $is_selected = '';
@@ -710,7 +713,8 @@ function PMA_getHtmlForExportOptions(
     $html .= PMA_getHtmlForExportOptionsMethod();
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
 
-    if (strlen($table) && empty($num_tables) && ! PMA_Table::isMerge($db, $table)) {
+    $tableLength = $GLOBALS['PMA_String']->strlen($table);
+    if ($tableLength && empty($num_tables) && ! PMA_Table::isMerge($db, $table)) {
         $html .= PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows);
     }
 
@@ -772,6 +776,9 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
         );
     }
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     $html = '<div id="alias_modal" class="hide" title="' . $title . '">';
     $db_html = '<label class="col-2">' . __('Select database') . ': '
         . '</label><select id="db_alias_select">';
@@ -785,7 +792,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
         }
         $db = htmlspecialchars($db);
         $name_attr = 'aliases[' . $db . '][alias]';
-        $id_attr = substr(md5($name_attr), 0, 12);
+        $id_attr = $pmaString->substr(md5($name_attr), 0, 12);
         $class = 'hide';
         if ($first_db) {
             $first_db = false;
@@ -809,7 +816,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
             }
             $table = htmlspecialchars($table);
             $name_attr =  'aliases[' . $db . '][tables][' . $table . '][alias]';
-            $id_attr = substr(md5($name_attr), 0, 12);
+            $id_attr = $pmaString->substr(md5($name_attr), 0, 12);
             $class = 'hide';
             if ($first_tbl) {
                 $first_tbl = false;
@@ -837,7 +844,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
                 $column = htmlspecialchars($column);
                 $name_attr = 'aliases[' . $db . '][tables][' . $table
                     . '][columns][' . $column . ']';
-                $id_attr = substr(md5($name_attr), 0, 12);
+                $id_attr = $pmaString->substr(md5($name_attr), 0, 12);
                 $col_html .= '<tr class="' . $class . '">';
                 $col_html .= '<th><label for="' . $id_attr . '">' . $column
                     . '</label></th>';

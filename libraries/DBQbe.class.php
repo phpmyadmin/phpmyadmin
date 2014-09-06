@@ -334,7 +334,7 @@ class PMA_DbQbe
                     $this->_columnNames[] = $each_column;
                     // increase the width if necessary
                     $this->_form_column_width = max(
-                        strlen($each_column),
+                        $GLOBALS['PMA_String']->strlen($each_column),
                         $this->_form_column_width
                     );
                 } // end foreach
@@ -454,49 +454,53 @@ class PMA_DbQbe
         $html_output = '<tr class="even noclick">';
         $html_output .= '<th>' . __('Sort:') . '</th>';
         $new_column_count = 0;
+
+        /** @var PMA_String $pmaStr */
+        $pmaStr = $GLOBALS['PMA_String'];
+
         for (
-            $column_index = 0;
-            $column_index < $this->_criteria_column_count;
-            $column_index++
+            $colInd = 0;
+            $colInd < $this->_criteria_column_count;
+            $colInd++
         ) {
             if (! empty($this->_criteriaColumnInsert)
-                && isset($this->_criteriaColumnInsert[$column_index])
-                && $this->_criteriaColumnInsert[$column_index] == 'on'
+                && isset($this->_criteriaColumnInsert[$colInd])
+                && $this->_criteriaColumnInsert[$colInd] == 'on'
             ) {
                 $html_output .= $this->_getSortSelectCell($new_column_count);
                 $new_column_count++;
             } // end if
 
             if (! empty($this->_criteriaColumnDelete)
-                && isset($this->_criteriaColumnDelete[$column_index])
-                && $this->_criteriaColumnDelete[$column_index] == 'on'
+                && isset($this->_criteriaColumnDelete[$colInd])
+                && $this->_criteriaColumnDelete[$colInd] == 'on'
             ) {
                 continue;
             }
             // If they have chosen all fields using the * selector,
             // then sorting is not available, Fix for Bug #570698
-            if (isset($_REQUEST['criteriaSort'][$column_index])
-                && isset($_REQUEST['criteriaColumn'][$column_index])
-                && substr($_REQUEST['criteriaColumn'][$column_index], -2) == '.*'
+            if (isset($_REQUEST['criteriaSort'][$colInd])
+                && isset($_REQUEST['criteriaColumn'][$colInd])
+                && $pmaStr->substr($_REQUEST['criteriaColumn'][$colInd], -2) == '.*'
             ) {
-                $_REQUEST['criteriaSort'][$column_index] = '';
+                $_REQUEST['criteriaSort'][$colInd] = '';
             } //end if
             // Set asc_selected
-            if (isset($_REQUEST['criteriaSort'][$column_index])
-                && $_REQUEST['criteriaSort'][$column_index] == 'ASC'
+            if (isset($_REQUEST['criteriaSort'][$colInd])
+                && $_REQUEST['criteriaSort'][$colInd] == 'ASC'
             ) {
                 $this->_curSort[$new_column_count]
-                    = $_REQUEST['criteriaSort'][$column_index];
+                    = $_REQUEST['criteriaSort'][$colInd];
                 $asc_selected = ' selected="selected"';
             } else {
                 $asc_selected = '';
             } // end if
             // Set desc selected
-            if (isset($_REQUEST['criteriaSort'][$column_index])
-                && $_REQUEST['criteriaSort'][$column_index] == 'DESC'
+            if (isset($_REQUEST['criteriaSort'][$colInd])
+                && $_REQUEST['criteriaSort'][$colInd] == 'DESC'
             ) {
                 $this->_curSort[$new_column_count]
-                    = $_REQUEST['criteriaSort'][$column_index];
+                    = $_REQUEST['criteriaSort'][$colInd];
                 $desc_selected = ' selected="selected"';
             } else {
                 $desc_selected = '';
@@ -995,6 +999,9 @@ class PMA_DbQbe
      */
     private function _getWhereClause()
     {
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         $where_clause = '';
         $criteria_cnt = 0;
         for (
@@ -1009,7 +1016,7 @@ class PMA_DbQbe
                 && isset($this->_curAndOrCol)
             ) {
                 $where_clause .= ' '
-                    . strtoupper($this->_curAndOrCol[$last_where]) . ' ';
+                    . $pmaString->strtoupper($this->_curAndOrCol[$last_where]) . ' ';
             }
             if (! empty($this->_curField[$column_index])
                 && ! empty($this->_curCriteria[$column_index])
@@ -1045,7 +1052,8 @@ class PMA_DbQbe
                     && $column_index
                 ) {
                     $qry_orwhere .= ' '
-                        . strtoupper($this->_curAndOrCol[$last_orwhere]) . ' ';
+                        . $pmaString->strtoupper($this->_curAndOrCol[$last_orwhere])
+                        . ' ';
                 }
                 if (! empty($this->_curField[$column_index])
                     && ! empty($_REQUEST['Or' . $row_index][$column_index])
@@ -1063,7 +1071,7 @@ class PMA_DbQbe
             }
             if (! empty($qry_orwhere)) {
                 $where_clause .= "\n"
-                    .  strtoupper(
+                    .  $pmaString->strtoupper(
                         isset($this->_curAndOrRow[$row_index])
                         ? $this->_curAndOrRow[$row_index] . ' '
                         : ''
@@ -1087,6 +1095,10 @@ class PMA_DbQbe
     {
         $orderby_clause = '';
         $orderby_clauses = array();
+
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         for (
             $column_index = 0;
             $column_index < $this->_criteria_column_count;
@@ -1095,15 +1107,18 @@ class PMA_DbQbe
             // if all columns are chosen with * selector,
             // then sorting isn't available
             // Fix for Bug #570698
-            if (! empty($this->_curField[$column_index])
-                && ! empty($this->_curSort[$column_index])
+            if (empty($this->_curField[$column_index])
+                && empty($this->_curSort[$column_index])
             ) {
-                if (substr($this->_curField[$column_index], -2) == '.*') {
-                    continue;
-                }
-                $orderby_clauses[] = $this->_curField[$column_index] . ' '
-                    . $this->_curSort[$column_index];
+                continue;
             }
+
+            if ($pmaString->substr($this->_curField[$column_index], -2) == '.*') {
+                continue;
+            }
+
+            $orderby_clauses[] = $this->_curField[$column_index] . ' '
+                . $this->_curSort[$column_index];
         } // end for
         if ($orderby_clauses) {
             $orderby_clause = 'ORDER BY '
@@ -1243,7 +1258,7 @@ class PMA_DbQbe
         // table, whether they have any matching row in child table or not.
         // So we select candidate tables which are foreign tables.
         $foreign_tables = array();
-        foreach ($candidate_columns as $key => $one_table) {
+        foreach ($candidate_columns as $one_table) {
             $foreigners = PMA_getForeigners($this->_db, $one_table);
             foreach ($foreigners as $key => $foreigner) {
                 if ($key != 'foreign_keys_data') {
@@ -1251,16 +1266,12 @@ class PMA_DbQbe
                         $foreign_tables[$foreigner['foreign_table']]
                             = $foreigner['foreign_table'];
                     }
-                } else {
-                    foreach ($foreigner as $one_key) {
-                        if (in_array(
-                            $one_key['ref_table_name'],
-                            $candidate_columns
-                        )
-                        ) {
-                            $foreign_tables[$one_key['ref_table_name']]
-                                = $one_key['ref_table_name'];
-                        }
+                    continue;
+                }
+                foreach ($foreigner as $one_key) {
+                    if (in_array($one_key['ref_table_name'], $candidate_columns)) {
+                        $foreign_tables[$one_key['ref_table_name']]
+                            = $one_key['ref_table_name'];
                     }
                 }
             }
@@ -1311,6 +1322,10 @@ class PMA_DbQbe
     {
         $where_clause_columns = array();
         $where_clause_tables = array();
+
+        /** @var PMA_String $pmaString */
+        $pmaString = $GLOBALS['PMA_String'];
+
         // Now we need all tables that we have in the where clause
         for (
             $column_index = 0, $nb = count($this->_criteria);
@@ -1327,8 +1342,8 @@ class PMA_DbQbe
             // Now we know that our array has the same numbers as $criteria
             // we can check which of our columns has a where clause
             if (! empty($this->_criteria[$column_index])) {
-                if (substr($this->_criteria[$column_index], 0, 1) == '='
-                    || stristr($this->_criteria[$column_index], 'is')
+                if ($pmaString->substr($this->_criteria[$column_index], 0, 1) == '='
+                    || /*$pmaString->*/stristr($this->_criteria[$column_index], 'is')
                 ) {
                     $where_clause_columns[$column] = $column;
                     $where_clause_tables[$table]  = $table;

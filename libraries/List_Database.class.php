@@ -142,7 +142,7 @@ class PMA_List_Database extends PMA_List
     protected function checkOnlyDatabase()
     {
         if (is_string($GLOBALS['cfg']['Server']['only_db'])
-            && strlen($GLOBALS['cfg']['Server']['only_db'])
+            && $GLOBALS['PMA_String']->strlen($GLOBALS['cfg']['Server']['only_db'])
         ) {
             $GLOBALS['cfg']['Server']['only_db'] = array(
                 $GLOBALS['cfg']['Server']['only_db']
@@ -183,7 +183,7 @@ class PMA_List_Database extends PMA_List
      */
     public function getDefault()
     {
-        if (strlen($GLOBALS['db'])) {
+        if ($GLOBALS['PMA_String']->strlen($GLOBALS['db'])) {
             return $GLOBALS['db'];
         }
 

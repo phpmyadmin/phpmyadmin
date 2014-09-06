@@ -23,11 +23,14 @@ function PMA_getPlugin(
     $plugins_dir,
     $plugin_param = false
 ) {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     $GLOBALS['plugin_param'] = $plugin_param;
-    $class_name = strtoupper($plugin_type[0])
-        . strtolower(substr($plugin_type, 1))
-        . strtoupper($plugin_format[0])
-        . strtolower(substr($plugin_format, 1));
+    $class_name = $pmaString->strtoupper($plugin_type[0])
+        . $pmaString->strtolower($pmaString->substr($plugin_type, 1))
+        . $pmaString->strtoupper($plugin_format[0])
+        . $pmaString->strtolower($pmaString->substr($plugin_format, 1));
     $file = $class_name . ".class.php";
     if (is_file($plugins_dir . $file)) {
         include_once $plugins_dir . $file;
@@ -41,7 +44,7 @@ function PMA_getPlugin(
  * Reads all plugin information from directory $plugins_dir
  *
  * @param string $plugin_type  the type of the plugin (import, export, etc)
- * @param string $plugins_dir  directrory with plugins
+ * @param string $plugins_dir  directory with plugins
  * @param mixed  $plugin_param parameter to plugin by which they can
  *                             decide whether they can work
  *
@@ -57,13 +60,16 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
         return $plugin_list;
     }
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+    //@todo Find a way to use PMA_StringMB with UTF-8 instead of mb_*.
     while ($file = @readdir($handle)) {
         // In some situations, Mac OS creates a new file for each file
         // (for example ._csv.php) so the following regexp
         // matches a file which does not start with a dot but ends
         // with ".php"
         $class_type = mb_strtoupper($plugin_type[0], 'UTF-8')
-            . mb_strtolower(substr($plugin_type, 1), 'UTF-8');
+            . mb_strtolower($pmaString->substr($plugin_type, 1), 'UTF-8');
         if (is_file($plugins_dir . $file)
             && preg_match(
                 '@^' . $class_type . '(.+)\.class\.php$@i',
@@ -190,8 +196,12 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
     }
     $ret = '<select id="plugins" name="' . $name . '">';
     $default = PMA_pluginGetDefault($section, $cfgname);
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
     foreach ($list as $plugin) {
-        $plugin_name = strtolower(substr(get_class($plugin), strlen($section)));
+        $plugin_name = $pmaString->strtolower(
+            $pmaString->substr(get_class($plugin), $pmaString->strlen($section))
+        );
         $ret .= '<option';
          // If the form is being repopulated using $_GET data, that is priority
         if (isset($_GET[$name])
@@ -215,7 +225,9 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
 
     // Whether each plugin has to be saved as a file
     foreach ($list as $plugin) {
-        $plugin_name = strtolower(substr(get_class($plugin), strlen($section)));
+        $plugin_name = $pmaString->strtolower(
+            $pmaString->substr(get_class($plugin), $pmaString->strlen($section))
+        );
         $ret .= '<input type="hidden" id="force_file_' . $plugin_name
             . '" value="';
         $properties = $plugin->getProperties();
@@ -249,11 +261,14 @@ function PMA_pluginGetOneOption(
     &$propertyGroup,
     $is_subgroup = false
 ) {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     $ret = "\n";
 
     if (! $is_subgroup) {
         // for subgroup headers
-        if (strpos(get_class($propertyGroup), "PropertyItem")) {
+        if ($pmaString->strpos(get_class($propertyGroup), "PropertyItem")) {
             $properties = array($propertyGroup);
         } else {
             // for main groups
@@ -282,7 +297,7 @@ function PMA_pluginGetOneOption(
         foreach ($properties as $propertyItem) {
             $property_class = get_class($propertyItem);
             // if the property is a subgroup, we deal with it recursively
-            if (strpos($property_class, "Subgroup")) {
+            if ($pmaString->strpos($property_class, "Subgroup")) {
                 // for subgroups
                 // each subgroup can have a header, which may also be a form element
                 $subgroup_header = $propertyItem->getSubgroupHeader();
@@ -475,6 +490,9 @@ function PMA_pluginGetOneOption(
  */
 function PMA_pluginGetOptions($section, &$list)
 {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     $ret = '';
     // Options for plugins that support them
     foreach ($list as $plugin) {
@@ -484,7 +502,9 @@ function PMA_pluginGetOptions($section, &$list)
             $options = $properties->getOptions();
         }
 
-        $plugin_name = strtolower(substr(get_class($plugin), strlen($section)));
+        $plugin_name = $pmaString->strtolower(
+            $pmaString->substr(get_class($plugin), $pmaString->strlen($section))
+        );
         $ret .= '<div id="' . $plugin_name
             . '_options" class="format_specific_options">';
         $ret .= '<h3>' . PMA_getString($text) . '</h3>';

@@ -18,7 +18,12 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_languageName($tmplang)
 {
-    $lang_name = ucfirst(substr(strrchr($tmplang[0], '|'), 1));
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
+    $lang_name = ucfirst(
+        $pmaString->substr($pmaString->strrchr($tmplang[0], '|'), 1)
+    );
 
     // Include native name if non empty
     if (!empty($tmplang[2])) {
@@ -84,7 +89,9 @@ function PMA_langCheck()
     // try to find out user's language by checking its HTTP_ACCEPT_LANGUAGE variable;
     // prevent XSS
     $accepted_languages = PMA_getenv('HTTP_ACCEPT_LANGUAGE');
-    if ($accepted_languages && false === strpos($accepted_languages, '<')) {
+    if ($accepted_languages
+        && false === $GLOBALS['PMA_String']->strpos($accepted_languages, '<')
+    ) {
         foreach (explode(',', $accepted_languages) as $lang) {
             if (PMA_langDetect($lang, 1)) {
                 return true;
@@ -153,7 +160,7 @@ function PMA_langDetect($str, $envType)
         // $envType =  1 for the 'HTTP_ACCEPT_LANGUAGE' environment variable,
         //             2 for the 'HTTP_USER_AGENT' one
         $expr = $value[0];
-        if (strpos($expr, '[-_]') === false) {
+        if ($GLOBALS['PMA_String']->strpos($expr, '[-_]') === false) {
             $expr = str_replace('|', '([-_][[:alpha:]]{2,3})?|', $expr);
         }
         $pattern1 = '/^(' . addcslashes($expr, '/') . ')(;q=[0-9]\\.[0-9])?$/i';
