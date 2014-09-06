@@ -47,6 +47,19 @@ class PMA_StringNative implements PMA_StringByte
     }
 
     /**
+     * Returns number of substrings from string.
+     *
+     * @param string $string string to count
+     * @param int    $start  start of substring
+     *
+     * @return int number of substrings from the string
+     */
+    public function substrCount($string, $start)
+    {
+        return substr_count($string, $start);
+    }
+
+    /**
      * Returns postion of $needle in $haystack or false if not found
      *
      * @param string $haystack the string being checked

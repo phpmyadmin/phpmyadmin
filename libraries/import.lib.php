@@ -852,7 +852,7 @@ function PMA_detectType($last_cumulative_type, $cell)
 
     if ($cell == (string)(float)$cell
         && $pmaString->strpos($cell, ".") !== false
-        && substr_count($cell, ".") == 1
+        && $pmaString->substrCount($cell, ".") == 1
     ) {
         return DECIMAL;
     }

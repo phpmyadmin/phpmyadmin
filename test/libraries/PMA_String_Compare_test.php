@@ -179,6 +179,105 @@ class PMA_String_Compare_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests for substr_count
+     *
+     * @param string $haystack String to look into
+     * @param int    $needle   String to look for
+     *
+     * @return void
+     * @test
+     * @dataProvider providerSubstrCount
+     */
+    public function testSubstrCount($haystack, $needle)
+    {
+        $native = $this->_native->substrCount($haystack, $needle);
+        $multibytes = $this->_mb->substrCount($haystack, $needle);
+        $this->assertTrue(
+            $native === $multibytes,
+            'native substrCount: ' . var_export($native, true)
+            . ' - mb substrCount: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Data provider for testSubstrCount
+     *
+     * @return array Test data
+     */
+    public function providerSubstrCount()
+    {
+        return array(
+            array('abcdefabcdef', 'a'),
+            array('abcdefabcdef', 'ab'),
+            array('abcdefabcdef', 'ba'),
+            array('abcdefabcdef', 'A'),
+            array('abcdefabcdef', 'e'),
+            array('abcdefabcdef', 'z'),
+            array(false, 'a'),
+            array(false, 0),
+            array(true, 0),
+            array(true, 0, 1),
+            array(true, 1),
+            array(true, 1, 1),
+            array(3, 0),
+            array(3, 3),
+            array(3, '3'),
+            array('3', '3'),
+            array(null, 0),
+            array('', 0),
+        );
+    }
+
+    /**
+     * Tests for substr_count
+     *
+     * @param string $haystack String to look into
+     * @param int    $needle   String to look for
+     *
+     * @return void
+     * @test
+     * @dataProvider providerSubstrCountException
+     */
+    public function testSubstrCountException($haystack, $needle)
+    {
+        $native = null;
+        $multibytes = null;
+        $nativeException = false;
+        $multibytesException = false;
+        try {
+            $native = $this->_native->substrCount($haystack, $needle);
+        } catch (PHPUnit_Framework_Error $e) {
+            $nativeException = true;
+        }
+        try {
+            $multibytes = $this->_mb->substrCount($haystack, $needle);
+        } catch (PHPUnit_Framework_Error $e) {
+            $multibytesException = true;
+        }
+
+        $this->assertTrue(
+            true === $nativeException && true === $multibytesException,
+            'native substrCount: ' . var_export($native, true)
+            . ' - mb substrCount: ' . var_export($multibytes, true)
+        );
+    }
+
+    /**
+     * Data provider for testSubstrCountException
+     *
+     * @return array Test data
+     */
+    public function providerSubstrCountException()
+    {
+        return array(
+            array('abcdefabcdef', false),
+            array(false, false),
+            array(null, false),
+            array('', false),
+        );
+    }
+
+    /**
      * Tests for strpos
      *
      * @param string $haystack String to search in
@@ -217,7 +316,6 @@ class PMA_String_Compare_Test extends PHPUnit_Framework_TestCase
             array('abcdefabcdef', 'e'),
             array('abcdefabcdef', 'e', 2),
             array('abcdefabcdef', 'e', 10),
-            array('abcdefabcdef', 'e'),
             array('abcdefabcdef', 'z'),
             array('abcdefabcdef', 'z', 2),
             array('abcdefabcdef', ord('a')),
