@@ -3009,7 +3009,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
                 'Type' => 'datetime',
                 'Null' => 'Yes',
                 'Key' => '',
-                'Extra' => ''
+                'Extra' => '',
+                'Default' => null
             )
         );
         $repopulate = array(

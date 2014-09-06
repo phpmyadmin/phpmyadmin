@@ -2760,6 +2760,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
 
     if ($column['Type'] === 'datetime'
         && ! isset($column['Default'])
+        && ! is_null($column['Default'])
         && $insert_mode
     ) {
         $column['Default'] = date('Y-m-d H:i:s', time());
