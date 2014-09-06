@@ -464,13 +464,16 @@ function PMA_getColumnAlphaName($num)
         $num = $remain;
     }
 
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     if ($num == 0) {
         // use 'Z' if column number is 0,
         // this is necessary because A-Z has no 'zero'
-        $col_name .= chr(($A + 26) - 1);
+        $col_name .= $pmaString->chr(($A + 26) - 1);
     } else {
         // convert column number to ASCII character
-        $col_name .= chr(($A + $num) - 1);
+        $col_name .= $pmaString->chr(($A + $num) - 1);
     }
 
     return $col_name;

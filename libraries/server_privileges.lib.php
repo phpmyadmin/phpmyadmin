@@ -3202,10 +3202,13 @@ function PMA_getFieldsetForAddDeleteUser()
  */
 function PMA_getHtmlForInitials($array_initials)
 {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     // initialize to false the letters A-Z
     for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
-        if (! isset($array_initials[chr($letter_counter + 64)])) {
-            $array_initials[chr($letter_counter + 64)] = false;
+        if (! isset($array_initials[$pmaString->chr($letter_counter + 64)])) {
+            $array_initials[$pmaString->chr($letter_counter + 64)] = false;
         }
     }
 

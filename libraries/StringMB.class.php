@@ -74,7 +74,7 @@ class PMA_StringMB implements PMA_StringByte
         }
         if (!is_string($needle) && is_numeric($needle)) {
             $needle = (int)$needle;
-            $needle = chr($needle);
+            $needle = $this->chr($needle);
         }
         return mb_strpos($haystack, $needle, $offset);
     }
@@ -99,7 +99,7 @@ class PMA_StringMB implements PMA_StringByte
         }
         if (!is_string($needle) && is_numeric($needle)) {
             $needle = (int)$needle;
-            $needle = chr($needle);
+            $needle = $this->chr($needle);
         }
         return mb_stripos($haystack, $needle, $offset);
     }
@@ -123,7 +123,7 @@ class PMA_StringMB implements PMA_StringByte
         }
         if (!is_string($needle) && is_numeric($needle)) {
             $needle = (int)$needle;
-            $needle = chr($needle);
+            $needle = $this->chr($needle);
         }
         return mb_strrpos($haystack, $needle, $offset);
     }
@@ -148,7 +148,7 @@ class PMA_StringMB implements PMA_StringByte
         }
         if (!is_string($needle) && is_numeric($needle)) {
             $needle = (int)$needle;
-            $needle = chr($needle);
+            $needle = $this->chr($needle);
         }
         return mb_strripos($haystack, $needle, $offset);
     }
@@ -167,7 +167,7 @@ class PMA_StringMB implements PMA_StringByte
     {
         if (!is_string($needle) && is_numeric($needle)) {
             $needle = (int)$needle;
-            $needle = chr($needle);
+            $needle = $this->chr($needle);
         }
         if (!is_string($haystack) || !is_string($needle) || null === $needle) {
             return false;
@@ -190,7 +190,7 @@ class PMA_StringMB implements PMA_StringByte
     {
         if (!is_string($needle) && is_numeric($needle)) {
             $needle = (int)$needle;
-            $needle = chr($needle);
+            $needle = $this->chr($needle);
         }
         if (!is_string($haystack) || !is_string($needle) || null === $needle) {
             return false;
@@ -212,7 +212,7 @@ class PMA_StringMB implements PMA_StringByte
     {
         if (!is_string($needle) && is_numeric($needle)) {
             $needle = (int)$needle;
-            $needle = chr($needle);
+            $needle = $this->chr($needle);
         }
         if (!is_string($haystack) || !is_string($needle) || null === $needle) {
             return false;
