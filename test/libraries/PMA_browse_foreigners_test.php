@@ -12,7 +12,6 @@
 require_once 'libraries/browse_foreigners.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Util.class.php';
-require_once 'libraries/string.inc.php';
 require_once 'libraries/url_generating.lib.php';
 
 /**

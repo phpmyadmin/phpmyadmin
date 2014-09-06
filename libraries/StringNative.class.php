@@ -60,7 +60,7 @@ class PMA_StringNative implements PMA_StringByte
     }
 
     /**
-     * Returns postion of $needle in $haystack or false if not found
+     * Returns position of $needle in $haystack or false if not found
      *
      * @param string $haystack the string being checked
      * @param string $needle   the string to find in haystack
