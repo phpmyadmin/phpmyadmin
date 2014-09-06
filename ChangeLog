@@ -38,8 +38,12 @@ phpMyAdmin - ChangeLog
 + rfe #857  Regexp replace
 - bug       Incorrect path in change password when on reverse proxy or
             non-root directory
++           MariaDB 10+ multi-master replication support
 
-4.2.8.0 (not yet released)
+4.2.9.0 (not yet released)
+- bug       ajax.js responseHandler: cannot read property of null
+
+4.2.8.0 (2014-08-31)
 - bug #4516 Odd export behavior
 - bug #4519 Uncaught TypeError: Cannot read property 'success' of null
 - bug #4520 sql.js: cannot read property

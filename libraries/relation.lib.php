@@ -1214,11 +1214,11 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
 /**
  * Gets foreign keys in preparation for a drop-down selector
  *
- * @param array  $foreigners     array of the foreign keys
- * @param string $field          the foreign field name
- * @param bool   $override_total whether to override the total
- * @param string $foreign_filter a possible filter
- * @param string $foreign_limit  a possible LIMIT clause
+ * @param array|boolean $foreigners     array of the foreign keys
+ * @param string        $field          the foreign field name
+ * @param bool          $override_total whether to override the total
+ * @param string        $foreign_filter a possible filter
+ * @param string        $foreign_limit  a possible LIMIT clause
  *
  * @return array    data about the foreign keys
  *
