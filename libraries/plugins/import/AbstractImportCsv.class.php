@@ -86,29 +86,5 @@ abstract class AbstractImportCsv extends ImportPlugin
 
         return $generalOptions;
     }
-
-    /**
-     * Define DB name and options
-     *
-     * @param string $currentDb DB
-     * @param string $defaultDb Default DB name
-     *
-     * @return array DB name and options (an associative array of options)
-     */
-    protected function getDbnameAndOptions($currentDb, $defaultDb)
-    {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
-        if ($pmaString->strlen($currentDb)) {
-            $db_name = $currentDb;
-            $options = array('create_db' => false);
-        } else {
-            $db_name = $defaultDb;
-            $options = null;
-        }
-
-        return array($db_name, $options);
-    }
 }
 ?>
