@@ -470,7 +470,7 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
  * Get List of information for Submit Mult
  *
  * @param string $submit_mult mult_submit type
- * @param string $db          dtabase name
+ * @param string $db          database name
  * @param array  $table       table name
  * @param array  $selected    the selected columns
  * @param array  $action      action type
@@ -548,7 +548,7 @@ function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
  * Get query string from Selected
  *
  * @param string $what     mult_submit type
- * @param string $db       dtabase name
+ * @param string $db       database name
  * @param array  $table    table name
  * @param array  $selected the selected columns
  * @param array  $action   action type

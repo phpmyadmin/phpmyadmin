@@ -108,7 +108,7 @@ class PMA_DbQbe
      */
     private $_criteriaAndOrRow;
     /**
-     * Larget width of a column
+     * Large width of a column
      *
      * @access private
      * @var string

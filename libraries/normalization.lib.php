@@ -101,7 +101,7 @@ function PMA_getHtmlForCreateNewColumn(
  *
  * @param string $db           current database
  * @param string $table        current table
- * @param string $normalizedTo upto which step normaliztio will go,
+ * @param string $normalizedTo up to which step normalization will go,
  * possible values 1nf|2nf|3nf
  *
  * @return HTML for step 1.1

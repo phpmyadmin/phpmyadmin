@@ -287,7 +287,7 @@ function PMA_getHtmlForColumnOrder($column_order, $first_database)
  * @param bool   $is_superuser       User status
  * @param bool   $is_allowUserDropDb Allow user drop database
  * @param Array  $_url_params        Url params
- * @param string $sort_by            sort colume name
+ * @param string $sort_by            sort column name
  * @param string $sort_order         order
  * @param array  $column_order       column order
  * @param array  $first_database     database to show

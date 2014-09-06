@@ -219,7 +219,7 @@ function PMA_getHtmlForCopyDatabase($db)
  * Get HTML snippet for change database charset
  *
  * @param string $db    database name
- * @param string $table tabel name
+ * @param string $table table name
  *
  * @return string $html_output
  */
@@ -553,7 +553,7 @@ function PMA_handleTheViews($views, $move, $db)
 }
 
 /**
- * Create all accumulated constraaints
+ * Create all accumulated constraints
  *
  * @return void
  */

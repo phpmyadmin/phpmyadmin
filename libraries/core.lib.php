@@ -115,7 +115,7 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
 
-    // allow some aliaes of var types
+    // allow some aliases of var types
     $type = $pmaString->strtolower($type);
     switch ($type) {
     case 'identic' :
@@ -283,7 +283,7 @@ function PMA_getPHPDocLink($target)
  *
  * @param string $extension Extension name
  * @param bool   $fatal     Whether the error is fatal.
- * @param string $extra     Extra string to append to messsage.
+ * @param string $extra     Extra string to append to message.
  *
  * @return void
  */

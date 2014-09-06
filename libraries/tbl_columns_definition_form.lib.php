@@ -1220,7 +1220,7 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
 ) {
     // Cell index: If certain fields get left out, the counter shouldn't change.
     $ci = 0;
-    // Everytime a cell shall be left out the STRG-jumping feature, $ci_offset
+    // Every time a cell shall be left out the STRG-jumping feature, $ci_offset
     // has to be incremented ($ci_offset++)
     $ci_offset = -1;
 

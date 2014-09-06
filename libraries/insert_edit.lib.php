@@ -332,7 +332,7 @@ function PMA_getColumnTitle($column, $comments_map)
 }
 
  /**
-  * check whether the column is a bainary
+  * check whether the column is a binary
   *
   * @param array $column description of column in given table
   *
@@ -447,7 +447,7 @@ function PMA_getEnumSetAndTimestampColumns($column, $timestamp_seen)
  *
  * @param array   $column                description of column in given table
  * @param boolean $is_upload             upload or no
- * @param string  $column_name_appendix  the name atttibute
+ * @param string  $column_name_appendix  the name attribute
  * @param string  $unnullify_trigger     validation string
  * @param array   $no_support_types      list of datatypes that are not (yet)
  *                                       handled by PMA
@@ -456,7 +456,7 @@ function PMA_getEnumSetAndTimestampColumns($column, $timestamp_seen)
  * @param integer $idindex               id index
  * @param boolean $insert_mode           insert mode or edit mode
  *
- * @return string                           an html sippet
+ * @return string                           an html snippet
  */
 function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
     $unnullify_trigger, $no_support_types, $tabindex_for_function,
@@ -498,7 +498,7 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
  * The null column
  *
  * @param array   $column               description of column in given table
- * @param string  $column_name_appendix the name atttibute
+ * @param string  $column_name_appendix the name attribute
  * @param boolean $real_null_value      is column value null or not null
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_null    +6000
@@ -594,7 +594,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  *
  * @param array   $column                description of column in given table
  * @param string  $backup_field          hidden input field
- * @param string  $column_name_appendix  the name atttibute
+ * @param string  $column_name_appendix  the name attribute
  * @param string  $unnullify_trigger     validation string
  * @param integer $tabindex              tab index
  * @param integer $tabindex_for_value    offset for the values tabindex
@@ -613,8 +613,8 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  *                                       with a \r\n pair (0x0d0a) add an extra \n
  * @param string  $vkey                  [multi_edit]['row_id']
  * @param boolean $is_upload             is upload or not
- * @param integer $biggest_max_file_size 0 intger
- * @param string  $default_char_editing  default char editing mode which is stroe
+ * @param integer $biggest_max_file_size 0 integer
+ * @param string  $default_char_editing  default char editing mode which is stored
  *                                       in the config.inc.php script
  * @param array   $no_support_types      list of datatypes that are not (yet)
  *                                       handled by PMA
@@ -722,7 +722,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
  *
  * @param array   $column               description of column in given table
  * @param string  $backup_field         hidden input field
- * @param string  $column_name_appendix the name atttibute
+ * @param string  $column_name_appendix the name attribute
  * @param string  $unnullify_trigger    validation string
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
@@ -772,7 +772,7 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
  * Get HTML to display foreign data
  *
  * @param string  $backup_field         hidden input field
- * @param string  $column_name_appendix the name atttibute
+ * @param string  $column_name_appendix the name attribute
  * @param string  $unnullify_trigger    validation string
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
@@ -812,7 +812,7 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
  *
  * @param array   $column                column information
  * @param string  $backup_field          hidden input field
- * @param string  $column_name_appendix  the name atttibute
+ * @param string  $column_name_appendix  the name attribute
  * @param string  $unnullify_trigger     validation string
  * @param integer $tabindex              tab index
  * @param integer $tabindex_for_value    offset for the values tabindex
@@ -870,7 +870,7 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
  *
  * @param array   $column               description of column in given table
  * @param string  $backup_field         hidden input field
- * @param string  $column_name_appendix the name atttibute
+ * @param string  $column_name_appendix the name attribute
  * @param array   $extracted_columnspec associative array containing type,
  *                                      spec_in_brackets and possibly
  *                                      enum_set_values (another array)
@@ -939,7 +939,7 @@ function PMA_getColumnEnumValues($column, $extracted_columnspec)
  * Get HTML drop down for more than 20 string length
  *
  * @param array   $column               description of column in given table
- * @param string  $column_name_appendix the name atttibute
+ * @param string  $column_name_appendix the name attribute
  * @param string  $unnullify_trigger    validation string
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
@@ -979,7 +979,7 @@ function PMA_getDropDownDependingOnLength(
 /**
  * Get HTML radio button for less than 20 string length
  *
- * @param string  $column_name_appendix the name atttibute
+ * @param string  $column_name_appendix the name attribute
  * @param string  $unnullify_trigger    validation string
  * @param integer $tabindex             tab index
  * @param array   $column               description of column in given table
@@ -1027,7 +1027,7 @@ function PMA_getRadioButtonDependingOnLength(
  *                                      spec_in_brackets and possibly
  *                                      enum_set_values (another array)
  * @param string  $backup_field         hidden input field
- * @param string  $column_name_appendix the name atttibute
+ * @param string  $column_name_appendix the name attribute
  * @param string  $unnullify_trigger    validation string
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
@@ -1099,7 +1099,7 @@ function PMA_getColumnSetValueAndSelectSize($column, $extracted_columnspec)
  * @param string  $special_chars         special characters
  * @param integer $biggest_max_file_size biggest max file size for uploading
  * @param string  $backup_field          hidden input field
- * @param string  $column_name_appendix  the name atttibute
+ * @param string  $column_name_appendix  the name attribute
  * @param string  $unnullify_trigger     validation string
  * @param integer $tabindex              tab index
  * @param integer $tabindex_for_value    offset for the values tabindex
@@ -1310,10 +1310,10 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
  * (here, "column" is used in the sense of HTML column in HTML table)
  *
  * @param array   $column                description of column in given table
- * @param string  $default_char_editing  default char editing mode which is stroe
+ * @param string  $default_char_editing  default char editing mode which is stored
  *                                       in the config.inc.php script
  * @param string  $backup_field          hidden input field
- * @param string  $column_name_appendix  the name atttibute
+ * @param string  $column_name_appendix  the name attribute
  * @param string  $unnullify_trigger     validation string
  * @param integer $tabindex              tab index
  * @param string  $special_chars         special characters
@@ -2110,7 +2110,7 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
 }
 
 /**
- * Display option in the cell according to user choises
+ * Display option in the cell according to user choices
  *
  * @param array  $map                  all Relations to foreign tables for a given
  *                                     table or optionally a given column in a table
@@ -2745,7 +2745,7 @@ function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
  * @param int    $row_id                row id
  * @param array  $titles                titles
  * @param int    $biggest_max_file_size biggest max file size
- * @param string $default_char_editing  default char editing mode which is stroe
+ * @param string $default_char_editing  default char editing mode which is stored
  *                                      in the config.inc.php script
  * @param string $text_dir              text direction
  * @param array  $repopulate            the data to be repopulated
@@ -2792,7 +2792,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
         . PMA_escapeJsString($jsvkey) . "','" . $column['pma_type'] . "')\"";
 
     // Use an MD5 as an array index to avoid having special characters
-    // in the name atttibute (see bug #1746964 )
+    // in the name attribute (see bug #1746964 )
     $column_name_appendix = $vkey . '[' . $column['Field_md5'] . ']';
 
     if ($column['Type'] === 'datetime'

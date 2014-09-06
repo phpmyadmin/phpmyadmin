@@ -171,11 +171,11 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
         'Slow_launch_threads' => 0,
 
         // depends on Key_read_requests
-        // normaly lower then 1:0.01
+        // normally lower then 1:0.01
         'Key_reads' => isset($ServerStatusData->status['Key_read_requests'])
             ? (0.01 * $ServerStatusData->status['Key_read_requests']) : 0,
         // depends on Key_write_requests
-        // normaly nearly 1:1
+        // normally nearly 1:1
         'Key_writes' => isset($ServerStatusData->status['Key_write_requests'])
             ? (0.9 * $ServerStatusData->status['Key_write_requests']) : 0,
 

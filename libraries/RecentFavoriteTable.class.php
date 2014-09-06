@@ -293,7 +293,7 @@ class PMA_RecentFavoriteTable
      */
     public function add($db, $table)
     {
-        // If table doesnot exist, do not add.
+        // If table does not exist, do not add.
         if (! $GLOBALS['dbi']->getColumns($db, $table)) {
             return true;
         }

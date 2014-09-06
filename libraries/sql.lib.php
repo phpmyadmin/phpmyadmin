@@ -34,7 +34,7 @@ function PMA_getNewDatabase($sql, $databases)
 /**
  * Get the table name in a sql query
  * If there are several tables in the SQL query,
- * first table wil lreturn
+ * first table will return
  *
  * @param string $sql    SQL query
  * @param array  $tables array of names in current database
@@ -913,7 +913,7 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
 }
 
 /**
- * Function to check whether the reated transformation information shoul be deleted
+ * Function to check whether the related transformation information should be deleted
  *
  * @param array $analyzed_sql_results the analyzed query and other variables set
  *                                    after analyzing the query
@@ -1798,7 +1798,7 @@ function PMA_sendAjaxResponseForNoResultsReturned($message, $analyzed_sql,
  * 1-> When browsing an empty table
  * 2-> When executing a query on a non empty table which returns zero results
  * 3-> When executing a query on an empty table
- * 4-> When executing an INSERT, UPDATE, DEDETE query from the SQL  tab
+ * 4-> When executing an INSERT, UPDATE, DELETE query from the SQL tab
  * 5-> When deleting a row from BROWSE tab
  * 6-> When searching using the SEARCH tab which returns zero results
  * 7-> When changing the structure of the table except change operation

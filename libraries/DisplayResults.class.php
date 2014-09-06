@@ -149,7 +149,7 @@ class PMA_DisplayResults
         /** array column names to highlight */
         'highlight_columns' => null,
 
-        /** array informations used with vertical display mode */
+        /** array information used with vertical display mode */
         'vertical_display' => null,
 
         /** array mime types information of fields */
@@ -334,7 +334,7 @@ class PMA_DisplayResults
     /**
      * Defines the display mode to use for the results of a SQL query
      *
-     * It uses a synthetic string that contains all the required informations.
+     * It uses a synthetic string that contains all the required information.
      * In this string:
      *   - the first two characters stand for the action to do while
      *     clicking on the "edit" link (e.g. 'ur' for update a row, 'nn' for no
@@ -2120,7 +2120,7 @@ class PMA_DisplayResults
 
 
     /**
-     * Get sort url paramaeters - sort order and order image
+     * Get sort url parameters - sort order and order image
      *
      * @param array   $sort_direction the sort direction
      * @param string  $sort_order     the sorting order
@@ -2454,7 +2454,7 @@ class PMA_DisplayResults
      * @param string $class           class of table cell
      * @param bool   $condition_field whether to add CSS class condition
      * @param object $meta            the meta-information about this field
-     * @param string $align           cell allignment
+     * @param string $align           cell alignment
      *
      * @return string  the td
      *
@@ -2482,7 +2482,7 @@ class PMA_DisplayResults
      * @param string $class           class of table cell
      * @param bool   $condition_field whether to add CSS class condition
      * @param object $meta            the meta-information about this field
-     * @param string $align           cell allignment
+     * @param string $align           cell alignment
      *
      * @return string  the td
      *
@@ -2694,7 +2694,7 @@ class PMA_DisplayResults
                 );
             $where_clause_html = urlencode($where_clause);
 
-            // In print view these variable needs toinitialized
+            // In print view these variable needs to be initialized
             $del_url = $del_query = $del_str = $edit_anchor_class
                 = $edit_str = $js_conf = $copy_url = $copy_str = $edit_url = null;
 
@@ -3325,9 +3325,9 @@ class PMA_DisplayResults
 
 
     /**
-     * Prepare vertical display mode necessay HTML stuff
+     * Prepare vertical display mode necessary HTML stuff
      *
-     * @param array   $vertical_display   informations used with vertical
+     * @param array   $vertical_display   information used with vertical
      *                                    display mode
      * @param integer $row_no             the index of current row
      * @param boolean $directionCondition the directional condition
@@ -4263,7 +4263,7 @@ class PMA_DisplayResults
 
 
     /**
-     * Checks the posted options for viewing query resutls
+     * Checks the posted options for viewing query results
      * and sets appropriate values in the session.
      *
      * @todo    make maximum remembered queries configurable
@@ -4494,7 +4494,7 @@ class PMA_DisplayResults
 
         // 1. ----- Prepares the work -----
 
-        // 1.1 Gets the informations about which functionalities should be
+        // 1.1 Gets the information about which functionalities should be
         //     displayed
         $total      = '';
         $is_display = $this->_setDisplayMode($the_disp_mode, $total);
@@ -4526,7 +4526,7 @@ class PMA_DisplayResults
 
         // 2. ----- Prepare to display the top of the page -----
 
-        // 2.1 Prepares a messages with position informations
+        // 2.1 Prepares a messages with position information
         if (($is_display['nav_bar'] == '1') && isset($pos_next)) {
 
             $message = $this->_setMessageInformation(
@@ -5393,7 +5393,7 @@ class PMA_DisplayResults
 
             // prepare GIS chart
             $geometry_found = false;
-            // If atleast one geometry field is found
+            // If at least one geometry field is found
             foreach ($fields_meta as $meta) {
                 if ($meta->type == self::GEOMETRY_FIELD) {
                     $geometry_found = true;

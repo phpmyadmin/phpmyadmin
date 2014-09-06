@@ -43,7 +43,7 @@ function PMA_getDirContent($dir, $expression = '')
  * Returns options of filtered file names
  *
  * @param string $dir        directory to list
- * @param string $extensions regullar expression to match files
+ * @param string $extensions regular expression to match files
  * @param string $active     currently active choice
  *
  * @return array   sorted file list on success, false on failure

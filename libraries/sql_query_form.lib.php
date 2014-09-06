@@ -28,7 +28,7 @@ require_once './libraries/bookmark.lib.php'; // used for bookmarks
  * @param boolean|string $display_tab sql|files|history|full|false
  *                                    what part to display
  *                                    false if not inside querywindow
- * @param string         $delimiter   delimeter
+ * @param string         $delimiter   delimiter
  *
  * @return string
  *
@@ -186,7 +186,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
         $db     = $GLOBALS['db'];
         // Get the list and number of fields
         // we do a try_query here, because we could be in the query window,
-        // trying to synchonize and the table has not yet been created
+        // trying to synchronize and the table has not yet been created
         $fields_list = $GLOBALS['dbi']->getColumns(
             $db, $GLOBALS['table'], null, true
         );

@@ -95,7 +95,7 @@ class PMA_Error_Handler
     }
 
     /**
-    * returns the errors occured in the current run only.
+    * returns the errors occurred in the current run only.
     * Does not include the errors save din the SESSION
     *
     * @return array of current errors
@@ -395,7 +395,7 @@ class PMA_Error_Handler
     /**
      * return count of errors
      *
-     * @return integer number of errors occoured
+     * @return integer number of errors occurred
      */
     public function countErrors()
     {
@@ -405,7 +405,7 @@ class PMA_Error_Handler
     /**
      * return count of user errors
      *
-     * @return integer number of user errors occoured
+     * @return integer number of user errors occurred
      */
     public function countUserErrors()
     {
@@ -468,8 +468,8 @@ class PMA_Error_Handler
     }
 
     /**
-    * Deletes prevsiously stored errors in SESSION.
-    * Saves current errors in session as previous errros.
+    * Deletes previously stored errors in SESSION.
+    * Saves current errors in session as previous errors.
     * Required to save current errors in case  'ask'
     *
     * @return void
@@ -484,7 +484,7 @@ class PMA_Error_Handler
      * Function to check if there are any errors to be prompted.
      * Needed because user warnings raised are
      *      also collected by global error handler.
-     * This dishtingushes between the actual errors
+     * This distinguishes between the actual errors
      *      and user errors raised to warn user.
      *
      *@return boolean true if there are errors to be "prompted", false otherwise
@@ -559,7 +559,7 @@ class PMA_Error_Handler
                         }, "slow");';
             }
         }
-        // The errors are already sent from the resnpose.
+        // The errors are already sent from the response.
         // Just focus on errors division upon load event.
         $response->getFooter()->getScripts()->addCode($jsCode);
     }

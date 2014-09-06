@@ -342,7 +342,7 @@ class PMA_Message
 
     /**
      * returns whether this message is a success message or not
-     * and optionaly makes this message a success message
+     * and optionally makes this message a success message
      *
      * @param boolean $set Whether to make this message of SUCCESS type
      *

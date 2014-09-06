@@ -296,7 +296,7 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
  * central columns list otherwise $field_select is columns list and it removes
  * given columns if present in central list
  *
- * @param array $field_select if $isTable selectd list of tables otherwise
+ * @param array $field_select if $isTable selected list of tables otherwise
  * selected list of columns to remove from central list
  * @param bool  $isTable      if passed array is of tables or columns
  *
@@ -483,7 +483,7 @@ function PMA_getCentralColumnsFromTable($db, $table, $allFields=false)
  * @param string $col_name      new column name
  * @param string $col_type      new column type
  * @param string $col_length    new column length
- * @param int    $col_isNull    value 1 if new column isNull is true, 0 othewise
+ * @param int    $col_isNull    value 1 if new column isNull is true, 0 otherwise
  * @param string $collation     new column collation
  * @param string $col_extra     new column extra property
  * @param string $col_default   new column default value
@@ -667,10 +667,10 @@ function PMA_getHTMLforTableDropdown($db)
 }
 
 /**
- * buld dropdown select html to select column in selected table,
+ * build dropdown select html to select column in selected table,
  * include only columns which are not already in central list
  *
- * @param string $db           current database to which selected table blongs
+ * @param string $db           current database to which selected table belongs
  * @param string $selected_tbl selected table
  *
  * @return html to select column
@@ -694,7 +694,7 @@ function PMA_getHTMLforColumnDropdown($db, $selected_tbl)
 }
 
 /**
- * html to display the form that let user to add a column on Cental columns page
+ * html to display the form that let user to add a column on Central columns page
  *
  * @param int    $total_rows total number of rows in complete result set
  * @param int    $pos        offset of first result with complete result set
@@ -736,8 +736,8 @@ function PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db)
 /**
  * build html for a row in central columns table
  *
- * @param array   $row     array containg complete information of
- * a particualar row of central list table
+ * @param array   $row     array contains complete information of
+ * a particular row of central list table
  * @param boolean $odd_row set true if the row is at odd number position
  * @param int     $row_num position the row in the table
  * @param string  $db      current database

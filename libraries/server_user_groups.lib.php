@@ -157,7 +157,7 @@ function PMA_getHtmlForUserGroupsTable()
  * @param array  $row   row of usergroup table
  * @param string $level 'server', 'db' or 'table'
  *
- * @return string comma seperated list of allowed menu tab names
+ * @return string comma separated list of allowed menu tab names
  */
 function _getAllowedTabNames($row, $level)
 {

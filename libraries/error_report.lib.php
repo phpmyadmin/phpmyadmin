@@ -59,7 +59,7 @@ function PMA_getPrettyReportData()
 function PMA_getReportData($exception_type = 'js')
 {
     $relParams = PMA_getRelationsParam();
-    // common params for both, php & js execptions
+    // common params for both, php & js exceptions
     $report = array(
             "pma_version" => PMA_VERSION,
             "browser_name" => PMA_USR_BROWSER_AGENT,

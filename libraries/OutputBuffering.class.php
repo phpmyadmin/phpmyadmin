@@ -56,7 +56,7 @@ class PMA_OutputBuffering
         }
         // Zero (0) is no mode or in other words output buffering is OFF.
         // Follow 2^0, 2^1, 2^2, 2^3 type values for the modes.
-        // Usefull if we ever decide to combine modes.  Then a bitmask field of
+        // Useful if we ever decide to combine modes.  Then a bitmask field of
         // the sum of all modes will be the natural choice.
         return $mode;
     }

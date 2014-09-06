@@ -916,14 +916,14 @@ class PMA_Config
 
     /**
      * Loads user preferences and merges them with current config
-     * must be called after control connection has been estabilished
+     * must be called after control connection has been established
      *
      * @return void
      */
     function loadUserPreferences()
     {
         // index.php should load these settings, so that phpmyadmin.css.php
-        // will have everything avaiable in session cache
+        // will have everything available in session cache
         $server = isset($GLOBALS['server'])
             ? $GLOBALS['server']
             : (!empty($GLOBALS['cfg']['ServerDefault'])
@@ -1455,7 +1455,7 @@ class PMA_Config
 
     /**
      * Sets collation_connection based on user preference. First is checked
-     * value from reuqest, then cookies with fallback to default.
+     * value from request, then cookies with fallback to default.
      *
      * After setting it here, cookie is set in common.inc.php to persist
      * the selection.

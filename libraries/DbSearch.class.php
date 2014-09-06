@@ -152,7 +152,7 @@ class PMA_DbSearch
      *
      * @param string $table The table name
      *
-     * @return array 3 SQL querys (for count, display and delete results)
+     * @return array 3 SQL queries (for count, display and delete results)
      *
      * @todo    can we make use of fulltextsearch IN BOOLEAN MODE for this?
      * PMA_backquote
@@ -188,7 +188,7 @@ class PMA_DbSearch
     }
 
     /**
-     * Provides where clause for bulding SQL query
+     * Provides where clause for building SQL query
      *
      * @param string $table The table name
      *
@@ -203,7 +203,7 @@ class PMA_DbSearch
         $like_or_regex   = (($this->_criteriaSearchType == 4) ? 'REGEXP' : 'LIKE');
         $automatic_wildcard   = (($this->_criteriaSearchType < 3) ? '%' : '');
         // For "as regular expression" (search option 4), LIKE won't be used
-        // Usage example: If user is seaching for a literal $ in a regexp search,
+        // Usage example: If user is searching for a literal $ in a regexp search,
         // he should enter \$ as the value.
         $this->_criteriaSearchString = PMA_Util::sqlAddSlashes(
             $this->_criteriaSearchString,

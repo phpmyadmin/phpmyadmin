@@ -465,7 +465,7 @@ function PMA_saveDisplayField($db, $table, $field)
  * @param string $T2        master table
  * @param string $F2        master field
  * @param string $on_delete on delete action
- * @param string $on_update on updaet action
+ * @param string $on_update on update action
  *
  * @return array array of success/failure and message
  */

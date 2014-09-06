@@ -115,7 +115,7 @@ $analyzed_sql_results = array(
 
 // If the query is a Select, extract the db and table names and modify
 // $db and $table, to have correct page headers, links and left frame.
-// db and table name may be enclosed with backquotes, db is optionnal,
+// db and table name may be enclosed with backquotes, db is optional,
 // query may contain aliases.
 
 /**

@@ -55,7 +55,7 @@ if (!empty($path)) {
 // delete session/cookies when browser is closed
 @ini_set('session.cookie_lifetime', '0');
 
-// warn but dont work with bug
+// warn but don't work with bug
 @ini_set('session.bug_compat_42', 'false');
 @ini_set('session.bug_compat_warn', 'true');
 

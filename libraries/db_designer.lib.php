@@ -1353,7 +1353,7 @@ function PMA_getQueryDetails()
 }
 
 /**
- * Returne HTML to fetch some images eagerly.
+ * Return HTML to fetch some images eagerly.
  *
  * @return string html
  */

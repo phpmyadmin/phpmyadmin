@@ -11,7 +11,7 @@
  *
  * @param string $plugin_type   the type of the plugin (import, export, etc)
  * @param string $plugin_format the format of the plugin (sql, xml, et )
- * @param string $plugins_dir   directrory with plugins
+ * @param string $plugins_dir   directory with plugins
  * @param mixed  $plugin_param  parameter to plugin by which they can
  *                              decide whether they can work
  *
@@ -113,7 +113,7 @@ function PMA_getString($name)
  *                        $GLOBALS['cfg'][$section] for plugin
  * @param string $opt     name of option
  *
- * @return string  hmtl input tag option 'checked'
+ * @return string  html input tag option 'checked'
  */
 function PMA_pluginCheckboxCheck($section, $opt)
 {

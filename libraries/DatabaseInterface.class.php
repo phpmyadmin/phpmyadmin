@@ -103,7 +103,7 @@ class PMA_DatabaseInterface
         // entry for Comment when changing the storage engine in Operations)
         // Note 2: Instead of array_merge(), simply use the + operator because
         //  array_merge() renumbers numeric keys starting with 0, therefore
-        //  we would lose a db name thats consists only of numbers
+        //  we would lose a db name that consists only of numbers
 
         foreach ($tables as $one_database => $its_tables) {
             if (isset(PMA_Table::$cache[$one_database])) {
@@ -1475,7 +1475,7 @@ class PMA_DatabaseInterface
      *
      * @param string $query The query to execute
      * @param string $type  NUM|ASSOC|BOTH returned array should either
-     *                      numeric associativ or both
+     *                      numeric associative or both
      * @param object $link  mysql link
      *
      * @return array|boolean first row from result

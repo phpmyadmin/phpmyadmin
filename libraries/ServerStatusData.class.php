@@ -206,7 +206,7 @@ class PMA_ServerStatusData
         );
 
         /**
-         * define some needfull links/commands
+         * define some needful links/commands
          */
         // variable or section name => (name => url)
         $links = array();

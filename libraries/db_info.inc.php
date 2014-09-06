@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Gets the list of the table in the current db and informations about these
+ * Gets the list of the table in the current db and information about these
  * tables if possible
  *
  * fills tooltip arrays and provides $tables, $num_tables, $is_show_stats

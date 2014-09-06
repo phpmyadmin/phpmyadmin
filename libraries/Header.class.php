@@ -268,9 +268,9 @@ class PMA_Header
 
     /**
      * Set the ajax flag to indicate whether
-     * we are sevicing an ajax request
+     * we are servicing an ajax request
      *
-     * @param bool $isAjax Whether we are sevicing an ajax request
+     * @param bool $isAjax Whether we are servicing an ajax request
      *
      * @return void
      */

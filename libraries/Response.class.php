@@ -75,7 +75,7 @@ class PMA_Response
      */
     private $_isAjaxPage;
     /**
-     * Whether there were any errors druing the processing of the request
+     * Whether there were any errors during the processing of the request
      * Only used for ajax responses
      *
      * @access private
@@ -299,7 +299,7 @@ class PMA_Response
         if ($this->_isSuccess) {
             // Note: the old judge sentence is:
             // $this->_isAjaxPage && $this->_isSuccess
-            // Removal the first, because console need log all queries, if casued any
+            // Removal the first, because console need log all queries, if caused any
             // bug, contact Edward Cheng
             $this->addJSON('_title', $this->getHeader()->getTitleTag());
 

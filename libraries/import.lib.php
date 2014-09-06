@@ -426,7 +426,7 @@ function PMA_importGetNextChunk($size = 32768)
  * The column number (1-26) is converted to the responding
  * ASCII character (A-Z) and returned.
  *
- * If the column number is bigger than 26 (= num of letters in alfabet),
+ * If the column number is bigger than 26 (= num of letters in alphabet),
  * an extra character needs to be added. To find this extra character,
  * the number is divided by 26 and this value is passed to another instance
  * of the same function (hence recursion). In that new instance the number is
@@ -435,7 +435,7 @@ function PMA_importGetNextChunk($size = 32768)
  * the number is smaller than 26. Then the last called function returns
  * the corresponding ASCII character to the function that called it.
  * Each time a called function ends an extra character is added to the column name.
- * When the first function is reached, the last character is addded and the complete
+ * When the first function is reached, the last character is added and the complete
  * column name is returned.
  *
  * @param int $num the column number
@@ -483,7 +483,7 @@ function PMA_getColumnAlphaName($num)
  * Returns the column number based on the Excel name.
  * So "A" = 1, "Z" = 26, "AA" = 27, etc.
  *
- * Basicly this is a base26 (A-Z) to base10 (0-9) conversion.
+ * Basically this is a base26 (A-Z) to base10 (0-9) conversion.
  * It iterates through all characters in the column name and
  * calculates the corresponding value, based on character value
  * (A = 1, ..., Z = 26) and position in the string.
@@ -1148,7 +1148,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
 
             for ($k = 0; $k < $num_cols; ++$k) {
                 // If fully formatted SQL, no need to enclose
-                // with aphostrophes, add shalshes etc.
+                // with apostrophes, add slashes etc.
                 if ($analyses != null
                     && isset($analyses[$i][FORMATTEDSQL][$col_count])
                     && $analyses[$i][FORMATTEDSQL][$col_count] == true
@@ -1842,7 +1842,7 @@ function PMA_handleRollbackRequest($sql_query)
  */
 function PMA_checkIfRollbackPossible($sql_query)
 {
-    // Suppoerted queries.
+    // Supported queries.
     $supported_queries = array(
         'INSERT',
         'UPDATE',

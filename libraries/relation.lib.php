@@ -428,7 +428,7 @@ function PMA_checkRelationsParam()
     ) {
         // No server selected -> no bookmark table
         // we return the array with the falses in it,
-        // to avoid some 'Unitialized string offset' errors later
+        // to avoid some 'Uninitialized string offset' errors later
         $GLOBALS['cfg']['Server']['pmadb'] = false;
         return $cfgRelation;
     }
@@ -1343,7 +1343,7 @@ function PMA_getRelatives($all_tables, $master)
     // The list of tables that we still couldn't connect
     $remaining_tables = $all_tables;
     unset($remaining_tables[$master]);
-    // The list of allready connected tables
+    // The list of already connected tables
     $known_tables = array();
     $known_tables[$master] = $master;
     $run = 0;

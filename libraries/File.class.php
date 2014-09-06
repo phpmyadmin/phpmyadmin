@@ -532,7 +532,7 @@ class PMA_File
     /**
      * Sets whether the content should be decompressed before returned
      *
-     * @param boolean $decompress whether to decompres
+     * @param boolean $decompress whether to decompress
      *
      * @return void
      */

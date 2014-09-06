@@ -214,7 +214,7 @@ function PMA_getColumnCreationStatements($is_create_tbl = true)
         $definitions = array_merge($definitions, $index_statements);
     }
 
-    // Builds the uniques statements
+    // Builds the unique statements
     foreach ($field_unique as $unique_index) {
         $unique_statements = PMA_buildIndexStatements(
             $unique_index, " UNIQUE ", $is_create_tbl
