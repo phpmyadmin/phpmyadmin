@@ -379,7 +379,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
             foreach ($curr_rel_field as $relation_field => $relation_field_value) {
                 $where_comparison = "='" . $relation_field_value . "'";
                 $dispval = PMA_getDisplayValueForForeignTableColumn(
-                    $where_comparison, $relation_field_value, $map, $relation_field
+                    $where_comparison, $map, $relation_field
                 );
 
                 $extra_data['relations'][$cell_index]

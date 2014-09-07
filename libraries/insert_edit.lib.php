@@ -250,41 +250,6 @@ function PMA_showColumnTypesInDataEditView($url_params, $showColumnType)
 
 }
 
-/**
- * Retrieve the default for datetime data type
- *
- * @param array $column containing column type, Default and null
- *
- * @return void
- */
-function PMA_getDefaultForDatetime($column)
-{
-    // d a t e t i m e
-    //
-    // Current date should not be set as default if the field is NULL
-    // for the current row, but do not put here the current datetime
-    // if there is a default value (the real default value will be set
-    // in the Default value logic below)
-
-    // Note: (tested in MySQL 4.0.16): when lang is some UTF-8,
-    // $column['Default'] is not set if it contains NULL:
-    // Array ([Field] => d [Type] => datetime [Null] => YES [Key] =>
-    // [Extra] => [True_Type] => datetime)
-    // but, look what we get if we switch to iso: (Default is NULL)
-    // Array ([Field] => d [Type] => datetime [Null] => YES [Key] =>
-    // [Default] => [Extra] => [True_Type] => datetime)
-    // so I force a NULL into it (I don't think it's possible
-    // to have an empty default value for DATETIME)
-    // then, the "if" after this one will work
-    if ($column['Type'] == 'datetime'
-        && ! isset($column['Default'])
-        && isset($column['Null'])
-        && $column['Null'] == 'YES'
-    ) {
-        $column['Default'] = null;
-    }
-}
-
  /**
   * Analyze the table column array
   *
@@ -300,7 +265,6 @@ function PMA_analyzeTableColumnsArray($column, $comments_map, $timestamp_seen)
     $column['Field_md5']     = md5($column['Field']);
     // True_Type contains only the type (stops at first bracket)
     $column['True_Type']     = preg_replace('@\(.*@s', '', $column['Type']);
-    PMA_getDefaultForDatetime($column);
     $column['len'] = preg_match('@float|double@', $column['Type']) ? 100 : -1;
     $column['Field_title']   = PMA_getColumnTitle($column, $comments_map);
     $column['is_binary']     = PMA_isColumnBinary($column);
@@ -2075,7 +2039,6 @@ function PMA_getWarningMessages()
  * Column to display from the foreign table?
  *
  * @param string $where_comparison     string that contain relation field value
- * @param string $relation_field_value relation field value
  * @param array  $map                  all Relations to foreign tables for a given
  *                                     table or optionally a given column in a table
  * @param string $relation_field       relation field
@@ -2083,7 +2046,7 @@ function PMA_getWarningMessages()
  * @return string $dispval display value from the foreign table
  */
 function PMA_getDisplayValueForForeignTableColumn($where_comparison,
-    $relation_field_value, $map, $relation_field
+    $map, $relation_field
 ) {
     $foreigner = PMA_searchColumnInForeigners($map, $relation_field);
     $display_field = PMA_getDisplayField(

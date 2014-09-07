@@ -346,23 +346,6 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getDefaultForDatetime
-     *
-     * @return void
-     */
-    public function testGetDefaultForDatetime()
-    {
-        $column = array(
-            'Type' => 'datetime',
-            'Null' => 'YES'
-        );
-
-        $this->assertNull(
-            PMA_getDefaultForDatetime($column) //should be passed as reference?
-        );
-    }
-
-    /**
      * Test for PMA_analyzeTableColumnsArray
      *
      * @return void
@@ -2349,7 +2332,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_getDisplayValueForForeignTableColumn("=1", null, $map, 'f');
+        $result = PMA_getDisplayValueForForeignTableColumn("=1", $map, 'f');
 
         $this->assertEquals(2, $result);
     }
