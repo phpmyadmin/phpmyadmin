@@ -2038,10 +2038,10 @@ function PMA_getWarningMessages()
 /**
  * Column to display from the foreign table?
  *
- * @param string $where_comparison     string that contain relation field value
- * @param array  $map                  all Relations to foreign tables for a given
- *                                     table or optionally a given column in a table
- * @param string $relation_field       relation field
+ * @param string $where_comparison string that contain relation field value
+ * @param array  $map              all Relations to foreign tables for a given
+ *                                 table or optionally a given column in a table
+ * @param string $relation_field   relation field
  *
  * @return string $dispval display value from the foreign table
  */
