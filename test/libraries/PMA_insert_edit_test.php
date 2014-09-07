@@ -2332,7 +2332,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_getDisplayValueForForeignTableColumn("=1", null, $map, 'f');
+        $result = PMA_getDisplayValueForForeignTableColumn("=1", $map, 'f');
 
         $this->assertEquals(2, $result);
     }

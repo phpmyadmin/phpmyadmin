@@ -2039,7 +2039,6 @@ function PMA_getWarningMessages()
  * Column to display from the foreign table?
  *
  * @param string $where_comparison     string that contain relation field value
- * @param string $relation_field_value relation field value
  * @param array  $map                  all Relations to foreign tables for a given
  *                                     table or optionally a given column in a table
  * @param string $relation_field       relation field
@@ -2047,7 +2046,7 @@ function PMA_getWarningMessages()
  * @return string $dispval display value from the foreign table
  */
 function PMA_getDisplayValueForForeignTableColumn($where_comparison,
-    $relation_field_value, $map, $relation_field
+    $map, $relation_field
 ) {
     $foreigner = PMA_searchColumnInForeigners($map, $relation_field);
     $display_field = PMA_getDisplayField(
