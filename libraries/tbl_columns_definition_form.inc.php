@@ -46,6 +46,9 @@ require_once './libraries/Partition.class.php';
 
 require_once './libraries/tbl_columns_definition_form.lib.php';
 
+/** @var PMA_String $pmaString */
+$pmaString = $GLOBALS['PMA_String'];
+
 $length_values_input_size = 8;
 
 $_form_params = PMA_getFormsParameters(
