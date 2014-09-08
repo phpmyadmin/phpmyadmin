@@ -110,9 +110,5 @@ class PMA_DisplayChangePassword_Test extends PHPUnit_Framework_TestCase
             __('Password:'),
             $html
         );
-        $this->assertContains(
-            __('Password Hashing:'),
-            $html
-        );
     }
 }

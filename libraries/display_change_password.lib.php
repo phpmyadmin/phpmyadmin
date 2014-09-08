@@ -80,26 +80,33 @@ function PMA_getHtmlForChangePassword($username, $hostname)
         . 'class="textfield"'
         . $chg_evt_handler . '="nopass[1].checked = true" />'
         . '</td>'
-        . '</tr>'
-        . '<tr class="vmiddle">'
-        . '<td>' . __('Password Hashing:')
-        . '</td>'
-        . '<td>'
-        . '<input type="radio" name="pw_hash" id="radio_pw_hash_new" '
-        . 'value="new" checked="checked" />'
-        . '<label for="radio_pw_hash_new">MySQL&nbsp;4.1+</label>'
-        . '</td>'
-        . '</tr>'
-        . '<tr id="tr_element_before_generate_password">'
-        . '<td>&nbsp;</td>'
-        . '<td>'
-        . '<input type="radio" name="pw_hash" id="radio_pw_hash_old" '
-        . 'value="old" />'
-        . '<label for="radio_pw_hash_old">' . __('MySQL 4.0 compatible')
-        . '</label>'
-        . '</td>'
-        . '</tr>'
-        . '</table>'
+        . '</tr>';
+
+    if (PMA_MYSQL_INT_VERSION < 50705) {
+        $html .= '<tr class="vmiddle">'
+            . '<td>' . __('Password Hashing:')
+            . '</td>'
+            . '<td>'
+            . '<input type="radio" name="pw_hash" id="radio_pw_hash_new" '
+            . 'value="new" checked="checked" />'
+            . '<label for="radio_pw_hash_new">MySQL&nbsp;4.1+</label>'
+            . '</td>'
+            . '</tr>'
+            . '<tr id="tr_element_before_generate_password">'
+            . '<td>&nbsp;</td>'
+            . '<td>'
+            . '<input type="radio" name="pw_hash" id="radio_pw_hash_old" '
+            . 'value="old" />'
+            . '<label for="radio_pw_hash_old">' . __('MySQL 4.0 compatible')
+            . '</label>'
+            . '</td>'
+            . '</tr>';
+    } else {
+        // See http://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-5.html
+        $html .= '<input type="hidden" name="pw_hash" value="new" />';
+    }
+
+    $html .=  '</table>'
         . '</fieldset>'
         . '<fieldset id="fieldset_change_password_footer" class="tblFooters">'
         . '<input type="submit" name="change_pw" value="' . __('Go') . '" />'
