@@ -128,16 +128,16 @@ class PMA_String implements PMA_StringByte, PMA_StringType
     }
 
     /**
-     * Returns number of substrings from string.
+     * Returns number of substring from string.
      *
-     * @param string $string string to count
-     * @param int    $start  start of substring
+     * @param string $string string to check
+     * @param int    $needle string to count
      *
-     * @return int number of substrings from the string
+     * @return int number of substring from the string
      */
-    public function substrCount($string, $start)
+    public function substrCount($string, $needle)
     {
-        return $this->_byte->substrCount($string, $start);
+        return $this->_byte->substrCount($string, $needle);
     }
 
     /**

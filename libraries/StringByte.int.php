@@ -28,14 +28,14 @@ interface PMA_StringByte
     public function substr($string, $start, $length = 2147483647);
 
     /**
-     * Returns number of substrings from string, works depending on current charset.
+     * Returns number of substring from string, works depending on current charset.
      *
-     * @param string $string string to count
-     * @param int    $start  start of substring
+     * @param string $string string to check
+     * @param int    $needle string to count
      *
-     * @return int number of substrings from the string
+     * @return int number of substring from the string
      */
-    public function substrCount($string, $start);
+    public function substrCount($string, $needle);
 
     /**
      * Returns position of $needle in $haystack or false if not found

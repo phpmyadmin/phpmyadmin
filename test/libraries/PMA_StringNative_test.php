@@ -18,6 +18,7 @@ require_once 'libraries/StringNative.class.php';
  */
 class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
 {
+    /** @var PMA_StringNative */
     protected $testObject;
 
     /**
@@ -41,7 +42,7 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      * @test
      * @dataProvider strlenData
      */
-    public function testNativeStrlen($length, $str)
+    public function testStrlen($length, $str)
     {
         $this->assertEquals(
             $length,
@@ -50,7 +51,7 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testNativeStrlen
+     * Data provider for testStrlen
      *
      * @return array Test data
      */
@@ -75,7 +76,7 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      * @test
      * @dataProvider subStrData
      */
-    public function testNativeSubStr($str, $haystack, $start, $length)
+    public function testSubStr($str, $haystack, $start, $length)
     {
         $this->assertEquals(
             $str,
@@ -84,7 +85,7 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testNativeSubStr
+     * Data provider for testSubStr
      *
      * @return array Test data
      */
@@ -93,6 +94,71 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
         return array(
             array("b", "ab", 1, 1),
             array("data", "testdata", 4, 4)
+        );
+    }
+
+    /**
+     * Test for PMA_StringNative::substrCount
+     *
+     * @param int    $expected number of occurrences
+     * @param string $haystack string to check
+     * @param string $needle   string to count
+     *
+     * @return void
+     * @test
+     * @dataProvider substrCountData
+     */
+    public function testSubstrCount($expected, $haystack, $needle)
+    {
+        $this->assertEquals(
+            $expected,
+            $this->testObject->substrCount($haystack, $needle)
+        );
+    }
+
+    /**
+     * Data provider for testSubstrCount
+     *
+     * @return array Test data
+     */
+    public function substrCountData()
+    {
+        return array(
+            array(1, "ab", "b"),
+            array(1, "testdata", "data"),
+            array(2, "testdata", "a"),
+            array(0, "testdata", "b"),
+        );
+    }
+
+    /**
+     * Test for PMA_StringNative::substrCount
+     *
+     * @param string $haystack string to check
+     * @param string $needle   string to count
+     *
+     * @return void
+     * @test
+     * @dataProvider substrCountDataException
+     *
+     * @expectedException PHPUnit_Framework_Error
+     */
+    public function testSubstrCountException($haystack, $needle)
+    {
+        $this->testObject->substrCount($haystack, $needle);
+    }
+
+    /**
+     * Data provider for testSubstrCountException
+     *
+     * @return array Test data
+     */
+    public function substrCountDataException()
+    {
+        return array(
+            array("testdata", ""),
+            array("testdata", null),
+            array("testdata", false),
         );
     }
 
@@ -108,7 +174,7 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      * @test
      * @dataProvider strposData
      */
-    public function testNativeStrpos($pos, $haystack, $needle, $offset)
+    public function testStrpos($pos, $haystack, $needle, $offset)
     {
         $this->assertEquals(
             $pos,
@@ -117,7 +183,7 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testNativeStrpos
+     * Data provider for testStrpos
      *
      * @return array Test data
      */
@@ -126,37 +192,6 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
         return array(
             array(1, "ab", "b", 0),
             array(4, "test data", " ", 0)
-        );
-    }
-
-    /**
-     * Test for PMA_StringNative::strtolower
-     *
-     * @param string $expected Expected lowercased string
-     * @param string $string   String to convert to lowercase
-     *
-     * @return void
-     * @test
-     * @dataProvider strToLowerData
-     */
-    public function testNativeStrToLower($expected, $string)
-    {
-        $this->assertEquals(
-            $expected,
-            $this->testObject->strtolower($string)
-        );
-    }
-
-    /**
-     * Data provider for testNativeStrpos
-     *
-     * @return array Test data
-     */
-    public function strToLowerData()
-    {
-        return array(
-            array("mary had a", "Mary Had A"),
-            array("test string", "TEST STRING")
         );
     }
 
@@ -205,6 +240,37 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
             array(false, true, null),
             array(false, true, 'a'),
             array(false, true, '0'),
+        );
+    }
+
+    /**
+     * Test for PMA_StringNative::strtolower
+     *
+     * @param string $expected Expected lowercased string
+     * @param string $string   String to convert to lowercase
+     *
+     * @return void
+     * @test
+     * @dataProvider strToLowerData
+     */
+    public function testStrToLower($expected, $string)
+    {
+        $this->assertEquals(
+            $expected,
+            $this->testObject->strtolower($string)
+        );
+    }
+
+    /**
+     * Data provider for testStrpos
+     *
+     * @return array Test data
+     */
+    public function strToLowerData()
+    {
+        return array(
+            array("mary had a", "Mary Had A"),
+            array("test string", "TEST STRING")
         );
     }
 }
