@@ -734,7 +734,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetMessageAndSqlQueryForPrivilegesRevoke()
     {
         $dbname = 'pma_dbname';
-        $db_and_table = 'pma_dbname.pma_tablename';
         $username = 'pma_username';
         $hostname = 'pma_hostname';
         $tablename = 'pma_tablename';
@@ -747,7 +746,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_POST['max_questions'] = 1000;
         list ($message, $sql_query)
             = PMA_getMessageAndSqlQueryForPrivilegesRevoke(
-                $db_and_table, $dbname, $tablename, $username, $hostname
+                $dbname, $tablename, $username, $hostname
             );
 
         $this->assertEquals(

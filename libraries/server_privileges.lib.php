@@ -1674,15 +1674,14 @@ function PMA_updatePassword($err_url, $username, $hostname)
 /**
  * Revokes privileges and get message and SQL query for privileges revokes
  *
- * @param string $db_and_table wildcard Escaped database+table specification
- * @param string $dbname       database name
- * @param string $tablename    table name
- * @param string $username     username
- * @param string $hostname     host name
+ * @param string $dbname    database name
+ * @param string $tablename table name
+ * @param string $username  username
+ * @param string $hostname  host name
  *
  * @return array ($message, $sql_query)
  */
-function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
+function PMA_getMessageAndSqlQueryForPrivilegesRevoke($dbname,
     $tablename, $username, $hostname
 ) {
     $db_and_table = PMA_wildcardEscapeForGrant($dbname, $tablename);
@@ -2672,7 +2671,6 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
     }
 
     $result = $GLOBALS['dbi']->query($sql_query);
-    $sql_query = '';
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         if (isset($db_rights[$row[$dbOrTableName]])) {
@@ -4396,7 +4394,6 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
  */
 function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
 {
-    $sql_query = '';
     $create_user_real = 'CREATE USER \''
         . PMA_Util::sqlAddSlashes($username) . '\'@\''
         . PMA_Util::sqlAddSlashes($hostname) . '\'';

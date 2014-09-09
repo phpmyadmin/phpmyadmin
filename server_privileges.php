@@ -223,7 +223,6 @@ if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']
  */
 if (isset($_REQUEST['revokeall'])) {
     list ($message, $sql_query) = PMA_getMessageAndSqlQueryForPrivilegesRevoke(
-        $db_and_table,
         (isset($dbname) ? $dbname : ''),
         (isset($tablename) ? $tablename : ''),
         $username, $hostname
