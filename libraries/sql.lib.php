@@ -164,7 +164,6 @@ function PMA_getTableHtmlForMultipleQueries(
                     . $_SESSION['tmpval']['pos']
                     . ', ' . $_SESSION['tmpval']['max_rows'] . " ";
                 $sql_data['valid_sql'][$sql_no] = PMA_getSqlWithLimitClause(
-                    $sql_data['valid_sql'][$sql_no],
                     $analyzed_sql,
                     $sql_limit_to_append
                 );
@@ -268,13 +267,12 @@ function PMA_handleSortOrder(
 /**
  * Append limit clause to SQL query
  *
- * @param string $full_sql_query      SQL query
  * @param array  $analyzed_sql        the analyzed query
  * @param string $sql_limit_to_append clause to append
  *
  * @return string limit clause appended SQL query
  */
-function PMA_getSqlWithLimitClause($full_sql_query, $analyzed_sql,
+function PMA_getSqlWithLimitClause($analyzed_sql,
     $sql_limit_to_append
 ) {
     return $analyzed_sql[0]['section_before_limit'] . "\n"
@@ -429,7 +427,6 @@ function PMA_getHtmlForPrintViewHeader($db, $sql_query, $num_rows)
     if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
         PMA_Util::checkParameters(array('db', 'sql_query'));
         $header->enablePrintView();
-        $hostname = '';
         if ( $GLOBALS['cfg']['Server']['verbose']) {
             $hostname =  $GLOBALS['cfg']['Server']['verbose'];
         } else {
@@ -759,7 +756,6 @@ function PMA_getHtmlForBookmark($disp_mode, $cfgBookmark, $sql_query, $db, $tabl
         && (! empty($cfgBookmark) && empty($_GET['id_bookmark']))
         && ! empty($sql_query)
     ) {
-        $html = "\n";
         $goto = 'sql.php'
             . PMA_URL_getCommon(
                 array(
@@ -1156,7 +1152,6 @@ function PMA_appendLimitClause($full_sql_query, $analyzed_sql, $display_query)
     $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmpval']['pos']
         . ', ' . $_SESSION['tmpval']['max_rows'] . " ";
     $full_sql_query = PMA_getSqlWithLimitClause(
-        $full_sql_query,
         $analyzed_sql,
         $sql_limit_to_append
     );
@@ -2004,11 +1999,10 @@ function PMA_getHtmlForPreviousUpdateQuery($disp_query, $showSql, $sql_data,
  * @param string  $table     current table
  * @param string  $db        current database
  * @param boolean $editable  whether the results table can be editable or not
- * @param string  $disp_mode display mode
  *
  * @return PMA_message $message
  */
-function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $disp_mode)
+function PMA_getMessageIfMissingColumnIndex($table, $db, $editable)
 {
     if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
         $missing_unique_column_msg = PMA_message::notice(
@@ -2083,7 +2077,6 @@ function PMA_getHtmlForPrintButton()
  * Function to display results when the executed query returns non empty results
  *
  * @param array      $result               executed query results
- * @param bool       $justBrowsing         whether just browsing or not
  * @param array      $analyzed_sql_results analysed sql results
  * @param string     $db                   current database
  * @param string     $table                current table
@@ -2110,7 +2103,7 @@ function PMA_getHtmlForPrintButton()
  *
  * @return void
  */
-function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
+function PMA_sendQueryResponseForResultsReturned($result,
     $analyzed_sql_results, $db, $table, $disp_mode, $message, $sql_data,
     $displayResultsObject, $goto, $pmaThemeImage, $sql_limit_to_append,
     $unlim_num_rows, $num_rows,  $full_sql_query, $disp_query,
@@ -2315,7 +2308,7 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
     } else {
         // At least one row is returned -> displays a table with results
         PMA_sendQueryResponseForResultsReturned(
-            isset($result) ? $result : null, $justBrowsing, $analyzed_sql_results,
+            isset($result) ? $result : null, $analyzed_sql_results,
             $db, $table, isset($disp_mode) ? $disp_mode : null,
             isset($message) ? $message : null, isset($sql_data) ? $sql_data : null,
             $displayResultsObject, $goto, $pmaThemeImage,
