@@ -183,7 +183,7 @@ foreach ($fields as $row) {
             PMA_getHtmlForActionsInTableStructure(
                 $type, $tbl_storage_engine, $primary,
                 $field_name, $url_query, $titles, $row, $rownum,
-                $hidden_titles, $columns_with_unique_index,
+                $columns_with_unique_index,
                 $isInCentralColumns
             )
         );

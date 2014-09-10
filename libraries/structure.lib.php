@@ -2042,7 +2042,6 @@ function PMA_getHtmlForDistinctValueAction($url_query, $row, $titles)
  * @param array          $titles                    titles array
  * @param array          $row                       current row
  * @param string         $rownum                    row number
- * @param array          $hidden_titles             hidden titles
  * @param array          $columns_with_unique_index columns with unique index
  * @param boolean        $isInCentralColumns        set if column in central
  *                                                  columns list
@@ -2050,7 +2049,7 @@ function PMA_getHtmlForDistinctValueAction($url_query, $row, $titles)
  * @return string $html_output;
  */
 function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
-    $primary, $field_name, $url_query, $titles, $row, $rownum, $hidden_titles,
+    $primary, $field_name, $url_query, $titles, $row, $rownum,
     $columns_with_unique_index, $isInCentralColumns
 ) {
     $html_output = '<td><ul class="table-structure-actions resizable-menu">';
