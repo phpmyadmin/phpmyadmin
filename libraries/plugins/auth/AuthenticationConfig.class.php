@@ -49,7 +49,11 @@ class AuthenticationConfig extends AuthenticationPlugin
     {
         // try to workaround PHP 5 session garbage collection which
         // looks at the session file's last modified time
-        $_SESSION['last_access_time'] = time();
+        if (isset($_REQUEST['access_time'])) {
+            $_SESSION['last_access_time'] = time()- $_REQUEST['access_time'];
+        } else {
+            $_SESSION['last_access_time'] = time();
+        }
 
         return true;
     }

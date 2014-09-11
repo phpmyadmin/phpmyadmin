@@ -676,6 +676,60 @@ var last_clicked_row = -1;
  */
 var last_shift_clicked_row = -1;
 
+var _idleSecondsCounter = 0;
+var IncInterval;
+var updateInterval;
+AJAX.registerTeardown('functions.js', function () {
+    clearInterval(updateInterval);
+    clearInterval(IncInterval);
+});
+
+AJAX.registerOnload('functions.js', function () {
+    document.onclick = function() {
+        _idleSecondsCounter = 0;
+    };
+    document.onmousemove = function() {
+        _idleSecondsCounter = 0;
+    };
+    document.onkeypress = function() {
+        _idleSecondsCounter = 0;
+    };
+
+    function SetIdleTime() {
+        _idleSecondsCounter++;
+    }
+    function UpdateIdleTime() {
+        var href = 'index.php';
+        var params = {
+                'ajax_request' : true,
+                'token' : PMA_commonParams.get('token'),
+                'db' : PMA_commonParams.get('db'),
+                'access_time':_idleSecondsCounter
+            };
+        $.ajax({
+                type: 'POST',
+                url: href,
+                data: params,
+                success: function (data) {
+                    clearInterval(updateInterval);
+                    if (data.success) {
+                        if (PMA_commonParams.get('LoginCookieValidity')-_idleSecondsCounter > 5) {
+                            updateInterval = window.setInterval(UpdateIdleTime, (PMA_commonParams.get('LoginCookieValidity')-_idleSecondsCounter-5)*1000);
+                        } else {
+                            updateInterval = window.setInterval(UpdateIdleTime, 2000);
+                        }
+                    } else { //timeout occured
+                        window.location.reload(true);
+                        clearInterval(IncInterval);
+                    }
+                }
+            });
+    }
+    if (PMA_commonParams.get('logged_in')) {
+        IncInterval = window.setInterval(SetIdleTime, 1000);
+        updateInterval = window.setInterval(UpdateIdleTime, (PMA_commonParams.get('LoginCookieValidity')-5)*1000);
+    }
+});
 /**
  * Unbind all event handlers before tearing down a page
  */

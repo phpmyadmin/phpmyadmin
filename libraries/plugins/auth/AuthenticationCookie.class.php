@@ -554,8 +554,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Avoid showing the password in phpinfo()'s output
         unset($GLOBALS['PHP_AUTH_PW']);
         unset($_SERVER['PHP_AUTH_PW']);
-
-        $_SESSION['last_access_time'] = time();
+        if (isset($_REQUEST['access_time'])) {
+            $_SESSION['last_access_time'] = time() - $_REQUEST['access_time'];
+        } else {
+            $_SESSION['last_access_time'] = time();
+        }
 
         $this->createIV();
 
