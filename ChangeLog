@@ -45,6 +45,7 @@ phpMyAdmin - ChangeLog
 - bug       ajax.js responseHandler: cannot read property of null
 - bug       sql.js: str is undefined
 - bug #4524 Allow for direct selection of "0" on the "user overview" page
+- bug #4529 Undefined index: pos
 
 4.2.8.0 (2014-08-31)
 - bug #4516 Odd export behavior
