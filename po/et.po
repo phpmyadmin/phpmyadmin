@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-10 07:27+0200\n"
+"PO-Revision-Date: 2014-09-12 10:28+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/4-2/et/>"
 "\n"
@@ -350,7 +350,7 @@ msgstr "Uuendatud"
 #: libraries/rte/rte_list.lib.php:78 libraries/server_status.lib.php:361
 #: libraries/tbl_tracking.lib.php:200
 msgid "Status"
-msgstr "Staatus"
+msgstr "Olek"
 
 #: db_tracking.php:86 libraries/Index.class.php:561
 #: libraries/rte/rte_list.lib.php:53 libraries/rte/rte_list.lib.php:67
@@ -5095,7 +5095,7 @@ msgstr "Muuda vaikimisi ekspordi valikuid."
 #: libraries/config/messages.inc.php:222 libraries/config/messages.inc.php:283
 #: setup/frames/menu.inc.php:22
 msgid "Features"
-msgstr "Võimalused"
+msgstr "Häälestamine"
 
 #: libraries/config/messages.inc.php:223
 msgid "General"
