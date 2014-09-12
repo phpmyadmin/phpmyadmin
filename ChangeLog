@@ -1,6 +1,10 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.0.10.3 (not yet released)
+- bug #4530 [security] DOM based XSS that results to a CSRF that creates a
+            ROOT account in certain conditions
+
 4.0.10.2 (2014-08-17)
 - bug #4501 [security] XSS in table browse page
 - bug #4502 [security] Self-XSS in enum value editor

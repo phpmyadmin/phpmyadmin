@@ -146,7 +146,16 @@ class PMA_Header
      */
     private function _addDefaultScripts()
     {
+        // Localised strings
+        $params = array('lang' => $GLOBALS['lang']);
+        if (isset($GLOBALS['db'])) {
+            $params['db'] = $GLOBALS['db'];
+        }
+
         $this->_scripts->addFile('jquery/jquery-1.8.3.min.js');
+        $this->_scripts->addFile(
+            'whitelist.php' . PMA_generate_common_url($params), false, true
+        );
         $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('keyhandler.js');
         $this->_scripts->addFile('jquery/jquery-ui-1.9.2.custom.min.js');
@@ -169,11 +178,6 @@ class PMA_Header
         // Here would not be a good place to add CodeMirror because
         // the user preferences have not been merged at this point
 
-        // Localised strings
-        $params = array('lang' => $GLOBALS['lang']);
-        if (isset($GLOBALS['db'])) {
-            $params['db'] = $GLOBALS['db'];
-        }
         $this->_scripts->addFile('messages.php' . PMA_generate_common_url($params));
         // Append the theme id to this url to invalidate
         // the cache on a theme change. Though this might be
