@@ -138,7 +138,6 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         $table = "PMA_test";
         $multi_values_str = "multi_values_str";
         $num_tables_str = "10";
-        $export_list = null;
         $unlim_num_rows_str = "unlim_num_rows_str";
         $single_table = "single_table";
         PMA_Table::$cache[$db][$table]['ENGINE'] = "MERGE";
