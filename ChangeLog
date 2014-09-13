@@ -40,6 +40,7 @@ phpMyAdmin - ChangeLog
             non-root directory
 +           MariaDB 10+ multi-master replication support
 + rfe #1544 MySQL 5.7.5 compatibility
++ rfe #1529 Avoid session timeout when user is active
 
 4.2.9.0 (not yet released)
 - bug       ajax.js responseHandler: cannot read property of null
