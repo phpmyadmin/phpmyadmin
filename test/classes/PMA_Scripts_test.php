@@ -181,7 +181,8 @@ $(function() {});
             $hash => array(
                 'has_onload' => 1,
                 'filename' => 'common.js',
-                'conditional_ie' => false
+                'conditional_ie' => false,
+		'before_statics' => false
             )
         );
         $this->object->addFile($file);
@@ -218,12 +219,14 @@ $(function() {});
             'd7716810d825f4b55d18727c3ccb24e6' => array(
                 'has_onload' => 1,
                 'filename' => 'common.js',
-                'conditional_ie' => true
+                'conditional_ie' => true,
+		'before_statics' => false
             ),
             '347a57484fcd6ea6d8a125e6e1d31f78' => array(
                 'has_onload' => 1,
                 'filename' => 'sql.js',
-                'conditional_ie' => true
+                'conditional_ie' => true,
+		'before_statics' => false
             ),
         );
         $this->object->addFiles($filenames, true);
