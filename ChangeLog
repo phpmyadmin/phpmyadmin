@@ -1,6 +1,10 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.2.8.1 (not yet released)
+- bug #4530 [security] DOM based XSS that results to a CSRF that creates a
+            ROOT account in certain conditions
+
 4.2.8.0 (2014-08-31)
 - bug #4516 Odd export behavior
 - bug #4519 Uncaught TypeError: Cannot read property 'success' of null
