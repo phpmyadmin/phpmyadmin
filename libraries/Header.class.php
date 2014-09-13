@@ -237,7 +237,9 @@ class PMA_Header
             ),
             'LimitChars' => $GLOBALS['cfg']['LimitChars'],
             'pftext' => $pftext,
-            'confirm' => $GLOBALS['cfg']['Confirm']
+            'confirm' => $GLOBALS['cfg']['Confirm'],
+            'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
+            'logged_in' => isset($GLOBALS['userlink']) ? true : false
         );
     }
 

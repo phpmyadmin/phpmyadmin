@@ -53,6 +53,9 @@ if (! empty($_REQUEST['target'])
     exit;
 }
 
+if (isset($_REQUEST['ajax_request']) && ! empty($_REQUEST['access_time'])) {
+    exit;
+}
 /**
  * Check if it is an ajax request to reload the recent tables list.
  */
