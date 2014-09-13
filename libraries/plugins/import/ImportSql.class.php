@@ -194,18 +194,16 @@ class ImportSql extends ImportPlugin
                 $old_i = $i;
                 // this is about 7 times faster that looking for each sequence i
                 // one by one with strpos()
-                $match = preg_match(
+                $posPattern = $pmaString->pregStrpos(
                     '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])'
                     . $delimiter_keyword . ')/',
                     $buffer,
-                    $matches,
-                    PREG_OFFSET_CAPTURE,
                     $i
                 );
-                if ($match) {
+                if (false !== $posPattern) {
                     // in $matches, index 0 contains the match for the complete
                     // expression but we don't use it
-                    $first_position = $matches[1][1];
+                    $first_position = $posPattern;
                 } else {
                     $first_position = $big_value;
                 }
@@ -247,7 +245,8 @@ class ImportSql extends ImportPlugin
                 }
 
                 // Grab current character
-                $ch = $buffer[$i];
+                //$ch = $buffer[$i]; //Don't use this syntax, because of UTF8 strings
+                $ch = $pmaString->substr($buffer, $i, 1);
 
                 // Quotes
                 if ($pmaString->strpos('\'"`', $ch) !== false) {
@@ -279,7 +278,7 @@ class ImportSql extends ImportPlugin
                         }
                         // Was not the quote escaped?
                         $j = $pos - 1;
-                        while ($buffer[$j] == '\\') {
+                        while ($pmaString->substr($buffer, $j, 1) == '\\') {
                             $j--;
                         }
                         // Even count means it was not escaped
@@ -305,8 +304,10 @@ class ImportSql extends ImportPlugin
 
                 // Not enough data to decide
                 if ((($i == ($len - 1) && ($ch == '-' || $ch == '/'))
-                    || ($i == ($len - 2) && (($ch == '-' && $buffer[$i + 1] == '-')
-                    || ($ch == '/' && $buffer[$i + 1] == '*'))))
+                    || ($i == ($len - 2) && (($ch == '-'
+                    && $pmaString->substr($buffer, $i + 1, 1) == '-')
+                    || ($ch == '/'
+                    && $pmaString->substr($buffer, $i + 1, 1) == '*'))))
                     && ! $GLOBALS['finished']
                 ) {
                     break;
@@ -314,10 +315,13 @@ class ImportSql extends ImportPlugin
 
                 // Comments
                 if ($ch == '#'
-                    || ($i < ($len - 1) && $ch == '-' && $buffer[$i + 1] == '-'
-                    && (($i < ($len - 2) && $buffer[$i + 2] <= ' ')
-                    || ($i == ($len - 1)  && $GLOBALS['finished'])))
-                    || ($i < ($len - 1) && $ch == '/' && $buffer[$i + 1] == '*')
+                    || ($i < ($len - 1) && $ch == '-'
+                    && $pmaString->substr($buffer, $i + 1, 1) == '-'
+                    && (($i < ($len - 2)
+                    && $pmaString->substr($buffer, $i + 2, 1) <= ' ')
+                    || ($i == ($len - 1) && $GLOBALS['finished'])))
+                    || ($i < ($len - 1) && $ch == '/'
+                    && $pmaString->substr($buffer, $i + 1, 1) == '*')
                 ) {
                     // Copy current string to SQL
                     if ($start_pos != $i) {
