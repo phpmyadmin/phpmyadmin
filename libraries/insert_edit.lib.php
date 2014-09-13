@@ -1608,7 +1608,7 @@ function PMA_getSumbitAndResetButtonForActionsPanel($tabindex, $tabindex_for_val
  */
 function PMA_getHeadAndFootOfInsertRowTable($url_params)
 {
-    $html_output = '<table class="insertRowTable">'
+    $html_output = '<table class="insertRowTable topmargin">'
         . '<thead>'
         . '<tr>'
         . '<th>' . __('Column') . '</th>';

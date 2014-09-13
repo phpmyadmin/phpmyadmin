@@ -41,7 +41,7 @@ if ($db_is_system_schema) {
 }
 $response->addHTML($tabletype);
 
-$tablestructure = '<table id="tablestructure" class="data">';
+$tablestructure = '<table id="tablestructure" class="data topmargin">';
 $response->addHTML($tablestructure);
 
 

@@ -3086,3 +3086,7 @@ span.drag_icon {
     height: 3em;
     cursor: move;
 }
+
+.topmargin {
+    margin-top: 1em;
+}
