@@ -311,7 +311,7 @@ AJAX.registerOnload('tbl_change.js', function () {
      * available).
      */
     $('select[name="submit_type"]').bind('change', function (e) {
-        var $thisElemSubmitTypeField = $(this);
+        var thisElemSubmitTypeVal = $(this).val();
         var $table = $('table.insertRowTable');
         var auto_increment_column = $table.find('input[name^="auto_increment"]');
         auto_increment_column.each(function () {
@@ -322,9 +322,9 @@ AJAX.registerOnload('tbl_change.js', function () {
             var value_field = $table.find('input[name="' + thisElemName.replace('auto_increment', 'fields') + '"]');
             var previous_value = $(prev_value_field).val();
             if (previous_value !== undefined) {
-                if ($thisElemSubmitTypeField.val() == 'insert'
-                    || $thisElemSubmitTypeField.val() == 'insertignore'
-                    || $thisElemSubmitTypeField.val() == 'showinsert'
+                if (thisElemSubmitTypeVal == 'insert'
+                    || thisElemSubmitTypeVal == 'insertignore'
+                    || thisElemSubmitTypeVal == 'showinsert'
                 ) {
                     $(value_field).val(0);
                 } else {
