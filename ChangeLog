@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 4.2.8.1 (not yet released)
 - bug #4530 [security] DOM based XSS that results to a CSRF that creates a
             ROOT account in certain conditions
+- bug #4523 tbl_change.js: insert as new row submit type on multiple selected records does not set all AUTO_INCREMENTs to 0 value
 
 4.2.8.0 (2014-08-31)
 - bug #4516 Odd export behavior
