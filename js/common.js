@@ -461,15 +461,12 @@ PMA_DROP_IMPORT = {
      * @return bool
      */
     _hasFiles: function (event) {
-        if (typeof event.originalEvent.dataTransfer.types === 'undefined' ||
+        return !(typeof event.originalEvent.dataTransfer.types === 'undefined' ||
             $.inArray('Files', event.originalEvent.dataTransfer.types) < 0 ||
             $.inArray(
                 'application/x-moz-nativeimage',
                 event.originalEvent.dataTransfer.types
-            ) >= 0) {
-            return false;
-        }
-        return true;
+            ) >= 0);
     },
     /**
      * Triggered when dragged file is being dragged over PMA UI
