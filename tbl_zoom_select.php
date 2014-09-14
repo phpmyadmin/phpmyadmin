@@ -130,6 +130,7 @@ if (isset($_POST['zoom_submit'])
         $sql_query . ";", null, PMA_DatabaseInterface::QUERY_STORE
     );
     $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+    $data = array();
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         //Need a row with indexes as 0,1,2 for the getUniqueCondition
         // hence using a temporary array
