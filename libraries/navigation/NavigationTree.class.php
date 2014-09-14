@@ -341,20 +341,19 @@ class PMA_NavigationTree
 
         $table = $container->getChild($path[0], true);
         if ($table === false) {
-            if($db->getPresence('tables', $path[0], true))
-            {
-                $node = PMA_NodeFactory::getInstance(
-                    'Node_Table',
-                    $path[0]
-                );
-                if ($type2 == $container->real_name) {
-                    $node->pos2 = $pos2;
-                }
-                $container->addChild($node);
-                $table = $container->getChild($path[0], true);
-            } else {
+            if (!$db->getPresence('tables', $path[0], true)) {
                 return false;
             }
+
+            $node = PMA_NodeFactory::getInstance(
+                'Node_Table',
+                $path[0]
+            );
+            if ($type2 == $container->real_name) {
+                $node->pos2 = $pos2;
+            }
+            $container->addChild($node);
+            $table = $container->getChild($path[0], true);
         }
         $retval = $table;
         $containers = $this->_addTableContainers(

@@ -1996,9 +1996,9 @@ function PMA_getHtmlForPreviousUpdateQuery($disp_query, $showSql, $sql_data,
 /**
  * To get the message if a column index is missing. If not will return null
  *
- * @param string  $table     current table
- * @param string  $db        current database
- * @param boolean $editable  whether the results table can be editable or not
+ * @param string  $table    current table
+ * @param string  $db       current database
+ * @param boolean $editable whether the results table can be editable or not
  *
  * @return PMA_message $message
  */

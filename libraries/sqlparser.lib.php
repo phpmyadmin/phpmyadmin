@@ -2820,8 +2820,7 @@ function PMA_SQP_format_getBeforeAndInPrivList(
 function PMA_SQP_format_getListsepAndReservedWord(
     $data, $in_priv_list, $html_line_break, $space_punct_listsep,
     $space_alpha_reserved_word
-)
-{
+) {
     switch ($data) {
     case 'CREATE':
     case 'ALTER':
