@@ -1077,17 +1077,22 @@ class PMA_DatabaseInterface
         // Check if column is a part of multiple-column index and set its 'Key'.
         $indexes = PMA_Index::getFromTable($table, $database);
         foreach ($fields as $field => $field_data) {
-            if (empty($field_data['Key'])) {
-                foreach ($indexes as $index) {
-                    if ($index->hasColumn($field)) {
-                        $index_columns = $index->getColumns();
-                        if ($index_columns[$field]->getSeqInIndex() > 1) {
-                            if ($index->isUnique()) {
-                                $fields[$field]['Key'] = 'UNI';
-                            } else {
-                                $fields[$field]['Key'] = 'MUL';
-                            }
-                        }
+            if (!empty($field_data['Key'])) {
+                continue;
+            }
+
+            foreach ($indexes as $index) {
+                /** @var PMA_Index $index */
+                if (!$index->hasColumn($field)) {
+                    continue;
+                }
+
+                $index_columns = $index->getColumns();
+                if ($index_columns[$field]->getSeqInIndex() > 1) {
+                    if ($index->isUnique()) {
+                        $fields[$field]['Key'] = 'UNI';
+                    } else {
+                        $fields[$field]['Key'] = 'MUL';
                     }
                 }
             }
