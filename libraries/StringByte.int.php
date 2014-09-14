@@ -142,6 +142,17 @@ interface PMA_StringByte
     public function strtoupper($string);
 
     /**
+     * Returns position of $needle in $haystack from a regular expression match
+     *
+     * @param string $pattern Pattern to search for
+     * @param string $subject Input string
+     * @param int    $offset  Start from search
+     *
+     * @return integer position of $needle in $haystack or false
+     */
+    public function pregStrpos($pattern, $subject, $offset = 0);
+
+    /**
      * Get the ordinal value of a string
      *
      * @param string $string the string for which ord is required

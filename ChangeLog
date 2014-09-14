@@ -30,7 +30,7 @@ phpMyAdmin - ChangeLog
 - bug #4439 Table list in left panel doesn't expand
 + rfe       Improved validation when inserting data
 + rfe #1491 Support InnoDB for database Query by example
-+ rfe #345  Normalize a table 
++ rfe #345  Normalize a table
 + rfe #1123 Zeroconf PMA tables support
 + rfe #1492 Remove the distinct query window / Add SQL log+history panel
 + rfe #919  Multiple-column foreign key relation
@@ -41,6 +41,7 @@ phpMyAdmin - ChangeLog
 +           MariaDB 10+ multi-master replication support
 + rfe #1544 MySQL 5.7.5 compatibility
 + rfe #1529 Avoid session timeout when user is active
+- bug #4528 Can't import dump via SQL field
 
 4.2.9.0 (not yet released)
 - bug       ajax.js responseHandler: cannot read property of null

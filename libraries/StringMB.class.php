@@ -293,5 +293,28 @@ class PMA_StringMB implements PMA_StringByte
             'UCS-4BE'
         );
     }
+
+    /**
+     * Perform a regular expression match
+     *
+     * @param string $pattern Pattern to search for
+     * @param string $subject Input string
+     * @param int    $offset  Start from search
+     *
+     * @return int 1 if matched, 0 if doesn't, false on failure
+     */
+    public function pregStrpos($pattern, $subject, $offset = 0)
+    {
+        $matches = array();
+        $bFind = preg_match(
+            $pattern, $subject, $matches, PREG_OFFSET_CAPTURE, $offset
+        );
+        if (1 !== $bFind) {
+            return false;
+        }
+
+        $strFound = $matches[1][0];
+        return $this->strpos($subject, $strFound, $offset);
+    }
 }
 ?>
