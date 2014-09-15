@@ -138,7 +138,7 @@ if (isset($_POST['zoom_submit'])
         foreach ($row as $val) {
             $tmpRow[] = $val;
         }
-        //Get unique conditon on each row (will be needed for row update)
+        //Get unique condition on each row (will be needed for row update)
         $uniqueCondition = PMA_Util::getUniqueCondition(
             $result, count($table_search->getColumnNames()), $fields_meta, $tmpRow,
             true
