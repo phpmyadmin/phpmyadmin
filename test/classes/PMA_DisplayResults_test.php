@@ -1344,7 +1344,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     '`new`.`id`' => '= 1',
                 ),
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
-                'l',
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
                 . '%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token='
@@ -1381,7 +1380,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @param string  $where_clause_html the html encoded where clause
      * @param array   $condition_array   array of keys (primary, unique, condition)
      * @param string  $del_query         the query for delete row
-     * @param string  $dir_letter        the letter denoted the direction
      * @param string  $edit_url          the url for edit row
      * @param string  $copy_url          the url for copy row
      * @param string  $edit_anchor_class the class for html element for edit
@@ -1397,7 +1395,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetPlacedLinks(
         $dir, $del_url, $is_display, $row_no, $where_clause, $where_clause_html,
-        $condition_array, $del_query, $dir_letter, $edit_url, $copy_url,
+        $condition_array, $del_query, $edit_url, $copy_url,
         $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf, $output
     ) {
         $this->assertEquals(
@@ -1407,7 +1405,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 array(
                     $dir, $del_url, $is_display, $row_no, $where_clause,
                     $where_clause_html, $condition_array, $del_query,
-                    $dir_letter, $edit_url, $copy_url, $edit_anchor_class,
+                    $edit_url, $copy_url, $edit_anchor_class,
                     $edit_str, $copy_str, $del_str, $js_conf
                 )
             )

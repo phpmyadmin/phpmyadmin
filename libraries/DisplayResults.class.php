@@ -2732,7 +2732,7 @@ class PMA_DisplayResults
                     $table_body_html .= $this->_getPlacedLinks(
                         self::POSITION_LEFT, $del_url, $is_display, $row_no,
                         $where_clause, $where_clause_html, $condition_array,
-                        $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class,
+                        $del_query, $edit_url, $copy_url, $edit_anchor_class,
                         $edit_str, $copy_str, $del_str, $js_conf
                     );
 
@@ -2743,7 +2743,7 @@ class PMA_DisplayResults
                     $table_body_html .= $this->_getPlacedLinks(
                         self::POSITION_NONE, $del_url, $is_display, $row_no,
                         $where_clause, $where_clause_html, $condition_array,
-                        $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class,
+                        $del_query, $edit_url, $copy_url, $edit_anchor_class,
                         $edit_str, $copy_str, $del_str, $js_conf
                     );
 
@@ -2766,7 +2766,7 @@ class PMA_DisplayResults
                 $table_body_html .= $this->_getPlacedLinks(
                     self::POSITION_RIGHT, $del_url, $is_display, $row_no,
                     $where_clause, $where_clause_html, $condition_array,
-                    $del_query, 'r', $edit_url, $copy_url, $edit_anchor_class,
+                    $del_query, $edit_url, $copy_url, $edit_anchor_class,
                     $edit_str, $copy_str, $del_str, $js_conf
                 );
 
@@ -3584,7 +3584,6 @@ class PMA_DisplayResults
      * @param string  $where_clause_html the html encoded where clause
      * @param array   $condition_array   array of keys (primary, unique, condition)
      * @param string  $del_query         the query for delete row
-     * @param string  $dir_letter        the letter denoted the direction
      * @param string  $edit_url          the url for edit row
      * @param string  $copy_url          the url for copy row
      * @param string  $edit_anchor_class the class for html element for edit
@@ -3601,7 +3600,7 @@ class PMA_DisplayResults
      */
     private function _getPlacedLinks(
         $dir, $del_url, $is_display, $row_no, $where_clause, $where_clause_html,
-        $condition_array, $del_query, $dir_letter, $edit_url, $copy_url,
+        $condition_array, $del_query, $edit_url, $copy_url,
         $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf
     ) {
 
