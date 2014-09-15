@@ -61,7 +61,7 @@ class PMA_ShowMessage_Test extends PHPUnit_Framework_TestCase
             $('.tools form').last().after('[<a href=\"#\" title=\"Inline edit of this query\" class=\"inline_edit_sql\">Inline</a>]');
             //]]>
             </script> [
-            <a href=\"tbl_sql.php?db=db&amp;table=tbl&amp;sql_query=SELECT+%2A+FROM+tblPatient+&amp;show_query=1&amp;server=server&amp;lang=en&amp;token=647a62ad301bf9025e3b13bc7caa02cb#querybox\" onclick=\"PMA_querywindow.focus('SELECT * FROM tblPatient '); return false;\">Edit</a>
+            <a href=\"tbl_sql.php?db=db&amp;table=tbl&amp;sql_query=SELECT+%2A+FROM+tblPatient+&amp;show_query=1&amp;server=server&amp;lang=en&amp;token=647a62ad301bf9025e3b13bc7caa02cb#querybox\" >Edit</a>
             ] [
             <a href=\"import.php?db=db&amp;table=tbl&amp;sql_query=EXPLAIN+SELECT+%2A+FROM+tblPatient+&amp;server=server&amp;lang=en&amp;token=647a62ad301bf9025e3b13bc7caa02cb\" >Explain SQL</a>
             ] [

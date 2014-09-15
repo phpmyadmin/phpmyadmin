@@ -314,19 +314,6 @@ var AJAX = {
                 if (data._reloadNavigation) {
                     PMA_reloadNavigation();
                 }
-                if (data._reloadQuerywindow) {
-                    var params = data._reloadQuerywindow;
-                    PMA_querywindow.reload(
-                        params.db,
-                        params.table,
-                        params.sql_query
-                    );
-                }
-                if (data._focusQuerywindow) {
-                    PMA_querywindow.focus(
-                        data._focusQuerywindow
-                    );
-                }
                 if (data._title) {
                     $('title').replaceWith(data._title);
                 }

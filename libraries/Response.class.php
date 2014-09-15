@@ -329,6 +329,7 @@ class PMA_Response
 
             if (empty($GLOBALS['error_message'])) {
                 // set current db, table and sql query in the querywindow
+                // (this is for the bottom console)
                 $query = '';
                 $maxChars = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
                 if (isset($GLOBALS['sql_query'])
