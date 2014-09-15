@@ -311,20 +311,28 @@ AJAX.registerOnload('tbl_change.js', function () {
      * available).
      */
     $('select[name="submit_type"]').bind('change', function (e) {
+        var thisElemSubmitTypeVal = $(this).val();
         var $table = $('table.insertRowTable');
-        var auto_increment_column = $table.find('input[name^="auto_increment"]').attr('name');
-        if (auto_increment_column) {
-            var prev_value_field = $table.find('input[name="' + auto_increment_column.replace('auto_increment', 'fields_prev') + '"]');
-            var value_field = $table.find('input[name="' + auto_increment_column.replace('auto_increment', 'fields') + '"]');
+        var auto_increment_column = $table.find('input[name^="auto_increment"]');
+        auto_increment_column.each(function () {
+            var $thisElemAIField = $(this);
+            var thisElemName = $thisElemAIField.attr('name');
+
+            var prev_value_field = $table.find('input[name="' + thisElemName.replace('auto_increment', 'fields_prev') + '"]');
+            var value_field = $table.find('input[name="' + thisElemName.replace('auto_increment', 'fields') + '"]');
             var previous_value = $(prev_value_field).val();
             if (previous_value !== undefined) {
-                if ($(this).val() == 'insert' || $(this).val() == 'insertignore' || $(this).val() == 'showinsert') {
+                if (thisElemSubmitTypeVal == 'insert'
+                    || thisElemSubmitTypeVal == 'insertignore'
+                    || thisElemSubmitTypeVal == 'showinsert'
+                ) {
                     $(value_field).val(0);
                 } else {
                     $(value_field).val(previous_value);
                 }
             }
-        }
+        });
+
     });
 
     /**
