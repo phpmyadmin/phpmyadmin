@@ -198,6 +198,7 @@ function PMA_getHtmlForSlaveConfiguration(
             . PMA_URL_getCommon($_url_params);
 
         $_url_params = $GLOBALS['url_params'];
+        $_url_params['sr_take_action'] = true;
         $_url_params['sr_slave_skip_error'] = true;
         $slave_skip_error_link = 'server_replication.php'
             . PMA_URL_getCommon($_url_params);
