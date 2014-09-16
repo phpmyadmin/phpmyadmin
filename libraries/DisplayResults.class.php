@@ -2695,7 +2695,7 @@ class PMA_DisplayResults
             $where_clause_html = urlencode($where_clause);
 
             // In print view these variable needs to be initialized
-            $del_url = $del_query = $del_str = $edit_anchor_class
+            $del_url = $del_str = $edit_anchor_class
                 = $edit_str = $js_conf = $copy_url = $copy_str = $edit_url = null;
 
             // 1.2 Defines the URLs for the modify/delete link(s)
@@ -2716,7 +2716,7 @@ class PMA_DisplayResults
                 } // end if (1.2.1)
 
                 // 1.2.2 Delete/Kill link(s)
-                list($del_query, $del_url, $del_str, $js_conf)
+                list($del_url, $del_str, $js_conf)
                     = $this->_getDeleteAndKillLinks(
                         $where_clause, $clause_is_unique,
                         $url_sql_query, $is_display['del_lnk'],
@@ -2732,7 +2732,7 @@ class PMA_DisplayResults
                     $table_body_html .= $this->_getPlacedLinks(
                         self::POSITION_LEFT, $del_url, $is_display, $row_no,
                         $where_clause, $where_clause_html, $condition_array,
-                        $del_query, $edit_url, $copy_url, $edit_anchor_class,
+                        $edit_url, $copy_url, $edit_anchor_class,
                         $edit_str, $copy_str, $del_str, $js_conf
                     );
 
@@ -2743,7 +2743,7 @@ class PMA_DisplayResults
                     $table_body_html .= $this->_getPlacedLinks(
                         self::POSITION_NONE, $del_url, $is_display, $row_no,
                         $where_clause, $where_clause_html, $condition_array,
-                        $del_query, $edit_url, $copy_url, $edit_anchor_class,
+                        $edit_url, $copy_url, $edit_anchor_class,
                         $edit_str, $copy_str, $del_str, $js_conf
                     );
 
@@ -2766,7 +2766,7 @@ class PMA_DisplayResults
                 $table_body_html .= $this->_getPlacedLinks(
                     self::POSITION_RIGHT, $del_url, $is_display, $row_no,
                     $where_clause, $where_clause_html, $condition_array,
-                    $del_query, $edit_url, $copy_url, $edit_anchor_class,
+                    $edit_url, $copy_url, $edit_anchor_class,
                     $edit_str, $copy_str, $del_str, $js_conf
                 );
 
@@ -2780,7 +2780,7 @@ class PMA_DisplayResults
             //    output
             $this->_gatherLinksForLaterOutputs(
                 $row_no, $is_display, $where_clause, $where_clause_html, $js_conf,
-                $del_url, $del_query, $del_str, $edit_anchor_class, $edit_url,
+                $del_url, $del_str, $edit_anchor_class, $edit_url,
                 $edit_str, $copy_url, $copy_str, $alternating_color_class,
                 $condition_array
             );
@@ -3062,7 +3062,6 @@ class PMA_DisplayResults
      * @param string  $where_clause_html       the html encoded where clause
      * @param string  $js_conf                 text for the JS confirmation
      * @param string  $del_url                 the url for delete row
-     * @param string  $del_query               the query for delete row
      * @param string  $del_str                 the label for delete row
      * @param string  $edit_anchor_class       the class for html element for edit
      * @param string  $edit_url                the url for edit row
@@ -3081,7 +3080,7 @@ class PMA_DisplayResults
      */
     private function _gatherLinksForLaterOutputs(
         $row_no, $is_display, $where_clause, $where_clause_html, $js_conf,
-        $del_url, $del_query, $del_str, $edit_anchor_class, $edit_url, $edit_str,
+        $del_url, $del_str, $edit_anchor_class, $edit_url, $edit_str,
         $copy_url, $copy_str, $alternating_color_class, $condition_array
     ) {
 
@@ -3110,7 +3109,7 @@ class PMA_DisplayResults
             $vertical_display['row_delete'][$row_no]
                 .= $this->_getCheckboxForMultiRowSubmissions(
                     $del_url, $is_display, $row_no, $where_clause_html,
-                    $condition_array, $del_query, '[%_PMA_CHECKBOX_DIR_%]',
+                    $condition_array, '[%_PMA_CHECKBOX_DIR_%]',
                     $alternating_color_class . $vertical_class
                 );
 
@@ -3442,7 +3441,7 @@ class PMA_DisplayResults
      * @param string  $del_lnk          the delete link of current row
      * @param array   $row              the current row
      *
-     * @return  array                       4 element array - $del_query,
+     * @return  array                       3 element array
      *                                      $del_url, $del_str, $js_conf
      *
      * @access  private
@@ -3512,16 +3511,15 @@ class PMA_DisplayResults
                 );
 
             $del_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
-            $del_query = $kill;
             $js_conf  = $kill;
             $del_str = PMA_Util::getIcon(
                 'b_drop.png', __('Kill')
             );
         } else {
-            $del_url = $del_query = $del_str = $js_conf = null;
+            $del_url = $del_str = $js_conf = null;
         }
 
-        return array($del_query, $del_url, $del_str, $js_conf);
+        return array($del_url, $del_str, $js_conf);
 
     } // end of the '_getDeleteAndKillLinks()' function
 
@@ -3582,7 +3580,6 @@ class PMA_DisplayResults
      * @param string  $where_clause      the where clause of the sql
      * @param string  $where_clause_html the html encoded where clause
      * @param array   $condition_array   array of keys (primary, unique, condition)
-     * @param string  $del_query         the query for delete row
      * @param string  $edit_url          the url for edit row
      * @param string  $copy_url          the url for copy row
      * @param string  $edit_anchor_class the class for html element for edit
@@ -3599,7 +3596,7 @@ class PMA_DisplayResults
      */
     private function _getPlacedLinks(
         $dir, $del_url, $is_display, $row_no, $where_clause, $where_clause_html,
-        $condition_array, $del_query, $edit_url, $copy_url,
+        $condition_array, $edit_url, $copy_url,
         $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf
     ) {
 
@@ -3610,7 +3607,7 @@ class PMA_DisplayResults
         return $this->_getCheckboxAndLinks(
             $dir, $del_url, $is_display,
             $row_no, $where_clause, $where_clause_html, $condition_array,
-            $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class,
+            'l', $edit_url, $copy_url, $edit_anchor_class,
             $edit_str, $copy_str, $del_str, $js_conf
         );
 
@@ -5771,7 +5768,6 @@ class PMA_DisplayResults
      * @param string $row_no            the row number
      * @param string $where_clause_html url encoded where clause
      * @param array  $condition_array   array of conditions in the where clause
-     * @param string $del_query         delete query
      * @param string $id_suffix         suffix for the id
      * @param string $class             css classes for the td element
      *
@@ -5783,7 +5779,7 @@ class PMA_DisplayResults
      */
     private function _getCheckboxForMultiRowSubmissions(
         $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
-        $del_query, $id_suffix, $class
+        $id_suffix, $class
     ) {
 
         $ret = '';
@@ -5952,7 +5948,6 @@ class PMA_DisplayResults
      * @param string $where_clause      where clause
      * @param string $where_clause_html url encoded where clause
      * @param array  $condition_array   array of conditions in the where clause
-     * @param string $del_query         delete query
      * @param string $id_suffix         suffix for the id
      * @param string $edit_url          edit url
      * @param string $copy_url          copy url
@@ -5970,7 +5965,7 @@ class PMA_DisplayResults
      */
     private function _getCheckboxAndLinks(
         $position, $del_url, $is_display, $row_no, $where_clause,
-        $where_clause_html, $condition_array, $del_query, $id_suffix,
+        $where_clause_html, $condition_array, $id_suffix,
         $edit_url, $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf
     ) {
 
@@ -5980,7 +5975,7 @@ class PMA_DisplayResults
 
             $ret .= $this->_getCheckboxForMultiRowSubmissions(
                 $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
-                $del_query, $id_suffix = '_left', ''
+                $id_suffix = '_left', ''
             );
 
             $ret .= $this->_getEditLink(
@@ -6007,14 +6002,14 @@ class PMA_DisplayResults
 
             $ret .= $this->_getCheckboxForMultiRowSubmissions(
                 $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
-                $del_query, $id_suffix = '_right', ''
+                $id_suffix = '_right', ''
             );
 
         } else { // $position == self::POSITION_NONE
 
             $ret .= $this->_getCheckboxForMultiRowSubmissions(
                 $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
-                $del_query, $id_suffix = '_left', ''
+                $id_suffix = '_left', ''
             );
         }
 

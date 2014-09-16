@@ -809,7 +809,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 0,
                 '%60new%60.%60id%60+%3D+1',
                 array('`new`.`id`' => '= 1'),
-                'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 '[%_PMA_CHECKBOX_DIR_%]',
                 'odd row_0 vpointer vmarker',
                 '<td class="odd row_0 vpointer vmarker" class="center"><input type'
@@ -831,7 +830,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @param string $row_no            the row number
      * @param string $where_clause_html url encoded where clause
      * @param array  $condition_array   array of conditions in the where clause
-     * @param string $del_query         delete query
      * @param string $id_suffix         suffix for the id
      * @param string $class             css classes for the td element
      * @param string $output            output of _getCheckboxForMultiRowSubmissions
@@ -842,7 +840,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetCheckboxForMultiRowSubmissions(
         $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
-        $del_query, $id_suffix, $class, $output
+        $id_suffix, $class, $output
     ) {
         $this->assertEquals(
             $output,
@@ -850,7 +848,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '_getCheckboxForMultiRowSubmissions',
                 array(
                     $del_url, $is_display, $row_no, $where_clause_html,
-                    $condition_array, $del_query, $id_suffix, $class
+                    $condition_array, $id_suffix, $class
                 )
             )
         );
@@ -1082,7 +1080,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 array(
                     '`new`.`id`' => '= 1',
                 ),
-                'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 'l',
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.'
                 . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
@@ -1161,7 +1158,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 array(
                     '`new`.`id`' => '= 1',
                 ),
-                'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 'l',
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.'
                 . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
@@ -1238,7 +1234,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 array(
                     '`new`.`id`' => '= 1',
                 ),
-                'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 'l',
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
@@ -1276,7 +1271,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @param string $where_clause      where clause
      * @param string $where_clause_html url encoded where clause
      * @param array  $condition_array   array of conditions in the where clause
-     * @param string $del_query         delete query
      * @param string $id_suffix         suffix for the id
      * @param string $edit_url          edit url
      * @param string $copy_url          copy url
@@ -1293,7 +1287,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetCheckboxAndLinks(
         $position, $del_url, $is_display, $row_no, $where_clause,
-        $where_clause_html, $condition_array, $del_query, $id_suffix, $edit_url,
+        $where_clause_html, $condition_array, $id_suffix, $edit_url,
         $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf, $output
     ) {
         $this->assertEquals(
@@ -1302,7 +1296,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '_getCheckboxAndLinks',
                 array(
                     $position, $del_url, $is_display, $row_no, $where_clause,
-                    $where_clause_html, $condition_array, $del_query,
+                    $where_clause_html, $condition_array,
                     $id_suffix, $edit_url, $copy_url, $class, $edit_str,
                     $copy_str, $del_str, $js_conf
                 )
@@ -1343,7 +1337,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 array(
                     '`new`.`id`' => '= 1',
                 ),
-                'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
                 . '%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token='
@@ -1379,7 +1372,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @param string  $where_clause      the where clause of the sql
      * @param string  $where_clause_html the html encoded where clause
      * @param array   $condition_array   array of keys (primary, unique, condition)
-     * @param string  $del_query         the query for delete row
      * @param string  $edit_url          the url for edit row
      * @param string  $copy_url          the url for copy row
      * @param string  $edit_anchor_class the class for html element for edit
@@ -1395,7 +1387,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetPlacedLinks(
         $dir, $del_url, $is_display, $row_no, $where_clause, $where_clause_html,
-        $condition_array, $del_query, $edit_url, $copy_url,
+        $condition_array, $edit_url, $copy_url,
         $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf, $output
     ) {
         $this->assertEquals(
@@ -1404,7 +1396,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '_getPlacedLinks',
                 array(
                     $dir, $del_url, $is_display, $row_no, $where_clause,
-                    $where_clause_html, $condition_array, $del_query,
+                    $where_clause_html, $condition_array,
                     $edit_url, $copy_url, $edit_anchor_class,
                     $edit_str, $copy_str, $del_str, $js_conf
                 )
