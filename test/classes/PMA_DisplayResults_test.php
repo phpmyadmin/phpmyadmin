@@ -1080,7 +1080,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 array(
                     '`new`.`id`' => '= 1',
                 ),
-                'l',
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.'
                 . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
                 . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;'
@@ -1158,7 +1157,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 array(
                     '`new`.`id`' => '= 1',
                 ),
-                'l',
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.'
                 . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
                 . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;'
@@ -1234,7 +1232,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 array(
                     '`new`.`id`' => '= 1',
                 ),
-                'l',
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
                 . '%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token='
@@ -1271,7 +1268,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @param string $where_clause      where clause
      * @param string $where_clause_html url encoded where clause
      * @param array  $condition_array   array of conditions in the where clause
-     * @param string $id_suffix         suffix for the id
      * @param string $edit_url          edit url
      * @param string $copy_url          copy url
      * @param string $class             css classes for the td elements
@@ -1287,7 +1283,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetCheckboxAndLinks(
         $position, $del_url, $is_display, $row_no, $where_clause,
-        $where_clause_html, $condition_array, $id_suffix, $edit_url,
+        $where_clause_html, $condition_array, $edit_url,
         $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf, $output
     ) {
         $this->assertEquals(
@@ -1297,7 +1293,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 array(
                     $position, $del_url, $is_display, $row_no, $where_clause,
                     $where_clause_html, $condition_array,
-                    $id_suffix, $edit_url, $copy_url, $class, $edit_str,
+                    $edit_url, $copy_url, $class, $edit_str,
                     $copy_str, $del_str, $js_conf
                 )
             )

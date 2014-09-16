@@ -3607,7 +3607,7 @@ class PMA_DisplayResults
         return $this->_getCheckboxAndLinks(
             $dir, $del_url, $is_display,
             $row_no, $where_clause, $where_clause_html, $condition_array,
-            'l', $edit_url, $copy_url, $edit_anchor_class,
+            $edit_url, $copy_url, $edit_anchor_class,
             $edit_str, $copy_str, $del_str, $js_conf
         );
 
@@ -5948,7 +5948,6 @@ class PMA_DisplayResults
      * @param string $where_clause      where clause
      * @param string $where_clause_html url encoded where clause
      * @param array  $condition_array   array of conditions in the where clause
-     * @param string $id_suffix         suffix for the id
      * @param string $edit_url          edit url
      * @param string $copy_url          copy url
      * @param string $class             css classes for the td elements
@@ -5965,7 +5964,7 @@ class PMA_DisplayResults
      */
     private function _getCheckboxAndLinks(
         $position, $del_url, $is_display, $row_no, $where_clause,
-        $where_clause_html, $condition_array, $id_suffix,
+        $where_clause_html, $condition_array,
         $edit_url, $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf
     ) {
 
@@ -5975,7 +5974,7 @@ class PMA_DisplayResults
 
             $ret .= $this->_getCheckboxForMultiRowSubmissions(
                 $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
-                $id_suffix = '_left', ''
+                '_left', ''
             );
 
             $ret .= $this->_getEditLink(
@@ -6002,14 +6001,14 @@ class PMA_DisplayResults
 
             $ret .= $this->_getCheckboxForMultiRowSubmissions(
                 $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
-                $id_suffix = '_right', ''
+                '_right', ''
             );
 
         } else { // $position == self::POSITION_NONE
 
             $ret .= $this->_getCheckboxForMultiRowSubmissions(
                 $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
-                $id_suffix = '_left', ''
+                '_left', ''
             );
         }
 
