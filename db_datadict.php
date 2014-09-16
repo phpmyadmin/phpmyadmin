@@ -133,6 +133,7 @@ foreach ($tables as $table) {
         }
     } else {
         $have_rel = false;
+        $res_rel = array();
     } // end if
 
 
