@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-27 08:27-0400\n"
-"PO-Revision-Date: 2014-09-02 15:46+0200\n"
-"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
+"PO-Revision-Date: 2014-09-16 23:48+0200\n"
+"Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
 "\n"
 "Language: nl\n"
@@ -912,10 +912,13 @@ msgstr ""
 "uitgebreide mogelijkheden zijn uitgeschakeld. %sOntdek waarom%s. "
 
 #: index.php:523
+#, fuzzy
 msgid ""
 "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or alternately go to 'Operations' "
 "tab of any database to set it up there."
 msgstr ""
+"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Of als alternatief ga naar de tab "
+"'Bewerken' van een database en stel het daar in."
 
 #: index.php:564
 #, php-format
@@ -1903,6 +1906,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Opmerking: a, b -> d,f betekent waardes van kolom a en b gecombineerd kunnen "
+"de waarden determineren van kolom d en kolom f."
 
 #: js/messages.php:320
 msgid "No partial dependencies selected!"
@@ -2915,7 +2920,7 @@ msgstr "Query geschiedenis aan begin weergeven"
 
 #: libraries/Console.class.php:297
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Toon huidige blader query"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1314
 #: libraries/DisplayResults.class.php:2127
@@ -4723,7 +4728,7 @@ msgstr "Selecteer een kolom."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
 msgid "auto_increment"
-msgstr ""
+msgstr "automatisch ophogen"
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 msgid "on update CURRENT_TIMESTAMP"
@@ -8519,10 +8524,13 @@ msgstr ""
 "worden."
 
 #: libraries/import.lib.php:1775
+#, fuzzy
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"Alleen INSERT, UPDATE, DELETE en REPLACE SQL queries die transactionele "
+"tabellen bevatten, kunnen teruggedraaid worden."
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -9012,7 +9020,7 @@ msgstr "Nieuwe view aanmaken"
 
 #: libraries/normalization.lib.php:110
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "Maak alle kolommen atomair"
 
 #: libraries/normalization.lib.php:112 libraries/normalization.lib.php:769
 msgid "First step of normalization (1NF)"
@@ -9079,9 +9087,12 @@ msgid "Add a primary key on existing column(s)"
 msgstr "Een primaire sleutel toevoegen op bestaande kolom(men)"
 
 #: libraries/normalization.lib.php:186
+#, fuzzy
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
+"Als het niet mogelijk is om een primaire indexsleutel te maken van bestaande "
+"gecombineerde kolommen"
 
 #: libraries/normalization.lib.php:190
 msgid "+ Add a new primary key column"
@@ -9092,17 +9103,24 @@ msgid "Remove redundant columns"
 msgstr "Verwijder overbodige kolommen"
 
 #: libraries/normalization.lib.php:211
+#, fuzzy
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
+"Hebt u een groep kolommen welke gecombineerd de waarde van een bestaande "
+"kolom geeft? Bijvoorbeeld, als u voor_naam, achter_naam en volledige_naam "
+"hebt, geeft de combinatie van voor_naam en achter_naam dezelfde waarde als "
+"volledige_naam, wat dubbel op is."
 
 #: libraries/normalization.lib.php:217
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
+"Controleer welke kolommen redundant zijn en klik op verwijderen. Als er geen "
+"redundante kolommen zijn, klik op 'Geen redundante kolommen'"
 
 #: libraries/normalization.lib.php:222
 msgid "Remove selected"
@@ -9124,12 +9142,20 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"Hebt u een groep van twee of meer kolommen die sterk aan elkaar gerelateerd "
+"zijn en hetzelfde attribuut herhalen? Bijvoorbeeld een tabel met data over "
+"boeken kan kolommen hebben zoals boek_id, auteur1, auteur2, auteur2 "
+"enzovoort, welke een herhalende groep vormen. In dit geval zou een nieuwe "
+"tabel (boek_id, auteur) gemaakt moeten worden."
 
 #: libraries/normalization.lib.php:255
+#, fuzzy
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
+"Controleer de kolommen of deze een herhalende groep vormen. Als een "
+"dergelijke groep niet aanwezig is, klik op 'Geen herhalende groep'"
 
 #: libraries/normalization.lib.php:261
 msgid "No repeating group"
@@ -9144,15 +9170,18 @@ msgid "Find partial dependencies"
 msgstr "Zoek naar gedeeltelijke afhankelijkheden"
 
 #: libraries/normalization.lib.php:309
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
+"Geen gedeeltelijk afhankelijkheden mogelijk omdat er geen niet-primaire "
+"kolommen zijn en de primaire indexsleutel (%1$s) is samengesteld uit alle "
+"kolommen in de tabel."
 
 #: libraries/normalization.lib.php:314 libraries/normalization.lib.php:356
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "Tabel is al in tweede normaal vorm."
 
 #: libraries/normalization.lib.php:319
 #, php-format
@@ -9160,16 +9189,22 @@ msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"De primaire indexsleutel ( %1$s ) bestaat uit meer dan één kolom zodat we de "
+"gedeeltelijke afhankelijkheden moeten vinden."
 
 #: libraries/normalization.lib.php:323 libraries/normalization.lib.php:688
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
+"A.u.b. beantwoord de volgende vra(a)g(en) zorgvuldig om een correcte "
+"normalisatie te krijgen."
 
 #: libraries/normalization.lib.php:327
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"+ Toon mij de mogelijke gedeeltelijke afhankelijkheden gebaseerd op de data "
+"in de tabel"
 
 #: libraries/normalization.lib.php:331
 msgid ""
