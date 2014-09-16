@@ -297,6 +297,8 @@ class PMA_StringMB implements PMA_StringByte
     /**
      * Perform a regular expression match
      *
+     * Take care: might not work with lookbehind expressions.
+     *
      * @param string $pattern Pattern to search for
      * @param string $subject Input string
      * @param int    $offset  Start from search
@@ -307,14 +309,13 @@ class PMA_StringMB implements PMA_StringByte
     {
         $matches = array();
         $bFind = preg_match(
-            $pattern, $subject, $matches, PREG_OFFSET_CAPTURE, $offset
+            $pattern, $this->substr($subject, $offset), $matches, PREG_OFFSET_CAPTURE
         );
         if (1 !== $bFind) {
             return false;
         }
 
-        $strFound = $matches[1][0];
-        return $this->strpos($subject, $strFound, $offset);
+        return $matches[1][1] + $offset;
     }
 }
 ?>
