@@ -1433,7 +1433,6 @@ function PMA_getRelatives($all_tables, $master)
 
     if ($ignore_internal_relations) {
         $emerg = '';
-        $remaining_tables = array();
     }
 
     // Build the 'FROM' clause.
