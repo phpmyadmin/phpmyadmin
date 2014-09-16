@@ -3014,8 +3014,7 @@ class PMA_DisplayResults
                     = $this->_getDataCellForGeometryColumns(
                         $row[$i], $class, $meta, $map, $_url_params,
                         $condition_field, $transformation_plugin,
-                        $default_function, $transform_options,
-                        $is_field_truncated, $analyzed_sql
+                        $default_function, $transform_options, $analyzed_sql
                     );
 
             } else {
@@ -3766,7 +3765,6 @@ class PMA_DisplayResults
      * @param string  $transformation_plugin the name of transformation function
      * @param string  $default_function      the default transformation function
      * @param string  $transform_options     the transformation parameters
-     * @param boolean $is_field_truncated    the condition for blob data replacements
      * @param array   $analyzed_sql          the analyzed query
      *
      * @return  string  $cell                  the prepared data cell, html content
@@ -3778,7 +3776,7 @@ class PMA_DisplayResults
     private function _getDataCellForGeometryColumns(
         $column, $class, $meta, $map, $_url_params, $condition_field,
         $transformation_plugin, $default_function, $transform_options,
-        $is_field_truncated, $analyzed_sql
+        $analyzed_sql
     ) {
         /** @var PMA_String $pmaString */
         $pmaString = $GLOBALS['PMA_String'];
@@ -4570,7 +4568,7 @@ class PMA_DisplayResults
 
             $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_TOP_DIRECTION_DROPDOWN,
-                "\n", $is_innodb
+                $is_innodb
             );
 
         } elseif (! isset($printview) || ($printview != '1')) {
@@ -4642,7 +4640,7 @@ class PMA_DisplayResults
         ) {
             $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_BOTTOM_DIRECTION_DROPDOWN,
-                '<br />' . "\n", $is_innodb
+                $is_innodb
             );
         } elseif (! isset($printview) || ($printview != '1')) {
             $table_html .= "\n" . '<br /><br />' . "\n";
@@ -5146,7 +5144,6 @@ class PMA_DisplayResults
      * @param integer $pos_next   the offset for the "next" page
      * @param integer $pos_prev   the offset for the "previous" page
      * @param string  $place      the place to show navigation
-     * @param string  $empty_line empty line depend on the $place
      * @param boolean $is_innodb  whether its InnoDB or not
      *
      * @return  string  html content of navigation bar
@@ -5156,7 +5153,7 @@ class PMA_DisplayResults
      * @see     _getTable()
      */
     private function _getPlacedTableNavigations(
-        $pos_next, $pos_prev, $place, $empty_line, $is_innodb
+        $pos_next, $pos_prev, $place, $is_innodb
     ) {
 
         $navigation_html = '';
