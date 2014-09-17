@@ -65,8 +65,6 @@ function PMA_getIp()
  */
 function PMA_ipMaskTest($testRange, $ipToTest)
 {
-    $result = true;
-
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
 
@@ -231,9 +229,6 @@ function PMA_ipv6MaskTest($test_range, $ip_to_test)
         // Parse the address into a binary string
         $first_bin = inet_pton($first_ip);
         $first_hex = bin2hex($first_bin);
-
-        // Overwriting first address string to make sure notation is optimal
-        $first_ip = inet_ntop($first_bin);
 
         $flexbits = 128 - $subnet;
 
