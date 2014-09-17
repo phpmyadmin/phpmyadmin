@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-27 08:27-0400\n"
-"PO-Revision-Date: 2014-09-16 23:48+0200\n"
-"Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
+"PO-Revision-Date: 2014-09-17 22:12+0200\n"
+"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
 "\n"
 "Language: nl\n"
@@ -9170,12 +9170,12 @@ msgid "Find partial dependencies"
 msgstr "Zoek naar gedeeltelijke afhankelijkheden"
 
 #: libraries/normalization.lib.php:309
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
-"Geen gedeeltelijk afhankelijkheden mogelijk omdat er geen niet-primaire "
+"Geen gedeeltelijke afhankelijkheden mogelijk omdat er geen niet-primaire "
 "kolommen zijn en de primaire indexsleutel (%1$s) is samengesteld uit alle "
 "kolommen in de tabel."
 
@@ -9197,8 +9197,8 @@ msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
-"A.u.b. beantwoord de volgende vra(a)g(en) zorgvuldig om een correcte "
-"normalisatie te krijgen."
+"Gelieve de volgende vra(a)g(en) zorgvuldig te beantwoorden om een correcte "
+"normalisatie te verkrijgen."
 
 #: libraries/normalization.lib.php:327
 msgid "+ Show me the possible partial dependencies based on data in the table"
