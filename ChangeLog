@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - bug #4529 Undefined index: pos
 - bug #4523 tbl_change.js: insert as new row submit type on multiple selected records does not set all AUTO_INCREMENTs to 0 value
 - bug       ajax.js responseHandler: another "cannot read property"
+- bug       tbl_structure.js "cannot read property"
 
 4.2.8.1 (not yet released)
 - bug #4530 [security] DOM based XSS that results to a CSRF that creates a

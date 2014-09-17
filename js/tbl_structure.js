@@ -110,7 +110,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 } else if ($(".error:not(.tab)").length !== 0) {
                     $(".error:not(.tab)").remove();
                 }
-                if (data.success === true) {
+                if (typeof data.success != 'undefined' && data.success === true) {
                     $("#page_content")
                         .empty()
                         .append(data.message)
