@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-27 08:27-0400\n"
-"PO-Revision-Date: 2014-09-17 22:12+0200\n"
-"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
+"PO-Revision-Date: 2014-09-19 00:20+0200\n"
+"Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
 "\n"
 "Language: nl\n"
@@ -4732,7 +4732,7 @@ msgstr "automatisch ophogen"
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
+msgstr "bij het bijwerken CURRENT_TIMESTAMP"
 
 #: libraries/central_columns.lib.php:886
 msgid "Add new column"
@@ -9212,6 +9212,9 @@ msgid ""
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
+"Voor elke onderstaande kolom, selecteer a.u.b. de <b>minimale verzameling</b>"
+" van kolommen van de gegeven verzameling, waarvan de gecombineerde waarden "
+"toereikend zijn om de waarde van de kolom te determineren."
 
 #: libraries/normalization.lib.php:341 libraries/normalization.lib.php:726
 #, php-format
@@ -9224,6 +9227,8 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
+"Geen gedeeltelijke afhankelijkheden mogelijk omdat de primaire indexsleutel "
+"(%1$s) maar één kolom heeft."
 
 #: libraries/normalization.lib.php:377
 #, php-format
@@ -9231,11 +9236,14 @@ msgid ""
 "As per above partial dependencies, in order to put the original table '%1$s' "
 "into Second normal form we need to create the following tables:"
 msgstr ""
+"Door de hierboven genoemde gedeeltelijke afhankelijkheden, moeten we om de "
+"originele tabel '%1$s' in de tweede normaal vorm te plaatsen de volgende "
+"tabellen aanmaken:"
 
 #: libraries/normalization.lib.php:413
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr ""
+msgstr "De tweede stap van normalisatie is voltooid voor tabel '%1$s'."
 
 #: libraries/normalization.lib.php:453 libraries/normalization.lib.php:596
 #: libraries/normalization.lib.php:659
@@ -9248,6 +9256,9 @@ msgid ""
 "As per above dependencies, in order to put the original table '%1$s' into "
 "Third normal form we need to create the following tables:"
 msgstr ""
+"Door de hierboven genoemde gedeeltelijke afhankelijkheden, moeten we om de "
+"originele tabel '%1$s' in de derde normaal vorm te plaatsen, de volgende "
+"tabellen aanmaken:"
 
 #: libraries/normalization.lib.php:544
 msgid "The third step of normalization is complete."
@@ -9274,16 +9285,23 @@ msgid ""
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
 msgstr ""
+"Voor elke onderstaande kolom, selecteer a.u.b. de <b>minimale verzameling</b>"
+" van kolommen van de gegeven verzameling, waarvan de gecombineerde waarden "
+"toereikend zijn om de waarde van de kolom te determineren.<br />Opmerking: "
+"Een kolom heeft niet altijd transitieve afhankelijkheden, in dat geval hoeft "
+"u geen kolom te selecteren."
 
 #: libraries/normalization.lib.php:739
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
+"Transitieve afhankelijkheden zijn niet mogelijk omdat de tabel geen kolommen "
+"met niet-primaire indexsleutels bevat"
 
 #: libraries/normalization.lib.php:743
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "Tabel is al in de derde normaal vorm!"
 
 #: libraries/normalization.lib.php:766
 msgid "Improve table structure (Normalization):"
@@ -9291,31 +9309,35 @@ msgstr "Verbeter tabelstructuur (Normalisatie):"
 
 #: libraries/normalization.lib.php:767
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "Kies tot welke stap u wilt normaliseren"
 
 #: libraries/normalization.lib.php:770
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "Tweede stap van normalisatie (1NF+2NF)"
 
 #: libraries/normalization.lib.php:771
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "Derde stap van normalisatie (1NF+2NF+3NF)"
 
 #: libraries/normalization.lib.php:778
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
+"Tip: Gelieve de procedure zorgvuldig te volgen om de correcte normalisatie "
+"te verkrijgen"
 
 #: libraries/normalization.lib.php:839
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
+"Deze lijst is gebaseerd op een deelverzameling van de data in de tabel en "
+"niet noodzakelijk accuraat. "
 
 #: libraries/normalization.lib.php:855
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "Geen gedeeltelijke afhankelijkheden gevonden!"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to:"
@@ -10308,10 +10330,13 @@ msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"Afbeelding verzend functionaliteit welke ook een miniatuur vertoond. De "
+"opties zijn de breedte en hoogte van de miniatuur in pixels. De "
+"standaardwaarde is 100 X 100 pixels."
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:78
 msgid "Image preview here"
-msgstr ""
+msgstr "Voorbeeld van de afbeelding hier"
 
 #: libraries/plugins/transformations/abstract/InlineTransformationsPlugin.class.php:33
 msgid ""
