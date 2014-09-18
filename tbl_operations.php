@@ -80,8 +80,10 @@ $pmaString = $GLOBALS['PMA_String'];
  * If the table has to be moved to some other database
  */
 if (isset($_REQUEST['submit_move']) || isset($_REQUEST['submit_copy'])) {
-    $_message = '';
-    include_once 'tbl_move_copy.php';
+    //$_message = '';
+    PMA_moveOrCopyTable($db, $table);
+    // This was ended in an Ajax call
+    exit;
 }
 /**
  * If the table has to be maintained

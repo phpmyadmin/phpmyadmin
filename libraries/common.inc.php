@@ -405,7 +405,6 @@ $goto_whitelist = array(
     'tbl_create.php',
     'tbl_import.php',
     'tbl_indexes.php',
-    'tbl_move_copy.php',
     'tbl_printview.php',
     'tbl_sql.php',
     'tbl_export.php',
