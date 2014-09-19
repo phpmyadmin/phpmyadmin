@@ -1633,9 +1633,8 @@ function PMA_moveOrCopyTable($db, $table)
             } else {
                 $message = PMA_Message::error(__('Can\'t copy table to same one!'));
             }
-            $result = false;
         } else {
-            $result = PMA_Table::moveCopy(
+            PMA_Table::moveCopy(
                 $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name'],
                 $_REQUEST['what'], isset($_REQUEST['submit_move']), 'one_table'
             );
@@ -1660,8 +1659,6 @@ function PMA_moveOrCopyTable($db, $table)
             if (isset($_REQUEST['submit_move'])
                 || PMA_isValid($_REQUEST['switch_to_new'])
             ) {
-                $db    = $_REQUEST['target_db'];
-                $table = $_REQUEST['new_name'];
             }
         }
     } else {
@@ -1669,7 +1666,6 @@ function PMA_moveOrCopyTable($db, $table)
          * No new name for the table!
          */
         $message = PMA_Message::error(__('The table name is empty!'));
-        $result = false;
     }
 
     if ($GLOBALS['is_ajax_request'] == true) {
@@ -1677,10 +1673,6 @@ function PMA_moveOrCopyTable($db, $table)
         $response->addJSON('message', $message);
         if ($message->isSuccess()) {
             $response->addJSON('db', $GLOBALS['db']);
-            $response->addJSON(
-                'sql_query',
-                PMA_Util::getMessage(null, $sql_query)
-            );
         } else {
             $response->isSuccess(false);
         }
