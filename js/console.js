@@ -6,14 +6,6 @@
  */
 
 /**
- * Executed on page load
- */
-$(function () {
-    PMA_console.initialize();
-});
-
-
-/**
  * Console object
  */
 var PMA_console = {
@@ -915,3 +907,10 @@ var PMA_consoleBookmarks = {
         });
     }
 };
+
+/**
+ * Executed on page load
+ */
+$(function () {
+    PMA_console.initialize();
+});
