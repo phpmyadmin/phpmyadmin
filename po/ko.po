@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-27 08:27-0400\n"
-"PO-Revision-Date: 2014-09-14 21:06+0200\n"
+"PO-Revision-Date: 2014-09-20 07:06+0200\n"
 "Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/>"
 "\n"
@@ -602,14 +602,13 @@ msgstr ""
 "에 붙여넣으십시오."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "접근이 거부되었습니다!"
+msgstr "성공함"
 
 #: import.php:58 js/messages.php:434
 msgid "Failed"
-msgstr ""
+msgstr "실패함"
 
 #: import.php:62
 #, fuzzy
@@ -1905,7 +1904,7 @@ msgstr ""
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
-msgstr ""
+msgstr "잠시 기다리십시오! 데이터의 크기와 열의 갯수에 따라 수 초 가량 시간이 걸릴 수 있습니다."
 
 #: js/messages.php:325
 msgid "Step"
@@ -2139,10 +2138,9 @@ msgid "Successfully deleted the page"
 msgstr "페이지 삭제 성공"
 
 #: js/messages.php:409
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "관계 스키마를 수정 또는 내보내기"
+msgstr "관계 스키마를 내보내기"
 
 #: js/messages.php:410
 msgid "Modifications have been saved"
@@ -2241,10 +2239,9 @@ msgid "Drop files here"
 msgstr "로그 파일 스레시홀드"
 
 #: js/messages.php:438
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select database first"
-msgstr "테이블 선택"
+msgstr "데이터베이스를 먼저 선택하세요"
 
 #: js/messages.php:443
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2396,16 +2393,14 @@ msgid ""
 msgstr "각 설정은 현재 전송중입니다. 기다려주세요."
 
 #: js/messages.php:523
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "이 질의를 다시 보여줌"
+msgstr "이 질의를 다시 실행합니까?"
 
 #: js/messages.php:524
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "\"%s\" 검색을 삭제하겠습니까?"
+msgstr "정말 이 북마크를 삭제하겠습니까?"
 
 #: js/messages.php:555
 msgctxt "Previous month"
@@ -2766,11 +2761,11 @@ msgid "Delete"
 msgstr "삭제"
 
 #: libraries/Console.class.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "New bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "새 북마크"
+msgstr[0] "총 %d 개의 북마크"
 
 #: libraries/Console.class.php:114
 msgid "private"
@@ -2821,14 +2816,13 @@ msgid "Queried time"
 msgstr "질의 실행 시간"
 
 #: libraries/Console.class.php:185
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "SQL 질의 상자"
+msgstr "SQL 질의 콘솔"
 
 #: libraries/Console.class.php:186
 msgid "Console"
-msgstr ""
+msgstr "콘솔"
 
 #: libraries/Console.class.php:189 libraries/sql_query_form.lib.php:236
 #: setup/frames/index.inc.php:297
@@ -2906,10 +2900,9 @@ msgid "Label"
 msgstr "레이블"
 
 #: libraries/Console.class.php:270
-#, fuzzy
 #| msgid "Create database"
 msgid "Target database"
-msgstr "새 데이터베이스 만들기"
+msgstr "대상 데이터베이스"
 
 #: libraries/Console.class.php:273
 #| msgid "Create bookmark"
@@ -7390,7 +7383,7 @@ msgstr "OpenDocument 형식"
 #: libraries/core.lib.php:287
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "%s 확장기능이 설치되지 않았습니다. PHP의 설정을 확인하십시오."
 
 #: libraries/core.lib.php:447
 msgid "possible deep recursion attack"
@@ -7419,10 +7412,9 @@ msgid "Page to open"
 msgstr "페이지 제목"
 
 #: libraries/db_designer.lib.php:34
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Page to delete"
-msgstr "릴레이션 제거됨"
+msgstr "삭제할 페이지"
 
 #: libraries/db_designer.lib.php:38 libraries/db_designer.lib.php:77
 msgid "Select page"
