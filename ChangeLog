@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.2.9.0 (not yet released)
+4.2.9.0 (2014-09-20)
 - bug       ajax.js responseHandler: cannot read property of null
 - bug       sql.js: str is undefined
 - bug #4524 Allow for direct selection of "0" on the "user overview" page
