@@ -6,14 +6,6 @@
  */
 
 /**
- * Executed on page load
- */
-$(function () {
-    PMA_console.initialize();
-});
-
-
-/**
  * Console object
  */
 var PMA_console = {
@@ -86,15 +78,17 @@ var PMA_console = {
         PMA_console.$consoleTemplates = $('#pma_console>.templates');
 
         // Generate a from for post
-        PMA_console.$requestForm = $('<form method="post" action="import.php">'
-            + '<input name="is_js_confirmed" value="0">'
-            + '<textarea name="sql_query"></textarea>'
-            + '<input name="console_message_id" value="0">'
-            + '<input name="db" value="">'
-            + '<input name="table" value="">'
-            + '<input name="token" value="'
-            + PMA_commonParams.get('token') + '">'
-            + '</form>');
+        PMA_console.$requestForm = $('<form method="post" action="import.php">' +
+            '<input name="is_js_confirmed" value="0">' +
+            '<textarea name="sql_query"></textarea>' +
+            '<input name="console_message_id" value="0">' +
+            '<input name="db" value="">' +
+            '<input name="table" value="">' +
+            '<input name="token" value="' +
+            PMA_commonParams.get('token') +
+            '">' +
+            '</form>'
+        );
         PMA_console.$requestForm.bind('submit', AJAX.requestHandler);
 
         // Event binds shouldn't run again
@@ -915,3 +909,10 @@ var PMA_consoleBookmarks = {
         });
     }
 };
+
+/**
+ * Executed on page load
+ */
+$(function () {
+    PMA_console.initialize();
+});

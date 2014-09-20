@@ -397,8 +397,8 @@ var AJAX = {
                     });
                     // In case of 'sendErrorReport'='always'
                     // submit the hidden error reporting form.
-                    if (data._sendErrorAlways == '1'
-                        && data._stopErrorReportLoop != '1'
+                    if (data._sendErrorAlways == '1' &&
+                        data._stopErrorReportLoop != '1'
                     ) {
                         $("#pma_report_errors_form").submit();
                         PMA_ajaxShowMessage(PMA_messages.phpErrorsBeingSubmitted, false);
