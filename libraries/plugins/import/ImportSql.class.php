@@ -207,10 +207,7 @@ class ImportSql extends ImportPlugin
                 } else {
                     $first_position = $big_value;
                 }
-                /**
-                 * @todo we should not look for a delimiter that might be
-                 *       inside quotes (or even double-quotes)
-                 */
+
                 // the cost of doing this one with preg_match() would be too high
                 $first_sql_delimiter = $pmaString->strpos(
                     $buffer,
