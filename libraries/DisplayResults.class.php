@@ -5138,10 +5138,10 @@ class PMA_DisplayResults
     /**
      * Prepare table navigation bar at the top or bottom
      *
-     * @param integer $pos_next   the offset for the "next" page
-     * @param integer $pos_prev   the offset for the "previous" page
-     * @param string  $place      the place to show navigation
-     * @param boolean $is_innodb  whether its InnoDB or not
+     * @param integer $pos_next  the offset for the "next" page
+     * @param integer $pos_prev  the offset for the "previous" page
+     * @param string  $place     the place to show navigation
+     * @param boolean $is_innodb whether its InnoDB or not
      *
      * @return  string  html content of navigation bar
      *
