@@ -43,7 +43,9 @@ phpMyAdmin - ChangeLog
 + rfe #1529 Avoid session timeout when user is active
 - bug #4528 Can't import dump via SQL field
 
-4.2.9.0 (not yet released)
+4.2.10.0 (not yet released)
+
+4.2.9.0 (2014-09-20)
 - bug       ajax.js responseHandler: cannot read property of null
 - bug       sql.js: str is undefined
 - bug #4524 Allow for direct selection of "0" on the "user overview" page
@@ -52,7 +54,7 @@ phpMyAdmin - ChangeLog
 - bug       ajax.js responseHandler: another "cannot read property"
 - bug       tbl_structure.js "cannot read property"
 
-4.2.8.1 (not yet released)
+4.2.8.1 (2014-09-13)
 - bug #4530 [security] DOM based XSS that results to a CSRF that creates a
             ROOT account in certain conditions
 
