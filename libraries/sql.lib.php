@@ -2406,9 +2406,9 @@ function PMA_getStartPosToDisplayRow($number_of_line, $max_rows = null)
  * Function to calculate new pos if pos is higher than number of rows
  * of displayed table
  *
- * @param String $db    Database name
- * @param String $table Table name
- * @param Int    $pos   Initial position
+ * @param String   $db    Database name
+ * @param String   $table Table name
+ * @param Int|null $pos   Initial position
  *
  * @return Int Number of pos to display last page
  */

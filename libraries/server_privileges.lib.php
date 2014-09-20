@@ -78,14 +78,15 @@ function PMA_rangeOfUsers($initial = '')
 {
     // strtolower() is used because the User field
     // might be BINARY, so LIKE would be case sensitive
-    if (! empty($initial)) {
-        $ret = " WHERE `User` LIKE '"
-            . PMA_Util::sqlAddSlashes($initial, true) . "%'"
-            . " OR `User` LIKE '"
-            . PMA_Util::sqlAddSlashes(strtolower($initial), true) . "%'";
-    } else {
-        $ret = '';
+    if ($initial === null || $initial === '') {
+        return '';
     }
+
+    $ret = " WHERE `User` LIKE '"
+        . PMA_Util::sqlAddSlashes($initial, true) . "%'"
+        . " OR `User` LIKE '"
+        . PMA_Util::sqlAddSlashes(strtolower($initial), true) . "%'";
+
     return $ret;
 } // end function
 
@@ -3200,22 +3201,25 @@ function PMA_getHtmlForInitials($array_initials)
     $html_output = '<table id="initials_table" cellspacing="5">'
         . '<tr>';
     foreach ($array_initials as $tmp_initial => $initial_was_found) {
-        if (! empty($tmp_initial)) {
-            if ($initial_was_found) {
-                $html_output .= '<td>'
-                    . '<a class="ajax'
-                    . ((isset($_REQUEST['initial'])
-                        && $_REQUEST['initial'] === $tmp_initial
-                        ) ? ' active' : '')
-                    . '" href="server_privileges.php'
-                    . PMA_URL_getCommon(array('initial' => $tmp_initial))
-                    . '">' . $tmp_initial
-                    . '</a>'
-                    . '</td>' . "\n";
-            } else {
-                $html_output .= '<td>' . $tmp_initial . '</td>';
-            }
+        if ($tmp_initial === null) {
+            continue;
         }
+
+        if (!$initial_was_found) {
+            $html_output .= '<td>' . $tmp_initial . '</td>';
+            continue;
+        }
+
+        $html_output .= '<td>'
+            . '<a class="ajax'
+            . ((isset($_REQUEST['initial'])
+                && $_REQUEST['initial'] === $tmp_initial
+                ) ? ' active' : '')
+            . '" href="server_privileges.php'
+            . PMA_URL_getCommon(array('initial' => $tmp_initial))
+            . '">' . $tmp_initial
+            . '</a>'
+            . '</td>' . "\n";
     }
     $html_output .= '<td>'
         . '<a href="server_privileges.php'

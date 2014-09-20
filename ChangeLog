@@ -1,6 +1,15 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.2.9.0 (2014-09-20)
+- bug       ajax.js responseHandler: cannot read property of null
+- bug       sql.js: str is undefined
+- bug #4524 Allow for direct selection of "0" on the "user overview" page
+- bug #4529 Undefined index: pos
+- bug #4523 tbl_change.js: insert as new row submit type on multiple selected records does not set all AUTO_INCREMENTs to 0 value
+- bug       ajax.js responseHandler: another "cannot read property"
+- bug       tbl_structure.js "cannot read property"
+
 4.2.8.1 (2014-09-13)
 - bug #4530 [security] DOM based XSS that results to a CSRF that creates a
             ROOT account in certain conditions

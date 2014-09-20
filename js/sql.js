@@ -18,7 +18,9 @@ var prevScrollX = 0, fixedTop;
  */
 function PMA_urldecode(str)
 {
-    return decodeURIComponent(str.replace(/\+/g, '%20'));
+    if (typeof str !== 'undefined') {
+        return decodeURIComponent(str.replace(/\+/g, '%20'));
+    }
 }
 
 /**
@@ -29,7 +31,9 @@ function PMA_urldecode(str)
  */
 function PMA_urlencode(str)
 {
-    return encodeURIComponent(str).replace(/\%20/g, '+');
+    if (typeof str !== 'undefined') {
+        return encodeURIComponent(str).replace(/\%20/g, '+');
+    }
 }
 
 /**
@@ -583,7 +587,7 @@ function rearrangeStickyColumns() {
     var $clonedHeader = $originalHeader.clone();
     // clone width per cell
     $clonedHeader.find("tr:first").children().width(function(i,val) {
-        return $originalColumns.eq(i).width();
+        return Math.floor($originalColumns.eq(i).width()) + 1;
     });
     $sticky_columns.empty().append($clonedHeader);
 }
