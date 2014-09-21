@@ -852,6 +852,12 @@ class PMA_Config
             $this->setSource($source);
         }
 
+        /**
+         * We check and set the font size at this point, to make the font size
+         * selector work also for users without a config.inc.php
+         */
+        $this->checkFontsize();
+
         if (! $this->checkConfigSource()) {
             return false;
         }
@@ -905,7 +911,7 @@ class PMA_Config
 
         $this->settings = PMA_arrayMergeRecursive($this->settings, $cfg);
         $this->checkPmaAbsoluteUri();
-        $this->checkFontsize();
+
         // Handling of the collation must be done after merging of $cfg
         // (from config.inc.php) so that $cfg['DefaultConnectionCollation']
         // can have an effect.
