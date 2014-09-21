@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-27 08:27-0400\n"
-"PO-Revision-Date: 2014-09-19 00:20+0200\n"
+"PO-Revision-Date: 2014-09-21 21:41+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
 "\n"
@@ -912,7 +912,6 @@ msgstr ""
 "uitgebreide mogelijkheden zijn uitgeschakeld. %sOntdek waarom%s. "
 
 #: index.php:523
-#, fuzzy
 msgid ""
 "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or alternately go to 'Operations' "
 "tab of any database to set it up there."
@@ -8524,7 +8523,6 @@ msgstr ""
 "worden."
 
 #: libraries/import.lib.php:1775
-#, fuzzy
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -9087,7 +9085,6 @@ msgid "Add a primary key on existing column(s)"
 msgstr "Een primaire sleutel toevoegen op bestaande kolom(men)"
 
 #: libraries/normalization.lib.php:186
-#, fuzzy
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
@@ -9103,7 +9100,6 @@ msgid "Remove redundant columns"
 msgstr "Verwijder overbodige kolommen"
 
 #: libraries/normalization.lib.php:211
-#, fuzzy
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
@@ -9112,7 +9108,7 @@ msgstr ""
 "Hebt u een groep kolommen welke gecombineerd de waarde van een bestaande "
 "kolom geeft? Bijvoorbeeld, als u voor_naam, achter_naam en volledige_naam "
 "hebt, geeft de combinatie van voor_naam en achter_naam dezelfde waarde als "
-"volledige_naam, wat dubbel op is."
+"volledige_naam, wat dubbelop is."
 
 #: libraries/normalization.lib.php:217
 msgid ""
@@ -9149,13 +9145,12 @@ msgstr ""
 "tabel (boek_id, auteur) gemaakt moeten worden."
 
 #: libraries/normalization.lib.php:255
-#, fuzzy
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
 "Controleer de kolommen of deze een herhalende groep vormen. Als een "
-"dergelijke groep niet aanwezig is, klik op 'Geen herhalende groep'"
+"dergelijke groep niet aanwezig is, klik dan op 'Geen herhalende groep'"
 
 #: libraries/normalization.lib.php:261
 msgid "No repeating group"
@@ -10369,11 +10364,14 @@ msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"Valideert de tekst met behulp van een reguliere expressie en voert het "
+"invoegen alleen uit als de tekst overeenkomt. De eerste optie is de "
+"Reguliere Expressie."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "Validatie mislukt voor de ingevoerde tekst %s."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -10399,6 +10397,8 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"Bestand verzend functionaliteit voor TEXT kolommen. Deze bevat geen tekstvak "
+"voor invoer."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -11753,7 +11753,7 @@ msgstr "Toekennen"
 
 #: libraries/server_privileges.lib.php:2020
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "Niet genoeg rechten om gebruikers in te zien."
 
 # Enkelvoud.
 #: libraries/server_privileges.lib.php:2039
@@ -11908,6 +11908,8 @@ msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
+"Opmerking: U probeert de rechten te wijzigen van de gebruikersnaam waarmee u "
+"op dit moment ingelogd bent."
 
 #: libraries/server_privileges.lib.php:3885 libraries/server_users.lib.php:25
 msgid "Users overview"
@@ -13173,7 +13175,7 @@ msgstr "Laat deze query hier zien"
 
 #: libraries/sql_query_form.lib.php:329
 msgid "Rollback when finished"
-msgstr ""
+msgstr "Draai terug wanneer gereed"
 
 #: libraries/sql_query_form.lib.php:382
 msgid "View only"
@@ -13806,6 +13808,8 @@ msgstr "Beperkingseigenschappen"
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
+"Alleen kolommen met een index zullen worden weergegeven. U kunt hieronder "
+"een index definiëren."
 
 #: libraries/tbl_relation.lib.php:384
 msgid "Foreign key constraint"
@@ -14357,7 +14361,7 @@ msgstr "De tabelnaam is leeg!"
 #: tbl_replace.php:236
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "Rij: %1$s, Kolom: %2$s, Fout: %3$s"
 
 #: tbl_structure.php:93
 msgid "No column selected."
