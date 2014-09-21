@@ -36,11 +36,7 @@ PMA_Util::checkParameters(array('db'));
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-if ($GLOBALS['PMA_String']->strlen($table)) {
-    $err_url = 'tbl_sql.php?' . PMA_URL_getCommon($db, $table);
-} else {
-    $err_url = 'db_sql.php?' . PMA_URL_getCommon($db);
-}
+$err_url = 'db_sql.php?' . PMA_URL_getCommon($db);
 
 if ($cfgRelation['commwork']) {
     $comment = PMA_getDbComment($db);
