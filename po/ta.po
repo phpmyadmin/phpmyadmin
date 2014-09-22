@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-27 08:27-0400\n"
-"PO-Revision-Date: 2014-09-22 22:28+0200\n"
+"PO-Revision-Date: 2014-09-22 22:35+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -913,6 +913,8 @@ msgid ""
 "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or alternately go to 'Operations' "
 "tab of any database to set it up there."
 msgstr ""
+"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;அல்லது மாற்றாக எதேனும் தரவுத்தளத்தின்"
+" 'செயல்பாடுகள்' தத்தலுக்கு சென்று அங்கு அமைத்துக்கொள்க."
 
 #: index.php:564
 #, php-format
