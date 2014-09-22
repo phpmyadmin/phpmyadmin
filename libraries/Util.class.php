@@ -444,6 +444,7 @@ class PMA_Util
     {
         // Fixup for newly used names:
         $link = str_replace('_', '-', strtolower($link));
+        $anchor = str_replace('_', '-', strtolower($anchor));
 
         if (empty($link)) {
             $link = 'index';
