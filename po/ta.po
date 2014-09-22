@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-27 08:27-0400\n"
-"PO-Revision-Date: 2014-09-22 22:25+0200\n"
+"PO-Revision-Date: 2014-09-22 22:27+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2136,7 +2136,7 @@ msgstr "தொடர்புசார் ஒழுங்கமைப்பை �
 
 #: js/messages.php:410
 msgid "Modifications have been saved"
-msgstr ""
+msgstr "மாற்றங்களை சேமிக்க"
 
 #: js/messages.php:413
 #, php-format
@@ -9610,10 +9610,10 @@ msgid "PDF export page"
 msgstr "PDF தரவேற்ற பக்கம்"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:473
-#, fuzzy, php-format
+#, php-format
 #| msgid "Search in database"
 msgid "Schema of the %s database"
-msgstr "தரவுத்தளத்தில் தேடு"
+msgstr "%s தரவுத்தளத்தின் ஒழுங்கமைவு"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:496
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:916
