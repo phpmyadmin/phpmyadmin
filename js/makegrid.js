@@ -741,6 +741,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 $editArea.empty();
                 $editArea.removeClass('edit_area_right');
 
+                // remember this instead of testing more than once
+                var is_null = $td.is('.null');
+
                 // add show data row link if the data resulted by 'browse distinct values' in table structure
                 if ($td.find('input').hasClass('data_browse_link')) {
                     var showDataRowLink = document.createElement('div');
@@ -764,7 +767,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                     var $checkbox = $editArea.find('.null_div input');
                     // check if current <td> is NULL
-                    if ($td.is('.null')) {
+                    if (is_null) {
                         $checkbox.prop('checked', true);
                         g.wasEditedCellNull = true;
                     }
@@ -991,7 +994,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     var $input_field = $(g.cEdit).find('.edit_box');
 
                     // remember current datetime value in $input_field, if it is not null
-                    var is_null = $td.is('.null');
                     var current_datetime_value = !is_null ? $input_field.val() : '';
 
                     var showMillisec = false;
@@ -1024,7 +1026,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     var edit_area_top = $('#ui-datepicker-div').height()+32;
                     $(g.cEdit).find('.edit_area').css({'top' : edit_area_top+'px', 'position': 'absolute'});
 
-                    if(is_null){
+                    if (is_null){
                         $(g.cEdit).find('.edit_area').hide();
                     }
 
