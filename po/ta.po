@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-27 08:27-0400\n"
-"PO-Revision-Date: 2014-09-22 22:15+0200\n"
+"PO-Revision-Date: 2014-09-22 22:25+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -6265,10 +6265,9 @@ msgid "Default sort order for tables with a primary key."
 msgstr ""
 
 #: libraries/config/messages.inc.php:526
-#, fuzzy
 #| msgid "Primary key added."
 msgid "Primary key default sort order"
-msgstr "முதனிலை குறிப்பெழுத்து சேர்க்கப்பட்டது."
+msgstr "முதனிலை குறிப்பெழுத்தின் முன்னிருப்பு அடுக்குமுறை"
 
 #: libraries/config/messages.inc.php:528
 msgid ""
