@@ -1043,7 +1043,7 @@ class ExportSql extends ExportPlugin
         // with $GLOBALS['dbi']->numRows() in mysqli
         $result = $GLOBALS['dbi']->query(
             'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db)
-            . ' LIKE \'' . PMA_Util::sqlAddSlashes($table, true) . '\'',
+            . ' WHERE Name = \'' . PMA_Util::sqlAddSlashes($table) . '\'',
             null,
             PMA_DatabaseInterface::QUERY_STORE
         );
@@ -1363,10 +1363,11 @@ class ExportSql extends ExportPlugin
                             " AUTO_INCREMENT", "", $sql_lines[$k]
                         );
                     }
-                    if ($update_indexes_increments && preg_match(
-                        '@[\s]+(AUTO_INCREMENT=)@',
-                        $sql_lines[$k]
-                    )) {
+                    if (isset($GLOBALS['sql_auto_increment'])
+                        && $update_indexes_increments && preg_match(
+                            '@[\s]+(AUTO_INCREMENT=)@',
+                            $sql_lines[$k]
+                        )) {
                         //adds auto increment value
                         $increment_value = substr(
                             $sql_lines[$k],
@@ -1480,13 +1481,16 @@ class ExportSql extends ExportPlugin
         // that could be there starting with MySQL 5.0.24
         // in Drizzle it's useless as it contains the value given at table
         // creation time
-        $schema_create = preg_replace(
-            '/AUTO_INCREMENT\s*=\s*([0-9])+/',
-            '',
-            $schema_create
-        );
-
-        $schema_create .= ($compat != 'MSSQL') ? $auto_increment : '';
+        if (preg_match('/AUTO_INCREMENT\s*=\s*([0-9])+/', $schema_create)) {
+            if ($compat == 'MSSQL' || $auto_increment == '') {
+                $auto_increment = ' ';
+            }
+            $schema_create = preg_replace(
+                '/\sAUTO_INCREMENT\s*=\s*([0-9])+\s/',
+                $auto_increment,
+                $schema_create
+            );
+        }
 
         $GLOBALS['dbi']->freeResult($result);
         return $schema_create . ($add_semicolon ? ';' . $crlf : '');

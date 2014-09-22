@@ -159,14 +159,14 @@ function PMA_generateRelationalDropdown(
 /**
  * Function to get html for the common form
  *
- * @param string $db                 current database
- * @param string $table              current table
- * @param array  $columns            columns
- * @param array  $cfgRelation        configuration relation
- * @param string $tbl_storage_engine table storage engine
- * @param array  $existrel           db, table, column
- * @param array  $existrel_foreign   db, table, column
- * @param array  $options_array      options array
+ * @param string     $db                 current database
+ * @param string     $table              current table
+ * @param array      $columns            columns
+ * @param array      $cfgRelation        configuration relation
+ * @param string     $tbl_storage_engine table storage engine
+ * @param array|null $existrel           db, table, column
+ * @param array|null $existrel_foreign   db, table, column
+ * @param array      $options_array      options array
  *
  * @return string
  */
@@ -554,7 +554,7 @@ function PMA_getHtmlForForeignKey($save_row, $i, $existrel_foreign, $myfield, $d
         $html_output .= __('Constraint name');
         $html_output .= '<input type="text" name="constraint_name['
             . $myfield_md5 . ']"'
-            . ' value="' . $constraint_name . '"/>';
+            . ' value="' . htmlspecialchars($constraint_name) . '"/>';
         $html_output .= '</span>' . "\n";
 
         $html_output .= '<span class="formelement clearfloat">';

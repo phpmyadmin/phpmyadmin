@@ -48,14 +48,17 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
     if ($curr_last_row.length) {
         // at least one tr exists inside the tbody
         var $curr_first_row = $("#usersForm").find('tbody').find('tr:first');
-        var first_row_initial = $curr_first_row.find('label').html().substr(0, 1).toUpperCase();
-        var curr_shown_initial = $curr_last_row.find('label').html().substr(0, 1).toUpperCase();
-        var curr_last_row_index_string = $curr_last_row.find('input:checkbox').attr('id').match(/\d+/)[0];
-        var curr_last_row_index = parseFloat(curr_last_row_index_string);
-        var new_last_row_index = curr_last_row_index + 1;
-        var is_show_all = (first_row_initial != curr_shown_initial) ? true : false;
-        var $insert_position = $curr_last_row;
-        var dummy_tr_inserted = false;
+        var $first_row_label = $curr_first_row.find('label');
+        if ($first_row_label.length) {
+            var first_row_initial = $first_row_label.html().substr(0, 1).toUpperCase();
+            var curr_shown_initial = $curr_last_row.find('label').html().substr(0, 1).toUpperCase();
+            var curr_last_row_index_string = $curr_last_row.find('input:checkbox').attr('id').match(/\d+/)[0];
+            var curr_last_row_index = parseFloat(curr_last_row_index_string);
+            var new_last_row_index = curr_last_row_index + 1;
+            var is_show_all = (first_row_initial != curr_shown_initial) ? true : false;
+            var $insert_position = $curr_last_row;
+            var dummy_tr_inserted = false;
+        }
     } else {
         // no tr exists inside the tbody
         var $tbody = $("#usersForm").find('tbody');

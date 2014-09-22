@@ -50,12 +50,18 @@ class PMA_Scripts
      */
     private function _includeFiles($files)
     {
+        $first_dynamic_scripts = "";
         $dynamic_scripts = "";
         $scripts = array();
         foreach ($files as $value) {
             if (strpos($value['filename'], "?") !== false) {
-                $dynamic_scripts .= "<script type='text/javascript' src='js/"
-                    . $value['filename'] . "'></script>";
+                if ($value['before_statics'] === true) {
+                    $first_dynamic_scripts .= "<script type='text/javascript' src='js/"
+                        . $value['filename'] . "'></script>";
+                } else {
+                    $dynamic_scripts .= "<script type='text/javascript' src='js/"
+                        . $value['filename'] . "'></script>";
+                }
                 continue;
             }
             $include = true;
@@ -83,7 +89,7 @@ class PMA_Scripts
             '<script type="text/javascript" src="%s"></script>',
             htmlspecialchars($url)
         );
-        return $static_scripts . $dynamic_scripts;
+        return $first_dynamic_scripts . $static_scripts . $dynamic_scripts;
     }
 
     /**
@@ -105,10 +111,12 @@ class PMA_Scripts
      * @param string $filename       The name of the file to include
      * @param bool   $conditional_ie Whether to wrap the script tag in
      *                               conditional comments for IE
+     * @param bool   $before_statics Whether this dynamic script should be
+     *                               included before the static ones
      *
      * @return void
      */
-    public function addFile($filename, $conditional_ie = false)
+    public function addFile($filename, $conditional_ie = false, $before_statics = false)
     {
         $hash = md5($filename);
         if (!empty($this->_files[$hash])) {
@@ -119,7 +127,8 @@ class PMA_Scripts
         $this->_files[$hash] = array(
             'has_onload' => $has_onload,
             'filename' => $filename,
-            'conditional_ie' => $conditional_ie
+            'conditional_ie' => $conditional_ie,
+            'before_statics' => $before_statics
         );
     }
 

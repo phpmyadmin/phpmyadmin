@@ -224,7 +224,9 @@ class ImportOds extends ImportPlugin
                             if (! $col_names_in_first_row) {
                                 $tempRow[] = $value;
                             } else {
-                                $col_names[] = $value;
+                                // MySQL column names can't end with a space
+                                // character.
+                                $col_names[] = rtrim($value);
                             }
 
                             ++$col_count;

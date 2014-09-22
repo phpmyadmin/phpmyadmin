@@ -234,7 +234,10 @@ var AJAX = {
      * @return void
      */
     responseHandler: function (data) {
-        if (data.success) {
+        if (typeof data === 'undefined' || data === null) {
+            return;
+        }
+        if (typeof data.success != 'undefined' && data.success) {
             $table_clone = false;
             PMA_ajaxRemoveMessage(AJAX.$msgbox);
 
@@ -780,9 +783,16 @@ AJAX.setUrlHash = (function (jQuery, window) {
     if (window.location.hash.substring(0, 8) == '#PMAURL-') {
         // We have a valid hash, let's redirect the user
         // to the page that it's pointing to
-        window.location = window.location.hash.substring(
-            window.location.hash.indexOf(':') + 1
-        );
+        var colon_position = window.location.hash.indexOf(':');
+        var questionmark_position = window.location.hash.indexOf('?');
+        if (colon_position != -1 && questionmark_position != -1 && colon_position < questionmark_position) {
+            var hash_url = window.location.hash.substring(colon_position + 1, questionmark_position);
+            if (PMA_gotoWhitelist.indexOf(hash_url) != -1) {
+                window.location = window.location.hash.substring(
+                    colon_position + 1
+                );
+            }
+        }
     } else {
         // We don't have a valid hash, so we'll set it up
         // when the page finishes loading

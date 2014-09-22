@@ -582,6 +582,10 @@ class ImportCsv extends AbstractImportCsv
             if (isset($_REQUEST['csv_col_names'])) {
                 $col_names = array_splice($rows, 0, 1);
                 $col_names = $col_names[0];
+                // MySQL column names can't end with a space character.
+                foreach ($col_names as $key => $col_name) {
+                    $col_names[$key] = rtrim($col_name);
+                }
             }
 
             if ((isset($col_names) && count($col_names) != $max_cols)
