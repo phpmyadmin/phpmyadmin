@@ -450,6 +450,7 @@ class PMA_Util
     {
         // Fixup for newly used names:
         $link = str_replace('_', '-', $GLOBALS['PMA_String']->strtolower($link));
+        $anchor = str_replace('_', '-', $GLOBALS['PMA_String']->strtolower($anchor));
 
         if (empty($link)) {
             $link = 'index';
