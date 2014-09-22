@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-27 08:27-0400\n"
-"PO-Revision-Date: 2014-09-22 22:35+0200\n"
+"PO-Revision-Date: 2014-09-22 22:38+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -3313,7 +3313,7 @@ msgstr "விளக்கப்படத்தை காட்டுக"
 
 #: libraries/DisplayResults.class.php:5365
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "GIS தரவை காட்சிப்படுத்துக"
 
 #: libraries/DisplayResults.class.php:5592
 msgid "Link not found!"
