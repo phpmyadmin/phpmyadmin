@@ -248,7 +248,6 @@ function PMA_SQP_parse($sql)
 
     $sql_array               = array();
     $sql_array['raw']        = $sql;
-    $count1                  = 0;
     $count2                  = 0;
     $punct_queryend          = ';';
     $punct_qualifier         = '.';
@@ -271,15 +270,10 @@ function PMA_SQP_parse($sql)
     $quote_list              = '\'"`';
     $arraysize               = 0;
 
-    $previous_was_space   = false;
     $this_was_space       = false;
-    $previous_was_bracket = false;
     $this_was_bracket     = false;
-    $previous_was_punct   = false;
     $this_was_punct       = false;
-    $previous_was_listsep = false;
     $this_was_listsep     = false;
-    $previous_was_quote   = false;
     $this_was_quote       = false;
 
     while ($count2 < $len) {
@@ -760,25 +754,20 @@ function PMA_SQP_parse($sql)
     if ($arraysize > 0) {
         $t_next           = $sql_array[0]['type'];
         $t_prev           = '';
-        $t_bef_prev       = '';
         $t_cur            = '';
         $d_next           = $sql_array[0]['data'];
         $d_prev           = '';
-        $d_bef_prev       = '';
         $d_cur            = '';
         $d_next_upper     = $t_next == 'alpha'
             ? $pmaString->strtoupper($d_next)
             : $d_next;
         $d_prev_upper     = '';
-        $d_bef_prev_upper = '';
         $d_cur_upper      = '';
     }
 
     for ($i = 0; $i < $arraysize; $i++) {
-        $t_bef_prev       = $t_prev;
         $t_prev           = $t_cur;
         $t_cur            = $t_next;
-        $d_bef_prev       = $d_prev;
         $d_prev           = $d_cur;
         $d_cur            = $d_next;
         $d_bef_prev_upper = $d_prev_upper;
