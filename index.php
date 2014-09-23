@@ -89,6 +89,7 @@ if (! empty($message)) {
 }
 
 $common_url_query =  PMA_URL_getCommon('', '');
+$mysql_cur_user_and_host = '';
 
 // when $server > 0, a server has been chosen so we can display
 // all MySQL-related information
