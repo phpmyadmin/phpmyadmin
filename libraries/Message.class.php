@@ -746,7 +746,6 @@ class PMA_Message
      */
     public function getMessageWithIcon($message)
     {
-        $image = '';
         if ('error' == $this->getLevel()) {
             $image = 's_error.png';
         } elseif ('success' == $this->getLevel()) {
