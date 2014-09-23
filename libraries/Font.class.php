@@ -19,12 +19,10 @@ class PMA_Font
     /**
      * Get list with characters and the corresponding width modifiers.
      *
-     * @param string $font name of the font like Arial,sans-serif etc
-     *
      * @return array with characters and corresponding width modifier
      * @access public
      */
-    public static function getCharLists($font)
+    public static function getCharLists()
     {
         // list of characters and their width modifiers
         $charLists = array();
@@ -96,7 +94,7 @@ class PMA_Font
             || !isset($charLists[0]["chars"]) || !is_array($charLists[0]["chars"])
             || !isset($charLists[0]["modifier"])
         ) {
-            $charLists = self::getCharLists($font);
+            $charLists = self::getCharLists();
         }
 
         /*
