@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-08-17 15:57+0200\n"
-"Last-Translator: Alecsandru Prună <alecsandrucpruna@gmail.com>\n"
+"PO-Revision-Date: 2014-09-24 19:48+0200\n"
+"Last-Translator: Raul Malea <raul.malea@gmail.com>\n"
 "Language-Team: Romanian <https://l10n.cihar.com/projects/phpmyadmin/4-2/ro/>"
 "\n"
 "Language: ro\n"
@@ -474,10 +474,9 @@ msgstr "Folosește OpenStreetMap ca strat de bază"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:186
 #, php-format
