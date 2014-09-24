@@ -2504,7 +2504,16 @@ AJAX.registerOnload('functions.js', function () {
                 .submit();
         }
     });
-
+    $("input[value=AUTO_INCREMENT]").change(function(){
+        if (this.checked) {
+            var col = /\d/.exec($(this).attr('name'));
+            col = col[0];
+            var index_val = $('select[name="field_key['+col+']"]').val();
+            if (index_val === 'none_'+col) {
+                $('select[name="field_key['+col+']"]').val('primary_'+col).change();
+            }
+        }
+    });
     $('body')
     .off('click', 'input.preview_sql')
     .on('click', 'input.preview_sql', function () {
@@ -2911,7 +2920,7 @@ function autoPopulate(input_id, offset)
     $('#'+input_id+'5').val(central_column_list[db+'_'+table][offset].col_collation);
     $('#'+input_id+'6').val(central_column_list[db+'_'+table][offset].col_extra);
     if(central_column_list[db+'_'+table][offset].col_extra.toUpperCase() === 'AUTO_INCREMENT') {
-        $('#'+input_id+'9').attr("checked","checked");
+        $('#'+input_id+'9').attr("checked","checked").change();
     } else {
         $('#'+input_id+'9').removeAttr("checked");
     }

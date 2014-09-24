@@ -460,7 +460,7 @@ AJAX.registerTeardown('indexes.js', function () {
     $('a.drop_primary_key_index_anchor.ajax').die('click');
     $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").die('click');
     $('#index_frm input[type=submit]').die('click');
-    $('body').off('click', 'select[name*="field_key"]');
+    $('body').off('change', 'select[name*="field_key"]');
 });
 
 /**
@@ -590,7 +590,7 @@ AJAX.registerOnload('indexes.js', function () {
      * Ajax event handler for advanced index creation during table creation
      * and column addition.
      */
-    $('body').on('click', 'select[name*="field_key"]', function () {
+    $('body').on('change', 'select[name*="field_key"]', function () {
         // Index of column on Table edit and create page.
         var col_index = /\d/.exec($(this).attr('name'));
         col_index = col_index[0];
