@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-09-20 06:59+0200\n"
-"Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
+"PO-Revision-Date: 2014-09-24 15:04+0200\n"
+"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/4-2/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -6158,6 +6158,7 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example."
 msgstr ""
+"[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]인증 타입[/a] 예제를 참조하세요."
 
 #: libraries/config/messages.inc.php:657
 msgid "Signon session name"
@@ -6178,10 +6179,9 @@ msgid "Server socket"
 msgstr "서버 소켓"
 
 #: libraries/config/messages.inc.php:662
-#, fuzzy
 #| msgid "Enable SSL for connection to MySQL server"
 msgid "Enable SSL for connection to MySQL server."
-msgstr "MySQL 서버 연결시 SSL 활성화"
+msgstr "MySQL 서버 연결시 SSL을 활성화합니다."
 
 #: libraries/config/messages.inc.php:663
 msgid "Use SSL"
@@ -6564,7 +6564,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:768
 msgid "List of trusted proxies for IP allow/deny"
-msgstr ""
+msgstr "IP 허용/거부를 위한 신뢰할만한 프록시 목록"
 
 #: libraries/config/messages.inc.php:769
 #, fuzzy
@@ -6644,7 +6644,7 @@ msgstr "프록시 사용자명"
 
 #: libraries/config/messages.inc.php:782
 msgid "The password for authenticating with the proxy."
-msgstr ""
+msgstr "프록시를 이용한 인증에 사용할 암호입니다."
 
 #: libraries/config/messages.inc.php:783
 #| msgid "Password"
@@ -6668,7 +6668,7 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:787
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr ""
+msgstr "당신의 도메인의 reCaptcha 서비스를 위한 공개키를 입력하세요."
 
 #: libraries/config/messages.inc.php:788
 msgid "Public key for reCaptcha"
@@ -6676,7 +6676,7 @@ msgstr "reCaptcha용 공개 키(Public key)"
 
 #: libraries/config/messages.inc.php:789
 msgid "Enter your private key for your domain reCaptcha service."
-msgstr ""
+msgstr "당신의 도메인의 reCaptcha 서비스를 위한 개인키를 입력하세요."
 
 #: libraries/config/messages.inc.php:790
 msgid "Private key for reCaptcha"
@@ -6804,8 +6804,9 @@ msgid "Re-type:"
 msgstr "재입력:"
 
 #: libraries/display_change_password.lib.php:80
+#, fuzzy
 msgid "Password Hashing:"
-msgstr ""
+msgstr "암호 해싱:"
 
 #: libraries/display_change_password.lib.php:93
 msgid "MySQL 4.0 compatible"
@@ -6820,10 +6821,9 @@ msgid "Create"
 msgstr "만들기"
 
 #: libraries/display_create_database.lib.php:51
-#, fuzzy
 #| msgid "Invalid database:"
 msgid "Create database:"
-msgstr "잘못된 데이터베이스:"
+msgstr "데이터베이스 생성:"
 
 #: libraries/display_create_database.lib.php:61
 #: libraries/server_privileges.lib.php:3857 server_privileges.php:130
@@ -7005,7 +7005,7 @@ msgstr "브랜치 없음"
 
 #: libraries/display_git_revision.lib.php:64
 msgid "Git revision:"
-msgstr ""
+msgstr "Git 리비전:"
 
 #: libraries/display_git_revision.lib.php:67
 #, php-format
