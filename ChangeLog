@@ -42,6 +42,7 @@ phpMyAdmin - ChangeLog
 + rfe #1544 MySQL 5.7.5 compatibility
 + rfe #1529 Avoid session timeout when user is active
 - bug #4528 Can't import dump via SQL field
++ rfe #1251 Show "Overhead" with same precision for all tables
 
 4.2.10.0 (not yet released)
 - bug #4361 Can't change font size (when config.inc.php not present)
