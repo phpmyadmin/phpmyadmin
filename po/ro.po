@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-09-24 19:48+0200\n"
-"Last-Translator: Raul Malea <raul.malea@gmail.com>\n"
+"PO-Revision-Date: 2014-09-24 21:15+0200\n"
+"Last-Translator: Internationalization Ro <i18nro@yahoo.com>\n"
 "Language-Team: Romanian <https://l10n.cihar.com/projects/phpmyadmin/4-2/ro/>"
 "\n"
 "Language: ro\n"
@@ -693,6 +693,9 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"Totuşi la ultima rulare datele nu au fost parsate, ceea ce de obicei "
+"înseamnă că phpMyAdmin nu va reuşi să finalizeze importarea datelor decât în "
+"cazul în care se măreşte timpul alocat."
 
 #: import_status.php:95 libraries/Util.class.php:733
 #: libraries/export.lib.php:438
@@ -860,6 +863,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Parametrul PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] este mai mic decât validitatea "
+"unui cookie configurat în phpMyAdmin, iar pentru aceasta, sesiunea "
+"dumneavoastră va expira mai devreme decât este configurat în phpMyAdmin."
 
 #: index.php:483
 msgid ""
@@ -879,9 +887,13 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
+"Catalogul [code]config[/code], care este folosit de scriptul de instalare, "
+"există încă în catalogul phpMyAdmin. Este recomandată îndepărtarea acestuia "
+"odată ce phpMyAdmin a fost configurat. Altfel, securitatea serverului poate "
+"fi compromisă de persoane neautorizate care descarcă respectiva configurație."
 
 #: index.php:516
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
@@ -890,7 +902,7 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "Opțiunile adiționale pentru folosirea tabelelor intercalate au fost "
-"dezactivate. Pentru a afla de ce …  %shere%s."
+"dezactivate. Pentru a afla de ce apasă …  %saici%s."
 
 #: index.php:552
 #, php-format
@@ -1774,7 +1786,7 @@ msgstr ""
 
 #: js/messages.php:299
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "Afişarea poate fi modificată trăgând de colțul din dreapta jos."
 
 #: js/messages.php:301
 msgid "Select two columns"
@@ -1902,6 +1914,9 @@ msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
+"Shift+Click pentru a adăuga această coloană instrucțiunii ORDER BY sau "
+"pentru a activa ASC/DESC. <br />-Control+Click pentru a îndepărta coloana "
+"din instrucțiunea ORDER BY"
 
 #: js/messages.php:346
 #| msgid "Click to mark/unmark"
@@ -2000,10 +2015,9 @@ msgid "Hide Panel"
 msgstr "Ascunde panou"
 
 #: js/messages.php:381
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show hidden navigation tree items."
-msgstr "Afișează logo în cadrul din stânga"
+msgstr "Afişează itemii ascunşi din arborele din cadrul din stânga."
 
 #: js/messages.php:384
 #| msgid "The selected user was not found in the privilege table."
@@ -2073,6 +2087,9 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Avertisment: o formă din această pagină are mai mult de %d câmpuri. La "
+"trimiterea datelor, unele câmpuri pot fi ignorate datorită configurației "
+"max_input_vars."
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -2366,10 +2383,12 @@ msgid "Failed formatting string for rule '%s'."
 msgstr "Imposibil de formatat șirul pentru regula '%s'."
 
 #: libraries/Advisor.class.php:396
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
+"Declarație invalidă a unei reguli la linia %1$s, linia aşteptată %2$s a "
+"regulii anterioare."
 
 #: libraries/Advisor.class.php:415
 #, php-format
@@ -2497,14 +2516,12 @@ msgid "Modify:"
 msgstr "Modificare:"
 
 #: libraries/DBQbe.class.php:805
-#, fuzzy
 msgid "Ins:"
-msgstr "Ins:"
+msgstr "Inserează:"
 
 #: libraries/DBQbe.class.php:820
-#, fuzzy
 msgid "Del:"
-msgstr "Del:"
+msgstr "Șterge:"
 
 #: libraries/DBQbe.class.php:1430
 #, php-format
@@ -2516,10 +2533,9 @@ msgid "Submit Query"
 msgstr "Trimite comanda"
 
 #: libraries/DBQbe.class.php:1458
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "Caută"
+msgstr "Căutarea salvată:"
 
 #: libraries/DBQbe.class.php:1460
 #| msgid "Delete relation"
