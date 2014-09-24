@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-08-27 08:27-0400\n"
-"PO-Revision-Date: 2014-09-24 20:22+0200\n"
+"PO-Revision-Date: 2014-09-24 21:15+0200\n"
 "Last-Translator: Internationalization Ro <i18nro@yahoo.com>\n"
 "Language-Team: Romanian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/ro/>\n"
@@ -899,6 +899,10 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
+"Catalogul [code]config[/code], care este folosit de scriptul de instalare, "
+"există încă în catalogul phpMyAdmin. Este recomandată îndepărtarea acestuia "
+"odată ce phpMyAdmin a fost configurat. Altfel, securitatea serverului poate "
+"fi compromisă de persoane neautorizate care descarcă respectiva configurație."
 
 #: index.php:517
 #, fuzzy, php-format
@@ -2024,7 +2028,7 @@ msgstr ""
 
 #: js/messages.php:364
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "Afişarea poate fi modificată trăgând de colțul din dreapta jos."
 
 #: js/messages.php:366
 msgid "Select two columns"
@@ -2193,6 +2197,9 @@ msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
+"Shift+Click pentru a adăuga această coloană instrucțiunii ORDER BY sau "
+"pentru a activa ASC/DESC. <br />-Control+Click pentru a îndepărta coloana "
+"din instrucțiunea ORDER BY"
 
 #: js/messages.php:422
 msgid "Click to mark/unmark."
@@ -2307,10 +2314,9 @@ msgid "Hide Panel"
 msgstr "Ascunde panou"
 
 #: js/messages.php:467
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show hidden navigation tree items."
-msgstr "Afișează logo în cadrul din stânga"
+msgstr "Afişează itemii ascunşi din arborele din cadrul din stânga."
 
 #: js/messages.php:468 libraries/config/messages.inc.php:421
 #: libraries/navigation/NavigationTree.class.php:1136
@@ -2385,6 +2391,9 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Avertisment: o formă din această pagină are mai mult de %d câmpuri. La "
+"trimiterea datelor, unele câmpuri pot fi ignorate datorită configurației "
+"max_input_vars."
 
 #: js/messages.php:502 js/messages.php:514
 msgid "Some errors have been detected on the server!"
@@ -2691,10 +2700,12 @@ msgid "Failed formatting string for rule '%s'."
 msgstr "Imposibil de formatat șirul pentru regula '%s'."
 
 #: libraries/Advisor.class.php:396
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
+"Declarație invalidă a unei reguli la linia %1$s, linia aşteptată %2$s a "
+"regulii anterioare."
 
 #: libraries/Advisor.class.php:415
 #, php-format
@@ -2989,14 +3000,12 @@ msgid "Modify:"
 msgstr "Modificare:"
 
 #: libraries/DBQbe.class.php:805
-#, fuzzy
 msgid "Ins:"
-msgstr "Ins:"
+msgstr "Inserează:"
 
 #: libraries/DBQbe.class.php:820
-#, fuzzy
 msgid "Del:"
-msgstr "Del:"
+msgstr "Șterge:"
 
 #: libraries/DBQbe.class.php:1461
 #, php-format
@@ -3008,10 +3017,9 @@ msgid "Submit Query"
 msgstr "Trimite comanda"
 
 #: libraries/DBQbe.class.php:1489
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "Caută"
+msgstr "Căutarea salvată:"
 
 #: libraries/DBQbe.class.php:1491
 msgid "New bookmark"
