@@ -46,6 +46,7 @@ phpMyAdmin - ChangeLog
 
 4.2.10.0 (not yet released)
 - bug #4361 Can't change font size (when config.inc.php not present)
+- bug #4542 Tab key in column name not shown
 
 4.2.9.0 (2014-09-20)
 - bug       ajax.js responseHandler: cannot read property of null

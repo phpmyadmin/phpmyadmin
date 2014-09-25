@@ -1333,7 +1333,11 @@ function PMA_getHtmlTableStructureRow($row, $rownum,
 
     $html_output .= '<th class="nowrap">'
         . '<label for="checkbox_row_' . $rownum . '">'
-        . $displayed_field_name . '</label>'
+        . preg_replace(
+            '/[\x00-\x1F]/',
+            '&#x2051;',
+            $displayed_field_name
+        ) . '</label>'
         . '</th>';
 
     $html_output .= '<td' . $type_nowrap . '>'
