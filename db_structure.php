@@ -83,14 +83,7 @@ if ($num_tables == 0) {
     $response->addHTML(
         '<p>' . __('No tables found in database.') . '</p>' . "\n"
     );
-    if (empty($db_is_system_schema)) {
-        ob_start();
-        include 'libraries/display_create_table.lib.php';
-        $content = ob_get_contents();
-        ob_end_clean();
-        $response->addHTML($content);
-        unset($content);
-    } // end if (Create Table dialog)
+    PMA_possiblyShowCreateTableDialog($db, $db_is_system_schema, $response);
     exit;
 }
 
@@ -341,12 +334,6 @@ $response->addHTML(
     . PMA_getHtmlForDataDictionaryLink($url_query)
 );
 
-if (empty($db_is_system_schema)) {
-    ob_start();
-    include 'libraries/display_create_table.lib.php';
-    $content = ob_get_contents();
-    ob_end_clean();
-    $response->addHTML($content);
-} // end if (Create Table dialog)
+PMA_possiblyShowCreateTableDialog($db, $db_is_system_schema, $response);
 
 ?>

@@ -3180,4 +3180,24 @@ function PMA_handleRealRowCountRequest()
     $ajax_response->addJSON('real_row_count', $real_row_count);
     return true;
 }
+
+/**
+ * Possibly show the table creation dialog 
+ *
+ * @param string       $db                  Current database name
+ * @param bool         $db_is_system_schema Whether this db is a system schema
+ * @param PMA_Response $response            PMA_Response instance
+ *
+ * @return void 
+ */
+function PMA_possiblyShowCreateTableDialog($db, $db_is_system_schema, $response)
+{
+    if (empty($db_is_system_schema)) {
+        ob_start();
+        include 'libraries/display_create_table.lib.php';
+        $content = ob_get_contents();
+        ob_end_clean();
+        $response->addHTML($content);
+    } // end if (Create Table dialog)
+}
 ?>
