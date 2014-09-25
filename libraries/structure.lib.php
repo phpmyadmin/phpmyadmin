@@ -1095,6 +1095,7 @@ function PMA_getStuffForEngineTypeTable($current_table, $db_is_system_schema,
     case 'HEAP' :
     case 'MEMORY' :
     case 'ARCHIVE' :
+    case 'TokuDB' :
     case 'Aria' :
     case 'Maria' :
         list($current_table, $formatted_size, $unit, $formatted_overhead,
