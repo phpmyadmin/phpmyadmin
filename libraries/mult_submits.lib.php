@@ -75,7 +75,7 @@ function PMA_getUrlParams(
  * @param array  $selected    selected tables
  * @param string $db          db name
  * @param string $table       table name
- * @param string $views       table views
+ * @param array  $views       table views
  * @param string $primary     table primary
  * @param string $from_prefix from prefix original
  * @param string $to_prefix   to prefix original
@@ -471,9 +471,9 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
  *
  * @param string $submit_mult mult_submit type
  * @param string $db          database name
- * @param array  $table       table name
+ * @param string $table       table name
  * @param array  $selected    the selected columns
- * @param array  $action      action type
+ * @param string $action      action type
  *
  * @return array
  */
@@ -549,14 +549,13 @@ function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
  *
  * @param string $what     mult_submit type
  * @param string $db       database name
- * @param array  $table    table name
+ * @param string $table    table name
  * @param array  $selected the selected columns
- * @param array  $action   action type
  * @param array  $views    table views
  *
  * @return array
  */
-function PMA_getQueryFromSelected($what, $db, $table, $selected, $action, $views)
+function PMA_getQueryFromSelected($what, $db, $table, $selected, $views)
 {
     $reload = null;
     $full_query_views = null;

@@ -441,14 +441,13 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $selected = array(
             "table1", "table2"
         );
-        $action = 'db_delete_row';
         $views = array(
             "table1", "table2"
         );
 
         list($full_query, $reload, $full_query_views)
             = PMA_getQueryFromSelected(
-                $what, $db, $table, $selected, $action, $views
+                $what, $db, $table, $selected, $views
             );
 
         //validate 1: $full_query
@@ -473,7 +472,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
 
         list($full_query, $reload, $full_query_views)
             = PMA_getQueryFromSelected(
-                $what, $db, $table, $selected, $action, $views
+                $what, $db, $table, $selected, $views
             );
 
         //validate 1: $full_query
