@@ -805,12 +805,12 @@ function PMA_getHtmlForResourceLimits($row)
 /**
  * Get the HTML snippet for table specific privileges
  *
- * @param string  $username username for database connection
- * @param string  $hostname hostname for database connection
- * @param string  $db       the database
- * @param string  $table    the table
- * @param boolean $columns  columns array
- * @param array   $row      current privileges row
+ * @param string $username username for database connection
+ * @param string $hostname hostname for database connection
+ * @param string $db       the database
+ * @param string $table    the table
+ * @param array  $columns  columns array
+ * @param array  $row      current privileges row
  *
  * @return string $html_output
  */
@@ -871,8 +871,8 @@ function PMA_getHtmlForTableSpecificPrivileges(
 /**
  * Get HTML snippet for privileges that are attached to a specific column
  *
- * @param string $columns olumns array
- * @param array  $row     first row from result or boolean false
+ * @param array $columns columns array
+ * @param array $row     first row from result or boolean false
  *
  * @return string $html_output
  */
