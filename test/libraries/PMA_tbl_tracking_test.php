@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for libraries/tbl_tracking.lib.php
+ * Tests for libraries/tracking.lib.php
  *
  * @package PhpMyAdmin-test
  */
@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/tbl_tracking.lib.php';
+require_once 'libraries/tracking.lib.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/php-gettext/gettext.inc';
@@ -20,7 +20,7 @@ require_once 'libraries/Message.class.php';
 require_once 'libraries/js_escape.lib.php';
 
 /**
- * Tests for libraries/tbl_tracking.lib.php
+ * Tests for libraries/tracking.lib.php
  *
  * @package PhpMyAdmin-test
  */
