@@ -63,7 +63,9 @@ class ExportPdf extends ExportPlugin
      */
     protected function initSpecificVariables()
     {
-        $this->_setPdfReportTitle("");
+        if (! empty($_POST['pdf_report_title'])) {
+            $this->_setPdfReportTitle($_POST['pdf_report_title']);
+        }
         $this->_setPdf(new PMA_ExportPdf('L', 'pt', 'A3'));
     }
 
