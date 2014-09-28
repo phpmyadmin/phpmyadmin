@@ -17,13 +17,14 @@ COMPRESSIONS="zip-7z tbz txz tgz 7z"
 if [ $# -lt 2 ]
 then
   echo "Usages:"
-  echo "  create-release.sh <version> <from_branch> [--tag]"
+  echo "  create-release.sh <version> <from_branch> [--tag] [--stable]"
   echo ""
   echo "If --tag is specified, release tag is automatically created"
+  echo "If --stable is specified, the STABLE branch is updated with this release"
   echo ""
   echo "Examples:"
   echo "  create-release.sh 2.9.0-rc1 QA_2_9"
-  echo "  create-release.sh 2.9.0 MAINT_2_9_0 --tag"
+  echo "  create-release.sh 2.9.0 MAINT_2_9_0 --tag --stable"
   exit 65
 fi
 
@@ -254,19 +255,11 @@ if [ $# -gt 0 ] ; then
                 tagname=RELEASE_`echo $version | tr . _ | tr '[:lower:]' '[:upper:]' | tr -d -`
                 echo "* Tagging release as $tagname"
                 git tag -a -m "Released $version" $tagname $branch
-                if echo $version | grep -q '^2\.11\.' ; then
-                    echo '* 2.11 branch, no STABLE update'
-                elif echo $version | grep -q '^3\.3\.' ; then
-                    echo '* 3.3 branch, no STABLE update'
-                elif echo $version | grep -q '^3\.4\.' ; then
-                    echo '* 3.4 branch, no STABLE update'
-                elif echo $version | grep '[\-]' ; then
-                    echo '* no STABLE update'
-                else
-                    mark_as_release $branch STABLE
-                    git checkout master
-                fi
                 echo "   Dont forget to push tags using: git push --tags"
+                ;;
+            --stable)
+                mark_as_release $branch STABLE
+                git checkout master
                 ;;
             *)
                 echo "Unknown parameter: $1!"
@@ -285,7 +278,7 @@ Todo now:
 
 1. If not already done, tag the repository with the new revision number
    for a plain release or a release candidate:
-    version 2.7.0 gets two tags: RELEASE_2_7_0 and STABLE
+    version 2.7.0 gets RELEASE_2_7_0
     version 2.7.1-rc1 gets RELEASE_2_7_1RC1
 
  2. prepare a release/phpMyAdmin-$version-notes.html explaining in short the goal of
