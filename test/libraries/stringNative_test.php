@@ -25,7 +25,7 @@ class PMA_StringNativeTest extends PMA_StringTest
     {
         if (@function_exists('mb_strlen')) {
             $this->markTestSkipped(
-                "Multibyte functions exist, can't test standard functions skipping "
+                "Multibyte functions exist, can't test standard functions, skipping "
                 . "test."
             );
         }
