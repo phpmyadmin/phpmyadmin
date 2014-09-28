@@ -3062,8 +3062,11 @@ class PMA_Util
         // for the case ENUM('&#8211;','&ldquo;')
         $displayed_type = htmlspecialchars($printtype);
         if (strlen($printtype) > $GLOBALS['cfg']['LimitChars']) {
-            $displayed_type  = '<abbr title="' . $printtype . '">';
-            $displayed_type .= substr($printtype, 0, $GLOBALS['cfg']['LimitChars']);
+            $displayed_type  = '<abbr title="'
+                . htmlspecialchars($printtype) . '">';
+            $displayed_type .= htmlspecialchars(
+                substr($printtype, 0, $GLOBALS['cfg']['LimitChars'])
+            );
             $displayed_type .= '</abbr>';
         }
 
