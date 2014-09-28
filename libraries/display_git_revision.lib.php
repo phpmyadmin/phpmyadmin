@@ -26,7 +26,7 @@ function PMA_printGitRevision()
     $GLOBALS['PMA_Config']->checkGitRevision();
 
     // if using a remote commit fast-forwarded, link to GitHub
-    $commit_hash = $GLOBALS['PMA_String']->substr(
+    $commit_hash = /*overload*/mb_substr(
         $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITHASH'),
         0,
         7

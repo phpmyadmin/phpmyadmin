@@ -287,7 +287,7 @@ class PMA_ServerStatusData
         foreach ($server_status as $name => $value) {
             $section_found = false;
             foreach ($allocations as $filter => $section) {
-                if ($pmaString->strpos($name, $filter) !== false) {
+                if (/*overload*/mb_strpos($name, $filter) !== false) {
                     $allocationMap[$name] = $section;
                     $categoryUsed[$section] = true;
                     $section_found = true;
@@ -318,7 +318,7 @@ class PMA_ServerStatusData
 
         // Set all class properties
         $this->db_isLocal = false;
-        if ($pmaString->strtolower($GLOBALS['cfg']['Server']['host']) === 'localhost'
+        if (/*overload*/mb_strtolower($GLOBALS['cfg']['Server']['host']) === 'localhost'
             || $GLOBALS['cfg']['Server']['host'] === '127.0.0.1'
             || $GLOBALS['cfg']['Server']['host'] === '::1'
         ) {

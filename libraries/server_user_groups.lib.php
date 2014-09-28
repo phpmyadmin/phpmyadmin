@@ -255,14 +255,14 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
             while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
                 $key = $row['tab'];
                 $value = $row['allowed'];
-                if ($pmaString->substr($key, 0, 7) == 'server_' && $value == 'Y') {
-                    $allowedTabs['server'][] = $pmaString->substr($key, 7);
-                } elseif ($pmaString->substr($key, 0, 3) == 'db_' && $value == 'Y') {
-                    $allowedTabs['db'][] = $pmaString->substr($key, 3);
-                } elseif ($pmaString->substr($key, 0, 6) == 'table_'
+                if (/*overload*/mb_substr($key, 0, 7) == 'server_' && $value == 'Y') {
+                    $allowedTabs['server'][] = /*overload*/mb_substr($key, 7);
+                } elseif (/*overload*/mb_substr($key, 0, 3) == 'db_' && $value == 'Y') {
+                    $allowedTabs['db'][] = /*overload*/mb_substr($key, 3);
+                } elseif (/*overload*/mb_substr($key, 0, 6) == 'table_'
                     && $value == 'Y'
                 ) {
-                    $allowedTabs['table'][] = $pmaString->substr($key, 6);
+                    $allowedTabs['table'][] = /*overload*/mb_substr($key, 6);
                 }
             }
         }

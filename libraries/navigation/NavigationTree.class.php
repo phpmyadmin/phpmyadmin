@@ -568,7 +568,7 @@ class PMA_NavigationTree
         $separators = array();
         if (is_array($node->separator)) {
             $separators = $node->separator;
-        } else if ($pmaString->strlen($node->separator)) {
+        } else if (/*overload*/mb_strlen($node->separator)) {
             $separators[] = $node->separator;
         }
         $prefixes = array();
@@ -576,9 +576,9 @@ class PMA_NavigationTree
             foreach ($node->children as $child) {
                 $prefix_pos = false;
                 foreach ($separators as $separator) {
-                    $sep_pos = $pmaString->strpos($child->name, $separator);
+                    $sep_pos = /*overload*/mb_strpos($child->name, $separator);
                     if ($sep_pos != false
-                        && $sep_pos != $pmaString->strlen($child->name)
+                        && $sep_pos != /*overload*/mb_strlen($child->name)
                         && $sep_pos != 0
                         && ($prefix_pos == false || $sep_pos < $prefix_pos)
                     ) {
@@ -586,7 +586,7 @@ class PMA_NavigationTree
                     }
                 }
                 if ($prefix_pos !== false) {
-                    $prefix = $pmaString->substr($child->name, 0, $prefix_pos);
+                    $prefix = /*overload*/mb_substr($child->name, 0, $prefix_pos);
                     if (! isset($prefixes[$prefix])) {
                         $prefixes[$prefix] = 1;
                     } else {
@@ -643,10 +643,10 @@ class PMA_NavigationTree
                 foreach ($separators as $separator) {
                     // FIXME: this could be more efficient
                     foreach ($node->children as $child) {
-                        $name_substring = $pmaString->substr(
+                        $name_substring = /*overload*/mb_substr(
                             $child->name,
                             0,
-                            $pmaString->strlen($key) + $pmaString->strlen($separator)
+                            /*overload*/mb_strlen($key) + /*overload*/mb_strlen($separator)
                         );
                         if (($name_substring != $key . $separator
                             && $child->name != $key)
@@ -657,10 +657,10 @@ class PMA_NavigationTree
                         $class = get_class($child);
                         $new_child = PMA_NodeFactory::getInstance(
                             $class,
-                            $pmaString->substr(
+                            /*overload*/mb_substr(
                                 $child->name,
-                                $pmaString->strlen($key)
-                                + $pmaString->strlen($separator)
+                                /*overload*/mb_strlen($key)
+                                + /*overload*/mb_strlen($separator)
                             )
                         );
                         $new_child->real_name = $child->real_name;
@@ -896,7 +896,7 @@ class PMA_NavigationTree
                     $iClass = " class='first'";
                 }
                 $retval .= "<i$iClass></i>";
-                if ($GLOBALS['PMA_String']->strpos($class, 'last') === false) {
+                if (/*overload*/mb_strpos($class, 'last') === false) {
                     $retval .= "<b></b>";
                 }
 

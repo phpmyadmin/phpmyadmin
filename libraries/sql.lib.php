@@ -22,7 +22,7 @@ function PMA_getNewDatabase($sql, $databases)
     $db = '';
     // loop through all the databases
     foreach ($databases as $database) {
-        if ($GLOBALS['PMA_String']->strpos($sql, $database['SCHEMA_NAME']) !== false
+        if (/*overload*/mb_strpos($sql, $database['SCHEMA_NAME']) !== false
         ) {
             $db = $database['SCHEMA_NAME'];
             break;
@@ -47,7 +47,7 @@ function PMA_getTableNameBySQL($sql, $tables)
 
     // loop through all the tables in the database
     foreach ($tables as $tbl) {
-        if ($GLOBALS['PMA_String']->strpos($sql, $tbl)) {
+        if (/*overload*/mb_strpos($sql, $tbl)) {
             $table .= ' ' . $tbl;
         }
     }
@@ -112,7 +112,7 @@ function PMA_getTableHtmlForMultipleQueries(
         // Initialize needed params related to each query in multiquery statement
         if (isset($sql_data['valid_sql'][$sql_no])) {
             // 'Use' query can change the database
-            if ($GLOBALS['PMA_String']->stripos(
+            if (/*overload*/mb_stripos(
                 $sql_data['valid_sql'][$sql_no],
                 "use "
             )) {
@@ -292,7 +292,7 @@ function PMA_getColumnNameInColumnDropSql($sql)
     $tmpArray1 = explode('DROP', $sql);
     $str_to_check = trim($tmpArray1[1]);
 
-    if ($GLOBALS['PMA_String']->stripos($str_to_check, 'COLUMN') !== false) {
+    if (/*overload*/mb_stripos($str_to_check, 'COLUMN') !== false) {
         $tmpArray2 = explode('COLUMN', $str_to_check);
         $str_to_check = trim($tmpArray2[1]);
     }
@@ -1373,7 +1373,7 @@ function PMA_hasCurrentDbChanged($db)
     // Checks if the current database has changed
     // This could happen if the user sends a query like "USE `database`;"
     $reload = 0;
-    if ($GLOBALS['PMA_String']->strlen($db)) {
+    if (/*overload*/mb_strlen($db)) {
         $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
         // $current_db is false, except when a USE statement was sent
         if ($current_db != false && $db !== $current_db) {
@@ -1403,17 +1403,17 @@ function PMA_cleanupRelations($db, $table, $dropped_column, $purge, $extra_data)
     $pmaString = $GLOBALS['PMA_String'];
 
     if (isset($purge) && $purge == 1) {
-        if ($pmaString->strlen($table) && $pmaString->strlen($db)) {
+        if (/*overload*/mb_strlen($table) && /*overload*/mb_strlen($db)) {
             PMA_relationsCleanupTable($db, $table);
-        } elseif ($pmaString->strlen($db)) {
+        } elseif (/*overload*/mb_strlen($db)) {
             PMA_relationsCleanupDatabase($db);
         }
     }
 
     if (isset($dropped_column)
         && !empty($dropped_column)
-        && $pmaString->strlen($db)
-        && $pmaString->strlen($table)
+        && /*overload*/mb_strlen($db)
+        && /*overload*/mb_strlen($table)
     ) {
         PMA_relationsCleanupColumn($db, $table, $dropped_column);
         // to refresh the list of indexes (Ajax mode)
@@ -1648,7 +1648,7 @@ function PMA_deleteTransformationInfo($db, $table, $analyzed_sql)
 {
     include_once 'libraries/transformations.lib.php';
     if ($analyzed_sql[0]['querytype'] == 'ALTER') {
-        $posDrop = $GLOBALS['PMA_String']->stripos(
+        $posDrop = /*overload*/mb_stripos(
             $analyzed_sql[0]['unsorted_query'],
             'DROP'
         );

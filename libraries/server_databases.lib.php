@@ -439,7 +439,7 @@ function PMA_getListForSortDatabase()
     }
 
     if (isset($_REQUEST['sort_order'])
-        && $GLOBALS['PMA_String']->strtolower($_REQUEST['sort_order']) == 'desc'
+        && /*overload*/mb_strtolower($_REQUEST['sort_order']) == 'desc'
     ) {
         $sort_order = 'desc';
     } else {

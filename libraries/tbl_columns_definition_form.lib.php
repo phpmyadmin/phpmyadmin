@@ -871,7 +871,7 @@ function PMA_getHtmlForColumnAutoIncrement($columnNumber, $ci, $ci_offset,
     $html = '<input name="field_extra[' . $columnNumber . ']"'
         . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '"';
     if (isset($columnMeta['Extra'])
-        && $pmaString->strtolower($columnMeta['Extra']) == 'auto_increment'
+        && /*overload*/mb_strtolower($columnMeta['Extra']) == 'auto_increment'
     ) {
         $html .= ' checked="checked"';
     }
@@ -934,12 +934,12 @@ function PMA_getHtmlForIndexTypeOption($columnNumber, $columnMeta, $type, $key)
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
 
-    $html = '<option value="' . $pmaString->strtolower($type) . '_' . $columnNumber
+    $html = '<option value="' . /*overload*/mb_strtolower($type) . '_' . $columnNumber
         . '" title="' . __($type) . '"';
     if (isset($columnMeta['Key']) && $columnMeta['Key'] == $key) {
         $html .= ' selected="selected"';
     }
-    $html .= '>' . $pmaString->strtoupper($type) . '</option>';
+    $html .= '>' . /*overload*/mb_strtoupper($type) . '</option>';
 
     return $html;
 }
@@ -1049,8 +1049,8 @@ function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
     $cnt_attribute_types = count($attribute_types);
     for ($j = 0; $j < $cnt_attribute_types; $j++) {
         $html .= '                <option value="' . $attribute_types[$j] . '"';
-        $attrUpper = $pmaString->strtoupper($attribute);
-        if ($attrUpper == $pmaString->strtoupper($attribute_types[$j])) {
+        $attrUpper = /*overload*/mb_strtoupper($attribute);
+        if ($attrUpper == /*overload*/mb_strtoupper($attribute_types[$j])) {
             $html .= ' selected="selected"';
         }
         $html .= '>' . $attribute_types[$j] . '</option>';
@@ -1385,12 +1385,12 @@ function PMA_getFormParamsForOldColumn(
     if (isset($columnMeta['Type'])) {
         // keep in uppercase because the new type will be in uppercase
         $form_params['field_type_orig[' . $columnNumber . ']']
-            = $pmaString->strtoupper($type);
+            = /*overload*/mb_strtoupper($type);
         if (isset($columnMeta['column_status'])
             && !$columnMeta['column_status']['isEditable']
         ) {
             $form_params['field_type[' . $columnNumber . ']']
-                = $pmaString->strtoupper($type);
+                = /*overload*/mb_strtoupper($type);
         }
     } else {
         $form_params['field_type_orig[' . $columnNumber . ']'] = '';

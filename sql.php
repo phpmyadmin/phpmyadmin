@@ -62,8 +62,8 @@ $pmaString = $GLOBALS['PMA_String'];
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
         . '?' . PMA_URL_getCommon($GLOBALS['db'])
-        . (($pmaString->strpos(' ' . $goto, 'db_') != 1
-            && $pmaString->strlen($table))
+        . ((/*overload*/mb_strpos(' ' . $goto, 'db_') != 1
+            && /*overload*/mb_strlen($table))
             ? '&amp;table=' . urlencode($table)
             : ''
         );
@@ -113,7 +113,7 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
 
 // Default to browse if no query set and we have table
 // (needed for browsing from DefaultTabTable)
-if (empty($sql_query) && $pmaString->strlen($table) && $pmaString->strlen($db)) {
+if (empty($sql_query) && /*overload*/mb_strlen($table) && /*overload*/mb_strlen($db)) {
     $sql_query = PMA_getDefaultSqlQueryForBrowse($db, $table);
 
     // set $goto to what will be displayed if query returns 0 rows

@@ -796,15 +796,12 @@ class ExportSql extends ExportPlugin
         if (PMA_DRIZZLE) {
             $create_query .= ' COLLATE ' . $collation;
         } else {
-            /** @var PMA_String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
-
-            if ($pmaString->strpos($collation, '_')) {
+            if (/*overload*/mb_strpos($collation, '_')) {
                 $create_query .= ' DEFAULT CHARACTER SET '
-                    . $pmaString->substr(
+                    . /*overload*/mb_substr(
                         $collation,
                         0,
-                        $pmaString->strpos($collation, '_')
+                        /*overload*/mb_strpos($collation, '_')
                     )
                     . ' COLLATE ' . $collation;
             } else {
@@ -1226,20 +1223,17 @@ class ExportSql extends ExportPlugin
             return $this->_exportComment(__('in use') . '(' . $tmp_error . ')');
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $warning = '';
         if ($result != false && ($row = $GLOBALS['dbi']->fetchRow($result))) {
             $create_query = $row[1];
             unset($row);
             // Convert end of line chars to one that we want (note that MySQL
             // doesn't return query it will accept in all cases)
-            if ($pmaString->strpos($create_query, "(\r\n ")) {
+            if (/*overload*/mb_strpos($create_query, "(\r\n ")) {
                 $create_query = str_replace("\r\n", $crlf, $create_query);
-            } elseif ($pmaString->strpos($create_query, "(\n ")) {
+            } elseif (/*overload*/mb_strpos($create_query, "(\n ")) {
                 $create_query = str_replace("\n", $crlf, $create_query);
-            } elseif ($pmaString->strpos($create_query, "(\r ")) {
+            } elseif (/*overload*/mb_strpos($create_query, "(\r ")) {
                 $create_query = str_replace("\r", $crlf, $create_query);
             }
 
@@ -1453,9 +1447,9 @@ class ExportSql extends ExportPlugin
                             $sql_lines[$k]
                         )) {
                         //adds auto increment value
-                        $increment_value = $pmaString->substr(
+                        $increment_value = /*overload*/mb_substr(
                             $sql_lines[$k],
-                            $pmaString->strpos($sql_lines[$k], "AUTO_INCREMENT")
+                            /*overload*/mb_strpos($sql_lines[$k], "AUTO_INCREMENT")
                         );
                         $increment_value_array = explode(' ', $increment_value);
                         $sql_auto_increments .= $increment_value_array[0] . ";";
@@ -1464,7 +1458,7 @@ class ExportSql extends ExportPlugin
                 }
 
                 if ($sql_auto_increments != '') {
-                    $sql_auto_increments = $pmaString->substr(
+                    $sql_auto_increments = /*overload*/mb_substr(
                         $sql_auto_increments, 0, -1
                     ) . ';';
                 }
@@ -1490,7 +1484,7 @@ class ExportSql extends ExportPlugin
                             if (! $first) {
                                 $sql_constraints .= $crlf;
                             }
-                            $posConstraint = $pmaString->strpos(
+                            $posConstraint = /*overload*/mb_strpos(
                                 $sql_lines[$j],
                                 'CONSTRAINT'
                             );
@@ -2079,8 +2073,6 @@ class ExportSql extends ExportPlugin
             $separator      = ';';
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         while ($row = $GLOBALS['dbi']->fetchRow($result)) {
             if ($current_row == 0) {
                 $head = $this->_possibleCRLF()
@@ -2199,7 +2191,7 @@ class ExportSql extends ExportPlugin
                             . implode(', ', $values) . ')';
                     } else {
                         $insert_line  = '(' . implode(', ', $values) . ')';
-                        $insertLineSize = $pmaString->strlen($insert_line);
+                        $insertLineSize = /*overload*/mb_strlen($insert_line);
                         $sql_max_size = $GLOBALS['sql_max_query_size'];
                         if (isset($sql_max_size)
                             && $sql_max_size > 0
@@ -2213,7 +2205,7 @@ class ExportSql extends ExportPlugin
                             $insert_line = $schema_insert . $insert_line;
                         }
                     }
-                    $query_size += $pmaString->strlen($insert_line);
+                    $query_size += /*overload*/mb_strlen($insert_line);
                     // Other inserts case
                 } else {
                     $insert_line = $schema_insert
@@ -2414,9 +2406,6 @@ class ExportSql extends ExportPlugin
         $on_seen = false;
         $size = $tokens['len'];
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         for ($i = 0; $i < $size && !$query_end; $i++) {
             $type = $tokens[$i]['type'];
             $data = $tokens[$i]['data'];
@@ -2426,9 +2415,9 @@ class ExportSql extends ExportPlugin
             $d_unq = PMA_Util::unQuote($data);
             $d_unq_next = PMA_Util::unQuote($data_next);
             $d_unq_prev = PMA_Util::unQuote($data_prev);
-            $d_upper = $pmaString->strtoupper($d_unq);
-            $d_upper_next = $pmaString->strtoupper($d_unq_next);
-            $d_upper_prev = $pmaString->strtoupper($d_unq_prev);
+            $d_upper = /*overload*/mb_strtoupper($d_unq);
+            $d_upper_next = /*overload*/mb_strtoupper($d_unq_next);
+            $d_upper_prev = /*overload*/mb_strtoupper($d_unq_prev);
             $pos = $tokens[$i]['pos'] + $offset;
             if ($type === 'alpha_reservedWord') {
                 if ($query_type === ''
@@ -2581,8 +2570,8 @@ class ExportSql extends ExportPlugin
         if (!empty($GLOBALS['sql_backquotes'])) {
             $alias = PMA_Util::backquote($alias);
         }
-        $alias_len = $GLOBALS['PMA_String']->strlen($alias);
-        $data_len = $GLOBALS['PMA_String']->strlen($data);
+        $alias_len = /*overload*/mb_strlen($alias);
+        $data_len = /*overload*/mb_strlen($data);
         if (isset($offset)) {
             $offset += ($alias_len - $data_len);
         }

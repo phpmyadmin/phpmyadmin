@@ -204,11 +204,8 @@ function PMA_extractDbOrTable($string, $what = 'db')
  */
 function PMA_Replication_Slave_control($action, $control = null, $link = null)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
-    $action = $pmaString->strtoupper($action);
-    $control = $pmaString->strtoupper($control);
+    $action = /*overload*/mb_strtoupper($action);
+    $control = /*overload*/mb_strtoupper($control);
 
     if ($action != "START" && $action != "STOP") {
         return -1;

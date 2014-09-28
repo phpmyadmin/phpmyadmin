@@ -190,7 +190,7 @@ class PMA_SVG extends XMLWriter
         PMA_downloadHeader(
             $fileName . '.svg',
             'image/svg+xml',
-            $GLOBALS['PMA_String']->strlen($output)
+            /*overload*/mb_strlen($output)
         );
         print $output;
     }

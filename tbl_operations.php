@@ -113,7 +113,7 @@ if (isset($_REQUEST['submitoptions'])) {
     }
 
     if (! empty($_REQUEST['new_tbl_storage_engine'])
-        && $pmaString->strtolower($_REQUEST['new_tbl_storage_engine']) !== $pmaString->strtolower($tbl_storage_engine)
+        && /*overload*/mb_strtolower($_REQUEST['new_tbl_storage_engine']) !== /*overload*/mb_strtolower($tbl_storage_engine)
     ) {
         $new_tbl_storage_engine = $_REQUEST['new_tbl_storage_engine'];
         // reset the globals for the new engine
@@ -275,8 +275,8 @@ if (! $hideOrderTable) {
  */
 $response->addHTML(PMA_getHtmlForMoveTable());
 
-if ($pmaString->strstr($show_comment, '; InnoDB free') === false) {
-    if ($pmaString->strstr($show_comment, 'InnoDB free') === false) {
+if (/*overload*/mb_strstr($show_comment, '; InnoDB free') === false) {
+    if (/*overload*/mb_strstr($show_comment, 'InnoDB free') === false) {
         // only user entered comment
         $comment = $show_comment;
     } else {

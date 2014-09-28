@@ -62,11 +62,11 @@ function PMA_getHtmlForSqlQueryForm(
 
     $table  = '';
     $db     = '';
-    if (! $pmaString->strlen($GLOBALS['db'])) {
+    if (! /*overload*/mb_strlen($GLOBALS['db'])) {
         // prepare for server related
         $goto   = empty($GLOBALS['goto']) ?
                     'server_sql.php' : $GLOBALS['goto'];
-    } elseif (! $pmaString->strlen($GLOBALS['table'])) {
+    } elseif (! /*overload*/mb_strlen($GLOBALS['table'])) {
         // prepare for db related
         $db     = $GLOBALS['db'];
         $goto   = empty($GLOBALS['goto']) ?
@@ -155,7 +155,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $table          = '';
     $db             = '';
     $fields_list    = array();
-    if (! $pmaString->strlen($GLOBALS['db'])) {
+    if (! /*overload*/mb_strlen($GLOBALS['db'])) {
         // prepare for server related
         $legend = sprintf(
             __('Run SQL query/queries on server %s'),
@@ -165,7 +165,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
                 : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']
             ) . '&quot;'
         );
-    } elseif (! $pmaString->strlen($GLOBALS['table'])) {
+    } elseif (! /*overload*/mb_strlen($GLOBALS['table'])) {
         // prepare for db related
         $db     = $GLOBALS['db'];
         // if you want navigation:
@@ -253,7 +253,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
             $html .= '<option value="'
                 . PMA_Util::backquote(htmlspecialchars($field['Field'])) . '"';
             if (isset($field['Field'])
-                && $pmaString->strlen($field['Field'])
+                && /*overload*/mb_strlen($field['Field'])
                 && isset($field['Comment'])
             ) {
                 $html .= ' title="' . htmlspecialchars($field['Comment']) . '"';

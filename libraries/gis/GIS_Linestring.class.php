@@ -59,10 +59,10 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = $pmaString->substr(
+        $linesrting = /*overload*/mb_substr(
             $spatial,
             11,
-            $pmaString->strlen($spatial) - 12
+            /*overload*/mb_strlen($spatial) - 12
         );
         return $this->setMinMax($linesrting, array());
     }
@@ -87,19 +87,19 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
 
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
-        $red   = hexdec($pmaString->substr($line_color, 1, 2));
-        $green = hexdec($pmaString->substr($line_color, 3, 2));
-        $blue  = hexdec($pmaString->substr($line_color, 4, 2));
+        $red   = hexdec(/*overload*/mb_substr($line_color, 1, 2));
+        $green = hexdec(/*overload*/mb_substr($line_color, 3, 2));
+        $blue  = hexdec(/*overload*/mb_substr($line_color, 4, 2));
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         /** @var PMA_String $pmaString */
         $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = $pmaString->substr(
+        $linesrting = /*overload*/mb_substr(
             $spatial,
             11,
-            $pmaString->strlen($spatial) - 12
+            /*overload*/mb_strlen($spatial) - 12
         );
         $points_arr = $this->extractPoints($linesrting, $scale_data);
 
@@ -143,16 +143,16 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         $pmaString = $GLOBALS['PMA_String'];
 
         // allocate colors
-        $red   = hexdec($pmaString->substr($line_color, 1, 2));
-        $green = hexdec($pmaString->substr($line_color, 3, 2));
-        $blue  = hexdec($pmaString->substr($line_color, 4, 2));
+        $red   = hexdec(/*overload*/mb_substr($line_color, 1, 2));
+        $green = hexdec(/*overload*/mb_substr($line_color, 3, 2));
+        $blue  = hexdec(/*overload*/mb_substr($line_color, 4, 2));
         $line  = array('width' => 1.5, 'color' => array($red, $green, $blue));
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = $pmaString->substr(
+        $linesrting = /*overload*/mb_substr(
             $spatial,
             11,
-            $pmaString->strlen($spatial) - 12
+            /*overload*/mb_strlen($spatial) - 12
         );
         $points_arr = $this->extractPoints($linesrting, $scale_data);
 
@@ -203,10 +203,10 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = $pmaString->substr(
+        $linesrting = /*overload*/mb_substr(
             $spatial,
             11,
-            $pmaString->strlen($spatial) - 12
+            /*overload*/mb_strlen($spatial) - 12
         );
         $points_arr = $this->extractPoints($linesrting, $scale_data);
 
@@ -253,10 +253,10 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = $pmaString->substr(
+        $linesrting = /*overload*/mb_substr(
             $spatial,
             11,
-            $pmaString->strlen($spatial) - 12
+            /*overload*/mb_strlen($spatial) - 12
         );
         $points_arr = $this->extractPoints($linesrting, null);
 
@@ -295,7 +295,7 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         /** @var PMA_String $pmaString */
         $pmaString = $GLOBALS['PMA_String'];
 
-        $wkt = $pmaString->substr($wkt, 0, $pmaString->strlen($wkt) - 1);
+        $wkt = /*overload*/mb_substr($wkt, 0, /*overload*/mb_strlen($wkt) - 1);
         $wkt .= ')';
         return $wkt;
     }
@@ -326,7 +326,7 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linestring = $pmaString->substr($wkt, 11, ($pmaString->strlen($wkt) - 12));
+        $linestring = /*overload*/mb_substr($wkt, 11, (/*overload*/mb_strlen($wkt) - 12));
         $points_arr = $this->extractPoints($linestring, null);
 
         $no_of_points = count($points_arr);

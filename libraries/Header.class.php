@@ -562,12 +562,10 @@ class PMA_Header
         $lang = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
         $dir  = $GLOBALS['text_dir'];
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         $retval  = "<!DOCTYPE HTML>";
         $retval .= "<html lang='$lang' dir='$dir' class='";
-        $retval .= $pmaString->strtolower(PMA_USR_BROWSER_AGENT) . " ";
-        $retval .= $pmaString->strtolower(PMA_USR_BROWSER_AGENT)
+        $retval .= /*overload*/mb_strtolower(PMA_USR_BROWSER_AGENT) . " ";
+        $retval .= /*overload*/mb_strtolower(PMA_USR_BROWSER_AGENT)
             . intval(PMA_USR_BROWSER_VER) . "'>";
 
         return $retval;
@@ -711,7 +709,7 @@ class PMA_Header
     {
         $retval = '';
         if ($this->_menuEnabled
-            && $GLOBALS['PMA_String']->strlen($table)
+            && /*overload*/mb_strlen($table)
             && $GLOBALS['cfg']['NumRecentTables'] > 0
         ) {
             $tmp_result = PMA_RecentFavoriteTable::getInstance('recent')->add($db, $table);

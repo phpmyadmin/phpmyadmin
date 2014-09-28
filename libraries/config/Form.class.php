@@ -79,7 +79,7 @@ class Form
         $pmaString = $GLOBALS['PMA_String'];
 
         $key = ltrim(
-            $pmaString->substr($option_name, $pmaString->strrpos($option_name, '/')),
+            /*overload*/mb_substr($option_name, /*overload*/mb_strrpos($option_name, '/')),
             '/'
         );
         return isset($this->_fieldsTypes[$key])
@@ -184,7 +184,7 @@ class Form
         $this->fields = array();
         foreach ($paths as $path) {
             $key = ltrim(
-                $pmaString->substr($path, $pmaString->strrpos($path, '/')),
+                /*overload*/mb_substr($path, /*overload*/mb_strrpos($path, '/')),
                 '/'
             );
             $this->fields[$key] = $path;
@@ -204,7 +204,7 @@ class Form
 
         $cf = $this->_configFile;
         foreach ($this->fields as $name => $path) {
-            if ($pmaString->strpos($name, ':group:') === 0) {
+            if (/*overload*/mb_strpos($name, ':group:') === 0) {
                 $this->_fieldsTypes[$name] = 'group';
                 continue;
             }

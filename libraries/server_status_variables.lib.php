@@ -239,7 +239,7 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
         $retval .= htmlspecialchars(str_replace('_', ' ', $name));
         // Fields containing % are calculated,
         // they can not be described in MySQL documentation
-        if ($pmaString->strpos($name, '%') === false) {
+        if (/*overload*/mb_strpos($name, '%') === false) {
             $retval .= PMA_Util::showMySQLDocu(
                 'server-status-variables',
                 false,
@@ -256,9 +256,9 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
                 $retval .= '<span class="allfine">';
             }
         }
-        if ('%' === $pmaString->substr($name, -1, 1)) {
+        if ('%' === /*overload*/mb_substr($name, -1, 1)) {
             $retval .= htmlspecialchars(PMA_Util::formatNumber($value, 0, 2)) . ' %';
-        } elseif ($pmaString->strpos($name, 'Uptime') !== false) {
+        } elseif (/*overload*/mb_strpos($name, 'Uptime') !== false) {
             $retval .= htmlspecialchars(
                 PMA_Util::timespanFormat($value)
             );

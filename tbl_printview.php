@@ -37,7 +37,7 @@ $pmaString = $GLOBALS['PMA_String'];
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-if ($pmaString->strlen($table)) {
+if (/*overload*/mb_strlen($table)) {
     $err_url = 'tbl_sql.php?' . PMA_URL_getCommon($db, $table);
 } else {
     $err_url = 'db_sql.php?' . PMA_URL_getCommon($db);
@@ -54,7 +54,7 @@ $GLOBALS['dbi']->selectDb($db);
  */
 if (isset($_POST['selected_tbl']) && is_array($_POST['selected_tbl'])) {
     $the_tables   = $_POST['selected_tbl'];
-} elseif ($pmaString->strlen($table)) {
+} elseif (/*overload*/mb_strlen($table)) {
     $the_tables[] = $table;
 }
 

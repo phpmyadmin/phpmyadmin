@@ -505,7 +505,7 @@ class PMA_DatabaseInterface
             // Drizzle generally uses lower case for them,
             // but TABLES returns uppercase
             foreach ((array)$database as $db) {
-                $db_upper = $pmaString->strtoupper($db);
+                $db_upper = /*overload*/mb_strtoupper($db);
                 if (!isset($tables[$db]) && isset($tables[$db_upper])) {
                     $tables[$db] = $tables[$db_upper];
                     unset($tables[$db_upper]);
@@ -554,14 +554,14 @@ class PMA_DatabaseInterface
             return $tables[$database];
         }
 
-        if (isset($tables[$pmaString->strtolower($database)])) {
+        if (isset($tables[/*overload*/mb_strtolower($database)])) {
             // on windows with lower_case_table_names = 1
             // MySQL returns
             // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
             // but information_schema.TABLES gives `test`
             // bug #2036
             // https://sourceforge.net/p/phpmyadmin/bugs/2036/
-            return $tables[$pmaString->strtolower($database)];
+            return $tables[/*overload*/mb_strtolower($database)];
         }
 
         // one database but inexact letter case match
@@ -572,7 +572,7 @@ class PMA_DatabaseInterface
         }
 
         $keys = array_keys($tables);
-        if ($pmaString->strlen(array_pop($keys)) == $pmaString->strlen($database)) {
+        if (/*overload*/mb_strlen(array_pop($keys)) == /*overload*/mb_strlen($database)) {
             return array_pop($tables);
         }
         return $tables;
@@ -647,8 +647,7 @@ class PMA_DatabaseInterface
             $tables[$table_name]['TABLE_COMMENT']
                 =& $tables[$table_name]['Comment'];
 
-            $commentUpper = $GLOBALS['PMA_String']
-                ->strtoupper($tables[$table_name]['Comment']);
+            $commentUpper = /*overload*/mb_strtoupper($tables[$table_name]['Comment']);
             if ($commentUpper === 'VIEW'
                 && $tables[$table_name]['Engine'] == null
             ) {
@@ -710,7 +709,7 @@ class PMA_DatabaseInterface
         $link = null, $sort_by = 'SCHEMA_NAME', $sort_order = 'ASC',
         $limit_offset = 0, $limit_count = false
     ) {
-        $sort_order = $GLOBALS['PMA_String']->strtoupper($sort_order);
+        $sort_order = /*overload*/mb_strtoupper($sort_order);
 
         if (true === $limit_count) {
             $limit_count = $GLOBALS['cfg']['MaxDbList'];
@@ -1844,7 +1843,7 @@ class PMA_DatabaseInterface
             $error .= ' - ' . $error_message;
             $error .= '<br />' . __('The server is not responding.');
         } elseif ($error_number == 1005) {
-            if ($GLOBALS['PMA_String']->strpos($error_message, 'errno: 13') !== false
+            if (/*overload*/mb_strpos($error_message, 'errno: 13') !== false
             ) {
                 $error .= ' - ' . $error_message;
                 $error .= '<br />'
@@ -1968,11 +1967,11 @@ class PMA_DatabaseInterface
     {
         /** @var PMA_String $pmaString */
         $pmaString = $GLOBALS['PMA_String'];
-        return $pmaString->strtolower($schema_name) == 'information_schema'
+        return /*overload*/mb_strtolower($schema_name) == 'information_schema'
             || (!PMA_DRIZZLE
-                && $pmaString->strtolower($schema_name) == 'performance_schema')
+                && /*overload*/mb_strtolower($schema_name) == 'performance_schema')
             || (PMA_DRIZZLE
-                && $pmaString->strtolower($schema_name) == 'data_dictionary')
+                && /*overload*/mb_strtolower($schema_name) == 'data_dictionary')
             || ($testForMysqlSchema && !PMA_DRIZZLE && $schema_name == 'mysql');
     }
 

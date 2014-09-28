@@ -293,12 +293,10 @@ function PMA_getLineNumber($filenames, $cumulative_number)
  */
 function PMA_translateStacktrace($stack)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     foreach ($stack as &$level) {
         foreach ($level["context"] as &$line) {
-            if ($pmaString->strlen($line) > 80) {
-                $line = $pmaString->substr($line, 0, 75) . "//...";
+            if (/*overload*/mb_strlen($line) > 80) {
+                $line = /*overload*/mb_substr($line, 0, 75) . "//...";
             }
         }
         if (preg_match("<js/get_scripts.js.php\?(.*)>", $level["url"], $matches)) {

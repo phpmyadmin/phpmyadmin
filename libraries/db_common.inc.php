@@ -37,7 +37,7 @@ $pmaString = $GLOBALS['PMA_String'];
  * headers
  */
 if (! isset($is_db) || ! $is_db) {
-    if ($pmaString->strlen($db)) {
+    if (/*overload*/mb_strlen($db)) {
         $is_db = $GLOBALS['dbi']->selectDb($db);
         // This "Command out of sync" 2014 error may happen, for example
         // after calling a MySQL procedure; at this point we can't select
@@ -53,7 +53,7 @@ if (! isset($is_db) || ! $is_db) {
     $uri = $cfg['PmaAbsoluteUri'] . 'index.php?'
         . PMA_URL_getCommon('', '', '&')
         . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1';
-    if (!$pmaString->strlen($db) || ! $is_db) {
+    if (!/*overload*/mb_strlen($db) || ! $is_db) {
         $response = PMA_Response::getInstance();
         if ($response->isAjax()) {
             $response->isSuccess(false);

@@ -113,11 +113,8 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
         return in_array($var, $type);
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     // allow some aliases of var types
-    $type = $pmaString->strtolower($type);
+    $type = /*overload*/mb_strtolower($type);
     switch ($type) {
     case 'identic' :
         $type = 'identical';
@@ -165,7 +162,7 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
     if ($type === 'length' || $type === 'scalar') {
         $is_scalar = is_scalar($var);
         if ($is_scalar && $type === 'length') {
-            return (bool) $pmaString->strlen($var);
+            return (bool) /*overload*/mb_strlen($var);
         }
         return $is_scalar;
     }
@@ -370,20 +367,18 @@ function PMA_getRealSize($size = 0)
         'b'  =>          1,
     );
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     foreach ($scan as $unit => $factor) {
-        $sizeLength = $pmaString->strlen($size);
-        $unitLength = $pmaString->strlen($unit);
+        $sizeLength = /*overload*/mb_strlen($size);
+        $unitLength = /*overload*/mb_strlen($unit);
         if ($sizeLength > $unitLength
-            && $pmaString->strtolower(
-                $pmaString->substr(
+            && /*overload*/mb_strtolower(
+                /*overload*/mb_substr(
                     $size,
                     $sizeLength - $unitLength
                 )
             ) == $unit
         ) {
-            return $pmaString->substr(
+            return /*overload*/mb_substr(
                 $size,
                 0,
                 $sizeLength - $unitLength
@@ -513,15 +508,13 @@ function PMA_checkPageValidity(&$page, $whitelist)
         return true;
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-    $_page = $pmaString->substr($page, 0, $pmaString->strpos($page . '?', '?'));
+    $_page = /*overload*/mb_substr($page, 0, /*overload*/mb_strpos($page . '?', '?'));
     if (in_array($_page, $whitelist)) {
         return true;
     }
 
     $_page = urldecode($page);
-    $_page = $pmaString->substr($_page, 0, $pmaString->strpos($_page . '?', '?'));
+    $_page = /*overload*/mb_substr($_page, 0, /*overload*/mb_strpos($_page . '?', '?'));
     if (in_array($_page, $whitelist)) {
         return true;
     }
@@ -572,9 +565,7 @@ function PMA_getenv($var_name)
  */
 function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-    if (PMA_IS_IIS && $pmaString->strlen($uri) > 600) {
+    if (PMA_IS_IIS && /*overload*/mb_strlen($uri) > 600) {
         include_once './libraries/js_escape.lib.php';
         PMA_Response::getInstance()->disable();
 
@@ -603,7 +594,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
     }
 
     if (SID) {
-        if ($pmaString->strpos($uri, '?') === false) {
+        if (/*overload*/mb_strpos($uri, '?') === false) {
             header('Location: ' . $uri . '?' . SID);
         } else {
             $separator = PMA_URL_getArgSeparator();
@@ -697,7 +688,7 @@ function PMA_downloadHeader($filename, $mimetype, $length = 0, $no_cache = true)
     header('Content-Type: ' . $mimetype);
     // inform the server that compression has been done,
     // to avoid a double compression (for example with Apache + mod_deflate)
-    if ($GLOBALS['PMA_String']->strpos($mimetype, 'gzip') !== false) {
+    if (/*overload*/mb_strpos($mimetype, 'gzip') !== false) {
         header('Content-Encoding: gzip');
     }
     header('Content-Transfer-Encoding: binary');
@@ -874,7 +865,7 @@ function PMA_isAllowedDomain($url)
         /* Following are doubtful ones. */
         'www.primebase.com','pbxt.blogspot.com'
     );
-    if (in_array($GLOBALS['PMA_String']->strtolower($domain), $domainWhiteList)) {
+    if (in_array(/*overload*/mb_strtolower($domain), $domainWhiteList)) {
         return true;
     }
 

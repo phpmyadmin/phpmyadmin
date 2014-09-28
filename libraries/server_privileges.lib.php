@@ -54,10 +54,10 @@ function PMA_wildcardEscapeForGrant($dbname, $tablename)
 {
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
-    if (!$pmaString->strlen($dbname)) {
+    if (!/*overload*/mb_strlen($dbname)) {
         $db_and_table = '*.*';
     } else {
-        if ($pmaString->strlen($tablename)) {
+        if (/*overload*/mb_strlen($tablename)) {
             $db_and_table = PMA_Util::backquote(
                 PMA_Util::unescapeMysqlWildcards($dbname)
             )
@@ -87,7 +87,7 @@ function PMA_rangeOfUsers($initial = '')
     $ret = " WHERE `User` LIKE '"
         . PMA_Util::sqlAddSlashes($initial, true) . "%'"
         . " OR `User` LIKE '"
-        . PMA_Util::sqlAddSlashes($GLOBALS['PMA_String']->strtolower($initial), true)
+        . PMA_Util::sqlAddSlashes(/*overload*/mb_strtolower($initial), true)
         . "%'";
     return $ret;
 } // end function
@@ -133,11 +133,11 @@ function PMA_fillInTablePrivileges(&$row)
 
     $av_grants = explode(
         '\',\'',
-        $pmaString->substr(
+        /*overload*/mb_substr(
             $row1['Type'],
-            $pmaString->strpos($row1['Type'], '(') + 2,
-            $pmaString->strpos($row1['Type'], ')')
-            - $pmaString->strpos($row1['Type'], '(') - 3
+            /*overload*/mb_strpos($row1['Type'], '(') + 2,
+            /*overload*/mb_strpos($row1['Type'], ')')
+            - /*overload*/mb_strpos($row1['Type'], '(') - 3
         )
     );
 
@@ -648,7 +648,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
             }
             $res = $GLOBALS['dbi']->query($sql_query);
             while ($row1 = $GLOBALS['dbi']->fetchRow($res)) {
-                if ($GLOBALS['PMA_String']->substr($row1[0], 0, 4) == 'max_') {
+                if (/*overload*/mb_substr($row1[0], 0, 4) == 'max_') {
                     $row[$row1[0]] = 0;
                 } else {
                     $row[$row1[0]] = 'N';
@@ -914,8 +914,7 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
     $pmaString = $GLOBALS['PMA_String'];
 
     foreach ($row as $current_grant => $current_grant_value) {
-        $grant_type = $pmaString
-            ->substr($current_grant, 0, ($pmaString->strlen($current_grant) - 5));
+        $grant_type = /*overload*/mb_substr($current_grant, 0, (/*overload*/mb_strlen($current_grant) - 5));
         if (in_array($grant_type, array('Select', 'Insert', 'Update', 'References'))
         ) {
             continue;
@@ -942,24 +941,24 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
            . 'title="';
 
         $html_output .= (isset($GLOBALS[
-                    'strPrivDesc' . $pmaString->substr(
+                    'strPrivDesc' . /*overload*/mb_substr(
                         $tmp_current_grant,
                         0,
-                        ($pmaString->strlen($tmp_current_grant) - 5)
+                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
                     )
                 ] )
                 ? $GLOBALS[
-                    'strPrivDesc' . $pmaString->substr(
+                    'strPrivDesc' . /*overload*/mb_substr(
                         $tmp_current_grant,
                         0,
-                        ($pmaString->strlen($tmp_current_grant) - 5)
+                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
                     )
                 ]
                 : $GLOBALS[
-                    'strPrivDesc' . $pmaString->substr(
+                    'strPrivDesc' . /*overload*/mb_substr(
                         $tmp_current_grant,
                         0,
-                        ($pmaString->strlen($tmp_current_grant) - 5)
+                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
                     ) . 'Tbl'
                 ]
             )
@@ -968,33 +967,33 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
         $html_output .= '<label for="checkbox_' . $current_grant
             . '"><code><dfn title="'
             . (isset($GLOBALS[
-                    'strPrivDesc' . $pmaString->substr(
+                    'strPrivDesc' . /*overload*/mb_substr(
                         $tmp_current_grant,
                         0,
-                        ($pmaString->strlen($tmp_current_grant) - 5)
+                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
                     )
                 ])
                 ? $GLOBALS[
-                    'strPrivDesc' . $pmaString->substr(
+                    'strPrivDesc' . /*overload*/mb_substr(
                         $tmp_current_grant,
                         0,
-                        ($pmaString->strlen($tmp_current_grant) - 5)
+                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
                     )
                 ]
                 : $GLOBALS[
-                    'strPrivDesc' . $pmaString->substr(
+                    'strPrivDesc' . /*overload*/mb_substr(
                         $tmp_current_grant,
                         0,
-                        ($pmaString->strlen($tmp_current_grant) - 5)
+                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
                     ) . 'Tbl'
                 ]
             )
             . '">'
-            . $pmaString->strtoupper(
-                $pmaString->substr(
+            . /*overload*/mb_strtoupper(
+                /*overload*/mb_substr(
                     $current_grant,
                     0,
-                    $pmaString->strlen($current_grant) - 5
+                    /*overload*/mb_strlen($current_grant) - 5
                 )
             )
             . '</dfn></code></label>' . "\n"
@@ -1300,7 +1299,7 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
     if (isset($GLOBALS['username'])
-        && $pmaString->strlen($GLOBALS['username']) === 0
+        && /*overload*/mb_strlen($GLOBALS['username']) === 0
     ) {
         $GLOBALS['pred_username'] = 'any';
     }
@@ -1385,9 +1384,9 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         $thishost = str_replace(
             "'",
             '',
-            $pmaString->substr(
+            /*overload*/mb_substr(
                 $_current_user,
-                ($pmaString->strrpos($_current_user, '@') + 1)
+                (/*overload*/mb_strrpos($_current_user, '@') + 1)
             )
         );
         if ($thishost == 'localhost' || $thishost == '127.0.0.1') {
@@ -1418,7 +1417,7 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
 
     // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
     if (! isset($GLOBALS['pred_hostname']) && isset($GLOBALS['hostname'])) {
-        switch ($pmaString->strtolower($GLOBALS['hostname'])) {
+        switch (/*overload*/mb_strtolower($GLOBALS['hostname'])) {
         case 'localhost':
         case '127.0.0.1':
             $GLOBALS['pred_hostname'] = 'localhost';
@@ -2371,7 +2370,7 @@ function PMA_getExtraDataForAjaxBehavior(
     $pmaString = $GLOBALS['PMA_String'];
 
     $extra_data = array();
-    if ($pmaString->strlen($sql_query)) {
+    if (/*overload*/mb_strlen($sql_query)) {
         $extra_data['sql_query'] = PMA_Util::getMessage(null, $sql_query);
     }
 
@@ -2450,8 +2449,7 @@ function PMA_getExtraDataForAjaxBehavior(
          * Generate the string for this alphabet's initial, to update the user
          * pagination
          */
-        $new_user_initial = $pmaString
-            ->strtoupper($pmaString->substr($username, 0, 1));
+        $new_user_initial = /*overload*/mb_strtoupper(/*overload*/mb_substr($username, 0, 1));
         $newUserInitialString = '<a href="server_privileges.php'
             . PMA_URL_getCommon(array('initial' => $new_user_initial)) . '">'
             . $new_user_initial . '</a>';
@@ -2568,7 +2566,7 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
         )
         . "</a> ]\n";
 
-    if ($GLOBALS['PMA_String']->strlen($tablename)) {
+    if (/*overload*/mb_strlen($tablename)) {
         $html_output .= ' [ ' . __('Table') . ' <a href="'
             . $GLOBALS['cfg']['DefaultTabTable']
             . PMA_URL_getCommon(
@@ -2603,7 +2601,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 {
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
-    if (!$pmaString->strlen($dbname)) {
+    if (!/*overload*/mb_strlen($dbname)) {
         $tables_to_search_for_users = array(
             'tables_priv', 'columns_priv',
         );
@@ -2644,7 +2642,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 
     while ($db_rights_row = $GLOBALS['dbi']->fetchAssoc($db_rights_result)) {
         $db_rights_row = array_merge($user_defaults, $db_rights_row);
-        if (!$pmaString->strlen($dbname)) {
+        if (!/*overload*/mb_strlen($dbname)) {
             // only Db names in the table `mysql`.`db` uses wildcards
             // as we are in the db specific rights display we want
             // all db names escaped, also from other sources
@@ -2657,7 +2655,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 
     $GLOBALS['dbi']->freeResult($db_rights_result);
 
-    if (!$pmaString->strlen($dbname)) {
+    if (!/*overload*/mb_strlen($dbname)) {
         $sql_query = 'SELECT * FROM `mysql`.`db`'
             . $user_host_condition . ' ORDER BY `Db` ASC';
     } else {
@@ -2679,7 +2677,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
         } else {
             $db_rights[$row[$dbOrTableName]] = $row;
         }
-        if (!$pmaString->strlen($dbname)) {
+        if (!/*overload*/mb_strlen($dbname)) {
             // there are db specific rights for this user
             // so we can drop this db rights
             $db_rights[$row['Db']]['can_delete'] = true;
@@ -2716,14 +2714,14 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
         $odd_row = true;
         //while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
         foreach ($db_rights as $row) {
-            $found_rows[] = (!$pmaString->strlen($dbname))
+            $found_rows[] = (!/*overload*/mb_strlen($dbname))
                 ? $row['Db']
                 : $row['Table_name'];
 
             $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
                 . '<td>'
                 . htmlspecialchars(
-                    (!$pmaString->strlen($dbname)) ? $row['Db'] : $row['Table_name']
+                    (!/*overload*/mb_strlen($dbname)) ? $row['Db'] : $row['Table_name']
                 )
                 . '</td>' . "\n"
                 . '<td><code>' . "\n"
@@ -2734,8 +2732,8 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
                 ) . "\n"
                 . '</code></td>' . "\n"
                 . '<td>'
-                    . ((((!$pmaString->strlen($dbname)) && $row['Grant_priv'] == 'Y')
-                        || ($pmaString->strlen($dbname)
+                    . ((((!/*overload*/mb_strlen($dbname)) && $row['Grant_priv'] == 'Y')
+                        || (/*overload*/mb_strlen($dbname)
                         && in_array('Grant', explode(',', $row['Table_priv']))))
                     ? __('Yes')
                     : __('No'))
@@ -2751,20 +2749,20 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
             $html_output .= PMA_getUserEditLink(
                 $username,
                 $hostname,
-                (!$pmaString->strlen($dbname)) ? $row['Db'] : $dbname,
-                (!$pmaString->strlen($dbname)) ? '' : $row['Table_name']
+                (!/*overload*/mb_strlen($dbname)) ? $row['Db'] : $dbname,
+                (!/*overload*/mb_strlen($dbname)) ? '' : $row['Table_name']
             );
             $html_output .= '</td>' . "\n"
                . '    <td>';
             if (! empty($row['can_delete'])
                 || isset($row['Table_name'])
-                && $pmaString->strlen($row['Table_name'])
+                && /*overload*/mb_strlen($row['Table_name'])
             ) {
                 $html_output .= PMA_getUserRevokeLink(
                     $username,
                     $hostname,
-                    (! $pmaString->strlen($dbname)) ? $row['Db'] : $dbname,
-                    (! $pmaString->strlen($dbname)) ? '' : $row['Table_name']
+                    (! /*overload*/mb_strlen($dbname)) ? $row['Db'] : $dbname,
+                    (! /*overload*/mb_strlen($dbname)) ? '' : $row['Table_name']
                 );
             }
             $html_output .= '</td>' . "\n"
@@ -2797,12 +2795,12 @@ function PMA_getHtmlForAllTableSpecificRights(
         . 'value="' . htmlspecialchars($hostname) . '" />' . "\n"
         . '<fieldset>' . "\n"
         . '<legend data-submenu-label="'
-        . (!$pmaString->strlen($dbname)
+        . (!/*overload*/mb_strlen($dbname)
             ? __('Database')
             : __('Table')
         )
         . '">'
-        . (!$pmaString->strlen($dbname)
+        . (!/*overload*/mb_strlen($dbname)
             ? __('Database-specific privileges')
             : __('Table-specific privileges')
         )
@@ -2810,12 +2808,12 @@ function PMA_getHtmlForAllTableSpecificRights(
         . '<table class="data">' . "\n"
         . '<thead>' . "\n"
         . '<tr><th>'
-        . (!$pmaString->strlen($dbname) ? __('Database') : __('Table'))
+        . (!/*overload*/mb_strlen($dbname) ? __('Database') : __('Table'))
         . '</th>' . "\n"
         . '<th>' . __('Privileges') . '</th>' . "\n"
         . '<th>' . __('Grant') . '</th>' . "\n"
         . '<th>'
-        . (!$pmaString->strlen($dbname)
+        . (!/*overload*/mb_strlen($dbname)
             ? __('Table-specific privileges')
             : __('Column-specific privileges')
         )
@@ -3204,8 +3202,8 @@ function PMA_getHtmlForInitials($array_initials)
 
     // initialize to false the letters A-Z
     for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
-        if (! isset($array_initials[$pmaString->chr($letter_counter + 64)])) {
-            $array_initials[$pmaString->chr($letter_counter + 64)] = false;
+        if (! isset($array_initials[/*overload*/mb_chr($letter_counter + 64)])) {
+            $array_initials[/*overload*/mb_chr($letter_counter + 64)] = false;
         }
     }
 
@@ -3377,7 +3375,7 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
     $pmaString = $GLOBALS['PMA_String'];
     // Should not do a GRANT USAGE for a table-specific privilege, it
     // causes problems later (cannot revoke it)
-    if (! ($pmaString->strlen($tablename)
+    if (! (/*overload*/mb_strlen($tablename)
         && 'USAGE' == implode('', PMA_extractPrivInfo()))
     ) {
         $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo())
@@ -3386,7 +3384,7 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
             . PMA_Util::sqlAddSlashes($hostname) . '\'';
 
         if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
-            || (! $pmaString->strlen($dbname)
+            || (! /*overload*/mb_strlen($dbname)
             && (isset($_POST['max_questions']) || isset($_POST['max_connections'])
             || isset($_POST['max_updates'])
             || isset($_POST['max_user_connections'])))
@@ -3587,9 +3585,9 @@ function PMA_addUser(
             break;
         case 'thishost':
             $_user_name = $GLOBALS['dbi']->fetchValue('SELECT USER()');
-            $hostname = $pmaString->substr(
+            $hostname = /*overload*/mb_substr(
                 $_user_name,
-                ($pmaString->strrpos($_user_name, '@') + 1)
+                (/*overload*/mb_strrpos($_user_name, '@') + 1)
             );
             unset($_user_name);
             break;
@@ -3784,11 +3782,11 @@ function PMA_getListForExportUserDefinition($username, $hostname)
         $pmaString = $GLOBALS['PMA_String'];
 
         foreach ($_REQUEST['selected_usr'] as $export_user) {
-            $export_username = $pmaString->substr(
-                $export_user, 0, $pmaString->strpos($export_user, '&')
+            $export_username = /*overload*/mb_substr(
+                $export_user, 0, /*overload*/mb_strpos($export_user, '&')
             );
-            $export_hostname = $pmaString->substr(
-                $export_user, $pmaString->strrpos($export_user, ';') + 1
+            $export_hostname = /*overload*/mb_substr(
+                $export_user, /*overload*/mb_strrpos($export_user, ';') + 1
             );
             $export .= '# '
                 . sprintf(
@@ -4098,9 +4096,9 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
     );
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
-    if (! is_array($dbname) && $pmaString->strlen($dbname)) {
+    if (! is_array($dbname) && /*overload*/mb_strlen($dbname)) {
         $_params['dbname'] = $dbname;
-        if ($pmaString->strlen($tablename)) {
+        if (/*overload*/mb_strlen($tablename)) {
             $_params['tablename'] = $tablename;
         }
     } else {
@@ -4118,7 +4116,7 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
 
     $html_output .= '</form>' . "\n";
 
-    if (! is_array($dbname) && ! $pmaString->strlen($tablename)
+    if (! is_array($dbname) && ! /*overload*/mb_strlen($tablename)
         && empty($dbname_is_wildcard)
     ) {
 
@@ -4136,7 +4134,7 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
             );
         $html_output .= $html_rightsTable;
 
-        if (! $pmaString->strlen($dbname)) {
+        if (! /*overload*/mb_strlen($dbname)) {
             // no database name was given, display select db
             $html_output .= PMA_getHtmlForSelectDbInEditPrivs($found_rows);
 
@@ -4152,14 +4150,14 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
     }
 
     // Provide a line with links to the relevant database and table
-    if (! is_array($dbname) && $pmaString->strlen($dbname)
+    if (! is_array($dbname) && /*overload*/mb_strlen($dbname)
         && empty($dbname_is_wildcard)
     ) {
         $html_output .= PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename);
 
     }
 
-    if (! is_array($dbname) && ! $pmaString->strlen($dbname)
+    if (! is_array($dbname) && ! /*overload*/mb_strlen($dbname)
         && ! $user_does_not_exists
     ) {
         //change login information

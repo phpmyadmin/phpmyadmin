@@ -81,7 +81,7 @@ class PMA_Menu
      */
     public function getHash()
     {
-        return $GLOBALS['PMA_String']->substr(
+        return /*overload*/mb_substr(
             md5($this->_getMenu() . $this->_getBreadcrumbs()),
             0,
             8
@@ -100,11 +100,11 @@ class PMA_Menu
 
         /** @var PMA_String $pmaString */
         $pmaString = $GLOBALS['PMA_String'];
-        if ($pmaString->strlen($this->_table)) {
+        if (/*overload*/mb_strlen($this->_table)) {
             $tabs = $this->_getTableTabs();
             $url_params['table'] = $this->_table;
             $level = 'table';
-        } else if ($pmaString->strlen($this->_db)) {
+        } else if (/*overload*/mb_strlen($this->_db)) {
             $tabs = $this->_getDbTabs();
             $level = 'db';
         } else {
@@ -152,9 +152,9 @@ class PMA_Menu
                 $pmaString = $GLOBALS['PMA_String'];
 
                 while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                    $tabName = $pmaString->substr(
+                    $tabName = /*overload*/mb_substr(
                         $row['tab'],
-                        $pmaString->strpos($row['tab'], '_') + 1
+                        /*overload*/mb_strpos($row['tab'], '_') + 1
                     );
                     unset($allowedTabs[$tabName]);
                 }
@@ -206,7 +206,7 @@ class PMA_Menu
         /** @var PMA_String $pmaString */
         $pmaString = $GLOBALS['PMA_String'];
 
-        if ($pmaString->strlen($this->_db)) {
+        if (/*overload*/mb_strlen($this->_db)) {
             $retval .= $separator;
             if (PMA_Util::showIcons('TabsMode')) {
                 $retval .= PMA_Util::getImage(
@@ -224,7 +224,7 @@ class PMA_Menu
             );
             // if the table is being dropped, $_REQUEST['purge'] is set to '1'
             // so do not display the table name in upper div
-            if ($pmaString->strlen($this->_table)
+            if (/*overload*/mb_strlen($this->_table)
                 && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')
             ) {
                 include './libraries/tbl_info.inc.php';
@@ -252,7 +252,7 @@ class PMA_Menu
                 if (! empty($show_comment)
                     && ! isset($GLOBALS['avoid_show_comment'])
                 ) {
-                    if ($pmaString->strstr($show_comment, '; InnoDB free')) {
+                    if (/*overload*/mb_strstr($show_comment, '; InnoDB free')) {
                         $show_comment = preg_replace(
                             '@; InnoDB free:.*?$@',
                             '',

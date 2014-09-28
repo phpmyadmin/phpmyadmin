@@ -160,10 +160,10 @@ if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
 
-    $path_info_pos = $pmaString->strrpos($PMA_PHP_SELF, $_PATH_INFO);
-    $pathLength = $path_info_pos + $pmaString->strlen($_PATH_INFO);
-    if ($pathLength === $pmaString->strlen($PMA_PHP_SELF)) {
-        $PMA_PHP_SELF = $pmaString->substr($PMA_PHP_SELF, 0, $path_info_pos);
+    $path_info_pos = /*overload*/mb_strrpos($PMA_PHP_SELF, $_PATH_INFO);
+    $pathLength = $path_info_pos + /*overload*/mb_strlen($_PATH_INFO);
+    if ($pathLength === /*overload*/mb_strlen($PMA_PHP_SELF)) {
+        $PMA_PHP_SELF = /*overload*/mb_substr($PMA_PHP_SELF, 0, $path_info_pos);
     }
 }
 $PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);
@@ -750,11 +750,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         && ! is_numeric($_REQUEST['server'])
     ) {
         foreach ($cfg['Servers'] as $i => $server) {
-            $verboseLower = $PMA_String->strtolower($server['verbose']);
+            $verboseLower = /*overload*/mb_strtolower($server['verbose']);
             if ($server['host'] == $_REQUEST['server']
                 || $server['verbose'] == $_REQUEST['server']
-                || $verboseLower == $PMA_String->strtolower($_REQUEST['server'])
-                || md5($verboseLower) == $PMA_String->strtolower($_REQUEST['server'])
+                || $verboseLower == /*overload*/mb_strtolower($_REQUEST['server'])
+                || md5($verboseLower) == /*overload*/mb_strtolower($_REQUEST['server'])
             ) {
                 $_REQUEST['server'] = $i;
                 break;
@@ -844,7 +844,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // to allow HTTP or http
         $cfg['Server']['auth_type']
-            = $PMA_String->strtolower($cfg['Server']['auth_type']);
+            = /*overload*/mb_strtolower($cfg['Server']['auth_type']);
 
         /**
          * the required auth type plugin
@@ -934,7 +934,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // if using TCP socket is not needed
-        if ($PMA_String->strtolower($cfg['Server']['connect_type']) == 'tcp') {
+        if (/*overload*/mb_strtolower($cfg['Server']['connect_type']) == 'tcp') {
             $cfg['Server']['socket'] = '';
         }
 

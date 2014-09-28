@@ -59,7 +59,7 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         $pmaStr = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $multipoint = $pmaStr->substr($spatial, 11, $pmaStr->strlen($spatial) - 12);
+        $multipoint = /*overload*/mb_substr($spatial, 11, /*overload*/mb_strlen($spatial) - 12);
         return $this->setMinMax($multipoint, array());
     }
 
@@ -83,16 +83,16 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
 
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
-        $red   = hexdec($pmaString->substr($point_color, 1, 2));
-        $green = hexdec($pmaString->substr($point_color, 3, 2));
-        $blue  = hexdec($pmaString->substr($point_color, 4, 2));
+        $red   = hexdec(/*overload*/mb_substr($point_color, 1, 2));
+        $green = hexdec(/*overload*/mb_substr($point_color, 3, 2));
+        $blue  = hexdec(/*overload*/mb_substr($point_color, 4, 2));
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $multipoint = $pmaString->substr(
+        $multipoint = /*overload*/mb_substr(
             $spatial,
             11,
-            $pmaString->strlen($spatial) - 12
+            /*overload*/mb_strlen($spatial) - 12
         );
         $points_arr = $this->extractPoints($multipoint, $scale_data);
 
@@ -132,16 +132,16 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         $pmaString = $GLOBALS['PMA_String'];
 
         // allocate colors
-        $red   = hexdec($pmaString->substr($point_color, 1, 2));
-        $green = hexdec($pmaString->substr($point_color, 3, 2));
-        $blue  = hexdec($pmaString->substr($point_color, 4, 2));
+        $red   = hexdec(/*overload*/mb_substr($point_color, 1, 2));
+        $green = hexdec(/*overload*/mb_substr($point_color, 3, 2));
+        $blue  = hexdec(/*overload*/mb_substr($point_color, 4, 2));
         $line  = array('width' => 1.25, 'color' => array($red, $green, $blue));
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $multipoint = $pmaString->substr(
+        $multipoint = /*overload*/mb_substr(
             $spatial,
             11,
-            $pmaString->strlen($spatial) - 12
+            /*overload*/mb_strlen($spatial) - 12
         );
         $points_arr = $this->extractPoints($multipoint, $scale_data);
 
@@ -187,10 +187,10 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $multipoint = $pmaString->substr(
+        $multipoint = /*overload*/mb_substr(
             $spatial,
             11,
-            $pmaString->strlen($spatial) - 12
+            /*overload*/mb_strlen($spatial) - 12
         );
         $points_arr = $this->extractPoints($multipoint, $scale_data);
 
@@ -244,10 +244,10 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $multipoint = $pmaString->substr(
+        $multipoint = /*overload*/mb_substr(
             $spatial,
             11,
-            $pmaString->strlen($spatial) - 12
+            /*overload*/mb_strlen($spatial) - 12
         );
         $points_arr = $this->extractPoints($multipoint, null);
 
@@ -288,7 +288,7 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         /** @var PMA_String $pmaString */
         $pmaString = $GLOBALS['PMA_String'];
 
-        $wkt = $pmaString->substr($wkt, 0, $pmaString->strlen($wkt) - 1);
+        $wkt = /*overload*/mb_substr($wkt, 0, /*overload*/mb_strlen($wkt) - 1);
         $wkt .= ')';
         return $wkt;
     }
@@ -312,7 +312,7 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         /** @var PMA_String $pmaString */
         $pmaString = $GLOBALS['PMA_String'];
 
-        $wkt = $pmaString->substr($wkt, 0, $pmaString->strlen($wkt) - 1);
+        $wkt = /*overload*/mb_substr($wkt, 0, /*overload*/mb_strlen($wkt) - 1);
         $wkt .= ')';
         return $wkt;
     }
@@ -343,7 +343,7 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $points = $pmaString->substr($wkt, 11, $pmaString->strlen($wkt) - 12);
+        $points = /*overload*/mb_substr($wkt, 11, /*overload*/mb_strlen($wkt) - 12);
         $points_arr = $this->extractPoints($points, null);
 
         $no_of_points = count($points_arr);
@@ -378,9 +378,9 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         /** @var PMA_String $pmaString */
         $pmaString = $GLOBALS['PMA_String'];
 
-        $olArrayLength = $pmaString->strlen($ol_array);
-        if ($pmaString->substr($ol_array, $olArrayLength - 2) == ', ') {
-            $ol_array = $pmaString->substr($ol_array, 0, $olArrayLength - 2);
+        $olArrayLength = /*overload*/mb_strlen($ol_array);
+        if (/*overload*/mb_substr($ol_array, $olArrayLength - 2) == ', ') {
+            $ol_array = /*overload*/mb_substr($ol_array, 0, $olArrayLength - 2);
         }
         $ol_array .= ')';
 

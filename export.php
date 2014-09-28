@@ -243,7 +243,7 @@ if (!defined('TESTSUITE')) {
     if ($export_type == 'server') {
         $err_url = 'server_export.php?' . PMA_URL_getCommon();
     } elseif ($export_type == 'database'
-        && $pmaString->strlen($db)
+        && /*overload*/mb_strlen($db)
     ) {
         $err_url = 'db_export.php?' . PMA_URL_getCommon($db);
         // Check if we have something to export
@@ -252,8 +252,8 @@ if (!defined('TESTSUITE')) {
         } else {
             $tables = array();
         }
-    } elseif ($export_type == 'table' && $pmaString->strlen($db)
-        && $pmaString->strlen($table)
+    } elseif ($export_type == 'table' && /*overload*/mb_strlen($db)
+        && /*overload*/mb_strlen($table)
     ) {
         $err_url = 'tbl_export.php?' . PMA_URL_getCommon($db, $table);
     } else {

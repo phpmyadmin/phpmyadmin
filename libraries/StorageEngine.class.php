@@ -135,7 +135,7 @@ class PMA_StorageEngine
         /** @var PMA_String $pmaString */
         $pmaString = $GLOBALS['PMA_String'];
 
-        $selected   = $pmaString->strtolower($selected);
+        $selected   = /*overload*/mb_strtolower($selected);
         $output     = '<select name="' . $name . '"'
             . (empty($id) ? '' : ' id="' . $id . '"') . '>' . "\n";
 
@@ -154,7 +154,7 @@ class PMA_StorageEngine
             $output .= '    <option value="' . htmlspecialchars($key) . '"'
                 . (empty($details['Comment'])
                     ? '' : ' title="' . htmlspecialchars($details['Comment']) . '"')
-                . ($pmaString->strtolower($key) == $selected
+                . (/*overload*/mb_strtolower($key) == $selected
                     || (empty($selected) && $details['Support'] == 'DEFAULT')
                     ? ' selected="selected"' : '')
                 . '>' . "\n"
@@ -180,9 +180,9 @@ class PMA_StorageEngine
 
         $engine = str_replace('/', '', str_replace('.', '', $engine));
         $filename = './libraries/engines/'
-            . $pmaString->strtolower($engine) . '.lib.php';
+            . /*overload*/mb_strtolower($engine) . '.lib.php';
         if (file_exists($filename) && include_once $filename) {
-            switch($pmaString->strtolower($engine)) {
+            switch(/*overload*/mb_strtolower($engine)) {
             case 'bdb':
                 return new PMA_StorageEngine_Bdb($engine);
             case 'berkeleydb':
@@ -328,7 +328,7 @@ class PMA_StorageEngine
                 $mysql_vars[$row['Variable_name']]
                     = $variables[$row['Variable_name']];
             } elseif (! $like
-                && $pmaString->strpos($pmaString->strtolower($row['Variable_name']), $pmaString->strtolower($this->engine)) !== 0
+                && /*overload*/mb_strpos(/*overload*/mb_strtolower($row['Variable_name']), /*overload*/mb_strtolower($this->engine)) !== 0
             ) {
                 continue;
             }

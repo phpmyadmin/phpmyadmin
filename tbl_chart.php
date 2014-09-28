@@ -21,7 +21,7 @@ if (isset($_REQUEST['ajax_request'])
 ) {
     $response = PMA_Response::getInstance();
 
-    if ($pmaString->strlen($GLOBALS['table']) && $pmaString->strlen($GLOBALS['db'])
+    if (/*overload*/mb_strlen($GLOBALS['table']) && /*overload*/mb_strlen($GLOBALS['db'])
     ) {
         include './libraries/tbl_common.inc.php';
     }
@@ -81,12 +81,12 @@ $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
 /**
  * Runs common work
  */
-if ($pmaString->strlen($GLOBALS['table'])) {
+if (/*overload*/mb_strlen($GLOBALS['table'])) {
     $url_params['goto'] = $cfg['DefaultTabTable'];
     $url_params['back'] = 'tbl_sql.php';
     include 'libraries/tbl_common.inc.php';
     include 'libraries/tbl_info.inc.php';
-} elseif ($pmaString->strlen($GLOBALS['db'])) {
+} elseif (/*overload*/mb_strlen($GLOBALS['db'])) {
     $url_params['goto'] = $cfg['DefaultTabDatabase'];
     $url_params['back'] = 'sql.php';
     include 'libraries/db_common.inc.php';

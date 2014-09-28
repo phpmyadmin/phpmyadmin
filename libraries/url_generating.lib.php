@@ -46,10 +46,10 @@ function PMA_URL_getHiddenInputs($db = '', $table = '',
         $pmaString = $GLOBALS['PMA_String'];
 
         $params = array();
-        if ($pmaString->strlen($db)) {
+        if (/*overload*/mb_strlen($db)) {
             $params['db'] = $db;
         }
-        if ($pmaString->strlen($table)) {
+        if (/*overload*/mb_strlen($table)) {
             $params['table'] = $table;
         }
     }
@@ -172,7 +172,7 @@ function PMA_getHiddenFields($values, $pre = '')
  *
  * @param mixed  $params_or_db    Contains either an associative array with url
  *                                params or optional string with database name;
- *                                if first param is an array there is also an ? 
+ *                                if first param is an array there is also an ?
  *                                prefixed to the url
  *
  * @param string $encode_or_table If first param is array: 'html' to use
@@ -296,9 +296,9 @@ function PMA_URL_getArgSeparator($encode = 'none')
         // (see http://www.w3.org/TR/1999/REC-html401-19991224/appendix
         // /notes.html#h-B.2.2)
         $arg_separator = ini_get('arg_separator.input');
-        if ($pmaString->strpos($arg_separator, ';') !== false) {
+        if (/*overload*/mb_strpos($arg_separator, ';') !== false) {
             $separator = ';';
-        } elseif ($pmaString->strlen($arg_separator) > 0) {
+        } elseif (/*overload*/mb_strlen($arg_separator) > 0) {
             $separator = $arg_separator{0};
         } else {
             $separator = '&';

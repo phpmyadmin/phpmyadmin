@@ -334,7 +334,7 @@ class PMA_DbQbe
                     $this->_columnNames[] = $each_column;
                     // increase the width if necessary
                     $this->_form_column_width = max(
-                        $GLOBALS['PMA_String']->strlen($each_column),
+                        /*overload*/mb_strlen($each_column),
                         $this->_form_column_width
                     );
                 } // end foreach
@@ -481,7 +481,7 @@ class PMA_DbQbe
             // then sorting is not available, Fix for Bug #570698
             if (isset($_REQUEST['criteriaSort'][$colInd])
                 && isset($_REQUEST['criteriaColumn'][$colInd])
-                && $pmaStr->substr($_REQUEST['criteriaColumn'][$colInd], -2) == '.*'
+                && /*overload*/mb_substr($_REQUEST['criteriaColumn'][$colInd], -2) == '.*'
             ) {
                 $_REQUEST['criteriaSort'][$colInd] = '';
             } //end if
@@ -1016,7 +1016,7 @@ class PMA_DbQbe
                 && isset($this->_curAndOrCol)
             ) {
                 $where_clause .= ' '
-                    . $pmaString->strtoupper($this->_curAndOrCol[$last_where]) . ' ';
+                    . /*overload*/mb_strtoupper($this->_curAndOrCol[$last_where]) . ' ';
             }
             if (! empty($this->_curField[$column_index])
                 && ! empty($this->_curCriteria[$column_index])
@@ -1052,7 +1052,7 @@ class PMA_DbQbe
                     && $column_index
                 ) {
                     $qry_orwhere .= ' '
-                        . $pmaString->strtoupper($this->_curAndOrCol[$last_orwhere])
+                        . /*overload*/mb_strtoupper($this->_curAndOrCol[$last_orwhere])
                         . ' ';
                 }
                 if (! empty($this->_curField[$column_index])
@@ -1071,7 +1071,7 @@ class PMA_DbQbe
             }
             if (! empty($qry_orwhere)) {
                 $where_clause .= "\n"
-                    .  $pmaString->strtoupper(
+                    .  /*overload*/mb_strtoupper(
                         isset($this->_curAndOrRow[$row_index])
                         ? $this->_curAndOrRow[$row_index] . ' '
                         : ''
@@ -1113,7 +1113,7 @@ class PMA_DbQbe
                 continue;
             }
 
-            if ($pmaString->substr($this->_curField[$column_index], -2) == '.*') {
+            if (/*overload*/mb_substr($this->_curField[$column_index], -2) == '.*') {
                 continue;
             }
 
@@ -1342,7 +1342,7 @@ class PMA_DbQbe
             // Now we know that our array has the same numbers as $criteria
             // we can check which of our columns has a where clause
             if (! empty($this->_criteria[$column_index])) {
-                if ($pmaString->substr($this->_criteria[$column_index], 0, 1) == '='
+                if (/*overload*/mb_substr($this->_criteria[$column_index], 0, 1) == '='
                     || /*$pmaString->*/stristr($this->_criteria[$column_index], 'is')
                 ) {
                     $where_clause_columns[$column] = $column;

@@ -178,7 +178,7 @@ function PMA_TRI_handleEditor()
                     $response->addJSON(
                         'name',
                         htmlspecialchars(
-                            $GLOBALS['PMA_String']->strtoupper(
+                            /*overload*/mb_strtoupper(
                                 $_REQUEST['item_name']
                             )
                         )
@@ -349,7 +349,7 @@ function PMA_TRI_getEditorForm($mode, $item)
 
     // Create the output
     $retval  = "";
-    $retval .= "<!-- START " . $pmaStr->strtoupper($mode) . " TRIGGER FORM -->\n\n";
+    $retval .= "<!-- START " . /*overload*/mb_strtoupper($mode) . " TRIGGER FORM -->\n\n";
     $retval .= "<form class='rte_form' action='db_triggers.php' method='post'>\n";
     $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
     $retval .= $original_data;
@@ -432,7 +432,7 @@ function PMA_TRI_getEditorForm($mode, $item)
         $retval .= "</fieldset>\n";
     }
     $retval .= "</form>\n\n";
-    $retval .= "<!-- END " . $pmaStr->strtoupper($mode) . " TRIGGER FORM -->\n\n";
+    $retval .= "<!-- END " . /*overload*/mb_strtoupper($mode) . " TRIGGER FORM -->\n\n";
 
     return $retval;
 } // end PMA_TRI_getEditorForm()
@@ -448,7 +448,7 @@ function PMA_TRI_getQueryFromRequest()
 
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
-        if ($GLOBALS['PMA_String']->strpos($_REQUEST['item_definer'], '@') !== false
+        if (/*overload*/mb_strpos($_REQUEST['item_definer'], '@') !== false
         ) {
             $arr = explode('@', $_REQUEST['item_definer']);
             $query .= 'DEFINER=' . PMA_Util::backquote($arr[0]);

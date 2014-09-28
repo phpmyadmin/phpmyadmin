@@ -20,7 +20,7 @@ function PMA_shutdownDuringExport()
 {
     $a = error_get_last();
     if ($a != null
-        && $GLOBALS['PMA_String']->strpos($a['message'], "execution time")
+        && /*overload*/mb_strpos($a['message'], "execution time")
     ) {
         //write in partially downloaded file for future reference of user
         print_r($a);
@@ -86,16 +86,13 @@ function PMA_exportOutputHandler($line)
         );
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     // If we have to buffer data, we will perform everything at once at the end
     if ($GLOBALS['buffer_needed']) {
 
         $dump_buffer .= $line;
         if ($GLOBALS['onfly_compression']) {
 
-            $dump_buffer_len += $pmaString->strlen($line);
+            $dump_buffer_len += /*overload*/mb_strlen($line);
 
             if ($dump_buffer_len > $GLOBALS['memory_limit']) {
                 if ($GLOBALS['output_charset_conversion']) {
@@ -114,7 +111,7 @@ function PMA_exportOutputHandler($line)
                 }
                 if ($GLOBALS['save_on_server']) {
                     $write_result = @fwrite($GLOBALS['file_handle'], $dump_buffer);
-                    if ($write_result != $pmaString->strlen($dump_buffer)) {
+                    if ($write_result != /*overload*/mb_strlen($dump_buffer)) {
                         $GLOBALS['message'] = PMA_Message::error(
                             __('Insufficient space to save the file %s.')
                         );
@@ -143,10 +140,10 @@ function PMA_exportOutputHandler($line)
                     $line
                 );
             }
-            if ($GLOBALS['save_on_server'] && $pmaString->strlen($line) > 0) {
+            if ($GLOBALS['save_on_server'] && /*overload*/mb_strlen($line) > 0) {
                 $write_result = @fwrite($GLOBALS['file_handle'], $line);
                 if (! $write_result
-                    || $write_result != $pmaString->strlen($line)
+                    || $write_result != /*overload*/mb_strlen($line)
                 ) {
                     $GLOBALS['message'] = PMA_Message::error(
                         __('Insufficient space to save the file %s.')
@@ -206,12 +203,9 @@ function PMA_getHtmlForDisplayedExportFooter($back_button)
  */
 function PMA_getMemoryLimitForExport()
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $memory_limit = trim(@ini_get('memory_limit'));
-    $memory_limit_num = (int)$pmaString->substr($memory_limit, 0, -1);
-    $lowerLastChar = $pmaString->strtolower($pmaString->substr($memory_limit, -1));
+    $memory_limit_num = (int)/*overload*/mb_substr($memory_limit, 0, -1);
+    $lowerLastChar = /*overload*/mb_strtolower(/*overload*/mb_substr($memory_limit, -1));
     // 2 MB as default
     if (empty($memory_limit) || '-1' == $memory_limit) {
         $memory_limit = 2 * 1024 * 1024;
@@ -282,19 +276,17 @@ function PMA_getExportFilenameAndMimetype(
     // part of the filename) to avoid a remote code execution vulnerability
     $filename = PMA_sanitizeFilename($filename, $replaceDots = true);
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     // Grab basic dump extension and mime type
     // Check if the user already added extension;
     // get the substring where the extension would be if it was included
-    $extension_start_pos = $pmaString->strlen($filename) - $pmaString->strlen(
+    $extension_start_pos = /*overload*/mb_strlen($filename) - /*overload*/mb_strlen(
         $export_plugin->getProperties()->getExtension()
     ) - 1;
-    $user_extension = $pmaString->substr(
-        $filename, $extension_start_pos, $pmaString->strlen($filename)
+    $user_extension = /*overload*/mb_substr(
+        $filename, $extension_start_pos, /*overload*/mb_strlen($filename)
     );
     $required_extension = "." . $export_plugin->getProperties()->getExtension();
-    if ($pmaString->strtolower($user_extension) != $required_extension) {
+    if (/*overload*/mb_strtolower($user_extension) != $required_extension) {
         $filename  .= $required_extension;
     }
     $mime_type  = $export_plugin->getProperties()->getMimeType();
@@ -370,13 +362,10 @@ function PMA_openExportFile($filename, $quick_export)
  */
 function PMA_closeExportFile($file_handle, $dump_buffer, $save_filename)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $write_result = @fwrite($file_handle, $dump_buffer);
     fclose($file_handle);
-    if ($pmaString->strlen($dump_buffer) > 0
-        && (! $write_result || ($write_result != $pmaString->strlen($dump_buffer)))
+    if (/*overload*/mb_strlen($dump_buffer) > 0
+        && (! $write_result || ($write_result != /*overload*/mb_strlen($dump_buffer)))
     ) {
         $message = new PMA_Message(
             __('Insufficient space to save the file %s.'),
@@ -408,7 +397,7 @@ function PMA_compressExport($dump_buffer, $compression, $filename)
         $zipfile = new ZipFile();
         $zipfile->addFile(
             $dump_buffer,
-            $GLOBALS['PMA_String']->substr($filename, 0, -4)
+            /*overload*/mb_substr($filename, 0, -4)
         );
         $dump_buffer = $zipfile->file();
     } elseif ($compression == 'gzip' && PMA_gzencodeNeeded()) {
@@ -490,9 +479,6 @@ function PMA_exportServer(
     $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
     $aliases
 ) {
-    /** @var PMA_String $pmaStr */
-    $pmaStr = $GLOBALS['PMA_String'];
-
     if (! empty($db_select)) {
         $tmp_select = implode($db_select, '|');
         $tmp_select = '|' . $tmp_select . '|';
@@ -500,7 +486,7 @@ function PMA_exportServer(
     // Walk over databases
     foreach ($GLOBALS['pma']->databases as $current_db) {
         if (isset($tmp_select)
-            && $pmaStr->strpos(' ' . $tmp_select, '|' . $current_db . '|')
+            && /*overload*/mb_strpos(' ' . $tmp_select, '|' . $current_db . '|')
         ) {
             $tables = $GLOBALS['dbi']->getTables($current_db);
             PMA_exportDatabase(
@@ -545,7 +531,7 @@ function PMA_exportDatabase(
     }
 
     if (method_exists($export_plugin, 'exportRoutines')
-        && $GLOBALS['PMA_String']->strpos(
+        && /*overload*/mb_strpos(
             $GLOBALS['sql_structure_or_data'],
             'structure'
         ) !== false

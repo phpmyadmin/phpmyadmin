@@ -254,7 +254,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         foreach ($opts['values'] as $opt_value_key => $opt_value) {
             // set names for boolean values
             if (is_bool($opt_value)) {
-                $opt_value = $GLOBALS['PMA_String']->strtolower(
+                $opt_value = /*overload*/mb_strtolower(
                     $opt_value ? __('Yes') : __('No')
                 );
             }
