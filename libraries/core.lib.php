@@ -14,6 +14,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * String handling (security)
  */
+require_once 'libraries/string.lib.php';
 require_once 'libraries/String.class.php';
 $PMA_String = new PMA_String();
 
