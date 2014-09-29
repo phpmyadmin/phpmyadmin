@@ -16,6 +16,7 @@ require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/relation.lib.php';
+require_once 'libraries/string.lib.php';
 require_once 'libraries/String.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Link.class.php';
 require_once 'libraries/DatabaseInterface.class.php';
