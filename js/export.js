@@ -265,9 +265,22 @@ function aliasSelectHandler(event) {
     $('input#' + $label.attr('for')).addClass('hide');
     $('input#' + inputId).removeClass('hide');
     $label.attr('for', inputId);
-    //alert('#' + $label.attr('for'));
     $('#alias_modal ' + sel + '[id$=' + type + ']:visible').addClass('hide');
-    $('#alias_modal ' + sel + '#' + inputId + type).removeClass('hide');
+    var $inputWrapper = $('#alias_modal ' + sel + '#' + inputId + type);
+    $inputWrapper.removeClass('hide');
+    if (type === '_cols' && $inputWrapper.length > 0) {
+        var outer = $inputWrapper[0].outerHTML;
+        // Replace opening tags
+        var regex = /<dummy_inp/gi;
+        var newTag = outer.replace(regex, '<input');
+        // Replace closing tags
+        regex = /<\/dummy_inp/gi;
+        newTag = newTag.replace(regex, '</input');
+        // Assign replacement
+        $inputWrapper.replaceWith(newTag);
+    } else if (type === '_tables') {
+        $('.table_alias_select:visible').change();
+    }
     $("#alias_modal").dialog("option", "position", "center");
 }
 
@@ -314,6 +327,8 @@ function createAliasModal(event) {
         },
         position: 'center'
     });
+    // Call change event of .table_alias_select
+    $('.table_alias_select:visible').trigger('change');
 }
 
 AJAX.registerOnload('export.js', function () {
