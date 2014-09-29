@@ -1,15 +1,12 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /** String Functions for phpMyAdmin
- *
  * If mb_* functions don't exist, we create the ones we need and they'll use the
  * standard string functions.
- *
  * All mb_* functions created by pMA should behave as mb_* functions.
- *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -80,8 +77,7 @@ if (!@function_exists('mb_strlen')) {
      */
     function mb_stripos($haystack, $needle, $offset = 0)
     {
-        if (('' === $haystack || false === $haystack)
-            && $offset >= strlen($haystack)
+        if (('' === $haystack || false === $haystack) && $offset >= strlen($haystack)
         ) {
             return false;
         }
@@ -114,8 +110,7 @@ if (!@function_exists('mb_strlen')) {
      */
     function mb_strripos($haystack, $needle, $offset = 0)
     {
-        if (('' === $haystack || false === $haystack)
-            && $offset >= strlen($haystack)
+        if (('' === $haystack || false === $haystack) && $offset >= strlen($haystack)
         ) {
             return false;
         }
@@ -161,7 +156,7 @@ if (!@function_exists('mb_strlen')) {
      * @param string $needle   the string to find in haystack
      *
      * @return string portion of haystack which starts at the last occurrence or
-     * false
+     *                         false
      */
     function mb_strrchr($haystack, $needle)
     {
@@ -204,40 +199,40 @@ if (!@function_exists('mb_ord')) {
      *
      * @return int 1 if matched, 0 if doesn't, false on failure
      */
-function mb_preg_strpos($pattern, $subject, $offset = 0)
-{
-    $matches = array();
-    $bFind = preg_match(
-        $pattern, $subject, $matches, PREG_OFFSET_CAPTURE, $offset
-    );
-    if (1 !== $bFind) {
-        return false;
+    function mb_preg_strpos($pattern, $subject, $offset = 0)
+    {
+        $matches = array();
+        $bFind = preg_match(
+            $pattern, $subject, $matches, PREG_OFFSET_CAPTURE, $offset
+        );
+        if (1 !== $bFind) {
+            return false;
+        }
+
+        return $matches[1][1];
     }
 
-    return $matches[1][1];
-}
+    /**
+     * Get the ordinal value of a string
+     *
+     * @param string $string the string for which ord is required
+     *
+     * @return int the ord value
+     */
+    function mb_ord($string)
+    {
+        return ord($string);
+    }
 
-/**
- * Get the ordinal value of a string
- *
- * @param string $string the string for which ord is required
- *
- * @return int the ord value
- */
-function mb_ord($string)
-{
-    return ord($string);
-}
-
-/**
- * Get the character of an ASCII
- *
- * @param int $ascii the ASCII code for which character is required
- *
- * @return string the character
- */
-function mb_chr($ascii)
-{
-    return chr($ascii);
-}
+    /**
+     * Get the character of an ASCII
+     *
+     * @param int $ascii the ASCII code for which character is required
+     *
+     * @return string the character
+     */
+    function mb_chr($ascii)
+    {
+        return chr($ascii);
+    }
 }
