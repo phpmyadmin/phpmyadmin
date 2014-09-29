@@ -4438,19 +4438,13 @@ class PMA_Util
      */
     public static function getCompressionMimeType($file)
     {
-        //Can't use PMA_StringMB here, so force use of PMA_StringNative.
-        include_once 'libraries/StringNative.class.php';
-        $pmaString = new PMA_StringNative();
-
         $test = fread($file, 4);
-        $len = /*overload*/mb_strlen($test);
+        $len = strlen($test);
         fclose($file);
-        if ($len >= 2 && $test[0] == /*overload*/mb_chr(31)
-            && $test[1] == /*overload*/mb_chr(139)
-        ) {
+        if ($len >= 2 && $test[0] == chr(31) && $test[1] == chr(139)) {
             return 'application/gzip';
         }
-        if ($len >= 3 && /*overload*/mb_substr($test, 0, 3) == 'BZh') {
+        if ($len >= 3 && substr($test, 0, 3) == 'BZh') {
             return 'application/bzip2';
         }
         if ($len >= 4 && $test == "PK\003\004") {
