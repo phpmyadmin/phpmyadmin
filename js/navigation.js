@@ -252,7 +252,7 @@ $(function () {
             cache: false,
             type: 'POST',
             data: {
-                favorite_tables: (window.localStorage['favorite_tables']
+                favorite_tables: (window.localStorage && window.localStorage['favorite_tables']
                     !== undefined)
                     ? window.localStorage['favorite_tables']
                     : ''
@@ -267,7 +267,7 @@ $(function () {
                         $('#' + anchor_id).attr("title")
                     );
                     // Update localStorage.
-                    if (window.localStorage !== undefined) {
+                    if (window.localStorage && window.localStorage !== undefined) {
                         window.localStorage['favorite_tables']
                             = data.favorite_tables;
                     }
