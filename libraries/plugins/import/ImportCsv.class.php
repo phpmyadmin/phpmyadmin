@@ -279,7 +279,8 @@ class ImportCsv extends AbstractImportCsv
             // Current length of our buffer
             $len = /*overload*/mb_strlen($buffer);
             // Currently parsed char
-            $ch = $buffer[$i];
+
+            $ch = mb_substr($buffer, $i, 1);
             if ($csv_terminated_len > 1 && $ch == $csv_terminated[0]) {
                 $ch = $this->readCsvTerminatedString(
                     $buffer, $ch, $i, $csv_terminated_len
@@ -309,7 +310,7 @@ class ImportCsv extends AbstractImportCsv
                         }
                         $values[] = '';
                         $i++;
-                        $ch = $buffer[$i];
+                        $ch = mb_substr($buffer, $i, 1);
                         if ($csv_terminated_len > 1 && $ch == $csv_terminated[0]) {
                             $ch = $this->readCsvTerminatedString(
                                 $buffer, $ch, $i, $csv_terminated_len
@@ -327,7 +328,7 @@ class ImportCsv extends AbstractImportCsv
                         }
                         $need_end = true;
                         $i++;
-                        $ch = $buffer[$i];
+                        $ch = mb_substr($buffer, $i, 1);
                         if ($csv_terminated_len > 1 && $ch == $csv_terminated[0]) {
                             $ch = $this->readCsvTerminatedString(
                                 $buffer, $ch, $i, $csv_terminated_len
@@ -353,7 +354,7 @@ class ImportCsv extends AbstractImportCsv
                                 break;
                             }
                             $i++;
-                            $ch = $buffer[$i];
+                            $ch = mb_substr($buffer, $i, 1);
                             if ($csv_terminated_len > 1
                                 && $ch == $csv_terminated[0]
                             ) {
@@ -379,7 +380,7 @@ class ImportCsv extends AbstractImportCsv
                             break;
                         }
                         $i++;
-                        $ch = $buffer[$i];
+                        $ch = mb_substr($buffer, $i, 1);
                         if ($csv_terminated_len > 1 && $ch == $csv_terminated[0]) {
                             $ch = $this->readCsvTerminatedString(
                                 $buffer, $ch, $i, $csv_terminated_len
@@ -395,7 +396,7 @@ class ImportCsv extends AbstractImportCsv
 
                     if ($fail) {
                         $i = $fallbacki;
-                        $ch = $buffer[$i];
+                        $ch = mb_substr($buffer, $i, 1);
                         if ($csv_terminated_len > 1 && $ch == $csv_terminated[0]) {
                             $i += $csv_terminated_len-1;
                         }
@@ -407,7 +408,7 @@ class ImportCsv extends AbstractImportCsv
                             $ch = null;
                         } elseif ($i == $len - 1) {
                             $i = $fallbacki;
-                            $ch = $buffer[$i];
+                            $ch = mb_substr($buffer, $i, 1);
                             if ($csv_terminated_len > 1
                                 && $ch == $csv_terminated[0]
                             ) {
@@ -416,7 +417,7 @@ class ImportCsv extends AbstractImportCsv
                             break;
                         } else {
                             $i++;
-                            $ch = $buffer[$i];
+                            $ch = mb_substr($buffer, $i, 1);
                             if ($csv_terminated_len > 1
                                 && $ch == $csv_terminated[0]
                             ) {
@@ -438,7 +439,7 @@ class ImportCsv extends AbstractImportCsv
                     if ($ch == $csv_terminated) {
                         if ($i == $len - 1) {
                             $i = $fallbacki;
-                            $ch = $buffer[$i];
+                            $ch = mb_substr($buffer, $i, 1);
                             if ($csv_terminated_len > 1
                                 && $ch == $csv_terminated[0]
                             ) {
@@ -447,7 +448,7 @@ class ImportCsv extends AbstractImportCsv
                             break;
                         }
                         $i++;
-                        $ch = $buffer[$i];
+                        $ch = mb_substr($buffer, $i, 1);
                         if ($csv_terminated_len > 1
                             && $ch == $csv_terminated[0]
                         ) {
@@ -470,7 +471,7 @@ class ImportCsv extends AbstractImportCsv
                         if ($i >= ($len - 2) && ! $finished) {
                             break; // We need more data to decide new line
                         }
-                        if ($buffer[$i + 1] == "\n") {
+                        if (mb_substr($buffer, $i+1, 1) == "\n") {
                             $i++;
                         }
                     }
@@ -545,7 +546,7 @@ class ImportCsv extends AbstractImportCsv
                     $len = /*overload*/mb_strlen($buffer);
                     $i = 0;
                     $lasti = -1;
-                    $ch = $buffer[0];
+                    $ch = mb_substr($buffer, 0);
                 }
             } // End of parser loop
         } // End of import loop
@@ -650,7 +651,7 @@ class ImportCsv extends AbstractImportCsv
     {
         for ($j = 0; $j < $csv_terminated_len - 1; $j++) {
             $i++;
-            $ch .= $buffer[$i];
+            $ch .= mb_substr($buffer, $i, 1);
         }
         return $ch;
     }
