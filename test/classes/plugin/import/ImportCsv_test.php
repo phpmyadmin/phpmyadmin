@@ -34,6 +34,7 @@ require_once 'libraries/plugins/import/ImportCsv.class.php';
 class ImportCsv_Test extends PHPUnit_Framework_TestCase
 {
     /**
+     * @var ImportCsv
      * @access protected
      */
     protected $object;
