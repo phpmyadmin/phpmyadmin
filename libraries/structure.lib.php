@@ -2475,6 +2475,7 @@ function PMA_updateColumns($db, $table)
     $key_fields = array();
     $changes = array();
     $pmatable = new PMA_Table($table, $db);
+    $pmaString = $GLOBALS['PMA_String'];
 
     for ($i = 0; $i < $field_cnt; $i++) {
         if (PMA_columnNeedsAlterTable($i)) {
@@ -2510,7 +2511,7 @@ function PMA_updateColumns($db, $table)
             // find the remembered sort expression
             $sorted_col = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
             // if the old column name is part of the remembered sort expression
-            if (strpos(
+            if ($pmaString->strpos(
                 $sorted_col,
                 PMA_Util::backquote($_REQUEST['field_orig'][$i])
             ) !== false) { 
