@@ -48,6 +48,7 @@ phpMyAdmin - ChangeLog
 - bug #4361 Can't change font size (when config.inc.php not present)
 - bug #4542 Tab key in column name not shown
 - bug       PDF export: title not present in PDF
+- bug #4543 Changing column name can break saved "order by" clause
 
 4.2.9.0 (2014-09-20)
 - bug       ajax.js responseHandler: cannot read property of null
