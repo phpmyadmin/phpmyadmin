@@ -4056,9 +4056,14 @@ AJAX.registerOnload('functions.js', function () {
             codemirror_editor = CodeMirror.fromTextArea($elm[0], {
                 lineNumbers: true,
                 matchBrackets: true,
+                extraKeys: {"Ctrl-Space": "autocomplete"},
+                hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
                 indentUnit: 4,
                 mode: "text/x-mysql",
                 lineWrapping: true
+            });
+            codemirror_editor.on("change", function(instance) {
+                CodeMirror.commands.autocomplete(instance);
             });
             codemirror_editor.focus();
             $(codemirror_editor.getWrapperElement()).bind(
