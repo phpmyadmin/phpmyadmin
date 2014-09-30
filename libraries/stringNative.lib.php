@@ -35,6 +35,12 @@ if (!@function_exists('mb_strlen')) {
      */
     function mb_substr($string, $start, $length = 2147483647)
     {
+        if (null === $string || strlen($string) <= $start) {
+            return '';
+        }
+        if (null === $length) {
+            $length = 2147483647;
+        }
         return substr($string, $start, $length);
     }
 
