@@ -488,14 +488,20 @@ var PMA_consoleInput = {
             PMA_consoleInput._inputs.console = CodeMirror($('#pma_console .console_query_input')[0], {
                 theme: 'pma',
                 mode: 'text/x-sql',
-                lineWrapping: true
+                lineWrapping: true,
+                extraKeys: {"Ctrl-Space": "autocomplete"},
+                hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
             });
+            PMA_consoleInput._inputs.console.on("inputRead", codemirrorAutocompleteOnInputRead);
             if ($('#pma_bookmarks').length !== 0) {
                 PMA_consoleInput._inputs.bookmark = CodeMirror($('#pma_console .bookmark_add_input')[0], {
                     theme: 'pma',
                     mode: 'text/x-sql',
-                    lineWrapping: true
+                    lineWrapping: true,
+                    extraKeys: {"Ctrl-Space": "autocomplete"},
+                    hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
                 });
+                PMA_consoleInput._inputs.bookmark.on("inputRead", codemirrorAutocompleteOnInputRead);
             }
         } else {
             PMA_consoleInput._inputs.console =

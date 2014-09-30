@@ -384,6 +384,8 @@ class PMA_Header
                     $this->_scripts->addFile('codemirror/lib/codemirror.js');
                     $this->_scripts->addFile('codemirror/mode/sql/sql.js');
                     $this->_scripts->addFile('codemirror/addon/runmode/runmode.js');
+                    $this->_scripts->addFile('codemirror/addon/hint/show-hint.js');
+                    $this->_scripts->addFile('codemirror/addon/hint/sql-hint.js');
                 }
                 if ($this->_userprefsOfferImport) {
                     $this->_scripts->addFile('config.js');

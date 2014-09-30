@@ -1670,6 +1670,24 @@ AJAX.registerOnload('functions.js', function () {
 });
 
 /**
+ * "inputRead" event handler for CodeMirror SQL query editors for autocompletion
+ */
+function codemirrorAutocompleteOnInputRead(instance) {
+    if (instance.state.completionActive) {
+        return;
+    }
+    var cur = instance.getCursor();
+    var token = instance.getTokenAt(cur);
+    var string = '';
+    if (token.string.match(/^[.\w@]\w*$/)) {
+        string = token.string;
+    }
+    if (string.length > 0) {
+        CodeMirror.commands.autocomplete(instance);
+    }
+}
+
+/**
  * Binds the CodeMirror to the text area used to inline edit a query.
  */
 function bindCodeMirrorToInlineEditor() {
@@ -1680,10 +1698,13 @@ function bindCodeMirrorToInlineEditor() {
             codemirror_inline_editor = CodeMirror.fromTextArea($inline_editor[0], {
                 lineNumbers: true,
                 matchBrackets: true,
+                extraKeys: {"Ctrl-Space": "autocomplete"},
+                hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
                 indentUnit: 4,
                 mode: "text/x-mysql",
                 lineWrapping: true
             });
+            codemirror_inline_editor.on("inputRead", codemirrorAutocompleteOnInputRead);
             codemirror_inline_editor.getScrollerElement().style.height = height;
             codemirror_inline_editor.refresh();
             codemirror_inline_editor.focus();
@@ -4061,10 +4082,13 @@ AJAX.registerOnload('functions.js', function () {
             codemirror_editor = CodeMirror.fromTextArea($elm[0], {
                 lineNumbers: true,
                 matchBrackets: true,
+                extraKeys: {"Ctrl-Space": "autocomplete"},
+                hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
                 indentUnit: 4,
                 mode: "text/x-mysql",
                 lineWrapping: true
             });
+            codemirror_editor.on("inputRead", codemirrorAutocompleteOnInputRead);
             codemirror_editor.focus();
             $(codemirror_editor.getWrapperElement()).bind(
                 'keydown',
@@ -4266,11 +4290,14 @@ AJAX.registerOnload('functions.js', function () {
                 {
                     lineNumbers: true,
                     matchBrackets: true,
+                    extraKeys: {"Ctrl-Space": "autocomplete"},
+                    hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
                     indentUnit: 4,
                     mode: "text/x-mysql",
                     lineWrapping: true
                 }
             );
+            syntaxHighlighter.on("inputRead", codemirrorAutocompleteOnInputRead);
         }
     }
 });
@@ -4315,8 +4342,16 @@ function PMA_createViewDialog($this)
             // Attach syntax highlighted editor
             if (typeof CodeMirror !== 'undefined') {
                 var $elm = $dialog.find('textarea');
-                var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql", lineWrapping: true};
-                syntaxHighlighter = CodeMirror.fromTextArea($elm[0], opts);
+                syntaxHighlighter = CodeMirror.fromTextArea($elm[0], {
+                    lineNumbers: true,
+                    matchBrackets: true,
+                    extraKeys: {"Ctrl-Space": "autocomplete"},
+                    hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
+                    indentUnit: 4,
+                    mode: "text/x-mysql",
+                    lineWrapping: true
+                });
+                syntaxHighlighter.on("inputRead", codemirrorAutocompleteOnInputRead);
             }
             $('input:visible[type=text]', $dialog).first().focus();
         } else {
