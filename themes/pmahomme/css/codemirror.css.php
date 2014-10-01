@@ -309,7 +309,7 @@ span.cm-number {
 /* CodeMirror Hints styling */
 .CodeMirror-hints {
   position: absolute;
-  z-index: 10;
+  z-index: 2000;
   overflow: hidden;
   list-style: none;
 
