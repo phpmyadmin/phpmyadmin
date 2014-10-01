@@ -177,51 +177,53 @@ function PMA_RTN_parseAllParameters($parsed_query, $routine_type)
     $retval = array();
     $retval['num'] = 0;
 
-    // First get the list of parameters from the query
-    $buffer = '';
-    $params = array();
-    $fetching = false;
-    $depth = 0;
-    for ($i=0; $i<$parsed_query['len']; $i++) {
-        if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
-            && $parsed_query[$i]['data'] == $routine_type
-        ) {
-            $fetching = true;
-        } else if ($fetching == true
-            && $parsed_query[$i]['type'] == 'punct_bracket_open_round'
-        ) {
-            $depth++;
-            if ($depth > 1) {
+    if ($parsed_query) {
+        // First get the list of parameters from the query
+        $buffer = '';
+        $params = array();
+        $fetching = false;
+        $depth = 0;
+        for ($i=0; $i<$parsed_query['len']; $i++) {
+            if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
+                && $parsed_query[$i]['data'] == $routine_type
+            ) {
+                $fetching = true;
+            } else if ($fetching == true
+                && $parsed_query[$i]['type'] == 'punct_bracket_open_round'
+            ) {
+                $depth++;
+                if ($depth > 1) {
+                    $buffer .= $parsed_query[$i]['data'] . ' ';
+                }
+            } else if ($fetching == true
+                && $parsed_query[$i]['type'] == 'punct_bracket_close_round'
+            ) {
+                $depth--;
+                if ($depth > 0) {
+                    $buffer .= $parsed_query[$i]['data'] . ' ';
+                } else {
+                    break;
+                }
+            } else if ($parsed_query[$i]['type'] == 'punct_listsep' && $depth == 1) {
+                $params[] = $buffer;
+                $retval['num']++;
+                $buffer = '';
+            } else if ($fetching == true && $depth > 0) {
                 $buffer .= $parsed_query[$i]['data'] . ' ';
             }
-        } else if ($fetching == true
-            && $parsed_query[$i]['type'] == 'punct_bracket_close_round'
-        ) {
-            $depth--;
-            if ($depth > 0) {
-                $buffer .= $parsed_query[$i]['data'] . ' ';
-            } else {
-                break;
-            }
-        } else if ($parsed_query[$i]['type'] == 'punct_listsep' && $depth == 1) {
+        }
+        if (! empty($buffer)) {
             $params[] = $buffer;
             $retval['num']++;
-            $buffer = '';
-        } else if ($fetching == true && $depth > 0) {
-            $buffer .= $parsed_query[$i]['data'] . ' ';
         }
-    }
-    if (! empty($buffer)) {
-        $params[] = $buffer;
-        $retval['num']++;
-    }
-    // Now parse each parameter individually
-    foreach ($params as $key => $value) {
-        list($retval['dir'][],
-             $retval['name'][],
-             $retval['type'][],
-             $retval['length'][],
-             $retval['opts'][]) = PMA_RTN_parseOneParameter($value);
+        // Now parse each parameter individually
+        foreach ($params as $key => $value) {
+            list($retval['dir'][],
+                 $retval['name'][],
+                 $retval['type'][],
+                 $retval['length'][],
+                 $retval['opts'][]) = PMA_RTN_parseOneParameter($value);
+        }
     }
     // Since some indices of $retval may be still undefined, we fill
     // them each with an empty array to avoid E_ALL errors in PHP.
