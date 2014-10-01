@@ -95,12 +95,12 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             }
 
             $aDate = array();
-            $aDate['year']   = /*overload*/mb_substr($buffer, 0, $offset);
-            $aDate['month']  = /*overload*/mb_substr($buffer, $offset, 2);
-            $aDate['day']    = /*overload*/mb_substr($buffer, $offset + 2, 2);
-            $aDate['hour']   = /*overload*/mb_substr($buffer, $offset + 4, 2);
-            $aDate['minute'] = /*overload*/mb_substr($buffer, $offset + 6, 2);
-            $aDate['second'] = /*overload*/mb_substr($buffer, $offset + 8, 2);
+            $aDate['year']   = (int)/*overload*/mb_substr($buffer, 0, $offset);
+            $aDate['month']  = (int)/*overload*/mb_substr($buffer, $offset, 2);
+            $aDate['day']    = (int)/*overload*/mb_substr($buffer, $offset + 2, 2);
+            $aDate['hour']   = (int)/*overload*/mb_substr($buffer, $offset + 4, 2);
+            $aDate['minute'] = (int)/*overload*/mb_substr($buffer, $offset + 6, 2);
+            $aDate['second'] = (int)/*overload*/mb_substr($buffer, $offset + 8, 2);
 
             if (checkdate($aDate['month'], $aDate['day'], $aDate['year'])) {
                 $timestamp = mktime(
