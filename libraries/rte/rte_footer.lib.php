@@ -20,7 +20,7 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_RTE_getFooterLinks($docu, $priv, $name)
 {
-    global $db, $url_query, $ajax_class;
+    global $db, $table, $url_query, $ajax_class;
 
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
@@ -30,7 +30,7 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
     $retval .= "<fieldset class='left'>\n";
     $retval .= "<legend>" . _pgettext('Create new procedure', 'New') . "</legend>\n";
     $retval .= "        <div class='wrap'>\n";
-    if (PMA_Util::currentUserHasPrivilege($priv, $db)) {
+    if (PMA_Util::currentUserHasPrivilege($priv, $db, $table)) {
         $retval .= "            <a {$ajax_class['add']} ";
         $retval .= "href='db_" . $pmaString->strtolower($name) . "s.php";
         $retval .= "?$url_query&amp;add_item=1' ";
