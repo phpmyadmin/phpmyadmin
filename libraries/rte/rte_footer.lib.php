@@ -25,17 +25,24 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
 
-    $icon = 'b_' . $pmaString->strtolower($name) . '_add.png';
     $retval  = "";
     $retval .= "<!-- ADD " . $name . " FORM START -->\n";
     $retval .= "<fieldset class='left'>\n";
     $retval .= "<legend>" . _pgettext('Create new procedure', 'New') . "</legend>\n";
     $retval .= "        <div class='wrap'>\n";
-    $retval .= "            <a {$ajax_class['add']} ";
-    $retval .= "href='db_" . $pmaString->strtolower($name) . "s.php";
-    $retval .= "?$url_query&amp;add_item=1' onclick='$.datepicker.initialized = false;'>";
-    $retval .= PMA_Util::getIcon($icon);
-    $retval .= PMA_RTE_getWord('add') . "</a>\n";
+    if (PMA_Util::currentUserHasPrivilege($priv, $db)) {
+        $retval .= "            <a {$ajax_class['add']} ";
+        $retval .= "href='db_" . $pmaString->strtolower($name) . "s.php";
+        $retval .= "?$url_query&amp;add_item=1' ";
+        $retval .= "onclick='$.datepicker.initialized = false;'>";
+        $icon = 'b_' . $pmaString->strtolower($name) . '_add.png';
+        $retval .= PMA_Util::getIcon($icon);
+        $retval .= PMA_RTE_getWord('add') . "</a>\n";
+    } else {
+        $icon = 'bd_' . $pmaString->strtolower($name) . '_add.png';
+        $retval .= PMA_Util::getIcon($icon);
+        $retval .= PMA_RTE_getWord('add'). "\n";
+    }
     $retval .= "            " . PMA_Util::showMySQLDocu($docu) . "\n";
     $retval .= "        </div>\n";
     $retval .= "</fieldset>\n";
