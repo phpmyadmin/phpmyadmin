@@ -216,7 +216,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingColumn, false);
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true, 'ajax_page_request' : true}, function (data) {
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     if ($('#result_query').length) {
                         $('#result_query').remove();
@@ -271,7 +271,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
             $.get(url,
                 {'is_js_confirmed' : 1, 'ajax_request' : true, 'index_change' : true},
                 function (data) {
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     $(this).remove();
                     if (typeof data.reload != 'undefined') {
@@ -320,7 +320,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
             $.get(url,
                 {'is_js_confirmed' : 1, 'ajax_request' : true, 'index_change' : true},
                 function (data) {
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     if ($('#result_query').length) {
                         $('#result_query').remove();
@@ -364,7 +364,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
             $.get(url,
                 {'is_js_confirmed' : 1, 'ajax_request' : true, 'index_change' : true},
                 function (data) {
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     if ($('#result_query').length) {
                         $('#result_query').remove();
