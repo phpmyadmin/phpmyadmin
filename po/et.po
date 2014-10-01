@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-09-12 10:28+0200\n"
+"PO-Revision-Date: 2014-10-01 14:54+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/4-2/et/>"
 "\n"
@@ -6884,7 +6884,7 @@ msgstr "Loo andmebaas:"
 #: libraries/server_privileges.lib.php:3857 server_privileges.php:130
 #: server_replication.php:32
 msgid "No Privileges"
-msgstr "Ei oma õigusi"
+msgstr "Õigused puuduvad"
 
 #: libraries/display_create_table.lib.php:55 pmd_general.php:91
 msgid "Create table"
