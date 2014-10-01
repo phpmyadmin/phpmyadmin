@@ -316,6 +316,7 @@ EOT;
     private function _getEnumSetInputBox($column_index, $criteriaValues,
         $column_type, $column_id, $in_zoom_search_edit = false
     ) {
+        $column_type = htmlspecialchars($column_type);
         $html_output = '';
         $value = explode(
             ', ',
@@ -985,22 +986,27 @@ EOT;
             $html_output .= '<th>'
                 . htmlspecialchars($this->_columnNames[$column_index]) . '</th>';
             $properties = $this->getColumnProperties($column_index, $column_index);
-            $html_output .= '<td>' . $properties['type'] . '</td>';
+            $html_output .= '<td>'
+                . htmlspecialchars($properties['type'])
+                . '</td>';
             $html_output .= '<td>' . $properties['collation'] . '</td>';
             $html_output .= '<td>' . $properties['func'] . '</td>';
             // here, the data-type attribute is needed for a date/time picker
-            $html_output .= '<td data-type="' . $properties['type'] . '"'
+            $html_output .= '<td data-type="'
+                . htmlspecialchars($properties['type']) . '"'
                 . '>' . $properties['value'] . '</td>';
             $html_output .= '</tr>';
             //Displays hidden fields
             $html_output .= '<tr><td>';
             $html_output .= '<input type="hidden"'
                 . ' name="criteriaColumnNames[' . $column_index . ']"'
-                . ' value="' . htmlspecialchars($this->_columnNames[$column_index])
+                . ' value="'
+                . htmlspecialchars($this->_columnNames[$column_index])
                 . '" />';
             $html_output .= '<input type="hidden"'
                 . ' name="criteriaColumnTypes[' . $column_index . ']"'
-                . ' value="' . $this->_columnTypes[$column_index] . '" />';
+                . ' value="'
+                . htmlspecialchars($this->_columnTypes[$column_index]) . '" />';
             $html_output .= '<input type="hidden"'
                 . ' name="criteriaColumnCollations[' . $column_index . ']"'
                 . ' value="' . $this->_columnCollations[$column_index] . '" />';
