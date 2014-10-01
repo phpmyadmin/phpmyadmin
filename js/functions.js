@@ -1675,9 +1675,14 @@ function bindCodeMirrorToInlineEditor() {
             codemirror_inline_editor = CodeMirror.fromTextArea($inline_editor[0], {
                 lineNumbers: true,
                 matchBrackets: true,
+                extraKeys: {"Ctrl-Space": "autocomplete"},
+                hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
                 indentUnit: 4,
                 mode: "text/x-mysql",
                 lineWrapping: true
+            });
+            codemirror_inline_editor.on("change", function(instance) {
+                CodeMirror.commands.autocomplete(instance);
             });
             codemirror_inline_editor.getScrollerElement().style.height = height;
             codemirror_inline_editor.refresh();
@@ -4266,11 +4271,16 @@ AJAX.registerOnload('functions.js', function () {
                 {
                     lineNumbers: true,
                     matchBrackets: true,
+                    extraKeys: {"Ctrl-Space": "autocomplete"},
+                    hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
                     indentUnit: 4,
                     mode: "text/x-mysql",
                     lineWrapping: true
                 }
             );
+            syntaxHighlighter.on("change", function(instance) {
+                CodeMirror.commands.autocomplete(instance);
+            });
         }
     }
 });
@@ -4315,8 +4325,18 @@ function PMA_createViewDialog($this)
             // Attach syntax highlighted editor
             if (typeof CodeMirror !== 'undefined') {
                 var $elm = $dialog.find('textarea');
-                var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql", lineWrapping: true};
-                syntaxHighlighter = CodeMirror.fromTextArea($elm[0], opts);
+                syntaxHighlighter = CodeMirror.fromTextArea($elm[0], {
+                    lineNumbers: true,
+                    matchBrackets: true,
+                    extraKeys: {"Ctrl-Space": "autocomplete"},
+                    hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
+                    indentUnit: 4,
+                    mode: "text/x-mysql",
+                    lineWrapping: true
+                });
+                syntaxHighlighter.on("change", function(instance) {
+                    CodeMirror.commands.autocomplete(instance);
+                });
             }
             $('input:visible[type=text]', $dialog).first().focus();
         } else {
