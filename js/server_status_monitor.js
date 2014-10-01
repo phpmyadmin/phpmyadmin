@@ -695,7 +695,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             $.get('server_status_monitor.php?' + PMA_commonParams.get('common_query'), vars,
                 function (data) {
                     var logVars;
-                    if (data.success === true) {
+                    if (typeof data !== 'undefined' && data.success === true) {
                         logVars = data.message;
                     } else {
                         return serverResponseError();
@@ -1350,7 +1350,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             requiredData: JSON.stringify(runtime.dataList)
         }, function (data) {
             var chartData;
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 chartData = data.message;
             } else {
                 return serverResponseError();
@@ -1594,7 +1594,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             function (data) {
                 var logData;
                 var dlgBtns = {};
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     logData = data.message;
                 } else {
                     return serverResponseError();
@@ -1981,7 +1981,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             database: db
         }, function (data) {
             var i;
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 data = data.message;
             }
             if (data.error) {

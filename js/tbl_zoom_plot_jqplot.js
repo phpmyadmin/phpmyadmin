@@ -396,7 +396,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                     'sql_query' : sql_query,
                     'inline_edit' : false
                 }, function (data) {
-                    if (data.success === true) {
+                    if (typeof data !== 'undefined' && data.success === true) {
                         $('#sqlqueryresults').html(data.sql_query);
                         $("#sqlqueryresults").trigger('appendAnchor');
                     } else {

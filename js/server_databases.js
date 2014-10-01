@@ -64,7 +64,7 @@ AJAX.registerOnload('server_databases.js', function () {
                 PMA_ajaxShowMessage(PMA_messages.strProcessingRequest, false);
 
                 $.post(url, function (data) {
-                    if (data.success === true) {
+                    if (typeof data !== 'undefined' && data.success === true) {
                         PMA_ajaxShowMessage(data.message);
 
                         var $rowsToRemove = $form.find('tr.removeMe');
@@ -109,7 +109,7 @@ AJAX.registerOnload('server_databases.js', function () {
         PMA_prepareForAjaxRequest($form);
 
         $.post($form.attr('action'), $form.serialize(), function (data) {
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxShowMessage(data.message);
 
                 //Append database's row to table
