@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.0.10.4 (2014-10-01)
+- bug #4544 [security] XSS vulnerabilities in table search and table structure pages
+
 4.0.10.3 (2014-09-13)
 - bug #4530 [security] DOM based XSS that results to a CSRF that creates a
             ROOT account in certain conditions
