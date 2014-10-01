@@ -122,7 +122,7 @@ function addUser($form)
 
     //We also need to post the value of the submit button in order to get this to work correctly
     $.post($form.attr('action'), $form.serialize() + "&adduser_submit=" + $("input[name=adduser_submit]").val(), function (data) {
-        if (data.success === true) {
+        if (typeof data !== 'undefined' && data.success === true) {
             // Refresh navigation, if we created a database with the name
             // that is the same as the username of the new user
             if ($('#add_user_dialog #createdb-1:checked').length) {
@@ -257,7 +257,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         var $msgbox = PMA_ajaxShowMessage();
 
         $.get($(this).attr("href"), {'ajax_request': true}, function (data) {
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 $('#page_content').hide();
                 var $div = $('#add_user_dialog');
                 if ($div.length === 0) {
@@ -314,7 +314,7 @@ AJAX.registerOnload('server_privileges.js', function () {
             PMA_ajaxShowMessage(PMA_messages.strRemovingSelectedUsers);
 
             $.post(url, $form.serialize() + "&delete=" + $thisButton.val() + "&ajax_request=true", function (data) {
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
                     // Refresh navigation, if we droppped some databases with the name
                     // that is the same as the username of the deleted user
@@ -364,7 +364,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                 'token': token
             },
             function (data) {
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     var buttonOptions = {};
                     buttonOptions[PMA_messages.strGo] = function () {
@@ -377,7 +377,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                             $('#changeUserGroupDialog').find('form').serialize() + '&ajax_request=1',
                             function (data) {
                                 PMA_ajaxRemoveMessage($message);
-                                if (data.success === true) {
+                                if (typeof data !== 'undefined' && data.success === true) {
                                     $("#usersForm")
                                         .find('.current_row')
                                         .removeClass('current_row')
@@ -449,7 +449,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                 'token': token
             },
             function (data) {
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     $('#page_content').hide();
                     var $div = $('#edit_user_dialog');
                     if ($div.length === 0) {
@@ -524,7 +524,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         }
 
         $.post($t.attr('action'), $t.serialize() + '&' + curr_submit_name + '=' + curr_submit_value, function (data) {
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 $('#page_content').show();
                 $("#edit_user_dialog").remove();
 
@@ -606,7 +606,7 @@ AJAX.registerOnload('server_privileges.js', function () {
             $(this.form).prop('action'),
             $(this.form).serialize() + '&submit_mult=export&ajax_request=true',
             function (data) {
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     var $ajaxDialog = $('<div />')
                     .append(data.message)
                     .dialog({
@@ -662,7 +662,7 @@ AJAX.registerOnload('server_privileges.js', function () {
             $(this).dialog("close");
         };
         $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 var $ajaxDialog = $('<div />')
                 .append(data.message)
                 .dialog({
@@ -704,7 +704,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         event.preventDefault();
         var $msgbox = PMA_ajaxShowMessage();
         $.get($(this).attr('href'), {'ajax_request' : true}, function (data) {
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxRemoveMessage($msgbox);
                 // This form is not on screen when first entering Privileges
                 // if there are more than 50 users
