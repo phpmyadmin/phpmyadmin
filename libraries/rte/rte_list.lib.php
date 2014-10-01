@@ -182,24 +182,28 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
         false
     );
     if ($routine !== false) {
-        $execute_action = 'execute_routine';
-        for ($i=0; $i<$routine_details['item_num_params']; $i++) {
-            if ($routine_details['item_type'] == 'PROCEDURE'
-                && $routine_details['item_param_dir'][$i] == 'OUT'
-            ) {
-                continue;
+        if (PMA_Util::currentUserHasPrivilege('EXECUTE', $db)) {
+            $execute_action = 'execute_routine';
+            for ($i=0; $i<$routine_details['item_num_params']; $i++) {
+                if ($routine_details['item_type'] == 'PROCEDURE'
+                    && $routine_details['item_param_dir'][$i] == 'OUT'
+                ) {
+                    continue;
+                }
+                $execute_action = 'execute_dialog';
+                break;
             }
-            $execute_action = 'execute_dialog';
-            break;
+            $retval .= '                <a ' . $ajax_class['exec']
+                                             . ' href="db_routines.php?'
+                                             . $url_query
+                                             . '&amp;' . $execute_action . '=1'
+                                             . '&amp;item_name='
+                                             . urlencode($routine['SPECIFIC_NAME'])
+                                             . '&amp;' . $type_link
+                                             . '">' . $titles['Execute'] . "</a>\n";
+        } else {
+            $retval .= "                {$titles['NoExecute']}\n";
         }
-        $retval .= '                <a ' . $ajax_class['exec']
-                                         . ' href="db_routines.php?'
-                                         . $url_query
-                                         . '&amp;' . $execute_action . '=1'
-                                         . '&amp;item_name='
-                                         . urlencode($routine['SPECIFIC_NAME'])
-                                         . '&amp;' . $type_link
-                                         . '">' . $titles['Execute'] . "</a>\n";
     }
 
     $retval .= "            </td>\n";
