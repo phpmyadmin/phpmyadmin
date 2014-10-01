@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-10-01 05:04+0200\n"
+"PO-Revision-Date: 2014-10-01 06:13+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: English (United Kingdom) "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/en_GB/>\n"
@@ -4563,7 +4563,7 @@ msgstr ""
 #: libraries/config/Validator.class.php:245
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
-msgstr "Could not initialize Drizzle connection library!"
+msgstr "Could not initialise Drizzle connection library!"
 
 #: libraries/config/Validator.class.php:254
 #: libraries/config/Validator.class.php:262
@@ -5488,7 +5488,7 @@ msgstr "Text fields"
 #: libraries/config/messages.inc.php:309
 #| msgid "Customize text input fields"
 msgid "Customize text input fields."
-msgstr "Customize text input fields."
+msgstr "Customise text input fields."
 
 #: libraries/config/messages.inc.php:310
 msgid "Texy! text"
