@@ -46,7 +46,7 @@ function loadResult(result_path, table_name, link)
         $('#table-link').attr({"href" : 'sql.php?' + link }).text(table_name);
         var url = result_path + "#sqlqueryresults";
         $.get(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
-            if (data.success) {
+            if (typeof data !== 'undefined' && data.success) {
                 $('#browse-results').html(data.message);
                 $('html, body')
                     .animate({
@@ -85,7 +85,7 @@ function deleteResult(result_path, msg)
             var url = result_path + "#result_query, #sqlqueryform";
             $.get(url, {'ajax_request': true, 'is_js_confirmed': true},
                 function (data) {
-            if (data.success) {
+            if (typeof data !== 'undefined' && data.success) {
                 $('#sqlqueryform').html(data.sql_query);
                 /** Refresh the search results after the deletion */
                 document.getElementById('buttonGo').click();
@@ -202,7 +202,7 @@ AJAX.registerOnload('db_search.js', function () {
 
         var url = $form.serialize() + "&submit_search=" + $("#buttonGo").val();
         $.post($form.attr('action'), url, function (data) {
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 // found results
                 $("#searchresults").html(data.message);
 

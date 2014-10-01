@@ -135,7 +135,7 @@ AJAX.registerOnload('indexes.js', function () {
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingPrimaryKeyIndex, false);
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     var $table_ref = $rows_to_hide.closest('table');
                     if ($rows_to_hide.length == $table_ref.find('tbody > tr').length) {
