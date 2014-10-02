@@ -1643,7 +1643,7 @@ class PMA_Table
                         return $this->uiprefs[$property];
                     }
                 }
-                // remove the property, since it is not exist anymore in database
+                // remove the property, since it no longer exists in database
                 $this->removeUiProp(self::PROP_SORTED_COLUMN);
                 return false;
             } else {
