@@ -970,7 +970,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         }, function (data) {
                             g.lastXHR = null;
                             $editArea.removeClass('edit_area_loading');
-                            if (data.success === true) {
+                            if (typeof data !== 'undefined' && data.success === true) {
                                 $td.data('original_data', data.value);
                                 $(g.cEdit).find('.edit_box').val(data.value);
                                 $editArea.append('<textarea></textarea>');
@@ -1258,7 +1258,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             $('div.save_edited').removeClass('saving_edited_data')
                                 .find('input').removeProp('disabled');  // enable the save button back
                         }
-                        if (data.success === true) {
+                        if (typeof data !== 'undefined' && data.success === true) {
                             PMA_ajaxShowMessage(data.message);
 
                             // update where_clause related data in each edited row
