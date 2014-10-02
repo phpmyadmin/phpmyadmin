@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-02 11:40+0200\n"
-"PO-Revision-Date: 2014-03-28 11:08+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ca/>\n"
+"PO-Revision-Date: 2014-10-02 16:35+0200\n"
+"Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
+"Language-Team: Catalan "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -29,16 +29,15 @@ msgid "The central list of columns for the current database is empty."
 msgstr ""
 
 #: db_central_columns.php:109
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "Clica per clasificar"
+msgstr "Clica per classificar."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "Mostrant registres %1s - %2s"
+msgstr "Mostrant registre(s) %1$s - %2$s"
 
 #: db_create.php:61
 #, php-format
@@ -247,27 +246,27 @@ msgid "The database name is empty!"
 msgstr "El nom de la base de dades és buit!"
 
 #: db_operations.php:135
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "S'ha renombrat la base de dades %1$s a %2$s"
+msgstr "S'ha reanomenat la base de dades %1$s a %2$s."
 
 #: db_operations.php:141
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "S'ha copiat la base de dades %1$s a %2$s"
+msgstr "S'ha copiat la base de dades %1$s a %2$s."
 
 #: db_operations.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"S'ha desactivat l' emmagatzemament de la configuració de phpMyAdmin. Per "
-"veure el motiu, clica %saqui%s."
+"S'ha desactivat l'emmagatzemament de la configuració de phpMyAdmin. %"
+"sConsulta el motiu%s."
 
 #: db_printview.php:48 db_tracking.php:83 db_tracking.php:207
 #: libraries/Menu.class.php:246 libraries/config/messages.inc.php:754
@@ -323,10 +322,9 @@ msgstr[0] "%s taula"
 msgstr[1] "%s taules"
 
 #: db_qbe.php:103
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Has de triar al menys una columna per mostrar"
+msgstr "Has de triar al menys una columna per mostrar!"
 
 #: db_qbe.php:124
 #, php-format
@@ -597,7 +595,6 @@ msgid "Output"
 msgstr "Sortida"
 
 #: gis_data_editor.php:415
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -606,23 +603,21 @@ msgid ""
 "below into the \"Value\" field."
 msgstr ""
 "Tria \"GeomFromText\" de la columna \"Funció\" i enganxa la cadena següent "
-"al camp \"Valor\""
+"al camp \"Valor\"."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Accés denegat!"
+msgstr "Sucedit"
 
 #: import.php:58 js/messages.php:434
 msgid "Failed"
 msgstr ""
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "completa insercions"
+msgstr "Paràmetres incomplets"
 
 #: import.php:166
 #, php-format
@@ -650,10 +645,9 @@ msgstr ""
 
 #: import.php:476 import.php:537 libraries/File.class.php:418
 #: libraries/File.class.php:512
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "No es pot llegir l'arxiu"
+msgstr "No es pot llegir l'arxiu!"
 
 #: import.php:486 import.php:497 import.php:518 import.php:529
 #: libraries/File.class.php:578
@@ -676,15 +670,14 @@ msgstr ""
 "vostre PHP. Veieu [doc@faq1-16]PFC(FAQ) 1.16[/doc]."
 
 #: import.php:562
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
-"No es pot convertir el joc de caracters de l'arxivu sense la biblioteca "
-"corresponent"
+"No es pot convertir el joc de caracters de l'arxiu sense la biblioteca "
+"corresponent!"
 
 #: import.php:600 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
@@ -692,10 +685,10 @@ msgstr ""
 "No es poden carregar les extensions d'importació, comprova l'instal.lació!"
 
 #: import.php:635 libraries/sql.lib.php:1051 libraries/sql.lib.php:1900
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "%s creat com a Consulta desada"
+msgstr "%s creat com a Consulta desada."
 
 #: import.php:644
 #, php-format
@@ -914,7 +907,7 @@ msgstr ""
 "configuració per part de persones no autoritzades."
 
 #: index.php:521
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -923,8 +916,8 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "La configuració d'emmagatzemament de la configuració de phpMyAdmin no està "
-"completa, s'han desactivat algunes característiques avançades. Per saber "
-"perquè, clica %saquí%s."
+"completa, s'han desactivat algunes característiques avançades. %sConsulta el "
+"motiu%s. "
 
 #: index.php:527
 msgid ""
@@ -984,10 +977,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Elimina la clau principal o l'index"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Tria una clau externa"
+msgstr "Retirant clau externa."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -999,32 +991,27 @@ msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Realment vols esborrar el grup d'usuaris \"%s\"?"
 
 #: js/messages.php:46
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Realment vols fer \"%s\"?"
+msgstr "Realment vols esborrar la cerca \"%s\"?"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid ""
 #| "You have edited some data and they have not been saved. Are you sure you "
 #| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
-msgstr ""
-"Has editat algunes dades i no s'han desat. Estàs segur que vols sortir "
-"d'aquesta pàgina per desar les dades?"
+msgstr "Tens canvis no desats; estàs segur de sortir d'aquesta pàgina?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Realment vols fer \"%s\"?"
+msgstr "Realment vols revocar el(s) usuari(s) seleccionat(s)?"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "Desa com a arxiu"
+msgstr "Desa i tanca"
 
 #: js/messages.php:52 libraries/config/FormDisplay.tpl.php:395
 #: libraries/insert_edit.lib.php:1597 prefs_manage.php:339
@@ -1033,32 +1020,28 @@ msgid "Reset"
 msgstr "Reinicia"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Tria Tot"
+msgstr "Restableix Tot"
 
 #: js/messages.php:56
 msgid "Missing value in the form!"
 msgstr "Falta un valor al formulari!"
 
 #: js/messages.php:57
-#, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "al menys una d'aquestes paraules"
+msgstr "Tria al menys una d'aquestes opcions!"
 
 #: js/messages.php:58
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number!"
-msgstr "Numero de port incorrecte"
+msgstr "Entra un numero vàlid!"
 
 #: js/messages.php:59
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid length!"
-msgstr "Numero de port incorrecte"
+msgstr "Entra una longitud vàlida!"
 
 #: js/messages.php:60
 msgid "Add Index"
@@ -1074,46 +1057,40 @@ msgid "Add %s column(s) to index"
 msgstr "Afegeix %s columna(es) a l'index"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Crea una relació"
+msgstr "Crea un índex d'una sola columna"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Crea una relació"
+msgstr "Crea una índex compost"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "Columnes englobades per:"
+msgstr "Composa amb:"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Afegeix %s columna(es) a l'index"
+msgstr "Tria columna(es) per a l'índex."
 
 #: js/messages.php:69 libraries/insert_edit.lib.php:1595
 #: libraries/tbl_columns_definition_form.lib.php:142
 #: libraries/tbl_relation.lib.php:662
 msgid "Preview SQL"
-msgstr ""
+msgstr "Vista prèvia de l'SQL"
 
 #: js/messages.php:72
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "en consulta"
+msgstr "Simulació de consulta"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "Files afectades:"
+msgstr "Files coincidents:"
 
 #: js/messages.php:74 libraries/Util.class.php:652 libraries/sql.lib.php:454
 msgid "SQL query:"
@@ -1172,10 +1149,9 @@ msgid "Connections / Processes"
 msgstr "Connexions / Processos"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
-msgstr "Configuració local de la monitorització incompatible"
+msgstr "Configuració local de la monitorització incompatible!"
 
 #: js/messages.php:99
 msgid ""
@@ -1333,10 +1309,9 @@ msgid "Add chart to grid"
 msgstr "Afegeix gràfic a a la graella"
 
 #: js/messages.php:142
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "Afegeix al menys una variable a la serie"
+msgstr "Afegeix al menys una variable a les series!"
 
 #: js/messages.php:143 libraries/DisplayResults.class.php:1339
 #: libraries/TableSearch.class.php:884 libraries/TableSearch.class.php:1053
@@ -1434,10 +1409,10 @@ msgstr "Desactivar %s"
 
 #. l10n: %d seconds
 #: js/messages.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "Definir «long_query_time» a %ds"
+msgstr "Definir «long_query_time» a %d segons."
 
 #: js/messages.php:167
 msgid ""
@@ -1652,10 +1627,9 @@ msgid "Import monitor configuration"
 msgstr "Importar configuració del monitor"
 
 #: js/messages.php:226
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "Tria l'arxiu a importar"
+msgstr "Tria l'arxiu a importar."
 
 #: js/messages.php:227
 msgid "No files available on server for import!"
@@ -1781,10 +1755,9 @@ msgid "(Disabled)"
 msgstr "(Desactivat)"
 
 #: js/messages.php:270
-#, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
-msgstr "Error en obtenir capceleres"
+msgstr "Error en obtenir la quantitat real de files."
 
 #: js/messages.php:273
 msgid "Searching"
@@ -1825,10 +1798,9 @@ msgid "Values for a new column"
 msgstr "Valors per la nova columna"
 
 #: js/messages.php:286
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "Entra cada valor en un camp separat"
+msgstr "Entra cada valor en un camp separat."
 
 #: js/messages.php:287
 #, php-format
@@ -1876,16 +1848,14 @@ msgid "Pick"
 msgstr ""
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "No rows selected"
 msgid "Column selector"
-msgstr "No s'han triat arxius"
+msgstr "Selector de columnes"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
-msgstr "Cerca a la base de dades"
+msgstr "Cerca a aquesta llista"
 
 #: js/messages.php:303
 #, php-format
@@ -1895,10 +1865,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "Memòria lliure"
+msgstr "Veure més"
 
 #: js/messages.php:305
 msgid "Are you sure?"
@@ -1911,10 +1880,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:307
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "Contribueix"
+msgstr "Continua"
 
 #: js/messages.php:310 libraries/structure.lib.php:2148
 #: libraries/structure.lib.php:2151
@@ -1922,16 +1890,14 @@ msgid "Add primary key"
 msgstr "Afegir clau principal"
 
 #: js/messages.php:311
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "S'ha afegit una clau principal a %s."
+msgstr "S'ha afegit una clau principal."
 
 #: js/messages.php:312 libraries/normalization.lib.php:172
-#, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "Informe de seguiment"
+msgstr "Portant-te al següent pas…"
 
 #: js/messages.php:313
 #, php-format
@@ -1941,10 +1907,9 @@ msgstr ""
 #: js/messages.php:314 libraries/normalization.lib.php:420
 #: libraries/normalization.lib.php:467 libraries/normalization.lib.php:550
 #: libraries/normalization.lib.php:610
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "Fi de linia"
+msgstr "Fi de pas"
 
 #: js/messages.php:315
 msgid "Second step of normalization (2NF)"
@@ -1970,10 +1935,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "No s'han triat bases de dades."
+msgstr "No s'han triat dependències parcials!"
 
 #: js/messages.php:322
 msgid "Show me the possible partial dependencies based on data in the table"
@@ -1994,10 +1958,9 @@ msgid "Step"
 msgstr ""
 
 #: js/messages.php:326
-#, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
-msgstr "Les següents consultes s'han executat:"
+msgstr "Les següents accions es faràn:"
 
 #: js/messages.php:327
 #, php-format
@@ -2005,10 +1968,9 @@ msgid "DROP columns %s from the table %s"
 msgstr ""
 
 #: js/messages.php:328
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Create the following table"
-msgstr "Afegeix permisos a la següent taula"
+msgstr "Crea la següent taula"
 
 #: js/messages.php:331
 msgid "Third step of normalization (3NF)"
@@ -2023,10 +1985,9 @@ msgid "Selected dependencies are as follows:"
 msgstr ""
 
 #: js/messages.php:334
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "No s'han triat bases de dades."
+msgstr "No s'han triat dependències!"
 
 #: js/messages.php:337 libraries/insert_edit.lib.php:1506
 #: libraries/server_variables.lib.php:157
@@ -2045,34 +2006,29 @@ msgid "Show search criteria"
 msgstr "Mostrar criteri de cerca"
 
 #: js/messages.php:342
-#, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
-msgstr "Cerca de taules"
+msgstr "Interval de cerca"
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Nom de les columnes: "
+msgstr "Màxim de  columna:"
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Nom de les columnes: "
+msgstr "Mínim de columna:"
 
 #: js/messages.php:345
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Màxim de taules"
+msgstr "Valor mínim:"
 
 #: js/messages.php:346
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Màxim de taules"
+msgstr "Valor màxim:"
 
 #: js/messages.php:349
 msgid "Hide find and replace criteria"
@@ -2159,10 +2115,9 @@ msgid "Shift + Click on function name to apply to all rows."
 msgstr ""
 
 #: js/messages.php:388
-#, fuzzy
 #| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
-msgstr "Vols importar la resta de paràmetres?"
+msgstr "Vols copiar la clau de xifratge?"
 
 #: js/messages.php:389
 msgid "Encryption key"
@@ -2177,10 +2132,9 @@ msgid "Select Foreign Key"
 msgstr "Tria una clau externa"
 
 #: js/messages.php:394
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "Tria la clau principal o una clau única"
+msgstr "Tria la clau principal o una clau única!"
 
 #: js/messages.php:395 libraries/db_designer.lib.php:317
 msgid "Choose column to display"
@@ -2199,40 +2153,34 @@ msgid "Page name"
 msgstr "Nom de pàgina"
 
 #: js/messages.php:401
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "Selecciona la pàgina"
+msgstr "Desa la pàgina"
 
 #: js/messages.php:402 libraries/db_designer.lib.php:272
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "Pàgines lliures"
+msgstr "Obre la pàgina"
 
 #: js/messages.php:403
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "Selecciona la pàgina"
+msgstr "esborra la pàgina"
 
 #: js/messages.php:404 libraries/db_designer.lib.php:382
-#, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
-msgstr "Unitat"
+msgstr "Sense títol"
 
 #: js/messages.php:405
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Tria una pàgina per editar"
+msgstr "Tria una pàgina per continuar"
 
 #: js/messages.php:406
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid page name"
-msgstr "Numero de port incorrecte"
+msgstr "Entra un nom de pàgina vàlid"
 
 #: js/messages.php:407
 msgid "Do you want to save the changes to the current page?"
