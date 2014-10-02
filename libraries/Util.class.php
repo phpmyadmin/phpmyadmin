@@ -2079,18 +2079,20 @@ class PMA_Util
     /**
      * Function to generate unique condition for specified row.
      *
-     * @param resource $handle       current query result
-     * @param integer  $fields_cnt   number of fields
-     * @param array    $fields_meta  meta information about fields
-     * @param array    $row          current row
-     * @param boolean  $force_unique generate condition only on pk or unique
+     * @param resource $handle            current query result
+     * @param integer  $fields_cnt        number of fields
+     * @param array    $fields_meta       meta information about fields
+     * @param array    $row               current row
+     * @param boolean  $force_unique      generate condition only on pk or unique
+     * @param string   $restrict_to_table restrict the unique condition to this table
      *
      * @access public
      *
      * @return array     the calculated condition and whether condition is unique
      */
     public static function getUniqueCondition(
-        $handle, $fields_cnt, $fields_meta, $row, $force_unique = false
+        $handle, $fields_cnt, $fields_meta, $row, $force_unique = false,
+        $restrict_to_table = false
     ) {
         $primary_key          = '';
         $unique_key           = '';
@@ -2146,6 +2148,12 @@ class PMA_Util
                 && ! PMA_Table::isView($GLOBALS['db'], $meta->table)
             ) {
                 $meta->table = $meta->orgtable;
+            }
+
+            // If this field is not from the table which the unique clause needs
+            // to be restricted to.
+            if ($restrict_to_table && $restrict_to_table != $meta->table) {
+                continue;
             }
 
             // to fix the bug where float fields (primary or not)
