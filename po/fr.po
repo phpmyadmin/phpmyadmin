@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-02 11:40+0200\n"
-"PO-Revision-Date: 2014-10-02 13:11+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-10-02 13:36+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -1928,10 +1928,10 @@ msgid "The following actions will be performed:"
 msgstr "Les actions suivantes seront effectuées :"
 
 #: js/messages.php:327
-#, fuzzy, php-format
+#, php-format
 #| msgid "DROP columns %1s from the table %2s"
 msgid "DROP columns %s from the table %s"
-msgstr "Supprimer les colonnes %1s de la table %2s"
+msgstr "Supprimer les colonnes %s de la table %s"
 
 #: js/messages.php:328
 msgid "Create the following table"
@@ -10636,10 +10636,9 @@ msgid "Slave replication"
 msgstr "Réplication esclave"
 
 #: libraries/replication_gui.lib.php:143
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Master connection:"
-msgstr "Connexion non sécurisée"
+msgstr "Connexion maître :"
 
 #: libraries/replication_gui.lib.php:208
 msgid "Slave SQL Thread not running!"
