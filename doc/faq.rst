@@ -1955,7 +1955,7 @@ Bugs section. But please first discuss your bug with other users:
 
 Translations are very welcome and all you need to have are the
 language skills. The easiest way is to use our `online translation
-service <https://l10n.cihar.com/projects/phpmyadmin/>`_. You can check
+service <https://hosted.weblate.org/projects/phpmyadmin/>`_. You can check
 out all the possibilities to translate in the `translate section on
 our website <http://www.phpmyadmin.net/home_page/translate.php>`_.
 
