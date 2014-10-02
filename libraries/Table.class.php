@@ -1619,28 +1619,27 @@ class PMA_Table
         // do checking based on property
         if ($property == self::PROP_SORTED_COLUMN) {
             if (isset($this->uiprefs[$property])) {
-                if (isset($_REQUEST['discard_remembered_sort'])) {
-                    $this->removeUiProp(self::PROP_SORTED_COLUMN);
-                }
-                // check if the column name exists in this table
-                $tmp = explode(' ', $this->uiprefs[$property]);
-                $colname = $tmp[0];
-                //remove backquoting from colname
-                $colname = str_replace('`', '', $colname);
-                //get the available column name without backquoting
-                $avail_columns = $this->getColumns(false);
+                if (! isset($_REQUEST['discard_remembered_sort'])) {
+                    // check if the column name exists in this table
+                    $tmp = explode(' ', $this->uiprefs[$property]);
+                    $colname = $tmp[0];
+                    //remove backquoting from colname
+                    $colname = str_replace('`', '', $colname);
+                    //get the available column name without backquoting
+                    $avail_columns = $this->getColumns(false);
 
-                /** @var PMA_String $pmaString */
-                $pmaString = $GLOBALS['PMA_String'];
+                    /** @var PMA_String $pmaString */
+                    $pmaString = $GLOBALS['PMA_String'];
 
-                foreach ($avail_columns as $each_col) {
-                    // check if $each_col ends with $colname
-                    if (substr_compare(
-                        $each_col,
-                        $colname,
-                        $pmaString->strlen($each_col) - $pmaString->strlen($colname)
-                    ) === 0) {
-                        return $this->uiprefs[$property];
+                    foreach ($avail_columns as $each_col) {
+                        // check if $each_col ends with $colname
+                        if (substr_compare(
+                            $each_col,
+                            $colname,
+                            $pmaString->strlen($each_col) - $pmaString->strlen($colname)
+                        ) === 0) {
+                            return $this->uiprefs[$property];
+                        }
                     }
                 }
                 // remove the property, since it no longer exists in database
