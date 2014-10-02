@@ -12,9 +12,9 @@ Code status
     :alt: Build status
     :target: https://travis-ci.org/phpmyadmin/phpmyadmin
 
-.. image:: http://l10n.cihar.com/widgets/phpmyadmin-status-badge.png
+.. image:: http://hosted.weblate.org/widgets/phpmyadmin-status-badge.png
     :alt: Translation status
-    :target: https://l10n.cihar.com/engage/phpmyadmin/?utm_source=widget
+    :target: https://hosted.weblate.org/engage/phpmyadmin/?utm_source=widget
 
 .. image:: https://coveralls.io/repos/phpmyadmin/phpmyadmin/badge.png?branch=master
     :target: https://coveralls.io/r/phpmyadmin/phpmyadmin?branch=master
