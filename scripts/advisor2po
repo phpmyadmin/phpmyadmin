@@ -53,6 +53,10 @@ define('PHPMYADMIN', 1);
 if (!file_exists('./libraries/Advisor.class.php')) {
     chdir('..');
 }
+include './libraries/String.class.php';
+
+$GLOBALS['PMA_String'] = new PMA_String();
+
 include './libraries/Advisor.class.php';
 
 $rules = Advisor::parseRulesFile();
