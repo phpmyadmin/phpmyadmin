@@ -584,7 +584,7 @@ function PMA_getDatabaseTables(
         $html .= 'id="id_hide_tbody_' . $t_n_url . '" ';
         $html .= 'onmouseover="this.className=\'small_tab2\';" ';
         $html .= 'onmouseout="this.className=\'small_tab\';" ';
-        $html .= 'onclick="Small_tab(' . $t_n_url . ', 1)">';
+        $html .= 'onclick="Small_tab(\'' . $t_n_url . '\', 1)">';
 
         // no space alloawd here, between tags and content !!!
         // JavaScript function does require this
@@ -599,8 +599,8 @@ function PMA_getDatabaseTables(
         $html .= '<td class="small_tab_pref" ';
         $html .= 'onmouseover="this.className=\'small_tab_pref2\';" ';
         $html .= 'onmouseout="this.className=\'small_tab_pref\';" ';
-        $html .= 'onclick="Start_tab_upd('
-            . $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . ');">';
+        $html .= 'onclick="Start_tab_upd(\''
+            . $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . '\');">';
         $html .= '<img alt="" ';
         $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/exec_small.png')
             . '" />';
