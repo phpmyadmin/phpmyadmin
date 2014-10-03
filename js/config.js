@@ -261,7 +261,7 @@ var validators = {
         if (isNaN(val)) {
             return true;
         }
-        return val <= max_value ? true : $.sprintf(PMA_messages.error_value_lte, max_value);
+        return val <= max_value ? true : PMA_sprintf(PMA_messages.error_value_lte, max_value);
     },
     // field validators
     _field: {

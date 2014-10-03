@@ -43,6 +43,7 @@ phpMyAdmin - ChangeLog
 + rfe #1529 Avoid session timeout when user is active
 - bug #4528 Can't import dump via SQL field
 + rfe #1251 Show "Overhead" with same precision for all tables
++ rfe #1546 Improve the js printf library
 + rfe #1542 Better error reporting in Designer
 
 4.2.10.0 (not yet released)
