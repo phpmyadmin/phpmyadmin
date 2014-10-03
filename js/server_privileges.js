@@ -304,7 +304,7 @@ AJAX.registerOnload('server_privileges.js', function () {
 
             $drop_users_db_checkbox = $("#checkbox_drop_users_db");
             if ($drop_users_db_checkbox.is(':checked')) {
-                var is_confirmed = confirm(PMA_messages.strDropDatabaseStrongWarning + '\n' + $.sprintf(PMA_messages.strDoYouReally, 'DROP DATABASE'));
+                var is_confirmed = confirm(PMA_messages.strDropDatabaseStrongWarning + '\n' + PMA_sprintf(PMA_messages.strDoYouReally, 'DROP DATABASE'));
                 if (! is_confirmed) {
                     // Uncheck the drop users database checkbox
                     $drop_users_db_checkbox.prop('checked', false);

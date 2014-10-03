@@ -122,6 +122,10 @@ function escapeHtml(unsafe) {
     }
 }
 
+function PMA_sprintf() {
+    return sprintf.apply(this, arguments);
+}
+
 /**
  * Hides/shows the default value input field, depending on the default type
  * Ticks the NULL checkbox if NULL is chosen as default value.
@@ -235,7 +239,7 @@ function PMA_current_version(data)
             ' ' + escapeHtml(data.version) +
             '</span>';
         if (latest > current) {
-            var message = $.sprintf(
+            var message = PMA_sprintf(
                 PMA_messages.strNewerVersion,
                 escapeHtml(data.version),
                 escapeHtml(data.date)
@@ -385,7 +389,7 @@ function confirmLink(theLink, theSqlQuery)
         return true;
     }
 
-    var is_confirmed = confirm($.sprintf(PMA_messages.strDoYouReally, theSqlQuery));
+    var is_confirmed = confirm(PMA_sprintf(PMA_messages.strDoYouReally, theSqlQuery));
     if (is_confirmed) {
         if ($(theLink).hasClass('formLinkSubmit')) {
             var name = 'is_js_confirmed';
@@ -457,7 +461,7 @@ function confirmQuery(theForm1, sqlQuery1)
         } else {
             message = sqlQuery1.value;
         }
-        var is_confirmed = confirm($.sprintf(PMA_messages.strDoYouReally, message));
+        var is_confirmed = confirm(PMA_sprintf(PMA_messages.strDoYouReally, message));
         // statement is confirmed -> update the
         // "is_js_confirmed" form field so the confirm test won't be
         // run on the server side and allows to submit the form
@@ -598,7 +602,7 @@ function checkFormElementInRange(theForm, theFieldName, message, min, max)
     // It's a number but it is not between min and max
     else if (val < min || val > max) {
         theField.select();
-        alert($.sprintf(message, val));
+        alert(PMA_sprintf(message, val));
         theField.focus();
         return false;
     }
@@ -1715,7 +1719,7 @@ function PMA_doc_add($elm, params)
         return;
     }
 
-    var url = $.sprintf(
+    var url = PMA_sprintf(
         mysql_doc_template,
         params[0]
     );
@@ -2682,7 +2686,7 @@ AJAX.registerOnload('functions.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = PMA_messages.strDropDatabaseStrongWarning + ' ';
-        question += $.sprintf(
+        question += PMA_sprintf(
             PMA_messages.strDoYouReally,
             'DROP DATABASE ' + escapeHtml(PMA_commonParams.get('db'))
         );
@@ -3029,7 +3033,7 @@ AJAX.registerOnload('functions.js', function () {
                     "<div class='slider'></div>" +
                     "</td><td>" +
                     "<form><div><input type='submit' class='add_value' value='" +
-                    $.sprintf(PMA_messages.enum_addValue, 1) +
+                    PMA_sprintf(PMA_messages.enum_addValue, 1) +
                     "'/></div></form>" +
                     "</td></tr></table>" +
                     "<input type='hidden' value='" + // So we know which column's data is being edited
@@ -3088,7 +3092,7 @@ AJAX.registerOnload('functions.js', function () {
             max: 9,
             slide: function (event, ui) {
                 $(this).closest('table').find('input[type=submit]').val(
-                    $.sprintf(PMA_messages.enum_addValue, ui.value)
+                    PMA_sprintf(PMA_messages.enum_addValue, ui.value)
                 );
             }
         });
@@ -3146,7 +3150,7 @@ AJAX.registerOnload('functions.js', function () {
         var result_pointer = i;
         var search_in = '<input type="text" class="filter_rows" placeholder="'+PMA_messages.searchList+'">';
         if (fields === '') {
-            fields = $.sprintf(PMA_messages.strEmptyCentralList, "'"+db+"'");
+            fields = PMA_sprintf(PMA_messages.strEmptyCentralList, "'"+db+"'");
             search_in = '';
         }
         var seeMore = '';
@@ -3427,7 +3431,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
                 max: 16,
                 slide: function (event, ui) {
                     $(this).closest('fieldset').find('input[type=submit]').val(
-                        $.sprintf(PMA_messages.strAddToIndex, ui.value)
+                        PMA_sprintf(PMA_messages.strAddToIndex, ui.value)
                     );
                 }
             });
@@ -3953,7 +3957,7 @@ AJAX.registerOnload('functions.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = PMA_messages.strDropTableStrongWarning + ' ';
-        question += $.sprintf(
+        question += PMA_sprintf(
             PMA_messages.strDoYouReally,
             'DROP TABLE ' + escapeHtml(PMA_commonParams.get('table'))
         );
@@ -3986,7 +3990,7 @@ AJAX.registerOnload('functions.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = PMA_messages.strDropTableStrongWarning + ' ';
-        question += $.sprintf(
+        question += PMA_sprintf(
             PMA_messages.strDoYouReally,
             'DROP VIEW ' + escapeHtml(PMA_commonParams.get('table'))
         );
@@ -4019,7 +4023,7 @@ AJAX.registerOnload('functions.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = PMA_messages.strTruncateTableStrongWarning + ' ';
-        question += $.sprintf(
+        question += PMA_sprintf(
             PMA_messages.strDoYouReally,
             'TRUNCATE ' + escapeHtml(PMA_commonParams.get('table'))
         );
@@ -4519,7 +4523,7 @@ function checkNumberOfFields() {
     $('form').each(function() {
         var nbInputs = $(this).find(':input').length;
         if (nbInputs > maxInputVars) {
-            var warning = $.sprintf(PMA_messages.strTooManyInputs, maxInputVars);
+            var warning = PMA_sprintf(PMA_messages.strTooManyInputs, maxInputVars);
             PMA_ajaxShowMessage(warning);
             return false;
         }

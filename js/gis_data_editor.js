@@ -58,7 +58,7 @@ function prepareJSVersion() {
  */
 function addDataPoint(pointNumber, prefix) {
     return '<br/>' +
-        $.sprintf(PMA_messages.strPointN, (pointNumber + 1)) + ': ' +
+        PMA_sprintf(PMA_messages.strPointN, (pointNumber + 1)) + ': ' +
         '<label for="x">' + PMA_messages.strX + '</label>' +
         '<input type="text" name="' + prefix + '[' + pointNumber + '][x]" value=""/>' +
         '<label for="y">' + PMA_messages.strY + '</label>' +

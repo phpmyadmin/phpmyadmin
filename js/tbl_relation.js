@@ -208,7 +208,7 @@ AJAX.registerOnload('tbl_relation.js', function () {
                 .val()
         );
 
-        var question = $.sprintf(PMA_messages.strDoYouReally, drop_query);
+        var question = PMA_sprintf(PMA_messages.strDoYouReally, drop_query);
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingForeignKey, false);
