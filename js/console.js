@@ -492,9 +492,7 @@ var PMA_consoleInput = {
                 extraKeys: {"Ctrl-Space": "autocomplete"},
                 hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
             });
-            PMA_consoleInput._inputs.console.on("change", function(instance) {
-                CodeMirror.commands.autocomplete(instance);
-            });
+            PMA_consoleInput._inputs.console.on("inputRead", codemirrorAutocompleteOnInputRead);
             if ($('#pma_bookmarks').length !== 0) {
                 PMA_consoleInput._inputs.bookmark = CodeMirror($('#pma_console .bookmark_add_input')[0], {
                     theme: 'pma',
@@ -503,9 +501,7 @@ var PMA_consoleInput = {
                     extraKeys: {"Ctrl-Space": "autocomplete"},
                     hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
                 });
-                PMA_consoleInput._inputs.bookmark.on("change", function(instance) {
-                    CodeMirror.commands.autocomplete(instance);
-                });
+                PMA_consoleInput._inputs.bookmark.on("inputRead", codemirrorAutocompleteOnInputRead);
             }
         } else {
             PMA_consoleInput._inputs.console =

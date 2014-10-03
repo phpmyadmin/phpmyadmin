@@ -1,8 +1,6 @@
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: http://codemirror.net/LICENSE
 
-// This is not the original version, edited for phpMyAdmin
-
 (function(mod) {
   if (typeof exports == "object" && typeof module == "object") // CommonJS
     mod(require("../../lib/codemirror"), require("../../mode/sql/sql"));
@@ -142,10 +140,7 @@
       start = end = cur.ch;
       search = "";
     }
-    if (search.length == 0){
-        //Don't add any matches
-    }
-    else if (search.charAt(0) == ".") {
+    if (search.charAt(0) == ".") {
       columnCompletion(result, editor);
       if (!result.length) {
         while (start && search.charAt(0) == ".") {
