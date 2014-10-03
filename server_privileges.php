@@ -386,20 +386,19 @@ if (isset($_REQUEST['adduser'])) {
         if ($GLOBALS['is_ajax_request'] == true) {
             header('Cache-Control: no-cache');
         }
-        if (! is_array($dbname)) {
+        if (isset($dbname) && ! is_array($dbname)) {
             $url_dbname = urlencode(
                 str_replace(
                     array('\_', '\%'),
                     array('_', '%'), $_REQUEST['dbname']
                 )
             );
-        } else {
-            $url_dbname = '';
         }
         $response->addHTML(
             PMA_getHtmlForUserProperties(
-                ((isset ($dbname_is_wildcard)) ? $dbname_is_wildcard : ''),
-                $url_dbname, $username, $hostname,
+                (isset($dbname_is_wildcard) ? $dbname_is_wildcard : ''),
+                (isset($url_dbname) ? $url_dbname : ''),
+                $username, $hostname,
                 (isset($dbname) ? $dbname : ''),
                 (isset($tablename) ? $tablename : '')
             )

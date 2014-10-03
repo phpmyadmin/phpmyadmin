@@ -1754,7 +1754,8 @@ function PMA_getHtmlForAddUser($dbname)
     $html_output = '<h2>' . "\n"
        . PMA_Util::getIcon('b_usradd.png') . __('Add user') . "\n"
        . '</h2>' . "\n"
-       . '<form name="usersForm" class="ajax" id="addUsersForm"'
+       . '<form name="usersForm" id="addUsersForm"'
+       . ' onsubmit="return checkAddUser(this);"'
        . ' action="server_privileges.php" method="post" autocomplete="off" >' . "\n"
        . PMA_URL_getHiddenInputs('', '')
        . PMA_getHtmlForLoginInformationFields('new');
@@ -1796,8 +1797,8 @@ function PMA_getHtmlForAddUser($dbname)
     }
     $html_output .= '<fieldset id="fieldset_add_user_footer" class="tblFooters">'
         . "\n"
-        . '<input type="submit" name="adduser_submit" '
-        . 'value="' . __('Go') . '" />' . "\n"
+        . '<input type="hidden" name="adduser_submit" value="1" />' . "\n"
+        . '<input type="submit" id="adduser_submit" value="' . __('Go') . '" />' . "\n"
         . '</fieldset>' . "\n"
         . '</form>' . "\n";
 
@@ -2375,7 +2376,7 @@ function PMA_getExtraDataForAjaxBehavior(
         $extra_data['sql_query'] = PMA_Util::getMessage(null, $sql_query);
     }
 
-    if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
+    if (isset($_REQUEST['change_copy'])) {
         /**
          * generate html on the fly for the new user that was just created.
          */
@@ -4074,7 +4075,8 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
 function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
     $username, $hostname, $dbname, $tablename
 ) {
-    $html_output = PMA_getHtmlHeaderForUserProperties(
+    $html_output  = '<div id="edit_user_dialog">';
+    $html_output .= PMA_getHtmlHeaderForUserProperties(
         $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname, $tablename
     );
 
@@ -4166,6 +4168,7 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
         $html_output .= PMA_getHtmlForChangePassword($username, $hostname);
         $html_output .= PMA_getChangeLoginInformationHtmlForm($username, $hostname);
     }
+    $html_output .= '</div>';
 
     return $html_output;
 }

@@ -114,73 +114,6 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
     $(checkboxes_sel).trigger("change");
 }
 
-function addUser($form)
-{
-    if (! checkAddUser($form.get(0))) {
-        return false;
-    }
-
-    //We also need to post the value of the submit button in order to get this to work correctly
-    $.post($form.attr('action'), $form.serialize() + "&adduser_submit=" + $("input[name=adduser_submit]").val(), function (data) {
-        if (typeof data !== 'undefined' && data.success === true) {
-            // Refresh navigation, if we created a database with the name
-            // that is the same as the username of the new user
-            if ($('#add_user_dialog #createdb-1:checked').length) {
-                PMA_reloadNavigation();
-            }
-
-            $('#page_content').show();
-            $("#add_user_dialog").remove();
-
-            PMA_ajaxShowMessage(data.message);
-            $("#result_query").remove();
-            $('#page_content').prepend(data.sql_query);
-            PMA_highlightSQL($('#page_content'));
-            $("#result_query").css({
-                'margin-top' : '0.5em'
-            });
-
-            //Remove the empty notice div generated due to a NULL query passed to PMA_getMessage()
-            var $notice_class = $("#result_query").find('.notice');
-            if ($notice_class.text() === '') {
-                $notice_class.remove();
-            }
-            if ($('#fieldset_add_user a.ajax').attr('name') == 'db_specific') {
-
-                /*process the fieldset_add_user attribute and get the val of privileges*/
-                var url = $('#fieldset_add_user a.ajax').attr('rel');
-
-                if (url.substring(url.length - 23, url.length) == "&goto=db_operations.php") {
-                    url = url.substring(0, url.length - 23);
-                }
-                url = url + "&ajax_request=true&db_specific=true";
-
-                /* post request for get the updated userForm table */
-                $.post($form.attr('action'), url, function (priv_data) {
-
-                    /*Remove the old userForm table*/
-                    if ($('#userFormDiv').length !== 0) {
-                        $('#userFormDiv').remove();
-                    } else {
-                        $("#usersForm").remove();
-                    }
-                    if (priv_data.success === true) {
-                        $('<div id="userFormDiv"></div>')
-                            .html(priv_data.user_form)
-                            .insertAfter('#result_query');
-                    } else {
-                        PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + priv_data.error, false);
-                    }
-                });
-            } else {
-                appendNewUser(data.new_user_string, data.new_user_initial, data.new_user_initial_string);
-            }
-        } else {
-            PMA_ajaxShowMessage(data.error, false);
-        }
-    });
-}
-
 /**
  * AJAX scripts for server_privileges page.
  *
@@ -202,7 +135,6 @@ function addUser($form)
  */
 AJAX.registerTeardown('server_privileges.js', function () {
     $("#fieldset_add_user_login input[name='username']").die("focusout");
-    $("#fieldset_add_user a.ajax").die("click");
     $('form[name=usersForm]').unbind('submit');
     $("#fieldset_delete_user_footer #buttonGo.ajax").die('click');
     $("a.edit_user_anchor.ajax").die('click');
@@ -242,50 +174,6 @@ AJAX.registerOnload('server_privileges.js', function () {
             $warning.hide();
         }
     });
-    /**
-     * AJAX event handler for 'Add a New User'
-     *
-     * @see         PMA_ajaxShowMessage()
-     * @see         appendNewUser()
-     * @memberOf    jQuery
-     * @name        add_user_click
-     *
-     */
-    $("#fieldset_add_user a.ajax").live("click", function (event) {
-        /** @lends jQuery */
-        event.preventDefault();
-        var $msgbox = PMA_ajaxShowMessage();
-
-        $.get($(this).attr("href"), {'ajax_request': true}, function (data) {
-            if (typeof data !== 'undefined' && data.success === true) {
-                $('#page_content').hide();
-                var $div = $('#add_user_dialog');
-                if ($div.length === 0) {
-                    $div = $('<div id="add_user_dialog" style="margin: 0.5em;"></div>')
-                        .insertBefore('#page_content');
-                } else {
-                    $div.empty();
-                }
-                $div.html(data.message)
-                    .find("form[name=usersForm]")
-                    .append('<input type="hidden" name="ajax_request" value="true" />')
-                    .end();
-                PMA_highlightSQL($div);
-                displayPasswordGenerateButton();
-                PMA_showHints($div);
-                PMA_ajaxRemoveMessage($msgbox);
-                $div.find("input.autofocus").focus();
-
-                $div.find('form[name=usersForm]').bind('submit', function (event) {
-                    event.preventDefault();
-                    addUser($(this));
-                });
-            } else {
-                PMA_ajaxShowMessage(data.error, false);
-            }
-        }); // end $.get()
-
-    });//end of Add New User AJAX event handler
 
     /**
      * AJAX handler for 'Revoke User'
@@ -723,6 +611,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         }); // end $.get
     }); // end of the paginate users table
 
+    $("input.autofocus").focus();
     displayPasswordGenerateButton();
 
     /*
@@ -779,4 +668,8 @@ AJAX.registerOnload('server_privileges.js', function () {
         // hide all sections but the first
         $("#edit_user_dialog .submenu-item").hide().eq(0).show();
     };
+
+    if ($("#edit_user_dialog").length > 0) {
+        addOrUpdateSubmenu();
+    }
 });
