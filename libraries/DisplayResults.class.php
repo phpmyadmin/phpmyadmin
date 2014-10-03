@@ -437,9 +437,9 @@ class PMA_DisplayResults
 
                 $bIsProcessList = isset($which[1]);
                 if ($bIsProcessList) {
-                    $str = ' ' . /*overload*/mb_strtoupper($which[1]);
+                    $str = ' ' . strtoupper($which[1]);
                     $bIsProcessList = $bIsProcessList
-                        && /*overload*/mb_strpos($str, 'PROCESSLIST') > 0;
+                        && strpos($str, 'PROCESSLIST') > 0;
                 }
 
                 if ($bIsProcessList) {
@@ -2011,7 +2011,7 @@ class PMA_DisplayResults
                         $sort_direction, $single_sort_order, $column_index, $index
                     );
                 } else {
-                    $single_sort_order .= /*overload*/mb_strtoupper($sort_direction[$index]);
+                    $single_sort_order .= strtoupper($sort_direction[$index]);
                 }
             }
             if ($current_name == $name_to_use_in_sort && $is_in_sort) {
@@ -2021,7 +2021,7 @@ class PMA_DisplayResults
                 );
                 $order_img .= " <small>" . ($index + 1) . "</small>";
             } else {
-                $sort_order .= /*overload*/mb_strtoupper($sort_direction[$index]);
+                $sort_order .= strtoupper($sort_direction[$index]);
             }
             // Separate columns by a comma
             $sort_order .= ", ";
@@ -2135,7 +2135,7 @@ class PMA_DisplayResults
     private function _getSortingUrlParams(
         $sort_direction, $sort_order, $column_index, $index
     ) {
-        if (/*overload*/mb_strtoupper(trim($sort_direction[$index])) ==  self::DESCENDING_SORT_DIR) {
+        if (strtoupper(trim($sort_direction[$index])) ==  self::DESCENDING_SORT_DIR) {
             $sort_order .= ' ASC';
             $order_img   = ' ' . PMA_Util::getImage(
                 's_desc.png', __('Descending'),
@@ -3217,7 +3217,7 @@ class PMA_DisplayResults
                 continue;
             }
 
-            $lowerRoutineType = /*overload*/mb_strtolower($row_info['routine_type']);
+            $lowerRoutineType = strtolower($row_info['routine_type']);
             if ($lowerRoutineType == self::ROUTINE_PROCEDURE
                 || $lowerRoutineType == self::ROUTINE_FUNCTION
             ) {
@@ -3672,7 +3672,7 @@ class PMA_DisplayResults
      */
     private function _getClassForDateTimeRelatedFields($type)
     {
-        if ((/*overload*/mb_substr($type, 0, 9) == self::TIMESTAMP_FIELD)
+        if ((substr($type, 0, 9) == self::TIMESTAMP_FIELD)
             || ($type == self::DATETIME_FIELD)
         ) {
             $field_type_class = 'datetimefield';
@@ -3790,7 +3790,7 @@ class PMA_DisplayResults
         // Display as [GEOMETRY - (size)]
         if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_GEOM) {
             $geometry_text = $this->_handleNonPrintableContents(
-                /*overload*/mb_strtoupper(self::GEOMETRY_FIELD),
+                strtoupper(self::GEOMETRY_FIELD),
                 (isset($column) ? $column : ''), $transformation_plugin,
                 $transform_options, $default_function, $meta
             );
@@ -3823,7 +3823,7 @@ class PMA_DisplayResults
         if ($_SESSION['tmpval']['display_binary']) {
             $where_comparison = ' = ' . $column;
 
-            $wkbval = /*overload*/mb_substr(bin2hex($column), 8);
+            $wkbval = substr(bin2hex($column), 8);
             $is_field_truncated = $this->_getPartialText($wkbval);
 
             $cell = $this->_getRowData(
@@ -3894,7 +3894,7 @@ class PMA_DisplayResults
         $field_flags = $GLOBALS['dbi']->fieldFlags($dt_result, $col_index);
 
         $bIsText = gettype($transformation_plugin) === 'object'
-            && /*overload*/mb_strpos($transformation_plugin->getMIMEtype(), 'Text')
+            && strpos($transformation_plugin->getMIMEtype(), 'Text')
             === false;
 
         // disable inline grid editing
@@ -3925,7 +3925,7 @@ class PMA_DisplayResults
         // Cut all fields to $GLOBALS['cfg']['LimitChars']
         // (unless it's a link-type transformation or binary)
         if (!(gettype($transformation_plugin) === "object"
-            && /*overload*/mb_strpos($transformation_plugin->getName(), 'Link') !== false)
+            && strpos($transformation_plugin->getName(), 'Link') !== false)
             && !stristr($field_flags, self::BINARY_FIELD)
         ) {
             $is_field_truncated = $this->_getPartialText($column);
@@ -3967,7 +3967,7 @@ class PMA_DisplayResults
             }
             $formatted = true;
 
-        } elseif (((/*overload*/mb_substr($meta->type, 0, 9) == self::TIMESTAMP_FIELD)
+        } elseif (((substr($meta->type, 0, 9) == self::TIMESTAMP_FIELD)
             || ($meta->type == self::DATETIME_FIELD)
             || ($meta->type == self::TIME_FIELD)
             || ($meta->type == self::TIME_FIELD))
@@ -5487,8 +5487,8 @@ class PMA_DisplayResults
 
         // if we want to use a text transformation on a BLOB column
         if (gettype($transformation_plugin) === "object") {
-            $posMimeOctetstream = /*overload*/mb_strpos($transformation_plugin->getMIMESubtype(), 'Octetstream');
-            $posMimeText = /*overload*/mb_strpos($transformation_plugin->getMIMEtype(), 'Text');
+            $posMimeOctetstream = strpos($transformation_plugin->getMIMESubtype(), 'Octetstream');
+            $posMimeText = strpos($transformation_plugin->getMIMEtype(), 'Text');
             if ($posMimeOctetstream
                 || $posMimeText !== false
             ) {

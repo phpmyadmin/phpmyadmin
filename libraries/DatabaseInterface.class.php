@@ -709,7 +709,7 @@ class PMA_DatabaseInterface
         $link = null, $sort_by = 'SCHEMA_NAME', $sort_order = 'ASC',
         $limit_offset = 0, $limit_count = false
     ) {
-        $sort_order = /*overload*/mb_strtoupper($sort_order);
+        $sort_order = strtoupper($sort_order);
 
         if (true === $limit_count) {
             $limit_count = $GLOBALS['cfg']['MaxDbList'];
@@ -1843,8 +1843,7 @@ class PMA_DatabaseInterface
             $error .= ' - ' . $error_message;
             $error .= '<br />' . __('The server is not responding.');
         } elseif ($error_number == 1005) {
-            if (/*overload*/mb_strpos($error_message, 'errno: 13') !== false
-            ) {
+            if (strpos($error_message, 'errno: 13') !== false) {
                 $error .= ' - ' . $error_message;
                 $error .= '<br />'
                     . __('Please check privileges of directory containing database.');
@@ -1967,11 +1966,11 @@ class PMA_DatabaseInterface
     {
         /** @var PMA_String $pmaString */
         $pmaString = $GLOBALS['PMA_String'];
-        return /*overload*/mb_strtolower($schema_name) == 'information_schema'
+        return strtolower($schema_name) == 'information_schema'
             || (!PMA_DRIZZLE
-                && /*overload*/mb_strtolower($schema_name) == 'performance_schema')
+                && strtolower($schema_name) == 'performance_schema')
             || (PMA_DRIZZLE
-                && /*overload*/mb_strtolower($schema_name) == 'data_dictionary')
+                && strtolower($schema_name) == 'data_dictionary')
             || ($testForMysqlSchema && !PMA_DRIZZLE && $schema_name == 'mysql');
     }
 

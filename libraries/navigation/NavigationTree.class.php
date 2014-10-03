@@ -568,7 +568,7 @@ class PMA_NavigationTree
         $separators = array();
         if (is_array($node->separator)) {
             $separators = $node->separator;
-        } else if (/*overload*/mb_strlen($node->separator)) {
+        } else if (strlen($node->separator)) {
             $separators[] = $node->separator;
         }
         $prefixes = array();
@@ -641,12 +641,15 @@ class PMA_NavigationTree
                 }
                 $node->addChild($groups[$key]);
                 foreach ($separators as $separator) {
+                    $separatorLength = strlen($separator);
                     // FIXME: this could be more efficient
                     foreach ($node->children as $child) {
+                        $keySeparatorLength = /*overload*/mb_strlen($key)
+                            + $separatorLength;
                         $name_substring = /*overload*/mb_substr(
                             $child->name,
                             0,
-                            /*overload*/mb_strlen($key) + /*overload*/mb_strlen($separator)
+                            $keySeparatorLength
                         );
                         if (($name_substring != $key . $separator
                             && $child->name != $key)
@@ -659,8 +662,7 @@ class PMA_NavigationTree
                             $class,
                             /*overload*/mb_substr(
                                 $child->name,
-                                /*overload*/mb_strlen($key)
-                                + /*overload*/mb_strlen($separator)
+                                $keySeparatorLength
                             )
                         );
                         $new_child->real_name = $child->real_name;
@@ -896,7 +898,7 @@ class PMA_NavigationTree
                     $iClass = " class='first'";
                 }
                 $retval .= "<i$iClass></i>";
-                if (/*overload*/mb_strpos($class, 'last') === false) {
+                if (strpos($class, 'last') === false) {
                     $retval .= "<b></b>";
                 }
 

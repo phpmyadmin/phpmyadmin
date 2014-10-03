@@ -94,7 +94,7 @@ function PMA_analyseShowGrant()
         if ($show_grants_str == 'ALL'
             || $show_grants_str == 'ALL PRIVILEGES'
             || $show_grants_str == 'CREATE'
-            || /*overload*/mb_strpos($show_grants_str, 'CREATE,') !== false
+            || strpos($show_grants_str, 'CREATE,') !== false
         ) {
             if ($show_grants_dbname == '*') {
                 // a global CREATE privilege

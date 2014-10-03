@@ -115,7 +115,7 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
     }
 
     // allow some aliases of var types
-    $type = /*overload*/mb_strtolower($type);
+    $type = strtolower($type);
     switch ($type) {
     case 'identic' :
         $type = 'identical';
@@ -369,17 +369,17 @@ function PMA_getRealSize($size = 0)
     );
 
     foreach ($scan as $unit => $factor) {
-        $sizeLength = /*overload*/mb_strlen($size);
-        $unitLength = /*overload*/mb_strlen($unit);
+        $sizeLength = strlen($size);
+        $unitLength = strlen($unit);
         if ($sizeLength > $unitLength
-            && /*overload*/mb_strtolower(
-                /*overload*/mb_substr(
+            && strtolower(
+                substr(
                     $size,
                     $sizeLength - $unitLength
                 )
             ) == $unit
         ) {
-            return /*overload*/mb_substr(
+            return substr(
                 $size,
                 0,
                 $sizeLength - $unitLength
@@ -689,7 +689,7 @@ function PMA_downloadHeader($filename, $mimetype, $length = 0, $no_cache = true)
     header('Content-Type: ' . $mimetype);
     // inform the server that compression has been done,
     // to avoid a double compression (for example with Apache + mod_deflate)
-    if (/*overload*/mb_strpos($mimetype, 'gzip') !== false) {
+    if (strpos($mimetype, 'gzip') !== false) {
         header('Content-Encoding: gzip');
     }
     header('Content-Transfer-Encoding: binary');

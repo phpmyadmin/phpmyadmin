@@ -792,7 +792,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
         }
         $db = htmlspecialchars($db);
         $name_attr = 'aliases[' . $db . '][alias]';
-        $id_attr = /*overload*/mb_substr(md5($name_attr), 0, 12);
+        $id_attr = substr(md5($name_attr), 0, 12);
         $class = 'hide';
         if ($first_db) {
             $first_db = false;
@@ -816,7 +816,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
             }
             $table = htmlspecialchars($table);
             $name_attr =  'aliases[' . $db . '][tables][' . $table . '][alias]';
-            $id_attr = /*overload*/mb_substr(md5($name_attr), 0, 12);
+            $id_attr = substr(md5($name_attr), 0, 12);
             $class = 'hide';
             if ($first_tbl) {
                 $first_tbl = false;
@@ -844,7 +844,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
                 $column = htmlspecialchars($column);
                 $name_attr = 'aliases[' . $db . '][tables][' . $table
                     . '][columns][' . $column . ']';
-                $id_attr = /*overload*/mb_substr(md5($name_attr), 0, 12);
+                $id_attr = substr(md5($name_attr), 0, 12);
                 $col_html .= '<tr class="' . $class . '">';
                 $col_html .= '<th><label for="' . $id_attr . '">' . $column
                     . '</label></th>';

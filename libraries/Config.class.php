@@ -148,7 +148,7 @@ class PMA_Config
         }
 
         // disable output-buffering (if set to 'auto') for IE6, else enable it.
-        if (/*overload*/mb_strtolower($this->get('OBGzip')) == 'auto') {
+        if (strtolower($this->get('OBGzip')) == 'auto') {
             if ($this->get('PMA_USR_BROWSER_AGENT') == 'IE'
                 && $this->get('PMA_USR_BROWSER_VER') >= 6
                 && $this->get('PMA_USR_BROWSER_VER') < 7
@@ -782,7 +782,7 @@ class PMA_Config
         $httpOk = 'HTTP/1.1 200 OK';
         $httpNotFound = 'HTTP/1.1 404 Not Found';
 
-        if (/*overload*/mb_substr($data, 0, /*overload*/mb_strlen($httpOk)) === $httpOk) {
+        if (/*overload*/mb_substr($data, 0, strlen($httpOk)) === $httpOk) {
             return $get_body
                 ? /*overload*/mb_substr(
                     $data,
@@ -794,7 +794,7 @@ class PMA_Config
         $httpNOK = /*overload*/mb_substr(
             $data,
             0,
-            /*overload*/mb_strlen($httpNotFound)
+            strlen($httpNotFound)
         );
         if ($httpNOK === $httpNotFound) {
             return false;
@@ -1516,7 +1516,7 @@ class PMA_Config
         $this->set('enable_upload', true);
         // if set "php_admin_value file_uploads Off" in httpd.conf
         // ini_get() also returns the string "Off" in this case:
-        if ('off' == /*overload*/mb_strtolower(ini_get('file_uploads'))) {
+        if ('off' == strtolower(ini_get('file_uploads'))) {
             $this->set('enable_upload', false);
         }
     }
@@ -1600,19 +1600,19 @@ class PMA_Config
             if (PMA_getenv('HTTP_SCHEME')) {
                 $url['scheme'] = PMA_getenv('HTTP_SCHEME');
             } elseif (PMA_getenv('HTTPS')
-                && /*overload*/mb_strtolower(PMA_getenv('HTTPS')) == 'on'
+                && strtolower(PMA_getenv('HTTPS')) == 'on'
             ) {
                 $url['scheme'] = 'https';
                 // A10 Networks load balancer:
             } elseif (PMA_getenv('HTTP_HTTPS_FROM_LB')
-                && /*overload*/mb_strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on'
+                && strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on'
             ) {
                 $url['scheme'] = 'https';
             } elseif (PMA_getenv('HTTP_X_FORWARDED_PROTO')) {
                 $url['scheme']
                     = /*overload*/mb_strtolower(PMA_getenv('HTTP_X_FORWARDED_PROTO'));
             } elseif (PMA_getenv('HTTP_FRONT_END_HTTPS')
-                && /*overload*/mb_strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on'
+                && strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on'
             ) {
                 $url['scheme'] = 'https';
             } else {
