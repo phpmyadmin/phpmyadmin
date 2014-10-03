@@ -45,6 +45,7 @@ phpMyAdmin - ChangeLog
 + rfe #1251 Show "Overhead" with same precision for all tables
 + rfe #1546 Improve the js printf library
 + rfe #1542 Better error reporting in Designer
+- bug #4547 Micro history does not work in Users page
 
 4.2.10.0 (not yet released)
 - bug #4361 Can't change font size (when config.inc.php not present)
