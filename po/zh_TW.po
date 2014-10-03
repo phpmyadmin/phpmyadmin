@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-02 11:40+0200\n"
-"PO-Revision-Date: 2014-08-26 20:04+0200\n"
-"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
-"Language-Team: Traditional Chinese <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"PO-Revision-Date: 2014-10-03 21:14+0200\n"
+"Last-Translator: Peter Dave Hello <xs910203@gmail.com>\n"
+"Language-Team: Traditional Chinese "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1797,15 +1797,14 @@ msgid "Primary key added."
 msgstr "已新增主鍵(Primary key)。"
 
 #: js/messages.php:312 libraries/normalization.lib.php:172
-#, fuzzy
 #| msgid "Taking you to %s."
 msgid "Taking you to next step…"
-msgstr "帶您連結至 %s。"
+msgstr "帶您至下一步驟 …"
 
 #: js/messages.php:313
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "表格 '%s' 正規化的第一步驟已經完成。"
 
 #: js/messages.php:314 libraries/normalization.lib.php:420
 #: libraries/normalization.lib.php:467 libraries/normalization.lib.php:550
@@ -1852,7 +1851,7 @@ msgstr "隱藏部份相依清單"
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
-msgstr ""
+msgstr "稍坐一下！這可能要花一些時間，實際時間將取決於您的資料大小以及資料量。"
 
 #: js/messages.php:325
 msgid "Step"
@@ -1863,10 +1862,10 @@ msgid "The following actions will be performed:"
 msgstr "將會執行以下動作："
 
 #: js/messages.php:327
-#, fuzzy, php-format
+#, php-format
 #| msgid "DROP columns %1s from the table %2s"
 msgid "DROP columns %s from the table %s"
-msgstr "從資料表 %2s 移除(DROP)欄位 %1s"
+msgstr "從資料表 %s 移除(DROP)欄位 %s"
 
 #: js/messages.php:328
 msgid "Create the following table"
@@ -2308,7 +2307,7 @@ msgstr "全部略過"
 #: js/messages.php:516
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr ""
+msgstr "根據您的設定，它們正被提交，請耐心等候。"
 
 #: js/messages.php:523
 msgid "Execute this query again?"
@@ -2691,7 +2690,7 @@ msgstr "已共享"
 #, fuzzy, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "書籤已被刪除。"
+msgstr "書籤%1$s, %2$s 以及 %3$s已被收錄。"
 
 #: libraries/Console.class.php:128
 msgid "No bookmarks"
@@ -4553,7 +4552,7 @@ msgstr "選擇一個欄位。"
 
 #: libraries/central_columns.lib.php:810 libraries/central_columns.lib.php:920
 msgid "auto_increment"
-msgstr "auto_increment"
+msgstr "自動遞增(auto_increment)"
 
 #: libraries/central_columns.lib.php:812 libraries/central_columns.lib.php:922
 #, fuzzy
@@ -6020,7 +6019,7 @@ msgstr "記憶體限制"
 
 #: libraries/config/messages.inc.php:420
 msgid "Link with main panel by highlighting the current database or table."
-msgstr ""
+msgstr "透過高亮標記目前的資料庫或表格以和主控台聯結"
 
 #: libraries/config/messages.inc.php:422
 msgid "Show logo in navigation panel."
@@ -6274,13 +6273,12 @@ msgstr "記住資料表的排序"
 
 #: libraries/config/messages.inc.php:525
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "預設使用主鍵來排序表格"
 
 #: libraries/config/messages.inc.php:526
-#, fuzzy
 #| msgid "Default sorting order"
 msgid "Primary key default sort order"
-msgstr "預設排序"
+msgstr "主鍵預設排序"
 
 #: libraries/config/messages.inc.php:528
 msgid ""
@@ -6482,7 +6480,6 @@ msgid "QBE saved searches table"
 msgstr "使用範例查詢(QBE)已儲存的搜尋資料表"
 
 #: libraries/config/messages.inc.php:603
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]."
@@ -7622,7 +7619,7 @@ msgstr "要匯入的檔案:"
 
 #: libraries/display_import.lib.php:232 libraries/display_import.lib.php:243
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "您也可以在任何一個頁面上拖曳檔案。"
 
 #: libraries/display_import.lib.php:246
 msgid "File uploads are not allowed on this server."
@@ -7679,7 +7676,7 @@ msgstr "正在上傳您的匯入檔案…"
 #: libraries/display_import.lib.php:456
 #, php-format
 msgid "%s/sec."
-msgstr "%s/每秒"
+msgstr "%s/每秒。"
 
 #: libraries/display_import.lib.php:457
 msgid "About %MIN min. %SEC sec. remaining."
@@ -8605,7 +8602,7 @@ msgstr "新增"
 
 #: libraries/normalization.lib.php:112
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "將所有欄位設定為不可分割。"
 
 #: libraries/normalization.lib.php:114 libraries/normalization.lib.php:771
 msgid "First step of normalization (1NF)"
@@ -8620,17 +8617,18 @@ msgstr "步驟 1."
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
-msgstr ""
+msgstr "您是否有任何欄位是可以被分割成一個以上的欄位呢? 例如: 地址可以被分割為城市、街道、郵遞區號等。"
 
 #: libraries/normalization.lib.php:126
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 
 #: libraries/normalization.lib.php:129
+#, fuzzy
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
-msgstr ""
+msgstr "選擇一個可以被切割為一個以上的欄位"
 
 #: libraries/normalization.lib.php:136 normalization.php:19
 msgid "Select one…"
@@ -8665,7 +8663,7 @@ msgstr "於己存在的欄位上新增主鍵"
 #: libraries/normalization.lib.php:188
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
-msgstr ""
+msgstr "無法將現有的欄位組合設為主鍵。"
 
 #: libraries/normalization.lib.php:192
 msgid "+ Add a new primary key column"
@@ -8697,8 +8695,9 @@ msgid "No redundant column"
 msgstr "無多餘欄位"
 
 #: libraries/normalization.lib.php:246
+#, fuzzy
 msgid "Move repeating groups"
-msgstr ""
+msgstr "移動重複的分組。"
 
 #: libraries/normalization.lib.php:249
 msgid ""
@@ -8716,8 +8715,9 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:263
+#, fuzzy
 msgid "No repeating group"
-msgstr ""
+msgstr "沒有重複的分組"
 
 #: libraries/normalization.lib.php:289
 msgid "Step 2."
@@ -8765,7 +8765,7 @@ msgstr ""
 #: libraries/normalization.lib.php:343 libraries/normalization.lib.php:728
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s' 相依於:"
 
 #: libraries/normalization.lib.php:354
 #, php-format
