@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-02 11:40+0200\n"
-"PO-Revision-Date: 2014-10-03 17:01+0200\n"
+"PO-Revision-Date: 2014-10-03 17:07+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -5025,25 +5025,23 @@ msgstr "No és un nombre no-negatiu!"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:538
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
-msgstr "Numero de port incorrecte"
+msgstr "No és un numero de port vàlid!"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:612
 #: libraries/config/Validator.class.php:600
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
-msgstr "Valor incorrecte"
+msgstr "Valor incorrecte!"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:616
-#, fuzzy, php-format
+#, php-format
 #| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
-msgstr "El valor ha de ser igual o menor que %s"
+msgstr "El valor ha de ser igual o menor que %s!"
 
 #: libraries/config/FormDisplay.class.php:574
 #, php-format
@@ -5133,7 +5131,6 @@ msgstr ""
 "d'usuaris connectats, inclós tu mateix."
 
 #: libraries/config/ServerConfigChecks.class.php:378
-#, fuzzy
 #| msgid ""
 #| "You didn't have blowfish secret set and have enabled cookie "
 #| "authentication, so a key was automatically generated for you. It is used "
@@ -5144,8 +5141,8 @@ msgid ""
 "encrypt cookies; you don't need to remember it."
 msgstr ""
 "No deus tenir establert el blowfish secret i tens activada l'autenticació "
-"per galetes, així que una clau es generarà automàticament per tú. S'utilitza "
-"per xifrar galetes; no necesites recordar-la."
+"[kbd]per galetes[/kbd], així que es generarà automàticament una clau per tú. "
+"S'utilitza per xifrar galetes; no necessites recordar-la."
 
 #: libraries/config/ServerConfigChecks.class.php:379
 #, php-format
@@ -5181,7 +5178,7 @@ msgstr ""
 "estan disponibles en aquest sistema."
 
 #: libraries/config/ServerConfigChecks.class.php:399
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s greater than 1440 seconds may cause random "
 #| "session invalidation if %ssession.gc_maxlifetime%s is lower than its "
@@ -5190,9 +5187,8 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"El valor %slogin cookie validity%s més gran de 1440 segons pot provocar "
-"aleatòriament invalidació de sessions si %ssession.gc_maxlifetime%s és menor "
-"que el seu valor (actualment %d)."
+"El valor %slogin cookie validity%s més gran que %ssession.gc_maxlifetime%s ("
+"actualment %d) pot provocar aleatòriament invalidació de sessions."
 
 #: libraries/config/ServerConfigChecks.class.php:410
 #, php-format
@@ -5205,7 +5201,7 @@ msgstr ""
 "suplantacions."
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If using cookie authentication and %sLogin cookie store%s is not 0, "
 #| "%sLogin cookie validity%s must be set to a value less or equal to it."
@@ -5213,12 +5209,12 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Si s'utilitza la autenticació per cookies i el valor de %sLogin cookie store"
-"%s no és  0, %sLogin cookie validity%s ha d'establir-se a un valor menor o "
-"igual a ell."
+"Si s'utilitza la autenticació [kbd]per galetes[/kbd] i el valor de %sLogin "
+"cookie store%s no és  0, %sLogin cookie validity%s ha d'establir-se a un "
+"valor menor o igual a ell."
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - "
 #| "%shost authentication%s settings and %strusted proxies list%s. However, "
@@ -5231,7 +5227,7 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Si ho consideres necessari, utilitza paràmetres de protecció extres - %shost "
-"authentication%s i%strusted proxies list%s. Tanmateix, una protecció basada "
+"authentication%s i %strusted proxies list%s. Tanmateix, una protecció basada "
 "en adreces IP pot no ser suficient si la teva IP pertany a un proveïdor ISP "
 "amb gran nombre d'usuaris connectats, inclós tu mateix."
 
@@ -5269,10 +5265,9 @@ msgstr ""
 "en aquest sistema."
 
 #: libraries/config/Validator.class.php:250
-#, fuzzy
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
-msgstr "No s'ha pogut inicialitzar la biblioteca de connexió Drizzle"
+msgstr "No s'ha pogut inicialitzar la biblioteca de connexió Drizzle!"
 
 #: libraries/config/Validator.class.php:259
 #: libraries/config/Validator.class.php:267
