@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-02 11:40+0200\n"
-"PO-Revision-Date: 2014-10-02 16:35+0200\n"
+"PO-Revision-Date: 2014-10-03 17:01+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -2191,32 +2191,30 @@ msgid "Successfully deleted the page"
 msgstr ""
 
 #: js/messages.php:409
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Edita o exporta l'esquema relacional"
+msgstr "Exporta l'esquema relacional"
 
 #: js/messages.php:410
 msgid "Modifications have been saved"
 msgstr "Les modificacions han estat desades"
 
 #: js/messages.php:413
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
-msgstr "Afegeix una opció per a la columna "
+msgstr "Afegeix una opció per a la columna \"%s\"."
 
 #: js/messages.php:414
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
-msgstr "%d objecte(s) creat(s)"
+msgstr "%d objecte(s) creat(s)."
 
 #: js/messages.php:417
-#, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "Prem la tecla escape per cancel·lar la edició"
+msgstr "Prem la tecla escape per cancel·lar la edició."
 
 #: js/messages.php:418
 msgid ""
@@ -2227,10 +2225,9 @@ msgstr ""
 "d'aquesta pàgina per desar les dades?"
 
 #: js/messages.php:419
-#, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
-msgstr "Arrossega per reordenar"
+msgstr "Arrossega per reordenar."
 
 #: js/messages.php:420
 msgid "Click to sort results by this column."
@@ -2243,24 +2240,21 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:422
-#, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
-msgstr "Prem per marcar/desmarcar"
+msgstr "Prem per marcar/desmarcar."
 
 #: js/messages.php:423
-#, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
-msgstr "Feu doble clic per copiar el nom de columna"
+msgstr "Feu doble clic per copiar el nom de columna."
 
 #: js/messages.php:425
-#, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 "Prem a la fletxa de llista desplegable<br />per alternar la visibilitat de "
-"la columna"
+"la columna."
 
 #: js/messages.php:427 libraries/DisplayResults.class.php:859
 #: libraries/browse_foreigners.lib.php:254
@@ -2283,7 +2277,6 @@ msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
 #: js/messages.php:432
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "Cancel.lar"
@@ -2297,22 +2290,19 @@ msgid "Success"
 msgstr ""
 
 #: js/messages.php:436
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Predeterminats d'importació"
+msgstr "Importar l'estat"
 
 #: js/messages.php:437 libraries/navigation/Navigation.class.php:102
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "Llindar de l'arxiu de Registre -log-"
+msgstr "Deixa anar els arxius aquí"
 
 #: js/messages.php:438
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
-msgstr "Tria Taules"
+msgstr "Tria primer la base de dades"
 
 #: js/messages.php:443
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2325,16 +2315,14 @@ msgstr ""
 "contingut."
 
 #: js/messages.php:451
-#, fuzzy
 #| msgid "Go to link"
 msgid "Go to link:"
-msgstr "Vés a l'enllaç"
+msgstr "Vés a l'enllaç:"
 
 #: js/messages.php:452
-#, fuzzy
 #| msgid "Copy column name"
 msgid "Copy column name."
-msgstr "Nom de les columnes"
+msgstr "Copia el nom de la columna."
 
 #: js/messages.php:453
 msgid "Right-click the column name to copy it to your clipboard."
@@ -2342,10 +2330,9 @@ msgstr ""
 "Feu clic amb el botó dret al nom de la columna per copiar al porta-retalls."
 
 #: js/messages.php:454
-#, fuzzy
 #| msgid "Show data row(s)"
 msgid "Show data row(s)."
-msgstr "Mostra fila(es) de dades"
+msgstr "Mostra les dades de fila(es)."
 
 #: js/messages.php:457
 msgid "Generate password"
@@ -2372,23 +2359,20 @@ msgid "Hide Panel"
 msgstr "Amagar el panell"
 
 #: js/messages.php:467
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items."
-msgstr "Mostra el logo al panell de navegació"
+msgstr "Mostra l'arbre d'ítems amagat."
 
 #: js/messages.php:468 libraries/config/messages.inc.php:421
 #: libraries/navigation/NavigationTree.class.php:1154
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Configurar el panell principal"
+msgstr "Enllaç amb el panell principal"
 
 #: js/messages.php:469 libraries/navigation/NavigationTree.class.php:1157
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Configurar el panell principal"
+msgstr "Desenllaça amb el panell principal"
 
 #: js/messages.php:472
 msgid "The requested page was not found in the history, it may have expired."
@@ -2462,10 +2446,9 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: js/messages.php:509 libraries/Error_Handler.class.php:355
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Ignora"
+msgstr "Ignora tot"
 
 #: js/messages.php:516
 msgid ""
@@ -2473,16 +2456,14 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:523
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Mostra aquesta consulta de nou"
+msgstr "Executar aquesta consulta de nou?"
 
 #: js/messages.php:524
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Realment vols fer \"%s\"?"
+msgstr "Realment vols esborrar aquesta marca?"
 
 #: js/messages.php:555
 msgctxt "Previous month"
@@ -2828,10 +2809,9 @@ msgid "Expand"
 msgstr ""
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:172
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "subconsulta"
+msgstr "Re-consulta"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:363
 #: libraries/DisplayResults.class.php:3489
@@ -2845,12 +2825,12 @@ msgid "Delete"
 msgstr "Esborra"
 
 #: libraries/Console.class.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete relation"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Esborra la relació"
-msgstr[1] "Esborra la relació"
+msgstr[0] "Total %d desat"
+msgstr[1] "Total %d desats"
 
 #: libraries/Console.class.php:114
 msgid "private"
@@ -2862,22 +2842,20 @@ msgstr "compartit"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:122
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "S'ha esborrat la consulta desada."
+msgstr "%1$s, %2$s i %3$s desats inclosos"
 
 #: libraries/Console.class.php:128
-#, fuzzy
 #| msgid "Delete relation"
 msgid "No bookmarks"
-msgstr "Esborra la relació"
+msgstr "Sense relacions desades"
 
 #: libraries/Console.class.php:174
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Explica SQL"
+msgstr "Explica"
 
 #: libraries/Console.class.php:175 libraries/Util.class.php:1287
 #: libraries/sql.lib.php:485
@@ -2885,28 +2863,24 @@ msgid "Profiling"
 msgstr "Perfils"
 
 #: libraries/Console.class.php:176
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark"
-msgstr "Taula de consultes desades"
+msgstr "Consultes desades"
 
 #: libraries/Console.class.php:177
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "Memòria cau de consultes"
+msgstr "La consulta ha fallat"
 
 #: libraries/Console.class.php:179
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Temps d'execució de la consulta"
+msgstr "Temps consultat"
 
 #: libraries/Console.class.php:185
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "Caixa de consultes SQL"
+msgstr "Consola de consultes SQL"
 
 #: libraries/Console.class.php:186
 msgid "Console"
@@ -2918,10 +2892,9 @@ msgid "Clear"
 msgstr "Neteja"
 
 #: libraries/Console.class.php:192
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "Historial SQL"
+msgstr "Historial"
 
 #: libraries/Console.class.php:195 libraries/Console.class.php:286
 #: libraries/DisplayResults.class.php:1622 libraries/TableSearch.class.php:796
@@ -2952,22 +2925,19 @@ msgid "Options"
 msgstr "Opcions"
 
 #: libraries/Console.class.php:199 libraries/Console.class.php:248
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Taula de consultes desades"
+msgstr "Consultes desades"
 
 #: libraries/Console.class.php:208
-#, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Executar cada"
+msgstr "Prem Ctrl+Enter per executar la consulta"
 
 #: libraries/Console.class.php:227
-#, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
-msgstr "Salta l'error actual"
+msgstr "Durant la sessió actual"
 
 #: libraries/Console.class.php:252 libraries/Util.class.php:1256
 #: libraries/config/messages.inc.php:739
@@ -2976,19 +2946,16 @@ msgid "Refresh"
 msgstr "Refresca"
 
 #: libraries/Console.class.php:255
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "I"
+msgstr "Afegir"
 
 #: libraries/Console.class.php:264
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
-msgstr "Esborra la relació"
+msgstr "Afegir consulta desada"
 
 #: libraries/Console.class.php:268
-#, fuzzy
 #| msgid "Label"
 msgid "Label"
 msgstr "Etiqueta"
@@ -2998,26 +2965,23 @@ msgid "Target database"
 msgstr "Base de dades destinació"
 
 #: libraries/Console.class.php:273
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
-msgstr "Esborra la relació"
+msgstr "Comparteix aquesta consulta desada"
 
 #: libraries/Console.class.php:289
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
-msgstr "Restaura el valor per defecte"
+msgstr "Establir el valor per defecte"
 
 #: libraries/Console.class.php:293
 msgid "Always expand query messages"
 msgstr ""
 
 #: libraries/Console.class.php:295
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "Taula d'historial de consultes SQL"
+msgstr "Mostrar l'historial de consultes a l'inici"
 
 #: libraries/Console.class.php:297
 msgid "Show current browsing query"
@@ -3115,34 +3079,29 @@ msgid "Submit Query"
 msgstr "Executa consulta"
 
 #: libraries/DBQbe.class.php:1504
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "Cerca"
+msgstr "Cerca de consultes desades:"
 
 #: libraries/DBQbe.class.php:1506
-#, fuzzy
 #| msgid "Delete relation"
 msgid "New bookmark"
-msgstr "Esborra la relació"
+msgstr "Nova consulta desada"
 
 #: libraries/DBQbe.class.php:1532
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Create bookmark"
-msgstr "Esborra la relació"
+msgstr "Crear consulta desada"
 
 #: libraries/DBQbe.class.php:1535
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Update bookmark"
-msgstr "Mostrant consultes desades"
+msgstr "Actualitzar consulta desada"
 
 #: libraries/DBQbe.class.php:1537
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Delete bookmark"
-msgstr "Esborra la relació"
+msgstr "Esborrar consultab desada"
 
 #: libraries/DatabaseInterface.class.php:1840
 msgid ""
@@ -3252,17 +3211,15 @@ msgstr "Reataurar ordre de columnes"
 
 #: libraries/DisplayResults.class.php:796
 #: libraries/central_columns.lib.php:598
-#, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
-msgstr "Filtres"
+msgstr "Filtrar files"
 
 #: libraries/DisplayResults.class.php:798
 #: libraries/central_columns.lib.php:600
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "Cerca a la base de dades"
+msgstr "Cerca aquesta taula"
 
 #: libraries/DisplayResults.class.php:825 libraries/Util.class.php:2479
 #: libraries/Util.class.php:2483
@@ -3355,10 +3312,9 @@ msgstr "Binari conegut"
 
 #: libraries/DisplayResults.class.php:3463
 #: libraries/DisplayResults.class.php:3479
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
-msgstr "S'ha esborrat la fila"
+msgstr "S'ha esborrat la fila."
 
 #: libraries/DisplayResults.class.php:3516
 #: libraries/DisplayResults.class.php:5065
@@ -3367,19 +3323,17 @@ msgid "Kill"
 msgstr "Finalitzar"
 
 #: libraries/DisplayResults.class.php:4481
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Pot ser aproximat. Veieu [doc@faq3-11]PCF -FAQ- 3.11[/doc]"
+msgstr "Pot ser aproximat. Veieu [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4538 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1499 libraries/sql_query_form.lib.php:92
 #: libraries/tbl_relation.lib.php:1019 tbl_find_replace.php:51
 #: tbl_operations.php:189 tbl_row_action.php:121 view_operations.php:62
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
-msgstr "La vostra comanda SQL ha estat executada amb èxit"
+msgstr "La vostra comanda SQL ha estat executada amb èxit."
 
 #: libraries/DisplayResults.class.php:4923 libraries/structure.lib.php:684
 #, php-format
@@ -3405,10 +3359,10 @@ msgid "%d total"
 msgstr "%d total"
 
 #: libraries/DisplayResults.class.php:4968 libraries/sql.lib.php:1729
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
-msgstr "La consulta tarda %01.4f seg"
+msgstr "La consulta tarda %01.4f segons."
 
 #: libraries/DisplayResults.class.php:5072
 #: libraries/DisplayResults.class.php:5078 libraries/mult_submits.inc.php:45
@@ -3477,26 +3431,23 @@ msgid "Visualize GIS data"
 msgstr "Visualitzar dades GIS"
 
 #: libraries/DisplayResults.class.php:5642
-#, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
-msgstr "No s'ha trobat l'enllaç"
+msgstr "No s'ha trobat l'enllaç!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
 msgstr "Masses missatges d'error, alguns no es mostren."
 
 #: libraries/Error_Handler.class.php:338
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
-msgstr "Importa"
+msgstr "Informe"
 
 #: libraries/Error_Handler.class.php:343 libraries/error_report.lib.php:359
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "Crear versions automàticament"
+msgstr "Enviar informe automàticament la propera vegada"
 
 #: libraries/File.class.php:225
 msgid "File was not an uploaded file."
@@ -3536,11 +3487,9 @@ msgid "Unknown error in file upload."
 msgstr "Error desconegut al pujar l'arxiu."
 
 #: libraries/File.class.php:461
-#, fuzzy
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
-msgstr ""
-"Error movent l'arxiu pujat, consulta la [doc@faq1-11]PCF -FAQ- 1.11[/doc]"
+msgstr "Error movent l'arxiu pujat, consulta la [doc@faq1-11]FAQ 1.11[/doc]."
 
 #: libraries/File.class.php:479
 msgid "Error while moving uploaded file."
@@ -3570,10 +3519,9 @@ msgstr "Feu clic a la barra per desplaçar-se al principi d'aquesta pàgina"
 
 #: libraries/Header.class.php:695
 #: libraries/plugins/auth/AuthenticationCookie.class.php:149
-#, fuzzy
 #| msgid "Javascript must be enabled past this point"
 msgid "Javascript must be enabled past this point!"
-msgstr "A partir d'aquest punt és necessari tenir el javascript activat"
+msgstr "A partir d'aquest punt és necessari tenir el javascript activat!"
 
 #: libraries/Index.class.php:537
 msgid "No index defined!"
@@ -3753,10 +3701,9 @@ msgid "Designer"
 msgstr "Dissenyador"
 
 #: libraries/Menu.class.php:499 libraries/Util.class.php:4176
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "Columnes per a textareas"
+msgstr "Columnes centrals"
 
 #: libraries/Menu.class.php:533 libraries/Util.class.php:4148
 #: libraries/config/messages.inc.php:229 libraries/server_common.lib.php:48
@@ -3839,74 +3786,64 @@ msgid "Error while creating PDF:"
 msgstr "Error creant PDF:"
 
 #: libraries/RecentFavoriteTable.class.php:154
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save recent table!"
-msgstr "No es pot desar la taula"
+msgstr "No es pot desar la taula recent!"
 
 #: libraries/RecentFavoriteTable.class.php:158
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save favorite table!"
-msgstr "No es pot desar la taula"
+msgstr "No es pot desar la taula favorita!"
 
 #: libraries/RecentFavoriteTable.class.php:235
 #: libraries/structure.lib.php:2888
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "Elimina el gràfic"
+msgstr "Eliminar de favorits"
 
 #: libraries/RecentFavoriteTable.class.php:257
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no recent tables."
-msgstr "No hi ha taules recents"
+msgstr "No hi ha taules recents."
 
 #: libraries/RecentFavoriteTable.class.php:258
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no favorite tables."
-msgstr "No hi ha taules recents"
+msgstr "No hi ha taules favorites."
 
 #: libraries/RecentFavoriteTable.class.php:273
 msgid "Recent tables"
 msgstr "Taules recents"
 
 #: libraries/RecentFavoriteTable.class.php:275
-#, fuzzy
 #| msgid "Reset"
 msgid "Recent"
-msgstr "Reinicia"
+msgstr "Recent"
 
 #: libraries/RecentFavoriteTable.class.php:277
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
-msgstr "Variables"
+msgstr "Taules favorites"
 
 #: libraries/RecentFavoriteTable.class.php:279
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorites"
-msgstr "Variables"
+msgstr "Favorites"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
 msgstr ""
 
 #: libraries/SavedSearches.class.php:261
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the bookmarked search."
-msgstr "Falten taules de l'infraestructura de taules enllaçades de phpMyAdmin"
+msgstr "Falta informació per desar la cerca."
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
-#, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "L'usuari %s ja existeix!"
+msgstr "Ja existeix una entrada amb aquest nom."
 
 #: libraries/SavedSearches.class.php:347
 msgid "Missing information to delete the search."
@@ -3917,10 +3854,9 @@ msgid "Missing information to load the search."
 msgstr ""
 
 #: libraries/SavedSearches.class.php:394
-#, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "Error moven l'arxiu pujat."
+msgstr "Error carregant la cerca."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status_processes.lib.php:97
@@ -4066,10 +4002,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Aquest servidor MySQL no suporta el motor d'emmagatzematge %s."
 
 #: libraries/Table.class.php:394
-#, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "Estat de taula desconegut "
+msgstr "Estat de taula desconegut:"
 
 #: libraries/Table.class.php:779
 #, php-format
@@ -4090,10 +4025,10 @@ msgid "Invalid table name:"
 msgstr "Nom de taula incorrecte:"
 
 #: libraries/Table.class.php:1347
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "Error reanomenant la taula %1$s a %2$s"
+msgstr "Error reanomenant la taula %1$s a %2$s!"
 
 #: libraries/Table.class.php:1366
 #, php-format
@@ -4101,10 +4036,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "La taula %1$s ha canviat de nom a %2$s."
 
 #: libraries/Table.class.php:1526
-#, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
-msgstr "No s'ha pogut desar la llista de preferències d'interfície"
+msgstr "No s'ha pogut desar la taula de preferències d'interfície!"
 
 #: libraries/Table.class.php:1555
 #, php-format
@@ -4225,10 +4159,9 @@ msgid "Replace with:"
 msgstr "Reemplaça NULL amb:"
 
 #: libraries/TableSearch.class.php:1378
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "com a expressió regular"
+msgstr "Usar expressió regular"
 
 #: libraries/TableSearch.class.php:1480
 msgid "Find and replace - preview"
@@ -4715,10 +4648,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "No està disponible el directori indicat per pujar arxius."
 
 #: libraries/Util.class.php:3392
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "No hi ha cap arxiu per pujar"
+msgstr "No hi ha files per pujar!"
 
 #: libraries/Util.class.php:3417 libraries/Util.class.php:3418
 #: libraries/structure.lib.php:322
@@ -4816,10 +4748,9 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
 #: libraries/central_columns.lib.php:280
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "No es pot desar la configuració"
+msgstr "No es poden afegir columnes!"
 
 #: libraries/central_columns.lib.php:356
 #, php-format
@@ -4828,10 +4759,9 @@ msgid ""
 msgstr ""
 
 #: libraries/central_columns.lib.php:368
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not remove columns!"
-msgstr "No es pot desar la taula"
+msgstr "No es poden treure columnes!"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
@@ -4868,42 +4798,37 @@ msgid "Extra"
 msgstr "Extra"
 
 #: libraries/central_columns.lib.php:660
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Tria Taules"
+msgstr "Tria una taula"
 
 #: libraries/central_columns.lib.php:714 libraries/structure.lib.php:1673
 msgid "Add column"
 msgstr "Afegeix columna(es)"
 
 #: libraries/central_columns.lib.php:726
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "selecciona dues columnes"
+msgstr "Tria una columna."
 
 #: libraries/central_columns.lib.php:810 libraries/central_columns.lib.php:920
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "Increment d'autoextensió"
+msgstr "Increment automàtic"
 
 #: libraries/central_columns.lib.php:812 libraries/central_columns.lib.php:922
 msgid "on update CURRENT_TIMESTAMP"
 msgstr ""
 
 #: libraries/central_columns.lib.php:889
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
-msgstr "Afegeix columna(es)"
+msgstr "Afegir una nova columna"
 
 #: libraries/common.inc.php:586
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "No es pot llegir l'arxiu de configuració"
+msgstr "No es pot llegir l'arxiu de configuració!"
 
 #: libraries/common.inc.php:588
 msgid ""
@@ -5088,17 +5013,15 @@ msgstr "cap dels anteriors"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:560
-#, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
-msgstr "No és un nombre positiu"
+msgstr "No és un nombre positiu!"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:582
-#, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
-msgstr "No és un nombre no-negatiu"
+msgstr "No és un nombre no-negatiu!"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:538
