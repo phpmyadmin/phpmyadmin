@@ -686,15 +686,16 @@ var updateInterval;
 AJAX.registerTeardown('functions.js', function () {
     clearInterval(updateInterval);
     clearInterval(IncInterval);
+    $(document).off('mousemove');
 });
 
 AJAX.registerOnload('functions.js', function () {
     document.onclick = function() {
         _idleSecondsCounter = 0;
     };
-    document.onmousemove = function() {
+    $(document).on('mousemove',function() {
         _idleSecondsCounter = 0;
-    };
+    });
     document.onkeypress = function() {
         _idleSecondsCounter = 0;
     };
