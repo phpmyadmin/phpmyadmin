@@ -414,6 +414,9 @@ AJAX.registerOnload('server_privileges.js', function () {
 
         // hide all sections but the first
         $("#edit_user_dialog .submenu-item").hide().eq(0).show();
+
+        // scroll to the top
+        $('html, body').animate({scrollTop: 0}, 'fast');
     };
 
     $("input.autofocus").focus();
