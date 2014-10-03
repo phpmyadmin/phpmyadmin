@@ -545,6 +545,8 @@ function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update)
                     . "<br/>" . $error
                 );
             }
+        } else {
+            return array(false, __('Error: Missing index on column(s).'));
         }
     } else { // internal (pmadb) relation
         if ($GLOBALS['cfgRelation']['relwork'] == false) {
