@@ -389,7 +389,7 @@ class Advisor
             }
 
             // Reading new rule
-            if (/*overload*/mb_substr($line, 0, 4) == 'rule') {
+            if (substr($line, 0, 4) == 'rule') {
                 if ($ruleLine > 0) {
                     $errors[] = sprintf(
                         __(

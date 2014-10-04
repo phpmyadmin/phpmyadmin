@@ -50,7 +50,7 @@ if (! isset($gis_data['gis_type'])) {
         $gis_data['gis_type'] = /*overload*/mb_strtoupper($_REQUEST['type']);
     }
     if (isset($_REQUEST['value']) && trim($_REQUEST['value']) != '') {
-        $start = (/*overload*/mb_substr($_REQUEST['value'], 0, 1) == "'") ? 1 : 0;
+        $start = (substr($_REQUEST['value'], 0, 1) == "'") ? 1 : 0;
         $gis_data['gis_type'] = /*overload*/mb_substr(
             $_REQUEST['value'],
             $start,

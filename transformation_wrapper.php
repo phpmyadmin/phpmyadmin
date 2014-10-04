@@ -77,7 +77,7 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
     );
 
     foreach ($mime_options as $key => $option) {
-        if (/*overload*/mb_substr($option, 0, 10) == '; charset=') {
+        if (substr($option, 0, 10) == '; charset=') {
             $mime_options['charset'] = $option;
         }
     }

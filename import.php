@@ -392,13 +392,13 @@ if ($memory_limit == -1) {
 }
 
 // Calculate value of the limit
-if (/*overload*/mb_strtolower(/*overload*/mb_substr($memory_limit, -1)) == 'm') {
-    $memory_limit = (int)/*overload*/mb_substr($memory_limit, 0, -1) * 1024 * 1024;
-} elseif (/*overload*/mb_strtolower(/*overload*/mb_substr($memory_limit, -1)) == 'k') {
-    $memory_limit = (int)/*overload*/mb_substr($memory_limit, 0, -1) * 1024;
-} elseif (/*overload*/mb_strtolower(/*overload*/mb_substr($memory_limit, -1)) == 'g') {
-    $memory_limit
-        = (int)/*overload*/mb_substr($memory_limit, 0, -1) * 1024 * 1024 * 1024;
+$memoryUnit = /*overload*/mb_strtolower(substr($memory_limit, -1));
+if ('m' == $memoryUnit) {
+    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024;
+} elseif ('k' == $memoryUnit) {
+    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024;
+} elseif ('g' == $memoryUnit) {
+    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024 * 1024;
 } else {
     $memory_limit = (int)$memory_limit;
 }

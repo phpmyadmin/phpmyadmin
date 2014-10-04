@@ -437,7 +437,7 @@ class PMA_Config
         //@TODO Implement strstr in PMA_String
         if (/*overload*/mb_strstr($ref_head, '/')) {
             $ref_head = /*overload*/mb_substr(trim($ref_head), 5);
-            if (/*overload*/mb_substr($ref_head, 0, 11) === 'refs/heads/') {
+            if (substr($ref_head, 0, 11) === 'refs/heads/') {
                 $branch = /*overload*/mb_substr($ref_head, 11);
             } else {
                 $branch = basename($ref_head);
@@ -507,7 +507,7 @@ class PMA_Config
                     // packs. (to look for them in .git/object/pack directory later)
                     foreach (explode("\n", $packs) as $line) {
                         // skip blank lines
-                        if (/*overload*/mb_strlen(trim($line)) == 0) {
+                        if (strlen(trim($line)) == 0) {
                             continue;
                         }
                         // skip non pack lines
@@ -530,7 +530,7 @@ class PMA_Config
                         $file_name = $file_info->getFilename();
                         // if this is a .pack file
                         if ($file_info->isFile()
-                            && /*overload*/mb_substr($file_name, -5) == '.pack'
+                            && substr($file_name, -5) == '.pack'
                         ) {
                             $pack_names[] = $file_name;
                         }
@@ -782,7 +782,7 @@ class PMA_Config
         $httpOk = 'HTTP/1.1 200 OK';
         $httpNotFound = 'HTTP/1.1 404 Not Found';
 
-        if (/*overload*/mb_substr($data, 0, strlen($httpOk)) === $httpOk) {
+        if (substr($data, 0, strlen($httpOk)) === $httpOk) {
             return $get_body
                 ? /*overload*/mb_substr(
                     $data,
@@ -791,7 +791,7 @@ class PMA_Config
                 : true;
         }
 
-        $httpNOK = /*overload*/mb_substr(
+        $httpNOK = substr(
             $data,
             0,
             strlen($httpNotFound)
