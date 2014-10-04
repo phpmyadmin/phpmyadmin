@@ -451,69 +451,57 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_isColumnBinary
+     * Test for PMA_isColumn
      *
      * @return void
      */
-    public function testIsColumnBinary()
+    public function testIsColumn()
     {
         $column = array();
+        $types = array('binary', 'varbinary');
+
         $column['Type'] = 'binaryfoo';
-        $this->assertEquals('binaryfoo', PMA_isColumnBinary($column));
+        $this->assertTrue(PMA_isColumn($column, $types));
 
         $column['Type'] = 'Binaryfoo';
-        $this->assertEquals('Binaryfoo', PMA_isColumnBinary($column));
+        $this->assertTrue(PMA_isColumn($column, $types));
 
         $column['Type'] = 'varbinaryfoo';
-        $this->assertEquals('binaryfoo', PMA_isColumnBinary($column));
+        $this->assertTrue(PMA_isColumn($column, $types));
 
         $column['Type'] = 'barbinaryfoo';
-        $this->assertFalse(PMA_isColumnBinary($column));
-    }
+        $this->assertFalse(PMA_isColumn($column, $types));
 
-    /**
-     * Test for PMA_isColumnBlob
-     *
-     * @return void
-     */
-    public function testIsColumnBlob()
-    {
-        $column = array();
-        $column['Type'] = 'blob';
-        $this->assertEquals('blob', PMA_isColumnBlob($column));
+        $types = array('char', 'varchar');
 
-        $column['Type'] = 'bloB';
-        $this->assertEquals('bloB', PMA_isColumnBlob($column));
-
-        $column['Type'] = 'mediumBloB';
-        $this->assertEquals('BloB', PMA_isColumnBlob($column));
-
-        $column['Type'] = 'tinyblobabc';
-        $this->assertEquals('blobabc', PMA_isColumnBlob($column));
-
-        $column['Type'] = 'longblob';
-        $this->assertEquals('blob', PMA_isColumnBlob($column));
-
-        $column['Type'] = 'foolongblobbar';
-        $this->assertFalse(PMA_isColumnBlob($column));
-    }
-
-    /**
-     * Test for PMA_iscolumnchar
-     *
-     * @return void
-     */
-    public function testIsColumnChar()
-    {
-        $column = array();
         $column['Type'] = 'char(10)';
-        $this->assertEquals('char(10)', PMA_iscolumnchar($column));
+        $this->assertTrue(PMA_isColumn($column, $types));
 
         $column['Type'] = 'VarChar(20)';
-        $this->assertEquals('Char(20)', PMA_iscolumnchar($column));
+        $this->assertTrue(PMA_isColumn($column, $types));
 
         $column['Type'] = 'foochar';
-        $this->assertFalse(PMA_iscolumnchar($column));
+        $this->assertFalse(PMA_isColumn($column, $types));
+
+        $types = array('blob', 'tinyblob', 'mediumblob', 'longblob');
+
+        $column['Type'] = 'blob';
+        $this->assertTrue(PMA_isColumn($column, $types));
+
+        $column['Type'] = 'bloB';
+        $this->assertTrue(PMA_isColumn($column, $types));
+
+        $column['Type'] = 'mediumBloB';
+        $this->assertTrue(PMA_isColumn($column, $types));
+
+        $column['Type'] = 'tinyblobabc';
+        $this->assertTrue(PMA_isColumn($column, $types));
+
+        $column['Type'] = 'longblob';
+        $this->assertTrue(PMA_isColumn($column, $types));
+
+        $column['Type'] = 'foolongblobbar';
+        $this->assertFalse(PMA_isColumn($column, $types));
     }
 
     /**
