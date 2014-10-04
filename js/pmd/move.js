@@ -350,9 +350,9 @@ function Re_load()
                         row_offset_top = document.getElementById(key2 + "." + key3).offsetTop;
                     }
 
-                    var y1 = document.getElementById(key2).offsetTop
-                         + row_offset_top
-                         + height_field;
+                    var y1 = document.getElementById(key2).offsetTop +
+                        row_offset_top +
+                        height_field;
                     //alert(1);
 
                     row_offset_top = 0;
@@ -363,9 +363,9 @@ function Re_load()
                     }
 
                     var y2 =
-                          document.getElementById(contr[K][key][key2][key3][0]).offsetTop
-                        + row_offset_top
-                        + height_field;
+                        document.getElementById(contr[K][key][key2][key3][0]).offsetTop +
+                        row_offset_top +
+                        height_field;
 
                     //alert(y1 + ' - ' + key2 + "." + key3);
                     Line0(
@@ -661,8 +661,8 @@ function Save3(callback)
             .append('<input type="hidden" name="token" value="' + token + '" />')
             .append('<input type="hidden" name="operation" value="savePage" />')
             .append('<input type="hidden" name="save_page" value="new" />')
-            .append('<label for="selected_value">' + PMA_messages.strPageName
-                + '</label>:<input type="text" name="selected_value" />');
+            .append('<label for="selected_value">' + PMA_messages.strPageName +
+                '</label>:<input type="text" name="selected_value" />');
         $('<div id="page_save_dialog"></div>')
             .append($form)
             .dialog({
