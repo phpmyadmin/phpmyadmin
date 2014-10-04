@@ -54,7 +54,7 @@ AJAX.registerOnload('server_databases.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = PMA_messages.strDropDatabaseStrongWarning + ' ' +
-            $.sprintf(PMA_messages.strDoYouReally, selected_dbs.join('<br />'));
+            PMA_sprintf(PMA_messages.strDoYouReally, selected_dbs.join('<br />'));
 
         $(this).PMA_confirm(
             question,

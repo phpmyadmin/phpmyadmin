@@ -128,7 +128,7 @@ function PMA_adjustTotals() {
 
     // Update summary with new data
     var $summary = $("#tbl_summary_row");
-    $summary.find('.tbl_num').text($.sprintf(PMA_messages.strTables, tableSum));
+    $summary.find('.tbl_num').text(PMA_sprintf(PMA_messages.strTables, tableSum));
     $summary.find('.row_count_sum').text(strRowSum);
     $summary.find('.tbl_size').text(sizeSum + " " + byteUnits[size_magnitude]);
     $summary.find('.tbl_overhead').text(overheadSum + " " + byteUnits[overhead_magnitude]);
@@ -288,7 +288,7 @@ AJAX.registerOnload('db_structure.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = PMA_messages.strTruncateTableStrongWarning + ' ' +
-            $.sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + escapeHtml(curr_table_name));
+            PMA_sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + escapeHtml(curr_table_name));
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
 
@@ -344,10 +344,10 @@ AJAX.registerOnload('db_structure.js', function () {
         var question;
         if (! is_view) {
             question = PMA_messages.strDropTableStrongWarning + ' ' +
-                $.sprintf(PMA_messages.strDoYouReally, 'DROP TABLE ' + escapeHtml(curr_table_name));
+                PMA_sprintf(PMA_messages.strDoYouReally, 'DROP TABLE ' + escapeHtml(curr_table_name));
         } else {
             question =
-                $.sprintf(PMA_messages.strDoYouReally, 'DROP VIEW ' + escapeHtml(curr_table_name));
+                PMA_sprintf(PMA_messages.strDoYouReally, 'DROP VIEW ' + escapeHtml(curr_table_name));
         }
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {

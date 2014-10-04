@@ -277,12 +277,10 @@ if ($GLOBALS['is_ajax_request']
     && empty($_REQUEST['ajax_page_request'])
     && ! isset($_REQUEST['export'])
     && (! isset($_REQUEST['submit_mult']) || $_REQUEST['submit_mult'] != 'export')
-    && (! isset($_REQUEST['adduser']) || $_add_user_error)
     && ((! isset($_REQUEST['initial']) || $_REQUEST['initial'] === null
     || $_REQUEST['initial'] === '')
     || (isset($_REQUEST['delete']) && $_REQUEST['delete'] === 'Go'))
     && ! isset($_REQUEST['showall'])
-    && ! isset($_REQUEST['edit_user_dialog'])
     && ! isset($_REQUEST['edit_user_group_dialog'])
     && ! isset($_REQUEST['db_specific'])
 ) {
@@ -386,20 +384,19 @@ if (isset($_REQUEST['adduser'])) {
         if ($GLOBALS['is_ajax_request'] == true) {
             header('Cache-Control: no-cache');
         }
-        if (! is_array($dbname)) {
+        if (isset($dbname) && ! is_array($dbname)) {
             $url_dbname = urlencode(
                 str_replace(
                     array('\_', '\%'),
                     array('_', '%'), $_REQUEST['dbname']
                 )
             );
-        } else {
-            $url_dbname = '';
         }
         $response->addHTML(
             PMA_getHtmlForUserProperties(
-                ((isset ($dbname_is_wildcard)) ? $dbname_is_wildcard : ''),
-                $url_dbname, $username, $hostname,
+                (isset($dbname_is_wildcard) ? $dbname_is_wildcard : ''),
+                (isset($url_dbname) ? $url_dbname : ''),
+                $username, $hostname,
                 (isset($dbname) ? $dbname : ''),
                 (isset($tablename) ? $tablename : '')
             )

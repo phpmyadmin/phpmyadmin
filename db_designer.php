@@ -70,15 +70,16 @@ if (isset($_REQUEST['operation'])) {
             $_REQUEST['on_update']
         );
         $response->isSuccess($success);
-        $response->addJSON($success ? 'message' : 'error', $message);
+        $response->addJSON('message', $message);
     } elseif ($_REQUEST['operation'] == 'removeRelation') {
-        PMA_removeRelation(
+        list($success, $message) = PMA_removeRelation(
             $_REQUEST['T1'],
             $_REQUEST['F1'],
             $_REQUEST['T2'],
             $_REQUEST['F2']
         );
-        $response->isSuccess(true);
+        $response->isSuccess($success);
+        $response->addJSON('message', $message);
     }
     return;
 }

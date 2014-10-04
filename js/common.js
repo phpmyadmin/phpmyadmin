@@ -82,7 +82,7 @@ var PMA_commonParams = (function () {
          * @return string
          */
         getUrlQuery: function () {
-            return $.sprintf(
+            return PMA_sprintf(
                 '?%s&server=%s&db=%s&table=%s',
                 this.get('common_query'),
                 encodeURIComponent(this.get('server')),

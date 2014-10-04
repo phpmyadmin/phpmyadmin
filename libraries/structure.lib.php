@@ -2514,7 +2514,7 @@ function PMA_updateColumns($db, $table)
             if ($pmaString->strpos(
                 $sorted_col,
                 PMA_Util::backquote($_REQUEST['field_orig'][$i])
-            ) !== false) { 
+            ) !== false) {
                 // delete the whole remembered sort expression
                 $pmatable->removeUiProp(PMA_Table::PROP_SORTED_COLUMN);
             }

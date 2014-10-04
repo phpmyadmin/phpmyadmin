@@ -996,8 +996,8 @@ $('form').live('submit', AJAX.requestHandler);
  */
 $(document).ajaxError(function (event, request, settings) {
     if (request.status !== 0) { // Don't handle aborted requests
-        var errorCode = $.sprintf(PMA_messages.strErrorCode, request.status);
-        var errorText = $.sprintf(PMA_messages.strErrorText, request.statusText);
+        var errorCode = PMA_sprintf(PMA_messages.strErrorCode, request.status);
+        var errorText = PMA_sprintf(PMA_messages.strErrorText, request.statusText);
         PMA_ajaxShowMessage(
             '<div class="error">' +
             PMA_messages.strErrorProcessingRequest +
