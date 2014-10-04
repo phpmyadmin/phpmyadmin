@@ -346,8 +346,7 @@ $(function () {
                     );
                     // Update localStorage.
                     if (window.localStorage && window.localStorage !== undefined) {
-                        window.localStorage.favorite_tables
-                            = data.favorite_tables;
+                        window.localStorage.favorite_tables = data.favorite_tables;
                     }
                 } else {
                     PMA_ajaxShowMessage(data.message);
