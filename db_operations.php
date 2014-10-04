@@ -142,6 +142,8 @@ if ($pmaString->strlen($GLOBALS['db'])
             );
             $message->addParam($GLOBALS['db']);
             $message->addParam($_REQUEST['newname']);
+        } else {
+            $message = PMA_Message::error();
         }
         $reload     = true;
 
@@ -157,10 +159,6 @@ if ($pmaString->strlen($GLOBALS['db'])
             } else {
                 $GLOBALS['PMA_Config']->setCookie('pma_switch_to_new', '');
             }
-        }
-
-        if ($_error && ! isset($message)) {
-            $message = PMA_Message::error();
         }
     }
 
