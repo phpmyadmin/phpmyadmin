@@ -100,7 +100,7 @@ function PMA_getHtmlForTableConfigurations()
                 ? $_REQUEST['tbl_collation']
                 : null
             ),
-            false, 3
+            false
         )
         . '</td>'
         . '</tr>';
