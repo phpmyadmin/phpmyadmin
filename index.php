@@ -198,7 +198,6 @@ if ($server > 0 || count($cfg['Servers']) > 1
                'select_collation_connection',
                $collation_connection,
                true,
-               4,
                true
            )
            . '        </form>' . "\n"

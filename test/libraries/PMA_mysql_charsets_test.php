@@ -284,7 +284,7 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
         $this->assertContains('title="German', $result);
 
         $result = PMA_generateCharsetDropdownBox(
-            2, null, "test_id", "latin1", false, 0, true, false
+            2, null, "test_id", "latin1", false, true
         );
         $this->assertContains('name="character_set"', $result);
         $this->assertNotContains('Charset</option>', $result);
