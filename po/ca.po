@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-10-03 17:08+0200\n"
-"Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
+"PO-Revision-Date: 2014-10-05 19:43+0200\n"
+"Last-Translator: josep constanti <jconstanti@ovi.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-2/ca/>\n"
 "Language: ca\n"
@@ -4626,24 +4626,22 @@ msgstr "No s'ha pogut inicialitzar la biblioteca de connexió Drizzle!"
 #: libraries/config/Validator.class.php:262
 #: libraries/config/Validator.class.php:273
 #: libraries/config/Validator.class.php:280
-#, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
-msgstr "No s'ha pogut connectar a la destinació"
+msgstr "No s'ha pogut connectar amb el servidor de dades!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "Nom d'usuari buit al usar el métode d'autenticació config"
+msgstr "Nom d'usuari buit en usar el mètode d'autenticació [kbd]config[/kbd]!"
 
 #: libraries/config/Validator.class.php:320
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Nom de sessió signon buit al usar el métode d'autenticació signon"
+msgstr ""
+"Nom de sessió signon buit en usar el mètode d'autenticació [kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:329
 #, fuzzy
