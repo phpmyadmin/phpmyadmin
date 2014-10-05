@@ -29,6 +29,8 @@ $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('db_operations.js');
 
+$sql_query = '';
+
 /**
  * Rename/move or copy database
  */
@@ -43,7 +45,6 @@ if ($pmaString->strlen($GLOBALS['db'])
         $move = false;
     }
 
-    $sql_query = '';
     if (! isset($_REQUEST['newname'])
         || ! $pmaString->strlen($_REQUEST['newname'])
     ) {
