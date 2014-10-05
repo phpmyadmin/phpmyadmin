@@ -963,21 +963,21 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
                     'strPrivDesc' . /*overload*/mb_substr(
                         $tmp_current_grant,
                         0,
-                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
+                        -5
                     )
                 ])
                 ? $GLOBALS[
                     'strPrivDesc' . /*overload*/mb_substr(
                         $tmp_current_grant,
                         0,
-                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
+                        -5
                     )
                 ]
                 : $GLOBALS[
                     'strPrivDesc' . /*overload*/mb_substr(
                         $tmp_current_grant,
                         0,
-                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
+                        -5
                     ) . 'Tbl'
                 ]
             )
@@ -986,7 +986,7 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
                 /*overload*/mb_substr(
                     $current_grant,
                     0,
-                    /*overload*/mb_strlen($current_grant) - 5
+                    -5
                 )
             )
             . '</dfn></code></label>' . "\n"

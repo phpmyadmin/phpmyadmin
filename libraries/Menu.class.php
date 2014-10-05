@@ -81,7 +81,7 @@ class PMA_Menu
      */
     public function getHash()
     {
-        return /*overload*/mb_substr(
+        return substr(
             md5($this->_getMenu() . $this->_getBreadcrumbs()),
             0,
             8

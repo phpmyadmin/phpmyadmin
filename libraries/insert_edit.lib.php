@@ -1308,11 +1308,11 @@ function PMA_getValueColumnForOtherDatatypes($column, $default_char_editing,
             $html_output .= '<input type="hidden" name="auto_increment'
                 . $column_name_appendix . '" value="1" />';
         }
-        if (/*overload*/mb_substr($column['pma_type'], 0, 9) == 'timestamp') {
+        if (substr($column['pma_type'], 0, 9) == 'timestamp') {
             $html_output .= '<input type="hidden" name="fields_type'
                 . $column_name_appendix . '" value="timestamp" />';
         }
-        if (/*overload*/mb_substr($column['pma_type'], 0, 8) == 'datetime') {
+        if (substr($column['pma_type'], 0, 8) == 'datetime') {
             $html_output .= '<input type="hidden" name="fields_type'
                 . $column_name_appendix . '" value="datetime" />';
         }
@@ -1322,7 +1322,7 @@ function PMA_getValueColumnForOtherDatatypes($column, $default_char_editing,
         }
         if ($column['pma_type'] == 'date'
             || $column['pma_type'] == 'datetime'
-            || /*overload*/mb_substr($column['pma_type'], 0, 9) == 'timestamp'
+            || substr($column['pma_type'], 0, 9) == 'timestamp'
         ) {
             // the _3 suffix points to the date field
             // the _2 suffix points to the corresponding NULL checkbox

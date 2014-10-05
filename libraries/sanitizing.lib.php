@@ -62,7 +62,7 @@ function PMA_replaceBBLink($found)
     }
 
     /* Construct url */
-    if (/*overload*/mb_substr($found[1], 0, 4) == 'http') {
+    if (substr($found[1], 0, 4) == 'http') {
         $url = PMA_linkURL($found[1]);
     } else {
         $url = $found[1];
