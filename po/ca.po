@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-02 11:40+0200\n"
-"PO-Revision-Date: 2014-10-03 17:07+0200\n"
+"PO-Revision-Date: 2014-10-05 19:39+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -1022,7 +1022,7 @@ msgstr "Reinicia"
 #: js/messages.php:53
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Restableix Tot"
+msgstr "Tria Tot"
 
 #: js/messages.php:56
 msgid "Missing value in the form!"
