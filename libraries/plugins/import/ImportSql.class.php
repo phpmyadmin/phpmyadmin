@@ -243,7 +243,7 @@ class ImportSql extends ImportPlugin
                 $ch = /*overload*/mb_substr($buffer, $posInQueryString, 1);
 
                 // Quotes
-                if (/*overload*/mb_strpos('\'"`', $ch) !== false) {
+                if (strpos('\'"`', $ch) !== false) {
                     $quote = $ch;
                     $endq = false;
                     while (! $endq) {

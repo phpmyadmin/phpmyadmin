@@ -158,13 +158,13 @@ class PMA_Scripts
      */
     private function _eventBlacklist($filename)
     {
-        if (   /*overload*/mb_strpos($filename, 'jquery') !== false
-            || /*overload*/mb_strpos($filename, 'codemirror') !== false
-            || /*overload*/mb_strpos($filename, 'messages.php') !== false
-            || /*overload*/mb_strpos($filename, 'ajax.js') !== false
-            || /*overload*/mb_strpos($filename, 'navigation.js') !== false
-            || /*overload*/mb_strpos($filename, 'get_image.js.php') !== false
-            || /*overload*/mb_strpos($filename, 'cross_framing_protection.js') !== false
+        if (   strpos($filename, 'jquery') !== false
+            || strpos($filename, 'codemirror') !== false
+            || strpos($filename, 'messages.php') !== false
+            || strpos($filename, 'ajax.js') !== false
+            || strpos($filename, 'navigation.js') !== false
+            || strpos($filename, 'get_image.js.php') !== false
+            || strpos($filename, 'cross_framing_protection.js') !== false
         ) {
             return 0;
         }
@@ -213,7 +213,7 @@ class PMA_Scripts
         $retval = array();
         foreach ($this->_files as $file) {
             //If filename contains a "?", continue.
-            if (/*overload*/mb_strpos($file['filename'], "?") !== false) {
+            if (strpos($file['filename'], "?") !== false) {
                 continue;
             }
 
