@@ -918,9 +918,6 @@ function PMA_SQP_typeCheck($toCheck, $whatWeWant)
         return true;
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     if (/*overload*/mb_strpos($whatWeWant, $typeSeparator) !== false) {
         return false;
     }
@@ -1160,9 +1157,6 @@ function PMA_SQP_analyze($arr)
         'ALTER' => 1
         */
     );
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     // loop #1 for each token: select_expr, table_ref for SELECT
 
@@ -2434,9 +2428,6 @@ function PMA_SQP_format(
         $typearr[2] = '';
         $typearr[3] = $arr[$start_token]['type'];
     }
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     $in_priv_list = false;
     for ($i = $start_token; $i < $number_of_tokens; $i++) {

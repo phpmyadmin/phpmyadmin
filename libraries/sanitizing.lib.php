@@ -29,8 +29,6 @@ function PMA_checkLink($url)
         $valid_starts[] = '?page=form&';
         $valid_starts[] = '?page=servers&';
     }
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     foreach ($valid_starts as $val) {
         if (/*overload*/mb_substr($url, 0, /*overload*/mb_strlen($val)) == $val) {
             return true;

@@ -177,9 +177,6 @@ abstract class PMA_GIS_Geometry
         $srid = 0;
         $wkt = '';
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $value)) {
             $last_comma = /*overload*/mb_strripos($value, ",");
             $srid = trim(/*overload*/mb_substr($value, $last_comma + 1));
@@ -255,9 +252,6 @@ abstract class PMA_GIS_Geometry
             $ol_array .= $this->getPolygonForOpenLayers($rings, $srid) . ', ';
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $ol_array = /*overload*/mb_substr(
             $ol_array,
             0,
@@ -308,9 +302,6 @@ abstract class PMA_GIS_Geometry
             $ol_array .= ', ';
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $ol_array = /*overload*/mb_substr(
             $ol_array,
             0,
@@ -355,9 +346,6 @@ abstract class PMA_GIS_Geometry
         foreach ($points_arr as $point) {
             $ol_array .= $this->getPointForOpenLayers($point, $srid) . ', ';
         }
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         $ol_array = /*overload*/mb_substr(
             $ol_array,

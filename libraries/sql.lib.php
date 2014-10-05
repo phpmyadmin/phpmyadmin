@@ -1399,9 +1399,6 @@ function PMA_cleanupRelations($db, $table, $dropped_column, $purge, $extra_data)
 {
     include_once 'libraries/relation_cleanup.lib.php';
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     if (isset($purge) && $purge == 1) {
         if (/*overload*/mb_strlen($table) && /*overload*/mb_strlen($db)) {
             PMA_relationsCleanupTable($db, $table);

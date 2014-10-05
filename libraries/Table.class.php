@@ -261,9 +261,6 @@ class PMA_Table
                 AND TABLE_NAME = '" . PMA_Util::sqlAddSlashes($table) . "'"
             );
 
-            /** @var PMA_String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
-
             foreach ($results as $result) {
                 $analyzed_sql[0]['create_table_fields'][$result['COLUMN_NAME']]
                     = array(
@@ -431,9 +428,6 @@ class PMA_Table
         $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
         $comment = '', &$field_primary = null, $move_to = ''
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $is_timestamp = /*overload*/mb_strpos(
             /*overload*/mb_strtoupper($type),
             'TIMESTAMP'
@@ -791,9 +785,6 @@ class PMA_Table
             }
             return false;
         }
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         $source = PMA_Util::backquote($source_db)
             . '.' . PMA_Util::backquote($source_table);
@@ -1581,9 +1572,6 @@ class PMA_Table
     {
         $server_id = $GLOBALS['server'];
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // set session variable if it's still undefined
         if (! isset($_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name][$this->name])) {
             // check whether we can get from pmadb
@@ -1629,9 +1617,6 @@ class PMA_Table
                 $colname = str_replace('`', '', $colname);
                 //get the available column name without backquoting
                 $avail_columns = $this->getColumns(false);
-
-                /** @var PMA_String $pmaString */
-                $pmaString = $GLOBALS['PMA_String'];
 
                 foreach ($avail_columns as $each_col) {
                     // check if $each_col ends with $colname
@@ -1724,9 +1709,6 @@ class PMA_Table
         // save the value
         $this->uiprefs[$property] = $value;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // check if pmadb is set
         if (/*overload*/mb_strlen($GLOBALS['cfg']['Server']['pmadb'])
             && /*overload*/mb_strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
@@ -1750,9 +1732,6 @@ class PMA_Table
         }
         if (isset($this->uiprefs[$property])) {
             unset($this->uiprefs[$property]);
-
-            /** @var PMA_String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
 
             // check if pmadb is set
             if (/*overload*/mb_strlen($GLOBALS['cfg']['Server']['pmadb'])

@@ -223,9 +223,6 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
     $retval .= '</thead>';
     $retval .= '<tbody>';
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $odd_row = false;
     foreach ($ServerStatusData->status as $name => $value) {
         $odd_row = !$odd_row;

@@ -249,9 +249,6 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
             . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
         $result = PMA_queryAsControlUser($sql_query, false);
         if ($result) {
-            /** @var PMA_String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
-
             while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
                 $key = $row['tab'];
                 $value = $row['allowed'];

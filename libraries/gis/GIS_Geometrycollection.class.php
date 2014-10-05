@@ -57,9 +57,6 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     {
         $min_max = array();
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = /*overload*/mb_substr(
             $spatial,
@@ -118,9 +115,6 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
      */
     public function prepareRowAsPng($spatial, $label, $color, $scale_data, $image)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = /*overload*/mb_substr(
             $spatial,
@@ -159,9 +153,6 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
      */
     public function prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = /*overload*/mb_substr(
             $spatial,
@@ -200,9 +191,6 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     public function prepareRowAsSvg($spatial, $label, $color, $scale_data)
     {
         $row = '';
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = /*overload*/mb_substr(
@@ -244,9 +232,6 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     public function prepareRowAsOl($spatial, $srid, $label, $color, $scale_data)
     {
         $row = '';
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = /*overload*/mb_substr(
@@ -331,9 +316,6 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             }
         }
         if (isset($gis_data[0]['gis_type'])) {
-            /** @var PMA_String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
-
             $wkt = /*overload*/mb_substr($wkt, 0, /*overload*/mb_strlen($wkt) - 1);
         }
         $wkt .= ')';
@@ -354,9 +336,6 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
         $data = PMA_GIS_Geometry::generateParams($value);
         $params['srid'] = $data['srid'];
         $wkt = $data['wkt'];
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = /*overload*/mb_substr($wkt, 19, (/*overload*/mb_strlen($wkt) - 20));

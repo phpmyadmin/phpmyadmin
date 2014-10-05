@@ -97,8 +97,6 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
         return;
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     if (! empty($import_run_buffer['sql'])
         && trim($import_run_buffer['sql']) != ''
     ) {
@@ -355,8 +353,6 @@ function PMA_importGetNextChunk($size = 32768)
         return true;
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     if ($GLOBALS['import_file'] == 'none') {
         // Well this is not yet supported and tested,
         // but should return content of textarea
@@ -463,9 +459,6 @@ function PMA_getColumnAlphaName($num)
         $num = $remain;
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     if ($num == 0) {
         // use 'Z' if column number is 0,
         // this is necessary because A-Z has no 'zero'
@@ -498,8 +491,6 @@ function PMA_getColumnNumberFromName($name)
         return 0;
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     $name = /*overload*/mb_strtoupper($name);
     $num_chars = /*overload*/mb_strlen($name);
     $column_number = 0;
@@ -558,8 +549,6 @@ define("FORMATTEDSQL", 2);
  */
 function PMA_getDecimalPrecision($last_cumulative_size)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     return (int)/*overload*/mb_substr(
         $last_cumulative_size,
         0,
@@ -578,8 +567,6 @@ function PMA_getDecimalPrecision($last_cumulative_size)
  */
 function PMA_getDecimalScale($last_cumulative_size)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     return (int) /*overload*/mb_substr(
         $last_cumulative_size,
         (/*overload*/mb_strpos($last_cumulative_size, ",") + 1),
@@ -599,8 +586,6 @@ function PMA_getDecimalScale($last_cumulative_size)
  */
 function PMA_getDecimalSize($cell)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     $curr_size = /*overload*/mb_strlen((string)$cell);
     $decPos = /*overload*/mb_strpos($cell, ".");
     $decPrecision = ($curr_size - 1) - $decPos;
@@ -629,8 +614,6 @@ function PMA_getDecimalSize($cell)
 function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
     $curr_type, $cell
 ) {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     $curr_size = /*overload*/mb_strlen((string)$cell);
 
     /**
@@ -841,9 +824,6 @@ function PMA_detectType($last_cumulative_type, $cell)
 
         return $last_cumulative_type;
     }
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     if (!is_numeric($cell)) {
         return VARCHAR;

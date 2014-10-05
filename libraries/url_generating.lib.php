@@ -42,9 +42,6 @@ function PMA_URL_getHiddenInputs($db = '', $table = '',
         $indent  =& $_indent;
         $skip    =& $_skip;
     } else {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $params = array();
         if (/*overload*/mb_strlen($db)) {
             $params['db'] = $db;
@@ -286,9 +283,6 @@ function PMA_URL_getArgSeparator($encode = 'none')
 {
     static $separator = null;
     static $html_separator = null;
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     if (null === $separator) {
         // use separators defined by php, but prefer ';'

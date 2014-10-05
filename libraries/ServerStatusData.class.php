@@ -280,9 +280,6 @@ class PMA_ServerStatusData
         // Variable to mark used sections
         $categoryUsed = array();
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // sort vars into arrays
         foreach ($server_status as $name => $value) {
             $section_found = false;

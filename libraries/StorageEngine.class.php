@@ -132,9 +132,6 @@ class PMA_StorageEngine
         $name = 'engine', $id = null,
         $selected = null, $offerUnavailableEngines = false
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $selected   = /*overload*/mb_strtolower($selected);
         $output     = '<select name="' . $name . '"'
             . (empty($id) ? '' : ' id="' . $id . '"') . '>' . "\n";
@@ -175,9 +172,6 @@ class PMA_StorageEngine
      */
     static public function getEngine($engine)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $engine = str_replace('/', '', str_replace('.', '', $engine));
         $filename = './libraries/engines/'
             . /*overload*/mb_strtolower($engine) . '.lib.php';
@@ -317,9 +311,6 @@ class PMA_StorageEngine
         }
 
         $mysql_vars = array();
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         $sql_query = 'SHOW GLOBAL VARIABLES ' . $like . ';';
         $res = $GLOBALS['dbi']->query($sql_query);

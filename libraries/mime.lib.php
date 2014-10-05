@@ -19,8 +19,6 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_detectMIME(&$test)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     $len = /*overload*/mb_strlen($test);
     if ($len >= 2 && $test[0] == chr(0xff) && $test[1] == chr(0xd8)) {
         return 'image/jpeg';

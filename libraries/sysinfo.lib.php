@@ -235,9 +235,6 @@ class PMA_SysInfoLinux extends PMA_SysInfo
      */
     function loadavg()
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $buf = file_get_contents('/proc/stat');
         $nums = preg_split(
             "/\s+/",

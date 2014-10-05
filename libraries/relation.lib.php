@@ -646,9 +646,6 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
     $cfgRelation = PMA_getRelationsParam();
     $foreign = array();
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     if ($cfgRelation['relwork'] && ($source == 'both' || $source == 'internal')) {
         $rel_query = '
              SELECT `master_field`,

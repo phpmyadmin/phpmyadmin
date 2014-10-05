@@ -55,9 +55,6 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      */
     public function scaleRow($spatial)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = /*overload*/mb_substr(
             $spatial,
@@ -91,9 +88,6 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $fill_color,
         $scale_data, $image
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
         $red   = hexdec(/*overload*/mb_substr($fill_color, 1, 2));
@@ -151,9 +145,6 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      */
     public function prepareRowAsPdf($spatial, $label, $fill_color, $scale_data, $pdf)
     {
-        /** @var PMA_String $pmaStr */
-        $pmaStr = $GLOBALS['PMA_String'];
-
         // allocate colors
         $red   = hexdec(/*overload*/mb_substr($fill_color, 1, 2));
         $green = hexdec(/*overload*/mb_substr($fill_color, 3, 2));
@@ -216,9 +207,6 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
             'fill-opacity'=> 0.8,
         );
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = /*overload*/mb_substr(
             $spatial,
@@ -280,9 +268,6 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         }
         $row = $this->getBoundsForOl($srid, $scale_data);
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = /*overload*/mb_substr(
             $spatial,
@@ -338,9 +323,6 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         if ($no_of_lines < 1) {
             $no_of_lines = 1;
         }
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         $wkt = 'POLYGON(';
         for ($i = 0; $i < $no_of_lines; $i++) {
@@ -570,9 +552,6 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
             $params[$index]['gis_type'] = 'POLYGON';
             $wkt = $value;
         }
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = /*overload*/mb_substr($wkt, 9, (/*overload*/mb_strlen($wkt) - 11));

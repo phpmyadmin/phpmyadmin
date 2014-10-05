@@ -106,9 +106,6 @@ class PMA_NavigationHeader
                 $retval .= '" target="_blank"';
                 break;
             case 'main':
-                /** @var PMA_String $pmaString */
-                $pmaString = $GLOBALS['PMA_String'];
-
                 // do not add our parameters for an external link
                 $navLogoLinkLower = /*overload*/mb_strtolower(
                     $GLOBALS['cfg']['NavigationLogoLink']

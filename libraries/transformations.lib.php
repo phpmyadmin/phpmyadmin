@@ -41,9 +41,6 @@ function PMA_Transformation_getOptions($option_string)
 {
     $result = array();
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     if (! /*overload*/mb_strlen($option_string)
         || ! $transform_options = preg_split('/,/', $option_string)
     ) {
@@ -292,9 +289,6 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
     if (! $cfgRelation['commwork']) {
         return false;
     }
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     // lowercase mimetype & transformation
     $mimetype = /*overload*/mb_strtolower($mimetype);

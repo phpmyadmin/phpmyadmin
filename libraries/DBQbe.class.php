@@ -455,9 +455,6 @@ class PMA_DbQbe
         $html_output .= '<th>' . __('Sort:') . '</th>';
         $new_column_count = 0;
 
-        /** @var PMA_String $pmaStr */
-        $pmaStr = $GLOBALS['PMA_String'];
-
         for (
             $colInd = 0;
             $colInd < $this->_criteria_column_count;
@@ -999,9 +996,6 @@ class PMA_DbQbe
      */
     private function _getWhereClause()
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $where_clause = '';
         $criteria_cnt = 0;
         for (
@@ -1095,9 +1089,6 @@ class PMA_DbQbe
     {
         $orderby_clause = '';
         $orderby_clauses = array();
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         for (
             $column_index = 0;
@@ -1322,9 +1313,6 @@ class PMA_DbQbe
     {
         $where_clause_columns = array();
         $where_clause_tables = array();
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         // Now we need all tables that we have in the where clause
         for (

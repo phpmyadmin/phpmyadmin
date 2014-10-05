@@ -358,9 +358,6 @@ class FormDisplay
             $opts['errors'] = $this->_errors[$work_path];
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         switch ($form->getOptionType($field)) {
         case 'string':
             $type = 'text';

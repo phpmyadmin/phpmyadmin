@@ -57,9 +57,6 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
     {
         $min_max = array();
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng = /*overload*/mb_substr(
             $spatial,
@@ -91,9 +88,6 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $line_color,
         $scale_data, $image
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
         $red   = hexdec(/*overload*/mb_substr($line_color, 1, 2));
@@ -152,9 +146,6 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
      */
     public function prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // allocate colors
         $red   = hexdec(/*overload*/mb_substr($line_color, 1, 2));
         $green = hexdec(/*overload*/mb_substr($line_color, 3, 2));
@@ -216,9 +207,6 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
             'stroke-width'=> 2,
         );
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng = /*overload*/mb_substr(
             $spatial,
@@ -273,9 +261,6 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
         }
         $row = $this->getBoundsForOl($srid, $scale_data);
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng = /*overload*/mb_substr(
             $spatial,
@@ -312,9 +297,6 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
             $no_of_lines = 1;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $wkt = 'MULTILINESTRING(';
         for ($i = 0; $i < $no_of_lines; $i++) {
             $no_of_points = isset($data_row[$i]['no_of_points'])
@@ -349,9 +331,6 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
      */
     public function getShape($row_data)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $wkt = 'MULTILINESTRING(';
         for ($i = 0; $i < $row_data['numparts']; $i++) {
             $wkt .= '(';
@@ -387,9 +366,6 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
             $params[$index]['gis_type'] = 'MULTILINESTRING';
             $wkt = $value;
         }
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng = /*overload*/mb_substr(

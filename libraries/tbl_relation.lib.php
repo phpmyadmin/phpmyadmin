@@ -48,9 +48,6 @@ function PMA_generateDropdown(
  */
 function PMA_backquoteSplit($text)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $elements = array();
     $final_pos = /*overload*/mb_strlen($text) - 1;
     $pos = 0;
@@ -555,9 +552,6 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
         $foreign_table = isset($one_key['ref_table_name'])
             ? $one_key['ref_table_name'] : '';
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // In Drizzle, 'SHOW TABLE STATUS' will show status only for the tables
         // which are currently in the table cache. Hence we have to use
         // 'SHOW TABLES' and manully retrieve table engine values.
@@ -738,9 +732,6 @@ function PMA_sendHtmlForColumnDropdownList()
  */
 function PMA_sendHtmlForTableDropdownList()
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $response = PMA_Response::getInstance();
     $tables = array();
 

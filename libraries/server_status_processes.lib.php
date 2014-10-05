@@ -233,9 +233,6 @@ function PMA_getHtmlForServerProcesslist()
  */
 function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     // Array keys need to modify due to the way it has used
     // to display column values
     if (! empty($_REQUEST['order_by_field']) && ! empty($_REQUEST['sort_order']) ) {

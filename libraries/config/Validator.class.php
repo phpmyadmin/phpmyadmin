@@ -47,9 +47,6 @@ class PMA_Validator
             return $validators;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // not in setup script: load additional validators for user
         // preferences we need original config values not overwritten
         // by user preferences, creating a new PMA_Config instance is a

@@ -55,9 +55,6 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
      */
     public function scaleRow($spatial)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = /*overload*/mb_substr($spatial, 6, /*overload*/mb_strlen($spatial) - 7);
         return $this->setMinMax($point, array());
@@ -78,9 +75,6 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $point_color,
         $scale_data, $image
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
         $red   = hexdec(/*overload*/mb_substr($point_color, 1, 2));
@@ -123,9 +117,6 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
     public function prepareRowAsPdf($spatial, $label, $point_color,
         $scale_data, $pdf
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // allocate colors
         $red   = hexdec(/*overload*/mb_substr($point_color, 1, 2));
         $green = hexdec(/*overload*/mb_substr($point_color, 3, 2));
@@ -173,9 +164,6 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
             'stroke-width'=> 2,
         );
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = /*overload*/mb_substr($spatial, 6, /*overload*/mb_strlen($spatial) - 7);
         $points_arr = $this->extractPoints($point, $scale_data);
@@ -222,9 +210,6 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
             $srid = 4326;
         }
         $result = $this->getBoundsForOl($srid, $scale_data);
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = /*overload*/mb_substr($spatial, 6, /*overload*/mb_strlen($spatial) - 7);
@@ -295,9 +280,6 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
             $params[$index]['gis_type'] = 'POINT';
             $wkt = $value;
         }
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = /*overload*/mb_substr($wkt, 6, /*overload*/mb_strlen($wkt) - 7);

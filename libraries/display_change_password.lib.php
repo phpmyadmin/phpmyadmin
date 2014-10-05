@@ -40,8 +40,6 @@ function PMA_getHtmlForChangePassword($username, $hostname)
 
     $html .= PMA_URL_getHiddenInputs();
 
-    /** @var PMA_String $pmaStr */
-    $pmaStr = $GLOBALS['PMA_String'];
     if (/*overload*/mb_strpos($GLOBALS['PMA_PHP_SELF'], 'server_privileges') !== false) {
         $html .= '<input type="hidden" name="username" '
             . 'value="' . htmlspecialchars($username) . '" />'

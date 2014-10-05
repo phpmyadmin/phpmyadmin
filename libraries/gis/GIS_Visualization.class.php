@@ -126,9 +126,6 @@ class PMA_GIS_Visualization
     {
         $file_name = PMA_sanitizeFilename($file_name);
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included
         $extension_start_pos = /*overload*/mb_strlen($file_name)
@@ -374,9 +371,6 @@ class PMA_GIS_Visualization
         $plot_width = $this->_settings['width'] - 2 * $border;
         $plot_height = $this->_settings['height'] - 2 * $border;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         foreach ($data as $row) {
 
             // Figure out the data type
@@ -460,9 +454,6 @@ class PMA_GIS_Visualization
     private function _prepareDataSet($data, $scale_data, $format, $results)
     {
         $color_number = 0;
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         // loop through the rows
         foreach ($data as $row) {

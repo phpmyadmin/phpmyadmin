@@ -387,8 +387,6 @@ class PMA_DisplayResults
 
         // 2. Display mode is not "false for all elements" -> updates the
         // display mode
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         if ($the_disp_mode != 'nnnn000000') {
 
             if (isset($printview) && ($printview == '1')) {
@@ -1955,8 +1953,6 @@ class PMA_DisplayResults
 
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         $sort_expression_nodirection = array_filter($sort_expression_nodirection);
         foreach ($sort_expression_nodirection as $index=>$expression) {
             // check if this is the first clause,
@@ -2062,8 +2058,6 @@ class PMA_DisplayResults
 
         $index_in_expression = 0;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         foreach ($sort_expression_nodirection as $index => $clause) {
             if (/*overload*/mb_strpos($clause, '.') !== false) {
                 $fragments = explode('.', $clause);
@@ -2179,9 +2173,6 @@ class PMA_DisplayResults
     private function _getSortOrderLink(
         $order_img, $col_index, $direction, $fields_meta, $order_url, $multi_order_url
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $order_link_params = array();
         if (isset($order_img) && ($order_img != '')) {
             if (/*overload*/mb_strstr($order_img, 'asc')) {
@@ -2557,8 +2548,6 @@ class PMA_DisplayResults
             'binary' => 'hex',
         );
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         foreach ($matches as $key => $value) {
             if (/*overload*/mb_strpos($meta->flags, $key) !== false) {
                 $classes[] = $value;
@@ -2835,8 +2824,6 @@ class PMA_DisplayResults
 
         $row_info = $this->_getRowInfoForSpecialLinks($row, $col_order);
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         for ($currentColumn = 0;
                 $currentColumn < $this->__get('fields_cnt');
                 ++$currentColumn) {
@@ -3174,8 +3161,6 @@ class PMA_DisplayResults
     private function _getSpecialLinkUrl($column_value, $row_info, $field_name)
     {
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         $linking_url_params = array();
         $link_relations = $GLOBALS['special_schema_links']
             [/*overload*/mb_strtolower($this->__get('db'))]
@@ -3774,9 +3759,6 @@ class PMA_DisplayResults
         $transformation_plugin, $default_function, $transform_options,
         $analyzed_sql
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         if (! isset($column) || is_null($column)) {
             $cell = $this->_buildNullDisplay($class, $condition_field, $meta);
             return $cell;
@@ -3887,9 +3869,6 @@ class PMA_DisplayResults
         $transformation_plugin, $default_function, $transform_options,
         $is_field_truncated, $analyzed_sql, &$dt_result, $col_index
     ) {
-        /** @var PMA_String $pmaStr */
-        $pmaStr = $GLOBALS['PMA_String'];
-
         $is_analyse = $this->__get('is_analyse');
         $field_flags = $GLOBALS['dbi']->fieldFlags($dt_result, $col_index);
 
@@ -4539,9 +4518,6 @@ class PMA_DisplayResults
             );
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // 2.3 Prepare the navigation bars
         if (!/*overload*/mb_strlen($this->__get('table'))) {
 
@@ -4767,8 +4743,6 @@ class PMA_DisplayResults
             return null;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         if (/*overload*/mb_strpos($sort_expression_nodirection, '.') === false) {
             $sort_table = $this->__get('table');
             $sort_column = $sort_expression_nodirection;
@@ -5468,8 +5442,6 @@ class PMA_DisplayResults
         $is_truncated = false;
         $result = '[' . $category;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         if (isset($content)) {
 
             $size = /*overload*/mb_strlen($content);
@@ -5581,8 +5553,6 @@ class PMA_DisplayResults
             )
             . '">';
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         if (isset($analyzed_sql[0]['select_expr'])
             && is_array($analyzed_sql[0]['select_expr'])
         ) {

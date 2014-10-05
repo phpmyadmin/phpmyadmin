@@ -776,9 +776,6 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
         );
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $html = '<div id="alias_modal" class="hide" title="' . $title . '">';
     $db_html = '<label class="col-2">' . __('Select database') . ': '
         . '</label><select id="db_alias_select">';

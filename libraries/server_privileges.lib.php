@@ -52,8 +52,6 @@ function PMA_getHtmlForUserGroupDialog($username, $is_menuswork)
  */
 function PMA_wildcardEscapeForGrant($dbname, $tablename)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     if (!/*overload*/mb_strlen($dbname)) {
         $db_and_table = '*.*';
     } else {
@@ -127,9 +125,6 @@ function PMA_fillInTablePrivileges(&$row)
     // the View for Create is spelled with uppercase V
     // the view for Show is spelled with lowercase v
     // and there is a space between the words
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     $av_grants = explode(
         '\',\'',
@@ -910,8 +905,6 @@ function PMA_getHtmlForAttachedPrivilegesToTableSpecificColumn($columns, $row)
 function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
 {
     $html_output = '';
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     foreach ($row as $current_grant => $current_grant_value) {
         $grant_type = /*overload*/mb_substr($current_grant, 0, (/*overload*/mb_strlen($current_grant) - 5));
@@ -1296,8 +1289,6 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
 {
     list($username_length, $hostname_length) = PMA_getUsernameAndHostnameLength();
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     if (isset($GLOBALS['username'])
         && /*overload*/mb_strlen($GLOBALS['username']) === 0
     ) {
@@ -2366,9 +2357,6 @@ function PMA_getExtraDataForAjaxBehavior(
         $user_group_count = PMA_getUserGroupCount();
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $extra_data = array();
     if (/*overload*/mb_strlen($sql_query)) {
         $extra_data['sql_query'] = PMA_Util::getMessage(null, $sql_query);
@@ -2599,8 +2587,6 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
  */
 function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     if (!/*overload*/mb_strlen($dbname)) {
         $tables_to_search_for_users = array(
             'tables_priv', 'columns_priv',
@@ -2708,9 +2694,6 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
            . '<td colspan="6"><center><i>' . __('None') . '</i></center></td>' . "\n"
            . '</tr>' . "\n";
     } else {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $odd_row = true;
         //while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
         foreach ($db_rights as $row) {
@@ -2785,8 +2768,6 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
 function PMA_getHtmlForAllTableSpecificRights(
     $username, $hostname, $dbname
 ) {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     // table header
     $html_output = PMA_URL_getHiddenInputs('', '')
         . '<input type="hidden" name="username" '
@@ -3197,9 +3178,6 @@ function PMA_getFieldsetForAddDeleteUser()
  */
 function PMA_getHtmlForInitials($array_initials)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     // initialize to false the letters A-Z
     for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
         if (! isset($array_initials[/*overload*/mb_chr($letter_counter + 64)])) {
@@ -3371,8 +3349,6 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
         $sql_query1 = '';
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     // Should not do a GRANT USAGE for a table-specific privilege, it
     // causes problems later (cannot revoke it)
     if (! (/*overload*/mb_strlen($tablename)
@@ -3564,9 +3540,6 @@ function PMA_addUser(
     $queries = null;
     $queries_for_display = null;
     $sql_query = null;
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         $sql_query = '';
@@ -3777,9 +3750,6 @@ function PMA_getListForExportUserDefinition($username, $hostname)
     if (isset($_REQUEST['selected_usr'])) {
         // export privileges for selected users
         $title = __('Privileges');
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         foreach ($_REQUEST['selected_usr'] as $export_user) {
             $export_username = /*overload*/mb_substr(
@@ -4094,8 +4064,6 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
         'username' => $username,
         'hostname' => $hostname,
     );
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     if (! is_array($dbname) && /*overload*/mb_strlen($dbname)) {
         $_params['dbname'] = $dbname;
         if (/*overload*/mb_strlen($tablename)) {

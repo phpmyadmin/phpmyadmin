@@ -22,9 +22,6 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
 {
     global $db, $url_query, $ajax_class;
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $icon = 'b_' . /*overload*/mb_strtolower($name) . '_add.png';
     $retval  = "";
     $retval .= "<!-- ADD " . $name . " FORM START -->\n";

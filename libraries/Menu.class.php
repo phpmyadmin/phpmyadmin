@@ -98,8 +98,6 @@ class PMA_Menu
         $url_params = array('db' => $this->_db);
         $level = '';
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         if (/*overload*/mb_strlen($this->_table)) {
             $tabs = $this->_getTableTabs();
             $url_params['table'] = $this->_table;
@@ -148,9 +146,6 @@ class PMA_Menu
 
             $result = PMA_queryAsControlUser($sql_query, false);
             if ($result) {
-                /** @var PMA_String $pmaString */
-                $pmaString = $GLOBALS['PMA_String'];
-
                 while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
                     $tabName = /*overload*/mb_substr(
                         $row['tab'],
@@ -202,9 +197,6 @@ class PMA_Menu
             htmlspecialchars($server_info),
             __('Server')
         );
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         if (/*overload*/mb_strlen($this->_db)) {
             $retval .= $separator;

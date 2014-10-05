@@ -57,9 +57,6 @@ function PMA_getHtmlForSqlQueryForm(
         $enctype = '';
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $table  = '';
     $db     = '';
     if (! /*overload*/mb_strlen($GLOBALS['db'])) {
@@ -148,9 +145,6 @@ function PMA_getHtmlForSqlQueryFormInsert(
 
     $locking = '';
     $height = $GLOBALS['cfg']['TextareaRows'] * 2;
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     $table          = '';
     $db             = '';

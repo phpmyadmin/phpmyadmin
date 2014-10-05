@@ -865,9 +865,6 @@ function PMA_getHtmlForColumnComment($columnNumber, $ci, $ci_offset, $columnMeta
 function PMA_getHtmlForColumnAutoIncrement($columnNumber, $ci, $ci_offset,
     $columnMeta
 ) {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $html = '<input name="field_extra[' . $columnNumber . ']"'
         . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '"';
     if (isset($columnMeta['Extra'])
@@ -931,9 +928,6 @@ function PMA_getHtmlForColumnIndexes($columnNumber, $ci, $ci_offset, $columnMeta
 
 function PMA_getHtmlForIndexTypeOption($columnNumber, $columnMeta, $type, $key)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $html = '<option value="' . /*overload*/mb_strtolower($type) . '_' . $columnNumber
         . '" title="' . __($type) . '"';
     if (isset($columnMeta['Key']) && $columnMeta['Key'] == $key) {
@@ -1041,9 +1035,6 @@ function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
     } else {
         $default_current_timestamp = false;
     }
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     $attribute_types = $GLOBALS['PMA_Types']->getAttributes();
     $cnt_attribute_types = count($attribute_types);
@@ -1377,9 +1368,6 @@ function PMA_getFormParamsForOldColumn(
     } else {
         $form_params['field_orig[' . $columnNumber . ']'] = '';
     }
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     // old column type
     if (isset($columnMeta['Type'])) {

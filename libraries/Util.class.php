@@ -364,9 +364,6 @@ class PMA_Util
             $quotes[] = $quote;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         foreach ($quotes as $quote) {
             if (/*overload*/mb_substr($quoted_string, 0, 1) === $quote
                 && /*overload*/mb_substr($quoted_string, -1, 1) === $quote
@@ -401,9 +398,6 @@ class PMA_Util
     public static function formatSql($sql_query, $truncate = false)
     {
         global $cfg;
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         if ($truncate
             && /*overload*/mb_strlen($sql_query) > $cfg['MaxCharactersInDisplayedSQL']
@@ -634,9 +628,6 @@ class PMA_Util
         $error_msg .= "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";
         $error_msg .= '    <div class="error"><h1>' . __('Error')
             . '</h1>' . "\n";
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         // if the config password is wrong, or the MySQL server does not
         // respond, do not show the query that would reveal the
@@ -901,9 +892,6 @@ class PMA_Util
             return $a_name;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         if (! $do_it) {
             global $PMA_SQPdata_forbidden_word;
             $eltNameUpper = /*overload*/mb_strtoupper($a_name);
@@ -950,9 +938,6 @@ class PMA_Util
             }
             return $a_name;
         }
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         if (! $do_it) {
             global $PMA_SQPdata_forbidden_word;
@@ -1077,9 +1062,6 @@ class PMA_Util
             }
 
             $query_too_big = false;
-
-            /** @var PMA_String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
 
             if (/*overload*/mb_strlen($query_base) > $cfg['MaxCharactersInDisplayedSQL']
             ) {
@@ -1550,9 +1532,6 @@ class PMA_Util
     {
         $return_value = -1;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         if (preg_match('/^[0-9]+GB$/', $formatted_size)) {
             $return_value = /*overload*/mb_substr($formatted_size, 0, -2)
                 * self::pow(1024, 3);
@@ -1799,9 +1778,6 @@ class PMA_Util
         $url, $message, $tag_params = array(),
         $new_form = true, $strip_img = false, $target = ''
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $url_length = /*overload*/mb_strlen($url);
         // with this we should be able to catch case of image upload
         // into a (MEDIUM) BLOB; not worth generating even a form for these
@@ -2100,9 +2076,6 @@ class PMA_Util
         $unique_key_array     = array();
         $nonprimary_condition_array = array();
         $condition_array = array();
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         for ($i = 0; $i < $fields_cnt; ++$i) {
 
@@ -2574,9 +2547,6 @@ class PMA_Util
      */
     public static function getDbLink($database = null)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         if (! /*overload*/mb_strlen($database)) {
             if (! /*overload*/mb_strlen($GLOBALS['db'])) {
                 return '';
@@ -2972,9 +2942,6 @@ class PMA_Util
      */
     public static function extractColumnSpec($columnspec)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $first_bracket_pos = /*overload*/mb_strpos($columnspec, '(');
         if ($first_bracket_pos) {
             $spec_in_brackets = chop(
@@ -3268,9 +3235,6 @@ class PMA_Util
                 }
             }
         }
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         /* Backward compatibility in 3.5.x */
         if (/*overload*/mb_strpos($string, '@FIELDS@') !== false) {
@@ -3921,9 +3885,6 @@ class PMA_Util
      */
     public static function getServerType()
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $server_type = 'MySQL';
         if (PMA_DRIZZLE) {
             $server_type = 'Drizzle';
@@ -3999,9 +3960,6 @@ class PMA_Util
         $in_string = false;
         $buffer = '';
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         for ($i=0, $length = /*overload*/mb_strlen($values_string);
              $i < $length;
              $i++
@@ -4057,9 +4015,6 @@ class PMA_Util
     public static function fillTooltip(
         &$tooltip_truename, &$tooltip_aliasname, $table
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         if (/*overload*/mb_strstr($table['Comment'], '; InnoDB free') === false) {
             if (!/*overload*/mb_strstr($table['Comment'], 'InnoDB free') === false) {
                 // here we have just InnoDB generated part
@@ -4206,9 +4161,6 @@ class PMA_Util
      */
     public static function handleContext(array $context)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         if (/*overload*/mb_strlen($GLOBALS['cfg']['ProxyUrl'])) {
             $context['http'] = array(
                 'proxy' => $GLOBALS['cfg']['ProxyUrl'],
@@ -4235,9 +4187,6 @@ class PMA_Util
      */
     public static function configureCurl(resource $curl_handle)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         if (/*overload*/mb_strlen($GLOBALS['cfg']['ProxyUrl'])) {
             curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
             if (/*overload*/mb_strlen($GLOBALS['cfg']['ProxyUser'])) {
@@ -4312,9 +4261,6 @@ class PMA_Util
                 $response = curl_exec($curl_handle);
             }
         }
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         $data = json_decode($response);
         if (is_object($data)
@@ -4413,9 +4359,6 @@ class PMA_Util
      */
     public static function addMicroseconds($value)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         if (empty($value) || $value == 'CURRENT_TIMESTAMP') {
             return $value;
         }

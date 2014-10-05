@@ -55,16 +55,13 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
      */
     public function scaleRow($spatial)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = /*overload*/mb_substr(
+        $linestring = /*overload*/mb_substr(
             $spatial,
             11,
             /*overload*/mb_strlen($spatial) - 12
         );
-        return $this->setMinMax($linesrting, array());
+        return $this->setMinMax($linestring, array());
     }
 
     /**
@@ -82,18 +79,12 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $line_color,
         $scale_data, $image
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
         $red   = hexdec(/*overload*/mb_substr($line_color, 1, 2));
         $green = hexdec(/*overload*/mb_substr($line_color, 3, 2));
         $blue  = hexdec(/*overload*/mb_substr($line_color, 4, 2));
         $color = imagecolorallocate($image, $red, $green, $blue);
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting = /*overload*/mb_substr(
@@ -139,9 +130,6 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
      */
     public function prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // allocate colors
         $red   = hexdec(/*overload*/mb_substr($line_color, 1, 2));
         $green = hexdec(/*overload*/mb_substr($line_color, 3, 2));
@@ -199,9 +187,6 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
             'stroke-width'=> 2,
         );
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting = /*overload*/mb_substr(
             $spatial,
@@ -249,9 +234,6 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         }
         $result = $this->getBoundsForOl($srid, $scale_data);
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting = /*overload*/mb_substr(
             $spatial,
@@ -292,8 +274,6 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
                 && trim($gis_data[$index]['LINESTRING'][$i]['y']) != '')
                 ? $gis_data[$index]['LINESTRING'][$i]['y'] : $empty) . ',';
         }
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         $wkt = /*overload*/mb_substr($wkt, 0, /*overload*/mb_strlen($wkt) - 1);
         $wkt .= ')';
@@ -321,9 +301,6 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
             $params[$index]['gis_type'] = 'LINESTRING';
             $wkt = $value;
         }
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linestring = /*overload*/mb_substr($wkt, 11, (/*overload*/mb_strlen($wkt) - 12));

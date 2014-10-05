@@ -610,9 +610,6 @@ class PMA_Tracker
         $ddlog = array();
         $i = 0;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Iterate tracked data definition statements
         // For each log entry we want to get date, username and statement
         foreach ($log_schema_entries as $log_entry) {
@@ -701,9 +698,6 @@ class PMA_Tracker
      */
     static public function parseQuery($query)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Usage of PMA_SQP does not work here
         //
         // require_once("libraries/sqlparser.lib.php");
@@ -941,9 +935,6 @@ class PMA_Tracker
      */
     static public function handleQuery($query)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // If query is marked as untouchable, leave
         if (/*overload*/mb_strstr($query, "/*NOTRACK*/")) {
             return;

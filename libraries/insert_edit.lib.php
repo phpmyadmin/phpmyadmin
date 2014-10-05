@@ -306,9 +306,6 @@ function PMA_getColumnTitle($column, $comments_map)
   */
 function PMA_isColumnBinary($column)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     // The type column.
     // Fix for bug #3152931 'ENUM and SET cannot have "Binary" option'
     if (/*overload*/mb_stripos($column['Type'], 'binary') === 0
@@ -332,9 +329,6 @@ function PMA_isColumnBinary($column)
   */
 function PMA_isColumnBlob($column)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     if (/*overload*/mb_stripos($column['Type'], 'blob') === 0
         || /*overload*/mb_stripos($column['Type'], 'tinyblob') === 0
         || /*overload*/mb_stripos($column['Type'], 'mediumblob') === 0
@@ -356,9 +350,6 @@ function PMA_isColumnBlob($column)
  */
 function PMA_isColumnChar($column)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     if (/*overload*/mb_stripos($column['Type'], 'char') === 0
         || /*overload*/mb_stripos($column['Type'], 'varchar') === 0
     ) {
@@ -426,9 +417,6 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
     $unnullify_trigger, $no_support_types, $tabindex_for_function,
     $tabindex, $idindex, $insert_mode
 ) {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $html_output = '';
     if (($GLOBALS['cfg']['ProtectBinary'] === 'blob'
         && $column['is_blob'] && !$is_upload)
@@ -523,8 +511,6 @@ function PMA_getNullColumn($column, $column_name_appendix, $real_null_value,
  */
 function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     $foreigner = PMA_searchColumnInForeigners($foreigners, $column['Field']);
     if (/*overload*/mb_strstr($column['True_Type'], 'enum')) {
         if (/*overload*/mb_strlen($column['Type']) > 20) {
@@ -600,8 +586,6 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
     $data_type = $GLOBALS['PMA_Types']->getTypeClass($column['True_Type']);
     $html_output = '';
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     if ($foreignData['foreign_link'] == true) {
         $html_output .= PMA_getForeignLink(
             $column, $backup_field, $column_name_appendix,
@@ -1299,9 +1283,6 @@ function PMA_getValueColumnForOtherDatatypes($column, $default_char_editing,
     $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded, $data,
     $extracted_columnspec
 ) {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     // HTML5 data-* attribute data-type
     $data_type = $GLOBALS['PMA_Types']->getTypeClass($column['True_Type']);
     $fieldsize = PMA_getColumnSize($column, $extracted_columnspec);
@@ -1654,9 +1635,6 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
     $current_row, $column, $extracted_columnspec,
     $real_null_value, $gis_data_types, $column_name_appendix, $as_is
 ) {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $special_chars_encoded = '';
     $data = null;
     // (we are editing)
@@ -1873,9 +1851,6 @@ function PMA_setSessionForEditNext($one_where_clause)
  */
 function PMA_getGotoInclude($goto_include)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $valid_options = array('new_insert', 'same_insert', 'edit_next');
     if (isset($_REQUEST['after_insert'])
         && in_array($_REQUEST['after_insert'], $valid_options)
@@ -2195,9 +2170,6 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit( $multi_edit_funcs,
     $gis_from_text_functions, $current_value, $gis_from_wkb_functions,
     $func_optional_param, $func_no_param, $key
 ) {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     if (empty($multi_edit_funcs[$key])) {
         return $current_value;
     } elseif ('UUID' === $multi_edit_funcs[$key]) {

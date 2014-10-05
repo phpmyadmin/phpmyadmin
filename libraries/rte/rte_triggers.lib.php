@@ -324,9 +324,6 @@ function PMA_TRI_getEditorForm($mode, $item)
 {
     global $db, $table, $event_manipulations, $action_timings;
 
-    /** @var PMA_String $pmaStr */
-    $pmaStr = $GLOBALS['PMA_String'];
-
     // Escape special characters
     $need_escape = array(
                        'item_original_name',

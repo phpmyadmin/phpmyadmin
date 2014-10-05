@@ -51,9 +51,6 @@ function PMA_filterTracking(
 function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
     $last_version
 ) {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $html = '<div id="div_create_version">';
     $html .= '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
     $html .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
@@ -811,9 +808,6 @@ function PMA_getHtmlForSchemaSnapshot($url_query)
 
     // Get first DROP TABLE/VIEW and CREATE TABLE/VIEW statements
     $drop_create_statements = $data['ddlog'][0]['statement'];
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     if (/*overload*/mb_strstr($data['ddlog'][0]['statement'], 'DROP TABLE')
         || /*overload*/mb_strstr($data['ddlog'][0]['statement'], 'DROP VIEW')

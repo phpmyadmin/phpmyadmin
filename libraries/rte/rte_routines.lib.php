@@ -97,9 +97,6 @@ function PMA_RTN_parseOneParameter($value)
 {
     global $param_directions;
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $retval = array(0 => '',
                     1 => '',
                     2 => '',
@@ -245,9 +242,6 @@ function PMA_RTN_parseAllParameters($parsed_query, $routine_type)
  */
 function PMA_RTN_parseRoutineDefiner($parsed_query)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $retval = '';
     $fetching = false;
     for ($i=0; $i<$parsed_query['len']; $i++) {
@@ -592,9 +586,6 @@ function PMA_RTN_getDataFromRequest()
         $retval['item_returntype'] = $_REQUEST['item_returntype'];
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $retval['item_isdeterministic'] = '';
     if (isset($_REQUEST['item_isdeterministic'])
         && /*overload*/mb_strtolower($_REQUEST['item_isdeterministic']) == 'on'
@@ -686,8 +677,6 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
     $retval['item_returnopts_num']  = '';
     $retval['item_returnopts_text'] = '';
     if (! empty($routine['DTD_IDENTIFIER'])) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         if (/*overload*/mb_strlen($routine['DTD_IDENTIFIER']) > 63) {
             // If the DTD_IDENTIFIER string from INFORMATION_SCHEMA is
             // at least 64 characters, then it may actually have been
@@ -953,9 +942,6 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         $isfunction_select = " selected='selected'";
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     // Create the output
     $retval  = "";
     $retval .= "<!-- START " . /*overload*/mb_strtoupper($mode)
@@ -1134,9 +1120,6 @@ function PMA_RTN_getQueryFromRequest()
 
     $_REQUEST['item_type'] = isset($_REQUEST['item_type'])
         ? $_REQUEST['item_type'] : '';
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
@@ -1599,9 +1582,6 @@ function PMA_RTN_handleExecute()
 function PMA_RTN_getExecuteForm($routine)
 {
     global $db, $cfg;
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     // Escape special characters
     $routine['item_name'] = htmlentities($routine['item_name'], ENT_QUOTES);
