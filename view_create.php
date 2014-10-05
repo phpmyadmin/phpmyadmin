@@ -36,6 +36,8 @@ $view_security_options = array(
     'INVOKER'
 );
 
+$sql_query = '';
+
 if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     /**
      * Creates the view
