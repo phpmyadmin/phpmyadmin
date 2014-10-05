@@ -1023,8 +1023,8 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
 
     $nbServerSlaveDoDb = count($server_slave_Do_DB);
     $nbServerSlaveIgnoreDb = count($server_slave_Ignore_DB);
-    if ((/*overload*/mb_strlen(array_search($truename, $server_slave_Do_Table)) > 0)
-        || /*overload*/mb_strlen(array_search($GLOBALS['db'], $server_slave_Do_DB)) > 0
+    if ((strlen(array_search($truename, $server_slave_Do_Table)) > 0)
+        || strlen(array_search($GLOBALS['db'], $server_slave_Do_DB)) > 0
         || ($nbServerSlaveDoDb == 1 && $nbServerSlaveIgnoreDb == 1)
     ) {
         $do = true;
@@ -1032,7 +1032,7 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
     foreach ($server_slave_Wild_Do_Table as $db_table) {
         $table_part = PMA_extractDbOrTable($db_table, 'table');
         $pattern = "@^"
-            . /*overload*/mb_substr($table_part, 0, /*overload*/mb_strlen($table_part) - 1)
+            . /*overload*/mb_substr($table_part, 0, -1)
             . "@";
         if (($GLOBALS['db'] == PMA_extractDbOrTable($db_table, 'db'))
             && (preg_match($pattern, $truename))
@@ -1042,15 +1042,15 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
     }
 
     $search = array_search($GLOBALS['db'], $server_slave_Ignore_DB);
-    if ((/*overload*/mb_strlen(array_search($truename, $server_slave_Ignore_Table)) > 0)
-        || /*overload*/mb_strlen($search) > 0
+    if ((strlen(array_search($truename, $server_slave_Ignore_Table)) > 0)
+        || strlen($search) > 0
     ) {
         $ignored = true;
     }
     foreach ($server_slave_Wild_Ignore_Table as $db_table) {
         $table_part = PMA_extractDbOrTable($db_table, 'table');
         $pattern = "@^"
-            . /*overload*/mb_substr($table_part, 0, /*overload*/mb_strlen($table_part) - 1)
+            . /*overload*/mb_substr($table_part, 0, -1)
             . "@";
         if (($db == PMA_extractDbOrTable($db_table))
             && (preg_match($pattern, $truename))

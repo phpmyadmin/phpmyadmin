@@ -252,11 +252,11 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
             while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
                 $key = $row['tab'];
                 $value = $row['allowed'];
-                if (/*overload*/mb_substr($key, 0, 7) == 'server_' && $value == 'Y') {
+                if (substr($key, 0, 7) == 'server_' && $value == 'Y') {
                     $allowedTabs['server'][] = /*overload*/mb_substr($key, 7);
-                } elseif (/*overload*/mb_substr($key, 0, 3) == 'db_' && $value == 'Y') {
+                } elseif (substr($key, 0, 3) == 'db_' && $value == 'Y') {
                     $allowedTabs['db'][] = /*overload*/mb_substr($key, 3);
-                } elseif (/*overload*/mb_substr($key, 0, 6) == 'table_'
+                } elseif (substr($key, 0, 6) == 'table_'
                     && $value == 'Y'
                 ) {
                     $allowedTabs['table'][] = /*overload*/mb_substr($key, 6);

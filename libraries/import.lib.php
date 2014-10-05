@@ -549,10 +549,10 @@ define("FORMATTEDSQL", 2);
  */
 function PMA_getDecimalPrecision($last_cumulative_size)
 {
-    return (int)/*overload*/mb_substr(
+    return (int)substr(
         $last_cumulative_size,
         0,
-        /*overload*/mb_strpos($last_cumulative_size, ",")
+        strpos($last_cumulative_size, ",")
     );
 }
 
@@ -567,11 +567,10 @@ function PMA_getDecimalPrecision($last_cumulative_size)
  */
 function PMA_getDecimalScale($last_cumulative_size)
 {
-    return (int) /*overload*/mb_substr(
+    return (int)substr(
         $last_cumulative_size,
-        (/*overload*/mb_strpos($last_cumulative_size, ",") + 1),
-        (/*overload*/mb_strlen($last_cumulative_size)
-            - /*overload*/mb_strpos($last_cumulative_size, ","))
+        (strpos($last_cumulative_size, ",") + 1),
+        (strlen($last_cumulative_size) - strpos($last_cumulative_size, ","))
     );
 }
 

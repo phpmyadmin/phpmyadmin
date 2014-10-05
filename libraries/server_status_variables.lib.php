@@ -253,9 +253,9 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
                 $retval .= '<span class="allfine">';
             }
         }
-        if ('%' === /*overload*/mb_substr($name, -1, 1)) {
+        if (substr($name, -1)) {
             $retval .= htmlspecialchars(PMA_Util::formatNumber($value, 0, 2)) . ' %';
-        } elseif (/*overload*/mb_strpos($name, 'Uptime') !== false) {
+        } elseif (strpos($name, 'Uptime') !== false) {
             $retval .= htmlspecialchars(
                 PMA_Util::timespanFormat($value)
             );

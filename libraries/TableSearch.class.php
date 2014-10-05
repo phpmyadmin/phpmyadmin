@@ -409,10 +409,10 @@ EOT;
             if ($column_type == 'date') {
                 $the_class .= ' datefield';
             } elseif ($column_type == 'datetime'
-                || /*overload*/mb_substr($column_type, 0, 9) == 'timestamp'
+                || substr($column_type, 0, 9) == 'timestamp'
             ) {
                 $the_class .= ' datetimefield';
-            } elseif (/*overload*/mb_substr($column_type, 0, 3) == 'bit') {
+            } elseif (substr($column_type, 0, 3) == 'bit') {
                 $the_class .= ' bit';
             }
 

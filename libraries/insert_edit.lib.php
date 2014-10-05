@@ -1650,7 +1650,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
                 $current_row[$column['Field']],
                 $extracted_columnspec['spec_in_brackets']
             );
-    } elseif ((/*overload*/mb_substr($column['True_Type'], 0, 9) == 'timestamp'
+    } elseif ((substr($column['True_Type'], 0, 9) == 'timestamp'
         || $column['True_Type'] == 'datetime'
         || $column['True_Type'] == 'time')
         && (/*overload*/mb_strpos($current_row[$column['Field']], ".") === true)
@@ -1742,7 +1742,7 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
 
     if ($trueType == 'bit') {
         $special_chars = PMA_Util::convertBitDefaultValue($column['Default']);
-    } elseif (/*overload*/mb_substr($trueType, 0, 9) == 'timestamp'
+    } elseif (substr($trueType, 0, 9) == 'timestamp'
         || $trueType == 'datetime'
         || $trueType == 'time'
     ) {
@@ -2177,13 +2177,11 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit( $multi_edit_funcs,
         $uuid = $GLOBALS['dbi']->fetchValue('SELECT UUID()');
         return "'" . $uuid . "'";
     } elseif ((in_array($multi_edit_funcs[$key], $gis_from_text_functions)
-        && /*overload*/mb_substr($current_value, 0, 3) == "'''")
+        && substr($current_value, 0, 3) == "'''")
         || in_array($multi_edit_funcs[$key], $gis_from_wkb_functions)
     ) {
         // Remove enclosing apostrophes
-        $current_value = /*overload*/mb_substr(
-            $current_value, 1, /*overload*/mb_strlen($current_value) - 2
-        );
+        $current_value = /*overload*/mb_substr($current_value, 1, -1);
         // Remove escaping apostrophes
         $current_value = str_replace("''", "'", $current_value);
         return $multi_edit_funcs[$key] . '(' . $current_value . ')';
@@ -2414,7 +2412,7 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
     $meta = $fields_meta[0];
     $new_value = $GLOBALS['dbi']->fetchValue($result);
     if ($new_value !== false) {
-        if ((/*overload*/mb_substr($meta->type, 0, 9) == 'timestamp')
+        if ((substr($meta->type, 0, 9) == 'timestamp')
             || ($meta->type == 'datetime')
             || ($meta->type == 'time')
         ) {

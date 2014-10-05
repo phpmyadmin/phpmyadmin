@@ -24,7 +24,7 @@ function PMA_getDirContent($dir, $expression = '')
     }
 
     $result = array();
-    if (/*overload*/mb_substr($dir, -1) != '/') {
+    if (substr($dir, -1) != '/') {
         $dir .= '/';
     }
     while ($file = @readdir($handle)) {

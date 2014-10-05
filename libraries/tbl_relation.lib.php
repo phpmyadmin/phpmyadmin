@@ -1145,7 +1145,7 @@ function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_m
         if (! empty($tmp_error_create)) {
             $seen_error = true;
 
-            if (/*overload*/mb_substr($tmp_error_create, 1, 4) == '1005') {
+            if (substr($tmp_error_create, 1, 4) == '1005') {
                 $message = PMA_Message::error(
                     __('Error creating foreign key on %1$s (check data types)')
                 );

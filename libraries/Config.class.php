@@ -487,8 +487,8 @@ class PMA_Config
         $commit = false;
         if (! isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
             $git_file_name = $git_folder . '/objects/'
-                . /*overload*/mb_substr($hash, 0, 2)
-                . '/' . /*overload*/mb_substr($hash, 2);
+                . substr($hash, 0, 2)
+                . '/' . substr($hash, 2);
             if (file_exists($git_file_name) ) {
                 if (! $commit = @file_get_contents($git_file_name)) {
                     return;
@@ -536,7 +536,7 @@ class PMA_Config
                         }
                     }
                 }
-                $hash = /*overload*/mb_strtolower($hash);
+                $hash = strtolower($hash);
                 foreach ($pack_names as $pack_name) {
                     $index_name = str_replace('.pack', '.idx', $pack_name);
 
@@ -563,7 +563,7 @@ class PMA_Config
                     );
 
                     // find where we should search
-                    $firstbyte = intval(/*overload*/mb_substr($hash, 0, 2), 16);
+                    $firstbyte = intval(substr($hash, 0, 2), 16);
                     // array is indexed from 1 and we need to get
                     // previous entry for start
                     if ($firstbyte == 0) {
@@ -577,7 +577,7 @@ class PMA_Config
                     $found = false;
                     $offset = 8 + (256 * 4);
                     for ($position = $start; $position < $end; $position++) {
-                        $sha = /*overload*/mb_strtolower(
+                        $sha = strtolower(
                             bin2hex(
                                 /*overload*/mb_substr(
                                     $index_data, $offset + ($position * 20), 20

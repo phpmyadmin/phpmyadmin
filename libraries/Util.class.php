@@ -3054,7 +3054,7 @@ class PMA_Util
      */
     public static function isForeignKeySupported($engine)
     {
-        $engine = /*overload*/mb_strtoupper($engine);
+        $engine = strtoupper($engine);
         if (($engine == 'INNODB') || ($engine == 'PBXT')) {
             return true;
         } elseif ($engine == 'NDBCLUSTER' || $engine == 'NDB') {

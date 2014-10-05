@@ -643,7 +643,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
             }
             $res = $GLOBALS['dbi']->query($sql_query);
             while ($row1 = $GLOBALS['dbi']->fetchRow($res)) {
-                if (/*overload*/mb_substr($row1[0], 0, 4) == 'max_') {
+                if (mb_substr($row1[0], 0, 4) == 'max_') {
                     $row[$row1[0]] = 0;
                 } else {
                     $row[$row1[0]] = 'N';
@@ -907,7 +907,7 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
     $html_output = '';
 
     foreach ($row as $current_grant => $current_grant_value) {
-        $grant_type = /*overload*/mb_substr($current_grant, 0, (/*overload*/mb_strlen($current_grant) - 5));
+        $grant_type = substr($current_grant, 0, -5);
         if (in_array($grant_type, array('Select', 'Insert', 'Update', 'References'))
         ) {
             continue;

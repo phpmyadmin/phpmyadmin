@@ -437,7 +437,7 @@ class PMA_Error extends PMA_Message
     {
         $dest = realpath($dest);
 
-        if (/*overload*/mb_substr(PHP_OS, 0, 3) == 'WIN') {
+        if (substr(PHP_OS, 0, 3) == 'WIN') {
             $separator = '\\';
         } else {
             $separator = '/';

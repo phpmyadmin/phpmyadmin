@@ -204,8 +204,8 @@ function PMA_getHtmlForDisplayedExportFooter($back_button)
 function PMA_getMemoryLimitForExport()
 {
     $memory_limit = trim(@ini_get('memory_limit'));
-    $memory_limit_num = (int)/*overload*/mb_substr($memory_limit, 0, -1);
-    $lowerLastChar = /*overload*/mb_strtolower(/*overload*/mb_substr($memory_limit, -1));
+    $memory_limit_num = (int)substr($memory_limit, 0, -1);
+    $lowerLastChar = strtolower(substr($memory_limit, -1));
     // 2 MB as default
     if (empty($memory_limit) || '-1' == $memory_limit) {
         $memory_limit = 2 * 1024 * 1024;
@@ -397,7 +397,7 @@ function PMA_compressExport($dump_buffer, $compression, $filename)
         $zipfile = new ZipFile();
         $zipfile->addFile(
             $dump_buffer,
-            /*overload*/mb_substr($filename, 0, -4)
+            substr($filename, 0, -4)
         );
         $dump_buffer = $zipfile->file();
     } elseif ($compression == 'gzip' && PMA_gzencodeNeeded()) {
