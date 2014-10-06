@@ -255,10 +255,13 @@ function PMA_getCompositeIndexList(source_array, col_index)
 function PMA_showAddIndexDialog(source_array, array_index, target_columns, col_index, index)
 {
     // Prepare post-data.
+    var $table = $('input[name="table"]');
+    var table = $table.length > 0 ? $table.val() : '';
     var post_data = {
         token: $('input[name="token"]').val(),
-        db: '',
-        table: '',
+        server:  $('input[name="server"]').val(),
+        db: $('input[name="db"]').val(),
+        table: table,
         ajax_request: 1,
         create_edit_table: 1,
         index: index

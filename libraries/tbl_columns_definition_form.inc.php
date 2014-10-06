@@ -15,7 +15,7 @@ if (! defined('PHPMYADMIN')) {
  */
 require_once './libraries/Util.class.php';
 
-PMA_Util::checkParameters(array('db', 'table', 'action', 'num_fields'));
+PMA_Util::checkParameters(array('server', 'db', 'table', 'action', 'num_fields'));
 
 /**
  * Initialize to avoid code execution path warnings
@@ -52,7 +52,7 @@ $pmaString = $GLOBALS['PMA_String'];
 $length_values_input_size = 8;
 
 $_form_params = PMA_getFormsParameters(
-    $db, $table, $action, isset($num_fields) ? $num_fields : null,
+    $server, $db, $table, $action, isset($num_fields) ? $num_fields : null,
     isset($selected) ? $selected : null
 );
 
