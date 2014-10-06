@@ -56,11 +56,12 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
         $_REQUEST['field_where'] = "fwhere";
 
         $result = PMA_getFormsParameters(
-            "dbname", "tablename", "tbl_create.php", 22, array(12, 13)
+            "servername", "dbname", "tablename", "tbl_create.php", 22, array(12, 13)
         );
 
         $this->assertEquals(
             array(
+                'server' => 'servername',
                 'db' => 'dbname',
                 'reload' => 1,
                 'orig_num_fields' => 22,
