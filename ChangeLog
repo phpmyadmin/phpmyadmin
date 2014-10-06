@@ -48,6 +48,7 @@ phpMyAdmin - ChangeLog
 - bug #4547 Micro history does not work in Users page
 - bug #4551 Wrong test in source code
 - bug #4537 BLOB inline-view JPG column transformation does not work for anything except simple queries
++ rfe #1535 Keyword-based autocompletion in SQL query editors
 
 4.2.10.0 (not yet released)
 - bug #4361 Can't change font size (when config.inc.php not present)
