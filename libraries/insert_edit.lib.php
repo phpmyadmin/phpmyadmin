@@ -308,12 +308,12 @@ function PMA_getColumnTitle($column, $comments_map)
  /**
   * check whether the column is of a certain type
   * the goal is to ensure that types such as "enum('one','two','binary',..)"
-  * or "enum('one','two','varbinary',..)" are not categorized as binary 
+  * or "enum('one','two','varbinary',..)" are not categorized as binary
   *
   * @param array $column description of column in given table
   * @param array $types  the types to verify
   *
-  * @return boolean whether the column's type if one of the $types 
+  * @return boolean whether the column's type if one of the $types
   */
 function PMA_isColumn($column, $types)
 {
@@ -1636,7 +1636,8 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
     } elseif (($pmaString->substr($column['True_Type'], 0, 9) == 'timestamp'
         || $column['True_Type'] == 'datetime'
         || $column['True_Type'] == 'time')
-        && ($pmaString->strpos($current_row[$column['Field']], ".") === true)
+        // micro seconds delimeter
+        && ($pmaString->strpos($current_row[$column['Field']], ".") !== false)
     ) {
         $current_row[$column['Field']] = $as_is
             ? $current_row[$column['Field']]
