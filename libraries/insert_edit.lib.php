@@ -267,9 +267,19 @@ function PMA_analyzeTableColumnsArray($column, $comments_map, $timestamp_seen)
     $column['True_Type']     = preg_replace('@\(.*@s', '', $column['Type']);
     $column['len'] = preg_match('@float|double@', $column['Type']) ? 100 : -1;
     $column['Field_title']   = PMA_getColumnTitle($column, $comments_map);
-    $column['is_binary']     = PMA_isColumnBinary($column);
-    $column['is_blob']       = PMA_isColumnBlob($column);
-    $column['is_char']       = PMA_isColumnChar($column);
+    $column['is_binary']     = PMA_isColumn(
+        $column,
+        array('binary', 'varbinary')
+    );
+    $column['is_blob']       = PMA_isColumn(
+        $column,
+        array('blob', 'tinyblob', 'mediumblob', 'longblob')
+    );
+    $column['is_char']       = PMA_isColumn(
+        $column,
+        array('char', 'varchar')
+    );
+
     list($column['pma_type'], $column['wrap'], $column['first_timestamp'])
         = PMA_getEnumSetAndTimestampColumns($column, $timestamp_seen);
 
@@ -296,77 +306,28 @@ function PMA_getColumnTitle($column, $comments_map)
 }
 
  /**
-  * check whether the column is a binary
+  * check whether the column is of a certain type
+  * the goal is to ensure that types such as "enum('one','two','binary',..)"
+  * or "enum('one','two','varbinary',..)" are not categorized as binary
   *
   * @param array $column description of column in given table
+  * @param array $types  the types to verify
   *
-  * @return boolean If check to ensure types such as "enum('one','two','binary',..)"
-  *                 or "enum('one','two','varbinary',..)" are not categorized as
-  *                 binary.
+  * @return boolean whether the column's type if one of the $types
   */
-function PMA_isColumnBinary($column)
+function PMA_isColumn($column, $types)
 {
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
 
-    // The type column.
-    // Fix for bug #3152931 'ENUM and SET cannot have "Binary" option'
-    if ($pmaString->stripos($column['Type'], 'binary') === 0
-        || $pmaString->stripos($column['Type'], 'varbinary') === 0
-    ) {
-        return stristr($column['Type'], 'binary');
-    } else {
-        return false;
+    foreach ($types as $one_type) {
+        if ($pmaString->stripos($column['Type'], $one_type) === 0) {
+            return true;
+        }
     }
-
+    return false;
 }
 
- /**
-  * check whether the column is a blob
-  *
-  * @param array $column description of column in given table
-  *
-  * @return boolean If check to ensure types such as "enum('one','two','blob',..)"
-  *                 or "enum('one','two','tinyblob',..)" etc. are not categorized
-  *                 as blob.
-  */
-function PMA_isColumnBlob($column)
-{
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
-    if ($pmaString->stripos($column['Type'], 'blob') === 0
-        || $pmaString->stripos($column['Type'], 'tinyblob') === 0
-        || $pmaString->stripos($column['Type'], 'mediumblob') === 0
-        || $pmaString->stripos($column['Type'], 'longblob') === 0
-    ) {
-        return stristr($column['Type'], 'blob');
-    } else {
-        return false;
-    }
-}
-
-/**
- * check is table column char
- *
- * @param array $column description of column in given table
- *
- * @return boolean If check to ensure types such as "enum('one','two','char',..)" or
- *                 "enum('one','two','varchar',..)" are not categorized as char.
- */
-function PMA_isColumnChar($column)
-{
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
-    if ($pmaString->stripos($column['Type'], 'char') === 0
-        || $pmaString->stripos($column['Type'], 'varchar') === 0
-    ) {
-        return stristr($column['Type'], 'char');
-    } else {
-        return false;
-    }
-}
 /**
  * Retrieve set, enum, timestamp table columns
  *
@@ -1675,7 +1636,8 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
     } elseif (($pmaString->substr($column['True_Type'], 0, 9) == 'timestamp'
         || $column['True_Type'] == 'datetime'
         || $column['True_Type'] == 'time')
-        && ($pmaString->strpos($current_row[$column['Field']], ".") === true)
+        // micro seconds delimeter
+        && ($pmaString->strpos($current_row[$column['Field']], ".") !== false)
     ) {
         $current_row[$column['Field']] = $as_is
             ? $current_row[$column['Field']]

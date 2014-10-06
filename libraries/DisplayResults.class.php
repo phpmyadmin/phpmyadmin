@@ -3989,7 +3989,7 @@ class PMA_DisplayResults
             || ($meta->type == self::DATETIME_FIELD)
             || ($meta->type == self::TIME_FIELD)
             || ($meta->type == self::TIME_FIELD))
-            && ($pmaStr->strpos($column, ".") === true)
+            && ($pmaStr->strpos($column, ".") !== false) // micro seconds delimeter
         ) {
             $column = PMA_Util::addMicroseconds($column);
         }

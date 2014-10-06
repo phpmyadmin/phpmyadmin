@@ -258,13 +258,11 @@ class PMA_TableSearch
      * @param int    $foreignMaxLimit     Max limit of displaying foreign elements
      * @param array  $criteriaValues      Array of search criteria inputs
      * @param string $column_id           Column's inputbox's id
-     * @param bool   $in_zoom_search_edit Whether we are in zoom search edit
      *
      * @return string HTML elements.
      */
     private function _getForeignKeyInputBox($foreignData, $column_name,
-        $column_index, $titles, $foreignMaxLimit, $criteriaValues, $column_id,
-        $in_zoom_search_edit = false
+        $column_index, $titles, $foreignMaxLimit, $criteriaValues, $column_id
     ) {
         $html_output = '';
         if (is_array($foreignData['disp_row'])) {
@@ -532,14 +530,13 @@ EOT;
      * @param mixed  $criteriaValues Search criteria input
      * @param string $names          Name of the column on which search is submitted
      * @param string $types          Type of the field
-     * @param string $collations     Field collation
      * @param string $func_type      Search function/operator
      * @param bool   $unaryFlag      Whether operator unary or not
      * @param bool   $geom_func      Whether geometry functions should be applied
      *
      * @return string generated where clause.
      */
-    private function _getWhereClause($criteriaValues, $names, $types, $collations,
+    private function _getWhereClause($criteriaValues, $names, $types,
         $func_type, $unaryFlag, $geom_func = null
     ) {
         // If geometry function is set
@@ -705,14 +702,12 @@ EOT;
         }
 
         // else continue to form the where clause from column criteria values
-        $fullWhereClause = $charsets = array();
+        $fullWhereClause = array();
         reset($_POST['criteriaColumnOperators']);
         while (list($column_index, $operator) = each(
             $_POST['criteriaColumnOperators']
         )) {
-            list($charsets[$column_index]) = explode(
-                '_', $_POST['criteriaColumnCollations'][$column_index]
-            );
+
             $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($operator);
             $tmp_geom_func = isset($geom_func[$column_index])
                 ? $geom_func[$column_index] : null;
@@ -721,7 +716,6 @@ EOT;
                 $_POST['criteriaValues'][$column_index],
                 $_POST['criteriaColumnNames'][$column_index],
                 $_POST['criteriaColumnTypes'][$column_index],
-                $_POST['criteriaColumnCollations'][$column_index],
                 $operator,
                 $unaryFlag,
                 $tmp_geom_func

@@ -4431,7 +4431,7 @@ class PMA_Util
             return $value;
         }
 
-        if (!$pmaString->strpos($value, '.')) {
+        if ($pmaString->strpos($value, '.') === false) {
             return $value . '.000000';
         }
 

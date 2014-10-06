@@ -24,8 +24,8 @@ if (! defined('PHPMYADMIN')) {
  * @return string
  */
 function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
-    $name = null, $id = null, $default = null, $label = true, $indent = 0,
-    $submitOnChange = false, $displayUnavailable = false
+    $name = null, $id = null, $default = null, $label = true,
+    $submitOnChange = false
 ) {
     global $mysql_charsets, $mysql_charsets_descriptions,
         $mysql_charsets_available, $mysql_collations, $mysql_collations_available;

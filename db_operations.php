@@ -29,6 +29,8 @@ $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('db_operations.js');
 
+$sql_query = '';
+
 /**
  * Rename/move or copy database
  */
@@ -48,7 +50,6 @@ if ($pmaString->strlen($GLOBALS['db'])
     ) {
         $message = PMA_Message::error(__('The database name is empty!'));
     } else {
-        $sql_query = ''; // in case target db exists
         $_error = false;
         if ($move
             || (isset($_REQUEST['create_database_before_copying'])
@@ -142,6 +143,8 @@ if ($pmaString->strlen($GLOBALS['db'])
             );
             $message->addParam($GLOBALS['db']);
             $message->addParam($_REQUEST['newname']);
+        } else {
+            $message = PMA_Message::error();
         }
         $reload     = true;
 
@@ -157,10 +160,6 @@ if ($pmaString->strlen($GLOBALS['db'])
             } else {
                 $GLOBALS['PMA_Config']->setCookie('pma_switch_to_new', '');
             }
-        }
-
-        if ($_error && ! isset($message)) {
-            $message = PMA_Message::error();
         }
     }
 
