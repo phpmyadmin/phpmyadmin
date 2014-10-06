@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-02 11:40+0200\n"
-"PO-Revision-Date: 2014-03-31 14:24+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/gl/>\n"
+"PO-Revision-Date: 2014-10-06 23:53+0200\n"
+"Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
+"Language-Team: Galician "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -29,16 +29,15 @@ msgid "The central list of columns for the current database is empty."
 msgstr ""
 
 #: db_central_columns.php:109
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "Prema para ordenar"
+msgstr "Prema para ordenar."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "A mostrar as fileiras"
+msgstr "A mostrar a(s) fileira(s) %1$s - %2$s"
 
 #: db_create.php:61
 #, php-format
@@ -247,19 +246,19 @@ msgid "The database name is empty!"
 msgstr "O nome da base de datos está baleiro!"
 
 #: db_operations.php:135
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "A base de datos %1$s foi renomeada a %2$s"
+msgstr "A base de datos %1$s foi renomeada como %2$s."
 
 #: db_operations.php:141
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "A base de datos %1$s foi copiada a %2$s"
+msgstr "A base de datos %1$s foi copiada en %2$s."
 
 #: db_operations.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
@@ -323,10 +322,9 @@ msgstr[0] "%s táboa"
 msgstr[1] "%s táboas"
 
 #: db_qbe.php:103
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Debe escoller cando menos unha columna para mostrar"
+msgstr "Debe escoller cando menos unha columna para mostrar!"
 
 #: db_qbe.php:124
 #, php-format
@@ -592,7 +590,6 @@ msgid "Output"
 msgstr "Saída"
 
 #: gis_data_editor.php:415
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -601,23 +598,21 @@ msgid ""
 "below into the \"Value\" field."
 msgstr ""
 "Escolla «GeomFromText» na columna «Función» e apegue a cadea situada embaixo "
-"no campo «Valor»"
+"no campo «Valor»."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Denegouse o acceso!"
+msgstr "Todo foi correcto"
 
 #: import.php:58 js/messages.php:434
 msgid "Failed"
 msgstr ""
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "insercións completas"
+msgstr "Hai parámetros incompletos"
 
 #: import.php:166
 #, php-format
@@ -645,10 +640,9 @@ msgstr ""
 
 #: import.php:476 import.php:537 libraries/File.class.php:418
 #: libraries/File.class.php:512
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "Non foi posíbel ler o ficheiro"
+msgstr "Non foi posíbel ler o ficheiro."
 
 #: import.php:486 import.php:497 import.php:518 import.php:529
 #: libraries/File.class.php:578
@@ -671,25 +665,24 @@ msgstr ""
 "Consulte a [doc@faq1-16]Pregunta frecuente 1.16[/doc]."
 
 #: import.php:562
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
-"Non se pode converter o xogo de caracteres do ficheiro sen a biblioteca "
-"correspondente"
+"Non é posíbel converter o xogo de caracteres do ficheiro sen a biblioteca "
+"correspondente."
 
 #: import.php:600 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Non foi posíbel importar os engadidos - Comprobe a instalación!"
 
 #: import.php:635 libraries/sql.lib.php:1051 libraries/sql.lib.php:1900
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "Creouse o marcador %s"
+msgstr "Creouse o marcador %s."
 
 #: import.php:644
 #, php-format
@@ -721,10 +714,9 @@ msgid "Back"
 msgstr "Recuar"
 
 #: index.php:131 libraries/Footer.class.php:70
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "Páxina web do phpMyAdmin"
+msgstr "Servidor de demostración do phpMyAdmin"
 
 #: index.php:135
 #, php-format
