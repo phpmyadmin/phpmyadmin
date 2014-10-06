@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-02 11:40+0200\n"
-"PO-Revision-Date: 2014-08-17 21:05+0200\n"
-"Last-Translator: Pl <plamen_mbx@yahoo.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/bg/>\n"
+"PO-Revision-Date: 2014-10-06 21:48+0200\n"
+"Last-Translator: P <plamen_mbx@yahoo.com>\n"
+"Language-Team: Bulgarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,16 +29,15 @@ msgid "The central list of columns for the current database is empty."
 msgstr ""
 
 #: db_central_columns.php:109
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "Щракване за сортиране"
+msgstr "Кликнете за сортиране."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "Показване на записи"
+msgstr "Показване на редове %1$s - %2$s"
 
 #: db_create.php:61
 #, php-format
@@ -257,14 +256,14 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "БД %1$s беше копирана като %2$s."
 
 #: db_operations.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Хранилището за конфигурацията на phpMyAdmin е деактивирано. За да разберете "
+"Хранилището за конфигурации на phpMyAdmin е деактивирано. За да разберете "
 "защо натиснете %sтук%s."
 
 #: db_printview.php:48 db_tracking.php:83 db_tracking.php:207
@@ -600,20 +599,18 @@ msgstr ""
 "копирайте текста по-долу в полето \"Стойност\"."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Отказан достъп!"
+msgstr "Успешно"
 
 #: import.php:58 js/messages.php:434
 msgid "Failed"
-msgstr ""
+msgstr "Неуспешно"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "пълни INSERT-и"
+msgstr "Непълни параметри"
 
 #: import.php:166
 #, php-format
@@ -890,7 +887,7 @@ msgid ""
 msgstr ""
 
 #: index.php:521
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -898,14 +895,16 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"Хранилището за конфигурация на phpMyAdmin е недобре настроено и някои "
-"разширени функции са деактивирани. За да разберете защо натиснете %sтук%s."
+"Хранилището за конфигурации на phpMyAdmin е недобре настроено и някои "
+"разширени функции са деактивирани. За да разберете защо натиснете %sтук%s. "
 
 #: index.php:527
 msgid ""
 "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or alternately go to 'Operations' "
 "tab of any database to set it up there."
 msgstr ""
+"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Или отидете в раздела \"Операции\" "
+"на всяка база данни, за да го настроите там."
 
 #: index.php:573
 #, php-format
@@ -959,10 +958,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Изтриване на първичен ключ/индекс"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Избор външен ключ"
+msgstr "Изтриване на външен ключ/индекс."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -979,26 +977,23 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Наистина ли искате да изтриете записаното търсене: \"%s\"?"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid ""
 #| "You have edited some data and they have not been saved. Are you sure you "
 #| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
-"Редактирали сте данни и те не са запазени. Наистина ли искате да напуснете "
-"страницата преди запазването им?"
+"Имате незаписани промени; наистина ли искате да напуснете тази страница?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Наистина ли искате да изтриете записаното търсене: \"%s\"?"
+msgstr "Наистина ли искате да възстановите избраните потребители?"
 
 #: js/messages.php:51
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "Изпращане"
+msgstr "Запис & затвори"
 
 #: js/messages.php:52 libraries/config/FormDisplay.tpl.php:395
 #: libraries/insert_edit.lib.php:1597 prefs_manage.php:339
@@ -1007,10 +1002,9 @@ msgid "Reset"
 msgstr "Изчистване"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Маркиране всички"
+msgstr "Нулиране на всички"
 
 #: js/messages.php:56
 msgid "Missing value in the form!"
@@ -1045,49 +1039,46 @@ msgstr "Добавяне на %s колона(и) към индекса"
 #, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Създаване на процедура"
+msgstr "Създаване на индекс на една колона"
 
 #: js/messages.php:64
 #, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Създаване на процедура"
+msgstr "Създаване на композитен индекс"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "Колоните са оградени от:"
+msgstr ""
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Add %d column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Добавяне %d колона(и) към индекс"
+msgstr "Моля, изберете колони за индекса."
 
 #: js/messages.php:69 libraries/insert_edit.lib.php:1595
 #: libraries/tbl_columns_definition_form.lib.php:142
 #: libraries/tbl_relation.lib.php:662
+#, fuzzy
 msgid "Preview SQL"
-msgstr ""
+msgstr "Визуализация на SQL"
 
 #: js/messages.php:72
 #, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "в зявката"
+msgstr "Симулиране на заявка"
 
 #: js/messages.php:73
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "Засегнати редове:"
+msgstr "Съвпадащи редове:"
 
 #: js/messages.php:74 libraries/Util.class.php:652 libraries/sql.lib.php:454
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "SQL заявка"
+msgstr "SQL заявка:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:78 libraries/tbl_chart.lib.php:215
