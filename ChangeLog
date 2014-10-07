@@ -49,7 +49,6 @@ phpMyAdmin - ChangeLog
 - bug #4551 Wrong test in source code
 - bug #4537 BLOB inline-view JPG column transformation does not work for anything except simple queries
 + rfe #1535 Keyword-based autocompletion in SQL query editors
-+ bug #3120 Events are not exported when using xml
 
 4.2.10.0 (not yet released)
 - bug #4361 Can't change font size (when config.inc.php not present)
@@ -60,6 +59,7 @@ phpMyAdmin - ChangeLog
 - bug #4259 reCaptcha sound session expired problem
 - bug #4548 Inline editing a field converts tab to spaces
 - bug #4252 Database-level permission bug for db names containing underscores
+- bug #3120 Events are not exported when using xml
 
 4.2.9.0 (2014-09-20)
 - bug       ajax.js responseHandler: cannot read property of null
