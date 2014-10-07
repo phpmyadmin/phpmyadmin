@@ -683,7 +683,7 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
                     // there's been other queries
                     $temp = $return['rows'][$insertTablesFirst]['argument'];
                     $return['rows'][$insertTablesFirst]['argument']
-                        .= PMA_getJsonForLogDataTypeGeneral_getSuspensionPoints(
+                        .= PMA_getSuspensionPoints(
                             $temp[$pmaString->strlen($temp) - 1]
                         );
 
@@ -737,7 +737,7 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
  *
  * @return null|string Return suspension points if needed
  */
-function PMA_getJsonForLogDataTypeGeneral_getSuspensionPoints($lastChar)
+function PMA_getSuspensionPoints($lastChar)
 {
     if ($lastChar != '.') {
         return '<br/>...';
