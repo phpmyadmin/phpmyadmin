@@ -251,13 +251,13 @@ class PMA_TableSearch
      * Provides html elements for search criteria inputbox
      * in case the column is a Foreign Key
      *
-     * @param array  $foreignData         Foreign keys data
-     * @param string $column_name         Column name
-     * @param int    $column_index        Column index
-     * @param array  $titles              Selected title
-     * @param int    $foreignMaxLimit     Max limit of displaying foreign elements
-     * @param array  $criteriaValues      Array of search criteria inputs
-     * @param string $column_id           Column's inputbox's id
+     * @param array  $foreignData     Foreign keys data
+     * @param string $column_name     Column name
+     * @param int    $column_index    Column index
+     * @param array  $titles          Selected title
+     * @param int    $foreignMaxLimit Max limit of displaying foreign elements
+     * @param array  $criteriaValues  Array of search criteria inputs
+     * @param string $column_id       Column's inputbox's id
      *
      * @return string HTML elements.
      */
