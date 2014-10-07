@@ -1636,7 +1636,6 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
     } elseif (($pmaString->substr($column['True_Type'], 0, 9) == 'timestamp'
         || $column['True_Type'] == 'datetime'
         || $column['True_Type'] == 'time')
-        // micro seconds delimeter
         && ($pmaString->strpos($current_row[$column['Field']], ".") !== false)
     ) {
         $current_row[$column['Field']] = $as_is
