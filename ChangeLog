@@ -57,6 +57,7 @@ phpMyAdmin - ChangeLog
 - bug #4543 Changing column name can break saved "order by" clause
 - bug #4545 trying to favorite table while browser localStorage is disabled throws JS error
 - bug #4259 reCaptcha sound session expired problem
+- bug #4548 Inline editing a field converts tab to spaces
 
 4.2.9.0 (2014-09-20)
 - bug       ajax.js responseHandler: cannot read property of null
