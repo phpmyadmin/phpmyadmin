@@ -312,17 +312,16 @@ $GLOBALS['dummy_queries'] = array(
         'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.'
             . '`SCHEMA_PRIVILEGES`'
             . ' WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\''
-            . ' AND PRIVILEGE_TYPE=\'TRIGGER\' AND \'pma\\\\_test\''
-            . ' REGEXP REPLACE(REPLACE(TABLE_SCHEMA, \'_\', \'.\'), \'%\', \'.*\')',
+            . ' AND PRIVILEGE_TYPE=\'TRIGGER\' AND \'pma_test\''
+            . ' LIKE `TABLE_SCHEMA`',
         'result' => array(),
     ),
     array(
         'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.'
             . '`TABLE_PRIVILEGES`'
             . ' WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\''
-            . ' AND PRIVILEGE_TYPE=\'TRIGGER\' AND \'pma\\\\_test\''
-            . ' REGEXP REPLACE(REPLACE(TABLE_SCHEMA, \'_\', \'.\'), \'%\', \'.*\')'
-            . ' AND TABLE_NAME=\'table1\'',
+            . ' AND PRIVILEGE_TYPE=\'TRIGGER\' AND \'pma_test\''
+            . ' LIKE `TABLE_SCHEMA` AND TABLE_NAME=\'table1\'',
         'result' => array(),
     ),
     array(
@@ -336,8 +335,8 @@ $GLOBALS['dummy_queries'] = array(
         'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.'
             . '`SCHEMA_PRIVILEGES`'
             . ' WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\''
-            . ' AND PRIVILEGE_TYPE=\'EVENT\' AND \'pma\\\\_test\''
-            . ' REGEXP REPLACE(REPLACE(TABLE_SCHEMA, \'_\', \'.\'), \'%\', \'.*\')',
+            . ' AND PRIVILEGE_TYPE=\'EVENT\' AND \'pma_test\''
+            . ' LIKE `TABLE_SCHEMA`',
         'result' => array(),
     ),
     array(
