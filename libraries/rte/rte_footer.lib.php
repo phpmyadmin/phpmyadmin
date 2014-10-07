@@ -41,7 +41,7 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
     } else {
         $icon = 'bd_' . $pmaString->strtolower($name) . '_add.png';
         $retval .= PMA_Util::getIcon($icon);
-        $retval .= PMA_RTE_getWord('add'). "\n";
+        $retval .= PMA_RTE_getWord('add') . "\n";
     }
     $retval .= "            " . PMA_Util::showMySQLDocu($docu) . "\n";
     $retval .= "        </div>\n";
