@@ -1978,7 +1978,7 @@ Languages
 .. config:option:: $cfg['AvailableCharsets']
 
     :type: array
-    :default: array(..._
+    :default: array(...)
 
     Available character sets for MySQL conversion. You can add your own
     (any of supported by recode/iconv) or remove these which you don't
