@@ -12,14 +12,12 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Generate charset dropdown box
  *
- * @param int         $type               Type
- * @param string      $name               Element name
- * @param string      $id                 Element id
- * @param null|string $default            Default value
- * @param bool        $label              Label
- * @param int         $indent             Indent
- * @param bool        $submitOnChange     Submit on change
- * @param bool        $displayUnavailable Display unavailable
+ * @param int         $type           Type
+ * @param string      $name           Element name
+ * @param string      $id             Element id
+ * @param null|string $default        Default value
+ * @param bool        $label          Label
+ * @param bool        $submitOnChange Submit on change
  *
  * @return string
  */
