@@ -3868,19 +3868,7 @@ class PMA_Util
         // If a database name was provided and user does not have the
         // required global privilege, try database-wise permissions.
         if ($db !== null) {
-            // need to escape wildcards in db and table names, see bug #3566
-            // (wildcard characters appear as being quoted with a backslash
-            //  when querying TABLE_SCHEMA.SCHEMA_PRIVILEGES)
-            $db = str_replace(array('%', '_'), array('\%', '\_'), $db);
-            /*
-             * This is to take into account a wildcard db privilege
-             * so we replace % by .* and _ by . to be able to compare
-             * with REGEXP.
-             *
-             * Also, we need to double the inner % to please sprintf().
-             */
-            $query .= " AND '%s' REGEXP"
-                . " REPLACE(REPLACE(TABLE_SCHEMA, '_', '.'), '%%', '.*')";
+            $query .= " AND '%s' LIKE `TABLE_SCHEMA`";
             $schema_privileges = $GLOBALS['dbi']->fetchValue(
                 sprintf(
                     $query,
