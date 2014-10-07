@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-03-31 14:24+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"gl/>\n"
+"PO-Revision-Date: 2014-10-06 23:53+0200\n"
+"Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
+"Language-Team: Galician "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-2/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -218,16 +218,16 @@ msgid "The database name is empty!"
 msgstr "O nome da base de datos está baleiro!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "A base de datos %1$s foi renomeada a %2$s"
+msgstr "A base de datos %1$s foi renomeada como %2$s."
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "A base de datos %1$s foi copiada a %2$s"
+msgstr "A base de datos %1$s foi copiada en %2$s."
 
 #: db_operations.php:260
 #, php-format
@@ -293,10 +293,9 @@ msgstr[0] "%s táboa"
 msgstr[1] "%s táboas"
 
 #: db_qbe.php:102
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Debe escoller cando menos unha columna para mostrar"
+msgstr "Debe escoller cando menos unha columna para mostrar!"
 
 #: db_qbe.php:123
 #, php-format
@@ -583,7 +582,6 @@ msgid "Output"
 msgstr "Saída"
 
 #: gis_data_editor.php:410
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -592,7 +590,7 @@ msgid ""
 "below into the \"Value\" field."
 msgstr ""
 "Escolla «GeomFromText» na columna «Función» e apegue a cadea situada embaixo "
-"no campo «Valor»"
+"no campo «Valor»."
 
 #: import.php:116
 #, php-format
@@ -620,10 +618,9 @@ msgstr ""
 
 #: import.php:412 import.php:473 libraries/File.class.php:433
 #: libraries/File.class.php:527
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "Non foi posíbel ler o ficheiro"
+msgstr "Non foi posíbel ler o ficheiro."
 
 #: import.php:421 import.php:432 import.php:453 import.php:464
 #: libraries/File.class.php:593
@@ -646,25 +643,24 @@ msgstr ""
 "Consulte a [doc@faq1-16]Pregunta frecuente 1.16[/doc]."
 
 #: import.php:498
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
-"Non se pode converter o xogo de caracteres do ficheiro sen a biblioteca "
-"correspondente"
+"Non é posíbel converter o xogo de caracteres do ficheiro sen a biblioteca "
+"correspondente."
 
 #: import.php:536 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Non foi posíbel importar os engadidos - Comprobe a instalación!"
 
 #: import.php:571 libraries/sql.lib.php:1048 libraries/sql.lib.php:1848
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "Creouse o marcador %s"
+msgstr "Creouse o marcador %s."
 
 #: import.php:580
 #, php-format
@@ -695,10 +691,9 @@ msgid "Back"
 msgstr "Recuar"
 
 #: index.php:127 libraries/Footer.class.php:70
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "Páxina web do phpMyAdmin"
+msgstr "Servidor de demostración do phpMyAdmin"
 
 #: index.php:131
 #, php-format
