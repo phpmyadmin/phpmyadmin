@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-02 11:40+0200\n"
-"PO-Revision-Date: 2014-10-06 22:20+0200\n"
+"PO-Revision-Date: 2014-10-07 06:00+0200\n"
 "Last-Translator: Alexey Rubinov <orion1979@yandex.ru>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
@@ -1913,10 +1913,10 @@ msgid "The following actions will be performed:"
 msgstr "Выполнены следующие действия:"
 
 #: js/messages.php:327
-#, fuzzy, php-format
+#, php-format
 #| msgid "DROP columns %1s from the table %2s"
 msgid "DROP columns %s from the table %s"
-msgstr "DROP столбцов %1s в таблице %2s"
+msgstr "DROP столбцов %s в таблице %s"
 
 #: js/messages.php:328
 msgid "Create the following table"
@@ -2624,7 +2624,7 @@ msgstr "Нед."
 #.
 #: js/messages.php:668
 msgid "calendar-month-year"
-msgstr "число-месяц-год"
+msgstr "календарь-месяц-год"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:671
@@ -3723,7 +3723,7 @@ msgstr "Избранное"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "Для сохранения поиска в закладках, пожалуйста, введите имя."
 
 #: libraries/SavedSearches.class.php:261
 msgid "Missing information to save the bookmarked search."
@@ -4692,8 +4692,9 @@ msgid "Select a column."
 msgstr "Выберите столбец."
 
 #: libraries/central_columns.lib.php:810 libraries/central_columns.lib.php:920
+#, fuzzy
 msgid "auto_increment"
-msgstr ""
+msgstr "auto_increment"
 
 #: libraries/central_columns.lib.php:812 libraries/central_columns.lib.php:922
 msgid "on update CURRENT_TIMESTAMP"
@@ -6722,7 +6723,7 @@ msgstr "Максимальное количество хранимых свой�
 
 #: libraries/config/messages.inc.php:601
 msgid "QBE saved searches table"
-msgstr ""
+msgstr "таблица сохраненных запросов QBE"
 
 #: libraries/config/messages.inc.php:603
 msgid ""
@@ -6835,7 +6836,7 @@ msgstr "Имя сессии для Signon"
 
 #: libraries/config/messages.inc.php:646
 msgid "Signon URL"
-msgstr "Signon URL"
+msgstr "URL для Signon"
 
 #: libraries/config/messages.inc.php:648
 msgid "Socket on which MySQL server is listening, leave empty for default."
@@ -9152,6 +9153,9 @@ msgid ""
 "As per above partial dependencies, in order to put the original table '%1$s' "
 "into Second normal form we need to create the following tables:"
 msgstr ""
+"Из-за наличия приведенных выше частичных зависимостей, для того, чтобы "
+"привести исходную таблицу '%1$s' ко второй нормальной форме, необходимо "
+"создать следующие таблицы:"
 
 #: libraries/normalization.lib.php:415
 #, php-format
@@ -9169,6 +9173,9 @@ msgid ""
 "As per above dependencies, in order to put the original table '%1$s' into "
 "Third normal form we need to create the following tables:"
 msgstr ""
+"Из-за наличия приведенных выше зависимостей, для того, чтобы привести "
+"исходную таблицу '%1$s' к третьей нормальной форме, необходимо создать "
+"следующие таблицы:"
 
 #: libraries/normalization.lib.php:546
 msgid "The third step of normalization is complete."
@@ -10254,6 +10261,9 @@ msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"Функциональность для загрузки изображений, которая также отбражает иконку. "
+"Параметрами являются ширина и высота иконки в пикселях. Значения по "
+"умолчанию 100 X 100."
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:78
 msgid "Image preview here"
@@ -10282,6 +10292,10 @@ msgid ""
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
+"Добавляет текст к строке спереди и/или сзади. При использовании первой опции "
+"текст будет добавлен спереди, при использовании второй - добавлен сзади ("
+"текст должен быть заключен в одинарные кавычки, по умолчанию добавляется "
+"пустая строка)."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:33
 msgid ""
@@ -10548,10 +10562,9 @@ msgid "Slave replication"
 msgstr "Репликация подчинённого сервера"
 
 #: libraries/replication_gui.lib.php:143
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Master connection:"
-msgstr "Небезопасное соединение"
+msgstr "Главное соединение:"
 
 #: libraries/replication_gui.lib.php:208
 msgid "Slave SQL Thread not running!"
