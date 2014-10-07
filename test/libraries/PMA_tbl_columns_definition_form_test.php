@@ -75,11 +75,12 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         // case 2
         $result = PMA_getFormsParameters(
-            "dbname", "tablename", "tbl_addfield.php", null, 1
+            "servername", "dbname", "tablename", "tbl_addfield.php", null, 1
         );
 
         $this->assertEquals(
             array(
+                'server' => 'servername',
                 'db' => 'dbname',
                 'table' => 'tablename',
                 'orig_field_where' => 'fwhere',
@@ -95,11 +96,12 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
         $_REQUEST['field_where'] = null;
 
         $result = PMA_getFormsParameters(
-            "dbname", "tablename", null, 0, null
+            "servername", "dbname", "tablename", null, 0, null
         );
 
         $this->assertEquals(
             array(
+                'server' => 'servername',
                 'db' => 'dbname',
                 'table' => 'tablename',
                 'orig_num_fields' => 0
