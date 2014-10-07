@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-10-07 05:35+0200\n"
+"PO-Revision-Date: 2014-10-07 06:00+0200\n"
 "Last-Translator: Alexey Rubinov <orion1979@yandex.ru>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-2/ru/>\n"
@@ -2292,7 +2292,7 @@ msgstr "Нед."
 #.
 #: js/messages.php:555
 msgid "calendar-month-year"
-msgstr "число-месяц-год"
+msgstr "календарь-месяц-год"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:558
@@ -6611,7 +6611,7 @@ msgstr "Имя сессии для Signon"
 
 #: libraries/config/messages.inc.php:658
 msgid "Signon URL"
-msgstr "Signon URL"
+msgstr "URL для Signon"
 
 #: libraries/config/messages.inc.php:660
 #| msgid "Socket on which MySQL server is listening, leave empty for default"
