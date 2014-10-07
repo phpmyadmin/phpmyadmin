@@ -6111,11 +6111,7 @@ class PMA_DisplayResults
     private function _mimeDefaultFunction($buffer)
     {
         $buffer = htmlspecialchars($buffer);
-        $buffer = str_replace(
-            "\011",
-            ' &nbsp;&nbsp;&nbsp;',
-            str_replace('  ', ' &nbsp;', $buffer)
-        );
+        $buffer = str_replace('  ', ' &nbsp;', $buffer);
         $buffer = preg_replace("@((\015\012)|(\015)|(\012))@", '<br />', $buffer);
 
         return $buffer;
