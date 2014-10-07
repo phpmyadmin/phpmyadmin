@@ -1985,6 +1985,13 @@ $cfg['Export']['xml_structure_or_data'] = 'data';
 $cfg['Export']['xml_export_struc'] = true;
 
 /**
+ * Export events
+ *
+ * @global string $cfg['Export']['xml_export_events']
+ */
+$cfg['Export']['xml_export_events'] = true;
+
+/**
  * Export functions
  *
  * @global string $cfg['Export']['xml_export_functions']
