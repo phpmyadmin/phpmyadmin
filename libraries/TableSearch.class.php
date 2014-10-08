@@ -251,20 +251,18 @@ class PMA_TableSearch
      * Provides html elements for search criteria inputbox
      * in case the column is a Foreign Key
      *
-     * @param array  $foreignData         Foreign keys data
-     * @param string $column_name         Column name
-     * @param int    $column_index        Column index
-     * @param array  $titles              Selected title
-     * @param int    $foreignMaxLimit     Max limit of displaying foreign elements
-     * @param array  $criteriaValues      Array of search criteria inputs
-     * @param string $column_id           Column's inputbox's id
-     * @param bool   $in_zoom_search_edit Whether we are in zoom search edit
+     * @param array  $foreignData     Foreign keys data
+     * @param string $column_name     Column name
+     * @param int    $column_index    Column index
+     * @param array  $titles          Selected title
+     * @param int    $foreignMaxLimit Max limit of displaying foreign elements
+     * @param array  $criteriaValues  Array of search criteria inputs
+     * @param string $column_id       Column's inputbox's id
      *
      * @return string HTML elements.
      */
     private function _getForeignKeyInputBox($foreignData, $column_name,
-        $column_index, $titles, $foreignMaxLimit, $criteriaValues, $column_id,
-        $in_zoom_search_edit = false
+        $column_index, $titles, $foreignMaxLimit, $criteriaValues, $column_id
     ) {
         $html_output = '';
         if (is_array($foreignData['disp_row'])) {
@@ -313,6 +311,7 @@ EOT;
     private function _getEnumSetInputBox($column_index, $criteriaValues,
         $column_type, $column_id, $in_zoom_search_edit = false
     ) {
+        $column_type = htmlspecialchars($column_type);
         $html_output = '';
         $value = explode(
             ', ',
@@ -528,14 +527,13 @@ EOT;
      * @param mixed  $criteriaValues Search criteria input
      * @param string $names          Name of the column on which search is submitted
      * @param string $types          Type of the field
-     * @param string $collations     Field collation
      * @param string $func_type      Search function/operator
      * @param bool   $unaryFlag      Whether operator unary or not
      * @param bool   $geom_func      Whether geometry functions should be applied
      *
      * @return string generated where clause.
      */
-    private function _getWhereClause($criteriaValues, $names, $types, $collations,
+    private function _getWhereClause($criteriaValues, $names, $types,
         $func_type, $unaryFlag, $geom_func = null
     ) {
         // If geometry function is set
@@ -701,14 +699,12 @@ EOT;
         }
 
         // else continue to form the where clause from column criteria values
-        $fullWhereClause = $charsets = array();
+        $fullWhereClause = array();
         reset($_POST['criteriaColumnOperators']);
         while (list($column_index, $operator) = each(
             $_POST['criteriaColumnOperators']
         )) {
-            list($charsets[$column_index]) = explode(
-                '_', $_POST['criteriaColumnCollations'][$column_index]
-            );
+
             $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($operator);
             $tmp_geom_func = isset($geom_func[$column_index])
                 ? $geom_func[$column_index] : null;
@@ -717,7 +713,6 @@ EOT;
                 $_POST['criteriaValues'][$column_index],
                 $_POST['criteriaColumnNames'][$column_index],
                 $_POST['criteriaColumnTypes'][$column_index],
-                $_POST['criteriaColumnCollations'][$column_index],
                 $operator,
                 $unaryFlag,
                 $tmp_geom_func
@@ -985,22 +980,27 @@ EOT;
             $html_output .= '<th>'
                 . htmlspecialchars($this->_columnNames[$column_index]) . '</th>';
             $properties = $this->getColumnProperties($column_index, $column_index);
-            $html_output .= '<td>' . $properties['type'] . '</td>';
+            $html_output .= '<td>'
+                . htmlspecialchars($properties['type'])
+                . '</td>';
             $html_output .= '<td>' . $properties['collation'] . '</td>';
             $html_output .= '<td>' . $properties['func'] . '</td>';
             // here, the data-type attribute is needed for a date/time picker
-            $html_output .= '<td data-type="' . $properties['type'] . '"'
+            $html_output .= '<td data-type="'
+                . htmlspecialchars($properties['type']) . '"'
                 . '>' . $properties['value'] . '</td>';
             $html_output .= '</tr>';
             //Displays hidden fields
             $html_output .= '<tr><td>';
             $html_output .= '<input type="hidden"'
                 . ' name="criteriaColumnNames[' . $column_index . ']"'
-                . ' value="' . htmlspecialchars($this->_columnNames[$column_index])
+                . ' value="'
+                . htmlspecialchars($this->_columnNames[$column_index])
                 . '" />';
             $html_output .= '<input type="hidden"'
                 . ' name="criteriaColumnTypes[' . $column_index . ']"'
-                . ' value="' . $this->_columnTypes[$column_index] . '" />';
+                . ' value="'
+                . htmlspecialchars($this->_columnTypes[$column_index]) . '" />';
             $html_output .= '<input type="hidden"'
                 . ' name="criteriaColumnCollations[' . $column_index . ']"'
                 . ' value="' . $this->_columnCollations[$column_index] . '" />';

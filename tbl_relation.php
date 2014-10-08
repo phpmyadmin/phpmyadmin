@@ -154,7 +154,7 @@ $columns = $GLOBALS['dbi']->getColumns($db, $table);
 $html_output .= PMA_getHtmlForCommonForm(
     $db, $table, $columns, $cfgRelation, $tbl_storage_engine,
     isset($existrel) ? $existrel : array(),
-    isset($existrel_foreign) ? $existrel_foreign['foreign_keys_data'] : null,
+    isset($existrel_foreign) ? $existrel_foreign['foreign_keys_data'] : array(),
     $options_array
 );
 

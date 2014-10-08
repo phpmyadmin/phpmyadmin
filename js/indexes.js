@@ -255,10 +255,13 @@ function PMA_getCompositeIndexList(source_array, col_index)
 function PMA_showAddIndexDialog(source_array, array_index, target_columns, col_index, index)
 {
     // Prepare post-data.
+    var $table = $('input[name="table"]');
+    var table = $table.length > 0 ? $table.val() : '';
     var post_data = {
         token: $('input[name="token"]').val(),
-        db: '',
-        table: '',
+        server:  $('input[name="server"]').val(),
+        db: $('input[name="db"]').val(),
+        table: table,
         ajax_request: 1,
         create_edit_table: 1,
         index: index
@@ -514,7 +517,7 @@ AJAX.registerOnload('indexes.js', function () {
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingPrimaryKeyIndex, false);
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     var $table_ref = $rows_to_hide.closest('table');
                     if ($rows_to_hide.length == $table_ref.find('tbody > tr').length) {

@@ -316,7 +316,7 @@ function PMA_pluginGetOneOption(
             }
 
             // single property item
-            $ret .= PMA_pluginGetOneOption_getHtmlForProperty(
+            $ret .= PMA_getHtmlForProperty(
                 $section, $plugin_name, $propertyItem
             );
         }
@@ -375,7 +375,7 @@ function PMA_pluginGetOneOption(
  *
  * @return string
  */
-function PMA_pluginGetOneOption_getHtmlForProperty(
+function PMA_getHtmlForProperty(
     $section, $plugin_name, $propertyItem
 ) {
     $ret = null;

@@ -845,9 +845,9 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
                 $col_html .= '<tr class="' . $class . '">';
                 $col_html .= '<th><label for="' . $id_attr . '">' . $column
                     . '</label></th>';
-                $col_html .= '<td><input type="text" name="' . $name_attr . '" '
+                $col_html .= '<td><dummy_inp type="text" name="' . $name_attr . '" '
                     . 'id="' . $id_attr . '" placeholder="'
-                    . $column . ' alias" value="' . $val . '"/></td>';
+                    . $column . ' alias" value="' . $val . '"></dummy_inp></td>';
                 $col_html .= '</tr>';
                 $class = $class === 'odd' ? 'even' : 'odd';
             }

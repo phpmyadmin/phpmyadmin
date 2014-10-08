@@ -47,7 +47,7 @@ class PMA_GenerateHiddenMaxFileSize_Test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider dataProvider
      */
-    function test_generateHiddenMaxFileSize($size)
+    function testGenerateHiddenMaxFileSize($size)
     {
         $this->assertEquals(
             PMA_Util::generateHiddenMaxFileSize($size),

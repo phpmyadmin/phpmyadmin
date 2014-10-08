@@ -700,7 +700,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             $.get('server_status_monitor.php?' + PMA_commonParams.get('common_query'), vars,
                 function (data) {
                     var logVars;
-                    if (data.success === true) {
+                    if (typeof data !== 'undefined' && data.success === true) {
                         logVars = data.message;
                     } else {
                         return serverResponseError();
@@ -736,13 +736,13 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     if (logVars.slow_query_log == 'ON') {
                         if (logVars.long_query_time > 2) {
                             str += PMA_getImage('s_attention.png') + ' ';
-                            str += $.sprintf(PMA_messages.strSmallerLongQueryTimeAdvice, logVars.long_query_time);
+                            str += PMA_sprintf(PMA_messages.strSmallerLongQueryTimeAdvice, logVars.long_query_time);
                             str += '<br />';
                         }
 
                         if (logVars.long_query_time < 2) {
                             str += PMA_getImage('s_success.png') + ' ';
-                            str += $.sprintf(PMA_messages.strLongQueryTimeSet, logVars.long_query_time);
+                            str += PMA_sprintf(PMA_messages.strLongQueryTimeSet, logVars.long_query_time);
                             str += '<br />';
                         }
                     }
@@ -760,26 +760,26 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                         }
 
                         str += '- <a class="set" href="#log_output-' + varValue + '">';
-                        str += $.sprintf(PMA_messages.strSetLogOutput, varValue);
+                        str += PMA_sprintf(PMA_messages.strSetLogOutput, varValue);
                         str += ' </a><br />';
 
                         if (logVars.general_log != 'ON') {
                             str += '- <a class="set" href="#general_log-ON">';
-                            str += $.sprintf(PMA_messages.strEnableVar, 'general_log');
+                            str += PMA_sprintf(PMA_messages.strEnableVar, 'general_log');
                             str += ' </a><br />';
                         } else {
                             str += '- <a class="set" href="#general_log-OFF">';
-                            str += $.sprintf(PMA_messages.strDisableVar, 'general_log');
+                            str += PMA_sprintf(PMA_messages.strDisableVar, 'general_log');
                             str += ' </a><br />';
                         }
 
                         if (logVars.slow_query_log != 'ON') {
                             str += '- <a class="set" href="#slow_query_log-ON">';
-                            str +=  $.sprintf(PMA_messages.strEnableVar, 'slow_query_log');
+                            str +=  PMA_sprintf(PMA_messages.strEnableVar, 'slow_query_log');
                             str += ' </a><br />';
                         } else {
                             str += '- <a class="set" href="#slow_query_log-OFF">';
-                            str +=  $.sprintf(PMA_messages.strDisableVar, 'slow_query_log');
+                            str +=  PMA_sprintf(PMA_messages.strDisableVar, 'slow_query_log');
                             str += ' </a><br />';
                         }
 
@@ -789,7 +789,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                         }
 
                         str += '- <a class="set" href="#long_query_time-' + varValue + '">';
-                        str += $.sprintf(PMA_messages.setSetLongQueryTime, varValue);
+                        str += PMA_sprintf(PMA_messages.setSetLongQueryTime, varValue);
                         str += ' </a><br />';
 
                     } else {
@@ -906,7 +906,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         }
 
         var str = serie.display == 'differential' ? ', ' + PMA_messages.strDifferential : '';
-        str += serie.valueDivisor ? (', ' + $.sprintf(PMA_messages.strDividedBy, serie.valueDivisor)) : '';
+        str += serie.valueDivisor ? (', ' + PMA_sprintf(PMA_messages.strDividedBy, serie.valueDivisor)) : '';
         str += serie.unit ? (', ' + PMA_messages.strUnit + ': ' + serie.unit) : '';
 
         var newSeries = {
@@ -1181,7 +1181,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     seriesValue = plot.series[0]._yaxis.tickOptions.formatter('%s', seriesValue);
                 } else if (plot.series[0]._yaxis.tickOptions.formatString) {
                     // using format string
-                    seriesValue = $.sprintf(plot.series[0]._yaxis.tickOptions.formatString, seriesValue);
+                    seriesValue = PMA_sprintf(plot.series[0]._yaxis.tickOptions.formatString, seriesValue);
                 }
                 tooltipHtml += '<br /><span style="color:' + seriesColor + '">' +
                     seriesLabel + ': ' + seriesValue + '</span>';
@@ -1360,7 +1360,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             requiredData: JSON.stringify(runtime.dataList)
         }, function (data) {
             var chartData;
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 chartData = data.message;
             } else {
                 return serverResponseError();
@@ -1604,7 +1604,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             function (data) {
                 var logData;
                 var dlgBtns = {};
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     logData = data.message;
                 } else {
                     return serverResponseError();
@@ -1993,7 +1993,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             database: db
         }, function (data) {
             var i;
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 data = data.message;
             }
             if (data.error) {

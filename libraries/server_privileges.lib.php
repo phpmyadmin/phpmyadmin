@@ -694,9 +694,9 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
     if ($submit) {
         $html_output .= '<fieldset id="fieldset_user_privtable_footer" '
             . 'class="tblFooters">' . "\n"
-           . '<input type="submit" name="update_privs" '
-            . 'value="' . __('Go') . '" />' . "\n"
-           . '</fieldset>' . "\n";
+            . '<input type="hidden" name="update_privs" value="1" />' . "\n"
+            . '<input type="submit" value="' . __('Go') . '" />' . "\n"
+            . '</fieldset>' . "\n";
     }
     return $html_output;
 } // end of the 'PMA_displayPrivTable()' function
@@ -1744,7 +1744,8 @@ function PMA_getHtmlForAddUser($dbname)
     $html_output = '<h2>' . "\n"
        . PMA_Util::getIcon('b_usradd.png') . __('Add user') . "\n"
        . '</h2>' . "\n"
-       . '<form name="usersForm" class="ajax" id="addUsersForm"'
+       . '<form name="usersForm" id="addUsersForm"'
+       . ' onsubmit="return checkAddUser(this);"'
        . ' action="server_privileges.php" method="post" autocomplete="off" >' . "\n"
        . PMA_URL_getHiddenInputs('', '')
        . PMA_getHtmlForLoginInformationFields('new');
@@ -1786,8 +1787,8 @@ function PMA_getHtmlForAddUser($dbname)
     }
     $html_output .= '<fieldset id="fieldset_add_user_footer" class="tblFooters">'
         . "\n"
-        . '<input type="submit" name="adduser_submit" '
-        . 'value="' . __('Go') . '" />' . "\n"
+        . '<input type="hidden" name="adduser_submit" value="1" />' . "\n"
+        . '<input type="submit" id="adduser_submit" value="' . __('Go') . '" />' . "\n"
         . '</fieldset>' . "\n"
         . '</form>' . "\n";
 
@@ -2228,7 +2229,7 @@ function PMA_getHtmlListOfPrivs(
  */
 function PMA_getUserEditLink($username, $hostname, $dbname = '', $tablename = '')
 {
-    return '<a class="edit_user_anchor ajax"'
+    return '<a class="edit_user_anchor"'
         . ' href="server_privileges.php'
         . PMA_URL_getCommon(
             array(
@@ -2362,7 +2363,7 @@ function PMA_getExtraDataForAjaxBehavior(
         $extra_data['sql_query'] = PMA_Util::getMessage(null, $sql_query);
     }
 
-    if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
+    if (isset($_REQUEST['change_copy'])) {
         /**
          * generate html on the fly for the new user that was just created.
          */
@@ -2496,7 +2497,8 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
     );
 
     $html_output = '<form action="server_privileges.php" '
-        . 'method="post" class="copyUserForm ajax submenu-item">' . "\n"
+        . 'onsubmit="return checkAddUser(this);" '
+        . 'method="post" class="copyUserForm submenu-item">' . "\n"
         . PMA_URL_getHiddenInputs('', '')
         . '<input type="hidden" name="old_username" '
         . 'value="' . htmlspecialchars($username) . '" />' . "\n"
@@ -2520,8 +2522,8 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
 
     $html_output .= '<fieldset id="fieldset_change_copy_user_footer" '
         . 'class="tblFooters">' . "\n"
-        . '<input type="submit" name="change_copy" '
-        . 'value="' . __('Go') . '" />' . "\n"
+        . '<input type="hidden" name="change_copy" value="1" />' . "\n"
+        . '<input type="submit" value="' . __('Go') . '" />' . "\n"
         . '</fieldset>' . "\n"
         . '</form>' . "\n";
 
@@ -3816,7 +3818,7 @@ function PMA_getAddUserHtmlFieldset($db = '', $table = '')
         . (!empty($rel_params)
             ? ('rel="' . PMA_URL_getCommon($rel_params) . '" ')
             : '')
-        . 'class="ajax">' . "\n"
+        . '">' . "\n"
         . PMA_Util::getIcon('b_usradd.png')
         . '            ' . __('Add user') . '</a>' . "\n"
         . '</fieldset>' . "\n";
@@ -3843,7 +3845,7 @@ function PMA_getHtmlHeaderForUserProperties(
        . __('User');
 
     if (! empty($dbname)) {
-        $html_output .= ' <i><a class="edit_user_anchor ajax"'
+        $html_output .= ' <i><a class="edit_user_anchor"'
             . ' href="server_privileges.php'
             . PMA_URL_getCommon(
                 array(
@@ -4042,7 +4044,8 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
 function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
     $username, $hostname, $dbname, $tablename
 ) {
-    $html_output = PMA_getHtmlHeaderForUserProperties(
+    $html_output  = '<div id="edit_user_dialog">';
+    $html_output .= PMA_getHtmlHeaderForUserProperties(
         $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname, $tablename
     );
 
@@ -4073,7 +4076,7 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
         $_params['dbname'] = $dbname;
     }
 
-    $html_output .= '<form class="ajax submenu-item" name="usersForm" '
+    $html_output .= '<form class="submenu-item" name="usersForm" '
         . 'id="addUsersForm" action="server_privileges.php" method="post">' . "\n";
     $html_output .= PMA_URL_getHiddenInputs($_params);
     $html_output .= PMA_getHtmlToDisplayPrivilegesTable(
@@ -4132,6 +4135,7 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
         $html_output .= PMA_getHtmlForChangePassword($username, $hostname);
         $html_output .= PMA_getChangeLoginInformationHtmlForm($username, $hostname);
     }
+    $html_output .= '</div>';
 
     return $html_output;
 }

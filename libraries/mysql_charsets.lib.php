@@ -12,20 +12,18 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Generate charset dropdown box
  *
- * @param int         $type               Type
- * @param string      $name               Element name
- * @param string      $id                 Element id
- * @param null|string $default            Default value
- * @param bool        $label              Label
- * @param int         $indent             Indent
- * @param bool        $submitOnChange     Submit on change
- * @param bool        $displayUnavailable Display unavailable
+ * @param int         $type           Type
+ * @param string      $name           Element name
+ * @param string      $id             Element id
+ * @param null|string $default        Default value
+ * @param bool        $label          Label
+ * @param bool        $submitOnChange Submit on change
  *
  * @return string
  */
 function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
-    $name = null, $id = null, $default = null, $label = true, $indent = 0,
-    $submitOnChange = false, $displayUnavailable = false
+    $name = null, $id = null, $default = null, $label = true,
+    $submitOnChange = false
 ) {
     global $mysql_charsets, $mysql_charsets_descriptions,
         $mysql_charsets_available, $mysql_collations, $mysql_collations_available;

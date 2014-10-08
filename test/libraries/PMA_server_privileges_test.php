@@ -174,7 +174,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['pred_tablename'] = "PMA_pred__tablename";
         $_REQUEST['pred_dbname'] = array("PMA_pred_dbname");
         list(
-            $username, $hostname, $dbname, $tablename,
+            ,, $dbname, $tablename,
             $db_and_table, $dbname_is_wildcard
         ) = PMA_getDataForDBInfo();
         $this->assertEquals(
@@ -623,10 +623,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetSqlQueriesForDisplayAndAddNewUser()
     {
-        $dbname = 'pma_dbname';
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $dbname = 'pma_dbname';
         $password = 'pma_password';
         $_REQUEST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
@@ -665,8 +663,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $dbname = 'pma_dbname';
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $tablename = 'pma_tablename';
-        $password = 'pma_password';
         $_REQUEST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
@@ -674,8 +670,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['userGroup'] = "username";
 
         list(
-            $ret_message, $ret_queries,
-            $queries_for_display, $sql_query,
+            $ret_message,,, $sql_query,
             $_add_user_error
         ) = PMA_addUser(
             $dbname,
@@ -706,12 +701,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAUpdatePassword()
     {
-        $dbname = 'pma_dbname';
-        $db_and_table = 'pma_dbname.pma_tablename';
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $tablename = 'pma_tablename';
-        $password = 'pma_password';
         $err_url = "error.php";
         $_POST['pma_pw'] = 'pma_pw';
 
@@ -737,7 +728,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $username = 'pma_username';
         $hostname = 'pma_hostname';
         $tablename = 'pma_tablename';
-        $password = 'pma_password';
         $_REQUEST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
@@ -773,7 +763,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $username = 'pma_username';
         $hostname = 'pma_hostname';
         $tablename = 'pma_tablename';
-        $password = 'pma_password';
         $_REQUEST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
@@ -1440,7 +1429,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
 
         //validate 2: privileges[0]
-        $current = $current_privileges[0];
         $this->assertContains(
             __('global'),
             $html
@@ -1458,7 +1446,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
 
         //validate 4: privileges[2]
-        $current = $current_privileges[2];
         $this->assertContains(
             __('table-specific'),
             $html
@@ -1701,9 +1688,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             htmlspecialchars($dbname),
             $html
-        );
-        $item = PMA_Util::getTitleForTarget(
-            $GLOBALS['cfg']['DefaultTabDatabase']
         );
 
         //$tablename

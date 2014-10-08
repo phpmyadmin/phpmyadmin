@@ -9,7 +9,7 @@
 // Run common work
 require_once './libraries/common.inc.php';
 
-require_once './libraries/tbl_tracking.lib.php';
+require_once './libraries/tracking.lib.php';
 
 define('TABLE_MAY_BE_ABSENT', true);
 require './libraries/tbl_common.inc.php';

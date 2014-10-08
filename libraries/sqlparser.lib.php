@@ -2622,13 +2622,13 @@ function PMA_SQP_format(
                 $arr[$i]['data'] = /*overload*/mb_strtoupper($arr[$i]['data']);
             }
 
-            list($before, $in_priv_list) = PMA_SQP_format_getBeforeAndInPrivList(
+            list($before, $in_priv_list) = PMA_SQP_getBeforeAndInPrivList(
                 $arr, $typearr, $keywords_no_newline, $i, $in_priv_list,
                 $space_alpha_reserved_word, $before, $keywords_priv_list
             );
 
             list($space_punct_listsep, $space_alpha_reserved_word)
-                = PMA_SQP_format_getListsepAndReservedWord(
+                = PMA_SQP_getListsepAndReservedWord(
                     $arr[$i]['data'], $in_priv_list, $html_line_break,
                     $space_punct_listsep, $space_alpha_reserved_word
                 );
@@ -2729,7 +2729,7 @@ function PMA_SQP_format(
  *
  * @return array
  */
-function PMA_SQP_format_getBeforeAndInPrivList(
+function PMA_SQP_getBeforeAndInPrivList(
     $arr, $typearr, $keywords_no_newline, $index, $in_priv_list,
     $space_alpha_reserved_word, $before, $keywords_priv_list
 ) {
@@ -2796,7 +2796,7 @@ function PMA_SQP_format_getBeforeAndInPrivList(
  *
  * @return array Variables needed by PMA_SQP_format
  */
-function PMA_SQP_format_getListsepAndReservedWord(
+function PMA_SQP_getListsepAndReservedWord(
     $data, $in_priv_list, $html_line_break, $space_punct_listsep,
     $space_alpha_reserved_word
 ) {

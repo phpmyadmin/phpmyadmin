@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Functions used to generate table tracking
+ * Functions used for database and table tracking
  *
  * @package PhpMyAdmin
  */
@@ -248,11 +248,6 @@ function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_para
     $style = 'odd';
     $GLOBALS['dbi']->dataSeek($sql_result, 0);
     while ($version = $GLOBALS['dbi']->fetchArray($sql_result)) {
-        if ($version['tracking_active'] == 1) {
-            $version_status = __('active');
-        } else {
-            $version_status = __('not active');
-        }
         if ($version['version'] == $last_version) {
             if ($version['tracking_active'] == 1) {
                 $tracking_active = true;
@@ -266,7 +261,7 @@ function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_para
         $html .= '<td>' . htmlspecialchars($version['version']) . '</td>';
         $html .= '<td>' . htmlspecialchars($version['date_created']) . '</td>';
         $html .= '<td>' . htmlspecialchars($version['date_updated']) . '</td>';
-        $html .= '<td>' . $version_status . '</td>';
+        $html .= '<td>' . PMA_getVersionStatus($version) . '</td>';
         $html .= '<td><a href="tbl_tracking.php';
         $html .= PMA_URL_getCommon(
             $url_params + array(
@@ -1336,5 +1331,21 @@ function PMA_getEntries($data, $filter_ts_from, $filter_ts_to, $filter_users)
     );
 
     return $entries;
+}
+
+/**
+ * Function to get version status 
+ *
+ * @param array $version version info 
+ *
+ * @return string $version_status The status message 
+ */
+function PMA_getVersionStatus($version)
+{
+    if ($version['tracking_active'] == 1) {
+        return __('active');
+    } else {
+        return __('not active');
+    }
 }
 ?>

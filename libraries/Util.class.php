@@ -2055,18 +2055,20 @@ class PMA_Util
     /**
      * Function to generate unique condition for specified row.
      *
-     * @param resource $handle       current query result
-     * @param integer  $fields_cnt   number of fields
-     * @param array    $fields_meta  meta information about fields
-     * @param array    $row          current row
-     * @param boolean  $force_unique generate condition only on pk or unique
+     * @param resource $handle            current query result
+     * @param integer  $fields_cnt        number of fields
+     * @param array    $fields_meta       meta information about fields
+     * @param array    $row               current row
+     * @param boolean  $force_unique      generate condition only on pk or unique
+     * @param string   $restrict_to_table restrict the unique condition to this table
      *
      * @access public
      *
      * @return array     the calculated condition and whether condition is unique
      */
     public static function getUniqueCondition(
-        $handle, $fields_cnt, $fields_meta, $row, $force_unique = false
+        $handle, $fields_cnt, $fields_meta, $row, $force_unique = false,
+        $restrict_to_table = false
     ) {
         $primary_key          = '';
         $unique_key           = '';
@@ -2119,6 +2121,12 @@ class PMA_Util
                 && ! PMA_Table::isView($GLOBALS['db'], $meta->table)
             ) {
                 $meta->table = $meta->orgtable;
+            }
+
+            // If this field is not from the table which the unique clause needs
+            // to be restricted to.
+            if ($restrict_to_table && $restrict_to_table != $meta->table) {
+                continue;
             }
 
             // to fix the bug where float fields (primary or not)
@@ -3024,9 +3032,11 @@ class PMA_Util
         // for the case ENUM('&#8211;','&ldquo;')
         $displayed_type = htmlspecialchars($printtype);
         if (/*overload*/mb_strlen($printtype) > $GLOBALS['cfg']['LimitChars']) {
-            $displayed_type  = '<abbr title="' . $printtype . '">';
-            $displayed_type .= /*overload*/mb_substr(
-                $printtype, 0, $GLOBALS['cfg']['LimitChars']
+            $displayed_type  = '<abbr title="' . htmlspecialchars($printtype) . '">';
+            $displayed_type .= htmlspecialchars(
+                /*overload*/mb_substr(
+                    $printtype, 0, $GLOBALS['cfg']['LimitChars']
+                )
             );
             $displayed_type .= '</abbr>';
         }
@@ -3821,19 +3831,7 @@ class PMA_Util
         // If a database name was provided and user does not have the
         // required global privilege, try database-wise permissions.
         if ($db !== null) {
-            // need to escape wildcards in db and table names, see bug #3566
-            // (wildcard characters appear as being quoted with a backslash
-            //  when querying TABLE_SCHEMA.SCHEMA_PRIVILEGES)
-            $db = str_replace(array('%', '_'), array('\%', '\_'), $db);
-            /*
-             * This is to take into account a wildcard db privilege
-             * so we replace % by .* and _ by . to be able to compare
-             * with REGEXP.
-             *
-             * Also, we need to double the inner % to please sprintf().
-             */
-            $query .= " AND '%s' REGEXP"
-                . " REPLACE(REPLACE(TABLE_SCHEMA, '_', '.'), '%%', '.*')";
+            $query .= " AND '%s' LIKE `TABLE_SCHEMA`";
             $schema_privileges = $GLOBALS['dbi']->fetchValue(
                 sprintf(
                     $query,
@@ -4363,7 +4361,7 @@ class PMA_Util
             return $value;
         }
 
-        if (!/*overload*/mb_strpos($value, '.')) {
+        if (/*overload*/mb_strpos($value, '.') === false) {
             return $value . '.000000';
         }
 

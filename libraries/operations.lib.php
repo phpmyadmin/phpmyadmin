@@ -245,8 +245,7 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
             'db_collation',
             'select_db_collation',
             isset($_REQUEST['db_collation']) ? $_REQUEST['db_collation'] : '',
-            false,
-            3
+            false
         )
         . '</fieldset>'
         . '<fieldset class="tblFooters">'
@@ -797,7 +796,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         . '<td>'
         . PMA_generateCharsetDropdownBox(
             PMA_CSDROPDOWN_COLLATION,
-            'tbl_collation', null, $tbl_collation, false, 3
+            'tbl_collation', null, $tbl_collation, false
         )
         . '</td>'
         . '</tr>';

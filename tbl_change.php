@@ -135,7 +135,10 @@ $url_params = PMA_urlParamsInEditMode(
 
 $has_blob_field = false;
 foreach ($table_columns as $column) {
-    if (PMA_isColumnBlob($column)) {
+    if (PMA_isColumn(
+        $column,
+        array('blob', 'tinyblob', 'mediumblob', 'longblob')
+    )) {
         $has_blob_field = true;
         break;
     }

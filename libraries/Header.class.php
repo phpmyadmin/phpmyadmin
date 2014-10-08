@@ -162,10 +162,10 @@ class PMA_Header
         $this->_scripts->addFile(
             'whitelist.php' . PMA_URL_getCommon($params), false, true
         );
+        $this->_scripts->addFile('sprintf.js');
         $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('keyhandler.js');
         $this->_scripts->addFile('jquery/jquery-ui-1.9.2.custom.min.js');
-        $this->_scripts->addFile('jquery/jquery.sprintf.js');
         $this->_scripts->addFile('jquery/jquery.cookie.js');
         $this->_scripts->addFile('jquery/jquery.mousewheel.js');
         $this->_scripts->addFile('jquery/jquery.event.drag-2.2.js');
@@ -384,6 +384,8 @@ class PMA_Header
                     $this->_scripts->addFile('codemirror/lib/codemirror.js');
                     $this->_scripts->addFile('codemirror/mode/sql/sql.js');
                     $this->_scripts->addFile('codemirror/addon/runmode/runmode.js');
+                    $this->_scripts->addFile('codemirror/addon/hint/show-hint.js');
+                    $this->_scripts->addFile('codemirror/addon/hint/sql-hint.js');
                 }
                 if ($this->_userprefsOfferImport) {
                     $this->_scripts->addFile('config.js');

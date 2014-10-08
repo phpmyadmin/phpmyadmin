@@ -493,7 +493,7 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
     $html .= '                    now.getFullYear(), now.getMonth(), now.getDate(), ';
     $html .= '                    now.getHours(), now.getMinutes(), now.getSeconds()) ';
     $html .= '                    + now.getMilliseconds() - 1000; ';
-    $html .= '                var statustext = $.sprintf("' . $statustext_str . '", ';
+    $html .= '                var statustext = PMA_sprintf("' . $statustext_str . '", ';
     $html .= '                    formatBytes(complete, 1, PMA_messages.strDecimalSeparator), ';
     $html .= '                    formatBytes(total, 1, PMA_messages.strDecimalSeparator) ';
     $html .= '                ); ';
@@ -517,7 +517,7 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
     $html .= '                    var used_time = now - import_start; ';
     $html .= '                    var seconds = '
         . 'parseInt(((total - complete) / complete) * used_time / 1000); ';
-    $html .= '                    var speed = $.sprintf("' . $second_str . '"';
+    $html .= '                    var speed = PMA_sprintf("' . $second_str . '"';
     $html .= '                       , formatBytes(complete / used_time * 1000, 1,'
         . ' PMA_messages.strDecimalSeparator)); ';
 

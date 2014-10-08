@@ -34,9 +34,7 @@ function PMA_getHtmlForChangePassword($username, $hostname)
     $html = '<form method="post" id="change_password_form" '
         . 'action="' . basename($GLOBALS['PMA_PHP_SELF']) . '" '
         . 'name="chgPassword" '
-        . 'class="ajax'
-        . ($is_privileges ? ' submenu-item' : '')
-        . '">';
+        . 'class="' . ($is_privileges ? 'submenu-item' : '') . '">';
 
     $html .= PMA_URL_getHiddenInputs();
 
@@ -107,7 +105,8 @@ function PMA_getHtmlForChangePassword($username, $hostname)
     $html .=  '</table>'
         . '</fieldset>'
         . '<fieldset id="fieldset_change_password_footer" class="tblFooters">'
-        . '<input type="submit" name="change_pw" value="' . __('Go') . '" />'
+        . '<input type="hidden" name="change_pw" value="1" />'
+        . '<input type="submit" value="' . __('Go') . '" />'
         . '</fieldset>'
         . '</form>';
     return $html;

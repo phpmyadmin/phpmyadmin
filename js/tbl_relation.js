@@ -86,7 +86,7 @@ function getDropdownValues($dropdown) {
         datatype: 'json',
         success: function (data) {
             PMA_ajaxRemoveMessage($msgbox);
-            if (data.success) {
+            if (typeof data !== 'undefined' && data.success) {
                 // if the changed dropdown is a database selector
                 if (foreignTable === null) {
                     // set values for table and column dropdowns
@@ -208,7 +208,7 @@ AJAX.registerOnload('tbl_relation.js', function () {
                 .val()
         );
 
-        var question = $.sprintf(PMA_messages.strDoYouReally, drop_query);
+        var question = PMA_sprintf(PMA_messages.strDoYouReally, drop_query);
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingForeignKey, false);

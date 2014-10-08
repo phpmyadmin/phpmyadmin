@@ -350,9 +350,9 @@ function Re_load()
                         row_offset_top = document.getElementById(key2 + "." + key3).offsetTop;
                     }
 
-                    var y1 = document.getElementById(key2).offsetTop
-                         + row_offset_top
-                         + height_field;
+                    var y1 = document.getElementById(key2).offsetTop +
+                        row_offset_top +
+                        height_field;
                     //alert(1);
 
                     row_offset_top = 0;
@@ -363,9 +363,9 @@ function Re_load()
                     }
 
                     var y2 =
-                          document.getElementById(contr[K][key][key2][key3][0]).offsetTop
-                        + row_offset_top
-                        + height_field;
+                        document.getElementById(contr[K][key][key2][key3][0]).offsetTop +
+                        row_offset_top +
+                        height_field;
 
                     //alert(y1 + ' - ' + key2 + "." + key3);
                     Line0(
@@ -661,8 +661,8 @@ function Save3(callback)
             .append('<input type="hidden" name="token" value="' + token + '" />')
             .append('<input type="hidden" name="operation" value="savePage" />')
             .append('<input type="hidden" name="save_page" value="new" />')
-            .append('<label for="selected_value">' + PMA_messages.strPageName
-                + '</label>:<input type="text" name="selected_value" />');
+            .append('<label for="selected_value">' + PMA_messages.strPageName +
+                '</label>:<input type="text" name="selected_value" />');
         $('<div id="page_save_dialog"></div>')
             .append($form)
             .dialog({
@@ -1587,7 +1587,7 @@ function Click_option(id_this, column_name, table_name)
     // var top = Glob_Y - document.getElementById(id_this).offsetHeight - 10;
     document.getElementById(id_this).style.top  = (screen.height / 4) + 'px';
     document.getElementById(id_this).style.display = 'block';
-    document.getElementById('option_col_name').innerHTML = '<strong>' + $.sprintf(PMA_messages.strAddOption, column_name) + '</strong>';
+    document.getElementById('option_col_name').innerHTML = '<strong>' + PMA_sprintf(PMA_messages.strAddOption, column_name) + '</strong>';
     col_name = column_name;
     tab_name = table_name;
 }
@@ -1747,7 +1747,7 @@ function add_object()
         document.getElementById('orderby').checked = false;
         //make orderby
     }
-    PMA_ajaxShowMessage($.sprintf(PMA_messages.strObjectsCreated, sum));
+    PMA_ajaxShowMessage(PMA_sprintf(PMA_messages.strObjectsCreated, sum));
     //output sum new objects created
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(init, history_array.length);

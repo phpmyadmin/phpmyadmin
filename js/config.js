@@ -261,7 +261,7 @@ var validators = {
         if (isNaN(val)) {
             return true;
         }
-        return val <= max_value ? true : $.sprintf(PMA_messages.error_value_lte, max_value);
+        return val <= max_value ? true : PMA_sprintf(PMA_messages.error_value_lte, max_value);
     },
     // field validators
     _field: {
@@ -734,7 +734,7 @@ function savePrefsToLocalStorage(form)
             submit_get_json: true
         },
         success: function (data) {
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 window.localStorage.config = data.prefs;
                 window.localStorage.config_mtime = data.mtime;
                 window.localStorage.config_mtime_local = (new Date()).toUTCString();
