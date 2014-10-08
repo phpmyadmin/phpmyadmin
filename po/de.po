@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-02 11:40+0200\n"
-"PO-Revision-Date: 2014-10-07 11:37+0200\n"
+"PO-Revision-Date: 2014-10-08 14:26+0200\n"
 "Last-Translator: Michael Koch <michael.koch@enough.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
@@ -254,15 +254,15 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Datenbank %1$s wurde nach %2$s kopiert."
 
 #: db_operations.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier"
-"%s um herauszufinden warum."
+"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. %sFinden Sie "
+"heraus warum%s."
 
 #: db_printview.php:48 db_tracking.php:83 db_tracking.php:207
 #: libraries/Menu.class.php:246 libraries/config/messages.inc.php:754
@@ -608,10 +608,9 @@ msgid "Failed"
 msgstr "Fehlgeschlagen"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "Vollständige INSERTs"
+msgstr "Unvollständige Parameter"
 
 #: import.php:166
 #, php-format
@@ -902,7 +901,7 @@ msgstr ""
 "unautorisierte Personen könnten die Konfiguration herunterladen."
 
 #: index.php:521
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -911,8 +910,7 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "Der phpMyAdmin-Konfigurationsspeicher ist nicht vollständig konfiguriert, "
-"einige erweiterte Funktionen wurden deaktiviert. Klicken Sie %shier%s, um "
-"herauszufinden warum."
+"einige erweiterte Funktionen wurden deaktiviert. %sFinden Sie heraus warum%s."
 
 #: index.php:527
 msgid ""
@@ -972,10 +970,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Primary Key/Index wird gelöscht"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Wähle Fremdschlüssel"
+msgstr "Fremdschlüssel entfernt."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -994,21 +991,18 @@ msgstr ""
 "Möchten Sie die wirklich die Suchanfrage \"%s\" unwiderruflich löschen?"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid ""
 #| "You have edited some data and they have not been saved. Are you sure you "
 #| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
-"Sie haben Daten verändert und noch nicht gespeichert. Sind Sie sicher, dass "
-"Sie diese Seite ohne zu speichern verlassen möchten?"
+"Sie haben nicht gespeicherte Änderungen; sind Sie sicher, dass Sie diese "
+"Seite verlassen möchten?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr ""
-"Möchten Sie die wirklich die Suchanfrage \"%s\" unwiderruflich löschen?"
+msgstr "Möchten Sie die wirklich die ausgewählten Benutzer löschen?"
 
 #: js/messages.php:51
 msgid "Save & Close"
@@ -1054,16 +1048,14 @@ msgid "Add %s column(s) to index"
 msgstr "%s Spalte(n) zum Index hinzufügen"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Erzeuge Prozedur"
+msgstr "Erzeuge einspaltigen Index"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Erzeuge Prozedur"
+msgstr "Erzeuge zusammengesetzten Index"
 
 #: js/messages.php:65
 #| msgid "Columns enclosed with:"
@@ -1071,10 +1063,9 @@ msgid "Composite with:"
 msgstr "Zusammenfügen mit:"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "%s Spalte(n) zum Index hinzufügen"
+msgstr "Bitte wählen Sie %s Spalte(n) für den Index."
 
 #: js/messages.php:69 libraries/insert_edit.lib.php:1595
 #: libraries/tbl_columns_definition_form.lib.php:142
@@ -1907,10 +1898,9 @@ msgstr ""
 #: js/messages.php:314 libraries/normalization.lib.php:420
 #: libraries/normalization.lib.php:467 libraries/normalization.lib.php:550
 #: libraries/normalization.lib.php:610
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "Zeilen-Ende"
+msgstr "Schritt-Ende"
 
 #: js/messages.php:315
 msgid "Second step of normalization (2NF)"
@@ -1936,10 +1926,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Es wurden keine Datenbanken ausgewählt."
+msgstr "Es wurden keine teilweisen Abhängigkeiten ausgewählt!"
 
 #: js/messages.php:322
 msgid "Show me the possible partial dependencies based on data in the table"
@@ -1960,10 +1949,9 @@ msgid "Step"
 msgstr "Schritt"
 
 #: js/messages.php:326
-#, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
-msgstr "Die folgenden Abfragen wurden ausgeführt:"
+msgstr "Die folgenden Aktionen werden ausgeführt:"
 
 #: js/messages.php:327
 #, php-format
@@ -1971,10 +1959,9 @@ msgid "DROP columns %s from the table %s"
 msgstr ""
 
 #: js/messages.php:328
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following table"
-msgstr "Rechte zu folgender Tabelle hinzufügen:"
+msgstr "Folgende Tabelle erzeugen"
 
 #: js/messages.php:331
 msgid "Third step of normalization (3NF)"
@@ -1989,10 +1976,9 @@ msgid "Selected dependencies are as follows:"
 msgstr ""
 
 #: js/messages.php:334
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Es wurden keine Datenbanken ausgewählt."
+msgstr "Es wurden keine Anhängigkeiten ausgewählt!"
 
 #: js/messages.php:337 libraries/insert_edit.lib.php:1506
 #: libraries/server_variables.lib.php:157
@@ -2011,10 +1997,9 @@ msgid "Show search criteria"
 msgstr "Suchkriterien anzeigen"
 
 #: js/messages.php:342
-#, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
-msgstr "Tabellensuche"
+msgstr "Bereichssuche"
 
 #: js/messages.php:343
 #, fuzzy
@@ -2175,10 +2160,9 @@ msgid "Save page"
 msgstr "Seite speichern"
 
 #: js/messages.php:402 libraries/db_designer.lib.php:272
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "Unbenutzte Seiten"
+msgstr "Öffne Seite"
 
 #: js/messages.php:403
 #| msgid "Select page"
@@ -2382,16 +2366,14 @@ msgstr "Zeige versteckte Navigationselemente."
 
 #: js/messages.php:468 libraries/config/messages.inc.php:421
 #: libraries/navigation/NavigationTree.class.php:1154
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Hauptpanel anpassen"
+msgstr "Mit Hauptpanel verknüpfen"
 
 #: js/messages.php:469 libraries/navigation/NavigationTree.class.php:1157
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Hauptpanel anpassen"
+msgstr "Verknüpfung mit Hauptpanel aufheben"
 
 #: js/messages.php:472
 msgid "The requested page was not found in the history, it may have expired."
@@ -2837,10 +2819,9 @@ msgid "Expand"
 msgstr "Aufklappen"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:172
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "Unterabfrage"
+msgstr "Erneut abfragen"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:363
 #: libraries/DisplayResults.class.php:3489
@@ -2854,12 +2835,12 @@ msgid "Delete"
 msgstr "Löschen"
 
 #: libraries/Console.class.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "New bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Neues Lesezeichen"
-msgstr[1] "Neues Lesezeichen"
+msgstr[0] "Insgesamt %d Lesezeichen"
+msgstr[1] "Insgesamt %d Lesezeichen"
 
 #: libraries/Console.class.php:114
 msgid "private"
@@ -2871,10 +2852,10 @@ msgstr "freigegeben"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:122
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "SQL-Abfrage wurde gelöscht."
+msgstr "%1$s, %2$s und %3$s Lesezeichen enthalten"
 
 #: libraries/Console.class.php:128
 #| msgid "New bookmark"
@@ -2902,16 +2883,14 @@ msgid "Query failed"
 msgstr "Abfrage fehlgeschlagen"
 
 #: libraries/Console.class.php:179
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Ausführungszeit der Abfrage"
+msgstr "Abfragezeit"
 
 #: libraries/Console.class.php:185
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "SQL-Querybox"
+msgstr "SQL-Abfragekonsole"
 
 #: libraries/Console.class.php:186
 msgid "Console"
@@ -4818,26 +4797,23 @@ msgid "Extra"
 msgstr "Extra"
 
 #: libraries/central_columns.lib.php:660
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Tabellenauswahl"
+msgstr "Eine Tabelle auswählen"
 
 #: libraries/central_columns.lib.php:714 libraries/structure.lib.php:1673
 msgid "Add column"
 msgstr "Spalte hinzufügen"
 
 #: libraries/central_columns.lib.php:726
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Zwei Spalten auswählen"
+msgstr "Eine Spalte auswählen."
 
 #: libraries/central_columns.lib.php:810 libraries/central_columns.lib.php:920
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "Autoerweiterungs-Schrittgröße"
+msgstr ""
 
 #: libraries/central_columns.lib.php:812 libraries/central_columns.lib.php:922
 msgid "on update CURRENT_TIMESTAMP"
@@ -5765,10 +5741,9 @@ msgid "Add %s"
 msgstr "%s hinzufügen"
 
 #: libraries/config/messages.inc.php:174
-#, fuzzy
 #| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "Benutze hexadecimal für BLOB"
+msgstr "Benutze hexadecimal für BINARY und BLOB"
 
 #: libraries/config/messages.inc.php:176
 msgid "Use ignore inserts"
