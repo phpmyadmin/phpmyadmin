@@ -1616,14 +1616,18 @@ class PMA_Table
                     //get the available column name without backquoting
                     $avail_columns = $this->getColumns(false);
 
-                foreach ($avail_columns as $each_col) {
-                    // check if $each_col ends with $colname
-                    if (substr_compare(
-                        $each_col,
-                        $colname,
-                        /*overload*/mb_strlen($each_col) - /*overload*/mb_strlen($colname)
-                    ) === 0) {
-                        return $this->uiprefs[$property];
+                    foreach ($avail_columns as $each_col) {
+                        // check if $each_col ends with $colname
+                        if (substr_compare(
+                                $each_col,
+                                $colname,
+                                /*overload*/
+                                mb_strlen($each_col) - /*overload*/
+                                mb_strlen($colname)
+                            ) === 0
+                        ) {
+                            return $this->uiprefs[$property];
+                        }
                     }
                 }
                 // remove the property, since it no longer exists in database
