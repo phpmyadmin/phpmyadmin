@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-10-05 19:43+0200\n"
+"PO-Revision-Date: 2014-10-08 20:14+0200\n"
 "Last-Translator: josep constanti <jconstanti@ovi.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-2/ca/>\n"
@@ -312,7 +312,7 @@ msgstr "Accés denegat!"
 
 #: db_structure.php:72
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "La llista de preferits és plena!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -620,6 +620,8 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"L'arxiu carregat no es pot moure,donat que el servidor ha activat "
+"«open_basedir» treient l'accés al directori %s (pels arxius temporals)."
 
 #: import.php:412 import.php:473 libraries/File.class.php:433
 #: libraries/File.class.php:527
@@ -964,6 +966,8 @@ msgid ""
 "Are you sure you want to navigate away from this page? Press OK to continue "
 "or Cancel to stay on the current page."
 msgstr ""
+"Esteu segurs que voleu deixar aquesta pàgina? Premeu «OK» per continuar o "
+"«Cancel·lar» per romandre a la pàgina actual."
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
@@ -1524,7 +1528,7 @@ msgstr "Tria l'arxiu a importar."
 
 #: js/messages.php:206
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "No hi ha arxius disponibles al servidor per importar!"
 
 #: js/messages.php:208
 msgid "Analyse Query"
@@ -1819,6 +1823,8 @@ msgstr "Cercle exterior"
 #: js/messages.php:321
 msgid "Shift + Click on function name to apply to all rows."
 msgstr ""
+"Premeu Majúscules mentre cliqueu sobre el nom de la funció per aplicar-la a "
+"totes les files."
 
 #: js/messages.php:323
 #| msgid "Do you want to import remaining settings?"
@@ -1827,7 +1833,7 @@ msgstr "Vols copiar la clau de xifratge?"
 
 #: js/messages.php:324
 msgid "Encryption key"
-msgstr ""
+msgstr "Clau d'encriptació"
 
 #: js/messages.php:327
 msgid "Select referenced key"
@@ -1886,13 +1892,16 @@ msgstr "Arrossega per reordenar."
 
 #: js/messages.php:344
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Cliqueu per ordenar els resultats segons aquest columna."
 
 #: js/messages.php:345
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
+"Premeu Majúscules mentre cliqueu per afegir aquesta columna a la clàusula «"
+"ORDER BY» o per canviar l'ordre ascendent o descendent. <br />- Premeu "
+"Control mentre cliqueu per treure aquesta columna de la clàusula «ORDER BY»"
 
 #: js/messages.php:346
 #| msgid "Click to mark/unmark"
@@ -2041,6 +2050,8 @@ msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
+"La vostra exportació és incomplerta degut al límit de temps d'execució massa "
+"baix a nivell de PHP!"
 
 #: js/messages.php:408
 #, php-format
@@ -2048,6 +2059,8 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Avís: un formulari d'aquesta pàgina té més de %d camps. En enviar-lo es "
+"poden ignorar alguns camps donada la configuració «max_input_vars» de PHP."
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -2445,7 +2458,7 @@ msgstr "O:"
 
 #: libraries/DBQbe.class.php:720 libraries/DBQbe.class.php:810
 msgid "And:"
-msgstr ""
+msgstr "I:"
 
 #: libraries/DBQbe.class.php:724
 msgid "Ins"
@@ -2461,11 +2474,11 @@ msgstr "Modificar:"
 
 #: libraries/DBQbe.class.php:805
 msgid "Ins:"
-msgstr ""
+msgstr "Afegir:"
 
 #: libraries/DBQbe.class.php:820
 msgid "Del:"
-msgstr ""
+msgstr "Esborrar:"
 
 #: libraries/DBQbe.class.php:1430
 #, php-format
@@ -2786,7 +2799,7 @@ msgstr "Mostrant registres %1s - %2s"
 #: libraries/DisplayResults.class.php:5065
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d en total, %2$d a la consulta"
 
 #: libraries/DisplayResults.class.php:5070
 #, php-format
