@@ -21,6 +21,20 @@ require_once 'libraries/plugins/ImportPlugin.class.php';
  */
 class ImportSql extends ImportPlugin
 {
+    const BIG_VALUE = 2147483647;
+
+    private $_delimiter;
+
+    private $_isInString = false;
+
+    private $_quote = null;
+
+    private $_isInComment = false;
+
+    private $_openingComment = null;
+
+    private $_delimiter_keyword = 'DELIMITER ';
+
     /**
      * Constructor
      */
@@ -101,6 +115,104 @@ class ImportSql extends ImportPlugin
     }
 
     /**
+     * Return the position of first SQL delimiter or false if no SQL delimiter found.
+     *
+     * @param string $data current data to parse
+     *
+     * @return bool|int
+     */
+    private function _findDelimiter($data) {
+        $lengthData = mb_strlen($data);
+        $posInData = 0;
+        /* while not at end of line */
+        $d = 0;
+        while ($posInData <= $lengthData && $d++ < 20) {
+            if ($this->_isInString) {
+                //Search for closing quote
+                $posClosingString = mb_strpos($data, $this->_quote, $posInData);
+                if (false === $posClosingString) {
+                    return false;
+                }
+                $posInData = $posClosingString + 1;
+                $this->_isInString = false;
+                $this->_quote = false;
+                continue;
+            }
+
+            //Still in comment after new line ?
+            //That means that the comment format used is /* */
+            if ($this->_isInComment) {
+                if (in_array($this->_openingComment, array('#', '--'))) {
+                    //@todo Search for the end of the line.
+                    $posClosingComment = mb_strpos($data, "\n", $posInData);
+                    //Move after the end of the line.
+                    $posInData = $posClosingComment + 1;
+                } elseif ('/*' === $this->_openingComment) {
+                    //Search for closing comment
+                    $posClosingComment = mb_strpos($data, '*/', $posInData);
+                    if (false === $posClosingComment) {
+                        return false;
+                    }
+                    //Move after closing comment.
+                    $posInData = $posClosingComment + 2;
+                } else {
+                    die('WHAT ?');
+                }
+                continue;
+            }
+
+            $bFind = preg_match(
+                '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])'
+                . $this->_delimiter_keyword . ')/',
+                mb_substr($data, $posInData),
+                $matches,
+                PREG_OFFSET_CAPTURE
+            );
+
+            if (1 === $bFind) {
+                $firstSearchChar = $matches[1][1] + $posInData;
+            } else {
+                $firstSearchChar = self::BIG_VALUE;
+            }
+
+            // the cost of doing this one with preg_match() would be too high
+            $firstSqlDelimiter = /*overload*/
+                mb_strpos(
+                    $data,
+                    $this->_delimiter,
+                    $posInData
+                );
+            if ($firstSqlDelimiter === false) {
+                $firstSqlDelimiter = self::BIG_VALUE;
+            }
+
+            //If first is delimiter.
+            if ($firstSqlDelimiter < $firstSearchChar) {
+                return $firstSqlDelimiter;
+            }
+
+            //Else first is result of preg_match.
+
+            //If string is opened.
+            if (in_array($matches[1][0], array('\'', '"', '`'))) {
+                $this->_isInString = true;
+                $this->_quote = $matches[1][0];
+                //Move after quote.
+                $posInData = $firstSearchChar + 1;
+            }
+
+            //If comment is opened.
+            if (in_array($matches[1][0], array('#', '--', '/*'))) {
+                $this->_isInComment = true;
+                $this->_openingComment = $matches[1][0];
+                //Move after quote.
+                $posInData = $firstSearchChar + mb_strlen($matches[1][0]);
+            }
+        }
+        return false;
+    }
+
+    /**
      * Handles the whole import logic
      *
      * @param array &$sql_data 2-element array with sql data
@@ -117,15 +229,13 @@ class ImportSql extends ImportPlugin
         $start_pos = 0;
         $posInQueryString = 0;
         $len= 0;
-        $big_value = 2147483647;
         // include the space because it's mandatory
-        $delimiter_keyword = 'DELIMITER ';
-        $length_of_delimiter_keyword = /*overload*/mb_strlen($delimiter_keyword);
+        $length_of_delimiter_keyword = /*overload*/mb_strlen($this->_delimiter_keyword);
 
         if (isset($_POST['sql_delimiter'])) {
-            $sql_delimiter = $_POST['sql_delimiter'];
+            $this->_delimiter = $_POST['sql_delimiter'];
         } else {
-            $sql_delimiter = ';';
+            $this->_delimiter = ';';
         }
 
         // Handle compatibility options
@@ -151,6 +261,48 @@ class ImportSql extends ImportPlugin
          * @global boolean $GLOBALS['finished']
          */
         $GLOBALS['finished'] = false;
+        $positionDelimiter = false;
+        $data = null;
+
+        $c = 0;
+
+        while (!$GLOBALS['finished'] && !$timeout_passed && $c++ < 20) {
+            if (false === $positionDelimiter) {
+                $data = PMA_importGetNextChunk();
+                if ($data === false) {
+                    // subtract data we didn't handle yet and stop processing
+                    $GLOBALS['offset'] -= /*overload*/mb_strlen($buffer);
+                    break;
+                }
+
+                if ($data === true) {
+                    $GLOBALS['finished'] = true;
+                    break;
+                }
+
+                // Convert CR (but not CRLF) to LF otherwise all queries
+                // may not get executed on some platforms
+                $data = preg_replace("/\r($|[^\n])/", "\n$1", $data);
+            }
+
+            //Find quotes, comments, DELIMITER or delimiter.
+            $positionDelimiter = $this->_findDelimiter($data);
+
+            //No delimiter found.
+            if (false === $positionDelimiter) {
+                continue;
+            }
+
+            $buffer .= /*overload*/mb_substr($data, 0, $positionDelimiter + 1);
+
+            $data = /*overload*/mb_substr($data, $positionDelimiter + 1);
+            echo 'Execute: ' . $buffer . PHP_EOL;
+            $buffer = '';
+            die();
+        }
+        die('fin');
+
+        return;
 
         while (! ($GLOBALS['finished'] && $posInQueryString >= $len)
             && ! $error
