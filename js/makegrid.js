@@ -1035,6 +1035,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         e.stopPropagation();
                     });
 
+                    g.isEditCellTextEditable = true;
                 } else {
                     g.isEditCellTextEditable = true;
                     // only append edit area hint if there is a null checkbox
