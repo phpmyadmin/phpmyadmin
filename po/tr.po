@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-10-02 18:54+0200\n"
+"PO-Revision-Date: 2014-10-08 21:26+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-2/tr/>\n"
@@ -688,7 +688,7 @@ msgstr "Geri"
 
 #: index.php:127 libraries/Footer.class.php:70
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin Gösterim Sunucusu"
+msgstr "phpMyAdmin Tanıtım Sunucusu"
 
 #: index.php:131
 #, php-format
@@ -697,7 +697,7 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
-"Gösterim sunucusunu kullanıyorsunuz. Burada istediğiniz herşeyi "
+"Tanıtım sunucusunu kullanıyorsunuz. Burada istediğiniz herşeyi "
 "yapabilirsiniz ancak lütfen root, debian-sys-maint ve pma kullanıcılarını "
 "değiştirmeyin. Daha fazla bilgi %s adresinde mevcuttur."
 
