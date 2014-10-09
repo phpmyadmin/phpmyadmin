@@ -62,6 +62,9 @@ phpMyAdmin - ChangeLog
 - bug #3120 Events are not exported when using xml
 - bug #4554 Grid-editing timestamp column forces datepicker
 
+4.2.9.1 (2014-10-01)
+- bug #4544 [security] XSS vulnerabilities in table search and table structure pages
+
 4.2.9.0 (2014-09-20)
 - bug       ajax.js responseHandler: cannot read property of null
 - bug       sql.js: str is undefined
