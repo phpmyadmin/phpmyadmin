@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-10-09 02:20+0200\n"
+"PO-Revision-Date: 2014-10-09 09:45+0200\n"
 "Last-Translator: Michael Koch <michael.koch@enough.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-2/de/>\n"
@@ -6336,13 +6336,11 @@ msgid "Maximal number of table preferences to store"
 msgstr "Maximale Anzahl der zu speichernden Tabelleneinstellungen"
 
 #: libraries/config/messages.inc.php:613
-#, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
-msgstr "Die Slave Statustabelle sehen"
+msgstr "Beispielabfragentabelle"
 
 #: libraries/config/messages.inc.php:615
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]"
@@ -6350,8 +6348,8 @@ msgid ""
 "Leave blank for no QBE saved searches support, suggested: [kbd]"
 "pma__savedsearches[/kbd]."
 msgstr ""
-"Leer lassen für keine PDF-Schema-Unterstützung, Vorschlag: [kbd]"
-"pma__pdf_pages[/kbd]"
+"Leer lassen um keine Beispielabfragen nutzen zu können, Vorschlag: "
+"[kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:619
 #| msgid "Try to connect without password"
@@ -6634,6 +6632,9 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Sowohl diese Tabelle als auch die Nutzergruppentabelle sind nötig um "
+"konfigurierbare Menüs zu nutzen; wenn eines von beiden leer gelassen wird "
+"wird dieses Feature deaktiviert, Vorschlag: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:710
 msgid "Users table"
@@ -6645,13 +6646,15 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Sowohl diese Tabelle als auch die Nutzergruppentabelle sind nötig um "
+"konfigurierbare Menüs zu nutzen; wenn eines von beiden leer gelassen wird "
+"wird dieses Feature deaktiviert, Vorschlag: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:712
 msgid "User groups table"
 msgstr "Benutzergruppen-Tabelle"
 
 #: libraries/config/messages.inc.php:713
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
@@ -6659,8 +6662,8 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
-"Leer lassen, um die Benutzereinstellungen nicht in der Datenbank zu "
-"speichern, Vorschlag: [kbd]pma__userconfig[/kbd]"
+"Leer lassen, um die Navigation anzuzeigen oder zu verstecken, Vorschlag: "
+"[kbd]pma__userconfig[/kbd]."
 
 #: libraries/config/messages.inc.php:714
 msgid "Hidden navigation items table"
@@ -9114,10 +9117,9 @@ msgid "Constraints for table"
 msgstr "Constraints der Tabelle"
 
 #: libraries/plugins/export/ExportSql.class.php:1279
-#, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
-msgstr "Constraints der exportierten Tabellen"
+msgstr "Indizes der exportierten Tabellen"
 
 #: libraries/plugins/export/ExportSql.class.php:1289
 #| msgid "Inside tables:"
@@ -9125,10 +9127,9 @@ msgid "Indexes for table"
 msgstr "Indizes für die Tabelle"
 
 #: libraries/plugins/export/ExportSql.class.php:1315
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "AUTO_INCREMENT nicht für Nullwerte verwenden"
+msgstr "AUTO_INCREMENT für exportierte Tabellen"
 
 #: libraries/plugins/export/ExportSql.class.php:1325
 #| msgid "Add AUTO_INCREMENT value"
@@ -9533,7 +9534,7 @@ msgstr "Navigations-Elemente aus-/einblenden"
 
 #: libraries/relation.lib.php:291
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "Suchen als Beispielabfragen speichern"
 
 #: libraries/relation.lib.php:297
 msgid "Quick steps to setup advanced features:"
@@ -12726,7 +12727,7 @@ msgstr "Zeitleiste"
 #: libraries/tbl_chart.lib.php:64
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "Punkte"
 
 #: libraries/tbl_chart.lib.php:82
 msgid "Stacked"
@@ -13719,10 +13720,10 @@ msgid "Description"
 msgstr "Beschreibung"
 
 #: url.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking report"
 msgid "Taking you to %s."
-msgstr "Verfolgungs-Bericht"
+msgstr "Führt sie zu %s."
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
