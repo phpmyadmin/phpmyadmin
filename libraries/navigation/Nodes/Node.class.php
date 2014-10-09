@@ -394,15 +394,27 @@ class Node
      */
     public function getPresence($type = '', $searchClause = '')
     {
-        $query = "select COUNT(*) ";
-        $query .= "from ( ";
-        $query .= "SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
-        $query .= "'{$GLOBALS['cfg']['NavigationTreeDbSeparator']}', 1) ";
-        $query .= "DB_first_level ";
-        $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
-        $query .= $this->_getWhereClause($searchClause);
-        $query .= ") t ";
-        $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+        if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            $query = "select COUNT(*) ";
+            $query .= "from ( ";
+            $query .= "SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
+            $query .= "'{$GLOBALS['cfg']['NavigationTreeDbSeparator']}', 1) ";
+            $query .= "DB_first_level ";
+            $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
+            $query .= $this->_getWhereClause($searchClause);
+            $query .= ") t ";
+            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+        } else {
+            $query = "SHOW DATABASES ";
+            if (! empty($searchClause)) {
+                $query .= "LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%' ";
+            }
+            $retval = $GLOBALS['dbi']->numRows($GLOBALS['dbi']->tryQuery($query));
+        }
         return $retval;
     }
 

@@ -377,12 +377,12 @@ class Node_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests the getPresence method
+     * Tests the getPresence method when DisableIS is false
      *
      * @return void
      * @test
      */
-    public function testGetPresence()
+    public function testGetPresenceWithEnabledIS()
     {
         if (! isset($GLOBALS['cfg'])) {
             $GLOBALS['cfg'] = array();
@@ -393,6 +393,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         if (! isset($GLOBALS['cfg']['Servers'][0])) {
             $GLOBALS['cfg']['Servers'][0] = array();
         }
+        $GLOBALS['cfg']['Servers'][0]['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
 
         $query = "select COUNT(*) ";
@@ -415,6 +416,48 @@ class Node_Test extends PHPUnit_Framework_TestCase
             ->with($query);
         $GLOBALS['dbi'] = $dbi;
         $node->getPresence();
+    }
+
+    /**
+     * Tests the getPresence method when DisableIS is true
+     *
+     * @return void
+     * @test
+     */
+    public function testGetPresenceWithDisabledIS()
+    {
+        if (! isset($GLOBALS['cfg'])) {
+            $GLOBALS['cfg'] = array();
+        }
+        if (! isset($GLOBALS['cfg']['Servers'])) {
+            $GLOBALS['cfg']['Servers'] = array();
+        }
+        if (! isset($GLOBALS['cfg']['Servers'][0])) {
+            $GLOBALS['cfg']['Servers'][0] = array();
+        }
+        $GLOBALS['cfg']['Servers'][0]['DisableIS'] = true;
+
+        $node = PMA_NodeFactory::getInstance();
+
+        // test with no search clause
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->once())
+            ->method('tryQuery')
+            ->with("SHOW DATABASES ");
+        $GLOBALS['dbi'] = $dbi;
+        $node->getPresence();
+
+        // test with a search clause
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->once())
+            ->method('tryQuery')
+            ->with("SHOW DATABASES LIKE '%dbname%' ");
+        $GLOBALS['dbi'] = $dbi;
+        $node->getPresence('', 'dbname');
     }
 }
 ?>
