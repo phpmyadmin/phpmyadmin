@@ -51,6 +51,7 @@ class PMA_NavigationTreeTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'root';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $GLOBALS['pmaThemeImage'] = 'image';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
