@@ -1453,19 +1453,20 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getUserEditLink
+     * Test for PMA_getUserLink
      *
      * @return void
      */
-    public function testPMAGetUserEditLink()
+    public function testPMAGetUserLink()
     {
         $username = "pma_username";
         $hostname = "pma_hostname";
         $dbname = "pma_dbname";
         $tablename = "pma_tablename";
 
-        //PMA_getUserEditLink
-        $html = PMA_getUserEditLink($username, $hostname, $dbname, $tablename);
+        $html = PMA_getUserLink(
+            'edit', $username, $hostname, $dbname, $tablename
+        );
 
         $url_html = PMA_URL_getCommon(
             array(
@@ -1484,8 +1485,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //PMA_getUserRevokeLink
-        $html = PMA_getUserRevokeLink($username, $hostname, $dbname, $tablename);
+        $html = PMA_getUserLink(
+            'revoke', $username, $hostname, $dbname, $tablename
+        );
 
         $url_html = PMA_URL_getCommon(
             array(
@@ -1505,8 +1507,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //PMA_getUserExportLink
-        $html = PMA_getUserExportLink($username, $hostname);
+        $html = PMA_getUserLink('export', $username, $hostname);
 
         $url_html = PMA_URL_getCommon(
             array(
