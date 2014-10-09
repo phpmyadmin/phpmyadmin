@@ -471,79 +471,268 @@ class PMA_DatabaseInterface
             $databases = $database;
         }
 
-        $sql_where_table = $this->_getTableCondition(
-            $table, $tbl_is_group, $table_type
-        );
+        $tables = array();
 
-        // for PMA bc:
-        // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
-        //
-        // on non-Windows servers,
-        // added BINARY in the WHERE clause to force a case sensitive
-        // comparison (if we are looking for the db Aa we don't want
-        // to find the db aa)
-        $this_databases = array_map('PMA_Util::sqlAddSlashes', $databases);
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            $sql_where_table = $this->_getTableCondition(
+                $table, $tbl_is_group, $table_type
+            );
 
-        $sql = $this->_getSqlForTablesFull($this_databases, $sql_where_table);
+            // for PMA bc:
+            // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
+            //
+            // on non-Windows servers,
+            // added BINARY in the WHERE clause to force a case sensitive
+            // comparison (if we are looking for the db Aa we don't want
+            // to find the db aa)
+            $this_databases = array_map('PMA_Util::sqlAddSlashes', $databases);
 
-        // Sort the tables
-        $sql .= " ORDER BY $sort_by $sort_order";
+            $sql = $this->_getSqlForTablesFull($this_databases, $sql_where_table);
 
-        if ($limit_count) {
-            $sql .= ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
-        }
+            // Sort the tables
+            $sql .= " ORDER BY $sort_by $sort_order";
 
-        $tables = $this->fetchResult(
-            $sql, array('TABLE_SCHEMA', 'TABLE_NAME'), null, $link
-        );
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
-        if (PMA_DRIZZLE) {
-            // correct I_S and D_D names returned by D_D.TABLES -
-            // Drizzle generally uses lower case for them,
-            // but TABLES returns uppercase
-            foreach ((array)$database as $db) {
-                $db_upper = $pmaString->strtoupper($db);
-                if (!isset($tables[$db]) && isset($tables[$db_upper])) {
-                    $tables[$db] = $tables[$db_upper];
-                    unset($tables[$db_upper]);
-                }
+            if ($limit_count) {
+                $sql .= ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
             }
-        }
 
-        if ($sort_by == 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
-            // here, the array's first key is by schema name
-            foreach ($tables as $one_database_name => $one_database_tables) {
-                uksort($one_database_tables, 'strnatcasecmp');
+            $tables = $this->fetchResult(
+                $sql, array('TABLE_SCHEMA', 'TABLE_NAME'), null, $link
+            );
 
-                if ($sort_order == 'DESC') {
-                    $one_database_tables = array_reverse($one_database_tables);
-                }
-                $tables[$one_database_name] = $one_database_tables;
-            }
-        } else if ($sort_by == 'Data_length') { // Size = Data_length + Index_length
-            foreach ($tables as $one_database_name => $one_database_tables) {
-                uasort(
-                    $one_database_tables,
-                    function ($a, $b) {
-                        $aLength = $a['Data_length'] + $a['Index_length'];
-                        $bLength = $b['Data_length'] + $b['Index_length'];
-                        return ($aLength == $bLength)
-                            ? 0
-                            : ($aLength < $bLength) ? -1 : 1;
+            /** @var PMA_String $pmaString */
+            $pmaString = $GLOBALS['PMA_String'];
+
+            if (PMA_DRIZZLE) {
+                // correct I_S and D_D names returned by D_D.TABLES -
+                // Drizzle generally uses lower case for them,
+                // but TABLES returns uppercase
+                foreach ((array)$database as $db) {
+                    $db_upper = $pmaString->strtoupper($db);
+                    if (!isset($tables[$db]) && isset($tables[$db_upper])) {
+                        $tables[$db] = $tables[$db_upper];
+                        unset($tables[$db_upper]);
                     }
-                );
-
-                if ($sort_order == 'DESC') {
-                    $one_database_tables = array_reverse($one_database_tables);
                 }
-                $tables[$one_database_name] = $one_database_tables;
+            }
+
+            if ($sort_by == 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
+                // here, the array's first key is by schema name
+                foreach ($tables as $one_database_name => $one_database_tables) {
+                    uksort($one_database_tables, 'strnatcasecmp');
+
+                    if ($sort_order == 'DESC') {
+                        $one_database_tables = array_reverse($one_database_tables);
+                    }
+                    $tables[$one_database_name] = $one_database_tables;
+                }
+            } else if ($sort_by == 'Data_length') { // Size = Data_length + Index_length
+                foreach ($tables as $one_database_name => $one_database_tables) {
+                    uasort(
+                        $one_database_tables,
+                        function ($a, $b) {
+                            $aLength = $a['Data_length'] + $a['Index_length'];
+                            $bLength = $b['Data_length'] + $b['Index_length'];
+                            return ($aLength == $bLength)
+                                ? 0
+                                : ($aLength < $bLength) ? -1 : 1;
+                        }
+                    );
+
+                    if ($sort_order == 'DESC') {
+                        $one_database_tables = array_reverse($one_database_tables);
+                    }
+                    $tables[$one_database_name] = $one_database_tables;
+                }
+            }
+        } // end (get information from table schema)
+
+        // If permissions are wrong on even one database directory,
+        // information_schema does not return any table info for any database
+        // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
+        if (empty($tables) && !PMA_DRIZZLE) {
+            foreach ($databases as $each_database) {
+                if ($table || (true === $tbl_is_group) || $tble_type) {
+                    $sql = 'SHOW TABLE STATUS FROM '
+                        . PMA_Util::backquote($each_database)
+                        .' WHERE';
+                    $needAnd = false;
+                    if ($table || (true === $tbl_is_group)) {
+                        $sql .= " `Name` LIKE '"
+                            . PMA_Util::escapeMysqlWildcards(
+                                PMA_Util::sqlAddSlashes($table, true)
+                            )
+                            . "%'";
+                        $needAnd = true;
+                    }
+                    if ($tble_type) {
+                        if ($needAnd) {
+                            $sql .= " AND";
+                        }
+                        if ($tble_type == 'view') {
+                            $sql .= " `Comment` = 'VIEW'";
+                        } else if ($tble_type == 'table') {
+                            $sql .= " `Comment` != 'VIEW'";
+                        }
+                    }
+                } else {
+                    $sql = 'SHOW TABLE STATUS FROM '
+                        . PMA_Util::backquote($each_database);
+                }
+
+                $useStatusCache = false;
+
+                if (extension_loaded('apc')
+                    && isset($GLOBALS['cfg']['Server']['StatusCacheDatabases'])
+                    && ! empty($GLOBALS['cfg']['Server']['StatusCacheLifetime'])
+                ) {
+                    $statusCacheDatabases
+                        = (array) $GLOBALS['cfg']['Server']['StatusCacheDatabases'];
+                    if (in_array($each_database, $statusCacheDatabases)) {
+                        $useStatusCache = true;
+                    }
+                }
+
+                $each_tables = null;
+
+                if ($useStatusCache) {
+                    $cacheKey = 'phpMyAdmin_tableStatus_'
+                        . sha1($GLOBALS['cfg']['Server']['host'] . '_' . $sql);
+
+                    $each_tables = apc_fetch($cacheKey);
+                }
+
+                if (! $each_tables) {
+                    $each_tables = $this->fetchResult($sql, 'Name', null, $link);
+                }
+
+                if ($useStatusCache) {
+                    apc_store(
+                        $cacheKey, $each_tables,
+                        $GLOBALS['cfg']['Server']['StatusCacheLifetime']
+                    );
+                }
+
+                // Sort naturally if the config allows it and we're sorting
+                // the Name column.
+                if ($sort_by == 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
+                    uksort($each_tables, 'strnatcasecmp');
+
+                    if ($sort_order == 'DESC') {
+                        $each_tables = array_reverse($each_tables);
+                    }
+                } else {
+                    // Prepare to sort by creating array of the selected sort
+                    // value to pass to array_multisort
+
+                    // Size = Data_length + Index_length
+                    if ($sort_by == 'Data_length') {
+                        foreach ($each_tables as $table_name => $table_data) {
+                            ${$sort_by}[$table_name] = strtolower(
+                                $table_data['Data_length'] + $table_data['Index_length']
+                            );
+                        }
+                    } else {
+                        foreach ($each_tables as $table_name => $table_data) {
+                            ${$sort_by}[$table_name]
+                                = strtolower($table_data[$sort_by]);
+                        }
+                    }
+
+                    if ($sort_order == 'DESC') {
+                        array_multisort($$sort_by, SORT_DESC, $each_tables);
+                    } else {
+                        array_multisort($$sort_by, SORT_ASC, $each_tables);
+                    }
+
+                    // cleanup the temporary sort array
+                    unset($$sort_by);
+                }
+
+                if ($limit_count) {
+                    $each_tables = array_slice(
+                        $each_tables, $limit_offset, $limit_count
+                    );
+                }
+
+                foreach ($each_tables as $table_name => $each_table) {
+                    if (! isset($each_tables[$table_name]['Type'])
+                        && isset($each_tables[$table_name]['Engine'])
+                    ) {
+                        // pma BC, same parts of PMA still uses 'Type'
+                        $each_tables[$table_name]['Type']
+                            =& $each_tables[$table_name]['Engine'];
+                    } elseif (! isset($each_tables[$table_name]['Engine'])
+                        && isset($each_tables[$table_name]['Type'])
+                    ) {
+                        // old MySQL reports Type, newer MySQL reports Engine
+                        $each_tables[$table_name]['Engine']
+                            =& $each_tables[$table_name]['Type'];
+                    }
+
+                    // MySQL forward compatibility
+                    // so pma could use this array as if every server
+                    // is of version >5.0
+                    // todo : remove and check usage in the rest of the code,
+                    // MySQL 5.0 is required by current PMA version
+                    $each_tables[$table_name]['TABLE_SCHEMA']
+                        = $each_database;
+                    $each_tables[$table_name]['TABLE_NAME']
+                        =& $each_tables[$table_name]['Name'];
+                    $each_tables[$table_name]['ENGINE']
+                        =& $each_tables[$table_name]['Engine'];
+                    $each_tables[$table_name]['VERSION']
+                        =& $each_tables[$table_name]['Version'];
+                    $each_tables[$table_name]['ROW_FORMAT']
+                        =& $each_tables[$table_name]['Row_format'];
+                    $each_tables[$table_name]['TABLE_ROWS']
+                        =& $each_tables[$table_name]['Rows'];
+                    $each_tables[$table_name]['AVG_ROW_LENGTH']
+                        =& $each_tables[$table_name]['Avg_row_length'];
+                    $each_tables[$table_name]['DATA_LENGTH']
+                        =& $each_tables[$table_name]['Data_length'];
+                    $each_tables[$table_name]['MAX_DATA_LENGTH']
+                        =& $each_tables[$table_name]['Max_data_length'];
+                    $each_tables[$table_name]['INDEX_LENGTH']
+                        =& $each_tables[$table_name]['Index_length'];
+                    $each_tables[$table_name]['DATA_FREE']
+                        =& $each_tables[$table_name]['Data_free'];
+                    $each_tables[$table_name]['AUTO_INCREMENT']
+                        =& $each_tables[$table_name]['Auto_increment'];
+                    $each_tables[$table_name]['CREATE_TIME']
+                        =& $each_tables[$table_name]['Create_time'];
+                    $each_tables[$table_name]['UPDATE_TIME']
+                        =& $each_tables[$table_name]['Update_time'];
+                    $each_tables[$table_name]['CHECK_TIME']
+                        =& $each_tables[$table_name]['Check_time'];
+                    $each_tables[$table_name]['TABLE_COLLATION']
+                        =& $each_tables[$table_name]['Collation'];
+                    $each_tables[$table_name]['CHECKSUM']
+                        =& $each_tables[$table_name]['Checksum'];
+                    $each_tables[$table_name]['CREATE_OPTIONS']
+                        =& $each_tables[$table_name]['Create_options'];
+                    $each_tables[$table_name]['TABLE_COMMENT']
+                        =& $each_tables[$table_name]['Comment'];
+
+                    if (strtoupper($each_tables[$table_name]['Comment']) === 'VIEW'
+                        && $each_tables[$table_name]['Engine'] == null
+                    ) {
+                        $each_tables[$table_name]['TABLE_TYPE'] = 'VIEW';
+                    } else {
+                        /**
+                         * @todo difference between 'TEMPORARY' and 'BASE TABLE'
+                         * but how to detect?
+                         */
+                        $each_tables[$table_name]['TABLE_TYPE'] = 'BASE TABLE';
+                    }
+                }
+
+                $tables[$each_database] = $each_tables;
             }
         }
-        // end (get information from table schema)
 
+        // cache table data
+        // so PMA_Table does not require to issue SHOW TABLE STATUS again
         $this->_cacheTableData($tables, $table);
 
         if (is_array($database)) {

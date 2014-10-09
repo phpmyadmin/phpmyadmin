@@ -359,6 +359,7 @@ class Node
      */
     public function getData($type, $pos, $searchClause = '')
     {
+        // @todo obey the DisableIS directive
         $query  = "SELECT `SCHEMA_NAME` ";
         $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ";
         $query .= "(";
