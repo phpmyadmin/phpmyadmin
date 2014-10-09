@@ -395,7 +395,7 @@ class Node
      */
     public function getPresence($type = '', $searchClause = '')
     {
-        if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = "select COUNT(*) ";
             $query .= "from ( ";
             $query .= "SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";

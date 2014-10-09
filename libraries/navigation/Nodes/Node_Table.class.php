@@ -77,7 +77,7 @@ class Node_Table extends Node_DatabaseChild
         $table  = $this->real_name;
         switch ($type) {
         case 'columns':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $db     = PMA_Util::sqlAddSlashes($db);
                 $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SELECT COUNT(*) ";
@@ -103,7 +103,7 @@ class Node_Table extends Node_DatabaseChild
             );
             break;
         case 'triggers':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $db     = PMA_Util::sqlAddSlashes($db);
                 $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SELECT COUNT(*) ";
@@ -145,7 +145,7 @@ class Node_Table extends Node_DatabaseChild
         $table    = $this->real_name;
         switch ($type) {
         case 'columns':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $db     = PMA_Util::sqlAddSlashes($db);
                 $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SELECT `COLUMN_NAME` AS `name` ";
@@ -192,7 +192,7 @@ class Node_Table extends Node_DatabaseChild
             }
             break;
         case 'triggers':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $db     = PMA_Util::sqlAddSlashes($db);
                 $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SELECT `TRIGGER_NAME` AS `name` ";
