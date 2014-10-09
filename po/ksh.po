@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-04-22 13:50+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Colognian <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ksh/>\n"
+"PO-Revision-Date: 2014-10-02 15:06+0200\n"
+"Last-Translator: Purodha <publi@web.de>\n"
+"Language-Team: Colognian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-2/ksh/>\n"
 "Language: ksh\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==0 ? 0 : n==1 ? 1 : 2;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -25,6 +25,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"De %s-Dattei es nit op heh dämm Rääschner. Loor op www.phpmyadmin.net - doh "
+"jidd-et nih Enfommazjuhne."
 
 #: db_create.php:61
 #, php-format
