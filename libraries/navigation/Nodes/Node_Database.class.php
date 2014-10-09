@@ -117,7 +117,8 @@ class Node_Database extends Node
             $db     = PMA_Util::sqlAddSlashes($db);
             $query  = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-            $query .= "WHERE `ROUTINE_SCHEMA`='$db'";
+            $query .= "WHERE `ROUTINE_SCHEMA` "
+                . PMA_Util::getCollateForIS() . "='$db'";
             $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
             if (! empty($searchClause)) {
                 if ($singleItem) {
@@ -140,7 +141,8 @@ class Node_Database extends Node
             $db     = PMA_Util::sqlAddSlashes($db);
             $query  = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-            $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
+            $query .= "WHERE `ROUTINE_SCHEMA` "
+                . PMA_Util::getCollateForIS() . "='$db' ";
             $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
             if (! empty($searchClause)) {
                 if ($singleItem) {
@@ -163,7 +165,8 @@ class Node_Database extends Node
             $db     = PMA_Util::sqlAddSlashes($db);
             $query  = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
-            $query .= "WHERE `EVENT_SCHEMA`='$db' ";
+            $query .= "WHERE `EVENT_SCHEMA` "
+                . PMA_Util::getCollateForIS() . "='$db' ";
             if (! empty($searchClause)) {
                 if ($singleItem) {
                     $query .= "AND `EVENT_NAME` = '";
@@ -250,7 +253,8 @@ class Node_Database extends Node
             $escdDb = PMA_Util::sqlAddSlashes($db);
             $query  = "SELECT `ROUTINE_NAME` AS `name` ";
             $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-            $query .= "WHERE `ROUTINE_SCHEMA`='$escdDb'";
+            $query .= "WHERE `ROUTINE_SCHEMA` "
+                . PMA_Util::getCollateForIS() . "='$escdDb'";
             $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
             if (! empty($searchClause)) {
                 $query .= "AND `ROUTINE_NAME` LIKE '%";
@@ -267,7 +271,8 @@ class Node_Database extends Node
             $escdDb = PMA_Util::sqlAddSlashes($db);
             $query  = "SELECT `ROUTINE_NAME` AS `name` ";
             $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-            $query .= "WHERE `ROUTINE_SCHEMA`='$escdDb' ";
+            $query .= "WHERE `ROUTINE_SCHEMA` "
+                . PMA_Util::getCollateForIS() . "='$escdDb' ";
             $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
             if (! empty($searchClause)) {
                 $query .= "AND `ROUTINE_NAME` LIKE '%";
@@ -284,7 +289,8 @@ class Node_Database extends Node
             $escdDb = PMA_Util::sqlAddSlashes($db);
             $query  = "SELECT `EVENT_NAME` AS `name` ";
             $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
-            $query .= "WHERE `EVENT_SCHEMA`='$escdDb' ";
+            $query .= "WHERE `EVENT_SCHEMA` "
+                . PMA_Util::getCollateForIS() . "='$escdDb' ";
             if (! empty($searchClause)) {
                 $query .= "AND `EVENT_NAME` LIKE '%";
                 $query .= PMA_Util::sqlAddSlashes(

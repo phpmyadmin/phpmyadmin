@@ -64,7 +64,8 @@ function PMA_EVN_main()
      * Display a list of available events
      */
     $columns = "`EVENT_NAME`, `EVENT_TYPE`, `STATUS`";
-    $where   = "EVENT_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "'";
+    $where   = "EVENT_SCHEMA " . PMA_Util::getCollateForIS() . "="
+             . "'" . PMA_Util::sqlAddSlashes($db) . "'";
     $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` "
              . "WHERE $where ORDER BY `EVENT_NAME` ASC;";
     $items   = $GLOBALS['dbi']->fetchResult($query);
@@ -191,7 +192,8 @@ function PMA_EVN_handleEditor()
             $response = PMA_Response::getInstance();
             if ($message->isSuccess()) {
                 $columns = "`EVENT_NAME`, `EVENT_TYPE`, `STATUS`";
-                $where   = "EVENT_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "' "
+                $where   = "EVENT_SCHEMA " . PMA_Util::getCollateForIS() . "="
+                    . "'" . PMA_Util::sqlAddSlashes($db) . "' "
                     . "AND EVENT_NAME='"
                     . PMA_Util::sqlAddSlashes($_REQUEST['item_name']) . "'";
                 $query   = "SELECT " . $columns
@@ -325,7 +327,8 @@ function PMA_EVN_getDataFromName($name)
     $columns = "`EVENT_NAME`, `STATUS`, `EVENT_TYPE`, `EXECUTE_AT`, "
              . "`INTERVAL_VALUE`, `INTERVAL_FIELD`, `STARTS`, `ENDS`, "
              . "`EVENT_DEFINITION`, `ON_COMPLETION`, `DEFINER`, `EVENT_COMMENT`";
-    $where   = "EVENT_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "' "
+    $where   = "EVENT_SCHEMA " . PMA_Util::getCollateForIS() . "="
+             . "'" . PMA_Util::sqlAddSlashes($db) . "' "
              . "AND EVENT_NAME='" . PMA_Util::sqlAddSlashes($name) . "'";
     $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where;";
     $item    = $GLOBALS['dbi']->fetchSingleRow($query);
