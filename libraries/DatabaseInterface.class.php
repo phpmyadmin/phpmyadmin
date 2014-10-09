@@ -718,98 +718,152 @@ class PMA_DatabaseInterface
 
         $apply_limit_and_order_manual = true;
 
-        /**
-         * if $GLOBALS['cfg']['NaturalOrder'] is enabled, we cannot use LIMIT
-         * cause MySQL does not support natural ordering,
-         * we have to do it afterward
-         */
-        $limit = '';
-        if (! $GLOBALS['cfg']['NaturalOrder']) {
-            if ($limit_count) {
-                $limit = ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            /**
+             * if $GLOBALS['cfg']['NaturalOrder'] is enabled, we cannot use LIMIT
+             * cause MySQL does not support natural ordering,
+             * we have to do it afterward
+             */
+            $limit = '';
+            if (! $GLOBALS['cfg']['NaturalOrder']) {
+                if ($limit_count) {
+                    $limit = ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
+                }
+
+                $apply_limit_and_order_manual = false;
             }
 
-            $apply_limit_and_order_manual = false;
-        }
-
-        // get table information from information_schema
-        if ($database) {
-            $sql_where_schema = 'WHERE `SCHEMA_NAME` LIKE \''
-                . PMA_Util::sqlAddSlashes($database) . '\'';
-        } else {
-            $sql_where_schema = '';
-        }
-
-        if (PMA_DRIZZLE) {
-            // data_dictionary.table_cache may not contain any data for some
-            // tables, it's just a table cache
-            $sql = 'SELECT
-                s.SCHEMA_NAME,
-                s.DEFAULT_COLLATION_NAME';
-            if ($force_stats) {
-                // no TABLE_CACHE data, stable results are better than
-                // constantly changing
-                $sql .= ',
-                    COUNT(t.TABLE_SCHEMA) AS SCHEMA_TABLES,
-                    SUM(stat.NUM_ROWS)    AS SCHEMA_TABLE_ROWS';
+            // get table information from information_schema
+            if ($database) {
+                $sql_where_schema = 'WHERE `SCHEMA_NAME` LIKE \''
+                    . PMA_Util::sqlAddSlashes($database) . '\'';
+            } else {
+                $sql_where_schema = '';
             }
-            $sql .= '
-                   FROM data_dictionary.SCHEMAS s';
-            if ($force_stats) {
-                $stats_join = $this->_getDrizzeStatsJoin();
 
-                $sql .= "
-                    LEFT JOIN data_dictionary.TABLES t
-                        ON t.TABLE_SCHEMA = s.SCHEMA_NAME
-                    $stats_join";
-            }
-            $sql .= $sql_where_schema . '
-                GROUP BY s.SCHEMA_NAME
-                ORDER BY ' . PMA_Util::backquote($sort_by) . ' ' . $sort_order
-                . $limit;
-        } else {
-            $sql = 'SELECT
-                s.SCHEMA_NAME,
-                s.DEFAULT_COLLATION_NAME';
-            if ($force_stats) {
-                $sql .= ',
-                    COUNT(t.TABLE_SCHEMA)  AS SCHEMA_TABLES,
-                    SUM(t.TABLE_ROWS)      AS SCHEMA_TABLE_ROWS,
-                    SUM(t.DATA_LENGTH)     AS SCHEMA_DATA_LENGTH,
-                    SUM(t.MAX_DATA_LENGTH) AS SCHEMA_MAX_DATA_LENGTH,
-                    SUM(t.INDEX_LENGTH)    AS SCHEMA_INDEX_LENGTH,
-                    SUM(t.DATA_LENGTH + t.INDEX_LENGTH)
-                                           AS SCHEMA_LENGTH,
-                    SUM(t.DATA_FREE)       AS SCHEMA_DATA_FREE';
-            }
-            $sql .= '
-                   FROM `information_schema`.SCHEMATA s';
-            if ($force_stats) {
+            if (PMA_DRIZZLE) {
+                // data_dictionary.table_cache may not contain any data for some
+                // tables, it's just a table cache
+                $sql = 'SELECT
+                    s.SCHEMA_NAME,
+                    s.DEFAULT_COLLATION_NAME';
+                if ($force_stats) {
+                    // no TABLE_CACHE data, stable results are better than
+                    // constantly changing
+                    $sql .= ',
+                        COUNT(t.TABLE_SCHEMA) AS SCHEMA_TABLES,
+                        SUM(stat.NUM_ROWS)    AS SCHEMA_TABLE_ROWS';
+                }
                 $sql .= '
-                    LEFT JOIN `information_schema`.TABLES t
-                        ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME';
+                       FROM data_dictionary.SCHEMAS s';
+                if ($force_stats) {
+                    $stats_join = $this->_getDrizzeStatsJoin();
+
+                    $sql .= "
+                        LEFT JOIN data_dictionary.TABLES t
+                            ON t.TABLE_SCHEMA = s.SCHEMA_NAME
+                        $stats_join";
+                }
+                $sql .= $sql_where_schema . '
+                    GROUP BY s.SCHEMA_NAME
+                    ORDER BY ' . PMA_Util::backquote($sort_by) . ' ' . $sort_order
+                    . $limit;
+            } else {
+                $sql = 'SELECT
+                    s.SCHEMA_NAME,
+                    s.DEFAULT_COLLATION_NAME';
+                if ($force_stats) {
+                    $sql .= ',
+                        COUNT(t.TABLE_SCHEMA)  AS SCHEMA_TABLES,
+                        SUM(t.TABLE_ROWS)      AS SCHEMA_TABLE_ROWS,
+                        SUM(t.DATA_LENGTH)     AS SCHEMA_DATA_LENGTH,
+                        SUM(t.MAX_DATA_LENGTH) AS SCHEMA_MAX_DATA_LENGTH,
+                        SUM(t.INDEX_LENGTH)    AS SCHEMA_INDEX_LENGTH,
+                        SUM(t.DATA_LENGTH + t.INDEX_LENGTH)
+                                               AS SCHEMA_LENGTH,
+                        SUM(t.DATA_FREE)       AS SCHEMA_DATA_FREE';
+                }
+                $sql .= '
+                       FROM `information_schema`.SCHEMATA s';
+                if ($force_stats) {
+                    $sql .= '
+                        LEFT JOIN `information_schema`.TABLES t
+                            ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME';
+                }
+                $sql .= $sql_where_schema . '
+                        GROUP BY BINARY s.SCHEMA_NAME
+                        ORDER BY BINARY ' . PMA_Util::backquote($sort_by)
+                    . ' ' . $sort_order
+                    . $limit;
             }
-            $sql .= $sql_where_schema . '
-                    GROUP BY BINARY s.SCHEMA_NAME
-                    ORDER BY BINARY ' . PMA_Util::backquote($sort_by)
-                . ' ' . $sort_order
-                . $limit;
-        }
 
-        $databases = $this->fetchResult($sql, 'SCHEMA_NAME', null, $link);
+            $databases = $this->fetchResult($sql, 'SCHEMA_NAME', null, $link);
 
-        $mysql_error = $this->getError($link);
-        if (! count($databases) && $GLOBALS['errno']) {
-            PMA_Util::mysqlDie($mysql_error, $sql);
-        }
+            $mysql_error = $this->getError($link);
+            if (! count($databases) && $GLOBALS['errno']) {
+                PMA_Util::mysqlDie($mysql_error, $sql);
+            }
 
-        // display only databases also in official database list
-        // f.e. to apply hide_db and only_db
-        $drops = array_diff(
-            array_keys($databases), (array) $GLOBALS['pma']->databases
-        );
-        foreach ($drops as $drop) {
-            unset($databases[$drop]);
+            // display only databases also in official database list
+            // f.e. to apply hide_db and only_db
+            $drops = array_diff(
+                array_keys($databases), (array) $GLOBALS['pma']->databases
+            );
+            foreach ($drops as $drop) {
+                unset($databases[$drop]);
+            }
+        } else {
+            foreach ($GLOBALS['pma']->databases as $database_name) {
+                // MySQL forward compatibility
+                // so pma could use this array as if every server is of version >5.0
+                // todo : remove and check the rest of the code for usage,
+                // MySQL 5.0 or higher is required for current PMA version
+                $databases[$database_name]['SCHEMA_NAME']      = $database_name;
+
+                if ($force_stats) {
+                    include_once './libraries/mysql_charsets.inc.php';
+
+                    $databases[$database_name]['DEFAULT_COLLATION_NAME']
+                        = PMA_getDbCollation($database_name);
+
+                    // get additional info about tables
+                    $databases[$database_name]['SCHEMA_TABLES']          = 0;
+                    $databases[$database_name]['SCHEMA_TABLE_ROWS']      = 0;
+                    $databases[$database_name]['SCHEMA_DATA_LENGTH']     = 0;
+                    $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH'] = 0;
+                    $databases[$database_name]['SCHEMA_INDEX_LENGTH']    = 0;
+                    $databases[$database_name]['SCHEMA_LENGTH']          = 0;
+                    $databases[$database_name]['SCHEMA_DATA_FREE']       = 0;
+
+                    $res = $this->query(
+                        'SHOW TABLE STATUS FROM '
+                        . PMA_Util::backquote($database_name) . ';'
+                    );
+
+                    while ($row = $this->fetchAssoc($res)) {
+                        $databases[$database_name]['SCHEMA_TABLES']++;
+                        $databases[$database_name]['SCHEMA_TABLE_ROWS']
+                            += $row['Rows'];
+                        $databases[$database_name]['SCHEMA_DATA_LENGTH']
+                            += $row['Data_length'];
+                        $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH']
+                            += $row['Max_data_length'];
+                        $databases[$database_name]['SCHEMA_INDEX_LENGTH']
+                            += $row['Index_length'];
+
+                        // for InnoDB, this does not contain the number of
+                        // overhead bytes but the total free space
+                        if ('InnoDB' != $row['Engine']) {
+                            $databases[$database_name]['SCHEMA_DATA_FREE']
+                                += $row['Data_free'];
+                        }
+                        $databases[$database_name]['SCHEMA_LENGTH']
+                            += $row['Data_length'] + $row['Index_length'];
+                    }
+                    $this->freeResult($res);
+                    unset($res);
+                }
+            }
         }
 
         /**
