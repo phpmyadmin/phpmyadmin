@@ -34,6 +34,7 @@ phpMyAdmin - ChangeLog
 + rfe #1123 Zeroconf PMA tables support
 + rfe #1492 Remove the distinct query window / Add SQL log+history panel
 + rfe #919  Multiple-column foreign key relation
+- bug #3165 Redundant foreign keys not supported
 - bug       Incorrect link to documentation
 + rfe #857  Regexp replace
 - bug       Incorrect path in change password when on reverse proxy or
