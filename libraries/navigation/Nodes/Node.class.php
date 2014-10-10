@@ -363,9 +363,9 @@ class Node
         $query  = "SELECT `SCHEMA_NAME` ";
         $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ";
         $query .= "(";
-        $query .= "select DB_first_level ";
-        $query .= "from ( ";
-        $query .= "SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
+        $query .= "SELECT DB_first_level ";
+        $query .= "FROM ( ";
+        $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
         $query .= "'{$GLOBALS['cfg']['NavigationTreeDbSeparator']}', 1) ";
         $query .= "DB_first_level ";
         $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
@@ -374,11 +374,11 @@ class Node
         $query .= "ORDER BY DB_first_level ASC ";
         $query .= "LIMIT $pos, {$GLOBALS['cfg']['FirstLevelNavigationItems']}";
         $query .= ") t2 ";
-        $query .= "where 1 = locate(concat(DB_first_level, ";
+        $query .= "WHERE 1 = LOCATE(CONCAT(DB_first_level, ";
         $query .= "'{$GLOBALS['cfg']['NavigationTreeDbSeparator']}'), ";
-        $query .= "concat(SCHEMA_NAME, ";
+        $query .= "CONCAT(SCHEMA_NAME, ";
         $query .= "'{$GLOBALS['cfg']['NavigationTreeDbSeparator']}')) ";
-        $query .= "order by SCHEMA_NAME ASC";
+        $query .= "ORDER BY SCHEMA_NAME ASC";
 
         return $GLOBALS['dbi']->fetchResult($query);
     }
@@ -396,8 +396,8 @@ class Node
     public function getPresence($type = '', $searchClause = '')
     {
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $query = "select COUNT(*) ";
-            $query .= "from ( ";
+            $query = "SELECT COUNT(*) ";
+            $query .= "FROM ( ";
             $query .= "SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
             $query .= "'{$GLOBALS['cfg']['NavigationTreeDbSeparator']}', 1) ";
             $query .= "DB_first_level ";
