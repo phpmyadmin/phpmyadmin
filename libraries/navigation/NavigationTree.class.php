@@ -1080,9 +1080,12 @@ class PMA_NavigationTree
     private function _fastFilterHtml($node)
     {
         $retval = '';
-        $filter_min = (int)$GLOBALS['cfg']['NavigationTreeDisplayDbFilterMinimum'];
+        $filter_db_min
+            = (int) $GLOBALS['cfg']['NavigationTreeDisplayDbFilterMinimum'];
+        $filter_item_min
+            = (int) $GLOBALS['cfg']['NavigationTreeDisplayItemFilterMinimum'];
         if ($node === $this->_tree
-            && $this->_tree->getPresence() >= $filter_min
+            && $this->_tree->getPresence() >= $filter_db_min
         ) {
             $url_params = array(
                 'pos' => 0
@@ -1114,7 +1117,7 @@ class PMA_NavigationTree
             || $node->real_name == 'procedures'
             || $node->real_name == 'events'))
             && method_exists($node->realParent(), 'getPresence')
-            && $node->realParent()->getPresence($node->real_name) >= $filter_min
+            && $node->realParent()->getPresence($node->real_name) >= $filter_item_min
         ) {
             $paths = $node->getPaths();
             $url_params = array(
