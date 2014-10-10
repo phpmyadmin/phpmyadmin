@@ -385,16 +385,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetPresenceWithEnabledIS()
     {
-        if (! isset($GLOBALS['cfg'])) {
-            $GLOBALS['cfg'] = array();
-        }
-        if (! isset($GLOBALS['cfg']['Servers'])) {
-            $GLOBALS['cfg']['Servers'] = array();
-        }
-        if (! isset($GLOBALS['cfg']['Servers'][0])) {
-            $GLOBALS['cfg']['Servers'][0] = array();
-        }
-        $GLOBALS['cfg']['Servers'][0]['DisableIS'] = false;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
 
         $query = "select COUNT(*) ";
@@ -427,16 +418,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetPresenceWithDisabledIS()
     {
-        if (! isset($GLOBALS['cfg'])) {
-            $GLOBALS['cfg'] = array();
-        }
-        if (! isset($GLOBALS['cfg']['Servers'])) {
-            $GLOBALS['cfg']['Servers'] = array();
-        }
-        if (! isset($GLOBALS['cfg']['Servers'][0])) {
-            $GLOBALS['cfg']['Servers'][0] = array();
-        }
-        $GLOBALS['cfg']['Servers'][0]['DisableIS'] = true;
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
 
         $node = PMA_NodeFactory::getInstance();
 
