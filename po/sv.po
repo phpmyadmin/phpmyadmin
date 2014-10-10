@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-05-15 01:04+0200\n"
+"PO-Revision-Date: 2014-10-11 00:40+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/4-2/sv/>\n"
+"Language-Team: Swedish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-2/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1892,10 +1893,9 @@ msgstr ""
 "Du kan även redigera de flesta värden<br />genom att klicka direkt på dessa."
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "Gå till länk."
+msgstr "Gå till länk:"
 
 #: js/messages.php:366
 msgid "Copy column name."
