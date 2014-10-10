@@ -94,10 +94,17 @@ class Node_Database extends Node
                     $query .= "AND " . PMA_Util::backquote(
                         "Tables_in_" . $db
                     );
-                    $query .= " LIKE '%" . PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
+                    if ($singleItem) {
+                        $query .= " = '" . PMA_Util::sqlAddSlashes(
+                            $searchClause
+                        );
+                        $query .= "'";
+                    } else {
+                        $query .= " LIKE '%" . PMA_Util::sqlAddSlashes(
+                            $searchClause, true
+                        );
+                        $query .= "%'";
+                    }
                 }
                 $retval = $GLOBALS['dbi']->numRows(
                     $GLOBALS['dbi']->tryQuery($query)
@@ -139,10 +146,17 @@ class Node_Database extends Node
                     $query .= "AND " . PMA_Util::backquote(
                         "Tables_in_" . $db
                     );
-                    $query .= " LIKE '%" . PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
+                    if ($singleItem) {
+                        $query .= " = '" . PMA_Util::sqlAddSlashes(
+                            $searchClause
+                        );
+                        $query .= "'";
+                    } else {
+                        $query .= " LIKE '%" . PMA_Util::sqlAddSlashes(
+                            $searchClause, true
+                        );
+                        $query .= "%'";
+                    }
                 }
                 $retval = $GLOBALS['dbi']->numRows(
                     $GLOBALS['dbi']->tryQuery($query)
@@ -176,11 +190,19 @@ class Node_Database extends Node
                 $db    = PMA_Util::sqlAddSlashes($db);
                 $query = "SHOW PROCEDURE STATUS WHERE `Db`='$db' ";
                 if (! empty($searchClause)) {
-                    $query .= "AND `Name` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
+                    if ($singleItem) {
+                        $query .= "AND `Name` = '";
+                        $query .= PMA_Util::sqlAddSlashes(
+                            $searchClause
+                        );
+                        $query .= "'";
+                    } else {
+                        $query .= "AND `Name` LIKE '%";
+                        $query .= PMA_Util::sqlAddSlashes(
+                            $searchClause, true
+                        );
+                        $query .= "%'";
+                    }
                 }
                 $retval = $GLOBALS['dbi']->numRows(
                     $GLOBALS['dbi']->tryQuery($query)
@@ -214,11 +236,19 @@ class Node_Database extends Node
                 $db    = PMA_Util::sqlAddSlashes($db);
                 $query = "SHOW FUNCTION STATUS WHERE `Db`='$db' ";
                 if (! empty($searchClause)) {
-                    $query .= "AND `Name` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
+                    if ($singleItem) {
+                        $query .= "AND `Name` = '";
+                        $query .= PMA_Util::sqlAddSlashes(
+                            $searchClause
+                        );
+                        $query .= "'";
+                    } else {
+                        $query .= "AND `Name` LIKE '%";
+                        $query .= PMA_Util::sqlAddSlashes(
+                            $searchClause, true
+                        );
+                        $query .= "%'";
+                    }
                 }
                 $retval = $GLOBALS['dbi']->numRows(
                     $GLOBALS['dbi']->tryQuery($query)
@@ -251,11 +281,19 @@ class Node_Database extends Node
                 $db    = PMA_Util::backquote($db);
                 $query = "SHOW EVENTS FROM $db ";
                 if (! empty($searchClause)) {
-                    $query .= "WHERE `Name` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
+                    if ($singleItem) {
+                        $query .= "WHERE `Name` = '";
+                        $query .= PMA_Util::sqlAddSlashes(
+                            $searchClause
+                        );
+                        $query .= "'";
+                    } else {
+                        $query .= "WHERE `Name` LIKE '%";
+                        $query .= PMA_Util::sqlAddSlashes(
+                            $searchClause, true
+                        );
+                        $query .= "%'";
+                    }
                 }
                 $retval = $GLOBALS['dbi']->numRows(
                     $GLOBALS['dbi']->tryQuery($query)
