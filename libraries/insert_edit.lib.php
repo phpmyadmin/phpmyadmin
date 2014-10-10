@@ -188,66 +188,63 @@ function PMA_urlParamsInEditMode($url_params, $where_clause_array, $where_clause
 }
 
 /**
- * Show function fields in data edit view in pma
+ * Show type information or function selectors in Insert/Edit 
  *
- * @param array   $url_params     containing url parameters
- * @param boolean $showFuncFields whether to show function field
+ * @param string  $which      function|type 
+ * @param array   $url_params containing url parameters
+ * @param boolean $is_show    whether to show the element in $which 
  *
- * @return string an html snippet
+ * @return string an HTML snippet
  */
-function PMA_showFunctionFieldsInEditMode($url_params, $showFuncFields)
+function PMA_showTypeOrFunction($which, $url_params, $is_show)
 {
     $params = array();
-    if (! $showFuncFields) {
-        $params['ShowFunctionFields'] = 1;
-    } else {
-        $params['ShowFunctionFields'] = 0;
+
+    switch($which) {
+    case 'function':
+        $params['ShowFunctionFields'] = ($is_show ? 0 : 1);
+        $params['ShowFieldTypesInDataEditView']
+            = $GLOBALS['cfg']['ShowFieldTypesInDataEditView'];
+        break;
+    case 'type':
+        $params['ShowFieldTypesInDataEditView'] = ($is_show ? 0 : 1);
+        $params['ShowFunctionFields']
+            = $GLOBALS['cfg']['ShowFunctionFields'];
+        break; 
     }
-    $params['ShowFieldTypesInDataEditView']
-        = $GLOBALS['cfg']['ShowFieldTypesInDataEditView'];
+
     $params['goto'] = 'sql.php';
     $this_url_params = array_merge($url_params, $params);
-    if (! $showFuncFields) {
+
+    if (! $is_show) {
         return ' : <a href="tbl_change.php'
             . PMA_URL_getCommon($this_url_params) . '">'
-            . __('Function')
-            . '</a>' . "\n";
+            . PMA_showTypeOrFunctionLabel($which)
+            . '</a>';
     }
-    return '<th><a href="tbl_change.php'
+    return $html =  '<th><a href="tbl_change.php'
         . PMA_URL_getCommon($this_url_params)
         . '" title="' . __('Hide') . '">'
-        . __('Function')
-        . '</a></th>' . "\n";
+        . PMA_showTypeOrFunctionLabel($which)
+        . '</a></th>';
 }
 
 /**
- * Show field types in data edit view in pma
+ * Show type information or function selectors labels in Insert/Edit 
  *
- * @param array   $url_params     containing url parameters
- * @param boolean $showColumnType whether to show column type
+ * @param string $which function|type 
  *
- * @return string an html snippet
+ * @return string an HTML snippet
  */
-function PMA_showColumnTypesInDataEditView($url_params, $showColumnType)
+function PMA_showTypeOrFunctionLabel($which)
 {
-    $params = array();
-    if (! $showColumnType) {
-        $params['ShowFieldTypesInDataEditView'] = 1;
-    } else {
-        $params['ShowFieldTypesInDataEditView'] = 0;
+    switch($which) {
+    case 'function':
+        return __('Function');
+    case 'type':
+        return __('Type');
     }
-    $params['ShowFunctionFields'] = $GLOBALS['cfg']['ShowFunctionFields'];
-    $params['goto'] = 'sql.php';
-    $this_other_url_params = array_merge($url_params, $params);
-    if (! $showColumnType) {
-        return ' : <a href="tbl_change.php'
-            . PMA_URL_getCommon($this_other_url_params) . '">'
-            . __('Type') . '</a>' . "\n";
-    }
-    return '<th><a href="tbl_change.php'
-        . PMA_URL_getCommon($this_other_url_params)
-        . '" title="' . __('Hide') . '">' . __('Type') . '</a></th>' . "\n";
-
+    return $html;
 }
 
  /**
@@ -1575,10 +1572,10 @@ function PMA_getHeadAndFootOfInsertRowTable($url_params)
         . '<th>' . __('Column') . '</th>';
 
     if ($GLOBALS['cfg']['ShowFieldTypesInDataEditView']) {
-        $html_output .= PMA_showColumnTypesInDataEditView($url_params, true);
+        $html_output .= PMA_showTypeOrFunction('type', $url_params, true);
     }
     if ($GLOBALS['cfg']['ShowFunctionFields']) {
-        $html_output .= PMA_showFunctionFieldsInEditMode($url_params, true);
+        $html_output .= PMA_showTypeOrFunction('function', $url_params, true);
     }
 
     $html_output .= '<th>' . __('Null') . '</th>'

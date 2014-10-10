@@ -159,11 +159,11 @@ if (! $cfg['ShowFunctionFields'] || ! $cfg['ShowFieldTypesInDataEditView']) {
 }
 
 if (! $cfg['ShowFunctionFields']) {
-    $html_output .= PMA_showFunctionFieldsInEditMode($url_params, false);
+    $html_output .= PMA_showTypeOrFunction('function', $url_params, false);
 }
 
 if (! $cfg['ShowFieldTypesInDataEditView']) {
-    $html_output .= PMA_showColumnTypesInDataEditView($url_params, false);
+    $html_output .= PMA_showTypeOrFunction('type', $url_params, false);
 }
 
 $GLOBALS['plugin_scripts'] = array();

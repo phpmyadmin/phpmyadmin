@@ -283,64 +283,52 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_showFunctionFieldsInEditMode
+     * Test for PMA_showTypeOrFunction
      *
      * @return void
      */
-    public function testShowFunctionFieldsInEditMode()
+    public function testShowTypeOrFunction()
     {
         $GLOBALS['cfg']['ShowFieldTypesInDataEditView'] = true;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $url_params = array('ShowFunctionFields' => 2);
 
-        $result = PMA_showFunctionFieldsInEditMode($url_params, false);
+        $result = PMA_showTypeOrFunction('function', $url_params, false);
 
         $this->assertEquals(
             ' : <a href="tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesIn'
             . 'DataEditView=1&amp;goto=sql.php&amp;lang=en&amp;token=token">'
-            . 'Function</a>' . "\n",
+            . 'Function</a>',
             $result
         );
 
         // case 2
-        $result = PMA_showFunctionFieldsInEditMode($url_params, true);
+        $result = PMA_showTypeOrFunction('function', $url_params, true);
 
         $this->assertEquals(
             '<th><a href="tbl_change.php?ShowFunctionFields=0&amp;ShowFieldTypesIn'
             . 'DataEditView=1&amp;goto=sql.php&amp;lang=en&amp;token=token" title='
-            . '"Hide">Function</a></th>' . "\n",
+            . '"Hide">Function</a></th>',
             $result
         );
-    }
 
-    /**
-     * Test for PMA_showColumnTypesInDataEditView
-     *
-     * @return void
-     */
-    public function testShowColumnTypesInDataEditView()
-    {
-        $GLOBALS['cfg']['ShowFieldTypesInDataEditView'] = true;
-        $GLOBALS['cfg']['ShowFunctionFields'] = true;
-        $GLOBALS['cfg']['ServerDefault'] = 1;
-        $url_params = array('ShowFunctionFields' => 2);
-
-        $result = PMA_showColumnTypesInDataEditView($url_params, false);
+        // case 3
+        $result = PMA_showTypeOrFunction('type', $url_params, false);
 
         $this->assertEquals(
             ' : <a href="tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesIn'
             . 'DataEditView=1&amp;goto=sql.php&amp;lang=en&amp;token=token">'
-            . 'Type</a>' . "\n",
+            . 'Type</a>',
             $result
         );
 
-        // case 2
-        $result = PMA_showColumnTypesInDataEditView($url_params, true);
+        // case 4
+        $result = PMA_showTypeOrFunction('type', $url_params, true);
 
         $this->assertEquals(
             '<th><a href="tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesIn'
             . 'DataEditView=0&amp;goto=sql.php&amp;lang=en&amp;token=token" title='
-            . '"Hide">Type</a></th>' . "\n",
+            . '"Hide">Type</a></th>',
             $result
         );
     }
