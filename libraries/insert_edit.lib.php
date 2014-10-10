@@ -210,7 +210,7 @@ function PMA_showTypeOrFunction($which, $url_params, $is_show)
         $params['ShowFieldTypesInDataEditView'] = ($is_show ? 0 : 1);
         $params['ShowFunctionFields']
             = $GLOBALS['cfg']['ShowFunctionFields'];
-        break; 
+        break;
     }
 
     $params['goto'] = 'sql.php';
@@ -222,7 +222,7 @@ function PMA_showTypeOrFunction($which, $url_params, $is_show)
             . PMA_showTypeOrFunctionLabel($which)
             . '</a>';
     }
-    return $html =  '<th><a href="tbl_change.php'
+    return '<th><a href="tbl_change.php'
         . PMA_URL_getCommon($this_url_params)
         . '" title="' . __('Hide') . '">'
         . PMA_showTypeOrFunctionLabel($which)
@@ -244,7 +244,6 @@ function PMA_showTypeOrFunctionLabel($which)
     case 'type':
         return __('Type');
     }
-    return $html;
 }
 
  /**
