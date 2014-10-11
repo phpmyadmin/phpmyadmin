@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-03-28 11:08+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Catalan <https://l10n.cihar.com/projects/phpmyadmin/master/ca/"
-">\n"
+"PO-Revision-Date: 2014-10-08 20:14+0200\n"
+"Last-Translator: josep constanti <jconstanti@ovi.com>\n"
+"Language-Team: Catalan "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-2/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -218,16 +218,16 @@ msgid "The database name is empty!"
 msgstr "El nom de la base de dades és buit!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "S'ha renombrat la base de dades %1$s a %2$s"
+msgstr "S'ha reanomenat la base de dades %1$s a %2$s."
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "S'ha copiat la base de dades %1$s a %2$s"
+msgstr "S'ha copiat la base de dades %1$s a %2$s."
 
 #: db_operations.php:260
 #, php-format
@@ -293,10 +293,9 @@ msgstr[0] "%s taula"
 msgstr[1] "%s taules"
 
 #: db_qbe.php:102
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Has de triar al menys una columna per mostrar"
+msgstr "Has de triar al menys una columna per mostrar!"
 
 #: db_qbe.php:123
 #, php-format
@@ -313,7 +312,7 @@ msgstr "Accés denegat!"
 
 #: db_structure.php:72
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "La llista de preferits és plena!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -588,7 +587,6 @@ msgid "Output"
 msgstr "Sortida"
 
 #: gis_data_editor.php:410
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -597,7 +595,7 @@ msgid ""
 "below into the \"Value\" field."
 msgstr ""
 "Tria \"GeomFromText\" de la columna \"Funció\" i enganxa la cadena següent "
-"al camp \"Valor\""
+"al camp \"Valor\"."
 
 #: import.php:116
 #, php-format
@@ -622,13 +620,14 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"L'arxiu carregat no es pot moure,donat que el servidor ha activat "
+"«open_basedir» treient l'accés al directori %s (pels arxius temporals)."
 
 #: import.php:412 import.php:473 libraries/File.class.php:433
 #: libraries/File.class.php:527
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "No es pot llegir l'arxiu"
+msgstr "No es pot llegir l'arxiu!"
 
 #: import.php:421 import.php:432 import.php:453 import.php:464
 #: libraries/File.class.php:593
@@ -651,15 +650,14 @@ msgstr ""
 "vostre PHP. Veieu [doc@faq1-16]PFC(FAQ) 1.16[/doc]."
 
 #: import.php:498
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
-"No es pot convertir el joc de caracters de l'arxivu sense la biblioteca "
-"corresponent"
+"No es pot convertir el joc de caracters de l'arxiu sense la biblioteca "
+"corresponent!"
 
 #: import.php:536 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
@@ -667,10 +665,10 @@ msgstr ""
 "No es poden carregar les extensions d'importació, comprova l'instal.lació!"
 
 #: import.php:571 libraries/sql.lib.php:1048 libraries/sql.lib.php:1848
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "%s creat com a Consulta desada"
+msgstr "%s creat com a Consulta desada."
 
 #: import.php:580
 #, php-format
@@ -958,38 +956,37 @@ msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Realment vols esborrar el grup d'usuaris \"%s\"?"
 
 #: js/messages.php:45
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Realment vols fer \"%s\"?"
+msgstr "Realment vols esborrar la cerca \"%s\"?"
 
 #: js/messages.php:46
 msgid ""
 "Are you sure you want to navigate away from this page? Press OK to continue "
 "or Cancel to stay on the current page."
 msgstr ""
+"Esteu segurs que voleu deixar aquesta pàgina? Premeu «OK» per continuar o "
+"«Cancel·lar» per romandre a la pàgina actual."
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
 msgstr "Falta un valor al formulari!"
 
 #: js/messages.php:50
-#, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "al menys una d'aquestes paraules"
+msgstr "Tria al menys una d'aquestes opcions!"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number!"
-msgstr "Numero de port incorrecte"
+msgstr "Entra un numero vàlid!"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid length!"
-msgstr "Numero de port incorrecte"
+msgstr "Entra una longitud vàlida!"
 
 #: js/messages.php:53
 msgid "Add Index"
@@ -1057,10 +1054,9 @@ msgid "Connections / Processes"
 msgstr "Connexions / Processos"
 
 #: js/messages.php:79
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
-msgstr "Configuració local de la monitorització incompatible"
+msgstr "Configuració local de la monitorització incompatible!"
 
 #: js/messages.php:80
 msgid ""
@@ -1217,10 +1213,9 @@ msgid "Add chart to grid"
 msgstr "Afegeix gràfic a a la graella"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "Afegeix al menys una variable a la serie"
+msgstr "Afegeix al menys una variable a les series!"
 
 #: js/messages.php:124 libraries/DisplayResults.class.php:1338
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1047
@@ -1309,10 +1304,10 @@ msgstr "Desactivar %s"
 
 #. l10n: %d seconds
 #: js/messages.php:144
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "Definir «long_query_time» a %ds"
+msgstr "Definir «long_query_time» a %d segons."
 
 #: js/messages.php:146
 msgid ""
@@ -1527,14 +1522,13 @@ msgid "Import monitor configuration"
 msgstr "Importar configuració del monitor"
 
 #: js/messages.php:205
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "Tria l'arxiu a importar"
+msgstr "Tria l'arxiu a importar."
 
 #: js/messages.php:206
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "No hi ha arxius disponibles al servidor per importar!"
 
 #: js/messages.php:208
 msgid "Analyse Query"
@@ -1692,10 +1686,9 @@ msgid "Values for a new column"
 msgstr "Valors per la nova columna"
 
 #: js/messages.php:264
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "Entra cada valor en un camp separat"
+msgstr "Entra cada valor en un camp separat."
 
 #: js/messages.php:265
 #, php-format
@@ -1830,16 +1823,17 @@ msgstr "Cercle exterior"
 #: js/messages.php:321
 msgid "Shift + Click on function name to apply to all rows."
 msgstr ""
+"Premeu Majúscules mentre cliqueu sobre el nom de la funció per aplicar-la a "
+"totes les files."
 
 #: js/messages.php:323
-#, fuzzy
 #| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
-msgstr "Vols importar la resta de paràmetres?"
+msgstr "Vols copiar la clau de xifratge?"
 
 #: js/messages.php:324
 msgid "Encryption key"
-msgstr ""
+msgstr "Clau d'encriptació"
 
 #: js/messages.php:327
 msgid "Select referenced key"
@@ -1850,10 +1844,9 @@ msgid "Select Foreign Key"
 msgstr "Tria una clau externa"
 
 #: js/messages.php:329
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "Tria la clau principal o una clau única"
+msgstr "Tria la clau principal o una clau única!"
 
 #: js/messages.php:330 pmd_general.php:101
 msgid "Choose column to display"
@@ -1868,22 +1861,21 @@ msgstr ""
 "continuar?"
 
 #: js/messages.php:337
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
-msgstr "Afegeix una opció per a la columna "
+msgstr "Afegeix una opció per a la columna \"%s\"."
 
 #: js/messages.php:338
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
-msgstr "%d objecte(s) creat(s)"
+msgstr "%d objecte(s) creat(s)."
 
 #: js/messages.php:341
-#, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "Prem la tecla escape per cancel·lar la edició"
+msgstr "Prem la tecla escape per cancel·lar la edició."
 
 #: js/messages.php:342
 msgid ""
@@ -1894,40 +1886,39 @@ msgstr ""
 "d'aquesta pàgina per desar les dades?"
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
-msgstr "Arrossega per reordenar"
+msgstr "Arrossega per reordenar."
 
 #: js/messages.php:344
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Cliqueu per ordenar els resultats segons aquest columna."
 
 #: js/messages.php:345
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Control+Click to remove column from ORDER BY clause"
 msgstr ""
+"Premeu Majúscules mentre cliqueu per afegir aquesta columna a la clàusula «"
+"ORDER BY» o per canviar l'ordre ascendent o descendent. <br />- Premeu "
+"Control mentre cliqueu per treure aquesta columna de la clàusula «ORDER BY»"
 
 #: js/messages.php:346
-#, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
-msgstr "Prem per marcar/desmarcar"
+msgstr "Prem per marcar/desmarcar."
 
 #: js/messages.php:347
-#, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
-msgstr "Feu doble clic per copiar el nom de columna"
+msgstr "Feu doble clic per copiar el nom de columna."
 
 #: js/messages.php:349
-#, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 "Prem a la fletxa de llista desplegable<br />per alternar la visibilitat de "
-"la columna"
+"la columna."
 
 #: js/messages.php:351 libraries/DisplayResults.class.php:858
 #: libraries/browse_foreigners.lib.php:371
@@ -1956,16 +1947,14 @@ msgstr ""
 "contingut."
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Go to link"
 msgid "Go to link:"
-msgstr "Vés a l'enllaç"
+msgstr "Vés a l'enllaç:"
 
 #: js/messages.php:366
-#, fuzzy
 #| msgid "Copy column name"
 msgid "Copy column name."
-msgstr "Nom de les columnes"
+msgstr "Copia el nom de la columna."
 
 #: js/messages.php:367
 msgid "Right-click the column name to copy it to your clipboard."
@@ -1973,10 +1962,9 @@ msgstr ""
 "Feu clic amb el botó dret al nom de la columna per copiar al porta-retalls."
 
 #: js/messages.php:368
-#, fuzzy
 #| msgid "Show data row(s)"
 msgid "Show data row(s)."
-msgstr "Mostra fila(es) de dades"
+msgstr "Mostra les dades de fila(es)."
 
 #: js/messages.php:371
 msgid "Generate password"
@@ -2003,10 +1991,9 @@ msgid "Hide Panel"
 msgstr "Amagar el panell"
 
 #: js/messages.php:381
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items."
-msgstr "Mostra el logo al panell de navegació"
+msgstr "Mostra l'arbre d'ítems amagat."
 
 #: js/messages.php:384
 msgid "The requested page was not found in the history, it may have expired."
@@ -2063,6 +2050,8 @@ msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
+"La vostra exportació és incomplerta degut al límit de temps d'execució massa "
+"baix a nivell de PHP!"
 
 #: js/messages.php:408
 #, php-format
@@ -2070,6 +2059,8 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Avís: un formulari d'aquesta pàgina té més de %d camps. En enviar-lo es "
+"poden ignorar alguns camps donada la configuració «max_input_vars» de PHP."
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -2467,7 +2458,7 @@ msgstr "O:"
 
 #: libraries/DBQbe.class.php:720 libraries/DBQbe.class.php:810
 msgid "And:"
-msgstr ""
+msgstr "I:"
 
 #: libraries/DBQbe.class.php:724
 msgid "Ins"
@@ -2483,11 +2474,11 @@ msgstr "Modificar:"
 
 #: libraries/DBQbe.class.php:805
 msgid "Ins:"
-msgstr ""
+msgstr "Afegir:"
 
 #: libraries/DBQbe.class.php:820
 msgid "Del:"
-msgstr ""
+msgstr "Esborrar:"
 
 #: libraries/DBQbe.class.php:1430
 #, php-format
@@ -2499,34 +2490,29 @@ msgid "Submit Query"
 msgstr "Executa consulta"
 
 #: libraries/DBQbe.class.php:1458
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "Cerca"
+msgstr "Cerca de consultes desades:"
 
 #: libraries/DBQbe.class.php:1460
-#, fuzzy
 #| msgid "Delete relation"
 msgid "New bookmark"
-msgstr "Esborra la relació"
+msgstr "Nova consulta desada"
 
 #: libraries/DBQbe.class.php:1486
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Create bookmark"
-msgstr "Esborra la relació"
+msgstr "Crear consulta desada"
 
 #: libraries/DBQbe.class.php:1489
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Update bookmark"
-msgstr "Mostrant consultes desades"
+msgstr "Actualitzar consulta desada"
 
 #: libraries/DBQbe.class.php:1491
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Delete bookmark"
-msgstr "Esborra la relació"
+msgstr "Esborrar consultab desada"
 
 #: libraries/DatabaseInterface.class.php:1976
 msgid ""
@@ -2642,16 +2628,14 @@ msgid "Restore column order"
 msgstr "Reataurar ordre de columnes"
 
 #: libraries/DisplayResults.class.php:795
-#, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
-msgstr "Filtres"
+msgstr "Filtrar files"
 
 #: libraries/DisplayResults.class.php:797
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "Cerca a la base de dades"
+msgstr "Cerca aquesta taula"
 
 #: libraries/DisplayResults.class.php:824 libraries/Util.class.php:2446
 #: libraries/Util.class.php:2450
@@ -2776,10 +2760,9 @@ msgstr "Binari conegut"
 
 #: libraries/DisplayResults.class.php:3466
 #: libraries/DisplayResults.class.php:3482
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
-msgstr "S'ha esborrat la fila"
+msgstr "S'ha esborrat la fila."
 
 #: libraries/DisplayResults.class.php:3518
 #: libraries/DisplayResults.class.php:5159 libraries/server_status.lib.php:519
@@ -2787,20 +2770,18 @@ msgid "Kill"
 msgstr "Finalitzar"
 
 #: libraries/DisplayResults.class.php:4602 libraries/structure.lib.php:776
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Pot ser aproximat. Veieu [doc@faq3-11]PCF -FAQ- 3.11[/doc]"
+msgstr "Pot ser aproximat. Veieu [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4659 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:896
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
-msgstr "La vostra comanda SQL ha estat executada amb èxit"
+msgstr "La vostra comanda SQL ha estat executada amb èxit."
 
 #: libraries/DisplayResults.class.php:5037 libraries/structure.lib.php:658
 #, php-format
@@ -2818,7 +2799,7 @@ msgstr "Mostrant registres %1s - %2s"
 #: libraries/DisplayResults.class.php:5065
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d en total, %2$d a la consulta"
 
 #: libraries/DisplayResults.class.php:5070
 #, php-format
@@ -2826,10 +2807,10 @@ msgid "%d total"
 msgstr "%d total"
 
 #: libraries/DisplayResults.class.php:5082 libraries/sql.lib.php:1687
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
-msgstr "La consulta tarda %01.4f seg"
+msgstr "La consulta tarda %01.4f segons."
 
 #: libraries/DisplayResults.class.php:5166
 #: libraries/DisplayResults.class.php:5172 libraries/mult_submits.inc.php:46
@@ -2898,10 +2879,9 @@ msgid "Visualize GIS data"
 msgstr "Visualitzar dades GIS"
 
 #: libraries/DisplayResults.class.php:5718
-#, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
-msgstr "No s'ha trobat l'enllaç"
+msgstr "No s'ha trobat l'enllaç!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
@@ -2945,11 +2925,9 @@ msgid "Unknown error in file upload."
 msgstr "Error desconegut al pujar l'arxiu."
 
 #: libraries/File.class.php:476
-#, fuzzy
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
-msgstr ""
-"Error movent l'arxiu pujat, consulta la [doc@faq1-11]PCF -FAQ- 1.11[/doc]"
+msgstr "Error movent l'arxiu pujat, consulta la [doc@faq1-11]FAQ 1.11[/doc]."
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -2979,10 +2957,9 @@ msgstr "Feu clic a la barra per desplaçar-se al principi d'aquesta pàgina"
 
 #: libraries/Header.class.php:684
 #: libraries/plugins/auth/AuthenticationCookie.class.php:143
-#, fuzzy
 #| msgid "Javascript must be enabled past this point"
 msgid "Javascript must be enabled past this point!"
-msgstr "A partir d'aquest punt és necessari tenir el javascript activat"
+msgstr "A partir d'aquest punt és necessari tenir el javascript activat!"
 
 #: libraries/Index.class.php:535
 msgid "No index defined!"
@@ -3244,74 +3221,64 @@ msgid "Error while creating PDF:"
 msgstr "Error creant PDF:"
 
 #: libraries/RecentFavoriteTable.class.php:150
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save recent table!"
-msgstr "No es pot desar la taula"
+msgstr "No es pot desar la taula recent!"
 
 #: libraries/RecentFavoriteTable.class.php:154
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save favorite table!"
-msgstr "No es pot desar la taula"
+msgstr "No es pot desar la taula favorita!"
 
 #: libraries/RecentFavoriteTable.class.php:231
 #: libraries/structure.lib.php:2753
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "Elimina el gràfic"
+msgstr "Eliminar de favorits"
 
 #: libraries/RecentFavoriteTable.class.php:253
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no recent tables."
-msgstr "No hi ha taules recents"
+msgstr "No hi ha taules recents."
 
 #: libraries/RecentFavoriteTable.class.php:254
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no favorite tables."
-msgstr "No hi ha taules recents"
+msgstr "No hi ha taules favorites."
 
 #: libraries/RecentFavoriteTable.class.php:269
 msgid "Recent tables"
 msgstr "Taules recents"
 
 #: libraries/RecentFavoriteTable.class.php:271
-#, fuzzy
 #| msgid "Reset"
 msgid "Recent"
-msgstr "Reinicia"
+msgstr "Recent"
 
 #: libraries/RecentFavoriteTable.class.php:273
 #: libraries/config/messages.inc.php:469
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
-msgstr "Variables"
+msgstr "Taules favorites"
 
 #: libraries/RecentFavoriteTable.class.php:275
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorites"
-msgstr "Variables"
+msgstr "Favorites"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
 msgstr ""
 
 #: libraries/SavedSearches.class.php:261
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the bookmarked search."
-msgstr "Falten taules de l'infraestructura de taules enllaçades de phpMyAdmin"
+msgstr "Falta informació per desar la cerca."
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
-#, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "L'usuari %s ja existeix!"
+msgstr "Ja existeix una entrada amb aquest nom."
 
 #: libraries/SavedSearches.class.php:347
 msgid "Missing information to delete the search."
@@ -3322,10 +3289,9 @@ msgid "Missing information to load the search."
 msgstr ""
 
 #: libraries/SavedSearches.class.php:394
-#, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "Error moven l'arxiu pujat."
+msgstr "Error carregant la cerca."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -3456,10 +3422,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Aquest servidor MySQL no suporta el motor d'emmagatzematge %s."
 
 #: libraries/Table.class.php:385
-#, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "Estat de taula desconegut "
+msgstr "Estat de taula desconegut:"
 
 #: libraries/Table.class.php:797
 #, php-format
@@ -3480,10 +3445,10 @@ msgid "Invalid table name:"
 msgstr "Nom de taula incorrecte:"
 
 #: libraries/Table.class.php:1381
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "Error reanomenant la taula %1$s a %2$s"
+msgstr "Error reanomenant la taula %1$s a %2$s!"
 
 #: libraries/Table.class.php:1400
 #, php-format
@@ -3491,10 +3456,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "La taula %1$s ha canviat de nom a %2$s."
 
 #: libraries/Table.class.php:1548
-#, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
-msgstr "No s'ha pogut desar la llista de preferències d'interfície"
+msgstr "No s'ha pogut desar la taula de preferències d'interfície!"
 
 #: libraries/Table.class.php:1577
 #, php-format
@@ -4114,10 +4078,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "No està disponible el directori indicat per pujar arxius."
 
 #: libraries/Util.class.php:3357
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "No hi ha cap arxiu per pujar"
+msgstr "No hi ha files per pujar!"
 
 #: libraries/Util.class.php:3382 libraries/Util.class.php:3383
 #: libraries/structure.lib.php:305
@@ -4223,10 +4186,9 @@ msgid "Check Privileges"
 msgstr "Comprova els permisos"
 
 #: libraries/common.inc.php:583
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "No es pot llegir l'arxiu de configuració"
+msgstr "No es pot llegir l'arxiu de configuració!"
 
 #: libraries/common.inc.php:585
 msgid ""
@@ -4411,39 +4373,35 @@ msgstr "cap dels anteriors"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:557
-#, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
-msgstr "No és un nombre positiu"
+msgstr "No és un nombre positiu!"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:579
-#, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
-msgstr "No és un nombre no-negatiu"
+msgstr "No és un nombre no-negatiu!"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:535
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
-msgstr "Numero de port incorrecte"
+msgstr "No és un numero de port vàlid!"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:597
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
-msgstr "Valor incorrecte"
+msgstr "Valor incorrecte!"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:613
-#, fuzzy, php-format
+#, php-format
 #| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
-msgstr "El valor ha de ser igual o menor que %s"
+msgstr "El valor ha de ser igual o menor que %s!"
 
 #: libraries/config/FormDisplay.class.php:570
 #, php-format
@@ -4539,7 +4497,6 @@ msgstr ""
 "d'usuaris connectats, inclós tu mateix."
 
 #: libraries/config/ServerConfigChecks.class.php:378
-#, fuzzy
 #| msgid ""
 #| "You didn't have blowfish secret set and have enabled cookie "
 #| "authentication, so a key was automatically generated for you. It is used "
@@ -4550,8 +4507,8 @@ msgid ""
 "encrypt cookies; you don't need to remember it."
 msgstr ""
 "No deus tenir establert el blowfish secret i tens activada l'autenticació "
-"per galetes, així que una clau es generarà automàticament per tú. S'utilitza "
-"per xifrar galetes; no necesites recordar-la."
+"[kbd]per galetes[/kbd], així que es generarà automàticament una clau per tú. "
+"S'utilitza per xifrar galetes; no necessites recordar-la."
 
 #: libraries/config/ServerConfigChecks.class.php:379
 #, php-format
@@ -4587,7 +4544,7 @@ msgstr ""
 "estan disponibles en aquest sistema."
 
 #: libraries/config/ServerConfigChecks.class.php:399
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s greater than 1440 seconds may cause random "
 #| "session invalidation if %ssession.gc_maxlifetime%s is lower than its "
@@ -4596,9 +4553,8 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"El valor %slogin cookie validity%s més gran de 1440 segons pot provocar "
-"aleatòriament invalidació de sessions si %ssession.gc_maxlifetime%s és menor "
-"que el seu valor (actualment %d)."
+"El valor %slogin cookie validity%s més gran que %ssession.gc_maxlifetime%s ("
+"actualment %d) pot provocar aleatòriament invalidació de sessions."
 
 #: libraries/config/ServerConfigChecks.class.php:410
 #, php-format
@@ -4611,7 +4567,7 @@ msgstr ""
 "suplantacions."
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If using cookie authentication and %sLogin cookie store%s is not 0, "
 #| "%sLogin cookie validity%s must be set to a value less or equal to it."
@@ -4619,12 +4575,12 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Si s'utilitza la autenticació per cookies i el valor de %sLogin cookie store"
-"%s no és  0, %sLogin cookie validity%s ha d'establir-se a un valor menor o "
-"igual a ell."
+"Si s'utilitza la autenticació [kbd]per galetes[/kbd] i el valor de %sLogin "
+"cookie store%s no és  0, %sLogin cookie validity%s ha d'establir-se a un "
+"valor menor o igual a ell."
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - "
 #| "%shost authentication%s settings and %strusted proxies list%s. However, "
@@ -4637,7 +4593,7 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Si ho consideres necessari, utilitza paràmetres de protecció extres - %shost "
-"authentication%s i%strusted proxies list%s. Tanmateix, una protecció basada "
+"authentication%s i %strusted proxies list%s. Tanmateix, una protecció basada "
 "en adreces IP pot no ser suficient si la teva IP pertany a un proveïdor ISP "
 "amb gran nombre d'usuaris connectats, inclós tu mateix."
 
@@ -4675,33 +4631,30 @@ msgstr ""
 "en aquest sistema."
 
 #: libraries/config/Validator.class.php:245
-#, fuzzy
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
-msgstr "No s'ha pogut inicialitzar la biblioteca de connexió Drizzle"
+msgstr "No s'ha pogut inicialitzar la biblioteca de connexió Drizzle!"
 
 #: libraries/config/Validator.class.php:254
 #: libraries/config/Validator.class.php:262
 #: libraries/config/Validator.class.php:273
 #: libraries/config/Validator.class.php:280
-#, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
-msgstr "No s'ha pogut connectar a la destinació"
+msgstr "No s'ha pogut connectar amb el servidor de dades!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "Nom d'usuari buit al usar el métode d'autenticació config"
+msgstr "Nom d'usuari buit en usar el mètode d'autenticació [kbd]config[/kbd]!"
 
 #: libraries/config/Validator.class.php:320
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Nom de sessió signon buit al usar el métode d'autenticació signon"
+msgstr ""
+"Nom de sessió signon buit en usar el mètode d'autenticació [kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:329
 #, fuzzy
@@ -8258,10 +8211,9 @@ msgid "Please explain the steps that lead to the error:"
 msgstr ""
 
 #: libraries/error_report.lib.php:294
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "Crear versions automàticament"
+msgstr "Enviar informe automàticament la propera vegada"
 
 #: libraries/export.lib.php:113 libraries/export.lib.php:144
 #: libraries/export.lib.php:364

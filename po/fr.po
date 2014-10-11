@@ -4,9 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-07-08 13:37+0200\n"
+"PO-Revision-Date: 2014-10-02 13:44+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/4-2/fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-2/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7769,8 +7770,8 @@ msgstr "Binaire"
 #: libraries/insert_edit.lib.php:658
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr ""
-"Il est possible que cette colonne<br />ne soit pas éditable<br />en raison "
-"de sa longueur."
+"Il est possible que cette colonne<br />ne soit pas éditable en raison de sa "
+"longueur."
 
 #: libraries/insert_edit.lib.php:1106
 msgid "Binary - do not edit"
@@ -12588,7 +12589,8 @@ msgstr "Nom de l'index : "
 #: libraries/tbl_indexes.lib.php:263
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "«PRIMARY» <b>doit et ne peut être</b> que le nom d'une clé primaire !"
+msgstr ""
+"«PRIMARY» <b>doit et ne peut être</b> <b>que</b> le nom d'une clé primaire !"
 
 #: libraries/tbl_indexes.lib.php:282
 msgid "Comment:"

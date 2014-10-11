@@ -123,7 +123,7 @@ AJAX.registerOnload('server_variables.js', function () {
                 type: 'getval',
                 varName: varName
             }, function (data) {
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     var $editor = $('<div />', {'class': 'serverVariableEditor'})
                         .append($myCancelLink)
                         .append(' ')

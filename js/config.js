@@ -732,7 +732,7 @@ function savePrefsToLocalStorage(form)
             submit_get_json: true
         },
         success: function (data) {
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 window.localStorage['config'] = data.prefs;
                 window.localStorage['config_mtime'] = data.mtime;
                 window.localStorage['config_mtime_local'] = (new Date()).toUTCString();

@@ -4,14 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-08-16 22:56+0200\n"
+"PO-Revision-Date: 2014-10-08 21:26+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/4-2/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-2/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -287,6 +288,7 @@ msgstr "Son kontrol:"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s tablo"
+msgstr[1] "%s tablo"
 
 #: db_qbe.php:102
 msgid "You have to choose at least one column to display!"
@@ -686,7 +688,7 @@ msgstr "Geri"
 
 #: index.php:127 libraries/Footer.class.php:70
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin Gösterim Sunucusu"
+msgstr "phpMyAdmin Tanıtım Sunucusu"
 
 #: index.php:131
 #, php-format
@@ -695,7 +697,7 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
-"Gösterim sunucusunu kullanıyorsunuz. Burada istediğiniz herşeyi "
+"Tanıtım sunucusunu kullanıyorsunuz. Burada istediğiniz herşeyi "
 "yapabilirsiniz ancak lütfen root, debian-sys-maint ve pma kullanıcılarını "
 "değiştirmeyin. Daha fazla bilgi %s adresinde mevcuttur."
 
@@ -2512,12 +2514,14 @@ msgstr "\"<i>%s</i>\" %s için arama sonuçları:"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Toplam:</b> <i>%s</i> benzeşme"
+msgstr[1] "<b>Toplam:</b> <i>%s</i> benzeşme"
 
 #: libraries/DbSearch.class.php:336
 #, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "<strong>%2$s</strong> tablosu içerisinde %1$s eşleşme"
+msgstr[1] "<strong>%2$s</strong> tablosu içerisinde %1$s eşleşme"
 
 #: libraries/DbSearch.class.php:351 libraries/Menu.class.php:297
 #: libraries/Util.class.php:3157 libraries/Util.class.php:3373
@@ -3132,18 +3136,21 @@ msgstr "Hata"
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d satır etkilendi."
+msgstr[1] "%1$d satır etkilendi."
 
 #: libraries/Message.class.php:273
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d satır silindi."
+msgstr[1] "%1$d satır silindi."
 
 #: libraries/Message.class.php:292
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d satır eklendi."
+msgstr[1] "%1$d satır eklendi."
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2438
 #: libraries/browse_foreigners.lib.php:408
@@ -8070,6 +8077,7 @@ msgstr "Gezinti panelini yeniden yükle"
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] "%s diğer sonuç bulundu"
+msgstr[1] "%s diğer sonuç bulundu"
 
 #: libraries/navigation/NavigationTree.class.php:864
 msgid "Expand/Collapse"
@@ -9857,6 +9865,7 @@ msgstr "%s yordamı yürütme sonuçları"
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "İşlemin içindeki son ifade tarafından %d satır etkilendi."
+msgstr[1] "İşlemin içindeki son ifade tarafından %d satır etkilendi."
 
 #: libraries/rte/rte_routines.lib.php:1532
 #: libraries/rte/rte_routines.lib.php:1540
@@ -10186,7 +10195,7 @@ msgstr "Sunucu değişkenleri ve ayarları"
 
 #: libraries/server_common.lib.php:30
 msgid "Storage Engines"
-msgstr "Storage Engines"
+msgstr "Depolama Motorları"
 
 #: libraries/server_common.lib.php:39
 msgid "Character Sets and Collations"
@@ -10214,6 +10223,7 @@ msgstr "İstatistikleri etkinleştir"
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "%1$d veritabanı başarılı olarak kaldırıldı."
+msgstr[1] "%1$d veritabanı başarılı olarak kaldırıldı."
 
 #: libraries/server_plugins.lib.php:32
 msgid "Modules"
@@ -10874,12 +10884,14 @@ msgstr ""
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d saniye"
+msgstr[1] "%d saniye"
 
 #: libraries/server_status_monitor.lib.php:80
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d dakika"
+msgstr[1] "%d dakika"
 
 #: libraries/server_status_monitor.lib.php:96
 msgid "Log statistics"
