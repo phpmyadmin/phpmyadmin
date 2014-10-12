@@ -162,20 +162,17 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getHtmlForActivateTracking() method.
+     * Tests for PMA_getHtmlForActivateDeactivateTracking() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetHtmlForActivateTracking()
+    public function testPMAGetHtmlForActivateDeactivateTracking()
     {
         $url_query = "url_query";
         $last_version = "10";
-        $html = PMA_getHtmlForActivateTracking($url_query, $last_version);
-
-        $this->assertContains(
-            '<div id="div_activate_tracking">',
-            $html
+        $html = PMA_getHtmlForActivateDeactivateTracking(
+            'activate', $url_query, $last_version
         );
 
         $this->assertContains(
@@ -201,23 +198,9 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
             __('Activate now'),
             $html
         );
-    }
 
-    /**
-     * Tests for PMA_getHtmlForDeactivateTracking() method.
-     *
-     * @return void
-     * @test
-     */
-    public function testPMAGetHtmlForDeactivateTracking()
-    {
-        $url_query = "url_query";
-        $last_version = "10";
-        $html = PMA_getHtmlForDeactivateTracking($url_query, $last_version);
-
-        $this->assertContains(
-            '<div id="div_deactivate_tracking">',
-            $html
+        $html = PMA_getHtmlForActivateDeactivateTracking(
+            'deactivate', $url_query, $last_version
         );
 
         $this->assertContains(
