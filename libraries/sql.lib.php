@@ -971,9 +971,11 @@ function PMA_setColumnProperty($pmatable, $request_index)
     case 'col_visib':
         $property_to_set = PMA_Table::PROP_COLUMN_VISIB;
         break;
+    default:
+        $property_to_set = '';
     }
     $retval = $pmatable->setUiProp(
-        $property_to_set, 
+        $property_to_set,
         $property_value,
         $_REQUEST['table_create_time']
     );
