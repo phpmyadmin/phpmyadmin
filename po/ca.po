@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-02 11:40+0200\n"
-"PO-Revision-Date: 2014-10-08 20:14+0200\n"
+"PO-Revision-Date: 2014-10-12 22:04+0200\n"
 "Last-Translator: josep constanti <jconstanti@ovi.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -5302,22 +5302,19 @@ msgstr ""
 "Nom de sessió signon buit en usar el mètode d'autenticació [kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:333
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "URL signon buida al usar el métode d'autenticació signon"
+msgstr "URL signon buida al usar el métode d'autenticació [kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:379
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
-"Control d'usuari de phpMyAdmin buit al usar phpMyAdmin configuration storage"
+"Control d'usuari de phpMyAdmin buit al usar phpMyAdmin configuration storage!"
 
 #: libraries/config/Validator.class.php:384
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user password while using phpMyAdmin "
 #| "configuration storage"
@@ -5326,7 +5323,7 @@ msgid ""
 "storage!"
 msgstr ""
 "Control de contrasenya de phpMyAdmin buida al usar phpMyAdmin configuration "
-"storage"
+"storage!"
 
 #: libraries/config/Validator.class.php:468
 msgid "Incorrect value:"
@@ -5338,21 +5335,19 @@ msgid "Incorrect IP address: %s"
 msgstr "Adreça IP incorrecta: %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Si està activat, l'usuari pot posar qualsevol servidor MySQL al formulari de "
-"connexió mitjançant l'autenticació per galetes"
+"connexió mitjançant l'autenticació per galetes."
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
 msgstr "Permet la connexió a qualsevol servidor MySQL"
 
 #: libraries/config/messages.inc.php:21
-#, fuzzy
 #| msgid ""
 #| "Enabling this allows a page located on a different domain to call "
 #| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
@@ -5362,9 +5357,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
-"Activant aixó permet a una pàgina ubicada a un domini diferent cridar el "
-"phpMyADMIN dins d'un marc, i es un potencial [strong]forat de seguretat[/"
-"strong] que permet atacs del tipus cross-frame scripting"
+"Activant això es permet a una pàgina ubicada a un domini diferent cridar el "
+"phpMyADMIN dins d'un marc, i és un potencial [strong]forat de "
+"seguretat[/strong] que permet atacs del tipus cross-frame scripting (XSS)."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -5375,7 +5370,6 @@ msgid "Show \"Drop database\" link to normal users"
 msgstr "Mostra l'enllaç \"Drop database\" als usuaris normals"
 
 #: libraries/config/messages.inc.php:29
-#, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 #| "authentication"
@@ -5383,8 +5377,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Frase de pas secreta usada per xifrar galetes en autenticació [kbd]cookie[/"
-"kbd]"
+"Frase de pas secreta usada per xifrar galetes en autenticació "
+"[kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -5399,17 +5393,15 @@ msgid "Row marker"
 msgstr "Marcador de fila"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "Resalta la fila apuntada pel cursor del ratolí"
+msgstr "Resalta la fila apuntada pel cursor del ratolí."
 
 #: libraries/config/messages.inc.php:36
 msgid "Highlight pointer"
 msgstr "Resalta el punter"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -5418,14 +5410,13 @@ msgid ""
 "import operations."
 msgstr ""
 "Activa la compressió [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] per les "
-"operacions d'importació i exportació"
+"operacions d'importació."
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
@@ -5437,14 +5428,13 @@ msgid ""
 msgstr ""
 "Defineix quin tipus de control d'edició es farà servir per a columnes CHAR i "
 "VARCHAR; [kbd]input[/kbd] - permet limitar el tamany de l'entrada, "
-"[kbd]textarea[/kbd] - permet varies línies dintre dels camps"
+"[kbd]textarea[/kbd] - permet varies línies dintre dels camps."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
 msgstr "Edició de columnes CHAR"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
@@ -5453,14 +5443,13 @@ msgid ""
 "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Fer servir l'editor SQL ([a@http://codemirror.net/]CodeMirror[/a]) amb "
-"resaltat de sintaxi i números de línia"
+"ressaltat de sintaxi i números de línia."
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
 msgstr "Activar CodeMirror"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid ""
 #| "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -5468,15 +5457,14 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
-"Defineix el tamany mínim per als camps d'entrada generats per columnes CHAR "
-"i VARCHAR"
+"Defineix la mida mínima per als camps d'entrada generats per columnes CHAR i "
+"VARCHAR."
 
 #: libraries/config/messages.inc.php:58
 msgid "Minimum size for input field"
 msgstr "Mida mínima per a camps d'entrada"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid ""
 #| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -5484,27 +5472,25 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
-"Defineix el nombre dels camps d'entrada generats per columnes CHAR i VARCHAR"
+"Defineix el nombre dels camps d'entrada generats per columnes CHAR i VARCHAR."
 
 #: libraries/config/messages.inc.php:63
 msgid "Maximum size for input field"
 msgstr "Mida màxima pera camps d'entrada"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "Nombre de columnes per àrea de text CHAR/VARCHAR"
+msgstr "Nombre de columnes per àrea de text CHAR/VARCHAR."
 
 #: libraries/config/messages.inc.php:65
 msgid "CHAR textarea columns"
 msgstr "Columnes per àrea de text CHAR"
 
 #: libraries/config/messages.inc.php:66
-#, fuzzy
 #| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "Nombre de files per àrea de text CHAR/VARCHAR"
+msgstr "Nombre de files per àrea de text CHAR/VARCHAR."
 
 #: libraries/config/messages.inc.php:67
 msgid "CHAR textarea rows"
@@ -5515,7 +5501,6 @@ msgid "Check config file permissions"
 msgstr "Comprova els permisos de l'arxiu de configuració"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -5524,9 +5509,8 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Compressió d'exportacions gzip/bzip2 al vol sense necessitat de massa "
-"memòria; si troves problemes amb arxius gzip/bzip2 creats, desactiva aquesta "
-"funció"
+"Compressió d'exportacions gzip al vol estalviant l'ús de memòria; si trobeu "
+"problemes amb arxius gzip creats, desactiveu aquesta funció."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -5538,7 +5522,6 @@ msgid "Configuration file"
 msgstr "Arxiu de configuració"
 
 #: libraries/config/messages.inc.php:76
-#, fuzzy
 #| msgid ""
 #| "Whether a warning (\"Are your really sure…\") should be displayed when "
 #| "you're about to lose data"
@@ -5546,8 +5529,8 @@ msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
 msgstr ""
-"Quan s'ha de mostrar un avís (\"Estàs segur…\") al estar a punt de perdre "
-"dades"
+"S'hauria de mostrar un avís (\"Estàs segur…\") al estigueu a punt de perdre "
+"dades."
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -5562,30 +5545,27 @@ msgid "Default display direction"
 msgstr "Direcció de visualització per defecte"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 #| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
-msgstr "Pestanya que es mostra al entrar a una base de dades"
+msgstr "Pestanya que es mostra al entrar a una base de dades."
 
 #: libraries/config/messages.inc.php:84
 msgid "Default database tab"
 msgstr "Pestanya de base de dades predeterminada"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 #| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
-msgstr "Pestanya que es mostra al entrar a un servidor"
+msgstr "Pestanya que es mostra en entrar a un servidor."
 
 #: libraries/config/messages.inc.php:86
 msgid "Default server tab"
 msgstr "Pestanya de servidor predeterminada"
 
 #: libraries/config/messages.inc.php:87
-#, fuzzy
 #| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
-msgstr "Pestanya que es mostra al entrar a una taula"
+msgstr "Pestanya que es mostra al entrar a una taula."
 
 #: libraries/config/messages.inc.php:88
 msgid "Default table tab"
