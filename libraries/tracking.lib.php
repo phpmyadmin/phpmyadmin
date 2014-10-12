@@ -174,6 +174,8 @@ function PMA_getHtmlForActivateDeactivateTracking(
         break;
     default:
         $legend = '';
+        $hidden = '';
+        $button = '';
     }
 
     $html .= sprintf(
