@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-02 11:40+0200\n"
-"PO-Revision-Date: 2014-06-17 16:11+0200\n"
-"Last-Translator: cherbib mehdi <mehdi.cherbib@live.fr>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ar/>\n"
+"PO-Revision-Date: 2014-10-12 15:52+0200\n"
+"Last-Translator: hassan mokhtari <persiste1@gmail.com>\n"
+"Language-Team: Arabic "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -336,7 +336,7 @@ msgstr "عليك اختيار عمود واحد على الأقل للعرض!"
 #: db_qbe.php:124
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "التحويل إلى %sالباني المرئي%s"
+msgstr "التحويل إلى %s الباني المرئي %s"
 
 #: db_search.php:30 libraries/plugins/AuthenticationPlugin.class.php:61
 #: libraries/plugins/auth/AuthenticationConfig.class.php:89
