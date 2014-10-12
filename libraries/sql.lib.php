@@ -954,18 +954,27 @@ function PMA_hasNoRightsToDropDatabase($analyzed_sql_results,
 }
 
 /**
- * Function to set the column order
+ * Function to set a column property 
  *
- * @param PMA_Table $pmatable PMA_Table instance
+ * @param PMA_Table $pmatable      PMA_Table instance
+ * @param string    $request_index col_order|col_visib
  *
  * @return boolean $retval
  */
-function PMA_setColumnOrder($pmatable)
+function PMA_setColumnProperty($pmatable, $request_index)
 {
-    $col_order = explode(',', $_REQUEST['col_order']);
+    $property_value = explode(',', $_REQUEST[$request_index]);
+    switch($request_index) {
+    case 'col_order':
+        $property_to_set = PMA_Table::PROP_COLUMN_ORDER;
+        break;
+    case 'col_visib':
+        $property_to_set = PMA_Table::PROP_COLUMN_VISIB;
+        break;
+    }
     $retval = $pmatable->setUiProp(
-        PMA_Table::PROP_COLUMN_ORDER,
-        $col_order,
+        $property_to_set, 
+        $property_value,
         $_REQUEST['table_create_time']
     );
     if (gettype($retval) != 'boolean') {
@@ -975,29 +984,6 @@ function PMA_setColumnOrder($pmatable)
         exit;
     }
 
-    return $retval;
-}
-
-/**
- * Function to set the column visibility
- *
- * @param PMA_Table $pmatable PMA_Table instance
- *
- * @return boolean $retval
- */
-function PMA_setColumnVisibility($pmatable)
-{
-    $col_visib = explode(',', $_REQUEST['col_visib']);
-    $retval = $pmatable->setUiProp(
-        PMA_Table::PROP_COLUMN_VISIB, $col_visib,
-        $_REQUEST['table_create_time']
-    );
-    if (gettype($retval) != 'boolean') {
-        $response = PMA_Response::getInstance();
-        $response->isSuccess(false);
-        $response->addJSON('message', $retval->getString());
-        exit;
-    }
     return $retval;
 }
 
@@ -1016,12 +1002,12 @@ function PMA_setColumnOrderOrVisibility($table, $db)
 
     // set column order
     if (isset($_REQUEST['col_order'])) {
-        $retval = PMA_setColumnOrder($pmatable);
+        $retval = PMA_setColumnProperty($pmatable, 'col_order');
     }
 
     // set column visibility
     if ($retval === true && isset($_REQUEST['col_visib'])) {
-        $retval = PMA_setColumnVisibility($pmatable);
+        $retval = PMA_setColumnProperty($pmatable, 'col_visib');
     }
 
     $response = PMA_Response::getInstance();
