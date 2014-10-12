@@ -262,26 +262,20 @@ class ImportSql extends ImportPlugin
          */
         $GLOBALS['finished'] = false;
         $positionDelimiter = false;
+        $query = null;
         $data = null;
         $newData = null;
 
-        $c = 0;
-
-        while (!$timeout_passed && $c++ < 100) {
-            /*if (11 <= $c) {
-                die(var_dump($c, $positionDelimiter, $buffer, $data));
-            }*/
+        while (!$timeout_passed) {
             if (false === $positionDelimiter) {
                 $newData = PMA_importGetNextChunk();
                 if ($newData === false) {
-                    die('Error while reading data.');
                     // subtract data we didn't handle yet and stop processing
                     $GLOBALS['offset'] -= /*overload*/mb_strlen($query);
                     break;
                 }
 
                 if ($newData === true) {
-                    die('No more data.');
                     $GLOBALS['finished'] = true;
                     break;
                 }
@@ -294,22 +288,21 @@ class ImportSql extends ImportPlugin
 
             //Find quotes, comments, DELIMITER or delimiter.
             $positionDelimiter = $this->_findDelimiter($data);
-            /*if (9 <= $c) {
-              die(var_dump($positionDelimiter));
-            }*/
 
             //No delimiter found.
             if (false === $positionDelimiter) {
                 continue;
             }
-            /*if (9 <= $c) {
-                die(var_dump($data, $c, $positionDelimiter));
-            }*/
 
             $query = /*overload*/mb_substr($data, 0, $positionDelimiter + 1);
-
             $data = /*overload*/mb_substr($data, $positionDelimiter + 1);
-            //echo 'Execute: ' . $buffer . PHP_EOL;
+            PMA_importRunQuery(
+                $query,
+                null, //Set query to display
+                false,
+                $sql_data
+            );
+
             //After execution, $buffer can be empty.
             $query = null;
         }
