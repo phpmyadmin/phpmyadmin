@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.2.11.0 (not yet released)
+- bug       ReferenceError: Table_onover is not defined
 
 4.2.10.0 (2014-10-11)
 - bug #4361 Can't change font size (when config.inc.php not present)
@@ -15,7 +16,6 @@ phpMyAdmin - ChangeLog
 - bug #3120 Events are not exported when using xml
 - bug #4554 Grid-editing timestamp column forces datepicker
 - bug #4556 Fast filters for tables, views etc. should be governed by NavigationTreeDisplayItemFilterMinimum
-- bug       ReferenceError: Table_onover is not defined
 
 4.2.9.1 (2014-10-01)
 - bug #4544 [security] XSS vulnerabilities in table search and table structure pages
