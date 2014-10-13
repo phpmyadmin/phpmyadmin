@@ -2195,7 +2195,7 @@ function PMA_sendQueryResponseForResultsReturned($result,
     );
 
     $missing_unique_column_msg = PMA_getMessageIfMissingColumnIndex(
-        $table, $db, $editable, $disp_mode
+        $table, $db, $editable
     );
 
     $bookmark_created_msg = PMA_getBookmarkCreatedMessage();
@@ -2280,7 +2280,7 @@ function PMA_sendQueryResponseForResultsReturned($result,
  */
 function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
     $db, $table, $message_to_show, $analyzed_sql_results, $displayResultsObject,
-    $extra_data, $result, $justBrowsing, $disp_mode,$message, $sql_data,
+    $extra_data, $result, $disp_mode,$message, $sql_data,
     $goto, $pmaThemeImage, $sql_limit_to_append, $full_sql_query,
     $disp_query, $disp_message, $profiling_results, $query_type,
     $selectedTables, $sql_query, $complete_query
@@ -2408,7 +2408,6 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
         $displayResultsObject,
         $extra_data,
         isset($result) ? $result : null,
-        $justBrowsing,
         isset($disp_mode) ? $disp_mode : null,
         isset($message) ? $message : null,
         isset($sql_data) ? $sql_data : null,
