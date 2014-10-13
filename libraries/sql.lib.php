@@ -2195,7 +2195,7 @@ function PMA_sendQueryResponseForResultsReturned($result,
     );
 
     $missing_unique_column_msg = PMA_getMessageIfMissingColumnIndex(
-        $table, $db, $editable, $disp_mode
+        $table, $db, $editable
     );
 
     $bookmark_created_msg = PMA_getBookmarkCreatedMessage();
