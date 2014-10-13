@@ -283,7 +283,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         onclick="Start_tab_upd('<?php echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]; ?>');">
         <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/exec_small.png'); ?>" alt="" /></td>
     <td id="id_zag_<?php echo $t_n_url ?>" class="tab_zag nowrap"
-        onmousedown="cur_click=document.getElementById('<?php echo $t_n_url ?>');"/
+        onmousedown="cur_click=document.getElementById('<?php echo $t_n_url ?>');"
         onmouseover="Table_onover('<?php echo $t_n_url ?>',0,<?php echo (isset($_REQUEST['query'])? 1 : 0 )?> )"
         onmouseout="Table_onover('<?php echo $t_n_url ?>',1,<?php echo (isset($_REQUEST['query']) ? 1 : 0 )?>)">
         <span class='owner'>
