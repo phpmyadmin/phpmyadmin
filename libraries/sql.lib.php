@@ -2257,7 +2257,6 @@ function PMA_sendQueryResponseForResultsReturned($result,
  * @param object     $displayResultsObject Instance of DisplayResult class
  * @param array      $extra_data           extra data
  * @param array      $result               executed query results
- * @param bool       $justBrowsing         whether just browsing or not
  * @param string     $disp_mode            display mode
  * @param object     $message              message
  * @param array      $sql_data             sql data
