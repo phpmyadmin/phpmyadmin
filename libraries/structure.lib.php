@@ -3113,6 +3113,8 @@ function PMA_getShowCreate($db, $db_object, $type = 'table')
         $sql_query = 'SHOW CREATE VIEW ' . PMA_Util::backquote($db) . '.'
             . PMA_Util::backquote($db_object);
         break;
+    default:
+        $sql_query = '';
     }
     // Execute the query.
     $result = $GLOBALS['dbi']->fetchSingleRow($sql_query);

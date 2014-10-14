@@ -626,6 +626,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
     $table = '*', $submit = true
 ) {
     $html_output = '';
+    $sql_query = '';
 
     if ($db == '*') {
         $table = '*';
