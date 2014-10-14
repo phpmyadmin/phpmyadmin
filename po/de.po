@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-10-09 09:45+0200\n"
+"PO-Revision-Date: 2014-10-14 10:46+0200\n"
 "Last-Translator: Michael Koch <michael.koch@enough.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-2/de/>\n"
@@ -5853,7 +5853,7 @@ msgstr "Hervorhebung ermöglichen"
 
 #: libraries/config/messages.inc.php:461
 msgid "Whether to disable the possibility of database expansion or not."
-msgstr ""
+msgstr "Ist die Möglichkeit der Datenbankerweiterung aktiviert oder nicht."
 
 #: libraries/config/messages.inc.php:463
 #| msgid "Display databases as a list"
@@ -9309,6 +9309,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"Boolische Werte werden in Text umgewandelt (Standard: 'T' und 'F'. Der erste "
+"Wert steht für TRUE, der zweite für FALSE. Ungleich Null entspricht TRUE."
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
@@ -9409,7 +9411,6 @@ msgstr ""
 "Punkt-Format."
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
-#, fuzzy
 #| msgid ""
 #| "Appends text to a string. The only option is the text to be appended "
 #| "(enclosed in single quotes, default empty string)."
@@ -9418,9 +9419,10 @@ msgid ""
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
-"Fügt Text in eine Zeichenfolge ein. Die einzige Option ist das der Text "
-"angefügt werden (eingeschlossen in einfache Anführungszeichen, standardgemäß "
-"leere Zeichenfolge)."
+"Hängt Text an eine Zeichenfolge an oder stellt ihn voran. Die erste Option "
+"ist der Text der vorangestellt werden soll, der Text der angehängt werden "
+"soll (eingeschlossen in einfache Anführungszeichen, standardgemäß leere "
+"Zeichenfolge)."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
