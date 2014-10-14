@@ -493,18 +493,18 @@ $GLOBALS['dummy_queries'] = array(
     ),
     array(
         'query' => "SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, "
-            . "(select DB_first_level from ( SELECT distinct "
+            . "(SELECT DB_first_level FROM ( SELECT DISTINCT "
             . "SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level "
             . "FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY "
-            . "DB_first_level ASC LIMIT 0, 250) t2 where 1 = locate("
-            . "concat(DB_first_level, '_'), concat(SCHEMA_NAME, '_')) "
-            . "order by SCHEMA_NAME ASC",
+            . "DB_first_level ASC LIMIT 0, 250) t2 WHERE 1 = LOCATE("
+            . "CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) "
+            . "ORDER BY SCHEMA_NAME ASC",
         'result' => array(
             "test",
         )
     ),
     array(
-        'query' => "select COUNT(*) from ( SELECT distinct SUBSTRING_INDEX("
+        'query' => "SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX("
             . "SCHEMA_NAME, '_', 1) DB_first_level "
             . "FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t",
         'result' => array(

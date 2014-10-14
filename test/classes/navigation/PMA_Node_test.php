@@ -287,13 +287,13 @@ class Node_Test extends PHPUnit_Framework_TestCase
         // Vanilla case
         $node = PMA_NodeFactory::getInstance();
         $this->assertEquals(
-            "WHERE TRUE ", $method->invoke($node)
+            "WHERE TRUE ", $method->invoke($node, 'SCHEMA_NAME')
         );
 
         // When a schema names is passed as search clause
         $this->assertEquals(
             "WHERE TRUE AND `SCHEMA_NAME` LIKE '%schemaName%' ",
-            $method->invoke($node, 'schemaName')
+            $method->invoke($node, 'SCHEMA_NAME', 'schemaName')
         );
 
         if (! isset($GLOBALS['cfg'])) {
@@ -307,7 +307,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['hide_db'] = 'regexpHideDb';
         $this->assertEquals(
             "WHERE TRUE AND `SCHEMA_NAME` NOT REGEXP 'regexpHideDb' ",
-            $method->invoke($node)
+            $method->invoke($node, 'SCHEMA_NAME')
         );
         unset($GLOBALS['cfg']['Server']['hide_db']);
 
@@ -315,7 +315,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['only_db'] = 'stringOnlyDb';
         $this->assertEquals(
             "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'stringOnlyDb' )",
-            $method->invoke($node)
+            $method->invoke($node, 'SCHEMA_NAME')
         );
         unset($GLOBALS['cfg']['Server']['only_db']);
 
@@ -324,7 +324,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'onlyDbOne' "
             . "OR `SCHEMA_NAME` LIKE 'onlyDbTwo' )",
-            $method->invoke($node)
+            $method->invoke($node, 'SCHEMA_NAME')
         );
         unset($GLOBALS['cfg']['Server']['only_db']);
     }
@@ -348,9 +348,9 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $expectedSql  = "SELECT `SCHEMA_NAME` ";
         $expectedSql .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ";
         $expectedSql .= "(";
-        $expectedSql .= "select DB_first_level ";
-        $expectedSql .= "from ( ";
-        $expectedSql .= "SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
+        $expectedSql .= "SELECT DB_first_level ";
+        $expectedSql .= "FROM ( ";
+        $expectedSql .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
         $expectedSql .= "'_', 1) ";
         $expectedSql .= "DB_first_level ";
         $expectedSql .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
@@ -359,9 +359,9 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $expectedSql .= "ORDER BY DB_first_level ASC ";
         $expectedSql .= "LIMIT $pos, $limit";
         $expectedSql .= ") t2 ";
-        $expectedSql .= "where 1 = locate(concat(DB_first_level, '_'), ";
-        $expectedSql .= "concat(SCHEMA_NAME, '_')) ";
-        $expectedSql .= "order by SCHEMA_NAME ASC";
+        $expectedSql .= "WHERE 1 = LOCATE(CONCAT(DB_first_level, '_'), ";
+        $expectedSql .= "CONCAT(SCHEMA_NAME, '_')) ";
+        $expectedSql .= "ORDER BY SCHEMA_NAME ASC";
 
         // It would have been better to mock _getWhereClause method
         // but stangely, mocking private methods is not supported in PHPUnit
@@ -388,9 +388,9 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
 
-        $query = "select COUNT(*) ";
-        $query .= "from ( ";
-        $query .= "SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) ";
+        $query = "SELECT COUNT(*) ";
+        $query .= "FROM ( ";
+        $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) ";
         $query .= "DB_first_level ";
         $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
         $query .= "WHERE TRUE ";
@@ -428,7 +428,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
             ->getMock();
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with("SHOW DATABASES ");
+            ->with("SHOW DATABASES WHERE TRUE ");
         $GLOBALS['dbi'] = $dbi;
         $node->getPresence();
 
@@ -438,7 +438,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
             ->getMock();
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with("SHOW DATABASES LIKE '%dbname%' ");
+            ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%dbname%' ");
         $GLOBALS['dbi'] = $dbi;
         $node->getPresence('', 'dbname');
     }
