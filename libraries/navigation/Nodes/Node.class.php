@@ -461,7 +461,7 @@ class Node
             if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $query = "SELECT COUNT(*) ";
                 $query .= "FROM ( ";
-                $query .= "SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
+                $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
                 $query .= "'$dbSeperator', 1) ";
                 $query .= "DB_first_level ";
                 $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
