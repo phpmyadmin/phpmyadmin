@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-02 11:40+0200\n"
-"PO-Revision-Date: 2014-10-09 09:45+0200\n"
+"PO-Revision-Date: 2014-10-14 10:47+0200\n"
 "Last-Translator: Michael Koch <michael.koch@enough.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
@@ -4818,7 +4818,7 @@ msgstr "Eine Spalte auswählen."
 #: libraries/central_columns.lib.php:810 libraries/central_columns.lib.php:920
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "auto_increment"
+msgstr "automatisches Inkrementieren"
 
 #: libraries/central_columns.lib.php:812 libraries/central_columns.lib.php:922
 msgid "on update CURRENT_TIMESTAMP"
@@ -6513,7 +6513,7 @@ msgstr "Hervorhebung ermöglichen"
 
 #: libraries/config/messages.inc.php:459
 msgid "Whether to disable the possibility of database expansion or not."
-msgstr ""
+msgstr "Ist die Möglichkeit der Datenbankerweiterung aktiviert oder nicht."
 
 #: libraries/config/messages.inc.php:461
 #| msgid "Display databases as a list"
@@ -10604,6 +10604,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"Boolische Werte werden in Text umgewandelt (Standard: 'T' und 'F'. Der erste "
+"Wert steht für TRUE, der zweite für FALSE. Ungleich Null entspricht TRUE."
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
@@ -10703,6 +10705,8 @@ msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"Bild-Upload-Funktionalität, die auch eine Vorschau anzeigt. Die möglichen "
+"Werte sind Breite und Höhe des Vorschaubildes in Pixeln. Vorgabe: 100 x 100."
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:78
 msgid "Image preview here"
@@ -10725,7 +10729,6 @@ msgstr ""
 "Punkt-Format."
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
-#, fuzzy
 #| msgid ""
 #| "Appends text to a string. The only option is the text to be appended "
 #| "(enclosed in single quotes, default empty string)."
@@ -10734,9 +10737,10 @@ msgid ""
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
-"Fügt Text in eine Zeichenfolge ein. Die einzige Option ist das der Text "
-"angefügt werden (eingeschlossen in einfache Anführungszeichen, standardgemäß "
-"leere Zeichenfolge)."
+"Hängt Text an eine Zeichenfolge an oder stellt ihn voran. Die erste Option "
+"ist der Text der vorangestellt werden soll, der Text der angehängt werden "
+"soll (eingeschlossen in einfache Anführungszeichen, standardgemäß leere "
+"Zeichenfolge)."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:33
 msgid ""
@@ -14016,13 +14020,12 @@ msgstr "Beschriftung Y-Achse:"
 
 #: libraries/tbl_chart.lib.php:237
 msgid "Series names are in a column"
-msgstr ""
+msgstr "Wertenamen in einer Spalte"
 
 #: libraries/tbl_chart.lib.php:240
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "In Spalte:"
+msgstr "Wertespalten:"
 
 #: libraries/tbl_chart.lib.php:253
 #| msgid "Values for column %s"
