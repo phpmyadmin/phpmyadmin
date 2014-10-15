@@ -30,13 +30,22 @@ $GLOBALS['dummy_queries'] = array(
         'result' => array(array('1')),
     ),
     array(
-        'query' => 'SELECT 1 FROM INFORMATION_SCHEMA.USER_PRIVILEGES '
-            . 'WHERE PRIVILEGE_TYPE = \'CREATE USER\' LIMIT 1',
+        'query' => "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`"
+            . " WHERE `PRIVILEGE_TYPE` = 'CREATE USER'"
+            . " AND '''pma_test''@''localhost''' LIKE `GRANTEE` LIMIT 1",
         'result' => array(array('1')),
     ),
     array(
-        'query' => 'SELECT 1 FROM INFORMATION_SCHEMA.USER_PRIVILEGES '
-            . 'WHERE IS_GRANTABLE = \'YES\' LIMIT 1',
+        'query' => "SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE`"
+            . " FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES`"
+            . " UNION SELECT `GRANTEE`, `IS_GRANTABLE`"
+            . " FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`"
+            . " UNION SELECT `GRANTEE`, `IS_GRANTABLE`"
+            . " FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`"
+            . " UNION SELECT `GRANTEE`, `IS_GRANTABLE`"
+            . " FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t"
+            . " WHERE `IS_GRANTABLE` = 'YES'"
+            . " AND '''pma_test''@''localhost''' LIKE `GRANTEE` LIMIT 1",
         'result' => array(array('1')),
     ),
     array(
