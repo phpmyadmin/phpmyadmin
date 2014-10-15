@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-02 11:40+0200\n"
-"PO-Revision-Date: 2014-10-12 22:04+0200\n"
+"PO-Revision-Date: 2014-10-15 14:30+0200\n"
 "Last-Translator: josep constanti <jconstanti@ovi.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -5572,10 +5572,9 @@ msgid "Default table tab"
 msgstr "Pestanya de taula predeterminada"
 
 #: libraries/config/messages.inc.php:90
-#, fuzzy
 #| msgid "Whether the table structure actions should be hidden"
 msgid "Whether the table structure actions should be hidden."
-msgstr "Si s'han d'amagar les accions sobre l'estructura de la taula"
+msgstr "Si s'han d'amagar les accions estructurals de la taula."
 
 #: libraries/config/messages.inc.php:91
 msgid "Hide table structure actions"
@@ -5607,7 +5606,6 @@ msgid "Display errors"
 msgstr "Mostra els errors"
 
 #: libraries/config/messages.inc.php:102
-#, fuzzy
 #| msgid ""
 #| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 #| "limit)"
@@ -5615,8 +5613,8 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
 msgstr ""
-"Estableix el temps en segons que es permet per executar ordres, ([kbd]0[/"
-"kbd] per no posar límit)"
+"Estableix el temps en segons que es permet per executar ordres, ([kbd]0[/kbd]"
+" per no posar límit)."
 
 #: libraries/config/messages.inc.php:105
 msgid "Maximum execution time"
@@ -5658,51 +5656,46 @@ msgstr "Posa els noms de columnes a la primera fila"
 #: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:330
 #: libraries/config/messages.inc.php:340
 #: libraries/plugins/import/ImportCsv.class.php:140
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
-msgstr "Columnes englobades per:"
+msgstr "Columnes delimitades amb"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:331
 #: libraries/config/messages.inc.php:341
 #: libraries/plugins/import/ImportCsv.class.php:147
-#, fuzzy
 #| msgid "Columns escaped with:"
 msgid "Columns escaped with"
-msgstr "Columnes amb marca d'escapada:"
+msgstr "Fi de columna amb"
 
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:119
 #: libraries/config/messages.inc.php:126 libraries/config/messages.inc.php:135
 #: libraries/config/messages.inc.php:144 libraries/config/messages.inc.php:148
 #: libraries/config/messages.inc.php:189 libraries/config/messages.inc.php:192
 #: libraries/config/messages.inc.php:194
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace NULL with"
-msgstr "Canvía NULL amb:"
+msgstr "Canvía NULL amb"
 
 #: libraries/config/messages.inc.php:114 libraries/config/messages.inc.php:120
 msgid "Remove CRLF characters within columns"
-msgstr "Treu caràcters CRLF de dins de les columnes"
+msgstr "Treu caràcters CRLF de dins les columnes"
 
 #: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:334
 #: libraries/config/messages.inc.php:345
 #: libraries/plugins/import/ImportCsv.class.php:125
-#, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns terminated with"
 msgstr "Columnes acabades amb"
 
 #: libraries/config/messages.inc.php:116 libraries/config/messages.inc.php:329
 #: libraries/plugins/import/ImportCsv.class.php:156
-#, fuzzy
 #| msgid "Lines terminated with:"
 msgid "Lines terminated with"
-msgstr "Línies acabades amb:"
+msgstr "Línies acabades amb"
 
 #: libraries/config/messages.inc.php:118
 msgid "Excel edition"
-msgstr "Edició per excel"
+msgstr "Format per excel"
 
 #: libraries/config/messages.inc.php:121
 msgid "Database name template"
@@ -5725,12 +5718,12 @@ msgstr "Plantilla de nom de taula"
 #: libraries/plugins/export/ExportOdt.class.php:77
 #: libraries/plugins/export/ExportTexytext.class.php:62
 msgid "Dump table"
-msgstr "Bolcat de taula"
+msgstr "Opcions de bolcat"
 
 #: libraries/config/messages.inc.php:128
 #: libraries/plugins/export/ExportLatex.class.php:89
 msgid "Include table caption"
-msgstr "Inclusió del titol de taula"
+msgstr "Incloeu l'encapçalament de taula"
 
 #: libraries/config/messages.inc.php:131 libraries/config/messages.inc.php:137
 msgid "Table caption"
@@ -5738,7 +5731,7 @@ msgstr "Títol de taula"
 
 #: libraries/config/messages.inc.php:132 libraries/config/messages.inc.php:139
 msgid "Continued table caption"
-msgstr "Continuació del títol de taula"
+msgstr "Ecapçalament de continuació de taula"
 
 #: libraries/config/messages.inc.php:133 libraries/config/messages.inc.php:140
 msgid "Label key"
