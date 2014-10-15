@@ -2299,8 +2299,6 @@ class PMA_DatabaseInterface
             }
 
             $is = false;
-            // Check information_schema.user_privileges table
-            // for global create user rights
             $result = $GLOBALS['dbi']->tryQuery(
                 $query,
                 $GLOBALS['userlink'],
