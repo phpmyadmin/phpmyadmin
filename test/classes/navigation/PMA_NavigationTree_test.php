@@ -11,6 +11,7 @@
  * since 'check_user_privileges.lib.php' will use it globally
  */
 $GLOBALS['server'] = 0;
+$GLOBALS['cfg']['Server']['DisableIS'] = false;
 
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';

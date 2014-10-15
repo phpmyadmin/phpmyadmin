@@ -2257,56 +2257,89 @@ class PMA_DatabaseInterface
             return PMA_Util::cacheGet('is_' . $type . 'user');
         }
 
-        // Prepare query for each user type check
-        $query = '';
-        if ($type === 'super') {
-            $query = 'SELECT 1 FROM mysql.user LIMIT 1';
-        } elseif ($type === 'create') {
-            list($user, $host) = $this->_getCurrentUserAndHost();
-            $query = "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` "
-                . "WHERE `PRIVILEGE_TYPE` = 'CREATE USER' "
-                . "AND '''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` LIMIT 1";
-        } elseif ($type === 'grant') {
-            list($user, $host) = $this->_getCurrentUserAndHost();
-            $query = "SELECT 1 FROM ("
-                . "SELECT `GRANTEE`, `IS_GRANTABLE` FROM "
-                . "`INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION "
-                . "SELECT `GRANTEE`, `IS_GRANTABLE` FROM "
-                . "`INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION "
-                . "SELECT `GRANTEE`, `IS_GRANTABLE` FROM "
-                . "`INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION "
-                . "SELECT `GRANTEE`, `IS_GRANTABLE` FROM "
-                . "`INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t "
-                . "WHERE `IS_GRANTABLE` = 'YES' "
-                . "AND '''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` LIMIT 1";
+        // when connection failed we don't have a $userlink
+        if (! isset($GLOBALS['userlink'])) {
+            PMA_Util::cacheSet('is_' . $type . 'user', false);
+            return PMA_Util::cacheGet('is_' . $type . 'user');
         }
 
-        // when connection failed we don't have a $userlink
-        if (isset($GLOBALS['userlink'])) {
-            $is = false;
-            if (PMA_DRIZZLE) {
-                // Drizzle has no authorization by default, so when no plugin is
-                // enabled everyone is a superuser
-                // Known authorization libraries: regex_policy, simple_user_policy
-                // Plugins limit object visibility (dbs, tables, processes), we can
-                // safely assume we always deal with superuser
-                $is = true;
-            } else {
-                // Check information_schema.user_privileges table
-                // for global create user rights
-                $result = $GLOBALS['dbi']->tryQuery(
-                    $query,
-                    $GLOBALS['userlink'],
-                    self::QUERY_STORE
-                );
-                if ($result) {
-                    $is = (bool) $GLOBALS['dbi']->numRows($result);
-                }
-                $GLOBALS['dbi']->freeResult($result);
+        if (PMA_DRIZZLE) {
+            // Drizzle has no authorization by default, so when no plugin is
+            // enabled everyone is a superuser
+            // Known authorization libraries: regex_policy, simple_user_policy
+            // Plugins limit object visibility (dbs, tables, processes), we can
+            // safely assume we always deal with superuser
+            PMA_Util::cacheSet('is_' . $type . 'user', true);
+            return PMA_Util::cacheGet('is_' . $type . 'user');
+        }
+
+        if (! $GLOBALS['cfg']['Server']['DisableIS'] || $type === 'super') {
+            // Prepare query for each user type check
+            $query = '';
+            if ($type === 'super') {
+                $query = 'SELECT 1 FROM mysql.user LIMIT 1';
+            } elseif ($type === 'create') {
+                list($user, $host) = $this->_getCurrentUserAndHost();
+                $query = "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` "
+                    . "WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND "
+                    . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` LIMIT 1";
+            } elseif ($type === 'grant') {
+                list($user, $host) = $this->_getCurrentUserAndHost();
+                $query = "SELECT 1 FROM ("
+                    . "SELECT `GRANTEE`, `IS_GRANTABLE` FROM "
+                    . "`INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION "
+                    . "SELECT `GRANTEE`, `IS_GRANTABLE` FROM "
+                    . "`INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION "
+                    . "SELECT `GRANTEE`, `IS_GRANTABLE` FROM "
+                    . "`INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION "
+                    . "SELECT `GRANTEE`, `IS_GRANTABLE` FROM "
+                    . "`INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t "
+                    . "WHERE `IS_GRANTABLE` = 'YES' AND "
+                    . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` LIMIT 1";
             }
+
+            $is = false;
+            // Check information_schema.user_privileges table
+            // for global create user rights
+            $result = $GLOBALS['dbi']->tryQuery(
+                $query,
+                $GLOBALS['userlink'],
+                self::QUERY_STORE
+            );
+            if ($result) {
+                $is = (bool) $GLOBALS['dbi']->numRows($result);
+            }
+            $GLOBALS['dbi']->freeResult($result);
+
             PMA_Util::cacheSet('is_' . $type . 'user', $is);
         } else {
-            PMA_Util::cacheSet('is_' . $type . 'user', false);
+            $is = false;
+            $grants = $GLOBALS['dbi']->fetchResult(
+                "SHOW GRANTS FOR CURRENT_USER();",
+                null,
+                null,
+                $GLOBALS['userlink'],
+                self::QUERY_STORE
+            );
+            if ($grants) {
+                foreach ($grants as $grant) {
+                    if ($type === 'create') {
+                        if (strpos($grant, "ALL PRIVILEGES ON *.*") !== false
+                            || strpos($grant, "CREATE USER") !== false
+                        ) {
+                            $is = true;
+                            break;
+                        }
+                    } elseif ($type === 'grant') {
+                        if (strpos($grant, "WITH GRANT OPTION") !== false) {
+                            $is = true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            PMA_Util::cacheSet('is_' . $type . 'user', $is);
         }
 
         return PMA_Util::cacheGet('is_' . $type . 'user');
