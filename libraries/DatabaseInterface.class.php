@@ -718,6 +718,8 @@ class PMA_DatabaseInterface
                         && $each_tables[$table_name]['Engine'] == null
                     ) {
                         $each_tables[$table_name]['TABLE_TYPE'] = 'VIEW';
+                    } elseif ($each_database == 'information_schema') {
+                        $each_tables[$table_name]['TABLE_TYPE'] = 'SYSTEM VIEW';
                     } else {
                         /**
                          * @todo difference between 'TEMPORARY' and 'BASE TABLE'
