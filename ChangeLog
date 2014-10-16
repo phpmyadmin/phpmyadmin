@@ -50,6 +50,7 @@ phpMyAdmin - ChangeLog
 - bug #4551 Wrong test in source code
 - bug #4537 BLOB inline-view JPG column transformation does not work for anything except simple queries
 + rfe #1535 Keyword-based autocompletion in SQL query editors
+- bug #4558 Unable to Add Rows while Creating Table
 
 4.2.11.0 (not yet released)
 - bug       ReferenceError: Table_onover is not defined
