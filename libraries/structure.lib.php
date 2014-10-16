@@ -1016,6 +1016,13 @@ function PMA_getAliasAndTrueName($tooltip_aliasname, $current_table,
  */
 function PMA_getServerSlaveStatus($server_slave_status, $truename)
 {
+    global $server_slave_Do_DB;
+    global $server_slave_Ignore_DB;
+    global $server_slave_Do_Table;
+    global $server_slave_Wild_Do_Table;
+    global $server_slave_Ignore_Table;
+    global $server_slave_Wild_Ignore_Table;
+
     $ignored = false;
     $do = false;
     include_once 'libraries/replication.inc.php';
@@ -1035,15 +1042,17 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
     ) {
         $do = true;
     }
-    foreach ($server_slave_Wild_Do_Table as $db_table) {
-        $table_part = PMA_extractDbOrTable($db_table, 'table');
-        $pattern = "@^"
-            . $pmaString->substr($table_part, 0, $pmaString->strlen($table_part) - 1)
-            . "@";
-        if (($GLOBALS['db'] == PMA_extractDbOrTable($db_table, 'db'))
-            && (preg_match($pattern, $truename))
-        ) {
-            $do = true;
+    if (count($server_slave_Wild_Do_Table) > 1) {
+        foreach ($server_slave_Wild_Do_Table as $db_table) {
+            $table_part = PMA_extractDbOrTable($db_table, 'table');
+            $pattern = "@^"
+                . $pmaString->substr($table_part, 0, $pmaString->strlen($table_part) - 1)
+                . "@";
+            if (($GLOBALS['db'] == PMA_extractDbOrTable($db_table, 'db'))
+                && (preg_match($pattern, $truename))
+            ) {
+                $do = true;
+            }
         }
     }
 
@@ -1053,15 +1062,17 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
     ) {
         $ignored = true;
     }
-    foreach ($server_slave_Wild_Ignore_Table as $db_table) {
-        $table_part = PMA_extractDbOrTable($db_table, 'table');
-        $pattern = "@^"
-            . $pmaString->substr($table_part, 0, $pmaString->strlen($table_part) - 1)
-            . "@";
-        if (($db == PMA_extractDbOrTable($db_table))
-            && (preg_match($pattern, $truename))
-        ) {
-            $ignored = true;
+    if (count($server_slave_Wild_Ignore_Table) > 1) {
+        foreach ($server_slave_Wild_Ignore_Table as $db_table) {
+            $table_part = PMA_extractDbOrTable($db_table, 'table');
+            $pattern = "@^"
+                . $pmaString->substr($table_part, 0, $pmaString->strlen($table_part) - 1)
+                . "@";
+            if (($db == PMA_extractDbOrTable($db_table))
+                && (preg_match($pattern, $truename))
+            ) {
+                $ignored = true;
+            }
         }
     }
 
