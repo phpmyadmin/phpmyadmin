@@ -4380,6 +4380,24 @@ class PMA_Util
         }
         return 'none';
     }
+
+    /**
+     * Provide COLLATE clause, if required, to perfrom case sensitice comparisons
+     * for queries on information_schema.
+     *
+     * @return string COLLATE clause if needed or empty string.
+     */
+    public static function getCollateForIS()
+    {
+        $lowerCaseTableNames = $GLOBALS['dbi']->fetchValue(
+            "SHOW VARIABLES LIKE 'lower_case_table_names'", 0, 1
+        );
+
+        if ($lowerCaseTableNames === '0') {
+            return "COLLATE utf8_bin";
+        }
+        return "";
+    }
 }
 
 ?>
