@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-16 12:25-0400\n"
-"PO-Revision-Date: 2014-10-08 21:26+0200\n"
+"PO-Revision-Date: 2014-10-16 18:57+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -10371,14 +10371,13 @@ msgid "FOREIGN KEY relation has been added."
 msgstr "FOREIGN KEY bağlantısı eklendi."
 
 #: libraries/pmd_common.php:544
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relation could not be added!"
-msgstr "Hata: Bağlantı eklenemedi!"
+msgstr "Hata: FOREIGN KEY bağlantısı eklenemedi!"
 
 #: libraries/pmd_common.php:549
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Hata: Sütun(lar)da indeks eksik."
 
 #: libraries/pmd_common.php:553
 msgid "Error: Relational features are disabled!"
@@ -10386,37 +10385,32 @@ msgstr "Hata: Bağlantılı özellikler etkisizleştirildi!"
 
 #: libraries/pmd_common.php:572
 msgid "Internal relation has been added."
-msgstr "Dahili bağlantı eklendi."
+msgstr "İç bağlantı eklendi."
 
 #: libraries/pmd_common.php:577
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relation could not be added!"
-msgstr "Hata: Bağlantı eklenemedi!"
+msgstr "Hata: İç bağlantı eklenemedi!"
 
 #: libraries/pmd_common.php:623
-#, fuzzy
 #| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relation has been removed."
-msgstr "FOREIGN KEY bağlantısı eklendi."
+msgstr "FOREIGN KEY bağlantısı kaldırıldı."
 
 #: libraries/pmd_common.php:628
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relation could not be removed!"
-msgstr "Hata: Bağlantı eklenemedi!"
+msgstr "Hata: FOREIGN KEY bağlantısı kaldırılamadı!"
 
 #: libraries/pmd_common.php:659
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relation has been removed."
-msgstr "Dahili bağlantı eklendi."
+msgstr "İç bağlantı kaldırıldı."
 
 #: libraries/pmd_common.php:664
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relation could not be removed!"
-msgstr "Hata: Bağlantı eklenemedi!"
+msgstr "Hata: İç bağlantı kaldırılamadı!"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
