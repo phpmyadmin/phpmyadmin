@@ -11,6 +11,7 @@
  * since 'check_user_privileges.lib.php' will use it globally
  */
 $GLOBALS['server'] = 0;
+$GLOBALS['cfg']['Server']['DisableIS'] = false;
 
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
@@ -51,6 +52,7 @@ class PMA_NavigationTreeTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'root';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $GLOBALS['pmaThemeImage'] = 'image';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');

@@ -50,6 +50,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ShowSQL'] = true;
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
         $GLOBALS['pmaThemeImage'] = 'image';

@@ -728,7 +728,10 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
 
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
         $html_output .= '<td class="nowrap">'
-            . ($table_is_view ? __('View') : $current_table['ENGINE'])
+            . ( ! empty($current_table['ENGINE'])
+                ? $current_table['ENGINE']
+                : ($table_is_view ? __('View') : '')
+            )
             . '</td>';
         if ($GLOBALS['PMA_String']->strlen($collation)) {
             $html_output .= '<td class="nowrap">' . $collation . '</td>';
@@ -1131,15 +1134,7 @@ function PMA_getStuffForEngineTypeTable($current_table, $db_is_system_schema,
     case null :
     case 'SYSTEM VIEW' :
     case 'FunctionEngine' :
-        // if table is broken, Engine is reported as null, so one more test
-        if ($current_table['TABLE_TYPE'] == 'VIEW') {
-            // countRecords() takes care of $cfg['MaxExactCountViews']
-            $current_table['TABLE_ROWS'] = PMA_Table::countRecords(
-                $GLOBALS['db'], $current_table['TABLE_NAME'],
-                true, true
-            );
-            $table_is_view = true;
-        }
+        // possibly a view, do nothing
         break;
     default :
         // Unknown table type.
@@ -1148,6 +1143,17 @@ function PMA_getStuffForEngineTypeTable($current_table, $db_is_system_schema,
             $unit          =  '';
         }
     } // end switch
+
+    if ($current_table['TABLE_TYPE'] == 'VIEW'
+        || $current_table['TABLE_TYPE'] == 'SYSTEM VIEW'
+    ) {
+        // countRecords() takes care of $cfg['MaxExactCountViews']
+        $current_table['TABLE_ROWS'] = PMA_Table::countRecords(
+            $GLOBALS['db'], $current_table['TABLE_NAME'],
+            true, true
+        );
+        $table_is_view = true;
+    }
 
     return array($current_table, $formatted_size, $unit, $formatted_overhead,
         $overhead_unit, $overhead_size, $table_is_view, $sum_size
@@ -3198,13 +3204,13 @@ function PMA_handleRealRowCountRequest()
 }
 
 /**
- * Possibly show the table creation dialog 
+ * Possibly show the table creation dialog
  *
  * @param string       $db                  Current database name
  * @param bool         $db_is_system_schema Whether this db is a system schema
  * @param PMA_Response $response            PMA_Response instance
  *
- * @return void 
+ * @return void
  */
 function PMA_possiblyShowCreateTableDialog($db, $db_is_system_schema, $response)
 {
