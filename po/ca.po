@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-02 11:40+0200\n"
-"PO-Revision-Date: 2014-10-15 14:30+0200\n"
+"PO-Revision-Date: 2014-10-16 07:47+0200\n"
 "Last-Translator: josep constanti <jconstanti@ovi.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -3513,7 +3513,7 @@ msgstr "No es pot llegir l'arxiu pujat (i mogut)."
 #: libraries/Footer.class.php:74
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "S'està executant la revisió Git %1$s de la branca %2$s."
 
 #: libraries/Footer.class.php:81
 msgid "Git information missing!"
