@@ -2553,6 +2553,10 @@ AJAX.registerOnload('functions.js', function () {
          */
         var $form = $(this).closest('form');
 
+        if (!checkFormElementInRange(this.form, 'added_fields', PMA_messages.strLeastColumnError, 1)) {
+            return;
+        }
+
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         PMA_prepareForAjaxRequest($form);
 
@@ -2569,14 +2573,14 @@ AJAX.registerOnload('functions.js', function () {
         }); //end $.post()
     }); // end create table form (add fields)
 
-    $("form.create_table_form.ajax input").live('keydown', function (event) {
+    $("form.create_table_form.ajax input[name=added_fields]").live('keydown', function (event) {
         if (event.keyCode == 13) {
             event.preventDefault();
             event.stopImmediatePropagation();
             $(this)
                 .closest('form')
-                .append('<input type="hidden" name="do_save_data" value="1" />')
-                .submit();
+                .find('input[name=submit_num_fields]')
+                .click();
         }
     });
     $("input[value=AUTO_INCREMENT]").change(function(){

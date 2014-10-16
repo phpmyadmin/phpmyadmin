@@ -175,13 +175,8 @@ function PMA_getHtmlForTableNameAndNoOfColumns()
         . '()" />'
     );
 
-    $html .= '<input type="submit" name="submit_num_fields"'
-        . 'value="' . __('Go') . '"'
-        . ' onclick="return'
-        . ' checkFormElementInRange(this.form, \'added_fields\', \''
-        . str_replace(
-            '\'', '\\\'', __('You have to add at least one column.')
-        ) . '\', 1)" />';
+    $html .= '<input type="button" name="submit_num_fields"'
+        . 'value="' . __('Go') . '" />';
 
     $html .= '</td>'
         . '</tr>'
