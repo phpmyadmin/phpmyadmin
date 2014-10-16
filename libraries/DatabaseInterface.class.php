@@ -1222,6 +1222,7 @@ class PMA_DatabaseInterface
             }
             return $this->fetchResult($sql, $array_keys, null, $link);
         } else {
+            $columns = array();
             if (null === $database) {
                 foreach ($GLOBALS['pma']->databases as $database) {
                     $columns[$database] = $this->getColumnsFull(
