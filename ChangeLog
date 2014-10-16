@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.2.11.0 (not yet released)
 - bug       ReferenceError: Table_onover is not defined
+- bug #4552 Incorrect routines display for database due to case insensitive checks
 
 4.2.10.0 (2014-10-11)
 - bug #4361 Can't change font size (when config.inc.php not present)
