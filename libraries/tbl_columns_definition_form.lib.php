@@ -1010,14 +1010,6 @@ function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
     // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
     // the latter.
     $create_table_fields = $analyzed_sql[0]['create_table_fields'];
-    if (PMA_MYSQL_INT_VERSION < 50025
-        && isset($columnMeta['Field'])
-        && isset($create_table_fields[$columnMeta['Field']]['type'])
-        && $create_table_fields[$columnMeta['Field']]['type'] == 'TIMESTAMP'
-        && $create_table_fields[$columnMeta['Field']]['timestamp_not_null'] == true
-    ) {
-        $columnMeta['Null'] = '';
-    }
 
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)

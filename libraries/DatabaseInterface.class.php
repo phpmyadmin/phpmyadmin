@@ -1645,9 +1645,9 @@ class PMA_DatabaseInterface
                         $version['@@version_comment']
                     );
                 } else {
-                    define('PMA_MYSQL_INT_VERSION', 50015);
+                    define('PMA_MYSQL_INT_VERSION', 50501);
                     define('PMA_MYSQL_MAJOR_VERSION', 5);
-                    define('PMA_MYSQL_STR_VERSION', '5.00.15');
+                    define('PMA_MYSQL_STR_VERSION', '5.05.01');
                     define('PMA_MYSQL_VERSION_COMMENT', '');
                 }
                 PMA_Util::cacheSet(

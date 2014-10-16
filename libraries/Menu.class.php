@@ -465,8 +465,7 @@ class PMA_Menu
                 $tabs['routines']['text'] = __('Routines');
                 $tabs['routines']['icon'] = 'b_routines.png';
             }
-            if (PMA_MYSQL_INT_VERSION >= 50106
-                && ! PMA_DRIZZLE
+            if (! PMA_DRIZZLE
                 && PMA_Util::currentUserHasPrivilege('EVENT', $this->_db)
             ) {
                 $tabs['events']['link'] = 'db_events.php';

@@ -570,9 +570,7 @@ class PMA_Index
         $r .= '<th>' . __('Cardinality') . '</th>';
         $r .= '<th>' . __('Collation') . '</th>';
         $r .= '<th>' . __('Null') . '</th>';
-        if (PMA_MYSQL_INT_VERSION > 50500) {
-            $r .= '<th>' . __('Comment') . '</th>';
-        }
+        $r .= '<th>' . __('Comment') . '</th>';
         $r .= '</tr>';
         $r .= '</thead>';
         $r .= '<tbody>';
@@ -664,8 +662,7 @@ class PMA_Index
                     . htmlspecialchars($column->getNull(true))
                     . '</td>';
 
-                if (PMA_MYSQL_INT_VERSION > 50500
-                    && $column->getSeqInIndex() == 1
+                if ($column->getSeqInIndex() == 1
                 ) {
                     $r .= '<td ' . $row_span . '>'
                         . htmlspecialchars($index->getComments()) . '</td>';

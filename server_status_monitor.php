@@ -36,10 +36,6 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     }
 
     if (isset($_REQUEST['log_data'])) {
-        if (PMA_MYSQL_INT_VERSION < 50106) {
-            // Table logging is only available since 5.1.6
-            exit('""');
-        }
 
         $start = intval($_REQUEST['time_start']);
         $end = intval($_REQUEST['time_end']);

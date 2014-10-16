@@ -462,10 +462,6 @@ class PMA_Util
                 $mysql = '5.6';
             } else if (PMA_MYSQL_INT_VERSION >= 50500) {
                 $mysql = '5.5';
-            } else if (PMA_MYSQL_INT_VERSION >= 50100) {
-                $mysql = '5.1';
-            } else {
-                $mysql = '5.0';
             }
         }
         $url = 'http://dev.mysql.com/doc/refman/'
@@ -1330,7 +1326,6 @@ class PMA_Util
             // (avoid a trip to the server for MySQL before 5.0.37)
             // and do not set a constant as we might be switching servers
             if (defined('PMA_MYSQL_INT_VERSION')
-                && (PMA_MYSQL_INT_VERSION >= 50037)
                 && $GLOBALS['dbi']->fetchValue("SHOW VARIABLES LIKE 'profiling'")
             ) {
                 self::cacheSet('profiling_supported', true);
@@ -3828,13 +3823,6 @@ class PMA_Util
      */
     public static function currentUserHasPrivilege($priv, $db = null, $tbl = null)
     {
-        // TRIGGER privilege was added in MySQL 5.1.6.
-        // Before MySQL 5.1.6, the SUPER privilege was required to create i
-        // or drop triggers.
-        if ($priv == "TRIGGER" && PMA_MYSQL_INT_VERSION < 50160) {
-            $priv = "SUPER";
-        }
-
         // Get the username for the current user in the format
         // required to use in the information schema database.
         $user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");

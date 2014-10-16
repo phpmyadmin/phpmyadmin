@@ -245,10 +245,7 @@ class ExportSql extends ExportPlugin
                         $drop_clause = '<code>DROP TABLE</code>';
                     } else {
                         $drop_clause = '<code>DROP TABLE / VIEW / PROCEDURE'
-                            . ' / FUNCTION</code>';
-                        if (PMA_MYSQL_INT_VERSION > 50100) {
-                            $drop_clause .= '<code> / EVENT</code>';
-                        }
+                            . ' / FUNCTION / EVENT</code>';
                     }
                 }
 
@@ -282,9 +279,7 @@ class ExportSql extends ExportPlugin
                     $leaf->setText(
                         sprintf(
                             __('Add %s statement'),
-                            '<code>CREATE PROCEDURE / FUNCTION'
-                            . (PMA_MYSQL_INT_VERSION > 50100
-                            ? ' / EVENT</code>' : '</code>')
+                            '<code>CREATE PROCEDURE / FUNCTION / EVENT</code>'
                         )
                     );
                     $subgroup->addProperty($leaf);
@@ -895,16 +890,12 @@ class ExportSql extends ExportPlugin
             $text = '';
             $delimiter = '$$';
 
-            if (PMA_MYSQL_INT_VERSION > 50100) {
-                $event_names = $GLOBALS['dbi']->fetchResult(
-                    'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE'
-                    . ' EVENT_SCHEMA= \''
-                    . PMA_Util::sqlAddSlashes($db, true)
-                    . '\';'
-                );
-            } else {
-                $event_names = array();
-            }
+            $event_names = $GLOBALS['dbi']->fetchResult(
+                'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE'
+                . ' EVENT_SCHEMA= \''
+                . PMA_Util::sqlAddSlashes($db, true)
+                . '\';'
+            );
 
             if ($event_names) {
                 $text .= $crlf

@@ -583,13 +583,6 @@ class PMA_Types_MySQL extends PMA_Types
                 'WEEKOFYEAR',
                 'YEARWEEK',
             );
-            // remove functions that are unavailable on current server
-            if (PMA_MYSQL_INT_VERSION < 50500) {
-                $ret = array_diff($ret, array('TO_SECONDS'));
-            }
-            if (PMA_MYSQL_INT_VERSION < 50120) {
-                $ret = array_diff($ret, array('UUID_SHORT'));
-            }
             return $ret;
 
         case 'SPATIAL':

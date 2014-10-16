@@ -1852,14 +1852,12 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
         . ' AND `Alter_routine_priv` = \'N\''
         . ' AND `Execute_priv` = \'N\'';
 
-    if (PMA_MYSQL_INT_VERSION >= 50106) {
-        $list_of_privileges .=
-            ', `Event_priv`, '
-            . '`Trigger_priv`';
-        $listOfComparedPrivs .=
-            ' AND `Event_priv` = \'N\''
-            . ' AND `Trigger_priv` = \'N\'';
-    }
+    $list_of_privileges .=
+        ', `Event_priv`, '
+        . '`Trigger_priv`';
+    $listOfComparedPrivs .=
+        ' AND `Event_priv` = \'N\''
+        . ' AND `Trigger_priv` = \'N\'';
     return array($list_of_privileges, $listOfComparedPrivs);
 }
 

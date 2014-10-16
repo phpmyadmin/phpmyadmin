@@ -74,7 +74,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     {
         $restoreDrizzle = $restoreMySQLIntVersion = 'PMANORESTORE';
 
-        if (PMA_DRIZZLE || PMA_MYSQL_INT_VERSION <= 50100) {
+        if (PMA_DRIZZLE) {
             if (!PMA_HAS_RUNKIT) {
                 $this->markTestSkipped(
                     "Cannot redefine constant. Missing runkit extension"
@@ -83,10 +83,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
                 if (PMA_DRIZZLE) {
                     $restoreDrizzle = PMA_DRIZZLE;
                     runkit_constant_redefine('PMA_DRIZZLE', false);
-                }
-                if (PMA_MYSQL_INT_VERSION <= 50100) {
-                    $restoreMySQLIntVersion = PMA_MYSQL_INT_VERSION;
-                    runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50111);
                 }
             }
         }
@@ -276,8 +272,8 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            'Add <code>DROP TABLE / VIEW / PROCEDURE / FUNCTION</code>' .
-            '<code> / EVENT</code><code> / TRIGGER</code> statement',
+            'Add <code>DROP TABLE / VIEW / PROCEDURE / FUNCTION' .
+            ' / EVENT</code><code> / TRIGGER</code> statement',
             $leaf->getText()
         );
 
@@ -366,7 +362,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     {
         $restoreDrizzle = $restoreMySQLIntVersion = 'PMANORESTORE';
 
-        if (!PMA_DRIZZLE || PMA_MYSQL_INT_VERSION > 50100) {
+        if (!PMA_DRIZZLE) {
             if (!PMA_HAS_RUNKIT) {
                 $this->markTestSkipped(
                     "Cannot redefine constant. Missing runkit extension"
@@ -376,10 +372,8 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
                     $restoreDrizzle = PMA_DRIZZLE;
                     runkit_constant_redefine('PMA_DRIZZLE', true);
                 }
-                if (PMA_MYSQL_INT_VERSION > 50100) {
-                    $restoreMySQLIntVersion = PMA_MYSQL_INT_VERSION;
-                    runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50000);
-                }
+                $restoreMySQLIntVersion = PMA_MYSQL_INT_VERSION;
+                runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50000);
             }
         }
 
@@ -901,15 +895,13 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     {
         $restoreMySQLVersion = "PMANORESTORE";
 
-        if (PMA_MYSQL_INT_VERSION <= 50100) {
-            if (! PMA_HAS_RUNKIT) {
-                $this->markTestSkipped(
-                    'Cannot redefine constant. Missing runkit extension'
-                );
-            } else {
-                $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
-                runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50101);
-            }
+        if (! PMA_HAS_RUNKIT) {
+            $this->markTestSkipped(
+                'Cannot redefine constant. Missing runkit extension'
+            );
+        } else {
+            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
+            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50101);
         }
 
         $GLOBALS['crlf'] = "\n";
@@ -986,15 +978,13 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     {
         $restoreMySQLVersion = "PMANORESTORE";
 
-        if (PMA_MYSQL_INT_VERSION > 50100) {
-            if (! PMA_HAS_RUNKIT) {
-                $this->markTestSkipped(
-                    'Cannot redefine constant. Missing runkit extension'
-                );
-            } else {
-                $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
-                runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50100);
-            }
+        if (! PMA_HAS_RUNKIT) {
+            $this->markTestSkipped(
+                'Cannot redefine constant. Missing runkit extension'
+            );
+        } else {
+            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
+            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50100);
         }
 
         $GLOBALS['crlf'] = "\n";
