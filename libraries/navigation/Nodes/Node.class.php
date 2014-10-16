@@ -361,7 +361,7 @@ class Node
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
-            $dbSeperator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
+            $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
             if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $query  = "SELECT `SCHEMA_NAME` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ";
@@ -369,7 +369,7 @@ class Node
                 $query .= "SELECT DB_first_level ";
                 $query .= "FROM ( ";
                 $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
-                $query .= "'$dbSeperator', 1) ";
+                $query .= "'$dbSeparator', 1) ";
                 $query .= "DB_first_level ";
                 $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
                 $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
@@ -378,9 +378,9 @@ class Node
                 $query .= "LIMIT $pos, $maxItems";
                 $query .= ") t2 ";
                 $query .= "WHERE 1 = LOCATE(CONCAT(DB_first_level, ";
-                $query .= "'$dbSeperator'), ";
+                $query .= "'$dbSeparator'), ";
                 $query .= "CONCAT(SCHEMA_NAME, ";
-                $query .= "'$dbSeperator')) ";
+                $query .= "'$dbSeparator')) ";
                 $query .= "ORDER BY SCHEMA_NAME ASC";
                 $retval = $GLOBALS['dbi']->fetchResult($query);
             } else {
@@ -391,7 +391,7 @@ class Node
                     $prefixMap = array();
                     $total = $pos + $maxItems;
                     while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        $prefix = strstr($arr[0], $dbSeperator, true);
+                        $prefix = strstr($arr[0], $dbSeparator, true);
                         if ($prefix === false) {
                             $prefix = $arr[0];
                         }
@@ -409,8 +409,8 @@ class Node
                 $subClauses = array();
                 foreach ($prefixes as $prefix) {
                     $subClauses[] = " LOCATE('"
-                        . PMA_Util::sqlAddSlashes($prefix) . $dbSeperator . "', "
-                        . "CONCAT(`Database`, '" . $dbSeperator . "')) = 1 ";
+                        . PMA_Util::sqlAddSlashes($prefix) . $dbSeparator . "', "
+                        . "CONCAT(`Database`, '" . $dbSeparator . "')) = 1 ";
                 }
                 $query .= implode("OR", $subClauses) . ")";
                 $retval = $GLOBALS['dbi']->fetchResult($query);
@@ -457,12 +457,12 @@ class Node
     public function getPresence($type = '', $searchClause = '')
     {
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
-            $dbSeperator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
+            $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
             if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $query = "SELECT COUNT(*) ";
                 $query .= "FROM ( ";
                 $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
-                $query .= "'$dbSeperator', 1) ";
+                $query .= "'$dbSeparator', 1) ";
                 $query .= "DB_first_level ";
                 $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
                 $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
@@ -475,7 +475,7 @@ class Node
                 if ($handle !== false) {
                     $prefixMap = array();
                     while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        $prefix = strstr($arr[0], $dbSeperator, true);
+                        $prefix = strstr($arr[0], $dbSeparator, true);
                         if ($prefix === false) {
                             $prefix = $arr[0];
                         }
