@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-10-08 21:26+0200\n"
+"PO-Revision-Date: 2014-10-16 18:57+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-2/tr/>\n"
@@ -12931,7 +12931,7 @@ msgstr "Hata: Bağlantılı özellikler etkisizleştirildi!"
 
 #: pmd_relation_new.php:104
 msgid "Internal relation has been added."
-msgstr "Dahili bağlantı eklendi."
+msgstr "İç bağlantı eklendi."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
