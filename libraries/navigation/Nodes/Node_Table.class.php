@@ -77,13 +77,22 @@ class Node_Table extends Node_DatabaseChild
         $table  = $this->real_name;
         switch ($type) {
         case 'columns':
-            $db     = PMA_Util::sqlAddSlashes($db);
-            $table  = PMA_Util::sqlAddSlashes($table);
-            $query  = "SELECT COUNT(*) ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
-            $query .= "WHERE `TABLE_NAME`='$table' ";
-            $query .= "AND `TABLE_SCHEMA`='$db'";
-            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+                $db     = PMA_Util::sqlAddSlashes($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
+                $query  = "SELECT COUNT(*) ";
+                $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
+                $query .= "WHERE `TABLE_NAME`='$table' ";
+                $query .= "AND `TABLE_SCHEMA`='$db'";
+                $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+            } else {
+                $db     = PMA_Util::backquote($db);
+                $table  = PMA_Util::backquote($table);
+                $query  = "SHOW COLUMNS FROM $table FROM $db";
+                $retval = (int)$GLOBALS['dbi']->numRows(
+                    $GLOBALS['dbi']->tryQuery($query)
+                );
+            }
             break;
         case 'indexes':
             $db     = PMA_Util::backquote($db);
@@ -94,13 +103,22 @@ class Node_Table extends Node_DatabaseChild
             );
             break;
         case 'triggers':
-            $db     = PMA_Util::sqlAddSlashes($db);
-            $table  = PMA_Util::sqlAddSlashes($table);
-            $query  = "SELECT COUNT(*) ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
-            $query .= "WHERE `EVENT_OBJECT_SCHEMA`='$db' ";
-            $query .= "AND `EVENT_OBJECT_TABLE`='$table'";
-            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+                $db     = PMA_Util::sqlAddSlashes($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
+                $query  = "SELECT COUNT(*) ";
+                $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
+                $query .= "WHERE `EVENT_OBJECT_SCHEMA`='$db' ";
+                $query .= "AND `EVENT_OBJECT_TABLE`='$table'";
+                $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+            } else {
+                $db     = PMA_Util::backquote($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
+                $query  = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
+                $retval = (int)$GLOBALS['dbi']->numRows(
+                    $GLOBALS['dbi']->tryQuery($query)
+                );
+            }
             break;
         default:
             break;
@@ -127,15 +145,32 @@ class Node_Table extends Node_DatabaseChild
         $table    = $this->real_name;
         switch ($type) {
         case 'columns':
-            $db     = PMA_Util::sqlAddSlashes($db);
-            $table  = PMA_Util::sqlAddSlashes($table);
-            $query  = "SELECT `COLUMN_NAME` AS `name` ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
-            $query .= "WHERE `TABLE_NAME`='$table' ";
-            $query .= "AND `TABLE_SCHEMA`='$db' ";
-            $query .= "ORDER BY `COLUMN_NAME` ASC ";
-            $query .= "LIMIT " . intval($pos) . ", $maxItems";
-            $retval = $GLOBALS['dbi']->fetchResult($query);
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+                $db     = PMA_Util::sqlAddSlashes($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
+                $query  = "SELECT `COLUMN_NAME` AS `name` ";
+                $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
+                $query .= "WHERE `TABLE_NAME`='$table' ";
+                $query .= "AND `TABLE_SCHEMA`='$db' ";
+                $query .= "ORDER BY `COLUMN_NAME` ASC ";
+                $query .= "LIMIT " . intval($pos) . ", $maxItems";
+                $retval = $GLOBALS['dbi']->fetchResult($query);
+            } else {
+                $db     = PMA_Util::backquote($db);
+                $table  = PMA_Util::backquote($table);
+                $query  = "SHOW COLUMNS FROM $table FROM $db";
+                $handle = $GLOBALS['dbi']->tryQuery($query);
+                if ($handle !== false) {
+                    $count = 0;
+                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                        if ($pos <= 0 && $count < $maxItems) {
+                            $retval[] = $arr['Field'];
+                            $count++;
+                        }
+                        $pos--;
+                    }
+                }
+            }
             break;
         case 'indexes':
             $db     = PMA_Util::backquote($db);
@@ -157,15 +192,32 @@ class Node_Table extends Node_DatabaseChild
             }
             break;
         case 'triggers':
-            $db     = PMA_Util::sqlAddSlashes($db);
-            $table  = PMA_Util::sqlAddSlashes($table);
-            $query  = "SELECT `TRIGGER_NAME` AS `name` ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
-            $query .= "WHERE `EVENT_OBJECT_SCHEMA`='$db' ";
-            $query .= "AND `EVENT_OBJECT_TABLE`='$table' ";
-            $query .= "ORDER BY `TRIGGER_NAME` ASC ";
-            $query .= "LIMIT " . intval($pos) . ", $maxItems";
-            $retval = $GLOBALS['dbi']->fetchResult($query);
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+                $db     = PMA_Util::sqlAddSlashes($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
+                $query  = "SELECT `TRIGGER_NAME` AS `name` ";
+                $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
+                $query .= "WHERE `EVENT_OBJECT_SCHEMA`='$db' ";
+                $query .= "AND `EVENT_OBJECT_TABLE`='$table' ";
+                $query .= "ORDER BY `TRIGGER_NAME` ASC ";
+                $query .= "LIMIT " . intval($pos) . ", $maxItems";
+                $retval = $GLOBALS['dbi']->fetchResult($query);
+            } else {
+                $db     = PMA_Util::backquote($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
+                $query  = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
+                $handle = $GLOBALS['dbi']->tryQuery($query);
+                if ($handle !== false) {
+                    $count = 0;
+                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                        if ($pos <= 0 && $count < $maxItems) {
+                            $retval[] = $arr['Trigger'];
+                            $count++;
+                        }
+                        $pos--;
+                    }
+                }
+            }
             break;
         default:
             break;

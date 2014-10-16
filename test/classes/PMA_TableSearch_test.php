@@ -54,6 +54,7 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['maxRowPlotLimit'] = 500;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['ForeignKeyMaxLimit'] = 100;

@@ -521,6 +521,15 @@ $cfg['Servers'][$i]['AllowDeny']['order'] = '';
 $cfg['Servers'][$i]['AllowDeny']['rules'] = array();
 
 /**
+ * Disable use of INFORMATION_SCHEMA. Is always 'false' for Drizzle.
+ *
+ * @see https://sourceforge.net/p/phpmyadmin/bugs/2606/
+ * @see http://bugs.mysql.com/19588
+ * @global boolean $cfg['Servers'][$i]['DisableIS']
+ */
+$cfg['Servers'][$i]['DisableIS'] = false;
+
+/**
  * Whether the tracking mechanism creates
  * versions for tables and views automatically.
  *

@@ -817,11 +817,17 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         // case2: no backquotes
         unset($GLOBALS['sql_compatibility']);
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
         unset($GLOBALS['sql_backquotes']);
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+
+        $dbi->expects($this->once())
+            ->method('fetchValue')
+            ->with('SHOW VARIABLES LIKE \'collation_database\'', 0, 1)
+            ->will($this->returnValue('testcollation'));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -837,7 +843,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            'CREATE DATABASE IF NOT EXISTS db',
+            'CREATE DATABASE IF NOT EXISTS db DEFAULT CHARACTER SET testcollation;',
             $result
         );
 
@@ -1230,6 +1236,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue($row));
 
         $GLOBALS['dbi'] = $dbi;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $result = $this->object->getTableDef(
             'db', 'table', "\n", "example.com/err", true, true, true
@@ -1406,6 +1413,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue($row));
 
         $GLOBALS['dbi'] = $dbi;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $result = $this->object->getTableDef(
             'db', 'table', "\n", "example.com/err", true, true, true
@@ -1523,6 +1531,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue('error occurred'));
 
         $GLOBALS['dbi'] = $dbi;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $result = $this->object->getTableDef(
             'db', 'table', "\n", "example.com/err", true, true, true
@@ -1873,6 +1882,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_truncate'] = true;
         $GLOBALS['sql_insert_syntax'] = 'both';
         $GLOBALS['sql_hex_for_binary'] = true;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         ob_start();
         $this->object->exportData(
@@ -1988,6 +1998,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_truncate'] = true;
         $GLOBALS['sql_insert_syntax'] = 'both';
         $GLOBALS['sql_hex_for_binary'] = true;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         ob_start();
         $this->object->exportData(
@@ -2020,6 +2031,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(true));
 
         $GLOBALS['dbi'] = $dbi;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['sql_views_as_tables'] = false;
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
@@ -2057,6 +2069,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue('err'));
 
         $GLOBALS['dbi'] = $dbi;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['sql_views_as_tables'] = true;
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";

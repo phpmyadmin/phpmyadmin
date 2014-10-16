@@ -359,27 +359,89 @@ class Node
      */
     public function getData($type, $pos, $searchClause = '')
     {
-        $query  = "SELECT `SCHEMA_NAME` ";
-        $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ";
-        $query .= "(";
-        $query .= "select DB_first_level ";
-        $query .= "from ( ";
-        $query .= "SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
-        $query .= "'{$GLOBALS['cfg']['NavigationTreeDbSeparator']}', 1) ";
-        $query .= "DB_first_level ";
-        $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
-        $query .= $this->_getWhereClause($searchClause);
-        $query .= ") t ";
-        $query .= "ORDER BY DB_first_level ASC ";
-        $query .= "LIMIT $pos, {$GLOBALS['cfg']['FirstLevelNavigationItems']}";
-        $query .= ") t2 ";
-        $query .= "where 1 = locate(concat(DB_first_level, ";
-        $query .= "'{$GLOBALS['cfg']['NavigationTreeDbSeparator']}'), ";
-        $query .= "concat(SCHEMA_NAME, ";
-        $query .= "'{$GLOBALS['cfg']['NavigationTreeDbSeparator']}')) ";
-        $query .= "order by SCHEMA_NAME ASC";
+        $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
+        if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
+            $dbSeperator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+                $query  = "SELECT `SCHEMA_NAME` ";
+                $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ";
+                $query .= "(";
+                $query .= "SELECT DB_first_level ";
+                $query .= "FROM ( ";
+                $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
+                $query .= "'$dbSeperator', 1) ";
+                $query .= "DB_first_level ";
+                $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
+                $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
+                $query .= ") t ";
+                $query .= "ORDER BY DB_first_level ASC ";
+                $query .= "LIMIT $pos, $maxItems";
+                $query .= ") t2 ";
+                $query .= "WHERE 1 = LOCATE(CONCAT(DB_first_level, ";
+                $query .= "'$dbSeperator'), ";
+                $query .= "CONCAT(SCHEMA_NAME, ";
+                $query .= "'$dbSeperator')) ";
+                $query .= "ORDER BY SCHEMA_NAME ASC";
+                $retval = $GLOBALS['dbi']->fetchResult($query);
+            } else {
+                $query = "SHOW DATABASES ";
+                $query .= $this->_getWhereClause('Database', $searchClause);
+                $handle = $GLOBALS['dbi']->tryQuery($query);
+                if ($handle !== false) {
+                    $prefixMap = array();
+                    $total = $pos + $maxItems;
+                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                        $prefix = strstr($arr[0], $dbSeperator, true);
+                        if ($prefix === false) {
+                            $prefix = $arr[0];
+                        }
+                        $prefixMap[$prefix] = 1;
+                        if (sizeof($prefixMap) == $total) {
+                            break;
+                        }
+                    }
+                    $prefixes = array_slice(array_keys($prefixMap), $pos);
+                }
 
-        return $GLOBALS['dbi']->fetchResult($query);
+                $query = "SHOW DATABASES ";
+                $query .= $this->_getWhereClause('Database', '');
+                $query .= " AND (";
+                $subClauses = array();
+                foreach ($prefixes as $prefix) {
+                    $subClauses[] = " LOCATE('"
+                        . PMA_Util::sqlAddSlashes($prefix) . $dbSeperator . "', "
+                        . "CONCAT(`Database`, '" . $dbSeperator . "')) = 1 ";
+                }
+                $query .= implode("OR", $subClauses) . ")";
+                $retval = $GLOBALS['dbi']->fetchResult($query);
+            }
+        } else {
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+                $query  = "SELECT `SCHEMA_NAME` ";
+                $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+                $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
+                $query .= "ORDER BY `SCHEMA_NAME` ";
+                $query .= "LIMIT $pos, $maxItems";
+                $retval = $GLOBALS['dbi']->fetchResult($query);
+            } else {
+                $retval = array();
+                $query = "SHOW DATABASES ";
+                $query .= $this->_getWhereClause('Database', $searchClause);
+                $handle = $GLOBALS['dbi']->tryQuery($query);
+                if ($handle !== false) {
+                    $count = 0;
+                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                        if ($pos <= 0 && $count < $maxItems) {
+                            $retval[] = $arr[0];
+                            $count++;
+                        }
+                        $pos--;
+                    }
+                }
+            }
+        }
+
+        return $retval;
     }
 
     /**
@@ -394,15 +456,48 @@ class Node
      */
     public function getPresence($type = '', $searchClause = '')
     {
-        $query = "select COUNT(*) ";
-        $query .= "from ( ";
-        $query .= "SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
-        $query .= "'{$GLOBALS['cfg']['NavigationTreeDbSeparator']}', 1) ";
-        $query .= "DB_first_level ";
-        $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
-        $query .= $this->_getWhereClause($searchClause);
-        $query .= ") t ";
-        $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+        if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
+            $dbSeperator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+                $query = "SELECT COUNT(*) ";
+                $query .= "FROM ( ";
+                $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
+                $query .= "'$dbSeperator', 1) ";
+                $query .= "DB_first_level ";
+                $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
+                $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
+                $query .= ") t ";
+                $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+            } else {
+                $query = "SHOW DATABASES ";
+                $query .= $this->_getWhereClause('Database', $searchClause);
+                $handle = $GLOBALS['dbi']->tryQuery($query);
+                if ($handle !== false) {
+                    $prefixMap = array();
+                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                        $prefix = strstr($arr[0], $dbSeperator, true);
+                        if ($prefix === false) {
+                            $prefix = $arr[0];
+                        }
+                        $prefixMap[$prefix] = 1;
+                    }
+                    return count($prefixMap);
+                }
+            }
+        } else {
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+                $query = "SELECT COUNT(*) ";
+                $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
+                $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
+                $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+            } else {
+                $query = "SHOW DATABASES ";
+                $query .= $this->_getWhereClause('Database', $searchClause);
+                $retval = $GLOBALS['dbi']->numRows(
+                    $GLOBALS['dbi']->tryQuery($query)
+                );
+            }
+        }
         return $retval;
     }
 
@@ -410,15 +505,16 @@ class Node
      * Returns the WHERE clause depending on the $searchClause parameter
      * and the hide_db directive
      *
+     * @param string $columnName   Column name of the column having database names
      * @param string $searchClause A string used to filter the results of the query
      *
      * @return string
      */
-    private function _getWhereClause($searchClause = '')
+    private function _getWhereClause($columnName, $searchClause = '')
     {
         $whereClause = "WHERE TRUE ";
         if (! empty($searchClause)) {
-            $whereClause .= "AND `SCHEMA_NAME` LIKE '%";
+            $whereClause .= "AND " . PMA_Util::backquote($columnName) . " LIKE '%";
             $whereClause .= PMA_Util::sqlAddSlashes(
                 $searchClause, true
             );
@@ -426,8 +522,8 @@ class Node
         }
 
         if (! empty($GLOBALS['cfg']['Server']['hide_db'])) {
-            $whereClause .= "AND `SCHEMA_NAME` NOT REGEXP '"
-                . $GLOBALS['cfg']['Server']['hide_db'] . "' ";
+            $whereClause .= "AND " . PMA_Util::backquote($columnName)
+                . " NOT REGEXP '" . $GLOBALS['cfg']['Server']['hide_db'] . "' ";
         }
 
         if (! empty($GLOBALS['cfg']['Server']['only_db'])) {
@@ -439,7 +535,7 @@ class Node
             $whereClause .= "AND (";
             $subClauses = array();
             foreach ($GLOBALS['cfg']['Server']['only_db'] as $each_only_db) {
-                $subClauses[] = " `SCHEMA_NAME` LIKE '"
+                $subClauses[] = " " . PMA_Util::backquote($columnName) . " LIKE '"
                     . $each_only_db . "' ";
             }
             $whereClause .= implode("OR", $subClauses) . ")";
