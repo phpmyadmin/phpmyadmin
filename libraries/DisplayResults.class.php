@@ -2144,7 +2144,10 @@ class PMA_DisplayResults
     private function _getSortingUrlParams(
         $sort_direction, $sort_order, $column_index, $index
     ) {
-        if ($GLOBALS['PMA_String']->strtoupper(trim($sort_direction[$index])) ==  self::DESCENDING_SORT_DIR) {
+        $sort_direction_upper = $GLOBALS['PMA_String']->strtoupper(
+            trim($sort_direction[$index])
+        );
+        if ($sort_direction_upper ==  self::DESCENDING_SORT_DIR) {
             $sort_order .= ' ASC';
             $order_img   = ' ' . PMA_Util::getImage(
                 's_desc.png', __('Descending'),
@@ -2963,18 +2966,17 @@ class PMA_DisplayResults
 
             // Check whether the field needs to display with syntax highlighting
 
-            if (! empty($this->transformation_info[$pmaString->strtolower($this->__get('db'))][$pmaString->strtolower($this->__get('table'))][$pmaString->strtolower($meta->name)])
+            $dbLower = $pmaString->strtolower($this->__get('db'));
+            $tblLower = $pmaString->strtolower($this->__get('table'));
+            $nameLower = $pmaString->strtolower($meta->name);
+            if (! empty($this->transformation_info[$dbLower][$tblLower][$nameLower])
                 && (trim($row[$i]) != '')
             ) {
                 $row[$i] = PMA_Util::formatSql($row[$i]);
                 include_once $this->transformation_info
-                    [$pmaString->strtolower($this->__get('db'))]
-                    [$pmaString->strtolower($this->__get('table'))]
-                    [$pmaString->strtolower($meta->name)][0];
+                    [$dbLower][$tblLower][$nameLower][0];
                 $transformation_plugin = new $this->transformation_info
-                    [$pmaString->strtolower($this->__get('db'))]
-                    [$pmaString->strtolower($this->__get('table'))]
-                    [$pmaString->strtolower($meta->name)][1](null);
+                    [$dbLower][$tblLower][$nameLower][1](null);
 
                 $transform_options  = PMA_Transformation_getOptions(
                     isset($mime_map[$meta->name]['transformation_options'])
@@ -2982,7 +2984,6 @@ class PMA_DisplayResults
                     : ''
                 );
 
-                $dbLower = $pmaString->strtolower($this->__get('db'));
                 $meta->mimetype = str_replace(
                     '_', '/',
                     $this->transformation_info[$dbLower]
@@ -2996,7 +2997,7 @@ class PMA_DisplayResults
             include_once 'libraries/special_schema_links.lib.php';
 
             if (isset($GLOBALS['special_schema_links'])
-                && (! empty($GLOBALS['special_schema_links'][$pmaString->strtolower($this->__get('db'))][$pmaString->strtolower($this->__get('table'))][$pmaString->strtolower($meta->name)]))
+                && (! empty($GLOBALS['special_schema_links'][$dbLower][$tblLower][$nameLower]))
             ) {
 
                 $linking_url = $this->_getSpecialLinkUrl(
