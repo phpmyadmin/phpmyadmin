@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-16 12:25-0400\n"
-"PO-Revision-Date: 2014-10-17 10:04+0200\n"
+"PO-Revision-Date: 2014-10-17 13:58+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
@@ -1053,7 +1053,7 @@ msgstr "Pro favor tu selige columna(s) pro le indice."
 
 #: js/messages.php:69 libraries/structure.lib.php:1668
 msgid "You have to add at least one column."
-msgstr ""
+msgstr "Tu debe adder al minus un columna."
 
 #: js/messages.php:72 libraries/insert_edit.lib.php:1552
 #: libraries/tbl_columns_definition_form.lib.php:145
@@ -2162,7 +2162,7 @@ msgstr "Exporta le schema relational"
 
 #: js/messages.php:413
 msgid "Modifications have been saved"
-msgstr ""
+msgstr "Modificationes ha essite salveguardate"
 
 #: js/messages.php:416
 #, php-format
@@ -6567,7 +6567,7 @@ msgstr "Memora ordine de tabellas"
 
 #: libraries/config/messages.inc.php:525
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "Modo de ordinar predefinite pro tabellas con un clave primari."
 
 #: libraries/config/messages.inc.php:526
 msgid "Primary key default sort order"
@@ -6747,10 +6747,12 @@ msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
+"Altere information in [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
+"bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
 #: libraries/config/messages.inc.php:587
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr ""
+msgstr "Dishabilita uso de INFORMATION_SCHEMA"
 
 #: libraries/config/messages.inc.php:588
 msgid "Hide databases"
@@ -7458,6 +7460,8 @@ msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
+"Habilita modo de Configuration Zero que te permitte configurar le "
+"configuration de tabellas de immagazinage de phpMyAdmin automaticamente."
 
 #: libraries/config/messages.inc.php:788
 msgid "Enable Zero Configuration mode"
@@ -7584,15 +7588,15 @@ msgstr "Selige typo de exportation relational"
 
 #: libraries/db_designer.lib.php:237
 msgid "Show/Hide left menu"
-msgstr ""
+msgstr "Monstra/Cela le menu de sinistra"
 
 #: libraries/db_designer.lib.php:245
 msgid "View in fullscreen"
-msgstr ""
+msgstr "Monstra a schermo integre"
 
 #: libraries/db_designer.lib.php:253
 msgid "Exit fullscreen"
-msgstr ""
+msgstr "Abandona le modo de schermo integre"
 
 #: libraries/db_designer.lib.php:265
 msgid "New page"
@@ -7600,11 +7604,11 @@ msgstr "Nove pagina"
 
 #: libraries/db_designer.lib.php:279
 msgid "Save position"
-msgstr ""
+msgstr "Salveguarda le position"
 
 #: libraries/db_designer.lib.php:286
 msgid "Save positions as"
-msgstr ""
+msgstr "Salveguarda le positiones como"
 
 #: libraries/db_designer.lib.php:293
 msgid "Delete pages"
@@ -7616,39 +7620,39 @@ msgstr "Crea tabella"
 
 #: libraries/db_designer.lib.php:310 libraries/db_designer.lib.php:780
 msgid "Create relation"
-msgstr ""
+msgstr "Crea relation"
 
 #: libraries/db_designer.lib.php:324
 msgid "Reload"
-msgstr ""
+msgstr "Recarga"
 
 #: libraries/db_designer.lib.php:330
 msgid "Help"
-msgstr ""
+msgstr "Adjuta"
 
 #: libraries/db_designer.lib.php:340
 msgid "Angular links"
-msgstr ""
+msgstr "Ligamines angular"
 
 #: libraries/db_designer.lib.php:340
 msgid "Direct links"
-msgstr ""
+msgstr "Ligamines directe"
 
 #: libraries/db_designer.lib.php:347
 msgid "Snap to grid"
-msgstr ""
+msgstr "Colpos (snap) al grilia"
 
 #: libraries/db_designer.lib.php:357
 msgid "Small/Big All"
-msgstr ""
+msgstr "Toto parve/grande"
 
 #: libraries/db_designer.lib.php:364
 msgid "Toggle small/big"
-msgstr ""
+msgstr "Commuta inter parve/grande"
 
 #: libraries/db_designer.lib.php:371
 msgid "Toggle relation lines"
-msgstr ""
+msgstr "Commuta lineas de relation"
 
 #: libraries/db_designer.lib.php:393
 msgid "Export schema"
@@ -7656,19 +7660,19 @@ msgstr "Exporta schema"
 
 #: libraries/db_designer.lib.php:405
 msgid "Build Query"
-msgstr ""
+msgstr "Construe Query"
 
 #: libraries/db_designer.lib.php:414
 msgid "Move Menu"
-msgstr ""
+msgstr "Move menu"
 
 #: libraries/db_designer.lib.php:456
 msgid "Hide/Show all"
-msgstr ""
+msgstr "Cela/monstra toto"
 
 #: libraries/db_designer.lib.php:465
 msgid "Hide/Show Tables with no relation"
-msgstr ""
+msgstr "Cela/Monstra tabellas con necun relation"
 
 #: libraries/db_designer.lib.php:493 libraries/insert_edit.lib.php:227
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
@@ -7677,37 +7681,37 @@ msgstr "Cela"
 
 #: libraries/db_designer.lib.php:520
 msgid "Number of tables:"
-msgstr ""
+msgstr "Numero de tabellas:"
 
 #: libraries/db_designer.lib.php:859
 msgid "Delete relation"
-msgstr ""
+msgstr "Dele relation"
 
 #: libraries/db_designer.lib.php:916 libraries/db_designer.lib.php:980
 msgid "Relation operator"
-msgstr ""
+msgstr "Operator de relation"
 
 #: libraries/db_designer.lib.php:926 libraries/db_designer.lib.php:990
 #: libraries/db_designer.lib.php:1143 libraries/db_designer.lib.php:1287
 msgid "Except"
-msgstr ""
+msgstr "Excepte"
 
 #: libraries/db_designer.lib.php:932 libraries/db_designer.lib.php:998
 #: libraries/db_designer.lib.php:1149 libraries/db_designer.lib.php:1293
 msgid "subquery"
-msgstr ""
+msgstr "subquery"
 
 #: libraries/db_designer.lib.php:938 libraries/db_designer.lib.php:1055
 msgid "Rename to"
-msgstr ""
+msgstr "Renomina in"
 
 #: libraries/db_designer.lib.php:941 libraries/db_designer.lib.php:1061
 msgid "New name"
-msgstr ""
+msgstr "Nove nomine"
 
 #: libraries/db_designer.lib.php:945 libraries/db_designer.lib.php:1205
 msgid "Aggregate"
-msgstr ""
+msgstr "Total"
 
 #: libraries/db_designer.lib.php:1338
 msgid "Active options"
@@ -8611,6 +8615,8 @@ msgstr "Modifica nove rango"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
+"Usa le clave TAB pro mover de valor a valor, o CTRL+flechas pro mover lo "
+"ubique"
 
 #: libraries/insert_edit.lib.php:1936 libraries/sql.lib.php:1708
 msgid "Showing SQL query"
@@ -8727,7 +8733,7 @@ msgstr "dictionario"
 
 #: libraries/mysql_charsets.lib.php:210
 msgid "phone book"
-msgstr ""
+msgstr "agenda"
 
 #: libraries/mysql_charsets.lib.php:213
 msgid "Hungarian"
@@ -10544,10 +10550,9 @@ msgid "Slave replication"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:143
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Master connection:"
-msgstr "Connexiones persistente"
+msgstr "Connexion Master:"
 
 #: libraries/replication_gui.lib.php:208
 msgid "Slave SQL Thread not running!"
