@@ -56,6 +56,7 @@ phpMyAdmin - ChangeLog
 4.2.11.0 (not yet released)
 - bug       ReferenceError: Table_onover is not defined
 - bug #4552 Incorrect routines display for database due to case insensitive checks
+- bug #4259 reCaptcha sound session expired problem
 
 4.2.10.0 (2014-10-11)
 - bug #4361 Can't change font size (when config.inc.php not present)
@@ -63,7 +64,6 @@ phpMyAdmin - ChangeLog
 - bug       PDF export: title not present in PDF
 - bug #4543 Changing column name can break saved "order by" clause
 - bug #4545 trying to favorite table while browser localStorage is disabled throws JS error
-- bug #4259 reCaptcha sound session expired problem
 - bug #4548 Inline editing a field converts tab to spaces
 - bug #4252 Database-level permission bug for db names containing underscores
 - bug #3120 Events are not exported when using xml
@@ -328,7 +328,6 @@ phpMyAdmin - ChangeLog
 - bug #4257 Hide fractional seconds when applicable
 - bug #4264 Uncheck "Ignore" while inserting, upon leaving a textarea
 - bug #4260 reCaptcha is ignoring language settings
-- bug #4259 reCaptcha sound session expired problem
 - bug #4263 Japanese character encoding not working properly when exporting
 - bug #4269 Notice on table relation page
 - bug #4270 Bad text-color for table comments
