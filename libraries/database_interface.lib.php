@@ -139,11 +139,11 @@ function PMA_DBI_DBG_query($query, $link, $result, $time)
     } else {
         $_SESSION['debug']['queries'][$hash] = array();
         if ($result == false) {
-            $_SESSION['debug']['queries'][$hash]['error']
-                = '<b style="color:red">' . mysqli_error($link) . '</b>';
+            $_SESSION['debug']['queries'][$hash]['error'] = '<b style="color:red">'
+                . htmlspecialchars(mysqli_error($link)) . '</b>';
         }
         $_SESSION['debug']['queries'][$hash]['count'] = 1;
-        $_SESSION['debug']['queries'][$hash]['query'] = $query;
+        $_SESSION['debug']['queries'][$hash]['query'] = htmlspecialchars($query);
         $_SESSION['debug']['queries'][$hash]['time'] = $time;
     }
 
