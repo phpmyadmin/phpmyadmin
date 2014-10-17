@@ -198,7 +198,7 @@ class PMA_Navigation
                     foreach ($hidden[$t] as $hiddenItem) {
                         $html .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
                         $html .= '<td>' . htmlspecialchars($hiddenItem) . '</td>';
-                        $html .= '<td style="width:80px"><a href="navigation.php?'
+                        $html .= '<td style="width:80px"><a href="navigation.php'
                             . PMA_URL_getCommon()
                             . '&unhideNavItem=true'
                             . '&itemType=' . urlencode($t)

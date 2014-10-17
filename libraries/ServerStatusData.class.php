@@ -259,7 +259,8 @@ class PMA_ServerStatusData
         $links['Slow_queries']['doc'] = 'slow_query_log';
 
         $links['innodb'][__('Variables')]
-            = 'server_engines.php?engine=InnoDB&amp;' . PMA_URL_getCommon();
+            = 'server_engines.php?engine=InnoDB&amp;'
+            . PMA_URL_getCommon(array(), 'html', '');
         $links['innodb'][__('InnoDB Status')]
             = 'server_engines.php'
             . PMA_URL_getCommon(

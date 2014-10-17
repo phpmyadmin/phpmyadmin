@@ -146,7 +146,7 @@ class PMA_NavigationHeader
         $retval  = '<!-- LINKS START -->';
         $retval .= '<div id="navipanellinks">';
         $retval .= PMA_Util::getNavigationLink(
-            'index.php?' . PMA_URL_getCommon(),
+            'index.php' . PMA_URL_getCommon(),
             $showText,
             __('Home'),
             $showIcon,

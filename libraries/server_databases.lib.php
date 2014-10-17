@@ -461,7 +461,7 @@ function PMA_dropMultiDatabases()
     } else {
         $action = 'server_databases.php';
         $submit_mult = 'drop_db';
-        $err_url = 'server_databases.php?' . PMA_URL_getCommon();
+        $err_url = 'server_databases.php' . PMA_URL_getCommon();
         if (isset($_REQUEST['selected_dbs'])
             && !isset($_REQUEST['is_js_confirmed'])
         ) {

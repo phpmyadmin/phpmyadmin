@@ -241,11 +241,11 @@ if (!defined('TESTSUITE')) {
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
     if ($export_type == 'server') {
-        $err_url = 'server_export.php?' . PMA_URL_getCommon();
+        $err_url = 'server_export.php' . PMA_URL_getCommon();
     } elseif ($export_type == 'database'
         && $pmaString->strlen($db)
     ) {
-        $err_url = 'db_export.php?' . PMA_URL_getCommon($db);
+        $err_url = 'db_export.php' . PMA_URL_getCommon(array('db' => $db));
         // Check if we have something to export
         if (isset($table_select)) {
             $tables = $table_select;
@@ -255,7 +255,9 @@ if (!defined('TESTSUITE')) {
     } elseif ($export_type == 'table' && $pmaString->strlen($db)
         && $pmaString->strlen($table)
     ) {
-        $err_url = 'tbl_export.php?' . PMA_URL_getCommon($db, $table);
+        $err_url = 'tbl_export.php' . PMA_URL_getCommon(array(
+            'db' => $db, 'table' => $table
+        ));
     } else {
         PMA_fatalError(__('Bad parameters!'));
     }

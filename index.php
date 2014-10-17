@@ -88,7 +88,7 @@ if (! empty($message)) {
     unset($message);
 }
 
-$common_url_query =  PMA_URL_getCommon('', '');
+$common_url_query =  PMA_URL_getCommon();
 $mysql_cur_user_and_host = '';
 
 // when $server > 0, a server has been chosen so we can display
@@ -172,7 +172,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
                 PMA_printListItem(
                     PMA_Util::getImage('s_passwd.png') . " " . __('Change password'),
                     'li_change_password',
-                    'user_password.php?' . $common_url_query,
+                    'user_password.php' . $common_url_query,
                     null,
                     null,
                     'change_password_anchor',
@@ -240,7 +240,7 @@ if ($server > 0) {
     PMA_printListItem(
         PMA_Util::getImage('b_tblops.png') . " " . __('More settings'),
         'li_user_preferences',
-        'prefs_manage.php?' . $common_url_query,
+        'prefs_manage.php' . $common_url_query,
         null,
         null,
         null,
@@ -335,7 +335,7 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
         PMA_printListItem(
             __('Show PHP information'),
             'li_phpinfo',
-            'phpinfo.php?' . $common_url_query,
+            'phpinfo.php' . $common_url_query,
             null,
             '_blank'
         );
@@ -530,7 +530,7 @@ if ($server > 0) {
         }
         $msg = PMA_Message::notice($msg_text);
         $msg->addParam(
-            '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?'
+            '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php'
             . $common_url_query . '">',
             false
         );

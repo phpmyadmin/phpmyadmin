@@ -170,7 +170,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
         $db     = $GLOBALS['db'];
         // if you want navigation:
         $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
-            . '?' . PMA_URL_getCommon($db) . '"';
+            . PMA_URL_getCommon(array('db' => $db)) . '"';
         $tmp_db_link .= '>'
             . htmlspecialchars($db) . '</a>';
         // else use
@@ -192,7 +192,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
         );
 
         $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
-            . '?' . PMA_URL_getCommon($db) . '"';
+            . PMA_URL_getCommon(array('db' => $db)) . '"';
         $tmp_db_link .= '>'
             . htmlspecialchars($db) . '</a>';
         // else use
