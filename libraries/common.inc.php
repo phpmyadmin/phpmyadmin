@@ -51,6 +51,13 @@ if (version_compare(PHP_VERSION, '5.3.0', 'lt')) {
  */
 define('PHPMYADMIN', true);
 
+
+/**
+ * String handling (security)
+ */
+require_once './libraries/String.class.php';
+$PMA_String = new PMA_String();
+
 /**
  * the error handler
  */
