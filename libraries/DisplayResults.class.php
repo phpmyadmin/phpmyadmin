@@ -211,6 +211,12 @@ class PMA_DisplayResults
      */
     public function __construct($db, $table, $goto, $sql_query)
     {
+        if ($GLOBALS['cfgRelation']['mimework']
+            && $GLOBALS['cfg']['BrowseMIME']
+        ) {
+            include_once './libraries/transformations.lib.php';
+        }
+
         $this->_setDefaultTransformations();
 
         $this->__set('db', $db);
@@ -1107,7 +1113,6 @@ class PMA_DisplayResults
             && $GLOBALS['cfg']['BrowseMIME']
             && ! $_SESSION['tmpval']['hide_transformation']
         ) {
-            include_once './libraries/transformations.lib.php';
             $this->__set(
                 'mime_map',
                 PMA_getMIME($this->__get('db'), $this->__get('table'))
