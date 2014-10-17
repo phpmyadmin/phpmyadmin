@@ -1866,10 +1866,11 @@ class PMA_DisplayResults
 
         // Generates the orderby clause part of the query which is part
         // of URL
-        list($single_sort_order, $multi_sort_order, $order_img) = $this->_getSingleAndMultiSortUrls(
-            $sort_expression, $sort_expression_nodirection, $sort_tbl,
-            $name_to_use_in_sort, $sort_direction, $fields_meta, $column_index
-        );
+        list($single_sort_order, $multi_sort_order, $order_img)
+            = $this->_getSingleAndMultiSortUrls(
+                $sort_expression, $sort_expression_nodirection, $sort_tbl,
+                $name_to_use_in_sort, $sort_direction, $fields_meta, $column_index
+            );
 
         if (preg_match(
             '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|'
@@ -2012,9 +2013,11 @@ class PMA_DisplayResults
                         ) . ' ';
                 }
                 if ($is_in_sort) {
-                    list($single_sort_order, $order_img) = $this->_getSortingUrlParams(
-                        $sort_direction, $single_sort_order, $column_index, $index
-                    );
+                    list($single_sort_order, $order_img)
+                        = $this->_getSortingUrlParams(
+                            $sort_direction, $single_sort_order,
+                            $column_index, $index
+                        );
                 } else {
                     $single_sort_order .= $pmaString
                         ->strtoupper($sort_direction[$index]);
@@ -2183,7 +2186,8 @@ class PMA_DisplayResults
      * @see     _getTableHeaders()
      */
     private function _getSortOrderLink(
-        $order_img, $col_index, $direction, $fields_meta, $order_url, $multi_order_url
+        $order_img, $col_index, $direction,
+        $fields_meta, $order_url, $multi_order_url
     ) {
         /** @var PMA_String $pmaString */
         $pmaString = $GLOBALS['PMA_String'];
