@@ -108,8 +108,10 @@ class Node_Table extends Node_DatabaseChild
                 $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
-                $query .= "WHERE `EVENT_OBJECT_SCHEMA`='$db' ";
-                $query .= "AND `EVENT_OBJECT_TABLE`='$table'";
+                $query .= "WHERE `EVENT_OBJECT_SCHEMA` "
+                    . PMA_Util::getCollateForIS() . "='$db' ";
+                $query .= "AND `EVENT_OBJECT_TABLE` "
+                    . PMA_Util::getCollateForIS() . "='$table'";
                 $retval = (int)$GLOBALS['dbi']->fetchValue($query);
             } else {
                 $db     = PMA_Util::backquote($db);
@@ -197,8 +199,10 @@ class Node_Table extends Node_DatabaseChild
                 $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SELECT `TRIGGER_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
-                $query .= "WHERE `EVENT_OBJECT_SCHEMA`='$db' ";
-                $query .= "AND `EVENT_OBJECT_TABLE`='$table' ";
+                $query .= "WHERE `EVENT_OBJECT_SCHEMA` "
+                    . PMA_Util::getCollateForIS() . "='$db' ";
+                $query .= "AND `EVENT_OBJECT_TABLE` "
+                    . PMA_Util::getCollateForIS() . "='$table' ";
                 $query .= "ORDER BY `TRIGGER_NAME` ASC ";
                 $query .= "LIMIT " . intval($pos) . ", $maxItems";
                 $retval = $GLOBALS['dbi']->fetchResult($query);

@@ -55,7 +55,8 @@ function PMA_RTN_main($type)
      */
     $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, ";
     $columns .= "`DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-    $where    = "ROUTINE_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "'";
+    $where    = "ROUTINE_SCHEMA " . PMA_Util::getCollateForIS() . "="
+        . "'" . PMA_Util::sqlAddSlashes($db) . "'";
     if (PMA_isValid($type, array('FUNCTION','PROCEDURE'))) {
         $where .= " AND `ROUTINE_TYPE`='" . $type . "'";
     }
@@ -404,7 +405,8 @@ function PMA_RTN_handleEditor()
             if ($message->isSuccess()) {
                 $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`,"
                     . " `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-                $where    = "ROUTINE_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "' "
+                $where    = "ROUTINE_SCHEMA " . PMA_Util::getCollateForIS() . "="
+                    . "'" . PMA_Util::sqlAddSlashes($db) . "' "
                     . "AND ROUTINE_NAME='"
                     . PMA_Util::sqlAddSlashes($_REQUEST['item_name']) . "'"
                     . "AND ROUTINE_TYPE='"
@@ -643,7 +645,8 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
     $fields  = "SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, "
              . "ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, "
              . "ROUTINE_COMMENT, SECURITY_TYPE";
-    $where   = "ROUTINE_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "' "
+    $where   = "ROUTINE_SCHEMA " . PMA_Util::getCollateForIS() . "="
+             . "'" . PMA_Util::sqlAddSlashes($db) . "' "
              . "AND SPECIFIC_NAME='" . PMA_Util::sqlAddSlashes($name) . "'"
              . "AND ROUTINE_TYPE='" . PMA_Util::sqlAddSlashes($type) . "'";
     $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
