@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-16 12:25-0400\n"
-"PO-Revision-Date: 2014-10-17 14:05+0200\n"
+"PO-Revision-Date: 2014-10-17 14:19+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
@@ -8907,7 +8907,11 @@ msgstr "Recarga pannello de navigation"
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] ""
+"One\n"
+"%s il trovava un resultato"
 msgstr[1] ""
+"Other\n"
+"%s il trovava altere resultatos"
 
 #: libraries/navigation/NavigationTree.class.php:1090
 msgid "Filter databases by name or regex"
@@ -8916,7 +8920,7 @@ msgstr "Filtra base de datos per nomine o regex"
 #: libraries/navigation/NavigationTree.class.php:1092
 #: libraries/navigation/NavigationTree.class.php:1126
 msgid "Clear fast filter"
-msgstr ""
+msgstr "Netta filtro rapide"
 
 #: libraries/navigation/NavigationTree.class.php:1125
 msgid "Filter by name or regex"
@@ -8930,27 +8934,27 @@ msgstr "Plica toto"
 #: libraries/navigation/NodeFactory.class.php:41
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Invalide nomine de classe \"%1$s\", on usa le predefinite per \"Node\""
 
 #: libraries/navigation/NodeFactory.class.php:65
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "Non pote includer le classe \"%1$s\", il non trovava le file \"%2$s\""
 
 #: libraries/navigation/Nodes/Node.class.php:596
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Expander/Collaber"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:27
 #: libraries/sql_query_form.lib.php:248
 msgid "Columns"
-msgstr ""
+msgstr "Columnas"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "Nove"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
 msgid "Database operations"
@@ -8963,24 +8967,24 @@ msgstr "Monstra elementos celate"
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:36
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "Nove"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:37
 msgctxt "Create new event"
 msgid "New"
-msgstr ""
+msgstr "Nove"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:24
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:25
 #: libraries/plugins/export/ExportSql.class.php:530
 #: libraries/plugins/export/ExportXml.class.php:111
 msgid "Functions"
-msgstr ""
+msgstr "Functiones"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
 msgctxt "Create new function"
 msgid "New"
-msgstr ""
+msgstr "Nove"
 
 #: libraries/navigation/Nodes/Node_Index.class.php:32
 #: libraries/structure.lib.php:1489 libraries/structure.lib.php:2204
@@ -8988,12 +8992,12 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:307
 #: libraries/tbl_printview.lib.php:311
 msgid "Index"
-msgstr ""
+msgstr "Indice"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
 msgctxt "Create new index"
 msgid "New"
-msgstr ""
+msgstr "Nove"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
 msgid "Procedure"
@@ -9004,48 +9008,48 @@ msgstr "Procedimento"
 #: libraries/plugins/export/ExportSql.class.php:492
 #: libraries/plugins/export/ExportXml.class.php:115
 msgid "Procedures"
-msgstr ""
+msgstr "Proceduras"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:38
 #: libraries/rte/rte_footer.lib.php:31
 msgctxt "Create new procedure"
 msgid "New"
-msgstr ""
+msgstr "Nove"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:45
 msgctxt "Create new table"
 msgid "New"
-msgstr ""
+msgstr "Nove"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:37
 msgctxt "Create new trigger"
 msgid "New"
-msgstr ""
+msgstr "Nove"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:129
 #: libraries/structure.lib.php:3090
 msgid "Views"
-msgstr ""
+msgstr "Vistas"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:45
 msgctxt "Create new view"
 msgid "New"
-msgstr ""
+msgstr "Nove"
 
 #: libraries/normalization.lib.php:112
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "Face omne columnas atomic"
 
 #: libraries/normalization.lib.php:114 libraries/normalization.lib.php:771
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "Prime passo de normalisation (1NF)"
 
 #: libraries/normalization.lib.php:117 libraries/normalization.lib.php:168
 #: libraries/normalization.lib.php:211 libraries/normalization.lib.php:247
 msgid "Step 1."
-msgstr ""
+msgstr "Passo 1."
 
 #: libraries/normalization.lib.php:119
 msgid ""
@@ -9078,7 +9082,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:165
 msgid "Have a primary key"
-msgstr ""
+msgstr "Ha un clave primari"
 
 #: libraries/normalization.lib.php:171
 msgid "Primary key already exists."
