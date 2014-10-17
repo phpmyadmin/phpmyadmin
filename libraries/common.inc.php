@@ -879,9 +879,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $auth_plugin->authSetUser();
         }
 
-         // Check IP-based Allow/Deny rules as soon as possible to reject the
-        // user
-        // Based on mod_access in Apache:
+        // Check IP-based Allow/Deny rules as soon as possible to reject the
+        // user based on mod_access in Apache:
         // http://cvs.apache.org/viewcvs.cgi/httpd-2.0/modules/aaa/mod_access.c?rev=1.37&content-type=text/vnd.viewcvs-markup
         // Look at: "static int check_dir_access(request_rec *r)"
         if (isset($cfg['Server']['AllowDeny'])
