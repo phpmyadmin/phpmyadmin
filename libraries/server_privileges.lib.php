@@ -1880,8 +1880,8 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
             . '    '
             . sprintf(
                 __('Users having access to "%s"'),
-                '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
-                . PMA_URL_getCommon($db) . '">'
+                '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+                . PMA_URL_getCommon(array('db' => $db)) . '">'
                 .  htmlspecialchars($db)
                 . '</a>'
             )

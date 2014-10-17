@@ -43,7 +43,7 @@ if ($GLOBALS['dbi']->getColumns($db, $table)) {
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
         '',
         false,
-        'db_structure.php?' . PMA_URL_getCommon($db)
+        'db_structure.php' . PMA_URL_getCommon(array('db' => $db))
     );
 }
 

@@ -20,7 +20,7 @@ require 'libraries/build_html_for_db.lib.php';
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'index.php?' . PMA_URL_getCommon();
+$err_url = 'index.php' . PMA_URL_getCommon();
 
 /**
  * Builds and executes the db creation sql query
@@ -80,7 +80,7 @@ if (! $result) {
 
         $is_superuser = $GLOBALS['dbi']->isSuperuser();
         $column_order = PMA_getColumnOrder();
-        $url_query = PMA_URL_getCommon($_POST['new_db']);
+        $url_query = PMA_URL_getCommon(array('db' => $_POST['new_db']));
 
         /**
          * String that will contain the output HTML
