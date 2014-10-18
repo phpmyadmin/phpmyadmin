@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-16 12:25-0400\n"
-"PO-Revision-Date: 2014-10-01 14:54+0200\n"
+"PO-Revision-Date: 2014-10-17 11:17+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -1913,10 +1913,10 @@ msgid "The following actions will be performed:"
 msgstr "Teostatakse järgnevad päringud:"
 
 #: js/messages.php:330
-#, fuzzy, php-format
+#, php-format
 #| msgid "DROP columns %1s from the table %2s"
 msgid "DROP columns %s from the table %s"
-msgstr "Kustuta (DROP) veerud %1s tabelist %2s"
+msgstr "Kustuta (DROP) veerud %s tabelist %s"
 
 #: js/messages.php:331
 msgid "Create the following table"
@@ -10278,14 +10278,13 @@ msgid "FOREIGN KEY relation has been added."
 msgstr "FOREIGN KEY seos on lisatud."
 
 #: libraries/pmd_common.php:544
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relation could not be added!"
-msgstr "Viga: Seost ei saanud lisada!"
+msgstr "Viga: välisvõtme (FOREIGN KEY) seose lisamine nurjus!"
 
 #: libraries/pmd_common.php:549
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Viga: veeru(de)l puuduv(ad) indeks(id)."
 
 #: libraries/pmd_common.php:553
 msgid "Error: Relational features are disabled!"
@@ -10296,34 +10295,29 @@ msgid "Internal relation has been added."
 msgstr "Sisemine seos on loodud."
 
 #: libraries/pmd_common.php:577
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relation could not be added!"
-msgstr "Viga: Seost ei saanud lisada!"
+msgstr "Viga: Sisemise seose lisamine nurjus!"
 
 #: libraries/pmd_common.php:623
-#, fuzzy
 #| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relation has been removed."
-msgstr "FOREIGN KEY seos on lisatud."
+msgstr "Välisvõtme (FOREIGN KEY) seos on kustutatud."
 
 #: libraries/pmd_common.php:628
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relation could not be removed!"
-msgstr "Viga: Seost ei saanud lisada!"
+msgstr "Viga: Välisvõtme (FOREIGN KEY) seose kustutamine nurjus!"
 
 #: libraries/pmd_common.php:659
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relation has been removed."
-msgstr "Sisemine seos on loodud."
+msgstr "Sisemine seos on kustutatud."
 
 #: libraries/pmd_common.php:664
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relation could not be removed!"
-msgstr "Viga: Seost ei saanud lisada!"
+msgstr "Viga: Sisemise seose kustutamine nurjus!"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -10509,10 +10503,9 @@ msgid "Slave replication"
 msgstr "Alluva paljundamine"
 
 #: libraries/replication_gui.lib.php:143
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Master connection:"
-msgstr "Ebaturvaline ühendus"
+msgstr "Ühendus ülemaga:"
 
 #: libraries/replication_gui.lib.php:208
 msgid "Slave SQL Thread not running!"

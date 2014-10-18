@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-16 12:25-0400\n"
-"PO-Revision-Date: 2014-10-02 13:44+0200\n"
+"PO-Revision-Date: 2014-10-17 13:56+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -10448,14 +10448,13 @@ msgid "FOREIGN KEY relation has been added."
 msgstr "Relation de type FOREIGN KEY ajoutée."
 
 #: libraries/pmd_common.php:544
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relation could not be added!"
-msgstr "Erreur: relation non ajoutée !"
+msgstr "Erreur: relation de clé étrangère non ajoutée !"
 
 #: libraries/pmd_common.php:549
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Erreur : Un index est manquant sur la colonne."
 
 #: libraries/pmd_common.php:553
 msgid "Error: Relational features are disabled!"
@@ -10466,34 +10465,29 @@ msgid "Internal relation has been added."
 msgstr "Relation interne ajoutée."
 
 #: libraries/pmd_common.php:577
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relation could not be added!"
-msgstr "Erreur: relation non ajoutée !"
+msgstr "Erreur: relation interne non ajoutée !"
 
 #: libraries/pmd_common.php:623
-#, fuzzy
 #| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relation has been removed."
-msgstr "Relation de type FOREIGN KEY ajoutée."
+msgstr "Relation de type FOREIGN KEY supprimée."
 
 #: libraries/pmd_common.php:628
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relation could not be removed!"
-msgstr "Erreur: relation non ajoutée !"
+msgstr "Erreur: relation de type FOREIGN KEY non ajoutée !"
 
 #: libraries/pmd_common.php:659
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relation has been removed."
-msgstr "Relation interne ajoutée."
+msgstr "Relation interne supprimée."
 
 #: libraries/pmd_common.php:664
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relation could not be removed!"
-msgstr "Erreur: relation non ajoutée !"
+msgstr "Erreur : relation interne non ajoutée !"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"

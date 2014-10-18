@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-16 12:25-0400\n"
-"PO-Revision-Date: 2014-10-14 10:47+0200\n"
-"Last-Translator: Michael Koch <michael.koch@enough.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"PO-Revision-Date: 2014-10-17 22:51+0200\n"
+"Last-Translator: julianladisch <github.com-t3if@ladisch.de>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -5711,12 +5711,13 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Sortierreihenfolge für \"FOREIGN KEY\"-Dropdownfelder. [kbd]content[/kbd] "
-"ist der referenzierte Wert, [kbd]id[/kbd] ist der Schlüsselwert."
+"Sortierreihenfolge für die Einträge in einem Fremdschlüssel-Auswahlmenü. "
+"[kbd]content[/kbd] ist der referenzierte Wert, [kbd]id[/kbd] ist der "
+"Schlüsselwert."
 
 #: libraries/config/messages.inc.php:201
 msgid "Foreign key dropdown order"
-msgstr "Sortierreihenfolge für \"FOREIGN KEY\"-Dropdownfelder"
+msgstr "Sortierreihenfolge im Fremdschlüssel-Auswahlmenü"
 
 #: libraries/config/messages.inc.php:203
 msgid "A dropdown will be used if fewer items are present."
@@ -5725,7 +5726,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:204
 msgid "Foreign key limit"
-msgstr "FOREIGN KEY Limit"
+msgstr "Fremdschlüssel-Limit"
 
 #: libraries/config/messages.inc.php:205
 msgid "Browse mode"
@@ -10489,17 +10490,16 @@ msgstr "Fehler: Verknüpfung existiert bereits."
 
 #: libraries/pmd_common.php:539
 msgid "FOREIGN KEY relation has been added."
-msgstr "FOREIGN KEY Relation wurde hinzugefügt."
+msgstr "Fremdschlüssel-Beziehung wurde hinzugefügt."
 
 #: libraries/pmd_common.php:544
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relation could not be added!"
-msgstr "Fehler: Verknüpfung konnte nicht hinzugefügt werden!"
+msgstr "Fehler: Fremdschlüssel-Beziehung konnte nicht hinzugefügt werden!"
 
 #: libraries/pmd_common.php:549
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Fehler: Fehlender Index über Spalte(n)."
 
 #: libraries/pmd_common.php:553
 msgid "Error: Relational features are disabled!"
@@ -10510,34 +10510,29 @@ msgid "Internal relation has been added."
 msgstr "Interne Verknüpfung wurde hinzugefügt."
 
 #: libraries/pmd_common.php:577
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relation could not be added!"
-msgstr "Fehler: Verknüpfung konnte nicht hinzugefügt werden!"
+msgstr "Fehler: Interne Verknüpfung konnte nicht hinzugefügt werden!"
 
 #: libraries/pmd_common.php:623
-#, fuzzy
 #| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relation has been removed."
-msgstr "FOREIGN KEY Relation wurde hinzugefügt."
+msgstr "Fremdschlüssel-Beziehung wurde beseitigt."
 
 #: libraries/pmd_common.php:628
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relation could not be removed!"
-msgstr "Fehler: Verknüpfung konnte nicht hinzugefügt werden!"
+msgstr "Fehler: Fremdschlüssel-Beziehung konnte nicht beseitigt werden!"
 
 #: libraries/pmd_common.php:659
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relation has been removed."
-msgstr "Interne Verknüpfung wurde hinzugefügt."
+msgstr "Interne Verknüpfung wurde beseitigt."
 
 #: libraries/pmd_common.php:664
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relation could not be removed!"
-msgstr "Fehler: Verknüpfung konnte nicht hinzugefügt werden!"
+msgstr "Fehler: Interne Verknüpfung konnte nicht beseitigt werden!"
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -13916,12 +13911,12 @@ msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
-"Eine interne Beziehung ist nicht notwendig, wenn bereits ein entsprechender "
-"FOREIGN KEY existiert."
+"Eine interne Beziehung ist nicht notwendig, wenn eine entsprechende "
+"Fremdschlüssel-Beziehung existiert."
 
 #: libraries/tbl_relation.lib.php:374
 msgid "Foreign key constraints"
-msgstr "Beschränkungen für auswärtige Schlüssel"
+msgstr "Beschränkungen durch Fremdschlüssel"
 
 #: libraries/tbl_relation.lib.php:377
 msgid "Actions"
@@ -13949,7 +13944,7 @@ msgstr "+ Constraint hinzufügen"
 #: libraries/tbl_relation.lib.php:446
 #, php-format
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Beschränkung für auswärtige Schlüssel %s wurde aufgehoben"
+msgstr "Die Fremdschlüssel-Beschränkung %s wurde aufgehoben"
 
 #: libraries/tbl_relation.lib.php:468
 msgid "Constraint name"
