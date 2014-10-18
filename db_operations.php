@@ -264,7 +264,7 @@ if (!$is_information_schema) {
         );
         $message->addParam(
             '<a href="' . $cfg['PmaAbsoluteUri']
-            . 'chk_rel.php?' . $url_query . '">',
+            . 'chk_rel.php' . $url_query . '">',
             false
         );
         $message->addParam('</a>', false);

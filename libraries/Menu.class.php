@@ -180,7 +180,7 @@ class PMA_Menu
             : ':' . $GLOBALS['cfg']['Server']['port'];
 
         $separator = "<span class='separator item'>&nbsp;»</span>";
-        $item = '<a href="%1$s?%2$s" class="item">';
+        $item = '<a href="%1$s%2$s" class="item">';
 
         if (PMA_Util::showText('TabsMode')) {
             $item .= '%4$s: ';

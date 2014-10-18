@@ -42,7 +42,7 @@ if (empty($is_db)) {
                 }
                 PMA_sendHeaderLocation(
                     $cfg['PmaAbsoluteUri'] . 'index.php'
-                    . PMA_URL_getCommon($url_params, 'text', '&')
+                    . PMA_URL_getCommon($url_params, 'text')
                 );
             }
             exit;

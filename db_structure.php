@@ -177,7 +177,7 @@ foreach ($tables as $keyname => $current_table) {
 
     if ($is_show_stats) {
         if ($formatted_overhead != '') {
-            $overhead = '<a href="tbl_structure.php?'
+            $overhead = '<a href="tbl_structure.php'
                 . $tbl_url_query . '#showusage">'
                 . '<span>' . $formatted_overhead . '</span>'
                 . '<span class="unit">' . $overhead_unit . '</span>'

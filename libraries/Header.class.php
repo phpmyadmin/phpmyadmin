@@ -221,7 +221,7 @@ class PMA_Header
         $pftext = ! empty($_SESSION['tmpval']['pftext'])
             ? $_SESSION['tmpval']['pftext'] : '';
         return array(
-            'common_query' => PMA_URL_getCommon(array(), 'text', '&'),
+            'common_query' => PMA_URL_getCommon(array(), 'text'),
             'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
             'safari_browser' => PMA_USR_BROWSER_AGENT == 'SAFARI' ? 1 : 0,
             'collation_connection' => $GLOBALS['collation_connection'],

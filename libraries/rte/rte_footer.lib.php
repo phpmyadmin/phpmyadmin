@@ -33,7 +33,7 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
     if (PMA_Util::currentUserHasPrivilege($priv, $db, $table)) {
         $retval .= "            <a {$ajax_class['add']} ";
         $retval .= "href='db_" . $pmaString->strtolower($name) . "s.php";
-        $retval .= "?$url_query&amp;add_item=1' ";
+        $retval .= "$url_query&amp;add_item=1' ";
         $retval .= "onclick='$.datepicker.initialized = false;'>";
         $icon = 'b_' . $pmaString->strtolower($name) . '_add.png';
         $retval .= PMA_Util::getIcon($icon);
@@ -115,7 +115,7 @@ function PMA_EVN_getFooterLinks()
     $retval .= "        <div class='wrap'>\n";
     // show the toggle button
     $retval .= PMA_Util::toggleButton(
-        "sql.php?$url_query&amp;goto=db_events.php" . urlencode("?db=$db"),
+        "sql.php$url_query&amp;goto=db_events.php" . urlencode("?db=$db"),
         'sql_query',
         $options,
         'PMA_slidingMessage(data.sql_query);'

@@ -55,7 +55,7 @@ function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
     $pmaString = $GLOBALS['PMA_String'];
 
     $html = '<div id="div_create_version">';
-    $html .= '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
+    $html .= '<form method="post" action="tbl_tracking.php' . $url_query . '">';
     $html .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
     $html .= '<fieldset>';
     $html .= '<legend>';
@@ -157,7 +157,7 @@ function PMA_getHtmlForActivateDeactivateTracking(
     $action, $url_query, $last_version
 ) {
     $html = '<div>';
-    $html .= '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
+    $html .= '<form method="post" action="tbl_tracking.php' . $url_query . '">';
     $html .= '<fieldset>';
     $html .= '<legend>';
 
@@ -340,7 +340,7 @@ function PMA_getSQLResultForSelectableTables()
  */
 function PMA_getHtmlForSelectableTables($selectable_tables_sql_result, $url_query)
 {
-    $html = '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
+    $html = '<form method="post" action="tbl_tracking.php' . $url_query . '">';
     $html .= '<select name="table">';
     while ($entries = $GLOBALS['dbi']->fetchArray($selectable_tables_sql_result)) {
         if (PMA_Tracker::isTracked($entries['db_name'], $entries['table_name'])) {
@@ -386,7 +386,7 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
     $filter_ts_from, $filter_users
 ) {
     $html = '<h3>' . __('Tracking report')
-        . '  [<a href="tbl_tracking.php?' . $url_query . '">' . __('Close')
+        . '  [<a href="tbl_tracking.php' . $url_query . '">' . __('Close')
         . '</a>]</h3>';
 
     $html .= '<small>' . __('Tracking statements') . ' '
@@ -793,7 +793,7 @@ function PMA_getHtmlForDataDefinitionStatement($entry, $filter_users,
 function PMA_getHtmlForSchemaSnapshot($url_query)
 {
     $html = '<h3>' . __('Structure snapshot')
-        . '  [<a href="tbl_tracking.php?' . $url_query . '">' . __('Close')
+        . '  [<a href="tbl_tracking.php' . $url_query . '">' . __('Close')
         . '</a>]</h3>';
     $data = PMA_Tracker::getTrackedData(
         $_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version']

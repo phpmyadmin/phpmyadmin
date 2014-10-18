@@ -1878,7 +1878,7 @@ function PMA_getHtmlFixPMATables()
     );
     $message->addParam(
         '<a href="' . $GLOBALS['cfg']['PmaAbsoluteUri']
-        . 'chk_rel.php?' . $url_query . '">',
+        . 'chk_rel.php' . $url_query . '">',
         false
     );
     $message->addParam('</a>', false);

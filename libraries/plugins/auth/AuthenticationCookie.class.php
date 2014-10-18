@@ -619,7 +619,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             PMA_Response::getInstance()->disable();
 
             PMA_sendHeaderLocation(
-                $redirect_url . PMA_URL_getCommon($url_params, 'text', '&'),
+                $redirect_url . PMA_URL_getCommon($url_params, 'text'),
                 true
             );
             if (! defined('TESTSUITE')) {
