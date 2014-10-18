@@ -236,7 +236,7 @@ class PMA_TableSearch
             . ' size="40" class="textfield" id="field_' . $column_index . '" />';
 
         if ($in_fbs) {
-            $edit_url = 'gis_data_editor.php?' . PMA_URL_getCommon();
+            $edit_url = 'gis_data_editor.php' . PMA_URL_getCommon();
             $edit_str = PMA_Util::getIcon('b_edit.png', __('Edit/Insert'));
             $html_output .= '<span class="open_search_gis_editor">';
             $html_output .= PMA_Util::linkOrButton(
@@ -285,10 +285,9 @@ class PMA_TableSearch
                     : '')
                 . ' />';
 
-            $html_output .=  <<<EOT
-<a class="ajax browse_foreign" href="browse_foreigners.php?
-EOT;
-            $html_output .= '' . PMA_URL_getCommon($this->_db, $this->_table)
+            $html_output .= '<a class="ajax browse_foreign" href="'
+                . 'browse_foreigners.php'
+                . PMA_URL_getCommon(array('db' => $this->_db, 'table' => $this->_table))
                 . '&amp;field=' . urlencode($column_name) . '&amp;fieldkey='
                 . $column_index . '&amp;fromsearch=1"';
             $html_output .= '>' . str_replace("'", "\'", $titles['Browse']) . '</a>';

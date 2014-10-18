@@ -347,7 +347,9 @@ class PMA_DbSearch
             $html_output .= '<td><a name="browse_search" class="ajax" href="'
                 . $browse_result_path . '" onclick="loadResult(\''
                 . $browse_result_path . '\',\'' . $each_table . '\',\''
-                . PMA_URL_getCommon($GLOBALS['db'], $each_table) . '\''
+                . PMA_URL_getCommon(array(
+                      'db' => $GLOBALS['db'], 'table' => $each_table
+                  )) . '\''
                 . ');return false;" >'
                 . __('Browse') . '</a></td>';
             $this_url_params['sql_query'] = $newsearchsqls['delete'];

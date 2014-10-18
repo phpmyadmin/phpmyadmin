@@ -36,7 +36,7 @@ PMA_Util::checkParameters(array('db'));
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'db_sql.php?' . PMA_URL_getCommon($db);
+$err_url = 'db_sql.php' . PMA_URL_getCommon(array('db' => $db));
 
 if ($cfgRelation['commwork']) {
     $comment = PMA_getDbComment($db);

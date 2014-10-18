@@ -26,8 +26,9 @@ if ($db_is_system_schema) {
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url_0 = 'index.php?' . PMA_URL_getCommon();
-$err_url   = $cfg['DefaultTabDatabase'] . '?' . PMA_URL_getCommon($db);
+$err_url_0 = 'index.php' . PMA_URL_getCommon();
+$err_url   = $cfg['DefaultTabDatabase']
+    . PMA_URL_getCommon(array('db' => $db));
 
 /** @var PMA_String $pmaString */
 $pmaString = $GLOBALS['PMA_String'];
@@ -50,8 +51,8 @@ if (! isset($is_db) || ! $is_db) {
         $is_db = false;
     }
     // Not a valid db name -> back to the welcome page
-    $uri = $cfg['PmaAbsoluteUri'] . 'index.php?'
-        . PMA_URL_getCommon('', '', '&')
+    $uri = $cfg['PmaAbsoluteUri'] . 'index.php'
+        . PMA_URL_getCommon(array(), 'text', '&')
         . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1';
     if (!$pmaString->strlen($db) || ! $is_db) {
         $response = PMA_Response::getInstance();
@@ -99,6 +100,6 @@ if (isset($_REQUEST['submitcollation'])
 /**
  * Set parameters for links
  */
-$url_query = PMA_URL_getCommon($db);
+$url_query = PMA_URL_getCommon(array('db' => $db));
 
 ?>

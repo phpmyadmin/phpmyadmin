@@ -437,11 +437,13 @@ function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
      */
     $back_button = '<p>[ <a href="';
     if ($export_type == 'server') {
-        $back_button .= 'server_export.php?' . PMA_URL_getCommon();
+        $back_button .= 'server_export.php' . PMA_URL_getCommon();
     } elseif ($export_type == 'database') {
-        $back_button .= 'db_export.php?' . PMA_URL_getCommon($db);
+        $back_button .= 'db_export.php' . PMA_URL_getCommon(array('db' => $db));
     } else {
-        $back_button .= 'tbl_export.php?' . PMA_URL_getCommon($db, $table);
+        $back_button .= 'tbl_export.php' . PMA_URL_getCommon(array(
+            'db' => $db, 'table' => $table
+        ));
     }
 
     // Convert the multiple select elements from an array to a string

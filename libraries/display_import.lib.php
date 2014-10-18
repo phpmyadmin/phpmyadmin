@@ -442,7 +442,7 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
 {
     //some variable for javascript
     $ajax_url = "import_status.php?id=" . $upload_id . "&"
-        . PMA_URL_getCommon(array('import_status'=>1), '&');
+        . PMA_URL_getCommon(array('import_status'=>1), 'text', '&');
     $promot_str = PMA_jsFormat(
         __(
             'The file being uploaded is probably larger than '
@@ -460,7 +460,7 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
         __('The file is being processed, please be patient.'),
         false
     );
-    $import_url = PMA_URL_getCommon(array('import_status'=>1), '&');
+    $import_url = PMA_URL_getCommon(array('import_status'=>1), 'text', '&');
 
     //start output
     $html  = 'var finished = false; ';

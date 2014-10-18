@@ -38,7 +38,9 @@ if ($GLOBALS['is_ajax_request'] != true) {
     if ($GLOBALS['PMA_String']->strlen($db)) {
         $GLOBALS['dbi']->selectDb($db);
         if (! isset($url_query)) {
-            $url_query = PMA_URL_getCommon($db, $table);
+            $url_query = PMA_URL_getCommon(array(
+                'db' => $db, 'table' => $table
+            ));
         }
     }
 }

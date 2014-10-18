@@ -135,7 +135,7 @@ function PMA_getTableHtmlForMultipleQueries(
 
             $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
             $showtable = PMA_Table::sGetStatusInfo($db, $table, null, true);
-            $url_query = PMA_URL_getCommon($db, $table);
+            $url_query = PMA_URL_getCommon(array('db' => $db, 'table' => $table));
 
             // Handle remembered sorting order, only for single table query
             if ($GLOBALS['cfg']['RememberSorting']
@@ -479,7 +479,9 @@ function PMA_getHtmlForProfilingChart($url_query, $db, $profiling_results)
 {
     if (isset($profiling_results)) {
         $pma_token = $_SESSION[' PMA_token '];
-        $url_query = (isset($url_query) ? $url_query : PMA_URL_getCommon($db));
+        $url_query = isset($url_query)
+            ? $url_query
+            : PMA_URL_getCommon(array('db' => $db));
 
         $profiling_table = '';
         $profiling_table .= '<fieldset><legend>' . __('Profiling')
