@@ -142,7 +142,8 @@ $forms['Import']['Import_defaults'] = array(
     'Import/skip_queries');
 $forms['Import']['Sql'] = array(
     'Import/sql_compatibility',
-    'Import/sql_no_auto_value_on_zero');
+    'Import/sql_no_auto_value_on_zero',
+    'Import/sql_read_as_multibytes');
 $forms['Import']['Csv'] = array(
     ':group:' . __('CSV'),
         'Import/csv_replace',

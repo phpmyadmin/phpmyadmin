@@ -22,6 +22,8 @@ require_once 'libraries/plugins/ImportPlugin.class.php';
 class ImportSql extends ImportPlugin
 {
     const BIG_VALUE = 2147483647;
+    const READ_MB_FALSE = 0;
+    const READ_MB_TRUE = 1;
 
     private $_delimiter;
 
@@ -34,6 +36,23 @@ class ImportSql extends ImportPlugin
     private $_openingComment = null;
 
     private $_delimiter_keyword = 'DELIMITER ';
+
+    private $_readMb = self::READ_MB_FALSE;
+
+    //@todo Move this part in string functions definition file.
+    private $_stringFunctions = array(
+        self::READ_MB_FALSE => array(
+            'substr' => 'substr',
+            'strlen' => 'strlen',
+            'strpos' => 'strpos',
+        ),
+        self::READ_MB_TRUE => array(
+            'substr' => 'mb_substr',
+            'strlen' => 'mb_strlen',
+            'strpos' => 'mb_strpos',
+        ),
+    );
+    private $_stringFunctionsToUse = false;
 
     /**
      * Constructor
@@ -105,6 +124,13 @@ class ImportSql extends ImportPlugin
             );
             $generalOptions->addProperty($leaf);
 
+            $leaf = new BoolPropertyItem();
+            $leaf->setName("read_as_multibytes");
+            $leaf->setText(
+                __('Read as multibytes')
+            );
+            $generalOptions->addProperty($leaf);
+
             // add the main group to the root group
             $importSpecificOptions->addProperty($generalOptions);
             // set the options for the import plugin property item
@@ -122,13 +148,13 @@ class ImportSql extends ImportPlugin
      * @return bool|int
      */
     private function _findDelimiter($data) {
-        $lengthData = mb_strlen($data);
+        $lengthData = $this->_stringFunctionsToUse['strlen']($data);
         $posInData = 0;
         /* while not at end of line */
         while ($posInData <= $lengthData) {
             if ($this->_isInString) {
                 //Search for closing quote
-                $posClosingString = mb_strpos($data, $this->_quote, $posInData);
+                $posClosingString = $this->_stringFunctionsToUse['strpos']($data, $this->_quote, $posInData);
                 if (false === $posClosingString) {
                     return false;
                 }
@@ -141,7 +167,7 @@ class ImportSql extends ImportPlugin
 
             if ($this->_isInComment) {
                 if (in_array($this->_openingComment, array('#', '-- '))) {
-                    $posClosingComment = mb_strpos($data, "\n", $posInData);
+                    $posClosingComment = $this->_stringFunctionsToUse['strpos']($data, "\n", $posInData);
                     if (false === $posClosingComment) {
                         return false;
                     }
@@ -151,7 +177,7 @@ class ImportSql extends ImportPlugin
                     $this->_openingComment = null;
                 } elseif ('/*' === $this->_openingComment) {
                     //Search for closing comment
-                    $posClosingComment = mb_strpos($data, '*/', $posInData);
+                    $posClosingComment = $this->_stringFunctionsToUse['strpos']($data, '*/', $posInData);
                     if (false === $posClosingComment) {
                         return false;
                     }
@@ -168,7 +194,7 @@ class ImportSql extends ImportPlugin
             $bFind = preg_match(
                 '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])'
                 . $this->_delimiter_keyword . ')/',
-                mb_substr($data, $posInData),
+                $this->_stringFunctionsToUse['substr']($data, $posInData),
                 $matches,
                 PREG_OFFSET_CAPTURE
             );
@@ -180,8 +206,7 @@ class ImportSql extends ImportPlugin
             }
 
             // the cost of doing this one with preg_match() would be too high
-            $firstSqlDelimiter = /*overload*/
-                mb_strpos(
+            $firstSqlDelimiter = $this->_stringFunctionsToUse['strpos'](
                     $data,
                     $this->_delimiter,
                     $posInData
@@ -213,7 +238,7 @@ class ImportSql extends ImportPlugin
                 $this->_isInComment = true;
                 $this->_openingComment = $matches[1][0];
                 //Move after quote.
-                $posInData = $firstSearchChar + mb_strlen($matches[1][0]);
+                $posInData = $firstSearchChar + $this->_stringFunctionsToUse['strlen']($matches[1][0]);
                 continue;
             }
         }
@@ -255,6 +280,12 @@ class ImportSql extends ImportPlugin
         }
         unset($sql_modes);
 
+        //Manage multibytes or not
+        if (isset($_REQUEST['sql_read_as_multibytes'])) {
+            $this->_readMb = self::READ_MB_TRUE;
+        }
+        $this->_stringFunctionsToUse = $this->_stringFunctions[$this->_readMb];
+
         /**
          * will be set in PMA_importGetNextChunk()
          *
@@ -271,7 +302,7 @@ class ImportSql extends ImportPlugin
                 $newData = PMA_importGetNextChunk(200);
                 if ($newData === false) {
                     // subtract data we didn't handle yet and stop processing
-                    $GLOBALS['offset'] -= /*overload*/mb_strlen($query);
+                    $GLOBALS['offset'] -= $this->_stringFunctionsToUse['strlen']($query);
                     break;
                 }
 
@@ -294,8 +325,8 @@ class ImportSql extends ImportPlugin
                 continue;
             }
 
-            $query = /*overload*/mb_substr($data, 0, $positionDelimiter + 1);
-            $data = /*overload*/mb_substr($data, $positionDelimiter + 1);
+            $query = $this->_stringFunctionsToUse['substr']($data, 0, $positionDelimiter + 1);
+            $data = $this->_stringFunctionsToUse['substr']($data, $positionDelimiter + 1);
             PMA_importRunQuery(
                 $query,
                 null, //Set query to display

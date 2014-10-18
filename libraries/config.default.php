@@ -2090,6 +2090,13 @@ $cfg['Import']['sql_no_auto_value_on_zero'] = true;
 /**
  *
  *
+ * @global string $cfg['Import']['sql_read_as_multibytes']
+ */
+$cfg['Import']['sql_read_as_multibytes'] = false;
+
+/**
+ *
+ *
  * @global boolean $cfg['Import']['csv_replace']
  */
 $cfg['Import']['csv_replace'] = false;
