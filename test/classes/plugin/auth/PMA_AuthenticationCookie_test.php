@@ -393,21 +393,6 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             $result
         );
 
-        $this->assertContains(
-            '$("#recaptcha_reload_btn").addClass("disableAjax");',
-            $result
-        );
-
-        $this->assertContains(
-            '$("#recaptcha_switch_audio_btn").addClass("disableAjax");',
-            $result
-        );
-
-        $this->assertContains(
-            '$("#recaptcha_switch_img_btn").addClass("disableAjax");',
-            $result
-        );
-
         $attrInstance->setValue($restoreInstance);
     }
 
