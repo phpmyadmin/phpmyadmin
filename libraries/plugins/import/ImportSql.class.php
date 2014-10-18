@@ -150,15 +150,35 @@ class ImportSql extends ImportPlugin
     private function _findDelimiter($data) {
         $lengthData = $this->_stringFunctionsToUse['strlen']($data);
         $posInData = 0;
+
+        $firstSearchChar = null;
+        $firstSqlDelimiter = null;
+
         /* while not at end of line */
         while ($posInData <= $lengthData) {
             if ($this->_isInString) {
                 //Search for closing quote
-                $posClosingString = $this->_stringFunctionsToUse['strpos']($data, $this->_quote, $posInData);
+                $posClosingString = $this->_stringFunctionsToUse['strpos'](
+                    $data, $this->_quote, $posInData
+                );
+
                 if (false === $posClosingString) {
                     return false;
                 }
-                //@todo Check if escaped quote.
+
+                $posEscape = $posClosingString-1;
+                while ($this->_stringFunctionsToUse['substr']($data, $posEscape, 1) == '\\') {
+                    $posEscape--;
+                }
+
+                // Odd count means it was escaped
+                $quoteEscaped = (((($posClosingString - 1) - $posEscape) % 2) === 1);
+                if ($quoteEscaped) {
+                    //Move after the escaped string.
+                    $posInData = $posClosingString + 1;
+                    continue;
+                }
+
                 $posInData = $posClosingString + 1;
                 $this->_isInString = false;
                 $this->_quote = null;
@@ -191,26 +211,38 @@ class ImportSql extends ImportPlugin
                 continue;
             }
 
-            $bFind = preg_match(
-                '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])'
-                . $this->_delimiter_keyword . ')/',
-                $this->_stringFunctionsToUse['substr']($data, $posInData),
-                $matches,
-                PREG_OFFSET_CAPTURE
-            );
+            //Don't look for a string/comment/"DELIMITER" if not found previously
+            //or if it's still after current position.
+            if (null === $firstSearchChar
+                || (false !== $firstSearchChar && $firstSearchChar < $posInData)
+            ) {
+                $bFind = preg_match(
+                    '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])'
+                    . $this->_delimiter_keyword . ')/',
+                    $this->_stringFunctionsToUse['substr']($data, $posInData),
+                    $matches,
+                    PREG_OFFSET_CAPTURE
+                );
 
-            if (1 === $bFind) {
-                $firstSearchChar = $matches[1][1] + $posInData;
-            } else {
-                $firstSearchChar = false;
+                if (1 === $bFind) {
+                    $firstSearchChar = $matches[1][1] + $posInData;
+                } else {
+                    $firstSearchChar = false;
+                }
             }
 
-            // the cost of doing this one with preg_match() would be too high
-            $firstSqlDelimiter = $this->_stringFunctionsToUse['strpos'](
+            //Don't look for the SQL delimiter if not found previously
+            //or if it's still after current position.
+            if (null === $firstSqlDelimiter
+                || (false !== $firstSqlDelimiter && $firstSqlDelimiter < $posInData)
+            ) {
+                // the cost of doing this one with preg_match() would be too high
+                $firstSqlDelimiter = $this->_stringFunctionsToUse['strpos'](
                     $data,
                     $this->_delimiter,
                     $posInData
                 );
+            }
 
             if (false === $firstSqlDelimiter && false === $firstSearchChar) {
                 return false;
@@ -237,8 +269,9 @@ class ImportSql extends ImportPlugin
             if (in_array($matches[1][0], array('#', '-- ', '/*'))) {
                 $this->_isInComment = true;
                 $this->_openingComment = $matches[1][0];
-                //Move after quote.
-                $posInData = $firstSearchChar + $this->_stringFunctionsToUse['strlen']($matches[1][0]);
+                //Move after comment opening.
+                $posInData = $firstSearchChar
+                    + $this->_stringFunctionsToUse['strlen']($matches[1][0]);
                 continue;
             }
         }
@@ -302,7 +335,8 @@ class ImportSql extends ImportPlugin
                 $newData = PMA_importGetNextChunk(200);
                 if ($newData === false) {
                     // subtract data we didn't handle yet and stop processing
-                    $GLOBALS['offset'] -= $this->_stringFunctionsToUse['strlen']($query);
+                    $GLOBALS['offset']
+                        -= $this->_stringFunctionsToUse['strlen']($query);
                     break;
                 }
 
@@ -325,8 +359,12 @@ class ImportSql extends ImportPlugin
                 continue;
             }
 
-            $query = $this->_stringFunctionsToUse['substr']($data, 0, $positionDelimiter + 1);
-            $data = $this->_stringFunctionsToUse['substr']($data, $positionDelimiter + 1);
+            $query = $this->_stringFunctionsToUse['substr'](
+                $data, 0, $positionDelimiter + 1
+            );
+            $data = $this->_stringFunctionsToUse['substr'](
+                $data, $positionDelimiter + 1
+            );
             PMA_importRunQuery(
                 $query,
                 null, //Set query to display
