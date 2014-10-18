@@ -161,7 +161,7 @@ function PMA_getHiddenFields($values, $pre = '')
  * // script.php?server=1&amp;lang=en
  * </code>
  *
- * @param mixed  $params  Contains an associative array with url params
+ * @param mixed  $params  optional, Contains an associative array with url params
  *
  * @param string $encode  'html' to use htmlspecialchars() on the resulting
  *                        URL (for a normal URL displayed in HTML) or
@@ -174,7 +174,7 @@ function PMA_getHiddenFields($values, $pre = '')
  * @return string   string with URL parameters
  * @access  public
  */
-function PMA_URL_getCommon($params, $encode = 'html', $divider = '?')
+function PMA_URL_getCommon($params = array(), $encode = 'html', $divider = '?')
 {
     $separator = PMA_URL_getArgSeparator();
 
