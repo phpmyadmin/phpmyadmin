@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.0.10.5 (not yet released)
 - bug #4562 [security] XSS in debug SQL output
+- bug #4563 [security] XSS in monitor query analyzer
 
 4.0.10.4 (2014-10-01)
 - bug #4544 [security] XSS vulnerabilities in table search and table structure pages
