@@ -9,6 +9,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once './libraries/transformations.lib.php';
+
 /**
  * Handle all the functionalities related to displaying results
  * of sql queries, stored procedure, browsing sql processes or
@@ -211,12 +213,6 @@ class PMA_DisplayResults
      */
     public function __construct($db, $table, $goto, $sql_query)
     {
-        if ($GLOBALS['cfgRelation']['mimework']
-            && $GLOBALS['cfg']['BrowseMIME']
-        ) {
-            include_once './libraries/transformations.lib.php';
-        }
-
         $this->_setDefaultTransformations();
 
         $this->__set('db', $db);
