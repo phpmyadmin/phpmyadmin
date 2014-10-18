@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-16 12:25-0400\n"
-"PO-Revision-Date: 2014-10-18 07:21+0200\n"
+"PO-Revision-Date: 2014-10-18 07:54+0200\n"
 "Last-Translator: Tor Stokkan <danorse@gmail.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nb/>\n"
@@ -5907,10 +5907,9 @@ msgid "Add %s"
 msgstr "Legg til %s"
 
 #: libraries/config/messages.inc.php:174
-#, fuzzy
 #| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "Bruk heksadesimal for BLOB"
+msgstr "Bruk heksadesimal for BINARY & BLOB"
 
 #: libraries/config/messages.inc.php:176
 msgid "Use ignore inserts"
@@ -6906,10 +6905,9 @@ msgid "How to display various action links"
 msgstr ""
 
 #: libraries/config/messages.inc.php:508
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY columns from editing"
 msgid "Disallow BLOB and BINARY columns from editing."
-msgstr "Ikke tillat BLOB eller BLOB og BINARY kolonner å bli redigert"
+msgstr "Ikke tillat redigering av BLOB- eller BINARY-kolonner."
 
 #: libraries/config/messages.inc.php:509
 msgid "Protect binary columns"
@@ -11024,7 +11022,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/abstract/ImageLinkTransformationsPlugin.class.php:33
 msgid "Displays a link to download this image."
-msgstr "Viser en link til dette bildet (m.a.o. direkte blob-nedlasting)."
+msgstr "Viser en link for nedlasting av dette bildet."
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:31
 msgid ""
