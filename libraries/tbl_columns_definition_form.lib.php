@@ -647,13 +647,13 @@ function PMA_getHtmlForColumnType($columnNumber, $ci, $ci_offset,
 /**
  * Function to get html for transformation option
  *
- * @param int    $columnNumber column number
- * @param int    $ci           cell index
- * @param int    $ci_offset    cell index offset
- * @param array  $columnMeta   column meta
- * @param array  $mime_map     mime map
- * @param string $type_prefix  prefix for type of transformation
- *                             '' or 'input'
+ * @param int        $columnNumber column number
+ * @param int        $ci           cell index
+ * @param int        $ci_offset    cell index offset
+ * @param array|null $columnMeta   column meta
+ * @param array      $mime_map     mime map
+ * @param string     $type_prefix  prefix for type of transformation
+ *                                 '' or 'input'
  *
  * @return string
  */
@@ -723,14 +723,14 @@ function PMA_getHtmlForMimeType($columnNumber, $ci, $ci_offset,
 /**
  * Function to get html for transformations
  *
- * @param int    $columnNumber   column number
- * @param int    $ci             cell index
- * @param int    $ci_offset      cell index offset
- * @param array  $available_mime available mime
- * @param array  $columnMeta     column meta
- * @param array  $mime_map       mime map
- * @param string $type_prefix    prefix for type of transformation
- *                               '' or 'input'
+ * @param int        $columnNumber   column number
+ * @param int        $ci             cell index
+ * @param int        $ci_offset      cell index offset
+ * @param array      $available_mime available mime
+ * @param array|null $columnMeta     column meta
+ * @param array      $mime_map       mime map
+ * @param string     $type_prefix    prefix for type of transformation
+ *                                   '' or 'input'
  *
  * @return string
  */
