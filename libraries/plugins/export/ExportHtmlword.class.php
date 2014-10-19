@@ -357,21 +357,13 @@ class ExportHtmlword extends ExportPlugin
          * Gets fields properties
          */
         $GLOBALS['dbi']->selectDb($db);
-        $res_rel = array();
-        // Check if we can use Relations
-        if ($do_relation && ! empty($cfgRelation['relation'])) {
-            // Find which tables are related with the current one and write it in
-            // an array
-            $res_rel = PMA_getForeigners($db, $table);
 
-            if ($res_rel && count($res_rel) > 0) {
-                $have_rel = true;
-            } else {
-                $have_rel = false;
-            }
-        } else {
-               $have_rel = false;
-        } // end if
+        // Check if we can use Relations
+        list($res_rel, $have_rel) = PMA_getRelationsAndStatus(
+            $do_relation && ! empty($cfgRelation['relation']),
+            $db,
+            $table
+        );
 
         /**
          * Displays the table structure
