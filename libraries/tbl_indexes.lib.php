@@ -146,11 +146,9 @@ function PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, &$error)
         $sql_query .= ' (' . implode(', ', $index_fields) . ')';
     }
 
-    if (PMA_MYSQL_INT_VERSION > 50500) {
-        $sql_query .= " COMMENT '"
-            . PMA_Util::sqlAddSlashes($index->getComment())
-            . "'";
-    }
+    $sql_query .= " COMMENT '"
+        . PMA_Util::sqlAddSlashes($index->getComment())
+        . "'";
     $sql_query .= ';';
 
     return $sql_query;
@@ -280,21 +278,19 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         . 'onfocus="this.select()" />'
         . '</div>';
 
-    if (PMA_MYSQL_INT_VERSION > 50500) {
-        $html .= '<div>'
-            . '<div class="label">'
-            . '<strong>'
-            . '<label for="input_index_comment">'
-            . __('Comment:')
-            . '</label>'
-            . '</strong>'
-            . '</div>'
-            . '<input type="text" name="index[Index_comment]" '
-            . 'id="input_index_comment" size="30"'
-            . 'value="' . htmlspecialchars($index->getComment()) . '"'
-            . 'onfocus="this.select()" />'
-            . '</div>';
-    }
+    $html .= '<div>'
+        . '<div class="label">'
+        . '<strong>'
+        . '<label for="input_index_comment">'
+        . __('Comment:')
+        . '</label>'
+        . '</strong>'
+        . '</div>'
+        . '<input type="text" name="index[Index_comment]" '
+        . 'id="input_index_comment" size="30"'
+        . 'value="' . htmlspecialchars($index->getComment()) . '"'
+        . 'onfocus="this.select()" />'
+        . '</div>';
 
     $html .= '<div>'
         . '<div class="label">'

@@ -245,10 +245,7 @@ class ExportSql extends ExportPlugin
                         $drop_clause = '<code>DROP TABLE</code>';
                     } else {
                         $drop_clause = '<code>DROP TABLE / VIEW / PROCEDURE'
-                            . ' / FUNCTION</code>';
-                        if (PMA_MYSQL_INT_VERSION > 50100) {
-                            $drop_clause .= '<code> / EVENT</code>';
-                        }
+                            . ' / FUNCTION / EVENT</code>';
                     }
                 }
 
@@ -282,9 +279,7 @@ class ExportSql extends ExportPlugin
                     $leaf->setText(
                         sprintf(
                             __('Add %s statement'),
-                            '<code>CREATE PROCEDURE / FUNCTION'
-                            . (PMA_MYSQL_INT_VERSION > 50100
-                            ? ' / EVENT</code>' : '</code>')
+                            '<code>CREATE PROCEDURE / FUNCTION / EVENT</code>'
                         )
                     );
                     $subgroup->addProperty($leaf);
@@ -892,16 +887,12 @@ class ExportSql extends ExportPlugin
             $text = '';
             $delimiter = '$$';
 
-            if (PMA_MYSQL_INT_VERSION > 50100) {
-                $event_names = $GLOBALS['dbi']->fetchResult(
-                    'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE'
-                    . ' EVENT_SCHEMA= \''
-                    . PMA_Util::sqlAddSlashes($db, true)
-                    . '\';'
-                );
-            } else {
-                $event_names = array();
-            }
+            $event_names = $GLOBALS['dbi']->fetchResult(
+                'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE'
+                . ' EVENT_SCHEMA= \''
+                . PMA_Util::sqlAddSlashes($db, true)
+                . '\';'
+            );
 
             if ($event_names) {
                 $text .= $crlf
@@ -1607,19 +1598,11 @@ class ExportSql extends ExportPlugin
         $schema_create = '';
 
         // Check if we can use Relations
-        if ($do_relation && ! empty($cfgRelation['relation'])) {
-            // Find which tables are related with the current one and write it in
-            // an array
-            $res_rel = PMA_getForeigners($db, $table);
-
-            if ($res_rel && count($res_rel) > 0) {
-                $have_rel = true;
-            } else {
-                $have_rel = false;
-            }
-        } else {
-               $have_rel = false;
-        } // end if
+        list($res_rel, $have_rel) = PMA_getRelationsAndStatus(
+            $do_relation && ! empty($cfgRelation['relation']),
+            $db,
+            $table
+        );
 
         if ($do_mime && $cfgRelation['mimework']) {
             if (! ($mime_map = PMA_getMIME($db, $table, true))) {

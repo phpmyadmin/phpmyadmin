@@ -81,7 +81,7 @@ $titles = PMA_Util::buildActionTitles();
 
 if ($num_tables == 0) {
     $response->addHTML(
-        '<p>' . __('No tables found in database.') . '</p>' . "\n"
+        PMA_message::notice(__('No tables found in database.'))
     );
     PMA_possiblyShowCreateTableDialog($db, $db_is_system_schema, $response);
     exit;

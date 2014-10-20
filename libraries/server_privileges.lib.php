@@ -621,6 +621,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
     $table = '*', $submit = true
 ) {
     $html_output = '';
+    $sql_query = '';
 
     if ($db == '*') {
         $table = '*';
@@ -1841,14 +1842,12 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
         . ' AND `Alter_routine_priv` = \'N\''
         . ' AND `Execute_priv` = \'N\'';
 
-    if (PMA_MYSQL_INT_VERSION >= 50106) {
-        $list_of_privileges .=
-            ', `Event_priv`, '
-            . '`Trigger_priv`';
-        $listOfComparedPrivs .=
-            ' AND `Event_priv` = \'N\''
-            . ' AND `Trigger_priv` = \'N\'';
-    }
+    $list_of_privileges .=
+        ', `Event_priv`, '
+        . '`Trigger_priv`';
+    $listOfComparedPrivs .=
+        ' AND `Event_priv` = \'N\''
+        . ' AND `Trigger_priv` = \'N\'';
     return array($list_of_privileges, $listOfComparedPrivs);
 }
 
@@ -2200,7 +2199,8 @@ function PMA_getHtmlListOfPrivs(
         $specific_table = (isset($current['Table_name'])
             && $current['Table_name'] != '*')
             ? $current['Table_name'] : '';
-        $html_output .= PMA_getUserEditLink(
+        $html_output .= PMA_getUserLink(
+            'edit',
             $current_user,
             $current_host,
             $specific_db,
@@ -2218,83 +2218,67 @@ function PMA_getHtmlListOfPrivs(
 }
 
 /**
- * Returns edit link for a user.
+ * Returns edit, revoke or export link for a user.
  *
+ * @param string $linktype  The link type (edit | revoke | export) 
  * @param string $username  User name
  * @param string $hostname  Host name
  * @param string $dbname    Database name
  * @param string $tablename Table name
+ * @param string $initial   Initial value
  *
  * @return string HTML code with link
  */
-function PMA_getUserEditLink($username, $hostname, $dbname = '', $tablename = '')
-{
-    return '<a class="edit_user_anchor"'
-        . ' href="server_privileges.php'
-        . PMA_URL_getCommon(
-            array(
-                'username' => $username,
-                'hostname' => $hostname,
-                'dbname' => $dbname,
-                'tablename' => $tablename,
-            )
-        )
-        . '">'
-        . PMA_Util::getIcon('b_usredit.png', __('Edit Privileges'))
-        . '</a>';
-}
+function PMA_getUserLink(
+    $linktype, $username, $hostname, $dbname = '', $tablename = '', $initial = ''
+) {
+    $html = '<a';
+    switch($linktype) {
+    case 'edit':
+        $html .= ' class="edit_user_anchor"';
+        break;
+    case 'export':
+        $html .= ' class="export_user_anchor ajax"';
+        break;
+    }
+    $params = array(
+        'username' => $username,
+        'hostname' => $hostname
+    );
+    switch($linktype) {
+    case 'edit':
+        $params['dbname'] = $dbname;
+        $params['tablename'] = $tablename;
+        break;
+    case 'revoke':
+        $params['dbname'] = $dbname;
+        $params['tablename'] = $tablename;
+        $params['revokeall'] = 1;
+        break;
+    case 'export':
+        $params['initial'] = $initial;
+        $params['export'] = 1;
+        break;
+    }
 
-/**
- * Returns revoke link for a user.
- *
- * @param string $username  User name
- * @param string $hostname  Host name
- * @param string $dbname    Database name
- * @param string $tablename Table name
- *
- * @return string HTML code with link
- */
-function PMA_getUserRevokeLink($username, $hostname, $dbname = '', $tablename = '')
-{
-    return '<a  href="server_privileges.php'
-        . PMA_URL_getCommon(
-            array(
-                'username' => $username,
-                'hostname' => $hostname,
-                'dbname' => $dbname,
-                'tablename' => $tablename,
-                'revokeall' => 1,
-            )
-        )
-        . '">'
-        . PMA_Util::getIcon('b_usrdrop.png', __('Revoke'))
-        . '</a>';
-}
+    $html .= ' href="server_privileges.php'
+        . PMA_URL_getCommon($params)
+        . '">';
 
-/**
- * Returns export link for a user.
- *
- * @param string $username User name
- * @param string $hostname Host name
- * @param string $initial  Initial value
- *
- * @return HTML code with link
- */
-function PMA_getUserExportLink($username, $hostname, $initial = '')
-{
-    return '<a class="export_user_anchor ajax"'
-        . ' href="server_privileges.php'
-        . PMA_URL_getCommon(
-            array(
-                'username' => $username,
-                'hostname' => $hostname,
-                'initial' => $initial,
-                'export' => 1,
-            )
-        )
-        . '">'
-        . PMA_Util::getIcon('b_tblexport.png', __('Export'))
-        . '</a>';
+    switch($linktype) {
+    case 'edit':
+        $html .= PMA_Util::getIcon('b_usredit.png', __('Edit Privileges'));
+        break;
+    case 'revoke':
+        $html .= PMA_Util::getIcon('b_usrdrop.png', __('Revoke'));
+        break;
+    case 'export':
+        $html .= PMA_Util::getIcon('b_tblexport.png', __('Export'));
+        break;
+    }
+    $html . '</a>';
+
+    return $html;
 }
 
 /**
@@ -2413,7 +2397,7 @@ function PMA_getExtraDataForAjaxBehavior(
         $new_user_string .='</td>';
 
         $new_user_string .= '<td>'
-            . PMA_getUserEditLink($username, $hostname)
+            . PMA_getUserLink('edit', $username, $hostname)
             . '</td>' . "\n";
 
         if (isset($cfgRelation['menuswork']) && $user_group_count > 0) {
@@ -2423,9 +2407,12 @@ function PMA_getExtraDataForAjaxBehavior(
         }
 
         $new_user_string .= '<td>'
-            . PMA_getUserExportLink(
+            . PMA_getUserLink(
+                'export',
                 $username,
                 $hostname,
+                '',
+                '',
                 isset($_GET['initial']) ? $_GET['initial'] : ''
             )
             . '</td>' . "\n";
@@ -2731,7 +2718,8 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
             }
             $html_output .= '</td>' . "\n"
                . '<td>';
-            $html_output .= PMA_getUserEditLink(
+            $html_output .= PMA_getUserLink(
+                'edit',
                 $username,
                 $hostname,
                 (!/*overload*/mb_strlen($dbname)) ? $row['Db'] : $dbname,
@@ -2743,7 +2731,8 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
                 || isset($row['Table_name'])
                 && /*overload*/mb_strlen($row['Table_name'])
             ) {
-                $html_output .= PMA_getUserRevokeLink(
+                $html_output .= PMA_getUserLink(
+                    'revoke',
                     $username,
                     $hostname,
                     (! /*overload*/mb_strlen($dbname)) ? $row['Db'] : $dbname,
@@ -3093,7 +3082,8 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
                 . '</td>' . "\n";
 
             $html_output .= '<td class="center">'
-                . PMA_getUserEditLink(
+                . PMA_getUserLink(
+                    'edit',
                     $host['User'],
                     $host['Host']
                 )
@@ -3108,9 +3098,12 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
                 }
             }
             $html_output .= '<td class="center">'
-                . PMA_getUserExportLink(
+                . PMA_getUserLink(
+                    'export',
                     $host['User'],
                     $host['Host'],
+                    '',
+                    '',
                     isset($_GET['initial']) ? $_GET['initial'] : ''
                 )
                 . '</td>';

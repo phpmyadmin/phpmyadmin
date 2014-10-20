@@ -142,56 +142,47 @@ function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
 }
 
 /**
- * Function to get html for activate tracking
+ * Function to get html for activate/deactivate tracking
  *
+ * @param string $action       activate|deactivate 
  * @param string $url_query    url query
  * @param int    $last_version last version
  *
  * @return string
  */
-function PMA_getHtmlForActivateTracking($url_query, $last_version)
-{
-    $html = '<div id="div_activate_tracking">';
+function PMA_getHtmlForActivateDeactivateTracking(
+    $action, $url_query, $last_version
+) {
+    $html = '<div>';
     $html .= '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
     $html .= '<fieldset>';
     $html .= '<legend>';
+
+    switch($action) {
+    case 'activate':
+        $legend = __('Activate tracking for %s');
+        $hidden = "submit_activate_now";
+        $button = __('Activate now');
+        break;
+    case 'deactivate':
+        $legend = __('Deactivate tracking for %s');
+        $hidden = "submit_deactivate_now";
+        $button = __('Deactivate now');
+        break;
+    default:
+        $legend = '';
+        $hidden = '';
+        $button = '';
+    }
+
     $html .= sprintf(
-        __('Activate tracking for %s'),
+        $legend,
         htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
     );
     $html .= '</legend>';
     $html .= '<input type="hidden" name="version" value="' . $last_version . '" />';
-    $html .= '<input type="hidden" name="submit_activate_now" value="1" />';
-    $html .= '<input type="submit" value="' . __('Activate now') . '" />';
-    $html .= '</fieldset>';
-    $html .= '</form>';
-    $html .= '</div>';
-
-    return $html;
-}
-
-/**
- * Function to get html for deactivating tracking
- *
- * @param string $url_query    url query
- * @param int    $last_version last version
- *
- * @return string
- */
-function PMA_getHtmlForDeactivateTracking($url_query, $last_version)
-{
-    $html = '<div id="div_deactivate_tracking">';
-    $html .= '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
-    $html .= '<fieldset>';
-    $html .= '<legend>';
-    $html .= sprintf(
-        __('Deactivate tracking for %s'),
-        htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
-    );
-    $html .= '</legend>';
-    $html .= '<input type="hidden" name="version" value="' . $last_version . '" />';
-    $html .= '<input type="hidden" name="submit_deactivate_now" value="1" />';
-    $html .= '<input type="submit" value="' . __('Deactivate now') . '" />';
+    $html .= '<input type="hidden" name="' . $hidden . '" value="1" />';
+    $html .= '<input type="submit" value="' . $button . '" />';
     $html .= '</fieldset>';
     $html .= '</form>';
     $html .= '</div>';
@@ -291,9 +282,13 @@ function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_para
     $html .= '</table>';
 
     if ($tracking_active) {
-        $html .= PMA_getHtmlForDeactivateTracking($url_query, $last_version);
+        $html .= PMA_getHtmlForActivateDeactivateTracking(
+            'deactivate', $url_query, $last_version
+        );
     } else {
-        $html .= PMA_getHtmlForActivateTracking($url_query, $last_version);
+        $html .= PMA_getHtmlForActivateDeactivateTracking(
+            'activate', $url_query, $last_version
+        );
     }
 
     return $html;

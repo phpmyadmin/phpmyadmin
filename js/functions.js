@@ -35,6 +35,16 @@ var codemirror_editor = false;
 var codemirror_inline_editor = false;
 
 /**
+ * @var sql_autocomplete object containing list of columns in each table
+ */
+var sql_autocomplete = false;
+
+/**
+ * @var sql_autocomplete_default_table string containing default table to autocomplete columns
+ */
+var sql_autocomplete_default_table = '';
+
+/**
  * @var chart_activeTimeouts object active timeouts that refresh the charts. When disabling a realtime chart, this can be used to stop the continuous ajax requests
  */
 var chart_activeTimeouts = {};
@@ -1673,19 +1683,58 @@ AJAX.registerOnload('functions.js', function () {
  * "inputRead" event handler for CodeMirror SQL query editors for autocompletion
  */
 function codemirrorAutocompleteOnInputRead(instance) {
+    if (!instance.options.hintOptions.tables || !sql_autocomplete){
+        if (!sql_autocomplete) {
+            // Reset after teardown
+            instance.options.hintOptions.tables = false;
+            instance.options.hintOptions.defaultTable = '';
+
+            var href = 'db_sql_autocomplete.php';
+            var params = {
+                'ajax_request': true,
+                'token': PMA_commonParams.get('token'),
+                'db': PMA_commonParams.get('db')
+            };
+            $.ajax({
+                type: 'POST',
+                url: href,
+                data: params,
+                success: function (data) {
+                    if (data.success) {
+                        sql_autocomplete = $.parseJSON(data.tables);
+                        sql_autocomplete_default_table = PMA_commonParams.get('table');
+                        instance.options.hintOptions.tables = sql_autocomplete;
+                        instance.options.hintOptions.defaultTable = sql_autocomplete_default_table;
+                    }
+                }
+            });
+        }
+        else {
+            instance.options.hintOptions.tables = sql_autocomplete;
+            instance.options.hintOptions.defaultTable = sql_autocomplete_default_table;
+        }
+    }
     if (instance.state.completionActive) {
         return;
     }
     var cur = instance.getCursor();
     var token = instance.getTokenAt(cur);
     var string = '';
-    if (token.string.match(/^[.\w@]\w*$/)) {
+    if (token.string.match(/^[.`\w@]\w*$/)) {
         string = token.string;
     }
     if (string.length > 0) {
         CodeMirror.commands.autocomplete(instance);
     }
 }
+
+/**
+ * Remove autocomplete information before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function () {
+    sql_autocomplete = false;
+    sql_autocomplete_default_table = '';
+});
 
 /**
  * Binds the CodeMirror to the text area used to inline edit a query.
@@ -2504,6 +2553,10 @@ AJAX.registerOnload('functions.js', function () {
          */
         var $form = $(this).closest('form');
 
+        if (!checkFormElementInRange(this.form, 'added_fields', PMA_messages.strLeastColumnError, 1)) {
+            return;
+        }
+
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         PMA_prepareForAjaxRequest($form);
 
@@ -2520,14 +2573,14 @@ AJAX.registerOnload('functions.js', function () {
         }); //end $.post()
     }); // end create table form (add fields)
 
-    $("form.create_table_form.ajax input").live('keydown', function (event) {
+    $("form.create_table_form.ajax input[name=added_fields]").live('keydown', function (event) {
         if (event.keyCode == 13) {
             event.preventDefault();
             event.stopImmediatePropagation();
             $(this)
                 .closest('form')
-                .append('<input type="hidden" name="do_save_data" value="1" />')
-                .submit();
+                .find('input[name=submit_num_fields]')
+                .click();
         }
     });
     $("input[value=AUTO_INCREMENT]").change(function(){

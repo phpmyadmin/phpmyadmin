@@ -51,6 +51,13 @@ if (version_compare(PHP_VERSION, '5.3.0', 'lt')) {
  */
 define('PHPMYADMIN', true);
 
+
+/**
+ * String handling (security)
+ */
+require_once './libraries/String.class.php';
+$PMA_String = new PMA_String();
+
 /**
  * the error handler
  */
@@ -872,9 +879,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $auth_plugin->authSetUser();
         }
 
-         // Check IP-based Allow/Deny rules as soon as possible to reject the
-        // user
-        // Based on mod_access in Apache:
+        // Check IP-based Allow/Deny rules as soon as possible to reject the
+        // user based on mod_access in Apache:
         // http://cvs.apache.org/viewcvs.cgi/httpd-2.0/modules/aaa/mod_access.c?rev=1.37&content-type=text/vnd.viewcvs-markup
         // Look at: "static int check_dir_access(request_rec *r)"
         if (isset($cfg['Server']['AllowDeny'])
@@ -998,13 +1004,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             );
         }
 
-        if (PMA_PHP_INT_VERSION < 50300) {
-            PMA_fatalError(
-                __('You should upgrade to %s %s or later.'),
-                array('PHP', '5.3.0')
-            );
-        }
-
         /**
          * Type handling object.
          */
@@ -1015,6 +1014,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         if (PMA_DRIZZLE) {
+            // DisableIS must be set to false for Drizzle, it maps SHOW commands
+            // to INFORMATION_SCHEMA queries anyway so it's fast on large servers
+            $cfg['Server']['DisableIS'] = false;
             // SHOW OPEN TABLES is not supported by Drizzle
             $cfg['SkipLockedTables'] = false;
         }

@@ -55,7 +55,8 @@ function PMA_RTN_main($type)
      */
     $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, ";
     $columns .= "`DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-    $where    = "ROUTINE_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "'";
+    $where    = "ROUTINE_SCHEMA " . PMA_Util::getCollateForIS() . "="
+        . "'" . PMA_Util::sqlAddSlashes($db) . "'";
     if (PMA_isValid($type, array('FUNCTION','PROCEDURE'))) {
         $where .= " AND `ROUTINE_TYPE`='" . $type . "'";
     }
@@ -398,7 +399,8 @@ function PMA_RTN_handleEditor()
             if ($message->isSuccess()) {
                 $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`,"
                     . " `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-                $where    = "ROUTINE_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "' "
+                $where    = "ROUTINE_SCHEMA " . PMA_Util::getCollateForIS() . "="
+                    . "'" . PMA_Util::sqlAddSlashes($db) . "' "
                     . "AND ROUTINE_NAME='"
                     . PMA_Util::sqlAddSlashes($_REQUEST['item_name']) . "'"
                     . "AND ROUTINE_TYPE='"
@@ -634,7 +636,8 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
     $fields  = "SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, "
              . "ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, "
              . "ROUTINE_COMMENT, SECURITY_TYPE";
-    $where   = "ROUTINE_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "' "
+    $where   = "ROUTINE_SCHEMA " . PMA_Util::getCollateForIS() . "="
+             . "'" . PMA_Util::sqlAddSlashes($db) . "' "
              . "AND SPECIFIC_NAME='" . PMA_Util::sqlAddSlashes($name) . "'"
              . "AND ROUTINE_TYPE='" . PMA_Util::sqlAddSlashes($type) . "'";
     $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
@@ -1023,7 +1026,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
     $retval .= "    <td>" . __('Return length/values') . "</td>";
     $retval .= "    <td><input type='text' name='item_returnlength'";
-    $retval .= "               value='" . $routine['item_returnlength'] . "' /></td>";
+    $retval .= "        value='" . $routine['item_returnlength'] . "' /></td>";
     $retval .= "    <td class='hide no_len'>---</td>";
     $retval .= "</tr>";
     $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
@@ -1487,7 +1490,8 @@ function PMA_RTN_handleExecute()
                 // output from the routine
                 $message .= sprintf(
                     _ngettext(
-                        '%d row affected by the last statement inside the procedure.',
+                        '%d row affected by the last statement inside the '
+                        . 'procedure.',
                         '%d rows affected by the last statement inside the '
                         . 'procedure.',
                         $affected
@@ -1597,7 +1601,8 @@ function PMA_RTN_getExecuteForm($routine)
     // Create the output
     $retval  = "";
     $retval .= "<!-- START ROUTINE EXECUTE FORM -->\n\n";
-    $retval .= "<form action='db_routines.php' method='post' class='rte_form ajax' onsubmit='return false'>\n";
+    $retval .= "<form action='db_routines.php' method='post'\n";
+    $retval .= "       class='rte_form ajax' onsubmit='return false'>\n";
     $retval .= "<input type='hidden' name='item_name'\n";
     $retval .= "       value='{$routine['item_name']}' />\n";
     $retval .= "<input type='hidden' name='item_type'\n";

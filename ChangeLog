@@ -34,6 +34,7 @@ phpMyAdmin - ChangeLog
 + rfe #1123 Zeroconf PMA tables support
 + rfe #1492 Remove the distinct query window / Add SQL log+history panel
 + rfe #919  Multiple-column foreign key relation
+- bug #3165 Redundant foreign keys not supported
 - bug       Incorrect link to documentation
 + rfe #857  Regexp replace
 - bug       Incorrect path in change password when on reverse proxy or
@@ -49,18 +50,28 @@ phpMyAdmin - ChangeLog
 - bug #4551 Wrong test in source code
 - bug #4537 BLOB inline-view JPG column transformation does not work for anything except simple queries
 + rfe #1535 Keyword-based autocompletion in SQL query editors
+- bug #4558 Unable to Add Rows while Creating Table
++ rfe #1547 Wrap No Tables Found message with message box
 
-4.2.10.0 (not yet released)
+4.2.11.0 (not yet released)
+- bug       ReferenceError: Table_onover is not defined
+- bug #4552 Incorrect routines display for database due to case insensitive checks
+- bug #4259 reCaptcha sound session expired problem
+
+4.2.10.0 (2014-10-11)
 - bug #4361 Can't change font size (when config.inc.php not present)
 - bug #4542 Tab key in column name not shown
 - bug       PDF export: title not present in PDF
 - bug #4543 Changing column name can break saved "order by" clause
 - bug #4545 trying to favorite table while browser localStorage is disabled throws JS error
-- bug #4259 reCaptcha sound session expired problem
 - bug #4548 Inline editing a field converts tab to spaces
 - bug #4252 Database-level permission bug for db names containing underscores
 - bug #3120 Events are not exported when using xml
 - bug #4554 Grid-editing timestamp column forces datepicker
+- bug #4556 Fast filters for tables, views etc. should be governed by NavigationTreeDisplayItemFilterMinimum
+
+4.2.9.1 (2014-10-01)
+- bug #4544 [security] XSS vulnerabilities in table search and table structure pages
 
 4.2.9.0 (2014-09-20)
 - bug       ajax.js responseHandler: cannot read property of null
@@ -317,7 +328,6 @@ phpMyAdmin - ChangeLog
 - bug #4257 Hide fractional seconds when applicable
 - bug #4264 Uncheck "Ignore" while inserting, upon leaving a textarea
 - bug #4260 reCaptcha is ignoring language settings
-- bug #4259 reCaptcha sound session expired problem
 - bug #4263 Japanese character encoding not working properly when exporting
 - bug #4269 Notice on table relation page
 - bug #4270 Bad text-color for table comments

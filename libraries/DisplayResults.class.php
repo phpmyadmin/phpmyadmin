@@ -9,6 +9,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once './libraries/transformations.lib.php';
+
 /**
  * Handle all the functionalities related to displaying results
  * of sql queries, stored procedure, browsing sql processes or
@@ -1105,7 +1107,6 @@ class PMA_DisplayResults
             && $GLOBALS['cfg']['BrowseMIME']
             && ! $_SESSION['tmpval']['hide_transformation']
         ) {
-            include_once './libraries/transformations.lib.php';
             $this->__set(
                 'mime_map',
                 PMA_getMIME($this->__get('db'), $this->__get('table'))
@@ -1859,10 +1860,11 @@ class PMA_DisplayResults
 
         // Generates the orderby clause part of the query which is part
         // of URL
-        list($single_sort_order, $multi_sort_order, $order_img) = $this->_getSingleAndMultiSortUrls(
-            $sort_expression, $sort_expression_nodirection, $sort_tbl,
-            $name_to_use_in_sort, $sort_direction, $fields_meta, $column_index
-        );
+        list($single_sort_order, $multi_sort_order, $order_img)
+            = $this->_getSingleAndMultiSortUrls(
+                $sort_expression, $sort_expression_nodirection, $sort_tbl,
+                $name_to_use_in_sort, $sort_direction, $fields_meta, $column_index
+            );
 
         if (preg_match(
             '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|'
@@ -2003,9 +2005,11 @@ class PMA_DisplayResults
                         ) . ' ';
                 }
                 if ($is_in_sort) {
-                    list($single_sort_order, $order_img) = $this->_getSortingUrlParams(
-                        $sort_direction, $single_sort_order, $column_index, $index
-                    );
+                    list($single_sort_order, $order_img)
+                        = $this->_getSortingUrlParams(
+                            $sort_direction, $single_sort_order,
+                            $column_index, $index
+                        );
                 } else {
                     $single_sort_order .= strtoupper($sort_direction[$index]);
                 }
@@ -2171,7 +2175,8 @@ class PMA_DisplayResults
      * @see     _getTableHeaders()
      */
     private function _getSortOrderLink(
-        $order_img, $col_index, $direction, $fields_meta, $order_url, $multi_order_url
+        $order_img, $col_index, $direction,
+        $fields_meta, $order_url, $multi_order_url
     ) {
         $order_link_params = array();
         if (isset($order_img) && ($order_img != '')) {
@@ -2940,18 +2945,17 @@ class PMA_DisplayResults
 
             // Check whether the field needs to display with syntax highlighting
 
-            if (! empty($this->transformation_info[/*overload*/mb_strtolower($this->__get('db'))][/*overload*/mb_strtolower($this->__get('table'))][/*overload*/mb_strtolower($meta->name)])
+            $dbLower = /*overload*/mb_strtolower($this->__get('db'));
+            $tblLower = /*overload*/mb_strtolower($this->__get('table'));
+            $nameLower = /*overload*/mb_strtolower($meta->name);
+            if (! empty($this->transformation_info[$dbLower][$tblLower][$nameLower])
                 && (trim($row[$i]) != '')
             ) {
                 $row[$i] = PMA_Util::formatSql($row[$i]);
                 include_once $this->transformation_info
-                    [/*overload*/mb_strtolower($this->__get('db'))]
-                    [/*overload*/mb_strtolower($this->__get('table'))]
-                    [/*overload*/mb_strtolower($meta->name)][0];
+                    [$dbLower][$tblLower][$nameLower][0];
                 $transformation_plugin = new $this->transformation_info
-                    [/*overload*/mb_strtolower($this->__get('db'))]
-                    [/*overload*/mb_strtolower($this->__get('table'))]
-                    [/*overload*/mb_strtolower($meta->name)][1](null);
+                    [$dbLower][$tblLower][$nameLower][1](null);
 
                 $transform_options  = PMA_Transformation_getOptions(
                     isset($mime_map[$meta->name]['transformation_options'])
@@ -2973,7 +2977,7 @@ class PMA_DisplayResults
             include_once 'libraries/special_schema_links.lib.php';
 
             if (isset($GLOBALS['special_schema_links'])
-                && (! empty($GLOBALS['special_schema_links'][/*overload*/mb_strtolower($this->__get('db'))][/*overload*/mb_strtolower($this->__get('table'))][/*overload*/mb_strtolower($meta->name)]))
+                && (! empty($GLOBALS['special_schema_links'][$dbLower][$tblLower][$nameLower]))
             ) {
 
                 $linking_url = $this->_getSpecialLinkUrl(

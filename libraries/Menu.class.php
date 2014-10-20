@@ -457,8 +457,7 @@ class PMA_Menu
                 $tabs['routines']['text'] = __('Routines');
                 $tabs['routines']['icon'] = 'b_routines.png';
             }
-            if (PMA_MYSQL_INT_VERSION >= 50106
-                && ! PMA_DRIZZLE
+            if (! PMA_DRIZZLE
                 && PMA_Util::currentUserHasPrivilege('EVENT', $this->_db)
             ) {
                 $tabs['events']['link'] = 'db_events.php';
@@ -538,7 +537,8 @@ class PMA_Menu
                 'server_status_advisor.php',
                 'server_status_monitor.php',
                 'server_status_queries.php',
-                'server_status_variables.php'
+                'server_status_variables.php',
+                'server_status_processes.php'
             )
         );
 

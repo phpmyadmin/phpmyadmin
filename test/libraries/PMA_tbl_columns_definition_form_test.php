@@ -242,9 +242,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<input type="submit" name="submit_num_fields"value="Go" onclick='
-                . '"return checkFormElementInRange(this.form, \'added_fields\', '
-                . '\'You have to add at least one column.\', 1)"'
+                '<input type="button" name="submit_num_fields"value="Go"'
             ),
             $result
         );
