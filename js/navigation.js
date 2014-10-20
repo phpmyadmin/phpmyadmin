@@ -1309,19 +1309,21 @@ PMA_fastFilter.filter.prototype.request = function () {
             type: 'post',
             dataType: 'json',
             data: params,
-            complete: function (jqXHR) {
-                var data = $.parseJSON(jqXHR.responseText);
-                self.$this.find('li.fast_filter').find('div.throbber').remove();
-                if (data && data.results) {
-                    var $listItem = $('<li />', {'class': 'moreResults'})
-                        .appendTo(self.$this.find('li.fast_filter'));
-                    $('<a />', {href: '#'})
-                        .text(data.results)
-                        .appendTo($listItem)
-                        .click(function (event) {
-                            event.preventDefault();
-                            self.swap.apply(self, [data.message]);
-                        });
+            complete: function (jqXHR, status) {
+                if (status != 'abort') {
+                    var data = $.parseJSON(jqXHR.responseText);
+                    self.$this.find('li.fast_filter').find('div.throbber').remove();
+                    if (data && data.results) {
+                        var $listItem = $('<li />', {'class': 'moreResults'})
+                            .appendTo(self.$this.find('li.fast_filter'));
+                        $('<a />', {href: '#'})
+                            .text(data.results)
+                            .appendTo($listItem)
+                            .click(function (event) {
+                                event.preventDefault();
+                                self.swap.apply(self, [data.message]);
+                            });
+                    }
                 }
             }
         });
