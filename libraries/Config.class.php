@@ -439,7 +439,6 @@ class PMA_Config
         $pmaString = $GLOBALS['PMA_String'];
         $branch = false;
         // are we on any branch?
-        //@TODO Implement strstr in PMA_String
         if ($pmaString->strstr($ref_head, '/')) {
             $ref_head = $pmaString->substr(trim($ref_head), 5);
             if ($pmaString->substr($ref_head, 0, 11) === 'refs/heads/') {
@@ -492,8 +491,7 @@ class PMA_Config
         $commit = false;
         if (! isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
             $git_file_name = $git_folder . '/objects/'
-                . $pmaString->substr($hash, 0, 2)
-                . '/' . $pmaString->substr($hash, 2);
+                . substr($hash, 0, 2) . '/' . substr($hash, 2);
             if (file_exists($git_file_name) ) {
                 if (! $commit = @file_get_contents($git_file_name)) {
                     return;
@@ -512,7 +510,7 @@ class PMA_Config
                     // packs. (to look for them in .git/object/pack directory later)
                     foreach (explode("\n", $packs) as $line) {
                         // skip blank lines
-                        if ($pmaString->strlen(trim($line)) == 0) {
+                        if (strlen(trim($line)) == 0) {
                             continue;
                         }
                         // skip non pack lines
@@ -520,7 +518,7 @@ class PMA_Config
                             continue;
                         }
                         // parse names
-                        $pack_names[] = $pmaString->substr($line, 2);
+                        $pack_names[] = substr($line, 2);
                     }
                 } else {
                     // '.git/objects/info/packs' file can be missing
@@ -534,14 +532,13 @@ class PMA_Config
                     foreach ($dirIterator as $file_info) {
                         $file_name = $file_info->getFilename();
                         // if this is a .pack file
-                        if ($file_info->isFile()
-                            && $pmaString->substr($file_name, -5) == '.pack'
+                        if ($file_info->isFile() && substr($file_name, -5) == '.pack'
                         ) {
                             $pack_names[] = $file_name;
                         }
                     }
                 }
-                $hash = $pmaString->strtolower($hash);
+                $hash = strtolower($hash);
                 foreach ($pack_names as $pack_name) {
                     $index_name = str_replace('.pack', '.idx', $pack_name);
 
@@ -553,22 +550,22 @@ class PMA_Config
                         continue;
                     }
                     // check format
-                    if ($pmaString->substr($index_data, 0, 4) != "\377tOc") {
+                    if (substr($index_data, 0, 4) != "\377tOc") {
                         continue;
                     }
                     // check version
-                    $version = unpack('N', $pmaString->substr($index_data, 4, 4));
+                    $version = unpack('N', substr($index_data, 4, 4));
                     if ($version[1] != 2) {
                         continue;
                     }
                     // parse fanout table
                     $fanout = unpack(
                         "N*",
-                        $pmaString->substr($index_data, 8, 256 * 4)
+                        substr($index_data, 8, 256 * 4)
                     );
 
                     // find where we should search
-                    $firstbyte = intval($pmaString->substr($hash, 0, 2), 16);
+                    $firstbyte = intval(substr($hash, 0, 2), 16);
                     // array is indexed from 1 and we need to get
                     // previous entry for start
                     if ($firstbyte == 0) {
@@ -582,11 +579,9 @@ class PMA_Config
                     $found = false;
                     $offset = 8 + (256 * 4);
                     for ($position = $start; $position < $end; $position++) {
-                        $sha = $pmaString->strtolower(
+                        $sha = strtolower(
                             bin2hex(
-                                $pmaString->substr(
-                                    $index_data, $offset + ($position * 20), 20
-                                )
+                                substr($index_data, $offset + ($position * 20), 20)
                             )
                         );
                         if ($sha == $hash) {
@@ -601,7 +596,7 @@ class PMA_Config
                     $offset = 8 + (256 * 4) + (24 * $fanout[256]);
                     $pack_offset = unpack(
                         'N',
-                        $pmaString->substr($index_data, $offset + ($position * 4), 4)
+                        substr($index_data, $offset + ($position * 4), 4)
                     );
                     $pack_offset = $pack_offset[1];
 
@@ -616,14 +611,14 @@ class PMA_Config
                     fseek($pack_file, $pack_offset);
 
                     // parse header
-                    $header = $pmaString->ord(fread($pack_file, 1));
+                    $header = ord(fread($pack_file, 1));
                     $type = ($header >> 4) & 7;
                     $hasnext = ($header & 128) >> 7;
                     $size = $header & 0xf;
                     $offset = 4;
 
                     while ($hasnext) {
-                        $byte = $pmaString->ord(fread($pack_file, 1));
+                        $byte = ord(fread($pack_file, 1));
                         $size |= ($byte & 0x7f) << $offset;
                         $hasnext = ($byte & 128) >> 7;
                         $offset += 7;
