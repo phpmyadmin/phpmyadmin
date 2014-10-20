@@ -147,7 +147,7 @@ class ImportSql extends ImportPlugin
      *
      * @return bool|int
      */
-    private function _findDelimiter($data) {
+    private function _findDelimiterPosition($data) {
         $lengthData = $this->_stringFunctionsToUse['strlen']($data);
         $posInData = 0;
 
@@ -352,7 +352,7 @@ class ImportSql extends ImportPlugin
             }
 
             //Find quotes, comments, DELIMITER or delimiter.
-            $positionDelimiter = $this->_findDelimiter($data);
+            $positionDelimiter = $this->_findDelimiterPosition($data);
 
             //No delimiter found.
             if (false === $positionDelimiter) {
