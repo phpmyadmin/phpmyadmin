@@ -52,6 +52,7 @@ phpMyAdmin - ChangeLog
 + rfe #1535 Keyword-based autocompletion in SQL query editors
 - bug #4558 Unable to Add Rows while Creating Table
 + rfe #1547 Wrap No Tables Found message with message box
+- bug #4559 Logging in causes 100% CPU usage
 
 4.2.11.0 (not yet released)
 - bug       ReferenceError: Table_onover is not defined
