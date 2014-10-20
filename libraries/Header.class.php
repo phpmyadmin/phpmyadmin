@@ -716,12 +716,10 @@ class PMA_Header
             && $GLOBALS['PMA_String']->strlen($table)
             && $GLOBALS['cfg']['NumRecentTables'] > 0
         ) {
-            $tmp_result = PMA_RecentFavoriteTable::getInstance('recent')->add($db, $table);
+            $tmp_result = PMA_RecentFavoriteTable::getInstance('recent')
+                              ->add($db, $table);
             if ($tmp_result === true) {
-                $params  = array('ajax_request' => true, 'recent_table' => true);
-                $url     = 'index.php' . PMA_URL_getCommon($params);
-                $retval  = '<a class="hide" id="update_recent_tables"';
-                $retval .= ' href="' . $url . '"></a>';
+                $retval = PMA_RecentFavoriteTable::getHtmlUpdateRecentTables();
             } else {
                 $error  = $tmp_result;
                 $retval = $error->getDisplay();

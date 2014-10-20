@@ -195,13 +195,6 @@ class PMA_RecentFavoriteTable
      */
     public function getHtmlList()
     {
-        // Remove Recent/Favorite tables that don't exist.
-        foreach ($this->_tables as $tbl) {
-            if (! $GLOBALS['dbi']->getColumns($tbl['db'], $tbl['table'])) {
-                $this->remove($tbl['db'], $tbl['table']);
-            }
-        }
-
         $html = '';
         if (count($this->_tables)) {
             if ($this->_tableType == 'recent') {
@@ -211,7 +204,7 @@ class PMA_RecentFavoriteTable
                         'db'    => $table['db'],
                         'table' => $table['table']
                     );
-                    $recent_url = 'sql.php'
+                    $recent_url = 'tbl_recent_favorite.php'
                         . PMA_URL_getCommon($recent_params);
                     $html .= '<a href="' . $recent_url . '">`'
                           . htmlspecialchars($table['db']) . '`.`'
@@ -243,7 +236,7 @@ class PMA_RecentFavoriteTable
                         'db'    => $table['db'],
                         'table' => $table['table']
                     );
-                    $table_url = 'sql.php'
+                    $table_url = 'tbl_recent_favorite.php'
                         . PMA_URL_getCommon($fav_params);
                     $html .= '<a href="' . $table_url . '">`'
                         . htmlspecialchars($table['db']) . '`.`'
@@ -315,6 +308,28 @@ class PMA_RecentFavoriteTable
     }
 
     /**
+     * Removes recent/favorite tables that don't exist.
+     *
+     * @param string $db    database
+     * @param string $table table
+     *
+     * @return booean|PMA_Message True if invalid and removed, False if not invalid,
+     *                            PMA_Message if error while removing
+     */
+    public function removeIfInvalid($db, $table)
+    {
+        foreach ($this->_tables as $tbl) {
+            if ($tbl['db'] == $db && $tbl['table'] == $table) {
+                // TODO Figure out a better way to find the existance of a table
+                if (! $GLOBALS['dbi']->getColumns($tbl['db'], $tbl['table'])) {
+                    return $this->remove($tbl['db'], $tbl['table']);
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
      * Remove favorite tables.
      *
      * @param string $db    database name where the table is located
@@ -357,6 +372,20 @@ class PMA_RecentFavoriteTable
             $retval  = '<a class="hide" id="sync_favorite_tables"';
             $retval .= ' href="' . $url . '"></a>';
         }
+        return $retval;
+    }
+
+    /**
+     * Generate Html to update recent tables.
+     *
+     * @return string html
+     */
+    public static function getHtmlUpdateRecentTables()
+    {
+        $params  = array('ajax_request' => true, 'recent_table' => true);
+        $url     = 'index.php' . PMA_URL_getCommon($params);
+        $retval  = '<a class="hide" id="update_recent_tables"';
+        $retval .= ' href="' . $url . '"></a>';
         return $retval;
     }
 }
