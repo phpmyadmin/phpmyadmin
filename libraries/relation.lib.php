@@ -1665,20 +1665,28 @@ function PMA_getChildReferences($db, $table, $column)
 /**
  * Check child table references and foreign key for a table column.
  *
- * @param string $db     name of master table db.
- * @param string $table  name of master table.
- * @param string $column name of master table column.
+ * @param string $db              name of master table db.
+ * @param string $table           name of master table.
+ * @param string $column          name of master table column.
+ * @param array  $foreigners_full foreiners array for the whole table.
  *
  * @return array $column_status telling about references if foreign key.
  */
-function PMA_checkChildForeignReferences($db, $table, $column)
-{
+function PMA_checkChildForeignReferences(
+    $db, $table, $column, $foreigners_full = null
+) {
     $column_status = array();
     $column_status['isEditable'] = false;
     $column_status['isReferenced'] = false;
     $column_status['isForeignKey'] = false;
     $column_status['references'] = array();
-    $foreigners = PMA_getForeigners($db, $table, $column);
+    $foreigners = array();
+    if ($foreigners_full) {
+        $foreigners = $foreigners_full[$column];
+    } else {
+        $foreigners = PMA_getForeigners($db, $table, $column);
+    }
+
     $foreigner = PMA_searchColumnInForeigners($foreigners, $column);
     $child_references = PMA_getChildReferences($db, $table, $column);
 
