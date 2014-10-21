@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.2.10.1 (not yet released)
+- bug #4562 [security] XSS in debug SQL output
+
 4.2.10.0 (2014-10-11)
 - bug #4361 Can't change font size (when config.inc.php not present)
 - bug #4542 Tab key in column name not shown
