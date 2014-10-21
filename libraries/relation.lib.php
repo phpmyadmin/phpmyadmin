@@ -1628,6 +1628,7 @@ function PMA_REL_createPage($newpage, $cfgRelation, $db)
 
 /**
  * Get child table references for a table column.
+ * This works only if 'DisableIS' is false. An empty array is returned otherwise.
  *
  * @param string $db     name of master table db.
  * @param string $table  name of master table.
@@ -1638,22 +1639,24 @@ function PMA_REL_createPage($newpage, $cfgRelation, $db)
 function PMA_getChildReferences($db, $table, $column)
 {
     $child_references = array();
-    $i=0;
-    $rel_query = 'SELECT `column_name`,'
-                . ' `table_name`,'
-                . '`table_schema`'
-                . ' FROM `information_schema`.`key_column_usage`'
-                . ' WHERE `referenced_column_name` = \''
-                . PMA_Util::sqlAddSlashes($column) . '\''
-                . ' AND `referenced_table_name` = \''
-                . PMA_Util::sqlAddSlashes($table) . '\''
-                . ' AND `referenced_table_schema` = \''
-                . PMA_Util::sqlAddSlashes($db) . '\'';
+    if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        $i=0;
+        $rel_query = 'SELECT `column_name`,'
+                    . ' `table_name`,'
+                    . '`table_schema`'
+                    . ' FROM `information_schema`.`key_column_usage`'
+                    . ' WHERE `referenced_column_name` = \''
+                    . PMA_Util::sqlAddSlashes($column) . '\''
+                    . ' AND `referenced_table_name` = \''
+                    . PMA_Util::sqlAddSlashes($table) . '\''
+                    . ' AND `referenced_table_schema` = \''
+                    . PMA_Util::sqlAddSlashes($db) . '\'';
 
-    $result = $GLOBALS['dbi']->tryQuery($rel_query, $GLOBALS['controllink']);
-    if ($result == true) {
-        while (($row = $GLOBALS['dbi']->fetchAssoc($result))) {
-            $child_references[$i++] = $row;
+        $result = $GLOBALS['dbi']->tryQuery($rel_query, $GLOBALS['controllink']);
+        if ($result == true) {
+            while (($row = $GLOBALS['dbi']->fetchAssoc($result))) {
+                $child_references[$i++] = $row;
+            }
         }
     }
     return $child_references;
@@ -1889,9 +1892,9 @@ function PMA_getHtmlFixPMATables()
 }
 
 /**
- * Gets the relations info and status, depending on the condition 
+ * Gets the relations info and status, depending on the condition
  *
- * @param boolean $condition whether to look for foreigners or not 
+ * @param boolean $condition whether to look for foreigners or not
  * @param string  $db        database name
  * @param string  $table     table name
  *
