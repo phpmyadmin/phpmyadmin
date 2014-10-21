@@ -17,12 +17,12 @@ function extractDate(dateString) {
     matches = dateTimeRegExp.exec(dateString);
     if (matches !== null && matches.length > 0) {
         match = matches[0];
-        return new Date(match.substr(0, 4), match.substr(5, 2), match.substr(8, 2), match.substr(11, 2), match.substr(14, 2), match.substr(17, 2));
+        return new Date(match.substr(0, 4), parseInt(match.substr(5, 2), 10) - 1, match.substr(8, 2), match.substr(11, 2), match.substr(14, 2), match.substr(17, 2));
     } else {
         matches = dateRegExp.exec(dateString);
         if (matches !== null && matches.length > 0) {
             match = matches[0];
-            return new Date(match.substr(0, 4), match.substr(5, 2), match.substr(8, 2));
+            return new Date(match.substr(0, 4), parseInt(match.substr(5, 2), 10) - 1, match.substr(8, 2));
         }
     }
     return null;

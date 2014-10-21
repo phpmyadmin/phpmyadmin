@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - bug #4552 Incorrect routines display for database due to case insensitive checks
 - bug #4259 reCaptcha sound session expired problem
 - bug #4557 PHP fatal error, undefined function __()
+- bug #4568 Date displayed incorrectly when charting a timeline
 
 4.2.10.1 (2014-10-21)
 - bug #4562 [security] XSS in debug SQL output
