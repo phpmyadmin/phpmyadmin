@@ -482,7 +482,7 @@ function PMA_getHTMLTableList($tab_pos, $display_page)
         $html .= 'onmouseover="this.className=\'L_butt2_2\'" ';
         $html .= 'onmouseout="this.className=\'L_butt2_1\'" class="L_butt2_1">';
         $html .= '<img onclick="Start_tab_upd(\'';
-        $html .= $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . '\');" alt="" ';
+        $html .= $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i] . '\');" alt="" ';
         $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/exec.png')
             . '"/>';
         $html .= '</td>';
@@ -600,7 +600,7 @@ function PMA_getDatabaseTables(
         $html .= 'onmouseover="this.className=\'small_tab_pref2\';" ';
         $html .= 'onmouseout="this.className=\'small_tab_pref\';" ';
         $html .= 'onclick="Start_tab_upd(\''
-            . $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . '\');">';
+            . $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i] . '\');">';
         $html .= '<img alt="" ';
         $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/exec_small.png')
             . '" />';
