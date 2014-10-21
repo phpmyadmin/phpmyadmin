@@ -6,6 +6,10 @@ phpMyAdmin - ChangeLog
 - bug #4552 Incorrect routines display for database due to case insensitive checks
 - bug #4259 reCaptcha sound session expired problem
 
+4.2.10.1 (2014-10-21)
+- bug #4562 [security] XSS in debug SQL output
+- bug #4563 [security] XSS in monitor query analyzer
+
 4.2.10.0 (2014-10-11)
 - bug #4361 Can't change font size (when config.inc.php not present)
 - bug #4542 Tab key in column name not shown
