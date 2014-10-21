@@ -1636,28 +1636,26 @@ function PMA_REL_createPage($newpage, $cfgRelation, $db)
  *
  * @return array $child_references
  */
-function PMA_getChildReferences($db, $table, $column)
+function PMA_getChildReferences($db, $table, $column = '')
 {
     $child_references = array();
     if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-        $i=0;
-        $rel_query = 'SELECT `column_name`,'
-                    . ' `table_name`,'
-                    . '`table_schema`'
-                    . ' FROM `information_schema`.`key_column_usage`'
-                    . ' WHERE `referenced_column_name` = \''
-                    . PMA_Util::sqlAddSlashes($column) . '\''
-                    . ' AND `referenced_table_name` = \''
-                    . PMA_Util::sqlAddSlashes($table) . '\''
-                    . ' AND `referenced_table_schema` = \''
-                    . PMA_Util::sqlAddSlashes($db) . '\'';
-
-        $result = $GLOBALS['dbi']->tryQuery($rel_query, $GLOBALS['controllink']);
-        if ($result == true) {
-            while (($row = $GLOBALS['dbi']->fetchAssoc($result))) {
-                $child_references[$i++] = $row;
-            }
+        $rel_query = "SELECT `column_name`, `table_name`,"
+            . " `table_schema`, `referenced_column_name`"
+            . " FROM `information_schema`.`key_column_usage`"
+            . " WHERE `referenced_table_name` = '"
+            . PMA_Util::sqlAddSlashes($table) . "'"
+            . " AND `referenced_table_schema` = '"
+            . PMA_Util::sqlAddSlashes($db) . "'";
+        if ($column) {
+            $rel_query .= " AND `referenced_column_name` = '"
+                . PMA_Util::sqlAddSlashes($column) . "'";
         }
+
+        $child_references = $GLOBALS['dbi']->fetchResult(
+            $rel_query, array('referenced_column_name', null),
+            null, $GLOBALS['controllink']
+        );
     }
     return $child_references;
 }
@@ -1665,30 +1663,44 @@ function PMA_getChildReferences($db, $table, $column)
 /**
  * Check child table references and foreign key for a table column.
  *
- * @param string $db              name of master table db.
- * @param string $table           name of master table.
- * @param string $column          name of master table column.
- * @param array  $foreigners_full foreiners array for the whole table.
+ * @param string $db                    name of master table db.
+ * @param string $table                 name of master table.
+ * @param string $column                name of master table column.
+ * @param array  $foreigners_full       foreiners array for the whole table.
+ * @param array  $child_references_full child references for the whole table.
  *
  * @return array $column_status telling about references if foreign key.
  */
 function PMA_checkChildForeignReferences(
-    $db, $table, $column, $foreigners_full = null
+    $db, $table, $column, $foreigners_full = null, $child_references_full = null
 ) {
     $column_status = array();
     $column_status['isEditable'] = false;
     $column_status['isReferenced'] = false;
     $column_status['isForeignKey'] = false;
     $column_status['references'] = array();
+
     $foreigners = array();
-    if ($foreigners_full) {
-        $foreigners = $foreigners_full[$column];
+    if ($foreigners_full !== null) {
+        if (isset($foreigners_full[$column])) {
+            $foreigners[$column] = $foreigners_full[$column];
+        }
+        if (isset($foreigners_full['foreign_keys_data'])) {
+            $foreigners['foreign_keys_data'] = $foreigners_full['foreign_keys_data'];
+        }
     } else {
         $foreigners = PMA_getForeigners($db, $table, $column);
     }
-
     $foreigner = PMA_searchColumnInForeigners($foreigners, $column);
-    $child_references = PMA_getChildReferences($db, $table, $column);
+
+    $child_references = array();
+    if ($child_references_full !== null) {
+        if (isset($child_references_full[$column])) {
+            $child_references = $child_references_full[$column];
+        }
+    } else {
+        $child_references = PMA_getChildReferences($db, $table, $column);
+    }
 
     if (sizeof($child_references, 0) > 0
         || $foreigner
