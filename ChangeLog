@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.1.14.6 (not yet released)
+4.1.14.6 (2014-10-21)
 - bug #4562 [security] XSS in debug SQL output
 - bug #4563 [security] XSS in monitor query analyzer
 
