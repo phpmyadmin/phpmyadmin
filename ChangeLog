@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.1.14.6 (not yet released)
+- bug #4562 [security] XSS in debug SQL output
+
 4.1.14.5 (2014-10-01)
 - bug #4544 [security] XSS vulnerabilities in table search and table structure pages
 
