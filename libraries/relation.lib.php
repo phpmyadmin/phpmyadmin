@@ -675,9 +675,10 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         $show_create_table = $GLOBALS['dbi']->fetchValue(
             $showCreateTableQuery, 0, 1
         );
-        $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
-
-        $foreign['foreign_keys_data'] = $analyzed_sql[0]['foreign_keys'];
+        if ($show_create_table) {
+            $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+            $foreign['foreign_keys_data'] = $analyzed_sql[0]['foreign_keys'];
+        }
     }
 
     /**
@@ -1889,9 +1890,9 @@ function PMA_getHtmlFixPMATables()
 }
 
 /**
- * Gets the relations info and status, depending on the condition 
+ * Gets the relations info and status, depending on the condition
  *
- * @param boolean $condition whether to look for foreigners or not 
+ * @param boolean $condition whether to look for foreigners or not
  * @param string  $db        database name
  * @param string  $table     table name
  *
