@@ -43,7 +43,7 @@ function loadResult(result_path, table_name, link)
         $('#togglequerybox').hide();
         /**  Load the browse results to the page */
         $("#table-info").show();
-        $('#table-link').attr({"href" : 'sql.php?' + link }).text(table_name);
+        $('#table-link').attr({"href" : 'sql.php' + link }).text(table_name);
         var url = result_path + "#sqlqueryresults";
         $.get(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
             if (typeof data !== 'undefined' && data.success) {

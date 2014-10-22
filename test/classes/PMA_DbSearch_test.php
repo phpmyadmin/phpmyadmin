@@ -171,7 +171,7 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
                 . 'sql_query=column1&amp;server=0&amp;lang=en&amp;token=token" '
                 . 'onclick="loadResult(\'sql.php?db=pma&amp;table=table1&amp;goto='
                 . 'db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column1'
-                . '&amp;server=0&amp;lang=en&amp;token=token\',\'table1\',\'db=pma'
+                . '&amp;server=0&amp;lang=en&amp;token=token\',\'table1\',\'?db=pma'
                 . '&amp;table=table1&amp;server=0&amp;lang=en&amp;token=token\');'
                 . 'return false;" >Browse</a></td><td>'
                 . '<a name="delete_search" class="ajax" href'
