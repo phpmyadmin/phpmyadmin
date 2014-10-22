@@ -11,27 +11,6 @@ var history_array = []; // Global array to store history objects
 var select_field = [];  // Global array to store informaation for columns which are used in select clause
 var g_index;
 
-AJAX.registerTeardown('pmd/history.js', function () {
-    $("#ok_edit_rename").unbind('click');
-    $("#ok_edit_having").unbind('click');
-    $("#ok_edit_Aggr").unbind('click');
-    $("#ok_edit_where").unbind('click');
-});
-
-AJAX.registerOnload('pmd/history.js', function () {
-    $("#ok_edit_rename").click(function() {
-        edit('Rename');
-    });
-    $("#ok_edit_having").click(function() {
-        edit('Having');
-    });
-    $("#ok_edit_Aggr").click(function() {
-        edit('Aggregate');
-    });
-    $("#ok_edit_where").click(function() {
-        edit('Where');
-    });
-});
 /**
  * function for panel, hides and shows toggle_container <div>,which is for history elements uses {@link JQuery}.
  *
@@ -810,3 +789,25 @@ function closebox()
     document.getElementById('box').style.display = 'none';
     document.getElementById('filter').style.display = 'none';
 }
+
+AJAX.registerTeardown('pmd/history.js', function () {
+    $("#ok_edit_rename").unbind('click');
+    $("#ok_edit_having").unbind('click');
+    $("#ok_edit_Aggr").unbind('click');
+    $("#ok_edit_where").unbind('click');
+});
+
+AJAX.registerOnload('pmd/history.js', function () {
+    $("#ok_edit_rename").click(function() {
+        edit('Rename');
+    });
+    $("#ok_edit_having").click(function() {
+        edit('Having');
+    });
+    $("#ok_edit_Aggr").click(function() {
+        edit('Aggregate');
+    });
+    $("#ok_edit_where").click(function() {
+        edit('Where');
+    });
+});

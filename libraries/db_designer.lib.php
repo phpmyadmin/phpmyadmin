@@ -595,7 +595,8 @@ function PMA_getDatabaseTables(
 
         $html .= '<td class="small_tab_pref small_tab_pref_1" ';
         $html .= 'table_name_small="' . $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]
-            . '" onmouseover="this.className=\'small_tab_pref2 small_tab_pref_1\';" ';
+            . '" onmouseover="this.className='
+                . '\'small_tab_pref2 small_tab_pref_1\';" ';
         $html .= 'onmouseout="this.className=\'small_tab_pref small_tab_pref_1\';" ';
         $html .= '>';
         $html .= '<img alt="" ';
