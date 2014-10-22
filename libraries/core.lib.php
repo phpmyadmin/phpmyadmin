@@ -853,7 +853,8 @@ function PMA_linkURL($url)
  *
  * @param string $url URL of external site.
  *
- * @return boolean.True:if domain of $url is allowed domain, False:otherwise.
+ * @return boolean True: if domain of $url is allowed domain,
+ *                 False: otherwise.
  */
 function PMA_isAllowedDomain($url)
 {
