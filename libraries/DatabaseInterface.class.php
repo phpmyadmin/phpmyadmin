@@ -1005,6 +1005,7 @@ class PMA_DatabaseInterface
                 unset($databases[$drop]);
             }
         } else {
+            $databases = array();
             foreach ($GLOBALS['pma']->databases as $database_name) {
                 // MySQL forward compatibility
                 // so pma could use this array as if every server is of version >5.0

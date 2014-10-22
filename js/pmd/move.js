@@ -994,7 +994,7 @@ function Load_page(page) {
             .appendTo($('#page_content'))
             .click();
     } else {
-        if (page == null) {
+        if (page === null) {
             Show_tables_in_landing_page();
         } else if (page > -1) {
             Load_HTML_for_page(page);
