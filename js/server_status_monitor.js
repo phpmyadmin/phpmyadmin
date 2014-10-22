@@ -1869,7 +1869,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             if (name == 'user_host') {
                 return value.replace(/(\[.*?\])+/g, '');
             }
-            return value;
+            return escapeHtml(value);
         };
 
         for (var i = 0, l = rows.length; i < l; i++) {
@@ -2022,7 +2022,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             explain += '<p></p>';
 
             var tempExplain = function (key, value) {
-                value = (value === null) ? 'null' : value;
+                value = (value === null) ? 'null' : escapeHtml(value);
 
                 if (key == 'type' && value.toLowerCase() == 'all') {
                     value = '<span class="attention">' + value + '</span>';

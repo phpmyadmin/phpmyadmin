@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-16 12:25-0400\n"
-"PO-Revision-Date: 2014-07-15 10:52+0200\n"
+"PO-Revision-Date: 2014-10-21 09:26+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"cs/>\n"
+"Language-Team: Czech "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.0-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -256,15 +256,14 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Databáze %1$s byla zkopírována do %2$s."
 
 #: db_operations.php:263
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Některé z rozšířených funkcí phpMyAdmina nelze používat. %sZde%s zjistíte "
-"proč."
+"Některé z rozšířených funkcí phpMyAdmina nelze používat. %sZjistěte proč%s."
 
 #: db_printview.php:48 db_tracking.php:83 db_tracking.php:207
 #: libraries/Menu.class.php:246 libraries/config/messages.inc.php:756
@@ -598,20 +597,18 @@ msgstr ""
 "Z funkcí zvolte „GeomFromText“ a vložte níže uvedený text jako hodnotu."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Success!"
 msgid "Succeeded"
-msgstr "Úspěch!"
+msgstr "Úspěch"
 
 #: import.php:58 js/messages.php:437
 msgid "Failed"
-msgstr ""
+msgstr "Chyba"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "úplné inserty"
+msgstr "Chybí parametry"
 
 #: import.php:166
 #, php-format
@@ -891,7 +888,7 @@ msgstr ""
 "lidmi přistupujícími k vašemu nastavení."
 
 #: index.php:520
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -900,7 +897,7 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "Úložiště nastavení phpMyAdmina není plně dostupné, některé z rozšířených "
-"funkcí phpMyAdmina nelze používat. %sZde%s zjistíte proč."
+"funkcí phpMyAdmina nelze používat. %sZjistěte proč%s. "
 
 #: index.php:526
 msgid ""
@@ -960,10 +957,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Odstraňuji (primární) klíč"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Is a foreign key."
 msgid "Dropping Foreign key."
-msgstr "Jedná se o cizí klíč."
+msgstr "Odstraňuji cizí klíč."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1313,11 +1309,11 @@ msgstr "Přerušit monitor"
 
 #: js/messages.php:149 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Zapnout automatické obnovování"
 
 #: js/messages.php:150
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Vypnout automatické obnovování"
 
 #: js/messages.php:152
 msgid "general_log and slow_query_log are enabled."
@@ -1855,16 +1851,14 @@ msgid "Add primary key"
 msgstr "Přidat primární klíč"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "Na poli %s byl vytvořen primární klíč."
+msgstr "Byl přidán primární klíč."
 
 #: js/messages.php:315 libraries/normalization.lib.php:172
-#, fuzzy
 #| msgid "Taking you to %s."
 msgid "Taking you to next step…"
-msgstr "Přesměrovávám na %s."
+msgstr "Přesměrovávám na další krok…"
 
 #: js/messages.php:316
 #, php-format
@@ -1874,10 +1868,9 @@ msgstr ""
 #: js/messages.php:317 libraries/normalization.lib.php:420
 #: libraries/normalization.lib.php:467 libraries/normalization.lib.php:550
 #: libraries/normalization.lib.php:610
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "Konec řádku"
+msgstr "Konec kroku"
 
 #: js/messages.php:318
 msgid "Second step of normalization (2NF)"
@@ -1924,7 +1917,7 @@ msgstr ""
 
 #: js/messages.php:328
 msgid "Step"
-msgstr ""
+msgstr "Krok"
 
 #: js/messages.php:329
 #, fuzzy
@@ -2140,10 +2133,9 @@ msgid "Delete page"
 msgstr "Odstranit stránku"
 
 #: js/messages.php:407 libraries/db_designer.lib.php:382
-#, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
-msgstr "Jednotka"
+msgstr "Beze jména"
 
 #: js/messages.php:408
 #, fuzzy
@@ -2152,10 +2144,9 @@ msgid "Please select a page to continue"
 msgstr "Zvolte stránku, kterou si přejete změnit"
 
 #: js/messages.php:409
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "Prosím zadejte platné číslo!"
+msgstr "Prosím zadejte platný název stránky"
 
 #: js/messages.php:410
 msgid "Do you want to save the changes to the current page?"
@@ -2163,7 +2154,7 @@ msgstr ""
 
 #: js/messages.php:411
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Stránka byla odstraněna"
 
 #: js/messages.php:412
 #, fuzzy
@@ -2245,26 +2236,23 @@ msgstr ""
 "Prosím zadejte platný šestnáctkový řetězec. Můžete použít znaky 0-9, A-F."
 
 #: js/messages.php:435
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
-msgstr "Zrušit"
+msgstr "zrušit"
 
 #: js/messages.php:436 libraries/server_status.lib.php:261
 msgid "Aborted"
 msgstr "Přerušené"
 
 #: js/messages.php:438
-#, fuzzy
 #| msgid "Success!"
 msgid "Success"
-msgstr "Úspěch!"
+msgstr "Úspěch"
 
 #: js/messages.php:439
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Výchozí nastavení importu"
+msgstr "Stav importu"
 
 #: js/messages.php:440 libraries/navigation/Navigation.class.php:102
 #, fuzzy
@@ -2782,10 +2770,9 @@ msgid "Expand"
 msgstr ""
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:174
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "poddotaz"
+msgstr "Znovu"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:363
 #: libraries/DisplayResults.class.php:3506
@@ -2799,17 +2786,17 @@ msgid "Delete"
 msgstr "Odstranit"
 
 #: libraries/Console.class.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "New bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Nová záložka"
-msgstr[1] "Nová záložka"
-msgstr[2] "Nová záložka"
+msgstr[0] "Celkem %d záložka"
+msgstr[1] "Celkem %d záložky"
+msgstr[2] "Celkem %d záložek"
 
 #: libraries/Console.class.php:114
 msgid "private"
-msgstr ""
+msgstr "soukromé"
 
 #: libraries/Console.class.php:118 libraries/bookmark.lib.php:87
 msgid "shared"
@@ -2823,16 +2810,14 @@ msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "Položka byla smazána z oblíbených."
 
 #: libraries/Console.class.php:128
-#, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
-msgstr "Nová záložka"
+msgstr "Žádné záložky"
 
 #: libraries/Console.class.php:176
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Vysvětlit SQL"
+msgstr "Vysvětlit"
 
 #: libraries/Console.class.php:177 libraries/Util.class.php:1287
 #: libraries/sql.lib.php:485
@@ -2840,20 +2825,18 @@ msgid "Profiling"
 msgstr "Profilování"
 
 #: libraries/Console.class.php:178
-#, fuzzy
 #| msgid "Bookmarks"
 msgid "Bookmark"
-msgstr "Záložky"
+msgstr "Záložka"
 
 #: libraries/Console.class.php:179
 msgid "Query failed"
 msgstr "Dotaz selhal"
 
 #: libraries/Console.class.php:181
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Doba běhu dotazu"
+msgstr "Doba běhu"
 
 #: libraries/Console.class.php:187
 msgid "SQL Query Console"
@@ -2921,32 +2904,28 @@ msgid "Refresh"
 msgstr "Obnovit"
 
 #: libraries/Console.class.php:257
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "a"
+msgstr "Přidat"
 
 #: libraries/Console.class.php:266
-#, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
-msgstr "Nová záložka"
+msgstr "Přidat záložku"
 
 #: libraries/Console.class.php:270
-#, fuzzy
 #| msgid "Label:"
 msgid "Label"
-msgstr "Název:"
+msgstr "Název"
 
 #: libraries/Console.class.php:272
 msgid "Target database"
 msgstr "Cílová databáze"
 
 #: libraries/Console.class.php:275
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
-msgstr "Uložit vyhledávání"
+msgstr "Sdílet záložku"
 
 #: libraries/Console.class.php:291
 #, fuzzy
@@ -4704,14 +4683,13 @@ msgid "Could not remove columns!"
 msgstr "Nepodařilo se uložit oblíbenou tabulku!"
 
 #: libraries/central_columns.lib.php:509
-#, fuzzy
 #| msgid "EPS"
 msgid "YES"
-msgstr "EPS"
+msgstr "ANO"
 
 #: libraries/central_columns.lib.php:509
 msgid "NO"
-msgstr ""
+msgstr "NE"
 
 #: libraries/central_columns.lib.php:629
 #: libraries/display_create_table.lib.php:60
@@ -4762,10 +4740,9 @@ msgid "on update CURRENT_TIMESTAMP"
 msgstr ""
 
 #: libraries/central_columns.lib.php:889
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
-msgstr "Přidat sloupec"
+msgstr "Přidat nový sloupec"
 
 #: libraries/common.inc.php:586
 msgid "Failed to read configuration file!"
@@ -7899,10 +7876,9 @@ msgid "Skip tables larger than"
 msgstr "Přeskočit tabulky větší než"
 
 #: libraries/display_export.lib.php:783
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select database"
-msgstr "Zvolte tabulku"
+msgstr "Zvolte databázi"
 
 #: libraries/display_export.lib.php:785
 #, fuzzy
@@ -7911,16 +7887,14 @@ msgid "Select table"
 msgstr "Zvolte tabulku"
 
 #: libraries/display_export.lib.php:801
-#, fuzzy
 #| msgid "database name"
 msgid "New database name"
-msgstr "jméno databáze"
+msgstr "Nové jméno databáze"
 
 #: libraries/display_export.lib.php:825
-#, fuzzy
 #| msgid "New table"
 msgid "New table name"
-msgstr "Nová tabulka"
+msgstr "Nové jméno tabulky"
 
 #: libraries/display_export.lib.php:834
 #, fuzzy
@@ -14335,16 +14309,14 @@ msgid "Available MIME types"
 msgstr "Dostupné MIME typy"
 
 #: transformation_overview.php:37
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "Dostupné transformace"
+msgstr "Dostupné transformace pro zobrazení"
 
 #: transformation_overview.php:38
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available input transformations"
-msgstr "Dostupné transformace"
+msgstr "Dostupné vstupní transformace"
 
 #: transformation_overview.php:53
 msgctxt "for MIME transformation"

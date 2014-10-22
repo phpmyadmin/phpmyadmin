@@ -117,21 +117,9 @@ foreach ($tables as $table) {
     $columns = $GLOBALS['dbi']->getColumns($db, $table);
 
     // Check if we can use Relations
-    if (!empty($cfgRelation['relation'])) {
-        // Find which tables are related with the current one and write it in
-        // an array
-        $res_rel = PMA_getForeigners($db, $table);
-
-        if (count($res_rel) > 0) {
-            $have_rel = true;
-        } else {
-            $have_rel = false;
-        }
-    } else {
-        $have_rel = false;
-        $res_rel = array();
-    } // end if
-
+    list($res_rel, $have_rel) = PMA_getRelationsAndStatus(
+        ! empty($cfgRelation['relation']), $db, $table
+    );
 
     /**
      * Displays the comments of the table if MySQL >= 3.23
