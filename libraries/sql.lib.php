@@ -1129,13 +1129,12 @@ function PMA_getEnumOrSetValues($db, $table, $columnType)
 /**
  * Function to append the limit clause
  *
- * @param String $full_sql_query full sql query
- * @param array  $analyzed_sql   analyzed sql query
- * @param String $display_query  display query
+ * @param array  $analyzed_sql  analyzed sql query
+ * @param String $display_query display query
  *
  * @return array
  */
-function PMA_appendLimitClause($full_sql_query, $analyzed_sql, $display_query)
+function PMA_appendLimitClause($analyzed_sql, $display_query)
 {
     $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmpval']['pos']
         . ', ' . $_SESSION['tmpval']['max_rows'] . " ";
@@ -1164,11 +1163,7 @@ function PMA_appendLimitClause($full_sql_query, $analyzed_sql, $display_query)
         }
     }
 
-    return array($sql_limit_to_append, $full_sql_query, isset(
-        $analyzed_display_query)
-        ? $analyzed_display_query : null,
-        isset($display_query) ? $display_query : null
-    );
+    return array($sql_limit_to_append, $full_sql_query);
 }
 
 /**
@@ -1619,8 +1614,7 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
     }
 
     return array($result, $num_rows, $unlim_num_rows,
-        isset($profiling_results) ? $profiling_results : null,
-        isset($justBrowsing) ? $justBrowsing : null, $extra_data
+        isset($profiling_results) ? $profiling_results : null, $extra_data
     );
 }
 /**
@@ -2369,11 +2363,8 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
 
     // Do append a "LIMIT" clause?
     if (PMA_isAppendLimitClause($analyzed_sql_results)) {
-        list($sql_limit_to_append,
-            $full_sql_query, $analyzed_display_query, $display_query
-        ) = PMA_appendLimitClause(
-            $full_sql_query, $analyzed_sql_results['analyzed_sql'],
-            isset($display_query)
+        list($sql_limit_to_append, $full_sql_query) = PMA_appendLimitClause(
+            $analyzed_sql_results['analyzed_sql'], isset($display_query)
         );
     } else {
         $sql_limit_to_append = '';
@@ -2383,18 +2374,17 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
     $GLOBALS['dbi']->selectDb($db);
 
     // Execute the query
-    list($result, $num_rows, $unlim_num_rows, $profiling_results,
-        $justBrowsing, $extra_data
-    ) = PMA_executeTheQuery(
-        $analyzed_sql_results,
-        $full_sql_query,
-        $is_gotofile,
-        $db,
-        $table,
-        isset($find_real_end) ? $find_real_end : null,
-        isset($sql_query_for_bookmark) ? $sql_query_for_bookmark : null,
-        isset($extra_data) ? $extra_data : null
-    );
+    list($result, $num_rows, $unlim_num_rows, $profiling_results, $extra_data)
+        = PMA_executeTheQuery(
+            $analyzed_sql_results,
+            $full_sql_query,
+            $is_gotofile,
+            $db,
+            $table,
+            isset($find_real_end) ? $find_real_end : null,
+            isset($sql_query_for_bookmark) ? $sql_query_for_bookmark : null,
+            isset($extra_data) ? $extra_data : null
+        );
 
     PMA_sendQueryResponse(
         $num_rows,
