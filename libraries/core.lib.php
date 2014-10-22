@@ -1029,4 +1029,22 @@ function PMA_setPostAsGlobal($post_patterns)
         }
     }
 }
+
+/**
+ * Creates some globals from $_REQUEST
+ *
+ * @param string $param db|table 
+ *
+ * @return void
+ */
+function PMA_setGlobalDbOrTable($param)
+{
+    $GLOBALS[$param] = '';
+    if (PMA_isValid($_REQUEST[$param])) {
+        // can we strip tags from this?
+        // only \ and / is not allowed in db names for MySQL
+        $GLOBALS[$param] = $_REQUEST[$param];
+        $GLOBALS['url_params'][$param] = $GLOBALS[$param];
+    }
+}
 ?>
