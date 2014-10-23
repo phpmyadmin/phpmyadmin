@@ -290,7 +290,7 @@ if ($GLOBALS['is_ajax_request']
  * Displays the links
  */
 if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
-    $_REQUEST['db'] = $_REQUEST['checkprivsdb'];
+    $GLOBALS['db'] = $_REQUEST['db'] = $_REQUEST['checkprivsdb'];
 
     $url_query .= '&amp;goto=db_operations.php';
 
