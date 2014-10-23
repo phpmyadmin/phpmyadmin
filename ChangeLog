@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #4259 reCaptcha sound session expired problem
 - bug #4557 PHP fatal error, undefined function __()
 - bug #4568 Date displayed incorrectly when charting a timeline
+- bug #4571 Database Privileges link does not work
 
 4.2.10.1 (2014-10-21)
 - bug #4562 [security] XSS in debug SQL output
