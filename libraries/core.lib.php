@@ -1014,7 +1014,7 @@ function PMA_checkAndFixPMATablesInCurrentDb()
 }
 
 /**
- * Creates some globals from $_POST variables matching a pattern 
+ * Creates some globals from $_POST variables matching a pattern
  *
  * @param array $post_patterns The patterns to search for
  *
