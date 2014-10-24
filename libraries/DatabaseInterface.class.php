@@ -140,10 +140,11 @@ class PMA_DatabaseInterface
             $_SESSION['debug']['queries'][$hash]['count']++;
         } else {
             $_SESSION['debug']['queries'][$hash] = array();
-            if ($result == false) {
+            $error_message = $this->getError($link);
+            if ($result == false && is_string($error_message)) {
                 $_SESSION['debug']['queries'][$hash]['error']
                     = '<b style="color:red">'
-                    . htmlspecialchars($this->getError($link)) . '</b>';
+                    . htmlspecialchars($error_message) . '</b>';
             }
             $_SESSION['debug']['queries'][$hash]['count'] = 1;
             $_SESSION['debug']['queries'][$hash]['query'] = htmlspecialchars($query);
