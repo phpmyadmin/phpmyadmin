@@ -1129,12 +1129,11 @@ function PMA_getEnumOrSetValues($db, $table, $columnType)
 /**
  * Function to append the limit clause
  *
- * @param array  $analyzed_sql  analyzed sql query
- * @param String $display_query display query
+ * @param array $analyzed_sql analyzed sql query
  *
  * @return array
  */
-function PMA_appendLimitClause($analyzed_sql, $display_query)
+function PMA_appendLimitClause($analyzed_sql)
 {
     $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmpval']['pos']
         . ', ' . $_SESSION['tmpval']['max_rows'] . " ";
@@ -1142,26 +1141,6 @@ function PMA_appendLimitClause($analyzed_sql, $display_query)
         $analyzed_sql,
         $sql_limit_to_append
     );
-
-    /**
-     * @todo pretty printing of this modified query
-     */
-    if ($display_query) {
-        // if the analysis of the original query revealed that we found
-        // a section_after_limit, we now have to analyze $display_query
-        // to display it correctly
-
-        if (! empty($analyzed_sql[0]['section_after_limit'])
-            && trim($analyzed_sql[0]['section_after_limit']) != ';'
-        ) {
-            $analyzed_display_query = PMA_SQP_analyze(
-                PMA_SQP_parse($display_query)
-            );
-            $display_query  = $analyzed_display_query[0]['section_before_limit']
-                . "\n" . $sql_limit_to_append
-                . $analyzed_display_query[0]['section_after_limit'];
-        }
-    }
 
     return array($sql_limit_to_append, $full_sql_query);
 }
@@ -2364,7 +2343,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
     // Do append a "LIMIT" clause?
     if (PMA_isAppendLimitClause($analyzed_sql_results)) {
         list($sql_limit_to_append, $full_sql_query) = PMA_appendLimitClause(
-            $analyzed_sql_results['analyzed_sql'], isset($display_query)
+            $analyzed_sql_results['analyzed_sql']
         );
     } else {
         $sql_limit_to_append = '';
