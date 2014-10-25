@@ -1102,6 +1102,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $('td.to_be_saved').parents('tr').each(function () {
                 var $tr = $(this);
                 var where_clause = $tr.find('.where_clause').val();
+                if (typeof where_clause === 'undefined') {
+                    where_clause = '';
+                }
                 full_where_clause.push(PMA_urldecode(where_clause));
                 var condition_array = jQuery.parseJSON($tr.find('.condition_array').val());
 
