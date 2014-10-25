@@ -369,7 +369,7 @@ class ImportSql extends ImportPlugin
             $data = ltrim($data);
             PMA_importRunQuery(
                 $query,
-                null, //Set query to display
+                $query, //Set query to display
                 false,
                 $sql_data
             );
