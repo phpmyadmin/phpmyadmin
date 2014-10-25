@@ -397,8 +397,6 @@ class ImportSql extends ImportPlugin
         );
         PMA_importRunQuery('', '', false, $sql_data);
 
-        die(var_dump($sql_data));
-
         return;
 
         while (! ($GLOBALS['finished'] && $posInQueryString >= $len)

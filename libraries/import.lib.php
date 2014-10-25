@@ -206,8 +206,6 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                         );
                     }
 
-                    var_dump($result, $a_aff_rows, $a_num_rows, $a_num_rows > 0);
-
                     if (($a_num_rows > 0) || $is_use_query) {
                         $sql_data['valid_sql'][] = $import_run_buffer['sql'];
                         if (! isset($sql_data['valid_queries'])) {
