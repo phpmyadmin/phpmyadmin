@@ -281,7 +281,6 @@ class ImportSql extends ImportPlugin
                 //Move after new line.
                 $posInData = $matches[3][1]
                     + $this->_stringFunctionsToUse['strlen']($this->_delimiter) + 1;
-                //@todo Couldn't we return the position of delimiter and run it alone ?
                 //Reinit SQL delimiter search.
                 $firstSqlDelimiter = null;
                 continue;
@@ -309,21 +308,7 @@ class ImportSql extends ImportPlugin
         }
 
         // Handle compatibility options
-        $sql_modes = array();
-        if (isset($_REQUEST['sql_compatibility'])
-            && 'NONE' != $_REQUEST['sql_compatibility']
-        ) {
-            $sql_modes[] = $_REQUEST['sql_compatibility'];
-        }
-        if (isset($_REQUEST['sql_no_auto_value_on_zero'])) {
-            $sql_modes[] = 'NO_AUTO_VALUE_ON_ZERO';
-        }
-        if (count($sql_modes) > 0) {
-            $GLOBALS['dbi']->tryQuery(
-                'SET SQL_MODE="' . implode(',', $sql_modes) . '"'
-            );
-        }
-        unset($sql_modes);
+        $this->_setSQLMode($GLOBALS['dbi'], $_REQUEST);
 
         //Manage multibytes or not
         if (isset($_REQUEST['sql_read_as_multibytes'])) {
@@ -356,29 +341,28 @@ class ImportSql extends ImportPlugin
                     break;
                 }
 
-                // Convert CR (but not CRLF) to LF otherwise all queries
-                // may not get executed on some platforms
+                //Convert CR (but not CRLF) to LF otherwise all queries
+                //may not get executed on some platforms
                 $data .= preg_replace("/\r($|[^\n])/", "\n$1", $newData);
                 unset($newData);
             }
 
-            //Find quotes, comments, DELIMITER or delimiter.
+            //Find quotes, comments, delimiter definition or delimiter itself.
             $positionDelimiter = $this->_findDelimiterPosition($data);
 
-            //No delimiter found.
+            //If no delimiter found, restart and get more data.
             if (false === $positionDelimiter) {
                 continue;
             }
 
+            $delimiterLength
+                = $this->_stringFunctionsToUse['strlen']($this->_delimiter);
             $query = $this->_stringFunctionsToUse['substr'](
                 $data,
                 0,
-                $positionDelimiter + $this->_stringFunctionsToUse['strlen']($this->_delimiter)
+                $delimiterLength
             );
-            $data = $this->_stringFunctionsToUse['substr'](
-                $data,
-                $positionDelimiter + $this->_stringFunctionsToUse['strlen']($this->_delimiter)
-            );
+            $data = $this->_stringFunctionsToUse['substr']($data, $delimiterLength);
             $data = ltrim($data);
             PMA_importRunQuery(
                 $query,
@@ -397,20 +381,28 @@ class ImportSql extends ImportPlugin
     }
 
     /**
-     * Get end quote and position
+     * Handle compatibility options
      *
-     * @param int  $len      Length
-     * @param bool $endq     End quote
-     * @param int  $position Position
+     * @param PMA_DatabaseInterface $dbi     Database interface
+     * @param array                 $request Request array
      *
-     * @return array End quote, position
+     * @return void
      */
-    protected function getEndQuoteAndPos($len, $endq, $position)
+    private function _setSQLMode($dbi, $request)
     {
-        if ($GLOBALS['finished']) {
-            $endq = true;
-            $position = $len - 1;
+        $sql_modes = array();
+        if (isset($request['sql_compatibility'])
+            && 'NONE' != $request['sql_compatibility']
+        ) {
+            $sql_modes[] = $request['sql_compatibility'];
         }
-        return array($endq, $position);
+        if (isset($request['sql_no_auto_value_on_zero'])) {
+            $sql_modes[] = 'NO_AUTO_VALUE_ON_ZERO';
+        }
+        if (count($sql_modes) > 0) {
+            $dbi->tryQuery(
+                'SET SQL_MODE="' . implode(',', $sql_modes) . '"'
+            );
+        }
     }
 }
