@@ -360,9 +360,12 @@ class ImportSql extends ImportPlugin
             $query = $this->_stringFunctionsToUse['substr'](
                 $data,
                 0,
-                $delimiterLength
+                $positionDelimiter + $delimiterLength
             );
-            $data = $this->_stringFunctionsToUse['substr']($data, $delimiterLength);
+            $data = $this->_stringFunctionsToUse['substr'](
+                $data,
+                $positionDelimiter + $delimiterLength
+            );
             $data = ltrim($data);
             PMA_importRunQuery(
                 $query,
