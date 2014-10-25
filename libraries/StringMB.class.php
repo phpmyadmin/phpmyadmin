@@ -25,7 +25,7 @@ class PMA_StringMB implements PMA_StringByte
      *
      * @param string $string string to count
      *
-     * @return int string length
+     * @return int|false string length
      */
 
     public function strlen($string)
@@ -40,7 +40,7 @@ class PMA_StringMB implements PMA_StringByte
      * @param int    $start  start of substring
      * @param int    $length length of substring
      *
-     * @return string the sub string
+     * @return string|false the sub string
      */
     public function substr($string, $start, $length = 2147483647)
     {
@@ -75,7 +75,7 @@ class PMA_StringMB implements PMA_StringByte
      * @param string $needle   the string to find in haystack
      * @param int    $offset   the search offset
      *
-     * @return integer position of $needle in $haystack or false
+     * @return int|false position of $needle in $haystack or false
      */
     public function strpos($haystack, $needle, $offset = 0)
     {
@@ -100,7 +100,7 @@ class PMA_StringMB implements PMA_StringByte
      * @param string $needle   the string to find in haystack
      * @param int    $offset   the search offset
      *
-     * @return integer position of $needle in $haystack or false
+     * @return int|false position of $needle in $haystack or false
      */
     public function stripos($haystack, $needle, $offset = 0)
     {
@@ -124,7 +124,7 @@ class PMA_StringMB implements PMA_StringByte
      * @param string $needle   the string to find in haystack
      * @param int    $offset   the search offset
      *
-     * @return integer position of last $needle in $haystack or false
+     * @return int|false position of last $needle in $haystack or false
      */
     public function strrpos($haystack, $needle, $offset = 0)
     {
@@ -149,7 +149,7 @@ class PMA_StringMB implements PMA_StringByte
      * @param string $needle   the string to find in haystack
      * @param int    $offset   the search offset
      *
-     * @return integer position of last $needle in $haystack or false
+     * @return int|false position of last $needle in $haystack or false
      */
     public function strripos($haystack, $needle, $offset = 0)
     {
@@ -174,7 +174,7 @@ class PMA_StringMB implements PMA_StringByte
      * @param string $needle        the string to find in haystack
      * @param bool   $before_needle the part before the needle
      *
-     * @return string part of $haystack or false
+     * @return string|false part of $haystack or false
      */
     public function strstr($haystack, $needle, $before_needle = false)
     {
@@ -197,7 +197,7 @@ class PMA_StringMB implements PMA_StringByte
      * @param string $needle        the string to find in haystack
      * @param bool   $before_needle the part before the needle
      *
-     * @return string part of $haystack or false
+     * @return string|false part of $haystack or false
      */
     public function stristr($haystack, $needle, $before_needle = false)
     {
@@ -218,7 +218,7 @@ class PMA_StringMB implements PMA_StringByte
      * @param string $haystack the string being checked
      * @param string $needle   the string to find in haystack
      *
-     * @return string portion of haystack which starts at the last occurrence or
+     * @return string|false portion of haystack which starts at the last occurrence or
      * false
      */
     public function strrchr($haystack, $needle)
@@ -303,7 +303,7 @@ class PMA_StringMB implements PMA_StringByte
      * @param string $subject Input string
      * @param int    $offset  Start from search
      *
-     * @return int 1 if matched, 0 if doesn't, false on failure
+     * @return int|false 1 if matched, 0 if doesn't, false on failure
      */
     public function pregStrpos($pattern, $subject, $offset = 0)
     {

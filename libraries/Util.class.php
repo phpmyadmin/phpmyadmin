@@ -1322,9 +1322,9 @@ class PMA_Util
     /**
      * Formats $value to byte view
      *
-     * @param double $value the value to format
-     * @param int    $limes the sensitiveness
-     * @param int    $comma the number of decimals to retain
+     * @param double|int $value the value to format
+     * @param int        $limes the sensitiveness
+     * @param int        $comma the number of decimals to retain
      *
      * @return array    the formatted value and its unit
      *

@@ -183,8 +183,9 @@ function history_edit(index)
         document.getElementById('query_where').style.left =  '530px';
         document.getElementById('query_where').style.top  = '130px';
         document.getElementById('query_where').style.position  = 'absolute';
-        document.getElementById('query_where').style.zIndex = '9';
+        document.getElementById('query_where').style.zIndex = '103';
         document.getElementById('query_where').style.visibility = 'visible';
+        document.getElementById('query_where').style.display = 'block';
     }
     if (type == "Having") {
         document.getElementById('hQuery').value = history_array[index].get_obj().getquery();
@@ -193,22 +194,25 @@ function history_edit(index)
         document.getElementById('query_having').style.left =  '530px';
         document.getElementById('query_having').style.top  = '130px';
         document.getElementById('query_having').style.position  = 'absolute';
-        document.getElementById('query_having').style.zIndex = '9';
+        document.getElementById('query_having').style.zIndex = '103';
         document.getElementById('query_having').style.visibility = 'visible';
+        document.getElementById('query_having').style.display = 'block';
     }
     if (type == "Rename") {
         document.getElementById('query_rename_to').style.left =  '530px';
         document.getElementById('query_rename_to').style.top  = '130px';
         document.getElementById('query_rename_to').style.position  = 'absolute';
-        document.getElementById('query_rename_to').style.zIndex = '9';
+        document.getElementById('query_rename_to').style.zIndex = '103';
         document.getElementById('query_rename_to').style.visibility = 'visible';
+        document.getElementById('query_rename_to').style.display = 'block';
     }
     if (type == "Aggregate") {
         document.getElementById('query_Aggregate').style.left = '530px';
         document.getElementById('query_Aggregate').style.top  = '130px';
         document.getElementById('query_Aggregate').style.position  = 'absolute';
-        document.getElementById('query_Aggregate').style.zIndex = '9';
+        document.getElementById('query_Aggregate').style.zIndex = '103';
         document.getElementById('query_Aggregate').style.visibility = 'visible';
+        document.getElementById('query_Aggregate').style.display = 'block';
     }
 }
 
@@ -785,3 +789,25 @@ function closebox()
     document.getElementById('box').style.display = 'none';
     document.getElementById('filter').style.display = 'none';
 }
+
+AJAX.registerTeardown('pmd/history.js', function () {
+    $("#ok_edit_rename").unbind('click');
+    $("#ok_edit_having").unbind('click');
+    $("#ok_edit_Aggr").unbind('click');
+    $("#ok_edit_where").unbind('click');
+});
+
+AJAX.registerOnload('pmd/history.js', function () {
+    $("#ok_edit_rename").click(function() {
+        edit('Rename');
+    });
+    $("#ok_edit_having").click(function() {
+        edit('Having');
+    });
+    $("#ok_edit_Aggr").click(function() {
+        edit('Aggregate');
+    });
+    $("#ok_edit_where").click(function() {
+        edit('Where');
+    });
+});

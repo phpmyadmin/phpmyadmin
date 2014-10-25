@@ -140,12 +140,14 @@ class PMA_DatabaseInterface
             $_SESSION['debug']['queries'][$hash]['count']++;
         } else {
             $_SESSION['debug']['queries'][$hash] = array();
-            if ($result == false) {
+            $error_message = $this->getError($link);
+            if ($result == false && is_string($error_message)) {
                 $_SESSION['debug']['queries'][$hash]['error']
-                    = '<b style="color:red">' . $this->getError($link) . '</b>';
+                    = '<b style="color:red">'
+                    . htmlspecialchars($error_message) . '</b>';
             }
             $_SESSION['debug']['queries'][$hash]['count'] = 1;
-            $_SESSION['debug']['queries'][$hash]['query'] = $query;
+            $_SESSION['debug']['queries'][$hash]['query'] = htmlspecialchars($query);
             $_SESSION['debug']['queries'][$hash]['time'] = $time;
         }
 
@@ -1000,6 +1002,7 @@ class PMA_DatabaseInterface
                 unset($databases[$drop]);
             }
         } else {
+            $databases = array();
             foreach ($GLOBALS['pma']->databases as $database_name) {
                 // MySQL forward compatibility
                 // so pma could use this array as if every server is of version >5.0

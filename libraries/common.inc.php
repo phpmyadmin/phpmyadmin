@@ -521,25 +521,13 @@ if ($token_mismatch) {
  * current selected database
  * @global string $GLOBALS['db']
  */
-$GLOBALS['db'] = '';
-if (PMA_isValid($_REQUEST['db'])) {
-    // can we strip tags from this?
-    // only \ and / is not allowed in db names for MySQL
-    $GLOBALS['db'] = $_REQUEST['db'];
-    $GLOBALS['url_params']['db'] = $GLOBALS['db'];
-}
+PMA_setGlobalDbOrTable('db');
 
 /**
  * current selected table
  * @global string $GLOBALS['table']
  */
-$GLOBALS['table'] = '';
-if (PMA_isValid($_REQUEST['table'])) {
-    // can we strip tags from this?
-    // only \ and / is not allowed in table names for MySQL
-    $GLOBALS['table'] = $_REQUEST['table'];
-    $GLOBALS['url_params']['table'] = $GLOBALS['table'];
-}
+PMA_setGlobalDbOrTable('table');
 
 /**
  * Store currently selected recent table.

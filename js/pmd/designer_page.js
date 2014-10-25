@@ -15,7 +15,7 @@ function Save_to_new_page(db, page_name, table_positions, callback)
     Create_new_page(db, page_name, function (page) {
         if (page) {
             var tbl_cords = [];
-            for (pos in table_positions) {
+            for (var pos in table_positions) {
                 table_positions[pos].pdf_pg_nr = page.pg_nr;
                 Save_table_positions(table_positions[pos], function (id) {
                     tbl_cords.push(id);
@@ -77,7 +77,7 @@ function Delete_page(page_id, callback)
 {
     DesignerOfflineDB.loadObject('pdf_pages', page_id, function (page) {
         if (page) {
-            for (i in page.tbl_cords) {
+            for (var i in page.tbl_cords) {
                 DesignerOfflineDB.deleteObject('table_coords', page.tbl_cords[i]);
             }
             DesignerOfflineDB.deleteObject('pdf_pages', page_id, callback);
@@ -132,7 +132,7 @@ function Load_page_objects(page_id, callback)
 {
     DesignerOfflineDB.loadObject('pdf_pages', page_id, function (page) {
         var tbl_cords = [];
-        for (i in page.tbl_cords) {
+        for (var i in page.tbl_cords) {
             DesignerOfflineDB.loadObject('table_coords', page.tbl_cords[i], function (tbl_cord) {
                 tbl_cords.push(tbl_cord);
                 if (tbl_cords.length === page.tbl_cords.length) {

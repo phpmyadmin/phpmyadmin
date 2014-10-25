@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-16 12:25-0400\n"
-"PO-Revision-Date: 2014-09-03 16:50+0200\n"
-"Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"da/>\n"
+"PO-Revision-Date: 2014-10-23 09:53+0200\n"
+"Last-Translator: Dennis Jakobsen <dennis.jakobsen@gmail.com>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/da/>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.0-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -3293,7 +3293,7 @@ msgstr "%d i alt"
 #: libraries/DisplayResults.class.php:4985 libraries/sql.lib.php:1717
 #, php-format
 msgid "Query took %01.4f seconds."
-msgstr "Forepørgsel tog %01.4f sekunder."
+msgstr "Forespørgsel tog %01.4f sekunder."
 
 #: libraries/DisplayResults.class.php:5089
 #: libraries/DisplayResults.class.php:5095 libraries/mult_submits.inc.php:45

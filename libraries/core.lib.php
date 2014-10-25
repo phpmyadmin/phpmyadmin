@@ -229,7 +229,13 @@ function PMA_fatalError(
 
         /* Load gettext for fatal errors */
         if (!function_exists('__')) {
-            include_once GETTEXT_INC;
+            // It is possible that PMA_fatalError() is called before including vendor_config.php
+            // which defines GETTEXT_INC. See bug #4557
+            if (defined(GETTEXT_INC)) {
+                include_once GETTEXT_INC;
+            } else {
+                include_once './libraries/php-gettext/gettext.inc';
+            }
         }
 
         // these variables are used in the included file libraries/error.inc.php
@@ -845,7 +851,8 @@ function PMA_linkURL($url)
  *
  * @param string $url URL of external site.
  *
- * @return boolean.True:if domain of $url is allowed domain, False:otherwise.
+ * @return boolean True: if domain of $url is allowed domain,
+ *                 False: otherwise.
  */
 function PMA_isAllowedDomain($url)
 {
@@ -1005,7 +1012,7 @@ function PMA_checkAndFixPMATablesInCurrentDb()
 }
 
 /**
- * Creates some globals from $_POST variables matching a pattern 
+ * Creates some globals from $_POST variables matching a pattern
  *
  * @param array $post_patterns The patterns to search for
  *
@@ -1019,6 +1026,24 @@ function PMA_setPostAsGlobal($post_patterns)
                 $GLOBALS[$post_key] = $_POST[$post_key];
             }
         }
+    }
+}
+
+/**
+ * Creates some globals from $_REQUEST
+ *
+ * @param string $param db|table 
+ *
+ * @return void
+ */
+function PMA_setGlobalDbOrTable($param)
+{
+    $GLOBALS[$param] = '';
+    if (PMA_isValid($_REQUEST[$param])) {
+        // can we strip tags from this?
+        // only \ and / is not allowed in db names for MySQL
+        $GLOBALS[$param] = $_REQUEST[$param];
+        $GLOBALS['url_params'][$param] = $GLOBALS[$param];
     }
 }
 ?>
