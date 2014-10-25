@@ -155,7 +155,7 @@ class ImportSql extends ImportPlugin
         $firstSqlDelimiter = null;
 
         /* while not at end of line */
-        while ($posInData <= $lengthData) {
+        while ($posInData < $lengthData) {
             if ($this->_isInString) {
                 //Search for closing quote
                 $posClosingString = $this->_stringFunctionsToUse['strpos'](
@@ -218,7 +218,7 @@ class ImportSql extends ImportPlugin
             ) {
                 $bFind = preg_match(
                     '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])'
-                    . $this->_delimiter_keyword . ')/',
+                    . $this->_delimiter_keyword . ')((.*)\n)?/',
                     $this->_stringFunctionsToUse['substr']($data, $posInData),
                     $matches,
                     PREG_OFFSET_CAPTURE
@@ -274,8 +274,20 @@ class ImportSql extends ImportPlugin
                     + $this->_stringFunctionsToUse['strlen']($matches[1][0]);
                 continue;
             }
+
+            //If DELIMITER is found.
+            if ($matches[1][0] === $this->_delimiter_keyword) {
+                $this->_delimiter = $matches[3][0];
+                //Move after new line.
+                $posInData = $matches[3][1]
+                    + $this->_stringFunctionsToUse['strlen']($this->_delimiter) + 1;
+                //@todo Couldn't we return the position of delimiter and run it alone ?
+                //Reinit SQL delimiter search.
+                $firstSqlDelimiter = null;
+                continue;
+            }
         }
-        //var_dump('too many loops');
+
         return false;
     }
 
@@ -328,7 +340,6 @@ class ImportSql extends ImportPlugin
         $positionDelimiter = false;
         $query = null;
         $data = null;
-        $newData = null;
 
         while (!$timeout_passed) {
             if (false === $positionDelimiter) {
@@ -360,11 +371,12 @@ class ImportSql extends ImportPlugin
             }
 
             $query = $this->_stringFunctionsToUse['substr'](
-                $data, 0, $positionDelimiter + 1
+                $data, 0, $positionDelimiter + $this->_stringFunctionsToUse['strlen']($this->_delimiter)
             );
             $data = $this->_stringFunctionsToUse['substr'](
-                $data, $positionDelimiter + 1
+                $data, $positionDelimiter + $this->_stringFunctionsToUse['strlen']($this->_delimiter)
             );
+            $data = ltrim($data);
             PMA_importRunQuery(
                 $query,
                 null, //Set query to display
@@ -376,17 +388,16 @@ class ImportSql extends ImportPlugin
             $query = null;
         }
 
-        if ($timeout_passed) {
-            die('timeout');
-        }
+        //$data = trim($data);
+        PMA_importRunQuery(
+            '',
+            $data,
+            false,
+            $sql_data
+        );
+        PMA_importRunQuery('', '', false, $sql_data);
 
-        if (!$GLOBALS['finished']) {
-            die('issue 1');
-        }
-
-        if (true === $this->_isInComment || true === $this->_isInString) {
-            die('issue 2');
-        }
+        die(var_dump($sql_data));
 
         return;
 

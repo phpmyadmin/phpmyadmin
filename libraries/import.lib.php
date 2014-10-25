@@ -127,6 +127,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
             $error = true;
         } else {
 
+
             $executed_queries++;
 
             $pattern = '/^[\s]*(SELECT|SHOW|HANDLER)/i';
@@ -204,6 +205,8 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                             . 'rows).'
                         );
                     }
+
+                    var_dump($result, $a_aff_rows, $a_num_rows, $a_num_rows > 0);
 
                     if (($a_num_rows > 0) || $is_use_query) {
                         $sql_data['valid_sql'][] = $import_run_buffer['sql'];
