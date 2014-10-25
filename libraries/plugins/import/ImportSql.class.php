@@ -26,6 +26,7 @@ class ImportSql extends ImportPlugin
     const READ_MB_TRUE = 1;
 
     private $_delimiter;
+    private $_delimiterLength;
 
     private $_isInString = false;
 
@@ -35,9 +36,11 @@ class ImportSql extends ImportPlugin
 
     private $_openingComment = null;
 
-    private $_delimiter_keyword = 'DELIMITER ';
+    private $_delimiterKeyword = 'DELIMITER ';
 
     private $_readMb = self::READ_MB_FALSE;
+
+    private $_posInData = false;
 
     //@todo Move this part in string functions definition file.
     private $_stringFunctions = array(
@@ -141,108 +144,117 @@ class ImportSql extends ImportPlugin
     }
 
     /**
+     * Look for end of string
+     *
+     * @param string $data      Data to parse
+     *
+     * @return bool End of string found
+     */
+    private function _searchStringEnd($data)
+    {
+        //Search for closing quote
+        $posClosingString = $this->_stringFunctionsToUse['strpos'](
+            $data, $this->_quote, $this->_posInData
+        );
+
+        if (false === $posClosingString) {
+            return false;
+        }
+
+        //Quotes escaped by quote will be considered as 2 consecutive strings
+        //and won't pass in this loop.
+        $posEscape = $posClosingString-1;
+        while ($this->_stringFunctionsToUse['substr']($data, $posEscape, 1) == '\\'
+        ) {
+            $posEscape--;
+        }
+
+        // Odd count means it was escaped
+        $quoteEscaped = (((($posClosingString - 1) - $posEscape) % 2) === 1);
+        if ($quoteEscaped) {
+            //Move after the escaped string.
+            $this->_posInData = $posClosingString + 1;
+            return true;
+        }
+
+        $this->_posInData = $posClosingString + 1;
+        $this->_isInString = false;
+        $this->_quote = null;
+        return true;
+    }
+
+    /**
      * Return the position of first SQL delimiter or false if no SQL delimiter found.
      *
      * @param string $data current data to parse
      *
      * @return bool|int
      */
-    private function _findDelimiterPosition($data) {
+    private function _findDelimiterPosition($data)
+    {
         $lengthData = $this->_stringFunctionsToUse['strlen']($data);
-        $posInData = 0;
+        $this->_posInData = 0;
 
         $firstSearchChar = null;
         $firstSqlDelimiter = null;
+        $matches = null;
 
         /* while not at end of line */
-        while ($posInData < $lengthData) {
+        while ($this->_posInData < $lengthData) {
             if ($this->_isInString) {
-                //Search for closing quote
-                $posClosingString = $this->_stringFunctionsToUse['strpos'](
-                    $data, $this->_quote, $posInData
-                );
-
-                if (false === $posClosingString) {
+                if (false === $this->_searchStringEnd($data)) {
                     return false;
                 }
 
-                $posEscape = $posClosingString-1;
-                while ($this->_stringFunctionsToUse['substr']($data, $posEscape, 1) == '\\') {
-                    $posEscape--;
-                }
-
-                // Odd count means it was escaped
-                $quoteEscaped = (((($posClosingString - 1) - $posEscape) % 2) === 1);
-                if ($quoteEscaped) {
-                    //Move after the escaped string.
-                    $posInData = $posClosingString + 1;
-                    continue;
-                }
-
-                $posInData = $posClosingString + 1;
-                $this->_isInString = false;
-                $this->_quote = null;
                 continue;
             }
 
             if ($this->_isInComment) {
                 if (in_array($this->_openingComment, array('#', '-- '))) {
-                    $posClosingComment = $this->_stringFunctionsToUse['strpos']($data, "\n", $posInData);
+                    $posClosingComment = $this->_stringFunctionsToUse['strpos'](
+                        $data,
+                        "\n",
+                        $this->_posInData
+                    );
                     if (false === $posClosingComment) {
                         return false;
                     }
                     //Move after the end of the line.
-                    $posInData = $posClosingComment + 1;
+                    $this->_posInData = $posClosingComment + 1;
                     $this->_isInComment = false;
                     $this->_openingComment = null;
                 } elseif ('/*' === $this->_openingComment) {
                     //Search for closing comment
-                    $posClosingComment = $this->_stringFunctionsToUse['strpos']($data, '*/', $posInData);
+                    $posClosingComment = $this->_stringFunctionsToUse['strpos'](
+                        $data,
+                        '*/',
+                        $this->_posInData
+                    );
                     if (false === $posClosingComment) {
                         return false;
                     }
                     //Move after closing comment.
-                    $posInData = $posClosingComment + 2;
+                    $this->_posInData = $posClosingComment + 2;
                     $this->_isInComment = false;
                     $this->_openingComment = null;
                 } else {
-                    die('WHAT ?');
+                    //We shouldn't be able to come here.
+                    //throw new Exception('Unknown case.');
+                    break;
                 }
                 continue;
             }
 
-            //Don't look for a string/comment/"DELIMITER" if not found previously
-            //or if it's still after current position.
-            if (null === $firstSearchChar
-                || (false !== $firstSearchChar && $firstSearchChar < $posInData)
-            ) {
-                $bFind = preg_match(
-                    '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])'
-                    . $this->_delimiter_keyword . ')((.*)\n)?/',
-                    $this->_stringFunctionsToUse['substr']($data, $posInData),
-                    $matches,
-                    PREG_OFFSET_CAPTURE
-                );
+            list($matches, $firstSearchChar) = $this->_searchSpecialChars(
+                $data,
+                $firstSearchChar,
+                $matches
+            );
 
-                if (1 === $bFind) {
-                    $firstSearchChar = $matches[1][1] + $posInData;
-                } else {
-                    $firstSearchChar = false;
-                }
-            }
-
-            //Don't look for the SQL delimiter if not found previously
-            //or if it's still after current position.
-            if (null === $firstSqlDelimiter
-                || (false !== $firstSqlDelimiter && $firstSqlDelimiter < $posInData)
-            ) {
-                // the cost of doing this one with preg_match() would be too high
-                $firstSqlDelimiter = $this->_stringFunctionsToUse['strpos'](
-                    $data,
-                    $this->_delimiter,
-                    $posInData
-                );
-            }
+            $firstSqlDelimiter = $this->_searchSqlDelimiter(
+                $data,
+                $firstSqlDelimiter
+            );
 
             if (false === $firstSqlDelimiter && false === $firstSearchChar) {
                 return false;
@@ -256,31 +268,32 @@ class ImportSql extends ImportPlugin
 
             //Else first char is result of preg_match.
 
+            $specialChars = $matches[1][0];
+
             //If string is opened.
-            if (in_array($matches[1][0], array('\'', '"', '`'))) {
+            if (in_array($specialChars, array('\'', '"', '`'))) {
                 $this->_isInString = true;
-                $this->_quote = $matches[1][0];
+                $this->_quote = $specialChars;
                 //Move after quote.
-                $posInData = $firstSearchChar + 1;
+                $this->_posInData = $firstSearchChar + 1;
                 continue;
             }
 
             //If comment is opened.
-            if (in_array($matches[1][0], array('#', '-- ', '/*'))) {
+            if (in_array($specialChars, array('#', '-- ', '/*'))) {
                 $this->_isInComment = true;
-                $this->_openingComment = $matches[1][0];
+                $this->_openingComment = $specialChars;
                 //Move after comment opening.
-                $posInData = $firstSearchChar
+                $this->_posInData = $firstSearchChar
                     + $this->_stringFunctionsToUse['strlen']($matches[1][0]);
                 continue;
             }
 
             //If DELIMITER is found.
-            if ($matches[1][0] === $this->_delimiter_keyword) {
-                $this->_delimiter = $matches[3][0];
+            if ($specialChars === $this->_delimiterKeyword) {
                 //Move after new line.
-                $posInData = $matches[3][1]
-                    + $this->_stringFunctionsToUse['strlen']($this->_delimiter) + 1;
+                $this->_posInData = $matches[3][1]
+                    + $this->_setDelimiter($matches[3][0]) + 1;
                 //Reinit SQL delimiter search.
                 $firstSqlDelimiter = null;
                 continue;
@@ -301,20 +314,20 @@ class ImportSql extends ImportPlugin
     {
         global $error, $timeout_passed;
 
-        if (isset($_POST['sql_delimiter'])) {
-            $this->_delimiter = $_POST['sql_delimiter'];
-        } else {
-            $this->_delimiter = ';';
-        }
-
-        // Handle compatibility options
-        $this->_setSQLMode($GLOBALS['dbi'], $_REQUEST);
-
         //Manage multibytes or not
         if (isset($_REQUEST['sql_read_as_multibytes'])) {
             $this->_readMb = self::READ_MB_TRUE;
         }
         $this->_stringFunctionsToUse = $this->_stringFunctions[$this->_readMb];
+
+        if (isset($_POST['sql_delimiter'])) {
+            $this->_setDelimiter($_POST['sql_delimiter']);
+        } else {
+            $this->_setDelimiter(';');
+        }
+
+        // Handle compatibility options
+        $this->_setSQLMode($GLOBALS['dbi'], $_REQUEST);
 
         /**
          * will be set in PMA_importGetNextChunk()
@@ -355,21 +368,19 @@ class ImportSql extends ImportPlugin
                 continue;
             }
 
-            $delimiterLength
-                = $this->_stringFunctionsToUse['strlen']($this->_delimiter);
             $query = $this->_stringFunctionsToUse['substr'](
                 $data,
                 0,
-                $positionDelimiter + $delimiterLength
+                $positionDelimiter + $this->_delimiterLength
             );
             $data = $this->_stringFunctionsToUse['substr'](
                 $data,
-                $positionDelimiter + $delimiterLength
+                $positionDelimiter + $this->_delimiterLength
             );
             $data = ltrim($data);
             PMA_importRunQuery(
-                $query,
-                $query, //Set query to display
+                $query, //Query to execute
+                $query, //Query to display
                 false,
                 $sql_data
             );
@@ -407,5 +418,81 @@ class ImportSql extends ImportPlugin
                 'SET SQL_MODE="' . implode(',', $sql_modes) . '"'
             );
         }
+    }
+
+    /**
+     * Look for special chars: comment, string or DELIMITER
+     *
+     * @param string $data            Data to parse
+     * @param int    $firstSearchChar First found char position
+     * @param array  $matches         Special chars found in $data
+     *
+     * @return array 0: matches, 1: first found char position
+     */
+    private function _searchSpecialChars(
+        $data,
+        $firstSearchChar,
+        $matches
+    ) {
+        //Don't look for a string/comment/"DELIMITER" if not found previously
+        //or if it's still after current position.
+        if (null === $firstSearchChar
+            || (false !== $firstSearchChar && $firstSearchChar < $this->_posInData)
+        ) {
+            $bFind = preg_match(
+                '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])'
+                . $this->_delimiterKeyword . ')((.*)\n)?/',
+                $this->_stringFunctionsToUse['substr']($data, $this->_posInData),
+                $matches,
+                PREG_OFFSET_CAPTURE
+            );
+
+            if (1 === $bFind) {
+                $firstSearchChar = $matches[1][1] + $this->_posInData;
+            } else {
+                $firstSearchChar = false;
+            }
+        }
+        return array($matches, $firstSearchChar);
+    }
+
+    /**
+     * Look for SQL delimiter
+     *
+     * @param string $data              Data to parse
+     * @param int    $firstSqlDelimiter First found char position
+     *
+     * @return int
+     */
+    private function _searchSqlDelimiter($data, $firstSqlDelimiter)
+    {
+        //Don't look for the SQL delimiter if not found previously
+        //or if it's still after current position.
+        if (null === $firstSqlDelimiter
+            || (false !== $firstSqlDelimiter && $firstSqlDelimiter < $this->_posInData)
+        ) {
+            // the cost of doing this one with preg_match() would be too high
+            $firstSqlDelimiter = $this->_stringFunctionsToUse['strpos'](
+                $data,
+                $this->_delimiter,
+                $this->_posInData
+            );
+        }
+        return $firstSqlDelimiter;
+    }
+
+    /**
+     * Set new delimiter
+     *
+     * @param string $delimiter New delimiter
+     *
+     * @return int delimiter length
+     */
+    private function _setDelimiter($delimiter)
+    {
+        $this->_delimiter = $delimiter;
+        $this->_delimiterLength = $this->_stringFunctionsToUse['strlen']($delimiter);
+
+        return $this->_delimiterLength;
     }
 }
