@@ -64,7 +64,7 @@ phpMyAdmin - ChangeLog
 - bug #4571 Database Privileges link does not work
 - bug       makegrid.js: where_clause is undefined
 
-4.2.10.1 (not yet released)
+4.2.10.1 (2014-10-21)
 - bug #4562 [security] XSS in debug SQL output
 - bug #4563 [security] XSS in monitor query analyzer
 
