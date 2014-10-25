@@ -341,7 +341,7 @@ class ImportSql extends ImportPlugin
         $query = null;
         $data = null;
 
-        while (!$timeout_passed) {
+        while (!$error && !$timeout_passed) {
             if (false === $positionDelimiter) {
                 $newData = PMA_importGetNextChunk(200);
                 if ($newData === false) {
