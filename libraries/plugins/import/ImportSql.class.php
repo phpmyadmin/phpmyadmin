@@ -42,6 +42,8 @@ class ImportSql extends ImportPlugin
 
     private $_readMb = self::READ_MB_FALSE;
 
+    private $_data = null;
+    private $_dataLength = 0;
     private $_posInData = false;
 
     //@todo Move this part in string functions definition file.
@@ -193,18 +195,16 @@ class ImportSql extends ImportPlugin
      *
      * @return bool|int
      */
-    private function _findDelimiterPosition($data)
+    private function _findDelimiterPosition()
     {
-        $lengthData = $this->_stringFunctionsToUse['strlen']($data);
-
         $firstSearchChar = null;
         $firstSqlDelimiter = null;
         $matches = null;
 
         /* while not at end of line */
-        while ($this->_posInData < $lengthData) {
+        while ($this->_posInData < $this->_dataLength) {
             if ($this->_isInString) {
-                if (false === $this->_searchStringEnd($data)) {
+                if (false === $this->_searchStringEnd($this->_data)) {
                     return false;
                 }
 
@@ -214,7 +214,7 @@ class ImportSql extends ImportPlugin
             if ($this->_isInComment) {
                 if (in_array($this->_openingComment, array('#', '-- '))) {
                     $posClosingComment = $this->_stringFunctionsToUse['strpos'](
-                        $data,
+                        $this->_data,
                         "\n",
                         $this->_posInData
                     );
@@ -228,7 +228,7 @@ class ImportSql extends ImportPlugin
                 } elseif ('/*' === $this->_openingComment) {
                     //Search for closing comment
                     $posClosingComment = $this->_stringFunctionsToUse['strpos'](
-                        $data,
+                        $this->_data,
                         '*/',
                         $this->_posInData
                     );
@@ -251,7 +251,10 @@ class ImportSql extends ImportPlugin
                 //Search for new line.
                 if (!preg_match(
                     "/^(.*)\n/",
-                    $this->_stringFunctionsToUse['substr']($data, $this->_posInData),
+                    $this->_stringFunctionsToUse['substr'](
+                        $this->_data,
+                        $this->_posInData
+                    ),
                     $matches,
                     PREG_OFFSET_CAPTURE
                 )) {
@@ -260,20 +263,27 @@ class ImportSql extends ImportPlugin
 
                 $this->_setDelimiter($matches[1][0]);
                 //Move after delimiter and new line.
-                $this->_posInData += $matches[1][1] + $this->_delimiterLength + 1;
+                $this->_setData(
+                    $this->_stringFunctionsToUse['substr'](
+                        $this->_data,
+                        $this->_posInData + $matches[1][1] + $this->_delimiterLength
+                        + 1
+                    )
+                );
                 $this->_isInDelimiter = false;
                 $firstSqlDelimiter = null;
+                $firstSearchChar = null;
                 continue;
             }
 
             list($matches, $firstSearchChar) = $this->_searchSpecialChars(
-                $data,
+                $this->_data,
                 $firstSearchChar,
                 $matches
             );
 
             $firstSqlDelimiter = $this->_searchSqlDelimiter(
-                $data,
+                $this->_data,
                 $firstSqlDelimiter
             );
 
@@ -349,6 +359,9 @@ class ImportSql extends ImportPlugin
         // Handle compatibility options
         $this->_setSQLMode($GLOBALS['dbi'], $_REQUEST);
 
+        //Initialise data.
+        $this->_setData(null);
+
         /**
          * will be set in PMA_importGetNextChunk()
          *
@@ -376,12 +389,12 @@ class ImportSql extends ImportPlugin
 
                 //Convert CR (but not CRLF) to LF otherwise all queries
                 //may not get executed on some platforms
-                $data .= preg_replace("/\r($|[^\n])/", "\n$1", $newData);
+                $this->_addData(preg_replace("/\r($|[^\n])/", "\n$1", $newData));
                 unset($newData);
             }
 
             //Find quotes, comments, delimiter definition or delimiter itself.
-            $positionDelimiter = $this->_findDelimiterPosition($data);
+            $positionDelimiter = $this->_findDelimiterPosition();
 
             //If no delimiter found, restart and get more data.
             if (false === $positionDelimiter) {
@@ -389,16 +402,16 @@ class ImportSql extends ImportPlugin
             }
 
             $query = $this->_stringFunctionsToUse['substr'](
-                $data,
+                $this->_data,
                 0,
-                $positionDelimiter + $this->_delimiterLength
+                $positionDelimiter
             );
-            $data = $this->_stringFunctionsToUse['substr'](
-                $data,
-                $positionDelimiter + $this->_delimiterLength
+            $this->_setData(
+                $this->_stringFunctionsToUse['substr'](
+                    $this->_data,
+                    $positionDelimiter + $this->_delimiterLength
+                )
             );
-            $data = ltrim($data);
-            $this->_posInData = 0;
 
             PMA_importRunQuery(
                 $query, //Query to execute
@@ -412,7 +425,7 @@ class ImportSql extends ImportPlugin
         }
 
         //Commit any possible data in buffers
-        PMA_importRunQuery('', $data, false, $sql_data);
+        PMA_importRunQuery('', $this->_data, false, $sql_data);
         PMA_importRunQuery('', '', false, $sql_data);
     }
 
@@ -516,5 +529,33 @@ class ImportSql extends ImportPlugin
         $this->_delimiterLength = $this->_stringFunctionsToUse['strlen']($delimiter);
 
         return $this->_delimiterLength;
+    }
+
+    /**
+     * Set data to parse
+     *
+     * @param string $data Data to parse
+     *
+     * @return int Data length
+     */
+    private function _setData($data)
+    {
+        $this->_data = ltrim($data);
+        $this->_dataLength = $this->_stringFunctionsToUse['strlen']($this->_data);
+        $this->_posInData = 0;
+
+        return $this->_dataLength;
+    }
+
+    /**
+     * Add data to parse
+     *
+     * @param string $data Data to add to data to parse
+     *
+     * @return int Data length
+     */
+    private function _addData($data)
+    {
+        return $this->_setData($this->_data . $data);
     }
 }
