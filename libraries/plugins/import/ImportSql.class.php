@@ -36,6 +36,8 @@ class ImportSql extends ImportPlugin
 
     private $_openingComment = null;
 
+    private $_isInDelimiter = false;
+
     private $_delimiterKeyword = 'DELIMITER ';
 
     private $_readMb = self::READ_MB_FALSE;
@@ -171,13 +173,14 @@ class ImportSql extends ImportPlugin
 
         // Odd count means it was escaped
         $quoteEscaped = (((($posClosingString - 1) - $posEscape) % 2) === 1);
+
+        //Move after the escaped guote.
+        $this->_posInData = $posClosingString + 1;
+
         if ($quoteEscaped) {
-            //Move after the escaped string.
-            $this->_posInData = $posClosingString + 1;
             return true;
         }
 
-        $this->_posInData = $posClosingString + 1;
         $this->_isInString = false;
         $this->_quote = null;
         return true;
@@ -193,7 +196,6 @@ class ImportSql extends ImportPlugin
     private function _findDelimiterPosition($data)
     {
         $lengthData = $this->_stringFunctionsToUse['strlen']($data);
-        $this->_posInData = 0;
 
         $firstSearchChar = null;
         $firstSqlDelimiter = null;
@@ -245,6 +247,25 @@ class ImportSql extends ImportPlugin
                 continue;
             }
 
+            if ($this->_isInDelimiter) {
+                //Search for new line.
+                if (!preg_match(
+                    "/^(.*)\n/",
+                    $this->_stringFunctionsToUse['substr']($data, $this->_posInData),
+                    $matches,
+                    PREG_OFFSET_CAPTURE
+                )) {
+                    return false;
+                }
+
+                $this->_setDelimiter($matches[1][0]);
+                //Move after delimiter and new line.
+                $this->_posInData += $matches[1][1] + $this->_delimiterLength + 1;
+                $this->_isInDelimiter = false;
+                $firstSqlDelimiter = null;
+                continue;
+            }
+
             list($matches, $firstSearchChar) = $this->_searchSpecialChars(
                 $data,
                 $firstSearchChar,
@@ -261,7 +282,8 @@ class ImportSql extends ImportPlugin
             }
 
             //If first char is delimiter.
-            if (false === $firstSearchChar || $firstSqlDelimiter < $firstSearchChar
+            if (false === $firstSearchChar
+                || (false !== $firstSqlDelimiter && $firstSqlDelimiter < $firstSearchChar)
             ) {
                 return $firstSqlDelimiter;
             }
@@ -285,17 +307,15 @@ class ImportSql extends ImportPlugin
                 $this->_openingComment = $specialChars;
                 //Move after comment opening.
                 $this->_posInData = $firstSearchChar
-                    + $this->_stringFunctionsToUse['strlen']($matches[1][0]);
+                    + $this->_stringFunctionsToUse['strlen']($specialChars);
                 continue;
             }
 
             //If DELIMITER is found.
             if ($specialChars === $this->_delimiterKeyword) {
-                //Move after new line.
-                $this->_posInData = $matches[3][1]
-                    + $this->_setDelimiter($matches[3][0]) + 1;
-                //Reinit SQL delimiter search.
-                $firstSqlDelimiter = null;
+                $this->_isInDelimiter =  true;
+                $this->_posInData = $firstSearchChar
+                    + $this->_stringFunctionsToUse['strlen']($specialChars);
                 continue;
             }
         }
@@ -378,6 +398,8 @@ class ImportSql extends ImportPlugin
                 $positionDelimiter + $this->_delimiterLength
             );
             $data = ltrim($data);
+            $this->_posInData = 0;
+
             PMA_importRunQuery(
                 $query, //Query to execute
                 $query, //Query to display
@@ -441,7 +463,7 @@ class ImportSql extends ImportPlugin
         ) {
             $bFind = preg_match(
                 '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])'
-                . $this->_delimiterKeyword . ')((.*)\n)?/',
+                . $this->_delimiterKeyword . ')/',
                 $this->_stringFunctionsToUse['substr']($data, $this->_posInData),
                 $matches,
                 PREG_OFFSET_CAPTURE
