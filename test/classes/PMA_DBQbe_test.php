@@ -517,8 +517,8 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             '`table1`',
             $this->_callProtectedFunction(
-                '_getFromClause', array())
-        
+                '_getFromClause', array()
+            )
         );
     }
 
