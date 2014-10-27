@@ -1359,11 +1359,9 @@ class PMA_DbQbe
     /**
      * Provides FROM clause for building SQL query
      *
-     * @param array $cfgRelation Relation Settings
-     *
      * @return string FROM clause
      */
-    private function _getFromClause($cfgRelation)
+    private function _getFromClause()
     {
         $from_clause = '';
         if (isset($_POST['criteriaColumn']) && count($_POST['criteriaColumn']) > 0) {
@@ -1394,7 +1392,7 @@ class PMA_DbQbe
                 $from_clause = PMA_Util::backquote($master)
                     . PMA_getRelatives($all_tables, $master);
 
-            } // end if ($cfgRelation['relwork'] && count($all_tables) > 0)
+            } // end if (count($all_tables) > 0)
         } // end count($_POST['criteriaColumn']) > 0
 
         // In case relations are not defined, just generate the FROM clause
@@ -1418,7 +1416,7 @@ class PMA_DbQbe
         // get SELECT clause
         $sql_query .= $this->_getSelectClause();
         // get FROM clause
-        $from_clause = $this->_getFromClause($cfgRelation);
+        $from_clause = $this->_getFromClause();
         if (! empty($from_clause)) {
             $sql_query .= 'FROM ' . htmlspecialchars($from_clause) . "\n";
         }

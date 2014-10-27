@@ -96,7 +96,6 @@ class PMA_Menu
     private function _getMenu()
     {
         $url_params = array('db' => $this->_db);
-        $level = '';
 
         /** @var PMA_String $pmaString */
         $pmaString = $GLOBALS['PMA_String'];
