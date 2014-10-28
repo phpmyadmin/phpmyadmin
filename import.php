@@ -373,19 +373,14 @@ if ($import_file != 'none' && ! $error) {
     // before opening it.
 
     if (! empty($open_basedir)) {
-
-        /**
-         * @todo make use of the config's temp dir with fallback to the
-         * system's tmp dir
-         */
         $tmp_subdir = ini_get('upload_tmp_dir');
         if (empty($tmp_subdir)) {
             $tmp_subdir = sys_get_temp_dir();
         }
-
+        $tmp_subdir = rtrim($tmp_subdir, DIRECTORY_SEPARATOR);
         if (is_writable($tmp_subdir)) {
-
-            $import_file_new = $tmp_subdir . basename($import_file) . uniqid();
+            $import_file_new = $tmp_subdir . DIRECTORY_SEPARATOR
+                . basename($import_file) . uniqid();
             if (move_uploaded_file($import_file, $import_file_new)) {
                 $import_file = $import_file_new;
                 $file_to_unlink = $import_file_new;
