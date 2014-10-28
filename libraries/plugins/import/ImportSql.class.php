@@ -59,7 +59,7 @@ class ImportSql extends ImportPlugin
             'strpos' => 'mb_strpos',
         ),
     );
-    private $_stringFunctionsToUse = false;
+    private $_stringFctToUse = false;
 
     /**
      * Constructor
@@ -150,15 +150,13 @@ class ImportSql extends ImportPlugin
     /**
      * Look for end of string
      *
-     * @param string $data      Data to parse
-     *
      * @return bool End of string found
      */
-    private function _searchStringEnd($data)
+    private function _searchStringEnd()
     {
         //Search for closing quote
-        $posClosingString = $this->_stringFunctionsToUse['strpos'](
-            $data, $this->_quote, $this->_posInData
+        $posClosingString = $this->_stringFctToUse['strpos'](
+            $this->_data, $this->_quote, $this->_posInData
         );
 
         if (false === $posClosingString) {
@@ -168,7 +166,7 @@ class ImportSql extends ImportPlugin
         //Quotes escaped by quote will be considered as 2 consecutive strings
         //and won't pass in this loop.
         $posEscape = $posClosingString-1;
-        while ($this->_stringFunctionsToUse['substr']($data, $posEscape, 1) == '\\'
+        while ($this->_stringFctToUse['substr']($this->_data, $posEscape, 1) == '\\'
         ) {
             $posEscape--;
         }
@@ -191,9 +189,7 @@ class ImportSql extends ImportPlugin
     /**
      * Return the position of first SQL delimiter or false if no SQL delimiter found.
      *
-     * @param string $data current data to parse
-     *
-     * @return bool|int
+     * @return int|bool Delimiter position or false if no delimiter found
      */
     private function _findDelimiterPosition()
     {
@@ -204,7 +200,7 @@ class ImportSql extends ImportPlugin
         /* while not at end of line */
         while ($this->_posInData < $this->_dataLength) {
             if ($this->_isInString) {
-                if (false === $this->_searchStringEnd($this->_data)) {
+                if (false === $this->_searchStringEnd()) {
                     return false;
                 }
 
@@ -213,7 +209,7 @@ class ImportSql extends ImportPlugin
 
             if ($this->_isInComment) {
                 if (in_array($this->_openingComment, array('#', '-- '))) {
-                    $posClosingComment = $this->_stringFunctionsToUse['strpos'](
+                    $posClosingComment = $this->_stringFctToUse['strpos'](
                         $this->_data,
                         "\n",
                         $this->_posInData
@@ -227,7 +223,7 @@ class ImportSql extends ImportPlugin
                     $this->_openingComment = null;
                 } elseif ('/*' === $this->_openingComment) {
                     //Search for closing comment
-                    $posClosingComment = $this->_stringFunctionsToUse['strpos'](
+                    $posClosingComment = $this->_stringFctToUse['strpos'](
                         $this->_data,
                         '*/',
                         $this->_posInData
@@ -251,7 +247,7 @@ class ImportSql extends ImportPlugin
                 //Search for new line.
                 if (!preg_match(
                     "/^(.*)\n/",
-                    $this->_stringFunctionsToUse['substr'](
+                    $this->_stringFctToUse['substr'](
                         $this->_data,
                         $this->_posInData
                     ),
@@ -264,7 +260,7 @@ class ImportSql extends ImportPlugin
                 $this->_setDelimiter($matches[1][0]);
                 //Move after delimiter and new line.
                 $this->_setData(
-                    $this->_stringFunctionsToUse['substr'](
+                    $this->_stringFctToUse['substr'](
                         $this->_data,
                         $this->_posInData + $matches[1][1] + $this->_delimiterLength
                         + 1
@@ -308,6 +304,7 @@ class ImportSql extends ImportPlugin
                 $this->_quote = $specialChars;
                 //Move after quote.
                 $this->_posInData = $firstSearchChar + 1;
+
                 continue;
             }
 
@@ -317,7 +314,7 @@ class ImportSql extends ImportPlugin
                 $this->_openingComment = $specialChars;
                 //Move after comment opening.
                 $this->_posInData = $firstSearchChar
-                    + $this->_stringFunctionsToUse['strlen']($specialChars);
+                    + $this->_stringFctToUse['strlen']($specialChars);
                 continue;
             }
 
@@ -325,7 +322,7 @@ class ImportSql extends ImportPlugin
             if ($specialChars === $this->_delimiterKeyword) {
                 $this->_isInDelimiter =  true;
                 $this->_posInData = $firstSearchChar
-                    + $this->_stringFunctionsToUse['strlen']($specialChars);
+                    + $this->_stringFctToUse['strlen']($specialChars);
                 continue;
             }
         }
@@ -348,7 +345,7 @@ class ImportSql extends ImportPlugin
         if (isset($_REQUEST['sql_read_as_multibytes'])) {
             $this->_readMb = self::READ_MB_TRUE;
         }
-        $this->_stringFunctionsToUse = $this->_stringFunctions[$this->_readMb];
+        $this->_stringFctToUse = $this->_stringFunctions[$this->_readMb];
 
         if (isset($_POST['sql_delimiter'])) {
             $this->_setDelimiter($_POST['sql_delimiter']);
@@ -370,7 +367,6 @@ class ImportSql extends ImportPlugin
         $GLOBALS['finished'] = false;
         $positionDelimiter = false;
         $query = null;
-        $data = null;
 
         while (!$error && !$timeout_passed) {
             if (false === $positionDelimiter) {
@@ -378,7 +374,7 @@ class ImportSql extends ImportPlugin
                 if ($newData === false) {
                     // subtract data we didn't handle yet and stop processing
                     $GLOBALS['offset']
-                        -= $this->_stringFunctionsToUse['strlen']($query);
+                        -= $this->_stringFctToUse['strlen']($query);
                     break;
                 }
 
@@ -401,13 +397,13 @@ class ImportSql extends ImportPlugin
                 continue;
             }
 
-            $query = $this->_stringFunctionsToUse['substr'](
+            $query = $this->_stringFctToUse['substr'](
                 $this->_data,
                 0,
                 $positionDelimiter
             );
             $this->_setData(
-                $this->_stringFunctionsToUse['substr'](
+                $this->_stringFctToUse['substr'](
                     $this->_data,
                     $positionDelimiter + $this->_delimiterLength
                 )
@@ -477,7 +473,7 @@ class ImportSql extends ImportPlugin
             $bFind = preg_match(
                 '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])'
                 . $this->_delimiterKeyword . ')/',
-                $this->_stringFunctionsToUse['substr']($data, $this->_posInData),
+                $this->_stringFctToUse['substr']($data, $this->_posInData),
                 $matches,
                 PREG_OFFSET_CAPTURE
             );
@@ -507,7 +503,7 @@ class ImportSql extends ImportPlugin
             || (false !== $firstSqlDelimiter && $firstSqlDelimiter < $this->_posInData)
         ) {
             // the cost of doing this one with preg_match() would be too high
-            $firstSqlDelimiter = $this->_stringFunctionsToUse['strpos'](
+            $firstSqlDelimiter = $this->_stringFctToUse['strpos'](
                 $data,
                 $this->_delimiter,
                 $this->_posInData
@@ -526,7 +522,7 @@ class ImportSql extends ImportPlugin
     private function _setDelimiter($delimiter)
     {
         $this->_delimiter = $delimiter;
-        $this->_delimiterLength = $this->_stringFunctionsToUse['strlen']($delimiter);
+        $this->_delimiterLength = $this->_stringFctToUse['strlen']($delimiter);
 
         return $this->_delimiterLength;
     }
@@ -541,7 +537,7 @@ class ImportSql extends ImportPlugin
     private function _setData($data)
     {
         $this->_data = ltrim($data);
-        $this->_dataLength = $this->_stringFunctionsToUse['strlen']($this->_data);
+        $this->_dataLength = $this->_stringFctToUse['strlen']($this->_data);
         $this->_posInData = 0;
 
         return $this->_dataLength;
@@ -556,6 +552,9 @@ class ImportSql extends ImportPlugin
      */
     private function _addData($data)
     {
-        return $this->_setData($this->_data . $data);
+        $this->_data .= $data;
+        $this->_dataLength += $this->_stringFctToUse['strlen']($data);
+
+        return $this->_dataLength;
     }
 }
