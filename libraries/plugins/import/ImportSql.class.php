@@ -366,15 +366,13 @@ class ImportSql extends ImportPlugin
          */
         $GLOBALS['finished'] = false;
         $positionDelimiter = false;
-        $query = null;
 
         while (!$error && !$timeout_passed) {
             if (false === $positionDelimiter) {
                 $newData = PMA_importGetNextChunk(200);
                 if ($newData === false) {
                     // subtract data we didn't handle yet and stop processing
-                    $GLOBALS['offset']
-                        -= $this->_stringFctToUse['strlen']($query);
+                    $GLOBALS['offset'] -= $this->_dataLength;
                     break;
                 }
 
@@ -397,27 +395,27 @@ class ImportSql extends ImportPlugin
                 continue;
             }
 
-            $query = $this->_stringFctToUse['substr'](
-                $this->_data,
-                0,
-                $positionDelimiter
+            PMA_importRunQuery(
+                $this->_stringFctToUse['substr'](
+                    $this->_data,
+                    0,
+                    $positionDelimiter
+                ), //Query to execute
+                $this->_stringFctToUse['substr'](
+                    $this->_data,
+                    0,
+                    $positionDelimiter + $this->_delimiterLength
+                ), //Query to display
+                false,
+                $sql_data
             );
+
             $this->_setData(
                 $this->_stringFctToUse['substr'](
                     $this->_data,
                     $positionDelimiter + $this->_delimiterLength
                 )
             );
-
-            PMA_importRunQuery(
-                $query, //Query to execute
-                $query, //Query to display
-                false,
-                $sql_data
-            );
-
-            //After execution, $buffer can be empty.
-            $query = null;
         }
 
         //Commit any possible data in buffers
