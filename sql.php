@@ -61,7 +61,7 @@ if (! empty($goto)) {
 $pmaString = $GLOBALS['PMA_String'];
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
-        . '?' . PMA_URL_getCommon($GLOBALS['db'])
+        . PMA_URL_getCommon(array('db' => $GLOBALS['db']))
         . (($pmaString->strpos(' ' . $goto, 'db_') != 1
             && $pmaString->strlen($table))
             ? '&amp;table=' . urlencode($table)

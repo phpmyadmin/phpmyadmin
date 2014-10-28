@@ -1248,7 +1248,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //validate 1: PMA_URL_getCommon
         $this->assertContains(
-            PMA_URL_getCommon($db),
+            PMA_URL_getCommon(array('db' => $db)),
             $html
         );
 

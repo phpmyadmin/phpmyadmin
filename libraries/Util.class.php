@@ -2589,8 +2589,8 @@ class PMA_Util
             $database = self::unescapeMysqlWildcards($database);
         }
 
-        return '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
-            . PMA_URL_getCommon($database) . '" title="'
+        return '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+            . PMA_URL_getCommon(array('db' => $database)) . '" title="'
             . htmlspecialchars(
                 sprintf(
                     __('Jump to database "%s".'),

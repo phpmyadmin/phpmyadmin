@@ -37,7 +37,7 @@ function PMA_getHtmlForFilter($ServerStatusData)
     $retval  = '';
     $retval .= '<fieldset id="tableFilter">';
     $retval .= '<legend>' . __('Filters') . '</legend>';
-    $retval .= '<form action="server_status_variables.php?'
+    $retval .= '<form action="server_status_variables.php'
         . PMA_URL_getCommon() . '">';
     $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
     $retval .= '<div class="formelement">';

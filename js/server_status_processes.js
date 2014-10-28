@@ -28,7 +28,7 @@ var processList = {
     init: function() {
         processList.setRefreshLabel();
         if (processList.refreshUrl === null) {
-            processList.refreshUrl = 'server_status_processes.php?' +
+            processList.refreshUrl = 'server_status_processes.php' +
                 PMA_commonParams.get('common_query');
         }
         if (processList.refreshInterval === null) {

@@ -365,7 +365,7 @@ function PMA_getHtmlForNoticeEnableStatistics($url_query, $html)
     //we should put notice above database list
     $html  = $notice . $html;
     $html .= '<ul><li id="li_switch_dbstats"><strong>' . "\n";
-    $html .= '<a href="server_databases.php?' . $url_query . '&amp;dbstats=1"'
+    $html .= '<a href="server_databases.php' . $url_query . '&amp;dbstats=1"'
         . ' title="' . __('Enable Statistics') . '">' . "\n"
         . '            ' . __('Enable Statistics');
     $html .= '</a></strong><br />' . "\n";
@@ -461,7 +461,7 @@ function PMA_dropMultiDatabases()
     } else {
         $action = 'server_databases.php';
         $submit_mult = 'drop_db';
-        $err_url = 'server_databases.php?' . PMA_URL_getCommon();
+        $err_url = 'server_databases.php' . PMA_URL_getCommon();
         if (isset($_REQUEST['selected_dbs'])
             && !isset($_REQUEST['is_js_confirmed'])
         ) {

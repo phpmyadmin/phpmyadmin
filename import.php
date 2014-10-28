@@ -222,15 +222,17 @@ $pmaString = $GLOBALS['PMA_String'];
 
 // Create error and goto url
 if ($import_type == 'table') {
-    $err_url = 'tbl_import.php?' . PMA_URL_getCommon($db, $table);
+    $err_url = 'tbl_import.php' . PMA_URL_getCommon(array(
+        'db' => $db, 'table' => $table
+    ));
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'tbl_import.php';
 } elseif ($import_type == 'database') {
-    $err_url = 'db_import.php?' . PMA_URL_getCommon($db);
+    $err_url = 'db_import.php' . PMA_URL_getCommon(array('db' => $db));
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'db_import.php';
 } elseif ($import_type == 'server') {
-    $err_url = 'server_import.php?' . PMA_URL_getCommon();
+    $err_url = 'server_import.php' . PMA_URL_getCommon();
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'server_import.php';
 } else {
@@ -244,13 +246,13 @@ if ($import_type == 'table') {
         }
     }
     if ($pmaString->strlen($table) && $pmaString->strlen($db)) {
-        $common = PMA_URL_getCommon($db, $table);
+        $common = PMA_URL_getCommon(array('db' => $db, 'table' => $table));
     } elseif ($pmaString->strlen($db)) {
-        $common = PMA_URL_getCommon($db);
+        $common = PMA_URL_getCommon(array('db' => $db));
     } else {
         $common = PMA_URL_getCommon();
     }
-    $err_url  = $goto . '?' . $common
+    $err_url  = $goto . $common
         . (preg_match('@^tbl_[a-z]*\.php$@', $goto)
             ? '&amp;table=' . htmlspecialchars($table)
             : '');

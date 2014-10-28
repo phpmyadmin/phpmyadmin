@@ -146,7 +146,7 @@ class PMA_NavigationHeader
         $retval  = '<!-- LINKS START -->';
         $retval .= '<div id="navipanellinks">';
         $retval .= PMA_Util::getNavigationLink(
-            'index.php?' . PMA_URL_getCommon(),
+            'index.php' . PMA_URL_getCommon(),
             $showText,
             __('Home'),
             $showIcon,
@@ -156,7 +156,7 @@ class PMA_NavigationHeader
         if ($GLOBALS['server'] != 0) {
             // Logout for advanced authentication
             if ($GLOBALS['cfg']['Server']['auth_type'] != 'config') {
-                $link  = 'index.php?' . $GLOBALS['url_query'];
+                $link  = 'index.php' . $GLOBALS['url_query'];
                 $link .= '&amp;old_usr=' . urlencode($GLOBALS['PHP_AUTH_USER']);
                 $retval .= PMA_Util::getNavigationLink(
                     $link,

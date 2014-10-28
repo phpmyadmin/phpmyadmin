@@ -118,9 +118,9 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
         $table_result = PMA_queryAsControlUser($table_query);
         $version_data = $GLOBALS['dbi']->fetchArray($table_result);
 
-        $tmp_link = 'tbl_tracking.php?' . $url_query . '&amp;table='
+        $tmp_link = 'tbl_tracking.php' . $url_query . '&amp;table='
             . htmlspecialchars($version_data['table_name']);
-        $delete_link = 'db_tracking.php?' . $url_query . '&amp;table='
+        $delete_link = 'db_tracking.php' . $url_query . '&amp;table='
             . htmlspecialchars($version_data['table_name'])
             . '&amp;delete_tracking=true&amp';
         ?>
@@ -216,7 +216,7 @@ if (count($my_tables) > 0) {
 
     foreach ($my_tables as $key => $tablename) {
         if (PMA_Tracker::getVersion($GLOBALS['db'], $tablename) == -1) {
-            $my_link = '<a href="tbl_tracking.php?' . $url_query
+            $my_link = '<a href="tbl_tracking.php' . $url_query
                 . '&amp;table=' . htmlspecialchars($tablename) . '">';
             $my_link .= PMA_Util::getIcon('eye.png', __('Track table'));
             $my_link .= '</a>';
