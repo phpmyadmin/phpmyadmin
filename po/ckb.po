@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-16 12:25-0400\n"
-"PO-Revision-Date: 2014-10-29 13:43+0200\n"
+"PO-Revision-Date: 2014-10-29 18:21+0200\n"
 "Last-Translator: Aso Naderi <aso.naderi@gmail.com>\n"
 "Language-Team: Kurdish Sorani "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ckb/>\n"
@@ -38,10 +38,10 @@ msgid "Click to sort."
 msgstr "ڕیزکردن."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "ڕیزە پێشاندراوەکان"
+msgstr "پیشاندانی %1$s - %2$s"
 
 #: db_create.php:61
 #, php-format
@@ -517,20 +517,20 @@ msgid "Add a point"
 msgstr "زیادکردنی خاڵ"
 
 #: gis_data_editor.php:269
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "ڕیزبه‌ندی هێڵی"
+msgstr "دێڕ %d:"
 
 #: gis_data_editor.php:272 gis_data_editor.php:349
 msgid "Outer ring:"
 msgstr "ئەڵقەی دەرەکی:"
 
 #: gis_data_editor.php:274 gis_data_editor.php:351
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "ئەڵقەی ناوەکی"
+msgstr "ئەڵقەی ناوەکی %d:"
 
 #: gis_data_editor.php:311
 msgid "Add a linestring"
@@ -5165,11 +5165,13 @@ msgstr ""
 #: libraries/config/Validator.class.php:278
 #: libraries/config/Validator.class.php:285
 msgid "Could not connect to the database server!"
-msgstr ""
+msgstr "نەتوانرا پەیوەندی بکردرێت بە ڕاژەکاری بنکەی دراوە!"
 
 #: libraries/config/Validator.class.php:317
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
+"نازناو بەتاڵە لە کاتی بەکاربردنی  [kbd]config[/kbd] بۆ شێوازی سەلماندنی "
+"دەسەڵاتی بەکاهێنان!"
 
 #: libraries/config/Validator.class.php:324
 msgid ""
@@ -5194,12 +5196,12 @@ msgstr ""
 
 #: libraries/config/Validator.class.php:468
 msgid "Incorrect value:"
-msgstr ""
+msgstr "نرخی هەڵە:"
 
 #: libraries/config/Validator.class.php:477
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr ""
+msgstr "ژمارەی ئای‌پی هەڵە: %s"
 
 #: libraries/config/messages.inc.php:18
 msgid ""
@@ -5208,7 +5210,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
-msgstr ""
+msgstr "ڕێگەدان بە چوونەژوورەوە بۆ هەر ڕاژەکارێکی MySQL"
 
 #: libraries/config/messages.inc.php:21
 msgid ""
@@ -5219,11 +5221,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
-msgstr ""
+msgstr "ڕێگەدان بە بانگکردنی دەرەکی (بانگکردنی PhpMyAdmin بە بەکاربردنی frame)"
 
 #: libraries/config/messages.inc.php:27
 msgid "Show \"Drop database\" link to normal users"
-msgstr ""
+msgstr "پیشاندانی \"سڕینەوەی بنکەی دراوە\" بۆ بەکارهێنەرانی ئاسایی"
 
 #: libraries/config/messages.inc.php:29
 msgid ""
@@ -5233,15 +5235,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
-msgstr ""
+msgstr "نهێنی Blowfish"
 
 #: libraries/config/messages.inc.php:33
 msgid "Highlight selected rows."
-msgstr ""
+msgstr "دێڕە دیاریکراوەکان هەڵبژێرە."
 
 #: libraries/config/messages.inc.php:34
 msgid "Row marker"
-msgstr ""
+msgstr "هەڵبژاردنی دێڕ"
 
 #: libraries/config/messages.inc.php:35
 msgid "Highlight row pointed by the mouse cursor."
@@ -14966,7 +14968,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "نرخی concurrent_insert ڕێکخراوە بۆ 0"
 
 #, fuzzy
 #~| msgid "Invalid export type"
