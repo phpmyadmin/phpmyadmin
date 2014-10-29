@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-08-15 11:35+0200\n"
+"PO-Revision-Date: 2014-10-29 20:41+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-2/az/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.0-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -6239,6 +6239,8 @@ msgstr "SQL sorğusu"
 #: libraries/config/messages.inc.php:745
 msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr ""
+"Verilənlər Bazası və cədvəl statistikalarını göstərmək üçün icazə ver(məs: "
+"istifadə olunan yaddaş)."
 
 #: libraries/config/messages.inc.php:746
 msgid "Show statistics"
@@ -6248,6 +6250,8 @@ msgstr "Statistikaları göstər"
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
+"İstifadə olunan cədvəlləri işarələyin və Verilənlər Bazalarını kilidli "
+"cədvəllərlə birlikdə göstərilməsini mümkun edin."
 
 #: libraries/config/messages.inc.php:748
 msgid "Skip locked tables"
@@ -6255,17 +6259,20 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:753
 msgid "A warning is displayed on the main page if Suhosin is detected."
-msgstr ""
+msgstr "Əgər Suhosin aşkarlanarsa, ana səhifədə xəbərdarlıq göstərilir."
 
 #: libraries/config/messages.inc.php:754
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Suhosin xəbərdarlığı"
 
 #: libraries/config/messages.inc.php:755
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)."
 msgstr ""
+"Redaktə rejimində mətin sahəsinin ölçüsü(sütunlar), SQL sorğu mətni "
+"sahələri(*2) və sorğu pəncərəsi (*1.25) üçün bu qiymətin önəmi "
+"bildiriləcəkdir."
 
 #: libraries/config/messages.inc.php:756
 msgid "Textarea columns"
@@ -6279,11 +6286,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:758
 msgid "Textarea rows"
-msgstr ""
+msgstr "Mətin Sahəsi sətirləri"
 
 #: libraries/config/messages.inc.php:759
 msgid "Title of browser window when a database is selected."
-msgstr ""
+msgstr "Verilənlər Bazası seçildikdə brovser pəncərə başlığı."
 
 #: libraries/config/messages.inc.php:761
 msgid "Title of browser window when nothing is selected."
