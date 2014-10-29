@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-10-19 20:02+0200\n"
+"PO-Revision-Date: 2014-10-29 08:22+0200\n"
 "Last-Translator: josep constanti <jconstanti@ovi.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-2/ca/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.0-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -5336,20 +5336,18 @@ msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:234
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Databases display options."
-msgstr "Opcions de visualització de les bases de dades"
+msgstr "Opcions de visualització de les bases de dades."
 
 #: libraries/config/messages.inc.php:235 setup/frames/menu.inc.php:24
 msgid "Navigation panel"
 msgstr "Panell de navegació"
 
 #: libraries/config/messages.inc.php:236
-#, fuzzy
 #| msgid "Customize appearance of the navigation panel"
 msgid "Customize appearance of the navigation panel."
-msgstr "Canviar l'aspecte del panell de navegació"
+msgstr "Personalitzar l'aspecte del panell de navegació."
 
 #: libraries/config/messages.inc.php:237 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:143
@@ -5357,16 +5355,14 @@ msgid "Servers"
 msgstr "Servidors"
 
 #: libraries/config/messages.inc.php:238
-#, fuzzy
 #| msgid "Servers display options"
 msgid "Servers display options."
-msgstr "Opcions de visualització dels servidors"
+msgstr "Opcions de visualització dels servidors."
 
 #: libraries/config/messages.inc.php:240
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Tables display options."
-msgstr "Opcions de visualització de les taules"
+msgstr "Opcions de visualització de les taules."
 
 #: libraries/config/messages.inc.php:241 setup/frames/menu.inc.php:25
 msgid "Main panel"
@@ -5381,10 +5377,9 @@ msgid "Other core settings"
 msgstr "Altres paràmetres principals"
 
 #: libraries/config/messages.inc.php:248
-#, fuzzy
 #| msgid "Settings that didn't fit anywhere else"
 msgid "Settings that didn't fit anywhere else."
-msgstr "Paràmetres que no encaixaven en cap altre lloc"
+msgstr "Paràmetres que no encaixaven en cap altre lloc."
 
 #: libraries/config/messages.inc.php:249
 msgid "Page titles"
@@ -5413,7 +5408,6 @@ msgid "Security"
 msgstr "Seguretat"
 
 #: libraries/config/messages.inc.php:259
-#, fuzzy
 #| msgid ""
 #| "Please note that phpMyAdmin is just a user interface and its features do "
 #| "not limit MySQL"
@@ -5421,8 +5415,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
 msgstr ""
-"Tingues en compte que phpMyAdmin només és una interficie d'usuari i les "
-"seves caracteristiques no limiten a MySQL"
+"Noteu que phpMyAdmin només és una interfície d'usuari i les seves "
+"característiques no limiten a MySQL."
 
 #: libraries/config/messages.inc.php:262
 msgid "Basic settings"
@@ -5433,17 +5427,15 @@ msgid "Authentication"
 msgstr "Autenticació"
 
 #: libraries/config/messages.inc.php:264
-#, fuzzy
 #| msgid "Authentication settings"
 msgid "Authentication settings."
-msgstr "Paràmetres d'autenticació"
+msgstr "Paràmetres d'autenticació."
 
 #: libraries/config/messages.inc.php:265
 msgid "Server configuration"
 msgstr "Configuració del servidor"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 #| msgid ""
 #| "Advanced server configuration, do not change these options unless you "
 #| "know what they are for"
@@ -5451,21 +5443,19 @@ msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
 msgstr ""
-"Configuració avançada del servidor, no canviis aquestes opcions si no saps "
-"el que estàs fent"
+"Configuració avançada del servidor, no canvieu aquestes opcions si no sabeu "
+"el que fan."
 
 #: libraries/config/messages.inc.php:270
-#, fuzzy
 #| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
-msgstr "Entra els paràmetres de connexió al servidor"
+msgstr "Entra els paràmetres de connexió al servidor."
 
 #: libraries/config/messages.inc.php:271
 msgid "Configuration storage"
 msgstr "Infraestructura de taules enllaçades"
 
 #: libraries/config/messages.inc.php:273
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin configuration storage to gain access to additional "
 #| "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] "
@@ -5475,9 +5465,9 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"Configura la base de dades phpMyAdmin per tenir accés a característiques "
-"adiccionals, consulta [doc@linked-tables]infraestructura de taules enllaçades"
-"[/doc] a la documentació"
+"Configureu l'emmagatzematge  de la configuració phpMyAdmin per obtenir accés "
+"a característiques addicionals, consulteu [doc@linked-tables]infraestructura "
+"de taules enllaçades[/doc] a la documentació."
 
 #: libraries/config/messages.inc.php:277
 msgid "Changes tracking"
@@ -5517,10 +5507,9 @@ msgid "SQL Query box"
 msgstr "Caixa de consultes SQL"
 
 #: libraries/config/messages.inc.php:290
-#, fuzzy
 #| msgid "Customize links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes."
-msgstr "Configura els enllaços mostrats a les caixes de consultes SQL"
+msgstr "Configura els enllaços mostrats a les caixes de consultes SQL."
 
 #: libraries/config/messages.inc.php:293
 #, fuzzy
