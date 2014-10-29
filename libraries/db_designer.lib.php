@@ -12,6 +12,29 @@ if (! defined('PHPMYADMIN')) {
 require_once 'libraries/relation.lib.php';
 
 /**
+ * Function to get html to display a page selector 
+ *
+ * @param array  $cfgRelation information about the configuration storage
+ * @param string $db          database name
+ *
+ * @return string html content
+ */
+function PMA_getHtmlForPageSelector($cfgRelation, $db)
+{
+    $html = '<select name="selected_page" id="selected_page">';
+    $html .= '<option value="0">-- ' . __('Select page') . ' --</option>';
+    if ($cfgRelation['pdfwork']) {
+        $pages = PMA_getPageIdsAndNames($db);
+        foreach ($pages as $nr => $desc) {
+            $html .= '<option value="' . $nr . '">';
+            $html .= htmlspecialchars($desc) . '</option>';
+        }
+    }
+    $html .= '</select>';
+    return $html;
+}
+
+/**
  * Function to get html for displaying the page edit/delete form
  *
  * @param string $db        database name
@@ -34,16 +57,7 @@ function PMA_getHtmlForEditOrDeletePages($db, $operation)
         $html .= __("Page to delete");
     }
     $html .= ': </label>';
-    $html .= '<select name="selected_page" id="selected_page">';
-    $html .= '<option value="0">-- ' . __('Select page') . ' --</option>';
-    if ($cfgRelation['pdfwork']) {
-        $pages = PMA_getPageIdsAndNames($db);
-        foreach ($pages as $nr => $desc) {
-            $html .= '<option value="' . $nr . '">';
-            $html .= htmlspecialchars($desc) . '</option>';
-        }
-    }
-    $html .= '</select>';
+    $html .= PMA_getHtmlForPageSelector($cfgRelation, $db);
     $html .= '</fieldset>';
     $html .= '</form>';
     return $html;
@@ -73,17 +87,7 @@ function PMA_getHtmlForPageSaveAs($db)
     $html .= '<tr>';
     $html .= '<td>';
     $html .= '<input type="hidden" name="operation" value="savePage" />';
-    $html .= '<select name="selected_page" id="selected_page">';
-    $html .= '<option value="0">-- ' . __('Select page') . ' --</option>';
-
-    if ($cfgRelation['pdfwork']) {
-        $pages = PMA_getPageIdsAndNames($db);
-        foreach ($pages as $nr => $desc) {
-            $html .= '<option value="' . $nr . '">';
-            $html .= htmlspecialchars($desc) . '</option>';
-        }
-    }
-    $html .= '</select>';
+    $html .= PMA_getHtmlForPageSelector($cfgRelation, $db);
     $html .= '</td>';
     $html .= '</tr>';
 
