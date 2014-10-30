@@ -21,14 +21,7 @@ if (! isset($GLOBALS['cfg']['RecodingEngine'])) {
 // Finally detect which function we will use:
 if ($GLOBALS['cfg']['RecodingEngine'] == 'iconv') {
     if (@function_exists('iconv')) {
-        if ((@stristr(PHP_OS, 'AIX'))
-            && (@strcasecmp(ICONV_IMPL, 'unknown') == 0)
-            && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)
-        ) {
-            $PMA_recoding_engine = PMA_CHARSET_ICONV_AIX;
-        } else {
-            $PMA_recoding_engine = PMA_CHARSET_ICONV;
-        }
+        $PMA_recoding_engine = PMA_getIconvRecodingEngine();
     } else {
         $PMA_recoding_engine = PMA_CHARSET_NONE;
         PMA_warnMissingExtension('iconv');
@@ -49,14 +42,7 @@ if ($GLOBALS['cfg']['RecodingEngine'] == 'iconv') {
     }
 } elseif ($GLOBALS['cfg']['RecodingEngine'] == 'auto') {
     if (@function_exists('iconv')) {
-        if ((@stristr(PHP_OS, 'AIX'))
-            && (@strcasecmp(ICONV_IMPL, 'unknown') == 0)
-            && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)
-        ) {
-            $PMA_recoding_engine = PMA_CHARSET_ICONV_AIX;
-        } else {
-            $PMA_recoding_engine = PMA_CHARSET_ICONV;
-        }
+        $PMA_recoding_engine = PMA_getIconvRecodingEngine();
     } elseif (@function_exists('recode_string')) {
         $PMA_recoding_engine = PMA_CHARSET_RECODE;
     } elseif (@function_exists('mb_convert_encoding')) {
@@ -71,6 +57,26 @@ if ($GLOBALS['cfg']['RecodingEngine'] == 'iconv') {
 /* Load AIX iconv wrapper if needed */
 if ($PMA_recoding_engine == PMA_CHARSET_ICONV_AIX) {
     include_once './libraries/iconv_wrapper.lib.php';
+}
+
+/**
+ * Determines the correct recoding engine to use 
+ *
+ * @return int $PMA_recoding_engine 
+ *
+ * @access  public
+ *
+ */
+function PMA_getIconvRecodingEngine()
+{
+    if ((@stristr(PHP_OS, 'AIX'))
+        && (@strcasecmp(ICONV_IMPL, 'unknown') == 0)
+        && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)
+    ) {
+        return PMA_CHARSET_ICONV_AIX;
+    } else {
+        return PMA_CHARSET_ICONV;
+    }
 }
 
 /**
