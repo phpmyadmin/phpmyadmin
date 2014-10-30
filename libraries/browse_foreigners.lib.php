@@ -180,9 +180,8 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
  */
 function PMA_getDescriptionAndTitle($description)
 {
-    $pmaString = $GLOBALS['PMA_String'];
     $limitChars = $GLOBALS['cfg']['LimitChars'];
-    if ($pmaString->strlen($description) <= $limitChars) {
+    if (/*overload*/mb_strlen($description) <= $limitChars) {
         $description = htmlspecialchars(
             $description
         );
@@ -192,7 +191,7 @@ function PMA_getDescriptionAndTitle($description)
             $description
         );
         $description = htmlspecialchars(
-            $pmaString->substr(
+            /*overload*/mb_substr(
                 $description, 0, $limitChars
             )
             . '...'

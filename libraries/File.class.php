@@ -714,7 +714,7 @@ class PMA_File
      */
     public function getContentLength()
     {
-        return $GLOBALS['PMA_String']->strlen($this->_content);
+        return /*overload*/mb_strlen($this->_content);
     }
 
     /**

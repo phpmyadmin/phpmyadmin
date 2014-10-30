@@ -32,16 +32,13 @@ class PMA_GIS_Factory
     {
         include_once './libraries/gis/GIS_Geometry.class.php';
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $file = './libraries/gis/GIS_'
-            . ucfirst($pmaString->strtolower($type)) . '.class.php';
+            . ucfirst(/*overload*/mb_strtolower($type)) . '.class.php';
         if (! file_exists($file)) {
             return false;
         }
         if (include_once $file) {
-            switch($pmaString->strtoupper($type)) {
+            switch(/*overload*/mb_strtoupper($type)) {
             case 'MULTIPOLYGON' :
                 return PMA_GIS_Multipolygon::singleton();
             case 'POLYGON' :

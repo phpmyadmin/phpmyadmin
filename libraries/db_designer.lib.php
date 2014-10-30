@@ -706,22 +706,19 @@ function PMA_getDatabaseTables(
                 $html .= '<img src="' . $_SESSION['PMA_Theme']->getImgPath()
                     . 'pmd/Field_small';
 
-                /** @var PMA_String $pmaString */
-                $pmaString = $GLOBALS['PMA_String'];
-
-                if ($pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'char')
-                    || $pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'text')
+                if (/*overload*/mb_strstr($tab_column[$t_n]["TYPE"][$j], 'char')
+                    || /*overload*/mb_strstr($tab_column[$t_n]["TYPE"][$j], 'text')
                 ) {
                     $html .= '_char';
-                } elseif ($pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'int')
-                    || $pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'float')
-                    || $pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'double')
-                    || $pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'decimal')
+                } elseif (/*overload*/mb_strstr($tab_column[$t_n]["TYPE"][$j], 'int')
+                    || /*overload*/mb_strstr($tab_column[$t_n]["TYPE"][$j], 'float')
+                    || /*overload*/mb_strstr($tab_column[$t_n]["TYPE"][$j], 'double')
+                    || /*overload*/mb_strstr($tab_column[$t_n]["TYPE"][$j], 'decimal')
                 ) {
                     $html .= '_int';
-                } elseif ($pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'date')
-                    || $pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'time')
-                    || $pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'year')
+                } elseif (/*overload*/mb_strstr($tab_column[$t_n]["TYPE"][$j], 'date')
+                    || /*overload*/mb_strstr($tab_column[$t_n]["TYPE"][$j], 'time')
+                    || /*overload*/mb_strstr($tab_column[$t_n]["TYPE"][$j], 'year')
                 ) {
                     $html .= '_date';
                 }

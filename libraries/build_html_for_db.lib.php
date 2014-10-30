@@ -132,8 +132,6 @@ function PMA_buildHtmlForDb(
         }
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     foreach ($replication_types as $type) {
         if ($replication_info[$type]['status']) {
             $out .= '<td class="tool" style="text-align: center;">';
@@ -142,14 +140,14 @@ function PMA_buildHtmlForDb(
                 $current["SCHEMA_NAME"],
                 $replication_info[$type]['Ignore_DB']
             );
-            if ($pmaString->strlen($key) > 0) {
+            if (/*overload*/mb_strlen($key) > 0) {
                 $out .= PMA_Util::getIcon('s_cancel.png',  __('Not replicated'));
             } else {
                 $key = array_search(
                     $current["SCHEMA_NAME"], $replication_info[$type]['Do_DB']
                 );
 
-                if ($pmaString->strlen($key) > 0
+                if (/*overload*/mb_strlen($key) > 0
                     || ($replication_info[$type]['Do_DB'][0] == ""
                     && count($replication_info[$type]['Do_DB']) == 1)
                 ) {

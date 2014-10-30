@@ -474,7 +474,7 @@ class Node_Database extends Node
                 . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
             $sqlQuery = "SELECT `item_name` FROM " . $navTable
                 . " WHERE `username`='" . $cfgRelation['user'] . "'"
-                . " AND `item_type`='" . $GLOBALS['PMA_String']->substr($type, 0, -1)
+                . " AND `item_type`='" . substr($type, 0, -1)
                 . "'" . " AND `db_name`='" . PMA_Util::sqlAddSlashes($db) . "'";
             $result = PMA_queryAsControlUser($sqlQuery, false);
             if ($result) {

@@ -151,7 +151,7 @@ class PMA_TableSearch
                 }
                 $type = preg_replace('@ZEROFILL@i', '', $type);
                 $type = preg_replace('@UNSIGNED@i', '', $type);
-                $type = $GLOBALS['PMA_String']->strtolower($type);
+                $type = /*overload*/mb_strtolower($type);
             }
             if (empty($type)) {
                 $type = '&nbsp;';
@@ -314,7 +314,7 @@ class PMA_TableSearch
         $html_output = '';
         $value = explode(
             ', ',
-            str_replace("'", '', $GLOBALS['PMA_String']->substr($column_type, 5, -1))
+            str_replace("'", '', /*overload*/mb_substr($column_type, 5, -1))
         );
         $cnt_value = count($value);
 
@@ -404,16 +404,13 @@ class PMA_TableSearch
             // other cases
             $the_class = 'textfield';
 
-            /** @var PMA_String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
-
             if ($column_type == 'date') {
                 $the_class .= ' datefield';
             } elseif ($column_type == 'datetime'
-                || $pmaString->substr($column_type, 0, 9) == 'timestamp'
+                || substr($column_type, 0, 9) == 'timestamp'
             ) {
                 $the_class .= ' datetimefield';
-            } elseif ($pmaString->substr($column_type, 0, 3) == 'bit') {
+            } elseif (substr($column_type, 0, 3) == 'bit') {
                 $the_class .= ' bit';
             }
 
@@ -560,7 +557,7 @@ class PMA_TableSearch
             // strings to numbers and numbers to strings as necessary
             // during the comparison
             if (preg_match('@char|binary|blob|text|set|date|time|year@i', $types)
-                || $GLOBALS['PMA_String']->strpos(' ' . $func_type, 'LIKE')
+                || /*overload*/mb_strpos(' ' . $func_type, 'LIKE')
             ) {
                 $quot = '\'';
             } else {

@@ -166,7 +166,7 @@ class PMA_Tracker
      */
     static protected function getTableName($string)
     {
-        if ($GLOBALS['PMA_String']->strstr($string, '.')) {
+        if (/*overload*/mb_strstr($string, '.')) {
             $temp = explode('.', $string);
             $tablename = $temp[1];
         } else {
@@ -610,21 +610,18 @@ class PMA_Tracker
         $ddlog = array();
         $i = 0;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Iterate tracked data definition statements
         // For each log entry we want to get date, username and statement
         foreach ($log_schema_entries as $log_entry) {
             if (trim($log_entry) != '') {
-                $date      = $pmaString->substr($log_entry, 0, 19);
-                $username  = $pmaString->substr(
-                    $log_entry, 20, $pmaString->strpos($log_entry, "\n") - 20
+                $date      = /*overload*/mb_substr($log_entry, 0, 19);
+                $username  = /*overload*/mb_substr(
+                    $log_entry, 20, /*overload*/mb_strpos($log_entry, "\n") - 20
                 );
                 if ($i == 0) {
                     $ddl_date_from = $date;
                 }
-                $statement = rtrim($pmaString->strstr($log_entry, "\n"));
+                $statement = rtrim(/*overload*/mb_strstr($log_entry, "\n"));
 
                 $ddlog[] = array( 'date' => $date,
                                   'username'=> $username,
@@ -645,14 +642,14 @@ class PMA_Tracker
         // For each log entry we want to get date, username and statement
         foreach ($log_data_entries as $log_entry) {
             if (trim($log_entry) != '') {
-                $date      = $pmaString->substr($log_entry, 0, 19);
-                $username  = $pmaString->substr(
-                    $log_entry, 20, $pmaString->strpos($log_entry, "\n") - 20
+                $date      = /*overload*/mb_substr($log_entry, 0, 19);
+                $username  = /*overload*/mb_substr(
+                    $log_entry, 20, /*overload*/mb_strpos($log_entry, "\n") - 20
                 );
                 if ($i == 0) {
                     $dml_date_from = $date;
                 }
-                $statement = rtrim($pmaString->strstr($log_entry, "\n"));
+                $statement = rtrim(/*overload*/mb_strstr($log_entry, "\n"));
 
                 $dmlog[] = array( 'date' => $date,
                                   'username' => $username,
@@ -701,9 +698,6 @@ class PMA_Tracker
      */
     static public function parseQuery($query)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Usage of PMA_SQP does not work here
         //
         // require_once("libraries/sqlparser.lib.php");
@@ -718,11 +712,11 @@ class PMA_Tracker
 
         $tokens = explode(" ", $query);
         foreach ($tokens as $key => $value) {
-            $tokens[$key] = $pmaString->strtoupper($value);
+            $tokens[$key] = /*overload*/mb_strtoupper($value);
         }
 
         // Parse USE statement, need it for SQL dump imports
-        if ($pmaString->substr($query, 0, 4) == 'USE ') {
+        if (/*overload*/mb_substr($query, 0, 4) == 'USE ') {
             $prefix = explode('USE ', $query);
             $GLOBALS['db'] = self::getTableName($prefix[1]);
         }
@@ -743,7 +737,7 @@ class PMA_Tracker
 
             $index = array_search('VIEW', $tokens);
 
-            $result['tablename'] = $pmaString->strtolower(
+            $result['tablename'] = /*overload*/mb_strtolower(
                 self::getTableName($tokens[$index + 1])
             );
         }
@@ -758,19 +752,19 @@ class PMA_Tracker
 
             $index = array_search('VIEW', $tokens);
 
-            $result['tablename'] = $pmaString->strtolower(
+            $result['tablename'] = /*overload*/mb_strtolower(
                 self::getTableName($tokens[$index + 1])
             );
         }
 
         // Parse DROP VIEW statement
         if (! isset($result['identifier'])
-            && $pmaString->substr($query, 0, 10) == 'DROP VIEW '
+            && substr($query, 0, 10) == 'DROP VIEW '
         ) {
             $result['identifier'] = 'DROP VIEW';
 
             $prefix  = explode('DROP VIEW ', $query);
-            $str = $pmaString->strstr($prefix[1], 'IF EXISTS');
+            $str = /*overload*/mb_strstr($prefix[1], 'IF EXISTS');
 
             if ($str == false ) {
                 $str = $prefix[1];
@@ -780,7 +774,7 @@ class PMA_Tracker
 
         // Parse CREATE DATABASE statement
         if (! isset($result['identifier'])
-            && $pmaString->substr($query, 0, 15) == 'CREATE DATABASE'
+            && substr($query, 0, 15) == 'CREATE DATABASE'
         ) {
             $result['identifier'] = 'CREATE DATABASE';
             $str = str_replace('CREATE DATABASE', '', $query);
@@ -794,7 +788,7 @@ class PMA_Tracker
 
         // Parse ALTER DATABASE statement
         if (! isset($result['identifier'])
-            && $pmaString->substr($query, 0, 14) == 'ALTER DATABASE'
+            && substr($query, 0, 14) == 'ALTER DATABASE'
         ) {
             $result['identifier'] = 'ALTER DATABASE';
             $result['tablename'] = '';
@@ -802,7 +796,7 @@ class PMA_Tracker
 
         // Parse DROP DATABASE statement
         if (! isset($result['identifier'])
-            && $pmaString->substr($query, 0, 13) == 'DROP DATABASE'
+            && substr($query, 0, 13) == 'DROP DATABASE'
         ) {
             $result['identifier'] = 'DROP DATABASE';
             $str = str_replace('DROP DATABASE', '', $query);
@@ -813,7 +807,7 @@ class PMA_Tracker
 
         // Parse CREATE TABLE statement
         if (! isset($result['identifier'])
-            && $pmaString->substr($query, 0, 12) == 'CREATE TABLE'
+            && substr($query, 0, 12) == 'CREATE TABLE'
         ) {
             $result['identifier'] = 'CREATE TABLE';
             $query   = str_replace('IF NOT EXISTS', '', $query);
@@ -824,7 +818,7 @@ class PMA_Tracker
 
         // Parse ALTER TABLE statement
         if (! isset($result['identifier'])
-            && $pmaString->substr($query, 0, 12) == 'ALTER TABLE '
+            && substr($query, 0, 12) == 'ALTER TABLE '
         ) {
             $result['identifier'] = 'ALTER TABLE';
 
@@ -835,12 +829,12 @@ class PMA_Tracker
 
         // Parse DROP TABLE statement
         if (! isset($result['identifier'])
-            && $pmaString->substr($query, 0, 11) == 'DROP TABLE '
+            && substr($query, 0, 11) == 'DROP TABLE '
         ) {
             $result['identifier'] = 'DROP TABLE';
 
             $prefix  = explode('DROP TABLE ', $query);
-            $str = $pmaString->strstr($prefix[1], 'IF EXISTS');
+            $str = /*overload*/mb_strstr($prefix[1], 'IF EXISTS');
 
             if ($str == false ) {
                 $str = $prefix[1];
@@ -850,9 +844,9 @@ class PMA_Tracker
 
         // Parse CREATE INDEX statement
         if (! isset($result['identifier'])
-            && ($pmaString->substr($query, 0, 12) == 'CREATE INDEX'
-            || $pmaString->substr($query, 0, 19) == 'CREATE UNIQUE INDEX'
-            || $pmaString->substr($query, 0, 20) == 'CREATE SPATIAL INDEX')
+            && (substr($query, 0, 12) == 'CREATE INDEX'
+            || substr($query, 0, 19) == 'CREATE UNIQUE INDEX'
+            || substr($query, 0, 20) == 'CREATE SPATIAL INDEX')
         ) {
              $result['identifier'] = 'CREATE INDEX';
              $prefix = explode('ON ', $query);
@@ -862,7 +856,7 @@ class PMA_Tracker
 
         // Parse DROP INDEX statement
         if (! isset($result['identifier'])
-            && $pmaString->substr($query, 0, 10) == 'DROP INDEX'
+            && substr($query, 0, 10) == 'DROP INDEX'
         ) {
              $result['identifier'] = 'DROP INDEX';
              $prefix = explode('ON ', $query);
@@ -871,7 +865,7 @@ class PMA_Tracker
 
         // Parse RENAME TABLE statement
         if (! isset($result['identifier'])
-            && $pmaString->substr($query, 0, 13) == 'RENAME TABLE '
+            && substr($query, 0, 13) == 'RENAME TABLE '
         ) {
             $result['identifier'] = 'RENAME TABLE';
             $prefix = explode('RENAME TABLE ', $query);
@@ -889,7 +883,7 @@ class PMA_Tracker
         }
         // Parse UPDATE statement
         if (! isset($result['identifier'])
-            && $pmaString->substr($query, 0, 6) == 'UPDATE'
+            && substr($query, 0, 6) == 'UPDATE'
         ) {
             $result['identifier'] = 'UPDATE';
             $prefix  = explode('UPDATE ', $query);
@@ -899,7 +893,7 @@ class PMA_Tracker
 
         // Parse INSERT INTO statement
         if (! isset($result['identifier'])
-            && $pmaString->substr($query, 0, 11) == 'INSERT INTO'
+            && substr($query, 0, 11) == 'INSERT INTO'
         ) {
             $result['identifier'] = 'INSERT';
             $prefix  = explode('INSERT INTO', $query);
@@ -909,7 +903,7 @@ class PMA_Tracker
 
         // Parse DELETE statement
         if (! isset($result['identifier'])
-            && $pmaString->substr($query, 0, 6) == 'DELETE'
+            && substr($query, 0, 6) == 'DELETE'
         ) {
             $result['identifier'] = 'DELETE';
             $prefix  = explode('FROM ', $query);
@@ -919,7 +913,7 @@ class PMA_Tracker
 
         // Parse TRUNCATE statement
         if (! isset($result['identifier'])
-            && $pmaString->substr($query, 0, 8) == 'TRUNCATE'
+            && substr($query, 0, 8) == 'TRUNCATE'
         ) {
             $result['identifier'] = 'TRUNCATE';
             $prefix  = explode('TRUNCATE', $query);
@@ -941,15 +935,12 @@ class PMA_Tracker
      */
     static public function handleQuery($query)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // If query is marked as untouchable, leave
-        if ($pmaString->strstr($query, "/*NOTRACK*/")) {
+        if (/*overload*/mb_strstr($query, "/*NOTRACK*/")) {
             return;
         }
 
-        if (! ($pmaString->substr($query, -1) == ';')) {
+        if (! (substr($query, -1) == ';')) {
             $query = $query . ";\n";
         }
         // Get some information about query

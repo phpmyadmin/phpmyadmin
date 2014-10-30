@@ -22,9 +22,7 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
 {
     global $db, $table, $url_query, $ajax_class;
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
+    $icon = 'b_' . /*overload*/mb_strtolower($name) . '_add.png';
     $retval  = "";
     $retval .= "<!-- ADD " . $name . " FORM START -->\n";
     $retval .= "<fieldset class='left'>\n";
@@ -32,14 +30,14 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
     $retval .= "        <div class='wrap'>\n";
     if (PMA_Util::currentUserHasPrivilege($priv, $db, $table)) {
         $retval .= "            <a {$ajax_class['add']} ";
-        $retval .= "href='db_" . $pmaString->strtolower($name) . "s.php";
-        $retval .= "$url_query&amp;add_item=1' ";
+        $retval .= "href='db_" . /*overload*/mb_strtolower($name) . "s.php";
+        $retval .= "?$url_query&amp;add_item=1' ";
         $retval .= "onclick='$.datepicker.initialized = false;'>";
-        $icon = 'b_' . $pmaString->strtolower($name) . '_add.png';
+        $icon = 'b_' . /*overload*/mb_strtolower($name) . '_add.png';
         $retval .= PMA_Util::getIcon($icon);
         $retval .= PMA_RTE_getWord('add') . "</a>\n";
     } else {
-        $icon = 'bd_' . $pmaString->strtolower($name) . '_add.png';
+        $icon = 'bd_' . /*overload*/mb_strtolower($name) . '_add.png';
         $retval .= PMA_Util::getIcon($icon);
         $retval .= PMA_RTE_getWord('add') . "\n";
     }
@@ -90,7 +88,7 @@ function PMA_EVN_getFooterLinks()
         0,
         1
     );
-    $es_state = $GLOBALS['PMA_String']->strtolower($es_state);
+    $es_state = /*overload*/mb_strtolower($es_state);
     $options = array(
                     0 => array(
                         'label' => __('OFF'),

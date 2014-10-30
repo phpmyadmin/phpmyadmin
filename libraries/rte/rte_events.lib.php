@@ -202,7 +202,7 @@ function PMA_EVN_handleEditor()
                 $response->addJSON(
                     'name',
                     htmlspecialchars(
-                        $GLOBALS['PMA_String']->strtoupper($_REQUEST['item_name'])
+                        /*overload*/mb_strtoupper($_REQUEST['item_name'])
                     )
                 );
                 $response->addJSON('new_row', PMA_EVN_getRowForList($event));
@@ -379,9 +379,6 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
 {
     global $db, $table, $event_status, $event_type, $event_interval;
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     // Escape special characters
     $need_escape = array(
                        'item_original_name',
@@ -422,7 +419,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     }
     // Create the output
     $retval  = "";
-    $retval .= "<!-- START " . $pmaString->strtoupper($mode) . " EVENT FORM -->\n\n";
+    $retval .= "<!-- START " . /*overload*/mb_strtoupper($mode) . " EVENT FORM -->\n\n";
     $retval .= "<form class='rte_form' action='db_events.php' method='post'>\n";
     $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
     $retval .= $original_data;
@@ -557,7 +554,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
         $retval .= "</fieldset>\n";
     }
     $retval .= "</form>\n\n";
-    $retval .= "<!-- END " . $pmaString->strtoupper($mode) . " EVENT FORM -->\n\n";
+    $retval .= "<!-- END " . /*overload*/mb_strtoupper($mode) . " EVENT FORM -->\n\n";
 
     return $retval;
 } // end PMA_EVN_getEditorForm()
@@ -573,7 +570,7 @@ function PMA_EVN_getQueryFromRequest()
 
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
-        if ($GLOBALS['PMA_String']->strpos($_REQUEST['item_definer'], '@') !== false
+        if (/*overload*/mb_strpos($_REQUEST['item_definer'], '@') !== false
         ) {
             $arr = explode('@', $_REQUEST['item_definer']);
             $query .= 'DEFINER=' . PMA_Util::backquote($arr[0]);

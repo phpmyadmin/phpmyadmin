@@ -178,7 +178,7 @@ class PMA_DIA extends XMLWriter
         PMA_downloadHeader(
             $fileName . '.dia',
             'application/x-dia-diagram',
-            $GLOBALS['PMA_String']->strlen($output)
+            /*overload*/mb_strlen($output)
         );
         print $output;
     }

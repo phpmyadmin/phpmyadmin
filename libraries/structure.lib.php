@@ -733,7 +733,7 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
                 : ($table_is_view ? __('View') : '')
             )
             . '</td>';
-        if ($GLOBALS['PMA_String']->strlen($collation)) {
+        if (/*overload*/mb_strlen($collation)) {
             $html_output .= '<td class="nowrap">' . $collation . '</td>';
         }
     }
@@ -1020,17 +1020,14 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
     $do = false;
     include_once 'libraries/replication.inc.php';
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     if (!$server_slave_status) {
         return array($do, $ignored);
     }
 
     $nbServerSlaveDoDb = count($server_slave_Do_DB);
     $nbServerSlaveIgnoreDb = count($server_slave_Ignore_DB);
-    if (($pmaString->strlen(array_search($truename, $server_slave_Do_Table)) > 0)
-        || $pmaString->strlen(array_search($GLOBALS['db'], $server_slave_Do_DB)) > 0
+    if ((strlen(array_search($truename, $server_slave_Do_Table)) > 0)
+        || strlen(array_search($GLOBALS['db'], $server_slave_Do_DB)) > 0
         || ($nbServerSlaveDoDb == 1 && $nbServerSlaveIgnoreDb == 1)
     ) {
         $do = true;
@@ -1038,7 +1035,7 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
     foreach ($server_slave_Wild_Do_Table as $db_table) {
         $table_part = PMA_extractDbOrTable($db_table, 'table');
         $pattern = "@^"
-            . $pmaString->substr($table_part, 0, $pmaString->strlen($table_part) - 1)
+            . /*overload*/mb_substr($table_part, 0, -1)
             . "@";
         if (($GLOBALS['db'] == PMA_extractDbOrTable($db_table, 'db'))
             && (preg_match($pattern, $truename))
@@ -1048,15 +1045,15 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
     }
 
     $search = array_search($GLOBALS['db'], $server_slave_Ignore_DB);
-    if (($pmaString->strlen(array_search($truename, $server_slave_Ignore_Table)) > 0)
-        || $pmaString->strlen($search) > 0
+    if ((strlen(array_search($truename, $server_slave_Ignore_Table)) > 0)
+        || strlen($search) > 0
     ) {
         $ignored = true;
     }
     foreach ($server_slave_Wild_Ignore_Table as $db_table) {
         $table_part = PMA_extractDbOrTable($db_table, 'table');
         $pattern = "@^"
-            . $pmaString->substr($table_part, 0, $pmaString->strlen($table_part) - 1)
+            . /*overload*/mb_substr($table_part, 0, -1)
             . "@";
         if (($db == PMA_extractDbOrTable($db_table))
             && (preg_match($pattern, $truename))
@@ -1378,7 +1375,7 @@ function PMA_getHtmlTableStructureRow($row, $rownum,
     $html_output .= '</td>';
 
     $html_output .= '<td class="nowrap">'
-        . $GLOBALS['PMA_String']->strtoupper($row['Extra']) . '</td>';
+        . /*overload*/mb_strtoupper($row['Extra']) . '</td>';
 
     $html_output .= PMA_getHtmlForDropColumn(
         $tbl_is_view, $db_is_system_schema,
@@ -1979,17 +1976,14 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
 function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
     $row, $titles
 ) {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $html_output = '<li class="fulltext nowrap">';
     if (! empty($tbl_storage_engine)
         && ($tbl_storage_engine == 'MYISAM'
         || $tbl_storage_engine == 'ARIA'
         || $tbl_storage_engine == 'MARIA'
         || ($tbl_storage_engine == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
-        && ($pmaString->strpos($type, 'text') !== false
-        || $pmaString->strpos($type, 'char') !== false)
+        && (/*overload*/mb_strpos($type, 'text') !== false
+        || /*overload*/mb_strpos($type, 'char') !== false)
     ) {
         $html_output .= '<a rel="samepage" href="sql.php' . $url_query
             . '&amp;sql_query='
@@ -2606,7 +2600,7 @@ function PMA_updateColumns($db, $table)
     ) {
         foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
             if (isset($_REQUEST['field_name'][$fieldindex])
-                && $GLOBALS['PMA_String']->strlen(
+                && /*overload*/mb_strlen(
                     $_REQUEST['field_name'][$fieldindex]
                 )
             ) {
@@ -2679,7 +2673,7 @@ function PMA_moveColumns($db, $table)
         $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
             $column,
             $column,
-            $GLOBALS['PMA_String']->strtoupper($extracted_columnspec['type']),
+            /*overload*/mb_strtoupper($extracted_columnspec['type']),
             $extracted_columnspec['spec_in_brackets'],
             $extracted_columnspec['attribute'],
             isset($data['Collation']) ? $data['Collation'] : '',

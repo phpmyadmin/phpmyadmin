@@ -126,18 +126,15 @@ class PMA_GIS_Visualization
     {
         $file_name = PMA_sanitizeFilename($file_name);
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included
-        $extension_start_pos = $pmaString->strlen($file_name)
-            - $pmaString->strlen($ext) - 1;
-        $user_extension = $pmaString->substr(
-            $file_name, $extension_start_pos, $pmaString->strlen($file_name)
+        $extension_start_pos = /*overload*/mb_strlen($file_name)
+            - /*overload*/mb_strlen($ext) - 1;
+        $user_extension = /*overload*/mb_substr(
+            $file_name, $extension_start_pos, /*overload*/mb_strlen($file_name)
         );
         $required_extension = "." . $ext;
-        if ($pmaString->strtolower($user_extension) != $required_extension) {
+        if (/*overload*/mb_strtolower($user_extension) != $required_extension) {
             $file_name  .= $required_extension;
         }
         return $file_name;
@@ -374,15 +371,12 @@ class PMA_GIS_Visualization
         $plot_width = $this->_settings['width'] - 2 * $border;
         $plot_height = $this->_settings['height'] - 2 * $border;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         foreach ($data as $row) {
 
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];
-            $type_pos = $pmaString->stripos($ref_data, '(');
-            $type = $pmaString->substr($ref_data, 0, $type_pos);
+            $type_pos = /*overload*/mb_stripos($ref_data, '(');
+            $type = /*overload*/mb_substr($ref_data, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
             if (! $gis_obj) {
@@ -461,17 +455,14 @@ class PMA_GIS_Visualization
     {
         $color_number = 0;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // loop through the rows
         foreach ($data as $row) {
             $index = $color_number % sizeof($this->_settings['colors']);
 
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];
-            $type_pos = $pmaString->stripos($ref_data, '(');
-            $type = $pmaString->substr($ref_data, 0, $type_pos);
+            $type_pos = /*overload*/mb_stripos($ref_data, '(');
+            $type = /*overload*/mb_substr($ref_data, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
             if (! $gis_obj) {

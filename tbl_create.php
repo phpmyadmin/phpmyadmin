@@ -19,7 +19,7 @@ PMA_Util::checkParameters(array('db'));
 $pmaString = $GLOBALS['PMA_String'];
 
 /* Check if database name is empty */
-if ($pmaString->strlen($db) == 0) {
+if (/*overload*/mb_strlen($db) == 0) {
     PMA_Util::mysqlDie(
         __('The database name is empty!'), '', false, 'index.php'
     );
@@ -76,7 +76,7 @@ if (isset($_REQUEST['do_save_data'])) {
         ) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
-                    && $pmaString->strlen($_REQUEST['field_name'][$fieldindex])
+                    && /*overload*/mb_strlen($_REQUEST['field_name'][$fieldindex])
                 ) {
                     PMA_setMIME(
                         $db, $table,

@@ -130,7 +130,7 @@ if ($is_select) {
         $table = $analyzed_sql[0]['table_ref'][0]['table_true_name'];
     }
     if (isset($analyzed_sql[0]['table_ref'][0]['db'])
-        && $GLOBALS['PMA_String']->strlen($analyzed_sql[0]['table_ref'][0]['db'])
+        && /*overload*/mb_strlen($analyzed_sql[0]['table_ref'][0]['db'])
     ) {
         $db    = $analyzed_sql[0]['table_ref'][0]['db'];
     } else {

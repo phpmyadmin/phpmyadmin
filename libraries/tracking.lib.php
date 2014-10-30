@@ -51,9 +51,6 @@ function PMA_filterTracking(
 function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
     $last_version
 ) {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $html = '<div id="div_create_version">';
     $html .= '<form method="post" action="tbl_tracking.php' . $url_query . '">';
     $html .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
@@ -70,63 +67,63 @@ function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
     $html .= '<p>' . __('Track these data definition statements:')
         . '</p>';
     $html .= '<input type="checkbox" name="alter_table" value="true"'
-        . ($pmaString->stripos(
+        . (/*overload*/mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'ALTER TABLE'
         ) !== false ? ' checked="checked"' : '')
         . ' /> ALTER TABLE<br/>';
     $html .= '<input type="checkbox" name="rename_table" value="true"'
-        . ($pmaString->stripos(
+        . (/*overload*/mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'RENAME TABLE'
         ) !== false ? ' checked="checked"' : '')
         . ' /> RENAME TABLE<br/>';
     $html .= '<input type="checkbox" name="create_table" value="true"'
-        . ($pmaString->stripos(
+        . (/*overload*/mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'CREATE TABLE'
         ) !== false ? ' checked="checked"' : '')
         . ' /> CREATE TABLE<br/>';
     $html .= '<input type="checkbox" name="drop_table" value="true"'
-        . ($pmaString->stripos(
+        . (/*overload*/mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'DROP TABLE'
         ) !== false ? ' checked="checked"' : '')
         . ' /> DROP TABLE<br/>';
     $html .= '<br/>';
     $html .= '<input type="checkbox" name="create_index" value="true"'
-        . ($pmaString->stripos(
+        . (/*overload*/mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'CREATE INDEX'
         ) !== false ? ' checked="checked"' : '')
         . ' /> CREATE INDEX<br/>';
     $html .= '<input type="checkbox" name="drop_index" value="true"'
-        . ($pmaString->stripos(
+        . (/*overload*/mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'DROP INDEX'
         ) !== false ? ' checked="checked"' : '')
         . ' /> DROP INDEX<br/>';
     $html .= '<p>' . __('Track these data manipulation statements:') . '</p>';
     $html .= '<input type="checkbox" name="insert" value="true"'
-        . ($pmaString->stripos(
+        . (/*overload*/mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'INSERT'
         ) !== false ? ' checked="checked"' : '')
         . ' /> INSERT<br/>';
     $html .= '<input type="checkbox" name="update" value="true"'
-        . ($pmaString->stripos(
+        . (/*overload*/mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'UPDATE'
         ) !== false ? ' checked="checked"' : '')
         . ' /> UPDATE<br/>';
     $html .= '<input type="checkbox" name="delete" value="true"'
-        . ($pmaString->stripos(
+        . (/*overload*/mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'DELETE'
         ) !== false ? ' checked="checked"' : '')
         . ' /> DELETE<br/>';
     $html .= '<input type="checkbox" name="truncate" value="true"'
-        . ($pmaString->stripos(
+        . (/*overload*/mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'TRUNCATE'
         ) !== false ? ' checked="checked"' : '')
@@ -802,11 +799,8 @@ function PMA_getHtmlForSchemaSnapshot($url_query)
     // Get first DROP TABLE/VIEW and CREATE TABLE/VIEW statements
     $drop_create_statements = $data['ddlog'][0]['statement'];
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
-    if ($pmaString->strstr($data['ddlog'][0]['statement'], 'DROP TABLE')
-        || $pmaString->strstr($data['ddlog'][0]['statement'], 'DROP VIEW')
+    if (/*overload*/mb_strstr($data['ddlog'][0]['statement'], 'DROP TABLE')
+        || /*overload*/mb_strstr($data['ddlog'][0]['statement'], 'DROP VIEW')
     ) {
         $drop_create_statements .= $data['ddlog'][1]['statement'];
     }
@@ -1155,7 +1149,7 @@ function PMA_exportAsFileDownload($entries)
     PMA_downloadHeader(
         $filename,
         'text/x-sql',
-        $GLOBALS['PMA_String']->strlen($dump)
+        /*overload*/mb_strlen($dump)
     );
 
     $response = PMA_Response::getInstance();

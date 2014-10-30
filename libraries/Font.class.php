@@ -102,21 +102,19 @@ class PMA_Font
          */
         $count = 0;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         foreach ($charLists as $charList) {
-            $count += (($pmaString->strlen($text)
-                - $pmaString->strlen(str_replace($charList["chars"], "", $text))
+            $count += ((/*overload*/mb_strlen($text)
+                - /*overload*/mb_strlen(str_replace($charList["chars"], "", $text))
                 ) * $charList["modifier"]);
         }
 
         $text  = str_replace(" ", "", $text);//remove the " "'s
         //all other chars
         $count = $count
-            + ($pmaString->strlen(preg_replace("/[a-z0-9]/i", "", $text)) * 0.3);
+            + (/*overload*/mb_strlen(preg_replace("/[a-z0-9]/i", "", $text)) * 0.3);
 
         $modifier = 1;
-        $font = $pmaString->strtolower($font);
+        $font = /*overload*/mb_strtolower($font);
         switch ($font) {
         /*
          * no modifier for arial and sans-serif

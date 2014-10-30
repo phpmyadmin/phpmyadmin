@@ -561,8 +561,8 @@ if (isset($GLOBALS['dbi'])
 
     $_client_info = $GLOBALS['dbi']->getClientInfo();
     if ($server > 0
-        && $pmaString->strpos($_client_info, 'mysqlnd') === false
-        && $pmaString->substr(PMA_MYSQL_CLIENT_API, 0, 3) != $pmaString->substr(
+        && /*overload*/mb_strpos($_client_info, 'mysqlnd') === false
+        && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(
             PMA_MYSQL_INT_VERSION, 0, 3
         )
     ) {
@@ -571,10 +571,10 @@ if (isset($GLOBALS['dbi'])
                 sprintf(
                     __('Your PHP MySQL library version %s differs from your MySQL server version %s. This may cause unpredictable behavior.'),
                     $_client_info,
-                    $pmaString->substr(
+                    substr(
                         PMA_MYSQL_STR_VERSION,
                         0,
-                        $pmaString->strpos(PMA_MYSQL_STR_VERSION . '-', '-')
+                        strpos(PMA_MYSQL_STR_VERSION . '-', '-')
                     )
                 )
             ),

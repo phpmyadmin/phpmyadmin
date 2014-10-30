@@ -55,11 +55,8 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
      */
     public function scaleRow($spatial)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = $pmaString->substr($spatial, 6, $pmaString->strlen($spatial) - 7);
+        $point = /*overload*/mb_substr($spatial, 6, /*overload*/mb_strlen($spatial) - 7);
         return $this->setMinMax($point, array());
     }
 
@@ -78,18 +75,15 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $point_color,
         $scale_data, $image
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
-        $red   = hexdec($pmaString->substr($point_color, 1, 2));
-        $green = hexdec($pmaString->substr($point_color, 3, 2));
-        $blue  = hexdec($pmaString->substr($point_color, 4, 2));
+        $red   = hexdec(/*overload*/mb_substr($point_color, 1, 2));
+        $green = hexdec(/*overload*/mb_substr($point_color, 3, 2));
+        $blue  = hexdec(/*overload*/mb_substr($point_color, 4, 2));
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = $pmaString->substr($spatial, 6, $pmaString->strlen($spatial) - 7);
+        $point = /*overload*/mb_substr($spatial, 6, /*overload*/mb_strlen($spatial) - 7);
         $points_arr = $this->extractPoints($point, $scale_data);
 
         // draw a small circle to mark the point
@@ -123,17 +117,14 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
     public function prepareRowAsPdf($spatial, $label, $point_color,
         $scale_data, $pdf
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // allocate colors
-        $red   = hexdec($pmaString->substr($point_color, 1, 2));
-        $green = hexdec($pmaString->substr($point_color, 3, 2));
-        $blue  = hexdec($pmaString->substr($point_color, 4, 2));
+        $red   = hexdec(/*overload*/mb_substr($point_color, 1, 2));
+        $green = hexdec(/*overload*/mb_substr($point_color, 3, 2));
+        $blue  = hexdec(/*overload*/mb_substr($point_color, 4, 2));
         $line  = array('width' => 1.25, 'color' => array($red, $green, $blue));
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = $pmaString->substr($spatial, 6, $pmaString->strlen($spatial) - 7);
+        $point = /*overload*/mb_substr($spatial, 6, /*overload*/mb_strlen($spatial) - 7);
         $points_arr = $this->extractPoints($point, $scale_data);
 
         // draw a small circle to mark the point
@@ -173,11 +164,8 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
             'stroke-width'=> 2,
         );
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = $pmaString->substr($spatial, 6, $pmaString->strlen($spatial) - 7);
+        $point = /*overload*/mb_substr($spatial, 6, /*overload*/mb_strlen($spatial) - 7);
         $points_arr = $this->extractPoints($point, $scale_data);
 
         $row = '';
@@ -223,11 +211,8 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
         }
         $result = $this->getBoundsForOl($srid, $scale_data);
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = $pmaString->substr($spatial, 6, $pmaString->strlen($spatial) - 7);
+        $point = /*overload*/mb_substr($spatial, 6, /*overload*/mb_strlen($spatial) - 7);
         $points_arr = $this->extractPoints($point, null);
 
         if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
@@ -296,11 +281,8 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
             $wkt = $value;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = $pmaString->substr($wkt, 6, $pmaString->strlen($wkt) - 7);
+        $point = /*overload*/mb_substr($wkt, 6, /*overload*/mb_strlen($wkt) - 7);
         $points_arr = $this->extractPoints($point, null);
 
         $params[$index]['POINT']['x'] = $points_arr[0][0];

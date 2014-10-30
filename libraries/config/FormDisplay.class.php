@@ -358,9 +358,6 @@ class FormDisplay
             $opts['errors'] = $this->_errors[$work_path];
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         switch ($form->getOptionType($field)) {
         case 'string':
             $type = 'text';
@@ -386,8 +383,8 @@ class FormDisplay
             break;
         case 'group':
             // :group:end is changed to :group:end:{unique id} in Form class
-            if ($pmaString->substr($field, 7, 4) != 'end:') {
-                PMA_displayGroupHeader($pmaString->substr($field, 7));
+            if (/*overload*/mb_substr($field, 7, 4) != 'end:') {
+                PMA_displayGroupHeader(/*overload*/mb_substr($field, 7));
             } else {
                 PMA_displayGroupFooter();
             }
@@ -399,7 +396,7 @@ class FormDisplay
 
         // detect password fields
         if ($type === 'text'
-            && $pmaString->substr($translated_path, -9) === '-password'
+            && /*overload*/mb_substr($translated_path, -9) === '-password'
         ) {
             $type = 'password';
         }
@@ -704,7 +701,7 @@ class FormDisplay
      */
     public function getDocLink($path)
     {
-        $test = $GLOBALS['PMA_String']->substr($path, 0, 6);
+        $test = /*overload*/mb_substr($path, 0, 6);
         if ($test == 'Import' || $test == 'Export') {
             return '';
         }

@@ -148,7 +148,7 @@ class PMA_Config
         }
 
         // disable output-buffering (if set to 'auto') for IE6, else enable it.
-        if ($GLOBALS['PMA_String']->strtolower($this->get('OBGzip')) == 'auto') {
+        if (strtolower($this->get('OBGzip')) == 'auto') {
             if ($this->get('PMA_USR_BROWSER_AGENT') == 'IE'
                 && $this->get('PMA_USR_BROWSER_VER') >= 6
                 && $this->get('PMA_USR_BROWSER_VER') < 7
@@ -176,19 +176,16 @@ class PMA_Config
             $HTTP_USER_AGENT = '';
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // 1. Platform
-        if ($pmaString->strstr($HTTP_USER_AGENT, 'Win')) {
+        if (/*overload*/mb_strstr($HTTP_USER_AGENT, 'Win')) {
             $this->set('PMA_USR_OS', 'Win');
-        } elseif ($pmaString->strstr($HTTP_USER_AGENT, 'Mac')) {
+        } elseif (/*overload*/mb_strstr($HTTP_USER_AGENT, 'Mac')) {
             $this->set('PMA_USR_OS', 'Mac');
-        } elseif ($pmaString->strstr($HTTP_USER_AGENT, 'Linux')) {
+        } elseif (/*overload*/mb_strstr($HTTP_USER_AGENT, 'Linux')) {
             $this->set('PMA_USR_OS', 'Linux');
-        } elseif ($pmaString->strstr($HTTP_USER_AGENT, 'Unix')) {
+        } elseif (/*overload*/mb_strstr($HTTP_USER_AGENT, 'Unix')) {
             $this->set('PMA_USR_OS', 'Unix');
-        } elseif ($pmaString->strstr($HTTP_USER_AGENT, 'OS/2')) {
+        } elseif (/*overload*/mb_strstr($HTTP_USER_AGENT, 'OS/2')) {
             $this->set('PMA_USR_OS', 'OS/2');
         } else {
             $this->set('PMA_USR_OS', 'Other');
@@ -263,7 +260,7 @@ class PMA_Config
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // Firefox
-        } elseif (! $pmaString->strstr($HTTP_USER_AGENT, 'compatible')
+        } elseif (! /*overload*/mb_strstr($HTTP_USER_AGENT, 'compatible')
             && preg_match('@Firefox/([\w.]+)@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set(
@@ -306,7 +303,7 @@ class PMA_Config
 
         if (@function_exists('gd_info')) {
             $gd_nfo = gd_info();
-            if ($GLOBALS['PMA_String']->strstr($gd_nfo["GD Version"], '2.')) {
+            if (/*overload*/mb_strstr($gd_nfo["GD Version"], '2.')) {
                 $this->set('PMA_IS_GD2', 1);
             } else {
                 $this->set('PMA_IS_GD2', 0);
@@ -435,14 +432,12 @@ class PMA_Config
             return;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         $branch = false;
         // are we on any branch?
-        if ($pmaString->strstr($ref_head, '/')) {
-            $ref_head = $pmaString->substr(trim($ref_head), 5);
-            if ($pmaString->substr($ref_head, 0, 11) === 'refs/heads/') {
-                $branch = $pmaString->substr($ref_head, 11);
+        if (/*overload*/mb_strstr($ref_head, '/')) {
+            $ref_head = /*overload*/mb_substr(trim($ref_head), 5);
+            if (substr($ref_head, 0, 11) === 'refs/heads/') {
+                $branch = /*overload*/mb_substr($ref_head, 11);
             } else {
                 $branch = basename($ref_head);
             }
@@ -782,21 +777,19 @@ class PMA_Config
         $httpOk = 'HTTP/1.1 200 OK';
         $httpNotFound = 'HTTP/1.1 404 Not Found';
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-        if ($pmaString->substr($data, 0, $pmaString->strlen($httpOk)) === $httpOk) {
+        if (substr($data, 0, strlen($httpOk)) === $httpOk) {
             return $get_body
-                ? $pmaString->substr(
+                ? /*overload*/mb_substr(
                     $data,
-                    $pmaString->strpos($data, "\r\n\r\n") + 4
+                    /*overload*/mb_strpos($data, "\r\n\r\n") + 4
                 )
                 : true;
         }
 
-        $httpNOK = $pmaString->substr(
+        $httpNOK = substr(
             $data,
             0,
-            $pmaString->strlen($httpNotFound)
+            strlen($httpNotFound)
         );
         if ($httpNOK === $httpNotFound) {
             return false;
@@ -1292,9 +1285,7 @@ class PMA_Config
         $pma_absolute_uri = $this->get('PmaAbsoluteUri');
         $is_https = $this->detectHttps();
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-        if ($pmaString->strlen($pma_absolute_uri) < 5) {
+        if (/*overload*/mb_strlen($pma_absolute_uri) < 5) {
             $url = array();
 
             // If we don't have scheme, we didn't have full URL so we need to
@@ -1390,7 +1381,7 @@ class PMA_Config
                 $path = '';
             }
             // in vhost situations, there could be already an ending slash
-            if ($pmaString->substr($path, -1) != '/') {
+            if (/*overload*/mb_substr($path, -1) != '/') {
                 $path .= '/';
             }
             $pma_absolute_uri .= $path;
@@ -1412,20 +1403,20 @@ class PMA_Config
 
             // Adds a trailing slash et the end of the phpMyAdmin uri if it
             // does not exist.
-            if ($pmaString->substr($pma_absolute_uri, -1) != '/') {
+            if (/*overload*/mb_substr($pma_absolute_uri, -1) != '/') {
                 $pma_absolute_uri .= '/';
             }
 
             // If URI doesn't start with http:// or https://, we will add
             // this.
-            if ($pmaString->substr($pma_absolute_uri, 0, 7) != 'http://'
-                && $pmaString->substr($pma_absolute_uri, 0, 8) != 'https://'
+            if (/*overload*/mb_substr($pma_absolute_uri, 0, 7) != 'http://'
+                && /*overload*/mb_substr($pma_absolute_uri, 0, 8) != 'https://'
             ) {
                 $pma_absolute_uri
                     = ($is_https ? 'https' : 'http')
                     . ':'
                     . (
-                    $pmaString->substr($pma_absolute_uri, 0, 2) == '//' ? '' : '//'
+                    /*overload*/mb_substr($pma_absolute_uri, 0, 2) == '//' ? '' : '//'
                     )
                     . $pma_absolute_uri;
             }
@@ -1520,7 +1511,7 @@ class PMA_Config
         $this->set('enable_upload', true);
         // if set "php_admin_value file_uploads Off" in httpd.conf
         // ini_get() also returns the string "Off" in this case:
-        if ('off' == $GLOBALS['PMA_String']->strtolower(ini_get('file_uploads'))) {
+        if ('off' == strtolower(ini_get('file_uploads'))) {
             $this->set('enable_upload', false);
         }
     }
@@ -1597,9 +1588,6 @@ class PMA_Config
             }
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // If we don't have scheme, we didn't have full URL so we need to
         // dig deeper
         if (empty($url['scheme'])) {
@@ -1607,19 +1595,19 @@ class PMA_Config
             if (PMA_getenv('HTTP_SCHEME')) {
                 $url['scheme'] = PMA_getenv('HTTP_SCHEME');
             } elseif (PMA_getenv('HTTPS')
-                && $pmaString->strtolower(PMA_getenv('HTTPS')) == 'on'
+                && strtolower(PMA_getenv('HTTPS')) == 'on'
             ) {
                 $url['scheme'] = 'https';
                 // A10 Networks load balancer:
             } elseif (PMA_getenv('HTTP_HTTPS_FROM_LB')
-                && $pmaString->strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on'
+                && strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on'
             ) {
                 $url['scheme'] = 'https';
             } elseif (PMA_getenv('HTTP_X_FORWARDED_PROTO')) {
                 $url['scheme']
-                    = $pmaString->strtolower(PMA_getenv('HTTP_X_FORWARDED_PROTO'));
+                    = /*overload*/mb_strtolower(PMA_getenv('HTTP_X_FORWARDED_PROTO'));
             } elseif (PMA_getenv('HTTP_FRONT_END_HTTPS')
-                && $pmaString->strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on'
+                && strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on'
             ) {
                 $url['scheme'] = 'https';
             } else {
@@ -1858,9 +1846,7 @@ class PMA_Config
     function setCookie($cookie, $value, $default = null, $validity = null,
         $httponly = true
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-        if ($pmaString->strlen($value) && null !== $default && $value === $default) {
+        if (/*overload*/mb_strlen($value) && null !== $default && $value === $default) {
             // default value is used
             if (isset($_COOKIE[$cookie])) {
                 // remove cookie
@@ -1869,7 +1855,7 @@ class PMA_Config
             return false;
         }
 
-        if (!$pmaString->strlen($value) && isset($_COOKIE[$cookie])) {
+        if (!/*overload*/mb_strlen($value) && isset($_COOKIE[$cookie])) {
             // remove cookie, value is empty
             return $this->removeCookie($cookie);
         }

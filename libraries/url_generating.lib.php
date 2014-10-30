@@ -42,14 +42,11 @@ function PMA_URL_getHiddenInputs($db = '', $table = '',
         $indent  =& $_indent;
         $skip    =& $_skip;
     } else {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $params = array();
-        if ($pmaString->strlen($db)) {
+        if (/*overload*/mb_strlen($db)) {
             $params['db'] = $db;
         }
-        if ($pmaString->strlen($table)) {
+        if (/*overload*/mb_strlen($table)) {
             $params['table'] = $table;
         }
     }
@@ -229,18 +226,15 @@ function PMA_URL_getArgSeparator($encode = 'none')
     static $separator = null;
     static $html_separator = null;
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     if (null === $separator) {
         // use separators defined by php, but prefer ';'
         // as recommended by W3C
         // (see http://www.w3.org/TR/1999/REC-html401-19991224/appendix
         // /notes.html#h-B.2.2)
         $arg_separator = ini_get('arg_separator.input');
-        if ($pmaString->strpos($arg_separator, ';') !== false) {
+        if (/*overload*/mb_strpos($arg_separator, ';') !== false) {
             $separator = ';';
-        } elseif ($pmaString->strlen($arg_separator) > 0) {
+        } elseif (/*overload*/mb_strlen($arg_separator) > 0) {
             $separator = $arg_separator{0};
         } else {
             $separator = '&';
