@@ -1117,8 +1117,10 @@ class PMA_DbQbe
                 continue;
             }
 
-            $orderby_clauses[] = $this->_curField[$column_index] . ' '
-                . $this->_curSort[$column_index];
+            if (! empty($this->_curSort[$column_index])) {
+                $orderby_clauses[] = $this->_curField[$column_index] . ' '
+                    . $this->_curSort[$column_index];
+            }
         } // end for
         if ($orderby_clauses) {
             $orderby_clause = 'ORDER BY '
