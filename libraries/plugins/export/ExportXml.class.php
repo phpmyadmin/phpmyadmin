@@ -103,6 +103,10 @@ class ExportXml extends ExportPlugin
         // create primary items and add them to the group
         if (! PMA_DRIZZLE) {
             $leaf = new BoolPropertyItem();
+            $leaf->setName("export_events");
+            $leaf->setText(__('Events'));
+            $structure->addProperty($leaf);
+            $leaf = new BoolPropertyItem();
             $leaf->setName("export_functions");
             $leaf->setText(__('Functions'));
             $structure->addProperty($leaf);
@@ -352,6 +356,37 @@ class ExportXml extends ExportPlugin
 
                     unset($procedure);
                     unset($procedures);
+                }
+            }
+
+            if (isset($GLOBALS['xml_export_events'])
+                && $GLOBALS['xml_export_events']
+            ) {
+                if (PMA_MYSQL_INT_VERSION > 50100) {
+                    // Export events
+                    $events = $GLOBALS['dbi']->fetchResult(
+                        "SELECT EVENT_NAME FROM information_schema.EVENTS "
+                        . "WHERE EVENT_SCHEMA='" . PMA_Util::sqlAddslashes($db) . "'"
+                    );
+                    if ($events) {
+                        foreach ($events as $event) {
+                            $head .= '            <pma:event name="'
+                                . $event . '">' . $crlf;
+
+                            $sql = $GLOBALS['dbi']->getDefinition(
+                                $db, 'EVENT', $event
+                            );
+                            $sql = rtrim($sql);
+                            $sql = "                " . htmlspecialchars($sql);
+                            $sql = str_replace("\n", "\n                ", $sql);
+
+                            $head .= $sql . $crlf;
+                            $head .= '            </pma:event>' . $crlf;
+                        }
+
+                        unset($event);
+                        unset($events);
+                    }
                 }
             }
 

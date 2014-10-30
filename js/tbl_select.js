@@ -106,7 +106,7 @@ AJAX.registerOnload('tbl_select.js', function () {
 
         $.post($search_form.attr('action'), values, function (data) {
             PMA_ajaxRemoveMessage($msgbox);
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 if (typeof data.sql_query !== 'undefined') { // zero rows
                     $("#sqlqueryresults").html(data.sql_query);
                 } else { // results found

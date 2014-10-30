@@ -330,7 +330,7 @@ $("#tblchartform").live('submit', function (event) {
     PMA_prepareForAjaxRequest($form);
 
     $.post($form.attr('action'), $form.serialize(), function (data) {
-        if (data.success === true) {
+        if (typeof data !== 'undefined' && data.success === true) {
             $('.success').fadeOut();
             if (typeof data.chartData != 'undefined') {
                 chart_data = jQuery.parseJSON(data.chartData);

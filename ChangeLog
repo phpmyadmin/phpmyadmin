@@ -1,6 +1,26 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.2.10.1 (2014-10-21)
+- bug #4562 [security] XSS in debug SQL output
+- bug #4563 [security] XSS in monitor query analyzer
+
+4.2.10.0 (2014-10-11)
+- bug #4361 Can't change font size (when config.inc.php not present)
+- bug #4542 Tab key in column name not shown
+- bug       PDF export: title not present in PDF
+- bug #4543 Changing column name can break saved "order by" clause
+- bug #4545 trying to favorite table while browser localStorage is disabled throws JS error
+- bug #4259 reCaptcha sound session expired problem
+- bug #4548 Inline editing a field converts tab to spaces
+- bug #4252 Database-level permission bug for db names containing underscores
+- bug #3120 Events are not exported when using xml
+- bug #4554 Grid-editing timestamp column forces datepicker
+- bug #4556 Fast filters for tables, views etc. should be governed by NavigationTreeDisplayItemFilterMinimum
+
+4.2.9.1 (2014-10-01)
+- bug #4544 [security] XSS vulnerabilities in table search and table structure pages
+
 4.2.9.0 (2014-09-20)
 - bug       ajax.js responseHandler: cannot read property of null
 - bug       sql.js: str is undefined

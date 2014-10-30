@@ -206,7 +206,7 @@ AJAX.registerOnload('db_structure.js', function () {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function (data) {
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
                     // Adjust table statistics
                     var $tr = $this_anchor.closest('tr');
@@ -266,7 +266,7 @@ AJAX.registerOnload('db_structure.js', function () {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function (data) {
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
                     toggleRowColors($curr_row.next());
                     $curr_row.hide("medium").remove();
@@ -302,7 +302,7 @@ AJAX.registerOnload('db_structure.js', function () {
             PMA_ajaxShowMessage(PMA_messages.strDeletingTrackingData);
 
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     var $tracked_table = $curr_tracking_row.parents('table');
                     var table_name = $curr_tracking_row.find('td:nth-child(2)').text();
 

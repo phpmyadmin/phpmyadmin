@@ -695,7 +695,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             $.get('server_status_monitor.php?' + PMA_commonParams.get('common_query'), vars,
                 function (data) {
                     var logVars;
-                    if (data.success === true) {
+                    if (typeof data !== 'undefined' && data.success === true) {
                         logVars = data.message;
                     } else {
                         return serverResponseError();
@@ -1350,7 +1350,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             requiredData: JSON.stringify(runtime.dataList)
         }, function (data) {
             var chartData;
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 chartData = data.message;
             } else {
                 return serverResponseError();
@@ -1594,7 +1594,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             function (data) {
                 var logData;
                 var dlgBtns = {};
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     logData = data.message;
                 } else {
                     return serverResponseError();
@@ -1855,7 +1855,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             if (name == 'user_host') {
                 return value.replace(/(\[.*?\])+/g, '');
             }
-            return value;
+            return escapeHtml(value);
         };
 
         for (var i = 0, l = rows.length; i < l; i++) {
@@ -1981,7 +1981,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             database: db
         }, function (data) {
             var i;
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 data = data.message;
             }
             if (data.error) {
@@ -2011,7 +2011,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             for (i = 0, l = data.explain.length; i < l; i++) {
                 explain += '<div class="explain-' + i + '"' + (i > 0 ?  'style="display:none;"' : '') + '>';
                 $.each(data.explain[i], function (key, value) {
-                    value = (value === null) ? 'null' : value;
+                    value = (value === null) ? 'null' : escapeHtml(value);
 
                     if (key == 'type' && value.toLowerCase() == 'all') {
                         value = '<span class="attention">' + value + '</span>';

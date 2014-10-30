@@ -1268,7 +1268,11 @@ function PMA_getHtmlTableStructureRow($row, $rownum,
 
     $html_output .= '<th class="nowrap">'
         . '<label for="checkbox_row_' . $rownum . '">'
-        . $displayed_field_name . '</label>'
+        . preg_replace(
+            '/[\x00-\x1F]/',
+            '&#x2051;',
+            $displayed_field_name
+        ) . '</label>'
         . '</th>';
 
     $html_output .= '<td' . $type_nowrap . '>'
@@ -2364,6 +2368,7 @@ function PMA_updateColumns($db, $table)
     $field_cnt = count($_REQUEST['field_name']);
     $key_fields = array();
     $changes = array();
+    $pmatable = new PMA_Table($table, $db);
 
     for ($i = 0; $i < $field_cnt; $i++) {
         if (PMA_columnNeedsAlterTable($i)) {
@@ -2395,6 +2400,18 @@ function PMA_updateColumns($db, $table)
                 ? $_REQUEST['field_move_to'][$i]
                 : ''
             );
+
+            // find the remembered sort expression
+            $sorted_col = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
+            // if the old column name is part of the remembered sort expression
+            if (strpos(
+                $sorted_col,
+                PMA_Util::backquote($_REQUEST['field_orig'][$i])
+            ) !== false) { 
+                // delete the whole remembered sort expression
+                $pmatable->removeUiProp(PMA_Table::PROP_SORTED_COLUMN);
+            }
+
         }
     } // end for
 

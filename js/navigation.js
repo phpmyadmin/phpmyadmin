@@ -177,7 +177,7 @@ $(function () {
         $.ajax({
             url: $(this).attr('href') + '&ajax_request=true',
             success: function (data) {
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(data.error);
@@ -191,7 +191,7 @@ $(function () {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage();
         $.get($(this).attr('href') + '&ajax_request=1', function (data) {
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 var buttonOptions = {};
                 buttonOptions[PMA_messages.strClose] = function () {
@@ -225,7 +225,7 @@ $(function () {
             url: $(this).attr('href') + '&ajax_request=true',
             success: function (data) {
                 PMA_ajaxRemoveMessage($msg);
-                if (data.success === true) {
+                if (typeof data !== 'undefined' && data.success === true) {
                     $tr.remove();
                     PMA_reloadNavigation();
                 } else {
@@ -252,7 +252,7 @@ $(function () {
             cache: false,
             type: 'POST',
             data: {
-                favorite_tables: (window.localStorage['favorite_tables']
+                favorite_tables: (window.localStorage && window.localStorage['favorite_tables']
                     !== undefined)
                     ? window.localStorage['favorite_tables']
                     : ''
@@ -267,7 +267,7 @@ $(function () {
                         $('#' + anchor_id).attr("title")
                     );
                     // Update localStorage.
-                    if (window.localStorage !== undefined) {
+                    if (window.localStorage && window.localStorage !== undefined) {
                         window.localStorage['favorite_tables']
                             = data.favorite_tables;
                     }
@@ -310,7 +310,7 @@ function expandTreeNode($expandElem, callback) {
         $throbber.insertBefore($icon);
 
         loadChildNodes($expandElem, function (data) {
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 var $destination = $expandElem.closest('li');
                 $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
                 $destination
@@ -406,7 +406,7 @@ function loadChildNodes($expandElem, callback) {
 
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     $.get(url, params, function (data) {
-        if (data.success === true) {
+        if (typeof data !== 'undefined' && data.success === true) {
             $expandElem.addClass('loaded');
             $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
             $destination.append(data.message);
@@ -638,7 +638,7 @@ function PMA_reloadNavigation(callback) {
     });
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     $.post(url, params, function (data) {
-        if (data.success) {
+        if (typeof data !== 'undefined' && data.success) {
             $('#pma_navigation_tree').html(data.message).children('div').show();
             PMA_showCurrentNavigation();
             // Fire the callback, if any
@@ -686,7 +686,7 @@ function PMA_navigationTreePagination($this) {
     }
     $.post(url, params, function (data) {
         PMA_ajaxRemoveMessage($msgbox);
-        if (data.success) {
+        if (typeof data !== 'undefined' && data.success) {
             if (isDbSelector) {
                 var val = PMA_fastFilter.getSearchClause();
                 $('#pma_navigation_tree')
