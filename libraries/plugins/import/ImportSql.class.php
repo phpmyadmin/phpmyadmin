@@ -25,29 +25,75 @@ class ImportSql extends ImportPlugin
     const READ_MB_FALSE = 0;
     const READ_MB_TRUE = 1;
 
+    /**
+     * @var string SQL delimiter
+     */
     private $_delimiter;
+
+    /**
+     * @var int SQL delimiter length
+     */
     private $_delimiterLength;
+
+    /**
+     * @var bool|int SQL delimiter position or false if not found
+     */
     private $_delimiterPosition = false;
+
+    /**
+     * @var int Query start position
+     */
     private $_queryBeginPosition = 0;
 
+    /**
+     * @var bool Current position is in string
+     */
     private $_isInString = false;
 
+    /**
+     * @var string Quote of current string or null if out of string
+     */
     private $_quote = null;
 
+    /**
+     * @var bool Current position is in comment
+     */
     private $_isInComment = false;
 
+    /**
+     * @var string Current comment opener
+     */
     private $_openingComment = null;
 
+    /**
+     * @var bool Current position is in delimiter definition
+     */
     private $_isInDelimiter = false;
 
+    /**
+     * @var string Delimiter keyword
+     */
     private $_delimiterKeyword = 'DELIMITER ';
 
+    /**
+     * @var int Import should be done using multibytes
+     */
     private $_readMb = self::READ_MB_FALSE;
 
+    /**
+     * @var string Data to parse
+     */
     private $_data = null;
+
+    /**
+     * @var int Length of data to parse
+     */
     private $_dataLength = 0;
 
-    //@todo Move this part in string functions definition file.
+    /**
+     * @var array List of string functions
+     * @todo Move this part in string functions definition file.
+     */
     private $_stringFunctions = array(
         self::READ_MB_FALSE => array(
             'substr' => 'substr',
@@ -60,6 +106,10 @@ class ImportSql extends ImportPlugin
             'strpos' => 'mb_strpos',
         ),
     );
+
+    /**
+     * @var bool|int List of string functions to use
+     */
     private $_stringFctToUse = false;
 
     /**
