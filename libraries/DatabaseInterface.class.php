@@ -837,7 +837,9 @@ class PMA_DatabaseInterface
             $tables[$table_name]['TABLE_COMMENT']
                 =& $tables[$table_name]['Comment'];
 
-            $commentUpper = /*overload*/mb_strtoupper($tables[$table_name]['Comment']);
+            $commentUpper = /*overload*/mb_strtoupper(
+                $tables[$table_name]['Comment']
+            );
             if ($commentUpper === 'VIEW'
                 && $tables[$table_name]['Engine'] == null
             ) {

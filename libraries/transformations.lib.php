@@ -311,8 +311,9 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
         $row = @$GLOBALS['dbi']->fetchAssoc($test_rs);
         $GLOBALS['dbi']->freeResult($test_rs);
 
+        $transformationLength = /*overload*/mb_strlen($transformation);
         if (! $forcedelete
-            && (/*overload*/mb_strlen($mimetype) || /*overload*/mb_strlen($transformation)
+            && (/*overload*/mb_strlen($mimetype) || $transformationLength
             || /*overload*/mb_strlen($transformationOpts)
             || /*overload*/mb_strlen($row['comment']))
         ) {

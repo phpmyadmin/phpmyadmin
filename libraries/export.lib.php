@@ -365,7 +365,7 @@ function PMA_closeExportFile($file_handle, $dump_buffer, $save_filename)
     $write_result = @fwrite($file_handle, $dump_buffer);
     fclose($file_handle);
     if (/*overload*/mb_strlen($dump_buffer) > 0
-        && (! $write_result || ($write_result != /*overload*/mb_strlen($dump_buffer)))
+        && (! $write_result || $write_result != /*overload*/mb_strlen($dump_buffer))
     ) {
         $message = new PMA_Message(
             __('Insufficient space to save the file %s.'),

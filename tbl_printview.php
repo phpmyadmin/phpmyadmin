@@ -31,16 +31,13 @@ require_once 'libraries/tbl_printview.lib.php';
 
 $cfgRelation = PMA_getRelationsParam();
 
-/** @var PMA_String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
-
 /**
  * Defines the url to return to in case of error in a sql statement
  */
 if (/*overload*/mb_strlen($table)) {
-    $err_url = 'tbl_sql.php?' . PMA_URL_getCommon(array(
-            'db' => $db, 'table' => $table
-        ));
+    $err_url = 'tbl_sql.php?' . PMA_URL_getCommon(
+        array('db' => $db, 'table' => $table)
+    );
 } else {
     $err_url = 'db_sql.php' . PMA_URL_getCommon(array('db' => $db));
 }

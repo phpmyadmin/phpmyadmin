@@ -303,7 +303,11 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         }
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linestring = /*overload*/mb_substr($wkt, 11, (/*overload*/mb_strlen($wkt) - 12));
+        $linestring = /*overload*/mb_substr(
+            $wkt,
+            11,
+            /*overload*/mb_strlen($wkt) - 12
+        );
         $points_arr = $this->extractPoints($linestring, null);
 
         $no_of_points = count($points_arr);

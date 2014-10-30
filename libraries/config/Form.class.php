@@ -76,7 +76,10 @@ class Form
     public function getOptionType($option_name)
     {
         $key = ltrim(
-            /*overload*/mb_substr($option_name, /*overload*/mb_strrpos($option_name, '/')),
+            /*overload*/mb_substr(
+                $option_name,
+                /*overload*/mb_strrpos($option_name, '/')
+            ),
             '/'
         );
         return isset($this->_fieldsTypes[$key])

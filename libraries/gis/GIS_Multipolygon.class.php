@@ -389,7 +389,11 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
                         && trim($data_row[$k][$i][$j]['y']) != '')
                         ? $data_row[$k][$i][$j]['y'] : $empty) . ',';
                 }
-                $wkt = /*overload*/mb_substr($wkt, 0, /*overload*/mb_strlen($wkt) - 1);
+                $wkt = /*overload*/mb_substr(
+                    $wkt,
+                    0,
+                    /*overload*/mb_strlen($wkt) - 1
+                );
                 $wkt .= '),';
             }
             $wkt = /*overload*/mb_substr($wkt, 0, /*overload*/mb_strlen($wkt) - 1);
@@ -473,7 +477,11 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
                     foreach ($row_data['parts'][$j]['points'] as $innerPoint) {
                         $wkt .= $innerPoint['x'] . ' ' . $innerPoint['y'] . ',';
                     }
-                    $wkt = /*overload*/mb_substr($wkt, 0, /*overload*/mb_strlen($wkt) - 1);
+                    $wkt = /*overload*/mb_substr(
+                        $wkt,
+                        0,
+                        /*overload*/mb_strlen($wkt) - 1
+                    );
                     $wkt .= ')';  // end of inner ring
                 }
             }
@@ -509,7 +517,11 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
         }
 
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
-        $multipolygon = /*overload*/mb_substr($wkt, 15, /*overload*/mb_strlen($wkt) - 18);
+        $multipolygon = /*overload*/mb_substr(
+            $wkt,
+            15,
+            /*overload*/mb_strlen($wkt) - 18
+        );
         // Separate each polygon
         $polygons = explode(")),((", $multipolygon);
 

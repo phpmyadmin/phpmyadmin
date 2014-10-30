@@ -324,6 +324,8 @@ function PMA_TRI_getEditorForm($mode, $item)
 {
     global $db, $table, $event_manipulations, $action_timings;
 
+    $modeToUpper = /*overload*/mb_strtoupper($mode);
+
     // Escape special characters
     $need_escape = array(
                        'item_original_name',
@@ -346,7 +348,7 @@ function PMA_TRI_getEditorForm($mode, $item)
 
     // Create the output
     $retval  = "";
-    $retval .= "<!-- START " . /*overload*/mb_strtoupper($mode) . " TRIGGER FORM -->\n\n";
+    $retval .= "<!-- START " . $modeToUpper . " TRIGGER FORM -->\n\n";
     $retval .= "<form class='rte_form' action='db_triggers.php' method='post'>\n";
     $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
     $retval .= $original_data;
@@ -429,7 +431,7 @@ function PMA_TRI_getEditorForm($mode, $item)
         $retval .= "</fieldset>\n";
     }
     $retval .= "</form>\n\n";
-    $retval .= "<!-- END " . /*overload*/mb_strtoupper($mode) . " TRIGGER FORM -->\n\n";
+    $retval .= "<!-- END " . $modeToUpper . " TRIGGER FORM -->\n\n";
 
     return $retval;
 } // end PMA_TRI_getEditorForm()

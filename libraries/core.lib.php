@@ -515,13 +515,21 @@ function PMA_checkPageValidity(&$page, $whitelist)
         return true;
     }
 
-    $_page = /*overload*/mb_substr($page, 0, /*overload*/mb_strpos($page . '?', '?'));
+    $_page = /*overload*/mb_substr(
+        $page,
+        0,
+        /*overload*/mb_strpos($page . '?', '?')
+    );
     if (in_array($_page, $whitelist)) {
         return true;
     }
 
     $_page = urldecode($page);
-    $_page = /*overload*/mb_substr($_page, 0, /*overload*/mb_strpos($_page . '?', '?'));
+    $_page = /*overload*/mb_substr(
+        $_page,
+        0,
+        /*overload*/mb_strpos($_page . '?', '?')
+    );
     if (in_array($_page, $whitelist)) {
         return true;
     }
@@ -1032,7 +1040,7 @@ function PMA_setPostAsGlobal($post_patterns)
 /**
  * Creates some globals from $_REQUEST
  *
- * @param string $param db|table 
+ * @param string $param db|table
  *
  * @return void
  */

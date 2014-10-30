@@ -145,7 +145,9 @@ function PMA_RTN_parseOneParameter($value)
             if ($parsed_param[$i+1]['type'] == 'alpha_charset'
                 || $parsed_param[$i+1]['type'] == 'alpha_identifier'
             ) {
-                $param_opts[] = /*overload*/mb_strtolower($parsed_param[$i+1]['data']);
+                $param_opts[] = /*overload*/mb_strtolower(
+                    $parsed_param[$i+1]['data']
+                );
             }
         } else if ($parsed_param[$i]['type'] == 'alpha_columnAttrib'
             && $depth == 0

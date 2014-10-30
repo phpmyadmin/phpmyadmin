@@ -142,12 +142,14 @@ class ImportMediawiki extends ImportPlugin
                 $matches = array();
 
                 // Check beginning of comment
-                if (! strcmp(/*overload*/mb_substr($cur_buffer_line, 0, 4), "<!--")) {
+                if (! strcmp(/*overload*/mb_substr($cur_buffer_line, 0, 4), "<!--")
+                ) {
                     $inside_comment = true;
                     continue;
                 } elseif ($inside_comment) {
                     // Check end of comment
-                    if (!strcmp(/*overload*/mb_substr($cur_buffer_line, 0, 4), "-->")) {
+                    if (!strcmp(/*overload*/mb_substr($cur_buffer_line, 0, 4), "-->")
+                    ) {
                         // Only data comments are closed. The structure comments
                         // will be closed when a data comment begins (in order to
                         // skip structure tables)
@@ -275,7 +277,8 @@ class ImportMediawiki extends ImportPlugin
                         $cell = trim($cell);
                         $col_start_chars = array( "|", "!");
                         foreach ($col_start_chars as $col_start_char) {
-                            if (/*overload*/mb_strpos($cell, $col_start_char) === 0) {
+                            if (/*overload*/mb_strpos($cell, $col_start_char) === 0
+                            ) {
                                 $cell = trim(/*overload*/mb_substr($cell, 1));
                             }
                         }

@@ -4,6 +4,7 @@
  * If mb_* functions don't exist, we create the ones we need and they'll use the
  * standard string functions.
  * All mb_* functions created by pMA should behave as mb_* functions.
+ *
  * @package PhpMyAdmin
  */
 if (!defined('PHPMYADMIN')) {

@@ -193,7 +193,10 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
     $default = PMA_pluginGetDefault($section, $cfgname);
     foreach ($list as $plugin) {
         $plugin_name = /*overload*/mb_strtolower(
-            /*overload*/mb_substr(get_class($plugin), /*overload*/mb_strlen($section))
+            /*overload*/mb_substr(
+                get_class($plugin),
+                /*overload*/mb_strlen($section)
+            )
         );
         $ret .= '<option';
          // If the form is being repopulated using $_GET data, that is priority
@@ -219,7 +222,10 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
     // Whether each plugin has to be saved as a file
     foreach ($list as $plugin) {
         $plugin_name = /*overload*/mb_strtolower(
-            /*overload*/mb_substr(get_class($plugin), /*overload*/mb_strlen($section))
+            /*overload*/mb_substr(
+                get_class($plugin),
+                /*overload*/mb_strlen($section)
+            )
         );
         $ret .= '<input type="hidden" id="force_file_' . $plugin_name
             . '" value="';
@@ -512,7 +518,10 @@ function PMA_pluginGetOptions($section, &$list)
         }
 
         $plugin_name = /*overload*/mb_strtolower(
-            /*overload*/mb_substr(get_class($plugin), /*overload*/mb_strlen($section))
+            /*overload*/mb_substr(
+                get_class($plugin),
+                /*overload*/mb_strlen($section)
+            )
         );
         $ret .= '<div id="' . $plugin_name
             . '_options" class="format_specific_options">';

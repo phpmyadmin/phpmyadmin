@@ -226,10 +226,17 @@ function PMA_getQueryStrFromSelected(
 
         case 'replace_prefix_tbl':
             $current = $selected[$i];
-            $subFromPrefix = /*overload*/mb_substr($current, 0, /*overload*/mb_strlen($from_prefix));
+            $subFromPrefix = /*overload*/mb_substr(
+                $current,
+                0,
+                /*overload*/mb_strlen($from_prefix)
+            );
             if ($subFromPrefix == $from_prefix) {
                 $newtablename = $to_prefix
-                    . /*overload*/mb_substr($current, /*overload*/mb_strlen($from_prefix));
+                    . /*overload*/mb_substr(
+                        $current,
+                        /*overload*/mb_strlen($from_prefix)
+                    );
             } else {
                 $newtablename = $current;
             }

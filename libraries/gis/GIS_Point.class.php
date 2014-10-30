@@ -56,7 +56,11 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
     public function scaleRow($spatial)
     {
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = /*overload*/mb_substr($spatial, 6, /*overload*/mb_strlen($spatial) - 7);
+        $point = /*overload*/mb_substr(
+            $spatial,
+            6,
+            /*overload*/mb_strlen($spatial) - 7
+        );
         return $this->setMinMax($point, array());
     }
 
@@ -83,7 +87,11 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = /*overload*/mb_substr($spatial, 6, /*overload*/mb_strlen($spatial) - 7);
+        $point = /*overload*/mb_substr(
+            $spatial,
+            6,
+            /*overload*/mb_strlen($spatial) - 7
+        );
         $points_arr = $this->extractPoints($point, $scale_data);
 
         // draw a small circle to mark the point
@@ -124,7 +132,11 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
         $line  = array('width' => 1.25, 'color' => array($red, $green, $blue));
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = /*overload*/mb_substr($spatial, 6, /*overload*/mb_strlen($spatial) - 7);
+        $point = /*overload*/mb_substr(
+            $spatial,
+            6,
+            /*overload*/mb_strlen($spatial) - 7
+        );
         $points_arr = $this->extractPoints($point, $scale_data);
 
         // draw a small circle to mark the point
@@ -165,7 +177,11 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
         );
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = /*overload*/mb_substr($spatial, 6, /*overload*/mb_strlen($spatial) - 7);
+        $point = /*overload*/mb_substr(
+            $spatial,
+            6,
+            /*overload*/mb_strlen($spatial) - 7
+        );
         $points_arr = $this->extractPoints($point, $scale_data);
 
         $row = '';
@@ -212,7 +228,11 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
         $result = $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = /*overload*/mb_substr($spatial, 6, /*overload*/mb_strlen($spatial) - 7);
+        $point = /*overload*/mb_substr(
+            $spatial,
+            6,
+            /*overload*/mb_strlen($spatial) - 7
+        );
         $points_arr = $this->extractPoints($point, null);
 
         if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {

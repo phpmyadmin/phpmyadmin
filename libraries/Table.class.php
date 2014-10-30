@@ -856,7 +856,8 @@ class PMA_Table
                 );
                 // ANSI_QUOTES might be a subset of sql_mode, for example
                 // REAL_AS_FLOAT,PIPES_AS_CONCAT,ANSI_QUOTES,IGNORE_SPACE,ANSI
-                if (false !== /*overload*/mb_strpos($server_sql_mode, 'ANSI_QUOTES')) {
+                if (false !== /*overload*/mb_strpos($server_sql_mode, 'ANSI_QUOTES')
+                ) {
                     $table_delimiter = 'quote_double';
                 } else {
                     $table_delimiter = 'quote_backtick';
@@ -1625,12 +1626,11 @@ class PMA_Table
                     foreach ($avail_columns as $each_col) {
                         // check if $each_col ends with $colname
                         if (substr_compare(
-                                $each_col,
-                                $colname,
-                                /*overload*/
-                                mb_strlen($each_col) - /*overload*/
-                                mb_strlen($colname)
-                            ) === 0
+                            $each_col,
+                            $colname,
+                            /*overload*/mb_strlen($each_col)
+                            - /*overload*/mb_strlen($colname)
+                        ) === 0
                         ) {
                             return $this->uiprefs[$property];
                         }

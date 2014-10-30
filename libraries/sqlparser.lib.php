@@ -1242,7 +1242,9 @@ function PMA_SQP_analyze($arr)
         if ($arr[$i]['type'] == 'alpha_reservedWord') {
             // We don't know what type of query yet, so run this
             if ($subresult['querytype'] == '') {
-                $subresult['querytype'] = /*overload*/mb_strtoupper($arr[$i]['data']);
+                $subresult['querytype'] = /*overload*/mb_strtoupper(
+                    $arr[$i]['data']
+                );
             } // end if (querytype was empty)
 
             // Check if we support this type of query
@@ -2127,7 +2129,9 @@ function PMA_SQP_analyze($arr)
                 if (isset($arr[$i+1])
                     && $arr[$i+1]['type'] == 'alpha_reservedWord'
                 ) {
-                    $second_upper_data = /*overload*/mb_strtoupper($arr[$i+1]['data']);
+                    $second_upper_data = /*overload*/mb_strtoupper(
+                        $arr[$i+1]['data']
+                    );
                     if ($second_upper_data == 'DELETE') {
                         $clause = 'on_delete';
                     }
@@ -2143,7 +2147,9 @@ function PMA_SQP_analyze($arr)
                         || ($arr[$i+2]['type'] == 'alpha_identifier'
                         && /*overload*/mb_strtoupper($arr[$i+2]['data'])=='NO'))
                     ) {
-                        $third_upper_data = /*overload*/mb_strtoupper($arr[$i+2]['data']);
+                        $third_upper_data = /*overload*/mb_strtoupper(
+                            $arr[$i+2]['data']
+                        );
                         if ($third_upper_data == 'CASCADE'
                             || $third_upper_data == 'RESTRICT'
                         ) {
@@ -2159,7 +2165,9 @@ function PMA_SQP_analyze($arr)
                             if ($clause == 'on_update'
                                 && $in_timestamp_options
                             ) {
-                                $create_table_fields[$current_identifier]['on_update_current_timestamp'] = true;
+                                $create_table_fields[$current_identifier]
+                                    ['on_update_current_timestamp']
+                                    = true;
                                 $seen_default = false;
                             }
 

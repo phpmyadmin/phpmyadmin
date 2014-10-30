@@ -2133,7 +2133,7 @@ class PMA_DisplayResults
     private function _getSortingUrlParams(
         $sort_direction, $sort_order, $column_index, $index
     ) {
-        if (strtoupper(trim($sort_direction[$index])) ==  self::DESCENDING_SORT_DIR) {
+        if (strtoupper(trim($sort_direction[$index])) == self::DESCENDING_SORT_DIR) {
             $sort_order .= ' ASC';
             $order_img   = ' ' . PMA_Util::getImage(
                 's_desc.png', __('Descending'),
@@ -3971,7 +3971,8 @@ class PMA_DisplayResults
             || ($meta->type == self::DATETIME_FIELD)
             || ($meta->type == self::TIME_FIELD)
             || ($meta->type == self::TIME_FIELD))
-            && (/*overload*/mb_strpos($column, ".") !== false) // micro seconds delimeter
+            // micro seconds delimiter
+            && (/*overload*/mb_strpos($column, ".") !== false)
         ) {
             $column = PMA_Util::addMicroseconds($column);
         }
@@ -5480,7 +5481,10 @@ class PMA_DisplayResults
 
         // if we want to use a text transformation on a BLOB column
         if (gettype($transformation_plugin) === "object") {
-            $posMimeOctetstream = strpos($transformation_plugin->getMIMESubtype(), 'Octetstream');
+            $posMimeOctetstream = strpos(
+                $transformation_plugin->getMIMESubtype(),
+                'Octetstream'
+            );
             $posMimeText = strpos($transformation_plugin->getMIMEtype(), 'Text');
             if ($posMimeOctetstream
                 || $posMimeText !== false

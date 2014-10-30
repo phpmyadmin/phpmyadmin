@@ -9,9 +9,6 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/tbl_chart.lib.php';
 
-/** @var PMA_String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
-
 /*
  * Execute the query and return the result
  */
@@ -21,8 +18,9 @@ if (isset($_REQUEST['ajax_request'])
 ) {
     $response = PMA_Response::getInstance();
 
-    if (/*overload*/mb_strlen($GLOBALS['table']) && /*overload*/mb_strlen($GLOBALS['db'])
-    ) {
+    $tableLength = /*overload*/mb_strlen($GLOBALS['table']);
+    $dbLength = /*overload*/mb_strlen($GLOBALS['db']);
+    if ($tableLength && $dbLength) {
         include './libraries/tbl_common.inc.php';
     }
 

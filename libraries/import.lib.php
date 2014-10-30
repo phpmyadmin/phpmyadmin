@@ -126,8 +126,6 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
             );
             $error = true;
         } else {
-
-
             $executed_queries++;
 
             $pattern = '/^[\s]*(SELECT|SHOW|HANDLER)/i';
@@ -379,7 +377,10 @@ function PMA_importGetNextChunk($size = 32768)
         break;
     case 'application/zip':
         $result = /*overload*/mb_substr($GLOBALS['import_text'], 0, $size);
-        $GLOBALS['import_text'] = /*overload*/mb_substr($GLOBALS['import_text'], $size);
+        $GLOBALS['import_text'] = /*overload*/mb_substr(
+            $GLOBALS['import_text'],
+            $size
+        );
         $GLOBALS['finished'] = empty($GLOBALS['import_text']);
         break;
     case 'none':

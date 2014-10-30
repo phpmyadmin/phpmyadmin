@@ -926,12 +926,14 @@ function PMA_getHtmlForColumnIndexes($columnNumber, $ci, $ci_offset, $columnMeta
 
 function PMA_getHtmlForIndexTypeOption($columnNumber, $columnMeta, $type, $key)
 {
-    $html = '<option value="' . /*overload*/mb_strtolower($type) . '_' . $columnNumber
+    $typeToLower = /*overload*/mb_strtolower($type);
+    $typeToUpper = /*overload*/mb_strtoupper($type);
+    $html = '<option value="' . $typeToLower . '_' . $columnNumber
         . '" title="' . __($type) . '"';
     if (isset($columnMeta['Key']) && $columnMeta['Key'] == $key) {
         $html .= ' selected="selected"';
     }
-    $html .= '>' . /*overload*/mb_strtoupper($type) . '</option>';
+    $html .= '>' . $typeToUpper . '</option>';
 
     return $html;
 }

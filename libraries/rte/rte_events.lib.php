@@ -379,6 +379,8 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
 {
     global $db, $table, $event_status, $event_type, $event_interval;
 
+    $modeToUpper = /*overload*/mb_strtoupper($mode);
+
     // Escape special characters
     $need_escape = array(
                        'item_original_name',
@@ -419,7 +421,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     }
     // Create the output
     $retval  = "";
-    $retval .= "<!-- START " . /*overload*/mb_strtoupper($mode) . " EVENT FORM -->\n\n";
+    $retval .= "<!-- START " . $modeToUpper . " EVENT FORM -->\n\n";
     $retval .= "<form class='rte_form' action='db_events.php' method='post'>\n";
     $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
     $retval .= $original_data;
@@ -554,7 +556,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
         $retval .= "</fieldset>\n";
     }
     $retval .= "</form>\n\n";
-    $retval .= "<!-- END " . /*overload*/mb_strtoupper($mode) . " EVENT FORM -->\n\n";
+    $retval .= "<!-- END " . $modeToUpper . " EVENT FORM -->\n\n";
 
     return $retval;
 } // end PMA_EVN_getEditorForm()

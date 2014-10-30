@@ -385,8 +385,8 @@ class PMA_Util
     /**
      * format sql strings
      *
-     * @param string  $sql_query raw SQL string
-     * @param boolean $truncate  truncate the query if it is too long
+     * @param string  $sqlQuery raw SQL string
+     * @param boolean $truncate truncate the query if it is too long
      *
      * @return string the formatted sql
      *
@@ -395,21 +395,21 @@ class PMA_Util
      * @access  public
      * @todo    move into PMA_Sql
      */
-    public static function formatSql($sql_query, $truncate = false)
+    public static function formatSql($sqlQuery, $truncate = false)
     {
         global $cfg;
 
         if ($truncate
-            && /*overload*/mb_strlen($sql_query) > $cfg['MaxCharactersInDisplayedSQL']
+            && /*overload*/mb_strlen($sqlQuery) > $cfg['MaxCharactersInDisplayedSQL']
         ) {
-            $sql_query = /*overload*/mb_substr(
-                $sql_query,
+            $sqlQuery = /*overload*/mb_substr(
+                $sqlQuery,
                 0,
                 $cfg['MaxCharactersInDisplayedSQL']
             ) . '[...]';
         }
         return '<code class="sql"><pre>' . "\n"
-            . htmlspecialchars($sql_query) . "\n"
+            . htmlspecialchars($sqlQuery) . "\n"
             . '</pre></code>';
     } // end of the "formatSql()" function
 
@@ -637,8 +637,8 @@ class PMA_Util
             // ---
             // modified to show the help on sql errors
             $error_msg .= '<p><strong>' . __('SQL query:') . '</strong>' . "\n";
-            if (/*overload*/mb_strstr(/*overload*/mb_strtolower($formatted_sql), 'select')
-            ) {
+            $formattedSqlToLower = /*overload*/mb_strtolower($formatted_sql);
+            if (/*overload*/mb_strstr($formattedSqlToLower, 'select')) {
                 // please show me help to the error on select
                 $error_msg .= self::showMySQLDocu('SELECT');
             }
@@ -1059,8 +1059,8 @@ class PMA_Util
 
             $query_too_big = false;
 
-            if (/*overload*/mb_strlen($query_base) > $cfg['MaxCharactersInDisplayedSQL']
-            ) {
+            $queryLength = /*overload*/mb_strlen($query_base);
+            if ($queryLength > $cfg['MaxCharactersInDisplayedSQL']) {
                 // when the query is large (for example an INSERT of binary
                 // data), the parser chokes; so avoid parsing the query
                 $query_too_big = true;
@@ -1165,7 +1165,8 @@ class PMA_Util
                 } elseif (preg_match(
                     '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query
                 )) {
-                    $explain_params['sql_query'] = /*overload*/mb_substr($sql_query, 8);
+                    $explain_params['sql_query']
+                        = /*overload*/mb_substr($sql_query, 8);
                     $_message = __('Skip Explain SQL');
                 }
                 if (isset($explain_params['sql_query']) && isset($_message)) {
@@ -1822,8 +1823,9 @@ class PMA_Util
             if ($suhosin_get_MaxValueLength) {
                 $query_parts = self::splitURLQuery($url);
                 foreach ($query_parts as $query_pair) {
-                    list($eachvar, $eachval) = explode('=', $query_pair);
-                    if (/*overload*/mb_strlen($eachval) > $suhosin_get_MaxValueLength) {
+                    list(, $eachval) = explode('=', $query_pair);
+                    if (/*overload*/mb_strlen($eachval) > $suhosin_get_MaxValueLength
+                    ) {
                         $in_suhosin_limits = false;
                         break;
                     }
@@ -2951,7 +2953,7 @@ class PMA_Util
                 /*overload*/mb_substr(
                     $columnspec,
                     $first_bracket_pos + 1,
-                    (/*overload*/mb_strrpos($columnspec, ')') - $first_bracket_pos - 1)
+                    /*overload*/mb_strrpos($columnspec, ')') - $first_bracket_pos - 1
                 )
             );
             // convert to lowercase just to be sure
@@ -4354,7 +4356,11 @@ class PMA_Util
         }
 
         $value .= '000000';
-        return /*overload*/mb_substr($value, 0, /*overload*/mb_strpos($value, '.') + 7);
+        return /*overload*/mb_substr(
+            $value,
+            0,
+            /*overload*/mb_strpos($value, '.') + 7
+        );
     }
 
     /**

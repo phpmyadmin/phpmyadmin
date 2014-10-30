@@ -1416,7 +1416,9 @@ class PMA_Config
                     = ($is_https ? 'https' : 'http')
                     . ':'
                     . (
-                    /*overload*/mb_substr($pma_absolute_uri, 0, 2) == '//' ? '' : '//'
+                        /*overload*/mb_substr($pma_absolute_uri, 0, 2) == '//'
+                        ? ''
+                        : '//'
                     )
                     . $pma_absolute_uri;
             }
@@ -1604,8 +1606,9 @@ class PMA_Config
             ) {
                 $url['scheme'] = 'https';
             } elseif (PMA_getenv('HTTP_X_FORWARDED_PROTO')) {
-                $url['scheme']
-                    = /*overload*/mb_strtolower(PMA_getenv('HTTP_X_FORWARDED_PROTO'));
+                $url['scheme'] = /*overload*/mb_strtolower(
+                    PMA_getenv('HTTP_X_FORWARDED_PROTO')
+                );
             } elseif (PMA_getenv('HTTP_FRONT_END_HTTPS')
                 && strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on'
             ) {
@@ -1846,7 +1849,8 @@ class PMA_Config
     function setCookie($cookie, $value, $default = null, $validity = null,
         $httponly = true
     ) {
-        if (/*overload*/mb_strlen($value) && null !== $default && $value === $default) {
+        if (/*overload*/mb_strlen($value) && null !== $default && $value === $default
+        ) {
             // default value is used
             if (isset($_COOKIE[$cookie])) {
                 // remove cookie

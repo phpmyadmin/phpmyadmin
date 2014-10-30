@@ -152,7 +152,11 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         $color = array($red, $green, $blue);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = /*overload*/mb_substr($spatial, 9, /*overload*/mb_strlen($spatial) - 11);
+        $polygon = /*overload*/mb_substr(
+            $spatial,
+            9,
+            /*overload*/mb_strlen($spatial) - 11
+        );
 
         // If the polygon doesn't have an inner polygon
         if (/*overload*/mb_strpos($polygon, "),(") === false) {
@@ -554,8 +558,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         }
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = /*overload*/mb_substr($wkt, 9, (/*overload*/mb_strlen($wkt) - 11));
-        // Seperate each linestring
+        $polygon = /*overload*/mb_substr($wkt, 9, /*overload*/mb_strlen($wkt) - 11);
+        // Separate each linestring
         $linerings = explode("),(", $polygon);
         $params[$index]['POLYGON']['no_of_lines'] = count($linerings);
 

@@ -338,7 +338,11 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
         $wkt = $data['wkt'];
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = /*overload*/mb_substr($wkt, 19, (/*overload*/mb_strlen($wkt) - 20));
+        $goem_col = /*overload*/mb_substr(
+            $wkt,
+            19,
+            /*overload*/mb_strlen($wkt) - 20
+        );
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
         $params['GEOMETRYCOLLECTION']['geom_count'] = count($sub_parts);

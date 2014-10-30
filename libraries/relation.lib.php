@@ -665,7 +665,8 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         );
     }
 
-    if (($source == 'both' || $source == 'foreign') && /*overload*/mb_strlen($table)) {
+    if (($source == 'both' || $source == 'foreign') && /*overload*/mb_strlen($table)
+    ) {
 
         $showCreateTableQuery = 'SHOW CREATE TABLE '
             . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table);

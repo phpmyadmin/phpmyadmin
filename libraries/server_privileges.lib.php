@@ -2220,7 +2220,7 @@ function PMA_getHtmlListOfPrivs(
 /**
  * Returns edit, revoke or export link for a user.
  *
- * @param string $linktype  The link type (edit | revoke | export) 
+ * @param string $linktype  The link type (edit | revoke | export)
  * @param string $username  User name
  * @param string $hostname  Host name
  * @param string $dbname    Database name
@@ -2425,7 +2425,9 @@ function PMA_getExtraDataForAjaxBehavior(
          * Generate the string for this alphabet's initial, to update the user
          * pagination
          */
-        $new_user_initial = /*overload*/mb_strtoupper(/*overload*/mb_substr($username, 0, 1));
+        $new_user_initial = /*overload*/mb_strtoupper(
+            /*overload*/mb_substr($username, 0, 1)
+        );
         $newUserInitialString = '<a href="server_privileges.php'
             . PMA_URL_getCommon(array('initial' => $new_user_initial)) . '">'
             . $new_user_initial . '</a>';
@@ -2686,14 +2688,17 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
         $odd_row = true;
         //while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
         foreach ($db_rights as $row) {
-            $found_rows[] = (!/*overload*/mb_strlen($dbname))
+            $dbNameLength = /*overload*/mb_strlen($dbname);
+            $found_rows[] = (!$dbNameLength)
                 ? $row['Db']
                 : $row['Table_name'];
 
             $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
                 . '<td>'
                 . htmlspecialchars(
-                    (!/*overload*/mb_strlen($dbname)) ? $row['Db'] : $row['Table_name']
+                    (!$dbNameLength)
+                        ? $row['Db']
+                        : $row['Table_name']
                 )
                 . '</td>' . "\n"
                 . '<td><code>' . "\n"
@@ -2704,8 +2709,8 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
                 ) . "\n"
                 . '</code></td>' . "\n"
                 . '<td>'
-                    . ((((!/*overload*/mb_strlen($dbname)) && $row['Grant_priv'] == 'Y')
-                        || (/*overload*/mb_strlen($dbname)
+                    . ((((!$dbNameLength) && $row['Grant_priv'] == 'Y')
+                        || ($dbNameLength
                         && in_array('Grant', explode(',', $row['Table_priv']))))
                     ? __('Yes')
                     : __('No'))
@@ -2722,8 +2727,8 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
                 'edit',
                 $username,
                 $hostname,
-                (!/*overload*/mb_strlen($dbname)) ? $row['Db'] : $dbname,
-                (!/*overload*/mb_strlen($dbname)) ? '' : $row['Table_name']
+                (!$dbNameLength) ? $row['Db'] : $dbname,
+                (!$dbNameLength) ? '' : $row['Table_name']
             );
             $html_output .= '</td>' . "\n"
                . '    <td>';
@@ -2735,8 +2740,8 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
                     'revoke',
                     $username,
                     $hostname,
-                    (! /*overload*/mb_strlen($dbname)) ? $row['Db'] : $dbname,
-                    (! /*overload*/mb_strlen($dbname)) ? '' : $row['Table_name']
+                    (!$dbNameLength) ? $row['Db'] : $dbname,
+                    (!$dbNameLength) ? '' : $row['Table_name']
                 );
             }
             $html_output .= '</td>' . "\n"
