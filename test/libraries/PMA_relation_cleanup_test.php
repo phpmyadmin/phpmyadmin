@@ -439,7 +439,7 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
      *
      * @param object $result database result
      *
-     * @return void
+     * @return bool
      */
     public function freeResult($result)
     {

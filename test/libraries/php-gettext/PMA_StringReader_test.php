@@ -46,6 +46,7 @@ class PMA_StringReader_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for read
      * @param $bytes
+     * @param $output
      *
      * @dataProvider providerForTestRead
      */
