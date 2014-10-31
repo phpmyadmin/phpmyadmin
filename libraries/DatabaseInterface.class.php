@@ -1904,7 +1904,8 @@ class PMA_DatabaseInterface
             . ', EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT'
             . ', EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER'
             . ' FROM information_schema.TRIGGERS'
-            . ' WHERE TRIGGER_SCHEMA= \'' . PMA_Util::sqlAddSlashes($db) . '\'';
+            . ' WHERE TRIGGER_SCHEMA ' . PMA_Util::getCollateForIS() . '='
+            . ' \'' . PMA_Util::sqlAddSlashes($db) . '\'';
 
         if (! empty($table)) {
             $query .= " AND EVENT_OBJECT_TABLE = '"

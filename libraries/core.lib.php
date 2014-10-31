@@ -222,7 +222,13 @@ function PMA_fatalError(
 
         /* Load gettext for fatal errors */
         if (!function_exists('__')) {
-            include_once GETTEXT_INC;
+            // It is possible that PMA_fatalError() is called before including vendor_config.php
+            // which defines GETTEXT_INC. See bug #4557
+            if (defined(GETTEXT_INC)) {
+                include_once GETTEXT_INC;
+            } else {
+                include_once './libraries/php-gettext/gettext.inc';
+            }
         }
 
         // these variables are used in the included file libraries/error.inc.php

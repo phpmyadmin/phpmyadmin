@@ -1,6 +1,16 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.2.11.0 (2014-10-31)
+- bug       ReferenceError: Table_onover is not defined
+- bug #4552 Incorrect routines display for database due to case insensitive checks
+- bug #4259 reCaptcha sound session expired problem
+- bug #4557 PHP fatal error, undefined function __()
+- bug #4568 Date displayed incorrectly when charting a timeline
+- bug #4571 Database Privileges link does not work
+- bug       makegrid.js: where_clause is undefined
+- bug #4572 missing trailing slash (import and open_basedir)
+
 4.2.10.1 (2014-10-21)
 - bug #4562 [security] XSS in debug SQL output
 - bug #4563 [security] XSS in monitor query analyzer
@@ -11,7 +21,6 @@ phpMyAdmin - ChangeLog
 - bug       PDF export: title not present in PDF
 - bug #4543 Changing column name can break saved "order by" clause
 - bug #4545 trying to favorite table while browser localStorage is disabled throws JS error
-- bug #4259 reCaptcha sound session expired problem
 - bug #4548 Inline editing a field converts tab to spaces
 - bug #4252 Database-level permission bug for db names containing underscores
 - bug #3120 Events are not exported when using xml
@@ -276,7 +285,6 @@ phpMyAdmin - ChangeLog
 - bug #4257 Hide fractional seconds when applicable
 - bug #4264 Uncheck "Ignore" while inserting, upon leaving a textarea
 - bug #4260 reCaptcha is ignoring language settings
-- bug #4259 reCaptcha sound session expired problem
 - bug #4263 Japanese character encoding not working properly when exporting
 - bug #4269 Notice on table relation page
 - bug #4270 Bad text-color for table comments

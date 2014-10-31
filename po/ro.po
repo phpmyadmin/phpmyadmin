@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-10-02 13:29+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-10-23 14:29+0200\n"
+"Last-Translator: Ion Adrian-Ionut <john@panevo.ro>\n"
 "Language-Team: Romanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-2/ro/>\n"
 "Language: ro\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.0-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -870,10 +870,11 @@ msgstr ""
 "dumneavoastră va expira mai devreme decât este configurat în phpMyAdmin."
 
 #: index.php:483
+#, fuzzy
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
-msgstr ""
+msgstr "vag"
 
 #: index.php:495
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
