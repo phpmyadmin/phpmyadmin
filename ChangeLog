@@ -1,7 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.2.11.0 (not yet released)
+4.2.12.0 (not yet released)
+
+4.2.11.0 (2014-10-31)
 - bug       ReferenceError: Table_onover is not defined
 - bug #4552 Incorrect routines display for database due to case insensitive checks
 - bug #4259 reCaptcha sound session expired problem
