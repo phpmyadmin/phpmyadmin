@@ -23,12 +23,12 @@ class PMA_StringMbTest extends PMA_StringTest
      */
     protected function setUp()
     {
-        if (!@function_exists('mb_strlen')) {
+        require_once 'libraries/string.lib.php';
+        if (MULTIBYTES_STATUS === MULTIBYTES_OFF) {
             $this->markTestSkipped(
                 "Multibyte functions don't exist, skipping test."
             );
         }
-        require_once 'libraries/stringMb.lib.php';
     }
 
     /**
