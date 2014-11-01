@@ -988,7 +988,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['PMA_Types'] = $types;
         $result = PMA_getHtmlForColumnAttribute(
-            2, 3, 1, $colspec, $cmeta, true, $analyzed_sql, true
+            2, 3, 1, $colspec, $cmeta, true, $analyzed_sql
         );
 
         $this->assertTag(

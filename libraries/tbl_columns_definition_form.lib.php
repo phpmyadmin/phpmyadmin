@@ -968,20 +968,18 @@ function PMA_getHtmlForColumnNull($columnNumber, $ci, $ci_offset, $columnMeta)
 /**
  * Function to get html for column attribute
  *
- * @param int   $columnNumber                     column number
- * @param int   $ci                               cell index
- * @param int   $ci_offset                        cell index offset
- * @param array $extracted_columnspec             extracted column
- * @param array $columnMeta                       column meta
- * @param bool  $submit_attribute                 submit attribute
- * @param array $analyzed_sql                     analyzed sql
- * @param bool  $submit_default_current_timestamp submit default current time stamp
+ * @param int   $columnNumber         column number
+ * @param int   $ci                   cell index
+ * @param int   $ci_offset            cell index offset
+ * @param array $extracted_columnspec extracted column
+ * @param array $columnMeta           column meta
+ * @param bool  $submit_attribute     submit attribute
+ * @param array $analyzed_sql         analyzed sql
  *
  * @return string
  */
 function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
-    $extracted_columnspec, $columnMeta, $submit_attribute, $analyzed_sql,
-    $submit_default_current_timestamp
+    $extracted_columnspec, $columnMeta, $submit_attribute, $analyzed_sql
 ) {
     $html = '<select style="font-size: 70%;"'
         . ' name="field_attribute[' . $columnNumber . ']"'
@@ -1017,15 +1015,6 @@ function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
         && isset($field['on_update_current_timestamp'])
     ) {
         $attribute = 'on update CURRENT_TIMESTAMP';
-    }
-    if ((isset($columnMeta['Field'])
-        && isset($field['default_current_timestamp']))
-        || (isset($submit_default_current_timestamp)
-        && $submit_default_current_timestamp)
-    ) {
-        $default_current_timestamp = true;
-    } else {
-        $default_current_timestamp = false;
     }
 
     $attribute_types = $GLOBALS['PMA_Types']->getAttributes();
@@ -1250,9 +1239,7 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
         isset($extracted_columnspec) ? $extracted_columnspec : null,
         isset($columnMeta) ? $columnMeta : null,
         isset($submit_attribute) ? $submit_attribute : null,
-        isset($analyzed_sql) ? $analyzed_sql : null,
-        isset($submit_default_current_timestamp)
-        ? $submit_default_current_timestamp : null
+        isset($analyzed_sql) ? $analyzed_sql : null
     );
     $ci++;
 
