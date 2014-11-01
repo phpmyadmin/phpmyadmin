@@ -38,7 +38,8 @@ class Node_Database extends Node
                     . '?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'db_operations.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token ']
+                    . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
+            'title' => __('Structure')
         );
         $this->classes = 'database';
     }

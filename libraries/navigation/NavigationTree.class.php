@@ -976,12 +976,14 @@ class PMA_NavigationTree
                     $args[] = urlencode($parent->real_name);
                 }
                 $link = vsprintf($node->links['text'], $args);
+                $title = empty($node->links['title']) ? '' : $node->links['title'];
                 if ($node->type == Node::CONTAINER) {
                     $retval .= "&nbsp;<a class='hover_show_full' href='$link'>";
                     $retval .= htmlspecialchars($node->name);
                     $retval .= "</a>";
                 } else {
-                    $retval .= "<a class='hover_show_full$linkClass' href='$link'>";
+                    $retval .= "<a class='hover_show_full$linkClass' href='$link'";
+                    $retval .= " title='$title'>";
                     $retval .= htmlspecialchars($node->real_name);
                     $retval .= "</a>";
                 }
