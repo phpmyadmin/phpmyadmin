@@ -2469,9 +2469,11 @@ function PMA_columnNeedsAlterTable($i)
  */
 function PMA_updateColumns($db, $table)
 {
-    $err_url = 'tbl_structure.php' . PMA_URL_getCommon(array(
-        'db' => $db, 'table' => $table
-    ));
+    $err_url = 'tbl_structure.php' . PMA_URL_getCommon(
+        array(
+            'db' => $db, 'table' => $table
+        )
+    );
     $regenerate = false;
     $field_cnt = count($_REQUEST['field_name']);
     $key_fields = array();
@@ -2573,7 +2575,9 @@ function PMA_updateColumns($db, $table)
             $response->isSuccess(false);
             $response->addJSON(
                 'message',
-                PMA_Message::rawError(__('Query error') . ':<br />' . $GLOBALS['dbi']->getError())
+                PMA_Message::rawError(
+                    __('Query error') . ':<br />' . $GLOBALS['dbi']->getError()
+                )
             );
             $regenerate = true;
         }

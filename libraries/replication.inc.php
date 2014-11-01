@@ -18,13 +18,19 @@ $server_master_replication = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS');
 /**
  * check for multi-master replication functionality
  */
-$server_slave_multi_replication = $GLOBALS['dbi']->fetchResult('SHOW ALL SLAVES STATUS');
+$server_slave_multi_replication = $GLOBALS['dbi']->fetchResult(
+    'SHOW ALL SLAVES STATUS'
+);
 
 /**
  * set selected master server
  */
 if ($server_slave_multi_replication && !empty($_REQUEST['master_connection'])) {
-    $GLOBALS['dbi']->query("SET @@default_master_connection = '" . PMA_Util::sqlAddSlashes($_REQUEST['master_connection']) . "'");
+    $GLOBALS['dbi']->query(
+        "SET @@default_master_connection = '" . PMA_Util::sqlAddSlashes(
+            $_REQUEST['master_connection']
+        ) . "'"
+    );
     $GLOBALS['url_params']['master_connection'] = $_REQUEST['master_connection'];
 }
 

@@ -105,7 +105,6 @@ AJAX.registerOnload('import.js', function () {
         // show progress bar.
         $("#upload_form_status").css("display", "inline");
         $("#upload_form_status_info").css("display", "inline");
-        return;
     });
 
     // Initially display the options for the selected plugin

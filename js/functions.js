@@ -171,7 +171,7 @@ function PMA_verifyColumnsProperties()
  * Add a hidden field to the form to indicate that this will be an
  * Ajax request (only if this hidden field does not exist)
  *
- * @param object   the form
+ * @param $form object   the form
  */
 function PMA_prepareForAjaxRequest($form)
 {
@@ -183,7 +183,7 @@ function PMA_prepareForAjaxRequest($form)
 /**
  * Generate a new password and copy it to the password input areas
  *
- * @param object   the form that holds the password fields
+ * @param passwd_form object   the form that holds the password fields
  *
  * @return boolean  always true
  */
@@ -361,10 +361,10 @@ function PMA_addDatepicker($this_element, type, options)
 /**
  * selects the content of a given object, f.e. a textarea
  *
- * @param object  element     element of which the content will be selected
- * @param var     lock        variable which holds the lock for this element
+ * @param element     object  element of which the content will be selected
+ * @param lock        var     variable which holds the lock for this element
  *                              or true, if no lock exists
- * @param boolean only_once   if true this is only done once
+ * @param only_once   boolean if true this is only done once
  *                              f.e. only on first focus
  */
 function selectContent(element, lock, only_once)
@@ -386,8 +386,8 @@ function selectContent(element, lock, only_once)
  * Displays a confirmation box before submitting a "DROP/DELETE/ALTER" query.
  * This function is called while clicking links
  *
- * @param object   the link
- * @param object   the sql query to submit
+ * @param theLink     object the link
+ * @param theSqlQuery object the sql query to submit
  *
  * @return boolean  whether to run the query or not
  */
@@ -424,8 +424,8 @@ function confirmLink(theLink, theSqlQuery)
  * sumitting it if required.
  * This function is called by the 'checkSqlQuery()' js function.
  *
- * @param object   the form
- * @param object   the sql query textarea
+ * @param theForm1 object   the form
+ * @param sqlQuery1 object  the sql query textarea
  *
  * @return boolean  whether to run the query or not
  *
@@ -494,7 +494,7 @@ function confirmQuery(theForm1, sqlQuery1)
  * Displays an error message if the user submitted the sql query form with no
  * sql query, else checks for "DROP/DELETE/ALTER" statements
  *
- * @param object   the form
+ * @param theForm object the form
  *
  * @return boolean  always false
  *
@@ -527,11 +527,7 @@ function checkSqlQuery(theForm)
     }
     // Checks for "DROP/DELETE/ALTER" statements
     if (sqlQuery.replace(space_re, '') !== '') {
-        if (confirmQuery(theForm, sqlQuery)) {
-            return true;
-        } else {
-            return false;
-        }
+        return confirmQuery(theForm, sqlQuery);
     }
     theForm.reset();
     isEmpty = 1;

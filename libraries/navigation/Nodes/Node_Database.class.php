@@ -155,7 +155,7 @@ class Node_Database extends Node
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
                 $query .= "WHERE `ROUTINE_SCHEMA` "
-                    .PMA_Util::getCollateForIS() . "='$db' ";
+                    . PMA_Util::getCollateForIS() . "='$db' ";
                 $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
                 if (! empty($searchClause)) {
                     $query .= "AND " . $this->_getWhereClauseForSearch(

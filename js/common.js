@@ -22,7 +22,7 @@ var PMA_commonParams = (function () {
          * Saves all the key value pair that
          * are provided in the input array
          *
-         * @param hash obj The input array
+         * @param obj hash The input array
          *
          * @return void
          */
@@ -48,7 +48,7 @@ var PMA_commonParams = (function () {
          * Retrieves a value given its key
          * Returns empty string for undefined values
          *
-         * @param string name The key
+         * @param name string The key
          *
          * @return string
          */
@@ -58,8 +58,8 @@ var PMA_commonParams = (function () {
         /**
          * Saves a single key value pair
          *
-         * @param string name  The key
-         * @param string value The value
+         * @param name  string The key
+         * @param value string The value
          *
          * @return self For chainability
          */
@@ -104,7 +104,7 @@ var PMA_commonActions = {
      * Saves the database name when it's changed
      * and reloads the query window, if necessary
      *
-     * @param string new_db The name of the new database
+     * @param new_db string new_db The name of the new database
      *
      * @return void
      */
@@ -116,7 +116,7 @@ var PMA_commonActions = {
     /**
      * Opens a database in the main part of the page
      *
-     * @param string new_db The name of the new database
+     * @param new_db string The name of the new database
      *
      * @return void
      */
@@ -178,7 +178,7 @@ PMA_DROP_IMPORT = {
     /**
      * Checks if any dropped file has valid extension or not
      *
-     * @param string, filename
+     * @param file filename
      *
      * @return string, extension for valid extension, '' otherwise
      */
@@ -214,8 +214,8 @@ PMA_DROP_IMPORT = {
     /**
      * Function to upload the file asyncronously
      *
-     * @param formData, FormData object for a specific file
-     * @param hash, hash of the current file upload
+     * @param formData FormData object for a specific file
+     * @param hash hash of the current file upload
      *
      * @return void
      */
@@ -283,7 +283,6 @@ PMA_DROP_IMPORT = {
                                 +PMA_messages.dropImportImportResultHeader +' - '
                                 +filename +'<span class="close">x</span></h2>' +value.message +'</div>');
                             $(".pma_drop_result").draggable();  //to make this dialog draggable
-                            return;
                         }
                     });
                 }

@@ -27,9 +27,11 @@ class Node_Trigger_Container extends Node
         $this->icon  = PMA_Util::getImage('b_triggers.png');
         $this->links = array(
             'text' => 'db_triggers.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;table=%1$s&amp;token=' . $_SESSION[' PMA_token '],
+                    . '&amp;db=%2$s&amp;table=%1$s&amp;token='
+                    . $_SESSION[' PMA_token '],
             'icon' => 'db_triggers.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;table=%1$s&amp;token=' . $_SESSION[' PMA_token ']
+                    . '&amp;db=%2$s&amp;table=%1$s&amp;token='
+                    . $_SESSION[' PMA_token ']
         );
         $this->real_name = 'triggers';
 

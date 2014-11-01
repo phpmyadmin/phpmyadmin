@@ -63,22 +63,23 @@ function PMA_GIS_visualizationResults($data, &$visualizationSettings, $format)
     if (! isset($data[0])) {
         // empty data
         return __('No data found for GIS visualization.');
-    } else {
-        $visualization = new PMA_GIS_Visualization($data, $visualizationSettings);
-        if ($visualizationSettings != null) {
-            foreach ($visualization->getSettings() as $setting => $val) {
-                if (! isset($visualizationSettings[$setting])) {
-                    $visualizationSettings[$setting] = $val;
-                }
+    }
+
+    $visualization = new PMA_GIS_Visualization($data, $visualizationSettings);
+    if ($visualizationSettings != null) {
+        foreach ($visualization->getSettings() as $setting => $val) {
+            if (! isset($visualizationSettings[$setting])) {
+                $visualizationSettings[$setting] = $val;
             }
         }
-        if ($format == 'svg') {
-            return $visualization->asSvg();
-        } elseif ($format == 'png') {
-            return $visualization->asPng();
-        } elseif ($format == 'ol') {
-            return $visualization->asOl();
-        }
+    }
+
+    if ($format == 'svg') {
+        return $visualization->asSvg();
+    } elseif ($format == 'png') {
+        return $visualization->asPng();
+    } elseif ($format == 'ol') {
+        return $visualization->asOl();
     }
 }
 

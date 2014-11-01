@@ -56,7 +56,8 @@ class PMA_Scripts
         foreach ($files as $value) {
             if (/*overload*/mb_strpos($value['filename'], "?") !== false) {
                 if ($value['before_statics'] === true) {
-                    $first_dynamic_scripts .= "<script type='text/javascript' src='js/"
+                    $first_dynamic_scripts
+                        .= "<script type='text/javascript' src='js/"
                         . $value['filename'] . "'></script>";
                 } else {
                     $dynamic_scripts .= "<script type='text/javascript' src='js/"
@@ -116,8 +117,11 @@ class PMA_Scripts
      *
      * @return void
      */
-    public function addFile($filename, $conditional_ie = false, $before_statics = false)
-    {
+    public function addFile(
+        $filename,
+        $conditional_ie = false,
+        $before_statics = false
+    ) {
         $hash = md5($filename);
         if (!empty($this->_files[$hash])) {
             return;

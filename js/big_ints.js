@@ -25,8 +25,8 @@ var BigInts = {
         var len1 = int1.length;
         var len2 = int2.length;
         // integer is -ve or not
-        var isNeg1 = int1[0] === '-' ? true : false;
-        var isNeg2 = int2[0] === '-' ? true : false;
+        var isNeg1 = (int1[0] === '-');
+        var isNeg2 = (int2[0] === '-');
         // Sign of int1 != int2 then no actual comparison
         // is needed we can return result directly
         if (isNeg1 !== isNeg2) {

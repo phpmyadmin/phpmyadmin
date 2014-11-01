@@ -55,7 +55,8 @@ class Node_Table extends Node_DatabaseChild
                     . '&amp;pos=0&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
                     . '?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;table=%1$s&amp;token=' . $_SESSION[' PMA_token '],
+                    . '&amp;db=%2$s&amp;table=%1$s&amp;token='
+                    . $_SESSION[' PMA_token '],
             'title' => __('Browse')
         );
         $this->classes = 'table';

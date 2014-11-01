@@ -438,7 +438,7 @@ function PMA_saveTablePositions($pg)
  * @param string $table table name
  * @param string $field display field name
  *
- * @return void
+ * @return boolean
  */
 function PMA_saveDisplayField($db, $table, $field)
 {
@@ -454,6 +454,8 @@ function PMA_saveDisplayField($db, $table, $field)
 
     include_once 'libraries/tbl_relation.lib.php';
     PMA_handleUpdateForDisplayField($disp, $field, $db, $table, $cfgRelation);
+
+    return true;
 }
 
 /**
@@ -565,7 +567,8 @@ function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update)
                 . "'" . PMA_Util::sqlAddSlashes($T1) . "', "
                 . "'" . PMA_Util::sqlAddSlashes($F1) . "')";
 
-            if (PMA_queryAsControlUser($q, false, PMA_DatabaseInterface::QUERY_STORE)) {
+            if (PMA_queryAsControlUser($q, false, PMA_DatabaseInterface::QUERY_STORE)
+            ) {
                 return array(true, __('Internal relation has been added.'));
             } else {
                 $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
@@ -631,33 +634,35 @@ function PMA_removeRelation($T1, $F1, $T2, $F2)
         $try_to_delete_internal_relation = true;
     }
 
-    if ($try_to_delete_internal_relation) {
-        // internal relations
-        $delete_query = "DELETE FROM "
-            . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
-            . $GLOBALS['cfgRelation']['relation'] . " WHERE "
-            . "master_db = '" . PMA_Util::sqlAddSlashes($DB2) . "'"
-            . " AND master_table = '" . PMA_Util::sqlAddSlashes($T2) . "'"
-            . " AND master_field = '" . PMA_Util::sqlAddSlashes($F2) . "'"
-            . " AND foreign_db = '" . PMA_Util::sqlAddSlashes($DB1) . "'"
-            . " AND foreign_table = '" . PMA_Util::sqlAddSlashes($T1) . "'"
-            . " AND foreign_field = '" . PMA_Util::sqlAddSlashes($F1) . "'";
-
-        $result = PMA_queryAsControlUser(
-            $delete_query,
-            false,
-            PMA_DatabaseInterface::QUERY_STORE
-        );
-
-        if ($result) {
-            return array(true, __('Internal relation has been removed.'));
-        } else {
-            $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
-            return array(
-                false,
-                __('Error: Internal relation could not be removed!') . "<br/>" . $error
-            );
-        }
+    if (!$try_to_delete_internal_relation) {
+        return;
     }
+
+    // internal relations
+    $delete_query = "DELETE FROM "
+        . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
+        . $GLOBALS['cfgRelation']['relation'] . " WHERE "
+        . "master_db = '" . PMA_Util::sqlAddSlashes($DB2) . "'"
+        . " AND master_table = '" . PMA_Util::sqlAddSlashes($T2) . "'"
+        . " AND master_field = '" . PMA_Util::sqlAddSlashes($F2) . "'"
+        . " AND foreign_db = '" . PMA_Util::sqlAddSlashes($DB1) . "'"
+        . " AND foreign_table = '" . PMA_Util::sqlAddSlashes($T1) . "'"
+        . " AND foreign_field = '" . PMA_Util::sqlAddSlashes($F1) . "'";
+
+    $result = PMA_queryAsControlUser(
+        $delete_query,
+        false,
+        PMA_DatabaseInterface::QUERY_STORE
+    );
+
+    if (!$result) {
+        $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
+        return array(
+            false,
+            __('Error: Internal relation could not be removed!') . "<br/>" . $error
+        );
+    }
+
+    return array(true, __('Internal relation has been removed.'));
 }
 ?>

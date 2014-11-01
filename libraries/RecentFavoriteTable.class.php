@@ -72,11 +72,13 @@ class PMA_RecentFavoriteTable
                 . PMA_Util::backquote($GLOBALS['cfg']['Server'][$this->_tableType]);
         }
         $server_id = $GLOBALS['server'];
-        if (! isset($_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id])) {
+        if (! isset($_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id])
+        ) {
             $_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id]
                 = isset($this->_pmaTable) ? $this->getFromDb() : array();
         }
-        $this->_tables =& $_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id];
+        $this->_tables
+            =& $_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id];
     }
 
     /**

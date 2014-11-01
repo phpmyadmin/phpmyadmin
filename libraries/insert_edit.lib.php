@@ -188,11 +188,11 @@ function PMA_urlParamsInEditMode($url_params, $where_clause_array, $where_clause
 }
 
 /**
- * Show type information or function selectors in Insert/Edit 
+ * Show type information or function selectors in Insert/Edit
  *
- * @param string  $which      function|type 
+ * @param string  $which      function|type
  * @param array   $url_params containing url parameters
- * @param boolean $is_show    whether to show the element in $which 
+ * @param boolean $is_show    whether to show the element in $which
  *
  * @return string an HTML snippet
  */
@@ -230,9 +230,9 @@ function PMA_showTypeOrFunction($which, $url_params, $is_show)
 }
 
 /**
- * Show type information or function selectors labels in Insert/Edit 
+ * Show type information or function selectors labels in Insert/Edit
  *
- * @param string $which function|type 
+ * @param string $which function|type
  *
  * @return string an HTML snippet
  */
@@ -244,6 +244,8 @@ function PMA_showTypeOrFunctionLabel($which)
     case 'type':
         return __('Type');
     }
+
+    return null;
 }
 
  /**
@@ -2153,7 +2155,8 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit( $multi_edit_funcs,
         && in_array($multi_edit_funcs[$key], $func_optional_param))
     ) {
         if (isset($multi_edit_salt[$key])
-            && ($multi_edit_funcs[$key] == "AES_ENCRYPT" || $multi_edit_funcs[$key] == "AES_DECRYPT")
+            && ($multi_edit_funcs[$key] == "AES_ENCRYPT"
+            || $multi_edit_funcs[$key] == "AES_DECRYPT")
         ) {
             return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
                    . PMA_Util::sqlAddSlashes($multi_edit_salt[$key]) . "')";

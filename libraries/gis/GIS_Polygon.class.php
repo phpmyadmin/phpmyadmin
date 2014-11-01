@@ -519,20 +519,21 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
             $pointB['y'] = $y2 + ($pointB['x'] - $x2) * ($x0 - $x1) / ($y1 - $y0);
 
             // One of the points should be inside the polygon,
-            // unless epcilon chosen is too large
+            // unless epsilon chosen is too large
             if (PMA_GIS_Polygon::isPointInsidePolygon($pointA, $ring)) {
                 return $pointA;
-            } elseif (PMA_GIS_Polygon::isPointInsidePolygon($pointB, $ring)) {
-                return $pointB;
-            } else {
-                //If both are outside the polygon reduce the epsilon and
-                //recalculate the points(reduce exponentially for faster convergance)
-                $epsilon = PMA_Util::pow($epsilon, 2);
-                if ($epsilon == 0) {
-                    return false;
-                }
             }
 
+            if (PMA_GIS_Polygon::isPointInsidePolygon($pointB, $ring)) {
+                return $pointB;
+            }
+
+            //If both are outside the polygon reduce the epsilon and
+            //recalculate the points(reduce exponentially for faster convergence)
+            $epsilon = PMA_Util::pow($epsilon, 2);
+            if ($epsilon == 0) {
+                return false;
+            }
         }
     }
 

@@ -1789,7 +1789,8 @@ function PMA_getHtmlForAddUser($dbname)
     $html_output .= '<fieldset id="fieldset_add_user_footer" class="tblFooters">'
         . "\n"
         . '<input type="hidden" name="adduser_submit" value="1" />' . "\n"
-        . '<input type="submit" id="adduser_submit" value="' . __('Go') . '" />' . "\n"
+        . '<input type="submit" id="adduser_submit" value="' . __('Go') . '" />'
+        . "\n"
         . '</fieldset>' . "\n"
         . '</form>' . "\n";
 

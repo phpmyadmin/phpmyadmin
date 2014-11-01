@@ -490,7 +490,7 @@ var PMA_consoleInput = {
                 mode: 'text/x-sql',
                 lineWrapping: true,
                 extraKeys: {"Ctrl-Space": "autocomplete"},
-                hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
+                hintOptions: {"completeSingle": false, "completeOnSingleClick": true}
             });
             PMA_consoleInput._inputs.console.on("inputRead", codemirrorAutocompleteOnInputRead);
             if ($('#pma_bookmarks').length !== 0) {
@@ -499,7 +499,7 @@ var PMA_consoleInput = {
                     mode: 'text/x-sql',
                     lineWrapping: true,
                     extraKeys: {"Ctrl-Space": "autocomplete"},
-                    hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
+                    hintOptions: {"completeSingle": false, "completeOnSingleClick": true}
                 });
                 PMA_consoleInput._inputs.bookmark.on("inputRead", codemirrorAutocompleteOnInputRead);
             }

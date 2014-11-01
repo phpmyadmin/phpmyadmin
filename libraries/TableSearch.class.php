@@ -287,7 +287,9 @@ class PMA_TableSearch
 
             $html_output .= '<a class="ajax browse_foreign" href="'
                 . 'browse_foreigners.php'
-                . PMA_URL_getCommon(array('db' => $this->_db, 'table' => $this->_table))
+                . PMA_URL_getCommon(
+                    array('db' => $this->_db, 'table' => $this->_table)
+                )
                 . '&amp;field=' . urlencode($column_name) . '&amp;fieldkey='
                 . $column_index . '&amp;fromsearch=1"';
             $html_output .= '>' . str_replace("'", "\'", $titles['Browse']) . '</a>';

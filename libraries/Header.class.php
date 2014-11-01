@@ -714,7 +714,10 @@ class PMA_Header
             && /*overload*/mb_strlen($table)
             && $GLOBALS['cfg']['NumRecentTables'] > 0
         ) {
-            $tmp_result = PMA_RecentFavoriteTable::getInstance('recent')->add($db, $table);
+            $tmp_result = PMA_RecentFavoriteTable::getInstance('recent')->add(
+                $db,
+                $table
+            );
             if ($tmp_result === true) {
                 $params  = array('ajax_request' => true, 'recent_table' => true);
                 $url     = 'index.php' . PMA_URL_getCommon($params);

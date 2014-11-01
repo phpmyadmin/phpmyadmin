@@ -281,7 +281,6 @@ function PMA_showAddIndexDialog(source_array, array_index, target_columns, col_i
         $('select[name="index[columns][names][]"]').each(function () {
             if ($(this).val() === '') {
                 is_missing_value = true;
-                return;
             }
         });
 

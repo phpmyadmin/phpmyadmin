@@ -244,10 +244,11 @@ class AuthenticationHttp extends AuthenticationPlugin
         $error = $GLOBALS['dbi']->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
             PMA_fatalError($error);
-        } else {
-            $this->auth();
-            return true;
+            //implicit exit.
         }
+
+        $this->auth();
+        return true;
     }
 
     /**

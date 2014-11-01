@@ -147,7 +147,8 @@ function PMA_getHtmlForSlaveConfiguration(
         $html .= '<option value="">' . __('Default') . '</option>';
         foreach ($GLOBALS['server_slave_multi_replication'] as $server) {
             $html .= '<option' . (isset($_REQUEST['master_connection']) && $_REQUEST['master_connection'] == $server['Connection_name'] ?
-                ' selected="selected"' : '') . '>' . $server['Connection_name'] . '</option>';
+                ' selected="selected"' : '') . '>' . $server['Connection_name']
+                . '</option>';
         }
         $html .= '</select>';
         $html .= ' <input type="submit" value="' . __('Go') . '" id="goButton" />';
@@ -945,7 +946,9 @@ function PMA_handleControlRequest()
                 $response->isSuccess($result);
                 $response->addJSON(
                     'message',
-                    $result ? PMA_Message::success($messageSuccess) : PMA_Message::error($messageError)
+                    $result
+                        ? PMA_Message::success($messageSuccess)
+                        : PMA_Message::error($messageError)
                 );
             } else {
                 PMA_sendHeaderLocation(

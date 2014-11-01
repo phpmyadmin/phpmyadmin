@@ -1421,7 +1421,8 @@ function PMA_getRelatives($all_tables, $master)
                     . PMA_Util::backquote($one_key['index_list'][$key]);
 
                     if (! in_array($on_condition, $left_joins[$left_join_with]['on_condition'])) {
-                        $left_joins[$left_join_with]['on_condition'][] = $on_condition;
+                        $left_joins[$left_join_with]['on_condition'][]
+                            = $on_condition;
                     }
                 }
                 $ignore_internal_relations = true;
