@@ -260,18 +260,7 @@ class ImportMediawiki extends ImportPlugin
                     // Loop through each table cell
                     $cells = $this->_explodeMarkup($cur_buffer_line);
                     foreach ($cells as $cell) {
-                        // A cell could contain both parameters and data
-                        $cell_data = explode('|', $cell, 2);
-
-                        // A '|' inside an invalid link should not
-                        // be mistaken as delimiting cell parameters
-                        if (/*overload*/mb_strpos($cell_data[0], '[[') === true ) {
-                            if (count($cell_data) == 1) {
-                                $cell = $cell_data[0];
-                            } else {
-                                $cell = $cell_data[1];
-                            }
-                        }
+                        $cell = $this->_getCell($cell);
 
                         // Delete the beginning of the column, if there is one
                         $cell = trim($cell);
@@ -553,5 +542,30 @@ class ImportMediawiki extends ImportPlugin
     private function _setAnalyze($analyze)
     {
         $this->_analyze = $analyze;
+    }
+
+    /**
+     * Get cell
+     *
+     * @param string $cell Cell
+     *
+     * @return mixed
+     */
+    private function _getCell($cell)
+    {
+        // A cell could contain both parameters and data
+        $cell_data = explode('|', $cell, 2);
+
+        // A '|' inside an invalid link should not
+        // be mistaken as delimiting cell parameters
+        if (/*overload*/mb_strpos($cell_data[0], '[[') !== true) {
+            return $cell;
+        }
+
+        if (count($cell_data) == 1) {
+            return $cell_data[0];
+        }
+
+        return $cell_data[1];
     }
 }
