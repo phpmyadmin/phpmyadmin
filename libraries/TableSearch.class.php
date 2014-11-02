@@ -908,13 +908,13 @@ class PMA_TableSearch
     }
 
     /**
-     * Provides a column's type, collation, operators list, and crietria value
+     * Provides a column's type, collation, operators list, and criteria value
      * to display in table search form
      *
      * @param integer $search_index Row number in table search form
      * @param integer $column_index Column index in ColumnNames array
      *
-     * @return array Array contaning column's properties
+     * @return array Array containing column's properties
      */
     public function getColumnProperties($search_index, $column_index)
     {
@@ -1382,7 +1382,7 @@ class PMA_TableSearch
      * @param string $replaceWith string to replace with
      * @param string $charSet     character set of the connection
      *
-     * @return array Array containing original values, replcaed values and count
+     * @return array Array containing original values, replaced values and count
      */
     function _getRegexReplaceRows($columnIndex, $find, $replaceWith, $charSet)
     {

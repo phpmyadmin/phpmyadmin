@@ -446,7 +446,7 @@ class PMA_File
      *
      * @todo move check of $cfg['TempDir'] into PMA_Config?
      * @access  public
-     * @return boolean whether uploaded fiel is fine or not
+     * @return boolean whether uploaded file is fine or not
      */
     public function checkUploadedFile()
     {

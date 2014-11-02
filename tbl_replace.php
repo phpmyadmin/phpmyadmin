@@ -3,7 +3,7 @@
 /**
  * Manipulation of table data like inserting, replacing and updating
  *
- * Usally called as form action from tbl_change.php to insert or update table rows
+ * Usually called as form action from tbl_change.php to insert or update table rows
  *
  * @todo 'edit_next' tends to not work as expected if used ...
  * at least there is no order by it needs the original query

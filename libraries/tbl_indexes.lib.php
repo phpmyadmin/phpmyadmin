@@ -88,7 +88,7 @@ function PMA_handleCreateOrEditIndex($db, $table, $index)
  * @param string    $db     current db
  * @param string    $table  current table
  * @param PMA_Index $index  current index
- * @param bool      &$error whether error occoured or not
+ * @param bool      &$error whether error occurred or not
  *
  * @return string
  */
@@ -157,7 +157,7 @@ function PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, &$error)
 /**
  * Function to prepare the form values for index
  *
- * @param string $db    curent database
+ * @param string $db    current database
  * @param string $table current table
  *
  * @return PMA_Index

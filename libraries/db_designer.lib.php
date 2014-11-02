@@ -589,7 +589,7 @@ function PMA_getDatabaseTables(
         $html .= 'onmouseout="this.className=\'small_tab\';" ';
         $html .= '>';
 
-        // no space alloawd here, between tags and content !!!
+        // no space allowed here, between tags and content !!!
         // JavaScript function does require this
         if (! isset($tab_pos[$t_n]) || ! empty($tab_pos[$t_n]["V"])) {
             $html .= 'v';

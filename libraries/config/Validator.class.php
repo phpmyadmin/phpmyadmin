@@ -589,7 +589,7 @@ class PMA_Validator
      *
      * @param string $path   path to config
      * @param array  $values config values
-     * @param string $regex  regullar expression to match
+     * @param string $regex  regular expression to match
      *
      * @return array
      */

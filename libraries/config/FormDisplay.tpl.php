@@ -104,7 +104,7 @@ function PMA_displayFieldsetTop($title = '', $description = '', $errors = null,
  * $opts keys:
  * o doc - (string) documentation link
  * o errors - error array
- * o setvalue - (string) shows button allowing to set poredefined value
+ * o setvalue - (string) shows button allowing to set predefined value
  * o show_restore_default - (boolean) whether show "restore default" button
  * o userprefs_allow - whether user preferences are enabled for this field
  *                    (null - no support, true/false - enabled/disabled)

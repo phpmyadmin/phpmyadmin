@@ -33,7 +33,7 @@ class TableProperty
     public $type;
 
     /**
-     * Wheter the key is nullable or not
+     * Whether the key is nullable or not
      *
      * @var bool
      */

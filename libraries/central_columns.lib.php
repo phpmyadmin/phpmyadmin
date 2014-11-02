@@ -649,7 +649,7 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
  *
  * @param string $db current database
  *
- * @return html dropdown for secting table
+ * @return html dropdown for selecting table
  */
 function PMA_getHTMLforTableDropdown($db)
 {

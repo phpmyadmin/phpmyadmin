@@ -121,15 +121,15 @@ class PMA_TblViewsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getExistingTranformationData() method.
+     * Tests for PMA_getExistingTransformationData() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetExistingTranformationData()
+    public function testPMAGetExistingTransformationData()
     {
         $db = "PMA_db";
-        $ret = PMA_getExistingTranformationData($db);
+        $ret = PMA_getExistingTransformationData($db);
 
         //validate that is the same as $GLOBALS['dbi']->tryQuery
         $this->assertEquals(
@@ -188,7 +188,7 @@ class PMA_TblViewsTest extends PHPUnit_Framework_TestCase
 }
 
 /**
- * clas for Table Field Meta
+ * class for Table Field Meta
  *
  * @package PhpMyAdmin-test
  */

@@ -1428,7 +1428,7 @@ function PMA_getActionsPanel($where_clause, $after_insert, $tabindex,
         . '</td>'
         . '</tr>';
     $html_output .='<tr>'
-        . PMA_getSumbitAndResetButtonForActionsPanel($tabindex, $tabindex_for_value)
+        . PMA_getSubmitAndResetButtonForActionsPanel($tabindex, $tabindex_for_value)
         . '</tr>'
         . '</table>'
         . '</fieldset>';
@@ -1525,7 +1525,7 @@ function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_
  *
  * @return string an html snippet
  */
-function PMA_getSumbitAndResetButtonForActionsPanel($tabindex, $tabindex_for_value)
+function PMA_getSubmitAndResetButtonForActionsPanel($tabindex, $tabindex_for_value)
 {
     return '<td>'
     . PMA_Util::showHint(

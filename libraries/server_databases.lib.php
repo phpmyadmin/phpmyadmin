@@ -379,12 +379,12 @@ function PMA_getHtmlForNoticeEnableStatistics($url_query, $html)
  *
  * @param bool  $is_superuser      User status
  * @param Array $replication_types replication types
- * @param bool  $cfg_inconic       cfg about Properties Iconic
+ * @param bool  $cfg_iconic        cfg about Properties Iconic
  *
  * @return string
  */
 function PMA_getHtmlForReplicationType(
-    $is_superuser, $replication_types, $cfg_inconic
+    $is_superuser, $replication_types, $cfg_iconic
 ) {
     $html = '';
     foreach ($replication_types as $type) {
@@ -400,7 +400,7 @@ function PMA_getHtmlForReplicationType(
     }
 
     if ($is_superuser && ! PMA_DRIZZLE) {
-        $html .= '    <th>' . ($cfg_inconic ? '' : __('Action')) . "\n"
+        $html .= '    <th>' . ($cfg_iconic ? '' : __('Action')) . "\n"
             . '    </th>' . "\n";
     }
     return $html;

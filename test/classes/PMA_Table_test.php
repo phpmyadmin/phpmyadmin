@@ -971,7 +971,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $target_table, $what, $move, $mode
         );
 
-        //successully
+        //successfully
         $expect = true;
         $this->assertEquals(
             $expect,
@@ -994,7 +994,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $target_table, $what, false, $mode
         );
 
-        //successully
+        //successfully
         $expect = true;
         $this->assertEquals(
             $expect,

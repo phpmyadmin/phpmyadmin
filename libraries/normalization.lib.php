@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
  * build the html for columns of $colTypeCategory category
  * in form of given $listType in a table
  *
- * @param string $db              current databse
+ * @param string $db              current database
  * @param string $table           current table
  * @param string $colTypeCategory supported all|Numeric|String|Spatial
  *                                |Date and time using the _pgettext() format

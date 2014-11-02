@@ -696,7 +696,7 @@ class PMA_Util
         $error_message = str_replace(
             "\t", '&nbsp;&nbsp;&nbsp;&nbsp;', $error_message
         );
-        // Replace linebreaks
+        // Replace line breaks
         $error_message = nl2br($error_message);
 
         $error_msg .= '<code>' . "\n"
@@ -1405,7 +1405,7 @@ class PMA_Util
 
     /**
      * Formats $value to the given length and appends SI prefixes
-     * with a $length of 0 no truncation occurs, number is only formated
+     * with a $length of 0 no truncation occurs, number is only formatted
      * to the current locale
      *
      * examples:
@@ -1500,7 +1500,7 @@ class PMA_Util
         $value = round($value / (self::pow(1000, $d, 'pow') / $dh)) /$dh;
         $unit = $units[$d];
 
-        // If we dont want any zeros after the comma just add the thousand separator
+        // If we don't want any zeros after the comma just add the thousand separator
         if ($noTrailingZero) {
             $value = self::localizeNumber(
                 preg_replace('/(?<=\d)(?=(\d{3})+(?!\d))/', ',', $value)
@@ -1646,7 +1646,7 @@ class PMA_Util
 
         $tab = array_merge($defaults, $tab);
 
-        // determine additionnal style-class
+        // determine additional style-class
         if (empty($tab['class'])) {
             if (! empty($tab['active'])
                 || PMA_isValid($GLOBALS['active_page'], 'identical', $tab['link'])
@@ -1841,7 +1841,7 @@ class PMA_Util
                 . implode(' ', $tag_params_strings) . '>'
                 . $message . $displayed_message . '</a>' . "\n";
         } else {
-            // no spaces (linebreaks) at all
+            // no spaces (line breaks) at all
             // or after the hidden fields
             // IE will display them all
 
@@ -3539,7 +3539,7 @@ class PMA_Util
 
     /**
      * Returns the names and details of the functions
-     * that can be applied on geometry data typess.
+     * that can be applied on geometry data types.
      *
      * @param string $geom_type if provided the output is limited to the functions
      *                          that are applicable to the provided geometry type.
@@ -3549,7 +3549,7 @@ class PMA_Util
      *                          output array.
      *
      * @return array names and details of the functions that can be applied on
-     *               geometry data typess.
+     *               geometry data types.
      */
     public static function getGISFunctions(
         $geom_type = null, $binary = true, $display = false
@@ -3622,7 +3622,7 @@ class PMA_Util
                 $funcs['Touches']    = array('params' => 2, 'type' => 'int');
                 $funcs['Within']     = array('params' => 2, 'type' => 'int');
             } else {
-                // If MySQl version is greaeter than or equal 5.6.1,
+                // If MySQl version is greater than or equal 5.6.1,
                 // use the ST_ prefix.
                 $funcs['ST_Crosses']    = array('params' => 2, 'type' => 'int');
                 $funcs['ST_Contains']   = array('params' => 2, 'type' => 'int');
@@ -3935,7 +3935,7 @@ class PMA_Util
      *
      * @param string $definition The definition of the column
      *                           for which to parse the values
-     * @param bool   $escapeHtml Whether to escape html entitites
+     * @param bool   $escapeHtml Whether to escape html entities
      *
      * @return array
      */
@@ -4442,7 +4442,7 @@ class PMA_Util
     }
 
     /**
-     * Provide COLLATE clause, if required, to perfrom case sensitice comparisons
+     * Provide COLLATE clause, if required, to perform case sensitive comparisons
      * for queries on information_schema.
      *
      * @return string COLLATE clause if needed or empty string.

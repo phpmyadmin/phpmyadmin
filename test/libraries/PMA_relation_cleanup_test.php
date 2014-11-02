@@ -459,7 +459,7 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
      * @param string|mysql_result $result query or mysql result
      * @param string              $type   NUM|ASSOC|BOTH
      *                                    returned array should either numeric
-     *                                    associativ or booth
+     *                                    associative or booth
      * @param resource            $link   mysql link
      *
      * @return array|boolean first row from result

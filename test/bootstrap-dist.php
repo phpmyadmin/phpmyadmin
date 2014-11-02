@@ -85,7 +85,7 @@ function test_header($string, $replace = true, $http_response_code = 200)
 }
 
 /**
- * Function to emulate headers_hest.
+ * Function to emulate headers_send.
  *
  * @return boolean false
  */

@@ -1334,7 +1334,7 @@ class PMA_DatabaseInterface
             // * used in primary key => PRI
             // * unique one-column => UNI
             // * indexed, one-column or first in multi-column => MUL
-            // Promotion of UNI to PRI in case no promary index exists
+            // Promotion of UNI to PRI in case no primary index exists
             // is done after query is executed
             $sql = "SELECT
                     column_name        AS `Field`,
@@ -1495,7 +1495,7 @@ class PMA_DatabaseInterface
     * Returns SQL for fetching information on table indexes (SHOW INDEXES)
     *
     * @param string $database name of database
-    * @param string $table    name of the table whose indexes are to be retreived
+    * @param string $table    name of the table whose indexes are to be retrieved
     * @param string $where    additional conditions for WHERE
     *
     * @return string SQL for getting indexes
@@ -2200,7 +2200,7 @@ class PMA_DatabaseInterface
                 $error .= '<br />'
                     . __('Please check privileges of directory containing database.');
             } else {
-                /* InnoDB contraints, see
+                /* InnoDB constraints, see
                  * http://dev.mysql.com/doc/refman/5.0/en/
                  *  innodb-foreign-key-constraints.html
                  */
@@ -2350,7 +2350,7 @@ class PMA_DatabaseInterface
     /**
      * Get the current user and host
      *
-     * @return array arrya of username and hostname
+     * @return array array of username and hostname
      */
     private function _getCurrentUserAndHost()
     {

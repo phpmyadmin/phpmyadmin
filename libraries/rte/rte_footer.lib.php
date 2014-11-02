@@ -52,7 +52,7 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
 /**
  * Creates a fieldset for adding a new routine, if the user has the privileges.
  *
- * @return string    HTML code with containing the fotter fieldset
+ * @return string    HTML code with containing the footer fieldset
  */
 function PMA_RTN_getFooterLinks()
 {
@@ -62,7 +62,7 @@ function PMA_RTN_getFooterLinks()
 /**
  * Creates a fieldset for adding a new trigger, if the user has the privileges.
  *
- * @return string    HTML code with containing the fotter fieldset
+ * @return string    HTML code with containing the footer fieldset
  */
 function PMA_TRI_getFooterLinks()
 {
@@ -72,7 +72,7 @@ function PMA_TRI_getFooterLinks()
 /**
  * Creates a fieldset for adding a new event, if the user has the privileges.
  *
- * @return string    HTML code with containing the fotter fieldset
+ * @return string    HTML code with containing the footer fieldset
  */
 function PMA_EVN_getFooterLinks()
 {

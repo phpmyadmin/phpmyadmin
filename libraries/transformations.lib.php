@@ -373,7 +373,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
 
 
 /**
- * Replaces "[__BUFFER__]" occurences found in $options['string'] with the text
+ * Replaces "[__BUFFER__]" occurrences found in $options['string'] with the text
  * in $buffer, after performing a regular expression search and replace on
  * $buffer using $options['regex'] and $options['regex_replace'].
  *
@@ -403,7 +403,7 @@ function PMA_Transformation_globalHtmlReplace($buffer, $options = array())
         );
     }
 
-    // Replace occurences of [__BUFFER__] with actual text
+    // Replace occurrences of [__BUFFER__] with actual text
     $return = str_replace("[__BUFFER__]", $buffer, $options['string']);
     return $return;
 }

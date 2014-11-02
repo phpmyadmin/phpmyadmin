@@ -2048,7 +2048,7 @@ function PMA_getHtmlForViewUsersError()
 /**
  * Get HTML snippet for table body of specific database or table privileges
  *
- * @param array  $privMap priviledge map
+ * @param array  $privMap privilege map
  * @param string $db      database
  *
  * @return string $html_output
@@ -2571,7 +2571,7 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
  * So this function returns user rights as an array
  *
  * @param array  $tables              tables
- * @param string $user_host_condition a where clause that containd user's host
+ * @param string $user_host_condition a where clause that contained user's host
  *                                    condition
  * @param string $dbname              database name
  *
@@ -2808,7 +2808,7 @@ function PMA_getHtmlForAllTableSpecificRights(
     // table body
     // get data
 
-    // we also want privielgs for this user not in table `db` but in other table
+    // we also want privileges for this user not in table `db` but in other table
     $tables = $GLOBALS['dbi']->fetchResult('SHOW TABLES FROM `mysql`;');
 
     /**
@@ -3234,7 +3234,7 @@ function PMA_getHtmlForInitials($array_initials)
 }
 
 /**
- * Get the database rigths array for Display user overview
+ * Get the database rights array for Display user overview
  *
  * @return array  $db_rights    database rights array
  */
@@ -4143,7 +4143,7 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
  * Get queries for Table privileges to change or copy user
  *
  * @param string $user_host_condition user host condition to
- *                                    select relevent table privileges
+ *                                    select relevant table privileges
  * @param array  $queries             queries array
  * @param string $username            username
  * @param string $hostname            host name
@@ -4355,7 +4355,7 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
 /**
  * Get SQL queries for Display and Add user
  *
- * @param string $username usernam
+ * @param string $username username
  * @param string $hostname host name
  * @param string $password password
  *

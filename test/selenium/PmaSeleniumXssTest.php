@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Selenium TestCase for SQL querry window related tests
+ * Selenium TestCase for SQL query window related tests
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium

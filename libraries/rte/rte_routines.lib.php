@@ -170,7 +170,7 @@ function PMA_RTN_parseOneParameter($value)
  * @param array  $parsed_query Parsed query, returned by by PMA_SQP_parse()
  * @param string $routine_type Routine type: 'PROCEDURE' or 'FUNCTION'
  *
- * @return array   Information about the parameteres of a routine.
+ * @return array   Information about the parameters of a routine.
  */
 function PMA_RTN_parseAllParameters($parsed_query, $routine_type)
 {

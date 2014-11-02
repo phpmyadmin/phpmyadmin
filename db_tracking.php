@@ -176,7 +176,7 @@ foreach ($table_list as $key => $value) {
     ) {
         foreach ($value as $temp_table) {
             // If $temp_table is a table with the value for 'Name' is set,
-            // rather than a propery of the table group.
+            // rather than a property of the table group.
             if (is_array($temp_table)
                 && array_key_exists('Name', $temp_table)
             ) {

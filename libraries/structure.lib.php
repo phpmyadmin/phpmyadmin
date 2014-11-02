@@ -452,7 +452,7 @@ function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
  * @param boolean $db_is_system_schema   whether db is information schema or not
  * @param array   $titles                titles array
  * @param string  $empty_table           empty table action link
- * @param string  $drop_query            table dropt query
+ * @param string  $drop_query            table drop query
  * @param string  $drop_message          table drop message
  * @param string  $collation             collation
  * @param string  $formatted_size        formatted size
@@ -591,7 +591,7 @@ function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view
 /**
  * Get HTML for show stats
  *
- * @param string $tbl_url_query  tabel url query
+ * @param string $tbl_url_query  table url query
  * @param string $formatted_size formatted size
  * @param string $unit           unit
  * @param string $overhead       overhead
@@ -653,7 +653,7 @@ function PMA_getHtmlForStructureTimes($create_time, $update_time, $check_time)
  * @param boolean $table_is_view  whether table is view
  * @param array   $current_table  current table
  * @param string  $collation      collation
- * @param boolean $is_show_stats  whether atats show or not
+ * @param boolean $is_show_stats  whether stats show or not
  * @param string  $tbl_url_query  table url query
  * @param string  $formatted_size formatted size
  * @param string  $unit           unit
@@ -1074,7 +1074,7 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
  * @param boolean $db_is_system_schema whether db is information schema or not
  * @param boolean $is_show_stats       whether stats show or not
  * @param boolean $table_is_view       whether table is view or not
- * @param double  $sum_size            totle table size
+ * @param double  $sum_size            total table size
  * @param double  $overhead_size       overhead size
  *
  * @return array

@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-//the following defination should be used globally
+//the following definition should be used globally
 $GLOBALS['server'] = 0;
 
 /*

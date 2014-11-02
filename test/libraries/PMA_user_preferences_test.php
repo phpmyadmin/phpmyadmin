@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for methods under user_preferences libarary
+ * tests for methods under user_preferences library
  *
  * @package PhpMyAdmin-test
  */
@@ -21,7 +21,7 @@ require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/Message.class.php';
 
 /**
- * tests for methods under user_preferences libarary
+ * tests for methods under user_preferences library
  *
  * @package PhpMyAdmin-test
  */

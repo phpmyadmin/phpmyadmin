@@ -126,14 +126,14 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
                 '0',
                 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 0))'
             ),
-            // should have atleast one ring
+            // should have at least one ring
             array(
                 $temp2,
                 0,
                 '0',
                 'POLYGON((35 10,10 20,15 40,45 45,35 10))'
             ),
-            // a ring should have atleast four points
+            // a ring should have at least four points
             array(
                 $temp3,
                 0,

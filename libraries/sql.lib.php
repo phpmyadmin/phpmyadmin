@@ -956,7 +956,7 @@ function PMA_hasNoRightsToDropDatabase($analyzed_sql_results,
 }
 
 /**
- * Function to set a column property 
+ * Function to set a column property
  *
  * @param PMA_Table $pmatable      PMA_Table instance
  * @param string    $request_index col_order|col_visib
@@ -2043,7 +2043,7 @@ function PMA_getHtmlForPrintButton()
  * @param string     $disp_mode            display mode
  * @param string     $message              message to show
  * @param array      $sql_data             sql data
- * @param object     $displayResultsObject Instance of DisplyResults.class
+ * @param object     $displayResultsObject Instance of DisplayResults.class
  * @param string     $goto                 goto page url
  * @param string     $pmaThemeImage        uri of the theme image
  * @param string     $sql_limit_to_append  sql limit to append

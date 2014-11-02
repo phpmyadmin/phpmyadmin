@@ -554,7 +554,7 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
 
         // In Drizzle, 'SHOW TABLE STATUS' will show status only for the tables
         // which are currently in the table cache. Hence we have to use
-        // 'SHOW TABLES' and manully retrieve table engine values.
+        // 'SHOW TABLES' and manualy retrieve table engine values.
         if (PMA_DRIZZLE) {
             $tables_rs = $GLOBALS['dbi']->query(
                 'SHOW TABLES FROM ' . PMA_Util::backquote($foreign_db),
@@ -748,7 +748,7 @@ function PMA_sendHtmlForTableDropdownList()
 
     // In Drizzle, 'SHOW TABLE STATUS' will show status only for the tables
     // which are currently in the table cache. Hence we have to use 'SHOW TABLES'
-    // and manully retrieve table engine values.
+    // and manually retrieve table engine values.
     if ($foreign && ! PMA_DRIZZLE) {
         $query = 'SHOW TABLE STATUS FROM '
             . PMA_Util::backquote($_REQUEST['foreignDb']);

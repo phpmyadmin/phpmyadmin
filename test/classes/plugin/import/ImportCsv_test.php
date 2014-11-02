@@ -68,7 +68,7 @@ class ImportCsv_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['import_handle'] = @fopen($GLOBALS['import_file'], 'r');
 
-        //seperator for csv
+        //separator for csv
         $GLOBALS['csv_terminated'] = "\015";
         $GLOBALS['csv_enclosed'] = '"';
         $GLOBALS['csv_escaped'] = '"';
