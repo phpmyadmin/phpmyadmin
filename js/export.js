@@ -253,7 +253,7 @@ function check_time_out(time_limit)
 /**
  * Handler for Database/table alias select
  *
- * @param object event the event object
+ * @param event object the event object
  *
  * @return void
  */
@@ -287,7 +287,7 @@ function aliasSelectHandler(event) {
 /**
  * Handler for Alias dialog box
  *
- * @param object event the event object
+ * @param event object the event object
  *
  * @return void
  */

@@ -1,52 +1,33 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for Specialized String Functions (native) for phpMyAdmin
+ * Abstract tests for string library with default set of tests
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
-require_once 'libraries/StringNative.class.php';
 
 /**
- * Tests for Specialized String Functions (native) for phpMyAdmin
+ * tests for string library
  *
  * @package PhpMyAdmin-test
  */
-class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
+abstract class PMA_StringTest extends PHPUnit_Framework_TestCase
 {
-    /** @var PMA_StringNative */
-    protected $testObject;
-
     /**
-     * Setup function for test cases
-     *
-     * @access protected
-     * @return void
-     */
-    protected function setUp()
-    {
-        $this->testObject = new PMA_StringNative();
-    }
-
-    /**
-     * Test for PMA_StringNative::strlen
+     * Test for mb_strlen
      *
      * @param integer $length Length of the string
      * @param string  $str    String to check for
      *
      * @return void
      * @test
-     * @dataProvider strlenData
+     * @dataProvider providerStrlen
      */
     public function testStrlen($length, $str)
     {
         $this->assertEquals(
             $length,
-            $this->testObject->strlen($str)
+            mb_strlen($str)
         );
     }
 
@@ -55,12 +36,12 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      *
      * @return array Test data
      */
-    public function strlenData()
+    public function providerStrlen()
     {
         return array(
             array(2, "ab"),
             array(9, "test data"),
-            array(0, "")
+            array(0, ""),
         );
     }
 
@@ -74,13 +55,13 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      * @test
-     * @dataProvider subStrData
+     * @dataProvider providerSubstr
      */
     public function testSubStr($str, $haystack, $start, $length)
     {
         $this->assertEquals(
             $str,
-            $this->testObject->substr($haystack, $start, $length)
+            mb_substr($haystack, $start, $length)
         );
     }
 
@@ -89,11 +70,11 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      *
      * @return array Test data
      */
-    public function subStrData()
+    public function providerSubstr()
     {
         return array(
             array("b", "ab", 1, 1),
-            array("data", "testdata", 4, 4)
+            array("data", "testdata", 4, 4),
         );
     }
 
@@ -106,13 +87,13 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      * @test
-     * @dataProvider substrCountData
+     * @dataProvider providerSubstrCount
      */
     public function testSubstrCount($expected, $haystack, $needle)
     {
         $this->assertEquals(
             $expected,
-            $this->testObject->substrCount($haystack, $needle)
+            mb_substr_count($haystack, $needle)
         );
     }
 
@@ -121,7 +102,7 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      *
      * @return array Test data
      */
-    public function substrCountData()
+    public function providerSubstrCount()
     {
         return array(
             array(1, "ab", "b"),
@@ -139,13 +120,14 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      * @test
-     * @dataProvider substrCountDataException
+     * @dataProvider providerSubstrCountException
      *
      * @expectedException PHPUnit_Framework_Error
      */
     public function testSubstrCountException($haystack, $needle)
     {
-        $this->testObject->substrCount($haystack, $needle);
+        //No test. We're waiting for an exception.
+        mb_substr_count($haystack, $needle);
     }
 
     /**
@@ -153,7 +135,7 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      *
      * @return array Test data
      */
-    public function substrCountDataException()
+    public function providerSubstrCountException()
     {
         return array(
             array("testdata", ""),
@@ -172,13 +154,13 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      * @test
-     * @dataProvider strposData
+     * @dataProvider providerStrpos
      */
-    public function testStrpos($pos, $haystack, $needle, $offset)
+    public function testStrpos($pos, $haystack, $needle, $offset = 0)
     {
         $this->assertEquals(
             $pos,
-            $this->testObject->strpos($haystack, $needle, $offset)
+            mb_strpos($haystack, $needle, $offset)
         );
     }
 
@@ -187,11 +169,11 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      *
      * @return array Test data
      */
-    public function strposData()
+    public function providerStrpos()
     {
         return array(
             array(1, "ab", "b", 0),
-            array(4, "test data", " ", 0)
+            array(4, "test data", " ", 0),
         );
     }
 
@@ -210,7 +192,7 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $expected,
-            $this->testObject->strrchr($haystack, $needle)
+            mb_strrchr($haystack, $needle)
         );
     }
 
@@ -229,7 +211,8 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
             array(false, 'abcdefabcdef', ''),
             array(false, 'abcdefabcdef', false),
             array(false, 'abcdefabcdef', true),
-            array(false, '789456123', true),
+            array('123', '789456123', true),
+            array(false, '7894560123', false),
             array(false, 'abcdefabcdef', null),
             array(false, null, null),
             array(false, null, 'a'),
@@ -251,22 +234,22 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      * @test
-     * @dataProvider strToLowerData
+     * @dataProvider providerStrtolower
      */
-    public function testStrToLower($expected, $string)
+    public function testStrtolower($expected, $string)
     {
         $this->assertEquals(
             $expected,
-            $this->testObject->strtolower($string)
+            mb_strtolower($string)
         );
     }
 
     /**
-     * Data provider for testStrpos
+     * Data provider for testStrtolower
      *
      * @return array Test data
      */
-    public function strToLowerData()
+    public function providerStrtolower()
     {
         return array(
             array("mary had a", "Mary Had A"),
@@ -274,4 +257,3 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

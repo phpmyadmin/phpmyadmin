@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for displaing results
+ * Tests for displaying results
  *
  * @package PhpMyAdmin-test
  */
@@ -16,6 +16,7 @@ require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/relation.lib.php';
+require_once 'libraries/string.lib.php';
 require_once 'libraries/String.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Link.class.php';
 require_once 'libraries/DatabaseInterface.class.php';
@@ -95,7 +96,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      *                               query without any programmatically appended
      *                               LIMIT clause
      *                               (just a copy of $unlim_num_rows if it exists,
-     *                               elsecomputed inside this function)
+     *                               else computed inside this function)
      * @param string  $output        output from the _setDisplayMode method
      *
      * @return void
@@ -258,7 +259,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      *                               query without any programmatically appended
      *                               LIMIT clause
      *                               (just a copy of $unlim_num_rows if it exists,
-     *                               elsecomputed inside this function)
+     *                               else computed inside this function)
      * @param string  $output        output from the _setDisplayMode method
      *
      * @return void
@@ -433,8 +434,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
 
         /**
          * FIXME Counting words of a generated large HTML is not a good way
-         * of testing IMO. Introduce more granular assertations that assert for
-         * existance of important content inside the generated HTML.
+         * of testing IMO. Introduce more granular assertions that assert for
+         * existence of important content inside the generated HTML.
          */
         /*
         $this->assertEquals(
@@ -857,7 +858,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     /**
      * Data provider for testGetEditLink
      *
-     * @return array parametres and output
+     * @return array parameters and output
      */
     public function dataProviderForGetEditLink()
     {
@@ -1569,21 +1570,21 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     /**
      * Test _getRowInfoForSpecialLinks
      *
-     * @param array   $fields_meta meta information about fields
-     * @param integer $fiels_count number of fields
-     * @param array   $row         current row data
-     * @param array   $col_order   the column order
-     * @param boolean $output      output of _getRowInfoForSpecialLinks
+     * @param array   $fields_meta  meta information about fields
+     * @param integer $fields_count number of fields
+     * @param array   $row          current row data
+     * @param array   $col_order    the column order
+     * @param boolean $output       output of _getRowInfoForSpecialLinks
      *
      * @return void
      *
      * @dataProvider dataProviderForTestGetRowInfoForSpecialLinks
      */
     public function testGetRowInfoForSpecialLinks(
-        $fields_meta, $fiels_count, $row, $col_order,  $output
+        $fields_meta, $fields_count, $row, $col_order,  $output
     ) {
         $this->object->__set('fields_meta', $fields_meta);
-        $this->object->__set('fields_cnt', $fiels_count);
+        $this->object->__set('fields_cnt', $fields_count);
 
         $this->assertEquals(
             $output,

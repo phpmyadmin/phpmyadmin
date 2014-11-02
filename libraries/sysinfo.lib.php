@@ -165,7 +165,6 @@ class PMA_SysInfoWinnt extends PMA_SysInfo
     private function _getWMI($strClass, $strValue = array())
     {
         $arrData = array();
-        $value = "";
 
         $objWEBM = $this->_wmi->Get($strClass);
         $arrProp = $objWEBM->Properties_;
@@ -235,13 +234,10 @@ class PMA_SysInfoLinux extends PMA_SysInfo
      */
     function loadavg()
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $buf = file_get_contents('/proc/stat');
         $nums = preg_split(
             "/\s+/",
-            $pmaString->substr($buf, 0, $pmaString->strpos($buf, "\n"))
+            /*overload*/mb_substr($buf, 0, /*overload*/mb_strpos($buf, "\n"))
         );
         return Array(
             'busy' => $nums[1] + $nums[2] + $nums[3],

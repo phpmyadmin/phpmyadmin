@@ -140,12 +140,14 @@ class PMA_DatabaseInterface
             $_SESSION['debug']['queries'][$hash]['count']++;
         } else {
             $_SESSION['debug']['queries'][$hash] = array();
-            if ($result == false) {
+            $error_message = $this->getError($link);
+            if ($result == false && is_string($error_message)) {
                 $_SESSION['debug']['queries'][$hash]['error']
-                    = '<b style="color:red">' . $this->getError($link) . '</b>';
+                    = '<b style="color:red">'
+                    . htmlspecialchars($error_message) . '</b>';
             }
             $_SESSION['debug']['queries'][$hash]['count'] = 1;
-            $_SESSION['debug']['queries'][$hash]['query'] = $query;
+            $_SESSION['debug']['queries'][$hash]['query'] = htmlspecialchars($query);
             $_SESSION['debug']['queries'][$hash]['time'] = $time;
         }
 
@@ -500,15 +502,12 @@ class PMA_DatabaseInterface
                 $sql, array('TABLE_SCHEMA', 'TABLE_NAME'), null, $link
             );
 
-            /** @var PMA_String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
-
             if (PMA_DRIZZLE) {
                 // correct I_S and D_D names returned by D_D.TABLES -
                 // Drizzle generally uses lower case for them,
                 // but TABLES returns uppercase
                 foreach ((array)$database as $db) {
-                    $db_upper = $pmaString->strtoupper($db);
+                    $db_upper = /*overload*/mb_strtoupper($db);
                     if (!isset($tables[$db]) && isset($tables[$db_upper])) {
                         $tables[$db] = $tables[$db_upper];
                         unset($tables[$db_upper]);
@@ -555,7 +554,7 @@ class PMA_DatabaseInterface
                 if ($table || (true === $tbl_is_group) || $table_type) {
                     $sql = 'SHOW TABLE STATUS FROM '
                         . PMA_Util::backquote($each_database)
-                        .' WHERE';
+                        . ' WHERE';
                     $needAnd = false;
                     if ($table || (true === $tbl_is_group)) {
                         $sql .= " `Name` LIKE '"
@@ -745,14 +744,14 @@ class PMA_DatabaseInterface
             return $tables[$database];
         }
 
-        if (isset($tables[$pmaString->strtolower($database)])) {
+        if (isset($tables[/*overload*/mb_strtolower($database)])) {
             // on windows with lower_case_table_names = 1
             // MySQL returns
             // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
             // but information_schema.TABLES gives `test`
             // bug #2036
             // https://sourceforge.net/p/phpmyadmin/bugs/2036/
-            return $tables[$pmaString->strtolower($database)];
+            return $tables[/*overload*/mb_strtolower($database)];
         }
 
         // one database but inexact letter case match
@@ -763,7 +762,7 @@ class PMA_DatabaseInterface
         }
 
         $keys = array_keys($tables);
-        if ($pmaString->strlen(array_pop($keys)) == $pmaString->strlen($database)) {
+        if (/*overload*/mb_strlen(array_pop($keys)) == /*overload*/mb_strlen($database)) {
             return array_pop($tables);
         }
         return $tables;
@@ -838,8 +837,9 @@ class PMA_DatabaseInterface
             $tables[$table_name]['TABLE_COMMENT']
                 =& $tables[$table_name]['Comment'];
 
-            $commentUpper = $GLOBALS['PMA_String']
-                ->strtoupper($tables[$table_name]['Comment']);
+            $commentUpper = /*overload*/mb_strtoupper(
+                $tables[$table_name]['Comment']
+            );
             if ($commentUpper === 'VIEW'
                 && $tables[$table_name]['Engine'] == null
             ) {
@@ -901,7 +901,7 @@ class PMA_DatabaseInterface
         $link = null, $sort_by = 'SCHEMA_NAME', $sort_order = 'ASC',
         $limit_offset = 0, $limit_count = false
     ) {
-        $sort_order = $GLOBALS['PMA_String']->strtoupper($sort_order);
+        $sort_order = strtoupper($sort_order);
 
         if (true === $limit_count) {
             $limit_count = $GLOBALS['cfg']['MaxDbList'];
@@ -1004,6 +1004,7 @@ class PMA_DatabaseInterface
                 unset($databases[$drop]);
             }
         } else {
+            $databases = array();
             foreach ($GLOBALS['pma']->databases as $database_name) {
                 // MySQL forward compatibility
                 // so pma could use this array as if every server is of version >5.0
@@ -1333,7 +1334,7 @@ class PMA_DatabaseInterface
             // * used in primary key => PRI
             // * unique one-column => UNI
             // * indexed, one-column or first in multi-column => MUL
-            // Promotion of UNI to PRI in case no promary index exists
+            // Promotion of UNI to PRI in case no primary index exists
             // is done after query is executed
             $sql = "SELECT
                     column_name        AS `Field`,
@@ -1494,7 +1495,7 @@ class PMA_DatabaseInterface
     * Returns SQL for fetching information on table indexes (SHOW INDEXES)
     *
     * @param string $database name of database
-    * @param string $table    name of the table whose indexes are to be retreived
+    * @param string $table    name of the table whose indexes are to be retrieved
     * @param string $where    additional conditions for WHERE
     *
     * @return string SQL for getting indexes
@@ -2194,13 +2195,12 @@ class PMA_DatabaseInterface
             $error .= ' - ' . $error_message;
             $error .= '<br />' . __('The server is not responding.');
         } elseif ($error_number == 1005) {
-            if ($GLOBALS['PMA_String']->strpos($error_message, 'errno: 13') !== false
-            ) {
+            if (strpos($error_message, 'errno: 13') !== false) {
                 $error .= ' - ' . $error_message;
                 $error .= '<br />'
                     . __('Please check privileges of directory containing database.');
             } else {
-                /* InnoDB contraints, see
+                /* InnoDB constraints, see
                  * http://dev.mysql.com/doc/refman/5.0/en/
                  *  innodb-foreign-key-constraints.html
                  */
@@ -2350,7 +2350,7 @@ class PMA_DatabaseInterface
     /**
      * Get the current user and host
      *
-     * @return array arrya of username and hostname
+     * @return array array of username and hostname
      */
     private function _getCurrentUserAndHost()
     {
@@ -2370,13 +2370,11 @@ class PMA_DatabaseInterface
      */
     public function isSystemSchema($schema_name, $testForMysqlSchema = false)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-        return $pmaString->strtolower($schema_name) == 'information_schema'
+        return strtolower($schema_name) == 'information_schema'
             || (!PMA_DRIZZLE
-                && $pmaString->strtolower($schema_name) == 'performance_schema')
+                && strtolower($schema_name) == 'performance_schema')
             || (PMA_DRIZZLE
-                && $pmaString->strtolower($schema_name) == 'data_dictionary')
+                && strtolower($schema_name) == 'data_dictionary')
             || ($testForMysqlSchema && !PMA_DRIZZLE && $schema_name == 'mysql');
     }
 

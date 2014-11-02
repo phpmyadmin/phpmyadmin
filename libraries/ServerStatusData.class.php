@@ -259,7 +259,8 @@ class PMA_ServerStatusData
         $links['Slow_queries']['doc'] = 'slow_query_log';
 
         $links['innodb'][__('Variables')]
-            = 'server_engines.php?engine=InnoDB&amp;' . PMA_URL_getCommon();
+            = 'server_engines.php?engine=InnoDB&amp;'
+            . PMA_URL_getCommon(array(), 'html', '');
         $links['innodb'][__('InnoDB Status')]
             = 'server_engines.php'
             . PMA_URL_getCommon(
@@ -280,14 +281,11 @@ class PMA_ServerStatusData
         // Variable to mark used sections
         $categoryUsed = array();
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // sort vars into arrays
         foreach ($server_status as $name => $value) {
             $section_found = false;
             foreach ($allocations as $filter => $section) {
-                if ($pmaString->strpos($name, $filter) !== false) {
+                if (/*overload*/mb_strpos($name, $filter) !== false) {
                     $allocationMap[$name] = $section;
                     $categoryUsed[$section] = true;
                     $section_found = true;
@@ -318,7 +316,10 @@ class PMA_ServerStatusData
 
         // Set all class properties
         $this->db_isLocal = false;
-        if ($pmaString->strtolower($GLOBALS['cfg']['Server']['host']) === 'localhost'
+        $serverHostToLower = /*overload*/mb_strtolower(
+            $GLOBALS['cfg']['Server']['host']
+        );
+        if ($serverHostToLower === 'localhost'
             || $GLOBALS['cfg']['Server']['host'] === '127.0.0.1'
             || $GLOBALS['cfg']['Server']['host'] === '::1'
         ) {

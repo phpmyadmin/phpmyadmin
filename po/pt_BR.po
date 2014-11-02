@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-16 12:25-0400\n"
-"PO-Revision-Date: 2014-09-04 03:21+0200\n"
-"Last-Translator: Caio Fonsêca <caio1478@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2014-10-24 16:40+0200\n"
+"Last-Translator: Ed Jr <edjacobjunior@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.0-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -254,15 +254,15 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "O banco de dados %1$s foi copiado para %2$s."
 
 #: db_operations.php:263
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"A configuração de armazenamento do phpMyAdmin foi desativada. Para descobrir "
-"o motivo clique %saqui%s."
+"O armazenamento de configurações do phpMyAdmin foi desativado. Para "
+"descobrir o motivo, clique %saqui%s."
 
 #: db_printview.php:48 db_tracking.php:83 db_tracking.php:207
 #: libraries/Menu.class.php:246 libraries/config/messages.inc.php:756
@@ -600,7 +600,6 @@ msgstr ""
 "campo \"Value\"."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Success."
 msgid "Succeeded"
 msgstr "Sucesso."
@@ -908,10 +907,13 @@ msgstr ""
 "s. "
 
 #: index.php:526
+#, fuzzy
 msgid ""
 "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or alternately go to 'Operations' "
 "tab of any database to set it up there."
 msgstr ""
+"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ou, alternativamente, vá à aba "
+"'Operações' de qualquer banco de dados para configurá-lo lá."
 
 #: index.php:572
 #, php-format
@@ -1902,7 +1904,7 @@ msgstr "Confirme dependências parciais"
 
 #: js/messages.php:321
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "As dependências parciais selecionadas são as seguintes:"
 
 #: js/messages.php:322
 msgid ""
@@ -1919,26 +1921,28 @@ msgstr "Nenhuma dependência parcial selecionada!"
 #: js/messages.php:325
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"Mostre-me as possíveis dependências parciais baseado nos dados da tabela"
 
 #: js/messages.php:326
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Esconder a lista de dependências parciais"
 
 #: js/messages.php:327
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Seja paciente! A operação pode levar alguns segundos dependendo do tamanho "
+"dos dados e número de colunas da tabela."
 
 #: js/messages.php:328
 msgid "Step"
-msgstr ""
+msgstr "Passo"
 
 #: js/messages.php:329
-#, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
-msgstr "As seguintes consultas foram executadas:"
+msgstr "As seguintes ações serão executadas:"
 
 #: js/messages.php:330
 #, php-format
@@ -1946,28 +1950,26 @@ msgid "DROP columns %s from the table %s"
 msgstr ""
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following table"
-msgstr "Adicionar privilégios na seguinte tabela:"
+msgstr "Criar a seguinte tabela"
 
 #: js/messages.php:334
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "Terceiro passo da normalização (3NF)"
 
 #: js/messages.php:335
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "Confirmar dependências transitivas"
 
 #: js/messages.php:336
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "As dependências selecionadas são as seguintes:"
 
 #: js/messages.php:337
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Nenhum banco de dados selecionado."
+msgstr "Nenhuma dependência selecionada!"
 
 #: js/messages.php:340 libraries/insert_edit.lib.php:1463
 #: libraries/server_variables.lib.php:157
@@ -1992,28 +1994,24 @@ msgid "Range search"
 msgstr "Salvar pesquisa"
 
 #: js/messages.php:346
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Nome das colunas: "
+msgstr "Máximo de colunas:"
 
 #: js/messages.php:347
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Nome das colunas: "
+msgstr "Mínimo de colunas:"
 
 #: js/messages.php:348
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Número máximo de tabelas"
+msgstr "Valor mínimo:"
 
 #: js/messages.php:349
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Número máximo de tabelas"
+msgstr "Valor máximo:"
 
 #: js/messages.php:352
 msgid "Hide find and replace criteria"
@@ -2149,10 +2147,9 @@ msgid "Delete page"
 msgstr "Apagar página"
 
 #: js/messages.php:407 libraries/db_designer.lib.php:382
-#, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
-msgstr "Unidade"
+msgstr "Sem título"
 
 #: js/messages.php:408
 msgid "Please select a page to continue"
@@ -2171,10 +2168,9 @@ msgid "Successfully deleted the page"
 msgstr "Página apagada com sucesso :)"
 
 #: js/messages.php:412
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Editar ou exportar esquema relacional"
+msgstr "Exportar esquema relacional"
 
 #: js/messages.php:413
 msgid "Modifications have been saved"
@@ -2271,10 +2267,9 @@ msgid "Success"
 msgstr "Sucesso."
 
 #: js/messages.php:439
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Padrões de importação"
+msgstr "Importar estado"
 
 #: js/messages.php:440 libraries/navigation/Navigation.class.php:102
 #, fuzzy

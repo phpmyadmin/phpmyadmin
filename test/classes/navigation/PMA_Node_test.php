@@ -367,7 +367,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $expectedSql .= "ORDER BY SCHEMA_NAME ASC";
 
         // It would have been better to mock _getWhereClause method
-        // but stangely, mocking private methods is not supported in PHPUnit
+        // but strangely, mocking private methods is not supported in PHPUnit
         $node = PMA_NodeFactory::getInstance();
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
@@ -405,7 +405,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $expectedSql .= "LIMIT $pos, $limit";
 
         // It would have been better to mock _getWhereClause method
-        // but stangely, mocking private methods is not supported in PHPUnit
+        // but strangely, mocking private methods is not supported in PHPUnit
         $node = PMA_NodeFactory::getInstance();
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
@@ -469,7 +469,8 @@ class Node_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(false));
         $dbi->expects($this->once())
             ->method('fetchResult')
-            ->with("SHOW DATABASES WHERE TRUE  AND ("
+            ->with(
+                "SHOW DATABASES WHERE TRUE  AND ("
                 . " LOCATE('db_', CONCAT(`Database`, '_')) = 1"
                 . " OR LOCATE('aa_', CONCAT(`Database`, '_')) = 1 )"
             );

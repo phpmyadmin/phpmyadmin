@@ -101,7 +101,7 @@ function PMA_adjustTotals() {
         sizeSum += valSize;
         overheadSum += valOverhead;
     });
-    // Add some commas for readablility:
+    // Add some commas for readability:
     // 1000000 becomes 1,000,000
     var strRowSum = rowsSum + "";
     var regex = /(\d+)(\d{3})/;
@@ -209,7 +209,7 @@ AJAX.registerOnload('db_structure.js', function () {
 /**
  * function to open the confirmation dialog for making table consistent with central list
  *
- * @param string   msg     message text to be displayedd to user
+ * @param string   msg     message text to be displayed to user
  * @param function success function to be called on success
  *
  */
@@ -455,7 +455,7 @@ AJAX.registerOnload('db_structure.js', function () {
 
     //Calculate Real End for InnoDB
     /**
-     * Ajax Event handler for calculatig the real end for a InnoDB table
+     * Ajax Event handler for calculating the real end for a InnoDB table
      *
      */
     $('#real_end_input').live('click', function (event) {

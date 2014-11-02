@@ -120,11 +120,11 @@ class PMA_Footer
     /**
      * Returns the url of the current page
      *
-     * @param string|null $encoding See PMA_URL_getCommon()
+     * @param string|null $encode See PMA_URL_getCommon()
      *
      * @return string
      */
-    public function getSelfUrl($encoding = null)
+    public function getSelfUrl($encode = 'html')
     {
         $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
@@ -166,7 +166,7 @@ class PMA_Footer
         }
         return basename(PMA_getenv('SCRIPT_NAME')) . PMA_URL_getCommon(
             $params,
-            $encoding
+            $encode
         );
     }
 

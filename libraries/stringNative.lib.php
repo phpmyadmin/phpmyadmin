@@ -1,25 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Implements PMA_StringByte interface using native PHP functions.
+/** String Functions for phpMyAdmin
+ * If mb_* functions don't exist, we create the ones we need and they'll use the
+ * standard string functions.
+ * All mb_* functions created by pMA should behave as mb_* functions.
  *
- * @package    PhpMyAdmin-String
- * @subpackage Native
+ * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/StringByte.int.php';
-
-/**
- * Implements PMA_StringByte interface using native PHP functions.
- *
- * @package    PhpMyAdmin-String
- * @subpackage Native
- */
-class PMA_StringNative implements PMA_StringByte
-{
+//Define mb_* functions if they don't exist.
+if (!@function_exists('mb_strlen')) {
     /**
      * Returns length of string depending on current charset.
      *
@@ -27,7 +20,7 @@ class PMA_StringNative implements PMA_StringByte
      *
      * @return int string length
      */
-    public function strlen($string)
+    function mb_strlen($string)
     {
         return strlen($string);
     }
@@ -41,8 +34,14 @@ class PMA_StringNative implements PMA_StringByte
      *
      * @return string the sub string
      */
-    public function substr($string, $start, $length = 2147483647)
+    function mb_substr($string, $start, $length = 2147483647)
     {
+        if (null === $string || strlen($string) <= $start) {
+            return '';
+        }
+        if (null === $length) {
+            $length = 2147483647;
+        }
         return substr($string, $start, $length);
     }
 
@@ -54,7 +53,7 @@ class PMA_StringNative implements PMA_StringByte
      *
      * @return int number of substring from the string
      */
-    public function substrCount($string, $needle)
+    function mb_substrCount($string, $needle)
     {
         return substr_count($string, $needle);
     }
@@ -68,7 +67,7 @@ class PMA_StringNative implements PMA_StringByte
      *
      * @return integer position of $needle in $haystack or false
      */
-    public function strpos($haystack, $needle, $offset = 0)
+    function mb_strpos($haystack, $needle, $offset = 0)
     {
         return strpos($haystack, $needle, $offset);
     }
@@ -83,10 +82,9 @@ class PMA_StringNative implements PMA_StringByte
      *
      * @return integer position of $needle in $haystack or false
      */
-    public function stripos($haystack, $needle, $offset = 0)
+    function mb_stripos($haystack, $needle, $offset = 0)
     {
-        if (('' === $haystack || false === $haystack)
-            && $offset >= $this->strlen($haystack)
+        if (('' === $haystack || false === $haystack) && $offset >= strlen($haystack)
         ) {
             return false;
         }
@@ -102,7 +100,7 @@ class PMA_StringNative implements PMA_StringByte
      *
      * @return integer position of last $needle in $haystack or false
      */
-    public function strrpos($haystack, $needle, $offset = 0)
+    function mb_strrpos($haystack, $needle, $offset = 0)
     {
         return strrpos($haystack, $needle, $offset);
     }
@@ -117,10 +115,9 @@ class PMA_StringNative implements PMA_StringByte
      *
      * @return integer position of last $needle in $haystack or false
      */
-    public function strripos($haystack, $needle, $offset = 0)
+    function mb_strripos($haystack, $needle, $offset = 0)
     {
-        if (('' === $haystack || false === $haystack)
-            && $offset >= $this->strlen($haystack)
+        if (('' === $haystack || false === $haystack) && $offset >= strlen($haystack)
         ) {
             return false;
         }
@@ -137,7 +134,7 @@ class PMA_StringNative implements PMA_StringByte
      *
      * @return string part of $haystack or false
      */
-    public function strstr($haystack, $needle, $before_needle = false)
+    function mb_strstr($haystack, $needle, $before_needle = false)
     {
         return strstr($haystack, $needle, $before_needle);
     }
@@ -153,7 +150,7 @@ class PMA_StringNative implements PMA_StringByte
      *
      * @return string part of $haystack or false
      */
-    public function stristr($haystack, $needle, $before_needle = false)
+    function mb_stristr($haystack, $needle, $before_needle = false)
     {
         return stristr($haystack, $needle, $before_needle);
     }
@@ -166,9 +163,9 @@ class PMA_StringNative implements PMA_StringByte
      * @param string $needle   the string to find in haystack
      *
      * @return string portion of haystack which starts at the last occurrence or
-     * false
+     *                         false
      */
-    public function strrchr($haystack, $needle)
+    function mb_strrchr($haystack, $needle)
     {
         return strrchr($haystack, $needle);
     }
@@ -180,7 +177,7 @@ class PMA_StringNative implements PMA_StringByte
      *
      * @return string the lower case string
      */
-    public function strtolower($string)
+    function mb_strtolower($string)
     {
         return strtolower($string);
     }
@@ -192,11 +189,14 @@ class PMA_StringNative implements PMA_StringByte
      *
      * @return string the upper case string
      */
-    public function strtoupper($string)
+    function mb_strtoupper($string)
     {
         return strtoupper($string);
     }
+}
 
+//New functions.
+if (!@function_exists('mb_ord')) {
     /**
      * Perform a regular expression match
      *
@@ -206,7 +206,7 @@ class PMA_StringNative implements PMA_StringByte
      *
      * @return int 1 if matched, 0 if doesn't, false on failure
      */
-    public function pregStrpos($pattern, $subject, $offset = 0)
+    function mb_preg_strpos($pattern, $subject, $offset = 0)
     {
         $matches = array();
         $bFind = preg_match(
@@ -226,7 +226,7 @@ class PMA_StringNative implements PMA_StringByte
      *
      * @return int the ord value
      */
-    public function ord($string)
+    function mb_ord($string)
     {
         return ord($string);
     }
@@ -238,9 +238,8 @@ class PMA_StringNative implements PMA_StringByte
      *
      * @return string the character
      */
-    public function chr($ascii)
+    function mb_chr($ascii)
     {
         return chr($ascii);
     }
-};
-?>
+}

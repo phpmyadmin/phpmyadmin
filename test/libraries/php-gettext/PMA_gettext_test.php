@@ -108,6 +108,11 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Data provider for testFind_string
+     *
+     * @return array
+     */
     public function providerForTestFind_string()
     {
         return array(
@@ -139,8 +144,11 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for sanitize_plural_expression
-     * @param $expr string
-     * @param $output
+     *
+     * @param string $expr   Expression to sanitize
+     * @param string $output Expected output
+     *
+     * @return void
      *
      * @dataProvider providerForTestSanitize_plural_expression
      */
@@ -152,6 +160,11 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Data provider for testSanitize_plural_expression
+     *
+     * @return array
+     */
     public function providerForTestSanitize_plural_expression()
     {
         return array(
@@ -168,6 +181,8 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for extract_plural_forms_header_from_po_header
+     *
+     * @return void
      */
     public function testExtract_plural_forms_header_from_po_header()
     {

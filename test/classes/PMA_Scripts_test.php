@@ -127,11 +127,11 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
     public function testAddCode()
     {
 
-        $this->object->addCode('alert(\'CodeAdded\')');
+        $this->object->addCode('alert(\'CodeAdded\');');
 
         $this->assertEquals(
             '<script type="text/javascript">// <![CDATA[
-alert(\'CodeAdded\')
+alert(\'CodeAdded\');
 AJAX.scriptHandler;
 $(function() {});
 // ]]></script>',

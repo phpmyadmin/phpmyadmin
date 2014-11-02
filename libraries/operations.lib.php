@@ -312,7 +312,7 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
             'SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1
         );
         if ($lowerCaseTableNames === '1') {
-            $_REQUEST['newname'] = $GLOBALS['PMA_String']->strtolower(
+            $_REQUEST['newname'] = /*overload*/mb_strtolower(
                 $_REQUEST['newname']
             );
         }
@@ -854,9 +854,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         );
     } // end if (ARIA)
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-    if ($pmaString->strlen($auto_increment) > 0
+    if (/*overload*/mb_strlen($auto_increment) > 0
         && ($is_myisam_or_aria || $is_innodb || $is_pbxt)
     ) {
         $html_output .= '<tr><td>'
@@ -877,7 +875,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
 
     if (isset($possible_row_formats[$tbl_storage_engine])) {
         $current_row_format
-            = $pmaString->strtoupper($GLOBALS['showtable']['Row_format']);
+            = /*overload*/mb_strtoupper($GLOBALS['showtable']['Row_format']);
         $html_output .= '<tr><td>'
             . '<label for="new_row_format">ROW_FORMAT</label></td>'
             . '<td>';
@@ -1052,7 +1050,7 @@ function PMA_getHtmlForCopytable()
 }
 
 /**
- * Get HTML snippet for table maintence
+ * Get HTML snippet for table maintenance
  *
  * @param boolean $is_myisam_or_aria whether MYISAM | ARIA or not
  * @param boolean $is_innodb         whether innodb or not
@@ -1120,8 +1118,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                 __('Defragment table'),
                 $params,
                 $url_params,
-                'InnoDB_File_Defragmenting',
-                'Table_types'
+                'InnoDB_File_Defragmenting'
             );
         }
         if ($is_innodb || $is_myisam_or_aria || $is_berkeleydb) {
@@ -1190,20 +1187,20 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
 /**
  * Get maintain action HTML link
  *
- * @param string $action     action name
- * @param array  $params     url parameters array
- * @param array  $url_params additional url parameters
- * @param string $link       contains name of page/anchor that is being linked
+ * @param string $action_message action message
+ * @param array  $params         url parameters array
+ * @param array  $url_params     additional url parameters
+ * @param string $link           contains name of page/anchor that is being linked
  *
  * @return string $html_output
  */
-function PMA_getMaintainActionlink($action, $params, $url_params, $link)
+function PMA_getMaintainActionlink($action_message, $params, $url_params, $link)
 {
     return '<li>'
         . '<a class="maintain_action ajax" '
         . 'href="sql.php'
         . PMA_URL_getCommon(array_merge($url_params, $params)) . '">'
-        . $action
+        . $action_message
         . '</a>'
         . PMA_Util::showMySQLDocu($link)
         . '</li>';
@@ -1450,10 +1447,8 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
             . PMA_Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     if (! empty($newTblStorageEngine)
-        && $pmaString->strtolower($newTblStorageEngine) !== $pmaString->strtolower($GLOBALS['tbl_storage_engine'])
+        && /*overload*/mb_strtolower($newTblStorageEngine) !== /*overload*/mb_strtolower($GLOBALS['tbl_storage_engine'])
     ) {
         $table_alters[] = 'ENGINE = ' . $newTblStorageEngine;
     }
@@ -1512,11 +1507,11 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
     }
 
     $newRowFormat = $_REQUEST['new_row_format'];
-    $newRowFormatLower = $pmaString->strtolower($newRowFormat);
+    $newRowFormatLower = /*overload*/mb_strtolower($newRowFormat);
     if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
         &&  ! empty($newRowFormat)
-        && (!$pmaString->strlen($row_format)
-        || $newRowFormatLower !== $pmaString->strtolower($row_format))
+        && (!/*overload*/mb_strlen($row_format)
+        || $newRowFormatLower !== /*overload*/mb_strtolower($row_format))
     ) {
         $table_alters[] = 'ROW_FORMAT = ' . PMA_Util::sqlAddSlashes($newRowFormat);
     }
@@ -1534,7 +1529,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
  */
 function PMA_setGlobalVariablesForEngine($tbl_storage_engine)
 {
-    $upperTblStorEngine = $GLOBALS['PMA_String']->strtoupper($tbl_storage_engine);
+    $upperTblStorEngine = /*overload*/mb_strtoupper($tbl_storage_engine);
 
     //Options that apply to MYISAM usually apply to ARIA
     $is_myisam_or_aria = ($upperTblStorEngine == 'MYISAM'
@@ -1600,7 +1595,7 @@ function PMA_getQueryAndResultForPartition()
 
 
 /**
- * Move or copy a table 
+ * Move or copy a table
  *
  * @param string $db    current database name
  * @param string $table current table name

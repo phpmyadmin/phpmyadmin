@@ -189,8 +189,8 @@ function PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
     }
     $html .= '<a href="server_binlog.php' . PMA_URL_getCommon($this_url_params)
         . '" title="' . $tempTitle . '">'
-        . '<img src="' . $GLOBALS['pmaThemeImage'] . 's_' . $tempImgMode . 'text.png"'
-        . 'alt="' . $tempTitle . '" /></a>';
+        . '<img src="' . $GLOBALS['pmaThemeImage'] . 's_' . $tempImgMode
+        . 'text.png" alt="' . $tempTitle . '" /></a>';
 
     // we do not now how much rows are in the binlog
     // so we can just force 'NEXT' button

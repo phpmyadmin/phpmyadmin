@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-10-16 12:25-0400\n"
-"PO-Revision-Date: 2014-03-27 15:19+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"he/>\n"
+"PO-Revision-Date: 2014-10-22 15:46+0200\n"
+"Last-Translator: Eyal Visoker <visokereyal@gmail.com>\n"
+"Language-Team: Hebrew "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/he/>\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: he\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 2.0-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -435,25 +435,25 @@ msgstr "יומן מסד נתונים"
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
-msgstr ""
+msgstr "זוהתה שגיאה ודוח שגיאות נשלח אוטומטית, מבוסס על ההגדרות שלך."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "תודה לך על משלוח הדוח."
 
 #: error_report.php:76
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr ""
+msgstr "זוהתה שגיאה ונוצר דוח שגיאות אבל משלוח הדוח נכשל."
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "אם אתה נתקל בבעיות אנא שלח דוח באגים ידנית."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "כדאי שתרענן את הדף."
 
 #: export.php:183 schema_export.php:71
 msgid "Bad type!"
@@ -588,7 +588,6 @@ msgid "Output"
 msgstr "פלט"
 
 #: gis_data_editor.php:415
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -596,24 +595,21 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"בוחר \"GeomFromText\" מהעמודה \"פונקציה\" ולהדביק את המחרוזת מלמטה לשדה \"ערך"
-"\""
+"בחר \"GeomFromText\" מהעמודה \"פונקציה\" והדבק את המחרוזת מלמטה לשדה \"ערך\"."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "הגישה נדחתה!"
+msgstr "הצליח"
 
 #: import.php:58 js/messages.php:437
 msgid "Failed"
-msgstr ""
+msgstr "נכשל"
 
 #: import.php:62
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "Incomplete params"
-msgstr "השלם הכנסות"
+msgstr "חסרים נתונים בפרמטרים"
 
 #: import.php:166
 #, php-format
@@ -638,6 +634,8 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"הקובץ שהועלה לא יכול להיות מועבר כי בשרת מוגדר open_basedir אבל אין גישה "
+"למחיצה %s (עבור קבצים זמניים)."
 
 #: import.php:476 import.php:537 libraries/File.class.php:418
 #: libraries/File.class.php:512
@@ -713,9 +711,8 @@ msgid "Back"
 msgstr "חזרה"
 
 #: index.php:131 libraries/Footer.class.php:70
-#, fuzzy
 msgid "phpMyAdmin Demo Server"
-msgstr "תיעוד phpMyAdmin"
+msgstr "שרת הדגמה של phpMyAdmin"
 
 #: index.php:135
 #, php-format
@@ -727,7 +724,7 @@ msgstr ""
 
 #: index.php:145
 msgid "General Settings"
-msgstr "תכונות כלליות"
+msgstr "הגדרות כלליות"
 
 #: index.php:173 libraries/display_change_password.lib.php:52
 #: libraries/display_change_password.lib.php:55 user_password.php:191

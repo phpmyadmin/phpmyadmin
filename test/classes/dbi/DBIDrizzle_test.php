@@ -314,7 +314,7 @@ class Drizzle
     }
 
     /**
-     * Creates a new database conection using TCP
+     * Creates a new database connection using TCP
      *
      * @param string  $host     Drizzle host
      * @param integer $port     Drizzle port
@@ -353,7 +353,7 @@ class Mock_Con
 
 
     /**
-     * Creates a new database conection using TCP
+     * Creates a new database connection using TCP
      *
      * @return Mock_Con
      */

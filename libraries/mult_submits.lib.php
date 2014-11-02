@@ -34,11 +34,9 @@ function PMA_getUrlParams(
         'query_type' => $what,
         'reload' => (! empty($reload) ? 1 : 0),
     );
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-    if ($pmaString->strpos(' ' . $action, 'db_') == 1) {
+    if (/*overload*/mb_strpos(' ' . $action, 'db_') == 1) {
         $_url_params['db']= $db;
-    } elseif ($pmaString->strpos(' ' . $action, 'tbl_') == 1
+    } elseif (/*overload*/mb_strpos(' ' . $action, 'tbl_') == 1
         || $what == 'row_delete'
     ) {
         $_url_params['db']= $db;
@@ -103,9 +101,6 @@ function PMA_getQueryStrFromSelected(
 
     $selected_cnt   = count($selected);
     $deletes = false;
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
@@ -231,11 +226,17 @@ function PMA_getQueryStrFromSelected(
 
         case 'replace_prefix_tbl':
             $current = $selected[$i];
-            $subFromPrefix = $pmaString
-                ->substr($current, 0, $pmaString->strlen($from_prefix));
+            $subFromPrefix = /*overload*/mb_substr(
+                $current,
+                0,
+                /*overload*/mb_strlen($from_prefix)
+            );
             if ($subFromPrefix == $from_prefix) {
                 $newtablename = $to_prefix
-                    . $pmaString->substr($current, $pmaString->strlen($from_prefix));
+                    . /*overload*/mb_substr(
+                        $current,
+                        /*overload*/mb_strlen($from_prefix)
+                    );
             } else {
                 $newtablename = $current;
             }
@@ -250,7 +251,7 @@ function PMA_getQueryStrFromSelected(
         case 'copy_tbl_change_prefix':
             $current = $selected[$i];
             $newtablename = $to_prefix .
-                $pmaString->substr($current, $pmaString->strlen($from_prefix));
+                /*overload*/mb_substr($current, /*overload*/mb_strlen($from_prefix));
             // COPY TABLE AND CHANGE PREFIX PATTERN
             $a_query = 'CREATE TABLE '
                 . PMA_Util::backquote($newtablename)

@@ -297,7 +297,7 @@ class PMA_EPS
         PMA_downloadHeader(
             $fileName . '.eps',
             'image/x-eps',
-            $GLOBALS['PMA_String']->strlen($output)
+            /*overload*/mb_strlen($output)
         );
         print $output;
     }
@@ -480,7 +480,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
 
     /**
      * Draws relation arrows and lines connects master table's master field to
-     * foreign table's forein field
+     * foreign table's foreign field
      *
      * @return void
      *

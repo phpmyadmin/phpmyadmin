@@ -52,7 +52,7 @@ var ErrorReport = {
     /**
      * Shows the modal dialog previewing the report
      *
-     * @param object error report info
+     * @param exception object error report info
      *
      * @return void
      */
@@ -218,7 +218,7 @@ var ErrorReport = {
     /**
      * Returns the report data to send to the server
      *
-     * @param object exception info
+     * @param exception object exception info
      *
      * @return object
      */
@@ -256,7 +256,7 @@ var ErrorReport = {
     /**
      * Wraps given function in error reporting code and returns wrapped function
      *
-     * @param function function to be wrapped
+     * @param func function to be wrapped
      *
      * @return function
      */

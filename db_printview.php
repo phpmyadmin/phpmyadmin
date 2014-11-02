@@ -21,7 +21,7 @@ PMA_Util::checkParameters(array('db'));
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'db_sql.php?' . PMA_URL_getCommon($db);
+$err_url = 'db_sql.php' . PMA_URL_getCommon($db);
 
 /**
  * Settings for relations stuff
@@ -59,7 +59,7 @@ if ($num_tables == 0) {
     $odd_row = true;
     foreach ($tables as $sts_data) {
         if (PMA_Table::isMerge($db, $sts_data['TABLE_NAME'])
-            || $GLOBALS['PMA_String']->strtoupper($sts_data['ENGINE']) == 'FEDERATED'
+            || /*overload*/mb_strtoupper($sts_data['ENGINE']) == 'FEDERATED'
         ) {
             $merged_size = true;
         } else {

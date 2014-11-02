@@ -566,13 +566,10 @@ class PMA_NavigationTree
             return;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $separators = array();
         if (is_array($node->separator)) {
             $separators = $node->separator;
-        } else if ($pmaString->strlen($node->separator)) {
+        } else if (strlen($node->separator)) {
             $separators[] = $node->separator;
         }
         $prefixes = array();
@@ -580,9 +577,9 @@ class PMA_NavigationTree
             foreach ($node->children as $child) {
                 $prefix_pos = false;
                 foreach ($separators as $separator) {
-                    $sep_pos = $pmaString->strpos($child->name, $separator);
+                    $sep_pos = /*overload*/mb_strpos($child->name, $separator);
                     if ($sep_pos != false
-                        && $sep_pos != $pmaString->strlen($child->name)
+                        && $sep_pos != /*overload*/mb_strlen($child->name)
                         && $sep_pos != 0
                         && ($prefix_pos == false || $sep_pos < $prefix_pos)
                     ) {
@@ -590,7 +587,7 @@ class PMA_NavigationTree
                     }
                 }
                 if ($prefix_pos !== false) {
-                    $prefix = $pmaString->substr($child->name, 0, $prefix_pos);
+                    $prefix = /*overload*/mb_substr($child->name, 0, $prefix_pos);
                     if (! isset($prefixes[$prefix])) {
                         $prefixes[$prefix] = 1;
                     } else {
@@ -645,12 +642,15 @@ class PMA_NavigationTree
                 }
                 $node->addChild($groups[$key]);
                 foreach ($separators as $separator) {
+                    $separatorLength = strlen($separator);
                     // FIXME: this could be more efficient
                     foreach ($node->children as $child) {
-                        $name_substring = $pmaString->substr(
+                        $keySeparatorLength = /*overload*/mb_strlen($key)
+                            + $separatorLength;
+                        $name_substring = /*overload*/mb_substr(
                             $child->name,
                             0,
-                            $pmaString->strlen($key) + $pmaString->strlen($separator)
+                            $keySeparatorLength
                         );
                         if (($name_substring != $key . $separator
                             && $child->name != $key)
@@ -661,10 +661,9 @@ class PMA_NavigationTree
                         $class = get_class($child);
                         $new_child = PMA_NodeFactory::getInstance(
                             $class,
-                            $pmaString->substr(
+                            /*overload*/mb_substr(
                                 $child->name,
-                                $pmaString->strlen($key)
-                                + $pmaString->strlen($separator)
+                                $keySeparatorLength
                             )
                         );
                         $new_child->real_name = $child->real_name;
@@ -900,12 +899,15 @@ class PMA_NavigationTree
                     $iClass = " class='first'";
                 }
                 $retval .= "<i$iClass></i>";
-                if ($GLOBALS['PMA_String']->strpos($class, 'last') === false) {
+                if (strpos($class, 'last') === false) {
                     $retval .= "<b></b>";
                 }
 
                 $match = $this->_findTreeMatch($this->_aPath, $paths['aPath_clean']);
-                $match |= $this->_findTreeMatch($this->_vPath, $paths['vPath_clean']);
+                $match |= $this->_findTreeMatch(
+                    $this->_vPath,
+                    $paths['vPath_clean']
+                );
 
                 $retval .= '<a class="' . $node->getCssClasses($match) . '"';
                 $retval .= " href='#'>";
@@ -978,12 +980,14 @@ class PMA_NavigationTree
                     $args[] = urlencode($parent->real_name);
                 }
                 $link = vsprintf($node->links['text'], $args);
+                $title = empty($node->links['title']) ? '' : $node->links['title'];
                 if ($node->type == Node::CONTAINER) {
                     $retval .= "&nbsp;<a class='hover_show_full' href='$link'>";
                     $retval .= htmlspecialchars($node->name);
                     $retval .= "</a>";
                 } else {
-                    $retval .= "<a class='hover_show_full$linkClass' href='$link'>";
+                    $retval .= "<a class='hover_show_full$linkClass' href='$link'";
+                    $retval .= " title='$title'>";
                     $retval .= htmlspecialchars($node->real_name);
                     $retval .= "</a>";
                 }

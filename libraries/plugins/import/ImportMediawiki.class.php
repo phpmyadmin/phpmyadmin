@@ -93,15 +93,12 @@ class ImportMediawiki extends ImportPlugin
         // Initialize the name of the current table
         $cur_table_name = "";
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         while (! $finished && ! $error && ! $timeout_passed ) {
             $data = PMA_importGetNextChunk();
 
             if ($data === false) {
                 // Subtract data we didn't handle yet and stop processing
-                $GLOBALS['offset'] -= $pmaString->strlen($buffer);
+                $GLOBALS['offset'] -= /*overload*/mb_strlen($buffer);
                 break;
             } elseif ($data === true) {
                 // Handle rest of buffer
@@ -111,7 +108,7 @@ class ImportMediawiki extends ImportPlugin
                 unset($data);
                 // Don't parse string if we're not at the end
                 // and don't have a new line inside
-                if ($pmaString->strpos($buffer, $mediawiki_new_line) === false ) {
+                if (/*overload*/mb_strpos($buffer, $mediawiki_new_line) === false ) {
                     continue;
                 }
             }
@@ -145,12 +142,14 @@ class ImportMediawiki extends ImportPlugin
                 $matches = array();
 
                 // Check beginning of comment
-                if (! strcmp($pmaString->substr($cur_buffer_line, 0, 4), "<!--")) {
+                if (! strcmp(/*overload*/mb_substr($cur_buffer_line, 0, 4), "<!--")
+                ) {
                     $inside_comment = true;
                     continue;
                 } elseif ($inside_comment) {
                     // Check end of comment
-                    if (!strcmp($pmaString->substr($cur_buffer_line, 0, 4), "-->")) {
+                    if (!strcmp(/*overload*/mb_substr($cur_buffer_line, 0, 4), "-->")
+                    ) {
                         // Only data comments are closed. The structure comments
                         // will be closed when a data comment begins (in order to
                         // skip structure tables)
@@ -206,9 +205,9 @@ class ImportMediawiki extends ImportPlugin
                     $in_table_header = false;
                     // End processing because the current line does not
                     // contain any column information
-                } elseif ($pmaString->substr($cur_buffer_line, 0, 2) === '|-'
-                    || $pmaString->substr($cur_buffer_line, 0, 2) === '|+'
-                    || $pmaString->substr($cur_buffer_line, 0, 2) === '|}'
+                } elseif (/*overload*/mb_substr($cur_buffer_line, 0, 2) === '|-'
+                    || /*overload*/mb_substr($cur_buffer_line, 0, 2) === '|+'
+                    || /*overload*/mb_substr($cur_buffer_line, 0, 2) === '|}'
                 ) {
                     // Check begin row or end table
 
@@ -230,7 +229,7 @@ class ImportMediawiki extends ImportPlugin
                     $cur_temp_line = array();
 
                     // No more processing required at the end of the table
-                    if ($pmaString->substr($cur_buffer_line, 0, 2) === '|}') {
+                    if (/*overload*/mb_substr($cur_buffer_line, 0, 2) === '|}') {
                         $current_table = array(
                             $cur_table_name,
                             $cur_temp_table_headers,
@@ -261,25 +260,15 @@ class ImportMediawiki extends ImportPlugin
                     // Loop through each table cell
                     $cells = $this->_explodeMarkup($cur_buffer_line);
                     foreach ($cells as $cell) {
-                        // A cell could contain both parameters and data
-                        $cell_data = explode('|', $cell, 2);
-
-                        // A '|' inside an invalid link should not
-                        // be mistaken as delimiting cell parameters
-                        if ($pmaString->strpos($cell_data[0], '[[') === true ) {
-                            if (count($cell_data) == 1) {
-                                $cell = $cell_data[0];
-                            } else {
-                                $cell = $cell_data[1];
-                            }
-                        }
+                        $cell = $this->_getCell($cell);
 
                         // Delete the beginning of the column, if there is one
                         $cell = trim($cell);
                         $col_start_chars = array( "|", "!");
                         foreach ($col_start_chars as $col_start_char) {
-                            if ($pmaString->strpos($cell, $col_start_char) === 0) {
-                                $cell = trim($pmaString->substr($cell, 1));
+                            if (/*overload*/mb_strpos($cell, $col_start_char) === 0
+                            ) {
+                                $cell = trim(/*overload*/mb_substr($cell, 1));
                             }
                         }
 
@@ -435,7 +424,7 @@ class ImportMediawiki extends ImportPlugin
         $start_attribute_character = false;
 
         // The full separator is "||";
-        // This rembembers if the previous character was '|'
+        // This remembers if the previous character was '|'
         $partial_separator = false;
 
         // Parse text char by char
@@ -553,5 +542,30 @@ class ImportMediawiki extends ImportPlugin
     private function _setAnalyze($analyze)
     {
         $this->_analyze = $analyze;
+    }
+
+    /**
+     * Get cell
+     *
+     * @param string $cell Cell
+     *
+     * @return mixed
+     */
+    private function _getCell($cell)
+    {
+        // A cell could contain both parameters and data
+        $cell_data = explode('|', $cell, 2);
+
+        // A '|' inside an invalid link should not
+        // be mistaken as delimiting cell parameters
+        if (/*overload*/mb_strpos($cell_data[0], '[[') !== true) {
+            return $cell;
+        }
+
+        if (count($cell_data) == 1) {
+            return $cell_data[0];
+        }
+
+        return $cell_data[1];
     }
 }

@@ -221,7 +221,7 @@ class PMA_Header
         $pftext = ! empty($_SESSION['tmpval']['pftext'])
             ? $_SESSION['tmpval']['pftext'] : '';
         return array(
-            'common_query' => PMA_URL_getCommon('', '', '&'),
+            'common_query' => PMA_URL_getCommon(array(), 'text'),
             'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
             'safari_browser' => PMA_USR_BROWSER_AGENT == 'SAFARI' ? 1 : 0,
             'collation_connection' => $GLOBALS['collation_connection'],
@@ -391,6 +391,9 @@ class PMA_Header
                     $this->_scripts->addFile('config.js');
                 }
                 $retval .= $this->_scripts->getDisplay();
+                $retval .= '<noscript>';
+                $retval .= '<style>html{display:block}</style>';
+                $retval .= '</noscript>';
                 $retval .= $this->_getBodyStart();
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
                     $nav = new PMA_Navigation();
@@ -564,12 +567,10 @@ class PMA_Header
         $lang = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
         $dir  = $GLOBALS['text_dir'];
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         $retval  = "<!DOCTYPE HTML>";
         $retval .= "<html lang='$lang' dir='$dir' class='";
-        $retval .= $pmaString->strtolower(PMA_USR_BROWSER_AGENT) . " ";
-        $retval .= $pmaString->strtolower(PMA_USR_BROWSER_AGENT)
+        $retval .= /*overload*/mb_strtolower(PMA_USR_BROWSER_AGENT) . " ";
+        $retval .= /*overload*/mb_strtolower(PMA_USR_BROWSER_AGENT)
             . intval(PMA_USR_BROWSER_VER) . "'>";
 
         return $retval;
@@ -713,7 +714,7 @@ class PMA_Header
     {
         $retval = '';
         if ($this->_menuEnabled
-            && $GLOBALS['PMA_String']->strlen($table)
+            && /*overload*/mb_strlen($table)
             && $GLOBALS['cfg']['NumRecentTables'] > 0
         ) {
             $tmp_result = PMA_RecentFavoriteTable::getInstance('recent')

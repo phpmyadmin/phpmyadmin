@@ -357,17 +357,6 @@ class ExportTexytext extends ExportPlugin
          * Displays the table structure
          */
 
-        $columns_cnt = 4;
-        if ($do_relation && $have_rel) {
-            $columns_cnt++;
-        }
-        if ($do_comments && $cfgRelation['commwork']) {
-            $columns_cnt++;
-        }
-        if ($do_mime && $cfgRelation['mimework']) {
-            $columns_cnt++;
-        }
-
         $text_output .= "|------\n";
         $text_output .= '|' . __('Column');
         $text_output .= '|' . __('Type');
@@ -432,8 +421,6 @@ class ExportTexytext extends ExportPlugin
      */
     function getTriggers($db, $table)
     {
-        $text_output = "|------\n";
-        $text_output .= '|' . __('Column');
         $dump = "|------\n";
         $dump .= '|' . __('Name');
         $dump .= '|' . __('Time');

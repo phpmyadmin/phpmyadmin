@@ -209,13 +209,8 @@ $post_patterns = array(
     '/^force_file_/',
     '/^' . $format . '_/'
 );
-foreach (array_keys($_POST) as $post_key) {
-    foreach ($post_patterns as $one_post_pattern) {
-        if (preg_match($one_post_pattern, $post_key)) {
-            $GLOBALS[$post_key] = $_POST[$post_key];
-        }
-    }
-}
+
+PMA_setPostAsGlobal($post_patterns);
 
 // Check needed parameters
 PMA_Util::checkParameters(array('import_type', 'format'));
@@ -227,35 +222,39 @@ $pmaString = $GLOBALS['PMA_String'];
 
 // Create error and goto url
 if ($import_type == 'table') {
-    $err_url = 'tbl_import.php?' . PMA_URL_getCommon($db, $table);
+    $err_url = 'tbl_import.php' . PMA_URL_getCommon(
+        array(
+            'db' => $db, 'table' => $table
+        )
+    );
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'tbl_import.php';
 } elseif ($import_type == 'database') {
-    $err_url = 'db_import.php?' . PMA_URL_getCommon($db);
+    $err_url = 'db_import.php' . PMA_URL_getCommon(array('db' => $db));
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'db_import.php';
 } elseif ($import_type == 'server') {
-    $err_url = 'server_import.php?' . PMA_URL_getCommon();
+    $err_url = 'server_import.php' . PMA_URL_getCommon();
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'server_import.php';
 } else {
     if (empty($goto) || !preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
-        if ($pmaString->strlen($table) && $pmaString->strlen($db)) {
+        if (/*overload*/mb_strlen($table) && /*overload*/mb_strlen($db)) {
             $goto = 'tbl_structure.php';
-        } elseif ($pmaString->strlen($db)) {
+        } elseif (/*overload*/mb_strlen($db)) {
             $goto = 'db_structure.php';
         } else {
             $goto = 'server_sql.php';
         }
     }
-    if ($pmaString->strlen($table) && $pmaString->strlen($db)) {
-        $common = PMA_URL_getCommon($db, $table);
-    } elseif ($pmaString->strlen($db)) {
-        $common = PMA_URL_getCommon($db);
+    if (/*overload*/mb_strlen($table) && /*overload*/mb_strlen($db)) {
+        $common = PMA_URL_getCommon(array('db' => $db, 'table' => $table));
+    } elseif (/*overload*/mb_strlen($db)) {
+        $common = PMA_URL_getCommon(array('db' => $db));
     } else {
         $common = PMA_URL_getCommon();
     }
-    $err_url  = $goto . '?' . $common
+    $err_url  = $goto . $common
         . (preg_match('@^tbl_[a-z]*\.php$@', $goto)
             ? '&amp;table=' . htmlspecialchars($table)
             : '');
@@ -268,7 +267,7 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'import.php') {
 }
 
 
-if ($pmaString->strlen($db)) {
+if (/*overload*/mb_strlen($db)) {
     $GLOBALS['dbi']->selectDb($db);
 }
 
@@ -392,13 +391,13 @@ if ($memory_limit == -1) {
 }
 
 // Calculate value of the limit
-if ($pmaString->strtolower($pmaString->substr($memory_limit, -1)) == 'm') {
-    $memory_limit = (int)$pmaString->substr($memory_limit, 0, -1) * 1024 * 1024;
-} elseif ($pmaString->strtolower($pmaString->substr($memory_limit, -1)) == 'k') {
-    $memory_limit = (int)$pmaString->substr($memory_limit, 0, -1) * 1024;
-} elseif ($pmaString->strtolower($pmaString->substr($memory_limit, -1)) == 'g') {
-    $memory_limit
-        = (int)$pmaString->substr($memory_limit, 0, -1) * 1024 * 1024 * 1024;
+$memoryUnit = /*overload*/mb_strtolower(substr($memory_limit, -1));
+if ('m' == $memoryUnit) {
+    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024;
+} elseif ('k' == $memoryUnit) {
+    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024;
+} elseif ('g' == $memoryUnit) {
+    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024 * 1024;
 } else {
     $memory_limit = (int)$memory_limit;
 }
@@ -432,19 +431,14 @@ if ($import_file != 'none' && ! $error) {
     // before opening it.
 
     if (! empty($open_basedir)) {
-
-        /**
-         * @todo make use of the config's temp dir with fallback to the
-         * system's tmp dir
-         */
         $tmp_subdir = ini_get('upload_tmp_dir');
         if (empty($tmp_subdir)) {
             $tmp_subdir = sys_get_temp_dir();
         }
-
+        $tmp_subdir = rtrim($tmp_subdir, DIRECTORY_SEPARATOR);
         if (is_writable($tmp_subdir)) {
-
-            $import_file_new = $tmp_subdir . basename($import_file) . uniqid();
+            $import_file_new = $tmp_subdir . DIRECTORY_SEPARATOR
+                . basename($import_file) . uniqid();
             if (move_uploaded_file($import_file, $import_file_new)) {
                 $import_file = $import_file_new;
                 $file_to_unlink = $import_file_new;
@@ -680,8 +674,8 @@ if (isset($message)) {
 // in case of a query typed in the query window
 // (but if the query is too large, in case of an imported file, the parser
 //  can choke on it so avoid parsing)
-if ($pmaString->strlen($sql_query) <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
-) {
+$sqlLength = /*overload*/mb_strlen($sql_query);
+if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
     include_once 'libraries/parse_analyze.inc.php';
 }
 

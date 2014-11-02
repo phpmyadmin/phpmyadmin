@@ -46,7 +46,7 @@ abstract class SchemaPlugin
     protected abstract function setProperties();
 
     /**
-     * Exports the shcema into the specified format.
+     * Exports the schema into the specified format.
      *
      * @param string $db database name
      *
@@ -57,20 +57,20 @@ abstract class SchemaPlugin
     /**
      * Adds export options common to all plugins.
      *
-     * @param OptionsPropertyMainGroup $properyGroup property group
+     * @param OptionsPropertyMainGroup $propertyGroup property group
      *
      * @return void
      */
-    protected function addCommonOptions(OptionsPropertyMainGroup $properyGroup)
+    protected function addCommonOptions(OptionsPropertyMainGroup $propertyGroup)
     {
         $leaf = new BoolPropertyItem();
         $leaf->setName('show_color');
         $leaf->setText(__('Show color'));
-        $properyGroup->addProperty($leaf);
+        $propertyGroup->addProperty($leaf);
         $leaf = new BoolPropertyItem();
         $leaf->setName('show_keys');
         $leaf->setText(__('Only show keys'));
-        $properyGroup->addProperty($leaf);
+        $propertyGroup->addProperty($leaf);
     }
 }
 ?>

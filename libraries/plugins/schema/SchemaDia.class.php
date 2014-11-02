@@ -102,7 +102,7 @@ class SchemaDia extends SchemaPlugin
 
 
     /**
-     * Exports the shcema into DIA format.
+     * Exports the schema into DIA format.
      *
      * @param string $db database name
      *

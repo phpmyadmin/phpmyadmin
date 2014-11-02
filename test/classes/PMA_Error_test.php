@@ -17,7 +17,7 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 
 /**
- * Erorr class testing.
+ * Error class testing.
  *
  * @package PhpMyAdmin-test
  */

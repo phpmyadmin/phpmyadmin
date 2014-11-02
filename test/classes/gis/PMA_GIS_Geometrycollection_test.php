@@ -100,7 +100,7 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $output,
-            $this->object->generateWkt($gis_data, $index, $empty = '')
+            $this->object->generateWkt($gis_data, $index, $empty)
         );
     }
 
@@ -187,14 +187,13 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
      * @param string   $line_color line color
      * @param array    $scale_data scaling parameters
      * @param resource $image      initial image
-     * @param string   $output     expected output
      *
      * @return void
      *
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial, $label, $line_color, $scale_data, $image, $output
+        $spatial, $label, $line_color, $scale_data, $image
     ) {
         $return = $this->object->prepareRowAsPng(
             $spatial, $label, $line_color, $scale_data, $image
@@ -222,8 +221,7 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
                     'scale' => 2,
                     'height' => 150
                 ),
-                imagecreatetruecolor('120', '150'),
-                ''
+                imagecreatetruecolor('120', '150')
             )
         );
     }

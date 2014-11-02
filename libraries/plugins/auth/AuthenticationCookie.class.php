@@ -314,7 +314,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * it returns true if all seems ok which usually leads to auth_set_user()
      *
-     * it directly switches to authFails() if user inactivity timout is reached
+     * it directly switches to authFails() if user inactivity timeout is reached
      *
      * @return boolean   whether we get authentication settings or not
      */
@@ -593,15 +593,12 @@ class AuthenticationCookie extends AuthenticationPlugin
             // URL where to go:
             $redirect_url = $cfg['PmaAbsoluteUri'] . 'index.php';
 
-            /** @var PMA_String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
-
             // any parameters to pass?
             $url_params = array();
-            if ($pmaString->strlen($GLOBALS['db'])) {
+            if (/*overload*/mb_strlen($GLOBALS['db'])) {
                 $url_params['db'] = $GLOBALS['db'];
             }
-            if ($pmaString->strlen($GLOBALS['table'])) {
+            if (/*overload*/mb_strlen($GLOBALS['table'])) {
                 $url_params['table'] = $GLOBALS['table'];
             }
             // any target to pass?
@@ -619,7 +616,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             PMA_Response::getInstance()->disable();
 
             PMA_sendHeaderLocation(
-                $redirect_url . PMA_URL_getCommon($url_params, '&'),
+                $redirect_url . PMA_URL_getCommon($url_params, 'text'),
                 true
             );
             if (! defined('TESTSUITE')) {
@@ -680,7 +677,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      * and the login form
      *
      * this function MUST exit/quit the application,
-     * currently doen by call to auth()
+     * currently done by call to auth()
      *
      * @return void
      */

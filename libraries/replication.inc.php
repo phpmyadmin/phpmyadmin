@@ -18,13 +18,19 @@ $server_master_replication = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS');
 /**
  * check for multi-master replication functionality
  */
-$server_slave_multi_replication = $GLOBALS['dbi']->fetchResult('SHOW ALL SLAVES STATUS');
+$server_slave_multi_replication = $GLOBALS['dbi']->fetchResult(
+    'SHOW ALL SLAVES STATUS'
+);
 
 /**
  * set selected master server
  */
 if ($server_slave_multi_replication && !empty($_REQUEST['master_connection'])) {
-    $GLOBALS['dbi']->query("SET @@default_master_connection = '" . PMA_Util::sqlAddSlashes($_REQUEST['master_connection']) . "'");
+    $GLOBALS['dbi']->query(
+        "SET @@default_master_connection = '" . PMA_Util::sqlAddSlashes(
+            $_REQUEST['master_connection']
+        ) . "'"
+    );
     $GLOBALS['url_params']['master_connection'] = $_REQUEST['master_connection'];
 }
 
@@ -204,11 +210,8 @@ function PMA_extractDbOrTable($string, $what = 'db')
  */
 function PMA_Replication_Slave_control($action, $control = null, $link = null)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
-    $action = $pmaString->strtoupper($action);
-    $control = $pmaString->strtoupper($control);
+    $action = /*overload*/mb_strtoupper($action);
+    $control = /*overload*/mb_strtoupper($control);
 
     if ($action != "START" && $action != "STOP") {
         return -1;

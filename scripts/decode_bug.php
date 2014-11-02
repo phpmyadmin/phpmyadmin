@@ -87,7 +87,7 @@ if (!empty($bug_encoded) && is_string($bug_encoded)) {
 
     $bug_encoded     = preg_replace('/[[:space:]]/', '', $bug_encoded);
     $bug_decoded     = base64_decode($bug_encoded);
-    if ($pmaString->substr($bug_encoded, 0, 2) == 'eN') {
+    if (/*overload*/mb_substr($bug_encoded, 0, 2) == 'eN') {
         if (function_exists('gzuncompress')) {
             $result  = PMA_printDecodedBug(gzuncompress($bug_decoded));
         } else {

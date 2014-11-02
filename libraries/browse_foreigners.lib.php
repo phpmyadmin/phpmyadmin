@@ -97,7 +97,7 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
     $odd_row = true;
     $indexByDescription = 0;
 
-    // whether the keyname corresponds to the selected value in the form
+    // whether the key name corresponds to the selected value in the form
     $rightKeynameIsSelected = false;
     $leftKeynameIsSelected = false;
 
@@ -112,15 +112,15 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
             $odd_row = true;
         }
 
-        // keynames and descriptions for the left section,
-        // sorted by keynames
+        // key names and descriptions for the left section,
+        // sorted by key names
         $leftKeyname = $keys[$indexByKeyname];
         list(
             $leftDescription,
             $leftDescriptionTitle
         ) = PMA_getDescriptionAndTitle($descriptions[$indexByKeyname]);
 
-        // keynames and descriptions for the right section,
+        // key names and descriptions for the right section,
         // sorted by descriptions
         $rightKeyname = $keys[$indexByDescription];
         list(
@@ -174,15 +174,14 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
 /**
  * Get the description (possibly truncated) and the title
  *
- * @param string $description the keyname's description
+ * @param string $description the key name's description
  *
  * @return array the new description and title
  */
 function PMA_getDescriptionAndTitle($description)
 {
-    $pmaString = $GLOBALS['PMA_String'];
     $limitChars = $GLOBALS['cfg']['LimitChars'];
-    if ($pmaString->strlen($description) <= $limitChars) {
+    if (/*overload*/mb_strlen($description) <= $limitChars) {
         $description = htmlspecialchars(
             $description
         );
@@ -192,7 +191,7 @@ function PMA_getDescriptionAndTitle($description)
             $description
         );
         $description = htmlspecialchars(
-            $pmaString->substr(
+            /*overload*/mb_substr(
                 $description, 0, $limitChars
             )
             . '...'

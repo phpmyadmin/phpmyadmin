@@ -89,7 +89,7 @@ class PMA_GetIcon_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $alternate_text = 'alt_str';
 
-        // Here we are checking for an icon embeded inside a span (i.e not a menu
+        // Here we are checking for an icon embedded inside a span (i.e not a menu
         // bar icon
         $this->assertEquals(
             '<span class="nowrap"><img src="themes/dot.gif" title="'

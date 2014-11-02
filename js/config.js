@@ -291,12 +291,12 @@ function validateField(id, type, onKeyUp, params)
 }
 
 /**
- * Returns valdiation functions associated with form field
+ * Returns validation functions associated with form field
  *
  * @param {String}  field_id     form field id
  * @param {boolean} onKeyUpOnly  see validateField
  * @type Array
- * @return array of [function, paramseters to be passed to function]
+ * @return array of [function, parameters to be passed to function]
  */
 function getFieldValidators(field_id, onKeyUpOnly)
 {

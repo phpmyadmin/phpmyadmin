@@ -45,7 +45,8 @@ class Node_Database extends Node
                     . '?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'db_operations.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token ']
+                    . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
+            'title' => __('Structure')
         );
         $this->classes = 'database';
     }
@@ -54,10 +55,12 @@ class Node_Database extends Node
      * Returns the number of children of type $type present inside this container
      * This method is overridden by the Node_Database and Node_Table classes
      *
-     * @param string $type         The type of item we are looking for
-     *                             ('tables', 'views', etc)
-     * @param string $searchClause A string used to filter the results of the query
-     * @param string $singleItem   Whether to get presence of a single known item
+     * @param string         $type         The type of item we are looking for
+     *                                     ('tables', 'views', etc)
+     * @param string         $searchClause A string used to filter the results of
+     *                                     the query
+     * @param boolean|string $singleItem   Whether to get presence of a single known
+     *                                     item or false in none
      *
      * @return int
      */
@@ -161,7 +164,7 @@ class Node_Database extends Node
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
                 $query .= "WHERE `ROUTINE_SCHEMA` "
-                    .PMA_Util::getCollateForIS() . "='$db' ";
+                    . PMA_Util::getCollateForIS() . "='$db' ";
                 $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
                 if (! empty($searchClause)) {
                     $query .= "AND " . $this->_getWhereClauseForSearch(
@@ -481,7 +484,7 @@ class Node_Database extends Node
                 . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
             $sqlQuery = "SELECT `item_name` FROM " . $navTable
                 . " WHERE `username`='" . $cfgRelation['user'] . "'"
-                . " AND `item_type`='" . $GLOBALS['PMA_String']->substr($type, 0, -1)
+                . " AND `item_type`='" . substr($type, 0, -1)
                 . "'" . " AND `db_name`='" . PMA_Util::sqlAddSlashes($db) . "'";
             $result = PMA_queryAsControlUser($sqlQuery, false);
             if ($result) {
@@ -513,7 +516,7 @@ class Node_Database extends Node
         if ($cfgRelation['navwork']) {
             if ( $this->_hiddenCount > 0) {
                 $ret = '<span class="dbItemControls">'
-                    . '<a href="navigation.php?'
+                    . '<a href="navigation.php'
                     . PMA_URL_getCommon()
                     . '&showUnhideDialog=true'
                     . '&dbName=' . urldecode($this->real_name) . '"'

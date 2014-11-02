@@ -69,22 +69,19 @@ function PMA_analyseShowGrant()
     $re0 = '(^|(\\\\\\\\)+|[^\\\\])'; // non-escaped wildcards
     $re1 = '(^|[^\\\\])(\\\)+'; // escaped wildcards
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     while ($row = $GLOBALS['dbi']->fetchRow($rs_usr)) {
         // extract db from GRANT ... ON *.* or GRANT ... ON db.*
-        $db_name_offset = $pmaString->strpos($row[0], ' ON ') + 4;
-        $show_grants_dbname = $pmaString->substr(
+        $db_name_offset = /*overload*/mb_strpos($row[0], ' ON ') + 4;
+        $show_grants_dbname = /*overload*/mb_substr(
             $row[0], $db_name_offset,
-            $pmaString->strpos($row[0], '.', $db_name_offset) - $db_name_offset
+            /*overload*/mb_strpos($row[0], '.', $db_name_offset) - $db_name_offset
         );
         $show_grants_dbname = PMA_Util::unQuote($show_grants_dbname, '`');
 
-        $show_grants_str    = $pmaString->substr(
+        $show_grants_str    = /*overload*/mb_substr(
             $row[0],
             6,
-            ($pmaString->strpos($row[0], ' ON ') - 6)
+            (/*overload*/mb_strpos($row[0], ' ON ') - 6)
         );
         if ($show_grants_str == 'RELOAD') {
             $GLOBALS['is_reload_priv'] = true;
@@ -97,7 +94,7 @@ function PMA_analyseShowGrant()
         if ($show_grants_str == 'ALL'
             || $show_grants_str == 'ALL PRIVILEGES'
             || $show_grants_str == 'CREATE'
-            || $pmaString->strpos($show_grants_str, 'CREATE,') !== false
+            || strpos($show_grants_str, 'CREATE,') !== false
         ) {
             if ($show_grants_dbname == '*') {
                 // a global CREATE privilege
@@ -127,7 +124,7 @@ function PMA_analyseShowGrant()
                             '/' . $re1 . '(%|_)/', '\\1\\3', $dbname_to_test
                         )
                     )
-                    && $pmaString->substr($GLOBALS['dbi']->getError(), 1, 4) != 1044)
+                    && /*overload*/mb_substr($GLOBALS['dbi']->getError(), 1, 4) != 1044)
                 ) {
                     /**
                      * Do not handle the underscore wildcard

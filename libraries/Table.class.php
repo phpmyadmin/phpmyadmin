@@ -267,13 +267,10 @@ class PMA_Table
                 AND TABLE_NAME = '" . PMA_Util::sqlAddSlashes($table) . "'"
             );
 
-            /** @var PMA_String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
-
             foreach ($results as $result) {
                 $analyzed_sql[0]['create_table_fields'][$result['COLUMN_NAME']]
                     = array(
-                        'type' => $pmaString->strtoupper($result['DATA_TYPE'])
+                        'type' => /*overload*/mb_strtoupper($result['DATA_TYPE'])
                     );
             }
         } else {
@@ -346,7 +343,7 @@ class PMA_Table
 
         // any of known merge engines?
         return in_array(
-            $GLOBALS['PMA_String']->strtoupper($engine),
+            /*overload*/mb_strtoupper($engine),
             array('MERGE', 'MRG_MYISAM')
         );
     }
@@ -437,11 +434,8 @@ class PMA_Table
         $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
         $comment = '', &$field_primary = null, $move_to = ''
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
-        $is_timestamp = $pmaString->strpos(
-            $pmaString->strtoupper($type),
+        $is_timestamp = /*overload*/mb_strpos(
+            /*overload*/mb_strtoupper($type),
             'TIMESTAMP'
         ) !== false;
 
@@ -798,12 +792,9 @@ class PMA_Table
             return false;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $source = PMA_Util::backquote($source_db)
             . '.' . PMA_Util::backquote($source_table);
-        if (! isset($target_db) || ! $pmaString->strlen($target_db)) {
+        if (! isset($target_db) || ! /*overload*/mb_strlen($target_db)) {
             $target_db = $source_db;
         }
 
@@ -865,7 +856,8 @@ class PMA_Table
                 );
                 // ANSI_QUOTES might be a subset of sql_mode, for example
                 // REAL_AS_FLOAT,PIPES_AS_CONCAT,ANSI_QUOTES,IGNORE_SPACE,ANSI
-                if (false !== $pmaString->strpos($server_sql_mode, 'ANSI_QUOTES')) {
+                if (false !== /*overload*/mb_strpos($server_sql_mode, 'ANSI_QUOTES')
+                ) {
                     $table_delimiter = 'quote_double';
                 } else {
                     $table_delimiter = 'quote_backtick';
@@ -955,7 +947,7 @@ class PMA_Table
                 $cnt = $parsed_sql['len'] - 1;
 
                 for ($j = $i; $j < $cnt; $j++) {
-                    $dataUpper = $pmaString->strtoupper($parsed_sql[$j]['data']);
+                    $dataUpper = /*overload*/mb_strtoupper($parsed_sql[$j]['data']);
                     if ($parsed_sql[$j]['type'] == 'alpha_reservedWord'
                         && $dataUpper == 'CONSTRAINT'
                     ) {
@@ -992,7 +984,7 @@ class PMA_Table
                 $cnt = $parsed_sql['len'] - 1;
 
                 for ($j = $i; $j < $cnt; $j++) {
-                    $dataUpper = $pmaString->strtoupper($parsed_sql[$j]['data']);
+                    $dataUpper = /*overload*/mb_strtoupper($parsed_sql[$j]['data']);
                     if ($parsed_sql[$j]['type'] == 'alpha_reservedWord'
                         && $dataUpper == 'CONSTRAINT'
                     ) {
@@ -1275,7 +1267,7 @@ class PMA_Table
             return false;
         }
 
-        if (! $GLOBALS['PMA_String']->strlen($table_name)) {
+        if (! /*overload*/mb_strlen($table_name)) {
             // zero length
             return false;
         }
@@ -1587,16 +1579,13 @@ class PMA_Table
     {
         $server_id = $GLOBALS['server'];
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // set session variable if it's still undefined
         if (! isset($_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name][$this->name])) {
             // check whether we can get from pmadb
             $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name]
             [$this->name]
-                = ($pmaString->strlen($GLOBALS['cfg']['Server']['pmadb'])
-                    && $pmaString->strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
+                = (/*overload*/mb_strlen($GLOBALS['cfg']['Server']['pmadb'])
+                    && /*overload*/mb_strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
                 )
                     ?  $this->getUiPrefsFromDb()
                     : array();
@@ -1634,16 +1623,15 @@ class PMA_Table
                     //get the available column name without backquoting
                     $avail_columns = $this->getColumns(false);
 
-                    /** @var PMA_String $pmaString */
-                    $pmaString = $GLOBALS['PMA_String'];
-
                     foreach ($avail_columns as $each_col) {
                         // check if $each_col ends with $colname
                         if (substr_compare(
                             $each_col,
                             $colname,
-                            $pmaString->strlen($each_col) - $pmaString->strlen($colname)
-                        ) === 0) {
+                            /*overload*/mb_strlen($each_col)
+                            - /*overload*/mb_strlen($colname)
+                        ) === 0
+                        ) {
                             return $this->uiprefs[$property];
                         }
                     }
@@ -1729,12 +1717,9 @@ class PMA_Table
         // save the value
         $this->uiprefs[$property] = $value;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // check if pmadb is set
-        if ($pmaString->strlen($GLOBALS['cfg']['Server']['pmadb'])
-            && $pmaString->strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
+        if (/*overload*/mb_strlen($GLOBALS['cfg']['Server']['pmadb'])
+            && /*overload*/mb_strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
         ) {
             return $this->saveUiprefsToDb();
         }
@@ -1756,12 +1741,9 @@ class PMA_Table
         if (isset($this->uiprefs[$property])) {
             unset($this->uiprefs[$property]);
 
-            /** @var PMA_String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
-
             // check if pmadb is set
-            if ($pmaString->strlen($GLOBALS['cfg']['Server']['pmadb'])
-                && $pmaString->strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
+            if (/*overload*/mb_strlen($GLOBALS['cfg']['Server']['pmadb'])
+                && /*overload*/mb_strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
             ) {
                 return $this->saveUiprefsToDb();
             }

@@ -178,7 +178,7 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * testign setter of message
+     * testing setter of message
      *
      * @return void
      */

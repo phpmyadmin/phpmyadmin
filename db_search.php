@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * searchs the entire database
+ * searches the entire database
  *
  * @todo    make use of UNION when searching multiple tables
  * @todo    display executed query, optional?

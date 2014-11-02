@@ -54,9 +54,10 @@ class PMA_Scripts
         $dynamic_scripts = "";
         $scripts = array();
         foreach ($files as $value) {
-            if ($GLOBALS['PMA_String']->strpos($value['filename'], "?") !== false) {
+            if (/*overload*/mb_strpos($value['filename'], "?") !== false) {
                 if ($value['before_statics'] === true) {
-                    $first_dynamic_scripts .= "<script type='text/javascript' src='js/"
+                    $first_dynamic_scripts
+                        .= "<script type='text/javascript' src='js/"
                         . $value['filename'] . "'></script>";
                 } else {
                     $dynamic_scripts .= "<script type='text/javascript' src='js/"
@@ -116,8 +117,11 @@ class PMA_Scripts
      *
      * @return void
      */
-    public function addFile($filename, $conditional_ie = false, $before_statics = false)
-    {
+    public function addFile(
+        $filename,
+        $conditional_ie = false,
+        $before_statics = false
+    ) {
         $hash = md5($filename);
         if (!empty($this->_files[$hash])) {
             return;
@@ -158,16 +162,13 @@ class PMA_Scripts
      */
     private function _eventBlacklist($filename)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
-        if (   $pmaString->strpos($filename, 'jquery') !== false
-            || $pmaString->strpos($filename, 'codemirror') !== false
-            || $pmaString->strpos($filename, 'messages.php') !== false
-            || $pmaString->strpos($filename, 'ajax.js') !== false
-            || $pmaString->strpos($filename, 'navigation.js') !== false
-            || $pmaString->strpos($filename, 'get_image.js.php') !== false
-            || $pmaString->strpos($filename, 'cross_framing_protection.js') !== false
+        if (   strpos($filename, 'jquery') !== false
+            || strpos($filename, 'codemirror') !== false
+            || strpos($filename, 'messages.php') !== false
+            || strpos($filename, 'ajax.js') !== false
+            || strpos($filename, 'navigation.js') !== false
+            || strpos($filename, 'get_image.js.php') !== false
+            || strpos($filename, 'cross_framing_protection.js') !== false
         ) {
             return 0;
         }
@@ -216,7 +217,7 @@ class PMA_Scripts
         $retval = array();
         foreach ($this->_files as $file) {
             //If filename contains a "?", continue.
-            if ($GLOBALS['PMA_String']->strpos($file['filename'], "?") !== false) {
+            if (strpos($file['filename'], "?") !== false) {
                 continue;
             }
 

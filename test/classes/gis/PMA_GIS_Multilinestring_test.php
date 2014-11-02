@@ -110,14 +110,14 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
                 '0',
                 'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0))'
             ),
-            // atleast one line should be there
+            // at least one line should be there
             array(
                 $temp2,
                 0,
                 null,
                 'MULTILINESTRING((5.02 8.45,6.14 0.15))'
             ),
-            // a line should have atleast two points
+            // a line should have at least two points
             array(
                 $temp3,
                 0,

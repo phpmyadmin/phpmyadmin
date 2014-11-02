@@ -316,8 +316,8 @@ function PMA_getHeaderCells($is_backup, $columnMeta, $mimework, $db, $table)
 
     if ($mimework && $GLOBALS['cfg']['BrowseMIME']) {
         $header_cells[] = __('MIME type');
-        $header_link = '<a href="transformation_overview.php?'
-            . PMA_URL_getCommon($db, $table)
+        $header_link = '<a href="transformation_overview.php'
+            . PMA_URL_getCommon(array('db' => $db, 'table' => $table))
             . '#%s" title="' . __(
                 'List of available transformations and their options'
             )
@@ -863,13 +863,10 @@ function PMA_getHtmlForColumnComment($columnNumber, $ci, $ci_offset, $columnMeta
 function PMA_getHtmlForColumnAutoIncrement($columnNumber, $ci, $ci_offset,
     $columnMeta
 ) {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $html = '<input name="field_extra[' . $columnNumber . ']"'
         . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '"';
     if (isset($columnMeta['Extra'])
-        && $pmaString->strtolower($columnMeta['Extra']) == 'auto_increment'
+        && /*overload*/mb_strtolower($columnMeta['Extra']) == 'auto_increment'
     ) {
         $html .= ' checked="checked"';
     }
@@ -929,15 +926,14 @@ function PMA_getHtmlForColumnIndexes($columnNumber, $ci, $ci_offset, $columnMeta
 
 function PMA_getHtmlForIndexTypeOption($columnNumber, $columnMeta, $type, $key)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
-    $html = '<option value="' . $pmaString->strtolower($type) . '_' . $columnNumber
+    $typeToLower = /*overload*/mb_strtolower($type);
+    $typeToUpper = /*overload*/mb_strtoupper($type);
+    $html = '<option value="' . $typeToLower . '_' . $columnNumber
         . '" title="' . __($type) . '"';
     if (isset($columnMeta['Key']) && $columnMeta['Key'] == $key) {
         $html .= ' selected="selected"';
     }
-    $html .= '>' . $pmaString->strtoupper($type) . '</option>';
+    $html .= '>' . $typeToUpper . '</option>';
 
     return $html;
 }
@@ -972,20 +968,18 @@ function PMA_getHtmlForColumnNull($columnNumber, $ci, $ci_offset, $columnMeta)
 /**
  * Function to get html for column attribute
  *
- * @param int   $columnNumber                     column number
- * @param int   $ci                               cell index
- * @param int   $ci_offset                        cell index offset
- * @param array $extracted_columnspec             extracted column
- * @param array $columnMeta                       column meta
- * @param bool  $submit_attribute                 submit attribute
- * @param array $analyzed_sql                     analyzed sql
- * @param bool  $submit_default_current_timestamp submit default current time stamp
+ * @param int   $columnNumber         column number
+ * @param int   $ci                   cell index
+ * @param int   $ci_offset            cell index offset
+ * @param array $extracted_columnspec extracted column
+ * @param array $columnMeta           column meta
+ * @param bool  $submit_attribute     submit attribute
+ * @param array $analyzed_sql         analyzed sql
  *
  * @return string
  */
 function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
-    $extracted_columnspec, $columnMeta, $submit_attribute, $analyzed_sql,
-    $submit_default_current_timestamp
+    $extracted_columnspec, $columnMeta, $submit_attribute, $analyzed_sql
 ) {
     $html = '<select style="font-size: 70%;"'
         . ' name="field_attribute[' . $columnNumber . ']"'
@@ -1022,25 +1016,13 @@ function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
     ) {
         $attribute = 'on update CURRENT_TIMESTAMP';
     }
-    if ((isset($columnMeta['Field'])
-        && isset($field['default_current_timestamp']))
-        || (isset($submit_default_current_timestamp)
-        && $submit_default_current_timestamp)
-    ) {
-        $default_current_timestamp = true;
-    } else {
-        $default_current_timestamp = false;
-    }
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     $attribute_types = $GLOBALS['PMA_Types']->getAttributes();
     $cnt_attribute_types = count($attribute_types);
     for ($j = 0; $j < $cnt_attribute_types; $j++) {
         $html .= '                <option value="' . $attribute_types[$j] . '"';
-        $attrUpper = $pmaString->strtoupper($attribute);
-        if ($attrUpper == $pmaString->strtoupper($attribute_types[$j])) {
+        $attrUpper = /*overload*/mb_strtoupper($attribute);
+        if ($attrUpper == /*overload*/mb_strtoupper($attribute_types[$j])) {
             $html .= ' selected="selected"';
         }
         $html .= '>' . $attribute_types[$j] . '</option>';
@@ -1257,9 +1239,7 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
         isset($extracted_columnspec) ? $extracted_columnspec : null,
         isset($columnMeta) ? $columnMeta : null,
         isset($submit_attribute) ? $submit_attribute : null,
-        isset($analyzed_sql) ? $analyzed_sql : null,
-        isset($submit_default_current_timestamp)
-        ? $submit_default_current_timestamp : null
+        isset($analyzed_sql) ? $analyzed_sql : null
     );
     $ci++;
 
@@ -1368,19 +1348,16 @@ function PMA_getFormParamsForOldColumn(
         $form_params['field_orig[' . $columnNumber . ']'] = '';
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     // old column type
     if (isset($columnMeta['Type'])) {
         // keep in uppercase because the new type will be in uppercase
         $form_params['field_type_orig[' . $columnNumber . ']']
-            = $pmaString->strtoupper($type);
+            = /*overload*/mb_strtoupper($type);
         if (isset($columnMeta['column_status'])
             && !$columnMeta['column_status']['isEditable']
         ) {
             $form_params['field_type[' . $columnNumber . ']']
-                = $pmaString->strtoupper($type);
+                = /*overload*/mb_strtoupper($type);
         }
     } else {
         $form_params['field_type_orig[' . $columnNumber . ']'] = '';

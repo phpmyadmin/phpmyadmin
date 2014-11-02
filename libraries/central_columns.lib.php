@@ -649,7 +649,7 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
  *
  * @param string $db current database
  *
- * @return html dropdown for secting table
+ * @return html dropdown for selecting table
  */
 function PMA_getHTMLforTableDropdown($db)
 {
@@ -746,9 +746,6 @@ function PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db)
  */
 function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $tableHtml = '<tr data-rownum="' . $row_num . '" id="f_' . $row_num . '" '
         . 'class="' . ($odd_row ? 'odd' : 'even') . '">'
         . PMA_URL_getHiddenInputs(
@@ -779,7 +776,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
         '<td name = "col_type" class="nowrap"><span>'
         . htmlspecialchars($row['col_type']) . '</span>'
         . PMA_getHtmlForColumnType(
-            $row_num, 1, 0, $pmaString->strtoupper($row['col_type']), array()
+            $row_num, 1, 0, /*overload*/mb_strtoupper($row['col_type']), array()
         )
         . '</td>';
     $tableHtml .=
@@ -829,7 +826,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
         ? htmlspecialchars($row['col_default']) : 'None')
         . '</span>'
         . PMA_getHtmlForColumnDefault(
-            $row_num, 5, 0, $pmaString->strtoupper($row['col_type']), '', $meta
+            $row_num, 5, 0, /*overload*/mb_strtoupper($row['col_type']), '', $meta
         )
         . '</td>';
     $tableHtml .= '</tr>';

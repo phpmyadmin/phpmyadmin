@@ -7,7 +7,7 @@
  * drizzle module segfaults often and when you least expect it to
  *
  * TODO: This file and drizzle-wrappers.lib.php should be devoid
- *       of any segault related hacks.
+ *       of any segfault related hacks.
  * TODO: Crashing versions of drizzle module and/or libdrizzle
  *       should be blacklisted
  *

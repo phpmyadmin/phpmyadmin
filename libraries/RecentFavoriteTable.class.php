@@ -63,23 +63,22 @@ class PMA_RecentFavoriteTable
      */
     private function __construct($type)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $this->_tableType = $type;
-        if ($pmaString->strlen($GLOBALS['cfg']['Server']['pmadb'])
-            && $pmaString->strlen($GLOBALS['cfg']['Server'][$this->_tableType])
+        if (/*overload*/mb_strlen($GLOBALS['cfg']['Server']['pmadb'])
+            && /*overload*/mb_strlen($GLOBALS['cfg']['Server'][$this->_tableType])
         ) {
             $this->_pmaTable
                 = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
                 . PMA_Util::backquote($GLOBALS['cfg']['Server'][$this->_tableType]);
         }
         $server_id = $GLOBALS['server'];
-        if (! isset($_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id])) {
+        if (! isset($_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id])
+        ) {
             $_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id]
                 = isset($this->_pmaTable) ? $this->getFromDb() : array();
         }
-        $this->_tables =& $_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id];
+        $this->_tables
+            =& $_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id];
     }
 
     /**

@@ -38,7 +38,7 @@ var AJAX = {
      * Given the filename of a script, returns a hash to be
      * used to refer to all the events registered for the file
      *
-     * @param string key The filename for which to get the event name
+     * @param key string key The filename for which to get the event name
      *
      * @return int
      */
@@ -59,8 +59,8 @@ var AJAX = {
     /**
      * Registers an onload event for a file
      *
-     * @param string   file The filename for which to register the event
-     * @param function func The function to execute when the page is ready
+     * @param file string   file The filename for which to register the event
+     * @param func function func The function to execute when the page is ready
      *
      * @return self For chaining
      */
@@ -406,7 +406,7 @@ var AJAX = {
                     } else if (data._promptPhpErrors) {
                         // otherwise just prompt user if it is set so.
                         msg = msg + PMA_messages.phpErrorsFound;
-                        // scroll to bottom where all the erros are displayed.
+                        // scroll to bottom where all the errors are displayed.
                         $('html, body').animate({scrollTop:$(document).height()}, 'slow');
                     }
                 }
@@ -652,7 +652,7 @@ AJAX.cache = {
      * Saves a new page in the cache
      *
      * @param string hash    The hash part of the url that is being loaded
-     * @param array  scripts A list of scripts that is requured for the page
+     * @param array  scripts A list of scripts that is required for the page
      * @param string menu    A hash that links to a menu stored
      *                       in a dedicated menu cache
      * @param array  params  A list of parameters used by PMA_commonParams()

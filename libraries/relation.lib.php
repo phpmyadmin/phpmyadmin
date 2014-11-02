@@ -646,9 +646,6 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
     $cfgRelation = PMA_getRelationsParam();
     $foreign = array();
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     if ($cfgRelation['relwork'] && ($source == 'both' || $source == 'internal')) {
         $rel_query = '
              SELECT `master_field`,
@@ -659,7 +656,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
                 . '.' . PMA_Util::backquote($cfgRelation['relation']) . '
               WHERE `master_db`    = \'' . PMA_Util::sqlAddSlashes($db) . '\'
                 AND `master_table` = \'' . PMA_Util::sqlAddSlashes($table) . '\' ';
-        if ($pmaString->strlen($column)) {
+        if (/*overload*/mb_strlen($column)) {
             $rel_query .= ' AND `master_field` = '
                 . '\'' . PMA_Util::sqlAddSlashes($column) . '\'';
         }
@@ -668,24 +665,26 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         );
     }
 
-    if (($source == 'both' || $source == 'foreign') && $pmaString->strlen($table)) {
+    if (($source == 'both' || $source == 'foreign') && /*overload*/mb_strlen($table)
+    ) {
 
         $showCreateTableQuery = 'SHOW CREATE TABLE '
             . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table);
         $show_create_table = $GLOBALS['dbi']->fetchValue(
             $showCreateTableQuery, 0, 1
         );
-        $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
-
-        $foreign['foreign_keys_data'] = $analyzed_sql[0]['foreign_keys'];
+        if ($show_create_table) {
+            $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+            $foreign['foreign_keys_data'] = $analyzed_sql[0]['foreign_keys'];
+        }
     }
 
     /**
      * Emulating relations for some information_schema and data_dictionary tables
      */
-    $isInformationSchema = $pmaString->strtolower($db) == 'information_schema';
+    $isInformationSchema = /*overload*/mb_strtolower($db) == 'information_schema';
     $is_data_dictionary = PMA_DRIZZLE
-        && $pmaString->strtolower($db) == 'data_dictionary';
+        && /*overload*/mb_strtolower($db) == 'data_dictionary';
     if (($isInformationSchema || $is_data_dictionary)
         && ($source == 'internal' || $source == 'both')
     ) {
@@ -698,9 +697,9 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         }
         if (isset($GLOBALS[$relations_key][$table])) {
             foreach ($GLOBALS[$relations_key][$table] as $field => $relations) {
-                if ((! $pmaString->strlen($column) || $column == $field)
+                if ((! /*overload*/mb_strlen($column) || $column == $field)
                     && (! isset($foreign[$field])
-                    || ! $pmaString->strlen($foreign[$field]))
+                    || ! /*overload*/mb_strlen($foreign[$field]))
                 ) {
                     $foreign[$field] = $relations;
                 }
@@ -883,7 +882,7 @@ function PMA_setDbComment($db, $comment = '')
         return false;
     }
 
-    if ($GLOBALS['PMA_String']->strlen($comment)) {
+    if (/*overload*/mb_strlen($comment)) {
         $upd_query = 'INSERT INTO '
             . PMA_Util::backquote($cfgRelation['db']) . '.'
             . PMA_Util::backquote($cfgRelation['column_info'])
@@ -928,7 +927,7 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
     $maxCharactersInDisplayedSQL = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
     // Prevent to run this automatically on Footer class destroying in testsuite
     if (defined('TESTSUITE')
-        || $GLOBALS['PMA_String']->strlen($sqlquery) > $maxCharactersInDisplayedSQL
+        || /*overload*/mb_strlen($sqlquery) > $maxCharactersInDisplayedSQL
     ) {
         return;
     }
@@ -1093,14 +1092,14 @@ function PMA_buildForeignDropdown($foreign, $data, $mode)
     }
 
     foreach ($foreign as $key => $value) {
-        if ($GLOBALS['PMA_String']->strlen($value) <= $GLOBALS['cfg']['LimitChars']
+        if (/*overload*/mb_strlen($value) <= $GLOBALS['cfg']['LimitChars']
         ) {
             $vtitle = '';
             $value  = htmlspecialchars($value);
         } else {
             $vtitle  = htmlspecialchars($value);
             $value  = htmlspecialchars(
-                $GLOBALS['PMA_String']->substr(
+                /*overload*/mb_substr(
                     $value, 0, $GLOBALS['cfg']['LimitChars']
                 ) . '...'
             );
@@ -1422,7 +1421,8 @@ function PMA_getRelatives($all_tables, $master)
                     . PMA_Util::backquote($one_key['index_list'][$key]);
 
                     if (! in_array($on_condition, $left_joins[$left_join_with]['on_condition'])) {
-                        $left_joins[$left_join_with]['on_condition'][] = $on_condition;
+                        $left_joins[$left_join_with]['on_condition'][]
+                            = $on_condition;
                     }
                 }
                 $ignore_internal_relations = true;
@@ -1901,7 +1901,7 @@ function PMA_getHtmlFixPMATables()
     );
     $message->addParam(
         '<a href="' . $GLOBALS['cfg']['PmaAbsoluteUri']
-        . 'chk_rel.php?' . $url_query . '">',
+        . 'chk_rel.php' . $url_query . '">',
         false
     );
     $message->addParam('</a>', false);
