@@ -491,18 +491,14 @@ class ExportLatex extends ExportPlugin
             return false;
         }
 
-        $columns_cnt = 4;
         $alignment = '|l|c|c|c|';
         if ($do_relation && $have_rel) {
-            $columns_cnt++;
             $alignment .= 'l|';
         }
         if ($do_comments) {
-            $columns_cnt++;
             $alignment .= 'l|';
         }
         if ($do_mime && $cfgRelation['mimework']) {
-            $columns_cnt++;
             $alignment .='l|';
         }
         $buffer = $alignment . '} ' . $crlf ;

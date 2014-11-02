@@ -562,9 +562,6 @@ class PMA_NavigationTree
             return;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $separators = array();
         if (is_array($node->separator)) {
             $separators = $node->separator;

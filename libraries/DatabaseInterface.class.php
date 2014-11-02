@@ -2370,8 +2370,6 @@ class PMA_DatabaseInterface
      */
     public function isSystemSchema($schema_name, $testForMysqlSchema = false)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         return strtolower($schema_name) == 'information_schema'
             || (!PMA_DRIZZLE
                 && strtolower($schema_name) == 'performance_schema')

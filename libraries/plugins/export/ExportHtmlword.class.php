@@ -370,17 +370,6 @@ class ExportHtmlword extends ExportPlugin
          */
         $schema_insert .= '<table class="width100" cellspacing="1">';
 
-        $columns_cnt = 4;
-        if ($do_relation && $have_rel) {
-            $columns_cnt++;
-        }
-        if ($do_comments && $cfgRelation['commwork']) {
-            $columns_cnt++;
-        }
-        if ($do_mime && $cfgRelation['mimework']) {
-            $columns_cnt++;
-        }
-
         $schema_insert .= '<tr class="print-category">';
         $schema_insert .= '<th class="print">'
             . __('Column')

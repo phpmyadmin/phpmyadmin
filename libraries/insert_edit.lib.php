@@ -1076,7 +1076,7 @@ function PMA_getBinaryAndBlobColumn(
             . ' name="fields_upload' . $vkey . '[' . $column['Field_md5'] . ']"'
             . ' class="textfield" id="field_' . $idindex . '_3" size="10"'
             . ' ' . $unnullify_trigger . '/>&nbsp;';
-        list($html_out, $biggest_max_file_size) = PMA_getMaxUploadSize(
+        list($html_out,) = PMA_getMaxUploadSize(
             $column, $biggest_max_file_size
         );
         $html_output .= $html_out;

@@ -60,8 +60,6 @@ function PMA_getHtmlForListingUsersofAGroup($userGroup)
  */
 function PMA_getHtmlForUserGroupsTable()
 {
-    $tabs = PMA_Util::getMenuTabList();
-
     $html_output  = '<h2>' . __('User groups') . '</h2>';
     $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
         . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
