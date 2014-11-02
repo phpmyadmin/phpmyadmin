@@ -399,7 +399,7 @@ class PMA_ServerStatusData
             }
             $retval .= '<li>';
             $retval .= '<a' . $class;
-            $retval .= ' href="' . $item['url'] . '?' . $url_params . '">';
+            $retval .= ' href="' . $item['url'] . $url_params . '">';
             $retval .= $item['name'];
             $retval .= '</a>';
             $retval .= '</li>';
