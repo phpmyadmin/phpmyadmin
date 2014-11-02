@@ -365,13 +365,12 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
      * @param string $fill_color color for the GIS POLYGON object
      * @param array  $scale_data array containing data related to scaling
      * @param object $image      image object
-     * @param string $output     expected output
      *
      * @return void
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial, $label, $fill_color, $scale_data, $image, $output
+        $spatial, $label, $fill_color, $scale_data, $image
     ) {
         $return = $this->object->prepareRowAsPng(
             $spatial, $label, $fill_color, $scale_data, $image
@@ -397,8 +396,7 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
                     'scale' => 2,
                     'height' => 150
                 ),
-                imagecreatetruecolor('120', '150'),
-                ''
+                imagecreatetruecolor('120', '150')
             )
         );
     }

@@ -177,13 +177,12 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
      * @param string $point_color color for the GIS POINT object
      * @param array  $scale_data  array containing data related to scaling
      * @param object $image       image object
-     * @param string $output      expeected output
      *
      * @return void
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial, $label, $point_color, $scale_data, $image, $output
+        $spatial, $label, $point_color, $scale_data, $image
     ) {
         $return = $this->object->prepareRowAsPng(
             $spatial, $label, $point_color, $scale_data, $image
@@ -209,8 +208,7 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
                     'scale' => 2,
                     'height' => 150
                 ),
-                imagecreatetruecolor('120', '150'),
-                ''
+                imagecreatetruecolor('120', '150')
             )
         );
     }
