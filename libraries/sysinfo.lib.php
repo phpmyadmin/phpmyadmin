@@ -165,7 +165,6 @@ class PMA_SysInfoWinnt extends PMA_SysInfo
     private function _getWMI($strClass, $strValue = array())
     {
         $arrData = array();
-        $value = "";
 
         $objWEBM = $this->_wmi->Get($strClass);
         $arrProp = $objWEBM->Properties_;

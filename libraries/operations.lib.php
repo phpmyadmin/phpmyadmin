@@ -1118,8 +1118,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                 __('Defragment table'),
                 $params,
                 $url_params,
-                'InnoDB_File_Defragmenting',
-                'Table_types'
+                'InnoDB_File_Defragmenting'
             );
         }
         if ($is_innodb || $is_myisam_or_aria || $is_berkeleydb) {
@@ -1188,20 +1187,20 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
 /**
  * Get maintain action HTML link
  *
- * @param string $action     action name
- * @param array  $params     url parameters array
- * @param array  $url_params additional url parameters
- * @param string $link       contains name of page/anchor that is being linked
+ * @param string $action_message action message 
+ * @param array  $params         url parameters array
+ * @param array  $url_params     additional url parameters
+ * @param string $link           contains name of page/anchor that is being linked
  *
  * @return string $html_output
  */
-function PMA_getMaintainActionlink($action, $params, $url_params, $link)
+function PMA_getMaintainActionlink($action_message, $params, $url_params, $link)
 {
     return '<li>'
         . '<a class="maintain_action ajax" '
         . 'href="sql.php'
         . PMA_URL_getCommon(array_merge($url_params, $params)) . '">'
-        . $action
+        . $action_message
         . '</a>'
         . PMA_Util::showMySQLDocu($link)
         . '</li>';

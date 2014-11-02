@@ -413,11 +413,6 @@ function PMA_getHtmlForReplicationType(
  */
 function PMA_getListForSortDatabase()
 {
-    /**
-     * avoids 'undefined index' errors
-     */
-    $sort_by = '';
-    $sort_order = '';
     if (empty($_REQUEST['sort_by'])) {
         $sort_by = 'SCHEMA_NAME';
     } else {
