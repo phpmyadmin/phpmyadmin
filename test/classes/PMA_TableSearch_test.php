@@ -242,7 +242,9 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         $replaceWith = "Column";
         $useRegex = false;
         $charSet = "UTF-8";
-        $tableSearch->replace($columnIndex, $find, $replaceWith, $useRegex, $charSet);
+        $tableSearch->replace(
+            $columnIndex, $find, $replaceWith, $useRegex, $charSet
+        );
 
         $sql_query = $GLOBALS['sql_query'];
         $result = "UPDATE `PMA`.`PMA_BookMark` SET `Field1` = "

@@ -234,7 +234,9 @@ class PMA_Validator
             $port = empty($port) || $connect_type == 'socket' ? null : $port;
             $extension = 'mysqli';
         } else {
-            $socket = empty($socket) || $connect_type == 'tcp' ? null : ':' . ($socket[0] == '/' ? '' : '/') . $socket;
+            $socket = empty($socket) || $connect_type == 'tcp'
+                ? null
+                : ':' . ($socket[0] == '/' ? '' : '/') . $socket;
             $port = empty($port) || $connect_type == 'socket' ? null : ':' . $port;
             $extension = 'mysql';
         }

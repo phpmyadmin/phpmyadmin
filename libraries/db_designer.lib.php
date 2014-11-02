@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 require_once 'libraries/relation.lib.php';
 
 /**
- * Function to get html to display a page selector 
+ * Function to get html to display a page selector
  *
  * @param array  $cfgRelation information about the configuration storage
  * @param string $db          database name
@@ -557,9 +557,11 @@ function PMA_getDatabaseTables(
         $html .= '<table id="' . $t_n_url . '" cellpadding="0" cellspacing="0" ';
         $html .= 'class="pmd_tab" style="position:absolute;';
         $html .= 'left:';
-        $html .= (isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["X"] : rand(20, 700)) . 'px;';
+        $html .= (isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["X"] : rand(20, 700))
+            . 'px;';
         $html .= 'top:';
-        $html .= (isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["Y"] : rand(20, 550)) . 'px;';
+        $html .= (isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["Y"] : rand(20, 550))
+            . 'px;';
         $html .= 'display:';
         $html .= (isset($tab_pos[$t_n]) || $display_page == -1) ? 'block;' : 'none;';
         $html .= 'z-index: 1;">';
@@ -666,7 +668,8 @@ function PMA_getDatabaseTables(
 
             $tmpColumn = $t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j];
 
-            if (!PMA_Util::isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
+            if (!PMA_Util::isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])
+            ) {
                 $html .= (isset($tables_pk_or_unique_keys[$tmpColumn]) ? 1 : 0);
             } else {
                 // if foreign keys are supported, it's not necessary that the

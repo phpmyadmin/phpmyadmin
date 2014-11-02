@@ -255,9 +255,11 @@ if (!defined('TESTSUITE')) {
     } elseif ($export_type == 'table' && /*overload*/mb_strlen($db)
         && /*overload*/mb_strlen($table)
     ) {
-        $err_url = 'tbl_export.php' . PMA_URL_getCommon(array(
-            'db' => $db, 'table' => $table
-        ));
+        $err_url = 'tbl_export.php' . PMA_URL_getCommon(
+            array(
+                'db' => $db, 'table' => $table
+            )
+        );
     } else {
         PMA_fatalError(__('Bad parameters!'));
     }

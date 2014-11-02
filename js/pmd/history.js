@@ -28,7 +28,7 @@ function panel(index)
 }
 
 /**
- * To display details of obects(where,rename,Having,aggregate,groupby,orderby,having)
+ * To display details of objects(where,rename,Having,aggregate,groupby,orderby,having)
  *
  * @param index index of history_array where change is to be made
  *
@@ -359,7 +359,7 @@ var where = function (nrelation_operator, nquery) {
  *
  * @param nrelation_operator type of relation operator to be applied
  * @param nquery             stores value of value/sub-query
- *
+ * @param noperator          operator
 **/
 
 var having = function (nrelation_operator, nquery, noperator) {
@@ -428,7 +428,7 @@ var aggregate = function (noperator) {
 /**
  * This function returns unique element from an array
  *
- * @param arraName array from which duplicate elem are to be removed.
+ * @param arrayName array from which duplicate elem are to be removed.
  * @return unique array
  */
 
@@ -469,7 +469,7 @@ function found(arrayName, value)
  * This function concatenates two array
  *
  * @params add array elements of which are pushed in
- * @params arr array in which elemnets are added
+ * @params arr array in which elements are added
  */
 function add_array(add, arr)
 {
@@ -479,7 +479,7 @@ function add_array(add, arr)
     return arr;
 }
 
-/* This fucntion removes all elements present in one array from the other.
+/* This function removes all elements present in one array from the other.
  *
  * @params rem array from which each element is removed from other array.
  * @params arr array from which elements are removed.
@@ -629,7 +629,6 @@ function gradient(id, level)
     box.style.KhtmlOpacity = level;
     box.style.filter = "alpha(opacity=" + level * 100 + ")";
     box.style.display = "block";
-    return;
 }
 
 

@@ -159,21 +159,24 @@ class Node_Table extends Node_DatabaseChild
                 $query .= "ORDER BY `COLUMN_NAME` ASC ";
                 $query .= "LIMIT " . intval($pos) . ", $maxItems";
                 $retval = $GLOBALS['dbi']->fetchResult($query);
-            } else {
-                $db     = PMA_Util::backquote($db);
-                $table  = PMA_Util::backquote($table);
-                $query  = "SHOW COLUMNS FROM $table FROM $db";
-                $handle = $GLOBALS['dbi']->tryQuery($query);
-                if ($handle !== false) {
-                    $count = 0;
-                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($pos <= 0 && $count < $maxItems) {
-                            $retval[] = $arr['Field'];
-                            $count++;
-                        }
-                        $pos--;
-                    }
+                break;
+            }
+
+            $db     = PMA_Util::backquote($db);
+            $table  = PMA_Util::backquote($table);
+            $query  = "SHOW COLUMNS FROM $table FROM $db";
+            $handle = $GLOBALS['dbi']->tryQuery($query);
+            if ($handle === false) {
+                break;
+            }
+
+            $count = 0;
+            while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                if ($pos <= 0 && $count < $maxItems) {
+                    $retval[] = $arr['Field'];
+                    $count++;
                 }
+                $pos--;
             }
             break;
         case 'indexes':
@@ -184,15 +187,17 @@ class Node_Table extends Node_DatabaseChild
             if ($handle === false) {
                 break;
             }
+
             $count = 0;
             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                if (! in_array($arr['Key_name'], $retval)) {
-                    if ($pos <= 0 && $count < $maxItems) {
-                        $retval[] = $arr['Key_name'];
-                        $count++;
-                    }
-                    $pos--;
+                if (in_array($arr['Key_name'], $retval)) {
+                    continue;
                 }
+                if ($pos <= 0 && $count < $maxItems) {
+                    $retval[] = $arr['Key_name'];
+                    $count++;
+                }
+                $pos--;
             }
             break;
         case 'triggers':
@@ -208,21 +213,24 @@ class Node_Table extends Node_DatabaseChild
                 $query .= "ORDER BY `TRIGGER_NAME` ASC ";
                 $query .= "LIMIT " . intval($pos) . ", $maxItems";
                 $retval = $GLOBALS['dbi']->fetchResult($query);
-            } else {
-                $db     = PMA_Util::backquote($db);
-                $table  = PMA_Util::sqlAddSlashes($table);
-                $query  = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
-                $handle = $GLOBALS['dbi']->tryQuery($query);
-                if ($handle !== false) {
-                    $count = 0;
-                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($pos <= 0 && $count < $maxItems) {
-                            $retval[] = $arr['Trigger'];
-                            $count++;
-                        }
-                        $pos--;
-                    }
+                break;
+            }
+
+            $db     = PMA_Util::backquote($db);
+            $table  = PMA_Util::sqlAddSlashes($table);
+            $query  = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
+            $handle = $GLOBALS['dbi']->tryQuery($query);
+            if ($handle === false) {
+                break;
+            }
+
+            $count = 0;
+            while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                if ($pos <= 0 && $count < $maxItems) {
+                    $retval[] = $arr['Trigger'];
+                    $count++;
                 }
+                $pos--;
             }
             break;
         default:

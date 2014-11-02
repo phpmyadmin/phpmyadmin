@@ -187,7 +187,7 @@ var PMA_console = {
         }
     },
     /**
-     * Excute query and show results in console
+     * Execute query and show results in console
      *
      * @return void
      */
@@ -294,7 +294,7 @@ var PMA_console = {
         PMA_console.collapse();
     },
     /**
-     * Toggle console mode between collsapse/show
+     * Toggle console mode between collapse/show
      * Used for toggle buttons and shortcuts
      *
      * @return void

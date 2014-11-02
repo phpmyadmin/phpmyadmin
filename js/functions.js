@@ -55,12 +55,12 @@ var chart_activeTimeouts = {};
 var central_column_list = [];
 
 /**
- * @var primary_indexes array to hold 'Primary' indexe columns.
+ * @var primary_indexes array to hold 'Primary' index columns.
  */
 var primary_indexes = [];
 
 /**
- * @var unique_indexes array to hold 'Unique' indexe columns.
+ * @var unique_indexes array to hold 'Unique' index columns.
  */
 var unique_indexes = [];
 
@@ -421,7 +421,7 @@ function confirmLink(theLink, theSqlQuery)
 /**
  * Displays an error message if a "DROP DATABASE" statement is submitted
  * while it isn't allowed, else confirms a "DROP/DELETE/ALTER" query before
- * sumitting it if required.
+ * submitting it if required.
  * This function is called by the 'checkSqlQuery()' js function.
  *
  * @param theForm1 object   the form
@@ -565,14 +565,13 @@ function emptyCheckTheField(theForm, theFieldName)
  * @param string   the name of the form field to put the focus on
  *
  * @return boolean  whether the form field is empty or not
+ *
+ * @deprecated
+ * @see emptyCheckTheField(theForm, theFieldName)
  */
 function emptyFormElements(theForm, theFieldName)
 {
-    var theField = theForm.elements[theFieldName];
-    var isEmpty = emptyCheckTheField(theForm, theFieldName);
-
-
-    return isEmpty;
+    return emptyCheckTheField(theForm, theFieldName);
 } // end of the 'emptyFormElements()' function
 
 
@@ -729,7 +728,7 @@ AJAX.registerOnload('functions.js', function () {
                         } else {
                             updateInterval = window.setInterval(UpdateIdleTime, 2000);
                         }
-                    } else { //timeout occured
+                    } else { //timeout occurred
                         window.location.reload(true);
                         clearInterval(IncInterval);
                     }
@@ -859,7 +858,7 @@ var marked_row = [];
 
 /**
  * marks all rows and selects its first checkbox inside the given element
- * the given element is usaly a table or a div containing the table or tables
+ * the given element is usually a table or a div containing the table or tables
  *
  * @param container    DOM element
  */
@@ -874,7 +873,7 @@ function markAllRows(container_id)
 
 /**
  * marks all rows and selects its first checkbox inside the given element
- * the given element is usaly a table or a div containing the table or tables
+ * the given element is usually a table or a div containing the table or tables
  *
  * @param container    DOM element
  */
@@ -888,7 +887,7 @@ function unMarkAllRows(container_id)
 }
 
 /**
- * Checks/unchecks all checkbox in given conainer (f.e. a form, fieldset or div)
+ * Checks/unchecks all checkbox in given container (f.e. a form, fieldset or div)
  *
  * @param string   container_id  the container id
  * @param boolean  state         new value for checkbox (true or false)
@@ -2291,7 +2290,7 @@ function PMA_SQLPrettyPrint(string)
             output += "\n" + tabs(indentLevel + 1);
             lastStatementPart = tokens[i][1];
         }
-        // Normal indentatin and spaces for everything else
+        // Normal indentation and spaces for everything else
         else {
             if (! spaceExceptionsBefore[tokens[i][1]] &&
                ! (i > 0 && spaceExceptionsAfter[tokens[i - 1][1]]) &&
@@ -2319,7 +2318,7 @@ function PMA_SQLPrettyPrint(string)
             if (blockStack[0] == 'statement') {
                 output += "\n" + tabs(indentLevel + 1);
             }
-            // Todo: Also split and or blocks in newlines & identation++
+            // Todo: Also split and or blocks in newlines & indentation++
             //if (blockStack[0] == 'generic')
              //   output += ...
         }
@@ -2737,7 +2736,7 @@ AJAX.registerOnload('functions.js', function () {
                 PMA_ajaxShowMessage($error, false);
             }
         }); // end $.post()
-    });//end of table maintanance ajax click
+    });//end of table maintenance ajax click
 }); //end $(document).ready for 'Table operations'
 
 /**
@@ -3553,7 +3552,7 @@ function PMA_mainMenuResizerCallback() {
     // 5 px margin for jumping menu in Chrome
     return $(document.body).width() - 5;
 }
-// This must be fired only once after the inital page load
+// This must be fired only once after the initial page load
 $(function () {
     // Initialise the menu resize plugin
     $('#topmenu').menuResizer(PMA_mainMenuResizerCallback);
@@ -3784,7 +3783,7 @@ AJAX.registerOnload('functions.js', function () {
                 $('.vmarker').filter('.row_' + row_num).removeClass('marked');
             }
         } else {
-            // normaln data table, just toggle class
+            // normal data table, just toggle class
             $('.vmarker').filter('.row_' + row_num).toggleClass('marked');
         }
     });
@@ -4639,7 +4638,7 @@ function PMA_ignorePhpErrors(clearPrevErrors){
         $('#pma_report_errors_form').submit();
     }
 
-    // remove dislayed errors
+    // remove displayed errors
     $('#pma_errors').fadeOut( "slow");
     $('#pma_errors').remove();
 }

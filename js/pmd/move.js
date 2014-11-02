@@ -1683,7 +1683,7 @@ function store_column(id_this, owner, col)
 /**
  * This function builds object and adds them to history_array
  * first it does a few checks on each object, then makes an object(where,rename,groupby,aggregate,orderby)
- * then a new history object is made and finally all these history objects are addded to history_array[]
+ * then a new history object is made and finally all these history objects are added to history_array[]
  *
 **/
 

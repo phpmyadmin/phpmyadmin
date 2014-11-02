@@ -2093,7 +2093,8 @@ function PMA_SQP_analyze($arr)
             if ($upper_data == 'CURRENT_TIMESTAMP') {
                 if ($in_timestamp_options) {
                     if ($seen_default) {
-                        $create_table_fields[$current_identifier]['default_current_timestamp'] = true;
+                        $create_table_fields[$current_identifier]
+                            ['default_current_timestamp'] = true;
                     }
                 }
             }
@@ -2167,7 +2168,7 @@ function PMA_SQP_analyze($arr)
                             ) {
                                 $create_table_fields[$current_identifier]
                                     ['on_update_current_timestamp']
-                                    = true;
+                                        = true;
                                 $seen_default = false;
                             }
 

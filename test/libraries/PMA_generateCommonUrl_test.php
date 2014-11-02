@@ -99,7 +99,8 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
             . 'token=token'
             ;
 
-        $expected = '#ABC#db=db' . $separator . 'table=table' . $separator . $expected;
+        $expected = '#ABC#db=db' . $separator . 'table=table' . $separator
+            . $expected;
         $this->assertEquals(
             $expected,
             PMA_URL_getCommon(

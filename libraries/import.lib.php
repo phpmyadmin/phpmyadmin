@@ -361,7 +361,8 @@ function PMA_importGetNextChunk($size = 32768)
         } else {
             $r = /*overload*/mb_substr($GLOBALS['import_text'], 0, $size);
             $GLOBALS['offset'] += $size;
-            $GLOBALS['import_text'] = /*overload*/mb_substr($GLOBALS['import_text'], $size);
+            $GLOBALS['import_text'] = /*overload*/
+                mb_substr($GLOBALS['import_text'], $size);
             return $r;
         }
     }

@@ -212,7 +212,7 @@ PMA_DROP_IMPORT = {
             .children('progress').val(percent);
     },
     /**
-     * Function to upload the file asyncronously
+     * Function to upload the file asynchronously
      *
      * @param formData FormData object for a specific file
      * @param hash hash of the current file upload
@@ -355,7 +355,7 @@ PMA_DROP_IMPORT = {
     /**
      * Called when upload has finished
      *
-     * @param string, uniques hash for a certain upload
+     * @param string, unique hash for a certain upload
      * @param bool, true if upload was aborted
      * @param bool, status of sql upload, as sent by server
      *
@@ -398,7 +398,7 @@ PMA_DROP_IMPORT = {
     },
     /**
      * Triggered when dragged objects are dropped to UI
-     * From this function, the AJAX Upload operation is initated
+     * From this function, the AJAX Upload operation is initiated
      *
      * @param event object
      *
@@ -410,7 +410,7 @@ PMA_DROP_IMPORT = {
         if (dbname !== '') {
             var files = event.originalEvent.dataTransfer.files;
             if (!files || files.length === 0) {
-                // No files actually transfered
+                // No files actually transferred
                 $(".pma_drop_handler").fadeOut();
                 event.stopPropagation();
                 event.preventDefault();

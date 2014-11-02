@@ -136,7 +136,8 @@ class PMA_Console
                 .  $val['id'] . '" targetdb="' . htmlspecialchars($val['db'])
                 .  '"><div class="action_content">'
                 .  sprintf($tpl_bookmark_actions, htmlspecialchars($val['db']))
-                .  '</div><span class="bookmark_label ' . ($val['shared'] ? 'shared' : '') . '">'
+                .  '</div><span class="bookmark_label '
+                . ($val['shared'] ? 'shared' : '') . '">'
                 .  htmlspecialchars($val['label'])
                 .  '</span> <span class="query">'
                 .  htmlspecialchars($val['query'])
