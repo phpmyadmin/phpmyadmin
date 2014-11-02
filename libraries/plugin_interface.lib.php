@@ -290,12 +290,14 @@ function PMA_pluginGetOneOption(
     }
 
     if (isset($properties)) {
+        /** @var OptionsPropertySubgroup $propertyItem */
         foreach ($properties as $propertyItem) {
             $property_class = get_class($propertyItem);
             // if the property is a subgroup, we deal with it recursively
             if (/*overload*/mb_strpos($property_class, "Subgroup")) {
                 // for subgroups
                 // each subgroup can have a header, which may also be a form element
+                /** @var OptionsPropertyItem $subgroup_header */
                 $subgroup_header = $propertyItem->getSubgroupHeader();
                 if (isset($subgroup_header)) {
                     $ret .= PMA_pluginGetOneOption(

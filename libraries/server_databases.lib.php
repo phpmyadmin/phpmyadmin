@@ -158,7 +158,7 @@ function PMA_getHtmlForTableFooterButtons($is_allowUserDropDb, $is_superuser)
  *
  * @param bool   $is_allowUserDropDb Allow user drop database
  * @param bool   $is_superuser       User status
- * @param Array  $databases_count    Database count
+ * @param int    $databases_count    Database count
  * @param string $column_order       column order
  * @param array  $replication_types  replication types
  * @param string $first_database     First database
