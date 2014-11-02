@@ -428,7 +428,7 @@ class PMA_Index
      *
      * @param boolean $as_text whether to output should be in text
      *
-     * @return mixed how index is paked
+     * @return mixed how index is packed
      */
     public function isPacked($as_text = false)
     {

@@ -48,10 +48,12 @@ class Node_Database extends Node
      * Returns the number of children of type $type present inside this container
      * This method is overridden by the Node_Database and Node_Table classes
      *
-     * @param string $type         The type of item we are looking for
-     *                             ('tables', 'views', etc)
-     * @param string $searchClause A string used to filter the results of the query
-     * @param string $singleItem   Whether to get presence of a single known item
+     * @param string         $type         The type of item we are looking for
+     *                                     ('tables', 'views', etc)
+     * @param string         $searchClause A string used to filter the results of
+     *                                     the query
+     * @param boolean|string $singleItem   Whether to get presence of a single known
+     *                                     item or false in none
      *
      * @return int
      */

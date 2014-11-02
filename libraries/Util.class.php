@@ -2052,12 +2052,14 @@ class PMA_Util
     /**
      * Function to generate unique condition for specified row.
      *
-     * @param resource $handle            current query result
-     * @param integer  $fields_cnt        number of fields
-     * @param array    $fields_meta       meta information about fields
-     * @param array    $row               current row
-     * @param boolean  $force_unique      generate condition only on pk or unique
-     * @param string   $restrict_to_table restrict the unique condition to this table
+     * @param resource       $handle            current query result
+     * @param integer        $fields_cnt        number of fields
+     * @param array          $fields_meta       meta information about fields
+     * @param array          $row               current row
+     * @param boolean        $force_unique      generate condition only on pk or
+     *                                          unique
+     * @param string|boolean $restrict_to_table restrict the unique condition to
+     *                                          this table or false if none
      *
      * @access public
      *

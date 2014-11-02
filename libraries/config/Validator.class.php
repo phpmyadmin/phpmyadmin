@@ -21,7 +21,7 @@ require_once './libraries/DatabaseInterface.class.php';
  * assigned to a form element (formset name or field path). Even if there are
  * no errors, key must be set with an empty value.
  *
- * Valdiation functions are assigned in $cfg_db['_validators'] (config.values.php).
+ * Validation functions are assigned in $cfg_db['_validators'] (config.values.php).
  *
  * @package PhpMyAdmin
  */
@@ -80,7 +80,7 @@ class PMA_Validator
      * Return values:
      * o array, keys - field path or formset id, values - array of errors
      *   when $isPostSource is true values is an empty array to allow for error list
-     *   cleanup in HTML documen
+     *   cleanup in HTML document
      * o false - when no validators match name(s) given by $validator_id
      *
      * @param ConfigFile   $cf           Config file instance

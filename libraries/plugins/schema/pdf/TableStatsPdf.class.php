@@ -139,8 +139,8 @@ class Table_Stats_Pdf extends TableStats
         $pdf->SetFont($this->_ff, 'B', $fontSize);
         /*
          * it is unknown what value must be added, because
-        * table title is affected by the tabe width value
-        */
+         * table title is affected by the table width value
+         */
         while ($this->width < $pdf->GetStringWidth($this->getTitle())) {
             $this->width += 5;
         }

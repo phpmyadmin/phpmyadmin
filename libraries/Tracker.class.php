@@ -32,7 +32,7 @@ class PMA_Tracker
     static protected $pma_table;
 
     /**
-     * Defines the usage of DROP TABLE statment in SQL dumps.
+     * Defines the usage of DROP TABLE statement in SQL dumps.
      *
      * @access protected
      * @var boolean
@@ -40,7 +40,7 @@ class PMA_Tracker
     static protected $add_drop_table;
 
     /**
-     * Defines the usage of DROP VIEW statment in SQL dumps.
+     * Defines the usage of DROP VIEW statement in SQL dumps.
      *
      * @access protected
      * @var boolean
@@ -48,7 +48,7 @@ class PMA_Tracker
     static protected $add_drop_view;
 
     /**
-     * Defines the usage of DROP DATABASE statment in SQL dumps.
+     * Defines the usage of DROP DATABASE statement in SQL dumps.
      *
      * @access protected
      * @var boolean

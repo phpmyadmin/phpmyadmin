@@ -126,7 +126,7 @@ class PMA_TableSearch
         $columns = $GLOBALS['dbi']->getColumns(
             $this->_db, $this->_table, null, true
         );
-        // Get details about the geometry fucntions
+        // Get details about the geometry functions
         $geom_types = PMA_Util::getGISDatatypes();
 
         foreach ($columns as $row) {

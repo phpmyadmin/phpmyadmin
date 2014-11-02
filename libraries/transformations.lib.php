@@ -3,7 +3,7 @@
 /**
  * Set of functions used with the relation and pdf feature
  *
- * This file also provides basic functions to use in other plungins!
+ * This file also provides basic functions to use in other plugins!
  * These are declared in the 'GLOBAL Plugin functions' section
  *
  * Please use short and expressive names.

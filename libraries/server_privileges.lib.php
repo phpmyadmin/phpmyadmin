@@ -109,7 +109,7 @@ function PMA_formatPrivilege($privilege, $html)
 }
 
 /**
- * Parses priliveges into an array, it modifies the array
+ * Parses privileges into an array, it modifies the array
  *
  * @param array &$row Results row from
  *
@@ -268,7 +268,7 @@ function PMA_getTableGrantsArray()
 
 /**
  * Get the grants array which contains all the privilege types
- * and relevent grant messages
+ * and relevant grant messages
  *
  * @return array
  */
@@ -612,8 +612,8 @@ function PMA_setUserGroup($username, $userGroup)
  * @param string  $table  the table
  * @param boolean $submit whether to display the submit button or not
  *
- * @global  array      $cfg         the phpMyAdmin configuration
- * @global  ressource  $user_link   the database connection
+ * @global  array     $cfg         the phpMyAdmin configuration
+ * @global  resource  $user_link   the database connection
  *
  * @return string html snippet
  */
@@ -1282,7 +1282,7 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
  *                     changing  one? (allowed values: 'new', 'change')
  *
  * @global  array      $cfg     the phpMyAdmin configuration
- * @global  ressource  $user_link the database connection
+ * @global  resource   $user_link the database connection
  *
  * @return string $html_output  a HTML snippet
  */

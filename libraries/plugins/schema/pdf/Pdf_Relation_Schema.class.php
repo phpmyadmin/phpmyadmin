@@ -824,7 +824,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     }
 
     /**
-     * Ouputs the PDF document to a file
+     * Outputs the PDF document to a file
      * or sends the output to browser
      *
      * @param integer $pageNumber page number
@@ -940,7 +940,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             }
 
             /**
-             * Gets table informations
+             * Gets table information
              */
             $showtable    = PMA_Table::sGetStatusInfo($GLOBALS['db'], $table);
             $show_comment = isset($showtable['Comment'])
@@ -981,7 +981,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                     $primary .= $row['Column_name'] . ', ';
                     $pk_array[$row['Column_name']] = 1;
                 }
-                // Retains keys informations
+                // Retains keys information
                 if ($row['Key_name'] != $lastIndex) {
                     $indexes[] = $row['Key_name'];
                     $lastIndex = $row['Key_name'];

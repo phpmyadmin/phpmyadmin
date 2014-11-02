@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * This class is responsible for instanciating
+ * This class is responsible for instantiating
  * the various components of the navigation panel
  *
  * @package PhpMyAdmin-navigation
@@ -142,13 +142,13 @@ class PMA_Navigation
     }
 
     /**
-     * Returns HTML for the dialog to show hidden nativation items.
+     * Returns HTML for the dialog to show hidden navigation items.
      *
      * @param string $dbName    database name
      * @param string $itemType  type of the items to include
      * @param string $tableName table name
      *
-     * @return string HTML for the dialog to show hidden nativation items
+     * @return string HTML for the dialog to show hidden navigation items
      */
     public function getItemUnhideDialog($dbName, $itemType = null, $tableName = null)
     {

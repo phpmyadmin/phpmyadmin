@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * This class renders the logo, links, server selection,
- * which are then displayed at the top of the naviagtion panel
+ * which are then displayed at the top of the navigation panel
  *
  * @package PhpMyAdmin-Navigation
  */

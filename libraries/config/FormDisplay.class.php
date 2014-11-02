@@ -295,7 +295,7 @@ class FormDisplay
         }
         PMA_displayFormBottom();
 
-        // if not already done, send strings used for valdiation to JavaScript
+        // if not already done, send strings used for validation to JavaScript
         if (! $js_lang_sent) {
             $js_lang_sent = true;
             $js_lang = array();

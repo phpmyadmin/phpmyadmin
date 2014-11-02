@@ -9,6 +9,11 @@ require_once 'libraries/php-gettext/gettext.php';
 
 class ParsingTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test for extract_plural_forms_header_from_po_header
+     *
+     * @return void
+     */
     public function test_extract_plural_forms_header_from_po_header()
     {
         $parser = new gettext_reader(null);
@@ -48,11 +53,18 @@ class ParsingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for npgettext
+     *
+     * @param int    $number   Number
+     * @param string $expected Expected output
+     *
+     * @return void
+     *
      * @dataProvider data_provider_test_npgettext
      */
     public function test_npgettext($number, $expected)
     {
-        $parser = new gettext_reader(NULL);
+        $parser = new gettext_reader(null);
         $result = $parser->npgettext(
             "context",
             "%d pig went to the market\n",
@@ -62,6 +74,11 @@ class ParsingTest extends PHPUnit_Framework_TestCase
         $this->assertSame($expected, $result);
     }
 
+    /**
+     * Data provider for test_npgettext
+     *
+     * @return array
+     */
     public static function data_provider_test_npgettext()
     {
         return array(

@@ -193,7 +193,7 @@ class Node
     }
 
     /**
-     * Retreives the parents for a node
+     * Retrieves the parents for a node
      *
      * @param bool $self       Whether to include the Node itself in the results
      * @param bool $containers Whether to include nodes of type CONTAINER

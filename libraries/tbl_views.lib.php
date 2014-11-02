@@ -60,7 +60,7 @@ function PMA_getColumnMap($sql_query, $view_columns)
 
 
 /**
- * Get existing data on tranformations applyed for
+ * Get existing data on tranformations applied for
  * columns in a particular table
  *
  * @param string $db Database name looking for

@@ -360,7 +360,7 @@ class PMA_StorageEngine
     }
 
     /**
-     * Information message on whether this storge engine is supported
+     * Information message on whether this storage engine is supported
      *
      * @return string The localized message.
      */

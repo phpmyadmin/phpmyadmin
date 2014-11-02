@@ -435,7 +435,7 @@ class ImportMediawiki extends ImportPlugin
         $start_attribute_character = false;
 
         // The full separator is "||";
-        // This rembembers if the previous character was '|'
+        // This remembers if the previous character was '|'
         $partial_separator = false;
 
         // Parse text char by char

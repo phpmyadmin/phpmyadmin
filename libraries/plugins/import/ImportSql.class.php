@@ -225,7 +225,7 @@ class ImportSql extends ImportPlugin
         // Odd count means it was escaped
         $quoteEscaped = (((($posClosingString - 1) - $posEscape) % 2) === 1);
 
-        //Move after the escaped guote.
+        //Move after the escaped quote.
         $this->_delimiterPosition = $posClosingString + 1;
 
         if ($quoteEscaped) {

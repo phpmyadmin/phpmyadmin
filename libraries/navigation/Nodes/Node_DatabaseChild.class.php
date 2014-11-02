@@ -43,7 +43,7 @@ abstract class Node_DatabaseChild extends Node
     }
 
     /**
-     * Returns the type of the item reprsented by the node.
+     * Returns the type of the item represented by the node.
      *
      * @return string type of the item
      */

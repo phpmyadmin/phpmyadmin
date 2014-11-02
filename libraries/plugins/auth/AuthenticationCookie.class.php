@@ -314,7 +314,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * it returns true if all seems ok which usually leads to auth_set_user()
      *
-     * it directly switches to authFails() if user inactivity timout is reached
+     * it directly switches to authFails() if user inactivity timeout is reached
      *
      * @return boolean   whether we get authentication settings or not
      */
@@ -677,7 +677,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      * and the login form
      *
      * this function MUST exit/quit the application,
-     * currently doen by call to auth()
+     * currently done by call to auth()
      *
      * @return void
      */

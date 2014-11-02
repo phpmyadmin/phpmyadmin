@@ -75,7 +75,7 @@ class SchemaSvg extends SchemaPlugin
     }
 
     /**
-     * Exports the shcema into SVG format.
+     * Exports the schema into SVG format.
      *
      * @param string $db database name
      *

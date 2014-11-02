@@ -123,7 +123,7 @@ class PMA_Font
         case 'sans-serif':
             break;
         /*
-         * .92 modifer for time, serif, brushscriptstd, and californian fb
+         * .92 modifier for time, serif, brushscriptstd, and californian fb
          */
         case 'times':
         case 'serif':

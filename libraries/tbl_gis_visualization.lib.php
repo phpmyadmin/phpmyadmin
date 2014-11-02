@@ -51,7 +51,7 @@ function PMA_GIS_modifyQuery($sql_query, $visualizationSettings)
  *
  * @param array  $data                   Data for the status chart
  * @param array  &$visualizationSettings Settings used to generate the chart
- * @param string $format                 Format of the visulaization
+ * @param string $format                 Format of the visualization
  *
  * @return string|void HTML and JS code for the GIS visualization
  */
@@ -88,7 +88,7 @@ function PMA_GIS_visualizationResults($data, &$visualizationSettings, $format)
  *
  * @param array  $data                  data for the status chart
  * @param array  $visualizationSettings settings used to generate the chart
- * @param string $format                format of the visulaization
+ * @param string $format                format of the visualization
  * @param string $fileName              file name
  *
  * @return file File containing the visualization
@@ -112,7 +112,7 @@ function PMA_GIS_saveToFile($data, $visualizationSettings, $format, $fileName)
 }
 
 /**
- * Function to get html for the lebel column and spatial column
+ * Function to get html for the label column and spatial column
  *
  * @param string $column                the column type. i.e either "labelColumn"
  *                                      or "spatialColumn"

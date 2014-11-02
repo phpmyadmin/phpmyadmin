@@ -22,7 +22,7 @@ global $showtable, $tbl_is_view, $tbl_storage_engine, $show_comment, $tbl_collat
        $table_info_num_rows, $auto_increment;
 
 /**
- * Gets table informations
+ * Gets table information
  */
 // Seems we need to do this in MySQL 5.0.2,
 // otherwise error #1046, no database selected

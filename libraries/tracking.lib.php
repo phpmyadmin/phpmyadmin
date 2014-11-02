@@ -144,7 +144,7 @@ function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
 /**
  * Function to get html for activate/deactivate tracking
  *
- * @param string $action       activate|deactivate 
+ * @param string $action       activate|deactivate
  * @param string $url_query    url query
  * @param int    $last_version last version
  *
@@ -913,7 +913,7 @@ function PMA_getHtmlForField($field, $style)
 }
 
 /**
- * Fuunction to get html for the indexes in schema snapshot
+ * Function to get html for the indexes in schema snapshot
  *
  * @param array $indexes indexes
  *
@@ -952,7 +952,7 @@ function PMA_getHtmlForIndexes($indexes)
 }
 
 /**
- * Funtion to get html for an index in schema snapshot
+ * Function to get html for an index in schema snapshot
  *
  * @param array  $index index
  * @param string $style style
@@ -1329,11 +1329,11 @@ function PMA_getEntries($data, $filter_ts_from, $filter_ts_to, $filter_users)
 }
 
 /**
- * Function to get version status 
+ * Function to get version status
  *
- * @param array $version version info 
+ * @param array $version version info
  *
- * @return string $version_status The status message 
+ * @return string $version_status The status message
  */
 function PMA_getVersionStatus($version)
 {

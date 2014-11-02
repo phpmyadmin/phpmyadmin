@@ -346,7 +346,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      * Draws relation references
      *
      * connects master table's master field to
-     * foreign table's forein field using Dia object
+     * foreign table's foreign field using Dia object
      * type Database - Reference
      *
      * @return void
