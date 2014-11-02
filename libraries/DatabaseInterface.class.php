@@ -554,7 +554,7 @@ class PMA_DatabaseInterface
                 if ($table || (true === $tbl_is_group) || $table_type) {
                     $sql = 'SHOW TABLE STATUS FROM '
                         . PMA_Util::backquote($each_database)
-                        .' WHERE';
+                        . ' WHERE';
                     $needAnd = false;
                     if ($table || (true === $tbl_is_group)) {
                         $sql .= " `Name` LIKE '"

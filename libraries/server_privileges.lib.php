@@ -2698,8 +2698,8 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
                 . '<td>'
                 . htmlspecialchars(
                     (!$dbNameLength)
-                        ? $row['Db']
-                        : $row['Table_name']
+                    ? $row['Db']
+                    : $row['Table_name']
                 )
                 . '</td>' . "\n"
                 . '<td><code>' . "\n"

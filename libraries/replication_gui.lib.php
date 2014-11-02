@@ -947,8 +947,8 @@ function PMA_handleControlRequest()
                 $response->addJSON(
                     'message',
                     $result
-                        ? PMA_Message::success($messageSuccess)
-                        : PMA_Message::error($messageError)
+                    ? PMA_Message::success($messageSuccess)
+                    : PMA_Message::error($messageError)
                 );
             } else {
                 PMA_sendHeaderLocation(
