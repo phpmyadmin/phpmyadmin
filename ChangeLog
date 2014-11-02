@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.2.12.0 (not yet released)
+- bug #4574 Blank/white page when JavaScript disabled 
 
 4.2.11.0 (2014-10-31)
 - bug       ReferenceError: Table_onover is not defined
