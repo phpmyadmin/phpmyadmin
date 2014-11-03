@@ -91,6 +91,8 @@ if (isset($_REQUEST['submit_num_fields'])) {
     $regenerate = 1;
 }
 
+$foreigners = PMA_getForeigners($db, $table);
+$child_references = PMA_getChildReferences($db, $table);
 for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     if (! empty($regenerate)) {
         list($columnMeta, $submit_length, $submit_attribute,
@@ -144,7 +146,9 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $columnMeta['column_status'] = PMA_checkChildForeignReferences(
             $_form_params['db'],
             $_form_params['table'],
-            $columnMeta['Field']
+            $columnMeta['Field'],
+            $foreigners,
+            $child_references
         );
     }
     // old column attributes

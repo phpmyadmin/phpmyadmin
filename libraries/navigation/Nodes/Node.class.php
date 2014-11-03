@@ -596,5 +596,28 @@ class Node
             return PMA_Util::getImage('b_plus.png', __('Expand/Collapse'));
         }
     }
+
+    /**
+     * Gets the count of hidden elements for each database
+     *
+     * @return array array containing the count of hidden elements for each database
+     */
+    public function getNavigationHidingData()
+    {
+        $cfgRelation = PMA_getRelationsParam();
+        if ($cfgRelation['navwork']) {
+            $navTable = PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
+            $sqlQuery = "SELECT `db_name`, COUNT(*) AS `count` FROM " . $navTable
+            . " WHERE `username`='"
+                . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
+                    . " GROUP BY `db_name`";
+            $counts = $GLOBALS['dbi']->fetchResult(
+                $sqlQuery, 'db_name', 'count', $GLOBALS['controllink']
+            );
+            return $counts;
+        }
+        return null;
+    }
 }
 ?>

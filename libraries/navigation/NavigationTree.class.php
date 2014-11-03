@@ -209,8 +209,12 @@ class PMA_NavigationTree
             $this->_pos,
             $this->_searchClause
         );
+        $hiddenCounts = $this->_tree->getNavigationHidingData();
         foreach ($data as $db) {
             $node = PMA_NodeFactory::getInstance('Node_Database', $db);
+            if (isset($hiddenCounts[$db])) {
+                $node->setHiddenCount($hiddenCounts[$db]);
+            }
             $this->_tree->addChild($node);
         }
 

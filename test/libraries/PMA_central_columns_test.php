@@ -42,6 +42,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $GLOBALS['cfg']['Server']['central_columns'] = 'pma_central_columns';
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';

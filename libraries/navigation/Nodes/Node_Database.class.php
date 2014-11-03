@@ -17,6 +17,13 @@ if (! defined('PHPMYADMIN')) {
 class Node_Database extends Node
 {
     /**
+     * The number of hidden items in this database
+     *
+     * @var int
+     */
+    private $_hiddenCount = 0;
+
+    /**
      * Initialises the class
      *
      * @param string $name     An identifier for the new node
@@ -505,25 +512,14 @@ class Node_Database extends Node
     public function getHtmlForControlButtons()
     {
         $ret = '';
-        $db = $this->real_name;
-
         $cfgRelation = PMA_getRelationsParam();
         if ($cfgRelation['navwork']) {
-            $navTable = PMA_Util::backquote($cfgRelation['db'])
-                . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
-            $sqlQuery = "SELECT COUNT(*) FROM " . $navTable
-                . " WHERE `username`='"
-                . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
-                . " AND `db_name`='" . PMA_Util::sqlAddSlashes($db) . "'";
-            $count = $GLOBALS['dbi']->fetchValue(
-                $sqlQuery, 0, 0, $GLOBALS['controllink']
-            );
-            if ($count > 0) {
+            if ( $this->_hiddenCount > 0) {
                 $ret = '<span class="dbItemControls">'
                     . '<a href="navigation.php'
                     . PMA_URL_getCommon()
                     . '&showUnhideDialog=true'
-                    . '&dbName=' . urldecode($db) . '"'
+                    . '&dbName=' . urldecode($this->real_name) . '"'
                     . ' class="showUnhide ajax">'
                     . PMA_Util::getImage(
                         'lightbulb.png', __('Show hidden items')
@@ -532,6 +528,18 @@ class Node_Database extends Node
             }
         }
         return $ret;
+    }
+
+    /**
+     * Sets the number of hidden items in this database
+     *
+     * @param int $count hidden item count
+     *
+     * @return void
+     */
+    public function setHiddenCount($count)
+    {
+        $this->_hiddenCount = $count;
     }
 }
 
