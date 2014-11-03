@@ -64,6 +64,8 @@ if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
 }
 if ($cfgRelation['displaywork']) {
     $disp     = PMA_getDisplayField($db, $table);
+} else {
+    $disp = '';
 }
 
 // will be used in the logic for internal relations and foreign keys:
