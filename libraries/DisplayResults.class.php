@@ -3969,10 +3969,8 @@ class PMA_DisplayResults
 
         } elseif (((substr($meta->type, 0, 9) == self::TIMESTAMP_FIELD)
             || ($meta->type == self::DATETIME_FIELD)
-            || ($meta->type == self::TIME_FIELD)
             || ($meta->type == self::TIME_FIELD))
-            // micro seconds delimiter
-            && (/*overload*/mb_strpos($column, ".") !== false)
+            && (/*overload*/mb_strpos($column, ".") !== false) // micro seconds delimiter
         ) {
             $column = PMA_Util::addMicroseconds($column);
         }
