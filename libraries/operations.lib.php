@@ -157,7 +157,7 @@ function PMA_getHtmlForCopyDatabase($db)
     $html_output = '<div class="operations_half_width clearfloat">';
     $html_output .= '<form id="copy_db_form" '
         . 'class="ajax" '
-        . 'method="post" action="db_operations.php"'
+        . 'method="post" action="db_operations.php" '
         . 'onsubmit="return emptyFormElements(this, \'newname\')">';
 
     if (isset($_REQUEST['db_collation'])) {
