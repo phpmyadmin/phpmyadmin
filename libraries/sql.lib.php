@@ -771,7 +771,7 @@ function PMA_getHtmlForBookmark($disp_mode, $cfgBookmark, $sql_query, $db, $tabl
             isset($complete_query) ? $complete_query : $sql_query
         );
         $html = '<form action="sql.php" method="post"'
-            . ' onsubmit="return ! emptyFormElements(this,'
+            . ' onsubmit="return ! emptyCheckTheField(this,'
             . '\'bkm_fields[bkm_label]\');"'
             . ' id="bookmarkQueryForm">';
         $html .= PMA_URL_getHiddenInputs();

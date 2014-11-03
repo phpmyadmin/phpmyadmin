@@ -557,24 +557,6 @@ function emptyCheckTheField(theForm, theFieldName)
     return (theField.value.replace(space_re, '') === '') ? 1 : 0;
 } // end of the 'emptyCheckTheField()' function
 
-
-/**
- * Check whether a form field is empty or not
- *
- * @param object   the form
- * @param string   the name of the form field to put the focus on
- *
- * @return boolean  whether the form field is empty or not
- *
- * @deprecated
- * @see emptyCheckTheField(theForm, theFieldName)
- */
-function emptyFormElements(theForm, theFieldName)
-{
-    return emptyCheckTheField(theForm, theFieldName);
-} // end of the 'emptyFormElements()' function
-
-
 /**
  * Ensures a value submitted in a form is numeric and is in a range
  *
