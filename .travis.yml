@@ -32,8 +32,10 @@ before_script:
 
     git clone --depth=1 git://github.com/zenovich/runkit.git ;
     cd runkit ;
+    if [[ $TRAVIS_PHP_VERSION = "5.6" ]] ; then
     wget https://github.com/zenovich/runkit/pull/71.diff ; 
     patch -p1 < 71.diff ;
+    fi ;
     phpize ;
     ./configure ;
     make ;
