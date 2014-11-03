@@ -9,6 +9,9 @@
 // Let PHP complain about all errors
 error_reporting(E_ALL);
 
+// Ensure PHP has set timezone
+date_default_timezone_set('UTC');
+
 // Adding phpMyAdmin sources to include path
 set_include_path(
     get_include_path() . PATH_SEPARATOR . dirname(realpath("../index.php"))
