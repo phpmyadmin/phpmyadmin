@@ -253,7 +253,7 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
                 $retval .= '<span class="allfine">';
             }
         }
-        if (substr($name, -1)) {
+        if (substr($name, -1) === '%') {
             $retval .= htmlspecialchars(PMA_Util::formatNumber($value, 0, 2)) . ' %';
         } elseif (strpos($name, 'Uptime') !== false) {
             $retval .= htmlspecialchars(
