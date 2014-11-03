@@ -554,7 +554,7 @@ function emptyCheckTheField(theForm, theFieldName)
 {
     var theField = theForm.elements[theFieldName];
     var space_re = new RegExp('\\s+');
-    return (theField.value.replace(space_re, '') === '') ? 1 : 0;
+    return theField.value.replace(space_re, '') === '';
 } // end of the 'emptyCheckTheField()' function
 
 /**
@@ -646,7 +646,6 @@ function checkTableEditForm(theForm, fieldsCnt)
         $("input.textfield[name='table']").focus();
         return false;
     }
-
 
     return true;
 } // enf of the 'checkTableEditForm()' function
