@@ -558,7 +558,7 @@ class ImportMediawiki extends ImportPlugin
 
         // A '|' inside an invalid link should not
         // be mistaken as delimiting cell parameters
-        if (/*overload*/mb_strpos($cell_data[0], '[[') !== true) {
+        if (/*overload*/mb_strpos($cell_data[0], '[[') === false) {
             return $cell;
         }
 
