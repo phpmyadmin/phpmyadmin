@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-04 10:47+0100\n"
-"PO-Revision-Date: 2014-10-21 09:26+0200\n"
+"PO-Revision-Date: 2014-11-04 11:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"cs/>\n"
+"Language-Team: Czech "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1018,28 +1018,24 @@ msgid "Add %s column(s) to index"
 msgstr "Přidat %s polí do klíče"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Vytvořit rutinu"
+msgstr "Vytvořit klíč na jednom sloupci"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Vytvořit rutinu"
+msgstr "Vytvořit složený klíč"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "Pole uzavřené do:"
+msgstr "Složit s:"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Přidat %s polí do klíče"
+msgstr "Prosím zvolte které pole chcete přidat do klíče."
 
 #: js/messages.php:69 libraries/structure.lib.php:1665
 msgid "You have to add at least one column."
@@ -1869,11 +1865,11 @@ msgstr "Hotovo"
 
 #: js/messages.php:320
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Potvrzení částečných závislostí"
 
 #: js/messages.php:321
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Byly zvoleny následující částečné závislosti:"
 
 #: js/messages.php:322
 msgid ""
@@ -1882,10 +1878,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:323
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Nebyla vybrána žádná databáze."
+msgstr "Nebyly vybrány žádné částečné závislosti!"
 
 #: js/messages.php:325
 msgid "Show me the possible partial dependencies based on data in the table"
@@ -1893,7 +1888,7 @@ msgstr ""
 
 #: js/messages.php:326
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Skrýt seznam částečných závislostí"
 
 #: js/messages.php:327
 msgid ""
@@ -1906,10 +1901,9 @@ msgid "Step"
 msgstr "Krok"
 
 #: js/messages.php:329
-#, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
-msgstr "Byly provedeny následující dotazy:"
+msgstr "Budou provedeny následující úpravy:"
 
 #: js/messages.php:330
 #, php-format
@@ -1917,28 +1911,26 @@ msgid "DROP columns %s from the table %s"
 msgstr ""
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following table"
-msgstr "Přidat oprávnění pro tabulku:"
+msgstr "Vytvořit následující tabulku"
 
 #: js/messages.php:334
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "Třetí krok normalizace (3NF)"
 
 #: js/messages.php:335
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "Potvrzení tranzitivních závislostí"
 
 #: js/messages.php:336
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "Byly zvoleny následující závislosti:"
 
 #: js/messages.php:337
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Nebyla vybrána žádná databáze."
+msgstr "Nebyly vybrány žádné závislosti!"
 
 #: js/messages.php:340 libraries/insert_edit.lib.php:1452
 #: libraries/server_variables.lib.php:157
@@ -1957,34 +1949,29 @@ msgid "Show search criteria"
 msgstr "Zobrazit parametry vyhledávání"
 
 #: js/messages.php:345
-#, fuzzy
 #| msgid "Save search"
 msgid "Range search"
-msgstr "Uložit vyhledávání"
+msgstr "Vyhledávání rozsahu"
 
 #: js/messages.php:346
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Názvy polí: "
+msgstr "Největší hodnota sloupce:"
 
 #: js/messages.php:347
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Názvy polí: "
+msgstr "Nejmenší hodnota sloupce:"
 
 #: js/messages.php:348
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Nejvyšší počet zobrazených tabulek"
+msgstr "Nejmenší hodnota:"
 
 #: js/messages.php:349
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Nejvyšší počet zobrazených tabulek"
+msgstr "Největší hodnota:"
 
 #: js/messages.php:352
 msgid "Hide find and replace criteria"
@@ -2109,10 +2096,9 @@ msgid "Save page"
 msgstr "Uložit stránku"
 
 #: js/messages.php:405 libraries/db_designer.lib.php:273
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "Volných stránek"
+msgstr "Otevřít stránku"
 
 #: js/messages.php:406
 msgid "Delete page"
@@ -2141,10 +2127,9 @@ msgid "Successfully deleted the page"
 msgstr "Stránka byla odstraněna"
 
 #: js/messages.php:412
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Upravit nebo exportovat relační schéma"
+msgstr "Exportovat relační schéma"
 
 #: js/messages.php:413
 msgid "Modifications have been saved"
@@ -2236,10 +2221,9 @@ msgid "Import status"
 msgstr "Stav importu"
 
 #: js/messages.php:440 libraries/navigation/Navigation.class.php:102
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "Hranice záznamového souboru"
+msgstr "Přetáhněte sem soubory"
 
 #: js/messages.php:441
 msgid "Select database first"
@@ -2379,11 +2363,11 @@ msgstr ""
 
 #: js/messages.php:505 js/messages.php:517
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Na serveru došlo byly zjištěny chyby!"
 
 #: js/messages.php:507
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Prosím podívejte se na spodní část okna."
 
 #: js/messages.php:512 libraries/Error_Handler.class.php:355
 msgid "Ignore All"
@@ -2395,16 +2379,14 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:526
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Zobrazit zde tento dotaz znovu"
+msgstr "Spustit tento dotaz znovu?"
 
 #: js/messages.php:527
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Opravdu si přejete odstranit vyhledávání „%s“?"
+msgstr "Opravdu si přejete odstranit tuto záložku?"
 
 #: js/messages.php:558
 msgctxt "Previous month"
@@ -2741,14 +2723,13 @@ msgid "Font size"
 msgstr "Velikost písma"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:175
-#, fuzzy
 #| msgid "Expand/Collapse"
 msgid "Collapse"
-msgstr "Rozbalit/sbalit"
+msgstr "Sbalit"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:177
 msgid "Expand"
-msgstr ""
+msgstr "Rozbalit"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:178
 msgid "Requery"
@@ -2899,10 +2880,9 @@ msgid "Share this bookmark"
 msgstr "Sdílet záložku"
 
 #: libraries/Console.class.php:302
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
-msgstr "Obnovit na výchozí hodnotu"
+msgstr "Nastavit výchozí"
 
 #: libraries/Console.class.php:306
 #, fuzzy
@@ -4069,10 +4049,9 @@ msgid "Replace with:"
 msgstr "Nahradit hodnotou:"
 
 #: libraries/TableSearch.class.php:1370
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "jako regulární výraz"
+msgstr "Použít regulární výraz"
 
 #: libraries/TableSearch.class.php:1472
 msgid "Find and replace - preview"
@@ -4639,10 +4618,9 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
 #: libraries/central_columns.lib.php:280
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "Nepodařilo se uložit nastavení"
+msgstr "Nepodařilo se přidat sloupce!"
 
 #: libraries/central_columns.lib.php:356
 #, php-format
@@ -4651,10 +4629,9 @@ msgid ""
 msgstr ""
 
 #: libraries/central_columns.lib.php:368
-#, fuzzy
 #| msgid "Could not remove favorite table!"
 msgid "Could not remove columns!"
-msgstr "Nepodařilo se uložit oblíbenou tabulku!"
+msgstr "Nepodařilo se odstranit sloupce!"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
@@ -4703,14 +4680,13 @@ msgid "Select a column."
 msgstr "Zvolte sloupec."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "Krok automatického zvětšování"
+msgstr "auto_increment"
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
+msgstr "on update CURRENT_TIMESTAMP"
 
 #: libraries/central_columns.lib.php:886
 msgid "Add new column"
