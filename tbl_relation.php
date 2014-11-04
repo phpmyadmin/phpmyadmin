@@ -92,17 +92,17 @@ $multi_edit_columns_name = isset($_REQUEST['fields_name'])
     : null;
 
 
+$html_output = '';
+
 // u p d a t e s   f o r   I n t e r n a l    r e l a t i o n s
 if (isset($_POST['destination_db']) && $cfgRelation['relwork']) {
-    PMA_handleUpdatesForInternalRelations(
+    $html_output .= PMA_handleUpdatesForInternalRelations(
         $_POST['destination_db'], $multi_edit_columns_name,
         $_POST['destination_table'],
         $_POST['destination_column'], $cfgRelation, $db, $table,
         isset($existrel) ? $existrel : null
     );
 } // end if (updates for internal relations)
-
-$html_output = '';
 
 $multi_edit_columns_name = isset($_REQUEST['foreign_key_fields_name'])
     ? $_REQUEST['foreign_key_fields_name']

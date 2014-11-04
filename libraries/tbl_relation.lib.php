@@ -871,7 +871,7 @@ function PMA_getQueryForDisplayUpdate($disp, $display_field, $db, $table,
  * @param string     $table                   current table
  * @param array|null $existrel                db, table, column
  *
- * @return void
+ * @return string
  */
 function PMA_handleUpdatesForInternalRelations($destination_db,
     $multi_edit_columns_name, $destination_table, $destination_column, $cfgRelation,
@@ -887,6 +887,10 @@ function PMA_handleUpdatesForInternalRelations($destination_db,
             PMA_queryAsControlUser($upd_query);
         }
     }
+    return PMA_Util::getMessage(
+        __('Internal relations were successfully updated.'),
+        null, 'success'
+    );
 }
 
 /**
