@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-04 10:47+0100\n"
-"PO-Revision-Date: 2014-11-04 11:52+0200\n"
+"PO-Revision-Date: 2014-11-04 13:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Persian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fa/>\n"
@@ -3676,7 +3676,7 @@ msgstr "توضيحات"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "كليد اصلي حذف گرديد"
+msgstr "كليد اصلي حذف گرديد."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -13250,7 +13250,7 @@ msgstr ""
 #: libraries/structure.lib.php:70 tbl_operations.php:346
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "جدول %s خالی شد"
+msgstr "جدول %s خالی شد."
 
 #: libraries/structure.lib.php:93
 msgid "Tracking is active."
@@ -13447,12 +13447,12 @@ msgstr ""
 #: libraries/structure.lib.php:2082 libraries/structure.lib.php:2097
 #, php-format
 msgid "An index has been added on %s."
-msgstr "يك فهرست در %s اضافه گرديد"
+msgstr "يك فهرست در %s اضافه گرديد."
 
 #: libraries/structure.lib.php:2068
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "يك كليد اصلي در %s اضافه شد"
+msgstr "يك كليد اصلي در %s اضافه شد."
 
 #: libraries/structure.lib.php:2145 libraries/structure.lib.php:2216
 #, fuzzy
