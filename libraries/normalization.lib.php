@@ -48,10 +48,10 @@ function PMA_getHtmlForColumnsList(
             if ($listType == 'checkbox') {
                 $selectColHtml .= '<input type="checkbox" value="'
                     . htmlspecialchars($column) . '"/>'
-                    . htmlspecialchars($column) . ' [ ' . $def['Type'] . ' ]</br>';
+                    . htmlspecialchars($column) . ' [ ' . htmlspecialchars($def['Type']) . ' ]</br>';
             } else {
                 $selectColHtml .= '<option value="' . htmlspecialchars($column) . ''
-                . '">' . htmlspecialchars($column) . ' [ ' . $def['Type'] . ' ]'
+                . '">' . htmlspecialchars($column) . ' [ ' . htmlspecialchars($def['Type']) . ' ]'
                 . '</option>';
             }
         }
