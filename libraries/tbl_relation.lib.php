@@ -802,17 +802,23 @@ function PMA_sendHtmlForTableDropdownList()
  * @param string $table         current table
  * @param array  $cfgRelation   configuration relation
  *
- * @return void
+ * @return string
  */
 function PMA_handleUpdateForDisplayField($disp, $display_field, $db, $table,
     $cfgRelation
 ) {
+    $html_output = '';
     $upd_query = PMA_getQueryForDisplayUpdate(
         $disp, $display_field, $db, $table, $cfgRelation
     );
     if ($upd_query) {
         PMA_queryAsControlUser($upd_query);
+        $html_output = PMA_Util::getMessage(
+            __('Display column was successfully updated.'),
+            null, 'success'
+        );
     }
+    return $html_output;
 }
 
 /**
@@ -831,18 +837,18 @@ function PMA_getQueryForDisplayUpdate($disp, $display_field, $db, $table,
 ) {
     $upd_query = false;
     if ($disp) {
-        if ($display_field != '') {
+        if ($display_field == '') {
+            $upd_query = 'DELETE FROM '
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . PMA_Util::backquote($cfgRelation['table_info'])
+                . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
+        } elseif ($disp != $display_field) {
             $upd_query = 'UPDATE '
                 . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
                 . '.' . PMA_Util::backquote($cfgRelation['table_info'])
                 . ' SET display_field = \''
                 . PMA_Util::sqlAddSlashes($display_field) . '\''
-                . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-                . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
-        } else {
-            $upd_query = 'DELETE FROM '
-                . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-                . '.' . PMA_Util::backquote($cfgRelation['table_info'])
                 . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
                 . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
         }
@@ -877,6 +883,8 @@ function PMA_handleUpdatesForInternalRelations($destination_db,
     $multi_edit_columns_name, $destination_table, $destination_column, $cfgRelation,
     $db, $table, $existrel
 ) {
+    $html_output = '';
+    $updated = false;
     foreach ($destination_db as $master_field_md5 => $foreign_db) {
         $upd_query = PMA_getQueryForInternalRelationUpdate(
             $multi_edit_columns_name,
@@ -885,12 +893,16 @@ function PMA_handleUpdatesForInternalRelations($destination_db,
         );
         if ($upd_query) {
             PMA_queryAsControlUser($upd_query);
+            $updated = true;
         }
     }
-    return PMA_Util::getMessage(
-        __('Internal relations were successfully updated.'),
-        null, 'success'
-    );
+    if ($updated) {
+        $html_output = PMA_Util::getMessage(
+            __('Internal relations were successfully updated.'),
+            null, 'success'
+        );
+    }
+    return $html_output;
 }
 
 /**

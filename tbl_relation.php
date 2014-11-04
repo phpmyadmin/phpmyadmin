@@ -122,7 +122,7 @@ if (isset($destination_foreign_db)) {
 
 // U p d a t e s   f o r   d i s p l a y   f i e l d
 if ($cfgRelation['displaywork'] && isset($display_field)) {
-    PMA_handleUpdateForDisplayField(
+    $html_output .= PMA_handleUpdateForDisplayField(
         $disp, $display_field, $db, $table, $cfgRelation
     );
 } // end if
