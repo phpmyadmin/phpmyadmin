@@ -37,26 +37,6 @@ $scripts->addFile('tbl_relation.js');
 $scripts->addFile('indexes.js');
 
 /**
- * Sets globals from $_POST
- */
-$post_params = array(
-    'destination_foreign_db',
-    'destination_foreign_table',
-    'destination_foreign_column',
-    'display_field',
-    'fields_name',
-    'foreign_key_fields_name',
-    'on_delete',
-    'on_update'
-);
-
-foreach ($post_params as $one_post_param) {
-    if (isset($_POST[$one_post_param])) {
-        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
-    }
-}
-
-/**
  * Gets tables informations
  */
 require_once 'libraries/tbl_info.inc.php';
@@ -111,19 +91,19 @@ $multi_edit_columns_name = isset($_REQUEST['foreign_key_fields_name'])
 // u p d a t e s    f o r    f o r e i g n    k e y s
 // (for now, one index name only; we keep the definitions if the
 // foreign db is not the same)
-if (isset($destination_foreign_db)) {
+if (isset($_POST['destination_foreign_db'])) {
     $html_output .= PMA_handleUpdatesForForeignKeys(
-        $destination_foreign_db,
-        $multi_edit_columns_name, $destination_foreign_table,
-        $destination_foreign_column, $options_array, $table,
+        $_POST['destination_foreign_db'],
+        $multi_edit_columns_name, $_POST['destination_foreign_table'],
+        $_POST['destination_foreign_column'], $options_array, $table,
         isset($existrel_foreign) ? $existrel_foreign['foreign_keys_data'] : null
     );
 } // end if isset($destination_foreign)
 
 // U p d a t e s   f o r   d i s p l a y   f i e l d
-if ($cfgRelation['displaywork'] && isset($display_field)) {
+if ($cfgRelation['displaywork'] && isset($_POST['display_field'])) {
     $html_output .= PMA_handleUpdateForDisplayField(
-        $disp, $display_field, $db, $table, $cfgRelation
+        $disp, $_POST['display_field'], $db, $table, $cfgRelation
     );
 } // end if
 
@@ -131,7 +111,7 @@ if ($cfgRelation['displaywork'] && isset($display_field)) {
 if (isset($_POST['destination_db']) && $cfgRelation['relwork']) {
     $existrel = PMA_getForeigners($db, $table, '', 'internal');
 }
-if (isset($destination_foreign_db)
+if (isset($_POST['destination_foreign_db'])
     && PMA_Util::isForeignKeySupported($tbl_storage_engine)
 ) {
     $existrel_foreign = PMA_getForeigners($db, $table, '', 'foreign');
