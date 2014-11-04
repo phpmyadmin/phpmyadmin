@@ -522,11 +522,11 @@ if ($server > 0) {
             . '%sFind out why%s. '
         );
         if ($cfg['ZeroConf'] == true) {
-            $msg_text .= __(
-                '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
-                . 'Or alternately go to \'Operations\' tab of any database '
-                . 'to set it up there.'
-            );
+            $msg_text .= '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' .
+                __(
+                    'Or alternately go to \'Operations\' tab of any database '
+                    . 'to set it up there.'
+                );
         }
         $msg = PMA_Message::notice($msg_text);
         $msg->addParam(
