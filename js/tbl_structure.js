@@ -78,6 +78,7 @@ AJAX.registerTeardown('tbl_structure.js', function () {
     $("a.add_unique_anchor.ajax").die('click');
     $("#move_columns_anchor").die('click');
     $(".append_fields_form.ajax").unbind('submit');
+    $('body').off('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]');
 });
 
 AJAX.registerOnload('tbl_structure.js', function () {
@@ -499,6 +500,21 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 $("#move_columns_anchor").removeClass("move-active");
             }
         });
+    });
+
+    /**
+     * Handles mutli submits in table structure page such as browse, drop, primary etc.
+     * However this does not handle multiple field changes. It is handled by a seperate handler.
+     */
+    $('body').on('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]', function (e) {
+        var $button = $(this);
+        if (! $button.is('.change_columns_anchor.ajax')) {
+            e.preventDefault();
+            var $form = $button.parent('form');
+            var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
+            PMA_ajaxShowMessage();
+            $.get($form.attr('action'), submitData, AJAX.responseHandler);
+        }
     });
 });
 
