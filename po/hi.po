@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-04 10:47+0100\n"
-"PO-Revision-Date: 2014-11-04 22:36+0200\n"
+"PO-Revision-Date: 2014-11-04 22:41+0200\n"
 "Last-Translator: Yogeshwar Dan Charan <charanyogeshwar@gmail.com>\n"
 "Language-Team: Hindi "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hi/>\n"
@@ -610,7 +610,7 @@ msgstr "असफल रहा"
 #, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "पूरा इनसर्टस"
+msgstr "अपूर्ण पैरामीटर"
 
 #: import.php:166
 #, php-format
@@ -756,20 +756,18 @@ msgstr "सर्वर प्रकार:"
 #: index.php:273 libraries/plugins/export/ExportLatex.class.php:212
 #: libraries/plugins/export/ExportSql.class.php:681
 #: libraries/plugins/export/ExportXml.class.php:189
-#, fuzzy
 #| msgid "Show versions"
 msgid "Server version:"
-msgstr "संस्करण दिखाएँ"
+msgstr "सर्वर संस्करण :"
 
 #: index.php:279
 msgid "Protocol version:"
 msgstr "प्रोटोकॉल वर्ज़न:"
 
 #: index.php:283
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "यूसर"
+msgstr "उपयोगकर्ता :"
 
 #: index.php:288
 #, fuzzy
