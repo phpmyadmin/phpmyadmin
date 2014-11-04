@@ -103,7 +103,7 @@ AJAX.registerTeardown('sql.js', function () {
     $('body').off('click','a.browse_foreign');
     $('body').off('click', '#simulate_dml');
     $('body').off('keyup', '#sqlqueryform');
-    $('body').off('click', '#resultsForm.ajax button[name="submit_mult"]');
+    $('body').off('click', '#resultsForm.ajax button[name="submit_mult"], #resultsForm.ajax input[name="submit_mult"]');
 });
 
 /**
@@ -529,7 +529,7 @@ AJAX.registerOnload('sql.js', function () {
     /**
      * Handles mutli submits of results browsing page such as edit, delete and export
      */
-    $('body').on('click', '#resultsForm.ajax button[name="submit_mult"]', function (e) {
+    $('body').on('click', '#resultsForm.ajax button[name="submit_mult"], #resultsForm.ajax input[name="submit_mult"]', function (e) {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.parent('form');
