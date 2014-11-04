@@ -67,152 +67,241 @@ class Node_Database extends Node
     public function getPresence($type = '', $searchClause = '', $singleItem = false)
     {
         $retval = 0;
-        $db     = $this->real_name;
         switch ($type) {
         case 'tables':
-            if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
-                $db     = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT COUNT(*) ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-                $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-                if (PMA_DRIZZLE) {
-                    $query .= "AND `TABLE_TYPE`='BASE' ";
-                } else {
-                    $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
-                }
-                if (! empty($searchClause)) {
-                    $query .= "AND " . $this->_getWhereClauseForSearch(
-                        $searchClause, $singleItem, 'TABLE_NAME'
-                    );
-                }
-                $retval = (int)$GLOBALS['dbi']->fetchValue($query);
-            } else {
-                $query  = "SHOW FULL TABLES FROM ";
-                $query .= PMA_Util::backquote($db);
-                $query .= " WHERE `Table_type`='BASE TABLE' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND " . $this->_getWhereClauseForSearch(
-                        $searchClause, $singleItem, 'Tables_in_' . $db
-                    );
-                }
-                $retval = $GLOBALS['dbi']->numRows(
-                    $GLOBALS['dbi']->tryQuery($query)
-                );
-            }
+            $retval = $this->_getTableCount($searchClause, $singleItem);
             break;
         case 'views':
-            if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
-                $db     = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT COUNT(*) ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-                $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-                if (PMA_DRIZZLE) {
-                    $query .= "AND `TABLE_TYPE`!='BASE' ";
-                } else {
-                    $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
-                }
-                if (! empty($searchClause)) {
-                    $query .= "AND " . $this->_getWhereClauseForSearch(
-                        $searchClause, $singleItem, 'TABLE_NAME'
-                    );
-                }
-                $retval = (int)$GLOBALS['dbi']->fetchValue($query);
-            } else {
-                $query  = "SHOW FULL TABLES FROM ";
-                $query .= PMA_Util::backquote($db);
-                $query .= " WHERE `Table_type`!='BASE TABLE' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND " . $this->_getWhereClauseForSearch(
-                        $searchClause, $singleItem, 'Tables_in_' . $db
-                    );
-                }
-                $retval = $GLOBALS['dbi']->numRows(
-                    $GLOBALS['dbi']->tryQuery($query)
-                );
-            }
+            $retval = $this->_getViewCount($searchClause, $singleItem);
             break;
         case 'procedures':
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT COUNT(*) ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-                $query .= "WHERE `ROUTINE_SCHEMA` "
-                    . PMA_Util::getCollateForIS() . "='$db'";
-                $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND " . $this->_getWhereClauseForSearch(
-                        $searchClause, $singleItem, 'ROUTINE_NAME'
-                    );
-                }
-                $retval = (int)$GLOBALS['dbi']->fetchValue($query);
-            } else {
-                $db    = PMA_Util::sqlAddSlashes($db);
-                $query = "SHOW PROCEDURE STATUS WHERE `Db`='$db' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND " . $this->_getWhereClauseForSearch(
-                        $searchClause, $singleItem, 'Name'
-                    );
-                }
-                $retval = $GLOBALS['dbi']->numRows(
-                    $GLOBALS['dbi']->tryQuery($query)
-                );
-            }
+            $retval = $this->_getProcedureCount($searchClause, $singleItem);
             break;
         case 'functions':
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT COUNT(*) ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-                $query .= "WHERE `ROUTINE_SCHEMA` "
-                    . PMA_Util::getCollateForIS() . "='$db' ";
-                $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND " . $this->_getWhereClauseForSearch(
-                        $searchClause, $singleItem, 'ROUTINE_NAME'
-                    );
-                }
-                $retval = (int)$GLOBALS['dbi']->fetchValue($query);
-            } else {
-                $db    = PMA_Util::sqlAddSlashes($db);
-                $query = "SHOW FUNCTION STATUS WHERE `Db`='$db' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND " . $this->_getWhereClauseForSearch(
-                        $searchClause, $singleItem, 'Name'
-                    );
-                }
-                $retval = $GLOBALS['dbi']->numRows(
-                    $GLOBALS['dbi']->tryQuery($query)
-                );
-            }
+            $retval = $this->_getFunctionCount($searchClause, $singleItem);
             break;
         case 'events':
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT COUNT(*) ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
-                $query .= "WHERE `EVENT_SCHEMA` "
-                    . PMA_Util::getCollateForIS() . "='$db' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND " . $this->_getWhereClauseForSearch(
-                        $searchClause, $singleItem, 'EVENT_NAME'
-                    );
-                }
-                $retval = (int)$GLOBALS['dbi']->fetchValue($query);
-            } else {
-                $db    = PMA_Util::backquote($db);
-                $query = "SHOW EVENTS FROM $db ";
-                if (! empty($searchClause)) {
-                    $query .= "WHERE " . $this->_getWhereClauseForSearch(
-                        $searchClause, $singleItem, 'Name'
-                    );
-                }
-                $retval = $GLOBALS['dbi']->numRows(
-                    $GLOBALS['dbi']->tryQuery($query)
-                );
-            }
+            $retval = $this->_getEventCount($searchClause, $singleItem);
             break;
         default:
             break;
+        }
+        return $retval;
+    }
+
+    /**
+     * Returns the number of tables present inside this database
+     *
+     * @param string         $searchClause A string used to filter the results of
+     *                                     the query
+     * @param boolean|string $singleItem   Whether to get presence of a single known
+     *                                     item or false in none
+     *
+     * @return int
+     */
+    private function _getTableCount($searchClause, $singleItem)
+    {
+        $retval = 0;
+        $db     = $this->real_name;
+        if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
+            $db     = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT COUNT(*) ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
+            $query .= "WHERE `TABLE_SCHEMA`='$db' ";
+            if (PMA_DRIZZLE) {
+                $query .= "AND `TABLE_TYPE`='BASE' ";
+            } else {
+                $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
+            }
+            if (! empty($searchClause)) {
+                $query .= "AND " . $this->_getWhereClauseForSearch(
+                    $searchClause, $singleItem, 'TABLE_NAME'
+                );
+            }
+            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+        } else {
+            $query  = "SHOW FULL TABLES FROM ";
+            $query .= PMA_Util::backquote($db);
+            $query .= " WHERE `Table_type`='BASE TABLE' ";
+            if (! empty($searchClause)) {
+                $query .= "AND " . $this->_getWhereClauseForSearch(
+                    $searchClause, $singleItem, 'Tables_in_' . $db
+                );
+            }
+            $retval = $GLOBALS['dbi']->numRows(
+                $GLOBALS['dbi']->tryQuery($query)
+            );
+        }
+        return $retval;
+    }
+
+    /**
+     * Returns the number of views present inside this database
+     *
+     * @param string         $searchClause A string used to filter the results of
+     *                                     the query
+     * @param boolean|string $singleItem   Whether to get presence of a single known
+     *                                     item or false in none
+     *
+     * @return int
+     */
+    private function _getViewCount($searchClause, $singleItem)
+    {
+        $retval = 0;
+        $db     = $this->real_name;
+        if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
+            $db     = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT COUNT(*) ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
+            $query .= "WHERE `TABLE_SCHEMA`='$db' ";
+            if (PMA_DRIZZLE) {
+                $query .= "AND `TABLE_TYPE`!='BASE' ";
+            } else {
+                $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
+            }
+            if (! empty($searchClause)) {
+                $query .= "AND " . $this->_getWhereClauseForSearch(
+                    $searchClause, $singleItem, 'TABLE_NAME'
+                );
+            }
+            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+        } else {
+            $query  = "SHOW FULL TABLES FROM ";
+            $query .= PMA_Util::backquote($db);
+            $query .= " WHERE `Table_type`!='BASE TABLE' ";
+            if (! empty($searchClause)) {
+                $query .= "AND " . $this->_getWhereClauseForSearch(
+                    $searchClause, $singleItem, 'Tables_in_' . $db
+                );
+            }
+            $retval = $GLOBALS['dbi']->numRows(
+                $GLOBALS['dbi']->tryQuery($query)
+            );
+        }
+        return $retval;
+    }
+
+    /**
+     * Returns the number of procedures present inside this database
+     *
+     * @param string         $searchClause A string used to filter the results of
+     *                                     the query
+     * @param boolean|string $singleItem   Whether to get presence of a single known
+     *                                     item or false in none
+     *
+     * @return int
+     */
+    private function _getProcedureCount($searchClause, $singleItem)
+    {
+        $retval = 0;
+        $db     = $this->real_name;
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            $db     = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT COUNT(*) ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
+            $query .= "WHERE `ROUTINE_SCHEMA` "
+                . PMA_Util::getCollateForIS() . "='$db'";
+            $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
+            if (! empty($searchClause)) {
+                $query .= "AND " . $this->_getWhereClauseForSearch(
+                    $searchClause, $singleItem, 'ROUTINE_NAME'
+                );
+            }
+            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+        } else {
+            $db    = PMA_Util::sqlAddSlashes($db);
+            $query = "SHOW PROCEDURE STATUS WHERE `Db`='$db' ";
+            if (! empty($searchClause)) {
+                $query .= "AND " . $this->_getWhereClauseForSearch(
+                    $searchClause, $singleItem, 'Name'
+                );
+            }
+            $retval = $GLOBALS['dbi']->numRows(
+                $GLOBALS['dbi']->tryQuery($query)
+            );
+        }
+        return $retval;
+    }
+
+    /**
+     * Returns the number of functions present inside this database
+     *
+     * @param string         $searchClause A string used to filter the results of
+     *                                     the query
+     * @param boolean|string $singleItem   Whether to get presence of a single known
+     *                                     item or false in none
+     *
+     * @return int
+     */
+    private function _getFunctionCount($searchClause, $singleItem)
+    {
+        $retval = 0;
+        $db     = $this->real_name;
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            $db     = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT COUNT(*) ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
+            $query .= "WHERE `ROUTINE_SCHEMA` "
+                . PMA_Util::getCollateForIS() . "='$db' ";
+            $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
+            if (! empty($searchClause)) {
+                $query .= "AND " . $this->_getWhereClauseForSearch(
+                    $searchClause, $singleItem, 'ROUTINE_NAME'
+                );
+            }
+            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+        } else {
+            $db    = PMA_Util::sqlAddSlashes($db);
+            $query = "SHOW FUNCTION STATUS WHERE `Db`='$db' ";
+            if (! empty($searchClause)) {
+                $query .= "AND " . $this->_getWhereClauseForSearch(
+                    $searchClause, $singleItem, 'Name'
+                );
+            }
+            $retval = $GLOBALS['dbi']->numRows(
+                $GLOBALS['dbi']->tryQuery($query)
+            );
+        }
+        return $retval;
+    }
+
+    /**
+     * Returns the number of events present inside this database
+     *
+     * @param string         $searchClause A string used to filter the results of
+     *                                     the query
+     * @param boolean|string $singleItem   Whether to get presence of a single known
+     *                                     item or false in none
+     *
+     * @return int
+     */
+    private function _getEventCount($searchClause, $singleItem)
+    {
+        $retval = 0;
+        $db     = $this->real_name;
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            $db     = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT COUNT(*) ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
+            $query .= "WHERE `EVENT_SCHEMA` "
+                . PMA_Util::getCollateForIS() . "='$db' ";
+            if (! empty($searchClause)) {
+                $query .= "AND " . $this->_getWhereClauseForSearch(
+                    $searchClause, $singleItem, 'EVENT_NAME'
+                );
+            }
+            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+        } else {
+            $db    = PMA_Util::backquote($db);
+            $query = "SHOW EVENTS FROM $db ";
+            if (! empty($searchClause)) {
+                $query .= "WHERE " . $this->_getWhereClauseForSearch(
+                    $searchClause, $singleItem, 'Name'
+                );
+            }
+            $retval = $GLOBALS['dbi']->numRows(
+                $GLOBALS['dbi']->tryQuery($query)
+            );
         }
         return $retval;
     }
