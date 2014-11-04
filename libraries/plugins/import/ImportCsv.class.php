@@ -150,7 +150,7 @@ class ImportCsv extends AbstractImportCsv
             $message->addParam(__('Columns enclosed with'), false);
             $error = true;
             $param_error = true;
-        } elseif (strlen($csv_escaped) != 1) {
+        } elseif (!empty($csv_escaped) && strlen($csv_escaped) != 1) {
             $message = PMA_Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
