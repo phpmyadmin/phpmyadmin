@@ -37,7 +37,7 @@ function PMA_getHtmlForColumnsList(
     );
     $type = "";
     $selectColHtml = "";
-    foreach ($columns as $column=>$def) {
+    foreach ($columns as $column => $def) {
         if (isset($def['Type'])) {
             $extracted_columnspec = PMA_Util::extractColumnSpec($def['Type']);
             $type = $extracted_columnspec['type'];
@@ -48,10 +48,12 @@ function PMA_getHtmlForColumnsList(
             if ($listType == 'checkbox') {
                 $selectColHtml .= '<input type="checkbox" value="'
                     . htmlspecialchars($column) . '"/>'
-                    . htmlspecialchars($column) . ' [ ' . htmlspecialchars($def['Type']) . ' ]</br>';
+                    . htmlspecialchars($column) . ' [ ' 
+                    . htmlspecialchars($def['Type']) . ' ]</br>';
             } else {
                 $selectColHtml .= '<option value="' . htmlspecialchars($column) . ''
-                . '">' . htmlspecialchars($column) . ' [ ' . htmlspecialchars($def['Type']) . ' ]'
+                . '">' . htmlspecialchars($column) 
+                . ' [ ' . htmlspecialchars($def['Type']) . ' ]'
                 . '</option>';
             }
         }
