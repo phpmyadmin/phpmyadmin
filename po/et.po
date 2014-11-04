@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-04 10:47+0100\n"
-"PO-Revision-Date: 2014-10-17 11:17+0200\n"
+"PO-Revision-Date: 2014-11-04 13:55+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.0-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -892,15 +892,14 @@ msgstr ""
 "laiendatud võimalused on aktiveerimata. %sVaata põhjust%s. "
 
 #: index.php:527
-#, fuzzy
 #| msgid ""
 #| "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or alternately go to 'Operations' "
 #| "tab of any database to set it up there."
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alternatiivina mine suvalises "
-"andmebaasis sakile 'Operatsioonid' ja seadista ta seal."
+"Alternatiivina mine suvalises andmebaasis sakile 'Operatsioonid' ja seadista "
+"ta seal."
 
 #: index.php:572
 #, php-format
@@ -10016,10 +10015,9 @@ msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Ära kasuta nulliliste väärtuste puhul <code>AUTO_INCREMENT</code>"
 
 #: libraries/plugins/import/ImportSql.class.php:188
-#, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Lugemisvead"
+msgstr "Loe mitmebaidistena"
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
@@ -13649,16 +13647,14 @@ msgid "Choose column to display:"
 msgstr "Vali veerg, mida näidata:"
 
 #: libraries/tbl_relation.lib.php:817
-#, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "%s lõim katkestati edukalt."
+msgstr "Kuva veergu uuendati edukalt."
 
 #: libraries/tbl_relation.lib.php:901
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relations were successfully updated."
-msgstr "Sisemine seos on loodud."
+msgstr "Sisemised seosete värskendamine oli edukas."
 
 #: libraries/tbl_relation.lib.php:1166
 #, php-format
