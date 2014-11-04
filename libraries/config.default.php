@@ -842,7 +842,7 @@ $cfg['Error_Handler']['display'] = false;
  *
  * @global integer $cfg['FirstLevelNavigationItems']
  */
-$cfg['FirstLevelNavigationItems'] = 250;
+$cfg['FirstLevelNavigationItems'] = 25;
 
 /**
  * maximum number of items displayed in navigation panel
