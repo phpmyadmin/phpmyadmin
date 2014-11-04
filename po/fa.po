@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-04-02 12:00+0200\n"
+"PO-Revision-Date: 2014-11-04 13:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/master/fa/"
-">\n"
+"Language-Team: Persian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-2/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 2.0-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -646,7 +646,8 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "داده ای برای وارد کردن دریافت نشد. یا نام فایل تعیین نشده، یا حجم فایل از "
-"حداکثر اندازه ای که در تنظیمات PHP مشخص شده، بیشتر است."
+"حداکثر اندازه ای که در تنظیمات PHP مشخص شده، بیشتر است [doc@faq1-16]FAQ "
+"1.16[/doc]."
 
 #: import.php:498
 #, fuzzy
@@ -3036,7 +3037,7 @@ msgstr "توضيحات"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "كليد اصلي حذف گرديد"
+msgstr "كليد اصلي حذف گرديد."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -11976,7 +11977,7 @@ msgstr ""
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "جدول %s خالی شد"
+msgstr "جدول %s خالی شد."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
@@ -12139,12 +12140,12 @@ msgstr ""
 #: libraries/structure.lib.php:1990 libraries/structure.lib.php:2005
 #, php-format
 msgid "An index has been added on %s."
-msgstr "يك فهرست در %s اضافه گرديد"
+msgstr "يك فهرست در %s اضافه گرديد."
 
 #: libraries/structure.lib.php:1976
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "يك كليد اصلي در %s اضافه شد"
+msgstr "يك كليد اصلي در %s اضافه شد."
 
 #: libraries/structure.lib.php:2028 libraries/structure.lib.php:2099
 #, fuzzy
