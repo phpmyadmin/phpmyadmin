@@ -180,7 +180,7 @@ foreach ($the_tables as $key => $table) {
             echo '    ' . $field_name . "\n";
         }
         echo '</td>';
-        echo '<td>' . $type. '<bdo dir="ltr"></bdo></td>';
+        echo '<td>' . htmlspecialchars($type) . '<bdo dir="ltr"></bdo></td>';
         echo '<td>';
         echo (($row['Null'] == '' || $row['Null'] == 'NO')
             ? __('No')

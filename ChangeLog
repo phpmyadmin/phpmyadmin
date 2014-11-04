@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.0.10.6 (not yet released)
+- bug #4578 [security] XSS vulnerability in table print view
+
 4.0.10.5 (2014-10-21)
 - bug #4562 [security] XSS in debug SQL output
 - bug #4563 [security] XSS in monitor query analyzer
