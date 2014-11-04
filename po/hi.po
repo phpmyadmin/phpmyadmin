@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-07-08 07:11-0400\n"
-"PO-Revision-Date: 2014-10-30 04:36+0200\n"
-"Last-Translator: Yugal Pantola <yug.scorpio@gmail.com>\n"
+"PO-Revision-Date: 2014-11-04 22:41+0200\n"
+"Last-Translator: Yogeshwar Dan Charan <charanyogeshwar@gmail.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/4-2/hi/>"
 "\n"
 "Language: hi\n"
@@ -21,8 +21,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"%s ये फ़ाइल तंत्र में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए www.phpmyadmin.net "
-"वेबसाईट पर जाएँ।"
+"%s ये फ़ाइल  में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए "
+"www.phpmyadmin.net वेबसाईट पर जाएँ।"
 
 #: db_create.php:61
 #, php-format
@@ -270,10 +270,9 @@ msgstr "उपयोग में है"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1085
 #: libraries/schema/Pdf_Relation_Schema.class.php:1334
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "रचना"
+msgstr "रचना:"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1098
 #: libraries/schema/Pdf_Relation_Schema.class.php:1339
@@ -739,20 +738,18 @@ msgstr "सर्वर प्रकार:"
 #: index.php:270 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:657
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Show versions"
 msgid "Server version:"
-msgstr "संस्करण दिखाएँ"
+msgstr "सर्वर संस्करण :"
 
 #: index.php:276
 msgid "Protocol version:"
 msgstr "प्रोटोकॉल वर्ज़न:"
 
 #: index.php:280
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "यूसर"
+msgstr "उपयोगकर्ता :"
 
 #: index.php:285
 #, fuzzy
@@ -13338,7 +13335,7 @@ msgstr "सक्रिय विकल्प"
 
 #: pmd_pdf.php:53
 msgid "Page has been created."
-msgstr "पेज बना दिया गया है"
+msgstr "पेज बना दिया गया है |"
 
 #: pmd_pdf.php:56
 #, fuzzy
