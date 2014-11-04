@@ -253,225 +253,23 @@ class Node_Database extends Node
      */
     public function getData($type, $pos, $searchClause = '')
     {
-        $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
         $retval   = array();
         $db       = $this->real_name;
         switch ($type) {
         case 'tables':
-            if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
-                $escdDb = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT `TABLE_NAME` AS `name` ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-                $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
-                if (PMA_DRIZZLE) {
-                    $query .= "AND `TABLE_TYPE`='BASE' ";
-                } else {
-                    $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
-                }
-                if (! empty($searchClause)) {
-                    $query .= "AND `TABLE_NAME` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $query .= "ORDER BY `TABLE_NAME` ASC ";
-                $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = $GLOBALS['dbi']->fetchResult($query);
-            } else {
-                $query  = " SHOW FULL TABLES FROM ";
-                $query .= PMA_Util::backquote($db);
-                $query .= " WHERE `Table_type`='BASE TABLE' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND " . PMA_Util::backquote(
-                        "Tables_in_" . $db
-                    );
-                    $query .= " LIKE '%" . PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $handle = $GLOBALS['dbi']->tryQuery($query);
-                if ($handle !== false) {
-                    $count = 0;
-                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($pos <= 0 && $count < $maxItems) {
-                            $retval[] = $arr[0];
-                            $count++;
-                        }
-                        $pos--;
-                    }
-                }
-            }
+            $retval = $this->_getTables($pos, $searchClause);
             break;
         case 'views':
-            if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
-                $escdDb = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT `TABLE_NAME` AS `name` ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-                $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
-                if (PMA_DRIZZLE) {
-                    $query .= "AND `TABLE_TYPE`!='BASE' ";
-                } else {
-                    $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
-                }
-                if (! empty($searchClause)) {
-                    $query .= "AND `TABLE_NAME` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $query .= "ORDER BY `TABLE_NAME` ASC ";
-                $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = $GLOBALS['dbi']->fetchResult($query);
-            } else {
-                $query  = "SHOW FULL TABLES FROM ";
-                $query .= PMA_Util::backquote($db);
-                $query .= " WHERE `Table_type`!='BASE TABLE' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND " . PMA_Util::backquote(
-                        "Tables_in_" . $db
-                    );
-                    $query .= " LIKE '%" . PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $handle = $GLOBALS['dbi']->tryQuery($query);
-                if ($handle !== false) {
-                    $count = 0;
-                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($pos <= 0 && $count < $maxItems) {
-                            $retval[] = $arr[0];
-                            $count++;
-                        }
-                        $pos--;
-                    }
-                }
-            }
+            $retval = $this->_getViews($pos, $searchClause);
             break;
         case 'procedures':
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-                $escdDb = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT `ROUTINE_NAME` AS `name` ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-                $query .= "WHERE `ROUTINE_SCHEMA` "
-                    . PMA_Util::getCollateForIS() . "='$escdDb'";
-                $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `ROUTINE_NAME` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $query .= "ORDER BY `ROUTINE_NAME` ASC ";
-                $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = $GLOBALS['dbi']->fetchResult($query);
-            } else {
-                $escdDb = PMA_Util::sqlAddSlashes($db);
-                $query  = "SHOW PROCEDURE STATUS WHERE `Db`='$escdDb' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `Name` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $handle = $GLOBALS['dbi']->tryQuery($query);
-                if ($handle !== false) {
-                    $count = 0;
-                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($pos <= 0 && $count < $maxItems) {
-                            $retval[] = $arr['Name'];
-                            $count++;
-                        }
-                        $pos--;
-                    }
-                }
-            }
+            $retval = $this->_getProcedures($pos, $searchClause);
             break;
         case 'functions':
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-                $escdDb = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT `ROUTINE_NAME` AS `name` ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-                $query .= "WHERE `ROUTINE_SCHEMA` "
-                    . PMA_Util::getCollateForIS() . "='$escdDb' ";
-                $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `ROUTINE_NAME` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $query .= "ORDER BY `ROUTINE_NAME` ASC ";
-                $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = $GLOBALS['dbi']->fetchResult($query);
-            } else {
-                $escdDb = PMA_Util::sqlAddSlashes($db);
-                $query  = "SHOW FUNCTION STATUS WHERE `Db`='$escdDb' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `Name` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $handle = $GLOBALS['dbi']->tryQuery($query);
-                if ($handle !== false) {
-                    $count = 0;
-                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($pos <= 0 && $count < $maxItems) {
-                            $retval[] = $arr['Name'];
-                            $count++;
-                        }
-                        $pos--;
-                    }
-                }
-            }
+            $retval = $this->_getFunctions($pos, $searchClause);
             break;
         case 'events':
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-                $escdDb = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT `EVENT_NAME` AS `name` ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
-                $query .= "WHERE `EVENT_SCHEMA` "
-                    . PMA_Util::getCollateForIS() . "='$escdDb' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `EVENT_NAME` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $query .= "ORDER BY `EVENT_NAME` ASC ";
-                $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = $GLOBALS['dbi']->fetchResult($query);
-            } else {
-                $escdDb = PMA_Util::backquote($db);
-                $query  = "SHOW EVENTS FROM $escdDb ";
-                if (! empty($searchClause)) {
-                    $query .= "WHERE `Name` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $handle = $GLOBALS['dbi']->tryQuery($query);
-                if ($handle !== false) {
-                    $count = 0;
-                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($pos <= 0 && $count < $maxItems) {
-                            $retval[] = $arr['Name'];
-                            $count++;
-                        }
-                        $pos--;
-                    }
-                }
-            }
+            $retval = $this->_getEvents($pos, $searchClause);
             break;
         default:
             break;
@@ -501,6 +299,292 @@ class Node_Database extends Node
             $GLOBALS['dbi']->freeResult($result);
         }
 
+        return $retval;
+    }
+
+    /**
+     * Returns the list of tables inside this database
+     *
+     * @param int    $pos          The offset of the list within the results
+     * @param string $searchClause A string used to filter the results of the query
+     *
+     * @return array
+     */
+    private function _getTables($pos, $searchClause)
+    {
+        $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
+        $retval   = array();
+        $db       = $this->real_name;
+        if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
+            $escdDb = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT `TABLE_NAME` AS `name` ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
+            $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
+            if (PMA_DRIZZLE) {
+                $query .= "AND `TABLE_TYPE`='BASE' ";
+            } else {
+                $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
+            }
+            if (! empty($searchClause)) {
+                $query .= "AND `TABLE_NAME` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
+            }
+            $query .= "ORDER BY `TABLE_NAME` ASC ";
+            $query .= "LIMIT " . intval($pos) . ", $maxItems";
+            $retval = $GLOBALS['dbi']->fetchResult($query);
+        } else {
+            $query  = " SHOW FULL TABLES FROM ";
+            $query .= PMA_Util::backquote($db);
+            $query .= " WHERE `Table_type`='BASE TABLE' ";
+            if (! empty($searchClause)) {
+                $query .= "AND " . PMA_Util::backquote(
+                    "Tables_in_" . $db
+                );
+                $query .= " LIKE '%" . PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
+            }
+            $handle = $GLOBALS['dbi']->tryQuery($query);
+            if ($handle !== false) {
+                $count = 0;
+                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($pos <= 0 && $count < $maxItems) {
+                        $retval[] = $arr[0];
+                        $count++;
+                    }
+                    $pos--;
+                }
+            }
+        }
+        return $retval;
+    }
+
+    /**
+     * Returns the list of views inside this database
+     *
+     * @param int    $pos          The offset of the list within the results
+     * @param string $searchClause A string used to filter the results of the query
+     *
+     * @return array
+     */
+    private function _getViews($pos, $searchClause)
+    {
+        $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
+        $retval   = array();
+        $db       = $this->real_name;
+        if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
+            $escdDb = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT `TABLE_NAME` AS `name` ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
+            $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
+            if (PMA_DRIZZLE) {
+                $query .= "AND `TABLE_TYPE`!='BASE' ";
+            } else {
+                $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
+            }
+            if (! empty($searchClause)) {
+                $query .= "AND `TABLE_NAME` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
+            }
+            $query .= "ORDER BY `TABLE_NAME` ASC ";
+            $query .= "LIMIT " . intval($pos) . ", $maxItems";
+            $retval = $GLOBALS['dbi']->fetchResult($query);
+        } else {
+            $query  = "SHOW FULL TABLES FROM ";
+            $query .= PMA_Util::backquote($db);
+            $query .= " WHERE `Table_type`!='BASE TABLE' ";
+            if (! empty($searchClause)) {
+                $query .= "AND " . PMA_Util::backquote(
+                    "Tables_in_" . $db
+                );
+                $query .= " LIKE '%" . PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
+            }
+            $handle = $GLOBALS['dbi']->tryQuery($query);
+            if ($handle !== false) {
+                $count = 0;
+                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($pos <= 0 && $count < $maxItems) {
+                        $retval[] = $arr[0];
+                        $count++;
+                    }
+                    $pos--;
+                }
+            }
+        }
+        return $retval;
+    }
+
+    /**
+     * Returns the list of procedures inside this database
+     *
+     * @param int    $pos          The offset of the list within the results
+     * @param string $searchClause A string used to filter the results of the query
+     *
+     * @return array
+     */
+    private function _getProcedures($pos, $searchClause)
+    {
+        $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
+        $retval   = array();
+        $db       = $this->real_name;
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            $escdDb = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT `ROUTINE_NAME` AS `name` ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
+            $query .= "WHERE `ROUTINE_SCHEMA` "
+                . PMA_Util::getCollateForIS() . "='$escdDb'";
+            $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
+            if (! empty($searchClause)) {
+                $query .= "AND `ROUTINE_NAME` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
+            }
+            $query .= "ORDER BY `ROUTINE_NAME` ASC ";
+            $query .= "LIMIT " . intval($pos) . ", $maxItems";
+            $retval = $GLOBALS['dbi']->fetchResult($query);
+        } else {
+            $escdDb = PMA_Util::sqlAddSlashes($db);
+            $query  = "SHOW PROCEDURE STATUS WHERE `Db`='$escdDb' ";
+            if (! empty($searchClause)) {
+                $query .= "AND `Name` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
+            }
+            $handle = $GLOBALS['dbi']->tryQuery($query);
+            if ($handle !== false) {
+                $count = 0;
+                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($pos <= 0 && $count < $maxItems) {
+                        $retval[] = $arr['Name'];
+                        $count++;
+                    }
+                    $pos--;
+                }
+            }
+        }
+        return $retval;
+    }
+
+    /**
+     * Returns the list of functions inside this database
+     *
+     * @param int    $pos          The offset of the list within the results
+     * @param string $searchClause A string used to filter the results of the query
+     *
+     * @return array
+     */
+    private function _getFunctions($pos, $searchClause)
+    {
+        $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
+        $retval   = array();
+        $db       = $this->real_name;
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            $escdDb = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT `ROUTINE_NAME` AS `name` ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
+            $query .= "WHERE `ROUTINE_SCHEMA` "
+                . PMA_Util::getCollateForIS() . "='$escdDb' ";
+            $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
+            if (! empty($searchClause)) {
+                $query .= "AND `ROUTINE_NAME` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
+            }
+            $query .= "ORDER BY `ROUTINE_NAME` ASC ";
+            $query .= "LIMIT " . intval($pos) . ", $maxItems";
+            $retval = $GLOBALS['dbi']->fetchResult($query);
+        } else {
+            $escdDb = PMA_Util::sqlAddSlashes($db);
+            $query  = "SHOW FUNCTION STATUS WHERE `Db`='$escdDb' ";
+            if (! empty($searchClause)) {
+                $query .= "AND `Name` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
+            }
+            $handle = $GLOBALS['dbi']->tryQuery($query);
+            if ($handle !== false) {
+                $count = 0;
+                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($pos <= 0 && $count < $maxItems) {
+                        $retval[] = $arr['Name'];
+                        $count++;
+                    }
+                    $pos--;
+                }
+            }
+        }
+        return $retval;
+    }
+
+    /**
+     * Returns the list of events inside this database
+     *
+     * @param int    $pos          The offset of the list within the results
+     * @param string $searchClause A string used to filter the results of the query
+     *
+     * @return array
+     */
+    private function _getEvents($pos, $searchClause)
+    {
+        $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
+        $retval   = array();
+        $db       = $this->real_name;
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            $escdDb = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT `EVENT_NAME` AS `name` ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
+            $query .= "WHERE `EVENT_SCHEMA` "
+                . PMA_Util::getCollateForIS() . "='$escdDb' ";
+            if (! empty($searchClause)) {
+                $query .= "AND `EVENT_NAME` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
+            }
+            $query .= "ORDER BY `EVENT_NAME` ASC ";
+            $query .= "LIMIT " . intval($pos) . ", $maxItems";
+            $retval = $GLOBALS['dbi']->fetchResult($query);
+        } else {
+            $escdDb = PMA_Util::backquote($db);
+            $query  = "SHOW EVENTS FROM $escdDb ";
+            if (! empty($searchClause)) {
+                $query .= "WHERE `Name` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
+            }
+            $handle = $GLOBALS['dbi']->tryQuery($query);
+            if ($handle !== false) {
+                $count = 0;
+                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($pos <= 0 && $count < $maxItems) {
+                        $retval[] = $arr['Name'];
+                        $count++;
+                    }
+                    $pos--;
+                }
+            }
+        }
         return $retval;
     }
 
