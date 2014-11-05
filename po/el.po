@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-11-04 10:47+0100\n"
+"POT-Creation-Date: 2014-11-05 10:04+0100\n"
 "PO-Revision-Date: 2014-10-16 20:43+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -212,7 +212,7 @@ msgstr "Όχι"
 #: libraries/server_privileges.lib.php:2721
 #: libraries/server_privileges.lib.php:3062
 #: libraries/server_privileges.lib.php:3087 libraries/structure.lib.php:1362
-#: libraries/structure.lib.php:2803 libraries/tbl_printview.lib.php:114
+#: libraries/structure.lib.php:2802 libraries/tbl_printview.lib.php:114
 #: libraries/tracking.lib.php:890 libraries/tracking.lib.php:965
 #: libraries/tracking.lib.php:970 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -554,7 +554,7 @@ msgstr "Προσθήκη γεωμετρίας"
 #: libraries/display_export.lib.php:299 libraries/display_export.lib.php:305
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1539 libraries/insert_edit.lib.php:1576
-#: libraries/normalization.lib.php:146 libraries/normalization.lib.php:783
+#: libraries/normalization.lib.php:148 libraries/normalization.lib.php:785
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:253
 #: libraries/operations.lib.php:626 libraries/operations.lib.php:679
@@ -1816,7 +1816,7 @@ msgstr "Ο αριθμός %d δεν είναι έγκυρος αριθμός γ�
 msgid "Browse foreign values"
 msgstr "Αναζήτηση μη διακριτών τιμών"
 
-#: js/messages.php:303 libraries/normalization.lib.php:847
+#: js/messages.php:303 libraries/normalization.lib.php:849
 msgid "Pick"
 msgstr "Διαλέξτε"
 
@@ -1867,7 +1867,7 @@ msgstr "Προσθήκη πρωτεύοντος κλειδιού"
 msgid "Primary key added."
 msgstr "Προστέθηκε πρωτεύον κλειδί."
 
-#: js/messages.php:315 libraries/normalization.lib.php:172
+#: js/messages.php:315 libraries/normalization.lib.php:174
 msgid "Taking you to next step…"
 msgstr "Μεταφέροντάς σας στο επόμενο βήμα…"
 
@@ -1876,9 +1876,9 @@ msgstr "Μεταφέροντάς σας στο επόμενο βήμα…"
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Το πρώτο βήμα κανονικοποίησης ολοκληρώθηκε για τον πίνακα «%s»."
 
-#: js/messages.php:317 libraries/normalization.lib.php:420
-#: libraries/normalization.lib.php:467 libraries/normalization.lib.php:550
-#: libraries/normalization.lib.php:610
+#: js/messages.php:317 libraries/normalization.lib.php:422
+#: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
+#: libraries/normalization.lib.php:612
 msgid "End of step"
 msgstr "Τέλος βήματος"
 
@@ -1887,7 +1887,7 @@ msgid "Second step of normalization (2NF)"
 msgstr "Δεύτερο βήμα κανονικοποίησης (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:319 js/messages.php:554 libraries/normalization.lib.php:262
+#: js/messages.php:319 js/messages.php:554 libraries/normalization.lib.php:264
 msgid "Done"
 msgstr "Ολοκληρώθηκε"
 
@@ -3712,7 +3712,7 @@ msgid "Could not save favorite table!"
 msgstr "Αδύνατη η αποθήκευση αγαπημένου πίνακα!"
 
 #: libraries/RecentFavoriteTable.class.php:227
-#: libraries/structure.lib.php:2894
+#: libraries/structure.lib.php:2893
 msgid "Remove from Favorites"
 msgstr "Απομάκρυνση από τα Αγαπημένα"
 
@@ -3809,7 +3809,7 @@ msgstr "Ταξινόμηση"
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:120
-#: libraries/structure.lib.php:3084
+#: libraries/structure.lib.php:3083
 msgid "Tables"
 msgstr "Πίνακες"
 
@@ -4402,7 +4402,7 @@ msgid "Date and time"
 msgstr "Ημερομηνία και ώρα"
 
 #: libraries/Types.class.php:670 libraries/Types.class.php:1040
-#: libraries/normalization.lib.php:141 normalization.php:25
+#: libraries/normalization.lib.php:143 normalization.php:25
 msgctxt "string types"
 msgid "String"
 msgstr "Κείμενο"
@@ -9019,7 +9019,7 @@ msgstr "Νέα"
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:129
-#: libraries/structure.lib.php:3090
+#: libraries/structure.lib.php:3089
 msgid "Views"
 msgstr "Προβολές"
 
@@ -9028,20 +9028,20 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "Νέα"
 
-#: libraries/normalization.lib.php:112
+#: libraries/normalization.lib.php:114
 msgid "Make all columns atomic"
 msgstr "Κάνει όλες τις στήλες ατομικές"
 
-#: libraries/normalization.lib.php:114 libraries/normalization.lib.php:771
+#: libraries/normalization.lib.php:116 libraries/normalization.lib.php:773
 msgid "First step of normalization (1NF)"
 msgstr "Πρώτο βήμα κανονικοποίησης (1NF)"
 
-#: libraries/normalization.lib.php:117 libraries/normalization.lib.php:168
-#: libraries/normalization.lib.php:211 libraries/normalization.lib.php:247
+#: libraries/normalization.lib.php:119 libraries/normalization.lib.php:170
+#: libraries/normalization.lib.php:213 libraries/normalization.lib.php:249
 msgid "Step 1."
 msgstr "Βήμα 1."
 
-#: libraries/normalization.lib.php:119
+#: libraries/normalization.lib.php:121
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
@@ -9050,12 +9050,12 @@ msgstr ""
 "παράδειγμα: η διεύθυνση μπορεί να διαιρεθεί σε οδό, πόλη, χώρα και "
 "ταχυδρομικό κώδικα."
 
-#: libraries/normalization.lib.php:126
+#: libraries/normalization.lib.php:128
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 "Προβολή της κεντρικής λίστας στηλών που δεν είναι ήδη σε αυτό τον πίνακα"
 
-#: libraries/normalization.lib.php:129
+#: libraries/normalization.lib.php:131
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
@@ -9063,27 +9063,27 @@ msgstr ""
 "Επιλέξτε μια στήση που μπορεί να διαιρεθεί σε περισσότερες από μια. "
 "(επιλέγοντας το «Καμιά τέτοια στήλη», θα μεταβείτε στο επόμενο βήμα)"
 
-#: libraries/normalization.lib.php:136 normalization.php:19
+#: libraries/normalization.lib.php:138 normalization.php:19
 msgid "Select one…"
 msgstr "Επιλογή ενός…"
 
-#: libraries/normalization.lib.php:137 normalization.php:20
+#: libraries/normalization.lib.php:139 normalization.php:20
 msgid "No such column"
 msgstr "Καμιά τέτοια στήλη"
 
-#: libraries/normalization.lib.php:144
+#: libraries/normalization.lib.php:146
 msgid "split into "
 msgstr "διαίρεση σε "
 
-#: libraries/normalization.lib.php:165
+#: libraries/normalization.lib.php:167
 msgid "Have a primary key"
 msgstr "Κατοχή πρωτεύοντος κλειδιού"
 
-#: libraries/normalization.lib.php:171
+#: libraries/normalization.lib.php:173
 msgid "Primary key already exists."
 msgstr "Πρωτεύον κλειδί υπάρχει ήδη."
 
-#: libraries/normalization.lib.php:176
+#: libraries/normalization.lib.php:178
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
@@ -9092,26 +9092,26 @@ msgstr ""
 "πρωτεύον κλειδί (ή συνδυασμός στηλών) που ταυτοποιεί μοναδικά όλες τις "
 "εγγραφές."
 
-#: libraries/normalization.lib.php:183
+#: libraries/normalization.lib.php:185
 msgid "Add a primary key on existing column(s)"
 msgstr "Προσθήκη πρωτεύοντος κλειδιού σε υπάρχουσα(ες) στήλη(ες)"
 
-#: libraries/normalization.lib.php:188
+#: libraries/normalization.lib.php:190
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 "Αν δεν είναι δυνατό να κάνετε μοναδικούς συνδυασμούς υπαρχόντων στηλών ως "
 "πρωτεύον κλειδί"
 
-#: libraries/normalization.lib.php:192
+#: libraries/normalization.lib.php:194
 msgid "+ Add a new primary key column"
 msgstr "+ Προσθήκη μιας νέας στήλης πρωτεύοντος κλειδιού"
 
-#: libraries/normalization.lib.php:210
+#: libraries/normalization.lib.php:212
 msgid "Remove redundant columns"
 msgstr "Απομάκρυνση περιττών στηλών"
 
-#: libraries/normalization.lib.php:213
+#: libraries/normalization.lib.php:215
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
@@ -9121,7 +9121,7 @@ msgstr ""
 "παράδειγμα, αν έχετε first_name, last_name και full_name τότε συνδυάζοντας "
 "τα first_name και last_name έχετε το full_name που είναι περιττό."
 
-#: libraries/normalization.lib.php:219
+#: libraries/normalization.lib.php:221
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
@@ -9129,19 +9129,19 @@ msgstr ""
 "Ελέγξτε τις στήλες που είναι περιττές και πατήστε για απομάκρυνση. Αν καμιά "
 "στήλη δεν είναι περιττή, πατήστε το «Καμιά περιττή στήλη»"
 
-#: libraries/normalization.lib.php:224
+#: libraries/normalization.lib.php:226
 msgid "Remove selected"
 msgstr "Απομάκρυνση επιλεγμένων"
 
-#: libraries/normalization.lib.php:225
+#: libraries/normalization.lib.php:227
 msgid "No redundant column"
 msgstr "Καμιά περιττή στήλη"
 
-#: libraries/normalization.lib.php:246
+#: libraries/normalization.lib.php:248
 msgid "Move repeating groups"
 msgstr "Μετακίνηση επαναλαμβανόμενων ομάδων"
 
-#: libraries/normalization.lib.php:249
+#: libraries/normalization.lib.php:251
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -9156,7 +9156,7 @@ msgstr ""
 "αυτή την περίπτωση, ένας νέος πίνακας (book_id, author) πρέπει να "
 "δημιουργηθεί."
 
-#: libraries/normalization.lib.php:257
+#: libraries/normalization.lib.php:259
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
@@ -9164,19 +9164,19 @@ msgstr ""
 "Ελέγξτε τις στήλες που είναι που διαμορφώνουν μια επαναλαμβανόμενη ομάδα. Αν "
 "δεν υπάρχει τέτοια ομάδα, πατήστε στο «Καμιά επαναλαμβανόμενη ομάδα»"
 
-#: libraries/normalization.lib.php:263
+#: libraries/normalization.lib.php:265
 msgid "No repeating group"
 msgstr "Καμιά επαναλαμβανόμενη ομάδα"
 
-#: libraries/normalization.lib.php:289
+#: libraries/normalization.lib.php:291
 msgid "Step 2."
 msgstr "Βήμα 2."
 
-#: libraries/normalization.lib.php:289
+#: libraries/normalization.lib.php:291
 msgid "Find partial dependencies"
 msgstr "Εύρεση μερικών εξαρτήσεων"
 
-#: libraries/normalization.lib.php:311
+#: libraries/normalization.lib.php:313
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
@@ -9185,11 +9185,11 @@ msgstr ""
 "Καμιά μερική εξάρτηση δεν είναι δυνατή καθώς δεν υπάρχει μη πρωτεύουσα στήλη "
 "και το πρωτεύον κλειδί ( %1$s ) συνδυάζεται σε όλες τις στήλες στον πίνακα."
 
-#: libraries/normalization.lib.php:316 libraries/normalization.lib.php:358
+#: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."
 msgstr "Ο πίνακας είναι ήδη σε δεύτερη κανονική μορφή."
 
-#: libraries/normalization.lib.php:321
+#: libraries/normalization.lib.php:323
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
@@ -9198,7 +9198,7 @@ msgstr ""
 "Το πρωτεύον κλειδί ( %1$s ) απαρτίζεται από περισσότερες από μια στήλες έτσι "
 "χρειάζεται να βρεθούν οι μερικές εξαρτήσεις."
 
-#: libraries/normalization.lib.php:325 libraries/normalization.lib.php:690
+#: libraries/normalization.lib.php:327 libraries/normalization.lib.php:692
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
@@ -9206,11 +9206,11 @@ msgstr ""
 "Απαντήστε την(ις) ακόλουθη(ες) ερώτηση(εις) προσεκτικά ώστε να έχετε μια "
 "σωστή κανονικοποίηση."
 
-#: libraries/normalization.lib.php:329
+#: libraries/normalization.lib.php:331
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr "+ Προβολή των πιθανών μερικών εξαρτήσεων με βάση δεδομένα στον πίνακα"
 
-#: libraries/normalization.lib.php:333
+#: libraries/normalization.lib.php:335
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -9220,12 +9220,12 @@ msgstr ""
 "στηλών μεταξύ των δοθέντων ομάδων των οποίων οι συνδυασμένες τιμές είναι "
 "επαρκείς για να ορίσουν την τιμή της στήλης."
 
-#: libraries/normalization.lib.php:343 libraries/normalization.lib.php:728
+#: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "Το «%1$s» εξαρτάται από:"
 
-#: libraries/normalization.lib.php:354
+#: libraries/normalization.lib.php:356
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
@@ -9234,7 +9234,7 @@ msgstr ""
 "Καμιά πιθανή μερική εξάρτηση καθώς το πρωτεύον κλειδί ( %1$s ) έχει μόνο μια "
 "στήλη."
 
-#: libraries/normalization.lib.php:379
+#: libraries/normalization.lib.php:381
 #, php-format
 msgid ""
 "As per above partial dependencies, in order to put the original table '%1$s' "
@@ -9244,17 +9244,17 @@ msgstr ""
 "αρχικού πίνακα «%1$s» στην Δεύτερη κανονική μορφή χρειαζόμαστε να "
 "δημιουργήσουμε τους ακόλουθους πίνακες:"
 
-#: libraries/normalization.lib.php:415
+#: libraries/normalization.lib.php:417
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "Το δεύτερο βήμα κανονικοποίησης ολοκληρώθηκε για τον πίνακα «%1$s»."
 
-#: libraries/normalization.lib.php:455 libraries/normalization.lib.php:598
-#: libraries/normalization.lib.php:661
+#: libraries/normalization.lib.php:457 libraries/normalization.lib.php:600
+#: libraries/normalization.lib.php:663
 msgid "Error in processing!"
 msgstr "Σφάλμα στην προώθηση!"
 
-#: libraries/normalization.lib.php:499
+#: libraries/normalization.lib.php:501
 #, php-format
 msgid ""
 "As per above dependencies, in order to put the original table '%1$s' into "
@@ -9264,24 +9264,24 @@ msgstr ""
 "πίνακα «%1$s» στην Τρίτη κανονική μορφή χρειαζόμαστε να δημιουργήσουμε τους "
 "ακόλουθους πίνακες:"
 
-#: libraries/normalization.lib.php:546
+#: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
 msgstr "Το τρίτο βήμα κανονικοποίησης ολοκληρώθηκε."
 
-#: libraries/normalization.lib.php:640
+#: libraries/normalization.lib.php:642
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Η επιλεγμένη επαναλαμβανόμενη ομάδα έχει μετακινηθεί στον πίνακα «%s»"
 
-#: libraries/normalization.lib.php:687
+#: libraries/normalization.lib.php:689
 msgid "Step 3."
 msgstr "Βήμα 3."
 
-#: libraries/normalization.lib.php:687
+#: libraries/normalization.lib.php:689
 msgid "Find transitive dependencies"
 msgstr "Εύρεση μεταβατικών εξαρτήσεων"
 
-#: libraries/normalization.lib.php:694
+#: libraries/normalization.lib.php:696
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -9294,7 +9294,7 @@ msgstr ""
 "να μην έχει μεταβατική εξάρτηση, σε αυτή την περίπτωση δεν έχετε να "
 "επιλέξετε κάποια."
 
-#: libraries/normalization.lib.php:741
+#: libraries/normalization.lib.php:743
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
@@ -9302,27 +9302,27 @@ msgstr ""
 "Καμιά πιθανή μεταβατική εξάρτηση καθώς ο πίνακας δεν έχει καμιά στήλη με μη "
 "πρωτεύον κλειδί"
 
-#: libraries/normalization.lib.php:745
+#: libraries/normalization.lib.php:747
 msgid "Table is already in Third normal form!"
 msgstr "Ο πίνακας είναι ήδη σε Τρίτη κανονική μορφή!"
 
-#: libraries/normalization.lib.php:768
+#: libraries/normalization.lib.php:770
 msgid "Improve table structure (Normalization):"
 msgstr "Βελτίωση δομης πίνακα (Κανονικοποίηση):"
 
-#: libraries/normalization.lib.php:769
+#: libraries/normalization.lib.php:771
 msgid "Select up to what step you want to normalize"
 msgstr "Επιλέξτε μέχρι ποιο βήμα θέλετε να κανονικοποιήσετε"
 
-#: libraries/normalization.lib.php:772
+#: libraries/normalization.lib.php:774
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "Δεύτερο βήμα κανονικοποίησης (1NF+2NF)"
 
-#: libraries/normalization.lib.php:773
+#: libraries/normalization.lib.php:775
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Τρίτο βήμα κανονικοποίησης (1NF+2NF+3NF)"
 
-#: libraries/normalization.lib.php:780
+#: libraries/normalization.lib.php:782
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
@@ -9330,7 +9330,7 @@ msgstr ""
 "Σημείωση: Ακολουθήστε τη διαδικασία προσεκτικά ώστε να έχετε σωστή "
 "κανονικοποίηση"
 
-#: libraries/normalization.lib.php:841
+#: libraries/normalization.lib.php:843
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
@@ -9338,7 +9338,7 @@ msgstr ""
 "Αυτή η λίστα βασίζεται σε μια υποομάδα δεδομένων του πίνακα που δεν είναι "
 "απαραίτητα ακριβής. "
 
-#: libraries/normalization.lib.php:857
+#: libraries/normalization.lib.php:859
 msgid "No partial dependencies found!"
 msgstr "Δεν βρέθηκαν μερικές εξαρτήσεις!"
 
@@ -13551,35 +13551,35 @@ msgstr "Χρήση χώρου"
 msgid "Effective"
 msgstr "Αποτελεσματικός"
 
-#: libraries/structure.lib.php:2566 libraries/tbl_indexes.lib.php:61
+#: libraries/structure.lib.php:2565 libraries/tbl_indexes.lib.php:61
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Ο πίνακας %1$s αλλάχτηκε επιτυχώς."
 
-#: libraries/structure.lib.php:2579 libraries/tracking.lib.php:1034
+#: libraries/structure.lib.php:2578 libraries/tracking.lib.php:1034
 #: libraries/tracking.lib.php:1064
 msgid "Query error"
 msgstr "Σφάλμα ερωτήματος"
 
-#: libraries/structure.lib.php:2718
+#: libraries/structure.lib.php:2717
 msgid "The columns have been moved successfully."
 msgstr "Οι στήλες μετακινήθηκαν επιτυχώς."
 
-#: libraries/structure.lib.php:2766
+#: libraries/structure.lib.php:2765
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "Το όνομα στήλης «%s» είναι μια δεσμευμένη λέξη-κλειδί MySQL."
 
-#: libraries/structure.lib.php:2895
+#: libraries/structure.lib.php:2894
 msgid "Add to Favorites"
 msgstr "Προσθήκη στα Αγαπημένα"
 
-#: libraries/structure.lib.php:2941
+#: libraries/structure.lib.php:2940
 msgid "Favorite List is full!"
 msgstr "Η Λίστα Αγαπημένων είναι πλήρης!"
 
-#: libraries/structure.lib.php:3031
+#: libraries/structure.lib.php:3030
 msgid "Showing create queries"
 msgstr "Εμφάνιση ερωτημάτων δημιουργίας"
 

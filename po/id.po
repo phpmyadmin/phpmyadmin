@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-11-04 10:47+0100\n"
+"POT-Creation-Date: 2014-11-05 10:04+0100\n"
 "PO-Revision-Date: 2014-10-26 10:02+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -216,7 +216,7 @@ msgstr "Tidak"
 #: libraries/server_privileges.lib.php:2721
 #: libraries/server_privileges.lib.php:3062
 #: libraries/server_privileges.lib.php:3087 libraries/structure.lib.php:1362
-#: libraries/structure.lib.php:2803 libraries/tbl_printview.lib.php:114
+#: libraries/structure.lib.php:2802 libraries/tbl_printview.lib.php:114
 #: libraries/tracking.lib.php:890 libraries/tracking.lib.php:965
 #: libraries/tracking.lib.php:970 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -555,7 +555,7 @@ msgstr "Tambahkan geometri"
 #: libraries/display_export.lib.php:299 libraries/display_export.lib.php:305
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1539 libraries/insert_edit.lib.php:1576
-#: libraries/normalization.lib.php:146 libraries/normalization.lib.php:783
+#: libraries/normalization.lib.php:148 libraries/normalization.lib.php:785
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:253
 #: libraries/operations.lib.php:626 libraries/operations.lib.php:679
@@ -1824,7 +1824,7 @@ msgstr "%d bukanlah nomor baris yang berlaku."
 msgid "Browse foreign values"
 msgstr "Menjelajahi nilai luar"
 
-#: js/messages.php:303 libraries/normalization.lib.php:847
+#: js/messages.php:303 libraries/normalization.lib.php:849
 #, fuzzy
 msgid "Pick"
 msgstr "Pilih"
@@ -1878,7 +1878,7 @@ msgstr "Tambahkan kunci primer"
 msgid "Primary key added."
 msgstr "Kunci primer telah ditambahkan."
 
-#: js/messages.php:315 libraries/normalization.lib.php:172
+#: js/messages.php:315 libraries/normalization.lib.php:174
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
@@ -1889,9 +1889,9 @@ msgstr "Laporan pelacakan"
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Llangkah pertama normalisasi selesai untuk tabel '%s'."
 
-#: js/messages.php:317 libraries/normalization.lib.php:420
-#: libraries/normalization.lib.php:467 libraries/normalization.lib.php:550
-#: libraries/normalization.lib.php:610
+#: js/messages.php:317 libraries/normalization.lib.php:422
+#: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
+#: libraries/normalization.lib.php:612
 #, fuzzy
 #| msgid "End of line"
 msgid "End of step"
@@ -1902,7 +1902,7 @@ msgid "Second step of normalization (2NF)"
 msgstr "Langkah kedua normalisasi (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:319 js/messages.php:554 libraries/normalization.lib.php:262
+#: js/messages.php:319 js/messages.php:554 libraries/normalization.lib.php:264
 msgid "Done"
 msgstr "Selesai"
 
@@ -3830,7 +3830,7 @@ msgid "Could not save favorite table!"
 msgstr "Tidak dapat menyimpan tabel favorit!"
 
 #: libraries/RecentFavoriteTable.class.php:227
-#: libraries/structure.lib.php:2894
+#: libraries/structure.lib.php:2893
 msgid "Remove from Favorites"
 msgstr "Hapus dari favorit"
 
@@ -3926,7 +3926,7 @@ msgstr "Pengurutan"
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:120
-#: libraries/structure.lib.php:3084
+#: libraries/structure.lib.php:3083
 msgid "Tables"
 msgstr "Tabel"
 
@@ -4517,7 +4517,7 @@ msgid "Date and time"
 msgstr "Tanggal dan waktu"
 
 #: libraries/Types.class.php:670 libraries/Types.class.php:1040
-#: libraries/normalization.lib.php:141 normalization.php:25
+#: libraries/normalization.lib.php:143 normalization.php:25
 msgctxt "string types"
 msgid "String"
 msgstr "String"
@@ -9385,7 +9385,7 @@ msgstr "Baru"
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:129
-#: libraries/structure.lib.php:3090
+#: libraries/structure.lib.php:3089
 msgid "Views"
 msgstr "View"
 
@@ -9396,21 +9396,21 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "Baru"
 
-#: libraries/normalization.lib.php:112
+#: libraries/normalization.lib.php:114
 #, fuzzy
 msgid "Make all columns atomic"
 msgstr "Membuat semua kolom atom"
 
-#: libraries/normalization.lib.php:114 libraries/normalization.lib.php:771
+#: libraries/normalization.lib.php:116 libraries/normalization.lib.php:773
 msgid "First step of normalization (1NF)"
 msgstr "Tahap pertama normalisasi (1NF)"
 
-#: libraries/normalization.lib.php:117 libraries/normalization.lib.php:168
-#: libraries/normalization.lib.php:211 libraries/normalization.lib.php:247
+#: libraries/normalization.lib.php:119 libraries/normalization.lib.php:170
+#: libraries/normalization.lib.php:213 libraries/normalization.lib.php:249
 msgid "Step 1."
 msgstr "Tahap 1."
 
-#: libraries/normalization.lib.php:119
+#: libraries/normalization.lib.php:121
 #, fuzzy
 msgid ""
 "Do you have any column which can be split into more than one column? For "
@@ -9419,12 +9419,12 @@ msgstr ""
 "Apakah Anda memiliki kolom yang dapat dipecah menjadi lebih dari satu kolom? "
 "Sebagai contoh: alamat dapat dipecah menjadi jalan, kota, negara dan zip."
 
-#: libraries/normalization.lib.php:126
+#: libraries/normalization.lib.php:128
 #, fuzzy
 msgid "Show me the central list of columns that are not already in this table"
 msgstr "Tunjukkan daftar pusat kolom yang belum diatur di tabel ini"
 
-#: libraries/normalization.lib.php:129
+#: libraries/normalization.lib.php:131
 #, fuzzy
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
@@ -9433,36 +9433,36 @@ msgstr ""
 "Pilih kolom yang dapat dipecah menjadi lebih dari satu. (di pilih dari 'ada "
 "kolom seperti', itu akan pindah ke langkah berikutnya)"
 
-#: libraries/normalization.lib.php:136 normalization.php:19
+#: libraries/normalization.lib.php:138 normalization.php:19
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select one…"
 msgstr "Pilih dua kolom"
 
-#: libraries/normalization.lib.php:137 normalization.php:20
+#: libraries/normalization.lib.php:139 normalization.php:20
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "No such column"
 msgstr "Hapus kolom"
 
-#: libraries/normalization.lib.php:144
+#: libraries/normalization.lib.php:146
 #, fuzzy
 msgid "split into "
 msgstr "dibagi menjadi "
 
-#: libraries/normalization.lib.php:165
+#: libraries/normalization.lib.php:167
 #, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
 msgstr "Tambahkan kunci primer"
 
-#: libraries/normalization.lib.php:171
+#: libraries/normalization.lib.php:173
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
 msgstr "Galat: relasi sudah ada."
 
-#: libraries/normalization.lib.php:176
+#: libraries/normalization.lib.php:178
 #, fuzzy
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
@@ -9472,30 +9472,30 @@ msgstr ""
 "adalah kolom (atau kombinasi kolom) yang secara unik mengidentifikasi semua "
 "baris."
 
-#: libraries/normalization.lib.php:183
+#: libraries/normalization.lib.php:185
 msgid "Add a primary key on existing column(s)"
 msgstr "Menambahkan kunci utama pada kolom yang ada"
 
-#: libraries/normalization.lib.php:188
+#: libraries/normalization.lib.php:190
 #, fuzzy
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 "Jika tidak mungkin untuk membuat kombinasi kolom yang ada sebagai kunci utama"
 
-#: libraries/normalization.lib.php:192
+#: libraries/normalization.lib.php:194
 #, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
 msgstr "Tambahkan kunci primer"
 
-#: libraries/normalization.lib.php:210
+#: libraries/normalization.lib.php:212
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove redundant columns"
 msgstr "Hapus kolom"
 
-#: libraries/normalization.lib.php:213
+#: libraries/normalization.lib.php:215
 #, fuzzy
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
@@ -9507,7 +9507,7 @@ msgstr ""
 "FULL_NAME kemudian menggabungkan first_name dan last_name memberikan "
 "FULL_NAME yang berlebihan."
 
-#: libraries/normalization.lib.php:219
+#: libraries/normalization.lib.php:221
 #, fuzzy
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
@@ -9516,24 +9516,24 @@ msgstr ""
 "Periksa kolom yang berlebihan dan klik hapus. Jika tidak ada kolom "
 "berlebihan, klik 'Tidak ada kolom berlebihan'"
 
-#: libraries/normalization.lib.php:224
+#: libraries/normalization.lib.php:226
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "Hapus pengguna yang dipilih"
 
-#: libraries/normalization.lib.php:225
+#: libraries/normalization.lib.php:227
 #, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
 msgstr "Tambah kolom"
 
-#: libraries/normalization.lib.php:246
+#: libraries/normalization.lib.php:248
 #, fuzzy
 msgid "Move repeating groups"
 msgstr "Pindahkan kelompok mengulangi"
 
-#: libraries/normalization.lib.php:249
+#: libraries/normalization.lib.php:251
 #, fuzzy
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
@@ -9548,7 +9548,7 @@ msgstr ""
 "Penulis2, Penulis3 dan sebagainya yang membentuk kelompok berulang. Dalam "
 "hal ini tabel baru (book_id, penulis) harus dibuat."
 
-#: libraries/normalization.lib.php:257
+#: libraries/normalization.lib.php:259
 #, fuzzy
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
@@ -9557,21 +9557,21 @@ msgstr ""
 "Periksa kolom yang membentuk kelompok berulang. Jika tidak ada kelompok "
 "tersebut, klik 'Tidak ada grup yang berulang'"
 
-#: libraries/normalization.lib.php:263
+#: libraries/normalization.lib.php:265
 #, fuzzy
 msgid "No repeating group"
 msgstr "Tidak ada kelompok yang mengulangi"
 
-#: libraries/normalization.lib.php:289
+#: libraries/normalization.lib.php:291
 msgid "Step 2."
 msgstr "Tahap 2."
 
-#: libraries/normalization.lib.php:289
+#: libraries/normalization.lib.php:291
 #, fuzzy
 msgid "Find partial dependencies"
 msgstr "Cari dependensi parsial"
 
-#: libraries/normalization.lib.php:311
+#: libraries/normalization.lib.php:313
 #, fuzzy, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
@@ -9580,12 +9580,12 @@ msgstr ""
 "Tidak ada dependensi parsial mungkin karena tidak ada kolom non-primary ada "
 "sejak primary key (%1$s) terdiri dari semua kolom dalam tabel."
 
-#: libraries/normalization.lib.php:316 libraries/normalization.lib.php:358
+#: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 #, fuzzy
 msgid "Table is already in second normal form."
 msgstr "Tabel sudah dalam bentuk normal kedua."
 
-#: libraries/normalization.lib.php:321
+#: libraries/normalization.lib.php:323
 #, fuzzy, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
@@ -9594,7 +9594,7 @@ msgstr ""
 "Kunci primer (%1$s) terdiri dari lebih dari satu kolom sehingga kita perlu "
 "menemukan dependensi parsial."
 
-#: libraries/normalization.lib.php:325 libraries/normalization.lib.php:690
+#: libraries/normalization.lib.php:327 libraries/normalization.lib.php:692
 #, fuzzy
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
@@ -9603,12 +9603,12 @@ msgstr ""
 "Jawablah pertanyaan berikut dengan hati-hati untuk mendapatkan normalisasi "
 "yang benar."
 
-#: libraries/normalization.lib.php:329
+#: libraries/normalization.lib.php:331
 #, fuzzy
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr "+ Tunjukkan dependensi parsial mungkin berdasarkan data dalam tabel"
 
-#: libraries/normalization.lib.php:333
+#: libraries/normalization.lib.php:335
 #, fuzzy
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
@@ -9619,12 +9619,12 @@ msgstr ""
 "di antara yang diberikan set yang nilai digabungkan bersama-sama cukup untuk "
 "menentukan nilai kolom."
 
-#: libraries/normalization.lib.php:343 libraries/normalization.lib.php:728
+#: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, fuzzy, php-format
 msgid "'%1$s' depends on:"
 msgstr "'%1$s' bergantung pada:"
 
-#: libraries/normalization.lib.php:354
+#: libraries/normalization.lib.php:356
 #, fuzzy, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
@@ -9633,7 +9633,7 @@ msgstr ""
 "Tidak ada dependensi parsial mungkin sebagai primary key (%1$s) hanya "
 "memiliki satu kolom."
 
-#: libraries/normalization.lib.php:379
+#: libraries/normalization.lib.php:381
 #, fuzzy, php-format
 msgid ""
 "As per above partial dependencies, in order to put the original table '%1$s' "
@@ -9642,19 +9642,19 @@ msgstr ""
 "Seperti per di atas dependensi parsial, dalam rangka untuk menempatkan tabel "
 "asli '%1$s' ke bentuk normal kedua kita perlu membuat tabel berikut:"
 
-#: libraries/normalization.lib.php:415
+#: libraries/normalization.lib.php:417
 #, fuzzy, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "Langkah kedua normalisasi selesai untuk tabel '%1$s'."
 
-#: libraries/normalization.lib.php:455 libraries/normalization.lib.php:598
-#: libraries/normalization.lib.php:661
+#: libraries/normalization.lib.php:457 libraries/normalization.lib.php:600
+#: libraries/normalization.lib.php:663
 #, fuzzy
 #| msgid "Error in processing request"
 msgid "Error in processing!"
 msgstr "Galat sewaktu memproses permintaan."
 
-#: libraries/normalization.lib.php:499
+#: libraries/normalization.lib.php:501
 #, fuzzy, php-format
 msgid ""
 "As per above dependencies, in order to put the original table '%1$s' into "
@@ -9663,26 +9663,26 @@ msgstr ""
 "Sesuai dependensi di atas, dalam rangka untuk menempatkan tabel asli '%1$s' "
 "ke dalam bentuk normal ketiga kita perlu membuat tabel berikut:"
 
-#: libraries/normalization.lib.php:546
+#: libraries/normalization.lib.php:548
 #, fuzzy
 msgid "The third step of normalization is complete."
 msgstr "Langkah ketiga normalisasi selesai."
 
-#: libraries/normalization.lib.php:640
+#: libraries/normalization.lib.php:642
 #, fuzzy, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Dipilih kelompok mengulangi telah dipindahkan ke meja '%s'"
 
-#: libraries/normalization.lib.php:687
+#: libraries/normalization.lib.php:689
 msgid "Step 3."
 msgstr "Tahap 3."
 
-#: libraries/normalization.lib.php:687
+#: libraries/normalization.lib.php:689
 #, fuzzy
 msgid "Find transitive dependencies"
 msgstr "Cari dependensi transitif"
 
-#: libraries/normalization.lib.php:694
+#: libraries/normalization.lib.php:696
 #, fuzzy
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
@@ -9695,7 +9695,7 @@ msgstr ""
 "menentukan nilai dari kolom <br /> Catatan:. Kolom A mungkin tidak memiliki "
 "ketergantungan transitif, dalam hal ini Anda tidak perlu memilih."
 
-#: libraries/normalization.lib.php:741
+#: libraries/normalization.lib.php:743
 #, fuzzy
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
@@ -9704,31 +9704,31 @@ msgstr ""
 "Tidak ada transitif dependensi mungkin karena meja tidak memiliki kolom "
 "kunci non primary"
 
-#: libraries/normalization.lib.php:745
+#: libraries/normalization.lib.php:747
 #, fuzzy
 msgid "Table is already in Third normal form!"
 msgstr "Tabel sudah dalam bentuk normal ketiga!"
 
-#: libraries/normalization.lib.php:768
+#: libraries/normalization.lib.php:770
 #, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
 msgstr "Sembunyikan stuktur aksi tabel"
 
-#: libraries/normalization.lib.php:769
+#: libraries/normalization.lib.php:771
 #, fuzzy
 msgid "Select up to what step you want to normalize"
 msgstr "Pilih hingga langkah apa yang ingin Anda menormalkan"
 
-#: libraries/normalization.lib.php:772
+#: libraries/normalization.lib.php:774
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "Normalisasi tahap kedua (1NF+2NF)"
 
-#: libraries/normalization.lib.php:773
+#: libraries/normalization.lib.php:775
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Normalisasi tahap ketiga (1NF+2NF+3NF)"
 
-#: libraries/normalization.lib.php:780
+#: libraries/normalization.lib.php:782
 #, fuzzy
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
@@ -9737,14 +9737,14 @@ msgstr ""
 "Petunjuk: Silahkan ikuti prosedur dengan hati-hati untuk mendapatkan "
 "normalisasi yang benar"
 
-#: libraries/normalization.lib.php:841
+#: libraries/normalization.lib.php:843
 #, fuzzy
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr "Daftar ini didasarkan pada subset data tabel dan belum tentu akurat. "
 
-#: libraries/normalization.lib.php:857
+#: libraries/normalization.lib.php:859
 #, fuzzy
 msgid "No partial dependencies found!"
 msgstr "Tidak ada dependensi parsial ditemukan!"
@@ -14276,37 +14276,37 @@ msgstr "Penggunaan ruang"
 msgid "Effective"
 msgstr "Efektif"
 
-#: libraries/structure.lib.php:2566 libraries/tbl_indexes.lib.php:61
+#: libraries/structure.lib.php:2565 libraries/tbl_indexes.lib.php:61
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabel %1$s berhasil diubah."
 
-#: libraries/structure.lib.php:2579 libraries/tracking.lib.php:1034
+#: libraries/structure.lib.php:2578 libraries/tracking.lib.php:1034
 #: libraries/tracking.lib.php:1064
 msgid "Query error"
 msgstr "Galat kueri"
 
-#: libraries/structure.lib.php:2718
+#: libraries/structure.lib.php:2717
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
 msgstr "Sukses menghapus pengguna yang dipilih."
 
-#: libraries/structure.lib.php:2766
+#: libraries/structure.lib.php:2765
 #, fuzzy, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "Nama kolom '%s' adalah kata kunci pesanan MySQL."
 
-#: libraries/structure.lib.php:2895
+#: libraries/structure.lib.php:2894
 msgid "Add to Favorites"
 msgstr "Tambahkan ke favorit"
 
-#: libraries/structure.lib.php:2941
+#: libraries/structure.lib.php:2940
 msgid "Favorite List is full!"
 msgstr "Daftar favorit sudah penuh!"
 
-#: libraries/structure.lib.php:3031
+#: libraries/structure.lib.php:3030
 #, fuzzy
 #| msgid "Show SQL queries"
 msgid "Showing create queries"

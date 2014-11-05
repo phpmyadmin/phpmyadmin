@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-11-04 10:47+0100\n"
+"POT-Creation-Date: 2014-11-05 10:04+0100\n"
 "PO-Revision-Date: 2014-10-03 21:14+0200\n"
 "Last-Translator: Peter Dave Hello <xs910203@gmail.com>\n"
 "Language-Team: Traditional Chinese <https://hosted.weblate.org/projects/"
@@ -210,7 +210,7 @@ msgstr "否"
 #: libraries/server_privileges.lib.php:2721
 #: libraries/server_privileges.lib.php:3062
 #: libraries/server_privileges.lib.php:3087 libraries/structure.lib.php:1362
-#: libraries/structure.lib.php:2803 libraries/tbl_printview.lib.php:114
+#: libraries/structure.lib.php:2802 libraries/tbl_printview.lib.php:114
 #: libraries/tracking.lib.php:890 libraries/tracking.lib.php:965
 #: libraries/tracking.lib.php:970 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -543,7 +543,7 @@ msgstr "新增幾何形"
 #: libraries/display_export.lib.php:299 libraries/display_export.lib.php:305
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1539 libraries/insert_edit.lib.php:1576
-#: libraries/normalization.lib.php:146 libraries/normalization.lib.php:783
+#: libraries/normalization.lib.php:148 libraries/normalization.lib.php:785
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:253
 #: libraries/operations.lib.php:626 libraries/operations.lib.php:679
@@ -1753,7 +1753,7 @@ msgstr "%d 不是有效的資料列號。"
 msgid "Browse foreign values"
 msgstr "瀏覽關聯的值"
 
-#: js/messages.php:303 libraries/normalization.lib.php:847
+#: js/messages.php:303 libraries/normalization.lib.php:849
 msgid "Pick"
 msgstr "選取"
 
@@ -1799,7 +1799,7 @@ msgstr "新增主鍵"
 msgid "Primary key added."
 msgstr "已新增主鍵(Primary key)。"
 
-#: js/messages.php:315 libraries/normalization.lib.php:172
+#: js/messages.php:315 libraries/normalization.lib.php:174
 msgid "Taking you to next step…"
 msgstr "帶您至下一步驟 …"
 
@@ -1808,9 +1808,9 @@ msgstr "帶您至下一步驟 …"
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "表格 '%s' 正規化的第一步驟已經完成。"
 
-#: js/messages.php:317 libraries/normalization.lib.php:420
-#: libraries/normalization.lib.php:467 libraries/normalization.lib.php:550
-#: libraries/normalization.lib.php:610
+#: js/messages.php:317 libraries/normalization.lib.php:422
+#: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
+#: libraries/normalization.lib.php:612
 msgid "End of step"
 msgstr "結束步驟"
 
@@ -1819,7 +1819,7 @@ msgid "Second step of normalization (2NF)"
 msgstr "第二正規化 (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:319 js/messages.php:554 libraries/normalization.lib.php:262
+#: js/messages.php:319 js/messages.php:554 libraries/normalization.lib.php:264
 msgid "Done"
 msgstr "完成"
 
@@ -3597,7 +3597,7 @@ msgid "Could not save favorite table!"
 msgstr "無法儲存我的最愛的資料表!"
 
 #: libraries/RecentFavoriteTable.class.php:227
-#: libraries/structure.lib.php:2894
+#: libraries/structure.lib.php:2893
 msgid "Remove from Favorites"
 msgstr "自我的最愛中移除"
 
@@ -3693,7 +3693,7 @@ msgstr "排序"
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:120
-#: libraries/structure.lib.php:3084
+#: libraries/structure.lib.php:3083
 msgid "Tables"
 msgstr "資料表"
 
@@ -4250,7 +4250,7 @@ msgid "Date and time"
 msgstr "日期及時間"
 
 #: libraries/Types.class.php:670 libraries/Types.class.php:1040
-#: libraries/normalization.lib.php:141 normalization.php:25
+#: libraries/normalization.lib.php:143 normalization.php:25
 msgctxt "string types"
 msgid "String"
 msgstr "字串"
@@ -8602,7 +8602,7 @@ msgstr "新增"
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:129
-#: libraries/structure.lib.php:3090
+#: libraries/structure.lib.php:3089
 msgid "Views"
 msgstr "檢視表"
 
@@ -8611,20 +8611,20 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "新增"
 
-#: libraries/normalization.lib.php:112
+#: libraries/normalization.lib.php:114
 msgid "Make all columns atomic"
 msgstr "將所有欄位設定為不可分割。"
 
-#: libraries/normalization.lib.php:114 libraries/normalization.lib.php:771
+#: libraries/normalization.lib.php:116 libraries/normalization.lib.php:773
 msgid "First step of normalization (1NF)"
 msgstr "第一正規化 (1NF)"
 
-#: libraries/normalization.lib.php:117 libraries/normalization.lib.php:168
-#: libraries/normalization.lib.php:211 libraries/normalization.lib.php:247
+#: libraries/normalization.lib.php:119 libraries/normalization.lib.php:170
+#: libraries/normalization.lib.php:213 libraries/normalization.lib.php:249
 msgid "Step 1."
 msgstr "步驟 1."
 
-#: libraries/normalization.lib.php:119
+#: libraries/normalization.lib.php:121
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
@@ -8632,87 +8632,87 @@ msgstr ""
 "您是否有任何欄位是可以被分割成一個以上的欄位呢? 例如: 地址可以被分割為城市、"
 "街道、郵遞區號等。"
 
-#: libraries/normalization.lib.php:126
+#: libraries/normalization.lib.php:128
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 
-#: libraries/normalization.lib.php:129
+#: libraries/normalization.lib.php:131
 #, fuzzy
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr "選擇一個可以被切割為一個以上的欄位"
 
-#: libraries/normalization.lib.php:136 normalization.php:19
+#: libraries/normalization.lib.php:138 normalization.php:19
 msgid "Select one…"
 msgstr "請選擇一項…"
 
-#: libraries/normalization.lib.php:137 normalization.php:20
+#: libraries/normalization.lib.php:139 normalization.php:20
 msgid "No such column"
 msgstr "沒有這個欄位"
 
-#: libraries/normalization.lib.php:144
+#: libraries/normalization.lib.php:146
 msgid "split into "
 msgstr "分割為 "
 
-#: libraries/normalization.lib.php:165
+#: libraries/normalization.lib.php:167
 msgid "Have a primary key"
 msgstr "擁有一個主鍵"
 
-#: libraries/normalization.lib.php:171
+#: libraries/normalization.lib.php:173
 msgid "Primary key already exists."
 msgstr "主鍵己存在。"
 
-#: libraries/normalization.lib.php:176
+#: libraries/normalization.lib.php:178
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
 
-#: libraries/normalization.lib.php:183
+#: libraries/normalization.lib.php:185
 msgid "Add a primary key on existing column(s)"
 msgstr "於己存在的欄位上新增主鍵"
 
-#: libraries/normalization.lib.php:188
+#: libraries/normalization.lib.php:190
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr "無法將現有的欄位組合設為主鍵。"
 
-#: libraries/normalization.lib.php:192
+#: libraries/normalization.lib.php:194
 msgid "+ Add a new primary key column"
 msgstr "+ 新增主鍵欄位"
 
-#: libraries/normalization.lib.php:210
+#: libraries/normalization.lib.php:212
 msgid "Remove redundant columns"
 msgstr "移除多餘欄位"
 
-#: libraries/normalization.lib.php:213
+#: libraries/normalization.lib.php:215
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
 
-#: libraries/normalization.lib.php:219
+#: libraries/normalization.lib.php:221
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
 
-#: libraries/normalization.lib.php:224
+#: libraries/normalization.lib.php:226
 msgid "Remove selected"
 msgstr "移除己選擇"
 
-#: libraries/normalization.lib.php:225
+#: libraries/normalization.lib.php:227
 msgid "No redundant column"
 msgstr "無多餘欄位"
 
-#: libraries/normalization.lib.php:246
+#: libraries/normalization.lib.php:248
 #, fuzzy
 msgid "Move repeating groups"
 msgstr "移動重複的分組。"
 
-#: libraries/normalization.lib.php:249
+#: libraries/normalization.lib.php:251
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -8721,115 +8721,115 @@ msgid ""
 "should be created."
 msgstr ""
 
-#: libraries/normalization.lib.php:257
+#: libraries/normalization.lib.php:259
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
 
-#: libraries/normalization.lib.php:263
+#: libraries/normalization.lib.php:265
 #, fuzzy
 msgid "No repeating group"
 msgstr "沒有重複的分組"
 
-#: libraries/normalization.lib.php:289
+#: libraries/normalization.lib.php:291
 msgid "Step 2."
 msgstr "步驟 2."
 
-#: libraries/normalization.lib.php:289
+#: libraries/normalization.lib.php:291
 msgid "Find partial dependencies"
 msgstr "尋找部份相依"
 
-#: libraries/normalization.lib.php:311
+#: libraries/normalization.lib.php:313
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
 
-#: libraries/normalization.lib.php:316 libraries/normalization.lib.php:358
+#: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."
 msgstr "資料表己完成第二正規化。"
 
-#: libraries/normalization.lib.php:321
+#: libraries/normalization.lib.php:323
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
 
-#: libraries/normalization.lib.php:325 libraries/normalization.lib.php:690
+#: libraries/normalization.lib.php:327 libraries/normalization.lib.php:692
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr "請謹慎回答以下問題以完成正確的正規化。"
 
-#: libraries/normalization.lib.php:329
+#: libraries/normalization.lib.php:331
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr "+ 根據資料表的資料顯示可能的部份相依"
 
-#: libraries/normalization.lib.php:333
+#: libraries/normalization.lib.php:335
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
 
-#: libraries/normalization.lib.php:343 libraries/normalization.lib.php:728
+#: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "'%1$s' 相依於:"
 
-#: libraries/normalization.lib.php:354
+#: libraries/normalization.lib.php:356
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
 
-#: libraries/normalization.lib.php:379
+#: libraries/normalization.lib.php:381
 #, php-format
 msgid ""
 "As per above partial dependencies, in order to put the original table '%1$s' "
 "into Second normal form we need to create the following tables:"
 msgstr ""
 
-#: libraries/normalization.lib.php:415
+#: libraries/normalization.lib.php:417
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "資料表 '%1$s' 己完成第二正規化。"
 
-#: libraries/normalization.lib.php:455 libraries/normalization.lib.php:598
-#: libraries/normalization.lib.php:661
+#: libraries/normalization.lib.php:457 libraries/normalization.lib.php:600
+#: libraries/normalization.lib.php:663
 msgid "Error in processing!"
 msgstr "處理時發生錯誤！"
 
-#: libraries/normalization.lib.php:499
+#: libraries/normalization.lib.php:501
 #, php-format
 msgid ""
 "As per above dependencies, in order to put the original table '%1$s' into "
 "Third normal form we need to create the following tables:"
 msgstr ""
 
-#: libraries/normalization.lib.php:546
+#: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
 msgstr "己完成第三正規化。"
 
-#: libraries/normalization.lib.php:640
+#: libraries/normalization.lib.php:642
 #, fuzzy, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "選中的資料表已根據來源資料表同步"
 
-#: libraries/normalization.lib.php:687
+#: libraries/normalization.lib.php:689
 msgid "Step 3."
 msgstr "步驟 3."
 
-#: libraries/normalization.lib.php:687
+#: libraries/normalization.lib.php:689
 msgid "Find transitive dependencies"
 msgstr "尋找遞移相依"
 
-#: libraries/normalization.lib.php:694
+#: libraries/normalization.lib.php:696
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -8837,45 +8837,45 @@ msgid ""
 "in that case you don't have to select any."
 msgstr ""
 
-#: libraries/normalization.lib.php:741
+#: libraries/normalization.lib.php:743
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
 
-#: libraries/normalization.lib.php:745
+#: libraries/normalization.lib.php:747
 msgid "Table is already in Third normal form!"
 msgstr "資料表己完成第三正規化！"
 
-#: libraries/normalization.lib.php:768
+#: libraries/normalization.lib.php:770
 msgid "Improve table structure (Normalization):"
 msgstr "改進資料表結構 (正規化)："
 
-#: libraries/normalization.lib.php:769
+#: libraries/normalization.lib.php:771
 msgid "Select up to what step you want to normalize"
 msgstr ""
 
-#: libraries/normalization.lib.php:772
+#: libraries/normalization.lib.php:774
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "第二正規化 (1NF+2NF)"
 
-#: libraries/normalization.lib.php:773
+#: libraries/normalization.lib.php:775
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "第三正規化 (1NF+2NF+3NF)"
 
-#: libraries/normalization.lib.php:780
+#: libraries/normalization.lib.php:782
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr "提示：請謹心慎依照程序以完成正確的正規化"
 
-#: libraries/normalization.lib.php:841
+#: libraries/normalization.lib.php:843
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
 
-#: libraries/normalization.lib.php:857
+#: libraries/normalization.lib.php:859
 msgid "No partial dependencies found!"
 msgstr "查無部份相依！"
 
@@ -12868,35 +12868,35 @@ msgstr "已用空間"
 msgid "Effective"
 msgstr "有效"
 
-#: libraries/structure.lib.php:2566 libraries/tbl_indexes.lib.php:61
+#: libraries/structure.lib.php:2565 libraries/tbl_indexes.lib.php:61
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "已成功修改資料表 %1$s 。"
 
-#: libraries/structure.lib.php:2579 libraries/tracking.lib.php:1034
+#: libraries/structure.lib.php:2578 libraries/tracking.lib.php:1034
 #: libraries/tracking.lib.php:1064
 msgid "Query error"
 msgstr "查詢錯誤"
 
-#: libraries/structure.lib.php:2718
+#: libraries/structure.lib.php:2717
 msgid "The columns have been moved successfully."
 msgstr "欄位已移動成功。"
 
-#: libraries/structure.lib.php:2766
+#: libraries/structure.lib.php:2765
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "欄位名稱 '%s' 是 MySQL 保留字。"
 
-#: libraries/structure.lib.php:2895
+#: libraries/structure.lib.php:2894
 msgid "Add to Favorites"
 msgstr "新增至我的最愛"
 
-#: libraries/structure.lib.php:2941
+#: libraries/structure.lib.php:2940
 msgid "Favorite List is full!"
 msgstr "我的最愛清單已滿!"
 
-#: libraries/structure.lib.php:3031
+#: libraries/structure.lib.php:3030
 msgid "Showing create queries"
 msgstr "顯示建立查詢"
 

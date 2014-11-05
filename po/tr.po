@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-11-04 10:47+0100\n"
+"POT-Creation-Date: 2014-11-05 10:04+0100\n"
 "PO-Revision-Date: 2014-11-04 11:27+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -212,7 +212,7 @@ msgstr "Hayır"
 #: libraries/server_privileges.lib.php:2721
 #: libraries/server_privileges.lib.php:3062
 #: libraries/server_privileges.lib.php:3087 libraries/structure.lib.php:1362
-#: libraries/structure.lib.php:2803 libraries/tbl_printview.lib.php:114
+#: libraries/structure.lib.php:2802 libraries/tbl_printview.lib.php:114
 #: libraries/tracking.lib.php:890 libraries/tracking.lib.php:965
 #: libraries/tracking.lib.php:970 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -552,7 +552,7 @@ msgstr "Geometri ekle"
 #: libraries/display_export.lib.php:299 libraries/display_export.lib.php:305
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1539 libraries/insert_edit.lib.php:1576
-#: libraries/normalization.lib.php:146 libraries/normalization.lib.php:783
+#: libraries/normalization.lib.php:148 libraries/normalization.lib.php:785
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:253
 #: libraries/operations.lib.php:626 libraries/operations.lib.php:679
@@ -897,9 +897,6 @@ msgstr ""
 "genişletilmiş özellikler devre dışı bırakıldı. %sNedenini bulun%s. "
 
 #: index.php:527
-#| msgid ""
-#| "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or alternately go to 'Operations' "
-#| "tab of any database to set it up there."
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
@@ -1802,7 +1799,7 @@ msgstr "%d geçerli bir satır sayısı değil."
 msgid "Browse foreign values"
 msgstr "Dış değerlere gözat"
 
-#: js/messages.php:303 libraries/normalization.lib.php:847
+#: js/messages.php:303 libraries/normalization.lib.php:849
 msgid "Pick"
 msgstr "Seç"
 
@@ -1852,7 +1849,7 @@ msgstr "Birincil anahtar ekle"
 msgid "Primary key added."
 msgstr "Birincil anahtar eklendi."
 
-#: js/messages.php:315 libraries/normalization.lib.php:172
+#: js/messages.php:315 libraries/normalization.lib.php:174
 msgid "Taking you to next step…"
 msgstr "Sizi sonraki adıma götürüyor…"
 
@@ -1861,9 +1858,9 @@ msgstr "Sizi sonraki adıma götürüyor…"
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Normalleştirmenin ilk adımı '%s' tablosu için tamamlandı."
 
-#: js/messages.php:317 libraries/normalization.lib.php:420
-#: libraries/normalization.lib.php:467 libraries/normalization.lib.php:550
-#: libraries/normalization.lib.php:610
+#: js/messages.php:317 libraries/normalization.lib.php:422
+#: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
+#: libraries/normalization.lib.php:612
 msgid "End of step"
 msgstr "Adım sonu"
 
@@ -1872,7 +1869,7 @@ msgid "Second step of normalization (2NF)"
 msgstr "Normalleştirmenin ikinci adımı (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:319 js/messages.php:554 libraries/normalization.lib.php:262
+#: js/messages.php:319 js/messages.php:554 libraries/normalization.lib.php:264
 msgid "Done"
 msgstr "Bitti"
 
@@ -3693,7 +3690,7 @@ msgid "Could not save favorite table!"
 msgstr "Sık kullanılan tablo kaydedilemedi!"
 
 #: libraries/RecentFavoriteTable.class.php:227
-#: libraries/structure.lib.php:2894
+#: libraries/structure.lib.php:2893
 msgid "Remove from Favorites"
 msgstr "Sık Kullanılanlardan kaldır"
 
@@ -3789,7 +3786,7 @@ msgstr "Sıralama"
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:120
-#: libraries/structure.lib.php:3084
+#: libraries/structure.lib.php:3083
 msgid "Tables"
 msgstr "Tablolar"
 
@@ -4375,7 +4372,7 @@ msgid "Date and time"
 msgstr "Tarih ve saat"
 
 #: libraries/Types.class.php:670 libraries/Types.class.php:1040
-#: libraries/normalization.lib.php:141 normalization.php:25
+#: libraries/normalization.lib.php:143 normalization.php:25
 msgctxt "string types"
 msgid "String"
 msgstr "Dizgi"
@@ -8949,7 +8946,7 @@ msgstr "Yeni"
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:129
-#: libraries/structure.lib.php:3090
+#: libraries/structure.lib.php:3089
 msgid "Views"
 msgstr "Görünümler"
 
@@ -8958,20 +8955,20 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "Yeni"
 
-#: libraries/normalization.lib.php:112
+#: libraries/normalization.lib.php:114
 msgid "Make all columns atomic"
 msgstr "Tüm sütunları çok küçük yap"
 
-#: libraries/normalization.lib.php:114 libraries/normalization.lib.php:771
+#: libraries/normalization.lib.php:116 libraries/normalization.lib.php:773
 msgid "First step of normalization (1NF)"
 msgstr "Normalleştirmenin ilk adımı (1NF)"
 
-#: libraries/normalization.lib.php:117 libraries/normalization.lib.php:168
-#: libraries/normalization.lib.php:211 libraries/normalization.lib.php:247
+#: libraries/normalization.lib.php:119 libraries/normalization.lib.php:170
+#: libraries/normalization.lib.php:213 libraries/normalization.lib.php:249
 msgid "Step 1."
 msgstr "Adım 1."
 
-#: libraries/normalization.lib.php:119
+#: libraries/normalization.lib.php:121
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
@@ -8979,11 +8976,11 @@ msgstr ""
 "Birden fazla sütuna bölünebilen herhangi bir sütununuz var mı? Örneğin: "
 "adres cadde,şehir, ülke ve posta kodu olarak bölünebilir."
 
-#: libraries/normalization.lib.php:126
+#: libraries/normalization.lib.php:128
 msgid "Show me the central list of columns that are not already in this table"
 msgstr "Zaten bu tabloda olmayan sütunların merkezi listesini bana göster"
 
-#: libraries/normalization.lib.php:129
+#: libraries/normalization.lib.php:131
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
@@ -8991,27 +8988,27 @@ msgstr ""
 "Birden fazla sütuna bölünebilen bir sütun seçin. ('böyle bir sütun yok' "
 "seçiminde, sonraki adıma geçilecek)"
 
-#: libraries/normalization.lib.php:136 normalization.php:19
+#: libraries/normalization.lib.php:138 normalization.php:19
 msgid "Select one…"
 msgstr "Birini seçin…"
 
-#: libraries/normalization.lib.php:137 normalization.php:20
+#: libraries/normalization.lib.php:139 normalization.php:20
 msgid "No such column"
 msgstr "Böyle bir sütun yok"
 
-#: libraries/normalization.lib.php:144
+#: libraries/normalization.lib.php:146
 msgid "split into "
 msgstr "böl "
 
-#: libraries/normalization.lib.php:165
+#: libraries/normalization.lib.php:167
 msgid "Have a primary key"
 msgstr "Birincil anahtara sahip"
 
-#: libraries/normalization.lib.php:171
+#: libraries/normalization.lib.php:173
 msgid "Primary key already exists."
 msgstr "Birincil anahtar zaten var."
 
-#: libraries/normalization.lib.php:176
+#: libraries/normalization.lib.php:178
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
@@ -9020,25 +9017,25 @@ msgstr ""
 "tüm satırları benzersiz olarak tanımlayan bir sütundur (ya da sütunların "
 "birleşimi)."
 
-#: libraries/normalization.lib.php:183
+#: libraries/normalization.lib.php:185
 msgid "Add a primary key on existing column(s)"
 msgstr "Var olan sütun(lar)a birincil anahtar ekleyin"
 
-#: libraries/normalization.lib.php:188
+#: libraries/normalization.lib.php:190
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 "Birincil anahtar olarak var olan sütun birleşimleri yapmak mümkün değilse"
 
-#: libraries/normalization.lib.php:192
+#: libraries/normalization.lib.php:194
 msgid "+ Add a new primary key column"
 msgstr "+ Yeni bir birincil anahtar sütunu ekle"
 
-#: libraries/normalization.lib.php:210
+#: libraries/normalization.lib.php:212
 msgid "Remove redundant columns"
 msgstr "Gereksiz sütunları kaldır"
 
-#: libraries/normalization.lib.php:213
+#: libraries/normalization.lib.php:215
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
@@ -9048,7 +9045,7 @@ msgstr ""
 "sahip misiniz? Örneğin, eğer ilk_adı, soy_adı ve tam_adı'na sahipseniz ondan "
 "sonra ilk_adı ve soy_adı birleşimi gereksiz olan tam_adı verir."
 
-#: libraries/normalization.lib.php:219
+#: libraries/normalization.lib.php:221
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
@@ -9056,19 +9053,19 @@ msgstr ""
 "Gereksiz sütunları kontrol edin ve kaldır seçeneğine tıklayın. Eğer gereksiz "
 "sütun yoksa, 'Gereksiz sütun yok' seçeneğine tıklayın"
 
-#: libraries/normalization.lib.php:224
+#: libraries/normalization.lib.php:226
 msgid "Remove selected"
 msgstr "Seçileni kaldır"
 
-#: libraries/normalization.lib.php:225
+#: libraries/normalization.lib.php:227
 msgid "No redundant column"
 msgstr "Gereksiz sütun yok"
 
-#: libraries/normalization.lib.php:246
+#: libraries/normalization.lib.php:248
 msgid "Move repeating groups"
 msgstr "Tekrarlayan grupları taşı"
 
-#: libraries/normalization.lib.php:249
+#: libraries/normalization.lib.php:251
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -9082,7 +9079,7 @@ msgstr ""
 "benzerleri gibi sütunlara sahip olabilir. Bu durumda yeni bir tablo "
 "(kitap_id, yazar) oluşturulmalıdır."
 
-#: libraries/normalization.lib.php:257
+#: libraries/normalization.lib.php:259
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
@@ -9090,19 +9087,19 @@ msgstr ""
 "Tekrarlayan bir gruptan olan sütunları kontrol edin. Eğer böyle bir grup "
 "yoksa, 'Tekrarlayan grup yok' seçeneğine tıklayın"
 
-#: libraries/normalization.lib.php:263
+#: libraries/normalization.lib.php:265
 msgid "No repeating group"
 msgstr "Tekrarlayan grup yok"
 
-#: libraries/normalization.lib.php:289
+#: libraries/normalization.lib.php:291
 msgid "Step 2."
 msgstr "Adım 2."
 
-#: libraries/normalization.lib.php:289
+#: libraries/normalization.lib.php:291
 msgid "Find partial dependencies"
 msgstr "Kısmi bağımlılıkları bul"
 
-#: libraries/normalization.lib.php:311
+#: libraries/normalization.lib.php:313
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
@@ -9111,11 +9108,11 @@ msgstr ""
 "Birincil anahtar ( %1$s ), tablodaki tüm sütunlardan oluştuğu sürece "
 "birincil olmayan sütun mevcut olmadığı için kısmi bağımlılıklar mümkün değil."
 
-#: libraries/normalization.lib.php:316 libraries/normalization.lib.php:358
+#: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."
 msgstr "Tablo zaten ikinci normal biçiminde."
 
-#: libraries/normalization.lib.php:321
+#: libraries/normalization.lib.php:323
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
@@ -9124,7 +9121,7 @@ msgstr ""
 "Birincil anahtar ( %1$s ) birden fazla sütundan meydana geliyor bu yüzden "
 "kısmi bağımlılıkları bulamamız gerekli."
 
-#: libraries/normalization.lib.php:325 libraries/normalization.lib.php:690
+#: libraries/normalization.lib.php:327 libraries/normalization.lib.php:692
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
@@ -9132,11 +9129,11 @@ msgstr ""
 "Lütfen aşağıdaki soru(ları)yu doğru normalleştirmeyi elde etmek için "
 "dikkatlice yanıtlayın."
 
-#: libraries/normalization.lib.php:329
+#: libraries/normalization.lib.php:331
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr "+ Tablodaki veriye dayanarak olası kısmi bağımlılıkları bana göster"
 
-#: libraries/normalization.lib.php:333
+#: libraries/normalization.lib.php:335
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -9146,12 +9143,12 @@ msgstr ""
 "değerlerle birlikte birleştirilip verilen küme arasındaki sütunların <b>en "
 "az olan kümesini</b> seçin."
 
-#: libraries/normalization.lib.php:343 libraries/normalization.lib.php:728
+#: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "'%1$s' bağlı olduğu:"
 
-#: libraries/normalization.lib.php:354
+#: libraries/normalization.lib.php:356
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
@@ -9160,7 +9157,7 @@ msgstr ""
 "Birincil anahtar ( %1$s ) olarak mümkün olmayan kısmi bağımlılıklar sadece "
 "bir sütuna sahiptir."
 
-#: libraries/normalization.lib.php:379
+#: libraries/normalization.lib.php:381
 #, php-format
 msgid ""
 "As per above partial dependencies, in order to put the original table '%1$s' "
@@ -9169,17 +9166,17 @@ msgstr ""
 "Yukarıdaki kısmi bağımlılıklara göre, İkinci normal biçim içine orijinal "
 "'%1$s' tablosunu koymak için aşağıdaki tabloları oluşturmamız gerekli:"
 
-#: libraries/normalization.lib.php:415
+#: libraries/normalization.lib.php:417
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "Normalleştirmenin ikinci adımı '%1$s' tablosu için tamamlandı."
 
-#: libraries/normalization.lib.php:455 libraries/normalization.lib.php:598
-#: libraries/normalization.lib.php:661
+#: libraries/normalization.lib.php:457 libraries/normalization.lib.php:600
+#: libraries/normalization.lib.php:663
 msgid "Error in processing!"
 msgstr "İşlemede hata!"
 
-#: libraries/normalization.lib.php:499
+#: libraries/normalization.lib.php:501
 #, php-format
 msgid ""
 "As per above dependencies, in order to put the original table '%1$s' into "
@@ -9188,24 +9185,24 @@ msgstr ""
 "Yukarıdaki bağımlılıklara göre, Üçüncü normal biçim içine orijinal '%1$s' "
 "tablosunu koymak için aşağıdaki tabloları oluşturmamız gerekli:"
 
-#: libraries/normalization.lib.php:546
+#: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
 msgstr "Normalleştirmenin üçüncü adımı tamamlandı."
 
-#: libraries/normalization.lib.php:640
+#: libraries/normalization.lib.php:642
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Seçili tekrarlayan grup '%s' tablosuna taşındı"
 
-#: libraries/normalization.lib.php:687
+#: libraries/normalization.lib.php:689
 msgid "Step 3."
 msgstr "Adım 3."
 
-#: libraries/normalization.lib.php:687
+#: libraries/normalization.lib.php:689
 msgid "Find transitive dependencies"
 msgstr "Karşılıklı bağımlılıkları bul"
 
-#: libraries/normalization.lib.php:694
+#: libraries/normalization.lib.php:696
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -9217,7 +9214,7 @@ msgstr ""
 "az olan kümesini</b> seçin.<br />Not: Bir sütun karşılıklı bağımlılıklara "
 "sahip olamayabilir, bu durumda hiç seçmemek zorundasınız."
 
-#: libraries/normalization.lib.php:741
+#: libraries/normalization.lib.php:743
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
@@ -9225,34 +9222,34 @@ msgstr ""
 "Herhangi bir birincil anahtar olmayan sütunlara sahip olmayan tablo gibi "
 "Karşılıklı bağımlılıklar da mümkün değil"
 
-#: libraries/normalization.lib.php:745
+#: libraries/normalization.lib.php:747
 msgid "Table is already in Third normal form!"
 msgstr "Tablo zaten Üçüncü normal biçiminde!"
 
-#: libraries/normalization.lib.php:768
+#: libraries/normalization.lib.php:770
 msgid "Improve table structure (Normalization):"
 msgstr "Tablo yapısını iyileştir (Normalleştirme):"
 
-#: libraries/normalization.lib.php:769
+#: libraries/normalization.lib.php:771
 msgid "Select up to what step you want to normalize"
 msgstr "Normalleştirmek istediğiniz adıma kadar seçin"
 
-#: libraries/normalization.lib.php:772
+#: libraries/normalization.lib.php:774
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "Normalleştirmenin ikinci adımı (1NF+2NF)"
 
-#: libraries/normalization.lib.php:773
+#: libraries/normalization.lib.php:775
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Normalleştirmenin üçüncü adımı (1NF+2NF+3NF)"
 
-#: libraries/normalization.lib.php:780
+#: libraries/normalization.lib.php:782
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
 "İpucu: Doğru normalleştirmeyi elde etmek için işlemi dikkatlice takip edin"
 
-#: libraries/normalization.lib.php:841
+#: libraries/normalization.lib.php:843
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
@@ -9260,7 +9257,7 @@ msgstr ""
 "Bu liste tablonun verisinin bir altkümesine dayanır ve mutlaka doğru "
 "değildir. "
 
-#: libraries/normalization.lib.php:857
+#: libraries/normalization.lib.php:859
 msgid "No partial dependencies found!"
 msgstr "Bulunan kısmi bağımlılıklar yok!"
 
@@ -10105,7 +10102,6 @@ msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Sıfır değerleri için <code>AUTO_INCREMENT</code> değeri kullanma"
 
 #: libraries/plugins/import/ImportSql.class.php:188
-#| msgid "Read misses"
 msgid "Read as multibytes"
 msgstr "Çoklu bayt olarak oku"
 
@@ -13399,35 +13395,35 @@ msgstr "Alan kullanımı"
 msgid "Effective"
 msgstr "Etkili"
 
-#: libraries/structure.lib.php:2566 libraries/tbl_indexes.lib.php:61
+#: libraries/structure.lib.php:2565 libraries/tbl_indexes.lib.php:61
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "%1$s tablosu başarılı olarak değiştirildi."
 
-#: libraries/structure.lib.php:2579 libraries/tracking.lib.php:1034
+#: libraries/structure.lib.php:2578 libraries/tracking.lib.php:1034
 #: libraries/tracking.lib.php:1064
 msgid "Query error"
 msgstr "Sorgu hatası"
 
-#: libraries/structure.lib.php:2718
+#: libraries/structure.lib.php:2717
 msgid "The columns have been moved successfully."
 msgstr "Sütunlar başarılı olarak taşındı."
 
-#: libraries/structure.lib.php:2766
+#: libraries/structure.lib.php:2765
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "Sütun adı '%s' MySQL'e ayrılmış bir anahtar kelimedir."
 
-#: libraries/structure.lib.php:2895
+#: libraries/structure.lib.php:2894
 msgid "Add to Favorites"
 msgstr "Sık Kullanılanlara ekle"
 
-#: libraries/structure.lib.php:2941
+#: libraries/structure.lib.php:2940
 msgid "Favorite List is full!"
 msgstr "Sık Kullanılan Listesi dolu!"
 
-#: libraries/structure.lib.php:3031
+#: libraries/structure.lib.php:3030
 msgid "Showing create queries"
 msgstr "Sorguları oluşturma gösteriliyor"
 
@@ -13774,12 +13770,10 @@ msgid "Choose column to display:"
 msgstr "Görüntülemek için sütun seçin:"
 
 #: libraries/tbl_relation.lib.php:817
-#| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
 msgstr "Sütun görüntüleme başarılı olarak güncellendi."
 
 #: libraries/tbl_relation.lib.php:901
-#| msgid "Internal relation has been added."
 msgid "Internal relations were successfully updated."
 msgstr "İç bağlantılar başarılı olarak güncellendi."
 
