@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:04+0100\n"
-"PO-Revision-Date: 2014-07-30 18:11+0200\n"
-"Last-Translator: Yunqi Ouyang <oyyq99999@users.noreply.github.com>\n"
-"Language-Team: Simplified Chinese <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_CN/>\n"
+"PO-Revision-Date: 2014-11-05 10:25+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Simplified Chinese "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.0-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -981,7 +981,7 @@ msgstr "表单内缺少值！"
 
 #: js/messages.php:57
 msgid "Select at least one of the options!"
-msgstr "请至少选择一项"
+msgstr "请至少选择一项！"
 
 #: js/messages.php:58
 msgid "Please enter a valid number!"
@@ -2030,7 +2030,7 @@ msgstr "外环"
 
 #: js/messages.php:389
 msgid "Shift + Click on function name to apply to all rows."
-msgstr "按住 Shift 并点击列名称来应用到所有行"
+msgstr "按住 Shift 并点击列名称来应用到所有行。"
 
 #: js/messages.php:391
 msgid "Do you want to copy encryption key?"
@@ -3458,7 +3458,7 @@ msgstr "注释"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "已删除主键"
+msgstr "已删除主键。"
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -3729,7 +3729,7 @@ msgstr "缺少载入搜索书签所必要的数据。"
 
 #: libraries/SavedSearches.class.php:394
 msgid "Error while loading the search."
-msgstr "加载搜索时出现错误"
+msgstr "加载搜索时出现错误。"
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status_processes.lib.php:97
@@ -5131,7 +5131,7 @@ msgstr "短语密码"
 
 #: libraries/config/messages.inc.php:33
 msgid "Highlight selected rows."
-msgstr "高亮选中的行"
+msgstr "高亮选中的行。"
 
 #: libraries/config/messages.inc.php:34
 msgid "Row marker"
@@ -5185,7 +5185,7 @@ msgstr "启用 CodeMirror"
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr "定义了当编辑 CHAR 和 VARCHAR 字段时所使用输入框的最小大小"
+msgstr "定义了当编辑 CHAR 和 VARCHAR 字段时所使用输入框的最小大小。"
 
 #: libraries/config/messages.inc.php:58
 msgid "Minimum size for input field"
@@ -5195,7 +5195,7 @@ msgstr "输入框最小大小"
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr "定义了当编辑 CHAR 和 VARCHAR 字段时所使用输入框的最大大小"
+msgstr "定义了当编辑 CHAR 和 VARCHAR 字段时所使用输入框的最大大小。"
 
 #: libraries/config/messages.inc.php:63
 msgid "Maximum size for input field"
@@ -5203,7 +5203,7 @@ msgstr "输入框最大大小"
 
 #: libraries/config/messages.inc.php:64
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "CHAR/VARCHAR 文本框的列数"
+msgstr "CHAR/VARCHAR 文本框的列数。"
 
 #: libraries/config/messages.inc.php:65
 msgid "CHAR textarea columns"
@@ -5211,7 +5211,7 @@ msgstr "CHAR 文本框列"
 
 #: libraries/config/messages.inc.php:66
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "CHAR/VARCHAR 文本框的行数"
+msgstr "CHAR/VARCHAR 文本框的行数。"
 
 #: libraries/config/messages.inc.php:67
 msgid "CHAR textarea rows"
@@ -5225,9 +5225,7 @@ msgstr "检查配置文件权限"
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
-msgstr ""
-"在导出时使用较少的内存对 gzip/bzip2 进行实时压缩；如果您在创建 gzip/bzip2 压"
-"缩文件时遇到问题，请禁用该功能"
+msgstr "在导出时使用较少的内存对 gzip/bzip2 进行实时压缩；如果您在创建 gzip/bzip2 压缩文件时遇到问题，请禁用该功能。"
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -5242,7 +5240,7 @@ msgstr "配置文件"
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
-msgstr "当查询可能丢失数据时是否显示警告（\"您真的要…\"）"
+msgstr "当查询可能丢失数据时是否显示警告（\"您真的要…\"）。"
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -5258,7 +5256,7 @@ msgstr "默认显示模式"
 
 #: libraries/config/messages.inc.php:83
 msgid "Tab that is displayed when entering a database."
-msgstr "当进入数据库时默认显示的标签页"
+msgstr "当进入数据库时默认显示的标签页。"
 
 #: libraries/config/messages.inc.php:84
 msgid "Default database tab"
@@ -5266,7 +5264,7 @@ msgstr "数据库默认标签页"
 
 #: libraries/config/messages.inc.php:85
 msgid "Tab that is displayed when entering a server."
-msgstr "当进入服务器时默认显示的标签页"
+msgstr "当进入服务器时默认显示的标签页。"
 
 #: libraries/config/messages.inc.php:86
 msgid "Default server tab"
@@ -5274,7 +5272,7 @@ msgstr "服务器默认标签页"
 
 #: libraries/config/messages.inc.php:87
 msgid "Tab that is displayed when entering a table."
-msgstr "当进入表时默认显示的标签页"
+msgstr "当进入表时默认显示的标签页。"
 
 #: libraries/config/messages.inc.php:88
 msgid "Default table tab"
@@ -5282,7 +5280,7 @@ msgstr "表默认标签页"
 
 #: libraries/config/messages.inc.php:90
 msgid "Whether the table structure actions should be hidden."
-msgstr "是否隐藏对表结构的相关操作"
+msgstr "是否隐藏对表结构的相关操作。"
 
 #: libraries/config/messages.inc.php:91
 msgid "Hide table structure actions"
@@ -5290,7 +5288,7 @@ msgstr "隐藏表结构操作"
 
 #: libraries/config/messages.inc.php:93
 msgid "Show server listing as a list instead of a drop down."
-msgstr "直接显示服务器列表而不使用下拉框"
+msgstr "直接显示服务器列表而不使用下拉框。"
 
 #: libraries/config/messages.inc.php:94
 msgid "Display servers as a list"
@@ -5314,7 +5312,7 @@ msgstr "显示错误"
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
-msgstr "设置脚本运行最长时间（[kbd]0[/kbd] 为无限制）"
+msgstr "设置脚本运行最长时间（[kbd]0[/kbd] 为无限制）。"
 
 #: libraries/config/messages.inc.php:105
 msgid "Maximum execution time"
@@ -5539,7 +5537,7 @@ msgstr "导出时间为协调世界时"
 
 #: libraries/config/messages.inc.php:195
 msgid "Force secured connection while using phpMyAdmin."
-msgstr "强制使用安全连接访问 phpMyAdmin"
+msgstr "强制使用安全连接访问 phpMyAdmin。"
 
 #: libraries/config/messages.inc.php:196
 msgid "Force SSL connection"
@@ -5549,9 +5547,7 @@ msgstr "强制 SSL 连接"
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
-msgstr ""
-"外键下拉框中选项的排序顺序，[kbd]content[/kbd] 为关联内容，[kbd]id[/kbd] 为键"
-"值"
+msgstr "外键下拉框中选项的排序顺序，[kbd]content[/kbd] 为关联内容，[kbd]id[/kbd] 为键值。"
 
 #: libraries/config/messages.inc.php:201
 msgid "Foreign key dropdown order"
@@ -5581,7 +5577,7 @@ msgstr "自定义浏览模式"
 #: libraries/config/messages.inc.php:228 libraries/config/messages.inc.php:239
 #: libraries/config/messages.inc.php:241 libraries/config/messages.inc.php:287
 msgid "Customize default options."
-msgstr "自定义默认选项"
+msgstr "自定义默认选项。"
 
 #: libraries/config/messages.inc.php:209 libraries/config/setup.forms.php:245
 #: libraries/config/setup.forms.php:322
@@ -5596,7 +5592,7 @@ msgstr "开发"
 
 #: libraries/config/messages.inc.php:212
 msgid "Settings for phpMyAdmin developers."
-msgstr "phpMyAdmin 开发设置"
+msgstr "phpMyAdmin 开发设置。"
 
 #: libraries/config/messages.inc.php:213
 msgid "Edit mode"
@@ -5604,7 +5600,7 @@ msgstr "编辑模式"
 
 #: libraries/config/messages.inc.php:214
 msgid "Customize edit mode."
-msgstr "自定义编辑模式"
+msgstr "自定义编辑模式。"
 
 #: libraries/config/messages.inc.php:216
 msgid "Export defaults"
@@ -5612,7 +5608,7 @@ msgstr "导出选项"
 
 #: libraries/config/messages.inc.php:217
 msgid "Customize default export options."
-msgstr "自定义默认导出选项"
+msgstr "自定义默认导出选项。"
 
 #: libraries/config/messages.inc.php:218 libraries/config/messages.inc.php:279
 #: setup/frames/menu.inc.php:22
@@ -5625,7 +5621,7 @@ msgstr "常规"
 
 #: libraries/config/messages.inc.php:220
 msgid "Set some commonly used options."
-msgstr "设置某些常用选项"
+msgstr "设置某些常用选项。"
 
 #: libraries/config/messages.inc.php:222
 msgid "Import defaults"
@@ -9492,7 +9488,7 @@ msgstr "优化表"
 #: libraries/operations.lib.php:1171
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "已强制更新表 %s"
+msgstr "已强制更新表 %s。"
 
 #: libraries/operations.lib.php:1178
 msgid "Flush the table (FLUSH)"
@@ -13326,7 +13322,7 @@ msgstr "未知的标点符号字符串"
 #: libraries/structure.lib.php:70 tbl_operations.php:346
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "已清空表 %s"
+msgstr "已清空表 %s。"
 
 #: libraries/structure.lib.php:93
 msgid "Tracking is active."
@@ -13416,7 +13412,7 @@ msgstr "无"
 #: libraries/structure.lib.php:1424
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "已删除字段 %s"
+msgstr "已删除字段 %s。"
 
 #: libraries/structure.lib.php:1493 libraries/structure.lib.php:2202
 #: libraries/structure.lib.php:2212
@@ -13519,12 +13515,12 @@ msgstr "下一个自增值"
 #: libraries/structure.lib.php:2082 libraries/structure.lib.php:2097
 #, php-format
 msgid "An index has been added on %s."
-msgstr "已将 %s 设为索引"
+msgstr "已将 %s 设为索引。"
 
 #: libraries/structure.lib.php:2068
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "已将 %s 设为主键"
+msgstr "已将 %s 设为主键。"
 
 #: libraries/structure.lib.php:2145 libraries/structure.lib.php:2216
 msgid "Distinct values"
@@ -13558,7 +13554,7 @@ msgstr "有效"
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "已成功修改表 %1$s"
+msgstr "已成功修改表 %1$s。"
 
 #: libraries/structure.lib.php:2578 libraries/tracking.lib.php:1034
 #: libraries/tracking.lib.php:1064
@@ -13582,7 +13578,7 @@ msgstr "添加该数据"
 
 #: libraries/structure.lib.php:2940
 msgid "Favorite List is full!"
-msgstr "收藏夹数量已达上限"
+msgstr "收藏夹数量已达上限！"
 
 #: libraries/structure.lib.php:3030
 #, fuzzy
@@ -14145,7 +14141,7 @@ msgstr "管理我的设置"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:301
 msgid "Configuration has been saved."
-msgstr "设置已保存"
+msgstr "设置已保存。"
 
 #: libraries/user_preferences.inc.php:66
 #, php-format
