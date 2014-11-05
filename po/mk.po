@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:04+0100\n"
-"PO-Revision-Date: 2014-03-31 14:16+0200\n"
+"PO-Revision-Date: 2014-11-05 10:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/mk/>\n"
+"Language-Team: Macedonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/mk/>\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 2.0-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -3814,7 +3814,7 @@ msgstr "Коментари"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "Примарниот клуч е избришан"
+msgstr "Примарниот клуч е избришан."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -9729,7 +9729,7 @@ msgstr "Оптимизација на табелата"
 #: libraries/operations.lib.php:1171
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "Табелата %s е освежена"
+msgstr "Табелата %s е освежена."
 
 #: libraries/operations.lib.php:1178
 #, fuzzy
@@ -13645,7 +13645,7 @@ msgstr "Непознат стринг за интерпункција"
 #: libraries/structure.lib.php:70 tbl_operations.php:346
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "Табелата %s е испразнета"
+msgstr "Табелата %s е испразнета."
 
 #: libraries/structure.lib.php:93
 msgid "Tracking is active."
