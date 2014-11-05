@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:03+0100\n"
-"PO-Revision-Date: 2014-03-27 15:10+0200\n"
+"PO-Revision-Date: 2014-11-05 10:27+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/bn/>\n"
+"Language-Team: Bengali "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-2/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 2.0-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -428,7 +428,7 @@ msgstr ""
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr "আপনি পাতাটি রিফ্রেশ করে নিতে পারেন"
+msgstr "আপনি পাতাটি রিফ্রেশ করে নিতে পারেন."
 
 #: error_report.php:45
 msgid ""
@@ -622,7 +622,7 @@ msgstr ""
 #: import.php:412 import.php:473 libraries/File.class.php:433
 #: libraries/File.class.php:527
 msgid "File could not be read!"
-msgstr "ফাইলটি পড়া যাচ্ছে না"
+msgstr "ফাইলটি পড়া যাচ্ছে না!"
 
 #: import.php:421 import.php:432 import.php:453 import.php:464
 #: libraries/File.class.php:593
@@ -655,7 +655,8 @@ msgstr "ফাইলের বর্ণ গঠন পরিবর্তন ক�
 #: import.php:536 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
-"আমদানি সহায়ক (plugin) পাওয়া যাচ্ছে না, অনুগ্রহ করে আপনার ইন্সষ্টলেশন পরীক্ষা করুন"
+"আমদানি সহায়ক (plugin) পাওয়া যাচ্ছে না, অনুগ্রহ করে আপনার ইন্সষ্টলেশন পরীক্ষা "
+"করুন!"
 
 #: import.php:571 libraries/sql.lib.php:1048 libraries/sql.lib.php:1848
 #, fuzzy, php-format
@@ -2728,7 +2729,7 @@ msgstr "সম্ভবত আনুমানিক। [doc@faq3-11]FAQ 3.11[/do
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 msgid "Your SQL query has been executed successfully."
-msgstr "আপনার SQL অনুসন্ধানটি সফলভাবে কাজ করেছে"
+msgstr "আপনার SQL অনুসন্ধানটি সফলভাবে কাজ করেছে."
 
 #: libraries/DisplayResults.class.php:5037 libraries/structure.lib.php:659
 #, php-format
@@ -2756,7 +2757,7 @@ msgstr "%d মোট"
 #: libraries/DisplayResults.class.php:5082 libraries/sql.lib.php:1687
 #, php-format
 msgid "Query took %01.4f seconds."
-msgstr "অনুসন্ধানে %01.4f সেঃ লেগেছ"
+msgstr "অনুসন্ধানে %01.4f সেঃ লেগেছ."
 
 #: libraries/DisplayResults.class.php:5166
 #: libraries/DisplayResults.class.php:5172 libraries/mult_submits.inc.php:46
@@ -8248,7 +8249,7 @@ msgstr "টেবিল সর্বোচ্চ কার্যপযোগী 
 #: libraries/operations.lib.php:1195
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "%s টেবিলটি ফ্লাশ করা হয়েছে"
+msgstr "%s টেবিলটি ফ্লাশ করা হয়েছে."
 
 #: libraries/operations.lib.php:1202
 msgid "Flush the table (FLUSH)"
