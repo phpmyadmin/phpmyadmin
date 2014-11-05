@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-11-04 10:47+0100\n"
-"PO-Revision-Date: 2014-10-18 16:21+0200\n"
+"POT-Creation-Date: 2014-11-05 10:04+0100\n"
+"PO-Revision-Date: 2014-11-04 17:38+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.0-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -212,7 +212,7 @@ msgstr "Nee"
 #: libraries/server_privileges.lib.php:2721
 #: libraries/server_privileges.lib.php:3062
 #: libraries/server_privileges.lib.php:3087 libraries/structure.lib.php:1362
-#: libraries/structure.lib.php:2803 libraries/tbl_printview.lib.php:114
+#: libraries/structure.lib.php:2802 libraries/tbl_printview.lib.php:114
 #: libraries/tracking.lib.php:890 libraries/tracking.lib.php:965
 #: libraries/tracking.lib.php:970 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -553,7 +553,7 @@ msgstr "Een geometrie toevoegen"
 #: libraries/display_export.lib.php:299 libraries/display_export.lib.php:305
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1539 libraries/insert_edit.lib.php:1576
-#: libraries/normalization.lib.php:146 libraries/normalization.lib.php:783
+#: libraries/normalization.lib.php:148 libraries/normalization.lib.php:785
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:253
 #: libraries/operations.lib.php:626 libraries/operations.lib.php:679
@@ -902,15 +902,11 @@ msgstr ""
 "uitgebreide mogelijkheden zijn uitgeschakeld. %sOntdek waarom%s. "
 
 #: index.php:527
-#, fuzzy
-#| msgid ""
-#| "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or alternately go to 'Operations' "
-#| "tab of any database to set it up there."
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Of als alternatief ga naar de tab "
-"'Bewerken' van een database en stel het daar in."
+"Of als alternatief ga naar de tab 'Bewerken' van een database en stel het "
+"daar in."
 
 #: index.php:572
 #, php-format
@@ -1814,7 +1810,7 @@ msgstr "%d is geen geldig rijnummer."
 msgid "Browse foreign values"
 msgstr "Bekijk externe waarden"
 
-#: js/messages.php:303 libraries/normalization.lib.php:847
+#: js/messages.php:303 libraries/normalization.lib.php:849
 msgid "Pick"
 msgstr "Kies"
 
@@ -1865,7 +1861,7 @@ msgstr "Een primaire sleutel toevoegen"
 msgid "Primary key added."
 msgstr "Primaire sleutel toegevoegd."
 
-#: js/messages.php:315 libraries/normalization.lib.php:172
+#: js/messages.php:315 libraries/normalization.lib.php:174
 msgid "Taking you to next step…"
 msgstr "Naar de volgende stap…"
 
@@ -1874,9 +1870,9 @@ msgstr "Naar de volgende stap…"
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "De eerste stap van normalisatie is voltooid voor tabel '%s'."
 
-#: js/messages.php:317 libraries/normalization.lib.php:420
-#: libraries/normalization.lib.php:467 libraries/normalization.lib.php:550
-#: libraries/normalization.lib.php:610
+#: js/messages.php:317 libraries/normalization.lib.php:422
+#: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
+#: libraries/normalization.lib.php:612
 msgid "End of step"
 msgstr "Einde van de stap"
 
@@ -1885,7 +1881,7 @@ msgid "Second step of normalization (2NF)"
 msgstr "Tweede stap van normalisatie (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:319 js/messages.php:554 libraries/normalization.lib.php:262
+#: js/messages.php:319 js/messages.php:554 libraries/normalization.lib.php:264
 msgid "Done"
 msgstr "Klaar"
 
@@ -3714,7 +3710,7 @@ msgid "Could not save favorite table!"
 msgstr "Favoriete tabel kon niet opgeslagen worden!"
 
 #: libraries/RecentFavoriteTable.class.php:227
-#: libraries/structure.lib.php:2894
+#: libraries/structure.lib.php:2893
 msgid "Remove from Favorites"
 msgstr "Verwijderen uit favorieten"
 
@@ -3810,7 +3806,7 @@ msgstr "Sortering"
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:120
-#: libraries/structure.lib.php:3084
+#: libraries/structure.lib.php:3083
 msgid "Tables"
 msgstr "Tabellen"
 
@@ -4407,7 +4403,7 @@ msgid "Date and time"
 msgstr "Datum en tijd"
 
 #: libraries/Types.class.php:670 libraries/Types.class.php:1040
-#: libraries/normalization.lib.php:141 normalization.php:25
+#: libraries/normalization.lib.php:143 normalization.php:25
 msgctxt "string types"
 msgid "String"
 msgstr "Tekenreeks"
@@ -9015,7 +9011,7 @@ msgstr "Nieuwe trigger aanmaken"
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:129
-#: libraries/structure.lib.php:3090
+#: libraries/structure.lib.php:3089
 msgid "Views"
 msgstr "Views"
 
@@ -9024,20 +9020,20 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "Nieuwe view aanmaken"
 
-#: libraries/normalization.lib.php:112
+#: libraries/normalization.lib.php:114
 msgid "Make all columns atomic"
 msgstr "Maak alle kolommen atomair"
 
-#: libraries/normalization.lib.php:114 libraries/normalization.lib.php:771
+#: libraries/normalization.lib.php:116 libraries/normalization.lib.php:773
 msgid "First step of normalization (1NF)"
 msgstr "Eerste stap van normalisatie (1NF)"
 
-#: libraries/normalization.lib.php:117 libraries/normalization.lib.php:168
-#: libraries/normalization.lib.php:211 libraries/normalization.lib.php:247
+#: libraries/normalization.lib.php:119 libraries/normalization.lib.php:170
+#: libraries/normalization.lib.php:213 libraries/normalization.lib.php:249
 msgid "Step 1."
 msgstr "Stap 1."
 
-#: libraries/normalization.lib.php:119
+#: libraries/normalization.lib.php:121
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
@@ -9046,12 +9042,12 @@ msgstr ""
 "Bijvoorbeeld: een adres kan gesplitst worden in straat, huisnummer, "
 "postcode, stad en land."
 
-#: libraries/normalization.lib.php:126
+#: libraries/normalization.lib.php:128
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 "Toon de centrale lijst met kolommen die nog niet voorkomen in deze tabel"
 
-#: libraries/normalization.lib.php:129
+#: libraries/normalization.lib.php:131
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
@@ -9060,27 +9056,27 @@ msgstr ""
 "(wanneer 'geen dergelijke kolom' geselecteerd wordt, wordt er overgeschakeld "
 "naar de volgende stap)"
 
-#: libraries/normalization.lib.php:136 normalization.php:19
+#: libraries/normalization.lib.php:138 normalization.php:19
 msgid "Select one…"
 msgstr "Selecteer er één…"
 
-#: libraries/normalization.lib.php:137 normalization.php:20
+#: libraries/normalization.lib.php:139 normalization.php:20
 msgid "No such column"
 msgstr "Geen dergelijke kolom"
 
-#: libraries/normalization.lib.php:144
+#: libraries/normalization.lib.php:146
 msgid "split into "
 msgstr "splits in "
 
-#: libraries/normalization.lib.php:165
+#: libraries/normalization.lib.php:167
 msgid "Have a primary key"
 msgstr "Een primaire sleutel hebben"
 
-#: libraries/normalization.lib.php:171
+#: libraries/normalization.lib.php:173
 msgid "Primary key already exists."
 msgstr "Primaire sleutel bestaat reeds."
 
-#: libraries/normalization.lib.php:176
+#: libraries/normalization.lib.php:178
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
@@ -9088,26 +9084,26 @@ msgstr ""
 "Er is geen primaire sleutel; voeg er een toe.<br/>Tip: Een primaire sleutel "
 "is een kolom (of combinatie van kolommen) die alle rijen uniek identificeren."
 
-#: libraries/normalization.lib.php:183
+#: libraries/normalization.lib.php:185
 msgid "Add a primary key on existing column(s)"
 msgstr "Een primaire sleutel toevoegen op bestaande kolom(men)"
 
-#: libraries/normalization.lib.php:188
+#: libraries/normalization.lib.php:190
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 "Als het niet mogelijk is om een primaire indexsleutel te maken van bestaande "
 "gecombineerde kolommen"
 
-#: libraries/normalization.lib.php:192
+#: libraries/normalization.lib.php:194
 msgid "+ Add a new primary key column"
 msgstr "+ Een nieuwe primaire sleutel kolom toevoegen"
 
-#: libraries/normalization.lib.php:210
+#: libraries/normalization.lib.php:212
 msgid "Remove redundant columns"
 msgstr "Verwijder overbodige kolommen"
 
-#: libraries/normalization.lib.php:213
+#: libraries/normalization.lib.php:215
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
@@ -9118,7 +9114,7 @@ msgstr ""
 "hebt, geeft de combinatie van voor_naam en achter_naam dezelfde waarde als "
 "volledige_naam, wat dubbelop is."
 
-#: libraries/normalization.lib.php:219
+#: libraries/normalization.lib.php:221
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
@@ -9126,19 +9122,19 @@ msgstr ""
 "Controleer welke kolommen redundant zijn en klik op verwijderen. Als er geen "
 "redundante kolommen zijn, klik op 'Geen redundante kolommen'"
 
-#: libraries/normalization.lib.php:224
+#: libraries/normalization.lib.php:226
 msgid "Remove selected"
 msgstr "Verwijder geselecteerde"
 
-#: libraries/normalization.lib.php:225
+#: libraries/normalization.lib.php:227
 msgid "No redundant column"
 msgstr "Geen overbodige kolom"
 
-#: libraries/normalization.lib.php:246
+#: libraries/normalization.lib.php:248
 msgid "Move repeating groups"
 msgstr "Verplaats herhalende groepen"
 
-#: libraries/normalization.lib.php:249
+#: libraries/normalization.lib.php:251
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -9152,7 +9148,7 @@ msgstr ""
 "enzovoort, welke een herhalende groep vormen. In dit geval zou een nieuwe "
 "tabel (boek_id, auteur) gemaakt moeten worden."
 
-#: libraries/normalization.lib.php:257
+#: libraries/normalization.lib.php:259
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
@@ -9160,19 +9156,19 @@ msgstr ""
 "Controleer de kolommen of deze een herhalende groep vormen. Als een "
 "dergelijke groep niet aanwezig is, klik dan op 'Geen herhalende groep'"
 
-#: libraries/normalization.lib.php:263
+#: libraries/normalization.lib.php:265
 msgid "No repeating group"
 msgstr "Geen herhalende groep"
 
-#: libraries/normalization.lib.php:289
+#: libraries/normalization.lib.php:291
 msgid "Step 2."
 msgstr "Stap 2."
 
-#: libraries/normalization.lib.php:289
+#: libraries/normalization.lib.php:291
 msgid "Find partial dependencies"
 msgstr "Zoek naar gedeeltelijke afhankelijkheden"
 
-#: libraries/normalization.lib.php:311
+#: libraries/normalization.lib.php:313
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
@@ -9182,11 +9178,11 @@ msgstr ""
 "kolommen zijn en de primaire indexsleutel (%1$s) is samengesteld uit alle "
 "kolommen in de tabel."
 
-#: libraries/normalization.lib.php:316 libraries/normalization.lib.php:358
+#: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."
 msgstr "Tabel is al in tweede normaal vorm."
 
-#: libraries/normalization.lib.php:321
+#: libraries/normalization.lib.php:323
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
@@ -9195,7 +9191,7 @@ msgstr ""
 "De primaire indexsleutel ( %1$s ) bestaat uit meer dan één kolom zodat we de "
 "gedeeltelijke afhankelijkheden moeten vinden."
 
-#: libraries/normalization.lib.php:325 libraries/normalization.lib.php:690
+#: libraries/normalization.lib.php:327 libraries/normalization.lib.php:692
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
@@ -9203,13 +9199,13 @@ msgstr ""
 "Gelieve de volgende vra(a)g(en) zorgvuldig te beantwoorden om een correcte "
 "normalisatie te verkrijgen."
 
-#: libraries/normalization.lib.php:329
+#: libraries/normalization.lib.php:331
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "+ Toon mij de mogelijke gedeeltelijke afhankelijkheden gebaseerd op de data "
 "in de tabel"
 
-#: libraries/normalization.lib.php:333
+#: libraries/normalization.lib.php:335
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -9219,12 +9215,12 @@ msgstr ""
 "b> van kolommen van de gegeven verzameling, waarvan de gecombineerde waarden "
 "toereikend zijn om de waarde van de kolom te determineren."
 
-#: libraries/normalization.lib.php:343 libraries/normalization.lib.php:728
+#: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "'%1$s' is afhankelijk van:"
 
-#: libraries/normalization.lib.php:354
+#: libraries/normalization.lib.php:356
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
@@ -9233,7 +9229,7 @@ msgstr ""
 "Geen gedeeltelijke afhankelijkheden mogelijk omdat de primaire indexsleutel "
 "(%1$s) maar één kolom heeft."
 
-#: libraries/normalization.lib.php:379
+#: libraries/normalization.lib.php:381
 #, php-format
 msgid ""
 "As per above partial dependencies, in order to put the original table '%1$s' "
@@ -9243,17 +9239,17 @@ msgstr ""
 "originele tabel '%1$s' in de tweede normaal vorm te plaatsen de volgende "
 "tabellen aanmaken:"
 
-#: libraries/normalization.lib.php:415
+#: libraries/normalization.lib.php:417
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "De tweede stap van normalisatie is voltooid voor tabel '%1$s'."
 
-#: libraries/normalization.lib.php:455 libraries/normalization.lib.php:598
-#: libraries/normalization.lib.php:661
+#: libraries/normalization.lib.php:457 libraries/normalization.lib.php:600
+#: libraries/normalization.lib.php:663
 msgid "Error in processing!"
 msgstr "Verwerkingsfout!"
 
-#: libraries/normalization.lib.php:499
+#: libraries/normalization.lib.php:501
 #, php-format
 msgid ""
 "As per above dependencies, in order to put the original table '%1$s' into "
@@ -9263,24 +9259,24 @@ msgstr ""
 "originele tabel '%1$s' in de derde normaal vorm te plaatsen, de volgende "
 "tabellen aanmaken:"
 
-#: libraries/normalization.lib.php:546
+#: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
 msgstr "De derde stap van normalisatie is voltooid."
 
-#: libraries/normalization.lib.php:640
+#: libraries/normalization.lib.php:642
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "De geselecteerde herhalende groep werd verplaatst naar tabel '%s'"
 
-#: libraries/normalization.lib.php:687
+#: libraries/normalization.lib.php:689
 msgid "Step 3."
 msgstr "Stap 3."
 
-#: libraries/normalization.lib.php:687
+#: libraries/normalization.lib.php:689
 msgid "Find transitive dependencies"
 msgstr "Zoek naar overgankelijke afhankelijkheden"
 
-#: libraries/normalization.lib.php:694
+#: libraries/normalization.lib.php:696
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -9293,7 +9289,7 @@ msgstr ""
 "Een kolom heeft niet altijd transitieve afhankelijkheden, in dat geval hoeft "
 "u geen kolom te selecteren."
 
-#: libraries/normalization.lib.php:741
+#: libraries/normalization.lib.php:743
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
@@ -9301,27 +9297,27 @@ msgstr ""
 "Transitieve afhankelijkheden zijn niet mogelijk omdat de tabel geen kolommen "
 "met niet-primaire indexsleutels bevat"
 
-#: libraries/normalization.lib.php:745
+#: libraries/normalization.lib.php:747
 msgid "Table is already in Third normal form!"
 msgstr "Tabel is al in de derde normaal vorm!"
 
-#: libraries/normalization.lib.php:768
+#: libraries/normalization.lib.php:770
 msgid "Improve table structure (Normalization):"
 msgstr "Verbeter tabelstructuur (Normalisatie):"
 
-#: libraries/normalization.lib.php:769
+#: libraries/normalization.lib.php:771
 msgid "Select up to what step you want to normalize"
 msgstr "Kies tot welke stap u wilt normaliseren"
 
-#: libraries/normalization.lib.php:772
+#: libraries/normalization.lib.php:774
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "Tweede stap van normalisatie (1NF+2NF)"
 
-#: libraries/normalization.lib.php:773
+#: libraries/normalization.lib.php:775
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Derde stap van normalisatie (1NF+2NF+3NF)"
 
-#: libraries/normalization.lib.php:780
+#: libraries/normalization.lib.php:782
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
@@ -9329,7 +9325,7 @@ msgstr ""
 "Tip: Gelieve de procedure zorgvuldig te volgen om de correcte normalisatie "
 "te verkrijgen"
 
-#: libraries/normalization.lib.php:841
+#: libraries/normalization.lib.php:843
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
@@ -9337,7 +9333,7 @@ msgstr ""
 "Deze lijst is gebaseerd op een deelverzameling van de data in de tabel en "
 "niet noodzakelijk accuraat. "
 
-#: libraries/normalization.lib.php:857
+#: libraries/normalization.lib.php:859
 msgid "No partial dependencies found!"
 msgstr "Geen gedeeltelijke afhankelijkheden gevonden!"
 
@@ -10184,10 +10180,8 @@ msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Gebruik geen <code>AUTO_INCREMENT</code> voor 0-waarden"
 
 #: libraries/plugins/import/ImportSql.class.php:188
-#, fuzzy
-#| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Leesfouten"
+msgstr "Lees als mulitbytes"
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
@@ -13522,35 +13516,35 @@ msgstr "Ruimtegebruik"
 msgid "Effective"
 msgstr "Effectief"
 
-#: libraries/structure.lib.php:2566 libraries/tbl_indexes.lib.php:61
+#: libraries/structure.lib.php:2565 libraries/tbl_indexes.lib.php:61
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabel %1$s is succesvol bijgewerkt."
 
-#: libraries/structure.lib.php:2579 libraries/tracking.lib.php:1034
+#: libraries/structure.lib.php:2578 libraries/tracking.lib.php:1034
 #: libraries/tracking.lib.php:1064
 msgid "Query error"
 msgstr "Fout in query"
 
-#: libraries/structure.lib.php:2718
+#: libraries/structure.lib.php:2717
 msgid "The columns have been moved successfully."
 msgstr "De geselecteerde kolommen zijn met succes verplaatst."
 
-#: libraries/structure.lib.php:2766
+#: libraries/structure.lib.php:2765
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "De kolomnaam '%s' is een gereserveerd MySQL sleutelwoord."
 
-#: libraries/structure.lib.php:2895
+#: libraries/structure.lib.php:2894
 msgid "Add to Favorites"
 msgstr "Voeg toe aan favorieten"
 
-#: libraries/structure.lib.php:2941
+#: libraries/structure.lib.php:2940
 msgid "Favorite List is full!"
 msgstr "De lijst met favorieten is vol!"
 
-#: libraries/structure.lib.php:3031
+#: libraries/structure.lib.php:3030
 msgid "Showing create queries"
 msgstr "Aanmaakqueries worden getoond"
 
@@ -13900,16 +13894,12 @@ msgid "Choose column to display:"
 msgstr "Kies weer te geven kolom:"
 
 #: libraries/tbl_relation.lib.php:817
-#, fuzzy
-#| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "Thread %s is succesvol afgesloten."
+msgstr "De weergavekolom is succesvol bijgewerkt."
 
 #: libraries/tbl_relation.lib.php:901
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relations were successfully updated."
-msgstr "Interne relatie werd toegevoegd."
+msgstr "Interne relaties werden succesvol bijgewerkt."
 
 #: libraries/tbl_relation.lib.php:1166
 #, php-format

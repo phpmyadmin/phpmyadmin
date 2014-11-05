@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-11-04 10:47+0100\n"
-"PO-Revision-Date: 2014-10-21 09:26+0200\n"
+"POT-Creation-Date: 2014-11-05 10:04+0100\n"
+"PO-Revision-Date: 2014-11-04 11:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -214,7 +214,7 @@ msgstr "Ne"
 #: libraries/server_privileges.lib.php:2721
 #: libraries/server_privileges.lib.php:3062
 #: libraries/server_privileges.lib.php:3087 libraries/structure.lib.php:1362
-#: libraries/structure.lib.php:2803 libraries/tbl_printview.lib.php:114
+#: libraries/structure.lib.php:2802 libraries/tbl_printview.lib.php:114
 #: libraries/tracking.lib.php:890 libraries/tracking.lib.php:965
 #: libraries/tracking.lib.php:970 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -552,7 +552,7 @@ msgstr "Přidat geometrii"
 #: libraries/display_export.lib.php:299 libraries/display_export.lib.php:305
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1539 libraries/insert_edit.lib.php:1576
-#: libraries/normalization.lib.php:146 libraries/normalization.lib.php:783
+#: libraries/normalization.lib.php:148 libraries/normalization.lib.php:785
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:253
 #: libraries/operations.lib.php:626 libraries/operations.lib.php:679
@@ -1018,28 +1018,20 @@ msgid "Add %s column(s) to index"
 msgstr "Přidat %s polí do klíče"
 
 #: js/messages.php:63
-#, fuzzy
-#| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Vytvořit rutinu"
+msgstr "Vytvořit klíč na jednom sloupci"
 
 #: js/messages.php:64
-#, fuzzy
-#| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Vytvořit rutinu"
+msgstr "Vytvořit složený klíč"
 
 #: js/messages.php:65
-#, fuzzy
-#| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "Pole uzavřené do:"
+msgstr "Složit s:"
 
 #: js/messages.php:66
-#, fuzzy
-#| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Přidat %s polí do klíče"
+msgstr "Prosím zvolte které pole chcete přidat do klíče."
 
 #: js/messages.php:69 libraries/structure.lib.php:1665
 msgid "You have to add at least one column."
@@ -1797,7 +1789,7 @@ msgstr "%d není platné číslo řádku."
 msgid "Browse foreign values"
 msgstr "Projít hodnoty cizích klíčů"
 
-#: js/messages.php:303 libraries/normalization.lib.php:847
+#: js/messages.php:303 libraries/normalization.lib.php:849
 msgid "Pick"
 msgstr "Zvolit"
 
@@ -1843,7 +1835,7 @@ msgstr "Přidat primární klíč"
 msgid "Primary key added."
 msgstr "Byl přidán primární klíč."
 
-#: js/messages.php:315 libraries/normalization.lib.php:172
+#: js/messages.php:315 libraries/normalization.lib.php:174
 msgid "Taking you to next step…"
 msgstr "Přesměrovávám na další krok…"
 
@@ -1852,9 +1844,9 @@ msgstr "Přesměrovávám na další krok…"
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
-#: js/messages.php:317 libraries/normalization.lib.php:420
-#: libraries/normalization.lib.php:467 libraries/normalization.lib.php:550
-#: libraries/normalization.lib.php:610
+#: js/messages.php:317 libraries/normalization.lib.php:422
+#: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
+#: libraries/normalization.lib.php:612
 msgid "End of step"
 msgstr "Konec kroku"
 
@@ -1863,17 +1855,17 @@ msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:319 js/messages.php:554 libraries/normalization.lib.php:262
+#: js/messages.php:319 js/messages.php:554 libraries/normalization.lib.php:264
 msgid "Done"
 msgstr "Hotovo"
 
 #: js/messages.php:320
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Potvrzení částečných závislostí"
 
 #: js/messages.php:321
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Byly zvoleny následující částečné závislosti:"
 
 #: js/messages.php:322
 msgid ""
@@ -1882,10 +1874,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:323
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Nebyla vybrána žádná databáze."
+msgstr "Nebyly vybrány žádné částečné závislosti!"
 
 #: js/messages.php:325
 msgid "Show me the possible partial dependencies based on data in the table"
@@ -1893,7 +1883,7 @@ msgstr ""
 
 #: js/messages.php:326
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Skrýt seznam částečných závislostí"
 
 #: js/messages.php:327
 msgid ""
@@ -1906,10 +1896,8 @@ msgid "Step"
 msgstr "Krok"
 
 #: js/messages.php:329
-#, fuzzy
-#| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
-msgstr "Byly provedeny následující dotazy:"
+msgstr "Budou provedeny následující úpravy:"
 
 #: js/messages.php:330
 #, php-format
@@ -1917,28 +1905,24 @@ msgid "DROP columns %s from the table %s"
 msgstr ""
 
 #: js/messages.php:331
-#, fuzzy
-#| msgid "Add privileges on the following table:"
 msgid "Create the following table"
-msgstr "Přidat oprávnění pro tabulku:"
+msgstr "Vytvořit následující tabulku"
 
 #: js/messages.php:334
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "Třetí krok normalizace (3NF)"
 
 #: js/messages.php:335
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "Potvrzení tranzitivních závislostí"
 
 #: js/messages.php:336
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "Byly zvoleny následující závislosti:"
 
 #: js/messages.php:337
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Nebyla vybrána žádná databáze."
+msgstr "Nebyly vybrány žádné závislosti!"
 
 #: js/messages.php:340 libraries/insert_edit.lib.php:1452
 #: libraries/server_variables.lib.php:157
@@ -1957,34 +1941,24 @@ msgid "Show search criteria"
 msgstr "Zobrazit parametry vyhledávání"
 
 #: js/messages.php:345
-#, fuzzy
-#| msgid "Save search"
 msgid "Range search"
-msgstr "Uložit vyhledávání"
+msgstr "Vyhledávání rozsahu"
 
 #: js/messages.php:346
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Názvy polí: "
+msgstr "Největší hodnota sloupce:"
 
 #: js/messages.php:347
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Názvy polí: "
+msgstr "Nejmenší hodnota sloupce:"
 
 #: js/messages.php:348
-#, fuzzy
-#| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Nejvyšší počet zobrazených tabulek"
+msgstr "Nejmenší hodnota:"
 
 #: js/messages.php:349
-#, fuzzy
-#| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Nejvyšší počet zobrazených tabulek"
+msgstr "Největší hodnota:"
 
 #: js/messages.php:352
 msgid "Hide find and replace criteria"
@@ -2109,10 +2083,8 @@ msgid "Save page"
 msgstr "Uložit stránku"
 
 #: js/messages.php:405 libraries/db_designer.lib.php:273
-#, fuzzy
-#| msgid "Free pages"
 msgid "Open page"
-msgstr "Volných stránek"
+msgstr "Otevřít stránku"
 
 #: js/messages.php:406
 msgid "Delete page"
@@ -2141,10 +2113,8 @@ msgid "Successfully deleted the page"
 msgstr "Stránka byla odstraněna"
 
 #: js/messages.php:412
-#, fuzzy
-#| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Upravit nebo exportovat relační schéma"
+msgstr "Exportovat relační schéma"
 
 #: js/messages.php:413
 msgid "Modifications have been saved"
@@ -2236,10 +2206,8 @@ msgid "Import status"
 msgstr "Stav importu"
 
 #: js/messages.php:440 libraries/navigation/Navigation.class.php:102
-#, fuzzy
-#| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "Hranice záznamového souboru"
+msgstr "Přetáhněte sem soubory"
 
 #: js/messages.php:441
 msgid "Select database first"
@@ -2379,11 +2347,11 @@ msgstr ""
 
 #: js/messages.php:505 js/messages.php:517
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Na serveru došlo byly zjištěny chyby!"
 
 #: js/messages.php:507
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Prosím podívejte se na spodní část okna."
 
 #: js/messages.php:512 libraries/Error_Handler.class.php:355
 msgid "Ignore All"
@@ -2395,16 +2363,12 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:526
-#, fuzzy
-#| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Zobrazit zde tento dotaz znovu"
+msgstr "Spustit tento dotaz znovu?"
 
 #: js/messages.php:527
-#, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Opravdu si přejete odstranit vyhledávání „%s“?"
+msgstr "Opravdu si přejete odstranit tuto záložku?"
 
 #: js/messages.php:558
 msgctxt "Previous month"
@@ -2741,14 +2705,12 @@ msgid "Font size"
 msgstr "Velikost písma"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:175
-#, fuzzy
-#| msgid "Expand/Collapse"
 msgid "Collapse"
-msgstr "Rozbalit/sbalit"
+msgstr "Sbalit"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:177
 msgid "Expand"
-msgstr ""
+msgstr "Rozbalit"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:178
 msgid "Requery"
@@ -2899,10 +2861,8 @@ msgid "Share this bookmark"
 msgstr "Sdílet záložku"
 
 #: libraries/Console.class.php:302
-#, fuzzy
-#| msgid "Reset to default"
 msgid "Set default"
-msgstr "Obnovit na výchozí hodnotu"
+msgstr "Nastavit výchozí"
 
 #: libraries/Console.class.php:306
 #, fuzzy
@@ -3721,7 +3681,7 @@ msgid "Could not save favorite table!"
 msgstr "Nepodařilo se uložit oblíbenou tabulku!"
 
 #: libraries/RecentFavoriteTable.class.php:227
-#: libraries/structure.lib.php:2894
+#: libraries/structure.lib.php:2893
 msgid "Remove from Favorites"
 msgstr "Odstranit z oblíbených"
 
@@ -3817,7 +3777,7 @@ msgstr "Řazení"
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:120
-#: libraries/structure.lib.php:3084
+#: libraries/structure.lib.php:3083
 msgid "Tables"
 msgstr "Tabulky"
 
@@ -4069,10 +4029,8 @@ msgid "Replace with:"
 msgstr "Nahradit hodnotou:"
 
 #: libraries/TableSearch.class.php:1370
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "jako regulární výraz"
+msgstr "Použít regulární výraz"
 
 #: libraries/TableSearch.class.php:1472
 msgid "Find and replace - preview"
@@ -4395,7 +4353,7 @@ msgid "Date and time"
 msgstr "Datum a čas"
 
 #: libraries/Types.class.php:670 libraries/Types.class.php:1040
-#: libraries/normalization.lib.php:141 normalization.php:25
+#: libraries/normalization.lib.php:143 normalization.php:25
 msgctxt "string types"
 msgid "String"
 msgstr "Řetězce"
@@ -4639,10 +4597,8 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
 #: libraries/central_columns.lib.php:280
-#, fuzzy
-#| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "Nepodařilo se uložit nastavení"
+msgstr "Nepodařilo se přidat sloupce!"
 
 #: libraries/central_columns.lib.php:356
 #, php-format
@@ -4651,10 +4607,8 @@ msgid ""
 msgstr ""
 
 #: libraries/central_columns.lib.php:368
-#, fuzzy
-#| msgid "Could not remove favorite table!"
 msgid "Could not remove columns!"
-msgstr "Nepodařilo se uložit oblíbenou tabulku!"
+msgstr "Nepodařilo se odstranit sloupce!"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
@@ -4703,14 +4657,12 @@ msgid "Select a column."
 msgstr "Zvolte sloupec."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
-#, fuzzy
-#| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "Krok automatického zvětšování"
+msgstr "auto_increment"
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
+msgstr "on update CURRENT_TIMESTAMP"
 
 #: libraries/central_columns.lib.php:886
 msgid "Add new column"
@@ -8943,7 +8895,7 @@ msgstr "Nová"
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:129
-#: libraries/structure.lib.php:3090
+#: libraries/structure.lib.php:3089
 msgid "Views"
 msgstr "Pohledy"
 
@@ -8952,120 +8904,120 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "Nový"
 
-#: libraries/normalization.lib.php:112
+#: libraries/normalization.lib.php:114
 msgid "Make all columns atomic"
 msgstr ""
 
-#: libraries/normalization.lib.php:114 libraries/normalization.lib.php:771
+#: libraries/normalization.lib.php:116 libraries/normalization.lib.php:773
 msgid "First step of normalization (1NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:117 libraries/normalization.lib.php:168
-#: libraries/normalization.lib.php:211 libraries/normalization.lib.php:247
+#: libraries/normalization.lib.php:119 libraries/normalization.lib.php:170
+#: libraries/normalization.lib.php:213 libraries/normalization.lib.php:249
 msgid "Step 1."
 msgstr ""
 
-#: libraries/normalization.lib.php:119
+#: libraries/normalization.lib.php:121
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
 
-#: libraries/normalization.lib.php:126
+#: libraries/normalization.lib.php:128
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 
-#: libraries/normalization.lib.php:129
+#: libraries/normalization.lib.php:131
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
 
-#: libraries/normalization.lib.php:136 normalization.php:19
+#: libraries/normalization.lib.php:138 normalization.php:19
 #, fuzzy
 #| msgid "Select a column."
 msgid "Select one…"
 msgstr "Zvolte sloupec."
 
-#: libraries/normalization.lib.php:137 normalization.php:20
+#: libraries/normalization.lib.php:139 normalization.php:20
 #, fuzzy
 #| msgid "Move column"
 msgid "No such column"
 msgstr "Přesunout pole"
 
-#: libraries/normalization.lib.php:144
+#: libraries/normalization.lib.php:146
 msgid "split into "
 msgstr ""
 
-#: libraries/normalization.lib.php:165
+#: libraries/normalization.lib.php:167
 #, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
 msgstr "Přidat primární klíč"
 
-#: libraries/normalization.lib.php:171
+#: libraries/normalization.lib.php:173
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
 msgstr "Chyba: Relace již existuje."
 
-#: libraries/normalization.lib.php:176
+#: libraries/normalization.lib.php:178
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
 
-#: libraries/normalization.lib.php:183
+#: libraries/normalization.lib.php:185
 msgid "Add a primary key on existing column(s)"
 msgstr ""
 
-#: libraries/normalization.lib.php:188
+#: libraries/normalization.lib.php:190
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 
-#: libraries/normalization.lib.php:192
+#: libraries/normalization.lib.php:194
 #, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
 msgstr "Přidat primární klíč"
 
-#: libraries/normalization.lib.php:210
+#: libraries/normalization.lib.php:212
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove redundant columns"
 msgstr "Odstranit pole"
 
-#: libraries/normalization.lib.php:213
+#: libraries/normalization.lib.php:215
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
 
-#: libraries/normalization.lib.php:219
+#: libraries/normalization.lib.php:221
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
 
-#: libraries/normalization.lib.php:224
+#: libraries/normalization.lib.php:226
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "Odstranit vybrané uživatele"
 
-#: libraries/normalization.lib.php:225
+#: libraries/normalization.lib.php:227
 #, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
 msgstr "Přidat sloupec"
 
-#: libraries/normalization.lib.php:246
+#: libraries/normalization.lib.php:248
 msgid "Move repeating groups"
 msgstr ""
 
-#: libraries/normalization.lib.php:249
+#: libraries/normalization.lib.php:251
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -9074,118 +9026,118 @@ msgid ""
 "should be created."
 msgstr ""
 
-#: libraries/normalization.lib.php:257
+#: libraries/normalization.lib.php:259
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
 
-#: libraries/normalization.lib.php:263
+#: libraries/normalization.lib.php:265
 msgid "No repeating group"
 msgstr ""
 
-#: libraries/normalization.lib.php:289
+#: libraries/normalization.lib.php:291
 msgid "Step 2."
 msgstr ""
 
-#: libraries/normalization.lib.php:289
+#: libraries/normalization.lib.php:291
 msgid "Find partial dependencies"
 msgstr ""
 
-#: libraries/normalization.lib.php:311
+#: libraries/normalization.lib.php:313
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
 
-#: libraries/normalization.lib.php:316 libraries/normalization.lib.php:358
+#: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."
 msgstr ""
 
-#: libraries/normalization.lib.php:321
+#: libraries/normalization.lib.php:323
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
 
-#: libraries/normalization.lib.php:325 libraries/normalization.lib.php:690
+#: libraries/normalization.lib.php:327 libraries/normalization.lib.php:692
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
 
-#: libraries/normalization.lib.php:329
+#: libraries/normalization.lib.php:331
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: libraries/normalization.lib.php:333
+#: libraries/normalization.lib.php:335
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
 
-#: libraries/normalization.lib.php:343 libraries/normalization.lib.php:728
+#: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr ""
 
-#: libraries/normalization.lib.php:354
+#: libraries/normalization.lib.php:356
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
 
-#: libraries/normalization.lib.php:379
+#: libraries/normalization.lib.php:381
 #, php-format
 msgid ""
 "As per above partial dependencies, in order to put the original table '%1$s' "
 "into Second normal form we need to create the following tables:"
 msgstr ""
 
-#: libraries/normalization.lib.php:415
+#: libraries/normalization.lib.php:417
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
 
-#: libraries/normalization.lib.php:455 libraries/normalization.lib.php:598
-#: libraries/normalization.lib.php:661
+#: libraries/normalization.lib.php:457 libraries/normalization.lib.php:600
+#: libraries/normalization.lib.php:663
 #, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing!"
 msgstr "Chyba při zpracování požadavku:"
 
-#: libraries/normalization.lib.php:499
+#: libraries/normalization.lib.php:501
 #, php-format
 msgid ""
 "As per above dependencies, in order to put the original table '%1$s' into "
 "Third normal form we need to create the following tables:"
 msgstr ""
 
-#: libraries/normalization.lib.php:546
+#: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
 msgstr ""
 
-#: libraries/normalization.lib.php:640
+#: libraries/normalization.lib.php:642
 #, fuzzy, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Vybrané cílové tabulky byly synchronizovány se zdrojovými."
 
-#: libraries/normalization.lib.php:687
+#: libraries/normalization.lib.php:689
 #, fuzzy
 #| msgid "Sep"
 msgid "Step 3."
 msgstr "zář"
 
-#: libraries/normalization.lib.php:687
+#: libraries/normalization.lib.php:689
 msgid "Find transitive dependencies"
 msgstr ""
 
-#: libraries/normalization.lib.php:694
+#: libraries/normalization.lib.php:696
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -9193,47 +9145,47 @@ msgid ""
 "in that case you don't have to select any."
 msgstr ""
 
-#: libraries/normalization.lib.php:741
+#: libraries/normalization.lib.php:743
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
 
-#: libraries/normalization.lib.php:745
+#: libraries/normalization.lib.php:747
 msgid "Table is already in Third normal form!"
 msgstr ""
 
-#: libraries/normalization.lib.php:768
+#: libraries/normalization.lib.php:770
 #, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
 msgstr "Schovat akce při zobrazení struktury tabulky"
 
-#: libraries/normalization.lib.php:769
+#: libraries/normalization.lib.php:771
 msgid "Select up to what step you want to normalize"
 msgstr ""
 
-#: libraries/normalization.lib.php:772
+#: libraries/normalization.lib.php:774
 msgid "Second step of normalization (1NF+2NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:773
+#: libraries/normalization.lib.php:775
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr ""
 
-#: libraries/normalization.lib.php:780
+#: libraries/normalization.lib.php:782
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
 
-#: libraries/normalization.lib.php:841
+#: libraries/normalization.lib.php:843
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
 
-#: libraries/normalization.lib.php:857
+#: libraries/normalization.lib.php:859
 msgid "No partial dependencies found!"
 msgstr ""
 
@@ -13370,35 +13322,35 @@ msgstr "Využití místa"
 msgid "Effective"
 msgstr "Efektivní"
 
-#: libraries/structure.lib.php:2566 libraries/tbl_indexes.lib.php:61
+#: libraries/structure.lib.php:2565 libraries/tbl_indexes.lib.php:61
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabulka %1$s byla úspěšně změněna."
 
-#: libraries/structure.lib.php:2579 libraries/tracking.lib.php:1034
+#: libraries/structure.lib.php:2578 libraries/tracking.lib.php:1034
 #: libraries/tracking.lib.php:1064
 msgid "Query error"
 msgstr "Chyba dotazu"
 
-#: libraries/structure.lib.php:2718
+#: libraries/structure.lib.php:2717
 msgid "The columns have been moved successfully."
 msgstr "Vybraná pole byla úspěšně přesunuta."
 
-#: libraries/structure.lib.php:2766
+#: libraries/structure.lib.php:2765
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "Název pole \"%s\" je rezervovaným klíčovým slovem MySQL."
 
-#: libraries/structure.lib.php:2895
+#: libraries/structure.lib.php:2894
 msgid "Add to Favorites"
 msgstr "Přidat do oblíbených"
 
-#: libraries/structure.lib.php:2941
+#: libraries/structure.lib.php:2940
 msgid "Favorite List is full!"
 msgstr "Seznam oblíbených je plný!"
 
-#: libraries/structure.lib.php:3031
+#: libraries/structure.lib.php:3030
 msgid "Showing create queries"
 msgstr "Zobrazuji SQL dotaz pro vytvoření"
 
