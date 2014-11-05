@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:04+0100\n"
-"PO-Revision-Date: 2014-03-27 15:10+0200\n"
+"PO-Revision-Date: 2014-11-05 10:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Tatar <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"tt/>\n"
+"Language-Team: Tatar "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tt/>\n"
 "Language: tt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 2.0-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -3824,7 +3824,7 @@ msgstr "Açıqlama"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "Töp açqıç beterelde"
+msgstr "Töp açqıç beterelde."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -9758,7 +9758,7 @@ msgstr ""
 #: libraries/operations.lib.php:1171
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "\"%s\" atlı tüşämä awdarıldı"
+msgstr "\"%s\" atlı tüşämä awdarıldı."
 
 #: libraries/operations.lib.php:1178
 #, fuzzy
@@ -13650,7 +13650,7 @@ msgstr ""
 #: libraries/structure.lib.php:70 tbl_operations.php:346
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "\"%s\" atlı tüşämä buşatıldı"
+msgstr "\"%s\" atlı tüşämä buşatıldı."
 
 #: libraries/structure.lib.php:93
 msgid "Tracking is active."
@@ -13856,12 +13856,12 @@ msgstr ""
 #: libraries/structure.lib.php:2082 libraries/structure.lib.php:2097
 #, php-format
 msgid "An index has been added on %s."
-msgstr "\"%s\" öçen ber açqıç qorıldı"
+msgstr "\"%s\" öçen ber açqıç qorıldı."
 
 #: libraries/structure.lib.php:2068
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "\"%s\" öçen töp açqıç qorıldı"
+msgstr "\"%s\" öçen töp açqıç qorıldı."
 
 #: libraries/structure.lib.php:2145 libraries/structure.lib.php:2216
 #, fuzzy
