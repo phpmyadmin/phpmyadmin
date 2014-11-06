@@ -437,8 +437,8 @@ class Node
                         }
                     }
 
-                    foreach ($GLOBALS['dbs_to_test'] as $db_to_test) {
-                        $query = "SHOW DATABASES LIKE '" . $db_to_test . "'";
+                    foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
+                        $query = "SHOW DATABASES LIKE '" . $db . "'";
                         $handle = $GLOBALS['dbi']->tryQuery($query);
                         if ($handle !== false) {
                             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
@@ -480,9 +480,9 @@ class Node
                 } else {
                     $retval = array();
                     $count = 0;
-                    foreach ($GLOBALS['dbs_to_test'] as $db_to_test) {
+                    foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
                         $retval = array();
-                        $query = "SHOW DATABASES LIKE '" . $db_to_test . "'";
+                        $query = "SHOW DATABASES LIKE '" . $db . "'";
                         $handle = $GLOBALS['dbi']->tryQuery($query);
                         if ($handle !== false) {
                             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
@@ -543,8 +543,8 @@ class Node
                     $retval = count($prefixMap);
                 } else {
                     $prefixMap = array();
-                    foreach ($GLOBALS['dbs_to_test'] as $db_to_test) {
-                        $query = "SHOW DATABASES LIKE '" . $db_to_test . "'";
+                    foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
+                        $query = "SHOW DATABASES LIKE '" . $db . "'";
                         $handle = $GLOBALS['dbi']->tryQuery($query);
                         if ($handle !== false) {
                             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
@@ -574,8 +574,8 @@ class Node
                     );
                 } else {
                     $retval = 0;
-                    foreach ($GLOBALS['dbs_to_test'] as $db_to_test) {
-                        $query = "SHOW DATABASES LIKE '" . $db_to_test . "'";
+                    foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
+                        $query = "SHOW DATABASES LIKE '" . $db . "'";
                         $retval += $GLOBALS['dbi']->numRows(
                             $GLOBALS['dbi']->tryQuery($query)
                         );
@@ -584,6 +584,29 @@ class Node
             }
         }
         return $retval;
+    }
+
+    /**
+     * Get the list of databases for 'SHOW DATABASES LIKE' queries.
+     * If a search clause is set it gets the highest priority while only_db gets
+     * the next priority. In case both are empty list of databases determined by
+     * GRANTs are used
+     *
+     * @param string $searchClause search clause
+     *
+     * @return array array of databases
+     */
+    private function _getDatabasesToSearch($searchClause) {
+        if (! empty($searchClause)) {
+            $databases = array(
+                "%" . PMA_Util::sqlAddSlashes($searchClause, true) . "%"
+            );
+        } elseif (! empty($GLOBALS['cfg']['Server']['only_db'])) {
+            $databases = $GLOBALS['cfg']['Server']['only_db'];
+        } elseif (! empty($GLOBALS['dbs_to_test'])) {
+            $databases = $GLOBALS['dbs_to_test'];
+        }
+        return $databases;
     }
 
     /**
