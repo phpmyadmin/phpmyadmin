@@ -384,36 +384,76 @@ class Node
                 $query .= "ORDER BY SCHEMA_NAME ASC";
                 $retval = $GLOBALS['dbi']->fetchResult($query);
             } else {
-                $query = "SHOW DATABASES ";
-                $query .= $this->_getWhereClause('Database', $searchClause);
-                $handle = $GLOBALS['dbi']->tryQuery($query);
-                if ($handle !== false) {
+                if (! $GLOBALS['cfg']['Server']['DisableIS']
+                    || $GLOBALS['dbs_to_test'] === false
+                ) {
+                    $query = "SHOW DATABASES ";
+                    $query .= $this->_getWhereClause('Database', $searchClause);
+                    $handle = $GLOBALS['dbi']->tryQuery($query);
+                    if ($handle !== false) {
+                        $prefixMap = array();
+                        $total = $pos + $maxItems;
+                        while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                            $prefix = strstr($arr[0], $dbSeparator, true);
+                            if ($prefix === false) {
+                                $prefix = $arr[0];
+                            }
+                            $prefixMap[$prefix] = 1;
+                            if (sizeof($prefixMap) == $total) {
+                                break;
+                            }
+                        }
+                        $prefixes = array_slice(array_keys($prefixMap), $pos);
+                    }
+
+                    $query = "SHOW DATABASES ";
+                    $query .= $this->_getWhereClause('Database', '');
+                    $query .= " AND (";
+                    $subClauses = array();
+                    foreach ($prefixes as $prefix) {
+                        $subClauses[] = " LOCATE('"
+                            . PMA_Util::sqlAddSlashes($prefix) . $dbSeparator . "', "
+                            . "CONCAT(`Database`, '" . $dbSeparator . "')) = 1 ";
+                    }
+                    $query .= implode("OR", $subClauses) . ")";
+                    $retval = $GLOBALS['dbi']->fetchResult($query);
+                } else {
+                    $retval = array();
                     $prefixMap = array();
                     $total = $pos + $maxItems;
-                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        $prefix = strstr($arr[0], $dbSeparator, true);
-                        if ($prefix === false) {
-                            $prefix = $arr[0];
-                        }
-                        $prefixMap[$prefix] = 1;
-                        if (sizeof($prefixMap) == $total) {
-                            break;
+                    foreach ($GLOBALS['dbs_to_test'] as $db_to_test) {
+                        $query = "SHOW DATABASES LIKE '" . $db_to_test . "'";
+                        $handle = $GLOBALS['dbi']->tryQuery($query);
+                        if ($handle !== false) {
+                            while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                                $prefix = strstr($arr[0], $dbSeparator, true);
+                                if ($prefix === false) {
+                                    $prefix = $arr[0];
+                                }
+                                $prefixMap[$prefix] = 1;
+                                if (sizeof($prefixMap) == $total) {
+                                    break 2;
+                                }
+                            }
+                            $prefixes = array_slice(array_keys($prefixMap), $pos);
                         }
                     }
-                    $prefixes = array_slice(array_keys($prefixMap), $pos);
-                }
 
-                $query = "SHOW DATABASES ";
-                $query .= $this->_getWhereClause('Database', '');
-                $query .= " AND (";
-                $subClauses = array();
-                foreach ($prefixes as $prefix) {
-                    $subClauses[] = " LOCATE('"
-                        . PMA_Util::sqlAddSlashes($prefix) . $dbSeparator . "', "
-                        . "CONCAT(`Database`, '" . $dbSeparator . "')) = 1 ";
+                    foreach ($GLOBALS['dbs_to_test'] as $db_to_test) {
+                        $query = "SHOW DATABASES LIKE '" . $db_to_test . "'";
+                        $handle = $GLOBALS['dbi']->tryQuery($query);
+                        if ($handle !== false) {
+                            while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                                foreach ($prefixes as $prefix) {
+                                    if (strpos($arr[0], $prefix) === 0) {
+                                        $retval[] = $arr[0];
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-                $query .= implode("OR", $subClauses) . ")";
-                $retval = $GLOBALS['dbi']->fetchResult($query);
             }
         } else {
             if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -424,18 +464,39 @@ class Node
                 $query .= "LIMIT $pos, $maxItems";
                 $retval = $GLOBALS['dbi']->fetchResult($query);
             } else {
-                $retval = array();
-                $query = "SHOW DATABASES ";
-                $query .= $this->_getWhereClause('Database', $searchClause);
-                $handle = $GLOBALS['dbi']->tryQuery($query);
-                if ($handle !== false) {
-                    $count = 0;
-                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($pos <= 0 && $count < $maxItems) {
-                            $retval[] = $arr[0];
-                            $count++;
+                if (! $GLOBALS['cfg']['Server']['DisableIS']
+                    || $GLOBALS['dbs_to_test'] === false
+                ) {
+                    $retval = array();
+                    $query = "SHOW DATABASES ";
+                    $query .= $this->_getWhereClause('Database', $searchClause);
+                    $handle = $GLOBALS['dbi']->tryQuery($query);
+                    if ($handle !== false) {
+                        $count = 0;
+                        while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                            if ($pos <= 0 && $count < $maxItems) {
+                                $retval[] = $arr[0];
+                                $count++;
+                            }
+                            $pos--;
                         }
-                        $pos--;
+                    }
+                } else {
+                    $retval = array();
+                    $count = 0;
+                    foreach ($GLOBALS['dbs_to_test'] as $db_to_test) {
+                        $retval = array();
+                        $query = "SHOW DATABASES LIKE '" . $db_to_test . "'";
+                        $handle = $GLOBALS['dbi']->tryQuery($query);
+                        if ($handle !== false) {
+                            while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                                if ($pos <= 0 && $count < $maxItems) {
+                                    $retval[] = $arr[0];
+                                    $count++;
+                                }
+                                $pos--;
+                            }
+                        }
                     }
                 }
             }

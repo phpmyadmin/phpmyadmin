@@ -50,6 +50,9 @@ function PMA_analyseShowGrant()
         $GLOBALS['dbs_where_create_table_allowed'] = PMA_Util::cacheGet(
             'dbs_where_create_table_allowed'
         );
+        $GLOBALS['dbs_to_test'] = PMA_Util::cacheGet(
+            'dbs_to_test'
+        );
         return;
     }
 
@@ -59,6 +62,7 @@ function PMA_analyseShowGrant()
     $GLOBALS['is_reload_priv']     = false;
     $GLOBALS['db_to_create']       = '';
     $GLOBALS['dbs_where_create_table_allowed'] = array();
+    $GLOBALS['dbs_to_test']        = $GLOBALS['dbi']->getSystemSchemas();
 
     $rs_usr = $GLOBALS['dbi']->tryQuery('SHOW GRANTS');
 
@@ -83,6 +87,15 @@ function PMA_analyseShowGrant()
             6,
             (/*overload*/mb_strpos($row[0], ' ON ') - 6)
         );
+
+        if ($show_grants_dbname == '*') {
+            if ($show_grants_str != 'USAGE') {
+                $GLOBALS['dbs_to_test'] = false;
+            }
+        } elseif ($GLOBALS['dbs_to_test'] !== false) {
+            $GLOBALS['dbs_to_test'][] = $show_grants_dbname;
+        }
+
         if ($show_grants_str == 'RELOAD') {
             $GLOBALS['is_reload_priv'] = true;
         }
@@ -163,6 +176,7 @@ function PMA_analyseShowGrant()
         'dbs_where_create_table_allowed',
         $GLOBALS['dbs_where_create_table_allowed']
     );
+    PMA_Util::cacheSet('dbs_to_test', $GLOBALS['dbs_to_test']);
 } // end function
 
 if (!PMA_DRIZZLE) {

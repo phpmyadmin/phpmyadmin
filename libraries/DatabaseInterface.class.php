@@ -2359,6 +2359,25 @@ class PMA_DatabaseInterface
     }
 
     /**
+     * Get the list of system schemas
+     *
+     * @return array list of system schemas
+     */
+    public function getSystemSchemas()
+    {
+        $schemas = array(
+            'information_schema', 'performance_schema', 'data_dictionary', 'mysql'
+        );
+        $systemSchemas = array();
+        foreach ($schemas as $schema) {
+            if ($this->isSystemSchema($schema, true)) {
+                $systemSchemas[] = $schema;
+            }
+        }
+        return $systemSchemas;
+    }
+
+    /**
      * Checks whether given schema is a system schema: information_schema
      * (MySQL and Drizzle) or data_dictionary (Drizzle)
      *

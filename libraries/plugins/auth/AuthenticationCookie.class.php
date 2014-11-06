@@ -476,6 +476,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             PMA_Util::cacheUnset('is_reload_priv');
             PMA_Util::cacheUnset('db_to_create');
             PMA_Util::cacheUnset('dbs_where_create_table_allowed');
+            PMA_Util::cacheUnset('dbs_to_test');
             $GLOBALS['no_activity'] = true;
             $this->authFails();
             if (! defined('TESTSUITE')) {
