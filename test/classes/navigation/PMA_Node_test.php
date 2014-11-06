@@ -433,6 +433,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
             $GLOBALS['cfg'] = array();
         }
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $GLOBALS['dbs_to_test'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
@@ -549,6 +550,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
     public function testGetPresenceWithDisabledIS()
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $GLOBALS['dbs_to_test'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
 
         $node = PMA_NodeFactory::getInstance();
