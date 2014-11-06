@@ -384,9 +384,7 @@ class Node
                 $query .= "ORDER BY SCHEMA_NAME ASC";
                 $retval = $GLOBALS['dbi']->fetchResult($query);
             } else {
-                if (! $GLOBALS['cfg']['Server']['DisableIS']
-                    || $GLOBALS['dbs_to_test'] === false
-                ) {
+                if ($GLOBALS['dbs_to_test'] === false) {
                     $query = "SHOW DATABASES ";
                     $query .= $this->_getWhereClause('Database', $searchClause);
                     $handle = $GLOBALS['dbi']->tryQuery($query);
@@ -464,9 +462,7 @@ class Node
                 $query .= "LIMIT $pos, $maxItems";
                 $retval = $GLOBALS['dbi']->fetchResult($query);
             } else {
-                if (! $GLOBALS['cfg']['Server']['DisableIS']
-                    || $GLOBALS['dbs_to_test'] === false
-                ) {
+                if ($GLOBALS['dbs_to_test'] === false) {
                     $retval = array();
                     $query = "SHOW DATABASES ";
                     $query .= $this->_getWhereClause('Database', $searchClause);
@@ -530,19 +526,37 @@ class Node
                 $query .= ") t ";
                 $retval = (int)$GLOBALS['dbi']->fetchValue($query);
             } else {
-                $query = "SHOW DATABASES ";
-                $query .= $this->_getWhereClause('Database', $searchClause);
-                $handle = $GLOBALS['dbi']->tryQuery($query);
-                if ($handle !== false) {
+                if ($GLOBALS['dbs_to_test'] === false) {
                     $prefixMap = array();
-                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        $prefix = strstr($arr[0], $dbSeparator, true);
-                        if ($prefix === false) {
-                            $prefix = $arr[0];
+                    $query = "SHOW DATABASES ";
+                    $query .= $this->_getWhereClause('Database', $searchClause);
+                    $handle = $GLOBALS['dbi']->tryQuery($query);
+                    if ($handle !== false) {
+                        while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                            $prefix = strstr($arr[0], $dbSeparator, true);
+                            if ($prefix === false) {
+                                $prefix = $arr[0];
+                            }
+                            $prefixMap[$prefix] = 1;
                         }
-                        $prefixMap[$prefix] = 1;
                     }
-                    return count($prefixMap);
+                    $retval = count($prefixMap);
+                } else {
+                    $prefixMap = array();
+                    foreach ($GLOBALS['dbs_to_test'] as $db_to_test) {
+                        $query = "SHOW DATABASES LIKE '" . $db_to_test . "'";
+                        $handle = $GLOBALS['dbi']->tryQuery($query);
+                        if ($handle !== false) {
+                            while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                                $prefix = strstr($arr[0], $dbSeparator, true);
+                                if ($prefix === false) {
+                                    $prefix = $arr[0];
+                                }
+                                $prefixMap[$prefix] = 1;
+                            }
+                        }
+                    }
+                    $retval = count($prefixMap);
                 }
             }
         } else {
@@ -552,11 +566,21 @@ class Node
                 $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
                 $retval = (int)$GLOBALS['dbi']->fetchValue($query);
             } else {
-                $query = "SHOW DATABASES ";
-                $query .= $this->_getWhereClause('Database', $searchClause);
-                $retval = $GLOBALS['dbi']->numRows(
-                    $GLOBALS['dbi']->tryQuery($query)
-                );
+                if ($GLOBALS['dbs_to_test'] === false) {
+                    $query = "SHOW DATABASES ";
+                    $query .= $this->_getWhereClause('Database', $searchClause);
+                    $retval = $GLOBALS['dbi']->numRows(
+                        $GLOBALS['dbi']->tryQuery($query)
+                    );
+                } else {
+                    $retval = 0;
+                    foreach ($GLOBALS['dbs_to_test'] as $db_to_test) {
+                        $query = "SHOW DATABASES LIKE '" . $db_to_test . "'";
+                        $retval += $GLOBALS['dbi']->numRows(
+                            $GLOBALS['dbi']->tryQuery($query)
+                        );
+                    }
+                }
             }
         }
         return $retval;
