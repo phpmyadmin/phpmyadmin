@@ -90,6 +90,59 @@ class Node_Database extends Node
     }
 
     /**
+     * Returns the number of tables or views present inside this database
+     *
+     * @param string  $which        tables|views 
+     * @param string  $searchClause A string used to filter the results of
+     *                              the query
+     * @param boolean $singleItem   Whether to get presence of a single known
+     *                              item or false in none
+     *
+     * @return int
+     */
+    private function _getTableOrViewCount($which, $searchClause, $singleItem)
+    {
+        $retval = 0;
+        $db     = $this->real_name;
+        if ($which == 'tables') {
+            $condition = '=';
+        } else {
+            $condition = '!=';
+        }
+
+        if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
+            $db     = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT COUNT(*) ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
+            $query .= "WHERE `TABLE_SCHEMA`='$db' ";
+            if (PMA_DRIZZLE) {
+                $query .= "AND `TABLE_TYPE`" . $condition . "'BASE' ";
+            } else {
+                $query .= "AND `TABLE_TYPE`" . $condition . "'BASE TABLE' ";
+            }
+            if (! empty($searchClause)) {
+                $query .= "AND " . $this->_getWhereClauseForSearch(
+                    $searchClause, $singleItem, 'TABLE_NAME'
+                );
+            }
+            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+        } else {
+            $query  = "SHOW FULL TABLES FROM ";
+            $query .= PMA_Util::backquote($db);
+            $query .= " WHERE `Table_type`" . $condition . "'BASE TABLE' ";
+            if (! empty($searchClause)) {
+                $query .= "AND " . $this->_getWhereClauseForSearch(
+                    $searchClause, $singleItem, 'Tables_in_' . $db
+                );
+            }
+            $retval = $GLOBALS['dbi']->numRows(
+                $GLOBALS['dbi']->tryQuery($query)
+            );
+        }
+        return $retval;
+    }
+
+    /**
      * Returns the number of tables present inside this database
      *
      * @param string  $searchClause A string used to filter the results of
@@ -101,38 +154,9 @@ class Node_Database extends Node
      */
     private function _getTableCount($searchClause, $singleItem)
     {
-        $retval = 0;
-        $db     = $this->real_name;
-        if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
-            $db     = PMA_Util::sqlAddSlashes($db);
-            $query  = "SELECT COUNT(*) ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-            $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-            if (PMA_DRIZZLE) {
-                $query .= "AND `TABLE_TYPE`='BASE' ";
-            } else {
-                $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
-            }
-            if (! empty($searchClause)) {
-                $query .= "AND " . $this->_getWhereClauseForSearch(
-                    $searchClause, $singleItem, 'TABLE_NAME'
-                );
-            }
-            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
-        } else {
-            $query  = "SHOW FULL TABLES FROM ";
-            $query .= PMA_Util::backquote($db);
-            $query .= " WHERE `Table_type`='BASE TABLE' ";
-            if (! empty($searchClause)) {
-                $query .= "AND " . $this->_getWhereClauseForSearch(
-                    $searchClause, $singleItem, 'Tables_in_' . $db
-                );
-            }
-            $retval = $GLOBALS['dbi']->numRows(
-                $GLOBALS['dbi']->tryQuery($query)
-            );
-        }
-        return $retval;
+        return $this->_getTableOrViewCount(
+            'tables', $searchClause, $singleItem
+        );
     }
 
     /**
@@ -147,38 +171,9 @@ class Node_Database extends Node
      */
     private function _getViewCount($searchClause, $singleItem)
     {
-        $retval = 0;
-        $db     = $this->real_name;
-        if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
-            $db     = PMA_Util::sqlAddSlashes($db);
-            $query  = "SELECT COUNT(*) ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-            $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-            if (PMA_DRIZZLE) {
-                $query .= "AND `TABLE_TYPE`!='BASE' ";
-            } else {
-                $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
-            }
-            if (! empty($searchClause)) {
-                $query .= "AND " . $this->_getWhereClauseForSearch(
-                    $searchClause, $singleItem, 'TABLE_NAME'
-                );
-            }
-            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
-        } else {
-            $query  = "SHOW FULL TABLES FROM ";
-            $query .= PMA_Util::backquote($db);
-            $query .= " WHERE `Table_type`!='BASE TABLE' ";
-            if (! empty($searchClause)) {
-                $query .= "AND " . $this->_getWhereClauseForSearch(
-                    $searchClause, $singleItem, 'Tables_in_' . $db
-                );
-            }
-            $retval = $GLOBALS['dbi']->numRows(
-                $GLOBALS['dbi']->tryQuery($query)
-            );
-        }
-        return $retval;
+        return $this->_getTableOrViewCount(
+            'views', $searchClause, $singleItem
+        );
     }
 
     /**
