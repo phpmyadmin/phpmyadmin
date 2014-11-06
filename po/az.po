@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:04+0100\n"
-"PO-Revision-Date: 2014-11-06 17:33+0200\n"
-"Last-Translator: Mircəlal <01youknowme@gmail.com>\n"
+"PO-Revision-Date: 2014-11-06 18:49+0200\n"
+"Last-Translator: Ziyaddin Sadigov <ziyaddinsadigov@gmail.com>\n"
 "Language-Team: Azerbaijani "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
 "Language: az\n"
@@ -585,7 +585,7 @@ msgstr "Davam"
 
 #: gis_data_editor.php:412
 msgid "Output"
-msgstr ""
+msgstr "Məhsul"
 
 #: gis_data_editor.php:415
 msgid ""
