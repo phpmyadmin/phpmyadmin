@@ -433,9 +433,9 @@ class Node
                                     break 2;
                                 }
                             }
-                            $prefixes = array_slice(array_keys($prefixMap), $pos);
                         }
                     }
+                    $prefixes = array_slice(array_keys($prefixMap), $pos);
 
                     foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
                         $query = "SHOW DATABASES LIKE '" . $db . "'";
@@ -482,7 +482,6 @@ class Node
                     $retval = array();
                     $count = 0;
                     foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
-                        $retval = array();
                         $query = "SHOW DATABASES LIKE '" . $db . "'";
                         $handle = $GLOBALS['dbi']->tryQuery($query);
                         if ($handle !== false) {
@@ -598,7 +597,8 @@ class Node
      *
      * @return array array of databases
      */
-    private function _getDatabasesToSearch($searchClause) {
+    private function _getDatabasesToSearch($searchClause)
+    {
         if (! empty($searchClause)) {
             $databases = array(
                 "%" . PMA_Util::sqlAddSlashes($searchClause, true) . "%"
