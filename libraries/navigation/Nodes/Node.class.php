@@ -419,8 +419,8 @@ class Node
                     $retval = array();
                     $prefixMap = array();
                     $total = $pos + $maxItems;
-                    foreach ($GLOBALS['dbs_to_test'] as $db_to_test) {
-                        $query = "SHOW DATABASES LIKE '" . $db_to_test . "'";
+                    foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
+                        $query = "SHOW DATABASES LIKE '" . $db . "'";
                         $handle = $GLOBALS['dbi']->tryQuery($query);
                         if ($handle !== false) {
                             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
@@ -451,6 +451,7 @@ class Node
                             }
                         }
                     }
+                    sort($retval);
                 }
             }
         } else {
@@ -494,6 +495,7 @@ class Node
                             }
                         }
                     }
+                    sort($retval);
                 }
             }
         }
@@ -606,6 +608,7 @@ class Node
         } elseif (! empty($GLOBALS['dbs_to_test'])) {
             $databases = $GLOBALS['dbs_to_test'];
         }
+        sort($databases);
         return $databases;
     }
 
