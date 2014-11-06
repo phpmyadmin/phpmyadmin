@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:03+0100\n"
-"PO-Revision-Date: 2014-11-02 08:54+0200\n"
-"Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-2/az/>\n"
+"PO-Revision-Date: 2014-11-06 17:08+0200\n"
+"Last-Translator: Mircəlal <01youknowme@gmail.com>\n"
+"Language-Team: Azerbaijani "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-2/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.0\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -2185,7 +2185,7 @@ msgstr ""
 #.
 #: js/messages.php:555
 msgid "calendar-month-year"
-msgstr "calendar-month-year"
+msgstr "təqvim-ay-il"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:558
@@ -2259,7 +2259,7 @@ msgstr "saniyədə"
 
 #: libraries/Advisor.class.php:475
 msgid "per minute"
-msgstr "deqiqede"
+msgstr "dəqiqədə"
 
 #: libraries/Advisor.class.php:478 libraries/server_status.lib.php:137
 #: libraries/server_status.lib.php:221
@@ -2283,7 +2283,7 @@ msgstr ""
 
 #: libraries/Config.class.php:1771
 msgid "Font size"
-msgstr "Font ölçüsü"
+msgstr "Şrift ölçüsü"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1322
 #: libraries/DisplayResults.class.php:2146
@@ -2587,7 +2587,7 @@ msgstr "Açara görə sırala"
 #: libraries/plugins/import/ImportXml.class.php:58
 #: libraries/rte/rte_routines.lib.php:988 libraries/structure.lib.php:1734
 msgid "Options"
-msgstr "Parametrlər"
+msgstr "Seçimlər"
 
 #: libraries/DisplayResults.class.php:1627
 #: libraries/DisplayResults.class.php:1734
@@ -3341,11 +3341,11 @@ msgstr "Operator"
 #: libraries/server_status_variables.lib.php:220 pmd_general.php:563
 #: pmd_general.php:623 pmd_general.php:752 pmd_general.php:871
 msgid "Value"
-msgstr "Deyer"
+msgstr "Dəyər"
 
 #: libraries/TableSearch.class.php:205
 msgid "Table Search"
-msgstr "Cədvəl Axtarma"
+msgstr "Cədvəl axtarışı"
 
 #: libraries/TableSearch.class.php:212
 #, fuzzy
@@ -3355,7 +3355,7 @@ msgstr "Axtarış"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1230
 msgid "Find and Replace"
-msgstr ""
+msgstr "Tap və əvəz et"
 
 #: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1399
 msgid "Edit/Insert"
@@ -3372,15 +3372,15 @@ msgstr "ya da"
 
 #: libraries/TableSearch.class.php:822
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Axtarış şertlerini gir (\"where\" ifadesinin esas metni):"
+msgstr "Axtarış şərtlərini əlavə edin (\"where\" ifadəsinin əsas mətni):"
 
 #: libraries/TableSearch.class.php:832
 msgid "Number of rows per page"
-msgstr "Sehife başına düşen setir sayı"
+msgstr "Hər səhifədəki sətir sayı"
 
 #: libraries/TableSearch.class.php:843
 msgid "Display order:"
-msgstr "Sıralama şekli:"
+msgstr "Görünüş sırası:"
 
 #: libraries/TableSearch.class.php:879
 msgid "Use this column to label each point"
@@ -3405,7 +3405,7 @@ msgstr "İki fərqli sütun üçün \"nümunə ilə sorğu\" (wildcard: \"%\")"
 
 #: libraries/TableSearch.class.php:1219
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "\"nümuneye göre sorğu\" gönderin (xüsusi işare: \"%\")"
+msgstr "\"Nümunəyə görə sorğu\" göndərin (xüsusi işarə: \"%\")"
 
 #: libraries/TableSearch.class.php:1276
 msgid "Browse/Edit the points"
@@ -3413,7 +3413,7 @@ msgstr ""
 
 #: libraries/TableSearch.class.php:1283
 msgid "How to use"
-msgstr ""
+msgstr "Necə istifadə etmək lazımdır"
 
 #: libraries/TableSearch.class.php:1288
 #, fuzzy
@@ -3452,7 +3452,7 @@ msgstr ""
 
 #: libraries/Theme.class.php:402
 msgid "No preview available."
-msgstr ""
+msgstr "Görünüş mövcud deyil."
 
 #: libraries/Theme.class.php:404
 msgid "take it"
@@ -3799,11 +3799,12 @@ msgstr "PHP Kodunu Hazırla"
 #: libraries/Util.class.php:1239 libraries/config/messages.inc.php:751
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
-msgstr ""
+msgstr "Yenilə"
 
 #: libraries/Util.class.php:1270 libraries/sql.lib.php:483
+#, fuzzy
 msgid "Profiling"
-msgstr ""
+msgstr "Profilləmə"
 
 #: libraries/Util.class.php:1282
 msgctxt "Inline edit query"
@@ -3894,7 +3895,7 @@ msgstr "En son yoxlama"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "paylaşılan"
 
 #: libraries/browse_foreigners.lib.php:43
 msgid "Search:"
@@ -6406,7 +6407,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:786
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:787
 msgid "Enter your public key for your domain reCaptcha service."
@@ -11326,7 +11327,7 @@ msgstr "%s me'lumat bazasına SQL sorğusu(-ları) gönder"
 
 #: libraries/sql_query_form.lib.php:275 setup/frames/index.inc.php:297
 msgid "Clear"
-msgstr ""
+msgstr "Təmizlə"
 
 #: libraries/sql_query_form.lib.php:318
 #, fuzzy
@@ -11868,7 +11869,7 @@ msgstr "İndex adı&nbsp;:"
 #: libraries/tbl_indexes.lib.php:263
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "\"PRIMARY\" sadece birinci dereceli açarın adı <b>olmalıdır</b>!"
+msgstr "\"PRIMARY\" <b>sadəcə</b> birinci dərəcəli açarın adı <b>olmalıdır</b>!"
 
 #: libraries/tbl_indexes.lib.php:282
 #, fuzzy
