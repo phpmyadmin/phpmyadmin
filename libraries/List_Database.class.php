@@ -42,12 +42,6 @@ class PMA_List_Database extends PMA_List
     protected $db_link_user = null;
 
     /**
-     * @var boolean whether we can retrieve the list of databases
-     * @access protected
-     */
-    protected $can_retrieve_databases = true;
-
-    /**
      * Constructor
      *
      * @param mixed $db_link_user user database link resource|object
@@ -88,24 +82,32 @@ class PMA_List_Database extends PMA_List
      */
     protected function retrieve($like_db_name = null)
     {
-        if (! $this->can_retrieve_databases) {
-            return array();
+        $database_list = array();
+        $command = "";
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            $command .= "SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`";
+            if (null !== $like_db_name) {
+                $command .= " WHERE `SCHEMA_NAME` LIKE '" . $like_db_name . "'";
+            }
+        } else {
+            if ($GLOBALS['dbs_to_test'] === false || null !== $like_db_name) {
+                $command .= "SHOW DATABASES";
+                if (null !== $like_db_name) {
+                    $command .= " LIKE '" . $like_db_name . "'";
+                }
+            } else {
+                foreach ($GLOBALS['dbs_to_test'] as $db) {
+                    $database_list = array_merge(
+                        $database_list, $this->retrieve($db)
+                    );
+                }
+            }
         }
 
-        $command = "SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`"
-            . " WHERE TRUE";
-
-        if (null !== $like_db_name) {
-            $command .= " AND `SCHEMA_NAME` LIKE '" . $like_db_name . "'";
-        }
-
-        $database_list = $GLOBALS['dbi']->fetchResult(
-            $command, null, null, $this->db_link
-        );
-        $GLOBALS['dbi']->getError();
-
-        if ($GLOBALS['errno'] !== 0) {
-            $this->can_retrieve_databases = false;
+        if ($command) {
+            $database_list = $GLOBALS['dbi']->fetchResult(
+                $command, null, null, $this->db_link
+            );
         }
 
         if ($GLOBALS['cfg']['NaturalOrder']) {
@@ -165,10 +167,7 @@ class PMA_List_Database extends PMA_List
                 continue;
             }
 
-            if ($this->can_retrieve_databases) {
-                $items = array_merge($items, $this->retrieve($each_only_db));
-                continue;
-            }
+            $items = array_merge($items, $this->retrieve($each_only_db));
         }
 
         $this->exchangeArray($items);
