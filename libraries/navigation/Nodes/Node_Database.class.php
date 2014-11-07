@@ -480,14 +480,15 @@ class Node_Database extends Node
     }
 
     /**
-     * Returns the list of procedures inside this database
+     * Returns the list of procedures or functions inside this database
      *
+     * @param string $routineType  PROCEDURE|FUNCTION 
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
      * @return array
      */
-    private function _getProcedures($pos, $searchClause)
+    private function _getRoutines($routineType, $pos, $searchClause)
     {
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
         $retval   = array();
@@ -498,7 +499,7 @@ class Node_Database extends Node
             $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
             $query .= "WHERE `ROUTINE_SCHEMA` "
                 . PMA_Util::getCollateForIS() . "='$escdDb'";
-            $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
+            $query .= "AND `ROUTINE_TYPE`='" . $routineType . "' ";
             if (! empty($searchClause)) {
                 $query .= "AND `ROUTINE_NAME` LIKE '%";
                 $query .= PMA_Util::sqlAddSlashes(
@@ -511,7 +512,7 @@ class Node_Database extends Node
             $retval = $GLOBALS['dbi']->fetchResult($query);
         } else {
             $escdDb = PMA_Util::sqlAddSlashes($db);
-            $query  = "SHOW PROCEDURE STATUS WHERE `Db`='$escdDb' ";
+            $query  = "SHOW " . $routineType . " STATUS WHERE `Db`='$escdDb' ";
             if (! empty($searchClause)) {
                 $query .= "AND `Name` LIKE '%";
                 $query .= PMA_Util::sqlAddSlashes(
@@ -535,6 +536,19 @@ class Node_Database extends Node
     }
 
     /**
+     * Returns the list of procedures inside this database
+     *
+     * @param int    $pos          The offset of the list within the results
+     * @param string $searchClause A string used to filter the results of the query
+     *
+     * @return array
+     */
+    private function _getProcedures($pos, $searchClause)
+    {
+        return $this->_getRoutines('PROCEDURE', $pos, $searchClause);
+    }
+
+    /**
      * Returns the list of functions inside this database
      *
      * @param int    $pos          The offset of the list within the results
@@ -544,49 +558,7 @@ class Node_Database extends Node
      */
     private function _getFunctions($pos, $searchClause)
     {
-        $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
-        $retval   = array();
-        $db       = $this->real_name;
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $escdDb = PMA_Util::sqlAddSlashes($db);
-            $query  = "SELECT `ROUTINE_NAME` AS `name` ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-            $query .= "WHERE `ROUTINE_SCHEMA` "
-                . PMA_Util::getCollateForIS() . "='$escdDb' ";
-            $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
-            if (! empty($searchClause)) {
-                $query .= "AND `ROUTINE_NAME` LIKE '%";
-                $query .= PMA_Util::sqlAddSlashes(
-                    $searchClause, true
-                );
-                $query .= "%'";
-            }
-            $query .= "ORDER BY `ROUTINE_NAME` ASC ";
-            $query .= "LIMIT " . intval($pos) . ", $maxItems";
-            $retval = $GLOBALS['dbi']->fetchResult($query);
-        } else {
-            $escdDb = PMA_Util::sqlAddSlashes($db);
-            $query  = "SHOW FUNCTION STATUS WHERE `Db`='$escdDb' ";
-            if (! empty($searchClause)) {
-                $query .= "AND `Name` LIKE '%";
-                $query .= PMA_Util::sqlAddSlashes(
-                    $searchClause, true
-                );
-                $query .= "%'";
-            }
-            $handle = $GLOBALS['dbi']->tryQuery($query);
-            if ($handle !== false) {
-                $count = 0;
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                    if ($pos <= 0 && $count < $maxItems) {
-                        $retval[] = $arr['Name'];
-                        $count++;
-                    }
-                    $pos--;
-                }
-            }
-        }
-        return $retval;
+        return $this->_getRoutines('FUNCTION', $pos, $searchClause);
     }
 
     /**
