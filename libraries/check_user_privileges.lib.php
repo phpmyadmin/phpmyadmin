@@ -189,6 +189,7 @@ if (!PMA_DRIZZLE) {
     $GLOBALS['is_reload_priv']    = false;
     $GLOBALS['db_to_create']      = '';
     $GLOBALS['dbs_where_create_table_allowed'] = array('*');
+    $GLOBALS['dbs_to_test']       = false;
 }
 
 ?>

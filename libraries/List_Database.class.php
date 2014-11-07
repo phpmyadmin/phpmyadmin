@@ -14,6 +14,7 @@ if (! defined('PHPMYADMIN')) {
  * the list base class
  */
 require_once './libraries/List.class.php';
+require_once './libraries/check_user_privileges.lib.php';
 
 /**
  * handles database lists
