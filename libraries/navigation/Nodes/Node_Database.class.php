@@ -387,15 +387,21 @@ class Node_Database extends Node
     }
 
     /**
-     * Returns the list of tables inside this database
+     * Returns the list of tables or views inside this database
      *
+     * @param string $which        tables|views 
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
      * @return array
      */
-    private function _getTables($pos, $searchClause)
+    private function _getTablesOrViews($which, $pos, $searchClause)
     {
+        if ($which == 'tables') {
+            $condition = '=';
+        } else {
+            $condition = '!=';
+        }
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
         $retval   = array();
         $db       = $this->real_name;
@@ -405,9 +411,9 @@ class Node_Database extends Node
             $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
             $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
             if (PMA_DRIZZLE) {
-                $query .= "AND `TABLE_TYPE`='BASE' ";
+                $query .= "AND `TABLE_TYPE`" . $condition . "'BASE' ";
             } else {
-                $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
+                $query .= "AND `TABLE_TYPE`" . $condition . "'BASE TABLE' ";
             }
             if (! empty($searchClause)) {
                 $query .= "AND `TABLE_NAME` LIKE '%";
@@ -422,7 +428,7 @@ class Node_Database extends Node
         } else {
             $query  = " SHOW FULL TABLES FROM ";
             $query .= PMA_Util::backquote($db);
-            $query .= " WHERE `Table_type`='BASE TABLE' ";
+            $query .= " WHERE `Table_type`" . $condition . "'BASE TABLE' ";
             if (! empty($searchClause)) {
                 $query .= "AND " . PMA_Util::backquote(
                     "Tables_in_" . $db
@@ -448,6 +454,19 @@ class Node_Database extends Node
     }
 
     /**
+     * Returns the list of tables inside this database
+     *
+     * @param int    $pos          The offset of the list within the results
+     * @param string $searchClause A string used to filter the results of the query
+     *
+     * @return array
+     */
+    private function _getTables($pos, $searchClause)
+    {
+        return $this->_getTablesOrViews('tables', $pos, $searchClause);
+    }
+
+    /**
      * Returns the list of views inside this database
      *
      * @param int    $pos          The offset of the list within the results
@@ -457,55 +476,7 @@ class Node_Database extends Node
      */
     private function _getViews($pos, $searchClause)
     {
-        $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
-        $retval   = array();
-        $db       = $this->real_name;
-        if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
-            $escdDb = PMA_Util::sqlAddSlashes($db);
-            $query  = "SELECT `TABLE_NAME` AS `name` ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-            $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
-            if (PMA_DRIZZLE) {
-                $query .= "AND `TABLE_TYPE`!='BASE' ";
-            } else {
-                $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
-            }
-            if (! empty($searchClause)) {
-                $query .= "AND `TABLE_NAME` LIKE '%";
-                $query .= PMA_Util::sqlAddSlashes(
-                    $searchClause, true
-                );
-                $query .= "%'";
-            }
-            $query .= "ORDER BY `TABLE_NAME` ASC ";
-            $query .= "LIMIT " . intval($pos) . ", $maxItems";
-            $retval = $GLOBALS['dbi']->fetchResult($query);
-        } else {
-            $query  = "SHOW FULL TABLES FROM ";
-            $query .= PMA_Util::backquote($db);
-            $query .= " WHERE `Table_type`!='BASE TABLE' ";
-            if (! empty($searchClause)) {
-                $query .= "AND " . PMA_Util::backquote(
-                    "Tables_in_" . $db
-                );
-                $query .= " LIKE '%" . PMA_Util::sqlAddSlashes(
-                    $searchClause, true
-                );
-                $query .= "%'";
-            }
-            $handle = $GLOBALS['dbi']->tryQuery($query);
-            if ($handle !== false) {
-                $count = 0;
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                    if ($pos <= 0 && $count < $maxItems) {
-                        $retval[] = $arr[0];
-                        $count++;
-                    }
-                    $pos--;
-                }
-            }
-        }
-        return $retval;
+        return $this->_getTablesOrViews('views', $pos, $searchClause);
     }
 
     /**

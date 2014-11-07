@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:04+0100\n"
-"PO-Revision-Date: 2014-11-02 08:54+0200\n"
-"Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/az/>\n"
+"PO-Revision-Date: 2014-11-06 17:33+0200\n"
+"Last-Translator: Mircəlal <01youknowme@gmail.com>\n"
+"Language-Team: Azerbaijani "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.0\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -253,14 +253,14 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "%1$s verilənlər bazası %2$s verilənlər bazasına köçürüldü."
 
 #: db_operations.php:263
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"phpMyAdmin konfiqurasiya bazası passivləşdirilmişdir. Səbəbini "
+"phpMyAdmin konfiqurasiya bazası deaktivləşdirilmişdir. Səbəbini "
 "aydınlaşdırmaq üçün %sbax%s."
 
 #: db_printview.php:48 db_tracking.php:83 db_tracking.php:207
@@ -606,10 +606,9 @@ msgid "Failed"
 msgstr ""
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "tam əlavələr"
+msgstr "Natamam parametrlər"
 
 #: import.php:166
 #, php-format
@@ -866,7 +865,7 @@ msgid ""
 msgstr ""
 
 #: index.php:520
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -875,8 +874,8 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "phpMyAdmin konfiqurasiya bazası bütövlükdə konfiqurasiya edilə bilmədi, bəzi "
-"genişləndirilimiş özəlliklər deaktiv edildi. Səbəbini öyrənmək üçün %sburaya"
-"%s klikləyin."
+"genişləndirilimiş xüsusiyyətlər deaktiv edildi. Səbəbini öyrənmək üçün "
+"%sburaya%s klikləyin. "
 
 #: index.php:527
 msgid ""
@@ -959,10 +958,9 @@ msgstr ""
 "istədiyinizdən əminsinizmi?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "\"%s\" axtarışını silmək istədiyinizdən əminsinizmi?"
+msgstr "Seçilən istifadəçiləri ləğv etmək istədiyinizə əminsinizmi?"
 
 #: js/messages.php:51
 msgid "Save & Close"
@@ -1008,16 +1006,14 @@ msgid "Add %s column(s) to index"
 msgstr "İndeksə %s sütun əlavə et"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Server versiyası"
+msgstr "Tək-sütun indeksi yarat"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Server versiyası"
+msgstr "Kompleks indeks yarat"
 
 #: js/messages.php:65
 #, fuzzy
@@ -1889,10 +1885,9 @@ msgid "DROP columns %s from the table %s"
 msgstr ""
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Create the following new table"
 msgid "Create the following table"
-msgstr "Aşağıdakı yeni cədvəli yarat"
+msgstr "Göstərilən cədvəli yarat"
 
 #: js/messages.php:334
 msgid "Third step of normalization (3NF)"
@@ -2589,7 +2584,7 @@ msgstr ""
 #.
 #: js/messages.php:671
 msgid "calendar-month-year"
-msgstr "calendar-month-year"
+msgstr "təqvim-ay-il"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:674
@@ -2663,7 +2658,7 @@ msgstr "saniyədə"
 
 #: libraries/Advisor.class.php:478
 msgid "per minute"
-msgstr "deqiqede"
+msgstr "dəqiqədə"
 
 #: libraries/Advisor.class.php:481 libraries/server_status.lib.php:134
 #: libraries/server_status.lib.php:218
@@ -2687,7 +2682,7 @@ msgstr ""
 
 #: libraries/Config.class.php:1780
 msgid "Font size"
-msgstr "Font ölçüsü"
+msgstr "Şrift ölçüsü"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:175
 msgid "Collapse"
@@ -2698,10 +2693,9 @@ msgid "Expand"
 msgstr "Genişlət"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:178
-#, fuzzy
 #| msgid "in query"
 msgid "Requery"
-msgstr "in query"
+msgstr "Sorğunu təkrarla"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
 #: libraries/DisplayResults.class.php:3494
@@ -2727,7 +2721,7 @@ msgstr "özəl"
 
 #: libraries/Console.class.php:120 libraries/bookmark.lib.php:87
 msgid "shared"
-msgstr ""
+msgstr "paylaşılan"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:124
@@ -2740,21 +2734,20 @@ msgid "No bookmarks"
 msgstr "Əlfəcinlər yoxdur"
 
 #: libraries/Console.class.php:180
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "SQL-i İzah Et"
+msgstr "İzah Et"
 
 #: libraries/Console.class.php:181 libraries/Util.class.php:1266
 #: libraries/sql.lib.php:487
+#, fuzzy
 msgid "Profiling"
-msgstr ""
+msgstr "Profilləmə"
 
 #: libraries/Console.class.php:183
-#, fuzzy
 #| msgid "Bookmarks"
 msgid "Bookmark"
-msgstr "Əlfəcinlər"
+msgstr "Əlfəcin"
 
 #: libraries/Console.class.php:184
 msgid "Query failed"
@@ -2766,20 +2759,20 @@ msgstr ""
 
 #: libraries/Console.class.php:195
 msgid "SQL Query Console"
-msgstr "SQL Sorğu konsolu"
+msgstr "SQL sorğu konsolu"
 
 #: libraries/Console.class.php:196
 msgid "Console"
-msgstr ""
+msgstr "Konsol"
 
 #: libraries/Console.class.php:199 libraries/sql_query_form.lib.php:236
 #: setup/frames/index.inc.php:298
 msgid "Clear"
-msgstr ""
+msgstr "Təmizlə"
 
 #: libraries/Console.class.php:202
 msgid "History"
-msgstr "Tarix"
+msgstr "Tarixçə"
 
 #: libraries/Console.class.php:205 libraries/Console.class.php:298
 #: libraries/DisplayResults.class.php:1621 libraries/TableSearch.class.php:788
@@ -2807,7 +2800,7 @@ msgstr "Tarix"
 #: libraries/plugins/import/ImportXml.class.php:58
 #: libraries/rte/rte_routines.lib.php:1000 libraries/structure.lib.php:1818
 msgid "Options"
-msgstr "Parametrlər"
+msgstr "Seçimlər"
 
 #: libraries/Console.class.php:209 libraries/Console.class.php:260
 msgid "Bookmarks"
@@ -2819,19 +2812,18 @@ msgstr "Sorğunu icra etmək üçün Ctrl+Enter düymələrinə basın"
 
 #: libraries/Console.class.php:239
 msgid "During current session"
-msgstr ""
+msgstr "Cari sessiya ərzində"
 
 #: libraries/Console.class.php:264 libraries/Util.class.php:1235
 #: libraries/config/messages.inc.php:741
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
-msgstr ""
+msgstr "Yenilə"
 
 #: libraries/Console.class.php:267
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "Ve"
+msgstr "Əlavə et"
 
 #: libraries/Console.class.php:276
 msgid "Add bookmark"
@@ -2843,11 +2835,11 @@ msgstr "Etiket"
 
 #: libraries/Console.class.php:282
 msgid "Target database"
-msgstr "Hədəf Verilənlər Bazası"
+msgstr "Hədəf verilənlər bazası"
 
 #: libraries/Console.class.php:285
 msgid "Share this bookmark"
-msgstr "Əlfəcini paylaş"
+msgstr "Bu əlfəcini paylaş"
 
 #: libraries/Console.class.php:302
 msgid "Set default"
@@ -2855,7 +2847,7 @@ msgstr "Susmaya görəni tənzimlə"
 
 #: libraries/Console.class.php:306
 msgid "Always expand query messages"
-msgstr ""
+msgstr "Sorğu mesajlarını həmişə genişlət"
 
 #: libraries/Console.class.php:308
 msgid "Show query history at start"
@@ -3915,11 +3907,11 @@ msgstr "Operator"
 #: libraries/rte/rte_routines.lib.php:1630
 #: libraries/server_status_variables.lib.php:220
 msgid "Value"
-msgstr "Deyer"
+msgstr "Dəyər"
 
 #: libraries/TableSearch.class.php:205
 msgid "Table Search"
-msgstr "Cədvəl Axtarma"
+msgstr "Cədvəl axtarışı"
 
 #: libraries/TableSearch.class.php:212
 #, fuzzy
@@ -3929,7 +3921,7 @@ msgstr "Axtarış"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
 msgid "Find and Replace"
-msgstr ""
+msgstr "Tap və əvəz et"
 
 #: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1342
 msgid "Edit/Insert"
@@ -3946,15 +3938,15 @@ msgstr "ya da"
 
 #: libraries/TableSearch.class.php:816
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Axtarış şertlerini gir (\"where\" ifadesinin esas metni):"
+msgstr "Axtarış şərtlərini əlavə edin (\"where\" ifadəsinin əsas mətni):"
 
 #: libraries/TableSearch.class.php:827
 msgid "Number of rows per page"
-msgstr "Sehife başına düşen setir sayı"
+msgstr "Hər səhifədəki sətir sayı"
 
 #: libraries/TableSearch.class.php:838
 msgid "Display order:"
-msgstr "Sıralama şekli:"
+msgstr "Görünüş sırası:"
 
 #: libraries/TableSearch.class.php:874
 msgid "Use this column to label each point"
@@ -3974,7 +3966,7 @@ msgstr "İki fərqli sütun üçün \"nümunə ilə sorğu\" (wildcard: \"%\")"
 
 #: libraries/TableSearch.class.php:1214
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "\"nümuneye göre sorğu\" gönderin (xüsusi işare: \"%\")"
+msgstr "\"Nümunəyə görə sorğu\" göndərin (xüsusi işarə: \"%\")"
 
 #: libraries/TableSearch.class.php:1271
 msgid "Browse/Edit the points"
@@ -3982,7 +3974,7 @@ msgstr ""
 
 #: libraries/TableSearch.class.php:1278
 msgid "How to use"
-msgstr ""
+msgstr "Necə istifadə etmək lazımdır"
 
 #: libraries/TableSearch.class.php:1283
 #, fuzzy
@@ -4027,7 +4019,7 @@ msgstr ""
 
 #: libraries/Theme.class.php:402
 msgid "No preview available."
-msgstr ""
+msgstr "Görünüş mövcud deyil."
 
 #: libraries/Theme.class.php:404
 msgid "take it"
@@ -7007,7 +6999,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:776
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:777
 msgid "Enter your public key for your domain reCaptcha service."
@@ -13092,7 +13084,7 @@ msgstr "İndex adı&nbsp;:"
 #: libraries/tbl_indexes.lib.php:267
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "\"PRIMARY\" sadece birinci dereceli açarın adı <b>olmalıdır</b>!"
+msgstr "\"PRIMARY\" <b>sadəcə</b> birinci dərəcəli açarın adı <b>olmalıdır</b>!"
 
 #: libraries/tbl_indexes.lib.php:285
 #, fuzzy
