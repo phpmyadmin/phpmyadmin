@@ -46,6 +46,11 @@ class ImportSql extends ImportPlugin
     private $_queryBeginPosition = 0;
 
     /**
+     * @var int|false First special chars position or false if not found
+     */
+    private $_firstSearchChar = null;
+
+    /**
      * @var bool Current position is in string
      */
     private $_isInString = false;
@@ -244,7 +249,7 @@ class ImportSql extends ImportPlugin
      */
     private function _findDelimiterPosition()
     {
-        $firstSearchChar = null;
+        $this->_firstSearchChar = null;
         $firstSqlDelimiter = null;
         $matches = null;
 
@@ -315,24 +320,21 @@ class ImportSql extends ImportPlugin
                 $this->_delimiterPosition = $this->_queryBeginPosition;
                 $this->_isInDelimiter = false;
                 $firstSqlDelimiter = null;
-                $firstSearchChar = null;
+                $this->_firstSearchChar = null;
                 continue;
             }
 
-            list($matches, $firstSearchChar) = $this->_searchSpecialChars(
-                $firstSearchChar,
-                $matches
-            );
+            $matches = $this->_searchSpecialChars($matches);
 
             $firstSqlDelimiter = $this->_searchSqlDelimiter($firstSqlDelimiter);
 
-            if (false === $firstSqlDelimiter && false === $firstSearchChar) {
+            if (false === $firstSqlDelimiter && false === $this->_firstSearchChar) {
                 return false;
             }
 
             //If first char is delimiter.
-            if (false === $firstSearchChar
-                || (false !== $firstSqlDelimiter && $firstSqlDelimiter < $firstSearchChar)
+            if (false === $this->_firstSearchChar
+                || (false !== $firstSqlDelimiter && $firstSqlDelimiter < $this->_firstSearchChar)
             ) {
                 $this->_delimiterPosition = $firstSqlDelimiter;
                 return true;
@@ -347,7 +349,7 @@ class ImportSql extends ImportPlugin
                 $this->_isInString = true;
                 $this->_quote = $specialChars;
                 //Move after quote.
-                $this->_delimiterPosition = $firstSearchChar + 1;
+                $this->_delimiterPosition = $this->_firstSearchChar + 1;
                 continue;
             }
 
@@ -356,7 +358,7 @@ class ImportSql extends ImportPlugin
                 $this->_isInComment = true;
                 $this->_openingComment = $specialChars;
                 //Move after comment opening.
-                $this->_delimiterPosition = $firstSearchChar
+                $this->_delimiterPosition = $this->_firstSearchChar
                     + $this->_stringFctToUse['strlen']($specialChars);
                 continue;
             }
@@ -364,7 +366,7 @@ class ImportSql extends ImportPlugin
             //If DELIMITER is found.
             if ($specialChars === $this->_delimiterKeyword) {
                 $this->_isInDelimiter =  true;
-                $this->_delimiterPosition = $firstSearchChar
+                $this->_delimiterPosition = $this->_firstSearchChar
                     + $this->_stringFctToUse['strlen']($specialChars);
                 continue;
             }
@@ -495,19 +497,17 @@ class ImportSql extends ImportPlugin
     /**
      * Look for special chars: comment, string or DELIMITER
      *
-     * @param int   $firstSearchChar First found char position
-     * @param array $matches         Special chars found in data
+     * @param array $matches Special chars found in data
      *
-     * @return array 0: matches, 1: first found char position
+     * @return array matches
      */
     private function _searchSpecialChars(
-        $firstSearchChar,
         $matches
     ) {
         //Don't look for a string/comment/"DELIMITER" if not found previously
         //or if it's still after current position.
-        if (null === $firstSearchChar
-            || (false !== $firstSearchChar && $firstSearchChar < $this->_delimiterPosition)
+        if (null === $this->_firstSearchChar
+            || (false !== $this->_firstSearchChar && $this->_firstSearchChar < $this->_delimiterPosition)
         ) {
             $bFind = preg_match(
                 '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])'
@@ -518,12 +518,12 @@ class ImportSql extends ImportPlugin
             );
 
             if (1 === $bFind) {
-                $firstSearchChar = $matches[1][1] + $this->_delimiterPosition;
+                $this->_firstSearchChar = $matches[1][1] + $this->_delimiterPosition;
             } else {
-                $firstSearchChar = false;
+                $this->_firstSearchChar = false;
             }
         }
-        return array($matches, $firstSearchChar);
+        return $matches;
     }
 
     /**
