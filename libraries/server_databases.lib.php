@@ -180,7 +180,7 @@ function PMA_getHtmlForTableFooter(
     $html .= PMA_getHtmlForColumnOrder($column_order, $first_database);
 
     foreach ($replication_types as $type) {
-        if ($GLOBALS["server_" . $type . "_status"]) {
+        if ($GLOBALS['replication_info'][$type]['status']) {
             $html .= '    <th></th>' . "\n";
         }
     }
@@ -394,7 +394,7 @@ function PMA_getHtmlForReplicationType(
             $name = __('Slave replication');
         }
 
-        if ($GLOBALS["server_{$type}_status"]) {
+        if ($GLOBALS['replication_info'][$type]['status']) {
             $html .= '    <th>' . $name . '</th>' . "\n";
         }
     }

@@ -10,9 +10,11 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
 require_once 'libraries/ServerStatusData.class.php';
 require_once 'libraries/server_status_monitor.lib.php';
+
 if (PMA_DRIZZLE) {
-    $server_master_status = false;
-    $server_slave_status = false;
+    $replication_info = array();
+    $replication_info['master']['status'] = false;
+    $replication_info['slave']['status'] = false;
 } else {
     include_once 'libraries/replication.inc.php';
     include_once 'libraries/replication_gui.lib.php';
