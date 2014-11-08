@@ -96,21 +96,15 @@ function PMA_TRI_handleEditor()
                         // We dropped the old item, but were unable to create the
                         // new one. Try to restore the backup query.
                         $result = $GLOBALS['dbi']->tryQuery($create_item);
-                        if (! $result) {
-                            // OMG, this is really bad! We dropped the query,
-                            // failed to create a new one
-                            // and now even the backup query does not execute!
-                            // This should not happen, but we better handle
-                            // this just in case.
-                            $errors[] = __(
+
+                        $errors = checkResult(
+                            $result,
+                            __(
                                 'Sorry, we failed to restore the dropped trigger.'
-                            )
-                            . '<br />'
-                            . __('The backed up query was:')
-                            . "\"" . htmlspecialchars($create_item) . "\""
-                            . '<br />'
-                            . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
-                        }
+                            ),
+                            $create_item,
+                            $errors
+                        );
                     } else {
                         $message = PMA_Message::success(
                             __('Trigger %1$s has been modified.')
