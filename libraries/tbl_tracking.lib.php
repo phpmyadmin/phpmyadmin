@@ -364,7 +364,7 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
 
     // Prepare delete link content here
     $drop_image_or_text = '';
-    if (PMA_Util::showIcons('ActionsLinksMode')) {
+    if (PMA_Util::showIcons('ActionLinksMode')) {
         $drop_image_or_text .= PMA_Util::getImage(
             'b_drop.png', __('Delete tracking data row from report')
         );
