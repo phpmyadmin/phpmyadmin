@@ -1128,7 +1128,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 if ($foreigner
                     && isset($pdf->PMA_links['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']])
                 ) {
-                    $links[6] = $pdf->PMA_links['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']];
+                    $links[6] = $pdf->PMA_links['doc'][$foreigner['foreign_table']]
+                        [$foreigner['foreign_field']];
                 } else {
                     unset($links[6]);
                 }

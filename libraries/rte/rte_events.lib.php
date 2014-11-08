@@ -125,21 +125,7 @@ function PMA_EVN_handleEditor()
                         // We dropped the old item, but were unable to create
                         // the new one. Try to restore the backup query
                         $result = $GLOBALS['dbi']->tryQuery($create_item);
-                        if (! $result) {
-                            // OMG, this is really bad! We dropped the query,
-                            // failed to create a new one
-                            // and now even the backup query does not execute!
-                            // This should not happen, but we better handle
-                            // this just in case.
-                            $errors[] = __(
-                                'Sorry, we failed to restore the dropped event.'
-                            )
-                            . '<br />'
-                            . __('The backed up query was:')
-                            . "\"" . htmlspecialchars($create_item) . "\""
-                            . '<br />'
-                            . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
-                        }
+                        $errors = checkResult($result, $create_item, $errors);
                     } else {
                         $message = PMA_Message::success(
                             __('Event %1$s has been modified.')
@@ -279,6 +265,38 @@ function PMA_EVN_handleEditor()
             }
         }
     }
+}
+
+/**
+ * Check result
+ *
+ * @param resource|bool $result      Query result
+ * @param string        $create_item Query
+ * @param array         $errors      Errors
+ *
+ * @return array
+ */
+function checkResult($result, $create_item, $errors)
+{
+    if ($result) {
+        return $errors;
+    }
+
+    // OMG, this is really bad! We dropped the query,
+    // failed to create a new one
+    // and now even the backup query does not execute!
+    // This should not happen, but we better handle
+    // this just in case.
+    $errors[] = __(
+        'Sorry, we failed to restore the dropped event.'
+    )
+    . '<br />'
+    . __('The backed up query was:')
+    . "\"" . htmlspecialchars($create_item) . "\""
+    . '<br />'
+    . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+
+    return $errors;
 } // end PMA_EVN_handleEditor()
 
 /**

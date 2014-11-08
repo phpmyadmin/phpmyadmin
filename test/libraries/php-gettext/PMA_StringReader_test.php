@@ -45,8 +45,11 @@ class PMA_StringReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for read
-     * @param $bytes
-     * @param $output
+     *
+     * @param int    $bytes  Number of bytes to read
+     * @param string $output Expected output
+     *
+     * @return void
      *
      * @dataProvider providerForTestRead
      */
@@ -60,6 +63,7 @@ class PMA_StringReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Provider for testRead
+     *
      * @return array
      */
     public function providerForTestRead()
@@ -82,6 +86,8 @@ class PMA_StringReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for seekto
+     *
+     * @return void
      */
     public function testSeekto()
     {
@@ -93,6 +99,8 @@ class PMA_StringReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for currentpos
+     *
+     * @return void
      */
     public function testCurrentpos()
     {
@@ -104,6 +112,8 @@ class PMA_StringReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for length
+     *
+     * @return void
      */
     public function testLength()
     {

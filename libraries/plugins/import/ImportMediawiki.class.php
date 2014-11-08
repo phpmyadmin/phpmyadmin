@@ -173,10 +173,10 @@ class ImportMediawiki extends ImportPlugin
                             $cur_table_name = $match_table_name[1];
                             $inside_data_comment = true;
 
-                            // End ignoring structure rows
-                            if ($inside_structure_comment) {
-                                $inside_structure_comment = false;
-                            }
+                            $inside_structure_comment
+                                = $this->_mngInsideStructComm(
+                                    $inside_structure_comment
+                                );
                         } elseif (preg_match(
                             "/^Table structure for `(.*)`$/",
                             $cur_buffer_line,
@@ -260,16 +260,13 @@ class ImportMediawiki extends ImportPlugin
                     // Loop through each table cell
                     $cells = $this->_explodeMarkup($cur_buffer_line);
                     foreach ($cells as $cell) {
-                        $cell = $this->_getCell($cell);
+                        $cell = $this->_getCellData($cell);
 
                         // Delete the beginning of the column, if there is one
                         $cell = trim($cell);
                         $col_start_chars = array( "|", "!");
                         foreach ($col_start_chars as $col_start_char) {
-                            if (/*overload*/mb_strpos($cell, $col_start_char) === 0
-                            ) {
-                                $cell = trim(/*overload*/mb_substr($cell, 1));
-                            }
+                            $cell = $this->_getCellContent($cell, $col_start_char);
                         }
 
                         // Add the cell to the row
@@ -551,7 +548,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return mixed
      */
-    private function _getCell($cell)
+    private function _getCellData($cell)
     {
         // A cell could contain both parameters and data
         $cell_data = explode('|', $cell, 2);
@@ -567,5 +564,37 @@ class ImportMediawiki extends ImportPlugin
         }
 
         return $cell_data[1];
+    }
+
+    /**
+     * Manage $inside_structure_comment
+     *
+     * @param boolean $inside_structure_comment Value to test
+     *
+     * @return bool
+     */
+    private function _mngInsideStructComm($inside_structure_comment)
+    {
+        // End ignoring structure rows
+        if ($inside_structure_comment) {
+            $inside_structure_comment = false;
+        }
+        return $inside_structure_comment;
+    }
+
+    /**
+     * Get cell content
+     *
+     * @param string $cell           Cell
+     * @param string $col_start_char Start char
+     *
+     * @return string
+     */
+    private function _getCellContent($cell, $col_start_char)
+    {
+        if (/*overload*/mb_strpos($cell, $col_start_char) === 0) {
+            $cell = trim(/*overload*/mb_substr($cell, 1));
+        }
+        return $cell;
     }
 }

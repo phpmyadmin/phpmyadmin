@@ -47,6 +47,8 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for readint
+     *
+     * @return void
      */
     public function testReadint()
     {
@@ -58,6 +60,8 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for readintarray
+     *
+     * @return void
      */
     public function testReadintarray()
     {
@@ -71,6 +75,8 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for get_original_string
+     *
+     * @return void
      */
     public function testGet_original_string()
     {
@@ -82,6 +88,8 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for get_translation_string
+     *
+     * @return void
      */
     public function testGet_translation_string()
     {
@@ -93,10 +101,13 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for find_string
-     * @param string string
-     * @param int start (internally used in recursive function)
-     * @param int end (internally used in recursive function)
-     * @param $output
+     *
+     * @param string $string string
+     * @param int    $start  start (internally used in recursive function)
+     * @param int    $end    end (internally used in recursive function)
+     * @param string $output Expected output
+     *
+     * @return void
      *
      * @dataProvider providerForTestFind_string
      */
@@ -133,6 +144,8 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for translate
+     *
+     * @return void
      */
     public function testTranslate()
     {
@@ -187,13 +200,17 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
     public function testExtract_plural_forms_header_from_po_header()
     {
         $this->assertEquals(
-            $this->object->extract_plural_forms_header_from_po_header('id = 1 ? true : false'),
+            $this->object->extract_plural_forms_header_from_po_header(
+                'id = 1 ? true : false'
+            ),
             'nplurals=2; plural=n == 1 ? 0 : 1;'
         );
     }
 
     /**
      * Test for pgettext
+     *
+     * @return void
      */
     public function testPgettext()
     {

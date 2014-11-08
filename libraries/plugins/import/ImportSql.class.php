@@ -334,7 +334,8 @@ class ImportSql extends ImportPlugin
 
             //If first char is delimiter.
             if (false === $this->_firstSearchChar
-                || (false !== $firstSqlDelimiter && $firstSqlDelimiter < $this->_firstSearchChar)
+                || (false !== $firstSqlDelimiter
+                && $firstSqlDelimiter < $this->_firstSearchChar)
             ) {
                 $this->_delimiterPosition = $firstSqlDelimiter;
                 return true;
@@ -507,12 +508,16 @@ class ImportSql extends ImportPlugin
         //Don't look for a string/comment/"DELIMITER" if not found previously
         //or if it's still after current position.
         if (null === $this->_firstSearchChar
-            || (false !== $this->_firstSearchChar && $this->_firstSearchChar < $this->_delimiterPosition)
+            || (false !== $this->_firstSearchChar
+            && $this->_firstSearchChar < $this->_delimiterPosition)
         ) {
             $bFind = preg_match(
                 '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])'
                 . $this->_delimiterKeyword . ')/',
-                $this->_stringFctToUse['substr']($this->_data, $this->_delimiterPosition),
+                $this->_stringFctToUse['substr'](
+                    $this->_data,
+                    $this->_delimiterPosition
+                ),
                 $matches,
                 PREG_OFFSET_CAPTURE
             );

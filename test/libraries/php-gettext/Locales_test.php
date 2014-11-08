@@ -70,7 +70,6 @@ class LocaleTest extends PHPUnit_Framework_TestCase
             get_list_of_locales("sr@latin")
         );
 
-
         // If locale name is not following the regular POSIX pattern,
         // it's used verbatim.
         $this->assertEquals(
