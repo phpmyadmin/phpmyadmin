@@ -1571,14 +1571,13 @@ function PMA_RTN_handleExecute()
 function browseRow($row, $color_class)
 {
     $output = null;
-    foreach ($row as $key => $value) {
+    foreach ($row as $value) {
         if ($value === null) {
             $value = '<i>NULL</i>';
         } else {
             $value = htmlspecialchars($value);
         }
-        $output .= "<td class='" . $color_class . "'>"
-            . $value . "</td>";
+        $output .= "<td class='" . $color_class . "'>" . $value . "</td>";
     }
     return $output;
 }
