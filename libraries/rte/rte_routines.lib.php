@@ -331,23 +331,15 @@ function PMA_RTN_handleEditor()
                             // but were unable to create the new one
                             // Try to restore the backup query
                             $result = $GLOBALS['dbi']->tryQuery($create_routine);
-                            if (! $result) {
-                                // OMG, this is really bad! We dropped the query,
-                                // failed to create a new one
-                                // and now even the backup query does not execute!
-                                // This should not happen, but we better handle
-                                // this just in case.
-                                $errors[] = __(
+                            $errors = checkResult(
+                                $result,
+                                __(
                                     'Sorry, we failed to restore'
                                     . ' the dropped routine.'
-                                )
-                                . '<br />'
-                                . __('The backed up query was:')
-                                . "\"" . htmlspecialchars($create_routine) . "\""
-                                . '<br />'
-                                . __('MySQL said: ')
-                                . $GLOBALS['dbi']->getError(null);
-                            }
+                                ),
+                                $create_routine,
+                                $errors
+                            );
                         } else {
                             $message = PMA_Message::success(
                                 __('Routine %1$s has been modified.')
@@ -1441,8 +1433,7 @@ function PMA_RTN_handleExecute()
                 if (($result !== false) && ($num_rows > 0)) {
 
                     $output .= "<table><tr>";
-                    foreach ($GLOBALS['dbi']->getFieldsMeta($result)
-                        as $key => $field) {
+                    foreach ($GLOBALS['dbi']->getFieldsMeta($result) as $field) {
                         $output .= "<th>";
                         $output .= htmlspecialchars($field->name);
                         $output .= "</th>";
@@ -1452,17 +1443,7 @@ function PMA_RTN_handleExecute()
                     $color_class = 'odd';
 
                     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                        $output .= "<tr>";
-                        foreach ($row as $key => $value) {
-                            if ($value === null) {
-                                $value = '<i>NULL</i>';
-                            } else {
-                                $value = htmlspecialchars($value);
-                            }
-                            $output .= "<td class='" . $color_class . "'>"
-                                . $value . "</td>";
-                        }
-                        $output .= "</tr>";
+                        $output .= "<tr>" . browseRow($row, $color_class) . "</tr>";
                         $color_class = ($color_class == 'odd') ? 'even' : 'odd';
                     }
 
@@ -1577,6 +1558,27 @@ function PMA_RTN_handleExecute()
             exit;
         }
     }
+}
+
+/**
+ * @param $row
+ * @param $color_class
+ *
+ * @return string
+ */
+function browseRow($row, $color_class)
+{
+    $output = null;
+    foreach ($row as $key => $value) {
+        if ($value === null) {
+            $value = '<i>NULL</i>';
+        } else {
+            $value = htmlspecialchars($value);
+        }
+        $output .= "<td class='" . $color_class . "'>"
+            . $value . "</td>";
+    }
+    return $output;
 }
 
 /**
