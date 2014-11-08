@@ -320,15 +320,11 @@ class ImportSql extends ImportPlugin
             }
 
             list($matches, $firstSearchChar) = $this->_searchSpecialChars(
-                $this->_data,
                 $firstSearchChar,
                 $matches
             );
 
-            $firstSqlDelimiter = $this->_searchSqlDelimiter(
-                $this->_data,
-                $firstSqlDelimiter
-            );
+            $firstSqlDelimiter = $this->_searchSqlDelimiter($firstSqlDelimiter);
 
             if (false === $firstSqlDelimiter && false === $firstSearchChar) {
                 return false;
@@ -499,14 +495,12 @@ class ImportSql extends ImportPlugin
     /**
      * Look for special chars: comment, string or DELIMITER
      *
-     * @param string $data            Data to parse
-     * @param int    $firstSearchChar First found char position
-     * @param array  $matches         Special chars found in $data
+     * @param int   $firstSearchChar First found char position
+     * @param array $matches         Special chars found in data
      *
      * @return array 0: matches, 1: first found char position
      */
     private function _searchSpecialChars(
-        $data,
         $firstSearchChar,
         $matches
     ) {
@@ -518,7 +512,7 @@ class ImportSql extends ImportPlugin
             $bFind = preg_match(
                 '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])'
                 . $this->_delimiterKeyword . ')/',
-                $this->_stringFctToUse['substr']($data, $this->_delimiterPosition),
+                $this->_stringFctToUse['substr']($this->_data, $this->_delimiterPosition),
                 $matches,
                 PREG_OFFSET_CAPTURE
             );
@@ -535,12 +529,11 @@ class ImportSql extends ImportPlugin
     /**
      * Look for SQL delimiter
      *
-     * @param string $data              Data to parse
-     * @param int    $firstSqlDelimiter First found char position
+     * @param int $firstSqlDelimiter First found char position
      *
      * @return int
      */
-    private function _searchSqlDelimiter($data, $firstSqlDelimiter)
+    private function _searchSqlDelimiter($firstSqlDelimiter)
     {
         //Don't look for the SQL delimiter if not found previously
         //or if it's still after current position.
@@ -549,7 +542,7 @@ class ImportSql extends ImportPlugin
         ) {
             // the cost of doing this one with preg_match() would be too high
             $firstSqlDelimiter = $this->_stringFctToUse['strpos'](
-                $data,
+                $this->_data,
                 $this->_delimiter,
                 $this->_delimiterPosition
             );
