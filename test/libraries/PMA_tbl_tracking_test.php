@@ -47,7 +47,6 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
         $GLOBALS['cfg']['ServerDefault'] = "server";
         $GLOBALS['cfg']['Server']['tracking'] = "tracking";
-        $GLOBALS['cfg']['ActionsLinksMode'] = 'ActionsLinksMode';
         $GLOBALS['cfg']['ActionLinksMode'] = 'ActionLinksMode';
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
 
