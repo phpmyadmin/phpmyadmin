@@ -1561,8 +1561,10 @@ function PMA_RTN_handleExecute()
 }
 
 /**
- * @param $row
- * @param $color_class
+ * Browse row array
+ *
+ * @param array  $row         Columns
+ * @param string $color_class CSS class
  *
  * @return string
  */
