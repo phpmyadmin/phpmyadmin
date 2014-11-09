@@ -115,21 +115,21 @@ $slave_variables_oks = array(
 // set $server_{master/slave}_status and assign values
 
 // replication info is more easily passed to functions
-$replication_info = array();
+$GLOBALS['replication_info'] = array();
 
 foreach ($replication_types as $type) {
     if (count(${"server_{$type}_replication"}) > 0) {
-        $replication_info[$type]['status'] = true;
+        $GLOBALS['replication_info'][$type]['status'] = true;
     } else {
-        $replication_info[$type]['status'] = false;
+        $GLOBALS['replication_info'][$type]['status'] = false;
     }
-    if ($replication_info[$type]['status']) {
+    if ($GLOBALS['replication_info'][$type]['status']) {
         if ($type == "master") {
-            $replication_info[$type]['Do_DB'] = explode(
+            $GLOBALS['replication_info'][$type]['Do_DB'] = explode(
                 ",", $server_master_replication[0]["Binlog_Do_DB"]
             );
 
-            $replication_info[$type]['Ignore_DB'] = explode(
+            $GLOBALS['replication_info'][$type]['Ignore_DB'] = explode(
                 ",", $server_master_replication[0]["Binlog_Ignore_DB"]
             );
         } elseif ($type == "slave") {
@@ -137,27 +137,27 @@ foreach ($replication_types as $type) {
                 ",", $server_slave_replication[0]["Replicate_Do_DB"]
             );
             if (!empty($doDB)) {
-                $replication_info[$type]['Do_DB'] = $doDB;
+                $GLOBALS['replication_info'][$type]['Do_DB'] = $doDB;
             }
             unset($doDB);
 
-            $replication_info[$type]['Ignore_DB'] = explode(
+            $GLOBALS['replication_info'][$type]['Ignore_DB'] = explode(
                 ",", $server_slave_replication[0]["Replicate_Ignore_DB"]
             );
 
-            $replication_info[$type]['Do_Table'] = explode(
+            $GLOBALS['replication_info'][$type]['Do_Table'] = explode(
                 ",", $server_slave_replication[0]["Replicate_Do_Table"]
             );
 
-            $replication_info[$type]['Ignore_Table'] = explode(
+            $GLOBALS['replication_info'][$type]['Ignore_Table'] = explode(
                 ",", $server_slave_replication[0]["Replicate_Ignore_Table"]
             );
 
-            $replication_info[$type]['Wild_Do_Table'] = explode(
+            $GLOBALS['replication_info'][$type]['Wild_Do_Table'] = explode(
                 ",", $server_slave_replication[0]["Replicate_Wild_Do_Table"]
             );
 
-            $replication_info[$type]['Wild_Ignore_Table'] = explode(
+            $GLOBALS['replication_info'][$type]['Wild_Ignore_Table'] = explode(
                 ",", $server_slave_replication[0]["Replicate_Wild_Ignore_Table"]
             );
         }

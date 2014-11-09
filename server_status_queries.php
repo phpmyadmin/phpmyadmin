@@ -13,9 +13,9 @@ require_once 'libraries/ServerStatusData.class.php';
 require_once 'libraries/server_status_queries.lib.php';
 
 if (PMA_DRIZZLE) {
-    $replication_info = array();
-    $replication_info['master']['status'] = false;
-    $replication_info['slave']['status'] = false;
+    $GLOBALS['replication_info'] = array();
+    $GLOBALS['replication_info']['master']['status'] = false;
+    $GLOBALS['replication_info']['slave']['status'] = false;
 } else {
     include_once 'libraries/replication.inc.php';
     include_once 'libraries/replication_gui.lib.php';
