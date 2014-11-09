@@ -204,14 +204,9 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                         );
                     }
 
-                    if (($a_num_rows > 0) || $is_use_query) {
-                        $sql_data['valid_sql'][] = $import_run_buffer['sql'];
-                        if (! isset($sql_data['valid_queries'])) {
-                            $sql_data['valid_queries'] = 0;
-                        }
-                        $sql_data['valid_queries']++;
-                    }
-
+                    $sql_data = updateSqlData(
+                        $sql_data, $a_num_rows, $is_use_query, $import_run_buffer
+                    );
                 }
                 if (! $sql_query_disabled) {
                     $sql_query .= $msg . "\n";
@@ -269,6 +264,28 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
     if (isset($_REQUEST['rollback_query'])) {
         $msg .= __('[ROLLBACK occurred.]');
     }
+}
+
+/**
+ * Update $sql_data
+ *
+ * @param array $sql_data          SQL data
+ * @param int   $a_num_rows        Number of rows
+ * @param bool  $is_use_query      Query is used
+ * @param array $import_run_buffer Import buffer
+ *
+ * @return array
+ */
+function updateSqlData($sql_data, $a_num_rows, $is_use_query, $import_run_buffer)
+{
+    if (($a_num_rows > 0) || $is_use_query) {
+        $sql_data['valid_sql'][] = $import_run_buffer['sql'];
+        if (!isset($sql_data['valid_queries'])) {
+            $sql_data['valid_queries'] = 0;
+        }
+        $sql_data['valid_queries']++;
+    }
+    return $sql_data;
 }
 
 /**
