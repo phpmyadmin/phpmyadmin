@@ -1024,12 +1024,18 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
         return array($do, $ignored);
     }
 
-    $nbServerSlaveDoDb = count($GLOBALS['replication_info']['slave']['Do_DB']);
-    $nbServerSlaveIgnoreDb
+    $nbServSlaveDoDb = count($GLOBALS['replication_info']['slave']['Do_DB']);
+    $nbServSlaveIgnoreDb
         = count($GLOBALS['replication_info']['slave']['Ignore_DB']);
-    if ((strlen(array_search($truename, $GLOBALS['replication_info']['slave']['Do_DB'])) > 0)
-        || strlen(array_search($GLOBALS['db'], $GLOBALS['replication_info']['slave']['Do_DB'])) > 0
-        || ($nbServerSlaveDoDb == 1 && $nbServerSlaveIgnoreDb == 1)
+    $searchDoDBInTruename = array_search(
+        $truename, $GLOBALS['replication_info']['slave']['Do_DB']
+    );
+    $searchDoDBInDB = array_search(
+        $GLOBALS['db'], $GLOBALS['replication_info']['slave']['Do_DB']
+    );
+    if (strlen($searchDoDBInTruename) > 0
+        || strlen($searchDoDBInDB) > 0
+        || ($nbServSlaveDoDb == 1 && $nbServSlaveIgnoreDb == 1)
     ) {
         $do = true;
     }
