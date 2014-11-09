@@ -1055,7 +1055,7 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
         $pattern = "@^"
             . /*overload*/mb_substr($table_part, 0, -1)
             . "@";
-        if (($db == PMA_extractDbOrTable($db_table))
+        if (($GLOBALS['db'] == PMA_extractDbOrTable($db_table))
             && (preg_match($pattern, $truename))
         ) {
             $ignored = true;
