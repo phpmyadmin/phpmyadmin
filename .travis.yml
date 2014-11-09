@@ -12,7 +12,7 @@ php:
   - "5.3"
   - hhvm
 
-sudo:false
+sudo: false
 
 env:
   matrix:
