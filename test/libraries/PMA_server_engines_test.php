@@ -223,7 +223,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @provider providerGetEngine
+     * @dataProvider providerGetEngine
      */
     public function testGetEngine($expectedClass, $engineName)
     {
