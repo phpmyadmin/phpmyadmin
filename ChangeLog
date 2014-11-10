@@ -56,6 +56,7 @@ phpMyAdmin - ChangeLog
 - bug #4564 Designer: spaces in table name with edit table link generates bad links
 - bug #4582 Debug SQL works only for the first page
 - bug #3869 Count(*) on information_scheme.INNODB_BUFFER_PAGE with a huge bufferpool
+- bug #4495 Comment lines in multiquery
 
 4.2.12.0 (not yet released)
 - bug #4574 Blank/white page when JavaScript disabled

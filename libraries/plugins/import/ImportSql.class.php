@@ -296,6 +296,11 @@ class ImportSql extends ImportPlugin
                     //throw new Exception('Unknown case.');
                     break;
                 }
+
+                if (0 === $this->_firstSearchChar) {
+                    $this->_queryBeginPosition = $this->_delimiterPosition;
+                }
+
                 continue;
             }
 
