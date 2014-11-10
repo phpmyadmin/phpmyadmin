@@ -114,7 +114,7 @@ if (! $result) {
 
         list($column_order, $generated_html) = PMA_buildHtmlForDb(
             $current, $is_superuser, $url_query,
-            $column_order, $replication_types, $replication_info
+            $column_order, $replication_types, $GLOBALS['replication_info']
         );
         $new_db_string .= $generated_html;
 

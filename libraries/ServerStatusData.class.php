@@ -225,7 +225,7 @@ class PMA_ServerStatusData
                 )
             );
 
-        if ($GLOBALS['server_master_status']) {
+        if ($GLOBALS['replication_info']['master']['status']) {
             $links['repl'][__('Show slave hosts')]
                 = 'sql.php' . PMA_URL_getCommon(
                     array(
@@ -235,7 +235,7 @@ class PMA_ServerStatusData
                 );
             $links['repl'][__('Show master status')] = '#replication_master';
         }
-        if ($GLOBALS['server_slave_status']) {
+        if ($GLOBALS['replication_info']['slave']['status']) {
             $links['repl'][__('Show slave status')] = '#replication_slave';
         }
 

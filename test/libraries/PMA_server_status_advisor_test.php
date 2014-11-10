@@ -63,8 +63,8 @@ class PMA_ServerStatusAdvisor_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
-        $GLOBALS['server_master_status'] = false;
-        $GLOBALS['server_slave_status'] = false;
+        $GLOBALS['replication_info']['master']['status'] = false;
+        $GLOBALS['replication_info']['slave']['status'] = false;
 
         $GLOBALS['table'] = "table";
         $GLOBALS['pmaThemeImage'] = 'image';
