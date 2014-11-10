@@ -23,7 +23,7 @@ require_once 'libraries/plugins/schema/RelationStats.class.php';
  * @name    Relation_Stats_Eps
  * @see     PMA_EPS
  */
-class Relation_Stats_Eps extends RealtionStats
+class Relation_Stats_Eps extends RelationStats
 {
     /**
      * The "Relation_Stats_Eps" constructor

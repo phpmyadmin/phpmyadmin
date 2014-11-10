@@ -19,7 +19,7 @@ if (! defined('PHPMYADMIN')) {
  * @package PhpMyAdmin
  * @abstract
  */
-abstract class RealtionStats
+abstract class RelationStats
 {
     /**
      * Defines properties

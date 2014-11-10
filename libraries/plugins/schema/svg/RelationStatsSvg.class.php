@@ -23,7 +23,7 @@ require_once 'libraries/plugins/schema/RelationStats.class.php';
  * @name    Relation_Stats_Svg
  * @see     PMA_SVG::printElementLine
  */
-class Relation_Stats_Svg extends RealtionStats
+class Relation_Stats_Svg extends RelationStats
 {
     /**
      * The "Relation_Stats_Svg" constructor

@@ -24,7 +24,7 @@ require_once 'libraries/plugins/schema/RelationStats.class.php';
  * @see     PMA_Schema_PDF::SetDrawColor, PMA_Schema_PDF::setLineWidthScale,
  *          PMA_Schema_PDF::lineScale
  */
-class Relation_Stats_Pdf extends RealtionStats
+class Relation_Stats_Pdf extends RelationStats
 {
     /**
      * The "Relation_Stats_Pdf" constructor
