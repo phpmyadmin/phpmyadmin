@@ -387,6 +387,8 @@ class ImportSql extends ImportPlugin
     {
         global $error, $timeout_passed;
 
+        $big_value = 2147483647;
+
         //Manage multibytes or not
         if (isset($_REQUEST['sql_read_as_multibytes'])) {
             $this->_readMb = self::READ_MB_TRUE;
@@ -438,19 +440,28 @@ class ImportSql extends ImportPlugin
 
             //If no delimiter found, restart and get more data.
             if (false === $delimiterFound) {
-                continue;
+                if ($GLOBALS['finished']) {
+                    //If no delimiter found till end of buffer
+                    $delimiterPosition = $big_value;
+                }
+                else {
+                    continue;
+                }
+            }
+            else {
+                $delimiterPosition = $this->_delimiterPosition;
             }
 
             PMA_importRunQuery(
                 $this->_stringFctToUse['substr'](
                     $this->_data,
                     $this->_queryBeginPosition,
-                    $this->_delimiterPosition - $this->_queryBeginPosition
+                    $delimiterPosition - $this->_queryBeginPosition
                 ), //Query to execute
                 $this->_stringFctToUse['substr'](
                     $this->_data,
                     0,
-                    $this->_delimiterPosition + $this->_delimiterLength
+                    $delimiterPosition + $this->_delimiterLength
                 ), //Query to display
                 false,
                 $sql_data
@@ -459,7 +470,7 @@ class ImportSql extends ImportPlugin
             $this->_setData(
                 $this->_stringFctToUse['substr'](
                     $this->_data,
-                    $this->_delimiterPosition + $this->_delimiterLength
+                    $delimiterPosition + $this->_delimiterLength
                 )
             );
         }
