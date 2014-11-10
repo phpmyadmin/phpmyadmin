@@ -470,7 +470,15 @@ class ImportSql extends ImportPlugin
         }
 
         //Commit any possible data in buffers
-        PMA_importRunQuery('', $this->_data, false, $sql_data);
+        PMA_importRunQuery(
+            $this->_stringFctToUse['substr'](
+                $this->_data,
+                $this->_queryBeginPosition
+            ), //Query to execute
+            $this->_data,
+            false,
+            $sql_data
+        );
         PMA_importRunQuery('', '', false, $sql_data);
     }
 

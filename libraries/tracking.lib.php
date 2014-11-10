@@ -603,7 +603,7 @@ function PMA_getHtmlForDataManipulationStatements($data, $filter_users,
     $filter_ts_from, $filter_ts_to, $url_params, $ddlog_count,
     $drop_image_or_text
 ) {
-    $i = $ddlog_count;
+    $line_number = $ddlog_count;
     $html = '<table id="dml_versions" class="data" width="100%">';
     $html .= '<thead>';
     $html .= '<tr>';
@@ -618,16 +618,17 @@ function PMA_getHtmlForDataManipulationStatements($data, $filter_users,
 
     $style = 'odd';
     foreach ($data['dmlog'] as $entry) {
-        $html .= PMA_getHtmlForDataManipulationStatement(
-            $entry, $filter_users, $filter_ts_from, $filter_ts_to, $style, $i,
-            $url_params, $ddlog_count, $drop_image_or_text
+        $html .= PMA_getHtmlForOneStatement(
+            $entry, $filter_users, $filter_ts_from, $filter_ts_to, $style,
+            $line_number, $url_params, $ddlog_count, $drop_image_or_text,
+            'delete_dmlog'
         );
         if ($style == 'even') {
             $style = 'odd';
         } else {
             $style = 'even';
         }
-        $i++;
+        $line_number++;
     }
     $html .= '</tbody>';
     $html .= '</table>';
@@ -643,16 +644,17 @@ function PMA_getHtmlForDataManipulationStatements($data, $filter_users,
  * @param int    $filter_ts_from     filter time stamp from
  * @param int    $filter_ts_to       filter time stamp to
  * @param string $style              style
- * @param int    $i                  field number
+ * @param int    $line_number        line number
  * @param array  $url_params         url parameters
- * @param int    $ddlog_count        data definition log count
+ * @param int    $offset             line number offset
  * @param string $drop_image_or_text drop image or text
+ * @param string $delete_param       parameter for delete
  *
  * @return string
  */
-function PMA_getHtmlForDataManipulationStatement($entry, $filter_users,
-    $filter_ts_from, $filter_ts_to, $style, $i, $url_params, $ddlog_count,
-    $drop_image_or_text
+function PMA_getHtmlForOneStatement($entry, $filter_users,
+    $filter_ts_from, $filter_ts_to, $style, $line_number, $url_params, $offset,
+    $drop_image_or_text, $delete_param
 ) {
     $statement  = PMA_Util::formatSql($entry['statement'], true);
     $timestamp = strtotime($entry['date']);
@@ -664,7 +666,7 @@ function PMA_getHtmlForDataManipulationStatement($entry, $filter_users,
         && (in_array('*', $filter_users) || $filtered_user)
     ) {
         $html = '<tr class="noclick ' . $style . '">';
-        $html .= '<td><small>' . $i . '</small></td>';
+        $html .= '<td><small>' . $line_number . '</small></td>';
         $html .= '<td><small>'
             . htmlspecialchars($entry['date']) . '</small></td>';
         $html .= '<td><small>'
@@ -675,7 +677,7 @@ function PMA_getHtmlForDataManipulationStatement($entry, $filter_users,
                 $url_params + array(
                     'report' => 'true',
                     'version' => $_REQUEST['version'],
-                    'delete_dmlog' => ($i - $ddlog_count),
+                    $delete_param => ($line_number - $offset),
                 )
             )
             . '">'
@@ -696,12 +698,12 @@ function PMA_getHtmlForDataManipulationStatement($entry, $filter_users,
  * @param array  $url_params         url parameters
  * @param string $drop_image_or_text drop image or text
  *
- * @return string
+ * @return array 
  */
 function PMA_getHtmlForDataDefinitionStatements($data, $filter_users,
     $filter_ts_from, $filter_ts_to, $url_params, $drop_image_or_text
 ) {
-    $i = 1;
+    $line_number = 1;
     $html  = '<table id="ddl_versions" class="data" width="100%">';
     $html .= '<thead>';
     $html .= '<tr>';
@@ -716,70 +718,23 @@ function PMA_getHtmlForDataDefinitionStatements($data, $filter_users,
 
     $style = 'odd';
     foreach ($data['ddlog'] as $entry) {
-        $html .= PMA_getHtmlForDataDefinitionStatement(
-            $entry, $filter_users, $filter_ts_from, $filter_ts_to, $style, $i,
-            $url_params, $drop_image_or_text
+        $html .= PMA_getHtmlForOneStatement(
+            $entry, $filter_users, $filter_ts_from, $filter_ts_to, $style,
+            $line_number, $url_params, 1, $drop_image_or_text, 'delete_ddlog'
         );
         if ($style == 'even') {
             $style = 'odd';
         } else {
             $style = 'even';
         }
-        $i++;
+        $line_number++;
     }
     $html .= '</tbody>';
     $html .= '</table>';
 
-    return array($html, $i);
+    return array($html, $line_number);
 }
-/**
- * Function to get html for a data definition statement in schema snapshot
- *
- * @param array  $entry              entry
- * @param array  $filter_users       filter users
- * @param int    $filter_ts_from     filter time stamp from
- * @param int    $filter_ts_to       filter time stamp to
- * @param string $style              style
- * @param int    $i                  column number
- * @param array  $url_params         url parameters
- * @param string $drop_image_or_text drop image or text
- *
- * @return string
- */
-function PMA_getHtmlForDataDefinitionStatement($entry, $filter_users,
-    $filter_ts_from, $filter_ts_to, $style, $i, $url_params, $drop_image_or_text
-) {
-    $statement  = PMA_Util::formatSql($entry['statement'], true);
-    $timestamp = strtotime($entry['date']);
-    $filtered_user = in_array($entry['username'], $filter_users);
-    $html = null;
 
-    if ($timestamp >= $filter_ts_from
-        && $timestamp <= $filter_ts_to
-        && (in_array('*', $filter_users) || $filtered_user)
-    ) {
-        $html = '<tr class="noclick ' . $style . '">';
-        $html .= '<td><small>' . $i . '</small></td>';
-        $html .= '<td><small>'
-            . htmlspecialchars($entry['date']) . '</small></td>';
-        $html .= '<td><small>'
-            . htmlspecialchars($entry['username']) . '</small></td>';
-        $html .= '<td>' . $statement . '</td>';
-        $html .= '<td class="nowrap"><a href="tbl_tracking.php'
-            . PMA_URL_getCommon(
-                $url_params + array(
-                    'report' => 'true',
-                    'version' => $_REQUEST['version'],
-                    'delete_ddlog' => ($i - 1),
-                )
-            )
-            . '">' . $drop_image_or_text
-            . '</a></td>';
-        $html .= '</tr>';
-    }
-
-    return $html;
-}
 /**
  * Function to get html for schema snapshot
  *

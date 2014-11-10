@@ -6,6 +6,8 @@
  * @package PhpMyAdmin-test
  */
 
+$GLOBALS['server'] = 1;
+$GLOBALS['cfg']['Server']['DisableIS'] = false;
 /*
  * Include to test.
  */

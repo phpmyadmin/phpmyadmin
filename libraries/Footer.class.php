@@ -89,7 +89,7 @@ class PMA_Footer
      *
      * @return string
      */
-    private function _getDebugMessage()
+    public function getDebugMessage()
     {
         $retval = '';
         if (! empty($_SESSION['debug'])) {
@@ -324,7 +324,7 @@ class PMA_Footer
                     $url = $this->getSelfUrl();
                     $retval .= $this->_getSelfLink($url);
                 }
-                $retval .= $this->_getDebugMessage();
+                $retval .= $this->getDebugMessage();
                 $retval .= $this->getErrorMessages();
                 $retval .= $this->_scripts->getDisplay();
                 if ($GLOBALS['cfg']['DBG']['demo']) {

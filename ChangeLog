@@ -54,6 +54,8 @@ phpMyAdmin - ChangeLog
 + rfe #1547 Wrap No Tables Found message with message box
 - bug #4559 Logging in causes 100% CPU usage
 - bug #4564 Designer: spaces in table name with edit table link generates bad links
+- bug #4582 Debug SQL works only for the first page
+- bug #3869 Count(*) on information_scheme.INNODB_BUFFER_PAGE with a huge bufferpool
 - bug #4495 Comment lines in multiquery
 
 4.2.12.0 (not yet released)

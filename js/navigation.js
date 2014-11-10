@@ -538,6 +538,9 @@ function loadChildNodes($expandElem, callback) {
             $expandElem.addClass('loaded');
             $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
             $destination.append(data.message);
+            if (data._debug) {
+                $('#session_debug').replaceWith(data._debug);
+            }
             if (callback && typeof callback == 'function') {
                 callback(data);
             }

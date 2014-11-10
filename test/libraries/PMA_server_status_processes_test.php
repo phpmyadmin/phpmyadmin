@@ -37,8 +37,8 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['cfg']['Server']['host'] = "localhost";
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
-        $GLOBALS['server_master_status'] = true;
-        $GLOBALS['server_slave_status'] = false;
+        $GLOBALS['replication_info']['master']['status'] = true;
+        $GLOBALS['replication_info']['slave']['status'] = false;
         $GLOBALS['replication_types'] = array();
 
         $GLOBALS['pmaThemeImage'] = 'image';

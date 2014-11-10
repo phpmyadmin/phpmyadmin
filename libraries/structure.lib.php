@@ -1024,15 +1024,22 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
         return array($do, $ignored);
     }
 
-    $nbServerSlaveDoDb = count($server_slave_Do_DB);
-    $nbServerSlaveIgnoreDb = count($server_slave_Ignore_DB);
-    if ((strlen(array_search($truename, $server_slave_Do_Table)) > 0)
-        || strlen(array_search($GLOBALS['db'], $server_slave_Do_DB)) > 0
-        || ($nbServerSlaveDoDb == 1 && $nbServerSlaveIgnoreDb == 1)
+    $nbServSlaveDoDb = count($GLOBALS['replication_info']['slave']['Do_DB']);
+    $nbServSlaveIgnoreDb
+        = count($GLOBALS['replication_info']['slave']['Ignore_DB']);
+    $searchDoDBInTruename = array_search(
+        $truename, $GLOBALS['replication_info']['slave']['Do_DB']
+    );
+    $searchDoDBInDB = array_search(
+        $GLOBALS['db'], $GLOBALS['replication_info']['slave']['Do_DB']
+    );
+    if (strlen($searchDoDBInTruename) > 0
+        || strlen($searchDoDBInDB) > 0
+        || ($nbServSlaveDoDb == 1 && $nbServSlaveIgnoreDb == 1)
     ) {
         $do = true;
     }
-    foreach ($server_slave_Wild_Do_Table as $db_table) {
+    foreach ($GLOBALS['replication_info']['slave']['Wild_Do_Table'] as $db_table) {
         $table_part = PMA_extractDbOrTable($db_table, 'table');
         $pattern = "@^"
             . /*overload*/mb_substr($table_part, 0, -1)
@@ -1044,18 +1051,23 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
         }
     }
 
-    $search = array_search($GLOBALS['db'], $server_slave_Ignore_DB);
-    if ((strlen(array_search($truename, $server_slave_Ignore_Table)) > 0)
-        || strlen($search) > 0
-    ) {
+    $searchDb = array_search(
+        $GLOBALS['db'],
+        $GLOBALS['replication_info']['slave']['Ignore_DB']
+    );
+    $searchTable = array_search(
+        $truename,
+        $GLOBALS['replication_info']['slave']['Ignore_Table']
+    );
+    if ((strlen($searchTable) > 0) || strlen($searchDb) > 0) {
         $ignored = true;
     }
-    foreach ($server_slave_Wild_Ignore_Table as $db_table) {
+    foreach ($GLOBALS['replication_info']['slave']['Wild_Ignore_Table'] as $db_table) {
         $table_part = PMA_extractDbOrTable($db_table, 'table');
         $pattern = "@^"
             . /*overload*/mb_substr($table_part, 0, -1)
             . "@";
-        if (($db == PMA_extractDbOrTable($db_table))
+        if (($GLOBALS['db'] == PMA_extractDbOrTable($db_table))
             && (preg_match($pattern, $truename))
         ) {
             $ignored = true;

@@ -167,8 +167,8 @@ class PMA_StorageEngine
      *
      * @param string $engine The engine ID
      *
+     * @return PMA_StorageEngine|bool The engine plugin or false if not found
      * @static
-     * @return PMA_StorageEngine The engine plugin
      */
     static public function getEngine($engine)
     {
@@ -202,9 +202,11 @@ class PMA_StorageEngine
             case 'performance_schema':
                 return new PMA_StorageEngine_PerformanceSchema($engine);
             }
-        } else {
-            return new PMA_StorageEngine($engine);
+
+            return false;
         }
+
+        return new PMA_StorageEngine($engine);
     }
 
     /**

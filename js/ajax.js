@@ -384,6 +384,9 @@ var AJAX = {
                 if(data._errSubmitMsg){
                     msg = data._errSubmitMsg;
                 }
+                if (data._debug) {
+                    $('#session_debug').replaceWith(data._debug);
+                }
                 if (data._errors) {
                     $('<div/>', {id : 'pma_errors'})
                         .insertAfter('#selflink')

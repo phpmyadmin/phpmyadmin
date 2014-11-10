@@ -36,8 +36,8 @@ class PMA_ServerStatusData_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['cfg']['Server']['host'] = "::1";
-        $GLOBALS['server_master_status'] = true;
-        $GLOBALS['server_slave_status'] = true;
+        $GLOBALS['replication_info']['master']['status'] = true;
+        $GLOBALS['replication_info']['slave']['status'] = true;
         $GLOBALS['replication_types'] = array();
 
         //Mock DBI
