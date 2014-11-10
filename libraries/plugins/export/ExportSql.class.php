@@ -401,7 +401,7 @@ class ExportSql extends ExportPlugin
                     ),
                     'both' => __(
                         'both of the above<br /> &nbsp; &nbsp; &nbsp; Example:'
-                        . ' <code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3),'
+                        . ' <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3),'
                         . ' (4,5,6), (7,8,9)</code>'
                     ),
                     'none' => __(
