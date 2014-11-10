@@ -1184,13 +1184,10 @@ class PMA_Util
             // even if the query is big and was truncated, offer the chance
             // to edit it (unless it's enormous, see linkOrButton() )
             if (! empty($cfg['SQLQuery']['Edit'])) {
-                $onclick = '';
-
                 $edit_link .= PMA_URL_getCommon($url_params) . '#querybox';
                 $edit_link = ' ['
                     . self::linkOrButton(
-                        $edit_link, __('Edit'),
-                        array('onclick' => $onclick, 'class' => 'disableAjax')
+                        $edit_link, __('Edit')
                     )
                     . ']';
             } else {
