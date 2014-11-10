@@ -442,14 +442,16 @@ class Node
                         $handle = $GLOBALS['dbi']->tryQuery($query);
                         if ($handle !== false) {
                             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                                foreach ($prefixes as $prefix) {
-                                    $starts_with = strpos(
-                                        $arr[0] . $dbSeparator,
-                                        $prefix . $dbSeparator
-                                    ) === 0;
-                                    if ($starts_with) {
-                                        $retval[] = $arr[0];
-                                        break;
+                                if (! in_array($arr[0], $retval)) {
+                                    foreach ($prefixes as $prefix) {
+                                        $starts_with = strpos(
+                                            $arr[0] . $dbSeparator,
+                                            $prefix . $dbSeparator
+                                        ) === 0;
+                                        if ($starts_with) {
+                                            $retval[] = $arr[0];
+                                            break;
+                                        }
                                     }
                                 }
                             }
@@ -490,11 +492,13 @@ class Node
                         $handle = $GLOBALS['dbi']->tryQuery($query);
                         if ($handle !== false) {
                             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                                if ($pos <= 0 && $count < $maxItems) {
-                                    $retval[] = $arr[0];
-                                    $count++;
+                                if (! in_array($arr[0], $retval)) {
+                                    if ($pos <= 0 && $count < $maxItems) {
+                                        $retval[] = $arr[0];
+                                        $count++;
+                                    }
+                                    $pos--;
                                 }
-                                $pos--;
                             }
                         }
                     }
