@@ -698,7 +698,7 @@ function PMA_getHtmlForOneStatement($entry, $filter_users,
  * @param array  $url_params         url parameters
  * @param string $drop_image_or_text drop image or text
  *
- * @return array 
+ * @return array
  */
 function PMA_getHtmlForDataDefinitionStatements($data, $filter_users,
     $filter_ts_from, $filter_ts_to, $url_params, $drop_image_or_text
