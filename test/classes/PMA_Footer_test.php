@@ -105,7 +105,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for _getDebugMessage
+     * Test for getDebugMessage
      *
      * @return void
      *
