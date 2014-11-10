@@ -1172,34 +1172,36 @@ function PMA_getTrackingSet()
 {
     $tracking_set = '';
 
-    if ($_REQUEST['alter_table'] == true) {
+    // a key is absent from the request if it has been removed from
+    // tracking_default_statements in the config
+    if (isset($_REQUEST['alter_table']) && $_REQUEST['alter_table'] == true) {
         $tracking_set .= 'ALTER TABLE,';
     }
-    if ($_REQUEST['rename_table'] == true) {
+    if (isset($_REQUEST['rename_table']) && $_REQUEST['rename_table'] == true) {
         $tracking_set .= 'RENAME TABLE,';
     }
-    if ($_REQUEST['create_table'] == true) {
+    if (isset($_REQUEST['create_table']) && $_REQUEST['create_table'] == true) {
         $tracking_set .= 'CREATE TABLE,';
     }
-    if ($_REQUEST['drop_table'] == true) {
+    if (isset($_REQUEST['drop_table']) && $_REQUEST['drop_table'] == true) {
         $tracking_set .= 'DROP TABLE,';
     }
-    if ($_REQUEST['create_index'] == true) {
+    if (isset($_REQUEST['create_index']) && $_REQUEST['create_index'] == true) {
         $tracking_set .= 'CREATE INDEX,';
     }
-    if ($_REQUEST['drop_index'] == true) {
+    if (isset($_REQUEST['drop_index']) && $_REQUEST['drop_index'] == true) {
         $tracking_set .= 'DROP INDEX,';
     }
-    if ($_REQUEST['insert'] == true) {
+    if (isset($_REQUEST['insert']) && $_REQUEST['insert'] == true) {
         $tracking_set .= 'INSERT,';
     }
-    if ($_REQUEST['update'] == true) {
+    if (isset($_REQUEST['update']) && $_REQUEST['update'] == true) {
         $tracking_set .= 'UPDATE,';
     }
-    if ($_REQUEST['delete'] == true) {
+    if (isset($_REQUEST['delete']) && $_REQUEST['delete'] == true) {
         $tracking_set .= 'DELETE,';
     }
-    if ($_REQUEST['truncate'] == true) {
+    if (isset($_REQUEST['truncate']) && $_REQUEST['truncate'] == true) {
         $tracking_set .= 'TRUNCATE,';
     }
     $tracking_set = rtrim($tracking_set, ',');
