@@ -48,7 +48,7 @@ class PMA_RTN_GetDataFromRequest_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetDataFromRequest($in, $out)
     {
-        global $cfg, $_REQUEST;
+        global $_REQUEST;
 
         unset($_REQUEST);
         foreach ($in as $key => $value) {

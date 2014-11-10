@@ -63,10 +63,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             'Comment' => true,
         );
 
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
         $sql_isView_true =  "SELECT TABLE_NAME
             FROM information_schema.VIEWS
             WHERE TABLE_SCHEMA = 'PMA'
@@ -704,9 +700,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testGenerateAlter()
     {
-        $table = 'PMA_BookMark';
-        $db = 'PMA';
-
         //parameter
         $oldcol = 'name';
         $newcol = 'new_name';

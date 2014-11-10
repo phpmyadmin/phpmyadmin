@@ -203,7 +203,6 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
     {
         $user = "PMA_user";
         $password = "pma_password";
-        $is_controluser = false;
         $server = null;
 
         //$server = null;

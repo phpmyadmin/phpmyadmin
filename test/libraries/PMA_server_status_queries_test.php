@@ -189,8 +189,6 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
         //Call the test function
         $html = PMA_getHtmlForServerStatusQueriesDetails($this->ServerStatusData);
 
-        $used_queries = $this->ServerStatusData->used_queries;
-
         //validate 1: PMA_getHtmlForServerStatusQueriesDetails
         $this->assertContains(
             __('Statements'),

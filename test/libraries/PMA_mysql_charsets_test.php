@@ -37,27 +37,27 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
             $this->markTestSkipped(
                 'Cannot redefine constant - missing runkit extension'
             );
+        }
+
+        $restoreDrizzle = '';
+
+        if (defined('PMA_DRIZZLE')) {
+            $restoreDrizzle = PMA_DRIZZLE;
+            runkit_constant_redefine('PMA_DRIZZLE', $drizzle);
         } else {
-            $restoreDrizzle = '';
+            $restoreDrizzle = 'PMA_TEST_CONSTANT_REMOVE';
+            define('PMA_DRIZZLE', $drizzle);
+        }
 
-            if (defined('PMA_DRIZZLE')) {
-                $restoreDrizzle = PMA_DRIZZLE;
-                runkit_constant_redefine('PMA_DRIZZLE', $drizzle);
-            } else {
-                $restoreDrizzle = 'PMA_TEST_CONSTANT_REMOVE';
-                define('PMA_DRIZZLE', $drizzle);
-            }
+        $this->assertEquals(
+            $expected,
+            PMA_generateCharsetQueryPart($collation)
+        );
 
-            $this->assertEquals(
-                $expected,
-                PMA_generateCharsetQueryPart($collation)
-            );
-
-            if ($restoreDrizzle === 'PMA_TEST_CONSTANT_REMOVE') {
-                runkit_constant_remove('PMA_DRIZZLE');
-            } else {
-                runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
-            }
+        if ($restoreDrizzle === 'PMA_TEST_CONSTANT_REMOVE') {
+            runkit_constant_remove('PMA_DRIZZLE');
+        } else {
+            runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
         }
     }
 

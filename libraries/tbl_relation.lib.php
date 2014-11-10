@@ -532,7 +532,6 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
     $html_output .= '</td>';
     $html_output .= '<td>';
     $foreign_table = false;
-    $foreign_column = false;
 
     // foreign database dropdown
     $foreign_db = (isset($one_key['ref_db_name'])) ? $one_key['ref_db_name'] : $db;

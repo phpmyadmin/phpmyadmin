@@ -61,6 +61,7 @@ class Relation_Stats_Eps extends RealtionStats
     {
         global $eps;
 
+        /* Commented because $color unused.
         if ($showColor) {
             $listOfColors = array(
                 'red',
@@ -75,7 +76,7 @@ class Relation_Stats_Eps extends RealtionStats
             $color =  $listOfColors[0];
         } else {
             $color = 'black';
-        }
+        }*/
         // draw a line like -- to foreign field
         $eps->line(
             $this->xSrc,

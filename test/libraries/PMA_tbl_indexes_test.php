@@ -111,7 +111,6 @@ class PMA_TblIndexTest extends PHPUnit_Framework_TestCase
     public function testPMAGetNumberOfFieldsForForm()
     {
         $index = new PMA_Index();
-        $error = false;
 
         $add_fields = PMA_getNumberOfFieldsForForm($index);
 
