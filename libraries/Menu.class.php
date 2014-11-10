@@ -511,13 +511,18 @@ class PMA_Menu
         $notDrizzle = ! defined('PMA_DRIZZLE')
             || (defined('PMA_DRIZZLE') && ! PMA_DRIZZLE);
         if (isset($GLOBALS['dbi']) && $notDrizzle) {
-            $binary_logs = $GLOBALS['dbi']->fetchResult(
-                'SHOW MASTER LOGS',
-                'Log_name',
-                null,
-                null,
-                PMA_DatabaseInterface::QUERY_STORE
-            );
+            if (PMA_Util::cacheExists('binary_logs')) {
+                $binary_logs = PMA_Util::cacheGet('binary_logs');
+            } else {
+                $binary_logs = $GLOBALS['dbi']->fetchResult(
+                    'SHOW MASTER LOGS',
+                    'Log_name',
+                    null,
+                    null,
+                    PMA_DatabaseInterface::QUERY_STORE
+                );
+                PMA_Util::cacheSet('binary_logs', $binary_logs);
+            }
         }
 
         $tabs = array();
