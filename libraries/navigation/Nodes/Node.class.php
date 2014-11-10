@@ -443,7 +443,11 @@ class Node
                         if ($handle !== false) {
                             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
                                 foreach ($prefixes as $prefix) {
-                                    if (strpos($arr[0], $prefix) === 0) {
+                                    $starts_with = strpos(
+                                        $arr[0] . $dbSeparator,
+                                        $prefix . $dbSeparator
+                                    ) === 0;
+                                    if ($starts_with) {
                                         $retval[] = $arr[0];
                                         break;
                                     }
