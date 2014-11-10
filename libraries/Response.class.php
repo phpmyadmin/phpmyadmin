@@ -316,8 +316,13 @@ class PMA_Response
             $this->addJSON('_scripts', $this->getHeader()->getScripts()->getFiles());
             $this->addJSON('_selflink', $this->getFooter()->getSelfUrl('unencoded'));
             $this->addJSON('_displayMessage', $this->getHeader()->getMessage());
-            $errors = $this->_footer->getErrorMessages();
 
+            $debug = $this->_footer->getDebugMessage();
+            if (/*overload*/mb_strlen($debug)) {
+                $this->addJSON('_debug', $debug);
+            }
+
+            $errors = $this->_footer->getErrorMessages();
             if (/*overload*/mb_strlen($errors)) {
                 $this->addJSON('_errors', $errors);
             }
