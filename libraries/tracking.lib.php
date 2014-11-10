@@ -603,35 +603,12 @@ function PMA_getHtmlForDataManipulationStatements($data, $filter_users,
     $filter_ts_from, $filter_ts_to, $url_params, $ddlog_count,
     $drop_image_or_text
 ) {
-    $line_number = $ddlog_count;
-    $html = '<table id="dml_versions" class="data" width="100%">';
-    $html .= '<thead>';
-    $html .= '<tr>';
-    $html .= '<th width="18">#</th>';
-    $html .= '<th width="100">' . __('Date') . '</th>';
-    $html .= '<th width="60">' . __('Username') . '</th>';
-    $html .= '<th>' . __('Data manipulation statement') . '</th>';
-    $html .= '<th>' . __('Delete') . '</th>';
-    $html .= '</tr>';
-    $html .= '</thead>';
-    $html .= '<tbody>';
-
-    $style = 'odd';
-    foreach ($data['dmlog'] as $entry) {
-        $html .= PMA_getHtmlForOneStatement(
-            $entry, $filter_users, $filter_ts_from, $filter_ts_to, $style,
-            $line_number, $url_params, $ddlog_count, $drop_image_or_text,
-            'delete_dmlog'
-        );
-        if ($style == 'even') {
-            $style = 'odd';
-        } else {
-            $style = 'even';
-        }
-        $line_number++;
-    }
-    $html .= '</tbody>';
-    $html .= '</table>';
+    // no need for the secondth returned parameter
+    list($html,) = PMA_getHtmlForDataStatements(
+        $data, $filter_users, $filter_ts_from, $filter_ts_to, $url_params,
+        $drop_image_or_text, 'dmlog', __('Data manipulation statement'), 
+        $ddlog_count, 'dml_versions'
+    );
 
     return $html;
 }
@@ -703,24 +680,53 @@ function PMA_getHtmlForOneStatement($entry, $filter_users,
 function PMA_getHtmlForDataDefinitionStatements($data, $filter_users,
     $filter_ts_from, $filter_ts_to, $url_params, $drop_image_or_text
 ) {
-    $line_number = 1;
-    $html  = '<table id="ddl_versions" class="data" width="100%">';
+    list($html, $line_number) = PMA_getHtmlForDataStatements(
+        $data, $filter_users, $filter_ts_from, $filter_ts_to, $url_params,
+        $drop_image_or_text, 'ddlog', __('Data definition statement'), 
+        1, 'ddl_versions'
+    );
+
+    return array($html, $line_number);
+}
+
+/**
+ * Function to get html for data statements in schema snapshot
+ *
+ * @param array  $data               data
+ * @param array  $filter_users       filter users
+ * @param int    $filter_ts_from     filter time stamp from
+ * @param int    $filter_ts_to       filter time stamp to
+ * @param array  $url_params         url parameters
+ * @param string $drop_image_or_text drop image or text
+ * @param string $which_log          dmlog|ddlog
+ * @param string $header_message     message for this section
+ * @param int    $line_number        line number
+ * @param string $table_id           id for the table element
+ *
+ * @return array
+ */
+function PMA_getHtmlForDataStatements($data, $filter_users,
+    $filter_ts_from, $filter_ts_to, $url_params, $drop_image_or_text,
+    $which_log, $header_message, $line_number, $table_id
+) {
+    $html  = '<table id="' . $table_id . '" class="data" width="100%">';
     $html .= '<thead>';
     $html .= '<tr>';
     $html .= '<th width="18">#</th>';
     $html .= '<th width="100">' . __('Date') . '</th>';
     $html .= '<th width="60">' . __('Username') . '</th>';
-    $html .= '<th>' . __('Data definition statement') . '</th>';
+    $html .= '<th>' . $header_message . '</th>';
     $html .= '<th>' . __('Delete') . '</th>';
     $html .= '</tr>';
     $html .= '</thead>';
     $html .= '<tbody>';
 
     $style = 'odd';
-    foreach ($data['ddlog'] as $entry) {
+    foreach ($data[$which_log] as $entry) {
         $html .= PMA_getHtmlForOneStatement(
             $entry, $filter_users, $filter_ts_from, $filter_ts_to, $style,
-            $line_number, $url_params, 1, $drop_image_or_text, 'delete_ddlog'
+            $line_number, $url_params, 1, $drop_image_or_text,
+            'delete_' . $which_log
         );
         if ($style == 'even') {
             $style = 'odd';
