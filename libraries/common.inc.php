@@ -594,7 +594,10 @@ if ($GLOBALS['PMA_Config']->error_config_default_file) {
 }
 if ($GLOBALS['PMA_Config']->error_pma_uri) {
     trigger_error(
-        __('The [code]$cfg[\'PmaAbsoluteUri\'][/code] directive MUST be set in your configuration file!'),
+        __(
+            'The [code]$cfg[\'PmaAbsoluteUri\'][/code]'
+            . ' directive MUST be set in your configuration file!'
+        ),
         E_USER_ERROR
     );
 }

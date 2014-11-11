@@ -553,7 +553,10 @@ if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_fil
         // Drizzle doesn't support other character sets,
         // so we can't fallback to SET NAMES - throw an error
         $message = PMA_Message::error(
-            __('Cannot convert file\'s character set without character set conversion library!')
+            __(
+                'Cannot convert file\'s character'
+                . ' set without character set conversion library!'
+            )
         );
         PMA_stopImport($message);
     } else {
@@ -656,11 +659,18 @@ if (! empty($id_bookmark) && $action_bookmark == 2) {
 // Did we hit timeout? Tell it user.
 if ($timeout_passed) {
     $message = PMA_Message::error(
-        __('Script timeout passed, if you want to finish import, please resubmit same file and import will resume.')
+        __(
+            'Script timeout passed, if you want to finish import,'
+            . ' please resubmit same file and import will resume.'
+        )
     );
     if ($offset == 0 || (isset($original_skip) && $original_skip == $offset)) {
         $message->addString(
-            __('However on last run no data has been parsed, this usually means phpMyAdmin won\'t be able to finish this import unless you increase php time limits.')
+            __(
+                'However on last run no data has been parsed,'
+                . ' this usually means phpMyAdmin won\'t be able to'
+                . ' finish this import unless you increase php time limits.'
+            )
         );
     }
 }
