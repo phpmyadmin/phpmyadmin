@@ -965,48 +965,9 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             /**
              * Gets table keys and retains them
              */
-            $result = $GLOBALS['dbi']->query(
-                'SHOW KEYS FROM ' . PMA_Util::backquote($table) . ';'
-            );
-            $primary = '';
-            $indexes = array();
-            $lastIndex = '';
-            $indexes_info = array();
-            $indexes_data = array();
-            $pk_array = array(); // will be use to emphasis prim. keys in the table
-            // view
-            while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                // Backups the list of primary keys
-                if ($row['Key_name'] == 'PRIMARY') {
-                    $primary .= $row['Column_name'] . ', ';
-                    $pk_array[$row['Column_name']] = 1;
-                }
-                // Retains keys information
-                if ($row['Key_name'] != $lastIndex) {
-                    $indexes[] = $row['Key_name'];
-                    $lastIndex = $row['Key_name'];
-                }
-                $indexes_info[$row['Key_name']]['Sequences'][]
-                    = $row['Seq_in_index'];
-                $indexes_info[$row['Key_name']]['Non_unique'] = $row['Non_unique'];
-                if (isset($row['Cardinality'])) {
-                    $indexes_info[$row['Key_name']]['Cardinality']
-                        = $row['Cardinality'];
-                }
-                // I don't know what does following column mean....
-                // $indexes_info[$row['Key_name']]['Packed'] = $row['Packed'];
-                $indexes_info[$row['Key_name']]['Comment'] = $row['Comment'];
-
-                $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']
-                    = $row['Column_name'];
-                if (isset($row['Sub_part'])) {
-                    $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part']
-                        = $row['Sub_part'];
-                }
-            } // end while
-            if ($result) {
-                $GLOBALS['dbi']->freeResult($result);
-            }
+            $indexes = $GLOBALS['dbi']->getTableIndexes($db, $table);
+            list($primary, $pk_array, $indexes_info, $indexes_data)
+                = PMA_Util::processIndexData($indexes);
 
             /**
              * Gets fields properties
