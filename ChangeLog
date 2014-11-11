@@ -57,6 +57,7 @@ phpMyAdmin - ChangeLog
 - bug #4582 Debug SQL works only for the first page
 - bug #3869 Count(*) on information_scheme.INNODB_BUFFER_PAGE with a huge bufferpool
 - bug #4495 Comment lines in multiquery
+- bug #4535 Loads of Warnings/Notices in PMA_getServerSlaveStatus on replication slave
 
 4.2.12.0 (not yet released)
 - bug #4574 Blank/white page when JavaScript disabled
