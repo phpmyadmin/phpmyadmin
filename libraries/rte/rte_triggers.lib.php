@@ -216,35 +216,7 @@ function PMA_TRI_handleEditor()
             }
             $mode = 'edit';
         }
-        if ($item !== false) {
-            // Show form
-            $editor = PMA_TRI_getEditorForm($mode, $item);
-            if ($GLOBALS['is_ajax_request']) {
-                $response = PMA_Response::getInstance();
-                $response->addJSON('message', $editor);
-                $response->addJSON('title', $title);
-            } else {
-                echo "\n\n<h2>$title</h2>\n\n$editor";
-                unset($_POST);
-            }
-            exit;
-        } else {
-            $message  = __('Error in processing request:') . ' ';
-            $message .= sprintf(
-                PMA_RTE_getWord('not_found'),
-                htmlspecialchars(PMA_Util::backquote($_REQUEST['item_name'])),
-                htmlspecialchars(PMA_Util::backquote($db))
-            );
-            $message = PMA_message::error($message);
-            if ($GLOBALS['is_ajax_request']) {
-                $response = PMA_Response::getInstance();
-                $response->isSuccess(false);
-                $response->addJSON('message', $message);
-                exit;
-            } else {
-                $message->display();
-            }
-        }
+        PMA_RTE_sendEditor('TRI', $mode, $item, $title, $db);
     }
 } // end PMA_TRI_handleEditor()
 
