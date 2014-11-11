@@ -153,17 +153,21 @@ foreach ($replication_types as $type) {
                 ",", $server_slave_replication[0]["Replicate_Ignore_Table"]
             );
 
-            $GLOBALS['replication_info'][$type]['Wild_Do_Table'] = explode(
-                ",", $server_slave_replication[0]["Replicate_Wild_Do_Table"]
-            );
+            $GLOBALS['replication_info'][$type]['Wild_Do_Table']
+                = empty($server_slave_replication[0]["Replicate_Wild_Do_Table"])
+                ? array()
+                : explode(
+                    ",",
+                    $server_slave_replication[0]["Replicate_Wild_Do_Table"]
+                );
 
             $GLOBALS['replication_info'][$type]['Wild_Ignore_Table']
                 = empty($server_slave_replication[0]["Replicate_Wild_Ignore_Table"])
-                    ? array()
-                    : explode(
-                        ",",
-                        $server_slave_replication[0]["Replicate_Wild_Ignore_Table"]
-                    );
+                ? array()
+                : explode(
+                    ",",
+                    $server_slave_replication[0]["Replicate_Wild_Ignore_Table"]
+                );
         }
     }
 }
