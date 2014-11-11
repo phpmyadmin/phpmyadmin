@@ -1292,15 +1292,6 @@ function PMA_executeQueryAndStoreResults($full_sql_query)
 
     $GLOBALS['querytime'] = $querytime_after - $querytime_before;
 
-    // If a stored procedure was called, there may be more results that are
-    // queued up and waiting to be flushed from the buffer. So let's do that.
-    do {
-        $GLOBALS['dbi']->storeResult();
-        if (! $GLOBALS['dbi']->moreResults()) {
-            break;
-        }
-    } while ($GLOBALS['dbi']->nextResult());
-
     return $result;
 }
 
@@ -1893,15 +1884,61 @@ function PMA_getHtmlForSqlQueryResultsTable($sql_data, $displayResultsObject, $d
     $analyzed_sql_results
 ) {
     $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
-    if (! empty($sql_data) && ($sql_data['valid_queries'] > 1)
-        || $analyzed_sql_results['is_procedure']
-    ) {
+    $table_html = '';
+    if (! empty($sql_data) && ($sql_data['valid_queries'] > 1)) {
         $_SESSION['is_multi_query'] = true;
-        $table_html = PMA_getTableHtmlForMultipleQueries(
+        $table_html .= PMA_getTableHtmlForMultipleQueries(
             $displayResultsObject, $db, $sql_data, $goto,
             $pmaThemeImage, $printview, $url_query,
             $disp_mode, $sql_limit_to_append, $editable
         );
+    } elseif ($analyzed_sql_results['is_procedure']) {
+
+        do {
+            if (! isset($result)) {
+                $result = $GLOBALS['dbi']->storeResult();
+            }
+            $num_rows = $GLOBALS['dbi']->numRows($result);
+
+            if ($result !== false && $num_rows > 0) {
+
+                $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+                $fields_cnt  = count($fields_meta);
+
+                $displayResultsObject->setProperties(
+                    $num_rows,
+                    $fields_meta,
+                    $analyzed_sql_results['is_count'],
+                    $analyzed_sql_results['is_export'],
+                    $analyzed_sql_results['is_func'],
+                    $analyzed_sql_results['is_analyse'],
+                    $num_rows,
+                    $fields_cnt,
+                    $GLOBALS['querytime'],
+                    $pmaThemeImage,
+                    $GLOBALS['text_dir'],
+                    $analyzed_sql_results['is_maint'],
+                    $analyzed_sql_results['is_explain'],
+                    $analyzed_sql_results['is_show'],
+                    $showtable,
+                    $printview,
+                    $url_query,
+                    $editable
+                );
+
+                $disp_mode = 'nnnn110111'; // uneditable
+                $table_html .= $displayResultsObject->getTable(
+                    $result,
+                    $disp_mode,
+                    $analyzed_sql_results['analyzed_sql']
+                );
+            }
+
+            $GLOBALS['dbi']->freeResult($result);
+            unset($result);
+
+        } while ($GLOBALS['dbi']->moreResults() && $GLOBALS['dbi']->nextResult());
+
     } else {
         if (isset($result) && $result) {
             $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
@@ -1918,7 +1955,7 @@ function PMA_getHtmlForSqlQueryResultsTable($sql_data, $displayResultsObject, $d
             $editable
         );
 
-        $table_html = $displayResultsObject->getTable(
+        $table_html .= $displayResultsObject->getTable(
             $result, $disp_mode, $analyzed_sql_results['analyzed_sql']
         );
         $GLOBALS['dbi']->freeResult($result);

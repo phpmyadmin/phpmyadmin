@@ -298,13 +298,17 @@ RTE.COMMON = {
                 /**
                  * Display the dialog to the user
                  */
-                that.$ajaxDialog = $('<div>' + data.message + '</div>').dialog({
+                that.$ajaxDialog = $('<div id="rteDialog">' + data.message + '</div>').dialog({
                     width: 700,
                     minWidth: 500,
+                    maxHeight: $(window).height(),
                     buttons: that.buttonOptions,
                     title: data.title,
                     modal: true,
                     open: function () {
+                        if ($('#rteDialog').parents('.ui-dialog').height() > $(window).height()) {
+                            $('#rteDialog').dialog("option", "height", $(window).height());
+                        }
                         $(this).find('input[name=item_name]').focus();
                         $(this).find('input.datefield').each(function () {
                             PMA_addDatepicker($(this).css('width', '95%'), 'date');

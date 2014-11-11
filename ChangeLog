@@ -63,6 +63,8 @@ phpMyAdmin - ChangeLog
 - bug #4577 Multi row actions cause full page reloads
 - bug       ReferenceError: targeturl is not defined
 - bug       Incorrect text/icon display in Tracking report
+- bug #4404 Recordset return from procedure display nothing
+- bug #4584 Edit dialog for routines is too long for smaller displays
 
 4.2.11.0 (2014-10-31)
 - bug       ReferenceError: Table_onover is not defined
