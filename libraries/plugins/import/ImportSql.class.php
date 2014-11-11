@@ -556,7 +556,8 @@ class ImportSql extends ImportPlugin
         //Don't look for the SQL delimiter if not found previously
         //or if it's still after current position.
         if (null === $firstSqlDelimiter
-            || (false !== $firstSqlDelimiter && $firstSqlDelimiter < $this->_delimiterPosition)
+            || (false !== $firstSqlDelimiter
+            && $firstSqlDelimiter < $this->_delimiterPosition)
         ) {
             // the cost of doing this one with preg_match() would be too high
             $firstSqlDelimiter = $this->_stringFctToUse['strpos'](
