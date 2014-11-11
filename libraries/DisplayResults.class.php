@@ -2917,20 +2917,20 @@ class PMA_DisplayResults
                 'transform_key' => $meta->name,
             );
 
-            list($transform_where_clause, $clause_is_unique, $condition_array)
-                = PMA_Util::getUniqueCondition(
-                    $dt_result,
-                    $this->__get('fields_cnt'),
-                    $this->__get('fields_meta'),
-                    $row,
-                    false,
-                    $this->__get('table')
-                );
+            $unique_conditions = PMA_Util::getUniqueCondition(
+                $dt_result,
+                $this->__get('fields_cnt'),
+                $this->__get('fields_meta'),
+                $row,
+                false,
+                $this->__get('table')
+            );
+            
             $transform_url_params = array(
                 'db'            => $this->__get('db'),
                 'table'         => $this->__get('table'),
-                'where_clause'  => $transform_where_clause,
-                'transform_key' => $meta->name,
+                'where_clause'  => $unique_conditions[0],
+                'transform_key' => $meta->name
             );
 
             if (! empty($sql_query)) {

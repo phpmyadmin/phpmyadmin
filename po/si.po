@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:04+0100\n"
-"PO-Revision-Date: 2014-02-27 10:56+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/si/>\n"
+"PO-Revision-Date: 2014-11-11 12:16+0200\n"
+"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
+"Language-Team: Sinhala "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/si/>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 2.0\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -24,17 +24,17 @@ msgstr "%s ගොනුව මෙම පද්ධතියේ නොමැත. �
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "මෙම දත්තගබඩාව සඳහා මධ්‍යම තීර ලැයිස්තුව හිස්ය."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
 msgstr "අනුපිළිවෙල අනුව සැකසීමට ක්ලික් කරන්න."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing row(s) %1$s - %2$s"
-msgstr "%1s - %2s පේළි පෙන්වමින්"
+msgstr "%1$s - %2$s පේළි(ය) පෙන්වමින්"
 
 #: db_create.php:61
 #, php-format
@@ -252,15 +252,13 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "%1$s දත්තගබඩාව %2$s වෙතට පිටපත් කරන ලදි."
 
 #: db_operations.php:263
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
-"phpMyAdmin හි configuration storage අක්‍රිය කර ඇත. ඇයිදැයි සොයා බැලීමට %sමෙතන%s ක්ලික් "
-"කරන්න."
+msgstr "phpMyAdmin හි configuration storage අක්‍රිය කර ඇත. %sසොයා බලන්න%s."
 
 #: db_printview.php:48 db_tracking.php:83 db_tracking.php:207
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:756
