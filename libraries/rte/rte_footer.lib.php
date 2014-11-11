@@ -22,7 +22,7 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
 {
     global $db, $table, $url_query, $ajax_class;
 
-    $icon = 'b_' . /*overload*/mb_strtolower($name) . '_add.png';
+    $icon = /*overload*/mb_strtolower($name) . '_add.png';
     $retval  = "";
     $retval .= "<!-- ADD " . $name . " FORM START -->\n";
     $retval .= "<fieldset class='left'>\n";
@@ -33,11 +33,11 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
         $retval .= "href='db_" . /*overload*/mb_strtolower($name) . "s.php";
         $retval .= "?$url_query&amp;add_item=1' ";
         $retval .= "onclick='$.datepicker.initialized = false;'>";
-        $icon = 'b_' . /*overload*/mb_strtolower($name) . '_add.png';
+        $icon = 'b_' . $icon;
         $retval .= PMA_Util::getIcon($icon);
         $retval .= PMA_RTE_getWord('add') . "</a>\n";
     } else {
-        $icon = 'bd_' . /*overload*/mb_strtolower($name) . '_add.png';
+        $icon = 'bd_' . $icon;
         $retval .= PMA_Util::getIcon($icon);
         $retval .= PMA_RTE_getWord('add') . "\n";
     }

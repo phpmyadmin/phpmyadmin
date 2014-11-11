@@ -602,8 +602,6 @@ function PMA_removeRelation($T1, $F1, $T2, $F2)
     $tables = $GLOBALS['dbi']->getTablesFull($DB2, $T2);
     $type_T2 = /*overload*/mb_strtoupper($tables[$T2]['ENGINE']);
 
-    $try_to_delete_internal_relation = false;
-
     if (PMA_Util::isForeignKeySupported($type_T1)
         && PMA_Util::isForeignKeySupported($type_T2)
         && $type_T1 == $type_T2
@@ -618,24 +616,15 @@ function PMA_removeRelation($T1, $F1, $T2, $F2)
                 . PMA_Util::backquote($foreigner['constraint']) . ';';
             if ($GLOBALS['dbi']->query($upd_query)) {
                 return array(true, __('FOREIGN KEY relation has been removed.'));
-            } else {
-                $error = $GLOBALS['dbi']->getError();
-                return array(
-                    false,
-                    __('Error: FOREIGN KEY relation could not be removed!')
-                    . "<br/>" . $error
-                );
             }
-        } else {
-            // there can be an internal relation even if InnoDB
-            $try_to_delete_internal_relation = true;
-        }
-    } else {
-        $try_to_delete_internal_relation = true;
-    }
 
-    if (!$try_to_delete_internal_relation) {
-        return;
+            $error = $GLOBALS['dbi']->getError();
+            return array(
+                false,
+                __('Error: FOREIGN KEY relation could not be removed!')
+                . "<br/>" . $error
+            );
+        }
     }
 
     // internal relations

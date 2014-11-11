@@ -268,7 +268,6 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetQueryStrFromSelected()
     {
         $query_type = 'row_delete';
-        $action = 'db_delete_row';
         $db = "PMA_db";
         $table = "PMA_table";
         $selected = array(
