@@ -246,8 +246,10 @@ class PMA_Console
             }
 
             $output .= '</div>'; // .console_message_container
-            $output .= '<div class="query_input"><span class="console_query_input"></span></div>'
-                    .  '</div>'; // Messages end
+            $output .= '<div class="query_input">'
+                    . '<span class="console_query_input"></span>'
+                    . '</div>';
+            $output .= '</div>'; // Messages end
 
             // Dark the console while other cards cover it
             $output .= '<div class="mid_layer"></div>';
