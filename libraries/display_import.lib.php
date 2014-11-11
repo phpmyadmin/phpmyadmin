@@ -490,12 +490,21 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
     $html .= '            } else { ';
     $html .= '                var now = new Date(); ';
     $html .= '                now = Date.UTC( ';
-    $html .= '                    now.getFullYear(), now.getMonth(), now.getDate(), ';
-    $html .= '                    now.getHours(), now.getMinutes(), now.getSeconds()) ';
+    $html .= '                    now.getFullYear(), ';
+    $html .= '                    now.getMonth(), ';
+    $html .= '                    now.getDate(), ';
+    $html .= '                    now.getHours(), ';
+    $html .= '                    now.getMinutes(), ';
+    $html .= '                    now.getSeconds()) ';
     $html .= '                    + now.getMilliseconds() - 1000; ';
-    $html .= '                var statustext = PMA_sprintf("' . $statustext_str . '", ';
-    $html .= '                    formatBytes(complete, 1, PMA_messages.strDecimalSeparator), ';
-    $html .= '                    formatBytes(total, 1, PMA_messages.strDecimalSeparator) ';
+    $html .= '                var statustext = PMA_sprintf(';
+    $html .= '                    "' . $statustext_str . '", ';
+    $html .= '                    formatBytes( ';
+    $html .= '                        complete, 1, PMA_messages.strDecimalSeparator';
+    $html .= '                    ), ';
+    $html .= '                    formatBytes(';
+    $html .= '                        total, 1, PMA_messages.strDecimalSeparator';
+    $html .= '                    ) ';
     $html .= '                ); ';
 
     $html .= '                if ($("#importmain").is(":visible")) { ';
@@ -526,7 +535,8 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
     $html .= '                    var estimated_time; ';
     $html .= '                    if (minutes > 0) { ';
     $html .= '                        estimated_time = "' . $remaining_min . '"';
-    $html .= '                        .replace("%MIN", minutes).replace("%SEC", seconds); ';
+    $html .= '                            .replace("%MIN", minutes)';
+    $html .= '                            .replace("%SEC", seconds); ';
     $html .= '                    } ';
     $html .= '                    else { ';
     $html .= '                        estimated_time = "' . $remaining_second . '"';
@@ -543,10 +553,12 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
 
     // show percent in window title
     $html .= '                if (original_title !== false) { ';
-    $html .= '                    parent.document.title = percent_str + " - " + original_title; ';
+    $html .= '                    parent.document.title ';
+    $html .= '                        = percent_str + " - " + original_title; ';
     $html .= '                } ';
     $html .= '                else { ';
-    $html .= '                    document.title = percent_str + " - " + original_title; ';
+    $html .= '                    document.title ';
+    $html .= '                        = percent_str + " - " + original_title; ';
     $html .= '                } ';
     $html .= '                $("#statustext").html(statustext); ';
     $html .= '            }  ';
