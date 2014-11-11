@@ -376,11 +376,11 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
                 $showtable['Index_length']
             );
         $this->assertContains(
-            $data_size,
+            $index_size,
             $html
         );
         $this->assertContains(
-            $data_unit,
+            $index_unit,
             $html
         );
 

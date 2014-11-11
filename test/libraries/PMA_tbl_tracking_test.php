@@ -654,7 +654,6 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForDataManipulationStatements()
     {
         $_REQUEST['version'] = "10";
-        $url_query = "select * from PMA";
         $data = array(
             'tracking'=>'tracking',
             'dmlog' => array(
@@ -714,7 +713,6 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForDataDefinitionStatements()
     {
         $_REQUEST['version'] = "10";
-        $url_query = "select * from PMA";
 
         $data = array(
             'tracking'=>'tracking',
@@ -920,8 +918,6 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $filter_users = array("*");
         $filter_ts_to = 9999999999;
         $filter_ts_from = 0;
-        $url_params = array();
-        $drop_image_or_text = "text";
 
         $entries = PMA_getEntries(
             $data, $filter_ts_from, $filter_ts_to, $filter_users
