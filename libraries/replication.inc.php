@@ -126,12 +126,12 @@ foreach ($replication_types as $type) {
     if ($GLOBALS['replication_info'][$type]['status']) {
         if ($type == "master") {
             PMA_fillReplicationInfo(
-                $type, 'Do_DB', $server_slave_replication[0],
+                $type, 'Do_DB', $server_master_replication[0],
                 'Binlog_Do_DB'
             );
 
             PMA_fillReplicationInfo(
-                $type, 'Ignore_DB', $server_slave_replication[0],
+                $type, 'Ignore_DB', $server_master_replication[0],
                 'Binlog_Ignore_DB'
             );
         } elseif ($type == "slave") {
