@@ -1577,7 +1577,6 @@ function PMA_sendAjaxResponseForNoResultsReturned($message, $analyzed_sql,
     $response->addJSON(isset($extra_data) ? $extra_data : array());
     if (empty($_REQUEST['ajax_page_request'])) {
         $response->addJSON('message', $message);
-        exit;
     }
 }
 
