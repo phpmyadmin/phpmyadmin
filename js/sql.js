@@ -527,7 +527,7 @@ AJAX.registerOnload('sql.js', function () {
     });
 
     /**
-     * Handles mutli submits of results browsing page such as edit, delete and export
+     * Handles multi submits of results browsing page such as edit, delete and export
      */
     $('body').on('click', '#resultsForm.ajax button[name="submit_mult"], #resultsForm.ajax input[name="submit_mult"]', function (e) {
         e.preventDefault();

@@ -509,7 +509,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
     });
 
     /**
-     * Handles mutli submits in table structure page such as browse, drop, primary etc.
+     * Handles multi submits in table structure page such as browse, drop, primary etc.
      * However this does not handle multiple field changes. It is handled by a seperate handler.
      */
     $('body').on('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]', function (e) {
