@@ -4,12 +4,16 @@
 # - run Selenium for single PHP version
 
 language: php
+
 php:
   - "5.6"
   - "5.5"
   - "5.4"
   - "5.3"
   - hhvm
+
+sudo: false
+
 env:
   matrix:
     - PHPUNIT_ARGS="--exclude-group selenium"
@@ -19,6 +23,7 @@ env:
     - TESTSUITE_BROWSERSTACK_USER=phpMyAdmin
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
+
 before_script:
   - export PATH=~/.composer/vendor/bin/:$PATH
   - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')" ;
@@ -58,6 +63,7 @@ before_script:
 
     fi ;
     fi
+
 script:
   - ant locales
   - set -e; if [[ -z "$LINT" ]] ; then
@@ -74,9 +80,11 @@ script:
     else
     ant lint ;
     fi
+
 after_script:
   - if [[ -f build/logs/clover.xml ]] ; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml || true ; fi
   - if [[ -f vendor/bin/coveralls ]] ; then php vendor/bin/coveralls -v || true ; fi
+
 matrix:
   allow_failures:
     - php: 5.5
