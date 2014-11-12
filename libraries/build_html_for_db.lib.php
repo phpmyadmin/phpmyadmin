@@ -148,7 +148,8 @@ function PMA_buildHtmlForDb(
                 );
 
                 if (/*overload*/mb_strlen($key) > 0
-                    || ($replication_info[$type]['Do_DB'][0] == ""
+                    || (isset($replication_info[$type]['Do_DB'][0])
+                    && $replication_info[$type]['Do_DB'][0] == ""
                     && count($replication_info[$type]['Do_DB']) == 1)
                 ) {
                     // if ($key != null) did not work for index "0"
