@@ -2742,11 +2742,9 @@ function PMA_SQP_getBeforeAndInPrivList(
     $arr, $typearr, $keywords_no_newline, $index, $in_priv_list,
     $space_alpha_reserved_word, $before, $keywords_priv_list
 ) {
-    $data = $arr[$index - 1]['data'];
-
     if (!((($typearr[1] != 'alpha_reservedWord')
         || (($typearr[1] == 'alpha_reservedWord')
-        && isset($keywords_no_newline[/*overload*/mb_strtoupper($data)])))
+        && isset($keywords_no_newline[/*overload*/mb_strtoupper($arr[$index - 1]['data'])])))
         && ($typearr[1] != 'punct_level_plus')
         && (!isset($keywords_no_newline[$arr[$index]['data']])))
     ) {
