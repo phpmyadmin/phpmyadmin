@@ -709,7 +709,7 @@ if ($go_sql) {
     PMA_executeQueryAndSendQueryResponse(
         $analyzed_sql_results, false, $db, $table, null, $import_text, null,
         $analyzed_sql_results['is_affected'], null,
-        null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,
+        null, null, $sql_data, $goto, $pmaThemeImage, null, null, null, $sql_query,
         null, null
     );
 } else if ($result) {
