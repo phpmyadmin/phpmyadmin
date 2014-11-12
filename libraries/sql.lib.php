@@ -62,163 +62,6 @@ function PMA_getTableNameBySQL($sql, $tables)
 
 
 /**
- * Generate table html when SQL statement have multiple queries
- * which return displayable results
- *
- * @param object $displayResultsObject PMA_DisplayResults object
- * @param string $db                   database name
- * @param array  $sql_data             information about SQL statement
- * @param string $goto                 URL to go back in case of errors
- * @param string $pmaThemeImage        path for theme images  directory
- * @param string $printview            whether printview is enabled
- * @param string $url_query            URL query
- * @param array  $disp_mode            the display mode
- * @param string $sql_limit_to_append  limit clause
- * @param bool   $editable             whether editable or not
- *
- * @return string   $table_html   html content
- */
-function PMA_getTableHtmlForMultipleQueries(
-    $displayResultsObject, $db, $sql_data, $goto, $pmaThemeImage,
-    $printview, $url_query, $disp_mode, $sql_limit_to_append,
-    $editable
-) {
-    $table_html = '';
-
-    $tables_array = $GLOBALS['dbi']->getTables($db);
-    $databases_array = $GLOBALS['dbi']->getDatabasesFull();
-    $multi_sql = implode(";", $sql_data['valid_sql']);
-    $querytime_before = array_sum(explode(' ', microtime()));
-
-    // Assignment for variable is not needed since the results are
-    // looping using the connection
-    @$GLOBALS['dbi']->tryMultiQuery($multi_sql);
-
-    $querytime_after = array_sum(explode(' ', microtime()));
-    $querytime = $querytime_after - $querytime_before;
-    $sql_no = 0;
-
-    do {
-        $analyzed_sql = array();
-        $is_affected = false;
-        $showtable = array();
-
-        $result = $GLOBALS['dbi']->storeResult();
-        $fields_meta = ($result !== false)
-            ? $GLOBALS['dbi']->getFieldsMeta($result)
-            : array();
-        $fields_cnt  = count($fields_meta);
-
-        // Initialize needed params related to each query in multiquery statement
-        if (isset($sql_data['valid_sql'][$sql_no])) {
-            // 'Use' query can change the database
-            if (/*overload*/mb_stripos(
-                $sql_data['valid_sql'][$sql_no],
-                "use "
-            )) {
-                $db = PMA_getNewDatabase(
-                    $sql_data['valid_sql'][$sql_no],
-                    $databases_array
-                );
-            }
-
-            $table = PMA_getTableNameBySQL(
-                $sql_data['valid_sql'][$sql_no],
-                $tables_array
-            );
-
-            // for the use of the parse_analyze.inc.php
-            $sql_query = $sql_data['valid_sql'][$sql_no];
-
-            // Parse and analyze the query
-            include 'libraries/parse_analyze.inc.php';
-
-            $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
-            $showtable = PMA_Table::sGetStatusInfo($db, $table, null, true);
-            $url_query = PMA_URL_getCommon(array('db' => $db, 'table' => $table));
-
-            // Handle remembered sorting order, only for single table query
-            if ($GLOBALS['cfg']['RememberSorting']
-                && ! ($is_count || $is_export || $is_func || $is_analyse)
-                && isset($analyzed_sql[0]['select_expr'])
-                && (count($analyzed_sql[0]['select_expr']) == 0)
-                && isset($analyzed_sql[0]['queryflags']['select_from'])
-                && count($analyzed_sql[0]['table_ref']) == 1
-            ) {
-                PMA_handleSortOrder(
-                    $db,
-                    $table,
-                    $analyzed_sql,
-                    $sql_data['valid_sql'][$sql_no]
-                );
-            }
-
-            // Do append a "LIMIT" clause?
-            if (($_SESSION['tmpval']['max_rows'] != 'all')
-                && ! ($is_count || $is_export || $is_func || $is_analyse)
-                && isset($analyzed_sql[0]['queryflags']['select_from'])
-                && ! isset($analyzed_sql[0]['queryflags']['offset'])
-                && empty($analyzed_sql[0]['limit_clause'])
-            ) {
-                $sql_limit_to_append = ' LIMIT '
-                    . $_SESSION['tmpval']['pos']
-                    . ', ' . $_SESSION['tmpval']['max_rows'] . " ";
-                $sql_data['valid_sql'][$sql_no] = PMA_getSqlWithLimitClause(
-                    $analyzed_sql,
-                    $sql_limit_to_append
-                );
-            }
-
-            // Set the needed properties related to executing sql query
-            $displayResultsObject->__set('db', $db);
-            $displayResultsObject->__set('table', $table);
-            $displayResultsObject->__set('goto', $goto);
-        }
-
-        if (! $is_affected) {
-            $num_rows = ($result) ? @$GLOBALS['dbi']->numRows($result) : 0;
-        } elseif (! isset($num_rows)) {
-            $num_rows = @$GLOBALS['dbi']->affectedRows();
-        }
-
-        if (isset($sql_data['valid_sql'][$sql_no])) {
-
-            $displayResultsObject->__set(
-                'sql_query',
-                $sql_data['valid_sql'][$sql_no]
-            );
-            $displayResultsObject->setProperties(
-                $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
-                $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage,
-                $GLOBALS['text_dir'], $is_maint, $is_explain, $is_show,
-                $showtable, $printview, $url_query, $editable
-            );
-        }
-
-        if ($num_rows == 0) {
-            continue;
-        }
-
-        // With multiple results, operations are limited
-        $disp_mode = 'nnnn000000';
-        $is_limited_display = true;
-
-        // Collect the tables
-        $table_html .= $displayResultsObject->getTable(
-            $result, $disp_mode, $analyzed_sql, $is_limited_display
-        );
-
-        // Free the result to save the memory
-        $GLOBALS['dbi']->freeResult($result);
-
-        $sql_no++;
-
-    } while ($GLOBALS['dbi']->moreResults() && $GLOBALS['dbi']->nextResult());
-
-    return $table_html;
-}
-
-/**
  * Handle remembered sorting order, only for single table query
  *
  * @param string $db                    database name
@@ -1884,14 +1727,8 @@ function PMA_getHtmlForSqlQueryResultsTable($sql_data, $displayResultsObject, $d
 ) {
     $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
     $table_html = '';
-    if (! empty($sql_data) && ($sql_data['valid_queries'] > 1)) {
-        $_SESSION['is_multi_query'] = true;
-        $table_html .= PMA_getTableHtmlForMultipleQueries(
-            $displayResultsObject, $db, $sql_data, $goto,
-            $pmaThemeImage, $printview, $url_query,
-            $disp_mode, $sql_limit_to_append, $editable
-        );
-    } elseif ($analyzed_sql_results['is_procedure']) {
+
+    if ($analyzed_sql_results['is_procedure']) {
 
         do {
             if (! isset($result)) {
@@ -2335,7 +2172,7 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
     // Include PMA_Index class for use in PMA_DisplayResults class
     include_once './libraries/Index.class.php';
 
-    include 'libraries/DisplayResults.class.php';
+    include_once 'libraries/DisplayResults.class.php';
 
     // Handle remembered sorting order, only for single table query
     // Handling is not required when it's a union query
