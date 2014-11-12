@@ -58,7 +58,6 @@ if (!defined('TESTSUITE')) {
             'remember_template',
             'charset_of_file',
             'compression',
-            'what',
             'knjenc',
             'xkana',
             'htmlword_structure_or_data',
@@ -160,7 +159,7 @@ if (!defined('TESTSUITE')) {
 
     $table = $GLOBALS['table'];
     // sanitize this parameter which will be used below in a file inclusion
-    $what = PMA_securePath($what);
+    $what = PMA_securePath($_POST['what']);
 
     PMA_Util::checkParameters(array('what', 'export_type'));
 

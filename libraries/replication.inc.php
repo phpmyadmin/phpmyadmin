@@ -125,43 +125,71 @@ foreach ($replication_types as $type) {
     }
     if ($GLOBALS['replication_info'][$type]['status']) {
         if ($type == "master") {
-            $GLOBALS['replication_info'][$type]['Do_DB'] = explode(
-                ",", $server_master_replication[0]["Binlog_Do_DB"]
+            PMA_fillReplicationInfo(
+                $type, 'Do_DB', $server_slave_replication[0],
+                'Binlog_Do_DB'
             );
 
-            $GLOBALS['replication_info'][$type]['Ignore_DB'] = explode(
-                ",", $server_master_replication[0]["Binlog_Ignore_DB"]
+            PMA_fillReplicationInfo(
+                $type, 'Ignore_DB', $server_slave_replication[0],
+                'Binlog_Ignore_DB'
             );
         } elseif ($type == "slave") {
-            $doDB = explode(
-                ",", $server_slave_replication[0]["Replicate_Do_DB"]
-            );
-            if (!empty($doDB)) {
-                $GLOBALS['replication_info'][$type]['Do_DB'] = $doDB;
-            }
-            unset($doDB);
-
-            $GLOBALS['replication_info'][$type]['Ignore_DB'] = explode(
-                ",", $server_slave_replication[0]["Replicate_Ignore_DB"]
+            PMA_fillReplicationInfo(
+                $type, 'Do_DB', $server_slave_replication[0],
+                'Replicate_Do_DB'
             );
 
-            $GLOBALS['replication_info'][$type]['Do_Table'] = explode(
-                ",", $server_slave_replication[0]["Replicate_Do_Table"]
+            PMA_fillReplicationInfo(
+                $type, 'Ignore_DB', $server_slave_replication[0],
+                'Replicate_Ignore_DB'
             );
 
-            $GLOBALS['replication_info'][$type]['Ignore_Table'] = explode(
-                ",", $server_slave_replication[0]["Replicate_Ignore_Table"]
+            PMA_fillReplicationInfo(
+                $type, 'Do_Table', $server_slave_replication[0],
+                'Replicate_Do_Table'
             );
 
-            $GLOBALS['replication_info'][$type]['Wild_Do_Table'] = explode(
-                ",", $server_slave_replication[0]["Replicate_Wild_Do_Table"]
+            PMA_fillReplicationInfo(
+                $type, 'Ignore_Table', $server_slave_replication[0],
+                'Replicate_Ignore_Table'
             );
 
-            $GLOBALS['replication_info'][$type]['Wild_Ignore_Table'] = explode(
-                ",", $server_slave_replication[0]["Replicate_Wild_Ignore_Table"]
+            PMA_fillReplicationInfo(
+                $type, 'Wild_Do_Table', $server_slave_replication[0],
+                'Replicate_Wild_Do_Table'
+            );
+
+            PMA_fillReplicationInfo(
+                $type, 'Wild_Ignore_Table', $server_slave_replication[0],
+                'Replicate_Wild_Ignore_Table'
             );
         }
     }
+}
+
+/**
+ * Fill global replication_info variable.
+ *
+ * @param string $type               Type: master, slave
+ * @param string $replicationInfoKey Key in replication_info variable
+ * @param array  $mysqlInfo          MySQL data about replication
+ * @param string $mysqlKey           MySQL key
+ *
+ * @return array
+ */
+function PMA_fillReplicationInfo(
+    $type, $replicationInfoKey, $mysqlInfo, $mysqlKey
+) {
+    $GLOBALS['replication_info'][$type][$replicationInfoKey]
+        = empty($mysqlInfo[$mysqlKey])
+            ? array()
+            : explode(
+                ",",
+                $mysqlInfo[$mysqlKey]
+            );
+
+    return $GLOBALS['replication_info'][$type][$replicationInfoKey];
 }
 
 /**

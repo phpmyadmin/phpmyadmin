@@ -122,7 +122,7 @@ foreach ($result as $row) {
 }
 $response->addHTML('</table></div>');
 $message = PMA_Message::success(
-    sprintf(__('Showing row(s) %1$s - %2$s'), ($pos + 1), ($pos + count($result)))
+    sprintf(__('Showing rows %1$s - %2$s.'), ($pos + 1), ($pos + count($result)))
 );
 if (isset($tmp_msg) && $tmp_msg !== true) {
     $message = $tmp_msg;
