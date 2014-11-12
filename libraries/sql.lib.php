@@ -1535,52 +1535,6 @@ function PMA_getMessageForNoRowsReturned($message_to_show, $analyzed_sql_results
 }
 
 /**
- * Function to send the Ajax response when no rows returned
- *
- * @param string $message              message to be send
- * @param array  $analyzed_sql         analyzed sql
- * @param object $displayResultsObject DisplayResult instance
- * @param array  $extra_data           extra data
- *
- * @return void
- */
-function PMA_sendAjaxResponseForNoResultsReturned($message, $analyzed_sql,
-    $displayResultsObject, $extra_data
-) {
-    /**
-     * @todo find a better way to make getMessage() in Header.class.php
-     *       output the intended message
-     */
-    $GLOBALS['message'] = $message;
-
-    if ($GLOBALS['cfg']['ShowSQL']) {
-        $extra_data['sql_query'] = PMA_Util::getMessage(
-            $message, $GLOBALS['sql_query'], 'success'
-        );
-    }
-    if (isset($GLOBALS['reload']) && $GLOBALS['reload'] == 1) {
-        $extra_data['reload'] = 1;
-        $extra_data['db'] = $GLOBALS['db'];
-    }
-    $response = PMA_Response::getInstance();
-    $response->isSuccess($message->isSuccess());
-    // No need to manually send the message
-    // The Response class will handle that automatically
-    $query__type = PMA_DisplayResults::QUERY_TYPE_SELECT;
-    if ($analyzed_sql[0]['querytype'] == $query__type) {
-        $createViewHTML = $displayResultsObject->getCreateViewQueryResultOp(
-            $analyzed_sql
-        );
-        $response->addHTML($createViewHTML . '<br />');
-    }
-
-    $response->addJSON(isset($extra_data) ? $extra_data : array());
-    if (empty($_REQUEST['ajax_page_request'])) {
-        $response->addJSON('message', $message);
-    }
-}
-
-/**
  * Function to respond back when the query returns zero rows
  * This method is called
  * 1-> When browsing an empty table
@@ -1599,9 +1553,9 @@ function PMA_sendAjaxResponseForNoResultsReturned($message, $analyzed_sql,
  * @param object $displayResultsObject DisplayResult instance
  * @param array  $extra_data           extra data
  *
- * @return void
+ * @return string html
  */
-function PMA_sendQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
+function PMA_getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
     $table, $message_to_show, $num_rows, $displayResultsObject, $extra_data
 ) {
     if (PMA_isDeleteTransformationInfo($analyzed_sql_results)) {
@@ -1614,13 +1568,32 @@ function PMA_sendQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
         isset($message_to_show) ? $message_to_show : null, $analyzed_sql_results,
         $num_rows
     );
+
+    $html_output = '';
     if (!isset($GLOBALS['show_as_php'])) {
-        PMA_sendAjaxResponseForNoResultsReturned(
-            $message, $analyzed_sql_results['analyzed_sql'],
-            $displayResultsObject,
-            isset($extra_data) ? $extra_data : null
-        );
+
+        if ($GLOBALS['cfg']['ShowSQL']) {
+            $html_output .= PMA_Util::getMessage(
+                $message, $GLOBALS['sql_query'], 'success'
+            );
+        }
+
+        $response = PMA_Response::getInstance();
+        if (isset($GLOBALS['reload']) && $GLOBALS['reload'] == 1) {
+            $extra_data['reload'] = 1;
+            $extra_data['db'] = $GLOBALS['db'];
+        }
+        $response->addJSON(isset($extra_data) ? $extra_data : array());
+
+        $query_type = PMA_DisplayResults::QUERY_TYPE_SELECT;
+        if ($analyzed_sql_results['analyzed_sql'][0]['querytype'] == $query_type) {
+            $html_output .= $displayResultsObject->getCreateViewQueryResultOp(
+                $analyzed_sql_results['analyzed_sql']
+            );
+        }
     }
+
+    return $html_output;
 }
 
 /**
@@ -2217,7 +2190,7 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
 
     // No rows returned -> move back to the calling page
     if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
-        $html_output = PMA_sendQueryResponseForNoResultsReturned(
+        $html_output = PMA_getQueryResponseForNoResultsReturned(
             $analyzed_sql_results, $db, $table,
             isset($message_to_show) ? $message_to_show : null,
             $num_rows, $displayResultsObject, $extra_data
