@@ -2284,6 +2284,54 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
     $sql_data, $goto, $pmaThemeImage, $disp_query, $disp_message,
     $query_type, $sql_query, $selectedTables, $complete_query
 ) {
+    $html_output = PMA_executeQueryAndGetQueryResponse(
+        $analyzed_sql_results, $is_gotofile, $db, $table,
+        $find_real_end, $sql_query_for_bookmark,
+        $extra_data, $is_affected, $message_to_show, $disp_mode, $message,
+        $sql_data, $goto, $pmaThemeImage, $disp_query, $disp_message,
+        $query_type, $sql_query, $selectedTables, $complete_query
+    );
+
+    $response = PMA_Response::getInstance();
+    $response->addHTML($html_output);
+    exit();
+}
+
+/**
+ * Function to execute the query and send the response
+ *
+ * @param array      $analyzed_sql_results   analysed sql results
+ * @param bool       $is_gotofile            whether goto file or not
+ * @param string     $db                     current database
+ * @param string     $table                  current table
+ * @param bool|null  $find_real_end          whether to find real end or not
+ * @param string     $sql_query_for_bookmark the sql query to be stored as bookmark
+ * @param array|null $extra_data             extra data
+ * @param bool       $is_affected            whether affected or not
+ * @param string     $message_to_show        message to show
+ * @param string     $disp_mode              display mode
+ * @param string     $message                message
+ * @param array|null $sql_data               sql data
+ * @param string     $goto                   goto page url
+ * @param string     $pmaThemeImage          uri of the PMA theme image
+ * @param string     $disp_query             display query
+ * @param string     $disp_message           display message
+ * @param string     $query_type             query type
+ * @param string     $sql_query              sql query
+ * @param array      $selectedTables         array of table names selected from the
+ *                                           database structure page, for an action
+ *                                           like check table, optimize table,
+ *                                           analyze table or repair table
+ * @param string     $complete_query         complete query
+ *
+ * @return string html
+ */
+function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
+    $is_gotofile, $db, $table, $find_real_end, $sql_query_for_bookmark,
+    $extra_data, $is_affected, $message_to_show, $disp_mode, $message,
+    $sql_data, $goto, $pmaThemeImage, $disp_query, $disp_message,
+    $query_type, $sql_query, $selectedTables, $complete_query
+) {
     // Include PMA_Index class for use in PMA_DisplayResults class
     include_once './libraries/Index.class.php';
 
@@ -2333,42 +2381,39 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
 
     // No rows returned -> move back to the calling page
     if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
-        PMA_sendQueryResponseForNoResultsReturned(
+        $html_output = PMA_sendQueryResponseForNoResultsReturned(
             $analyzed_sql_results, $db, $table,
             isset($message_to_show) ? $message_to_show : null,
             $num_rows, $displayResultsObject, $extra_data
         );
-        exit();
+    } else {
+        // At least one row is returned -> displays a table with results
+        $html_output = PMA_getQueryResponseForResultsReturned(
+            isset($result) ? $result : null,
+            $analyzed_sql_results,
+            $db,
+            $table,
+            isset($disp_mode) ? $disp_mode : null,
+            isset($message) ? $message : null,
+            isset($sql_data) ? $sql_data : null,
+            $displayResultsObject,
+            $goto,
+            $pmaThemeImage,
+            $sql_limit_to_append,
+            $unlim_num_rows,
+            $num_rows,
+            $full_sql_query,
+            isset($disp_query) ? $disp_query : null,
+            isset($disp_message) ? $disp_message : null,
+            $profiling_results,
+            isset($query_type) ? $query_type : null,
+            isset($selectedTables) ? $selectedTables : null,
+            $sql_query,
+            isset($complete_query) ? $complete_query : null
+        );
     }
 
-    // At least one row is returned -> displays a table with results
-    $html_output = PMA_getQueryResponseForResultsReturned(
-        isset($result) ? $result : null,
-        $analyzed_sql_results,
-        $db,
-        $table,
-        isset($disp_mode) ? $disp_mode : null,
-        isset($message) ? $message : null,
-        isset($sql_data) ? $sql_data : null,
-        $displayResultsObject,
-        $goto,
-        $pmaThemeImage,
-        $sql_limit_to_append,
-        $unlim_num_rows,
-        $num_rows,
-        $full_sql_query,
-        isset($disp_query) ? $disp_query : null,
-        isset($disp_message) ? $disp_message : null,
-        $profiling_results,
-        isset($query_type) ? $query_type : null,
-        isset($selectedTables) ? $selectedTables : null,
-        $sql_query,
-        isset($complete_query) ? $complete_query : null
-    );
-
-    $response = PMA_Response::getInstance();
-    $response->addHTML($html_output);
-    exit();
+    return $html_output;
 }
 
 /**
