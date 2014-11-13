@@ -59,6 +59,7 @@ phpMyAdmin - ChangeLog
 - bug #4495 Comment lines in multiquery
 - bug #4535 Loads of Warnings/Notices in PMA_getServerSlaveStatus on replication slave
 - bug #4585 Multi query results not shown
+- rfe #1556 Disabling Show all
 
 4.2.12.0 (not yet released)
 - bug #4574 Blank/white page when JavaScript disabled
