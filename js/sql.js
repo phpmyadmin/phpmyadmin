@@ -100,6 +100,7 @@ AJAX.registerTeardown('sql.js', function () {
     $('th.column_heading.marker').die('click');
     $(window).unbind('scroll');
     $(".filter_rows").die("keyup");
+    $('body').off('click', '.navigation .showAllRows');
     $('body').off('click','a.browse_foreign');
     $('body').off('click', '#simulate_dml');
     $('body').off('keyup', '#sqlqueryform');
@@ -440,6 +441,26 @@ AJAX.registerOnload('sql.js', function () {
         $target_table.find("th.dummy_th").remove();
     });
     // Filter row handling. --ENDS--
+
+    // Prompt to confirm on Show All
+    $('body').on('click', '.navigation .showAllRows', function (e) {
+        e.preventDefault();
+        $form = $(this).parents('form');
+
+        if (! $(this).is(':checked')) { // already showing all rows
+            submitShowAllForm();
+        } else {
+            $form.PMA_confirm(PMA_messages.strShowAllRowsWarning, $form.attr('action'), function (url) {
+                submitShowAllForm();
+            });
+        }
+
+        function submitShowAllForm() {
+            var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true';
+            PMA_ajaxShowMessage();
+            $.post($form.attr('action'), submitData, AJAX.responseHandler);
+        }
+    });
 
     $('body').on('keyup', '#sqlqueryform', function () {
         PMA_handleSimulateQueryButton();
