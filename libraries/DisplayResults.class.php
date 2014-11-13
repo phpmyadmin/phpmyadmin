@@ -846,7 +846,7 @@ class PMA_DisplayResults
     {
         return "\n"
             . '<td>'
-            . '<form action="sql.php" method="post">'
+            . '<form action="sql.php" method="post" class="showAllRows ajax">'
             . PMA_URL_getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
@@ -2925,7 +2925,7 @@ class PMA_DisplayResults
                 false,
                 $this->__get('table')
             );
-            
+
             $transform_url_params = array(
                 'db'            => $this->__get('db'),
                 'table'         => $this->__get('table'),
