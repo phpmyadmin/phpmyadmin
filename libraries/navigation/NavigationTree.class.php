@@ -82,6 +82,12 @@ class PMA_NavigationTree
     private $_searchClause2 = '';
 
     /**
+     * @var string Whether a warning was raised for large item groups
+     *             which can affect performance.
+     */
+    private $_largeGroupWarning = false;
+
+    /**
      * Initialises the class
      */
     public function __construct()
@@ -665,6 +671,16 @@ class PMA_NavigationTree
         foreach ($prefixes as $key => $value) {
             if ($value == 1) {
                 unset($prefixes[$key]);
+            } else if ($value > 500 && ! $this->_largeGroupWarning) {
+                trigger_error(
+                    __(
+                        'There are large item groups in navigation panel which '
+                        . 'may affect the performance. Consider disabling item '
+                        . 'grouping in the navigation panel.'
+                    ),
+                    E_USER_WARNING
+                );
+                $this->_largeGroupWarning = true;
             }
         }
         if (count($prefixes)) {
