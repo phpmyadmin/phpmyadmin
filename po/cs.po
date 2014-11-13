@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:04+0100\n"
-"PO-Revision-Date: 2014-11-04 11:08+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"cs/>\n"
+"PO-Revision-Date: 2014-11-13 13:51+0200\n"
+"Last-Translator: Martin Vidner <martin@vidner.net>\n"
+"Language-Team: Czech "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.0\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1842,7 +1842,7 @@ msgstr "Přesměrovávám na další krok…"
 #: js/messages.php:316
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "První krok normalizace pro tabulku '%s' je hotový."
 
 #: js/messages.php:317 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
@@ -1852,7 +1852,7 @@ msgstr "Konec kroku"
 
 #: js/messages.php:318
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "Druhý krok normalizace (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:319 js/messages.php:554 libraries/normalization.lib.php:264
