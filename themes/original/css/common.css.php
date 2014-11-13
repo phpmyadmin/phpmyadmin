@@ -251,14 +251,14 @@ fieldset .formelement {
     fieldset .formelement {
         clear: none;
     }
-    .relationalTable td:first-child + td {
+    #foreign_keys.relationalTable td:first-child + td {
         width: 25%;
     }
-    .relationalTable td:first-child + td select {
+    #foreign_keys.relationalTable td:first-child + td select {
         width: 32%;
         margin-right: 1%;
     }
-    .relationalTable {
+    #foreign_keys.relationalTable {
         width: 100%;
     }
 
