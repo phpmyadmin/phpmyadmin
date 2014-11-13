@@ -45,7 +45,7 @@ function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
         $retval .= '<li>';
         $retval .= '<a' . $class;
         $retval .= ' href="' . $item['url']
-            . '?' . $url_params . $item['specific_params'] . '">';
+            . $url_params . $item['specific_params'] . '">';
         $retval .= $item['name'];
         $retval .= '</a>';
         $retval .= '</li>';
