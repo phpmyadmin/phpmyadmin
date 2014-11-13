@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:04+0100\n"
-"PO-Revision-Date: 2014-11-13 09:14+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-11-13 10:01+0200\n"
+"Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/vi/>\n"
 "Language: vi\n"
@@ -25,6 +25,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Tập tin %s  không có sẵn trên hệ thống, Hãy truy cập www.phpmyadmin.net để "
+"biết thêm thông tin."
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
@@ -32,7 +34,7 @@ msgstr ""
 
 #: db_central_columns.php:109
 msgid "Click to sort."
-msgstr ""
+msgstr "Nhấn vào để sắp xếp."
 
 #: db_central_columns.php:125
 #, php-format
@@ -42,18 +44,18 @@ msgstr ""
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "Database %1$s đã được tạo."
 
 #: db_datadict.php:48 libraries/operations.lib.php:32
 msgid "Database comment:"
-msgstr ""
+msgstr "Chú thích của Database:"
 
 #: db_datadict.php:128
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1028
 #: libraries/tbl_columns_definition_form.lib.php:73
 #: libraries/tbl_printview.lib.php:577
 msgid "Table comments:"
-msgstr ""
+msgstr "Các chú thích của Bảng"
 
 #: db_datadict.php:137 libraries/Index.class.php:569
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1292
@@ -75,7 +77,7 @@ msgstr ""
 #: libraries/tbl_relation.lib.php:622 libraries/tracking.lib.php:843
 #: libraries/tracking.lib.php:932
 msgid "Column"
-msgstr ""
+msgstr "Trường"
 
 #: db_datadict.php:138 db_printview.php:50 libraries/Index.class.php:566
 #: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:631
@@ -99,7 +101,7 @@ msgstr ""
 #: libraries/tbl_printview.lib.php:473 libraries/tracking.lib.php:844
 #: libraries/tracking.lib.php:929
 msgid "Type"
-msgstr ""
+msgstr "Kiểu"
 
 #: db_datadict.php:139 libraries/Index.class.php:572
 #: libraries/TableSearch.class.php:1293 libraries/central_columns.lib.php:637
@@ -118,7 +120,7 @@ msgstr ""
 #: libraries/tbl_printview.lib.php:474 libraries/tracking.lib.php:846
 #: libraries/tracking.lib.php:935
 msgid "Null"
-msgstr ""
+msgstr "Null"
 
 #: db_datadict.php:140 libraries/central_columns.lib.php:641
 #: libraries/plugins/export/ExportHtmlword.class.php:289
@@ -135,7 +137,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:292
 #: libraries/tbl_printview.lib.php:475 libraries/tracking.lib.php:847
 msgid "Default"
-msgstr ""
+msgstr "Mặc định"
 
 #: db_datadict.php:142 libraries/plugins/export/ExportHtmlword.class.php:388
 #: libraries/plugins/export/ExportLatex.class.php:512
@@ -145,7 +147,7 @@ msgstr ""
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1083
 #: libraries/tbl_printview.lib.php:477
 msgid "Links to"
-msgstr ""
+msgstr "Liên kết tới"
 
 #: db_datadict.php:144 db_printview.php:54
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:146
@@ -159,14 +161,14 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:311
 #: libraries/tbl_printview.lib.php:479
 msgid "Comments"
-msgstr ""
+msgstr "Chú thích"
 
 #: db_datadict.php:186 libraries/display_structure.inc.php:164
 #: libraries/structure.lib.php:1478 libraries/structure.lib.php:2196
 #: libraries/structure.lib.php:2206 libraries/tbl_printview.lib.php:106
 #: libraries/tracking.lib.php:883
 msgid "Primary"
-msgstr ""
+msgstr "Khóa Chính"
 
 #: db_datadict.php:191 js/messages.php:267 libraries/Index.class.php:437
 #: libraries/Index.class.php:476 libraries/Index.class.php:883
@@ -189,7 +191,7 @@ msgstr ""
 #: libraries/tracking.lib.php:967 libraries/tracking.lib.php:972
 #: libraries/user_preferences.lib.php:296 prefs_manage.php:138
 msgid "No"
-msgstr ""
+msgstr "Không"
 
 #: db_datadict.php:191 js/messages.php:390 libraries/Index.class.php:438
 #: libraries/Index.class.php:475 libraries/Index.class.php:883
@@ -219,40 +221,40 @@ msgstr ""
 #: libraries/tracking.lib.php:970 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
 msgid "Yes"
-msgstr ""
+msgstr "Có"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr ""
+msgstr "Xem cấu trúc (lược đồ) của CSDL"
 
 #: db_export.php:33 db_printview.php:42 db_structure.php:84 db_tracking.php:53
 #: export.php:359 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
-msgstr ""
+msgstr "Không có bảng nào trong CSDL."
 
 #: db_export.php:41 libraries/DbSearch.class.php:446
 #: libraries/display_export.lib.php:44
 msgid "Select All"
-msgstr ""
+msgstr "Chọn tất cả"
 
 #: db_export.php:47 libraries/DbSearch.class.php:450
 #: libraries/display_export.lib.php:50
 msgid "Unselect All"
-msgstr ""
+msgstr "Bỏ chọn tất cả"
 
 #: db_operations.php:51 tbl_create.php:24
 msgid "The database name is empty!"
-msgstr ""
+msgstr "Tên cơ sở dữ liệu trống!"
 
 #: db_operations.php:136
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr ""
+msgstr "CSDL %1$s đã được đổi tên thành %2$s."
 
 #: db_operations.php:142
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr ""
+msgstr "CSDL %1$s đã được sao chép sang %2$s."
 
 #: db_operations.php:263
 #, php-format
@@ -272,19 +274,19 @@ msgstr ""
 #: libraries/tbl_relation.lib.php:329 libraries/tbl_relation.lib.php:596
 #: libraries/tracking.lib.php:229
 msgid "Table"
-msgstr ""
+msgstr "Bảng"
 
 #: db_printview.php:49 libraries/build_html_for_db.lib.php:33
 #: libraries/import.lib.php:193 libraries/structure.lib.php:825
 #: libraries/structure.lib.php:1833 libraries/structure.lib.php:2025
 #: libraries/tbl_printview.lib.php:194
 msgid "Rows"
-msgstr ""
+msgstr "Bản ghi"
 
 #: db_printview.php:52 libraries/structure.lib.php:847
 #: libraries/tbl_indexes.lib.php:319
 msgid "Size"
-msgstr ""
+msgstr "Kích thước"
 
 #: db_printview.php:99 libraries/plugins/export/ExportSql.class.php:1214
 #: libraries/structure.lib.php:788
@@ -299,12 +301,12 @@ msgstr ""
 #: db_printview.php:127 libraries/plugins/export/ExportSql.class.php:1153
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1038
 msgid "Last update:"
-msgstr ""
+msgstr "Lần sửa đối cuối:"
 
 #: db_printview.php:134 libraries/plugins/export/ExportSql.class.php:1166
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1043
 msgid "Last check:"
-msgstr ""
+msgstr "Lần cuối kiểm tra:"
 
 #: db_printview.php:146 libraries/structure.lib.php:169
 #, php-format
@@ -314,19 +316,19 @@ msgstr[0] ""
 
 #: db_qbe.php:103
 msgid "You have to choose at least one column to display!"
-msgstr ""
+msgstr "Bạn phải chọn ít nhất 1 trường để hiển thị!"
 
 #: db_qbe.php:124
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr ""
+msgstr "Chuyển sang chế độ %svisual builder%s"
 
 #: db_search.php:30 libraries/plugins/AuthenticationPlugin.class.php:61
 #: libraries/plugins/auth/AuthenticationConfig.class.php:89
 #: libraries/plugins/auth/AuthenticationConfig.class.php:104
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 msgid "Access denied!"
-msgstr ""
+msgstr "Truy cập bị từ chối!"
 
 #: db_tracking.php:77
 msgid "Tracked tables"
@@ -348,26 +350,26 @@ msgstr ""
 #: libraries/tbl_relation.lib.php:306 libraries/tbl_relation.lib.php:544
 #: libraries/tracking.lib.php:228
 msgid "Database"
-msgstr ""
+msgstr "CSDL"
 
 #: db_tracking.php:84
 msgid "Last version"
-msgstr ""
+msgstr " "
 
 #: db_tracking.php:85 libraries/tracking.lib.php:231
 msgid "Created"
-msgstr ""
+msgstr "Đã tạo"
 
 #: db_tracking.php:86 libraries/tracking.lib.php:232
 msgid "Updated"
-msgstr ""
+msgstr "Đã cập nhật"
 
 #: db_tracking.php:87 js/messages.php:200 libraries/Menu.class.php:535
 #: libraries/Util.class.php:4091 libraries/rte/rte_events.lib.php:439
 #: libraries/rte/rte_list.lib.php:78
 #: libraries/server_status_processes.lib.php:93 libraries/tracking.lib.php:233
 msgid "Status"
-msgstr ""
+msgstr "Trạng thái"
 
 #: db_tracking.php:88 libraries/Index.class.php:563
 #: libraries/central_columns.lib.php:622 libraries/rte/rte_list.lib.php:53
@@ -379,12 +381,12 @@ msgstr ""
 #: libraries/server_user_groups.lib.php:80 libraries/structure.lib.php:822
 #: libraries/structure.lib.php:1288
 msgid "Action"
-msgstr ""
+msgstr "Hành động"
 
 #: db_tracking.php:89 libraries/navigation/Navigation.class.php:208
 #: libraries/tracking.lib.php:234 tbl_change.php:158
 msgid "Show"
-msgstr ""
+msgstr "Hiển thị"
 
 #: db_tracking.php:101 js/messages.php:40
 msgid "Delete tracking data for this table"
@@ -396,11 +398,11 @@ msgstr ""
 #: libraries/structure.lib.php:1473 libraries/structure.lib.php:2192
 #: libraries/structure.lib.php:2194 libraries/tbl_relation.lib.php:458
 msgid "Drop"
-msgstr ""
+msgstr "Xóa"
 
 #: db_tracking.php:140
 msgid "Versions"
-msgstr ""
+msgstr "Phiên bản"
 
 #: db_tracking.php:143 libraries/tracking.lib.php:262
 #: libraries/tracking.lib.php:385
