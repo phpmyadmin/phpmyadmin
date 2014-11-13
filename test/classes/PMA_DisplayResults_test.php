@@ -1610,15 +1610,16 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 'tbl_structure.php',
                 'SELECT * FROM `user`',
                 "\n"
-                . '<td><form action="sql.php" method="post"><input type="hidden" '
-                . 'name="db" value="mysql" /><input type="hidden" name="table" '
-                . 'value="user" /><input type="hidden" name="lang" value="en" />'
-                . '<input type="hidden" name="token" value="token" /><input type="'
-                . 'hidden" name="sql_query" value="SELECT * FROM `user`" /><input '
-                . 'type="hidden" name="pos" value="0" /><input type="hidden" name='
-                . '"session_max_rows" value="all" /><input type="hidden" name='
-                . '"goto" value="tbl_structure.php" /><input type="submit" name='
-                . '"navig" value="Show all" /></form></td>'
+                . '<td><form action="sql.php" method="post" class="showAllRows ajax">'
+                . '<input type="hidden" name="db" value="mysql" />'
+                . '<input type="hidden" name="table" value="user" />'
+                . '<input type="hidden" name="lang" value="en" />'
+                . '<input type="hidden" name="token" value="token" />'
+                . '<input type="hidden" name="sql_query" value="SELECT * FROM `user`" />'
+                . '<input type="hidden" name="pos" value="0" />'
+                . '<input type="hidden" name="session_max_rows" value="all" />'
+                . '<input type="hidden" name="goto" value="tbl_structure.php" />'
+                . '<input type="submit" name="navig" value="Show all" /></form></td>'
             )
         );
     }

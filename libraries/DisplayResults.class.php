@@ -715,6 +715,15 @@ class PMA_DisplayResults
 
         } // end show all
 
+        // Display the "Show few" button if "Show all" is in effect
+        $showfew = false;
+        if ($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS) {
+            $showfew = true;
+            $table_navigation_html .= $this->_getShowFewButtonForTableNavigation(
+                $html_sql_query
+            );
+        } // end show few
+
         // Move to the next page or to the last one
         $endpos = $_SESSION['tmpval']['pos']
             + $_SESSION['tmpval']['max_rows'];
@@ -732,7 +741,7 @@ class PMA_DisplayResults
         } // end move toward
 
         // show separator if pagination happen
-        if ($nbTotalPage > 1) {
+        if ($nbTotalPage > 1 || $showfew) {
             $table_navigation_html
                 .= '<td><div class="navigation_separator">|</div></td>';
         }
@@ -846,7 +855,7 @@ class PMA_DisplayResults
     {
         return "\n"
             . '<td>'
-            . '<form action="sql.php" method="post">'
+            . '<form action="sql.php" method="post" class="showAllRows ajax">'
             . PMA_URL_getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
@@ -861,6 +870,34 @@ class PMA_DisplayResults
             . '</td>';
     } // end of the '_getShowAllButtonForTableNavigation()' function
 
+    /**
+     * Prepare Show few button for table navigation
+     *
+     * @param string $html_sql_query the sql encoded by html special characters
+     *
+     * @return  string                          html content
+     *
+     * @access  private
+     */
+    private function _getShowFewButtonForTableNavigation($html_sql_query)
+    {
+        return "\n"
+            . '<td>'
+            . '<form action="sql.php" method="post">'
+            . PMA_URL_getHiddenInputs(
+                $this->__get('db'), $this->__get('table')
+            )
+            . '<input type="hidden" name="sql_query" value="'
+            . $html_sql_query . '" />'
+            . '<input type="hidden" name="pos" value="0" />'
+            . '<input type="hidden" name="session_max_rows" value="'
+            . $GLOBALS['cfg']['MaxRows'] . '" />'
+            . '<input type="hidden" name="goto" value="' . $this->__get('goto')
+            . '" />'
+            . '<input type="submit" name="navig" value="' . __('Show few') . '" />'
+            . '</form>'
+            . '</td>';
+    } // end of the '_getShowFewButtonForTableNavigation()' function
 
     /**
      * Prepare move forward buttons - next and last
@@ -2925,7 +2962,7 @@ class PMA_DisplayResults
                 false,
                 $this->__get('table')
             );
-            
+
             $transform_url_params = array(
                 'db'            => $this->__get('db'),
                 'table'         => $this->__get('table'),
