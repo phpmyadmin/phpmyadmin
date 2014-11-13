@@ -399,6 +399,8 @@ function PMA_langDetails($lang)
             'uz-cyr',
             '&#1038;&#1079;&#1073;&#1077;&#1082;&#1095;&#1072;'
         );
+    case 'vi':
+        return array('vi|vietnamese', 'vi', 'Tiếng Việt');
     case 'vls':
         return array('vls|flemish', 'vls', 'West-Vlams');
     case 'zh_TW':
