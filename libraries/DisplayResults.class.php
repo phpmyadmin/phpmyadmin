@@ -703,17 +703,10 @@ class PMA_DisplayResults
             } //_if2
         } //_if1
 
-        // Display the "Show all" button if allowed
-        if (($this->__get('num_rows') < $this->__get('unlim_num_rows'))
-            && ($GLOBALS['cfg']['ShowAll']
-            || ($this->__get('unlim_num_rows') <= 500))
-        ) {
-
-            $table_navigation_html .= $this->_getShowAllButtonForTableNavigation(
-                $html_sql_query
-            );
-
-        } // end show all
+        $showing_all = false;
+        if ($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS) {
+            $showing_all = true;
+        }
 
         // Move to the next page or to the last one
         $endpos = $_SESSION['tmpval']['pos']
@@ -731,8 +724,17 @@ class PMA_DisplayResults
 
         } // end move toward
 
+        // Display the "Show all" button if allowed
+        if ($GLOBALS['cfg']['ShowAll'] || ($this->__get('unlim_num_rows') <= 500) ) {
+
+            $table_navigation_html .= $this->_getShowAllCheckboxForTableNavigation(
+                $showing_all, $html_sql_query
+            );
+
+        } // end show all
+
         // show separator if pagination happen
-        if ($nbTotalPage > 1) {
+        if ($nbTotalPage > 1 || $showing_all) {
             $table_navigation_html
                 .= '<td><div class="navigation_separator">|</div></td>';
         }
@@ -832,8 +834,9 @@ class PMA_DisplayResults
 
 
     /**
-     * Prepare Show All button for table navigation
+     * Prepare Show All checkbox for table navigation
      *
+     * @param bool   $showing_all    whether all rows are shown currently
      * @param string $html_sql_query the sql encoded by html special characters
      *
      * @return  string                          html content
@@ -842,8 +845,9 @@ class PMA_DisplayResults
      *
      * @see     _getTableNavigation()
      */
-    private function _getShowAllButtonForTableNavigation($html_sql_query)
-    {
+    private function _getShowAllCheckboxForTableNavigation(
+        $showing_all, $html_sql_query
+    ) {
         return "\n"
             . '<td>'
             . '<form action="sql.php" method="post">'
@@ -853,10 +857,13 @@ class PMA_DisplayResults
             . '<input type="hidden" name="sql_query" value="'
             . $html_sql_query . '" />'
             . '<input type="hidden" name="pos" value="0" />'
-            . '<input type="hidden" name="session_max_rows" value="all" />'
+            . '<input type="hidden" name="session_max_rows" value="'
+            . (! $showing_all ? 'all' : $GLOBALS['cfg']['MaxRows']) . '" />'
             . '<input type="hidden" name="goto" value="' . $this->__get('goto')
             . '" />'
-            . '<input type="submit" name="navig" value="' . __('Show all') . '" />'
+            . '<input type="checkbox" name="navig" class="showAllRows"'
+            . (! $showing_all ? '' : ' checked="checked"') . ' value="all" />'
+            . '<label for="navig">' . __('Show all') . '</label>'
             . '</form>'
             . '</td>';
     } // end of the '_getShowAllButtonForTableNavigation()' function
@@ -2925,7 +2932,7 @@ class PMA_DisplayResults
                 false,
                 $this->__get('table')
             );
-            
+
             $transform_url_params = array(
                 'db'            => $this->__get('db'),
                 'table'         => $this->__get('table'),
