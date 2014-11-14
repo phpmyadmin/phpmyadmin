@@ -69,7 +69,6 @@ if (isset($_REQUEST['console_bookmark_add'])) {
  */
 $post_params = array(
     'action_bookmark',
-    'allow_interrupt',
     'bkm_label',
     'bookmark_variable',
     'charset_of_file',
@@ -277,7 +276,7 @@ if (! empty($cfg['MemoryLimit'])) {
 }
 
 $timestamp = time();
-if (isset($allow_interrupt)) {
+if (isset($_REQUEST['allow_interrupt'])) {
     $maximum_time = ini_get('max_execution_time');
 } else {
     $maximum_time = 0;
