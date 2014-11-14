@@ -203,12 +203,11 @@ class PMA_Footer
      */
     public function getErrorMessages()
     {
-        $retval = '';
+        $retval = '<div class="clearfloat" id="pma_errors">';
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
-            $retval .= '<div class="clearfloat" id="pma_errors">';
             $retval .= $GLOBALS['error_handler']->getDispErrors();
-            $retval .= '</div>';
         }
+        $retval .= '</div>';
 
         /**
          * Report php errors

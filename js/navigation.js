@@ -541,6 +541,9 @@ function loadChildNodes($expandElem, callback) {
             if (data._debug) {
                 $('#session_debug').replaceWith(data._debug);
             }
+            if (data._errors) {
+                $('#pma_errors').replaceWith(data._errors);
+            }
             if (callback && typeof callback == 'function') {
                 callback(data);
             }
