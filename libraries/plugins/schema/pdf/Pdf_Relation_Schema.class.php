@@ -965,7 +965,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             /**
              * Gets table keys and retains them
              */
-            $indexes = $GLOBALS['dbi']->getTableIndexes($db, $table);
+            $indexes = $GLOBALS['dbi']->getTableIndexes($GLOBALS['db'], $table);
             list($primary, $pk_array, $indexes_info, $indexes_data)
                 = PMA_Util::processIndexData($indexes);
 
