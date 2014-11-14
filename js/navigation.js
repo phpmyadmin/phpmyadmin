@@ -538,11 +538,14 @@ function loadChildNodes($expandElem, callback) {
             $expandElem.addClass('loaded');
             $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
             $destination.append(data.message);
-            if (data._debug) {
+            if (data._debug){
                 $('#session_debug').replaceWith(data._debug);
             }
             if (data._errors) {
-                $('#pma_errors').replaceWith(data._errors);
+                $errors = $(data._errors);
+                if ($errors.children().length > 0) {
+                    $('#pma_errors').replaceWith(data._errors);
+                }
             }
             if (callback && typeof callback == 'function') {
                 callback(data);
