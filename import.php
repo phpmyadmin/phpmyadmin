@@ -68,7 +68,6 @@ if (isset($_REQUEST['console_bookmark_add'])) {
  * Sets globals from $_POST
  */
 $post_params = array(
-    'action_bookmark',
     'bkm_label',
     'bookmark_variable',
     'charset_of_file',
@@ -303,7 +302,7 @@ $bookmark_created = false;
 if (! empty($id_bookmark)) {
     $id_bookmark = (int)$id_bookmark;
     include_once 'libraries/bookmark.lib.php';
-    switch ($action_bookmark) {
+    switch ($_REQUEST['action_bookmark']) {
     case 0: // bookmarked query that have to be run
         $import_text = PMA_Bookmark_get(
             $db,
@@ -347,7 +346,7 @@ if (! empty($id_bookmark)) {
             $response->isSuccess($message->isSuccess());
             $response->addJSON('message', $message);
             $response->addJSON('sql_query', $import_text);
-            $response->addJSON('action_bookmark', $action_bookmark);
+            $response->addJSON('action_bookmark', $_REQUEST['action_bookmark']);
             exit;
         } else {
             $run_query = false;
@@ -361,7 +360,7 @@ if (! empty($id_bookmark)) {
             $response = PMA_Response::getInstance();
             $response->isSuccess($message->isSuccess());
             $response->addJSON('message', $message);
-            $response->addJSON('action_bookmark', $action_bookmark);
+            $response->addJSON('action_bookmark', $_REQUEST['action_bookmark']);
             $response->addJSON('id_bookmark', $id_bookmark);
             exit;
         } else {
@@ -620,11 +619,11 @@ if ($reset_charset) {
 }
 
 // Show correct message
-if (! empty($id_bookmark) && $action_bookmark == 2) {
+if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
     $message = PMA_Message::success(__('The bookmark has been deleted.'));
     $display_query = $import_text;
     $error = false; // unset error marker, it was used just to skip processing
-} elseif (! empty($id_bookmark) && $action_bookmark == 1) {
+} elseif (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 1) {
     $message = PMA_Message::notice(__('Showing bookmark'));
 } elseif ($bookmark_created) {
     $special_message = '[br]'  . sprintf(
