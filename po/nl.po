@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-13 11:57-0500\n"
-"PO-Revision-Date: 2014-11-04 17:38+0200\n"
+"PO-Revision-Date: 2014-11-14 13:42+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.0\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -33,10 +33,10 @@ msgid "Click to sort."
 msgstr "Klik om te sorteren."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Weergave van record(s) %1$s - %2$s"
+msgstr "Weergave van regels %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -2234,6 +2234,8 @@ msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Wil je echt alle regels zien? Voor een grote tabel kan dit je browser doen "
+"crashen."
 
 #: js/messages.php:436
 msgid "cancel"
@@ -8893,6 +8895,9 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"Er zijn grote artikelgroepen in het navigatiepaneel, wat de prestaties kan "
+"beïnvloeden. Overweeg om artikelgroepering uit te schakelen in het "
+"navigatiepaneel."
 
 #: libraries/navigation/NavigationTree.class.php:851
 #, php-format
@@ -9954,7 +9959,6 @@ msgstr ""
 "(7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:403
-#, fuzzy
 #| msgid ""
 #| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 #| "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -9963,7 +9967,7 @@ msgid ""
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 "beide van bovenstaande<br /> &nbsp; &nbsp; &nbsp; Voorbeeld: <code>INSERT "
-"INTO tbl_naam (kol_A,kol_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"INTO tbl_naam (kol_A,kol_B,kol_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:408
 msgid ""
