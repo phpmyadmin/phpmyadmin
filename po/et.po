@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-13 11:57-0500\n"
-"PO-Revision-Date: 2014-11-14 12:36+0200\n"
+"PO-Revision-Date: 2014-11-14 14:46+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
@@ -8745,6 +8745,8 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"Navigeerimispaneelil on suured elementide grupid, mis võivad mõjutada "
+"jõudlust. Kaalu navigeerimispaneelil elementide grupeerimise keelamist."
 
 #: libraries/navigation/NavigationTree.class.php:851
 #, php-format
@@ -9793,7 +9795,6 @@ msgstr ""
 "Näide: <code>INSERT INTO tabeli_nimi VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:403
-#, fuzzy
 #| msgid ""
 #| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 #| "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -9802,7 +9803,8 @@ msgid ""
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 "mõlemad ülal nimetatuist<br /> &nbsp; &nbsp; &nbsp; Näide: <code>INSERT INTO "
-"tabeli_nimi (veerg_A,veerg_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"tabeli_nimi (veerg_A,veerg_B, veerg_C) VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:408
 msgid ""
