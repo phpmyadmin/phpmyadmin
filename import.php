@@ -72,7 +72,6 @@ $post_params = array(
     'bookmark_variable',
     'charset_of_file',
     'format',
-    'id_bookmark',
     'import_type',
     'is_js_confirmed',
     'MAX_FILE_SIZE',
@@ -151,7 +150,7 @@ if (! empty($sql_query)) {
     $import_type = 'queryfile';
     $format = 'sql';
     unset($sql_file);
-} elseif (! empty($id_bookmark)) {
+} elseif (! empty($_REQUEST['id_bookmark'])) {
     // run bookmark
     $import_type = 'query';
     $format = 'sql';
@@ -299,8 +298,8 @@ $reset_charset = false;
 $bookmark_created = false;
 
 // Bookmark Support: get a query back from bookmark if required
-if (! empty($id_bookmark)) {
-    $id_bookmark = (int)$id_bookmark;
+if (! empty($_REQUEST['id_bookmark'])) {
+    $id_bookmark = (int)$_REQUEST['id_bookmark'];
     include_once 'libraries/bookmark.lib.php';
     switch ($_REQUEST['action_bookmark']) {
     case 0: // bookmarked query that have to be run
