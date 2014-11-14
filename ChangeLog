@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.4.0.0 (not yet released)
+
 4.3.0.0 (not yet released)
 + rfe #1502 Smart sorting for int keys
 + rfe #1521 Confirmation message when dropping user(s)
