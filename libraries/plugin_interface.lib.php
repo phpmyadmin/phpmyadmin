@@ -115,11 +115,8 @@ function PMA_pluginCheckboxCheck($section, $opt)
     // If the form is being repopulated using $_GET data, that is priority
     if (isset($_GET[$opt])
         || ! isset($_GET['repopulate'])
-        && ((isset($GLOBALS['timeout_passed'])
-        && $GLOBALS['timeout_passed']
-        && isset($_REQUEST[$opt]))
-        || (isset($GLOBALS['cfg'][$section][$opt])
-        && $GLOBALS['cfg'][$section][$opt]))
+        && ((! empty($GLOBALS['timeout_passed']) && isset($_REQUEST[$opt]))
+        || ! empty($GLOBALS['cfg'][$section][$opt]))
     ) {
         return ' checked="checked"';
     }
