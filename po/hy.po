@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-13 11:57-0500\n"
-"PO-Revision-Date: 2014-11-05 10:21+0200\n"
+"PO-Revision-Date: 2014-11-14 19:09+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hy/>\n"
+"Language-Team: Armenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
+"Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hy\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.1-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -324,10 +324,11 @@ msgid "Last check:"
 msgstr "Վերջին ստուգումը"
 
 #: db_printview.php:146 libraries/structure.lib.php:169
-#, php-format
+#, fuzzy, php-format
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s աղյուսակ"
+msgstr[1] ""
 
 #: db_qbe.php:103
 msgid "You have to choose at least one column to display!"
