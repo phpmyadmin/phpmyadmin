@@ -307,7 +307,7 @@ if (! empty($_REQUEST['id_bookmark'])) {
             $db,
             $id_bookmark,
             'id',
-            isset($action_bookmark_all)
+            isset($_REQUEST['action_bookmark_all'])
         );
         if (isset($bookmark_variable) && ! empty($bookmark_variable)) {
             $import_text = preg_replace(
