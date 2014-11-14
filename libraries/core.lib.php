@@ -974,7 +974,8 @@ function PMA_emptyRecursive($value)
     $empty = true;
     if (is_array($value)) {
         PMA_arrayWalkRecursive(
-            $value, function ($item) use (&$empty) {
+            $value,
+            function ($item) use (&$empty) {
                 $empty = $empty && empty($item);
             }
         );
