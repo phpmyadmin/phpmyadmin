@@ -31,7 +31,7 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
     if (PMA_Util::currentUserHasPrivilege($priv, $db, $table)) {
         $retval .= "            <a {$ajax_class['add']} ";
         $retval .= "href='db_" . /*overload*/mb_strtolower($name) . "s.php";
-        $retval .= "?$url_query&amp;add_item=1' ";
+        $retval .= "$url_query&amp;add_item=1' ";
         $retval .= "onclick='$.datepicker.initialized = false;'>";
         $icon = 'b_' . $icon;
         $retval .= PMA_Util::getIcon($icon);
