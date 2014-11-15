@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-13 11:57-0500\n"
-"PO-Revision-Date: 2014-11-14 17:31+0200\n"
+"PO-Revision-Date: 2014-11-15 04:12+0200\n"
 "Last-Translator: youngminz <youngminz.kr@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
@@ -36,7 +36,7 @@ msgstr "정렬하려면 클릭하세요."
 #, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "%1$s - %2$s행 표시 중"
+msgstr "%1$s - %2$s행 표시 중."
 
 #: db_create.php:61
 #, php-format
@@ -254,15 +254,13 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "데이터베이스 %1$s 을(를) %2$s 로 복사하였습니다."
 
 #: db_operations.php:263
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
-"phpMyAdmin 설정 스토리지가 비활성화 되어 있습니다. 원인을 확인하려면 %s여기"
-"를 클릭%s하십시오."
+msgstr "phpMyAdmin 설정 스토리지가 비활성화되어 있습니다. 원인을 확인하려면 %s여기를 클릭%s하십시오."
 
 #: db_printview.php:48 db_tracking.php:83 db_tracking.php:207
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:756
@@ -601,10 +599,9 @@ msgid "Failed"
 msgstr "실패함"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "완전한 삽입"
+msgstr "불완전한 인자"
 
 #: import.php:166
 #, php-format
@@ -878,7 +875,7 @@ msgstr ""
 "약해 집니다."
 
 #: index.php:520
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -886,8 +883,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"phpMyAdmin 설정 스토리지가 완전히 설정되지 않아, 일부 확장 기능들이 비활성화 "
-"된 상태입니다. 원인을 확인하려면 %s여기%s를 클릭하세요."
+"phpMyAdmin 설정 스토리지가 완전히 설정되지 않아, 일부 확장 기능들이 비활성화 된 상태입니다. 원인을 확인하려면 %s여기%s를 "
+"클릭하세요. "
 
 #: index.php:527
 msgid ""
@@ -969,10 +966,9 @@ msgstr ""
 "바뀐 내용을 저장하지 않았습니다. 저장하지 않고 페이지를 이동하겠습니까?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "\"%s\" 검색을 삭제하겠습니까?"
+msgstr "선택한 사용자를 정말로 삭제하시겠습니까?"
 
 #: js/messages.php:51
 msgid "Save & Close"
@@ -1026,16 +1022,14 @@ msgid "Create composite index"
 msgstr ""
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "열(컬럼) 감싸기:"
+msgstr "이것과 합치기:"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "인덱스에 %s 열 추가"
+msgstr "인덱스에 추가할 열을 선택해주세요."
 
 #: js/messages.php:69 libraries/structure.lib.php:1677
 msgid "You have to add at least one column."
@@ -1834,10 +1828,9 @@ msgid "Primary key added."
 msgstr "기본 키가 추가되었습니다."
 
 #: js/messages.php:315 libraries/normalization.lib.php:174
-#, fuzzy
 #| msgid "Taking you to %s."
 msgid "Taking you to next step…"
-msgstr "당신을 %s로 데려감."
+msgstr "다음 단계로 가는 중…"
 
 #: js/messages.php:316
 #, php-format
@@ -1847,10 +1840,9 @@ msgstr ""
 #: js/messages.php:317 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
 #: libraries/normalization.lib.php:612
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "줄 끝"
+msgstr "단계의 끝"
 
 #: js/messages.php:318
 msgid "Second step of normalization (2NF)"
@@ -1911,10 +1903,9 @@ msgid "DROP columns %s from the table %s"
 msgstr ""
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following table"
-msgstr "다음 테이블에 대한 권한 추가:"
+msgstr "다음 테이블을 생성"
 
 #: js/messages.php:334
 msgid "Third step of normalization (3NF)"
@@ -1929,10 +1920,9 @@ msgid "Selected dependencies are as follows:"
 msgstr ""
 
 #: js/messages.php:337
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "데이터베이스를 선택하지 않았습니다."
+msgstr "의존성이 선택되지 않았습니다!"
 
 #: js/messages.php:340 libraries/insert_edit.lib.php:1452
 #: libraries/server_variables.lib.php:157
@@ -1963,16 +1953,14 @@ msgid "Column minimum:"
 msgstr "열(컬럼) 최저값:"
 
 #: js/messages.php:348
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "최대 테이블 수"
+msgstr "최솟값:"
 
 #: js/messages.php:349
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "최대 테이블 수"
+msgstr "최댓값:"
 
 #: js/messages.php:352
 msgid "Hide find and replace criteria"
@@ -2220,16 +2208,14 @@ msgid "Success"
 msgstr "성공"
 
 #: js/messages.php:440
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "가져오기 기본값"
+msgstr "상태 가져오기"
 
 #: js/messages.php:441 libraries/navigation/Navigation.class.php:102
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "로그 파일 스레시홀드"
+msgstr "파일을 여기로 끌어오세요"
 
 #: js/messages.php:442
 msgid "Select database first"
@@ -2733,10 +2719,9 @@ msgid "Expand"
 msgstr "펼치기"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:178
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "서브쿼리"
+msgstr "다시 쿼리하기"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
 #: libraries/DisplayResults.class.php:3501
@@ -2765,20 +2750,19 @@ msgstr "공유"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "북마크를 제거했습니다."
+msgstr "북마크 %1$s, %2$s 그리고 %3$s가 포함되었습니다"
 
 #: libraries/Console.class.php:130
 msgid "No bookmarks"
 msgstr "북마크 없음"
 
 #: libraries/Console.class.php:180
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "SQL 해석"
+msgstr "설명"
 
 #: libraries/Console.class.php:181 libraries/Util.class.php:1263
 #: libraries/sql.lib.php:487
@@ -2790,13 +2774,11 @@ msgid "Bookmark"
 msgstr "북마크"
 
 #: libraries/Console.class.php:184
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "질의(쿼리) 캐시"
+msgstr "질의 실패"
 
 #: libraries/Console.class.php:188
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
 msgstr "질의 실행 시간"
@@ -2815,10 +2797,9 @@ msgid "Clear"
 msgstr ""
 
 #: libraries/Console.class.php:202
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "SQL 내력(히스토리)"
+msgstr "최근 기록"
 
 #: libraries/Console.class.php:205 libraries/Console.class.php:300
 #: libraries/DisplayResults.class.php:1628 libraries/TableSearch.class.php:788
@@ -2853,10 +2834,9 @@ msgid "Bookmarks"
 msgstr "북마크"
 
 #: libraries/Console.class.php:218
-#, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "실행간격"
+msgstr "Ctrl+Enter를 눌러 쿼리를 실행"
 
 #: libraries/Console.class.php:239
 msgid "During current session"
@@ -2889,22 +2869,19 @@ msgid "Share this bookmark"
 msgstr "이 북마크를 공유"
 
 #: libraries/Console.class.php:304
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
 msgstr "기본값으로 초기화"
 
 #: libraries/Console.class.php:308
-#, fuzzy
 #| msgid "Always send error reports"
 msgid "Always expand query messages"
-msgstr "항상 오류보고서 전송"
+msgstr "항상 질의 메시지를 확장"
 
 #: libraries/Console.class.php:310
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "SQL 쿼리 히스토리 테이블"
+msgstr "시작할 때 질의 기록을 보여주기"
 
 #: libraries/Console.class.php:312
 msgid "Show current browsing query"
@@ -3607,10 +3584,9 @@ msgid "Designer"
 msgstr "디자이너"
 
 #: libraries/Menu.class.php:493 libraries/Util.class.php:4114
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Central columns"
-msgstr "컬럼 추가/삭제"
+msgstr "중심 열"
 
 #: libraries/Menu.class.php:532 libraries/Util.class.php:4086
 #: libraries/config/messages.inc.php:229 libraries/server_common.lib.php:48
@@ -6428,10 +6404,9 @@ msgid "Default sort order for tables with a primary key."
 msgstr ""
 
 #: libraries/config/messages.inc.php:526
-#, fuzzy
 #| msgid "Default sorting order"
 msgid "Primary key default sort order"
-msgstr "기본 정렬 순서"
+msgstr "기본 키 기본 정렬 순서"
 
 #: libraries/config/messages.inc.php:528
 msgid ""
@@ -6645,10 +6620,9 @@ msgid "Maximal number of table preferences to store"
 msgstr "저장될 테이블 설정의 최대 갯수"
 
 #: libraries/config/messages.inc.php:603
-#, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
-msgstr "Slave 상태 테이블 보기"
+msgstr "QBE가 검색 테이블에 저장되었습니다"
 
 #: libraries/config/messages.inc.php:605
 #, fuzzy
@@ -6775,7 +6749,7 @@ msgstr "접속 URL"
 #, fuzzy
 #| msgid "Port on which MySQL server is listening, leave empty for default"
 msgid "Socket on which MySQL server is listening, leave empty for default."
-msgstr "MySQL 서버의 네트워크 포트. 기본값을 쓰려면 비워두세요"
+msgstr "MySQL 서버가 listen하고 있는 소켓으로, 비워두면 기본값으로 설정됩니다."
 
 #: libraries/config/messages.inc.php:651
 msgid "Server socket"
@@ -7134,20 +7108,18 @@ msgid "Title of browser window when a database is selected."
 msgstr "데이터베이스가 선택되었을 때 브라우저 창의 제목."
 
 #: libraries/config/messages.inc.php:751
-#, fuzzy
 #| msgid "Title of browser window when nothing is selected"
 msgid "Title of browser window when nothing is selected."
-msgstr "아무것도 선택되지 않았을 때 브라우저 윈도우의 제목"
+msgstr "아무것도 선택되지 않았을 때의 브라우저 윈도우의 제목"
 
 #: libraries/config/messages.inc.php:752
 msgid "Default title"
 msgstr "기본 제목"
 
 #: libraries/config/messages.inc.php:753
-#, fuzzy
 #| msgid "Title of browser window when a server is selected"
 msgid "Title of browser window when a server is selected."
-msgstr "서버가 선택되었을 때 브라우저 윈도우의 제목"
+msgstr "서버가 선택되었을 때의 브라우저 윈도우의 제목"
 
 #: libraries/config/messages.inc.php:755
 #, fuzzy
@@ -7168,17 +7140,15 @@ msgid "List of trusted proxies for IP allow/deny"
 msgstr "IP 허용/거부를 위한 신뢰할만한 프록시 목록"
 
 #: libraries/config/messages.inc.php:759
-#, fuzzy
 #| msgid "Directory on server where you can upload files for import"
 msgid "Directory on server where you can upload files for import."
-msgstr "가져오기(import) 파일을 업로드할 서버상의 디렉토리"
+msgstr "가져오기 파일을 업로드할 서버 상의 디렉토리"
 
 #: libraries/config/messages.inc.php:760
 msgid "Upload directory"
 msgstr "업로드 디렉토리"
 
 #: libraries/config/messages.inc.php:761
-#, fuzzy
 #| msgid "Allow for searching inside the entire database"
 msgid "Allow for searching inside the entire database."
 msgstr "전체 데이터베이스 내에서의 검색 허용"
@@ -7204,10 +7174,9 @@ msgid "Check for latest version"
 msgstr "최신 버전 확인"
 
 #: libraries/config/messages.inc.php:766
-#, fuzzy
 #| msgid "Enables check for latest version on main phpMyAdmin page"
 msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr "phpMyAdmin 메인화면에서 최근 버전 확인을 가능하게 함"
+msgstr "phpMyAdmin 메인 화면에서 최근 버전 확인을 활성화함"
 
 #: libraries/config/messages.inc.php:767 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:134 setup/lib/index.lib.php:147
@@ -7280,10 +7249,9 @@ msgid "Private key for reCaptcha"
 msgstr "reCaptcha용 개인 키(Private key)"
 
 #: libraries/config/messages.inc.php:782
-#, fuzzy
 #| msgid "Ask before sending error reports"
 msgid "Choose the default action when sending error reports."
-msgstr "오류보고서 전송전 물어보기"
+msgstr "오류 보고를 전송하기 전 물어보기"
 
 #: libraries/config/messages.inc.php:783
 msgid "Send error reports"
@@ -7296,10 +7264,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:788
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
-msgstr "서버 환경설정"
+msgstr "제로-설정 모드를 활성화함"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7388,37 +7355,32 @@ msgid "Select page"
 msgstr "페이지를 선택하세요"
 
 #: libraries/db_designer.lib.php:55
-#, fuzzy
 #| msgid "Page titles"
 msgid "Page to open"
-msgstr "페이지 제목"
+msgstr "열 페이지"
 
 #: libraries/db_designer.lib.php:57
 msgid "Page to delete"
 msgstr "삭제할 페이지"
 
 #: libraries/db_designer.lib.php:77
-#, fuzzy
 #| msgid "Export to selected page."
 msgid "Save to selected page"
-msgstr "선택된 페이지로 내보내기."
+msgstr "선택된 페이지로 저장하기"
 
 #: libraries/db_designer.lib.php:78
-#, fuzzy
 #| msgid "Create a page and export to it."
 msgid "Create a page and save to it"
-msgstr "새 페이지를 만들고 내보내기."
+msgstr "새 페이지를 만들고 내보내기"
 
 #: libraries/db_designer.lib.php:102
 msgid "New page name"
 msgstr "새 페이지 이름"
 
 #: libraries/db_designer.lib.php:160
-#, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
-msgstr ""
-"가져오기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
+msgstr "개요 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
 #: libraries/db_designer.lib.php:168
 msgid "Select Export Relational Type"
@@ -7445,16 +7407,14 @@ msgid "Save position"
 msgstr "위치 저장"
 
 #: libraries/db_designer.lib.php:287
-#, fuzzy
 #| msgid "Save position"
 msgid "Save positions as"
 msgstr "위치 저장"
 
 #: libraries/db_designer.lib.php:294
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete pages"
-msgstr "페이지를 선택하세요"
+msgstr "페이지 삭제"
 
 #: libraries/db_designer.lib.php:305 libraries/display_create_table.lib.php:55
 msgid "Create table"
@@ -7534,10 +7494,9 @@ msgid "Delete relation"
 msgstr "관계(relation) 삭제"
 
 #: libraries/db_designer.lib.php:921 libraries/db_designer.lib.php:985
-#, fuzzy
 #| msgid "Relational key"
 msgid "Relation operator"
-msgstr "관계키"
+msgstr "관계 연산"
 
 #: libraries/db_designer.lib.php:931 libraries/db_designer.lib.php:995
 #: libraries/db_designer.lib.php:1149 libraries/db_designer.lib.php:1295
@@ -7593,9 +7552,8 @@ msgid "Re-type:"
 msgstr "재입력:"
 
 #: libraries/display_change_password.lib.php:83
-#, fuzzy
 msgid "Password Hashing:"
-msgstr "암호 해싱:"
+msgstr "비밀번호 해싱:"
 
 #: libraries/display_change_password.lib.php:96
 msgid "MySQL 4.0 compatible"
@@ -7778,28 +7736,24 @@ msgid "Select table"
 msgstr "테이블 선택"
 
 #: libraries/display_export.lib.php:798
-#, fuzzy
 #| msgid "Database name"
 msgid "New database name"
-msgstr "데이터베이스명"
+msgstr "새로운 데이터베이스명"
 
 #: libraries/display_export.lib.php:822
-#, fuzzy
 #| msgid "New page name: "
 msgid "New table name"
-msgstr "새 페이지 이름: "
+msgstr "새 테이블 이름:"
 
 #: libraries/display_export.lib.php:831
-#, fuzzy
 #| msgid "Copy column name."
 msgid "Old column name"
-msgstr "컬럼 이름 복사."
+msgstr "옛 컬럼 이름"
 
 #: libraries/display_export.lib.php:832
-#, fuzzy
 #| msgid "Copy column name."
 msgid "New column name"
-msgstr "컬럼 이름 복사."
+msgstr "새로운 컬럼 이름"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -7912,10 +7866,9 @@ msgid "%s of %s"
 msgstr ""
 
 #: libraries/display_import.lib.php:455
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file…"
-msgstr "가져올 파일의 형식"
+msgstr "당신의 가져오기 파일을 업로드하는 중…"
 
 #: libraries/display_import.lib.php:456
 #, php-format
@@ -8040,10 +7993,9 @@ msgid "Write waits in %"
 msgstr ""
 
 #: libraries/engines/myisam.lib.php:28
-#, fuzzy
 #| msgid "Data point content"
 msgid "Data pointer size"
-msgstr "데이터 포인트 내용"
+msgstr "데이터 포인터 크기"
 
 #: libraries/engines/myisam.lib.php:29
 msgid ""
@@ -8446,7 +8398,6 @@ msgstr "삽입된 행의 id: %1$d"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:147
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
@@ -8742,7 +8693,7 @@ msgstr "데이터베이스 이름 또는 정규식으로 필터링"
 #, fuzzy
 #| msgid "Save as file"
 msgid "Clear fast filter"
-msgstr "파일로 저장"
+msgstr "빠른 필터 비우기"
 
 #: libraries/navigation/NavigationTree.class.php:1203
 msgid "Filter by name or regex"
@@ -8779,16 +8730,14 @@ msgid "New"
 msgstr "새"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:41
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "데이터베이스 내보내기 옵션"
+msgstr "데이터베이스 연산"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:636
-#, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
-msgstr "힌트 보여주기"
+msgstr "숨겨진 항목 보기"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:36
 #, fuzzy
@@ -8807,7 +8756,6 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:25
 #: libraries/plugins/export/ExportSql.class.php:525
 #: libraries/plugins/export/ExportXml.class.php:111
-#, fuzzy
 #| msgid "Function"
 msgid "Functions"
 msgstr "함수"
@@ -8905,10 +8853,9 @@ msgid "Select one…"
 msgstr "컬럼 선택."
 
 #: libraries/normalization.lib.php:139 normalization.php:20
-#, fuzzy
 #| msgid "Move column"
 msgid "No such column"
-msgstr "컬럼 이동"
+msgstr "그런 컬럼이 없습니다."
 
 #: libraries/normalization.lib.php:146
 msgid "split into "
@@ -8921,10 +8868,9 @@ msgid "Have a primary key"
 msgstr "기본키 추가"
 
 #: libraries/normalization.lib.php:173
-#, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "오류: 릴레이션이 이미 존재함."
+msgstr "기본 키가 이미 존재합니다."
 
 #: libraries/normalization.lib.php:178
 msgid ""
@@ -8945,7 +8891,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
-msgstr "기본키 추가"
+msgstr "+ 새로운 기본키를 컬럼에 추가"
 
 #: libraries/normalization.lib.php:212
 #, fuzzy
@@ -8967,10 +8913,9 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:226
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "선택한 사용자를 삭제"
+msgstr "선택된 것 삭제"
 
 #: libraries/normalization.lib.php:227
 #, fuzzy
@@ -9090,10 +9035,9 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
 #: libraries/normalization.lib.php:689
-#, fuzzy
 #| msgid "Sep"
 msgid "Step 3."
-msgstr "9월"
+msgstr "세 번째 단계."
 
 #: libraries/normalization.lib.php:689
 msgid "Find transitive dependencies"
@@ -9118,10 +9062,9 @@ msgid "Table is already in Third normal form!"
 msgstr ""
 
 #: libraries/normalization.lib.php:770
-#, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "테이블 구조 관련 기능 숨기기"
+msgstr "테이블 구조 개선 (표준화)"
 
 #: libraries/normalization.lib.php:771
 msgid "Select up to what step you want to normalize"
@@ -9152,10 +9095,9 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/operations.lib.php:75
-#, fuzzy
 #| msgid "Renaming Databases"
 msgid "Rename database to:"
-msgstr "데이터베이스 이름을 변경중입니다"
+msgstr "데이터베이스 이름을 변경합니다:"
 
 #: libraries/operations.lib.php:107
 #, php-format
@@ -9186,10 +9128,9 @@ msgid "Data only"
 msgstr "데이터만"
 
 #: libraries/operations.lib.php:175
-#, fuzzy
 #| msgid "Copying Database"
 msgid "Copy database to:"
-msgstr "데이터베이스를 복사중입니다"
+msgstr "데이터베이스를 복사합니다:"
 
 #: libraries/operations.lib.php:186
 msgid "CREATE DATABASE before copying"
@@ -9602,10 +9543,9 @@ msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:142
 #: libraries/plugins/export/ExportOdt.class.php:107
-#, fuzzy
 #| msgid "Display chart"
 msgid "Display comments"
-msgstr "차트 표시"
+msgstr "댓글 보기"
 
 #: libraries/plugins/export/ExportLatex.class.php:147
 #: libraries/plugins/export/ExportOdt.class.php:112
@@ -9628,10 +9568,9 @@ msgstr ""
 #: libraries/plugins/export/ExportLatex.class.php:210
 #: libraries/plugins/export/ExportSql.class.php:677
 #: libraries/plugins/export/ExportXml.class.php:187 libraries/sql.lib.php:450
-#, fuzzy
 #| msgid "Generate"
 msgid "Generation Time:"
-msgstr "생성"
+msgstr "생성 시간:"
 
 #: libraries/plugins/export/ExportLatex.class.php:213
 #: libraries/plugins/export/ExportSql.class.php:683
@@ -9649,10 +9588,9 @@ msgstr "데이터베이스:"
 
 #: libraries/plugins/export/ExportLatex.class.php:306
 #: libraries/plugins/export/ExportSql.class.php:1908
-#, fuzzy
 #| msgid "Database"
 msgid "Data:"
-msgstr "데이터베이스"
+msgstr "데이터:"
 
 #: libraries/plugins/export/ExportLatex.class.php:488
 msgid "Structure:"
