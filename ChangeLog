@@ -68,6 +68,8 @@ phpMyAdmin - ChangeLog
 - bug       Incorrect text/icon display in Tracking report
 - bug #4404 Recordset return from procedure display nothing
 - bug #4584 Edit dialog for routines is too long for smaller displays
+- bug #4586 Javascript error after moving a column
+- bug #4576 Issue with long comments on table columns
 
 4.2.11.0 (2014-10-31)
 - bug       ReferenceError: Table_onover is not defined
