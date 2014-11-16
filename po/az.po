@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:04+0100\n"
-"PO-Revision-Date: 2014-11-06 18:49+0200\n"
-"Last-Translator: Ziyaddin Sadigov <ziyaddinsadigov@gmail.com>\n"
+"PO-Revision-Date: 2014-11-16 20:59+0200\n"
+"Last-Translator: Mircəlal <01youknowme@gmail.com>\n"
 "Language-Team: Azerbaijani "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: az\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.0\n"
+"X-Generator: Weblate 2.1-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -34,10 +33,10 @@ msgid "Click to sort."
 msgstr "Sıralamaq üçün klikləyin."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Göstərilən sətir(lər)%1$s - %2$s"
+msgstr "%1$s - %2$s sətir göstərilir."
 
 #: db_create.php:61
 #, php-format
@@ -595,10 +594,9 @@ msgstr ""
 "sətri yapışdırın."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Success."
 msgid "Succeeded"
-msgstr "Uğurlu."
+msgstr "Uğurlu"
 
 #: import.php:58 js/messages.php:438
 msgid "Failed"
@@ -927,10 +925,9 @@ msgid "Dropping Primary Key/Index"
 msgstr ""
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Dropping Procedure"
 msgid "Dropping Foreign key."
-msgstr "Prosesler"
+msgstr "İkinci dərəcəli açarı at"
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1014,10 +1011,9 @@ msgid "Composite with:"
 msgstr "Saheler ehate edildiyi işare"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "İndeksə %s sütun əlavə et"
+msgstr "İndeksə əlavə olunması üçün sütunları seçin."
 
 #: js/messages.php:69 libraries/structure.lib.php:1677
 msgid "You have to add at least one column."
@@ -2065,10 +2061,9 @@ msgid "Delete page"
 msgstr "Səhifəni sil"
 
 #: js/messages.php:407 libraries/db_designer.lib.php:382
-#, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
-msgstr "Vahid"
+msgstr "Başlıqsız"
 
 #: js/messages.php:408
 msgid "Please select a page to continue"
@@ -2245,16 +2240,14 @@ msgstr "Gizli naviqasiya ağac bəndlərini göstər."
 
 #: js/messages.php:472 libraries/config/messages.inc.php:421
 #: libraries/navigation/NavigationTree.class.php:1235
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Əsas Paneli özəlləşdir"
+msgstr "Əsas panel ilə əlaqələndir"
 
 #: js/messages.php:473 libraries/navigation/NavigationTree.class.php:1238
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Əsas Paneli özəlləşdir"
+msgstr "Əsas panel ilə əlaqəni kəs"
 
 #: js/messages.php:476
 msgid "The requested page was not found in the history, it may have expired."
@@ -2344,10 +2337,9 @@ msgid "Execute this query again?"
 msgstr "Bu sorğu təkrar icra olunsunmu?"
 
 #: js/messages.php:528
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "\"%s\" axtarışını silmək istədiyinizdən əminsinizmi?"
+msgstr "Bu əlfəcini silmək istədiyinizə əminsinizmi?"
 
 #: js/messages.php:559
 msgctxt "Previous month"
@@ -14815,9 +14807,8 @@ msgid "InnoDB buffer pool size"
 msgstr "Sıralama buferinin (keçici yaddaşının) boyu"
 
 #: libraries/advisory_rules.txt:453
-#, fuzzy
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Sıralama buferinin (keçici yaddaşının) boyu"
+msgstr "InnoDB-nin bufer sahəsi olduqca kiçikdir."
 
 #: libraries/advisory_rules.txt:454
 #, php-format
