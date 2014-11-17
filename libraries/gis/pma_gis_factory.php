@@ -31,7 +31,9 @@ class PMA_GIS_Factory
         include_once './libraries/gis/pma_gis_geometry.php';
 
         $type_lower = strtolower($type);
-        if (! file_exists('./libraries/gis/pma_gis_' . $type_lower . '.php')) {
+        if (! PMA_isValid($type_lower, PMA_Util::getGISDatatypes())
+            || ! file_exists('./libraries/gis/pma_gis_' . $type_lower . '.php')
+        ) {
             return false;
         }
         if (include_once './libraries/gis/pma_gis_' . $type_lower . '.php') {
