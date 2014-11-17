@@ -537,76 +537,84 @@ class Node
      */
     public function getPresence($type = '', $searchClause = '')
     {
-        if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
-            $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
+            if (!$GLOBALS['cfg']['Server']['DisableIS']) {
                 $query = "SELECT COUNT(*) ";
-                $query .= "FROM ( ";
-                $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
-                $query .= "'$dbSeparator', 1) ";
-                $query .= "DB_first_level ";
                 $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
                 $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
-                $query .= ") t ";
                 $retval = (int)$GLOBALS['dbi']->fetchValue($query);
-            } else {
-                if ($GLOBALS['dbs_to_test'] === false) {
-                    $prefixMap = array();
-                    $query = "SHOW DATABASES ";
-                    $query .= $this->_getWhereClause('Database', $searchClause);
-                    $handle = $GLOBALS['dbi']->tryQuery($query);
-                    if ($handle !== false) {
-                        while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                            $prefix = strstr($arr[0], $dbSeparator, true);
-                            if ($prefix === false) {
-                                $prefix = $arr[0];
-                            }
-                            $prefixMap[$prefix] = 1;
-                        }
+                return $retval;
+            }
+
+            if ($GLOBALS['dbs_to_test'] === false) {
+                $query = "SHOW DATABASES ";
+                $query .= $this->_getWhereClause('Database', $searchClause);
+                $retval = $GLOBALS['dbi']->numRows(
+                    $GLOBALS['dbi']->tryQuery($query)
+                );
+                return $retval;
+            }
+
+            $retval = 0;
+            foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
+                $query = "SHOW DATABASES LIKE '" . $db . "'";
+                $retval += $GLOBALS['dbi']->numRows(
+                    $GLOBALS['dbi']->tryQuery($query)
+                );
+            }
+            return $retval;
+        }
+
+        $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            $query = "SELECT COUNT(*) ";
+            $query .= "FROM ( ";
+            $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
+            $query .= "'$dbSeparator', 1) ";
+            $query .= "DB_first_level ";
+            $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
+            $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
+            $query .= ") t ";
+            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+            return $retval;
+        }
+
+        if ($GLOBALS['dbs_to_test'] !== false) {
+            $prefixMap = array();
+            foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
+                $query = "SHOW DATABASES LIKE '" . $db . "'";
+                $handle = $GLOBALS['dbi']->tryQuery($query);
+                if ($handle === false) {
+                    continue;
+                }
+
+                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    $prefix = strstr($arr[0], $dbSeparator, true);
+                    if ($prefix === false) {
+                        $prefix = $arr[0];
                     }
-                    $retval = count($prefixMap);
-                } else {
-                    $prefixMap = array();
-                    foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
-                        $query = "SHOW DATABASES LIKE '" . $db . "'";
-                        $handle = $GLOBALS['dbi']->tryQuery($query);
-                        if ($handle !== false) {
-                            while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                                $prefix = strstr($arr[0], $dbSeparator, true);
-                                if ($prefix === false) {
-                                    $prefix = $arr[0];
-                                }
-                                $prefixMap[$prefix] = 1;
-                            }
-                        }
-                    }
-                    $retval = count($prefixMap);
+                    $prefixMap[$prefix] = 1;
                 }
             }
-        } else {
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-                $query = "SELECT COUNT(*) ";
-                $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
-                $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
-                $retval = (int)$GLOBALS['dbi']->fetchValue($query);
-            } else {
-                if ($GLOBALS['dbs_to_test'] === false) {
-                    $query = "SHOW DATABASES ";
-                    $query .= $this->_getWhereClause('Database', $searchClause);
-                    $retval = $GLOBALS['dbi']->numRows(
-                        $GLOBALS['dbi']->tryQuery($query)
-                    );
-                } else {
-                    $retval = 0;
-                    foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
-                        $query = "SHOW DATABASES LIKE '" . $db . "'";
-                        $retval += $GLOBALS['dbi']->numRows(
-                            $GLOBALS['dbi']->tryQuery($query)
-                        );
-                    }
+            $retval = count($prefixMap);
+            return $retval;
+        }
+
+        $prefixMap = array();
+        $query = "SHOW DATABASES ";
+        $query .= $this->_getWhereClause('Database', $searchClause);
+        $handle = $GLOBALS['dbi']->tryQuery($query);
+        if ($handle !== false) {
+            while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                $prefix = strstr($arr[0], $dbSeparator, true);
+                if ($prefix === false) {
+                    $prefix = $arr[0];
                 }
+                $prefixMap[$prefix] = 1;
             }
         }
+        $retval = count($prefixMap);
+
         return $retval;
     }
 
