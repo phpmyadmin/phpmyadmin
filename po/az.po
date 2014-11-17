@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:04+0100\n"
-"PO-Revision-Date: 2014-11-16 20:59+0200\n"
-"Last-Translator: Mircəlal <01youknowme@gmail.com>\n"
+"PO-Revision-Date: 2014-11-17 17:52+0200\n"
+"Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
 "Language: az\n"
@@ -350,7 +350,7 @@ msgstr "İzlənən cədvəllər"
 #: libraries/tbl_relation.lib.php:306 libraries/tbl_relation.lib.php:543
 #: libraries/tracking.lib.php:228
 msgid "Database"
-msgstr "Me'lumat Bazası"
+msgstr "Verilənlər Bazası"
 
 #: db_tracking.php:84
 msgid "Last version"
@@ -3310,15 +3310,15 @@ msgstr ""
 
 #: libraries/File.class.php:276
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Faylı diskə yazma uğursuz oldu."
 
 #: libraries/File.class.php:279
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "Fayl yükləmə genişlənməsinə görə dayandırrıldı."
 
 #: libraries/File.class.php:282
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "Faylın yüklənməsi zamanı naməlum xəta baş verdi."
 
 #: libraries/File.class.php:461
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
@@ -3541,7 +3541,7 @@ msgstr "Orta sütunlar"
 #: libraries/config/messages.inc.php:229 libraries/server_common.lib.php:48
 #: libraries/server_privileges.lib.php:3864
 msgid "Databases"
-msgstr "Me'lumat Bazaları"
+msgstr "Verilənlər Bazaları"
 
 #: libraries/Menu.class.php:556 libraries/Util.class.php:4089
 msgid "Users"
@@ -4372,7 +4372,7 @@ msgstr "Əskik parametrlər:"
 #: libraries/Util.class.php:2567
 #, php-format
 msgid "Jump to database \"%s\"."
-msgstr "\"%s\" me'lumat bazasına keç."
+msgstr "\"%s\" verilənlər bazasına keç."
 
 #: libraries/Util.class.php:2592
 #, php-format
@@ -4982,12 +4982,12 @@ msgstr ""
 
 #: libraries/config/Validator.class.php:467
 msgid "Incorrect value:"
-msgstr ""
+msgstr "Yanlış qiymət:"
 
 #: libraries/config/Validator.class.php:476
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr ""
+msgstr "Yanlış İp adresi: %s"
 
 #: libraries/config/messages.inc.php:18
 msgid ""
@@ -5047,7 +5047,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:43
 msgid ""
@@ -7060,7 +7060,7 @@ msgstr ""
 #: libraries/config/setup.forms.php:295
 #: libraries/config/user_preferences.forms.php:196
 msgid "Database export options"
-msgstr "Me'lumat bazası eksport variantları"
+msgstr "Verilənlər bazası eksport variantları"
 
 #: libraries/config/setup.forms.php:331
 #: libraries/config/user_preferences.forms.php:232
@@ -8855,7 +8855,7 @@ msgstr "(tek-tek)"
 
 #: libraries/operations.lib.php:651
 msgid "Move table to (database<b>.</b>table):"
-msgstr "Cedveli daşı (me'lumat bazası<b>.</b>cedvel):"
+msgstr "Cədvəli daşı (verilənlər bazası<b>.</b>cədvəl):"
 
 #: libraries/operations.lib.php:762
 msgid "Table options"
@@ -8875,7 +8875,7 @@ msgstr "Depolama Motorları"
 
 #: libraries/operations.lib.php:985
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "Cedveli kopyala (me'lumat bazası<b>.</b>cedvel):"
+msgstr "Cədvəli kopyala (verilənlər bazası<b>.</b>cədvəl):"
 
 #: libraries/operations.lib.php:1040
 msgid "Switch to copied table"
@@ -10823,15 +10823,15 @@ msgstr ""
 
 #: libraries/server_common.lib.php:45
 msgid "Databases statistics"
-msgstr "Me'lumat Bazası Statistikaları"
+msgstr "Verilənlər Bazası Statistikaları"
 
 #: libraries/server_databases.lib.php:361
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
-"Qeyd: Me'lumat Bazası statistikalarını burada aktivleşdirmekle webserver-le "
-"MySQL server arasında ağır neqliyyata sebeb ola bilersiniz."
+"Qeyd: Verilənlər Bazası statistikalarını burada aktivləşdirməklə webserver-"
+"lə MySQL server arasında ağır trafikə səbəb ola bilərsiniz."
 
 #: libraries/server_databases.lib.php:369
 #: libraries/server_databases.lib.php:370
@@ -11114,7 +11114,7 @@ msgstr "Qlobal"
 #: libraries/server_privileges.lib.php:1035
 #: libraries/server_privileges.lib.php:2782
 msgid "Database-specific privileges"
-msgstr "Me'lumat Bazasına Mexsus Selahiyyetler"
+msgstr "Verilənlər Bazasına Məxsus Səlahiyyətlər"
 
 #: libraries/server_privileges.lib.php:1106 server_privileges.php:59
 msgid "Allows creating new tables."
@@ -11284,10 +11284,9 @@ msgid "Column-specific privileges"
 msgstr "Sütunaxas Selahiyyetler"
 
 #: libraries/server_privileges.lib.php:2851
-#, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database(s):"
-msgstr "Aşağıdakı me'lumat bazası üçün selahiyyet müeyyen et"
+msgstr "Aşağıdakı verilənlər baza(ları)sı üçün səlahiyyət müəyyən et:"
 
 #: libraries/server_privileges.lib.php:2875
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -11309,7 +11308,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3154
 #: libraries/server_privileges.lib.php:3157
 msgid "Drop the databases that have the same names as the users."
-msgstr "İstifadeçilerle eyni adlı me'lumat bazalarını leğv et."
+msgstr "İstifadəçilərlə eyni adlı verilənlər bazalarını ləğv et."
 
 #: libraries/server_privileges.lib.php:3298
 msgid "No users selected for deleting!"
@@ -12345,10 +12344,9 @@ msgid "Server-level tabs"
 msgstr "Server versiyası"
 
 #: libraries/server_user_groups.lib.php:271
-#, fuzzy
 #| msgid "Databases"
 msgid "Database-level tabs"
-msgstr "Me'lumat Bazaları"
+msgstr ""
 
 #: libraries/server_user_groups.lib.php:274
 #, fuzzy
@@ -12453,7 +12451,7 @@ msgstr "%s serverində SQL sorğusunu/sorğularını icra et"
 #: libraries/sql_query_form.lib.php:172 libraries/sql_query_form.lib.php:194
 #, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr "%s me'lumat bazasına SQL sorğusu(-ları) gönder"
+msgstr "%s verilənlər bazasına SQL sorğusu(ları) göndər"
 
 #: libraries/sql_query_form.lib.php:280
 #, fuzzy
@@ -13465,7 +13463,7 @@ msgstr "Verilənlər Bazası yoxdur"
 
 #: server_export.php:21
 msgid "View dump (schema) of databases"
-msgstr "Me'lumat bazalarının sxemini göster"
+msgstr "Verilənlər bazalarının sxemini göstər"
 
 #: server_privileges.php:139
 msgid "Username and hostname didn't change."
