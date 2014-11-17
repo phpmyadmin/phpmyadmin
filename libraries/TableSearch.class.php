@@ -1152,7 +1152,7 @@ class PMA_TableSearch
 
         $html_output .= '<form method="post" action="' . $scriptName . '" '
             . 'name="insertForm" id="' . $formId . '" '
-            . 'class="ajax lock-page"' . '>';
+            . 'class="ajax"' . '>';
 
         $html_output .= PMA_URL_getHiddenInputs($this->_db, $this->_table);
         $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
