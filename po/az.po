@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:04+0100\n"
-"PO-Revision-Date: 2014-11-17 22:41+0200\n"
+"PO-Revision-Date: 2014-11-18 15:45+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
@@ -273,7 +273,7 @@ msgstr ""
 #: libraries/tbl_relation.lib.php:329 libraries/tbl_relation.lib.php:595
 #: libraries/tracking.lib.php:229
 msgid "Table"
-msgstr "Cedvel"
+msgstr "Cədvəl"
 
 #: db_printview.php:49 libraries/build_html_for_db.lib.php:33
 #: libraries/import.lib.php:193 libraries/structure.lib.php:825
@@ -328,7 +328,7 @@ msgstr "%sVizual redaktə%s rejiminə keç"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:104
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 msgid "Access denied!"
-msgstr "Giriş Tesdiq Edilmedi!"
+msgstr "Giriş Təsdiq Edilmədi!"
 
 #: db_tracking.php:77
 msgid "Tracked tables"
@@ -713,7 +713,7 @@ msgstr "Ümumi Tənzimləmələr"
 #: index.php:173 libraries/display_change_password.lib.php:50
 #: libraries/display_change_password.lib.php:53 user_password.php:191
 msgid "Change password"
-msgstr "Parolu Deyişdir"
+msgstr "Parolu Dəyişdir"
 
 #: index.php:189
 msgid "Server connection collation"
@@ -1737,7 +1737,7 @@ msgstr "Sorğu qutusunu göstər"
 #: libraries/server_user_groups.lib.php:117
 #: libraries/server_variables.lib.php:154 setup/frames/index.inc.php:179
 msgid "Edit"
-msgstr "Deyişdir"
+msgstr "Redaktə et"
 
 #: js/messages.php:299 libraries/DisplayResults.class.php:767
 #: libraries/DisplayResults.class.php:775
@@ -2894,7 +2894,7 @@ msgstr "Sorğunu Yenilə"
 
 #: libraries/DBQbe.class.php:682
 msgid "Use Tables"
-msgstr ""
+msgstr "Cədvəlləri istifadə et"
 
 #: libraries/DBQbe.class.php:717 libraries/DBQbe.class.php:826
 msgid "Or:"
@@ -2902,7 +2902,7 @@ msgstr "vəya:"
 
 #: libraries/DBQbe.class.php:721 libraries/DBQbe.class.php:811
 msgid "And:"
-msgstr ""
+msgstr "Və:"
 
 #: libraries/DBQbe.class.php:725
 msgid "Ins"
@@ -2918,20 +2918,20 @@ msgstr "Dəyişdir:"
 
 #: libraries/DBQbe.class.php:806
 msgid "Ins:"
-msgstr ""
+msgstr "Ins:"
 
 #: libraries/DBQbe.class.php:821
 msgid "Del:"
-msgstr ""
+msgstr "Del:"
 
 #: libraries/DBQbe.class.php:1467
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "SQL-query on database <b>%s</b>:"
+msgstr "<b>%s</b> Bazasında SQL sorğusu:"
 
 #: libraries/DBQbe.class.php:1481 libraries/Util.class.php:1218
 msgid "Submit Query"
-msgstr "Emri İcra Et"
+msgstr "Sorğunu göndər"
 
 #: libraries/DBQbe.class.php:1495
 msgid "Saved bookmarked search:"
@@ -2958,10 +2958,12 @@ msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
+"Server cavab vermir(yada ki lokal MYSQL serverinin soketi duzgün "
+"konfiqurasiya edilməyib)."
 
 #: libraries/DatabaseInterface.class.php:2196
 msgid "The server is not responding."
-msgstr ""
+msgstr "Server cavab vermir."
 
 #: libraries/DatabaseInterface.class.php:2201
 msgid "Please check privileges of directory containing database."
@@ -2969,32 +2971,34 @@ msgstr ""
 
 #: libraries/DatabaseInterface.class.php:2211
 msgid "Details…"
-msgstr ""
+msgstr "Detallar…"
 
 #: libraries/DatabaseInterface.class.php:2430
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
+"Konfiqurasiya faylınızda göstərilmiş idarəetmə istifadəçiləri üçün qoşulma "
+"uğursuz oldu."
 
 #: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:404
 msgid "at least one of the words"
-msgstr "sözlerin en azından birini"
+msgstr "sözlərin ən azından birini"
 
 #: libraries/DbSearch.class.php:99 libraries/DbSearch.class.php:408
 msgid "all words"
-msgstr "bütün sözleri"
+msgstr "bütün sözlər"
 
 #: libraries/DbSearch.class.php:100 libraries/DbSearch.class.php:412
 msgid "the exact phrase"
-msgstr "tamamile eyni sözü"
+msgstr "tamamilə eyni sözü"
 
 #: libraries/DbSearch.class.php:101 libraries/DbSearch.class.php:413
 msgid "as regular expression"
-msgstr "requlyar ifade (regular expression) olaraq"
+msgstr "requlyar ifadə (regular expression) olaraq"
 
 #: libraries/DbSearch.class.php:271
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "\"<i>%s</i>\" üçün axtarış neticeleri %s:"
+msgstr "\"<i>%s</i>\" üçün axtarış nəticələri %s:"
 
 #: libraries/DbSearch.class.php:298
 #, php-format
@@ -3030,7 +3034,7 @@ msgstr "Verilənlər Bazasında axtar"
 
 #: libraries/DbSearch.class.php:392
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Axtarmaq üçün söz(lər) ve ya verilən(lər) (wildcard: \"%\"):"
+msgstr "Axtarmaq üçün söz(lər) və ya verilən(lər) (wildcard: \"%\"):"
 
 #: libraries/DbSearch.class.php:401 libraries/TableSearch.class.php:1351
 msgid "Find:"
@@ -3038,7 +3042,7 @@ msgstr "Tap:"
 
 #: libraries/DbSearch.class.php:406 libraries/DbSearch.class.php:410
 msgid "Words are separated by a space character (\" \")."
-msgstr "Sözler boşluq ifadesi (\" \") ile ayrılmışdır."
+msgstr "Sözlər boşluq ifadəsi (\" \") ilə ayrılmışdır."
 
 #: libraries/DbSearch.class.php:425
 msgid "Inside tables:"
@@ -3232,7 +3236,7 @@ msgstr "Hamısını Seç"
 #: libraries/DisplayResults.class.php:5082 libraries/structure.lib.php:1481
 #: libraries/structure.lib.php:2202
 msgid "Change"
-msgstr "Deyişdir"
+msgstr "Dəyişdir"
 
 #: libraries/DisplayResults.class.php:5095
 #: libraries/DisplayResults.class.php:5365 libraries/Menu.class.php:332
@@ -3472,7 +3476,7 @@ msgstr "Axtarış"
 #: libraries/navigation/Nodes/Node_Table.class.php:42
 #: libraries/sql_query_form.lib.php:262 libraries/sql_query_form.lib.php:265
 msgid "Insert"
-msgstr "Elave et"
+msgstr "Əlavə et"
 
 #: libraries/Menu.class.php:350 libraries/Menu.class.php:455
 #: libraries/Util.class.php:4108 libraries/Util.class.php:4124
@@ -3480,14 +3484,14 @@ msgstr "Elave et"
 #: libraries/server_privileges.lib.php:2791
 #: libraries/server_privileges.lib.php:3753
 msgid "Privileges"
-msgstr "Selahiyyetler"
+msgstr "Səlahiyyətlər"
 
 #: libraries/Menu.class.php:359 libraries/Menu.class.php:386
 #: libraries/Menu.class.php:447 libraries/Util.class.php:3164
 #: libraries/Util.class.php:4107 libraries/Util.class.php:4125
 #: view_operations.php:92
 msgid "Operations"
-msgstr "Emeliyyatlar"
+msgstr "Əməliyyatlar"
 
 #: libraries/Menu.class.php:363 libraries/Menu.class.php:480
 #: libraries/Util.class.php:4112 libraries/Util.class.php:4126
@@ -3562,7 +3566,7 @@ msgstr "Təkrarlanma(replikasiya)"
 #: libraries/Util.class.php:4095 libraries/server_engines.lib.php:108
 #: libraries/server_engines.lib.php:112
 msgid "Variables"
-msgstr "Deyişenler"
+msgstr "Dəyişənlər"
 
 #: libraries/Menu.class.php:598 libraries/Util.class.php:4096
 msgid "Charsets"
@@ -3582,7 +3586,7 @@ msgstr "Motorlar"
 #: libraries/insert_edit.lib.php:1166 tbl_operations.php:193
 #: view_operations.php:63
 msgid "Error"
-msgstr "Xeta"
+msgstr "Xəta"
 
 #: libraries/Message.class.php:254
 #, php-format
@@ -4314,7 +4318,7 @@ msgstr ""
 #: libraries/Util.class.php:254
 #, php-format
 msgid "Max: %s%s"
-msgstr "En çox: %s%s"
+msgstr "Ən çox: %s%s"
 
 #: libraries/Util.class.php:684 libraries/rte/rte_events.lib.php:115
 #: libraries/rte/rte_events.lib.php:124 libraries/rte/rte_events.lib.php:155
@@ -5314,11 +5318,11 @@ msgstr "Cedvel başlığını daxil et"
 
 #: libraries/config/messages.inc.php:131 libraries/config/messages.inc.php:137
 msgid "Table caption"
-msgstr "Cedvel başlığı"
+msgstr "Cədvəl başlığı"
 
 #: libraries/config/messages.inc.php:132 libraries/config/messages.inc.php:139
 msgid "Continued table caption"
-msgstr "Cedvel başlığının davamı"
+msgstr "Davam edən cədvəl başlığı"
 
 #: libraries/config/messages.inc.php:133 libraries/config/messages.inc.php:140
 msgid "Label key"
@@ -5356,7 +5360,7 @@ msgstr "Fayl adı şablonunu xatırla"
 #: libraries/config/messages.inc.php:157 libraries/operations.lib.php:195
 #: libraries/operations.lib.php:674 libraries/operations.lib.php:1017
 msgid "Add AUTO_INCREMENT value"
-msgstr "AUTO_INCREMENT deyeri elave et"
+msgstr "AUTO_INCREMENT dəyəri əlavə et"
 
 #: libraries/config/messages.inc.php:159
 msgid "Enclose table and column names with backquotes"
@@ -6648,6 +6652,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma__userconfig[/kbd]."
 msgstr ""
+"Bazada istifadəçi seçimlərinin saxlanmaması üçün boş buraxın, təklif edilən: "
+"[kbd]pma__userconfig[/kbd]."
 
 #: libraries/config/messages.inc.php:698
 msgid "User preferences storage table"
@@ -7278,9 +7284,8 @@ msgid "Aggregate"
 msgstr "Qur"
 
 #: libraries/db_designer.lib.php:1347
-#, fuzzy
 msgid "Active options"
-msgstr "Cedvel başlığı"
+msgstr "Aktiv seçimlər"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:377
 msgid "Can't seek in an unbuffered result set"
@@ -7965,7 +7970,7 @@ msgstr "%s faylını saxlamaq üçün lazım olan yer çatışmır."
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"%s faylı serverda onsuz da mövcuddur, ya faylın adını deyişdir ya da üzerine "
+"%s faylı serverdə onsuz da mövcuddur, ya faylın adını dəyişdir ya da üzərinə "
 "yazma variantlarını."
 
 #: libraries/export.lib.php:337 libraries/export.lib.php:345
@@ -8074,7 +8079,7 @@ msgstr ""
 
 #: libraries/insert_edit.lib.php:1455
 msgid "Insert as new row"
-msgstr "Yeni setir olaraq elave et"
+msgstr "Yeni sətir olaraq əlavə et"
 
 #: libraries/insert_edit.lib.php:1458
 msgid "Insert as new row and ignore errors"
@@ -8456,12 +8461,12 @@ msgstr "Gizli maddələri göstər"
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:36
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "Yeni"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:37
 msgctxt "Create new event"
 msgid "New"
-msgstr ""
+msgstr "Yeni"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:24
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:25
@@ -8473,7 +8478,7 @@ msgstr "Funksiyalar"
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
 msgctxt "Create new function"
 msgid "New"
-msgstr ""
+msgstr "Yeni"
 
 #: libraries/navigation/Nodes/Node_Index.class.php:32
 #: libraries/structure.lib.php:1498 libraries/structure.lib.php:2210
@@ -8486,7 +8491,7 @@ msgstr "İndeks"
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
 msgctxt "Create new index"
 msgid "New"
-msgstr ""
+msgstr "Yeni"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
 msgid "Procedure"
@@ -8503,17 +8508,17 @@ msgstr "Proseduralar"
 #: libraries/rte/rte_footer.lib.php:29
 msgctxt "Create new procedure"
 msgid "New"
-msgstr ""
+msgstr "Yeni"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:45
 msgctxt "Create new table"
 msgid "New"
-msgstr ""
+msgstr "Yeni"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:39
 msgctxt "Create new trigger"
 msgid "New"
-msgstr ""
+msgstr "Yeni"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
@@ -8525,7 +8530,7 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_View_Container.class.php:45
 msgctxt "Create new view"
 msgid "New"
-msgstr ""
+msgstr "Yeni"
 
 #: libraries/normalization.lib.php:114
 msgid "Make all columns atomic"
@@ -8881,7 +8886,7 @@ msgstr "Kopyalanmış cedvele keç"
 
 #: libraries/operations.lib.php:1067
 msgid "Table maintenance"
-msgstr "Cedvel temizliyi"
+msgstr "Cədvəl təmizliyi"
 
 #: libraries/operations.lib.php:1105 libraries/structure.lib.php:326
 msgid "Check table"
@@ -9644,7 +9649,7 @@ msgstr ""
 #: libraries/plugins/schema/SchemaPdf.class.php:94
 #: libraries/structure.lib.php:404
 msgid "Data Dictionary"
-msgstr "Me'lumat lüğeti"
+msgstr "Verilənlər lüğəti"
 
 #: libraries/plugins/schema/dia/TableStatsDia.class.php:68
 #: libraries/plugins/schema/eps/TableStatsEps.class.php:81
@@ -9954,7 +9959,7 @@ msgstr "PDF-lərin dizayneri və yaradılması"
 
 #: libraries/relation.lib.php:165
 msgid "Displaying Column Comments"
-msgstr "Sütun Qısa İzahatını Deyişdir"
+msgstr "Sütun Qısa İzahatını Dəyişdir"
 
 #: libraries/relation.lib.php:171
 msgid "Browser transformation"
@@ -10885,7 +10890,7 @@ msgstr "Selahiyyet te'yin edilmedi."
 
 #: libraries/server_privileges.lib.php:208 server_privileges.php:54
 msgid "Includes all privileges except GRANT."
-msgstr "GRANT-dan başqa bütün selahiyyetler daxildir."
+msgstr "GRANT-dan başqa bütün səlahiyyətlər daxildir."
 
 #: libraries/server_privileges.lib.php:281
 #: libraries/server_privileges.lib.php:879
@@ -11053,16 +11058,17 @@ msgstr "İstifadəçi qrupu"
 
 #: libraries/server_privileges.lib.php:715
 msgid "Resource limits"
-msgstr ""
+msgstr "Qayanq limitləri"
 
 #: libraries/server_privileges.lib.php:717
 msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "Qeyd: Bu variantları 0 (sıfır)-a çevirmek hüdudu (limiti) qaldıracaq."
+msgstr "Qeyd: Bu variantları 0 (sıfır)-a çevirmək hüdudu (limiti) qaldıracaq."
 
 #: libraries/server_privileges.lib.php:724
 #: libraries/server_privileges.lib.php:735 server_privileges.php:79
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
+"İstifadəçinin saat başına serverə göndərə biləcəyi sorğu sayını limitləyir."
 
 #: libraries/server_privileges.lib.php:744
 #: libraries/server_privileges.lib.php:755 server_privileges.php:82
@@ -11070,11 +11076,13 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
+"İstifadəçinin saat başına icra edə biləcəyi cədvəli və bazanı dəyişə biləcək "
+"əmrlərin sayını limitləyir."
 
 #: libraries/server_privileges.lib.php:765
 #: libraries/server_privileges.lib.php:774 server_privileges.php:76
 msgid "Limits the number of new connections the user may open per hour."
-msgstr ""
+msgstr "İstifadəçinin saat başına aça biləcəyi qoşulmaların sayını limitləyir."
 
 #: libraries/server_privileges.lib.php:782
 #: libraries/server_privileges.lib.php:792 server_privileges.php:86
@@ -11087,13 +11095,13 @@ msgstr "Limits the number of new connections the user may open per hour."
 #: libraries/server_privileges.lib.php:2783
 #: libraries/server_privileges.lib.php:2795
 msgid "Table-specific privileges"
-msgstr "Cedvelexas selahiyyetler"
+msgstr "Cədvələ xas səlahiyyətlər"
 
 #: libraries/server_privileges.lib.php:847
 #: libraries/server_privileges.lib.php:1048
 #: libraries/server_privileges.lib.php:2967
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "Qeyd: MySQL səlahiyyət adları ingilis dilində ifade edilmişdir."
+msgstr "Qeyd: MySQL səlahiyyət adları ingilis dilində ifadə edilmişdir."
 
 #: libraries/server_privileges.lib.php:1012
 msgid "Administration"
@@ -11125,37 +11133,40 @@ msgstr "Cədvəlləri ləğv etməyə icazə verir."
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
+"Səlahiyyət cədvəllərini yenidən yükləmədən yeni istifadəçilərin və "
+"səlahiyyətlərin əlavə edilməsinə icazə verir."
 
 #: libraries/server_privileges.lib.php:1299
 #: libraries/server_privileges.lib.php:2498
 msgid "Login Information"
-msgstr "Sisteme Giriş Me'lumatı"
+msgstr "Sistemə Giriş Məlumatı"
 
 #: libraries/server_privileges.lib.php:1332
 #: libraries/server_privileges.lib.php:1520
 #: libraries/server_privileges.lib.php:2915
 msgid "Use text field"
-msgstr ""
+msgstr "Mətn sahəsi istifadə et"
 
 #: libraries/server_privileges.lib.php:1359
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
+"Hesab eyni istifadəçi adıyla mövcuddur, ancaq fərqli host adıyla ola bilər."
 
 #: libraries/server_privileges.lib.php:1510
 msgid "Do not change the password"
-msgstr "Parolu deyişdirme"
+msgstr "Parolu dəyişdirmə"
 
 #: libraries/server_privileges.lib.php:1655
 #, php-format
 msgid "The password for %s was changed successfully."
-msgstr "%s üçün parol müveffeqiyyetle deyişdirilmişdir."
+msgstr "%s üçün parol müvəffəqiyyətlə dəyişdirilmişdir."
 
 #: libraries/server_privileges.lib.php:1696
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr ""
+msgstr "%s üçün səlahiyyətləri geri aldınız."
 
 #: libraries/server_privileges.lib.php:1746
 #: libraries/server_privileges.lib.php:3822
@@ -11164,26 +11175,26 @@ msgstr "İstifadəçi əlavə et"
 
 #: libraries/server_privileges.lib.php:1755
 msgid "Database for user"
-msgstr ""
+msgstr "İstifadəçi üçün Verilənlər Bazası"
 
 #: libraries/server_privileges.lib.php:1759
 msgid "Create database with same name and grant all privileges."
-msgstr ""
+msgstr "Eyni adda baza yarat və bütün səlahiyyətləri ver."
 
 #: libraries/server_privileges.lib.php:1765
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1774
-#, fuzzy, php-format
+#, php-format
 msgid "Grant all privileges on database \"%s\"."
-msgstr "\"%s\" bazası üçün selahiyyetleri gözden keçir."
+msgstr "\"%s\" bazasındakı bütün səlahiyyətləri ver."
 
 #: libraries/server_privileges.lib.php:1873
 #: libraries/server_privileges.lib.php:1926
 #, php-format
 msgid "Users having access to \"%s\""
-msgstr ""
+msgstr "\"%s\" Bazasına girişi olan istifadəçilər"
 
 #: libraries/server_privileges.lib.php:1896
 msgid "User has been added."
@@ -11206,12 +11217,12 @@ msgstr "İcazə ver"
 
 #: libraries/server_privileges.lib.php:2044
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "İstifadəçiləri göstərmək üçün yetərsiz səlahiyyət."
 
 #: libraries/server_privileges.lib.php:2063
 #: libraries/server_privileges.lib.php:3419
 msgid "No user found."
-msgstr "İstifadəçi(lər) tapılmadı."
+msgstr "İstifadəçi tapılmadı."
 
 #: libraries/server_privileges.lib.php:2084
 #: libraries/server_privileges.lib.php:2364
@@ -11225,23 +11236,23 @@ msgstr "qlobal"
 
 #: libraries/server_privileges.lib.php:2138
 msgid "database-specific"
-msgstr "bazayaxas"
+msgstr "bazaya xas"
 
 #: libraries/server_privileges.lib.php:2140
 msgid "wildcard"
-msgstr "xüsusi işare"
+msgstr "xüsusi işarə"
 
 #: libraries/server_privileges.lib.php:2146
 msgid "table-specific"
-msgstr "Bazayaxas"
+msgstr "cədvələ xas"
 
 #: libraries/server_privileges.lib.php:2271
 msgid "Edit Privileges"
-msgstr "Selahiyyetleri Deyişdir"
+msgstr "Səlahiyyətləri Dəyişdir"
 
 #: libraries/server_privileges.lib.php:2274
 msgid "Revoke"
-msgstr ""
+msgstr "Geri al"
 
 #: libraries/server_privileges.lib.php:2298
 msgid "Edit user group"
@@ -11249,7 +11260,7 @@ msgstr "İstifadəçi qruplarını redaktə et"
 
 #: libraries/server_privileges.lib.php:2477
 msgid "… keep the old one."
-msgstr "… köhnesini saxla."
+msgstr "… köhnəsini saxla."
 
 #: libraries/server_privileges.lib.php:2478
 msgid "… delete the old one from the user tables."
@@ -11265,12 +11276,12 @@ msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"… istifadeçi cedvellerinden köhnesini sil ve ardından selahiyyetleri yeniden "
-"yükle."
+"… Köhnə olanı istifadəçi cədvəllərindən sil və ardından səlahiyyətləri "
+"yenidən yüklə."
 
 #: libraries/server_privileges.lib.php:2499
 msgid "Change Login Information / Copy User"
-msgstr "Sistem Giriş Me'lumatını Deyişdir / İstifadeçini Kopyala"
+msgstr "Sistem Giriş Məlumatını Dəyişdir / İstifadəçini Kopyala"
 
 #: libraries/server_privileges.lib.php:2505
 msgid "Create a new user with the same privileges and …"
@@ -11278,7 +11289,7 @@ msgstr "Eyni səlahiyyətlərə sahib yeni istifadəçi yarat və …"
 
 #: libraries/server_privileges.lib.php:2796
 msgid "Column-specific privileges"
-msgstr "Sütunaxas Selahiyyetler"
+msgstr "Sütuna xas Səlahiyyətlər"
 
 #: libraries/server_privileges.lib.php:2851
 #| msgid "Add privileges on the following database"
@@ -11295,11 +11306,11 @@ msgstr "Aşağıdakı cədvəl üçün səlahiyyətləri müəyyən et:"
 
 #: libraries/server_privileges.lib.php:3134
 msgid "Remove selected users"
-msgstr ""
+msgstr "Seçilən istifadəçiləri ləğv et"
 
 #: libraries/server_privileges.lib.php:3140
 msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr ""
+msgstr "İstifadəçilərdən bütün aktiv səlahiyyətləri geri al və sonra da sil."
 
 #: libraries/server_privileges.lib.php:3148
 #: libraries/server_privileges.lib.php:3154
@@ -11346,7 +11357,7 @@ msgstr "%s üçün səlahiyyətlər"
 #: libraries/server_privileges.lib.php:3814
 msgctxt "Create new user"
 msgid "New"
-msgstr ""
+msgstr "Yeni"
 
 #: libraries/server_privileges.lib.php:3843
 msgid "Edit Privileges:"
@@ -12329,10 +12340,9 @@ msgid "User group menu assignments"
 msgstr "Selahiyyet te'yin edilmedi."
 
 #: libraries/server_user_groups.lib.php:232
-#, fuzzy
 #| msgid "Column names"
 msgid "Group name:"
-msgstr "Sütun adları"
+msgstr "Qrup adı:"
 
 #: libraries/server_user_groups.lib.php:268
 #, fuzzy
@@ -12652,7 +12662,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:1640
 msgid "Propose table structure"
-msgstr "Alternativ cedvel strukturu"
+msgstr "Cədvəl strukturu təklif et"
 
 #: libraries/structure.lib.php:1655
 msgid "Improve table structure"
@@ -13701,10 +13711,10 @@ msgid "Description"
 msgstr "Açıqlama"
 
 #: url.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "Change"
 msgid "Taking you to %s."
-msgstr "Deyişdir"
+msgstr "Sizi apardığı yer %s."
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
@@ -14348,10 +14358,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:276
-#, fuzzy
 #| msgid "%s table(s)"
 msgid "Temp disk rate"
-msgstr "%s cedvel"
+msgstr "Keçici disk nisbəti"
 
 #: libraries/advisory_rules.txt:280
 msgid ""
@@ -14513,10 +14522,10 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "Sıralama buferinin (keçici yaddaşının) boyu"
 
 #: libraries/advisory_rules.txt:348
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "%s bazasında yeni cedvel qur"
+msgstr "Təcili cədvəl kilidləri %%"
 
 #: libraries/advisory_rules.txt:351 libraries/advisory_rules.txt:358
 msgid "Too many table locks were not granted immediately."
