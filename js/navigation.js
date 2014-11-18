@@ -366,7 +366,6 @@ $(function () {
         });
         // Initialize if no previous state is defined
         if (typeof storage.navTree === 'undefined') {
-            PMA_showCurrentNavigation();
             navTreeStateUpdate();
         } else if (PMA_commonParams.get('server') === storage.server &&
             PMA_commonParams.get('token') === storage.token
@@ -375,8 +374,6 @@ $(function () {
             $('#pma_navigation_tree_content').html(storage.navTree);
             $('div.pageselector.dbselector').html(storage.page);
         }
-    } else {
-        PMA_showCurrentNavigation();
     }
 });
 
