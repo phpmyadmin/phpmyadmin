@@ -59,7 +59,10 @@ phpMyAdmin - ChangeLog
 - bug #4495 Comment lines in multiquery
 - bug #4535 Loads of Warnings/Notices in PMA_getServerSlaveStatus on replication slave
 - bug #4585 Multi query results not shown
-- rfe #1556 Disabling Show all
++ rfe #1556 Disabling Show all
+- bug #4513 phpmyadmin run very slow (information_schema)
+- bug #4243 Super slow page rendering with tens of thousands of DBs
+- bug #4391 Upgraded to 4.2.0, insanely slow now
 
 4.2.12.0 (not yet released)
 - bug #4574 Blank/white page when JavaScript disabled
