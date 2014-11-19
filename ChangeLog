@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - bug #4586 Javascript error after moving a column
 - bug #4576 Issue with long comments on table columns
 - bug #4599 Input field unnecessarily selected on focus
+- bug #4602 Exporting selected rows exports all rows of the query
 
 4.2.11.0 (2014-10-31)
 - bug       ReferenceError: Table_onover is not defined
