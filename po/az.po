@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:04+0100\n"
-"PO-Revision-Date: 2014-11-18 15:45+0200\n"
+"PO-Revision-Date: 2014-11-18 20:17+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
@@ -3264,7 +3264,7 @@ msgstr "Çap görüntüsü"
 
 #: libraries/DisplayResults.class.php:5307
 msgid "Print view (with full texts)"
-msgstr ""
+msgstr "Çap görüntüsü(Tam mətn)"
 
 #: libraries/DisplayResults.class.php:5378 libraries/tbl_chart.lib.php:351
 msgid "Display chart"
@@ -4540,7 +4540,7 @@ msgstr "Adı"
 #: libraries/rte/rte_routines.lib.php:991
 #: libraries/tbl_columns_definition_form.lib.php:282
 msgid "Length/Values"
-msgstr "Uzunluq/Deyerler*"
+msgstr "Uzunluq/Dəyərlər"
 
 #: libraries/central_columns.lib.php:639
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1020
@@ -9699,7 +9699,7 @@ msgstr "İçindekiler Cedveli"
 #: libraries/structure.lib.php:1284
 #: libraries/tbl_columns_definition_form.lib.php:300
 msgid "Attributes"
-msgstr "Xüsusiyyetler"
+msgstr "Xüsusiyyətlər"
 
 #: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
 msgid ""
@@ -12608,7 +12608,7 @@ msgstr ""
 #: libraries/structure.lib.php:851 libraries/structure.lib.php:2331
 #: libraries/tbl_printview.lib.php:320
 msgid "Overhead"
-msgstr "Aşma deyeri"
+msgstr "Aşma dəyəri"
 
 #: libraries/structure.lib.php:911
 msgid "Sort"
