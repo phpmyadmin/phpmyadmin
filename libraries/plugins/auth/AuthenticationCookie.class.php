@@ -727,8 +727,8 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
-     * Encryption using phpseclib's AES
-     * (it uses mcrypt when it is available)
+     * Encryption using openssl's AES or phpseclib's AES
+     * (phpseclib uses mcrypt when it is available)
      *
      * @param string $data   original data
      * @param string $secret the secret
@@ -737,15 +737,25 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function cookieEncrypt($data, $secret)
     {
-        $cipher = new Crypt_AES(CRYPT_AES_MODE_CBC);
-        $cipher->setIV($this->_cookie_iv);
-        $cipher->setKey($secret);
-        return base64_encode($cipher->encrypt($data));
+        if (function_exists('openssl_encrypt') && PHP_VERSION_ID >= 50304) {
+            return openssl_encrypt(
+                $data,
+                'AES-128-CBC',
+                $secret,
+                0,
+                $this->_cookie_iv
+            );
+        } else {
+            $cipher = new Crypt_AES(CRYPT_AES_MODE_CBC);
+            $cipher->setIV($this->_cookie_iv);
+            $cipher->setKey($secret);
+            return base64_encode($cipher->encrypt($data));
+        }
     }
 
     /**
-     * Decryption using phpseclib's AES
-     * (it uses mcrypt when it is available)
+     * Decryption using openssl's AES or phpseclib's AES
+     * (phpseclib uses mcrypt when it is available)
      *
      * @param string $encdata encrypted data
      * @param string $secret  the secret
@@ -758,10 +768,23 @@ class AuthenticationCookie extends AuthenticationPlugin
             $this->_cookie_iv = base64_decode($_COOKIE['pma_iv'], true);
         }
 
-        $cipher = new Crypt_AES(CRYPT_AES_MODE_CBC);
-        $cipher->setIV($this->_cookie_iv);
-        $cipher->setKey($secret);
-        return $cipher->decrypt(base64_decode($encdata));
+        if (function_exists('openssl_decrypt') && PHP_VERSION_ID >= 50304) {
+            if (strlen($this->_cookie_iv) < openssl_cipher_iv_length('AES-128-CBC')) {
+                $this->createIV();
+            }
+            return openssl_decrypt(
+                $encdata,
+                'AES-128-CBC',
+                $secret,
+                0,
+                $this->_cookie_iv
+            );
+        } else {
+            $cipher = new Crypt_AES(CRYPT_AES_MODE_CBC);
+            $cipher->setIV($this->_cookie_iv);
+            $cipher->setKey($secret);
+            return $cipher->decrypt(base64_decode($encdata));
+        }
     }
 
     /**
@@ -774,8 +797,14 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function createIV()
     {
-        $cipher = new Crypt_AES(CRYPT_AES_MODE_CBC);
-        $this->_cookie_iv = crypt_random_string($cipher->block_size);
+        if (function_exists('openssl_encrypt') && PHP_VERSION_ID >= 50304) {
+            $this->_cookie_iv = openssl_random_pseudo_bytes(
+                openssl_cipher_iv_length('AES-128-CBC')
+            );
+        } else {
+            $cipher = new Crypt_AES(CRYPT_AES_MODE_CBC);
+            $this->_cookie_iv = crypt_random_string($cipher->block_size);
+        }
         $GLOBALS['PMA_Config']->setCookie(
             'pma_iv',
             base64_encode($this->_cookie_iv)
