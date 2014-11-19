@@ -38,6 +38,26 @@ if (! empty($sql_query)) {
     // Need to generate WHERE clause?
     if (isset($where_clause)) {
 
+        // If a table alias is used, get rid of it since
+        // where clauses are on real table name
+        if ($analyzed_sql[0]['table_ref'][0]['table_alias']) {
+            // Exporting seleted rows is only allowed for queries involving
+            // a single table. So we can safely assume that there is only one
+            // table in 'table_ref' array.
+            $temp_sql_array = preg_split('/\bfrom\b/i', $sql_query);
+            $sql_query = $temp_sql_array[0] . 'FROM ';
+            if (! empty($analyzed_sql[0]['table_ref'][0]['db'])) {
+                $sql_query .= PMA_Util::backquote(
+                    $analyzed_sql[0]['table_ref'][0]['db']
+                );
+                $sql_query .= '.';
+            }
+            $sql_query .= PMA_Util::backquote(
+                $analyzed_sql[0]['table_ref'][0]['table_name']
+            );
+        }
+        unset($temp_sql_array);
+
         // Regular expressions which can appear in sql query,
         // before the sql segment which remains as it is.
         $regex_array = array(
