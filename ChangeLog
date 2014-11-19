@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.4.0.0 (not yet released)
++ rfe #4057 db/table query string parameters no longer work
 
 4.3.0.0 (not yet released)
 + rfe #1502 Smart sorting for int keys
