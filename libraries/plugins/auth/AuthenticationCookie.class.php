@@ -727,6 +727,20 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
+     * Checks whether we should use openssl for encryption.
+     *
+     * @return boolean
+     */
+    private function _useOpenSSL()
+    {
+        return (
+            function_exists('openssl_encrypt')
+            && function_exists('openssl_decrypt')
+            && PHP_VERSION_ID >= 50304
+        );
+    }
+
+    /**
      * Encryption using openssl's AES or phpseclib's AES
      * (phpseclib uses mcrypt when it is available)
      *
@@ -737,7 +751,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function cookieEncrypt($data, $secret)
     {
-        if (function_exists('openssl_encrypt') && PHP_VERSION_ID >= 50304) {
+        if ($this->_useOpenSSL()) {
             return openssl_encrypt(
                 $data,
                 'AES-128-CBC',
@@ -768,7 +782,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $this->_cookie_iv = base64_decode($_COOKIE['pma_iv'], true);
         }
 
-        if (function_exists('openssl_decrypt') && PHP_VERSION_ID >= 50304) {
+        if ($this->_useOpenSSL()) {
             if (strlen($this->_cookie_iv) < openssl_cipher_iv_length('AES-128-CBC')) {
                 $this->createIV();
             }
@@ -797,7 +811,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function createIV()
     {
-        if (function_exists('openssl_encrypt') && PHP_VERSION_ID >= 50304) {
+        if ($this->_useOpenSSL()) {
             $this->_cookie_iv = openssl_random_pseudo_bytes(
                 openssl_cipher_iv_length('AES-128-CBC')
             );
