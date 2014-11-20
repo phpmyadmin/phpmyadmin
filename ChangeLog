@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.0.10.6 (not yet released)
+4.0.10.6 (2014-11-20)
 - bug #4578 [security] XSS vulnerability in table print view
 - bug #4579 [security] XSS vulnerability in zoom search page
 - bug #4594 [security] Path traversal in file inclusion of GIS factory
