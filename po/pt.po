@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-13 11:57-0500\n"
-"PO-Revision-Date: 2014-06-18 13:15+0200\n"
-"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/pt/>\n"
+"PO-Revision-Date: 2014-11-20 14:18+0200\n"
+"Last-Translator: Sandro Amaral <sandro123iv@gmail.com>\n"
+"Language-Team: Portuguese "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.1-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -26,17 +26,17 @@ msgstr ""
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "A lista central de colunas para a base de dados atual está vazia."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
 msgstr "Clique para organizar."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "A mostrar registos de %1s - %2s"
+msgstr "A mostrar registos de %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -254,15 +254,15 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "A base de dados %1$s foi copiada para %2$s."
 
 #: db_operations.php:263
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"O armazenamento da configuração do phpMyAdmin foi desactivado. Para saber "
-"porquê clique %shere%s."
+"O armazenamento da configuração do phpMyAdmin foi desactivado. %sSaiba o "
+"porquê%s."
 
 #: db_printview.php:48 db_tracking.php:83 db_tracking.php:207
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:756
@@ -600,20 +600,18 @@ msgstr ""
 "abaixo no campo \"Valor\"."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Acesso Negado!"
+msgstr "Sucesso"
 
 #: import.php:58 js/messages.php:438
 msgid "Failed"
-msgstr ""
+msgstr "Falhou"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "adições completas"
+msgstr "Parâmetros incompletos"
 
 #: import.php:166
 #, php-format
@@ -899,7 +897,7 @@ msgstr ""
 "ao transferir a configuração."
 
 #: index.php:520
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -908,13 +906,15 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "A configuração de armazenamento phpMyAdmin não está completamente "
-"configurada, algumas funcionalidades adicionais foram desactivadas. Para "
-"perceber porquê clique %saqui%s."
+"configurada, algumas funcionalidades adicionais foram desactivadas. %sSaiba "
+"porquê%s. "
 
 #: index.php:527
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"Ou, alternativamente, vá ao separador 'Operações' de qualquer base de dados "
+"para o configurar."
 
 #: index.php:572
 #, php-format
@@ -968,10 +968,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Apagando Chave Primária/Indice"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Seleccione Foreign Key"
+msgstr "Eliminando Chave estrangeira."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -994,16 +993,14 @@ msgstr ""
 "desta página antes de guardar as alterações?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Deseja realmente eliminar a pesquisa \"%s\"?"
+msgstr "Deseja realmente revogar o(s) utilizador(es) selecionado(s)?"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "envia"
+msgstr "Guardar & Fechar"
 
 #: js/messages.php:52 libraries/config/FormDisplay.tpl.php:395
 #: libraries/insert_edit.lib.php:1543 prefs_manage.php:339
@@ -1012,10 +1009,9 @@ msgid "Reset"
 msgstr "Limpa"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Seleccionar tudo"
+msgstr "Redefinir Tudo"
 
 #: js/messages.php:56
 msgid "Missing value in the form!"
@@ -1047,34 +1043,29 @@ msgid "Add %s column(s) to index"
 msgstr "Adiciona %s coluna(s) ao Índice"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Versão do servidor"
+msgstr "Criar índice de coluna única"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Versão do servidor"
+msgstr "Criar índice composto"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Composite with:"
-msgstr "Campos delimitados por"
+msgstr "Composto com:"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Adiciona %s coluna(s) ao Índice"
+msgstr "Seleciona a(s) coluna(s) para o índice."
 
 #: js/messages.php:69 libraries/structure.lib.php:1677
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to add at least one column."
-msgstr "Tem que escolher pelo menos uma coluna para mostrar"
+msgstr "Tem que adicionar pelo menos uma coluna."
 
 #: js/messages.php:72 libraries/insert_edit.lib.php:1541
 #: libraries/tbl_columns_definition_form.lib.php:145
@@ -1083,16 +1074,14 @@ msgid "Preview SQL"
 msgstr "Pré-visualização SQL"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "na pesquisa"
+msgstr "Simular pesquisa"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "Linhas afetadas:"
+msgstr "Linhas que correspondem:"
 
 #: js/messages.php:77 libraries/Util.class.php:639 libraries/sql.lib.php:454
 msgid "SQL query:"
@@ -1334,11 +1323,11 @@ msgstr "Pausar o monitor"
 
 #: js/messages.php:149 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Iniciar atualização automática"
 
 #: js/messages.php:150
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Parar atualização automática"
 
 #: js/messages.php:152
 msgid "general_log and slow_query_log are enabled."
@@ -1753,7 +1742,7 @@ msgstr "(Desativado)"
 
 #: js/messages.php:273
 msgid "Failed to get real row count."
-msgstr "Falha na leitura do número real de linhas (headers)"
+msgstr "Falha na leitura do número real de linhas."
 
 #: js/messages.php:276
 msgid "Searching"
@@ -1883,36 +1872,33 @@ msgstr "Continuar"
 #: js/messages.php:313 libraries/structure.lib.php:2160
 #: libraries/structure.lib.php:2163
 msgid "Add primary key"
-msgstr ""
+msgstr "Adicionar chave primária"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "Uma chave primária foi adicionada a %s."
+msgstr "Chave primária adicionada."
 
 #: js/messages.php:315 libraries/normalization.lib.php:174
-#, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "Relatório do acompanhamento"
+msgstr "Continuando para a próxima forma…"
 
 #: js/messages.php:316
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "A primeira forma de normalização da tabela '%s' foi concluída."
 
 #: js/messages.php:317 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
 #: libraries/normalization.lib.php:612
-#, fuzzy
 #| msgid "At End of Table"
 msgid "End of step"
-msgstr "No Fim da Tabela"
+msgstr "Fim da forma de normalização"
 
 #: js/messages.php:318
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "Segunda forma de normalização (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:319 js/messages.php:555 libraries/normalization.lib.php:264
@@ -1921,74 +1907,77 @@ msgstr "Concluído"
 
 #: js/messages.php:320
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Confirme as dependências parciais"
 
 #: js/messages.php:321
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Dependênciais parciais selecionadas:"
 
 #: js/messages.php:322
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Nota: a, b -> d,f implica que os valores das colunas a e b combinadas podem "
+"determinar os valores das colunas d e f."
 
 #: js/messages.php:323
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Nenhuma base de dados selecionada."
+msgstr "Nenhuma dependência parcial selecionada!"
 
 #: js/messages.php:325
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "Mostrar possíveis dependênciais parciais baseando nos dados da tabela"
 
 #: js/messages.php:326
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Ocultar lista de dependências parciais"
 
 #: js/messages.php:327
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Aguarde uns instantes! Isto poderá demorar alguns segundos dependendo do "
+"tamanho dos dados e do número de colunas da tabela."
 
 #: js/messages.php:328
+#, fuzzy
 msgid "Step"
-msgstr ""
+msgstr "Passo"
 
 #: js/messages.php:329
 msgid "The following actions will be performed:"
-msgstr ""
+msgstr "As seguintes ações serão executadas:"
 
 #: js/messages.php:330
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "DROP colunas %s da tabela %s"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Create the following table"
-msgstr "Todos privilégios na tabela seguinte"
+msgstr "Criar a próxima tabela"
 
 #: js/messages.php:334
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "Terceira forma de normalização (3NF)"
 
 #: js/messages.php:335
+#, fuzzy
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "Confirme as dependências transitivas"
 
 #: js/messages.php:336
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "Dependências selecionadas:"
 
 #: js/messages.php:337
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Nenhuma base de dados selecionada."
+msgstr "Nenhuma dependência selecionada!"
 
 #: js/messages.php:340 libraries/insert_edit.lib.php:1452
 #: libraries/server_variables.lib.php:157
@@ -2010,31 +1999,27 @@ msgstr "Mostrar critérios de busca"
 #, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
-msgstr "Pesquisa de tabela"
+msgstr "Pesquisa de alcance"
 
 #: js/messages.php:346
-#, fuzzy
 #| msgid "Column names"
 msgid "Column maximum:"
-msgstr "Nome dos Campos"
+msgstr "Máximo de colunas:"
 
 #: js/messages.php:347
-#, fuzzy
 #| msgid "Column names"
 msgid "Column minimum:"
-msgstr "Nome dos Campos"
+msgstr "Mínimo de colunas:"
 
 #: js/messages.php:348
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Número máximo de tabelas"
+msgstr "Valor mínimo:"
 
 #: js/messages.php:349
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Número máximo de tabelas"
+msgstr "Valor máximo:"
 
 #: js/messages.php:352
 msgid "Hide find and replace criteria"
@@ -2154,60 +2139,52 @@ msgstr ""
 "Deseja continuar?"
 
 #: js/messages.php:403
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Página número:"
+msgstr "Nome da página"
 
 #: js/messages.php:404
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Save page"
-msgstr "Seleccionar Tabelas"
+msgstr "Guardar página"
 
 #: js/messages.php:405 libraries/db_designer.lib.php:273
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "páginas livres"
+msgstr "Abrir página"
 
 #: js/messages.php:406
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Delete page"
-msgstr "Seleccionar Tabelas"
+msgstr "Eliminar página"
 
 #: js/messages.php:407 libraries/db_designer.lib.php:382
-#, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
-msgstr "Unidade"
+msgstr "Sem título"
 
 #: js/messages.php:408
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Escolha uma Página para editar"
+msgstr "Selecione uma página para continuar"
 
 #: js/messages.php:409
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "Introduza um número válido!"
+msgstr "Introduza um nome de página válido"
 
 #: js/messages.php:410
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Deseja guardar as alterações à página atual?"
 
 #: js/messages.php:411
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Página eliminada com sucesso"
 
 #: js/messages.php:412
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Editar ou exporta o esquema relacional (schema)"
+msgstr "Exporta o esquema relacional (schema)"
 
 #: js/messages.php:413
 msgid "Modifications have been saved"
@@ -2241,7 +2218,7 @@ msgstr "Arraste para re-ordenar."
 
 #: js/messages.php:423
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "Clica para ordenar resultados por esta coluna."
 
 #: js/messages.php:424
 msgid ""
@@ -2280,20 +2257,21 @@ msgstr ""
 #: js/messages.php:432
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
-"Por favor introduza uma cadeia hexadecimal válida.\n"
-"Os caracteres válidos são 0-9, A-F"
+"Por favor introduza uma cadeia hexadecimal válida. Os caracteres válidos são "
+"0-9, A-F."
 
 #: js/messages.php:433
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Deseja realmente ver todas as linhas? Grandes tabelas poderão crashar o "
+"navegador."
 
 #: js/messages.php:436
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
-msgstr "Cancelar"
+msgstr "cancelar"
 
 #: js/messages.php:437 libraries/server_status.lib.php:269
 msgid "Aborted"
@@ -2301,23 +2279,22 @@ msgstr "Abortado"
 
 #: js/messages.php:439
 msgid "Success"
-msgstr ""
+msgstr "Sucesso"
 
 #: js/messages.php:440
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Importar predefinições"
+msgstr "Importar estado"
 
 #: js/messages.php:441 libraries/navigation/Navigation.class.php:102
 msgid "Drop files here"
-msgstr ""
+msgstr "Largue ficheiros aqui"
 
 #: js/messages.php:442
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
-msgstr "Seleccionar Tabelas"
+msgstr "Selecione primeiro a base de dados"
 
 #: js/messages.php:447
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2331,10 +2308,9 @@ msgstr ""
 "Pode editar a maioria dos valores<br />com um duplo clique no valor a editar."
 
 #: js/messages.php:455
-#, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
-msgstr "Ir para a hiperligação."
+msgstr "Ir para link:"
 
 #: js/messages.php:456
 msgid "Copy column name."
@@ -2379,16 +2355,14 @@ msgstr "Mostrar items de navegação escondidos da árvore."
 
 #: js/messages.php:472 libraries/config/messages.inc.php:421
 #: libraries/navigation/NavigationTree.class.php:1235
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Personalizar o painel principal"
+msgstr "Conectar com o painel principal"
 
 #: js/messages.php:473 libraries/navigation/NavigationTree.class.php:1238
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Personalizar o painel principal"
+msgstr "Desconectar do painel principal"
 
 #: js/messages.php:476
 msgid "The requested page was not found in the history, it may have expired."
@@ -2477,16 +2451,14 @@ msgid ""
 msgstr "As suas definições estão agora a ser submetidas, por favor aguarde."
 
 #: js/messages.php:527
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Mostrar de novo aqui este comando"
+msgstr "Executar consulta novamente?"
 
 #: js/messages.php:528
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Deseja realmente eliminar a pesquisa \"%s\"?"
+msgstr "Deseja realmente eliminar este marcador?"
 
 #: js/messages.php:559
 msgctxt "Previous month"
@@ -2825,17 +2797,16 @@ msgstr "Tamanho da fonte"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:175
 msgid "Collapse"
-msgstr ""
+msgstr "Ocultar"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:177
 msgid "Expand"
-msgstr ""
+msgstr "Mostrar"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:178
-#, fuzzy
 #| msgid "in query"
 msgid "Requery"
-msgstr "na pesquisa"
+msgstr "Re-consultar"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
 #: libraries/DisplayResults.class.php:3501
@@ -2849,16 +2820,16 @@ msgid "Delete"
 msgstr "Apagar"
 
 #: libraries/Console.class.php:108
-#, fuzzy, php-format
+#, php-format
 #| msgid "New bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Novo marcador"
-msgstr[1] "Novo marcador"
+msgstr[0] "Total de %d marcador"
+msgstr[1] "Total de %d marcadores"
 
 #: libraries/Console.class.php:116
 msgid "private"
-msgstr ""
+msgstr "privado"
 
 #: libraries/Console.class.php:120 libraries/bookmark.lib.php:87
 msgid "shared"
@@ -2866,22 +2837,20 @@ msgstr "compartilhado"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "Marcador apagado com sucesso."
+msgstr "%1$s, %2$s and %3$s marcadores incluídos"
 
 #: libraries/Console.class.php:130
-#, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
-msgstr "Novo marcador"
+msgstr "Sem marcadores"
 
 #: libraries/Console.class.php:180
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Explicar SQL"
+msgstr "Explicar"
 
 #: libraries/Console.class.php:181 libraries/Util.class.php:1263
 #: libraries/sql.lib.php:487
@@ -2889,43 +2858,39 @@ msgid "Profiling"
 msgstr "Perfil"
 
 #: libraries/Console.class.php:183
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark"
-msgstr "Tabela de favoritos"
+msgstr "Marcadores"
 
 #: libraries/Console.class.php:184
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "Cache de consultas"
+msgstr "Consulta falhou"
 
 #: libraries/Console.class.php:188
 #, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Tempo de execução da consulta"
+msgstr "Tempo da consulta"
 
 #: libraries/Console.class.php:195
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "SQL caixa de Consulta"
+msgstr "Consola de Consulta SQL"
 
 #: libraries/Console.class.php:196
 msgid "Console"
-msgstr ""
+msgstr "Consola"
 
 #: libraries/Console.class.php:199 libraries/sql_query_form.lib.php:236
 #: setup/frames/index.inc.php:298
 msgid "Clear"
-msgstr ""
+msgstr "Limpar"
 
 #: libraries/Console.class.php:202
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "Histórico SQL"
+msgstr "Histórico"
 
 #: libraries/Console.class.php:205 libraries/Console.class.php:300
 #: libraries/DisplayResults.class.php:1628 libraries/TableSearch.class.php:788
@@ -2956,19 +2921,17 @@ msgid "Options"
 msgstr "Opções"
 
 #: libraries/Console.class.php:209 libraries/Console.class.php:262
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Tabela de favoritos"
+msgstr "Marcadores"
 
 #: libraries/Console.class.php:218
-#, fuzzy
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Comando SQL"
+msgstr "Use Ctrl+Enter para executar a consulta"
 
 #: libraries/Console.class.php:239
 msgid "During current session"
-msgstr ""
+msgstr "Durante a sessão atual"
 
 #: libraries/Console.class.php:266 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:741
@@ -2977,16 +2940,14 @@ msgid "Refresh"
 msgstr "Actualizar"
 
 #: libraries/Console.class.php:269
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "E"
+msgstr "Adicionar"
 
 #: libraries/Console.class.php:278
-#, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
-msgstr "Novo marcador"
+msgstr "Adicionar marcador"
 
 #: libraries/Console.class.php:282
 #, fuzzy
@@ -2995,37 +2956,33 @@ msgid "Label"
 msgstr "Etiqueta"
 
 #: libraries/Console.class.php:284
-#, fuzzy
 msgid "Target database"
-msgstr "Pesquisar na Base de Dados"
+msgstr "Base de dados destino"
 
 #: libraries/Console.class.php:287
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
-msgstr "Criar marcador"
+msgstr "Partilhar marcador"
 
 #: libraries/Console.class.php:304
-#, fuzzy
 #| msgid "Export defaults"
 msgid "Set default"
-msgstr "Exportar predefinições"
+msgstr "Definir como padrão"
 
 #: libraries/Console.class.php:308
-#, fuzzy
 #| msgid "Always send error reports"
 msgid "Always expand query messages"
-msgstr "Enviar sempre relatórios de erro"
+msgstr "Expandir sempre mensagens da consulta"
 
 #: libraries/Console.class.php:310
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "Tabela de histórico das consultas SQL"
+msgstr "Mostrar histórico da consulta no início"
 
 #: libraries/Console.class.php:312
+#, fuzzy
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Mostrar consulta a ser navegada"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1329
 #: libraries/DisplayResults.class.php:2150
@@ -3977,20 +3934,20 @@ msgid "Advisor"
 msgstr "Conselheiro"
 
 #: libraries/ServerStatusData.class.php:433
-#, fuzzy, php-format
+#, php-format
 #| msgid "per second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "por segundo"
-msgstr[1] "por segundo"
+msgstr[0] "%d segundo"
+msgstr[1] "%d segundos"
 
 #: libraries/ServerStatusData.class.php:438
-#, fuzzy, php-format
+#, php-format
 #| msgid "in use"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "em uso"
-msgstr[1] "em uso"
+msgstr[0] "$d minuto"
+msgstr[1] "%d minutos"
 
 #: libraries/StorageEngine.class.php:272
 msgid ""
