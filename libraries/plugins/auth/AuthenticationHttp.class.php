@@ -32,6 +32,17 @@ class AuthenticationHttp extends AuthenticationPlugin
      */
     public function auth()
     {
+        $response = PMA_Response::getInstance();
+        if ($response->isAjax()) {
+            $response->isSuccess(false);
+            $response->addJSON('redirect_flag', '1');
+            if (defined('TESTSUITE')) {
+                return true;
+            } else {
+                exit;
+            }
+        }
+
         /* Perform logout to custom URL */
         if (! empty($_REQUEST['old_usr'])
             && ! empty($GLOBALS['cfg']['Server']['LogoutURL'])
@@ -114,6 +125,10 @@ class AuthenticationHttp extends AuthenticationPlugin
     public function authCheck()
     {
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
+
+        if ($GLOBALS['token_provided'] && $GLOBALS['token_mismatch']) {
+            return false;
+        }
 
         // Grabs the $PHP_AUTH_USER variable whatever are the values of the
         // 'register_globals' and the 'variables_order' directives
