@@ -44,6 +44,8 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
             "en" => array("English", "US-ENGLISH"),
             "ch" => array("Chinese", "TW-Chinese")
         );
+        $GLOBALS['token_provided'] = true;
+        $GLOBALS['token_mismatch'] = false;
         $this->object = new AuthenticationHttp();
     }
 

@@ -27,6 +27,16 @@ class AuthenticationConfig extends AuthenticationPlugin
      */
     public function auth()
     {
+        $response = PMA_Response::getInstance();
+        if ($response->isAjax()) {
+            $response->isSuccess(false);
+            $response->addJSON('redirect_flag', '1');
+            if (defined('TESTSUITE')) {
+                return true;
+            } else {
+                exit;
+            }
+        }
         return true;
     }
 
@@ -37,6 +47,9 @@ class AuthenticationConfig extends AuthenticationPlugin
      */
     public function authCheck()
     {
+        if ($GLOBALS['token_provided'] && $GLOBALS['token_mismatch']) {
+            return false;
+        }
         return true;
     }
 

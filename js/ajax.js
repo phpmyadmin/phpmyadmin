@@ -443,7 +443,9 @@ var AJAX = {
             AJAX.xhr = null;
             if (parseInt(data.redirect_flag) == 1) {
                 // add one more GET param to display session expiry msg
-                window.location.href += '&session_expired=1';
+                var url = window.location.href;
+                var tokenlessUrl = url.replace(/&?token=[^&#]*/g, "");
+                window.location.href = tokenlessUrl + '&session_expired=1';
                 window.location.reload();
             }
             if (data.fieldWithError) {
