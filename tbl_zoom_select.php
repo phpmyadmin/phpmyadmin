@@ -81,7 +81,7 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
     }
     $key = array_search($field, $table_search->getColumnNames());
     $properties = $table_search->getColumnProperties($_REQUEST['it'], $key);
-    $response->addJSON('field_type', $properties['type']);
+    $response->addJSON('field_type', htmlspecialchars($properties['type']));
     $response->addJSON('field_collation', $properties['collation']);
     $response->addJSON('field_operators', $properties['func']);
     $response->addJSON('field_value', $properties['value']);
