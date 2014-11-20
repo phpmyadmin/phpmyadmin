@@ -781,11 +781,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (is_null($this->_cookie_iv)) {
             $this->_cookie_iv = base64_decode($_COOKIE['pma_iv'], true);
         }
+        if (strlen($this->_cookie_iv) < $this->getIVSize()) {
+                $this->createIV();
+        }
 
         if ($this->_useOpenSSL()) {
-            if (strlen($this->_cookie_iv) < openssl_cipher_iv_length('AES-128-CBC')) {
-                $this->createIV();
-            }
             return openssl_decrypt(
                 $encdata,
                 'AES-128-CBC',
@@ -802,6 +802,20 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
+     * Returns size of IV for encryption.
+     *
+     * @return int
+     */
+    public function getIVSize()
+    {
+        if ($this->_useOpenSSL()) {
+            return openssl_cipher_iv_length('AES-128-CBC');
+        }
+        $cipher = new Crypt_AES(CRYPT_AES_MODE_CBC);
+        return $cipher->block_size;
+    }
+
+    /**
      * Initialization
      * Store the initialization vector because it will be needed for
      * further decryption. I don't think necessary to have one iv
@@ -813,11 +827,12 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         if ($this->_useOpenSSL()) {
             $this->_cookie_iv = openssl_random_pseudo_bytes(
-                openssl_cipher_iv_length('AES-128-CBC')
+                $this->getIVSize()
             );
         } else {
-            $cipher = new Crypt_AES(CRYPT_AES_MODE_CBC);
-            $this->_cookie_iv = crypt_random_string($cipher->block_size);
+            $this->_cookie_iv = crypt_random_string(
+                $this->getIVSize()
+            );
         }
         $GLOBALS['PMA_Config']->setCookie(
             'pma_iv',
