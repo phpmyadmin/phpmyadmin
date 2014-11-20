@@ -1679,9 +1679,6 @@ input#input_import_file {
 #addColumns input[type="submit"] {
     margin-<?php echo $left; ?>: 1em;
 }
-.margin#change_column_dialog {
-    margin: 0 .5em;
-}
 
 /**
  * Indexes

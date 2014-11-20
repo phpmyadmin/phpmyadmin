@@ -77,12 +77,7 @@ function reloadFieldForm() {
 function showTableStructureEditPage(data, $msg) {
     PMA_ajaxRemoveMessage($msg);
     if (data.success) {
-        $('#page_content')
-            .empty()
-            .append(
-                $('<div id="change_column_dialog"></div>')
-                    .html(data.message)
-            );
+        $('#page_content').html(data.message);
         PMA_highlightSQL($('#page_content'));
         PMA_showHints();
         PMA_verifyColumnsProperties();
