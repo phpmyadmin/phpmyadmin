@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - bug #4444 No insert statement produced in SQL export for queries with alias
 - bug #4596 [security] XSS through exception stack
 - bug #4595 [security] Path traversal can lead to leakage of line count
+- bug #4578 [security] XSS vulnerability in table print view
 
 4.2.11.0 (2014-10-31)
 - bug       ReferenceError: Table_onover is not defined
