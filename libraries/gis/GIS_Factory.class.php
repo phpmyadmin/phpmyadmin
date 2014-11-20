@@ -33,13 +33,14 @@ class PMA_GIS_Factory
         include_once './libraries/gis/GIS_Geometry.class.php';
 
         $type_lower = strtolower($type);
+        $file = './libraries/gis/GIS_' . ucfirst($type_lower) . '.class.php';
         if (! PMA_isValid($type_lower, PMA_Util::getGISDatatypes())
-            || ! file_exists('./libraries/gis/GIS_' . ucfirst($type_lower) . '.class.php')
+            || ! file_exists($file)
         ) {
             return false;
         }
         if (include_once $file) {
-            switch(/*overload*/mb_strtoupper($type)) {
+            switch(strtoupper($type)) {
             case 'MULTIPOLYGON' :
                 return PMA_GIS_Multipolygon::singleton();
             case 'POLYGON' :
