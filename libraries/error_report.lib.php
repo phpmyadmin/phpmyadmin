@@ -279,7 +279,7 @@ function PMA_getErrorReportForm()
             . __('You may examine the data in the error report:')
             . '</p></label></div>'
             . '<pre class="report-data">'
-            . PMA_getReportData()
+            . htmlspecialchars(PMA_getReportData())
             . '</pre>';
 
     $html .= '<div class="label"><label><p>'
