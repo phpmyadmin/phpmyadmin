@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.1.14.7 (not yet released)
+4.1.14.7 (2014-11-20)
 - bug #4596 [security] XSS through exception stack
 - bug #4595 [security] Path traversal can lead to leakage of line count
 - bug #4578 [security] XSS vulnerability in table print view
