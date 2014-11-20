@@ -67,31 +67,9 @@ function reloadFieldForm() {
 }
 
 /**
- * Displays table structure edit page
- *
- * @param data data from AJAX call
- * @param $msg loading message.
- *
- * @returns void
- */
-function showTableStructureEditPage(data, $msg) {
-    PMA_ajaxRemoveMessage($msg);
-    if (data.success) {
-        $('#page_content').html(data.message);
-        PMA_highlightSQL($('#page_content'));
-        PMA_showHints();
-        PMA_verifyColumnsProperties();
-    } else {
-        PMA_ajaxShowMessage(data.error);
-    }
-}
-
-/**
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_structure.js', function () {
-    $("a.change_column_anchor.ajax").die('click');
-    $("button.change_columns_anchor.ajax, input.change_columns_anchor.ajax").die('click');
     $("a.drop_column_anchor.ajax").die('click');
     $("a.add_primary_key_anchor.ajax").die('click');
     $("a.add_index_anchor.ajax").die('click');
@@ -156,30 +134,6 @@ AJAX.registerOnload('tbl_structure.js', function () {
             }); // end $.post()
         }
     }); // end change table button "do_save_data"
-
-    /**
-     * Attach Event Handler for 'Change Column'
-     */
-    $("a.change_column_anchor.ajax").live('click', function (event) {
-        event.preventDefault();
-        var $msg = PMA_ajaxShowMessage();
-        $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
-            showTableStructureEditPage(data, $msg);
-        });
-    });
-
-    /**
-     * Attach Event Handler for 'Change multiple columns'
-     */
-    $("button.change_columns_anchor.ajax, input.change_columns_anchor.ajax").live('click', function (event) {
-        event.preventDefault();
-        var $msg = PMA_ajaxShowMessage();
-        var $form = $(this).closest('form');
-        var params = $form.serialize() + "&ajax_request=true&submit_mult=change";
-        $.post($form.prop("action"), params, function (data) {
-            showTableStructureEditPage(data, $msg);
-        });
-    });
 
     /**
      * Attach Event Handler for 'Drop Column'
@@ -502,18 +456,15 @@ AJAX.registerOnload('tbl_structure.js', function () {
     });
 
     /**
-     * Handles multi submits in table structure page such as browse, drop, primary etc.
-     * However this does not handle multiple field changes. It is handled by a seperate handler.
+     * Handles multi submits in table structure page such as change, browse, drop, primary etc.
      */
     $('body').on('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]', function (e) {
+        e.preventDefault();
         var $button = $(this);
-        if (! $button.is('.change_columns_anchor.ajax')) {
-            e.preventDefault();
-            var $form = $button.parent('form');
-            var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
-            PMA_ajaxShowMessage();
-            $.get($form.attr('action'), submitData, AJAX.responseHandler);
-        }
+        var $form = $button.parent('form');
+        var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
+        PMA_ajaxShowMessage();
+        $.get($form.attr('action'), submitData, AJAX.responseHandler);
     });
 });
 
