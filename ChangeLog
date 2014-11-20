@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #4578 [security] XSS vulnerability in table print view
 - bug #4579 [security] XSS vulnerability in zoom search page
 - bug #4594 [security] Path traversal in file inclusion of GIS factory
+- bug #4598 [security] XSS in multi submit
 
 4.1.14.6 (2014-10-21)
 - bug #4562 [security] XSS in debug SQL output
