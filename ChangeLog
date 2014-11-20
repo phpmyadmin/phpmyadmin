@@ -14,6 +14,13 @@ phpMyAdmin - ChangeLog
 - bug #4602 Exporting selected rows exports all rows of the query
 - bug #4444 No insert statement produced in SQL export for queries with alias
 - bug #4603 Field disabled when internal relations used
+- bug #4596 [security] XSS through exception stack
+- bug #4595 [security] Path traversal can lead to leakage of line count
+- bug #4578 [security] XSS vulnerability in table print view
+- bug #4579 [security] XSS vulnerability in zoom search page
+- bug #4594 [security] Path traversal in file inclusion of GIS factory
+- bug #4598 [security] XSS in multi submit
+- bug #4597 [security] XSS through pma_fontsize cookie
 
 4.2.11.0 (2014-10-31)
 - bug       ReferenceError: Table_onover is not defined

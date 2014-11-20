@@ -107,7 +107,7 @@ function PMA_getHtmlForPrintViewColumns(
             $html .= '    ' . $field_name . "\n";
         }
         $html .= '</td>';
-        $html .= '<td>' . $type . '<bdo dir="ltr"></bdo></td>';
+        $html .= '<td>' . htmlspecialchars($type) . '<bdo dir="ltr"></bdo></td>';
         $html .= '<td>';
         $html .= (($row['Null'] == '' || $row['Null'] == 'NO')
             ? __('No')
