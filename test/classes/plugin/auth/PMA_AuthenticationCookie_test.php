@@ -1027,7 +1027,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             256,
-            /*overload*/mb_strlen($result)
+            strlen($result)
         );
 
         // case 2
