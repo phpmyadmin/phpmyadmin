@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 - bug #4602 Exporting selected rows exports all rows of the query
 - bug #4444 No insert statement produced in SQL export for queries with alias
 - bug #4596 [security] XSS through exception stack
+- bug #4595 [security] Path traversal can lead to leakage of line count
 
 4.2.11.0 (2014-10-31)
 - bug       ReferenceError: Table_onover is not defined
