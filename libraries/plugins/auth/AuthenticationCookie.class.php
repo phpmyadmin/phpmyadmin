@@ -727,6 +727,20 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
+     * Checks whether we should use openssl for encryption.
+     *
+     * @return boolean
+     */
+    private function _useOpenSSL()
+    {
+        return (
+            function_exists('openssl_encrypt')
+            && function_exists('openssl_decrypt')
+            && PHP_VERSION_ID >= 50304
+        );
+    }
+
+    /**
      * Encryption using openssl's AES or phpseclib's AES
      * (phpseclib uses mcrypt when it is available)
      *
@@ -737,7 +751,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function cookieEncrypt($data, $secret)
     {
-        if (function_exists('openssl_encrypt') && PHP_VERSION_ID >= 50304) {
+        if ($this->_useOpenSSL()) {
             return openssl_encrypt(
                 $data,
                 'AES-128-CBC',
@@ -767,11 +781,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (is_null($this->_cookie_iv)) {
             $this->_cookie_iv = base64_decode($_COOKIE['pma_iv'], true);
         }
-
-        if (function_exists('openssl_decrypt') && PHP_VERSION_ID >= 50304) {
-            if (strlen($this->_cookie_iv) < openssl_cipher_iv_length('AES-128-CBC')) {
+        if (strlen($this->_cookie_iv) < $this->getIVSize()) {
                 $this->createIV();
-            }
+        }
+
+        if ($this->_useOpenSSL()) {
             return openssl_decrypt(
                 $encdata,
                 'AES-128-CBC',
@@ -788,6 +802,20 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
+     * Returns size of IV for encryption.
+     *
+     * @return int
+     */
+    public function getIVSize()
+    {
+        if ($this->_useOpenSSL()) {
+            return openssl_cipher_iv_length('AES-128-CBC');
+        }
+        $cipher = new Crypt_AES(CRYPT_AES_MODE_CBC);
+        return $cipher->block_size;
+    }
+
+    /**
      * Initialization
      * Store the initialization vector because it will be needed for
      * further decryption. I don't think necessary to have one iv
@@ -797,13 +825,14 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function createIV()
     {
-        if (function_exists('openssl_encrypt') && PHP_VERSION_ID >= 50304) {
+        if ($this->_useOpenSSL()) {
             $this->_cookie_iv = openssl_random_pseudo_bytes(
-                openssl_cipher_iv_length('AES-128-CBC')
+                $this->getIVSize()
             );
         } else {
-            $cipher = new Crypt_AES(CRYPT_AES_MODE_CBC);
-            $this->_cookie_iv = crypt_random_string($cipher->block_size);
+            $this->_cookie_iv = crypt_random_string(
+                $this->getIVSize()
+            );
         }
         $GLOBALS['PMA_Config']->setCookie(
             'pma_iv',
