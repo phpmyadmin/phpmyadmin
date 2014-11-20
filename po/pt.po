@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-13 11:57-0500\n"
-"PO-Revision-Date: 2014-11-20 14:18+0200\n"
+"PO-Revision-Date: 2014-11-20 14:21+0200\n"
 "Last-Translator: Sandro Amaral <sandro123iv@gmail.com>\n"
 "Language-Team: Portuguese "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt/>\n"
@@ -4130,10 +4130,9 @@ msgid "Replace with:"
 msgstr "Substituir por:"
 
 #: libraries/TableSearch.class.php:1370
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "como expressão regular"
+msgstr "Usar expressão regular"
 
 #: libraries/TableSearch.class.php:1472
 msgid "Find and replace - preview"
@@ -4711,6 +4710,8 @@ msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
+"O armazenamento de configurações não está preparado para a funcionalidade de "
+"lista de colunas central."
 
 #: libraries/central_columns.lib.php:264
 #, php-format
