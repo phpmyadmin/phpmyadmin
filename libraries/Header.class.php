@@ -374,6 +374,9 @@ class PMA_Header
                     $this->_scripts->addFile('config.js');
                 }
                 $retval .= $this->_scripts->getDisplay();
+                $retval .= '<noscript>';
+                $retval .= '<style>html{display:block}</style>';
+                $retval .= '</noscript>';
                 $retval .= $this->_getBodyStart();
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
                     $nav = new PMA_Navigation();

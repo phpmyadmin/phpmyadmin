@@ -1,6 +1,27 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.2.12.0 (2014-11-20)
+- bug #4574 Blank/white page when JavaScript disabled
+- bug #4577 Multi row actions cause full page reloads
+- bug       ReferenceError: targeurl is not defined
+- bug       Incorrect text/icon display in Tracking report
+- bug #4404 Recordset return from procedure display nothing
+- bug #4584 Edit dialog for routines is too long for smaller displays
+- bug #4586 Javascript error after moving a column
+- bug #4576 Issue with long comments on table columns
+- bug #4599 Input field unnecessarily selected on focus
+- bug #4602 Exporting selected rows exports all rows of the query
+- bug #4444 No insert statement produced in SQL export for queries with alias
+- bug #4603 Field disabled when internal relations used
+- bug #4596 [security] XSS through exception stack
+- bug #4595 [security] Path traversal can lead to leakage of line count
+- bug #4578 [security] XSS vulnerability in table print view
+- bug #4579 [security] XSS vulnerability in zoom search page
+- bug #4594 [security] Path traversal in file inclusion of GIS factory
+- bug #4598 [security] XSS in multi submit
+- bug #4597 [security] XSS through pma_fontsize cookie
+
 4.2.11.0 (2014-10-31)
 - bug       ReferenceError: Table_onover is not defined
 - bug #4552 Incorrect routines display for database due to case insensitive checks

@@ -118,9 +118,20 @@
   </exec>
  </target>
 
- <target name="jshint" description="Javascript checks">
-  <apply executable="jshint" output="${basedir}/build/logs/jslint.xml"  parallel="true">
-   <arg line="--config ./.jshintrc --jslint-reporter" />
+<target name="jshint" description="Javascript checks">
+  <apply executable="jshint" output="${basedir}/build/logs/jshint-jslint.xml"  parallel="true">
+   <arg line="--config ./.jshintrc --reporter=jslint" />
+   <fileset dir="${basedir}">
+    <include name="js/pmd/*.js" />
+    <include name="js/*.js" />
+    <include name="setup/*.js" />
+   </fileset>
+  </apply>
+ </target>
+
+ <target name="jshint-checkstyle" description="Javascript checks">
+  <apply executable="jshint" output="${basedir}/build/logs/jshint-checkstyle.xml"  parallel="true">
+   <arg line="--config ./.jshintrc --reporter=checkstyle" />
    <fileset dir="${basedir}">
     <include name="js/pmd/*.js" />
     <include name="js/*.js" />

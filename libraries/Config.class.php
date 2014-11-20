@@ -114,7 +114,7 @@ class PMA_Config
      */
     function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.2.11');
+        $this->set('PMA_VERSION', '4.2.12');
         /**
          * @deprecated
          */
@@ -1761,7 +1761,7 @@ class PMA_Config
         // for the case when there is no config file (this is supported)
         if (empty($current_size)) {
             if (isset($_COOKIE['pma_fontsize'])) {
-                $current_size = $_COOKIE['pma_fontsize'];
+                $current_size = htmlspecialchars($_COOKIE['pma_fontsize']);
             } else {
                 $current_size = '82%';
             }

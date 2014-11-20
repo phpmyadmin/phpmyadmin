@@ -204,9 +204,9 @@ var PMA_querywindow = (function ($, window) {
                     href != PMA_commonParams.get('pma_absolute_uri') + url
                 ) {
                     if (PMA_commonParams.get('safari_browser')) {
-                        querywindow.location.href = targeturl;
+                        querywindow.location.href = url;
                     } else {
-                        querywindow.location.replace(targeturl);
+                        querywindow.location.replace(url);
                     }
                     querywindow.focus();
                 }

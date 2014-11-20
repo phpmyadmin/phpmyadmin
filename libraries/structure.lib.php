@@ -2017,7 +2017,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         );
     }
     $html_output .= PMA_getHtmlForDistinctValueAction($url_query, $row, $titles);
-    $html_output .= '<div class="clearfloat"></div></ul></td>';
+    $html_output .= '</ul></td>';
     return $html_output;
 }
 

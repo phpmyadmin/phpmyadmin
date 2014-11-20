@@ -1808,11 +1808,20 @@ class PMA_DisplayResults
             && isset($comments_map[$fields_meta->table])
             && isset($comments_map[$fields_meta->table][$fields_meta->name])
         ) {
-            $comments = '<span class="tblcomment">'
-                . htmlspecialchars(
-                    $comments_map[$fields_meta->table][$fields_meta->name]
-                )
-                . '</span>';
+            $sanitized_comments = htmlspecialchars(
+                $comments_map[$fields_meta->table][$fields_meta->name]
+            );
+
+            $comments = '<span class="tblcomment" title="'
+                . $sanitized_comments . '">';
+            $limitChars = $GLOBALS['cfg']['LimitChars'];
+            if ($GLOBALS['PMA_String']->strlen($sanitized_comments) > $limitChars) {
+                $sanitized_comments = $GLOBALS['PMA_String']->substr(
+                    $sanitized_comments, 0, $limitChars
+                ) . '…';
+            }
+            $comments .= $sanitized_comments;
+            $comments .= '</span>';
         }
         return $comments;
     } // end of the '_getCommentForRow()' function
