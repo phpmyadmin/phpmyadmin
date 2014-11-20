@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 - bug #4596 [security] XSS through exception stack
 - bug #4595 [security] Path traversal can lead to leakage of line count
 - bug #4578 [security] XSS vulnerability in table print view
+- bug #4579 [security] XSS vulnerability in zoom search page
 
 4.2.11.0 (2014-10-31)
 - bug       ReferenceError: Table_onover is not defined
