@@ -91,7 +91,7 @@ if (isset($_REQUEST['submit_num_fields'])) {
     $regenerate = 1;
 }
 
-$foreigners = PMA_getForeigners($db, $table);
+$foreigners = PMA_getForeigners($db, $table, '', 'foreign');
 $child_references = PMA_getChildReferences($db, $table);
 for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     if (! empty($regenerate)) {

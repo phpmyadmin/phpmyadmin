@@ -98,7 +98,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
     $messages['disabled'] = '<font color="red">'   . __('Disabled') . '</font>';
 
     if (false === $GLOBALS['cfg']['Server']['pmadb']) {
-        $retval .= __('Configuration of pmadbâ€¦ ')
+        $retval .= __('Configuration of pmadb… ')
              . $messages['error']
              . PMA_Util::showDocu('setup', 'linked-tables')
              . '<br />' . "\n"
@@ -1689,7 +1689,7 @@ function PMA_checkChildForeignReferences(
             $foreigners['foreign_keys_data'] = $foreigners_full['foreign_keys_data'];
         }
     } else {
-        $foreigners = PMA_getForeigners($db, $table, $column);
+        $foreigners = PMA_getForeigners($db, $table, $column, 'foreign');
     }
     $foreigner = PMA_searchColumnInForeigners($foreigners, $column);
 
