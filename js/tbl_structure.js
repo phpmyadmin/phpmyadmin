@@ -67,6 +67,31 @@ function reloadFieldForm() {
 }
 
 /**
+ * Displays table structure edit page
+ *
+ * @param data data from AJAX call
+ * @param $msg loading message.
+ *
+ * @returns void
+ */
+function showTableStructureEditPage(data, $msg) {
+    PMA_ajaxRemoveMessage($msg);
+    if (data.success) {
+        $('#page_content')
+            .empty()
+            .append(
+                $('<div id="change_column_dialog"></div>')
+                    .html(data.message)
+            );
+        PMA_highlightSQL($('#page_content'));
+        PMA_showHints();
+        PMA_verifyColumnsProperties();
+    } else {
+        PMA_ajaxShowMessage(data.error);
+    }
+}
+
+/**
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_structure.js', function () {
@@ -144,20 +169,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage();
         $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
-            PMA_ajaxRemoveMessage($msg);
-            if (data.success) {
-                $('#page_content')
-                    .empty()
-                    .append(
-                        $('<div id="change_column_dialog" class="margin"></div>')
-                            .html(data.message)
-                    );
-                PMA_highlightSQL($('#page_content'));
-                PMA_showHints();
-                PMA_verifyColumnsProperties();
-            } else {
-                PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
-            }
+            showTableStructureEditPage(data, $msg);
         });
     });
 
@@ -170,20 +182,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var $form = $(this).closest('form');
         var params = $form.serialize() + "&ajax_request=true&submit_mult=change";
         $.post($form.prop("action"), params, function (data) {
-            PMA_ajaxRemoveMessage($msg);
-            if (data.success) {
-                $('#page_content')
-                    .empty()
-                    .append(
-                        $('<div id="change_column_dialog"></div>')
-                            .html(data.message)
-                    );
-                PMA_highlightSQL($('#page_content'));
-                PMA_showHints();
-                PMA_verifyColumnsProperties();
-            } else {
-                PMA_ajaxShowMessage(data.error);
-            }
+            showTableStructureEditPage(data, $msg);
         });
     });
 
