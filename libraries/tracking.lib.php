@@ -960,68 +960,54 @@ function PMA_deleteTrackingReportRows(&$data)
 {
     if (isset($_REQUEST['delete_ddlog'])) {
         // Delete ddlog row data
-        PMA_handleDeleteDataDefinitionsLog($data);
+        PMA_deleteFromTrackingReportLog(
+            $data,
+            'ddlog',
+            'DDL',
+            __('Tracking data definition successfully deleted')
+        );
     }
 
     if (isset($_REQUEST['delete_dmlog'])) {
         // Delete dmlog row data
-        PMA_handleDeleteDataManipulationLog($data);
+        PMA_deleteFromTrackingReportLog(
+            $data,
+            'dmlog',
+            'DML',
+            __('Tracking data manipulation successfully deleted')
+        );
     }
 }
 
 /**
- * Function to handle the delete ddlog row data
+ * Function to delete from a tracking report log 
  *
- * @param array &$data tracked data
+ * @param array  &$data     tracked data
+ * @param string $which_log ddlog|dmlog 
+ * @param string $type      DDL|DML 
+ * @param string $message   success message 
  *
- * @return void
- */
-function PMA_handleDeleteDataDefinitionsLog(&$data)
-{
-    $delete_id = $_REQUEST['delete_ddlog'];
-
-    // Only in case of valable id
-    if ($delete_id == (int)$delete_id) {
-        unset($data['ddlog'][$delete_id]);
-
-        $successfullyDeleted = PMA_Tracker::changeTrackingData(
-            $_REQUEST['db'], $_REQUEST['table'],
-            $_REQUEST['version'], 'DDL', $data['ddlog']
-        );
-        if ($successfullyDeleted) {
-            $msg = PMA_Message::success(
-                __('Tracking data definition successfully deleted')
-            );
-        } else {
-            $msg = PMA_Message::rawError(__('Query error'));
-        }
-        $msg->display();
-    }
-}
-
-/**
- * Function to handle the delete of fmlog rows
- *
- * @param array &$data tracked data
+ * @todo I don't see the success message being displayed
  *
  * @return void
  */
-function PMA_handleDeleteDataManipulationLog(&$data)
+function PMA_deleteFromTrackingReportLog(&$data, $which_log, $type, $message)
 {
-    $delete_id = $_REQUEST['delete_dmlog'];
+    $delete_id = $_REQUEST['delete_' . $which_log];
 
-    // Only in case of valable id
+    // Only in case of valid id
     if ($delete_id == (int)$delete_id) {
-        unset($data['dmlog'][$delete_id]);
+        unset($data[$which_log][$delete_id]);
 
         $successfullyDeleted = PMA_Tracker::changeTrackingData(
-            $_REQUEST['db'], $_REQUEST['table'],
-            $_REQUEST['version'], 'DML', $data['dmlog']
+            $_REQUEST['db'],
+            $_REQUEST['table'],
+            $_REQUEST['version'],
+            $type,
+            $data[$which_log]
         );
         if ($successfullyDeleted) {
-            $msg = PMA_Message::success(
-                __('Tracking data manipulation successfully deleted')
-            );
+            $msg = PMA_Message::success($message);
         } else {
             $msg = PMA_Message::rawError(__('Query error'));
         }
