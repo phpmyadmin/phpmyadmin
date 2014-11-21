@@ -709,6 +709,7 @@ function PMA_getHtmlForDataStatements($data, $filter_users,
     $filter_ts_from, $filter_ts_to, $url_params, $drop_image_or_text,
     $which_log, $header_message, $line_number, $table_id
 ) {
+    $offset = $line_number;
     $html  = '<table id="' . $table_id . '" class="data" width="100%">';
     $html .= '<thead>';
     $html .= '<tr>';
@@ -725,7 +726,7 @@ function PMA_getHtmlForDataStatements($data, $filter_users,
     foreach ($data[$which_log] as $entry) {
         $html .= PMA_getHtmlForOneStatement(
             $entry, $filter_users, $filter_ts_from, $filter_ts_to, $style,
-            $line_number, $url_params, 1, $drop_image_or_text,
+            $line_number, $url_params, $offset, $drop_image_or_text,
             'delete_' . $which_log
         );
         if ($style == 'even') {
