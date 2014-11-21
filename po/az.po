@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:04+0100\n"
-"PO-Revision-Date: 2014-11-18 20:17+0200\n"
+"PO-Revision-Date: 2014-11-21 23:38+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
@@ -583,7 +583,7 @@ msgstr "Davam"
 
 #: gis_data_editor.php:412
 msgid "Output"
-msgstr "Məhsul"
+msgstr "Çıxış"
 
 #: gis_data_editor.php:415
 msgid ""
@@ -1550,7 +1550,7 @@ msgstr "Sorğunu Analiz et"
 
 #: js/messages.php:236
 msgid "Advisor system"
-msgstr ""
+msgstr "Müşavir sistemi"
 
 #: js/messages.php:237
 msgid "Possible performance issues"
@@ -3523,7 +3523,7 @@ msgstr "Sorğu"
 #: libraries/Menu.class.php:460 libraries/Util.class.php:4109
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
-msgstr ""
+msgstr "Rutinlər"
 
 #: libraries/Menu.class.php:467 libraries/Util.class.php:4110
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
@@ -3728,7 +3728,7 @@ msgstr ""
 #: libraries/plugins/export/ExportXml.class.php:120
 #: libraries/structure.lib.php:3095
 msgid "Tables"
-msgstr "Cedveller"
+msgstr "Cədvəllər"
 
 #: libraries/ServerStatusData.class.php:202
 msgid "Transaction coordinator"
@@ -3775,7 +3775,7 @@ msgstr "Sorğu Statistikası"
 
 #: libraries/ServerStatusData.class.php:381
 msgid "All status variables"
-msgstr ""
+msgstr "Bütün status dəyişənləri"
 
 #: libraries/ServerStatusData.class.php:385
 msgid "Monitor"
@@ -3783,7 +3783,7 @@ msgstr ""
 
 #: libraries/ServerStatusData.class.php:389
 msgid "Advisor"
-msgstr ""
+msgstr "Müşavir"
 
 #: libraries/ServerStatusData.class.php:433
 #, php-format
@@ -4460,7 +4460,7 @@ msgstr "Bu qiymətdən istifadə et"
 #: libraries/server_privileges.lib.php:1010 libraries/structure.lib.php:2318
 #: libraries/tbl_printview.lib.php:304
 msgid "Data"
-msgstr "Me'lumat"
+msgstr "Məlumat"
 
 #: libraries/build_html_for_db.lib.php:48 libraries/engines/innodb.lib.php:171
 #: libraries/server_databases.lib.php:177 libraries/server_status.lib.php:185
@@ -4484,11 +4484,11 @@ msgstr "Təkrarlandı(kopyalandı)"
 #: libraries/build_html_for_db.lib.php:174
 #, php-format
 msgid "Check privileges for database \"%s\"."
-msgstr "\"%s\" bazası üçün selahiyyetleri gözden keçir."
+msgstr "\"%s\" bazası üçün səlahiyyətləri gözdən keçir."
 
 #: libraries/build_html_for_db.lib.php:179
 msgid "Check Privileges"
-msgstr "Selahiyyetleri Gözden Keçir"
+msgstr "Səlahiyyətləri Gözdən Keçir"
 
 #: libraries/central_columns.lib.php:141
 msgid ""
@@ -4835,7 +4835,7 @@ msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:393
 msgid "Apply"
-msgstr ""
+msgstr "Təsdiqlə"
 
 #: libraries/config/ServerConfigChecks.class.php:168
 msgid "You should use SSL connections if your database server supports it."
@@ -5413,7 +5413,7 @@ msgstr "Göz ardı edilmiş əlavəetmələri istifadə et"
 
 #: libraries/config/messages.inc.php:178
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Verilənləri daxil edərkən istifadə olunacaq sintaksis"
 
 #: libraries/config/messages.inc.php:179
 #: libraries/plugins/export/ExportSql.class.php:419
@@ -5749,11 +5749,11 @@ msgstr "Susmaya görə olan seçimləri fərdiləşdir"
 
 #: libraries/config/messages.inc.php:308
 msgid "Warnings"
-msgstr ""
+msgstr "Xəbərdarlıqlar"
 
 #: libraries/config/messages.inc.php:310
 msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr ""
+msgstr "phpMyAdmin tərəfindən göstərilən bəzi xəbərdarlıqları deaktiv et."
 
 #: libraries/config/messages.inc.php:312
 msgid ""
@@ -5969,11 +5969,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:413
 msgid "Maximum number of tables displayed in table list."
-msgstr ""
+msgstr "Cədvəl siyahısında göstəriləcək maksimum cədvəl sayıdır."
 
 #: libraries/config/messages.inc.php:414
 msgid "Maximum tables"
-msgstr ""
+msgstr "Maksimum cədvəllər"
 
 #: libraries/config/messages.inc.php:416
 msgid ""
@@ -6089,7 +6089,7 @@ msgstr "Verilənlər Bazası genişlənməsini deaktiv et"
 
 #: libraries/config/messages.inc.php:463
 msgid "Maximum number of recently used tables; set 0 to disable."
-msgstr ""
+msgstr "Ən çox son istifadə olunan cədvəl sayıdır; deaktiv etmək üçün 0 edin."
 
 #: libraries/config/messages.inc.php:465
 msgid "Maximum number of favorite tables; set 0 to disable."
@@ -6934,18 +6934,18 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:765 setup/frames/index.inc.php:313
 msgid "Check for latest version"
-msgstr ""
+msgstr "Son versiyanı yoxla"
 
 #: libraries/config/messages.inc.php:766
 msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr ""
+msgstr "Əsas phpMyAdmin səhifəsində son versiya yoxlamağı aktiv et."
 
 #: libraries/config/messages.inc.php:767 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:134 setup/lib/index.lib.php:147
 #: setup/lib/index.lib.php:159 setup/lib/index.lib.php:167
 #: setup/lib/index.lib.php:174
 msgid "Version check"
-msgstr ""
+msgstr "Versiya yoxlaması"
 
 #: libraries/config/messages.inc.php:768
 msgid ""
@@ -7422,7 +7422,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:379 libraries/display_export.lib.php:638
 msgid "Output:"
-msgstr ""
+msgstr "Çıxış:"
 
 #: libraries/display_export.lib.php:388 libraries/display_export.lib.php:423
 #, php-format
@@ -7455,7 +7455,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:522
 msgid "use this for future exports"
-msgstr ""
+msgstr "Bunu gələcək eksportlar üçün də istifadə et"
 
 #: libraries/display_export.lib.php:537 libraries/display_import.lib.php:179
 #: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:457
@@ -8825,7 +8825,7 @@ msgstr "Sadece quruluş"
 #: libraries/operations.lib.php:146 libraries/operations.lib.php:1003
 #: libraries/tracking.lib.php:452
 msgid "Structure and data"
-msgstr "Quruluş ve me'lumat"
+msgstr "Struktur və məlumat"
 
 #: libraries/operations.lib.php:147 libraries/operations.lib.php:1004
 #: libraries/tracking.lib.php:449
@@ -9381,7 +9381,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:385
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Verilənləri əlavə edərkən istifadə olunacaq sintaksis:"
 
 #: libraries/plugins/export/ExportSql.class.php:393
 msgid ""
@@ -9692,7 +9692,7 @@ msgstr ""
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:879
 msgid "Table of contents"
-msgstr "İçindekiler Cedveli"
+msgstr "İçindəkilər Cədvəli"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1017
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1040
@@ -10032,7 +10032,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:1613
 msgid "no description"
-msgstr "Haqqında me'lumat (description) mövcud deyildir"
+msgstr "Haqqında məlumat (description) mövcud deyildir"
 
 #: libraries/relation.lib.php:1898
 #, php-format
@@ -10706,14 +10706,14 @@ msgid "You do not have the necessary privileges to create a routine"
 msgstr "Burada olma haqqınız yoxdur!"
 
 #: libraries/rte/rte_words.lib.php:34
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "Me'lumat bazasında cedvel yoxdur."
+msgstr "%1$s bazasında %2$s adında rutin tapılmadı"
 
 #: libraries/rte/rte_words.lib.php:35
 msgid "There are no routines to display."
-msgstr ""
+msgstr "Göstəriləcək rutin yoxdur."
 
 #: libraries/rte/rte_words.lib.php:41
 msgid "Add trigger"
@@ -10913,12 +10913,12 @@ msgstr ""
 #: libraries/server_privileges.lib.php:296
 #: libraries/server_privileges.lib.php:1079 server_privileges.php:63
 msgid "Allows deleting data."
-msgstr "Me'lumat silmeye icaze verir."
+msgstr "Məlumat silməyə icazə verir."
 
 #: libraries/server_privileges.lib.php:301
 #: libraries/server_privileges.lib.php:1105 server_privileges.php:57
 msgid "Allows creating new databases and tables."
-msgstr "Yeni bazalar ve cedveller qurmağa icaze verir."
+msgstr "Yeni bazalar ve cədvəllər qurmağa icazə verir."
 
 #: libraries/server_privileges.lib.php:306
 #: libraries/server_privileges.lib.php:1117 server_privileges.php:64
@@ -10980,7 +10980,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:360
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:60
 msgid "Allows creating temporary tables."
-msgstr "Keçici cedveller qurmağa icaze verir."
+msgstr "Keçici cədvəllər qurmağa icazə verir."
 
 #: libraries/server_privileges.lib.php:365
 #: libraries/server_privileges.lib.php:1214 server_privileges.php:74
@@ -11023,15 +11023,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:412
 #: libraries/server_privileges.lib.php:1131 server_privileges.php:58
-#, fuzzy
 msgid "Allows creating stored routines."
-msgstr "Yeni cedveller qurmağa icaze verir."
+msgstr "Saxlanan rutinlər yaratmağa icazə verir."
 
 #: libraries/server_privileges.lib.php:417
 #: libraries/server_privileges.lib.php:1135 server_privileges.php:56
-#, fuzzy
 msgid "Allows altering and dropping stored routines."
-msgstr "Allows creating and dropping indexes."
+msgstr ""
+"Saxlanan rutinlərinlərin dəyişdirilməsinə və ləğv edilməsinə icazə verir."
 
 #: libraries/server_privileges.lib.php:422
 #: libraries/server_privileges.lib.php:1231 server_privileges.php:61
@@ -11041,7 +11040,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:427
 #: libraries/server_privileges.lib.php:1137 server_privileges.php:67
 msgid "Allows executing stored routines."
-msgstr ""
+msgstr "Saxlanan rutinlərin icra edilməsinə icazə verir."
 
 #: libraries/server_privileges.lib.php:475
 #: libraries/server_privileges.lib.php:476
@@ -11123,7 +11122,7 @@ msgstr "Verilənlər Bazasına Məxsus Səlahiyyətlər"
 
 #: libraries/server_privileges.lib.php:1106 server_privileges.php:59
 msgid "Allows creating new tables."
-msgstr "Yeni cedveller qurmağa icaze verir."
+msgstr "Yeni cədvəllər qurmağa icazə verir."
 
 #: libraries/server_privileges.lib.php:1118 server_privileges.php:65
 msgid "Allows dropping tables."
@@ -11654,7 +11653,7 @@ msgstr "Komanda Tipi"
 #: libraries/server_status_queries.lib.php:33
 #, php-format
 msgid "Questions since startup: %s"
-msgstr ""
+msgstr "Başlanğıcdan bəri suallar: %s"
 
 #: libraries/server_status_queries.lib.php:44
 msgid "per hour:"
@@ -11680,7 +11679,7 @@ msgstr ""
 #: libraries/server_status_variables.lib.php:39
 #: libraries/server_variables.lib.php:185
 msgid "Filters"
-msgstr ""
+msgstr "Filtrlər"
 
 #: libraries/server_status_variables.lib.php:44
 #: libraries/server_variables.lib.php:187
@@ -11696,7 +11695,7 @@ msgstr "Cedvelleri göster"
 
 #: libraries/server_status_variables.lib.php:57
 msgid "Filter by category…"
-msgstr ""
+msgstr "Kateqoriyaya görə filtrlə…"
 
 #: libraries/server_status_variables.lib.php:78
 #, fuzzy
@@ -13293,9 +13292,8 @@ msgid "Data definition statement"
 msgstr ""
 
 #: libraries/tracking.lib.php:716
-#, fuzzy
 msgid "Date"
-msgstr "Me'lumat"
+msgstr "Tarix"
 
 #: libraries/tracking.lib.php:717
 msgid "Username"
@@ -14328,10 +14326,9 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:269
-#, fuzzy
 #| msgid "Table of contents"
 msgid "Percentage of temp tables on disk"
-msgstr "İçindekiler Cedveli"
+msgstr "Diskdəki keçici cədvəllərin faizi"
 
 #: libraries/advisory_rules.txt:272 libraries/advisory_rules.txt:279
 msgid ""
@@ -14659,10 +14656,9 @@ msgid "Percentage of aborted connections"
 msgstr "Dayandırılmış əlaqələrin faizi"
 
 #: libraries/advisory_rules.txt:402 libraries/advisory_rules.txt:409
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many connections are aborted."
-msgstr "Keçici cedveller qurmağa icaze verir."
+msgstr "Çox sayda əlaqələr dayandırılıdı."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
 msgid ""
@@ -14689,16 +14685,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:413
-#, fuzzy
 #| msgid "Table of contents"
 msgid "Percentage of aborted clients"
-msgstr "İçindekiler Cedveli"
+msgstr "Dayandırılan kliyentlərin faizi"
 
 #: libraries/advisory_rules.txt:416 libraries/advisory_rules.txt:423
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many clients are aborted."
-msgstr "Keçici cedveller qurmağa icaze verir."
+msgstr "Çoxlu kliyent dayandırıldı."
 
 #: libraries/advisory_rules.txt:417 libraries/advisory_rules.txt:424
 msgid ""
