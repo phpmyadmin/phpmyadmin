@@ -53,6 +53,7 @@ if (! empty($_REQUEST['target'])
     exit;
 }
 
+// See FAQ 1.34
 if (! empty($_REQUEST['db'])) {
     $page = null;
     if (! empty($_REQUEST['table'])) {
