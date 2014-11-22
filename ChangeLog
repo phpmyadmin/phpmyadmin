@@ -68,6 +68,7 @@ phpMyAdmin - ChangeLog
 + rfe #1537 PHP OpenSSL support for cookie encryption/decryption
 
 4.2.13.0 (not yet released)
+- bug #4604 Query history not being deleted
 
 4.2.12.0 (2014-11-20)
 - bug #4574 Blank/white page when JavaScript disabled

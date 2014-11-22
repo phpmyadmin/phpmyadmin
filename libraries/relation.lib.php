@@ -969,6 +969,9 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
                NOW(),
                \'' . PMA_Util::sqlAddSlashes($sqlquery) . '\')'
     );
+
+    PMA_purgeHistory($username);
+
 } // end of 'PMA_setHistory()' function
 
 /**
