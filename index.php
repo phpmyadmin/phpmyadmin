@@ -57,6 +57,7 @@ if (isset($_REQUEST['ajax_request']) && ! empty($_REQUEST['access_time'])) {
     exit;
 }
 
+// See FAQ 1.34
 if (! empty($_REQUEST['db'])) {
     $page = null;
     if (! empty($_REQUEST['table'])) {
