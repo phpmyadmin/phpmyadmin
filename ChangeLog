@@ -69,6 +69,7 @@ phpMyAdmin - ChangeLog
 
 4.2.13.0 (not yet released)
 - bug #4604 Query history not being deleted
+- bug #4057 db/table query string parameters no longer work
 
 4.2.12.0 (2014-11-20)
 - bug #4574 Blank/white page when JavaScript disabled
