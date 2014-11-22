@@ -56,6 +56,18 @@ if (! empty($_REQUEST['target'])
 if (isset($_REQUEST['ajax_request']) && ! empty($_REQUEST['access_time'])) {
     exit;
 }
+
+if (! empty($_REQUEST['db'])) {
+    $page = null;
+    if (! empty($_REQUEST['table'])) {
+        $page = $GLOBALS['cfg']['DefaultTabTable'];
+    } else {
+        $page = $GLOBALS['cfg']['DefaultTabDatabase'];
+    }
+    include $page;
+    exit;
+}
+
 /**
  * Check if it is an ajax request to reload the recent tables list.
  */
