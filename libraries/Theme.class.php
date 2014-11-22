@@ -323,14 +323,14 @@ class PMA_Theme
     {
         if (is_null($file)) {
             return $this->img_path;
-        } else {
-            if (is_readable($this->img_path . $file)) {
-                return $this->img_path . $file;
-            } else {
-                return $GLOBALS['cfg']['ThemePath'] . '/'
-                    . PMA_Theme_Manager::FALLBACK_THEME . '/img/' . $file;
-            }
         }
+
+        if (is_readable($this->img_path . $file)) {
+            return $this->img_path . $file;
+        }
+
+        return $GLOBALS['cfg']['ThemePath'] . '/'
+            . PMA_Theme_Manager::FALLBACK_THEME . '/img/' . $file;
     }
 
     /**
