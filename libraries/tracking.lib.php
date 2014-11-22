@@ -606,7 +606,7 @@ function PMA_getHtmlForDataManipulationStatements($data, $filter_users,
     // no need for the secondth returned parameter
     list($html,) = PMA_getHtmlForDataStatements(
         $data, $filter_users, $filter_ts_from, $filter_ts_to, $url_params,
-        $drop_image_or_text, 'dmlog', __('Data manipulation statement'), 
+        $drop_image_or_text, 'dmlog', __('Data manipulation statement'),
         $ddlog_count, 'dml_versions'
     );
 
@@ -682,7 +682,7 @@ function PMA_getHtmlForDataDefinitionStatements($data, $filter_users,
 ) {
     list($html, $line_number) = PMA_getHtmlForDataStatements(
         $data, $filter_users, $filter_ts_from, $filter_ts_to, $url_params,
-        $drop_image_or_text, 'ddlog', __('Data definition statement'), 
+        $drop_image_or_text, 'ddlog', __('Data definition statement'),
         1, 'ddl_versions'
     );
 
@@ -980,12 +980,12 @@ function PMA_deleteTrackingReportRows(&$data)
 }
 
 /**
- * Function to delete from a tracking report log 
+ * Function to delete from a tracking report log
  *
  * @param array  &$data     tracked data
- * @param string $which_log ddlog|dmlog 
- * @param string $type      DDL|DML 
- * @param string $message   success message 
+ * @param string $which_log ddlog|dmlog
+ * @param string $type      DDL|DML
+ * @param string $message   success message
  *
  * @todo I don't see the success message being displayed
  *
