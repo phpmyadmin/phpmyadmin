@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:04+0100\n"
-"PO-Revision-Date: 2014-11-21 23:38+0200\n"
+"PO-Revision-Date: 2014-11-22 22:43+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
@@ -717,7 +717,7 @@ msgstr "Parolu Dəyişdir"
 
 #: index.php:189
 msgid "Server connection collation"
-msgstr ""
+msgstr "Server qoşulma qarşılaşdırması"
 
 #: index.php:211
 msgid "Appearance Settings"
@@ -791,7 +791,7 @@ msgstr "Wiki"
 
 #: index.php:384
 msgid "Official Homepage"
-msgstr "phpMyAdmin Resmi İnternet Sehifesi"
+msgstr "phpMyAdmin Rəsmi İnternet Səhifəsi"
 
 #: index.php:391
 msgid "Contribute"
@@ -3348,7 +3348,7 @@ msgstr "Git informasiyası yoxdur!"
 #: libraries/Footer.class.php:185 libraries/Footer.class.php:189
 #: libraries/Footer.class.php:192
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "Yeni phpMyAdmin pəncərəsi aç"
 
 #: libraries/Header.class.php:427
 msgid "Click on the bar to scroll to top of page"
@@ -3361,7 +3361,7 @@ msgstr "Bu hissəni keçmək üçün Javascript aktiv olmalıdır!"
 
 #: libraries/Index.class.php:537
 msgid "No index defined!"
-msgstr "İndeks te'yin edilmedi!"
+msgstr "İndeks təyin edilmədi!"
 
 #: libraries/Index.class.php:542 libraries/Index.class.php:553
 #: libraries/build_html_for_db.lib.php:43 libraries/index.lib.php:25
@@ -5338,7 +5338,7 @@ msgstr "MIME-tipi"
 #: libraries/config/messages.inc.php:136 libraries/config/messages.inc.php:149
 #: libraries/config/messages.inc.php:183 libraries/tbl_relation.lib.php:186
 msgid "Relations"
-msgstr "Relations"
+msgstr "Əlaqələr"
 
 #: libraries/config/messages.inc.php:142
 msgid "Export method"
@@ -7643,7 +7643,7 @@ msgstr ""
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:97
 msgid "Language"
-msgstr ""
+msgstr "Dil"
 
 #: libraries/engines/bdb.lib.php:28
 msgid "Version information"
@@ -9474,7 +9474,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:1642
 msgid "RELATIONS FOR TABLE"
-msgstr ""
+msgstr "Cədvəl Əlaqələri"
 
 #: libraries/plugins/export/ExportSql.class.php:1805
 msgid "It appears your table uses triggers;"
@@ -9897,10 +9897,9 @@ msgid "Internal relation has been added."
 msgstr "Daxili əlaqə əlavə edildi."
 
 #: libraries/pmd_common.php:577
-#, fuzzy
 #| msgid "File could not be read"
 msgid "Error: Internal relation could not be added!"
-msgstr "Fayl oxuna bilmir"
+msgstr "Xəta: Daxili əlaqə əlavə edilmədi!"
 
 #: libraries/pmd_common.php:618
 #, fuzzy
@@ -9915,16 +9914,14 @@ msgid "Error: FOREIGN KEY relation could not be removed!"
 msgstr "Fayl oxuna bilmir"
 
 #: libraries/pmd_common.php:651
-#, fuzzy
 #| msgid "File could not be read"
 msgid "Error: Internal relation could not be removed!"
-msgstr "Fayl oxuna bilmir"
+msgstr "Xəta: Daxili əlaqə ləğv edilə bilmədi!"
 
 #: libraries/pmd_common.php:655
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relation has been removed."
-msgstr "Daxili əlaqə əlavə edildi."
+msgstr "Daxili əlaqə ləğv edildi."
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -11441,7 +11438,7 @@ msgstr ""
 
 #: libraries/server_status.lib.php:242
 msgid "Failed attempts"
-msgstr "Uğursuz Cehdler"
+msgstr "Uğursuz Cəhdlər"
 
 #: libraries/server_status_advisor.lib.php:23
 msgid "Instructions"
@@ -12675,11 +12672,11 @@ msgstr "%s sütunu əlavə et"
 
 #: libraries/structure.lib.php:1711
 msgid "At End of Table"
-msgstr "Cedvelin sonuna"
+msgstr "Cədvəlin sonuna"
 
 #: libraries/structure.lib.php:1712
 msgid "At Beginning of Table"
-msgstr "Cedvelin başına"
+msgstr "Cədvəlin başına"
 
 #: libraries/structure.lib.php:1713
 #, php-format
@@ -12692,7 +12689,7 @@ msgstr "Sətir Statistikası"
 
 #: libraries/structure.lib.php:1812 libraries/tbl_printview.lib.php:182
 msgid "static"
-msgstr ""
+msgstr "statik"
 
 #: libraries/structure.lib.php:1814 libraries/tbl_printview.lib.php:184
 msgid "dynamic"
@@ -12700,7 +12697,7 @@ msgstr "dinamik"
 
 #: libraries/structure.lib.php:1825
 msgid "partitioned"
-msgstr ""
+msgstr "bölündü"
 
 #: libraries/structure.lib.php:1862 libraries/tbl_printview.lib.php:205
 msgid "Row length"
@@ -12712,7 +12709,7 @@ msgstr "Sıra boyu"
 
 #: libraries/structure.lib.php:1883 libraries/tbl_printview.lib.php:228
 msgid "Next autoindex"
-msgstr ""
+msgstr "Növbəti avtoindeks"
 
 #: libraries/structure.lib.php:2010 libraries/structure.lib.php:2088
 #: libraries/structure.lib.php:2094 libraries/structure.lib.php:2109
@@ -12726,10 +12723,9 @@ msgid "A primary key has been added on %s."
 msgstr "%s üzərinə Birinci Dərəcəli Açar əlavə edildi."
 
 #: libraries/structure.lib.php:2157 libraries/structure.lib.php:2228
-#, fuzzy
 #| msgid "Session value"
 msgid "Distinct values"
-msgstr "Fərqli qiymətlər"
+msgstr "Fərdi qiymətlər"
 
 #: libraries/structure.lib.php:2166 libraries/structure.lib.php:2169
 msgid "Add index"
@@ -12737,7 +12733,7 @@ msgstr "İndeks əlavə et"
 
 #: libraries/structure.lib.php:2172 libraries/structure.lib.php:2175
 msgid "Add unique index"
-msgstr ""
+msgstr "Unikal indeks əlavə et"
 
 #: libraries/structure.lib.php:2178 libraries/structure.lib.php:2181
 #, fuzzy
@@ -12747,11 +12743,11 @@ msgstr "Yeni sahe elave et"
 
 #: libraries/structure.lib.php:2184 libraries/structure.lib.php:2187
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "FULLTEXT indeksi əlavə et"
 
 #: libraries/structure.lib.php:2314
 msgid "Space usage"
-msgstr "Yer istifadesi"
+msgstr "Yer istifadəsi"
 
 #: libraries/structure.lib.php:2334 libraries/tbl_printview.lib.php:327
 msgid "Effective"
@@ -12775,7 +12771,7 @@ msgstr "Sütunlar uğurlu şəkildə daşındı."
 #: libraries/structure.lib.php:2777
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
-msgstr ""
+msgstr "Sütün adı  '%s' MySQL'ə ayrılmış açar kəlimədir."
 
 #: libraries/structure.lib.php:2906
 msgid "Add to Favorites"
@@ -12802,7 +12798,7 @@ msgstr "Sütun"
 #: libraries/tbl_chart.lib.php:45
 msgctxt "Chart type"
 msgid "Line"
-msgstr ""
+msgstr "Xətt"
 
 #: libraries/tbl_chart.lib.php:47
 msgctxt "Chart type"
@@ -12812,7 +12808,7 @@ msgstr "Əyri"
 #: libraries/tbl_chart.lib.php:50
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Sahə"
 
 #: libraries/tbl_chart.lib.php:53
 msgctxt "Chart type"
@@ -12835,7 +12831,7 @@ msgstr ""
 
 #: libraries/tbl_chart.lib.php:100
 msgid "X-Axis:"
-msgstr ""
+msgstr "X-Oxu:"
 
 #: libraries/tbl_chart.lib.php:133
 msgid "Series:"
@@ -12843,17 +12839,16 @@ msgstr "Ardıcıllıq:"
 
 #: libraries/tbl_chart.lib.php:208
 msgid "X-Axis label:"
-msgstr ""
+msgstr "X-Oxu nişanı:"
 
 #: libraries/tbl_chart.lib.php:211
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "Deyer"
+msgstr "X Dəyəri"
 
 #: libraries/tbl_chart.lib.php:213
 msgid "Y-Axis label:"
-msgstr ""
+msgstr "Y-Oxu nişanı:"
 
 #: libraries/tbl_chart.lib.php:237
 msgid "Series names are in a column"
@@ -12893,7 +12888,7 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:165
 msgid "Table name"
-msgstr ""
+msgstr "Cədvəl adı"
 
 #: libraries/tbl_columns_definition_form.lib.php:285
 #, fuzzy
@@ -12922,16 +12917,14 @@ msgstr ""
 "dırnaqdan istifade etmeyin, bu formatı te'qib edin: a"
 
 #: libraries/tbl_columns_definition_form.lib.php:314
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Move column"
-msgstr "Sahe Sütunlarını Elave Et/Sil"
+msgstr "Sütunları daşı"
 
 #: libraries/tbl_columns_definition_form.lib.php:322
-#, fuzzy
 #| msgid "Available transformations"
 msgid "List of available transformations and their options"
-msgstr "Mövcud transformasiyalar"
+msgstr "Mövcud transformasiyalar və seçimlərinin siyahısı"
 
 #: libraries/tbl_columns_definition_form.lib.php:327
 msgid ""
@@ -12963,7 +12956,7 @@ msgstr "Transformasiya variantları"
 #, fuzzy
 #| msgid "Information"
 msgid "Input transformation"
-msgstr "İnformasiya"
+msgstr "Daxil edilən transformasiyaları"
 
 #: libraries/tbl_columns_definition_form.lib.php:342
 #, fuzzy
@@ -12987,20 +12980,19 @@ msgstr "Cedveli yeniden adlandır"
 
 #: libraries/tbl_columns_definition_form.lib.php:802
 msgid "first"
-msgstr ""
+msgstr "İlk"
 
 #: libraries/tbl_columns_definition_form.lib.php:811
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
-msgstr "Sonra: %s"
+msgstr "%s sonrasına"
 
 #: libraries/tbl_columns_definition_form.lib.php:1083
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "ENUM/SET dəyərlərini redaktə et"
 
 #: libraries/tbl_columns_definition_form.lib.php:1108
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
@@ -13013,7 +13005,7 @@ msgstr ""
 #: libraries/tbl_common.inc.php:54
 #, php-format
 msgid "Tracking of %s is activated."
-msgstr ""
+msgstr "%s izləmə aktiv edildi."
 
 #: libraries/tbl_gis_visualization.lib.php:65
 msgid "No data found for GIS visualization."
@@ -13108,20 +13100,20 @@ msgid "Space usage:"
 msgstr "Yer istifadesi"
 
 #: libraries/tbl_relation.lib.php:232
-#, fuzzy
 msgid "Internal relations"
-msgstr "Ümumi elaqe variantları"
+msgstr "Daxili əlaqələr"
 
 #: libraries/tbl_relation.lib.php:237
-#, fuzzy
 msgid "Internal relation"
-msgstr "Ümumi elaqe variantları"
+msgstr "Daxili əlaqə"
 
 #: libraries/tbl_relation.lib.php:241
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
+"FOREIGN KEY bağlantısının yerini tutan bir bağlantı varkən daxili bağlantı "
+"yaratmaq mümkün deyildir."
 
 #: libraries/tbl_relation.lib.php:371
 msgid "Foreign key constraints"
@@ -13171,10 +13163,9 @@ msgid "+ Add column"
 msgstr "Sütun əlavə et"
 
 #: libraries/tbl_relation.lib.php:674
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display:"
-msgstr "Gösterilecek Saheni Seç"
+msgstr "Göstərmək üçün sütun seçin:"
 
 #: libraries/tbl_relation.lib.php:816
 #, fuzzy
@@ -13183,10 +13174,9 @@ msgid "Display column was successfully updated."
 msgstr "Thread %s uğurla söndürüldü (killed)."
 
 #: libraries/tbl_relation.lib.php:900
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relations were successfully updated."
-msgstr "Daxili əlaqə əlavə edildi."
+msgstr "Daxili əlaqələr uğurla yeniləndi."
 
 #: libraries/tbl_relation.lib.php:1165
 #, php-format
@@ -13207,27 +13197,26 @@ msgid "Track these data manipulation statements:"
 msgstr ""
 
 #: libraries/tracking.lib.php:135
-#, fuzzy
 msgid "Create version"
-msgstr "Server versiyası"
+msgstr "Versiya yarat"
 
 #: libraries/tracking.lib.php:163
 #, php-format
 msgid "Activate tracking for %s"
-msgstr ""
+msgstr "%s üçün izləməni aktiv et"
 
 #: libraries/tracking.lib.php:165
 msgid "Activate now"
-msgstr ""
+msgstr "İndi aktivləşdir"
 
 #: libraries/tracking.lib.php:168
 #, php-format
 msgid "Deactivate tracking for %s"
-msgstr ""
+msgstr "%s üçün izləməni deaktiv et"
 
 #: libraries/tracking.lib.php:170
 msgid "Deactivate now"
-msgstr ""
+msgstr "İndi deaktivləşdir"
 
 #: libraries/tracking.lib.php:344 libraries/tracking.lib.php:1304
 msgid "active"
@@ -13239,23 +13228,21 @@ msgstr "aktiv deyil"
 
 #: libraries/tracking.lib.php:360
 msgid "Show versions"
-msgstr ""
+msgstr "Versiyaları göstər"
 
 #: libraries/tracking.lib.php:389
 msgid "Tracking statements"
-msgstr ""
+msgstr "İzləmə ifadələri"
 
 #: libraries/tracking.lib.php:401
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data row from report"
-msgstr "Allows inserting and replacing data."
+msgstr "Hesabatdan izlənən verilən sətirini sil"
 
 #: libraries/tracking.lib.php:412
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
+msgstr "Verilən yoxdur"
 
 #: libraries/tracking.lib.php:501 libraries/tracking.lib.php:550
 #, php-format
