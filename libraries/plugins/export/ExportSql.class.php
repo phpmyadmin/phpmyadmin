@@ -1361,13 +1361,15 @@ class ExportSql extends ExportPlugin
                         )
                         . $this->_exportComment();
                     }
-                    $sql_indexes_query .= 'ALTER TABLE '
+                    $sql_indexes_query_start = 'ALTER TABLE '
                     . PMA_Util::backquoteCompat($table_alias, $compat)
                     . $crlf;
+                    $sql_indexes_query .= $sql_indexes_query_start;
 
-                    $sql_indexes .= 'ALTER TABLE '
+                    $sql_indexes_start = 'ALTER TABLE '
                     . PMA_Util::backquoteCompat($table_alias,  $compat)
                     . $crlf;
+                    $sql_indexes .= $sql_indexes_start;
                 }
                 if ($update_indexes_increments && preg_match(
                     '@AUTO_INCREMENT@',
@@ -1463,6 +1465,7 @@ class ExportSql extends ExportPlugin
                     );
 
                     $first = true;
+                    $sql_index_ended = false;
                     for ($j = $first_occur; $j < $sql_count; $j++) {
                         //removes extra space at the beginning, if there is
                         $sql_lines[$j]=ltrim($sql_lines[$j], ' ');
@@ -1515,9 +1518,36 @@ class ExportSql extends ExportPlugin
                             $sql_lines[$j]
                         )) {
                             //if it's a index
+
+                            // if index query was terminated earlier
+                            if ($sql_index_ended) {
+                                // start a new query with ALTER TABLE
+                                $sql_indexes .= $sql_indexes_start;
+                                $sql_indexes_query .= $sql_indexes_query_start;
+
+                                $sql_index_ended = false;
+                            }
+
                             $tmp_str = " ADD " . $sql_lines[$j];
                             $sql_indexes_query .= $tmp_str;
                             $sql_indexes .= $tmp_str;
+
+                            // InnoDB supports one FULLTEXT index creation at a time
+                            // So end the query and start over
+                            if ($update_indexes_increments && preg_match(
+                                '@FULLTEXT KEY[\s]+@',
+                                $sql_lines[$j]
+                            )) {
+                                //removes superfluous comma at the end
+                                $sql_indexes = rtrim($sql_indexes, ',');
+                                $sql_indexes_query = rtrim($sql_indexes_query, ',');
+
+                                // add ending semicolon
+                                $sql_indexes .= ';' . $crlf;
+                                $sql_indexes_query .= ';' . $crlf;
+
+                                $sql_index_ended = true;
+                            }
                         } else {
                             break;
                         }
@@ -1530,7 +1560,7 @@ class ExportSql extends ExportPlugin
                         $sql_constraints .= ';' . $crlf;
                         $sql_constraints_query .= ';';
                     }
-                    if ($has_indexes == 1) {
+                    if ($has_indexes == 1 && ! $sql_index_ended) {
                         $sql_indexes .= ';' . $crlf;
                         $sql_indexes_query .= ';';
                     }
