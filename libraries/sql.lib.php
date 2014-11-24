@@ -1887,9 +1887,7 @@ function PMA_getHtmlForPrintButton()
  * @param string     $message              message to show
  * @param array      $sql_data             sql data
  * @param object     $displayResultsObject Instance of DisplayResults.class
- * @param string     $goto                 goto page url
  * @param string     $pmaThemeImage        uri of the theme image
- * @param string     $sql_limit_to_append  sql limit to append
  * @param int        $unlim_num_rows       unlimited number of rows
  * @param int        $num_rows             number of rows
  * @param string     $full_sql_query       full sql query
@@ -1908,7 +1906,7 @@ function PMA_getHtmlForPrintButton()
  */
 function PMA_getQueryResponseForResultsReturned($result,
     $analyzed_sql_results, $db, $table, $disp_mode, $message, $sql_data,
-    $displayResultsObject, $goto, $pmaThemeImage, $sql_limit_to_append,
+    $displayResultsObject, $pmaThemeImage,
     $unlim_num_rows, $num_rows,  $full_sql_query, $disp_query,
     $disp_message, $profiling_results, $query_type, $selectedTables, $sql_query,
     $complete_query
@@ -2204,9 +2202,7 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
             isset($message) ? $message : null,
             isset($sql_data) ? $sql_data : null,
             $displayResultsObject,
-            $goto,
             $pmaThemeImage,
-            $sql_limit_to_append,
             $unlim_num_rows,
             $num_rows,
             $full_sql_query,
