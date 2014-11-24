@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:04+0100\n"
-"PO-Revision-Date: 2014-11-22 22:43+0200\n"
+"PO-Revision-Date: 2014-11-23 23:12+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
@@ -3021,7 +3021,7 @@ msgstr[1] "<strong>%2$s</strong> cədvəlində %1$s uyğunluq"
 #: libraries/navigation/Nodes/Node_Table.class.php:60
 #: libraries/structure.lib.php:1475
 msgid "Browse"
-msgstr "İçindekiler"
+msgstr "Göz at"
 
 #: libraries/DbSearch.class.php:361
 #, php-format
@@ -8820,7 +8820,7 @@ msgstr "Verilənlər Bazasını sil(DROP)"
 #: libraries/operations.lib.php:145 libraries/operations.lib.php:1002
 #: libraries/tracking.lib.php:446
 msgid "Structure only"
-msgstr "Sadece quruluş"
+msgstr "Sadəcə struktur"
 
 #: libraries/operations.lib.php:146 libraries/operations.lib.php:1003
 #: libraries/tracking.lib.php:452
@@ -10136,20 +10136,18 @@ msgid "Reset slave"
 msgstr "Slave-i sıfırla"
 
 #: libraries/replication_gui.lib.php:246
-#, fuzzy
 #| msgid "Structure only"
 msgid "Start SQL Thread only"
-msgstr "Sadece quruluş"
+msgstr "Sadəcə SQL əməliyyatını başlat"
 
 #: libraries/replication_gui.lib.php:249
 msgid "Stop SQL Thread only"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:253
-#, fuzzy
 #| msgid "Structure only"
 msgid "Start IO Thread only"
-msgstr "Sadece quruluş"
+msgstr "Sadəcə G/Ç əməliyyatını başlat"
 
 #: libraries/replication_gui.lib.php:256
 msgid "Stop IO Thread only"
