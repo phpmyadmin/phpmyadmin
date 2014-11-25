@@ -45,22 +45,33 @@ function PMA_filterTracking(
  *
  * @param string $url_query    url query
  * @param int    $last_version last version
+ * @param string $db           database
+ * @param array  $selected     selected tables
  *
  * @return string
  */
 function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
-    $last_version
+    $last_version, $db, $selected
 ) {
-    $html = '<div id="div_create_version">';
-    $html .= '<form method="post" action="tbl_tracking.php' . $url_query . '">';
-    $html .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+    $html  = '<div id="div_create_version">';
+    $html .= '<form method="post" action="' . $url_query . '">';
+    $html .= PMA_URL_getHiddenInputs($db);
+    foreach ($selected as $selected_table) {
+        $html .= '<input type="hidden" name="selected[]"'
+            . ' value="' . htmlspecialchars($selected_table) . '" />';
+    }
+
     $html .= '<fieldset>';
     $html .= '<legend>';
-    $html .= sprintf(
-        __('Create version %1$s of %2$s'),
-        ($last_version + 1),
-        htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
-    );
+    if (count($selected) == 1) {
+        $html .= sprintf(
+            __('Create version %1$s of %2$s'),
+            ($last_version + 1),
+            htmlspecialchars($db . '.' . $selected[0])
+        );
+    } else {
+        $html .= sprintf(__('Create version %1$s'), ($last_version + 1));
+    }
     $html .= '</legend>';
     $html .= '<input type="hidden" name="version" value="' . ($last_version + 1)
         . '" />';
@@ -1233,6 +1244,26 @@ function PMA_createTrackingVersion()
     }
 
     return $html;
+}
+
+/**
+ * Create tracking version for multiple tables
+ *
+ * @param array $selected list of selected tables
+ */
+function PMA_createTrackingForMultipleTables($selected)
+{
+    $tracking_set = PMA_getTrackingSet();
+
+    foreach ($selected as $selected_table) {
+        PMA_Tracker::createVersion(
+            $GLOBALS['db'],
+            $selected_table,
+            $_REQUEST['version'],
+            $tracking_set,
+            PMA_Table::isView($GLOBALS['db'], $selected_table)
+        );
+    }
 }
 
 /**

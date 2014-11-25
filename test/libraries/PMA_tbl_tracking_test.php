@@ -119,7 +119,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $url_query = "url_query";
         $last_version = "10";
         $html = PMA_getHtmlForDataDefinitionAndManipulationStatements(
-            $url_query, $last_version
+            $url_query, $last_version, $GLOBALS['db'], array($GLOBALS['table'])
         );
 
         $this->assertContains(
@@ -133,7 +133,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']),
+            PMA_URL_getHiddenInputs($GLOBALS['db']),
             $html
         );
 

@@ -160,7 +160,10 @@ if ($last_version > 0) {
 }
 
 $html .= PMA_getHtmlForDataDefinitionAndManipulationStatements(
-    $url_query, $last_version
+    'tbl_tracking.php' . $url_query,
+    $last_version,
+    $GLOBALS['db'],
+    array($GLOBALS['table'])
 );
 
 $html .= '<br class="clearfloat"/>';
