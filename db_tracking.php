@@ -53,24 +53,30 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
 
 } elseif (isset($_REQUEST['submit_mult'])) {
 
-    if ($_REQUEST['submit_mult'] == 'drop_tracking') {
+    if (! empty($_REQUEST['selected_tbl'])) {
+        if ($_REQUEST['submit_mult'] == 'drop_tracking') {
 
-        foreach ($_REQUEST['selected_tbl'] as $table) {
-            PMA_Tracker::deleteTracking($GLOBALS['db'], $table);
+            foreach ($_REQUEST['selected_tbl'] as $table) {
+                PMA_Tracker::deleteTracking($GLOBALS['db'], $table);
+            }
+            PMA_Message::success(
+                __('Tracking data deleted successfully.')
+            )->display();
+
+        } elseif ($_REQUEST['submit_mult'] == 'track') {
+
+            echo PMA_getHtmlForDataDefinitionAndManipulationStatements(
+                'db_tracking.php' . $url_query,
+                0,
+                $GLOBALS['db'],
+                $_REQUEST['selected_tbl']
+            );
+            exit;
         }
-        PMA_Message::success(
-            __('Tracking data deleted successfully.')
+    } else {
+        PMA_Message::notice(
+            __('No tables selected.')
         )->display();
-
-    } elseif ($_REQUEST['submit_mult'] == 'track') {
-
-        echo PMA_getHtmlForDataDefinitionAndManipulationStatements(
-            'db_tracking.php' . $url_query,
-            0,
-            $GLOBALS['db'],
-            $_REQUEST['selected_tbl']
-        );
-        exit;
     }
 }
 
