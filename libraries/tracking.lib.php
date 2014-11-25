@@ -954,19 +954,21 @@ function PMA_getHtmlForIndex($index, $style)
  *
  * @param array &$data tracked data
  *
- * @return void
+ * @return string HTML for the message
  */
 function PMA_deleteTrackingReportRows(&$data)
 {
+    $html = '';
     if (isset($_REQUEST['delete_ddlog'])) {
         // Delete ddlog row data
-        PMA_handleDeleteDataDefinitionsLog($data);
+        $html .= PMA_handleDeleteDataDefinitionsLog($data);
     }
 
     if (isset($_REQUEST['delete_dmlog'])) {
         // Delete dmlog row data
-        PMA_handleDeleteDataManipulationLog($data);
+        $html .= PMA_handleDeleteDataManipulationLog($data);
     }
+    return $html;
 }
 
 /**
@@ -974,10 +976,11 @@ function PMA_deleteTrackingReportRows(&$data)
  *
  * @param array &$data tracked data
  *
- * @return void
+ * @return string HTML for the message
  */
 function PMA_handleDeleteDataDefinitionsLog(&$data)
 {
+    $html = '';
     $delete_id = $_REQUEST['delete_ddlog'];
 
     // Only in case of valable id
@@ -995,8 +998,9 @@ function PMA_handleDeleteDataDefinitionsLog(&$data)
         } else {
             $msg = PMA_Message::rawError(__('Query error'));
         }
-        $msg->display();
+        $html .= $msg->getDisplay();
     }
+    return $html;
 }
 
 /**
@@ -1004,10 +1008,11 @@ function PMA_handleDeleteDataDefinitionsLog(&$data)
  *
  * @param array &$data tracked data
  *
- * @return void
+ * @return string HTML for the message
  */
 function PMA_handleDeleteDataManipulationLog(&$data)
 {
+    $html = '';
     $delete_id = $_REQUEST['delete_dmlog'];
 
     // Only in case of valable id
@@ -1025,8 +1030,9 @@ function PMA_handleDeleteDataManipulationLog(&$data)
         } else {
             $msg = PMA_Message::rawError(__('Query error'));
         }
-        $msg->display();
+        $html .= $msg->getDisplay();
     }
+    return $html;
 }
 
 /**
@@ -1034,10 +1040,11 @@ function PMA_handleDeleteDataManipulationLog(&$data)
  *
  * @param array $entries entries
  *
- * @return void
+ * @return string HTML SQL query form
  */
 function PMA_exportAsSQLDump($entries)
 {
+    $html = '';
     $new_query = "# "
         . __(
             'You can execute the dump by creating and using a temporary database. '
@@ -1056,18 +1063,19 @@ function PMA_exportAsSQLDump($entries)
     $msg = PMA_Message::success(
         __('SQL statements exported. Please copy the dump or execute it.')
     );
-    $msg->display();
-
+    $html .= $msg->getDisplay();
     $db_temp = $GLOBALS['db'];
     $table_temp = $GLOBALS['table'];
 
     $GLOBALS['db'] = $GLOBALS['table'] = '';
     include_once './libraries/sql_query_form.lib.php';
 
-    PMA_getHtmlForSqlQueryForm($new_query, 'sql');
+    $html .= PMA_getHtmlForSqlQueryForm($new_query, 'sql');
 
     $GLOBALS['db'] = $db_temp;
     $GLOBALS['table'] = $table_temp;
+
+    return $html;
 }
 
 /**
@@ -1083,8 +1091,6 @@ function PMA_exportAsSQLExecution($entries)
     foreach ($entries as $entry) {
         $sql_result = $GLOBALS['dbi']->query("/*NOTRACK*/\n" . $entry['statement']);
     }
-    $msg = PMA_Message::success(__('SQL statements executed.'));
-    $msg->display();
 
     return $sql_result;
 }
@@ -1123,10 +1129,11 @@ function PMA_exportAsFileDownload($entries)
 /**
  * Function to activate tracking
  *
- * @return void
+ * @return string HTML for the success message
  */
 function PMA_activateTracking()
 {
+    $html = '';
     $activated = PMA_Tracker::activateTracking(
         $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']
     );
@@ -1138,17 +1145,20 @@ function PMA_activateTracking()
                 htmlspecialchars($_REQUEST['version'])
             )
         );
-        $msg->display();
+        $html .= $msg->getDisplay();
     }
+
+    return $html;
 }
 
 /**
  * Function to deactivate tracking
  *
- * @return void
+ * @return string HTML of the success message
  */
 function PMA_deactivateTracking()
 {
+    $html = '';
     $deactivated = PMA_Tracker::deactivateTracking(
         $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']
     );
@@ -1160,8 +1170,10 @@ function PMA_deactivateTracking()
                 htmlspecialchars($_REQUEST['version'])
             )
         );
-        $msg->display();
+        $html .= $msg->getDisplay();
     }
+
+    return $html;
 }
 
 /**
@@ -1213,10 +1225,11 @@ function PMA_getTrackingSet()
 /**
  * Function to create the tracking version
  *
- * @return void
+ * @return string HTML of the success message
  */
 function PMA_createTrackingVersion()
 {
+    $html = '';
     $tracking_set = PMA_getTrackingSet();
 
     $versionCreated = PMA_Tracker::createVersion(
@@ -1234,8 +1247,10 @@ function PMA_createTrackingVersion()
                 htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
             )
         );
-        $msg->display();
+        $html .= $msg->getDisplay();
     }
+
+    return $html;
 }
 
 /**
