@@ -17,7 +17,7 @@ require_once './libraries/tracking.lib.php';
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('db_structure.js');
+$scripts->addFile('db_tracking.js');
 
 /**
  * If we are not in an Ajax request, then do the common work and show the links etc.
@@ -32,15 +32,44 @@ require 'libraries/db_info.inc.php';
 // Work to do?
 //  (here, do not use $_REQUEST['db] as it can be crafted)
 if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
-    PMA_Tracker::deleteTracking($GLOBALS['db'], $_REQUEST['table']);
 
-    /**
-     * If in an Ajax request, generate the success message and use
-     * {@link PMA_Response()} to send the output
-     */
-    if ($GLOBALS['is_ajax_request'] == true) {
-        $response = PMA_Response::getInstance();
-        $response->addJSON('message', PMA_Message::success());
+    PMA_Tracker::deleteTracking($GLOBALS['db'], $_REQUEST['table']);
+    PMA_Message::success(
+        __('Tracking data deleted successfully.')
+    )->display();
+
+} elseif (isset($_REQUEST['submit_create_version'])) {
+
+    PMA_createTrackingForMultipleTables($_REQUEST['selected']);
+    PMA_Message::success(
+        sprintf(
+            __(
+                'Version %1$s was created for selected tables,'
+                . ' tracking is active for them.'
+            ),
+            htmlspecialchars($_REQUEST['version'])
+        )
+    )->display();
+
+} elseif (isset($_REQUEST['submit_mult'])) {
+
+    if ($_REQUEST['submit_mult'] == 'drop_tracking') {
+
+        foreach ($_REQUEST['selected_tbl'] as $table) {
+            PMA_Tracker::deleteTracking($GLOBALS['db'], $table);
+        }
+        PMA_Message::success(
+            __('Tracking data deleted successfully.')
+        )->display();
+
+    } elseif ($_REQUEST['submit_mult'] == 'track') {
+
+        echo PMA_getHtmlForDataDefinitionAndManipulationStatements(
+            'db_tracking.php' . $url_query,
+            0,
+            $GLOBALS['db'],
+            $_REQUEST['selected_tbl']
+        );
         exit;
     }
 }
@@ -76,10 +105,15 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
     <div id="tracked_tables">
     <h3><?php echo __('Tracked tables');?></h3>
 
+    <form method="post" action="db_tracking.php" name="trackedForm"
+        id="trackedForm" class="ajax">
+    <?php
+    echo PMA_URL_getHiddenInputs($GLOBALS['db'])
+    ?>
     <table id="versions" class="data">
     <thead>
     <tr>
-        <th><?php echo __('Database');?></th>
+        <th></th>
         <th><?php echo __('Table');?></th>
         <th><?php echo __('Last version');?></th>
         <th><?php echo __('Created');?></th>
@@ -125,7 +159,10 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
             . '&amp;delete_tracking=true&amp';
         ?>
         <tr class="noclick <?php echo $style;?>">
-            <td><?php echo htmlspecialchars($version_data['db_name']);?></td>
+            <td class="center">
+                <input type="checkbox" name="selected_tbl[]" class="checkall"
+                value="<?php echo htmlspecialchars($version_data['table_name']);?>"/>
+            </td>
             <td><?php echo htmlspecialchars($version_data['table_name']);?></td>
             <td><?php echo $version_data['version'];?></td>
             <td><?php echo $version_data['date_created'];?></td>
@@ -157,6 +194,24 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
     ?>
     </tbody>
     </table>
+    <?php
+    echo '<img class="selectallarrow" '
+        . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
+        . 'width="38" height="22" alt="' . __('With selected:') . '" />';
+
+    echo '<input type="checkbox" id="trackedForm_checkall" '
+        . 'class="checkall_box" title="' . __('Check All') . '" />'
+        . '<label for="trackedForm_checkall">' . __('Check All') . '</label>';
+
+    echo '<i style="margin-left: 2em">'
+        . __('With selected:') . '</i>';
+
+    echo PMA_Util::getButtonOrImage(
+        'submit_mult', 'mult_submit', 'submit_mult_drop_tracking',
+        __('Drop'), 'b_drop.png', 'drop_tracking'
+    );
+    ?>
+    </form>
     </div>
     <?php
 }
@@ -200,12 +255,17 @@ foreach ($table_list as $key => $value) {
 if (count($my_tables) > 0) {
     ?>
     <h3><?php echo __('Untracked tables');?></h3>
-
+    <form method="post" action="db_tracking.php" name="untrackedForm"
+        id="untrackedForm" class="ajax">
+    <?php
+    echo PMA_URL_getHiddenInputs($GLOBALS['db'])
+    ?>
     <table id="noversions" class="data">
     <thead>
     <tr>
-        <th style="width: 300px"><?php echo __('Table');?></th>
         <th></th>
+        <th style="width: 300px"><?php echo __('Table');?></th>
+        <th><?php echo __('Action');?></th>
     </tr>
     </thead>
     <tbody>
@@ -222,6 +282,10 @@ if (count($my_tables) > 0) {
             $my_link .= '</a>';
             ?>
             <tr class="noclick <?php echo $style;?>">
+            <td class="center">
+                <input type="checkbox" name="selected_tbl[]" class="checkall"
+                    value="<?php echo htmlspecialchars($tablename);?>"/>
+            </td>
             <td><?php echo htmlspecialchars($tablename);?></td>
             <td><?php echo $my_link;?></td>
             </tr>
@@ -236,6 +300,24 @@ if (count($my_tables) > 0) {
     ?>
     </tbody>
     </table>
+    <?php
+    echo '<img class="selectallarrow" '
+        . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
+        . 'width="38" height="22" alt="' . __('With selected:') . '" />';
+
+    echo '<input type="checkbox" id="untrackedForm_checkall" '
+        . 'class="checkall_box" title="' . __('Check All') . '" />'
+        . '<label for="untrackedForm_checkall">' . __('Check All') . '</label>';
+
+    echo '<i style="margin-left: 2em">'
+        . __('With selected:') . '</i>';
+
+    echo PMA_Util::getButtonOrImage(
+        'submit_mult', 'mult_submit', 'submit_mult_track',
+        __('Track table'), 'eye.png', 'track'
+    );
+    ?>
+    </form>
     <?php
 }
 // If available print out database log
