@@ -1097,14 +1097,13 @@ function PMA_exportAsFileDownload($entries)
         $dump .= $entry['statement'];
     }
     $filename = 'log_' . htmlspecialchars($_REQUEST['table']) . '.sql';
+    PMA_Response::getInstance()->disable();
     PMA_downloadHeader(
         $filename,
         'text/x-sql',
         /*overload*/mb_strlen($dump)
     );
-
-    $response = PMA_Response::getInstance();
-    $response->addHTML($dump);
+    echo $dump;
 
     exit();
 }
