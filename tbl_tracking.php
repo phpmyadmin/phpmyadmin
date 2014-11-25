@@ -13,6 +13,22 @@ require_once './libraries/tracking.lib.php';
 
 define('TABLE_MAY_BE_ABSENT', true);
 require './libraries/tbl_common.inc.php';
+
+if (PMA_Tracker::isActive()
+    && PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"])
+    && ! isset($_REQUEST['submit_deactivate_now'])
+    && ! (isset($_REQUEST['report_export'])
+    && $_REQUEST['export_type'] == 'sqldumpfile')
+) {
+    $msg = PMA_Message::notice(
+        sprintf(
+            __('Tracking of %s is activated.'),
+            htmlspecialchars($GLOBALS["db"] . '.' . $GLOBALS["table"])
+        )
+    );
+    PMA_Response::getInstance()->addHTML($msg->getDisplay());
+}
+
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=tbl_tracking.php';
 $url_params['goto'] = 'tbl_tracking.php';
 $url_params['back'] = 'tbl_tracking.php';
