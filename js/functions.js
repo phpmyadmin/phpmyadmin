@@ -88,6 +88,23 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
 });
 
 /**
+ * Clear text selection
+ */
+function PMA_clearSelection() {
+    if (document.selection && document.selection.empty) {
+        document.selection.empty();
+    } else if (window.getSelection) {
+        var sel = window.getSelection();
+        if (sel.empty) {
+            sel.empty();
+        }
+        if (sel.removeAllRanges) {
+            sel.removeAllRanges();
+        }
+    }
+}
+
+/**
  * Create a jQuery UI tooltip
  *
  * @param $elements     jQuery object representing the elements
@@ -4246,23 +4263,6 @@ AJAX.registerOnload('functions.js', function () {
         return true;
     });
 });
-
-/**
- * Clear text selection
- */
-function PMA_clearSelection() {
-    if (document.selection && document.selection.empty) {
-        document.selection.empty();
-    } else if (window.getSelection) {
-        var sel = window.getSelection();
-        if (sel.empty) {
-            sel.empty();
-        }
-        if (sel.removeAllRanges) {
-            sel.removeAllRanges();
-        }
-    }
-}
 
 /**
  * Print button
