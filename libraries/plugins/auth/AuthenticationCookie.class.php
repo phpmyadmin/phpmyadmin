@@ -62,6 +62,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $response = PMA_Response::getInstance();
         if ($response->isAjax()) {
             $response->isSuccess(false);
+            // redirect_flag redirects to the loging page
             $response->addJSON('redirect_flag', '1');
             if (defined('TESTSUITE')) {
                 return true;
