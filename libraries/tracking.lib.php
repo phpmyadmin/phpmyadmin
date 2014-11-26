@@ -1248,6 +1248,8 @@ function PMA_createTrackingVersion()
  * Create tracking version for multiple tables
  *
  * @param array $selected list of selected tables
+ *
+ * @return void
  */
 function PMA_createTrackingForMultipleTables($selected)
 {
