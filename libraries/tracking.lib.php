@@ -306,17 +306,7 @@ function PMA_getHtmlForTableVersionDetails(
     $html .= '</tbody>';
     $html .= '</table>';
 
-    $html .= '<img class="selectallarrow" '
-        . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
-        . 'width="38" height="22" alt="' . __('With selected:') . '" />';
-
-    $html .= '<input type="checkbox" id="versionsForm_checkall" '
-        . 'class="checkall_box" title="' . __('Check All') . '" />'
-        . '<label for="versionsForm_checkall">' . __('Check All') . '</label>';
-
-    $html .= '<i style="margin-left: 2em">'
-        . __('With selected:') . '</i>';
-
+    $html .= PMA_Util::getWithSelected($pmaThemeImage, $text_dir, "versionsForm");
     $html .= PMA_Util::getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_delete_version',
         __('Delete version'), 'b_drop.png', 'delete_version'

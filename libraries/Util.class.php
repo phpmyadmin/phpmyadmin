@@ -4505,6 +4505,31 @@ class PMA_Util
 
         return array($primary, $pk_array, $indexes_info, $indexes_data);
     }
+
+    /**
+     * Returns the HTML for check all check box and with selected text
+     * for multi submits
+     *
+     * @param string $pmaThemeImage path to theme's image folder
+     * @param string $text_dir      text direction
+     * @param string $formName      name of the enclosing form
+     *
+     * @return string HTML
+     */
+    public static function getWithSelected($pmaThemeImage, $text_dir, $formName)
+    {
+        $html = '<img class="selectallarrow" '
+            . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
+            . 'width="38" height="22" alt="' . __('With selected:') . '" />';
+        $html .= '<input type="checkbox" id="' . $formName . '_checkall" '
+            . 'class="checkall_box" title="' . __('Check All') . '" />'
+            . '<label for="' . $formName . '_checkall">' . __('Check All')
+            . '</label>';
+        $html .= '<i style="margin-left: 2em">'
+            . __('With selected:') . '</i>';
+
+        return $html;
+    }
 }
 
 ?>

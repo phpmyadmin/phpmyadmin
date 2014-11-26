@@ -201,17 +201,7 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
     </tbody>
     </table>
     <?php
-    echo '<img class="selectallarrow" '
-        . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
-        . 'width="38" height="22" alt="' . __('With selected:') . '" />';
-
-    echo '<input type="checkbox" id="trackedForm_checkall" '
-        . 'class="checkall_box" title="' . __('Check All') . '" />'
-        . '<label for="trackedForm_checkall">' . __('Check All') . '</label>';
-
-    echo '<i style="margin-left: 2em">'
-        . __('With selected:') . '</i>';
-
+    echo PMA_Util::getWithSelected($pmaThemeImage, $text_dir, "trackedForm");
     echo PMA_Util::getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_delete_tracking',
         __('Delete tracking'), 'b_drop.png', 'delete_tracking'
@@ -307,17 +297,7 @@ if (count($my_tables) > 0) {
     </tbody>
     </table>
     <?php
-    echo '<img class="selectallarrow" '
-        . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
-        . 'width="38" height="22" alt="' . __('With selected:') . '" />';
-
-    echo '<input type="checkbox" id="untrackedForm_checkall" '
-        . 'class="checkall_box" title="' . __('Check All') . '" />'
-        . '<label for="untrackedForm_checkall">' . __('Check All') . '</label>';
-
-    echo '<i style="margin-left: 2em">'
-        . __('With selected:') . '</i>';
-
+    echo PMA_Util::getWithSelected($pmaThemeImage, $text_dir, "untrackedForm");
     echo PMA_Util::getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_track',
         __('Track table'), 'eye.png', 'track'
