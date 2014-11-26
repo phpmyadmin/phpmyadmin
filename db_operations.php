@@ -85,10 +85,6 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
                 'export_type'  => 'database'
             )
         );
-        $GLOBALS['sql_constraints_query_full_db']
-            = PMA_getSqlConstraintsQueryForFullDb(
-                $tables_full, $export_sql_plugin, $move, $GLOBALS['db']
-            );
 
         $views = PMA_getViewsAndCreateSqlViewStandIn(
             $tables_full, $export_sql_plugin, $GLOBALS['db']

@@ -346,40 +346,6 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
 }
 
 /**
- * remove all foreign key constraints and return
- * sql constraints query for full database
- *
- * @param array     $tables_full       array of all tables in given db or dbs
- * @param ExportSql $export_sql_plugin export plugin instance
- * @param boolean   $move              whether database name is empty or not
- * @param string    $db                database name
- *
- * @return string sql constraints query for full databases
- */
-function PMA_getSqlConstraintsQueryForFullDb(
-    $tables_full, $export_sql_plugin, $move, $db
-) {
-    global $sql_constraints, $sql_drop_foreign_keys;
-    $sql_constraints_query_full_db = array();
-    foreach ($tables_full as $each_table => $tmp) {
-        /* Following globals are set in getTableDef */
-        $sql_constraints = '';
-        $sql_drop_foreign_keys = '';
-        $export_sql_plugin->getTableDef(
-            $db, $each_table, "\n", '', false, false, false, false
-        );
-        if ($move && ! empty($sql_drop_foreign_keys)) {
-            $GLOBALS['dbi']->query($sql_drop_foreign_keys);
-        }
-        // keep the constraint we just dropped
-        if (! empty($sql_constraints)) {
-            $sql_constraints_query_full_db[] = $sql_constraints;
-        }
-    }
-    return $sql_constraints_query_full_db;
-}
-
-/**
  * Get views as an array and create SQL view stand-in
  *
  * @param array     $tables_full       array of all tables in given db or dbs
@@ -423,6 +389,7 @@ function PMA_getViewsAndCreateSqlViewStandIn(
 function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move, $db)
 {
     $error = false;
+    $GLOBALS['sql_constraints_query_full_db'] = array();
     foreach ($tables_full as $each_table => $tmp) {
         // skip the views; we have created stand-in definitions
         if (PMA_Table::isView($db, $each_table)) {
