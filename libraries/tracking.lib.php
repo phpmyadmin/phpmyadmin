@@ -236,7 +236,6 @@ function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_para
     $html = '<table id="versions" class="data">';
     $html .= '<thead>';
     $html .= '<tr>';
-    $html .= '<th>' . __('Database') . '</th>';
     $html .= '<th>' . __('Table') . '</th>';
     $html .= '<th>' . __('Version') . '</th>';
     $html .= '<th>' . __('Created') . '</th>';
@@ -258,7 +257,6 @@ function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_para
             }
         }
         $html .= '<tr class="noclick ' . $style . '">';
-        $html .= '<td>' . htmlspecialchars($version['db_name']) . '</td>';
         $html .= '<td>' . htmlspecialchars($version['table_name']) . '</td>';
         $html .= '<td>' . htmlspecialchars($version['version']) . '</td>';
         $html .= '<td>' . htmlspecialchars($version['date_created']) . '</td>';
