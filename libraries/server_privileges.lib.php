@@ -2982,14 +2982,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         . '</table>' . "\n";
 
     $html_output .= '<div style="float:left;">'
-        . '<img class="selectallarrow"'
-        . ' src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
-        . ' width="38" height="22"'
-        . ' alt="' . __('With selected:') . '" />' . "\n"
-        . '<input type="checkbox" id="usersForm_checkall" class="checkall_box" '
-        . 'title="' . __('Check All') . '" /> '
-        . '<label for="usersForm_checkall">' . __('Check All') . '</label> '
-        . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
+        . PMA_Util::getWithSelected($pmaThemeImage, $text_dir, "usersForm") . "\n";
 
     $html_output .= PMA_Util::getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_export',

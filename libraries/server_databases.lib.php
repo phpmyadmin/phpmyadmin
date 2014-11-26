@@ -136,13 +136,9 @@ function PMA_getHtmlForTableFooterButtons($is_allowUserDropDb, $is_superuser)
         return '';
     }
 
-    $html = '<img class="selectallarrow" src="'
-        . $GLOBALS['pmaThemeImage'] . 'arrow_' . $GLOBALS['text_dir'] . '.png"'
-        . ' width="38" height="22" alt="' . __('With selected:') . '" />' . "\n"
-        . '<input type="checkbox" id="dbStatsForm_checkall" '
-        . 'class="checkall_box" title="' . __('Check All') . '" /> '
-        . '<label for="dbStatsForm_checkall">' . __('Check All') . '</label> '
-        . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
+    $html = PMA_Util::getWithSelected(
+        $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "dbStatsForm"
+    );
     $html .= PMA_Util::getButtonOrImage(
         '',
         'mult_submit' . ' ajax',

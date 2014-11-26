@@ -1459,16 +1459,9 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_system_schema,
 function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
     $tbl_is_view, $db_is_system_schema, $tbl_storage_engine
 ) {
-    $html_output = '<img class="selectallarrow" '
-        . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
-        . 'width="38" height="22" alt="' . __('With selected:') . '" />';
-
-    $html_output .= '<input type="checkbox" id="fieldsForm_checkall" '
-        . 'class="checkall_box" title="' . __('Check All') . '" />'
-        . '<label for="fieldsForm_checkall">' . __('Check All') . '</label>';
-
-    $html_output .= '<i style="margin-left: 2em">'
-        . __('With selected:') . '</i>';
+    $html_output = PMA_Util::getWithSelected(
+        $pmaThemeImage, $text_dir, "fieldsForm"
+    );
 
     $html_output .= PMA_Util::getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_browse',
