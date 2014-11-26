@@ -35,7 +35,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         $response = PMA_Response::getInstance();
         if ($response->isAjax()) {
             $response->isSuccess(false);
-            $response->addJSON('redirect_flag', '1');
+            $response->addJSON('reload_flag', '1');
             if (defined('TESTSUITE')) {
                 return true;
             } else {
