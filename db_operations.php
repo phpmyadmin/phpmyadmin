@@ -31,9 +31,6 @@ $scripts->addFile('db_operations.js');
 
 $sql_query = '';
 
-// set export settings we need
-$GLOBALS['sql_backquotes'] = 1;
-
 /**
  * Rename/move or copy database
  */
