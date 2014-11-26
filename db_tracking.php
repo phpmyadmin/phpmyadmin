@@ -54,7 +54,7 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
 } elseif (isset($_REQUEST['submit_mult'])) {
 
     if (! empty($_REQUEST['selected_tbl'])) {
-        if ($_REQUEST['submit_mult'] == 'drop_tracking') {
+        if ($_REQUEST['submit_mult'] == 'delete_tracking') {
 
             foreach ($_REQUEST['selected_tbl'] as $table) {
                 PMA_Tracker::deleteTracking($GLOBALS['db'], $table);
@@ -134,15 +134,15 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
 
     // Print out information about versions
 
-    $drop_image_or_text = '';
+    $delete_image_or_text = '';
     if (PMA_Util::showIcons('ActionLinksMode')) {
-        $drop_image_or_text .= PMA_Util::getImage(
+        $delete_image_or_text .= PMA_Util::getImage(
             'b_drop.png',
             __('Delete tracking data for this table')
         );
     }
     if (PMA_Util::showText('ActionLinksMode')) {
-        $drop_image_or_text .= __('Drop');
+        $delete_image_or_text .= __('Delete tracking');
     }
 
     $style = 'odd';
@@ -175,8 +175,8 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
             <td><?php echo $version_data['date_updated'];?></td>
             <td><?php echo PMA_getVersionStatus($version_data);?></td>
             <td>
-            <a class="drop_tracking_anchor ajax" href="<?php echo $delete_link;?>" >
-            <?php echo $drop_image_or_text; ?></a>
+            <a class="delete_tracking_anchor ajax" href="<?php echo $delete_link;?>" >
+            <?php echo $delete_image_or_text; ?></a>
         <?php
         echo '</td>'
             . '<td>'
@@ -213,8 +213,8 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
         . __('With selected:') . '</i>';
 
     echo PMA_Util::getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_drop_tracking',
-        __('Drop'), 'b_drop.png', 'drop_tracking'
+        'submit_mult', 'mult_submit', 'submit_mult_delete_tracking',
+        __('Delete tracking'), 'b_drop.png', 'delete_tracking'
     );
     ?>
     </form>
