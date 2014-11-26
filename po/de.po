@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-26 08:29-0500\n"
-"PO-Revision-Date: 2014-11-07 07:51+0200\n"
-"Last-Translator: Michael Koch <michael.koch@enough.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"PO-Revision-Date: 2014-11-26 14:51+0200\n"
+"Last-Translator: Jan Erik Zassenhaus <jan.zassenhaus@jgerman.de>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.0\n"
+"X-Generator: Weblate 2.1-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -33,10 +33,10 @@ msgid "Click to sort."
 msgstr "Zum Sortieren klicken."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Zeige Datensätze %1$s - %2$s"
+msgstr "Zeige Datensätze %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -908,8 +908,8 @@ msgstr ""
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"Oder gehen Sie auf den Tab 'Operationen' in jeder Datenbank um dies zu "
-"konfigurieren."
+"Oder wechseln Sie in einer beliebigen Datenbank zum Reiter „Operationen“ um "
+"die Einstellung vorzunehmen."
 
 #: index.php:585
 #, php-format
@@ -2274,6 +2274,8 @@ msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Sollen wirklich alle Datensätze angezeigt werden? Bei einer großen Tabelle "
+"könnte dies den Browser zum Absturz bringen."
 
 #: js/messages.php:439
 msgid "cancel"
@@ -6890,6 +6892,7 @@ msgstr ""
 "pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:622
+#, fuzzy
 msgid "PDF schema: pages table"
 msgstr "PDF Pages Table"
 
@@ -10025,7 +10028,6 @@ msgstr ""
 "(4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:403
-#, fuzzy
 #| msgid ""
 #| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 #| "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -10033,9 +10035,9 @@ msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"beide obigen Optionen verwenden<br /> &nbsp; &nbsp; &nbsp; Beispiel: "
-"<code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</"
-"code>"
+"beide obigen Optionen verwenden<br /> &nbsp; &nbsp; &nbsp; Beispiel: <code>"
+"INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:408
 msgid ""
@@ -11832,7 +11834,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1299
 #: libraries/server_privileges.lib.php:2498
 msgid "Login Information"
-msgstr "Anmelde-Informationen"
+msgstr "Anmeldeinformationen"
 
 #: libraries/server_privileges.lib.php:1332
 #: libraries/server_privileges.lib.php:1520
@@ -14005,10 +14007,9 @@ msgid "Choose column to display:"
 msgstr "Anzuzeigende Spalte auswählen:"
 
 #: libraries/tbl_relation.lib.php:816
-#, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "Der Thread %s wurde erfolgreich abgebrochen."
+msgstr "Spaltendarstellung erfolgreich aktualisiert."
 
 #: libraries/tbl_relation.lib.php:900
 #, fuzzy
