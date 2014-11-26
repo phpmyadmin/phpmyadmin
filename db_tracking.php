@@ -142,7 +142,7 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
         );
     }
     if (PMA_Util::showText('ActionLinksMode')) {
-        $delete_image_or_text .= __('Delete');
+        $delete_image_or_text .= __('Delete tracking');
     }
 
     $style = 'odd';
@@ -214,7 +214,7 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
 
     echo PMA_Util::getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_delete_tracking',
-        __('Delete'), 'b_drop.png', 'delete_tracking'
+        __('Delete tracking'), 'b_drop.png', 'delete_tracking'
     );
     ?>
     </form>
