@@ -54,11 +54,8 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
         $message = PMA_Message::error(__('The database name is empty!'));
     } else {
         $_error = false;
-        if ($move
-            || (isset($_REQUEST['create_database_before_copying'])
-            && $_REQUEST['create_database_before_copying'])
-        ) {
-            $sql_query = PMA_getSqlQueryAndCreateDbBeforeCopy();
+        if ($move || ! empty($_REQUEST['create_database_before_copying'])) {
+            $sql_query .= PMA_getSqlQueryAndCreateDbBeforeCopy();
         }
 
         // here I don't use DELIMITER because it's not part of the
