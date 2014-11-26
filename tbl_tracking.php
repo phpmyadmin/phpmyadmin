@@ -11,6 +11,12 @@ require_once './libraries/common.inc.php';
 
 require_once './libraries/tracking.lib.php';
 
+//Get some js files needed for Ajax requests
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('tbl_tracking.js');
+
 define('TABLE_MAY_BE_ABSENT', true);
 require './libraries/tbl_common.inc.php';
 
@@ -84,6 +90,26 @@ $html = '<br />';
 /**
  * Actions
  */
+if (isset($_REQUEST['submit_mult'])) {
+    if (! empty($_REQUEST['selected_versions'])) {
+        if ($_REQUEST['submit_mult'] == 'delete_version') {
+            foreach ($_REQUEST['selected_versions'] as $version) {
+                PMA_deleteTrackingVersion($version);
+            }
+            $html .= PMA_Message::success(
+                __('Tracking versions deleted successfully.')
+            )->getDisplay();
+        }
+    } else {
+        $html .= PMA_Message::notice(
+            __('No versions selected.')
+        )->getDisplay();
+    }
+}
+
+if (isset($_REQUEST['submit_delete_version'])) {
+    $html .= PMA_deleteTrackingVersion($_REQUEST['version']);
+}
 
 // Create tracking version
 if (isset($_REQUEST['submit_create_version'])) {
@@ -155,7 +181,8 @@ $sql_result = PMA_getListOfVersionsOfTable();
 $last_version = PMA_getTableLastVersionNumber($sql_result);
 if ($last_version > 0) {
     $html .= PMA_getHtmlForTableVersionDetails(
-        $sql_result, $last_version, $url_params, $url_query
+        $sql_result, $last_version, $url_params,
+        $url_query, $pmaThemeImage, $text_dir
     );
 }
 

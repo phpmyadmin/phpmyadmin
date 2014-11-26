@@ -221,26 +221,33 @@ function PMA_getListOfVersionsOfTable()
 /**
  * Function to get html for displaying last version number
  *
- * @param array  $sql_result   sql result
- * @param int    $last_version last version
- * @param array  $url_params   url parameters
- * @param string $url_query    url query
+ * @param array  $sql_result    sql result
+ * @param int    $last_version  last version
+ * @param array  $url_params    url parameters
+ * @param string $url_query     url query
+ * @param string $pmaThemeImage path to theme's image folder
+ * @param string $text_dir      text direction
  *
  * @return string
  */
-function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_params,
-    $url_query
+function PMA_getHtmlForTableVersionDetails(
+    $sql_result, $last_version, $url_params,
+    $url_query, $pmaThemeImage, $text_dir
 ) {
     $tracking_active = false;
 
-    $html = '<table id="versions" class="data">';
+    $html  = '<form method="post" action="tbl_tracking.php" name="versionsForm"'
+        . ' id="versionsForm" class="ajax">';
+    $html .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+    $html .= '<table id="versions" class="data">';
     $html .= '<thead>';
     $html .= '<tr>';
-    $html .= '<th>' . __('Table') . '</th>';
+    $html .= '<th></th>';
     $html .= '<th>' . __('Version') . '</th>';
     $html .= '<th>' . __('Created') . '</th>';
     $html .= '<th>' . __('Updated') . '</th>';
     $html .= '<th>' . __('Status') . '</th>';
+    $html .= '<th>' . __('Action') . '</th>';
     $html .= '<th>' . __('Show') . '</th>';
     $html .= '</tr>';
     $html .= '</thead>';
@@ -248,6 +255,7 @@ function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_para
 
     $style = 'odd';
     $GLOBALS['dbi']->dataSeek($sql_result, 0);
+    $delete = PMA_Util::getIcon('b_drop.png', __('Delete version'));
     while ($version = $GLOBALS['dbi']->fetchArray($sql_result)) {
         if ($version['version'] == $last_version) {
             if ($version['tracking_active'] == 1) {
@@ -256,12 +264,20 @@ function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_para
                 $tracking_active = false;
             }
         }
+        $delete_link = 'tbl_tracking.php' . $url_query . '&amp;version='
+            . htmlspecialchars($version['version'])
+            . '&amp;submit_delete_version=true';
         $html .= '<tr class="noclick ' . $style . '">';
-        $html .= '<td>' . htmlspecialchars($version['table_name']) . '</td>';
+        $html .= '<td class="center">';
+        $html .= '<input type="checkbox" name="selected_versions[]" class="checkall"'
+            . 'value="' . htmlspecialchars($version['version']) . '"/>';
+        $html .= '</td>';
         $html .= '<td>' . htmlspecialchars($version['version']) . '</td>';
         $html .= '<td>' . htmlspecialchars($version['date_created']) . '</td>';
         $html .= '<td>' . htmlspecialchars($version['date_updated']) . '</td>';
         $html .= '<td>' . PMA_getVersionStatus($version) . '</td>';
+        $html .= '<td><a class="delete_version_anchor ajax"'
+            . ' href="' . $delete_link . '" >' . $delete . '</a></td>';
         $html .= '<td><a href="tbl_tracking.php';
         $html .= PMA_URL_getCommon(
             $url_params + array(
@@ -289,6 +305,24 @@ function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_para
 
     $html .= '</tbody>';
     $html .= '</table>';
+
+    $html .= '<img class="selectallarrow" '
+        . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
+        . 'width="38" height="22" alt="' . __('With selected:') . '" />';
+
+    $html .= '<input type="checkbox" id="versionsForm_checkall" '
+        . 'class="checkall_box" title="' . __('Check All') . '" />'
+        . '<label for="versionsForm_checkall">' . __('Check All') . '</label>';
+
+    $html .= '<i style="margin-left: 2em">'
+        . __('With selected:') . '</i>';
+
+    $html .= PMA_Util::getButtonOrImage(
+        'submit_mult', 'mult_submit', 'submit_mult_delete_version',
+        __('Delete version'), 'b_drop.png', 'delete_version'
+    );
+
+    $html .= '</form>';
 
     if ($tracking_active) {
         $html .= PMA_getHtmlForActivateDeactivateTracking(
@@ -1211,6 +1245,35 @@ function PMA_getTrackingSet()
     $tracking_set = rtrim($tracking_set, ',');
 
     return $tracking_set;
+}
+
+/**
+ * Deletes a tracking version
+ *
+ * @param string $version tracking version
+ *
+ * @return string HTML of the success message
+ */
+function PMA_deleteTrackingVersion($version)
+{
+    $html = '';
+    $versionDeleted = PMA_Tracker::deleteTracking(
+        $GLOBALS['db'],
+        $GLOBALS['table'],
+        $version
+    );
+    if ($versionDeleted) {
+        $msg = PMA_Message::success(
+            sprintf(
+                __('Version %1$s of %2$s was deleted.'),
+                htmlspecialchars($version),
+                htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
+            )
+        );
+        $html .= $msg->getDisplay();
+    }
+
+    return $html;
 }
 
 /**
