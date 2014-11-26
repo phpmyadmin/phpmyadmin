@@ -6,6 +6,8 @@ phpMyAdmin - ChangeLog
 + rfe #1562 Allow tracking multiple table at once from database level tracking page
 + rfe #1564 Improve action message on Tracking page
 
+4.3.1.0 (not yet released)
+
 4.3.0.0 (not yet released)
 + rfe #1502 Smart sorting for int keys
 + rfe #1521 Confirmation message when dropping user(s)
