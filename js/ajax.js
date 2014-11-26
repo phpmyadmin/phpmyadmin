@@ -445,6 +445,10 @@ var AJAX = {
                 // add one more GET param to display session expiry msg
                 window.location.href += '&session_expired=1';
                 window.location.reload();
+            } else if (parseInt(data.reload_flag) == 1) {
+                // remove the token param and reload
+                window.location.href = window.location.href.replace(/&?token=[^&#]*/g, "");
+                window.location.reload();
             }
             if (data.fieldWithError) {
                 $(':input.error').removeClass("error");
