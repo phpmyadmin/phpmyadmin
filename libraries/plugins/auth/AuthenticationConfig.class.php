@@ -30,6 +30,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         $response = PMA_Response::getInstance();
         if ($response->isAjax()) {
             $response->isSuccess(false);
+            // reload_flag removes the token parameter from the URL and reload
             $response->addJSON('reload_flag', '1');
             if (defined('TESTSUITE')) {
                 return true;
