@@ -470,7 +470,9 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * f.e. lang, server, collation_connection in PMA_Config
  */
 $token_mismatch = true;
+$token_provided = false;
 if (PMA_isValid($_REQUEST['token'])) {
+    $token_provided = true;
     $token_mismatch = ($_SESSION[' PMA_token '] != $_REQUEST['token']);
 }
 
