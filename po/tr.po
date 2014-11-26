@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-26 08:29-0500\n"
-"PO-Revision-Date: 2014-11-14 18:58+0200\n"
+"PO-Revision-Date: 2014-11-26 15:05+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.1-dev\n"
 
@@ -328,23 +328,21 @@ msgid "Access denied!"
 msgstr "Erişim engellendi!"
 
 #: db_tracking.php:38 db_tracking.php:63
-#, fuzzy
 #| msgid "Tracking data definition successfully deleted"
 msgid "Tracking data deleted successfully."
-msgstr "İzlenen veri tanımlaması başarılı olarak silindi"
+msgstr "İzlenen veri başarılı olarak silindi."
 
 #: db_tracking.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %1$s was created, tracking for %2$s is active."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "Sürüm %1$s oluşturuldu, %2$s için izleme aktif."
+msgstr "Seçilen tablolar için sürüm %1$s oluşturuldu, bunlar için izleme aktif."
 
 #: db_tracking.php:78
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Seçilen veritabanları yok."
+msgstr "Seçilen tablolar yok."
 
 #: db_tracking.php:112
 msgid "Tracked tables"
@@ -391,10 +389,9 @@ msgid "Delete tracking data for this table"
 msgstr "Bu tablo için izleme verisini sil"
 
 #: db_tracking.php:145 db_tracking.php:207
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "İzleme verisi siliniyor"
+msgstr "İzlemeyi sil"
 
 #: db_tracking.php:183
 msgid "Versions"
@@ -945,28 +942,24 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Bütün bir tabloyu KESMEK üzeresiniz!"
 
 #: js/messages.php:40
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Bu tablo için izleme verisini sil"
+msgstr "Bu tablo için izleme verisi silinsin mi?"
 
 #: js/messages.php:41
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Bu tablo için izleme verisini sil"
+msgstr "Bu tablolar için izleme verisi silinsin mi?"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Bu tablo için izleme verisini sil"
+msgstr "Bu sürüm için izleme verisi silinsin mi?"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Bu tablo için izleme verisini sil"
+msgstr "Bu sürümler için izleme verisi silinsin mi?"
 
 #: js/messages.php:44
 msgid "Deleting tracking data"
@@ -13832,10 +13825,10 @@ msgid "Create version %1$s of %2$s"
 msgstr "%1$s / %2$s sürümünü oluştur"
 
 #: libraries/tracking.lib.php:73
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Create version %1$s"
-msgstr "Sürüm oluştur"
+msgstr "%1$s sürümünü oluştur"
 
 #: libraries/tracking.lib.php:78
 msgid "Track these data definition statements:"
@@ -13868,10 +13861,9 @@ msgid "Deactivate now"
 msgstr "Hemen devre dışı bırak"
 
 #: libraries/tracking.lib.php:258 libraries/tracking.lib.php:312
-#, fuzzy
 #| msgid "Create version"
 msgid "Delete version"
-msgstr "Sürüm oluştur"
+msgstr "Sürümü sil"
 
 #: libraries/tracking.lib.php:377 libraries/tracking.lib.php:1386
 msgid "active"
@@ -13987,10 +13979,10 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "%1$s için izleme %2$s sürümünde devre dışı bırakıldı."
 
 #: libraries/tracking.lib.php:1258
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "Version %1$s of %2$s was deleted."
-msgstr "%1$s / %2$s sürümünü oluştur"
+msgstr "Sürüm %1$s / %2$s oluşturuldu."
 
 #: libraries/tracking.lib.php:1289
 #, php-format
@@ -14351,16 +14343,14 @@ msgid "Tracking of %s is activated."
 msgstr "%s izleme aktif edildi."
 
 #: tbl_tracking.php:100
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "Seçili kullanıcılar başarılı olarak silindi."
+msgstr "İzlenen sürümler başarılı olarak silindi."
 
 #: tbl_tracking.php:105
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "Seçilen satırlar yok"
+msgstr "Seçilen sürümler yok."
 
 #: tbl_tracking.php:132
 msgid "SQL statements executed."
