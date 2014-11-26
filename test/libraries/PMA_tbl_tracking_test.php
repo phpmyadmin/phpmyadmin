@@ -387,6 +387,8 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $last_version = "10";
         $url_params = array();
         $url_query = "select * from PMA";
+        $pmaThemeImage = "themePath/img";
+        $text_dir = "ltr";
 
         $dbi_old = $GLOBALS['dbi'];
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
@@ -414,17 +416,10 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
 
         $ret = PMA_getHtmlForTableVersionDetails(
-            $sql_result, $last_version, $url_params, $url_query
+            $sql_result, $last_version, $url_params, $url_query,
+            $pmaThemeImage, $text_dir
         );
 
-        $this->assertContains(
-            __('Database'),
-            $ret
-        );
-        $this->assertContains(
-            __('Table'),
-            $ret
-        );
         $this->assertContains(
             __('Version'),
             $ret
@@ -442,15 +437,11 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
             $ret
         );
         $this->assertContains(
+            __('Action'),
+            $ret
+        );
+        $this->assertContains(
             __('Show'),
-            $ret
-        );
-        $this->assertContains(
-            $fetchArray['db_name'],
-            $ret
-        );
-        $this->assertContains(
-            $fetchArray['table_name'],
             $ret
         );
         $this->assertContains(
