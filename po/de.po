@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-26 08:29-0500\n"
-"PO-Revision-Date: 2014-11-27 16:01+0200\n"
+"PO-Revision-Date: 2014-11-27 16:07+0200\n"
 "Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
@@ -759,7 +759,7 @@ msgstr "Server-Typ:"
 #: libraries/plugins/export/ExportSql.class.php:681
 #: libraries/plugins/export/ExportXml.class.php:189
 msgid "Server version:"
-msgstr "Server Version:"
+msgstr "Server-Version:"
 
 #: index.php:292
 msgid "Protocol version:"
@@ -771,7 +771,7 @@ msgstr "Benutzer:"
 
 #: index.php:301
 msgid "Server charset:"
-msgstr "Server Zeichensatz:"
+msgstr "Server-Zeichensatz:"
 
 #: index.php:316
 msgid "Web server"
@@ -908,8 +908,8 @@ msgstr ""
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"Oder wechseln Sie in einer beliebigen Datenbank zum Reiter „Operationen“ um "
-"die Einstellung vorzunehmen."
+"Oder wechseln Sie in einer beliebigen Datenbank zum Tab „Operationen“, um "
+"die Einstellung dort vorzunehmen."
 
 #: index.php:585
 #, php-format
@@ -2934,7 +2934,7 @@ msgstr "Lesezeichen"
 
 #: libraries/Console.class.php:218
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Drücken sie Strg+Enter um die Abfrage auszuführen"
+msgstr "Drücken Sie Strg+Enter, um die Abfrage auszuführen"
 
 #: libraries/Console.class.php:239
 msgid "During current session"
@@ -3804,7 +3804,7 @@ msgstr "Letzte Tabellen"
 
 #: libraries/RecentFavoriteTable.class.php:267
 msgid "Recent"
-msgstr "Neulich"
+msgstr "Letzte"
 
 #: libraries/RecentFavoriteTable.class.php:269
 #: libraries/config/messages.inc.php:467
@@ -12272,7 +12272,7 @@ msgstr ""
 "Um Abfragen aus den Logs anzuzeigen, wählen Sie die relevante Zeitspanne in "
 "einem Diagramm durch Drücken der linken Maustaste und markieren Sie einen "
 "Bereich des Diagramms durch Ziehen. Dadurch wird eine Tabelle von "
-"gruppierten Abfragen geladen. Sie können auf jedes SELECT Anweisung klicken, "
+"gruppierten Abfragen geladen. Sie können auf jede SELECT-Anweisung klicken, "
 "um diese weiter zu analysieren."
 
 #: libraries/server_status_monitor.lib.php:147
