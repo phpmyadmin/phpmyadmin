@@ -1068,7 +1068,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             /**
              * @var relational_display string 'K' if relational key, 'D' if relational display column
              */
-            var relational_display = $("#relational_display_K").prop('checked') ? 'K' : 'D';
+            var relational_display = $(t).find("input[name=relational_display]:checked").val();
             /**
              * @var transform_fields    Array containing the name/value pairs for transformed fields
              */
