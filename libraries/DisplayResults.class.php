@@ -1608,8 +1608,7 @@ class PMA_DisplayResults
         $options_html = '';
 
         $options_html .= '<form method="post" action="sql.php" '
-            . 'name="displayOptionsForm" '
-            . 'id="displayOptionsForm"';
+            . 'name="displayOptionsForm"';
 
         $options_html .= ' class="ajax" ';
 

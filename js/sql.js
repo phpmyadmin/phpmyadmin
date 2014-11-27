@@ -95,7 +95,7 @@ AJAX.registerTeardown('sql.js', function () {
     $("input[name=navig].ajax").die('click');
     $("#pageselector").die('change');
     $("#table_results.ajax").find("a[title=Sort]").die('click');
-    $("#displayOptionsForm.ajax").die('submit');
+    $(".displayOptionsForm.ajax").die('submit');
     $('th.column_heading.pointer').die('hover');
     $('th.column_heading.marker').die('click');
     $(window).unbind('scroll');
@@ -389,7 +389,7 @@ AJAX.registerOnload('sql.js', function () {
      * @memberOf    jQuery
      * @name        displayOptionsForm_submit
      */
-    $("#displayOptionsForm.ajax").live('submit', function (event) {
+    $(".displayOptionsForm.ajax").live('submit', function (event) {
         event.preventDefault();
 
         $form = $(this);
