@@ -294,12 +294,6 @@ AJAX.registerOnload('sql.js', function () {
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 // success happens if the query returns rows or not
-                //
-                // fade out previous messages, if any
-                $('div.success').fadeOut();
-                if ($('#result_query').length) {
-                    $('#result_query').remove();
-                }
 
                 // show a message that stays on screen
                 if (typeof data.action_bookmark != 'undefined') {
