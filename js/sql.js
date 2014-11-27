@@ -296,7 +296,7 @@ AJAX.registerOnload('sql.js', function () {
                 // success happens if the query returns rows or not
                 //
                 // fade out previous messages, if any
-                $('div.success, div.sqlquery_message').fadeOut();
+                $('div.success').fadeOut();
                 if ($('#result_query').length) {
                     $('#result_query').remove();
                 }
@@ -323,11 +323,9 @@ AJAX.registerOnload('sql.js', function () {
                      .show()
                      .html(data.message);
                 } else if (typeof data.sql_query != 'undefined') {
-                    $('<div class="sqlquery_message"></div>')
-                     .html(data.sql_query)
-                     .insertBefore('#sqlqueryform');
-                    // unnecessary div that came from data.sql_query
-                    $('div.notice').remove();
+                    $sqlqueryresults
+                     .show()
+                     .html(data.sql_query);
                 } else {
                     $sqlqueryresults
                      .show()
