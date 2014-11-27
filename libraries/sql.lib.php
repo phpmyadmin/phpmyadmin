@@ -1572,17 +1572,22 @@ function PMA_getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
     $html_output = '';
     if (!isset($GLOBALS['show_as_php'])) {
 
-        if ($GLOBALS['cfg']['ShowSQL']) {
-            $html_output .= PMA_Util::getMessage(
-                $message, $GLOBALS['sql_query'], 'success'
-            );
-        }
-
-        $response = PMA_Response::getInstance();
         if (isset($GLOBALS['reload']) && $GLOBALS['reload'] == 1) {
             $extra_data['reload'] = 1;
             $extra_data['db'] = $GLOBALS['db'];
         }
+
+        $GLOBALS['message'] = $message;
+        if (empty($_REQUEST['ajax_page_request'])) {
+            $extra_data['message'] = $message;
+            if ($GLOBALS['cfg']['ShowSQL']) {
+                $extra_data['sql_query'] = PMA_Util::getMessage(
+                    $message, $GLOBALS['sql_query'], 'success'
+                );
+            }
+        }
+
+        $response = PMA_Response::getInstance();
         $response->addJSON(isset($extra_data) ? $extra_data : array());
 
         $query_type = PMA_DisplayResults::QUERY_TYPE_SELECT;
