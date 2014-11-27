@@ -1624,7 +1624,7 @@ class PMA_DisplayResults
         $options_html .= PMA_URL_getHiddenInputs($url_params)
             . '<br />'
             . PMA_Util::getDivForSliderEffect(
-                'displayoptions', __('Options')
+                '', __('Options')
             )
             . '<fieldset>';
 

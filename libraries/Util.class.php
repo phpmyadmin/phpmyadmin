@@ -2722,10 +2722,10 @@ class PMA_Util
      * @return string         html div element
      *
      */
-    public static function getDivForSliderEffect($id, $message)
+    public static function getDivForSliderEffect($id = '', $message = '')
     {
         if ($GLOBALS['cfg']['InitialSlidersState'] == 'disabled') {
-            return '<div id="' . $id . '">';
+            return '<div' . ($id ? ' id="' . $id . '"' : '') . '>';
         }
         /**
          * Bad hack on the next line. document.write() conflicts with jQuery,
@@ -2736,11 +2736,14 @@ class PMA_Util
          * append to
          */
 
-        return '<div id="' . $id . '"'
+        return '<div'
+             . ($id ? ' id="' . $id . '"' : '')
             . (($GLOBALS['cfg']['InitialSlidersState'] == 'closed')
                 ? ' style="display: none; overflow:auto;"'
                 : '')
-            . ' class="pma_auto_slider" title="' . htmlspecialchars($message) . '">';
+            . ' class="pma_auto_slider"'
+            . ($message ? ' title="' . htmlspecialchars($message) . '"' : '')
+            . '>';
     }
 
     /**
