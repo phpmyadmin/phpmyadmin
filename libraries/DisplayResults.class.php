@@ -1661,12 +1661,14 @@ class PMA_DisplayResults
         $options_html .= '<div class="formelement">'
             . PMA_Util::getCheckbox(
                 'display_binary', __('Show binary contents'),
-                ! empty($_SESSION['tmpval']['display_binary']), false
+                ! empty($_SESSION['tmpval']['display_binary']), false,
+                'display_binary'
             )
             . '<br />'
             . PMA_Util::getCheckbox(
                 'display_blob', __('Show BLOB contents'),
-                ! empty($_SESSION['tmpval']['display_blob']), false
+                ! empty($_SESSION['tmpval']['display_blob']), false,
+                'display_blob'
             )
             . '</div>';
 
@@ -1677,7 +1679,8 @@ class PMA_DisplayResults
         $options_html .= '<div class="formelement">'
             . PMA_Util::getCheckbox(
                 'hide_transformation', __('Hide browser transformation'),
-                ! empty($_SESSION['tmpval']['hide_transformation']), false
+                ! empty($_SESSION['tmpval']['hide_transformation']), false,
+                'hide_transformation'
             )
             . '</div>';
 

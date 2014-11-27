@@ -31,7 +31,7 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
         $label = "text_label_for_checkbox";
 
         $this->assertEquals(
-            PMA_Util::getCheckbox($name, $label, false, false),
+            PMA_Util::getCheckbox($name, $label, false, false, $name),
             '<input type="checkbox" name="' . $name . '" id="' . $name
             . '" /><label for="' . $name . '">' . $label
             . '</label>'
@@ -49,7 +49,7 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
         $label = "text_label_for_checkbox";
 
         $this->assertEquals(
-            PMA_Util::getCheckbox($name, $label, true, false),
+            PMA_Util::getCheckbox($name, $label, true, false, $name),
             '<input type="checkbox" name="' . $name . '" id="' . $name
             . '" checked="checked" /><label for="' . $name . '">' . $label
             . '</label>'
@@ -67,7 +67,7 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
         $label = "text_label_for_checkbox";
 
         $this->assertEquals(
-            PMA_Util::getCheckbox($name, $label, false, true),
+            PMA_Util::getCheckbox($name, $label, false, true, $name),
             '<input type="checkbox" name="' . $name . '" id="' . $name
             . '" class="autosubmit" /><label for="' . $name . '">' . $label
             . '</label>'
@@ -85,7 +85,7 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
         $label = "text_label_for_checkbox";
 
         $this->assertEquals(
-            PMA_Util::getCheckbox($name, $label, true, true),
+            PMA_Util::getCheckbox($name, $label, true, true, $name),
             '<input type="checkbox" name="' . $name . '" id="' . $name
             . '" checked="checked" class="autosubmit" /><label for="' . $name
             . '">' . $label . '</label>'

@@ -2605,15 +2605,19 @@ class PMA_Util
      * @param string  $label           label for checkbox
      * @param boolean $checked         is it initially checked?
      * @param boolean $onclick         should it submit the form on click?
+     * @param string  $html_field_id   id for the checkbox
      *
      * @return string                  HTML for the checkbox
      */
-    public static function getCheckbox($html_field_name, $label, $checked, $onclick)
-    {
-        return '<input type="checkbox" name="' . $html_field_name . '" id="'
-            . $html_field_name . '"' . ($checked ? ' checked="checked"' : '')
-            . ($onclick ? ' class="autosubmit"' : '') . ' /><label for="'
-            . $html_field_name . '">' . $label . '</label>';
+    public static function getCheckbox(
+        $html_field_name, $label, $checked, $onclick, $html_field_id = ''
+    ) {
+        return '<input type="checkbox" name="' . $html_field_name . '"'
+            . ($html_field_id ? ' id="' . $html_field_id . '"' : '')
+            . ($checked ? ' checked="checked"' : '')
+            . ($onclick ? ' class="autosubmit"' : '') . ' />'
+            . '<label' . ($html_field_id ? ' for="' . $html_field_name . '"' : '')
+            . '>' . $label . '</label>';
     }
 
     /**

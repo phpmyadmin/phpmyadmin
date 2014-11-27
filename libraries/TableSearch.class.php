@@ -1369,7 +1369,8 @@ class PMA_TableSearch
                 'useRegex',
                 __('Use regular expression'),
                 false,
-                false
+                false,
+                'useRegex'
             );
         return $htmlOutput;
     }
