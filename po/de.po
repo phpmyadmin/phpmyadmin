@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-26 08:29-0500\n"
-"PO-Revision-Date: 2014-11-27 15:57+0200\n"
+"PO-Revision-Date: 2014-11-27 16:01+0200\n"
 "Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
@@ -8957,6 +8957,9 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"Es gibt große Element-Gruppen im Navigations-Panel. Darunter kann die "
+"Geschwindigkeit leiden. Eventuell sollten Sie das Gruppieren von Elementen "
+"im Navigations-Panel abschalten."
 
 #: libraries/navigation/NavigationTree.class.php:857
 #, php-format
@@ -14010,10 +14013,9 @@ msgid "Display column was successfully updated."
 msgstr "Spaltendarstellung erfolgreich aktualisiert."
 
 #: libraries/tbl_relation.lib.php:900
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relations were successfully updated."
-msgstr "Interne Verknüpfung wurde hinzugefügt."
+msgstr "Interne Verknüpfungen wurden erfolgreich aktualisiert."
 
 #: libraries/tbl_relation.lib.php:1165
 #, php-format
