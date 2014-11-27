@@ -1577,13 +1577,16 @@ function PMA_getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
             $extra_data['db'] = $GLOBALS['db'];
         }
 
-        $GLOBALS['message'] = $message;
+        $html_message = PMA_Util::getMessage(
+            $message, $GLOBALS['sql_query'], 'success'
+        );
+        $html_output .= $html_message;
+
+        // For ajax requests add message and sql_query as JSON
         if (empty($_REQUEST['ajax_page_request'])) {
             $extra_data['message'] = $message;
             if ($GLOBALS['cfg']['ShowSQL']) {
-                $extra_data['sql_query'] = PMA_Util::getMessage(
-                    $message, $GLOBALS['sql_query'], 'success'
-                );
+                $extra_data['sql_query'] = $html_message;
             }
         }
 

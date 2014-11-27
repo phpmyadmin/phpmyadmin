@@ -291,7 +291,7 @@ AJAX.registerOnload('sql.js', function () {
 
         PMA_prepareForAjaxRequest($form);
 
-        $.post($form.attr('action'), $form.serialize(), function (data) {
+        $.post($form.attr('action'), $form.serialize() + '&ajax_page_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 // success happens if the query returns rows or not
 
@@ -313,18 +313,10 @@ AJAX.registerOnload('sql.js', function () {
                             $('#fieldsetBookmarkOptionsFooter').hide();
                         }
                     }
-                    $sqlqueryresults
-                     .show()
-                     .html(data.message);
-                } else if (typeof data.sql_query != 'undefined') {
-                    $sqlqueryresults
-                     .show()
-                     .html(data.sql_query);
-                } else {
-                    $sqlqueryresults
-                     .show()
-                     .html(data.message);
                 }
+                $sqlqueryresults
+                    .show()
+                    .html(data.message);
                 PMA_highlightSQL($('#result_query'));
 
                 if (typeof data.ajax_reload != 'undefined') {
