@@ -1619,7 +1619,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '<input type="hidden" name="pos" value="0" />'
                 . '<input type="hidden" name="session_max_rows" value="all" />'
                 . '<input type="hidden" name="goto" value="tbl_structure.php" />'
-                . '<input type="checkbox" name="navig" class="showAllRows" value="all" />'
+                . '<input type="checkbox" name="navig" id="navig" class="showAllRows" value="all" />'
                 . '<label for="navig">Show all</label></form></td>'
             )
         );

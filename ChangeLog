@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.3.1.0 (not yet released)
+- bug #4609 'Show all' checkbox label is not clickable
 
 4.3.0.0 (not yet released)
 + rfe #1502 Smart sorting for int keys
