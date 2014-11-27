@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-26 08:29-0500\n"
-"PO-Revision-Date: 2014-11-26 14:51+0200\n"
-"Last-Translator: Jan Erik Zassenhaus <jan.zassenhaus@jgerman.de>\n"
+"PO-Revision-Date: 2014-11-27 15:57+0200\n"
+"Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
@@ -6892,9 +6892,8 @@ msgstr ""
 "pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:622
-#, fuzzy
 msgid "PDF schema: pages table"
-msgstr "PDF Pages Table"
+msgstr "PDF-Schema: Seiten-Tabelle"
 
 #: libraries/config/messages.inc.php:624
 msgid ""
@@ -10269,10 +10268,9 @@ msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "<code>AUTO_INCREMENT</code> nicht für Nullwerte verwenden"
 
 #: libraries/plugins/import/ImportSql.class.php:193
-#, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Fehlgeschlagene Leseanfragen"
+msgstr "Als Multibyte lesen"
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
