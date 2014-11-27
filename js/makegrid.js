@@ -194,9 +194,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 g.reposDrop();
                 g.colRsz = false;
                 $(g.cRsz).find('div').removeClass('colborder_active');
-                if($('#sticky_columns').length !== 0) {
-                    rearrangeStickyColumns();
-                }
+                rearrangeStickyColumns($(t).prev('.sticky_columns'), $(t));
             } else if (g.colReorder) {
                 // shift columns
                 if (g.colReorder.newn != g.colReorder.n) {
@@ -223,9 +221,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 $(g.cPointer).css('visibility', 'hidden');
 
                 g.colReorder = false;
-                if($('#sticky_columns').length !== 0) {
-                    rearrangeStickyColumns();
-                }
+                rearrangeStickyColumns($(t).prev('.sticky_columns'), $(t));
             }
             $(document.body).css('cursor', 'inherit').noSelect(false);
         },
@@ -722,7 +718,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                  * @var field_name  String containing the name of this field.
                  * @see getFieldName()
                  */
-                var field_name = getFieldName($td);
+                var field_name = getFieldName($(t), $td);
                 /**
                  * @var relation_curr_value String current value of the field (for fields that are foreign keyed).
                  */
@@ -1140,7 +1136,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                      * @var field_name  String containing the name of this field.
                      * @see getFieldName()
                      */
-                    var field_name = getFieldName($this_field);
+                    var field_name = getFieldName($(t), $this_field);
 
                     /**
                      * @var this_field_params   Array temporary storage for the name/value of current field
@@ -1355,7 +1351,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
              * @var field_name  String containing the name of this field.
              * @see getFieldName()
              */
-            var field_name = getFieldName($this_field);
+            var field_name = getFieldName($(t), $this_field);
 
             /**
              * @var this_field_params   Array temporary storage for the name/value of current field

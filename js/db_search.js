@@ -53,7 +53,9 @@ function loadResult(result_path, table_name, link)
                         scrollTop: $("#browse-results").offset().top
                     }, 1000);
                 PMA_ajaxRemoveMessage($msg);
-                PMA_makegrid($('#table_results')[0], true, true, true, true);
+                $('.table_results').each(function () {
+                    PMA_makegrid(this, true, true, true, true);
+                })
                 $('#browse-results').show();
             } else {
                 PMA_ajaxShowMessage(data.error, false);

@@ -1784,7 +1784,7 @@ class PMA_DisplayResults
                 . '<input type="hidden" name="goto" value="sql.php" />';
         }
 
-        $form_html .= '<table id="table_results" class="data';
+        $form_html .= '<table id="table_results" class="table_results data';
         $form_html .= ' ajax';
         $form_html .= '">';
 
