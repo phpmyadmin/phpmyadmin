@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-26 08:29-0500\n"
-"PO-Revision-Date: 2014-11-27 16:07+0200\n"
+"PO-Revision-Date: 2014-11-27 20:14+0200\n"
 "Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
@@ -7781,7 +7781,7 @@ msgstr "Kein Passwort"
 #: libraries/replication_gui.lib.php:412 libraries/replication_gui.lib.php:853
 #: libraries/server_privileges.lib.php:1493
 msgid "Password:"
-msgstr "Passwort:"
+msgstr "Kennwort:"
 
 #: libraries/display_change_password.lib.php:74
 #: libraries/replication_gui.lib.php:877
@@ -10914,7 +10914,7 @@ msgstr "Benutzername"
 #: libraries/server_privileges.lib.php:1525
 #: libraries/server_privileges.lib.php:2964
 msgid "Password"
-msgstr "Passwort"
+msgstr "Kennwort"
 
 #: libraries/replication_gui.lib.php:435
 msgid "Port:"
@@ -14318,7 +14318,7 @@ msgstr "Dump (Schema) der Datenbanken anzeigen"
 
 #: server_privileges.php:139
 msgid "Username and hostname didn't change."
-msgstr "Nutzername und Rechnername haben sich nicht geändert."
+msgstr "Benutzername und Rechnername haben sich nicht geändert."
 
 #: server_status_processes.php:36
 #, php-format
