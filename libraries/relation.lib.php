@@ -1248,7 +1248,7 @@ function PMA_getForeignData(
                 }
             }
 
-            $disp  = $GLOBALS['dbi']->query(
+            $disp  = $GLOBALS['dbi']->tryQuery(
                 $f_query_main . $f_query_from . $f_query_filter
                 . $f_query_order . $f_query_limit
             );
@@ -1262,6 +1262,12 @@ function PMA_getForeignData(
                     $disp_row[] = $single_disp_row;
                 }
                 @$GLOBALS['dbi']->freeResult($disp);
+            } else {
+                // Either no data in the foreign table or
+                // user does not have select permission to foreign table/field
+                // Show an input field with a 'Browse foreign values' link
+                $disp_row = null;
+                $foreign_link = true;
             }
         } else {
             $disp_row = null;
