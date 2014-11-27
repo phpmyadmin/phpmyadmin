@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-26 08:29-0500\n"
-"PO-Revision-Date: 2014-11-15 11:05+0200\n"
+"PO-Revision-Date: 2014-11-26 19:13+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.1-dev\n"
 
@@ -334,19 +334,20 @@ msgstr "Accesso negate!"
 
 #: db_tracking.php:38 db_tracking.php:63
 msgid "Tracking data deleted successfully."
-msgstr ""
+msgstr "Datos traciante delite con successo."
 
 #: db_tracking.php:47
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Version %1$s esseva create pro tabellas seligite, traciar es active pro "
+"illos."
 
 #: db_tracking.php:78
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Necun base de datos seligite."
+msgstr "Necun tabellas seligite."
 
 #: db_tracking.php:112
 msgid "Tracked tables"
@@ -393,10 +394,9 @@ msgid "Delete tracking data for this table"
 msgstr "Dele datos traciante pro iste tabula"
 
 #: db_tracking.php:145 db_tracking.php:207
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "Delente datos de traciar"
+msgstr "Delite traciar"
 
 #: db_tracking.php:183
 msgid "Versions"
@@ -905,6 +905,8 @@ msgstr ""
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"O alternativemente  va a le scheda de 'Operationes' de ulle base de datos "
+"pro configurar lo illac."
 
 #: index.php:585
 #, php-format
@@ -950,28 +952,24 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Tu es per TRUNCAR COMPLETEMENTE le contento del tabella!"
 
 #: js/messages.php:40
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Dele datos traciante pro iste tabula"
+msgstr "Dele datos traciante pro iste tabella?"
 
 #: js/messages.php:41
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Dele datos traciante pro iste tabula"
+msgstr "Dele datos traciante pro iste tabellas?"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Dele datos traciante pro iste tabula"
+msgstr "Dele datos traciante pro iste version?"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Dele datos traciante pro iste tabula"
+msgstr "Dele datos traciante pro iste versiones?"
 
 #: js/messages.php:44
 msgid "Deleting tracking data"
@@ -13541,10 +13539,10 @@ msgid "Create version %1$s of %2$s"
 msgstr ""
 
 #: libraries/tracking.lib.php:73
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create relation"
 msgid "Create version %1$s"
-msgstr "Crea relation"
+msgstr "Crea version %1$s"
 
 #: libraries/tracking.lib.php:78
 msgid "Track these data definition statements:"
@@ -13577,10 +13575,9 @@ msgid "Deactivate now"
 msgstr ""
 
 #: libraries/tracking.lib.php:258 libraries/tracking.lib.php:312
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Delete version"
-msgstr "Dele relation"
+msgstr "Dele version"
 
 #: libraries/tracking.lib.php:377 libraries/tracking.lib.php:1386
 msgid "active"
@@ -13691,11 +13688,11 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr ""
 
 #: libraries/tracking.lib.php:1258
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row deleted."
 #| msgid_plural "%1$d rows deleted."
 msgid "Version %1$s of %2$s was deleted."
-msgstr "%1$d rango delite."
+msgstr "Version %1$s de %2$s esseva delite."
 
 #: libraries/tracking.lib.php:1289
 #, php-format
@@ -14031,16 +14028,14 @@ msgid "Tracking of %s is activated."
 msgstr ""
 
 #: tbl_tracking.php:100
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "Le demanda (query) SQL ha essite executate con successo."
+msgstr "Le versiones traciante  ha essite delite con successo."
 
 #: tbl_tracking.php:105
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No versions selected."
-msgstr "Necun base de datos seligite."
+msgstr "Necun versiones seligite."
 
 #: tbl_tracking.php:132
 msgid "SQL statements executed."
