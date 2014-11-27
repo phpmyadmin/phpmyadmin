@@ -7,6 +7,8 @@ phpMyAdmin - ChangeLog
 + rfe #1564 Improve action message on Tracking page
 
 4.3.1.0 (not yet released)
+- bug #4609 'Show all' checkbox label is not clickable
+- bug #4610 JS error reporting: Hash fragment is reset
 
 4.3.0.0 (not yet released)
 + rfe #1502 Smart sorting for int keys
