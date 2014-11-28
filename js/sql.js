@@ -344,15 +344,10 @@ AJAX.registerOnload('sql.js', function () {
                         url = 'server_sql.php';
                     }
                     PMA_commonActions.refreshMain(url, function () {
-                        if ($('#result_query').length) {
-                            $('#result_query').remove();
-                        }
-                        if (data.sql_query) {
-                            $('<div id="result_query"></div>')
-                                .html(data.sql_query)
-                                .prependTo('#page_content');
-                            PMA_highlightSQL($('#page_content'));
-                        }
+                        $('#sqlqueryresultsouter')
+                            .show()
+                            .html(data.message);
+                        PMA_highlightSQL($('#sqlqueryresultsouter'));
                     });
                 }
 
