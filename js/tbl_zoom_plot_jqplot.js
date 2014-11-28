@@ -400,8 +400,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                     'inline_edit' : false
                 }, function (data) {
                     if (typeof data !== 'undefined' && data.success === true) {
-                        $('#sqlqueryresults').html(data.sql_query);
-                        $("#sqlqueryresults").trigger('appendAnchor');
+                        $('#sqlqueryresultsouter').html(data.sql_query);
+                        PMA_highlightSQL($('#sqlqueryresultsouter'));
                     } else {
                         PMA_ajaxShowMessage(data.error, false);
                     }

@@ -1237,7 +1237,7 @@ class PMA_TableSearch
             . ($this->_searchType == 'zoom' ? '" id="inputFormSubmitId"' : '" ')
             . 'value="' . __('Go') . '" />';
         $html_output .= '</fieldset></form>';
-        $html_output .= '<div id="sqlqueryresults"></div>';
+        $html_output .= '<div id="sqlqueryresultsouter"></div>';
         return $html_output;
     }
 

@@ -97,7 +97,7 @@ AJAX.registerOnload('tbl_select.js', function () {
         event.preventDefault();
 
         // empty previous search results while we are waiting for new results
-        $("#sqlqueryresults").empty();
+        $("#sqlqueryresultsouter").empty();
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strSearching, false);
 
         PMA_prepareForAjaxRequest($search_form);
@@ -142,9 +142,9 @@ AJAX.registerOnload('tbl_select.js', function () {
             PMA_ajaxRemoveMessage($msgbox);
             if (typeof data !== 'undefined' && data.success === true) {
                 if (typeof data.sql_query !== 'undefined') { // zero rows
-                    $("#sqlqueryresults").html(data.sql_query);
+                    $("#sqlqueryresultsouter").html(data.sql_query);
                 } else { // results found
-                    $("#sqlqueryresults").html(data.message);
+                    $("#sqlqueryresultsouter").html(data.message);
                     $("#sqlqueryresults").trigger('makegrid').trigger('stickycolumns');
                 }
                 $('#tbl_search_form')
@@ -160,9 +160,9 @@ AJAX.registerOnload('tbl_select.js', function () {
                  // needed for the display options slider in the results
                 PMA_init_slider();
             } else {
-                $("#sqlqueryresults").html(data.error);
+                $("#sqlqueryresultsouter").html(data.error);
             }
-            PMA_highlightSQL($('#sqlqueryresults'));
+            PMA_highlightSQL($('#sqlqueryresultsouter'));
         }); // end $.post()
     });
 

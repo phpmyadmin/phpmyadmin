@@ -38,9 +38,9 @@ AJAX.registerOnload('tbl_find_replace.js', function () {
             if (data.success === true) {
                 $('#toggle_find_div').show();
                 $('#toggle_find').click();
-                $("#sqlqueryresults").html(data.preview);
+                $("#sqlqueryresultsouter").html(data.preview);
             } else {
-                $("#sqlqueryresults").html(data.error);
+                $("#sqlqueryresultsouter").html(data.error);
             }
         });
     });
