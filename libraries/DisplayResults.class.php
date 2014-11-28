@@ -158,7 +158,10 @@ class PMA_DisplayResults
         'mime_map' => null,
 
         /** boolean */
-        'editable' => null
+        'editable' => null,
+
+        /** random unique ID to distinguish result set */
+        'unique_id' => null
     );
 
     /**
@@ -219,6 +222,7 @@ class PMA_DisplayResults
         $this->__set('table', $table);
         $this->__set('goto', $goto);
         $this->__set('sql_query', $sql_query);
+        $this->__set('unique_id', rand());
     }
 
     /**
@@ -1773,7 +1777,8 @@ class PMA_DisplayResults
         if (($del_lnk == self::DELETE_ROW) || ($del_lnk == self::KILL_PROCESS)) {
 
             $form_html .= '<form method="post" action="tbl_row_action.php" '
-                . 'name="resultsForm" id="resultsForm"';
+                . 'name="resultsForm"'
+                . ' id="resultsForm_' . $this->__get('unique_id'). '"';
 
             $form_html .= ' class="ajax" ';
 
@@ -5083,9 +5088,11 @@ class PMA_DisplayResults
                 . ' alt="' . __('With selected:') . '" />';
         }
 
-        $links_html .= '<input type="checkbox" id="resultsForm_checkall" '
+        $links_html .= '<input type="checkbox" '
+            . 'id="resultsForm_' . $this->__get('unique_id') . '_checkall" '
             . 'class="checkall_box" title="' . __('Check All') . '" /> '
-            . '<label for="resultsForm_checkall">' . __('Check All') . '</label> '
+            . '<label for="resultsForm_' . $this->__get('unique_id') . '_checkall">'
+            . __('Check All') . '</label> '
             . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
 
         $links_html .= PMA_Util::getButtonOrImage(
