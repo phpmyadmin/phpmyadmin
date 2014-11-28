@@ -44,7 +44,7 @@ function loadResult(result_path, table_name, link)
         /**  Load the browse results to the page */
         $("#table-info").show();
         $('#table-link').attr({"href" : 'sql.php' + link }).text(table_name);
-        var url = result_path + "#sqlqueryresults";
+        var url = result_path + "#searchresults";
         $.get(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
             if (typeof data !== 'undefined' && data.success) {
                 $('#browse-results').html(data.message);
@@ -230,7 +230,7 @@ AJAX.registerOnload('db_search.js', function () {
                     .show();
             } else {
                 // error message (zero rows)
-                $("#sqlqueryresults").html(data.error);
+                $("#searchresults").html(data.error).show();
             }
 
             PMA_ajaxRemoveMessage($msgbox);
