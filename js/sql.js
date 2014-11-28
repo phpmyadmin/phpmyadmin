@@ -94,7 +94,6 @@ AJAX.registerTeardown('sql.js', function () {
     $("input[name=bookmark_variable]").unbind("keypress");
     $("#sqlqueryform.ajax").die('submit');
     $("input[name=navig].ajax").die('click');
-    $("#pageselector").die('change');
     $(".displayOptionsForm.ajax").die('submit');
     $('th.column_heading.pointer').die('hover');
     $('th.column_heading.marker').die('click');
@@ -377,16 +376,6 @@ AJAX.registerOnload('sql.js', function () {
             PMA_ajaxRemoveMessage($msgbox);
         }); // end $.post()
     }); // end SQL Query submit
-
-    /**
-     * Paginate results with Page Selector dropdown
-     * @memberOf    jQuery
-     * @name        paginate_dropdown_change
-     */
-    $("#pageselector").live('change', function (event) {
-        var $form = $(this).parent("form");
-        $form.submit();
-    }); // end Paginate results with Page Selector
 
     /**
      * Ajax Event handler for the display options
