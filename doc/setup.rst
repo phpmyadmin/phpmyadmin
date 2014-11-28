@@ -498,13 +498,13 @@ Securing your phpMyAdmin installation
 The phpMyAdmin team tries hard to make the application secure, however there
 are always ways to make your installation more secure:
 
-* Remove ``setup`` directory from phpMyAdmin, you will probably not
-  use it after initial setup.
-* Properly choose authentication method - :ref:`cookie`
+* Remove the ``setup`` directory from phpMyAdmin, you will probably not
+  use it after the initial setup.
+* Properly choose an authentication method - :ref:`cookie`
   is probably the best choice for shared hosting.
 * In case you don't want all MySQL users to be able to access
   phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them.
-* Consider hiding phpMyAdmin behind authentication proxy, so that
+* Consider hiding phpMyAdmin behind an authentication proxy, so that
   users need to authenticate prior to providing MySQL credentials
   to phpMyAdmin.
 * If you are afraid of automated attacks, enabling Captcha by
