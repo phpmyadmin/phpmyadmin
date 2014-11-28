@@ -1575,7 +1575,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             var $firstRowCols = $(g.t).find('tr:first th.draggable');
 
             // initialize column visibility
-            var $col_visib = $('#col_visib');   // check if column visibility is passed from PHP
+            var $col_visib = $(t).find('.col_visib');   // check if column visibility is passed from PHP
             if ($col_visib.length > 0) {
                 g.colVisib = $col_visib.val().split(',');
                 for (var i = 0; i < g.colVisib.length; i++) {

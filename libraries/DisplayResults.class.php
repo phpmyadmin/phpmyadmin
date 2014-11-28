@@ -1576,7 +1576,7 @@ class PMA_DisplayResults
         $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
 
         if ($col_visib) {
-            $data_html .= '<input id="col_visib" type="hidden" value="'
+            $data_html .= '<input class="col_visib" type="hidden" value="'
                 . implode(',', $col_visib) . '" />';
         }
 
