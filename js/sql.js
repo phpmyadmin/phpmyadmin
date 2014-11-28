@@ -85,7 +85,7 @@ function getFieldName($table_results, $this_field)
  */
 AJAX.registerTeardown('sql.js', function () {
     $('a.delete_row.ajax').die('click');
-    $('#bookmarkQueryForm').die('submit');
+    $('.bookmarkQueryForm').die('submit');
     $('input#bkm_label').unbind('keyup');
     $("#sqlqueryresults").die('makegrid');
     $("#sqlqueryresults").die('stickycolumns');
@@ -143,7 +143,7 @@ AJAX.registerOnload('sql.js', function () {
     });
 
     // Ajaxification for 'Bookmark this SQL query'
-    $('#bookmarkQueryForm').live('submit', function (e) {
+    $('.bookmarkQueryForm').live('submit', function (e) {
         e.preventDefault();
         PMA_ajaxShowMessage();
         $.post($(this).attr('action'), 'ajax_request=1&' + $(this).serialize(), function (data) {
