@@ -1582,7 +1582,7 @@ class PMA_DisplayResults
 
         // generate table create time
         if (! PMA_Table::isView($this->__get('db'), $this->__get('table'))) {
-            $data_html .= '<input id="table_create_time" type="hidden" value="'
+            $data_html .= '<input class="table_create_time" type="hidden" value="'
                 . PMA_Table::sGetStatusInfo(
                     $this->__get('db'), $this->__get('table'), 'Create_time'
                 ) . '" />';
