@@ -1301,15 +1301,16 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 var tools = $result_query.find('.tools').wrap('<p>').parent().html();
                                 // sqlOuter and tools will not be present if 'Show SQL queries' configuration is off
                                 if (typeof sqlOuter != 'undefined' && typeof tools != 'undefined') {
+                                    $existing_query = $(t).find('.result_query');
                                     // If two query box exists update query in second else add a second box
-                                    if ($('#result_query').find('div.sqlOuter').length > 1) {
-                                        $('#result_query').children(":nth-child(4)").remove();
-                                        $('#result_query').children(":nth-child(4)").remove();
-                                        $('#result_query').append(sqlOuter + tools);
+                                    if ($existing_query.find('div.sqlOuter').length > 1) {
+                                        $existing_query.children(":nth-child(4)").remove();
+                                        $existing_query.children(":nth-child(4)").remove();
+                                        $existing_query.append(sqlOuter + tools);
                                     } else {
-                                        $('#result_query').append(sqlOuter + tools);
+                                        $existing_query.append(sqlOuter + tools);
                                     }
-                                    PMA_highlightSQL($('#result_query'));
+                                    PMA_highlightSQL($existing_query);
                                 }
                             }
                             // hide and/or update the successfully saved cells

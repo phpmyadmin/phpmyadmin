@@ -1019,7 +1019,7 @@ class PMA_Util
 
         // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
         // check for it's presence before using it
-        $retval .= '<div id="result_query"'
+        $retval .= '<div id="result_query" class="result_query"'
             . ( isset($GLOBALS['cell_align_left'])
                 ? ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"'
                 : '' )
