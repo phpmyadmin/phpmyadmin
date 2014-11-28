@@ -1056,7 +1056,7 @@ class PMA_DisplayResults
         }
 
         // Output data needed for grid editing
-        $table_headers_html .= '<input id="save_cells_at_once" type="hidden" value="'
+        $table_headers_html .= '<input class="save_cells_at_once" type="hidden" value="'
             . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'
             . '<div class="common_hidden_inputs">'
             . PMA_URL_getHiddenInputs(

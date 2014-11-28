@@ -1700,7 +1700,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             g.showDataRowLinkText = PMA_messages.strShowDataRowLink;
 
             // initialize cell editing configuration
-            g.saveCellsAtOnce = $('#save_cells_at_once').val();
+            g.saveCellsAtOnce = $(t).find('.save_cells_at_once').val();
             g.maxTruncatedLen = PMA_commonParams.get('LimitChars');
 
             // register events
