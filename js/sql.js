@@ -290,7 +290,7 @@ AJAX.registerOnload('sql.js', function () {
         $('div.error').remove();
 
         var $msgbox = PMA_ajaxShowMessage();
-        var $sqlqueryresults = $('#sqlqueryresults');
+        var $sqlqueryresultsouter = $('#sqlqueryresultsouter');
 
         PMA_prepareForAjaxRequest($form);
 
@@ -317,10 +317,10 @@ AJAX.registerOnload('sql.js', function () {
                         }
                     }
                 }
-                $sqlqueryresults
+                $sqlqueryresultsouter
                     .show()
                     .html(data.message);
-                PMA_highlightSQL($('#result_query'));
+                PMA_highlightSQL($sqlqueryresultsouter);
 
                 if (typeof data.ajax_reload != 'undefined') {
                     if (data.ajax_reload.reload) {
@@ -357,7 +357,7 @@ AJAX.registerOnload('sql.js', function () {
                     });
                 }
 
-                $sqlqueryresults.show().trigger('makegrid').trigger('stickycolumns');
+                $('#sqlqueryresults').trigger('makegrid').trigger('stickycolumns');
                 $('#togglequerybox').show();
                 PMA_init_slider();
 
@@ -370,8 +370,9 @@ AJAX.registerOnload('sql.js', function () {
                 }
             } else if (typeof data !== 'undefined' && data.success === false) {
                 // show an error message that stays on screen
-                $('#sqlqueryform').before(data.error);
-                $sqlqueryresults.hide();
+                $sqlqueryresultsouter
+                    .show()
+                    .html(data.error);
             }
             PMA_ajaxRemoveMessage($msgbox);
         }); // end $.post()
