@@ -3733,7 +3733,7 @@ AJAX.registerOnload('functions.js', function () {
 AJAX.registerTeardown('functions.js', function () {
     $('.vpointer').die('hover');
     $('.vmarker').die('click');
-    $('#pageselector').die('change');
+    $('select.pageselector').die('change');
     $('a.formLinkSubmit').die('click');
     $('#update_recent_tables').unbind('ready');
     $('#sync_favorite_tables').unbind('ready');
