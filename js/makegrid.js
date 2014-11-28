@@ -1481,7 +1481,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             var $firstRowCols = $(g.t).find('tr:first th.draggable');
 
             // initialize column order
-            $col_order = $('#col_order');   // check if column order is passed from PHP
+            $col_order = $(t).find('.col_order');   // check if column order is passed from PHP
             if ($col_order.length > 0) {
                 g.colOrder = $col_order.val().split(',');
                 for (var i = 0; i < g.colOrder.length; i++) {

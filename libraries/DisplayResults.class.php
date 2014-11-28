@@ -1569,7 +1569,7 @@ class PMA_DisplayResults
         $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
 
         if ($col_order) {
-            $data_html .= '<input id="col_order" type="hidden" value="'
+            $data_html .= '<input class="col_order" type="hidden" value="'
                 . implode(',', $col_order) . '" />';
         }
 
