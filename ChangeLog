@@ -71,7 +71,7 @@ phpMyAdmin - ChangeLog
 + rfe #1537 PHP OpenSSL support for cookie encryption/decryption
 - bug #4227 Token mismatch when using HTTP AUTH and the SESSION expires
 
-4.2.13.0 (not yet released)
+4.2.13.0 (2014-11-30)
 - bug #4604 Query history not being deleted
 - bug #4057 db/table query string parameters no longer work
 - bug #4605 Unseen messages in tracking
