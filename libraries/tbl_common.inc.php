@@ -48,6 +48,8 @@ require_once './libraries/db_table_exists.lib.php';
 if (PMA_Tracker::isActive()
     && PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"])
     && ! isset($_REQUEST['submit_deactivate_now'])
+    && ! (isset($_REQUEST['report_export'])
+    && $_REQUEST['export_type'] == 'sqldumpfile')
 ) {
     $temp_msg = '<a href="tbl_tracking.php?' . $url_query . '">';
     $temp_msg .= sprintf(
@@ -57,7 +59,7 @@ if (PMA_Tracker::isActive()
     $temp_msg .= '</a>';
 
     $msg = PMA_Message::notice($temp_msg);
-    $msg->display();
+    PMA_Response::getInstance()->addHTML($msg->getDisplay());
 }
 
 ?>

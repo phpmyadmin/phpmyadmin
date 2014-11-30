@@ -1,6 +1,14 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.2.13.0 (2014-11-30)
+- bug #4604 Query history not being deleted
+- bug #4057 db/table query string parameters no longer work
+- bug #4605 Unseen messages in tracking
+- bug #4606 Tracking report export as SQL dump does not work
+- bug #4607 Syntax error during db_copy operation
+- bug #4608 SELECT permission issues with relations and restricted access
+
 4.2.12.0 (2014-11-20)
 - bug #4574 Blank/white page when JavaScript disabled
 - bug #4577 Multi row actions cause full page reloads

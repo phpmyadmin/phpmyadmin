@@ -53,6 +53,18 @@ if (! empty($_REQUEST['target'])
     exit;
 }
 
+// See FAQ 1.34
+if (! empty($_REQUEST['db'])) {
+    $page = null;
+    if (! empty($_REQUEST['table'])) {
+        $page = $GLOBALS['cfg']['DefaultTabTable'];
+    } else {
+        $page = $GLOBALS['cfg']['DefaultTabDatabase'];
+    }
+    include $page;
+    exit;
+}
+
 /**
  * Check if it is an ajax request to reload the recent tables list.
  */
