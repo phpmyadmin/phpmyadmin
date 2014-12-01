@@ -728,6 +728,12 @@ class PMA_DisplayResults
 
         } // end move toward
 
+        // show separator if pagination happen
+        if ($nbTotalPage > 1) {
+            $table_navigation_html
+                .= '<td><div class="navigation_separator">|</div></td>';
+        }
+
         // Display the "Show all" button if allowed
         if ($GLOBALS['cfg']['ShowAll'] || ($this->__get('unlim_num_rows') <= 500) ) {
 
@@ -735,13 +741,10 @@ class PMA_DisplayResults
                 $showing_all, $html_sql_query
             );
 
-        } // end show all
-
-        // show separator if pagination happen
-        if ($nbTotalPage > 1 || $showing_all) {
             $table_navigation_html
                 .= '<td><div class="navigation_separator">|</div></td>';
-        }
+
+        } // end show all
 
         $table_navigation_html .= '<td>'
             . '<div class="save_edited hide">'
