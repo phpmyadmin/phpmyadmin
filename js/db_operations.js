@@ -15,7 +15,8 @@
  * Actions Ajaxified here:
  * Rename Database
  * Copy Database
- * Change charset
+ * Change Charset
+ * Drop Database
  */
 
 /**
@@ -25,6 +26,7 @@ AJAX.registerTeardown('db_operations.js', function () {
     $("#rename_db_form.ajax").die('submit');
     $("#copy_db_form.ajax").die('submit');
     $("#change_db_charset_form.ajax").die('submit');
+    $("#drop_db_anchor.ajax").die('click');
 });
 
 AJAX.registerOnload('db_operations.js', function () {
@@ -119,4 +121,37 @@ AJAX.registerOnload('db_operations.js', function () {
             }
         }); // end $.get()
     }); // end change charset
+
+    /**
+     * Ajax event handlers for Drop Database
+     */
+    $("#drop_db_anchor.ajax").live('click', function (event) {
+        event.preventDefault();
+        /**
+         * @var question    String containing the question to be asked for confirmation
+         */
+        var question = PMA_messages.strDropDatabaseStrongWarning + ' ';
+        question += PMA_sprintf(
+            PMA_messages.strDoYouReally,
+            'DROP DATABASE ' + escapeHtml(PMA_commonParams.get('db'))
+        );
+        $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
+            PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+            $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function (data) {
+                if (typeof data !== 'undefined' && data.success) {
+                    //Database deleted successfully, refresh both the frames
+                    PMA_reloadNavigation();
+                    PMA_commonParams.set('db', '');
+                    PMA_commonActions.refreshMain(
+                        'server_databases.php',
+                        function () {
+                            PMA_ajaxShowMessage(data.message);
+                        }
+                    );
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                }
+            });
+        });
+    });
 });

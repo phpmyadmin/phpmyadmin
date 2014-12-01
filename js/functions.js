@@ -2596,48 +2596,6 @@ AJAX.registerOnload('functions.js', function () {
 
 
 /**
- * Unbind all event handlers before tearing down a page
- */
-AJAX.registerTeardown('functions.js', function () {
-    $("#drop_db_anchor.ajax").die('click');
-});
-/**
- * Attach Ajax event handlers for Drop Database. Moved here from db_structure.js
- * as it was also required on db_create.php
- */
-AJAX.registerOnload('functions.js', function () {
-    $("#drop_db_anchor.ajax").live('click', function (event) {
-        event.preventDefault();
-        /**
-         * @var question    String containing the question to be asked for confirmation
-         */
-        var question = PMA_messages.strDropDatabaseStrongWarning + ' ';
-        question += PMA_sprintf(
-            PMA_messages.strDoYouReally,
-            'DROP DATABASE ' + escapeHtml(PMA_commonParams.get('db'))
-        );
-        $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
-            PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function (data) {
-                if (typeof data !== 'undefined' && data.success) {
-                    //Database deleted successfully, refresh both the frames
-                    PMA_reloadNavigation();
-                    PMA_commonParams.set('db', '');
-                    PMA_commonActions.refreshMain(
-                        'server_databases.php',
-                        function () {
-                            PMA_ajaxShowMessage(data.message);
-                        }
-                    );
-                } else {
-                    PMA_ajaxShowMessage(data.error, false);
-                }
-            });
-        });
-    });
-}); // end of $() for Drop Database
-
-/**
  * Validates the password field in a form
  *
  * @see    PMA_messages.strPasswordEmpty
