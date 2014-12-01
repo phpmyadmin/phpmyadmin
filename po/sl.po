@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-13 11:57-0500\n"
-"PO-Revision-Date: 2014-10-17 22:43+0200\n"
+"PO-Revision-Date: 2014-12-01 23:41+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.1-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -34,10 +34,10 @@ msgid "Click to sort."
 msgstr "Kliknite za razvrščanje."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Prikazujem vrstice %1$s–%2$s"
+msgstr "Prikazujem vrstice %1$s–%2$s."
 
 #: db_create.php:61
 #, php-format
@@ -900,15 +900,14 @@ msgstr ""
 "razširjene zmožnosti onemogočili. %sUgotovite, zakaj%s. "
 
 #: index.php:527
-#, fuzzy
 #| msgid ""
 #| "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or alternately go to 'Operations' "
 #| "tab of any database to set it up there."
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ali pa pojdite na zavihek »Dejanja« "
-"katere koli zbirke podatkov, da to nastavite tam."
+"Ali pa pojdite na zavihek »Dejanja« katere koli zbirke podatkov, da to "
+"nastavite tam."
 
 #: index.php:572
 #, php-format
@@ -9867,7 +9866,6 @@ msgstr ""
 "</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:403
-#, fuzzy
 #| msgid ""
 #| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 #| "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -9876,7 +9874,7 @@ msgid ""
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 "oboje zgoraj<br /> &nbsp; &nbsp; &nbsp; Primer: <code>INSERT INTO ime_tabele "
-"(sto_A,sto_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"(sto_A,sto_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:408
 msgid ""
@@ -13767,10 +13765,9 @@ msgid "Display column was successfully updated."
 msgstr "Nit %s je bila prekinjena."
 
 #: libraries/tbl_relation.lib.php:900
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relations were successfully updated."
-msgstr "Dodal sem notranje razmerje."
+msgstr "Notranja razmerja smo uspešno posodobili."
 
 #: libraries/tbl_relation.lib.php:1165
 #, php-format
