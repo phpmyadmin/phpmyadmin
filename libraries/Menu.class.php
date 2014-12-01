@@ -307,6 +307,10 @@ class PMA_Menu
         $tabs['structure']['icon'] = 'b_props.png';
         $tabs['structure']['link'] = 'tbl_structure.php';
         $tabs['structure']['text'] = __('Structure');
+        $tabs['structure']['active'] = in_array(
+            basename($GLOBALS['PMA_PHP_SELF']),
+            array('tbl_structure.php', 'tbl_relation.php')
+        );
 
         $tabs['sql']['icon'] = 'b_sql.png';
         $tabs['sql']['link'] = 'tbl_sql.php';
