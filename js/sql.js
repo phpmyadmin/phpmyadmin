@@ -87,14 +87,14 @@ AJAX.registerTeardown('sql.js', function () {
     $('a.delete_row.ajax').die('click');
     $('.bookmarkQueryForm').die('submit');
     $('input#bkm_label').unbind('keyup');
-    $("#sqlqueryresults").die('makegrid');
-    $("#sqlqueryresults").die('stickycolumns');
+    $(".sqlqueryresults").die('makegrid');
+    $(".sqlqueryresults").die('stickycolumns');
     $("#togglequerybox").unbind('click');
     $("#button_submit_query").die('click');
     $("input[name=bookmark_variable]").unbind("keypress");
     $("#sqlqueryform.ajax").die('submit');
     $("input[name=navig].ajax").die('click');
-    $(".displayOptionsForm.ajax").die('submit');
+    $("form[name='displayOptionsForm'].ajax").die('submit');
     $('th.column_heading.pointer').die('hover');
     $('th.column_heading.marker').die('click');
     $(window).unbind('scroll');
@@ -166,7 +166,7 @@ AJAX.registerOnload('sql.js', function () {
      * triggered manually everytime the table of results is reloaded
      * @memberOf    jQuery
      */
-    $("#sqlqueryresults").live('makegrid', function () {
+    $(".sqlqueryresults").live('makegrid', function () {
         $('.table_results').each(function () {
             PMA_makegrid(this);
         });
@@ -177,7 +177,7 @@ AJAX.registerOnload('sql.js', function () {
      * triggered manually everytime the table of results is reloaded
      * @memberOf    jQuery
      */
-    $("#sqlqueryresults").live('stickycolumns', function () {
+    $(".sqlqueryresults").live('stickycolumns', function () {
         $(".sticky_columns").remove();
         $(".table_results").each(function () {
             var $table_results = $(this);
@@ -351,7 +351,7 @@ AJAX.registerOnload('sql.js', function () {
                     });
                 }
 
-                $('#sqlqueryresults').trigger('makegrid').trigger('stickycolumns');
+                $('.sqlqueryresults').trigger('makegrid').trigger('stickycolumns');
                 $('#togglequerybox').show();
                 PMA_init_slider();
 
@@ -377,16 +377,21 @@ AJAX.registerOnload('sql.js', function () {
      * @memberOf    jQuery
      * @name        displayOptionsForm_submit
      */
-    $(".displayOptionsForm.ajax").live('submit', function (event) {
+    $("form[name='displayOptionsForm'].ajax").live('submit', function (event) {
         event.preventDefault();
 
         $form = $(this);
 
+        var $msgbox = PMA_ajaxShowMessage();
         $.post($form.attr('action'), $form.serialize() + '&ajax_request=true', function (data) {
-            $("#sqlqueryresults")
+            PMA_ajaxRemoveMessage($msgbox);
+            var $sqlqueryresults = $form.parents(".sqlqueryresults")
+            $sqlqueryresults
              .html(data.message)
-             .trigger('makegrid');
+             .trigger('makegrid')
+             .trigger('stickycolumns');
             PMA_init_slider();
+            PMA_highlightSQL($sqlqueryresults);
         }); // end $.post()
     }); //end displayOptionsForm handler
 
@@ -650,7 +655,7 @@ AJAX.registerOnload('sql.js', function () {
     /**
      * create resizable table
      */
-    $("#sqlqueryresults").trigger('makegrid').trigger('stickycolumns');
+    $(".sqlqueryresults").trigger('makegrid').trigger('stickycolumns');
 });
 
 /*

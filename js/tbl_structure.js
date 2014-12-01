@@ -110,8 +110,8 @@ AJAX.registerOnload('tbl_structure.js', function () {
             //User wants to submit the form
             $msg = PMA_ajaxShowMessage();
             $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function (data) {
-                if ($("#sqlqueryresults").length !== 0) {
-                    $("#sqlqueryresults").remove();
+                if ($(".sqlqueryresults").length !== 0) {
+                    $(".sqlqueryresults").remove();
                 } else if ($(".error:not(.tab)").length !== 0) {
                     $(".error:not(.tab)").remove();
                 }

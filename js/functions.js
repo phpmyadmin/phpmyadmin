@@ -2698,8 +2698,8 @@ AJAX.registerOnload('functions.js', function () {
     **/
     $("#tbl_maintenance li a.maintain_action.ajax").live('click', function (event) {
         event.preventDefault();
-        if ($("#sqlqueryresults").length !== 0) {
-            $("#sqlqueryresults").remove();
+        if ($(".sqlqueryresults").length !== 0) {
+            $(".sqlqueryresults").remove();
         }
         if ($("#result_query").length !== 0) {
             $("#result_query").remove();
@@ -2712,8 +2712,8 @@ AJAX.registerOnload('functions.js', function () {
             var $temp_div;
             if (typeof data !== 'undefined' && data.success === true && data.sql_query !== undefined) {
                 PMA_ajaxShowMessage(data.message);
-                $("<div id='sqlqueryresults' class='ajax'></div>").prependTo("#page_content");
-                $("#sqlqueryresults").html(data.sql_query);
+                $("<div class='sqlqueryresults ajax'></div>").prependTo("#page_content");
+                $(".sqlqueryresults").html(data.sql_query);
                 PMA_highlightSQL($('#page_content'));
                 scrollToTop();
             } else if (typeof data !== 'undefined' && data.success === true) {
@@ -2721,11 +2721,11 @@ AJAX.registerOnload('functions.js', function () {
                 $temp_div.html(data.message);
                 var $success = $temp_div.find("#result_query .success");
                 PMA_ajaxShowMessage($success);
-                $("<div id='sqlqueryresults' class='ajax'></div>").prependTo("#page_content");
-                $("#sqlqueryresults").html(data.message);
+                $("<div class='sqlqueryresults ajax'></div>").prependTo("#page_content");
+                $(".sqlqueryresults").html(data.message);
                 PMA_highlightSQL($('#page_content'));
                 PMA_init_slider();
-                $("#sqlqueryresults").children("fieldset,br").remove();
+                $(".sqlqueryresults").children("fieldset,br").remove();
                 scrollToTop();
             } else {
                 $temp_div = $("<div id='temp_div'></div>");
@@ -3411,8 +3411,8 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
         PMA_prepareForAjaxRequest($form);
         //User wants to submit the form
         $.post($form.attr('action'), $form.serialize() + "&do_save_data=1", function (data) {
-            if ($("#sqlqueryresults").length !== 0) {
-                $("#sqlqueryresults").remove();
+            if ($(".sqlqueryresults").length !== 0) {
+                $(".sqlqueryresults").remove();
             }
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxShowMessage(data.message);
@@ -4098,16 +4098,16 @@ AJAX.registerOnload('functions.js', function () {
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
             $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function (data) {
-                if ($("#sqlqueryresults").length !== 0) {
-                    $("#sqlqueryresults").remove();
+                if ($(".sqlqueryresults").length !== 0) {
+                    $(".sqlqueryresults").remove();
                 }
                 if ($("#result_query").length !== 0) {
                     $("#result_query").remove();
                 }
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
-                    $("<div id='sqlqueryresults'></div>").prependTo("#page_content");
-                    $("#sqlqueryresults").html(data.sql_query);
+                    $("<div class='sqlqueryresults ajax'></div>").prependTo("#page_content");
+                    $(".sqlqueryresults").html(data.sql_query);
                     PMA_highlightSQL($('#page_content'));
                 } else {
                     PMA_ajaxShowMessage(data.error, false);

@@ -1843,8 +1843,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
     // initialize the table variable
     g.t = t;
 
-    // enclosing #sqlqueryresults div
-    g.o = $(t).parents('#sqlqueryresults');
+    // enclosing .sqlqueryresults div
+    g.o = $(t).parents('.sqlqueryresults');
 
     // get data columns in the first row of the table
     var $firstRowCols = $(t).find('tr:first th.draggable');

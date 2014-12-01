@@ -1643,7 +1643,7 @@ function PMA_getHtmlForSqlQueryResults($previous_update_query_html,
     $table_html, $indexes_problems_html, $bookmark_support_html, $print_button_html
 ) {
     //begin the sqlqueryresults div here. container div
-    $html_output = '<div id="sqlqueryresults" class="ajax">';
+    $html_output = '<div class="sqlqueryresults ajax">';
     $html_output .= isset($previous_update_query_html)
         ? $previous_update_query_html : '';
     $html_output .= isset($profiling_chart_html) ? $profiling_chart_html : '';
