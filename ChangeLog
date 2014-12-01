@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.2.13.1 (not yet released)
+- bug #4612 [security] XSS vulnerability in redirection mechanism
+
 4.2.13.0 (2014-11-30)
 - bug #4604 Query history not being deleted
 - bug #4057 db/table query string parameters no longer work
