@@ -866,9 +866,11 @@ class PMA_DisplayResults
             . (! $showing_all ? 'all' : $GLOBALS['cfg']['MaxRows']) . '" />'
             . '<input type="hidden" name="goto" value="' . $this->__get('goto')
             . '" />'
-            . '<input type="checkbox" name="navig" id="navig" class="showAllRows"'
+            . '<input type="checkbox" name="navig"'
+            . ' id="showAll_' . $this->__get('unique_id') . '" class="showAllRows"'
             . (! $showing_all ? '' : ' checked="checked"') . ' value="all" />'
-            . '<label for="navig">' . __('Show all') . '</label>'
+            . '<label for="showAll_' . $this->__get('unique_id') . '" >'
+            . __('Show all') . '</label>'
             . '</form>'
             . '</td>';
     } // end of the '_getShowAllButtonForTableNavigation()' function
