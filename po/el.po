@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-26 08:29-0500\n"
-"PO-Revision-Date: 2014-11-15 15:08+0200\n"
+"PO-Revision-Date: 2014-11-27 16:08+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.1-dev\n"
 
@@ -329,23 +329,23 @@ msgid "Access denied!"
 msgstr "Άρνηση πρόσβασης!"
 
 #: db_tracking.php:38 db_tracking.php:63
-#, fuzzy
 #| msgid "Tracking data definition successfully deleted"
 msgid "Tracking data deleted successfully."
-msgstr "Ο προσδιορισμός των δεδομένων παρακολούθησης διαγράφτηκε επιτυχώς"
+msgstr "Τα δεδομένα παρακολούθησης διαγράφτηκαν επιτυχώς."
 
 #: db_tracking.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %1$s was created, tracking for %2$s is active."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "Η έκδοση %1$s δημιουργήθηκε, η παρακολούθηση του %2$s ενεργοποιήθηκε."
+msgstr ""
+"Η έκδοση %1$s δημιουργήθηκε για επιλεγμένους πίνακες, η παρακολούθηση είναι "
+"ενεργοποιημένη για αυτούς."
 
 #: db_tracking.php:78
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Δεν έχετε επιλέξει βάσεις δεδομένων."
+msgstr "Δεν επιλέχθηκαν πίνακες."
 
 #: db_tracking.php:112
 msgid "Tracked tables"
@@ -392,10 +392,9 @@ msgid "Delete tracking data for this table"
 msgstr "Διαγραφή δεδομένων παρακολούθησης για αυτόν τον πίνακα"
 
 #: db_tracking.php:145 db_tracking.php:207
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "Διαγραφή δεδομένων παρακολούθησης"
+msgstr "Διαγραφή παρακολούθησης"
 
 #: db_tracking.php:183
 msgid "Versions"
@@ -952,28 +951,24 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Πρόκειται να TRUNCATE έναν ολόκληρο πίνακα!"
 
 #: js/messages.php:40
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Διαγραφή δεδομένων παρακολούθησης για αυτόν τον πίνακα"
+msgstr "Διαγραφή δεδομένων παρακολούθησης για αυτόν τον πίνακα;"
 
 #: js/messages.php:41
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Διαγραφή δεδομένων παρακολούθησης για αυτόν τον πίνακα"
+msgstr "Διαγραφή δεδομένων παρακολούθησης για αυτούς τους πίνακες;"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Διαγραφή δεδομένων παρακολούθησης για αυτόν τον πίνακα"
+msgstr "Διαγραφή δεδομένων παρακολούθησης για αυτήν την έκδοση;"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Διαγραφή δεδομένων παρακολούθησης για αυτόν τον πίνακα"
+msgstr "Διαγραφή δεδομένων παρακολούθησης για αυτές τις εκδόσεις;"
 
 #: js/messages.php:44
 msgid "Deleting tracking data"
@@ -13982,10 +13977,10 @@ msgid "Create version %1$s of %2$s"
 msgstr "Δημιουργία έκδοσης %1$s του %2$s"
 
 #: libraries/tracking.lib.php:73
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Create version %1$s"
-msgstr "Δημιουργία έκδοσης"
+msgstr "Δημιουργία έκδοσης %1$s"
 
 #: libraries/tracking.lib.php:78
 msgid "Track these data definition statements:"
@@ -14018,10 +14013,9 @@ msgid "Deactivate now"
 msgstr "Απενεργοποιήση τώρα"
 
 #: libraries/tracking.lib.php:258 libraries/tracking.lib.php:312
-#, fuzzy
 #| msgid "Create version"
 msgid "Delete version"
-msgstr "Δημιουργία έκδοσης"
+msgstr "Διαγραφή έκδοσης"
 
 #: libraries/tracking.lib.php:377 libraries/tracking.lib.php:1386
 msgid "active"
@@ -14135,10 +14129,10 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Παρακολούθηση του %1$s απενεργοποιήθηκε στην έκδοση %2$s."
 
 #: libraries/tracking.lib.php:1258
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Δημιουργία έκδοσης %1$s του %2$s"
+msgstr "Η έκδοση %1$s από %2$s διαγράφτηκε."
 
 #: libraries/tracking.lib.php:1289
 #, php-format
@@ -14503,16 +14497,14 @@ msgid "Tracking of %s is activated."
 msgstr "Παρακολούθηση του %s ενεργοποιήθηκε."
 
 #: tbl_tracking.php:100
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "Οι επιλεγμένοι χρήστες διεγράφησαν επιτυχώς."
+msgstr "Οι παρακολουθούμενες εκδόσεις διεγράφησαν επιτυχώς."
 
 #: tbl_tracking.php:105
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "Δεν επιλέχθηκαν γραμμές"
+msgstr "Δεν επιλέχθηκαν εκδόσεις."
 
 #: tbl_tracking.php:132
 msgid "SQL statements executed."

@@ -866,7 +866,7 @@ class PMA_DisplayResults
             . (! $showing_all ? 'all' : $GLOBALS['cfg']['MaxRows']) . '" />'
             . '<input type="hidden" name="goto" value="' . $this->__get('goto')
             . '" />'
-            . '<input type="checkbox" name="navig" class="showAllRows"'
+            . '<input type="checkbox" name="navig" id="navig" class="showAllRows"'
             . (! $showing_all ? '' : ' checked="checked"') . ' value="all" />'
             . '<label for="navig">' . __('Show all') . '</label>'
             . '</form>'

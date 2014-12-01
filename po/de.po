@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-26 08:29-0500\n"
-"PO-Revision-Date: 2014-11-26 14:51+0200\n"
-"Last-Translator: Jan Erik Zassenhaus <jan.zassenhaus@jgerman.de>\n"
+"PO-Revision-Date: 2014-11-27 20:14+0200\n"
+"Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
@@ -759,7 +759,7 @@ msgstr "Server-Typ:"
 #: libraries/plugins/export/ExportSql.class.php:681
 #: libraries/plugins/export/ExportXml.class.php:189
 msgid "Server version:"
-msgstr "Server Version:"
+msgstr "Server-Version:"
 
 #: index.php:292
 msgid "Protocol version:"
@@ -771,7 +771,7 @@ msgstr "Benutzer:"
 
 #: index.php:301
 msgid "Server charset:"
-msgstr "Server Zeichensatz:"
+msgstr "Server-Zeichensatz:"
 
 #: index.php:316
 msgid "Web server"
@@ -908,8 +908,8 @@ msgstr ""
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"Oder wechseln Sie in einer beliebigen Datenbank zum Reiter „Operationen“ um "
-"die Einstellung vorzunehmen."
+"Oder wechseln Sie in einer beliebigen Datenbank zum Tab „Operationen“, um "
+"die Einstellung dort vorzunehmen."
 
 #: index.php:585
 #, php-format
@@ -2934,7 +2934,7 @@ msgstr "Lesezeichen"
 
 #: libraries/Console.class.php:218
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Drücken sie Strg+Enter um die Abfrage auszuführen"
+msgstr "Drücken Sie Strg+Enter, um die Abfrage auszuführen"
 
 #: libraries/Console.class.php:239
 msgid "During current session"
@@ -3804,7 +3804,7 @@ msgstr "Letzte Tabellen"
 
 #: libraries/RecentFavoriteTable.class.php:267
 msgid "Recent"
-msgstr "Neulich"
+msgstr "Letzte"
 
 #: libraries/RecentFavoriteTable.class.php:269
 #: libraries/config/messages.inc.php:467
@@ -6892,9 +6892,8 @@ msgstr ""
 "pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:622
-#, fuzzy
 msgid "PDF schema: pages table"
-msgstr "PDF Pages Table"
+msgstr "PDF-Schema: Seiten-Tabelle"
 
 #: libraries/config/messages.inc.php:624
 msgid ""
@@ -7782,7 +7781,7 @@ msgstr "Kein Passwort"
 #: libraries/replication_gui.lib.php:412 libraries/replication_gui.lib.php:853
 #: libraries/server_privileges.lib.php:1493
 msgid "Password:"
-msgstr "Passwort:"
+msgstr "Kennwort:"
 
 #: libraries/display_change_password.lib.php:74
 #: libraries/replication_gui.lib.php:877
@@ -8958,6 +8957,9 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"Es gibt große Element-Gruppen im Navigations-Panel. Darunter kann die "
+"Geschwindigkeit leiden. Eventuell sollten Sie das Gruppieren von Elementen "
+"im Navigations-Panel abschalten."
 
 #: libraries/navigation/NavigationTree.class.php:857
 #, php-format
@@ -10269,10 +10271,9 @@ msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "<code>AUTO_INCREMENT</code> nicht für Nullwerte verwenden"
 
 #: libraries/plugins/import/ImportSql.class.php:193
-#, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Fehlgeschlagene Leseanfragen"
+msgstr "Als Multibyte lesen"
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
@@ -10913,7 +10914,7 @@ msgstr "Benutzername"
 #: libraries/server_privileges.lib.php:1525
 #: libraries/server_privileges.lib.php:2964
 msgid "Password"
-msgstr "Passwort"
+msgstr "Kennwort"
 
 #: libraries/replication_gui.lib.php:435
 msgid "Port:"
@@ -12271,7 +12272,7 @@ msgstr ""
 "Um Abfragen aus den Logs anzuzeigen, wählen Sie die relevante Zeitspanne in "
 "einem Diagramm durch Drücken der linken Maustaste und markieren Sie einen "
 "Bereich des Diagramms durch Ziehen. Dadurch wird eine Tabelle von "
-"gruppierten Abfragen geladen. Sie können auf jedes SELECT Anweisung klicken, "
+"gruppierten Abfragen geladen. Sie können auf jede SELECT-Anweisung klicken, "
 "um diese weiter zu analysieren."
 
 #: libraries/server_status_monitor.lib.php:147
@@ -14012,10 +14013,9 @@ msgid "Display column was successfully updated."
 msgstr "Spaltendarstellung erfolgreich aktualisiert."
 
 #: libraries/tbl_relation.lib.php:900
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relations were successfully updated."
-msgstr "Interne Verknüpfung wurde hinzugefügt."
+msgstr "Interne Verknüpfungen wurden erfolgreich aktualisiert."
 
 #: libraries/tbl_relation.lib.php:1165
 #, php-format
@@ -14318,7 +14318,7 @@ msgstr "Dump (Schema) der Datenbanken anzeigen"
 
 #: server_privileges.php:139
 msgid "Username and hostname didn't change."
-msgstr "Nutzername und Rechnername haben sich nicht geändert."
+msgstr "Benutzername und Rechnername haben sich nicht geändert."
 
 #: server_status_processes.php:36
 #, php-format

@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-26 08:29-0500\n"
-"PO-Revision-Date: 2014-11-14 13:42+0200\n"
+"PO-Revision-Date: 2014-11-27 15:39+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.0\n"
+"X-Generator: Weblate 2.1-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -328,23 +328,23 @@ msgid "Access denied!"
 msgstr "Toegang geweigerd!"
 
 #: db_tracking.php:38 db_tracking.php:63
-#, fuzzy
 #| msgid "Tracking data definition successfully deleted"
 msgid "Tracking data deleted successfully."
-msgstr "Tracking-gegevensdefinitie succesvol verwijderd"
+msgstr "Tracking-gegevens succesvol verwijderd."
 
 #: db_tracking.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %1$s was created, tracking for %2$s is active."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "Versie %1$s is aangemaakt, tracking van %2$s is ingeschakeld."
+msgstr ""
+"Versie %1$s is aangemaakt voor de geselecteerde tabellen, waarvoor tracking "
+"is ingeschakeld."
 
 #: db_tracking.php:78
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Er zijn geen databanken geselecteerd."
+msgstr "Er zijn geen tabellen geselecteerd."
 
 #: db_tracking.php:112
 msgid "Tracked tables"
@@ -391,10 +391,9 @@ msgid "Delete tracking data for this table"
 msgstr "Verwijder tracking data voor deze tabel"
 
 #: db_tracking.php:145 db_tracking.php:207
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "Tracking data voor deze tabel wordt verwijderd"
+msgstr "Verwijder tracking"
 
 #: db_tracking.php:183
 msgid "Versions"
@@ -949,28 +948,24 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "U staat op het punt een volledige databank LEEG te maken!"
 
 #: js/messages.php:40
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Verwijder tracking data voor deze tabel"
+msgstr "Verwijder tracking data voor deze tabel?"
 
 #: js/messages.php:41
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Verwijder tracking data voor deze tabel"
+msgstr "Verwijder tracking data voor deze tabellen?"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Verwijder tracking data voor deze tabel"
+msgstr "Verwijder tracking data voor deze versie?"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Verwijder tracking data voor deze tabel"
+msgstr "Verwijder tracking data voor deze versies?"
 
 #: js/messages.php:44
 msgid "Deleting tracking data"
@@ -13954,10 +13949,10 @@ msgid "Create version %1$s of %2$s"
 msgstr "Versie %1$s van %2$s aanmaken"
 
 #: libraries/tracking.lib.php:73
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Create version %1$s"
-msgstr "Versie aanmaken"
+msgstr "Versie %1$s aanmaken"
 
 #: libraries/tracking.lib.php:78
 msgid "Track these data definition statements:"
@@ -13990,10 +13985,9 @@ msgid "Deactivate now"
 msgstr "Nu uitschakelen"
 
 #: libraries/tracking.lib.php:258 libraries/tracking.lib.php:312
-#, fuzzy
 #| msgid "Create version"
 msgid "Delete version"
-msgstr "Versie aanmaken"
+msgstr "Versie verwijderen"
 
 #: libraries/tracking.lib.php:377 libraries/tracking.lib.php:1386
 msgid "active"
@@ -14109,10 +14103,10 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Tracking van %1$s is uitgeschakeld op versie %2$s."
 
 #: libraries/tracking.lib.php:1258
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Versie %1$s van %2$s aanmaken"
+msgstr "Versie %1$s van %2$s werd verwijderd."
 
 #: libraries/tracking.lib.php:1289
 #, php-format
@@ -14479,16 +14473,14 @@ msgid "Tracking of %s is activated."
 msgstr "Tracking van %s is ingeschakeld."
 
 #: tbl_tracking.php:100
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "De geselecteerde gebruikers zijn met succes verwijderd."
+msgstr "Tracking versies zijn met succes verwijderd."
 
 #: tbl_tracking.php:105
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "Geen rijen geselecteerd"
+msgstr "Geen versies geselecteerd."
 
 #: tbl_tracking.php:132
 msgid "SQL statements executed."
