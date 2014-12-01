@@ -392,7 +392,8 @@ AJAX.registerOnload('sql.js', function () {
 
     // Filter row handling. --STARTS--
     $(".filter_rows").live("keyup", function () {
-        var $target_table = $("#table_results");
+        var unique_id = $(this).data("for");
+        var $target_table = $("#table_results[data-uniqueId='" + unique_id + "']");
         var $header_cells = $target_table.find("th[data-column]");
         var target_columns = Array();
         // To handle colspan=4, in case of edit,copy etc options.
@@ -406,7 +407,7 @@ AJAX.registerOnload('sql.js', function () {
 
         var phrase = $(this).val();
         // Set same value to both Filter rows fields.
-        $(".filter_rows").val(phrase);
+        $(".filter_rows[data-for='" + unique_id + "']").val(phrase);
         // Handle colspan.
         $target_table.find("thead > tr").prepend(dummy_th);
         $.uiTableFilter($target_table, phrase, target_columns);

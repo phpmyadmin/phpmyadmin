@@ -800,8 +800,9 @@ class PMA_DisplayResults
             . '<td class="navigation_separator"></td>'
             . '<td>'
             . '<span>' . __('Filter rows') . ':</span>'
-            . '<input type="text" class="filter_rows" placeholder="'
-            . __('Search this table') . '">'
+            . '<input type="text" class="filter_rows"'
+            . ' placeholder="' . __('Search this table') . '"'
+            . ' data-for="' . $this->__get('unique_id') . '" />'
             . '</td>'
             . '<td class="navigation_separator"></td>'
             . '</tr>'
@@ -1789,9 +1790,10 @@ class PMA_DisplayResults
                 . '<input type="hidden" name="goto" value="sql.php" />';
         }
 
-        $form_html .= '<table id="table_results" class="table_results data';
-        $form_html .= ' ajax';
-        $form_html .= '">';
+        $form_html .= '<table id="table_results"';
+        $form_html .= ' class="table_results data ajax"';
+        $form_html .= ' data-uniqueId="' . $this->__get('unique_id') . '"';
+        $form_html .= '>';
 
         return $form_html;
 
