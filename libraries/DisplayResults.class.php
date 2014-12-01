@@ -869,7 +869,7 @@ class PMA_DisplayResults
             . '<input type="checkbox" name="navig"'
             . ' id="showAll_' . $this->__get('unique_id') . '" class="showAllRows"'
             . (! $showing_all ? '' : ' checked="checked"') . ' value="all" />'
-            . '<label for="showAll_' . $this->__get('unique_id') . '" >'
+            . '<label for="showAll_' . $this->__get('unique_id') . '">'
             . __('Show all') . '</label>'
             . '</form>'
             . '</td>';
