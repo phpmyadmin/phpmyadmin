@@ -2629,12 +2629,15 @@ class PMA_Util
      * @param boolean $line_break      whether to add HTML line break after a choice
      * @param boolean $escape_label    whether to use htmlspecialchars() on label
      * @param string  $class           enclose each choice with a div of this class
+     * @param string  $id_prefix       prefix for the id attribute, name will be
+     *                                 used if this is not supplied
      *
      * @return string                  set of html radio fiels
      */
     public static function getRadioFields(
         $html_field_name, $choices, $checked_choice = '',
-        $line_break = true, $escape_label = true, $class = ''
+        $line_break = true, $escape_label = true, $class = '',
+        $id_prefix = ''
     ) {
         $radio_html = '';
 
@@ -2644,7 +2647,10 @@ class PMA_Util
                 $radio_html .= '<div class="' . $class . '">';
             }
 
-            $html_field_id = $html_field_name . '_' . $choice_value;
+            if (! $id_prefix) {
+                $id_prefix = $html_field_name;
+            }
+            $html_field_id = $id_prefix . '_' . $choice_value;
             $radio_html .= '<input type="radio" name="' . $html_field_name . '" id="'
                         . $html_field_id . '" value="'
                         . htmlspecialchars($choice_value) . '"';

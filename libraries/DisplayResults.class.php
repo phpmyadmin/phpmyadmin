@@ -1642,7 +1642,8 @@ class PMA_DisplayResults
         // pftext means "partial or full texts" (done to reduce line lengths)
         $options_html .= PMA_Util::getRadioFields(
             'pftext', $choices,
-            $_SESSION['tmpval']['pftext']
+            $_SESSION['tmpval']['pftext'],
+            true, true, '', 'pftext_' . $this->__get('unique_id')
         )
         . '</div>';
 
@@ -1657,7 +1658,8 @@ class PMA_DisplayResults
 
             $options_html .= PMA_Util::getRadioFields(
                 'relational_display', $choices,
-                $_SESSION['tmpval']['relational_display']
+                $_SESSION['tmpval']['relational_display'],
+                true, true, '', 'relational_display_' . $this->__get('unique_id')
             )
             . '</div>';
         }
@@ -1666,13 +1668,13 @@ class PMA_DisplayResults
             . PMA_Util::getCheckbox(
                 'display_binary', __('Show binary contents'),
                 ! empty($_SESSION['tmpval']['display_binary']), false,
-                'display_binary'
+                'display_binary_' . $this->__get('unique_id')
             )
             . '<br />'
             . PMA_Util::getCheckbox(
                 'display_blob', __('Show BLOB contents'),
                 ! empty($_SESSION['tmpval']['display_blob']), false,
-                'display_blob'
+                'display_blob_' . $this->__get('unique_id')
             )
             . '</div>';
 
@@ -1684,7 +1686,7 @@ class PMA_DisplayResults
             . PMA_Util::getCheckbox(
                 'hide_transformation', __('Hide browser transformation'),
                 ! empty($_SESSION['tmpval']['hide_transformation']), false,
-                'hide_transformation'
+                'hide_transformation_' . $this->__get('unique_id')
             )
             . '</div>';
 
@@ -1698,7 +1700,8 @@ class PMA_DisplayResults
 
             $options_html .= PMA_Util::getRadioFields(
                 'geoOption', $choices,
-                $_SESSION['tmpval']['geoOption']
+                $_SESSION['tmpval']['geoOption'],
+                true, true, '', 'geoOption_' . $this->__get('unique_id')
             )
                 . '</div>';
         }
