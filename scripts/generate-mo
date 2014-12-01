@@ -24,6 +24,6 @@ fi
 for x in po/*.po  ; do
     compile $x
     if [ $? != 0 ] ; then
-        return $?
+        echo Error when compiling $x 
     fi
 done
