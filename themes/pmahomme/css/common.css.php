@@ -89,7 +89,7 @@ h2 a img {
     width: 100%;
 }
 
-#table_results td.data {
+.table_results td.data {
 border-right: 1px solid #bbb;
 }
 
@@ -1844,7 +1844,7 @@ div.sqlvalidate {
     overflow: auto;
 }
 
-#result_query div.sqlOuter {
+.result_query div.sqlOuter {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
     padding: 1em;
 }
@@ -2963,7 +2963,7 @@ div#page_content form#db_search_form.ajax fieldset {
     margin-top: -0.3em;
 }
 
-div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div#result_query {
+div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div.result_query {
     margin-top: 1em;
 }
 

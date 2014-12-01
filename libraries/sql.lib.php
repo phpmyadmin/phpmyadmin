@@ -616,7 +616,7 @@ function PMA_getHtmlForBookmark($disp_mode, $cfgBookmark, $sql_query, $db, $tabl
         $html = '<form action="sql.php" method="post"'
             . ' onsubmit="return ! emptyCheckTheField(this,'
             . '\'bkm_fields[bkm_label]\');"'
-            . ' id="bookmarkQueryForm">';
+            . ' class="bookmarkQueryForm">';
         $html .= PMA_URL_getHiddenInputs();
         $html .= '<input type="hidden" name="db"'
             . ' value="' . htmlspecialchars($db) . '" />';
@@ -636,16 +636,12 @@ function PMA_getHtmlForBookmark($disp_mode, $cfgBookmark, $sql_query, $db, $tabl
         );
         $html .= '</legend>';
         $html .= '<div class="formelement">';
-        $html .= '<label for="fields_label_">' . __('Label:') . '</label>';
-        $html .= '<input type="text" id="fields_label_"'
-            . ' name="bkm_fields[bkm_label]" value="" />';
+        $html .= '<label>' . __('Label:') . '</label>';
+        $html .= '<input type="text" name="bkm_fields[bkm_label]" value="" />';
         $html .= '</div>';
         $html .= '<div class="formelement">';
-        $html .= '<input type="checkbox" name="bkm_all_users"'
-            . ' id="bkm_all_users" value="true" />';
-        $html .= '<label for="bkm_all_users">'
-            . __('Let every user access this bookmark')
-            . '</label>';
+        $html .= '<input type="checkbox" name="bkm_all_users" value="true" />';
+        $html .= '<label>' . __('Let every user access this bookmark') . '</label>';
         $html .= '</div>';
         $html .= '<div class="clearfloat"></div>';
         $html .= '</fieldset>';
@@ -1643,7 +1639,7 @@ function PMA_getHtmlForSqlQueryResults($previous_update_query_html,
     $table_html, $indexes_problems_html, $bookmark_support_html, $print_button_html
 ) {
     //begin the sqlqueryresults div here. container div
-    $html_output = '<div id="sqlqueryresults" class="ajax">';
+    $html_output = '<div class="sqlqueryresults ajax">';
     $html_output .= isset($previous_update_query_html)
         ? $previous_update_query_html : '';
     $html_output .= isset($profiling_chart_html) ? $profiling_chart_html : '';
