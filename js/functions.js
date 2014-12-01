@@ -4224,14 +4224,6 @@ AJAX.registerOnload('functions.js', function () {
 });
 
 /**
- * When user gets an ajax session expiry message, we show a login link
- */
-$('a.login-link').live('click', function (e) {
-    e.preventDefault();
-    window.location.reload(true);
-});
-
-/**
  * Dynamically adjust the width of the boxes
  * on the table and db operations pages
  */
