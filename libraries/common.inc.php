@@ -988,6 +988,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $controllink = $userlink;
         }
 
+        $auth_plugin->storeUserCredentials();
+
         /* Log success */
         PMA_logUser($cfg['Server']['user']);
 
