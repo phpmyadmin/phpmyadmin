@@ -1757,13 +1757,13 @@ function PMA_getHtmlForAddUser($dbname)
     $html_output .= PMA_Util::getCheckbox(
         'createdb-1',
         __('Create database with same name and grant all privileges.'),
-        false, false
+        false, false, 'createdb-1'
     );
     $html_output .= '<br />' . "\n";
     $html_output .= PMA_Util::getCheckbox(
         'createdb-2',
         __('Grant all privileges on wildcard name (username\\_%).'),
-        false, false
+        false, false, 'createdb-2'
     );
     $html_output .= '<br />' . "\n";
 
@@ -1775,7 +1775,8 @@ function PMA_getHtmlForAddUser($dbname)
                 htmlspecialchars($dbname)
             ),
             true,
-            false
+            false,
+            'createdb-3'
         );
         $html_output .= '<input type="hidden" name="dbname" value="'
             . htmlspecialchars($dbname) . '" />' . "\n";

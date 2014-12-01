@@ -40,23 +40,24 @@ function PMA_urlencode(str)
  * Get the field name for the current field.  Required to construct the query
  * for grid editing
  *
- * @param $this_field  jQuery object that points to the current field's tr
+ * @param $table_results enclosing results table
+ * @param $this_field    jQuery object that points to the current field's tr
  */
-function getFieldName($this_field)
+function getFieldName($table_results, $this_field)
 {
 
     var this_field_index = $this_field.index();
     // ltr or rtl direction does not impact how the DOM was generated
     // check if the action column in the left exist
-    var left_action_exist = !$('#table_results').find('th:first').hasClass('draggable');
+    var left_action_exist = !$table_results.find('th:first').hasClass('draggable');
     // number of column span for checkbox and Actions
-    var left_action_skip = left_action_exist ? $('#table_results').find('th:first').attr('colspan') - 1 : 0;
+    var left_action_skip = left_action_exist ? $table_results.find('th:first').attr('colspan') - 1 : 0;
 
     // If this column was sorted, the text of the a element contains something
     // like <small>1</small> that is useful to indicate the order in case
     // of a sort on multiple columns; however, we dont want this as part
     // of the column name so we strip it ( .clone() to .end() )
-    var field_name = $('#table_results')
+    var field_name = $table_results
         .find('thead')
         .find('th:eq(' + (this_field_index - left_action_skip) + ') a')
         .clone()    // clone the element
@@ -66,7 +67,7 @@ function getFieldName($this_field)
         .text();    // grab the text
     // happens when just one row (headings contain no a)
     if (field_name === '') {
-        var $heading = $('#table_results').find('thead').find('th:eq(' + (this_field_index - left_action_skip) + ')').children('span');
+        var $heading = $table_results.find('thead').find('th:eq(' + (this_field_index - left_action_skip) + ')').children('span');
         // may contain column comment enclosed in a span - detach it temporarily to read the column name
         var $tempColComment = $heading.children().detach();
         field_name = $heading.text();
@@ -84,18 +85,16 @@ function getFieldName($this_field)
  */
 AJAX.registerTeardown('sql.js', function () {
     $('a.delete_row.ajax').die('click');
-    $('#bookmarkQueryForm').die('submit');
+    $('.bookmarkQueryForm').die('submit');
     $('input#bkm_label').unbind('keyup');
-    $("#sqlqueryresults").die('makegrid');
-    $("#sqlqueryresults").die('stickycolumns');
+    $(".sqlqueryresults").die('makegrid');
+    $(".sqlqueryresults").die('stickycolumns');
     $("#togglequerybox").unbind('click');
     $("#button_submit_query").die('click');
     $("input[name=bookmark_variable]").unbind("keypress");
     $("#sqlqueryform.ajax").die('submit');
     $("input[name=navig].ajax").die('click');
-    $("#pageselector").die('change');
-    $("#table_results.ajax").find("a[title=Sort]").die('click');
-    $("#displayOptionsForm.ajax").die('submit');
+    $("form[name='displayOptionsForm'].ajax").die('submit');
     $('th.column_heading.pointer').die('hover');
     $('th.column_heading.marker').die('click');
     $(window).unbind('scroll');
@@ -143,7 +142,7 @@ AJAX.registerOnload('sql.js', function () {
     });
 
     // Ajaxification for 'Bookmark this SQL query'
-    $('#bookmarkQueryForm').live('submit', function (e) {
+    $('.bookmarkQueryForm').live('submit', function (e) {
         e.preventDefault();
         PMA_ajaxShowMessage();
         $.post($(this).attr('action'), 'ajax_request=1&' + $(this).serialize(), function (data) {
@@ -167,8 +166,10 @@ AJAX.registerOnload('sql.js', function () {
      * triggered manually everytime the table of results is reloaded
      * @memberOf    jQuery
      */
-    $("#sqlqueryresults").live('makegrid', function () {
-        PMA_makegrid($('#table_results')[0]);
+    $(".sqlqueryresults").live('makegrid', function () {
+        $('.table_results').each(function () {
+            PMA_makegrid(this);
+        });
     });
 
     /*
@@ -176,16 +177,17 @@ AJAX.registerOnload('sql.js', function () {
      * triggered manually everytime the table of results is reloaded
      * @memberOf    jQuery
      */
-    $("#sqlqueryresults").live('stickycolumns', function () {
-        if ($("#table_results").length === 0) {
-            return;
-        }
-        //add sticky columns div
-        initStickyColumns();
-        rearrangeStickyColumns();
-        //adjust sticky columns on scroll
-        $(window).bind('scroll', function() {
-            handleStickyColumns();
+    $(".sqlqueryresults").live('stickycolumns', function () {
+        $(".sticky_columns").remove();
+        $(".table_results").each(function () {
+            var $table_results = $(this);
+            //add sticky columns div
+            var $stick_columns = initStickyColumns($table_results);
+            rearrangeStickyColumns($stick_columns, $table_results);
+            //adjust sticky columns on scroll
+            $(window).bind('scroll', function() {
+                handleStickyColumns($stick_columns, $table_results);
+            });
         });
     });
 
@@ -287,7 +289,7 @@ AJAX.registerOnload('sql.js', function () {
         $('div.error').remove();
 
         var $msgbox = PMA_ajaxShowMessage();
-        var $sqlqueryresults = $('#sqlqueryresults');
+        var $sqlqueryresultsouter = $('#sqlqueryresultsouter');
 
         PMA_prepareForAjaxRequest($form);
 
@@ -314,10 +316,10 @@ AJAX.registerOnload('sql.js', function () {
                         }
                     }
                 }
-                $sqlqueryresults
+                $sqlqueryresultsouter
                     .show()
                     .html(data.message);
-                PMA_highlightSQL($('#result_query'));
+                PMA_highlightSQL($sqlqueryresultsouter);
 
                 if (typeof data.ajax_reload != 'undefined') {
                     if (data.ajax_reload.reload) {
@@ -342,19 +344,14 @@ AJAX.registerOnload('sql.js', function () {
                         url = 'server_sql.php';
                     }
                     PMA_commonActions.refreshMain(url, function () {
-                        if ($('#result_query').length) {
-                            $('#result_query').remove();
-                        }
-                        if (data.sql_query) {
-                            $('<div id="result_query"></div>')
-                                .html(data.sql_query)
-                                .prependTo('#page_content');
-                            PMA_highlightSQL($('#page_content'));
-                        }
+                        $('#sqlqueryresultsouter')
+                            .show()
+                            .html(data.message);
+                        PMA_highlightSQL($('#sqlqueryresultsouter'));
                     });
                 }
 
-                $sqlqueryresults.show().trigger('makegrid').trigger('stickycolumns');
+                $('.sqlqueryresults').trigger('makegrid').trigger('stickycolumns');
                 $('#togglequerybox').show();
                 PMA_init_slider();
 
@@ -367,44 +364,41 @@ AJAX.registerOnload('sql.js', function () {
                 }
             } else if (typeof data !== 'undefined' && data.success === false) {
                 // show an error message that stays on screen
-                $('#sqlqueryform').before(data.error);
-                $sqlqueryresults.hide();
+                $sqlqueryresultsouter
+                    .show()
+                    .html(data.error);
             }
             PMA_ajaxRemoveMessage($msgbox);
         }); // end $.post()
     }); // end SQL Query submit
 
     /**
-     * Paginate results with Page Selector dropdown
-     * @memberOf    jQuery
-     * @name        paginate_dropdown_change
-     */
-    $("#pageselector").live('change', function (event) {
-        var $form = $(this).parent("form");
-        $form.submit();
-    }); // end Paginate results with Page Selector
-
-    /**
      * Ajax Event handler for the display options
      * @memberOf    jQuery
      * @name        displayOptionsForm_submit
      */
-    $("#displayOptionsForm.ajax").live('submit', function (event) {
+    $("form[name='displayOptionsForm'].ajax").live('submit', function (event) {
         event.preventDefault();
 
         $form = $(this);
 
+        var $msgbox = PMA_ajaxShowMessage();
         $.post($form.attr('action'), $form.serialize() + '&ajax_request=true', function (data) {
-            $("#sqlqueryresults")
+            PMA_ajaxRemoveMessage($msgbox);
+            var $sqlqueryresults = $form.parents(".sqlqueryresults")
+            $sqlqueryresults
              .html(data.message)
-             .trigger('makegrid');
+             .trigger('makegrid')
+             .trigger('stickycolumns');
             PMA_init_slider();
+            PMA_highlightSQL($sqlqueryresults);
         }); // end $.post()
     }); //end displayOptionsForm handler
 
     // Filter row handling. --STARTS--
     $(".filter_rows").live("keyup", function () {
-        var $target_table = $("#table_results");
+        var unique_id = $(this).data("for");
+        var $target_table = $(".table_results[data-uniqueId='" + unique_id + "']");
         var $header_cells = $target_table.find("th[data-column]");
         var target_columns = Array();
         // To handle colspan=4, in case of edit,copy etc options.
@@ -418,7 +412,7 @@ AJAX.registerOnload('sql.js', function () {
 
         var phrase = $(this).val();
         // Set same value to both Filter rows fields.
-        $(".filter_rows").val(phrase);
+        $(".filter_rows[data-for='" + unique_id + "']").val(phrase);
         // Handle colspan.
         $target_table.find("thead > tr").prepend(dummy_th);
         $.uiTableFilter($target_table, phrase, target_columns);
@@ -557,7 +551,7 @@ function PMA_changeClassForColumn($this_th, newclass, isAddClass)
     if (has_big_t) {
         th_index--;
     }
-    var $tds = $("#table_results").find('tbody tr').find('td.data:eq(' + th_index + ')');
+    var $tds = $this_th.parents(".table_results").find('tbody tr').find('td.data:eq(' + th_index + ')');
     if (isAddClass === undefined) {
         $tds.toggleClass(newclass);
     } else {
@@ -661,7 +655,7 @@ AJAX.registerOnload('sql.js', function () {
     /**
      * create resizable table
      */
-    $("#sqlqueryresults").trigger('makegrid').trigger('stickycolumns');
+    $(".sqlqueryresults").trigger('makegrid').trigger('stickycolumns');
 });
 
 /*
@@ -725,39 +719,35 @@ function initProfilingTables()
 /*
  * Set position, left, top, width of sticky_columns div
  */
-function setStickyColumnsPosition(position, top, left) {
-    if ($("#sticky_columns").length !== 0) {
-        $("#sticky_columns")
-            .css("position", position)
-            .css("top", top)
-            .css("left", left ? left : "auto")
-            .css("width", $("#table_results").width());
-    }
+function setStickyColumnsPosition($sticky_columns, $table_results, position, top, left) {
+    $sticky_columns
+        .css("position", position)
+        .css("top", top)
+        .css("left", left ? left : "auto")
+        .css("width", $table_results.width());
 }
 
 /*
  * Initialize sticky columns
  */
-function initStickyColumns() {
+function initStickyColumns($table_results) {
     fixedTop = $('#floating_menubar').height();
-    if ($("#sticky_columns").length === 0) {
-        $('<table id="sticky_columns"></table>')
-            .insertBefore('#page_content')
+    var $sticky_columns = $('<table class="sticky_columns"></table>')
+            .insertBefore($table_results)
             .css("position", "fixed")
             .css("z-index", "99")
-            .css("width", $("#table_results").width())
+            .css("width", $table_results.width())
             .css("margin-left", $('#page_content').css("margin-left"))
             .css("top", fixedTop)
             .css("display", "none");
-    }
+    return $sticky_columns;
 }
 
 /*
  * Arrange/Rearrange columns in sticky header
  */
-function rearrangeStickyColumns() {
-    var $sticky_columns = $("#sticky_columns");
-    var $originalHeader = $("#table_results > thead");
+function rearrangeStickyColumns($sticky_columns, $table_results) {
+    var $originalHeader = $table_results.find("thead");
     var $originalColumns = $originalHeader.find("tr:first").children();
     var $clonedHeader = $originalHeader.clone();
     // clone width per cell
@@ -768,25 +758,30 @@ function rearrangeStickyColumns() {
 }
 
 /*
+ * Adjust sticky columns on horizontal/vertical scroll for all tables
+ */
+function handleAllStickyColumns() {
+    $('.sticky_columns').each(function () {
+        handleStickyColumns($(this), $(this).next('.table_results'));
+    });
+}
+
+/*
  * Adjust sticky columns on horizontal/vertical scroll
  */
-function handleStickyColumns() {
-    if ($("#table_results").length === 0) {
-        return;
-    }
+function handleStickyColumns($sticky_columns, $table_results) {
     var currentScrollX = $(window).scrollLeft();
     var windowOffset = $(window).scrollTop();
-    var tableStartOffset = $("#table_results").offset().top;
-    var tableEndOffset = tableStartOffset + $("#table_results").height();
-    var $sticky_columns = $("#sticky_columns");
+    var tableStartOffset = $table_results.offset().top;
+    var tableEndOffset = tableStartOffset + $table_results.height();
     if (windowOffset >= tableStartOffset && windowOffset <= tableEndOffset) {
         //for horizontal scrolling
         if(prevScrollX != currentScrollX) {
             prevScrollX = currentScrollX;
-            setStickyColumnsPosition("absolute", fixedTop + windowOffset);
+            setStickyColumnsPosition($sticky_columns, $table_results, "absolute", fixedTop + windowOffset);
         //for vertical scrolling
         } else {
-            setStickyColumnsPosition("fixed", fixedTop, $("#pma_navigation").width() - currentScrollX);
+            setStickyColumnsPosition($sticky_columns, $table_results, "fixed", fixedTop, $("#pma_navigation").width() - currentScrollX);
         }
         $sticky_columns.show();
     } else {

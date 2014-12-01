@@ -118,7 +118,7 @@ function PMA_getHtmlForSqlQueryForm(
     $html .= '</form>' . "\n";
     // print an empty div, which will be later filled with
     // the sql query results by ajax
-    $html .= '<div id="sqlqueryresults"></div>';
+    $html .= '<div id="sqlqueryresultsouter"></div>';
 
     return $html;
 }

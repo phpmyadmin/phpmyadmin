@@ -1608,6 +1608,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 'mysql',
                 'user',
                 'tbl_structure.php',
+                0,
                 'SELECT * FROM `user`',
                 "\n"
                 . '<td><form action="sql.php" method="post">'
@@ -1619,8 +1620,9 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '<input type="hidden" name="pos" value="0" />'
                 . '<input type="hidden" name="session_max_rows" value="all" />'
                 . '<input type="hidden" name="goto" value="tbl_structure.php" />'
-                . '<input type="checkbox" name="navig" id="navig" class="showAllRows" value="all" />'
-                . '<label for="navig">Show all</label></form></td>'
+                . '<input type="checkbox" name="navig" id="showAll_0"'
+                . ' class="showAllRows" value="all" />'
+                . '<label for="showAll_0">Show all</label></form></td>'
             )
         );
     }
@@ -1632,6 +1634,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @param string $db             the database name
      * @param string $table          the table name
      * @param string $goto           the URL to go back in case of errors
+     * @param int    $unique_id      the unique id for the results set
      * @param string $html_sql_query the sql encoded by html special characters
      * @param string $output         output of _getRowInfoForSpecialLinks
      *
@@ -1640,11 +1643,12 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @dataProvider dataProviderForTestGetShowAllCheckboxForTableNavigation
      */
     public function testGetShowAllCheckboxForTableNavigation(
-        $db, $table, $goto, $html_sql_query, $output
+        $db, $table, $goto, $unique_id , $html_sql_query, $output
     ) {
         $this->object->__set('db', $db);
         $this->object->__set('table', $table);
         $this->object->__set('goto', $goto);
+        $this->object->__set('unique_id', $unique_id);
 
         $this->assertEquals(
             $output,

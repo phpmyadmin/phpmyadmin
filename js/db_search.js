@@ -44,7 +44,7 @@ function loadResult(result_path, table_name, link)
         /**  Load the browse results to the page */
         $("#table-info").show();
         $('#table-link').attr({"href" : 'sql.php' + link }).text(table_name);
-        var url = result_path + "#sqlqueryresults";
+        var url = result_path + "#searchresults";
         $.get(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
             if (typeof data !== 'undefined' && data.success) {
                 $('#browse-results').html(data.message);
@@ -53,7 +53,9 @@ function loadResult(result_path, table_name, link)
                         scrollTop: $("#browse-results").offset().top
                     }, 1000);
                 PMA_ajaxRemoveMessage($msg);
-                PMA_makegrid($('#table_results')[0], true, true, true, true);
+                $('.table_results').each(function () {
+                    PMA_makegrid(this, true, true, true, true);
+                })
                 $('#browse-results').show();
             } else {
                 PMA_ajaxShowMessage(data.error, false);
@@ -82,7 +84,7 @@ function deleteResult(result_path, msg)
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDeleting, false);
             /** Load the deleted option to the page*/
             $('#sqlqueryform').html('');
-            var url = result_path + "#result_query, #sqlqueryform";
+            var url = result_path;
             $.get(url, {'ajax_request': true, 'is_js_confirmed': true},
                 function (data) {
                     if (typeof data !== 'undefined' && data.success) {
@@ -228,7 +230,7 @@ AJAX.registerOnload('db_search.js', function () {
                     .show();
             } else {
                 // error message (zero rows)
-                $("#sqlqueryresults").html(data.error);
+                $("#searchresults").html(data.error).show();
             }
 
             PMA_ajaxRemoveMessage($msgbox);

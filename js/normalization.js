@@ -653,8 +653,8 @@ AJAX.registerOnload('normalization.js', function() {
         var title = PMA_messages.strAddPrimaryKey;
         indexEditorDialog(url, title, function(){
             //on success
-            $("#sqlqueryresults").remove();
-            $('#result_query').remove();
+            $(".sqlqueryresults").remove();
+            $('.result_query').remove();
             $('.tblFooters').html('');
             goToStep2('goToStep3');
         });
