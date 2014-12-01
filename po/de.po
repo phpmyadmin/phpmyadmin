@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-26 08:29-0500\n"
-"PO-Revision-Date: 2014-11-27 20:14+0200\n"
-"Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
+"PO-Revision-Date: 2014-12-01 16:54+0200\n"
+"Last-Translator: Jan Erik Zassenhaus <jan.zassenhaus@jgerman.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
@@ -9797,7 +9797,7 @@ msgstr "Ereignis"
 #: libraries/rte/rte_routines.lib.php:1052
 #: libraries/rte/rte_triggers.lib.php:377
 msgid "Definition"
-msgstr "Beschreibung"
+msgstr "Definition"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:544
 #: libraries/plugins/export/ExportOdt.class.php:671
@@ -11835,7 +11835,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1299
 #: libraries/server_privileges.lib.php:2498
 msgid "Login Information"
-msgstr "Anmeldeinformationen"
+msgstr "Anmeldeinformation"
 
 #: libraries/server_privileges.lib.php:1332
 #: libraries/server_privileges.lib.php:1520
@@ -11978,7 +11978,7 @@ msgstr "… lösche den alten und lade anschließend die Benutzertabellen neu."
 
 #: libraries/server_privileges.lib.php:2499
 msgid "Change Login Information / Copy User"
-msgstr "Anmelde-Information ändern/Benutzer kopieren"
+msgstr "Anmeldeinformation ändern/Benutzer kopieren"
 
 #: libraries/server_privileges.lib.php:2505
 msgid "Create a new user with the same privileges and …"
