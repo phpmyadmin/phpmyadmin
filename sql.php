@@ -57,8 +57,6 @@ if (! empty($goto)) {
     $is_gotofile  = true;
 } // end if
 
-/** @var PMA_String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
         . '?' . PMA_URL_getCommon(array('db' => $GLOBALS['db']))
