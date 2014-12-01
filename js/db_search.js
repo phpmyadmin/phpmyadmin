@@ -84,7 +84,7 @@ function deleteResult(result_path, msg)
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDeleting, false);
             /** Load the deleted option to the page*/
             $('#sqlqueryform').html('');
-            var url = result_path + "#result_query, #sqlqueryform";
+            var url = result_path;
             $.get(url, {'ajax_request': true, 'is_js_confirmed': true},
                 function (data) {
                     if (typeof data !== 'undefined' && data.success) {

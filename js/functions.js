@@ -2701,8 +2701,8 @@ AJAX.registerOnload('functions.js', function () {
         if ($(".sqlqueryresults").length !== 0) {
             $(".sqlqueryresults").remove();
         }
-        if ($("#result_query").length !== 0) {
-            $("#result_query").remove();
+        if ($(".result_query").length !== 0) {
+            $(".result_query").remove();
         }
         //variables which stores the common attributes
         $.post($(this).attr('href'), { ajax_request: 1 }, function (data) {
@@ -2719,7 +2719,7 @@ AJAX.registerOnload('functions.js', function () {
             } else if (typeof data !== 'undefined' && data.success === true) {
                 var $temp_div = $("<div id='temp_div'></div>");
                 $temp_div.html(data.message);
-                var $success = $temp_div.find("#result_query .success");
+                var $success = $temp_div.find(".result_query .success");
                 PMA_ajaxShowMessage($success);
                 $("<div class='sqlqueryresults ajax'></div>").prependTo("#page_content");
                 $(".sqlqueryresults").html(data.message);
@@ -3416,17 +3416,17 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
             }
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxShowMessage(data.message);
-                if ($('#result_query').length) {
-                    $('#result_query').remove();
+                if ($('.result_query').length) {
+                    $('.result_query').remove();
                 }
                 if (data.sql_query) {
-                    $('<div id="result_query"></div>')
+                    $('<div class="result_query"></div>')
                         .html(data.sql_query)
                         .prependTo('#page_content');
                     PMA_highlightSQL($('#page_content'));
                 }
-                $("#result_query .notice").remove();
-                $("#result_query").prepend(data.message);
+                $(".result_query .notice").remove();
+                $(".result_query").prepend(data.message);
                 /*Reload the field form*/
                 $("#table_index").remove();
                 var $temp_div = $("<div id='temp_div'><div>").append(data.index_table);
@@ -4101,8 +4101,8 @@ AJAX.registerOnload('functions.js', function () {
                 if ($(".sqlqueryresults").length !== 0) {
                     $(".sqlqueryresults").remove();
                 }
-                if ($("#result_query").length !== 0) {
-                    $("#result_query").remove();
+                if ($(".result_query").length !== 0) {
+                    $(".result_query").remove();
                 }
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
@@ -4348,7 +4348,7 @@ function PMA_createViewDialog($this)
                     PMA_ajaxRemoveMessage($msg);
                     if (typeof data !== 'undefined' && data.success === true) {
                         $('#createViewDialog').dialog("close");
-                        $('#result_query').html(data.message);
+                        $('.result_query').html(data.message);
                         PMA_reloadNavigation();
                     } else {
                         PMA_ajaxShowMessage(data.error, false);

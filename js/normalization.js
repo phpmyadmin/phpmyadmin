@@ -654,7 +654,7 @@ AJAX.registerOnload('normalization.js', function() {
         indexEditorDialog(url, title, function(){
             //on success
             $(".sqlqueryresults").remove();
-            $('#result_query').remove();
+            $('.result_query').remove();
             $('.tblFooters').html('');
             goToStep2('goToStep3');
         });

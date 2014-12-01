@@ -56,7 +56,7 @@ class PMA_ShowMessage_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_query'] = "SELECT * FROM tblPatient ";
 
         $this->expectOutputString(
-            "<div id=\"result_query\" align=\"\">
+            "<div class=\"result_query\" align=\"\">
             <div class=\"notice\">msg</div><code class=\"sql\"><span class=\"syntax\"><span class=\"inner_sql\"><a href=\"./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.0%2Fen%2Fselect.html&amp;server=server&amp;lang=en&amp;token=647a62ad301bf9025e3b13bc7caa02cb\" target=\"mysql_doc\"><span class=\"syntax_alpha syntax_alpha_reservedWord\">SELECT</span></a>  <span class=\"syntax_punct\">*</span> <br /><span class=\"syntax_alpha syntax_alpha_reservedWord\">FROM</span> <span class=\"syntax_alpha syntax_alpha_identifier\">tblPatient</span></span></span></code><div class=\"tools\"><form action=\"sql.php\" method=\"post\"><input type=\"hidden\" name=\"db\" value=\"db\" /><input type=\"hidden\" name=\"table\" value=\"tbl\" /><input type=\"hidden\" name=\"server\" value=\"server\" /><input type=\"hidden\" name=\"lang\" value=\"en\" /><input type=\"hidden\" name=\"token\" value=\"647a62ad301bf9025e3b13bc7caa02cb\" /><input type=\"hidden\" name=\"sql_query\" value=\"SELECT * FROM tblPatient \" /></form><script type=\"text/javascript\">
             //<![CDATA[
             $('.tools form').last().after('[<a href=\"#\" title=\"Inline edit of this query\" class=\"inline_edit_sql\">Inline</a>]');
