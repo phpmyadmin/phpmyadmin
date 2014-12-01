@@ -226,7 +226,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             array(false), 0, array('1'), 'SELECT', array('1' => 'result1')
         );
 
-        $attrInstance->setValue($restoreInstance);
+        $response->setValue($restoreInstance);
 
         $this->assertFalse($result);
     }
@@ -1936,7 +1936,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         PMA_isInsertRow();
 
-        $attrInstance->setValue($restoreInstance);
+        $response->setValue($restoreInstance);
 
         $this->assertEquals(5, $GLOBALS['cfg']['InsertRows']);
     }
@@ -2799,7 +2799,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $result = PMA_determineInsertOrEdit(null, 'db', 'table');
 
-        $attrInstance->setValue($restoreInstance);
+        $response->setValue($restoreInstance);
 
         $this->assertEquals(
             array(
