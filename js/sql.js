@@ -398,7 +398,7 @@ AJAX.registerOnload('sql.js', function () {
     // Filter row handling. --STARTS--
     $(".filter_rows").live("keyup", function () {
         var unique_id = $(this).data("for");
-        var $target_table = $("#table_results[data-uniqueId='" + unique_id + "']");
+        var $target_table = $(".table_results[data-uniqueId='" + unique_id + "']");
         var $header_cells = $target_table.find("th[data-column]");
         var target_columns = Array();
         // To handle colspan=4, in case of edit,copy etc options.

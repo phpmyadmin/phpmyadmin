@@ -1795,8 +1795,7 @@ class PMA_DisplayResults
                 . '<input type="hidden" name="goto" value="sql.php" />';
         }
 
-        $form_html .= '<table id="table_results"';
-        $form_html .= ' class="table_results data ajax"';
+        $form_html .= '<table class="table_results data ajax"';
         $form_html .= ' data-uniqueId="' . $this->__get('unique_id') . '"';
         $form_html .= '>';
 

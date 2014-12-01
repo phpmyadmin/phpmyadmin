@@ -89,7 +89,7 @@ h2 a img {
     width: 100%;
 }
 
-#table_results td.data {
+.table_results td.data {
 border-right: 1px solid #bbb;
 }
 
