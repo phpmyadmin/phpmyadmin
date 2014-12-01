@@ -217,6 +217,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->setMethods(array('addHtml'))
             ->getMock();
 
+        $restoreInstance = PMA_Response::getInstance();
         $response = new ReflectionProperty('PMA_Response', '_instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
@@ -224,6 +225,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $result = PMA_showEmptyResultMessageOrSetUniqueCondition(
             array(false), 0, array('1'), 'SELECT', array('1' => 'result1')
         );
+
+        $attrInstance->setValue($restoreInstance);
 
         $this->assertFalse($result);
     }
@@ -1926,11 +1929,14 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->method('getHeader')
             ->will($this->returnValue($headerMock));
 
+        $restoreInstance = PMA_Response::getInstance();
         $response = new ReflectionProperty('PMA_Response', '_instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
 
         PMA_isInsertRow();
+
+        $attrInstance->setValue($restoreInstance);
 
         $this->assertEquals(5, $GLOBALS['cfg']['InsertRows']);
     }
@@ -2765,6 +2771,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->setMethods(array('addHtml'))
             ->getMock();
 
+        $restoreInstance = PMA_Response::getInstance();
         $response = new ReflectionProperty('PMA_Response', '_instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
@@ -2791,6 +2798,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $_REQUEST['default_action'] = '';
 
         $result = PMA_determineInsertOrEdit(null, 'db', 'table');
+
+        $attrInstance->setValue($restoreInstance);
 
         $this->assertEquals(
             array(
