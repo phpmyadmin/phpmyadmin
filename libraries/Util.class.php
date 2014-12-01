@@ -2616,7 +2616,7 @@ class PMA_Util
             . ($html_field_id ? ' id="' . $html_field_id . '"' : '')
             . ($checked ? ' checked="checked"' : '')
             . ($onclick ? ' class="autosubmit"' : '') . ' />'
-            . '<label' . ($html_field_id ? ' for="' . $html_field_name . '"' : '')
+            . '<label' . ($html_field_id ? ' for="' . $html_field_id . '"' : '')
             . '>' . $label . '</label>';
     }
 
