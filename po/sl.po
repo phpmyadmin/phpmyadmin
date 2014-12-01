@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-26 08:29-0500\n"
-"PO-Revision-Date: 2014-10-17 22:43+0200\n"
+"PO-Revision-Date: 2014-12-01 23:42+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.1-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -34,10 +34,10 @@ msgid "Click to sort."
 msgstr "Kliknite za razvrščanje."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Prikazujem vrstice %1$s–%2$s"
+msgstr "Prikazujem vrstice %1$s–%2$s."
 
 #: db_create.php:61
 #, php-format
@@ -337,17 +337,17 @@ msgid "Tracking data deleted successfully."
 msgstr "Opredelitev sledenja podatkom je uspešno izbrisana"
 
 #: db_tracking.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %1$s was created, tracking for %2$s is active."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "Različica %1$s je ustvarjena, sledenje %2$s je aktivirano."
+msgstr ""
+"Različica %1$s je ustvarjena za izbrane tabele, sledenje zanje je aktivirano."
 
 #: db_tracking.php:78
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Ni izbranih zbirk podatkov."
+msgstr "Ni izbranih tabel."
 
 #: db_tracking.php:112
 msgid "Tracked tables"
@@ -394,10 +394,9 @@ msgid "Delete tracking data for this table"
 msgstr "Izbriši podatke sledenja te tabele"
 
 #: db_tracking.php:145 db_tracking.php:207
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "Brisanje podatkov sledenja"
+msgstr "Izbriši sledenje"
 
 #: db_tracking.php:183
 msgid "Versions"
@@ -898,15 +897,14 @@ msgstr ""
 "razširjene zmožnosti onemogočili. %sUgotovite, zakaj%s. "
 
 #: index.php:540
-#, fuzzy
 #| msgid ""
 #| "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or alternately go to 'Operations' "
 #| "tab of any database to set it up there."
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ali pa pojdite na zavihek »Dejanja« "
-"katere koli zbirke podatkov, da to nastavite tam."
+"Ali pa pojdite na zavihek »Dejanja« katere koli zbirke podatkov, da to "
+"nastavite tam."
 
 #: index.php:585
 #, php-format
@@ -952,28 +950,24 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "S tem dejanjem boste IZPRAZNILI celotno tabelo!"
 
 #: js/messages.php:40
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Izbriši podatke sledenja te tabele"
+msgstr "Izbrišemo podatke sledenja te tabele?"
 
 #: js/messages.php:41
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Izbriši podatke sledenja te tabele"
+msgstr "Izbrišemo podatke sledenja teh tabel?"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Izbriši podatke sledenja te tabele"
+msgstr "Izbrišemo podatke sledenja te različice?"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Izbriši podatke sledenja te tabele"
+msgstr "Izbrišemo podatke sledenja teh različic?"
 
 #: js/messages.php:44
 msgid "Deleting tracking data"
@@ -9905,7 +9899,6 @@ msgstr ""
 "</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:403
-#, fuzzy
 #| msgid ""
 #| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 #| "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -9914,7 +9907,7 @@ msgid ""
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 "oboje zgoraj<br /> &nbsp; &nbsp; &nbsp; Primer: <code>INSERT INTO ime_tabele "
-"(sto_A,sto_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"(sto_A,sto_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:408
 msgid ""
@@ -13799,10 +13792,9 @@ msgid "Display column was successfully updated."
 msgstr "Nit %s je bila prekinjena."
 
 #: libraries/tbl_relation.lib.php:900
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relations were successfully updated."
-msgstr "Dodal sem notranje razmerje."
+msgstr "Notranja razmerja smo uspešno posodobili."
 
 #: libraries/tbl_relation.lib.php:1165
 #, php-format
@@ -13816,10 +13808,10 @@ msgid "Create version %1$s of %2$s"
 msgstr "Ustvari različico %1$s tabele %2$s"
 
 #: libraries/tracking.lib.php:73
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Create version %1$s"
-msgstr "Ustvari različico"
+msgstr "Ustvari različico %1$s"
 
 #: libraries/tracking.lib.php:78
 msgid "Track these data definition statements:"
@@ -13852,10 +13844,9 @@ msgid "Deactivate now"
 msgstr "Dezaktiviraj zdaj"
 
 #: libraries/tracking.lib.php:258 libraries/tracking.lib.php:312
-#, fuzzy
 #| msgid "Create version"
 msgid "Delete version"
-msgstr "Ustvari različico"
+msgstr "Izbriši različico"
 
 #: libraries/tracking.lib.php:377 libraries/tracking.lib.php:1386
 msgid "active"
@@ -13970,10 +13961,10 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Sledenje %1$s je bilo deaktivirano pri različici %2$s."
 
 #: libraries/tracking.lib.php:1258
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Ustvari različico %1$s tabele %2$s"
+msgstr "Različico %1$s tabele %2$s smo izbrisali."
 
 #: libraries/tracking.lib.php:1289
 #, php-format
@@ -14333,16 +14324,14 @@ msgid "Tracking of %s is activated."
 msgstr "Sledenje %s je aktivirano."
 
 #: tbl_tracking.php:100
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "Uspešno sem izbrisal izbrane uporabnike."
+msgstr "Uspešno sem izbrisal različice sledenja."
 
 #: tbl_tracking.php:105
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "Ni izbranih vrstic"
+msgstr "Ni izbranih različic."
 
 #: tbl_tracking.php:132
 msgid "SQL statements executed."
