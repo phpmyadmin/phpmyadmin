@@ -212,7 +212,7 @@ function insertDataAndClose() {
 AJAX.registerTeardown('gis_data_editor.js', function () {
     $(document).off('click', "#gis_editor input[name='gis_data[save]']");
     $(document).off('submit', '#gis_editor');
-    $('#gis_editor').find("input[type='text']").die('change');
+    $(document).off('change', "#gis_editor input[type='text']");
     $(document).off('change', "#gis_editor select.gis_type");
     $(document).off('click', '#gis_editor a.close_gis_editor, #gis_editor a.cancel_gis_editor');
     $(document).off('click', '#gis_editor a.addJs.addPoint');
@@ -245,7 +245,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
     /**
      * Trigger asynchronous calls on data change and update the output.
      */
-    $('#gis_editor').find("input[type='text']").live('change', function () {
+    $(document).on('change', "#gis_editor input[type='text']", function () {
         var $form = $('form#gis_data_editor_form');
         $.post('gis_data_editor.php', $form.serialize() + "&generate=true&ajax_request=true", function (data) {
             if (typeof data !== 'undefined' && data.success === true) {

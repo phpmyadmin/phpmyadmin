@@ -56,7 +56,7 @@ AJAX.registerTeardown('server_privileges.js', function () {
     $(document).off('click', "a.edit_user_group_anchor.ajax");
     $(document).off('click', "button.mult_submit[value=export]");
     $(document).off('click', "a.export_user_anchor.ajax");
-    $("#initials_table").find("a.ajax").die('click');
+    $(document).off('click',  "#initials_table a.ajax");
     $('#checkbox_drop_users_db').unbind('click');
     $(document).off("click", ".checkall_box");
 });
@@ -338,7 +338,7 @@ AJAX.registerOnload('server_privileges.js', function () {
      * @name        paginate_users_table_click
      * @memberOf    jQuery
      */
-    $("#initials_table").find("a.ajax").live('click', function (event) {
+    $(document).on('click', "#initials_table a.ajax", function (event) {
         event.preventDefault();
         var $msgbox = PMA_ajaxShowMessage();
         $.get($(this).attr('href'), {'ajax_request' : true}, function (data) {

@@ -134,12 +134,10 @@ $(function () {
     /**
      * Bind all "fast filter" events
      */
-    $('#pma_navigation_tree li.fast_filter span')
-        .live('click', PMA_fastFilter.events.clear);
-    $('#pma_navigation_tree li.fast_filter input.searchClause')
-        .live('focus', PMA_fastFilter.events.focus)
-        .live('blur', PMA_fastFilter.events.blur)
-        .live('keyup', PMA_fastFilter.events.keyup);
+    $(document).on('click', '#pma_navigation_tree li.fast_filter span', PMA_fastFilter.events.clear);
+    $(document).on('focus', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.focus);
+    $(document).on('blur', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.blur);
+    $(document).on('keyup', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.keyup);
 
     /**
      * Ajax handler for pagination
@@ -152,16 +150,18 @@ $(function () {
     /**
      * Node highlighting
      */
-    $('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
+    $(document).on(
         'mouseover',
+        '#pma_navigation_tree.highlight li:not(.fast_filter)',
         function () {
             if ($('li:visible', this).length === 0) {
                 $(this).addClass('activePointer');
             }
         }
     );
-    $('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
+    $(document).on(
         'mouseout',
+        '#pma_navigation_tree.highlight li:not(.fast_filter)',
         function () {
             $(this).removeClass('activePointer');
         }
@@ -210,9 +210,7 @@ $(function () {
         dialog.editorDialog(0, $(this).parent());
     });
     /** Export Triggers and Events */
-    $('li.trigger div:eq(1) a.ajax img,' +
-        ' li.event div:eq(1) a.ajax img'
-        ).live('click', function (event) {
+    $(document).on('click', 'li.trigger div:eq(1) a.ajax img, li.event div:eq(1) a.ajax img', function (event) {
         event.preventDefault();
         var dialog = new RTE.object();
         dialog.exportDialog($(this).parent());
@@ -1045,12 +1043,11 @@ var ResizeHandler = function () {
         $('#topmenu').menuResizer('resize');
     }
     // Register the events for the resizer and the collapser
-    $('#pma_navigation_resizer')
-        .live('mousedown', {'resize_handler': this}, this.mousedown);
-    var $collapser = $('#pma_navigation_collapser');
-    $collapser.live('click', {'resize_handler': this}, this.collapse);
+    $(document).on('mousedown', '#pma_navigation_resizer', {'resize_handler': this}, this.mousedown);
+    $(document).on('click', '#pma_navigation_collapser', {'resize_handler': this}, this.collapse);
+
     // Add the correct arrow symbol to the collapser
-    $collapser.html(this.getSymbol($('#pma_navigation').width()));
+    $('#pma_navigation_collapser').html(this.getSymbol($('#pma_navigation').width()));
     // Fix navigation tree height
     $(window).on('resize', this.treeResize);
     // need to call this now and then, browser might decide

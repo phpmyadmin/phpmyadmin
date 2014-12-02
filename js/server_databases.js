@@ -126,5 +126,5 @@ AJAX.registerOnload('server_databases.js', function () {
                 PMA_ajaxShowMessage(data.error, false);
             }
         }); // end $.post()
-    }); // end $().live()
+    }); // end $(document).on()
 }); // end $()

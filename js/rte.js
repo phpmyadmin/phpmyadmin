@@ -786,7 +786,7 @@ $(function () {
         }
         var dialog = new RTE.object(type);
         dialog.editorDialog($(this).hasClass('add_anchor'), $(this));
-    }); // end $.live()
+    }); // end $(document).on()
 
     /**
      * Attach Ajax event handlers for the Execute routine functionality
@@ -795,7 +795,7 @@ $(function () {
         event.preventDefault();
         var dialog = new RTE.object('routine');
         dialog.executeDialog($(this));
-    }); // end $.live()
+    }); // end $(document).on()
 
     /**
      * Attach Ajax event handlers for Export of Routines, Triggers and Events
@@ -804,7 +804,7 @@ $(function () {
         event.preventDefault();
         var dialog = new RTE.object();
         dialog.exportDialog($(this));
-    }); // end $.live()
+    }); // end $(document).on()
 
     /**
      * Attach Ajax event handlers for Drop functionality
@@ -814,7 +814,7 @@ $(function () {
         event.preventDefault();
         var dialog = new RTE.object();
         dialog.dropDialog($(this));
-    }); // end $.live()
+    }); // end $(document).on()
 
     /**
      * Attach Ajax event handlers for the "Change event/routine type"
@@ -826,7 +826,7 @@ $(function () {
         .closest('table')
         .find('tr.recurring_event_row, tr.onetime_event_row, tr.routine_return_row, td.routine_direction_cell')
         .toggle();
-    }); // end $.live()
+    }); // end $(document).on()
 
     /**
      * Attach Ajax event handlers for the "Change parameter type"
@@ -847,7 +847,7 @@ $(function () {
             $row.find('select[name^=item_param_opts_text]'),
             $row.find('select[name^=item_param_opts_num]')
         );
-    }); // end $.live()
+    }); // end $(document).on()
 
     /**
      * Attach Ajax event handlers for the "Change the type of return
@@ -863,7 +863,7 @@ $(function () {
             $table.find('select[name=item_returnopts_text]'),
             $table.find('select[name=item_returnopts_num]')
         );
-    }); // end $.live()
+    }); // end $(document).on()
 
     /**
      * Attach Ajax event handlers for the "Add parameter to routine" functionality
@@ -900,7 +900,7 @@ $(function () {
             $newrow.find('select[name^=item_param_opts_text]'),
             $newrow.find('select[name^=item_param_opts_num]')
         );
-    }); // end $.live()
+    }); // end $(document).on()
 
     /**
      * Attach Ajax event handlers for the
@@ -940,5 +940,5 @@ $(function () {
             });
             index++;
         });
-    }); // end $.live()
+    }); // end $(document).on()
 }); // end of $()

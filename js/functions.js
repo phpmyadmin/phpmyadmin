@@ -2068,13 +2068,12 @@ $(function () {
      * The below two functions hide the "Dismiss notification" tooltip when a user
      * is hovering a link or button that is inside an ajax message
      */
-    $('span.ajax_notification a, span.ajax_notification button, span.ajax_notification input')
-    .live('mouseover', function () {
+    $(document).on('mouseover', 'span.ajax_notification a, span.ajax_notification button, span.ajax_notification input', function () {
         if ($(this).parents('span.ajax_notification').is(':data(tooltip)')) {
             $(this).parents('span.ajax_notification').tooltip('disable');
         }
-    })
-    .live('mouseout', function () {
+    });
+    $(document).on('mouseout', 'span.ajax_notification a, span.ajax_notification button, span.ajax_notification input', function () {
         if ($(this).parents('span.ajax_notification').is(':data(tooltip)')) {
             $(this).parents('span.ajax_notification').tooltip('enable');
         }
@@ -3987,7 +3986,7 @@ function printPage()
 AJAX.registerTeardown('functions.js', function () {
     $('input#print').unbind('click');
     $(document).off('click', 'a.create_view.ajax');
-    $('#createViewDialog').find('input, select').die('keydown');
+    $(document).off('keydown', '#createViewDialog input, #createViewDialog select');
 });
 
 AJAX.registerOnload('functions.js', function () {
@@ -4004,7 +4003,7 @@ AJAX.registerOnload('functions.js', function () {
      * and used to submit the Ajax request when the ENTER key is pressed.
      */
     if ($('#createViewDialog').length !== 0) {
-        $('#createViewDialog').find('input, select').live('keydown', function (e) {
+        $(document).on('keydown', '#createViewDialog input, #createViewDialog select', function (e) {
             if (e.which === 13) { // 13 is the ENTER key
                 e.preventDefault();
 
@@ -4014,7 +4013,7 @@ AJAX.registerOnload('functions.js', function () {
 
                 $(this).closest('.ui-dialog').find('.ui-button:first').click();
             }
-        }); // end $.live()
+        }); // end $(document).on()
     }
 
     var $elm = $('textarea[name="view[as]"]');

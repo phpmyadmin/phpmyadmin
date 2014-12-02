@@ -32,7 +32,7 @@ AJAX.registerOnload('server_variables.js', function () {
     );
 
     /* Launches the variable editor */
-    $editLink.live('click', function (event) {
+    $(document).on('click', 'a.editLink', function (event) {
         event.preventDefault();
         editVariable(this);
     });
