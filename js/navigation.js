@@ -6,6 +6,84 @@
  */
 
 /**
+ * Loads child items of a node and executes a given callback
+ *
+ * @param $expandElem expander
+ * @param callback    callback function
+ *
+ * @returns void
+ */
+function loadChildNodes($expandElem, callback) {
+    if (!$expandElem.hasClass('expander')) {
+        return;
+    }
+    var $destination = $expandElem.closest('li');
+
+    var searchClause = PMA_fastFilter.getSearchClause();
+    var searchClause2 = PMA_fastFilter.getSearchClause2($expandElem);
+
+    var params = {
+        aPath: $expandElem.find('span.aPath').text(),
+        vPath: $expandElem.find('span.vPath').text(),
+        pos: $expandElem.find('span.pos').text(),
+        pos2_name: $expandElem.find('span.pos2_name').text(),
+        pos2_value: $expandElem.find('span.pos2_value').text(),
+        searchClause: searchClause,
+        searchClause2: searchClause2
+    };
+
+    var url = $('#pma_navigation').find('a.navigation_url').attr('href');
+    $.get(url, params, function (data) {
+        if (typeof data !== 'undefined' && data.success === true) {
+            $expandElem.addClass('loaded');
+            $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
+            $destination.append(data.message);
+            if (data._debug){
+                $('#session_debug').replaceWith(data._debug);
+            }
+            if (data._errors) {
+                $errors = $(data._errors);
+                if ($errors.children().length > 0) {
+                    $('#pma_errors').replaceWith(data._errors);
+                }
+            }
+            if (callback && typeof callback == 'function') {
+                callback(data);
+            }
+        } else if(data.redirect_flag == "1") {
+            window.location.href += '&session_expired=1';
+            window.location.reload();
+        } else {
+            var $throbber = $expandElem.find('img.throbber');
+            $throbber.hide();
+            $icon = $expandElem.find('img.ic_b_plus');
+            $icon.show();
+            PMA_ajaxShowMessage(data.error, false);
+        }
+    });
+}
+
+/**
+ * Collapses a node in navigation tree.
+ *
+ * @param $expandElem expander
+ *
+ * @returns void
+ */
+function collapseTreeNode($expandElem) {
+    var $children = $expandElem.closest('li').children('div.list_container');
+    var $icon = $expandElem.find('img');
+    if ($expandElem.hasClass('loaded')) {
+        if ($icon.is('.ic_b_minus')) {
+            $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
+            $children.slideUp('fast');
+        }
+    }
+    $expandElem.blur();
+    $children.promise().done(navTreeStateUpdate);
+}
+
+/**
  * Executed on page load
  */
 $(function () {
@@ -480,84 +558,6 @@ function scrollToView($element, $forceToTop) {
             scrollTop: elemTop + textHeight - $container.height() + $container.scrollTop() + scrollPadding
         });
     }
-}
-
-/**
- * Collapses a node in navigation tree.
- *
- * @param $expandElem expander
- *
- * @returns void
- */
-function collapseTreeNode($expandElem) {
-    var $children = $expandElem.closest('li').children('div.list_container');
-    var $icon = $expandElem.find('img');
-    if ($expandElem.hasClass('loaded')) {
-        if ($icon.is('.ic_b_minus')) {
-            $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
-            $children.slideUp('fast');
-        }
-    }
-    $expandElem.blur();
-    $children.promise().done(navTreeStateUpdate);
-}
-
-/**
- * Loads child items of a node and executes a given callback
- *
- * @param $expandElem expander
- * @param callback    callback function
- *
- * @returns void
- */
-function loadChildNodes($expandElem, callback) {
-    if (!$expandElem.hasClass('expander')) {
-        return;
-    }
-    var $destination = $expandElem.closest('li');
-
-    var searchClause = PMA_fastFilter.getSearchClause();
-    var searchClause2 = PMA_fastFilter.getSearchClause2($expandElem);
-
-    var params = {
-        aPath: $expandElem.find('span.aPath').text(),
-        vPath: $expandElem.find('span.vPath').text(),
-        pos: $expandElem.find('span.pos').text(),
-        pos2_name: $expandElem.find('span.pos2_name').text(),
-        pos2_value: $expandElem.find('span.pos2_value').text(),
-        searchClause: searchClause,
-        searchClause2: searchClause2
-    };
-
-    var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-    $.get(url, params, function (data) {
-        if (typeof data !== 'undefined' && data.success === true) {
-            $expandElem.addClass('loaded');
-            $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
-            $destination.append(data.message);
-            if (data._debug){
-                $('#session_debug').replaceWith(data._debug);
-            }
-            if (data._errors) {
-                $errors = $(data._errors);
-                if ($errors.children().length > 0) {
-                    $('#pma_errors').replaceWith(data._errors);
-                }
-            }
-            if (callback && typeof callback == 'function') {
-                callback(data);
-            }
-        } else if(data.redirect_flag == "1") {
-            window.location.href += '&session_expired=1';
-            window.location.reload();
-        } else {
-            var $throbber = $expandElem.find('img.throbber');
-            $throbber.hide();
-            $icon = $expandElem.find('img.ic_b_plus');
-            $icon.show();
-            PMA_ajaxShowMessage(data.error, false);
-        }
-    });
 }
 
 /**
