@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.1.14.8 (not yet released)
+- bug #4611 [security] DOS attack with long passwords
+
 4.1.14.7 (2014-11-20)
 - bug #4596 [security] XSS through exception stack
 - bug #4595 [security] Path traversal can lead to leakage of line count

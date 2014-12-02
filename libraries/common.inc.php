@@ -856,6 +856,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 . ' ' . $cfg['Server']['auth_type']
             );
         }
+        if (isset($_REQUEST['pma_password'])) {
+            $_REQUEST['pma_password'] = substr($_REQUEST['pma_password'], 0, 256);
+        }
         include_once  './libraries/plugins/auth/' . $auth_class . '.class.php';
         // todo: add plugin manager
         $plugin_manager = null;
@@ -984,6 +987,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (! $controllink) {
             $controllink = $userlink;
         }
+
+        $auth_plugin->storeUserCredentials();
 
         /* Log success */
         PMA_logUser($cfg['Server']['user']);
