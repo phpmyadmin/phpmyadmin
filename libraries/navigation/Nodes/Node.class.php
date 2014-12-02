@@ -227,7 +227,7 @@ class Node
      * node, it will return the table and database nodes. The names of the returned
      * nodes can be used in SQL queries, etc...
      *
-     * @return Node
+     * @return Node|false
      */
     public function realParent()
     {
@@ -443,6 +443,7 @@ class Node
             $query = "SHOW DATABASES ";
             $query .= $this->_getWhereClause('Database', $searchClause);
             $handle = $GLOBALS['dbi']->tryQuery($query);
+            $prefixes = array();
             if ($handle !== false) {
                 $prefixMap = array();
                 $total = $pos + $maxItems;
