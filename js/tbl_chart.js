@@ -394,7 +394,7 @@ AJAX.registerOnload('tbl_chart.js', function () {
  * Ajax Event handler for 'Go' button click
  *
  */
-$("#tblchartform").live('submit', function (event) {
+$(document).on('submit', "#tblchartform", function (event) {
     if (!checkFormElementInRange(this, 'session_max_rows', PMA_messages.strNotValidRowNumber, 1) ||
         !checkFormElementInRange(this, 'pos', PMA_messages.strNotValidRowNumber, 0 - 1)
     ) {

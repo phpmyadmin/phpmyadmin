@@ -324,12 +324,12 @@ function applyFunctionToAllRows(currId, functionName, copySalt, salt, targetRows
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_change.js', function () {
-    $('span.open_gis_editor').die('click');
-    $("input[name='gis_data[save]']").die('click');
-    $('input.checkbox_null').die('click');
+    $(document).off('click', 'span.open_gis_editor');
+    $(document).off('click', "input[name='gis_data[save]']");
+    $(document).off('click', 'input.checkbox_null');
     $('select[name="submit_type"]').unbind('change');
-    $("#insert_rows").die('change');
-    $("select[name*='funcs']").die('click');
+    $(document).off('change', "#insert_rows");
+    $(document).off('click', "select[name*='funcs']");
 });
 
 /**
@@ -342,7 +342,7 @@ AJAX.registerTeardown('tbl_change.js', function () {
 AJAX.registerOnload('tbl_change.js', function () {
     $.datepicker.initialized = false;
 
-    $('span.open_gis_editor').live('click', function (event) {
+    $(document).on('click', 'span.open_gis_editor', function (event) {
         event.preventDefault();
 
         var $span = $(this);
@@ -368,7 +368,7 @@ AJAX.registerOnload('tbl_change.js', function () {
     /**
      * Uncheck the null checkbox as geometry data is placed on the input field
      */
-    $("input[name='gis_data[save]']").live('click', function (event) {
+    $(document).on('click', "input[name='gis_data[save]']", function (event) {
         var input_name = $('form#gis_data_editor_form').find("input[name='input_name']").val();
         var $null_checkbox = $("input[name='" + input_name + "']").parents('tr').find('.checkbox_null');
         $null_checkbox.prop('checked', false);
@@ -380,7 +380,7 @@ AJAX.registerOnload('tbl_change.js', function () {
      * "Continue insertion" are handled in the "Continue insertion" code
      *
      */
-    $('input.checkbox_null').live('click', function (e) {
+    $(document).on('click', 'input.checkbox_null', function (e) {
         nullify(
             // use hidden fields populated by tbl_change.php
             $(this).siblings('.nullify_code').val(),
@@ -424,7 +424,7 @@ AJAX.registerOnload('tbl_change.js', function () {
     /**
      * Continue Insertion form
      */
-    $("#insert_rows").live('change', function (event) {
+    $(document).on('change', "#insert_rows", function (event) {
         event.preventDefault();
         /**
          * @var columnCount   Number of number of columns table has.
@@ -641,7 +641,7 @@ AJAX.registerOnload('tbl_change.js', function () {
         PMA_messages.strFunctionHint
     );
 
-    $("select[name*='funcs']").live('click', function (event) {
+    $(document).on('click', "select[name*='funcs']", function (event) {
         if (! event.shiftKey) {
             return false;
         }

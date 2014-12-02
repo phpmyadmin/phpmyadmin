@@ -23,7 +23,7 @@ AJAX.registerTeardown('db_search.js', function () {
     $('#togglesearchresultlink').unbind('click');
     $("#togglequerybox").unbind('click');
     $('#togglesearchformlink').unbind('click');
-    $("#db_search_form.ajax").die('submit');
+    $(document).off('submit', "#db_search_form.ajax");
 });
 
 /**
@@ -194,7 +194,7 @@ AJAX.registerOnload('db_search.js', function () {
     /**
      * Ajax Event handler for retrieving the result of an SQL Query
      */
-    $("#db_search_form.ajax").live('submit', function (event) {
+    $(document).on('submit', "#db_search_form.ajax", function (event) {
         event.preventDefault();
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strSearching, false);

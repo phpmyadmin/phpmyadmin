@@ -772,7 +772,7 @@ $(function () {
     /**
      * Attach Ajax event handlers for the Add/Edit functionality.
      */
-    $('a.ajax.add_anchor, a.ajax.edit_anchor').live('click', function (event) {
+    $(document).on('click', 'a.ajax.add_anchor, a.ajax.edit_anchor', function (event) {
         event.preventDefault();
         var type = $(this).attr('href').substr(0, $(this).attr('href').indexOf('?'));
         if (type.indexOf('routine') != -1) {
@@ -791,7 +791,7 @@ $(function () {
     /**
      * Attach Ajax event handlers for the Execute routine functionality
      */
-    $('a.ajax.exec_anchor').live('click', function (event) {
+    $(document).on('click', 'a.ajax.exec_anchor', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('routine');
         dialog.executeDialog($(this));
@@ -800,7 +800,7 @@ $(function () {
     /**
      * Attach Ajax event handlers for Export of Routines, Triggers and Events
      */
-    $('a.ajax.export_anchor').live('click', function (event) {
+    $(document).on('click', 'a.ajax.export_anchor', function (event) {
         event.preventDefault();
         var dialog = new RTE.object();
         dialog.exportDialog($(this));
@@ -810,7 +810,7 @@ $(function () {
      * Attach Ajax event handlers for Drop functionality
      * of Routines, Triggers and Events.
      */
-    $('a.ajax.drop_anchor').live('click', function (event) {
+    $(document).on('click', 'a.ajax.drop_anchor', function (event) {
         event.preventDefault();
         var dialog = new RTE.object();
         dialog.dropDialog($(this));
@@ -821,7 +821,7 @@ $(function () {
      * functionality in the events editor, so that the correct
      * rows are shown in the editor when changing the event type
      */
-    $('select[name=item_type]').live('change', function () {
+    $(document).on('change', 'select[name=item_type]', function () {
         $(this)
         .closest('table')
         .find('tr.recurring_event_row, tr.onetime_event_row, tr.routine_return_row, td.routine_direction_cell')
@@ -834,7 +834,7 @@ $(function () {
      * option/length fields, if any, are shown when changing
      * a parameter type
      */
-    $('select[name^=item_param_type]').live('change', function () {
+    $(document).on('change', 'select[name^=item_param_type]', function () {
         /**
          * @var row jQuery object containing the reference to
          *          a row in the routine parameters table
@@ -854,7 +854,7 @@ $(function () {
      * variable of function" functionality, so that the correct fields,
      * if any, are shown when changing the function return type type
      */
-    $('select[name=item_returntype]').live('change', function () {
+    $(document).on('change', 'select[name=item_returntype]', function () {
         var rte = new RTE.object('routine');
         var $table = $(this).closest('table.rte_table');
         rte.setOptionsForParameter(
@@ -868,7 +868,7 @@ $(function () {
     /**
      * Attach Ajax event handlers for the "Add parameter to routine" functionality
      */
-    $('input[name=routine_addparameter]').live('click', function (event) {
+    $(document).on('click', 'input[name=routine_addparameter]', function (event) {
         event.preventDefault();
         /**
          * @var routine_params_table jQuery object containing the reference
@@ -906,7 +906,7 @@ $(function () {
      * Attach Ajax event handlers for the
      * "Remove parameter from routine" functionality
      */
-    $('a.routine_param_remove_anchor').live('click', function (event) {
+    $(document).on('click', 'a.routine_param_remove_anchor', function (event) {
         event.preventDefault();
         $(this).parent().parent().remove();
         // After removing a parameter, the indices of the name attributes in

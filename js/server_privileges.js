@@ -51,21 +51,21 @@ function checkAddUser(the_form)
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('server_privileges.js', function () {
-    $("#fieldset_add_user_login input[name='username']").die("focusout");
-    $("#fieldset_delete_user_footer #buttonGo.ajax").die('click');
-    $("a.edit_user_group_anchor.ajax").die('click');
-    $("button.mult_submit[value=export]").die('click');
-    $("a.export_user_anchor.ajax").die('click');
+    $(document).off("focusout", "#fieldset_add_user_login input[name='username']");
+    $(document).off('click', "#fieldset_delete_user_footer #buttonGo.ajax");
+    $(document).off('click', "a.edit_user_group_anchor.ajax");
+    $(document).off('click', "button.mult_submit[value=export]");
+    $(document).off('click', "a.export_user_anchor.ajax");
     $("#initials_table").find("a.ajax").die('click');
     $('#checkbox_drop_users_db').unbind('click');
-    $(".checkall_box").die("click");
+    $(document).off("click", ".checkall_box");
 });
 
 AJAX.registerOnload('server_privileges.js', function () {
     /**
      * Display a warning if there is already a user by the name entered as the username.
      */
-    $("#fieldset_add_user_login input[name='username']").live("focusout", function () {
+    $(document).on("focusout", "#fieldset_add_user_login input[name='username']", function () {
         var username = $(this).val();
         var $warning = $("#user_exists_warning");
         if ($("#select_pred_username").val() == 'userdefined' && username !== '') {
@@ -96,7 +96,7 @@ AJAX.registerOnload('server_privileges.js', function () {
      * @memberOf    jQuery
      * @name        revoke_user_click
      */
-    $("#fieldset_delete_user_footer #buttonGo.ajax").live('click', function (event) {
+    $(document).on('click', "#fieldset_delete_user_footer #buttonGo.ajax", function (event) {
         event.preventDefault();
 
         var $thisButton = $(this);
@@ -153,7 +153,7 @@ AJAX.registerOnload('server_privileges.js', function () {
 
     }); // end Revoke User
 
-    $("a.edit_user_group_anchor.ajax").live('click', function (event) {
+    $(document).on('click', "a.edit_user_group_anchor.ajax", function (event) {
         event.preventDefault();
         $(this).parents('tr').addClass('current_row');
         var token = $(this).parents('form').find('input[name="token"]').val();
@@ -229,7 +229,7 @@ AJAX.registerOnload('server_privileges.js', function () {
      * @memberOf    jQuery
      * @name        export_user_click
      */
-    $("button.mult_submit[value=export]").live('click', function (event) {
+    $(document).on('click', "button.mult_submit[value=export]", function (event) {
         event.preventDefault();
         // can't export if no users checked
         if ($(this.form).find("input:checked").length === 0) {
@@ -289,7 +289,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         );
     }
 
-    $("a.export_user_anchor.ajax").live('click', function (event) {
+    $(document).on('click', "a.export_user_anchor.ajax", function (event) {
         event.preventDefault();
         var $msgbox = PMA_ajaxShowMessage();
         /**

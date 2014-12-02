@@ -51,9 +51,9 @@ function PMA_checkIfDataTypeNumericOrDate(data_type)
  */
 AJAX.registerTeardown('tbl_select.js', function () {
     $('#togglesearchformlink').unbind('click');
-    $("#tbl_search_form.ajax").die('submit');
+    $(document).off('submit', "#tbl_search_form.ajax");
     $('select.geom_func').unbind('change');
-    $('span.open_search_gis_editor').die('click');
+    $(document).off('click', 'span.open_search_gis_editor');
     $('body').off('click', 'select[name*="criteriaColumnOperators"]');
 });
 
@@ -84,7 +84,7 @@ AJAX.registerOnload('tbl_select.js', function () {
     /**
      * Ajax event handler for Table Search
      */
-    $("#tbl_search_form.ajax").live('submit', function (event) {
+    $(document).on('submit', "#tbl_search_form.ajax", function (event) {
         var unaryFunctions = [
             'IS NULL',
             'IS NOT NULL',
@@ -227,7 +227,7 @@ AJAX.registerOnload('tbl_select.js', function () {
 
     });
 
-    $('span.open_search_gis_editor').live('click', function (event) {
+    $(document).on('click', 'span.open_search_gis_editor', function (event) {
         event.preventDefault();
 
         var $span = $(this);

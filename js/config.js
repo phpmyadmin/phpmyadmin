@@ -12,7 +12,7 @@ AJAX.registerTeardown('config.js', function () {
     $('div.tabs_contents').undelegate();
     $('#import_local_storage, #export_local_storage').unbind('click');
     $('form.prefs-form').unbind('change').unbind('submit');
-    $('div.click-hide-message').die('click');
+    $(document).off('click', 'div.click-hide-message');
     $('#prefs_autoload').find('a').unbind('click');
 });
 
@@ -703,7 +703,7 @@ AJAX.registerOnload('config.js', function () {
         }
     });
 
-    $('div.click-hide-message').live('click', function () {
+    $(document).on('click', 'div.click-hide-message', function () {
         $(this)
         .hide()
         .parent('.group')

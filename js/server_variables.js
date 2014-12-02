@@ -6,7 +6,7 @@
 AJAX.registerTeardown('server_variables.js', function () {
     $('#serverVariables .var-row').unbind('hover');
     $('#filterText').unbind('keyup');
-    $('a.editLink').die('click');
+    $(document).off('click', 'a.editLink');
     $('#serverVariables').find('.var-name').find('a img').remove();
 });
 

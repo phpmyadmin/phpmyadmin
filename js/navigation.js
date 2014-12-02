@@ -26,7 +26,7 @@ $(function () {
      * opens/closes (hides/shows) tree elements
      * loads data via ajax
      */
-    $('#pma_navigation_tree a.expander').live('click', function (event) {
+    $(document).on('click', '#pma_navigation_tree a.expander', function (event) {
         event.preventDefault();
         event.stopImmediatePropagation();
         var $icon = $(this).find('img');
@@ -41,7 +41,7 @@ $(function () {
      * Register event handler for click on the reload
      * navigation icon at the top of the panel
      */
-    $('#pma_navigation_reload').live('click', function (event) {
+    $(document).on('click', '#pma_navigation_reload', function (event) {
         event.preventDefault();
         // reload icon object
         var $icon = $(this).find('img');
@@ -144,7 +144,7 @@ $(function () {
     /**
      * Ajax handler for pagination
      */
-    $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (event) {
+    $(document).on('click', '#pma_navigation_tree div.pageselector a.ajax', function (event) {
         event.preventDefault();
         PMA_navigationTreePagination($(this));
     });
@@ -168,43 +168,43 @@ $(function () {
     );
 
     /** Create a Routine, Trigger or Event */
-    $('li.new_procedure a.ajax, li.new_function a.ajax').live('click', function (event) {
+    $(document).on('click', 'li.new_procedure a.ajax, li.new_function a.ajax', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('routine');
         dialog.editorDialog(1, $(this));
     });
-    $('li.new_trigger a.ajax').live('click', function (event) {
+    $(document).on('click', 'li.new_trigger a.ajax', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('trigger');
         dialog.editorDialog(1, $(this));
     });
-    $('li.new_event a.ajax').live('click', function (event) {
+    $(document).on('click', 'li.new_event a.ajax', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('event');
         dialog.editorDialog(1, $(this));
     });
 
     /** Execute Routines */
-    $('li.procedure > a.ajax, li.function > a.ajax').live('click', function (event) {
+    $(document).on('click', 'li.procedure > a.ajax, li.function > a.ajax', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('routine');
         dialog.executeDialog($(this));
     });
     /** Edit Triggers and Events */
-    $('li.trigger > a.ajax').live('click', function (event) {
+    $(document).on('click', 'li.trigger > a.ajax', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('trigger');
         dialog.editorDialog(0, $(this));
     });
-    $('li.event > a.ajax').live('click', function (event) {
+    $(document).on('click', 'li.event > a.ajax', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('event');
         dialog.editorDialog(0, $(this));
     });
 
     /** Edit Routines */
-    $('li.procedure div a.ajax img,' +
-        ' li.function div a.ajax img').live('click', function (event) {
+    $(document).on('click', 'li.procedure div a.ajax img,' +
+        ' li.function div a.ajax img', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('routine');
         dialog.editorDialog(0, $(this).parent());
@@ -219,7 +219,7 @@ $(function () {
     });
 
     /** New index */
-    $('#pma_navigation_tree li.new_index a.ajax').live('click', function (event) {
+    $(document).on('click', '#pma_navigation_tree li.new_index a.ajax', function (event) {
         event.preventDefault();
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
@@ -229,7 +229,7 @@ $(function () {
     });
 
     /** Edit index */
-    $('li.index a.ajax').live('click', function (event) {
+    $(document).on('click', 'li.index a.ajax', function (event) {
         event.preventDefault();
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
@@ -239,13 +239,13 @@ $(function () {
     });
 
     /** New view */
-    $('li.new_view a.ajax').live('click', function (event) {
+    $(document).on('click', 'li.new_view a.ajax', function (event) {
         event.preventDefault();
         PMA_createViewDialog($(this));
     });
 
     /** Hide navigation tree item */
-    $('a.hideNavItem.ajax').live('click', function (event) {
+    $(document).on('click', 'a.hideNavItem.ajax', function (event) {
         event.preventDefault();
         $.ajax({
             url: $(this).attr('href') + '&ajax_request=true',
@@ -260,7 +260,7 @@ $(function () {
     });
 
     /** Display a dialog to choose hidden navigation items to show */
-    $('a.showUnhide.ajax').live('click', function (event) {
+    $(document).on('click', 'a.showUnhide.ajax', function (event) {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage();
         $.get($(this).attr('href') + '&ajax_request=1', function (data) {
@@ -290,7 +290,7 @@ $(function () {
     });
 
     /** Show a hidden navigation tree item */
-    $('a.unhideNavItem.ajax').live('click', function (event) {
+    $(document).on('click', 'a.unhideNavItem.ajax', function (event) {
         event.preventDefault();
         var $tr = $(this).parents('tr');
         var $msg = PMA_ajaxShowMessage();
@@ -313,7 +313,7 @@ $(function () {
     }
 
     // Add/Remove favorite table using Ajax.
-    $(".favorite_table_anchor").live("click", function (event) {
+    $(document).on("click", ".favorite_table_anchor", function (event) {
         event.preventDefault();
         $self = $(this);
         var anchor_id = $self.attr("id");

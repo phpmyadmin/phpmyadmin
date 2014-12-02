@@ -12,8 +12,8 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('server_databases.js', function () {
-    $("#dbStatsForm").die('submit');
-    $('#create_database_form.ajax').die('submit');
+    $(document).off('submit', "#dbStatsForm");
+    $(document).off('submit', '#create_database_form.ajax');
 });
 
 /**
@@ -27,7 +27,7 @@ AJAX.registerOnload('server_databases.js', function () {
     /**
      * Attach Event Handler for 'Drop Databases'
      */
-    $("#dbStatsForm").live('submit', function (event) {
+    $(document).on('submit', "#dbStatsForm", function (event) {
         event.preventDefault();
 
         var $form = $(this);
@@ -91,7 +91,7 @@ AJAX.registerOnload('server_databases.js', function () {
     /**
      * Attach Ajax event handlers for 'Create Database'.
      */
-    $('#create_database_form.ajax').live('submit', function (event) {
+    $(document).on('submit', '#create_database_form.ajax', function (event) {
         event.preventDefault();
 
         var $form = $(this);

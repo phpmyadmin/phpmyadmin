@@ -24,10 +24,10 @@
 AJAX.registerTeardown('db_structure.js', function () {
     $("span.fkc_switch").unbind('click');
     $('#fkc_checkbox').unbind('change');
-    $("a.truncate_table_anchor.ajax").die('click');
-    $("a.drop_table_anchor.ajax").die('click');
-    $('#real_end_input').die('click');
-    $("a.favorite_table_anchor.ajax").die('click');
+    $(document).off('click', "a.truncate_table_anchor.ajax");
+    $(document).off('click', "a.drop_table_anchor.ajax");
+    $(document).off('click', '#real_end_input');
+    $(document).off('click', "a.favorite_table_anchor.ajax");
     $('a.real_row_count').off('click');
     $('a.row_count_sum').off('click');
     $('select[name=submit_mult]').unbind('change');
@@ -270,7 +270,7 @@ AJAX.registerOnload('db_structure.js', function () {
     /**
      * Ajax Event handler for 'Truncate Table'
      */
-    $("a.truncate_table_anchor.ajax").live('click', function (event) {
+    $(document).on('click', "a.truncate_table_anchor.ajax", function (event) {
         event.preventDefault();
 
         /**
@@ -319,7 +319,7 @@ AJAX.registerOnload('db_structure.js', function () {
     /**
      * Ajax Event handler for 'Drop Table' or 'Drop View'
      */
-    $("a.drop_table_anchor.ajax").live('click', function (event) {
+    $(document).on('click', "a.drop_table_anchor.ajax", function (event) {
         event.preventDefault();
 
         var $this_anchor = $(this);
@@ -373,7 +373,7 @@ AJAX.registerOnload('db_structure.js', function () {
      * Ajax Event handler for calculating the real end for a InnoDB table
      *
      */
-    $('#real_end_input').live('click', function (event) {
+    $(document).on('click', '#real_end_input', function (event) {
         event.preventDefault();
 
         /**

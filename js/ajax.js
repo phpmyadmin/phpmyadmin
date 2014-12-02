@@ -575,8 +575,8 @@ var AJAX = {
              * Re-attach a generic event handler to clicks
              * on pages and submissions of forms
              */
-            $('a').die('click').live('click', AJAX.requestHandler);
-            $('form').die('submit').live('submit', AJAX.requestHandler);
+            $(document).off('click', 'a').on('click', 'a', AJAX.requestHandler);
+            $(document).off('submit', 'form').on('submit', 'form', AJAX.requestHandler);
             AJAX.cache.update();
             callback();
         }
@@ -994,8 +994,8 @@ $(function () {
  * Attach a generic event handler to clicks
  * on pages and submissions of forms
  */
-$('a').live('click', AJAX.requestHandler);
-$('form').live('submit', AJAX.requestHandler);
+$(document).on('click', 'a', AJAX.requestHandler);
+$(document).on('submit', 'form', AJAX.requestHandler);
 
 /**
  * Gracefully handle fatal server errors

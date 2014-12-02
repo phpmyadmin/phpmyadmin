@@ -20,7 +20,7 @@ AJAX.registerTeardown('db_central_columns.js', function () {
     $(".edit_save_form").unbind('click');
     $('.edit_cancel_form').unbind('click');
     $(".del_row").unbind('click');
-    $(".filter_rows").die("keyup");
+    $(document).off("keyup", ".filter_rows");
     $('.edit_cancel_form').unbind('click');
     $('.column_heading').unbind('hover');
     $('#table-select').unbind('change');
@@ -55,7 +55,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         );
     });
     window.scrollTo(0, 0);
-    $(".filter_rows").live("keyup", function () {
+    $(document).on("keyup", ".filter_rows", function () {
         var cols = ["Name", "Type", "Length/Values", "Collation", "Null", "Extra", "Default"];
         $.uiTableFilter($("#table_columns"), $(this).val(), cols, null, "td span");
     });
