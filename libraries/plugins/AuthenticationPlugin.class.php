@@ -42,6 +42,15 @@ abstract class AuthenticationPlugin extends PluginObserver
     abstract public function authSetUser();
 
     /**
+     * Stores user credentials after successful login.
+     *
+     * @return void
+     */
+    public function storeUserCredentials()
+    {
+    }
+
+    /**
      * User is not allowed to login to MySQL -> authentication failed
      *
      * @return boolean
