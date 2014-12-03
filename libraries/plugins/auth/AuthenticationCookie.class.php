@@ -557,6 +557,16 @@ class AuthenticationCookie extends AuthenticationPlugin
         unset($_SERVER['PHP_AUTH_PW']);
 
         $_SESSION['last_access_time'] = time();
+    }
+
+    /**
+     * Stores user credentials after successful login.
+     *
+     * @return void
+     */
+    public function storeUserCredentials()
+    {
+        global $cfg;
 
         $this->createBlowfishIV();
 
