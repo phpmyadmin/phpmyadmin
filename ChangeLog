@@ -80,6 +80,10 @@ phpMyAdmin - ChangeLog
 + rfe #1537 PHP OpenSSL support for cookie encryption/decryption
 - bug #4227 Token mismatch when using HTTP AUTH and the SESSION expires
 
+4.2.13.1 (2014-12-03)
+- bug #4612 [security] XSS vulnerability in redirection mechanism
+- bug #4611 [security] DOS attack with long passwords
+
 4.2.13.0 (2014-11-30)
 - bug #4604 Query history not being deleted
 - bug #4057 db/table query string parameters no longer work
