@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 + rfe #1553 InnoDB presently supports one FULLTEXT index creation at a time
 + rfe #1562 Allow tracking multiple table at once from database level tracking page
 + rfe #1564 Improve action message on Tracking page
++ rfe #1566 Change value of "Number of rows:" when "Show all" is checked
 
 4.3.1.0 (not yet released)
 - bug #4609 'Show all' checkbox label is not clickable
