@@ -2705,13 +2705,14 @@ class PMA_Util
             . '>';
 
         if (!empty($placeholder)) {
-            $result .= '<option style="display: none">'.$placeholder.'</option>';
+            $result .= '<option value="" disabled="disabled"'
+                . ' selected="selected">' . $placeholder . '</option>';
         }
 
         foreach ($choices as $one_choice_value => $one_choice_label) {
             $result .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
 
-            if ($one_choice_value == $active_choice) {
+            if ($one_choice_value == $active_choice && empty($placeholder)) {
                 $result .= ' selected="selected"';
             }
             $result .= '>' . htmlspecialchars($one_choice_label) . '</option>';
