@@ -970,7 +970,7 @@ class PMA_DisplayResults
 
         $numberOfRowsPlaceholder = null;
         if ($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS) {
-            $numberOfRowsPlaceholder = 'All';
+            $numberOfRowsPlaceholder = __('All');
         }
 
         $numberOfRowsChoices = array(
