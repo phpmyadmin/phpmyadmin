@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.0.10.7 (not yet released)
+4.0.10.7 (2014-12-03)
 - bug #4611 [security] DOS attack with long passwords
 
 4.0.10.6 (2014-11-20)
