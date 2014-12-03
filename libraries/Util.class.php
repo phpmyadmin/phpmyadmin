@@ -2689,19 +2689,24 @@ class PMA_Util
      *                              case the dropdown is present more than once
      *                              on the page
      * @param string $class         class for the select element
+     * @param string $placeholder   Placeholder for dropdown if nothing else is selected
      *
      * @return string               html content
      *
      * @todo    support titles
      */
     public static function getDropdown(
-        $select_name, $choices, $active_choice, $id, $class = ''
+        $select_name, $choices, $active_choice, $id, $class = '', $placeholder = null
     ) {
         $result = '<select'
             . ' name="' . htmlspecialchars($select_name) . '"'
             . ' id="' . htmlspecialchars($id) . '"'
             . (! empty($class) ? ' class="' . htmlspecialchars($class) . '"' : '')
             . '>';
+
+        if (!empty($placeholder)) {
+            $result .= '<option style="display: none">'.$placeholder.'</option>';
+        }
 
         foreach ($choices as $one_choice_value => $one_choice_label) {
             $result .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
