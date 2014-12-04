@@ -29,13 +29,13 @@ before_script:
   - export PATH=~/.composer/vendor/bin/:$PATH
   - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')" ;
   - composer install --dev --no-interaction
-  - set -e ; if [[ -z "$LINT" ]] ; then
+  - set -e ; if [ -z "$LINT" ] ; then
 
-    if [[ $TRAVIS_PHP_VERSION != "hhvm" ]] ; then
+    if [ $TRAVIS_PHP_VERSION != "hhvm" ] ; then
 
     git clone --depth=1 git://github.com/zenovich/runkit.git ;
     cd runkit ;
-    if [[ $TRAVIS_PHP_VERSION = "5.6" ]] ; then
+    if [ $TRAVIS_PHP_VERSION = "5.6" ] ; then
     wget https://github.com/zenovich/runkit/pull/71.diff ; 
     patch -p1 < 71.diff ;
     fi ;
@@ -51,7 +51,7 @@ before_script:
 
     fi ;
 
-    if [[ ! -z "$SELENIUM" ]] ; then
+    if [ ! -z "$SELENIUM" ] ; then
 
     php --server 127.0.0.1:8000 &
 
@@ -66,11 +66,11 @@ before_script:
 
 script:
   - ant locales
-  - set -e; if [[ -z "$LINT" ]] ; then
-    if [[ $TRAVIS_PHP_VERSION == "hhvm" ]] ; then
+  - set -e; if [ -z "$LINT" ] ; then
+    if [ $TRAVIS_PHP_VERSION == "hhvm" ] ; then
     ant phpunit-hhvm ;
     else
-    if [[ ! -z "$SELENIUM" ]] ; then
+    if [ ! -z "$SELENIUM" ] ; then
     ant phpunit-nocoverage ;
     else
     ant phpunit ;
@@ -81,8 +81,8 @@ script:
     fi
 
 after_script:
-  - if [[ -f build/logs/clover.xml ]] ; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml || true ; fi
-  - if [[ -f vendor/bin/coveralls ]] ; then php vendor/bin/coveralls -v || true ; fi
+  - if [ -f build/logs/clover.xml ] ; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml || true ; fi
+  - if [ -f vendor/bin/coveralls ] ; then php vendor/bin/coveralls -v || true ; fi
 
 matrix:
   allow_failures:
