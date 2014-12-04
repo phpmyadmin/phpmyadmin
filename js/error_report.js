@@ -152,8 +152,10 @@ var ErrorReport = {
      * @return void
      */
     _removeErrorNotification: function (e) {
-        // don't remove the hash fragment by navigating to #
-        e.preventDefault();
+        if (e) {
+            // don't remove the hash fragment by navigating to #
+            e.preventDefault();
+        }
         $("#error_notification").fadeOut(function () {
             $(this).remove();
         });
