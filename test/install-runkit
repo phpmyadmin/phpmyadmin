@@ -1,15 +1,18 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ $TRAVIS_PHP_VERSION = "5.6" ] ; then
-    git clone --depth=1 git://github.com/adrianguenter/runkit.git
-else:
-    git clone --depth=1 git://github.com/zenovich/runkit.git
+if [ ! -d ~/runkit/.git ] ; then
+    if [ $TRAVIS_PHP_VERSION = "5.6" ] ; then
+        git clone --depth=1 git://github.com/adrianguenter/runkit.git
+    else:
+        git clone --depth=1 git://github.com/zenovich/runkit.git
+    fi
 fi
-cd runkit
+pushd ~/runkit
+git pull
 phpize
 ./configure
 make
 make install
-cd ..
+popd
 
 phpenv config-add test/travis.php.ini
