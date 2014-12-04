@@ -1760,7 +1760,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $(g.cEditStd).find('.edit_box').focus(function (e) {
                 g.showEditArea();
             });
-            $(g.cEditStd).on'keydown', '.edit_box, select', function (e) {
+            $(g.cEditStd).on('keydown', '.edit_box, select', function (e) {
                 if (e.which == 13) {
                     // post on pressing "Enter"
                     e.preventDefault();
