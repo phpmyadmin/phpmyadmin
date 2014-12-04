@@ -746,7 +746,7 @@ AJAX.registerTeardown('functions.js', function () {
 });
 AJAX.registerOnload('functions.js', function () {
     /**
-     * Row marking in horizontal mode (use "live" so that it works also for
+     * Row marking in horizontal mode (use "on" so that it works also for
      * next pages reached via AJAX); a tr may have the class noclick to remove
      * this behavior.
      */
@@ -838,7 +838,7 @@ AJAX.registerOnload('functions.js', function () {
 });
 
 /**
- * Row highlighting in horizontal mode (use "live"
+ * Row highlighting in horizontal mode (use "on"
  * so that it works also for pages reached via AJAX)
  */
 /*AJAX.registerOnload('functions.js', function () {
@@ -2750,7 +2750,7 @@ AJAX.registerOnload('functions.js', function () {
     // the Create table dialog
     PMA_verifyColumnsProperties();
     //
-    // needs live() to work also in the Create Table dialog
+    // needs on() to work also in the Create Table dialog
     $(document).on('change', "select.column_type", function () {
         PMA_showNoticeForEnum($(this));
     });
