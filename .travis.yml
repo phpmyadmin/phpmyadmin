@@ -26,11 +26,14 @@ env:
 
 before_script:
   - export PATH=~/.composer/vendor/bin/:$PATH
+  - mysql -uroot -e "CREATE DATATBASE test"
+  - mysql -uroot < examples/create_tables.sql
   - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
   - composer install --dev --no-interaction
   - if [ $TRAVIS_PHP_VERSION != "hhvm" ] ; then ./test/install-runkit ; fi
-  - if [ -n "$SELENIUM" ] ; then php --server 127.0.0.1:8000 > php.log & fi
   - if [ -n "$SELENIUM" ] ; then ./test/install-browserstack ; fi
+  - if [ -n "$SELENIUM" ] ; then php --server 127.0.0.1:8000 > php.log & fi
+  - if [ -n "$SELENIUM" ] ; ./BrowserStackLocal -localIdentifier "travis-$TRAVIS_JOB_NUMBER" -onlyAutomate "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,8000,0 & fi
 
 script:
   - ant clean
