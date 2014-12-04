@@ -9,6 +9,9 @@ php:
   - "5.4"
   - "5.3"
   - hhvm
+
+sudo: false
+
 env:
   matrix:
     - PHPUNIT_ARGS="--exclude-group selenium"
@@ -20,8 +23,12 @@ env:
     - TESTSUITE_PASSWORD=root
     - TESTSUITE_SELENIUM_COVERAGE=http://127.0.0.1:8000/phpunit_coverage.php
 before_script:
+  - export PATH=~/.composer/vendor/bin/:$PATH
   - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')" ;
   - set -e ; if [[ -z "$LINT" ]] ; then
+
+    composer install --dev --no-interaction ;
+
     if [[ $TRAVIS_PHP_VERSION != "hhvm" ]] ; then
 
     git clone --depth=1 git://github.com/zenovich/runkit.git ;
@@ -34,10 +41,6 @@ before_script:
 
     phpenv config-add test/travis.php.ini ;
 
-    pear channel-discover pear.phpunit.de ;
-    pear install phpunit/PHPUnit_Selenium ;
-
-    composer install --dev --no-interaction ;
 
     fi ;
 
