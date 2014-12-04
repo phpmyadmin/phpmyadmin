@@ -73,7 +73,7 @@ script:
     ant lint ;
     fi
 after_script:
-  - if [[ -f vendor/bin/coveralls ]] ; then php vendor/bin/coveralls -v ; fi
+  - if [[ -f vendor/bin/coveralls ]] ; then php vendor/bin/coveralls -v || true ; fi
 matrix:
   allow_failures:
     - php: hhvm
