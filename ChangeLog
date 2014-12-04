@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - bug #4615 SQL highlighting in process list breaks on auto refresh
 - bug #4616 Warning in db structure print view page
 - bug       Undefined index navwork, savedsearcheswork, fields
+- bug #4620 Undefined index while adding to the central columns list
 
 4.3.0.0 (not yet released)
 + rfe #1502 Smart sorting for int keys

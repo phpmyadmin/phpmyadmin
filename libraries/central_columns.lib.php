@@ -201,7 +201,7 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
     if (empty($cfgCentralColumns)) {
         return PMA_configErrorMessage();
     }
-    $db = $_POST['db'];
+    $db = $_REQUEST['db'];
     $pmadb = $cfgCentralColumns['db'];
     $central_list_table = $cfgCentralColumns['table'];
     $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
@@ -235,7 +235,7 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
         }
     } else {
         if ($table == null) {
-            $table = $_POST['table'];
+            $table = $_REQUEST['table'];
         }
         foreach ($field_select as $column) {
             $cols .= "'" . PMA_Util::sqlAddSlashes($column) . "',";
