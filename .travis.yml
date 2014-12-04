@@ -5,6 +5,7 @@ php:
 sudo: false
 before_script:
   - export PATH=~/.composer/vendor/bin/:$PATH
+  - mysql -uroot -e "CREATE DATABASE test;"
   - composer install --dev --no-interaction ;
   - ./scripts/generate-mo --quiet
 script:
