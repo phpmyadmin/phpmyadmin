@@ -26,7 +26,7 @@ env:
 
 before_script:
   - export PATH=~/.composer/vendor/bin/:$PATH
-  - mysql -uroot -e "CREATE DATATBASE test"
+  - mysql -uroot -e "CREATE DATABASE test"
   - mysql -uroot < examples/create_tables.sql
   - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
   - composer install --dev --no-interaction
