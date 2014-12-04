@@ -22,7 +22,7 @@ AJAX.registerTeardown('db_central_columns.js', function () {
     $(".del_row").unbind('click');
     $(document).off("keyup", ".filter_rows");
     $('.edit_cancel_form').unbind('click');
-    $('.column_heading').unbind('hover');
+    $('.column_heading').unbind('mouseenter');
     $('#table-select').unbind('change');
     $('#column-select').unbind('change');
     $("#add_col_div>a").unbind('click');
@@ -46,7 +46,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
             'width' : '10em',
             '-moz-box-sizing' : 'border-box'
         });
-    $('.column_heading').hover(function(){
+    $('.column_heading').mouseenter(function(){
         $(this).css("cursor","move");
         PMA_tooltip(
             $(this),

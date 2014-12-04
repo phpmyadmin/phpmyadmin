@@ -95,7 +95,8 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('submit', "#sqlqueryform.ajax");
     $(document).off('click', "input[name=navig].ajax");
     $(document).off('submit', "form[name='displayOptionsForm'].ajax");
-    $(document).off('hover', 'th.column_heading.pointer');
+    $(document).off('mouseenter', 'th.column_heading.pointer');
+    $(document).off('mouseleave', 'th.column_heading.pointer');
     $(document).off('click', 'th.column_heading.marker');
     $(window).unbind('scroll');
     $(document).off("keyup", ".filter_rows");
@@ -641,8 +642,11 @@ AJAX.registerOnload('sql.js', function () {
     /**
      * vertical column highlighting in horizontal mode when hovering over the column header
      */
-    $(document).on('hover', 'th.column_heading.pointer', function (e) {
-        PMA_changeClassForColumn($(this), 'hover', e.type == 'mouseenter');
+    $(document).on('mouseenter', 'th.column_heading.pointer', function (e) {
+        PMA_changeClassForColumn($(this), 'hover', true);
+    });
+    $(document).on('mouseleave', 'th.column_heading.pointer', function (e) {
+        PMA_changeClassForColumn($(this), 'hover', false);
     });
 
     /**

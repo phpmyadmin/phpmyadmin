@@ -4,7 +4,8 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('server_variables.js', function () {
-    $('#serverVariables .var-row').unbind('hover');
+    $('#serverVariables .var-row').unbind('mouseenter');
+    $('#serverVariables .var-row').unbind('mouseleave');
     $('#filterText').unbind('keyup');
     $(document).off('click', 'a.editLink');
     $('#serverVariables').find('.var-name').find('a img').remove();
@@ -17,17 +18,17 @@ AJAX.registerOnload('server_variables.js', function () {
     var $filterField = $('#filterText');
 
     /* Show edit link on hover */
-    $('#serverVariables').delegate('.var-row', 'hover', function (event) {
-        if (event.type === 'mouseenter') {
-            var $elm = $(this).find('.var-value');
-            // Only add edit element if the element is not being edited
-            if ($elm.hasClass('editable') && ! $elm.hasClass('edit')) {
-                $elm.prepend($editLink.clone().show());
-            }
-        } else {
-            $(this).find('a.editLink').remove();
+    $('#serverVariables').delegate('.var-row', 'mouseenter', function (event) {
+        var $elm = $(this).find('.var-value');
+        // Only add edit element if the element is not being edited
+        if ($elm.hasClass('editable') && ! $elm.hasClass('edit')) {
+            $elm.prepend($editLink.clone().show());
         }
-    }).find('.var-name').find('a').append(
+    })
+    $('#serverVariables').delegate('.var-row', 'mouseleave', function (event) {
+        $(this).find('a.editLink').remove();
+    })
+    .find('.var-name').find('a').append(
         $('#docImage').clone().show()
     );
 

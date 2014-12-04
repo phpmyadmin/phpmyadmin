@@ -3546,7 +3546,8 @@ AJAX.registerOnload('functions.js', function () {
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('functions.js', function () {
-    $(document).off('hover', '.vpointer');
+    $(document).off('mouseenter', '.vpointer');
+    $(document).off('mouseleave', '.vpointer');
     $(document).off('click', '.vmarker');
     $(document).off('change', 'select.pageselector');
     $(document).off('click', 'a.formLinkSubmit');
@@ -3557,13 +3558,22 @@ AJAX.registerTeardown('functions.js', function () {
  * Vertical pointer
  */
 AJAX.registerOnload('functions.js', function () {
-    $(document).on('hover', '.vpointer',
-        //handlerInOut
+    $(document).on('mouseenter', '.vpointer',
+        //handlerIn
         function (e) {
             var $this_td = $(this);
             var row_num = PMA_getRowNumber($this_td.attr('class'));
-            // for all td of the same vertical row, toggle hover
-            $('.vpointer').filter('.row_' + row_num).toggleClass('hover');
+            // for all td of the same vertical row, add hover
+            $('.vpointer').filter('.row_' + row_num).addClass('hover');
+        }
+    );
+    $(document).on('mouseleave', '.vpointer',
+        //handlerOut
+        function (e) {
+            var $this_td = $(this);
+            var row_num = PMA_getRowNumber($this_td.attr('class'));
+            // for all td of the same vertical row, remove hover
+            $('.vpointer').filter('.row_' + row_num).removeClass('hover');
         }
     );
 
