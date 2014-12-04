@@ -3675,7 +3675,7 @@ AJAX.registerOnload('functions.js', function () {
             data: {
                 favorite_tables: (window.localStorage && window.localStorage.favorite_tables
                     !== undefined)
-                    ? window.localStorage['favorite_tables']
+                    ? window.localStorage.favorite_tables
                     : ''
             },
             success: function (data) {

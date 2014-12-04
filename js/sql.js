@@ -386,7 +386,7 @@ AJAX.registerOnload('sql.js', function () {
         var $msgbox = PMA_ajaxShowMessage();
         $.post($form.attr('action'), $form.serialize() + '&ajax_request=true', function (data) {
             PMA_ajaxRemoveMessage($msgbox);
-            var $sqlqueryresults = $form.parents(".sqlqueryresults")
+            var $sqlqueryresults = $form.parents(".sqlqueryresults");
             $sqlqueryresults
              .html(data.message)
              .trigger('makegrid')

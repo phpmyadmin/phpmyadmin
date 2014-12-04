@@ -968,6 +968,11 @@ class PMA_DisplayResults
             // Do not change the position when changing the number of rows
             . $_SESSION['tmpval']['pos'] . '" />';
 
+        $numberOfRowsPlaceholder = null;
+        if ($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS) {
+            $numberOfRowsPlaceholder = __('All');
+        }
+
         $numberOfRowsChoices = array(
             '25'  => 25,
             '50'  => 50,
@@ -978,7 +983,7 @@ class PMA_DisplayResults
         $additional_fields_html .= __('Number of rows:') . ' ';
         $additional_fields_html .= PMA_Util::getDropdown(
             'session_max_rows', $numberOfRowsChoices,
-            $_SESSION['tmpval']['max_rows'], '', 'autosubmit'
+            $_SESSION['tmpval']['max_rows'], '', 'autosubmit', $numberOfRowsPlaceholder
         );
 
         if ($GLOBALS['cfg']['ShowDisplayDirection']) {

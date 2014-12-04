@@ -47,7 +47,6 @@ AJAX.registerOnload('db_central_columns.js', function () {
             '-moz-box-sizing' : 'border-box'
         });
     $('.column_heading').mouseenter(function(){
-        $(this).css("cursor","move");
         PMA_tooltip(
             $(this),
             'th',

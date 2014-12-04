@@ -55,7 +55,7 @@ function loadResult(result_path, table_name, link)
                 PMA_ajaxRemoveMessage($msg);
                 $('.table_results').each(function () {
                     PMA_makegrid(this, true, true, true, true);
-                })
+                });
                 $('#browse-results').show();
             } else {
                 PMA_ajaxShowMessage(data.error, false);
