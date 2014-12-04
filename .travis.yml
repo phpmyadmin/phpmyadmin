@@ -10,3 +10,6 @@ before_script:
   - ./scripts/generate-mo --quiet
 script:
   - ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage
+cache:
+  directories:
+    - $HOME/.composer/cache/
