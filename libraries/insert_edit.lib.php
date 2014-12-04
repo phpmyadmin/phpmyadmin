@@ -1742,8 +1742,10 @@ function PMA_getParamsForUpdateOrInsert()
     } else {
         // new row => use indexes
         $loop_array = array();
-        foreach ($_REQUEST['fields']['multi_edit'] as $key => $dummy) {
-            $loop_array[] = $key;
+        if (! empty($_REQUEST['fields'])) {
+            foreach ($_REQUEST['fields']['multi_edit'] as $key => $dummy) {
+                $loop_array[] = $key;
+            }
         }
         $using_key  = false;
         $is_insert  = true;
