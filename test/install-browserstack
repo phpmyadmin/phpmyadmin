@@ -2,7 +2,7 @@
 
 set -e
 
-nohup php --server 127.0.0.1:8000
+nohup php --server 127.0.0.1:8000 > php.log &
 
 mkdir -p ~/browserstack
 pushd ~/browserstack
