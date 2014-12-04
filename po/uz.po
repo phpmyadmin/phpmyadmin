@@ -290,6 +290,7 @@ msgstr "Охирги текширув:"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s та жадвал"
+msgstr[1] "%s та жадвал"
 
 #: db_qbe.php:102
 #, fuzzy
@@ -9060,6 +9061,7 @@ msgstr "Навигация ойнасини қайта юклаш"
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] ""
+msgstr[1] ""
 
 #: libraries/navigation/NavigationTree.class.php:877
 msgid "Expand/Collapse"
@@ -11061,6 +11063,7 @@ msgstr "Сақланадиган муолажаларни бажаришга р�
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
+msgstr[1] ""
 
 #: libraries/rte/rte_routines.lib.php:1535
 #: libraries/rte/rte_routines.lib.php:1543
@@ -11485,6 +11488,7 @@ msgstr "Статискани ёқиш"
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "\"%s\" маълумотлар базаси муваффақиятли ўчирилди."
+msgstr[1] "\"%s\" маълумотлар базаси муваффақиятли ўчирилди."
 
 #: libraries/server_plugins.lib.php:32
 msgid "Modules"
@@ -12182,6 +12186,7 @@ msgstr ""
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "секундига"
+msgstr[1] "секундига"
 
 #: libraries/server_status_monitor.lib.php:80
 #, fuzzy, php-format
@@ -12189,6 +12194,7 @@ msgstr[0] "секундига"
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "ишлатилмоқда"
+msgstr[1] "ишлатилмоқда"
 
 #: libraries/server_status_monitor.lib.php:96
 #, fuzzy
