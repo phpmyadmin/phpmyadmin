@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
  * build the html for columns of $colTypeCategory category
  * in form of given $listType in a table
  *
- * @param string $db              current databse
+ * @param string $db              current database
  * @param string $table           current table
  * @param string $colTypeCategory supported all|Numeric|String|Spatial
  *                                |Date and time using the _pgettext() format
@@ -37,21 +37,23 @@ function PMA_getHtmlForColumnsList(
     );
     $type = "";
     $selectColHtml = "";
-    foreach ($columns as $column=>$def) {
+    foreach ($columns as $column => $def) {
         if (isset($def['Type'])) {
             $extracted_columnspec = PMA_Util::extractColumnSpec($def['Type']);
             $type = $extracted_columnspec['type'];
         }
         if (empty($columnTypeList)
-            || in_array($GLOBALS['PMA_String']->strtoupper($type), $columnTypeList)
+            || in_array(/*overload*/mb_strtoupper($type), $columnTypeList)
         ) {
             if ($listType == 'checkbox') {
                 $selectColHtml .= '<input type="checkbox" value="'
                     . htmlspecialchars($column) . '"/>'
-                    . htmlspecialchars($column) . ' [ ' . $def['Type'] . ' ]</br>';
+                    . htmlspecialchars($column) . ' [ '
+                    . htmlspecialchars($def['Type']) . ' ]</br>';
             } else {
                 $selectColHtml .= '<option value="' . htmlspecialchars($column) . ''
-                . '">' . htmlspecialchars($column) . ' [ ' . $def['Type'] . ' ]'
+                . '">' . htmlspecialchars($column)
+                . ' [ ' . htmlspecialchars($def['Type']) . ' ]'
                 . '</option>';
             }
         }

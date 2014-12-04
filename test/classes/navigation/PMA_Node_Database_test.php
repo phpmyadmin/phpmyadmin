@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Ttests for Node_Database class
+ * Tests for Node_Database class
  *
  * @package PhpMyAdmin-test
  */

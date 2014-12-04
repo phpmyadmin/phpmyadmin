@@ -45,7 +45,7 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Call protected functions by making the visibitlity to public.
+     * Call protected functions by making the visibility to public.
      *
      * @param string $name   method name
      * @param array  $params parameters for the invocation
@@ -172,7 +172,7 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
     /**
      * tests extractPoints method
      *
-     * @param string  $point_set  String of comma sperated points
+     * @param string  $point_set  String of comma separated points
      * @param array   $scale_data Data related to scaling
      * @param boolean $linear     If true, as a 1D array, else as a 2D array
      * @param array   $output     Expected output
@@ -252,7 +252,7 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
      *
      * @param string $srid       spatial reference ID
      * @param array  $scale_data data related to scaling
-     * @param string $output     rxpected output
+     * @param string $output     expected output
      *
      * @return void
      * @dataProvider providerForTestGetBoundsForOl

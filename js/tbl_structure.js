@@ -70,14 +70,13 @@ function reloadFieldForm() {
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_structure.js', function () {
-    $("a.change_column_anchor.ajax").die('click');
-    $("button.change_columns_anchor.ajax, input.change_columns_anchor.ajax").die('click');
     $("a.drop_column_anchor.ajax").die('click');
     $("a.add_primary_key_anchor.ajax").die('click');
     $("a.add_index_anchor.ajax").die('click');
     $("a.add_unique_anchor.ajax").die('click');
     $("#move_columns_anchor").die('click');
     $(".append_fields_form.ajax").unbind('submit');
+    $('body').off('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]');
 });
 
 AJAX.registerOnload('tbl_structure.js', function () {
@@ -111,8 +110,8 @@ AJAX.registerOnload('tbl_structure.js', function () {
             //User wants to submit the form
             $msg = PMA_ajaxShowMessage();
             $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function (data) {
-                if ($("#sqlqueryresults").length !== 0) {
-                    $("#sqlqueryresults").remove();
+                if ($(".sqlqueryresults").length !== 0) {
+                    $(".sqlqueryresults").remove();
                 } else if ($(".error:not(.tab)").length !== 0) {
                     $(".error:not(.tab)").remove();
                 }
@@ -123,7 +122,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                         .append(data.sql_query)
                         .show();
                     PMA_highlightSQL($('#page_content'));
-                    $("#result_query .notice").remove();
+                    $(".result_query .notice").remove();
                     reloadFieldForm();
                     $form.remove();
                     PMA_ajaxRemoveMessage($msg);
@@ -135,57 +134,6 @@ AJAX.registerOnload('tbl_structure.js', function () {
             }); // end $.post()
         }
     }); // end change table button "do_save_data"
-
-    /**
-     * Attach Event Handler for 'Change Column'
-     */
-    $("a.change_column_anchor.ajax").live('click', function (event) {
-        event.preventDefault();
-        var $msg = PMA_ajaxShowMessage();
-        $('#page_content').hide();
-        $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
-            PMA_ajaxRemoveMessage($msg);
-            if (data.success) {
-                $('<div id="change_column_dialog" class="margin"></div>')
-                    .html(data.message)
-                    .insertBefore('#page_content');
-                PMA_highlightSQL($('#page_content'));
-                PMA_showHints();
-                PMA_verifyColumnsProperties();
-            } else {
-                PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
-            }
-        });
-    });
-
-    /**
-     * Attach Event Handler for 'Change multiple columns'
-     */
-    $("button.change_columns_anchor.ajax, input.change_columns_anchor.ajax").live('click', function (event) {
-        event.preventDefault();
-        var $msg = PMA_ajaxShowMessage();
-        $('#page_content').hide();
-        var $form = $(this).closest('form');
-        var params = $form.serialize() + "&ajax_request=true&submit_mult=change";
-        $.post($form.prop("action"), params, function (data) {
-            PMA_ajaxRemoveMessage($msg);
-            if (data.success) {
-                $('#page_content')
-                    .empty()
-                    .append(
-                        $('<div id="change_column_dialog"></div>')
-                            .html(data.message)
-                    )
-                    .show();
-                PMA_highlightSQL($('#page_content'));
-                PMA_showHints();
-                PMA_verifyColumnsProperties();
-            } else {
-                $('#page_content').show();
-                PMA_ajaxShowMessage(data.error);
-            }
-        });
-    });
 
     /**
      * Attach Event Handler for 'Drop Column'
@@ -218,11 +166,11 @@ AJAX.registerOnload('tbl_structure.js', function () {
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true, 'ajax_page_request' : true}, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
-                    if ($('#result_query').length) {
-                        $('#result_query').remove();
+                    if ($('.result_query').length) {
+                        $('.result_query').remove();
                     }
                     if (data.sql_query) {
-                        $('<div id="result_query"></div>')
+                        $('<div class="result_query"></div>')
                             .html(data.sql_query)
                             .prependTo('#page_content');
                         PMA_highlightSQL($('#page_content'));
@@ -276,11 +224,11 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     $(this).remove();
                     if (typeof data.reload != 'undefined') {
                         PMA_commonActions.refreshMain(false, function () {
-                            if ($('#result_query').length) {
-                                $('#result_query').remove();
+                            if ($('.result_query').length) {
+                                $('.result_query').remove();
                             }
                             if (data.sql_query) {
-                                $('<div id="result_query"></div>')
+                                $('<div class="result_query"></div>')
                                     .html(data.sql_query)
                                     .prependTo('#page_content');
                                 PMA_highlightSQL($('#page_content'));
@@ -322,11 +270,11 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
-                    if ($('#result_query').length) {
-                        $('#result_query').remove();
+                    if ($('.result_query').length) {
+                        $('.result_query').remove();
                     }
                     if (data.sql_query) {
-                        $('<div id="result_query"></div>')
+                        $('<div class="result_query"></div>')
                             .html(data.sql_query)
                             .prependTo('#page_content');
                         PMA_highlightSQL($('#page_content'));
@@ -366,8 +314,8 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
-                    if ($('#result_query').length) {
-                        $('#result_query').remove();
+                    if ($('.result_query').length) {
+                        $('.result_query').remove();
                     }
                     if (data.sql_query) {
                         $('<div id="result_query"></div>')
@@ -505,6 +453,18 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 $("#move_columns_anchor").removeClass("move-active");
             }
         });
+    });
+
+    /**
+     * Handles multi submits in table structure page such as change, browse, drop, primary etc.
+     */
+    $('body').on('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]', function (e) {
+        e.preventDefault();
+        var $button = $(this);
+        var $form = $button.parent('form');
+        var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
+        PMA_ajaxShowMessage();
+        $.get($form.attr('action'), submitData, AJAX.responseHandler);
     });
 });
 

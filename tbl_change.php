@@ -47,7 +47,7 @@ require_once 'libraries/file_listing.lib.php';
  * (at this point, $GLOBALS['goto'] will be set but could be empty)
  */
 if (empty($GLOBALS['goto'])) {
-    if ($GLOBALS['PMA_String']->strlen($table)) {
+    if (/*overload*/mb_strlen($table)) {
         // avoid a problem (see bug #2202709)
         $GLOBALS['goto'] = 'tbl_sql.php';
     } else {
@@ -159,11 +159,11 @@ if (! $cfg['ShowFunctionFields'] || ! $cfg['ShowFieldTypesInDataEditView']) {
 }
 
 if (! $cfg['ShowFunctionFields']) {
-    $html_output .= PMA_showFunctionFieldsInEditMode($url_params, false);
+    $html_output .= PMA_showTypeOrFunction('function', $url_params, false);
 }
 
 if (! $cfg['ShowFieldTypesInDataEditView']) {
-    $html_output .= PMA_showColumnTypesInDataEditView($url_params, false);
+    $html_output .= PMA_showTypeOrFunction('type', $url_params, false);
 }
 
 $GLOBALS['plugin_scripts'] = array();

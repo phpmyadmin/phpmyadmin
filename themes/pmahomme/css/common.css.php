@@ -42,7 +42,7 @@ body#loginform {
     margin: 0;
 }
 
-#page_content {
+#page_content, #session_debug {
     margin: 0 .5em;
 }
 
@@ -89,7 +89,7 @@ h2 a img {
     width: 100%;
 }
 
-#table_results td.data {
+.table_results td.data {
 border-right: 1px solid #bbb;
 }
 
@@ -531,14 +531,14 @@ fieldset .formelement {
     fieldset .formelement {
         clear: none;
     }
-    .relationalTable td:first-child + td {
+    #foreign_keys.relationalTable td:first-child + td {
         width: 25%;
     }
-    .relationalTable td:first-child + td select {
+    #foreign_keys.relationalTable td:first-child + td select {
         width: 32%;
         margin-right: 1%;
     }
-    .relationalTable {
+    #foreign_keys.relationalTable {
         width: 100%;
     }
 
@@ -1081,6 +1081,9 @@ div#dataDisplay select {
 }
 div#dataDisplay th {
     line-height: 2em;
+}
+table#tableFieldsId {
+    width: 100%;
 }
 
 /* Calendar */
@@ -1841,7 +1844,7 @@ div.sqlvalidate {
     overflow: auto;
 }
 
-#result_query div.sqlOuter {
+.result_query div.sqlOuter {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
     padding: 1em;
 }
@@ -2258,10 +2261,6 @@ table#index_columns select {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
-}
-
-.margin#change_column_dialog {
-    margin: 0 .5em;
 }
 
 /* config forms */
@@ -2964,7 +2963,7 @@ div#page_content form#db_search_form.ajax fieldset {
     margin-top: -0.3em;
 }
 
-div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div#result_query {
+div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div.result_query {
     margin-top: 1em;
 }
 

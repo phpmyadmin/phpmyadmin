@@ -117,7 +117,7 @@ class SchemaPdf extends SchemaPlugin
     }
 
     /**
-     * Exports the shcema into PDF format.
+     * Exports the schema into PDF format.
      *
      * @param string $db database name
      *

@@ -34,6 +34,7 @@ require_once 'libraries/plugins/import/ImportCsv.class.php';
 class ImportCsv_Test extends PHPUnit_Framework_TestCase
 {
     /**
+     * @var ImportCsv
      * @access protected
      */
     protected $object;
@@ -54,6 +55,7 @@ class ImportCsv_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['finished'] = false;
         $GLOBALS['read_limit'] = 100000000;
         $GLOBALS['offset'] = 0;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['cfg']['AllowUserDropDatabase'] = false;
         $GLOBALS['cfg']['ShowHint'] = true;
@@ -66,7 +68,7 @@ class ImportCsv_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['import_handle'] = @fopen($GLOBALS['import_file'], 'r');
 
-        //seperator for csv
+        //separator for csv
         $GLOBALS['csv_terminated'] = "\015";
         $GLOBALS['csv_enclosed'] = '"';
         $GLOBALS['csv_escaped'] = '"';

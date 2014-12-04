@@ -345,16 +345,13 @@ class PMA_Schema_PDF extends PMA_PDF
      */
     function NbLines($w, $txt)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $cw = &$this->CurrentFont['cw'];
         if ($w == 0) {
             $w = $this->w - $this->rMargin - $this->x;
         }
         $wmax = ($w-2 * $this->cMargin) * 1000 / $this->FontSize;
         $s = str_replace("\r", '', $txt);
-        $nb = $pmaString->strlen($s);
+        $nb = /*overload*/mb_strlen($s);
         if ($nb > 0 and $s[$nb-1] == "\n") {
             $nb--;
         }
@@ -376,7 +373,7 @@ class PMA_Schema_PDF extends PMA_PDF
             if ($c == ' ') {
                 $sep = $i;
             }
-            $l += isset($cw[$pmaString->ord($c)])?$cw[$pmaString->ord($c)]:0 ;
+            $l += isset($cw[/*overload*/mb_ord($c)])?$cw[/*overload*/mb_ord($c)]:0 ;
             if ($l > $wmax) {
                 if ($sep == -1) {
                     if ($i == $j) {
@@ -827,7 +824,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     }
 
     /**
-     * Ouputs the PDF document to a file
+     * Outputs the PDF document to a file
      * or sends the output to browser
      *
      * @param integer $pageNumber page number
@@ -943,7 +940,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             }
 
             /**
-             * Gets table informations
+             * Gets table information
              */
             $showtable    = PMA_Table::sGetStatusInfo($GLOBALS['db'], $table);
             $show_comment = isset($showtable['Comment'])
@@ -968,48 +965,9 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             /**
              * Gets table keys and retains them
              */
-            $result = $GLOBALS['dbi']->query(
-                'SHOW KEYS FROM ' . PMA_Util::backquote($table) . ';'
-            );
-            $primary = '';
-            $indexes = array();
-            $lastIndex = '';
-            $indexes_info = array();
-            $indexes_data = array();
-            $pk_array = array(); // will be use to emphasis prim. keys in the table
-            // view
-            while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                // Backups the list of primary keys
-                if ($row['Key_name'] == 'PRIMARY') {
-                    $primary .= $row['Column_name'] . ', ';
-                    $pk_array[$row['Column_name']] = 1;
-                }
-                // Retains keys informations
-                if ($row['Key_name'] != $lastIndex) {
-                    $indexes[] = $row['Key_name'];
-                    $lastIndex = $row['Key_name'];
-                }
-                $indexes_info[$row['Key_name']]['Sequences'][]
-                    = $row['Seq_in_index'];
-                $indexes_info[$row['Key_name']]['Non_unique'] = $row['Non_unique'];
-                if (isset($row['Cardinality'])) {
-                    $indexes_info[$row['Key_name']]['Cardinality']
-                        = $row['Cardinality'];
-                }
-                // I don't know what does following column mean....
-                // $indexes_info[$row['Key_name']]['Packed'] = $row['Packed'];
-                $indexes_info[$row['Key_name']]['Comment'] = $row['Comment'];
-
-                $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']
-                    = $row['Column_name'];
-                if (isset($row['Sub_part'])) {
-                    $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part']
-                        = $row['Sub_part'];
-                }
-            } // end while
-            if ($result) {
-                $GLOBALS['dbi']->freeResult($result);
-            }
+            $indexes = $GLOBALS['dbi']->getTableIndexes($GLOBALS['db'], $table);
+            list($primary, $pk_array, $indexes_info, $indexes_data)
+                = PMA_Util::processIndexData($indexes);
 
             /**
              * Gets fields properties
@@ -1131,7 +1089,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 if ($foreigner
                     && isset($pdf->PMA_links['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']])
                 ) {
-                    $links[6] = $pdf->PMA_links['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']];
+                    $links[6] = $pdf->PMA_links['doc'][$foreigner['foreign_table']]
+                        [$foreigner['foreign_field']];
                 } else {
                     unset($links[6]);
                 }

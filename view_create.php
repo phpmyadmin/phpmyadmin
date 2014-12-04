@@ -36,7 +36,9 @@ $view_security_options = array(
     'INVOKER'
 );
 
-$sql_query = '';
+if (empty($sql_query)) {
+    $sql_query = '';
+}
 
 if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     /**
@@ -94,7 +96,7 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
         }
 
         $column_map = PMA_getColumnMap($_REQUEST['view']['as'], $view_columns);
-        $pma_tranformation_data = PMA_getExistingTranformationData($GLOBALS['db']);
+        $pma_tranformation_data = PMA_getExistingTransformationData($GLOBALS['db']);
 
         if ($pma_tranformation_data !== false) {
 

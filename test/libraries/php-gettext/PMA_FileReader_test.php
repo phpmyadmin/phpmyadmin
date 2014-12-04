@@ -45,6 +45,8 @@ class PMA_FileReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for read
+     *
+     * @return void
      */
     public function testRead()
     {
@@ -61,6 +63,8 @@ class PMA_FileReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for seekto
+     *
+     * @return void
      */
     public function testSeekto()
     {
@@ -72,6 +76,8 @@ class PMA_FileReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for currentpos
+     *
+     * @return void
      */
     public function testCurrentpos()
     {
@@ -83,6 +89,8 @@ class PMA_FileReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for length
+     *
+     * @return void
      */
     public function testLength()
     {
@@ -94,6 +102,8 @@ class PMA_FileReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for close
+     *
+     * @return void
      */
     public function testClose()
     {
@@ -105,6 +115,8 @@ class PMA_FileReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for non existing file
+     *
+     * @return void
      */
     public function testForNonExistingFile()
     {

@@ -74,7 +74,7 @@ function PMA_getHtmlForExportSelectOptions($tmp_select = '')
                 $is_selected = '';
             }
         } elseif (!empty($tmp_select)) {
-            if ($GLOBALS['PMA_String']->strpos(
+            if (/*overload*/mb_strpos(
                 ' ' . $tmp_select,
                 '|' . $current_db . '|'
             )) {
@@ -140,12 +140,12 @@ function PMA_getHtmlForHiddenInput(
     $html .= '<input type="hidden" name="export_method" value="'
         . htmlspecialchars($cfg['Export']['method']) . '" />';
 
-    if (isset($_GET['sql_query'])) {
-        $html .= '<input type="hidden" name="sql_query" value="'
-            . htmlspecialchars($_GET['sql_query']) . '" />' . "\n";
-    } elseif (! empty($sql_query)) {
+    if (! empty($sql_query)) {
         $html .= '<input type="hidden" name="sql_query" value="'
             . htmlspecialchars($sql_query) . '" />' . "\n";
+    } elseif (isset($_GET['sql_query'])) {
+        $html .= '<input type="hidden" name="sql_query" value="'
+            . htmlspecialchars($_GET['sql_query']) . '" />' . "\n";
     }
 
     return $html;
@@ -713,7 +713,7 @@ function PMA_getHtmlForExportOptions(
     $html .= PMA_getHtmlForExportOptionsMethod();
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
 
-    $tableLength = $GLOBALS['PMA_String']->strlen($table);
+    $tableLength = /*overload*/mb_strlen($table);
     if ($tableLength && empty($num_tables) && ! PMA_Table::isMerge($db, $table)) {
         $html .= PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows);
     }
@@ -776,9 +776,6 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
         );
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $html = '<div id="alias_modal" class="hide" title="' . $title . '">';
     $db_html = '<label class="col-2">' . __('Select database') . ': '
         . '</label><select id="db_alias_select">';
@@ -792,7 +789,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
         }
         $db = htmlspecialchars($db);
         $name_attr = 'aliases[' . $db . '][alias]';
-        $id_attr = $pmaString->substr(md5($name_attr), 0, 12);
+        $id_attr = substr(md5($name_attr), 0, 12);
         $class = 'hide';
         if ($first_db) {
             $first_db = false;
@@ -816,7 +813,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
             }
             $table = htmlspecialchars($table);
             $name_attr =  'aliases[' . $db . '][tables][' . $table . '][alias]';
-            $id_attr = $pmaString->substr(md5($name_attr), 0, 12);
+            $id_attr = substr(md5($name_attr), 0, 12);
             $class = 'hide';
             if ($first_tbl) {
                 $first_tbl = false;
@@ -844,7 +841,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
                 $column = htmlspecialchars($column);
                 $name_attr = 'aliases[' . $db . '][tables][' . $table
                     . '][columns][' . $column . ']';
-                $id_attr = $pmaString->substr(md5($name_attr), 0, 12);
+                $id_attr = substr(md5($name_attr), 0, 12);
                 $col_html .= '<tr class="' . $class . '">';
                 $col_html .= '<th><label for="' . $id_attr . '">' . $column
                     . '</label></th>';

@@ -89,7 +89,7 @@ class PMA_Footer
      *
      * @return string
      */
-    private function _getDebugMessage()
+    public function getDebugMessage()
     {
         $retval = '';
         if (! empty($_SESSION['debug'])) {
@@ -120,11 +120,11 @@ class PMA_Footer
     /**
      * Returns the url of the current page
      *
-     * @param string|null $encoding See PMA_URL_getCommon()
+     * @param string|null $encode See PMA_URL_getCommon()
      *
      * @return string
      */
-    public function getSelfUrl($encoding = null)
+    public function getSelfUrl($encode = 'html')
     {
         $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
@@ -166,7 +166,7 @@ class PMA_Footer
         }
         return basename(PMA_getenv('SCRIPT_NAME')) . PMA_URL_getCommon(
             $params,
-            $encoding
+            $encode
         );
     }
 
@@ -203,12 +203,11 @@ class PMA_Footer
      */
     public function getErrorMessages()
     {
-        $retval = '';
+        $retval = '<div class="clearfloat" id="pma_errors">';
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
-            $retval .= '<div class="clearfloat" id="pma_errors">';
             $retval .= $GLOBALS['error_handler']->getDispErrors();
-            $retval .= '</div>';
         }
+        $retval .= '</div>';
 
         /**
          * Report php errors
@@ -324,7 +323,7 @@ class PMA_Footer
                     $url = $this->getSelfUrl();
                     $retval .= $this->_getSelfLink($url);
                 }
-                $retval .= $this->_getDebugMessage();
+                $retval .= $this->getDebugMessage();
                 $retval .= $this->getErrorMessages();
                 $retval .= $this->_scripts->getDisplay();
                 if ($GLOBALS['cfg']['DBG']['demo']) {

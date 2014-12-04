@@ -52,7 +52,7 @@ $response->addHTML(PMA_getHtmlForSubPageHeader('replication'));
 // Display error messages
 $response->addHTML(PMA_getHtmlForErrorMessage());
 
-if ($server_master_status) {
+if ($GLOBALS['replication_info']['master']['status']) {
     $response->addHTML(PMA_getHtmlForMasterReplication());
 } elseif (! isset($_REQUEST['mr_configure'])
     && ! isset($_REQUEST['repl_clear_scr'])
@@ -72,7 +72,7 @@ if (! isset($_REQUEST['repl_clear_scr'])) {
     // Render the 'Slave configuration' section
     $response->addHTML(
         PMA_getHtmlForSlaveConfiguration(
-            $server_slave_status,
+            $GLOBALS['replication_info']['slave']['status'],
             $server_slave_replication
         )
     );

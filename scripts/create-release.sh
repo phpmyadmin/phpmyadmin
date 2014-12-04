@@ -58,10 +58,7 @@ cat <<END
 Please ensure you have incremented rc count or version in the repository :
      - in libraries/Config.class.php PMA_Config::__constructor() the line
           " \$this->set( 'PMA_VERSION', '$version' ); "
-     - in Documentation.html (if exists) the 2 lines
-          " <title>phpMyAdmin $version - Documentation</title> "
-          " <h1>phpMyAdmin $version Documentation</h1> "
-     - in doc/conf.py (if exists) the line
+     - in doc/conf.py the line
           " version = '$version' "
      - in README
 
@@ -286,7 +283,7 @@ Todo now:
  3. upload the files to SF, you can use scripts/upload-release, eg.:
 
         ./scripts/upload-release \$USER $version release
- 4. in https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin pick the newly created version, expand the directory and use the I icons to mark that
+ 4. if this is a stable version, visit https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin, pick the newly created version, expand the directory and use the I icons to mark that
         - the -all-languages.zip file is the default for Windows and Others
         - the -all-languages.tar.gz file is the default for Solaris
         - the -all-languages.tar.bz2 file is the default for Mac OS X, Linux and BSD
@@ -311,7 +308,7 @@ Todo now:
 
  9. send a private twitter message to @phpmya, containing a short version of the announcement
 
-10. update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
+10. for a stable version, update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
 
 11. in case of a new major release, update the render.py in website repository to include the new major releases
 

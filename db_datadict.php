@@ -36,7 +36,7 @@ PMA_Util::checkParameters(array('db'));
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'db_sql.php?' . PMA_URL_getCommon($db);
+$err_url = 'db_sql.php' . PMA_URL_getCommon(array('db' => $db));
 
 if ($cfgRelation['commwork']) {
     $comment = PMA_getDbComment($db);
@@ -72,44 +72,10 @@ foreach ($tables as $table) {
     /**
      * Gets table keys and retains them
      */
-
     $GLOBALS['dbi']->selectDb($db);
-    $indexes      = $GLOBALS['dbi']->getTableIndexes($db, $table);
-    $primary      = '';
-    $lastIndex    = '';
-    $indexes_info = array();
-    $indexes_data = array();
-    $pk_array     = array(); // will be use to emphasis prim. keys in the table
-                             // view
-    foreach ($indexes as $row) {
-        // Backups the list of primary keys
-        if ($row['Key_name'] == 'PRIMARY') {
-            $primary   .= $row['Column_name'] . ', ';
-            $pk_array[$row['Column_name']] = 1;
-        }
-        // Retains keys informations
-        if ($row['Key_name'] != $lastIndex) {
-            $indexes[] = $row['Key_name'];
-            $lastIndex = $row['Key_name'];
-        }
-        $indexes_info[$row['Key_name']]['Sequences'][] = $row['Seq_in_index'];
-        $indexes_info[$row['Key_name']]['Non_unique'] = $row['Non_unique'];
-        if (isset($row['Cardinality'])) {
-            $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
-        }
-        // I don't know what does following column mean....
-        // $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
-
-        $indexes_info[$row['Key_name']]['Comment'] = $row['Comment'];
-
-        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']
-            = $row['Column_name'];
-        if (isset($row['Sub_part'])) {
-            $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part']
-                = $row['Sub_part'];
-        }
-
-    } // end while
+    $indexes = $GLOBALS['dbi']->getTableIndexes($db, $table);
+    list($primary, $pk_array, $indexes_info, $indexes_data)
+        = PMA_Util::processIndexData($indexes);
 
     /**
      * Gets columns properties
@@ -117,21 +83,9 @@ foreach ($tables as $table) {
     $columns = $GLOBALS['dbi']->getColumns($db, $table);
 
     // Check if we can use Relations
-    if (!empty($cfgRelation['relation'])) {
-        // Find which tables are related with the current one and write it in
-        // an array
-        $res_rel = PMA_getForeigners($db, $table);
-
-        if (count($res_rel) > 0) {
-            $have_rel = true;
-        } else {
-            $have_rel = false;
-        }
-    } else {
-        $have_rel = false;
-        $res_rel = array();
-    } // end if
-
+    list($res_rel, $have_rel) = PMA_getRelationsAndStatus(
+        ! empty($cfgRelation['relation']), $db, $table
+    );
 
     /**
      * Displays the comments of the table if MySQL >= 3.23

@@ -79,7 +79,7 @@ $header_cells = PMA_getHeaderCells(
 );
 
 //  workaround for field_fulltext, because its submitted indices contain
-//  the index as a value, not a key. Inserted here for easier maintaineance
+//  the index as a value, not a key. Inserted here for easier maintenance
 //  and less code to change in existing files.
 if (isset($field_fulltext) && is_array($field_fulltext)) {
     foreach ($field_fulltext as $fulltext_nr => $fulltext_indexkey) {
@@ -91,6 +91,8 @@ if (isset($_REQUEST['submit_num_fields'])) {
     $regenerate = 1;
 }
 
+$foreigners = PMA_getForeigners($db, $table, '', 'foreign');
+$child_references = PMA_getChildReferences($db, $table);
 for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     if (! empty($regenerate)) {
         list($columnMeta, $submit_length, $submit_attribute,
@@ -127,9 +129,9 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     // some types, for example longtext, are reported as
     // "longtext character set latin7" when their charset and / or collation
     // differs from the ones of the corresponding database.
-    $tmp = $pmaString->strpos($type, 'character set');
+    $tmp = /*overload*/mb_strpos($type, 'character set');
     if ($tmp) {
-        $type = $pmaString->substr($type, 0, $tmp - 1);
+        $type = /*overload*/mb_substr($type, 0, $tmp - 1);
     }
     // rtrim the type, for cases like "float unsigned"
     $type = rtrim($type);
@@ -144,7 +146,9 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $columnMeta['column_status'] = PMA_checkChildForeignReferences(
             $_form_params['db'],
             $_form_params['table'],
-            $columnMeta['Field']
+            $columnMeta['Field'],
+            $foreigners,
+            $child_references
         );
     }
     // old column attributes
@@ -157,7 +161,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 
     $content_cells[$columnNumber] = PMA_getHtmlForColumnAttributes(
         $columnNumber, isset($columnMeta) ? $columnMeta : array(),
-        $pmaString->strtoupper($type), $length_values_input_size, $length,
+        /*overload*/mb_strtoupper($type), $length_values_input_size, $length,
         isset($default_current_timestamp) ? $default_current_timestamp : null,
         isset($extracted_columnspec) ? $extracted_columnspec : null,
         isset($submit_attribute) ? $submit_attribute : null,

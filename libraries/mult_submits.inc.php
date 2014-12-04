@@ -154,11 +154,11 @@ if (!empty($submit_mult) && !empty($what)) {
 
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
-    if ($pmaString->strlen($table)) {
+    if (/*overload*/mb_strlen($table)) {
         include './libraries/tbl_common.inc.php';
         $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
         include './libraries/tbl_info.inc.php';
-    } elseif ($pmaString->strlen($db)) {
+    } elseif (/*overload*/mb_strlen($db)) {
         include './libraries/db_common.inc.php';
         include './libraries/db_info.inc.php';
     } else {

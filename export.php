@@ -58,7 +58,6 @@ if (!defined('TESTSUITE')) {
             'remember_template',
             'charset_of_file',
             'compression',
-            'what',
             'knjenc',
             'xkana',
             'htmlword_structure_or_data',
@@ -160,7 +159,7 @@ if (!defined('TESTSUITE')) {
 
     $table = $GLOBALS['table'];
     // sanitize this parameter which will be used below in a file inclusion
-    $what = PMA_securePath($what);
+    $what = PMA_securePath($_POST['what']);
 
     PMA_Util::checkParameters(array('what', 'export_type'));
 
@@ -241,21 +240,25 @@ if (!defined('TESTSUITE')) {
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
     if ($export_type == 'server') {
-        $err_url = 'server_export.php?' . PMA_URL_getCommon();
+        $err_url = 'server_export.php' . PMA_URL_getCommon();
     } elseif ($export_type == 'database'
-        && $pmaString->strlen($db)
+        && /*overload*/mb_strlen($db)
     ) {
-        $err_url = 'db_export.php?' . PMA_URL_getCommon($db);
+        $err_url = 'db_export.php' . PMA_URL_getCommon(array('db' => $db));
         // Check if we have something to export
         if (isset($table_select)) {
             $tables = $table_select;
         } else {
             $tables = array();
         }
-    } elseif ($export_type == 'table' && $pmaString->strlen($db)
-        && $pmaString->strlen($table)
+    } elseif ($export_type == 'table' && /*overload*/mb_strlen($db)
+        && /*overload*/mb_strlen($table)
     ) {
-        $err_url = 'tbl_export.php?' . PMA_URL_getCommon($db, $table);
+        $err_url = 'tbl_export.php' . PMA_URL_getCommon(
+            array(
+                'db' => $db, 'table' => $table
+            )
+        );
     } else {
         PMA_fatalError(__('Bad parameters!'));
     }
@@ -321,6 +324,8 @@ if (!defined('TESTSUITE')) {
             $export_type, $remember_template, $export_plugin, $compression,
             $filename_template
         );
+    } else {
+        $mime_type = '';
     }
 
     // Open file on server if needed

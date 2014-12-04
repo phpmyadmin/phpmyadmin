@@ -38,6 +38,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
          * SET these to avoid undefined index error
          */
         $GLOBALS['server'] = 0;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['MaxExactCount'] = 100;
@@ -61,10 +62,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             'TABLE_TYPE' => true,
             'Comment' => true,
         );
-
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
 
         $sql_isView_true =  "SELECT TABLE_NAME
             FROM information_schema.VIEWS
@@ -703,9 +700,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testGenerateAlter()
     {
-        $table = 'PMA_BookMark';
-        $db = 'PMA';
-
         //parameter
         $oldcol = 'name';
         $newcol = 'new_name';
@@ -970,7 +964,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $target_table, $what, $move, $mode
         );
 
-        //successully
+        //successfully
         $expect = true;
         $this->assertEquals(
             $expect,
@@ -993,7 +987,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $target_table, $what, false, $mode
         );
 
-        //successully
+        //successfully
         $expect = true;
         $this->assertEquals(
             $expect,

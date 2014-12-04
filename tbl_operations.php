@@ -17,7 +17,16 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/operations.lib.php';
 
 $pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+
+/**
+ * Load JavaScript files
+ */
 $response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('functions.js');
+$scripts->addFile('tbl_operations.js');
+
 /**
  * Runs common work
  */
@@ -113,7 +122,7 @@ if (isset($_REQUEST['submitoptions'])) {
     }
 
     if (! empty($_REQUEST['new_tbl_storage_engine'])
-        && $pmaString->strtolower($_REQUEST['new_tbl_storage_engine']) !== $pmaString->strtolower($tbl_storage_engine)
+        && /*overload*/mb_strtolower($_REQUEST['new_tbl_storage_engine']) !== /*overload*/mb_strtolower($tbl_storage_engine)
     ) {
         $new_tbl_storage_engine = $_REQUEST['new_tbl_storage_engine'];
         // reset the globals for the new engine
@@ -164,6 +173,8 @@ if (isset($_REQUEST['submitorderby']) && ! empty($_REQUEST['order_field'])) {
 /**
  * A partition operation has been requested by the user
  */
+$sql_query = '';
+
 if (isset($_REQUEST['submit_partition'])
     && ! empty($_REQUEST['partition_operation'])
 ) {
@@ -275,8 +286,8 @@ if (! $hideOrderTable) {
  */
 $response->addHTML(PMA_getHtmlForMoveTable());
 
-if ($pmaString->strstr($show_comment, '; InnoDB free') === false) {
-    if ($pmaString->strstr($show_comment, 'InnoDB free') === false) {
+if (/*overload*/mb_strstr($show_comment, '; InnoDB free') === false) {
+    if (/*overload*/mb_strstr($show_comment, 'InnoDB free') === false) {
         // only user entered comment
         $comment = $show_comment;
     } else {

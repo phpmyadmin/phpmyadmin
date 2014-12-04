@@ -241,7 +241,7 @@ class PMA_Export_Relation_Schema
     {
         $tables = array();
         foreach ($_REQUEST['t_h'] as $key => $value) {
-            list($db, $table) = explode(".", $key);
+            list(, $table) = explode(".", $key);
             $tables[] = $table;
         }
         return $tables;
@@ -252,7 +252,7 @@ class PMA_Export_Relation_Schema
      *
      * @param integer $pageNumber    ID of the chosen page
      * @param string  $type          Schema Type
-     * @param string  $error_message The error mesage
+     * @param string  $error_message The error message
      *
      * @access public
      *
@@ -267,7 +267,8 @@ class PMA_Export_Relation_Schema
         echo '<p>' . "\n";
         echo '    ' . $error_message . "\n";
         echo '</p>' . "\n";
-        echo '<a href="db_designer.php?' . PMA_URL_getCommon($GLOBALS['db'])
+        echo '<a href="db_designer.php'
+            . PMA_URL_getCommon(array('db' => $GLOBALS['db']))
             . '&page=' . htmlspecialchars($pageNumber) . '">' . __('Back') . '</a>';
         echo "\n";
         exit;

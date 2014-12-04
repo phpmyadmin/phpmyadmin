@@ -12,6 +12,29 @@ if (! defined('PHPMYADMIN')) {
 require_once 'libraries/relation.lib.php';
 
 /**
+ * Function to get html to display a page selector
+ *
+ * @param array  $cfgRelation information about the configuration storage
+ * @param string $db          database name
+ *
+ * @return string html content
+ */
+function PMA_getHtmlForPageSelector($cfgRelation, $db)
+{
+    $html = '<select name="selected_page" id="selected_page">';
+    $html .= '<option value="0">-- ' . __('Select page') . ' --</option>';
+    if ($cfgRelation['pdfwork']) {
+        $pages = PMA_getPageIdsAndNames($db);
+        foreach ($pages as $nr => $desc) {
+            $html .= '<option value="' . $nr . '">';
+            $html .= htmlspecialchars($desc) . '</option>';
+        }
+    }
+    $html .= '</select>';
+    return $html;
+}
+
+/**
  * Function to get html for displaying the page edit/delete form
  *
  * @param string $db        database name
@@ -34,16 +57,7 @@ function PMA_getHtmlForEditOrDeletePages($db, $operation)
         $html .= __("Page to delete");
     }
     $html .= ': </label>';
-    $html .= '<select name="selected_page" id="selected_page">';
-    $html .= '<option value="0">-- ' . __('Select page') . ' --</option>';
-    if ($cfgRelation['pdfwork']) {
-        $pages = PMA_getPageIdsAndNames($db);
-        foreach ($pages as $nr => $desc) {
-            $html .= '<option value="' . $nr . '">';
-            $html .= htmlspecialchars($desc) . '</option>';
-        }
-    }
-    $html .= '</select>';
+    $html .= PMA_getHtmlForPageSelector($cfgRelation, $db);
     $html .= '</fieldset>';
     $html .= '</form>';
     return $html;
@@ -73,17 +87,7 @@ function PMA_getHtmlForPageSaveAs($db)
     $html .= '<tr>';
     $html .= '<td>';
     $html .= '<input type="hidden" name="operation" value="savePage" />';
-    $html .= '<select name="selected_page" id="selected_page">';
-    $html .= '<option value="0">-- ' . __('Select page') . ' --</option>';
-
-    if ($cfgRelation['pdfwork']) {
-        $pages = PMA_getPageIdsAndNames($db);
-        foreach ($pages as $nr => $desc) {
-            $html .= '<option value="' . $nr . '">';
-            $html .= htmlspecialchars($desc) . '</option>';
-        }
-    }
-    $html .= '</select>';
+    $html .= PMA_getHtmlForPageSelector($cfgRelation, $db);
     $html .= '</td>';
     $html .= '</tr>';
 
@@ -230,8 +234,7 @@ function PMA_getDesignerPageTopMenu($visualBuilder, $selected_page)
 {
     $html  = '<div class="pmd_header" id="top_menu">';
 
-    $html .= '<a href="#" onclick="Show_left_menu('
-        . 'document.getElementById(\'key_Show_left_menu\')' . '); return false" ';
+    $html .= '<a href="#" ';
     $html .= 'class="M_butt first" target="_self">';
     $html .= '<img id="key_Show_left_menu" ';
     $html .= 'title="' . __('Show/Hide left menu') . '" alt="v" ';
@@ -240,7 +243,6 @@ function PMA_getDesignerPageTopMenu($visualBuilder, $selected_page)
     $html .= '</a>';
 
     $html .= '<a href="#" id="enterFullscreen" ';
-    $html .= 'onclick="Enter_fullscreen(); return false" ';
     $html .= 'class="M_butt" target="_self">';
     $html .= '<img title="' . __('View in fullscreen') . '" alt="" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/viewInFullscreen.png')
@@ -248,7 +250,6 @@ function PMA_getDesignerPageTopMenu($visualBuilder, $selected_page)
     $html .= '</a>';
 
     $html .= '<a href="#" id="exitFullscreen" ';
-    $html .= 'onclick="Exit_fullscreen(); return false" ';
     $html .= 'class="M_butt hide" target="_self">';
     $html .= '<img title="' . __('Exit fullscreen') . '" alt="" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/exitFullscreen.png')
@@ -260,35 +261,35 @@ function PMA_getDesignerPageTopMenu($visualBuilder, $selected_page)
         $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png')
             . '" />';
 
-        $html .= '<a href="#" onclick="New(); return false" ';
+        $html .= '<a id="newPage" href="#" ';
         $html .= 'class="M_butt" target="_self">';
         $html .= '<img title="' . __('New page') . '"alt="" ';
         $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/page_add.png')
             . '" />';
         $html .= '</a>';
 
-        $html .= '<a href="#" onclick="Edit_pages(); return false" ';
+        $html .= '<a href="#" id="editPage" ';
         $html .= 'class="M_butt ajax" target="_self">';
         $html .= '<img title="' . __('Open page') . '" alt="" ';
         $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/page_edit.png')
             . '" />';
         $html .= '</a>';
 
-        $html .= '<a href="#" onclick="Save3(); return false" ';
+        $html .= '<a href="#" id="savePos" ';
         $html .= 'class="M_butt" target="_self">';
         $html .= '<img title="' . __('Save position') . '" alt="" ';
         $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/save.png')
             . '" />';
         $html .= '</a>';
 
-        $html .= '<a href="#" onclick="Save_as(); return false" ';
+        $html .= '<a href="#" id="SaveAs" ';
         $html .= 'class="M_butt ajax" target="_self">';
         $html .= '<img title="' . __('Save positions as') . '" alt="" ';
         $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/save_as.png')
             . '" />';
         $html .= '</a>';
 
-        $html .= '<a href="#" onclick="Delete_pages(); return false" ';
+        $html .= '<a href="#" id="delPages" ';
         $html .= 'class="M_butt ajax" target="_self">';
         $html .= '<img title="' . __('Delete pages') . '" alt="" ';
         $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/page_delete.png')
@@ -299,27 +300,27 @@ function PMA_getDesignerPageTopMenu($visualBuilder, $selected_page)
     $html .= '<img class="M_bord" alt="" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png') . '" />';
 
-    $html .= '<a href="#" onclick="Start_table_new(); return false" ';
+    $html .= '<a href="#" id="StartTableNew" ';
     $html .= 'class="M_butt" target="_self">';
     $html .= '<img title="' . __('Create table') . '" alt="" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/table.png') . '" />';
     $html .= '</a>';
 
-    $html .= '<a href="#" onclick="Start_relation(); return false" class="M_butt" ';
+    $html .= '<a href="#" class="M_butt" ';
     $html .= 'id="rel_button" target="_self">';
     $html .= '<img title="' . __('Create relation') . '" alt="" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/relation.png')
         . '" />';
     $html .= '</a>';
 
-    $html .= '<a href="#" onclick="Start_display_field(); return false" ';
+    $html .= '<a href="#" ';
     $html .= 'class="M_butt" id="display_field_button" target="_self">';
     $html .= '<img title="' . __('Choose column to display') . '" alt="" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/display_field.png')
         . '" />';
     $html .= '</a>';
 
-    $html .= '<a href="#" onclick="location.reload(); return false" class="M_butt" ';
+    $html .= '<a href="#" id="reloadPage" class="M_butt" ';
     $html .= 'target="_self">';
     $html .= '<img title="' . __('Reload') . '" alt="" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/reload.png') . '" />';
@@ -334,7 +335,7 @@ function PMA_getDesignerPageTopMenu($visualBuilder, $selected_page)
     $html .= '<img class="M_bord" alt="" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png') . '" />';
 
-    $html .= '<a href="#" onclick="Angular_direct(); return false" ';
+    $html .= '<a href="#" ';
     $html .= 'class="M_butt" id="angular_direct_button" target="_self">';
     $html .= '<img alt="" ';
     $html .= 'title="' . __('Angular links') . ' / ' . __('Direct links') . '" ';
@@ -342,31 +343,30 @@ function PMA_getDesignerPageTopMenu($visualBuilder, $selected_page)
         . '" />';
     $html .= '</a>';
 
-    $html .= '<a href="#" onclick="Grid(); return false" class="M_butt" ';
+    $html .= '<a href="#" class="M_butt" ';
     $html .= 'id="grid_button" target="_self">';
-    $html .= '<img title="' . __('Snap to grid') . '>" alt="" ';
+    $html .= '<img title="' . __('Snap to grid') . '" alt="" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/grid.png') . '" />';
     $html .= '</a>';
 
     $html .= '<img class="M_bord" alt="" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png') . '" />';
 
-    $html .= '<a href="#" onclick="Small_tab_all('
-        . 'document.getElementById("key_SB_all")); return false" ';
+    $html .= '<a href="#" ';
     $html .= 'class="M_butt" target="_self">';
     $html .= '<img id="key_SB_all" title="' . __('Small/Big All') . '" alt="v" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow1.png')
         . '" />';
     $html .= '</a>';
 
-    $html .= '<a href="#" onclick="Small_tab_invert(); return false" ';
+    $html .= '<a href="#" id="SmallTabInvert" ';
     $html .= 'class="M_butt" target="_self" >';
     $html .= '<img title="' . __('Toggle small/big') . '" alt="key" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bottom.png')
         . '" />';
     $html .= '</a>';
 
-    $html .= '<a href="#" onclick="Relation_lines_invert(); return false"';
+    $html .= '<a href="#" id="relLineInvert" ';
     $html .= 'class="M_butt" target="_self" >';
     $html .= '<img title="' . __('Toggle relation lines') . '" alt="key" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/toggle_lines.png')
@@ -388,7 +388,7 @@ function PMA_getDesignerPageTopMenu($visualBuilder, $selected_page)
         $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png')
             . '" />';
 
-        $html .= '<a href="#" onclick="Export_pages(); return false" ';
+        $html .= '<a href="#" id="exportPages" ';
         $html .= 'class="M_butt" target="_self" >';
         $html .= '<img title="' . __('Export schema') . '" alt="key" ';
         $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/export.png')
@@ -402,14 +402,13 @@ function PMA_getDesignerPageTopMenu($visualBuilder, $selected_page)
         $html .= '<a href="#" onclick="build_query(\'SQL Query on Database\', 0)" ';
         $html .= 'onmousedown="return false;" class="M_butt" target="_self">';
         $html .= '<img alt="key" width="20" height="20" ';
-        $html .= 'title="' .  __('Build Query') . '" ';
-        $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/query_builder.png')
+        $html .= 'title="' .  __('Build Query') . '" src="';
+        $html .= $_SESSION['PMA_Theme']->getImgPath('pmd/query_builder.png')
             . '" />';
         $html .= '</a>';
     }
 
-    $html .= '<a href="#" onclick="Top_menu_right('
-        . 'document.getElementById("key_Left_Right")); return false" ';
+    $html .= '<a href="#" ';
     $html .= 'class="M_butt last" target="_self">';
     $html .= '<img id="key_Left_Right" alt=">" title="' . __('Move Menu') . '"';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/2rightarrow_m.png')
@@ -430,7 +429,7 @@ function PMA_getHTMLCanvas()
 {
     $html  = '<div id="osn_tab">';
     $html .= '<canvas class="pmd" id="canvas" width="100" height="100" ';
-    $html .= 'onclick="Canvas_click(this)"></canvas>';
+    $html .= '></canvas>';
     $html .= '</div>';
 
     return $html;
@@ -448,19 +447,17 @@ function PMA_getHTMLTableList($tab_pos, $display_page)
 {
     $html  = '<div id="layer_menu" style="display:none;">';
 
-    $html .= '<div class="center" style="padding-top:5px;">';
+    $html .= '<div class="center" style="padding-top:28px;">';
 
     $html .= '<a href="#" class="M_butt" target="_self" ';
-    $html .= 'onclick="Hide_tab_all(document.getElementById(\'key_HS_all\')); ';
-    $html .= 'return false">';
+    $html .= '>';
     $html .= '<img title="' . __('Hide/Show all') . '" alt="v" id="key_HS_all" ';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow1.png')
         . '" />';
     $html .= '</a>';
 
     $html .= '<a href="#" class="M_butt" target="_self" ';
-    $html .= 'onclick="No_have_constr(document.getElementById(\'key_HS\')); ';
-    $html .= 'return false">';
+    $html .= '>';
     $html .= '<img alt="v" id="key_HS" ';
     $html .= 'title="' . __('Hide/Show Tables with no relation') . '"';
     $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow2.png')
@@ -481,15 +478,15 @@ function PMA_getHTMLTableList($tab_pos, $display_page)
         $html .= '<td title="' . __('Structure') . '" width="1px" ';
         $html .= 'onmouseover="this.className=\'L_butt2_2\'" ';
         $html .= 'onmouseout="this.className=\'L_butt2_1\'" class="L_butt2_1">';
-        $html .= '<img onclick="Start_tab_upd(\'';
-        $html .= $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . '\');" alt="" ';
+        $html .= '<img alt="" ';
+        $html .= 'table_name="' . $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'][$i] . '"'
+                . ' class="scroll_tab_struct" ';
         $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/exec.png')
             . '"/>';
         $html .= '</td>';
 
         $html .= '<td width="1px">';
-        $html .= '<input onclick="VisibleTab(this,\'';
-        $html .= $GLOBALS['PMD_URL']["TABLE_NAME"][$i] . '\')" ';
+        $html .= '<input class="scroll_tab_checkbox" ';
         $html .= 'title="' . __('Hide') . '" ';
         $html .= 'id="check_vis_' . $GLOBALS['PMD_URL']["TABLE_NAME"][$i] . '" ';
         $html .= 'style="margin:0px;" type="checkbox" ';
@@ -506,8 +503,8 @@ function PMA_getHTMLTableList($tab_pos, $display_page)
         $html .= '<td class="pmd_Tabs" ';
         $html .= 'onmouseover="this.className=\'pmd_Tabs2\'" ';
         $html .= 'onmouseout="this.className=\'pmd_Tabs\'" ';
-        $html .= 'onclick="Select_tab(\'';
-        $html .= $GLOBALS['PMD_URL']["TABLE_NAME"][$i] . '\');">';
+        $html .= 'pmd_url_table_name="'
+            . $GLOBALS['PMD_URL']['TABLE_NAME'][$i] . '">';
         $html .= $GLOBALS['PMD_OUT']["TABLE_NAME"][$i];
         $html .= '</td>';
 
@@ -517,9 +514,11 @@ function PMA_getHTMLTableList($tab_pos, $display_page)
     $html .= '</table>';
     $html .= '</div>'; // end id_scroll_tab
 
-    $html .= '<div class="center">' . __('Number of tables:') . ' ' . $name_cnt . '</div>';
+    $html .= '<div class="center">' . __('Number of tables:')
+        . ' ' . $name_cnt . '</div>';
     $html .= '<div class="floatright">';
-    $html .= '<div id="layer_menu_sizer" onmousedown="layer_menu_cur_click=1"></div>';
+    $html .= '<div id="layer_menu_sizer" onmousedown="layer_menu_cur_click=1">'
+        . '</div>';
     $html .= '</div>';
 
     $html .= '</div>'; // end layer_menu
@@ -558,9 +557,11 @@ function PMA_getDatabaseTables(
         $html .= '<table id="' . $t_n_url . '" cellpadding="0" cellspacing="0" ';
         $html .= 'class="pmd_tab" style="position:absolute;';
         $html .= 'left:';
-        $html .= (isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["X"] : rand(20, 700)) . 'px;';
+        $html .= (isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["X"] : rand(20, 700))
+            . 'px;';
         $html .= 'top:';
-        $html .= (isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["Y"] : rand(20, 550)) . 'px;';
+        $html .= (isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["Y"] : rand(20, 550))
+            . 'px;';
         $html .= 'display:';
         $html .= (isset($tab_pos[$t_n]) || $display_page == -1) ? 'block;' : 'none;';
         $html .= 'z-index: 1;">';
@@ -570,23 +571,25 @@ function PMA_getDatabaseTables(
 
         if (isset($_REQUEST['query'])) {
             $html .= '<td class="select_all">';
-            $html .= '<input type="checkbox" style="margin: 0px;" ';
+            $html .= '<input class="select_all_1" type="checkbox" '
+                . 'style="margin: 0px;" ';
             $html .= 'value="select_all_' . htmlspecialchars($t_n_url) . '" ';
             $html .= 'id="select_all_' . htmlspecialchars($t_n_url) . '" ';
-            $html .= 'title="select all" ';
-            $html .= 'onclick="Select_all(\'' . htmlspecialchars($t_n_url) . '\',';
-            $html .= '\'' . htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]) . '\'';
-            $html .= ')">';
+            $html .= 'title="select all" pmd_url_table_name="'
+                . htmlspecialchars($t_n_url) . '" ';
+            $html .= 'pmd_out_owner="'
+                . htmlspecialchars($GLOBALS['PMD_OUT']['OWNER'][$i]) . '">';
             $html .= '</td>';
         }
 
         $html .= '<td class="small_tab" ';
         $html .= 'id="id_hide_tbody_' . $t_n_url . '" ';
-        $html .= 'onmouseover="this.className=\'small_tab2\';" ';
+        $html .= 'table_name="' . htmlspecialchars($t_n_url)
+            . '" onmouseover="this.className=\'small_tab2\';" ';
         $html .= 'onmouseout="this.className=\'small_tab\';" ';
-        $html .= 'onclick="Small_tab(\'' . $t_n_url . '\', 1)">';
+        $html .= '>';
 
-        // no space alloawd here, between tags and content !!!
+        // no space allowed here, between tags and content !!!
         // JavaScript function does require this
         if (! isset($tab_pos[$t_n]) || ! empty($tab_pos[$t_n]["V"])) {
             $html .= 'v';
@@ -596,38 +599,37 @@ function PMA_getDatabaseTables(
 
         $html .= '</td>';
 
-        $html .= '<td class="small_tab_pref" ';
-        $html .= 'onmouseover="this.className=\'small_tab_pref2\';" ';
-        $html .= 'onmouseout="this.className=\'small_tab_pref\';" ';
-        $html .= 'onclick="Start_tab_upd(\''
-            . $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . '\');">';
+        $html .= '<td class="small_tab_pref small_tab_pref_1" ';
+        $html .= 'table_name_small="' . $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]
+            . '" onmouseover="this.className='
+                . '\'small_tab_pref2 small_tab_pref_1\';" ';
+        $html .= 'onmouseout="this.className=\'small_tab_pref small_tab_pref_1\';" ';
+        $html .= '>';
         $html .= '<img alt="" ';
         $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/exec_small.png')
             . '" />';
         $html .= '</td>';
 
-        $html .= '<td id="id_zag_' . $t_n_url . '" class="tab_zag nowrap" ';
+        $html .= '<td id="id_zag_' . htmlspecialchars($t_n_url)
+            . '" class="tab_zag nowrap tab_zag_noquery" ';
         $html .= 'onmousedown="cur_click=document.getElementById(\''
             . $t_n_url . '\');" ';
-        $html .= 'onmouseover="Table_onover(\''
-            . $t_n_url . '\',0,' . (isset($_REQUEST['query']) ? 1 : 0 ) . ')" ';
-        $html .= 'onmouseout="Table_onover(\''
-            . $t_n_url . '\',1,' . (isset($_REQUEST['query']) ? 1 : 0 ) . ')">';
+        $html .= 'table_name="' . htmlspecialchars($t_n_url) . ''
+            . '" query_set="' . (isset($_REQUEST['query']) ? 1 : 0 ) . '" ';
+        $html .= '>';
         $html .= '<span class="owner">';
         $html .= $GLOBALS['PMD_OUT']["OWNER"][$i] . '.';
         $html .= '</span>';
-        $html .= $GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i];
+        $html .= $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i];
         $html .= '</td>';
 
         if (isset($_REQUEST['query'])) {
-            $html .= '<td class="tab_zag" ';
+            $html .= '<td class="tab_zag tab_zag_query" ';
             $html .= 'id="id_zag_' . htmlspecialchars($t_n_url) . '_2" ';
-            $html .= 'onmouseover="Table_onover(\''
-                . htmlspecialchars($t_n_url) . '\',0,1)" ';
+            $html .= 'table_name="' . htmlspecialchars($t_n_url) . '" ';
             $html .= 'onmousedown="cur_click=document.getElementById(\''
                 . htmlspecialchars($t_n_url) . '\');" ';
-            $html .= 'onmouseout="Table_onover(\''
-                . htmlspecialchars($t_n_url) . '\',1,1)">';
+            $html .= '>';
         }
 
         $html .= '</tr>';
@@ -660,34 +662,36 @@ function PMA_getDatabaseTables(
             $html .= 'onmouseover="old_class = this.className; ';
             $html .= 'this.className = \'tab_field_2\';" ';
             $html .= 'onmouseout="this.className = old_class;" ';
-            $html .= 'onmousedown="Click_field(';
-            $html .= '\'' . $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . '\',';
-            $html .= '\'' . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '\',';
+            $html .= 'click_field_param="';
+            $html .= $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . ',';
+            $html .= urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . ',';
 
             $tmpColumn = $t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j];
 
-            if (!PMA_Util::isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
+            if (!PMA_Util::isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])
+            ) {
                 $html .= (isset($tables_pk_or_unique_keys[$tmpColumn]) ? 1 : 0);
             } else {
                 // if foreign keys are supported, it's not necessary that the
                 // index is a primary key
                 $html .= (isset($tables_all_keys[$tmpColumn]) ? 1 : 0);
             }
-            $html .= ')"';
+            $html .= '"';
             $html .= '>';
 
             if (isset($_REQUEST['query'])) {
                 $html .= '<td class="select_all">';
-                $html .= '<input value="' . htmlspecialchars($t_n_url)
+                $html .= '<input class="select_all_store_col" value="'
+                    . htmlspecialchars($t_n_url)
                     . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '"';
                 $html .= 'type="checkbox" id="select_' . htmlspecialchars($t_n_url)
                     . '._' . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '" ';
                 $html .= 'style="margin: 0px;" title="select_'
                     . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '" ';
-                $html .= 'onclick="store_column(\''
-                    . urlencode($GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i]) . '\',\''
-                    . htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]) . '\',\''
-                    . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '\')"></td>';
+                $html .= 'store_column_param="'
+                    . urlencode($GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i]) . ','
+                    . htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]) . ','
+                    . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '"></td>';
             }
 
             $html .= '<td width="10px" colspan="3"';
@@ -705,22 +709,19 @@ function PMA_getDatabaseTables(
                 $html .= '<img src="' . $_SESSION['PMA_Theme']->getImgPath()
                     . 'pmd/Field_small';
 
-                /** @var PMA_String $pmaString */
-                $pmaString = $GLOBALS['PMA_String'];
-
-                if ($pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'char')
-                    || $pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'text')
+                if (strstr($tab_column[$t_n]["TYPE"][$j], 'char')
+                    || strstr($tab_column[$t_n]["TYPE"][$j], 'text')
                 ) {
                     $html .= '_char';
-                } elseif ($pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'int')
-                    || $pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'float')
-                    || $pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'double')
-                    || $pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'decimal')
+                } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'int')
+                    || strstr($tab_column[$t_n]["TYPE"][$j], 'float')
+                    || strstr($tab_column[$t_n]["TYPE"][$j], 'double')
+                    || strstr($tab_column[$t_n]["TYPE"][$j], 'decimal')
                 ) {
                     $html .= '_int';
-                } elseif ($pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'date')
-                    || $pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'time')
-                    || $pmaString->strstr($tab_column[$t_n]["TYPE"][$j], 'year')
+                } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'date')
+                    || strstr($tab_column[$t_n]["TYPE"][$j], 'time')
+                    || strstr($tab_column[$t_n]["TYPE"][$j], 'year')
                 ) {
                     $html .= '_date';
                 }
@@ -736,12 +737,14 @@ function PMA_getDatabaseTables(
             $html .= "</div>\n</td>\n";
 
             if (isset($_REQUEST['query'])) {
-                $html .= '<td class="small_tab_pref" ';
-                $html .= 'onmouseover="this.className=\'small_tab_pref2\';" ';
-                $html .= 'onmouseout="this.className=\'small_tab_pref\';" ';
-                $html .= 'onclick="Click_option(\'pmd_optionse\',\''
-                    . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '\',\''
-                    . $GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i] . '\')" >';
+                $html .= '<td class="small_tab_pref small_tab_pref_click_opt" ';
+                $html .= 'onmouseover="this.className='
+                    . '\'small_tab_pref2 small_tab_pref_click_opt\';" ';
+                $html .= 'onmouseout="this.className='
+                    . '\'small_tab_pref small_tab_pref_click_opt\';" ';
+                $html .= 'Click_option_param="pmd_optionse,'
+                    . urlencode($tab_column[$t_n]['COLUMN_NAME'][$j]) . ','
+                    . $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i] . '" >';
                 $html .=  '<img src="'
                     . $_SESSION['PMA_Theme']->getImgPath('pmd/exec_small.png')
                     . '" title="options" alt="" /></td> ';
@@ -812,11 +815,13 @@ function PMA_getNewRelationPanel()
     $html .= '<tbody>';
     $html .= '<tr>';
     $html .= '<td colspan="2" class="center nowrap">';
-    $html .= '<input type="button" class="butt" name="Button" ';
-    $html .= 'value="' . __('OK') . '" onclick="New_relation()" />';
-    $html .= '<input type="button" class="butt" name="Button" ';
+    $html .= '<input type="button" id="ok_new_rel_panel" class="butt" '
+        . 'name="Button" ';
+    $html .= 'value="' . __('OK') . '" />';
+    $html .= '<input type="button" id="cancel_new_rel_panel" '
+        . 'class="butt" name="Button" ';
     $html .= 'value="' . __('Cancel') . '" ';
-    $html .= 'onclick="document.getElementById(\'layer_new_relation\').style.display = \'none\';" />';
+    $html .= '/>';
     $html .= '</td>';
     $html .= '</tr>';
     $html .= '</tbody>';
@@ -861,11 +866,11 @@ function PMA_getDeleteRelationPanel()
     $html .= '</tr>';
     $html .= '<tr>';
     $html .= '<td colspan="3" class="center nowrap">';
-    $html .= '<input name="Button" type="button" class="butt" ';
-    $html .= 'onclick="Upd_relation()" value="' . __('Delete') . '" />';
-    $html .= '<input type="button" class="butt" name="Button" ';
+    $html .= '<input id="del_button" name="Button" type="button" class="butt" ';
+    $html .= 'value="' . __('Delete') . '" />';
+    $html .= '<input id="cancel_button" type="button" class="butt" name="Button" ';
     $html .= 'value="' . __('Cancel') . '" ';
-    $html .= 'onclick="document.getElementById(\'layer_upd_relation\').style.display = \'none\'; Re_load();" />';
+    $html .= '/>';
     $html .= '</td>';
     $html .= '</tr>';
     $html .= '</table></td>';
@@ -1005,11 +1010,11 @@ function PMA_getOptionsPanel()
     $html .= '<tbody>';
     $html .= '<tr>';
     $html .= '<td colspan="2" class="center nowrap">';
-    $html .= '<input type="button" class="butt" name="Button" ';
-    $html .= 'value="' . __('OK') . '" onclick="add_object()" />';
-    $html .= '<input type="button" class="butt" name="Button" ';
-    $html .= 'value="' . __('Cancel') . '" ';
-    $html .= 'onclick="Close_option()" />';
+    $html .= '<input type="button" id="ok_add_object" class="butt" name="Button" ';
+    $html .= 'value="' . __('OK') . '" />';
+    $html .= '<input type="button" id="cancel_close_option" class="butt" ';
+    $html .= 'name="Button" value="' . __('Cancel') . '" ';
+    $html .= '/>';
     $html .= '</td>';
     $html .= '</tr>';
     $html .= '</tbody>';
@@ -1067,11 +1072,12 @@ function PMA_getRenameToPanel()
     $html .= '<tbody>';
     $html .= '<tr>';
     $html .= '<td colspan="2" class="center nowrap">';
-    $html .= '<input type="button" class="butt" name="Button" ';
-    $html .= 'value="' . __('OK') . '" onclick="edit(\'Rename\')" />';
+    $html .= '<input type="button" id="ok_edit_rename" class="butt" name="Button" ';
+    $html .= 'value="' . __('OK') . '" />';
     $html .= '<input type="button" class="butt" name="Button" ';
     $html .= 'value="' . __('Cancel') . '" ';
-    $html .= 'onclick="document.getElementById(\'query_rename_to\').style.display = \'none\';" />';
+    $html .= 'onclick="document.getElementById(\'query_rename_to\').style.display'
+        . ' = \'none\';" />';
     $html .= '</td>';
     $html .= '</tr>';
     $html .= '</tbody>';
@@ -1155,11 +1161,12 @@ function PMA_getHavingQueryPanel()
     $html .= '<tbody>';
     $html .= '<tr>';
     $html .= '<td colspan="2" class="center nowrap">';
-    $html .= '<input type="button" class="butt" name="Button" ';
-    $html .= 'value="' . __('OK') . '" onclick="edit(\'Having\')" />';
+    $html .= '<input type="button" id="ok_edit_having" class="butt" name="Button" ';
+    $html .= 'value="' . __('OK') . '" />';
     $html .= '<input type="button" class="butt" name="Button" ';
     $html .= 'value="' . __('Cancel') . '" ';
-    $html .= 'onclick="document.getElementById(\'query_having\').style.display = \'none\';" />';
+    $html .= 'onclick="document.getElementById(\'query_having\').style.display'
+        . ' = \'none\';" />';
     $html .= '</td>';
     $html .= '</tr>';
     $html .= '</tbody>';
@@ -1223,11 +1230,12 @@ function PMA_getAggregateQueryPanel()
     $html .= '<tbody>';
     $html .= '<tr>';
     $html .= '<td colspan="2" class="center nowrap">';
-    $html .= '<input type="button" class="butt" name="Button" ';
-    $html .= 'value="' . __('OK') . '" onclick="edit(\'Aggregate\')" />';
+    $html .= '<input type="button" id="ok_edit_Aggr" class="butt" name="Button" ';
+    $html .= 'value="' . __('OK') . '" />';
     $html .= '<input type="button" class="butt" name="Button"';
     $html .= 'value="' . __('Cancel') . '" ';
-    $html .= 'onclick="document.getElementById(\'query_Aggregate\').style.display = \'none\';" />';
+    $html .= 'onclick="document.getElementById(\'query_Aggregate\').style.display'
+        . ' = \'none\';" />';
     $html .= '</td>';
     $html .= '</tr>';
     $html .= '</tbody>';
@@ -1299,11 +1307,12 @@ function PMA_getWhereQueryPanel()
     $html .= '<tbody>';
     $html .= '<tr>';
     $html .= '<td colspan="2" class="center nowrap">';
-    $html .= '<input type="button" class="butt" name="Button" ';
-    $html .= 'value="' . __('OK') . '" onclick="edit(\'Where\')" />';
+    $html .= '<input type="button" id="ok_edit_where" class="butt" name="Button" ';
+    $html .= 'value="' . __('OK') . '" />';
     $html .= '<input type="button" class="butt" name="Button" ';
     $html .= 'value="' . __('Cancel') . '" ';
-    $html .= 'onclick="document.getElementById(\'query_where\').style.display = \'none\'" />';
+    $html .= 'onclick="document.getElementById(\'query_where\').style.display'
+        . ' = \'none\'" />';
     $html .= '</td>';
     $html .= '</tr>';
 

@@ -90,10 +90,10 @@ class Relation_Stats_Dia
      * Draws relation references
      *
      * connects master table's master field to foreign table's
-     * forein field using Dia object type Database - Reference
+     * foreign field using Dia object type Database - Reference
      * Dia object is used to generate the XML of Dia Document.
      * Database reference Object and their attributes are involved
-     * in the combination of displaing Database - reference on Dia Document.
+     * in the combination of displaying Database - reference on Dia Document.
      *
      * @param boolean $showColor Whether to use one color per relation or not
      * if showColor is true then an array of $listOfColors will be used to choose

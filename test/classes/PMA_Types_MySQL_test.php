@@ -53,7 +53,7 @@ class PMA_Types_MySQL_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for getTypeDescription with uknown value
+     * Test for getTypeDescription with unknown value
      *
      * @return void
      */

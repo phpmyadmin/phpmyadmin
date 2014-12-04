@@ -148,7 +148,7 @@ function PMA_getNoOfFilesInZip($file)
  * @param string $destination destination to extract files
  * @param array  $entries     files in archive that should be extracted
  *
- * @return bool true on sucess, false otherwise
+ * @return bool true on success, false otherwise
  */
 function PMA_zipExtract($zip_path, $destination, $entries)
 {

@@ -393,21 +393,6 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             $result
         );
 
-        $this->assertContains(
-            '$("#recaptcha_reload_btn").addClass("disableAjax");',
-            $result
-        );
-
-        $this->assertContains(
-            '$("#recaptcha_switch_audio_btn").addClass("disableAjax");',
-            $result
-        );
-
-        $this->assertContains(
-            '$("#recaptcha_switch_img_btn").addClass("disableAjax");',
-            $result
-        );
-
         $attrInstance->setValue($restoreInstance);
     }
 
@@ -583,7 +568,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = '';
-        $_COOKIE['pma_iv'] = base64_encode('testiv09');
+        $_COOKIE['pma_iv'] = base64_encode('testiv09testiv09');
 
         $this->assertFalse(
             $this->object->authCheck()
@@ -599,7 +584,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
-        $_COOKIE['pma_iv'] = base64_encode('testiv09');
+        $_COOKIE['pma_iv'] = base64_encode('testiv09testiv09');
         $_COOKIE['pmaPass-1'] = '';
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = time() - 1000;
@@ -674,7 +659,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
-        $_COOKIE['pma_iv'] = base64_encode('testiv09');
+        $_COOKIE['pma_iv'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = '';
         $_SESSION['last_valid_captcha'] = true;
@@ -713,7 +698,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pmaPass-1'] = 'pmaPass1';
-        $_COOKIE['pma_iv'] = base64_encode('testiv09');
+        $_COOKIE['pma_iv'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_valid_captcha'] = true;
         $_SESSION['last_access_time'] = time() - 1000;
@@ -757,7 +742,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
-        $_COOKIE['pma_iv'] = base64_encode('testiv09');
+        $_COOKIE['pma_iv'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = 1;
         $_SESSION['last_valid_captcha'] = true;
@@ -817,6 +802,8 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $this->assertFalse(
             isset($_SERVER['PHP_AUTH_PW'])
         );
+
+        $this->object->storeUserCredentials();
 
         $this->assertTrue(
             isset($_COOKIE['pmaUser-1'])
@@ -887,12 +874,13 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $attrInstance->setValue($mockResponse);
 
         $this->object->authSetUser();
+        $this->object->storeUserCredentials();
 
         $this->assertTrue(
             isset($_COOKIE['pmaServer-2'])
         );
 
-        // target can be "phpunit" or "ide-phpunut.php",
+        // target can be "phpunit" or "ide-phpunit.php",
         // depending on testing environment
         $this->assertStringStartsWith(
             'Location: http://phpmyadmin.net/index.php?',
@@ -1042,7 +1030,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             256,
-            $GLOBALS['PMA_String']->strlen($result)
+            strlen($result)
         );
 
         // case 2
@@ -1064,9 +1052,10 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
      */
     public function testCookieEncrypt()
     {
-        $this->object->setIV('testiv09');
+        $this->object->setIV('testiv09testiv09');
+        // works with the openssl extension active or inactive
         $this->assertEquals(
-            'vzJVtW8Ujd4phw7Cxl2PcQ==',
+            '+coP/up/ZBTBwbiEpCUVXQ==',
             $this->object->cookieEncrypt('data123', 'sec321')
         );
     }
@@ -1078,11 +1067,12 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
      */
     public function testCookieDecrypt()
     {
-        $this->object->setIV('testiv09');
+        $this->object->setIV('testiv09testiv09');
+        // works with the openssl extension active or inactive
         $this->assertEquals(
             'data123',
             $this->object->cookieDecrypt(
-                'vzJVtW8Ujd4phw7Cxl2PcQ==',
+                '+coP/up/ZBTBwbiEpCUVXQ==',
                 'sec321'
             )
         );

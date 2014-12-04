@@ -43,13 +43,8 @@ $post_patterns = array(
     '/_priv$/i',
     '/^max_/i'
 );
-foreach (array_keys($_POST) as $post_key) {
-    foreach ($post_patterns as $one_post_pattern) {
-        if (preg_match($one_post_pattern, $post_key)) {
-            $GLOBALS[$post_key] = $_POST[$post_key];
-        }
-    }
-}
+
+PMA_setPostAsGlobal($post_patterns);
 
 require 'libraries/server_common.inc.php';
 
@@ -304,7 +299,7 @@ if ($GLOBALS['is_ajax_request']
  * Displays the links
  */
 if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
-    $_REQUEST['db'] = $_REQUEST['checkprivsdb'];
+    $GLOBALS['db'] = $_REQUEST['db'] = $_REQUEST['checkprivsdb'];
 
     $url_query .= '&amp;goto=db_operations.php';
 

@@ -214,18 +214,16 @@ class PMA_DbSearch
             ? array($this->_criteriaSearchString)
             : explode(' ', $this->_criteriaSearchString));
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         foreach ($search_words as $search_word) {
             // Eliminates empty values
-            if ($pmaString->strlen($search_word) === 0) {
+            if (/*overload*/mb_strlen($search_word) === 0) {
                 continue;
             }
             $likeClausesPerColumn = array();
             // for each column in the table
             foreach ($allColumns as $column) {
                 if (! isset($this->_criteriaColumnName)
-                    || $pmaString->strlen($this->_criteriaColumnName) == 0
+                    || /*overload*/mb_strlen($this->_criteriaColumnName) == 0
                     || $column['Field'] == $this->_criteriaColumnName
                 ) {
                     // Drizzle has no CONVERT and all text columns are UTF-8
@@ -347,7 +345,11 @@ class PMA_DbSearch
             $html_output .= '<td><a name="browse_search" class="ajax" href="'
                 . $browse_result_path . '" onclick="loadResult(\''
                 . $browse_result_path . '\',\'' . $each_table . '\',\''
-                . PMA_URL_getCommon($GLOBALS['db'], $each_table) . '\''
+                . PMA_URL_getCommon(
+                    array(
+                        'db' => $GLOBALS['db'], 'table' => $each_table
+                    )
+                ) . '\''
                 . ');return false;" >'
                 . __('Browse') . '</a></td>';
             $this_url_params['sql_query'] = $newsearchsqls['delete'];

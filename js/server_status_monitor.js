@@ -572,7 +572,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         $('<form />', {
             "class": "disableAjax",
             method: "post",
-            action: "file_echo.php?" + PMA_commonParams.get('common_query') + "&filename=1",
+            action: "file_echo.php" + PMA_commonParams.get('common_query') + "&filename=1",
             style: "display:none;"
         })
         .append(
@@ -590,7 +590,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     $('a[href="#importMonitorConfig"]').click(function (event) {
         event.preventDefault();
         $('#emptyDialog').dialog({title: PMA_messages.strImportDialogTitle});
-        $('#emptyDialog').html(PMA_messages.strImportDialogMessage + ':<br/><form action="file_echo.php?' + PMA_commonParams.get('common_query') + '&import=1" method="post" enctype="multipart/form-data">' +
+        $('#emptyDialog').html(PMA_messages.strImportDialogMessage + ':<br/><form action="file_echo.php' + PMA_commonParams.get('common_query') + '&import=1" method="post" enctype="multipart/form-data">' +
             '<input type="file" name="file"> <input type="hidden" name="import" value="1"> </form>');
 
         var dlgBtns = {};
@@ -697,7 +697,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 $.extend(vars, getvars);
             }
 
-            $.get('server_status_monitor.php?' + PMA_commonParams.get('common_query'), vars,
+            $.get('server_status_monitor.php' + PMA_commonParams.get('common_query'), vars,
                 function (data) {
                     var logVars;
                     if (typeof data !== 'undefined' && data.success === true) {
@@ -1353,7 +1353,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     /* Called in regular intervalls, this function updates the values of each chart in the grid */
     function refreshChartGrid() {
         /* Send to server */
-        runtime.refreshRequest = $.post('server_status_monitor.php?' + PMA_commonParams.get('common_query'), {
+        runtime.refreshRequest = $.post('server_status_monitor.php' + PMA_commonParams.get('common_query'), {
             ajax_request: true,
             chart_data: 1,
             type: 'chartgrid',
@@ -1592,7 +1592,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         });
 
 
-        logRequest = $.get('server_status_monitor.php?' + PMA_commonParams.get('common_query'),
+        logRequest = $.get('server_status_monitor.php' + PMA_commonParams.get('common_query'),
             {   ajax_request: true,
                 log_data: 1,
                 type: opts.src,
@@ -1869,7 +1869,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             if (name == 'user_host') {
                 return value.replace(/(\[.*?\])+/g, '');
             }
-            return value;
+            return escapeHtml(value);
         };
 
         for (var i = 0, l = rows.length; i < l; i++) {
@@ -1986,7 +1986,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             PMA_messages.strAnalyzing + ' <img class="ajaxIcon" src="' +
             pmaThemeImage + 'ajax_clock_small.gif" alt="">');
 
-        $.post('server_status_monitor.php?' + PMA_commonParams.get('common_query'), {
+        $.post('server_status_monitor.php' + PMA_commonParams.get('common_query'), {
             ajax_request: true,
             query_analyzer: true,
             query: codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val(),
@@ -2022,7 +2022,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             explain += '<p></p>';
 
             var tempExplain = function (key, value) {
-                value = (value === null) ? 'null' : value;
+                value = (value === null) ? 'null' : escapeHtml(value);
 
                 if (key == 'type' && value.toLowerCase() == 'all') {
                     value = '<span class="attention">' + value + '</span>';

@@ -19,13 +19,10 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_getNameAndTypeOfTheColumns($db, $table)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $columns = array();
     foreach ($GLOBALS['dbi']->getColumnsFull($db, $table) as $row) {
         if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
-            $tmp[2] = $pmaString->substr(
+            $tmp[2] = /*overload*/mb_substr(
                 preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1
             );
             $columns[$row['Field']] = $tmp[1] . '('
@@ -91,7 +88,7 @@ function PMA_handleCreateOrEditIndex($db, $table, $index)
  * @param string    $db     current db
  * @param string    $table  current table
  * @param PMA_Index $index  current index
- * @param bool      &$error whether error occoured or not
+ * @param bool      &$error whether error occurred or not
  *
  * @return string
  */
@@ -149,11 +146,9 @@ function PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, &$error)
         $sql_query .= ' (' . implode(', ', $index_fields) . ')';
     }
 
-    if (PMA_MYSQL_INT_VERSION > 50500) {
-        $sql_query .= " COMMENT '"
-            . PMA_Util::sqlAddSlashes($index->getComment())
-            . "'";
-    }
+    $sql_query .= " COMMENT '"
+        . PMA_Util::sqlAddSlashes($index->getComment())
+        . "'";
     $sql_query .= ';';
 
     return $sql_query;
@@ -162,7 +157,7 @@ function PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, &$error)
 /**
  * Function to prepare the form values for index
  *
- * @param string $db    curent database
+ * @param string $db    current database
  * @param string $table current table
  *
  * @return PMA_Index
@@ -283,21 +278,19 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         . 'onfocus="this.select()" />'
         . '</div>';
 
-    if (PMA_MYSQL_INT_VERSION > 50500) {
-        $html .= '<div>'
-            . '<div class="label">'
-            . '<strong>'
-            . '<label for="input_index_comment">'
-            . __('Comment:')
-            . '</label>'
-            . '</strong>'
-            . '</div>'
-            . '<input type="text" name="index[Index_comment]" '
-            . 'id="input_index_comment" size="30"'
-            . 'value="' . htmlspecialchars($index->getComment()) . '"'
-            . 'onfocus="this.select()" />'
-            . '</div>';
-    }
+    $html .= '<div>'
+        . '<div class="label">'
+        . '<strong>'
+        . '<label for="input_index_comment">'
+        . __('Comment:')
+        . '</label>'
+        . '</strong>'
+        . '</div>'
+        . '<input type="text" name="index[Index_comment]" '
+        . 'id="input_index_comment" size="30"'
+        . 'value="' . htmlspecialchars($index->getComment()) . '"'
+        . 'onfocus="this.select()" />'
+        . '</div>';
 
     $html .= '<div>'
         . '<div class="label">'

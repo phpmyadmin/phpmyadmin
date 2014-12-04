@@ -232,7 +232,7 @@ class PMA_MockConfig
     /**
      * isHttps() method.
      *
-     * @return void
+     * @return bool
      * @test
      */
     public function isHttps()

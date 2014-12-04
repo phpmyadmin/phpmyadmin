@@ -583,6 +583,8 @@ $strConfigServers_controlport_desc = __(
 $strConfigServers_controlport_name = __('Control port');
 $strConfigServers_hide_db_desc
     = __('Hide databases matching regular expression (PCRE).');
+$strConfigServers_DisableIS_desc = __('More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]');
+$strConfigServers_DisableIS_name = __('Disable use of INFORMATION_SCHEMA');
 $strConfigServers_hide_db_name = __('Hide databases');
 $strConfigServers_history_desc = __(
     'Leave blank for no SQL query history support, suggested: '

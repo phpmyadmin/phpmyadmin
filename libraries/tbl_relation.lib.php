@@ -48,25 +48,22 @@ function PMA_generateDropdown(
  */
 function PMA_backquoteSplit($text)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $elements = array();
-    $final_pos = $pmaString->strlen($text) - 1;
+    $final_pos = /*overload*/mb_strlen($text) - 1;
     $pos = 0;
     while ($pos <= $final_pos) {
-        $first_backquote = $pmaString->strpos($text, '`', $pos);
-        $second_backquote = $pmaString->strpos($text, '`', $first_backquote + 1);
+        $first_backquote = /*overload*/mb_strpos($text, '`', $pos);
+        $second_backquote = /*overload*/mb_strpos($text, '`', $first_backquote + 1);
         // after the second one, there might be another one which means
         // this is an escaped backquote
         if ($second_backquote < $final_pos && '`' == $text[$second_backquote + 1]) {
             $second_backquote
-                = $pmaString->strpos($text, '`', $second_backquote + 2);
+                = /*overload*/mb_strpos($text, '`', $second_backquote + 2);
         }
         if (false === $first_backquote || false === $second_backquote) {
             break;
         }
-        $elements[] = $pmaString->substr(
+        $elements[] = /*overload*/mb_substr(
             $text, $first_backquote, $second_backquote - $first_backquote + 1
         );
         $pos = $second_backquote + 1;
@@ -465,9 +462,9 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
     $html_output .= '<span class="formelement clearfloat">';
     $constraint_name = isset($one_key['constraint'])
         ? $one_key['constraint'] : '';
-    $html_output .= __('Constraint name');
     $html_output .= '<input type="text" name="constraint_name[' . $i . ']"'
-        . ' value="' . htmlspecialchars($constraint_name) . '"/>';
+        . ' value="' . htmlspecialchars($constraint_name) . '"'
+        . ' placeholder="' . __('Constraint name') . '" />';
     $html_output .= '</span>' . "\n";
 
     $html_output .= '<span class="formelement clearfloat">';
@@ -535,7 +532,6 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
     $html_output .= '</td>';
     $html_output .= '<td>';
     $foreign_table = false;
-    $foreign_column = false;
 
     // foreign database dropdown
     $foreign_db = (isset($one_key['ref_db_name'])) ? $one_key['ref_db_name'] : $db;
@@ -555,12 +551,9 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
         $foreign_table = isset($one_key['ref_table_name'])
             ? $one_key['ref_table_name'] : '';
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // In Drizzle, 'SHOW TABLE STATUS' will show status only for the tables
         // which are currently in the table cache. Hence we have to use
-        // 'SHOW TABLES' and manully retrieve table engine values.
+        // 'SHOW TABLES' and manualy retrieve table engine values.
         if (PMA_DRIZZLE) {
             $tables_rs = $GLOBALS['dbi']->query(
                 'SHOW TABLES FROM ' . PMA_Util::backquote($foreign_db),
@@ -574,7 +567,7 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
                     'Engine'
                 );
                 if (isset($engine)
-                    && $pmaString->strtoupper($engine) == $tbl_storage_engine
+                    && /*overload*/mb_strtoupper($engine) == $tbl_storage_engine
                 ) {
                     $tables[] = $row[0];
                 }
@@ -587,7 +580,7 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
             );
             while ($row = $GLOBALS['dbi']->fetchRow($tables_rs)) {
                 if (isset($row[1])
-                    && $pmaString->strtoupper($row[1]) == $tbl_storage_engine
+                    && /*overload*/mb_strtoupper($row[1]) == $tbl_storage_engine
                 ) {
                     $tables[] = $row[0];
                 }
@@ -738,15 +731,12 @@ function PMA_sendHtmlForColumnDropdownList()
  */
 function PMA_sendHtmlForTableDropdownList()
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $response = PMA_Response::getInstance();
     $tables = array();
 
     $foreign = isset($_REQUEST['foreign']) && $_REQUEST['foreign'] === 'true';
     if ($foreign) {
-        $tbl_storage_engine = $pmaString->strtoupper(
+        $tbl_storage_engine = /*overload*/mb_strtoupper(
             PMA_Table::sGetStatusInfo(
                 $_REQUEST['db'],
                 $_REQUEST['table'],
@@ -757,7 +747,7 @@ function PMA_sendHtmlForTableDropdownList()
 
     // In Drizzle, 'SHOW TABLE STATUS' will show status only for the tables
     // which are currently in the table cache. Hence we have to use 'SHOW TABLES'
-    // and manully retrieve table engine values.
+    // and manually retrieve table engine values.
     if ($foreign && ! PMA_DRIZZLE) {
         $query = 'SHOW TABLE STATUS FROM '
             . PMA_Util::backquote($_REQUEST['foreignDb']);
@@ -769,7 +759,7 @@ function PMA_sendHtmlForTableDropdownList()
 
         while ($row = $GLOBALS['dbi']->fetchArray($tables_rs)) {
             if (isset($row['Engine'])
-                && $pmaString->strtoupper($row['Engine']) == $tbl_storage_engine
+                && /*overload*/mb_strtoupper($row['Engine']) == $tbl_storage_engine
             ) {
                 $tables[] = htmlspecialchars($row['Name']);
             }
@@ -784,7 +774,7 @@ function PMA_sendHtmlForTableDropdownList()
         );
         while ($row = $GLOBALS['dbi']->fetchArray($tables_rs)) {
             if ($foreign && PMA_DRIZZLE) {
-                $engine = $pmaString->strtoupper(
+                $engine = /*overload*/mb_strtoupper(
                     PMA_Table::sGetStatusInfo(
                         $_REQUEST['foreignDb'],
                         $row[0],
@@ -811,17 +801,23 @@ function PMA_sendHtmlForTableDropdownList()
  * @param string $table         current table
  * @param array  $cfgRelation   configuration relation
  *
- * @return void
+ * @return string
  */
 function PMA_handleUpdateForDisplayField($disp, $display_field, $db, $table,
     $cfgRelation
 ) {
+    $html_output = '';
     $upd_query = PMA_getQueryForDisplayUpdate(
         $disp, $display_field, $db, $table, $cfgRelation
     );
     if ($upd_query) {
         PMA_queryAsControlUser($upd_query);
+        $html_output = PMA_Util::getMessage(
+            __('Display column was successfully updated.'),
+            null, 'success'
+        );
     }
+    return $html_output;
 }
 
 /**
@@ -840,18 +836,18 @@ function PMA_getQueryForDisplayUpdate($disp, $display_field, $db, $table,
 ) {
     $upd_query = false;
     if ($disp) {
-        if ($display_field != '') {
+        if ($display_field == '') {
+            $upd_query = 'DELETE FROM '
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . PMA_Util::backquote($cfgRelation['table_info'])
+                . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
+        } elseif ($disp != $display_field) {
             $upd_query = 'UPDATE '
                 . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
                 . '.' . PMA_Util::backquote($cfgRelation['table_info'])
                 . ' SET display_field = \''
                 . PMA_Util::sqlAddSlashes($display_field) . '\''
-                . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-                . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
-        } else {
-            $upd_query = 'DELETE FROM '
-                . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-                . '.' . PMA_Util::backquote($cfgRelation['table_info'])
                 . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
                 . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
         }
@@ -880,12 +876,14 @@ function PMA_getQueryForDisplayUpdate($disp, $display_field, $db, $table,
  * @param string     $table                   current table
  * @param array|null $existrel                db, table, column
  *
- * @return void
+ * @return string
  */
 function PMA_handleUpdatesForInternalRelations($destination_db,
     $multi_edit_columns_name, $destination_table, $destination_column, $cfgRelation,
     $db, $table, $existrel
 ) {
+    $html_output = '';
+    $updated = false;
     foreach ($destination_db as $master_field_md5 => $foreign_db) {
         $upd_query = PMA_getQueryForInternalRelationUpdate(
             $multi_edit_columns_name,
@@ -894,8 +892,16 @@ function PMA_handleUpdatesForInternalRelations($destination_db,
         );
         if ($upd_query) {
             PMA_queryAsControlUser($upd_query);
+            $updated = true;
         }
     }
+    if ($updated) {
+        $html_output = PMA_Util::getMessage(
+            __('Internal relations were successfully updated.'),
+            null, 'success'
+        );
+    }
+    return $html_output;
 }
 
 /**
@@ -1154,7 +1160,7 @@ function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_m
         if (! empty($tmp_error_create)) {
             $seen_error = true;
 
-            if ($GLOBALS['PMA_String']->substr($tmp_error_create, 1, 4) == '1005') {
+            if (substr($tmp_error_create, 1, 4) == '1005') {
                 $message = PMA_Message::error(
                     __('Error creating foreign key on %1$s (check data types)')
                 );

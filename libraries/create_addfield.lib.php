@@ -180,6 +180,29 @@ function PMA_getStatementPrefix($is_create_tbl = true)
 }
 
 /**
+ * Merge index definitions for one type of index 
+ *
+ * @param array   $definitions     the index definitions to merge to
+ * @param boolean $is_create_tbl   true if requirement is to get the statement
+ *                                 for table creation
+ * @param array   $indexed_columns the columns for one type of index
+ * @param string  $index_keyword   the index keyword to use in the definition
+ *
+ * @return array $index_definitions 
+ */
+function PMA_mergeIndexStatements(
+    $definitions, $is_create_tbl, $indexed_columns, $index_keyword
+) {
+    foreach ($indexed_columns as $index) {
+        $statements = PMA_buildIndexStatements(
+            $index, " " . $index_keyword . " ", $is_create_tbl
+        );
+        $definitions = array_merge($definitions, $statements);
+    }
+    return $definitions;
+}
+
+/**
  * Returns sql statement according to the column and index specifications as
  * requested
  *
@@ -198,7 +221,7 @@ function PMA_getColumnCreationStatements($is_create_tbl = true)
         $field_cnt, $field_primary, $is_create_tbl
     );
 
-    // Builds the primary keys statements
+    // Builds the PRIMARY KEY statements
     $primary_key_statements = PMA_buildIndexStatements(
         isset($field_primary[0]) ? $field_primary[0] : array(),
         " PRIMARY KEY ",
@@ -206,29 +229,20 @@ function PMA_getColumnCreationStatements($is_create_tbl = true)
     );
     $definitions = array_merge($definitions, $primary_key_statements);
 
-    // Builds the indexes statements
-    foreach ($field_index as $index) {
-        $index_statements = PMA_buildIndexStatements(
-            $index, " INDEX ", $is_create_tbl
-        );
-        $definitions = array_merge($definitions, $index_statements);
-    }
+    // Builds the INDEX statements
+    $definitions = PMA_mergeIndexStatements(
+        $definitions, $is_create_tbl, $field_index, "INDEX"
+    );
 
-    // Builds the unique statements
-    foreach ($field_unique as $unique_index) {
-        $unique_statements = PMA_buildIndexStatements(
-            $unique_index, " UNIQUE ", $is_create_tbl
-        );
-        $definitions = array_merge($definitions, $unique_statements);
-    }
+    // Builds the UNIQUE statements
+    $definitions = PMA_mergeIndexStatements(
+        $definitions, $is_create_tbl, $field_unique, "UNIQUE"
+    );
 
-    // Builds the fulltext statements
-    foreach ($field_fulltext as $fulltext_index) {
-        $fulltext_statements = PMA_buildIndexStatements(
-            $fulltext_index, " FULLTEXT ", $is_create_tbl
-        );
-        $definitions = array_merge($definitions, $fulltext_statements);
-    }
+    // Builds the FULLTEXT statements
+    $definitions = PMA_mergeIndexStatements(
+        $definitions, $is_create_tbl, $field_fulltext, "FULLTEXT"
+    );
 
     if (count($definitions)) {
         $sql_statement = implode(', ', $definitions);

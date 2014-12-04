@@ -34,11 +34,9 @@ function PMA_getUrlParams(
         'query_type' => $what,
         'reload' => (! empty($reload) ? 1 : 0),
     );
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-    if ($pmaString->strpos(' ' . $action, 'db_') == 1) {
+    if (/*overload*/mb_strpos(' ' . $action, 'db_') == 1) {
         $_url_params['db']= $db;
-    } elseif ($pmaString->strpos(' ' . $action, 'tbl_') == 1
+    } elseif (/*overload*/mb_strpos(' ' . $action, 'tbl_') == 1
         || $what == 'row_delete'
     ) {
         $_url_params['db']= $db;
@@ -103,9 +101,6 @@ function PMA_getQueryStrFromSelected(
 
     $selected_cnt   = count($selected);
     $deletes = false;
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
@@ -231,11 +226,17 @@ function PMA_getQueryStrFromSelected(
 
         case 'replace_prefix_tbl':
             $current = $selected[$i];
-            $subFromPrefix = $pmaString
-                ->substr($current, 0, $pmaString->strlen($from_prefix));
+            $subFromPrefix = /*overload*/mb_substr(
+                $current,
+                0,
+                /*overload*/mb_strlen($from_prefix)
+            );
             if ($subFromPrefix == $from_prefix) {
                 $newtablename = $to_prefix
-                    . $pmaString->substr($current, $pmaString->strlen($from_prefix));
+                    . /*overload*/mb_substr(
+                        $current,
+                        /*overload*/mb_strlen($from_prefix)
+                    );
             } else {
                 $newtablename = $current;
             }
@@ -250,7 +251,7 @@ function PMA_getQueryStrFromSelected(
         case 'copy_tbl_change_prefix':
             $current = $selected[$i];
             $newtablename = $to_prefix .
-                $pmaString->substr($current, $pmaString->strlen($from_prefix));
+                /*overload*/mb_substr($current, /*overload*/mb_strlen($from_prefix));
             // COPY TABLE AND CHANGE PREFIX PATTERN
             $a_query = 'CREATE TABLE '
                 . PMA_Util::backquote($newtablename)
@@ -557,7 +558,7 @@ function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
  */
 function PMA_getQueryFromSelected($what, $db, $table, $selected, $views)
 {
-    $reload = null;
+    $reload = false;
     $full_query_views = null;
     $full_query     = '';
 
@@ -570,20 +571,21 @@ function PMA_getQueryFromSelected($what, $db, $table, $selected, $views)
     foreach ($selected as $sval) {
         switch ($what) {
         case 'row_delete':
-            $full_query .= 'DELETE FROM ' . PMA_Util::backquote($db)
-                . '.' . PMA_Util::backquote($table)
+            $full_query .= 'DELETE FROM '
+                . PMA_Util::backquote(htmlspecialchars($db))
+                . '.' . PMA_Util::backquote(htmlspecialchars($table))
                 // Do not append a "LIMIT 1" clause here
                 // (it's not binlog friendly).
                 // We don't need the clause because the calling panel permits
                 // this feature only when there is a unique index.
-                . ' WHERE ' . urldecode($sval)
+                . ' WHERE ' . urldecode(htmlspecialchars($sval))
                 . ';<br />';
             break;
         case 'drop_db':
             $full_query .= 'DROP DATABASE '
                 . PMA_Util::backquote(htmlspecialchars($sval))
                 . ';<br />';
-            $reload = 1;
+            $reload = true;
             break;
 
         case 'drop_tbl':

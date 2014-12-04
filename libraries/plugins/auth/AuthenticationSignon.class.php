@@ -73,7 +73,7 @@ class AuthenticationSignon extends AuthenticationPlugin
     {
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
 
-        /* Check if we're using same sigon server */
+        /* Check if we're using same signon server */
         $signon_url = $GLOBALS['cfg']['Server']['SignonURL'];
         if (isset($_SESSION['LAST_SIGNON_URL'])
             && $_SESSION['LAST_SIGNON_URL'] != $signon_url

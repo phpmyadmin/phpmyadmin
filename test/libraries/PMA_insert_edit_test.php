@@ -217,6 +217,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->setMethods(array('addHtml'))
             ->getMock();
 
+        $restoreInstance = PMA_Response::getInstance();
         $response = new ReflectionProperty('PMA_Response', '_instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
@@ -224,6 +225,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $result = PMA_showEmptyResultMessageOrSetUniqueCondition(
             array(false), 0, array('1'), 'SELECT', array('1' => 'result1')
         );
+
+        $response->setValue($restoreInstance);
 
         $this->assertFalse($result);
     }
@@ -283,64 +286,52 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_showFunctionFieldsInEditMode
+     * Test for PMA_showTypeOrFunction
      *
      * @return void
      */
-    public function testShowFunctionFieldsInEditMode()
+    public function testShowTypeOrFunction()
     {
         $GLOBALS['cfg']['ShowFieldTypesInDataEditView'] = true;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $url_params = array('ShowFunctionFields' => 2);
 
-        $result = PMA_showFunctionFieldsInEditMode($url_params, false);
+        $result = PMA_showTypeOrFunction('function', $url_params, false);
 
         $this->assertEquals(
             ' : <a href="tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesIn'
             . 'DataEditView=1&amp;goto=sql.php&amp;lang=en&amp;token=token">'
-            . 'Function</a>' . "\n",
+            . 'Function</a>',
             $result
         );
 
         // case 2
-        $result = PMA_showFunctionFieldsInEditMode($url_params, true);
+        $result = PMA_showTypeOrFunction('function', $url_params, true);
 
         $this->assertEquals(
             '<th><a href="tbl_change.php?ShowFunctionFields=0&amp;ShowFieldTypesIn'
             . 'DataEditView=1&amp;goto=sql.php&amp;lang=en&amp;token=token" title='
-            . '"Hide">Function</a></th>' . "\n",
+            . '"Hide">Function</a></th>',
             $result
         );
-    }
 
-    /**
-     * Test for PMA_showColumnTypesInDataEditView
-     *
-     * @return void
-     */
-    public function testShowColumnTypesInDataEditView()
-    {
-        $GLOBALS['cfg']['ShowFieldTypesInDataEditView'] = true;
-        $GLOBALS['cfg']['ShowFunctionFields'] = true;
-        $GLOBALS['cfg']['ServerDefault'] = 1;
-        $url_params = array('ShowFunctionFields' => 2);
-
-        $result = PMA_showColumnTypesInDataEditView($url_params, false);
+        // case 3
+        $result = PMA_showTypeOrFunction('type', $url_params, false);
 
         $this->assertEquals(
             ' : <a href="tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesIn'
             . 'DataEditView=1&amp;goto=sql.php&amp;lang=en&amp;token=token">'
-            . 'Type</a>' . "\n",
+            . 'Type</a>',
             $result
         );
 
-        // case 2
-        $result = PMA_showColumnTypesInDataEditView($url_params, true);
+        // case 4
+        $result = PMA_showTypeOrFunction('type', $url_params, true);
 
         $this->assertEquals(
             '<th><a href="tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesIn'
             . 'DataEditView=0&amp;goto=sql.php&amp;lang=en&amp;token=token" title='
-            . '"Hide">Type</a></th>' . "\n",
+            . '"Hide">Type</a></th>',
             $result
         );
     }
@@ -1621,14 +1612,14 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getSumbitAndResetButtonForActionsPanel
+     * Test for PMA_getSubmitAndResetButtonForActionsPanel
      *
      * @return void
      */
-    public function testGetSumbitAndResetButtonForActionsPanel()
+    public function testGetSubmitAndResetButtonForActionsPanel()
     {
         $GLOBALS['cfg']['ShowHint'] = false;
-        $result = PMA_getSumbitAndResetButtonForActionsPanel(1, 0);
+        $result = PMA_getSubmitAndResetButtonForActionsPanel(1, 0);
 
         $this->assertTag(
             PMA_getTagArray(
@@ -1938,11 +1929,14 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->method('getHeader')
             ->will($this->returnValue($headerMock));
 
+        $restoreInstance = PMA_Response::getInstance();
         $response = new ReflectionProperty('PMA_Response', '_instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
 
         PMA_isInsertRow();
+
+        $response->setValue($restoreInstance);
 
         $this->assertEquals(5, $GLOBALS['cfg']['InsertRows']);
     }
@@ -2777,6 +2771,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->setMethods(array('addHtml'))
             ->getMock();
 
+        $restoreInstance = PMA_Response::getInstance();
         $response = new ReflectionProperty('PMA_Response', '_instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
@@ -2803,6 +2798,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $_REQUEST['default_action'] = '';
 
         $result = PMA_determineInsertOrEdit(null, 'db', 'table');
+
+        $response->setValue($restoreInstance);
 
         $this->assertEquals(
             array(

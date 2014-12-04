@@ -147,7 +147,8 @@ function PMA_getHtmlForSlaveConfiguration(
         $html .= '<option value="">' . __('Default') . '</option>';
         foreach ($GLOBALS['server_slave_multi_replication'] as $server) {
             $html .= '<option' . (isset($_REQUEST['master_connection']) && $_REQUEST['master_connection'] == $server['Connection_name'] ?
-                ' selected="selected"' : '') . '>' . $server['Connection_name'] . '</option>';
+                ' selected="selected"' : '') . '>' . $server['Connection_name']
+                . '</option>';
         }
         $html .= '</select>';
         $html .= ' <input type="submit" value="' . __('Go') . '" id="goButton" />';
@@ -675,11 +676,8 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
     list($username_length, $hostname_length)
         = PMA_replicationGetUsernameHostnameLength();
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     if (isset($_REQUEST['username'])
-        && $pmaString->strlen($_REQUEST['username']) === 0
+        && /*overload*/mb_strlen($_REQUEST['username']) === 0
     ) {
         $GLOBALS['pred_username'] = 'any';
     }
@@ -704,9 +702,9 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
         $thishost = str_replace(
             "'",
             '',
-            $pmaString->substr(
+            /*overload*/mb_substr(
                 $_current_user,
-                ($pmaString->strrpos($_current_user, '@') + 1)
+                (/*overload*/mb_strrpos($_current_user, '@') + 1)
             )
         );
         if ($thishost == 'localhost' || $thishost == '127.0.0.1') {
@@ -728,7 +726,7 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
 
     // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
     if (! isset($GLOBALS['pred_hostname']) && isset($_REQUEST['hostname'])) {
-        switch ($pmaString->strtolower($_REQUEST['hostname'])) {
+        switch (/*overload*/mb_strtolower($_REQUEST['hostname'])) {
         case 'localhost':
         case '127.0.0.1':
             $GLOBALS['pred_hostname'] = 'localhost';
@@ -948,12 +946,14 @@ function PMA_handleControlRequest()
                 $response->isSuccess($result);
                 $response->addJSON(
                     'message',
-                    $result ? PMA_Message::success($messageSuccess) : PMA_Message::error($messageError)
+                    $result
+                    ? PMA_Message::success($messageSuccess)
+                    : PMA_Message::error($messageError)
                 );
             } else {
                 PMA_sendHeaderLocation(
                     $GLOBALS['cfg']['PmaAbsoluteUri'] . 'server_replication.php'
-                    . PMA_URL_getCommon($GLOBALS['url_params'], '&')
+                    . PMA_URL_getCommon($GLOBALS['url_params'], 'text')
                 );
             }
         }

@@ -14,6 +14,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * String handling (security)
  */
+require_once 'libraries/string.lib.php';
 require_once 'libraries/String.class.php';
 $PMA_String = new PMA_String();
 
@@ -113,11 +114,8 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
         return in_array($var, $type);
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     // allow some aliases of var types
-    $type = $pmaString->strtolower($type);
+    $type = strtolower($type);
     switch ($type) {
     case 'identic' :
         $type = 'identical';
@@ -165,7 +163,7 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
     if ($type === 'length' || $type === 'scalar') {
         $is_scalar = is_scalar($var);
         if ($is_scalar && $type === 'length') {
-            return (bool) $pmaString->strlen($var);
+            return (bool) /*overload*/mb_strlen($var);
         }
         return $is_scalar;
     }
@@ -231,7 +229,13 @@ function PMA_fatalError(
 
         /* Load gettext for fatal errors */
         if (!function_exists('__')) {
-            include_once GETTEXT_INC;
+            // It is possible that PMA_fatalError() is called before including
+            // vendor_config.php which defines GETTEXT_INC. See bug #4557
+            if (defined(GETTEXT_INC)) {
+                include_once GETTEXT_INC;
+            } else {
+                include_once './libraries/php-gettext/gettext.inc';
+            }
         }
 
         // these variables are used in the included file libraries/error.inc.php
@@ -370,20 +374,18 @@ function PMA_getRealSize($size = 0)
         'b'  =>          1,
     );
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     foreach ($scan as $unit => $factor) {
-        $sizeLength = $pmaString->strlen($size);
-        $unitLength = $pmaString->strlen($unit);
+        $sizeLength = strlen($size);
+        $unitLength = strlen($unit);
         if ($sizeLength > $unitLength
-            && $pmaString->strtolower(
-                $pmaString->substr(
+            && strtolower(
+                substr(
                     $size,
                     $sizeLength - $unitLength
                 )
             ) == $unit
         ) {
-            return $pmaString->substr(
+            return substr(
                 $size,
                 0,
                 $sizeLength - $unitLength
@@ -513,15 +515,21 @@ function PMA_checkPageValidity(&$page, $whitelist)
         return true;
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-    $_page = $pmaString->substr($page, 0, $pmaString->strpos($page . '?', '?'));
+    $_page = /*overload*/mb_substr(
+        $page,
+        0,
+        /*overload*/mb_strpos($page . '?', '?')
+    );
     if (in_array($_page, $whitelist)) {
         return true;
     }
 
     $_page = urldecode($page);
-    $_page = $pmaString->substr($_page, 0, $pmaString->strpos($_page . '?', '?'));
+    $_page = /*overload*/mb_substr(
+        $_page,
+        0,
+        /*overload*/mb_strpos($_page . '?', '?')
+    );
     if (in_array($_page, $whitelist)) {
         return true;
     }
@@ -572,9 +580,7 @@ function PMA_getenv($var_name)
  */
 function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-    if (PMA_IS_IIS && $pmaString->strlen($uri) > 600) {
+    if (PMA_IS_IIS && /*overload*/mb_strlen($uri) > 600) {
         include_once './libraries/js_escape.lib.php';
         PMA_Response::getInstance()->disable();
 
@@ -603,7 +609,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
     }
 
     if (SID) {
-        if ($pmaString->strpos($uri, '?') === false) {
+        if (/*overload*/mb_strpos($uri, '?') === false) {
             header('Location: ' . $uri . '?' . SID);
         } else {
             $separator = PMA_URL_getArgSeparator();
@@ -697,7 +703,7 @@ function PMA_downloadHeader($filename, $mimetype, $length = 0, $no_cache = true)
     header('Content-Type: ' . $mimetype);
     // inform the server that compression has been done,
     // to avoid a double compression (for example with Apache + mod_deflate)
-    if ($GLOBALS['PMA_String']->strpos($mimetype, 'gzip') !== false) {
+    if (strpos($mimetype, 'gzip') !== false) {
         header('Content-Encoding: gzip');
     }
     header('Content-Transfer-Encoding: binary');
@@ -853,7 +859,8 @@ function PMA_linkURL($url)
  *
  * @param string $url URL of external site.
  *
- * @return boolean.True:if domain of $url is allowed domain, False:otherwise.
+ * @return boolean True: if domain of $url is allowed domain,
+ *                 False: otherwise.
  */
 function PMA_isAllowedDomain($url)
 {
@@ -874,7 +881,7 @@ function PMA_isAllowedDomain($url)
         /* Following are doubtful ones. */
         'www.primebase.com','pbxt.blogspot.com'
     );
-    if (in_array($GLOBALS['PMA_String']->strtolower($domain), $domainWhiteList)) {
+    if (in_array(/*overload*/mb_strtolower($domain), $domainWhiteList)) {
         return true;
     }
 
@@ -967,7 +974,8 @@ function PMA_emptyRecursive($value)
     $empty = true;
     if (is_array($value)) {
         PMA_arrayWalkRecursive(
-            $value, function ($item) use (&$empty) {
+            $value,
+            function ($item) use (&$empty) {
                 $empty = $empty && empty($item);
             }
         );
@@ -1009,6 +1017,42 @@ function PMA_checkAndFixPMATablesInCurrentDb()
                 $GLOBALS['reload'] = true;
             }
         }
+    }
+}
+
+/**
+ * Creates some globals from $_POST variables matching a pattern
+ *
+ * @param array $post_patterns The patterns to search for
+ *
+ * @return void
+ */
+function PMA_setPostAsGlobal($post_patterns)
+{
+    foreach (array_keys($_POST) as $post_key) {
+        foreach ($post_patterns as $one_post_pattern) {
+            if (preg_match($one_post_pattern, $post_key)) {
+                $GLOBALS[$post_key] = $_POST[$post_key];
+            }
+        }
+    }
+}
+
+/**
+ * Creates some globals from $_REQUEST
+ *
+ * @param string $param db|table
+ *
+ * @return void
+ */
+function PMA_setGlobalDbOrTable($param)
+{
+    $GLOBALS[$param] = '';
+    if (PMA_isValid($_REQUEST[$param])) {
+        // can we strip tags from this?
+        // only \ and / is not allowed in db names for MySQL
+        $GLOBALS[$param] = $_REQUEST[$param];
+        $GLOBALS['url_params'][$param] = $GLOBALS[$param];
     }
 }
 ?>

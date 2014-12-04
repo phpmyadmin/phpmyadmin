@@ -205,7 +205,7 @@ class PMA_RTN_GetQueryFromRequest_Test extends PHPUnit_Framework_TestCase
                     'item_param_opts_text'      => array('utf8', 'latin1'),
                     'item_returntype'           => '',
                     'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => 'foobar' // invalid, will just be ignored withour throwing errors
+                    'item_sqldataaccess'        => 'foobar' // invalid, will just be ignored without throwing errors
                 ),
                 'CREATE PROCEDURE `proc`((10) ZEROFILL, INOUT `goo` ENUM CHARSET latin1) NOT DETERMINISTIC SQL SECURITY DEFINER SELECT 0;', // invalid query
                 2

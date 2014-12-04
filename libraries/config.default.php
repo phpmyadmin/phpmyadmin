@@ -521,6 +521,15 @@ $cfg['Servers'][$i]['AllowDeny']['order'] = '';
 $cfg['Servers'][$i]['AllowDeny']['rules'] = array();
 
 /**
+ * Disable use of INFORMATION_SCHEMA. Is always 'false' for Drizzle.
+ *
+ * @see https://sourceforge.net/p/phpmyadmin/bugs/2606/
+ * @see http://bugs.mysql.com/19588
+ * @global boolean $cfg['Servers'][$i]['DisableIS']
+ */
+$cfg['Servers'][$i]['DisableIS'] = false;
+
+/**
  * Whether the tracking mechanism creates
  * versions for tables and views automatically.
  *
@@ -833,7 +842,7 @@ $cfg['Error_Handler']['display'] = false;
  *
  * @global integer $cfg['FirstLevelNavigationItems']
  */
-$cfg['FirstLevelNavigationItems'] = 250;
+$cfg['FirstLevelNavigationItems'] = 25;
 
 /**
  * maximum number of items displayed in navigation panel
@@ -2086,6 +2095,13 @@ $cfg['Import']['sql_compatibility'] = 'NONE';
  * @global string $cfg['Import']['sql_no_auto_value_on_zero']
  */
 $cfg['Import']['sql_no_auto_value_on_zero'] = true;
+
+/**
+ *
+ *
+ * @global string $cfg['Import']['sql_read_as_multibytes']
+ */
+$cfg['Import']['sql_read_as_multibytes'] = false;
 
 /**
  *

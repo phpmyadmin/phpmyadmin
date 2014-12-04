@@ -998,6 +998,16 @@ Server connection settings
 
     * ``xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]`` (partial :term:`IPv6` address range)
 
+.. config:option:: $cfg['Servers'][$i]['DisableIS']
+
+    :type: boolean
+    :default: false
+
+    Disable using ``INFORMATION_SCHEMA`` to retrieve information (use
+    ``SHOW`` commands instead), because of speed issues when many
+    databases are present. Currently used in some parts of the code, more
+    to come.
+
 .. config:option:: $cfg['Servers'][$i]['SignonScript']
 
     :type: string
@@ -1381,7 +1391,7 @@ Navigation panel setup
 .. config:option:: $cfg['FirstLevelNavigationItems']
 
     :type: integer
-    :default: 250
+    :default: 25
 
     The number of first level databases that can be displayed on each page
     of navigation tree.

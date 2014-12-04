@@ -50,6 +50,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ShowSQL'] = true;
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
         $GLOBALS['pmaThemeImage'] = 'image';
@@ -267,7 +268,6 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetQueryStrFromSelected()
     {
         $query_type = 'row_delete';
-        $action = 'db_delete_row';
         $db = "PMA_db";
         $table = "PMA_table";
         $selected = array(
@@ -458,7 +458,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
 
         //validate 2: $reload
         $this->assertEquals(
-            null,
+            false,
             $reload
         );
 

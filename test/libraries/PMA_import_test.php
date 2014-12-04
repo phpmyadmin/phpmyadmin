@@ -172,7 +172,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @dataProvider provGetColumnNumberFromNamee
+     * @dataProvider provGetColumnNumberFromName
      */
     function testGetColumnNumberFromName($expected, $name)
     {
@@ -184,7 +184,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    function provGetColumnNumberFromNamee()
+    function provGetColumnNumberFromName()
     {
         return array(
             array(1, 'A'),

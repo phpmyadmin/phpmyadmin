@@ -81,7 +81,7 @@ class PMA_Menu
      */
     public function getHash()
     {
-        return $GLOBALS['PMA_String']->substr(
+        return substr(
             md5($this->_getMenu() . $this->_getBreadcrumbs()),
             0,
             8
@@ -96,15 +96,12 @@ class PMA_Menu
     private function _getMenu()
     {
         $url_params = array('db' => $this->_db);
-        $level = '';
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-        if ($pmaString->strlen($this->_table)) {
+        if (/*overload*/mb_strlen($this->_table)) {
             $tabs = $this->_getTableTabs();
             $url_params['table'] = $this->_table;
             $level = 'table';
-        } else if ($pmaString->strlen($this->_db)) {
+        } else if (/*overload*/mb_strlen($this->_db)) {
             $tabs = $this->_getDbTabs();
             $level = 'db';
         } else {
@@ -132,7 +129,7 @@ class PMA_Menu
     {
         $allowedTabs = PMA_Util::getMenuTabList($level);
         $cfgRelation = PMA_getRelationsParam();
-        if ($cfgRelation['menuswork']) {
+        if (isset($cfgRelation['menuswork']) && $cfgRelation['menuswork']) {
             $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
                 . "."
                 . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
@@ -148,13 +145,10 @@ class PMA_Menu
 
             $result = PMA_queryAsControlUser($sql_query, false);
             if ($result) {
-                /** @var PMA_String $pmaString */
-                $pmaString = $GLOBALS['PMA_String'];
-
                 while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                    $tabName = $pmaString->substr(
+                    $tabName = /*overload*/mb_substr(
                         $row['tab'],
-                        $pmaString->strpos($row['tab'], '_') + 1
+                        /*overload*/mb_strpos($row['tab'], '_') + 1
                     );
                     unset($allowedTabs[$tabName]);
                 }
@@ -180,7 +174,7 @@ class PMA_Menu
             : ':' . $GLOBALS['cfg']['Server']['port'];
 
         $separator = "<span class='separator item'>&nbsp;»</span>";
-        $item = '<a href="%1$s?%2$s" class="item">';
+        $item = '<a href="%1$s%2$s" class="item">';
 
         if (PMA_Util::showText('TabsMode')) {
             $item .= '%4$s: ';
@@ -203,10 +197,7 @@ class PMA_Menu
             __('Server')
         );
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
-        if ($pmaString->strlen($this->_db)) {
+        if (/*overload*/mb_strlen($this->_db)) {
             $retval .= $separator;
             if (PMA_Util::showIcons('TabsMode')) {
                 $retval .= PMA_Util::getImage(
@@ -218,13 +209,13 @@ class PMA_Menu
             $retval .= sprintf(
                 $item,
                 $GLOBALS['cfg']['DefaultTabDatabase'],
-                PMA_URL_getCommon($this->_db),
+                PMA_URL_getCommon(array('db' => $this->_db)),
                 htmlspecialchars($this->_db),
                 __('Database')
             );
             // if the table is being dropped, $_REQUEST['purge'] is set to '1'
             // so do not display the table name in upper div
-            if ($pmaString->strlen($this->_table)
+            if (/*overload*/mb_strlen($this->_table)
                 && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')
             ) {
                 include './libraries/tbl_info.inc.php';
@@ -241,7 +232,11 @@ class PMA_Menu
                 $retval .= sprintf(
                     $item,
                     $GLOBALS['cfg']['DefaultTabTable'],
-                    PMA_URL_getCommon($this->_db, $this->_table),
+                    PMA_URL_getCommon(
+                        array(
+                            'db' => $this->_db, 'table' => $this->_table
+                        )
+                    ),
                     str_replace(' ', '&nbsp;', htmlspecialchars($this->_table)),
                     $tbl_is_view ? __('View') : __('Table')
                 );
@@ -252,7 +247,7 @@ class PMA_Menu
                 if (! empty($show_comment)
                     && ! isset($GLOBALS['avoid_show_comment'])
                 ) {
-                    if ($pmaString->strstr($show_comment, '; InnoDB free')) {
+                    if (/*overload*/mb_strstr($show_comment, '; InnoDB free')) {
                         $show_comment = preg_replace(
                             '@; InnoDB free:.*?$@',
                             '',
@@ -312,6 +307,10 @@ class PMA_Menu
         $tabs['structure']['icon'] = 'b_props.png';
         $tabs['structure']['link'] = 'tbl_structure.php';
         $tabs['structure']['text'] = __('Structure');
+        $tabs['structure']['active'] = in_array(
+            basename($GLOBALS['PMA_PHP_SELF']),
+            array('tbl_structure.php', 'tbl_relation.php')
+        );
 
         $tabs['sql']['icon'] = 'b_sql.png';
         $tabs['sql']['link'] = 'tbl_sql.php';
@@ -465,8 +464,7 @@ class PMA_Menu
                 $tabs['routines']['text'] = __('Routines');
                 $tabs['routines']['icon'] = 'b_routines.png';
             }
-            if (PMA_MYSQL_INT_VERSION >= 50106
-                && ! PMA_DRIZZLE
+            if (! PMA_DRIZZLE
                 && PMA_Util::currentUserHasPrivilege('EVENT', $this->_db)
             ) {
                 $tabs['events']['link'] = 'db_events.php';
@@ -517,13 +515,18 @@ class PMA_Menu
         $notDrizzle = ! defined('PMA_DRIZZLE')
             || (defined('PMA_DRIZZLE') && ! PMA_DRIZZLE);
         if (isset($GLOBALS['dbi']) && $notDrizzle) {
-            $binary_logs = $GLOBALS['dbi']->fetchResult(
-                'SHOW MASTER LOGS',
-                'Log_name',
-                null,
-                null,
-                PMA_DatabaseInterface::QUERY_STORE
-            );
+            if (PMA_Util::cacheExists('binary_logs')) {
+                $binary_logs = PMA_Util::cacheGet('binary_logs');
+            } else {
+                $binary_logs = $GLOBALS['dbi']->fetchResult(
+                    'SHOW MASTER LOGS',
+                    'Log_name',
+                    null,
+                    null,
+                    PMA_DatabaseInterface::QUERY_STORE
+                );
+                PMA_Util::cacheSet('binary_logs', $binary_logs);
+            }
         }
 
         $tabs = array();
@@ -546,7 +549,8 @@ class PMA_Menu
                 'server_status_advisor.php',
                 'server_status_monitor.php',
                 'server_status_queries.php',
-                'server_status_variables.php'
+                'server_status_variables.php',
+                'server_status_processes.php'
             )
         );
 

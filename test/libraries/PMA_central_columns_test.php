@@ -42,6 +42,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $GLOBALS['cfg']['Server']['central_columns'] = 'pma_central_columns';
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
@@ -156,8 +157,8 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     public function testPMASyncUniqueColumns()
     {
         $field_select = array("col1");
-        $_POST['db'] = 'PMA_db';
-        $_POST['table'] = 'PMA_table';
+        $_REQUEST['db'] = 'PMA_db';
+        $_REQUEST['table'] = 'PMA_table';
         $this->assertInstanceOf(
             'PMA_Message', PMA_syncUniqueColumns($field_select, false)
         );
@@ -344,9 +345,6 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetHTMLforCentralColumnsTableRow()
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $row = array(
             'col_name'=>'col_test',
             'col_type'=>'int',
@@ -372,7 +370,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             PMA_getHtmlForColumnDefault(
-                1, 5, 0, $pmaString->strtoupper($row['col_type']), '',
+                1, 5, 0, /*overload*/mb_strtoupper($row['col_type']), '',
                 array('DefaultType'=>'NONE')
             ),
             $result
@@ -383,7 +381,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             PMA_getHtmlForColumnDefault(
-                1, 5, 0, $pmaString->strtoupper($row['col_type']), '',
+                1, 5, 0, /*overload*/mb_strtoupper($row['col_type']), '',
                 array('DefaultType'=>'USER_DEFINED', 'DefaultValue'=>100)
             ),
             $result_1
@@ -394,7 +392,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             PMA_getHtmlForColumnDefault(
-                1, 5, 0, $pmaString->strtoupper($row['col_type']), '',
+                1, 5, 0, /*overload*/mb_strtoupper($row['col_type']), '',
                 array('DefaultType'=>'CURRENT_TIMESTAMP')
             ),
             $result_2

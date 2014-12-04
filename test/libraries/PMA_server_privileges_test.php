@@ -1200,7 +1200,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $item = PMA_Util::getCheckbox(
             'createdb-2',
             __('Grant all privileges on wildcard name (username\\_%).'),
-            false, false
+            false, false, 'createdb-2'
         );
         $this->assertContains(
             $item,
@@ -1248,7 +1248,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //validate 1: PMA_URL_getCommon
         $this->assertContains(
-            PMA_URL_getCommon($db),
+            PMA_URL_getCommon(array('db' => $db)),
             $html
         );
 
@@ -1453,19 +1453,20 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getUserEditLink
+     * Test for PMA_getUserLink
      *
      * @return void
      */
-    public function testPMAGetUserEditLink()
+    public function testPMAGetUserLink()
     {
         $username = "pma_username";
         $hostname = "pma_hostname";
         $dbname = "pma_dbname";
         $tablename = "pma_tablename";
 
-        //PMA_getUserEditLink
-        $html = PMA_getUserEditLink($username, $hostname, $dbname, $tablename);
+        $html = PMA_getUserLink(
+            'edit', $username, $hostname, $dbname, $tablename
+        );
 
         $url_html = PMA_URL_getCommon(
             array(
@@ -1484,8 +1485,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //PMA_getUserRevokeLink
-        $html = PMA_getUserRevokeLink($username, $hostname, $dbname, $tablename);
+        $html = PMA_getUserLink(
+            'revoke', $username, $hostname, $dbname, $tablename
+        );
 
         $url_html = PMA_URL_getCommon(
             array(
@@ -1505,8 +1507,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //PMA_getUserExportLink
-        $html = PMA_getUserExportLink($username, $hostname);
+        $html = PMA_getUserLink('export', $username, $hostname);
 
         $url_html = PMA_URL_getCommon(
             array(
@@ -1961,7 +1962,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //PMA_URL_getCommone
+        //PMA_URL_getCommon
         $item = PMA_URL_getCommon(
             array(
                 'username' => $username,

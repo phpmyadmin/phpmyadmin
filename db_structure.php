@@ -34,7 +34,7 @@ if ((!empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
     || isset($_POST['mult_btn'])
 ) {
     $action = 'db_structure.php';
-    $err_url = 'db_structure.php?' . PMA_URL_getCommon($db);
+    $err_url = 'db_structure.php' . PMA_URL_getCommon(array('db' => $db));
 
     // see bug #2794840; in this case, code path is:
     // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
@@ -67,7 +67,7 @@ if ($GLOBALS['is_ajax_request']
 if (!PMA_DRIZZLE) {
     include_once 'libraries/replication.inc.php';
 } else {
-    $server_slave_status = false;
+    $GLOBALS['replication_info']['slave']['status'] = false;
 }
 
 require_once 'libraries/bookmark.lib.php';
@@ -81,7 +81,7 @@ $titles = PMA_Util::buildActionTitles();
 
 if ($num_tables == 0) {
     $response->addHTML(
-        '<p>' . __('No tables found in database.') . '</p>' . "\n"
+        PMA_message::notice(__('No tables found in database.'))
     );
     PMA_possiblyShowCreateTableDialog($db, $db_is_system_schema, $response);
     exit;
@@ -123,7 +123,9 @@ $response->addHTML(
 $response->addHTML(PMA_URL_getHiddenInputs($db));
 
 $response->addHTML(
-    PMA_tableHeader($db_is_system_schema, $server_slave_status)
+    PMA_tableHeader(
+        $db_is_system_schema, $GLOBALS['replication_info']['slave']['status']
+    )
 );
 
 $i = $sum_entries = 0;
@@ -177,7 +179,7 @@ foreach ($tables as $keyname => $current_table) {
 
     if ($is_show_stats) {
         if ($formatted_overhead != '') {
-            $overhead = '<a href="tbl_structure.php?'
+            $overhead = '<a href="tbl_structure.php'
                 . $tbl_url_query . '#showusage">'
                 . '<span>' . $formatted_overhead . '</span>'
                 . '<span class="unit">' . $overhead_unit . '</span>'
@@ -255,11 +257,13 @@ foreach ($tables as $keyname => $current_table) {
             '</tr></tbody></table>'
         );
 
-        $response->addHTML(PMA_tableHeader(false, $server_slave_status));
+        $response->addHTML(
+            PMA_tableHeader(false, $GLOBALS['replication_info']['slave']['status'])
+        );
     }
 
     list($do, $ignored) = PMA_getServerSlaveStatus(
-        $server_slave_status, $truename
+        $GLOBALS['replication_info']['slave']['status'], $truename
     );
     // Handle favorite table list. ----START----
     $already_favorite = PMA_checkFavoriteTable($db, $current_table['TABLE_NAME']);
@@ -282,7 +286,8 @@ foreach ($tables as $keyname => $current_table) {
 
     list($html_output, $odd_row, $approx_rows) = PMA_getHtmlForStructureTableRow(
         $i, $odd_row, $table_is_view, $current_table,
-        $browse_table_label, $tracking_icon, $server_slave_status,
+        $browse_table_label, $tracking_icon,
+        $GLOBALS['replication_info']['slave']['status'],
         $browse_table, $tbl_url_query, $search_table, $db_is_system_schema,
         $titles, $empty_table, $drop_query, $drop_message, $collation,
         $formatted_size, $unit, $overhead,
@@ -299,9 +304,10 @@ foreach ($tables as $keyname => $current_table) {
 $response->addHTML('</tbody>');
 $response->addHTML(
     PMA_getHtmlBodyForTableSummary(
-        $num_tables, $server_slave_status, $db_is_system_schema, $sum_entries,
-        $db_collation, $is_show_stats, $sum_size, $overhead_size, $create_time_all,
-        $update_time_all, $check_time_all, isset($approx_rows) ? $approx_rows : false
+        $num_tables, $GLOBALS['replication_info']['slave']['status'],
+        $db_is_system_schema, $sum_entries, $db_collation, $is_show_stats, $sum_size,
+        $overhead_size, $create_time_all, $update_time_all, $check_time_all,
+        isset($approx_rows) ? $approx_rows : false
     )
 );
 $response->addHTML('</table>');

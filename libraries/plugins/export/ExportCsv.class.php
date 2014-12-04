@@ -132,7 +132,7 @@ class ExportCsv extends ExportPlugin
             }
         } else {
             if (empty($csv_terminated)
-                || $GLOBALS['PMA_String']->strtolower($csv_terminated) == 'auto'
+                || /*overload*/mb_strtolower($csv_terminated) == 'auto'
             ) {
                 $csv_terminated = $GLOBALS['crlf'];
             } else {
@@ -244,7 +244,7 @@ class ExportCsv extends ExportPlugin
                 $schema_insert .= $csv_separator;
             } // end for
             $schema_insert = trim(
-                $GLOBALS['PMA_String']->substr($schema_insert, 0, -1)
+                /*overload*/mb_substr($schema_insert, 0, -1)
             );
             if (! PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
                 return false;

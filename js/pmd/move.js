@@ -994,7 +994,7 @@ function Load_page(page) {
             .appendTo($('#page_content'))
             .click();
     } else {
-        if (page == null) {
+        if (page === null) {
             Show_tables_in_landing_page();
         } else if (page > -1) {
             Load_HTML_for_page(page);
@@ -1051,6 +1051,7 @@ function Start_relation()
 
 function Click_field(T, f, PK) // table field
 {
+    PK = parseInt(PK);
     if (ON_relation) {
         if (!click_field) {
             //.style.display=='none'        .style.display = 'none'
@@ -1488,7 +1489,7 @@ function Show_left_menu(id_this) // max/min all tables
 //------------------------------------------------------------------------------
 function Top_menu_right(id_this)
 {
-    if (id_this.alt == ">") {
+    if (id_this.alt === ">") {
         moveTopMenuToRight(id_this);
         id_this.alt = "<";
         id_this.src = pmaThemeImage + "pmd/2leftarrow_m.png";
@@ -1638,6 +1639,7 @@ function Select_all(id_this, owner)
 
 function Table_onover(id_this, val, buil)
 {
+    buil = parseInt(buil);
     if (!val) {
         document.getElementById("id_zag_" + id_this).className = "tab_zag_2";
         if (buil) {
@@ -1681,7 +1683,7 @@ function store_column(id_this, owner, col)
 /**
  * This function builds object and adds them to history_array
  * first it does a few checks on each object, then makes an object(where,rename,groupby,aggregate,orderby)
- * then a new history object is made and finally all these history objects are addded to history_array[]
+ * then a new history object is made and finally all these history objects are added to history_array[]
  *
 **/
 
@@ -1754,3 +1756,203 @@ function add_object()
     Close_option();
     panel(0);
 }
+
+AJAX.registerTeardown('pmd/move.js', function () {
+    $("#key_Show_left_menu").unbind('click');
+    $("#enterFullscreen").unbind('click');
+    $("#exitFullscreen").unbind('click');
+    $("#newPage").unbind('click');
+    $("#editPage").unbind('click');
+    $("#savePos").unbind('click');
+    $("#SaveAs").unbind('click');
+    $("#delPages").unbind('click');
+    $("#StartTableNew").unbind('click');
+    $("#rel_button").unbind('click');
+    $("#StartTableNew").unbind('click');
+    $("#display_field_button").unbind('click');
+    $("#reloadPage").unbind('click');
+    $("#angular_direct_button").unbind('click');
+    $("#grid_button").unbind('click');
+    $("#key_SB_all").unbind('click');
+    $("#SmallTabInvert").unbind('click');
+    $("#relLineInvert").unbind('click');
+    $("#exportPages").unbind('click');
+    $("#query_builder").unbind('click');
+    $("#key_Left_Right").unbind('click');
+    $("#canvas").unbind('click');
+    $("#key_HS_all").unbind('click');
+    $("#key_HS").unbind('click');
+    $('.scroll_tab_struct').unbind('click');
+    $('.scroll_tab_checkbox').unbind('click');
+    $('#id_scroll_tab tr').off('click', '.pmd_Tabs2,.pmd_Tabs');
+    $('.pmd_tab').off('click', '.select_all_1');
+    $('.pmd_tab').off('click', '.small_tab,.small_tab2');
+    $('.pmd_tab').off('click', '.small_tab_pref_1');
+    $('.tab_zag_noquery').unbind('mouseover');
+    $('.tab_zag_noquery').unbind('mouseout');
+    $('.tab_zag_query').unbind('mouseover');
+    $('.tab_zag_query').unbind('mouseout');
+    $('.pmd_tab').off('click','.tab_field_2,.tab_field_3,.tab_field');
+    $('.pmd_tab').off('click', '.select_all_store_col');
+    $('.pmd_tab').off('click', '.small_tab_pref_click_opt');
+    $("input#del_button").unbind('click');
+    $("input#cancel_button").unbind('click');
+    $("input#ok_add_object").unbind('click');
+    $("input#cancel_close_option").unbind('click');
+    $("input#ok_new_rel_panel").unbind('click');
+    $("input#cancel_new_rel_panel").unbind('click');
+});
+
+AJAX.registerOnload('pmd/move.js', function () {
+    $("#key_Show_left_menu").click(function() {
+        Show_left_menu(this);
+        return false;
+    });
+    $("#enterFullscreen").click(function() {
+        Enter_fullscreen();
+        return false;
+    });
+    $("#exitFullscreen").click(function() {
+        Exit_fullscreen();
+        return false;
+    });
+    $("#newPage").click(function() {
+        New();
+        return false;
+    });
+    $("#editPage").click(function() {
+        Edit_pages();
+        return false;
+    });
+    $("#savePos").click(function() {
+        Save3();
+        return false;
+    });
+    $("#SaveAs").click(function() {
+        Save_as();
+        return false;
+    });
+    $("#delPages").click(function() {
+        Delete_pages();
+        return false;
+    });
+    $("#StartTableNew").click(function() {
+        Start_table_new();
+        return false;
+    });
+    $("#rel_button").click(function() {
+        Start_relation();
+        return false;
+    });
+    $("#display_field_button").click(function() {
+        Start_display_field();
+        return false;
+    });
+    $("#reloadPage").click(function() {
+        $("#designer_tab").click();
+    });
+    $("#angular_direct_button").click(function() {
+        Angular_direct();
+        return false;
+    });
+    $("#grid_button").click(function() {
+        Grid();
+        return false;
+    });
+    $("#key_SB_all").click(function() {
+        Small_tab_all(this);
+        return false;
+    });
+    $("#SmallTabInvert").click(function() {
+        Small_tab_invert();
+        return false;
+    });
+    $("#relLineInvert").click(function() {
+        Relation_lines_invert();
+        return false;
+    });
+    $("#exportPages").click(function() {
+        Export_pages();
+        return false;
+    });
+    $("#query_builder").click(function() {
+        build_query('SQL Query on Database', 0);
+    });
+    $("#key_Left_Right").click(function() {
+        Top_menu_right(this);
+        return false;
+    });
+    $("#canvas").click(function() {
+        Canvas_click(this);
+    });
+    $("#key_HS_all").click(function() {
+        Hide_tab_all(this);
+        return false;
+    });
+    $("#key_HS").click(function() {
+        No_have_constr(this);
+        return false;
+    });
+    $('.scroll_tab_struct').click(function() {
+        Start_tab_upd($(this).attr('table_name'));
+    });
+    $('.scroll_tab_checkbox').click(function() {
+        VisibleTab(this,$(this).val());
+    });
+    $('#id_scroll_tab tr').on('click', '.pmd_Tabs2,.pmd_Tabs', function() {
+        Select_tab($(this).attr('pmd_url_table_name'));
+    });
+    $('.pmd_tab').on('click', '.select_all_1', function() {
+        Select_all($(this).attr('pmd_url_table_name'), $(this).attr('pmd_out_owner'));
+    });
+    $('.pmd_tab').on('click', '.small_tab,.small_tab2', function() {
+        Small_tab($(this).attr('table_name'), 1);
+    });
+    $('.pmd_tab').on('click', '.small_tab_pref_1', function() {
+        Start_tab_upd($(this).attr('table_name_small'));
+    });
+    $('.tab_zag_noquery').mouseover(function() {
+        Table_onover($(this).attr('table_name'),0, $(this).attr('query_set'));
+    });
+    $('.tab_zag_noquery').mouseout(function() {
+        Table_onover($(this).attr('table_name'),1, $(this).attr('query_set'));
+    });
+    $('.tab_zag_query').mouseover(function() {
+        Table_onover($(this).attr('table_name'),0, 1);
+    });
+    $('.tab_zag_query').mouseout(function() {
+        Table_onover($(this).attr('table_name'),1, 1);
+    });
+    $('.pmd_tab').on('click','.tab_field_2,.tab_field_3,.tab_field', function() {
+        var params = ($(this).attr('click_field_param')).split(",");
+        Click_field(params[0], params[1], params[2]);
+    });
+    $('.pmd_tab').on('click', '.select_all_store_col', function() {
+        var params = ($(this).attr('store_column_param')).split(",");
+        store_column(params[0], params[1], params[2]);
+    });
+    $('.pmd_tab').on('click', '.small_tab_pref_click_opt', function() {
+        var params = ($(this).attr('Click_option_param')).split(",");
+        Click_option(params[0], params[1], params[2]);
+    });
+    $("input#del_button").click(function() {
+        Upd_relation();
+    });
+    $("input#cancel_button").click(function() {
+        document.getElementById('layer_upd_relation').style.display = 'none';
+        Re_load();
+    });
+    $("input#ok_add_object").click(function() {
+        add_object();
+    });
+    $("input#cancel_close_option").click(function() {
+        Close_option();
+    });
+    $("input#ok_new_rel_panel").click(function() {
+        New_relation();
+    });
+    $("input#cancel_new_rel_panel").click(function() {
+        document.getElementById('layer_new_relation').style.display = 'none';
+    });
+
+});

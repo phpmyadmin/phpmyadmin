@@ -57,16 +57,13 @@ function PMA_getHtmlForSqlQueryForm(
         $enctype = '';
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $table  = '';
     $db     = '';
-    if (! $pmaString->strlen($GLOBALS['db'])) {
+    if (! /*overload*/mb_strlen($GLOBALS['db'])) {
         // prepare for server related
         $goto   = empty($GLOBALS['goto']) ?
                     'server_sql.php' : $GLOBALS['goto'];
-    } elseif (! $pmaString->strlen($GLOBALS['table'])) {
+    } elseif (! /*overload*/mb_strlen($GLOBALS['table'])) {
         // prepare for db related
         $db     = $GLOBALS['db'];
         $goto   = empty($GLOBALS['goto']) ?
@@ -121,7 +118,7 @@ function PMA_getHtmlForSqlQueryForm(
     $html .= '</form>' . "\n";
     // print an empty div, which will be later filled with
     // the sql query results by ajax
-    $html .= '<div id="sqlqueryresults"></div>';
+    $html .= '<div id="sqlqueryresultsouter"></div>';
 
     return $html;
 }
@@ -149,13 +146,8 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $locking = '';
     $height = $GLOBALS['cfg']['TextareaRows'] * 2;
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
-    $table          = '';
-    $db             = '';
     $fields_list    = array();
-    if (! $pmaString->strlen($GLOBALS['db'])) {
+    if (! /*overload*/mb_strlen($GLOBALS['db'])) {
         // prepare for server related
         $legend = sprintf(
             __('Run SQL query/queries on server %s'),
@@ -165,12 +157,12 @@ function PMA_getHtmlForSqlQueryFormInsert(
                 : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']
             ) . '&quot;'
         );
-    } elseif (! $pmaString->strlen($GLOBALS['table'])) {
+    } elseif (! /*overload*/mb_strlen($GLOBALS['table'])) {
         // prepare for db related
         $db     = $GLOBALS['db'];
         // if you want navigation:
         $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
-            . '?' . PMA_URL_getCommon($db) . '"';
+            . PMA_URL_getCommon(array('db' => $db)) . '"';
         $tmp_db_link .= '>'
             . htmlspecialchars($db) . '</a>';
         // else use
@@ -182,7 +174,6 @@ function PMA_getHtmlForSqlQueryFormInsert(
             );
         }
     } else {
-        $table  = $GLOBALS['table'];
         $db     = $GLOBALS['db'];
         // Get the list and number of fields
         // we do a try_query here, because we could be in the query window,
@@ -192,7 +183,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
         );
 
         $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
-            . '?' . PMA_URL_getCommon($db) . '"';
+            . PMA_URL_getCommon(array('db' => $db)) . '"';
         $tmp_db_link .= '>'
             . htmlspecialchars($db) . '</a>';
         // else use
@@ -253,7 +244,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
             $html .= '<option value="'
                 . PMA_Util::backquote(htmlspecialchars($field['Field'])) . '"';
             if (isset($field['Field'])
-                && $pmaString->strlen($field['Field'])
+                && /*overload*/mb_strlen($field['Field'])
                 && isset($field['Comment'])
             ) {
                 $html .= ' title="' . htmlspecialchars($field['Comment']) . '"';

@@ -1,34 +1,30 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- *
  * @package PhpMyAdmin-Designer
  */
 
-/**
- *
- */
-if (document.all) { // if IE
-    document.attachEvent(
-        "onreadystatechange", // document load
-        function () {
-            if (document.readyState == "complete") {
-                var el  =  document.getElementById("canvas");
-                var outerHTML = el.outerHTML;
-                var newEl = document.createElement(outerHTML);
-                el.parentNode.replaceChild(newEl, el);
-                el = newEl;
-                el.getContext = function () {
-                    if (this.cont) {
-                        return this.cont;
-                    }
-                    return this.cont = new PMD_2D(this);
-                };
+function isCanvasSupported() {
+    var el = document.getElementById("canvas");
+    return !!(el.getContext && el.getContext("2d"));
+}
 
-                el.style.width = el.attributes.width.nodeValue + "px";
-                el.style.height = el.attributes.height.nodeValue + "px";
+if (! isCanvasSupported()) {
+    AJAX.registerOnload("pmd/iecanvas.js", function () {
+        var el  =  document.getElementById("canvas");
+        var outerHTML = el.outerHTML;
+        var newEl = document.createElement(outerHTML);
+        el.parentNode.replaceChild(newEl, el);
+        el = newEl;
+        el.getContext = function () {
+            if (this.cont) {
+                return this.cont;
             }
-        }
-    );
+            return this.cont = new PMD_2D(this);
+        };
+
+        el.style.width = el.attributes.width.nodeValue + "px";
+        el.style.height = el.attributes.height.nodeValue + "px";
+    });
 
     //*****************************************************************************************************
 

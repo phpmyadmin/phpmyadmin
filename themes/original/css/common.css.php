@@ -43,7 +43,7 @@ body#loginform {
     margin: 0;
 }
 
-#page_content {
+#page_content, #session_debug {
     margin: 0 .5em;
 }
 
@@ -251,14 +251,14 @@ fieldset .formelement {
     fieldset .formelement {
         clear: none;
     }
-    .relationalTable td:first-child + td {
+    #foreign_keys.relationalTable td:first-child + td {
         width: 25%;
     }
-    .relationalTable td:first-child + td select {
+    #foreign_keys.relationalTable td:first-child + td select {
         width: 32%;
         margin-right: 1%;
     }
-    .relationalTable {
+    #foreign_keys.relationalTable {
         width: 100%;
     }
 
@@ -756,6 +756,9 @@ div#dataDisplay input, div#dataDisplay select {
 }
 div#dataDisplay th {
     line-height: 2em;
+}
+table#tableFieldsId {
+    width: 100%;
 }
 
 /* Calendar */
@@ -1388,7 +1391,7 @@ div.sqlvalidate {
     overflow:           auto;
 }
 
-#result_query div.sqlOuter,
+.result_query div.sqlOuter,
 div.sqlvalidate  {
     border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
     border-top:         0;
@@ -1678,9 +1681,6 @@ input#input_import_file {
 }
 #addColumns input[type="submit"] {
     margin-<?php echo $left; ?>: 1em;
-}
-.margin#change_column_dialog {
-    margin: 0 .5em;
 }
 
 /**
@@ -2649,7 +2649,7 @@ div#page_content form#db_search_form.ajax fieldset {
     margin-top: -0.3em;
 }
 
-div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div#result_query {
+div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div.result_query {
     margin-top: 1em;
 }
 

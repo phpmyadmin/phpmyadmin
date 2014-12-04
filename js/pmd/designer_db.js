@@ -21,14 +21,15 @@ var DesignerOfflineDB = (function () {
 
             for (var t in designer_tables) {
                 db.createObjectStore(designer_tables[t].name, {
-                    keyPath: designer_tables[t].key, autoIncrement: designer_tables[t].auto_inc
+                    keyPath: designer_tables[t].key,
+                    autoIncrement: designer_tables[t].auto_inc
                 });
             }
         };
 
         request.onsuccess = function (e) {
             datastore = e.target.result;
-            if (typeof callback !== 'undefined' && callback != null) {
+            if (typeof callback !== 'undefined' && callback !== null) {
                 callback(true);
             }
         };
@@ -63,7 +64,7 @@ var DesignerOfflineDB = (function () {
 
         cursorRequest.onsuccess = function (e) {
             var result = e.target.result;
-            if (!!result == false) {
+            if (Boolean(result) === false) {
                 return;
             }
             results.push(result.value);
@@ -87,7 +88,7 @@ var DesignerOfflineDB = (function () {
 
         cursorRequest.onsuccess = function(e) {
             var result = e.target.result;
-            if (!!result == false) {
+            if (Boolean(result) === false) {
                 return;
             }
             firstResult = result.value;
@@ -103,7 +104,7 @@ var DesignerOfflineDB = (function () {
         var request = objStore.put(obj);
 
         request.onsuccess = function(e) {
-            if (typeof callback !== 'undefined' && callback != null) {
+            if (typeof callback !== 'undefined' && callback !== null) {
                 callback(e.currentTarget.result);
             }
         };
@@ -118,17 +119,17 @@ var DesignerOfflineDB = (function () {
         var request = objStore.delete(parseInt(id));
 
         request.onsuccess = function(e) {
-            if (typeof callback !== 'undefined' && callback != null) {
+            if (typeof callback !== 'undefined' && callback !== null) {
                 callback(true);
             }
-        }
+        };
 
         request.onerror = designerDB.onerror;
     };
 
     designerDB.onerror = function(e) {
         console.log(e);
-    }
+    };
 
     // Export the designerDB object.
     return designerDB;

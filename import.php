@@ -68,13 +68,9 @@ if (isset($_REQUEST['console_bookmark_add'])) {
  * Sets globals from $_POST
  */
 $post_params = array(
-    'action_bookmark',
-    'allow_interrupt',
     'bkm_label',
-    'bookmark_variable',
     'charset_of_file',
     'format',
-    'id_bookmark',
     'import_type',
     'is_js_confirmed',
     'MAX_FILE_SIZE',
@@ -153,7 +149,7 @@ if (! empty($sql_query)) {
     $import_type = 'queryfile';
     $format = 'sql';
     unset($sql_file);
-} elseif (! empty($id_bookmark)) {
+} elseif (! empty($_REQUEST['id_bookmark'])) {
     // run bookmark
     $import_type = 'query';
     $format = 'sql';
@@ -209,13 +205,8 @@ $post_patterns = array(
     '/^force_file_/',
     '/^' . $format . '_/'
 );
-foreach (array_keys($_POST) as $post_key) {
-    foreach ($post_patterns as $one_post_pattern) {
-        if (preg_match($one_post_pattern, $post_key)) {
-            $GLOBALS[$post_key] = $_POST[$post_key];
-        }
-    }
-}
+
+PMA_setPostAsGlobal($post_patterns);
 
 // Check needed parameters
 PMA_Util::checkParameters(array('import_type', 'format'));
@@ -227,35 +218,39 @@ $pmaString = $GLOBALS['PMA_String'];
 
 // Create error and goto url
 if ($import_type == 'table') {
-    $err_url = 'tbl_import.php?' . PMA_URL_getCommon($db, $table);
+    $err_url = 'tbl_import.php' . PMA_URL_getCommon(
+        array(
+            'db' => $db, 'table' => $table
+        )
+    );
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'tbl_import.php';
 } elseif ($import_type == 'database') {
-    $err_url = 'db_import.php?' . PMA_URL_getCommon($db);
+    $err_url = 'db_import.php' . PMA_URL_getCommon(array('db' => $db));
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'db_import.php';
 } elseif ($import_type == 'server') {
-    $err_url = 'server_import.php?' . PMA_URL_getCommon();
+    $err_url = 'server_import.php' . PMA_URL_getCommon();
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'server_import.php';
 } else {
     if (empty($goto) || !preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
-        if ($pmaString->strlen($table) && $pmaString->strlen($db)) {
+        if (/*overload*/mb_strlen($table) && /*overload*/mb_strlen($db)) {
             $goto = 'tbl_structure.php';
-        } elseif ($pmaString->strlen($db)) {
+        } elseif (/*overload*/mb_strlen($db)) {
             $goto = 'db_structure.php';
         } else {
             $goto = 'server_sql.php';
         }
     }
-    if ($pmaString->strlen($table) && $pmaString->strlen($db)) {
-        $common = PMA_URL_getCommon($db, $table);
-    } elseif ($pmaString->strlen($db)) {
-        $common = PMA_URL_getCommon($db);
+    if (/*overload*/mb_strlen($table) && /*overload*/mb_strlen($db)) {
+        $common = PMA_URL_getCommon(array('db' => $db, 'table' => $table));
+    } elseif (/*overload*/mb_strlen($db)) {
+        $common = PMA_URL_getCommon(array('db' => $db));
     } else {
         $common = PMA_URL_getCommon();
     }
-    $err_url  = $goto . '?' . $common
+    $err_url  = $goto . $common
         . (preg_match('@^tbl_[a-z]*\.php$@', $goto)
             ? '&amp;table=' . htmlspecialchars($table)
             : '');
@@ -268,7 +263,7 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'import.php') {
 }
 
 
-if ($pmaString->strlen($db)) {
+if (/*overload*/mb_strlen($db)) {
     $GLOBALS['dbi']->selectDb($db);
 }
 
@@ -278,7 +273,7 @@ if (! empty($cfg['MemoryLimit'])) {
 }
 
 $timestamp = time();
-if (isset($allow_interrupt)) {
+if (isset($_REQUEST['allow_interrupt'])) {
     $maximum_time = ini_get('max_execution_time');
 } else {
     $maximum_time = 0;
@@ -302,21 +297,21 @@ $reset_charset = false;
 $bookmark_created = false;
 
 // Bookmark Support: get a query back from bookmark if required
-if (! empty($id_bookmark)) {
-    $id_bookmark = (int)$id_bookmark;
+if (! empty($_REQUEST['id_bookmark'])) {
+    $id_bookmark = (int)$_REQUEST['id_bookmark'];
     include_once 'libraries/bookmark.lib.php';
-    switch ($action_bookmark) {
+    switch ($_REQUEST['action_bookmark']) {
     case 0: // bookmarked query that have to be run
         $import_text = PMA_Bookmark_get(
             $db,
             $id_bookmark,
             'id',
-            isset($action_bookmark_all)
+            isset($_REQUEST['action_bookmark_all'])
         );
-        if (isset($bookmark_variable) && ! empty($bookmark_variable)) {
+        if (! empty($_REQUEST['bookmark_variable'])) {
             $import_text = preg_replace(
                 '|/\*(.*)\[VARIABLE\](.*)\*/|imsU',
-                '${1}' . PMA_Util::sqlAddSlashes($bookmark_variable) . '${2}',
+                '${1}' . PMA_Util::sqlAddSlashes($_REQUEST['bookmark_variable']) . '${2}',
                 $import_text
             );
         }
@@ -349,7 +344,7 @@ if (! empty($id_bookmark)) {
             $response->isSuccess($message->isSuccess());
             $response->addJSON('message', $message);
             $response->addJSON('sql_query', $import_text);
-            $response->addJSON('action_bookmark', $action_bookmark);
+            $response->addJSON('action_bookmark', $_REQUEST['action_bookmark']);
             exit;
         } else {
             $run_query = false;
@@ -363,7 +358,7 @@ if (! empty($id_bookmark)) {
             $response = PMA_Response::getInstance();
             $response->isSuccess($message->isSuccess());
             $response->addJSON('message', $message);
-            $response->addJSON('action_bookmark', $action_bookmark);
+            $response->addJSON('action_bookmark', $_REQUEST['action_bookmark']);
             $response->addJSON('id_bookmark', $id_bookmark);
             exit;
         } else {
@@ -392,13 +387,13 @@ if ($memory_limit == -1) {
 }
 
 // Calculate value of the limit
-if ($pmaString->strtolower($pmaString->substr($memory_limit, -1)) == 'm') {
-    $memory_limit = (int)$pmaString->substr($memory_limit, 0, -1) * 1024 * 1024;
-} elseif ($pmaString->strtolower($pmaString->substr($memory_limit, -1)) == 'k') {
-    $memory_limit = (int)$pmaString->substr($memory_limit, 0, -1) * 1024;
-} elseif ($pmaString->strtolower($pmaString->substr($memory_limit, -1)) == 'g') {
-    $memory_limit
-        = (int)$pmaString->substr($memory_limit, 0, -1) * 1024 * 1024 * 1024;
+$memoryUnit = /*overload*/mb_strtolower(substr($memory_limit, -1));
+if ('m' == $memoryUnit) {
+    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024;
+} elseif ('k' == $memoryUnit) {
+    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024;
+} elseif ('g' == $memoryUnit) {
+    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024 * 1024;
 } else {
     $memory_limit = (int)$memory_limit;
 }
@@ -432,19 +427,14 @@ if ($import_file != 'none' && ! $error) {
     // before opening it.
 
     if (! empty($open_basedir)) {
-
-        /**
-         * @todo make use of the config's temp dir with fallback to the
-         * system's tmp dir
-         */
         $tmp_subdir = ini_get('upload_tmp_dir');
         if (empty($tmp_subdir)) {
             $tmp_subdir = sys_get_temp_dir();
         }
-
+        $tmp_subdir = rtrim($tmp_subdir, DIRECTORY_SEPARATOR);
         if (is_writable($tmp_subdir)) {
-
-            $import_file_new = $tmp_subdir . basename($import_file) . uniqid();
+            $import_file_new = $tmp_subdir . DIRECTORY_SEPARATOR
+                . basename($import_file) . uniqid();
             if (move_uploaded_file($import_file, $import_file_new)) {
                 $import_file = $import_file_new;
                 $file_to_unlink = $import_file_new;
@@ -559,7 +549,10 @@ if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_fil
         // Drizzle doesn't support other character sets,
         // so we can't fallback to SET NAMES - throw an error
         $message = PMA_Message::error(
-            __('Cannot convert file\'s character set without character set conversion library!')
+            __(
+                'Cannot convert file\'s character'
+                . ' set without character set conversion library!'
+            )
         );
         PMA_stopImport($message);
     } else {
@@ -624,11 +617,11 @@ if ($reset_charset) {
 }
 
 // Show correct message
-if (! empty($id_bookmark) && $action_bookmark == 2) {
+if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
     $message = PMA_Message::success(__('The bookmark has been deleted.'));
     $display_query = $import_text;
     $error = false; // unset error marker, it was used just to skip processing
-} elseif (! empty($id_bookmark) && $action_bookmark == 1) {
+} elseif (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 1) {
     $message = PMA_Message::notice(__('Showing bookmark'));
 } elseif ($bookmark_created) {
     $special_message = '[br]'  . sprintf(
@@ -662,11 +655,18 @@ if (! empty($id_bookmark) && $action_bookmark == 2) {
 // Did we hit timeout? Tell it user.
 if ($timeout_passed) {
     $message = PMA_Message::error(
-        __('Script timeout passed, if you want to finish import, please resubmit same file and import will resume.')
+        __(
+            'Script timeout passed, if you want to finish import,'
+            . ' please resubmit same file and import will resume.'
+        )
     );
     if ($offset == 0 || (isset($original_skip) && $original_skip == $offset)) {
         $message->addString(
-            __('However on last run no data has been parsed, this usually means phpMyAdmin won\'t be able to finish this import unless you increase php time limits.')
+            __(
+                'However on last run no data has been parsed,'
+                . ' this usually means phpMyAdmin won\'t be able to'
+                . ' finish this import unless you increase php time limits.'
+            )
         );
     }
 }
@@ -680,8 +680,8 @@ if (isset($message)) {
 // in case of a query typed in the query window
 // (but if the query is too large, in case of an imported file, the parser
 //  can choke on it so avoid parsing)
-if ($pmaString->strlen($sql_query) <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
-) {
+$sqlLength = /*overload*/mb_strlen($sql_query);
+if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
     include_once 'libraries/parse_analyze.inc.php';
 }
 
@@ -695,19 +695,36 @@ if (isset($my_die)) {
 }
 
 if ($go_sql) {
-    // parse sql query
-    include_once 'libraries/parse_analyze.inc.php';
 
     if (isset($ajax_reload) && $ajax_reload['reload'] === true) {
         $response = PMA_Response::getInstance();
         $response->addJSON('ajax_reload', $ajax_reload);
     }
-    PMA_executeQueryAndSendQueryResponse(
-        $analyzed_sql_results, false, $db, $table, null, $import_text, null,
-        $analyzed_sql_results['is_affected'], null,
-        null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,
-        null, null
-    );
+
+    if (! empty($sql_data) && ($sql_data['valid_queries'] > 1)) {
+        $_SESSION['is_multi_query'] = true;
+        $sql_queries = $sql_data['valid_sql'];
+    } else {
+        $sql_queries = array($sql_query);
+    }
+
+    $html_output = '';
+    foreach ($sql_queries as $sql_query) {
+        // parse sql query
+        include 'libraries/parse_analyze.inc.php';
+
+        $html_output .= PMA_executeQueryAndGetQueryResponse(
+            $analyzed_sql_results, false, $db, $table, null,
+            $sql_query, null, $analyzed_sql_results['is_affected'],
+            null, null, null, null, $goto, $pmaThemeImage,
+            null, null, null, $sql_query, null, null
+        );
+    }
+
+    $response = PMA_Response::getInstance();
+    $response->addHTML($html_output);
+    exit();
+
 } else if ($result) {
     // Save a Bookmark with more than one queries (if Bookmark label given).
     if (! empty($_POST['bkm_label']) && ! empty($import_text)) {

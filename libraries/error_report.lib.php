@@ -237,6 +237,19 @@ function PMA_countLines($filename)
         return $LINE_COUNT[$filename];
     }
 
+    // ensure that the file is inside the phpMyAdmin folder
+    $depath = 1;
+    foreach (explode('/', $filename) as $part) {
+        if ($part == '..') {
+            $depath--;
+        } elseif ($part != '.') {
+            $depath++;
+        }
+        if ($depath < 0) {
+            return 0;
+        }
+    }
+
     $linecount = 0;
     $handle = fopen('./js/' . $filename, 'r');
     while (!feof($handle)) {
@@ -251,7 +264,7 @@ function PMA_countLines($filename)
 }
 
 /**
- * returns the translated linenumber and the file name from the cumulative line
+ * returns the translated line number and the file name from the cumulative line
  * number and an array of files
  *
  * uses the $LINE_COUNT global array of file names and line numbers
@@ -260,7 +273,7 @@ function PMA_countLines($filename)
  * @param Integer $cumulative_number the cumulative line number in the
  *                                   concatenated files
  *
- * @return Array the filename and linenumber
+ * @return Array the filename and line number
  * Returns two variables in an array:
  * - A String $filename the filename where the requested cumulative number
  *   exists
@@ -284,21 +297,19 @@ function PMA_getLineNumber($filenames, $cumulative_number)
 }
 
 /**
- * translates the cumulative line numbers in the stactrace as well as sanitize
+ * translates the cumulative line numbers in the stack trace as well as sanitize
  * urls and trim long lines in the context
  *
- * @param Array $stack the stacktrace
+ * @param Array $stack the stack trace
  *
- * @return Array $stack the modified stacktrace
+ * @return Array $stack the modified stack trace
  */
 function PMA_translateStacktrace($stack)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     foreach ($stack as &$level) {
         foreach ($level["context"] as &$line) {
-            if ($pmaString->strlen($line) > 80) {
-                $line = $pmaString->substr($line, 0, 75) . "//...";
+            if (/*overload*/mb_strlen($line) > 80) {
+                $line = /*overload*/mb_substr($line, 0, 75) . "//...";
             }
         }
         if (preg_match("<js/get_scripts.js.php\?(.*)>", $level["url"], $matches)) {
@@ -344,7 +355,7 @@ function PMA_getErrorReportForm()
             . __('You may examine the data in the error report:')
             . '</p></label></div>'
             . '<pre class="report-data">'
-            . PMA_getPrettyReportData()
+            . htmlspecialchars(PMA_getPrettyReportData())
             . '</pre>';
 
     $html .= '<div class="label"><label><p>'

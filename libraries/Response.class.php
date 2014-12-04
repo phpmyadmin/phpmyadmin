@@ -316,12 +316,14 @@ class PMA_Response
             $this->addJSON('_scripts', $this->getHeader()->getScripts()->getFiles());
             $this->addJSON('_selflink', $this->getFooter()->getSelfUrl('unencoded'));
             $this->addJSON('_displayMessage', $this->getHeader()->getMessage());
+
+            $debug = $this->_footer->getDebugMessage();
+            if (/*overload*/mb_strlen($debug)) {
+                $this->addJSON('_debug', $debug);
+            }
+
             $errors = $this->_footer->getErrorMessages();
-
-            /** @var PMA_String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
-
-            if ($pmaString->strlen($errors)) {
+            if (/*overload*/mb_strlen($errors)) {
                 $this->addJSON('_errors', $errors);
             }
             $promptPhpErrors = $GLOBALS['error_handler']->hasErrorsForPrompt();
@@ -333,7 +335,7 @@ class PMA_Response
                 $query = '';
                 $maxChars = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
                 if (isset($GLOBALS['sql_query'])
-                    && $pmaString->strlen($GLOBALS['sql_query']) < $maxChars
+                    && /*overload*/mb_strlen($GLOBALS['sql_query']) < $maxChars
                 ) {
                     $query = $GLOBALS['sql_query'];
                 }
