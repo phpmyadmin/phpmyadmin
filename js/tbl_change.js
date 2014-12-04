@@ -621,7 +621,7 @@ AJAX.registerOnload('tbl_change.js', function () {
             while (curr_rows > target_rows) {
                 $("input[id^=insert_ignore]:last")
                 .nextUntil("fieldset")
-                .andSelf()
+                .addBack()
                 .remove();
                 curr_rows--;
             }
