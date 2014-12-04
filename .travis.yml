@@ -95,3 +95,6 @@ matrix:
   include:
     - php: 5.5
       env: PHPUNIT_ARGS="--group selenium" SELENIUM="yes"
+cache:
+  directories:
+    - $HOME/.composer/cache/
