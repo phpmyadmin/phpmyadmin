@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 php --server 127.0.0.1:8000 &
 
 mkdir -p ~/browserstack
