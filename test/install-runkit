@@ -1,13 +1,16 @@
 #!/bin/bash
 
-if [ ! -d ~/runkit/.git ] ; then
+set -e
+
+mkdir -p ~/runkit
+if [ ! -d ~/runkit/runkit/.git ] ; then
     if [ $TRAVIS_PHP_VERSION = "5.6" ] ; then
-        git clone --depth=1 git://github.com/adrianguenter/runkit.git
+        git clone --depth=1 git://github.com/adrianguenter/runkit.git ~/runkit/runkit
     else:
-        git clone --depth=1 git://github.com/zenovich/runkit.git
+        git clone --depth=1 git://github.com/zenovich/runkit.git ~/runkit/runkit
     fi
 fi
-pushd ~/runkit
+pushd ~/runkit/runkit
 git pull
 phpize
 ./configure
