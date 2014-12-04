@@ -321,7 +321,7 @@ AJAX.registerOnload('tbl_select.js', function () {
 
                             // If target field is a select list.
                             if ($target_field.is('select')) {
-                                $target_field.attr('value', final_value);
+                                $target_field.val(final_value);
                                 var $options = $target_field.find('option');
                                 var $closest_min = null;
                                 var $closest_max = null;

@@ -308,7 +308,7 @@ function applyFunctionToAllRows(currId, functionName, copySalt, salt, targetRows
             }
 
             if (copySalt) {
-                $("#salt_" + targetSelectList.attr("id")).attr("value", salt);
+                $("#salt_" + targetSelectList.attr("id")).val(salt);
             }
         } else {
             var id = targetSelectList.attr("id");

@@ -62,12 +62,10 @@ function setFieldValue(field, field_type, value)
     switch (field_type) {
     case 'text':
     case 'number':
-        //TODO: replace to .val()
-        field.attr('value', (value !== undefined ? value : field.attr('defaultValue')));
+        field.val(value !== undefined ? value : field.attr('defaultValue'));
         break;
     case 'checkbox':
-        //TODO: replace to .prop()
-        field.attr('checked', (value !== undefined ? value : field.attr('defaultChecked')));
+        field.prop('checked', (value !== undefined ? value : field.attr('defaultChecked')));
         break;
     case 'select':
         var options = field.prop('options');
