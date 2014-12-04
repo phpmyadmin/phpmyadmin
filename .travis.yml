@@ -33,6 +33,7 @@ before_script:
   - if [ -n "$SELENIUM" ] ; then ./test/install-browserstack ; fi
 
 script:
+  - ant clean
   - ant locales
   - ant lint
   - set -e;
