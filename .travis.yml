@@ -47,8 +47,6 @@ before_script:
 
     phpenv config-add test/travis.php.ini ;
 
-    wget https://scrutinizer-ci.com/ocular.phar ;
-
     fi ;
 
     if [ ! -z "$SELENIUM" ] ; then
@@ -81,7 +79,7 @@ script:
     fi
 
 after_script:
-  - if [ -f build/logs/clover.xml ] ; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml || true ; fi
+  - if [ -f build/logs/clover.xml ] ; then php vendor/bin/ocular code-coverage:upload --format=php-clover build/logs/clover.xml || true ; fi
   - if [ -f vendor/bin/coveralls ] ; then php vendor/bin/coveralls -v || true ; fi
 
 matrix:
