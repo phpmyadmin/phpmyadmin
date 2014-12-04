@@ -1,0 +1,12 @@
+#!/bin/sh
+
+php --server 127.0.0.1:8000 &
+
+mkdir browserstack
+cd browserstack
+wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip
+unzip BrowserStackLocal-linux-x64.zip
+./BrowserStackLocal -localIdentifier "travis-$TRAVIS_JOB_NUMBER" -onlyAutomate "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,8000,0
+cd ..
+
+mysql -uroot -p$TESTSUITE_PASSWORD < examples/create_tables.sql
