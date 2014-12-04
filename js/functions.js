@@ -3876,7 +3876,7 @@ AJAX.registerTeardown('functions.js', function () {
 (function ($) {
     $.fn.noSelect = function (p) { //no select plugin by Paulo P.Marinas
         var prevent = (p === null) ? true : p;
-        var is_msie = navigator.userAgent.indexOf('MSIE') > -1;
+        var is_msie = navigator.userAgent.indexOf('MSIE') > -1 || !!window.navigator.userAgent.match(/Trident.*rv\:11\./);
         var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
         var is_safari = navigator.userAgent.indexOf("Safari") > -1;
         var is_opera = navigator.userAgent.indexOf("Presto") > -1;
