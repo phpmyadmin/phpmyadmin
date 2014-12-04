@@ -20,5 +20,10 @@
     },
     "require": {
         "php": ">=5.2.0"
+    },
+    "require-dev": {
+        "satooshi/php-coveralls": ">=0.6",
+        "phpunit/phpunit": "<4.2",
+        "phpunit/phpunit-selenium": ">=1.2"
     }
 }
