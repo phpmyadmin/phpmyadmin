@@ -803,13 +803,14 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             isset($_SERVER['PHP_AUTH_PW'])
         );
 
-        $this->assertTrue(
-            isset($_COOKIE['pmaUser-1'])
-        );
+        // todo: Move to a distinct test for storeUserCredentials()
+        //$this->assertTrue(
+        //    isset($_COOKIE['pmaUser-1'])
+        //);
 
-        $this->assertTrue(
-            isset($_COOKIE['pmaPass-1'])
-        );
+        //$this->assertTrue(
+        //    isset($_COOKIE['pmaPass-1'])
+        //);
 
         $arr['password'] = 'testPW';
         $arr['host'] = 'b';
