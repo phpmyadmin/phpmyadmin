@@ -879,7 +879,7 @@ AJAX.setUrlHash = (function (jQuery, window) {
 
     // Fix favicon disappearing in Firefox when setting location.hash
     function resetFavicon() {
-        if (jQuery.browser.mozilla) {
+        if (navigator.userAgent.indexOf('Firefox') > -1) {
             // Move the link tags for the favicon to the bottom
             // of the head element to force a reload of the favicon
             $('head > link[href=favicon\\.ico]').appendTo('head');
