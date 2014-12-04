@@ -2704,20 +2704,28 @@ class PMA_Util
             . (! empty($class) ? ' class="' . htmlspecialchars($class) . '"' : '')
             . '>';
 
-        if (!empty($placeholder)) {
-            $result .= '<option value="" disabled="disabled"'
-                . ' selected="selected">' . $placeholder . '</option>';
-        }
+        $resultOptions = '';
+        $selected = false;
 
         foreach ($choices as $one_choice_value => $one_choice_label) {
-            $result .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
+            $resultOptions .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
 
-            if ($one_choice_value == $active_choice && empty($placeholder)) {
-                $result .= ' selected="selected"';
+            if ($one_choice_value == $active_choice) {
+                $resultOptions .= ' selected="selected"';
+                $selected = true;
             }
-            $result .= '>' . htmlspecialchars($one_choice_label) . '</option>';
+            $resultOptions .= '>' . htmlspecialchars($one_choice_label) . '</option>';
         }
-        $result .= '</select>';
+
+        if (!empty($placeholder)) {
+            $resultOptions = '<option value="" disabled="disabled"'
+                . ( !$selected ? ' selected="selected"' : '' )
+                . '>' . $placeholder . '</option>'
+                . $resultOptions;
+        }
+
+        $result .= $resultOptions
+            . '</select>';
 
         return $result;
     }
