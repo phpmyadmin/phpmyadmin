@@ -18,8 +18,6 @@ env:
   matrix:
     - PHPUNIT_ARGS="--exclude-group selenium"
   global:
-    - secure: "TR3s7lHkREN706g+FeNXl1S0R2fpcI1H+n8USIkl5WBd7S2/NpsZlSfkrgnC7/xRBDXzHwuYd8JQQyAZyrqPEeLqIqlKzxIcTHOiJWGeR/YO7JXsr1Slt/nFqygpIyz8yOh3QIvX6FMzPsamBlUNhRvTAkd2wXPMBpXQlhTVmX8="
-    - TESTSUITE_BROWSERSTACK_USER=phpMyAdmin
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
     - TESTSUITE_URL=http://127.0.0.1:8000
