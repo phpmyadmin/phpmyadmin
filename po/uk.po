@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-26 08:29-0500\n"
-"PO-Revision-Date: 2014-12-04 23:10+0200\n"
+"PO-Revision-Date: 2014-12-05 11:43+0200\n"
 "Last-Translator: Igor <vmta@yahoo.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
@@ -333,10 +333,9 @@ msgid "Access denied!"
 msgstr "Доступ заборонено!"
 
 #: db_tracking.php:38 db_tracking.php:63
-#, fuzzy
 #| msgid "Tracking data definition successfully deleted"
 msgid "Tracking data deleted successfully."
-msgstr "Дані відстеження визначення успішно видалені"
+msgstr "Дані відстеження успішно видалені."
 
 #: db_tracking.php:47
 #, php-format
