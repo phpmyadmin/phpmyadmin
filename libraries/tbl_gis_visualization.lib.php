@@ -229,7 +229,7 @@ function PMA_getHtmlForGisVisualization(
         $html .= PMA_getHtmlForUseOpenStreetMaps($isSelected);
     }
 
-    $html .= '<div id="pma_quick_warp" style="width: 50px; position: absolute;'
+    $html .= '<div class="pma_quick_warp" style="width: 50px; position: absolute;'
         . ' right: 0; top: 0; cursor: pointer;">';
     $html .= '<div class="drop_list">';
     $html .= '<span class="drop_button" style="padding: 0; border: 0;">';
