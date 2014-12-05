@@ -252,7 +252,7 @@ class PMA_SysInfoLinux extends PMA_SysInfo
      */
     public function supported()
     {
-        return is_readable('/proc/meminfo') && is_readable('/proc/stat');
+        return @is_readable('/proc/meminfo') && @is_readable('/proc/stat');
     }
 
 
@@ -341,7 +341,7 @@ class PMA_SysInfoSunos extends PMA_SysInfo
      */
     public function supported()
     {
-        return is_readable('/proc/meminfo');
+        return @is_readable('/proc/meminfo');
     }
 
 
