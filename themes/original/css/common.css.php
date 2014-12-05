@@ -2049,7 +2049,7 @@ fieldset .disabled-field td {
 #placeholder {
     position: relative;
     border: 1px solid #aaa;
-    float: right;
+    float: <?php echo $right; ?>;
     overflow: hidden;
 }
 

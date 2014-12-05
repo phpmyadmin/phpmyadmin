@@ -91,18 +91,18 @@ class PMA_TblGisVisualizaionTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getHtmlForColumn() method.
+     * Tests for PMA_getHtmlForSelect() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetHtmlForColumn()
+    public function testPMAGetHtmlForSelect()
     {
         $column = 0;
         $columnCandidates = array("option1", "option2");
         $visualizationSettings = array("option2", "option3");
 
-        $html = PMA_getHtmlForColumn(
+        $html = PMA_getHtmlForSelect(
             $column, $columnCandidates, $visualizationSettings
         );
 
@@ -164,7 +164,7 @@ class PMA_TblGisVisualizaionTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $output = PMA_getHtmlForColumn(
+        $output = PMA_getHtmlForSelect(
             "labelColumn", $labelCandidates, $visualizationSettings
         );
         $this->assertContains(
@@ -172,21 +172,11 @@ class PMA_TblGisVisualizaionTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $output = PMA_getHtmlForColumn(
+        $output = PMA_getHtmlForSelect(
             "spatialColumn", $spatialCandidates, $visualizationSettings
         );
         $this->assertContains(
             $output,
-            $html
-        );
-
-        $this->assertContains(
-            __('Redraw'),
-            $html
-        );
-
-        $this->assertContains(
-            __('Download'),
             $html
         );
 
@@ -196,12 +186,12 @@ class PMA_TblGisVisualizaionTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<option value="png">PNG</option>',
+            '>PNG</a>',
             $html
         );
 
         $this->assertContains(
-            '<option value="pdf">PDF</option>',
+            '>PDF</a>',
             $html
         );
 

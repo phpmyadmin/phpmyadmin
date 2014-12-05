@@ -200,7 +200,7 @@ AJAX.registerTeardown('tbl_gis_visualization.js', function () {
 AJAX.registerOnload('tbl_gis_visualization.js', function () {
 
     // If we are in GIS visualization, initialize it
-    if ($('table.gis_table').length > 0) {
+    if ($('#gis_div').length > 0) {
         initGISVisualization();
     }
 
