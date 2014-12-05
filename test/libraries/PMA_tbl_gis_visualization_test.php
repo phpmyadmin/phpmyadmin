@@ -98,16 +98,16 @@ class PMA_TblGisVisualizaionTest extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetHtmlForSelect()
     {
-        $column = 0;
-        $columnCandidates = array("option1", "option2");
-        $visualizationSettings = array("option2", "option3");
+        $column = "labelColumn";
+        $columnCandidates = array("option1", "option2", "option3");
+        $visualizationSettings = array("labelColumn" => "option3", "height" => "10");
 
         $html = PMA_getHtmlForSelect(
             $column, $columnCandidates, $visualizationSettings
         );
 
         $this->assertContains(
-            '<tr><td><label for="labelColumn">',
+            '<label for="' . $column . '">',
             $html
         );
 
