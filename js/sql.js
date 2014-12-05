@@ -335,6 +335,13 @@ AJAX.registerOnload('sql.js', function () {
                 }
                 PMA_highlightSQL($('#result_query'));
 
+                if (data._menu) {
+                    AJAX.cache.menus.replace(data._menu);
+                    AJAX.cache.menus.add(data._menuHash, data._menu);
+                } else if (data._menuHash) {
+                    AJAX.cache.menus.replace(AJAX.cache.menus.get(data._menuHash));
+                }
+
                 if (typeof data.ajax_reload != 'undefined') {
                     if (data.ajax_reload.reload) {
                         if (data.ajax_reload.table_name) {
