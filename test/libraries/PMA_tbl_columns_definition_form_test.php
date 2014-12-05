@@ -56,11 +56,12 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
         $_REQUEST['field_where'] = "fwhere";
 
         $result = PMA_getFormsParameters(
-            "dbname", "tablename", "tbl_create.php", 22, array(12, 13)
+            "servername", "dbname", "tablename", "tbl_create.php", 22, array(12, 13)
         );
 
         $this->assertEquals(
             array(
+                'server' => 'servername',
                 'db' => 'dbname',
                 'reload' => 1,
                 'orig_num_fields' => 22,
@@ -74,11 +75,12 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         // case 2
         $result = PMA_getFormsParameters(
-            "dbname", "tablename", "tbl_addfield.php", null, 1
+            "servername", "dbname", "tablename", "tbl_addfield.php", null, 1
         );
 
         $this->assertEquals(
             array(
+                'server' => 'servername',
                 'db' => 'dbname',
                 'table' => 'tablename',
                 'orig_field_where' => 'fwhere',
@@ -94,11 +96,12 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
         $_REQUEST['field_where'] = null;
 
         $result = PMA_getFormsParameters(
-            "dbname", "tablename", null, 0, null
+            "servername", "dbname", "tablename", null, 0, null
         );
 
         $this->assertEquals(
             array(
+                'server' => 'servername',
                 'db' => 'dbname',
                 'table' => 'tablename',
                 'orig_num_fields' => 0
@@ -239,9 +242,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<input type="submit" name="submit_num_fields"value="Go" onclick='
-                . '"return checkFormElementInRange(this.form, \'added_fields\', '
-                . '\'You have to add at least one column.\', 1)"'
+                '<input type="button" name="submit_num_fields"value="Go"'
             ),
             $result
         );
@@ -361,7 +362,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['cfg']['BrowseMIME'] = true;
         $GLOBALS['cfg']['ShowHint'] = false;
-        $result = PMA_getHeaderCells(false, true, true, 'db', 'table');
+        $result = PMA_getHeaderCells(false, array(), true, 'db', 'table');
 
         $this->assertContains(
             'Index',
@@ -616,10 +617,11 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
      */
     public function testGetHtmlForColumnName()
     {
+        $cfgRelation = array('central_columnswork' => true);
         $result = PMA_getHtmlForColumnName(
             2, 4, 4, array('Field' => "fieldname",
             'column_status' => array('isReferenced' => false,
-            'isForeignKey' => false, 'isEditable' => true))
+            'isForeignKey' => false, 'isEditable' => true)), $cfgRelation
         );
 
         $this->assertTag(
@@ -678,7 +680,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
         );
 
         $result = PMA_getHtmlForTransformationOption(
-            2, 4, 4, $cmeta, $mime
+            2, 4, 4, $cmeta, $mime, ''
         );
 
         $this->assertTag(
@@ -691,11 +693,11 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForBrowserTransformation
+     * Test for PMA_getHtmlForTransformation
      *
      * @return void
      */
-    public function testGetHtmlForBrowserTransformation()
+    public function testGetHtmlForTransformation()
     {
         $cmeta = array(
             'Field' => 'fieldname'
@@ -716,8 +718,8 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
                 'foo' => 'Text_Plain_Preappend.class.php'
             )
         );
-        $result = PMA_getHtmlForBrowserTransformation(
-            2, 0, 0, $avail_mime, $cmeta, $mime
+        $result = PMA_getHtmlForTransformation(
+            2, 0, 0, $avail_mime, $cmeta, $mime, ''
         );
 
         $this->assertTag(
@@ -986,7 +988,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['PMA_Types'] = $types;
         $result = PMA_getHtmlForColumnAttribute(
-            2, 3, 1, $colspec, $cmeta, true, $analyzed_sql, true
+            2, 3, 1, $colspec, $cmeta, true, $analyzed_sql
         );
 
         $this->assertTag(

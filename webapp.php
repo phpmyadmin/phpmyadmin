@@ -31,7 +31,7 @@ $parameters = array(
     'icon'      => 'phpMyAdmin',
 );
 
-// dom sript file
+// dom script file
 // none need yet
 
 // icon

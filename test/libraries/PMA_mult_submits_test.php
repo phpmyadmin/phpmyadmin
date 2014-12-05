@@ -50,6 +50,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ShowSQL'] = true;
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
         $GLOBALS['pmaThemeImage'] = 'image';
@@ -64,9 +65,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
             'commwork' => 'commwork',
             'displaywork' => 'displaywork',
             'pdfwork' => 'pdfwork',
-            'designerwork' => 'designerwork',
             'column_info' => 'column_info',
-            'designer_coords' => 'designer_coords',
             'relation' => 'relation',
             'relwork' => 'relwork',
         );
@@ -269,7 +268,6 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetQueryStrFromSelected()
     {
         $query_type = 'row_delete';
-        $action = 'db_delete_row';
         $db = "PMA_db";
         $table = "PMA_table";
         $selected = array(
@@ -353,7 +351,9 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         );
         $action = 'db_delete_row';
 
-        list($what, $query_type, $is_unset_submit_mult, $mult_btn)
+        list(
+            $what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError
+        )
             = PMA_getDataForSubmitMult(
                 $submit_mult, $db, $table, $selected, $action
             );
@@ -382,9 +382,17 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
             $mult_btn
         );
 
+        //validate 5: $centralColsError
+        $this->assertEquals(
+            null,
+            $centralColsError
+        );
+
         $submit_mult = "unique";
 
-        list($what, $query_type, $is_unset_submit_mult, $mult_btn)
+        list(
+            $what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError
+        )
             = PMA_getDataForSubmitMult(
                 $submit_mult, $db, $table, $selected, $action
             );
@@ -412,6 +420,12 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
             __('Yes'),
             $mult_btn
         );
+
+        //validate 5: $centralColsError
+        $this->assertEquals(
+            null,
+            $centralColsError
+        );
     }
 
     /**
@@ -427,14 +441,13 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $selected = array(
             "table1", "table2"
         );
-        $action = 'db_delete_row';
         $views = array(
             "table1", "table2"
         );
 
         list($full_query, $reload, $full_query_views)
             = PMA_getQueryFromSelected(
-                $what, $db, $table, $selected, $action, $views
+                $what, $db, $table, $selected, $views
             );
 
         //validate 1: $full_query
@@ -459,7 +472,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
 
         list($full_query, $reload, $full_query_views)
             = PMA_getQueryFromSelected(
-                $what, $db, $table, $selected, $action, $views
+                $what, $db, $table, $selected, $views
             );
 
         //validate 1: $full_query

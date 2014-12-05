@@ -81,6 +81,18 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetSearchSqls()
     {
+        //mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->any())
+            ->method('getColumns')
+            ->with('pma', 'table1')
+            ->will($this->returnValue(array()));
+
+        $GLOBALS['dbi'] = $dbi;
+
         $this->assertEquals(
             array (
                 'select_columns' => 'SELECT *  FROM `pma`.`table1` WHERE FALSE',
@@ -159,7 +171,7 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
                 . 'sql_query=column1&amp;server=0&amp;lang=en&amp;token=token" '
                 . 'onclick="loadResult(\'sql.php?db=pma&amp;table=table1&amp;goto='
                 . 'db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column1'
-                . '&amp;server=0&amp;lang=en&amp;token=token\',\'table1\',\'db=pma'
+                . '&amp;server=0&amp;lang=en&amp;token=token\',\'table1\',\'?db=pma'
                 . '&amp;table=table1&amp;server=0&amp;lang=en&amp;token=token\');'
                 . 'return false;" >Browse</a></td><td>'
                 . '<a name="delete_search" class="ajax" href'
@@ -183,7 +195,6 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
     {
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
-        $url_params = array('param1', 'param2');
         $this->assertEquals(
             '<a id="db_search"></a><form id="db_search_form" class="ajax" '
             . 'method="post" action="db_search.php" name="db_search"><input type'
@@ -229,7 +240,7 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
             . 'type="submit" name="submit_search" value="Go" id="buttonGo" />'
             . '</fieldset></form><div id="togglesearchformdiv">'
             . '<a id="togglesearchformlink"></a></div>',
-            $this->object->getSelectionForm($url_params)
+            $this->object->getSelectionForm()
         );
     }
 

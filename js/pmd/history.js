@@ -28,7 +28,7 @@ function panel(index)
 }
 
 /**
- * To display details of obects(where,rename,Having,aggregate,groupby,orderby,having)
+ * To display details of objects(where,rename,Having,aggregate,groupby,orderby,having)
  *
  * @param index index of history_array where change is to be made
  *
@@ -183,8 +183,9 @@ function history_edit(index)
         document.getElementById('query_where').style.left =  '530px';
         document.getElementById('query_where').style.top  = '130px';
         document.getElementById('query_where').style.position  = 'absolute';
-        document.getElementById('query_where').style.zIndex = '9';
+        document.getElementById('query_where').style.zIndex = '103';
         document.getElementById('query_where').style.visibility = 'visible';
+        document.getElementById('query_where').style.display = 'block';
     }
     if (type == "Having") {
         document.getElementById('hQuery').value = history_array[index].get_obj().getquery();
@@ -193,22 +194,25 @@ function history_edit(index)
         document.getElementById('query_having').style.left =  '530px';
         document.getElementById('query_having').style.top  = '130px';
         document.getElementById('query_having').style.position  = 'absolute';
-        document.getElementById('query_having').style.zIndex = '9';
+        document.getElementById('query_having').style.zIndex = '103';
         document.getElementById('query_having').style.visibility = 'visible';
+        document.getElementById('query_having').style.display = 'block';
     }
     if (type == "Rename") {
         document.getElementById('query_rename_to').style.left =  '530px';
         document.getElementById('query_rename_to').style.top  = '130px';
         document.getElementById('query_rename_to').style.position  = 'absolute';
-        document.getElementById('query_rename_to').style.zIndex = '9';
+        document.getElementById('query_rename_to').style.zIndex = '103';
         document.getElementById('query_rename_to').style.visibility = 'visible';
+        document.getElementById('query_rename_to').style.display = 'block';
     }
     if (type == "Aggregate") {
         document.getElementById('query_Aggregate').style.left = '530px';
         document.getElementById('query_Aggregate').style.top  = '130px';
         document.getElementById('query_Aggregate').style.position  = 'absolute';
-        document.getElementById('query_Aggregate').style.zIndex = '9';
+        document.getElementById('query_Aggregate').style.zIndex = '103';
         document.getElementById('query_Aggregate').style.visibility = 'visible';
+        document.getElementById('query_Aggregate').style.display = 'block';
     }
 }
 
@@ -355,7 +359,7 @@ var where = function (nrelation_operator, nquery) {
  *
  * @param nrelation_operator type of relation operator to be applied
  * @param nquery             stores value of value/sub-query
- *
+ * @param noperator          operator
 **/
 
 var having = function (nrelation_operator, nquery, noperator) {
@@ -424,7 +428,7 @@ var aggregate = function (noperator) {
 /**
  * This function returns unique element from an array
  *
- * @param arraName array from which duplicate elem are to be removed.
+ * @param arrayName array from which duplicate elem are to be removed.
  * @return unique array
  */
 
@@ -465,7 +469,7 @@ function found(arrayName, value)
  * This function concatenates two array
  *
  * @params add array elements of which are pushed in
- * @params arr array in which elemnets are added
+ * @params arr array in which elements are added
  */
 function add_array(add, arr)
 {
@@ -475,7 +479,7 @@ function add_array(add, arr)
     return arr;
 }
 
-/* This fucntion removes all elements present in one array from the other.
+/* This function removes all elements present in one array from the other.
  *
  * @params rem array from which each element is removed from other array.
  * @params arr array from which elements are removed.
@@ -625,7 +629,6 @@ function gradient(id, level)
     box.style.KhtmlOpacity = level;
     box.style.filter = "alpha(opacity=" + level * 100 + ")";
     box.style.display = "block";
-    return;
 }
 
 
@@ -785,3 +788,25 @@ function closebox()
     document.getElementById('box').style.display = 'none';
     document.getElementById('filter').style.display = 'none';
 }
+
+AJAX.registerTeardown('pmd/history.js', function () {
+    $("#ok_edit_rename").unbind('click');
+    $("#ok_edit_having").unbind('click');
+    $("#ok_edit_Aggr").unbind('click');
+    $("#ok_edit_where").unbind('click');
+});
+
+AJAX.registerOnload('pmd/history.js', function () {
+    $("#ok_edit_rename").click(function() {
+        edit('Rename');
+    });
+    $("#ok_edit_having").click(function() {
+        edit('Having');
+    });
+    $("#ok_edit_Aggr").click(function() {
+        edit('Aggregate');
+    });
+    $("#ok_edit_where").click(function() {
+        edit('Where');
+    });
+});

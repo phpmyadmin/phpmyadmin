@@ -23,7 +23,11 @@ PMA_Util::checkParameters(array('db', 'table'));
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'tbl_sql.php?' . PMA_URL_getCommon($db, $table);
+$err_url = 'tbl_sql.php' . PMA_URL_getCommon(
+    array(
+        'db' => $db, 'table' => $table
+    )
+);
 
 /**
  * The form used to define the field to add has been submitted
@@ -64,16 +68,20 @@ if (isset($_REQUEST['do_save_data'])) {
             && is_array($_REQUEST['field_mimetype'])
             && $cfg['BrowseMIME']
         ) {
+            /** @var PMA_String $pmaString */
+            $pmaString = $GLOBALS['PMA_String'];
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
-                    && strlen($_REQUEST['field_name'][$fieldindex])
+                    && /*overload*/mb_strlen($_REQUEST['field_name'][$fieldindex])
                 ) {
                     PMA_setMIME(
                         $db, $table,
                         $_REQUEST['field_name'][$fieldindex],
                         $mimetype,
                         $_REQUEST['field_transformation'][$fieldindex],
-                        $_REQUEST['field_transformation_options'][$fieldindex]
+                        $_REQUEST['field_transformation_options'][$fieldindex],
+                        $_REQUEST['field_input_transformation'][$fieldindex],
+                        $_REQUEST['field_input_transformation_options'][$fieldindex]
                     );
                 }
             }
@@ -91,8 +99,9 @@ if (isset($_REQUEST['do_save_data'])) {
         );
         exit;
     } else {
-        $error_message_html = PMA_Util::mysqlDie('', '', '', $err_url, false);
+        $error_message_html = PMA_Util::mysqlDie('', '', false, $err_url, false);
         $response->addHTML($error_message_html);
+        $response->isSuccess(false);
         exit;
     }
 } // end do alter table

@@ -58,7 +58,6 @@ if (!defined('TESTSUITE')) {
             'remember_template',
             'charset_of_file',
             'compression',
-            'what',
             'knjenc',
             'xkana',
             'htmlword_structure_or_data',
@@ -148,7 +147,8 @@ if (!defined('TESTSUITE')) {
             'latex_data_caption',
             'latex_data_continued_caption',
             'latex_data_label',
-            'latex_null'
+            'latex_null',
+            'aliases'
     );
 
     foreach ($post_params as $one_post_param) {
@@ -157,8 +157,9 @@ if (!defined('TESTSUITE')) {
         }
     }
 
+    $table = $GLOBALS['table'];
     // sanitize this parameter which will be used below in a file inclusion
-    $what = PMA_securePath($what);
+    $what = PMA_securePath($_POST['what']);
 
     PMA_Util::checkParameters(array('what', 'export_type'));
 
@@ -181,6 +182,11 @@ if (!defined('TESTSUITE')) {
         PMA_fatalError(__('Bad type!'));
     }
 
+    // Avoid warning from PHP Analyzer
+    if (is_null($export_plugin)) {
+        $export_plugin = new stdClass();
+    }
+
     /**
      * valid compression methods
      */
@@ -196,6 +202,11 @@ if (!defined('TESTSUITE')) {
     $onserver = false;
     $save_on_server = false;
     $buffer_needed = false;
+    $back_button = '';
+    $save_filename = '';
+    $file_handle = '';
+    $err_url = '';
+    $filename = '';
 
     // Is it a quick or custom export?
     if ($_REQUEST['quick_or_custom'] == 'quick') {
@@ -226,20 +237,43 @@ if (!defined('TESTSUITE')) {
     }
 
     // Generate error url and check for needed variables
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
     if ($export_type == 'server') {
-        $err_url = 'server_export.php?' . PMA_URL_getCommon();
-    } elseif ($export_type == 'database' && strlen($db)) {
-        $err_url = 'db_export.php?' . PMA_URL_getCommon($db);
+        $err_url = 'server_export.php' . PMA_URL_getCommon();
+    } elseif ($export_type == 'database'
+        && /*overload*/mb_strlen($db)
+    ) {
+        $err_url = 'db_export.php' . PMA_URL_getCommon(array('db' => $db));
         // Check if we have something to export
         if (isset($table_select)) {
             $tables = $table_select;
         } else {
             $tables = array();
         }
-    } elseif ($export_type == 'table' && strlen($db) && strlen($table)) {
-        $err_url = 'tbl_export.php?' . PMA_URL_getCommon($db, $table);
+    } elseif ($export_type == 'table' && /*overload*/mb_strlen($db)
+        && /*overload*/mb_strlen($table)
+    ) {
+        $err_url = 'tbl_export.php' . PMA_URL_getCommon(
+            array(
+                'db' => $db, 'table' => $table
+            )
+        );
     } else {
         PMA_fatalError(__('Bad parameters!'));
+    }
+
+    // Merge SQL Query aliases with Export aliases from
+    // export page, Export page aliases are given more
+    // preference over SQL Query aliases.
+    if (!empty($_REQUEST['aliases'])) {
+        $aliases = PMA_mergeAliases(
+            PMA_SQP_getAliasesFromQuery($sql_query, $db),
+            $_REQUEST['aliases']
+        );
+        $_SESSION['tmpval']['aliases'] = $_REQUEST['aliases'];
+    } else {
+        $aliases = PMA_SQP_getAliasesFromQuery($sql_query, $db);
     }
 
     /**
@@ -256,11 +290,9 @@ if (!defined('TESTSUITE')) {
 
     // We send fake headers to avoid browser timeout when buffering
     $time_start = time();
-}
 
-// Defines the default <CR><LF> format.
-// For SQL always use \n as MySQL wants this on all platforms.
-if (!defined('TESTSUITE')) {
+    // Defines the default <CR><LF> format.
+    // For SQL always use \n as MySQL wants this on all platforms.
     if ($what == 'sql') {
         $crlf = "\n";
     } else {
@@ -302,25 +334,13 @@ if (!defined('TESTSUITE')) {
 
         // problem opening export file on server?
         if (! empty($message)) {
-            if ($export_type == 'server') {
-                $active_page = 'server_export.php';
-                include 'server_export.php';
-            } elseif ($export_type == 'database') {
-                $active_page = 'db_export.php';
-                include 'db_export.php';
-            } else {
-                $active_page = 'tbl_export.php';
-                include 'tbl_export.php';
-            }
-            exit();
+            PMA_showExportPage($db, $table, $export_type);
         }
-    }
-
-    /**
-     * Send headers depending on whether the user chose to download a dump file
-     * or not
-     */
-    if (! $save_on_server) {
+    } else {
+        /**
+         * Send headers depending on whether the user chose to download a dump file
+         * or not
+         */
         if ($asfile) {
             // Download
             // (avoid rewriting data containing HTML with anchors and forms;
@@ -385,12 +405,14 @@ if (!defined('TESTSUITE')) {
             }
             PMA_exportServer(
                 $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-                $export_type, $do_relation, $do_comments, $do_mime, $do_dates
+                $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
+                $aliases
             );
         } elseif ($export_type == 'database') {
             PMA_exportDatabase(
                 $db, $tables, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-                $export_type, $do_relation, $do_comments, $do_mime, $do_dates
+                $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
+                $aliases
             );
         } else {
             // We export just one table
@@ -407,7 +429,7 @@ if (!defined('TESTSUITE')) {
             PMA_exportTable(
                 $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
                 $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                $allrows, $limit_to, $limit_from, $sql_query
+                $allrows, $limit_to, $limit_from, $sql_query, $aliases
             );
         }
         if (! $export_plugin->exportFooter()) {
@@ -418,17 +440,7 @@ if (!defined('TESTSUITE')) {
     // End of fake loop
 
     if ($save_on_server && ! empty($message)) {
-        if ($export_type == 'server') {
-            $active_page = 'server_export.php';
-            include 'server_export.php';
-        } elseif ($export_type == 'database') {
-            $active_page = 'db_export.php';
-            include 'db_export.php';
-        } else {
-            $active_page = 'tbl_export.php';
-            include 'tbl_export.php';
-        }
-        exit();
+        PMA_showExportPage($db, $table, $export_type);
     }
 
     /**
@@ -455,17 +467,7 @@ if (!defined('TESTSUITE')) {
             $message = PMA_closeExportFile(
                 $file_handle, $dump_buffer, $save_filename
             );
-            if ($export_type == 'server') {
-                $active_page = 'server_export.php';
-                include_once 'server_export.php';
-            } elseif ($export_type == 'database') {
-                $active_page = 'db_export.php';
-                include_once 'db_export.php';
-            } else {
-                $active_page = 'tbl_export.php';
-                include_once 'tbl_export.php';
-            }
-            exit();
+            PMA_showExportPage($db, $table, $export_type);
         } else {
             echo $dump_buffer;
         }

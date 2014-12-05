@@ -105,6 +105,7 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
      *
      * @group large
      */
+    /*
     public function testGetLatestVersion()
     {
         $GLOBALS['cfg']['ProxyUrl'] = '';
@@ -113,7 +114,7 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
         $this->assertNotEmpty($version->version);
         $this->assertNotEmpty($version->date);
     }
-
+    */
     /**
      * Test version to int conversion.
      *

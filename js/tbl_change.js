@@ -20,7 +20,7 @@
  */
 function nullify(theType, urlField, md5Field, multi_edit)
 {
-    var rowForm = document.forms['insertForm'];
+    var rowForm = document.forms.insertForm;
 
     if (typeof(rowForm.elements['funcs' + multi_edit + '[' + md5Field + ']']) != 'undefined') {
         rowForm.elements['funcs' + multi_edit + '[' + md5Field + ']'].selectedIndex = -1;
@@ -151,19 +151,37 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
 {
     var evt = window.event || arguments.callee.caller.arguments[0];
     var target = evt.target || evt.srcElement;
+    var $this_input = $("input[name='fields[multi_edit][" + multi_edit + "][" +
+        urlField + "]']");
+    // check if it is textarea rather than input
+    if ($this_input.length === 0) {
+        $this_input = $("textarea[name='fields[multi_edit][" + multi_edit + "][" +
+            urlField + "]']");
+    }
 
     //To generate the textbox that can take the salt
     var new_salt_box = "<br><input type=text name=salt[multi_edit][" + multi_edit + "][" + urlField + "]" +
         " id=salt_" + target.id + " placeholder='" + PMA_messages.strEncryptionKey + "'>";
 
     //If AES_ENCRYPT is Selected then append the new textbox for salt
-    if (target.value == "AES_DECRYPT" || target.value == "AES_ENCRYPT") {
+    if (target.value === 'AES_DECRYPT' || target.value === 'AES_ENCRYPT') {
         if (!($("#salt_" + target.id).length)) {
-            $("#" + target.id).parent().next("td").next("td").find("input[name*='fields']").after(new_salt_box);
+            $this_input.after(new_salt_box);
         }
-
+        if ($this_input.data('type') !== 'HEX') {
+            $('#' + target.id).addClass('invalid_value');
+            return false;
+        }
+    } else if(target.value === 'MD5' &&
+        typeof $this_input.data('maxlength') !== 'undefined' &&
+        $this_input.data('maxlength') < 32
+    ){
+        $('#' + target.id).addClass('invalid_value');
+        return false;
     } else {
+        $('#' + target.id).removeClass('invalid_value');
         //The value of the select is no longer AES_ENCRYPT, remove the textbox for salt
+        $('#salt_' + target.id).prev('br').remove();
         $("#salt_" + target.id).remove();
     }
 
@@ -172,7 +190,6 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
 
     // Unchecks the Ignore checkbox for the current row
     $("input[name='insert_ignore_" + multi_edit + "']").prop('checked', false);
-    var $this_input = $("input[name='fields[multi_edit][" + multi_edit + "][" + urlField + "]']");
 
     // Does this field come from datepicker?
     if ($this_input.data('comes_from') == 'datepicker') {
@@ -220,17 +237,87 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
                 }
             }
         }
-        //validate for integer type
-        if (theType.substring(0, 3) == "int") {
+        //validation for integer type
+        if ($this_input.data('type') === 'INT') {
+            var min = $this_input.attr('min');
+            var max = $this_input.attr('max');
+            var value = $this_input.val();
             $this_input.removeClass("invalid_value");
-            if (isNaN($this_input.val())) {
+            if (isNaN(value) || BigInts.compare(value, min) < 0 ||
+                BigInts.compare(value, max) > 0
+            ) {
+                $this_input.addClass("invalid_value");
+                return false;
+            }
+            //validation for CHAR types
+        } else if ($this_input.data('type') === 'CHAR') {
+            var len = $this_input.val().length;
+            var maxlen = $this_input.data('maxlength');
+            $this_input.removeClass("invalid_value");
+            if (typeof maxlen !== 'undefined' && len > maxlen) {
+                $this_input.addClass("invalid_value");
+                return false;
+            }
+            // validate binary & blob types
+        } else if ($this_input.data('type') === 'HEX') {
+            $this_input.removeClass("invalid_value");
+            if ($this_input.val().match(/^[a-f0-9]*$/i) === null) {
                 $this_input.addClass("invalid_value");
                 return false;
             }
         }
     }
 }
- /* End of datetime validation*/
+ /* End of fields validation*/
+
+/**
+ * Applies the selected function to all rows to be inserted.
+ *
+ * @param  string currId       Current ID of the row
+ * @param  string functionName Name of the function
+ * @param  bool   copySalt     Whether to copy salt or not
+ * @param  string salt         Salt value
+ * @param  object targetRows   Target rows
+ *
+ * @return void
+ */
+function applyFunctionToAllRows(currId, functionName, copySalt, salt, targetRows)
+{
+    targetRows.each(function () {
+        var currentRowNum = /\d/.exec($(this).find("input[name*='fields_name']").attr("name"));
+
+        // Append the function select list.
+        var targetSelectList = $(this).find("select[name*='funcs[multi_edit]']");
+
+        if (targetSelectList.attr("id") === currId) {
+            return;
+        }
+        targetSelectList.find("option").filter(function () {
+            return $(this).text() === functionName;
+        }).attr("selected","selected");
+
+        // Handle salt field.
+        if (functionName === 'AES_ENCRYPT' || functionName === 'AES_DECRYPT') {
+            if ($("#salt_" + targetSelectList.attr("id")).length === 0) {
+                // Get hash value.
+                var hashed_value = targetSelectList.attr("name").match(/\[multi\_edit\]\[\d\]\[(.*)\]/);
+                //To generate the textbox that can take the salt
+                var new_salt_box = "<br><input type=text name=salt[multi_edit][" + currentRowNum + "][" + hashed_value[1] + "]" +
+                    " id=salt_" + targetSelectList.attr("id") + " placeholder='" + PMA_messages.strEncryptionKey + "'>";
+                targetSelectList.parent().next("td").next("td").find("input[name*='fields']").after(new_salt_box);
+            }
+
+            if (copySalt) {
+                $("#salt_" + targetSelectList.attr("id")).attr("value", salt);
+            }
+        } else {
+            var id = targetSelectList.attr("id");
+            if ($("#salt_" + id).length) {
+                $("#salt_" + id).remove();
+            }
+        }
+    });
+}
 
 
 /**
@@ -303,7 +390,6 @@ AJAX.registerOnload('tbl_change.js', function () {
         );
     });
 
-
     /**
      * Reset the auto_increment column to 0 when selecting any of the
      * insert options in submit_type-dropdown. Only perform the reset
@@ -359,6 +445,109 @@ AJAX.registerOnload('tbl_change.js', function () {
         });
 
         if (curr_rows < target_rows) {
+
+            var tempIncrementIndex = function () {
+
+                var $this_element = $(this);
+                /**
+                 * Extract the index from the name attribute for all input/select fields and increment it
+                 * name is of format funcs[multi_edit][10][<long random string of alphanum chars>]
+                 */
+
+                /**
+                 * @var this_name   String containing name of the input/select elements
+                 */
+                var this_name = $this_element.attr('name');
+                /** split {@link this_name} at [10], so we have the parts that can be concatenated later */
+                var name_parts = this_name.split(/\[\d+\]/);
+                /** extract the [10] from  {@link name_parts} */
+                var old_row_index_string = this_name.match(/\[\d+\]/)[0];
+                /** extract 10 - had to split into two steps to accomodate double digits */
+                var old_row_index = parseInt(old_row_index_string.match(/\d+/)[0], 10);
+
+                /** calculate next index i.e. 11 */
+                new_row_index = old_row_index + 1;
+                /** generate the new name i.e. funcs[multi_edit][11][foobarbaz] */
+                var new_name = name_parts[0] + '[' + new_row_index + ']' + name_parts[1];
+
+                var hashed_field = name_parts[1].match(/\[(.+)\]/)[1];
+                $this_element.attr('name', new_name);
+
+                /** If element is select[name*='funcs'], update id */
+                if ($this_element.is("select[name*='funcs']")) {
+                    var this_id = $this_element.attr("id");
+                    var id_parts = this_id.split(/\_/);
+                    var old_id_index = id_parts[1];
+                    var prevSelectedValue = $("#field_" + old_id_index + "_1").val();
+                    var new_id_index = parseInt(old_id_index) + columnCount;
+                    var new_id = 'field_' + new_id_index + '_1';
+                    $this_element.attr('id', new_id);
+                    $this_element.find("option").filter(function () {
+                        return $(this).text() === prevSelectedValue;
+                    }).attr("selected","selected");
+
+                    // If salt field is there then update its id.
+                    var nextSaltInput = $this_element.parent().next("td").next("td").find("input[name*='salt']");
+                    if (nextSaltInput.length !== 0) {
+                        nextSaltInput.attr("id", "salt_" + new_id);
+                    }
+                }
+
+                // handle input text fields and textareas
+                if ($this_element.is('.textfield') || $this_element.is('.char')) {
+                    // do not remove the 'value' attribute for ENUM columns
+                    if ($this_element.closest('tr').find('span.column_type').html() != 'enum') {
+                        $this_element.val($this_element.closest('tr').find('span.default_value').html());
+                    }
+                    $this_element
+                        .unbind('change')
+                        // Remove onchange attribute that was placed
+                        // by tbl_change.php; it refers to the wrong row index
+                        .attr('onchange', null)
+                        // Keep these values to be used when the element
+                        // will change
+                        .data('hashed_field', hashed_field)
+                        .data('new_row_index', new_row_index)
+                        .bind('change', function (e) {
+                            var $changed_element = $(this);
+                            verificationsAfterFieldChange(
+                                $changed_element.data('hashed_field'),
+                                $changed_element.data('new_row_index'),
+                                $changed_element.closest('tr').find('span.column_type').html()
+                            );
+                        });
+                }
+
+                if ($this_element.is('.checkbox_null')) {
+                    $this_element
+                        // this event was bound earlier by jQuery but
+                        // to the original row, not the cloned one, so unbind()
+                        .unbind('click')
+                        // Keep these values to be used when the element
+                        // will be clicked
+                        .data('hashed_field', hashed_field)
+                        .data('new_row_index', new_row_index)
+                        .bind('click', function (e) {
+                            var $changed_element = $(this);
+                            nullify(
+                                $changed_element.siblings('.nullify_code').val(),
+                                $this_element.closest('tr').find('input:hidden').first().val(),
+                                $changed_element.data('hashed_field'),
+                                '[multi_edit][' + $changed_element.data('new_row_index') + ']'
+                            );
+                        });
+                }
+            };
+
+            var tempReplaceAnchor = function () {
+                var $anchor = $(this);
+                var new_value = 'rownumber=' + new_row_index;
+                // needs improvement in case something else inside
+                // the href contains this pattern
+                var new_href = $anchor.attr('href').replace(/rownumber=\d+/, new_value);
+                $anchor.attr('href', new_href);
+            };
+
             while (curr_rows < target_rows) {
 
                 /**
@@ -376,108 +565,10 @@ AJAX.registerOnload('tbl_change.js', function () {
                 .clone(true, true)
                 .insertBefore("#actions_panel")
                 .find('input[name*=multi_edit],select[name*=multi_edit],textarea[name*=multi_edit]')
-                .each(function () {
-
-                    var $this_element = $(this);
-                    /**
-                     * Extract the index from the name attribute for all input/select fields and increment it
-                     * name is of format funcs[multi_edit][10][<long random string of alphanum chars>]
-                     */
-
-                    /**
-                     * @var this_name   String containing name of the input/select elements
-                     */
-                    var this_name = $this_element.attr('name');
-                    /** split {@link this_name} at [10], so we have the parts that can be concatenated later */
-                    var name_parts = this_name.split(/\[\d+\]/);
-                    /** extract the [10] from  {@link name_parts} */
-                    var old_row_index_string = this_name.match(/\[\d+\]/)[0];
-                    /** extract 10 - had to split into two steps to accomodate double digits */
-                    var old_row_index = parseInt(old_row_index_string.match(/\d+/)[0], 10);
-
-                    /** calculate next index i.e. 11 */
-                    new_row_index = old_row_index + 1;
-                    /** generate the new name i.e. funcs[multi_edit][11][foobarbaz] */
-                    var new_name = name_parts[0] + '[' + new_row_index + ']' + name_parts[1];
-
-                    var hashed_field = name_parts[1].match(/\[(.+)\]/)[1];
-                    $this_element.attr('name', new_name);
-
-                    /** If element is select[name*='funcs'], update id */
-                    if ($this_element.is("select[name*='funcs']")) {
-                        var this_id = $this_element.attr("id");
-                        var id_parts = this_id.split(/\_/);
-                        var old_id_index = id_parts[1];
-                        var prevSelectedValue = $("#field_" + old_id_index + "_1").val();
-                        var new_id_index = parseInt(old_id_index) + columnCount;
-                        var new_id = 'field_' + new_id_index + '_1';
-                        $this_element.attr('id', new_id);
-                        $this_element.find("option").filter(function () {
-                            return $(this).text() === prevSelectedValue;
-                        }).attr("selected","selected");
-
-                        // If salt field is there then update its id.
-                        var nextSaltInput = $this_element.parent().next("td").next("td").find("input[name*='salt']");
-                        if (nextSaltInput.length !== 0) {
-                            nextSaltInput.attr("id", "salt_" + new_id);
-                        }
-                    }
-
-                    // handle input text fields and textareas
-                    if ($this_element.is('.textfield') || $this_element.is('.char')) {
-                        // do not remove the 'value' attribute for ENUM columns
-                        if ($this_element.closest('tr').find('span.column_type').html() != 'enum') {
-                            $this_element.val($this_element.closest('tr').find('span.default_value').html());
-                        }
-                        $this_element
-                        .unbind('change')
-                        // Remove onchange attribute that was placed
-                        // by tbl_change.php; it refers to the wrong row index
-                        .attr('onchange', null)
-                        // Keep these values to be used when the element
-                        // will change
-                        .data('hashed_field', hashed_field)
-                        .data('new_row_index', new_row_index)
-                        .bind('change', function (e) {
-                            var $changed_element = $(this);
-                            verificationsAfterFieldChange(
-                                $changed_element.data('hashed_field'),
-                                $changed_element.data('new_row_index'),
-                                $changed_element.closest('tr').find('span.column_type').html()
-                            );
-                        });
-                    }
-
-                    if ($this_element.is('.checkbox_null')) {
-                        $this_element
-                        // this event was bound earlier by jQuery but
-                        // to the original row, not the cloned one, so unbind()
-                        .unbind('click')
-                        // Keep these values to be used when the element
-                        // will be clicked
-                        .data('hashed_field', hashed_field)
-                        .data('new_row_index', new_row_index)
-                        .bind('click', function (e) {
-                            var $changed_element = $(this);
-                            nullify(
-                                $changed_element.siblings('.nullify_code').val(),
-                                $this_element.closest('tr').find('input:hidden').first().val(),
-                                $changed_element.data('hashed_field'),
-                                '[multi_edit][' + $changed_element.data('new_row_index') + ']'
-                            );
-                        });
-                    }
-                }) // end each
+                .each(tempIncrementIndex)
                 .end()
                 .find('.foreign_values_anchor')
-                .each(function () {
-                        var $anchor = $(this);
-                        var new_value = 'rownumber=' + new_row_index;
-                        // needs improvement in case something else inside
-                        // the href contains this pattern
-                        var new_href = $anchor.attr('href').replace(/rownumber=\d+/, new_value);
-                        $anchor.attr('href', new_href);
-                    });
+                .each(tempReplaceAnchor);
 
                 //Insert/Clone the ignore checkboxes
                 if (curr_rows == 1) {
@@ -542,7 +633,7 @@ AJAX.registerOnload('tbl_change.js', function () {
     /**
      * @var $function_option_dialog object holds dialog for selected function options.
      */
-     var $function_option_dialog = null;
+    var $function_option_dialog = null;
 
     PMA_tooltip(
         $("select[name*='funcs']"),
@@ -623,64 +714,18 @@ AJAX.registerOnload('tbl_change.js', function () {
 function changeValueFieldType(elem, searchIndex)
 {
     var fieldsValue = $("select#fieldID_" + searchIndex);
-    if (0 == fieldsValue.size()) {
+    if (0 === fieldsValue.size()) {
         return;
     }
 
     var type = $(elem).val();
-    if (
-        'IN (...)' == type
-        || 'NOT IN (...)' == type
-        || 'BETWEEN' == type
-        || 'NOT BETWEEN' == type
+    if ('IN (...)' == type ||
+        'NOT IN (...)' == type ||
+        'BETWEEN' == type ||
+        'NOT BETWEEN' == type
     ) {
         $("#fieldID_" + searchIndex).attr('multiple', '');
     } else {
         $("#fieldID_" + searchIndex).removeAttr('multiple');
     }
-}
-
-function applyFunctionToAllRows(currId, functionName, copySalt, salt, targetRows)
-{
-    targetRows.each(function () {
-        var currentRowNum = /\d/.exec($(this).find("input[name*='fields_name']").attr("name"));
-/*        // Ignore the rows whose insert_ignore_* checkbox is checked.
-        var insert_ignore = $(this).closest("table.insertRowTable").prevAll("input[name*='insert_ignore']");
-        if (insert_ignore.length) {
-            if ($(insert_ignore).attr("checked")) {
-                return;
-            }
-        } */
-
-        // Append the function select list.
-        var targetSelectList = $(this).find("select[name*='funcs[multi_edit]']");
-
-        if (targetSelectList.attr("id") === currId) {
-            return;
-        }
-        targetSelectList.find("option").filter(function () {
-            return $(this).text() === functionName;
-        }).attr("selected","selected");
-
-        // Handle salt field.
-        if (functionName === 'AES_ENCRYPT' || functionName === 'AES_DECRYPT') {
-            if ($("#salt_" + targetSelectList.attr("id")).length === 0) {
-                // Get hash value.
-                var hashed_value = targetSelectList.attr("name").match(/\[multi\_edit\]\[\d\]\[(.*)\]/);
-                //To generate the textbox that can take the salt
-                var new_salt_box = "<br><input type=text name=salt[multi_edit][" + currentRowNum + "][" + hashed_value[1] + "]" +
-                    " id=salt_" + targetSelectList.attr("id") + " placeholder='" + PMA_messages.strEncryptionKey + "'>";
-                targetSelectList.parent().next("td").next("td").find("input[name*='fields']").after(new_salt_box);
-            }
-
-            if (copySalt) {
-                $("#salt_" + targetSelectList.attr("id")).attr("value", salt);
-            }
-        } else {
-            var id = targetSelectList.attr("id");
-            if ($("#salt_" + id).length) {
-                $("#salt_" + id).remove();
-            }
-        }
-    });
 }

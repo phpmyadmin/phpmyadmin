@@ -89,8 +89,6 @@ $strConfigDefaultTabTable_name = __('Default table tab');
 $strConfigHideStructureActions_desc
     = __('Whether the table structure actions should be hidden.');
 $strConfigHideStructureActions_name = __('Hide table structure actions');
-$strConfigDisplayBinaryAsHex_desc = __('Show binary contents as HEX by default.');
-$strConfigDisplayBinaryAsHex_name = __('Show binary contents as HEX');
 $strConfigDisplayServersList_desc
     = __('Show server listing as a list instead of a drop down.');
 $strConfigDisplayServersList_name = __('Display servers as a list');
@@ -99,8 +97,6 @@ $strConfigDisableMultiTableMaintenance_desc = __(
     . 'the selected tables of a database.'
 );
 $strConfigDisableMultiTableMaintenance_name = __('Disable multi table maintenance');
-$strConfigEditInWindow_desc = __('Edit SQL queries in popup window.');
-$strConfigEditInWindow_name = __('Edit in window');
 $strConfigError_Handler_display_name = __('Display errors');
 $strConfigExecTimeLimit_desc = __(
     'Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no '
@@ -421,6 +417,8 @@ $strConfigMemoryLimit_desc = __(
     . '([kbd]0[/kbd] for no limit).'
 );
 $strConfigMemoryLimit_name = __('Memory limit');
+$strConfigNavigationLinkWithMainPanel_desc = __('Link with main panel by highlighting the current database or table.');
+$strConfigNavigationLinkWithMainPanel_name = __('Link with main panel');
 $strConfigNavigationDisplayLogo_desc = __('Show logo in navigation panel.');
 $strConfigNavigationDisplayLogo_name = __('Display logo');
 $strConfigNavigationLogoLink_desc
@@ -518,19 +516,14 @@ $strConfigQueryHistoryDB_name = __('Permanent query history');
 $strConfigQueryHistoryMax_cmt = __('Users cannot set a higher value');
 $strConfigQueryHistoryMax_desc = __('How many queries are kept in history.');
 $strConfigQueryHistoryMax_name = __('Query history length');
-$strConfigQueryWindowDefTab_desc
-    = __('Tab displayed when opening a new query window.');
-$strConfigQueryWindowDefTab_name = __('Default query window tab');
-$strConfigQueryWindowHeight_desc = __('Query window height (in pixels).');
-$strConfigQueryWindowHeight_name = __('Query window height');
-$strConfigQueryWindowWidth_desc = __('Query window width (in pixels).');
-$strConfigQueryWindowWidth_name = __('Query window width');
 $strConfigRecodingEngine_desc
     = __('Select which functions will be used for character set conversion.');
 $strConfigRecodingEngine_name = __('Recoding engine');
 $strConfigRememberSorting_desc
     = __('When browsing tables, the sorting of each table is remembered.');
 $strConfigRememberSorting_name = __('Remember table\'s sorting');
+$strConfigTablePrimaryKeyOrder_desc = __('Default sort order for tables with a primary key.');
+$strConfigTablePrimaryKeyOrder_name = __('Primary key default sort order');
 $strConfigRepeatCells_desc
     = __('Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature.');
 $strConfigRepeatCells_name = __('Repeat headers');
@@ -588,13 +581,10 @@ $strConfigServers_controlport_desc = __(
     . 'controlhost equals host.'
 );
 $strConfigServers_controlport_name = __('Control port');
-$strConfigServers_designer_coords_desc = __(
-    'Leave blank for no Designer support, suggested: '
-    . '[kbd]pma__designer_coords[/kbd].'
-);
-$strConfigServers_designer_coords_name = __('Designer table');
 $strConfigServers_hide_db_desc
     = __('Hide databases matching regular expression (PCRE).');
+$strConfigServers_DisableIS_desc = __('More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]');
+$strConfigServers_DisableIS_name = __('Disable use of INFORMATION_SCHEMA');
 $strConfigServers_hide_db_name = __('Hide databases');
 $strConfigServers_history_desc = __(
     'Leave blank for no SQL query history support, suggested: '
@@ -664,7 +654,7 @@ $strConfigServers_ssl_name = __('Use SSL');
 $strConfigServers_table_coords_desc = __(
     'Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/kbd].'
 );
-$strConfigServers_table_coords_name = __('PDF schema: table coordinates');
+$strConfigServers_table_coords_name = __('Designer and PDF schema: table coordinates');
 $strConfigServers_table_info_desc = __(
     'Table to describe the display columns, leave blank for no support; '
     . 'suggested: [kbd]pma__table_info[/kbd].'
@@ -791,5 +781,10 @@ $strConfigCaptchaLoginPrivateKey_name = __('Private key for reCaptcha');
 
 $strConfigSendErrorReports_desc = __('Choose the default action when sending error reports.');
 $strConfigSendErrorReports_name = __('Send error reports');
+$strConfigZeroConf_desc = __(
+    'Enable Zero Configuration mode which lets you setup phpMyAdmin '
+    . 'configuration storage tables automatically.'
+);
+$strConfigZeroConf_name = __('Enable Zero Configuration mode');
 
 ?>

@@ -178,7 +178,7 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * testign setter of message
+     * testing setter of message
      *
      * @return void
      */
@@ -305,9 +305,9 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
     public function testSetParams()
     {
         $this->object->setParams('test&<>');
-        $this->assertEquals(array('test&<>'), $this->object->getParams());
+        $this->assertEquals('test&<>', $this->object->getParams());
         $this->object->setParams('test&<>', true);
-        $this->assertEquals(array('test&amp;&lt;&gt;'), $this->object->getParams());
+        $this->assertEquals('test&amp;&lt;&gt;', $this->object->getParams());
     }
 
     /**

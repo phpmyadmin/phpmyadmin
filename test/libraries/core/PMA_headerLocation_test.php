@@ -73,7 +73,6 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
                 runkit_constant_add('PMA_IS_IIS', null);
             }
 
-
             $this->oldSIDvalue = 'non-defined';
 
             if (array_key_exists('SID', $user_defined_constants)) {
@@ -278,7 +277,6 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
                     . __('Go') . "</a></p>');\n" .
                     "//]]>\n" .
                     "</script></body></html>\n";
-
 
         $this->expectOutputString($header);
 

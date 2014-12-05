@@ -74,28 +74,25 @@ class PMA_TableReplaceSearchTest extends PHPUnit_Framework_TestCase
 
         $find = 'findValue';
         $replaceWith = 'replaceWithValue';
+        $useRegex = false;
         $charSet = 'charSetValue';
 
-        $expectedQuery = "SELECT `column1`, REPLACE(`column1`, '" . $find . "', '"
-            . $replaceWith . "'), COUNT(*) FROM `dbName`.`tableName` WHERE `column1`"
-            . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin GROUP BY"
-            . " `column1` ORDER BY `column1` ASC";
         // set expectations
         $dbi->expects($this->once())
-            ->method('query')
-            ->with($expectedQuery);
-        $dbi->expects($this->at(1))
-            ->method('fetchRow')
-            ->will($this->returnValue(array('val1', 'replace1', 5)));
-        $dbi->expects($this->at(2))
-            ->method('fetchRow')
-            ->will($this->returnValue(array('va<2', 'replac<2', 1)));
-        $dbi->expects($this->at(3))
-            ->method('fetchRow')
-            ->will($this->returnValue(false));
+            ->method('fetchResult')
+            ->will(
+                $this->returnValue(
+                    array(
+                        array('val1', 'replace1', 5),
+                        array('va<2', 'replac<2', 1)
+                    )
+                )
+            );
         $GLOBALS['dbi'] = $dbi;
 
-        $ret = $this->_object->getReplacePreview(0, $find, $replaceWith, $charSet);
+        $ret = $this->_object->getReplacePreview(
+            0, $find, $replaceWith, $useRegex, $charSet
+        );
 
         // assert whether hidden values are properly set
         $this->assertContains(
@@ -141,6 +138,7 @@ class PMA_TableReplaceSearchTest extends PHPUnit_Framework_TestCase
 
         $find = 'findValue';
         $replaceWith = 'replaceWithValue';
+        $useRegex = false;
         $charSet = 'charSetValue';
 
         $expectedQuery = "UPDATE `dbName`.`tableName`"
@@ -153,7 +151,7 @@ class PMA_TableReplaceSearchTest extends PHPUnit_Framework_TestCase
             ->with($expectedQuery);
         $GLOBALS['dbi'] = $dbi;
 
-        $this->_object->replace(0, $find, $replaceWith, $charSet);
+        $this->_object->replace(0, $find, $replaceWith, $useRegex, $charSet);
     }
 }
 ?>

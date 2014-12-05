@@ -32,7 +32,7 @@ class PMA_Tracker
     static protected $pma_table;
 
     /**
-     * Defines the usage of DROP TABLE statment in SQL dumps.
+     * Defines the usage of DROP TABLE statement in SQL dumps.
      *
      * @access protected
      * @var boolean
@@ -40,7 +40,7 @@ class PMA_Tracker
     static protected $add_drop_table;
 
     /**
-     * Defines the usage of DROP VIEW statment in SQL dumps.
+     * Defines the usage of DROP VIEW statement in SQL dumps.
      *
      * @access protected
      * @var boolean
@@ -48,7 +48,7 @@ class PMA_Tracker
     static protected $add_drop_view;
 
     /**
-     * Defines the usage of DROP DATABASE statment in SQL dumps.
+     * Defines the usage of DROP DATABASE statement in SQL dumps.
      *
      * @access protected
      * @var boolean
@@ -166,7 +166,7 @@ class PMA_Tracker
      */
     static protected function getTableName($string)
     {
-        if (strstr($string, '.')) {
+        if (/*overload*/mb_strstr($string, '.')) {
             $temp = explode('.', $string);
             $tablename = $temp[1];
         } else {
@@ -614,12 +614,14 @@ class PMA_Tracker
         // For each log entry we want to get date, username and statement
         foreach ($log_schema_entries as $log_entry) {
             if (trim($log_entry) != '') {
-                $date      = substr($log_entry, 0, 19);
-                $username  = substr($log_entry, 20, strpos($log_entry, "\n") - 20);
+                $date      = /*overload*/mb_substr($log_entry, 0, 19);
+                $username  = /*overload*/mb_substr(
+                    $log_entry, 20, /*overload*/mb_strpos($log_entry, "\n") - 20
+                );
                 if ($i == 0) {
                     $ddl_date_from = $date;
                 }
-                $statement = rtrim(strstr($log_entry, "\n"));
+                $statement = rtrim(/*overload*/mb_strstr($log_entry, "\n"));
 
                 $ddlog[] = array( 'date' => $date,
                                   'username'=> $username,
@@ -640,12 +642,14 @@ class PMA_Tracker
         // For each log entry we want to get date, username and statement
         foreach ($log_data_entries as $log_entry) {
             if (trim($log_entry) != '') {
-                $date      = substr($log_entry, 0, 19);
-                $username  = substr($log_entry, 20, strpos($log_entry, "\n") - 20);
+                $date      = /*overload*/mb_substr($log_entry, 0, 19);
+                $username  = /*overload*/mb_substr(
+                    $log_entry, 20, /*overload*/mb_strpos($log_entry, "\n") - 20
+                );
                 if ($i == 0) {
                     $dml_date_from = $date;
                 }
-                $statement = rtrim(strstr($log_entry, "\n"));
+                $statement = rtrim(/*overload*/mb_strstr($log_entry, "\n"));
 
                 $dmlog[] = array( 'date' => $date,
                                   'username' => $username,
@@ -694,7 +698,6 @@ class PMA_Tracker
      */
     static public function parseQuery($query)
     {
-
         // Usage of PMA_SQP does not work here
         //
         // require_once("libraries/sqlparser.lib.php");
@@ -709,11 +712,11 @@ class PMA_Tracker
 
         $tokens = explode(" ", $query);
         foreach ($tokens as $key => $value) {
-            $tokens[$key] = strtoupper($value);
+            $tokens[$key] = /*overload*/mb_strtoupper($value);
         }
 
         // Parse USE statement, need it for SQL dump imports
-        if (substr($query, 0, 4) == 'USE ') {
+        if (/*overload*/mb_substr($query, 0, 4) == 'USE ') {
             $prefix = explode('USE ', $query);
             $GLOBALS['db'] = self::getTableName($prefix[1]);
         }
@@ -734,7 +737,7 @@ class PMA_Tracker
 
             $index = array_search('VIEW', $tokens);
 
-            $result['tablename'] = strtolower(
+            $result['tablename'] = /*overload*/mb_strtolower(
                 self::getTableName($tokens[$index + 1])
             );
         }
@@ -749,7 +752,7 @@ class PMA_Tracker
 
             $index = array_search('VIEW', $tokens);
 
-            $result['tablename'] = strtolower(
+            $result['tablename'] = /*overload*/mb_strtolower(
                 self::getTableName($tokens[$index + 1])
             );
         }
@@ -761,7 +764,7 @@ class PMA_Tracker
             $result['identifier'] = 'DROP VIEW';
 
             $prefix  = explode('DROP VIEW ', $query);
-            $str = strstr($prefix[1], 'IF EXISTS');
+            $str = /*overload*/mb_strstr($prefix[1], 'IF EXISTS');
 
             if ($str == false ) {
                 $str = $prefix[1];
@@ -831,7 +834,7 @@ class PMA_Tracker
             $result['identifier'] = 'DROP TABLE';
 
             $prefix  = explode('DROP TABLE ', $query);
-            $str = strstr($prefix[1], 'IF EXISTS');
+            $str = /*overload*/mb_strstr($prefix[1], 'IF EXISTS');
 
             if ($str == false ) {
                 $str = $prefix[1];
@@ -933,7 +936,7 @@ class PMA_Tracker
     static public function handleQuery($query)
     {
         // If query is marked as untouchable, leave
-        if (strstr($query, "/*NOTRACK*/")) {
+        if (/*overload*/mb_strstr($query, "/*NOTRACK*/")) {
             return;
         }
 
@@ -991,7 +994,11 @@ class PMA_Tracker
                 $date  = date('Y-m-d H:i:s');
 
                 // Cut off `dbname`. from query
-                $query = preg_replace('/`' . preg_quote($dbname) . '`\s?\./', '', $query);
+                $query = preg_replace(
+                    '/`' . preg_quote($dbname) . '`\s?\./',
+                    '',
+                    $query
+                );
 
                 // Add log information
                 $query = self::getLogComment() . $query ;

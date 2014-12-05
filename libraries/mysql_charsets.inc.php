@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
  *
  */
 
-if (! PMA_Util::cacheExists('mysql_charsets', null)) {
+if (! PMA_Util::cacheExists('mysql_charsets')) {
     global $mysql_charsets, $mysql_charsets_descriptions,
         $mysql_charsets_available, $mysql_collations, $mysql_collations_available,
         $mysql_default_collations, $mysql_collations_flat;
@@ -88,47 +88,47 @@ if (! PMA_Util::cacheExists('mysql_charsets', null)) {
     unset($key, $value);
 
     PMA_Util::cacheSet(
-        'mysql_charsets', $GLOBALS['mysql_charsets'], null
+        'mysql_charsets', $GLOBALS['mysql_charsets']
     );
     PMA_Util::cacheSet(
-        'mysql_charsets_descriptions', $GLOBALS['mysql_charsets_descriptions'], null
+        'mysql_charsets_descriptions', $GLOBALS['mysql_charsets_descriptions']
     );
     PMA_Util::cacheSet(
-        'mysql_charsets_available', $GLOBALS['mysql_charsets_available'], null
+        'mysql_charsets_available', $GLOBALS['mysql_charsets_available']
     );
     PMA_Util::cacheSet(
-        'mysql_collations', $GLOBALS['mysql_collations'], null
+        'mysql_collations', $GLOBALS['mysql_collations']
     );
     PMA_Util::cacheSet(
-        'mysql_default_collations', $GLOBALS['mysql_default_collations'], null
+        'mysql_default_collations', $GLOBALS['mysql_default_collations']
     );
     PMA_Util::cacheSet(
-        'mysql_collations_flat', $GLOBALS['mysql_collations_flat'], null
+        'mysql_collations_flat', $GLOBALS['mysql_collations_flat']
     );
     PMA_Util::cacheSet(
-        'mysql_collations_available', $GLOBALS['mysql_collations_available'], null
+        'mysql_collations_available', $GLOBALS['mysql_collations_available']
     );
 } else {
     $GLOBALS['mysql_charsets'] = PMA_Util::cacheGet(
-        'mysql_charsets', null
+        'mysql_charsets'
     );
     $GLOBALS['mysql_charsets_descriptions'] = PMA_Util::cacheGet(
-        'mysql_charsets_descriptions', null
+        'mysql_charsets_descriptions'
     );
     $GLOBALS['mysql_charsets_available'] = PMA_Util::cacheGet(
-        'mysql_charsets_available', null
+        'mysql_charsets_available'
     );
     $GLOBALS['mysql_collations'] = PMA_Util::cacheGet(
-        'mysql_collations', null
+        'mysql_collations'
     );
     $GLOBALS['mysql_default_collations'] = PMA_Util::cacheGet(
-        'mysql_default_collations', null
+        'mysql_default_collations'
     );
     $GLOBALS['mysql_collations_flat'] = PMA_Util::cacheGet(
-        'mysql_collations_flat', null
+        'mysql_collations_flat'
     );
     $GLOBALS['mysql_collations_available'] = PMA_Util::cacheGet(
-        'mysql_collations_available', null
+        'mysql_collations_available'
     );
 }
 

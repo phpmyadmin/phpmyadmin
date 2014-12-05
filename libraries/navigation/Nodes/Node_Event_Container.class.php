@@ -27,9 +27,9 @@ class Node_Event_Container extends Node
         $this->icon  = PMA_Util::getImage('b_events.png', '');
         $this->links = array(
             'text' => 'db_events.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
+                    . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'db_events.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
+                    . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
         );
         $this->real_name = 'events';
 
@@ -40,10 +40,10 @@ class Node_Event_Container extends Node
         $new->icon  = PMA_Util::getImage('b_event_add.png', '');
         $new->links = array(
             'text' => 'db_events.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;token=' . $GLOBALS['token']
+                    . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token ']
                     . '&add_item=1',
             'icon' => 'db_events.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;token=' . $GLOBALS['token']
+                    . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token ']
                     . '&add_item=1',
         );
         $new->classes = 'new_event italics';

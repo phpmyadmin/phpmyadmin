@@ -30,48 +30,15 @@ if (is_readable('js/line_counts.php')) {
 define('SUBMISSION_URL', "http://reports.phpmyadmin.net/incidents/create");
 
 /**
- * returns the error report data collected from the current configuration or
- * from the request parameters sent by the error reporting js code.
+ * returns the pretty printed error report data collected from the
+ * current configuration or from the request parameters sent by the
+ * error reporting js code.
  *
- * @param boolean $pretty_print whether to prettify the report
- *
- * @return Array/String the report
+ * @return String the report
  */
-function PMA_getReportData($pretty_print = true)
+function PMA_getPrettyReportData()
 {
-    if (empty($_REQUEST['exception'])) {
-        return '';
-    }
-    $exception = $_REQUEST['exception'];
-    $exception['stack'] = PMA_translateStacktrace($exception['stack']);
-    list($uri, $script_name) = PMA_sanitizeUrl($exception['url']);
-    $exception['uri'] = $uri;
-    unset($exception['url']);
-    $report = array(
-        'exception'             => $exception,
-        'script_name'           => $script_name,
-        'pma_version'           => PMA_VERSION,
-        'browser_name'          => PMA_USR_BROWSER_AGENT,
-        'browser_version'       => PMA_USR_BROWSER_VER,
-        'user_os'               => PMA_USR_OS,
-        'server_software'       => $_SERVER['SERVER_SOFTWARE'],
-        'user_agent_string'     => $_SERVER['HTTP_USER_AGENT'],
-        'locale'                => $_COOKIE['pma_lang'],
-        'configuration_storage' =>
-            empty($GLOBALS['cfg']['Servers'][1]['pmadb'])
-            ? 'disabled'
-            : 'enabled',
-        'php_version'           => phpversion(),
-        'microhistory'          => $_REQUEST['microhistory'],
-    );
-
-    if (! empty($_REQUEST['description'])) {
-        $report['steps'] = $_REQUEST['description'];
-    }
-
-    if (!$pretty_print) {
-        return $report;
-    }
+    $report = PMA_getReportData();
 
     /* JSON_PRETTY_PRINT available since PHP 5.4 */
     if (defined('JSON_PRETTY_PRINT')) {
@@ -79,6 +46,89 @@ function PMA_getReportData($pretty_print = true)
     }
 
     return PMA_prettyPrint($report);
+}
+
+/**
+ * returns the error report data collected from the current configuration or
+ * from the request parameters sent by the error reporting js code.
+ *
+ * @param string $exception_type whether exception is 'js' or 'php'
+ *
+ * @return Array error report if success, Empty Array otherwise
+ */
+function PMA_getReportData($exception_type = 'js')
+{
+    $relParams = PMA_getRelationsParam();
+    // common params for both, php & js exceptions
+    $report = array(
+            "pma_version" => PMA_VERSION,
+            "browser_name" => PMA_USR_BROWSER_AGENT,
+            "browser_version" => PMA_USR_BROWSER_VER,
+            "user_os" => PMA_USR_OS,
+            "server_software" => $_SERVER['SERVER_SOFTWARE'],
+            "user_agent_string" => $_SERVER['HTTP_USER_AGENT'],
+            "locale" => $_COOKIE['pma_lang'],
+            "configuration_storage" =>
+                is_null($relParams['db']) ? "disabled" :
+                "enabled",
+            "php_version" => phpversion()
+            );
+
+    if ($exception_type == 'js') {
+        if (empty($_REQUEST['exception'])) {
+            return array();
+        }
+        $exception = $_REQUEST['exception'];
+        $exception["stack"] = PMA_translateStacktrace($exception["stack"]);
+        List($uri, $script_name) = PMA_sanitizeUrl($exception["url"]);
+        $exception["uri"] = $uri;
+        unset($exception["url"]);
+
+        $report ["exception_type"] = 'js';
+        $report ["exception"] = $exception;
+        $report ["script_name"] = $script_name;
+        $report ["microhistory"] = $_REQUEST['microhistory'];
+
+        if (! empty($_REQUEST['description'])) {
+            $report['steps'] = $_REQUEST['description'];
+        }
+    } elseif ($exception_type == 'php') {
+        $errors = array();
+        // create php error report
+        $i=0;
+        if (!isset($_SESSION['prev_errors'])
+            || $_SESSION['prev_errors'] == ''
+        ) {
+            return array();
+        }
+        foreach ($_SESSION['prev_errors'] as $errorObj) {
+            if ($errorObj->getLine()
+                && $errorObj->getType()
+                && $errorObj->getNumber() != E_USER_WARNING
+            ) {
+                $errors[$i++] = array(
+                    "lineNum" => $errorObj->getLine(),
+                    "file" => $errorObj->getFile(),
+                    "type" => $errorObj->getType(),
+                    "msg" => $errorObj->getOnlyMessage(),
+                    "stackTrace" => $errorObj->getBacktrace(5),
+                    "stackhash" => $errorObj->getHash()
+                    );
+
+            }
+        }
+
+        // if there were no 'actual' errors to be submitted.
+        if ($i==0) {
+            return array();   // then return empty array
+        }
+        $report ["exception_type"] = 'php';
+        $report["errors"] = $errors;
+    } else {
+        return array();
+    }
+
+    return $report;
 }
 
 /**
@@ -96,27 +146,35 @@ function PMA_getReportData($pretty_print = true)
 function PMA_sanitizeUrl($url)
 {
     $components = parse_url($url);
-    if (isset($components['fragment'])
-        && preg_match('<PMAURL-\d+:>', $components['fragment'], $matches)
+    if (isset($components["fragment"])
+        && preg_match("<PMAURL-\d+:>", $components["fragment"], $matches)
     ) {
-        $uri = str_replace($matches[0], '', $components['fragment']);
-        $url = 'http://dummy_host/' . $uri;
+        $uri = str_replace($matches[0], "", $components["fragment"]);
+        $url = "http://dummy_host/" . $uri;
         $components = parse_url($url);
     }
 
     // get script name
-    preg_match('<([a-zA-Z\-_\d]*\.php)$>', $components['path'], $matches);
-    $script_name = $matches[1];
+    preg_match("<([a-zA-Z\-_\d]*\.php)$>", $components["path"], $matches);
+    if (count($matches) < 2) {
+        $script_name = 'index.php';
+    } else {
+        $script_name = $matches[1];
+    }
 
     // remove deployment specific details to make uri more generic
-    parse_str($components['query'], $query_array);
-    unset($query_array['db']);
-    unset($query_array['table']);
-    unset($query_array['token']);
-    unset($query_array['server']);
-    $query = http_build_query($query_array);
+    if (isset($components["query"])) {
+        parse_str($components["query"], $query_array);
+        unset($query_array["db"]);
+        unset($query_array["table"]);
+        unset($query_array["token"]);
+        unset($query_array["server"]);
+        $query = http_build_query($query_array);
+    } else {
+        $query = '';
+    }
 
-    $uri = $script_name . '?' . $query;
+    $uri = $script_name . "?" . $query;
     return array($uri, $script_name);
 }
 
@@ -131,8 +189,8 @@ function PMA_sendErrorReport($report)
 {
     $data_string = json_encode($report);
     if (ini_get('allow_url_fopen')) {
-        $context = array(
-            'http' => array(
+        $context = array("http" =>
+            array(
                 'method'  => 'POST',
                 'content' => $data_string,
                 'header' => "Content-Type: multipart/form-data\r\n",
@@ -153,7 +211,7 @@ function PMA_sendErrorReport($report)
 
     $curl_handle = curl_init(SUBMISSION_URL);
     $curl_handle = PMA_Util::configureCurl($curl_handle);
-    curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, 'POST');
+    curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array('Expect:'));
     curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
     curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
@@ -169,6 +227,8 @@ function PMA_sendErrorReport($report)
  * @param string $filename javascript filename
  *
  * @return Number of lines
+ *
+ * @todo Should gracefully handle non existing files
  */
 function PMA_countLines($filename)
 {
@@ -204,7 +264,7 @@ function PMA_countLines($filename)
 }
 
 /**
- * returns the translated linenumber and the file name from the cumulative line
+ * returns the translated line number and the file name from the cumulative line
  * number and an array of files
  *
  * uses the $LINE_COUNT global array of file names and line numbers
@@ -213,7 +273,7 @@ function PMA_countLines($filename)
  * @param Integer $cumulative_number the cumulative line number in the
  *                                   concatenated files
  *
- * @return Array the filename and linenumber
+ * @return Array the filename and line number
  * Returns two variables in an array:
  * - A String $filename the filename where the requested cumulative number
  *   exists
@@ -230,23 +290,26 @@ function PMA_getLineNumber($filenames, $cumulative_number)
         }
         $cumulative_sum += $filecount + 2;
     }
+    if (! isset($filename)) {
+        $filename = '';
+    }
     return array($filename, $linenumber);
 }
 
 /**
- * translates the cumulative line numbers in the stactrace as well as sanitize
+ * translates the cumulative line numbers in the stack trace as well as sanitize
  * urls and trim long lines in the context
  *
- * @param Array $stack the stacktrace
+ * @param Array $stack the stack trace
  *
- * @return Array $stack the modified stacktrace
+ * @return Array $stack the modified stack trace
  */
 function PMA_translateStacktrace($stack)
 {
     foreach ($stack as &$level) {
         foreach ($level["context"] as &$line) {
-            if (strlen($line) > 80) {
-                $line = substr($line, 0, 75) . "//...";
+            if (/*overload*/mb_strlen($line) > 80) {
+                $line = /*overload*/mb_substr($line, 0, 75) . "//...";
             }
         }
         if (preg_match("<js/get_scripts.js.php\?(.*)>", $level["url"], $matches)) {
@@ -292,7 +355,7 @@ function PMA_getErrorReportForm()
             . __('You may examine the data in the error report:')
             . '</p></label></div>'
             . '<pre class="report-data">'
-            . htmlspecialchars(PMA_getReportData())
+            . htmlspecialchars(PMA_getPrettyReportData())
             . '</pre>';
 
     $html .= '<div class="label"><label><p>'
@@ -311,7 +374,7 @@ function PMA_getErrorReportForm()
 
     $html .= PMA_URL_getHiddenInputs();
 
-    $reportData = PMA_getReportData(false);
+    $reportData = PMA_getReportData();
     if (! empty($reportData)) {
         $html .= PMA_getHiddenFields($reportData);
     }

@@ -188,8 +188,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
     public function testDropEvent()
     {
         $this->_eventSQL();
-        $ele = $this->waitForElement("byPartialLinkText", "Events");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Events")->click();
 
         $this->waitForElement(
             "byXPath",

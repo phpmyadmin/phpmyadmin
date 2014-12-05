@@ -75,7 +75,13 @@ class Form
      */
     public function getOptionType($option_name)
     {
-        $key = ltrim(substr($option_name, strrpos($option_name, '/')), '/');
+        $key = ltrim(
+            /*overload*/mb_substr(
+                $option_name,
+                /*overload*/mb_strrpos($option_name, '/')
+            ),
+            '/'
+        );
         return isset($this->_fieldsTypes[$key])
             ? $this->_fieldsTypes[$key]
             : null;
@@ -174,7 +180,10 @@ class Form
         $paths = $this->fields;
         $this->fields = array();
         foreach ($paths as $path) {
-            $key = ltrim(substr($path, strrpos($path, '/')), '/');
+            $key = ltrim(
+                /*overload*/mb_substr($path, /*overload*/mb_strrpos($path, '/')),
+                '/'
+            );
             $this->fields[$key] = $path;
         }
         // now $this->fields is an array of the form: 'field name' => 'field path'
@@ -189,7 +198,7 @@ class Form
     {
         $cf = $this->_configFile;
         foreach ($this->fields as $name => $path) {
-            if (strpos($name, ':group:') === 0) {
+            if (/*overload*/mb_strpos($name, ':group:') === 0) {
                 $this->_fieldsTypes[$name] = 'group';
                 continue;
             }

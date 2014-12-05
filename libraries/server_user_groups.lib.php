@@ -60,8 +60,6 @@ function PMA_getHtmlForListingUsersofAGroup($userGroup)
  */
 function PMA_getHtmlForUserGroupsTable()
 {
-    $tabs = PMA_Util::getMenuTabList();
-
     $html_output  = '<h2>' . __('User groups') . '</h2>';
     $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
         . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
@@ -157,7 +155,7 @@ function PMA_getHtmlForUserGroupsTable()
  * @param array  $row   row of usergroup table
  * @param string $level 'server', 'db' or 'table'
  *
- * @return string comma seperated list of allowed menu tab names
+ * @return string comma separated list of allowed menu tab names
  */
 function _getAllowedTabNames($row, $level)
 {
@@ -253,11 +251,13 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
                 $key = $row['tab'];
                 $value = $row['allowed'];
                 if (substr($key, 0, 7) == 'server_' && $value == 'Y') {
-                    $allowedTabs['server'][] = substr($key, 7);
+                    $allowedTabs['server'][] = /*overload*/mb_substr($key, 7);
                 } elseif (substr($key, 0, 3) == 'db_' && $value == 'Y') {
-                    $allowedTabs['db'][] = substr($key, 3);
-                } elseif (substr($key, 0, 6) == 'table_' && $value == 'Y') {
-                    $allowedTabs['table'][] = substr($key, 6);
+                    $allowedTabs['db'][] = /*overload*/mb_substr($key, 3);
+                } elseif (substr($key, 0, 6) == 'table_'
+                    && $value == 'Y'
+                ) {
+                    $allowedTabs['table'][] = /*overload*/mb_substr($key, 6);
                 }
             }
         }
@@ -278,7 +278,7 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
 
     $html_output .= '<fieldset id="fieldset_user_group_rights_footer"'
         . ' class="tblFooters">';
-    $html_output .= '<input type="submit" name="update_privs" value="Go">';
+    $html_output .= '<input type="submit" value="' . __('Go') . '">';
     $html_output .= '</fieldset>';
 
     return $html_output;

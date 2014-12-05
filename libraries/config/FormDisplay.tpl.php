@@ -104,7 +104,7 @@ function PMA_displayFieldsetTop($title = '', $description = '', $errors = null,
  * $opts keys:
  * o doc - (string) documentation link
  * o errors - error array
- * o setvalue - (string) shows button allowing to set poredefined value
+ * o setvalue - (string) shows button allowing to set predefined value
  * o show_restore_default - (boolean) whether show "restore default" button
  * o userprefs_allow - whether user preferences are enabled for this field
  *                    (null - no support, true/false - enabled/disabled)
@@ -254,7 +254,9 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         foreach ($opts['values'] as $opt_value_key => $opt_value) {
             // set names for boolean values
             if (is_bool($opt_value)) {
-                $opt_value = strtolower($opt_value ? __('Yes') : __('No'));
+                $opt_value = /*overload*/mb_strtolower(
+                    $opt_value ? __('Yes') : __('No')
+                );
             }
             // escape if necessary
             if ($escape) {

@@ -34,7 +34,7 @@ session_set_cookie_params(
 );
 
 // cookies are safer (use @ini_set() in case this function is disabled)
-@ini_set('session.use_cookies', '1');
+@ini_set('session.use_cookies', 'true');
 
 // optionally set session_save_path
 $path = $GLOBALS['PMA_Config']->get('SessionSavePath');
@@ -43,9 +43,9 @@ if (!empty($path)) {
 }
 
 // but not all user allow cookies
-@ini_set('session.use_only_cookies', '0');
+@ini_set('session.use_only_cookies', 'false');
 // do not force transparent session ids, see bug #3398788
-//@ini_set('session.use_trans_sid', '1');
+//@ini_set('session.use_trans_sid', 'true');
 @ini_set(
     'url_rewriter.tags',
     'a=href,frame=src,input=src,form=fakeentry,fieldset='
@@ -56,8 +56,8 @@ if (!empty($path)) {
 @ini_set('session.cookie_lifetime', '0');
 
 // warn but don't work with bug
-@ini_set('session.bug_compat_42', '0');
-@ini_set('session.bug_compat_warn', '1');
+@ini_set('session.bug_compat_42', 'false');
+@ini_set('session.bug_compat_warn', 'true');
 
 // use more secure session ids
 @ini_set('session.hash_function', '1');

@@ -16,6 +16,7 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/TableSearch.class.php';
 require_once 'libraries/sql.lib.php';
+require_once 'libraries/bookmark.lib.php';
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
@@ -29,6 +30,14 @@ $scripts->addFile('jquery/jquery.uitablefilter.js');
 $scripts->addFile('gis_data_editor.js');
 
 $table_search = new PMA_TableSearch($db, $table, "normal");
+
+// Request to column min-max value.
+if (isset($_REQUEST['range_search'])) {
+    $response = PMA_Response::getInstance();
+    $min_max = $table_search->getColumnMinMax($_REQUEST['column']);
+    $response->addJSON('column_data', $min_max);
+    exit;
+}
 
 /**
  * No selection criteria received -> display the selection form
@@ -47,7 +56,7 @@ if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns']))
         $goto = $GLOBALS['cfg']['DefaultTabTable'];
     }
     // Defines the url to return to in case of error in the next sql statement
-    $err_url   = $goto . '?' . PMA_URL_getCommon($db, $table);
+    $err_url   = $goto . PMA_URL_getCommon(array('db' => $db, 'table' => $table));
     // Displays the table search form
     $response->addHTML($table_search->getSecondaryTabs());
     $response->addHTML($table_search->getSelectionForm($goto));
@@ -64,9 +73,9 @@ if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns']))
     include_once 'libraries/parse_analyze.inc.php';
 
     PMA_executeQueryAndSendQueryResponse(
-        $analyzed_sql_results, false, $db, $table, null, null, null, false, null,
-        null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,
-        null, null
+        $analyzed_sql_results, false, $db, $table, null, null, null, false,
+        null, null, null, null, $GLOBALS['goto'], $pmaThemeImage, null,
+        null, null, $sql_query, null, null
     );
 }
 ?>

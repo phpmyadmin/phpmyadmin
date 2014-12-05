@@ -176,19 +176,17 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
      * @param string $point_color color for the GIS MULTIPOINT object
      * @param array  $scale_data  array containing data related to scaling
      * @param object $image       image object
-     * @param string $output      expected output
      *
      * @return void
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial, $label, $point_color, $scale_data, $image, $output
+        $spatial, $label, $point_color, $scale_data, $image
     ) {
         $return = $this->object->prepareRowAsPng(
             $spatial, $label, $point_color, $scale_data, $image
         );
-        /* TODO: this never fails */
-        $this->assertTrue(true);
+        $this->assertImage($return);
     }
 
     /**
@@ -210,7 +208,6 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
                     'height' => 150
                 ),
                 imagecreatetruecolor('120', '150'),
-                ''
             )
         );
     }

@@ -57,7 +57,7 @@ function PMA_getHtmlForRenameDatabase($db)
         . '<form id="rename_db_form" '
         . 'class="ajax" '
         . 'method="post" action="db_operations.php" '
-        . 'onsubmit="return emptyFormElements(this, \'newname\')">';
+        . 'onsubmit="return emptyCheckTheField(this, \'newname\')">';
     if (isset($_REQUEST['db_collation'])) {
         $html_output .= '<input type="hidden" name="db_collation" '
             . 'value="' . $_REQUEST['db_collation']
@@ -157,8 +157,8 @@ function PMA_getHtmlForCopyDatabase($db)
     $html_output = '<div class="operations_half_width clearfloat">';
     $html_output .= '<form id="copy_db_form" '
         . 'class="ajax" '
-        . 'method="post" action="db_operations.php"'
-        . 'onsubmit="return emptyFormElements(this, \'newname\')">';
+        . 'method="post" action="db_operations.php" '
+        . 'onsubmit="return emptyCheckTheField(this, \'newname\')">';
 
     if (isset($_REQUEST['db_collation'])) {
         $html_output .= '<input type="hidden" name="db_collation" '
@@ -219,7 +219,7 @@ function PMA_getHtmlForCopyDatabase($db)
  * Get HTML snippet for change database charset
  *
  * @param string $db    database name
- * @param string $table tabel name
+ * @param string $table table name
  *
  * @return string $html_output
  */
@@ -245,8 +245,7 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
             'db_collation',
             'select_db_collation',
             isset($_REQUEST['db_collation']) ? $_REQUEST['db_collation'] : '',
-            false,
-            3
+            false
         )
         . '</fieldset>'
         . '<fieldset class="tblFooters">'
@@ -254,29 +253,6 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
         . ' value="' . __('Go') . '" />' . "\n"
         . '</fieldset>' . "\n"
         . '</form></div>' . "\n";
-
-    return $html_output;
-}
-
-/**
- * Get HTML snippet for export relational schema view
- *
- * @param string $url_query Query string for link
- *
- * @return string $html_output
- */
-function PMA_getHtmlForExportRelationalSchemaView($url_query)
-{
-    $html_output = '<div class="operations_full_width">'
-        . '<fieldset><a href="schema_edit.php?' . $url_query . '">';
-    if (PMA_Util::showIcons('ActionLinksMode')) {
-        $html_output .= PMA_Util::getImage(
-            'b_edit.png'
-        );
-    }
-    $html_output .= __('Edit or export relational schema')
-        . '</a></fieldset>'
-        . '</div>';
 
     return $html_output;
 }
@@ -336,7 +312,7 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
             'SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1
         );
         if ($lowerCaseTableNames === '1') {
-            $_REQUEST['newname'] = $GLOBALS['PMA_String']->strtolower(
+            $_REQUEST['newname'] = /*overload*/mb_strtolower(
                 $_REQUEST['newname']
             );
         }
@@ -448,7 +424,7 @@ function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move, $db)
 {
     $error = false;
     foreach ($tables_full as $each_table => $tmp) {
-        // skip the views; we have creted stand-in definitions
+        // skip the views; we have created stand-in definitions
         if (PMA_Table::isView($db, $each_table)) {
             continue;
         }
@@ -576,7 +552,7 @@ function PMA_handleTheViews($views, $move, $db)
 }
 
 /**
- * Create all accumulated constraaints
+ * Create all accumulated constraints
  *
  * @return void
  */
@@ -665,7 +641,7 @@ function PMA_getHtmlForMoveTable()
     $html_output = '<div class="operations_half_width">';
     $html_output .= '<form method="post" action="tbl_operations.php"'
         . ' id="moveTableForm" class="ajax"'
-        . ' onsubmit="return emptyFormElements(this, \'new_name\')">'
+        . ' onsubmit="return emptyCheckTheField(this, \'new_name\')">'
         . PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
 
     $html_output .= '<input type="hidden" name="reload" value="1" />'
@@ -820,7 +796,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         . '<td>'
         . PMA_generateCharsetDropdownBox(
             PMA_CSDROPDOWN_COLLATION,
-            'tbl_collation', null, $tbl_collation, false, 3
+            'tbl_collation', null, $tbl_collation, false
         )
         . '</td>'
         . '</tr>';
@@ -878,7 +854,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         );
     } // end if (ARIA)
 
-    if (strlen($auto_increment) > 0
+    if (/*overload*/mb_strlen($auto_increment) > 0
         && ($is_myisam_or_aria || $is_innodb || $is_pbxt)
     ) {
         $html_output .= '<tr><td>'
@@ -898,7 +874,8 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
     // (if the table was compressed, it can be seen on the Structure page)
 
     if (isset($possible_row_formats[$tbl_storage_engine])) {
-        $current_row_format = strtoupper($GLOBALS['showtable']['Row_format']);
+        $current_row_format
+            = /*overload*/mb_strtoupper($GLOBALS['showtable']['Row_format']);
         $html_output .= '<tr><td>'
             . '<label for="new_row_format">ROW_FORMAT</label></td>'
             . '<td>';
@@ -999,7 +976,7 @@ function PMA_getHtmlForCopytable()
         . 'name="copyTable" '
         . 'id="copyTable" '
         . ' class="ajax" '
-        . 'onsubmit="return emptyFormElements(this, \'new_name\')">'
+        . 'onsubmit="return emptyCheckTheField(this, \'new_name\')">'
         . PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
         . '<input type="hidden" name="reload" value="1" />';
 
@@ -1073,7 +1050,7 @@ function PMA_getHtmlForCopytable()
 }
 
 /**
- * Get HTML snippet for table maintence
+ * Get HTML snippet for table maintenance
  *
  * @param boolean $is_myisam_or_aria whether MYISAM | ARIA or not
  * @param boolean $is_innodb         whether innodb or not
@@ -1141,8 +1118,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                 __('Defragment table'),
                 $params,
                 $url_params,
-                'InnoDB_File_Defragmenting',
-                'Table_types'
+                'InnoDB_File_Defragmenting'
             );
         }
         if ($is_innodb || $is_myisam_or_aria || $is_berkeleydb) {
@@ -1211,20 +1187,20 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
 /**
  * Get maintain action HTML link
  *
- * @param string $action     action name
- * @param array  $params     url parameters array
- * @param array  $url_params additional url parameters
- * @param string $link       contains name of page/anchor that is being linked
+ * @param string $action_message action message
+ * @param array  $params         url parameters array
+ * @param array  $url_params     additional url parameters
+ * @param string $link           contains name of page/anchor that is being linked
  *
  * @return string $html_output
  */
-function PMA_getMaintainActionlink($action, $params, $url_params, $link)
+function PMA_getMaintainActionlink($action_message, $params, $url_params, $link)
 {
     return '<li>'
         . '<a class="maintain_action ajax" '
         . 'href="sql.php'
         . PMA_URL_getCommon(array_merge($url_params, $params)) . '">'
-        . $action
+        . $action_message
         . '</a>'
         . PMA_Util::showMySQLDocu($link)
         . '</li>';
@@ -1470,8 +1446,9 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
         $table_alters[] = 'COMMENT = \''
             . PMA_Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
+
     if (! empty($newTblStorageEngine)
-        && strtolower($newTblStorageEngine) !== strtolower($GLOBALS['tbl_storage_engine'])
+        && /*overload*/mb_strtolower($newTblStorageEngine) !== /*overload*/mb_strtolower($GLOBALS['tbl_storage_engine'])
     ) {
         $table_alters[] = 'ENGINE = ' . $newTblStorageEngine;
     }
@@ -1529,13 +1506,14 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
             . PMA_Util::sqlAddSlashes($_REQUEST['new_auto_increment']);
     }
 
+    $newRowFormat = $_REQUEST['new_row_format'];
+    $newRowFormatLower = /*overload*/mb_strtolower($newRowFormat);
     if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
-        &&  ! empty($_REQUEST['new_row_format'])
-        && (!strlen($row_format)
-        || strtolower($_REQUEST['new_row_format']) !== strtolower($row_format))
+        &&  ! empty($newRowFormat)
+        && (!/*overload*/mb_strlen($row_format)
+        || $newRowFormatLower !== /*overload*/mb_strtolower($row_format))
     ) {
-        $table_alters[] = 'ROW_FORMAT = '
-            . PMA_Util::sqlAddSlashes($_REQUEST['new_row_format']);
+        $table_alters[] = 'ROW_FORMAT = ' . PMA_Util::sqlAddSlashes($newRowFormat);
     }
 
     return $table_alters;
@@ -1551,7 +1529,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
  */
 function PMA_setGlobalVariablesForEngine($tbl_storage_engine)
 {
-    $upperTblStorEngine = strtoupper($tbl_storage_engine);
+    $upperTblStorEngine = /*overload*/mb_strtoupper($tbl_storage_engine);
 
     //Options that apply to MYISAM usually apply to ARIA
     $is_myisam_or_aria = ($upperTblStorEngine == 'MYISAM'
@@ -1615,4 +1593,84 @@ function PMA_getQueryAndResultForPartition()
     return array($sql_query, $result);
 }
 
+
+/**
+ * Move or copy a table
+ *
+ * @param string $db    current database name
+ * @param string $table current table name
+ *
+ * @return void
+ */
+function PMA_moveOrCopyTable($db, $table)
+{
+    /**
+     * Selects the database to work with
+     */
+    $GLOBALS['dbi']->selectDb($db);
+
+    /**
+     * $_REQUEST['target_db'] could be empty in case we came from an input field
+     * (when there are many databases, no drop-down)
+     */
+    if (empty($_REQUEST['target_db'])) {
+        $_REQUEST['target_db'] = $db;
+    }
+
+    /**
+     * A target table name has been sent to this script -> do the work
+     */
+    if (PMA_isValid($_REQUEST['new_name'])) {
+        if ($db == $_REQUEST['target_db'] && $table == $_REQUEST['new_name']) {
+            if (isset($_REQUEST['submit_move'])) {
+                $message = PMA_Message::error(__('Can\'t move table to same one!'));
+            } else {
+                $message = PMA_Message::error(__('Can\'t copy table to same one!'));
+            }
+        } else {
+            PMA_Table::moveCopy(
+                $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name'],
+                $_REQUEST['what'], isset($_REQUEST['submit_move']), 'one_table'
+            );
+
+            if (isset($_REQUEST['submit_move'])) {
+                $message = PMA_Message::success(
+                    __('Table %s has been moved to %s.')
+                );
+            } else {
+                $message = PMA_Message::success(
+                    __('Table %s has been copied to %s.')
+                );
+            }
+            $old = PMA_Util::backquote($db) . '.'
+                . PMA_Util::backquote($table);
+            $message->addParam($old);
+            $new = PMA_Util::backquote($_REQUEST['target_db']) . '.'
+                . PMA_Util::backquote($_REQUEST['new_name']);
+            $message->addParam($new);
+
+            /* Check: Work on new table or on old table? */
+            if (isset($_REQUEST['submit_move'])
+                || PMA_isValid($_REQUEST['switch_to_new'])
+            ) {
+            }
+        }
+    } else {
+        /**
+         * No new name for the table!
+         */
+        $message = PMA_Message::error(__('The table name is empty!'));
+    }
+
+    if ($GLOBALS['is_ajax_request'] == true) {
+        $response = PMA_Response::getInstance();
+        $response->addJSON('message', $message);
+        if ($message->isSuccess()) {
+            $response->addJSON('db', $GLOBALS['db']);
+        } else {
+            $response->isSuccess(false);
+        }
+        exit;
+    }
+}
 ?>

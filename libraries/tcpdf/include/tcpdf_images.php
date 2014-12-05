@@ -1,13 +1,13 @@
 <?php
 //============================================================+
 // File name   : tcpdf_images.php
-// Version     : 1.0.002
+// Version     : 1.0.003
 // Begin       : 2002-08-03
-// Last Update : 2013-11-24
+// Last Update : 2014-04-03
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
-// Copyright (C) 2002-2013 Nicola Asuni - Tecnick.com LTD
+// Copyright (C) 2002-2014 Nicola Asuni - Tecnick.com LTD
 //
 // This file is part of TCPDF software library.
 //
@@ -38,7 +38,7 @@
  * This is a PHP class that contains static image methods for the TCPDF class.<br>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 1.0.002
+ * @version 1.0.003
  */
 
 /**
@@ -46,7 +46,7 @@
  * Static image methods used by the TCPDF class.
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 1.0.002
+ * @version 1.0.003
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_IMAGES {
@@ -218,7 +218,7 @@ class TCPDF_IMAGES {
 		if (count($icc) > 0) {
 			ksort($icc);
 			$icc = implode('', $icc);
-			if ((ord($icc{36}) != 0x61) OR (ord($icc{37}) != 0x63) OR (ord($icc{38}) != 0x73) OR (ord($icc{39}) != 0x70)) {
+			if ((ord($icc[36]) != 0x61) OR (ord($icc[37]) != 0x63) OR (ord($icc[38]) != 0x73) OR (ord($icc[39]) != 0x70)) {
 				// invalid ICC profile
 				$icc = false;
 			}
@@ -299,14 +299,16 @@ class TCPDF_IMAGES {
 			} elseif ($type == 'tRNS') {
 				// read transparency info
 				$t = TCPDF_STATIC::rfread($f, $n);
-				if ($ct == 0) {
-					$trns = array(ord($t{1}));
-				} elseif ($ct == 2) {
-					$trns = array(ord($t{1}), ord($t{3}), ord($t{5}));
-				} else {
-					$pos = strpos($t, chr(0));
-					if ($pos !== false) {
-						$trns = array($pos);
+				if ($ct == 0) { // DeviceGray
+					$trns = array(ord($t[1]));
+				} elseif ($ct == 2) { // DeviceRGB
+					$trns = array(ord($t[1]), ord($t[3]), ord($t[5]));
+				} else { // Indexed
+					if ($n > 0) {
+						$trns = array();
+						for ($i = 0; $i < $n; ++ $i) {
+							$trns[] = ord($t{$i});
+						}
 					}
 				}
 				fread($f, 4);

@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for methods under user_preferences libarary
+ * tests for methods under user_preferences library
  *
  * @package PhpMyAdmin-test
  */
@@ -21,7 +21,7 @@ require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/Message.class.php';
 
 /**
- * tests for methods under user_preferences libarary
+ * tests for methods under user_preferences library
  *
  * @package PhpMyAdmin-test
  */
@@ -449,34 +449,5 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             $result
         );
     }
-
-    /**
-     * Return the tag array to be used with assertTag by parsing
-     * a given HTML element
-     *
-     * @param string $elementHTML HTML for element to be parsed
-     * @param array  $arr         Additional array elements like content, parent
-     *
-     * @return array              Tag array to be used with assertTag
-     */
-    private function _getTagArray($elementHTML, $arr = array())
-    {
-
-        // get attributes
-        preg_match_all("/\s+(.*?)\=\s*\"(.*?)\"/is", $elementHTML, $matches);
-        foreach ($matches[1] as $key => $val) {
-            $arr['attributes'][trim($val)] = trim($matches[2][$key]);
-        }
-        $matches = array();
-
-        // get tag
-        preg_match("/^\<(.*?)(\s|\>)/i", $elementHTML, $matches);
-        if (isset($matches[1])) {
-            $arr['tag'] = trim($matches[1]);
-        }
-
-        return $arr;
-    }
-
 }
 ?>

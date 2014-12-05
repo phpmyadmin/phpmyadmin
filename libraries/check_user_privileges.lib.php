@@ -34,21 +34,24 @@ $GLOBALS['is_superuser'] = $GLOBALS['dbi']->isSuperuser();
  */
 function PMA_analyseShowGrant()
 {
-    if (PMA_Util::cacheExists('is_create_db_priv', null)) {
+    if (PMA_Util::cacheExists('is_create_db_priv')) {
         $GLOBALS['is_create_db_priv'] = PMA_Util::cacheGet(
-            'is_create_db_priv', null
+            'is_create_db_priv'
         );
         $GLOBALS['is_process_priv'] = PMA_Util::cacheGet(
-            'is_process_priv', null
+            'is_process_priv'
         );
         $GLOBALS['is_reload_priv'] = PMA_Util::cacheGet(
-            'is_reload_priv', null
+            'is_reload_priv'
         );
         $GLOBALS['db_to_create'] = PMA_Util::cacheGet(
-            'db_to_create', null
+            'db_to_create'
         );
         $GLOBALS['dbs_where_create_table_allowed'] = PMA_Util::cacheGet(
-            'dbs_where_create_table_allowed', null
+            'dbs_where_create_table_allowed'
+        );
+        $GLOBALS['dbs_to_test'] = PMA_Util::cacheGet(
+            'dbs_to_test'
         );
         return;
     }
@@ -59,6 +62,7 @@ function PMA_analyseShowGrant()
     $GLOBALS['is_reload_priv']     = false;
     $GLOBALS['db_to_create']       = '';
     $GLOBALS['dbs_where_create_table_allowed'] = array();
+    $GLOBALS['dbs_to_test']        = $GLOBALS['dbi']->getSystemSchemas();
 
     $rs_usr = $GLOBALS['dbi']->tryQuery('SHOW GRANTS');
 
@@ -71,15 +75,27 @@ function PMA_analyseShowGrant()
 
     while ($row = $GLOBALS['dbi']->fetchRow($rs_usr)) {
         // extract db from GRANT ... ON *.* or GRANT ... ON db.*
-        $db_name_offset = strpos($row[0], ' ON ') + 4;
-        $show_grants_dbname = substr(
+        $db_name_offset = /*overload*/mb_strpos($row[0], ' ON ') + 4;
+        $show_grants_dbname = /*overload*/mb_substr(
             $row[0], $db_name_offset,
-            strpos($row[0], '.', $db_name_offset) - $db_name_offset
+            /*overload*/mb_strpos($row[0], '.', $db_name_offset) - $db_name_offset
         );
-        $show_grants_dbname
-            = PMA_Util::unQuote($show_grants_dbname, '`');
+        $show_grants_dbname = PMA_Util::unQuote($show_grants_dbname, '`');
 
-        $show_grants_str    = substr($row[0], 6, (strpos($row[0], ' ON ') - 6));
+        $show_grants_str    = /*overload*/mb_substr(
+            $row[0],
+            6,
+            (/*overload*/mb_strpos($row[0], ' ON ') - 6)
+        );
+
+        if ($show_grants_dbname == '*') {
+            if ($show_grants_str != 'USAGE') {
+                $GLOBALS['dbs_to_test'] = false;
+            }
+        } elseif ($GLOBALS['dbs_to_test'] !== false) {
+            $GLOBALS['dbs_to_test'][] = $show_grants_dbname;
+        }
+
         if ($show_grants_str == 'RELOAD') {
             $GLOBALS['is_reload_priv'] = true;
         }
@@ -121,7 +137,7 @@ function PMA_analyseShowGrant()
                             '/' . $re1 . '(%|_)/', '\\1\\3', $dbname_to_test
                         )
                     )
-                    && substr($GLOBALS['dbi']->getError(), 1, 4) != 1044)
+                    && /*overload*/mb_substr($GLOBALS['dbi']->getError(), 1, 4) != 1044)
                 ) {
                     /**
                      * Do not handle the underscore wildcard
@@ -152,15 +168,15 @@ function PMA_analyseShowGrant()
 
     // must also cacheUnset() them in
     // libraries/plugins/auth/AuthenticationCookie.class.php
-    PMA_Util::cacheSet('is_create_db_priv', $GLOBALS['is_create_db_priv'], null);
-    PMA_Util::cacheSet('is_process_priv', $GLOBALS['is_process_priv'], null);
-    PMA_Util::cacheSet('is_reload_priv', $GLOBALS['is_reload_priv'], null);
-    PMA_Util::cacheSet('db_to_create', $GLOBALS['db_to_create'], null);
+    PMA_Util::cacheSet('is_create_db_priv', $GLOBALS['is_create_db_priv']);
+    PMA_Util::cacheSet('is_process_priv', $GLOBALS['is_process_priv']);
+    PMA_Util::cacheSet('is_reload_priv', $GLOBALS['is_reload_priv']);
+    PMA_Util::cacheSet('db_to_create', $GLOBALS['db_to_create']);
     PMA_Util::cacheSet(
         'dbs_where_create_table_allowed',
-        $GLOBALS['dbs_where_create_table_allowed'],
-        null
+        $GLOBALS['dbs_where_create_table_allowed']
     );
+    PMA_Util::cacheSet('dbs_to_test', $GLOBALS['dbs_to_test']);
 } // end function
 
 if (!PMA_DRIZZLE) {
@@ -173,6 +189,7 @@ if (!PMA_DRIZZLE) {
     $GLOBALS['is_reload_priv']    = false;
     $GLOBALS['db_to_create']      = '';
     $GLOBALS['dbs_where_create_table_allowed'] = array('*');
+    $GLOBALS['dbs_to_test']       = false;
 }
 
 ?>

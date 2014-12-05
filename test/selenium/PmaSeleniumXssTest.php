@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Selenium TestCase for SQL querry window related tests
+ * Selenium TestCase for SQL query window related tests
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
@@ -27,7 +27,7 @@ class PMA_SeleniumXSSTest extends PMA_SeleniumBase
      */
     public function testQueryTabWithNullValue()
     {
-        if (strtolower($this->getBrowser()) == 'safari') {
+        if (/*overload*/mb_strtolower($this->getBrowser()) == 'safari') {
             $this->markTestSkipped('Alerts not supported on Safari browser.');
         }
         $this->login();

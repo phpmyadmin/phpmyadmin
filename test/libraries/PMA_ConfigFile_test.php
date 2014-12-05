@@ -158,7 +158,6 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
             $this->object->getConfig()
         );
 
-
         /**
          * Case 2: disabling filter should allow to set b
          */

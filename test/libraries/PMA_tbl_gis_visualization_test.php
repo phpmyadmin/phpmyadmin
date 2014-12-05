@@ -146,7 +146,7 @@ class PMA_TblGisVisualizaionTest extends PHPUnit_Framework_TestCase
         $sql_query = "sql_query";
         $visualization = "visualization";
         $svg_support = array();
-        $data = "data";
+        $data = array();
 
         $html = PMA_getHtmlForGisVisualization(
             $url_params, $labelCandidates, $spatialCandidates,
@@ -232,7 +232,7 @@ class PMA_MockConfig
     /**
      * isHttps() method.
      *
-     * @return void
+     * @return bool
      * @test
      */
     public function isHttps()

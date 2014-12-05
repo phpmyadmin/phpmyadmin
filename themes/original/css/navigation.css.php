@@ -314,6 +314,19 @@ li.fast_filter.db_fast_filter {
     border: 1px solid #888;
 }
 
+#navigation_controls_outer {
+    min-height: 21px !important;
+}
+
+#navigation_controls_outer.activePointer {
+    background-color: transparent !important;
+}
+
+#navigation_controls {
+    float: right;
+    padding-right: 23px;
+}
+
 /* Quick warp links */
 #pma_quick_warp {
     margin-top: 5px;

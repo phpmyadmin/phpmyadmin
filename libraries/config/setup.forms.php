@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * List of avaible forms, each form is described as an array of fields to display.
+ * List of available forms, each form is described as an array of fields to display.
  * Fields MUST have their counterparts in the $cfg array.
  *
  * There are two possible notations:
@@ -56,6 +56,7 @@ $forms['Servers']['Server_config'] = array('Servers' => array(1 => array(
     'hide_db',
     'AllowRoot',
     'AllowNoPassword',
+    'DisableIS',
     'AllowDeny/order',
     'AllowDeny/rules')));
 $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
@@ -78,8 +79,8 @@ $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
     'tracking' => 'pma__tracking',
     'table_coords' => 'pma__table_coords',
     'pdf_pages' => 'pma__pdf_pages',
-    'designer_coords' => 'pma__designer_coords',
     'savedsearches' => 'pma__savedsearches',
+    'central_columns' => 'pma__central_columns',
     'MaxTableUiprefs' => 100)));
 $forms['Servers']['Server_tracking'] = array('Servers' => array(1 => array(
     'tracking_version_auto_create',
@@ -145,6 +146,7 @@ $forms['Features']['Other_core_settings'] = array(
     'ProxyUser',
     'ProxyPass',
     'AllowThirdPartyFraming',
+    'ZeroConf'
 );
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',
@@ -153,10 +155,6 @@ $forms['Sql_queries']['Sql_queries'] = array(
     'QueryHistoryMax',
     'IgnoreMultiSubmitErrors',
     'MaxCharactersInDisplayedSQL',
-    'EditInWindow',
-    //'QueryWindowWidth', // overridden in theme
-    //'QueryWindowHeight',
-    'QueryWindowDefTab',
     'RetainQueryBox',
     'CodemirrorEnable');
 $forms['Sql_queries']['Sql_box'] = array('SQLQuery' => array(
@@ -165,6 +163,7 @@ $forms['Sql_queries']['Sql_box'] = array('SQLQuery' => array(
     'ShowAsPHP',
     'Refresh'));
 $forms['Navi_panel']['Navi_panel'] = array(
+    'NavigationLinkWithMainPanel',
     'NavigationDisplayLogo',
     'NavigationLogoLink',
     'NavigationLogoLinkWindow',
@@ -209,6 +208,7 @@ $forms['Main_panel']['Browse'] = array(
     'RepeatCells',
     'LimitChars',
     'RowActionLinks',
+    'TablePrimaryKeyOrder',
     'DefaultDisplay',
     'RememberSorting');
 $forms['Main_panel']['Edit'] = array(
@@ -231,8 +231,8 @@ $forms['Main_panel']['Tabs'] = array(
     'ActionLinksMode',
     'DefaultTabServer',
     'DefaultTabDatabase',
-    'DefaultTabTable',
-    'QueryWindowDefTab');
+    'DefaultTabTable'
+);
 $forms['Import']['Import_defaults'] = array('Import' => array(
     'format',
     'charset',

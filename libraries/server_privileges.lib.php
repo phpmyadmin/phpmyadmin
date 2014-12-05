@@ -52,10 +52,10 @@ function PMA_getHtmlForUserGroupDialog($username, $is_menuswork)
  */
 function PMA_wildcardEscapeForGrant($dbname, $tablename)
 {
-    if (! strlen($dbname)) {
+    if (!/*overload*/mb_strlen($dbname)) {
         $db_and_table = '*.*';
     } else {
-        if (strlen($tablename)) {
+        if (/*overload*/mb_strlen($tablename)) {
             $db_and_table = PMA_Util::backquote(
                 PMA_Util::unescapeMysqlWildcards($dbname)
             )
@@ -85,23 +85,79 @@ function PMA_rangeOfUsers($initial = '')
     $ret = " WHERE `User` LIKE '"
         . PMA_Util::sqlAddSlashes($initial, true) . "%'"
         . " OR `User` LIKE '"
-        . PMA_Util::sqlAddSlashes(strtolower($initial), true) . "%'";
-
+        . PMA_Util::sqlAddSlashes(/*overload*/mb_strtolower($initial), true)
+        . "%'";
     return $ret;
 } // end function
 
 /**
+ * Formats privilege name for a display
+ *
+ * @param array   $privilege Privilege information
+ * @param boolean $html      Whether to use HTML
+ *
+ * @return string
+ */
+function PMA_formatPrivilege($privilege, $html)
+{
+    if ($html) {
+        return '<dfn title="' . $privilege[2] . '">'
+            . $privilege[1] . '</dfn>';
+    } else {
+        return $privilege[1];
+    }
+}
+
+/**
+ * Parses privileges into an array, it modifies the array
+ *
+ * @param array &$row Results row from
+ *
+ * @return void
+ */
+function PMA_fillInTablePrivileges(&$row)
+{
+    $row1 = $GLOBALS['dbi']->fetchSingleRow(
+        'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
+        'ASSOC', $GLOBALS['userlink']
+    );
+    // note: in MySQL 5.0.3 we get "Create View', 'Show view';
+    // the View for Create is spelled with uppercase V
+    // the view for Show is spelled with lowercase v
+    // and there is a space between the words
+
+    $av_grants = explode(
+        '\',\'',
+        /*overload*/mb_substr(
+            $row1['Type'],
+            /*overload*/mb_strpos($row1['Type'], '(') + 2,
+            /*overload*/mb_strpos($row1['Type'], ')')
+            - /*overload*/mb_strpos($row1['Type'], '(') - 3
+        )
+    );
+
+    $users_grants = explode(',', $row['Table_priv']);
+
+    foreach ($av_grants as $current_grant) {
+        $row[$current_grant . '_priv']
+            = in_array($current_grant, $users_grants) ? 'Y' : 'N';
+    }
+    unset($row['Table_priv']);
+}
+
+
+/**
  * Extracts the privilege information of a priv table row
  *
- * @param array   $row        the row
- * @param boolean $enableHTML add <dfn> tag with tooltips
- * @param boolean $tablePrivs whether row contains table privileges
+ * @param array|null $row        the row
+ * @param boolean    $enableHTML add <dfn> tag with tooltips
+ * @param boolean    $tablePrivs whether row contains table privileges
  *
  * @global  resource $user_link the database connection
  *
  * @return array
  */
-function PMA_extractPrivInfo($row = '', $enableHTML = false, $tablePrivs = false)
+function PMA_extractPrivInfo($row = null, $enableHTML = false, $tablePrivs = false)
 {
     if ($tablePrivs) {
         $grants = PMA_getTableGrantsArray();
@@ -109,55 +165,30 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false, $tablePrivs = false
         $grants = PMA_getGrantsArray();
     }
 
-    if (! empty($row) && isset($row['Table_priv'])) {
-        $row1 = $GLOBALS['dbi']->fetchSingleRow(
-            'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
-            'ASSOC', $GLOBALS['userlink']
-        );
-        $av_grants = explode(
-            '\',\'',
-            substr($row1['Type'], 5, strlen($row1['Type']) - 7)
-        );
-        unset($row1);
-        $users_grants = explode(',', $row['Table_priv']);
-        foreach ($av_grants as $current_grant) {
-            $row[$current_grant . '_priv']
-                = in_array($current_grant, $users_grants) ? 'Y' : 'N';
-        }
-        unset($current_grant);
+    if (! is_null($row) && isset($row['Table_priv'])) {
+        PMA_fillInTablePrivileges($row);
     }
 
     $privs = array();
     $allPrivileges = true;
     foreach ($grants as $current_grant) {
-        if ((! empty($row) && isset($row[$current_grant[0]]))
-            || (empty($row) && isset($GLOBALS[$current_grant[0]]))
+        if ((! is_null($row) && isset($row[$current_grant[0]]))
+            || (is_null($row) && isset($GLOBALS[$current_grant[0]]))
         ) {
-            if ((! empty($row) && $row[$current_grant[0]] == 'Y')
-                || (empty($row)
+            if ((! is_null($row) && $row[$current_grant[0]] == 'Y')
+                || (is_null($row)
                 && ($GLOBALS[$current_grant[0]] == 'Y'
                 || (is_array($GLOBALS[$current_grant[0]])
                 && count($GLOBALS[$current_grant[0]]) == $_REQUEST['column_count']
                 && empty($GLOBALS[$current_grant[0] . '_none']))))
             ) {
-                if ($enableHTML) {
-                    $privs[] = '<dfn title="' . $current_grant[2] . '">'
-                        . $current_grant[1] . '</dfn>';
-                } else {
-                    $privs[] = $current_grant[1];
-                }
+                $privs[] = PMA_formatPrivilege($current_grant, $enableHTML);
             } elseif (! empty($GLOBALS[$current_grant[0]])
                 && is_array($GLOBALS[$current_grant[0]])
                 && empty($GLOBALS[$current_grant[0] . '_none'])
             ) {
-                if ($enableHTML) {
-                    $priv_string = '<dfn title="' . $current_grant[2] . '">'
-                        . $current_grant[1] . '</dfn>';
-                } else {
-                    $priv_string = $current_grant[1];
-                }
-                $privs[] = $priv_string . ' (`'
-                    . join('`, `', $GLOBALS[$current_grant[0]]) . '`)';
+                $privs[] = PMA_formatPrivilege($current_grant, $enableHTML)
+                    . ' (`' . join('`, `', $GLOBALS[$current_grant[0]]) . '`)';
             } else {
                 $allPrivileges = false;
             }
@@ -237,7 +268,7 @@ function PMA_getTableGrantsArray()
 
 /**
  * Get the grants array which contains all the privilege types
- * and relevent grant messages
+ * and relevant grant messages
  *
  * @return array
  */
@@ -581,8 +612,8 @@ function PMA_setUserGroup($username, $userGroup)
  * @param string  $table  the table
  * @param boolean $submit whether to display the submit button or not
  *
- * @global  array      $cfg         the phpMyAdmin configuration
- * @global  ressource  $user_link   the database connection
+ * @global  array     $cfg         the phpMyAdmin configuration
+ * @global  resource  $user_link   the database connection
  *
  * @return string html snippet
  */
@@ -590,6 +621,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
     $table = '*', $submit = true
 ) {
     $html_output = '';
+    $sql_query = '';
 
     if ($db == '*') {
         $table = '*';
@@ -604,7 +636,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
         $row = $GLOBALS['dbi']->fetchSingleRow($sql_query);
     }
     if (empty($row)) {
-        if ($table == '*') {
+        if ($table == '*' && $GLOBALS['is_superuser']) {
             if ($db == '*') {
                 $sql_query = 'SHOW COLUMNS FROM `mysql`.`user`;';
             } elseif ($table == '*') {
@@ -612,43 +644,21 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
             }
             $res = $GLOBALS['dbi']->query($sql_query);
             while ($row1 = $GLOBALS['dbi']->fetchRow($res)) {
-                if (substr($row1[0], 0, 4) == 'max_') {
+                if (mb_substr($row1[0], 0, 4) == 'max_') {
                     $row[$row1[0]] = 0;
                 } else {
                     $row[$row1[0]] = 'N';
                 }
             }
             $GLOBALS['dbi']->freeResult($res);
+        } elseif ($table == '*') {
+            $row = array();
         } else {
             $row = array('Table_priv' => '');
         }
     }
     if (isset($row['Table_priv'])) {
-        $row1 = $GLOBALS['dbi']->fetchSingleRow(
-            'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
-            'ASSOC', $GLOBALS['userlink']
-        );
-        // note: in MySQL 5.0.3 we get "Create View', 'Show view';
-        // the View for Create is spelled with uppercase V
-        // the view for Show is spelled with lowercase v
-        // and there is a space between the words
-
-        $av_grants = explode(
-            '\',\'',
-            substr(
-                $row1['Type'],
-                strpos($row1['Type'], '(') + 2,
-                strpos($row1['Type'], ')') - strpos($row1['Type'], '(') - 3
-            )
-        );
-        unset($row1);
-        $users_grants = explode(',', $row['Table_priv']);
-
-        foreach ($av_grants as $current_grant) {
-            $row[$current_grant . '_priv']
-                = in_array($current_grant, $users_grants) ? 'Y' : 'N';
-        }
-        unset($row['Table_priv'], $current_grant, $av_grants, $users_grants);
+        PMA_fillInTablePrivileges($row);
 
         // get columns
         $res = $GLOBALS['dbi']->tryQuery(
@@ -685,9 +695,9 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
     if ($submit) {
         $html_output .= '<fieldset id="fieldset_user_privtable_footer" '
             . 'class="tblFooters">' . "\n"
-           . '<input type="submit" name="update_privs" '
-            . 'value="' . __('Go') . '" />' . "\n"
-           . '</fieldset>' . "\n";
+            . '<input type="hidden" name="update_privs" value="1" />' . "\n"
+            . '<input type="submit" value="' . __('Go') . '" />' . "\n"
+            . '</fieldset>' . "\n";
     }
     return $html_output;
 } // end of the 'PMA_displayPrivTable()' function
@@ -717,7 +727,9 @@ function PMA_getHtmlForResourceLimits($row)
         . 'MAX QUERIES PER HOUR'
         . '</dfn></code></label>' . "\n"
         . '<input type="number" name="max_questions" id="text_max_questions" '
-        . 'value="' . $row['max_questions'] . '" min="0" '
+        . 'value="'
+        . (isset($row['max_questions']) ? $row['max_questions'] : '0')
+        . '" min="0" '
         . 'title="'
         . __(
             'Limits the number of queries the user may send to the server per hour.'
@@ -735,7 +747,9 @@ function PMA_getHtmlForResourceLimits($row)
         . 'MAX UPDATES PER HOUR'
         . '</dfn></code></label>' . "\n"
         . '<input type="number" name="max_updates" id="text_max_updates" '
-        . 'value="' . $row['max_updates'] . '" min="0" '
+        . 'value="'
+        . (isset($row['max_updates']) ? $row['max_updates'] : '0')
+        . '" min="0" '
         . 'title="'
         . __(
             'Limits the number of commands that change any table '
@@ -753,7 +767,9 @@ function PMA_getHtmlForResourceLimits($row)
         . 'MAX CONNECTIONS PER HOUR'
         . '</dfn></code></label>' . "\n"
         . '<input type="number" name="max_connections" id="text_max_connections" '
-        . 'value="' . $row['max_connections'] . '" min="0" '
+        . 'value="'
+        . (isset($row['max_connections']) ? $row['max_connections'] : '0')
+        . '" min="0" '
         . 'title="' . __(
             'Limits the number of new connections the user may open per hour.'
         )
@@ -769,7 +785,9 @@ function PMA_getHtmlForResourceLimits($row)
         . '</dfn></code></label>' . "\n"
         . '<input type="number" name="max_user_connections" '
         . 'id="text_max_user_connections" '
-        . 'value="' . $row['max_user_connections'] . '" '
+        . 'value="'
+        . (isset($row['max_user_connections']) ? $row['max_user_connections'] : '0')
+        . '" '
         . 'title="'
         . __('Limits the number of simultaneous connections the user may have.')
         . '" />' . "\n"
@@ -783,12 +801,12 @@ function PMA_getHtmlForResourceLimits($row)
 /**
  * Get the HTML snippet for table specific privileges
  *
- * @param string  $username username for database connection
- * @param string  $hostname hostname for database connection
- * @param string  $db       the database
- * @param string  $table    the table
- * @param boolean $columns  columns array
- * @param array   $row      current privileges row
+ * @param string $username username for database connection
+ * @param string $hostname hostname for database connection
+ * @param string $db       the database
+ * @param string $table    the table
+ * @param array  $columns  columns array
+ * @param array  $row      current privileges row
  *
  * @return string $html_output
  */
@@ -849,8 +867,8 @@ function PMA_getHtmlForTableSpecificPrivileges(
 /**
  * Get HTML snippet for privileges that are attached to a specific column
  *
- * @param string $columns olumns array
- * @param array  $row     first row from result or boolean false
+ * @param array $columns columns array
+ * @param array $row     first row from result or boolean false
  *
  * @return string $html_output
  */
@@ -888,8 +906,9 @@ function PMA_getHtmlForAttachedPrivilegesToTableSpecificColumn($columns, $row)
 function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
 {
     $html_output = '';
+
     foreach ($row as $current_grant => $current_grant_value) {
-        $grant_type = substr($current_grant, 0, (strlen($current_grant) - 5));
+        $grant_type = substr($current_grant, 0, -5);
         if (in_array($grant_type, array('Select', 'Insert', 'Update', 'References'))
         ) {
             continue;
@@ -916,18 +935,24 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
            . 'title="';
 
         $html_output .= (isset($GLOBALS[
-                    'strPrivDesc' . substr(
-                        $tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)
+                    'strPrivDesc' . /*overload*/mb_substr(
+                        $tmp_current_grant,
+                        0,
+                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
                     )
                 ] )
                 ? $GLOBALS[
-                    'strPrivDesc' . substr(
-                        $tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)
+                    'strPrivDesc' . /*overload*/mb_substr(
+                        $tmp_current_grant,
+                        0,
+                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
                     )
                 ]
                 : $GLOBALS[
-                    'strPrivDesc' . substr(
-                        $tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)
+                    'strPrivDesc' . /*overload*/mb_substr(
+                        $tmp_current_grant,
+                        0,
+                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
                     ) . 'Tbl'
                 ]
             )
@@ -936,24 +961,34 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
         $html_output .= '<label for="checkbox_' . $current_grant
             . '"><code><dfn title="'
             . (isset($GLOBALS[
-                    'strPrivDesc' . substr(
-                        $tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)
+                    'strPrivDesc' . /*overload*/mb_substr(
+                        $tmp_current_grant,
+                        0,
+                        -5
                     )
                 ])
                 ? $GLOBALS[
-                    'strPrivDesc' . substr(
-                        $tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)
+                    'strPrivDesc' . /*overload*/mb_substr(
+                        $tmp_current_grant,
+                        0,
+                        -5
                     )
                 ]
                 : $GLOBALS[
-                    'strPrivDesc' . substr(
-                        $tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)
+                    'strPrivDesc' . /*overload*/mb_substr(
+                        $tmp_current_grant,
+                        0,
+                        -5
                     ) . 'Tbl'
                 ]
             )
             . '">'
-            . strtoupper(
-                substr($current_grant, 0, strlen($current_grant) - 5)
+            . /*overload*/mb_strtoupper(
+                /*overload*/mb_substr(
+                    $current_grant,
+                    0,
+                    -5
+                )
             )
             . '</dfn></code></label>' . "\n"
             . '</div>' . "\n";
@@ -993,7 +1028,6 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row)
             - (isset($row['Grant_priv']) ? 1 : 0)
         )
         . '" />';
-    $legend = $menu_label = '';
     if ($db == '*') {
         $legend     = __('Global privileges');
         $menu_label = __('Global');
@@ -1223,14 +1257,16 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
                 . ' name="' . $priv[0] . '_priv" '
                 . 'id="checkbox_' . $priv[0] . '_priv"'
                 . ' value="Y" title="' . $priv[2] . '"'
-                . (($row[$priv[0] . '_priv'] == 'Y')
+                . ((isset($row[$priv[0] . '_priv'])
+                    && $row[$priv[0] . '_priv'] == 'Y')
                     ?  ' checked="checked"'
                     : ''
                 )
                 . '/>' . "\n"
                 . '<label for="checkbox_' . $priv[0] . '_priv">'
-                . '<code><dfn title="' . $priv[2] . '">'
-                . $priv[1] . '</dfn></code></label>' . "\n"
+                . '<code>'
+                . PMA_formatPrivilege($priv, true)
+                . '</code></label>' . "\n"
                 . '</div>' . "\n";
         }
         $html_output .= '</fieldset>' . "\n";
@@ -1246,7 +1282,7 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
  *                     changing  one? (allowed values: 'new', 'change')
  *
  * @global  array      $cfg     the phpMyAdmin configuration
- * @global  ressource  $user_link the database connection
+ * @global  resource   $user_link the database connection
  *
  * @return string $html_output  a HTML snippet
  */
@@ -1254,7 +1290,9 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
 {
     list($username_length, $hostname_length) = PMA_getUsernameAndHostnameLength();
 
-    if (isset($GLOBALS['username']) && strlen($GLOBALS['username']) === 0) {
+    if (isset($GLOBALS['username'])
+        && /*overload*/mb_strlen($GLOBALS['username']) === 0
+    ) {
         $GLOBALS['pred_username'] = 'any';
     }
     $html_output = '<fieldset id="fieldset_add_user_login">' . "\n"
@@ -1267,7 +1305,6 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
 
     $html_output .= '<select name="pred_username" id="select_pred_username" '
         . 'title="' . __('User name') . '"' . "\n";
-
 
     $html_output .= '        onchange="'
         . 'if (this.value == \'any\') {'
@@ -1339,7 +1376,10 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         $thishost = str_replace(
             "'",
             '',
-            substr($_current_user, (strrpos($_current_user, '@') + 1))
+            /*overload*/mb_substr(
+                $_current_user,
+                (/*overload*/mb_strrpos($_current_user, '@') + 1)
+            )
         );
         if ($thishost == 'localhost' || $thishost == '127.0.0.1') {
             unset($thishost);
@@ -1369,7 +1409,7 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
 
     // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
     if (! isset($GLOBALS['pred_hostname']) && isset($GLOBALS['hostname'])) {
-        switch (strtolower($GLOBALS['hostname'])) {
+        switch (/*overload*/mb_strtolower($GLOBALS['hostname'])) {
         case 'localhost':
         case '127.0.0.1':
             $GLOBALS['pred_hostname'] = 'localhost';
@@ -1625,15 +1665,14 @@ function PMA_updatePassword($err_url, $username, $hostname)
 /**
  * Revokes privileges and get message and SQL query for privileges revokes
  *
- * @param string $db_and_table wildcard Escaped database+table specification
- * @param string $dbname       database name
- * @param string $tablename    table name
- * @param string $username     username
- * @param string $hostname     host name
+ * @param string $dbname    database name
+ * @param string $tablename table name
+ * @param string $username  username
+ * @param string $hostname  host name
  *
  * @return array ($message, $sql_query)
  */
-function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
+function PMA_getMessageAndSqlQueryForPrivilegesRevoke($dbname,
     $tablename, $username, $hostname
 ) {
     $db_and_table = PMA_wildcardEscapeForGrant($dbname, $tablename);
@@ -1706,7 +1745,8 @@ function PMA_getHtmlForAddUser($dbname)
     $html_output = '<h2>' . "\n"
        . PMA_Util::getIcon('b_usradd.png') . __('Add user') . "\n"
        . '</h2>' . "\n"
-       . '<form name="usersForm" class="ajax" id="addUsersForm"'
+       . '<form name="usersForm" id="addUsersForm"'
+       . ' onsubmit="return checkAddUser(this);"'
        . ' action="server_privileges.php" method="post" autocomplete="off" >' . "\n"
        . PMA_URL_getHiddenInputs('', '')
        . PMA_getHtmlForLoginInformationFields('new');
@@ -1743,11 +1783,14 @@ function PMA_getHtmlForAddUser($dbname)
     }
 
     $html_output .= '</fieldset>' . "\n";
-    $html_output .= PMA_getHtmlToDisplayPrivilegesTable('*', '*', false);
+    if ($GLOBALS['is_grantuser']) {
+        $html_output .= PMA_getHtmlToDisplayPrivilegesTable('*', '*', false);
+    }
     $html_output .= '<fieldset id="fieldset_add_user_footer" class="tblFooters">'
         . "\n"
-        . '<input type="submit" name="adduser_submit" '
-        . 'value="' . __('Go') . '" />' . "\n"
+        . '<input type="hidden" name="adduser_submit" value="1" />' . "\n"
+        . '<input type="submit" id="adduser_submit" value="' . __('Go') . '" />'
+        . "\n"
         . '</fieldset>' . "\n"
         . '</form>' . "\n";
 
@@ -1800,14 +1843,12 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
         . ' AND `Alter_routine_priv` = \'N\''
         . ' AND `Execute_priv` = \'N\'';
 
-    if (PMA_MYSQL_INT_VERSION >= 50106) {
-        $list_of_privileges .=
-            ', `Event_priv`, '
-            . '`Trigger_priv`';
-        $listOfComparedPrivs .=
-            ' AND `Event_priv` = \'N\''
-            . ' AND `Trigger_priv` = \'N\'';
-    }
+    $list_of_privileges .=
+        ', `Event_priv`, '
+        . '`Trigger_priv`';
+    $listOfComparedPrivs .=
+        ' AND `Event_priv` = \'N\''
+        . ' AND `Trigger_priv` = \'N\'';
     return array($list_of_privileges, $listOfComparedPrivs);
 }
 
@@ -1820,68 +1861,34 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
  */
 function PMA_getHtmlForSpecificDbPrivileges($db)
 {
-    // check the privileges for a particular database.
-    $html_output = '<form id="usersForm" action="server_privileges.php">'
-        . '<fieldset>' . "\n";
-    $html_output .= '<legend>' . "\n"
-        . PMA_Util::getIcon('b_usrcheck.png')
-        . '    '
-        . sprintf(
-            __('Users having access to "%s"'),
-            '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
-            . PMA_URL_getCommon($db) . '">'
-            .  htmlspecialchars($db)
-            . '</a>'
-        )
-        . "\n"
-        . '</legend>' . "\n";
+    $html_output = '';
+    if ($GLOBALS['is_superuser']) {
+        // check the privileges for a particular database.
+        $html_output = '<form id="usersForm" action="server_privileges.php">'
+            . '<fieldset>' . "\n";
+        $html_output .= '<legend>' . "\n"
+            . PMA_Util::getIcon('b_usrcheck.png')
+            . '    '
+            . sprintf(
+                __('Users having access to "%s"'),
+                '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+                . PMA_URL_getCommon(array('db' => $db)) . '">'
+                .  htmlspecialchars($db)
+                . '</a>'
+            )
+            . "\n"
+            . '</legend>' . "\n";
 
-    $html_output .= '<table id="dbspecificuserrights" class="data">' . "\n"
-        . '<thead>' . "\n"
-        . '<tr><th>' . __('User') . '</th>' . "\n"
-        . '<th>' . __('Host') . '</th>' . "\n"
-        . '<th>' . __('Type') . '</th>' . "\n"
-        . '<th>' . __('Privileges') . '</th>' . "\n"
-        . '<th>' . __('Grant') . '</th>' . "\n"
-        . '<th>' . __('Action') . '</th>' . "\n"
-        . '</tr>' . "\n"
-        . '</thead>' . "\n";
-    // now, we build the table...
-    list($listOfPrivs, $listOfComparedPrivs)
-        = PMA_getListOfPrivilegesAndComparedPrivileges();
-
-    $sql_query = '(SELECT ' . $listOfPrivs . ', `Db`, \'d\' AS `Type`'
-        . ' FROM `mysql`.`db`'
-        . ' WHERE \'' . PMA_Util::sqlAddSlashes($db)
-        . "'"
-        . ' LIKE `Db`'
-        . ' AND NOT (' . $listOfComparedPrivs . ')) '
-        . 'UNION '
-        . '(SELECT ' . $listOfPrivs . ', \'*\' AS `Db`, \'g\' AS `Type`'
-        . ' FROM `mysql`.`user` '
-        . ' WHERE NOT (' . $listOfComparedPrivs . ')) '
-        . ' ORDER BY `User` ASC,'
-        . '  `Host` ASC,'
-        . '  `Db` ASC;';
-    $res = $GLOBALS['dbi']->query($sql_query);
-
-    $privMap = array();
-    while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
-        $user = $row['User'];
-        $host = $row['Host'];
-        if (! isset($privMap[$user])) {
-            $privMap[$user] = array();
-        }
-        if (! isset($privMap[$user][$host])) {
-            $privMap[$user][$host] = array();
-        }
-        $privMap[$user][$host][] = $row;
+        $html_output .= '<table id="dbspecificuserrights" class="data">';
+        $html_output .= PMA_getHtmlForPrivsTableHead();
+        $privMap = PMA_getPrivMap($db);
+        $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
+        $html_output .= '</table>'
+            . '</fieldset>'
+            . '</form>' . "\n";
+    } else {
+        $html_output .= PMA_getHtmlForViewUsersError();
     }
-
-    $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
-    $html_output .= '</table>'
-        . '</fieldset>'
-        . '</form>' . "\n";
 
     if ($GLOBALS['is_ajax_request'] == true
         && empty($_REQUEST['ajax_page_request'])
@@ -1893,23 +1900,7 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         exit;
     } else {
         // Offer to create a new user for the current database
-        $html_output .= '<fieldset id="fieldset_add_user">' . "\n"
-           . '<legend>' . _pgettext('Create new user', 'New') . '</legend>' . "\n";
-
-        $html_output .= '<a href="server_privileges.php'
-            . PMA_URL_getCommon(
-                array(
-                    'adduser' => 1,
-                    'dbname' => $db,
-                )
-            )
-            . '" rel="'
-            . PMA_URL_getCommon(array('checkprivsdb' => $db))
-            . '" class="ajax" name="db_specific">' . "\n"
-            . PMA_Util::getIcon('b_usradd.png')
-            . '        ' . __('Add user') . '</a>' . "\n";
-
-        $html_output .= '</fieldset>' . "\n";
+        $html_output .= PMA_getAddUserHtmlFieldset($db);
     }
     return $html_output;
 }
@@ -1924,36 +1915,60 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
  */
 function PMA_getHtmlForSpecificTablePrivileges($db, $table)
 {
-    // check the privileges for a particular table.
-    $html_output  = '<form id="usersForm" action="server_privileges.php">';
-    $html_output .= '<fieldset>';
-    $html_output .= '<legend>'
-        . PMA_Util::getIcon('b_usrcheck.png')
-        . sprintf(
-            __('Users having access to "%s"'),
-            '<a href="' . $GLOBALS['cfg']['DefaultTabTable']
-            . PMA_URL_getCommon(
-                array(
-                    'db' => $db,
-                    'table' => $table,
-                )
-            ) . '">'
-            .  htmlspecialchars($db) . '.' . htmlspecialchars($table)
-            . '</a>'
-        )
-        . '</legend>';
+    $html_output = '';
+    if ($GLOBALS['is_superuser']) {
+        // check the privileges for a particular table.
+        $html_output  = '<form id="usersForm" action="server_privileges.php">';
+        $html_output .= '<fieldset>';
+        $html_output .= '<legend>'
+            . PMA_Util::getIcon('b_usrcheck.png')
+            . sprintf(
+                __('Users having access to "%s"'),
+                '<a href="' . $GLOBALS['cfg']['DefaultTabTable']
+                . PMA_URL_getCommon(
+                    array(
+                        'db' => $db,
+                        'table' => $table,
+                    )
+                ) . '">'
+                .  htmlspecialchars($db) . '.' . htmlspecialchars($table)
+                . '</a>'
+            )
+            . '</legend>';
 
-    $html_output .= '<table id="tablespecificuserrights" class="data">';
-    $html_output .= '<thead>'
-        . '<tr><th>' . __('User') . '</th>'
-        . '<th>' . __('Host') . '</th>'
-        . '<th>' . __('Type') . '</th>'
-        . '<th>' . __('Privileges') . '</th>'
-        . '<th>' . __('Grant') . '</th>'
-        . '<th>' . __('Action') . '</th>'
-        . '</tr>'
-        . '</thead>';
+        $html_output .= '<table id="tablespecificuserrights" class="data">';
+        $html_output .= PMA_getHtmlForPrivsTableHead();
+        $privMap = PMA_getPrivMap($db);
+        $sql_query = "SELECT `User`, `Host`, `Db`,"
+            . " 't' AS `Type`, `Table_name`, `Table_priv`"
+            . " FROM `mysql`.`tables_priv`"
+            . " WHERE '" . PMA_Util::sqlAddSlashes($db) . "' LIKE `Db`"
+            . "     AND '" . PMA_Util::sqlAddSlashes($table) . "' LIKE `Table_name`"
+            . "     AND NOT (`Table_priv` = '' AND Column_priv = '')"
+            . " ORDER BY `User` ASC, `Host` ASC, `Db` ASC, `Table_priv` ASC;";
+        $res = $GLOBALS['dbi']->query($sql_query);
+        PMA_mergePrivMapFromResult($privMap, $res);
+        $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
+        $html_output .= '</table>';
+        $html_output .= '</fieldset>';
+        $html_output .= '</form>';
+    } else {
+        $html_output .= PMA_getHtmlForViewUsersError();
+    }
+    // Offer to create a new user for the current database
+    $html_output .= PMA_getAddUserHtmlFieldset($db, $table);
+    return $html_output;
+}
 
+/**
+ * gets privilege map
+ *
+ * @param string $db the database
+ *
+ * @return array $privMap the privilege map
+ */
+function PMA_getPrivMap($db)
+{
     list($listOfPrivs, $listOfComparedPrivs)
         = PMA_getListOfPrivilegesAndComparedPrivileges();
     $sql_query
@@ -1971,9 +1986,22 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         . ")"
         . " ORDER BY `User` ASC, `Host` ASC, `Db` ASC;";
     $res = $GLOBALS['dbi']->query($sql_query);
-
     $privMap = array();
-    while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
+    PMA_mergePrivMapFromResult($privMap, $res);
+    return $privMap;
+}
+
+/**
+ * merge privilege map and rows from resultset
+ *
+ * @param array  &$privMap the privilege map reference
+ * @param object $result   the resultset of query
+ *
+ * @return void
+ */
+function PMA_mergePrivMapFromResult(&$privMap, $result)
+{
+    while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         $user = $row['User'];
         $host = $row['Host'];
         if (! isset($privMap[$user])) {
@@ -1984,59 +2012,44 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         }
         $privMap[$user][$host][] = $row;
     }
+}
 
-    $sql_query = "SELECT `User`, `Host`, `Db`,"
-        . " 't' AS `Type`, `Table_name`, `Table_priv`"
-        . " FROM `mysql`.`tables_priv`"
-        . " WHERE '" . PMA_Util::sqlAddSlashes($db) . "' LIKE `Db`"
-        . "     AND '" . PMA_Util::sqlAddSlashes($table) . "' LIKE `Table_name`"
-        . "     AND NOT (`Table_priv` = '' AND Column_priv = '')"
-        . " ORDER BY `User` ASC, `Host` ASC, `Db` ASC, `Table_priv` ASC;";
-    $res = $GLOBALS['dbi']->query($sql_query);
+/**
+ * Get HTML snippet for privileges table head
+ *
+ * @return string $html_output
+ */
+function PMA_getHtmlForPrivsTableHead()
+{
+    return '<thead>'
+        . '<tr><th>' . __('User') . '</th>'
+        . '<th>' . __('Host') . '</th>'
+        . '<th>' . __('Type') . '</th>'
+        . '<th>' . __('Privileges') . '</th>'
+        . '<th>' . __('Grant') . '</th>'
+        . '<th>' . __('Action') . '</th>'
+        . '</tr>'
+        . '</thead>';
+}
 
-    while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
-        $user = $row['User'];
-        $host = $row['Host'];
-        if (! isset($privMap[$user])) {
-            $privMap[$user] = array();
-        }
-        if (! isset($privMap[$user][$host])) {
-            $privMap[$user][$host] = array();
-        }
-        $privMap[$user][$host][] = $row;
-    }
-
-    $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
-    $html_output .= '</table>';
-    $html_output .= '</fieldset>';
-    $html_output .= '</form>';
-
-    // Offer to create a new user for the current database
-    $html_output .= '<fieldset id="fieldset_add_user">'
-        . '<legend>' . _pgettext('Create new user', 'New') . '</legend>';
-    $html_output .= '<a href="server_privileges.php'
-        . PMA_URL_getCommon(
-            array(
-                'adduser' => 1,
-                'dbname' => $db,
-                'tablename' => $table
-            )
-        )
-        . '" rel="' . PMA_URL_getCommon(
-            array('checkprivsdb' => $db, 'checkprivstable' => $table)
-        )
-        . '" class="ajax" name="table_specific">'
-        . PMA_Util::getIcon('b_usradd.png') . __('Add user') . '</a>';
-
-    $html_output .= '</fieldset>';
-    return $html_output;
+/**
+ * Get HTML error for View Users form
+ * For non superusers such as grant/create users
+ *
+ * @return string $html_output
+ */
+function PMA_getHtmlForViewUsersError()
+{
+    return PMA_Message::error(
+        __('Not enough privilege to view users.')
+    )->getDisplay();
 }
 
 /**
  * Get HTML snippet for table body of specific database or table privileges
  *
- * @param array   $privMap priviledge map
- * @param boolean $db      database
+ * @param array  $privMap privilege map
+ * @param string $db      database
  *
  * @return string $html_output
  */
@@ -2187,7 +2200,8 @@ function PMA_getHtmlListOfPrivs(
         $specific_table = (isset($current['Table_name'])
             && $current['Table_name'] != '*')
             ? $current['Table_name'] : '';
-        $html_output .= PMA_getUserEditLink(
+        $html_output .= PMA_getUserLink(
+            'edit',
             $current_user,
             $current_host,
             $specific_db,
@@ -2205,83 +2219,67 @@ function PMA_getHtmlListOfPrivs(
 }
 
 /**
- * Returns edit link for a user.
+ * Returns edit, revoke or export link for a user.
  *
+ * @param string $linktype  The link type (edit | revoke | export)
  * @param string $username  User name
  * @param string $hostname  Host name
  * @param string $dbname    Database name
  * @param string $tablename Table name
+ * @param string $initial   Initial value
  *
  * @return string HTML code with link
  */
-function PMA_getUserEditLink($username, $hostname, $dbname = '', $tablename = '')
-{
-    return '<a class="edit_user_anchor ajax"'
-        . ' href="server_privileges.php'
-        . PMA_URL_getCommon(
-            array(
-                'username' => $username,
-                'hostname' => $hostname,
-                'dbname' => $dbname,
-                'tablename' => $tablename,
-            )
-        )
-        . '">'
-        . PMA_Util::getIcon('b_usredit.png', __('Edit Privileges'))
-        . '</a>';
-}
+function PMA_getUserLink(
+    $linktype, $username, $hostname, $dbname = '', $tablename = '', $initial = ''
+) {
+    $html = '<a';
+    switch($linktype) {
+    case 'edit':
+        $html .= ' class="edit_user_anchor"';
+        break;
+    case 'export':
+        $html .= ' class="export_user_anchor ajax"';
+        break;
+    }
+    $params = array(
+        'username' => $username,
+        'hostname' => $hostname
+    );
+    switch($linktype) {
+    case 'edit':
+        $params['dbname'] = $dbname;
+        $params['tablename'] = $tablename;
+        break;
+    case 'revoke':
+        $params['dbname'] = $dbname;
+        $params['tablename'] = $tablename;
+        $params['revokeall'] = 1;
+        break;
+    case 'export':
+        $params['initial'] = $initial;
+        $params['export'] = 1;
+        break;
+    }
 
-/**
- * Returns revoke link for a user.
- *
- * @param string $username  User name
- * @param string $hostname  Host name
- * @param string $dbname    Database name
- * @param string $tablename Table name
- *
- * @return string HTML code with link
- */
-function PMA_getUserRevokeLink($username, $hostname, $dbname = '', $tablename = '')
-{
-    return '<a  href="server_privileges.php'
-        . PMA_URL_getCommon(
-            array(
-                'username' => $username,
-                'hostname' => $hostname,
-                'dbname' => $dbname,
-                'tablename' => $tablename,
-                'revokeall' => 1,
-            )
-        )
-        . '">'
-        . PMA_Util::getIcon('b_usrdrop.png', __('Revoke'))
-        . '</a>';
-}
+    $html .= ' href="server_privileges.php'
+        . PMA_URL_getCommon($params)
+        . '">';
 
-/**
- * Returns export link for a user.
- *
- * @param string $username User name
- * @param string $hostname Host name
- * @param string $initial  Initial value
- *
- * @return HTML code with link
- */
-function PMA_getUserExportLink($username, $hostname, $initial = '')
-{
-    return '<a class="export_user_anchor ajax"'
-        . ' href="server_privileges.php'
-        . PMA_URL_getCommon(
-            array(
-                'username' => $username,
-                'hostname' => $hostname,
-                'initial' => $initial,
-                'export' => 1,
-            )
-        )
-        . '">'
-        . PMA_Util::getIcon('b_tblexport.png', __('Export'))
-        . '</a>';
+    switch($linktype) {
+    case 'edit':
+        $html .= PMA_Util::getIcon('b_usredit.png', __('Edit Privileges'));
+        break;
+    case 'revoke':
+        $html .= PMA_Util::getIcon('b_usrdrop.png', __('Revoke'));
+        break;
+    case 'export':
+        $html .= PMA_Util::getIcon('b_tblexport.png', __('Export'));
+        break;
+    }
+    $html . '</a>';
+
+    return $html;
 }
 
 /**
@@ -2346,12 +2344,11 @@ function PMA_getExtraDataForAjaxBehavior(
     }
 
     $extra_data = array();
-    if (strlen($sql_query)) {
-        $extra_data['sql_query']
-            = PMA_Util::getMessage(null, $sql_query);
+    if (/*overload*/mb_strlen($sql_query)) {
+        $extra_data['sql_query'] = PMA_Util::getMessage(null, $sql_query);
     }
 
-    if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
+    if (isset($_REQUEST['change_copy'])) {
         /**
          * generate html on the fly for the new user that was just created.
          */
@@ -2380,7 +2377,7 @@ function PMA_getExtraDataForAjaxBehavior(
 
         $new_user_string .= '</td>' . "\n";
         $new_user_string .= '<td>'
-            . '<code>' . join(', ', PMA_extractPrivInfo('', true)) . '</code>'
+            . '<code>' . join(', ', PMA_extractPrivInfo(null, true)) . '</code>'
             . '</td>'; //Fill in privileges here
 
         // if $cfg['Servers'][$i]['users'] and $cfg['Servers'][$i]['usergroups'] are
@@ -2401,7 +2398,7 @@ function PMA_getExtraDataForAjaxBehavior(
         $new_user_string .='</td>';
 
         $new_user_string .= '<td>'
-            . PMA_getUserEditLink($username, $hostname)
+            . PMA_getUserLink('edit', $username, $hostname)
             . '</td>' . "\n";
 
         if (isset($cfgRelation['menuswork']) && $user_group_count > 0) {
@@ -2411,9 +2408,12 @@ function PMA_getExtraDataForAjaxBehavior(
         }
 
         $new_user_string .= '<td>'
-            . PMA_getUserExportLink(
+            . PMA_getUserLink(
+                'export',
                 $username,
                 $hostname,
+                '',
+                '',
                 isset($_GET['initial']) ? $_GET['initial'] : ''
             )
             . '</td>' . "\n";
@@ -2426,7 +2426,9 @@ function PMA_getExtraDataForAjaxBehavior(
          * Generate the string for this alphabet's initial, to update the user
          * pagination
          */
-        $new_user_initial = strtoupper(substr($username, 0, 1));
+        $new_user_initial = /*overload*/mb_strtoupper(
+            /*overload*/mb_substr($username, 0, 1)
+        );
         $newUserInitialString = '<a href="server_privileges.php'
             . PMA_URL_getCommon(array('initial' => $new_user_initial)) . '">'
             . $new_user_initial . '</a>';
@@ -2441,7 +2443,7 @@ function PMA_getExtraDataForAjaxBehavior(
             $extra_data['db_specific_privs'] = ! $dbname_is_wildcard;
             $extra_data['db_wildcard_privs'] = $dbname_is_wildcard;
         }
-        $new_privileges = join(', ', PMA_extractPrivInfo('', true));
+        $new_privileges = join(', ', PMA_extractPrivInfo(null, true));
 
         $extra_data['new_privileges'] = $new_privileges;
     }
@@ -2485,7 +2487,8 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
     );
 
     $html_output = '<form action="server_privileges.php" '
-        . 'method="post" class="copyUserForm ajax submenu-item">' . "\n"
+        . 'onsubmit="return checkAddUser(this);" '
+        . 'method="post" class="copyUserForm submenu-item">' . "\n"
         . PMA_URL_getHiddenInputs('', '')
         . '<input type="hidden" name="old_username" '
         . 'value="' . htmlspecialchars($username) . '" />' . "\n"
@@ -2509,8 +2512,8 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
 
     $html_output .= '<fieldset id="fieldset_change_copy_user_footer" '
         . 'class="tblFooters">' . "\n"
-        . '<input type="submit" name="change_copy" '
-        . 'value="' . __('Go') . '" />' . "\n"
+        . '<input type="hidden" name="change_copy" value="1" />' . "\n"
+        . '<input type="submit" value="' . __('Go') . '" />' . "\n"
         . '</fieldset>' . "\n"
         . '</form>' . "\n";
 
@@ -2543,7 +2546,7 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
         )
         . "</a> ]\n";
 
-    if (strlen($tablename)) {
+    if (/*overload*/mb_strlen($tablename)) {
         $html_output .= ' [ ' . __('Table') . ' <a href="'
             . $GLOBALS['cfg']['DefaultTabTable']
             . PMA_URL_getCommon(
@@ -2568,7 +2571,7 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
  * So this function returns user rights as an array
  *
  * @param array  $tables              tables
- * @param string $user_host_condition a where clause that containd user's host
+ * @param string $user_host_condition a where clause that contained user's host
  *                                    condition
  * @param string $dbname              database name
  *
@@ -2576,7 +2579,7 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
  */
 function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 {
-    if (! strlen($dbname)) {
+    if (!/*overload*/mb_strlen($dbname)) {
         $tables_to_search_for_users = array(
             'tables_priv', 'columns_priv',
         );
@@ -2617,7 +2620,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 
     while ($db_rights_row = $GLOBALS['dbi']->fetchAssoc($db_rights_result)) {
         $db_rights_row = array_merge($user_defaults, $db_rights_row);
-        if (! strlen($dbname)) {
+        if (!/*overload*/mb_strlen($dbname)) {
             // only Db names in the table `mysql`.`db` uses wildcards
             // as we are in the db specific rights display we want
             // all db names escaped, also from other sources
@@ -2630,7 +2633,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 
     $GLOBALS['dbi']->freeResult($db_rights_result);
 
-    if (! strlen($dbname)) {
+    if (!/*overload*/mb_strlen($dbname)) {
         $sql_query = 'SELECT * FROM `mysql`.`db`'
             . $user_host_condition . ' ORDER BY `Db` ASC';
     } else {
@@ -2644,7 +2647,6 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
     }
 
     $result = $GLOBALS['dbi']->query($sql_query);
-    $sql_query = '';
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         if (isset($db_rights[$row[$dbOrTableName]])) {
@@ -2653,7 +2655,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
         } else {
             $db_rights[$row[$dbOrTableName]] = $row;
         }
-        if (! strlen($dbname)) {
+        if (!/*overload*/mb_strlen($dbname)) {
             // there are db specific rights for this user
             // so we can drop this db rights
             $db_rights[$row['Db']]['can_delete'] = true;
@@ -2687,12 +2689,17 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
         $odd_row = true;
         //while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
         foreach ($db_rights as $row) {
-            $found_rows[] = (! strlen($dbname)) ? $row['Db'] : $row['Table_name'];
+            $dbNameLength = /*overload*/mb_strlen($dbname);
+            $found_rows[] = (!$dbNameLength)
+                ? $row['Db']
+                : $row['Table_name'];
 
             $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
                 . '<td>'
                 . htmlspecialchars(
-                    (! strlen($dbname)) ? $row['Db'] : $row['Table_name']
+                    (!$dbNameLength)
+                    ? $row['Db']
+                    : $row['Table_name']
                 )
                 . '</td>' . "\n"
                 . '<td><code>' . "\n"
@@ -2703,8 +2710,8 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
                 ) . "\n"
                 . '</code></td>' . "\n"
                 . '<td>'
-                    . ((((! strlen($dbname)) && $row['Grant_priv'] == 'Y')
-                        || (strlen($dbname)
+                    . ((((!$dbNameLength) && $row['Grant_priv'] == 'Y')
+                        || ($dbNameLength
                         && in_array('Grant', explode(',', $row['Table_priv']))))
                     ? __('Yes')
                     : __('No'))
@@ -2717,23 +2724,25 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
             }
             $html_output .= '</td>' . "\n"
                . '<td>';
-            $html_output .= PMA_getUserEditLink(
+            $html_output .= PMA_getUserLink(
+                'edit',
                 $username,
                 $hostname,
-                (! strlen($dbname)) ? $row['Db'] : $dbname,
-                (! strlen($dbname)) ? '' : $row['Table_name']
+                (!$dbNameLength) ? $row['Db'] : $dbname,
+                (!$dbNameLength) ? '' : $row['Table_name']
             );
             $html_output .= '</td>' . "\n"
                . '    <td>';
             if (! empty($row['can_delete'])
                 || isset($row['Table_name'])
-                && strlen($row['Table_name'])
+                && /*overload*/mb_strlen($row['Table_name'])
             ) {
-                $html_output .= PMA_getUserRevokeLink(
+                $html_output .= PMA_getUserLink(
+                    'revoke',
                     $username,
                     $hostname,
-                    (! strlen($dbname)) ? $row['Db'] : $dbname,
-                    (! strlen($dbname)) ? '' : $row['Table_name']
+                    (!$dbNameLength) ? $row['Db'] : $dbname,
+                    (!$dbNameLength) ? '' : $row['Table_name']
                 );
             }
             $html_output .= '</td>' . "\n"
@@ -2764,12 +2773,12 @@ function PMA_getHtmlForAllTableSpecificRights(
         . 'value="' . htmlspecialchars($hostname) . '" />' . "\n"
         . '<fieldset>' . "\n"
         . '<legend data-submenu-label="'
-        . (! strlen($dbname)
+        . (!/*overload*/mb_strlen($dbname)
             ? __('Database')
             : __('Table')
         )
         . '">'
-        . (! strlen($dbname)
+        . (!/*overload*/mb_strlen($dbname)
             ? __('Database-specific privileges')
             : __('Table-specific privileges')
         )
@@ -2777,12 +2786,12 @@ function PMA_getHtmlForAllTableSpecificRights(
         . '<table class="data">' . "\n"
         . '<thead>' . "\n"
         . '<tr><th>'
-        . (! strlen($dbname) ? __('Database') : __('Table'))
+        . (!/*overload*/mb_strlen($dbname) ? __('Database') : __('Table'))
         . '</th>' . "\n"
         . '<th>' . __('Privileges') . '</th>' . "\n"
         . '<th>' . __('Grant') . '</th>' . "\n"
         . '<th>'
-        . (! strlen($dbname)
+        . (!/*overload*/mb_strlen($dbname)
             ? __('Table-specific privileges')
             : __('Column-specific privileges')
         )
@@ -2799,7 +2808,7 @@ function PMA_getHtmlForAllTableSpecificRights(
     // table body
     // get data
 
-    // we also want privielgs for this user not in table `db` but in other table
+    // we also want privileges for this user not in table `db` but in other table
     $tables = $GLOBALS['dbi']->fetchResult('SHOW TABLES FROM `mysql`;');
 
     /**
@@ -2839,11 +2848,9 @@ function PMA_getHtmlForSelectDbInEditPrivs($found_rows)
     $databases_to_skip = array('information_schema', 'performance_schema');
 
     $html_output = '<label for="text_dbname">'
-        . __('Add privileges on the following database:') . '</label>' . "\n";
+        . __('Add privileges on the following database(s):') . '</label>' . "\n";
     if (! empty($pred_db_array)) {
-        $html_output .= '<select name="pred_dbname" class="autosubmit">' . "\n"
-            . '<option value="" selected="selected">'
-            . __('Use text field:') . '</option>' . "\n";
+        $html_output .= '<select name="pred_dbname[]" multiple="multiple">' . "\n";
         foreach ($pred_db_array as $current_db) {
             if (in_array($current_db, $databases_to_skip)) {
                 continue;
@@ -2862,8 +2869,7 @@ function PMA_getHtmlForSelectDbInEditPrivs($found_rows)
         }
         $html_output .= '</select>' . "\n";
     }
-    $html_output .= '<input type="text" id="text_dbname" name="dbname" '
-        . 'required="required" />'
+    $html_output .= '<input type="text" id="text_dbname" name="dbname" />'
         . "\n"
         . PMA_Util::showHint(
             __('Wildcards % and _ should be escaped with a \ to use them literally.')
@@ -3082,7 +3088,8 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
                 . '</td>' . "\n";
 
             $html_output .= '<td class="center">'
-                . PMA_getUserEditLink(
+                . PMA_getUserLink(
+                    'edit',
                     $host['User'],
                     $host['Host']
                 )
@@ -3097,9 +3104,12 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
                 }
             }
             $html_output .= '<td class="center">'
-                . PMA_getUserExportLink(
+                . PMA_getUserLink(
+                    'export',
                     $host['User'],
                     $host['Host'],
+                    '',
+                    '',
                     isset($_GET['initial']) ? $_GET['initial'] : ''
                 )
                 . '</td>';
@@ -3117,14 +3127,7 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
  */
 function PMA_getFieldsetForAddDeleteUser()
 {
-    $html_output = '<fieldset id="fieldset_add_user">' . "\n";
-    $html_output .= '<a href="server_privileges.php'
-        . PMA_URL_getCommon(array('adduser' => 1))
-        . '" class="ajax">' . "\n"
-        . PMA_Util::getIcon('b_usradd.png')
-        . '            ' . __('Add user') . '</a>' . "\n";
-    $html_output .= '</fieldset>' . "\n";
-
+    $html_output = PMA_getAddUserHtmlFieldset();
     $html_output .= '<fieldset id="fieldset_delete_user">'
         . '<legend>' . "\n"
         . PMA_Util::getIcon('b_usrdrop.png')
@@ -3178,8 +3181,8 @@ function PMA_getHtmlForInitials($array_initials)
 {
     // initialize to false the letters A-Z
     for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
-        if (! isset($array_initials[chr($letter_counter + 64)])) {
-            $array_initials[chr($letter_counter + 64)] = false;
+        if (! isset($array_initials[/*overload*/mb_chr($letter_counter + 64)])) {
+            $array_initials[/*overload*/mb_chr($letter_counter + 64)] = false;
         }
     }
 
@@ -3231,7 +3234,7 @@ function PMA_getHtmlForInitials($array_initials)
 }
 
 /**
- * Get the database rigths array for Display user overview
+ * Get the database rights array for Display user overview
  *
  * @return array  $db_rights    database rights array
  */
@@ -3284,12 +3287,13 @@ function PMA_getDbRightsForUserOverview()
 /**
  * Delete user and get message and sql query for delete user in privileges
  *
- * @param string $queries queries
+ * @param array $queries queries
  *
- * @return PMA_message
+ * @return array PMA_message
  */
 function PMA_deleteUser($queries)
 {
+    $sql_query = '';
     if (empty($queries)) {
         $message = PMA_Message::error(__('No users selected for deleting!'));
     } else {
@@ -3348,14 +3352,16 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
 
     // Should not do a GRANT USAGE for a table-specific privilege, it
     // causes problems later (cannot revoke it)
-    if (! (strlen($tablename) && 'USAGE' == implode('', PMA_extractPrivInfo()))) {
+    if (! (/*overload*/mb_strlen($tablename)
+        && 'USAGE' == implode('', PMA_extractPrivInfo()))
+    ) {
         $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo())
             . ' ON ' . $db_and_table
             . ' TO \'' . PMA_Util::sqlAddSlashes($username) . '\'@\''
             . PMA_Util::sqlAddSlashes($hostname) . '\'';
 
         if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
-            || (! strlen($dbname)
+            || (! /*overload*/mb_strlen($dbname)
             && (isset($_POST['max_questions']) || isset($_POST['max_connections'])
             || isset($_POST['max_updates'])
             || isset($_POST['max_user_connections'])))
@@ -3392,11 +3398,10 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
 /**
  * Get List of information: Changes / copies a user
  *
- * @return array()
+ * @return array
  */
 function PMA_getDataForChangeOrCopyUser()
 {
-    $row = null;
     $queries = null;
     $password = null;
 
@@ -3493,8 +3498,8 @@ function PMA_updateMessageForReload()
 /**
  * update Data For Queries from queries_for_display
  *
- * @param array $queries             queries array
- * @param array $queries_for_display queries arry for display
+ * @param array      $queries             queries array
+ * @param array|null $queries_for_display queries array for display
  *
  * @return null
  */
@@ -3536,6 +3541,7 @@ function PMA_addUser(
     $queries = null;
     $queries_for_display = null;
     $sql_query = null;
+
     if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         $sql_query = '';
         if ($_POST['pred_username'] == 'any') {
@@ -3553,7 +3559,10 @@ function PMA_addUser(
             break;
         case 'thishost':
             $_user_name = $GLOBALS['dbi']->fetchValue('SELECT USER()');
-            $hostname = substr($_user_name, (strrpos($_user_name, '@') + 1));
+            $hostname = /*overload*/mb_substr(
+                $_user_name,
+                (/*overload*/mb_strrpos($_user_name, '@') + 1)
+            );
             unset($_user_name);
             break;
         }
@@ -3624,7 +3633,6 @@ function PMA_getDataForDBInfo()
     $hostname = null;
     $dbname = null;
     $tablename = null;
-    $db_and_table = null;
     $dbname_is_wildcard = null;
 
     if (isset ($_REQUEST['username'])) {
@@ -3644,9 +3652,39 @@ function PMA_getDataForDBInfo()
         unset($tablename);
     }
 
-    if (PMA_isValid($_REQUEST['pred_dbname'])) {
+    if (isset($_REQUEST['pred_dbname'])) {
+        $is_valid_pred_dbname = true;
+        foreach ($_REQUEST['pred_dbname'] as $key => $db_name) {
+            if (! PMA_isValid($db_name)) {
+                $is_valid_pred_dbname = false;
+                break;
+            }
+        }
+    }
+
+    if (isset($_REQUEST['dbname'])) {
+        $is_valid_dbname = true;
+        if (is_array($_REQUEST['dbname'])) {
+            foreach ($_REQUEST['dbname'] as $key => $db_name) {
+                if (! PMA_isValid($db_name)) {
+                    $is_valid_dbname = false;
+                    break;
+                }
+            }
+        } else {
+            if (! PMA_isValid($_REQUEST['dbname'])) {
+                $is_valid_dbname = false;
+            }
+        }
+    }
+
+    if (isset($is_valid_pred_dbname) && $is_valid_pred_dbname) {
         $dbname = $_REQUEST['pred_dbname'];
-    } elseif (PMA_isValid($_REQUEST['dbname'])) {
+        // If dbname contains only one database.
+        if (count($dbname) == 1) {
+            $dbname = $dbname[0];
+        }
+    } elseif (isset($is_valid_dbname) && $is_valid_dbname) {
         $dbname = $_REQUEST['dbname'];
     } else {
         unset($dbname);
@@ -3654,12 +3692,25 @@ function PMA_getDataForDBInfo()
     }
 
     if (isset($dbname)) {
-        $unescaped_db = PMA_Util::unescapeMysqlWildcards($dbname);
-        $db_and_table = PMA_Util::backquote($unescaped_db) . '.';
+        if (is_array($dbname)) {
+            $db_and_table = $dbname;
+            foreach ($db_and_table as $key => $db_name) {
+                $db_and_table[$key] .= '.';
+            }
+        } else {
+            $unescaped_db = PMA_Util::unescapeMysqlWildcards($dbname);
+            $db_and_table = PMA_Util::backquote($unescaped_db) . '.';
+        }
         if (isset($tablename)) {
             $db_and_table .= PMA_Util::backquote($tablename);
         } else {
-            $db_and_table .= '*';
+            if (is_array($db_and_table)) {
+                foreach ($db_and_table as $key => $db_name) {
+                    $db_and_table[$key] .= '*';
+                }
+            } else {
+                $db_and_table .= '*';
+            }
         }
     } else {
         $db_and_table = '*.*';
@@ -3668,7 +3719,7 @@ function PMA_getDataForDBInfo()
     // check if given $dbname is a wildcard or not
     if (isset($dbname)) {
         //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
-        if (preg_match('/(?<!\\\\)(?:_|%)/i', $dbname)) {
+        if (! is_array($dbname) && preg_match('/(?<!\\\\)(?:_|%)/i', $dbname)) {
             $dbname_is_wildcard = true;
         } else {
             $dbname_is_wildcard = false;
@@ -3700,9 +3751,14 @@ function PMA_getListForExportUserDefinition($username, $hostname)
     if (isset($_REQUEST['selected_usr'])) {
         // export privileges for selected users
         $title = __('Privileges');
+
         foreach ($_REQUEST['selected_usr'] as $export_user) {
-            $export_username = substr($export_user, 0, strpos($export_user, '&'));
-            $export_hostname = substr($export_user, strrpos($export_user, ';') + 1);
+            $export_username = /*overload*/mb_substr(
+                $export_user, 0, /*overload*/mb_strpos($export_user, '&')
+            );
+            $export_hostname = /*overload*/mb_substr(
+                $export_user, /*overload*/mb_strrpos($export_user, ';') + 1
+            );
             $export .= '# '
                 . sprintf(
                     __('Privileges for %s'),
@@ -3729,14 +3785,39 @@ function PMA_getListForExportUserDefinition($username, $hostname)
 /**
  * Get HTML for display Add userfieldset
  *
+ * @param string $db    the database
+ * @param string $table the table name
+ *
  * @return string html output
  */
-function PMA_getAddUserHtmlFieldset()
+function PMA_getAddUserHtmlFieldset($db = '', $table = '')
 {
+    if (!$GLOBALS['is_createuser']) {
+        return '';
+    }
+    $rel_params = array();
+    $url_params = array(
+        'adduser' => 1
+    );
+    if (!empty($db)) {
+        $url_params['dbname']
+            = $rel_params['checkprivsdb']
+                = $db;
+    }
+    if (!empty($table)) {
+        $url_params['tablename']
+            = $rel_params['checkprivstable']
+                = $table;
+    }
+
     return '<fieldset id="fieldset_add_user">' . "\n"
+        . '<legend>' . _pgettext('Create new user', 'New') . '</legend>'
         . '<a href="server_privileges.php'
-        . PMA_URL_getCommon(array('adduser' => 1))
-        . '" class="ajax">' . "\n"
+        . PMA_URL_getCommon($url_params) . '" '
+        . (!empty($rel_params)
+            ? ('rel="' . PMA_URL_getCommon($rel_params) . '" ')
+            : '')
+        . '">' . "\n"
         . PMA_Util::getIcon('b_usradd.png')
         . '            ' . __('Add user') . '</a>' . "\n"
         . '</fieldset>' . "\n";
@@ -3763,7 +3844,7 @@ function PMA_getHtmlHeaderForUserProperties(
        . __('User');
 
     if (! empty($dbname)) {
-        $html_output .= ' <i><a class="edit_user_anchor ajax"'
+        $html_output .= ' <i><a class="edit_user_anchor"'
             . ' href="server_privileges.php'
             . PMA_URL_getCommon(
                 array(
@@ -3778,7 +3859,9 @@ function PMA_getHtmlHeaderForUserProperties(
             . '\'</a></i>' . "\n";
 
         $html_output .= ' - ';
-        $html_output .= $dbname_is_wildcard ? __('Databases') : __('Database');
+        $html_output .= ($dbname_is_wildcard
+            || is_array($dbname) && count($dbname) > 1)
+            ? __('Databases') : __('Database');
         if (! empty($_REQUEST['tablename'])) {
             $html_output .= ' <i><a href="server_privileges.php'
                 . PMA_URL_getCommon(
@@ -3795,7 +3878,12 @@ function PMA_getHtmlHeaderForUserProperties(
             $html_output .= ' - ' . __('Table')
                 . ' <i>' . htmlspecialchars($tablename) . '</i>';
         } else {
-            $html_output .= ' <i>' . htmlspecialchars($dbname) . '</i>';
+            if (! is_array($dbname)) {
+                $dbname = array($dbname);
+            }
+            $html_output .= ' <i>'
+                . htmlspecialchars(implode(', ', $dbname))
+                . '</i>';
         }
 
     } else {
@@ -3805,7 +3893,18 @@ function PMA_getHtmlHeaderForUserProperties(
 
     }
     $html_output .= '</h2>' . "\n";
-
+    $cur_user = htmlspecialchars($GLOBALS['dbi']->getCurrentUser());
+    $user = htmlspecialchars($username . '@' . $hostname);
+    // Add a short notice for the user
+    // to remind him that he is editing his own privileges
+    if ($user === $cur_user) {
+        $html_output .= PMA_Message::notice(
+            __(
+                'Note: You are attempting to edit privileges of the '
+                . 'user with which you are currently logged in.'
+            )
+        )->getDisplay();
+    }
     return $html_output;
 }
 
@@ -3845,22 +3944,22 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
         $sql_query_all, null, PMA_DatabaseInterface::QUERY_STORE
     );
 
-
     if (! $res) {
         // the query failed! This may have two reasons:
         // - the user does not have enough privileges
         // - the privilege tables use a structure of an earlier version.
         // so let's try a more simple query
 
+        $GLOBALS['dbi']->freeResult($res);
+        $GLOBALS['dbi']->freeResult($res_all);
         $sql_query = 'SELECT * FROM `mysql`.`user`';
         $res = $GLOBALS['dbi']->tryQuery(
             $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
         );
 
         if (! $res) {
-            $html_output .= PMA_Message::error(__('No Privileges'))->getDisplay();
-            $GLOBALS['dbi']->freeResult($res);
-            unset($res);
+            $html_output .= PMA_getHtmlForViewUsersError();
+            $html_output .= PMA_getAddUserHtmlFieldset();
         } else {
             // This message is hardcoded because I will replace it by
             // a automatic repair feature soon.
@@ -3872,6 +3971,7 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
                 . ' to solve this problem!';
             $html_output .= PMA_Message::rawError($raw)->getDisplay();
         }
+        $GLOBALS['dbi']->freeResult($res);
     } else {
         $db_rights = PMA_getDbRightsForUserOverview();
         // for all initials, even non A-Z
@@ -3943,7 +4043,8 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
 function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
     $username, $hostname, $dbname, $tablename
 ) {
-    $html_output = PMA_getHtmlHeaderForUserProperties(
+    $html_output  = '<div id="edit_user_dialog">';
+    $html_output .= PMA_getHtmlHeaderForUserProperties(
         $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname, $tablename
     );
 
@@ -3965,24 +4066,29 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
         'username' => $username,
         'hostname' => $hostname,
     );
-    if (strlen($dbname)) {
+    if (! is_array($dbname) && /*overload*/mb_strlen($dbname)) {
         $_params['dbname'] = $dbname;
-        if (strlen($tablename)) {
+        if (/*overload*/mb_strlen($tablename)) {
             $_params['tablename'] = $tablename;
         }
+    } else {
+        $_params['dbname'] = $dbname;
     }
 
-    $html_output .= '<form class="ajax submenu-item" name="usersForm" '
+    $html_output .= '<form class="submenu-item" name="usersForm" '
         . 'id="addUsersForm" action="server_privileges.php" method="post">' . "\n";
     $html_output .= PMA_URL_getHiddenInputs($_params);
     $html_output .= PMA_getHtmlToDisplayPrivilegesTable(
-        PMA_ifSetOr($dbname, '*', 'length'),
+        // If $dbname is an array, pass any one db as all have same privs.
+        PMA_ifSetOr($dbname, (is_array($dbname)) ? $dbname[0] : '*', 'length'),
         PMA_ifSetOr($tablename, '*', 'length')
     );
 
     $html_output .= '</form>' . "\n";
 
-    if (! strlen($tablename) && empty($dbname_is_wildcard)) {
+    if (! is_array($dbname) && ! /*overload*/mb_strlen($tablename)
+        && empty($dbname_is_wildcard)
+    ) {
 
         // no table name was given, display all table specific rights
         // but only if $dbname contains no wildcards
@@ -3998,7 +4104,7 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
             );
         $html_output .= $html_rightsTable;
 
-        if (! strlen($dbname)) {
+        if (! /*overload*/mb_strlen($dbname)) {
             // no database name was given, display select db
             $html_output .= PMA_getHtmlForSelectDbInEditPrivs($found_rows);
 
@@ -4014,16 +4120,21 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
     }
 
     // Provide a line with links to the relevant database and table
-    if (strlen($dbname) && empty($dbname_is_wildcard)) {
+    if (! is_array($dbname) && /*overload*/mb_strlen($dbname)
+        && empty($dbname_is_wildcard)
+    ) {
         $html_output .= PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename);
 
     }
 
-    if (! strlen($dbname) && ! $user_does_not_exists) {
+    if (! is_array($dbname) && ! /*overload*/mb_strlen($dbname)
+        && ! $user_does_not_exists
+    ) {
         //change login information
         $html_output .= PMA_getHtmlForChangePassword($username, $hostname);
         $html_output .= PMA_getChangeLoginInformationHtmlForm($username, $hostname);
     }
+    $html_output .= '</div>';
 
     return $html_output;
 }
@@ -4032,7 +4143,7 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
  * Get queries for Table privileges to change or copy user
  *
  * @param string $user_host_condition user host condition to
- *                                    select relevent table privileges
+ *                                    select relevant table privileges
  * @param array  $queries             queries array
  * @param string $username            username
  * @param string $hostname            host name
@@ -4170,9 +4281,11 @@ function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser(
 function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
     $username, $hostname, $dbname
 ) {
-    if ($_error || ! $GLOBALS['dbi']->tryQuery($real_sql_query)) {
+    if ($_error || (!empty($real_sql_query)
+        && !$GLOBALS['dbi']->tryQuery($real_sql_query))
+    ) {
         $_REQUEST['createdb-1'] = $_REQUEST['createdb-2']
-            = $_REQUEST['createdb-3'] = false;
+            = $_REQUEST['createdb-3'] = null;
         $message = PMA_Message::rawError($GLOBALS['dbi']->getError());
     } else {
         $message = PMA_Message::success(__('You have added a new user.'));
@@ -4242,7 +4355,7 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
 /**
  * Get SQL queries for Display and Add user
  *
- * @param string $username usernam
+ * @param string $username username
  * @param string $hostname host name
  * @param string $password password
  *
@@ -4250,7 +4363,6 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
  */
 function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
 {
-    $sql_query = '';
     $create_user_real = 'CREATE USER \''
         . PMA_Util::sqlAddSlashes($username) . '\'@\''
         . PMA_Util::sqlAddSlashes($hostname) . '\'';
@@ -4260,9 +4372,14 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         . PMA_Util::sqlAddSlashes($hostname) . '\'';
 
     if ($_POST['pred_password'] != 'none' && $_POST['pred_password'] != 'keep') {
-        $sql_query = $real_sql_query . ' IDENTIFIED BY \'***\'';
-        $real_sql_query .= ' IDENTIFIED BY \''
-            . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\'';
+        $sql_query = $real_sql_query;
+        // Requires SELECT privilege on mysql database
+        // for using this with GRANT queries. It can be skipped.
+        if ($GLOBALS['is_superuser']) {
+            $sql_query .= ' IDENTIFIED BY \'***\'';
+            $real_sql_query .= ' IDENTIFIED BY \''
+                . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\'';
+        }
         if (isset($create_user_real)) {
             $create_user_show = $create_user_real . ' IDENTIFIED BY \'***\'';
             $create_user_real .= ' IDENTIFIED BY \''
@@ -4296,6 +4413,11 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     }
     $real_sql_query .= ';';
     $sql_query .= ';';
+    // No Global GRANT_OPTION privilege
+    if (!$GLOBALS['is_grantuser']) {
+        $real_sql_query = '';
+        $sql_query = '';
+    }
 
     return array($create_user_real,
         $create_user_show,

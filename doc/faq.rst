@@ -876,12 +876,8 @@ TableSeparator or disabling that feature.
 
 .. _faq3_6:
 
-3.6 What is currently not supported in phpMyAdmin about InnoDB?
----------------------------------------------------------------
-
-In Relation view, having more than one index column in the foreign key. In Query-by-
-example (Query), automatic generation of the query LEFT JOIN from the
-foreign table.
+3.6 (withdrawn).
+-----------------
 
 .. _faq3_7:
 
@@ -940,6 +936,9 @@ phpMyAdmin uses a quick method to get the row count, and this method only
 returns an approximate count in the case of InnoDB tables. See
 :config:option:`$cfg['MaxExactCount']` for a way to modify those results, but
 this could have a serious impact on performance.
+However, one can easily replace the approximate row count with exact count by
+simply clicking on the approximate count. This can also be done for all tables
+at once by clicking on the rows sum displayed at the bottom.
 
 .. _faq3_12:
 
@@ -1933,6 +1932,92 @@ wait until it turns `Gray` again.
 Using :config:option:`$cfg['NumFavoriteTables']` in your :file:`config.inc.php`
 file, you can define the  maximum number of favorite tables shown in the
 navigation panel. Its default value is `10`.
+
+.. _faq6_35:
+
+6.35 How can I use the Range search feature?
+---------------------------------------------------------
+
+With the help of range search feature, one can specify a range of values for
+particular column(s) while performing search operation on a table from the `Search`
+tab.
+
+To use this feature simply click on the `BETWEEN` or `NOT BETWEEN` operators
+from the operator select list in front of the column name. On choosing one of the
+above options, a dialog box will show up asking for the `Minimum` and `Maximum`
+value for that column. Only the specified range of values will be included
+in case of `BETWEEN` and excluded in case of `NOT BETWEEN` from the final results.
+
+Note: The Range search feature will work only `Numeric` and `Date` data type columns.
+
+.. _faq6_36:
+
+6.36 What is Central columns and How can I use this feature?
+------------------------------------------------------------
+
+As the name suggests, the Central columns feature enables to maintain a central list of
+columns per database to avoid similar name for the same data element and bring consistency
+of data type for the same data element. You can use the central list of columns to
+add an element to any table structure in that database which will save from writing
+similar column name and column definition.
+
+To add a column to central list, go to table structure page, check the columns you want
+to include and then simply click on "Add to central columns". If you want to add all
+unique columns from more than one table from a database then go to database structure page,
+check the tables you want to include and then select "Add columns to central list".
+
+To remove a column from central list, go to Table structure page, check the columns you want
+to remove and then simply click on "Remove from central columns". If you want to remove all
+columns from more than one tables from a database then go to database structure page,
+check the tables you want to include and then select "Remove columns from central list".
+
+To view and manage the central list, select the database you want to manage central columns
+for then from the top menu click on "Central columns". You will be taken to a page where
+you will have options to edit, delete or add new columns to central list.
+
+.. _faq6_37:
+
+6.37 How can I use Improve Table structure feature?
+---------------------------------------------------------
+
+Improve table structure feature helps to bring the table structure upto
+Third Normal Form. A wizard is presented to user which asks questions about the
+elements during the various steps for normalization and a new structure is proposed
+accordingly to bring the table into the First/Second/Third Normal form.
+On startup of the wizard, user gets to select upto what normal form they want to
+normalize the table structure.
+
+Here is an example table which you can use to test all of the three First, Second and
+Third Normal From.
+
+.. code-block:: mysql
+
+    CREATE TABLE `VetOffice` (
+     `petName` varchar(64) NOT NULL,
+     `petBreed` varchar(64) NOT NULL,
+     `petType` varchar(64) NOT NULL,
+     `petDOB` date NOT NULL,
+     `ownerLastName` varchar(64) NOT NULL,
+     `ownerFirstName` varchar(64) NOT NULL,
+     `ownerPhone1` int(12) NOT NULL,
+     `ownerPhone2` int(12) NOT NULL,
+     `ownerEmail` varchar(64) NOT NULL,
+    );
+
+The above table is not in First normal Form as no primary key exists. Primary key
+is supposed to be (`petName`,`ownerLastName`,`ownerFirstName`) . If the primary key
+is chosen as suggested the resultant table won't be in Second as well as Third Normal
+form as the following dependencies exists.
+
+.. code-block:: mysql
+
+    (OwnerLastName, OwnerFirstName) -> OwnerEmail
+    (OwnerLastName, OwnerFirstName) -> OwnerPhone
+    PetBreed -> PetType
+
+Which says, OwnerEmail depends on OwnerLastName and OwnerFirstName.
+OwnerPhone depends on OwnerLastName and OwnerFirstName.
+PetType depends on PetBreed.
 
 .. _faqproject:
 

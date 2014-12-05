@@ -48,7 +48,6 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
 
-
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
     }
 
@@ -89,11 +88,6 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
                 ),
                 'SCHEMA_LENGTH' => array(
                     'disp_name' => __('Total'),
-                    'format'    => 'byte',
-                    'footer'    => 0
-                ),
-                'SCHEMA_DATA_FREE' => array(
-                    'disp_name' => __('Overhead'),
                     'format'    => 'byte',
                     'footer'    => 0
                 )

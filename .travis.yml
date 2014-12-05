@@ -4,28 +4,41 @@
 # - run Selenium for single PHP version
 
 language: php
+
 php:
+  - "5.6"
   - "5.5"
   - "5.4"
   - "5.3"
   - hhvm
+
+sudo: false
+
 env:
   matrix:
     - PHPUNIT_ARGS="--exclude-group selenium"
     - LINT="yes"
   global:
-    - secure: "D24AZRWfuIYuA42eI5Rlg+6W0U1c+X33e6XqNMDzjl7KmhIqZaplOU++mKQLcx5+uIjZ4h7oJi8jIo/gmU8wHC4q+qKbL4xKIqx1AgNDwr6Upc9IBRnlfmXiwM2uxZGn5y0LdH5xM4FzBiN3Giff9hbnIdMJKvVudKVZNlHnzr8="
+    - secure: "TR3s7lHkREN706g+FeNXl1S0R2fpcI1H+n8USIkl5WBd7S2/NpsZlSfkrgnC7/xRBDXzHwuYd8JQQyAZyrqPEeLqIqlKzxIcTHOiJWGeR/YO7JXsr1Slt/nFqygpIyz8yOh3QIvX6FMzPsamBlUNhRvTAkd2wXPMBpXQlhTVmX8="
     - TESTSUITE_BROWSERSTACK_USER=phpMyAdmin
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
-    - TESTSUITE_SELENIUM_COVERAGE=http://127.0.0.1:8000/phpunit_coverage.php
+
 before_script:
+  - export PATH=~/.composer/vendor/bin/:$PATH
   - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')" ;
   - set -e ; if [[ -z "$LINT" ]] ; then
+
+    composer install --dev --no-interaction ;
+
     if [[ $TRAVIS_PHP_VERSION != "hhvm" ]] ; then
 
     git clone --depth=1 git://github.com/zenovich/runkit.git ;
     cd runkit ;
+    if [[ $TRAVIS_PHP_VERSION = "5.6" ]] ; then
+    wget https://github.com/zenovich/runkit/pull/71.diff ; 
+    patch -p1 < 71.diff ;
+    fi ;
     phpize ;
     ./configure ;
     make ;
@@ -34,10 +47,7 @@ before_script:
 
     phpenv config-add test/travis.php.ini ;
 
-    pear channel-discover pear.phpunit.de ;
-    pear install phpunit/PHPUnit_Selenium ;
-
-    composer install --dev --no-interaction ;
+    wget https://scrutinizer-ci.com/ocular.phar ;
 
     fi ;
 
@@ -53,6 +63,7 @@ before_script:
 
     fi ;
     fi
+
 script:
   - ant locales
   - set -e; if [[ -z "$LINT" ]] ; then
@@ -69,15 +80,21 @@ script:
     else
     ant lint ;
     fi
+
 after_script:
-  - if [[ -f vendor/bin/coveralls ]] ; then php vendor/bin/coveralls -v ; fi
+  - if [[ -f build/logs/clover.xml ]] ; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml || true ; fi
+  - if [[ -f vendor/bin/coveralls ]] ; then php vendor/bin/coveralls -v || true ; fi
+
 matrix:
   allow_failures:
-    - php: hhvm
-      env: PHPUNIT_ARGS="--exclude-group selenium"
     - php: 5.5
       env: PHPUNIT_ARGS="--group selenium" SELENIUM="yes"
+    - php: hhvm
+      env: PHPUNIT_ARGS="--exclude-group selenium"
   fast_finish: true
   include:
     - php: 5.5
       env: PHPUNIT_ARGS="--group selenium" SELENIUM="yes"
+cache:
+  directories:
+    - $HOME/.composer/cache/

@@ -20,6 +20,7 @@ require_once './libraries/List_Database.class.php';
  * phpMyAdmin main Controller
  *
  * @package PhpMyAdmin
+ *
  * @property resource $userlink
  * @property resource $controllink
  */
@@ -95,7 +96,7 @@ class PMA
     /**
      * Accessor to PMA::$databases
      *
-     * @return PMA_List_Databases
+     * @return PMA_List_Database
      */
     public function getDatabaseList()
     {

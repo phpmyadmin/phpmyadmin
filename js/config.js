@@ -261,7 +261,7 @@ var validators = {
         if (isNaN(val)) {
             return true;
         }
-        return val <= max_value ? true : $.sprintf(PMA_messages.error_value_lte, max_value);
+        return val <= max_value ? true : PMA_sprintf(PMA_messages.error_value_lte, max_value);
     },
     // field validators
     _field: {
@@ -291,12 +291,12 @@ function validateField(id, type, onKeyUp, params)
 }
 
 /**
- * Returns valdiation functions associated with form field
+ * Returns validation functions associated with form field
  *
  * @param {String}  field_id     form field id
  * @param {boolean} onKeyUpOnly  see validateField
  * @type Array
- * @return array of [function, paramseters to be passed to function]
+ * @return array of [function, parameters to be passed to function]
  */
 function getFieldValidators(field_id, onKeyUpOnly)
 {
@@ -331,6 +331,10 @@ function getFieldValidators(field_id, onKeyUpOnly)
  */
 function displayErrors(error_list)
 {
+    var tempIsEmpty = function (item) {
+        return item !== '';
+    };
+
     for (var field_id in error_list) {
         var errors = error_list[field_id];
         var field = $('#' + field_id);
@@ -343,9 +347,7 @@ function displayErrors(error_list)
         }
 
         // remove empty errors (used to clear error list)
-        errors = $.grep(errors, function (item) {
-            return item !== '';
-        });
+        errors = $.grep(errors, tempIsEmpty);
 
         // CSS error class
         if (!isFieldset) {
@@ -697,7 +699,7 @@ AJAX.registerOnload('config.js', function () {
             savePrefsToLocalStorage(form);
         } else if (form.attr('name') == 'prefs_import' && $('#import_local_storage')[0].checked) {
             // set 'json' input and submit form
-            form.find('input[name=json]').val(window.localStorage['config']);
+            form.find('input[name=json]').val(window.localStorage.config);
         }
     });
 
@@ -733,9 +735,9 @@ function savePrefsToLocalStorage(form)
         },
         success: function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                window.localStorage['config'] = data.prefs;
-                window.localStorage['config_mtime'] = data.mtime;
-                window.localStorage['config_mtime_local'] = (new Date()).toUTCString();
+                window.localStorage.config = data.prefs;
+                window.localStorage.config_mtime = data.mtime;
+                window.localStorage.config_mtime_local = (new Date()).toUTCString();
                 updatePrefsDate();
                 $('div.localStorage-empty').hide();
                 $('div.localStorage-exists').show();
@@ -758,7 +760,7 @@ function savePrefsToLocalStorage(form)
  */
 function updatePrefsDate()
 {
-    var d = new Date(window.localStorage['config_mtime_local']);
+    var d = new Date(window.localStorage.config_mtime_local);
     var msg = PMA_messages.strSavedOn.replace(
         '@DATE@',
         PMA_formatDateTime(d)
@@ -771,7 +773,7 @@ function updatePrefsDate()
  */
 function offerPrefsAutoimport()
 {
-    var has_config = (window.localStorage || false) && (window.localStorage['config'] || false);
+    var has_config = (window.localStorage || false) && (window.localStorage.config || false);
     var cnt = $('#prefs_autoload');
     if (!cnt.length || !has_config) {
         return;
@@ -787,7 +789,7 @@ function offerPrefsAutoimport()
             });
             return;
         }
-        cnt.find('input[name=json]').val(window.localStorage['config']);
+        cnt.find('input[name=json]').val(window.localStorage.config);
         cnt.find('form').submit();
     });
     cnt.show();

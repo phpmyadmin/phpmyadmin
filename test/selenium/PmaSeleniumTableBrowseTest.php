@@ -160,7 +160,8 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         $this->byCssSelector(
             "table#table_results tbody tr:nth-child(2) td:nth-child(2) a"
         )->click();
-        /* TODO: this occassionally fails, so there is probably something wrong */
+        $this->sleep();
+        /* TODO: this occasionally fails, so there is probably something wrong */
         $this->waitForElement("byId", "insertForm");
 
         $this->assertEquals(
@@ -248,7 +249,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
             "table#table_results tbody tr:nth-child(3) td:nth-child(3) a"
         )->click();
 
-        /* TODO: this occassionally fails, so there is probably something wrong */
+        /* TODO: this occasionally fails, so there is probably something wrong */
         $this->waitForElement("byId", "insertForm");
 
         $this->assertEquals(

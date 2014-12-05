@@ -138,11 +138,11 @@ class PMA_Message
     /**
      * Constructor
      *
-     * @param string       $string   The message to be displayed
-     * @param integer      $number   A numeric representation of the type of message
-     * @param array|string $params   An array of parameters to use in the message
-     * @param integer      $sanitize A flag to indicate what to sanitize, see
-     *                               constant definitions above
+     * @param string  $string   The message to be displayed
+     * @param integer $number   A numeric representation of the type of message
+     * @param array   $params   An array of parameters to use in the message
+     * @param integer $sanitize A flag to indicate what to sanitize, see
+     *                          constant definitions above
      */
     public function __construct($string = '', $number = PMA_Message::NOTICE,
         $params = array(), $sanitize = PMA_Message::SANITIZE_NONE
@@ -342,7 +342,7 @@ class PMA_Message
 
     /**
      * returns whether this message is a success message or not
-     * and optionaly makes this message a success message
+     * and optionally makes this message a success message
      *
      * @param boolean $set Whether to make this message of SUCCESS type
      *
@@ -501,7 +501,7 @@ class PMA_Message
      */
     public function addMessage($message, $separator = ' ')
     {
-        if (strlen($separator)) {
+        if (/*overload*/mb_strlen($separator)) {
             $this->addedMessages[] = $separator;
         }
 
@@ -524,10 +524,6 @@ class PMA_Message
     {
         if ($sanitize) {
             $params = PMA_Message::sanitize($params);
-        }
-        // convert single param to array
-        if (! is_array($params)) {
-            $params = array($params);
         }
         $this->params = $params;
     }
@@ -632,11 +628,11 @@ class PMA_Message
     {
         $message = $this->message;
 
-        if (0 === strlen($message)) {
+        if (0 === /*overload*/mb_strlen($message)) {
             $string = $this->getString();
             if (isset($GLOBALS[$string])) {
                 $message = $GLOBALS[$string];
-            } elseif (0 === strlen($string)) {
+            } elseif (0 === /*overload*/mb_strlen($string)) {
                 $message = '';
             } else {
                 $message = $string;
@@ -658,6 +654,17 @@ class PMA_Message
 
         return $message;
     }
+
+    /**
+    * Returns only message string without image & other HTML.
+    *
+    * @return string
+    */
+    public function getOnlyMessage()
+    {
+        return $this->message;
+    }
+
 
     /**
      * returns PMA_Message::$string
@@ -737,7 +744,6 @@ class PMA_Message
      */
     public function getMessageWithIcon($message)
     {
-        $image = '';
         if ('error' == $this->getLevel()) {
             $image = 's_error.png';
         } elseif ('success' == $this->getLevel()) {

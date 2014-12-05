@@ -54,6 +54,7 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['maxRowPlotLimit'] = 500;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['ForeignKeyMaxLimit'] = 100;
@@ -239,8 +240,11 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         $columnIndex = 0;
         $find = "Field";
         $replaceWith = "Column";
+        $useRegex = false;
         $charSet = "UTF-8";
-        $tableSearch->replace($columnIndex, $find, $replaceWith, $charSet);
+        $tableSearch->replace(
+            $columnIndex, $find, $replaceWith, $useRegex, $charSet
+        );
 
         $sql_query = $GLOBALS['sql_query'];
         $result = "UPDATE `PMA`.`PMA_BookMark` SET `Field1` = "
@@ -288,11 +292,9 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
 
         $dbi = $GLOBALS['dbi'];
 
-        $dbi->expects($this->at(3))->method('fetchRow')
-            ->will($this->returnValue($value));
-
-        $dbi->expects($this->at(4))->method('fetchRow')
-            ->will($this->returnValue(false));
+        $dbi->expects($this->once())
+            ->method('fetchResult')
+            ->will($this->returnValue(array($value)));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -300,12 +302,14 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         $columnIndex = 0;
         $find = "Field";
         $replaceWith = "Column";
+        $useRegex = false;
         $charSet = "UTF-8";
 
         $html = $tableSearch->getReplacePreview(
             $columnIndex,
             $find,
             $replaceWith,
+            $useRegex,
             $charSet
         );
 

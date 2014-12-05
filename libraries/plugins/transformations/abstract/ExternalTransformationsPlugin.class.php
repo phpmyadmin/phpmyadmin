@@ -32,7 +32,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
             . ' data via standard input. Returns the standard output of the'
             . ' application. The default is Tidy, to pretty-print HTML code.'
             . ' For security reasons, you have to manually edit the file'
-            . ' libraries/plugins/transformations/Text_Plain_External'
+            . ' libraries/plugins/transformations/output/Text_Plain_External'
             . '.class.php and list the tools you want to make available.'
             . ' The first option is then the number of the program you want to'
             . ' use and the second option is the parameters for the program.'
@@ -99,27 +99,15 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
             return $buffer;
         }
 
-        if (! isset($options[0])
-            || $options[0] == ''
-            || ! isset($allowed_programs[$options[0]])
-        ) {
-            $program = $allowed_programs[0];
-        } else {
+        $options = $this->getOptions(
+            $options,
+            array(0, '-f /dev/null -i -wrap -q', 1, 1)
+        );
+
+        if (isset($allowed_programs[$options[0]])) {
             $program = $allowed_programs[$options[0]];
-        }
-
-        if (!isset($options[1]) || $options[1] == '') {
-            $poptions = '-f /dev/null -i -wrap -q';
         } else {
-            $poptions = $options[1];
-        }
-
-        if (!isset($options[2]) || $options[2] == '') {
-            $options[2] = 1;
-        }
-
-        if (!isset($options[3]) || $options[3] == '') {
-            $options[3] = 1;
+            $program = $allowed_programs[0];
         }
 
         // needs PHP >= 4.3.0
@@ -128,7 +116,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
             0 => array("pipe", "r"),
             1 => array("pipe", "w")
         );
-        $process = proc_open($program . ' ' . $poptions, $descriptorspec, $pipes);
+        $process = proc_open($program . ' ' . $options[1], $descriptorspec, $pipes);
         if (is_resource($process)) {
             fwrite($pipes[0], $buffer);
             fclose($pipes[0]);
@@ -148,21 +136,6 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         }
 
         return $retstring;
-    }
-
-    /**
-     * This method is called when any PluginManager to which the observer
-     * is attached calls PluginManager::notify()
-     *
-     * @param SplSubject $subject The PluginManager notifying the observer
-     *                            of an update.
-     *
-     * @todo implement
-     * @return void
-     */
-    public function update (SplSubject $subject)
-    {
-        ;
     }
 
 

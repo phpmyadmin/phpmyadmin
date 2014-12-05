@@ -37,27 +37,27 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
             $this->markTestSkipped(
                 'Cannot redefine constant - missing runkit extension'
             );
+        }
+
+        $restoreDrizzle = '';
+
+        if (defined('PMA_DRIZZLE')) {
+            $restoreDrizzle = PMA_DRIZZLE;
+            runkit_constant_redefine('PMA_DRIZZLE', $drizzle);
         } else {
-            $restoreDrizzle = '';
+            $restoreDrizzle = 'PMA_TEST_CONSTANT_REMOVE';
+            define('PMA_DRIZZLE', $drizzle);
+        }
 
-            if (defined('PMA_DRIZZLE')) {
-                $restoreDrizzle = PMA_DRIZZLE;
-                runkit_constant_redefine('PMA_DRIZZLE', $drizzle);
-            } else {
-                $restoreDrizzle = 'PMA_TEST_CONSTANT_REMOVE';
-                define('PMA_DRIZZLE', $drizzle);
-            }
+        $this->assertEquals(
+            $expected,
+            PMA_generateCharsetQueryPart($collation)
+        );
 
-            $this->assertEquals(
-                $expected,
-                PMA_generateCharsetQueryPart($collation)
-            );
-
-            if ($restoreDrizzle === 'PMA_TEST_CONSTANT_REMOVE') {
-                runkit_constant_remove('PMA_DRIZZLE');
-            } else {
-                runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
-            }
+        if ($restoreDrizzle === 'PMA_TEST_CONSTANT_REMOVE') {
+            runkit_constant_remove('PMA_DRIZZLE');
+        } else {
+            runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
         }
     }
 
@@ -108,6 +108,7 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
                 define('PMA_DRIZZLE', false);
             }
 
+            $GLOBALS['cfg']['Server']['DisableIS'] = false;
             $GLOBALS['cfg']['DBG']['sql'] = false;
 
             $this->assertEquals(
@@ -122,6 +123,12 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
                 PMA_getDbCollation('pma_test')
             );
 
+            $GLOBALS['cfg']['Server']['DisableIS'] = true;
+            $GLOBALS['db'] = 'pma_test2';
+            $this->assertEquals(
+                'bar',
+                PMA_getDbCollation('pma_test')
+            );
             $this->assertNotEquals(
                 'pma_test',
                 $GLOBALS['dummy_db']
@@ -284,7 +291,7 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
         $this->assertContains('title="German', $result);
 
         $result = PMA_generateCharsetDropdownBox(
-            2, null, "test_id", "latin1", false, 0, true, false
+            2, null, "test_id", "latin1", false, true
         );
         $this->assertContains('name="character_set"', $result);
         $this->assertNotContains('Charset</option>', $result);

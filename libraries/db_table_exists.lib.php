@@ -10,8 +10,10 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+/** @var PMA_String $pmaString */
+$pmaString = $GLOBALS['PMA_String'];
 if (empty($is_db)) {
-    if (strlen($db)) {
+    if (/*overload*/mb_strlen($db)) {
         $is_db = @$GLOBALS['dbi']->selectDb($db);
     } else {
         $is_db = false;
@@ -40,7 +42,7 @@ if (empty($is_db)) {
                 }
                 PMA_sendHeaderLocation(
                     $cfg['PmaAbsoluteUri'] . 'index.php'
-                    . PMA_URL_getCommon($url_params, '&')
+                    . PMA_URL_getCommon($url_params, 'text')
                 );
             }
             exit;
@@ -50,11 +52,11 @@ if (empty($is_db)) {
 
 if (empty($is_table)
     && !defined('PMA_SUBMIT_MULT')
-    && ! defined('TABLE_MAY_BE_ABSENT')
+    && !defined('TABLE_MAY_BE_ABSENT')
 ) {
     // Not a valid table name -> back to the db_sql.php
 
-    if (strlen($table)) {
+    if (/*overload*/mb_strlen($table)) {
         $is_table = isset(PMA_Table::$cache[$db][$table]);
 
         if (! $is_table) {
@@ -71,8 +73,8 @@ if (empty($is_table)
     }
 
     if (! $is_table) {
-        if (! defined('IS_TRANSFORMATION_WRAPPER')) {
-            if (strlen($table)) {
+        if (!defined('IS_TRANSFORMATION_WRAPPER')) {
+            if (/*overload*/mb_strlen($table)) {
                 // SHOW TABLES doesn't show temporary tables, so try select
                 // (as it can happen just in case temporary table, it should be
                 // fast):

@@ -146,8 +146,9 @@ class PMA_StorageEngineTest extends PHPUnit_Framework_TestCase
     public function testGetPage()
     {
 
-        $this->assertFalse(
-            $this->object->getPage(1)
+        $this->assertEquals(
+            '',
+            $this->object->getPage('Foo')
         );
     }
 
@@ -173,7 +174,8 @@ class PMA_StorageEngineTest extends PHPUnit_Framework_TestCase
     public function testGetVariablesLikePattern()
     {
 
-        $this->assertFalse(
+        $this->assertEquals(
+            '',
             $this->object->getVariablesLikePattern()
         );
     }

@@ -11,8 +11,11 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/Index.class.php';
-require_once 'libraries/tbl_common.inc.php';
 require_once 'libraries/tbl_indexes.lib.php';
+
+if (! isset($_REQUEST['create_edit_table'])) {
+    include_once 'libraries/tbl_common.inc.php';
+}
 
 
 $index = PMA_prepareFormValues($db, $table);
@@ -36,7 +39,16 @@ $add_fields = PMA_getNumberOfFieldsForForm($index);
 $form_params = PMA_getFormParameters($db, $table);
 
 // Get fields and stores their name/type
-$fields = PMA_getNameAndTypeOfTheColumns($db, $table);
+if (isset($_REQUEST['create_edit_table'])) {
+    $fields = json_decode($_REQUEST['columns'], true);
+    $index_params = array(
+        'Non_unique' => ($_REQUEST['index']['Index_type'] == 'UNIQUE') ? '0' : '1'
+    );
+    $index->set($index_params);
+    $add_fields = count($fields);
+} else {
+    $fields = PMA_getNameAndTypeOfTheColumns($db, $table);
+}
 
 $html = PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields);
 

@@ -36,11 +36,7 @@ PMA_Util::checkParameters(array('db'));
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-if (strlen($table)) {
-    $err_url = 'tbl_sql.php?' . PMA_URL_getCommon($db, $table);
-} else {
-    $err_url = 'db_sql.php?' . PMA_URL_getCommon($db);
-}
+$err_url = 'db_sql.php' . PMA_URL_getCommon(array('db' => $db));
 
 if ($cfgRelation['commwork']) {
     $comment = PMA_getDbComment($db);
@@ -76,81 +72,20 @@ foreach ($tables as $table) {
     /**
      * Gets table keys and retains them
      */
-
     $GLOBALS['dbi']->selectDb($db);
-    $indexes      = $GLOBALS['dbi']->getTableIndexes($db, $table);
-    $primary      = '';
-    $indexes      = array();
-    $lastIndex    = '';
-    $indexes_info = array();
-    $indexes_data = array();
-    $pk_array     = array(); // will be use to emphasis prim. keys in the table
-                             // view
-    foreach ($indexes as $row) {
-        // Backups the list of primary keys
-        if ($row['Key_name'] == 'PRIMARY') {
-            $primary   .= $row['Column_name'] . ', ';
-            $pk_array[$row['Column_name']] = 1;
-        }
-        // Retains keys informations
-        if ($row['Key_name'] != $lastIndex) {
-            $indexes[] = $row['Key_name'];
-            $lastIndex = $row['Key_name'];
-        }
-        $indexes_info[$row['Key_name']]['Sequences'][] = $row['Seq_in_index'];
-        $indexes_info[$row['Key_name']]['Non_unique'] = $row['Non_unique'];
-        if (isset($row['Cardinality'])) {
-            $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
-        }
-        // I don't know what does following column mean....
-        // $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
-
-        $indexes_info[$row['Key_name']]['Comment'] = $row['Comment'];
-
-        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']
-            = $row['Column_name'];
-        if (isset($row['Sub_part'])) {
-            $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part']
-                = $row['Sub_part'];
-        }
-
-    } // end while
+    $indexes = $GLOBALS['dbi']->getTableIndexes($db, $table);
+    list($primary, $pk_array, $indexes_info, $indexes_data)
+        = PMA_Util::processIndexData($indexes);
 
     /**
      * Gets columns properties
      */
     $columns = $GLOBALS['dbi']->getColumns($db, $table);
 
-    if (PMA_MYSQL_INT_VERSION < 50025) {
-        // We need this to correctly learn if a TIMESTAMP is NOT NULL, since
-        // SHOW FULL COLUMNS or INFORMATION_SCHEMA incorrectly says NULL
-        // and SHOW CREATE TABLE says NOT NULL
-        // http://bugs.mysql.com/20910.
-
-        $show_create_table_query = 'SHOW CREATE TABLE '
-            . PMA_Util::backquote($db) . '.'
-            . PMA_Util::backquote($table);
-        $show_create_table = $GLOBALS['dbi']->fetchValue(
-            $show_create_table_query, 0, 1
-        );
-        $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
-    }
-
     // Check if we can use Relations
-    if (!empty($cfgRelation['relation'])) {
-        // Find which tables are related with the current one and write it in
-        // an array
-        $res_rel = PMA_getForeigners($db, $table);
-
-        if (count($res_rel) > 0) {
-            $have_rel = true;
-        } else {
-            $have_rel = false;
-        }
-    } else {
-        $have_rel = false;
-    } // end if
-
+    list($res_rel, $have_rel) = PMA_getRelationsAndStatus(
+        ! empty($cfgRelation['relation']), $db, $table
+    );
 
     /**
      * Displays the comments of the table if MySQL >= 3.23
@@ -207,32 +142,14 @@ foreach ($tables as $table) {
         }
         $column_name = $row['Field'];
 
-        $tmp_column = $analyzed_sql[0]['create_table_fields'][$column_name];
-        if (PMA_MYSQL_INT_VERSION < 50025
-            && ! empty($tmp_column['type'])
-            && $tmp_column['type'] == 'TIMESTAMP'
-            && $tmp_column['timestamp_not_null']
-        ) {
-            // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as
-            // having the NULL attribute, but SHOW CREATE TABLE says the
-            // contrary. Believe the latter.
-            /**
-             * @todo merge this logic with the one in tbl_structure.php
-             * or move it in a function similar to $GLOBALS['dbi']->getColumnsFull()
-             * but based on SHOW CREATE TABLE because information_schema
-             * cannot be trusted in this case (MySQL bug)
-             */
-             $row['Null'] = 'NO';
-        }
         echo '<tr class="';
         echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row;
         echo '">';
         echo '<td class="nowrap">';
+        echo htmlspecialchars($column_name);
 
         if (isset($pk_array[$row['Field']])) {
-            echo '<u>' . htmlspecialchars($column_name) . '</u>';
-        } else {
-            echo htmlspecialchars($column_name);
+            echo ' <em>(' . __('Primary') . ')</em>';
         }
         echo '</td>';
         echo '<td' . $type_nowrap . ' lang="en" dir="ltr">' . $type . '</td>';
@@ -247,11 +164,11 @@ foreach ($tables as $table) {
 
         if ($have_rel) {
             echo '    <td>';
-            if (isset($res_rel[$column_name])) {
+            if ($foreigner = PMA_searchColumnInForeigners($res_rel, $column_name)) {
                 echo htmlspecialchars(
-                    $res_rel[$column_name]['foreign_table']
+                    $foreigner['foreign_table']
                     . ' -> '
-                    . $res_rel[$column_name]['foreign_field']
+                    . $foreigner['foreign_field']
                 );
             }
             echo '</td>' . "\n";

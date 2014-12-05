@@ -51,6 +51,13 @@ if (version_compare(PHP_VERSION, '5.3.0', 'lt')) {
  */
 define('PHPMYADMIN', true);
 
+
+/**
+ * String handling (security)
+ */
+require_once './libraries/String.class.php';
+$PMA_String = new PMA_String();
+
 /**
  * the error handler
  */
@@ -70,7 +77,7 @@ if (version_compare(phpversion(), '5.4', 'lt')) {
     /**
      * Avoid problems with magic_quotes_runtime
      */
-    @ini_set('magic_quotes_runtime', '0');
+    @ini_set('magic_quotes_runtime', 'false');
 }
 
 /**
@@ -157,9 +164,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 $PMA_PHP_SELF = PMA_getenv('PHP_SELF');
 $_PATH_INFO = PMA_getenv('PATH_INFO');
 if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
-    $path_info_pos = strrpos($PMA_PHP_SELF, $_PATH_INFO);
-    if ($path_info_pos + strlen($_PATH_INFO) === strlen($PMA_PHP_SELF)) {
-        $PMA_PHP_SELF = substr($PMA_PHP_SELF, 0, $path_info_pos);
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
+    $path_info_pos = /*overload*/mb_strrpos($PMA_PHP_SELF, $_PATH_INFO);
+    $pathLength = $path_info_pos + /*overload*/mb_strlen($_PATH_INFO);
+    if ($pathLength === /*overload*/mb_strlen($PMA_PHP_SELF)) {
+        $PMA_PHP_SELF = /*overload*/mb_substr($PMA_PHP_SELF, 0, $path_info_pos);
     }
 }
 $PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);
@@ -183,7 +194,8 @@ $variables_whitelist = array (
     'error_handler',
     'PMA_PHP_SELF',
     'variables_whitelist',
-    'key'
+    'key',
+    'PMA_String'
 );
 
 foreach (get_defined_vars() as $key => $value) {
@@ -201,7 +213,7 @@ unset($key, $value, $variables_whitelist);
  *
  * <code>
  * <form ...>
- * ... main form elments ...
+ * ... main form elements ...
  * <input type="hidden" name="subform[action1][id]" value="1" />
  * ... other subform data ...
  * <input type="submit" name="usesubform[action1]" value="do action1" />
@@ -209,7 +221,7 @@ unset($key, $value, $variables_whitelist);
  * <input type="hidden" name="subform[actionX][id]" value="X" />
  * ... other subform data ...
  * <input type="submit" name="usesubform[actionX]" value="do actionX" />
- * ... main form elments ...
+ * ... main form elements ...
  * <input type="submit" name="main_action" value="submit form" />
  * </form>
  * </code>
@@ -380,7 +392,6 @@ $goto_whitelist = array(
     'pdf_pages.php',
     'pdf_schema.php',
     //'phpinfo.php',
-    'querywindow.php',
     'server_binlog.php',
     'server_collations.php',
     'server_databases.php',
@@ -401,7 +412,6 @@ $goto_whitelist = array(
     'tbl_create.php',
     'tbl_import.php',
     'tbl_indexes.php',
-    'tbl_move_copy.php',
     'tbl_printview.php',
     'tbl_sql.php',
     'tbl_export.php',
@@ -511,25 +521,13 @@ if ($token_mismatch) {
  * current selected database
  * @global string $GLOBALS['db']
  */
-$GLOBALS['db'] = '';
-if (PMA_isValid($_REQUEST['db'])) {
-    // can we strip tags from this?
-    // only \ and / is not allowed in db names for MySQL
-    $GLOBALS['db'] = $_REQUEST['db'];
-    $GLOBALS['url_params']['db'] = $GLOBALS['db'];
-}
+PMA_setGlobalDbOrTable('db');
 
 /**
  * current selected table
  * @global string $GLOBALS['table']
  */
-$GLOBALS['table'] = '';
-if (PMA_isValid($_REQUEST['table'])) {
-    // can we strip tags from this?
-    // only \ and / is not allowed in table names for MySQL
-    $GLOBALS['table'] = $_REQUEST['table'];
-    $GLOBALS['url_params']['table'] = $GLOBALS['table'];
-}
+PMA_setGlobalDbOrTable('table');
 
 /**
  * Store currently selected recent table.
@@ -596,7 +594,10 @@ if ($GLOBALS['PMA_Config']->error_config_default_file) {
 }
 if ($GLOBALS['PMA_Config']->error_pma_uri) {
     trigger_error(
-        __('The [code]$cfg[\'PmaAbsoluteUri\'][/code] directive MUST be set in your configuration file!'),
+        __(
+            'The [code]$cfg[\'PmaAbsoluteUri\'][/code]'
+            . ' directive MUST be set in your configuration file!'
+        ),
         E_USER_ERROR
     );
 }
@@ -739,11 +740,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     include_once './libraries/charset_conversion.lib.php';
 
     /**
-     * String handling
-     */
-    include_once './libraries/string.inc.php';
-
-    /**
      * Lookup server by name
      * (see FAQ 4.8)
      */
@@ -752,10 +748,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         && ! is_numeric($_REQUEST['server'])
     ) {
         foreach ($cfg['Servers'] as $i => $server) {
+            $verboseToLower = /*overload*/mb_strtolower($server['verbose']);
+            $serverToLower = /*overload*/mb_strtolower($_REQUEST['server']);
             if ($server['host'] == $_REQUEST['server']
                 || $server['verbose'] == $_REQUEST['server']
-                || $PMA_String->strtolower($server['verbose']) == $PMA_String->strtolower($_REQUEST['server'])
-                || md5($PMA_String->strtolower($server['verbose'])) == $PMA_String->strtolower($_REQUEST['server'])
+                || $verboseToLower == $serverToLower
+                || md5($verboseToLower) == $serverToLower
             ) {
                 $_REQUEST['server'] = $i;
                 break;
@@ -844,7 +842,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // and run authentication
 
         // to allow HTTP or http
-        $cfg['Server']['auth_type'] = strtolower($cfg['Server']['auth_type']);
+        $cfg['Server']['auth_type']
+            = /*overload*/mb_strtolower($cfg['Server']['auth_type']);
 
         /**
          * the required auth type plugin
@@ -875,9 +874,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $auth_plugin->authSetUser();
         }
 
-         // Check IP-based Allow/Deny rules as soon as possible to reject the
-        // user
-        // Based on mod_access in Apache:
+        // Check IP-based Allow/Deny rules as soon as possible to reject the
+        // user based on mod_access in Apache:
         // http://cvs.apache.org/viewcvs.cgi/httpd-2.0/modules/aaa/mod_access.c?rev=1.37&content-type=text/vnd.viewcvs-markup
         // Look at: "static int check_dir_access(request_rec *r)"
         if (isset($cfg['Server']['AllowDeny'])
@@ -937,7 +935,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // if using TCP socket is not needed
-        if (strtolower($cfg['Server']['connect_type']) == 'tcp') {
+        if (/*overload*/mb_strtolower($cfg['Server']['connect_type']) == 'tcp') {
             $cfg['Server']['socket'] = '';
         }
 
@@ -1003,13 +1001,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             );
         }
 
-        if (PMA_PHP_INT_VERSION < 50300) {
-            PMA_fatalError(
-                __('You should upgrade to %s %s or later.'),
-                array('PHP', '5.3.0')
-            );
-        }
-
         /**
          * Type handling object.
          */
@@ -1020,6 +1011,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         if (PMA_DRIZZLE) {
+            // DisableIS must be set to false for Drizzle, it maps SHOW commands
+            // to INFORMATION_SCHEMA queries anyway so it's fast on large servers
+            $cfg['Server']['DisableIS'] = false;
             // SHOW OPEN TABLES is not supported by Drizzle
             $cfg['SkipLockedTables'] = false;
         }
@@ -1152,4 +1146,10 @@ if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     exit();
 }
 
+// If Zero configuration mode enabled, check PMA tables in current db.
+if (isset($GLOBALS['cfg']['ZeroConf'])
+    && $GLOBALS['cfg']['ZeroConf'] == true
+) {
+    PMA_checkAndFixPMATablesInCurrentDb();
+}
 ?>

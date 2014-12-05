@@ -43,15 +43,18 @@ function PMA_Bookmark_getParams()
 /**
  * Gets the list of bookmarks defined for the current database
  *
- * @param string $db the current database name
+ * @param string|bool $db the current database name or false
  *
- * @return array the bookmarks list (key as index, label as value)
+ * @return array the bookmarks list (key as index, label as value),
+ *               or if param is empty, function will give more information,
+ *               array will be unindexed,
+ *               each struct: [db, id, label, shared, query]
  *
  * @access public
  *
  * @global resource $controllink the controluser db connection handle
  */
-function PMA_Bookmark_getList($db)
+function PMA_Bookmark_getList($db = false)
 {
     global $controllink;
 
@@ -61,31 +64,90 @@ function PMA_Bookmark_getList($db)
         return array();
     }
 
-    $query  = 'SELECT label, id FROM ' . PMA_Util::backquote($cfgBookmark['db'])
-        . '.' . PMA_Util::backquote($cfgBookmark['table'])
-        . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-        . ' AND user = \'' . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
-        . ' ORDER BY label';
-    $per_user = $GLOBALS['dbi']->fetchResult(
-        $query, 'id', 'label', $controllink, PMA_DatabaseInterface::QUERY_STORE
-    );
+    if ($db !== false) {
+        $query  = 'SELECT label, id FROM ' . PMA_Util::backquote($cfgBookmark['db'])
+            . '.' . PMA_Util::backquote($cfgBookmark['table'])
+            . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+            . ' AND user = \'' . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
+            . ' ORDER BY label';
+        $per_user = $GLOBALS['dbi']->fetchResult(
+            $query, 'id', 'label', $controllink, PMA_DatabaseInterface::QUERY_STORE
+        );
 
-    $query  = 'SELECT label, id FROM ' . PMA_Util::backquote($cfgBookmark['db'])
-        . '.' . PMA_Util::backquote($cfgBookmark['table'])
-        . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-        . ' AND user = \'\''
-        . ' ORDER BY label';
-    $global = $GLOBALS['dbi']->fetchResult(
-        $query, 'id', 'label', $controllink, PMA_DatabaseInterface::QUERY_STORE
-    );
+        $query  = 'SELECT label, id FROM ' . PMA_Util::backquote($cfgBookmark['db'])
+            . '.' . PMA_Util::backquote($cfgBookmark['table'])
+            . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+            . ' AND user = \'\''
+            . ' ORDER BY label';
+        $global = $GLOBALS['dbi']->fetchResult(
+            $query, 'id', 'label', $controllink, PMA_DatabaseInterface::QUERY_STORE
+        );
 
-    foreach ($global as $key => $val) {
-        $global[$key] = $val . ' (' . __('shared') . ')';
+        foreach ($global as $key => $val) {
+            $global[$key] = $val . ' (' . __('shared') . ')';
+        }
+
+        $ret = $global + $per_user;
+
+        asort($ret);
+    } else {
+        $query  = 'SELECT label, id, query, dbase FROM '
+            . PMA_Util::backquote($cfgBookmark['db'])
+            . '.' . PMA_Util::backquote($cfgBookmark['table'])
+            . ' WHERE user = \''
+            . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
+            . ' ORDER BY label';
+        $per_user = $GLOBALS['dbi']->fetchResult(
+            $query,
+            Array('id', 'label', 'dbase'),
+            'query',
+            $controllink,
+            PMA_DatabaseInterface::QUERY_STORE
+        );
+
+        $query  = 'SELECT label, id, query, dbase FROM '
+            . PMA_Util::backquote($cfgBookmark['db'])
+            . '.' . PMA_Util::backquote($cfgBookmark['table'])
+            . ' WHERE user = \'\''
+            . ' ORDER BY label';
+        $global = $GLOBALS['dbi']->fetchResult(
+            $query,
+            Array('id', 'label', 'dbase'),
+            'query',
+            $controllink,
+            PMA_DatabaseInterface::QUERY_STORE
+        );
+
+        $ret = Array();
+
+        foreach ($global as $id => $val) {
+            foreach ($val as $label => $val2) {
+                foreach ($val2 as $dbase => $query) {
+                    $ret[] = Array(
+                        'db' => $dbase,
+                        'id' => $id,
+                        'label' => $label,
+                        'query' => $query,
+                        'shared' => true
+                        );
+                }
+            }
+        }
+
+        foreach ($per_user as $id => $val) {
+            foreach ($val as $label => $val2) {
+                foreach ($val2 as $dbase => $query) {
+                    $ret[] = Array(
+                        'db' => $dbase,
+                        'id' => $id,
+                        'label' => $label,
+                        'query' => $query,
+                        'shared' => false
+                        );
+                }
+            }
+        }
     }
-
-    $ret = $global + $per_user;
-
-    asort($ret);
 
     return $ret;
 } // end of the 'PMA_Bookmark_getList()' function
@@ -156,7 +218,10 @@ function PMA_Bookmark_save($bkm_fields, $all_users = false)
 
     $cfgBookmark = PMA_Bookmark_getParams();
 
-    if (empty($cfgBookmark)) {
+    if (!(isset($bkm_fields['bkm_sql_query']) && isset($bkm_fields['bkm_label'])
+        && /*overload*/mb_strlen($bkm_fields['bkm_sql_query']) > 0
+        && /*overload*/mb_strlen($bkm_fields['bkm_label']) > 0)
+    ) {
         return false;
     }
 
@@ -205,11 +270,4 @@ function PMA_Bookmark_delete($id)
     return $GLOBALS['dbi']->tryQuery($query, $controllink);
 } // end of the 'PMA_Bookmark_delete()' function
 
-
-/**
- * Bookmark Support
- */
-if (!defined('TESTSUITE')) {
-    $GLOBALS['cfg']['Bookmark'] = PMA_Bookmark_getParams();
-}
 ?>

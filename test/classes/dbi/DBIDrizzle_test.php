@@ -76,13 +76,6 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
 
-        //Mock DBI, just for postConnect usage
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $GLOBALS['dbi'] = $dbi;
-
         $this->object = new PMA_DBI_Drizzle();
     }
 
@@ -121,13 +114,14 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
      *
      * @group medium
      */
-    public function testrSelectDb()
+    public function testSelectDb()
     {
+        $this->markTestIncomplete('Not testing anything');
         //$link is empty
         $GLOBALS['userlink'] = null;
         $this->assertEquals(
             false,
-            $this->object->selectDb("PMA")
+            $this->object->selectDb("PMA", null)
         );
     }
 
@@ -143,12 +137,12 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
         //PHP's 'mysql' extension does not support multi_queries
         $this->assertEquals(
             false,
-            $this->object->moreResults()
+            $this->object->moreResults(null)
         );
         //PHP's 'mysql' extension does not support multi_queries
         $this->assertEquals(
             false,
-            $this->object->nextResult()
+            $this->object->nextResult(null)
         );
     }
 
@@ -194,7 +188,7 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             false,
-            $this->object->storeResult()
+            $this->object->storeResult(null)
         );
     }
 
@@ -209,7 +203,6 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
     {
         $user = "PMA_user";
         $password = "pma_password";
-        $is_controluser = false;
         $server = null;
 
         //$server = null;
@@ -320,7 +313,7 @@ class Drizzle
     }
 
     /**
-     * Creates a new database conection using TCP
+     * Creates a new database connection using TCP
      *
      * @param string  $host     Drizzle host
      * @param integer $port     Drizzle port
@@ -359,7 +352,7 @@ class Mock_Con
 
 
     /**
-     * Creates a new database conection using TCP
+     * Creates a new database connection using TCP
      *
      * @return Mock_Con
      */

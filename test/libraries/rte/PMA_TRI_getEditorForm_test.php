@@ -38,15 +38,15 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_TRI_getEditorForm
      *
-     * @param string $data    Data for trigger
-     * @param array  $matcher Matcher
+     * @param array $data    Data for trigger
+     * @param array $matcher Matcher
      *
      * @return void
      *
-     * @dataProvider provider_add
+     * @dataProvider providerAdd
      * @group medium
      */
-    public function testgetEditorForm_add($data, $matcher)
+    public function testGetEditorFormAdd($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_TRI_setGlobals();
@@ -54,11 +54,11 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Provider for testgetEditorForm_add
+     * Provider for testGetEditorFormAdd
      *
      * @return array
      */
-    public function provider_add()
+    public function providerAdd()
     {
         $data = array(
             'item_name'               => '',
@@ -149,15 +149,15 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_TRI_getEditorForm
      *
-     * @param string $data    Data for trigger
-     * @param array  $matcher Matcher
+     * @param array $data    Data for trigger
+     * @param array $matcher Matcher
      *
      * @return void
      *
-     * @dataProvider provider_edit
+     * @dataProvider providerEdit
      * @group medium
      */
-    public function testgetEditorForm_edit($data, $matcher)
+    public function testGetEditorFormEdit($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_TRI_setGlobals();
@@ -165,11 +165,11 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Provider for testgetEditorForm_edit
+     * Provider for testGetEditorFormEdit
      *
      * @return array
      */
-    public function provider_edit()
+    public function providerEdit()
     {
         $data = array(
             'item_name'               => 'foo',
@@ -260,14 +260,14 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_TRI_getEditorForm
      *
-     * @param string $data    Data for trigger
-     * @param array  $matcher Matcher
+     * @param array $data    Data for trigger
+     * @param array $matcher Matcher
      *
      * @return void
      *
-     * @dataProvider provider_ajax
+     * @dataProvider providerAjax
      */
-    public function testgetEditorForm_ajax($data, $matcher)
+    public function testGetEditorFormAjax($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = true;
         PMA_TRI_setGlobals();
@@ -275,11 +275,11 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Provider for testgetEditorForm_ajax
+     * Provider for testGetEditorFormAjax
      *
      * @return array
      */
-    public function provider_ajax()
+    public function providerAjax()
     {
         $data = array(
             'item_name'               => 'foo',

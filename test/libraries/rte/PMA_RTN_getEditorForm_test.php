@@ -373,7 +373,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
                 )
             ),
 
-
             array(
                 $data,
                 array(
@@ -501,7 +500,9 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
-        $this->assertTag($matcher, PMA_RTN_getEditorForm('edit', 'change', $data), false);
+        $this->assertTag(
+            $matcher, PMA_RTN_getEditorForm('edit', 'change', $data), false
+        );
     }
 
     /**
@@ -575,7 +576,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
                     )
                 )
             ),
-
 
             array(
                 $data,

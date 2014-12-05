@@ -49,7 +49,11 @@ class AuthenticationConfig extends AuthenticationPlugin
     {
         // try to workaround PHP 5 session garbage collection which
         // looks at the session file's last modified time
-        $_SESSION['last_access_time'] = time();
+        if (isset($_REQUEST['access_time'])) {
+            $_SESSION['last_access_time'] = time()- $_REQUEST['access_time'];
+        } else {
+            $_SESSION['last_access_time'] = time();
+        }
 
         return true;
     }
@@ -83,7 +87,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         $header = $response->getHeader();
         $header->setBodyId('loginform');
         $header->setTitle(__('Access denied!'));
-        $header->disableMenu();
+        $header->disableMenuAndConsole();
         echo '<br /><br />
     <center>
         <h1>';
@@ -161,18 +165,5 @@ class AuthenticationConfig extends AuthenticationPlugin
             exit;
         }
         return true;
-    }
-
-    /**
-     * This method is called when any PluginManager to which the observer
-     * is attached calls PluginManager::notify()
-     *
-     * @param SplSubject $subject The PluginManager notifying the observer
-     *                            of an update.
-     *
-     * @return void
-     */
-    public function update (SplSubject $subject)
-    {
     }
 }

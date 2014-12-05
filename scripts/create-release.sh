@@ -17,13 +17,14 @@ COMPRESSIONS="zip-7z tbz txz tgz 7z"
 if [ $# -lt 2 ]
 then
   echo "Usages:"
-  echo "  create-release.sh <version> <from_branch> [--tag]"
+  echo "  create-release.sh <version> <from_branch> [--tag] [--stable]"
   echo ""
   echo "If --tag is specified, release tag is automatically created"
+  echo "If --stable is specified, the STABLE branch is updated with this release"
   echo ""
   echo "Examples:"
   echo "  create-release.sh 2.9.0-rc1 QA_2_9"
-  echo "  create-release.sh 2.9.0 MAINT_2_9_0 --tag"
+  echo "  create-release.sh 2.9.0 MAINT_2_9_0 --tag --stable"
   exit 65
 fi
 
@@ -254,19 +255,11 @@ if [ $# -gt 0 ] ; then
                 tagname=RELEASE_`echo $version | tr . _ | tr '[:lower:]' '[:upper:]' | tr -d -`
                 echo "* Tagging release as $tagname"
                 git tag -a -m "Released $version" $tagname $branch
-                if echo $version | grep -q '^2\.11\.' ; then
-                    echo '* 2.11 branch, no STABLE update'
-                elif echo $version | grep -q '^3\.3\.' ; then
-                    echo '* 3.3 branch, no STABLE update'
-                elif echo $version | grep -q '^3\.4\.' ; then
-                    echo '* 3.4 branch, no STABLE update'
-                elif echo $version | grep '[\-]' ; then
-                    echo '* no STABLE update'
-                else
-                    mark_as_release $branch STABLE
-                    git checkout master
-                fi
                 echo "   Dont forget to push tags using: git push --tags"
+                ;;
+            --stable)
+                mark_as_release $branch STABLE
+                git checkout master
                 ;;
             *)
                 echo "Unknown parameter: $1!"
@@ -285,7 +278,7 @@ Todo now:
 
 1. If not already done, tag the repository with the new revision number
    for a plain release or a release candidate:
-    version 2.7.0 gets two tags: RELEASE_2_7_0 and STABLE
+    version 2.7.0 gets RELEASE_2_7_0
     version 2.7.1-rc1 gets RELEASE_2_7_1RC1
 
  2. prepare a release/phpMyAdmin-$version-notes.html explaining in short the goal of
@@ -293,8 +286,11 @@ Todo now:
  3. upload the files to SF, you can use scripts/upload-release, eg.:
 
         ./scripts/upload-release \$USER $version release
- 4. add SF news item to phpMyAdmin project
- 5. announce release on freecode (http://freecode.com/projects/phpmyadmin/)
+ 4. in https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin pick the newly created version, expand the directory and use the I icons to mark that
+        - the -all-languages.zip file is the default for Windows and Others
+        - the -all-languages.tar.gz file is the default for Solaris
+        - the -all-languages.tar.bz2 file is the default for Mac OS X, Linux and BSD
+ 5. add SF news item to phpMyAdmin project
  6. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
         phpmyadmin-news@lists.sourceforge.net
@@ -313,6 +309,12 @@ Todo now:
 
  8. add a milestone for this new version in the bugs tickets, at https://sourceforge.net/p/phpmyadmin/bugs/milestones
 
- 9. the end :-)
+ 9. send a private twitter message to @phpmya, containing a short version of the announcement
+
+10. update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
+
+11. in case of a new major release, update the render.py in website repository to include the new major releases
+
+12. the end :-)
 
 END

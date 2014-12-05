@@ -50,24 +50,28 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array an array containing the min, max values for x and y cordinates
+     * @return array an array containing the min, max values for x and y coordinates
      * @access public
      */
     public function scaleRow($spatial)
     {
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = substr($spatial, 11, (strlen($spatial) - 12));
-        return $this->setMinMax($linesrting, array());
+        $linestring = /*overload*/mb_substr(
+            $spatial,
+            11,
+            /*overload*/mb_strlen($spatial) - 12
+        );
+        return $this->setMinMax($linestring, array());
     }
 
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string   $spatial    GIS LINESTRING object
-     * @param string   $label      Label for the GIS LINESTRING object
-     * @param string   $line_color Color for the GIS LINESTRING object
-     * @param array    $scale_data Array containing data related to scaling
-     * @param resource $image      Image object
+     * @param string $spatial    GIS LINESTRING object
+     * @param string $label      Label for the GIS LINESTRING object
+     * @param string $line_color Color for the GIS LINESTRING object
+     * @param array  $scale_data Array containing data related to scaling
+     * @param object $image      Image object
      *
      * @return resource the modified image object
      * @access public
@@ -77,13 +81,17 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
     ) {
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
-        $red   = hexdec(substr($line_color, 1, 2));
-        $green = hexdec(substr($line_color, 3, 2));
-        $blue  = hexdec(substr($line_color, 4, 2));
+        $red   = hexdec(/*overload*/mb_substr($line_color, 1, 2));
+        $green = hexdec(/*overload*/mb_substr($line_color, 3, 2));
+        $blue  = hexdec(/*overload*/mb_substr($line_color, 4, 2));
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = substr($spatial, 11, (strlen($spatial) - 12));
+        $linesrting = /*overload*/mb_substr(
+            $spatial,
+            11,
+            /*overload*/mb_strlen($spatial) - 12
+        );
         $points_arr = $this->extractPoints($linesrting, $scale_data);
 
         foreach ($points_arr as $point) {
@@ -123,13 +131,17 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
     public function prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)
     {
         // allocate colors
-        $red   = hexdec(substr($line_color, 1, 2));
-        $green = hexdec(substr($line_color, 3, 2));
-        $blue  = hexdec(substr($line_color, 4, 2));
+        $red   = hexdec(/*overload*/mb_substr($line_color, 1, 2));
+        $green = hexdec(/*overload*/mb_substr($line_color, 3, 2));
+        $blue  = hexdec(/*overload*/mb_substr($line_color, 4, 2));
         $line  = array('width' => 1.5, 'color' => array($red, $green, $blue));
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = substr($spatial, 11, (strlen($spatial) - 12));
+        $linesrting = /*overload*/mb_substr(
+            $spatial,
+            11,
+            /*overload*/mb_strlen($spatial) - 12
+        );
         $points_arr = $this->extractPoints($linesrting, $scale_data);
 
         foreach ($points_arr as $point) {
@@ -176,7 +188,11 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         );
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = substr($spatial, 11, (strlen($spatial) - 12));
+        $linesrting = /*overload*/mb_substr(
+            $spatial,
+            11,
+            /*overload*/mb_strlen($spatial) - 12
+        );
         $points_arr = $this->extractPoints($linesrting, $scale_data);
 
         $row = '<polyline points="';
@@ -219,7 +235,11 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         $result = $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = substr($spatial, 11, (strlen($spatial) - 12));
+        $linesrting = /*overload*/mb_substr(
+            $spatial,
+            11,
+            /*overload*/mb_strlen($spatial) - 12
+        );
         $points_arr = $this->extractPoints($linesrting, null);
 
         $result .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
@@ -254,7 +274,8 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
                 && trim($gis_data[$index]['LINESTRING'][$i]['y']) != '')
                 ? $gis_data[$index]['LINESTRING'][$i]['y'] : $empty) . ',';
         }
-        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+
+        $wkt = /*overload*/mb_substr($wkt, 0, /*overload*/mb_strlen($wkt) - 1);
         $wkt .= ')';
         return $wkt;
     }
@@ -282,7 +303,11 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         }
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linestring = substr($wkt, 11, (strlen($wkt) - 12));
+        $linestring = /*overload*/mb_substr(
+            $wkt,
+            11,
+            /*overload*/mb_strlen($wkt) - 12
+        );
         $points_arr = $this->extractPoints($linestring, null);
 
         $no_of_points = count($points_arr);

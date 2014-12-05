@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for displaing results
+ * Tests for displaying results
  *
  * @package PhpMyAdmin-test
  */
@@ -12,7 +12,7 @@
 require_once 'libraries/zip.lib.php';
 
 /**
- * Tests for displaing results
+ * Tests for displaying results
  *
  * @package PhpMyAdmin-test
  */

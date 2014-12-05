@@ -13,7 +13,7 @@ require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/schema/Export_Relation_Schema.class.php';
+require_once 'libraries/plugins/schema/Export_Relation_Schema.class.php';
 
 /**
  * Tests for PMA_Export_Relation_Schema class
@@ -36,6 +36,7 @@ class PMA_Export_Relation_Schema_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
+        $_REQUEST['page_number'] = 33;
         $this->object = new PMA_Export_Relation_Schema();
     }
 
@@ -63,44 +64,7 @@ class PMA_Export_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $this->object->setPageNumber(33);
         $this->assertEquals(
             33,
-            $this->object->pageNumber
-        );
-    }
-
-    /**
-     * Test for setShowGrid
-     *
-     * @return void
-     *
-     * @group medium
-     */
-    public function testSetShowGrid()
-    {
-        $this->object->setShowGrid('on');
-        $this->assertEquals(
-            1,
-            $this->object->showGrid
-        );
-        $this->object->setShowGrid('off');
-        $this->assertEquals(
-            0,
-            $this->object->showGrid
-        );
-    }
-
-    /**
-     * Test for setExportType
-     *
-     * @return void
-     *
-     * @group medium
-     */
-    public function testSetExportType()
-    {
-        $this->object->setExportType('PMA_ExportType');
-        $this->assertEquals(
-            'PMA_ExportType',
-            $this->object->exportType
+            $this->object->getPageNumber()
         );
     }
 
@@ -113,15 +77,15 @@ class PMA_Export_Relation_Schema_Test extends PHPUnit_Framework_TestCase
      */
     public function testSetShowColor()
     {
-        $this->object->setShowColor('on');
+        $this->object->setShowColor(true);
         $this->assertEquals(
-            1,
-            $this->object->showColor
+            true,
+            $this->object->isShowColor()
         );
-        $this->object->setShowColor('off');
+        $this->object->setShowColor(false);
         $this->assertEquals(
-            0,
-            $this->object->showColor
+            false,
+            $this->object->isShowColor()
         );
     }
 
@@ -137,12 +101,12 @@ class PMA_Export_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $this->object->setOrientation('P');
         $this->assertEquals(
             'P',
-            $this->object->orientation
+            $this->object->getOrientation()
         );
         $this->object->setOrientation('A');
         $this->assertEquals(
             'L',
-            $this->object->orientation
+            $this->object->getOrientation()
         );
     }
 
@@ -155,15 +119,15 @@ class PMA_Export_Relation_Schema_Test extends PHPUnit_Framework_TestCase
      */
     public function testSetTableDimension()
     {
-        $this->object->setTableDimension('on');
+        $this->object->setTableDimension(true);
         $this->assertEquals(
-            1,
-            $this->object->tableDimension
+            true,
+            $this->object->isTableDimension()
         );
-        $this->object->setTableDimension('off');
+        $this->object->setTableDimension(false);
         $this->assertEquals(
-            0,
-            $this->object->tableDimension
+            false,
+            $this->object->isTableDimension()
         );
     }
 
@@ -179,12 +143,12 @@ class PMA_Export_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $this->object->setPaper('A5');
         $this->assertEquals(
             'A5',
-            $this->object->paper
+            $this->object->getPaper()
         );
         $this->object->setPaper('A4');
         $this->assertEquals(
             'A4',
-            $this->object->paper
+            $this->object->getPaper()
         );
     }
 
@@ -197,36 +161,15 @@ class PMA_Export_Relation_Schema_Test extends PHPUnit_Framework_TestCase
      */
     public function testSetAllTablesSameWidth()
     {
-        $this->object->setAllTablesSameWidth('on');
+        $this->object->setAllTablesSameWidth(true);
         $this->assertEquals(
-            1,
-            $this->object->sameWide
+            true,
+            $this->object->isAllTableSameWidth()
         );
-        $this->object->setAllTablesSameWidth('off');
+        $this->object->setAllTablesSameWidth(false);
         $this->assertEquals(
-            0,
-            $this->object->sameWide
-        );
-    }
-
-    /**
-     * Test for setWithDataDictionary
-     *
-     * @return void
-     *
-     * @group medium
-     */
-    public function testSetWithDataDictionary()
-    {
-        $this->object->setWithDataDictionary('on');
-        $this->assertEquals(
-            1,
-            $this->object->withDoc
-        );
-        $this->object->setWithDataDictionary('off');
-        $this->assertEquals(
-            0,
-            $this->object->withDoc
+            false,
+            $this->object->isAllTableSameWidth()
         );
     }
 
@@ -239,15 +182,15 @@ class PMA_Export_Relation_Schema_Test extends PHPUnit_Framework_TestCase
      */
     public function testSetShowKeys()
     {
-        $this->object->setShowKeys('on');
+        $this->object->setShowKeys(true);
         $this->assertEquals(
-            1,
-            $this->object->showKeys
+            true,
+            $this->object->isShowKeys()
         );
-        $this->object->setShowKeys('off');
+        $this->object->setShowKeys(false);
         $this->assertEquals(
-            0,
-            $this->object->showKeys
+            false,
+            $this->object->isShowKeys()
         );
     }
 }

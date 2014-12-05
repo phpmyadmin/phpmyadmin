@@ -36,7 +36,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = new PMA_Config;
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
-        $this->object = new AuthenticationSignon(null);
+        $this->object = new AuthenticationSignon();
     }
 
     /**
@@ -133,12 +133,12 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            'root',
+            'user',
             $GLOBALS['PHP_AUTH_USER']
         );
 
         $this->assertEquals(
-            '',
+            'password',
             $GLOBALS['PHP_AUTH_PW']
         );
 
@@ -306,10 +306,6 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue('error<123>'));
 
         $dbi->expects($this->at(1))
-            ->method('getError')
-            ->will($this->returnValue('error<123>'));
-
-        $dbi->expects($this->at(2))
             ->method('getError')
             ->will($this->returnValue(null));
 

@@ -29,7 +29,7 @@ abstract class Node_DatabaseChild extends Node
             $db   = $this->realParent()->real_name;
             $item = $this->real_name;
             $ret  = '<span class="navItemControls">'
-                . '<a href="navigation.php?'
+                . '<a href="navigation.php'
                 . PMA_URL_getCommon()
                 . '&hideNavItem=true'
                 . '&itemType=' . urlencode($this->getItemType())
@@ -43,7 +43,7 @@ abstract class Node_DatabaseChild extends Node
     }
 
     /**
-     * Returns the type of the item reprsented by the node.
+     * Returns the type of the item represented by the node.
      *
      * @return string type of the item
      */

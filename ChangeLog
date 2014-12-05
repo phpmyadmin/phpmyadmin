@@ -1,6 +1,70 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.0.0 (2014-12-05)
++ rfe #1502 Smart sorting for int keys
++ rfe #1521 Confirmation message when dropping user(s)
++ rfe #1518 Confirm dialog on accidentally leaving a page
++ rfe #1445 Easy access to "SHOW CREATE ..."
++ rfe #1448 Allow clicking an approximate row count to get a correct one
++ rfe #1487 "Browse foreign values" should be a modal dialog
++ rfe #1523 Better visual clue for table structure primary key column
++ rfe #982  Support for editing binary fields in hexadecimal
+- bug #4416 New lines are removed when grid editing
++ rfe #706  Multi-db privileges adding
++ rfe #1527 Charts for data in <x-axis, series, value> format
++ rfe       Allow saving query charts as images
++ rfe #1145 Preview SQL instead of executing it
++ rfe #759  Use aliases in SQL export for tables and columns
+- bug #4450 Query is duplicated on Ctrl+Enter
++ rfe #755  Export with table/column name changes
++ rfe #869  Run SQL query: Allow rollback for InnoDB tables
++ rfe #654  Range Search Capability
++ rfe #1490 Dynamic process list
++ rfe #1522 Drag and Drop SQL import
++ rfe #637  Custom Field Handlers
++ rfe #1488 User privilege tab not shown in all relevant cases
++ rfe #781  Privileges for non superuser
++ rfe #908  Improvements for the table editor (index creation)
++ rfe #1426 Navigation state lost on reload
+- bug #4439 Table list in left panel doesn't expand
++ rfe       Improved validation when inserting data
++ rfe #1491 Support InnoDB for database Query by example
++ rfe #345  Normalize a table
++ rfe #1123 Zeroconf PMA tables support
++ rfe #1492 Remove the distinct query window / Add SQL log+history panel
++ rfe #919  Multiple-column foreign key relation
+- bug #3165 Redundant foreign keys not supported
+- bug       Incorrect link to documentation
++ rfe #857  Regexp replace
+- bug       Incorrect path in change password when on reverse proxy or
+            non-root directory
++           MariaDB 10+ multi-master replication support
++ rfe #1544 MySQL 5.7.5 compatibility
++ rfe #1529 Avoid session timeout when user is active
+- bug #4528 Can't import dump via SQL field
++ rfe #1251 Show "Overhead" with same precision for all tables
++ rfe #1546 Improve the js printf library
++ rfe #1542 Better error reporting in Designer
+- bug #4547 Micro history does not work in Users page
+- bug #4551 Wrong test in source code
+- bug #4537 BLOB inline-view JPG column transformation does not work for anything except simple queries
++ rfe #1535 Keyword-based autocompletion in SQL query editors
+- bug #4558 Unable to Add Rows while Creating Table
++ rfe #1547 Wrap No Tables Found message with message box
+- bug #4559 Logging in causes 100% CPU usage
+- bug #4564 Designer: spaces in table name with edit table link generates bad links
+- bug #4582 Debug SQL works only for the first page
+- bug #3869 Count(*) on information_scheme.INNODB_BUFFER_PAGE with a huge bufferpool
+- bug #4495 Comment lines in multiquery
+- bug #4535 Loads of Warnings/Notices in PMA_getServerSlaveStatus on replication slave
+- bug #4585 Multi query results not shown
++ rfe #1556 Disabling Show all
+- bug #4513 phpmyadmin run very slow (information_schema)
+- bug #4243 Super slow page rendering with tens of thousands of DBs
+- bug #4391 Upgraded to 4.2.0, insanely slow now
++ rfe #1537 PHP OpenSSL support for cookie encryption/decryption
+
 4.2.13.1 (2014-12-03)
 - bug #4612 [security] XSS vulnerability in redirection mechanism
 - bug #4611 [security] DOS attack with long passwords
@@ -16,7 +80,7 @@ phpMyAdmin - ChangeLog
 4.2.12.0 (2014-11-20)
 - bug #4574 Blank/white page when JavaScript disabled
 - bug #4577 Multi row actions cause full page reloads
-- bug       ReferenceError: targeurl is not defined
+- bug       ReferenceError: targeturl is not defined
 - bug       Incorrect text/icon display in Tracking report
 - bug #4404 Recordset return from procedure display nothing
 - bug #4584 Edit dialog for routines is too long for smaller displays

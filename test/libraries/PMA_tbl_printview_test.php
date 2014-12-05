@@ -21,6 +21,7 @@ require_once 'libraries/Message.class.php';
 require_once 'libraries/Table.class.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/sqlparser.lib.php';
+require_once 'libraries/Index.class.php';
 
 /**
  * Tests for libraries/tbl_printview.lib.php
@@ -67,6 +68,9 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fetchResult));
+
+        $dbi->expects($this->any())->method('getTableIndexes')
+            ->will($this->returnValue(array()));
 
         $GLOBALS['dbi'] = $dbi;
     }
@@ -372,11 +376,11 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
                 $showtable['Index_length']
             );
         $this->assertContains(
-            $data_size,
+            $index_size,
             $html
         );
         $this->assertContains(
-            $data_unit,
+            $index_unit,
             $html
         );
 
@@ -449,9 +453,6 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
                  )
             )
         );
-        $pk_array = array(
-            "Field1" => "pk_array"
-        );
         $have_rel = false;
         $res_rel = array();
         $db = "pma_db";
@@ -459,7 +460,7 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
         $cfgRelation = array('mimework' => true);
 
         $html = PMA_getHtmlForPrintViewColumns(
-            $columns, $analyzed_sql, $pk_array, $have_rel,
+            $columns, $analyzed_sql, $have_rel,
             $res_rel, $db, $table, $cfgRelation
         );
 
@@ -474,7 +475,7 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validation 2 : $pk_array
+        //validation 2 : $field_name
         $field_name = htmlspecialchars($row['Field']);
         $comments = PMA_getComments($db, $table);
         $this->assertContains(

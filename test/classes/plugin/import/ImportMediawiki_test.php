@@ -21,7 +21,6 @@ require_once 'libraries/Tracker.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
 
-/* Each PluginObserver instance contains a PluginManager instance */
 require_once 'libraries/plugins/import/ImportMediawiki.class.php';
 require_once 'libraries/Util.class.php';
 
@@ -54,6 +53,7 @@ class ImportMediawiki_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['finished'] = false;
         $GLOBALS['read_limit'] = 100000000;
         $GLOBALS['offset'] = 0;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['cfg']['AllowUserDropDatabase'] = false;
 
@@ -130,7 +130,6 @@ class ImportMediawiki_Test extends PHPUnit_Framework_TestCase
 
         //Test function called
         $this->object->doImport();
-
 
         // If import successfully, PMA will show all databases and
         // tables imported as following HTML Page

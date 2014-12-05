@@ -11,6 +11,8 @@
  */
 require_once 'libraries/common.inc.php';
 
+require_once './libraries/tracking.lib.php';
+
 //Get some js files needed for Ajax requests
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
@@ -116,14 +118,9 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
         $table_result = PMA_queryAsControlUser($table_query);
         $version_data = $GLOBALS['dbi']->fetchArray($table_result);
 
-        if ($version_data['tracking_active'] == 1) {
-            $version_status = __('active');
-        } else {
-            $version_status = __('not active');
-        }
-        $tmp_link = 'tbl_tracking.php?' . $url_query . '&amp;table='
+        $tmp_link = 'tbl_tracking.php' . $url_query . '&amp;table='
             . htmlspecialchars($version_data['table_name']);
-        $delete_link = 'db_tracking.php?' . $url_query . '&amp;table='
+        $delete_link = 'db_tracking.php' . $url_query . '&amp;table='
             . htmlspecialchars($version_data['table_name'])
             . '&amp;delete_tracking=true&amp';
         ?>
@@ -133,7 +130,7 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
             <td><?php echo $version_data['version'];?></td>
             <td><?php echo $version_data['date_created'];?></td>
             <td><?php echo $version_data['date_updated'];?></td>
-            <td><?php echo $version_status;?></td>
+            <td><?php echo PMA_getVersionStatus($version_data);?></td>
             <td>
             <a class="drop_tracking_anchor ajax" href="<?php echo $delete_link;?>" >
             <?php echo $drop_image_or_text; ?></a>
@@ -169,6 +166,8 @@ $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 // Get list of tables
 $table_list = PMA_Util::getTableList($GLOBALS['db']);
 
+$my_tables = array();
+
 // For each table try to get the tracking version
 foreach ($table_list as $key => $value) {
     // If $value is a table group.
@@ -177,7 +176,7 @@ foreach ($table_list as $key => $value) {
     ) {
         foreach ($value as $temp_table) {
             // If $temp_table is a table with the value for 'Name' is set,
-            // rather than a propery of the table group.
+            // rather than a property of the table group.
             if (is_array($temp_table)
                 && array_key_exists('Name', $temp_table)
             ) {
@@ -198,7 +197,7 @@ foreach ($table_list as $key => $value) {
 }
 
 // If untracked tables exist
-if (isset($my_tables)) {
+if (count($my_tables) > 0) {
     ?>
     <h3><?php echo __('Untracked tables');?></h3>
 
@@ -217,7 +216,7 @@ if (isset($my_tables)) {
 
     foreach ($my_tables as $key => $tablename) {
         if (PMA_Tracker::getVersion($GLOBALS['db'], $tablename) == -1) {
-            $my_link = '<a href="tbl_tracking.php?' . $url_query
+            $my_link = '<a href="tbl_tracking.php' . $url_query
                 . '&amp;table=' . htmlspecialchars($tablename) . '">';
             $my_link .= PMA_Util::getIcon('eye.png', __('Track table'));
             $my_link .= '</a>';

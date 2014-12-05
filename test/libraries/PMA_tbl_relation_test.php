@@ -15,6 +15,7 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
+require_once 'libraries/Theme.class.php';
 
 /**
  * Tests for libraries/tbl_relation.lib.php
@@ -31,6 +32,11 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $GLOBALS['server'] = 0;
+        $GLOBALS['pmaThemeImage'] = 'theme/';
+        $GLOBALS['cfg']['ShowHint'] = true;
+        //$_SESSION
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
 
         $GLOBALS['pma'] = new DataBasePMAMockForTblRelation();
         $GLOBALS['pma']->databases = new DataBaseMockForTblRelation();
@@ -164,17 +170,17 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
     public function testPMAGetSQLToCreateForeignKey()
     {
         $table = "PMA_table";
-        $field = "PMA_field";
+        $field = array("PMA_field1", "PMA_field2");
         $foreignDb = "foreignDb";
         $foreignTable = "foreignTable";
-        $foreignField = "foreignField";
+        $foreignField = array("foreignField1", "foreignField2");
 
         $sql =  PMA_getSQLToCreateForeignKey(
             $table, $field, $foreignDb, $foreignTable, $foreignField
         );
         $sql_excepted = 'ALTER TABLE `PMA_table` ADD  '
-            . 'FOREIGN KEY (`PMA_field`) REFERENCES '
-            . '`foreignDb`.`foreignTable`(`foreignField`);';
+            . 'FOREIGN KEY (`PMA_field1`, `PMA_field2`) REFERENCES '
+            . '`foreignDb`.`foreignTable`(`foreignField1`, `foreignField2`);';
         $this->assertEquals(
             $sql_excepted,
             $sql
@@ -216,7 +222,7 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
             'relwork' => true,
             'displaywork' => true,
         );
-        $tbl_storage_engine = "InnerDB";
+        $tbl_storage_engine = "InnoDB";
         $existrel =  array();
         $existrel_foreign =  array();
         $options_array =  array();
@@ -231,9 +237,21 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
             $tbl_storage_engine, $existrel, $existrel_foreign, $options_array
         );
 
-        //case 1: PMA_getHtmlForCommonFormHeader
+        //case 1: PMA_getHtmlForInternalRelationForm
         $this->assertContains(
-            PMA_getHtmlForCommonFormHeader($db, $table),
+            PMA_getHtmlForInternalRelationForm(
+                $columns, $tbl_storage_engine,
+                $existrel, $db
+            ),
+            $html
+        );
+
+        //case 2: PMA_getHtmlForForeignKeyForm
+        $this->assertContains(
+            PMA_getHtmlForForeignKeyForm(
+                $columns, $existrel_foreign, $db,
+                $tbl_storage_engine, $options_array
+            ),
             $html
         );
 
@@ -242,7 +260,6 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //case 2: PMA_getHtmlForCommonFormRows
         $this->assertContains(
             __('Relations'),
             $html
@@ -263,16 +280,20 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //case 3: PMA_getHtmlForCommonFormTableHeaders
+        //case 3: PMA_getHtmlForInternalRelationRow
+        $row = PMA_getHtmlForInternalRelationRow(
+            $save_row, 0, true,
+            $existrel, $db
+        );
         $this->assertContains(
-            PMA_getHtmlForCommonFormTableHeaders($cfgRelation, $tbl_storage_engine),
+            $row,
             $html
         );
 
-        //case 4: PMA_getHtmlForRow
-        $row = PMA_getHtmlForRow(
-            $save_row, 0, true, $cfgRelation, $existrel, $db,
-            $tbl_storage_engine, $existrel_foreign, $options_array
+        //case 4: PMA_getHtmlForForeignKeyRow
+        $row = PMA_getHtmlForForeignKeyRow(
+            array(), true, $columns, 0,
+            $options_array, $tbl_storage_engine, $db
         );
         $this->assertContains(
             $row,

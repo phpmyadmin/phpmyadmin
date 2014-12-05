@@ -51,7 +51,7 @@ if (! isset($visualizationSettings['labelColumn']) && isset($labelCandidates[0])
     $visualizationSettings['labelColumn'] = '';
 }
 
-// If spatial column is not set, use first geometric colum as spatial column
+// If spatial column is not set, use first geometric column as spatial column
 if (! isset($visualizationSettings['spatialColumn'])) {
     $visualizationSettings['spatialColumn'] = $spatialCandidates[0];
 }

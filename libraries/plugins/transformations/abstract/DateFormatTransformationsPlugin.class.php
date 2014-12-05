@@ -61,7 +61,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
         if (empty($options[2])) {
             $options[2] = 'local';
         } else {
-            $options[2] = strtolower($options[2]);
+            $options[2] = /*overload*/mb_strtolower($options[2]);
         }
 
         if (empty($options[1])) {
@@ -86,28 +86,30 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             // for example TIMESTAMP(8) means YYYYMMDD)
         } else if (preg_match('/^(\d{2}){3,7}$/', $buffer)) {
 
-            if (strlen($buffer) == 14 || strlen($buffer) == 8) {
+            if (/*overload*/mb_strlen($buffer) == 14
+                || /*overload*/mb_strlen($buffer) == 8
+            ) {
                 $offset = 4;
             } else {
                 $offset = 2;
             }
 
-            $d = array();
-            $d['year']   = substr($buffer, 0, $offset);
-            $d['month']  = substr($buffer, $offset, 2);
-            $d['day']    = substr($buffer, $offset + 2, 2);
-            $d['hour']   = substr($buffer, $offset + 4, 2);
-            $d['minute'] = substr($buffer, $offset + 6, 2);
-            $d['second'] = substr($buffer, $offset + 8, 2);
+            $aDate = array();
+            $aDate['year']   = (int)/*overload*/mb_substr($buffer, 0, $offset);
+            $aDate['month']  = (int)/*overload*/mb_substr($buffer, $offset, 2);
+            $aDate['day']    = (int)/*overload*/mb_substr($buffer, $offset + 2, 2);
+            $aDate['hour']   = (int)/*overload*/mb_substr($buffer, $offset + 4, 2);
+            $aDate['minute'] = (int)/*overload*/mb_substr($buffer, $offset + 6, 2);
+            $aDate['second'] = (int)/*overload*/mb_substr($buffer, $offset + 8, 2);
 
-            if (checkdate($d['month'], $d['day'], $d['year'])) {
+            if (checkdate($aDate['month'], $aDate['day'], $aDate['year'])) {
                 $timestamp = mktime(
-                    $d['hour'],
-                    $d['minute'],
-                    $d['second'],
-                    $d['month'],
-                    $d['day'],
-                    $d['year']
+                    $aDate['hour'],
+                    $aDate['minute'],
+                    $aDate['second'],
+                    $aDate['month'],
+                    $aDate['day'],
+                    $aDate['year']
                 );
             }
             // If all fails, assume one of the dozens of valid strtime() syntaxes
@@ -145,22 +147,6 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
 
         return $buffer;
     }
-
-    /**
-     * This method is called when any PluginManager to which the observer
-     * is attached calls PluginManager::notify()
-     *
-     * @param SplSubject $subject The PluginManager notifying the observer
-     *                            of an update.
-     *
-     * @todo implement
-     * @return void
-     */
-    public function update (SplSubject $subject)
-    {
-        ;
-    }
-
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 

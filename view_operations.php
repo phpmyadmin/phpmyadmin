@@ -136,3 +136,4 @@ echo PMA_getDeleteDataOrTableLink(
 echo '</ul>';
 echo '</fieldset>';
 echo '</div>';
+?>

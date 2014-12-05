@@ -22,7 +22,7 @@ if (! PMA_DRIZZLE) {
     include_once 'libraries/replication.inc.php';
 } else {
     $replication_types = array();
-    $replication_info = null;
+    $GLOBALS['replication_info'] = null;
 }
 require 'libraries/build_html_for_db.lib.php';
 
@@ -105,7 +105,7 @@ if ($databases_count > 0) {
         $is_superuser,
         $cfg,
         $replication_types,
-        $replication_info,
+        $GLOBALS['replication_info'],
         $url_query
     );
 } else {

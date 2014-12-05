@@ -21,8 +21,6 @@ require_once 'libraries/Table.class.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
-
-/* Each PluginObserver instance contains a PluginManager instance */
 require_once 'libraries/plugins/import/ImportSql.class.php';
 
 /**
@@ -52,6 +50,7 @@ class ImportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['finished'] = false;
         $GLOBALS['read_limit'] = 100000000;
         $GLOBALS['offset'] = 0;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['cfg']['AllowUserDropDatabase'] = false;
 

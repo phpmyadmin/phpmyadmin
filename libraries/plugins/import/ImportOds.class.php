@@ -104,19 +104,6 @@ class ImportOds extends ImportPlugin
     }
 
     /**
-     * This method is called when any PluginManager to which the observer
-     * is attached calls PluginManager::notify()
-     *
-     * @param SplSubject $subject The PluginManager notifying the observer
-     *                            of an update.
-     *
-     * @return void
-     */
-    public function update (SplSubject $subject)
-    {
-    }
-
-    /**
      * Handles the whole import logic
      *
      * @return void
@@ -381,13 +368,7 @@ class ImportOds extends ImportPlugin
          */
 
         /* Set database name to the currently selected one, if applicable */
-        if (strlen($db)) {
-            $db_name = $db;
-            $options = array('create_db' => false);
-        } else {
-            $db_name = 'ODS_DB';
-            $options = null;
-        }
+        list($db_name, $options) = $this->getDbnameAndOptions($db, 'ODS_DB');
 
         /* Non-applicable parameters */
         $create = null;

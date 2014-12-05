@@ -60,7 +60,7 @@ class PMA_GIS_ModifyQueryTest extends PHPUnit_Framework_TestCase
                 "SELECT ASTEXT(`moo`) AS `moo`, SRID(`moo`) AS `srid` "
                     . "FROM (SELECT * FROM `foo` WHERE `bar` = `zoo`) AS `temp_gis`"
             ),
-            // with spatial column genereted on the fly
+            // with spatial column generated on the fly
             array(
                 "SELECT name, PointFromText( Concat( 'POINT (', geo_lat, ' ', geo_lon, ')' ) ) AS coordinates FROM users",
                 array('spatialColumn' => 'coordinates', 'labelColumn' => 'name'),

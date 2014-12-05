@@ -40,16 +40,21 @@ $gis_types = array(
     'GEOMETRYCOLLECTION'
 );
 
+/** @var PMA_String $pmaString */
+$pmaString = $GLOBALS['PMA_String'];
+
 // Extract type from the initial call and make sure that it's a valid one.
-// Extract from field's values if availbale, if not use the column type passed.
+// Extract from field's values if available, if not use the column type passed.
 if (! isset($gis_data['gis_type'])) {
     if (isset($_REQUEST['type']) && $_REQUEST['type'] != '') {
-        $gis_data['gis_type'] = strtoupper($_REQUEST['type']);
+        $gis_data['gis_type'] = /*overload*/mb_strtoupper($_REQUEST['type']);
     }
     if (isset($_REQUEST['value']) && trim($_REQUEST['value']) != '') {
         $start = (substr($_REQUEST['value'], 0, 1) == "'") ? 1 : 0;
-        $gis_data['gis_type'] = substr(
-            $_REQUEST['value'], $start, strpos($_REQUEST['value'], "(") - $start
+        $gis_data['gis_type'] = /*overload*/mb_substr(
+            $_REQUEST['value'],
+            $start,
+            /*overload*/mb_strpos($_REQUEST['value'], "(") - $start
         );
     }
     if ((! isset($gis_data['gis_type']))

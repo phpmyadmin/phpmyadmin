@@ -99,7 +99,7 @@ if (! isset($goto)) {
     $goto = $GLOBALS['cfg']['DefaultTabTable'];
 }
 // Defines the url to return to in case of error in the next sql statement
-$err_url   = $goto . '?' . PMA_URL_getCommon($db, $table);
+$err_url   = $goto . PMA_URL_getCommon(array('db' => $db, 'table' => $table));
 
 //Set default datalabel if not selected
 if ( !isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
@@ -130,6 +130,7 @@ if (isset($_POST['zoom_submit'])
         $sql_query . ";", null, PMA_DatabaseInterface::QUERY_STORE
     );
     $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+    $data = array();
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         //Need a row with indexes as 0,1,2 for the getUniqueCondition
         // hence using a temporary array
@@ -137,7 +138,7 @@ if (isset($_POST['zoom_submit'])
         foreach ($row as $val) {
             $tmpRow[] = $val;
         }
-        //Get unique conditon on each row (will be needed for row update)
+        //Get unique condition on each row (will be needed for row update)
         $uniqueCondition = PMA_Util::getUniqueCondition(
             $result, count($table_search->getColumnNames()), $fields_meta, $tmpRow,
             true

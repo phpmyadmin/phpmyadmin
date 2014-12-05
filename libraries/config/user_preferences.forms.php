@@ -1,10 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * List of avaible forms, each form is described as an array of fields to display.
+ * List of available forms, each form is described as an array of fields to display.
  * Fields MUST have their counterparts in the $cfg array.
  *
- * To define form field, use the notatnion below:
+ * To define form field, use the notation below:
  * $forms['Form group']['Form name'] = array('Option/path');
  *
  * You can assign default values set by special button ("set value: ..."), eg.:
@@ -35,7 +35,8 @@ $forms['Features']['General'] = array(
     'NumRecentTables',
     'NumFavoriteTables',
     'ShowHint',
-    'SendErrorReports');
+    'SendErrorReports'
+);
 $forms['Features']['Text_fields'] = array(
     'CharEditing',
     'MinSizeForInputField',
@@ -66,10 +67,6 @@ $forms['Sql_queries']['Sql_queries'] = array(
     'QueryHistoryMax',
     'IgnoreMultiSubmitErrors',
     'MaxCharactersInDisplayedSQL',
-    'EditInWindow',
-    //'QueryWindowWidth', // overridden in theme
-    //'QueryWindowHeight',
-    'QueryWindowDefTab',
     'RetainQueryBox',
     'CodemirrorEnable');
 $forms['Sql_queries']['Sql_box'] = array(
@@ -78,6 +75,7 @@ $forms['Sql_queries']['Sql_box'] = array(
     'SQLQuery/ShowAsPHP',
     'SQLQuery/Refresh');
 $forms['Navi_panel']['Navi_panel'] = array(
+    'NavigationLinkWithMainPanel',
     'NavigationDisplayLogo',
     'NavigationLogoLink',
     'NavigationLogoLinkWindow',
@@ -111,7 +109,6 @@ $forms['Main_panel']['Browse'] = array(
     'ShowAll',
     'MaxRows',
     'Order',
-    'DisplayBinaryAsHex',
     'BrowsePointerEnable',
     'BrowseMarkerEnable',
     'GridEditing',
@@ -120,6 +117,7 @@ $forms['Main_panel']['Browse'] = array(
     'RepeatCells',
     'LimitChars',
     'RowActionLinks',
+    'TablePrimaryKeyOrder',
     'DefaultDisplay',
     'RememberSorting');
 $forms['Main_panel']['Edit'] = array(
@@ -144,7 +142,8 @@ $forms['Import']['Import_defaults'] = array(
     'Import/skip_queries');
 $forms['Import']['Sql'] = array(
     'Import/sql_compatibility',
-    'Import/sql_no_auto_value_on_zero');
+    'Import/sql_no_auto_value_on_zero',
+    'Import/sql_read_as_multibytes');
 $forms['Import']['Csv'] = array(
     ':group:' . __('CSV'),
         'Import/csv_replace',

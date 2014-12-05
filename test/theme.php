@@ -254,7 +254,7 @@ echo sprintf(
 </code>
 <div class="tools">
 [
-<a href="tbl_sql.php?db=test;table=test;sql_query=SELECT+%2A+FROM+%60test%60;show_query=1;token=266edabf70fa6368498d89b4054d01bf#querybox" onclick="PMA_querywindow.focus('SELECT * FROM `test`'); return false;">Bearbeiten</a>
+<a href="tbl_sql.php?db=test;table=test;sql_query=SELECT+%2A+FROM+%60test%60;show_query=1;token=266edabf70fa6368498d89b4054d01bf#querybox" >Bearbeiten</a>
 ] [
 <a href="import.php?db=test;table=test;sql_query=EXPLAIN+SELECT+%2A+FROM+%60test%60;token=266edabf70fa6368498d89b4054d01bf" >SQL erklären</a>
 ] [
@@ -289,9 +289,15 @@ echo sprintf(
                     value="1" /></td>
             <th><label for="checkbox_1">th label</label></th>
             <td class="value">td.value</td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" />
+            </td>
             <td>table.data tbody tr.odd td</td>
         </tr>
         <tr class="even">
@@ -299,9 +305,15 @@ echo sprintf(
                     value="1" /></td>
             <th><label for="checkbox_2">th label</label></th>
             <td class="value">td.value</td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" />
+            </td>
             <td>table.data tbody tr.even td</td>
         </tr>
         <tr class="odd">
@@ -309,9 +321,15 @@ echo sprintf(
                     value="1" /></td>
             <th><label for="checkbox_3">th label</label></th>
             <td class="value">td.value</td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
             <td>table.data tbody tr.odd td</td>
         </tr>
         <tr class="even">
@@ -319,9 +337,15 @@ echo sprintf(
                     value="1" /></td>
             <th><label for="checkbox_4">th label</label></th>
             <td class="value">td.value</td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
             <td>table.data tbody tr.even td</td>
         </tr>
     </tbody>

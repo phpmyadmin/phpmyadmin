@@ -41,7 +41,6 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['relation'] = 'relation';
         $GLOBALS['cfg']['Server']['table_info'] = 'table_info';
         $GLOBALS['cfg']['Server']['table_coords'] = 'table_coords';
-        $GLOBALS['cfg']['Server']['designer_coords'] = 'designer_coords';
         $GLOBALS['cfg']['Server']['column_info'] = 'column_info';
         $GLOBALS['cfg']['Server']['pdf_pages'] = 'pdf_pages';
         $GLOBALS['cfg']['Server']['history'] = 'history';
@@ -53,6 +52,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['usergroups'] = 'usergroups';
         $GLOBALS['cfg']['Server']['navigationhiding'] = 'navigationhiding';
         $GLOBALS['cfg']['Server']['savedsearches'] = 'savedsearches';
+        $GLOBALS['cfg']['Server']['central_columns'] = 'central_columns';
 
         $this->redefineRelation();
     }
@@ -176,10 +176,6 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
             $cfgRelation['table_coords']
         );
         $this->assertEquals(
-            'designer_coords',
-            $cfgRelation['designer_coords']
-        );
-        $this->assertEquals(
             'relation',
             $cfgRelation['relation']
         );
@@ -200,10 +196,6 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
             = isset($cfgRelation['table_coords'])
             ? $cfgRelation['table_coords']
             : null;
-        $is_defined_designer_coords
-            = isset($cfgRelation['designer_coords'])
-            ? $cfgRelation['designer_coords']
-            : null;
 
         $this->assertEquals(
             null,
@@ -221,11 +213,6 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
             null,
             $is_defined_table_coords
         );
-        $this->assertEquals(
-            null,
-            $is_defined_designer_coords
-        );
-
     }
 
     /**
@@ -261,10 +248,6 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
             $cfgRelation['table_coords']
         );
         $this->assertEquals(
-            'designer_coords',
-            $cfgRelation['designer_coords']
-        );
-        $this->assertEquals(
             'relation',
             $cfgRelation['relation']
         );
@@ -285,10 +268,6 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
             = isset($cfgRelation['table_coords'])
             ? $cfgRelation['table_coords']
             : null;
-        $is_defined_designer_coords
-            = isset($cfgRelation['designer_coords'])
-            ? $cfgRelation['designer_coords']
-            : null;
 
         $this->assertEquals(
             null,
@@ -305,10 +284,6 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             null,
             $is_defined_table_coords
-        );
-        $this->assertEquals(
-            null,
-            $is_defined_designer_coords
         );
     }
 }
@@ -342,7 +317,6 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
              'relation',
              'table_info',
              'table_coords',
-             'designer_coords',
              'column_info',
              'pdf_pages',
              'history',
@@ -359,17 +333,16 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
              'relation' => 1,
              'table_info' => 2,
              'table_coords' => 3,
-             'designer_coords' => 4,
-             'column_info' => 5,
-             'pdf_pages' => 6,
-             'history' => 7,
-             'recent' => 8,
-             'table_uiprefs' => 9,
-             'tracking' => 10,
-             'userconfig' => 11,
-             'users' => 12,
-             'usergroups' => 13,
-             'navigationhiding' => 14,
+             'column_info' => 4,
+             'pdf_pages' => 5,
+             'history' => 6,
+             'recent' => 7,
+             'table_uiprefs' => 8,
+             'tracking' => 9,
+             'userconfig' => 10,
+             'users' => 11,
+             'usergroups' => 12,
+             'navigationhiding' => 13,
          );
     }
 
@@ -406,31 +379,27 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
      */
     function query($sql, $link = null, $options = 0, $cache_affected_rows = true)
     {
-        if (stripos($sql, "column_info") !== false) {
+        if (/*overload*/mb_stripos($sql, "column_info") !== false) {
             unset($this->values[$this->indexs['column_info']]);
         }
 
-        if (stripos($sql, "table_info") !== false) {
+        if (/*overload*/mb_stripos($sql, "table_info") !== false) {
             unset ($this->values[$this->indexs['table_info']]);
         }
 
-        if (stripos($sql, "table_coords") !== false) {
+        if (/*overload*/mb_stripos($sql, "table_coords") !== false) {
             unset($this->values[$this->indexs['table_coords']]);
         }
 
-        if (stripos($sql, "designer_coords") !== false) {
-            unset($this->values[$this->indexs['designer_coords']]);
-        }
-
-        if (stripos($sql, "relation") !== false) {
+        if (/*overload*/mb_stripos($sql, "relation") !== false) {
             unset($this->values[$this->indexs['relation']]);
         }
 
-        if (stripos($sql, "pdf_pages") !== false) {
+        if (/*overload*/mb_stripos($sql, "pdf_pages") !== false) {
             unset($GLOBALS [$this->indexs['pdf_pages']]);
         }
 
-        if (stripos($sql, "bookmark") !== false) {
+        if (/*overload*/mb_stripos($sql, "bookmark") !== false) {
             unset($GLOBALS [$this->indexs['bookmark']]);
         }
         return true;
@@ -470,7 +439,7 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
      *
      * @param object $result database result
      *
-     * @return void
+     * @return bool
      */
     public function freeResult($result)
     {
@@ -490,7 +459,7 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
      * @param string|mysql_result $result query or mysql result
      * @param string              $type   NUM|ASSOC|BOTH
      *                                    returned array should either numeric
-     *                                    associativ or booth
+     *                                    associative or booth
      * @param resource            $link   mysql link
      *
      * @return array|boolean first row from result

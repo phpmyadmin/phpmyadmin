@@ -5,38 +5,30 @@
  *
  * @package PhpMyAdmin-String
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
+require_once 'libraries/StringType.int.php';
+require_once 'libraries/StringByte.int.php';
 /**
  * Specialized string class for phpMyAdmin.
  * The SQL Parser code relies heavily on these functions.
  *
  * @package PhpMyAdmin-String
  */
-class PMA_String
+class PMA_String implements PMA_StringType
 {
     /**
      * @var PMA_StringType
      */
     private $_type;
-    /**
-     * @var PMA_StringByte
-     */
-    private $_byte;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        if (@function_exists('mb_strlen')) {
-            mb_internal_encoding('utf-8');
-            include_once 'libraries/StringMB.class.php';
-            $this->_byte = new PMA_StringMB();
-        } else {
-            include_once 'libraries/StringNative.class.php';
-            $this->_byte = new PMA_StringNative();
-        }
-
         if (@extension_loaded('ctype')) {
             include_once 'libraries/StringCType.class.php';
             $this->_type = new PMA_StringCType();
@@ -59,7 +51,7 @@ class PMA_String
     {
         $pos = max(intval($pos), 0);
         $start = max(intval($start), 0);
-        $len = $this->strlen($string);
+        $len = /*overload*/mb_strlen($string);
         // Base case:
         // Check for string length or invalid input or special case of input
         // (pos == $start)
@@ -69,7 +61,7 @@ class PMA_String
 
         $pos--;
         $escaped     = false;
-        while ($pos >= $start && $this->substr($string, $pos, 1) == '\\') {
+        while ($pos >= $start && /*overload*/mb_substr($string, $pos, 1) == '\\') {
             $escaped = !$escaped;
             $pos--;
         } // end while
@@ -88,76 +80,11 @@ class PMA_String
     public function isSqlIdentifier($c, $dot_is_valid = false)
     {
         return ($this->isAlnum($c)
-            || ($ord_c = $this->ord($c)) && $ord_c >= 192 && $ord_c != 215 &&
+            || ($ord_c = /*overload*/mb_ord($c)) && $ord_c >= 192 && $ord_c != 215 &&
             $ord_c != 249
             || $c == '_'
             || $c == '$'
             || ($dot_is_valid != false && $c == '.'));
-    }
-
-    /**
-     * Returns length of string depending on current charset.
-     *
-     * @param string $string string to count
-     *
-     * @return int string length
-     */
-
-    public function strlen($string)
-    {
-        return $this->_byte->strlen($string);
-    }
-
-    /**
-     * Returns substring from string, works depending on current charset.
-     *
-     * @param string $string string to count
-     * @param int    $start  start of substring
-     * @param int    $length length of substring
-     *
-     * @return string the sub string
-     */
-    public function substr($string, $start, $length = 2147483647)
-    {
-        return $this->_byte->substr($string, $start, $length);
-    }
-
-    /**
-     * Returns postion of $needle in $haystack or false if not found
-     *
-     * @param string $haystack the string being checked
-     * @param string $needle   the string to find in haystack
-     * @param int    $offset   the search offset
-     *
-     * @return integer position of $needle in $haystack or false
-     */
-    public function strpos($haystack, $needle, $offset = 0)
-    {
-        return $this->_byte->strpos($haystack, $needle, $offset);
-    }
-
-    /**
-     * Make a string lowercase
-     *
-     * @param string $string the string being lowercased
-     *
-     * @return string the lower case string
-     */
-    public function strtolower($string)
-    {
-        return $this->_byte->strtolower($string);
-    }
-
-    /**
-     * Get the ordinal value of a string
-     *
-     * @param string $string the string for which ord is required
-     *
-     * @return string the ord value
-     */
-    public function ord($string)
-    {
-        return $this->_byte->ord($string);
     }
 
     /**

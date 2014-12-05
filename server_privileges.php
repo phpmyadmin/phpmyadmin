@@ -43,13 +43,8 @@ $post_patterns = array(
     '/_priv$/i',
     '/^max_/i'
 );
-foreach (array_keys($_POST) as $post_key) {
-    foreach ($post_patterns as $one_post_pattern) {
-        if (preg_match($one_post_pattern, $post_key)) {
-            $GLOBALS[$post_key] = $_POST[$post_key];
-        }
-    }
-}
+
+PMA_setPostAsGlobal($post_patterns);
 
 require 'libraries/server_common.inc.php';
 
@@ -125,7 +120,9 @@ list(
 /**
  * Checks if the user is allowed to do what he tries to...
  */
-if (! $is_superuser) {
+if (!$GLOBALS['is_superuser'] && !$GLOBALS['is_grantuser']
+    && !$GLOBALS['is_createuser']
+) {
     $response->addHTML(PMA_getHtmlForSubPageHeader('privileges', '', false));
     $response->addHTML(PMA_Message::error(__('No Privileges'))->getDisplay());
     exit;
@@ -185,18 +182,33 @@ if (isset($_REQUEST['change_copy'])) {
  * Updates privileges
  */
 if (! empty($_POST['update_privs'])) {
-    list($sql_query, $message) = PMA_updatePrivileges(
-        (isset($username) ? $username : ''),
-        (isset($hostname) ? $hostname : ''),
-        (isset($tablename) ? $tablename : ''),
-        (isset($dbname) ? $dbname : '')
-    );
+    if (is_array($dbname)) {
+        foreach ($dbname as $key => $db_name) {
+            list($sql_query[$key], $message) = PMA_updatePrivileges(
+                (isset($username) ? $username : ''),
+                (isset($hostname) ? $hostname : ''),
+                (isset($tablename) ? $tablename : ''),
+                (isset($db_name) ? $db_name : '')
+            );
+        }
+
+        $sql_query = implode("\n", $sql_query);
+    } else {
+        list($sql_query, $message) = PMA_updatePrivileges(
+            (isset($username) ? $username : ''),
+            (isset($hostname) ? $hostname : ''),
+            (isset($tablename) ? $tablename : ''),
+            (isset($dbname) ? $dbname : '')
+        );
+    }
 }
 
 /**
  * Assign users to user groups
  */
-if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']) {
+if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']
+    && $GLOBALS['is_superuser'] && $GLOBALS['is_createuser']
+) {
     PMA_setUserGroup($username, $_REQUEST['userGroup']);
     $message = PMA_Message::success();
 }
@@ -206,7 +218,6 @@ if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']) {
  */
 if (isset($_REQUEST['revokeall'])) {
     list ($message, $sql_query) = PMA_getMessageAndSqlQueryForPrivilegesRevoke(
-        $db_and_table,
         (isset($dbname) ? $dbname : ''),
         (isset($tablename) ? $tablename : ''),
         $username, $hostname
@@ -261,12 +272,10 @@ if ($GLOBALS['is_ajax_request']
     && empty($_REQUEST['ajax_page_request'])
     && ! isset($_REQUEST['export'])
     && (! isset($_REQUEST['submit_mult']) || $_REQUEST['submit_mult'] != 'export')
-    && (! isset($_REQUEST['adduser']) || $_add_user_error)
-    && (! isset($_REQUEST['initial'])
-    || $_REQUEST['initial'] === null
+    && ((! isset($_REQUEST['initial']) || $_REQUEST['initial'] === null
     || $_REQUEST['initial'] === '')
+    || (isset($_REQUEST['delete']) && $_REQUEST['delete'] === 'Go'))
     && ! isset($_REQUEST['showall'])
-    && ! isset($_REQUEST['edit_user_dialog'])
     && ! isset($_REQUEST['edit_user_group_dialog'])
     && ! isset($_REQUEST['db_specific'])
 ) {
@@ -370,16 +379,19 @@ if (isset($_REQUEST['adduser'])) {
         if ($GLOBALS['is_ajax_request'] == true) {
             header('Cache-Control: no-cache');
         }
-        $url_dbname = urlencode(
-            str_replace(
-                array('\_', '\%'),
-                array('_', '%'), $_REQUEST['dbname']
-            )
-        );
+        if (isset($dbname) && ! is_array($dbname)) {
+            $url_dbname = urlencode(
+                str_replace(
+                    array('\_', '\%'),
+                    array('_', '%'), $_REQUEST['dbname']
+                )
+            );
+        }
         $response->addHTML(
             PMA_getHtmlForUserProperties(
-                ((isset ($dbname_is_wildcard)) ? $dbname_is_wildcard : ''),
-                $url_dbname, $username, $hostname,
+                (isset($dbname_is_wildcard) ? $dbname_is_wildcard : ''),
+                (isset($url_dbname) ? $url_dbname : ''),
+                $username, $hostname,
                 (isset($dbname) ? $dbname : ''),
                 (isset($tablename) ? $tablename : '')
             )

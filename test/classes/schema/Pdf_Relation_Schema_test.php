@@ -17,7 +17,7 @@ require_once 'libraries/Index.class.php';
 require_once 'libraries/Table.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/transformations.lib.php';
-require_once 'libraries/schema/Pdf_Relation_Schema.class.php';
+require_once 'libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php';
 
 /**
  * Tests for PMA_Pdf_Relation_Schema class
@@ -40,16 +40,17 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $_POST['pdf_page_number'] = 33;
-        $_POST['show_grid'] = true;
-        $_POST['show_color'] = 'on';
-        $_POST['show_keys'] = true;
-        $_POST['orientation'] = 'orientation';
-        $_POST['show_table_dimension'] = 'on';
-        $_POST['all_tables_same_width'] = 'on';
-        $_POST['paper'] = 'paper';
-        $_POST['export_type'] = 'PMA_ExportType';
-        $_POST['with_doc'] = 'on';
+        $_REQUEST['page_number'] = 33;
+        $_REQUEST['pdf_show_grid'] = true;
+        $_REQUEST['pdf_show_color'] = true;
+        $_REQUEST['pdf_show_keys'] = true;
+        $_REQUEST['pdf_orientation'] = 'orientation';
+        $_REQUEST['pdf_show_table_dimension'] = true;
+        $_REQUEST['pdf_all_tables_same_width'] = true;
+        $_REQUEST['pdf_paper'] = 'paper';
+        $_REQUEST['t_h'] = array('information_schema.files' => 1);
+        $_REQUEST['t_x'] = array('information_schema.files' => 0);
+        $_REQUEST['t_y'] = array('information_schema.files' => 0);
 
         $GLOBALS['server'] = 1;
         $GLOBALS['controllink'] = null;
@@ -73,8 +74,10 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
             'relation' => 'relation',
             'mimework' => 'mimework',
             'commwork' => 'commwork',
-            'column_info' => 'column_info'
+            'column_info' => 'column_info',
+            'pdf_pages' => 'pdf_pages'
         );
+        PMA_getRelationsParam();
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -113,19 +116,16 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(false));
 
         $fetchRowReturn = array(
-                'table_name'
+            'table_name',
+            'table_name'
         );
 
         //let fetchRow have more results
-        for ($index=0; $index<10; ++$index) {
+        for ($index=0; $index<4; ++$index) {
             $dbi->expects($this->at($index))
                 ->method('fetchRow')
                 ->will($this->returnValue($fetchRowReturn));
         }
-
-        $dbi->expects($this->at(10))
-            ->method('fetchRow')
-            ->will($this->returnValue($fetchRowReturn));
 
         $fields_info = array(
             "Host" => array(
@@ -167,7 +167,6 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
             ->method('fetchValue')
             ->will($this->returnValue($fetchValue));
 
-
         $fetchResult = array(
             'column1' => array('mimetype' => 'value1', 'transformation'=> 'pdf'),
             'column2' => array('mimetype' => 'value2', 'transformation'=> 'xml'),
@@ -204,43 +203,35 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             33,
-            $this->object->pageNumber
+            $this->object->getPageNumber()
         );
         $this->assertEquals(
-            1,
-            $this->object->showGrid
+            true,
+            $this->object->isShowGrid()
         );
         $this->assertEquals(
-            1,
-            $this->object->showColor
+            true,
+            $this->object->isShowColor()
         );
         $this->assertEquals(
-            1,
-            $this->object->showKeys
+            true,
+            $this->object->isShowKeys()
         );
         $this->assertEquals(
-            1,
-            $this->object->tableDimension
+            true,
+            $this->object->isTableDimension()
         );
         $this->assertEquals(
-            1,
-            $this->object->sameWide
-        );
-        $this->assertEquals(
-            1,
-            $this->object->withDoc
+            true,
+            $this->object->isAllTableSameWidth()
         );
         $this->assertEquals(
             'L',
-            $this->object->orientation
-        );
-        $this->assertEquals(
-            'PMA_ExportType',
-            $this->object->exportType
+            $this->object->getOrientation()
         );
         $this->assertEquals(
             'paper',
-            $this->object->paper
+            $this->object->getPaper()
         );
     }
 }

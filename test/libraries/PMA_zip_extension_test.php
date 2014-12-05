@@ -85,7 +85,7 @@ class PMA_ZipExtension_Test extends PHPUnit_Framework_TestCase
     /**
      * Provider for testFindFileFromZipArchive
      *
-     * @return void
+     * @return array Test data
      */
     public function providerForTestFindFileFromZipArchive()
     {

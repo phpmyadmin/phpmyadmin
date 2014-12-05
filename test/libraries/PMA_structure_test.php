@@ -20,6 +20,7 @@ require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/Tracker.class.php';
+require_once 'libraries/Table.class.php';
 
 /**
  * PMA_Structure_Test class
@@ -51,6 +52,7 @@ class PMA_Structure_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ShowSQL'] = true;
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $GLOBALS['table'] = "table";
         $GLOBALS['pmaThemeImage'] = 'image';
@@ -201,6 +203,73 @@ class PMA_Structure_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             $ret,
             $drop_message
+        );
+    }
+
+    /**
+     * Test for PMA_getHtmlShowCreate
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlShowCreate()
+    {
+        //mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $db = 'PMA';
+        $table = 'PMA_Table';
+        $is_view_query = "SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = '" . PMA_Util::sqlAddSlashes($db) . "'
+                AND TABLE_NAME = '" . PMA_Util::sqlAddSlashes($table) . "'";
+
+        $show_create_query = 'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
+            . PMA_Util::backquote($table);
+        $expected_result = 'CREATE TABLE `PMA_Table` ( '
+            . '`id` numeric '
+            . ') ENGINE=InnoDB DEFAULT CHARSET=latin1';
+
+        $dbi->expects($this->any())
+            ->method('fetchResult')
+            ->with($is_view_query)
+            ->will($this->returnValue(false));
+
+        $dbi->expects($this->any())
+            ->method('fetchSingleRow')
+            ->with($show_create_query)
+            ->will(
+                $this->returnValue(
+                    array(
+                        'Table' => 'PMA_Table',
+                        'Create Table' => $expected_result
+                    )
+                )
+            );
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $output = PMA_getHtmlShowCreate($db, array($table));
+
+        $this->assertContains(
+            'Showing create queries',
+            $output
+        );
+
+        $this->assertContains(
+            '<legend>Tables</legend><table class="show_create">',
+            $output
+        );
+
+        $this->assertContains(
+            '<th>Create Table</th>',
+            $output
+        );
+
+        $this->assertContains(
+            PMA_mimeDefaultFunction($expected_result),
+            $output
         );
     }
 }

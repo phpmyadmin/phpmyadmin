@@ -57,8 +57,8 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['Server']['host'] = "localhost";
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
-        $GLOBALS['server_master_status'] = false;
-        $GLOBALS['server_slave_status'] = false;
+        $GLOBALS['replication_info']['master']['status'] = false;
+        $GLOBALS['replication_info']['slave']['status'] = false;
 
         $GLOBALS['table'] = "table";
         $GLOBALS['pmaThemeImage'] = 'image';
@@ -188,10 +188,6 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
     {
         //Call the test function
         $html = PMA_getHtmlForServerStatusQueriesDetails($this->ServerStatusData);
-
-        $hour_factor   = 3600 / $this->ServerStatusData->status['Uptime'];
-        $used_queries = $this->ServerStatusData->used_queries;
-        $total_queries = array_sum($used_queries);
 
         //validate 1: PMA_getHtmlForServerStatusQueriesDetails
         $this->assertContains(

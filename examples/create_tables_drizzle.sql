@@ -49,6 +49,8 @@ CREATE TABLE IF NOT EXISTS `pma__column_info` (
   `mimetype` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
   `transformation` varchar(255) NOT NULL default '',
   `transformation_options` varchar(255) NOT NULL default '',
+  `input_transformation` varchar(255) NOT NULL default '',
+  `input_transformation_options` varchar(255) NOT NULL default '',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`)
 )
@@ -170,24 +172,6 @@ CREATE TABLE IF NOT EXISTS `pma__table_info` (
   PRIMARY KEY  (`db_name`,`table_name`)
 )
   COMMENT='Table information for phpMyAdmin'
-  COLLATE utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__designer_coords`
---
-
-CREATE TABLE IF NOT EXISTS `pma__designer_coords` (
-  `db_name` varchar(64) NOT NULL default '',
-  `table_name` varchar(64) NOT NULL default '',
-  `x` INT,
-  `y` INT,
-  `v` INT,
-  `h` INT,
-  PRIMARY KEY (`db_name`,`table_name`)
-)
-  COMMENT='Table coordinates for Designer'
   COLLATE utf8_bin;
 
 -- --------------------------------------------------------

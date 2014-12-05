@@ -45,7 +45,6 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['relation'] = '';
         $GLOBALS['cfg']['Server']['table_info'] = '';
         $GLOBALS['cfg']['Server']['table_coords'] = '';
-        $GLOBALS['cfg']['Server']['designer_coords'] = '';
         $GLOBALS['cfg']['Server']['column_info'] = 'column_info';
         $GLOBALS['cfg']['DBG']['sql'] = false;
         // need to clear relation test cache
@@ -112,28 +111,46 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                     7 => 'Text/Plain: External',
                     8 => 'Text/Plain: Formatted',
                     9 => 'Text/Plain: Imagelink',
-                    10 => 'Text/Plain: Link',
-                    11 => 'Text/Plain: Longtoipv4',
-                    12 => 'Text/Plain: Preappend',
-                    13 => 'Text/Plain: Sql',
+                    10 => 'Text/Plain: Sql',
+                    11 => 'Text/Plain: Link',
+                    12 => 'Text/Plain: Longtoipv4',
+                    13 => 'Text/Plain: Preappend',
                     14 => 'Text/Plain: Substring',
                     ),
                 'transformation_file' => array (
-                    0 => 'Application_Octetstream_Download.class.php',
-                    1 => 'Application_Octetstream_Hex.class.php',
-                    2 => 'Image_JPEG_Inline.class.php',
-                    3 => 'Image_JPEG_Link.class.php',
-                    4 => 'Image_PNG_Inline.class.php',
-                    5 => 'Text_Plain_Bool2text.class.php',
-                    6 => 'Text_Plain_Dateformat.class.php',
-                    7 => 'Text_Plain_External.class.php',
-                    8 => 'Text_Plain_Formatted.class.php',
-                    9 => 'Text_Plain_Imagelink.class.php',
-                    10 => 'Text_Plain_Link.class.php',
-                    11 => 'Text_Plain_Longtoipv4.class.php',
-                    12 => 'Text_Plain_Preappend.class.php',
-                    13 => 'Text_Plain_Sql.class.php',
+                    0 => 'output/Application_Octetstream_Download.class.php',
+                    1 => 'output/Application_Octetstream_Hex.class.php',
+                    2 => 'output/Image_JPEG_Inline.class.php',
+                    3 => 'output/Image_JPEG_Link.class.php',
+                    4 => 'output/Image_PNG_Inline.class.php',
+                    5 => 'output/Text_Plain_Bool2text.class.php',
+                    6 => 'output/Text_Plain_Dateformat.class.php',
+                    7 => 'output/Text_Plain_External.class.php',
+                    8 => 'output/Text_Plain_Formatted.class.php',
+                    9 => 'output/Text_Plain_Imagelink.class.php',
+                    10 => 'output/Text_Plain_Sql.class.php',
+                    11 => 'Text_Plain_Link.class.php',
+                    12 => 'Text_Plain_Longtoipv4.class.php',
+                    13 => 'Text_Plain_Preappend.class.php',
                     14 => 'Text_Plain_Substring.class.php',
+                ),
+                'input_transformation' => array(
+                    'Image/JPEG: Upload',
+                    'Text/Plain: Fileupload',
+                    'Text/Plain: Regexvalidation',
+                    'Text/Plain: Link',
+                    'Text/Plain: Longtoipv4',
+                    'Text/Plain: Preappend',
+                    'Text/Plain: Substring',
+                ),
+                'input_transformation_file' => array(
+                    'input/Image_JPEG_Upload.class.php',
+                    'input/Text_Plain_Fileupload.class.php',
+                    'input/Text_Plain_Regexvalidation.class.php',
+                    'Text_Plain_Link.class.php',
+                    'Text_Plain_Longtoipv4.class.php',
+                    'Text_Plain_Preappend.class.php',
+                    'Text_Plain_Substring.class.php',
                 ),
             ),
             PMA_getAvailableMIMEtypes()
@@ -152,12 +169,101 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
         $_SESSION['relation'][$GLOBALS['server']]['column_info'] = "column_info";
         $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = false;
         $this->assertEquals(
-            array('o' => array(
-                'column_name' => 'o',
-                'mimetype' => 'Text/plain',
-                'transformation' => 'Sql',
-            )),
+            array(
+                'o' => array(
+                    'column_name' => 'o',
+                    'mimetype' => 'Text/plain',
+                    'transformation' => 'Sql',
+                    'transformation_options' => '',
+                    'input_transformation' => 'regex',
+                    'input_transformation_options' => '/pma/i',
+                ),
+                'col' => array(
+                    'column_name' => 'col',
+                    'mimetype' => 'T',
+                    'transformation' => 'o/P',
+                    'transformation_options' => '',
+                    'input_transformation' => 'i/p',
+                    'input_transformation_options' => '',
+                ),
+            ),
             PMA_getMIME('pma_test', 'table1')
+        );
+    }
+
+    /**
+     * Test for PMA_Transformation_globalHtmlReplace
+     *
+     * @return void
+     */
+    public function testTransformationGlobalHtmlReplace()
+    {
+        // Case 1
+        $actual = PMA_Transformation_globalHtmlReplace('', array());
+        $this->assertEquals(
+            '',
+            $actual
+        );
+
+        // Case 2
+        $buffer = 'foobar';
+        $options = array(
+            'regex' => 'foo',
+            'regex_replace' => 'bar',
+            'string' => 'x[__BUFFER__]x'
+        );
+        $actual = PMA_Transformation_globalHtmlReplace($buffer, $options);
+        $this->assertEquals(
+            'xbarbarx',
+            $actual
+        );
+    }
+
+    /**
+     * Test for PMA_clearTransformations
+     *
+     * @return void
+     */
+    public function testClearTransformations()
+    {
+        // Mock dbi
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->any())
+            ->method('tryQuery')
+            ->will($this->returnValue(true));
+        $GLOBALS['dbi'] = $dbi;
+
+        // Case 1 : no configuration storage
+        $actual = PMA_clearTransformations('db');
+        $this->assertEquals(
+            false,
+            $actual
+        );
+
+        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = "column_info";
+        $_SESSION['relation'][$GLOBALS['server']]['db'] = "pmadb";
+
+        // Case 2 : database delete
+        $actual = PMA_clearTransformations('db');
+        $this->assertEquals(
+            true,
+            $actual
+        );
+
+        // Case 3 : table delete
+        $actual = PMA_clearTransformations('db', 'table');
+        $this->assertEquals(
+            true,
+            $actual
+        );
+
+        // Case 4 : column delete
+        $actual = PMA_clearTransformations('db', 'table', 'col');
+        $this->assertEquals(
+            true,
+            $actual
         );
     }
 }

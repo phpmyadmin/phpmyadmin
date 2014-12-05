@@ -24,19 +24,19 @@
  </target>
 
  <target name="phpunit" description="Run unit tests using PHPUnit and generates junit.xml and clover.xml">
-  <exec executable="phpunit" failonerror="true">
+  <exec executable="${basedir}/vendor/bin/phpunit" failonerror="true">
       <arg line="--configuration ${env.PHPUNIT_XML} ${env.PHPUNIT_ARGS}"/>
   </exec>
  </target>
 
  <target name="phpunit-nocoverage" description="Run unit tests using PHPUnit and generates junit.xml">
-  <exec executable="phpunit" failonerror="true">
+  <exec executable="${basedir}/vendor/bin/phpunit" failonerror="true">
       <arg line="--configuration ${env.PHPUNIT_XML_NOCOVERAGE} ${env.PHPUNIT_ARGS}"/>
   </exec>
  </target>
 
  <target name="phpunit-hhvm" description="Run unit tests using PHPUnit with HHVM specific config">
-  <exec executable="phpunit" failonerror="true">
+  <exec executable="${basedir}/vendor/bin/phpunit" failonerror="true">
       <arg line="--configuration ${env.PHPUNIT_XML_HHVM} ${env.PHPUNIT_ARGS}"/>
   </exec>
  </target>
@@ -55,7 +55,7 @@
    <arg line="${source_comma_sep}
               xml
               codesize,design,naming,unusedcode
-              --exclude test,build,tcpdf,php-gettext,bfShapeFiles,PMAStandard,phpseclib,recaptchalib.php,swekey.php
+              --exclude test,build,tcpdf,php-gettext,bfShapeFiles,PMAStandard,phpseclib,recaptchalib.php,swekey.php,vendor
               --reportfile '${basedir}/build/logs/pmd.xml'" />
   </exec>
  </target>
@@ -66,6 +66,7 @@
               --exclude test
               --exclude PMAStandard
               --exclude build
+              --exclude vendor
               --exclude libraries/tcpdf
               --exclude libraries/php-gettext
               --exclude libraries/bfShapeFiles
@@ -82,6 +83,7 @@
               --exclude test
               --exclude PMAStandard
               --exclude build
+              --exclude vendor
               --exclude libraries/tcpdf
               --exclude libraries/php-gettext
               --exclude libraries/bfShapeFiles
@@ -95,7 +97,7 @@
  <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding third party libraries">
   <exec executable="phpcs">
    <arg line="
-              --ignore=*/php-gettext/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/PMAStandard/*,*/phpseclib/*,*/recaptchalib.php,*/swekey.php
+              --ignore=*/php-gettext/*,*/vendor/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/PMAStandard/*,*/phpseclib/*,*/recaptchalib.php,*/swekey.php
               --report=checkstyle
               --extensions=php
               --report-file='${basedir}/build/logs/checkstyle.xml'

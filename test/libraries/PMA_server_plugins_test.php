@@ -97,8 +97,6 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
 
         $html = PMA_getPluginAndModuleInfo($plugins, $modules);
 
-
-
         //validate 1: PMA_getPluginTab
         $this->assertContains(
             '<a href="#plugins_plugins">Plugins</a>',

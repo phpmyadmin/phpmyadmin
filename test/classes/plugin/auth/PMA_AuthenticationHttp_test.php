@@ -44,7 +44,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
             "en" => array("English", "US-ENGLISH"),
             "ch" => array("Chinese", "TW-Chinese")
         );
-        $this->object = new AuthenticationHttp(null);
+        $this->object = new AuthenticationHttp();
     }
 
     /**
@@ -101,7 +101,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
         $mockHeader = $this->getMockBuilder('PMA_Header')
             ->disableOriginalConstructor()
             ->setMethods(
-                array('setBodyId', 'setTitle', 'disableMenu', 'addHTML')
+                array('setBodyId', 'setTitle', 'disableMenuAndConsole', 'addHTML')
             )
             ->getMock();
 
@@ -114,7 +114,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
             ->with('Access denied!');
 
         $mockHeader->expects($this->once())
-            ->method('disableMenu')
+            ->method('disableMenuAndConsole')
             ->with();
 
         // set mocked headers and footers
@@ -139,7 +139,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
 
         $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
         $attrInstance->setAccessible(true);
-        $attrInstance->setValue(null, $mockResponse);
+        $attrInstance->setValue($mockResponse);
 
         $GLOBALS['header'] = array();
         $_REQUEST['old_usr'] = '';
@@ -158,7 +158,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
             $GLOBALS['header']
         );
 
-        $attrInstance->setValue(null, $restoreInstance);
+        $attrInstance->setValue($restoreInstance);
 
         // case 3
 

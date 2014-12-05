@@ -23,7 +23,7 @@ PMA_Util::checkParameters(
 if (!$GLOBALS['dbi']->selectDb($db)) {
     PMA_Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
-        '', ''
+        '', false
     );
 }
 
@@ -49,7 +49,7 @@ if ($result === false) {
 PMA_downloadHeader(
     $table . '-' .  $_GET['transform_key'] . '.bin',
     PMA_detectMIME($result),
-    strlen($result)
+    /*overload*/mb_strlen($result)
 );
 echo $result;
 ?>

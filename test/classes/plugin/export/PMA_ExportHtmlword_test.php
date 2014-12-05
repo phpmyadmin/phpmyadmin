@@ -437,13 +437,13 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', 'view')
-            ->will($this->returnValue(array('column')));
+            ->will($this->returnValue(array(array('Field' => 'column'))));
 
         $GLOBALS['dbi'] = $dbi;
 
         $this->object->expects($this->once())
             ->method('formatOneColumnDefinition')
-            ->with('column', array('name1'))
+            ->with(array('Field' => 'column'), array('name1'), 'column')
             ->will($this->returnValue(1));
 
         $this->assertEquals(
@@ -542,6 +542,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(1));
 
         $GLOBALS['cfgRelation']['relation'] = true;
+        $GLOBALS['controllink'] = null;
         $_SESSION['relation'][0] = array(
             'relwork' => true,
             'commwork' => true,
@@ -554,8 +555,6 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $result = $this->object->getTableDef(
             'database',
             '',
-            "\n",
-            "example.com",
             true,
             true,
             true
@@ -653,8 +652,6 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $result = $this->object->getTableDef(
             'database',
             '',
-            "\n",
-            "example.com",
             true,
             true,
             true
@@ -723,8 +720,6 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $result = $this->object->getTableDef(
             'database',
             '',
-            "\n",
-            "example.com",
             false,
             false,
             false
@@ -803,7 +798,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
         $this->object->expects($this->at(0))
             ->method('getTableDef')
-            ->with('db', 'tbl', "\n", "example.com", false, false, false, false)
+            ->with('db', 'tbl', false, false, false, false)
             ->will($this->returnValue('dumpText1'));
 
         $this->object->expects($this->once())
@@ -813,10 +808,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
         $this->object->expects($this->at(2))
             ->method('getTableDef')
-            ->with(
-                'db', 'tbl', "\n", "example.com",
-                false, false, false, false, true, true
-            )
+            ->with('db', 'tbl', false, false, false, true, array())
             ->will($this->returnValue('dumpText3'));
 
         $this->object->expects($this->once())

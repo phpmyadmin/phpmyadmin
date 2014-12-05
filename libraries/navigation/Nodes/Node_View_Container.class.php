@@ -28,10 +28,10 @@ class Node_View_Container extends Node
         $this->links = array(
             'text' => 'db_structure.php?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;tbl_type=view'
-                    . '&amp;token=' . $GLOBALS['token'],
+                    . '&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'db_structure.php?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;tbl_type=view'
-                    . '&amp;token=' . $GLOBALS['token'],
+                    . '&amp;token=' . $_SESSION[' PMA_token '],
         );
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             $this->separator       = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
@@ -48,9 +48,9 @@ class Node_View_Container extends Node
         $new->icon  = PMA_Util::getImage('b_view_add.png', $new_label);
         $new->links = array(
             'text' => 'view_create.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;token=' . $GLOBALS['token'],
+                    . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'view_create.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;token=' . $GLOBALS['token'],
+                    . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token '],
         );
         $new->classes = 'new_view italics';
         $this->addChild($new);

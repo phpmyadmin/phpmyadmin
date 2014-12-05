@@ -11,7 +11,6 @@
  */
 $GLOBALS['server'] = 0;
 
-/* Each PluginObserver instance contains a PluginManager instance */
 require_once 'libraries/Util.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
@@ -29,6 +28,7 @@ require_once 'libraries/Message.class.php';
 class ImportShp_Test extends PHPUnit_Framework_TestCase
 {
     /**
+     * @var ImportShp
      * @access protected
      */
     protected $object;
@@ -60,6 +60,7 @@ class ImportShp_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['finished'] = false;
         $GLOBALS['read_limit'] = 100000000;
         $GLOBALS['offset'] = 0;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['cfg']['AllowUserDropDatabase'] = false;
         $GLOBALS['import_file'] = 'test/test_data/timezone.shp.zip';

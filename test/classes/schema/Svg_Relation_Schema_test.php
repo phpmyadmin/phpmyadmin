@@ -15,7 +15,7 @@ require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Index.class.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/schema/Svg_Relation_Schema.class.php';
+require_once 'libraries/plugins/schema/svg/Svg_Relation_Schema.class.php';
 
 /**
  * Tests for PMA_Svg_Relation_Schema class
@@ -38,16 +38,15 @@ class PMA_Svg_Relation_Schema_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $_POST['pdf_page_number'] = 33;
-        $_POST['show_grid'] = true;
-        $_POST['show_color'] = 'on';
-        $_POST['show_keys'] = true;
-        $_POST['orientation'] = 'orientation';
-        $_POST['show_table_dimension'] = 'on';
-        $_POST['all_tables_same_width'] = 'on';
-        $_POST['paper'] = 'paper';
-        $_POST['export_type'] = 'PMA_ExportType';
-        $_POST['with_doc'] = 'on';
+        $_REQUEST['page_number'] = 33;
+        $_REQUEST['svg_show_color'] = true;
+        $_REQUEST['svg_show_keys'] = true;
+        $_REQUEST['svg_show_table_dimension'] = true;
+        $_REQUEST['svg_all_tables_same_width'] = true;
+        $_REQUEST['t_h'] = array('information_schema.files' => 1);
+        $_REQUEST['t_x'] = array('information_schema.files' => 0);
+        $_REQUEST['t_y'] = array('information_schema.files' => 0);
+
         $GLOBALS['server'] = 1;
         $GLOBALS['controllink'] = null;
         $GLOBALS['db'] = 'information_schema';
@@ -63,6 +62,7 @@ class PMA_Svg_Relation_Schema_Test extends PHPUnit_Framework_TestCase
             'relwork' => 'relwork',
             'relation' => 'relation'
         );
+        PMA_getRelationsParam();
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -154,27 +154,23 @@ class PMA_Svg_Relation_Schema_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             33,
-            $this->object->pageNumber
+            $this->object->getPageNumber()
         );
         $this->assertEquals(
-            1,
-            $this->object->showColor
+            true,
+            $this->object->isShowColor()
         );
         $this->assertEquals(
-            1,
-            $this->object->showKeys
+            true,
+            $this->object->isShowKeys()
         );
         $this->assertEquals(
-            1,
-            $this->object->tableDimension
+            true,
+            $this->object->isTableDimension()
         );
         $this->assertEquals(
-            1,
-            $this->object->sameWide
-        );
-        $this->assertEquals(
-            'PMA_ExportType',
-            $this->object->exportType
+            true,
+            $this->object->isAllTableSameWidth()
         );
     }
 }

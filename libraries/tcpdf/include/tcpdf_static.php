@@ -3,11 +3,11 @@
 // File name   : tcpdf_static.php
 // Version     : 1.0.002
 // Begin       : 2002-08-03
-// Last Update : 2013-09-14
+// Last Update : 2014-04-25
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
-// Copyright (C) 2002-2013 Nicola Asuni - Tecnick.com LTD
+// Copyright (C) 2002-2014 Nicola Asuni - Tecnick.com LTD
 //
 // This file is part of TCPDF software library.
 //
@@ -55,7 +55,7 @@ class TCPDF_STATIC {
 	 * Current TCPDF version.
 	 * @private static
 	 */
-	private static $tcpdf_version = '6.0.062';
+	private static $tcpdf_version = '6.0.077';
 
 	/**
 	 * String alias for total number of pages.
@@ -137,7 +137,7 @@ class TCPDF_STATIC {
 	public static function set_mqr($mqr) {
 		if (!defined('PHP_VERSION_ID')) {
 			$version = PHP_VERSION;
-			define('PHP_VERSION_ID', (($version{0} * 10000) + ($version{2} * 100) + $version{4}));
+			define('PHP_VERSION_ID', (($version[0] * 10000) + ($version[2] * 100) + $version[4]));
 		}
 		if (PHP_VERSION_ID < 50300) {
 			@set_magic_quotes_runtime($mqr);
@@ -153,7 +153,7 @@ class TCPDF_STATIC {
 	public static function get_mqr() {
 		if (!defined('PHP_VERSION_ID')) {
 			$version = PHP_VERSION;
-			define('PHP_VERSION_ID', (($version{0} * 10000) + ($version{2} * 100) + $version{4}));
+			define('PHP_VERSION_ID', (($version[0] * 10000) + ($version[2] * 100) + $version[4]));
 		}
 		if (PHP_VERSION_ID < 50300) {
 			return @get_magic_quotes_runtime();
@@ -2165,7 +2165,7 @@ class TCPDF_STATIC {
 				$attrib = strtolower(trim($attrib[0]));
 				if (!empty($attrib)) {
 					// check if matches class, id, attribute, pseudo-class or pseudo-element
-					switch ($attrib{0}) {
+					switch ($attrib[0]) {
 						case '.': { // class
 							if (in_array(substr($attrib, 1), $class)) {
 								$valid = true;
@@ -2232,7 +2232,7 @@ class TCPDF_STATIC {
 							break;
 						}
 						case ':': { // pseudo-class or pseudo-element
-							if ($attrib{1} == ':') { // pseudo-element
+							if ($attrib[1] == ':') { // pseudo-element
 								// pseudo-elements are not supported!
 								// (::first-line, ::first-letter, ::before, ::after)
 							} else { // pseudo-class
@@ -2764,6 +2764,7 @@ class TCPDF_STATIC {
 	 * @public static
 	 */
 	public static function fileGetContents($file) {
+		//$file = html_entity_decode($file);
 		// array of possible alternative paths/URLs
 		$alt = array($file);
 		// replace URL relative path with full real server path
@@ -2800,6 +2801,10 @@ class TCPDF_STATIC {
 				$alt[] = $tmp;
 			}
 		}
+		if (isset($_SERVER['SCRIPT_URI'])) {
+			$urldata = @parse_url($_SERVER['SCRIPT_URI']);
+			$alt[] = $urldata['scheme'].'://'.$urldata['host'].(($file[0] == '/') ? '' : '/').$file;
+		}
 		foreach ($alt as $f) {
 			$ret = @file_get_contents($f);
 			if (($ret === FALSE)
@@ -2808,7 +2813,7 @@ class TCPDF_STATIC {
 				AND preg_match('%^(https?|ftp)://%', $f)) {
 				// try to get remote file data using cURL
 				$cs = curl_init(); // curl session
-				curl_setopt($cs, CURLOPT_URL, $file);
+				curl_setopt($cs, CURLOPT_URL, $f);
 				curl_setopt($cs, CURLOPT_BINARYTRANSFER, true);
 				curl_setopt($cs, CURLOPT_FAILONERROR, true);
 				curl_setopt($cs, CURLOPT_RETURNTRANSFER, true);

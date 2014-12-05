@@ -22,7 +22,7 @@ function PMA_getNameAndTypeOfTheColumns($db, $table)
     $columns = array();
     foreach ($GLOBALS['dbi']->getColumnsFull($db, $table) as $row) {
         if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
-            $tmp[2] = substr(
+            $tmp[2] = /*overload*/mb_substr(
                 preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1
             );
             $columns[$row['Field']] = $tmp[1] . '('
@@ -49,6 +49,11 @@ function PMA_handleCreateOrEditIndex($db, $table, $index)
     $error = false;
 
     $sql_query = PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, $error);
+
+    // If there is a request for SQL previewing.
+    if (isset($_REQUEST['preview_sql'])) {
+        PMA_previewSQL($sql_query);
+    }
 
     if (! $error) {
         $GLOBALS['dbi']->query($sql_query);
@@ -83,7 +88,7 @@ function PMA_handleCreateOrEditIndex($db, $table, $index)
  * @param string    $db     current db
  * @param string    $table  current table
  * @param PMA_Index $index  current index
- * @param bool      &$error whether error occoured or not
+ * @param bool      &$error whether error occurred or not
  *
  * @return string
  */
@@ -141,11 +146,9 @@ function PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, &$error)
         $sql_query .= ' (' . implode(', ', $index_fields) . ')';
     }
 
-    if (PMA_MYSQL_INT_VERSION > 50500) {
-        $sql_query .= " COMMENT '"
-            . PMA_Util::sqlAddSlashes($index->getComment())
-            . "'";
-    }
+    $sql_query .= " COMMENT '"
+        . PMA_Util::sqlAddSlashes($index->getComment())
+        . "'";
     $sql_query .= ';';
 
     return $sql_query;
@@ -154,7 +157,7 @@ function PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, &$error)
 /**
  * Function to prepare the form values for index
  *
- * @param string $db    curent database
+ * @param string $db    current database
  * @param string $table current table
  *
  * @return PMA_Index
@@ -187,15 +190,16 @@ function PMA_getNumberOfFieldsForForm($index)
     if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
         // coming already from form
         $add_fields
-            = count($_REQUEST['index']['columns']['names'])
-            - $index->getColumnCount();
+            = isset($_REQUEST['index']['columns']['names'])?
+            count($_REQUEST['index']['columns']['names'])
+            - $index->getColumnCount():0;
         if (isset($_REQUEST['add_fields'])) {
             $add_fields += $_REQUEST['added_fields'];
         }
     } elseif (isset($_REQUEST['create_index'])) {
         $add_fields = $_REQUEST['added_fields'];
     } else {
-        $add_fields = 1;
+        $add_fields = 0;
     }// end preparing form values
 
     return $add_fields;
@@ -274,21 +278,19 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         . 'onfocus="this.select()" />'
         . '</div>';
 
-    if (PMA_MYSQL_INT_VERSION > 50500) {
-        $html .= '<div>'
-            . '<div class="label">'
-            . '<strong>'
-            . '<label for="input_index_comment">'
-            . __('Comment:')
-            . '</label>'
-            . '</strong>'
-            . '</div>'
-            . '<input type="text" name="index[Index_comment]" '
-            . 'id="input_index_comment" size="30"'
-            . 'value="' . htmlspecialchars($index->getComment()) . '"'
-            . 'onfocus="this.select()" />'
-            . '</div>';
-    }
+    $html .= '<div>'
+        . '<div class="label">'
+        . '<strong>'
+        . '<label for="input_index_comment">'
+        . __('Comment:')
+        . '</label>'
+        . '</strong>'
+        . '</div>'
+        . '<input type="text" name="index[Index_comment]" '
+        . 'id="input_index_comment" size="30"'
+        . 'value="' . htmlspecialchars($index->getComment()) . '"'
+        . 'onfocus="this.select()" />'
+        . '</div>';
 
     $html .= '<div>'
         . '<div class="label">'
@@ -299,7 +301,8 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         . '</label>'
         . '</strong>'
         . '</div>'
-        . '<select name="index[Index_type]" id="select_index_type" >'
+        . '<select name="index[Index_type]" id="select_index_type" '
+        . (isset($_REQUEST['create_edit_table']) ? 'disabled="disabled"' : '') . '>'
         . $index->generateIndexSelector()
         . '</select>'
         . '</div>';
@@ -328,7 +331,8 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         $html .= '<tr class="';
         $html .= $odd_row ? 'odd' : 'even';
         $html .= 'noclick">';
-        $html .= '<td>';
+        $html .= '<td><span class="drag_icon" title="' . __('Drag to reorder') . '"'
+            . '></span>';
         $html .= '<select name="index[columns][names][]">';
         $html .= '<option value="">-- ' . __('Ignore') . ' --</option>';
         foreach ($fields as $field_name => $field_type) {
@@ -364,11 +368,19 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         $html .= '<tr class="';
         $html .= $odd_row ? 'odd' : 'even';
         $html .= 'noclick">';
-        $html .= '<td>';
+        $html .= '<td><span class="drag_icon" title="' . __('Drag to reorder') . '"'
+            . '></span>';
         $html .= '<select name="index[columns][names][]">';
         $html .= '<option value="">-- ' . __('Ignore') . ' --</option>';
+        $j = 0;
         foreach ($fields as $field_name => $field_type) {
-            $html .= '<option value="' . htmlspecialchars($field_name) . '">'
+            if (isset($_REQUEST['create_edit_table'])) {
+                $col_index = $field_type[1];
+                $field_type = $field_type[0];
+            }
+            $html .= '<option value="'
+                . htmlspecialchars((isset($col_index)) ? $col_index : $field_name)
+                . '" ' . ($j++ == $i ? 'selected="selected"' : '') . '>'
                 . htmlspecialchars($field_name) . ' ['
                 . htmlspecialchars($field_type) . ']'
                 . '</option>' . "\n";

@@ -9,6 +9,9 @@
 // Let PHP complain about all errors
 error_reporting(E_ALL);
 
+// Ensure PHP has set timezone
+date_default_timezone_set('UTC');
+
 // Adding phpMyAdmin sources to include path
 set_include_path(
     get_include_path() . PATH_SEPARATOR . dirname(realpath("../index.php"))
@@ -43,10 +46,12 @@ foreach ($test_defaults as $varname => $defvalue) {
     }
 }
 
-// Initialize PMA_VERSION variable
+require_once 'libraries/String.class.php';
 require_once 'libraries/core.lib.php';
+$GLOBALS['PMA_String'] = new PMA_String();
 require_once 'libraries/Config.class.php';
 $CFG = new PMA_Config();
+// Initialize PMA_VERSION variable
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
 unset($CFG);
 
@@ -55,6 +60,7 @@ session_start();
 
 // Standard environment for tests
 $_SESSION[' PMA_token '] = 'token';
+$_SESSION['tmpval']['pftext'] = 'F';
 $GLOBALS['lang'] = 'en';
 $GLOBALS['is_ajax_request'] = false;
 
@@ -82,7 +88,7 @@ function test_header($string, $replace = true, $http_response_code = 200)
 }
 
 /**
- * Function to emulate headers_hest.
+ * Function to emulate headers_send.
  *
  * @return boolean false
  */

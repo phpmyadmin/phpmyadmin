@@ -46,11 +46,8 @@ abstract class HexTransformationsPlugin extends TransformationsPlugin
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
         // possibly use a global transform and feed it with special options
-        if (!isset($options[0])) {
-            $options[0] = 2;
-        } else {
-            $options[0] = (int)$options[0];
-        }
+        $options = $this->getOptions($options, array('2'));
+        $options[0] = intval($options[0]);
 
         if ($options[0] < 1) {
             return bin2hex($buffer);
@@ -58,22 +55,6 @@ abstract class HexTransformationsPlugin extends TransformationsPlugin
             return chunk_split(bin2hex($buffer), $options[0], ' ');
         }
     }
-
-    /**
-     * This method is called when any PluginManager to which the observer
-     * is attached calls PluginManager::notify()
-     *
-     * @param SplSubject $subject The PluginManager notifying the observer
-     *                            of an update.
-     *
-     * @todo implement
-     * @return void
-     */
-    public function update (SplSubject $subject)
-    {
-        ;
-    }
-
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
