@@ -698,9 +698,9 @@ AJAX.registerOnload('normalization.js', function() {
         var strColsRight = $(this).next().next().html();
         var colsRight = strColsRight.split(',');
         for (var i in colsRight) {
-            $('form[data-colname="'+colsRight[i].trim()+'"] input[type="checkbox"]').removeAttr('checked');
+            $('form[data-colname="'+colsRight[i].trim()+'"] input[type="checkbox"]').prop('checked', false);
             for (var j in colsLeft) {
-                $('form[data-colname="'+colsRight[i].trim()+'"] input[value="'+colsLeft[j].trim()+'"]').attr('checked','checked');
+                $('form[data-colname="'+colsRight[i].trim()+'"] input[value="'+colsLeft[j].trim()+'"]').prop('checked', true);
             }
         }
     });

@@ -23,10 +23,10 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('db_operations.js', function () {
-    $("#rename_db_form.ajax").die('submit');
-    $("#copy_db_form.ajax").die('submit');
-    $("#change_db_charset_form.ajax").die('submit');
-    $("#drop_db_anchor.ajax").die('click');
+    $(document).off('submit', "#rename_db_form.ajax");
+    $(document).off('submit', "#copy_db_form.ajax");
+    $(document).off('submit', "#change_db_charset_form.ajax");
+    $(document).off('click', "#drop_db_anchor.ajax");
 });
 
 AJAX.registerOnload('db_operations.js', function () {
@@ -34,7 +34,7 @@ AJAX.registerOnload('db_operations.js', function () {
     /**
      * Ajax event handlers for 'Rename Database'
      */
-    $("#rename_db_form.ajax").live('submit', function (event) {
+    $(document).on('submit', "#rename_db_form.ajax", function (event) {
         event.preventDefault();
 
         var old_db_name = PMA_commonParams.get('db');
@@ -80,7 +80,7 @@ AJAX.registerOnload('db_operations.js', function () {
     /**
      * Ajax Event Handler for 'Copy Database'
      */
-    $("#copy_db_form.ajax").live('submit', function (event) {
+    $(document).on('submit', "#copy_db_form.ajax", function (event) {
         event.preventDefault();
         PMA_ajaxShowMessage(PMA_messages.strCopyingDatabase, false);
         var $form = $(this);
@@ -108,7 +108,7 @@ AJAX.registerOnload('db_operations.js', function () {
     /**
      * Ajax Event handler for 'Change Charset' of the database
      */
-    $("#change_db_charset_form.ajax").live('submit', function (event) {
+    $(document).on('submit', "#change_db_charset_form.ajax", function (event) {
         event.preventDefault();
         var $form = $(this);
         PMA_prepareForAjaxRequest($form);
@@ -125,7 +125,7 @@ AJAX.registerOnload('db_operations.js', function () {
     /**
      * Ajax event handlers for Drop Database
      */
-    $("#drop_db_anchor.ajax").live('click', function (event) {
+    $(document).on('click', "#drop_db_anchor.ajax", function (event) {
         event.preventDefault();
         /**
          * @var question    String containing the question to be asked for confirmation
