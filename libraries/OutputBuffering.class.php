@@ -84,7 +84,8 @@ class PMA_OutputBuffering
     public function start()
     {
         if (! $this->_on) {
-            if ($this->_mode) {
+            // HHVM as of 3.4.0 does not support ob_gzhandler
+            if ($this->_mode && ! defined('HHVM_VERSION')) {
                 ob_start('ob_gzhandler');
             }
             ob_start();

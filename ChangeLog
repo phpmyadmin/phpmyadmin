@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - bug       Undefined index navwork, savedsearcheswork, fields
 - bug #4620 Undefined index while adding to the central columns list
 - bug #4618 Page scrolls while GIS visualization is zoomed in/out with mousewheel
+- bug #4613 HHVM: method 'ob_gzhandler' not found
 
 4.3.0.0 (not yet released)
 + rfe #1502 Smart sorting for int keys
