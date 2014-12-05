@@ -4252,6 +4252,9 @@ class PMA_Util
                 );
             } else if (function_exists('curl_init')) {
                 $curl_handle = curl_init($file);
+                if ($curl_hadle === false) {
+                    return array();
+                }
                 $curl_handle = PMA_Util::configureCurl($curl_handle);
                 curl_setopt(
                     $curl_handle,

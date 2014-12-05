@@ -84,7 +84,7 @@ class PMA_OutputBuffering
     public function start()
     {
         if (! $this->_on) {
-            if ($this->_mode) {
+            if ($this->_mode && function_exists('ob_gzhandler')) {
                 ob_start('ob_gzhandler');
             }
             ob_start();

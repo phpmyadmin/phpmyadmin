@@ -16,11 +16,15 @@ header('Content-type: application/json; charset=UTF-8');
 
 $version = PMA_Util::getLatestVersion();
 
-echo json_encode(
-    array(
-        'version' => $version->version,
-        'date' => $version->date,
-    )
-);
+if (empty($version_data)) {
+    echo json_encode(array());
+} else {
+    echo json_encode(
+        array(
+            'version' => $version->version,
+            'date' => $version->date,
+        )
+    );
+}
 
 ?>

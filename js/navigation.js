@@ -104,7 +104,7 @@ $(function () {
      * opens/closes (hides/shows) tree elements
      * loads data via ajax
      */
-    $('#pma_navigation_tree a.expander').live('click', function (event) {
+    $(document).on('click', '#pma_navigation_tree a.expander', function (event) {
         event.preventDefault();
         event.stopImmediatePropagation();
         var $icon = $(this).find('img');
@@ -119,7 +119,7 @@ $(function () {
      * Register event handler for click on the reload
      * navigation icon at the top of the panel
      */
-    $('#pma_navigation_reload').live('click', function (event) {
+    $(document).on('click', '#pma_navigation_reload', function (event) {
         event.preventDefault();
         // reload icon object
         var $icon = $(this).find('img');
@@ -212,17 +212,15 @@ $(function () {
     /**
      * Bind all "fast filter" events
      */
-    $('#pma_navigation_tree li.fast_filter span')
-        .live('click', PMA_fastFilter.events.clear);
-    $('#pma_navigation_tree li.fast_filter input.searchClause')
-        .live('focus', PMA_fastFilter.events.focus)
-        .live('blur', PMA_fastFilter.events.blur)
-        .live('keyup', PMA_fastFilter.events.keyup);
+    $(document).on('click', '#pma_navigation_tree li.fast_filter span', PMA_fastFilter.events.clear);
+    $(document).on('focus', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.focus);
+    $(document).on('blur', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.blur);
+    $(document).on('keyup', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.keyup);
 
     /**
      * Ajax handler for pagination
      */
-    $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (event) {
+    $(document).on('click', '#pma_navigation_tree div.pageselector a.ajax', function (event) {
         event.preventDefault();
         PMA_navigationTreePagination($(this));
     });
@@ -230,74 +228,74 @@ $(function () {
     /**
      * Node highlighting
      */
-    $('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
+    $(document).on(
         'mouseover',
+        '#pma_navigation_tree.highlight li:not(.fast_filter)',
         function () {
             if ($('li:visible', this).length === 0) {
                 $(this).addClass('activePointer');
             }
         }
     );
-    $('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
+    $(document).on(
         'mouseout',
+        '#pma_navigation_tree.highlight li:not(.fast_filter)',
         function () {
             $(this).removeClass('activePointer');
         }
     );
 
     /** Create a Routine, Trigger or Event */
-    $('li.new_procedure a.ajax, li.new_function a.ajax').live('click', function (event) {
+    $(document).on('click', 'li.new_procedure a.ajax, li.new_function a.ajax', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('routine');
         dialog.editorDialog(1, $(this));
     });
-    $('li.new_trigger a.ajax').live('click', function (event) {
+    $(document).on('click', 'li.new_trigger a.ajax', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('trigger');
         dialog.editorDialog(1, $(this));
     });
-    $('li.new_event a.ajax').live('click', function (event) {
+    $(document).on('click', 'li.new_event a.ajax', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('event');
         dialog.editorDialog(1, $(this));
     });
 
     /** Execute Routines */
-    $('li.procedure > a.ajax, li.function > a.ajax').live('click', function (event) {
+    $(document).on('click', 'li.procedure > a.ajax, li.function > a.ajax', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('routine');
         dialog.executeDialog($(this));
     });
     /** Edit Triggers and Events */
-    $('li.trigger > a.ajax').live('click', function (event) {
+    $(document).on('click', 'li.trigger > a.ajax', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('trigger');
         dialog.editorDialog(0, $(this));
     });
-    $('li.event > a.ajax').live('click', function (event) {
+    $(document).on('click', 'li.event > a.ajax', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('event');
         dialog.editorDialog(0, $(this));
     });
 
     /** Edit Routines */
-    $('li.procedure div a.ajax img,' +
-        ' li.function div a.ajax img').live('click', function (event) {
+    $(document).on('click', 'li.procedure div a.ajax img,' +
+        ' li.function div a.ajax img', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('routine');
         dialog.editorDialog(0, $(this).parent());
     });
     /** Export Triggers and Events */
-    $('li.trigger div:eq(1) a.ajax img,' +
-        ' li.event div:eq(1) a.ajax img'
-        ).live('click', function (event) {
+    $(document).on('click', 'li.trigger div:eq(1) a.ajax img, li.event div:eq(1) a.ajax img', function (event) {
         event.preventDefault();
         var dialog = new RTE.object();
         dialog.exportDialog($(this).parent());
     });
 
     /** New index */
-    $('#pma_navigation_tree li.new_index a.ajax').live('click', function (event) {
+    $(document).on('click', '#pma_navigation_tree li.new_index a.ajax', function (event) {
         event.preventDefault();
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
@@ -307,7 +305,7 @@ $(function () {
     });
 
     /** Edit index */
-    $('li.index a.ajax').live('click', function (event) {
+    $(document).on('click', 'li.index a.ajax', function (event) {
         event.preventDefault();
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
@@ -317,13 +315,13 @@ $(function () {
     });
 
     /** New view */
-    $('li.new_view a.ajax').live('click', function (event) {
+    $(document).on('click', 'li.new_view a.ajax', function (event) {
         event.preventDefault();
         PMA_createViewDialog($(this));
     });
 
     /** Hide navigation tree item */
-    $('a.hideNavItem.ajax').live('click', function (event) {
+    $(document).on('click', 'a.hideNavItem.ajax', function (event) {
         event.preventDefault();
         $.ajax({
             url: $(this).attr('href') + '&ajax_request=true',
@@ -338,7 +336,7 @@ $(function () {
     });
 
     /** Display a dialog to choose hidden navigation items to show */
-    $('a.showUnhide.ajax').live('click', function (event) {
+    $(document).on('click', 'a.showUnhide.ajax', function (event) {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage();
         $.get($(this).attr('href') + '&ajax_request=1', function (data) {
@@ -368,7 +366,7 @@ $(function () {
     });
 
     /** Show a hidden navigation tree item */
-    $('a.unhideNavItem.ajax').live('click', function (event) {
+    $(document).on('click', 'a.unhideNavItem.ajax', function (event) {
         event.preventDefault();
         var $tr = $(this).parents('tr');
         var $msg = PMA_ajaxShowMessage();
@@ -391,7 +389,7 @@ $(function () {
     }
 
     // Add/Remove favorite table using Ajax.
-    $(".favorite_table_anchor").live("click", function (event) {
+    $(document).on("click", ".favorite_table_anchor", function (event) {
         event.preventDefault();
         $self = $(this);
         var anchor_id = $self.attr("id");
@@ -1045,12 +1043,11 @@ var ResizeHandler = function () {
         $('#topmenu').menuResizer('resize');
     }
     // Register the events for the resizer and the collapser
-    $('#pma_navigation_resizer')
-        .live('mousedown', {'resize_handler': this}, this.mousedown);
-    var $collapser = $('#pma_navigation_collapser');
-    $collapser.live('click', {'resize_handler': this}, this.collapse);
+    $(document).on('mousedown', '#pma_navigation_resizer', {'resize_handler': this}, this.mousedown);
+    $(document).on('click', '#pma_navigation_collapser', {'resize_handler': this}, this.collapse);
+
     // Add the correct arrow symbol to the collapser
-    $collapser.html(this.getSymbol($('#pma_navigation').width()));
+    $('#pma_navigation_collapser').html(this.getSymbol($('#pma_navigation').width()));
     // Fix navigation tree height
     $(window).on('resize', this.treeResize);
     // need to call this now and then, browser might decide

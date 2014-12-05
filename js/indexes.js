@@ -458,10 +458,10 @@ function PMA_indexTypeSelectionDialog(source_array, index_type, col_index)
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('indexes.js', function () {
-    $('#select_index_type').die('change');
-    $('a.drop_primary_key_index_anchor.ajax').die('click');
-    $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").die('click');
-    $('#index_frm input[type=submit]').die('click');
+    $(document).off('change', '#select_index_type');
+    $(document).off('click', 'a.drop_primary_key_index_anchor.ajax');
+    $(document).off('click', "#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax");
+    $(document).off('click', '#index_frm input[type=submit]');
     $('body').off('change', 'select[name*="field_key"]');
 });
 
@@ -483,7 +483,7 @@ AJAX.registerOnload('indexes.js', function () {
 
     checkIndexType();
     checkIndexName("index_frm");
-    $('#select_index_type').live('change', function (event) {
+    $(document).on('change', '#select_index_type', function (event) {
         event.preventDefault();
         checkIndexType();
         checkIndexName("index_frm");
@@ -492,7 +492,7 @@ AJAX.registerOnload('indexes.js', function () {
     /**
      * Ajax Event handler for 'Drop Index'
      */
-    $('a.drop_primary_key_index_anchor.ajax').live('click', function (event) {
+    $(document).on('click', 'a.drop_primary_key_index_anchor.ajax', function (event) {
         event.preventDefault();
         var $anchor = $(this);
         /**
@@ -556,7 +556,7 @@ AJAX.registerOnload('indexes.js', function () {
     /**
      *Ajax event handler for index edit
     **/
-    $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").live('click', function (event) {
+    $(document).on('click', "#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax", function (event) {
         event.preventDefault();
         var url, title;
         if ($(this).find("a").length === 0) {

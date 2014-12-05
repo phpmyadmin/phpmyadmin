@@ -20,9 +20,9 @@ AJAX.registerTeardown('db_central_columns.js', function () {
     $(".edit_save_form").unbind('click');
     $('.edit_cancel_form').unbind('click');
     $(".del_row").unbind('click');
-    $(".filter_rows").die("keyup");
+    $(document).off("keyup", ".filter_rows");
     $('.edit_cancel_form').unbind('click');
-    $('.column_heading').unbind('hover');
+    $('.column_heading').unbind('mouseenter');
     $('#table-select').unbind('change');
     $('#column-select').unbind('change');
     $("#add_col_div>a").unbind('click');
@@ -46,7 +46,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
             'width' : '10em',
             '-moz-box-sizing' : 'border-box'
         });
-    $('.column_heading').hover(function(){
+    $('.column_heading').mouseenter(function(){
         PMA_tooltip(
             $(this),
             'th',
@@ -54,7 +54,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         );
     });
     window.scrollTo(0, 0);
-    $(".filter_rows").live("keyup", function () {
+    $(document).on("keyup", ".filter_rows", function () {
         var cols = ["Name", "Type", "Length/Values", "Collation", "Null", "Extra", "Default"];
         $.uiTableFilter($("#table_columns"), $(this).val(), cols, null, "td span");
     });

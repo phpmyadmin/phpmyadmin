@@ -12,7 +12,7 @@ AJAX.registerTeardown('config.js', function () {
     $('div.tabs_contents').undelegate();
     $('#import_local_storage, #export_local_storage').unbind('click');
     $('form.prefs-form').unbind('change').unbind('submit');
-    $('div.click-hide-message').die('click');
+    $(document).off('click', 'div.click-hide-message');
     $('#prefs_autoload').find('a').unbind('click');
 });
 
@@ -62,12 +62,10 @@ function setFieldValue(field, field_type, value)
     switch (field_type) {
     case 'text':
     case 'number':
-        //TODO: replace to .val()
-        field.attr('value', (value !== undefined ? value : field.attr('defaultValue')));
+        field.val(value !== undefined ? value : field.attr('defaultValue'));
         break;
     case 'checkbox':
-        //TODO: replace to .prop()
-        field.attr('checked', (value !== undefined ? value : field.attr('defaultChecked')));
+        field.prop('checked', (value !== undefined ? value : field.attr('defaultChecked')));
         break;
     case 'select':
         var options = field.prop('options');
@@ -703,7 +701,7 @@ AJAX.registerOnload('config.js', function () {
         }
     });
 
-    $('div.click-hide-message').live('click', function () {
+    $(document).on('click', 'div.click-hide-message', function () {
         $(this)
         .hide()
         .parent('.group')

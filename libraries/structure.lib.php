@@ -1510,7 +1510,9 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
                 __('Fulltext'), 'b_ftext.png', 'ftext'
             );
         }
-        if ($GLOBALS['cfgRelation']['central_columnswork']) {
+        if (isset($GLOBALS['cfgRelation']['central_columnswork'])
+            && $GLOBALS['cfgRelation']['central_columnswork']
+        ) {
             $html_output .= PMA_Util::getButtonOrImage(
                 'submit_mult', 'mult_submit', 'submit_mult_central_columns_add',
                 __('Add to central columns'), 'centralColumns_add.png',
@@ -2111,7 +2113,9 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         );
     }
     $html_output .= PMA_getHtmlForDistinctValueAction($url_query, $row, $titles);
-    if ($GLOBALS['cfgRelation']['central_columnswork']) {
+    if (isset($GLOBALS['cfgRelation']['central_columnswork'])
+        && $GLOBALS['cfgRelation']['central_columnswork']
+    ) {
         $html_output .= '<li class="browse nowrap">';
         if ($isInCentralColumns) {
             $html_output .=

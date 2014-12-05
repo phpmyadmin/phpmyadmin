@@ -70,11 +70,11 @@ function reloadFieldForm() {
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_structure.js', function () {
-    $("a.drop_column_anchor.ajax").die('click');
-    $("a.add_primary_key_anchor.ajax").die('click');
-    $("a.add_index_anchor.ajax").die('click');
-    $("a.add_unique_anchor.ajax").die('click');
-    $("#move_columns_anchor").die('click');
+    $(document).off('click', "a.drop_column_anchor.ajax");
+    $(document).off('click', "a.add_primary_key_anchor.ajax");
+    $(document).off('click', "a.add_index_anchor.ajax");
+    $(document).off('click', "a.add_unique_anchor.ajax");
+    $(document).off('click', "#move_columns_anchor");
     $(".append_fields_form.ajax").unbind('submit');
     $('body').off('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]');
 });
@@ -90,7 +90,8 @@ AJAX.registerOnload('tbl_structure.js', function () {
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
      */
-    $(".append_fields_form.ajax").die().live('submit', function (event) {
+    $(".append_fields_form.ajax").off();
+    $(document).on('submit', ".append_fields_form.ajax", function (event) {
         event.preventDefault();
         /**
          * @var    the_form    object referring to the export form
@@ -138,7 +139,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
     /**
      * Attach Event Handler for 'Drop Column'
      */
-    $("a.drop_column_anchor.ajax").live('click', function (event) {
+    $(document).on('click', "a.drop_column_anchor.ajax", function (event) {
         event.preventDefault();
         /**
          * @var curr_table_name String containing the name of the current table
@@ -200,7 +201,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
     /**
      * Ajax Event handler for 'Add Primary Key'
      */
-    $("a.add_primary_key_anchor.ajax").live('click', function (event) {
+    $(document).on('click', "a.add_primary_key_anchor.ajax", function (event) {
         event.preventDefault();
         /**
          * @var curr_table_name String containing the name of the current table
@@ -249,7 +250,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
     /**
      * Ajax Event handler for 'Add Index'
      */
-    $("a.add_index_anchor.ajax").live('click', function (event) {
+    $(document).on('click', "a.add_index_anchor.ajax", function (event) {
         event.preventDefault();
         /**
          * @var curr_table_name String containing the name of the current table
@@ -293,7 +294,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
     /**
      * Ajax Event handler for 'Add Unique'
      */
-    $("a.add_unique_anchor.ajax").live('click', function (event) {
+    $(document).on('click', "a.add_unique_anchor.ajax", function (event) {
         event.preventDefault();
         /**
          * @var curr_table_name String containing the name of the current table
@@ -337,7 +338,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
     /**
      * Inline move columns
     **/
-    $("#move_columns_anchor").live('click', function (e) {
+    $(document).on('click', "#move_columns_anchor", function (e) {
         e.preventDefault();
 
         if ($(this).hasClass("move-active")) {

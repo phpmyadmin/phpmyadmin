@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-26 08:29-0500\n"
-"PO-Revision-Date: 2014-12-04 23:10+0200\n"
+"PO-Revision-Date: 2014-12-05 11:55+0200\n"
 "Last-Translator: Igor <vmta@yahoo.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
@@ -333,22 +333,22 @@ msgid "Access denied!"
 msgstr "Доступ заборонено!"
 
 #: db_tracking.php:38 db_tracking.php:63
-#, fuzzy
 #| msgid "Tracking data definition successfully deleted"
 msgid "Tracking data deleted successfully."
-msgstr "Дані відстеження визначення успішно видалені"
+msgstr "Дані відстеження успішно видалені."
 
 #: db_tracking.php:47
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Версія %1$s була створена для обраних таблиць, для них активовано "
+"відстеження."
 
 #: db_tracking.php:78
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Жодної бази даних не вибрано."
+msgstr "Жодної таблиці не обрано."
 
 #: db_tracking.php:112
 msgid "Tracked tables"
@@ -395,10 +395,9 @@ msgid "Delete tracking data for this table"
 msgstr "Видалити дані відстеження для цієї таблиці"
 
 #: db_tracking.php:145 db_tracking.php:207
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "Видалення даних відстеження"
+msgstr "Видалити дані відстеження"
 
 #: db_tracking.php:183
 msgid "Versions"
@@ -597,11 +596,11 @@ msgstr ""
 
 #: import.php:54
 msgid "Succeeded"
-msgstr ""
+msgstr "Вдало"
 
 #: import.php:58 js/messages.php:441
 msgid "Failed"
-msgstr ""
+msgstr "Помилка"
 
 #: import.php:62
 msgid "Incomplete params"
@@ -887,7 +886,7 @@ msgstr ""
 "через вільний доступ до завантаження конфігураційного файлу."
 
 #: index.php:533
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s. "
@@ -896,12 +895,13 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "Сховище конфігурації phpMyAdmin не повністю налаштовано, деякі розширені "
-"функції було деактивовано. Щоб з'ясувати чому, натисніть %shere%s. "
+"функції було деактивовано. %sЗ'ясуйте чому%s. "
 
 #: index.php:540
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"Або перейдіть на вкладинку 'Операції' будь-якої бази даних та налаштуйте там."
 
 #: index.php:585
 #, php-format
@@ -947,28 +947,24 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Ви збираєтесь ОЧИСТИТИ таблицю!"
 
 #: js/messages.php:40
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Видалити дані відстеження для цієї таблиці"
+msgstr "Видалити дані відстеження для цієї таблиці?"
 
 #: js/messages.php:41
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Видалити дані відстеження для цієї таблиці"
+msgstr "Видалити дані відстеження для цих таблиць?"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Видалити дані відстеження для цієї таблиці"
+msgstr "Видалити дані відстеження для цієї версії?"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Видалити дані відстеження для цієї таблиці"
+msgstr "Видалити дані відстеження для цих версій?"
 
 #: js/messages.php:44
 msgid "Deleting tracking data"
@@ -980,7 +976,7 @@ msgstr "Знищення первинного ключа/індексу"
 
 #: js/messages.php:46
 msgid "Dropping Foreign key."
-msgstr ""
+msgstr "Видалення зовнішнього ключа."
 
 #: js/messages.php:47
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1003,7 +999,7 @@ msgstr ""
 
 #: js/messages.php:51
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr ""
+msgstr "Ви дійсно бажаєте відкликати обраного(их) користувача(ів)?"
 
 #: js/messages.php:54
 msgid "Save & Close"
@@ -1072,7 +1068,7 @@ msgstr "Необхідно додати принаймні один стовпч
 #: libraries/tbl_columns_definition_form.lib.php:145
 #: libraries/tbl_relation.lib.php:655
 msgid "Preview SQL"
-msgstr ""
+msgstr "Попередній перегляд SQL"
 
 #: js/messages.php:78
 msgid "Simulate query"
@@ -1322,7 +1318,7 @@ msgstr "Призупинити монітор"
 
 #: js/messages.php:152 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Почати автоматичне оновлення"
 
 #: js/messages.php:153
 msgid "Stop auto refresh"
