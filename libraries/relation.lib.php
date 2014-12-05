@@ -349,7 +349,9 @@ function PMA_getDiagMessageForFeature($feature_name,
     $relation_parameter, $messages, $skip_line = true
 ) {
     $retval = '    <tr><td colspan=2 class="right">' . $feature_name . ': ';
-    if ($GLOBALS['cfgRelation'][$relation_parameter]) {
+    if (isset($GLOBALS['cfgRelation'][$relation_parameter])
+        && $GLOBALS['cfgRelation'][$relation_parameter]
+    ) {
         $retval .= $messages['enabled'];
     } else {
         $retval .= $messages['disabled'];
