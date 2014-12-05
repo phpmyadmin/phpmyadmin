@@ -158,7 +158,7 @@ class PMA_Header
         if (isset($GLOBALS['db'])) {
             $params['db'] = $GLOBALS['db'];
         }
-        $this->_scripts->addFile('jquery/jquery-1.8.3.min.js');
+        $this->_scripts->addFile('jquery/jquery-1.11.1.min.js');
         $this->_scripts->addFile(
             'whitelist.php' . PMA_URL_getCommon($params), false, true
         );
