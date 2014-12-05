@@ -411,7 +411,7 @@ class PMA_NavigationTree
 
         $table = $container->getChild($path[0], true);
         if ($table === false) {
-            if (!$db->getPresence('tables', $path[0], true)) {
+            if (!$db->getPresence('tables', $path[0])) {
                 return false;
             }
 
