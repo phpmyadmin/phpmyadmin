@@ -57,8 +57,6 @@ matrix:
   allow_failures:
     - php: 5.6
       env: PHPUNIT_ARGS="--group selenium" SELENIUM="yes"
-    - php: hhvm
-      env: PHPUNIT_ARGS="--exclude-group selenium"
   fast_finish: true
   include:
     - php: 5.6
