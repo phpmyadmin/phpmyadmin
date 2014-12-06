@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - bug #4620 Undefined index while adding to the central columns list
 - bug #4618 Page scrolls while GIS visualization is zoomed in/out with mousewheel
 - bug #4613 HHVM: method 'ob_gzhandler' not found
+- bug #4593 Manual "SELECT" doesn't change active table
 
 4.3.0.0 (2014-12-05)
 + rfe #1502 Smart sorting for int keys
