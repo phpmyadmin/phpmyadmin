@@ -329,6 +329,10 @@ AJAX.registerOnload('sql.js', function () {
                     AJAX.cache.menus.replace(AJAX.cache.menus.get(data._menuHash));
                 }
 
+                if (data._params) {
+                    PMA_commonParams.setAll(data._params);
+                }
+
                 if (typeof data.ajax_reload != 'undefined') {
                     if (data.ajax_reload.reload) {
                         if (data.ajax_reload.table_name) {
