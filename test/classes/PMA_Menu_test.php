@@ -124,10 +124,10 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
      */
     function testSetTable()
     {
-        $menu = new PMA_Menu('pma_testServer', 'pma_testDb', 'pma_testTable');
-        $menu->setTable('pma_testOtherTable');
+        $menu = new PMA_Menu('pma_testServer', 'pma_test', 'table1');
+        $menu->setTable('table2');
         $this->assertContains(
-            'pma_testOtherTable',
+            'table2',
             $menu->getDisplay()
         );
     }
