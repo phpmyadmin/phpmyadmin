@@ -612,6 +612,19 @@ class PMA_Menu
         }
         return $tabs;
     }
+
+    /**
+     * Set current table
+     *
+     * @param string $table Current table
+     *
+     * @return $this
+     */
+    public function setTable($table)
+    {
+        $this->_table = $table;
+        return $this;
+    }
 }
 
 ?>

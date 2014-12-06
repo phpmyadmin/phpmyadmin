@@ -696,11 +696,6 @@ if (isset($my_die)) {
 
 if ($go_sql) {
 
-    if (isset($ajax_reload) && $ajax_reload['reload'] === true) {
-        $response = PMA_Response::getInstance();
-        $response->addJSON('ajax_reload', $ajax_reload);
-    }
-
     if (! empty($sql_data) && ($sql_data['valid_queries'] > 1)) {
         $_SESSION['is_multi_query'] = true;
         $sql_queries = $sql_data['valid_sql'];
@@ -721,7 +716,14 @@ if ($go_sql) {
         );
     }
 
+    if (!isset($ajax_reload)) {
+        $ajax_reload = array();
+    }
+    if (isset($table)) {
+        $ajax_reload['table_name'] = $table;
+    }
     $response = PMA_Response::getInstance();
+    $response->addJSON('ajax_reload', $ajax_reload);
     $response->addHTML($html_output);
     exit();
 
