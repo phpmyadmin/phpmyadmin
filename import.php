@@ -695,19 +695,24 @@ if (isset($my_die)) {
 }
 
 if ($go_sql) {
+
     // parse sql query
     include_once 'libraries/parse_analyze.inc.php';
 
-    if (isset($ajax_reload) && $ajax_reload['reload'] === true) {
-        $response = PMA_Response::getInstance();
-        $response->addJSON('ajax_reload', $ajax_reload);
-    }
     PMA_executeQueryAndSendQueryResponse(
         $analyzed_sql_results, false, $db, $table, null, $import_text, null,
         $analyzed_sql_results['is_affected'], null,
         null, null, $sql_data, $goto, $pmaThemeImage, null, null, null, $sql_query,
         null, null
     );
+
+    if (!isset($ajax_reload)) {
+        $ajax_reload = array();
+    }
+    $ajax_reload['table_name'] = $table;
+
+    $response = PMA_Response::getInstance();
+    $response->addJSON('ajax_reload', $ajax_reload);
 } else if ($result) {
     // Save a Bookmark with more than one queries (if Bookmark label given).
     if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
