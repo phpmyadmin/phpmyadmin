@@ -1518,6 +1518,9 @@ function PMA_countQueryResults(
 function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofile,
     $db, $table, $find_real_end, $sql_query_for_bookmark, $extra_data
 ) {
+    $response = PMA_Response::getInstance();
+    $response->getHeader()->getMenu()->setTable($table);
+
     // Only if we ask to see the php code
     if (isset($GLOBALS['show_as_php'])) {
         $result = null;
