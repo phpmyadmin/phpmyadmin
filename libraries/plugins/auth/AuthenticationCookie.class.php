@@ -31,8 +31,13 @@ require './libraries/plugins/auth/swekey/swekey.auth.lib.php';
 /**
  * phpseclib
  */
-require PHPSECLIB_INC_DIR . '/Crypt/AES.php';
-require PHPSECLIB_INC_DIR . '/Crypt/Random.php';
+if (! function_exists('openssl_encrypt')
+    || ! function_exists('openssl_decrypt')
+    || ! function_exists('openssl_random_pseudo_bytes')
+    || PHP_VERSION_ID < 50304) {
+    require PHPSECLIB_INC_DIR . '/Crypt/AES.php';
+    require PHPSECLIB_INC_DIR . '/Crypt/Random.php';
+}
 
 /**
  * Handles the cookie authentication method
@@ -728,7 +733,11 @@ class AuthenticationCookie extends AuthenticationPlugin
     private function _getSessionEncryptionSecret()
     {
         if (empty($_SESSION['encryption_key'])) {
-            $_SESSION['encryption_key'] = crypt_random_string(256);
+            if ($this->_useOpenSSL()) {
+                $_SESSION['encryption_key'] = openssl_random_pseudo_bytes(256);
+            } else {
+                $_SESSION['encryption_key'] = crypt_random_string(256);
+            }
         }
         return $_SESSION['encryption_key'];
     }
@@ -743,6 +752,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         return (
             function_exists('openssl_encrypt')
             && function_exists('openssl_decrypt')
+            && function_exists('openssl_random_pseudo_bytes')
             && PHP_VERSION_ID >= 50304
         );
     }
