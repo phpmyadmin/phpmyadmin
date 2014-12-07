@@ -98,7 +98,7 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
 
         $_REQUEST['db_collation'] = 'db1';
         $this->assertRegExp(
-            '/.*db_operations.php(.|[\n])*db_copy([\n]|.)*Copy database to.*/m',
+            '/.*db_operations.php.*db_copy.*Copy database to.*/ms',
             PMA_getHtmlForCopyDatabase("pma")
         );
     }
@@ -211,7 +211,7 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
     {
 
         $this->assertRegExp(
-            '/.*action="tbl_operations.php"(.|[\n])*ANALYZE([\n]|.)*REBUILD([\n]|.)*/m',
+            '/.*action="tbl_operations.php".*ANALYZE.*REBUILD.*/ms',
             PMA_getHtmlForPartitionMaintenance(
                 array("partition1", "partion2"),
                 array("param1" => 'foo', "param2" => 'bar')
