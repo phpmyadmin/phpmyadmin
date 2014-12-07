@@ -34,7 +34,8 @@ require './libraries/plugins/auth/swekey/swekey.auth.lib.php';
 if (! function_exists('openssl_encrypt')
     || ! function_exists('openssl_decrypt')
     || ! function_exists('openssl_random_pseudo_bytes')
-    || PHP_VERSION_ID < 50304) {
+    || PHP_VERSION_ID < 50304
+) {
     require PHPSECLIB_INC_DIR . '/Crypt/AES.php';
     require PHPSECLIB_INC_DIR . '/Crypt/Random.php';
 }
