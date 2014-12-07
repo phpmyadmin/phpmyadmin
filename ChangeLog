@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 - bug #4613 HHVM: method 'ob_gzhandler' not found
 - bug #4593 Manual "SELECT" doesn't change active table
 - bug #4623 Incomplete PHP OpenSSL support
+- bug #4619 SELECT LENGTH(`field`) FROM `table` does not sort
 
 4.3.0.0 (2014-12-05)
 + rfe #1502 Smart sorting for int keys
