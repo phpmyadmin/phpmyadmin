@@ -626,19 +626,19 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
         . $action
         . '<th class="" style="display:none"></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="name">'
-        . __('Name') . '</th>'
+        . __('Name') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="type">'
-        . __('Type') . '</th>'
+        . __('Type') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="length">'
-        . __('Length/Values') . '</th>'
+        . __('Length/Values') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="collation"'
-        . '>' . __('Collation') . '</th>'
+        . '>' . __('Collation') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="isnull">'
-        . __('Null') . '</th>'
+        . __('Null') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="extra">'
-        . __('Extra') . '</th>'
+        . __('Extra') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="default">'
-        . __('Default') . '</th>'
+        . __('Default') . '<div class="sorticon"></div></th>'
         . '</tr>';
     $tableheader .= '</thead>';
     return $tableheader;
