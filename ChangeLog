@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - bug #4593 Manual "SELECT" doesn't change active table
 - bug #4623 Incomplete PHP OpenSSL support
 - bug #4626 Ctrl + click on a column not in sort triggers a server call to erroneous url
+- bug #4625 "Insufficient space to save the file" on export SQL to file on server
 
 4.3.0.0 (2014-12-05)
 + rfe #1502 Smart sorting for int keys
