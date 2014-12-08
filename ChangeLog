@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.2.0 (not yet released)
+
 4.3.1.0 (not yet released)
 - bug #4609 'Show all' checkbox label is not clickable
 - bug #4610 JS error reporting: Hash fragment is reset
