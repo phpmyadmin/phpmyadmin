@@ -13,16 +13,6 @@ function initTableSorter(tabid) {
             }
         };
         break;
-    case 'statustabs_allvars':
-        $table = $('#serverstatusvariables');
-        opts = {
-            sortList: [[0, 0]],
-            widgets: ['fast-zebra'],
-            headers: {
-                1: { sorter: 'withinSpanNumber' }
-            }
-        };
-        break;
     }
     $table.tablesorter(opts);
     $table.find('tr:first th')
