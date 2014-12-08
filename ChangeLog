@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 - bug #4623 Incomplete PHP OpenSSL support
 - bug #4626 Ctrl + click on a column not in sort triggers a server call to erroneous url
 - bug #4625 "Insufficient space to save the file" on export SQL to file on server
+- bug #4627 "file_get_contents(examples/create_tables.sql): failed to open stream" after update
 
 4.3.0.0 (2014-12-05)
 + rfe #1502 Smart sorting for int keys
