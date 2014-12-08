@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-13 11:57-0500\n"
-"PO-Revision-Date: 2014-10-29 16:06+0200\n"
-"Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"da/>\n"
+"PO-Revision-Date: 2014-12-06 10:57+0200\n"
+"Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/da/>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.1\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -32,10 +32,10 @@ msgid "Click to sort."
 msgstr "Klik for at sortere."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Viser række(rne) %1$s - %2$s"
+msgstr "Viser rækkerne %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -896,15 +896,14 @@ msgstr ""
 "udvidede funktioner er blevet deaktiverede. %sFind ud af hvorfor%s. "
 
 #: index.php:527
-#, fuzzy
 #| msgid ""
 #| "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or alternately go to 'Operations' "
 #| "tab of any database to set it up there."
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gå eventuelt til fanen 'Handlinger' "
-"tilhørende enhver database for at opsætte den dér."
+"Gå eventuelt til fanen 'Handlinger' tilhørende enhver database for at "
+"opsætte den dér."
 
 #: index.php:572
 #, php-format
@@ -1889,70 +1888,68 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Bemærk: a, b -> d,f implicerer, at værdier med kolonnerne a og b kombineret "
+"sammen kan afgøre værdier for kolonne d og kolonne f."
 
 #: js/messages.php:323
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Ingen databaser valgt."
+msgstr "Der blev ikke valgt delvise afhængigheder!"
 
 #: js/messages.php:325
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "Vis mig de mulige, delvise afhængigheder baseret på data i tabellen"
 
 #: js/messages.php:326
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Skjul listen med delvise afhængigheder"
 
 #: js/messages.php:327
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Hold vejret! Der kan gå nogle sekunder afhængig af datastørrelsen og "
+"antallet af kolonner i tabellen."
 
 #: js/messages.php:328
-#, fuzzy
 #| msgid "Step 1."
 msgid "Step"
-msgstr "Trin 1."
+msgstr "Trin"
 
 #: js/messages.php:329
-#, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
-msgstr "De følgende forespørgsler er blevet udført:"
+msgstr "De følgende handlinger vil blive udført:"
 
 #: js/messages.php:330
-#, fuzzy, php-format
+#, php-format
 #| msgid "Remove columns from central list"
 msgid "DROP columns %s from the table %s"
-msgstr "Fjern kolonner fra centerliste"
+msgstr "DROP kolonnerne %s fra tabellen %s"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following table"
-msgstr "Tilføj privileges på følgende tabel:"
+msgstr "Opret følgende tabel"
 
 #: js/messages.php:334
-#, fuzzy
 #| msgid "Third step of normalization (1NF+2NF+3NF)"
 msgid "Third step of normalization (3NF)"
-msgstr "Tredje trin af normaliseringen (1NF+2NF+3NF)"
+msgstr "Tredje trin af normaliseringen (3NF)"
 
 #: js/messages.php:335
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "Bekræft transitive afhængigheder"
 
 #: js/messages.php:336
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "De valgte afhængigheder er:"
 
 #: js/messages.php:337
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Ingen databaser valgt."
+msgstr "Der er ikke valgt afhængigheder!"
 
 #: js/messages.php:340 libraries/insert_edit.lib.php:1452
 #: libraries/server_variables.lib.php:157
@@ -2124,10 +2121,9 @@ msgid "Delete page"
 msgstr "Slet side"
 
 #: js/messages.php:407 libraries/db_designer.lib.php:382
-#, fuzzy
 #| msgid "*Untitled"
 msgid "Untitled"
-msgstr "*Unavngivet"
+msgstr "Unavngivet"
 
 #: js/messages.php:408
 msgid "Please select a page to continue"
@@ -2229,6 +2225,8 @@ msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Sikker på du vil se alle rækkerne? For store tabeller kan dette få browseren "
+"til at gå ned."
 
 #: js/messages.php:436
 msgid "cancel"
@@ -2311,16 +2309,14 @@ msgstr "Vis skjulte elementer i navigationstræet."
 
 #: js/messages.php:472 libraries/config/messages.inc.php:421
 #: libraries/navigation/NavigationTree.class.php:1235
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Tilpas hovedpanelet"
+msgstr "Link med hovedpanel"
 
 #: js/messages.php:473 libraries/navigation/NavigationTree.class.php:1238
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Tilpas hovedpanelet"
+msgstr "Fjern link fra hovedpanel"
 
 #: js/messages.php:476
 msgid "The requested page was not found in the history, it may have expired."
@@ -2414,10 +2410,9 @@ msgid "Execute this query again?"
 msgstr "Udfør denne forespørgsel påny?"
 
 #: js/messages.php:528
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Er du sikker på at du vil slette søgningen \"%s\"?"
+msgstr "Er du sikker på at du vil slette dette bogmærke?"
 
 #: js/messages.php:559
 msgctxt "Previous month"
@@ -2800,10 +2795,9 @@ msgid "No bookmarks"
 msgstr "Ingen bogmærker"
 
 #: libraries/Console.class.php:180
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Forklar SQL"
+msgstr "Forklar"
 
 #: libraries/Console.class.php:181 libraries/Util.class.php:1263
 #: libraries/sql.lib.php:487
@@ -2811,10 +2805,9 @@ msgid "Profiling"
 msgstr "Profilering"
 
 #: libraries/Console.class.php:183
-#, fuzzy
 #| msgid "Bookmarks"
 msgid "Bookmark"
-msgstr "Bogmærker"
+msgstr "Bogmærke"
 
 #: libraries/Console.class.php:184
 msgid "Query failed"
@@ -2888,10 +2881,9 @@ msgid "Refresh"
 msgstr "Opdater"
 
 #: libraries/Console.class.php:269
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "Og"
+msgstr "Tilføj"
 
 #: libraries/Console.class.php:278
 msgid "Add bookmark"
@@ -2914,10 +2906,9 @@ msgid "Set default"
 msgstr "Angiv standardværdi"
 
 #: libraries/Console.class.php:308
-#, fuzzy
 #| msgid "Always expand queried messages"
 msgid "Always expand query messages"
-msgstr "Udvid altid forespurgte beskeder"
+msgstr "Udvid altid forespørgselsbeskeder"
 
 #: libraries/Console.class.php:310
 msgid "Show query history at start"
@@ -4070,10 +4061,9 @@ msgid "Replace with:"
 msgstr "Erstat med:"
 
 #: libraries/TableSearch.class.php:1370
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "som regulært udtryk"
+msgstr "Brug regulært udtryk"
 
 #: libraries/TableSearch.class.php:1472
 msgid "Find and replace - preview"
@@ -6253,6 +6243,7 @@ msgstr "Hukommelsesgrænse"
 #: libraries/config/messages.inc.php:420
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
+"Link med hovepanelet ved at fremhæve den nuværende database eller tabel."
 
 #: libraries/config/messages.inc.php:422
 msgid "Show logo in navigation panel."
@@ -6518,13 +6509,12 @@ msgstr "Husk tabellens sortering"
 
 #: libraries/config/messages.inc.php:525
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "Forvalgt sorteringsrækkefølge for tabeller med en primær nøgle."
 
 #: libraries/config/messages.inc.php:526
-#, fuzzy
 #| msgid "Default sorting order"
 msgid "Primary key default sort order"
-msgstr "Standard sorteringsrækkefølge"
+msgstr "Forvalgt sorteringsrækkefølge for primær nøgle"
 
 #: libraries/config/messages.inc.php:528
 msgid ""
@@ -7391,12 +7381,13 @@ msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
+"Slå tilstanden Zero Configuration til - denne lader sig tilpasse "
+"lagringstabeller for phpMyAdmin-konfigurationen automatisk."
 
 #: libraries/config/messages.inc.php:788
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
-msgstr "Serverkonfiguration"
+msgstr "Slå tilstanden Zero Configuration til"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7507,10 +7498,9 @@ msgid "New page name"
 msgstr "Nyt sidenavn"
 
 #: libraries/db_designer.lib.php:160
-#, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
-msgstr "Kunne ikke indlæse importplugins, tjek venligst din installation!"
+msgstr "Kunne ikke indlæse skemaudvidelser, tjek venligst din installation!"
 
 #: libraries/db_designer.lib.php:168
 msgid "Select Export Relational Type"
@@ -8828,6 +8818,8 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"Der er en store elementgrupper i navigationspanelet, der kan påvirke "
+"ydelsen. Overvej at slå elementgrupperingen fra i navigationspanelet."
 
 #: libraries/navigation/NavigationTree.class.php:851
 #, php-format
@@ -8850,10 +8842,9 @@ msgid "Filter by name or regex"
 msgstr "Filtrér efter navn eller regex"
 
 #: libraries/navigation/NavigationTree.class.php:1229
-#, fuzzy
 #| msgid "Collapse"
 msgid "Collapse all"
-msgstr "Fold sammen"
+msgstr "Fold alle sammen"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9074,7 +9065,7 @@ msgstr "Ingen redundant kolonne"
 
 #: libraries/normalization.lib.php:248
 msgid "Move repeating groups"
-msgstr ""
+msgstr "Flyt repeterede grupper"
 
 #: libraries/normalization.lib.php:251
 msgid ""
@@ -9084,9 +9075,13 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"Har du en gruppe af to eller flere kolonner, der er tæt forbundet og som "
+"alle gentager den samme attribut? Eksempelvis kan en tabel, der indeholder "
+"data om bøger, have kolonner såsom bog_id, forfatter1, forfatter2, "
+"forfatter3 og så videre, hvilket danner en repeterende gruppe. I dette "
+"tilfælde bør en ny tabel (bog_id, forfatter) oprettes."
 
 #: libraries/normalization.lib.php:259
-#, fuzzy
 #| msgid ""
 #| "Check the columns which are redundant and click on remove. If no "
 #| "redundant column, click on 'No redundant column'"
@@ -9094,22 +9089,21 @@ msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
-"Markér kolonnerne som er redundante og klik på fjern. Hvis der ikke er "
-"redundante kolonner, så klik på 'Ingen redundant kolonne'"
+"Markér kolonnerne som danner en repeterende gruppe. Hvis der ikke er sådanne "
+"grupper, så klik på 'Ingen repeterende gruppe'"
 
 #: libraries/normalization.lib.php:265
 msgid "No repeating group"
-msgstr ""
+msgstr "Ingen repeterende gruppe"
 
 #: libraries/normalization.lib.php:291
-#, fuzzy
 #| msgid "Step 1."
 msgid "Step 2."
-msgstr "Trin 1."
+msgstr "Trin 2."
 
 #: libraries/normalization.lib.php:291
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "Find delvise afhængigheder"
 
 #: libraries/normalization.lib.php:313
 #, php-format
@@ -9202,10 +9196,9 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Valgte måltabeller er blevet synkroniseret med kildetabeller."
 
 #: libraries/normalization.lib.php:689
-#, fuzzy
 #| msgid "Step 1."
 msgid "Step 3."
-msgstr "Trin 1."
+msgstr "Trin 3."
 
 #: libraries/normalization.lib.php:689
 msgid "Find transitive dependencies"
@@ -10233,7 +10226,6 @@ msgstr ""
 "feltet i den første indstilling være sat til en tom streng."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -10260,13 +10252,13 @@ msgstr ""
 "KUN LINUX: Starter en ekstern applikation og føder feltdata via "
 "standardinput. Returnerer standardoutputtet for applikationen. Standard er "
 "Tidy, for korrekt udskrivning af HTML-kode. Af sikkerhedsårsager er du nødt "
-"til manuelt at redigere filen libraries/transformations/Text_Plain__External."
-"class.php og indsætte de værktøjer du ønsker skal være tilgængelig. Første "
-"indstilling er så nummeret på det program du vil bruge og den anden "
-"indstilling er parametrene for dette program. Tredje parameter vil, hvis sat "
-"til 1, konvertere outputtet vha. htmlspecialchars() (Standard er 1). Det "
-"fjerde parameter vil, hvis sat til 1, forhindre ombrydning og sikre at alt "
-"outputtet vises på én linje (Standard 1)."
+"til manuelt at redigere filen libraries/transformations/output/"
+"Text_Plain__External.class.php og indsætte de værktøjer du ønsker skal være "
+"tilgængelig. Første indstilling er så nummeret på det program du vil bruge "
+"og den anden indstilling er parametrene for dette program. Tredje parameter "
+"vil, hvis sat til 1, konvertere outputtet vha. htmlspecialchars() (Standard "
+"er 1). Det fjerde parameter vil, hvis sat til 1, forhindre ombrydning og "
+"sikre at alt outputtet vises på én linje (Standard 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""

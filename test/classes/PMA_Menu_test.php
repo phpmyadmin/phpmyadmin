@@ -115,4 +115,20 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
         );
         $menu->display();
     }
+
+
+    /**
+     * Table menu setTable test
+     *
+     * @return void
+     */
+    function testSetTable()
+    {
+        $menu = new PMA_Menu('server', 'pma_test', '');
+        $menu->setTable('table1');
+        $this->assertContains(
+            'table1',
+            $menu->getDisplay()
+        );
+    }
 }

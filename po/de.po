@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-13 11:57-0500\n"
-"PO-Revision-Date: 2014-11-07 07:51+0200\n"
-"Last-Translator: Michael Koch <michael.koch@enough.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"PO-Revision-Date: 2014-12-04 20:28+0200\n"
+"Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.0\n"
+"X-Generator: Weblate 2.1-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -33,10 +33,10 @@ msgid "Click to sort."
 msgstr "Zum Sortieren klicken."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Zeige Datensätze %1$s - %2$s"
+msgstr "Zeige Datensätze %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -761,7 +761,7 @@ msgstr "Server-Typ:"
 #: libraries/plugins/export/ExportSql.class.php:681
 #: libraries/plugins/export/ExportXml.class.php:189
 msgid "Server version:"
-msgstr "Server Version:"
+msgstr "Server-Version:"
 
 #: index.php:279
 msgid "Protocol version:"
@@ -773,7 +773,7 @@ msgstr "Benutzer:"
 
 #: index.php:288
 msgid "Server charset:"
-msgstr "Server Zeichensatz:"
+msgstr "Server-Zeichensatz:"
 
 #: index.php:303
 msgid "Web server"
@@ -910,8 +910,8 @@ msgstr ""
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"Oder gehen Sie auf den Tab 'Operationen' in jeder Datenbank um dies zu "
-"konfigurieren."
+"Oder wechseln Sie in einer beliebigen Datenbank zum Tab „Operationen“, um "
+"die Einstellung dort vorzunehmen."
 
 #: index.php:572
 #, php-format
@@ -2252,6 +2252,8 @@ msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Sollen wirklich alle Datensätze angezeigt werden? Bei einer großen Tabelle "
+"könnte dies den Browser zum Absturz bringen."
 
 #: js/messages.php:436
 msgid "cancel"
@@ -2894,7 +2896,7 @@ msgstr "Lesezeichen"
 
 #: libraries/Console.class.php:218
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Drücken sie Strg+Enter um die Abfrage auszuführen"
+msgstr "Drücken Sie Strg+Enter, um die Abfrage auszuführen"
 
 #: libraries/Console.class.php:239
 msgid "During current session"
@@ -3764,7 +3766,7 @@ msgstr "Letzte Tabellen"
 
 #: libraries/RecentFavoriteTable.class.php:267
 msgid "Recent"
-msgstr "Neulich"
+msgstr "Letzte"
 
 #: libraries/RecentFavoriteTable.class.php:269
 #: libraries/config/messages.inc.php:467
@@ -6853,7 +6855,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:622
 msgid "PDF schema: pages table"
-msgstr "PDF Pages Table"
+msgstr "PDF-Schema: Seiten-Tabelle"
 
 #: libraries/config/messages.inc.php:624
 msgid ""
@@ -7741,7 +7743,7 @@ msgstr "Kein Passwort"
 #: libraries/replication_gui.lib.php:412 libraries/replication_gui.lib.php:853
 #: libraries/server_privileges.lib.php:1493
 msgid "Password:"
-msgstr "Passwort:"
+msgstr "Kennwort:"
 
 #: libraries/display_change_password.lib.php:74
 #: libraries/replication_gui.lib.php:877
@@ -8917,6 +8919,9 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"Es gibt große Element-Gruppen im Navigations-Panel. Darunter kann die "
+"Geschwindigkeit leiden. Eventuell sollten Sie das Gruppieren von Elementen "
+"im Navigations-Panel abschalten."
 
 #: libraries/navigation/NavigationTree.class.php:851
 #, php-format
@@ -9754,7 +9759,7 @@ msgstr "Ereignis"
 #: libraries/rte/rte_routines.lib.php:1052
 #: libraries/rte/rte_triggers.lib.php:377
 msgid "Definition"
-msgstr "Beschreibung"
+msgstr "Definition"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:544
 #: libraries/plugins/export/ExportOdt.class.php:671
@@ -9987,7 +9992,6 @@ msgstr ""
 "(4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:403
-#, fuzzy
 #| msgid ""
 #| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 #| "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -9995,9 +9999,9 @@ msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"beide obigen Optionen verwenden<br /> &nbsp; &nbsp; &nbsp; Beispiel: "
-"<code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</"
-"code>"
+"beide obigen Optionen verwenden<br /> &nbsp; &nbsp; &nbsp; Beispiel: <code>"
+"INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:408
 msgid ""
@@ -10229,10 +10233,9 @@ msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "<code>AUTO_INCREMENT</code> nicht für Nullwerte verwenden"
 
 #: libraries/plugins/import/ImportSql.class.php:193
-#, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Fehlgeschlagene Leseanfragen"
+msgstr "Als Multibyte lesen"
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
@@ -10873,7 +10876,7 @@ msgstr "Benutzername"
 #: libraries/server_privileges.lib.php:1525
 #: libraries/server_privileges.lib.php:2964
 msgid "Password"
-msgstr "Passwort"
+msgstr "Kennwort"
 
 #: libraries/replication_gui.lib.php:435
 msgid "Port:"
@@ -11794,7 +11797,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1299
 #: libraries/server_privileges.lib.php:2498
 msgid "Login Information"
-msgstr "Anmelde-Informationen"
+msgstr "Anmeldeinformation"
 
 #: libraries/server_privileges.lib.php:1332
 #: libraries/server_privileges.lib.php:1520
@@ -11937,7 +11940,7 @@ msgstr "… lösche den alten und lade anschließend die Benutzertabellen neu."
 
 #: libraries/server_privileges.lib.php:2499
 msgid "Change Login Information / Copy User"
-msgstr "Anmelde-Information ändern/Benutzer kopieren"
+msgstr "Anmeldeinformation ändern/Benutzer kopieren"
 
 #: libraries/server_privileges.lib.php:2505
 msgid "Create a new user with the same privileges and …"
@@ -12231,7 +12234,7 @@ msgstr ""
 "Um Abfragen aus den Logs anzuzeigen, wählen Sie die relevante Zeitspanne in "
 "einem Diagramm durch Drücken der linken Maustaste und markieren Sie einen "
 "Bereich des Diagramms durch Ziehen. Dadurch wird eine Tabelle von "
-"gruppierten Abfragen geladen. Sie können auf jedes SELECT Anweisung klicken, "
+"gruppierten Abfragen geladen. Sie können auf jede SELECT-Anweisung klicken, "
 "um diese weiter zu analysieren."
 
 #: libraries/server_status_monitor.lib.php:147
@@ -13803,7 +13806,7 @@ msgstr "Ist ein Fremdschlüssel."
 
 #: libraries/tbl_columns_definition_form.lib.php:616
 msgid "Pick from Central Columns"
-msgstr "Wählen Sie aus zentralen Spalten"
+msgstr "Aus zentralen Spalten wählen"
 
 #: libraries/tbl_columns_definition_form.lib.php:802
 msgid "first"
@@ -13973,16 +13976,14 @@ msgid "Choose column to display:"
 msgstr "Anzuzeigende Spalte auswählen:"
 
 #: libraries/tbl_relation.lib.php:816
-#, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "Der Thread %s wurde erfolgreich abgebrochen."
+msgstr "Spaltendarstellung erfolgreich aktualisiert."
 
 #: libraries/tbl_relation.lib.php:900
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relations were successfully updated."
-msgstr "Interne Verknüpfung wurde hinzugefügt."
+msgstr "Interne Verknüpfungen wurden erfolgreich aktualisiert."
 
 #: libraries/tbl_relation.lib.php:1165
 #, php-format
@@ -14271,7 +14272,7 @@ msgstr "Dump (Schema) der Datenbanken anzeigen"
 
 #: server_privileges.php:139
 msgid "Username and hostname didn't change."
-msgstr "Nutzername und Rechnername haben sich nicht geändert."
+msgstr "Benutzername und Rechnername haben sich nicht geändert."
 
 #: server_status_processes.php:36
 #, php-format

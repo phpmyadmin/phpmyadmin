@@ -201,7 +201,7 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
     if (empty($cfgCentralColumns)) {
         return PMA_configErrorMessage();
     }
-    $db = $_POST['db'];
+    $db = $_REQUEST['db'];
     $pmadb = $cfgCentralColumns['db'];
     $central_list_table = $cfgCentralColumns['table'];
     $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
@@ -235,7 +235,7 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
         }
     } else {
         if ($table == null) {
-            $table = $_POST['table'];
+            $table = $_REQUEST['table'];
         }
         foreach ($field_select as $column) {
             $cols .= "'" . PMA_Util::sqlAddSlashes($column) . "',";
@@ -626,19 +626,19 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
         . $action
         . '<th class="" style="display:none"></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="name">'
-        . __('Name') . '</th>'
+        . __('Name') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="type">'
-        . __('Type') . '</th>'
+        . __('Type') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="length">'
-        . __('Length/Values') . '</th>'
+        . __('Length/Values') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="collation"'
-        . '>' . __('Collation') . '</th>'
+        . '>' . __('Collation') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="isnull">'
-        . __('Null') . '</th>'
+        . __('Null') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="extra">'
-        . __('Extra') . '</th>'
+        . __('Extra') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="default">'
-        . __('Default') . '</th>'
+        . __('Default') . '<div class="sorticon"></div></th>'
         . '</tr>';
     $tableheader .= '</thead>';
     return $tableheader;

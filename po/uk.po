@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-13 11:57-0500\n"
-"PO-Revision-Date: 2014-08-20 00:51+0200\n"
-"Last-Translator: Alex Smirnov <alex-smirnov@mail.ru>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/uk/>\n"
+"PO-Revision-Date: 2014-12-05 11:55+0200\n"
+"Last-Translator: Igor <vmta@yahoo.com>\n"
+"Language-Team: Ukrainian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.1-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -27,17 +27,17 @@ msgstr ""
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Центральний перелік колонок для поточної бази даних порожній."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
 msgstr "Клацніть для сортування."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Показано рядки %1$s - %2$s"
+msgstr "Показано рядки %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -255,15 +255,13 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Базу даних %1$s було скопійовано до %2$s."
 
 #: db_operations.php:263
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
-"Сховище конфігурації phpMyAdmin деактивовано. Для того, щоб довідатись чому, "
-"натисніть %sтут%s."
+msgstr "Сховище конфігурації phpMyAdmin деактивовано. %sДовідайтесь чому%s."
 
 #: db_printview.php:48 db_tracking.php:83 db_tracking.php:207
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:756
@@ -602,11 +600,11 @@ msgstr ""
 
 #: import.php:54
 msgid "Succeeded"
-msgstr ""
+msgstr "Вдало"
 
 #: import.php:58 js/messages.php:438
 msgid "Failed"
-msgstr ""
+msgstr "Помилка"
 
 #: import.php:62
 msgid "Incomplete params"
@@ -892,7 +890,7 @@ msgstr ""
 "через вільний доступ до завантаження конфігураційного файлу."
 
 #: index.php:520
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s. "
@@ -901,12 +899,13 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "Сховище конфігурації phpMyAdmin не повністю налаштовано, деякі розширені "
-"функції було деактивовано. Щоб з'ясувати чому, натисніть %shere%s. "
+"функції було деактивовано. %sЗ'ясуйте чому%s. "
 
 #: index.php:527
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"Або перейдіть на вкладинку 'Операції' будь-якої бази даних та налаштуйте там."
 
 #: index.php:572
 #, php-format
@@ -961,7 +960,7 @@ msgstr "Знищення первинного ключа/індексу"
 
 #: js/messages.php:43
 msgid "Dropping Foreign key."
-msgstr ""
+msgstr "Видалення зовнішнього ключа."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -984,7 +983,7 @@ msgstr ""
 
 #: js/messages.php:48
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr ""
+msgstr "Ви дійсно бажаєте відкликати обраного(их) користувача(ів)?"
 
 #: js/messages.php:51
 msgid "Save & Close"
@@ -1053,7 +1052,7 @@ msgstr "Необхідно додати принаймні один стовпч
 #: libraries/tbl_columns_definition_form.lib.php:145
 #: libraries/tbl_relation.lib.php:655
 msgid "Preview SQL"
-msgstr ""
+msgstr "Попередній перегляд SQL"
 
 #: js/messages.php:75
 msgid "Simulate query"
@@ -1303,7 +1302,7 @@ msgstr "Призупинити монітор"
 
 #: js/messages.php:149 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Почати автоматичне оновлення"
 
 #: js/messages.php:150
 msgid "Stop auto refresh"

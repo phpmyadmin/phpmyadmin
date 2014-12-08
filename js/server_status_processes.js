@@ -93,6 +93,7 @@ var processList = {
                 if (data.hasOwnProperty('success') && data.success) {
                     $newTable = $(data.message);
                     $('#tableprocesslist').html($newTable.html());
+                    PMA_highlightSQL($('#tableprocesslist'));
                 }
                 processList.refreshTimeout = setTimeout(
                     processList.refresh,

@@ -305,9 +305,12 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
                 . '</p>';
             $retval .= '<ul>';
             $retval .= '<li>';
-            $retval .= __(
-                'Create the needed tables with the '
-                . '<code>examples/create_tables.sql</code>.'
+            $retval .= sprintf(
+                __(
+                    'Create the needed tables with the '
+                    . '<code>%screate_tables.sql</code>.'
+                ),
+                htmlspecialchars(EXAMPLES_DIR)
             );
             $retval .= ' ' . PMA_Util::showDocu('setup', 'linked-tables');
             $retval .= '</li>';
@@ -349,7 +352,9 @@ function PMA_getDiagMessageForFeature($feature_name,
     $relation_parameter, $messages, $skip_line = true
 ) {
     $retval = '    <tr><td colspan=2 class="right">' . $feature_name . ': ';
-    if ($GLOBALS['cfgRelation'][$relation_parameter]) {
+    if (isset($GLOBALS['cfgRelation'][$relation_parameter])
+        && $GLOBALS['cfgRelation'][$relation_parameter]
+    ) {
         $retval .= $messages['enabled'];
     } else {
         $retval .= $messages['disabled'];
@@ -598,7 +603,7 @@ function PMA_tryUpgradeTransformations()
             // try silent upgrade without disturbing the user
         } else {
             // read upgrade query file
-            $query = @file_get_contents('examples/upgrade_column_info_4_3_0+.sql');
+            $query = @file_get_contents(EXAMPLES_DIR . 'upgrade_column_info_4_3_0+.sql');
             // replace database name from query to with set in config.inc.php
             $query = str_replace(
                 '`phpmyadmin`',
@@ -1807,11 +1812,11 @@ function PMA_getDefaultPMATableNames()
     $pma_tables = array();
     if (PMA_DRIZZLE) {
         $create_tables_file = file_get_contents(
-            'examples/create_tables_drizzle.sql'
+            EXAMPLES_DIR. 'create_tables_drizzle.sql'
         );
     } else {
         $create_tables_file = file_get_contents(
-            'examples/create_tables.sql'
+            EXAMPLES_DIR. 'create_tables.sql'
         );
     }
 

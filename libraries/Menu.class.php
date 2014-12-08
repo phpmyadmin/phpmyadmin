@@ -129,7 +129,7 @@ class PMA_Menu
     {
         $allowedTabs = PMA_Util::getMenuTabList($level);
         $cfgRelation = PMA_getRelationsParam();
-        if ($cfgRelation['menuswork']) {
+        if (isset($cfgRelation['menuswork']) && $cfgRelation['menuswork']) {
             $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
                 . "."
                 . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
@@ -607,6 +607,19 @@ class PMA_Menu
             $tabs['engine']['text'] = __('Engines');
         }
         return $tabs;
+    }
+
+    /**
+     * Set current table
+     *
+     * @param string $table Current table
+     *
+     * @return $this
+     */
+    public function setTable($table)
+    {
+        $this->_table = $table;
+        return $this;
     }
 }
 

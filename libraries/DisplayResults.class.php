@@ -724,6 +724,12 @@ class PMA_DisplayResults
 
         } // end move toward
 
+        // show separator if pagination happen
+        if ($nbTotalPage > 1) {
+            $table_navigation_html
+                .= '<td><div class="navigation_separator">|</div></td>';
+        }
+
         // Display the "Show all" button if allowed
         if ($GLOBALS['cfg']['ShowAll'] || ($this->__get('unlim_num_rows') <= 500) ) {
 
@@ -731,13 +737,10 @@ class PMA_DisplayResults
                 $showing_all, $html_sql_query
             );
 
-        } // end show all
-
-        // show separator if pagination happen
-        if ($nbTotalPage > 1 || $showing_all) {
             $table_navigation_html
                 .= '<td><div class="navigation_separator">|</div></td>';
-        }
+
+        } // end show all
 
         $table_navigation_html .= '<td>'
             . '<div class="save_edited hide">'
@@ -861,7 +864,7 @@ class PMA_DisplayResults
             . (! $showing_all ? 'all' : $GLOBALS['cfg']['MaxRows']) . '" />'
             . '<input type="hidden" name="goto" value="' . $this->__get('goto')
             . '" />'
-            . '<input type="checkbox" name="navig" class="showAllRows"'
+            . '<input type="checkbox" name="navig" id="navig" class="showAllRows"'
             . (! $showing_all ? '' : ' checked="checked"') . ' value="all" />'
             . '<label for="navig">' . __('Show all') . '</label>'
             . '</form>'
@@ -1972,6 +1975,7 @@ class PMA_DisplayResults
         }
 
         $sort_expression_nodirection = array_filter($sort_expression_nodirection);
+        $single_sort_order = null;
         foreach ($sort_expression_nodirection as $index=>$expression) {
             // check if this is the first clause,
             // if it is then we have to add "order by"
@@ -1992,7 +1996,8 @@ class PMA_DisplayResults
             // formatting of function expressions like "COUNT(name )"
             // so we remove the space in this situation
             $name_to_use_in_sort = str_replace(' )', ')', $name_to_use_in_sort);
-            $name_to_use_in_sort = str_replace('`', '', $name_to_use_in_sort);
+            $name_to_use_in_sort = str_replace('``', '`', $name_to_use_in_sort);
+            $name_to_use_in_sort = trim($name_to_use_in_sort, '`');
 
             // If this the first column name in the order by clause add
             // order by clause to the  column name
