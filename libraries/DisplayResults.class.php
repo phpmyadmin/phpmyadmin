@@ -1975,6 +1975,7 @@ class PMA_DisplayResults
         }
 
         $sort_expression_nodirection = array_filter($sort_expression_nodirection);
+        $single_sort_order = null;
         foreach ($sort_expression_nodirection as $index=>$expression) {
             // check if this is the first clause,
             // if it is then we have to add "order by"
@@ -1995,7 +1996,8 @@ class PMA_DisplayResults
             // formatting of function expressions like "COUNT(name )"
             // so we remove the space in this situation
             $name_to_use_in_sort = str_replace(' )', ')', $name_to_use_in_sort);
-            $name_to_use_in_sort = str_replace('`', '', $name_to_use_in_sort);
+            $name_to_use_in_sort = str_replace('``', '`', $name_to_use_in_sort);
+            $name_to_use_in_sort = trim($name_to_use_in_sort, '`');
 
             // If this the first column name in the order by clause add
             // order by clause to the  column name
