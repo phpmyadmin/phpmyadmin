@@ -75,7 +75,7 @@ msgstr ""
 #: libraries/tbl_relation.lib.php:621 libraries/tracking.lib.php:838
 #: libraries/tracking.lib.php:927
 msgid "Column"
-msgstr ""
+msgstr "Kolom"
 
 #: db_datadict.php:104 db_printview.php:50 libraries/Index.class.php:566
 #: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:631
@@ -118,7 +118,7 @@ msgstr ""
 #: libraries/tbl_printview.lib.php:474 libraries/tracking.lib.php:841
 #: libraries/tracking.lib.php:930
 msgid "Null"
-msgstr ""
+msgstr "Leech"
 
 #: db_datadict.php:106 libraries/central_columns.lib.php:641
 #: libraries/plugins/export/ExportHtmlword.class.php:289
@@ -159,7 +159,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:311
 #: libraries/tbl_printview.lib.php:479
 msgid "Comments"
-msgstr ""
+msgstr "Opmerkings"
 
 #: db_datadict.php:152 libraries/display_structure.inc.php:164
 #: libraries/structure.lib.php:1485 libraries/structure.lib.php:2207
@@ -189,7 +189,7 @@ msgstr ""
 #: libraries/tracking.lib.php:962 libraries/tracking.lib.php:967
 #: libraries/user_preferences.lib.php:296 prefs_manage.php:138
 msgid "No"
-msgstr ""
+msgstr "Nee"
 
 #: db_datadict.php:157 js/messages.php:393 libraries/Index.class.php:438
 #: libraries/Index.class.php:475 libraries/Index.class.php:883
@@ -271,19 +271,19 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3872 libraries/structure.lib.php:816
 #: libraries/tbl_relation.lib.php:329 libraries/tbl_relation.lib.php:595
 msgid "Table"
-msgstr ""
+msgstr "Tabel"
 
 #: db_printview.php:49 libraries/build_html_for_db.lib.php:33
 #: libraries/import.lib.php:193 libraries/structure.lib.php:827
 #: libraries/structure.lib.php:1842 libraries/structure.lib.php:2034
 #: libraries/tbl_printview.lib.php:194
 msgid "Rows"
-msgstr ""
+msgstr "Rigen"
 
 #: db_printview.php:52 libraries/structure.lib.php:849
 #: libraries/tbl_indexes.lib.php:319
 msgid "Size"
-msgstr ""
+msgstr "Grutte"
 
 #: db_printview.php:99 libraries/plugins/export/ExportSql.class.php:1214
 #: libraries/structure.lib.php:790
@@ -309,8 +309,8 @@ msgstr ""
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s tabel"
+msgstr[1] "%s tabellen"
 
 #: db_qbe.php:103
 msgid "You have to choose at least one column to display!"
@@ -363,7 +363,7 @@ msgstr ""
 #: libraries/rte/rte_list.lib.php:78
 #: libraries/server_status_processes.lib.php:93 libraries/tracking.lib.php:249
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: db_tracking.php:128 db_tracking.php:264 libraries/Index.class.php:563
 #: libraries/central_columns.lib.php:622 libraries/rte/rte_list.lib.php:53
@@ -375,7 +375,7 @@ msgstr ""
 #: libraries/server_user_groups.lib.php:80 libraries/structure.lib.php:824
 #: libraries/structure.lib.php:1302 libraries/tracking.lib.php:250
 msgid "Action"
-msgstr ""
+msgstr "Aksje"
 
 #: db_tracking.php:129 libraries/navigation/Navigation.class.php:208
 #: libraries/tracking.lib.php:251 tbl_change.php:158
@@ -464,7 +464,7 @@ msgstr ""
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:168
 msgid "SRID:"
-msgstr ""
+msgstr "SRID:"
 
 #: gis_data_editor.php:191
 #, php-format
@@ -570,7 +570,7 @@ msgstr ""
 
 #: gis_data_editor.php:412
 msgid "Output"
-msgstr ""
+msgstr "Utfier"
 
 #: gis_data_editor.php:415
 msgid ""
@@ -705,11 +705,11 @@ msgstr ""
 
 #: index.php:275
 msgid "Database server"
-msgstr ""
+msgstr "Databankserver"
 
 #: index.php:278 libraries/plugins/auth/AuthenticationCookie.class.php:180
 msgid "Server:"
-msgstr ""
+msgstr "Server:"
 
 #: index.php:282
 msgid "Server type:"
@@ -1052,12 +1052,12 @@ msgstr ""
 #. l10n: Thousands separator
 #: js/messages.php:97 libraries/Util.class.php:1395
 msgid ","
-msgstr ""
+msgstr "."
 
 #. l10n: Decimal separator
 #: js/messages.php:99 libraries/Util.class.php:1397
 msgid "."
-msgstr ""
+msgstr ","
 
 #: js/messages.php:101
 msgid "Connections / Processes"
@@ -1149,7 +1149,7 @@ msgstr ""
 
 #: js/messages.php:129 libraries/server_status.lib.php:225
 msgid "Connections"
-msgstr ""
+msgstr "Ferbinings"
 
 #: js/messages.php:130 libraries/ServerStatusData.class.php:373
 #: libraries/server_status_processes.lib.php:144
@@ -1159,25 +1159,25 @@ msgstr ""
 #. l10n: shortcuts for Byte
 #: js/messages.php:133 libraries/Util.class.php:1339
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:134 libraries/Util.class.php:1341
 #: libraries/server_status_monitor.lib.php:217
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:135 libraries/Util.class.php:1343
 #: libraries/display_export.lib.php:687
 #: libraries/server_status_monitor.lib.php:218
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:136 libraries/Util.class.php:1345
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:137 libraries/Util.class.php:1347
@@ -1187,17 +1187,17 @@ msgstr ""
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:138 libraries/Util.class.php:1349
 msgid "PiB"
-msgstr ""
+msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:139 libraries/Util.class.php:1351
 msgid "EiB"
-msgstr ""
+msgstr "EiB"
 
 #: js/messages.php:140
 #, php-format
 msgid "%d table(s)"
-msgstr ""
+msgstr "%d tabel(len)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:143
@@ -1211,7 +1211,7 @@ msgstr ""
 #: js/messages.php:145 libraries/Menu.class.php:578
 #: libraries/Util.class.php:4119 libraries/server_status_monitor.lib.php:257
 msgid "Settings"
-msgstr ""
+msgstr "Ynstellingen"
 
 #: js/messages.php:146
 msgid "Add chart to grid"
@@ -1231,7 +1231,7 @@ msgstr ""
 #: libraries/server_status_processes.lib.php:262
 #: libraries/tbl_columns_definition_form.lib.php:744
 msgid "None"
-msgstr ""
+msgstr "Gjin"
 
 #: js/messages.php:150
 msgid "Resume monitor"
@@ -1332,12 +1332,12 @@ msgstr ""
 
 #: js/messages.php:179 libraries/server_status_monitor.lib.php:174
 msgid "Chart Title"
-msgstr ""
+msgstr "Grafyktitel"
 
 #. l10n: As in differential values
 #: js/messages.php:181
 msgid "Differential"
-msgstr ""
+msgstr "Ferskil"
 
 #: js/messages.php:182
 #, php-format
@@ -1434,7 +1434,7 @@ msgstr ""
 
 #: js/messages.php:208
 msgid "Chart"
-msgstr ""
+msgstr "Grafyk"
 
 #. l10n: A collection of available filters
 #: js/messages.php:211
@@ -1530,7 +1530,7 @@ msgstr ""
 
 #: js/messages.php:241
 msgid "Issue"
-msgstr ""
+msgstr "Probleem"
 
 #: js/messages.php:242
 msgid "Recommendation"
@@ -1550,7 +1550,7 @@ msgstr ""
 
 #: js/messages.php:246
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 #: js/messages.php:251 libraries/db_designer.lib.php:823
 #: libraries/db_designer.lib.php:872 libraries/db_designer.lib.php:1016
@@ -1558,7 +1558,7 @@ msgstr ""
 #: libraries/db_designer.lib.php:1236 libraries/db_designer.lib.php:1313
 #: libraries/db_designer.lib.php:1356 libraries/server_variables.lib.php:159
 msgid "Cancel"
-msgstr ""
+msgstr "Annulearje"
 
 #: js/messages.php:254 libraries/navigation/NavigationHeader.class.php:57
 #: libraries/server_status_monitor.lib.php:123
@@ -1580,7 +1580,7 @@ msgstr ""
 #: js/messages.php:258
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Flaterkoade: %s"
 
 #: js/messages.php:259
 #, php-format
@@ -1707,7 +1707,7 @@ msgstr ""
 #: libraries/server_user_groups.lib.php:117
 #: libraries/server_variables.lib.php:154 setup/frames/index.inc.php:179
 msgid "Edit"
-msgstr ""
+msgstr "Bewurkje"
 
 #: js/messages.php:302 libraries/DisplayResults.class.php:774
 #: libraries/DisplayResults.class.php:782
@@ -1746,7 +1746,7 @@ msgstr ""
 
 #: js/messages.php:311
 msgid "Are you sure?"
-msgstr ""
+msgstr "Binne jo wis?"
 
 #: js/messages.php:312
 msgid ""
@@ -1789,7 +1789,7 @@ msgstr ""
 #. l10n: Display text for calendar close link
 #: js/messages.php:322 js/messages.php:558 libraries/normalization.lib.php:264
 msgid "Done"
-msgstr ""
+msgstr "Klear"
 
 #: js/messages.php:323
 msgid "Confirm partial dependencies"
@@ -1825,7 +1825,7 @@ msgstr ""
 
 #: js/messages.php:331
 msgid "Step"
-msgstr ""
+msgstr "Stap"
 
 #: js/messages.php:332
 msgid "The following actions will be performed:"
@@ -2007,7 +2007,7 @@ msgstr ""
 
 #: js/messages.php:406
 msgid "Page name"
-msgstr ""
+msgstr "Sidenamme"
 
 #: js/messages.php:407
 msgid "Save page"
@@ -2120,7 +2120,7 @@ msgstr ""
 
 #: js/messages.php:439
 msgid "cancel"
-msgstr ""
+msgstr "annulearje"
 
 #: js/messages.php:440 libraries/server_status.lib.php:269
 msgid "Aborted"
@@ -2172,7 +2172,7 @@ msgstr ""
 
 #: js/messages.php:465 libraries/replication_gui.lib.php:889
 msgid "Generate"
-msgstr ""
+msgstr "Generearje"
 
 #: js/messages.php:466
 msgid "Change Password"
@@ -2180,7 +2180,7 @@ msgstr ""
 
 #: js/messages.php:469
 msgid "More"
-msgstr ""
+msgstr "Mear"
 
 #: js/messages.php:472
 msgid "Show Panel"
@@ -2296,7 +2296,7 @@ msgstr ""
 #: js/messages.php:567
 msgctxt "Next month"
 msgid "Next"
-msgstr ""
+msgstr "Folgjende"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:570
@@ -2305,124 +2305,124 @@ msgstr ""
 
 #: js/messages.php:574
 msgid "January"
-msgstr ""
+msgstr "jannewaris"
 
 #: js/messages.php:575
 msgid "February"
-msgstr ""
+msgstr "febrewaris"
 
 #: js/messages.php:576
 msgid "March"
-msgstr ""
+msgstr "maart"
 
 #: js/messages.php:577
 msgid "April"
-msgstr ""
+msgstr "april"
 
 #: js/messages.php:578
 msgid "May"
-msgstr ""
+msgstr "maaie"
 
 #: js/messages.php:579
 msgid "June"
-msgstr ""
+msgstr "juny"
 
 #: js/messages.php:580
 msgid "July"
-msgstr ""
+msgstr "july"
 
 #: js/messages.php:581
 msgid "August"
-msgstr ""
+msgstr "augustus"
 
 #: js/messages.php:582
 msgid "September"
-msgstr ""
+msgstr "septimber"
 
 #: js/messages.php:583
 msgid "October"
-msgstr ""
+msgstr "oktober"
 
 #: js/messages.php:584
 msgid "November"
-msgstr ""
+msgstr "novimber"
 
 #: js/messages.php:585
 msgid "December"
-msgstr ""
+msgstr "desimber"
 
 #. l10n: Short month name
 #: js/messages.php:592 libraries/Util.class.php:1555
 msgid "Jan"
-msgstr ""
+msgstr "jan"
 
 #. l10n: Short month name
 #: js/messages.php:594 libraries/Util.class.php:1557
 msgid "Feb"
-msgstr ""
+msgstr "feb"
 
 #. l10n: Short month name
 #: js/messages.php:596 libraries/Util.class.php:1559
 msgid "Mar"
-msgstr ""
+msgstr "mrt"
 
 #. l10n: Short month name
 #: js/messages.php:598 libraries/Util.class.php:1561
 msgid "Apr"
-msgstr ""
+msgstr "apr"
 
 #. l10n: Short month name
 #: js/messages.php:600 libraries/Util.class.php:1563
 msgctxt "Short month name"
 msgid "May"
-msgstr ""
+msgstr "mai"
 
 #. l10n: Short month name
 #: js/messages.php:602 libraries/Util.class.php:1565
 msgid "Jun"
-msgstr ""
+msgstr "jun"
 
 #. l10n: Short month name
 #: js/messages.php:604 libraries/Util.class.php:1567
 msgid "Jul"
-msgstr ""
+msgstr "jul"
 
 #. l10n: Short month name
 #: js/messages.php:606 libraries/Util.class.php:1569
 msgid "Aug"
-msgstr ""
+msgstr "aug"
 
 #. l10n: Short month name
 #: js/messages.php:608 libraries/Util.class.php:1571
 msgid "Sep"
-msgstr ""
+msgstr "sep"
 
 #. l10n: Short month name
 #: js/messages.php:610 libraries/Util.class.php:1573
 msgid "Oct"
-msgstr ""
+msgstr "okt"
 
 #. l10n: Short month name
 #: js/messages.php:612 libraries/Util.class.php:1575
 msgid "Nov"
-msgstr ""
+msgstr "nov"
 
 #. l10n: Short month name
 #: js/messages.php:614 libraries/Util.class.php:1577
 msgid "Dec"
-msgstr ""
+msgstr "des"
 
 #: js/messages.php:620
 msgid "Sunday"
-msgstr ""
+msgstr "snein"
 
 #: js/messages.php:621
 msgid "Monday"
-msgstr ""
+msgstr "moandei"
 
 #: js/messages.php:622
 msgid "Tuesday"
-msgstr ""
+msgstr "tiisdei"
 
 #: js/messages.php:623
 msgid "Wednesday"
@@ -2434,26 +2434,26 @@ msgstr ""
 
 #: js/messages.php:625
 msgid "Friday"
-msgstr ""
+msgstr "freed"
 
 #: js/messages.php:626
 msgid "Saturday"
-msgstr ""
+msgstr "sneon"
 
 #. l10n: Short week day name
 #: js/messages.php:633
 msgid "Sun"
-msgstr ""
+msgstr "si"
 
 #. l10n: Short week day name
 #: js/messages.php:635 libraries/Util.class.php:1582
 msgid "Mon"
-msgstr ""
+msgstr "mo"
 
 #. l10n: Short week day name
 #: js/messages.php:637 libraries/Util.class.php:1584
 msgid "Tue"
-msgstr ""
+msgstr "ti"
 
 #. l10n: Short week day name
 #: js/messages.php:639 libraries/Util.class.php:1586
@@ -2468,17 +2468,17 @@ msgstr ""
 #. l10n: Short week day name
 #: js/messages.php:643 libraries/Util.class.php:1590
 msgid "Fri"
-msgstr ""
+msgstr "fr"
 
 #. l10n: Short week day name
 #: js/messages.php:645 libraries/Util.class.php:1592
 msgid "Sat"
-msgstr ""
+msgstr "so"
 
 #. l10n: Minimal week day name
 #: js/messages.php:652
 msgid "Su"
-msgstr ""
+msgstr "si"
 
 #. l10n: Minimal week day name
 #: js/messages.php:654
@@ -2488,7 +2488,7 @@ msgstr ""
 #. l10n: Minimal week day name
 #: js/messages.php:656
 msgid "Tu"
-msgstr ""
+msgstr "ti"
 
 #. l10n: Minimal week day name
 #: js/messages.php:658
@@ -2503,12 +2503,12 @@ msgstr ""
 #. l10n: Minimal week day name
 #: js/messages.php:662
 msgid "Fr"
-msgstr ""
+msgstr "fr"
 
 #. l10n: Minimal week day name
 #: js/messages.php:664
 msgid "Sa"
-msgstr ""
+msgstr "so"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:668
@@ -2530,11 +2530,11 @@ msgstr "none"
 
 #: js/messages.php:690
 msgid "Hour"
-msgstr ""
+msgstr "Oere"
 
 #: js/messages.php:691
 msgid "Minute"
-msgstr ""
+msgstr "Minút"
 
 #: js/messages.php:692
 msgid "Second"
@@ -2588,21 +2588,21 @@ msgstr ""
 
 #: libraries/Advisor.class.php:475
 msgid "per second"
-msgstr ""
+msgstr "per sekonde"
 
 #: libraries/Advisor.class.php:478
 msgid "per minute"
-msgstr ""
+msgstr "per minút"
 
 #: libraries/Advisor.class.php:481 libraries/server_status.lib.php:142
 #: libraries/server_status.lib.php:226
 #: libraries/server_status_queries.lib.php:98
 msgid "per hour"
-msgstr ""
+msgstr "per oere"
 
 #: libraries/Advisor.class.php:484
 msgid "per day"
-msgstr ""
+msgstr "per dei"
 
 #: libraries/Config.class.php:1165
 #, php-format
@@ -2654,7 +2654,7 @@ msgstr ""
 #: libraries/server_status_processes.lib.php:81
 #: libraries/tbl_relation.lib.php:306 libraries/tbl_relation.lib.php:543
 msgid "Database"
-msgstr ""
+msgstr "Databank"
 
 #: libraries/Console.class.php:108
 #, php-format
@@ -2692,7 +2692,7 @@ msgstr ""
 
 #: libraries/Console.class.php:183
 msgid "Bookmark"
-msgstr ""
+msgstr "Blêdwizer"
 
 #: libraries/Console.class.php:184
 msgid "Query failed"
@@ -2717,7 +2717,7 @@ msgstr ""
 
 #: libraries/Console.class.php:202
 msgid "History"
-msgstr ""
+msgstr "Skiednis"
 
 #: libraries/Console.class.php:205 libraries/Console.class.php:300
 #: libraries/DisplayResults.class.php:1642 libraries/TableSearch.class.php:788
@@ -2745,11 +2745,11 @@ msgstr ""
 #: libraries/plugins/import/ImportXml.class.php:58
 #: libraries/rte/rte_routines.lib.php:992 libraries/structure.lib.php:1827
 msgid "Options"
-msgstr ""
+msgstr "Opsjes"
 
 #: libraries/Console.class.php:209 libraries/Console.class.php:262
 msgid "Bookmarks"
-msgstr ""
+msgstr "Blêdwizers"
 
 #: libraries/Console.class.php:218
 msgid "Press Ctrl+Enter to execute query"
@@ -2767,7 +2767,7 @@ msgstr ""
 
 #: libraries/Console.class.php:269
 msgid "Add"
-msgstr ""
+msgstr "Tafoegje"
 
 #: libraries/Console.class.php:278
 msgid "Add bookmark"
@@ -2825,7 +2825,7 @@ msgstr ""
 
 #: libraries/DBQbe.class.php:409 libraries/TableSearch.class.php:1356
 msgid "Column:"
-msgstr ""
+msgstr "Kolom:"
 
 #: libraries/DBQbe.class.php:455
 msgid "Sort:"
@@ -2857,11 +2857,11 @@ msgstr ""
 
 #: libraries/DBQbe.class.php:717 libraries/DBQbe.class.php:826
 msgid "Or:"
-msgstr ""
+msgstr "Of:"
 
 #: libraries/DBQbe.class.php:721 libraries/DBQbe.class.php:811
 msgid "And:"
-msgstr ""
+msgstr "En:"
 
 #: libraries/DBQbe.class.php:725
 msgid "Ins"
@@ -2928,7 +2928,7 @@ msgstr ""
 
 #: libraries/DatabaseInterface.class.php:2211
 msgid "Details…"
-msgstr ""
+msgstr "Details…"
 
 #: libraries/DatabaseInterface.class.php:2430
 msgid "Connection for controluser as defined in your configuration failed."
@@ -2940,7 +2940,7 @@ msgstr ""
 
 #: libraries/DbSearch.class.php:99 libraries/DbSearch.class.php:408
 msgid "all words"
-msgstr ""
+msgstr "alle wurden"
 
 #: libraries/DbSearch.class.php:100 libraries/DbSearch.class.php:412
 msgid "the exact phrase"
@@ -3029,7 +3029,7 @@ msgstr ""
 #: libraries/Util.class.php:2460
 msgctxt "First page"
 msgid "Begin"
-msgstr ""
+msgstr "Begjin"
 
 #: libraries/DisplayResults.class.php:838 libraries/Util.class.php:2458
 #: libraries/Util.class.php:2461 libraries/server_bin_log.lib.php:170
@@ -3043,7 +3043,7 @@ msgstr ""
 #: libraries/server_bin_log.lib.php:206
 msgctxt "Next page"
 msgid "Next"
-msgstr ""
+msgstr "Folgjende"
 
 #: libraries/DisplayResults.class.php:931 libraries/Util.class.php:2494
 #: libraries/Util.class.php:2497
@@ -3053,7 +3053,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:973
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #: libraries/DisplayResults.class.php:983 libraries/display_export.lib.php:334
 #: libraries/tbl_chart.lib.php:290
@@ -3062,7 +3062,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:991
 msgid "Mode:"
-msgstr ""
+msgstr "mo"
 
 #: libraries/DisplayResults.class.php:993
 msgid "horizontal"
@@ -3350,13 +3350,13 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:299
 #: libraries/tracking.lib.php:840 libraries/tracking.lib.php:929
 msgid "Collation"
-msgstr ""
+msgstr "Kollaasje"
 
 #: libraries/Index.class.php:573 libraries/rte/rte_events.lib.php:507
 #: libraries/rte/rte_routines.lib.php:1089 libraries/tracking.lib.php:844
 #: libraries/tracking.lib.php:931
 msgid "Comment"
-msgstr ""
+msgstr "Opmerking"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
@@ -3385,7 +3385,7 @@ msgstr ""
 #: libraries/Menu.class.php:197 libraries/ServerStatusData.class.php:369
 #: libraries/config/messages.inc.php:754
 msgid "Server"
-msgstr ""
+msgstr "Server"
 
 #: libraries/Menu.class.php:241
 #: libraries/navigation/Nodes/Node_View.class.php:34
@@ -3410,7 +3410,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:199
 #: libraries/tracking.lib.php:834
 msgid "Structure"
-msgstr ""
+msgstr "Struktuer"
 
 #: libraries/Menu.class.php:317 libraries/Menu.class.php:421
 #: libraries/Menu.class.php:540 libraries/Util.class.php:3182
@@ -3427,7 +3427,7 @@ msgstr ""
 #: libraries/Util.class.php:4130 libraries/Util.class.php:4147
 #: libraries/navigation/Nodes/Node_Table.class.php:39
 msgid "Search"
-msgstr ""
+msgstr "Sykje"
 
 #: libraries/Menu.class.php:330 libraries/Util.class.php:3184
 #: libraries/Util.class.php:3405 libraries/Util.class.php:3406
@@ -3490,11 +3490,11 @@ msgstr ""
 #: libraries/plugins/export/ExportXml.class.php:107
 #: libraries/rte/rte_words.lib.php:64
 msgid "Events"
-msgstr ""
+msgstr "Barrens"
 
 #: libraries/Menu.class.php:490 libraries/Util.class.php:4140
 msgid "Designer"
-msgstr ""
+msgstr "Untwerper"
 
 #: libraries/Menu.class.php:497 libraries/Util.class.php:4141
 msgid "Central columns"
@@ -3504,7 +3504,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:229 libraries/server_common.lib.php:48
 #: libraries/server_privileges.lib.php:3858
 msgid "Databases"
-msgstr ""
+msgstr "Databanken"
 
 #: libraries/Menu.class.php:560 libraries/Util.class.php:4116
 msgid "Users"
@@ -3529,7 +3529,7 @@ msgstr ""
 
 #: libraries/Menu.class.php:602 libraries/Util.class.php:4123
 msgid "Charsets"
-msgstr ""
+msgstr "Karaktersets"
 
 #: libraries/Menu.class.php:607 libraries/Util.class.php:4124
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
@@ -3545,7 +3545,7 @@ msgstr ""
 #: libraries/insert_edit.lib.php:1166 tbl_operations.php:202
 #: view_operations.php:63
 msgid "Error"
-msgstr ""
+msgstr "Flater"
 
 #: libraries/Message.class.php:254
 #, php-format
@@ -3687,7 +3687,7 @@ msgstr ""
 #: libraries/plugins/export/ExportXml.class.php:120
 #: libraries/structure.lib.php:3094
 msgid "Tables"
-msgstr ""
+msgstr "Tabellen"
 
 #: libraries/ServerStatusData.class.php:202
 msgid "Transaction coordinator"
@@ -3696,7 +3696,7 @@ msgstr ""
 #: libraries/ServerStatusData.class.php:203
 #: libraries/server_bin_log.lib.php:53
 msgid "Files"
-msgstr ""
+msgstr "Triemmen"
 
 #: libraries/ServerStatusData.class.php:214
 msgid "Flush (close) all tables"
@@ -3742,21 +3742,21 @@ msgstr ""
 
 #: libraries/ServerStatusData.class.php:389
 msgid "Advisor"
-msgstr ""
+msgstr "Riejouwer"
 
 #: libraries/ServerStatusData.class.php:433
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d sekonde"
+msgstr[1] "%d sekonden"
 
 #: libraries/ServerStatusData.class.php:438
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d minút"
+msgstr[1] "%d minuten"
 
 #: libraries/StorageEngine.class.php:272
 msgid ""
@@ -3838,7 +3838,7 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_Function.class.php:34
 #: libraries/rte/rte_routines.lib.php:1631
 msgid "Function"
-msgstr ""
+msgstr "Funksje"
 
 #: libraries/TableSearch.class.php:188 libraries/db_designer.lib.php:953
 #: libraries/db_designer.lib.php:973 libraries/db_designer.lib.php:1126
@@ -3879,7 +3879,7 @@ msgstr ""
 #: libraries/TableSearch.class.php:815 libraries/insert_edit.lib.php:1170
 #: libraries/server_privileges.lib.php:470
 msgid "Or"
-msgstr ""
+msgstr "Of"
 
 #: libraries/TableSearch.class.php:816
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -3939,7 +3939,7 @@ msgstr ""
 
 #: libraries/TableSearch.class.php:1477
 msgid "Count"
-msgstr ""
+msgstr "Oantal"
 
 #: libraries/TableSearch.class.php:1478
 msgid "Original string"
@@ -3983,7 +3983,7 @@ msgstr ""
 
 #: libraries/Theme_Manager.class.php:368
 msgid "Theme:"
-msgstr ""
+msgstr "Tema:"
 
 #: libraries/Types.class.php:320
 msgid ""
@@ -4206,7 +4206,7 @@ msgstr ""
 #: libraries/Types.class.php:661 libraries/Types.class.php:1037
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr ""
+msgstr "Datum en tiid"
 
 #: libraries/Types.class.php:670 libraries/Types.class.php:1040
 #: libraries/normalization.lib.php:143 normalization.php:25
@@ -4302,7 +4302,7 @@ msgstr ""
 #: libraries/Util.class.php:1580
 msgctxt "Short week day name"
 msgid "Sun"
-msgstr ""
+msgstr "si"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
 #: libraries/Util.class.php:1596
@@ -4313,7 +4313,7 @@ msgstr ""
 #: libraries/Util.class.php:1944
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr ""
+msgstr "%s dagen, %s oeren, %s minuten en %s sekonden"
 
 #: libraries/Util.class.php:2037
 msgid "Missing parameter:"
@@ -4355,7 +4355,7 @@ msgstr ""
 #: libraries/Util.class.php:3410 libraries/Util.class.php:3411
 #: libraries/structure.lib.php:322
 msgid "Empty"
-msgstr ""
+msgstr "Leegje"
 
 #: libraries/Util.class.php:3416 libraries/Util.class.php:3417
 msgid "Execute"
@@ -4382,7 +4382,7 @@ msgstr ""
 
 #: libraries/browse_foreigners.lib.php:48
 msgid "Search:"
-msgstr ""
+msgstr "Sykje:"
 
 #: libraries/browse_foreigners.lib.php:72
 #: libraries/browse_foreigners.lib.php:74
@@ -4390,7 +4390,7 @@ msgstr ""
 #: libraries/server_plugins.lib.php:135
 #: libraries/server_status_variables.lib.php:221
 msgid "Description"
-msgstr ""
+msgstr "Beskriuwing"
 
 #: libraries/browse_foreigners.lib.php:221
 msgid "Use this value"
@@ -4467,7 +4467,7 @@ msgstr ""
 
 #: libraries/central_columns.lib.php:509
 msgid "NO"
-msgstr ""
+msgstr "NEE"
 
 #: libraries/central_columns.lib.php:629
 #: libraries/display_create_table.lib.php:60
@@ -4480,7 +4480,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:279
 #: setup/frames/index.inc.php:162
 msgid "Name"
-msgstr ""
+msgstr "Namme"
 
 #: libraries/central_columns.lib.php:633
 #: libraries/rte/rte_routines.lib.php:991
@@ -4493,7 +4493,7 @@ msgstr ""
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1043
 #: libraries/structure.lib.php:1289 libraries/tracking.lib.php:843
 msgid "Extra"
-msgstr ""
+msgstr "Ekstra"
 
 #: libraries/central_columns.lib.php:660
 msgid "Select a table"
@@ -4583,17 +4583,17 @@ msgstr ""
 #: libraries/config.values.php:48 libraries/config.values.php:69
 #: libraries/config.values.php:81
 msgid "Icons"
-msgstr ""
+msgstr "Piktogrammen"
 
 #: libraries/config.values.php:49 libraries/config.values.php:70
 #: libraries/config.values.php:82
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
 #: libraries/config.values.php:50 libraries/config.values.php:58
 #: libraries/config.values.php:71 libraries/config.values.php:83
 msgid "Both"
-msgstr ""
+msgstr "Beide"
 
 #: libraries/config.values.php:55
 msgid "Nowhere"
@@ -4609,7 +4609,7 @@ msgstr ""
 
 #: libraries/config.values.php:86
 msgid "Click"
-msgstr ""
+msgstr "Klik"
 
 #: libraries/config.values.php:87
 msgid "Double click"
@@ -4649,7 +4649,7 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:204
 #: libraries/plugins/export/ExportTexytext.class.php:68
 msgid "structure"
-msgstr ""
+msgstr "struktuer"
 
 #: libraries/config.values.php:148
 #: libraries/plugins/export/ExportHtmlword.class.php:70
@@ -4995,7 +4995,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:43
 msgid ""
@@ -5170,7 +5170,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:109
 msgid "Compression"
-msgstr ""
+msgstr "Kompresje"
 
 #: libraries/config/messages.inc.php:110 libraries/config/messages.inc.php:117
 #: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:129
@@ -5270,7 +5270,7 @@ msgstr ""
 #: libraries/plugins/export/ExportOdt.class.php:488
 #: libraries/tbl_columns_definition_form.lib.php:318
 msgid "MIME type"
-msgstr ""
+msgstr "MIME-type"
 
 #: libraries/config/messages.inc.php:136 libraries/config/messages.inc.php:149
 #: libraries/config/messages.inc.php:183 libraries/tbl_relation.lib.php:186
@@ -5415,11 +5415,11 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:148
 #: libraries/config/user_preferences.forms.php:223
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: libraries/config/messages.inc.php:211
 msgid "Developer"
-msgstr ""
+msgstr "Untwikkelder"
 
 #: libraries/config/messages.inc.php:212
 msgid "Settings for phpMyAdmin developers."
@@ -5448,7 +5448,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:219
 msgid "General"
-msgstr ""
+msgstr "Algemien"
 
 #: libraries/config/messages.inc.php:220
 msgid "Set some commonly used options."
@@ -5472,7 +5472,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:227
 msgid "LaTeX"
-msgstr ""
+msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:230
 msgid "Databases display options."
@@ -5489,7 +5489,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:233 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:144
 msgid "Servers"
-msgstr ""
+msgstr "Servers"
 
 #: libraries/config/messages.inc.php:234
 msgid "Servers display options."
@@ -5505,7 +5505,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:238
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:242
 msgid "Other core settings"
@@ -5517,7 +5517,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:245
 msgid "Page titles"
-msgstr ""
+msgstr "Sidetitels"
 
 #: libraries/config/messages.inc.php:247
 msgid ""
@@ -5536,7 +5536,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:253
 msgid "Security"
-msgstr ""
+msgstr "Befeiliging"
 
 #: libraries/config/messages.inc.php:255
 msgid ""
@@ -5634,7 +5634,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:292
 msgid "Database structure"
-msgstr ""
+msgstr "Databankstruktuer"
 
 #: libraries/config/messages.inc.php:294
 msgid ""
@@ -5643,7 +5643,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:295
 msgid "Table structure"
-msgstr ""
+msgstr "Tabelstruktuer"
 
 #: libraries/config/messages.inc.php:297
 msgid "Settings for the table structure (list of columns)."
@@ -5669,7 +5669,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:304
 msgid "Text fields"
-msgstr ""
+msgstr "Tekstfjilden"
 
 #: libraries/config/messages.inc.php:305
 msgid "Customize text input fields."
@@ -5699,7 +5699,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:315
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:316
 msgid "Extra parameters for iconv"
@@ -6260,7 +6260,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:556
 msgid "Bookmark table"
-msgstr ""
+msgstr "Blêdwizertabel"
 
 #: libraries/config/messages.inc.php:558
 msgid ""
@@ -6429,7 +6429,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:628
 #: libraries/display_create_database.lib.php:31
 msgid "Database name"
-msgstr ""
+msgstr "Databanknamme"
 
 #: libraries/config/messages.inc.php:630
 msgid "Port on which MySQL server is listening, leave empty for default."
@@ -6437,7 +6437,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:631
 msgid "Server port"
-msgstr ""
+msgstr "Serverpoarte"
 
 #: libraries/config/messages.inc.php:633
 msgid ""
@@ -6773,7 +6773,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:744
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Suhosin-warskôging"
 
 #: libraries/config/messages.inc.php:745
 msgid ""
@@ -6907,7 +6907,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:776
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:777
 msgid "Enter your public key for your domain reCaptcha service."
@@ -6988,12 +6988,12 @@ msgstr ""
 #: libraries/config/setup.forms.php:331
 #: libraries/config/user_preferences.forms.php:232
 msgid "CSV for MS Excel"
-msgstr ""
+msgstr "CSV foar MS Excel"
 
 #: libraries/config/setup.forms.php:354
 #: libraries/config/user_preferences.forms.php:255
 msgid "Microsoft Word 2000"
-msgstr ""
+msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:363
 #: libraries/config/user_preferences.forms.php:264
@@ -7047,7 +7047,7 @@ msgstr ""
 
 #: libraries/db_designer.lib.php:102
 msgid "New page name"
-msgstr ""
+msgstr "Nije sidenamme"
 
 #: libraries/db_designer.lib.php:160
 msgid "Could not load schema plugins, please check your installation!"
@@ -7071,7 +7071,7 @@ msgstr ""
 
 #: libraries/db_designer.lib.php:266
 msgid "New page"
-msgstr ""
+msgstr "Nije side"
 
 #: libraries/db_designer.lib.php:280
 msgid "Save position"
@@ -7178,7 +7178,7 @@ msgstr ""
 
 #: libraries/db_designer.lib.php:946 libraries/db_designer.lib.php:1066
 msgid "New name"
-msgstr ""
+msgstr "Nije namme"
 
 #: libraries/db_designer.lib.php:950 libraries/db_designer.lib.php:1212
 msgid "Aggregate"
@@ -7200,14 +7200,14 @@ msgstr ""
 #: libraries/replication_gui.lib.php:866
 #: libraries/server_privileges.lib.php:1517
 msgid "No Password"
-msgstr ""
+msgstr "Gjin wachtwurd"
 
 #: libraries/display_change_password.lib.php:68
 #: libraries/plugins/auth/AuthenticationCookie.class.php:198
 #: libraries/replication_gui.lib.php:412 libraries/replication_gui.lib.php:853
 #: libraries/server_privileges.lib.php:1493
 msgid "Password:"
-msgstr ""
+msgstr "Wachtwurd:"
 
 #: libraries/display_change_password.lib.php:74
 #: libraries/replication_gui.lib.php:877
@@ -7276,11 +7276,11 @@ msgstr ""
 
 #: libraries/display_export.lib.php:246
 msgid "Database(s):"
-msgstr ""
+msgstr "Databank(en):"
 
 #: libraries/display_export.lib.php:248
 msgid "Table(s):"
-msgstr ""
+msgstr "Tabel(len):"
 
 #: libraries/display_export.lib.php:268 libraries/display_import.lib.php:334
 #: libraries/plugins/export/ExportCodegen.class.php:107
@@ -7303,7 +7303,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:323 libraries/sql.lib.php:301
 msgid "Rows:"
-msgstr ""
+msgstr "Rigen:"
 
 #: libraries/display_export.lib.php:331
 msgid "Dump some row(s)"
@@ -7319,7 +7319,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:379 libraries/display_export.lib.php:638
 msgid "Output:"
-msgstr ""
+msgstr "Utfier:"
 
 #: libraries/display_export.lib.php:388 libraries/display_export.lib.php:423
 #, php-format
@@ -7361,7 +7361,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:581
 msgid "Compression:"
-msgstr ""
+msgstr "Kompresje:"
 
 #: libraries/display_export.lib.php:589
 msgid "zipped"
@@ -7401,7 +7401,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:822
 msgid "New table name"
-msgstr ""
+msgstr "Nij tabelnamme"
 
 #: libraries/display_export.lib.php:831
 msgid "Old column name"
@@ -7514,7 +7514,7 @@ msgstr ""
 #: libraries/display_import.lib.php:454
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s fan %s"
 
 #: libraries/display_import.lib.php:455
 msgid "Uploading your import file…"
@@ -7523,7 +7523,7 @@ msgstr ""
 #: libraries/display_import.lib.php:456
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/sek."
 
 #: libraries/display_import.lib.php:457
 msgid "About %MIN min. %SEC sec. remaining."
@@ -7540,7 +7540,7 @@ msgstr ""
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:97
 msgid "Language"
-msgstr ""
+msgstr "Taal"
 
 #: libraries/engines/bdb.lib.php:28
 msgid "Version information"
@@ -7949,7 +7949,7 @@ msgstr ""
 #: libraries/insert_edit.lib.php:393 libraries/mysql_charsets.lib.php:161
 #: libraries/mysql_charsets.lib.php:364
 msgid "Binary"
-msgstr ""
+msgstr "Binêr"
 
 #: libraries/insert_edit.lib.php:592
 msgid "Because of its length,<br /> this column might not be editable."
@@ -7970,7 +7970,7 @@ msgstr ""
 
 #: libraries/insert_edit.lib.php:1422
 msgid "and then"
-msgstr ""
+msgstr "en dan"
 
 #: libraries/insert_edit.lib.php:1455
 msgid "Insert as new row"
@@ -8018,7 +8018,7 @@ msgstr ""
 #: libraries/kanji-encoding.lib.php:147
 msgctxt "None encoding conversion"
 msgid "None"
-msgstr ""
+msgstr "Gjin"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:158
@@ -8064,11 +8064,11 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:45
 msgid "Charset"
-msgstr ""
+msgstr "Karakterset"
 
 #: libraries/mysql_charsets.lib.php:173
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgaarsk"
 
 #: libraries/mysql_charsets.lib.php:177 libraries/mysql_charsets.lib.php:304
 msgid "Simplified Chinese"
@@ -8088,55 +8088,55 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:189
 msgid "Croatian"
-msgstr ""
+msgstr "Kroatysk"
 
 #: libraries/mysql_charsets.lib.php:192
 msgid "Czech"
-msgstr ""
+msgstr "Tsjechysk"
 
 #: libraries/mysql_charsets.lib.php:195
 msgid "Danish"
-msgstr ""
+msgstr "Deensk"
 
 #: libraries/mysql_charsets.lib.php:198
 msgid "English"
-msgstr ""
+msgstr "Ingelsk"
 
 #: libraries/mysql_charsets.lib.php:201
 msgid "Esperanto"
-msgstr ""
+msgstr "Esperanto"
 
 #: libraries/mysql_charsets.lib.php:204
 msgid "Estonian"
-msgstr ""
+msgstr "Estysk"
 
 #: libraries/mysql_charsets.lib.php:207 libraries/mysql_charsets.lib.php:210
 msgid "German"
-msgstr ""
+msgstr "Dútsk"
 
 #: libraries/mysql_charsets.lib.php:207
 msgid "dictionary"
-msgstr ""
+msgstr "wurdboek"
 
 #: libraries/mysql_charsets.lib.php:210
 msgid "phone book"
-msgstr ""
+msgstr "tillefoanboek"
 
 #: libraries/mysql_charsets.lib.php:213
 msgid "Hungarian"
-msgstr ""
+msgstr "Hongaarsk"
 
 #: libraries/mysql_charsets.lib.php:216
 msgid "Icelandic"
-msgstr ""
+msgstr "Yslânsk"
 
 #: libraries/mysql_charsets.lib.php:219 libraries/mysql_charsets.lib.php:311
 msgid "Japanese"
-msgstr ""
+msgstr "Japansk"
 
 #: libraries/mysql_charsets.lib.php:222
 msgid "Latvian"
-msgstr ""
+msgstr "Letsk"
 
 #: libraries/mysql_charsets.lib.php:225
 msgid "Lithuanian"
@@ -8144,15 +8144,15 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:228 libraries/mysql_charsets.lib.php:333
 msgid "Korean"
-msgstr ""
+msgstr "Koreaansk"
 
 #: libraries/mysql_charsets.lib.php:231
 msgid "Persian"
-msgstr ""
+msgstr "Perzysk"
 
 #: libraries/mysql_charsets.lib.php:234
 msgid "Polish"
-msgstr ""
+msgstr "Poalsk"
 
 #: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:287
 msgid "West European"
@@ -8160,19 +8160,19 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:240
 msgid "Romanian"
-msgstr ""
+msgstr "Roemeensk"
 
 #: libraries/mysql_charsets.lib.php:243
 msgid "Slovak"
-msgstr ""
+msgstr "Slowaaksk"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Slovenian"
-msgstr ""
+msgstr "Sloveensk"
 
 #: libraries/mysql_charsets.lib.php:249
 msgid "Spanish"
-msgstr ""
+msgstr "Spaansk"
 
 #: libraries/mysql_charsets.lib.php:252
 msgid "Traditional Spanish"
@@ -8180,7 +8180,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:255 libraries/mysql_charsets.lib.php:354
 msgid "Swedish"
-msgstr ""
+msgstr "Sweedsk"
 
 #: libraries/mysql_charsets.lib.php:258 libraries/mysql_charsets.lib.php:357
 msgid "Thai"
@@ -8188,21 +8188,21 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:261 libraries/mysql_charsets.lib.php:351
 msgid "Turkish"
-msgstr ""
+msgstr "Turksk"
 
 #: libraries/mysql_charsets.lib.php:264 libraries/mysql_charsets.lib.php:348
 msgid "Ukrainian"
-msgstr ""
+msgstr "Oekraynsk"
 
 #: libraries/mysql_charsets.lib.php:267 libraries/mysql_charsets.lib.php:278
 msgid "Unicode"
-msgstr ""
+msgstr "Unicode"
 
 #: libraries/mysql_charsets.lib.php:267 libraries/mysql_charsets.lib.php:278
 #: libraries/mysql_charsets.lib.php:287 libraries/mysql_charsets.lib.php:294
 #: libraries/mysql_charsets.lib.php:316 libraries/mysql_charsets.lib.php:327
 msgid "multilingual"
-msgstr ""
+msgstr "meartalich"
 
 #: libraries/mysql_charsets.lib.php:294
 msgid "Central European"
@@ -8210,7 +8210,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:299
 msgid "Russian"
-msgstr ""
+msgstr "Russysk"
 
 #: libraries/mysql_charsets.lib.php:316
 msgid "Baltic"
@@ -8218,36 +8218,36 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:321
 msgid "Armenian"
-msgstr ""
+msgstr "Armeensk"
 
 #: libraries/mysql_charsets.lib.php:327
 msgid "Cyrillic"
-msgstr ""
+msgstr "Sirillysk"
 
 #: libraries/mysql_charsets.lib.php:330
 msgid "Arabic"
-msgstr ""
+msgstr "Arabysk"
 
 #: libraries/mysql_charsets.lib.php:336
 msgid "Hebrew"
-msgstr ""
+msgstr "Hebrieusk"
 
 #: libraries/mysql_charsets.lib.php:339
 msgid "Georgian"
-msgstr ""
+msgstr "Georgysk"
 
 #: libraries/mysql_charsets.lib.php:342
 msgid "Greek"
-msgstr ""
+msgstr "Gryksk"
 
 #: libraries/mysql_charsets.lib.php:345
 msgid "Czech-Slovak"
-msgstr ""
+msgstr "Tsjechoslowaaksk"
 
 #: libraries/mysql_charsets.lib.php:360 libraries/mysql_charsets.lib.php:367
 #: libraries/structure.lib.php:1153
 msgid "unknown"
-msgstr ""
+msgstr "ûnbekend"
 
 #: libraries/navigation/Navigation.class.php:49
 msgid "An error has occurred while loading the navigation tree"
@@ -8255,11 +8255,11 @@ msgstr ""
 
 #: libraries/navigation/Navigation.class.php:182
 msgid "Events:"
-msgstr ""
+msgstr "Barrens:"
 
 #: libraries/navigation/Navigation.class.php:183
 msgid "Functions:"
-msgstr ""
+msgstr "Funksjes:"
 
 #: libraries/navigation/Navigation.class.php:184
 msgid "Procedures:"
@@ -8267,7 +8267,7 @@ msgstr ""
 
 #: libraries/navigation/Navigation.class.php:185
 msgid "Tables:"
-msgstr ""
+msgstr "Tabellen:"
 
 #: libraries/navigation/Navigation.class.php:186
 msgid "Views:"
@@ -8338,7 +8338,7 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:27
 #: libraries/sql_query_form.lib.php:239
 msgid "Columns"
-msgstr ""
+msgstr "Kolommen"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
 msgctxt "Create new column"
@@ -8368,7 +8368,7 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:525
 #: libraries/plugins/export/ExportXml.class.php:111
 msgid "Functions"
-msgstr ""
+msgstr "Funksjes"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
 msgctxt "Create new function"
@@ -8438,7 +8438,7 @@ msgstr ""
 #: libraries/normalization.lib.php:119 libraries/normalization.lib.php:170
 #: libraries/normalization.lib.php:213 libraries/normalization.lib.php:249
 msgid "Step 1."
-msgstr ""
+msgstr "Stap 1."
 
 #: libraries/normalization.lib.php:121
 msgid ""
@@ -8545,7 +8545,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:291
 msgid "Step 2."
-msgstr ""
+msgstr "Stap 2."
 
 #: libraries/normalization.lib.php:291
 msgid "Find partial dependencies"
@@ -8633,7 +8633,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:689
 msgid "Step 3."
-msgstr ""
+msgstr "Stap 3."
 
 #: libraries/normalization.lib.php:689
 msgid "Find transitive dependencies"
@@ -8821,7 +8821,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1236
 msgid "Analyze"
-msgstr ""
+msgstr "Analysearje"
 
 #: libraries/operations.lib.php:1237
 msgid "Check"
@@ -9049,7 +9049,7 @@ msgstr ""
 #: libraries/plugins/export/ExportTexytext.class.php:427
 #: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_triggers.lib.php:363
 msgid "Event"
-msgstr ""
+msgstr "Barren"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:473
 #: libraries/plugins/export/ExportOdt.class.php:593
@@ -9058,7 +9058,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:1052
 #: libraries/rte/rte_triggers.lib.php:377
 msgid "Definition"
-msgstr ""
+msgstr "Definysje"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:544
 #: libraries/plugins/export/ExportOdt.class.php:671
@@ -9161,7 +9161,7 @@ msgstr ""
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/sql.lib.php:291
 msgid "Database:"
-msgstr ""
+msgstr "Databank:"
 
 #: libraries/plugins/export/ExportLatex.class.php:306
 #: libraries/plugins/export/ExportSql.class.php:1883
@@ -9170,7 +9170,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:488
 msgid "Structure:"
-msgstr ""
+msgstr "Struktuer:"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 msgid "Export table names"
@@ -9369,7 +9369,7 @@ msgstr ""
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:117
 msgid "Table:"
-msgstr ""
+msgstr "Tabel"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -9422,7 +9422,7 @@ msgstr ""
 
 #: libraries/plugins/import/ImportMediawiki.class.php:56
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "MediaWiki-table"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:279
 #, php-format
@@ -9502,7 +9502,7 @@ msgstr ""
 #: libraries/plugins/schema/SchemaEps.class.php:72
 #: libraries/plugins/schema/SchemaPdf.class.php:72
 msgid "Orientation"
-msgstr ""
+msgstr "Oriïntaasje"
 
 #: libraries/plugins/schema/SchemaEps.class.php:67
 #: libraries/plugins/schema/SchemaPdf.class.php:67
@@ -9564,7 +9564,7 @@ msgstr ""
 #: libraries/structure.lib.php:1286
 #: libraries/tbl_columns_definition_form.lib.php:300
 msgid "Attributes"
-msgstr ""
+msgstr "Attributen"
 
 #: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
 msgid ""
@@ -9841,7 +9841,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:1624
 msgid "no description"
-msgstr ""
+msgstr "gjin beskriuwing"
 
 #: libraries/relation.lib.php:1909
 #, php-format
@@ -10029,11 +10029,11 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1525
 #: libraries/server_privileges.lib.php:2965
 msgid "Password"
-msgstr ""
+msgstr "Wachtwurd"
 
 #: libraries/replication_gui.lib.php:435
 msgid "Port:"
-msgstr ""
+msgstr "Poarte:"
 
 #: libraries/replication_gui.lib.php:519
 msgid "Master status"
@@ -10087,7 +10087,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:798
 #: libraries/server_privileges.lib.php:1323
 msgid "Any user"
-msgstr ""
+msgstr "Elke brûker"
 
 #: libraries/replication_gui.lib.php:803 libraries/replication_gui.lib.php:836
 #: libraries/replication_gui.lib.php:869
@@ -10146,11 +10146,11 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:936
 msgid "Error."
-msgstr ""
+msgstr "Flater."
 
 #: libraries/replication_gui.lib.php:981
 msgid "Unknown error"
-msgstr ""
+msgstr "Unbekende flater"
 
 #: libraries/replication_gui.lib.php:991
 #, php-format
@@ -10208,11 +10208,11 @@ msgstr ""
 #: libraries/rte/rte_events.lib.php:395 libraries/rte/rte_routines.lib.php:953
 #: libraries/rte/rte_triggers.lib.php:323 view_create.php:181
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 #: libraries/rte/rte_events.lib.php:398
 msgid "Event name"
-msgstr ""
+msgstr "Barrennamme"
 
 #: libraries/rte/rte_events.lib.php:419 libraries/server_bin_log.lib.php:130
 msgid "Event type"
@@ -10346,7 +10346,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:988
 msgid "Direction"
-msgstr ""
+msgstr "Rjochting"
 
 #: libraries/rte/rte_routines.lib.php:1006
 msgid "Add parameter"
@@ -10540,7 +10540,7 @@ msgstr ""
 
 #: libraries/rte/rte_words.lib.php:58
 msgid "event"
-msgstr ""
+msgstr "barren"
 
 #: libraries/rte/rte_words.lib.php:60
 msgid "You do not have the necessary privileges to create an event"
@@ -10575,7 +10575,7 @@ msgstr ""
 
 #: libraries/server_bin_log.lib.php:129
 msgid "Position"
-msgstr ""
+msgstr "Posysje"
 
 #: libraries/server_bin_log.lib.php:132
 msgid "Original position"
@@ -10635,7 +10635,7 @@ msgstr ""
 
 #: libraries/server_plugins.lib.php:70
 msgid "Begin"
-msgstr ""
+msgstr "Begjin"
 
 #: libraries/server_plugins.lib.php:77
 msgid "Plugin"
@@ -10647,7 +10647,7 @@ msgstr ""
 
 #: libraries/server_plugins.lib.php:79 libraries/server_plugins.lib.php:136
 msgid "Library"
-msgstr ""
+msgstr "Bibleteek"
 
 #: libraries/server_plugins.lib.php:80 libraries/server_plugins.lib.php:137
 #: libraries/tracking.lib.php:246
@@ -10656,11 +10656,11 @@ msgstr ""
 
 #: libraries/server_plugins.lib.php:81 libraries/server_plugins.lib.php:138
 msgid "Author"
-msgstr ""
+msgstr "Auteur"
 
 #: libraries/server_plugins.lib.php:82 libraries/server_plugins.lib.php:139
 msgid "License"
-msgstr ""
+msgstr "Lisinsje"
 
 #: libraries/server_plugins.lib.php:191
 msgid "disabled"
@@ -10823,7 +10823,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:476
 msgctxt "None privileges"
 msgid "None"
-msgstr ""
+msgstr "Gjin"
 
 #: libraries/server_privileges.lib.php:527
 #: libraries/server_privileges.lib.php:553
@@ -10877,7 +10877,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1012
 msgid "Administration"
-msgstr ""
+msgstr "Administraasje"
 
 #: libraries/server_privileges.lib.php:1032
 #: libraries/server_privileges.lib.php:2966
@@ -10886,7 +10886,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1033
 msgid "Global"
-msgstr ""
+msgstr "Globaal"
 
 #: libraries/server_privileges.lib.php:1035
 #: libraries/server_privileges.lib.php:2783
@@ -10997,11 +10997,11 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2365
 #: libraries/server_privileges.lib.php:3049
 msgid "Any"
-msgstr ""
+msgstr "Elke"
 
 #: libraries/server_privileges.lib.php:2136
 msgid "global"
-msgstr ""
+msgstr "globaal"
 
 #: libraries/server_privileges.lib.php:2139
 msgid "database-specific"
@@ -11405,7 +11405,7 @@ msgstr ""
 
 #: libraries/server_status_processes.lib.php:69
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: libraries/server_status_processes.lib.php:85
 msgid "Command"
@@ -11418,15 +11418,15 @@ msgstr ""
 
 #: libraries/server_status_queries.lib.php:44
 msgid "per hour:"
-msgstr ""
+msgstr "per oere:"
 
 #: libraries/server_status_queries.lib.php:47
 msgid "per minute:"
-msgstr ""
+msgstr "per minút:"
 
 #: libraries/server_status_queries.lib.php:54
 msgid "per second:"
-msgstr ""
+msgstr "per sekonde:"
 
 #: libraries/server_status_queries.lib.php:93
 msgid "Statements"
@@ -11435,7 +11435,7 @@ msgstr ""
 #. l10n: # = Amount of queries
 #: libraries/server_status_queries.lib.php:96
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: libraries/server_status_variables.lib.php:39
 #: libraries/server_variables.lib.php:185
@@ -12098,7 +12098,7 @@ msgstr ""
 #: libraries/server_variables.lib.php:197
 #: libraries/server_variables.lib.php:263
 msgid "Session value"
-msgstr ""
+msgstr "Sessywearde"
 
 #: libraries/server_variables.lib.php:197
 msgid "Global value"
@@ -12118,7 +12118,7 @@ msgstr ""
 
 #: libraries/sql.lib.php:336
 msgid "Order"
-msgstr ""
+msgstr "Folchoarder"
 
 #: libraries/sql.lib.php:338 libraries/sql.lib.php:354
 msgid "State"
@@ -12134,7 +12134,7 @@ msgstr ""
 
 #: libraries/sql.lib.php:359
 msgid "% Time"
-msgstr ""
+msgstr "% Tiid"
 
 #: libraries/sql.lib.php:361
 msgid "Calls"
@@ -12343,7 +12343,7 @@ msgstr ""
 #: libraries/structure.lib.php:1387 libraries/tracking.lib.php:899
 msgctxt "None for default"
 msgid "None"
-msgstr ""
+msgstr "Gjin"
 
 #: libraries/structure.lib.php:1438
 #, php-format
@@ -12409,11 +12409,11 @@ msgstr ""
 #: libraries/structure.lib.php:1710
 #, php-format
 msgid "After %s"
-msgstr ""
+msgstr "Nei %s"
 
 #: libraries/structure.lib.php:1804
 msgid "Row statistics"
-msgstr ""
+msgstr "Rigestatistiken"
 
 #: libraries/structure.lib.php:1809 libraries/tbl_printview.lib.php:182
 msgid "static"
@@ -12421,7 +12421,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:1811 libraries/tbl_printview.lib.php:184
 msgid "dynamic"
-msgstr ""
+msgstr "dynamysk"
 
 #: libraries/structure.lib.php:1822
 msgid "partitioned"
@@ -12429,11 +12429,11 @@ msgstr ""
 
 #: libraries/structure.lib.php:1859 libraries/tbl_printview.lib.php:205
 msgid "Row length"
-msgstr ""
+msgstr "Rigelingte"
 
 #: libraries/structure.lib.php:1872 libraries/tbl_printview.lib.php:219
 msgid "Row size"
-msgstr ""
+msgstr "Rigegrutte"
 
 #: libraries/structure.lib.php:1880 libraries/tbl_printview.lib.php:228
 msgid "Next autoindex"
@@ -12476,7 +12476,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:2333 libraries/tbl_printview.lib.php:327
 msgid "Effective"
-msgstr ""
+msgstr "Effektyf"
 
 #: libraries/structure.lib.php:2576 libraries/tbl_indexes.lib.php:61
 #: tbl_addfield.php:92
@@ -12517,7 +12517,7 @@ msgstr ""
 #: libraries/tbl_chart.lib.php:41
 msgctxt "Chart type"
 msgid "Column"
-msgstr ""
+msgstr "Kolom"
 
 #: libraries/tbl_chart.lib.php:45
 msgctxt "Chart type"
@@ -12595,7 +12595,7 @@ msgstr ""
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
-msgstr ""
+msgstr "Grafyktitel"
 
 #: libraries/tbl_columns_definition_form.lib.php:75
 msgid "Storage Engine:"
@@ -12603,7 +12603,7 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:79
 msgid "Collation:"
-msgstr ""
+msgstr "Kollaasje:"
 
 #: libraries/tbl_columns_definition_form.lib.php:113
 msgid "PARTITION definition:"
@@ -12611,7 +12611,7 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:165
 msgid "Table name"
-msgstr ""
+msgstr "Tabelnamme"
 
 #: libraries/tbl_columns_definition_form.lib.php:285
 msgid ""
@@ -12681,7 +12681,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:811
 #, php-format
 msgid "after %s"
-msgstr ""
+msgstr "nei %s"
 
 #: libraries/tbl_columns_definition_form.lib.php:1083
 msgid "Edit ENUM/SET values"
@@ -12690,7 +12690,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:1108
 msgctxt "for default"
 msgid "None"
-msgstr ""
+msgstr "Gjin"
 
 #: libraries/tbl_columns_definition_form.lib.php:1109
 msgid "As defined:"
@@ -12710,7 +12710,7 @@ msgstr ""
 
 #: libraries/tbl_gis_visualization.lib.php:134
 msgid "-- None --"
-msgstr ""
+msgstr "-- Gjin --"
 
 #: libraries/tbl_gis_visualization.lib.php:209
 msgid "Display GIS Visualization"
@@ -12739,7 +12739,7 @@ msgstr ""
 
 #: libraries/tbl_indexes.lib.php:285
 msgid "Comment:"
-msgstr ""
+msgstr "Opmerking:"
 
 #: libraries/tbl_indexes.lib.php:299
 msgid "Index type:"
@@ -12755,7 +12755,7 @@ msgstr ""
 
 #: libraries/tbl_printview.lib.php:174
 msgid "Row Statistics:"
-msgstr ""
+msgstr "Rigestatistiken:"
 
 #: libraries/tbl_printview.lib.php:301
 msgid "Space usage:"
@@ -12781,7 +12781,7 @@ msgstr ""
 
 #: libraries/tbl_relation.lib.php:374
 msgid "Actions"
-msgstr ""
+msgstr "Aksjes"
 
 #: libraries/tbl_relation.lib.php:375
 msgid "Constraint properties"
@@ -12934,7 +12934,7 @@ msgstr ""
 
 #: libraries/tracking.lib.php:750
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: libraries/tracking.lib.php:751
 msgid "Username"
@@ -13168,7 +13168,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:133 setup/frames/menu.inc.php:19
 msgid "Overview"
-msgstr ""
+msgstr "Oersjoch"
 
 #: setup/frames/index.inc.php:140
 msgid "Show hidden messages (#MSG_COUNT)"
@@ -13180,7 +13180,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:202
 msgid "New server"
-msgstr ""
+msgstr "Nije server"
 
 #: setup/frames/index.inc.php:232
 msgid "Default language"
@@ -13192,7 +13192,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:253
 msgid "- none -"
-msgstr ""
+msgstr "none"
 
 #: setup/frames/index.inc.php:257
 msgid "Default server"
@@ -13216,7 +13216,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:310
 msgid "Donate"
-msgstr ""
+msgstr "Donearje"
 
 #: setup/frames/servers.inc.php:29
 msgid "Edit server"
@@ -13337,7 +13337,7 @@ msgstr ""
 
 #: themes.php:17 themes.php:22
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: themes.php:25
 msgid "Get more themes!"
@@ -13358,7 +13358,7 @@ msgstr ""
 #: transformation_overview.php:53
 msgctxt "for MIME transformation"
 msgid "Description"
-msgstr ""
+msgstr "Beskriuwing"
 
 #: url.php:35
 #, php-format
@@ -13559,7 +13559,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 #: libraries/advisory_rules.txt:135
 msgid "Distribution"
-msgstr ""
+msgstr "Distribúsje"
 
 #: libraries/advisory_rules.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -13599,7 +13599,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:142
 msgid "MySQL Architecture"
-msgstr ""
+msgstr "MySQL-arsjitektuer"
 
 #: libraries/advisory_rules.txt:145
 msgid "MySQL is not compiled as a 64-bit package."
