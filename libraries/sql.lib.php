@@ -1682,9 +1682,7 @@ function PMA_getBookmarkCreatedMessage()
 /**
  * Function to get html for the sql query results table
  *
- * @param array              $sql_data             sql data
  * @param PMA_DisplayResults $displayResultsObject instance of DisplayResult.class
- * @param string             $db                   current database
  * @param string             $pmaThemeImage        theme image uri
  * @param string             $url_query            url query
  * @param string             $disp_mode            display mode
@@ -1698,7 +1696,7 @@ function PMA_getBookmarkCreatedMessage()
  *
  * @return String
  */
-function PMA_getHtmlForSqlQueryResultsTable($sql_data, $displayResultsObject, $db,
+function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
     $pmaThemeImage, $url_query, $disp_mode,
     $editable, $unlim_num_rows, $num_rows, $showtable, $result,
     $analyzed_sql_results
@@ -1983,7 +1981,7 @@ function PMA_getQueryResponseForResultsReturned($result,
             );
         }
         $table_maintenance_html .= PMA_getHtmlForSqlQueryResultsTable(
-            isset($sql_data) ? $sql_data : null, $displayResultsObject, $db,
+            $displayResultsObject,
             $pmaThemeImage, $url_query, $disp_mode,
             false, $unlim_num_rows, $num_rows, $showtable, $result,
             $analyzed_sql_results
@@ -2024,7 +2022,7 @@ function PMA_getQueryResponseForResultsReturned($result,
     $bookmark_created_msg = PMA_getBookmarkCreatedMessage();
 
     $table_html = PMA_getHtmlForSqlQueryResultsTable(
-        isset($sql_data) ? $sql_data : null, $displayResultsObject, $db,
+        $displayResultsObject,
         $pmaThemeImage, $url_query, $disp_mode,
         $editable, $unlim_num_rows, $num_rows, $showtable, $result,
         $analyzed_sql_results
