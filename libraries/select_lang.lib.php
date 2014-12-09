@@ -271,6 +271,8 @@ function PMA_langDetails($lang)
         return array('fi|finnish', 'fi', 'Suomi');
     case 'fr':
         return array('fr|french', 'fr', 'Fran&ccedil;ais');
+    case 'fy':
+        return array('fy|frisian', 'fy', 'Frysk');
     case 'gl':
         return array('gl|galician', 'gl', 'Galego');
     case 'he':
