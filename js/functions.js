@@ -1669,6 +1669,7 @@ function codemirrorAutocompleteOnInputRead(instance) {
             var params = {
                 'ajax_request': true,
                 'token': PMA_commonParams.get('token'),
+                'server': PMA_commonParams.get('server'),
                 'db': PMA_commonParams.get('db')
             };
             $.ajax({
