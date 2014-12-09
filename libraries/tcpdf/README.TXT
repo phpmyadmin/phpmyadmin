@@ -8,8 +8,8 @@ http://sourceforge.net/donate/index.php?group_id=128076
 ------------------------------------------------------------
 
 Name: TCPDF
-Version: 6.0.077
-Release date: 2014-05-06
+Version: 6.1.0
+Release date: 2014-12-07
 Author:	Nicola Asuni
 
 Copyright (c) 2002-2014:
@@ -106,6 +106,10 @@ Third party fonts:
 	
 	The binary files (.z) that begins with the prefix "ae" have been extracted from the Arabeyes.org collection (GNU-GPLv2).
 	Link : http://projects.arabeyes.org/
+
+ICC profile:
+    TCPDF includes the sRGB.icc profile from the icc-profiles-free Debian package:
+    https://packages.debian.org/source/stable/icc-profiles-free
 
 
 ============================================================

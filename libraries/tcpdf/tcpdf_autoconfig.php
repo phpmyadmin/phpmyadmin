@@ -3,7 +3,7 @@
 // File name   : tcpdf_autoconfig.php
 // Version     : 1.0.000
 // Begin       : 2013-05-16
-// Last Update : 2014-01-25
+// Last Update : 2014-09-02
 // Authors     : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
@@ -230,6 +230,10 @@ if (!defined('K_TCPDF_CALLS_IN_HTML')) {
 
 if (!defined('K_TCPDF_THROW_EXCEPTION_ERROR')) {
 	define('K_TCPDF_THROW_EXCEPTION_ERROR', false);
+}
+
+if (!defined('K_TIMEZONE')) {
+	define('K_TIMEZONE', @date_default_timezone_get());
 }
 
 //============================================================+
