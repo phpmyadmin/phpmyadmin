@@ -32,7 +32,7 @@ function PMA_selectServer($not_only_options, $omit_fieldset)
     if ($not_only_options) {
         $retval .= '<form method="post" action="'
             . $GLOBALS['cfg']['DefaultTabServer'] . '" class="disableAjax">';
-        $retval .= PMA_URL_getHiddenInputs();
+        $retval .= PMA_getHiddenFields(array('token' => $_SESSION[' PMA_token ']));
 
         if (! $omit_fieldset) {
             $retval .= '<fieldset>';
