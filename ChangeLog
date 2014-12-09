@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.3.2.0 (not yet released)
+- bug #4628 PHP error while exporting schema as PDF
 
 4.3.1.0 (2014-12-08)
 - bug #4609 'Show all' checkbox label is not clickable

@@ -28,6 +28,7 @@ require_once 'libraries/plugins/schema/Export_Relation_Schema.class.php';
 require_once 'libraries/plugins/schema/pdf/RelationStatsPdf.class.php';
 require_once 'libraries/plugins/schema/pdf/TableStatsPdf.class.php';
 require_once 'libraries/PDF.class.php';
+require_once 'libraries/transformations.lib.php';
 
 /**
  * Extends the "TCPDF" class and helps
