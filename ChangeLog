@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - bug #4628 PHP error while exporting schema as PDF
 - bug #4631 Server selector submits two server parameter values
 - bug #4629 Problem with custom SQL queries using cookie authentication
+- bug       Undefined index central_columnswork
 
 4.3.1.0 (2014-12-08)
 - bug #4609 'Show all' checkbox label is not clickable
