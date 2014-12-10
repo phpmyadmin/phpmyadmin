@@ -2655,34 +2655,43 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(array($meta)));
 
         $dbi->expects($this->at(2))
-            ->method('fetchValue')
+            ->method('fetchRow')
             ->will($this->returnValue(false));
 
         $dbi->expects($this->at(3))
+            ->method('freeResult');
+
+        $dbi->expects($this->at(4))
             ->method('tryQuery')
             ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
 
         $meta->type = 'int';
-        $dbi->expects($this->at(4))
+        $dbi->expects($this->at(5))
             ->method('getFieldsMeta')
             ->will($this->returnValue(array($meta)));
 
-        $dbi->expects($this->at(5))
-            ->method('fetchValue')
-            ->will($this->returnValue('123'));
-
         $dbi->expects($this->at(6))
+            ->method('fetchRow')
+            ->will($this->returnValue(array(0 => '123')));
+
+        $dbi->expects($this->at(7))
+            ->method('freeResult');
+
+        $dbi->expects($this->at(8))
             ->method('tryQuery')
             ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
 
         $meta->type = 'timestamp';
-        $dbi->expects($this->at(7))
+        $dbi->expects($this->at(9))
             ->method('getFieldsMeta')
             ->will($this->returnValue(array($meta)));
 
-        $dbi->expects($this->at(8))
-            ->method('fetchValue')
-            ->will($this->returnValue('2013-08-28 06:34:14'));
+        $dbi->expects($this->at(10))
+            ->method('fetchRow')
+            ->will($this->returnValue(array(0 => '2013-08-28 06:34:14')));
+
+        $dbi->expects($this->at(11))
+            ->method('freeResult');
 
         $GLOBALS['dbi'] = $dbi;
 
