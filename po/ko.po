@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-07 12:53+0100\n"
-"PO-Revision-Date: 2014-11-15 04:12+0200\n"
-"Last-Translator: youngminz <youngminz.kr@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ko/>\n"
+"PO-Revision-Date: 2014-12-10 19:51+0200\n"
+"Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
+"Language-Team: Korean "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.1-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -340,10 +340,9 @@ msgid ""
 msgstr ""
 
 #: db_tracking.php:78
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "데이터베이스를 선택하지 않았습니다."
+msgstr "테이블이 선택되지 않았습니다."
 
 #: db_tracking.php:112
 msgid "Tracked tables"
@@ -926,10 +925,9 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "이 테이블의 모든 데이터를 비우려고 합니다!"
 
 #: js/messages.php:40
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "이 테이블에 대한 추적 데이터를 제거"
+msgstr "이 테이블에 대한 추적 데이터를 삭제합니까?"
 
 #: js/messages.php:41
 #, fuzzy
@@ -6758,7 +6756,6 @@ msgid "Signon URL"
 msgstr "접속 URL"
 
 #: libraries/config/messages.inc.php:650
-#, fuzzy
 #| msgid "Port on which MySQL server is listening, leave empty for default"
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr "MySQL 서버가 listen하고 있는 소켓으로, 비워두면 기본값으로 설정됩니다."
@@ -9685,7 +9682,6 @@ msgstr ""
 "예:<code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:403
-#, fuzzy
 #| msgid ""
 #| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 #| "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -9694,7 +9690,7 @@ msgid ""
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 "위의 것 둘 다<br /> &nbsp; &nbsp; &nbsp; 예: <code>INSERT INTO tbl_name "
-"(col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"(col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:408
 msgid ""
@@ -9783,10 +9779,9 @@ msgid "Object creation options (all are recommended)"
 msgstr ""
 
 #: libraries/plugins/export/ExportXml.class.php:141
-#, fuzzy
 #| msgid "Data point content"
 msgid "Export contents"
-msgstr "데이터 포인트 내용"
+msgstr "내용 내보내기"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:117
 msgid "Table:"
@@ -9978,10 +9973,10 @@ msgid "PDF export page"
 msgstr "잘못된 내보내기 타입"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:473
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
-msgstr "데이터베이스 %s의 스키마 - 페이지 %s"
+msgstr "데이터베이스 %s의 스키마"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:496
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:916
@@ -10872,10 +10867,9 @@ msgid "Is deterministic"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1068
-#, fuzzy
 #| msgid "Server type:"
 msgid "Security type"
-msgstr "서버 타입:"
+msgstr "보안 타입"
 
 #: libraries/rte/rte_routines.lib.php:1077
 msgid "SQL data access"
@@ -10962,10 +10956,9 @@ msgid "Time"
 msgstr "시간"
 
 #: libraries/rte/rte_triggers.lib.php:429
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a trigger name!"
-msgstr "루틴 이름이 필요함"
+msgstr "트리거 이름을 입력하세요!"
 
 #: libraries/rte/rte_triggers.lib.php:436
 msgid "You must provide a valid timing for the trigger!"
@@ -11299,9 +11292,8 @@ msgstr "현재 쓰레드에 대한 테이블 잠금(lock) 허용."
 
 #: libraries/server_privileges.lib.php:390
 #: libraries/server_privileges.lib.php:1161 server_privileges.php:106
-#, fuzzy
 msgid "Allows creating and dropping triggers."
-msgstr "인덱스 생성 및 삭제 허용."
+msgstr "트리거 생성 및 삭제 허용."
 
 #: libraries/server_privileges.lib.php:401
 #: libraries/server_privileges.lib.php:407
@@ -11941,15 +11933,13 @@ msgid "Reset to default"
 msgstr "기본값으로 초기화"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
 #| "between the web server and the MySQL server."
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
-msgstr ""
-"주의: 데이터베이스 통계 보기는 웹서버와 MySQL 서버 사이에 큰 부하를 줍니다."
+msgstr "주의: 자동 새로고침기능을 활성화하실 경우 웹서버와 MySQL 서버 사이에 큰 부하를 줄 수 있습니다."
 
 #: libraries/server_status_processes.lib.php:69
 msgid "ID"
@@ -12632,10 +12622,9 @@ msgid "Table level tabs"
 msgstr "테이블 설명"
 
 #: libraries/server_user_groups.lib.php:108
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "뷰"
+msgstr "사용자 보기"
 
 #: libraries/server_user_groups.lib.php:145
 #: libraries/server_user_groups.lib.php:206
@@ -12949,12 +12938,11 @@ msgid "Check tables having overhead"
 msgstr "오버헤드를 가진 테이블들을 체크"
 
 #: libraries/structure.lib.php:831
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "근사값입니다. [doc@faq3-11]FAQ 3.11[/doc]를 참조하세요."
+msgstr "근사값입니다. 정확한 값을 보시려면 숫자를 클릭하세요. [doc@faq3-11]FAQ 3.11[/doc]를 참조하세요."
 
 #: libraries/structure.lib.php:853 libraries/structure.lib.php:2330
 #: libraries/tbl_printview.lib.php:320
@@ -13223,10 +13211,9 @@ msgid "Start row:"
 msgstr "시작 행:"
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "파일로 저장"
+msgstr "차트를 이미지 파일로 저장"
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
@@ -13441,7 +13428,6 @@ msgstr ""
 "외래키 릴레이션이 있을 경우, 거기에 해당하는 내부 릴레이션은 필요 없습니다."
 
 #: libraries/tbl_relation.lib.php:371
-#, fuzzy
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraints"
 msgstr "외래키 제약"
@@ -13468,16 +13454,15 @@ msgid "Foreign key constraint"
 msgstr "외래키 제약"
 
 #: libraries/tbl_relation.lib.php:406
-#, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
-msgstr "제약조건 추가"
+msgstr "+ 제약조건 추가"
 
 #: libraries/tbl_relation.lib.php:443
-#, fuzzy, php-format
+#, php-format
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraint %s has been dropped"
-msgstr "외래키 제약"
+msgstr "외래키 제약 %s 가 제거되었습니다"
 
 #: libraries/tbl_relation.lib.php:467
 msgid "Constraint name"
@@ -13552,10 +13537,9 @@ msgid "Deactivate now"
 msgstr "지금 비활성화"
 
 #: libraries/tracking.lib.php:258 libraries/tracking.lib.php:312
-#, fuzzy
 #| msgid "Create version"
 msgid "Delete version"
-msgstr "버전 생성"
+msgstr "버전 삭제"
 
 #: libraries/tracking.lib.php:377 libraries/tracking.lib.php:1386
 msgid "active"
@@ -13859,10 +13843,9 @@ msgid "Insecure connection"
 msgstr "보호되지 않은 연결"
 
 #: setup/frames/index.inc.php:119
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration saved."
-msgstr "수정된 내용이 저장되었습니다."
+msgstr "설정이 저장되었습니다."
 
 #: setup/frames/index.inc.php:122
 msgid ""
