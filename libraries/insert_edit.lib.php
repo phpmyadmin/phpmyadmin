@@ -2367,7 +2367,7 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
     $db, $table, $column_name, &$extra_data
 ) {
 
-    $extra_data['isNeedToRecheck'] = true;
+    $extra_data['isNeedToRecheck'] = false;
 
     $sql_for_real_value = 'SELECT ' . PMA_Util::backquote($table) . '.'
         . PMA_Util::backquote($column_name)
@@ -2378,19 +2378,18 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
     $result = $GLOBALS['dbi']->tryQuery($sql_for_real_value);
     $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
     $meta = $fields_meta[0];
-    $new_value = $GLOBALS['dbi']->fetchValue($result);
-    if ($new_value !== false) {
+    if ($row = $GLOBALS['dbi']->fetchRow($result)) {
+        $new_value = $row[0];
         if ((substr($meta->type, 0, 9) == 'timestamp')
             || ($meta->type == 'datetime')
             || ($meta->type == 'time')
         ) {
             $new_value = PMA_Util::addMicroseconds($new_value);
         }
+        $extra_data['isNeedToRecheck'] = true;
         $extra_data['truncatableFieldValue'] = $new_value;
-    } else {
-        $extra_data['isNeedToRecheck'] = false;
     }
-
+    $GLOBALS['dbi']->freeResult($result);
 }
 
 /**

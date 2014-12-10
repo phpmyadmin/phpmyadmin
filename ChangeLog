@@ -12,6 +12,8 @@ phpMyAdmin - ChangeLog
 - bug #4631 Server selector submits two server parameter values
 - bug #4629 Problem with custom SQL queries using cookie authentication
 - bug       Undefined index central_columnswork
+- bug #4632 Notice in ./libraries/Util.class.php#1916 Undefined index: query
+- bug #4633 Wrong parameter in fetchValue
 
 4.3.1.0 (2014-12-08)
 - bug #4609 'Show all' checkbox label is not clickable
