@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - bug       Undefined index central_columnswork
 - bug #4632 Notice in ./libraries/Util.class.php#1916 Undefined index: query
 - bug #4633 Wrong parameter in fetchValue
+- bug #4634 Error reporting creates an infinite loop
 
 4.3.1.0 (2014-12-08)
 - bug #4609 'Show all' checkbox label is not clickable
