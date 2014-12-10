@@ -142,6 +142,12 @@ var PMA_console = {
                 PMA_console.showCard('#pma_console_options');
             });
 
+            PMA_console.$consoleContent.click(function(event) {
+                if (event.target == this) {
+                    PMA_consoleInput.focus();
+                }
+            });
+
             $('#pma_console .mid_layer').click(function() {
                 PMA_console.hideCard($(this).parent().children('.card'));
             });
