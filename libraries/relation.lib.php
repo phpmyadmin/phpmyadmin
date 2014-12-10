@@ -1905,7 +1905,7 @@ function PMA_getHtmlFixPMATables()
 {
     $retval = '';
 
-    $url_query = PMA_URL_getCommon($GLOBALS['db']);
+    $url_query = PMA_URL_getCommon(array('db' => $GLOBALS['db']));
     $url_query .= '&amp;goto=db_operations.php&amp;fix_pmadb=1';
     $message = PMA_Message::notice(
         __(
