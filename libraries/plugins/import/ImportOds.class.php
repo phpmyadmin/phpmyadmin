@@ -221,11 +221,6 @@ class ImportOds extends ImportPlugin
                         continue;
                     }
 
-                    /* Number of blank columns repeated */
-                    if ($col_count >= count($row->children('table', true)) - 1) {
-                        continue;
-                    }
-
                     $attr = $cell->attributes('table', true);
                     $num_null = (int)$attr['number-columns-repeated'];
 
