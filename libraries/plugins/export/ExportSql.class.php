@@ -1326,12 +1326,12 @@ class ExportSql extends ExportPlugin
                     );
                     $sql_indexes_query_start = 'ALTER TABLE '
                     . PMA_Util::backquoteCompat($table_alias, $compat)
-                    . $crlf;
+                    . $crlf . ' ';
                     $sql_indexes_query .= $sql_indexes_query_start;
 
                     $sql_indexes_start = 'ALTER TABLE '
                     . PMA_Util::backquoteCompat($table_alias,  $compat)
-                    . $crlf;
+                    . $crlf . ' ';
                     $sql_indexes .= $sql_indexes_start;
                 }
                 if ($update_indexes_increments && preg_match(
@@ -1370,10 +1370,8 @@ class ExportSql extends ExportPlugin
                         '( AUTO_INCREMENT | AUTO_INCREMENT,| AUTO_INCREMENT$)',
                         $sql_lines[$k]
                     )) {
-                        //removes extra space at the beginning, if there is
-                        $sql_lines[$k] = ltrim($sql_lines[$k], ' ');
                         //creates auto increment code
-                        $sql_auto_increments .= "MODIFY " . $sql_lines[$k];
+                        $sql_auto_increments .= "  MODIFY " . ltrim($sql_lines[$k]);
                         //removes auto increment code from table definition
                         $sql_lines[$k] = str_replace(
                             " AUTO_INCREMENT", "", $sql_lines[$k]
