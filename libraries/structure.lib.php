@@ -2113,7 +2113,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         );
     }
     $html_output .= PMA_getHtmlForDistinctValueAction($url_query, $row, $titles);
-    if (isset($GLOBALS['cfgRelation']['central_columnswork'])
+    if (isset($GLOBALS['cfgRelation']['central_columnswork']) 
         && $GLOBALS['cfgRelation']['central_columnswork']
     ) {
         $html_output .= '<li class="browse nowrap">';
