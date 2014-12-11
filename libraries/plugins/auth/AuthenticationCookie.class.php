@@ -34,7 +34,8 @@ require './libraries/plugins/auth/swekey/swekey.auth.lib.php';
 if (! function_exists('openssl_encrypt')
     || ! function_exists('openssl_decrypt')
     || ! function_exists('openssl_random_pseudo_bytes')
-    || PHP_VERSION_ID < 50304) {
+    || PHP_VERSION_ID < 50304
+) {
     require PHPSECLIB_INC_DIR . '/Crypt/AES.php';
     require PHPSECLIB_INC_DIR . '/Crypt/Random.php';
 }
@@ -253,12 +254,14 @@ class AuthenticationCookie extends AuthenticationPlugin
                  </noscript>
                  <script type="text/javascript">
                     $(function() {
-                        $("#recaptcha_reload_btn," +
+                        $(document).on(
+                          "mouseover",
+                          "#recaptcha_reload_btn," +
                           "#recaptcha_switch_audio_btn," +
                           "#recaptcha_switch_img_btn," +
                           "#recaptcha_whatsthis_btn," +
-                          "#recaptcha_audio_play_again")
-                        .live("mouseover", function() {
+                          "#recaptcha_audio_play_again"
+                          function() {
                             $(this).addClass("disableAjax");
                         });
                     });

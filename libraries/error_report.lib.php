@@ -210,6 +210,9 @@ function PMA_sendErrorReport($report)
     }
 
     $curl_handle = curl_init(SUBMISSION_URL);
+    if ($curl_handle === false) {
+        return null;
+    }
     $curl_handle = PMA_Util::configureCurl($curl_handle);
     curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array('Expect:'));

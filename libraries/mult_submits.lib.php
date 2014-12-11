@@ -558,7 +558,7 @@ function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
  */
 function PMA_getQueryFromSelected($what, $db, $table, $selected, $views)
 {
-    $reload = null;
+    $reload = false;
     $full_query_views = null;
     $full_query     = '';
 
@@ -585,7 +585,7 @@ function PMA_getQueryFromSelected($what, $db, $table, $selected, $views)
             $full_query .= 'DROP DATABASE '
                 . PMA_Util::backquote(htmlspecialchars($sval))
                 . ';<br />';
-            $reload = 1;
+            $reload = true;
             break;
 
         case 'drop_tbl':

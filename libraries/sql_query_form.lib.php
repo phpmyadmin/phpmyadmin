@@ -118,7 +118,7 @@ function PMA_getHtmlForSqlQueryForm(
     $html .= '</form>' . "\n";
     // print an empty div, which will be later filled with
     // the sql query results by ajax
-    $html .= '<div id="sqlqueryresults"></div>';
+    $html .= '<div id="sqlqueryresultsouter"></div>';
 
     return $html;
 }
@@ -146,8 +146,6 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $locking = '';
     $height = $GLOBALS['cfg']['TextareaRows'] * 2;
 
-    $table          = '';
-    $db             = '';
     $fields_list    = array();
     if (! /*overload*/mb_strlen($GLOBALS['db'])) {
         // prepare for server related
@@ -176,7 +174,6 @@ function PMA_getHtmlForSqlQueryFormInsert(
             );
         }
     } else {
-        $table  = $GLOBALS['table'];
         $db     = $GLOBALS['db'];
         // Get the list and number of fields
         // we do a try_query here, because we could be in the query window,

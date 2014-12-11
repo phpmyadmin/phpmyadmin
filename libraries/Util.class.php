@@ -1019,7 +1019,7 @@ class PMA_Util
 
         // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
         // check for it's presence before using it
-        $retval .= '<div id="result_query"'
+        $retval .= '<div class="result_query"'
             . ( isset($GLOBALS['cell_align_left'])
                 ? ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"'
                 : '' )
@@ -2609,15 +2609,19 @@ class PMA_Util
      * @param string  $label           label for checkbox
      * @param boolean $checked         is it initially checked?
      * @param boolean $onclick         should it submit the form on click?
+     * @param string  $html_field_id   id for the checkbox
      *
      * @return string                  HTML for the checkbox
      */
-    public static function getCheckbox($html_field_name, $label, $checked, $onclick)
-    {
-        return '<input type="checkbox" name="' . $html_field_name . '" id="'
-            . $html_field_name . '"' . ($checked ? ' checked="checked"' : '')
-            . ($onclick ? ' class="autosubmit"' : '') . ' /><label for="'
-            . $html_field_name . '">' . $label . '</label>';
+    public static function getCheckbox(
+        $html_field_name, $label, $checked, $onclick, $html_field_id = ''
+    ) {
+        return '<input type="checkbox" name="' . $html_field_name . '"'
+            . ($html_field_id ? ' id="' . $html_field_id . '"' : '')
+            . ($checked ? ' checked="checked"' : '')
+            . ($onclick ? ' class="autosubmit"' : '') . ' />'
+            . '<label' . ($html_field_id ? ' for="' . $html_field_id . '"' : '')
+            . '>' . $label . '</label>';
     }
 
     /**
@@ -2629,12 +2633,15 @@ class PMA_Util
      * @param boolean $line_break      whether to add HTML line break after a choice
      * @param boolean $escape_label    whether to use htmlspecialchars() on label
      * @param string  $class           enclose each choice with a div of this class
+     * @param string  $id_prefix       prefix for the id attribute, name will be
+     *                                 used if this is not supplied
      *
      * @return string                  set of html radio fiels
      */
     public static function getRadioFields(
         $html_field_name, $choices, $checked_choice = '',
-        $line_break = true, $escape_label = true, $class = ''
+        $line_break = true, $escape_label = true, $class = '',
+        $id_prefix = ''
     ) {
         $radio_html = '';
 
@@ -2644,7 +2651,10 @@ class PMA_Util
                 $radio_html .= '<div class="' . $class . '">';
             }
 
-            $html_field_id = $html_field_name . '_' . $choice_value;
+            if (! $id_prefix) {
+                $id_prefix = $html_field_name;
+            }
+            $html_field_id = $id_prefix . '_' . $choice_value;
             $radio_html .= '<input type="radio" name="' . $html_field_name . '" id="'
                         . $html_field_id . '" value="'
                         . htmlspecialchars($choice_value) . '"';
@@ -2683,13 +2693,14 @@ class PMA_Util
      *                              case the dropdown is present more than once
      *                              on the page
      * @param string $class         class for the select element
+     * @param string $placeholder   Placeholder for dropdown if nothing else is selected
      *
      * @return string               html content
      *
      * @todo    support titles
      */
     public static function getDropdown(
-        $select_name, $choices, $active_choice, $id, $class = ''
+        $select_name, $choices, $active_choice, $id, $class = '', $placeholder = null
     ) {
         $result = '<select'
             . ' name="' . htmlspecialchars($select_name) . '"'
@@ -2697,15 +2708,28 @@ class PMA_Util
             . (! empty($class) ? ' class="' . htmlspecialchars($class) . '"' : '')
             . '>';
 
+        $resultOptions = '';
+        $selected = false;
+
         foreach ($choices as $one_choice_value => $one_choice_label) {
-            $result .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
+            $resultOptions .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
 
             if ($one_choice_value == $active_choice) {
-                $result .= ' selected="selected"';
+                $resultOptions .= ' selected="selected"';
+                $selected = true;
             }
-            $result .= '>' . htmlspecialchars($one_choice_label) . '</option>';
+            $resultOptions .= '>' . htmlspecialchars($one_choice_label) . '</option>';
         }
-        $result .= '</select>';
+
+        if (!empty($placeholder)) {
+            $resultOptions = '<option value="" disabled="disabled"'
+                . ( !$selected ? ' selected="selected"' : '' )
+                . '>' . $placeholder . '</option>'
+                . $resultOptions;
+        }
+
+        $result .= $resultOptions
+            . '</select>';
 
         return $result;
     }
@@ -2722,10 +2746,10 @@ class PMA_Util
      * @return string         html div element
      *
      */
-    public static function getDivForSliderEffect($id, $message)
+    public static function getDivForSliderEffect($id = '', $message = '')
     {
         if ($GLOBALS['cfg']['InitialSlidersState'] == 'disabled') {
-            return '<div id="' . $id . '">';
+            return '<div' . ($id ? ' id="' . $id . '"' : '') . '>';
         }
         /**
          * Bad hack on the next line. document.write() conflicts with jQuery,
@@ -2736,11 +2760,14 @@ class PMA_Util
          * append to
          */
 
-        return '<div id="' . $id . '"'
+        return '<div'
+             . ($id ? ' id="' . $id . '"' : '')
             . (($GLOBALS['cfg']['InitialSlidersState'] == 'closed')
                 ? ' style="display: none; overflow:auto;"'
                 : '')
-            . ' class="pma_auto_slider" title="' . htmlspecialchars($message) . '">';
+            . ' class="pma_auto_slider"'
+            . ($message ? ' title="' . htmlspecialchars($message) . '"' : '')
+            . '>';
     }
 
     /**
@@ -4229,6 +4256,9 @@ class PMA_Util
                 );
             } else if (function_exists('curl_init')) {
                 $curl_handle = curl_init($file);
+                if ($curl_handle === false) {
+                    return array();
+                }
                 $curl_handle = PMA_Util::configureCurl($curl_handle);
                 curl_setopt(
                     $curl_handle,
@@ -4508,6 +4538,31 @@ class PMA_Util
         } // end while
 
         return array($primary, $pk_array, $indexes_info, $indexes_data);
+    }
+
+    /**
+     * Returns the HTML for check all check box and with selected text
+     * for multi submits
+     *
+     * @param string $pmaThemeImage path to theme's image folder
+     * @param string $text_dir      text direction
+     * @param string $formName      name of the enclosing form
+     *
+     * @return string HTML
+     */
+    public static function getWithSelected($pmaThemeImage, $text_dir, $formName)
+    {
+        $html = '<img class="selectallarrow" '
+            . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
+            . 'width="38" height="22" alt="' . __('With selected:') . '" />';
+        $html .= '<input type="checkbox" id="' . $formName . '_checkall" '
+            . 'class="checkall_box" title="' . __('Check All') . '" />'
+            . '<label for="' . $formName . '_checkall">' . __('Check All')
+            . '</label>';
+        $html .= '<i style="margin-left: 2em">'
+            . __('With selected:') . '</i>';
+
+        return $html;
     }
 }
 

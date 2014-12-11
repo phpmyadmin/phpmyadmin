@@ -142,6 +142,12 @@ var PMA_console = {
                 PMA_console.showCard('#pma_console_options');
             });
 
+            PMA_console.$consoleContent.click(function(event) {
+                if (event.target == this) {
+                    PMA_consoleInput.focus();
+                }
+            });
+
             $('#pma_console .mid_layer').click(function() {
                 PMA_console.hideCard($(this).parent().children('.card'));
             });
@@ -197,14 +203,14 @@ var PMA_console = {
         }
         PMA_console.$requestForm.children('textarea').val(queryString);
         if(options && options.db) {
-            PMA_console.$requestForm.children('[name=db]').attr('value', options.db);
+            PMA_console.$requestForm.children('[name=db]').val(options.db);
             if(options.table) {
-                PMA_console.$requestForm.children('[name=table]').attr('value', options.table);
+                PMA_console.$requestForm.children('[name=table]').val(options.table);
             } else {
-                PMA_console.$requestForm.children('[name=table]').attr('value', '');
+                PMA_console.$requestForm.children('[name=table]').val('');
             }
         } else {
-            PMA_console.$requestForm.children('[name=db]').attr('value',
+            PMA_console.$requestForm.children('[name=db]').val(
                 (PMA_commonParams.get('db').length > 0 ? PMA_commonParams.get('db') : ''));
         }
         PMA_console.$requestForm.find('[name=profiling]').remove();
@@ -215,7 +221,7 @@ var PMA_console = {
             return;
         }
         PMA_console.$requestForm.children('[name=console_message_id]')
-            .attr('value', PMA_consoleMessages.appendQuery({sql_query: queryString}).message_id);
+            .val(PMA_consoleMessages.appendQuery({sql_query: queryString}).message_id);
         PMA_console.$requestForm.trigger('submit');
         PMA_consoleInput.clear();
     },

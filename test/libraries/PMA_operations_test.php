@@ -95,12 +95,11 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetHtmlForCopyDatabase()
     {
-
         $_REQUEST['db_collation'] = 'db1';
-        $this->assertRegExp(
-            '/.*db_operations.php.*db_copy.*Copy database to.*/ms',
-            PMA_getHtmlForCopyDatabase("pma")
-        );
+        $html = PMA_getHtmlForCopyDatabase("pma");
+        $this->assertRegExp('/.*db_operations.php.*/', $html);
+        $this->assertRegExp('/.*db_copy.*/', $html);
+        $this->assertRegExp('/.*Copy database to.*/', $html);
     }
 
     /**
@@ -209,14 +208,13 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetHtmlForPartitionMaintenance()
     {
-
-        $this->assertRegExp(
-            '/.*action="tbl_operations.php".*ANALYZE.*REBUILD.*/ms',
-            PMA_getHtmlForPartitionMaintenance(
-                array("partition1", "partion2"),
-                array("param1" => 'foo', "param2" => 'bar')
-            )
+        $html = PMA_getHtmlForPartitionMaintenance(
+            array("partition1", "partion2"),
+            array("param1" => 'foo', "param2" => 'bar')
         );
+        $this->assertRegExp('/.*action="tbl_operations.php".*/', $html);
+        $this->assertRegExp('/.*ANALYZE.*/', $html);
+        $this->assertRegExp('/.*REBUILD.*/', $html);
     }
 
     /**

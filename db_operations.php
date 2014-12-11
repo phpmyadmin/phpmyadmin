@@ -31,9 +31,6 @@ $scripts->addFile('db_operations.js');
 
 $sql_query = '';
 
-// set export settings we need
-$GLOBALS['sql_backquotes'] = 1;
-
 /**
  * Rename/move or copy database
  */
@@ -54,11 +51,8 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
         $message = PMA_Message::error(__('The database name is empty!'));
     } else {
         $_error = false;
-        if ($move
-            || (isset($_REQUEST['create_database_before_copying'])
-            && $_REQUEST['create_database_before_copying'])
-        ) {
-            $sql_query = PMA_getSqlQueryAndCreateDbBeforeCopy();
+        if ($move || ! empty($_REQUEST['create_database_before_copying'])) {
+            PMA_createDbBeforeCopy();
         }
 
         // here I don't use DELIMITER because it's not part of the
@@ -85,29 +79,28 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
                 'export_type'  => 'database'
             )
         );
-        $GLOBALS['sql_constraints_query_full_db']
-            = PMA_getSqlConstraintsQueryForFullDb(
-                $tables_full, $export_sql_plugin, $move, $GLOBALS['db']
-            );
 
+        // create stand-in tables for views
         $views = PMA_getViewsAndCreateSqlViewStandIn(
             $tables_full, $export_sql_plugin, $GLOBALS['db']
         );
 
-        list($sql_query, $_error) = PMA_getSqlQueryForCopyTable(
-            $tables_full, $sql_query, $move, $GLOBALS['db']
+        // copy tables
+        $sqlConstratints = PMA_copyTables(
+            $tables_full, $move, $GLOBALS['db']
         );
 
         // handle the views
         if (! $_error) {
-            $_error = PMA_handleTheViews($views, $move, $GLOBALS['db']);
+            PMA_handleTheViews($views, $move, $GLOBALS['db']);
         }
         unset($views);
 
         // now that all tables exist, create all the accumulated constraints
-        if (! $_error && count($GLOBALS['sql_constraints_query_full_db']) > 0) {
-            PMA_createAllAccumulatedConstraints();
+        if (! $_error && count($sqlConstratints) > 0) {
+            PMA_createAllAccumulatedConstraints($sqlConstratints);
         }
+        unset($sqlConstratints);
 
         if (! PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 50100) {
             // here DELIMITER is not used because it's not part of the
@@ -130,8 +123,8 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
             PMA_relationsCleanupDatabase($GLOBALS['db']);
 
             // if someday the RENAME DATABASE reappears, do not DROP
-            $local_query = 'DROP DATABASE ' . PMA_Util::backquote($GLOBALS['db'])
-                . ';';
+            $local_query = 'DROP DATABASE '
+                . PMA_Util::backquote($GLOBALS['db']) . ';';
             $sql_query .= "\n" . $local_query;
             $GLOBALS['dbi']->query($local_query);
 

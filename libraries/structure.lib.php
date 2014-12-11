@@ -339,7 +339,8 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
         $html_output .= '<option value="copy_tbl_change_prefix" >'
             . __('Copy table with prefix') . '</option>' . "\n";
         if (isset($GLOBALS['cfgRelation']['central_columnswork'])
-        && $GLOBALS['cfgRelation']['central_columnswork']) {
+            && $GLOBALS['cfgRelation']['central_columnswork']
+        ) {
             $html_output .= '<option value="sync_unique_columns_central_list" >'
                 . __('Add columns to central list') . '</option>' . "\n";
             $html_output .= '<option value="delete_unique_columns_central_list" >'
@@ -1460,16 +1461,9 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_system_schema,
 function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
     $tbl_is_view, $db_is_system_schema, $tbl_storage_engine
 ) {
-    $html_output = '<img class="selectallarrow" '
-        . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
-        . 'width="38" height="22" alt="' . __('With selected:') . '" />';
-
-    $html_output .= '<input type="checkbox" id="fieldsForm_checkall" '
-        . 'class="checkall_box" title="' . __('Check All') . '" />'
-        . '<label for="fieldsForm_checkall">' . __('Check All') . '</label>';
-
-    $html_output .= '<i style="margin-left: 2em">'
-        . __('With selected:') . '</i>';
+    $html_output = PMA_Util::getWithSelected(
+        $pmaThemeImage, $text_dir, "fieldsForm"
+    );
 
     $html_output .= PMA_Util::getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_browse',
@@ -1516,7 +1510,9 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
                 __('Fulltext'), 'b_ftext.png', 'ftext'
             );
         }
-        if ($GLOBALS['cfgRelation']['central_columnswork']) {
+        if (isset($GLOBALS['cfgRelation']['central_columnswork'])
+            && $GLOBALS['cfgRelation']['central_columnswork']
+        ) {
             $html_output .= PMA_Util::getButtonOrImage(
                 'submit_mult', 'mult_submit', 'submit_mult_central_columns_add',
                 __('Add to central columns'), 'centralColumns_add.png',

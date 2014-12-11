@@ -325,7 +325,7 @@ function createAliasModal(event) {
                     isEmpty = false;
                 }
             });
-            $('input#btn_alias_config').attr('checked', !isEmpty);
+            $('input#btn_alias_config').prop('checked', !isEmpty);
         },
         position: 'center'
     });

@@ -158,7 +158,10 @@ class PMA_DisplayResults
         'mime_map' => null,
 
         /** boolean */
-        'editable' => null
+        'editable' => null,
+
+        /** random unique ID to distinguish result set */
+        'unique_id' => null
     );
 
     /**
@@ -219,6 +222,7 @@ class PMA_DisplayResults
         $this->__set('table', $table);
         $this->__set('goto', $goto);
         $this->__set('sql_query', $sql_query);
+        $this->__set('unique_id', rand());
     }
 
     /**
@@ -799,8 +803,9 @@ class PMA_DisplayResults
             . '<td class="navigation_separator"></td>'
             . '<td>'
             . '<span>' . __('Filter rows') . ':</span>'
-            . '<input type="text" class="filter_rows" placeholder="'
-            . __('Search this table') . '">'
+            . '<input type="text" class="filter_rows"'
+            . ' placeholder="' . __('Search this table') . '"'
+            . ' data-for="' . $this->__get('unique_id') . '" />'
             . '</td>'
             . '<td class="navigation_separator"></td>'
             . '</tr>'
@@ -864,9 +869,11 @@ class PMA_DisplayResults
             . (! $showing_all ? 'all' : $GLOBALS['cfg']['MaxRows']) . '" />'
             . '<input type="hidden" name="goto" value="' . $this->__get('goto')
             . '" />'
-            . '<input type="checkbox" name="navig" id="navig" class="showAllRows"'
+            . '<input type="checkbox" name="navig"'
+            . ' id="showAll_' . $this->__get('unique_id') . '" class="showAllRows"'
             . (! $showing_all ? '' : ' checked="checked"') . ' value="all" />'
-            . '<label for="navig">' . __('Show all') . '</label>'
+            . '<label for="showAll_' . $this->__get('unique_id') . '">'
+            . __('Show all') . '</label>'
             . '</form>'
             . '</td>';
     } // end of the '_getShowAllButtonForTableNavigation()' function
@@ -961,6 +968,11 @@ class PMA_DisplayResults
             // Do not change the position when changing the number of rows
             . $_SESSION['tmpval']['pos'] . '" />';
 
+        $numberOfRowsPlaceholder = null;
+        if ($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS) {
+            $numberOfRowsPlaceholder = __('All');
+        }
+
         $numberOfRowsChoices = array(
             '25'  => 25,
             '50'  => 50,
@@ -971,7 +983,7 @@ class PMA_DisplayResults
         $additional_fields_html .= __('Number of rows:') . ' ';
         $additional_fields_html .= PMA_Util::getDropdown(
             'session_max_rows', $numberOfRowsChoices,
-            $_SESSION['tmpval']['max_rows'], '', 'autosubmit'
+            $_SESSION['tmpval']['max_rows'], '', 'autosubmit', $numberOfRowsPlaceholder
         );
 
         if ($GLOBALS['cfg']['ShowDisplayDirection']) {
@@ -1059,7 +1071,7 @@ class PMA_DisplayResults
         }
 
         // Output data needed for grid editing
-        $table_headers_html .= '<input id="save_cells_at_once" type="hidden" value="'
+        $table_headers_html .= '<input class="save_cells_at_once" type="hidden" value="'
             . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'
             . '<div class="common_hidden_inputs">'
             . PMA_URL_getHiddenInputs(
@@ -1572,20 +1584,20 @@ class PMA_DisplayResults
         $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
 
         if ($col_order) {
-            $data_html .= '<input id="col_order" type="hidden" value="'
+            $data_html .= '<input class="col_order" type="hidden" value="'
                 . implode(',', $col_order) . '" />';
         }
 
         $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
 
         if ($col_visib) {
-            $data_html .= '<input id="col_visib" type="hidden" value="'
+            $data_html .= '<input class="col_visib" type="hidden" value="'
                 . implode(',', $col_visib) . '" />';
         }
 
         // generate table create time
         if (! PMA_Table::isView($this->__get('db'), $this->__get('table'))) {
-            $data_html .= '<input id="table_create_time" type="hidden" value="'
+            $data_html .= '<input class="table_create_time" type="hidden" value="'
                 . PMA_Table::sGetStatusInfo(
                     $this->__get('db'), $this->__get('table'), 'Create_time'
                 ) . '" />';
@@ -1611,8 +1623,7 @@ class PMA_DisplayResults
         $options_html = '';
 
         $options_html .= '<form method="post" action="sql.php" '
-            . 'name="displayOptionsForm" '
-            . 'id="displayOptionsForm"';
+            . 'name="displayOptionsForm"';
 
         $options_html .= ' class="ajax" ';
 
@@ -1628,7 +1639,7 @@ class PMA_DisplayResults
         $options_html .= PMA_URL_getHiddenInputs($url_params)
             . '<br />'
             . PMA_Util::getDivForSliderEffect(
-                'displayoptions', __('Options')
+                '', __('Options')
             )
             . '<fieldset>';
 
@@ -1641,7 +1652,8 @@ class PMA_DisplayResults
         // pftext means "partial or full texts" (done to reduce line lengths)
         $options_html .= PMA_Util::getRadioFields(
             'pftext', $choices,
-            $_SESSION['tmpval']['pftext']
+            $_SESSION['tmpval']['pftext'],
+            true, true, '', 'pftext_' . $this->__get('unique_id')
         )
         . '</div>';
 
@@ -1656,7 +1668,8 @@ class PMA_DisplayResults
 
             $options_html .= PMA_Util::getRadioFields(
                 'relational_display', $choices,
-                $_SESSION['tmpval']['relational_display']
+                $_SESSION['tmpval']['relational_display'],
+                true, true, '', 'relational_display_' . $this->__get('unique_id')
             )
             . '</div>';
         }
@@ -1664,12 +1677,14 @@ class PMA_DisplayResults
         $options_html .= '<div class="formelement">'
             . PMA_Util::getCheckbox(
                 'display_binary', __('Show binary contents'),
-                ! empty($_SESSION['tmpval']['display_binary']), false
+                ! empty($_SESSION['tmpval']['display_binary']), false,
+                'display_binary_' . $this->__get('unique_id')
             )
             . '<br />'
             . PMA_Util::getCheckbox(
                 'display_blob', __('Show BLOB contents'),
-                ! empty($_SESSION['tmpval']['display_blob']), false
+                ! empty($_SESSION['tmpval']['display_blob']), false,
+                'display_blob_' . $this->__get('unique_id')
             )
             . '</div>';
 
@@ -1680,7 +1695,8 @@ class PMA_DisplayResults
         $options_html .= '<div class="formelement">'
             . PMA_Util::getCheckbox(
                 'hide_transformation', __('Hide browser transformation'),
-                ! empty($_SESSION['tmpval']['hide_transformation']), false
+                ! empty($_SESSION['tmpval']['hide_transformation']), false,
+                'hide_transformation_' . $this->__get('unique_id')
             )
             . '</div>';
 
@@ -1694,7 +1710,8 @@ class PMA_DisplayResults
 
             $options_html .= PMA_Util::getRadioFields(
                 'geoOption', $choices,
-                $_SESSION['tmpval']['geoOption']
+                $_SESSION['tmpval']['geoOption'],
+                true, true, '', 'geoOption_' . $this->__get('unique_id')
             )
                 . '</div>';
         }
@@ -1774,7 +1791,8 @@ class PMA_DisplayResults
         if (($del_lnk == self::DELETE_ROW) || ($del_lnk == self::KILL_PROCESS)) {
 
             $form_html .= '<form method="post" action="tbl_row_action.php" '
-                . 'name="resultsForm" id="resultsForm"';
+                . 'name="resultsForm"'
+                . ' id="resultsForm_' . $this->__get('unique_id'). '"';
 
             $form_html .= ' class="ajax" ';
 
@@ -1785,9 +1803,9 @@ class PMA_DisplayResults
                 . '<input type="hidden" name="goto" value="sql.php" />';
         }
 
-        $form_html .= '<table id="table_results" class="data';
-        $form_html .= ' ajax';
-        $form_html .= '">';
+        $form_html .= '<table class="table_results data ajax"';
+        $form_html .= ' data-uniqueId="' . $this->__get('unique_id') . '"';
+        $form_html .= '>';
 
         return $form_html;
 
@@ -5086,9 +5104,11 @@ class PMA_DisplayResults
                 . ' alt="' . __('With selected:') . '" />';
         }
 
-        $links_html .= '<input type="checkbox" id="resultsForm_checkall" '
+        $links_html .= '<input type="checkbox" '
+            . 'id="resultsForm_' . $this->__get('unique_id') . '_checkall" '
             . 'class="checkall_box" title="' . __('Check All') . '" /> '
-            . '<label for="resultsForm_checkall">' . __('Check All') . '</label> '
+            . '<label for="resultsForm_' . $this->__get('unique_id') . '_checkall">'
+            . __('Check All') . '</label> '
             . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
 
         $links_html .= PMA_Util::getButtonOrImage(

@@ -13,19 +13,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 ?>
 
-.gis_table td {
-    vertical-align: middle;
-}
-
-.gis_table select {
-    min-width: 151px;
-    margin: 6px;
-}
-
-.gis_table .button {
-   text-align: <?php echo $right; ?>;
-}
-
 /**
  * GIS data editor styles
  */

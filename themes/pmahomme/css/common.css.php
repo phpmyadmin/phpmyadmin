@@ -89,7 +89,7 @@ h2 a img {
     width: 100%;
 }
 
-#table_results td.data {
+.table_results td.data {
 border-right: 1px solid #bbb;
 }
 
@@ -200,6 +200,14 @@ input[type=date] {
     border: 1px solid #aaa;
     color: #555;
     padding: 4px;
+}
+
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=date],
+input[type=checkbox],
+select {
     margin: 6px;
 }
 
@@ -1082,6 +1090,9 @@ div#dataDisplay select {
 div#dataDisplay th {
     line-height: 2em;
 }
+table#tableFieldsId {
+    width: 100%;
+}
 
 /* Calendar */
 table.calendar {
@@ -1818,7 +1829,7 @@ div.sqlvalidate {
     overflow: auto;
 }
 
-#result_query div.sqlOuter {
+.result_query div.sqlOuter {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
     padding: 1em;
 }
@@ -2237,10 +2248,6 @@ table#index_columns select {
     border-radius: 2px;
 }
 
-.margin#change_column_dialog {
-    margin: 0 .5em;
-}
-
 /* config forms */
 .config-form ul.tabs {
     margin: 1.1em .2em 0;
@@ -2560,10 +2567,6 @@ fieldset .disabled-field td {
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-}
-
-#table_columns select {
-    margin: 0 6px;
 }
 
 #placeholder {
@@ -2941,7 +2944,7 @@ div#page_content form#db_search_form.ajax fieldset {
     margin-top: -0.3em;
 }
 
-div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div#result_query {
+div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div.result_query {
     margin-top: 1em;
 }
 

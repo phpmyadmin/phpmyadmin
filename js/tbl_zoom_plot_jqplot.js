@@ -120,7 +120,7 @@ AJAX.registerTeardown('tbl_zoom_plot_jqplot.js', function () {
     $('#tableid_3').unbind('change');
     $('#inputFormSubmitId').unbind('click');
     $('#togglesearchformlink').unbind('click');
-    $("#dataDisplay").find(':input').die('keydown');
+    $(document).on('keydown', "#dataDisplay :input");
     $('button.button-reset').unbind('click');
     $('div#resizer').unbind('resizestop');
     $('div#querychart').unbind('jqplotDataClick');
@@ -400,8 +400,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                     'inline_edit' : false
                 }, function (data) {
                     if (typeof data !== 'undefined' && data.success === true) {
-                        $('#sqlqueryresults').html(data.sql_query);
-                        $("#sqlqueryresults").trigger('appendAnchor');
+                        $('#sqlqueryresultsouter').html(data.sql_query);
+                        PMA_highlightSQL($('#sqlqueryresultsouter'));
                     } else {
                         PMA_ajaxShowMessage(data.error, false);
                     }
@@ -427,7 +427,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
      * in the dialog. Used to submit the Ajax
      * request when the ENTER key is pressed.
      */
-    $("#dataDisplay").find(':input').live('keydown', function (e) {
+    $(document).on('keydown', "#dataDisplay :input", function (e) {
         if (e.which === 13) { // 13 is the ENTER key
             e.preventDefault();
             if (typeof buttonOptions[PMA_messages.strSave] === 'function') {

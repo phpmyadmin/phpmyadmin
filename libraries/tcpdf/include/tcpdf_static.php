@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf_static.php
-// Version     : 1.0.002
+// Version     : 1.0.005
 // Begin       : 2002-08-03
-// Last Update : 2014-04-25
+// Last Update : 2014-12-07
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
@@ -38,7 +38,7 @@
  * This is a PHP class that contains static methods for the TCPDF class.<br>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 1.0.002
+ * @version 1.0.005
  */
 
 /**
@@ -46,7 +46,7 @@
  * Static methods used by the TCPDF class.
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 1.0.002
+ * @version 1.0.005
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_STATIC {
@@ -55,7 +55,7 @@ class TCPDF_STATIC {
 	 * Current TCPDF version.
 	 * @private static
 	 */
-	private static $tcpdf_version = '6.0.077';
+	private static $tcpdf_version = '6.1.0';
 
 	/**
 	 * String alias for total number of pages.
@@ -1093,12 +1093,13 @@ class TCPDF_STATIC {
 	/**
 	 * Returns a temporary filename for caching object on filesystem.
 	 * @param $type (string) Type of file (name of the subdir on the tcpdf cache folder).
+	 * @param $file_id (string) TCPDF file_id.
 	 * @return string filename.
 	 * @since 4.5.000 (2008-12-31)
 	 * @public static
 	 */
-	public static function getObjFilename($type='tmp') {
-		return tempnam(K_PATH_CACHE, '__tcpdf_'.$type.'_'.md5(getmypid().uniqid('', true).rand().microtime(true)).'_');
+	public static function getObjFilename($type='tmp', $file_id='') {
+		return tempnam(K_PATH_CACHE, '__tcpdf_'.$file_id.'_'.$type.'_'.md5(TCPDF_STATIC::getRandomSeed()).'_');
 	}
 
 	/**
@@ -1347,41 +1348,19 @@ class TCPDF_STATIC {
 	 * @public static
 	 */
 	public static function getRandomSeed($seed='') {
-		$seed .= microtime();
+		$rnd = uniqid(rand().microtime(true), true);
+		if (function_exists('posix_getpid')) {
+			$rnd .= posix_getpid();
+		}
 		if (function_exists('openssl_random_pseudo_bytes') AND (strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN')) {
 			// this is not used on windows systems because it is very slow for a know bug
-			$seed .= openssl_random_pseudo_bytes(512);
+			$rnd .= openssl_random_pseudo_bytes(512);
 		} else {
 			for ($i = 0; $i < 23; ++$i) {
-				$seed .= uniqid('', true);
+				$rnd .= uniqid('', true);
 			}
 		}
-		$seed .= uniqid('', true);
-		$seed .= rand();
-		$seed .= getmypid();
-		$seed .= __FILE__;
-		if (isset($_SERVER['REMOTE_ADDR'])) {
-			$seed .= $_SERVER['REMOTE_ADDR'];
-		}
-		if (isset($_SERVER['HTTP_USER_AGENT'])) {
-			$seed .= $_SERVER['HTTP_USER_AGENT'];
-		}
-		if (isset($_SERVER['HTTP_ACCEPT'])) {
-			$seed .= $_SERVER['HTTP_ACCEPT'];
-		}
-		if (isset($_SERVER['HTTP_ACCEPT_ENCODING'])) {
-			$seed .= $_SERVER['HTTP_ACCEPT_ENCODING'];
-		}
-		if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-			$seed .= $_SERVER['HTTP_ACCEPT_LANGUAGE'];
-		}
-		if (isset($_SERVER['HTTP_ACCEPT_CHARSET'])) {
-			$seed .= $_SERVER['HTTP_ACCEPT_CHARSET'];
-		}
-		$seed .= rand();
-		$seed .= uniqid('', true);
-		$seed .= microtime();
-		return $seed;
+		return $rnd.$seed.__FILE__.serialize($_SERVER).microtime(true);
 	}
 
 	/**
@@ -1569,7 +1548,7 @@ class TCPDF_STATIC {
 		$length = strlen($name);
 		for ($i = 0; $i < $length; ++$i) {
 			$chr = $name[$i];
-			if (preg_match('/[0-9a-zA-Z]/', $chr) == 1) {
+			if (preg_match('/[0-9a-zA-Z#_=-]/', $chr) == 1) {
 				$escname .= $chr;
 			} else {
 				$escname .= sprintf('#%02X', ord($chr));
@@ -2451,13 +2430,23 @@ class TCPDF_STATIC {
 
 	/**
 	 * Serialize an array of parameters to be used with TCPDF tag in HTML code.
-	 * @param $pararray (array) parameters array
-	 * @return sting containing serialized data
+	 * @param $data (array) parameters array
+	 * @return string containing serialized data
 	 * @since 4.9.006 (2010-04-02)
 	 * @public static
 	 */
-	public static function serializeTCPDFtagParameters($pararray) {
-		return urlencode(serialize($pararray));
+	public static function serializeTCPDFtagParameters($data) {
+		return urlencode(json_encode($data));
+	}
+
+	/**
+	 * Unserialize parameters to be used with TCPDF tag in HTML code.
+	 * @param $data (string) serialized data
+	 * @return array containing unserialized data
+	 * @public static
+	 */
+	public static function unserializeTCPDFtagParameters($data) {
+		return json_decode(urldecode($data), true);
 	}
 
 	/**

@@ -328,26 +328,26 @@ li.fast_filter.db_fast_filter {
 }
 
 /* Quick warp links */
-#pma_quick_warp {
+.pma_quick_warp {
     margin-top: 5px;
     margin-<?php echo $left; ?>: 2px;
     position: relative;
 }
-#pma_quick_warp .drop_list {
+.pma_quick_warp .drop_list {
     float: <?php echo $left; ?>;
     margin-<?php echo $left; ?>: 3px;
     padding: 2px 0;
 }
-#pma_quick_warp .drop_button{
+.pma_quick_warp .drop_button{
     padding: 0 .3em;
     border: 1px solid #ddd;
     background: #f2f2f2;
     cursor: pointer;
 }
-#pma_quick_warp .drop_list:hover .drop_button {
+.pma_quick_warp .drop_list:hover .drop_button {
     background: #fff;
 }
-#pma_quick_warp .drop_list ul {
+.pma_quick_warp .drop_list ul {
     position: absolute;
     margin: 0;
     padding: 0;
@@ -364,23 +364,23 @@ li.fast_filter.db_fast_filter {
     display: none;
     z-index: 802;
 }
-#pma_quick_warp .drop_list:hover ul {
+.pma_quick_warp .drop_list:hover ul {
     display: block;
 }
-#pma_quick_warp .drop_list li {
+.pma_quick_warp .drop_list li {
     white-space: nowrap;
 }
-#pma_quick_warp .drop_list li img {
+.pma_quick_warp .drop_list li img {
     vertical-align: sub;
 }
-#pma_quick_warp .drop_list li:hover {
+.pma_quick_warp .drop_list li:hover {
     background: #f2f2f2;
 }
-#pma_quick_warp .drop_list a {
+.pma_quick_warp .drop_list a {
     display: block;
     padding: .1em .3em;
 }
-#pma_quick_warp .drop_list a.favorite_table_anchor {
+.pma_quick_warp .drop_list a.favorite_table_anchor {
     clear: left;
     float: left;
     padding: .1em .3em 0;
