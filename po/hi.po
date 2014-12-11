@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-13 11:57-0500\n"
-"PO-Revision-Date: 2014-11-04 22:41+0200\n"
-"Last-Translator: Yogeshwar Dan Charan <charanyogeshwar@gmail.com>\n"
-"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"hi/>\n"
+"PO-Revision-Date: 2014-12-11 18:37+0200\n"
+"Last-Translator: Kushagra Pandey <kushagra4296@gmail.com>\n"
+"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/4-3/hi/>"
+"\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hi\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -36,7 +36,7 @@ msgstr "क्रमानुसार करने के लिए क्ल�
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1$s - %2$s."
-msgstr "रौ देखिये"
+msgstr "रौ देखिये %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -254,15 +254,13 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "डेटाबेस को  %1$s से %2$s में नकल किया गया है।"
 
 #: db_operations.php:263
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
-"phpMyAdmin विन्यास भंडारण को निष्क्रिय किया गया हैक्यों ये किया गया है, जानने के लिए %"
-"sयहाँ%s पर क्लिक करें."
+msgstr "phpMyAdmin विन्यास भंडारण को निष्क्रिय किया गया है। %sजानें क्यों%s ।"
 
 #: db_printview.php:48 db_tracking.php:83 db_tracking.php:207
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:756
@@ -458,7 +456,7 @@ msgstr "आप इस पेज को रिफ़्रेश करना चा
 
 #: export.php:182 schema_export.php:71
 msgid "Bad type!"
-msgstr "खोटा प्रकार"
+msgstr "खोटा प्रकार!"
 
 #: export.php:263
 msgid "Bad parameters!"
@@ -661,13 +659,13 @@ msgstr ""
 "[doc@faq1-16] अकसर किये गए सवाल 1.16 [/doc] देखें."
 
 #: import.php:557
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
-msgstr "अक्षर सेट रूपांतरण पुस्तकालय के बिना फ़ाइल के अक्षर सेट को परिवर्तित नहीं कर सकते"
+msgstr ""
+"फ़ाइल के अक्षर सेट को रूपांतरण पुस्तकालय के बिना परिवर्तित नहीं कर सकते !"
 
 #: import.php:597 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
@@ -716,6 +714,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"आप डेमो सर्वर का प्रयोग कर रहे हैं। आप यहाँ कुछ भी कर सकते हैं, लेकिन root, "
+"debian-sys-maint और pma उपयोगकर्ताओं को मत बदलें। अधिक जानकारी %s पर उपलब्ध "
+"है।"
 
 #: index.php:145
 msgid "General Settings"
@@ -791,10 +792,9 @@ msgid "Show PHP information"
 msgstr "PHP कि जानकारी दिखाओ"
 
 #: index.php:359
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "संस्करण जानकारी"
+msgstr "संस्करण की जानकारी:"
 
 #: index.php:368 libraries/Util.class.php:429 libraries/Util.class.php:491
 #: libraries/config/FormDisplay.tpl.php:148
@@ -810,7 +810,7 @@ msgstr "Wiki"
 
 #: index.php:384
 msgid "Official Homepage"
-msgstr "phpMyAdmin का आधिकारिक होमपेज"
+msgstr "आधिकारिक होमपेज"
 
 #: index.php:391
 msgid "Contribute"
@@ -838,6 +838,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"आपने PHP विन्यास में mbstring.func_overload को सक्षम किया है। यह विकल्प "
+"phpMyAdmin के साथ असंगत है और इसकी वजह से कुछ डाटा भ्रष्ट हो सकता है!"
 
 #: index.php:459
 msgid ""
@@ -845,6 +847,9 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
+"PHP का Mbstring विस्तार नहीं मिला था और आप एक multibyte वर्णसमूह का उपयोग "
+"करते लग रहे हैं। Mbstring विस्तार के बिना phpMyAdmin सही ढंग से string को "
+"विभाजित करने में असमर्थ है और इसके अप्रत्याशित परिणाम हो सकते हैं।"
 
 #: index.php:474
 msgid ""
@@ -9819,7 +9824,7 @@ msgstr "टेबल का नाम बदलें"
 
 #: libraries/operations.lib.php:775
 msgid "Table comments"
-msgstr "टेबल की टिप्पणी:"
+msgstr "टेबल की टिप्पणी"
 
 #: libraries/operations.lib.php:784 libraries/server_engines.lib.php:49
 msgid "Storage Engine"
@@ -9918,11 +9923,12 @@ msgstr "सम्बन्ध की अखंडता की जाँच क�
 
 #: libraries/operations.lib.php:1626
 msgid "Can't move table to same one!"
-msgstr "एक ही टेबल में स्थानांतरित नहीं कर सकते"
+msgstr "एक ही टेबल में स्थानांतरित नहीं कर सकते!"
 
 #: libraries/operations.lib.php:1628
+#, fuzzy
 msgid "Can't copy table to same one!"
-msgstr "एक ही टेबल में प्रतिलिपि नहीं कर सकते"
+msgstr "एक ही टेबल में प्रतिलिपि नहीं कर सकते!"
 
 #: libraries/operations.lib.php:1638
 #, php-format
@@ -10553,7 +10559,7 @@ msgstr "CSV इनपुट में अवैध काँलम गिनत�
 
 #: libraries/plugins/import/ImportLdi.class.php:99
 msgid "This plugin does not support compressed imports!"
-msgstr "यह प्लगइन संकुचित आयात का समर्थन नहीं करता"
+msgstr "यह प्लगइन संकुचित आयात का समर्थन नहीं करता!"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:56
 msgid "MediaWiki Table"
@@ -10567,7 +10573,7 @@ msgstr "CSV प्रारूप का अवैध इनपुट लाइ�
 
 #: libraries/plugins/import/ImportOds.class.php:89
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "प्रतिशत को उचित दशमलव के रूप में आयात करें"
+msgstr "प्रतिशत को उचित दशमलव के रूप में आयात करें  <i>(उ. 12.00% को .12)</i>"
 
 #: libraries/plugins/import/ImportOds.class.php:95
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
@@ -12441,7 +12447,7 @@ msgstr "चयनित यूसर को सफलतापूर्वक �
 #: libraries/server_privileges.lib.php:3573
 #, php-format
 msgid "The user %s already exists!"
-msgstr "%s यूसर पहले से मौजूद है"
+msgstr "उपयोगकर्ता %s पहले से मौजूद है!"
 
 #: libraries/server_privileges.lib.php:3764
 #, fuzzy, php-format
@@ -14278,15 +14284,16 @@ msgstr "डाउनलोड"
 
 #: libraries/tbl_indexes.lib.php:118
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "प्राथमिक कुंजी का नाम \"प्राथमिक\" होना चाहिए"
+msgstr "प्राथमिक कुंजी का नाम \"प्राथमिक\" होना चाहिए!"
 
 #: libraries/tbl_indexes.lib.php:128
 msgid "Can't rename index to PRIMARY!"
 msgstr "इन्डेक्स को PRIMARY नाम मे नहीं बदल सकते!"
 
 #: libraries/tbl_indexes.lib.php:144
+#, fuzzy
 msgid "No index parts defined!"
-msgstr "सूचकांक परिभाषित हिस्सा नहीं"
+msgstr "सूचकांक हिस्सा परिभाषित नहीं  है!"
 
 #: libraries/tbl_indexes.lib.php:263
 msgid "Index name:"
@@ -14295,7 +14302,7 @@ msgstr "इन्डेक्स नाम"
 #: libraries/tbl_indexes.lib.php:267
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "\"PRIMARY\" नाम हो सकता है केवल एक प्राथमिक कुंजी का!"
+msgstr "\"PRIMARY\" <b>केवल एक</b> प्राथमिक कुंजी का नाम <b>हो सकता है</b>!"
 
 #: libraries/tbl_indexes.lib.php:285
 #, fuzzy
@@ -14624,7 +14631,7 @@ msgstr "ज़िप संग्रह में त्रुटि"
 
 #: libraries/zip_extension.lib.php:35
 msgid "No files found inside ZIP archive!"
-msgstr "ज़िप संग्रह के अंदर कोई फाइल नहीं मिली"
+msgstr "ज़िप संग्रह के अंदर कोई फाइल नहीं मिली!"
 
 #: navigation.php:20
 msgid "Fatal error: The navigation can only be accessed via AJAX"
@@ -14665,8 +14672,9 @@ msgid "Settings will be imported from your browser's local storage."
 msgstr "सेटिंग्स को अपने ब्राउजर के स्थानीय भंडारण से आयात किया जाएगा।"
 
 #: prefs_manage.php:261
+#, fuzzy
 msgid "You have no saved settings!"
-msgstr "आपके पास कोई बचाई गयीसेटिंग नहीं हैं"
+msgstr "आपके पास कोई बचाई गयीसेटिंग नहीं हैं!"
 
 #: prefs_manage.php:266 prefs_manage.php:326
 msgid "This feature is not supported by your web browser"
@@ -14693,7 +14701,7 @@ msgstr "सेटिंग्स को आपके ब्राउजर क�
 
 #: prefs_manage.php:321
 msgid "Existing settings will be overwritten!"
-msgstr "मौजूदा सेटिंग्स अधिलेखित हो जाएगी"
+msgstr "मौजूदा सेटिंग्स अधिलेखित हो जाएगी!"
 
 #: prefs_manage.php:343
 msgid "You can reset all your settings and restore them to default values."
@@ -14903,7 +14911,7 @@ msgstr "'%s' डेटाबेस मौजूद नहीं है।"
 #: tbl_create.php:43
 #, php-format
 msgid "Table %s already exists!"
-msgstr "%s टेबल पहले से मौजूद है"
+msgstr "टेबल %s पहले से मौजूद है!"
 
 #: tbl_export.php:28
 msgid "View dump (schema) of table"
@@ -14930,7 +14938,7 @@ msgstr ""
 
 #: themes.php:25
 msgid "Get more themes!"
-msgstr "अधिक प्रसंग पाएं"
+msgstr "अधिक प्रसंग पाएं!"
 
 #: transformation_overview.php:22
 msgid "Available MIME types"
@@ -14961,7 +14969,7 @@ msgstr "ट्रैकिंग रिपोर्ट"
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
-msgstr "आपके पास यहाँ उपस्थित होने के अधिकार नहीं हैं"
+msgstr "आपके पास यहाँ उपस्थित होने के अधिकार नहीं हैं!"
 
 #: user_password.php:106
 msgid "The profile has been updated."
