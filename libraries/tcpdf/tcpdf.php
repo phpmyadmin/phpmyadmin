@@ -7770,7 +7770,7 @@ class TCPDF {
 	 * Destroy all objects and delete temp files.
 	 * @protected
 	 */
-	protected function _destroyAll() {
+	public function _destroyAll() {
 		$this->_destroy(true);
 	}
 
