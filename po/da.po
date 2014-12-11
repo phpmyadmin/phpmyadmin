@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-07 12:53+0100\n"
-"PO-Revision-Date: 2014-12-06 10:57+0200\n"
+"PO-Revision-Date: 2014-12-11 05:47+0200\n"
 "Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"da/>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.1\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -9111,10 +9111,13 @@ msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
+"Der er ingen mulige, delvise afhængigheder, da der ikke findes ikke-primære "
+"kolonner, eftersom den primære nøgle ( %1$s ) består af alle kolonner i "
+"tabellen."
 
 #: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "Tabellen forefindes allerede i sekundære, normale form."
 
 #: libraries/normalization.lib.php:323
 #, php-format
@@ -9122,20 +9125,23 @@ msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"Den primære nøgle ( %1$s ) består af mere end én kolonne, så vi har brug for "
+"at finde de delvise afhængigheder."
 
 #: libraries/normalization.lib.php:327 libraries/normalization.lib.php:692
-#, fuzzy
 #| msgid ""
 #| "Hint: Please follow the procedure carefully in order to obtain correct "
 #| "normalization"
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
-msgstr "Tip: Følg venligst proceduren nøje for at opnå korrekt normalisering"
+msgstr ""
+"Besvar venligst følgende spørgsmål omhyggeligt for at opnå en korrekt "
+"normalisering."
 
 #: libraries/normalization.lib.php:331
 msgid "+ Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "+ Vis mig de mulige, delvise afhængigheder baseret på data i tabellen"
 
 #: libraries/normalization.lib.php:335
 msgid ""
@@ -9143,11 +9149,14 @@ msgid ""
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
+"For hver af kolonnerne nedenfor, så vælg det <b>minimale sæt</b> af kolonner "
+"blandt det givne sæt, hvis værdier sat sammen er tilstrækkeligt til at "
+"afgøre værdien af kolonnen."
 
 #: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "\"%1$s\" afhænger af:"
 
 #: libraries/normalization.lib.php:356
 #, php-format
@@ -9155,6 +9164,8 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
+"Der er ingen mulige, delvise afhængigheder, da den primære nøgle ( %1$s ) "
+"blot har én kolonne."
 
 #: libraries/normalization.lib.php:381
 #, php-format
