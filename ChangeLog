@@ -9,7 +9,9 @@ phpMyAdmin - ChangeLog
 + rfe       Focus console by clicking on white space
 + rfe 1507  Part 1: Cycle through console history with keyboard up/down arrows
 
-4.3.2.0 (not yet released)
+4.3.3.0 (not yet released)
+
+4.3.2.0 (2014-12-12)
 - bug #4628 PHP error while exporting schema as PDF
 - bug #4631 Server selector submits two server parameter values
 - bug #4629 Problem with custom SQL queries using cookie authentication
