@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 - bug #3794 failure to handle repeating empty columns when importing ODS
 - bug #4638 Default Export Method setting broken
 - bug #4639 Export SQL missing indentation first field
+- bug #4644 Error when browsing tables
 
 4.3.1.0 (2014-12-08)
 - bug #4609 'Show all' checkbox label is not clickable
