@@ -477,6 +477,16 @@ var PMA_consoleInput = {
      */
     _codemirror: false,
     /**
+     * @var int, count for history navigation, 0 for current input
+     * @access private
+     */
+    _historyCount: 0,
+    /**
+     * @var string, current input when navigating through history
+     * @access private
+     */
+    _historyPreserveCurrent: null,
+    /**
      * Used for console input initialize
      *
      * @return void
@@ -499,6 +509,9 @@ var PMA_consoleInput = {
                 hintOptions: {"completeSingle": false, "completeOnSingleClick": true}
             });
             PMA_consoleInput._inputs.console.on("inputRead", codemirrorAutocompleteOnInputRead);
+            PMA_consoleInput._inputs.console.on("keydown", function(instance, event) {
+                PMA_consoleInput._historyNavigate(event);
+            });
             if ($('#pma_bookmarks').length !== 0) {
                 PMA_consoleInput._inputs.bookmark = CodeMirror($('#pma_console .bookmark_add_input')[0], {
                     theme: 'pma',
@@ -511,13 +524,67 @@ var PMA_consoleInput = {
             }
         } else {
             PMA_consoleInput._inputs.console =
-                $('<textarea>').appendTo('#pma_console .console_query_input');
+                $('<textarea>').appendTo('#pma_console .console_query_input')
+                    .on('keydown', PMA_consoleInput._historyNavigate);
             if ($('#pma_bookmarks').length !== 0) {
                 PMA_consoleInput._inputs.bookmark =
                     $('<textarea>').appendTo('#pma_console .bookmark_add_input');
             }
         }
         $('#pma_console .console_query_input').keydown(PMA_consoleInput._keydown);
+    },
+    _historyNavigate: function(event) {
+        if (event.keyCode == 38 || event.keyCode == 40) {
+            var upPermitted = false;
+            var downPermitted = false;
+            var editor = PMA_consoleInput._inputs.console;
+            var cursorLine;
+            var totalLine;
+            if (PMA_consoleInput._codemirror) {
+                cursorLine = editor.getCursor().line;
+                totalLine = editor.lineCount();
+            }
+            else {
+                // Get cursor position from textarea
+                var text = PMA_consoleInput.getText();
+                cursorLine = text.substr(0, editor.prop("selectionStart")).split("\n").length - 1;
+                totalLine = text.split(/\r*\n/).length;
+            }
+            if (cursorLine == 0) {
+                upPermitted = true;
+            }
+            if (cursorLine == totalLine - 1) {
+                downPermitted = true;
+            }
+            var nextCount;
+            var queryString = false;
+            if (upPermitted && event.keyCode == 38) {
+                // Navigate up in history
+                if (PMA_consoleInput._historyCount == 0) {
+                    PMA_consoleInput._historyPreserveCurrent = PMA_consoleInput.getText();
+                }
+                nextCount = PMA_consoleInput._historyCount + 1;
+                queryString = PMA_consoleMessages.getHistory(nextCount);
+            }
+            else if (downPermitted && event.keyCode == 40) {
+                // Navigate down in history
+                if (PMA_consoleInput._historyCount == 0) {
+                    return;
+                }
+                nextCount = PMA_consoleInput._historyCount - 1;
+                if (nextCount == 0) {
+                    queryString = PMA_consoleInput._historyPreserveCurrent;
+                }
+                else {
+                    queryString = PMA_consoleMessages.getHistory(nextCount);
+                }
+            }
+            if (queryString !== false) {
+                PMA_consoleInput._historyCount = nextCount;
+                PMA_consoleInput.setText(queryString, 'console');
+                event.preventDefault();
+            }
+        }
     },
     /**
      * Mousedown event handler for bind to input
@@ -643,6 +710,21 @@ var PMA_consoleMessages = {
      */
     showHistory: function() {
         $('#pma_console .content .console_message_container .message.hide').removeClass('hide');
+    },
+    /**
+     * Used for getting a perticular history query
+     *
+     * @param int nthLast get nth query message from latest, i.e 1st is last
+     * @return string message
+     */
+    getHistory: function(nthLast) {
+        var $queries = $('#pma_console .content .console_message_container .query');
+        var length = $queries.length;
+        var $query = $queries.eq(length - nthLast);
+        if (!$query || (length - nthLast) < 0)
+            return false;
+        else
+            return $query.text();
     },
     /**
      * Used for log new message
