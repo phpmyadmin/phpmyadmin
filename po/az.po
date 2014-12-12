@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-07 12:53+0100\n"
-"PO-Revision-Date: 2014-12-09 21:39+0200\n"
-"Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
+"PO-Revision-Date: 2014-12-12 14:01+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Azerbaijani "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
 "Language: az\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.1\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -33,10 +33,10 @@ msgid "Click to sort."
 msgstr "Sıralamaq üçün klikləyin."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Göstərilən sətir(lər)%1$s - %2$s"
+msgstr "%1$s - %2$s sətir göstərilir."
 
 #: db_create.php:61
 #, php-format
