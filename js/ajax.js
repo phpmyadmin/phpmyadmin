@@ -556,6 +556,7 @@ var AJAX = {
             var script = document.createElement('script');
             script.type = 'text/javascript';
             script.src = url;
+            script.async = false;
             head.appendChild(script);
         },
         /**
