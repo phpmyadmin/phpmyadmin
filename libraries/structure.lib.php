@@ -504,9 +504,11 @@ function PMA_getHtmlForStructureTableRow(
             . '</td>';
     }
     //Favorite table anchor.
-    $html_output .= '<td class="center">'
-        . PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
-        . '</td>';
+    if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
+        $html_output .= '<td class="center">'
+            . PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
+            . '</td>';
+    }
 
     $html_output .= '<td class="center">' . $browse_table . '</td>';
     $html_output .= '<td class="center">'
