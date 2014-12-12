@@ -198,13 +198,17 @@ function PMA_getHtmlForExportOptionsMethod()
         $export_method = $cfg['Export']['method'];
     }
 
+    if ($export_method == 'custom-no-form') {
+        return '';
+    }
+
     $html  = '<div class="exportoptions" id="quick_or_custom">';
     $html .= '<h3>' . __('Export Method:') . '</h3>';
     $html .= '<ul>';
     $html .= '<li>';
     $html .= '<input type="radio" name="quick_or_custom" value="quick" '
         . ' id="radio_quick_export"';
-    if ($export_method == 'quick' || $export_method == 'quick_no_form') {
+    if ($export_method == 'quick') {
         $html .= ' checked="checked"';
     }
     $html .= ' />';
@@ -216,7 +220,7 @@ function PMA_getHtmlForExportOptionsMethod()
     $html .= '<li>';
     $html .= '<input type="radio" name="quick_or_custom" value="custom" '
         . ' id="radio_custom_export"';
-    if ($export_method == 'custom' || $export_method == 'custom_no_form') {
+    if ($export_method == 'custom') {
         $html .= ' checked="checked"';
     }
     $html .= ' />';

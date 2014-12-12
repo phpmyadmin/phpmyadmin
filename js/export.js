@@ -204,7 +204,9 @@ AJAX.registerOnload('export.js', function () {
  */
 function toggle_quick_or_custom()
 {
-    if ($("#radio_custom_export").prop("checked")) {
+    if ($("input[name='quick_or_custom']").length == 0 // custom_no_form option
+        || $("#radio_custom_export").prop("checked") // custom
+    ) {
         $("#databases_and_tables").show();
         $("#rows").show();
         $("#output").show();
@@ -212,7 +214,7 @@ function toggle_quick_or_custom()
         $("#output_quick_export").hide();
         var selected_plugin_name = $("#plugins option:selected").val();
         $("#" + selected_plugin_name + "_options").show();
-    } else {
+    } else { // quick
         $("#databases_and_tables").hide();
         $("#rows").hide();
         $("#output").hide();

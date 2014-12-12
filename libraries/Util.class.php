@@ -1820,11 +1820,13 @@ class PMA_Util
             if ($suhosin_get_MaxValueLength) {
                 $query_parts = self::splitURLQuery($url);
                 foreach ($query_parts as $query_pair) {
-                    list(, $eachval) = explode('=', $query_pair);
-                    if (/*overload*/mb_strlen($eachval) > $suhosin_get_MaxValueLength
-                    ) {
-                        $in_suhosin_limits = false;
-                        break;
+                    if (strpos($query_pair, '=') !== false) {
+                        list(, $eachval) = explode('=', $query_pair);
+                        if (/*overload*/mb_strlen($eachval) > $suhosin_get_MaxValueLength
+                        ) {
+                            $in_suhosin_limits = false;
+                            break;
+                        }
                     }
                 }
             }
@@ -1913,7 +1915,11 @@ class PMA_Util
 
         $url_parts = parse_url($url);
 
-        return explode($separator, $url_parts['query']);
+        if (! empty($url_parts['query'])) {
+            return explode($separator, $url_parts['query']);
+        } else {
+            return array();
+        }
     }
 
     /**

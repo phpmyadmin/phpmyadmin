@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-05 10:04+0100\n"
-"PO-Revision-Date: 2014-11-24 15:56+0200\n"
-"Last-Translator: Huseyn <huseyn_esgerov@mail.ru>\n"
+"PO-Revision-Date: 2014-12-09 21:39+0200\n"
+"Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/az/>\n"
 "Language: az\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.1-dev\n"
+"X-Generator: Weblate 2.1\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -2265,7 +2265,7 @@ msgstr ""
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:481
 msgid ", latest stable version:"
-msgstr ""
+msgstr ", son stabil versiya:"
 
 #: js/messages.php:482
 msgid "up to date"
@@ -13618,6 +13618,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
+"Git versiyasını istifadə edirsiniz, [kbd]git pull[/kbd] icra edin :-)[br]"
+"TSon stabil versiya %s, %s tarixində yayınlandı."
 
 #: setup/lib/index.lib.php:175
 msgid "No newer stable version is available"

@@ -1,6 +1,22 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.2.0 (2014-12-12)
+- bug #4628 PHP error while exporting schema as PDF
+- bug #4631 Server selector submits two server parameter values
+- bug #4629 Problem with custom SQL queries using cookie authentication
+- bug       Undefined index central_columnswork
+- bug #4632 Notice in ./libraries/Util.class.php#1916 Undefined index: query
+- bug #4633 Wrong parameter in fetchValue
+- bug #4634 Error reporting creates an infinite loop
+- bug #4635 Token mismatch while creating configuration storage
+- bug #4640 Incorrect reference to PHP 6
+- bug #3794 failure to handle repeating empty columns when importing ODS
+- bug #4638 Default Export Method setting broken
+- bug #4639 Export SQL missing indentation first field
+- bug #4644 Error when browsing tables
+- bug #4637 Field Alignment
+
 4.3.1.0 (2014-12-08)
 - bug #4609 'Show all' checkbox label is not clickable
 - bug #4610 JS error reporting: Hash fragment is reset
