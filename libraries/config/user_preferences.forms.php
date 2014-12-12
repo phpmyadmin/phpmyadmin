@@ -32,7 +32,6 @@ $forms['Features']['General'] = array(
     'DisableMultiTableMaintenance',
     'MaxDbList',
     'MaxTableList',
-    'NumRecentTables',
     'NumFavoriteTables',
     'ShowHint',
     'SendErrorReports'
@@ -84,7 +83,8 @@ $forms['Navi_panel']['Navi_panel'] = array(
     'MaxNavigationItems',
     'NavigationTreeEnableGrouping',
     'NavigationTreeDisableDatabaseExpansion',
-    'NavigationTreeDisplayItemFilterMinimum');
+    'NavigationTreeDisplayItemFilterMinimum',
+    'NumRecentTables');
 $forms['Navi_panel']['Navi_databases'] = array(
     'NavigationTreeDisplayDbFilterMinimum',
     'NavigationTreeDbSeparator');
