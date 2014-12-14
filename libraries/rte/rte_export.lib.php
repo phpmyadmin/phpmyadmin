@@ -66,7 +66,7 @@ function PMA_EVN_handleExport()
     if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
         $item_name = $_GET['item_name'];
         $export_data = $GLOBALS['dbi']->getDefinition($db, 'EVENT', $item_name);
-        PMA_RTE_handleExport($item_name, $export_data);
+        PMA_RTE_handleExport($export_data);
     }
 } // end PMA_EVN_handleExport()
 
@@ -90,7 +90,7 @@ function PMA_RTN_handleExport()
                 $_GET['item_type'],
                 $_GET['item_name']
             );
-            PMA_RTE_handleExport($_GET['item_name'], $export_data);
+            PMA_RTE_handleExport($export_data);
         }
     }
 } // end PMA_RTN_handleExport()
@@ -115,7 +115,7 @@ function PMA_TRI_handleExport()
                 break;
             }
         }
-        PMA_RTE_handleExport($item_name, $export_data);
+        PMA_RTE_handleExport($export_data);
     }
 } // end PMA_TRI_handleExport()
 ?>
