@@ -1147,7 +1147,6 @@ function PMA_RTN_getQueryFromRequest()
     }
     $params = '';
     $warned_about_dir    = false;
-    $warned_about_name   = false;
     $warned_about_length = false;
 
     if (   ! empty($_REQUEST['item_param_name'])
@@ -1224,8 +1223,7 @@ function PMA_RTN_getQueryFromRequest()
                 if ($i != (count($item_param_name) - 1)) {
                     $params .= ", ";
                 }
-            } else if (! $warned_about_name) {
-                $warned_about_name = true;
+            } else {
                 $errors[] = __(
                     'You must provide a name and a type for each routine parameter.'
                 );
