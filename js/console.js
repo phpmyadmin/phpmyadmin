@@ -582,6 +582,9 @@ var PMA_consoleInput = {
             if (queryString !== false) {
                 PMA_consoleInput._historyCount = nextCount;
                 PMA_consoleInput.setText(queryString, 'console');
+                if (PMA_consoleInput._codemirror) {
+                    editor.setCursor(editor.lineCount(), 0);
+                }
                 event.preventDefault();
             }
         }
