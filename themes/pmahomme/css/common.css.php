@@ -200,6 +200,14 @@ input[type=date] {
     border: 1px solid #aaa;
     color: #555;
     padding: 4px;
+}
+
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=date],
+input[type=checkbox],
+select {
     margin: 6px;
 }
 
@@ -2560,10 +2568,6 @@ fieldset .disabled-field td {
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-}
-
-#table_columns select {
-    margin: 0 6px;
 }
 
 #placeholder {

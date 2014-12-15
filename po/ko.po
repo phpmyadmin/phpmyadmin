@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-11-13 11:57-0500\n"
-"PO-Revision-Date: 2014-12-11 03:41+0200\n"
-"Last-Translator: Dongyoung Kim <dckyoung@gmail.com>\n"
+"PO-Revision-Date: 2014-12-12 14:01+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/ko/>\n"
 "Language: ko\n"
@@ -4644,7 +4644,7 @@ msgstr "컬럼 선택."
 
 #: libraries/central_columns.lib.php:807 libraries/central_columns.lib.php:917
 msgid "auto_increment"
-msgstr "auto_increment"
+msgstr "자동 증가"
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 #, fuzzy

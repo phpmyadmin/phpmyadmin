@@ -1,7 +1,12 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.3.2.0 (not yet released)
+4.3.3.0 (not yet released)
+- bug       The "Recently used tables" setting should be with Nav panel
+- bug #4647 Can't disable Favorites
+- bug #4642 phpmyadmin often fails to load due to specific load order
+
+4.3.2.0 (2014-12-12)
 - bug #4628 PHP error while exporting schema as PDF
 - bug #4631 Server selector submits two server parameter values
 - bug #4629 Problem with custom SQL queries using cookie authentication
@@ -14,7 +19,8 @@ phpMyAdmin - ChangeLog
 - bug #3794 failure to handle repeating empty columns when importing ODS
 - bug #4638 Default Export Method setting broken
 - bug #4639 Export SQL missing indentation first field
-- bug #4642 phpmyadmin often fails to load due to specific load order
+- bug #4644 Error when browsing tables
+- bug #4637 Field Alignment
 
 4.3.1.0 (2014-12-08)
 - bug #4609 'Show all' checkbox label is not clickable

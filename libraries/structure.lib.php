@@ -504,9 +504,11 @@ function PMA_getHtmlForStructureTableRow(
             . '</td>';
     }
     //Favorite table anchor.
-    $html_output .= '<td class="center">'
-        . PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
-        . '</td>';
+    if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
+        $html_output .= '<td class="center">'
+            . PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
+            . '</td>';
+    }
 
     $html_output .= '<td class="center">' . $browse_table . '</td>';
     $html_output .= '<td class="center">'
@@ -2117,7 +2119,9 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         );
     }
     $html_output .= PMA_getHtmlForDistinctValueAction($url_query, $row, $titles);
-    if ($GLOBALS['cfgRelation']['central_columnswork']) {
+    if (isset($GLOBALS['cfgRelation']['central_columnswork']) 
+        && $GLOBALS['cfgRelation']['central_columnswork']
+    ) {
         $html_output .= '<li class="browse nowrap">';
         if ($isInCentralColumns) {
             $html_output .=
