@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 + rfe #1566 Change value of "Number of rows:" when "Show all" is checked
 + rfe       Focus console by clicking on white space
 + rfe 1507  Part 1: Cycle through console history with keyboard up/down arrows
++ rfe #1579 Default to primary key when adding relation
 
 4.3.3.0 (not yet released)
 - bug       The "Recently used tables" setting should be with Nav panel
