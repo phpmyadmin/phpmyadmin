@@ -59,7 +59,7 @@ function removeColumnFromMultiSort(target, parent)
 AJAX.registerOnload('keyhandler.js', function () {
     $("th.draggable.column_heading.pointer.marker a").on('click', function (event) {
         var url = $(this).parent().find('input').val();
-        if (event.ctrlKey) {
+        if (event.ctrlKey || event.altKey) {
             event.preventDefault();
             url = removeColumnFromMultiSort(url, $(this).parent());
             if (url) {
