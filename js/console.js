@@ -543,8 +543,7 @@ var PMA_consoleInput = {
             if (PMA_consoleInput._codemirror) {
                 cursorLine = editor.getCursor().line;
                 totalLine = editor.lineCount();
-            }
-            else {
+            } else {
                 // Get cursor position from textarea
                 var text = PMA_consoleInput.getText();
                 cursorLine = text.substr(0, editor.prop("selectionStart")).split("\n").length - 1;
@@ -565,8 +564,7 @@ var PMA_consoleInput = {
                 }
                 nextCount = PMA_consoleInput._historyCount + 1;
                 queryString = PMA_consoleMessages.getHistory(nextCount);
-            }
-            else if (downPermitted && event.keyCode == 40) {
+            } else if (downPermitted && event.keyCode == 40) {
                 // Navigate down in history
                 if (PMA_consoleInput._historyCount === 0) {
                     return;
@@ -574,8 +572,7 @@ var PMA_consoleInput = {
                 nextCount = PMA_consoleInput._historyCount - 1;
                 if (nextCount === 0) {
                     queryString = PMA_consoleInput._historyPreserveCurrent;
-                }
-                else {
+                } else {
                     queryString = PMA_consoleMessages.getHistory(nextCount);
                 }
             }
