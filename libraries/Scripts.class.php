@@ -82,9 +82,7 @@ class PMA_Scripts
             }
         }
         $separator = PMA_URL_getArgSeparator();
-        $url = 'js/get_scripts.js.php'
-            . PMA_URL_getCommon(array(), 'none')
-            . $separator . implode($separator, $scripts);
+        $url = 'js/get_scripts.js.php?' . implode($separator, $scripts);
 
         $static_scripts = sprintf(
             '<script type="text/javascript" src="%s"></script>',
