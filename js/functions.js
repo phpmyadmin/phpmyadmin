@@ -242,9 +242,9 @@ function parseVersionString(str)
 function PMA_current_version(data)
 {
     if (data && data.version && data.date) {
-        var current = parseVersionString(pmaversion);
+        var current = parseVersionString($('span.version').text());
         var latest = parseVersionString(data.version);
-        var version_information_message = '<span>'+
+        var version_information_message = '<span class="latest">' +
             PMA_messages.strLatestAvailable +
             ' ' + escapeHtml(data.version) +
             '</span>';
@@ -264,7 +264,7 @@ function PMA_current_version(data)
         if (latest === current) {
             version_information_message = ' (' + PMA_messages.strUpToDate + ')';
         }
-        $('#li_pma_version span').remove();
+        $('#li_pma_version span.latest').remove();
         $('#li_pma_version').append(version_information_message);
     }
 }

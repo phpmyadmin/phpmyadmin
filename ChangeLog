@@ -4,6 +4,7 @@ phpMyAdmin - ChangeLog
 4.3.3.0 (not yet released)
 - bug       The "Recently used tables" setting should be with Nav panel
 - bug #4647 Can't disable Favorites
+- bug #4646 Version Check Broken
 
 4.3.2.0 (2014-12-12)
 - bug #4628 PHP error while exporting schema as PDF
