@@ -705,7 +705,11 @@ AJAX.registerOnload('functions.js', function () {
                     clearInterval(updateInterval);
                     if (data.success) {
                         if (PMA_commonParams.get('LoginCookieValidity')-_idleSecondsCounter > 5) {
-                            updateInterval = window.setInterval(UpdateIdleTime, (PMA_commonParams.get('LoginCookieValidity')-_idleSecondsCounter-5)*1000);
+                            var interval = (PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter - 5) * 1000;
+                            if (interval > Math.pow(2, 31) - 1) { // max value for setInterval() function
+                                interval = Math.pow(2, 31) - 1;
+                            }
+                            updateInterval = window.setInterval(UpdateIdleTime, interval);
                         } else {
                             updateInterval = window.setInterval(UpdateIdleTime, 2000);
                         }
@@ -718,7 +722,11 @@ AJAX.registerOnload('functions.js', function () {
     }
     if (PMA_commonParams.get('logged_in')) {
         IncInterval = window.setInterval(SetIdleTime, 1000);
-        updateInterval = window.setInterval(UpdateIdleTime, (PMA_commonParams.get('LoginCookieValidity')-5)*1000);
+        var interval = (PMA_commonParams.get('LoginCookieValidity') - 5) * 1000;
+        if (interval > Math.pow(2, 31) - 1) { // max value for setInterval() function
+            interval = Math.pow(2, 31) - 1;
+        }
+        updateInterval = window.setInterval(UpdateIdleTime, interval);
     }
 });
 /**
