@@ -52,7 +52,7 @@ $pmaString = $GLOBALS['PMA_String'];
 $length_values_input_size = 8;
 
 $_form_params = PMA_getFormsParameters(
-    $server, $db, $table, $action, isset($num_fields) ? $num_fields : null,
+    $db, $table, $action, isset($num_fields) ? $num_fields : null,
     isset($selected) ? $selected : null
 );
 

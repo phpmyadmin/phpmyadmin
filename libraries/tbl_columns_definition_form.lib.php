@@ -12,7 +12,6 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Function to get form parameters
  *
- * @param string $server     server
  * @param string $db         database
  * @param string $table      table
  * @param string $action     action
@@ -22,10 +21,9 @@ if (!defined('PHPMYADMIN')) {
  * @return array $form_params form parameters
  */
 function PMA_getFormsParameters(
-    $server, $db, $table, $action, $num_fields, $selected
+    $db, $table, $action, $num_fields, $selected
 ) {
     $form_params = array(
-        'server' => $server,
         'db' => $db
     );
 
