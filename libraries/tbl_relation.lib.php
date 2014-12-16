@@ -722,6 +722,15 @@ function PMA_sendHtmlForColumnDropdownList()
         $columns[] = htmlspecialchars($column);
     }
     $response->addJSON('columns', $columns);
+
+    // @todo should be: $server->db($db)->table($table)->primary()
+    $primary = PMA_Index::getPrimary($foreignTable, $_REQUEST['foreignDb']);
+    if (false === $primary) {
+        return;
+    }
+
+    $primarycols = array_keys($primary->getColumns());
+    $response->addJSON('primary', $primarycols);
 }
 
 /**
