@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - bug #4630 AJAX request infinite loop
 - bug #4649 Attributes field size smaller than others
 - bug #4622 Cannot remove table ordering on a Mac
+- bug       Fix initial replication configuration
 
 4.3.2.0 (2014-12-12)
 - bug #4628 PHP error while exporting schema as PDF
