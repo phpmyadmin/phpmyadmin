@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-15 15:55-0500\n"
-"PO-Revision-Date: 2014-12-02 18:32+0200\n"
+"PO-Revision-Date: 2014-12-16 13:19+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.1-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -2192,7 +2192,6 @@ msgid "Click to sort results by this column."
 msgstr "Cliquer pour trier les résultats sur cette colonne."
 
 #: js/messages.php:427
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+Click to remove column from ORDER BY clause"
@@ -2202,7 +2201,8 @@ msgid ""
 "ORDER BY clause"
 msgstr ""
 "Maj + clic pour ajouter cette colonne à la clause ORDER BY ou pour basculer "
-"ASC/DESC.<br />- Ctrl + clic pour enlever la colonne de la clause ORDER BY"
+"ASC/DESC.<br />- Ctrl + clic ou Alt + clic (sur Mac : Maj + Option + Clic) "
+"pour enlever la colonne de la clause ORDER BY"
 
 #: js/messages.php:428
 msgid "Click to mark/unmark."
@@ -10615,13 +10615,11 @@ msgid "Quick steps to setup advanced features:"
 msgstr "Guide rapide de configuration des fonctions avancées : "
 
 #: libraries/relation.lib.php:310
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
-"Créez les tables requises au moyen de <code>examples/create_tables.sql</"
-"code>."
+msgstr "Créez les tables requises au moyen de <code>%screate_tables.sql</code>."
 
 #: libraries/relation.lib.php:318
 msgid "Create a pma user and give access to these tables."
