@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-15 15:54-0500\n"
-"PO-Revision-Date: 2014-11-14 18:58+0200\n"
+"PO-Revision-Date: 2014-12-16 06:52+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-3/"
-"tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.1-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -2173,7 +2173,6 @@ msgid "Click to sort results by this column."
 msgstr "Sonuçları bu sütuna göre sıralamak için tıklayın."
 
 #: js/messages.php:424
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+Click to remove column from ORDER BY clause"
@@ -2182,8 +2181,9 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
-"Bu sütunu ORDER BY ibaresine eklemek ya da ASC/DESC değiştirmek için Shift"
-"+Tıklayın.<br />- Sütunu ORDER BY ibaresinden kaldırmak için Control+Tıklayın"
+"Bu sütunu ORDER BY ibaresine eklemek ya da ASC/DESC değiştirmek için "
+"Shift+Tıklayın.<br />- Sütunu ORDER BY ibaresinden kaldırmak için Ctrl+"
+"Tıklayın ya da Alt+Tıklayın (Mac: Shift+Option+Tıklayın)"
 
 #: js/messages.php:425
 msgid "Click to mark/unmark."
@@ -10514,12 +10514,11 @@ msgid "Quick steps to setup advanced features:"
 msgstr "Gelişmiş özellikleri ayarlamak için hızlı adımlar:"
 
 #: libraries/relation.lib.php:310
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
-"Gerekli tabloları <code>examples/create_tables.sql</code> ile oluşturun."
+msgstr "Gerekli tabloları <code>%screate_tables.sql</code> ile oluşturun."
 
 #: libraries/relation.lib.php:318
 msgid "Create a pma user and give access to these tables."
