@@ -975,7 +975,7 @@ function PMA_handleRequestForSlaveChangeMaster()
     $_SESSION['replication']['m_hostname'] = $sr['hostname']
         = PMA_Util::sqlAddSlashes($_REQUEST['hostname']);
     $_SESSION['replication']['m_port']     = $sr['port']
-        = PMA_Util::sqlAddSlashes($_REQUEST['port']);
+        = PMA_Util::sqlAddSlashes($_REQUEST['text_port']);
     $_SESSION['replication']['m_correct']  = '';
     $_SESSION['replication']['sr_action_status'] = 'error';
     $_SESSION['replication']['sr_action_info'] = __('Unknown error');
