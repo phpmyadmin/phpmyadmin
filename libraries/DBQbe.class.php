@@ -1399,11 +1399,9 @@ class PMA_DbQbe
     /**
      * Provides the generated SQL query
      *
-     * @param array $cfgRelation Relation Settings
-     *
      * @return string SQL query
      */
-    private function _getSQLQuery($cfgRelation)
+    private function _getSQLQuery()
     {
         $sql_query = '';
         // get SELECT clause
@@ -1472,7 +1470,7 @@ class PMA_DbQbe
         $html_output .= '<textarea cols="80" name="sql_query" id="textSqlquery"'
             . ' rows="' . ((count($this->_criteriaTables) > 30) ? '15' : '7') . '"'
             . ' dir="' . $text_dir . '">';
-        $html_output .= $this->_getSQLQuery($cfgRelation);
+        $html_output .= $this->_getSQLQuery();
         $html_output .= '</textarea>';
         $html_output .= '</fieldset>';
         // displays form's footers
