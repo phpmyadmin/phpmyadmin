@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-15 15:55-0500\n"
-"PO-Revision-Date: 2014-11-27 08:53+0200\n"
+"PO-Revision-Date: 2014-12-17 09:49+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.1-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -2170,7 +2170,6 @@ msgid "Click to sort results by this column."
 msgstr "Klõpsa selle veeru järgi sortimiseks."
 
 #: js/messages.php:427
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+Click to remove column from ORDER BY clause"
@@ -2180,7 +2179,8 @@ msgid ""
 "ORDER BY clause"
 msgstr ""
 "Shit+klõps lisab selle veeru ORDER BY klauslisse või vahetab ASC/DESC "
-"režiimi.<br />- Control+klõps eemaldab veeru ORDER BY klauslist"
+"režiimi.<br />- Ctrl+klõps või Alt+klõps (Mac: Shift+Option+klõps) eemaldab "
+"veeru ORDER BY klauslist"
 
 #: js/messages.php:428
 msgid "Click to mark/unmark."
@@ -10444,11 +10444,11 @@ msgid "Quick steps to setup advanced features:"
 msgstr "Täpsemate võimaluste seadistamise kiirsammud:"
 
 #: libraries/relation.lib.php:310
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr "Loo vajalikud tabelid <code>script/create_tables.sql</code> failiga."
+msgstr "Loo vajalikud tabelid <code>%screate_tables.sql</code> failiga."
 
 #: libraries/relation.lib.php:318
 msgid "Create a pma user and give access to these tables."
