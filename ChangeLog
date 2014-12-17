@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - bug #4622 Cannot remove table ordering on a Mac
 - bug       Fix initial replication configuration
 - bug       Undefined index central_columnswork
+- bug #4657 Don't have default blowfish_secret
 
 4.3.2.0 (2014-12-12)
 - bug #4628 PHP error while exporting schema as PDF
