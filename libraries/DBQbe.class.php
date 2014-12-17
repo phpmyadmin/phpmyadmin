@@ -841,11 +841,10 @@ class PMA_DbQbe
      * with AND/OR relationship modification options
      *
      * @param integer $new_row_index New row index if rows are added/deleted
-     * @param integer $row_index     Row index
      *
      * @return string HTML table rows
      */
-    private function _getInputboxRow($new_row_index, $row_index)
+    private function _getInputboxRow($new_row_index)
     {
         $html_output = '';
         $new_column_count = 0;
@@ -921,7 +920,7 @@ class PMA_DbQbe
                     $new_row_count, $checked_options
                 );
                 $html_output .= $this->_getInputboxRow(
-                    $new_row_count, $row_index
+                    $new_row_count
                 );
                 $new_row_count++;
                 $html_output .= '</tr>';
@@ -951,7 +950,7 @@ class PMA_DbQbe
                 $new_row_count, $checked_options
             );
             $html_output .= $this->_getInputboxRow(
-                $new_row_count, $row_index
+                $new_row_count
             );
             $new_row_count++;
             $html_output .= '</tr>';
