@@ -24,7 +24,8 @@ AJAX.registerOnload('server_variables.js', function () {
         if ($elm.hasClass('editable') && ! $elm.hasClass('edit')) {
             $elm.prepend($editLink.clone().show());
         }
-    })
+    });
+
     $('#serverVariables').delegate('.var-row', 'mouseleave', function (event) {
         $(this).find('a.editLink').remove();
     })
