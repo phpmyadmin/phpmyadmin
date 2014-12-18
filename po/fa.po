@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-15 15:54-0500\n"
-"PO-Revision-Date: 2014-11-04 13:35+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fa/>\n"
+"PO-Revision-Date: 2014-12-18 09:39+0200\n"
+"Last-Translator: HM <goodlinuxuser@chmail.ir>\n"
+"Language-Team: Persian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/fa/>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -26,7 +26,7 @@ msgstr ""
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "فهرست مرکزی ستون‌ها برای پایگاه داده در حال استفاده خالی است."
 
 #: db_central_columns.php:109
 #, fuzzy
@@ -37,7 +37,7 @@ msgstr "برای مرتب کردن کلیک کنید"
 #: db_central_columns.php:125
 #, fuzzy, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "نسخه سرور"
+msgstr "نمایش سطرها  %1$s از %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -248,13 +248,13 @@ msgstr "نام پایگاه داده وارد نشده‌ است!"
 #, fuzzy, php-format
 #| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "پایگاه داده %1$s به %2$s تغییر نام داده شد"
+msgstr "نام پایگاه داده %1$s به %2$s تغییر داده شد."
 
 #: db_operations.php:145
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "پایگاه داده %1$s در %2$s کپی شد"
+msgstr "رونوشت پایگاه داده %1$s در %2$s انجام شد."
 
 #: db_operations.php:266
 #, fuzzy, php-format
