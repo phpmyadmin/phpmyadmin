@@ -204,7 +204,7 @@ AJAX.registerOnload('export.js', function () {
  */
 function toggle_quick_or_custom()
 {
-    if ($("input[name='quick_or_custom']").length == 0 // custom_no_form option
+    if ($("input[name='quick_or_custom']").length === 0 // custom_no_form option
         || $("#radio_custom_export").prop("checked") // custom
     ) {
         $("#databases_and_tables").show();
