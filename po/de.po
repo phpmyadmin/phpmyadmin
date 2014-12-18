@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-15 15:55-0500\n"
-"PO-Revision-Date: 2014-12-14 13:35+0200\n"
+"PO-Revision-Date: 2014-12-18 22:29+0200\n"
 "Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -2211,7 +2211,6 @@ msgid "Click to sort results by this column."
 msgstr "Klicken um die Ergebnisse nach dieser Spalte zu sortieren."
 
 #: js/messages.php:427
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+Click to remove column from ORDER BY clause"
@@ -2220,9 +2219,9 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
-"Shift + Klicken um diese Spalte der ORDER BY-Klausel hinzu zufügen oder "
-"ASC / DESC zu wechseln.<br /> - Control + Klicken um die Spalte von der "
-"ORDER BY-Klausel zu entfernen"
+"Umschalt+Klicken, um diese Spalte der ORDER BY-Klausel hinzuzufügen oder ASC/"
+"DESC zu wechseln.<br /> - Strg oder Alt+Klicken (Mac: Shift+Option+Klicken), "
+"um die Spalte von der ORDER BY-Klausel zu entfernen"
 
 #: js/messages.php:428
 msgid "Click to mark/unmark."
@@ -10662,13 +10661,12 @@ msgid "Quick steps to setup advanced features:"
 msgstr "Kurzanleitung zum Einrichten der zusätzlichen Funktionen:"
 
 #: libraries/relation.lib.php:310
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
 msgstr ""
-"Erstellen der benötigten Tabellen mittels <code>examples/create_tables.sql</"
-"code>."
+"Erstellen der benötigten Tabellen mittels <code>%screate_tables.sql</code>."
 
 #: libraries/relation.lib.php:318
 msgid "Create a pma user and give access to these tables."
