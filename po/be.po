@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-15 15:54-0500\n"
-"PO-Revision-Date: 2014-03-31 14:23+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/be/>\n"
+"PO-Revision-Date: 2014-12-18 10:21+0200\n"
+"Last-Translator: Viktar Palstsiuk <vipals@gmail.com>\n"
+"Language-Team: Belarusian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/be/>\n"
+"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: be\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -34,10 +34,10 @@ msgid "Click to sort."
 msgstr ""
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Паказаныя запісы"
+msgstr "Паказваюцца радкі %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -255,13 +255,13 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "База дадзеных %1$s была скапіяваная ў %2$s."
 
 #: db_operations.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr "Сховішча канфігурацыі PHPMyAdmin дэактываванае.  %sДаведацца%s чаму."
+msgstr "Сховішча канфігурацыі PHPMyAdmin дэактываванае. %sДаведацца чаму%s."
 
 #: db_printview.php:48 db_tracking.php:83 db_tracking.php:207
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:756
@@ -301,31 +301,29 @@ msgstr "Створаная:"
 
 #: db_printview.php:127 libraries/plugins/export/ExportSql.class.php:1153
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1000
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Апошняе абнаўленьне"
+msgstr "Апошняе абнаўленьне:"
 
 #: db_printview.php:134 libraries/plugins/export/ExportSql.class.php:1166
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1005
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Апошняя праверка"
+msgstr "Апошняя праверка:"
 
 #: db_printview.php:146 libraries/structure.lib.php:169
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s табліц(ы)"
-msgstr[1] "%s табліц(ы)"
+msgstr[0] "%s табліца"
+msgstr[1] "%s табліцы"
+msgstr[2] "%s табліц"
 
 #: db_qbe.php:103
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Вам неабходна выбраць прынамсі адну калёнку для адлюстраваньня"
+msgstr "Вам неабходна выбраць прынамсі адну калёнку для адлюстраваньня!"
 
 #: db_qbe.php:124
 #, fuzzy, php-format
