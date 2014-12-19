@@ -538,8 +538,7 @@ class PMA_Error_Handler
             //ask user whether to submit errors or not.
             if (!$response->isAjax()) {
                 // js code to show appropriate msgs, event binding & focusing.
-                $jsCode = 'PMA_ajaxShowMessage(PMA_messages["phpErrorsFound"], '
-                        . ' 2000);'
+                $jsCode = 'PMA_ajaxShowMessage(PMA_messages["phpErrorsFound"]);'
                         . '$("#pma_ignore_errors_popup").bind("click", function() {
                             PMA_ignorePhpErrors()
                         });'
