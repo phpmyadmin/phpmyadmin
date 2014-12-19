@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-15 15:54-0500\n"
-"PO-Revision-Date: 2014-12-19 12:51+0200\n"
+"PO-Revision-Date: 2014-12-19 16:08+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/et/>\n"
@@ -889,7 +889,7 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "phpMyAdmini häälestuse salvestuskoht ei ole lõplikult häälestatud; mõned "
-"laiendatud võimalused ei ole aktiveeritud. %sVaata põhjust%s. "
+"laiendatud funktsioonid ei ole aktiveeritud. %sVaata põhjust%s. "
 
 #: index.php:540
 msgid ""
@@ -2198,8 +2198,8 @@ msgid ""
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 "See tabel ei sisalda unikaalset veergu. Ruudustiku muutmisega, "
-"märkeruutudega, muutmisega, kopeerimisega ja kustutamisega seotud võimalused "
-"ei pruugi pärast salvestamist toimida."
+"märkeruutudega, muutmisega, kopeerimisega ja kustutamisega seotud "
+"funktsionaalsus ei pruugi pärast salvestamist toimida."
 
 #: js/messages.php:432
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
@@ -4595,7 +4595,8 @@ msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
-"Seadistuse salvestuskoht ei ole valmis kasutamaks keskset veergude nimekirja."
+"Häälestuse salvestuskoht ei ole valmis keskse veergude nimekirja "
+"funktsionaalsuse kasutamiseks."
 
 #: libraries/central_columns.lib.php:264
 #, php-format
@@ -5282,8 +5283,8 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Tihenda lennult gzip eksportimised ilma suurt mäluhulka tarbimata. Kui sul "
-"esineb probleeme loodud gzip failidega, siis keela see võimalus."
+"Tihenda gzip eksportimised lennult vajamata suuri mälumahtusid. Kui sul "
+"esineb loodud gzip failidega probleeme, siis keela see funktsionaalsus."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -5674,7 +5675,7 @@ msgstr "Muuda vaikimisi ekspordi valikuid."
 #: libraries/config/messages.inc.php:218 libraries/config/messages.inc.php:279
 #: setup/frames/menu.inc.php:22
 msgid "Features"
-msgstr "Häälestamine"
+msgstr "Funktsionaalsused"
 
 #: libraries/config/messages.inc.php:219
 msgid "General"
@@ -5775,8 +5776,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
 msgstr ""
-"Palun pane tähele, et phpMyAdmin on lihtsalt kasutajaliides ja selle "
-"võimalused ei piira MySQL'i."
+"Palun pane tähele, et phpMyAdmin on lihtsalt kasutajaliides ja tema "
+"funktsionaalsus ei piira MySQL'i."
 
 #: libraries/config/messages.inc.php:258
 msgid "Basic settings"
@@ -5816,9 +5817,9 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"Seadista phpMyAdmini seadistuse salvestust, et saada ligipääs "
-"lisavõimalustele. Vaata dokumentatsioonist [doc@linked-tables]phpMyAdmin "
-"configuration storage[/doc]."
+"Häälesta phpMyAdmini seadistuse salvestust, et saada ligipääs "
+"lisafunktsionaalsusele. Vaata dokumentatsioonist [doc@linked-tables]"
+"phpMyAdmin configuration storage[/doc]."
 
 #: libraries/config/messages.inc.php:273
 msgid "Changes tracking"
@@ -6467,7 +6468,8 @@ msgstr "Primaarvõtme vaimisi sortimisrežiim"
 #: libraries/config/messages.inc.php:528
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
-msgstr "Korda päiseid iga X rea tagant, [kbd]0[/kbd] keelab selle võimaluse."
+msgstr ""
+"Korda päiseid iga X rea tagant, [kbd]0[/kbd] keelab selle funktsionaalsuse."
 
 #: libraries/config/messages.inc.php:529
 msgid "Repeat headers"
@@ -6740,10 +6742,9 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Andmebaas, mida kasutada seoste, järjehoidjate ja PDF võimaluste "
-"säilitamiseks. Lisateavet leiad aadressilt [a@http://wiki.phpmyadmin.net/pma/"
-"pmadb]pmadb[/a]. Kui tugi puudub, siis jäta tühjaks, soovitatav: [kbd]"
-"phpmyadmin[/kbd]."
+"Andmebaas, mida kasutada seoste, järjehoidjate ja PDF funktsionaalsusega. "
+"Lisateavet leiad aadressilt [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]"
+". Kui tugi puudub, siis jäta tühjaks, soovitatav: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:628
 #: libraries/display_create_database.lib.php:31
@@ -6938,9 +6939,9 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
-"Kohandatavate menüüde võimaluse kasutamiseks on vajalikud nii see tabel kui "
-"ka kasutajate gruppide tabel. Jättes ühe neist tühjaks, keelad menüüde "
-"kohandamise; soovitatav: [kbd]pma__users[/kbd]."
+"Kohandatavate menüüde funktsionaalsuse kasutamiseks on vajalikud nii see "
+"tabel kui ka kasutajate gruppide tabel. Jättes ühe neist tühjaks, keelad "
+"menüüde kohandamise; soovitatav: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:700
 msgid "Users table"
@@ -6952,9 +6953,9 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
-"Kohandatavate menüüde võimaluse kasutamiseks on vajalikud nii see tabel kui "
-"ka kasutajate tabel. Jättes ühe neist tühjaks, keelad menüüde kohandamise; "
-"soovitatav: [kbd]pma__usergroups[/kbd]."
+"Kohandatavate menüüde funktsionaalsuse kasutamiseks on vajalikud nii see "
+"tabel kui ka kasutajate tabel. Jättes ühe neist tühjaks, keelad menüüde "
+"kohandamise; soovitatav: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:702
 msgid "User groups table"
@@ -10311,7 +10312,7 @@ msgstr "Viga: veeru(de)l puuduv(ad) indeks(id)."
 
 #: libraries/pmd_common.php:552
 msgid "Error: Relational features are disabled!"
-msgstr "Viga: Seoste omadused on keelatud!"
+msgstr "Viga: Seoste funksionaalsusega seonduv on keelatud!"
 
 #: libraries/pmd_common.php:572
 msgid "Internal relation has been added."
@@ -10356,11 +10357,11 @@ msgstr "pmadb seadistus... "
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:126
 msgid "General relation features"
-msgstr "Peamised seoste võimalused"
+msgstr "Peamised seoste funksionaalsused"
 
 #: libraries/relation.lib.php:137
 msgid "Display Features"
-msgstr "Näita võimalusi"
+msgstr "Kuvamise funktsionaalsus"
 
 #: libraries/relation.lib.php:154
 msgid "Designer and creation of PDFs"
@@ -10417,7 +10418,7 @@ msgstr "Veergude keskse nimekirja haldamine"
 
 #: libraries/relation.lib.php:304
 msgid "Quick steps to setup advanced features:"
-msgstr "Täpsemate võimaluste seadistamise kiirsammud:"
+msgstr "Täpsema funktsionaalsuse seadistamise kiirsammud:"
 
 #: libraries/relation.lib.php:310
 #, php-format
@@ -10435,7 +10436,7 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Luba täpsemad võimalused seadistuse failis (<code>config.inc.php</code>). "
+"Luba täpsem funktsionaalsus häälestusfailis (<code>config.inc.php</code>). "
 "Näiteks alustades <code>config.sample.inc.php</code> failist."
 
 #: libraries/relation.lib.php:331
@@ -12972,7 +12973,8 @@ msgid ""
 "Edit, Copy and Delete features are not available."
 msgstr ""
 "Valik ei sisalda unikaalset veergu. Ruudustiku muutmisega, märkeruutudega, "
-"muutmisega, kopeerimisega ja kustutamisega seotud võimalused ei ole saadaval."
+"muutmisega, kopeerimisega ja kustutamisega seotud funksionaalsus ei ole "
+"saadaval."
 
 #: libraries/sql.lib.php:2047
 #, php-format
@@ -13904,7 +13906,7 @@ msgstr "Sul pole salvestatud sätteid!"
 
 #: prefs_manage.php:266 prefs_manage.php:326
 msgid "This feature is not supported by your web browser"
-msgstr "Sinu veebilehitseja ei toeta seda võimalust"
+msgstr "Sinu veebilehitseja ei toeta seda funktsionaalsust"
 
 #: prefs_manage.php:272
 msgid "Merge with current configuration"
