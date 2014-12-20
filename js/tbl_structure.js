@@ -75,7 +75,7 @@ AJAX.registerTeardown('tbl_structure.js', function () {
     $(document).off('click', "a.add_index_anchor.ajax");
     $(document).off('click', "a.add_unique_anchor.ajax");
     $(document).off('click', "#move_columns_anchor");
-    $(".append_fields_form.ajax").unbind('submit');
+    $(document).off('submit', ".append_fields_form.ajax");
     $('body').off('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]');
 });
 
