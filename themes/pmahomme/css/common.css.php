@@ -401,8 +401,11 @@ table {
     border-collapse: collapse;
 }
 
-th {
+thead th {
     border-right: 1px solid #fff;
+}
+
+th {
     text-align: left;
 }
 
