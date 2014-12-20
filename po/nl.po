@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-15 15:55-0500\n"
-"PO-Revision-Date: 2014-12-20 20:08+0200\n"
+"PO-Revision-Date: 2014-12-20 22:04+0200\n"
 "Last-Translator: A. Voogt <a.voogt@hccnet.nl>\n"
 "Language-Team: Dutch "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
@@ -499,7 +499,7 @@ msgstr "Punt %d"
 #: gis_data_editor.php:252 gis_data_editor.php:308 gis_data_editor.php:386
 #: js/messages.php:390
 msgid "Add a point"
-msgstr "Voeg een punt toe"
+msgstr "Een punt toevoegen"
 
 #: gis_data_editor.php:269
 #, php-format
@@ -519,7 +519,7 @@ msgstr "Binnenste ring %d:"
 
 #: gis_data_editor.php:311
 msgid "Add a linestring"
-msgstr "Een regelstring toevoegen"
+msgstr "Een regel-string toevoegen"
 
 #: gis_data_editor.php:312 gis_data_editor.php:391 js/messages.php:391
 msgid "Add an inner ring"
@@ -584,8 +584,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Kies \"GeomFormText\" uit de kolom \"Functie\" en kopieer onderstaande "
-"string in het veld \"Waarde\"."
+"Kies 'GeomFormText' uit de kolom 'Functie' en kopieer onderstaande string in "
+"het veld 'Waarde'."
 
 #: import.php:54
 msgid "Succeeded"
@@ -605,16 +605,16 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to %"
 "sdocumentation%s for a workaround for this limit."
 msgstr ""
-"U probeerde waarschijnlijk een bestand te uploaden dat te groot is. Zie %"
-"sdocumentatie%s voor oplossingen voor deze beperking."
+"U probeerde waarschijnlijk een bestand te uploaden dat te groot is. Zie "
+"%sdocumentatie%s om deze limiet te omzeilen."
 
 #: import.php:342 import.php:625
 msgid "Showing bookmark"
-msgstr "Toon bladwijzer"
+msgstr "Bladwijzer tonen"
 
 #: import.php:357 import.php:621
 msgid "The bookmark has been deleted."
-msgstr "De bladwijzer werd verwijderd."
+msgstr "De bladwijzer is verwijderd."
 
 #: import.php:453
 #, php-format
@@ -622,8 +622,8 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
-"Het ge-uploade bestand kan niet worden verplaatst, omdat op de server "
-"open_basedir ingeschakeld is zonder toegang tot de map %s (voor tijdelijke "
+"Het geüploade bestand kan niet verplaatst worden, omdat op de server "
+"'open_basedir' ingeschakeld is zonder toegang tot de map %s (voor tijdelijke "
 "bestanden)."
 
 #: import.php:466 import.php:527 libraries/File.class.php:418
@@ -648,50 +648,49 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"Er zijn geen gegevens ontvangen om te importeren. Dit kan gebeuren wanneer "
-"er geen bestand werd verzonden, of wanneer deze werd afgekeurd op basis van "
-"de maximale bestandsgrootte zoals opgegeven in de PHP-configuratie. Zie "
-"[doc@faq1-16]FAQ 1.16[/doc]."
+"Er zijn geen te importeren gegevens ontvangen. Dit kan gebeuren als er geen "
+"bestand werd verzonden, of als dit werd afgekeurd op basis van de maximale "
+"bestandsgrootte zoals opgegeven in de PHP-configuratie. Zie [doc@faq1-16]FAQ "
+"1.16[/doc]."
 
 #: import.php:553
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "De karakterset van het bestand kan niet omgezet worden zonder de 'character "
-"set conversion' bibliotheek!"
+"set conversion'-bibliotheek!"
 
 #: import.php:593 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
-"De plugins voor het importeren konden niet worden geladen, controleer uw "
-"installatie!"
+"De importeer-plugins konden niet worden geladen, controleer de installatie!"
 
 #: import.php:628 libraries/sql.lib.php:880 libraries/sql.lib.php:1672
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr "Bladwijzer %s werd aangemaakt."
+msgstr "Bladwijzer %s is aangemaakt."
 
 #: import.php:637
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "Import is geslaagd, %d queries uitgevoerd."
+msgstr "Het importeren is geslaagd, %d queries uitgevoerd."
 
 #: import.php:659
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
-"De maximale uitvoertijd is verstreken, indien u de import wil afmaken kunt u "
-"het bestand opnieuw invoeren."
+"De maximale uitvoertijd is verstreken, als u het importeren wilt afmaken "
+"kunt u het bestand opnieuw invoeren."
 
 #: import.php:666
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"Tijdens de laatste poging is er geen vooruitgang geboekt, meestal betekent "
-"dit dat phpMyAdmin dit niet af kan maken tenzij de tijdsbeperkingen van PHP "
-"worden versoepeld."
+"Tijdens de laatste poging zijn er geen data gelezen; meestal betekent dit "
+"dat phpMyAdmin het importeren niet kan afmaken, tenzij de tijdsbeperkingen "
+"van PHP worden versoepeld."
 
 #: import_status.php:97 js/messages.php:327 libraries/Util.class.php:736
 #: libraries/export.lib.php:460
@@ -702,7 +701,7 @@ msgstr "Terug"
 
 #: index.php:144 libraries/Footer.class.php:70
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin Demo Server"
+msgstr "phpMyAdmin-demo-server"
 
 #: index.php:148
 #, php-format
@@ -711,8 +710,8 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
-"U gebruikt de demoserver. U kunt alles doen, maar wijzig de root, debian-sys-"
-"maint en pma gebruikers niet. Meer informatie is beschikbaar op %s."
+"U gebruikt de demoserver. U kunt alles doen, maar wijzigt u de root, debian-"
+"sys-maint en pma-gebruikers niet. Meer informatie is beschikbaar op %s."
 
 #: index.php:158
 msgid "General Settings"
