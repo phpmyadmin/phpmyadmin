@@ -58,7 +58,6 @@ $forms['Features']['Warnings'] = array(
 // settings from this form are treated specially,
 // see prefs_forms.php and user_preferences.lib.php
 $forms['Features']['Developer'] = array(
-    'Error_Handler/display',
     'DBG/sql');
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',

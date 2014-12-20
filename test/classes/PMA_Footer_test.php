@@ -59,8 +59,6 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
-        $GLOBALS['cfg']['Error_Handler']['gather'] = false;
-        $GLOBALS['cfg']['Error_Handler']['display'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
         $GLOBALS['server'] = '1';
