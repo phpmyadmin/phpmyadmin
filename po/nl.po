@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-15 15:54-0500\n"
-"PO-Revision-Date: 2014-12-20 19:21+0200\n"
+"PO-Revision-Date: 2014-12-20 20:08+0200\n"
 "Last-Translator: A. Voogt <a.voogt@hccnet.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-3/nl/>"
 "\n"
@@ -422,26 +422,26 @@ msgstr "Tabel tracken"
 
 #: db_tracking.php:248
 msgid "Database Log"
-msgstr "Databank-log"
+msgstr "Database-log"
 
 #: error_report.php:68
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
-"Er is een fout ontdekt en een foutmeldingsverslag werd automatisch verstuurd "
+"Er is een fout ontdekt en een foutmeldingsverslag is automatisch verstuurd "
 "op basis van je instellingen."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr "Bedankt om dit verslag te versturen."
+msgstr "Bedankt voor het versturen van dit verslag."
 
 #: error_report.php:76
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
-"Er is een fout ontdekt en een foutmeldingsverslag werd aangemaakt, maar kon "
+"Er is een fout ontdekt en een foutmeldingsverslag aangemaakt, maar het kon "
 "niet verstuurd worden."
 
 #: error_report.php:81
@@ -511,39 +511,39 @@ msgstr "Voeg een punt toe"
 #: gis_data_editor.php:269
 #, php-format
 msgid "Linestring %d:"
-msgstr "Lijnstuk definitie %d:"
+msgstr "Regel-string %d:"
 
 # https://nl.wikipedia.org/wiki/Aangeschreven_cirkel
 #: gis_data_editor.php:272 gis_data_editor.php:349
 msgid "Outer ring:"
-msgstr "Aangeschreven cirkel:"
+msgstr "Buitenste ring:"
 
 # https://nl.wikipedia.org/wiki/Ingeschreven_cirkel
 #: gis_data_editor.php:274 gis_data_editor.php:351
 #, php-format
 msgid "Inner ring %d:"
-msgstr "Ingeschreven cirkel %d:"
+msgstr "Binnenste ring %d:"
 
 #: gis_data_editor.php:311
 msgid "Add a linestring"
-msgstr "Voeg een lijnstuk toe"
+msgstr "Een regelstring toevoegen"
 
 #: gis_data_editor.php:312 gis_data_editor.php:391 js/messages.php:388
 msgid "Add an inner ring"
-msgstr "Voeg een ingeschreven cirkel toe"
+msgstr "Een binnenring toevoegen"
 
 #: gis_data_editor.php:333
 #, php-format
 msgid "Polygon %d:"
-msgstr "Polygoon %d:"
+msgstr "Veelhoek %d:"
 
 #: gis_data_editor.php:397
 msgid "Add a polygon"
-msgstr "Voeg een veelhoek toe"
+msgstr "Een veelhoek toevoegen"
 
 #: gis_data_editor.php:403
 msgid "Add geometry"
-msgstr "Een geometrie toevoegen"
+msgstr "Geometrie toevoegen"
 
 #: gis_data_editor.php:409 js/messages.php:247
 #: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1706
@@ -580,7 +580,7 @@ msgstr "Een geometrie toevoegen"
 #: prefs_manage.php:275 prefs_manage.php:333 view_create.php:277
 #: view_operations.php:106
 msgid "Go"
-msgstr "Start"
+msgstr "Starten"
 
 #: gis_data_editor.php:412
 msgid "Output"
