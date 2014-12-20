@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-15 15:55-0500\n"
 "PO-Revision-Date: 2014-12-20 16:34+0200\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Last-Translator: Szász Attila <undernetangel@gmail.com>\n"
 "Language-Team: Hungarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
@@ -317,10 +317,9 @@ msgstr[0] "%s tábla"
 msgstr[1] "%s tábla"
 
 #: db_qbe.php:103
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Ki kell legalább egy megjelenítendő oszlopot választania"
+msgstr "Legalább egy megjeleníteni kívánt oszlopot ki kell választani!"
 
 #: db_qbe.php:124
 #, php-format
