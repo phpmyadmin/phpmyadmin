@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-15 15:55-0500\n"
-"PO-Revision-Date: 2014-12-17 14:45+0200\n"
-"Last-Translator: Szász Attila <undernetangel@gmail.com>\n"
+"PO-Revision-Date: 2014-12-20 16:34+0200\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
@@ -30,12 +30,12 @@ msgstr "A központi oszlopok listája az aktuális adatbázisban üres."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
-msgstr "Kattintson a rendezéshez"
+msgstr "Kattintson a rendezéshez."
 
 #: db_central_columns.php:125
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "Sorok megjelenítése %1$s-%2$s"
+msgstr "Sorok megjelenítése %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -245,13 +245,13 @@ msgstr "Üres az adatbázis neve!"
 #: db_operations.php:132
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "A(z) %1$s adatbázis átnevezése %2$s névre megtörtént"
+msgstr "A(z) %1$s adatbázis átnevezése %2$s névre megtörtént."
 
 #: db_operations.php:138
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "A(z) %1$s adatbázis másolása a(z) %2$s adatbázisba megtörtént"
+msgstr "A(z) %1$s adatbázis másolása a(z) %2$s adatbázisba megtörtént."
 
 #: db_operations.php:259
 #, fuzzy, php-format
