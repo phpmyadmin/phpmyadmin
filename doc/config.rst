@@ -2744,13 +2744,6 @@ Developer
     Enable to let server present itself as demo server.
     This is used for <http://demo.phpmyadmin.net/>.
 
-.. config:option:: $cfg['Error_Handler']['display']
-
-    :type: boolean
-    :default: false
-
-    Whether to display errors from PHP or not.
-
 .. config:option:: $cfg['RowActionType']
 
     :type: string

@@ -67,7 +67,6 @@ require './libraries/Error_Handler.class.php';
  * initialize the error handler
  */
 $GLOBALS['error_handler'] = new PMA_Error_Handler();
-$cfg['Error_Handler']['display'] = true;
 
 /**
  * This setting was removed in PHP 5.4. But at this point PMA_PHP_INT_VERSION

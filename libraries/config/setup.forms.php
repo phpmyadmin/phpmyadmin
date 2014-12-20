@@ -123,7 +123,6 @@ $forms['Features']['Warnings'] = array(
     'SuhosinDisableWarning');
 $forms['Features']['Developer'] = array(
     'UserprefsDeveloperTab',
-    'Error_Handler/display',
     'DBG/sql');
 $forms['Features']['Other_core_settings'] = array(
     'NaturalOrder',
