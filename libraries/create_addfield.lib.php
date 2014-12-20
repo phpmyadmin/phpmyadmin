@@ -55,7 +55,7 @@ function PMA_buildColumnCreationStatement(
 
         $definition = PMA_getStatementPrefix($is_create_tbl) .
                 PMA_Table::generateFieldSpec(
-                    $_REQUEST['field_name'][$i],
+                    trim($_REQUEST['field_name'][$i]),
                     $_REQUEST['field_type'][$i],
                     $i,
                     $_REQUEST['field_length'][$i],
