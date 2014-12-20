@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 - bug #4656 Some error popups fade away too quickly
 - bug #4648 Consistency in borders
 - bug       $cfg['Error_Handler']['display'] no longer necessary
+- bug #4659 Leading and trailing whitespace in column name
 
 4.3.2.0 (2014-12-12)
 - bug #4628 PHP error while exporting schema as PDF
