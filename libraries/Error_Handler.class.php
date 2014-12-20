@@ -298,9 +298,7 @@ class PMA_Error_Handler
     {
         $retval = '';
         // display errors if SendErrorReports is set to 'ask'.
-        if ($GLOBALS['cfg']['SendErrorReports'] != 'never'
-            || $GLOBALS['cfg']['Error_Handler']['display']
-        ) {
+        if ($GLOBALS['cfg']['SendErrorReports'] != 'never') {
             foreach ($this->getErrors() as $error) {
                 if ($error instanceof PMA_Error) {
                     if (! $error->isDisplayed()) {
@@ -448,9 +446,7 @@ class PMA_Error_Handler
      */
     public function countDisplayErrors()
     {
-        if ($GLOBALS['cfg']['SendErrorReports'] != 'never'
-            || $GLOBALS['cfg']['Error_Handler']['display']
-        ) {
+        if ($GLOBALS['cfg']['SendErrorReports'] != 'never') {
             return $this->countErrors();
         } else {
             return $this->countUserErrors();
@@ -492,8 +488,7 @@ class PMA_Error_Handler
     public function hasErrorsForPrompt()
     {
         return (
-            ($GLOBALS['cfg']['SendErrorReports'] != 'never'
-                || $GLOBALS['cfg']['Error_Handler']['display'])
+            $GLOBALS['cfg']['SendErrorReports'] != 'never'
             && $this->countErrors() !=  $this->countUserErrors()
         );
     }
