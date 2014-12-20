@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-15 15:55-0500\n"
-"PO-Revision-Date: 2014-12-16 11:20+0200\n"
-"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
+"PO-Revision-Date: 2014-12-20 19:21+0200\n"
+"Last-Translator: A. Voogt <a.voogt@hccnet.nl>\n"
 "Language-Team: Dutch "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -40,11 +40,11 @@ msgstr "Weergave van regels %1$s - %2$s."
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "Databank %1$s werd aangemaakt."
+msgstr "Database %1$s is aangemaakt."
 
 #: db_datadict.php:48 libraries/operations.lib.php:32
 msgid "Database comment:"
-msgstr "Databankopmerking:"
+msgstr "Database-opmerking:"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:990
@@ -221,36 +221,36 @@ msgstr "Ja"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr "Bekijk export (schema) van databank"
+msgstr "Bekijk export (schema) van database"
 
 #: db_export.php:33 db_printview.php:42 db_structure.php:84 db_tracking.php:88
 #: export.php:360 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
-msgstr "Geen tabellen gevonden in de databank."
+msgstr "Geen tabellen gevonden in de database."
 
 #: db_export.php:41 libraries/DbSearch.class.php:446
 #: libraries/display_export.lib.php:44
 msgid "Select All"
-msgstr "Selecteer alles"
+msgstr "Alles selecteren"
 
 #: db_export.php:47 libraries/DbSearch.class.php:450
 #: libraries/display_export.lib.php:50
 msgid "Unselect All"
-msgstr "Deselecteer alles"
+msgstr "Alles deselecteren"
 
 #: db_operations.php:51 tbl_create.php:24
 msgid "The database name is empty!"
-msgstr "De databanknaam is leeg!"
+msgstr "De databasenaam is leeg!"
 
 #: db_operations.php:132
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Databank %1$s werd hernoemd naar %2$s."
+msgstr "Database %1$s is hernoemd naar %2$s."
 
 #: db_operations.php:138
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Databank %1$s werd gekopieerd naar %2$s."
+msgstr "Database %1$s is gekopieerd naar %2$s."
 
 #: db_operations.php:259
 #, php-format
@@ -313,12 +313,12 @@ msgstr[1] "%s tabellen"
 
 #: db_qbe.php:103
 msgid "You have to choose at least one column to display!"
-msgstr "Er moet ten minste 1 weer te geven kolom worden gekozen!"
+msgstr "Er moet ten minste één weer te geven kolom worden gekozen!"
 
 #: db_qbe.php:124
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Overschakelen op %svisuele builder%s"
+msgstr "Overschakelen naar %svisuele builder%s"
 
 #: db_search.php:30 libraries/plugins/AuthenticationPlugin.class.php:70
 #: libraries/plugins/auth/AuthenticationConfig.class.php:103
@@ -385,7 +385,7 @@ msgstr "Toon"
 
 #: db_tracking.php:141
 msgid "Delete tracking data for this table"
-msgstr "Verwijder tracking data voor deze tabel"
+msgstr "Tracking-data voor deze tabel verwijderen"
 
 #: db_tracking.php:145 db_tracking.php:207
 msgid "Delete tracking"
@@ -2806,7 +2806,7 @@ msgstr "Verwijderen"
 #: libraries/server_status_processes.lib.php:81
 #: libraries/tbl_relation.lib.php:306 libraries/tbl_relation.lib.php:543
 msgid "Database"
-msgstr "Databank"
+msgstr "Database"
 
 #: libraries/Console.class.php:108
 #, php-format
@@ -15682,7 +15682,7 @@ msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr ""
-"De grootte van het InnoDB-logbestand is niet in verhouding tot de InnoDB-"
+"De grootte van het InnoDB-logbestand staat in wanverhouding tot de InnoDB-"
 "bufferpool."
 
 #: libraries/advisory_rules.txt:440
@@ -15699,16 +15699,16 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Vooral op een systeem met veel schrijfacties naar InnoDB-tabellen, is het "
-"aangewezen om {innodb_log_file_size} in te stellen op 25%% van "
+"aan te raden om {innodb_log_file_size} in te stellen op 25%% van "
 "{innodb_buffer_pool_size}. Echter, hoe groter deze waarde, hoe langer de "
-"hersteltijd als een databank crasht, dus deze waarde wordt best niet groter "
-"ingesteld dan 256 MiB. Merk op dat de waarde van deze variabele niet zomaar "
-"ingesteld kan worden. De server moet uitgeschakeld worden, de InnoDB-"
-"logbestanden moeten worden verwijderd, de nieuwe waarde moet worden "
-"ingesteld in my.cnf, de server herstart en dan moeten de foutenlogboeken "
-"bekeken worden om te zien of alles goed ging. Bekijk ook <a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">deze blog</a>"
+"hersteltijd na een database-crash, dus deze waarde kan beter niet groter "
+"ingesteld worden dan 256 MB. Merk op dat de waarde van deze variabele niet "
+"zondermeer ingesteld kan worden. De server moet uitgeschakeld worden, de "
+"InnoDB-logbestanden moeten worden verwijderd, de nieuwe waarde moet worden "
+"ingesteld in my.cnf, de server herstart en dan moeten de foutlogboeken "
+"bekeken worden om te zien of alles goed gegaan is. Bekijk ook <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">deze blog</a>"
 
 #: libraries/advisory_rules.txt:441
 #, php-format
@@ -15742,19 +15742,21 @@ msgid ""
 msgstr ""
 "Doorgaans is het voldoende om {innodb_log_file_size} in te stellen op 25%% "
 "van {innodb_buffer_pool_size}. \n"
-"Een grote {innodb_log_file_size} verlengt de hersteltijd na een "
-"databankcrash enorm. Bekijk ook <a href=\"http://www.mysqlperformanceblog."
-"com/2006/07/03/choosing-proper-innodb_log_file_size/\">dit artikel</a>.\n"
+"Een grote {innodb_log_file_size} verlengt de hersteltijd na een database-"
+"crash enorm. Bekijk ook <a href=\""
+"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">dit artikel</a>.\n"
 "De server moet uitgeschakeld worden, de InnoDB-logbestanden moeten worden "
 "verwijderd, de nieuwe waarde moet worden ingesteld in my.cnf, de server "
 "herstart en dan moeten de foutenlogboeken bekeken worden om te zien of alles "
-"goed ging. Bekijk ook <a href=\"http://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">deze blog</a>"
+"goed gegaan is. Bekijk ook <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">deze blog</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr "De maximumgrootte van het InnoDB-logboek is %s MiB"
+msgstr "De maximumgrootte van het InnoDB-logboek is %s MB"
 
 #: libraries/advisory_rules.txt:450
 msgid "InnoDB buffer pool size"
@@ -15778,17 +15780,17 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
-"De InnoDB-bufferpool heeft een grote invloed op de prestaties van InnoDB-"
-"tabellen. Wijs alle overblijvend geheugen toe aan deze buffer. Voor "
-"databankservers die enkel InnoDB-opslagengines gebruiken en die geen andere "
-"diensten (bv. een webserver) draaien, mag deze waarde tot 80%% van het "
-"beschikbare geheugen ingesteld worden. Als dit niet het geval is, moet u "
-"zorgvuldig het geheugengebruik van de andere diensten en niet-InnoDB-"
-"tabellen inschatten en deze waarde gepast instellen. Als deze te hoog wordt "
-"ingesteld, kan het systeem swapgeheugen beginnen gebruiken, waardoor de "
-"prestatie erg verminderd. Bekijk ook <a href=\"http://www."
-"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\">dit "
-"artikel</a>"
+"De InnoDB-bufferpool heeft grote invloed op de prestaties van InnoDB-"
+"tabellen. Wijs alle overblijvend geheugen toe aan deze buffer. Voor database-"
+"servers die alleen InnoDB-opslagengines gebruiken en geen andere diensten ("
+"bv. een webserver) draaien, mag deze waarde tot 80%% van het beschikbare "
+"geheugen ingesteld worden. Als dit niet het geval is, moet u zorgvuldig het "
+"geheugengebruik van de andere diensten en niet-InnoDB-tabellen inschatten en "
+"deze waarde aangepast instellen. Als het te hoog wordt ingesteld, kan het "
+"systeem swapgeheugen gaan gebruiken, waardoor de prestaties sterk "
+"verminderen. Bekijk ook <a href=\""
+"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">dit artikel</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
@@ -15798,14 +15800,14 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
-"U gebruikt momenteel %s%% van het geheugen voorzien voor de InnoDB-"
+"U gebruikt momenteel %s%% van het geheugen toegewezen aan de InnoDB-"
 "bufferpool. Deze regel wordt geactiveerd als u minder dan 60%% toewijst, "
-"hoewel dat dit perfect geschikt kan zijn voor uw systeem als u niet veel "
-"InnoDB-tabellen heeft of andere diensten die op deze machine lopen."
+"hoewel dit heel geschikt kan zijn voor uw systeem als u niet veel InnoDB-"
+"tabellen heeft, of als er geen andere diensten op deze machine draaien."
 
 #: libraries/advisory_rules.txt:459
 msgid "MyISAM concurrent inserts"
-msgstr "MyISAM gelijktijdige invoeren"
+msgstr "Gelijktijdige invoeracties van MyISAM"
 
 #: libraries/advisory_rules.txt:462
 msgid "Enable {concurrent_insert} by setting it to 1"
