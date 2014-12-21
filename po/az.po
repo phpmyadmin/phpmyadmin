@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-12-21 06:13-0500\n"
+"POT-Creation-Date: 2014-12-21 13:06+0100\n"
 "PO-Revision-Date: 2014-12-12 14:01+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -846,8 +846,8 @@ msgstr ""
 #: index.php:511
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
-"Konfiqurasiya faylı üçün gizli parol ifadəsinə ehtiyac vardır"
-"(blowfish_secret)."
+"Konfiqurasiya faylı üçün gizli parol ifadəsinə ehtiyac "
+"vardır(blowfish_secret)."
 
 #: index.php:522
 msgid ""
@@ -4967,8 +4967,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -5103,8 +5103,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:53
@@ -5617,8 +5617,9 @@ msgstr "Səhifə başlığı"
 
 #: libraries/config/messages.inc.php:246
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:250
@@ -6361,8 +6362,8 @@ msgstr "Əlfəcin cədvəli"
 
 #: libraries/config/messages.inc.php:557
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:560
@@ -6476,8 +6477,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:604
 msgid ""
-"Leave blank for no QBE saved searches support, suggested: [kbd]"
-"pma__savedsearches[/kbd]."
+"Leave blank for no QBE saved searches support, suggested: "
+"[kbd]pma__savedsearches[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:608
@@ -6524,8 +6525,8 @@ msgid ""
 msgstr ""
 "Əlaqələr, əlfəcinlər və PDF özəllikləri üçün istifadə olunan Verilənlər "
 "Bazası. Tam İnformasiya üçün  [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
-"a]-a baxın. Dəstək istəmirsinizsə boş buraxın. Təklif olunan: [kbd]phpmyadmin"
-"[/kbd]."
+"a]-a baxın. Dəstək istəmirsinizsə boş buraxın. Təklif olunan: "
+"[kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:627
 #: libraries/display_create_database.lib.php:31
@@ -6552,8 +6553,8 @@ msgstr "Son istifadə edilən Cədvəl"
 
 #: libraries/config/messages.inc.php:637
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:641
@@ -6562,8 +6563,8 @@ msgstr "Əlaqə cədvəli"
 
 #: libraries/config/messages.inc.php:643
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 
 #: libraries/config/messages.inc.php:646
@@ -6660,8 +6661,8 @@ msgstr "İfadələrdən izlərə"
 
 #: libraries/config/messages.inc.php:686
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:689
@@ -6680,8 +6681,8 @@ msgstr "Avtomatik olaraq verisyaları yarat"
 
 #: libraries/config/messages.inc.php:696
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Bazada istifadəçi seçimlərinin saxlanmaması üçün boş buraxın, təklif edilən: "
 "[kbd]pma__userconfig[/kbd]."
@@ -6888,8 +6889,9 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)."
 msgstr ""
-"Redaktə rejimində mətin sahəsinin ölçüsü(sütunlar), SQL sorğu mətni sahələri"
-"(*2) və sorğu pəncərəsi (*1.25) üçün bu qiymətin önəmi bildiriləcəkdir."
+"Redaktə rejimində mətin sahəsinin ölçüsü(sütunlar), SQL sorğu mətni "
+"sahələri(*2) və sorğu pəncərəsi (*1.25) üçün bu qiymətin önəmi "
+"bildiriləcəkdir."
 
 #: libraries/config/messages.inc.php:745
 msgid "Textarea columns"
@@ -13615,8 +13617,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Git versiyasını istifadə edirsiniz, [kbd]git pull[/kbd] icra edin :-)[br]"
-"TSon stabil versiya %s, %s tarixində yayınlandı."
+"Git versiyasını istifadə edirsiniz, [kbd]git pull[/kbd] icra edin :-)"
+"[br]TSon stabil versiya %s, %s tarixində yayınlandı."
 
 #: setup/lib/index.lib.php:175
 msgid "No newer stable version is available"
