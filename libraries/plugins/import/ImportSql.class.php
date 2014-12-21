@@ -41,6 +41,11 @@ class ImportSql extends ImportPlugin
     private $_delimiterPosition = false;
 
     /**
+     * @var string Query to execute
+     */
+    private $_query = null;
+
+    /**
      * @var int Query start position
      */
     private $_queryBeginPosition = 0;
@@ -212,7 +217,10 @@ class ImportSql extends ImportPlugin
     {
         //Search for closing quote
         $posClosingString = $this->_stringFctToUse['strpos'](
-            $this->_data, $this->_quote, $this->_delimiterPosition
+            $this->_data, $this->_quote,
+            $this->_delimiterPosition + $this->_stringFctToUse['strlen'](
+                $this->_quote
+            )
         );
 
         if (false === $posClosingString) {
@@ -268,49 +276,53 @@ class ImportSql extends ImportPlugin
                     $posClosingComment = $this->_stringFctToUse['strpos'](
                         $this->_data,
                         "\n",
-                        $this->_delimiterPosition
+                        $this->_delimiterPosition + $this->_stringFctToUse['strlen'](
+                            $this->_openingComment
+                        )
                     );
                     if (false === $posClosingComment) {
                         return false;
                     }
                     //Move after the end of the line.
                     $this->_delimiterPosition = $posClosingComment + 1;
-                    $this->_isInComment = false;
-                    $this->_openingComment = null;
                 } elseif ('/*' === $this->_openingComment) {
                     //Search for closing comment
                     $posClosingComment = $this->_stringFctToUse['strpos'](
                         $this->_data,
                         '*/',
-                        $this->_delimiterPosition
+                        $this->_delimiterPosition + $this->_stringFctToUse['strlen'](
+                            $this->_openingComment
+                        )
                     );
                     if (false === $posClosingComment) {
                         return false;
                     }
                     //Move after closing comment.
                     $this->_delimiterPosition = $posClosingComment + 2;
-                    $this->_isInComment = false;
-                    $this->_openingComment = null;
                 } else {
                     //We shouldn't be able to come here.
                     //throw new Exception('Unknown case.');
                     break;
                 }
 
-                if (0 === $this->_firstSearchChar) {
-                    $this->_queryBeginPosition = $this->_delimiterPosition;
-                }
+                $this->_queryBeginPosition = $this->_delimiterPosition;
+                $this->_isInComment = false;
+                $this->_openingComment = null;
 
                 continue;
             }
 
             if ($this->_isInDelimiter) {
+                $posAfterKeyword = $this->_delimiterPosition
+                    + $this->_stringFctToUse['strlen'](
+                        $this->_delimiterKeyword
+                    );
                 //Search for new line.
                 if (!preg_match(
                     "/^(.*)\n/",
                     $this->_stringFctToUse['substr'](
                         $this->_data,
-                        $this->_delimiterPosition
+                        $posAfterKeyword
                     ),
                     $matches,
                     PREG_OFFSET_CAPTURE
@@ -320,8 +332,8 @@ class ImportSql extends ImportPlugin
 
                 $this->_setDelimiter($matches[1][0]);
                 //Start after delimiter and new line.
-                $this->_queryBeginPosition = $this->_delimiterPosition
-                    + $matches[1][1] + $this->_delimiterLength + 1;
+                $this->_queryBeginPosition = $posAfterKeyword + $matches[1][1]
+                    + $this->_delimiterLength + 1;
                 $this->_delimiterPosition = $this->_queryBeginPosition;
                 $this->_isInDelimiter = false;
                 $firstSqlDelimiter = null;
@@ -343,6 +355,7 @@ class ImportSql extends ImportPlugin
                 && $firstSqlDelimiter < $this->_firstSearchChar)
             ) {
                 $this->_delimiterPosition = $firstSqlDelimiter;
+                $this->_fillQuery();
                 return true;
             }
 
@@ -355,7 +368,7 @@ class ImportSql extends ImportPlugin
                 $this->_isInString = true;
                 $this->_quote = $specialChars;
                 //Move after quote.
-                $this->_delimiterPosition = $this->_firstSearchChar + 1;
+                $this->_delimiterPosition = $this->_firstSearchChar;
                 continue;
             }
 
@@ -364,16 +377,15 @@ class ImportSql extends ImportPlugin
                 $this->_isInComment = true;
                 $this->_openingComment = $specialChars;
                 //Move after comment opening.
-                $this->_delimiterPosition = $this->_firstSearchChar
-                    + $this->_stringFctToUse['strlen']($specialChars);
+                $this->_delimiterPosition = $this->_firstSearchChar;
+                $this->_fillQuery();
                 continue;
             }
 
             //If DELIMITER is found.
             if ($specialChars === $this->_delimiterKeyword) {
                 $this->_isInDelimiter =  true;
-                $this->_delimiterPosition = $this->_firstSearchChar
-                    + $this->_stringFctToUse['strlen']($specialChars);
+                $this->_delimiterPosition = $this->_firstSearchChar;
                 continue;
             }
         }
@@ -447,11 +459,7 @@ class ImportSql extends ImportPlugin
             }
 
             PMA_importRunQuery(
-                $this->_stringFctToUse['substr'](
-                    $this->_data,
-                    $this->_queryBeginPosition,
-                    $this->_delimiterPosition - $this->_queryBeginPosition
-                ), //Query to execute
+                $this->_query, //Query to execute
                 $this->_stringFctToUse['substr'](
                     $this->_data,
                     0,
@@ -460,6 +468,7 @@ class ImportSql extends ImportPlugin
                 false,
                 $sql_data
             );
+            $this->_query = null;
 
             $this->_setData(
                 $this->_stringFctToUse['substr'](
@@ -615,5 +624,21 @@ class ImportSql extends ImportPlugin
         $this->_dataLength += $this->_stringFctToUse['strlen']($data);
 
         return $this->_dataLength;
+    }
+
+    /**
+     * Fill current query from indexes
+     *
+     * @return string Current query
+     */
+    private function _fillQuery()
+    {
+        $this->_query .= $this->_stringFctToUse['substr'](
+            $this->_data,
+            $this->_queryBeginPosition,
+            $this->_delimiterPosition - $this->_queryBeginPosition
+        );
+
+        return $this->_query;
     }
 }

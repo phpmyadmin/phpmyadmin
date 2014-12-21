@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.3.4.0 (not yet released)
+- #4645 Import of export created with mysqldump
 
 4.3.3.0 (2014-12-21)
 - bug       The "Recently used tables" setting should be with Nav panel
