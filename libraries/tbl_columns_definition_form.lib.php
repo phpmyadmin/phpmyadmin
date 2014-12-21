@@ -981,7 +981,7 @@ function PMA_getHtmlForColumnNull($columnNumber, $ci, $ci_offset, $columnMeta)
 function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
     $extracted_columnspec, $columnMeta, $submit_attribute, $analyzed_sql
 ) {
-    $html = '<select style="font-size: 70%;"'
+    $html = '<select style="width: 7em;"'
         . ' name="field_attribute[' . $columnNumber . ']"'
         . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '">';
 

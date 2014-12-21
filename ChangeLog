@@ -1,6 +1,21 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.3.0 (2014-12-21)
+- bug       The "Recently used tables" setting should be with Nav panel
+- bug #4647 Can't disable Favorites
+- bug #4646 Version Check Broken
+- bug #4630 AJAX request infinite loop
+- bug #4649 Attributes field size smaller than others
+- bug #4622 Cannot remove table ordering on a Mac
+- bug       Fix initial replication configuration
+- bug       Undefined index central_columnswork
+- bug #4657 Don't have default blowfish_secret
+- bug #4656 Some error popups fade away too quickly
+- bug #4648 Consistency in borders
+- bug       $cfg['Error_Handler']['display'] no longer necessary
+- bug #4659 Leading and trailing whitespace in column name
+
 4.3.2.0 (2014-12-12)
 - bug #4628 PHP error while exporting schema as PDF
 - bug #4631 Server selector submits two server parameter values

@@ -242,9 +242,9 @@ function parseVersionString(str)
 function PMA_current_version(data)
 {
     if (data && data.version && data.date) {
-        var current = parseVersionString(pmaversion);
+        var current = parseVersionString($('span.version').text());
         var latest = parseVersionString(data.version);
-        var version_information_message = '<span>'+
+        var version_information_message = '<span class="latest">' +
             PMA_messages.strLatestAvailable +
             ' ' + escapeHtml(data.version) +
             '</span>';
@@ -264,7 +264,7 @@ function PMA_current_version(data)
         if (latest === current) {
             version_information_message = ' (' + PMA_messages.strUpToDate + ')';
         }
-        $('#li_pma_version span').remove();
+        $('#li_pma_version span.latest').remove();
         $('#li_pma_version').append(version_information_message);
     }
 }
@@ -705,7 +705,11 @@ AJAX.registerOnload('functions.js', function () {
                     clearInterval(updateInterval);
                     if (data.success) {
                         if (PMA_commonParams.get('LoginCookieValidity')-_idleSecondsCounter > 5) {
-                            updateInterval = window.setInterval(UpdateIdleTime, (PMA_commonParams.get('LoginCookieValidity')-_idleSecondsCounter-5)*1000);
+                            var interval = (PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter - 5) * 1000;
+                            if (interval > Math.pow(2, 31) - 1) { // max value for setInterval() function
+                                interval = Math.pow(2, 31) - 1;
+                            }
+                            updateInterval = window.setInterval(UpdateIdleTime, interval);
                         } else {
                             updateInterval = window.setInterval(UpdateIdleTime, 2000);
                         }
@@ -718,7 +722,11 @@ AJAX.registerOnload('functions.js', function () {
     }
     if (PMA_commonParams.get('logged_in')) {
         IncInterval = window.setInterval(SetIdleTime, 1000);
-        updateInterval = window.setInterval(UpdateIdleTime, (PMA_commonParams.get('LoginCookieValidity')-5)*1000);
+        var interval = (PMA_commonParams.get('LoginCookieValidity') - 5) * 1000;
+        if (interval > Math.pow(2, 31) - 1) { // max value for setInterval() function
+            interval = Math.pow(2, 31) - 1;
+        }
+        updateInterval = window.setInterval(UpdateIdleTime, interval);
     }
 });
 /**

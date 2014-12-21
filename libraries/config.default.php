@@ -814,26 +814,6 @@ $cfg['CaptchaLoginPublicKey'] = '';
 $cfg['CaptchaLoginPrivateKey'] = '';
 
 /*******************************************************************************
- * Error handler configuration
- *
- * this configures phpMyAdmin's own error handler, it is used to avoid information
- * disclosure, gather errors for logging, reporting and displaying
- *
- * @global array $cfg['Error_Handler']
- */
-$cfg['Error_Handler'] = array();
-
-/**
- * whether to display errors or not
- *
- * this does not affect errors of type  E_USER_*
- *
- * @global boolean $cfg['Error_Handler']['display']
- */
-$cfg['Error_Handler']['display'] = false;
-
-
-/*******************************************************************************
  * Navigation panel setup
  */
 

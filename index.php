@@ -369,7 +369,7 @@ if ($GLOBALS['cfg']['VersionCheck']
     $class = 'jsversioncheck';
 }
 PMA_printListItem(
-    __('Version information:') . ' ' . PMA_VERSION,
+    __('Version information:') . ' <span class="version">' . PMA_VERSION . '</span>',
     'li_pma_version',
     null,
     null,

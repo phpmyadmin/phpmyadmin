@@ -123,14 +123,12 @@ $forms['Features']['Warnings'] = array(
     'SuhosinDisableWarning');
 $forms['Features']['Developer'] = array(
     'UserprefsDeveloperTab',
-    'Error_Handler/display',
     'DBG/sql');
 $forms['Features']['Other_core_settings'] = array(
     'NaturalOrder',
     'InitialSlidersState',
     'MaxDbList',
     'MaxTableList',
-    'NumRecentTables',
     'NumFavoriteTables',
     'ShowHint',
     'OBGzip',
@@ -172,7 +170,8 @@ $forms['Navi_panel']['Navi_panel'] = array(
     'MaxNavigationItems',
     'NavigationTreeEnableGrouping',
     'NavigationTreeDisableDatabaseExpansion',
-    'NavigationTreeDisplayItemFilterMinimum');
+    'NavigationTreeDisplayItemFilterMinimum',
+    'NumRecentTables');
 $forms['Navi_panel']['Navi_servers'] = array(
     'NavigationDisplayServers',
     'DisplayServersList');
