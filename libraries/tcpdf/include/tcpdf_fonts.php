@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf_fonts.php
-// Version     : 1.0.014
+// Version     : 1.1.0
 // Begin       : 2008-01-01
-// Last Update : 2014-11-08
+// Last Update : 2014-12-10
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
@@ -42,7 +42,7 @@
  * @class TCPDF_FONTS
  * Font methods for TCPDF library.
  * @package com.tecnick.tcpdf
- * @version 1.0.014
+ * @version 1.1.0
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_FONTS {
@@ -186,7 +186,7 @@ class TCPDF_FONTS {
 			$data .= $encrypted;
 			// store compressed font
 			$fmetric['file'] .= '.z';
-			$fp = fopen($outpath.$fmetric['file'], 'wb');
+			$fp = TCPDF_STATIC::fopenLocal($outpath.$fmetric['file'], 'wb');
 			fwrite($fp, gzcompress($data));
 			fclose($fp);
 			// get font info
@@ -354,6 +354,11 @@ class TCPDF_FONTS {
 			$fmetric['AvgWidth'] = round($fmetric['AvgWidth'] / count($cwidths));
 		} else {
 			// ---------- TRUE TYPE ----------
+			$offset = 0; // offset position of the font data
+			if (TCPDF_STATIC::_getULONG($font, $offset) != 0x10000) {
+				// sfnt version must be 0x00010000 for TrueType version 1.0.
+				return false;
+			}
 			if ($fmetric['type'] != 'cidfont0') {
 				if ($link) {
 					// creates a symbolic link to the existing font
@@ -361,15 +366,10 @@ class TCPDF_FONTS {
 				} else {
 					// store compressed font
 					$fmetric['file'] .= '.z';
-					$fp = fopen($outpath.$fmetric['file'], 'wb');
+					$fp = TCPDF_STATIC::fopenLocal($outpath.$fmetric['file'], 'wb');
 					fwrite($fp, gzcompress($font));
 					fclose($fp);
 				}
-			}
-			$offset = 0; // offset position of the font data
-			if (TCPDF_STATIC::_getULONG($font, $offset) != 0x10000) {
-				// sfnt version must be 0x00010000 for TrueType version 1.0.
-				return false;
 			}
 			$offset += 4;
 			// get number of tables
@@ -885,7 +885,7 @@ class TCPDF_FONTS {
 					$cidtogidmap = self::updateCIDtoGIDmap($cidtogidmap, $cid, $ctg[$cid]);
 				}
 				// store compressed CIDToGIDMap
-				$fp = fopen($outpath.$fmetric['ctg'], 'wb');
+				$fp = TCPDF_STATIC::fopenLocal($outpath.$fmetric['ctg'], 'wb');
 				fwrite($fp, gzcompress($cidtogidmap));
 				fclose($fp);
 			}
@@ -911,7 +911,7 @@ class TCPDF_FONTS {
 		$pfile .= '$cw=array('.substr($fmetric['cw'], 1).');'."\n";
 		$pfile .= '// --- EOF ---'."\n";
 		// store file
-		$fp = fopen($outpath.$font_name.'.php', 'w');
+		$fp = TCPDF_STATIC::fopenLocal($outpath.$font_name.'.php', 'w');
 		fwrite($fp, $pfile);
 		fclose($fp);
 		// return TCPDF font name
