@@ -588,7 +588,7 @@ var PMA_consoleInput = {
     },
     /**
      * Mousedown event handler for bind to input
-     * Shortcut is ESC key
+     * Shortcut is Ctrl+Enter key
      *
      * @return void
      */
