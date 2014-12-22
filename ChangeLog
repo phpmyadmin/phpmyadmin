@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 
 4.3.4.0 (not yet released)
 - bug #4653 Always connection error was shown, on /setup at tab "configuration storage"
+- bug #4661 Drag and drop file import always fails
 
 4.3.3.0 (2014-12-21)
 - bug       The "Recently used tables" setting should be with Nav panel
