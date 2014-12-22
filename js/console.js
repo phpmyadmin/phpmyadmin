@@ -119,8 +119,8 @@ var PMA_console = {
 
             PMA_console.$consoleToolbar.children('.console_switch').click(PMA_console.toggle);
             $(document).keydown(function(event) {
-                // 27 keycode is ESC
-                if(event.keyCode === 27) {
+                // Ctrl + Alt + C
+                if(event.ctrlKey && event.altKey && event.keyCode === 67) {
                     PMA_console.toggle();
                 }
             });
