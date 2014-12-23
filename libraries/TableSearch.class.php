@@ -126,7 +126,7 @@ class PMA_TableSearch
         $columns = $GLOBALS['dbi']->getColumns(
             $this->_db, $this->_table, null, true
         );
-        // Get details about the geometry fucntions
+        // Get details about the geometry functions
         $geom_types = PMA_Util::getGISDatatypes();
 
         foreach ($columns as $row) {
@@ -151,7 +151,7 @@ class PMA_TableSearch
                 }
                 $type = preg_replace('@ZEROFILL@i', '', $type);
                 $type = preg_replace('@UNSIGNED@i', '', $type);
-                $type = strtolower($type);
+                $type = /*overload*/mb_strtolower($type);
             }
             if (empty($type)) {
                 $type = '&nbsp;';
@@ -236,7 +236,7 @@ class PMA_TableSearch
             . ' size="40" class="textfield" id="field_' . $column_index . '" />';
 
         if ($in_fbs) {
-            $edit_url = 'gis_data_editor.php?' . PMA_URL_getCommon();
+            $edit_url = 'gis_data_editor.php' . PMA_URL_getCommon();
             $edit_str = PMA_Util::getIcon('b_edit.png', __('Edit/Insert'));
             $html_output .= '<span class="open_search_gis_editor">';
             $html_output .= PMA_Util::linkOrButton(
@@ -251,20 +251,18 @@ class PMA_TableSearch
      * Provides html elements for search criteria inputbox
      * in case the column is a Foreign Key
      *
-     * @param array  $foreignData         Foreign keys data
-     * @param string $column_name         Column name
-     * @param int    $column_index        Column index
-     * @param array  $titles              Selected title
-     * @param int    $foreignMaxLimit     Max limit of displaying foreign elements
-     * @param array  $criteriaValues      Array of search criteria inputs
-     * @param string $column_id           Column's inputbox's id
-     * @param bool   $in_zoom_search_edit Whether we are in zoom search edit
+     * @param array  $foreignData     Foreign keys data
+     * @param string $column_name     Column name
+     * @param int    $column_index    Column index
+     * @param array  $titles          Selected title
+     * @param int    $foreignMaxLimit Max limit of displaying foreign elements
+     * @param array  $criteriaValues  Array of search criteria inputs
+     * @param string $column_id       Column's inputbox's id
      *
      * @return string HTML elements.
      */
     private function _getForeignKeyInputBox($foreignData, $column_name,
-        $column_index, $titles, $foreignMaxLimit, $criteriaValues, $column_id,
-        $in_zoom_search_edit = false
+        $column_index, $titles, $foreignMaxLimit, $criteriaValues, $column_id
     ) {
         $html_output = '';
         if (is_array($foreignData['disp_row'])) {
@@ -287,15 +285,13 @@ class PMA_TableSearch
                     : '')
                 . ' />';
 
-            $html_output .=  <<<EOT
-<a target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes'); return false" href="browse_foreigners.php?
-EOT;
-            $html_output .= '' . PMA_URL_getCommon($this->_db, $this->_table)
+            $html_output .= '<a class="ajax browse_foreign" href="'
+                . 'browse_foreigners.php'
+                . PMA_URL_getCommon(
+                    array('db' => $this->_db, 'table' => $this->_table)
+                )
                 . '&amp;field=' . urlencode($column_name) . '&amp;fieldkey='
                 . $column_index . '&amp;fromsearch=1"';
-            if ($in_zoom_search_edit) {
-                $html_output .= ' class="browse_foreign"';
-            }
             $html_output .= '>' . str_replace("'", "\'", $titles['Browse']) . '</a>';
         }
         return $html_output;
@@ -320,7 +316,7 @@ EOT;
         $html_output = '';
         $value = explode(
             ', ',
-            str_replace("'", '', substr($column_type, 5, -1))
+            str_replace("'", '', /*overload*/mb_substr($column_type, 5, -1))
         );
         $cnt_value = count($value);
 
@@ -387,7 +383,9 @@ EOT;
 
         // Get inputbox based on different column types
         // (Foreign key, geometrical, enum)
-        if ($this->_foreigners && isset($this->_foreigners[$column_name])) {
+        if ($this->_foreigners
+            && PMA_searchColumnInForeigners($this->_foreigners, $column_name)
+        ) {
             $str .= $this->_getForeignKeyInputBox(
                 $foreignData, $column_name, $column_index, $titles,
                 $foreignMaxLimit, $criteriaValues, $column_id
@@ -530,14 +528,13 @@ EOT;
      * @param mixed  $criteriaValues Search criteria input
      * @param string $names          Name of the column on which search is submitted
      * @param string $types          Type of the field
-     * @param string $collations     Field collation
      * @param string $func_type      Search function/operator
      * @param bool   $unaryFlag      Whether operator unary or not
      * @param bool   $geom_func      Whether geometry functions should be applied
      *
      * @return string generated where clause.
      */
-    private function _getWhereClause($criteriaValues, $names, $types, $collations,
+    private function _getWhereClause($criteriaValues, $names, $types,
         $func_type, $unaryFlag, $geom_func = null
     ) {
         // If geometry function is set
@@ -562,7 +559,7 @@ EOT;
             // strings to numbers and numbers to strings as necessary
             // during the comparison
             if (preg_match('@char|binary|blob|text|set|date|time|year@i', $types)
-                || strpos(' ' . $func_type, 'LIKE')
+                || /*overload*/mb_strpos(' ' . $func_type, 'LIKE')
             ) {
                 $quot = '\'';
             } else {
@@ -703,14 +700,12 @@ EOT;
         }
 
         // else continue to form the where clause from column criteria values
-        $fullWhereClause = $charsets = array();
+        $fullWhereClause = array();
         reset($_POST['criteriaColumnOperators']);
         while (list($column_index, $operator) = each(
             $_POST['criteriaColumnOperators']
         )) {
-            list($charsets[$column_index]) = explode(
-                '_', $_POST['criteriaColumnCollations'][$column_index]
-            );
+
             $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($operator);
             $tmp_geom_func = isset($geom_func[$column_index])
                 ? $geom_func[$column_index] : null;
@@ -719,7 +714,6 @@ EOT;
                 $_POST['criteriaValues'][$column_index],
                 $_POST['criteriaColumnNames'][$column_index],
                 $_POST['criteriaColumnTypes'][$column_index],
-                $_POST['criteriaColumnCollations'][$column_index],
                 $operator,
                 $unaryFlag,
                 $tmp_geom_func
@@ -819,7 +813,8 @@ EOT;
          */
         $html_output .= '<fieldset id="fieldset_search_conditions">'
             . '<legend>' . '<em>' . __('Or') . '</em> '
-            . __('Add search conditions (body of the "where" clause):') . '</legend>';
+            . __('Add search conditions (body of the "where" clause):')
+            . '</legend>';
         $html_output .= PMA_Util::showMySQLDocu('Functions');
         $html_output .= '<input type="text" name="customWhereClause"'
             . ' class="textfield" size="64" />';
@@ -865,7 +860,7 @@ EOT;
      * Other search criteria like data label
      * (for tbl_zoom_select.php)
      *
-     * @param array $dataLabel Label for points in zoom plot
+     * @param string|null $dataLabel Label for points in zoom plot
      *
      * @return string the generated html
      */
@@ -913,13 +908,13 @@ EOT;
     }
 
     /**
-     * Provides a column's type, collation, operators list, and crietria value
+     * Provides a column's type, collation, operators list, and criteria value
      * to display in table search form
      *
      * @param integer $search_index Row number in table search form
      * @param integer $column_index Column index in ColumnNames array
      *
-     * @return array Array contaning column's properties
+     * @return array Array containing column's properties
      */
     public function getColumnProperties($search_index, $column_index)
     {
@@ -1024,12 +1019,9 @@ EOT;
      */
     private function _getRowsZoom()
     {
-        $odd_row     = true;
+        $odd_row = true;
         $html_output = '';
-        $type        = array();
-        $collation   = array();
-        $func        = array();
-        $value       = array();
+        $type = $collation = $func = $value = array();
         /**
          * Get already set search criteria (if any)
          */
@@ -1193,8 +1185,8 @@ EOT;
     /**
      * Generates the table search form under table search tab
      *
-     * @param string $goto      Goto URL
-     * @param string $dataLabel Label for points in zoom plot
+     * @param string      $goto      Goto URL
+     * @param string|null $dataLabel Label for points in zoom plot
      *
      * @return string the generated HTML for table search form
      */
@@ -1206,7 +1198,10 @@ EOT;
             $html_output .= '<fieldset id="fieldset_zoom_search">';
             $html_output .= '<fieldset id="inputSection">';
             $html_output .= '<legend>'
-                . __('Do a "query by example" (wildcard: "%") for two different columns')
+                . __(
+                    'Do a "query by example" (wildcard: "%") for two'
+                    . ' different columns'
+                )
                 . '</legend>';
             $html_output .= $this->_getFieldsTableHtml();
             $html_output .= $this->_getOptionsZoom($dataLabel);
@@ -1368,40 +1363,97 @@ EOT;
             }
         }
         $htmlOutput .= '</select>';
+
+        $htmlOutput .= '<br>'
+            . PMA_Util::getCheckbox(
+                'useRegex',
+                __('Use regular expression'),
+                false,
+                false
+            );
         return $htmlOutput;
     }
 
     /**
-     * Returns HTML for prviewing strings found and their replacements
+     * Finds and returns Regex pattern and their replacements
      *
      * @param int    $columnIndex index of the column
      * @param string $find        string to find in the column
      * @param string $replaceWith string to replace with
      * @param string $charSet     character set of the connection
      *
-     * @return string HTML for prviewing strings found and their replacements
+     * @return array Array containing original values, replaced values and count
      */
-    function getReplacePreview($columnIndex, $find, $replaceWith, $charSet)
+    function _getRegexReplaceRows($columnIndex, $find, $replaceWith, $charSet)
     {
         $column = $this->_columnNames[$columnIndex];
         $sql_query = "SELECT "
             . PMA_Util::backquote($column) . ","
-            . " REPLACE("
-            . PMA_Util::backquote($column) . ", '" . $find . "', '" . $replaceWith
-            . "'),"
+            . " 1," // to add an extra column that will have replaced value
             . " COUNT(*)"
             . " FROM " . PMA_Util::backquote($this->_db)
             . "." . PMA_Util::backquote($this->_table)
             . " WHERE " . PMA_Util::backquote($column)
-            . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin"; // here we
+            . " RLIKE '" . PMA_Util::sqlAddSlashes($find) . "' COLLATE "
+            . $charSet . "_bin"; // here we
             // change the collation of the 2nd operand to a case sensitive
             // binary collation to make sure that the comparison is case sensitive
         $sql_query .= " GROUP BY " . PMA_Util::backquote($column)
             . " ORDER BY " . PMA_Util::backquote($column) . " ASC";
 
-        $resultSet = $GLOBALS['dbi']->query(
-            $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
-        );
+        $result = $GLOBALS['dbi']->fetchResult($sql_query, 0);
+
+        if (is_array($result)) {
+            foreach ($result as $index=>$row) {
+                $result[$index][1] = preg_replace(
+                    "/" . $find . "/",
+                    $replaceWith,
+                    $row[0]
+                );
+            }
+        }
+        return $result;
+    }
+
+    /**
+     * Returns HTML for previewing strings found and their replacements
+     *
+     * @param int     $columnIndex index of the column
+     * @param string  $find        string to find in the column
+     * @param string  $replaceWith string to replace with
+     * @param boolean $useRegex    to use Regex replace or not
+     * @param string  $charSet     character set of the connection
+     *
+     * @return string HTML for previewing strings found and their replacements
+     */
+    function getReplacePreview($columnIndex, $find, $replaceWith, $useRegex,
+        $charSet
+    ) {
+        $column = $this->_columnNames[$columnIndex];
+        if ($useRegex) {
+            $result = $this->_getRegexReplaceRows(
+                $columnIndex, $find, $replaceWith, $charSet
+            );
+        } else {
+            $sql_query = "SELECT "
+                . PMA_Util::backquote($column) . ","
+                . " REPLACE("
+                . PMA_Util::backquote($column) . ", '" . $find . "', '"
+                . $replaceWith
+                . "'),"
+                . " COUNT(*)"
+                . " FROM " . PMA_Util::backquote($this->_db)
+                . "." . PMA_Util::backquote($this->_table)
+                . " WHERE " . PMA_Util::backquote($column)
+                . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin"; // here we
+                // change the collation of the 2nd operand to a case sensitive
+                // binary collation to make sure that the comparison
+                // is case sensitive
+            $sql_query .= " GROUP BY " . PMA_Util::backquote($column)
+                . " ORDER BY " . PMA_Util::backquote($column) . " ASC";
+
+            $result = $GLOBALS['dbi']->fetchResult($sql_query, 0);
+        }
 
         $htmlOutput = '<form method="post" action="tbl_find_replace.php"'
             . ' name="previewForm" id="previewForm" class="ajax">';
@@ -1410,9 +1462,11 @@ EOT;
         $htmlOutput .= '<input type="hidden" name="columnIndex" value="'
             . $columnIndex . '" />';
         $htmlOutput .= '<input type="hidden" name="findString"'
-            . ' value="' . $find . '" />';
+            . ' value="' . htmlspecialchars($find) . '" />';
         $htmlOutput .= '<input type="hidden" name="replaceWith"'
-            . ' value="' . $replaceWith . '" />';
+            . ' value="' . htmlspecialchars($replaceWith) . '" />';
+        $htmlOutput .= '<input type="hidden" name="useRegex"'
+            . ' value="' . $useRegex . '" />';
 
         $htmlOutput .= '<fieldset id="fieldset_find_replace_preview">';
         $htmlOutput .= '<legend>' . __('Find and replace - preview') . '</legend>';
@@ -1426,18 +1480,21 @@ EOT;
 
         $htmlOutput .= '<tbody>';
         $odd = true;
-        while ($row = $GLOBALS['dbi']->fetchRow($resultSet)) {
-            $val = $row[0];
-            $replaced = $row[1];
-            $count = $row[2];
+        if (is_array($result)) {
+            foreach ($result as $row) {
+                $val = $row[0];
+                $replaced = $row[1];
+                $count = $row[2];
 
-            $htmlOutput .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
-            $htmlOutput .= '<td class="right">' . htmlspecialchars($count) . '</td>';
-            $htmlOutput .= '<td>' . htmlspecialchars($val) . '</td>';
-            $htmlOutput .= '<td>' . htmlspecialchars($replaced) . '</td>';
-            $htmlOutput .= '</tr>';
+                $htmlOutput .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
+                $htmlOutput .= '<td class="right">' . htmlspecialchars($count)
+                    . '</td>';
+                $htmlOutput .= '<td>' . htmlspecialchars($val) . '</td>';
+                $htmlOutput .= '<td>' . htmlspecialchars($replaced) . '</td>';
+                $htmlOutput .= '</tr>';
 
-            $odd = ! $odd;
+                $odd = ! $odd;
+            }
         }
         $htmlOutput .= '</tbody>';
         $htmlOutput .= '</table>';
@@ -1455,30 +1512,75 @@ EOT;
     /**
      * Replaces a given string in a column with a give replacement
      *
-     * @param int    $columnIndex index of the column
-     * @param string $find        string to find in the column
-     * @param string $replaceWith string to replace with
-     * @param string $charSet     character set of the connection
+     * @param int     $columnIndex index of the column
+     * @param string  $find        string to find in the column
+     * @param string  $replaceWith string to replace with
+     * @param boolean $useRegex    to use Regex replace or not
+     * @param string  $charSet     character set of the connection
      *
      * @return void
      */
-    function replace($columnIndex, $find, $replaceWith, $charSet)
+    function replace($columnIndex, $find, $replaceWith, $useRegex, $charSet)
     {
         $column = $this->_columnNames[$columnIndex];
-        $sql_query = "UPDATE " . PMA_Util::backquote($this->_db)
-            . "." . PMA_Util::backquote($this->_table)
-            . " SET " . PMA_Util::backquote($column) . " ="
-            . " REPLACE("
-            . PMA_Util::backquote($column) . ", '" . $find . "', '" . $replaceWith
-            . "')"
-            . " WHERE " . PMA_Util::backquote($column)
-            . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin"; // here we
-            // change the collation of the 2nd operand to a case sensitive
-            // binary collation to make sure that the comparison is case sensitive
+        if ($useRegex) {
+            $toReplace = $this->_getRegexReplaceRows(
+                $columnIndex, $find, $replaceWith, $charSet
+            );
+            $sql_query = "UPDATE " . PMA_Util::backquote($this->_db)
+                . "." . PMA_Util::backquote($this->_table)
+                . " SET " . PMA_Util::backquote($column) . " = CASE";
+            if (is_array($toReplace)) {
+                foreach ($toReplace as $row) {
+                    $sql_query .= "\n WHEN " . PMA_Util::backquote($column)
+                        . " = '" . PMA_Util::sqlAddSlashes($row[0])
+                        . "' THEN '" . PMA_Util::sqlAddSlashes($row[1]) . "'";
+                }
+            }
+            $sql_query .= " END"
+                . " WHERE " . PMA_Util::backquote($column)
+                . " RLIKE '" . PMA_Util::sqlAddSlashes($find) . "' COLLATE "
+                . $charSet . "_bin"; // here we
+                // change the collation of the 2nd operand to a case sensitive
+                // binary collation to make sure that the comparison
+                // is case sensitive
+        } else {
+            $sql_query = "UPDATE " . PMA_Util::backquote($this->_db)
+                . "." . PMA_Util::backquote($this->_table)
+                . " SET " . PMA_Util::backquote($column) . " ="
+                . " REPLACE("
+                . PMA_Util::backquote($column) . ", '" . $find . "', '"
+                . $replaceWith
+                . "')"
+                . " WHERE " . PMA_Util::backquote($column)
+                . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin"; // here we
+                // change the collation of the 2nd operand to a case sensitive
+                // binary collation to make sure that the comparison
+                // is case sensitive
+        }
         $GLOBALS['dbi']->query(
             $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
         );
         $GLOBALS['sql_query'] = $sql_query;
+    }
+
+    /**
+     * Finds minimum and maximum value of a given column.
+     *
+     * @param string $column Column name
+     *
+     * @return array
+     */
+    public function getColumnMinMax($column)
+    {
+        $sql_query = 'SELECT MIN(' . PMA_Util::backquote($column) . ') AS `min`, '
+            . 'MAX(' . PMA_Util::backquote($column) . ') AS `max` '
+            . 'FROM ' . PMA_Util::backquote($this->_db) . '.'
+            . PMA_Util::backquote($this->_table);
+
+        $result = $GLOBALS['dbi']->fetchSingleRow($sql_query);
+
+        return $result;
     }
 }
 ?>

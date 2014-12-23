@@ -15,31 +15,15 @@ require_once 'libraries/server_status.lib.php';
  * Replication library
  */
 if (PMA_DRIZZLE) {
-    $server_master_status = false;
-    $server_slave_status = false;
+    $GLOBALS['replication_info'] = array();
+    $GLOBALS['replication_info']['master']['status'] = false;
+    $GLOBALS['replication_info']['slave']['status'] = false;
 } else {
     include_once 'libraries/replication.inc.php';
     include_once 'libraries/replication_gui.lib.php';
 }
 
 $ServerStatusData = new PMA_ServerStatusData();
-
-/**
- * Kills a selected process
- */
-if (! empty($_REQUEST['kill'])) {
-    if ($GLOBALS['dbi']->tryQuery('KILL ' . $_REQUEST['kill'] . ';')) {
-        $message = PMA_Message::success(__('Thread %s was successfully killed.'));
-    } else {
-        $message = PMA_Message::error(
-            __(
-                'phpMyAdmin was unable to kill thread %s.'
-                . ' It probably has already been closed.'
-            )
-        );
-    }
-    $message->addParam($_REQUEST['kill']);
-}
 
 /**
  * start output

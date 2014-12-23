@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * This class renders the logo, links, server selection,
- * which are then displayed at the top of the naviagtion panel
+ * which are then displayed at the top of the navigation panel
  *
  * @package PhpMyAdmin-Navigation
  */
@@ -33,6 +33,9 @@ class PMA_NavigationHeader
             )
         );
         $class = ' class="list_container';
+        if ($GLOBALS['cfg']['NavigationLinkWithMainPanel']) {
+            $class .= ' synced';
+        }
         if ($GLOBALS['cfg']['NavigationTreePointerEnable']) {
             $class .= ' highlight';
         }
@@ -72,103 +75,56 @@ class PMA_NavigationHeader
     {
         $retval = '<!-- LOGO START -->';
         // display Logo, depending on $GLOBALS['cfg']['NavigationDisplayLogo']
-        if ($GLOBALS['cfg']['NavigationDisplayLogo']) {
-            $logo = 'phpMyAdmin';
-            if (@file_exists($GLOBALS['pmaThemeImage'] . 'logo_left.png')) {
-                $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . 'logo_left.png" '
-                    . 'alt="' . $logo . '" id="imgpmalogo" />';
-            } elseif (@file_exists($GLOBALS['pmaThemeImage'] . 'pma_logo2.png')) {
-                $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo2.png" '
-                    . 'alt="' . $logo . '" id="imgpmalogo" />';
-            }
-            $retval .= '<div id="pmalogo">';
-            if ($GLOBALS['cfg']['NavigationLogoLink']) {
-                $logo_link = trim(
-                    htmlspecialchars($GLOBALS['cfg']['NavigationLogoLink'])
-                );
-                // prevent XSS, see PMASA-2013-9
-                // if link has protocol, allow only http and https
-                if (preg_match('/^[a-z]+:/i', $logo_link)
-                    && ! preg_match('/^https?:/i', $logo_link)
-                ) {
-                    $logo_link = 'index.php';
-                }
-                $retval .= '    <a href="' . $logo_link;
-                switch ($GLOBALS['cfg']['NavigationLogoLinkWindow']) {
-                case 'new':
-                    $retval .= '" target="_blank"';
-                    break;
-                case 'main':
-                    // do not add our parameters for an external link
-                    if (substr(
-                        strtolower($GLOBALS['cfg']['NavigationLogoLink']), 0, 4
-                    ) !== '://') {
-                        $retval .= '?' . $GLOBALS['url_query'] . '"';
-                    } else {
-                        $retval .= '" target="_blank"';
-                    }
-                }
-                $retval .= '>';
-                $retval .= $logo;
-                $retval .= '</a>';
-            } else {
-                $retval .= $logo;
-            }
-            $retval .= '</div>';
+        if (!$GLOBALS['cfg']['NavigationDisplayLogo']) {
+            $retval .= '<!-- LOGO END -->';
+            return $retval;
         }
-        $retval .= '<!-- LOGO END -->';
-        return $retval;
-    }
 
-    /**
-     * Renders a single link for the top of the navigation panel
-     *
-     * @param string  $link        The url for the link
-     * @param bool    $showText    Whether to show the text or to
-     *                             only use it for title attributes
-     * @param string  $text        The text to display and use for title attributes
-     * @param bool    $showIcon    Whether to show the icon
-     * @param string  $icon        The filename of the icon to show
-     * @param string  $linkId      Value to use for the ID attribute
-     * @param boolean $disableAjax Whether to disable ajax page loading for this link
-     * @param string  $linkTarget  The name of the target frame for the link
-     *
-     * @return string HTML code for one link
-     */
-    private function _getLink(
-        $link,
-        $showText,
-        $text,
-        $showIcon,
-        $icon,
-        $linkId = '',
-        $disableAjax = false,
-        $linkTarget = ''
-    ) {
-        $retval = '<a href="' . $link . '"';
-        if (! empty($linkId)) {
-            $retval .= ' id="' . $linkId . '"';
+        $logo = 'phpMyAdmin';
+        if (@file_exists($GLOBALS['pmaThemeImage'] . 'logo_left.png')) {
+            $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . 'logo_left.png" '
+                . 'alt="' . $logo . '" id="imgpmalogo" />';
+        } elseif (@file_exists($GLOBALS['pmaThemeImage'] . 'pma_logo2.png')) {
+            $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo2.png" '
+                . 'alt="' . $logo . '" id="imgpmalogo" />';
         }
-        if (! empty($linkTarget)) {
-            $retval .= ' target="' . $linkTarget . '"';
-        }
-        if ($disableAjax) {
-            $retval .= ' class="disableAjax"';
-        }
-        $retval .= ' title="' . $text . '">';
-        if ($showIcon) {
-            $retval .= PMA_Util::getImage(
-                $icon,
-                $text
+        $retval .= '<div id="pmalogo">';
+        if ($GLOBALS['cfg']['NavigationLogoLink']) {
+            $logo_link = trim(
+                htmlspecialchars($GLOBALS['cfg']['NavigationLogoLink'])
             );
+            // prevent XSS, see PMASA-2013-9
+            // if link has protocol, allow only http and https
+            if (preg_match('/^[a-z]+:/i', $logo_link)
+                && ! preg_match('/^https?:/i', $logo_link)
+            ) {
+                $logo_link = 'index.php';
+            }
+            $retval .= '    <a href="' . $logo_link;
+            switch ($GLOBALS['cfg']['NavigationLogoLinkWindow']) {
+            case 'new':
+                $retval .= '" target="_blank"';
+                break;
+            case 'main':
+                // do not add our parameters for an external link
+                $navLogoLinkLower = /*overload*/mb_strtolower(
+                    $GLOBALS['cfg']['NavigationLogoLink']
+                );
+                if (/*overload*/mb_substr($navLogoLinkLower, 0, 4) !== '://') {
+                    $retval .= $GLOBALS['url_query'] . '"';
+                } else {
+                    $retval .= '" target="_blank"';
+                }
+            }
+            $retval .= '>';
+            $retval .= $logo;
+            $retval .= '</a>';
+        } else {
+            $retval .= $logo;
         }
-        if ($showText) {
-            $retval .= $text;
-        }
-        $retval .= '</a>';
-        if ($showText) {
-            $retval .= '<br />';
-        }
+        $retval .= '</div>';
+
+        $retval .= '<!-- LOGO END -->';
         return $retval;
     }
 
@@ -186,8 +142,8 @@ class PMA_NavigationHeader
 
         $retval  = '<!-- LINKS START -->';
         $retval .= '<div id="navipanellinks">';
-        $retval .= $this->_getLink(
-            'index.php?' . PMA_URL_getCommon(),
+        $retval .= PMA_Util::getNavigationLink(
+            'index.php' . PMA_URL_getCommon(),
             $showText,
             __('Home'),
             $showIcon,
@@ -197,9 +153,9 @@ class PMA_NavigationHeader
         if ($GLOBALS['server'] != 0) {
             // Logout for advanced authentication
             if ($GLOBALS['cfg']['Server']['auth_type'] != 'config') {
-                $link  = 'index.php?' . $GLOBALS['url_query'];
+                $link  = 'index.php' . $GLOBALS['url_query'];
                 $link .= '&amp;old_usr=' . urlencode($GLOBALS['PHP_AUTH_USER']);
-                $retval .= $this->_getLink(
+                $retval .= PMA_Util::getNavigationLink(
                     $link,
                     $showText,
                     __('Log out'),
@@ -209,20 +165,8 @@ class PMA_NavigationHeader
                     true
                 );
             }
-            $link  = 'querywindow.php?';
-            $link .= PMA_URL_getCommon($GLOBALS['db'], $GLOBALS['table']);
-            $link .= '&amp;no_js=true';
-            $retval .= $this->_getLink(
-                $link,
-                $showText,
-                __('Query window'),
-                $showIcon,
-                'b_selboard.png',
-                'pma_open_querywindow',
-                true
-            );
         }
-        $retval .= $this->_getLink(
+        $retval .= PMA_Util::getNavigationLink(
             PMA_Util::getDocuLink('index'),
             $showText,
             __('phpMyAdmin documentation'),
@@ -246,7 +190,7 @@ class PMA_NavigationHeader
             $retval .= $link;
             $retval .= '<br />';
         }
-        $retval .= $this->_getLink(
+        $retval .= PMA_Util::getNavigationLink(
             '#',
             $showText,
             __('Reload navigation panel'),

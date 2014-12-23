@@ -142,11 +142,14 @@ RTE.COMMON = {
                 var opts = {
                     lineNumbers: true,
                     matchBrackets: true,
+                    extraKeys: {"Ctrl-Space": "autocomplete"},
+                    hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
                     indentUnit: 4,
                     mode: "text/x-mysql",
                     lineWrapping: true
                 };
-                CodeMirror.fromTextArea($elm[0], opts);
+                CodeMirror.fromTextArea($elm[0], opts)
+                    .on("inputRead", codemirrorAutocompleteOnInputRead);
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
@@ -298,13 +301,17 @@ RTE.COMMON = {
                 /**
                  * Display the dialog to the user
                  */
-                that.$ajaxDialog = $('<div>' + data.message + '</div>').dialog({
+                that.$ajaxDialog = $('<div id="rteDialog">' + data.message + '</div>').dialog({
                     width: 700,
                     minWidth: 500,
+                    maxHeight: $(window).height(),
                     buttons: that.buttonOptions,
                     title: data.title,
                     modal: true,
                     open: function () {
+                        if ($('#rteDialog').parents('.ui-dialog').height() > $(window).height()) {
+                            $('#rteDialog').dialog("option", "height", $(window).height());
+                        }
                         $(this).find('input[name=item_name]').focus();
                         $(this).find('input.datefield').each(function () {
                             PMA_addDatepicker($(this).css('width', '95%'), 'date');
@@ -338,12 +345,15 @@ RTE.COMMON = {
                 var opts = {
                     lineNumbers: true,
                     matchBrackets: true,
+                    extraKeys: {"Ctrl-Space": "autocomplete"},
+                    hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
                     indentUnit: 4,
                     mode: "text/x-mysql",
                     lineWrapping: true
                 };
                 if (typeof CodeMirror != 'undefined') {
                     that.syntaxHiglighter = CodeMirror.fromTextArea($elm[0], opts);
+                    that.syntaxHiglighter.on("inputRead", codemirrorAutocompleteOnInputRead);
                 }
                 // Execute item-specific code
                 that.postDialogShow(data);

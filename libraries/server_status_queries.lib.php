@@ -90,13 +90,14 @@ function PMA_getHtmlForServerStatusQueriesDetails($ServerStatusData)
     $retval .= '<col class="namecol" />';
     $retval .= '<col class="valuecol" span="3" />';
     $retval .= '<thead>';
-    $retval .= '<tr><th>' . __('Statements') . '</th>';
+    $retval .= '<tr><th>' . __('Statements') . '<div class="sorticon"></div></th>';
     $retval .= '<th>';
     /* l10n: # = Amount of queries */
     $retval .= __('#');
-    $retval .= '</th>';
-    $retval .= '<th>&oslash; ' . __('per hour') . '</th>';
-    $retval .= '<th>%</th>';
+    $retval .= '<div class="sorticon"></div></th>';
+    $retval .= '<th>&oslash; ' . __('per hour')
+        . '<div class="sorticon"></div></th>';
+    $retval .= '<th>%<div class="sorticon"></div></th>';
     $retval .= '</tr>';
     $retval .= '</thead>';
     $retval .= '<tbody>';

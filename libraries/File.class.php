@@ -159,16 +159,12 @@ class PMA_File
     /**
      * Gets file content
      *
-     * @param boolean $as_binary whether to return content as binary
-     * @param integer $offset    starting offset
-     * @param integer $length    length
-     *
-     * @return mixed   the binary file content as a string,
-     *                 or false if no content
+     * @return string|false the binary file content as a string,
+     *                      or false if no content
      *
      * @access  public
      */
-    public function getContent($as_binary = true, $offset = 0, $length = null)
+    public function getContent()
     {
         if (null === $this->_content) {
             if ($this->isUploaded() && ! $this->checkUploadedFile()) {
@@ -186,17 +182,7 @@ class PMA_File
             }
         }
 
-        if (! empty($this->_content) && $as_binary) {
-            return '0x' . bin2hex($this->_content);
-        }
-
-        if (null !== $length) {
-            return substr($this->_content, $offset, $length);
-        } elseif ($offset > 0) {
-            return substr($this->_content, $offset);
-        }
-
-        return $this->_content;
+        return '0x' . bin2hex($this->_content);
     }
 
     /**
@@ -272,7 +258,6 @@ class PMA_File
         // are given as comment
         case 0: //UPLOAD_ERR_OK:
             return $this->setUploadedFile($file['tmp_name']);
-            break;
         case 4: //UPLOAD_ERR_NO_FILE:
             break;
         case 1: //UPLOAD_ERR_INI_SIZE:
@@ -461,7 +446,7 @@ class PMA_File
      *
      * @todo move check of $cfg['TempDir'] into PMA_Config?
      * @access  public
-     * @return boolean whether uploaded fiel is fine or not
+     * @return boolean whether uploaded file is fine or not
      */
     public function checkUploadedFile()
     {
@@ -512,8 +497,8 @@ class PMA_File
      * @todo    move file read part into readChunk() or getChunk()
      * @todo    add support for compression plugins
      * @access  protected
-     * @return  mixed false on error, otherwise string MIME type of
-     *                compression, none for none
+     * @return  string|false false on error, otherwise string MIME type of
+     *                       compression, none for none
      */
     protected function detectCompression()
     {
@@ -547,7 +532,7 @@ class PMA_File
     /**
      * Sets whether the content should be decompressed before returned
      *
-     * @param boolean $decompress whether to decompres
+     * @param boolean $decompress whether to decompress
      *
      * @return void
      */
@@ -572,7 +557,7 @@ class PMA_File
     /**
      * Sets the file handle
      *
-     * @param resource $handle file handle
+     * @param object $handle file handle
      *
      * @return void
      */
@@ -630,9 +615,10 @@ class PMA_File
                 include_once './libraries/zip_extension.lib.php';
                 $result = PMA_getZipContents($this->getName());
                 if (! empty($result['error'])) {
-                    $this->_error_message = (string) PMA_Message::rawError($result['error']);
+                    $this->_error_message = PMA_Message::rawError($result['error']);
                     return false;
                 } else {
+                    /* TODO: This is not used anywhere */
                     $this->content_uncompressed = $result['data'];
                 }
                 unset($result);
@@ -647,7 +633,6 @@ class PMA_File
         default:
             $this->errorUnsupported();
             return false;
-            break;
         }
 
         return true;
@@ -729,7 +714,7 @@ class PMA_File
      */
     public function getContentLength()
     {
-        return strlen($this->_content);
+        return /*overload*/mb_strlen($this->_content);
     }
 
     /**

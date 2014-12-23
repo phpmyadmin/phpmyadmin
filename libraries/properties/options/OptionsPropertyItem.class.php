@@ -103,7 +103,7 @@ abstract class OptionsPropertyItem extends PropertyItem
     }
 
     /**
-     * Sets the force paramter
+     * Sets the force parameter
      *
      * @param string $force force parameter
      *

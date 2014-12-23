@@ -60,14 +60,14 @@ function PMA_getColumnMap($sql_query, $view_columns)
 
 
 /**
- * Get existing data on tranformations applyed for
+ * Get existing data on transformations applied for
  * columns in a particular table
  *
  * @param string $db Database name looking for
  *
  * @return mysqli_result Result of executed SQL query
  */
-function PMA_getExistingTranformationData($db)
+function PMA_getExistingTransformationData($db)
 {
     $cfgRelation = PMA_getRelationsParam();
 
@@ -87,15 +87,15 @@ function PMA_getExistingTranformationData($db)
 /**
  * Get SQL query for store new transformation details of a VIEW
  *
- * @param mysqli_result $pma_tranformation_data Result set of SQL execution
- * @param array         $column_map             Details of VIEW columns
- * @param string        $view_name              Name of the VIEW
- * @param string        $db                     Database name of the VIEW
+ * @param mysqli_result $pma_transformation_data Result set of SQL execution
+ * @param array         $column_map              Details of VIEW columns
+ * @param string        $view_name               Name of the VIEW
+ * @param string        $db                      Database name of the VIEW
  *
- * @return string $new_transformations_sql SQL query for new tranformations
+ * @return string $new_transformations_sql SQL query for new transformations
  */
 function PMA_getNewTransformationDataSql(
-    $pma_tranformation_data, $column_map, $view_name, $db
+    $pma_transformation_data, $column_map, $view_name, $db
 ) {
     $cfgRelation = PMA_getRelationsParam();
 
@@ -110,7 +110,7 @@ function PMA_getNewTransformationDataSql(
     $column_count = 0;
     $add_comma = false;
 
-    while ($data_row = $GLOBALS['dbi']->fetchAssoc($pma_tranformation_data)) {
+    while ($data_row = $GLOBALS['dbi']->fetchAssoc($pma_transformation_data)) {
 
         foreach ($column_map as $column) {
 

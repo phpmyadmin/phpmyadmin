@@ -295,7 +295,7 @@ class FormDisplay
         }
         PMA_displayFormBottom();
 
-        // if not already done, send strings used for valdiation to JavaScript
+        // if not already done, send strings used for validation to JavaScript
         if (! $js_lang_sent) {
             $js_lang_sent = true;
             $js_lang = array();
@@ -314,19 +314,19 @@ class FormDisplay
     /**
      * Prepares data for input field display and outputs HTML code
      *
-     * @param Form   $form                 Form object
-     * @param string $field                field name as it appears in $form
-     * @param string $system_path          field path, eg. Servers/1/verbose
-     * @param string $work_path            work path, eg. Servers/4/verbose
-     * @param string $translated_path      work path changed so that it can be
-     *                                     used as XHTML id
-     * @param bool   $show_restore_default whether show "restore default" button
-     *                                     besides the input field
-     * @param mixed  $userprefs_allow      whether user preferences are enabled
-     *                                     for this field (null - no support,
-     *                                     true/false - enabled/disabled)
-     * @param array  &$js_default          array which stores JavaScript code
-     *                                     to be displayed
+     * @param Form      $form                 Form object
+     * @param string    $field                field name as it appears in $form
+     * @param string    $system_path          field path, eg. Servers/1/verbose
+     * @param string    $work_path            work path, eg. Servers/4/verbose
+     * @param string    $translated_path      work path changed so that it can be
+     *                                        used as XHTML id
+     * @param bool      $show_restore_default whether show "restore default" button
+     *                                        besides the input field
+     * @param bool|null $userprefs_allow      whether user preferences are enabled
+     *                                        for this field (null - no support,
+     *                                        true/false - enabled/disabled)
+     * @param array     &$js_default          array which stores JavaScript code
+     *                                        to be displayed
      *
      * @return void
      */
@@ -357,6 +357,7 @@ class FormDisplay
         if (isset($this->_errors[$work_path])) {
             $opts['errors'] = $this->_errors[$work_path];
         }
+
         switch ($form->getOptionType($field)) {
         case 'string':
             $type = 'text';
@@ -382,8 +383,8 @@ class FormDisplay
             break;
         case 'group':
             // :group:end is changed to :group:end:{unique id} in Form class
-            if (substr($field, 7, 4) != 'end:') {
-                PMA_displayGroupHeader(substr($field, 7));
+            if (/*overload*/mb_substr($field, 7, 4) != 'end:') {
+                PMA_displayGroupHeader(/*overload*/mb_substr($field, 7));
             } else {
                 PMA_displayGroupFooter();
             }
@@ -395,7 +396,7 @@ class FormDisplay
 
         // detect password fields
         if ($type === 'text'
-            && substr($translated_path, -9) === '-password'
+            && /*overload*/mb_substr($translated_path, -9) === '-password'
         ) {
             $type = 'password';
         }
@@ -700,7 +701,7 @@ class FormDisplay
      */
     public function getDocLink($path)
     {
-        $test = substr($path, 0, 6);
+        $test = /*overload*/mb_substr($path, 0, 6);
         if ($test == 'Import' || $test == 'Export') {
             return '';
         }

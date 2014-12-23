@@ -37,7 +37,7 @@ function PMA_getHtmlForFilter($ServerStatusData)
     $retval  = '';
     $retval .= '<fieldset id="tableFilter">';
     $retval .= '<legend>' . __('Filters') . '</legend>';
-    $retval .= '<form action="server_status_variables.php?'
+    $retval .= '<form action="server_status_variables.php'
         . PMA_URL_getCommon() . '">';
     $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
     $retval .= '<div class="formelement">';
@@ -171,11 +171,11 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
         'Slow_launch_threads' => 0,
 
         // depends on Key_read_requests
-        // normaly lower then 1:0.01
+        // normally lower then 1:0.01
         'Key_reads' => isset($ServerStatusData->status['Key_read_requests'])
             ? (0.01 * $ServerStatusData->status['Key_read_requests']) : 0,
         // depends on Key_write_requests
-        // normaly nearly 1:1
+        // normally nearly 1:1
         'Key_writes' => isset($ServerStatusData->status['Key_write_requests'])
             ? (0.9 * $ServerStatusData->status['Key_write_requests']) : 0,
 
@@ -210,7 +210,7 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
  */
 function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatus)
 {
-    $retval  = '<table class="data sortable noclick" id="serverstatusvariables">';
+    $retval  = '<table class="data noclick" id="serverstatusvariables">';
     $retval .= '<col class="namecol" />';
     $retval .= '<col class="valuecol" />';
     $retval .= '<col class="descrcol" />';
@@ -236,7 +236,7 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
         $retval .= htmlspecialchars(str_replace('_', ' ', $name));
         // Fields containing % are calculated,
         // they can not be described in MySQL documentation
-        if (strpos($name, '%') === false) {
+        if (/*overload*/mb_strpos($name, '%') === false) {
             $retval .= PMA_Util::showMySQLDocu(
                 'server-status-variables',
                 false,
@@ -253,7 +253,7 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
                 $retval .= '<span class="allfine">';
             }
         }
-        if ('%' === substr($name, -1, 1)) {
+        if (substr($name, -1) === '%') {
             $retval .= htmlspecialchars(PMA_Util::formatNumber($value, 0, 2)) . ' %';
         } elseif (strpos($name, 'Uptime') !== false) {
             $retval .= htmlspecialchars(

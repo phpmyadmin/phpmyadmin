@@ -32,11 +32,9 @@ function PMA_getHtmlForChangePassword($username, $hostname)
     $is_privileges = basename($_SERVER['SCRIPT_NAME']) === 'server_privileges.php';
 
     $html = '<form method="post" id="change_password_form" '
-        . 'action="' . $GLOBALS['PMA_PHP_SELF'] . '" '
+        . 'action="' . basename($GLOBALS['PMA_PHP_SELF']) . '" '
         . 'name="chgPassword" '
-        . 'class="ajax'
-        . ($is_privileges ? ' submenu-item' : '')
-        . '">';
+        . 'class="' . ($is_privileges ? 'submenu-item' : '') . '">';
 
     $html .= PMA_URL_getHiddenInputs();
 
@@ -48,7 +46,10 @@ function PMA_getHtmlForChangePassword($username, $hostname)
     }
     $html .= '<fieldset id="fieldset_change_password">'
         . '<legend'
-        . ($is_privileges ? ' data-submenu-label="' . __('Change password') . '"' : '')
+        . ($is_privileges
+            ? ' data-submenu-label="' . __('Change password') . '"'
+            : ''
+        )
         . '>' . __('Change password') . '</legend>'
         . '<table class="data noclick">'
         . '<tr class="odd">'
@@ -75,29 +76,37 @@ function PMA_getHtmlForChangePassword($username, $hostname)
         . 'class="textfield"'
         . $chg_evt_handler . '="nopass[1].checked = true" />'
         . '</td>'
-        . '</tr>'
-        . '<tr class="vmiddle">'
-        . '<td>' . __('Password Hashing:')
-        . '</td>'
-        . '<td>'
-        . '<input type="radio" name="pw_hash" id="radio_pw_hash_new" '
-        . 'value="new" checked="checked" />'
-        . '<label for="radio_pw_hash_new">MySQL&nbsp;4.1+</label>'
-        . '</td>'
-        . '</tr>'
-        . '<tr id="tr_element_before_generate_password">'
-        . '<td>&nbsp;</td>'
-        . '<td>'
-        . '<input type="radio" name="pw_hash" id="radio_pw_hash_old" '
-        . 'value="old" />'
-        . '<label for="radio_pw_hash_old">' . __('MySQL 4.0 compatible')
-        . '</label>'
-        . '</td>'
-        . '</tr>'
-        . '</table>'
+        . '</tr>';
+
+    if (PMA_MYSQL_INT_VERSION < 50705) {
+        $html .= '<tr class="vmiddle">'
+            . '<td>' . __('Password Hashing:')
+            . '</td>'
+            . '<td>'
+            . '<input type="radio" name="pw_hash" id="radio_pw_hash_new" '
+            . 'value="new" checked="checked" />'
+            . '<label for="radio_pw_hash_new">MySQL&nbsp;4.1+</label>'
+            . '</td>'
+            . '</tr>'
+            . '<tr id="tr_element_before_generate_password">'
+            . '<td>&nbsp;</td>'
+            . '<td>'
+            . '<input type="radio" name="pw_hash" id="radio_pw_hash_old" '
+            . 'value="old" />'
+            . '<label for="radio_pw_hash_old">' . __('MySQL 4.0 compatible')
+            . '</label>'
+            . '</td>'
+            . '</tr>';
+    } else {
+        // See http://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-5.html
+        $html .= '<input type="hidden" name="pw_hash" value="new" />';
+    }
+
+    $html .=  '</table>'
         . '</fieldset>'
         . '<fieldset id="fieldset_change_password_footer" class="tblFooters">'
-        . '<input type="submit" name="change_pw" value="' . __('Go') . '" />'
+        . '<input type="hidden" name="change_pw" value="1" />'
+        . '<input type="submit" value="' . __('Go') . '" />'
         . '</fieldset>'
         . '</form>';
     return $html;

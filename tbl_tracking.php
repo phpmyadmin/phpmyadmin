@@ -9,7 +9,7 @@
 // Run common work
 require_once './libraries/common.inc.php';
 
-require_once './libraries/tbl_tracking.lib.php';
+require_once './libraries/tracking.lib.php';
 
 define('TABLE_MAY_BE_ABSENT', true);
 require './libraries/tbl_common.inc.php';
@@ -71,27 +71,29 @@ $html = '<br />';
 
 // Create tracking version
 if (isset($_REQUEST['submit_create_version'])) {
-    PMA_createTrackingVersion();
+    $html .= PMA_createTrackingVersion();
 }
 
 // Deactivate tracking
 if (isset($_REQUEST['submit_deactivate_now'])) {
-    PMA_deactivateTracking();
+    $html .= PMA_deactivateTracking();
 }
 
 // Activate tracking
 if (isset($_REQUEST['submit_activate_now'])) {
-    PMA_activateTracking();
+    $html .= PMA_activateTracking();
 }
 
 // Export as SQL execution
 if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'execution') {
     $sql_result = PMA_exportAsSQLExecution($entries);
+    $msg = PMA_Message::success(__('SQL statements executed.'));
+    $html .= $msg->getDisplay();
 }
 
 // Export as SQL dump
 if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldump') {
-    PMA_exportAsSQLDump($entries);
+    $html .= PMA_exportAsSQLDump($entries);
 }
 
 /*
@@ -108,7 +110,7 @@ if (isset($_REQUEST['snapshot'])) {
 if (isset($_REQUEST['report'])
     && (isset($_REQUEST['delete_ddlog']) || isset($_REQUEST['delete_dmlog']))
 ) {
-    PMA_deleteTrackingReportRows($data);
+    $html .= PMA_deleteTrackingReportRows($data);
 }
 
 if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {

@@ -14,7 +14,7 @@ $scripts  = $header->getScripts();
 $scripts->addFile('import.js');
 
 /**
- * Gets tables informations and displays top links
+ * Gets tables information and displays top links
  */
 require 'libraries/db_common.inc.php';
 require 'libraries/db_info.inc.php';

@@ -25,13 +25,16 @@ function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
             'name' => __('Users overview'),
             'url' => 'server_privileges.php',
             'specific_params' => '&viewing_mode=server'
-        ),
-        array(
+        )
+    );
+
+    if ($GLOBALS['is_superuser']) {
+        $items[] = array(
             'name' => __('User groups'),
             'url' => 'server_user_groups.php',
             'specific_params' => ''
-        )
-    );
+        );
+    }
 
     $retval  = '<ul id="topmenu2">';
     foreach ($items as $item) {
@@ -42,7 +45,7 @@ function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
         $retval .= '<li>';
         $retval .= '<a' . $class;
         $retval .= ' href="' . $item['url']
-            . '?' . $url_params . $item['specific_params'] . '">';
+            . $url_params . $item['specific_params'] . '">';
         $retval .= $item['name'];
         $retval .= '</a>';
         $retval .= '</li>';

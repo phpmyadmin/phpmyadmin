@@ -142,7 +142,7 @@ class PMA_Theme
     }
 
     /**
-     * checks image path for existance - if not found use img from fallback theme
+     * checks image path for existence - if not found use img from fallback theme
      *
      * @access public
      * @return bool
@@ -235,7 +235,7 @@ class PMA_Theme
     }
 
     /**
-     * checks theme version agaisnt $version
+     * checks theme version against $version
      * returns true if theme version is equal or higher to $version
      *
      * @param string $version version to compare to
@@ -434,7 +434,7 @@ class PMA_Theme
             return $fs;
         }
         if (isset($_COOKIE['pma_fontsize'])) {
-            return $_COOKIE['pma_fontsize'];
+            return htmlspecialchars($_COOKIE['pma_fontsize']);
         }
         return '82%';
     }

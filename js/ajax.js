@@ -17,6 +17,10 @@ var AJAX = {
      */
     xhr: null,
     /**
+     * @var object lockedTargets, list of locked targets
+     */
+    lockedTargets: {},
+    /**
      * @var function Callback to execute after a successful request
      *               Used by PMA_commonFunctions from common.js
      */
@@ -34,7 +38,7 @@ var AJAX = {
      * Given the filename of a script, returns a hash to be
      * used to refer to all the events registered for the file
      *
-     * @param string key The filename for which to get the event name
+     * @param key string key The filename for which to get the event name
      *
      * @return int
      */
@@ -55,8 +59,8 @@ var AJAX = {
     /**
      * Registers an onload event for a file
      *
-     * @param string   file The filename for which to register the event
-     * @param function func The function to execute when the page is ready
+     * @param file string   file The filename for which to register the event
+     * @param func function func The function to execute when the page is ready
      *
      * @return self For chaining
      */
@@ -129,6 +133,48 @@ var AJAX = {
         }
     },
     /**
+     * function to handle lock page mechanism
+     *
+     * @param event the event object
+     *
+     * @return void
+     */
+    lockPageHandler: function(event) {
+        var lockId = $(this).data('lock-id');
+        if (typeof lockId === 'undefined') {
+            return;
+        }
+        /*
+         * @todo Fix Code mirror does not give correct full value (query)
+         * in textarea, it returns only the change in content.
+         */
+        var newHash = AJAX.hash($(this).val());
+        var oldHash = $(this).data('val-hash');
+        // Set lock if old value != new value
+        // otherwise release lock
+        if (oldHash !== newHash) {
+            AJAX.lockedTargets[lockId] = true;
+        } else {
+            delete AJAX.lockedTargets[lockId];
+        }
+        // Show lock icon if locked targets is not empty.
+        // otherwise remove lock icon
+        if (!jQuery.isEmptyObject(AJAX.lockedTargets)) {
+            $('#lock_page_icon').html(PMA_getImage('s_lock.png').toString());
+        } else {
+            $('#lock_page_icon').html('');
+        }
+    },
+    /**
+     * resets the lock
+     *
+     * @return void
+     */
+    resetLock: function() {
+        AJAX.lockedTargets = {};
+        $('#lock_page_icon').html('');
+    },
+    /**
      * Event handler for clicks on links and form submissions
      *
      * @param object e Event data
@@ -145,6 +191,8 @@ var AJAX = {
         } else if ($(this).attr('target')) {
             return true;
         } else if ($(this).hasClass('ajax') || $(this).hasClass('disableAjax')) {
+            //reset the lockedTargets object, as specified AJAX operation has finished
+            AJAX.resetLock();
             return true;
         } else if (href && href.match(/^#/)) {
             return true;
@@ -160,6 +208,20 @@ var AJAX = {
             event.preventDefault();
             event.stopImmediatePropagation();
         }
+
+        //triggers a confirm dialog if:
+        //the user has performed some operations on loaded page
+        //the user clicks on some link, (won't trigger for buttons)
+        //the click event is not triggered by script
+        if (typeof event !== 'undefined' && event.type === 'click' &&
+            event.isTrigger !== true &&
+            !jQuery.isEmptyObject(AJAX.lockedTargets) &&
+            confirm(PMA_messages.strConfirmNavigation) === false
+        ) {
+            return false;
+        }
+        AJAX.resetLock();
+
         if (AJAX.active === true) {
             // Cancel the old request if abortable, when the user requests
             // something else. Otherwise silently bail out, as there is already
@@ -252,19 +314,6 @@ var AJAX = {
                 if (data._reloadNavigation) {
                     PMA_reloadNavigation();
                 }
-                if (data._reloadQuerywindow) {
-                    var params = data._reloadQuerywindow;
-                    PMA_querywindow.reload(
-                        params.db,
-                        params.table,
-                        params.sql_query
-                    );
-                }
-                if (data._focusQuerywindow) {
-                    PMA_querywindow.focus(
-                        data._focusQuerywindow
-                    );
-                }
                 if (data._title) {
                     $('title').replaceWith(data._title);
                 }
@@ -281,12 +330,14 @@ var AJAX = {
                     .not('#pma_navigation')
                     .not('#floating_menubar')
                     .not('#goto_pagetop')
+                    .not('#lock_page_icon')
                     .not('#page_content')
                     .not('#selflink')
                     .not('#session_debug')
                     .not('#pma_header')
                     .not('#pma_footer')
                     .not('#pma_demo')
+                    .not('#pma_console_container')
                     .remove();
                 // Replace #page_content with new content
                 if (data.message && data.message.length > 0) {
@@ -302,8 +353,8 @@ var AJAX = {
                     var source = data._selflink.split('?')[0];
                     //Check for faulty links
                     if (source == "import.php") {
-                    	var replacement = "tbl_sql.php";
-                    	data._selflink = data._selflink.replace(source,replacement);
+                        var replacement = "tbl_sql.php";
+                        data._selflink = data._selflink.replace(source,replacement);
                     }
                     $('#selflink > a').attr('href', data._selflink);
                 }
@@ -328,16 +379,63 @@ var AJAX = {
                 }
 
                 $('#pma_errors').remove();
+
+                var msg = '';
+                if(data._errSubmitMsg){
+                    msg = data._errSubmitMsg;
+                }
+                if (data._debug) {
+                    $('#session_debug').replaceWith(data._debug);
+                }
                 if (data._errors) {
                     $('<div/>', {id : 'pma_errors'})
                         .insertAfter('#selflink')
                         .append(data._errors);
+                    // bind for php error reporting forms (bottom)
+                    $("#pma_ignore_errors_bottom").bind("click", function() {
+                        PMA_ignorePhpErrors();
+                    });
+                    $("#pma_ignore_all_errors_bottom").bind("click", function() {
+                        PMA_ignorePhpErrors(false);
+                    });
+                    // In case of 'sendErrorReport'='always'
+                    // submit the hidden error reporting form.
+                    if (data._sendErrorAlways == '1' &&
+                        data._stopErrorReportLoop != '1'
+                    ) {
+                        $("#pma_report_errors_form").submit();
+                        PMA_ajaxShowMessage(PMA_messages.phpErrorsBeingSubmitted, false);
+                        $('html, body').animate({scrollTop:$(document).height()}, 'slow');
+                    } else if (data._promptPhpErrors) {
+                        // otherwise just prompt user if it is set so.
+                        msg = msg + PMA_messages.phpErrorsFound;
+                        // scroll to bottom where all the errors are displayed.
+                        $('html, body').animate({scrollTop:$(document).height()}, 'slow');
+                    }
                 }
+                PMA_ajaxShowMessage(msg, false);
+                // bind for php error reporting forms (popup)
+                $("#pma_ignore_errors_popup").bind("click", function() {
+                    PMA_ignorePhpErrors();
+                });
+                $("#pma_ignore_all_errors_popup").bind("click", function() {
+                    PMA_ignorePhpErrors(false);
+                });
 
                 if (typeof AJAX._callback === 'function') {
                     AJAX._callback.call();
                 }
                 AJAX._callback = function () {};
+            });
+            // initializes all lock-page elements lock-id and
+            // val-hash data property
+            $('#page_content form.lock-page textarea, ' +
+            '#page_content form.lock-page input[type="text"]').each(function(i){
+                $(this).data('lock-id', i);
+                // val-hash is the hash of default value of the field
+                // so that it can be compared with new value hash
+                // to check whether field was modified or not.
+                $(this).data('val-hash', AJAX.hash($(this).val()));
             });
         } else {
             PMA_ajaxShowMessage(data.error, false);
@@ -346,6 +444,10 @@ var AJAX = {
             if (parseInt(data.redirect_flag) == 1) {
                 // add one more GET param to display session expiry msg
                 window.location.href += '&session_expired=1';
+                window.location.reload();
+            } else if (parseInt(data.reload_flag) == 1) {
+                // remove the token param and reload
+                window.location.href = window.location.href.replace(/&?token=[^&#]*/g, "");
                 window.location.reload();
             }
             if (data.fieldWithError) {
@@ -497,6 +599,35 @@ AJAX.registerOnload('functions.js', function () {
             $(this).data('onsubmit', this.onsubmit).attr('onsubmit', '');
         }
     });
+    /**
+     * Attach event listener to events when user modify visible
+     * Input or Textarea fields to make changes in forms
+     */
+    $('#page_content').on(
+        'keyup change',
+        'form.lock-page textarea, ' +
+        'form.lock-page input[type="text"]',
+        AJAX.lockPageHandler
+    );
+    /**
+     * Reset lock when lock-page form reset event is fired
+     * Note: reset does not bubble in all browser so attach to
+     * form directly.
+     */
+    $('form.lock-page').on('reset', function(event){
+        AJAX.resetLock();
+    });
+});
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function () {
+    $('#page_content').off('keyup change',
+        'form.lock-page textarea, ' +
+        'form.lock-page input[type="text"]'
+    );
+    $('form.lock-page').off('reset');
 });
 
 /**
@@ -528,7 +659,7 @@ AJAX.cache = {
      * Saves a new page in the cache
      *
      * @param string hash    The hash part of the url that is being loaded
-     * @param array  scripts A list of scripts that is requured for the page
+     * @param array  scripts A list of scripts that is required for the page
      * @param string menu    A hash that links to a menu stored
      *                       in a dedicated menu cache
      * @param array  params  A list of parameters used by PMA_commonParams()
@@ -585,10 +716,10 @@ AJAX.cache = {
      * @return void
      */
     navigate: function (index) {
-        if (typeof this.pages[index] === 'undefined'
-            || typeof this.pages[index].content === 'undefined'
-            || typeof this.pages[index].menu === 'undefined'
-            || ! AJAX.cache.menus.get(this.pages[index].menu)
+        if (typeof this.pages[index] === 'undefined' ||
+            typeof this.pages[index].content === 'undefined' ||
+            typeof this.pages[index].menu === 'undefined' ||
+            ! AJAX.cache.menus.get(this.pages[index].menu)
         ) {
             PMA_ajaxShowMessage(
                 '<div class="error">' + PMA_messages.strInvalidPage + '</div>',
@@ -872,8 +1003,8 @@ $('form').live('submit', AJAX.requestHandler);
  */
 $(document).ajaxError(function (event, request, settings) {
     if (request.status !== 0) { // Don't handle aborted requests
-        var errorCode = $.sprintf(PMA_messages.strErrorCode, request.status);
-        var errorText = $.sprintf(PMA_messages.strErrorText, request.statusText);
+        var errorCode = PMA_sprintf(PMA_messages.strErrorCode, request.status);
+        var errorText = PMA_sprintf(PMA_messages.strErrorText, request.statusText);
         PMA_ajaxShowMessage(
             '<div class="error">' +
             PMA_messages.strErrorProcessingRequest +

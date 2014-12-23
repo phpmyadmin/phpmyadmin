@@ -15,7 +15,24 @@ if (! defined('PHPMYADMIN')) {
  */
 require_once './libraries/Util.class.php';
 
-PMA_Util::checkParameters(array('db', 'table', 'action', 'num_fields'));
+PMA_Util::checkParameters(array('server', 'db', 'table', 'action', 'num_fields'));
+
+/**
+ * Initialize to avoid code execution path warnings
+ */
+
+if (! isset($num_fields)) {
+    $num_fields = 0;
+}
+if (! isset($mime_map)) {
+    $mime_map = null;
+}
+if (! isset($columnMeta)) {
+    $columnMeta = array();
+}
+if (! isset($content_cells)) {
+    $content_cells = array();
+}
 
 
 // Get available character sets and storage engines
@@ -29,19 +46,13 @@ require_once './libraries/Partition.class.php';
 
 require_once './libraries/tbl_columns_definition_form.lib.php';
 
-/**
- * We are in transition between old-style echo and new-style PMA_Response
- * so this script generates $html and at the bottom, either echos it
- * or uses addHTML on it.
- *
- * Initialize $html in case this variable was used by a caller
- * (yes, this script should be refactored into functions)
- */
+/** @var PMA_String $pmaString */
+$pmaString = $GLOBALS['PMA_String'];
 
 $length_values_input_size = 8;
 
 $_form_params = PMA_getFormsParameters(
-    $db, $table, $action, isset($num_fields) ? $num_fields : null,
+    $server, $db, $table, $action, isset($num_fields) ? $num_fields : null,
     isset($selected) ? $selected : null
 );
 
@@ -68,7 +79,7 @@ $header_cells = PMA_getHeaderCells(
 );
 
 //  workaround for field_fulltext, because its submitted indices contain
-//  the index as a value, not a key. Inserted here for easier maintaineance
+//  the index as a value, not a key. Inserted here for easier maintenance
 //  and less code to change in existing files.
 if (isset($field_fulltext) && is_array($field_fulltext)) {
     foreach ($field_fulltext as $fulltext_nr => $fulltext_indexkey) {
@@ -80,6 +91,8 @@ if (isset($_REQUEST['submit_num_fields'])) {
     $regenerate = 1;
 }
 
+$foreigners = PMA_getForeigners($db, $table, '', 'foreign');
+$child_references = PMA_getChildReferences($db, $table);
 for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     if (! empty($regenerate)) {
         list($columnMeta, $submit_length, $submit_attribute,
@@ -116,9 +129,9 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     // some types, for example longtext, are reported as
     // "longtext character set latin7" when their charset and / or collation
     // differs from the ones of the corresponding database.
-    $tmp = strpos($type, 'character set');
+    $tmp = /*overload*/mb_strpos($type, 'character set');
     if ($tmp) {
-        $type = substr($type, 0, $tmp - 1);
+        $type = /*overload*/mb_substr($type, 0, $tmp - 1);
     }
     // rtrim the type, for cases like "float unsigned"
     $type = rtrim($type);
@@ -133,7 +146,9 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $columnMeta['column_status'] = PMA_checkChildForeignReferences(
             $_form_params['db'],
             $_form_params['table'],
-            $columnMeta['Field']
+            $columnMeta['Field'],
+            $foreigners,
+            $child_references
         );
     }
     // old column attributes
@@ -145,8 +160,8 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     }
 
     $content_cells[$columnNumber] = PMA_getHtmlForColumnAttributes(
-        $columnNumber, isset($columnMeta) ? $columnMeta : null, strtoupper($type),
-        $length_values_input_size, $length,
+        $columnNumber, isset($columnMeta) ? $columnMeta : array(),
+        /*overload*/mb_strtoupper($type), $length_values_input_size, $length,
         isset($default_current_timestamp) ? $default_current_timestamp : null,
         isset($extracted_columnspec) ? $extracted_columnspec : null,
         isset($submit_attribute) ? $submit_attribute : null,
@@ -154,9 +169,9 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         isset($submit_default_current_timestamp)
         ? $submit_default_current_timestamp : null,
         $comments_map, isset($fields_meta) ? $fields_meta : null, $is_backup,
-        isset($move_columns) ? $move_columns : null, $cfgRelation,
-        isset($available_mime) ? $available_mime : null,
-        isset($mime_map) ? $mime_map : null
+        isset($move_columns) ? $move_columns : array(), $cfgRelation,
+        isset($available_mime) ? $available_mime : array(),
+        isset($mime_map) ? $mime_map : array()
     );
 } // end for
 $html = PMA_getHtmlForTableCreateOrAddField(
@@ -164,6 +179,10 @@ $html = PMA_getHtmlForTableCreateOrAddField(
 );
 
 unset($_form_params);
-
-PMA_Response::getInstance()->addHTML($html);
+$response = PMA_Response::getInstance();
+$header = $response->getHeader();
+$scripts = $header->getScripts();
+$scripts->addFile('jquery/jquery.uitablefilter.js');
+$scripts->addFile('indexes.js');
+$response->addHTML($html);
 ?>

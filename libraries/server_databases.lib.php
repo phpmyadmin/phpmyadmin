@@ -158,7 +158,7 @@ function PMA_getHtmlForTableFooterButtons($is_allowUserDropDb, $is_superuser)
  *
  * @param bool   $is_allowUserDropDb Allow user drop database
  * @param bool   $is_superuser       User status
- * @param Array  $databases_count    Database count
+ * @param int    $databases_count    Database count
  * @param string $column_order       column order
  * @param array  $replication_types  replication types
  * @param string $first_database     First database
@@ -180,7 +180,7 @@ function PMA_getHtmlForTableFooter(
     $html .= PMA_getHtmlForColumnOrder($column_order, $first_database);
 
     foreach ($replication_types as $type) {
-        if ($GLOBALS["server_" . $type . "_status"]) {
+        if ($GLOBALS['replication_info'][$type]['status']) {
             $html .= '    <th></th>' . "\n";
         }
     }
@@ -249,6 +249,8 @@ function PMA_getHtmlAndColumnOrderForDatabaseList(
 function PMA_getHtmlForColumnOrder($column_order, $first_database)
 {
     $html = "";
+    // avoid execution path notice
+    $unit = "";
     foreach ($column_order as $stat_name => $stat) {
         if (array_key_exists($stat_name, $first_database)) {
             if ($stat['format'] === 'byte') {
@@ -285,7 +287,7 @@ function PMA_getHtmlForColumnOrder($column_order, $first_database)
  * @param bool   $is_superuser       User status
  * @param bool   $is_allowUserDropDb Allow user drop database
  * @param Array  $_url_params        Url params
- * @param string $sort_by            sort colume name
+ * @param string $sort_by            sort column name
  * @param string $sort_order         order
  * @param array  $column_order       column order
  * @param array  $first_database     database to show
@@ -363,7 +365,7 @@ function PMA_getHtmlForNoticeEnableStatistics($url_query, $html)
     //we should put notice above database list
     $html  = $notice . $html;
     $html .= '<ul><li id="li_switch_dbstats"><strong>' . "\n";
-    $html .= '<a href="server_databases.php?' . $url_query . '&amp;dbstats=1"'
+    $html .= '<a href="server_databases.php' . $url_query . '&amp;dbstats=1"'
         . ' title="' . __('Enable Statistics') . '">' . "\n"
         . '            ' . __('Enable Statistics');
     $html .= '</a></strong><br />' . "\n";
@@ -377,12 +379,12 @@ function PMA_getHtmlForNoticeEnableStatistics($url_query, $html)
  *
  * @param bool  $is_superuser      User status
  * @param Array $replication_types replication types
- * @param bool  $cfg_inconic       cfg about Properties Iconic
+ * @param bool  $cfg_iconic        cfg about Properties Iconic
  *
  * @return string
  */
 function PMA_getHtmlForReplicationType(
-    $is_superuser, $replication_types, $cfg_inconic
+    $is_superuser, $replication_types, $cfg_iconic
 ) {
     $html = '';
     foreach ($replication_types as $type) {
@@ -392,13 +394,13 @@ function PMA_getHtmlForReplicationType(
             $name = __('Slave replication');
         }
 
-        if ($GLOBALS["server_{$type}_status"]) {
+        if ($GLOBALS['replication_info'][$type]['status']) {
             $html .= '    <th>' . $name . '</th>' . "\n";
         }
     }
 
     if ($is_superuser && ! PMA_DRIZZLE) {
-        $html .= '    <th>' . ($cfg_inconic ? '' : __('Action')) . "\n"
+        $html .= '    <th>' . ($cfg_iconic ? '' : __('Action')) . "\n"
             . '    </th>' . "\n";
     }
     return $html;
@@ -411,11 +413,6 @@ function PMA_getHtmlForReplicationType(
  */
 function PMA_getListForSortDatabase()
 {
-    /**
-     * avoids 'undefined index' errors
-     */
-    $sort_by = '';
-    $sort_order = '';
     if (empty($_REQUEST['sort_by'])) {
         $sort_by = 'SCHEMA_NAME';
     } else {
@@ -437,7 +434,7 @@ function PMA_getListForSortDatabase()
     }
 
     if (isset($_REQUEST['sort_order'])
-        && strtolower($_REQUEST['sort_order']) == 'desc'
+        && /*overload*/mb_strtolower($_REQUEST['sort_order']) == 'desc'
     ) {
         $sort_order = 'desc';
     } else {
@@ -459,7 +456,7 @@ function PMA_dropMultiDatabases()
     } else {
         $action = 'server_databases.php';
         $submit_mult = 'drop_db';
-        $err_url = 'server_databases.php?' . PMA_URL_getCommon();
+        $err_url = 'server_databases.php' . PMA_URL_getCommon();
         if (isset($_REQUEST['selected_dbs'])
             && !isset($_REQUEST['is_js_confirmed'])
         ) {

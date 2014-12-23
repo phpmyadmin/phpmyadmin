@@ -73,7 +73,7 @@ class AuthenticationSignon extends AuthenticationPlugin
     {
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
 
-        /* Check if we're using same sigon server */
+        /* Check if we're using same signon server */
         $signon_url = $GLOBALS['cfg']['Server']['SignonURL'];
         if (isset($_SESSION['LAST_SIGNON_URL'])
             && $_SESSION['LAST_SIGNON_URL'] != $signon_url
@@ -159,7 +159,6 @@ class AuthenticationSignon extends AuthenticationPlugin
             if (isset($_SESSION['PMA_single_signon_cfgupdate'])) {
                 $single_signon_cfgupdate = $_SESSION['PMA_single_signon_cfgupdate'];
             }
-
 
             /* Also get token as it is needed to access subpages */
             if (isset($_SESSION['PMA_single_signon_token'])) {
@@ -261,41 +260,8 @@ class AuthenticationSignon extends AuthenticationPlugin
             }
 
             /* Set error message */
-            if (! empty($GLOBALS['login_without_password_is_forbidden'])) {
-                $_SESSION['PMA_single_signon_error_message'] = __(
-                    'Login without a password is forbidden by configuration '
-                    . '(see AllowNoPassword)'
-                );
-            } elseif (! empty($GLOBALS['allowDeny_forbidden'])) {
-                $_SESSION['PMA_single_signon_error_message'] = __('Access denied!');
-            } elseif (! empty($GLOBALS['no_activity'])) {
-                $_SESSION['PMA_single_signon_error_message'] = sprintf(
-                    __('No activity within %s seconds; please log in again.'),
-                    $GLOBALS['cfg']['LoginCookieValidity']
-                );
-            } elseif ($GLOBALS['dbi']->getError()) {
-                $_SESSION['PMA_single_signon_error_message'] = PMA_sanitize(
-                    $GLOBALS['dbi']->getError()
-                );
-            } else {
-                $_SESSION['PMA_single_signon_error_message'] = __(
-                    'Cannot log in to the MySQL server'
-                );
-            }
+            $_SESSION['PMA_single_signon_error_message'] = $this->getErrorMessage();
         }
         $this->auth();
-    }
-
-    /**
-     * This method is called when any PluginManager to which the observer
-     * is attached calls PluginManager::notify()
-     *
-     * @param SplSubject $subject The PluginManager notifying the observer
-     *                            of an update.
-     *
-     * @return void
-     */
-    public function update (SplSubject $subject)
-    {
     }
 }

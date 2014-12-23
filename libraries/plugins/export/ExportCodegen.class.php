@@ -116,19 +116,6 @@ class ExportCodegen extends ExportPlugin
     }
 
     /**
-     * This method is called when any PluginManager to which the observer
-     * is attached calls PluginManager::notify()
-     *
-     * @param SplSubject $subject The PluginManager notifying the observer
-     *                            of an update.
-     *
-     * @return void
-     */
-    public function update (SplSubject $subject)
-    {
-    }
-
-    /**
      * Outputs export header
      *
      * @return bool Whether it succeeded
@@ -151,11 +138,12 @@ class ExportCodegen extends ExportPlugin
     /**
      * Outputs database header
      *
-     * @param string $db Database name
+     * @param string $db       Database name
+     * @param string $db_alias Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db)
+    public function exportDBHeader ($db, $db_alias = '')
     {
         return true;
     }
@@ -175,11 +163,12 @@ class ExportCodegen extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db Database name
+     * @param string $db       Database name
+     * @param string $db_alias Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db)
+    public function exportDBCreate($db, $db_alias = '')
     {
         return true;
     }
@@ -192,18 +181,20 @@ class ExportCodegen extends ExportPlugin
      * @param string $crlf      the end of line sequence
      * @param string $error_url the url to go back in case of error
      * @param string $sql_query SQL query for obtaining data
+     * @param array  $aliases   Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
-    public function exportData($db, $table, $crlf, $error_url, $sql_query)
-    {
+    public function exportData(
+        $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
+    ) {
         $CG_FORMATS = $this->_getCgFormats();
         $CG_HANDLERS = $this->_getCgHandlers();
 
         $format = $GLOBALS['codegen_format'];
         if (isset($CG_FORMATS[$format])) {
             return PMA_exportOutputHandler(
-                $this->$CG_HANDLERS[$format]($db, $table, $crlf)
+                $this->$CG_HANDLERS[$format]($db, $table, $crlf, $aliases)
             );
         }
         return PMA_exportOutputHandler(sprintf("%s is not supported.", $format));
@@ -234,14 +225,18 @@ class ExportCodegen extends ExportPlugin
     /**
      * C# Handler
      *
-     * @param string $db    database name
-     * @param string $table table name
-     * @param string $crlf  line separator
+     * @param string $db      database name
+     * @param string $table   table name
+     * @param string $crlf    line separator
+     * @param array  $aliases Aliases of db/table/columns
      *
      * @return string containing C# code lines, separated by "\n"
      */
-    private function _handleNHibernateCSBody($db, $table, $crlf)
+    private function _handleNHibernateCSBody($db, $table, $crlf, $aliases = array())
     {
+        $db_alias = $db;
+        $table_alias = $table;
+        $this->initAlias($aliases, $db_alias, $table_alias);
         $lines = array();
 
         $result = $GLOBALS['dbi']->query(
@@ -253,6 +248,10 @@ class ExportCodegen extends ExportPlugin
         if ($result) {
             $tableProperties = array();
             while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+                $col_as = $this->getAlias($aliases, $row[0], 'col', $db, $table);
+                if (!empty($col_as)) {
+                    $row[0] = $col_as;
+                }
                 $tableProperties[] = new TableProperty($row);
             }
             $GLOBALS['dbi']->freeResult($result);
@@ -260,10 +259,12 @@ class ExportCodegen extends ExportPlugin
             $lines[] = 'using System.Collections;';
             $lines[] = 'using System.Collections.Generic;';
             $lines[] = 'using System.Text;';
-            $lines[] = 'namespace ' . ExportCodegen::cgMakeIdentifier($db);
+            $lines[] = 'namespace ' . ExportCodegen::cgMakeIdentifier($db_alias);
             $lines[] = '{';
-            $lines[] = '    #region ' . ExportCodegen::cgMakeIdentifier($table);
-            $lines[] = '    public class ' . ExportCodegen::cgMakeIdentifier($table);
+            $lines[] = '    #region '
+                . ExportCodegen::cgMakeIdentifier($table_alias);
+            $lines[] = '    public class '
+                . ExportCodegen::cgMakeIdentifier($table_alias);
             $lines[] = '    {';
             $lines[] = '        #region Member Variables';
             foreach ($tableProperties as $tableProperty) {
@@ -274,7 +275,7 @@ class ExportCodegen extends ExportPlugin
             $lines[] = '        #endregion';
             $lines[] = '        #region Constructors';
             $lines[] = '        public '
-                . ExportCodegen::cgMakeIdentifier($table) . '() { }';
+                . ExportCodegen::cgMakeIdentifier($table_alias) . '() { }';
             $temp = array();
             foreach ($tableProperties as $tableProperty) {
                 if (! $tableProperty->isPK()) {
@@ -284,7 +285,7 @@ class ExportCodegen extends ExportPlugin
                 }
             }
             $lines[] = '        public '
-                . ExportCodegen::cgMakeIdentifier($table)
+                . ExportCodegen::cgMakeIdentifier($table_alias)
                 . '('
                 . implode(', ', $temp)
                 . ')';
@@ -314,28 +315,33 @@ class ExportCodegen extends ExportPlugin
             $lines[] = '    #endregion';
             $lines[] = '}';
         }
-        return implode("\n", $lines);
+        return implode($crlf, $lines);
     }
 
     /**
      * XML Handler
      *
-     * @param string $db    database name
-     * @param string $table table name
-     * @param string $crlf  line separator
+     * @param string $db      database name
+     * @param string $table   table name
+     * @param string $crlf    line separator
+     * @param array  $aliases Aliases of db/table/columns
      *
      * @return string containing XML code lines, separated by "\n"
      */
-    private function _handleNHibernateXMLBody($db, $table, $crlf)
-    {
+    private function _handleNHibernateXMLBody(
+        $db, $table, $crlf, $aliases = array()
+    ) {
+        $db_alias = $db;
+        $table_alias = $table;
+        $this->initAlias($aliases, $db_alias, $table_alias);
         $lines = array();
         $lines[] = '<?xml version="1.0" encoding="utf-8" ?' . '>';
         $lines[] = '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" '
-            . 'namespace="' . ExportCodegen::cgMakeIdentifier($db) . '" '
-            . 'assembly="' . ExportCodegen::cgMakeIdentifier($db) . '">';
+            . 'namespace="' . ExportCodegen::cgMakeIdentifier($db_alias) . '" '
+            . 'assembly="' . ExportCodegen::cgMakeIdentifier($db_alias) . '">';
         $lines[] = '    <class '
-            . 'name="' . ExportCodegen::cgMakeIdentifier($table) . '" '
-            . 'table="' . ExportCodegen::cgMakeIdentifier($table) . '">';
+            . 'name="' . ExportCodegen::cgMakeIdentifier($table_alias) . '" '
+            . 'table="' . ExportCodegen::cgMakeIdentifier($table_alias) . '">';
         $result = $GLOBALS['dbi']->query(
             sprintf(
                 "DESC %s.%s", PMA_Util::backquote($db),
@@ -344,6 +350,10 @@ class ExportCodegen extends ExportPlugin
         );
         if ($result) {
             while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+                $col_as = $this->getAlias($aliases, $row[0], 'col', $db, $table);
+                if (!empty($col_as)) {
+                    $row[0] = $col_as;
+                }
                 $tableProperty = new TableProperty($row);
                 if ($tableProperty->isPK()) {
                     $lines[] = $tableProperty->formatXml(
@@ -369,7 +379,7 @@ class ExportCodegen extends ExportPlugin
         }
         $lines[] = '    </class>';
         $lines[] = '</hibernate-mapping>';
-        return implode("\n", $lines);
+        return implode($crlf, $lines);
     }
 
 

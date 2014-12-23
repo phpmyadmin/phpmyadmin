@@ -18,7 +18,9 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_languageName($tmplang)
 {
-    $lang_name = ucfirst(substr(strrchr($tmplang[0], '|'), 1));
+    $lang_name = ucfirst(
+        /*overload*/mb_substr(/*overload*/mb_strrchr($tmplang[0], '|'), 1)
+    );
 
     // Include native name if non empty
     if (!empty($tmplang[2])) {
@@ -84,7 +86,9 @@ function PMA_langCheck()
     // try to find out user's language by checking its HTTP_ACCEPT_LANGUAGE variable;
     // prevent XSS
     $accepted_languages = PMA_getenv('HTTP_ACCEPT_LANGUAGE');
-    if ($accepted_languages && false === strpos($accepted_languages, '<')) {
+    if ($accepted_languages
+        && false === /*overload*/mb_strpos($accepted_languages, '<')
+    ) {
         foreach (explode(',', $accepted_languages) as $lang) {
             if (PMA_langDetect($lang, 1)) {
                 return true;
@@ -153,7 +157,7 @@ function PMA_langDetect($str, $envType)
         // $envType =  1 for the 'HTTP_ACCEPT_LANGUAGE' environment variable,
         //             2 for the 'HTTP_USER_AGENT' one
         $expr = $value[0];
-        if (strpos($expr, '[-_]') === false) {
+        if (/*overload*/mb_strpos($expr, '[-_]') === false) {
             $expr = str_replace('|', '([-_][[:alpha:]]{2,3})?|', $expr);
         }
         $pattern1 = '/^(' . addcslashes($expr, '/') . ')(;q=[0-9]\\.[0-9])?$/i';
@@ -321,6 +325,8 @@ function PMA_langDetails($lang)
         );
     case 'ms':
         return array('ms|malay', 'ms', 'Bahasa Melayu');
+    case 'ne':
+        return array('ne|nepali', 'ne', 'नेपाली');
     case 'nl':
         return array('nl|dutch', 'nl', 'Nederlands');
     case 'nb':
@@ -393,6 +399,8 @@ function PMA_langDetails($lang)
             'uz-cyr',
             '&#1038;&#1079;&#1073;&#1077;&#1082;&#1095;&#1072;'
         );
+    case 'vi':
+        return array('vi|vietnamese', 'vi', 'Tiếng Việt');
     case 'vls':
         return array('vls|flemish', 'vls', 'West-Vlams');
     case 'zh_TW':

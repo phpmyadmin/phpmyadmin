@@ -33,7 +33,7 @@ class TableProperty
     public $type;
 
     /**
-     * Wheter the key is nullable or not
+     * Whether the key is nullable or not
      *
      * @var bool
      */
@@ -82,9 +82,9 @@ class TableProperty
      */
     function getPureType()
     {
-        $pos = strpos($this->type, "(");
+        $pos = /*overload*/mb_strpos($this->type, "(");
         if ($pos > 0) {
-            return substr($this->type, 0, $pos);
+            return /*overload*/mb_substr($this->type, 0, $pos);
         }
         return $this->type;
     }
@@ -116,28 +116,28 @@ class TableProperty
      */
     function getDotNetPrimitiveType()
     {
-        if (strpos($this->type, "int") === 0) {
+        if (/*overload*/mb_strpos($this->type, "int") === 0) {
             return "int";
         }
-        if (strpos($this->type, "long") === 0) {
+        if (/*overload*/mb_strpos($this->type, "longtext") === 0) {
+            return "string";
+        }
+        if (/*overload*/mb_strpos($this->type, "long") === 0) {
             return "long";
         }
-        if (strpos($this->type, "char") === 0) {
+        if (/*overload*/mb_strpos($this->type, "char") === 0) {
             return "string";
         }
-        if (strpos($this->type, "varchar") === 0) {
+        if (/*overload*/mb_strpos($this->type, "varchar") === 0) {
             return "string";
         }
-        if (strpos($this->type, "text") === 0) {
+        if (/*overload*/mb_strpos($this->type, "text") === 0) {
             return "string";
         }
-        if (strpos($this->type, "longtext") === 0) {
-            return "string";
-        }
-        if (strpos($this->type, "tinyint") === 0) {
+        if (/*overload*/mb_strpos($this->type, "tinyint") === 0) {
             return "bool";
         }
-        if (strpos($this->type, "datetime") === 0) {
+        if (/*overload*/mb_strpos($this->type, "datetime") === 0) {
             return "DateTime";
         }
         return "unknown";
@@ -150,28 +150,28 @@ class TableProperty
      */
     function getDotNetObjectType()
     {
-        if (strpos($this->type, "int") === 0) {
+        if (/*overload*/mb_strpos($this->type, "int") === 0) {
             return "Int32";
         }
-        if (strpos($this->type, "long") === 0) {
+        if (/*overload*/mb_strpos($this->type, "longtext") === 0) {
+            return "String";
+        }
+        if (/*overload*/mb_strpos($this->type, "long") === 0) {
             return "Long";
         }
-        if (strpos($this->type, "char") === 0) {
+        if (/*overload*/mb_strpos($this->type, "char") === 0) {
             return "String";
         }
-        if (strpos($this->type, "varchar") === 0) {
+        if (/*overload*/mb_strpos($this->type, "varchar") === 0) {
             return "String";
         }
-        if (strpos($this->type, "text") === 0) {
+        if (/*overload*/mb_strpos($this->type, "text") === 0) {
             return "String";
         }
-        if (strpos($this->type, "longtext") === 0) {
-            return "String";
-        }
-        if (strpos($this->type, "tinyint") === 0) {
+        if (/*overload*/mb_strpos($this->type, "tinyint") === 0) {
             return "Boolean";
         }
-        if (strpos($this->type, "datetime") === 0) {
+        if (/*overload*/mb_strpos($this->type, "datetime") === 0) {
             return "DateTime";
         }
         return "Unknown";
@@ -184,7 +184,7 @@ class TableProperty
      */
     function getIndexName()
     {
-        if (strlen($this->key) > 0) {
+        if (/*overload*/mb_strlen($this->key) > 0) {
             return "index=\""
                 . htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8')
                 . "\"";

@@ -93,14 +93,6 @@ function PMA_relationsCleanupTable($db, $table)
         PMA_queryAsControlUser($remove_query);
     }
 
-    if ($cfgRelation['designerwork']) {
-        $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
-            . '.' . PMA_Util::backquote($cfgRelation['designer_coords'])
-            . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-            . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
-        PMA_queryAsControlUser($remove_query);
-    }
-
     if ($cfgRelation['relwork']) {
         $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
             . '.' . PMA_Util::backquote($cfgRelation['relation'])
@@ -156,13 +148,6 @@ function PMA_relationsCleanupDatabase($db)
 
         $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
             . '.' . PMA_Util::backquote($cfgRelation['table_coords'])
-            . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
-        PMA_queryAsControlUser($remove_query);
-    }
-
-    if ($cfgRelation['designerwork']) {
-        $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
-            . '.' . PMA_Util::backquote($cfgRelation['designer_coords'])
             . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
         PMA_queryAsControlUser($remove_query);
     }

@@ -55,7 +55,7 @@ abstract class PMA_List extends ArrayObject
      * checks if the given db names exists in the current list, if there is
      * missing at least one item it returns false otherwise true
      *
-     * @return boolean true if all items exists, otheriwse false
+     * @return boolean true if all items exists, otherwise false
      */
     public function exists()
     {

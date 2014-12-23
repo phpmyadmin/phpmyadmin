@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Creates the database interface required for database interctions
+ * Creates the database interface required for database interactions
  * and add it to GLOBALS.
  *
  * @package PhpMyAdmin-DBI

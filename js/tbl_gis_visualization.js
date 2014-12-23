@@ -215,6 +215,7 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
     });
 
     $('#placeholder').live('mousewheel', function (event, delta) {
+        event.preventDefault();
         var relCoords = getRelativeCoords(event);
         if (delta > 0) {
             //zoom in

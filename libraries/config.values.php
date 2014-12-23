@@ -57,6 +57,11 @@ $cfg_db['RowActionLinks'] = array(
     'right' => __('Right'),
     'both'  => __('Both')
 );
+$cfg_db['TablePrimaryKeyOrder'] = array(
+    'NONE'  => __('None'),
+    'ASC'   => __('Ascending'),
+    'DESC'  => __('Descending')
+);
 $cfg_db['ProtectBinary'] = array(false, 'blob', 'noblob', 'all');
 $cfg_db['DefaultDisplay'] = array('horizontal', 'vertical', 'horizontalflipped');
 $cfg_db['CharEditing'] = array('input', 'textarea');
@@ -101,12 +106,6 @@ $cfg_db['DefaultTabTable'] = array(
     'tbl_select.php',    // search page
     'tbl_change.php',    // insert row page
     'sql.php'            // browse page
-);
-$cfg_db['QueryWindowDefTab'] = array(
-    'sql',     // SQL
-    'files',   // Import files
-    'history', // SQL history
-    'full'     // All (SQL and SQL history)
 );
 $cfg_db['InitialSlidersState'] = array(
     'open'     => __('Open'),
@@ -234,8 +233,6 @@ $cfg_db['_validators'] = array(
     'MemoryLimit' => array(array('validateByRegex', '/^(-1|(\d+(?:[kmg])?))$/i')),
     'NavigationTreeTableLevel' => 'validatePositiveNumber',
     'QueryHistoryMax' => 'validatePositiveNumber',
-    'QueryWindowWidth' => 'validatePositiveNumber',
-    'QueryWindowHeight' => 'validatePositiveNumber',
     'RepeatCells' => 'validateNonNegativeNumber',
     'Server' => 'validateServer',
     'Server_pmadb' => 'validatePMAStorage',

@@ -19,7 +19,7 @@
  * and re-import after switching to our session.
  *
  * However, since https://github.com/phpmyadmin/phpmyadmin/commit/063a2d99
- * we have deactivated this feature, so the corresponding code is now 
+ * we have deactivated this feature, so the corresponding code is now
  * commented out.
  */
 
@@ -34,7 +34,8 @@ if (version_compare(PHP_VERSION, '5.4.0', '>=')
     session_start();
     foreach ($_SESSION as $key => $value) {
         // only copy session-prefixed data
-        if (substr($key, 0, strlen(UPLOAD_PREFIX)) == UPLOAD_PREFIX) {
+        if (mb_substr($key, 0, mb_strlen(UPLOAD_PREFIX))
+            == UPLOAD_PREFIX) {
             $sessionupload[$key] = $value;
         }
     }
@@ -63,7 +64,8 @@ if (defined('SESSIONUPLOAD')) {
 
     // remove session upload data that are not set anymore
     foreach ($_SESSION as $key => $value) {
-        if (substr($key, 0, strlen(UPLOAD_PREFIX)) == UPLOAD_PREFIX
+        if (mb_substr($key, 0, mb_strlen(UPLOAD_PREFIX))
+            == UPLOAD_PREFIX
             && ! isset($sessionupload[$key])
         ) {
             unset($_SESSION[$key]);

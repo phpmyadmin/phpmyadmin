@@ -21,6 +21,102 @@ require_once 'libraries/plugins/ImportPlugin.class.php';
  */
 class ImportSql extends ImportPlugin
 {
+    const BIG_VALUE = 2147483647;
+    const READ_MB_FALSE = 0;
+    const READ_MB_TRUE = 1;
+
+    /**
+     * @var string SQL delimiter
+     */
+    private $_delimiter;
+
+    /**
+     * @var int SQL delimiter length
+     */
+    private $_delimiterLength;
+
+    /**
+     * @var bool|int SQL delimiter position or false if not found
+     */
+    private $_delimiterPosition = false;
+
+    /**
+     * @var int Query start position
+     */
+    private $_queryBeginPosition = 0;
+
+    /**
+     * @var int|false First special chars position or false if not found
+     */
+    private $_firstSearchChar = null;
+
+    /**
+     * @var bool Current position is in string
+     */
+    private $_isInString = false;
+
+    /**
+     * @var string Quote of current string or null if out of string
+     */
+    private $_quote = null;
+
+    /**
+     * @var bool Current position is in comment
+     */
+    private $_isInComment = false;
+
+    /**
+     * @var string Current comment opener
+     */
+    private $_openingComment = null;
+
+    /**
+     * @var bool Current position is in delimiter definition
+     */
+    private $_isInDelimiter = false;
+
+    /**
+     * @var string Delimiter keyword
+     */
+    private $_delimiterKeyword = 'DELIMITER ';
+
+    /**
+     * @var int Import should be done using multibytes
+     */
+    private $_readMb = self::READ_MB_FALSE;
+
+    /**
+     * @var string Data to parse
+     */
+    private $_data = null;
+
+    /**
+     * @var int Length of data to parse
+     */
+    private $_dataLength = 0;
+
+    /**
+     * @var array List of string functions
+     * @todo Move this part in string functions definition file.
+     */
+    private $_stringFunctions = array(
+        self::READ_MB_FALSE => array(
+            'substr' => 'substr',
+            'strlen' => 'strlen',
+            'strpos' => 'strpos',
+        ),
+        self::READ_MB_TRUE => array(
+            'substr' => 'mb_substr',
+            'strlen' => 'mb_strlen',
+            'strpos' => 'mb_strpos',
+        ),
+    );
+
+    /**
+     * @var bool|int List of string functions to use
+     */
+    private $_stringFctToUse = false;
+
     /**
      * Constructor
      */
@@ -91,6 +187,13 @@ class ImportSql extends ImportPlugin
             );
             $generalOptions->addProperty($leaf);
 
+            $leaf = new BoolPropertyItem();
+            $leaf->setName("read_as_multibytes");
+            $leaf->setText(
+                __('Read as multibytes')
+            );
+            $generalOptions->addProperty($leaf);
+
             // add the main group to the root group
             $importSpecificOptions->addProperty($generalOptions);
             // set the options for the import plugin property item
@@ -101,16 +204,181 @@ class ImportSql extends ImportPlugin
     }
 
     /**
-     * This method is called when any PluginManager to which the observer
-     * is attached calls PluginManager::notify()
+     * Look for end of string
      *
-     * @param SplSubject $subject The PluginManager notifying the observer
-     *                            of an update.
-     *
-     * @return void
+     * @return bool End of string found
      */
-    public function update (SplSubject $subject)
+    private function _searchStringEnd()
     {
+        //Search for closing quote
+        $posClosingString = $this->_stringFctToUse['strpos'](
+            $this->_data, $this->_quote, $this->_delimiterPosition
+        );
+
+        if (false === $posClosingString) {
+            return false;
+        }
+
+        //Quotes escaped by quote will be considered as 2 consecutive strings
+        //and won't pass in this loop.
+        $posEscape = $posClosingString-1;
+        while ($this->_stringFctToUse['substr']($this->_data, $posEscape, 1) == '\\'
+        ) {
+            $posEscape--;
+        }
+
+        // Odd count means it was escaped
+        $quoteEscaped = (((($posClosingString - 1) - $posEscape) % 2) === 1);
+
+        //Move after the escaped quote.
+        $this->_delimiterPosition = $posClosingString + 1;
+
+        if ($quoteEscaped) {
+            return true;
+        }
+
+        $this->_isInString = false;
+        $this->_quote = null;
+        return true;
+    }
+
+    /**
+     * Return the position of first SQL delimiter or false if no SQL delimiter found.
+     *
+     * @return int|bool Delimiter position or false if no delimiter found
+     */
+    private function _findDelimiterPosition()
+    {
+        $this->_firstSearchChar = null;
+        $firstSqlDelimiter = null;
+        $matches = null;
+
+        /* while not at end of line */
+        while ($this->_delimiterPosition < $this->_dataLength) {
+            if ($this->_isInString) {
+                if (false === $this->_searchStringEnd()) {
+                    return false;
+                }
+
+                continue;
+            }
+
+            if ($this->_isInComment) {
+                if (in_array($this->_openingComment, array('#', '-- '))) {
+                    $posClosingComment = $this->_stringFctToUse['strpos'](
+                        $this->_data,
+                        "\n",
+                        $this->_delimiterPosition
+                    );
+                    if (false === $posClosingComment) {
+                        return false;
+                    }
+                    //Move after the end of the line.
+                    $this->_delimiterPosition = $posClosingComment + 1;
+                    $this->_isInComment = false;
+                    $this->_openingComment = null;
+                } elseif ('/*' === $this->_openingComment) {
+                    //Search for closing comment
+                    $posClosingComment = $this->_stringFctToUse['strpos'](
+                        $this->_data,
+                        '*/',
+                        $this->_delimiterPosition
+                    );
+                    if (false === $posClosingComment) {
+                        return false;
+                    }
+                    //Move after closing comment.
+                    $this->_delimiterPosition = $posClosingComment + 2;
+                    $this->_isInComment = false;
+                    $this->_openingComment = null;
+                } else {
+                    //We shouldn't be able to come here.
+                    //throw new Exception('Unknown case.');
+                    break;
+                }
+
+                if (0 === $this->_firstSearchChar) {
+                    $this->_queryBeginPosition = $this->_delimiterPosition;
+                }
+
+                continue;
+            }
+
+            if ($this->_isInDelimiter) {
+                //Search for new line.
+                if (!preg_match(
+                    "/^(.*)\n/",
+                    $this->_stringFctToUse['substr'](
+                        $this->_data,
+                        $this->_delimiterPosition
+                    ),
+                    $matches,
+                    PREG_OFFSET_CAPTURE
+                )) {
+                    return false;
+                }
+
+                $this->_setDelimiter($matches[1][0]);
+                //Start after delimiter and new line.
+                $this->_queryBeginPosition = $this->_delimiterPosition
+                    + $matches[1][1] + $this->_delimiterLength + 1;
+                $this->_delimiterPosition = $this->_queryBeginPosition;
+                $this->_isInDelimiter = false;
+                $firstSqlDelimiter = null;
+                $this->_firstSearchChar = null;
+                continue;
+            }
+
+            $matches = $this->_searchSpecialChars($matches);
+
+            $firstSqlDelimiter = $this->_searchSqlDelimiter($firstSqlDelimiter);
+
+            if (false === $firstSqlDelimiter && false === $this->_firstSearchChar) {
+                return false;
+            }
+
+            //If first char is delimiter.
+            if (false === $this->_firstSearchChar
+                || (false !== $firstSqlDelimiter
+                && $firstSqlDelimiter < $this->_firstSearchChar)
+            ) {
+                $this->_delimiterPosition = $firstSqlDelimiter;
+                return true;
+            }
+
+            //Else first char is result of preg_match.
+
+            $specialChars = $matches[1][0];
+
+            //If string is opened.
+            if (in_array($specialChars, array('\'', '"', '`'))) {
+                $this->_isInString = true;
+                $this->_quote = $specialChars;
+                //Move after quote.
+                $this->_delimiterPosition = $this->_firstSearchChar + 1;
+                continue;
+            }
+
+            //If comment is opened.
+            if (in_array($specialChars, array('#', '-- ', '/*'))) {
+                $this->_isInComment = true;
+                $this->_openingComment = $specialChars;
+                //Move after comment opening.
+                $this->_delimiterPosition = $this->_firstSearchChar
+                    + $this->_stringFctToUse['strlen']($specialChars);
+                continue;
+            }
+
+            //If DELIMITER is found.
+            if ($specialChars === $this->_delimiterKeyword) {
+                $this->_isInDelimiter =  true;
+                $this->_delimiterPosition = $this->_firstSearchChar
+                    + $this->_stringFctToUse['strlen']($specialChars);
+                continue;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -124,39 +392,23 @@ class ImportSql extends ImportPlugin
     {
         global $error, $timeout_passed;
 
-        $buffer = '';
-        // Defaults for parser
-        $sql = '';
-        $start_pos = 0;
-        $i = 0;
-        $len= 0;
-        $big_value = 2147483647;
-        // include the space because it's mandatory
-        $delimiter_keyword = 'DELIMITER ';
-        $length_of_delimiter_keyword = strlen($delimiter_keyword);
+        //Manage multibytes or not
+        if (isset($_REQUEST['sql_read_as_multibytes'])) {
+            $this->_readMb = self::READ_MB_TRUE;
+        }
+        $this->_stringFctToUse = $this->_stringFunctions[$this->_readMb];
 
         if (isset($_POST['sql_delimiter'])) {
-            $sql_delimiter = $_POST['sql_delimiter'];
+            $this->_setDelimiter($_POST['sql_delimiter']);
         } else {
-            $sql_delimiter = ';';
+            $this->_setDelimiter(';');
         }
 
         // Handle compatibility options
-        $sql_modes = array();
-        if (isset($_REQUEST['sql_compatibility'])
-            && 'NONE' != $_REQUEST['sql_compatibility']
-        ) {
-            $sql_modes[] = $_REQUEST['sql_compatibility'];
-        }
-        if (isset($_REQUEST['sql_no_auto_value_on_zero'])) {
-            $sql_modes[] = 'NO_AUTO_VALUE_ON_ZERO';
-        }
-        if (count($sql_modes) > 0) {
-            $GLOBALS['dbi']->tryQuery(
-                'SET SQL_MODE="' . implode(',', $sql_modes) . '"'
-            );
-        }
-        unset($sql_modes);
+        $this->_setSQLMode($GLOBALS['dbi'], $_REQUEST);
+
+        //Initialise data.
+        $this->_setData(null);
 
         /**
          * will be set in PMA_importGetNextChunk()
@@ -164,300 +416,204 @@ class ImportSql extends ImportPlugin
          * @global boolean $GLOBALS['finished']
          */
         $GLOBALS['finished'] = false;
+        $delimiterFound = false;
 
-        while (! ($GLOBALS['finished'] && $i >= $len)
-            && ! $error
-            && ! $timeout_passed
-        ) {
-            $data = PMA_importGetNextChunk();
-            if ($data === false) {
-                // subtract data we didn't handle yet and stop processing
-                $GLOBALS['offset'] -= strlen($buffer);
-                break;
-            } elseif ($data === true) {
-                // Handle rest of buffer
-            } else {
-                // Append new data to buffer
-                $buffer .= $data;
-                // free memory
-                unset($data);
-                // Do not parse string when we're not at the end
-                // and don't have ; inside
-                if ((strpos($buffer, $sql_delimiter, $i) === false)
-                    && ! $GLOBALS['finished']
-                ) {
-                    continue;
-                }
-            }
-
-            // Convert CR (but not CRLF) to LF otherwise all queries
-            // may not get executed on some platforms
-            $buffer = preg_replace("/\r($|[^\n])/", "\n$1", $buffer);
-
-            // Current length of our buffer
-            $len = strlen($buffer);
-
-            // Grab some SQL queries out of it
-            while ($i < $len) {
-                $found_delimiter = false;
-                // Find first interesting character
-                $old_i = $i;
-                // this is about 7 times faster that looking for each sequence i
-                // one by one with strpos()
-                $match = preg_match(
-                    '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])'
-                    . $delimiter_keyword . ')/',
-                    $buffer,
-                    $matches,
-                    PREG_OFFSET_CAPTURE,
-                    $i
-                );
-                if ($match) {
-                    // in $matches, index 0 contains the match for the complete
-                    // expression but we don't use it
-                    $first_position = $matches[1][1];
-                } else {
-                    $first_position = $big_value;
-                }
-                /**
-                 * @todo we should not look for a delimiter that might be
-                 *       inside quotes (or even double-quotes)
-                 */
-                // the cost of doing this one with preg_match() would be too high
-                $first_sql_delimiter = strpos($buffer, $sql_delimiter, $i);
-                if ($first_sql_delimiter === false) {
-                    $first_sql_delimiter = $big_value;
-                } else {
-                    $found_delimiter = true;
-                }
-
-                // set $i to the position of the first quote,
-                // comment.start or delimiter found
-                $i = min($first_position, $first_sql_delimiter);
-
-                if ($i == $big_value) {
-                    // none of the above was found in the string
-
-                    $i = $old_i;
-                    if (! $GLOBALS['finished']) {
-                        break;
-                    }
-                    // at the end there might be some whitespace...
-                    if (trim($buffer) == '') {
-                        $buffer = '';
-                        $len = 0;
-                        break;
-                    }
-                    // We hit end of query, go there!
-                    $i = strlen($buffer) - 1;
-                }
-
-                // Grab current character
-                $ch = $buffer[$i];
-
-                // Quotes
-                if (strpos('\'"`', $ch) !== false) {
-                    $quote = $ch;
-                    $endq = false;
-                    while (! $endq) {
-                        // Find next quote
-                        $pos = strpos($buffer, $quote, $i + 1);
-                        /*
-                         * Behave same as MySQL and accept end of query as end
-                         * of backtick.
-                         * I know this is sick, but MySQL behaves like this:
-                         *
-                         * SELECT * FROM `table
-                         *
-                         * is treated like
-                         *
-                         * SELECT * FROM `table`
-                         */
-                        if ($pos === false && $quote == '`' && $found_delimiter) {
-                            $pos = $first_sql_delimiter - 1;
-                        } elseif ($pos === false) { // No quote? Too short string
-                            // We hit end of string => unclosed quote,
-                            // but we handle it as end of query
-                            list($endq, $i)
-                                = $this->getEndQuoteAndPos($len, $endq, $i);
-                            $found_delimiter = false;
-                            break;
-                        }
-                        // Was not the quote escaped?
-                        $j = $pos - 1;
-                        while ($buffer[$j] == '\\') {
-                            $j--;
-                        }
-                        // Even count means it was not escaped
-                        $endq = (((($pos - 1) - $j) % 2) == 0);
-                        // Skip the string
-                        $i = $pos;
-
-                        if ($first_sql_delimiter < $pos) {
-                            $found_delimiter = false;
-                        }
-                    }
-                    if (! $endq) {
-                        break;
-                    }
-                    $i++;
-                    // Aren't we at the end?
-                    if ($GLOBALS['finished'] && $i == $len) {
-                        $i--;
-                    } else {
-                        continue;
-                    }
-                }
-
-                // Not enough data to decide
-                if ((($i == ($len - 1) && ($ch == '-' || $ch == '/'))
-                    || ($i == ($len - 2) && (($ch == '-' && $buffer[$i + 1] == '-')
-                    || ($ch == '/' && $buffer[$i + 1] == '*'))))
-                    && ! $GLOBALS['finished']
-                ) {
+        while (!$error && !$timeout_passed) {
+            if (false === $delimiterFound) {
+                $newData = PMA_importGetNextChunk(200);
+                if ($newData === false) {
+                    // subtract data we didn't handle yet and stop processing
+                    $GLOBALS['offset'] -= $this->_dataLength;
                     break;
                 }
 
-                // Comments
-                if ($ch == '#'
-                    || ($i < ($len - 1) && $ch == '-' && $buffer[$i + 1] == '-'
-                    && (($i < ($len - 2) && $buffer[$i + 2] <= ' ')
-                    || ($i == ($len - 1)  && $GLOBALS['finished'])))
-                    || ($i < ($len - 1) && $ch == '/' && $buffer[$i + 1] == '*')
-                ) {
-                    // Copy current string to SQL
-                    if ($start_pos != $i) {
-                        $sql .= substr($buffer, $start_pos, $i - $start_pos);
-                    }
-                    // Skip the rest
-                    $start_of_comment = $i;
-                    // do not use PHP_EOL here instead of "\n", because the export
-                    // file might have been produced on a different system
-                    $i = strpos($buffer, $ch == '/' ? '*/' : "\n", $i);
-                    // didn't we hit end of string?
-                    if ($i === false) {
-                        if ($GLOBALS['finished']) {
-                            $i = $len - 1;
-                        } else {
-                            break;
-                        }
-                    }
-                    // Skip *
-                    if ($ch == '/') {
-                        $i++;
-                    }
-                    // Skip last char
-                    $i++;
-                    // We need to send the comment part in case we are defining
-                    // a procedure or function and comments in it are valuable
-                    $sql .= substr(
-                        $buffer,
-                        $start_of_comment,
-                        $i - $start_of_comment
-                    );
-                    // Next query part will start here
-                    $start_pos = $i;
-                    // Aren't we at the end?
-                    if ($i == $len) {
-                        $i--;
-                    } else {
-                        continue;
-                    }
-                }
-                // Change delimiter, if redefined, and skip it
-                // (don't send to server!)
-                if (($i + $length_of_delimiter_keyword < $len)
-                    && strtoupper(
-                        substr($buffer, $i, $length_of_delimiter_keyword)
-                    ) == $delimiter_keyword
-                ) {
-                     // look for EOL on the character immediately after 'DELIMITER '
-                     // (see previous comment about PHP_EOL)
-                    $new_line_pos = strpos(
-                        $buffer,
-                        "\n",
-                        $i + $length_of_delimiter_keyword
-                    );
-                    // it might happen that there is no EOL
-                    if (false === $new_line_pos) {
-                        $new_line_pos = $len;
-                    }
-                    $sql_delimiter = substr(
-                        $buffer,
-                        $i + $length_of_delimiter_keyword,
-                        $new_line_pos - $i - $length_of_delimiter_keyword
-                    );
-                    $i = $new_line_pos + 1;
-                    // Next query part will start here
-                    $start_pos = $i;
-                    continue;
+                if ($newData === true) {
+                    $GLOBALS['finished'] = true;
+                    break;
                 }
 
-                // End of SQL
-                if ($found_delimiter
-                    || ($GLOBALS['finished']
-                    && ($i == $len - 1))
-                ) {
-                    $tmp_sql = $sql;
-                    if ($start_pos < $len) {
-                        $length_to_grab = $i - $start_pos;
+                //Convert CR (but not CRLF) to LF otherwise all queries
+                //may not get executed on some platforms
+                $this->_addData(preg_replace("/\r($|[^\n])/", "\n$1", $newData));
+                unset($newData);
+            }
 
-                        if (! $found_delimiter) {
-                            $length_to_grab++;
-                        }
-                        $tmp_sql .= substr($buffer, $start_pos, $length_to_grab);
-                        unset($length_to_grab);
-                    }
-                    // Do not try to execute empty SQL
-                    if (! preg_match('/^([\s]*;)*$/', trim($tmp_sql))) {
-                        $sql = $tmp_sql;
-                        PMA_importRunQuery(
-                            $sql,
-                            substr($buffer, 0, $i + strlen($sql_delimiter)),
-                            false,
-                            $sql_data
-                        );
-                        $buffer = substr($buffer, $i + strlen($sql_delimiter));
-                        // Reset parser:
-                        $len = strlen($buffer);
-                        $sql = '';
-                        $i = 0;
-                        $start_pos = 0;
-                        // Any chance we will get a complete query?
-                        //if ((strpos($buffer, ';') === false)
-                        //&& ! $GLOBALS['finished']) {
-                        if (strpos($buffer, $sql_delimiter) === false
-                            && ! $GLOBALS['finished']
-                        ) {
-                            break;
-                        }
-                    } else {
-                        $i++;
-                        $start_pos = $i;
-                    }
-                }
-            } // End of parser loop
-        } // End of import loop
-        // Commit any possible data in buffers
-        PMA_importRunQuery('', substr($buffer, 0, $len), false, $sql_data);
+            //Find quotes, comments, delimiter definition or delimiter itself.
+            $delimiterFound = $this->_findDelimiterPosition();
+
+            //If no delimiter found, restart and get more data.
+            if (false === $delimiterFound) {
+                continue;
+            }
+
+            PMA_importRunQuery(
+                $this->_stringFctToUse['substr'](
+                    $this->_data,
+                    $this->_queryBeginPosition,
+                    $this->_delimiterPosition - $this->_queryBeginPosition
+                ), //Query to execute
+                $this->_stringFctToUse['substr'](
+                    $this->_data,
+                    0,
+                    $this->_delimiterPosition + $this->_delimiterLength
+                ), //Query to display
+                false,
+                $sql_data
+            );
+
+            $this->_setData(
+                $this->_stringFctToUse['substr'](
+                    $this->_data,
+                    $this->_delimiterPosition + $this->_delimiterLength
+                )
+            );
+        }
+
+        //Commit any possible data in buffers
+        PMA_importRunQuery(
+            $this->_stringFctToUse['substr'](
+                $this->_data,
+                $this->_queryBeginPosition
+            ), //Query to execute
+            $this->_data,
+            false,
+            $sql_data
+        );
         PMA_importRunQuery('', '', false, $sql_data);
     }
 
     /**
-     * Get end quote and position
+     * Handle compatibility options
      *
-     * @param int  $len      Length
-     * @param bool $endq     End quote
-     * @param int  $position Position
+     * @param PMA_DatabaseInterface $dbi     Database interface
+     * @param array                 $request Request array
      *
-     * @return array End quote, position
+     * @return void
      */
-    protected function getEndQuoteAndPos($len, $endq, $position)
+    private function _setSQLMode($dbi, $request)
     {
-        if ($GLOBALS['finished']) {
-            $endq = true;
-            $position = $len - 1;
+        $sql_modes = array();
+        if (isset($request['sql_compatibility'])
+            && 'NONE' != $request['sql_compatibility']
+        ) {
+            $sql_modes[] = $request['sql_compatibility'];
         }
-        return array($endq, $position);
+        if (isset($request['sql_no_auto_value_on_zero'])) {
+            $sql_modes[] = 'NO_AUTO_VALUE_ON_ZERO';
+        }
+        if (count($sql_modes) > 0) {
+            $dbi->tryQuery(
+                'SET SQL_MODE="' . implode(',', $sql_modes) . '"'
+            );
+        }
+    }
+
+    /**
+     * Look for special chars: comment, string or DELIMITER
+     *
+     * @param array $matches Special chars found in data
+     *
+     * @return array matches
+     */
+    private function _searchSpecialChars(
+        $matches
+    ) {
+        //Don't look for a string/comment/"DELIMITER" if not found previously
+        //or if it's still after current position.
+        if (null === $this->_firstSearchChar
+            || (false !== $this->_firstSearchChar
+            && $this->_firstSearchChar < $this->_delimiterPosition)
+        ) {
+            $bFind = preg_match(
+                '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])'
+                . $this->_delimiterKeyword . ')/',
+                $this->_stringFctToUse['substr'](
+                    $this->_data,
+                    $this->_delimiterPosition
+                ),
+                $matches,
+                PREG_OFFSET_CAPTURE
+            );
+
+            if (1 === $bFind) {
+                $this->_firstSearchChar = $matches[1][1] + $this->_delimiterPosition;
+            } else {
+                $this->_firstSearchChar = false;
+            }
+        }
+        return $matches;
+    }
+
+    /**
+     * Look for SQL delimiter
+     *
+     * @param int $firstSqlDelimiter First found char position
+     *
+     * @return int
+     */
+    private function _searchSqlDelimiter($firstSqlDelimiter)
+    {
+        //Don't look for the SQL delimiter if not found previously
+        //or if it's still after current position.
+        if (null === $firstSqlDelimiter
+            || (false !== $firstSqlDelimiter
+            && $firstSqlDelimiter < $this->_delimiterPosition)
+        ) {
+            // the cost of doing this one with preg_match() would be too high
+            $firstSqlDelimiter = $this->_stringFctToUse['strpos'](
+                $this->_data,
+                $this->_delimiter,
+                $this->_delimiterPosition
+            );
+        }
+
+        return $firstSqlDelimiter;
+    }
+
+    /**
+     * Set new delimiter
+     *
+     * @param string $delimiter New delimiter
+     *
+     * @return int delimiter length
+     */
+    private function _setDelimiter($delimiter)
+    {
+        $this->_delimiter = $delimiter;
+        $this->_delimiterLength = $this->_stringFctToUse['strlen']($delimiter);
+
+        return $this->_delimiterLength;
+    }
+
+    /**
+     * Set data to parse
+     *
+     * @param string $data Data to parse
+     *
+     * @return int Data length
+     */
+    private function _setData($data)
+    {
+        $this->_data = ltrim($data);
+        $this->_dataLength = $this->_stringFctToUse['strlen']($this->_data);
+        $this->_queryBeginPosition = 0;
+        $this->_delimiterPosition = 0;
+
+        return $this->_dataLength;
+    }
+
+    /**
+     * Add data to parse
+     *
+     * @param string $data Data to add to data to parse
+     *
+     * @return int Data length
+     */
+    private function _addData($data)
+    {
+        $this->_data .= $data;
+        $this->_dataLength += $this->_stringFctToUse['strlen']($data);
+
+        return $this->_dataLength;
     }
 }

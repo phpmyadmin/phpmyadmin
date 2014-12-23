@@ -206,7 +206,7 @@ class PMA_ServerStatusData
         );
 
         /**
-         * define some needfull links/commands
+         * define some needful links/commands
          */
         // variable or section name => (name => url)
         $links = array();
@@ -225,7 +225,7 @@ class PMA_ServerStatusData
                 )
             );
 
-        if ($GLOBALS['server_master_status']) {
+        if ($GLOBALS['replication_info']['master']['status']) {
             $links['repl'][__('Show slave hosts')]
                 = 'sql.php' . PMA_URL_getCommon(
                     array(
@@ -235,7 +235,7 @@ class PMA_ServerStatusData
                 );
             $links['repl'][__('Show master status')] = '#replication_master';
         }
-        if ($GLOBALS['server_slave_status']) {
+        if ($GLOBALS['replication_info']['slave']['status']) {
             $links['repl'][__('Show slave status')] = '#replication_slave';
         }
 
@@ -259,7 +259,8 @@ class PMA_ServerStatusData
         $links['Slow_queries']['doc'] = 'slow_query_log';
 
         $links['innodb'][__('Variables')]
-            = 'server_engines.php?engine=InnoDB&amp;' . PMA_URL_getCommon();
+            = 'server_engines.php?engine=InnoDB&amp;'
+            . PMA_URL_getCommon(array(), 'html', '');
         $links['innodb'][__('InnoDB Status')]
             = 'server_engines.php'
             . PMA_URL_getCommon(
@@ -269,7 +270,6 @@ class PMA_ServerStatusData
                 )
             );
         $links['innodb']['doc'] = 'innodb';
-
 
         // Variable to contain all com_ variables (query statistics)
         $used_queries = array();
@@ -285,7 +285,7 @@ class PMA_ServerStatusData
         foreach ($server_status as $name => $value) {
             $section_found = false;
             foreach ($allocations as $filter => $section) {
-                if (strpos($name, $filter) !== false) {
+                if (/*overload*/mb_strpos($name, $filter) !== false) {
                     $allocationMap[$name] = $section;
                     $categoryUsed[$section] = true;
                     $section_found = true;
@@ -316,7 +316,10 @@ class PMA_ServerStatusData
 
         // Set all class properties
         $this->db_isLocal = false;
-        if (strtolower($GLOBALS['cfg']['Server']['host']) === 'localhost'
+        $serverHostToLower = /*overload*/mb_strtolower(
+            $GLOBALS['cfg']['Server']['host']
+        );
+        if ($serverHostToLower === 'localhost'
             || $GLOBALS['cfg']['Server']['host'] === '127.0.0.1'
             || $GLOBALS['cfg']['Server']['host'] === '::1'
         ) {
@@ -354,9 +357,9 @@ class PMA_ServerStatusData
     }
 
     /**
-     * cleanup of some deprecated values
+     * Generates menu HTML
      *
-     * @return array
+     * @return string
      */
     public function getMenuHtml()
     {
@@ -365,6 +368,10 @@ class PMA_ServerStatusData
             array(
                 'name' => __('Server'),
                 'url' => 'server_status.php'
+            ),
+            array(
+                'name' => __('Processes'),
+                'url' => 'server_status_processes.php'
             ),
             array(
                 'name' => __('Query statistics'),
@@ -392,7 +399,7 @@ class PMA_ServerStatusData
             }
             $retval .= '<li>';
             $retval .= '<a' . $class;
-            $retval .= ' href="' . $item['url'] . '?' . $url_params . '">';
+            $retval .= ' href="' . $item['url'] . $url_params . '">';
             $retval .= $item['name'];
             $retval .= '</a>';
             $retval .= '</li>';
@@ -401,6 +408,40 @@ class PMA_ServerStatusData
         $retval .= '<div class="clearfloat"></div>';
 
         return $retval;
+    }
+
+    /**
+     * Builds a <select> list for refresh rates
+     *
+     * @param string $name         Name of select
+     * @param int    $defaultRate  Currently chosen rate
+     * @param array  $refreshRates List of refresh rates
+     *
+     * @return string
+     */
+    public static function getHtmlForRefreshList($name,
+        $defaultRate = 5,
+        $refreshRates = Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)
+    ) {
+        $return = '<select name="' . $name . '" id="id_' . $name
+            . '" class="refreshRate">';
+        foreach ($refreshRates as $rate) {
+            $selected = ($rate == $defaultRate)?' selected="selected"':'';
+            $return .= '<option value="' . $rate . '"' . $selected . '>';
+            if ($rate < 60) {
+                $return .= sprintf(
+                    _ngettext('%d second', '%d seconds', $rate), $rate
+                );
+            } else {
+                $rate = $rate / 60;
+                $return .= sprintf(
+                    _ngettext('%d minute', '%d minutes', $rate), $rate
+                );
+            }
+            $return .=  '</option>';
+        }
+        $return .= '</select>';
+        return $return;
     }
 }
 

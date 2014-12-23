@@ -113,8 +113,8 @@ class PMA_ExportPdf extends PMA_PDF
             $this->Cell(
                 0,
                 $this->FontSizePt,
-                __('Database:') . ' ' . $this->currentDb . ',  '
-                . __('Table:') . ' ' . $this->currentTable,
+                __('Database:') . ' ' . $this->dbAlias . ',  '
+                . __('Table:') . ' ' . $this->tableAlias,
                 0, 1, 'L'
             );
             $l = ($this->lMargin);
@@ -310,7 +310,13 @@ class PMA_ExportPdf extends PMA_PDF
         $colFits = array();
         $titleWidth = array();
         for ($i = 0; $i < $this->numFields; $i++) {
-            $stringWidth = $this->getstringwidth($this->fields[$i]->name) + 6 ;
+            $col_as = $this->fields[$i]->name;
+            $db = $this->currentDb;
+            $table = $this->currentTable;
+            if (!empty($this->aliases[$db]['tables'][$table]['columns'][$col_as])) {
+                $col_as = $this->aliases[$db]['tables'][$table]['columns'][$col_as];
+            }
+            $stringWidth = $this->getstringwidth($col_as) + 6 ;
             // save the real title's width
             $titleWidth[$i] = $stringWidth;
             $totalTitleWidth += $stringWidth;
@@ -320,7 +326,7 @@ class PMA_ExportPdf extends PMA_PDF
             if ($stringWidth < $this->sColWidth) {
                 $colFits[$i] = $stringWidth ;
             }
-            $this->colTitles[$i] = $this->fields[$i]->name;
+            $this->colTitles[$i] = $col_as;
             $this->display_column[$i] = true;
 
             switch ($this->fields[$i]->type) {

@@ -1,6 +1,164 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.3.0 (2014-12-21)
+- bug       The "Recently used tables" setting should be with Nav panel
+- bug #4647 Can't disable Favorites
+- bug #4646 Version Check Broken
+- bug #4630 AJAX request infinite loop
+- bug #4649 Attributes field size smaller than others
+- bug #4622 Cannot remove table ordering on a Mac
+- bug       Fix initial replication configuration
+- bug       Undefined index central_columnswork
+- bug #4657 Don't have default blowfish_secret
+- bug #4656 Some error popups fade away too quickly
+- bug #4648 Consistency in borders
+- bug       $cfg['Error_Handler']['display'] no longer necessary
+- bug #4659 Leading and trailing whitespace in column name
+
+4.3.2.0 (2014-12-12)
+- bug #4628 PHP error while exporting schema as PDF
+- bug #4631 Server selector submits two server parameter values
+- bug #4629 Problem with custom SQL queries using cookie authentication
+- bug       Undefined index central_columnswork
+- bug #4632 Notice in ./libraries/Util.class.php#1916 Undefined index: query
+- bug #4633 Wrong parameter in fetchValue
+- bug #4634 Error reporting creates an infinite loop
+- bug #4635 Token mismatch while creating configuration storage
+- bug #4640 Incorrect reference to PHP 6
+- bug #3794 failure to handle repeating empty columns when importing ODS
+- bug #4638 Default Export Method setting broken
+- bug #4639 Export SQL missing indentation first field
+- bug #4644 Error when browsing tables
+- bug #4637 Field Alignment
+
+4.3.1.0 (2014-12-08)
+- bug #4609 'Show all' checkbox label is not clickable
+- bug #4610 JS error reporting: Hash fragment is reset
+- bug       Undefined index menuswork
+- bug #4614 Separator between "Show All" and "Number of rows" disappears
+- bug #4615 SQL highlighting in process list breaks on auto refresh
+- bug #4616 Warning in db structure print view page
+- bug       Undefined index navwork, savedsearcheswork, fields
+- bug #4620 Undefined index while adding to the central columns list
+- bug #4618 Page scrolls while GIS visualization is zoomed in/out with mousewheel
+- bug #4613 HHVM: method 'ob_gzhandler' not found
+- bug #4593 Manual "SELECT" doesn't change active table
+- bug #4623 Incomplete PHP OpenSSL support
+- bug #4626 Ctrl + click on a column not in sort triggers a server call to erroneous url
+- bug #4625 "Insufficient space to save the file" on export SQL to file on server
+- bug #4627 "file_get_contents(examples/create_tables.sql): failed to open stream" after update
+- bug #4617 UI issues with sortable tables
+- bug #4619 SELECT LENGTH(`field`) FROM `table` does not sort
+
+4.3.0.0 (2014-12-05)
++ rfe #1502 Smart sorting for int keys
++ rfe #1521 Confirmation message when dropping user(s)
++ rfe #1518 Confirm dialog on accidentally leaving a page
++ rfe #1445 Easy access to "SHOW CREATE ..."
++ rfe #1448 Allow clicking an approximate row count to get a correct one
++ rfe #1487 "Browse foreign values" should be a modal dialog
++ rfe #1523 Better visual clue for table structure primary key column
++ rfe #982  Support for editing binary fields in hexadecimal
+- bug #4416 New lines are removed when grid editing
++ rfe #706  Multi-db privileges adding
++ rfe #1527 Charts for data in <x-axis, series, value> format
++ rfe       Allow saving query charts as images
++ rfe #1145 Preview SQL instead of executing it
++ rfe #759  Use aliases in SQL export for tables and columns
+- bug #4450 Query is duplicated on Ctrl+Enter
++ rfe #755  Export with table/column name changes
++ rfe #869  Run SQL query: Allow rollback for InnoDB tables
++ rfe #654  Range Search Capability
++ rfe #1490 Dynamic process list
++ rfe #1522 Drag and Drop SQL import
++ rfe #637  Custom Field Handlers
++ rfe #1488 User privilege tab not shown in all relevant cases
++ rfe #781  Privileges for non superuser
++ rfe #908  Improvements for the table editor (index creation)
++ rfe #1426 Navigation state lost on reload
+- bug #4439 Table list in left panel doesn't expand
++ rfe       Improved validation when inserting data
++ rfe #1491 Support InnoDB for database Query by example
++ rfe #345  Normalize a table
++ rfe #1123 Zeroconf PMA tables support
++ rfe #1492 Remove the distinct query window / Add SQL log+history panel
++ rfe #919  Multiple-column foreign key relation
+- bug #3165 Redundant foreign keys not supported
+- bug       Incorrect link to documentation
++ rfe #857  Regexp replace
+- bug       Incorrect path in change password when on reverse proxy or
+            non-root directory
++           MariaDB 10+ multi-master replication support
++ rfe #1544 MySQL 5.7.5 compatibility
++ rfe #1529 Avoid session timeout when user is active
+- bug #4528 Can't import dump via SQL field
++ rfe #1251 Show "Overhead" with same precision for all tables
++ rfe #1546 Improve the js printf library
++ rfe #1542 Better error reporting in Designer
+- bug #4547 Micro history does not work in Users page
+- bug #4551 Wrong test in source code
+- bug #4537 BLOB inline-view JPG column transformation does not work for anything except simple queries
++ rfe #1535 Keyword-based autocompletion in SQL query editors
+- bug #4558 Unable to Add Rows while Creating Table
++ rfe #1547 Wrap No Tables Found message with message box
+- bug #4559 Logging in causes 100% CPU usage
+- bug #4564 Designer: spaces in table name with edit table link generates bad links
+- bug #4582 Debug SQL works only for the first page
+- bug #3869 Count(*) on information_scheme.INNODB_BUFFER_PAGE with a huge bufferpool
+- bug #4495 Comment lines in multiquery
+- bug #4535 Loads of Warnings/Notices in PMA_getServerSlaveStatus on replication slave
+- bug #4585 Multi query results not shown
++ rfe #1556 Disabling Show all
+- bug #4513 phpmyadmin run very slow (information_schema)
+- bug #4243 Super slow page rendering with tens of thousands of DBs
+- bug #4391 Upgraded to 4.2.0, insanely slow now
++ rfe #1537 PHP OpenSSL support for cookie encryption/decryption
+- bug #4227 Token mismatch when using HTTP AUTH and the SESSION expires
+
+4.2.13.1 (2014-12-03)
+- bug #4612 [security] XSS vulnerability in redirection mechanism
+- bug #4611 [security] DOS attack with long passwords
+
+4.2.13.0 (2014-11-30)
+- bug #4604 Query history not being deleted
+- bug #4057 db/table query string parameters no longer work
+- bug #4605 Unseen messages in tracking
+- bug #4606 Tracking report export as SQL dump does not work
+- bug #4607 Syntax error during db_copy operation
+- bug #4608 SELECT permission issues with relations and restricted access
+
+4.2.12.0 (2014-11-20)
+- bug #4574 Blank/white page when JavaScript disabled
+- bug #4577 Multi row actions cause full page reloads
+- bug       ReferenceError: targeturl is not defined
+- bug       Incorrect text/icon display in Tracking report
+- bug #4404 Recordset return from procedure display nothing
+- bug #4584 Edit dialog for routines is too long for smaller displays
+- bug #4586 Javascript error after moving a column
+- bug #4576 Issue with long comments on table columns
+- bug #4599 Input field unnecessarily selected on focus
+- bug #4602 Exporting selected rows exports all rows of the query
+- bug #4444 No insert statement produced in SQL export for queries with alias
+- bug #4603 Field disabled when internal relations used
+- bug #4596 [security] XSS through exception stack
+- bug #4595 [security] Path traversal can lead to leakage of line count
+- bug #4578 [security] XSS vulnerability in table print view
+- bug #4579 [security] XSS vulnerability in zoom search page
+- bug #4594 [security] Path traversal in file inclusion of GIS factory
+- bug #4598 [security] XSS in multi submit
+- bug #4597 [security] XSS through pma_fontsize cookie
+
+4.2.11.0 (2014-10-31)
+- bug       ReferenceError: Table_onover is not defined
+- bug #4552 Incorrect routines display for database due to case insensitive checks
+- bug #4259 reCaptcha sound session expired problem
+- bug #4557 PHP fatal error, undefined function __()
+- bug #4568 Date displayed incorrectly when charting a timeline
+- bug #4571 Database Privileges link does not work
+- bug       makegrid.js: where_clause is undefined
+- bug #4572 missing trailing slash (import and open_basedir)
+
 4.2.10.1 (2014-10-21)
 - bug #4562 [security] XSS in debug SQL output
 - bug #4563 [security] XSS in monitor query analyzer
@@ -11,7 +169,6 @@ phpMyAdmin - ChangeLog
 - bug       PDF export: title not present in PDF
 - bug #4543 Changing column name can break saved "order by" clause
 - bug #4545 trying to favorite table while browser localStorage is disabled throws JS error
-- bug #4259 reCaptcha sound session expired problem
 - bug #4548 Inline editing a field converts tab to spaces
 - bug #4252 Database-level permission bug for db names containing underscores
 - bug #3120 Events are not exported when using xml
@@ -276,7 +433,6 @@ phpMyAdmin - ChangeLog
 - bug #4257 Hide fractional seconds when applicable
 - bug #4264 Uncheck "Ignore" while inserting, upon leaving a textarea
 - bug #4260 reCaptcha is ignoring language settings
-- bug #4259 reCaptcha sound session expired problem
 - bug #4263 Japanese character encoding not working properly when exporting
 - bug #4269 Notice on table relation page
 - bug #4270 Bad text-color for table comments

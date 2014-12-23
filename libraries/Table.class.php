@@ -24,7 +24,7 @@ class PMA_Table
     const PROP_COLUMN_ORDER = 'col_order';
     const PROP_COLUMN_VISIB = 'col_visib';
 
-    static $cache = array();
+    static public $cache = array();
 
     /**
      * @var string  table name
@@ -192,9 +192,15 @@ class PMA_Table
 
         // use cached data or load information with SHOW command
         if (isset(PMA_Table::$cache[$db][$table])
+            || $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $type = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_TYPE');
-            return $type == 'VIEW';
+            return $type == 'VIEW' || $type == 'SYSTEM VIEW';
+        }
+
+        // information_schema tables are 'SYSTEM VIEW's
+        if ($db == 'information_schema') {
+            return true;
         }
 
         // query information_schema
@@ -260,9 +266,12 @@ class PMA_Table
                 WHERE TABLE_SCHEMA = '" . PMA_Util::sqlAddSlashes($db) . "'
                 AND TABLE_NAME = '" . PMA_Util::sqlAddSlashes($table) . "'"
             );
+
             foreach ($results as $result) {
                 $analyzed_sql[0]['create_table_fields'][$result['COLUMN_NAME']]
-                    = array('type' => strtoupper($result['DATA_TYPE']));
+                    = array(
+                        'type' => /*overload*/mb_strtoupper($result['DATA_TYPE'])
+                    );
             }
         } else {
             $show_create_table = $GLOBALS['dbi']->fetchValue(
@@ -333,7 +342,10 @@ class PMA_Table
         }
 
         // any of known merge engines?
-        return in_array(strtoupper($engine), array('MERGE', 'MRG_MYISAM'));
+        return in_array(
+            /*overload*/mb_strtoupper($engine),
+            array('MERGE', 'MRG_MYISAM')
+        );
     }
 
     /**
@@ -422,7 +434,10 @@ class PMA_Table
         $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
         $comment = '', &$field_primary = null, $move_to = ''
     ) {
-        $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
+        $is_timestamp = /*overload*/mb_strpos(
+            /*overload*/mb_strtoupper($type),
+            'TIMESTAMP'
+        ) !== false;
 
         $query = PMA_Util::backquote($name) . ' ' . $type;
 
@@ -432,13 +447,9 @@ class PMA_Table
         // MySQL permits a non-standard syntax for FLOAT and DOUBLE,
         // see http://dev.mysql.com/doc/refman/5.5/en/floating-point-types.html
         //
-        if ($length != ''
-            && ! preg_match(
-                '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
-                . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i',
-                $type
-            )
-        ) {
+        $pattern = '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
+            . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i';
+        if ($length != '' && ! preg_match($pattern, $type)) {
             $query .= '(' . $length . ')';
         }
 
@@ -490,10 +501,10 @@ class PMA_Table
         case 'NULL' :
             // If user uncheck null checkbox and not change default value null,
             // default value will be ignored.
-            if ($null !== false && $null != 'NULL') {
+            if ($null !== false && $null !== 'NULL') {
                 break;
             }
-            // otherwise, fall to next case (no break; here)
+            // else fall-through intended, no break here
         case 'CURRENT_TIMESTAMP' :
             $query .= ' DEFAULT ' . $default_type;
             break;
@@ -504,35 +515,6 @@ class PMA_Table
 
         if (!empty($extra)) {
             $query .= ' ' . $extra;
-            // Force an auto_increment field to be part of the primary key
-            // even if user did not tick the PK box;
-            if ($extra == 'AUTO_INCREMENT') {
-                $primary_cnt = count($field_primary);
-                if (1 == $primary_cnt) {
-                    for ($j = 0; $j < $primary_cnt; $j++) {
-                        if ($field_primary[$j] == $index) {
-                            break;
-                        }
-                    }
-                    if (isset($field_primary[$j]) && $field_primary[$j] == $index) {
-                        $query .= ' PRIMARY KEY';
-                        unset($field_primary[$j]);
-                    }
-                } else {
-                    // but the PK could contain other columns so do not append
-                    // a PRIMARY KEY clause, just add a member to $field_primary
-                    $found_in_pk = false;
-                    for ($j = 0; $j < $primary_cnt; $j++) {
-                        if ($field_primary[$j] == $index) {
-                            $found_in_pk = true;
-                            break;
-                        }
-                    } // end for
-                    if (! $found_in_pk) {
-                        $field_primary[] = $index;
-                    }
-                }
-            } // end if (auto_increment)
         }
         if (!empty($comment)) {
             $query .= " COMMENT '" . PMA_Util::sqlAddSlashes($comment) . "'";
@@ -812,7 +794,7 @@ class PMA_Table
 
         $source = PMA_Util::backquote($source_db)
             . '.' . PMA_Util::backquote($source_table);
-        if (! isset($target_db) || ! strlen($target_db)) {
+        if (! isset($target_db) || ! /*overload*/mb_strlen($target_db)) {
             $target_db = $source_db;
         }
 
@@ -874,7 +856,8 @@ class PMA_Table
                 );
                 // ANSI_QUOTES might be a subset of sql_mode, for example
                 // REAL_AS_FLOAT,PIPES_AS_CONCAT,ANSI_QUOTES,IGNORE_SPACE,ANSI
-                if (false !== strpos($server_sql_mode, 'ANSI_QUOTES')) {
+                if (false !== /*overload*/mb_strpos($server_sql_mode, 'ANSI_QUOTES')
+                ) {
                     $table_delimiter = 'quote_double';
                 } else {
                     $table_delimiter = 'quote_backtick';
@@ -914,7 +897,6 @@ class PMA_Table
             /* Generate query back */
             $sql_structure = PMA_SQP_format($parsed_sql, 'query_only');
             // If table exists, and 'add drop table' is selected: Drop it!
-            $drop_query = '';
             if (isset($_REQUEST['drop_if_exists'])
                 && $_REQUEST['drop_if_exists'] == 'true'
             ) {
@@ -965,8 +947,9 @@ class PMA_Table
                 $cnt = $parsed_sql['len'] - 1;
 
                 for ($j = $i; $j < $cnt; $j++) {
+                    $dataUpper = /*overload*/mb_strtoupper($parsed_sql[$j]['data']);
                     if ($parsed_sql[$j]['type'] == 'alpha_reservedWord'
-                        && strtoupper($parsed_sql[$j]['data']) == 'CONSTRAINT'
+                        && $dataUpper == 'CONSTRAINT'
                     ) {
                         if ($parsed_sql[$j+1]['type'] == $table_delimiter) {
                             $parsed_sql[$j+1]['data'] = '';
@@ -1001,8 +984,9 @@ class PMA_Table
                 $cnt = $parsed_sql['len'] - 1;
 
                 for ($j = $i; $j < $cnt; $j++) {
+                    $dataUpper = /*overload*/mb_strtoupper($parsed_sql[$j]['data']);
                     if ($parsed_sql[$j]['type'] == 'alpha_reservedWord'
-                        && strtoupper($parsed_sql[$j]['data']) == 'CONSTRAINT'
+                        && $dataUpper == 'CONSTRAINT'
                     ) {
                         if ($parsed_sql[$j+1]['type'] == $table_delimiter) {
                             $parsed_sql[$j+1]['data'] = '';
@@ -1175,7 +1159,6 @@ class PMA_Table
                     $new_fields
                 );
 
-
                 /**
                  * @todo revise this code when we support cross-db relations
                  */
@@ -1201,7 +1184,6 @@ class PMA_Table
                     $new_fields
                 );
 
-
                 $get_fields = array(
                     'foreign_field',
                     'master_table',
@@ -1219,24 +1201,6 @@ class PMA_Table
                 PMA_Table::duplicateInfo(
                     'relwork',
                     'relation',
-                    $get_fields,
-                    $where_fields,
-                    $new_fields
-                );
-
-
-                $get_fields = array('x', 'y', 'v', 'h');
-                $where_fields = array(
-                    'db_name' => $source_db,
-                    'table_name' => $source_table
-                );
-                $new_fields = array(
-                    'db_name' => $target_db,
-                    'table_name' => $target_table
-                );
-                PMA_Table::duplicateInfo(
-                    'designerwork',
-                    'designer_coords',
                     $get_fields,
                     $where_fields,
                     $new_fields
@@ -1303,7 +1267,7 @@ class PMA_Table
             return false;
         }
 
-        if (! strlen($table_name)) {
+        if (! /*overload*/mb_strlen($table_name)) {
             // zero length
             return false;
         }
@@ -1407,7 +1371,7 @@ class PMA_Table
     /**
      * Get all unique columns
      *
-     * returns an array with all columns with unqiue content, in fact these are
+     * returns an array with all columns with unique content, in fact these are
      * all columns being single indexed in PRIMARY or UNIQUE
      *
      * e.g.
@@ -1461,27 +1425,27 @@ class PMA_Table
     /**
      * Get all indexed columns
      *
-     * returns an array with all columns make use of an index, in fact only
-     * first columns in an index
+     * returns an array with all columns that make use of an index
      *
-     * e.g. index(col1, col2) would only return col1
+     * e.g. index(col1, col2) would return col1, col2
      *
      * @param bool $backquoted whether to quote name with backticks ``
+     * @param bool $fullName   whether to include full name of the table as a prefix
      *
      * @return array
      */
-    public function getIndexedColumns($backquoted = true)
+    public function getIndexedColumns($backquoted = true, $fullName = true)
     {
         $sql = $GLOBALS['dbi']->getTableIndexesSql(
             $this->getDbName(),
             $this->getName(),
-            'Seq_in_index = 1'
+            ''
         );
         $indexed = $GLOBALS['dbi']->fetchResult($sql, 'Column_name', 'Column_name');
 
         $return = array();
         foreach ($indexed as $column) {
-            $return[] = $this->getFullName($backquoted) . '.'
+            $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
                 . ($backquoted ? PMA_Util::backquote($column) : $column);
         }
 
@@ -1614,13 +1578,15 @@ class PMA_Table
     protected function loadUiPrefs()
     {
         $server_id = $GLOBALS['server'];
+
         // set session variable if it's still undefined
         if (! isset($_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name][$this->name])) {
             // check whether we can get from pmadb
             $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name]
             [$this->name]
-                = (strlen($GLOBALS['cfg']['Server']['pmadb'])
-                    && strlen($GLOBALS['cfg']['Server']['table_uiprefs']))
+                = (/*overload*/mb_strlen($GLOBALS['cfg']['Server']['pmadb'])
+                    && /*overload*/mb_strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
+                )
                     ?  $this->getUiPrefsFromDb()
                     : array();
         }
@@ -1648,27 +1614,29 @@ class PMA_Table
         // do checking based on property
         if ($property == self::PROP_SORTED_COLUMN) {
             if (isset($this->uiprefs[$property])) {
-                if (isset($_REQUEST['discard_remembered_sort'])) {
-                    $this->removeUiProp(self::PROP_SORTED_COLUMN);
-                }
-                // check if the column name exists in this table
-                $tmp = explode(' ', $this->uiprefs[$property]);
-                $colname = $tmp[0];
-                //remove backquoting from colname
-                $colname = str_replace('`', '', $colname);
-                //get the available column name without backquoting
-                $avail_columns = $this->getColumns(false);
-                foreach ($avail_columns as $each_col) {
-                    // check if $each_col ends with $colname
-                    if (substr_compare(
-                        $each_col,
-                        $colname,
-                        strlen($each_col) - strlen($colname)
-                    ) === 0) {
-                        return $this->uiprefs[$property];
+                if (! isset($_REQUEST['discard_remembered_sort'])) {
+                    // check if the column name exists in this table
+                    $tmp = explode(' ', $this->uiprefs[$property]);
+                    $colname = $tmp[0];
+                    //remove backquoting from colname
+                    $colname = str_replace('`', '', $colname);
+                    //get the available column name without backquoting
+                    $avail_columns = $this->getColumns(false);
+
+                    foreach ($avail_columns as $each_col) {
+                        // check if $each_col ends with $colname
+                        if (substr_compare(
+                            $each_col,
+                            $colname,
+                            /*overload*/mb_strlen($each_col)
+                            - /*overload*/mb_strlen($colname)
+                        ) === 0
+                        ) {
+                            return $this->uiprefs[$property];
+                        }
                     }
                 }
-                // remove the property, since it is not exist anymore in database
+                // remove the property, since it no longer exists in database
                 $this->removeUiProp(self::PROP_SORTED_COLUMN);
                 return false;
             } else {
@@ -1748,9 +1716,10 @@ class PMA_Table
         }
         // save the value
         $this->uiprefs[$property] = $value;
+
         // check if pmadb is set
-        if (strlen($GLOBALS['cfg']['Server']['pmadb'])
-            && strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
+        if (/*overload*/mb_strlen($GLOBALS['cfg']['Server']['pmadb'])
+            && /*overload*/mb_strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
         ) {
             return $this->saveUiprefsToDb();
         }
@@ -1771,9 +1740,10 @@ class PMA_Table
         }
         if (isset($this->uiprefs[$property])) {
             unset($this->uiprefs[$property]);
+
             // check if pmadb is set
-            if (strlen($GLOBALS['cfg']['Server']['pmadb'])
-                && strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
+            if (/*overload*/mb_strlen($GLOBALS['cfg']['Server']['pmadb'])
+                && /*overload*/mb_strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
             ) {
                 return $this->saveUiprefsToDb();
             }

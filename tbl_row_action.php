@@ -30,6 +30,10 @@ if (isset($_REQUEST['mult_btn'])) {
     $submit_mult = 'row_delete';
 }
 
+if (! isset($submit_mult)) {
+    $submit_mult = 'row_edit';
+}
+
 switch($submit_mult) {
 case 'row_delete':
 case 'row_edit':
@@ -59,10 +63,13 @@ if (!empty($submit_mult)) {
         // indicating WHERE clause. Then we build the array which is used
         // for the tbl_change.php script.
         $where_clause = array();
-        foreach ($_REQUEST['rows_to_delete'] as $i => $i_where_clause) {
-            $where_clause[] = urldecode($i_where_clause);
+        if (isset($_REQUEST['rows_to_delete'])
+            && is_array($_REQUEST['rows_to_delete'])
+        ) {
+            foreach ($_REQUEST['rows_to_delete'] as $i => $i_where_clause) {
+                $where_clause[] = urldecode($i_where_clause);
+            }
         }
-
         $active_page = 'tbl_change.php';
         include 'tbl_change.php';
         break;
@@ -76,10 +83,13 @@ if (!empty($submit_mult)) {
         // indicating WHERE clause. Then we build the array which is used
         // for the tbl_change.php script.
         $where_clause = array();
-        foreach ($_REQUEST['rows_to_delete'] as $i => $i_where_clause) {
-            $where_clause[] = urldecode($i_where_clause);
+        if (isset($_REQUEST['rows_to_delete'])
+            && is_array($_REQUEST['rows_to_delete'])
+        ) {
+            foreach ($_REQUEST['rows_to_delete'] as $i => $i_where_clause) {
+                $where_clause[] = urldecode($i_where_clause);
+            }
         }
-
         $active_page = 'tbl_export.php';
         include 'tbl_export.php';
         break;

@@ -56,36 +56,6 @@ function PMA_getHtmlForMonitor($ServerStatusData)
 }
 
 /**
- * Builds a <select> list for refresh rates
- *
- * @param string $name         Name of select
- * @param int    $defaultRate  Currently chosen rate
- * @param array  $refreshRates List of refresh rates
- *
- * @return string
- */
-function PMA_getHtmlForRefreshList($name,
-    $defaultRate = 5,
-    $refreshRates = Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)
-) {
-    $return = '<select name="' . $name . '" id="id_' . $name
-        . '" class="refreshRate">';
-    foreach ($refreshRates as $rate) {
-        $selected = ($rate == $defaultRate)?' selected="selected"':'';
-        $return .= '<option value="' . $rate . '"' . $selected . '>';
-        if ($rate < 60) {
-            $return .= sprintf(_ngettext('%d second', '%d seconds', $rate), $rate);
-        } else {
-            $rate = $rate / 60;
-            $return .= sprintf(_ngettext('%d minute', '%d minutes', $rate), $rate);
-        }
-        $return .=  '</option>';
-    }
-    $return .= '</select>';
-    return $return;
-}
-
-/**
  * Returns html for Analyse Dialog
  *
  * @return string
@@ -316,7 +286,7 @@ function PMA_getHtmlForSettingsDialog()
     $retval .= '<div class="clearfloat paddingtop"></div>';
     $retval .= '<div class="floatleft">';
     $retval .= __('Refresh rate') . '<br />';
-    $retval .= PMA_getHtmlForRefreshList(
+    $retval .= PMA_ServerStatusData::getHtmlForRefreshList(
         'gridChartRefresh',
         5,
         Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)
@@ -607,22 +577,26 @@ function PMA_getJsonForLogDataTypeSlow($start, $end)
     $return = array('rows' => array(), 'sum' => array());
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-        $type = strtolower(
-            substr($row['sql_text'], 0, strpos($row['sql_text'], ' '))
+        $type = /*overload*/mb_strtolower(
+            /*overload*/mb_substr(
+                $row['sql_text'],
+                0,
+                /*overload*/mb_strpos($row['sql_text'], ' ')
+            )
         );
 
         switch($type) {
         case 'insert':
         case 'update':
             //Cut off big inserts and updates, but append byte count instead
-            if (strlen($row['sql_text']) > 220) {
+            if (/*overload*/mb_strlen($row['sql_text']) > 220) {
                 $implode_sql_text = implode(
                     ' ',
                     PMA_Util::formatByteDown(
-                        strlen($row['sql_text']), 2, 2
+                        /*overload*/mb_strlen($row['sql_text']), 2, 2
                     )
                 );
-                $row['sql_text'] = substr($row['sql_text'], 0, 200)
+                $row['sql_text'] = /*overload*/mb_substr($row['sql_text'], 0, 200)
                     . '... [' . $implode_sql_text . ']';
             }
             break;
@@ -679,7 +653,7 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         preg_match('/^(\w+)\s/', $row['argument'], $match);
-        $type = strtolower($match[1]);
+        $type = /*overload*/mb_strtolower($match[1]);
 
         if (! isset($return['sum'][$type])) {
             $return['sum'][$type] = 0;
@@ -687,6 +661,7 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
         $return['sum'][$type] += $row['#'];
 
         switch($type) {
+        /** @noinspection PhpMissingBreakStatementInspection */
         case 'insert':
             // Group inserts if selected
             if ($removeVars
@@ -703,10 +678,10 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
                     // Add a ... to the end of this query to indicate that
                     // there's been other queries
                     $temp = $return['rows'][$insertTablesFirst]['argument'];
-                    if ($temp[strlen($temp) - 1] != '.') {
-                        $return['rows'][$insertTablesFirst]['argument']
-                            .= '<br/>...';
-                    }
+                    $return['rows'][$insertTablesFirst]['argument']
+                        .= PMA_getSuspensionPoints(
+                            $temp[/*overload*/mb_strlen($temp) - 1]
+                        );
 
                     // Group this value, thus do not add to the result list
                     continue 2;
@@ -720,13 +695,13 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
         case 'update':
             // Cut off big inserts and updates,
             // but append byte count therefor
-            if (strlen($row['argument']) > 220) {
-                $row['argument'] = substr($row['argument'], 0, 200)
+            if (/*overload*/mb_strlen($row['argument']) > 220) {
+                $row['argument'] = /*overload*/mb_substr($row['argument'], 0, 200)
                     . '... ['
                     .  implode(
                         ' ',
                         PMA_Util::formatByteDown(
-                            strlen($row['argument']),
+                            /*overload*/mb_strlen($row['argument']),
                             2,
                             2
                         )
@@ -749,6 +724,22 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
     $GLOBALS['dbi']->freeResult($result);
 
     return $return;
+}
+
+/**
+ * Return suspension points if needed
+ *
+ * @param string $lastChar Last char
+ *
+ * @return null|string Return suspension points if needed
+ */
+function PMA_getSuspensionPoints($lastChar)
+{
+    if ($lastChar != '.') {
+        return '<br/>...';
+    }
+
+    return null;
 }
 /**
  * Returns JSon for logging vars
@@ -789,7 +780,7 @@ function PMA_getJsonForQueryAnalyzer()
 {
     $return = array();
 
-    if (strlen($_REQUEST['database'])) {
+    if (/*overload*/mb_strlen($_REQUEST['database'])) {
         $GLOBALS['dbi']->selectDb($_REQUEST['database']);
     }
 
@@ -804,7 +795,7 @@ function PMA_getJsonForQueryAnalyzer()
         $_REQUEST['query']
     );
 
-    $result = $GLOBALS['dbi']->tryQuery($query);
+    $GLOBALS['dbi']->tryQuery($query);
     $return['affectedRows'] = $GLOBALS['cached_affected_rows'];
 
     $result = $GLOBALS['dbi']->tryQuery('EXPLAIN ' . $query);

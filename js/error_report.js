@@ -23,9 +23,10 @@ var ErrorReport = {
             ajax_request: true,
             server: PMA_commonParams.get('server'),
             token: PMA_commonParams.get('token'),
-            get_settings: true
+            get_settings: true,
+            exception_type: 'js'
         }, function (data) {
-            if (!data.success === true) {
+            if (data.success !== true) {
                 PMA_ajaxShowMessage(data.error, false);
                 return;
             }
@@ -51,7 +52,7 @@ var ErrorReport = {
     /**
      * Shows the modal dialog previewing the report
      *
-     * @param object error report info
+     * @param exception object error report info
      *
      * @return void
      */
@@ -150,7 +151,11 @@ var ErrorReport = {
      *
      * @return void
      */
-    _removeErrorNotification: function () {
+    _removeErrorNotification: function (e) {
+        if (e) {
+            // don't remove the hash fragment by navigating to #
+            e.preventDefault();
+        }
         $("#error_notification").fadeOut(function () {
             $(this).remove();
         });
@@ -217,7 +222,7 @@ var ErrorReport = {
     /**
      * Returns the report data to send to the server
      *
-     * @param object exception info
+     * @param exception object exception info
      *
      * @return object
      */
@@ -227,10 +232,11 @@ var ErrorReport = {
             "token": PMA_commonParams.get('token'),
             "exception": exception,
             "current_url": window.location.href,
-            "microhistory": ErrorReport._get_microhistory()
+            "microhistory": ErrorReport._get_microhistory(),
+            "exception_type": 'js'
         };
         if (typeof AJAX.cache.pages[AJAX.cache.current - 1] !== 'undefined') {
-           report_data.scripts = AJAX.cache.pages[AJAX.cache.current - 1].scripts.map(
+            report_data.scripts = AJAX.cache.pages[AJAX.cache.current - 1].scripts.map(
                 function (script) {
                     return script.name;
                 }
@@ -254,7 +260,7 @@ var ErrorReport = {
     /**
      * Wraps given function in error reporting code and returns wrapped function
      *
-     * @param function function to be wrapped
+     * @param func function to be wrapped
      *
      * @return function
      */

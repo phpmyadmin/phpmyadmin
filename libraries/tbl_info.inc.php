@@ -22,7 +22,7 @@ global $showtable, $tbl_is_view, $tbl_storage_engine, $show_comment, $tbl_collat
        $table_info_num_rows, $auto_increment;
 
 /**
- * Gets table informations
+ * Gets table information
  */
 // Seems we need to do this in MySQL 5.0.2,
 // otherwise error #1046, no database selected
@@ -54,6 +54,9 @@ $GLOBALS['showtable'] = PMA_Table::sGetStatusInfo(
 // and we don't want to mess up the $tbl_storage_engine coming from the form
 
 if ($showtable) {
+    /** @var PMA_String $pmaString */
+    $pmaString = $GLOBALS['PMA_String'];
+
     if (PMA_Table::isView($GLOBALS['db'], $GLOBALS['table'])) {
         $tbl_is_view     = true;
         $tbl_storage_engine = __('View');
@@ -61,7 +64,7 @@ if ($showtable) {
     } else {
         $tbl_is_view     = false;
         $tbl_storage_engine = isset($showtable['Engine'])
-            ? strtoupper($showtable['Engine'])
+            ? /*overload*/mb_strtoupper($showtable['Engine'])
             : '';
         $show_comment = '';
         if (isset($showtable['Comment'])) {
@@ -97,7 +100,7 @@ if ($showtable) {
         }
     }
     // we need explicit DEFAULT value here (different from '0')
-    $pack_keys = (! isset($pack_keys) || strlen($pack_keys) == 0)
+    $pack_keys = (! isset($pack_keys) || /*overload*/mb_strlen($pack_keys) == 0)
         ? 'DEFAULT'
         : $pack_keys;
     unset($create_options, $each_create_option);

@@ -35,10 +35,10 @@ class Node_View extends Node_DatabaseChild
         $this->links = array(
             'text' => 'sql.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s&amp;pos=0'
-                    . '&amp;token=' . $GLOBALS['token'],
+                    . '&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'tbl_structure.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s'
-                    . '&amp;token=' . $GLOBALS['token']
+                    . '&amp;token=' . $_SESSION[' PMA_token ']
         );
         $this->classes = 'view';
     }

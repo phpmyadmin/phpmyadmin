@@ -15,10 +15,13 @@ require_once 'libraries/create_addfield.lib.php';
 // Check parameters
 PMA_Util::checkParameters(array('db'));
 
+/** @var PMA_String $pmaString */
+$pmaString = $GLOBALS['PMA_String'];
+
 /* Check if database name is empty */
-if (strlen($db) == 0) {
+if (/*overload*/mb_strlen($db) == 0) {
     PMA_Util::mysqlDie(
-        __('The database name is empty!'), '', '', 'index.php'
+        __('The database name is empty!'), '', false, 'index.php'
     );
 }
 
@@ -29,7 +32,7 @@ if (!$GLOBALS['dbi']->selectDb($db)) {
     PMA_Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
-        '',
+        false,
         'index.php'
     );
 }
@@ -39,8 +42,8 @@ if ($GLOBALS['dbi']->getColumns($db, $table)) {
     PMA_Util::mysqlDie(
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
         '',
-        '',
-        'db_structure.php?' . PMA_URL_getCommon($db)
+        false,
+        'db_structure.php' . PMA_URL_getCommon(array('db' => $db))
     );
 }
 
@@ -55,6 +58,11 @@ $action = 'tbl_create.php';
  */
 if (isset($_REQUEST['do_save_data'])) {
     $sql_query = PMA_getTableCreationQuery($db, $table);
+
+    // If there is a request for SQL previewing.
+    if (isset($_REQUEST['preview_sql'])) {
+        PMA_previewSQL($sql_query);
+    }
     // Executes the query
     $result = $GLOBALS['dbi']->tryQuery($sql_query);
 
@@ -68,12 +76,15 @@ if (isset($_REQUEST['do_save_data'])) {
         ) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
-                    && strlen($_REQUEST['field_name'][$fieldindex])
+                    && /*overload*/mb_strlen($_REQUEST['field_name'][$fieldindex])
                 ) {
                     PMA_setMIME(
-                        $db, $table, $_REQUEST['field_name'][$fieldindex], $mimetype,
+                        $db, $table,
+                        $_REQUEST['field_name'][$fieldindex], $mimetype,
                         $_REQUEST['field_transformation'][$fieldindex],
-                        $_REQUEST['field_transformation_options'][$fieldindex]
+                        $_REQUEST['field_transformation_options'][$fieldindex],
+                        $_REQUEST['field_input_transformation'][$fieldindex],
+                        $_REQUEST['field_input_transformation_options'][$fieldindex]
                     );
                 }
             }

@@ -2,7 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * File for vendor customisation, you can change here paths or some behaviour,
- * which vendors such as Linux distibutions might want to change.
+ * which vendors such as Linux distributions might want to change.
  *
  * For changing this file you should know what you are doing. For this reason
  * options here are not part of normal configuration.
@@ -35,6 +35,12 @@ define('SETUP_CONFIG_FILE', './config/config.inc.php');
  * file will be generated.
  */
 define('SETUP_DIR_WRITABLE', true);
+
+/**
+ * Directory where examples reside. Useful when you want to include
+ * the examples directory with documentation, eg. /usr/share/doc.
+ */
+define('EXAMPLES_DIR', './examples/');
 
 /**
  * Directory where configuration files are stored.

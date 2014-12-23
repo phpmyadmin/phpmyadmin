@@ -29,7 +29,7 @@ PMA_Util::checkParameters(array('db', 'table', 'field'));
 $response = PMA_Response::getInstance();
 $response->getFooter()->setMinimal();
 $header = $response->getHeader();
-$header->disableMenu();
+$header->disableMenuAndConsole();
 $header->setBodyId('body_browse_foreigners');
 
 /**
@@ -39,7 +39,7 @@ $header->setBodyId('body_browse_foreigners');
 $cfgRelation = PMA_getRelationsParam();
 $foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : false);
 $foreign_limit = PMA_getForeignLimit(
-    isset($foreign_navig) ? $foreign_navig : null
+    isset($_REQUEST['foreign_showAll']) ? $_REQUEST['foreign_showAll'] : null
 );
 
 $foreignData = PMA_getForeignData(
@@ -49,11 +49,6 @@ $foreignData = PMA_getForeignData(
     : '',
     isset($foreign_limit) ? $foreign_limit : null
 );
-
-
-$code = PMA_getJsScriptToHandleSelectRelationalFields();
-
-$header->getScripts()->addCode($code);
 
 // HTML output
 $html = PMA_getHtmlForRelationalFieldSelection(

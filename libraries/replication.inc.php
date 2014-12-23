@@ -16,6 +16,25 @@ if (! defined('PHPMYADMIN')) {
 $server_master_replication = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS');
 
 /**
+ * check for multi-master replication functionality
+ */
+$server_slave_multi_replication = $GLOBALS['dbi']->fetchResult(
+    'SHOW ALL SLAVES STATUS'
+);
+
+/**
+ * set selected master server
+ */
+if ($server_slave_multi_replication && !empty($_REQUEST['master_connection'])) {
+    $GLOBALS['dbi']->query(
+        "SET @@default_master_connection = '" . PMA_Util::sqlAddSlashes(
+            $_REQUEST['master_connection']
+        ) . "'"
+    );
+    $GLOBALS['url_params']['master_connection'] = $_REQUEST['master_connection'];
+}
+
+/**
  * get slave replication from server
  */
 $server_slave_replication = $GLOBALS['dbi']->fetchResult('SHOW SLAVE STATUS');
@@ -96,67 +115,81 @@ $slave_variables_oks = array(
 // set $server_{master/slave}_status and assign values
 
 // replication info is more easily passed to functions
-/*
- * @todo use $replication_info everywhere instead of the generated variable names
- */
-$replication_info = array();
+$GLOBALS['replication_info'] = array();
 
 foreach ($replication_types as $type) {
     if (count(${"server_{$type}_replication"}) > 0) {
-        ${"server_{$type}_status"} = true;
-        $replication_info[$type]['status'] = true;
+        $GLOBALS['replication_info'][$type]['status'] = true;
     } else {
-        ${"server_{$type}_status"} = false;
-        $replication_info[$type]['status'] = false;
+        $GLOBALS['replication_info'][$type]['status'] = false;
     }
-    if (${"server_{$type}_status"}) {
+    if ($GLOBALS['replication_info'][$type]['status']) {
         if ($type == "master") {
-            ${"server_{$type}_Do_DB"} = explode(
-                ",", $server_master_replication[0]["Binlog_Do_DB"]
+            PMA_fillReplicationInfo(
+                $type, 'Do_DB', $server_master_replication[0],
+                'Binlog_Do_DB'
             );
-            $replication_info[$type]['Do_DB'] = ${"server_{$type}_Do_DB"};
 
-            ${"server_{$type}_Ignore_DB"} = explode(
-                ",", $server_master_replication[0]["Binlog_Ignore_DB"]
+            PMA_fillReplicationInfo(
+                $type, 'Ignore_DB', $server_master_replication[0],
+                'Binlog_Ignore_DB'
             );
-            $replication_info[$type]['Ignore_DB'] = ${"server_{$type}_Ignore_DB"};
         } elseif ($type == "slave") {
-            ${"server_{$type}_Do_DB"} = explode(
-                ",", $server_slave_replication[0]["Replicate_Do_DB"]
+            PMA_fillReplicationInfo(
+                $type, 'Do_DB', $server_slave_replication[0],
+                'Replicate_Do_DB'
             );
-            if (! empty(${"server_{$type}_Do_DB"})) {
-                $replication_info[$type]['Do_DB'] = ${"server_{$type}_Do_DB"};
-            }
 
-            ${"server_{$type}_Ignore_DB"} = explode(
-                ",", $server_slave_replication[0]["Replicate_Ignore_DB"]
+            PMA_fillReplicationInfo(
+                $type, 'Ignore_DB', $server_slave_replication[0],
+                'Replicate_Ignore_DB'
             );
-            $replication_info[$type]['Ignore_DB'] = ${"server_{$type}_Ignore_DB"};
 
-            ${"server_{$type}_Do_Table"} = explode(
-                ",", $server_slave_replication[0]["Replicate_Do_Table"]
+            PMA_fillReplicationInfo(
+                $type, 'Do_Table', $server_slave_replication[0],
+                'Replicate_Do_Table'
             );
-            $replication_info[$type]['Do_Table'] = ${"server_{$type}_Do_Table"};
 
-            ${"server_{$type}_Ignore_Table"} = explode(
-                ",", $server_slave_replication[0]["Replicate_Ignore_Table"]
+            PMA_fillReplicationInfo(
+                $type, 'Ignore_Table', $server_slave_replication[0],
+                'Replicate_Ignore_Table'
             );
-            $replication_info[$type]['Ignore_Table']
-                = ${"server_{$type}_Ignore_Table"};
 
-            ${"server_{$type}_Wild_Do_Table"} = explode(
-                ",", $server_slave_replication[0]["Replicate_Wild_Do_Table"]
+            PMA_fillReplicationInfo(
+                $type, 'Wild_Do_Table', $server_slave_replication[0],
+                'Replicate_Wild_Do_Table'
             );
-            $replication_info[$type]['Wild_Do_Table']
-                = ${"server_{$type}_Wild_Do_Table"};
 
-            ${"server_{$type}_Wild_Ignore_Table"} = explode(
-                ",", $server_slave_replication[0]["Replicate_Wild_Ignore_Table"]
+            PMA_fillReplicationInfo(
+                $type, 'Wild_Ignore_Table', $server_slave_replication[0],
+                'Replicate_Wild_Ignore_Table'
             );
-            $replication_info[$type]['Wild_Ignore_Table']
-                = ${"server_{$type}_Wild_Ignore_Table"};
         }
     }
+}
+
+/**
+ * Fill global replication_info variable.
+ *
+ * @param string $type               Type: master, slave
+ * @param string $replicationInfoKey Key in replication_info variable
+ * @param array  $mysqlInfo          MySQL data about replication
+ * @param string $mysqlKey           MySQL key
+ *
+ * @return array
+ */
+function PMA_fillReplicationInfo(
+    $type, $replicationInfoKey, $mysqlInfo, $mysqlKey
+) {
+    $GLOBALS['replication_info'][$type][$replicationInfoKey]
+        = empty($mysqlInfo[$mysqlKey])
+            ? array()
+            : explode(
+                ",",
+                $mysqlInfo[$mysqlKey]
+            );
+
+    return $GLOBALS['replication_info'][$type][$replicationInfoKey];
 }
 
 /**
@@ -165,7 +198,7 @@ foreach ($replication_types as $type) {
  * @param string $string contains "dbname.tablename"
  * @param string $what   what to extract (db|table)
  *
- * @return $string the extracted part
+ * @return string the extracted part
  */
 function PMA_extractDbOrTable($string, $what = 'db')
 {
@@ -191,8 +224,8 @@ function PMA_extractDbOrTable($string, $what = 'db')
  */
 function PMA_Replication_Slave_control($action, $control = null, $link = null)
 {
-    $action = strtoupper($action);
-    $control = strtoupper($control);
+    $action = /*overload*/mb_strtoupper($action);
+    $control = /*overload*/mb_strtoupper($control);
 
     if ($action != "START" && $action != "STOP") {
         return -1;

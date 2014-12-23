@@ -171,13 +171,17 @@ if (isset($_POST['submit_export'])
             if ($return_url) {
                 $query = explode('&', parse_url($return_url, PHP_URL_QUERY));
                 $return_url = parse_url($return_url, PHP_URL_PATH);
+
+                /** @var PMA_String $pmaString */
+                $pmaString = $GLOBALS['PMA_String'];
+
                 foreach ($query as $q) {
-                    $pos = strpos($q, '=');
-                    $k = substr($q, 0, $pos);
+                    $pos = /*overload*/mb_strpos($q, '=');
+                    $k = /*overload*/mb_substr($q, 0, $pos);
                     if ($k == 'token') {
                         continue;
                     }
-                    $params[$k] = substr($q, $pos+1);
+                    $params[$k] = /*overload*/mb_substr($q, $pos+1);
                 }
             } else {
                 $return_url = 'prefs_manage.php';

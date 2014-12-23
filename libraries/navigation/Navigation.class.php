@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * This class is responsible for instanciating
+ * This class is responsible for instantiating
  * the various components of the navigation panel
  *
  * @package PhpMyAdmin-navigation
@@ -21,16 +21,6 @@ require_once 'libraries/navigation/NavigationTree.class.php';
  */
 class PMA_Navigation
 {
-    /**
-     * Initialises the class
-     */
-    public function __construct()
-    {
-        if (empty($GLOBALS['token'])) {
-            $GLOBALS['token'] = $_SESSION[' PMA_token '];
-        }
-    }
-
     /**
      * Renders the navigation tree, or part of it
      *
@@ -66,6 +56,7 @@ class PMA_Navigation
             // closes the tags that were opened by the navigation header
             $retval .= '</div>';
             $retval .= '</div>';
+            $retval .= $this->_getDropHandler();
             $retval .= '</div>';
         }
 
@@ -100,6 +91,27 @@ class PMA_Navigation
     }
 
     /**
+     * Inserts Drag and Drop Import handler
+     *
+     * @return string html code for drop handler
+     */
+    private function _getDropHandler()
+    {
+        $retval = '';
+        $retval .= '<div class="pma_drop_handler">'
+            . __('Drop files here')
+            . '</div>';
+        $retval .= '<div class="pma_sql_import_status">';
+        $retval .= '<h2>SQL upload ( ';
+        $retval .= '<span class="pma_import_count">0</span> ';
+        $retval .= ') <span class="close">x</span>';
+        $retval .= '<span class="minimize">-</span></h2>';
+        $retval .= '<div></div>';
+        $retval .= '</div>';
+        return $retval;
+    }
+
+    /**
      * Remove a hidden item of navigation tree from the
      * list of hidden items in PMA database.
      *
@@ -130,13 +142,13 @@ class PMA_Navigation
     }
 
     /**
-     * Returns HTML for the dialog to show hidden nativation items.
+     * Returns HTML for the dialog to show hidden navigation items.
      *
      * @param string $dbName    database name
      * @param string $itemType  type of the items to include
      * @param string $tableName table name
      *
-     * @return string HTML for the dialog to show hidden nativation items
+     * @return string HTML for the dialog to show hidden navigation items
      */
     public function getItemUnhideDialog($dbName, $itemType = null, $tableName = null)
     {
@@ -186,7 +198,7 @@ class PMA_Navigation
                     foreach ($hidden[$t] as $hiddenItem) {
                         $html .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
                         $html .= '<td>' . htmlspecialchars($hiddenItem) . '</td>';
-                        $html .= '<td style="width:80px"><a href="navigation.php?'
+                        $html .= '<td style="width:80px"><a href="navigation.php'
                             . PMA_URL_getCommon()
                             . '&unhideNavItem=true'
                             . '&itemType=' . urlencode($t)

@@ -54,7 +54,7 @@ AJAX.registerOnload('server_databases.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = PMA_messages.strDropDatabaseStrongWarning + ' ' +
-            $.sprintf(PMA_messages.strDoYouReally, selected_dbs.join('<br />'));
+            PMA_sprintf(PMA_messages.strDoYouReally, selected_dbs.join('<br />'));
 
         $(this).PMA_confirm(
             question,
@@ -74,7 +74,7 @@ AJAX.registerOnload('server_databases.js', function () {
 
                         $rowsToRemove.remove();
                         $form.find('tbody').PMA_sort_table('.name');
-                        if ($form.find('tbody').find('tr').length == 0) {
+                        if ($form.find('tbody').find('tr').length === 0) {
                             // user just dropped the last db on this page
                             PMA_commonActions.refreshMain();
                         }

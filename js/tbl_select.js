@@ -14,6 +14,39 @@
  */
 
 /**
+ * Checks if given data-type is numeric or date.
+ *
+ * @param string data_type Column data-type
+ *
+ * @return bool|string
+ */
+function PMA_checkIfDataTypeNumericOrDate(data_type)
+{
+    // To test for numeric data-types.
+    var numeric_re = new RegExp(
+        'TINYINT|SMALLINT|MEDIUMINT|INT|BIGINT|DECIMAL|FLOAT|DOUBLE|REAL',
+        'i'
+    );
+
+    // To test for date data-types.
+    var date_re = new RegExp(
+        'DATETIME|DATE|TIMESTAMP|TIME|YEAR',
+        'i'
+    );
+
+    // Return matched data-type
+    if (numeric_re.test(data_type)) {
+        return numeric_re.exec(data_type)[0];
+    }
+
+    if (date_re.test(data_type)) {
+        return date_re.exec(data_type)[0];
+    }
+
+    return false;
+}
+
+/**
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_select.js', function () {
@@ -21,6 +54,7 @@ AJAX.registerTeardown('tbl_select.js', function () {
     $("#tbl_search_form.ajax").die('submit');
     $('select.geom_func').unbind('change');
     $('span.open_search_gis_editor').die('click');
+    $('body').off('click', 'select[name*="criteriaColumnOperators"]');
 });
 
 AJAX.registerOnload('tbl_select.js', function () {
@@ -98,10 +132,10 @@ AJAX.registerOnload('tbl_select.js', function () {
         if (values['columnsToDisplay[]'] !== null) {
             if (values['columnsToDisplay[]'].length == columnCount) {
                 delete values['columnsToDisplay[]'];
-                values['displayAllColumns'] = true;
+                values.displayAllColumns = true;
             }
         } else {
-            values['displayAllColumns'] = true;
+            values.displayAllColumns = true;
         }
 
         $.post($search_form.attr('action'), values, function (data) {
@@ -221,6 +255,140 @@ AJAX.registerOnload('tbl_select.js', function () {
             loadJSAndGISEditor(value, field, type, input_name, token);
         } else {
             loadGISEditor(value, field, type, input_name, token);
+        }
+    });
+
+    /**
+     * Ajax event handler for Range-Search.
+     */
+    $('body').on('click', 'select[name*="criteriaColumnOperators"]', function () {
+        $source_select = $(this);
+        // Get the column name.
+        var column_name = $(this)
+            .closest('tr')
+            .find('th:first')
+            .text();
+
+        // Get the data-type of column excluding size.
+        var data_type = $(this)
+            .closest('tr')
+            .find('td[data-type]')
+            .attr('data-type');
+        data_type = PMA_checkIfDataTypeNumericOrDate(data_type);
+
+        // Get the operator.
+        var operator = $(this).val();
+
+        if ((operator == 'BETWEEN' || operator == 'NOT BETWEEN')
+            && data_type
+        ) {
+            var $msgbox = PMA_ajaxShowMessage();
+            $.ajax({
+                url: 'tbl_select.php',
+                type: 'POST',
+                data: {
+                    token: $('input[name="token"]').val(),
+                    ajax_request: 1,
+                    db: $('input[name="db"]').val(),
+                    table: $('input[name="table"]').val(),
+                    column: column_name,
+                    range_search: 1
+                },
+                success: function (response) {
+                    PMA_ajaxRemoveMessage($msgbox);
+                    if (response.success) {
+                        // Get the column min value.
+                        var min = response.column_data.min
+                            ? '(' + PMA_messages.strColumnMin +
+                                ' ' + response.column_data.min + ')'
+                            : '';
+                        // Get the column max value.
+                        var max = response.column_data.max
+                            ? '(' + PMA_messages.strColumnMax +
+                                ' ' + response.column_data.max + ')'
+                            : '';
+                        var button_options = {};
+                        button_options[PMA_messages.strGo] = function () {
+                            var min_value = $('#min_value').val();
+                            var max_value = $('#max_value').val();
+                            var final_value = '';
+                            if (min_value.length && max_value.length) {
+                                final_value = min_value + ', ' +
+                                    max_value;
+                            }
+                            var $target_field = $source_select.closest('tr')
+                                .find('[name*="criteriaValues"]');
+
+                            // If target field is a select list.
+                            if ($target_field.is('select')) {
+                                $target_field.attr('value', final_value);
+                                var $options = $target_field.find('option');
+                                var $closest_min = null;
+                                var $closest_max = null;
+                                // Find closest min and max value.
+                                $options.each(function () {
+                                    if (
+                                        $closest_min === null
+                                        || Math.abs($(this).val() - min_value) < Math.abs($closest_min.val() - min_value)
+                                    ) {
+                                        $closest_min = $(this);
+                                    }
+
+                                    if (
+                                        $closest_max === null
+                                        || Math.abs($(this).val() - max_value) < Math.abs($closest_max.val() - max_value)
+                                    ) {
+                                        $closest_max = $(this);
+                                    }
+                                });
+
+                                $closest_min.attr('selected', 'selected');
+                                $closest_max.attr('selected', 'selected');
+                            } else {
+                                $target_field.val(final_value);
+                            }
+                            $(this).dialog("close");
+                        };
+                        button_options[PMA_messages.strCancel] = function () {
+                            $(this).dialog("close");
+                        };
+
+                        // Display dialog box.
+                        $('<div/>').append(
+                            '<fieldset>' +
+                            '<legend>' + operator + '</legend>' +
+                            '<lablel for="min_value">' + PMA_messages.strMinValue +
+                            '</label>' +
+                            '<input type="text" id="min_value" />' + '<br>' +
+                            '<span class="small_font">' + min + '</span>' + '<br>' +
+                            '<lablel for="max_value">' + PMA_messages.strMaxValue +
+                            '</label>' +
+                            '<input type="text" id="max_value" />' + '<br>' +
+                            '<span class="small_font">' + max + '</span>' +
+                            '</fieldset>'
+                        ).dialog({
+                            minWidth: 500,
+                            maxHeight: 400,
+                            modal: true,
+                            buttons: button_options,
+                            title: PMA_messages.strRangeSearch,
+                            open: function () {
+                                // Add datepicker wherever required.
+                                PMA_addDatepicker($('#min_value'), data_type);
+                                PMA_addDatepicker($('#max_value'), data_type);
+                            },
+                            close: function () {
+                                $(this).remove();
+                            }
+                        });
+                    } else {
+                        PMA_ajaxShowMessage(response.error);
+                    }
+                },
+                error: function (response) {
+                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest);
+                }
+            });
         }
     });
 

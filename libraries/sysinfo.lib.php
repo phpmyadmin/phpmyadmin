@@ -165,7 +165,6 @@ class PMA_SysInfoWinnt extends PMA_SysInfo
     private function _getWMI($strClass, $strValue = array())
     {
         $arrData = array();
-        $value = "";
 
         $objWEBM = $this->_wmi->Get($strClass);
         $arrProp = $objWEBM->Properties_;
@@ -236,7 +235,10 @@ class PMA_SysInfoLinux extends PMA_SysInfo
     function loadavg()
     {
         $buf = file_get_contents('/proc/stat');
-        $nums = preg_split("/\s+/", substr($buf, 0, strpos($buf, "\n")));
+        $nums = preg_split(
+            "/\s+/",
+            /*overload*/mb_substr($buf, 0, /*overload*/mb_strpos($buf, "\n"))
+        );
         return Array(
             'busy' => $nums[1] + $nums[2] + $nums[3],
             'idle' => intval($nums[4])
@@ -269,18 +271,23 @@ class PMA_SysInfoLinux extends PMA_SysInfo
 
         $mem = array_combine($matches[1], $matches[2]);
 
-        $memTotal   = isset($mem['MemTotal'])   ? $mem['MemTotal']   : 0;
-        $memFree    = isset($mem['MemFree'])    ? $mem['MemFree']    : 0;
-        $cached     = isset($mem['Cached'])     ? $mem['Cached']     : 0;
-        $buffers    = isset($mem['Buffers'])    ? $mem['Buffers']    : 0;
-        $swapTotal  = isset($mem['SwapTotal'])  ? $mem['SwapTotal']  : 0;
-        $swapFree   = isset($mem['SwapFree'])   ? $mem['SwapFree']   : 0;
-        $swapCached = isset($mem['SwapCached']) ? $mem['SwapCached'] : 0;
+        $defaults = array(
+            'MemTotal' => 0,
+            'MemFree' => 0,
+            'Cached' => 0,
+            'Buffers' => 0,
+            'SwapTotal' => 0,
+            'SwapFree' => 0,
+            'SwapCached' => 0,
+        );
 
-        $mem['MemUsed']
-            = $memTotal - $memFree - $cached - $buffers;
-        $mem['SwapUsed']
-            = $swapTotal - $swapFree - $swapCached;
+        $mem = array_merge($defaults, $mem);
+
+        $mem['MemUsed'] = $mem['MemTotal']
+            - $mem['MemFree'] - $mem['Cached'] - $mem['Buffers'];
+
+        $mem['SwapUsed'] = $mem['SwapTotal']
+            - $mem['SwapFree'] - $mem['SwapCached'];
 
         foreach ($mem as $idx => $value) {
             $mem[$idx] = intval($value);
@@ -345,8 +352,8 @@ class PMA_SysInfoSunos extends PMA_SysInfo
      */
     public function memory()
     {
-        $mem = array();
         $pagesize = $this->_kstat('unix:0:seg_cache:slab_size');
+        $mem = array();
         $mem['MemTotal']
             = $this->_kstat('unix:0:system_pages:pagestotal') * $pagesize;
         $mem['MemUsed']
