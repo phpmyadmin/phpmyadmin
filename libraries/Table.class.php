@@ -409,7 +409,6 @@ class PMA_Table
      *
      * @param string      $name           name
      * @param string      $type           type ('INT', 'VARCHAR', 'BIT', ...)
-     * @param string      $index          index
      * @param string      $length         length ('2', '5,2', '', ...)
      * @param string      $attribute      attribute
      * @param string      $collation      collation
@@ -429,7 +428,7 @@ class PMA_Table
      *
      * @return string  field specification
      */
-    static function generateFieldSpec($name, $type, $index, $length = '',
+    static function generateFieldSpec($name, $type, $length = '',
         $attribute = '', $collation = '', $null = false,
         $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
         $comment = '', &$field_primary = null, $move_to = ''
@@ -645,7 +644,7 @@ class PMA_Table
     ) {
         return PMA_Util::backquote($oldcol) . ' '
             . PMA_Table::generateFieldSpec(
-                $newcol, $type, $index, $length, $attribute,
+                $newcol, $type, $length, $attribute,
                 $collation, $null, $default_type, $default_value, $extra,
                 $comment, $field_primary, $move_to
             );

@@ -1036,7 +1036,7 @@ class PMA_Tracker
                 . PMA_Util::sqlAddSlashes($result['tablename']) . "' " .
                 " AND `version` = '" . PMA_Util::sqlAddSlashes($version) . "' ";
 
-                $result = PMA_queryAsControlUser($sql_query);
+                PMA_queryAsControlUser($sql_query);
             }
         }
     }
