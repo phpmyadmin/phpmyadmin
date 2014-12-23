@@ -894,6 +894,7 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
         $analyzed_sql_results['analyzed_sql'][0]['table_ref'][1]['table_name']
     );
     if (! $analyzed_sql_results['is_group']
+        && ! $analyzed_sql_results['is_func']
         && ! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['union'])
         && ! $distinct
         && ! $table_name
