@@ -52,6 +52,7 @@ function PMA_getHtmlForPrintViewFooter()
 /**
  * return html for Print View Columns
  *
+ * @param bool   $tbl_is_view  whether table is a view
  * @param array  $columns      columns list
  * @param array  $analyzed_sql analyzed sql
  * @param bool   $have_rel     have relation?
@@ -63,7 +64,7 @@ function PMA_getHtmlForPrintViewFooter()
  * @return string
  */
 function PMA_getHtmlForPrintViewColumns(
-    $columns, $analyzed_sql, $have_rel,
+    $tbl_is_view, $columns, $analyzed_sql, $have_rel,
     $res_rel, $db, $table, $cfgRelation
 ) {
     $html = '';
@@ -81,21 +82,24 @@ function PMA_getHtmlForPrintViewColumns(
         }
         $field_name = htmlspecialchars($row['Field']);
 
-        // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
-        // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
-        // the latter.
-        /**
-         * @todo merge this logic with the one in tbl_structure.php
-         * or move it in a function similar to $GLOBALS['dbi']->getColumnsFull()
-         * but based on SHOW CREATE TABLE because information_schema
-         * cannot be trusted in this case (MySQL bug)
-         */
-        $analyzed_for_field = $analyzed_sql[0]['create_table_fields'][$field_name];
-        if (! empty($analyzed_for_field['type'])
-            && $analyzed_for_field['type'] == 'TIMESTAMP'
-            && $analyzed_for_field['timestamp_not_null']
-        ) {
-            $row['Null'] = '';
+        if (! $tbl_is_view) {
+            // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having
+            // the NULL attribute, but SHOW CREATE TABLE says the contrary.
+            // Believe the latter.
+            /**
+             * @todo merge this logic with the one in tbl_structure.php
+             * or move it in a function similar to $GLOBALS['dbi']->getColumnsFull()
+             * but based on SHOW CREATE TABLE because information_schema
+             * cannot be trusted in this case (MySQL bug)
+             */
+            $analyzed_for_field
+                = $analyzed_sql[0]['create_table_fields'][$field_name];
+            if (! empty($analyzed_for_field['type'])
+                && $analyzed_for_field['type'] == 'TIMESTAMP'
+                && $analyzed_for_field['timestamp_not_null']
+            ) {
+                $row['Null'] = '';
+            }
         }
 
         $html .= "\n";
@@ -484,7 +488,7 @@ function PMA_getHtmlForTableStructure(
     $html .= '</thead>';
     $html .= '<tbody>';
     $html .= PMA_getHtmlForPrintViewColumns(
-        $columns, $analyzed_sql, $have_rel,
+        $tbl_is_view, $columns, $analyzed_sql, $have_rel,
         $res_rel, $db, $table, $cfgRelation
     );
     $html .= '</tbody>';
