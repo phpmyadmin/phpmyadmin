@@ -473,7 +473,7 @@ msgstr ""
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:168
 msgid "SRID:"
-msgstr ""
+msgstr "SRID:"
 
 #: gis_data_editor.php:191
 #, php-format
@@ -487,12 +487,12 @@ msgstr ""
 #: gis_data_editor.php:214 gis_data_editor.php:241 gis_data_editor.php:297
 #: gis_data_editor.php:370 js/messages.php:378
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:217 gis_data_editor.php:245 gis_data_editor.php:301
 #: gis_data_editor.php:376 js/messages.php:379
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:239 gis_data_editor.php:295 gis_data_editor.php:368
 #: js/messages.php:381
@@ -736,7 +736,7 @@ msgstr ""
 
 #: index.php:296
 msgid "User:"
-msgstr ""
+msgstr "Gebruker:"
 
 #: index.php:301
 msgid "Server charset:"
@@ -768,11 +768,11 @@ msgstr ""
 #: libraries/navigation/NavigationHeader.class.php:187
 #: libraries/server_variables.lib.php:162
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentoasje"
 
 #: index.php:388
 msgid "Wiki"
-msgstr ""
+msgstr "Wiki"
 
 #: index.php:397
 msgid "Official Homepage"
@@ -1045,12 +1045,12 @@ msgstr ""
 #. l10n: Thousands separator
 #: js/messages.php:94 libraries/Util.class.php:1395
 msgid ","
-msgstr ""
+msgstr ","
 
 #. l10n: Decimal separator
 #: js/messages.php:96 libraries/Util.class.php:1397
 msgid "."
-msgstr ""
+msgstr "."
 
 #: js/messages.php:98
 msgid "Connections / Processes"
@@ -1152,40 +1152,40 @@ msgstr ""
 #. l10n: shortcuts for Byte
 #: js/messages.php:130 libraries/Util.class.php:1339
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:131 libraries/Util.class.php:1341
 #: libraries/server_status_monitor.lib.php:217
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:132 libraries/Util.class.php:1343
 #: libraries/display_export.lib.php:691
 #: libraries/server_status_monitor.lib.php:218
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:133 libraries/Util.class.php:1345
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:134 libraries/Util.class.php:1347
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:135 libraries/Util.class.php:1349
 msgid "PiB"
-msgstr ""
+msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:136 libraries/Util.class.php:1351
 msgid "EiB"
-msgstr ""
+msgstr "EiB"
 
 #: js/messages.php:137
 #, php-format
@@ -1410,7 +1410,7 @@ msgstr ""
 #: libraries/rte/rte_list.lib.php:68
 #: libraries/server_status_processes.lib.php:89 libraries/sql.lib.php:498
 msgid "Time"
-msgstr ""
+msgstr "Tyd"
 
 #: js/messages.php:202
 msgid "Total time:"
@@ -1700,7 +1700,7 @@ msgstr ""
 #: libraries/server_user_groups.lib.php:117
 #: libraries/server_variables.lib.php:154 setup/frames/index.inc.php:179
 msgid "Edit"
-msgstr ""
+msgstr "Bewerkn"
 
 #: js/messages.php:299 libraries/DisplayResults.class.php:770
 #: libraries/DisplayResults.class.php:778
@@ -2298,175 +2298,175 @@ msgstr ""
 
 #: js/messages.php:568
 msgid "January"
-msgstr ""
+msgstr "januoari"
 
 #: js/messages.php:569
 msgid "February"
-msgstr ""
+msgstr "februoari"
 
 #: js/messages.php:570
 msgid "March"
-msgstr ""
+msgstr "moarte"
 
 #: js/messages.php:571
 msgid "April"
-msgstr ""
+msgstr "april"
 
 #: js/messages.php:572
 msgid "May"
-msgstr ""
+msgstr "meie"
 
 #: js/messages.php:573
 msgid "June"
-msgstr ""
+msgstr "juni"
 
 #: js/messages.php:574
 msgid "July"
-msgstr ""
+msgstr "juli"
 
 #: js/messages.php:575
 msgid "August"
-msgstr ""
+msgstr "ogustus"
 
 #: js/messages.php:576
 msgid "September"
-msgstr ""
+msgstr "september"
 
 #: js/messages.php:577
 msgid "October"
-msgstr ""
+msgstr "oktober"
 
 #: js/messages.php:578
 msgid "November"
-msgstr ""
+msgstr "november"
 
 #: js/messages.php:579
 msgid "December"
-msgstr ""
+msgstr "december"
 
 #. l10n: Short month name
 #: js/messages.php:586 libraries/Util.class.php:1555
 msgid "Jan"
-msgstr ""
+msgstr "jan"
 
 #. l10n: Short month name
 #: js/messages.php:588 libraries/Util.class.php:1557
 msgid "Feb"
-msgstr ""
+msgstr "feb"
 
 #. l10n: Short month name
 #: js/messages.php:590 libraries/Util.class.php:1559
 msgid "Mar"
-msgstr ""
+msgstr "mrt"
 
 #. l10n: Short month name
 #: js/messages.php:592 libraries/Util.class.php:1561
 msgid "Apr"
-msgstr ""
+msgstr "apr"
 
 #. l10n: Short month name
 #: js/messages.php:594 libraries/Util.class.php:1563
 msgctxt "Short month name"
 msgid "May"
-msgstr ""
+msgstr "mei"
 
 #. l10n: Short month name
 #: js/messages.php:596 libraries/Util.class.php:1565
 msgid "Jun"
-msgstr ""
+msgstr "jun"
 
 #. l10n: Short month name
 #: js/messages.php:598 libraries/Util.class.php:1567
 msgid "Jul"
-msgstr ""
+msgstr "jul"
 
 #. l10n: Short month name
 #: js/messages.php:600 libraries/Util.class.php:1569
 msgid "Aug"
-msgstr ""
+msgstr "ogu"
 
 #. l10n: Short month name
 #: js/messages.php:602 libraries/Util.class.php:1571
 msgid "Sep"
-msgstr ""
+msgstr "sep"
 
 #. l10n: Short month name
 #: js/messages.php:604 libraries/Util.class.php:1573
 msgid "Oct"
-msgstr ""
+msgstr "okt"
 
 #. l10n: Short month name
 #: js/messages.php:606 libraries/Util.class.php:1575
 msgid "Nov"
-msgstr ""
+msgstr "nov"
 
 #. l10n: Short month name
 #: js/messages.php:608 libraries/Util.class.php:1577
 msgid "Dec"
-msgstr ""
+msgstr "dec"
 
 #: js/messages.php:614
 msgid "Sunday"
-msgstr ""
+msgstr "zundag"
 
 #: js/messages.php:615
 msgid "Monday"
-msgstr ""
+msgstr "moandag"
 
 #: js/messages.php:616
 msgid "Tuesday"
-msgstr ""
+msgstr "diesndag"
 
 #: js/messages.php:617
 msgid "Wednesday"
-msgstr ""
+msgstr "woensdag"
 
 #: js/messages.php:618
 msgid "Thursday"
-msgstr ""
+msgstr "dunderdag"
 
 #: js/messages.php:619
 msgid "Friday"
-msgstr ""
+msgstr "vrydag"
 
 #: js/messages.php:620
 msgid "Saturday"
-msgstr ""
+msgstr "zoaterdag"
 
 #. l10n: Short week day name
 #: js/messages.php:627
 msgid "Sun"
-msgstr ""
+msgstr "zu"
 
 #. l10n: Short week day name
 #: js/messages.php:629 libraries/Util.class.php:1582
 msgid "Mon"
-msgstr ""
+msgstr "mo"
 
 #. l10n: Short week day name
 #: js/messages.php:631 libraries/Util.class.php:1584
 msgid "Tue"
-msgstr ""
+msgstr "di"
 
 #. l10n: Short week day name
 #: js/messages.php:633 libraries/Util.class.php:1586
 msgid "Wed"
-msgstr ""
+msgstr "wo"
 
 #. l10n: Short week day name
 #: js/messages.php:635 libraries/Util.class.php:1588
 msgid "Thu"
-msgstr ""
+msgstr "du"
 
 #. l10n: Short week day name
 #: js/messages.php:637 libraries/Util.class.php:1590
 msgid "Fri"
-msgstr ""
+msgstr "vr"
 
 #. l10n: Short week day name
 #: js/messages.php:639 libraries/Util.class.php:1592
 msgid "Sat"
-msgstr ""
+msgstr "zo"
 
 #. l10n: Minimal week day name
 #: js/messages.php:646
@@ -2476,32 +2476,32 @@ msgstr ""
 #. l10n: Minimal week day name
 #: js/messages.php:648
 msgid "Mo"
-msgstr ""
+msgstr "mo"
 
 #. l10n: Minimal week day name
 #: js/messages.php:650
 msgid "Tu"
-msgstr ""
+msgstr "di"
 
 #. l10n: Minimal week day name
 #: js/messages.php:652
 msgid "We"
-msgstr ""
+msgstr "wo"
 
 #. l10n: Minimal week day name
 #: js/messages.php:654
 msgid "Th"
-msgstr ""
+msgstr "du"
 
 #. l10n: Minimal week day name
 #: js/messages.php:656
 msgid "Fr"
-msgstr ""
+msgstr "vr"
 
 #. l10n: Minimal week day name
 #: js/messages.php:658
 msgid "Sa"
-msgstr ""
+msgstr "zo"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:662
@@ -2694,7 +2694,7 @@ msgstr ""
 
 #: libraries/Console.class.php:202
 msgid "History"
-msgstr ""
+msgstr "Geschiedenisse"
 
 #: libraries/Console.class.php:205 libraries/Console.class.php:300
 #: libraries/DisplayResults.class.php:1631 libraries/TableSearch.class.php:788
@@ -3392,7 +3392,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:283
 #: libraries/navigation/Nodes/Node_Table.class.php:45
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/Menu.class.php:316 libraries/Menu.class.php:420
 #: libraries/Util.class.php:3162 libraries/Util.class.php:3169
@@ -3481,7 +3481,7 @@ msgstr ""
 
 #: libraries/Menu.class.php:559 libraries/Util.class.php:4095
 msgid "Users"
-msgstr ""
+msgstr "Gebrukers"
 
 #: libraries/Menu.class.php:586 libraries/ServerStatusData.class.php:194
 #: libraries/Util.class.php:4099 libraries/server_common.lib.php:36
@@ -4275,7 +4275,7 @@ msgstr ""
 #: libraries/Util.class.php:1580
 msgctxt "Short week day name"
 msgid "Sun"
-msgstr ""
+msgstr "zu"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
 #: libraries/Util.class.php:1596
@@ -4286,7 +4286,7 @@ msgstr ""
 #: libraries/Util.class.php:1950
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr ""
+msgstr "%s daagn, %s eurn, %s menuutn and %s secondn"
 
 #: libraries/Util.class.php:2043
 msgid "Missing parameter:"
@@ -6877,7 +6877,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:775
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:776
 msgid "Enter your public key for your domain reCaptcha service."
@@ -7510,7 +7510,7 @@ msgstr ""
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:97
 msgid "Language"
-msgstr ""
+msgstr "Toal"
 
 #: libraries/engines/bdb.lib.php:28
 msgid "Version information"
@@ -8070,11 +8070,11 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:198
 msgid "English"
-msgstr ""
+msgstr "Iengels"
 
 #: libraries/mysql_charsets.lib.php:201
 msgid "Esperanto"
-msgstr ""
+msgstr "Esperanto"
 
 #: libraries/mysql_charsets.lib.php:204
 msgid "Estonian"
@@ -8082,7 +8082,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:207 libraries/mysql_charsets.lib.php:210
 msgid "German"
-msgstr ""
+msgstr "Duuts"
 
 #: libraries/mysql_charsets.lib.php:207
 msgid "dictionary"
@@ -8102,7 +8102,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:219 libraries/mysql_charsets.lib.php:311
 msgid "Japanese"
-msgstr ""
+msgstr "Japans"
 
 #: libraries/mysql_charsets.lib.php:222
 msgid "Latvian"
@@ -8122,7 +8122,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:234
 msgid "Polish"
-msgstr ""
+msgstr "Pools"
 
 #: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:287
 msgid "West European"
@@ -8142,7 +8142,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:249
 msgid "Spanish"
-msgstr ""
+msgstr "Spoans"
 
 #: libraries/mysql_charsets.lib.php:252
 msgid "Traditional Spanish"
@@ -8150,7 +8150,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:255 libraries/mysql_charsets.lib.php:354
 msgid "Swedish"
-msgstr ""
+msgstr "Zweeds"
 
 #: libraries/mysql_charsets.lib.php:258 libraries/mysql_charsets.lib.php:357
 msgid "Thai"
@@ -8158,7 +8158,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:261 libraries/mysql_charsets.lib.php:351
 msgid "Turkish"
-msgstr ""
+msgstr "Turks"
 
 #: libraries/mysql_charsets.lib.php:264 libraries/mysql_charsets.lib.php:348
 msgid "Ukrainian"
@@ -8166,7 +8166,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:267 libraries/mysql_charsets.lib.php:278
 msgid "Unicode"
-msgstr ""
+msgstr "Unicode"
 
 #: libraries/mysql_charsets.lib.php:267 libraries/mysql_charsets.lib.php:278
 #: libraries/mysql_charsets.lib.php:287 libraries/mysql_charsets.lib.php:294
@@ -8180,7 +8180,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:299
 msgid "Russian"
-msgstr ""
+msgstr "Russisch"
 
 #: libraries/mysql_charsets.lib.php:316
 msgid "Baltic"
@@ -8920,7 +8920,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:192
 msgid "Username:"
-msgstr ""
+msgstr "Gebrukersnoame:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:204
 msgid "Server Choice:"
@@ -9460,7 +9460,7 @@ msgstr ""
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 #: libraries/plugins/import/ShapeRecord.class.php:58
 #, php-format
@@ -9987,14 +9987,14 @@ msgstr ""
 #: libraries/replication_gui.lib.php:400 libraries/replication_gui.lib.php:787
 #: libraries/server_privileges.lib.php:1302
 msgid "User name:"
-msgstr ""
+msgstr "Gebrukersnoame:"
 
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:791
 #: libraries/replication_gui.lib.php:807
 #: libraries/server_privileges.lib.php:1307
 #: libraries/server_privileges.lib.php:1339
 msgid "User name"
-msgstr ""
+msgstr "Gebrukersnoame"
 
 #: libraries/replication_gui.lib.php:417 libraries/replication_gui.lib.php:857
 #: libraries/replication_gui.lib.php:873
@@ -10428,7 +10428,7 @@ msgstr ""
 #: libraries/rte/rte_triggers.lib.php:349
 msgctxt "Trigger action time"
 msgid "Time"
-msgstr ""
+msgstr "Tyd"
 
 #: libraries/rte/rte_triggers.lib.php:429
 msgid "You must provide a trigger name!"
@@ -10949,7 +10949,7 @@ msgstr ""
 #: libraries/server_status_processes.lib.php:73
 #: libraries/server_user_groups.lib.php:38
 msgid "User"
-msgstr ""
+msgstr "Gebruker"
 
 #: libraries/server_privileges.lib.php:2029
 #: libraries/server_privileges.lib.php:2792
@@ -12689,7 +12689,7 @@ msgstr ""
 
 #: libraries/tbl_gis_visualization.lib.php:134
 msgid "-- None --"
-msgstr ""
+msgstr "-- Geen --"
 
 #: libraries/tbl_gis_visualization.lib.php:191
 msgid "Display GIS Visualization"
@@ -12921,7 +12921,7 @@ msgstr ""
 
 #: libraries/tracking.lib.php:718
 msgid "Username"
-msgstr ""
+msgstr "Gebrukersnoame"
 
 #: libraries/tracking.lib.php:772
 #, php-format
@@ -13166,7 +13166,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:253
 msgid "- none -"
-msgstr ""
+msgstr "- geen -"
 
 #: setup/frames/index.inc.php:257
 msgid "Default server"
