@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-21 13:06+0100\n"
-"PO-Revision-Date: 2014-12-09 19:17+0200\n"
+"PO-Revision-Date: 2014-12-23 23:39+0200\n"
 "Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
-"Language-Team: Frisian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fy/>\n"
+"Language-Team: Frisian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fy/>\n"
 "Language: fy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.1\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -2521,7 +2521,7 @@ msgstr "Wike"
 #.
 #: js/messages.php:672
 msgid "calendar-month-year"
-msgstr "kalinder-moanne-jier"
+msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:675
@@ -12727,7 +12727,7 @@ msgstr ""
 
 #: libraries/tbl_indexes.lib.php:263
 msgid "Index name:"
-msgstr "Yndeksnamme"
+msgstr "Yndeksnamme:"
 
 #: libraries/tbl_indexes.lib.php:267
 msgid ""
