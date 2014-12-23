@@ -219,7 +219,7 @@ msgstr "Nee"
 #: libraries/tracking.lib.php:965 libraries/user_preferences.lib.php:292
 #: prefs_manage.php:136
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
@@ -392,7 +392,7 @@ msgstr ""
 
 #: db_tracking.php:183
 msgid "Versions"
-msgstr ""
+msgstr "Ferzjes"
 
 #: db_tracking.php:186 libraries/tracking.lib.php:287
 #: libraries/tracking.lib.php:418
@@ -478,12 +478,12 @@ msgstr ""
 #: gis_data_editor.php:214 gis_data_editor.php:241 gis_data_editor.php:297
 #: gis_data_editor.php:370 js/messages.php:381
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:217 gis_data_editor.php:245 gis_data_editor.php:301
 #: gis_data_editor.php:376 js/messages.php:382
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:239 gis_data_editor.php:295 gis_data_editor.php:368
 #: js/messages.php:384
@@ -494,7 +494,7 @@ msgstr ""
 #: gis_data_editor.php:252 gis_data_editor.php:308 gis_data_editor.php:386
 #: js/messages.php:390
 msgid "Add a point"
-msgstr ""
+msgstr "In punt tafoegje"
 
 #: gis_data_editor.php:269
 #, php-format
@@ -672,7 +672,7 @@ msgstr ""
 
 #: index.php:144 libraries/Footer.class.php:70
 msgid "phpMyAdmin Demo Server"
-msgstr ""
+msgstr "phpMyAdmin-demoserver"
 
 #: index.php:148
 #, php-format
@@ -727,7 +727,7 @@ msgstr ""
 
 #: index.php:296
 msgid "User:"
-msgstr ""
+msgstr "Brûker:"
 
 #: index.php:301
 msgid "Server charset:"
@@ -735,7 +735,7 @@ msgstr ""
 
 #: index.php:316
 msgid "Web server"
-msgstr ""
+msgstr "Webserver"
 
 #: index.php:327
 msgid "Database client version:"
@@ -751,7 +751,7 @@ msgstr ""
 
 #: index.php:372
 msgid "Version information:"
-msgstr ""
+msgstr "Ferzje-ynformaasje:"
 
 #: index.php:381 libraries/Util.class.php:429 libraries/Util.class.php:491
 #: libraries/config/FormDisplay.tpl.php:148
@@ -763,11 +763,11 @@ msgstr ""
 
 #: index.php:388
 msgid "Wiki"
-msgstr ""
+msgstr "Wiki"
 
 #: index.php:397
 msgid "Official Homepage"
-msgstr ""
+msgstr "Offisjele phpMyAdmin-webstee"
 
 #: index.php:404
 msgid "Contribute"
@@ -1014,7 +1014,7 @@ msgstr ""
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:84 libraries/tbl_chart.lib.php:215
 msgid "Y Values"
-msgstr ""
+msgstr "Y-wearden"
 
 #: js/messages.php:87
 msgid "The host name is empty!"
@@ -1182,7 +1182,7 @@ msgstr "GiB"
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:137 libraries/Util.class.php:1347
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:138 libraries/Util.class.php:1349
@@ -1396,7 +1396,7 @@ msgstr ""
 
 #: js/messages.php:198
 msgid "No data found"
-msgstr ""
+msgstr "Gjin gegevens fûn"
 
 #: js/messages.php:199
 msgid "Log analysed, but no data found in this time span."
@@ -1417,7 +1417,7 @@ msgstr ""
 #: libraries/rte/rte_list.lib.php:68
 #: libraries/server_status_processes.lib.php:89 libraries/sql.lib.php:341
 msgid "Time"
-msgstr ""
+msgstr "Tiid"
 
 #: js/messages.php:205
 msgid "Total time:"
@@ -1629,11 +1629,11 @@ msgstr ""
 
 #: js/messages.php:274 libraries/mult_submits.lib.php:452
 msgid "(Enabled)"
-msgstr ""
+msgstr "(Ynskeakele)"
 
 #: js/messages.php:275 libraries/mult_submits.lib.php:452
 msgid "(Disabled)"
-msgstr ""
+msgstr "(Utskeakele)"
 
 #: js/messages.php:276
 msgid "Failed to get real row count."
@@ -2427,11 +2427,11 @@ msgstr "tiisdei"
 
 #: js/messages.php:620
 msgid "Wednesday"
-msgstr ""
+msgstr "woansdei"
 
 #: js/messages.php:621
 msgid "Thursday"
-msgstr ""
+msgstr "tongersdei"
 
 #: js/messages.php:622
 msgid "Friday"
@@ -2459,12 +2459,12 @@ msgstr "ti"
 #. l10n: Short week day name
 #: js/messages.php:636 libraries/Util.class.php:1586
 msgid "Wed"
-msgstr ""
+msgstr "wo"
 
 #. l10n: Short week day name
 #: js/messages.php:638 libraries/Util.class.php:1588
 msgid "Thu"
-msgstr ""
+msgstr "to"
 
 #. l10n: Short week day name
 #: js/messages.php:640 libraries/Util.class.php:1590
@@ -2484,7 +2484,7 @@ msgstr "si"
 #. l10n: Minimal week day name
 #: js/messages.php:651
 msgid "Mo"
-msgstr ""
+msgstr "mo"
 
 #. l10n: Minimal week day name
 #: js/messages.php:653
@@ -2494,12 +2494,12 @@ msgstr "ti"
 #. l10n: Minimal week day name
 #: js/messages.php:655
 msgid "We"
-msgstr ""
+msgstr "wo"
 
 #. l10n: Minimal week day name
 #: js/messages.php:657
 msgid "Th"
-msgstr ""
+msgstr "to"
 
 #. l10n: Minimal week day name
 #: js/messages.php:659
@@ -2514,7 +2514,7 @@ msgstr "so"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:665
 msgid "Wk"
-msgstr ""
+msgstr "Wike"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
@@ -3075,7 +3075,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:995
 msgid "vertical"
-msgstr ""
+msgstr "fertikaal"
 
 #: libraries/DisplayResults.class.php:1302
 msgid "Sort by key"
@@ -3509,7 +3509,7 @@ msgstr "Databanken"
 
 #: libraries/Menu.class.php:563 libraries/Util.class.php:4122
 msgid "Users"
-msgstr ""
+msgstr "Brûkers"
 
 #: libraries/Menu.class.php:590 libraries/ServerStatusData.class.php:194
 #: libraries/Util.class.php:4126 libraries/server_common.lib.php:36
@@ -3526,7 +3526,7 @@ msgstr ""
 #: libraries/Util.class.php:4128 libraries/server_engines.lib.php:108
 #: libraries/server_engines.lib.php:112
 msgid "Variables"
-msgstr ""
+msgstr "Fariabelen"
 
 #: libraries/Menu.class.php:605 libraries/Util.class.php:4129
 msgid "Charsets"
@@ -3650,7 +3650,7 @@ msgstr ""
 
 #: libraries/ServerStatusData.class.php:191
 msgid "Handler"
-msgstr ""
+msgstr "Handler"
 
 #: libraries/ServerStatusData.class.php:192
 msgid "Query cache"
@@ -3855,7 +3855,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:1631
 #: libraries/server_status_variables.lib.php:220
 msgid "Value"
-msgstr ""
+msgstr "Wearde"
 
 #: libraries/TableSearch.class.php:205
 msgid "Table Search"
@@ -4407,7 +4407,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1010 libraries/structure.lib.php:2322
 #: libraries/tbl_printview.lib.php:304
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 #: libraries/build_html_for_db.lib.php:48 libraries/engines/innodb.lib.php:171
 #: libraries/server_databases.lib.php:173 libraries/server_status.lib.php:185
@@ -4464,7 +4464,7 @@ msgstr ""
 
 #: libraries/central_columns.lib.php:511
 msgid "YES"
-msgstr ""
+msgstr "JA"
 
 #: libraries/central_columns.lib.php:511
 msgid "NO"
@@ -4502,7 +4502,7 @@ msgstr ""
 
 #: libraries/central_columns.lib.php:716 libraries/structure.lib.php:1690
 msgid "Add column"
-msgstr ""
+msgstr "Kolom tafoegje"
 
 #: libraries/central_columns.lib.php:728
 msgid "Select a column."
@@ -4660,7 +4660,7 @@ msgstr "struktuer"
 #: libraries/plugins/export/ExportSql.class.php:205
 #: libraries/plugins/export/ExportTexytext.class.php:69
 msgid "data"
-msgstr ""
+msgstr "gegevens"
 
 #: libraries/config.values.php:149
 #: libraries/plugins/export/ExportHtmlword.class.php:71
@@ -5335,7 +5335,7 @@ msgstr ""
 #: libraries/operations.lib.php:970
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "%s tafoegje"
 
 #: libraries/config/messages.inc.php:173
 msgid "Use hexadecimal for BINARY & BLOB"
@@ -5682,7 +5682,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:307
 msgid "Warnings"
-msgstr ""
+msgstr "Warskôgings"
 
 #: libraries/config/messages.inc.php:309
 msgid "Disable some of the warnings shown by phpMyAdmin."
@@ -6593,7 +6593,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:699
 msgid "Users table"
-msgstr ""
+msgstr "Brûkerstabel"
 
 #: libraries/config/messages.inc.php:700
 msgid ""
@@ -6604,7 +6604,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:701
 msgid "User groups table"
-msgstr ""
+msgstr "Brûkersgroepentabel"
 
 #: libraries/config/messages.inc.php:702
 msgid ""
@@ -6863,7 +6863,7 @@ msgstr ""
 #: setup/lib/index.lib.php:159 setup/lib/index.lib.php:167
 #: setup/lib/index.lib.php:174
 msgid "Version check"
-msgstr ""
+msgstr "Ferzjekontrôle"
 
 #: libraries/config/messages.inc.php:767
 msgid ""
@@ -7541,7 +7541,7 @@ msgstr "Taal"
 
 #: libraries/engines/bdb.lib.php:28
 msgid "Version information"
-msgstr ""
+msgstr "Ferzje-ynformaasje"
 
 #: libraries/engines/innodb.lib.php:28
 msgid "Data home directory"
@@ -7553,7 +7553,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Data files"
-msgstr ""
+msgstr "Gegevenstriemmen"
 
 #: libraries/engines/innodb.lib.php:35
 msgid "Autoextend increment"
@@ -8040,7 +8040,7 @@ msgstr ""
 
 #: libraries/mult_submits.lib.php:351
 msgid "To"
-msgstr ""
+msgstr "Nei"
 
 #: libraries/mult_submits.lib.php:360 libraries/mult_submits.lib.php:393
 #: libraries/sql_query_form.lib.php:375
@@ -8153,7 +8153,7 @@ msgstr "Poalsk"
 
 #: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:287
 msgid "West European"
-msgstr ""
+msgstr "West-Jeropeesk"
 
 #: libraries/mysql_charsets.lib.php:240
 msgid "Romanian"
@@ -8280,7 +8280,7 @@ msgstr ""
 
 #: libraries/navigation/NavigationHeader.class.php:172
 msgid "phpMyAdmin documentation"
-msgstr ""
+msgstr "phpMyAdmin-dokumintaasje"
 
 #: libraries/navigation/NavigationHeader.class.php:196
 msgid "Reload navigation panel"
@@ -8911,7 +8911,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationHttp.class.php:86
 #, php-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "Wolkom by %s"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
@@ -8947,7 +8947,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:193
 msgid "Username:"
-msgstr ""
+msgstr "Brûkersnamme:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:205
 msgid "Server Choice:"
@@ -9150,7 +9150,7 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:683
 #: libraries/plugins/export/ExportXml.class.php:190
 msgid "PHP Version:"
-msgstr ""
+msgstr "PHP-ferzje:"
 
 #: libraries/plugins/export/ExportLatex.class.php:242
 #: libraries/plugins/export/ExportSql.class.php:845
@@ -9163,7 +9163,7 @@ msgstr "Databank:"
 #: libraries/plugins/export/ExportLatex.class.php:306
 #: libraries/plugins/export/ExportSql.class.php:1881
 msgid "Data:"
-msgstr ""
+msgstr "Gegevens:"
 
 #: libraries/plugins/export/ExportLatex.class.php:488
 msgid "Structure:"
@@ -9484,7 +9484,7 @@ msgstr ""
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 #: libraries/plugins/import/ShapeRecord.class.php:58
 #, php-format
@@ -9795,7 +9795,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:246
 msgid "User preferences"
-msgstr ""
+msgstr "Brûkersfoarkarren"
 
 #: libraries/relation.lib.php:263
 msgid "Configurable menus"
@@ -10011,14 +10011,14 @@ msgstr ""
 #: libraries/replication_gui.lib.php:400 libraries/replication_gui.lib.php:787
 #: libraries/server_privileges.lib.php:1302
 msgid "User name:"
-msgstr ""
+msgstr "Brûkersnamme:"
 
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:791
 #: libraries/replication_gui.lib.php:807
 #: libraries/server_privileges.lib.php:1307
 #: libraries/server_privileges.lib.php:1339
 msgid "User name"
-msgstr ""
+msgstr "Brûkersnamme"
 
 #: libraries/replication_gui.lib.php:417 libraries/replication_gui.lib.php:857
 #: libraries/replication_gui.lib.php:873
@@ -10044,7 +10044,7 @@ msgstr ""
 #: libraries/server_status_variables.lib.php:219
 #: libraries/server_variables.lib.php:195 libraries/sql_query_form.lib.php:367
 msgid "Variable"
-msgstr ""
+msgstr "Fariabel"
 
 #: libraries/replication_gui.lib.php:608 libraries/server_bin_log.lib.php:131
 msgid "Server ID"
@@ -10200,7 +10200,7 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:231
 msgid "Edit event"
-msgstr ""
+msgstr "Barren bewurkje"
 
 #: libraries/rte/rte_events.lib.php:395 libraries/rte/rte_routines.lib.php:953
 #: libraries/rte/rte_triggers.lib.php:323 view_create.php:181
@@ -10452,7 +10452,7 @@ msgstr ""
 #: libraries/rte/rte_triggers.lib.php:349
 msgctxt "Trigger action time"
 msgid "Time"
-msgstr ""
+msgstr "Tiid"
 
 #: libraries/rte/rte_triggers.lib.php:429
 msgid "You must provide a trigger name!"
@@ -10528,7 +10528,7 @@ msgstr ""
 
 #: libraries/rte/rte_words.lib.php:55
 msgid "Add event"
-msgstr ""
+msgstr "Barren tafoegje"
 
 #: libraries/rte/rte_words.lib.php:57
 #, php-format
@@ -10649,7 +10649,7 @@ msgstr "Bibleteek"
 #: libraries/server_plugins.lib.php:80 libraries/server_plugins.lib.php:137
 #: libraries/tracking.lib.php:246
 msgid "Version"
-msgstr ""
+msgstr "Ferzje"
 
 #: libraries/server_plugins.lib.php:81 libraries/server_plugins.lib.php:138
 msgid "Author"
@@ -10827,7 +10827,7 @@ msgstr "Gjin"
 #: libraries/server_privileges.lib.php:2972
 #: libraries/server_user_groups.lib.php:76
 msgid "User group"
-msgstr ""
+msgstr "Brûkersgroep"
 
 #: libraries/server_privileges.lib.php:715
 msgid "Resource limits"
@@ -10973,7 +10973,7 @@ msgstr ""
 #: libraries/server_status_processes.lib.php:73
 #: libraries/server_user_groups.lib.php:38
 msgid "User"
-msgstr ""
+msgstr "Brûker"
 
 #: libraries/server_privileges.lib.php:2030
 #: libraries/server_privileges.lib.php:2793
@@ -11006,7 +11006,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:2141
 msgid "wildcard"
-msgstr ""
+msgstr "jokerteken"
 
 #: libraries/server_privileges.lib.php:2147
 msgid "table-specific"
@@ -11309,7 +11309,7 @@ msgstr ""
 #: libraries/server_status_monitor.lib.php:171
 #: libraries/server_status_monitor.lib.php:281
 msgid "Add chart"
-msgstr ""
+msgstr "Grafyk tafoegje"
 
 #: libraries/server_status_monitor.lib.php:177
 msgid "Preset chart"
@@ -12040,7 +12040,7 @@ msgstr ""
 
 #: libraries/server_user_groups.lib.php:63 libraries/server_users.lib.php:33
 msgid "User groups"
-msgstr ""
+msgstr "Brûkersgroepen"
 
 #: libraries/server_user_groups.lib.php:77
 msgid "Server level tabs"
@@ -12393,7 +12393,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:171
 #, php-format
 msgid "Add %s column(s)"
-msgstr ""
+msgstr "%s kolom(men) tafoegje"
 
 #: libraries/structure.lib.php:1713
 msgid "At End of Table"
@@ -12539,7 +12539,7 @@ msgstr ""
 #: libraries/tbl_chart.lib.php:58
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr ""
+msgstr "Tiidline"
 
 #: libraries/tbl_chart.lib.php:64
 msgctxt "Chart type"
@@ -12564,7 +12564,7 @@ msgstr ""
 
 #: libraries/tbl_chart.lib.php:211
 msgid "X Values"
-msgstr ""
+msgstr "X-wearden"
 
 #: libraries/tbl_chart.lib.php:213
 msgid "Y-Axis label:"
@@ -12580,7 +12580,7 @@ msgstr ""
 
 #: libraries/tbl_chart.lib.php:253
 msgid "Value column:"
-msgstr ""
+msgstr "Weardekolom:"
 
 #: libraries/tbl_chart.lib.php:286
 msgid "Start row:"
@@ -12893,7 +12893,7 @@ msgstr ""
 
 #: libraries/tracking.lib.php:445
 msgid "No data"
-msgstr ""
+msgstr "Gjin gegevens"
 
 #: libraries/tracking.lib.php:534 libraries/tracking.lib.php:583
 #, php-format
@@ -12935,7 +12935,7 @@ msgstr "Datum"
 
 #: libraries/tracking.lib.php:751
 msgid "Username"
-msgstr ""
+msgstr "Brûkersnamme"
 
 #: libraries/tracking.lib.php:805
 #, php-format
@@ -13096,7 +13096,7 @@ msgstr ""
 
 #: server_databases.php:112
 msgid "No databases"
-msgstr ""
+msgstr "Gjin databanken"
 
 #: server_export.php:21
 msgid "View dump (schema) of databases"
@@ -13189,7 +13189,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:253
 msgid "- none -"
-msgstr "none"
+msgstr "- gjin -"
 
 #: setup/frames/index.inc.php:257
 msgid "Default server"
@@ -13209,7 +13209,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:308
 msgid "phpMyAdmin homepage"
-msgstr ""
+msgstr "phpMyAdmin-webstee"
 
 #: setup/frames/index.inc.php:310
 msgid "Donate"
@@ -13217,11 +13217,11 @@ msgstr "Donearje"
 
 #: setup/frames/servers.inc.php:29
 msgid "Edit server"
-msgstr ""
+msgstr "Server bewurkje"
 
 #: setup/frames/servers.inc.php:39
 msgid "Add a new server"
-msgstr ""
+msgstr "In server tafoegje"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
@@ -13229,7 +13229,7 @@ msgstr ""
 
 #: setup/lib/form_processing.lib.php:49
 msgid "Warning"
-msgstr ""
+msgstr "Warskôging"
 
 #: setup/lib/form_processing.lib.php:50
 msgid "Submitted form contains errors"
