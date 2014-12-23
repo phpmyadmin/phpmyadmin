@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 - bug #4653 Always connection error was shown, on /setup at tab "configuration storage"
 - bug #4661 Drag and drop file import always fails
 - bug #4651 don't open console with esc
+- bug #4664 select min() displays 1 row, but reports the table amount of rows returned
 
 4.3.3.0 (2014-12-21)
 - bug       The "Recently used tables" setting should be with Nav panel

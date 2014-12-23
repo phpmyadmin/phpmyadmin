@@ -167,8 +167,12 @@ var PMA_console = {
             });
 
             $(document).ajaxComplete(function (event, xhr) {
-                var data = $.parseJSON(xhr.responseText);
-                PMA_console.ajaxCallback(data);
+                try {
+                    var data = $.parseJSON(xhr.responseText);
+                    PMA_console.ajaxCallback(data);
+                } catch (e) {
+                    console.log("Invalid JSON!" + e.message);
+                }
             });
 
             PMA_console.isInitialized = true;
