@@ -2993,13 +2993,13 @@ AJAX.registerOnload('functions.js', function () {
         return false;
     });
 
-    $(document).on('click', 'a.central_columns_dialog',function(e) {
+    $(document).on('click', 'a.central_columns_dialog', function (e) {
         var href = "db_central_columns.php";
         var db = PMA_commonParams.get('db');
         var table = PMA_commonParams.get('table');
         var maxRows = $(this).data('maxrows');
         var pick = $(this).data('pick');
-        if(pick !== false) {
+        if (pick !== false) {
             pick = true;
         }
         var params = {
@@ -3011,51 +3011,54 @@ AJAX.registerOnload('functions.js', function () {
         };
         var colid = $(this).closest('td').find("input").attr("id");
         var fields = '';
-        if (! (db+'_'+table in central_column_list)) {
-            central_column_list.push(db+'_'+table);
+        if (! (db + '_' + table in central_column_list)) {
+            central_column_list.push(db + '_' + table);
             $.ajax({
                 type: 'POST',
                 url: href,
                 data: params,
                 success: function (data) {
-                    central_column_list[db+'_'+table] = $.parseJSON(data.message);
+                    central_column_list[db + '_' + table] = $.parseJSON(data.message);
                 },
                 async:false
             });
         }
         var i = 0;
-        var list_size = central_column_list[db+'_'+table].length;
-        var min = (list_size<=maxRows)?list_size:maxRows;
-        for (i = 0; i<min; i++) {
-            fields += '<tr><td><div><span style="font-size:14px; font-weight:bold">'+escapeHtml(central_column_list[db+'_'+table][i].col_name)+
-                '</span><br><span style="color:gray">'+central_column_list[db+'_'+table][i].col_type;
-            if(central_column_list[db+'_'+table][i].col_length !== '') {
-                fields += '('+escapeHtml(central_column_list[db+'_'+table][i].col_length)+') ';
+        var list_size = central_column_list[db + '_' + table].length;
+        var min = (list_size <= maxRows) ? list_size : maxRows;
+        for (i = 0; i < min; i++) {
+            fields += '<tr><td><div><span style="font-size:14px; font-weight:bold">' +
+                escapeHtml(central_column_list[db + '_' + table][i].col_name) +
+                '</span><br><span style="color:gray">' + central_column_list[db + '_' + table][i].col_type;
+            if (central_column_list[db + '_' + table][i].col_length !== '') {
+                fields += '(' + escapeHtml(central_column_list[db + '_' + table][i].col_length) +') ';
             }
-            fields += escapeHtml(central_column_list[db+'_'+table][i].col_extra)+'</span>'+
+            fields += escapeHtml(central_column_list[db + '_' + table][i].col_extra) + '</span>' +
                 '</div></td>';
             if (pick) {
-                fields += '<td><input class="pick" style="width:100%" type="submit" value="'+PMA_messages.pickColumn+'" onclick="autoPopulate(\''+colid+'\','+i+')"/></td>';
+                fields += '<td><input class="pick" style="width:100%" type="submit" value="' +
+                    PMA_messages.pickColumn + '" onclick="autoPopulate(\'' + colid + '\',' + i + ')"/></td>';
             }
             fields += '</tr>';
         }
         var result_pointer = i;
-        var search_in = '<input type="text" class="filter_rows" placeholder="'+PMA_messages.searchList+'">';
+        var search_in = '<input type="text" class="filter_rows" placeholder="' + PMA_messages.searchList + '">';
         if (fields === '') {
-            fields = PMA_sprintf(PMA_messages.strEmptyCentralList, "'"+db+"'");
+            fields = PMA_sprintf(PMA_messages.strEmptyCentralList, "'" + db + "'");
             search_in = '';
         }
         var seeMore = '';
         if (list_size > maxRows) {
-            seeMore = "<fieldset class='tblFooters' style='text-align:center;font-weight:bold'><a href='#' id='seeMore'>"+PMA_messages.seeMore+"</a></fieldset>";
+            seeMore = "<fieldset class='tblFooters' style='text-align:center;font-weight:bold'>" +
+                "<a href='#' id='seeMore'>" + PMA_messages.seeMore + "</a></fieldset>";
         }
         var central_columns_dialog = "<div style='max-height:400px'>" +
-                    "<fieldset>" +
-                    search_in+
-                    "<table id='col_list' style='width:100%' class='values'>" + fields + "</table>" +
-                    "</fieldset>"+
-                    seeMore+
-                    "</div>";
+            "<fieldset>" +
+            search_in +
+            "<table id='col_list' style='width:100%' class='values'>" + fields + "</table>" +
+            "</fieldset>" +
+            seeMore +
+            "</div>";
 
         var width = parseInt(
             (parseInt($('html').css('font-size'), 10) / 13) * 500,
@@ -3071,7 +3074,7 @@ AJAX.registerOnload('functions.js', function () {
             title: PMA_messages.pickColumnTitle,
             buttons: buttonOptions,
             open: function () {
-                $('#col_list').on("click",".pick", function(){
+                $('#col_list').on("click", ".pick", function (){
                     $central_columns_dialog.remove();
                 });
                 $(".filter_rows").on("keyup", function () {
@@ -3079,17 +3082,20 @@ AJAX.registerOnload('functions.js', function () {
                 });
                 $("#seeMore").click(function() {
                     fields = '';
-                    min = (list_size<=maxRows+result_pointer)?list_size:maxRows+result_pointer;
+                    min = (list_size <= maxRows + result_pointer) ? list_size : maxRows + result_pointer;
                     for (i = result_pointer; i < min; i++) {
-                        fields += '<tr><td><div><span style="font-size:14px; font-weight:bold">'+central_column_list[db+'_'+table][i].col_name+
-                            '</span><br><span style="color:gray">'+central_column_list[db+'_'+table][i].col_type;
-                        if(central_column_list[db+'_'+table][i].col_length !== '') {
-                            fields += '('+central_column_list[db+'_'+table][i].col_length+') ';
+                        fields += '<tr><td><div><span style="font-size:14px; font-weight:bold">' +
+                            central_column_list[db + '_' + table][i].col_name +
+                            '</span><br><span style="color:gray">' +
+                            central_column_list[db + '_' + table][i].col_type;
+                        if (central_column_list[db + '_' + table][i].col_length !== '') {
+                            fields += '(' + central_column_list[db + '_' + table][i].col_length + ') ';
                         }
-                        fields += central_column_list[db+'_'+table][i].col_extra+'</span>'+
+                        fields += central_column_list[db + '_' + table][i].col_extra + '</span>' +
                             '</div></td>';
                         if (pick) {
-                            fields += '<td><input class="pick" style="width:100%" type="submit" value="'+PMA_messages.pickColumn+'" onclick="autoPopulate(\''+colid+'\','+i+')"/></td>';
+                            fields += '<td><input class="pick" style="width:100%" type="submit" value="' +
+                                PMA_messages.pickColumn + '" onclick="autoPopulate(\'' + colid + '\',' + i + ')"/></td>';
                         }
                         fields += '</tr>';
                     }
@@ -3103,7 +3109,7 @@ AJAX.registerOnload('functions.js', function () {
                 $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').focus();
             },
             close: function () {
-                $('#col_list').off("click",".pick");
+                $('#col_list').off("click", ".pick");
                 $(".filter_rows").off("keyup");
                 $(this).remove();
             }
