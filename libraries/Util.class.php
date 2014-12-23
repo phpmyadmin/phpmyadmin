@@ -905,12 +905,12 @@ class PMA_Util
     } // end of the 'backquote()' function
 
     /**
-     * Adds quotes on both sides of a database, table or field name.
+     * Adds backquotes on both sides of a database, table or field name.
      * in compatibility mode
      *
      * example:
      * <code>
-     * echo backquote('owner`s db'); // `owner``s db`
+     * echo backquoteCompat('owner`s db'); // `owner``s db`
      *
      * </code>
      *
