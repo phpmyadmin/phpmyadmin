@@ -546,7 +546,7 @@ class ImportCsv extends AbstractImportCsv
                     $len = /*overload*/mb_strlen($buffer);
                     $i = 0;
                     $lasti = -1;
-                    $ch = mb_substr($buffer, 0);
+                    $ch = /*overload*/mb_substr($buffer, 0, 1);
                 }
             } // End of parser loop
         } // End of import loop
