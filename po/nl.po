@@ -1525,12 +1525,12 @@ msgstr "Filter toepassen"
 
 #: js/messages.php:211
 msgid "Filter queries by word/regexp:"
-msgstr "Queries filteren op woord/regexp:"
+msgstr "Query's filteren op woord/regexp:"
 
 #: js/messages.php:212
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
-"Queries groeperen, verschillende parameter waarden in WHERE-statements "
+"Query's groeperen, verschillende parameter waarden in WHERE-statements "
 "worden genegeerd"
 
 #: js/messages.php:213
