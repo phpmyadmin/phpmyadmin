@@ -176,8 +176,8 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     public function testPMADeleteColumnsFromList()
     {
         $field_select = array("col1");
-        $_POST['db'] = 'PMA_db';
-        $_POST['table'] = 'PMA_table';
+        $_REQUEST['db'] = 'PMA_db';
+        $_REQUEST['table'] = 'PMA_table';
         $this->assertTrue(
             PMA_deleteColumnsFromList($field_select, false)
         );
