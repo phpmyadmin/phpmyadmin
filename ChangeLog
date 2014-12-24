@@ -19,6 +19,7 @@ phpMyAdmin - ChangeLog
 - bug #4663 Export missing back ticks for order table name
 - bug #4668 Remove from central columns error
 - bug #4670 CSV import reads both commas and values into first column after first row
+- bug #4642 phpmyadmin often fails to load due to specific load order
 
 4.3.3.0 (2014-12-21)
 - bug       The "Recently used tables" setting should be with Nav panel
