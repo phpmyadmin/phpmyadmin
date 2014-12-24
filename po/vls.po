@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-21 13:06+0100\n"
-"PO-Revision-Date: 2013-07-25 14:40+0200\n"
-"Last-Translator: saurabh chikate <chikate.saurabh@gmail.com>\n"
-"Language-Team: West Flemish <http://hosted.weblate.org/projects/phpmyadmin/"
-"master/vls/>\n"
+"PO-Revision-Date: 2014-12-23 23:39+0200\n"
+"Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
+"Language-Team: West Flemish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/vls/>\n"
 "Language: vls\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -25,6 +25,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Et %s bestand es niej beschikbaor ip da systeem ier, aje meer informatie "
+"wilt zouje best naar www.phpmyadmin.net gaon."
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
@@ -2544,12 +2546,12 @@ msgstr ""
 #: libraries/Advisor.class.php:79
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr "पी एच पी ने ये त्रुटी दिखाई है:%s"
+msgstr ""
 
 #: libraries/Advisor.class.php:108
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "पूर्व शर्त कि वजाह से नियम सुलाझाने मे विफलता'%s'."
+msgstr ""
 
 #: libraries/Advisor.class.php:125
 #, php-format
@@ -11432,7 +11434,7 @@ msgstr ""
 #. l10n: # = Amount of queries
 #: libraries/server_status_queries.lib.php:96
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: libraries/server_status_variables.lib.php:39
 #: libraries/server_variables.lib.php:185
@@ -12131,7 +12133,7 @@ msgstr ""
 
 #: libraries/sql.lib.php:359
 msgid "% Time"
-msgstr ""
+msgstr "% Tyd"
 
 #: libraries/sql.lib.php:361
 msgid "Calls"
