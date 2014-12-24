@@ -310,7 +310,7 @@ function PMA_deleteColumnsFromList($field_select, $isTable=true)
     if (empty($cfgCentralColumns)) {
         return PMA_configErrorMessage();
     }
-    $db = $_POST['db'];
+    $db = $_REQUEST['db'];
     $pmadb = $cfgCentralColumns['db'];
     $central_list_table = $cfgCentralColumns['table'];
     $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
