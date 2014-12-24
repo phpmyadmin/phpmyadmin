@@ -668,7 +668,7 @@ msgstr ""
 #: libraries/plugins/schema/Export_Relation_Schema.class.php:272
 #: user_password.php:197
 msgid "Back"
-msgstr ""
+msgstr "Werom"
 
 #: index.php:144 libraries/Footer.class.php:70
 msgid "phpMyAdmin Demo Server"
@@ -705,7 +705,7 @@ msgstr "Mear ynstellingen"
 
 #: index.php:275
 msgid "Database server"
-msgstr "Databankserver"
+msgstr "Databaseserver"
 
 #: index.php:278 libraries/plugins/auth/AuthenticationCookie.class.php:181
 msgid "Server:"
@@ -739,7 +739,7 @@ msgstr "Webserver"
 
 #: index.php:327
 msgid "Database client version:"
-msgstr "Clientferzje fan databank:"
+msgstr "Clientferzje fan database:"
 
 #: index.php:331
 msgid "PHP extension:"
@@ -1324,7 +1324,7 @@ msgstr ""
 
 #: js/messages.php:176
 msgid "Change settings"
-msgstr ""
+msgstr "Ynstellingen wizigjen"
 
 #: js/messages.php:177
 msgid "Current settings"
@@ -2177,7 +2177,7 @@ msgstr "Generearje"
 
 #: js/messages.php:466
 msgid "Change Password"
-msgstr ""
+msgstr "Wachtwurd wizigjen"
 
 #: js/messages.php:469
 msgid "More"
@@ -2655,7 +2655,7 @@ msgstr ""
 #: libraries/server_status_processes.lib.php:81
 #: libraries/tbl_relation.lib.php:306 libraries/tbl_relation.lib.php:543
 msgid "Database"
-msgstr "Databank"
+msgstr "Database"
 
 #: libraries/Console.class.php:108
 #, php-format
@@ -2986,7 +2986,7 @@ msgstr ""
 
 #: libraries/DbSearch.class.php:388
 msgid "Search in database"
-msgstr "Sykje yn de databank"
+msgstr "Sykje yn de database"
 
 #: libraries/DbSearch.class.php:392
 msgid "Words or values to search for (wildcard: \"%\"):"
@@ -3505,7 +3505,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:228 libraries/server_common.lib.php:48
 #: libraries/server_privileges.lib.php:3858
 msgid "Databases"
-msgstr "Databanken"
+msgstr "Databases"
 
 #: libraries/Menu.class.php:563 libraries/Util.class.php:4122
 msgid "Users"
@@ -5631,7 +5631,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:291
 msgid "Database structure"
-msgstr "Databankstruktuer"
+msgstr "Databasestruktuer"
 
 #: libraries/config/messages.inc.php:293
 msgid ""
@@ -6428,7 +6428,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:627
 #: libraries/display_create_database.lib.php:31
 msgid "Database name"
-msgstr "Databanknamme"
+msgstr "Databasenamme"
 
 #: libraries/config/messages.inc.php:629
 msgid "Port on which MySQL server is listening, leave empty for default."
@@ -7275,7 +7275,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:250
 msgid "Database(s):"
-msgstr "Databank(en):"
+msgstr "Database(s):"
 
 #: libraries/display_export.lib.php:252
 msgid "Table(s):"
@@ -7396,7 +7396,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:802
 msgid "New database name"
-msgstr "Nije databanknamme"
+msgstr "Nije databasenamme"
 
 #: libraries/display_export.lib.php:826
 msgid "New table name"
@@ -9160,7 +9160,7 @@ msgstr "PHP-ferzje:"
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/sql.lib.php:291
 msgid "Database:"
-msgstr "Databank:"
+msgstr "Database:"
 
 #: libraries/plugins/export/ExportLatex.class.php:306
 #: libraries/plugins/export/ExportSql.class.php:1881
@@ -10608,7 +10608,7 @@ msgstr ""
 
 #: libraries/server_common.lib.php:45
 msgid "Databases statistics"
-msgstr "Databankstatistiken"
+msgstr "Databasestatistiken"
 
 #: libraries/server_databases.lib.php:357
 msgid ""
@@ -13098,7 +13098,7 @@ msgstr ""
 
 #: server_databases.php:112
 msgid "No databases"
-msgstr "Gjin databanken"
+msgstr "Gjin databases"
 
 #: server_export.php:21
 msgid "View dump (schema) of databases"
