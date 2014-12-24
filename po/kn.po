@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-21 13:06+0100\n"
-"PO-Revision-Date: 2014-04-16 13:03+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Kannada <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/kn/>\n"
+"PO-Revision-Date: 2014-12-24 02:27+0200\n"
+"Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
+"Language-Team: Kannada "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/kn/>\n"
 "Language: kn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -3509,7 +3509,7 @@ msgstr ""
 
 #: libraries/Menu.class.php:563 libraries/Util.class.php:4122
 msgid "Users"
-msgstr "ಬಳಕೆದಾರರು "
+msgstr "ಬಳಕೆದಾರರು"
 
 #: libraries/Menu.class.php:590 libraries/ServerStatusData.class.php:194
 #: libraries/Util.class.php:4126 libraries/server_common.lib.php:36
