@@ -267,7 +267,6 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
                 ), htmlspecialchars($existingCols)
             )
         );
-        $message->addMessage('<br /><br />');
         $message->addMessage(
             PMA_Message::notice(
                 "Please remove them first "
@@ -280,7 +279,6 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
         foreach ($insQuery as $query) {
             if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
                 $message = PMA_Message::error(__('Could not add columns!'));
-                $message->addMessage('<br /><br />');
                 $message->addMessage(
                     PMA_Message::rawError(
                         $GLOBALS['dbi']->getError($GLOBALS['controllink'])
