@@ -846,7 +846,7 @@ function PMA_getCentralColumnsListRaw($db, $table)
 {
     $cfgCentralColumns = PMA_centralColumnsGetParams();
     if (empty($cfgCentralColumns)) {
-        return array();
+        return json_encode(array());
     }
     $centralTable = $cfgCentralColumns['table'];
     if (empty($table) || $table == '') {

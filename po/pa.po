@@ -1048,12 +1048,12 @@ msgstr ""
 #. l10n: Thousands separator
 #: js/messages.php:94 libraries/Util.class.php:1395
 msgid ","
-msgstr ""
+msgstr ","
 
 #. l10n: Decimal separator
 #: js/messages.php:96 libraries/Util.class.php:1397
 msgid "."
-msgstr ""
+msgstr "."
 
 #: js/messages.php:98
 msgid "Connections / Processes"
@@ -2305,210 +2305,210 @@ msgstr ""
 
 #: js/messages.php:568
 msgid "January"
-msgstr ""
+msgstr "ਜਨਵਰੀ"
 
 #: js/messages.php:569
 msgid "February"
-msgstr ""
+msgstr "ਫ਼ਰਵਰੀ"
 
 #: js/messages.php:570
 msgid "March"
-msgstr ""
+msgstr "ਮਾਰਚ"
 
 #: js/messages.php:571
 msgid "April"
-msgstr ""
+msgstr "ਅਪ੍ਰੈਲ"
 
 #: js/messages.php:572
 msgid "May"
-msgstr ""
+msgstr "ਮਈ"
 
 #: js/messages.php:573
 msgid "June"
-msgstr ""
+msgstr "ਜੂਨ"
 
 #: js/messages.php:574
 msgid "July"
-msgstr ""
+msgstr "ਜੁਲਾਈ"
 
 #: js/messages.php:575
 msgid "August"
-msgstr ""
+msgstr "ਅਗਸਤ"
 
 #: js/messages.php:576
 msgid "September"
-msgstr ""
+msgstr "ਸਤੰਬਰ"
 
 #: js/messages.php:577
 msgid "October"
-msgstr ""
+msgstr "ਅਕਤੂਬਰ"
 
 #: js/messages.php:578
 msgid "November"
-msgstr ""
+msgstr "ਨਵੰਬਰ"
 
 #: js/messages.php:579
 msgid "December"
-msgstr ""
+msgstr "ਦਸੰਬਰ"
 
 #. l10n: Short month name
 #: js/messages.php:586 libraries/Util.class.php:1555
 msgid "Jan"
-msgstr ""
+msgstr "ਜਨਵਰੀ"
 
 #. l10n: Short month name
 #: js/messages.php:588 libraries/Util.class.php:1557
 msgid "Feb"
-msgstr ""
+msgstr "ਫ਼ਰਵਰੀ"
 
 #. l10n: Short month name
 #: js/messages.php:590 libraries/Util.class.php:1559
 msgid "Mar"
-msgstr ""
+msgstr "ਮਾਰਚ"
 
 #. l10n: Short month name
 #: js/messages.php:592 libraries/Util.class.php:1561
 msgid "Apr"
-msgstr ""
+msgstr "ਅਪ੍ਰੈਲ"
 
 #. l10n: Short month name
 #: js/messages.php:594 libraries/Util.class.php:1563
 msgctxt "Short month name"
 msgid "May"
-msgstr ""
+msgstr "ਮਈ"
 
 #. l10n: Short month name
 #: js/messages.php:596 libraries/Util.class.php:1565
 msgid "Jun"
-msgstr ""
+msgstr "ਜੂਨ"
 
 #. l10n: Short month name
 #: js/messages.php:598 libraries/Util.class.php:1567
 msgid "Jul"
-msgstr ""
+msgstr "ਜੁਲਾਈ"
 
 #. l10n: Short month name
 #: js/messages.php:600 libraries/Util.class.php:1569
 msgid "Aug"
-msgstr ""
+msgstr "ਅਗਸਤ"
 
 #. l10n: Short month name
 #: js/messages.php:602 libraries/Util.class.php:1571
 msgid "Sep"
-msgstr ""
+msgstr "ਸਤੰਬਰ"
 
 #. l10n: Short month name
 #: js/messages.php:604 libraries/Util.class.php:1573
 msgid "Oct"
-msgstr ""
+msgstr "ਅਕਤੂਬਰ"
 
 #. l10n: Short month name
 #: js/messages.php:606 libraries/Util.class.php:1575
 msgid "Nov"
-msgstr ""
+msgstr "ਨਵੰਬਰ"
 
 #. l10n: Short month name
 #: js/messages.php:608 libraries/Util.class.php:1577
 msgid "Dec"
-msgstr ""
+msgstr "ਦਸੰਬਰ"
 
 #: js/messages.php:614
 msgid "Sunday"
-msgstr ""
+msgstr "ਐਤਵਾਰ"
 
 #: js/messages.php:615
 msgid "Monday"
-msgstr ""
+msgstr "ਸੋਮਵਾਰ"
 
 #: js/messages.php:616
 msgid "Tuesday"
-msgstr ""
+msgstr "ਮੰਗਲਵਾਰ"
 
 #: js/messages.php:617
 msgid "Wednesday"
-msgstr ""
+msgstr "ਬੁਧਵਾਰ"
 
 #: js/messages.php:618
 msgid "Thursday"
-msgstr ""
+msgstr "ਵੀਰਵਾਰ"
 
 #: js/messages.php:619
 msgid "Friday"
-msgstr ""
+msgstr "ਸ਼ੁੱਕਰਵਾਰ"
 
 #: js/messages.php:620
 msgid "Saturday"
-msgstr ""
+msgstr "ਸ਼ਨੀਵਾਰ"
 
 #. l10n: Short week day name
 #: js/messages.php:627
 msgid "Sun"
-msgstr ""
+msgstr "ਐਤ"
 
 #. l10n: Short week day name
 #: js/messages.php:629 libraries/Util.class.php:1582
 msgid "Mon"
-msgstr ""
+msgstr "ਸੋਮ"
 
 #. l10n: Short week day name
 #: js/messages.php:631 libraries/Util.class.php:1584
 msgid "Tue"
-msgstr ""
+msgstr "ਮੰਗਲ"
 
 #. l10n: Short week day name
 #: js/messages.php:633 libraries/Util.class.php:1586
 msgid "Wed"
-msgstr ""
+msgstr "ਬੁਧ"
 
 #. l10n: Short week day name
 #: js/messages.php:635 libraries/Util.class.php:1588
 msgid "Thu"
-msgstr ""
+msgstr "ਵੀਰ"
 
 #. l10n: Short week day name
 #: js/messages.php:637 libraries/Util.class.php:1590
 msgid "Fri"
-msgstr ""
+msgstr "ਸ਼ੁੱਕਰ"
 
 #. l10n: Short week day name
 #: js/messages.php:639 libraries/Util.class.php:1592
 msgid "Sat"
-msgstr ""
+msgstr "ਸ਼ਨੀ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:646
 msgid "Su"
-msgstr ""
+msgstr "ਐਤ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:648
 msgid "Mo"
-msgstr ""
+msgstr "ਸੋਮ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:650
 msgid "Tu"
-msgstr ""
+msgstr "ਮੰਗਲ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:652
 msgid "We"
-msgstr ""
+msgstr "ਬੁਧ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:654
 msgid "Th"
-msgstr ""
+msgstr "ਵੀਰ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:656
 msgid "Fr"
-msgstr ""
+msgstr "ਸ਼ੁੱਕਰ"
 
 #. l10n: Minimal week day name
 #: js/messages.php:658
 msgid "Sa"
-msgstr ""
+msgstr "ਸ਼ਨੀ"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:662
@@ -2701,7 +2701,7 @@ msgstr ""
 
 #: libraries/Console.class.php:202
 msgid "History"
-msgstr ""
+msgstr "ਅਤੀਤ ਵੇਖੋ"
 
 #: libraries/Console.class.php:205 libraries/Console.class.php:300
 #: libraries/DisplayResults.class.php:1631 libraries/TableSearch.class.php:788
@@ -4294,7 +4294,7 @@ msgstr ""
 #: libraries/Util.class.php:1580
 msgctxt "Short week day name"
 msgid "Sun"
-msgstr ""
+msgstr "ਐਤ"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
 #: libraries/Util.class.php:1596
@@ -7531,7 +7531,7 @@ msgstr ""
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:97
 msgid "Language"
-msgstr ""
+msgstr "ਭਾਸ਼ਾ"
 
 #: libraries/engines/bdb.lib.php:28
 msgid "Version information"
@@ -8079,31 +8079,31 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:189
 msgid "Croatian"
-msgstr ""
+msgstr "ਕ੍ਰੋਏਸ਼ਿਆਈ"
 
 #: libraries/mysql_charsets.lib.php:192
 msgid "Czech"
-msgstr ""
+msgstr "ਚੈਕ"
 
 #: libraries/mysql_charsets.lib.php:195
 msgid "Danish"
-msgstr ""
+msgstr "ਡੈਨਿਸ਼"
 
 #: libraries/mysql_charsets.lib.php:198
 msgid "English"
-msgstr ""
+msgstr "ਅੰਗਰੇਜ਼ੀ"
 
 #: libraries/mysql_charsets.lib.php:201
 msgid "Esperanto"
-msgstr ""
+msgstr "ਇਸਪੇਰਾਂਟੋ"
 
 #: libraries/mysql_charsets.lib.php:204
 msgid "Estonian"
-msgstr ""
+msgstr "ਇਸਟੋਨੀਆਈ"
 
 #: libraries/mysql_charsets.lib.php:207 libraries/mysql_charsets.lib.php:210
 msgid "German"
-msgstr ""
+msgstr "ਜਰਮਨ"
 
 #: libraries/mysql_charsets.lib.php:207
 msgid "dictionary"
@@ -8115,11 +8115,11 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:213
 msgid "Hungarian"
-msgstr ""
+msgstr "ਹੰਗਰੀਆਈ"
 
 #: libraries/mysql_charsets.lib.php:216
 msgid "Icelandic"
-msgstr ""
+msgstr "ਆਈਸਲੈਂਡਿਕ"
 
 #: libraries/mysql_charsets.lib.php:219 libraries/mysql_charsets.lib.php:311
 msgid "Japanese"
@@ -8127,15 +8127,15 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:222
 msgid "Latvian"
-msgstr ""
+msgstr "ਲਾਟਵਿਅਨ"
 
 #: libraries/mysql_charsets.lib.php:225
 msgid "Lithuanian"
-msgstr ""
+msgstr "ਲਿਥੁਆਨੀਅਨ"
 
 #: libraries/mysql_charsets.lib.php:228 libraries/mysql_charsets.lib.php:333
 msgid "Korean"
-msgstr ""
+msgstr "ਕੋਰੀਆਈ"
 
 #: libraries/mysql_charsets.lib.php:231
 msgid "Persian"
@@ -8151,19 +8151,19 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:240
 msgid "Romanian"
-msgstr ""
+msgstr "ਰੋਮਾਨੀਆਈ"
 
 #: libraries/mysql_charsets.lib.php:243
 msgid "Slovak"
-msgstr ""
+msgstr "ਸਲੋਵਾਕ"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Slovenian"
-msgstr ""
+msgstr "ਸਲੋਵੇਨੀਆਈ"
 
 #: libraries/mysql_charsets.lib.php:249
 msgid "Spanish"
-msgstr ""
+msgstr "ਸਪੇਨੀ"
 
 #: libraries/mysql_charsets.lib.php:252
 msgid "Traditional Spanish"
@@ -8171,19 +8171,19 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:255 libraries/mysql_charsets.lib.php:354
 msgid "Swedish"
-msgstr ""
+msgstr "ਸਵੀਡਿਸ਼"
 
 #: libraries/mysql_charsets.lib.php:258 libraries/mysql_charsets.lib.php:357
 msgid "Thai"
-msgstr ""
+msgstr "ਥਾਈ"
 
 #: libraries/mysql_charsets.lib.php:261 libraries/mysql_charsets.lib.php:351
 msgid "Turkish"
-msgstr ""
+msgstr "ਤੁਰਕੀ"
 
 #: libraries/mysql_charsets.lib.php:264 libraries/mysql_charsets.lib.php:348
 msgid "Ukrainian"
-msgstr ""
+msgstr "ਯੂਕਰੇਨੀਆਈ"
 
 #: libraries/mysql_charsets.lib.php:267 libraries/mysql_charsets.lib.php:278
 msgid "Unicode"
@@ -8201,7 +8201,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:299
 msgid "Russian"
-msgstr ""
+msgstr "ਰੂਸੀ"
 
 #: libraries/mysql_charsets.lib.php:316
 msgid "Baltic"
@@ -8209,7 +8209,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:321
 msgid "Armenian"
-msgstr ""
+msgstr "ਅਰਮੀਨੀਆਈ"
 
 #: libraries/mysql_charsets.lib.php:327
 msgid "Cyrillic"
@@ -8217,11 +8217,11 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:330
 msgid "Arabic"
-msgstr ""
+msgstr "ਅਰਬੀ"
 
 #: libraries/mysql_charsets.lib.php:336
 msgid "Hebrew"
-msgstr ""
+msgstr "ਹਿਬਰੂ"
 
 #: libraries/mysql_charsets.lib.php:339
 msgid "Georgian"
@@ -8229,7 +8229,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:342
 msgid "Greek"
-msgstr ""
+msgstr "ਯੂਨਾਨੀ"
 
 #: libraries/mysql_charsets.lib.php:345
 msgid "Czech-Slovak"
@@ -8943,7 +8943,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:192
 msgid "Username:"
-msgstr ""
+msgstr "ਵਰਤੋਂਕਾਰ ਦਾ ਨਾਂ:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:204
 msgid "Server Choice:"
@@ -10020,14 +10020,14 @@ msgstr ""
 #: libraries/replication_gui.lib.php:400 libraries/replication_gui.lib.php:787
 #: libraries/server_privileges.lib.php:1302
 msgid "User name:"
-msgstr ""
+msgstr "ਵਰਤੋਂਕਾਰ ਦਾ ਨਾਂ:"
 
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:791
 #: libraries/replication_gui.lib.php:807
 #: libraries/server_privileges.lib.php:1307
 #: libraries/server_privileges.lib.php:1339
 msgid "User name"
-msgstr ""
+msgstr "ਵਰਤੋਂਕਾਰ ਦਾ ਨਾਂ"
 
 #: libraries/replication_gui.lib.php:417 libraries/replication_gui.lib.php:857
 #: libraries/replication_gui.lib.php:873
@@ -11441,7 +11441,7 @@ msgstr ""
 #. l10n: # = Amount of queries
 #: libraries/server_status_queries.lib.php:96
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: libraries/server_status_variables.lib.php:39
 #: libraries/server_variables.lib.php:185
@@ -12965,7 +12965,7 @@ msgstr ""
 
 #: libraries/tracking.lib.php:718
 msgid "Username"
-msgstr ""
+msgstr "ਵਰਤੋਂਕਾਰ ਦਾ ਨਾਂ"
 
 #: libraries/tracking.lib.php:772
 #, php-format

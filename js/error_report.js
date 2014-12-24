@@ -169,7 +169,13 @@ var ErrorReport = {
         if (exception.message === null || typeof(exception.message) == "undefined"){
             return "";
         } else {
-            return (/([a-zA-Z]+):/).exec(exception.message)[1];
+            var reg = /([a-zA-Z]+):/;
+            var regex_result = null;
+            regex_result = reg.exec(exception.message);
+            if(regex_result && regex_result.length == 2)
+                return regex_result[1];
+            else
+                return "";
         }
     },
     /**
