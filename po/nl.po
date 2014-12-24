@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-15 15:54-0500\n"
-"PO-Revision-Date: 2014-12-23 23:44+0200\n"
+"PO-Revision-Date: 2014-12-24 23:01+0200\n"
 "Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-3/nl/>"
 "\n"
@@ -11847,7 +11847,7 @@ msgstr "tabel-specifiek"
 
 #: libraries/server_privileges.lib.php:2271
 msgid "Edit Privileges"
-msgstr "Rechten wijzigen"
+msgstr "Rechten bewerken"
 
 #: libraries/server_privileges.lib.php:2274
 msgid "Revoke"
