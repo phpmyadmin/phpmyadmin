@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - bug #4664 select min() displays 1 row, but reports the table amount of rows returned
 - bug #4666 Undefined indexes in table stucture print view of a view
 - bug #4663 Export missing back ticks for order table name
+- bug #4668 Remove from central columns error
 
 4.3.3.0 (2014-12-21)
 - bug       The "Recently used tables" setting should be with Nav panel
