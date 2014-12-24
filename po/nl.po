@@ -14282,7 +14282,7 @@ msgid ""
 msgstr ""
 "Instellingen werden opgeslagen in bestand config/config.inc.php van de "
 "phpMyAdmin-installatiemap, kopieer dit bestand naar de installatiemap en "
-"verwijder de config-folder."
+"verwijder de config-map."
 
 #: setup/frames/index.inc.php:133 setup/frames/menu.inc.php:19
 msgid "Overview"
