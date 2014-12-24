@@ -1,10 +1,31 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.3.3.0 (not yet released)
+4.3.4.0 (not yet released)
+- bug #4653 Always connection error was shown, on /setup at tab "configuration storage"
+- bug #4661 Drag and drop file import always fails
+- bug #4651 don't open console with esc
+- bug #4664 select min() displays 1 row, but reports the table amount of rows returned
+- bug #4666 Undefined indexes in table stucture print view of a view
+- bug #4663 Export missing back ticks for order table name
+- bug #4668 Remove from central columns error
+- bug #4670 CSV import reads both commas and values into first column after first row
+- bug #4642 phpmyadmin often fails to load due to specific load order
+
+4.3.3.0 (2014-12-21)
 - bug       The "Recently used tables" setting should be with Nav panel
 - bug #4647 Can't disable Favorites
-- bug #4642 phpmyadmin often fails to load due to specific load order
+- bug #4646 Version Check Broken
+- bug #4630 AJAX request infinite loop
+- bug #4649 Attributes field size smaller than others
+- bug #4622 Cannot remove table ordering on a Mac
+- bug       Fix initial replication configuration
+- bug       Undefined index central_columnswork
+- bug #4657 Don't have default blowfish_secret
+- bug #4656 Some error popups fade away too quickly
+- bug #4648 Consistency in borders
+- bug       $cfg['Error_Handler']['display'] no longer necessary
+- bug #4659 Leading and trailing whitespace in column name
 
 4.3.2.0 (2014-12-12)
 - bug #4628 PHP error while exporting schema as PDF

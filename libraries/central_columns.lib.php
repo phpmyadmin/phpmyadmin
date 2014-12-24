@@ -25,7 +25,9 @@ function PMA_centralColumnsGetParams()
 
     $cfgRelation = PMA_getRelationsParam();
 
-    if ($cfgRelation['central_columnswork']) {
+    if (isset($cfgRelation['central_columnswork'])
+        && $cfgRelation['central_columnswork']
+    ) {
         $cfgCentralColumns = array(
             'user'  => $GLOBALS['cfg']['Server']['user'],
             'db'    => $GLOBALS['cfg']['Server']['pmadb'],
@@ -265,7 +267,6 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
                 ), htmlspecialchars($existingCols)
             )
         );
-        $message->addMessage('<br /><br />');
         $message->addMessage(
             PMA_Message::notice(
                 "Please remove them first "
@@ -278,7 +279,6 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
         foreach ($insQuery as $query) {
             if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
                 $message = PMA_Message::error(__('Could not add columns!'));
-                $message->addMessage('<br /><br />');
                 $message->addMessage(
                     PMA_Message::rawError(
                         $GLOBALS['dbi']->getError($GLOBALS['controllink'])
@@ -308,7 +308,7 @@ function PMA_deleteColumnsFromList($field_select, $isTable=true)
     if (empty($cfgCentralColumns)) {
         return PMA_configErrorMessage();
     }
-    $db = $_POST['db'];
+    $db = $_REQUEST['db'];
     $pmadb = $cfgCentralColumns['db'];
     $central_list_table = $cfgCentralColumns['table'];
     $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
@@ -846,7 +846,7 @@ function PMA_getCentralColumnsListRaw($db, $table)
 {
     $cfgCentralColumns = PMA_centralColumnsGetParams();
     if (empty($cfgCentralColumns)) {
-        return array();
+        return json_encode(array());
     }
     $centralTable = $cfgCentralColumns['table'];
     if (empty($table) || $table == '') {

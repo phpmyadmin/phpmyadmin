@@ -993,7 +993,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<select style="font-size: 70%;" name="field_attribute[2]" '
+                '<select style="width: 7em;" name="field_attribute[2]" '
                 . 'id="field_2_2">'
             ),
             $result

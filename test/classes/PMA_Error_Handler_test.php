@@ -118,8 +118,6 @@ class PMA_Error_Handler_Test extends PHPUnit_Framework_TestCase
     ) {
         // TODO: Add other test cases for all combination of 'sendErrorReports'
         $GLOBALS['cfg']['SendErrorReports'] = 'never';
-        $GLOBALS['cfg']['Error_Handler']['gather'] = true;
-        $GLOBALS['cfg']['Error_Handler']['display'] = false;
 
         $this->object->handleError($errno, $errstr, $errfile, $errline);
 
@@ -151,9 +149,6 @@ class PMA_Error_Handler_Test extends PHPUnit_Framework_TestCase
     public function testGetDispErrorsForDisplayTrue(
         $errno, $errstr, $errfile, $errline, $output_show, $output_hide
     ) {
-        $GLOBALS['cfg']['Error_Handler']['gather'] = true;
-        $GLOBALS['cfg']['Error_Handler']['display'] = true;
-
         $this->object->handleError($errno, $errstr, $errfile, $errline);
 
         $this->assertContains(
@@ -251,7 +246,6 @@ class PMA_Error_Handler_Test extends PHPUnit_Framework_TestCase
      */
     public function testCountDisplayErrorsForDisplayTrue()
     {
-        $GLOBALS['cfg']['Error_Handler']['display'] = true;
         $this->assertEquals(
             0,
             $this->object->countDisplayErrors()
@@ -265,7 +259,6 @@ class PMA_Error_Handler_Test extends PHPUnit_Framework_TestCase
      */
     public function testCountDisplayErrorsForDisplayFalse()
     {
-        $GLOBALS['cfg']['Error_Handler']['display'] = false;
         $this->assertEquals(
             0,
             $this->object->countDisplayErrors()
@@ -279,7 +272,6 @@ class PMA_Error_Handler_Test extends PHPUnit_Framework_TestCase
      */
     public function testHasDisplayErrors()
     {
-        $GLOBALS['cfg']['Error_Handler']['display'] = false;
         $this->assertFalse($this->object->hasDisplayErrors());
     }
 }

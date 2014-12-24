@@ -89,10 +89,6 @@ h2 a img {
     width: 100%;
 }
 
-#table_results td.data {
-border-right: 1px solid #bbb;
-}
-
 h3 {
     font-weight: bold;
 }
@@ -401,8 +397,11 @@ table {
     border-collapse: collapse;
 }
 
-th {
+thead th {
     border-right: 1px solid #fff;
+}
+
+th {
     text-align: left;
 }
 

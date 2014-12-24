@@ -119,8 +119,8 @@ var PMA_console = {
 
             PMA_console.$consoleToolbar.children('.console_switch').click(PMA_console.toggle);
             $(document).keydown(function(event) {
-                // 27 keycode is ESC
-                if(event.keyCode === 27) {
+                // Ctrl + Alt + C
+                if(event.ctrlKey && event.altKey && event.keyCode === 67) {
                     PMA_console.toggle();
                 }
             });
@@ -161,8 +161,12 @@ var PMA_console = {
             });
 
             $(document).ajaxComplete(function (event, xhr) {
-                var data = $.parseJSON(xhr.responseText);
-                PMA_console.ajaxCallback(data);
+                try {
+                    var data = $.parseJSON(xhr.responseText);
+                    PMA_console.ajaxCallback(data);
+                } catch (e) {
+                    console.log("Invalid JSON!" + e.message);
+                }
             });
 
             PMA_console.isInitialized = true;
