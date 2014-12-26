@@ -395,6 +395,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '<td><form action="sql.php" method="post" >'
                 . '<input type="hidden" name="db" value="as" />'
                 . '<input type="hidden" name="lang" value="en" />'
+                . '<input type="hidden" name="collation_connection" value="utf-8" />'
                 . '<input type="hidden" name="token" value="token" />'
                 . '<input type="hidden" name="sql_query" value="SELECT * '
                 . 'FROM `pma_bookmark` WHERE 1" />'
@@ -1421,8 +1422,9 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 ),
                 'routine_name',
                 'db_routines.php?item_name=circumference&amp;db=data&amp;edit_'
-                . 'item=1&amp;item_type=FUNCTION&amp;server=0&amp;lang=en&amp;'
-                . 'token=token'
+                . 'item=1&amp;item_type=FUNCTION&amp;server=0&amp;lang=en'
+                . '&amp;collation_connection=utf-8'
+                . '&amp;token=token'
             ),
             array(
                 'information_schema',
@@ -1435,7 +1437,9 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 ),
                 'routine_name',
                 'db_routines.php?item_name=area&amp;db=data&amp;edit_item=1'
-                . '&amp;item_type=PROCEDURE&amp;server=0&amp;lang=en&amp;token=token'
+                . '&amp;item_type=PROCEDURE&amp;server=0&amp;lang=en'
+                . '&amp;collation_connection=utf-8'
+                . '&amp;token=token'
             ),
             array(
                 'information_schema',
@@ -1448,7 +1452,9 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 'column_name',
                 'index.php?sql_query=SELECT+%60CHARACTER_SET_NAME%60+FROM+%60info'
                 . 'rmation_schema%60.%60CHARACTER_SETS%60&amp;db=information_schema'
-                . '&amp;test_name=value&amp;server=0&amp;lang=en&amp;token=token'
+                . '&amp;test_name=value&amp;server=0&amp;lang=en'
+                . '&amp;collation_connection=utf-8'
+                . '&amp;token=token'
             )
         );
     }
@@ -1615,6 +1621,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '<input type="hidden" name="db" value="mysql" />'
                 . '<input type="hidden" name="table" value="user" />'
                 . '<input type="hidden" name="lang" value="en" />'
+                . '<input type="hidden" name="collation_connection" value="utf-8" />'
                 . '<input type="hidden" name="token" value="token" />'
                 . '<input type="hidden" name="sql_query" value="SELECT * FROM `user`" />'
                 . '<input type="hidden" name="pos" value="0" />'
@@ -1782,6 +1789,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 $url_params,
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;server=0&amp;lang=en'
+                . '&amp;collation_connection=utf-8'
                 . '&amp;token=token" class="disableAjax">31303031</a>'
             ),
             array(
@@ -1796,6 +1804,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 $url_params,
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;server=0&amp;lang=en'
+                . '&amp;collation_connection=utf-8'
                 . '&amp;token=token" class="disableAjax">[BLOB - 4 B]</a>'
             ),
             array(
@@ -1909,7 +1918,9 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 0,
                 'binary',
                 '<td class="left   hex"><a href="tbl_get_field.php?'
-                . 'db=foo&amp;server=0&amp;lang=en&amp;token=token" '
+                . 'db=foo&amp;server=0&amp;lang=en'
+                . '&amp;collation_connection=utf-8'
+                . '&amp;token=token" '
                 . 'class="disableAjax">[BLOB - 4 B]</a></td>'
             ),
             array(
