@@ -2681,76 +2681,79 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
 ) {
     $html_output = '';
     $found_rows = array();
+    
     // display rows
     if (count($db_rights) < 1) {
         $html_output .= '<tr class="odd">' . "\n"
            . '<td colspan="6"><center><i>' . __('None') . '</i></center></td>' . "\n"
            . '</tr>' . "\n";
-    } else {
-        $odd_row = true;
-        //while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
-        foreach ($db_rights as $row) {
-            $dbNameLength = /*overload*/mb_strlen($dbname);
-            $found_rows[] = (!$dbNameLength)
-                ? $row['Db']
-                : $row['Table_name'];
+        return array($found_rows, $html_output);
+    }
 
-            $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
-                . '<td>'
-                . htmlspecialchars(
-                    (!$dbNameLength)
-                    ? $row['Db']
-                    : $row['Table_name']
-                )
-                . '</td>' . "\n"
-                . '<td><code>' . "\n"
-                . '        '
-                . join(
-                    ',' . "\n" . '            ',
-                    PMA_extractPrivInfo($row, true)
-                ) . "\n"
-                . '</code></td>' . "\n"
-                . '<td>'
-                    . ((((!$dbNameLength) && $row['Grant_priv'] == 'Y')
-                        || ($dbNameLength
-                        && in_array('Grant', explode(',', $row['Table_priv']))))
-                    ? __('Yes')
-                    : __('No'))
-                . '</td>' . "\n"
-                . '<td>';
-            if (! empty($row['Table_privs']) || ! empty ($row['Column_priv'])) {
-                $html_output .= __('Yes');
-            } else {
-                $html_output .= __('No');
-            }
-            $html_output .= '</td>' . "\n"
-               . '<td>';
+    $odd_row = true;
+    //while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
+    foreach ($db_rights as $row) {
+        $dbNameLength = /*overload*/mb_strlen($dbname);
+        $found_rows[] = (!$dbNameLength)
+            ? $row['Db']
+            : $row['Table_name'];
+
+        $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
+            . '<td>'
+            . htmlspecialchars(
+                (!$dbNameLength)
+                ? $row['Db']
+                : $row['Table_name']
+            )
+            . '</td>' . "\n"
+            . '<td><code>' . "\n"
+            . '        '
+            . join(
+                ',' . "\n" . '            ',
+                PMA_extractPrivInfo($row, true)
+            ) . "\n"
+            . '</code></td>' . "\n"
+            . '<td>'
+                . ((((!$dbNameLength) && $row['Grant_priv'] == 'Y')
+                    || ($dbNameLength
+                    && in_array('Grant', explode(',', $row['Table_priv']))))
+                ? __('Yes')
+                : __('No'))
+            . '</td>' . "\n"
+            . '<td>';
+        if (! empty($row['Table_privs']) || ! empty ($row['Column_priv'])) {
+            $html_output .= __('Yes');
+        } else {
+            $html_output .= __('No');
+        }
+        $html_output .= '</td>' . "\n"
+           . '<td>';
+        $html_output .= PMA_getUserLink(
+            'edit',
+            $username,
+            $hostname,
+            (!$dbNameLength) ? $row['Db'] : $dbname,
+            (!$dbNameLength) ? '' : $row['Table_name']
+        );
+        $html_output .= '</td>' . "\n"
+           . '    <td>';
+        if (! empty($row['can_delete'])
+            || isset($row['Table_name'])
+            && /*overload*/mb_strlen($row['Table_name'])
+        ) {
             $html_output .= PMA_getUserLink(
-                'edit',
+                'revoke',
                 $username,
                 $hostname,
                 (!$dbNameLength) ? $row['Db'] : $dbname,
                 (!$dbNameLength) ? '' : $row['Table_name']
             );
-            $html_output .= '</td>' . "\n"
-               . '    <td>';
-            if (! empty($row['can_delete'])
-                || isset($row['Table_name'])
-                && /*overload*/mb_strlen($row['Table_name'])
-            ) {
-                $html_output .= PMA_getUserLink(
-                    'revoke',
-                    $username,
-                    $hostname,
-                    (!$dbNameLength) ? $row['Db'] : $dbname,
-                    (!$dbNameLength) ? '' : $row['Table_name']
-                );
-            }
-            $html_output .= '</td>' . "\n"
-               . '</tr>' . "\n";
-            $odd_row = ! $odd_row;
-        } // end while
-    } //end if
+        }
+        $html_output .= '</td>' . "\n"
+           . '</tr>' . "\n";
+        $odd_row = ! $odd_row;
+    } // end while
+
     return array($found_rows, $html_output);
 }
 
