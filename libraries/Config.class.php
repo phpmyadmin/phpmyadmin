@@ -847,6 +847,8 @@ class PMA_Config
         $this->checkFontsize();
 
         if (! $this->checkConfigSource()) {
+            // even if no config file, set collation_connection
+            $this->checkCollationConnection();
             return false;
         }
 

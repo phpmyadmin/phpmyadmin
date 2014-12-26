@@ -287,6 +287,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
             $this->object->getPrintPreview(),
             '<div class="theme_preview"><h2> (0.0.0.0) </h2><p><a class="take_'
             . 'theme" name="" href="index.php?set_theme=&amp;server=99&amp;lang=en'
+            . '&amp;collation_connection=utf-8'
             . '&amp;token=token">No preview available.[ <strong>take it</strong> ]'
             . '</a></p></div>'
         );
