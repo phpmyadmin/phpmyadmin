@@ -462,7 +462,7 @@ msgstr ""
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:168
 msgid "SRID:"
-msgstr ""
+msgstr "SRID:"
 
 #: gis_data_editor.php:191
 #, php-format
@@ -725,7 +725,7 @@ msgstr ""
 
 #: index.php:296
 msgid "User:"
-msgstr ""
+msgstr "Gebroeker:"
 
 #: index.php:301
 msgid "Server charset:"
@@ -1050,12 +1050,12 @@ msgstr ""
 #. l10n: Thousands separator
 #: js/messages.php:97 libraries/Util.class.php:1395
 msgid ","
-msgstr ""
+msgstr "."
 
 #. l10n: Decimal separator
 #: js/messages.php:99 libraries/Util.class.php:1397
 msgid "."
-msgstr ""
+msgstr ","
 
 #: js/messages.php:101
 msgid "Connections / Processes"
@@ -1163,34 +1163,34 @@ msgstr ""
 #: js/messages.php:134 libraries/Util.class.php:1341
 #: libraries/server_status_monitor.lib.php:217
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:135 libraries/Util.class.php:1343
 #: libraries/display_export.lib.php:691
 #: libraries/server_status_monitor.lib.php:218
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:136 libraries/Util.class.php:1345
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:137 libraries/Util.class.php:1347
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:138 libraries/Util.class.php:1349
 msgid "PiB"
-msgstr ""
+msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:139 libraries/Util.class.php:1351
 msgid "EiB"
-msgstr ""
+msgstr "EiB"
 
 #: js/messages.php:140
 #, php-format
@@ -1415,7 +1415,7 @@ msgstr ""
 #: libraries/rte/rte_list.lib.php:68
 #: libraries/server_status_processes.lib.php:89 libraries/sql.lib.php:341
 msgid "Time"
-msgstr ""
+msgstr "Tied"
 
 #: js/messages.php:205
 msgid "Total time:"
@@ -2304,112 +2304,112 @@ msgstr ""
 
 #: js/messages.php:571
 msgid "January"
-msgstr ""
+msgstr "jannewarie"
 
 #: js/messages.php:572
 msgid "February"
-msgstr ""
+msgstr "fibberwarie"
 
 #: js/messages.php:573
 msgid "March"
-msgstr ""
+msgstr "miert"
 
 #: js/messages.php:574
 msgid "April"
-msgstr ""
+msgstr "april"
 
 #: js/messages.php:575
 msgid "May"
-msgstr ""
+msgstr "mei"
 
 #: js/messages.php:576
 msgid "June"
-msgstr ""
+msgstr "juni"
 
 #: js/messages.php:577
 msgid "July"
-msgstr ""
+msgstr "juli"
 
 #: js/messages.php:578
 msgid "August"
-msgstr ""
+msgstr "augustus"
 
 #: js/messages.php:579
 msgid "September"
-msgstr ""
+msgstr "september"
 
 #: js/messages.php:580
 msgid "October"
-msgstr ""
+msgstr "oktober"
 
 #: js/messages.php:581
 msgid "November"
-msgstr ""
+msgstr "november"
 
 #: js/messages.php:582
 msgid "December"
-msgstr ""
+msgstr "december"
 
 #. l10n: Short month name
 #: js/messages.php:589 libraries/Util.class.php:1555
 msgid "Jan"
-msgstr ""
+msgstr "jan"
 
 #. l10n: Short month name
 #: js/messages.php:591 libraries/Util.class.php:1557
 msgid "Feb"
-msgstr ""
+msgstr "feb"
 
 #. l10n: Short month name
 #: js/messages.php:593 libraries/Util.class.php:1559
 msgid "Mar"
-msgstr ""
+msgstr "mrt"
 
 #. l10n: Short month name
 #: js/messages.php:595 libraries/Util.class.php:1561
 msgid "Apr"
-msgstr ""
+msgstr "apr"
 
 #. l10n: Short month name
 #: js/messages.php:597 libraries/Util.class.php:1563
 msgctxt "Short month name"
 msgid "May"
-msgstr ""
+msgstr "mei"
 
 #. l10n: Short month name
 #: js/messages.php:599 libraries/Util.class.php:1565
 msgid "Jun"
-msgstr ""
+msgstr "jun"
 
 #. l10n: Short month name
 #: js/messages.php:601 libraries/Util.class.php:1567
 msgid "Jul"
-msgstr ""
+msgstr "jul"
 
 #. l10n: Short month name
 #: js/messages.php:603 libraries/Util.class.php:1569
 msgid "Aug"
-msgstr ""
+msgstr "aug"
 
 #. l10n: Short month name
 #: js/messages.php:605 libraries/Util.class.php:1571
 msgid "Sep"
-msgstr ""
+msgstr "sep"
 
 #. l10n: Short month name
 #: js/messages.php:607 libraries/Util.class.php:1573
 msgid "Oct"
-msgstr ""
+msgstr "okt"
 
 #. l10n: Short month name
 #: js/messages.php:609 libraries/Util.class.php:1575
 msgid "Nov"
-msgstr ""
+msgstr "nov"
 
 #. l10n: Short month name
 #: js/messages.php:611 libraries/Util.class.php:1577
 msgid "Dec"
-msgstr ""
+msgstr "dec"
 
 #: js/messages.php:617
 msgid "Sunday"
@@ -2529,7 +2529,7 @@ msgstr ""
 
 #: js/messages.php:687
 msgid "Hour"
-msgstr ""
+msgstr "Oer"
 
 #: js/messages.php:688
 msgid "Minute"
@@ -2537,7 +2537,7 @@ msgstr ""
 
 #: js/messages.php:689
 msgid "Second"
-msgstr ""
+msgstr "secónd"
 
 #: libraries/Advisor.class.php:79
 #, php-format
@@ -2653,7 +2653,7 @@ msgstr ""
 #: libraries/server_status_processes.lib.php:81
 #: libraries/tbl_relation.lib.php:306 libraries/tbl_relation.lib.php:543
 msgid "Database"
-msgstr ""
+msgstr "Database"
 
 #: libraries/Console.class.php:108
 #, php-format
@@ -3418,7 +3418,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:283
 #: libraries/navigation/Nodes/Node_Table.class.php:45
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/Menu.class.php:320 libraries/Menu.class.php:424
 #: libraries/Util.class.php:3189 libraries/Util.class.php:3196
@@ -6902,7 +6902,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:775
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:776
 msgid "Enter your public key for your domain reCaptcha service."
@@ -8095,11 +8095,11 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:198
 msgid "English"
-msgstr ""
+msgstr "Èngels"
 
 #: libraries/mysql_charsets.lib.php:201
 msgid "Esperanto"
-msgstr ""
+msgstr "Esperanto"
 
 #: libraries/mysql_charsets.lib.php:204
 msgid "Estonian"
@@ -8107,7 +8107,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:207 libraries/mysql_charsets.lib.php:210
 msgid "German"
-msgstr ""
+msgstr "Duutsj"
 
 #: libraries/mysql_charsets.lib.php:207
 msgid "dictionary"
@@ -8147,7 +8147,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:234
 msgid "Polish"
-msgstr ""
+msgstr "Pools"
 
 #: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:287
 msgid "West European"
@@ -8167,7 +8167,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:249
 msgid "Spanish"
-msgstr ""
+msgstr "Sjpaans"
 
 #: libraries/mysql_charsets.lib.php:252
 msgid "Traditional Spanish"
@@ -8175,7 +8175,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:255 libraries/mysql_charsets.lib.php:354
 msgid "Swedish"
-msgstr ""
+msgstr "Zjwaeds"
 
 #: libraries/mysql_charsets.lib.php:258 libraries/mysql_charsets.lib.php:357
 msgid "Thai"
@@ -8205,7 +8205,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:299
 msgid "Russian"
-msgstr ""
+msgstr "Róssisch"
 
 #: libraries/mysql_charsets.lib.php:316
 msgid "Baltic"
@@ -9156,7 +9156,7 @@ msgstr ""
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/sql.lib.php:291
 msgid "Database:"
-msgstr ""
+msgstr "Database:"
 
 #: libraries/plugins/export/ExportLatex.class.php:306
 #: libraries/plugins/export/ExportSql.class.php:1881
@@ -10971,7 +10971,7 @@ msgstr ""
 #: libraries/server_status_processes.lib.php:73
 #: libraries/server_user_groups.lib.php:38
 msgid "User"
-msgstr ""
+msgstr "Gebroeker"
 
 #: libraries/server_privileges.lib.php:2030
 #: libraries/server_privileges.lib.php:2793
@@ -11430,7 +11430,7 @@ msgstr ""
 #. l10n: # = Amount of queries
 #: libraries/server_status_queries.lib.php:96
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: libraries/server_status_variables.lib.php:39
 #: libraries/server_variables.lib.php:185
