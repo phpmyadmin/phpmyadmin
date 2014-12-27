@@ -973,7 +973,7 @@ function PMA_getEnumOrSetValues($db, $table, $columnType)
  *
  * @param array $analyzed_sql analyzed sql query
  *
- * @return array
+ * @return string $full_sql_query the query with limit appended 
  */
 function PMA_appendLimitClause($analyzed_sql)
 {
@@ -984,7 +984,7 @@ function PMA_appendLimitClause($analyzed_sql)
         $sql_limit_to_append
     );
 
-    return array($sql_limit_to_append, $full_sql_query);
+    return $full_sql_query;
 }
 
 /**
@@ -2170,11 +2170,9 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
 
     // Do append a "LIMIT" clause?
     if (PMA_isAppendLimitClause($analyzed_sql_results)) {
-        list($sql_limit_to_append, $full_sql_query) = PMA_appendLimitClause(
+        $full_sql_query = PMA_appendLimitClause(
             $analyzed_sql_results['analyzed_sql']
         );
-    } else {
-        $sql_limit_to_append = '';
     }
 
     $GLOBALS['reload'] = PMA_hasCurrentDbChanged($db);
