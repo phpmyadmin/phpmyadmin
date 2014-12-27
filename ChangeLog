@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 - bug #4667 Consistency in borders
 - bug #4658 Illegal string offset (Data_length, Index_length)
 - bug #4655 Undefined index: collation_connection
+- bug #4673 Delimiter causing page lock
 
 4.3.3.0 (2014-12-21)
 - bug       The "Recently used tables" setting should be with Nav panel
