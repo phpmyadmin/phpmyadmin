@@ -248,7 +248,7 @@ if (!empty($submit_mult) && !empty($what)) {
 
         PMA_executeQueryAndSendQueryResponse(
             $analyzed_sql_results, false, $db, $table, null, null, null,
-            false, null, null, null, null, $goto, $pmaThemeImage, null, null,
+            false, null, null, null, $goto, $pmaThemeImage, null, null,
             $query_type, $sql_query, $selected, null
         );
     } elseif (!$run_parts) {

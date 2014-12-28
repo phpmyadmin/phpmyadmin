@@ -711,7 +711,7 @@ if ($go_sql) {
         $html_output .= PMA_executeQueryAndGetQueryResponse(
             $analyzed_sql_results, false, $db, $table, null,
             $sql_query, null, $analyzed_sql_results['is_affected'],
-            null, null, null, null, $goto, $pmaThemeImage,
+            null, null, null, $goto, $pmaThemeImage,
             null, null, null, $sql_query, null, null
         );
     }
