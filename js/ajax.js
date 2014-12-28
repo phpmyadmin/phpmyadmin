@@ -140,6 +140,11 @@ var AJAX = {
      * @return void
      */
     lockPageHandler: function(event) {
+        //Don't lock on enter.
+        if (0 == event.charCode) {
+            return;
+        }
+
         var lockId = $(this).data('lock-id');
         if (typeof lockId === 'undefined') {
             return;
