@@ -969,25 +969,6 @@ function PMA_getEnumOrSetValues($db, $table, $columnType)
 }
 
 /**
- * Function to append the limit clause
- *
- * @param array $analyzed_sql analyzed sql query
- *
- * @return string $full_sql_query the query with limit appended 
- */
-function PMA_appendLimitClause($analyzed_sql)
-{
-    $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmpval']['pos']
-        . ', ' . $_SESSION['tmpval']['max_rows'] . " ";
-    $full_sql_query = PMA_getSqlWithLimitClause(
-        $analyzed_sql,
-        $sql_limit_to_append
-    );
-
-    return $full_sql_query;
-}
-
-/**
  * Function to get the default sql query for browsing page
  *
  * @param String $db    the current database
@@ -2170,8 +2151,10 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
 
     // Do append a "LIMIT" clause?
     if (PMA_isAppendLimitClause($analyzed_sql_results)) {
-        $full_sql_query = PMA_appendLimitClause(
-            $analyzed_sql_results['analyzed_sql']
+        $full_sql_query = PMA_getSqlWithLimitClause(
+            $analyzed_sql_results['analyzed_sql'],
+            ' LIMIT ' . $_SESSION['tmpval']['pos']
+            . ', ' . $_SESSION['tmpval']['max_rows'] . " "
         );
     }
 
