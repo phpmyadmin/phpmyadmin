@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-21 13:06+0100\n"
-"PO-Revision-Date: 2014-07-30 14:19+0200\n"
+"PO-Revision-Date: 2014-12-29 13:08+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -33,10 +33,10 @@ msgid "Click to sort."
 msgstr "Kliknite pre zoradenie."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Zobrazené riadky %1s - %2s"
+msgstr "Zobrazované riadky %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -254,7 +254,7 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Databáza %1$s bola skopírovaná do %2$s."
 
 #: db_operations.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
@@ -596,20 +596,18 @@ msgstr ""
 "hodnotu."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Prístup odmietnutý!"
+msgstr "Úspešný"
 
 #: import.php:58 js/messages.php:441
 msgid "Failed"
-msgstr ""
+msgstr "Neúspešný"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "úplné vloženia"
+msgstr "Nekompletné parametre"
 
 #: import.php:162
 #, php-format
@@ -892,7 +890,7 @@ msgstr ""
 "narušená neautorizovanými užívateľmi, ktorí stiahnu Vašu konfiguráciu."
 
 #: index.php:533
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -901,12 +899,12 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "Miesto uloženia phpMyAdmin konfigurácie nie je úplne nastavené, niektoré "
-"rozšírené vlastnosti boli vypnuté. Ak chcete zistiť prečo, kliknite %ssem%s."
+"rozšírené vlastnosti boli vypnuté. Ak chcete zistiť prečo, kliknite %ssem%s. "
 
 #: index.php:540
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
-msgstr ""
+msgstr "Voliteľne môžete ísť do záložky 'Operácie' a nastaviť to tam."
 
 #: index.php:585
 #, php-format
@@ -984,10 +982,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Odstraňujem primárny kľúč/index"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Zvoliť cudzí kľúč"
+msgstr "Mažem cudzí kľúč."
 
 #: js/messages.php:47
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1005,7 +1002,6 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Naozaj chcete odstrániť vyhľadávanie \"%s\"?"
 
 #: js/messages.php:50
-#, fuzzy
 #| msgid ""
 #| "You have edited some data and they have not been saved. Are you sure you "
 #| "want to leave this page before saving the data?"
@@ -1013,16 +1009,14 @@ msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr "Na stránke sú neuložené zmeny. Naozaj ju chcete opustiť?"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Naozaj chcete odstrániť vyhľadávanie \"%s\"?"
+msgstr "Naozaj chcete zrušiť zvolených užívateľov?"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "Uložiť ako súbor"
+msgstr "Uložiť & Zavrieť"
 
 #: js/messages.php:55 libraries/config/FormDisplay.tpl.php:395
 #: libraries/insert_edit.lib.php:1543 prefs_manage.php:339
@@ -1031,10 +1025,9 @@ msgid "Reset"
 msgstr "Vynulovať"
 
 #: js/messages.php:56
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Označiť všetko"
+msgstr "Zrušiť všetko"
 
 #: js/messages.php:59
 msgid "Missing value in the form!"
@@ -1066,28 +1059,24 @@ msgid "Add %s column(s) to index"
 msgstr "Pridať %s polí do indexu"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Vytvoriť rutinu"
+msgstr "Vytvoriť jedno-stĺpcový index"
 
 #: js/messages.php:67
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Vytvoriť rutinu"
+msgstr "Vytvoriť zložený index"
 
 #: js/messages.php:68
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "Polia uzatvorené do:"
+msgstr "Zložený z:"
 
 #: js/messages.php:69
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Pridať %s polí do indexu"
+msgstr "Vyberte stĺpce pre index."
 
 #: js/messages.php:72 libraries/structure.lib.php:1679
 msgid "You have to add at least one column."
@@ -1097,19 +1086,17 @@ msgstr "Musíte pridať aspoň jeden stĺpec."
 #: libraries/tbl_columns_definition_form.lib.php:143
 #: libraries/tbl_relation.lib.php:655
 msgid "Preview SQL"
-msgstr ""
+msgstr "Ukážka SQL"
 
 #: js/messages.php:78
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "v dopyte"
+msgstr "Simulovať dopyt"
 
 #: js/messages.php:79
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "Ovplyvnené záznamy:"
+msgstr "Vyhovujúce riadky:"
 
 #: js/messages.php:80 libraries/Util.class.php:639 libraries/sql.lib.php:297
 msgid "SQL query:"
@@ -1766,10 +1753,9 @@ msgid "(Disabled)"
 msgstr "(Vypnuté)"
 
 #: js/messages.php:276
-#, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
-msgstr "Chyba pri čítaní hlavičiek"
+msgstr "Nepodarilo sa zístiť skutočný počet riadkov."
 
 #: js/messages.php:279
 msgid "Searching"
@@ -1859,16 +1845,14 @@ msgid "Pick"
 msgstr ""
 
 #: js/messages.php:307
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "Nebol vybraný žiadny stĺpec."
+msgstr "Volič stĺpcov"
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "Search this table"
 msgid "Search this list"
-msgstr "Hľadať v tabuľke"
+msgstr "Hľadať v tomto zozname"
 
 #: js/messages.php:309
 #, php-format
@@ -1878,10 +1862,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:310
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "Voľná pamäť"
+msgstr "Zobraziť viac"
 
 #: js/messages.php:311
 msgid "Are you sure?"
@@ -1894,10 +1877,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:313
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "Prispejte"
+msgstr "Pokračovať"
 
 #: js/messages.php:316 libraries/structure.lib.php:2164
 #: libraries/structure.lib.php:2167
@@ -1905,10 +1887,9 @@ msgid "Add primary key"
 msgstr ""
 
 #: js/messages.php:317
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "Bol pridaný primárny kľúč pre %s."
+msgstr "Bol pridaný primárny kľúč."
 
 #: js/messages.php:318 libraries/normalization.lib.php:174
 #, fuzzy
@@ -1924,10 +1905,9 @@ msgstr ""
 #: js/messages.php:320 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
 #: libraries/normalization.lib.php:612
-#, fuzzy
 #| msgid "At End of Table"
 msgid "End of step"
-msgstr "Na konci tabuľky"
+msgstr "Koniec kroku"
 
 #: js/messages.php:321
 msgid "Second step of normalization (2NF)"
@@ -1986,10 +1966,9 @@ msgid "DROP columns %s from the table %s"
 msgstr ""
 
 #: js/messages.php:334
-#, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following table"
-msgstr "Pridať oprávnenia pre nasledujúcu tabuľku:"
+msgstr "Vytvoriť nasledujúcu tabuľku"
 
 #: js/messages.php:337
 msgid "Third step of normalization (3NF)"
@@ -2004,10 +1983,9 @@ msgid "Selected dependencies are as follows:"
 msgstr ""
 
 #: js/messages.php:340
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Neboli vybrané žiadne databázy."
+msgstr "Neboli vybrané žiadne závislosti!"
 
 #: js/messages.php:343 libraries/insert_edit.lib.php:1452
 #: libraries/server_variables.lib.php:157
@@ -2045,16 +2023,14 @@ msgid "Column minimum:"
 msgstr "Názvy stĺpcov: "
 
 #: js/messages.php:351
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Maximum tabuliek"
+msgstr "Minimálna hodnota:"
 
 #: js/messages.php:352
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Maximum tabuliek"
+msgstr "Maximálna hodnota:"
 
 #: js/messages.php:355
 msgid "Hide find and replace criteria"
@@ -2175,28 +2151,24 @@ msgid "Page name"
 msgstr "Názov stránky"
 
 #: js/messages.php:407
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "Zvoliť stránku"
+msgstr "Uložiť stránku"
 
 #: js/messages.php:408 libraries/db_designer.lib.php:273
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "Prázdnych stránok"
+msgstr "Otvoriť stránku"
 
 #: js/messages.php:409
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "Zvoliť stránku"
+msgstr "Zmazať stránku"
 
 #: js/messages.php:410 libraries/db_designer.lib.php:382
-#, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
-msgstr "Jednotka"
+msgstr "Nepomenovaná"
 
 #: js/messages.php:411
 #, fuzzy
@@ -2205,10 +2177,9 @@ msgid "Please select a page to continue"
 msgstr "Prosím zvolte si Stránku, ktorú chcete upraviť"
 
 #: js/messages.php:412
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "Prosím zdajte platné číslo!"
+msgstr "Prosím zadajte platný názov stránky"
 
 #: js/messages.php:413
 msgid "Do you want to save the changes to the current page?"
@@ -2303,10 +2274,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:439
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
-msgstr "Zrušiť"
+msgstr "zrušiť"
 
 #: js/messages.php:440 libraries/server_status.lib.php:269
 msgid "Aborted"
@@ -2317,10 +2287,9 @@ msgid "Success"
 msgstr ""
 
 #: js/messages.php:443
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Východzie nastavenia importu"
+msgstr "Stav importu"
 
 #: js/messages.php:444 libraries/navigation/Navigation.class.php:102
 msgid "Drop files here"
