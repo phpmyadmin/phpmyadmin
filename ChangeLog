@@ -10,7 +10,9 @@ phpMyAdmin - ChangeLog
 + rfe 1507  Part 1: Cycle through console history with keyboard up/down arrows
 + rfe #1579 Default to primary key when adding relation
 
-4.3.4.0 (not yet released)
+4.3.5.0 (not yet released)
+
+4.3.4.0 (2014-12-29)
 - bug #4653 Always connection error was shown, on /setup at tab "configuration storage"
 - bug #4661 Drag and drop file import always fails
 - bug #4651 don't open console with esc
