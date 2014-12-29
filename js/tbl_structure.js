@@ -500,6 +500,11 @@ AJAX.registerOnload('tbl_structure.js', function () {
         $("#move_columns_dialog").dialog({
             modal: true,
             buttons: button_options,
+            open: function () {
+                if ($('#move_columns_dialog').parents('.ui-dialog').height() > $(window).height()) {
+                    $('#move_columns_dialog').dialog("option", "height", $(window).height());
+                }
+            },
             beforeClose: function () {
                 $("#move_columns_anchor").removeClass("move-active");
             }

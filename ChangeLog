@@ -1,6 +1,24 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.4.0 (2014-12-29)
+- bug #4653 Always connection error was shown, on /setup at tab "configuration storage"
+- bug #4661 Drag and drop file import always fails
+- bug #4651 don't open console with esc
+- bug #4664 select min() displays 1 row, but reports the table amount of rows returned
+- bug #4666 Undefined indexes in table stucture print view of a view
+- bug #4663 Export missing back ticks for order table name
+- bug #4668 Remove from central columns error
+- bug #4670 CSV import reads both commas and values into first column after first row
+- bug #4642 phpmyadmin often fails to load due to specific load order
+- bug #4671 Unable to move all columns
+- bug #4645 Import of export created with mysqldump
+- bug #4672 "Distinct values" does not page
+- bug #4667 Consistency in borders
+- bug #4658 Illegal string offset (Data_length, Index_length)
+- bug #4655 Undefined index: collation_connection
+- bug #4673 Delimiter causing page lock
+
 4.3.3.0 (2014-12-21)
 - bug       The "Recently used tables" setting should be with Nav panel
 - bug #4647 Can't disable Favorites

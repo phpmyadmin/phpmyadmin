@@ -373,6 +373,7 @@ class PMA_DisplayResults
         $db = $this->__get('db');
         $table = $this->__get('table');
         $unlim_num_rows = $this->__get('unlim_num_rows');
+        $num_rows = $this->__get('num_rows');
         $fields_meta = $this->__get('fields_meta');
         $printview = $this->__get('printview');
 
@@ -514,6 +515,11 @@ class PMA_DisplayResults
             $the_total   = PMA_Table::countRecords($db, $table);
         }
 
+        // if for COUNT query, number of rows returned more than 1 (may be being used GROUP BY)
+        if ($this->__get('is_count') && isset($num_rows) && $num_rows > 1) {
+            $do_display['nav_bar']   = (string) '1';
+            $do_display['sort_lnk']  = (string) '1';
+        }
         // 4. If navigation bar or sorting fields names URLs should be
         //    displayed but there is only one row, change these settings to
         //    false
