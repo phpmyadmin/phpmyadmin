@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-21 13:06+0100\n"
-"PO-Revision-Date: 2014-12-11 05:47+0200\n"
+"PO-Revision-Date: 2014-12-29 18:24+0200\n"
 "Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"da/>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2177,7 +2177,6 @@ msgid "Click to sort results by this column."
 msgstr "Klik for at sortere resultater efter denne kolonne."
 
 #: js/messages.php:427
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+Click to remove column from ORDER BY clause"
@@ -2187,8 +2186,8 @@ msgid ""
 "ORDER BY clause"
 msgstr ""
 "Skift+ḱlik for at tilføje denne kolonne til klausulen ORDER BY eller skifte "
-"mellem tiltagende og aftagende, ASC/DESC.<br />- Ctrl+klik for at fjerne "
-"kolonne fra klausulen ORDER BY"
+"mellem tiltagende og aftagende, ASC/DESC.<br />- Ctrl+klik eller Alt+Click "
+"(Mac: Shift+Option+Klik) for at fjerne kolonne fra klausulen ORDER BY"
 
 #: js/messages.php:428
 msgid "Click to mark/unmark."
@@ -9171,19 +9170,20 @@ msgid ""
 "As per above partial dependencies, in order to put the original table '%1$s' "
 "into Second normal form we need to create the following tables:"
 msgstr ""
+"Som ovenfor med delvise afhængigheder, for at indsætte den oprindelige tabel "
+"'%1$s' i den anden normale form, så skal vi oprette følgende tabeller:"
 
 #: libraries/normalization.lib.php:417
-#, fuzzy, php-format
+#, php-format
 #| msgid "The first step of normalization is complete for table '%s'."
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr "Det første trin af normaliseringen er fuldført for tabellen '%s'."
+msgstr "Det andet trin af normaliseringen er fuldført for tabellen '%1$s'."
 
 #: libraries/normalization.lib.php:457 libraries/normalization.lib.php:600
 #: libraries/normalization.lib.php:663
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing!"
-msgstr "Fejl i udførsel af forespørgsel:"
+msgstr "Fejl under udførslen!"
 
 #: libraries/normalization.lib.php:501
 #, php-format
@@ -9191,18 +9191,19 @@ msgid ""
 "As per above dependencies, in order to put the original table '%1$s' into "
 "Third normal form we need to create the following tables:"
 msgstr ""
+"Som ovenfor med delvise afhængigheder, for at indsætte den oprindelige tabel "
+"'%1$s' i den tredje normale form, så skal vi oprette følgende tabeller:"
 
 #: libraries/normalization.lib.php:548
-#, fuzzy
 #| msgid "The first step of normalization is complete for table '%s'."
 msgid "The third step of normalization is complete."
-msgstr "Det første trin af normaliseringen er fuldført for tabellen '%s'."
+msgstr "Det trejde trin af normaliseringen er fuldført."
 
 #: libraries/normalization.lib.php:642
-#, fuzzy, php-format
+#, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr "Valgte måltabeller er blevet synkroniseret med kildetabeller."
+msgstr "De valgte gentagende grupper er blevet flyttet til tabellen '%s'"
 
 #: libraries/normalization.lib.php:689
 msgid "Step 3."
@@ -9210,7 +9211,7 @@ msgstr "Trin 3."
 
 #: libraries/normalization.lib.php:689
 msgid "Find transitive dependencies"
-msgstr ""
+msgstr "Find transitive afhængigheder"
 
 #: libraries/normalization.lib.php:696
 msgid ""
@@ -9219,16 +9220,22 @@ msgid ""
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
 msgstr ""
+"For hver kolonne nedenfor - vælg venligst det <b>mindste sæt</b> af kolonner "
+"blandt de givne sæt, hvis værdier i kombination er tilstrækkelige til at "
+"afgøre værdien af kolonnen.<br />Bemærk: En kolonne må ikke have en "
+"transitiv afhængighed - i dette tilfælde behøver du ikke at vælge nogen."
 
 #: libraries/normalization.lib.php:743
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
+"Ingen transitive afhængigheder er mulige, da tabellen ikke har nogen ikke-"
+"primære nøglekolonner"
 
 #: libraries/normalization.lib.php:747
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "Tabellen er allerede i den tredje normale form!"
 
 #: libraries/normalization.lib.php:770
 msgid "Improve table structure (Normalization):"
@@ -9257,10 +9264,12 @@ msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
+"Listen er baseret på et delsæt af tabellens data og er ikke nødvendigvis "
+"præcis. "
 
 #: libraries/normalization.lib.php:859
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "Der blev ikke fundet delvise afhænigheder!"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to:"
@@ -9873,7 +9882,6 @@ msgstr ""
 "(7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:403
-#, fuzzy
 #| msgid ""
 #| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 #| "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -9882,7 +9890,7 @@ msgid ""
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 "begge af ovenstående<br /> &nbsp; &nbsp; &nbsp; Eksempel: <code>INSERT INTO "
-"tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:408
 msgid ""
@@ -9897,7 +9905,7 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
-"Udtræk binære kolonner i hexadecimal notation <i>(fx, \"abc\" becomes "
+"Udtræk binære kolonner i hexadecimal notation <i>(fx, \"abc\" bliver til "
 "0x616263)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:440
@@ -10104,10 +10112,9 @@ msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Brug ikke <code>AUTO_INCREMENT</code> for nulværdier"
 
 #: libraries/plugins/import/ImportSql.class.php:193
-#, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Missede læsninger"
+msgstr "Læs som multibytes"
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
@@ -10141,7 +10148,7 @@ msgstr "Vis gitter"
 #: libraries/plugins/schema/SchemaPdf.class.php:94
 #: libraries/structure.lib.php:406
 msgid "Data Dictionary"
-msgstr "Data Dictionary"
+msgstr "Dataordbog"
 
 #: libraries/plugins/schema/dia/TableStatsDia.class.php:68
 #: libraries/plugins/schema/eps/TableStatsEps.class.php:81
@@ -10279,10 +10286,13 @@ msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"Funktionen til billedoverførsel, der også viser et miniaturebillede. "
+"Tilvalgsmuligheder er bredden og højden på miniaturebillederne, målt i "
+"billedpunkter. Standardværdien er 100 x 100."
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:78
 msgid "Image preview here"
-msgstr ""
+msgstr "Forhåndsvisning af billede her"
 
 #: libraries/plugins/transformations/abstract/InlineTransformationsPlugin.class.php:33
 msgid ""
@@ -10315,11 +10325,13 @@ msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"Validerer strengen med brug af regulært udtryk, og udfører kun indsættelse, "
+"hvis strengen matcher den. Det første tilvalg er det regulære udtryk."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "Valideringen mislykkedes for inputstrengen %s."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -10344,6 +10356,8 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"Funktion til filoverførsel for TEXT-kolonner. Den har ikke et tekstområde "
+"til input."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -10373,14 +10387,13 @@ msgid "FOREIGN KEY relation has been added."
 msgstr "FOREIGN KEY relation tilføjet."
 
 #: libraries/pmd_common.php:543
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relation could not be added!"
-msgstr "Fejl: Relation ikke tilføjet!"
+msgstr "Fejl: FOREIGN KEY-relationen kunne ikke tilføjes!"
 
 #: libraries/pmd_common.php:548
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Fejl: Manglende indeks for kolonne(r)."
 
 #: libraries/pmd_common.php:552
 msgid "Error: Relational features are disabled!"
@@ -10391,34 +10404,29 @@ msgid "Internal relation has been added."
 msgstr "Intern relation tilføjet."
 
 #: libraries/pmd_common.php:577
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relation could not be added!"
-msgstr "Fejl: Relation ikke tilføjet!"
+msgstr "Fejl: Den interne relation kunne ikke tilføjes!"
 
 #: libraries/pmd_common.php:618
-#, fuzzy
 #| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relation has been removed."
-msgstr "FOREIGN KEY relation tilføjet."
+msgstr "FOREIGN KEY-relationen er blevet fjernet."
 
 #: libraries/pmd_common.php:624
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relation could not be removed!"
-msgstr "Fejl: Relation ikke tilføjet!"
+msgstr "Fejl: FOREIGN KEY-relationen kunne ikke fjernes!"
 
 #: libraries/pmd_common.php:651
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relation could not be removed!"
-msgstr "Fejl: Relation ikke tilføjet!"
+msgstr "Fejl: Den interne relation kunne ikke fjernes!"
 
 #: libraries/pmd_common.php:655
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relation has been removed."
-msgstr "Intern relation tilføjet."
+msgstr "Den interne relation er blevet fjernet."
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
@@ -10434,10 +10442,9 @@ msgid "Enabled"
 msgstr "Slået til"
 
 #: libraries/relation.lib.php:101
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration of pmadb… "
-msgstr "Konfigurationen er gemt."
+msgstr "Konfiguration af pmadb … "
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:126
 msgid "General relation features"
@@ -10460,13 +10467,12 @@ msgid "Browser transformation"
 msgstr "Browser-transformation"
 
 #: libraries/relation.lib.php:178
-#, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
 "Se venligst dokumentationen for oplysninger om, hvordan du opdaterer din "
-"column_comments (kolonne-kommentarer) tabel."
+"tabel column_info. "
 
 #: libraries/relation.lib.php:191 libraries/sql_query_form.lib.php:355
 msgid "Bookmarked SQL query"
@@ -10509,12 +10515,11 @@ msgid "Quick steps to setup advanced features:"
 msgstr "Hurtige trin for at opsætte avancerede muligheder:"
 
 #: libraries/relation.lib.php:310
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
-"Opret de nødvendige tabeller med <code>examples/create_tables.sql</code>."
+msgstr "Opret de nødvendige tabeller med <code>%screate_tables.sql</code>."
 
 #: libraries/relation.lib.php:318
 msgid "Create a pma user and give access to these tables."
@@ -10538,11 +10543,11 @@ msgid "no description"
 msgstr "ingen beskrivelse"
 
 #: libraries/relation.lib.php:1912
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Manglende phpMyAdmin configuration storage tabeller"
+msgstr "%sOpret%s phpMyAdmin-konfigurationslageret i den aktuelle database."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
@@ -10615,10 +10620,9 @@ msgid "Slave replication"
 msgstr "Slave replikation"
 
 #: libraries/replication_gui.lib.php:143
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Master connection:"
-msgstr "Usikker forbindelse"
+msgstr "Overordnet forbindelse:"
 
 #: libraries/replication_gui.lib.php:209
 msgid "Slave SQL Thread not running!"
@@ -10941,7 +10945,7 @@ msgstr "Ændr til %s"
 
 #: libraries/rte/rte_events.lib.php:447
 msgid "Execute at"
-msgstr "Udfør kl."
+msgstr "Udfør per"
 
 #: libraries/rte/rte_events.lib.php:455
 msgid "Execute every"
@@ -11301,7 +11305,7 @@ msgstr "Position"
 
 #: libraries/server_bin_log.lib.php:132
 msgid "Original position"
-msgstr "Original position"
+msgstr "Oprindelig placering"
 
 #: libraries/server_bin_log.lib.php:133 libraries/structure.lib.php:2313
 msgid "Information"
@@ -11721,7 +11725,7 @@ msgstr "Tildel"
 
 #: libraries/server_privileges.lib.php:2045
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "Ikke tilstrækkelige privilegier til at se brugere."
 
 #: libraries/server_privileges.lib.php:2064
 #: libraries/server_privileges.lib.php:3413
@@ -11875,6 +11879,8 @@ msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
+"Bemærk: Du forsøger at redigere privilegier for brugeren som du aktuelt er "
+"logget ind som."
 
 #: libraries/server_privileges.lib.php:3917 libraries/server_users.lib.php:25
 msgid "Users overview"
@@ -13264,7 +13270,7 @@ msgstr "Overhead"
 
 #: libraries/structure.lib.php:918
 msgid "Sort"
-msgstr "Sorter"
+msgstr "Sortér"
 
 #: libraries/structure.lib.php:1392 libraries/tracking.lib.php:899
 msgctxt "None for default"
@@ -13581,29 +13587,25 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:333
 #: transformation_overview.php:41
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "Browser-transformation"
+msgstr "Transformation af browservisning"
 
 #: libraries/tbl_columns_definition_form.lib.php:335
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation options"
-msgstr "Browser-transformation"
+msgstr "Tilvalg for transformation af browservisning"
 
 #: libraries/tbl_columns_definition_form.lib.php:338
 #: transformation_overview.php:42
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Input transformation"
-msgstr "Browser-transformation"
+msgstr "Input-transformation"
 
 #: libraries/tbl_columns_definition_form.lib.php:340
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Input transformation options"
-msgstr "Transformationsindstillinger"
+msgstr "Tilvalg for input-transformation"
 
 #: libraries/tbl_columns_definition_form.lib.php:581
 #, php-format
@@ -13691,10 +13693,9 @@ msgid "Index type:"
 msgstr "Indekstype:"
 
 #: libraries/tbl_indexes.lib.php:334 libraries/tbl_indexes.lib.php:371
-#, fuzzy
 #| msgid "Drag to reorder."
 msgid "Drag to reorder"
-msgstr "Træk for at ændre rækkefølge."
+msgstr "Træk for at ændre rækkefølge"
 
 #: libraries/tbl_printview.lib.php:30
 msgid "Showing tables:"
@@ -13725,69 +13726,64 @@ msgstr ""
 "relation findes."
 
 #: libraries/tbl_relation.lib.php:371
-#, fuzzy
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraints"
 msgstr "Begrænsning på fremmednøgle"
 
 #: libraries/tbl_relation.lib.php:374
-#, fuzzy
 #| msgid "Action"
 msgid "Actions"
-msgstr "Handling"
+msgstr "Handlinger"
 
 #: libraries/tbl_relation.lib.php:375
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint properties"
-msgstr "Begrænsninger for tabel"
+msgstr "Begrænsninger for egenskaber"
 
 #: libraries/tbl_relation.lib.php:380
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
+"Det er blot kolonner med indeks, der bliver vist. Du kan definere et indeks "
+"nedenfor."
 
 #: libraries/tbl_relation.lib.php:385
 msgid "Foreign key constraint"
 msgstr "Begrænsning på fremmednøgle"
 
 #: libraries/tbl_relation.lib.php:406
-#, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
-msgstr "Tilføj begrænsninger"
+msgstr "+ Tilføj begrænsning"
 
 #: libraries/tbl_relation.lib.php:443
-#, fuzzy, php-format
+#, php-format
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Begrænsning på fremmednøgle"
+msgstr "Begrænsning på fremmednøglen %s er blevet droppet"
 
 #: libraries/tbl_relation.lib.php:467
 msgid "Constraint name"
 msgstr "Navnebegrænsning"
 
 #: libraries/tbl_relation.lib.php:530
-#, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
-msgstr "Tilføj kolonne"
+msgstr "+ Tilføj kolonne"
 
 #: libraries/tbl_relation.lib.php:674
 msgid "Choose column to display:"
 msgstr "Vælg kolonne til visning:"
 
 #: libraries/tbl_relation.lib.php:825
-#, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "Tråd %s blev stoppet."
+msgstr "Opdatering af vist kolonne blev gennemført."
 
 #: libraries/tbl_relation.lib.php:909
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relations were successfully updated."
-msgstr "Intern relation tilføjet."
+msgstr "Opdateringen af de interne relationer blev gennemført."
 
 #: libraries/tbl_relation.lib.php:1174
 #, php-format
@@ -13800,10 +13796,10 @@ msgid "Create version %1$s of %2$s"
 msgstr "Opret version %1$s af %2$s"
 
 #: libraries/tracking.lib.php:73
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Create version %1$s"
-msgstr "Opret version"
+msgstr "Opret version %1$s"
 
 #: libraries/tracking.lib.php:78
 msgid "Track these data definition statements:"
@@ -13836,10 +13832,9 @@ msgid "Deactivate now"
 msgstr "Deaktiver nu"
 
 #: libraries/tracking.lib.php:258 libraries/tracking.lib.php:312
-#, fuzzy
 #| msgid "Create version"
 msgid "Delete version"
-msgstr "Opret version"
+msgstr "Slet version"
 
 #: libraries/tracking.lib.php:377 libraries/tracking.lib.php:1386
 msgid "active"
@@ -13952,10 +13947,10 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Sporing af %1$s blev deaktiveret i version %2$s."
 
 #: libraries/tracking.lib.php:1258
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Opret version %1$s af %2$s"
+msgstr "Version %1$s af %2$s blev slettet."
 
 #: libraries/tracking.lib.php:1289
 #, php-format
@@ -14055,7 +14050,7 @@ msgid ""
 "script%s."
 msgstr ""
 "Du kan sætte flere indstillinger ved at modificere config.inc.php fx ved at "
-"bruge %sSetup script%s."
+"bruge %sopsætningsskriptet%s."
 
 #: prefs_manage.php:315
 msgid "Save to browser's storage"
@@ -14304,7 +14299,7 @@ msgstr "Ugyldigt tabelnavn"
 #: tbl_replace.php:236
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "Række: %1$s, kolonne: %2$s, fejl: %3$s"
 
 #: tbl_structure.php:93
 msgid "No column selected."
@@ -14316,16 +14311,14 @@ msgid "Tracking of %s is activated."
 msgstr "Sporing af %s er aktiveret."
 
 #: tbl_tracking.php:100
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "De valgte brugere er blevet korrekt slettet."
+msgstr "Sletningen af sporingsversionerne blev gennemført."
 
 #: tbl_tracking.php:105
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "Ingen rækker valgt"
+msgstr "Der er ikke valgt versioner."
 
 #: tbl_tracking.php:132
 msgid "SQL statements executed."
@@ -14344,16 +14337,14 @@ msgid "Available MIME types"
 msgstr "Tilgængelige MIME-typer"
 
 #: transformation_overview.php:37
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "Tilgængelige transformationer"
+msgstr "Tilgængelige transformationer for browservisning"
 
 #: transformation_overview.php:38
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available input transformations"
-msgstr "Tilgængelige transformationer"
+msgstr "Tilgængelige input-transformationer"
 
 #: transformation_overview.php:53
 msgctxt "for MIME transformation"
