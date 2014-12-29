@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-21 13:06+0100\n"
-"PO-Revision-Date: 2014-12-29 13:08+0200\n"
+"PO-Revision-Date: 2014-12-29 13:17+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
@@ -1933,10 +1933,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:326
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Neboli vybrané žiadne databázy."
+msgstr "Neboli vybrané žiadne čiastkové závislosti!"
 
 #: js/messages.php:328
 msgid "Show me the possible partial dependencies based on data in the table"
@@ -2296,10 +2295,9 @@ msgid "Drop files here"
 msgstr ""
 
 #: js/messages.php:445
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
-msgstr "Vybrať Tabuľky"
+msgstr "Najprv vyberte databázu"
 
 #: js/messages.php:450
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2356,16 +2354,14 @@ msgstr "Zobraziť skryté položky navigácie."
 
 #: js/messages.php:475 libraries/config/messages.inc.php:420
 #: libraries/navigation/NavigationTree.class.php:1241
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Prispôsobiť hlavný panel"
+msgstr "Prepojiť s hlavným panelom"
 
 #: js/messages.php:476 libraries/navigation/NavigationTree.class.php:1244
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Prispôsobiť hlavný panel"
+msgstr "Zrušiť prepojenie s hlavným panelom"
 
 #: js/messages.php:479
 msgid "The requested page was not found in the history, it may have expired."
@@ -2440,10 +2436,9 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: js/messages.php:516 libraries/Error_Handler.class.php:353
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Ignorovať"
+msgstr "Ignorovať všetko"
 
 #: js/messages.php:523
 msgid ""
@@ -2451,10 +2446,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:530
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Zobraziť tento dopyt znovu"
+msgstr "Vykonať tento dopyt znovu?"
 
 #: js/messages.php:531
 #, fuzzy
@@ -2805,10 +2799,9 @@ msgid "Expand"
 msgstr ""
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:178
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "poddopyt"
+msgstr "Znovu spustiť dopyt"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
 #: libraries/DisplayResults.class.php:3533
@@ -2868,10 +2861,9 @@ msgid "No bookmarks"
 msgstr "Nová záložka"
 
 #: libraries/Console.class.php:180
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Vysvetliť SQL"
+msgstr "Vysvetliť"
 
 #: libraries/Console.class.php:181 libraries/Util.class.php:1263
 #: libraries/sql.lib.php:330
@@ -2897,10 +2889,9 @@ msgid "Queried time"
 msgstr "Čas behu dopytu"
 
 #: libraries/Console.class.php:195
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "Pole pre SQL dopyty"
+msgstr "Konzola pre SQL dopyty"
 
 #: libraries/Console.class.php:196
 msgid "Console"
@@ -2912,10 +2903,9 @@ msgid "Clear"
 msgstr "Vyčistiť"
 
 #: libraries/Console.class.php:202
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "SQL história"
+msgstr "História"
 
 #: libraries/Console.class.php:205 libraries/Console.class.php:300
 #: libraries/DisplayResults.class.php:1642 libraries/TableSearch.class.php:788
@@ -2952,10 +2942,9 @@ msgid "Bookmarks"
 msgstr "Tabuľka záložiek"
 
 #: libraries/Console.class.php:218
-#, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Spustiť každých"
+msgstr "Stlačte Ctrl+Enter pre spustenie dopytu"
 
 #: libraries/Console.class.php:239
 msgid "During current session"
@@ -2968,10 +2957,9 @@ msgid "Refresh"
 msgstr "Obnoviť"
 
 #: libraries/Console.class.php:269
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "A"
+msgstr "Pridať"
 
 #: libraries/Console.class.php:278
 #, fuzzy
