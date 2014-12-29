@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-21 06:11-0500\n"
-"PO-Revision-Date: 2014-12-29 13:05+0200\n"
+"PO-Revision-Date: 2014-12-29 13:17+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/sk/>\n"
@@ -1912,10 +1912,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:323
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Neboli vybrané žiadne databázy."
+msgstr "Neboli vybrané žiadne čiastkové závislosti!"
 
 #: js/messages.php:325
 msgid "Show me the possible partial dependencies based on data in the table"
@@ -2155,10 +2154,9 @@ msgid "Please select a page to continue"
 msgstr "Prosím zvolte si Stránku, ktorú chcete upraviť"
 
 #: js/messages.php:409
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "Prosím zdajte platné číslo!"
+msgstr "Prosím zadajte platný názov stránky"
 
 #: js/messages.php:410
 msgid "Do you want to save the changes to the current page?"
@@ -2253,10 +2251,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:436
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
-msgstr "Zrušiť"
+msgstr "zrušiť"
 
 #: js/messages.php:437 libraries/server_status.lib.php:269
 msgid "Aborted"
@@ -2267,20 +2264,18 @@ msgid "Success"
 msgstr ""
 
 #: js/messages.php:440
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Východzie nastavenia importu"
+msgstr "Stav importu"
 
 #: js/messages.php:441 libraries/navigation/Navigation.class.php:102
 msgid "Drop files here"
 msgstr ""
 
 #: js/messages.php:442
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
-msgstr "Vybrať Tabuľky"
+msgstr "Najprv vyberte databázu"
 
 #: js/messages.php:447
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2337,16 +2332,14 @@ msgstr "Zobraziť skryté položky navigácie."
 
 #: js/messages.php:472 libraries/config/messages.inc.php:420
 #: libraries/navigation/NavigationTree.class.php:1235
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Prispôsobiť hlavný panel"
+msgstr "Prepojiť s hlavným panelom"
 
 #: js/messages.php:473 libraries/navigation/NavigationTree.class.php:1238
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Prispôsobiť hlavný panel"
+msgstr "Zrušiť prepojenie s hlavným panelom"
 
 #: js/messages.php:476
 msgid "The requested page was not found in the history, it may have expired."
@@ -2421,10 +2414,9 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: js/messages.php:513 libraries/Error_Handler.class.php:353
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Ignorovať"
+msgstr "Ignorovať všetko"
 
 #: js/messages.php:520
 msgid ""
@@ -2432,10 +2424,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:527
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Zobraziť tento dopyt znovu"
+msgstr "Vykonať tento dopyt znovu?"
 
 #: js/messages.php:528
 #, fuzzy
@@ -2786,10 +2777,9 @@ msgid "Expand"
 msgstr ""
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:178
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "poddopyt"
+msgstr "Znovu spustiť dopyt"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
 #: libraries/DisplayResults.class.php:3515
@@ -2833,10 +2823,9 @@ msgid "No bookmarks"
 msgstr "Nová záložka"
 
 #: libraries/Console.class.php:180
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Vysvetliť SQL"
+msgstr "Vysvetliť"
 
 #: libraries/Console.class.php:181 libraries/Util.class.php:1263
 #: libraries/sql.lib.php:487
@@ -2862,10 +2851,9 @@ msgid "Queried time"
 msgstr "Čas behu dopytu"
 
 #: libraries/Console.class.php:195
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "Pole pre SQL dopyty"
+msgstr "Konzola pre SQL dopyty"
 
 #: libraries/Console.class.php:196
 msgid "Console"
@@ -2877,10 +2865,9 @@ msgid "Clear"
 msgstr "Vyčistiť"
 
 #: libraries/Console.class.php:202
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "SQL história"
+msgstr "História"
 
 #: libraries/Console.class.php:205 libraries/Console.class.php:300
 #: libraries/DisplayResults.class.php:1631 libraries/TableSearch.class.php:788
@@ -2917,10 +2904,9 @@ msgid "Bookmarks"
 msgstr "Tabuľka záložiek"
 
 #: libraries/Console.class.php:218
-#, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Spustiť každých"
+msgstr "Stlačte Ctrl+Enter pre spustenie dopytu"
 
 #: libraries/Console.class.php:239
 msgid "During current session"
@@ -2933,10 +2919,9 @@ msgid "Refresh"
 msgstr "Obnoviť"
 
 #: libraries/Console.class.php:269
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "A"
+msgstr "Pridať"
 
 #: libraries/Console.class.php:278
 #, fuzzy
