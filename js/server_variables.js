@@ -4,8 +4,6 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('server_variables.js', function () {
-    $('#serverVariables .var-row').unbind('mouseenter');
-    $('#serverVariables .var-row').unbind('mouseleave');
     $('#filterText').unbind('keyup');
     $(document).off('click', 'a.editLink');
     $('#serverVariables').find('.var-name').find('a img').remove();
@@ -17,19 +15,8 @@ AJAX.registerOnload('server_variables.js', function () {
     var $cancelLink = $('a.cancelLink');
     var $filterField = $('#filterText');
 
-    /* Show edit link on hover */
-    $('#serverVariables').delegate('.var-row', 'mouseenter', function (event) {
-        var $elm = $(this).find('.var-value');
-        // Only add edit element if the element is not being edited
-        if ($elm.hasClass('editable') && ! $elm.hasClass('edit')) {
-            $elm.prepend($editLink.clone().show());
-        }
-    });
 
-    $('#serverVariables').delegate('.var-row', 'mouseleave', function (event) {
-        $(this).find('a.editLink').remove();
-    })
-    .find('.var-name').find('a').append(
+    $('#serverVariables').find('.var-name').find('a').append(
         $('#docImage').clone().show()
     );
 
@@ -81,15 +68,15 @@ AJAX.registerOnload('server_variables.js', function () {
     /* Allows the user to edit a server variable */
     function editVariable(link) {
         var $cell = $(link).parent();
+        var $valueCell = $(link).parents('.var-row').find('.var-value');
         var varName = $cell.parent().find('.var-name').text().replace(/ /g, '_');
         var $mySaveLink = $saveLink.clone().show();
         var $myCancelLink = $cancelLink.clone().show();
         var $msgbox = PMA_ajaxShowMessage();
+        var $myEditLink = $cell.find('a.editLink');
 
-        $cell
-            .addClass('edit') // variable is being edited
-            .find('a.editLink')
-            .remove(); // remove edit link
+        $cell.addClass('edit'); // variable is being edited
+        $myEditLink.remove(); // remove edit link
 
         $mySaveLink.click(function () {
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
@@ -97,26 +84,25 @@ AJAX.registerOnload('server_variables.js', function () {
                     ajax_request: true,
                     type: 'setval',
                     varName: varName,
-                    varValue: $cell.find('input').val()
+                    varValue: $valueCell.find('input').val()
                 }, function (data) {
                     if (data.success) {
-                        $cell
+                        $valueCell
                             .html(data.variable)
                             .data('content', data.variable);
                         PMA_ajaxRemoveMessage($msgbox);
                     } else {
                         PMA_ajaxShowMessage(data.error, false);
-                        $cell.html($cell.data('content'));
+                        $valueCell.html($valueCell.data('content'));
                     }
-                    $cell.removeClass('edit');
+                    $cell.removeClass('edit').html($myEditLink);
                 });
             return false;
         });
 
         $myCancelLink.click(function () {
-            $cell
-                .html($cell.data('content'))
-                .removeClass('edit');
+            $valueCell.html($valueCell.data('content'));
+            $cell.removeClass('edit').html($myEditLink);
             return false;
         });
 
@@ -126,11 +112,11 @@ AJAX.registerOnload('server_variables.js', function () {
                 varName: varName
             }, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    var $editor = $('<div />', {'class': 'serverVariableEditor'})
+                    var $links = $('<div />')
                         .append($myCancelLink)
-                        .append(' ')
-                        .append($mySaveLink)
-                        .append(' ')
+                        .append('&nbsp;&nbsp;&nbsp;')
+                        .append($mySaveLink);
+                    var $editor = $('<div />', {'class': 'serverVariableEditor'})
                         .append(
                             $('<div/>').append(
                                 $('<input />', {type: 'text'}).val(data.message)
@@ -138,7 +124,9 @@ AJAX.registerOnload('server_variables.js', function () {
                         );
                     // Save and replace content
                     $cell
-                    .data('content', $cell.html())
+                    .html($links);
+                    $valueCell
+                    .data('content', $valueCell.html())
                     .html($editor)
                     .find('input')
                     .focus()
@@ -151,7 +139,7 @@ AJAX.registerOnload('server_variables.js', function () {
                     });
                     PMA_ajaxRemoveMessage($msgbox);
                 } else {
-                    $cell.removeClass('edit');
+                    $cell.removeClass('edit').html($myEditLink);
                     PMA_ajaxShowMessage(data.error);
                 }
             });
