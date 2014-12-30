@@ -976,6 +976,12 @@ function insertQuery(queryType)
     if (queryType == "clear") {
         setQuery('');
         return;
+    } else if (queryType == "format") {
+        if (codemirror_editor) {
+            var totalLines = codemirror_editor.lineCount();
+            codemirror_editor.autoFormatRange({line:0, ch:0}, {line:totalLines, ch:0});
+        }
+        return;
     }
 
     var query = "";
