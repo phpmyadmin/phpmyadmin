@@ -662,16 +662,16 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getCheckBoxesForMultipleRowOperations
      *
-     * @param string $dir        _left / _right
-     * @param array  $is_display display mode
-     * @param string $output     output of _getCheckBoxesForMultipleRowOperations
+     * @param string $dir          _left / _right
+     * @param array  $displayParts which parts to display 
+     * @param string $output       output of _getCheckBoxesForMultipleRowOperations
      *
      * @return void
      *
      * @dataProvider dataProviderForGetCheckBoxesForMultipleRowOperations
      */
     public function testGetCheckBoxesForMultipleRowOperations(
-        $dir, $is_display, $output
+        $dir, $displayParts, $output
     ) {
         $vertical_display = array(
             'row_delete' => array(
@@ -697,7 +697,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             $output,
             $this->_callPrivateFunction(
                 '_getCheckBoxesForMultipleRowOperations',
-                array($dir, $is_display)
+                array($dir, $displayParts)
             )
         );
     }
@@ -827,7 +827,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * Test for _getCheckboxForMultiRowSubmissions
      *
      * @param string $del_url           delete url
-     * @param array  $is_display        array with explicit indexes for all
+     * @param array  $displayParts      array with explicit indexes for all
      *                                  the display elements
      * @param string $row_no            the row number
      * @param string $where_clause_html url encoded where clause
@@ -841,7 +841,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @dataProvider dataProviderForGetCheckboxForMultiRowSubmissions
      */
     public function testGetCheckboxForMultiRowSubmissions(
-        $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
+        $del_url, $displayParts, $row_no, $where_clause_html, $condition_array,
         $id_suffix, $class, $output
     ) {
         $this->assertEquals(
@@ -849,7 +849,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             $this->_callPrivateFunction(
                 '_getCheckboxForMultiRowSubmissions',
                 array(
-                    $del_url, $is_display, $row_no, $where_clause_html,
+                    $del_url, $displayParts, $row_no, $where_clause_html,
                     $condition_array, $id_suffix, $class
                 )
             )
@@ -1264,7 +1264,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      *
      * @param string $position          the position of the checkbox and links
      * @param string $del_url           delete url
-     * @param array  $is_display        array with explicit indexes for all the
+     * @param array  $displayParts      array with explicit indexes for all the
      *                                  display elements
      * @param string $row_no            row number
      * @param string $where_clause      where clause
@@ -1284,7 +1284,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @dataProvider dataProviderForGetCheckboxAndLinks
      */
     public function testGetCheckboxAndLinks(
-        $position, $del_url, $is_display, $row_no, $where_clause,
+        $position, $del_url, $displayParts, $row_no, $where_clause,
         $where_clause_html, $condition_array, $edit_url,
         $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf, $output
     ) {
@@ -1293,7 +1293,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             $this->_callPrivateFunction(
                 '_getCheckboxAndLinks',
                 array(
-                    $position, $del_url, $is_display, $row_no, $where_clause,
+                    $position, $del_url, $displayParts, $row_no, $where_clause,
                     $where_clause_html, $condition_array,
                     $edit_url, $copy_url, $class, $edit_str,
                     $copy_str, $del_str, $js_conf
@@ -1365,7 +1365,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      *
      * @param string  $dir               the direction of links should place
      * @param string  $del_url           the url for delete row
-     * @param array   $is_display        which elements to display
+     * @param array   $displayParts      which elements to display
      * @param integer $row_no            the index of current row
      * @param string  $where_clause      the where clause of the sql
      * @param string  $where_clause_html the html encoded where clause
@@ -1384,7 +1384,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @dataProvider dataProviderForGetPlacedLinks
      */
     public function testGetPlacedLinks(
-        $dir, $del_url, $is_display, $row_no, $where_clause, $where_clause_html,
+        $dir, $del_url, $displayParts, $row_no, $where_clause, $where_clause_html,
         $condition_array, $edit_url, $copy_url,
         $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf, $output
     ) {
@@ -1393,7 +1393,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             $this->_callPrivateFunction(
                 '_getPlacedLinks',
                 array(
-                    $dir, $del_url, $is_display, $row_no, $where_clause,
+                    $dir, $del_url, $displayParts, $row_no, $where_clause,
                     $where_clause_html, $condition_array,
                     $edit_url, $copy_url, $edit_anchor_class,
                     $edit_str, $copy_str, $del_str, $js_conf
