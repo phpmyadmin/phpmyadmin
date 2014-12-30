@@ -2527,7 +2527,6 @@ function PMA_updateColumns($db, $table)
                 isset($_REQUEST['field_comments'][$i])
                 ? $_REQUEST['field_comments'][$i]
                 : '',
-                $key_fields,
                 $i,
                 isset($_REQUEST['field_move_to'][$i])
                 ? $_REQUEST['field_move_to'][$i]
@@ -2662,7 +2661,6 @@ function PMA_moveColumns($db, $table)
     $columns = $GLOBALS['dbi']->getColumnsFull($db, $table);
     $column_names = array_keys($columns);
     $changes = array();
-    $we_dont_change_keys = array();
 
     // move columns from first to last
     for ($i = 0, $l = count($_REQUEST['move_columns']); $i < $l; $i++) {
@@ -2709,7 +2707,6 @@ function PMA_moveColumns($db, $table)
             isset($data['Extra']) && $data['Extra'] !== '' ? $data['Extra'] : false,
             isset($data['COLUMN_COMMENT']) && $data['COLUMN_COMMENT'] !== ''
             ? $data['COLUMN_COMMENT'] : false,
-            $we_dont_change_keys,
             $i,
             $i === 0 ? '-first' : $column_names[$i - 1]
         );

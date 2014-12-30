@@ -478,13 +478,12 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $extra = 'AUTO_INCREMENT';
 
         $comment = 'PMA_comment';
-        $field_primary = array("field_primary1", "field_primary2");
         $move_to = '-first';
 
         $query = PMA_Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $field_primary, $move_to
+            $move_to
         );
         $this->assertEquals(
             "`PMA_name` BIT(12) PMA_attribute NULL DEFAULT b'10' "
@@ -497,7 +496,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $query = PMA_Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $field_primary, $move_to
+            $move_to
         );
         $this->assertEquals(
             "`PMA_name` DOUBLE(12) PMA_attribute NULL DEFAULT '12' "
@@ -510,7 +509,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $query = PMA_Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $field_primary, $move_to
+            $move_to
         );
         $this->assertEquals(
             "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT TRUE "
@@ -523,7 +522,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $query = PMA_Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $field_primary, $move_to
+            $move_to
         );
         $this->assertEquals(
             "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT NULL "
@@ -536,7 +535,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $query = PMA_Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $field_primary, $move_to
+            $move_to
         );
         $this->assertEquals(
             "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT CURRENT_TIMESTAMP "
@@ -551,7 +550,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $query = PMA_Table::generateFieldSpec(
             $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $field_primary, $move_to
+            $move_to
         );
         $this->assertEquals(
             "`PMA_name` BOOLEAN PMA_attribute NULL INCREMENT "
@@ -711,14 +710,13 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $default_value = 'VARCHAR';
         $extra = 'AUTO_INCREMENT';
         $comment = 'PMA comment';
-        $field_primary = 'new_name';
         $index = array('new_name');
         $move_to = 'new_name';
 
         $result = PMA_Table::generateAlter(
             $oldcol, $newcol, $type, $length,
             $attribute, $collation, $null, $default_type, $default_value,
-            $extra, $comment, $field_primary, $index, $move_to
+            $extra, $comment, $index, $move_to
         );
 
         $expect = "";

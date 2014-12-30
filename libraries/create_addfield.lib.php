@@ -72,8 +72,7 @@ function PMA_buildColumnCreationStatement(
                     : false,
                     isset($_REQUEST['field_comments'][$i])
                     ? $_REQUEST['field_comments'][$i]
-                    : '',
-                    $field_primary
+                    : ''
                 );
 
         $definition .= PMA_setColumnCreationStatementSuffix($i, $is_create_tbl);

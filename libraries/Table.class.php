@@ -419,7 +419,6 @@ class PMA_Table
      *                                    default type
      * @param string      $extra          'AUTO_INCREMENT'
      * @param string      $comment        field comment
-     * @param array       &$field_primary list of fields for PRIMARY KEY
      * @param string      $move_to        new position for column
      *
      * @todo    move into class PMA_Column
@@ -431,7 +430,7 @@ class PMA_Table
     static function generateFieldSpec($name, $type, $length = '',
         $attribute = '', $collation = '', $null = false,
         $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
-        $comment = '', &$field_primary = null, $move_to = ''
+        $comment = '', $move_to = ''
     ) {
         $is_timestamp = /*overload*/mb_strpos(
             /*overload*/mb_strtoupper($type),
@@ -630,7 +629,6 @@ class PMA_Table
      *                                    type
      * @param string      $extra          'AUTO_INCREMENT'
      * @param string      $comment        field comment
-     * @param array       &$field_primary list of fields for PRIMARY KEY
      * @param string      $index          index
      * @param string      $move_to        new position for column
      *
@@ -640,13 +638,13 @@ class PMA_Table
      */
     static public function generateAlter($oldcol, $newcol, $type, $length,
         $attribute, $collation, $null, $default_type, $default_value,
-        $extra, $comment, &$field_primary, $index, $move_to
+        $extra, $comment, $index, $move_to
     ) {
         return PMA_Util::backquote($oldcol) . ' '
             . PMA_Table::generateFieldSpec(
                 $newcol, $type, $length, $attribute,
                 $collation, $null, $default_type, $default_value, $extra,
-                $comment, $field_primary, $move_to
+                $comment, $move_to
             );
     } // end function
 
