@@ -140,6 +140,11 @@ var AJAX = {
      * @return void
      */
     lockPageHandler: function(event) {
+        //Don't lock on enter.
+        if (0 == event.charCode) {
+            return;
+        }
+
         var lockId = $(this).data('lock-id');
         if (typeof lockId === 'undefined') {
             return;
@@ -359,7 +364,7 @@ var AJAX = {
                     $('#selflink > a').attr('href', data._selflink);
                 }
                 if (data._scripts) {
-                    AJAX.scriptHandler.load(data._scripts, data._params.token);
+                    AJAX.scriptHandler.load(data._scripts);
                 }
                 if (data._selflink && data._scripts && data._menuHash && data._params) {
                     AJAX.cache.add(
@@ -501,7 +506,7 @@ var AJAX = {
          *
          * @return void
          */
-        load: function (files, token) {
+        load: function (files) {
             var self = this;
             self._scriptsToBeLoaded = [];
             self._scriptsToBeFired = [];
@@ -523,7 +528,6 @@ var AJAX = {
                     request.push("scripts[]=" + script);
                 }
             }
-            request.push("token=" + token);
             request.push("call_done=1");
             // Download the composite js file, if necessary
             if (needRequest) {
@@ -556,6 +560,7 @@ var AJAX = {
             var script = document.createElement('script');
             script.type = 'text/javascript';
             script.src = url;
+            script.async = false;
             head.appendChild(script);
         },
         /**
@@ -733,7 +738,7 @@ AJAX.cache = {
                 $('#selflink').html(record.selflink);
                 AJAX.cache.menus.replace(AJAX.cache.menus.get(record.menu));
                 PMA_commonParams.setAll(record.params);
-                AJAX.scriptHandler.load(record.scripts, record.params ? record.params.token : PMA_commonParams.get('token'));
+                AJAX.scriptHandler.load(record.scripts);
                 AJAX.cache.current = ++index;
             });
         }

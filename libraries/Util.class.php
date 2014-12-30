@@ -949,7 +949,7 @@ class PMA_Util
             $quote = '"';
             break;
         default:
-            (isset($GLOBALS['sql_backquotes'])) ? $quote = "`" : $quote = '';
+            $quote = "`";
             break;
         }
 

@@ -114,7 +114,7 @@ class PMA_Config
      */
     function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.3.3');
+        $this->set('PMA_VERSION', '4.3.4');
         /**
          * @deprecated
          */
@@ -847,6 +847,8 @@ class PMA_Config
         $this->checkFontsize();
 
         if (! $this->checkConfigSource()) {
+            // even if no config file, set collation_connection
+            $this->checkCollationConnection();
             return false;
         }
 

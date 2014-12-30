@@ -2262,6 +2262,13 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
         );
     }
 
+    if (empty($showtable['Data_length'])) {
+        $showtable['Data_length'] = 0;
+    }
+    if (empty($showtable['Index_length'])) {
+        $showtable['Index_length'] = 0;
+    }
+
     $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
 
     // Gets some sizes
