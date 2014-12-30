@@ -36,8 +36,8 @@ if (! function_exists('openssl_encrypt')
     || ! function_exists('openssl_random_pseudo_bytes')
     || PHP_VERSION_ID < 50304
 ) {
-    require PHPSECLIB_INC_DIR . '/Crypt/AES.php';
-    require PHPSECLIB_INC_DIR . '/Crypt/Random.php';
+    include PHPSECLIB_INC_DIR . '/Crypt/AES.php';
+    include PHPSECLIB_INC_DIR . '/Crypt/Random.php';
 }
 
 /**

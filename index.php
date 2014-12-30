@@ -19,13 +19,15 @@ require_once 'libraries/display_git_revision.lib.php';
 /**
  * pass variables to child pages
  */
-$drops = array(
-    'lang',
-    'server',
-    'collation_connection',
-    'db',
-    'table'
-);
+    $drops = array(
+        'lang',
+        'server',
+        'collation_connection',
+        'db',
+        'table'
+    );
+    $cfg = '';
+
 foreach ($drops as $each_drop) {
     if (array_key_exists($each_drop, $_GET)) {
         unset($_GET[$each_drop]);

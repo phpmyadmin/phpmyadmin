@@ -5,7 +5,8 @@
  *
  * @package PhpMyAdmin
  */
-
+    $tables = '';
+    $server = '';
 /**
  * Get the variables sent or posted to this script and a core script
  */

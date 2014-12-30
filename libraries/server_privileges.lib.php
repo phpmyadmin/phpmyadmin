@@ -2681,7 +2681,6 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
 ) {
     $html_output = '';
     $found_rows = array();
-    
     // display rows
     if (count($db_rights) < 1) {
         $html_output .= '<tr class="odd">' . "\n"
