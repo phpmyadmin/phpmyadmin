@@ -1774,14 +1774,14 @@ function PMA_searchColumnInForeigners($foreigners, $column)
 }
 
 /**
- * Searches a DB for the existence of PMA tables.
+ * Whether we found a set of tables in the specified db 
  *
  * @param string $db     Database
- * @param array  $tables Default table names
+ * @param array  $tables Table names
  *
- * @return bool
+ * @return bool  true if we found all of the tables in $db
  */
-function PMA_searchPMATablesInDb($db, $tables)
+function PMA_foundTablesInDb($db, $tables)
 {
     $tab_rs = $GLOBALS['dbi']->getTables($db);
 
