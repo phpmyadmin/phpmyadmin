@@ -7,8 +7,9 @@ phpMyAdmin - ChangeLog
 + rfe #1564 Improve action message on Tracking page
 + rfe #1566 Change value of "Number of rows:" when "Show all" is checked
 + rfe       Focus console by clicking on white space
-+ rfe 1507  Part 1: Cycle through console history with keyboard up/down arrows
++ rfe #1507  Part 1: Cycle through console history with keyboard up/down arrows
 + rfe #1579 Default to primary key when adding relation
++ rfe #1572 User prefs: Diff-friendly JSON for config
 
 4.3.4.0 (not yet released)
 - bug #4653 Always connection error was shown, on /setup at tab "configuration storage"
