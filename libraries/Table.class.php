@@ -407,19 +407,19 @@ class PMA_Table
     /**
      * generates column specification for ALTER or CREATE TABLE syntax
      *
-     * @param string      $name           name
-     * @param string      $type           type ('INT', 'VARCHAR', 'BIT', ...)
-     * @param string      $length         length ('2', '5,2', '', ...)
-     * @param string      $attribute      attribute
-     * @param string      $collation      collation
-     * @param bool|string $null           with 'NULL' or 'NOT NULL'
-     * @param string      $default_type   whether default is CURRENT_TIMESTAMP,
-     *                                    NULL, NONE, USER_DEFINED
-     * @param string      $default_value  default value for USER_DEFINED
-     *                                    default type
-     * @param string      $extra          'AUTO_INCREMENT'
-     * @param string      $comment        field comment
-     * @param string      $move_to        new position for column
+     * @param string      $name          name
+     * @param string      $type          type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param string      $length        length ('2', '5,2', '', ...)
+     * @param string      $attribute     attribute
+     * @param string      $collation     collation
+     * @param bool|string $null          with 'NULL' or 'NOT NULL'
+     * @param string      $default_type  whether default is CURRENT_TIMESTAMP,
+     *                                   NULL, NONE, USER_DEFINED
+     * @param string      $default_value default value for USER_DEFINED
+     *                                   default type
+     * @param string      $extra         'AUTO_INCREMENT'
+     * @param string      $comment       field comment
+     * @param string      $move_to       new position for column
      *
      * @todo    move into class PMA_Column
      * @todo on the interface, some js to clear the default value when the
@@ -616,20 +616,20 @@ class PMA_Table
     /**
      * Generates column specification for ALTER syntax
      *
-     * @param string      $oldcol         old column name
-     * @param string      $newcol         new column name
-     * @param string      $type           type ('INT', 'VARCHAR', 'BIT', ...)
-     * @param string      $length         length ('2', '5,2', '', ...)
-     * @param string      $attribute      attribute
-     * @param string      $collation      collation
-     * @param bool|string $null           with 'NULL' or 'NOT NULL'
-     * @param string      $default_type   whether default is CURRENT_TIMESTAMP,
-     *                                    NULL, NONE, USER_DEFINED
-     * @param string      $default_value  default value for USER_DEFINED default
-     *                                    type
-     * @param string      $extra          'AUTO_INCREMENT'
-     * @param string      $comment        field comment
-     * @param string      $move_to        new position for column
+     * @param string      $oldcol        old column name
+     * @param string      $newcol        new column name
+     * @param string      $type          type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param string      $length        length ('2', '5,2', '', ...)
+     * @param string      $attribute     attribute
+     * @param string      $collation     collation
+     * @param bool|string $null          with 'NULL' or 'NOT NULL'
+     * @param string      $default_type  whether default is CURRENT_TIMESTAMP,
+     *                                   NULL, NONE, USER_DEFINED
+     * @param string      $default_value default value for USER_DEFINED default
+     *                                   type
+     * @param string      $extra         'AUTO_INCREMENT'
+     * @param string      $comment       field comment
+     * @param string      $move_to       new position for column
      *
      * @see PMA_Table::generateFieldSpec()
      *
@@ -1123,10 +1123,19 @@ class PMA_Table
                             )
                             . '\''
                             . ($GLOBALS['cfgRelation']['mimework']
-                                ? ',\'' . PMA_Util::sqlAddSlashes($comments_copy_row['comment']) . '\','
-                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['mimetype']) . '\','
-                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation']) . '\','
-                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation_options']) . '\''
+                                ? ',\''
+                                . PMA_Util::sqlAddSlashes(
+                                    $comments_copy_row['comment']
+                                ) . '\','
+                                . '\'' . PMA_Util::sqlAddSlashes(
+                                    $comments_copy_row['mimetype']
+                                ) . '\','
+                                . '\'' . PMA_Util::sqlAddSlashes(
+                                    $comments_copy_row['transformation']
+                                ) . '\','
+                                . '\'' . PMA_Util::sqlAddSlashes(
+                                    $comments_copy_row['transformation_options']
+                                ) . '\''
                                 : '')
                             . ')';
                         PMA_queryAsControlUser($new_comment_query);
