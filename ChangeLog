@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 + rfe #1507  Part 1: Cycle through console history with keyboard up/down arrows
 + rfe #1579 Default to primary key when adding relation
 + rfe #1572 User prefs: Diff-friendly JSON for config
++ rfe #1567 Sever Variables Table UI Improvements
 
 4.3.5.0 (not yet released)
 
